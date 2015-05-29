@@ -1,0 +1,7 @@
+{
+    "esnext": true,
+    "moz": true,
+    "globals": {
+        "require": false
+    }
+}
