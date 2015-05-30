@@ -15,8 +15,7 @@ export default class Application extends React.Component {
 		var { loading } = this.props;
 		return <div className={styles.this + (loading ? " " + styles.loading : "")}>
 			<div className={styles.loadingElement}>loading...</div>
-			<h1>react-starter</h1>
-			<MainMenu />
+			<h1>Binary App</h1>
 			<RouteHandler />
 		</div>;
 	}
