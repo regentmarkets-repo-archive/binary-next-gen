@@ -4,15 +4,10 @@ import { Route, DefaultRoute, NotFoundRoute } from "react-router";
 /* eslint-disable no-multi-spaces */
 // Only import from `route-handlers/*`
 import Application  from "route-handlers/Application";
-import SomePage     from "route-handlers/SomePage";
-import ReadmePage   from "route-handlers/ReadmePage";
-import TodoPage     from "route-handlers/TodoPage";
-import TodoListPage from "route-handlers/TodoListPage";
-import TodoItemPage from "route-handlers/TodoItemPage";
 import HomePage     from "route-handlers/HomePage";
 import NotFoundPage from "route-handlers/NotFoundPage";
-import ChatPage     from "route-handlers/ChatPage";
 import LoginPage    from "route-handlers/LoginPage";
+import SignupPage    from "route-handlers/SignupPage";
 /* eslint-enable */
 
 // polyfill
@@ -22,15 +17,9 @@ if(!Object.assign)
 // export routes
 module.exports = (
 	<Route name="app" path="/" handler={Application}>
-		<Route name="some-page" path="/some-page" handler={SomePage} />
-		<Route name="readme" path="/readme" handler={ReadmePage} />
 		<Route name="login" path="/login" handler={LoginPage} />
-		<Route name="todo" path="/todo" handler={TodoPage} >
-			<Route name="todolist" path="list/:list" handler={TodoListPage} />
-			<Route name="todoitem" path="item/:item" handler={TodoItemPage} />
-		</Route>
+		<Route name="signup" path="/signup" handler={SignupPage} />
 		<Route name="home" path="/home" handler={HomePage} />
-		<Route name="chat" path="/chat/:room" handler={ChatPage} />
 		<DefaultRoute handler={HomePage} />
 		<NotFoundRoute handler={NotFoundPage} />
 	</Route>
