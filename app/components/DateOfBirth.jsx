@@ -10,7 +10,7 @@ class DobDay extends React.Component {
 		return (
 			<select id='dobdd' name='dobdd'>
 				<option>Day</option>
-				{days.map((o, i) => <option value='{i + 1}'>{i + 1}</option>)}
+				{days.map((o, i) => <option key={i} value={i + 1}>{i + 1}</option>)}
 			</select>
 		);
 	}
@@ -48,7 +48,7 @@ class DobYear extends React.Component {
 		return (
 			<select id='dobyy' name='dobyy'>
 				<option value=''>Year</option>
-				{years.map((o, i) => <option value='{lastValidYear + i - 80}'>{lastValidYear + i - 80}</option>)}
+				{years.map((o, i) => <option key={i} value={lastValidYear + i - 80}>{lastValidYear + i - 80}</option>)}
 			</select>
 		);
 	}
