@@ -1,4 +1,5 @@
 import React from "react";
+import moment from "moment";
 import { Link } from "react-router";
 
 class DobDay extends React.Component {
@@ -9,30 +10,29 @@ class DobDay extends React.Component {
 
 		return (
 			<select id='dobdd' name='dobdd'>
-				<option>Day</option>
-				{days.map((o, i) => <option key={i} value={i + 1}>{i + 1}</option>)}
+				<option disabled selected>Day</option>
+				{ days.map((o, i) =>
+					<option key={i} value={i + 1}>{i + 1}</option>
+				) }
 			</select>
 		);
 	}
 }
 
 class DobMonth extends React.Component {
+
 	render() {
+
+		// let months = Array.apply(0, Array(31));
+
+		var months = moment.localeData()._months;
+
 		return (
 			<select id='dobmm' name='dobmm'>
-				<option value=''>Month</option>
-				<option value='01'>Jan</option>
-				<option value='02'>Feb</option>
-				<option value='03'>Mar</option>
-				<option value='04'>Apr</option>
-				<option value='05'>May</option>
-				<option value='06'>Jun</option>
-				<option value='07'>Jul</option>
-				<option value='08'>Aug</option>
-				<option value='09'>Sep</option>
-				<option value='10'>Oct</option>
-				<option value='11'>Nov</option>
-				<option value='12'>Dec</option>
+				<option disabled selected>Month</option>
+				{ months.map((o, i) =>
+					<option key={i} value={i}>{o}</option>
+				) }
 			</select>
 		);
 	}
@@ -47,8 +47,10 @@ class DobYear extends React.Component {
 
 		return (
 			<select id='dobyy' name='dobyy'>
-				<option value=''>Year</option>
-				{years.map((o, i) => <option key={i} value={lastValidYear + i - 80}>{lastValidYear + i - 80}</option>)}
+				<option disabled selected>Year</option>
+				{ years.map((o, i) =>
+					<option key={i} value={lastValidYear - i}>{lastValidYear - i}</option>
+				) }
 			</select>
 		);
 	}
