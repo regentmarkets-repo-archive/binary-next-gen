@@ -9,7 +9,7 @@ export default class SignupPage extends React.Component {
 	}
 	render() {
 		return (
-	  		<form className='wide-form' id='real-account-form' method='post' novalidate=''>
+	  		<form className='wide-form' id='real-account-form' method='post' noValidate>
 		    	<p>
 		      		<img className='form-logo'/>
 		    	</p>
@@ -30,7 +30,7 @@ export default class SignupPage extends React.Component {
 		      		<input id='email' name='Email' placeholder='Email' type='email'/>
 		    	</p>
 		    	<p className='step1'>
-		      		<label for='dobdd'>Date of birth</label>
+		      		<label htmlFor='dobdd'>Date of birth</label>
 		    	</p>
 		    	<p className='step1'>
 		      		<DateOfBirth/>
@@ -78,14 +78,14 @@ export default class SignupPage extends React.Component {
 			      	</select>
 			      	<input name='secretanswer' placeholder='Answer to secret question' type='text'/>
 			    </p>
-			    <p class='step3'>
+			    <p className='step3'>
 			      	<label>
 			        	<input id='tnc' name='tnc' type='checkbox'/>
-		          		I have read and agree to the <a href='https://www.binary.com/c/c_template.cgi?filecode=legal&amp;amp;l=EN' target='_blank'>terms and conditions</a> of the site.
+		          		I have read and agree to the <a href='https://www.binary.com/terms-and-conditions' target='_blank'>terms and conditions</a> of the site.
 			      	</label>
 			    </p>
 			    <p>
-			      	<button class='important' id='open-real-acount' value='Open Account'>Open Account</button>
+			      	<button className='important' id='open-real-acount' value='Open Account'>Open Account</button>
 			    </p>
 		    </form>
 		)
