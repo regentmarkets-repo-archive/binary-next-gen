@@ -1,6 +1,4 @@
-# webpack/react-starter
-
-Starter template for react and webpack.
+# Based on webpack/react-starter
 
 ## Features
 
@@ -27,21 +25,10 @@ Starter template for react and webpack.
 
 Install [node.js](https://nodejs.org) or [io.js](https://iojs.org)
 
-Just clone this repo and change the `origin` git remote.
-
 ``` text
 npm install
 ```
 
-## Installation via Vagrant
-
-Install [vagrant](https://vagrantup.com)
-
-``` text
-vagrant up
-vagrant ssh
-cd /vagrant
-```
 
 ## Development server
 

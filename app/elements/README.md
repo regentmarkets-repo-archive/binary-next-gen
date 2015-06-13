@@ -2,7 +2,7 @@
 
 > The elements are used by `../components` or by other elements.
 
-An element doesn't do any data fetching and expects data pass via `props`. It represents a low-level reuseable component that can be used by different components. An element don't have state. A element expects low-level data.
+An element doesn't do any data fetching and expects data pass via `props`. It represents a low-level reusable component that can be used by different components. An element don't have state. A element expects low-level data.
 
 An element bring its own styles. Optionally it can take class names to override styling (theming).
 
