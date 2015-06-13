@@ -23,9 +23,7 @@ class DobMonth extends React.Component {
 
 	render() {
 
-		// let months = Array.apply(0, Array(31));
-
-		var months = moment.localeData()._months;
+		let months = moment.localeData()._months;
 
 		return (
 			<select id='dobmm' name='dobmm'>

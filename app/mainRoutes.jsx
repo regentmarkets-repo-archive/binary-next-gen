@@ -7,7 +7,8 @@ import Application  from "route-handlers/Application";
 import HomePage     from "route-handlers/HomePage";
 import NotFoundPage from "route-handlers/NotFoundPage";
 import LoginPage    from "route-handlers/LoginPage";
-import SignupPage    from "route-handlers/SignupPage";
+import SignupPage   from "route-handlers/SignupPage";
+import TradePage   from "route-handlers/TradePage";
 /* eslint-enable */
 
 // polyfill
@@ -17,9 +18,11 @@ if(!Object.assign)
 // export routes
 module.exports = (
 	<Route name="app" path="/" handler={Application}>
+		<Route name="home" path="/home" handler={HomePage} />
 		<Route name="login" path="/login" handler={LoginPage} />
 		<Route name="signup" path="/signup" handler={SignupPage} />
-		<Route name="home" path="/home" handler={HomePage} />
+		<Route name="trade" path="/trade" handler={TradePage} />
+
 		<DefaultRoute handler={HomePage} />
 		<NotFoundRoute handler={NotFoundPage} />
 	</Route>

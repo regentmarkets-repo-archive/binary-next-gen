@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router";
-import { LiveData } from "binary-live-api";
 import DateOfBirth from "../components/DateOfBirth";
 import Countries from "../components/Countries";
 
