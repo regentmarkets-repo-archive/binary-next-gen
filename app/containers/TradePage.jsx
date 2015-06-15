@@ -1,37 +1,28 @@
 import React from "react";
-import { Link } from "react-router";
-import { LiveData } from "store-helpers/LiveData";
-import DateOfBirth from "../components/DateOfBirth";
-import Countries from "../components/Countries";
+import { ticks } from "store-helpers/LiveData";
+import TickTable from "components/TickTable";
+import { LiveEvents } from "binary-live-api";
 
 export default class TradePage extends React.Component {
 
-	static getInitialState() {
-		LiveEvents.on('*', console.log);
-	}
+	constructor(props) {
+	    super(props);
+
+		LiveEvents.on('message', (data) => {
+			this.setState({ticks});
+		});
+
+	    this.state = {ticks};
+  	}
 
 	static getProps() {
 		return {};
 	}
 
 	render() {
+
 		return (
-	  		<table>
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Value</th>
-						<th>Epoc</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>Yolo</td>
-						<td>123</td>
-						<td>456</td>
-					</tr>
-				</tbody>
-		    </table>
+	  		<TickTable ticks={this.state.ticks}/>
 		);
 	}
 }
