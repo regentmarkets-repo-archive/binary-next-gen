@@ -12,8 +12,7 @@ export default class TickTable extends React.Component {
 		let { ticks, quote, epoch } = this.props;
 		return (
 			<tr>
-				<td>				{JSON.stringify(this.props.tick)}
-{ticks}</td>
+				<td>{ticks}</td>
 				<td>{quote}</td>
 				<td>{epoch}</td>
 			</tr>
