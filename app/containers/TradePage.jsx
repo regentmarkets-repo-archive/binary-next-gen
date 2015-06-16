@@ -1,7 +1,6 @@
 import React from "react";
-import { ticks } from "store-helpers/LiveData";
+import { LiveEvents, LiveData } from "binary-live-api";
 import TickTable from "components/TickTable";
-import { LiveEvents } from "binary-live-api";
 
 export default class TradePage extends React.Component {
 
@@ -9,10 +8,13 @@ export default class TradePage extends React.Component {
 	    super(props);
 
 		LiveEvents.on('message', (data) => {
-			this.setState({ticks});
+			console.log(LiveData);
+			this.setState(LiveData.Ticks);
 		});
 
-	    this.state = {ticks};
+	    this.state = LiveData.Ticks;
+
+		LiveData.init();
   	}
 
 	static getProps() {
@@ -22,7 +24,7 @@ export default class TradePage extends React.Component {
 	render() {
 
 		return (
-	  		<TickTable ticks={this.state.ticks}/>
+	  		<TickTable tickData={this.state}/>
 		);
 	}
 }

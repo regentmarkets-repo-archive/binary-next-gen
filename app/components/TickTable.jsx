@@ -4,10 +4,13 @@ import TickRow from "components/TickRow";
 export default class TickTable extends React.Component {
 
 	static propTypes = {
-		ticks: React.PropTypes.object.isRequired
+		tickData: React.PropTypes.object.isRequired
 	};
 
 	render() {
+
+		let tickData = this.props.tickData;
+
 		return (
 			<table>
 				<thead>
@@ -15,10 +18,11 @@ export default class TickTable extends React.Component {
 						<th>Name</th>
 						<th>Value</th>
 						<th>Epoc</th>
+						<th>Diff</th>
 					</tr>
 				</thead>
 				<tbody>
-					{Object.keys(this.props.ticks).map((tick, i) => <TickRow key={i} {...this.props.ticks[tick]} />)}
+					{tickData.symbols().map((symbol, i) => <TickRow key={i} tick={tickData.current(symbol)} history={tickData.history(symbol)} />)}
 				</tbody>
 			</table>
 		);

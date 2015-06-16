@@ -1,20 +1,22 @@
 import React from "react";
+import moment from "moment";
 
 export default class TickTable extends React.Component {
 
 	static propTypes = {
-		ticks: React.PropTypes.string.isRequired,
-		quote: React.PropTypes.number.isRequired,
-		epoch: React.PropTypes.string.isRequired
+		tick: React.PropTypes.object.isRequired,
+		history: React.PropTypes.number.isRequired
 	};
 
 	render() {
-		let { ticks, quote, epoch } = this.props;
+		let { tick, history } = this.props;
 		return (
 			<tr>
-				<td>{ticks}</td>
-				<td>{quote}</td>
-				<td>{epoch}</td>
+				<td>{tick.symbol}</td>
+				<td>{tick.quote}</td>
+				<td>{moment.utc(tick.epoch).local()}</td>
+				<td>{tick.epoch}</td>
+				<td>{tick.diff.toFixed(2)}</td>
 			</tr>
 		);
 	}
