@@ -5,21 +5,12 @@
 * Compilation with webpack
 * React and jsx
 * react-router
-* Stylesheets can be CSS, LESS, SASS, Stylus or mixed
 * Embedded resources like images or fonts use DataUrls if appropriate
 * A simple flag loads a react component (and dependencies) on demand.
 * Development
   * Development server
   * Optionally Hot Module Replacement development server (LiveReload for Stylesheets and React components enabled)
   * Uses SourceUrl for performance, but you may switch to SourceMaps easily
-* Production
-  * Server example for prerendering for React components
-  * Initial data inlined in page
-  * Long Term Caching through file hashes enabled
-  * Generate separate css file to avoid FOUC
-  * Minimized CSS and javascript
-* Also supports coffee-script files if you are more a coffee-script person.
-* You can also require markdown or text files for your content.
 
 ## Local Installation
 
@@ -28,7 +19,6 @@ Install [node.js](https://nodejs.org) or [io.js](https://iojs.org)
 ``` text
 npm install
 ```
-
 
 ## Development server
 
@@ -89,16 +79,6 @@ http://localhost:8080/
 
 The configuration is `webpack-production.config.js`.
 
-The server is at `lib/server.js`
-
-The production setting builds two configurations: one for the client (`build/public`) and one for the serverside prerendering (`build/prerender`).
-
-
-## Legacy static assets
-
-Assets in `public` are also served.
-
-
 ## Build visualization
 
 After a production build you may want to visualize your modules and chunks tree.
@@ -137,17 +117,3 @@ SourceMaps have a performance impact on compilation.
 SourceMaps have a performance impact on compilation.
 
 SourceMaps contains your unminimized source code, so you need to restrict access to `build\public\debugging`.
-
-### Coffeescript
-
-Coffeescript is not installed/enabled by default to not distrub non-coffee developer, but you can install it easily:
-
-1. `npm install coffee-redux-loader --save`
-2. In `make-webpack-config.js` add `".coffee"` to the `var extensions = ...` line.
-
-
-## License
-
-Copyright (c) 2012-2015 Tobias Koppers [![Gittip donate button](http://img.shields.io/gittip/sokra.png)](https://www.gittip.com/sokra/)
-
-MIT (http://www.opensource.org/licenses/mit-license.php)

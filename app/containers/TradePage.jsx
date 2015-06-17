@@ -1,5 +1,5 @@
 import React from "react";
-import { LiveEvents, LiveData } from "binary-live-api";
+import { LiveEvents, LiveApi, LiveData } from "binary-live-api";
 import TickTable from "components/TickTable";
 
 export default class TradePage extends React.Component {
@@ -15,6 +15,7 @@ export default class TradePage extends React.Component {
 	    this.state = LiveData.Ticks;
 
 		LiveData.init();
+		LiveApi.trackSymbols(['R_100', 'frxXPDUSD', 'USATNT', 'frxXPTEUR']);
   	}
 
 	static getProps() {
