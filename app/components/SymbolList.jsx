@@ -1,4 +1,5 @@
 import React from "react";
+import ObjectTable from "./ObjectTable";
 
 export default class SymbolList extends React.Component {
 
@@ -9,20 +10,11 @@ export default class SymbolList extends React.Component {
 		console.log('symbols', symbols);
 
 		return (
-			<table>
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Value</th>
-						<th>Time</th>
-						<th>Change</th>
-						<th>Chart</th>
-					</tr>
-				</thead>
-				<tbody>
-					{JSON.stringify(symbols)}
-				</tbody>
-			</table>
+			<div>
+				{ Object.keys(symbols).map((s, i) =>
+					<ObjectTable key={i} object={symbols[s]} />
+				)}
+			</div>
 		);
 	}
 }

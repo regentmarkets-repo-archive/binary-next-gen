@@ -14,13 +14,12 @@ export default class TradePage extends React.Component {
 			console.log('LLLL', LiveData);
 			return {
 				ticks: LiveData.Ticks,
-				activeSymbols: LiveData.activeSymbols(),
-				offerings: LiveData.offerings()
+				activeSymbols: LiveData.activeSymbols() || [],
+				offerings: LiveData.offerings() || []
 			};
 		}
 
 		LiveEvents.on('message', (data) => {
-			console.log('LIVE DATA', LiveData, data);
 			this.setState(getState());
 		});
 
