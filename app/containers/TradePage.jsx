@@ -1,21 +1,32 @@
 import React from "react";
 import { LiveEvents, LiveApi, LiveData } from "binary-live-api";
 import TickTable from "components/TickTable";
+import SymbolList from "components/SymbolList";
+import OfferingsList from "components/OfferingsList";
+
 
 export default class TradePage extends React.Component {
 
 	constructor(props) {
 	    super(props);
 
+		function getState() {
+			console.log('LLLL', LiveData);
+			return {
+				ticks: LiveData.Ticks,
+				activeSymbols: LiveData.activeSymbols(),
+				offerings: LiveData.offerings()
+			};
+		}
+
 		LiveEvents.on('message', (data) => {
-			console.log(LiveData);
-			this.setState(LiveData.Ticks);
+			console.log('LIVE DATA', LiveData, data);
+			this.setState(getState());
 		});
 
-	    this.state = LiveData.Ticks;
+	    this.state = getState();
 
 		LiveData.init();
-		LiveApi.trackSymbols(['R_100', 'frxXPDUSD', 'USATNT', 'frxXPTEUR']);
   	}
 
 	static getProps() {
@@ -25,7 +36,10 @@ export default class TradePage extends React.Component {
 	render() {
 
 		return (
-	  		<TickTable tickData={this.state}/>
+			<div>
+	  			<TickTable tickData={this.state.ticks}/>
+				<SymbolList symbols={this.state.activeSymbols} />
+			</div>
 		);
 	}
 }
