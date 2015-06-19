@@ -7,8 +7,6 @@ export default class SymbolList extends React.Component {
 
 		let symbols = this.props.symbols;
 
-		console.log('symbols', symbols);
-
 		return (
 			<div>
 				{ Object.keys(symbols).map((s, i) =>

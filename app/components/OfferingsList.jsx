@@ -1,4 +1,6 @@
 import React from "react";
+import ObjectTable from "./ObjectTable";
+
 
 export default class OfferingsList extends React.Component {
 
@@ -18,7 +20,11 @@ export default class OfferingsList extends React.Component {
 					</tr>
 				</thead>
 				<tbody>
-					{offerings.map((symbol, i) => <TickRow key={i} tick={tickData.current(symbol)} history={tickData.history(symbol)} />)}
+					<div>
+						{ Object.keys(offerings).map((s, i) =>
+							<ObjectTable key={i} object={offerings[s]} />
+						)}
+					</div>
 				</tbody>
 			</table>
 		);
