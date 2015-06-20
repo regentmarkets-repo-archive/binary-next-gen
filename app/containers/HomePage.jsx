@@ -5,9 +5,14 @@ export default class HomePage extends React.Component {
 		return {};
 	}
 	render() {
-		return <div>
-			<h2>Homepage</h2>
-			<p>This is the homepage.</p>
-		</div>;
+		return (
+			<div>
+				<h3><a href="/login">Login</a></h3>
+				<h3><a href="/Signup">Signup</a></h3>
+				<h3><a href="/ticks">Ticks</a></h3>
+				<h3><a href="/offerings">Offerings</a></h3>
+				<h3><a href="/active-symbols">Active Symbols</a></h3>
+			</div>
+		);
 	}
 }
