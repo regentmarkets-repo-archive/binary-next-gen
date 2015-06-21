@@ -1,5 +1,4 @@
 import routes from "../app/mainRoutes";
-import storesDescriptions from "../app/mainStoresDescriptions";
 import html from "../app/mainPrerender.html";
 import createStoresForPrerender from "./createStoresForPrerender";
 import Prerenderer from "./Prerenderer";

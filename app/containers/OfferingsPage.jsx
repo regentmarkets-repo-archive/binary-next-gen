@@ -1,5 +1,5 @@
 import React from "react";
-import { LiveEvents, LiveData } from "binary-live-api";
+import { LiveData } from "binary-live-api";
 import OfferingsList from "components/OfferingsList";
 
 
@@ -8,14 +8,14 @@ export default class OfferingsPage extends React.Component {
 	constructor(props) {
 	    super(props);
 
-		LiveEvents.on('message', (data) => {
+		LiveData.on('message', (data) => {
 			this.setState({ offerings: LiveData.offerings() });
 			console.log('LiveData.offerings()', LiveData.offerings());
 		});
 
 	    this.state = { offerings: LiveData.offerings() || [] };
 
-		LiveData.init();
+		LiveData.init('UcVOtGIuhI-uHa7mMZxqJw6J4gM');
   	}
 
 	static getProps() {
