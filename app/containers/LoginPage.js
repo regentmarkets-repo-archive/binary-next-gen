@@ -8,10 +8,10 @@ export default class LoginPage extends React.Component {
 	render() {
 		return <div>
 			<p>
-                <img class="form-logo" src="/images/pages/binary-symbol-logo.svg"/>
+                <img className="form-logo" src="/images/pages/binary-symbol-logo.svg"/>
             </p>
             <h3>Sign in to your account</h3>
-            <p class="errorfield bigerror">
+            <p className="errorfield bigerror">
                 Binary.com now requires your email and password to log in. If you have both a real-money and a virtual-money account, please use the password from your real-money account.
             </p>
             <p>
@@ -23,15 +23,15 @@ export default class LoginPage extends React.Component {
 		  	<p>
 		    	<input name="password" placeholder="Password" type="password"></input>
 		  	</p>
-		    <p class="errorfield">password</p>
+		    <p className="errorfield">password</p>
 		  	<p>
 				<button>Sign in</button>
 		  	</p>
 		  	<p>
-		    	<a class="pjaxload" href="<%= url_for('/user/lost_password') %>">Forgot password?</a>
+		    	<a className="pjaxload" href="<%= url_for('/user/lost_password') %>">Forgot password?</a>
 		  	</p>
 		  	<p>
-		    	<a class="pjaxload" href="<%= url_for('/') %>">Open an Account</a>
+		    	<a className="pjaxload" href="<%= url_for('/') %>">Open an Account</a>
 		  	</p>
 		</div>;
 	}

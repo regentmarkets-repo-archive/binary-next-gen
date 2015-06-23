@@ -13,7 +13,7 @@ module.exports = function(options) {
 		"jsx": options.hotComponents ? ["react-hot-loader", "babel-loader?stage=0"] : "babel-loader?stage=0",
 		"js": {
 			loader: "babel-loader?stage=0",
-			include: path.join(__dirname, "app")
+			include: [path.join(__dirname, "app"), path.join(__dirname, "config"), path.join(__dirname, "node_modules/react-sparklines")]
 		},
 		"json": "json-loader",
 		"coffee": "coffee-redux-loader",

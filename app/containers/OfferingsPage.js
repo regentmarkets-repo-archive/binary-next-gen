@@ -15,7 +15,7 @@ export default class OfferingsPage extends React.Component {
 
 	    this.state = { offerings: LiveData.offerings() || [] };
 
-		LiveData.init('UcVOtGIuhI-uHa7mMZxqJw6J4gM');
+		LiveData.init('gP0Yb1ltloQIAcCbX2-Y2HPdll0');
   	}
 
 	static getProps() {

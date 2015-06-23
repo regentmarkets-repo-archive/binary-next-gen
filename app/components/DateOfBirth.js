@@ -9,8 +9,8 @@ class DobDay extends React.Component {
 		let days = Array.apply(0, Array(31));
 
 		return (
-			<select id='dobdd' name='dobdd'>
-				<option disabled selected>Day</option>
+			<select id='dobdd' name='dobdd' value=''>
+				<option disabled>Day</option>
 				{ days.map((o, i) =>
 					<option key={i} value={i + 1}>{i + 1}</option>
 				) }
@@ -26,8 +26,8 @@ class DobMonth extends React.Component {
 		let months = moment.localeData()._months;
 
 		return (
-			<select id='dobmm' name='dobmm'>
-				<option disabled selected>Month</option>
+			<select id='dobmm' name='dobmm' value=''>
+				<option disabled>Month</option>
 				{ months.map((o, i) =>
 					<option key={i} value={i}>{o}</option>
 				) }
@@ -44,8 +44,8 @@ class DobYear extends React.Component {
 		let lastValidYear = new Date().getFullYear() - 18;
 
 		return (
-			<select id='dobyy' name='dobyy'>
-				<option disabled selected>Year</option>
+			<select id='dobyy' name='dobyy' value=''>
+				<option disabled>Year</option>
 				{ years.map((o, i) =>
 					<option key={i} value={lastValidYear - i}>{lastValidYear - i}</option>
 				) }
