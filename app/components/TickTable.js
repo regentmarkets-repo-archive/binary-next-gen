@@ -12,7 +12,7 @@ export default class TickTable extends React.Component {
 		let tickData = this.props.tickData;
 		let symbols = tickData.symbols();
 		let shownSymbols = symbols.slice(symbols.length - 10);
-		
+
 		return (
 			<table>
 				<thead>
@@ -25,7 +25,12 @@ export default class TickTable extends React.Component {
 					</tr>
 				</thead>
 				<tbody>
-					{shownSymbols.map((symbol, i) => <TickRow key={i} tick={tickData.current(symbol)} history={tickData.history(symbol)} />)}
+					{shownSymbols.map((symbol, i) =>
+						<TickRow
+							key={i}
+							tick={tickData.current(symbol)}
+							history={tickData.history(symbol)} />
+					)}
 				</tbody>
 			</table>
 		);

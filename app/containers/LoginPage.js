@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router";
+import { Sparklines, SparklinesLine } from 'react-sparklines';
 
 export default class LoginPage extends React.Component {
 	static getProps() {
