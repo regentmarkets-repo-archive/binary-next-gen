@@ -92,7 +92,7 @@ module.exports = function(options) {
 		plugins.push(new webpack.optimize.CommonsChunkPlugin("commons", "commons.js" + (options.longTermCaching && !options.prerender ? "?[chunkhash]" : "")));
 	}
 	var asyncLoader = {
-		test: require("./app/route-handlers/async").map(function(name) {
+		test: ["SomePage"].map(function(name) {
 			return path.join(__dirname, "app", "route-handlers", name);
 		}),
 		loader: options.prerender ? "react-proxy-loader/unavailable" : "react-proxy-loader"
