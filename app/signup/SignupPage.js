@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router";
-import DateOfBirth from "../components/DateOfBirth";
-import Countries from "../components/Countries";
+import DateOfBirth from "./DateOfBirth";
+import Countries from "./Countries";
 
 export default class SignupPage extends React.Component {
 	static getProps() {

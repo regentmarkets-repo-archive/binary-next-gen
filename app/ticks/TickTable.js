@@ -1,5 +1,5 @@
 import React from "react";
-import TickRow from "components/TickRow";
+import TickRow from "./TickRow";
 
 export default class TickTable extends React.Component {
 

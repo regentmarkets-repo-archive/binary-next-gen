@@ -1,4 +1,4 @@
 import { createContainer } from "items-store";
-import LoginPage from "containers/LoginPage";
+import LoginPage from "./LoginPage";
 
 export default createContainer(LoginPage);

@@ -4,13 +4,13 @@ import { Route, DefaultRoute, NotFoundRoute } from "react-router";
 /* eslint-disable no-multi-spaces */
 // Only import from `route-handlers/*`
 import Application from "route-handlers/Application";
-import HomePage from "route-handlers/HomePage";
+import HomeRoute from "./home/HomeRoute";
 import NotFoundPage from "route-handlers/NotFoundPage";
-import LoginPage from "route-handlers/LoginPage";
-import SignupPage from "route-handlers/SignupPage";
-import TicksPage from "route-handlers/TicksPage";
-import OfferingsPage from "route-handlers/OfferingsPage";
-import ActiveSymbolsPage from "route-handlers/ActiveSymbolsPage";
+import LoginRoute from "login/LoginPage";
+import SignupRoute from "signup/SignupRoute";
+import TicksRoute from "ticks/TicksPage";
+import OfferingsRoute from "offerings/OfferingsPage";
+import ActiveSymbolsRoute from "active-symbols/ActiveSymbolsPage";
 /* eslint-enable */
 
 // polyfill
@@ -20,14 +20,14 @@ if(!Object.assign)
 // export routes
 module.exports = (
 	<Route name="app" path="/" handler={Application}>
-		<Route name="home" path="/home" handler={HomePage} />
-		<Route name="login" path="/login" handler={LoginPage} />
-		<Route name="signup" path="/signup" handler={SignupPage} />
-		<Route name="ticks" path="/ticks" handler={TicksPage} />
-		<Route name="offerings" path="/offerings" handler={OfferingsPage} />
-		<Route name="activesymbols" path="/active-symbols" handler={ActiveSymbolsPage} />
+		<Route name="home" path="/home" handler={HomeRoute} />
+		<Route name="login" path="/login" handler={LoginRoute} />
+		<Route name="signup" path="/signup" handler={SignupRoute} />
+		<Route name="ticks" path="/ticks" handler={TicksRoute} />
+		<Route name="offerings" path="/offerings" handler={OfferingsRoute} />
+		<Route name="activesymbols" path="/active-symbols" handler={ActiveSymbolsRoute} />
 
-		<DefaultRoute handler={HomePage} />
+		<DefaultRoute handler={HomeRoute} />
 		<NotFoundRoute handler={NotFoundPage} />
 	</Route>
 );

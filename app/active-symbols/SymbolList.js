@@ -1,5 +1,5 @@
 import React from "react";
-import ObjectTable from "./ObjectTable";
+import ObjectTable from "../offerings/ObjectTable";
 
 export default class SymbolList extends React.Component {
 

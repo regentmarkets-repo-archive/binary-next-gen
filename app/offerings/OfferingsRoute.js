@@ -1,4 +1,4 @@
 import { createContainer } from "items-store";
-import OfferingsPage from "containers/OfferingsPage";
+import OfferingsPage from "./OfferingsPage";
 
 export default createContainer(OfferingsPage);

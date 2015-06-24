@@ -1,6 +1,6 @@
 import React from "react";
 import { LiveData } from "binary-live-api";
-import TickTable from "components/TickTable";
+import TickTable from "./TickTable";
 
 
 export default class TicksPage extends React.Component {

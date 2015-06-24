@@ -1,6 +1,6 @@
 import React from "react";
 import { LiveData } from "binary-live-api";
-import OfferingsList from "components/OfferingsList";
+import OfferingsList from "./OfferingsList";
 
 
 export default class OfferingsPage extends React.Component {

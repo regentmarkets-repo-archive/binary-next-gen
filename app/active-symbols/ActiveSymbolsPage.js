@@ -1,6 +1,6 @@
 import React from "react";
 import { LiveData } from "binary-live-api";
-import SymbolList from "components/SymbolList";
+import SymbolList from "./SymbolList";
 
 
 export default class ActiveSymbolsPage extends React.Component {
