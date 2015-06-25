@@ -19,7 +19,7 @@ export default class TickTable extends React.Component {
 					<tr>
 						<th>Name</th>
 						<th>Value</th>
-						<th>Time</th>
+						<th>Updated</th>
 						<th>Change</th>
 						<th>Chart</th>
 					</tr>

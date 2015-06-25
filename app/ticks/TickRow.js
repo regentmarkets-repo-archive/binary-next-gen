@@ -3,7 +3,7 @@ import moment from "moment";
 
 import { Sparklines, SparklinesLine, SparklinesSpots } from 'react-sparklines';
 
-export default class TickTable extends React.Component {
+export default class TickRow extends React.Component {
 
 	static propTypes = {
 		tick: React.PropTypes.object.isRequired,

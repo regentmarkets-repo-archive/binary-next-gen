@@ -12,6 +12,7 @@ export default class HomePage extends React.Component {
 				<h3><a href="/ticks">Ticks</a></h3>
 				<h3><a href="/offerings">Offerings</a></h3>
 				<h3><a href="/active-symbols">Active Symbols</a></h3>
+				<h3><a href="/markets">Markets</a></h3>
 			</div>
 		);
 	}
