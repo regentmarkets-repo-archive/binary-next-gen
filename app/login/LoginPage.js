@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router";
 import LogoSpinner from "./LogoSpinner";
 
 export default class LoginPage extends React.Component {
@@ -32,7 +31,7 @@ export default class LoginPage extends React.Component {
 		                <LogoSpinner spinning={this.state.progress}/>
 		            </p>
 		            <h3>Sign in to your account</h3>
-				<p className="errorfield bigerror" style={{display: 'none' }}>
+					<p className="errorfield bigerror" style={{display: 'none' }}>
 		                Binary.com now requires your email and password to log in. If you have both a real-money and a virtual-money account, please use the password from your real-money account.
 		            </p>
 		            <p>

@@ -1,9 +1,9 @@
 import React from 'react';
-import { Link } from 'react-router';
 import DateOfBirth from './DateOfBirth';
 import Countries from './Countries';
+import LogoSpinner from '../login/LogoSpinner';
 import SignupStep1 from './SignupStep1';
-import SignupStep2 from './SignupStep3';
+import SignupStep2 from './SignupStep2';
 import SignupStep3 from './SignupStep3';
 
 export default class SignupPage extends React.Component {
@@ -16,23 +16,71 @@ export default class SignupPage extends React.Component {
 		super(props);
 
 		this.state = {
+			progress: false,
 			currentPage: 1
 		}
 	}
 
+	performSignup() {
+		console.log('Hello!')
+	}
+
+	nextStep(e) {
+		e.preventDefault();
+		this.setState({
+			currentPage: this.state.currentPage + 1
+		});
+	}
+
+	openAccount(e) {
+		e.preventDefault();
+		this.setState({
+			progress: true
+		});
+		this.performSignup();
+	}
+
+	previousStep(e) {
+		e.preventDefault();
+		this.setState({
+			currentPage: this.state.currentPage - 1
+		});
+	}
+
 	render() {
+
+		const steps = [(
+			<div>
+				<SignupStep1 />
+				<p>
+					<button onClick={::this.nextStep}>Next</button>
+				</p>
+			</div>
+		), (
+			<div>
+				<SignupStep2 />
+				<p>
+					<button onClick={::this.previousStep}>Back</button>
+					<button onClick={::this.nextStep}>Next</button>
+				</p>
+			</div>
+		), (
+			<div>
+				<SignupStep3 />
+				<p>
+					<button onClick={::this.previousStep}>Back</button>
+					<button onClick={::this.openAccount}>Open Account</button>
+				</p>
+			</div>
+		)];
+
 		return (
 			<form className='wide-form' >
 				<p>
-					<img className='form-logo'/>
+					<LogoSpinner spinning={this.state.progress}/>
 				</p>
 				<h3>Open Real Money Account</h3>
-				<SignupStep1 />
-				<SignupStep2 />
-				<SignupStep3 />
-			    <p>
-			      	<button className='important' id='open-real-acount' value='Open Account'>Open Account</button>
-			    </p>
+				{ steps[this.state.currentPage] }
 		    </form>
 		)
 	}

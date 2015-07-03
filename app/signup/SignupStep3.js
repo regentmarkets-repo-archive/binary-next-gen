@@ -5,13 +5,13 @@ export default class SignupStep3 extends React.Component {
 	render() {
 		return (
 	  		<div>
-			    <p className='step3'>
+			    <p>
 			      	<label>Security</label>
 			    </p>
-			    <p className='step3'>
+			    <p>
 			      	<input name='chooseapassword' placeholder='Password' type='password'/>
 			    </p>
-			    <p className='step3'>
+			    <p>
 			      	<select id='secretquestion' name='secretquestion'>
 				        <option value=''>Secret question</option>
 				        <option value="Mother's maiden name">Mother's maiden name</option>
@@ -25,7 +25,7 @@ export default class SignupStep3 extends React.Component {
 			      	</select>
 			      	<input name='secretanswer' placeholder='Answer to secret question' type='text'/>
 			    </p>
-			    <p className='step3'>
+			    <p>
 			      	<label>
 			        	<input id='tnc' name='tnc' type='checkbox'/>
 		          		I have read and agree to the <a href='https://www.binary.com/terms-and-conditions' target='_blank'>terms and conditions</a> of the site.
