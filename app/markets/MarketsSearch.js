@@ -7,7 +7,9 @@ export default class MarketSearch extends React.Component {
 	}
 
 	onChange(event) {
-		if (this.props.onChange) this.props.onChange(event.target.value);
+		if (this.props.onChange) {
+			this.props.onChange(event.target.value);
+		}
 	}
 
 	render() {

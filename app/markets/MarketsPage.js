@@ -53,7 +53,8 @@ export default class MarketsPage extends React.Component {
 	}
 
 	static searchFor(query) {
-		return MarketsPage.allMarkets.filter(m => m.name.includes(query));
+		query = query.toLowerCase();
+		return MarketsPage.allMarkets.filter(m => m.id.toLowerCase().includes(query) || m.name.toLowerCase().includes(query));
 	}
 
 	onQueryChange(query) {
