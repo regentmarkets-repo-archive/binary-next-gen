@@ -1,5 +1,6 @@
 import React from "react";
 import moment from "moment";
+import Direction from "./Direction";
 
 import { Sparklines, SparklinesLine, SparklinesSpots } from 'react-sparklines';
 
@@ -16,6 +17,9 @@ export default class TickRow extends React.Component {
 		return (
 			<tr>
 				<td>
+					<Direction diff={tick.diff} />
+				</td>	
+				<td>
 					{tick.symbol}
 				</td>
 				<td>
@@ -25,7 +29,7 @@ export default class TickRow extends React.Component {
 					{moment(tick.epoch).format("h:mm:ss a")}
 				</td>
 				<td>
-					{tick.diff.toFixed(2)}
+					{tick.diff.toPrecision(2)}
 				</td>
 				<td>
 					<Sparklines data={history.map((h) => h.quote)} limit={50}>

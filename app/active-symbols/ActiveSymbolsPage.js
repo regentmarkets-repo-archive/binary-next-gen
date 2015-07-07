@@ -17,7 +17,7 @@ export default class ActiveSymbolsPage extends React.Component {
 
 		this.state = { activeSymbols: LiveData.activeSymbols() || [] };
 
-		LiveData.init('gP0Yb1ltloQIAcCbX2-Y2HPdll0');
+		LiveData.init('DlPFBthdk9t-5IYJu2YezfEUCa0');
 	}
 
 	static getProps() {
