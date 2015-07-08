@@ -1,5 +1,5 @@
 import React from 'react';
-import Countries from "./Countries";
+import Countries from './Countries';
 
 export default class SignupStep2 extends React.Component {
 
@@ -9,27 +9,27 @@ export default class SignupStep2 extends React.Component {
 		    	<p>
 		      		<label>Home Address</label>
 		    	</p>
-			    <p>
+				<p>
 			      	<Countries/>
 			      	<select id='AddressState' name='AddressState'>
 			        	<option value=''>State/Province</option>
 			        	<option value='Some'>Some</option>
 			      	</select>
-			    </p>
-			    <p>
+				</p>
+				<p>
 			      	<input id='AddressTown' name='AddressTown' placeholder='Town/City' type='text'/>
 			      	<input id='AddressPostcode' name='AddressPostcode' placeholder='Postal Code / ZIP' type='text'/>
-			    </p>
-			    <p>
+				</p>
+				<p>
 			      	<input id='Address1' name='Address1' placeholder='First line' type='text'/>
-			    </p>
-			    <p>
+				</p>
+				<p>
 			      	<input id='Address2' name='Address2' placeholder='Second line' type='text'/>
-			    </p>
-			    <p>
+				</p>
+				<p>
 			      	<input id='Tel' name='Tel' placeholder='Telephone' type='tel'/>
-			    </p>
-		    </div>
-		)
+				</p>
+			</div>
+		);
 	}
 }
