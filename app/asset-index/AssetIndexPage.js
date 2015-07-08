@@ -11,11 +11,18 @@ export default class AsssetIndexPage extends React.Component {
 		super(props);
 	}
 
+	onAssetSelect(idx) {
+		console.log('selected', idx);
+	}
+
 	render() {
+
+		const segments = ["Forex", "Indices", "Stocks", "Commodities", "Randoms"];
+
 		return (
 			<div>
-                <SegmentedControl>
-                </SegmentedControl>
+                <SegmentedControl segments={segments} onSelect={this.onAssetSelect} />
+				<div></div>
 			</div>
 		);
 	}
