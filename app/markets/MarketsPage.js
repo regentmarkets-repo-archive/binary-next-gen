@@ -1,7 +1,7 @@
-import React from "react";
-import { LiveData } from "binary-live-api";
-import MarketsList from "./MarketsList";
-import MarketsSearch from "./MarketsSearch";
+import React from 'react';
+import { LiveData } from 'binary-live-api';
+import MarketsList from './MarketsList';
+import MarketsSearch from './MarketsSearch';
 
 export default class MarketsPage extends React.Component {
 
@@ -38,9 +38,9 @@ export default class MarketsPage extends React.Component {
 	}];
 
 	constructor(props) {
-	    super(props);
+		super(props);
 
-	    this.state = {
+		this.state = {
 			search: '',
 			markets: MarketsPage.allMarkets
 		};
@@ -62,7 +62,7 @@ export default class MarketsPage extends React.Component {
 		this.setState({
 			search: query,
 			markets: MarketsPage.searchFor(query)
-		})
+		});
 	}
 
 	render() {

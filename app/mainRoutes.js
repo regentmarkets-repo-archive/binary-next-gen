@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 import { Route, DefaultRoute, NotFoundRoute } from "react-router";
 
 import ApplicationRoute from "./ApplicationRoute";

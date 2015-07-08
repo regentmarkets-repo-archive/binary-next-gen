@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 export default class LogoSpinner extends React.Component {
 
@@ -10,7 +10,7 @@ export default class LogoSpinner extends React.Component {
 		const classNames = ['form-logo', this.props.spinning ? 'spinner' : null];
 
 		return (
-			<img className={classNames.join(' ')} src="https://static2.binary.com/images/pages/binary-symbol-logo.svg"/>
+			<img className={classNames.join(' ')} src="https://static.binary.com/images/pages/binary-symbol-logo.svg"/>
 		);
 	}
 }

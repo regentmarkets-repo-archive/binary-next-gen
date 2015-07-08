@@ -1,6 +1,6 @@
-import React from "react";
-import { LiveData } from "binary-live-api";
-import SymbolList from "./SymbolList";
+import React from 'react';
+import { LiveData } from 'binary-live-api';
+import SymbolList from './SymbolList';
 
 
 export default class ActiveSymbolsPage extends React.Component {
@@ -8,9 +8,7 @@ export default class ActiveSymbolsPage extends React.Component {
 	constructor(props) {
 		super(props);
 
-		console.log(LiveData);
-
-		LiveData.on('message', (data) => {
+		LiveData.on('message', () => {
 			this.setState({ activeSymbols: LiveData.activeSymbols() });
 			console.log('LiveData.offerings()', LiveData.offerings());
 		});

@@ -1,5 +1,5 @@
-import React from "react";
-import moment from "moment";
+import React from 'react';
+import moment from 'moment';
 
 class DobDay extends React.Component {
 
@@ -22,7 +22,7 @@ class DobMonth extends React.Component {
 
 	render() {
 
-		let months = moment.localeData()._months;
+		const months = moment.localeData()._months;
 
 		return (
 			<select id='dobmm' name='dobmm' value=''>

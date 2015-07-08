@@ -1,5 +1,5 @@
-import React from "react";
-import LogoSpinner from "./LogoSpinner";
+import React from 'react';
+import LogoSpinner from './LogoSpinner';
 
 export default class LoginPage extends React.Component {
 
@@ -20,7 +20,7 @@ export default class LoginPage extends React.Component {
 	submitLogin() {
 		this.setState({
 			progress: true
-		})
+		});
 	}
 
 	render() {
@@ -28,18 +28,18 @@ export default class LoginPage extends React.Component {
 			<div className="login-content">
     			<div id="content">
 					<p>
-		                <LogoSpinner spinning={this.state.progress}/>
-		            </p>
-		            <h3>Sign in to your account</h3>
+						<LogoSpinner spinning={this.state.progress}/>
+					</p>
+					<h3>Sign in to your account</h3>
 					<p className="errorfield bigerror" style={{display: 'none' }}>
 		                Binary.com now requires your email and password to log in. If you have both a real-money and a virtual-money account, please use the password from your real-money account.
-		            </p>
-		            <p>
-		                <a href="#">Login Trouble?</a>
-		            </p>
-		            <p>
-		                <input name="email" placeholder="Email" type="email"></input>
-		            </p>
+					</p>
+					<p>
+						<a href="#">Login Trouble?</a>
+					</p>
+					<p>
+						<input name="email" placeholder="Email" type="email"></input>
+					</p>
 				  	<p>
 				    	<input name="password" placeholder="Password" type="password"></input>
 				  	</p>

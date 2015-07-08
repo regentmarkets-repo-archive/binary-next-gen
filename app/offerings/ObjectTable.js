@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react';
 
 class ObjectTableRow extends React.Component {
 	render() {
@@ -7,7 +7,7 @@ class ObjectTableRow extends React.Component {
 				<td>{this.props.name}</td>
 				<td>{this.props.value}</td>
 			</tr>
-		)
+		);
 	}
 }
 

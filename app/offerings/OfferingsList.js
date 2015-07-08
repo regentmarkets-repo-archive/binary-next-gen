@@ -1,12 +1,16 @@
-import React from "react";
-import ObjectTable from "./ObjectTable";
+import React from 'react';
+import ObjectTable from './ObjectTable';
 
 
 export default class OfferingsList extends React.Component {
 
+	static propTypes = {
+		offerings: React.PropTypes.object.isRequired
+	};
+
 	render() {
 
-		let offerings = this.props.offerings;
+		const offerings = this.props.offerings;
 
 		return (
 			<table>

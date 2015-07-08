@@ -1,5 +1,5 @@
-import React from "react";
-import MarketItem from "./MarketItem";
+import React from 'react';
+import MarketItem from './MarketItem';
 
 export default class MarketsList extends React.Component {
 

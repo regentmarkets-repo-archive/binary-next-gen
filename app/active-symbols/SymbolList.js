@@ -1,11 +1,15 @@
-import React from "react";
-import ObjectTable from "../offerings/ObjectTable";
+import React from 'react';
+import ObjectTable from '../offerings/ObjectTable';
 
 export default class SymbolList extends React.Component {
 
+	static propTypes = {
+		symbols: React.PropTypes.object
+	};
+
 	render() {
 
-		let symbols = this.props.symbols;
+		const symbols = this.props.symbols;
 
 		return (
 			<div>

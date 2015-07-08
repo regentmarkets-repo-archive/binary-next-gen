@@ -1,18 +1,17 @@
-import React from "react";
-import { LiveData } from "binary-live-api";
-import TickTable from "./TickTable";
-
+import React from 'react';
+import { LiveData } from 'binary-live-api';
+import TickTable from './TickTable';
 
 export default class TicksPage extends React.Component {
 
 	constructor(props) {
-	    super(props);
+		super(props);
 
 		LiveData.on('message', (data) => {
 			this.setState( { ticks: LiveData.Ticks });
 		});
 
-	    this.state = { ticks: LiveData.Ticks };
+		this.state = { ticks: LiveData.Ticks };
 
 		LiveData.init('DlPFBthdk9t-5IYJu2YezfEUCa0');
   	}

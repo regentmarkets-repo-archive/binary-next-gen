@@ -1,7 +1,4 @@
-import React from "react";
-import moment from "moment";
-
-import { Sparklines, SparklinesLine, SparklinesSpots } from 'react-sparklines';
+import React from 'react';
 
 export default class MarketItem extends React.Component {
 

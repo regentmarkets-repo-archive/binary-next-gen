@@ -28,6 +28,6 @@ export default class SignupStep1 extends React.Component {
 		      		<DateOfBirth/>
 		    	</p>
 			</div>
-		)
+		);
 	}
 }

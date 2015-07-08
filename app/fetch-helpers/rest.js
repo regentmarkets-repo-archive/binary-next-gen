@@ -1,5 +1,5 @@
-import request from "superagent";
-import ReactUpdates from "react/lib/ReactUpdates";
+import request from 'superagent';
+import ReactUpdates from 'react/lib/ReactUpdates';
 
 // a few helper methods for a REST API
 

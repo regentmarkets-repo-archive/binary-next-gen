@@ -1,6 +1,10 @@
-import React from "react";
+import React from 'react';
 
 export default class MarketSearch extends React.Component {
+
+	static propTypes = {
+		onChange: React.PropTypes.func.isRequired
+	};
 
 	constructor(props) {
 		super(props);

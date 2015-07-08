@@ -1,6 +1,4 @@
 import React from 'react';
-import DateOfBirth from './DateOfBirth';
-import Countries from './Countries';
 import LogoSpinner from '../login/LogoSpinner';
 import SignupStep1 from './SignupStep1';
 import SignupStep2 from './SignupStep2';
@@ -18,11 +16,11 @@ export default class SignupPage extends React.Component {
 		this.state = {
 			progress: false,
 			currentPage: 1
-		}
+		};
 	}
 
 	performSignup() {
-		console.log('Hello!')
+		console.log('Hello!');
 	}
 
 	nextStep(e) {
@@ -81,7 +79,7 @@ export default class SignupPage extends React.Component {
 				</p>
 				<h3>Open Real Money Account</h3>
 				{ steps[this.state.currentPage] }
-		    </form>
-		)
+			</form>
+		);
 	}
 }
