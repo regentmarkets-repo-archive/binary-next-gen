@@ -1,5 +1,5 @@
 import React from 'react';
-import LogoSpinner from './LogoSpinner';
+import LogoSpinner from '../common/LogoSpinner';
 
 export default class LoginPage extends React.Component {
 

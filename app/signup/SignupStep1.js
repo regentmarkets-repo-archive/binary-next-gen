@@ -1,5 +1,5 @@
 import React from 'react';
-import DateOfBirth from './DateOfBirth';
+import DateOfBirth from '../common/DateOfBirth';
 
 export default class SignupStep1 extends React.Component {
 

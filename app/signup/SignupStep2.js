@@ -1,5 +1,5 @@
 import React from 'react';
-import Countries from './Countries';
+import Countries from '../common/Countries';
 
 export default class SignupStep2 extends React.Component {
 

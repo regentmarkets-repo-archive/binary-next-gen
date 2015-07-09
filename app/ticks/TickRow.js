@@ -1,6 +1,6 @@
 import React from 'react';
 import moment from 'moment';
-import Direction from './Direction';
+import Direction from '../common/Direction';
 
 import { Sparklines, SparklinesLine, SparklinesSpots } from 'react-sparklines';
 

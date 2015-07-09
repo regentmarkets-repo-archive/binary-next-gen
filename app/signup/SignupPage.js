@@ -1,5 +1,5 @@
 import React from 'react';
-import LogoSpinner from '../login/LogoSpinner';
+import LogoSpinner from '../common/LogoSpinner';
 import SignupStep1 from './SignupStep1';
 import SignupStep2 from './SignupStep2';
 import SignupStep3 from './SignupStep3';

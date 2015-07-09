@@ -1,5 +1,5 @@
 import React from 'react';
-import SegmentedControl from './SegmentedControl';
+import SegmentedControl from '../common/SegmentedControl';
 
 export default class AsssetIndexPage extends React.Component {
 

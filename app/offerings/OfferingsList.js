@@ -1,5 +1,5 @@
 import React from 'react';
-import ObjectTable from './ObjectTable';
+import ObjectTable from '../common/ObjectTable';
 
 
 export default class OfferingsList extends React.Component {
