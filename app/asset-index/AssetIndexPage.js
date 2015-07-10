@@ -18,11 +18,50 @@ export default class AsssetIndexPage extends React.Component {
 
 	render() {
 
-		const segments = ["Forex", "Indices", "Stocks", "Commodities", "Randoms"];
+		const marketStructure = [{
+			name: 'Forex',
+			submarkets: [
+				'Major Pairs',
+				'Minor Pairs',
+				'Smart FX'
+			]
+		}, {
+			name: 'Indices',
+			submarkets: [
+				'Asia/Oceania',
+				'Europe/Africa',
+				'Americas',
+				'Smart Indices'
+			]
+		}, {
+			name: 'Stocks',
+			submarkets: [
+				'French Stocks',
+				'Belgian Stocks',
+				'Dutch Stocks',
+				'Germany Stocks',
+				'United Kingdom Stocks'
+			]
+		}, {
+			name: 'Commodities',
+			submarkets: [
+				'Metals',
+				'Energy'
+			]
+		}, {
+			name: 'Randoms',
+			submarkets: [
+				'Indices',
+				'Quotidians',
+				'Nocturnes'
+			]
+		}];
 
 		return (
 			<div>
-                <SegmentedControl segments={segments} onSelect={this.onAssetSelect} />
+                <SegmentedControl
+					segments={marketStructure.map(m => m.name)}
+					onSelect={this.onAssetSelect} />
 				<AssetIndexTable />
 			</div>
 		);

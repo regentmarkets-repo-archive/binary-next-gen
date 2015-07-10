@@ -1,7 +1,45 @@
 import React from 'react';
 
-export default class AssetIndexTable extends React.Component {
+export default class AssetIndexRow extends React.Component {
     render() {
+        return (
+            <tr>
+                <td>
+                    AUD/JPY
+                </td>
+                <td>
+                    <a href="#">
+                        5t–365d
+                    </a>
+                </td>
+                <td>
+                    <a href="#">
+                        1h–365d
+                    </a>
+                </td>
+                <td>
+                    <a href="#">
+                        1d–365d
+                    </a>
+                </td>
+                <td>
+                    <a href="#">
+                        1d–365d
+                    </a>
+                </td>
+            </tr>
+        );
+    }
+}
+
+
+export default class AssetIndexTable extends React.Component {
+
+
+    render() {
+
+        const assets = [{}, {}, {}];
+
         return (
             <table>
                 <thead>
@@ -19,31 +57,7 @@ export default class AssetIndexTable extends React.Component {
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>
-                            AUD/JPY
-                        </td>
-                        <td>
-                            <a href="#">
-                                5t–365d
-                            </a>
-                        </td>
-                        <td>
-                            <a href="#">
-                                1h–365d
-                            </a>
-                        </td>
-                        <td>
-                            <a href="#">
-                                1d–365d
-                            </a>
-                        </td>
-                        <td>
-                            <a href="#">
-                                1d–365d
-                            </a>
-                        </td>
-                    </tr>
+                    {assets.map((a, i) => <AssetIndexRow key={i} asset={a} />)}
                 </tbody>
             </table>
         );
