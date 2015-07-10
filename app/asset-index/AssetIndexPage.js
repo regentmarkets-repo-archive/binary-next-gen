@@ -1,5 +1,6 @@
 import React from 'react';
 import SegmentedControl from '../common/SegmentedControl';
+import AssetIndexTable from './AssetIndexTable';
 
 export default class AsssetIndexPage extends React.Component {
 
@@ -22,7 +23,7 @@ export default class AsssetIndexPage extends React.Component {
 		return (
 			<div>
                 <SegmentedControl segments={segments} onSelect={this.onAssetSelect} />
-				<div></div>
+				<AssetIndexTable />
 			</div>
 		);
 	}
