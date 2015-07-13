@@ -14,6 +14,7 @@ export default class HomePage extends React.Component {
 				<h3><a href="/active-symbols">Active Symbols</a></h3>
 				<h3><a href="/markets">Markets</a></h3>
 				<h3><a href="/asset-index">Asset Index</a></h3>
+				<h3><a href="/rise-fall-table">Rise/Fall Table</a></h3>
 			</div>
 		);
 	}

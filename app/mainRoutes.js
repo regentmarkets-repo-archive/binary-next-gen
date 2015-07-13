@@ -10,6 +10,8 @@ import OfferingsRoute from "offerings/OfferingsPage";
 import ActiveSymbolsRoute from "active-symbols/ActiveSymbolsPage";
 import MarketsRoute from "markets/MarketsPage";
 import AssetIndexRoute from "asset-index/AssetIndexPage";
+import RiseFallTableRoute from "rise-fall-table/RiseFallTablePage";
+
 
 // polyfill
 if(!Object.assign) Object.assign = React.__spread;
@@ -25,6 +27,7 @@ module.exports = (
 		<Route name="activesymbols" path="/active-symbols" handler={ActiveSymbolsRoute} />
 		<Route name="markets" path="/markets" handler={MarketsRoute} />
 		<Route name="asset-index" path="/asset-index" handler={AssetIndexRoute} />
+		<Route name="rise-fall-table" path="/rise-fall-table" handler={RiseFallTableRoute} />
 
 		<DefaultRoute handler={HomeRoute} />
 		<NotFoundRoute handler={HomeRoute} />
