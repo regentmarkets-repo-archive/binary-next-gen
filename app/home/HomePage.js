@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 export default class HomePage extends React.Component {
 	static getProps() {
@@ -7,14 +8,14 @@ export default class HomePage extends React.Component {
 	render() {
 		return (
 			<div>
-				<h3><a href="/login">Login</a></h3>
-				<h3><a href="/Signup">Signup</a></h3>
-				<h3><a href="/ticks">Ticks</a></h3>
-				<h3><a href="/offerings">Offerings</a></h3>
-				<h3><a href="/active-symbols">Active Symbols</a></h3>
-				<h3><a href="/markets">Markets</a></h3>
-				<h3><a href="/asset-index">Asset Index</a></h3>
-				<h3><a href="/rise-fall-table">Rise/Fall Table</a></h3>
+				<h3><Link to={`/login`}>Login</Link></h3>
+				<h3><Link to={`/signup`}>Signup</Link></h3>
+				<h3><Link to={`/ticks`}>Ticks</Link></h3>
+				<h3><Link to={`/offerings`}>Offerings</Link></h3>
+				<h3><Link to={`/active-symbols`}>Active Symbols</Link></h3>
+				<h3><Link to={`/markets`}>Markets</Link></h3>
+				<h3><Link to={`/asset-index`}>Asset Index</Link></h3>
+				<h3><Link to={`/rise-fall-table`}>Rise/Fall Table</Link></h3>
 			</div>
 		);
 	}

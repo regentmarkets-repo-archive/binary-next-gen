@@ -10,6 +10,11 @@ export default class RiseFallFilter extends React.Component {
 		};
 	}
 
+	static propTypes = {
+		minAvailableDuration: React.PropTypes.number,
+		onCalculate: React.PropTypes.func.isRequired
+	};
+
 	render() {
 
 		const { minAvailableDuration, onCalculate } = this.props;
@@ -26,12 +31,12 @@ export default class RiseFallFilter extends React.Component {
 			            <label for="duration_amount">Duration:</label>
 			            <input name="duration_amount" id="duration_amount" size="4" maxlength="5" value="5" type="text" />
 			            <select name="duration_units">
-			            	<option value="h" class="spot">hours</option>
-							<option value="m" class="spot">minutes</option>
-							<option value="s" class="spot">seconds</option>
-							<option value="t" class="spot">ticks</option>
+			            	<option value="h">hours</option>
+							<option value="m">minutes</option>
+							<option value="s">seconds</option>
+							<option value="t">ticks</option>
 						</select>
-	                    <span class="non_input">
+	                    <span className="non_input">
 							<abbr rel="tooltip" title="minimum available duration">min</abbr>: {minAvailableDuration}
 						</span>
 			        </fieldset>
