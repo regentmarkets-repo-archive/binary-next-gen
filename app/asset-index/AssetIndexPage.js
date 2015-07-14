@@ -1,6 +1,7 @@
 import React from 'react';
 import SegmentedControl from '../common/SegmentedControl';
 import AssetIndexTable from './AssetIndexTable';
+import { marketStructure } from './MarketStructure';
 
 export default class AsssetIndexPage extends React.Component {
 
@@ -17,45 +18,6 @@ export default class AsssetIndexPage extends React.Component {
 	}
 
 	render() {
-
-		const marketStructure = [{
-			name: 'Forex',
-			submarkets: [
-				'Major Pairs',
-				'Minor Pairs',
-				'Smart FX'
-			]
-		}, {
-			name: 'Indices',
-			submarkets: [
-				'Asia/Oceania',
-				'Europe/Africa',
-				'Americas',
-				'Smart Indices'
-			]
-		}, {
-			name: 'Stocks',
-			submarkets: [
-				'French Stocks',
-				'Belgian Stocks',
-				'Dutch Stocks',
-				'Germany Stocks',
-				'United Kingdom Stocks'
-			]
-		}, {
-			name: 'Commodities',
-			submarkets: [
-				'Metals',
-				'Energy'
-			]
-		}, {
-			name: 'Randoms',
-			submarkets: [
-				'Indices',
-				'Quotidians',
-				'Nocturnes'
-			]
-		}];
 
 		return (
 			<div>
