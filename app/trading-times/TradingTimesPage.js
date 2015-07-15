@@ -1,5 +1,6 @@
 import React from 'react';
 import SegmentedControl from '../common/SegmentedControl';
+import TradingTimesTable from './TradingTimesTable';
 import { marketStructure } from '../asset-index/MarketStructure';
 
 export default class TradingTimesPage extends React.Component {
@@ -15,9 +16,12 @@ export default class TradingTimesPage extends React.Component {
 	render() {
 
 		return (
-			<SegmentedControl
-				segments={marketStructure.map(m => m.name)}
-				onSelect={this.onAssetSelect} />
+			<div>
+				<SegmentedControl
+					segments={marketStructure.map(m => m.name)}
+					onSelect={this.onAssetSelect} />
+				<TradingTimesTable />
+			</div>
 		);
 	}
 }

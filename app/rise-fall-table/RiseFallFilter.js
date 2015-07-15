@@ -23,12 +23,12 @@ export default class RiseFallFilter extends React.Component {
 			<form name="rise_fall" id="rise_fall_form">
     			<div className="row">
 			        <fieldset>
-			            <label for="atleast">Start time:</label>
+			            <label htmlFor="atleast">Start time:</label>
 			            <select id="atleast" name="date_start" />
 			        </fieldset>
 
 			        <fieldset id="duration_container">
-			            <label for="duration_amount">Duration:</label>
+			            <label htmlFor="duration_amount">Duration:</label>
 			            <input name="duration_amount" id="duration_amount" size="4" maxlength="5" value="5" type="text" />
 			            <select name="duration_units">
 			            	<option value="h">hours</option>
@@ -41,7 +41,7 @@ export default class RiseFallFilter extends React.Component {
 						</span>
 			        </fieldset>
 			        <fieldset>
-			            <label for="payout">Payout Currency:</label>
+			            <label htmlFor="payout">Payout Currency:</label>
 			            <select id="bet_currency" name="currency">
 		                    <option value="USD">USD</option>
 		                    <option value="EUR">EUR</option>

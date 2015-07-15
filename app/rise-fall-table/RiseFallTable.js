@@ -6,9 +6,22 @@ export default class RiseFallTable extends React.Component {
 
 
 		return (
-			<div>
-
-			</div>
+			<table>
+				<thead>
+					<tr>
+						<th>Asset</th>
+						<th>Rise Contract Return</th>
+						<th>Fall Contract Return</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>AUD/JPY</td>
+						<td><a href='#'>107.43%</a></td>
+						<td><a href='#'>103.38%</a></td>
+					</tr>
+				</tbody>
+			</table>
 		);
 	}
 }
