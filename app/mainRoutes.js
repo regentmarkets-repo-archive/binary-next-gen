@@ -12,9 +12,10 @@ import MarketsRoute from 'markets/MarketsPage';
 import AssetIndexRoute from 'asset-index/AssetIndexPage';
 import RiseFallTableRoute from 'rise-fall-table/RiseFallTablePage';
 import TradingTimesRoute from 'trading-times/TradingTimesRoute';
+import PricingTableRoute from 'pricing-table/PricingTableRoute';
 
 // polyfill
-if(!Object.assign) Object.assign = React.__spread;
+if (!Object.assign) Object.assign = React.__spread;
 
 // export routes
 module.exports = (
@@ -29,6 +30,7 @@ module.exports = (
 		<Route name='asset-index' path='/asset-index' handler={AssetIndexRoute} />
 		<Route name='rise-fall-table' path='/rise-fall-table' handler={RiseFallTableRoute} />
 		<Route name='trading-times' path='/trading-times' handler={TradingTimesRoute} />
+		<Route name='pricing-table' path='/pricing-table' handler={PricingTableRoute} />
 
 		<DefaultRoute handler={HomeRoute} />
 		<NotFoundRoute handler={HomeRoute} />
