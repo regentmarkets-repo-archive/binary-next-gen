@@ -1,9 +1,9 @@
 import React from 'react';
-import { RouteHandler } from "react-router";
+import { RouteHandler } from 'react-router';
 
 export default class Application extends React.Component {
 	static getProps(stores, params) {
-		var transition = stores.Router.getItem("transition");
+		var transition = stores.Router.getItem('transition');
 		return {
 			loading: !!transition
 		};
