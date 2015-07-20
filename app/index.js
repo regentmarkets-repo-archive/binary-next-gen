@@ -1,4 +1,4 @@
 import React from 'react';
-import router from './router'
+import router from './router';
 
-React.render({router}, document.getElementById('root'));
+React.render(router, document.getElementById('root'));

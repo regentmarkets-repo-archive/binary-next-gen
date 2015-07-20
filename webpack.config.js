@@ -26,6 +26,9 @@ module.exports = {
             loaders: ['react-hot', 'babel?stage=0'],
             exclude: /node_modules/
         }, {
+            test: /react-sparklines/,
+            loaders: ['react-hot', 'babel?stage=0']
+        },          {
             test: /\.css?$/,
             loaders: ['style', 'raw']
         }]
