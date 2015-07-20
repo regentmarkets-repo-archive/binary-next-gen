@@ -1,22 +1,16 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
-import { Connector } from 'redux/react';
+import { connect } from 'redux/react';
 import * as TodoActions from './actions/TodoActions';
 
+@connect(state => ({ todos: state.todos }))
 export default class BinaryApp extends React.Component {
     render() {
-        return (
-            <Connector select={state => ({ todos: state.todos })}>
-                {this.renderChild}
-            </Connector>
-        );
-    }
-
-    renderChild({ todos, dispatch }) {
-        const actions = bindActionCreators(TodoActions, dispatch);
+        const { dispatch } = this.props;
         return (
             <div>
-                <h1>Hello</h1>
+                <h1>Hello World</h1>
+                <div {...bindActionCreators(TodoActions, dispatch)} />
             </div>
         );
     }
