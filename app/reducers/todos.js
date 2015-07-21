@@ -1,4 +1,5 @@
 import { ADD_TODO, DELETE_TODO, EDIT_TODO, MARK_TODO, MARK_ALL, CLEAR_MARKED } from '../constants/ActionTypes';
+
 const initialState = [{
     text: 'Use Redux',
     marked: false,

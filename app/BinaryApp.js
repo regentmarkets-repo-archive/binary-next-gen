@@ -1,6 +1,6 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
-import { connect } from 'redux/react';
+import { connect } from 'react-redux';
 import * as TodoActions from './actions/TodoActions';
 
 @connect(state => ({ todos: state.todos }))

@@ -19,9 +19,10 @@
     "binary-live-api": "^0.6.0",
     "moment": "^2.10.3",
     "react": "^0.13.3",
-    "react-router": "^0.13.2",
+    "react-redux": "^0.2.2",
+    "react-router": "^1.0.0-beta3",
     "react-sparklines": "*",
-    "redux": "^0.12.0"
+    "redux": "^1.0.0-rc"
   },
   "devDependencies": {
     "babel-core": "^5.0.12",
@@ -35,7 +36,7 @@
     "css-loader": "^0.12.0",
     "extract-text-webpack-plugin": "^0.7.0",
     "file-loader": "^0.8.1",
-    "html-loader": "^0.3.0",    
+    "html-loader": "^0.3.0",
     "null-loader": "^0.1.0",
     "style-loader": "^0.12.0",
     "url-loader": "^0.5.5",

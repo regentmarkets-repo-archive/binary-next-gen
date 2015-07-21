@@ -1,4 +1,10 @@
 {
+	"ecmaFeatures": {
+		"jsx": true,
+		"blockBindings": true,
+		"modules": true,
+		"classes": true
+	},
 	"env": {
 		"node": true
 	},
@@ -7,5 +13,8 @@
 		"curly": 0,
 		"quotes": [1, "single"],
 		"no-mixed-spaces-and-tabs": false
-	}
+	},
+	"globals": {
+    	"document": true
+  	}
 }
