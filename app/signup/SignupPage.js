@@ -6,10 +6,6 @@ import SignupStep3 from './SignupStep3';
 
 export default class SignupPage extends React.Component {
 
-	static getProps() {
-		return {};
-	}
-
 	constructor(props) {
 		super(props);
 

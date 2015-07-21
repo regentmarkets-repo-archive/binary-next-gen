@@ -5,10 +5,6 @@ import { marketStructure } from './MarketStructure';
 
 export default class AsssetIndexPage extends React.Component {
 
-	static getProps() {
-		return {};
-	}
-
 	constructor(props) {
 		super(props);
 	}

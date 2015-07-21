@@ -2,9 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 
 export default class HomePage extends React.Component {
-	static getProps() {
-		return {};
-	}
+
 	render() {
 		return (
 			<div>

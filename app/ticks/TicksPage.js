@@ -16,10 +16,6 @@ export default class TicksPage extends React.Component {
 		LiveData.init('DlPFBthdk9t-5IYJu2YezfEUCa0');
   	}
 
-	static getProps() {
-		return {};
-	}
-
 	render() {
 		return (
   			<TickTable tickData={this.state.ticks} />

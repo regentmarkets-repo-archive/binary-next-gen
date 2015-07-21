@@ -3,10 +3,6 @@ import LogoSpinner from '../common/LogoSpinner';
 
 export default class LoginPage extends React.Component {
 
-	static getProps() {
-		return {};
-	}
-
 	constructor(props) {
 		super(props);
 

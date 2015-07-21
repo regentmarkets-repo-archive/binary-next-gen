@@ -1,78 +1,24 @@
 import React from 'react';
-import { LiveData } from 'binary-live-api';
+import { connect } from 'react-redux';
+import { bindActionCreators } from 'redux';
+import * as MarketsActions from '../_actions/MarketsActions';
 import MarketsList from './MarketsList';
 import MarketsSearch from './MarketsSearch';
 
+@connect(state => ({
+	markets: state.markets
+}))
 export default class MarketsPage extends React.Component {
-
-	static allMarkets = [{
-		id: 'eur50',
-		name: 'Euro 50 Index'
-	}, {
-		id: 'wsidx',
-		name: 'Wall Streen Index'
-	}, {
-		id: 'danone',
-		name: 'Danone'
-	}, {
-		id: 'loreal',
-		name: 'L\'Oreal'
-	}, {
-		id: 'vivendi',
-		name: 'Vivendi'
-	}, {
-		id: 'oil',
-		name: 'Oil/USD'
-	}, {
-		id: 'gold',
-		name: 'Gold/USD'
-	}, {
-		id: 'platinum',
-		name: 'Platinum/USD'
-	}, {
-		id: 'rnd100',
-		name: 'Random 100 Index'
-	}, {
-		id: 'rndsun',
-		name: 'Random Sun'
-	}];
-
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			search: '',
-			markets: MarketsPage.allMarkets
-		};
-
-		LiveData.init('DlPFBthdk9t-5IYJu2YezfEUCa0');
-  	}
-
-	static getProps() {
-		return {};
-	}
-
-	static searchFor(query) {
-		query = query.toLowerCase();
-		return MarketsPage.allMarkets.filter(m => m.id.toLowerCase().includes(query) || m.name.toLowerCase().includes(query));
-	}
-
-	onQueryChange(query) {
-
-		this.setState({
-			search: query,
-			markets: MarketsPage.searchFor(query)
-		});
-	}
 
 	render() {
 
-		const { search, markets } = this.state;
+		const { markets, dispatch } = this.props;
+		const actions = bindActionCreators(MarketsActions, dispatch);
 
 		return (
 			<div>
-				<MarketsSearch search={search} onChange={::this.onQueryChange}/>
-  				<MarketsList markets={markets} />
+				<MarketsSearch actions={actions} />
+  				<MarketsList markets={markets.shownMarkets} />
 			</div>
 		);
 	}

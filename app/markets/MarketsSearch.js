@@ -3,23 +3,17 @@ import React from 'react';
 export default class MarketSearch extends React.Component {
 
 	static propTypes = {
-		onChange: React.PropTypes.func.isRequired
-	};
+      	actions: React.PropTypes.object.isRequired
+    };
 
-	constructor(props) {
-		super(props);
-	}
+    render() {
 
-	onChange(event) {
-		if (this.props.onChange) {
-			this.props.onChange(event.target.value);
-		}
-	}
-
-	render() {
+		const { actions } = this.props;
 
 		return (
-			<input type="text" placeholder="Search for markets" onChange={::this.onChange} />
+			<input type="search"
+				placeholder="Search for markets"
+				onChange={e => actions.filterMarkets(e.target.value)} />
 		);
 	}
 }

@@ -9,10 +9,6 @@ export default class TradingTimesPage extends React.Component {
 		super(props);
 	}
 
-	static getProps() {
-		return {};
-	}
-
 	render() {
 
 		return (

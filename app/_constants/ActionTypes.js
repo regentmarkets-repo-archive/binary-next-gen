@@ -1,0 +1,1 @@
+export const FILTER_MARKETS = 'FILTER_MARKETS';
