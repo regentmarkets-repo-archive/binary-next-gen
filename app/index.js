@@ -1,4 +1,4 @@
 import React from 'react';
-import router from './router';
+import Root from './root';
 
-React.render(router, document.getElementById('root'));
+React.render(<Root/>, document.getElementById('root'));

@@ -1,18 +1,12 @@
 import React from 'react';
-import { createStore, combineReducers } from 'redux';
-import { Provider } from 'react-redux';
-import * as reducers from './reducers';
-import BinaryApp from './BinaryApp';
-
-const reducer = combineReducers(reducers);
-const store = createStore(reducer);
 
 export default class App extends React.Component {
     render() {
         return (
-            <Provider store={store}>
-                {() => <BinaryApp />}
-            </Provider>
+            <div id="content">
+                <h1>Binary App</h1>
+                {this.props.children}
+            </div>
         );
     }
 }
