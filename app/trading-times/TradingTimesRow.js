@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class TradingTimesRow extends React.Component {
+export default class TradingTimesRow {
     render() {
         return (
             <tr>

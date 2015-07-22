@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Segment extends React.Component {
+export default class Segment {
 
     static propTypes = {
         name: React.PropTypes.string,

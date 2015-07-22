@@ -11,7 +11,7 @@ export default class SignupPage extends React.Component {
 
 		this.state = {
 			progress: false,
-			currentPage: 1
+			currentPage: 0
 		};
 	}
 

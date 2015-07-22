@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class AssetIndexRow extends React.Component {
+export default class AssetIndexRow {
     render() {
         return (
             <tr>

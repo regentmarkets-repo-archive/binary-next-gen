@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Direction extends React.Component {
+export default class Direction {
 
 	static propTypes = {
 		diff: React.PropTypes.number.isRequired,

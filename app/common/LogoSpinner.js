@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class LogoSpinner extends React.Component {
+export default class LogoSpinner {
 
 	static propTypes = {
         spinning: React.PropTypes.bool

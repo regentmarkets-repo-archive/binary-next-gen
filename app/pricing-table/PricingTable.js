@@ -1,7 +1,7 @@
 import React from 'react';
 import PricingTableRow from './PricingTableRow';
 
-export default class PricingTable extends React.Component {
+export default class PricingTable {
 
 	render() {
 

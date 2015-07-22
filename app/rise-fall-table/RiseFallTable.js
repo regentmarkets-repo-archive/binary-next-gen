@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class RiseFallTable extends React.Component {
+export default class RiseFallTable {
 
 	render() {
 

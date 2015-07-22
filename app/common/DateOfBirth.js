@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 
-class DobDay extends React.Component {
+class DobDay {
 
 	render() {
 
@@ -18,7 +18,7 @@ class DobDay extends React.Component {
 	}
 }
 
-class DobMonth extends React.Component {
+class DobMonth {
 
 	render() {
 
@@ -35,7 +35,7 @@ class DobMonth extends React.Component {
 	}
 }
 
-class DobYear extends React.Component {
+class DobYear {
 
 	render() {
 
@@ -53,7 +53,8 @@ class DobYear extends React.Component {
 	}
 }
 
-export default class DateOfBirth extends React.Component {
+export default class DateOfBirth {
+	
 	render() {
 		return (
 			<span className='dob'>

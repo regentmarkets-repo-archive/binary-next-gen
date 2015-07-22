@@ -1,7 +1,7 @@
 import React from 'react';
 import MarketItem from './MarketItem';
 
-export default class MarketsList extends React.Component {
+export default class MarketsList {
 
 	static propTypes = {
 		markets: React.PropTypes.array.isRequired

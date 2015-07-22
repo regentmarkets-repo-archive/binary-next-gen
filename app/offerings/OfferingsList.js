@@ -2,7 +2,7 @@ import React from 'react';
 import ObjectTable from '../common/ObjectTable';
 
 
-export default class OfferingsList extends React.Component {
+export default class OfferingsList {
 
 	static propTypes = {
 		offerings: React.PropTypes.object.isRequired

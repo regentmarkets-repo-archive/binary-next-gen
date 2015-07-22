@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class PricingTableRow extends React.Component {
+export default class PricingTableRow {
     render() {
         return (
             <tr>

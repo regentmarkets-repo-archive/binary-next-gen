@@ -1,6 +1,6 @@
 import React from 'react';
 
-class ObjectTableRow extends React.Component {
+class ObjectTableRow {
 	render() {
 		return (
 			<tr>
@@ -11,7 +11,7 @@ class ObjectTableRow extends React.Component {
 	}
 }
 
-export default class ObjectTable extends React.Component {
+export default class ObjectTable {
 
 	render() {
 		return (

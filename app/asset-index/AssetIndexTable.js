@@ -1,7 +1,7 @@
 import React from 'react';
 import AssetIndexRow from './AssetIndexRow';
 
-export default class AssetIndexTable extends React.Component {
+export default class AssetIndexTable {
 
     render() {
 

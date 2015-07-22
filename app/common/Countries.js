@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class Countries extends React.Component {
+export default class Countries {
 	render() {
 		return (
 			<select id='residence' name='residence'>

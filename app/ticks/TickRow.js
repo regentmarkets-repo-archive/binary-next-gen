@@ -4,7 +4,7 @@ import Direction from '../common/Direction';
 
 import { Sparklines, SparklinesLine, SparklinesSpots } from 'react-sparklines';
 
-export default class TickRow extends React.Component {
+export default class TickRow {
 
 	static propTypes = {
 		tick: React.PropTypes.object.isRequired,

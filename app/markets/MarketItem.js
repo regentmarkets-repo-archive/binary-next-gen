@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class MarketItem extends React.Component {
+export default class MarketItem {
 
 	static propTypes = {
 		market: React.PropTypes.object.isRequired
