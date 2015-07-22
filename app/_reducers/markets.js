@@ -1,4 +1,4 @@
-import { FILTER_MARKETS } from '../_constants/ActionTypes';
+import { FILTER_MARKETS, UPDATE_MARKETS } from '../_constants/ActionTypes';
 
 const marketsList =  [{
     id: 'eur50',
@@ -40,11 +40,11 @@ const initialState = {
 
 export default function markets(state = initialState, action) {
 
-    const doFilterMarkets = (query = state.query) => {
+    const doFilter = (markets = state.allMarkets, query = state.query) => {
 
         query = query.toLowerCase();
 
-        return state.allMarkets.filter(m =>
+        return markets.filter(m =>
             query == '' ||
             m.id.toLowerCase().includes(query) ||
             m.name.toLowerCase().includes(query)
@@ -52,11 +52,19 @@ export default function markets(state = initialState, action) {
     };
 
     switch (action.type) {
+
         case FILTER_MARKETS:
             return {
                 ...state,
-                shownMarkets: doFilterMarkets(action.query),
+                shownMarkets: doFilter(state.markets, action.query),
                 query: action.query
+            };
+
+        case UPDATE_MARKETS:
+            return {
+                ...state,
+                allMarkets: action.markets,
+                shownMarkets: doFilter(action.markets, state.query)
             };
 
         default:

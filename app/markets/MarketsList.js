@@ -15,11 +15,8 @@ export default class MarketsList extends React.Component {
 			<table>
 				<thead>
 					<tr>
+						<th>Code</th>
 						<th>Name</th>
-						<th>Value</th>
-						<th>Updated</th>
-						<th>Change</th>
-						<th>Chart</th>
 					</tr>
 				</thead>
 				<tbody>

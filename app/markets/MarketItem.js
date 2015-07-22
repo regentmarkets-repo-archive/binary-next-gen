@@ -17,15 +17,6 @@ export default class MarketItem extends React.Component {
 				<td>
 					{market.name}
 				</td>
-				<td>
-
-				</td>
-				<td>
-
-				</td>
-				<td>
-
-				</td>
 			</tr>
 		);
 	}

@@ -13,7 +13,7 @@ export default class TicksPage extends React.Component {
 
 		this.state = { ticks: LiveData.Ticks };
 
-		LiveData.init('DlPFBthdk9t-5IYJu2YezfEUCa0');
+		LiveData.init('9cRhCQRGfhyKJd016aKPkPxjkwXOiPhMHkJmK9pbAOnW3lDqz5fiV8KokKoJY9ZuDqJtkxQyQqWWc3Hvsw2nGyozyWj06zDQyfXIyJhhNc5ezHUpqfkAxFM9UnuiOpyr');
   	}
 
 	render() {
