@@ -10,11 +10,6 @@ export default class DailyPricesFilter extends React.Component {
 		};
 	}
 
-	static propTypes = {
-		minAvailableDuration: React.PropTypes.number,
-		onCalculate: React.PropTypes.func.isRequired
-	};
-
 	render() {
 
 		const { minAvailableDuration, onCalculate } = this.props;

@@ -17,6 +17,7 @@ export default class HomePage {
 				<h3><Link to={`/trading-times`}>Trading Times</Link></h3>
 				<h3><Link to={`/pricing-table`}>Pricing Table</Link></h3>
 				<h3><Link to={`/daily-prices`}>Daily Prices</Link></h3>
+				<h3><Link to={`/intraday-prices`}>Intrday Prices</Link></h3>
 			</div>
 		);
 	}
