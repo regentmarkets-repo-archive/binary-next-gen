@@ -15,6 +15,7 @@ import TradingTimesPage from './trading-times/TradingTimesPage';
 import PricingTablePage from './pricing-table/PricingTablePage';
 import DailyPricesPage from './daily-prices/DailyPricesPage';
 import IntradayPricesPage from './intraday-prices/IntradayPricesPage';
+import PortfolioPage from './portfolio/PortfolioPage';
 
 
 class NotFound extends React.Component {
@@ -38,5 +39,6 @@ export default (
 		<Route path="pricing-table" component={PricingTablePage} />
         <Route path="daily-prices" component={DailyPricesPage} />
         <Route path="intraday-prices" component={IntradayPricesPage} />
+        <Route path="portfolio" component={PortfolioPage} />
     </Route>
 );
