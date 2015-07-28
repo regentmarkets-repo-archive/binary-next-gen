@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStore, combineReducers, compose } from 'redux';
-import { Provider } from 'react-redux';
+import { provide } from 'react-redux';
 import * as reducers from './_reducers';
 import { devTools, persistState } from 'redux-devtools';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
@@ -17,19 +17,18 @@ const finalCreateStore = compose(
 const reducer = combineReducers(reducers);
 const store = finalCreateStore(reducer);
 
+@provide(store)
 export default class Root extends React.Component {
     render() {
         const history = new BrowserHistory();
 
         return (
             <div>
-                <Provider store={store}>
-                    {() => <Router history={history} children={routes}/> }
-                </Provider>
+                <Router history={history} children={routes}/> }
             </div>
         );
         // <DebugPanel top right bottom>
         //     <DevTools store={store} monitor={LogMonitor} />
-        // </DebugPanel>        
+        // </DebugPanel>
     }
 }

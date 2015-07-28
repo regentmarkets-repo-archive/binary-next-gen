@@ -16,7 +16,7 @@
   "author": "Boris @ Binary",
   "license": "MIT",
   "dependencies": {
-    "binary-live-api": "^0.6.0",
+    "binary-live-api": "*",
     "moment": "^2.10.3",
     "react": "^0.13.3",
     "react-redux": "^0.2.2",
