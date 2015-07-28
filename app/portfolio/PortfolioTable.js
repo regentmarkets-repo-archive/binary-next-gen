@@ -5,7 +5,7 @@ export default class PortfolioTable {
 
 	render() {
 
-        const { contracts } = this.props;
+        const { contracts, totals } = this.props;
 
 		return (
 			<table>
@@ -25,8 +25,8 @@ export default class PortfolioTable {
 					<tr>
 						<th></th>
 						<th></th>
-						<th>USD 149.62</th>
-                        <th>USD 112.20</th>
+						<th>USD {totals.purchase}</th>
+                        <th>USD {totals.indicative}</th>
                         <th></th>
 					</tr>
 				</thead>

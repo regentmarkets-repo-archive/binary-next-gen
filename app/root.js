@@ -24,7 +24,7 @@ export default class Root extends React.Component {
 
         return (
             <div>
-                <Router history={history} children={routes}/> }
+                <Router history={history} children={routes}/>
             </div>
         );
         // <DebugPanel top right bottom>

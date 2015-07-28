@@ -1,12 +1,11 @@
 import React from 'react';
+import moment from 'moment';
 
-export default class PortfolioDetails extends React.Component {
-
-	constructor(props) {
-		super(props);
-	}
+export default class PortfolioDetails {
 
 	render() {
+
+		const { contract } = this.props;
 
 		return (
 			<div>
@@ -20,14 +19,14 @@ export default class PortfolioDetails extends React.Component {
 					</thead>
 					<tbody>
 						<tr>
-							<td>2015-07-27 23:26:02</td>
-							<td>2015-07-28 15:51:27</td>
-							<td>2015-08-01 23:59:59</td>
+							<td>{moment.unix(contract.date_start).format('h:mm:ss a')}</td>
+							<td>todo</td>
+							<td>{moment.unix(contract.expiry_time).format('h:mm:ss a')}</td>
 						</tr>
 						<tr>
 							<td></td>
-							<td>16 hours 25 minutes</td>
-							<td>4 days 8 hours</td>
+							<td>now - start</td>
+							<td>end - now</td>
 						</tr>
 					</tbody>
 					<thead>
@@ -39,9 +38,9 @@ export default class PortfolioDetails extends React.Component {
 					</thead>
 					<tbody>
 						<tr>
-							<td>10033.24</td>
-							<td>9456.57</td>
-							<td></td>
+							<td>{contract.entry_spot}</td>
+							<td>{contract.spot}</td>
+							<td>{contract.exit_spot}</td>
 						</tr>
 						<tr>
 							<td></td>
@@ -58,13 +57,13 @@ export default class PortfolioDetails extends React.Component {
 					</thead>
 					<tbody>
 						<tr>
-							<td>USD 49.16</td>
-							<td>USD 27.28</td>
-							<td></td>
+							<td>{contract.currency} {contract.buy_price}</td>
+							<td>{contract.currency} {contract.indicative}</td>
+							<td>{contract.currency} {contract.final_price}</td>
 						</tr>
 						<tr>
 							<td></td>
-							<td>-44.51%</td>
+							<td>-???</td>
 							<td></td>
 						</tr>
 					</tbody>

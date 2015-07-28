@@ -1,6 +1,7 @@
 import React from 'react';
 
 export default class PortfolioRow {
+
     render() {
 
         const { contract } = this.props;
