@@ -179,10 +179,12 @@ export default class MarketsSelect {
 
     render() {
         return (
-            <select>
+            <select {...this.props}>
                 { markets.map(market =>
                     <optgroup label={market.name}>
-                        {market.submarkets.map(subm => <option value={subm.id}>{subm.name}</option>)}
+                        {market.submarkets.map(subm =>
+                            <option value={subm.id}>{subm.name}</option>
+                        )}
                     </optgroup>
                 )}
             </select>

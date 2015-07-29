@@ -2,6 +2,22 @@ import React from 'react';
 import MarketsSelect from '../common/MarketsSelect';
 
 export default class PricingTableFilter extends React.Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            contractType: 'higher',
+            market: 'AUD',
+            payoutCurrency: 'usd',
+            step: '1',
+            stepTerms: 'moneyness',
+            from: '95',
+            step: 'daily',
+            from: Date.now()
+        };
+    }
+
     render() {
         return (
             <form>
@@ -22,22 +38,22 @@ export default class PricingTableFilter extends React.Component {
 
                     <fieldset>
                         <label for="pricingtable_underlying">Market:</label>
-                        <MarketsSelect />
+                        <MarketsSelect id="pricingtable_underlying" />
                     </fieldset>
 
                     <fieldset>
                         <label for="pricingtable_currency">Payout Currency:</label>
-                        <select id="pricingtable_currency" name="currency">
-                            <option value="USD" selected="">USD</option>
+                        <select id="pricingtable_currency">
+                            <option value="USD">USD</option>
                             <option value="EUR">EUR</option>
                             <option value="GBP">GBP</option>
                             <option value="AUD">AUD</option>
                         </select>
                     </fieldset>
 
-                    <fieldset id="lower_strike">
+                    <fieldset>
                         <label for="low_strike">Low barrier:</label>
-                        <input size="5" type="number" id="low_strike" name="low_strike" value="86.022" />
+                        <input type="number" id="low_strike" value="86.022" />
                         <span>(Absolute barrier)</span>
                     </fieldset>
 
@@ -49,7 +65,7 @@ export default class PricingTableFilter extends React.Component {
 
                     <fieldset>
                         <label>From (%):</label>
-                        <input size="5" type="number" value="95" />
+                        <input type="number" value="95" />
                     </fieldset>
 
                     <fieldset>
@@ -59,38 +75,29 @@ export default class PricingTableFilter extends React.Component {
 
                     <fieldset>
                         <label for="expiry_step">Step:</label>
-                        <select name="expiry_step" id="expiry_step">
-                            <option value="Daily" selected="selected"> Daily </option>
-                            <option value="Weekly"> Weekly </option>
-                            <option value="Monthly"> Monthly </option>
-                            <option value="Standard expiry"> Standard expiry </option>
+                        <select id="expiry_step">
+                            <option value="Daily">Daily</option>
+                            <option value="Weekly">Weekly</option>
+                            <option value="Monthly">Monthly</option>
+                            <option value="Standard expiry">Standard expiry</option>
                         </select>
                     </fieldset>
 
                     <fieldset>
-                        <label for="from_expiry" id="from_expiry_label">From:</label>
-                        <input size="9"
-                            type="text"
-                            id="from_expiry"
-                            name="from_expiry"
-                            value="2015-07-31"
-                            class="picker__input" />
+                        <label for="from_expiry">From:</label>
+                        <input type="date" id="from_expiry" value="2015-07-31" />
                     </fieldset>
 
                     <fieldset class="strike-step">
                         <label for="strike_step">Step (%):</label>
                         <div class="row">
                             <div>
-                                <input size="13" type="text" name="strike_step" id="strike_step" value="1" />
+                                <input type="number" value="1" />
                             </div>
                             <div>
-                                <select id="strike_type" name="strike_type">
-                                    <option value="Moneyness terms" selected="selected">
-                                        Moneyness terms
-                                    </option>
-                                    <option value="Barrier terms">
-                                        Barrier terms
-                                    </option>
+                                <select>
+                                    <option value="Moneyness terms">Moneyness terms</option>
+                                    <option value="Barrier terms">Barrier terms</option>
                                 </select>
                             </div>
                         </div>
