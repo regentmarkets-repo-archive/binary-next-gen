@@ -8,14 +8,13 @@ export default class ActiveSymbolsPage extends React.Component {
 	constructor(props) {
 		super(props);
 
-		LiveData.on('message', () => {
-			this.setState({ activeSymbols: LiveData.activeSymbols() });
-			console.log('LiveData.offerings()', LiveData.offerings());
-		});
+		const liveData = new LiveData('2BpkX3lNIkuKH5VLIQqDHTJWNsYgOBTEBL85u9iMszP4RqHLGd5SM1Jt1TgqssbFNdHAi3cTgO6ubLuHYa1iXm77l7G5q4EMU50vjU85YRJF4VqcOYzFLDqieWEOsc7y')
 
-		this.state = { activeSymbols: LiveData.activeSymbols() || [] };
+		liveData.onDataChange = (function(data) {
+			this.state = { activeSymbols: liveData.activeSymbols };
+		}).bind(this);
 
-		LiveData.init('1C8FsTiUegCGq2ZqM8ntMdHsUUQNE9grp5p9gD6VmSmyocfcJiS0n2uOM83kakaYZMRfFCbZGI6kzfu0lYkHHoYFpMJRKKVaVHe0Ezs1KqL6JZvMwNqAUFxLfulKoalD');
+		this.state = { activeSymbols: liveData.activeSymbols || [] };
 	}
 
 	render() {

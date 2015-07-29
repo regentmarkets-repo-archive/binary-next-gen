@@ -6,17 +6,18 @@ import MarketsList from './MarketsList';
 import MarketsSearch from './MarketsSearch';
 import { LiveData } from 'binary-live-api';
 
-@connect(state => ({
-	markets: state.markets
-}))
+@connect(state => ({ markets: state.markets }))
 export default class MarketsPage extends React.Component {
 
 	constructor(props) {
 		super(props);
 
-		LiveData.on('message', (data) => {
+		const liveData = new LiveData('2BpkX3lNIkuKH5VLIQqDHTJWNsYgOBTEBL85u9iMszP4RqHLGd5SM1Jt1TgqssbFNdHAi3cTgO6ubLuHYa1iXm77l7G5q4EMU50vjU85YRJF4VqcOYzFLDqieWEOsc7y')
 
-			if (!data.active_symbols) return;
+		liveData.onDataChange = (function(data) {
+			this.state = { activeSymbols: liveData.activeSymbols };
+
+			if (data != 'active_symbols') return;
 
 			const { markets, dispatch } = this.props;
 			const actions = bindActionCreators(MarketsActions, dispatch);
@@ -25,9 +26,7 @@ export default class MarketsPage extends React.Component {
 				name: data.active_symbols[m].display_name
 			}));
 			actions.updateMarkets(parsed);
-		});
-
-		LiveData.init('1C8FsTiUegCGq2ZqM8ntMdHsUUQNE9grp5p9gD6VmSmyocfcJiS0n2uOM83kakaYZMRfFCbZGI6kzfu0lYkHHoYFpMJRKKVaVHe0Ezs1KqL6JZvMwNqAUFxLfulKoalD');
+		}).bind(this);
 	}
 
 	render() {
