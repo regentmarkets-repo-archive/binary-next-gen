@@ -31,9 +31,6 @@ export default class LoginPage extends React.Component {
 		                Binary.com now requires your email and password to log in. If you have both a real-money and a virtual-money account, please use the password from your real-money account.
 					</p>
 					<p>
-						<a href="#">Login Trouble!</a>
-					</p>
-					<p>
 						<input name="email" placeholder="Email" type="email"></input>
 					</p>
 				  	<p>
