@@ -1,5 +1,6 @@
 import React from 'react';
 import { LiveData } from 'binary-live-api';
+import Modal from '../common/Modal';
 import PortfolioTable from './PortfolioTable';
 import PortfolioDetails from './PortfolioDetails';
 
@@ -10,7 +11,12 @@ export default class PortfolioPage extends React.Component {
 
 		const liveData = new LiveData('2BpkX3lNIkuKH5VLIQqDHTJWNsYgOBTEBL85u9iMszP4RqHLGd5SM1Jt1TgqssbFNdHAi3cTgO6ubLuHYa1iXm77l7G5q4EMU50vjU85YRJF4VqcOYzFLDqieWEOsc7y')
 
-		this.state = { contracts: [], totals: {} };
+		this.state = {
+			detailsShown: false,
+			contractDetails: {},
+			contracts: [],
+			totals: {}
+		};
 
 		liveData.api.getPortfolio();
 
@@ -25,13 +31,23 @@ export default class PortfolioPage extends React.Component {
 		}).bind(this);
 	}
 
+	showDetails(contract) {
+		this.setState({ contractDetails: contract, detailsShown: true });
+	}
+
+	onCloseDetails() {
+		this.setState({ detailsShown: false });
+	}
+
 	render() {
 
 		return (
 			<div>
 				<h3>Account balance : USD 9,822.07</h3>
-				<PortfolioTable contracts={this.state.contracts} totals={this.state.totals} />
-				<PortfolioDetails contract={this.state.contracts[0] || {}} />
+				<Modal shown={this.state.detailsShown} onClose={::this.onCloseDetails}>
+					<PortfolioDetails contract={this.state.contractDetails} />
+				</Modal>
+				<PortfolioTable contracts={this.state.contracts} totals={this.state.totals} onViewDetails={::this.showDetails} />
 			</div>
 		);
 	}

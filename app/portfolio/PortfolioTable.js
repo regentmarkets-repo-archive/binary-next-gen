@@ -5,7 +5,7 @@ export default class PortfolioTable {
 
 	render() {
 
-        const { contracts, totals } = this.props;
+        const { contracts, totals, onViewDetails } = this.props;
 
 		return (
 			<table>
@@ -19,7 +19,7 @@ export default class PortfolioTable {
 					</tr>
 				</thead>
 				<tbody>
-                    {contracts.map((c, i) => <PortfolioRow key={i} contract={c} />)}
+                    {contracts.map((c, i) => <PortfolioRow key={i} contract={c} onViewDetails={onViewDetails} />)}
 				</tbody>
 				<thead>
 					<tr>
