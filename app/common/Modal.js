@@ -1,4 +1,6 @@
 import React from 'react';
+import ReactAddons from 'react/addons';
+
 
 export default class Modal {
 
@@ -7,19 +9,29 @@ export default class Modal {
 		onClose: React.PropTypes.func
     };
 
-	render() {
+	renderModal() {
 
-		const { shown, onClose } = this.props;
-
-		if (!shown) return <div />;
+		const { onClose } = this.props;
 
 		return (
 			<div className="full-screen-overlay" onClick={onClose}>
-				<div className="modal-dialog">
+				<div className="modal">
 					<button onClick={onClose}>X</button>
 					{this.props.children}
 				</div>
 			</div>
+		);
+	}
+
+	render() {
+
+		const { shown, onClose } = this.props;
+		const ReactCSSTransitionGroup = ReactAddons.addons.CSSTransitionGroup;
+
+		return (
+			<ReactCSSTransitionGroup transitionName="show">
+				{shown ? this.renderModal() : <div/>}
+			</ReactCSSTransitionGroup>
 		);
 	}
 }

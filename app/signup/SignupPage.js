@@ -16,7 +16,6 @@ export default class SignupPage extends React.Component {
 	}
 
 	performSignup() {
-		console.log('Hello!');
 	}
 
 	nextStep(e) {

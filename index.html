@@ -3,13 +3,20 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700&subset=latin,vietnamese,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css' />
     <link rel='stylesheet' href='http://borisyankov.github.io/binary-static/css/binary.css' />
     <style>
+        * {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
         #nope-content { width: 320px; }
         .full-screen-overlay {
             position: fixed;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
+            width: 200%;
+            height: 200%;
+            top: -50%;
+            left: -50%;
 
             display: flex;
             align-items: center;
@@ -18,16 +25,49 @@
             background: rgba(0,0,0,.25);
             -webkit-backdrop-filter: blur(10px);
         }
-        .modal-dialog {
+        .modal {
             background: white;
             padding: 1rem;
             box-shadow: 0px 0px 1rem 0px rgba(0,0,0,0.5);
         }
-}
 
-.Aligner-item--bottom {
- align-self: flex-end;
+        /*.show-appear {
+            opacity: .5;
         }
+
+        .show-appear .modal {
+            transform: scale(.2);
+        }
+
+        .show-appear.show-appear-active .modal {
+            transform: scale(1);
+
+        }
+
+        .show-appear.show-appear-active {
+            opacity: 1;
+            transition: all 3s;
+        }*/
+
+        .show-enter {
+            opacity: 0.5;
+            transform: scale(0.9);
+            transition: all 2s ease;
+        }
+        .show-enter.show-enter-active {
+            opacity: 1;
+            transform: scale(1);
+        }
+        .show-leave {
+            opacity: 1;
+            transform: scale(1);
+            transition: all 2.5s ease;
+        }
+        .show-leave.show-leave-active {
+            opacity: 0.5;
+            transform: scale(0.9);
+        }
+
     </style>
 </head>
 <body>

@@ -10,7 +10,6 @@ export default class AsssetIndexPage extends React.Component {
 	}
 
 	onAssetSelect(idx) {
-		console.log('selected', idx);
 	}
 
 	render() {
