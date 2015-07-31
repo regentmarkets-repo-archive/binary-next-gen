@@ -1,6 +1,5 @@
 import React from 'react';
-import ReactAddons from 'react/addons';
-
+import { TransitionSpring, presets } from 'react-motion';
 
 export default class Modal {
 
@@ -9,29 +8,64 @@ export default class Modal {
 		onClose: React.PropTypes.func
     };
 
-	renderModal() {
+	renderModal(anim) {
 
-		const { onClose } = this.props;
+		const { shown, onClose, children } = this.props;
 
 		return (
-			<div className="full-screen-overlay" onClick={onClose}>
-				<div className="modal">
+			<div className="full-screen-overlay" onClick={onClose} style={{ opacity: anim.opacity.val }}>
+				<div className="modal" style={{ transform: `scale(${anim.scale.val})` }}>
 					<button onClick={onClose}>X</button>
-					{this.props.children}
+					{children}
 				</div>
 			</div>
 		);
 	}
 
+	getEndValue() {
+
+		const { shown } = this.props;
+
+		if (!shown) return {};
+
+		return {
+			modal: {
+				scale: { val: 1, config: [1500, 40] },
+				opacity: { val: 1, config: [1000, 40] }
+			}
+		};
+	}
+
+	willEnter() {
+
+	    return {
+			scale: { val: .75 },
+			opacity: { val: .5 }
+		}
+	}
+
+	willLeave(key, value, endValue, currentValue, currentSpeed) {
+
+		return {
+			scale: { val: 0, config: [1000, 40] },
+			opacity: { val: 0, config: [1000, 40] }
+		}
+	}
+
 	render() {
 
 		const { shown, onClose } = this.props;
-		const ReactCSSTransitionGroup = ReactAddons.addons.CSSTransitionGroup;
 
 		return (
-			<ReactCSSTransitionGroup transitionName="show">
-				{shown ? this.renderModal() : <div/>}
-			</ReactCSSTransitionGroup>
+			<TransitionSpring endValue={::this.getEndValue} willEnter={::this.willEnter} willLeave={::this.willLeave}>
+				{currentValue =>
+	            	<div>
+						{Object.keys(currentValue).map(key =>
+  							this.renderModal(currentValue[key])
+						)}
+					</div>
+				}
+			</TransitionSpring>
 		);
 	}
 }
