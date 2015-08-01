@@ -24,11 +24,9 @@ export default class Modal {
 
 	getEndValue() {
 
-		const { shown } = this.props;
-
-		if (!shown) return {};
-
-		return {
+		return (!this.props.shown)
+		? {}
+		: {
 			modal: {
 				scale: { val: 1, config: [1500, 40] },
 				opacity: { val: 1, config: [1000, 40] }
@@ -54,14 +52,14 @@ export default class Modal {
 
 	render() {
 
-		const { shown, onClose } = this.props;
-
 		return (
-			<TransitionSpring endValue={::this.getEndValue} willEnter={::this.willEnter} willLeave={::this.willLeave}>
-				{currentValue =>
-	            	<div>
-						{Object.keys(currentValue).map(key =>
-  							this.renderModal(currentValue[key])
+			<TransitionSpring
+				endValue={::this.getEndValue}
+				willEnter={::this.willEnter}
+				willLeave={::this.willLeave}>
+				{x => <div>
+						{Object.keys(x).map(key =>
+  							<div key={key}>{this.renderModal(x[key])}</div>
 						)}
 					</div>
 				}
