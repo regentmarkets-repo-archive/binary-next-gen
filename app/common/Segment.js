@@ -14,7 +14,7 @@ export default class Segment {
 
         return (
             <li className={active ? "active" : ""}>
-                <a href="#" onClick={onSelect}>{name}</a>
+                <a href="#" onMouseDown={onSelect}>{name}</a>
             </li>
         );
     }

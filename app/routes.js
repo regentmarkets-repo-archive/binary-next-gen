@@ -18,13 +18,11 @@ import IntradayPricesPage from './intraday-prices/IntradayPricesPage';
 import PortfolioPage from './portfolio/PortfolioPage';
 import TradePage from './trade/TradePage';
 import SettingsPage from './settings/SettingsPage';
+import SettingsPersonalDetails from './settings/SettingsPersonalDetails';
+import SettingsSecurity from './settings/SettingsSecurity';
+import SettingsSelfExclusion from './settings/SettingsSelfExclusion';
+import SettingsLimits from './settings/SettingsLimits';
 
-
-class NotFound extends React.Component {
-    render() {
-        return <h1>Not found</h1>;
-    }
-}
 
 export default (
     <Route component={App}>
@@ -43,6 +41,11 @@ export default (
         <Route path="daily-prices" component={DailyPricesPage} />
         <Route path="intraday-prices" component={IntradayPricesPage} />
         <Route path="portfolio" component={PortfolioPage} />
-        <Route path="settings" component={SettingsPage} />
+        <Route path="settings" component={SettingsPage}>
+            <Route path="details" component={SettingsPersonalDetails}/>
+            <Route path="security" component={SettingsSecurity}/>
+            <Route path="exclusion" component={SettingsSelfExclusion}/>
+            <Route path="limits" component={SettingsLimits}/>
+       </Route>
     </Route>
 );
