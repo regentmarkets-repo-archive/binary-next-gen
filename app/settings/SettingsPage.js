@@ -13,10 +13,6 @@ export default class SettingsPage extends React.Component {
 		};
 	}
 
-	pageSelect(e) {
-		console.log(e);
-	}
-
 	render() {
 
 		const navigationLinks = [{
@@ -35,9 +31,7 @@ export default class SettingsPage extends React.Component {
 
 		return (
 			<div>
-				<SegmentedControl
-					segments={navigationLinks}
-					onSelect={this.pageSelect} />
+				<SegmentedControl segments={navigationLinks} />
 				{this.props.children}
 			</div>
 		);
