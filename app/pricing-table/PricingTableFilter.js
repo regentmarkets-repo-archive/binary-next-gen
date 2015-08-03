@@ -23,7 +23,7 @@ export default class PricingTableFilter extends React.Component {
             <form>
                 <div className="row">
                     <fieldset>
-                        <label for="pricingtable_bet_type">Contract Type:</label>
+                        <label htmlFor="pricingtable_bet_type">Contract Type:</label>
                         <select id="pricingtable_bet_type">
                             <option value="CALL" selected="selected">Higher</option>
                             <option value="PUT">Lower</option>
@@ -37,12 +37,12 @@ export default class PricingTableFilter extends React.Component {
                     </fieldset>
 
                     <fieldset>
-                        <label for="pricingtable_underlying">Market:</label>
+                        <label htmlFor="pricingtable_underlying">Market:</label>
                         <MarketsSelect id="pricingtable_underlying" />
                     </fieldset>
 
                     <fieldset>
-                        <label for="pricingtable_currency">Payout Currency:</label>
+                        <label htmlFor="pricingtable_currency">Payout Currency:</label>
                         <select id="pricingtable_currency">
                             <option value="USD">USD</option>
                             <option value="EUR">EUR</option>
@@ -52,7 +52,7 @@ export default class PricingTableFilter extends React.Component {
                     </fieldset>
 
                     <fieldset>
-                        <label for="low_strike">Low barrier:</label>
+                        <label htmlFor="low_strike">Low barrier:</label>
                         <input type="number" id="low_strike" value="86.022" />
                         <span>(Absolute barrier)</span>
                     </fieldset>
@@ -74,7 +74,7 @@ export default class PricingTableFilter extends React.Component {
                     </fieldset>
 
                     <fieldset>
-                        <label for="expiry_step">Step:</label>
+                        <label htmlFor="expiry_step">Step:</label>
                         <select id="expiry_step">
                             <option value="Daily">Daily</option>
                             <option value="Weekly">Weekly</option>
@@ -84,13 +84,13 @@ export default class PricingTableFilter extends React.Component {
                     </fieldset>
 
                     <fieldset>
-                        <label for="from_expiry">From:</label>
+                        <label htmlFor="from_expiry">From:</label>
                         <input type="date" id="from_expiry" value="2015-07-31" />
                     </fieldset>
 
-                    <fieldset class="strike-step">
-                        <label for="strike_step">Step (%):</label>
-                        <div class="row">
+                    <fieldset className="strike-step">
+                        <label htmlFor="strike_step">Step (%):</label>
+                        <div className="row">
                             <div>
                                 <input type="number" value="1" />
                             </div>

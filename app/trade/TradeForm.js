@@ -29,16 +29,16 @@ export default class TradeForm extends React.Component {
 				</select>
 
 				<select>
-					<option class="asia_oceania" value="AS51">Australian Index</option>
-					<option class="europe_africa" value="AEX" >Dutch Index</option>
-					<option class="europe_africa" value="SX5E">Euro 50 Index</option>
-					<option class="europe_africa" value="FCHI">French Index</option>
-					<option class="europe_africa" value="GDAXI">German Index</option>
-					<option class="asia_oceania" value="HSI">Hong Kong Index</option>
-					<option class="asia_oceania" value="N225">Japanese Index</option>
-					<option class="europe_africa" value="SSMI">Swiss Index</option>
-					<option class="americas" value="SPC">US Index</option>
-					<option class="americas" value="DJI">Wall Street Index</option>
+					<option className="asia_oceania" value="AS51">Australian Index</option>
+					<option className="europe_africa" value="AEX" >Dutch Index</option>
+					<option className="europe_africa" value="SX5E">Euro 50 Index</option>
+					<option className="europe_africa" value="FCHI">French Index</option>
+					<option className="europe_africa" value="GDAXI">German Index</option>
+					<option className="asia_oceania" value="HSI">Hong Kong Index</option>
+					<option className="asia_oceania" value="N225">Japanese Index</option>
+					<option className="europe_africa" value="SSMI">Swiss Index</option>
+					<option className="americas" value="SPC">US Index</option>
+					<option className="americas" value="DJI">Wall Street Index</option>
 				</select>
 				<br />
 				<select>
@@ -47,7 +47,7 @@ export default class TradeForm extends React.Component {
 				</select>
 				<input type="date" name="duration_amount" value="10" />
 				<select>
-					<option class="spot" value="d">days</option>
+					<option className="spot" value="d">days</option>
 				</select>
 				<br />
 				<span>Spot: 123</span>
