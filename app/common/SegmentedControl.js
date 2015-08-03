@@ -28,14 +28,17 @@ export default class SegmentedControl extends React.Component {
 
     render() {
 
-        const { segments } = this.props;
+        const segments = (typeof this.props.segments[0] != 'string')
+            ? this.props.segments
+            : this.props.segments.map(s => ({ href: '#', text: s }));
 
         return (
             <ul role="segmented">
                 {segments.map((segment, idx) =>
                     <Segment
                         key={idx}
-                        name={segment}
+                        href={segment.href}
+                        text={segment.text}
                         active={idx == this.state.activeIndex}
                         onSelect={this.selected.bind(this, idx)} />
                 )}
