@@ -19,7 +19,7 @@
     "binary-live-api": "*",
     "moment": "^2.10.3",
     "react": "^0.13.3",
-    "react-motion": "^0.2.6",
+    "react-motion": "*",
     "react-redux": "^0.2.2",
     "react-router": "^1.0.0-beta3",
     "react-sparklines": "*",

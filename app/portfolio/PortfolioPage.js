@@ -9,9 +9,10 @@ export default class PortfolioPage extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const liveData = new LiveData('QXECUwoEbNhYVxZeQ7yoWoaQXceQXdaNULXn8oEdJtPyR7IYfcksvr3UQ8QbcfmgE6hWTlcZMTpfRAk1LHhfPYR5JeB2cd7PeylriQcgt2wnvA6EfblXP8yXpVVYzVpA')
+		const liveData = new LiveData('fcR6ZySPS3u0ezqOEt0bCZqpAuvXejg0vRUtulSAaCDISBPlrWtjOiIK1u8ZhGf0D8fJVWi4Zepb35jwAD6IpE7JF3gyFpT0BD6aH8Q7xIhb4FNKqasHWySW1pRJBI7T')
 
 		this.state = {
+			balance: {},
 			detailsShown: false,
 			contractDetails: {},
 			contracts: [],
@@ -20,12 +21,15 @@ export default class PortfolioPage extends React.Component {
 
 		liveData.api.getPortfolio();
 
-		liveData.onDataChange = (function(data) {
+		liveData.onDataChange = (function(dataType) {
+			if (dataType != 'portfolio') return;
+
 			this.setState({
-				contracts: liveData.contracts,
+				balance: liveData.balance,
+				contracts: liveData.portfolio,
 				totals: {
-					purchase: liveData.contracts.length && liveData.contracts.reduce((x, y) => x + +y.buy_price, 0),
-					indicative: liveData.contracts.length && liveData.contracts.reduce((x, y) => x + +y.buy_price, 0),
+					purchase: liveData.portfolio.length && liveData.portfolio.reduce((x, y) => x + +y.buy_price, 0),
+					indicative: liveData.portfolio.length && liveData.portfolio.reduce((x, y) => x + +y.buy_price, 0),
 				}
 			});
 		}).bind(this);
@@ -43,7 +47,7 @@ export default class PortfolioPage extends React.Component {
 
 		return (
 			<div>
-				<h3>Account balance : USD 9,822.07</h3>
+				<h3>Account balance : {this.state.balance.currency} {this.state.balance.amount}</h3>
 				<Modal shown={this.state.detailsShown} onClose={::this.onCloseDetails}>
 					<PortfolioDetails contract={this.state.contractDetails} />
 				</Modal>
