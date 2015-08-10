@@ -10,11 +10,9 @@ export default class Ticks {
 
     appendData(data) {
 
-        const symbol = data.ticks;
+        if (!this.ticks[data.symbol]) this.ticks[data.symbol] = { history: [] };
 
-        if (!this.ticks[symbol]) this.ticks[symbol] = { history: [] };
-
-        this.ticks[symbol].history.push({
+        this.ticks[data.symbol].history.push({
             epoch: data.epoch,
             quote: data.quote
         });

@@ -10,17 +10,15 @@ export default class TicksPage extends React.Component {
 		const liveData = new LiveData('aaPPaXJZlhm72g5Zi7doW7JstsRlHHBamrHVDEC0xyDmdm97')
 
 		liveData.onDataChange = (function(dataType) {
-			console.log('data change', dataType);
 			if (dataType == 'activeSymbols') {
-				console.log(liveData.activeSymbols);
 				liveData.trackActiveSymbols();
 			}
 			if (dataType == 'ticks') {
-				this.setState( { ticks: liveData.Ticks });
+				this.setState( { ticks: liveData.ticks });
 			}
 		}).bind(this);
 
-		this.state = { ticks: liveData.Ticks };
+		this.state = { ticks: liveData.ticks };
 
 		liveData.api.getActiveSymbolsByName();
   	}
@@ -28,8 +26,7 @@ export default class TicksPage extends React.Component {
 	render() {
 		return (
 			<div>
-				{JSON.stringify(this.state, null, '\t')}
-
+				<TickTable ticks={this.state.ticks} />
 			</div>
 		);
 	}

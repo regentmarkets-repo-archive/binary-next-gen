@@ -4,14 +4,13 @@ import TickRow from './TickRow';
 export default class TickTable {
 
 	static propTypes = {
-		tickData: React.PropTypes.object.isRequired
+		ticks: React.PropTypes.object.isRequired
 	};
 
 	render() {
 
-		let tickData = this.props.tickData;
-		let symbols = tickData.symbols();
-		let shownSymbols = symbols.slice(symbols.length - 10);
+		const { ticks } = this.props;
+	 	const symbols = ticks.symbols();
 
 		return (
 			<table>
@@ -26,11 +25,11 @@ export default class TickTable {
 					</tr>
 				</thead>
 				<tbody>
-					{shownSymbols.map((symbol, i) =>
+					{symbols.map((symbol, i) =>
 						<TickRow
 							key={i}
-							tick={tickData.current(symbol)}
-							history={tickData.history(symbol)} />
+							tick={ticks.current(symbol)}
+							history={ticks.history(symbol)} />
 					)}
 				</tbody>
 			</table>

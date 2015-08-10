@@ -18,8 +18,8 @@ export default class LiveData {
         this.events.on('authorize', ::this.authorizeResponseHandler);
         this.events.on('portfolio', ::this.portfolioHandler);
         this.events.on('offerings', ::this.offeringsHandler);
-        this.events.on('ticks', ::this.offeringsHandler);
-        this.events.on('symbols', ::this.activeSymbolsHandler); //this.trackActiveSymbols();
+        this.events.on('tick', ::this.ticksHandler);
+        this.events.on('symbols', ::this.activeSymbolsHandler);
         this.events.on('contracts', ::this.contractHandler);
 
         this.api.authorize(apiToken);
@@ -39,7 +39,11 @@ export default class LiveData {
     }
 
     ticksHandler(r) {
-        this.ticks.appendData(r.data);
+        this.ticks.appendData({
+            symbol: r.echo.ticks,
+            quote: r.data.quote,
+            epoch: r.data.epoch
+        });
         this.dataChanged('ticks');
     }
 
@@ -75,6 +79,6 @@ export default class LiveData {
 
         const list = this.activeSymbols.map(s => s.symbol);
 
-        this.api.trackSymbols(list);
+        this.api.trackSymbols(list.slice(list.length - 20));
     }
 }
