@@ -1,5 +1,5 @@
 import React from 'react';
-import { TransitionSpring, presets } from 'react-motion';
+import { TransitionSpring } from 'react-motion';
 
 export default class Modal {
 
@@ -10,7 +10,7 @@ export default class Modal {
 
 	renderModal(anim) {
 
-		const { shown, onClose, children } = this.props;
+		const { onClose, children } = this.props;
 
 		return (
 			<div className="full-screen-overlay" onClick={onClose} style={{ opacity: anim.opacity.val }}>

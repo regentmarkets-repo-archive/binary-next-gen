@@ -20,7 +20,7 @@ export default class HomePage {
 				<h3><Link to={`/daily-prices`}>Daily Prices</Link></h3>
 				<h3><Link to={`/intraday-prices`}>Intrday Prices</Link></h3>
 				<h3><Link to={`/portfolio`}>Portfolio</Link></h3>
-				<h3><Link to={`/settings`}>Settings</Link></h3>
+				<h3><Link to={`/settings/details`}>Settings</Link></h3>
 			</div>
 		);
 	}

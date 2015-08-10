@@ -1,5 +1,5 @@
 import React from 'react';
-import { LiveData } from 'binary-live-api';
+import LiveData from '../_data/livedata';
 import TickTable from './TickTable';
 
 export default class TicksPage extends React.Component {
@@ -7,18 +7,30 @@ export default class TicksPage extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const liveData = new LiveData('fcR6ZySPS3u0ezqOEt0bCZqpAuvXejg0vRUtulSAaCDISBPlrWtjOiIK1u8ZhGf0D8fJVWi4Zepb35jwAD6IpE7JF3gyFpT0BD6aH8Q7xIhb4FNKqasHWySW1pRJBI7T')
+		const liveData = new LiveData('aaPPaXJZlhm72g5Zi7doW7JstsRlHHBamrHVDEC0xyDmdm97')
 
-		liveData.onDataChange = (function(data) {
-			this.setState( { ticks: liveData.Ticks });
+		liveData.onDataChange = (function(dataType) {
+			console.log('data change', dataType);
+			if (dataType == 'activeSymbols') {
+				console.log(liveData.activeSymbols);
+				liveData.trackActiveSymbols();
+			}
+			if (dataType == 'ticks') {
+				this.setState( { ticks: liveData.Ticks });
+			}
 		}).bind(this);
 
 		this.state = { ticks: liveData.Ticks };
+
+		liveData.api.getActiveSymbolsByName();
   	}
 
 	render() {
 		return (
-  			<TickTable tickData={this.state.ticks} />
+			<div>
+				{JSON.stringify(this.state, null, '\t')}
+
+			</div>
 		);
 	}
 }

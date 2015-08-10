@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 export default class App extends React.Component {
     render() {
         return (
             <div id="content">
-                <h1><a href="/">Binary App</a></h1>
+                <h1><Link to="/">Binary App</Link></h1>
                 {this.props.children}
             </div>
         );
