@@ -3,12 +3,14 @@ import React from 'react';
 export default class InputGroup extends React.Component {
 
 	static propTypes = {
-		id: React.PropTypes.string.isRequired,
+		type: React.PropTypes.string.isRequired,		
+		id: React.PropTypes.string,
 		label: React.PropTypes.string,
-		type: React.PropTypes.string,
 		hint: React.PropTypes.string,
 		value: React.PropTypes.string,
-		readOnly: React.PropTypes.bool
+		readOnly: React.PropTypes.bool,
+		placeholder: React.PropTypes.string,
+		onChange: React.PropTypes.func,
 	};
 
 	static defaultValue = {
@@ -17,12 +19,12 @@ export default class InputGroup extends React.Component {
 
 	render() {
 
-		const { id, label, type, hint, value, readOnly } = this.props;
+		const { id, label, type, hint, value, readOnly, placeholder, onChange } = this.props;
 
 		return (
 			<fieldset>
                 {label && <label htmlFor={id}>{label}</label>}
-				<input id={id} type={type} defaultValue={value} readOnly={readOnly} />
+				<input id={id} type={type} defaultValue={value} readOnly={readOnly} placeholder={placeholder} onChange={onChange} />
 				{hint && <p className="hint">{hint}</p>}
 			</fieldset>
 		);

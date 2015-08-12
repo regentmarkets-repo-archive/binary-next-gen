@@ -2,6 +2,7 @@ import React from 'react';
 import LogoSpinner from '../common/LogoSpinner';
 import Countries from '../common/Countries';
 import ErrorMsg from '../common/ErrorMsg';
+import InputGroup from '../common/InputGroup'
 
 export default class SignupPage extends React.Component {
 
@@ -16,8 +17,9 @@ export default class SignupPage extends React.Component {
 	performSignup() {
 	}
 
-	openAccount(e) {
+	trySignup(e) {
 		e.preventDefault();
+
 		this.setState({
 			progress: true
 		});
@@ -32,15 +34,17 @@ export default class SignupPage extends React.Component {
 			<form className='wide-form'>
 				<LogoSpinner spinning={progress} />
 				<h3>Open Virtual Money Account</h3>
-				<input placeholder="Email" />
+				<InputGroup type="email" placeholder="Email" />
 				<ErrorMsg shown={false} text="You need to enter an email" />
-				<Countries />
-				<input placeholder="Password" />
+				<fieldset>
+					<Countries />
+				</fieldset>
+				<InputGroup type="password" placeholder="Password" />
 				<ErrorMsg shown={false} text="Enter a password" />
-				<input placeholder="Confirm Password" />
+				<InputGroup type="password" placeholder="Confirm Password" />
 				<ErrorMsg shown={false} text="Enter your password again" />
 				<ErrorMsg shown={false} text="Two passwords do not match" />
-				<button>Create Account</button>
+				<button onClick={this.trySignup}>Create Account</button>
 			</form>
 		);
 	}
