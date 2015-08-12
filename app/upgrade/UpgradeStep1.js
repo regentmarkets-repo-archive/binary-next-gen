@@ -1,7 +1,7 @@
 import React from 'react';
 import DateOfBirth from '../common/DateOfBirth';
 
-export default class SignupStep1 extends React.Component {
+export default class UpgradeStep1 extends React.Component {
 
 	render() {
 		return (

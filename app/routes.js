@@ -1,10 +1,11 @@
 import React from 'react';
-import { Route } from 'react-router';
+import { Route, DefaultRoute } from 'react-router';
 
 import App from './App';
 import HomePage from './home/HomePage';
 import LoginPage from './login/LoginPage';
 import SignupPage from './signup/SignupPage';
+import UpgradePage from './upgrade/UpgradePage';
 import TicksPage from './ticks/TicksPage';
 import OfferingsPage from './offerings/OfferingsPage';
 import ActiveSymbolsPage from './active-symbols/ActiveSymbolsPage';
@@ -29,6 +30,7 @@ export default (
         <Route path="/" component={HomePage}/>
 		<Route path="login" component={LoginPage} />
 		<Route path="signup" component={SignupPage} />
+        <Route path="upgrade" component={UpgradePage} />
         <Route path="trade" component={TradePage} />
 		<Route path="ticks" component={TicksPage} />
 		<Route path="offerings" component={OfferingsPage} />

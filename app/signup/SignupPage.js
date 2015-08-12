@@ -1,8 +1,6 @@
 import React from 'react';
 import LogoSpinner from '../common/LogoSpinner';
-import SignupStep1 from './SignupStep1';
-import SignupStep2 from './SignupStep2';
-import SignupStep3 from './SignupStep3';
+import Countries from '../common/Countries';
 
 export default class SignupPage extends React.Component {
 
@@ -18,13 +16,6 @@ export default class SignupPage extends React.Component {
 	performSignup() {
 	}
 
-	nextStep(e) {
-		e.preventDefault();
-		this.setState({
-			currentPage: this.state.currentPage + 1
-		});
-	}
-
 	openAccount(e) {
 		e.preventDefault();
 		this.setState({
@@ -33,47 +24,16 @@ export default class SignupPage extends React.Component {
 		this.performSignup();
 	}
 
-	previousStep(e) {
-		e.preventDefault();
-		this.setState({
-			currentPage: this.state.currentPage - 1
-		});
-	}
-
 	render() {
-
-		const steps = [(
-			<div>
-				<SignupStep1 />
-				<p>
-					<button onClick={::this.nextStep}>Next</button>
-				</p>
-			</div>
-		), (
-			<div>
-				<SignupStep2 />
-				<p>
-					<button onClick={::this.previousStep}>Back</button>
-					<button onClick={::this.nextStep}>Next</button>
-				</p>
-			</div>
-		), (
-			<div>
-				<SignupStep3 />
-				<p>
-					<button onClick={::this.previousStep}>Back</button>
-					<button onClick={::this.openAccount}>Open Account</button>
-				</p>
-			</div>
-		)];
-
 		return (
 			<form className='wide-form' >
-				<p>
-					<LogoSpinner spinning={this.state.progress}/>
-				</p>
-				<h3>Open Real Money Account</h3>
-				{ steps[this.state.currentPage] }
+				<LogoSpinner spinning={this.state.progress}/>
+				<h3>Open Virtual Money Account</h3>
+				<input />
+				<Countries/>
+				<input />
+				<input />
+				<button>Create Account</button>
 			</form>
 		);
 	}

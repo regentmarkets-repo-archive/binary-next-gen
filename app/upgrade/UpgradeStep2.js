@@ -1,7 +1,7 @@
 import React from 'react';
 import Countries from '../common/Countries';
 
-export default class SignupStep2 extends React.Component {
+export default class UpgradeStep2 extends React.Component {
 
 	render() {
 		return (

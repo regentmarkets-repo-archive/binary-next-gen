@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class SignupStep3 extends React.Component {
+export default class UpgradeStep3 extends React.Component {
 
 	render() {
 		return (

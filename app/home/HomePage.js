@@ -8,6 +8,7 @@ export default class HomePage {
 			<div>
 				<h3><Link to={`/login`}>Login</Link></h3>
 				<h3><Link to={`/signup`}>Signup</Link></h3>
+				<h3><Link to={`/upgrade`}>Upgrade</Link></h3>				
 				<h3><Link to={`/trade`}>Trade</Link></h3>
 				<h3><Link to={`/ticks`}>Ticks</Link></h3>
 				<h3><Link to={`/offerings`}>Offerings</Link></h3>
