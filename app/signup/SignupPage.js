@@ -10,42 +10,96 @@ export default class SignupPage extends React.Component {
 		super(props);
 
 		this.state = {
-			progress: false,
+			email: '',
+			residence: '',
+			password: '',
+			confirmPassword: '',
+			emailNotValid: false,
+			passwordNotEntered: false,
+			confirmationNotEntered: false,
+			passwordsDontMatch: false,
+			validatedOnce: false,
+			progress: false
 		};
 	}
 
 	performSignup() {
-	}
-
-	trySignup(e) {
-		e.preventDefault();
-
 		this.setState({
 			progress: true
 		});
-		this.performSignup();
+	}
+
+	validate() {
+		const { email, password, confirmPassword } = this.state;
+		const emailNotValid = !/\S+@\S+\.\S+/.test(email);
+		const passwordNotEntered = password.length == 0;
+		const confirmationNotEntered = confirmPassword.length == 0;
+		const passwordsDontMatch = confirmPassword.length > 0 && password == confirmPassword;
+
+		this.setState({
+			validatedOnce: true,
+			emailNotValid,
+			passwordNotEntered,
+			confirmationNotEntered,
+			passwordsDontMatch
+		});
+	}
+
+	trySignup(e) {
+
+		this.validate();
+
+		if (!(this.state.emailNotValid ||
+			this.state.passwordNotEntered ||
+			this.state.confirmationNotEntered ||
+			this.state.passwordsDontMatch)) {
+			this.performSignup();
+		}
+	}
+
+	emailChange(event) {
+		if (this.state.validatedOnce) this.validate();
+		this.setState({ email: event.target.value });
+	}
+
+	residenceChange(event) {
+		if (this.state.validatedOnce) this.validate();
+		this.setState({ residence: event.target.value });
+	}
+
+	confirmPasswordChange(event) {
+		if (this.state.validatedOnce) this.validate();
+		this.setState({ confirmPassword : event.target.value });
+	}
+
+	passwordChange(event) {
+		if (this.state.validatedOnce) this.validate();
+		this.setState({ password: event.target.value });
 	}
 
 	render() {
 
-		const { progress } = this.state;
+		const { progress, emailNotValid, passwordNotEntered, confirmationNotEntered, passwordsDontMatch } = this.state;
 
 		return (
-			<form className='wide-form'>
-				<LogoSpinner spinning={progress} />
-				<h3>Open Virtual Money Account</h3>
-				<InputGroup type="email" placeholder="Email" />
-				<ErrorMsg shown={false} text="You need to enter an email" />
-				<fieldset>
-					<Countries />
-				</fieldset>
-				<InputGroup type="password" placeholder="Password" />
-				<ErrorMsg shown={false} text="Enter a password" />
-				<InputGroup type="password" placeholder="Confirm Password" />
-				<ErrorMsg shown={false} text="Enter your password again" />
-				<ErrorMsg shown={false} text="Two passwords do not match" />
-				<button onClick={this.trySignup}>Create Account</button>
-			</form>
+			<div className="signup-content">
+    			<div id="content">
+					<p>
+						<LogoSpinner spinning={progress}/>
+					</p>
+					<InputGroup type="email" placeholder="Email" onChange={::this.emailChange} />
+					<ErrorMsg shown={emailNotValid} text="You need to enter an email" />
+					<fieldset>
+						<Countries />
+					</fieldset>
+					<InputGroup type="password" placeholder="Password" onChange={::this.passwordChange} />
+					<ErrorMsg shown={passwordNotEntered} text="Enter a password" />
+					<InputGroup type="password" placeholder="Confirm Password" onChange={::this.confirmPasswordChange} />
+					<ErrorMsg shown={confirmationNotEntered} text="Enter your password again" />
+					<ErrorMsg shown={passwordsDontMatch} text="Two passwords do not match" />
+					<button onClick={::this.trySignup}>Create Account</button>
+				</div>
+			</div>
 		);
 	}
 }

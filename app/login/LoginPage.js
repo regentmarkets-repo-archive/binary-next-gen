@@ -48,17 +48,17 @@ export default class LoginPage extends React.Component {
 
 	emailChange(event) {
 		if (this.state.validatedOnce) this.validate();
-        this.setState({email: event.target.value});
+        this.setState({ email: event.target.value });
     }
 
 	passwordChange(event) {
 		if (this.state.validatedOnce) this.validate();
-        this.setState({password: event.target.value});
+        this.setState({ password: event.target.value });
     }
 
 	render() {
 
-		const { emailNotValid, passwordNotEntered, credentialsInvalid, progress } = this.state;
+		const { progress, emailNotValid, passwordNotEntered, credentialsInvalid } = this.state;
 
 		return (
 			<div className="login-content">
@@ -72,9 +72,7 @@ export default class LoginPage extends React.Component {
 					<InputGroup type="password" placeholder="Password" onChange={::this.passwordChange} />
 					<ErrorMsg shown={passwordNotEntered} text="Need a pass" />
 					<ErrorMsg shown={credentialsInvalid} text="Access denied" />
-				  	<fieldset>
-						<button onClick={::this.tryLogin}>Sign in</button>
-				  	</fieldset>
+					<button onClick={::this.tryLogin}>Sign in</button>
 				  	<p>
 				    	<a href="#">Forgot password?</a>
 				  	</p>
