@@ -8,11 +8,15 @@ export default class RiseFallTablePage extends React.Component {
 		super(props);
 	}
 
+	refilter() {
+
+	}
+
 	render() {
 
 		return (
 			<div>
-				<RiseFallFilter />
+				<RiseFallFilter onCalculate={::this.refilter} />
 				<RiseFallTable />
 			</div>
 		);

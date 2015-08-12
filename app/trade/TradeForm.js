@@ -45,7 +45,7 @@ export default class TradeForm extends React.Component {
 					<option value="duration">Duration</option>
 					<option value="endtime">End Time</option>
 				</select>
-				<input type="date" name="duration_amount" value="10" />
+				<input type="number" name="duration_amount" defaultValue="10" />
 				<select>
 					<option className="spot" value="d">days</option>
 				</select>
@@ -53,16 +53,16 @@ export default class TradeForm extends React.Component {
 				<span>Spot: 123</span>
 				<br />
 				<label>Barrier</label>
-				<input type="number" value="506.00" />
+				<input type="number" defaultValue="506.00" />
 				<br />
 				<select>
 					<option value="payout">Payout</option>
 					<option value="stake">Stake</option>
 				</select>
-				<select>
-					<option value="USD" selected="selected">USD</option>
+				<select defaultValue="USD">
+					<option value="USD">USD</option>
 				</select>
-				<input type="number" value="100" />
+				<input type="number" defaultValue="100" />
 			</div>
 		);
 	}

@@ -18,7 +18,7 @@ export default class DailyPricesFilter extends React.Component {
 				<form>
 					<label>
 						Days to display
-						<input type="number" size="3" value="30" />
+						<input type="number" size="3" defaultValue="30" />
 					</label>
 					<button>View</button>
 				</form>

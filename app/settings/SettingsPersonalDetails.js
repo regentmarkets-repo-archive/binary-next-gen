@@ -16,16 +16,16 @@ export default class SettingsPersonalDetails extends React.Component {
 			<div>
 				<legend>details</legend>
 
-				<InputGroup id="name" label="Name" value="sdfsdf sdfsdf (Mr)" readOnly="true" />
-				<InputGroup id="dob" label="Date of birth" value="1918-03-01" readOnly="true" />
-				<InputGroup id="residence" label="Country of Residence" value="Indonesia" readOnly="true" />
-				<InputGroup id="email" label="Email" value="bobtester@mailinator.com" readOnly="true" />
+				<InputGroup id="name" label="Name" type="text" value="sdfsdf sdfsdf (Mr)" readOnly={true} />
+				<InputGroup id="dob" label="Date of birth" type="date" value="1918-03-01" readOnly={true} />
+				<InputGroup id="residence" label="Country of Residence" type="text" value="Indonesia" readOnly={true} />
+				<InputGroup id="email" label="Email" type="email" value="bobtester@mailinator.com" readOnly={true} />
 
 				<legend>Address</legend>
 
-				<InputGroup id="address1" label="First line of home address" value="sdfsadf" />
-				<InputGroup id="address2" label="Second line of home address" value="asdfasdf" />
-				<InputGroup id="city" label="Town/City" value="sdfasdf" />
+				<InputGroup id="address1" type="text" label="First line of home address" value="sdfsadf" />
+				<InputGroup id="address2" type="text" label="Second line of home address" value="asdfasdf" />
+				<InputGroup id="city" type="text" label="Town/City" value="sdfasdf" />
 
 				<fieldset>
 					<label htmlFor="AddressState">State/Province</label>
@@ -34,8 +34,8 @@ export default class SettingsPersonalDetails extends React.Component {
 					</select>
 				</fieldset>
 
-				<InputGroup id="postcode" label="Postal Code / ZIP" value="23423423" />
-				<InputGroup id="tel" label="Telephone" value="+6223423423423" type="tel"/>
+				<InputGroup id="postcode" type="text" label="Postal Code / ZIP" value="23423423" />
+			<InputGroup id="tel" type="tel" label="Telephone" value="+6223423423423" />
 
 				<button>Update</button>
 			</div>

@@ -24,8 +24,8 @@ export default class PricingTableFilter extends React.Component {
                 <div className="row">
                     <fieldset>
                         <label htmlFor="pricingtable_bet_type">Contract Type:</label>
-                        <select id="pricingtable_bet_type">
-                            <option value="CALL" selected="selected">Higher</option>
+                        <select id="pricingtable_bet_type" defaultValue="CALL">
+                            <option value="CALL">Higher</option>
                             <option value="PUT">Lower</option>
                             <option value="ONETOUCH">Touches</option>
                             <option value="NOTOUCH">Does not touch</option>
@@ -53,7 +53,7 @@ export default class PricingTableFilter extends React.Component {
 
                     <fieldset>
                         <label htmlFor="low_strike">Low barrier:</label>
-                        <input type="number" id="low_strike" value="86.022" />
+                        <input type="number" id="low_strike" defaultValue="86.022" />
                         <span>(Absolute barrier)</span>
                     </fieldset>
 
@@ -65,7 +65,7 @@ export default class PricingTableFilter extends React.Component {
 
                     <fieldset>
                         <label>From (%):</label>
-                        <input type="number" value="95" />
+                        <input type="number" defaultValue="95" />
                     </fieldset>
 
                     <fieldset>
@@ -85,14 +85,14 @@ export default class PricingTableFilter extends React.Component {
 
                     <fieldset>
                         <label htmlFor="from_expiry">From:</label>
-                        <input type="date" id="from_expiry" value="2015-07-31" />
+                        <input type="date" id="from_expiry" defaultValue="2015-07-31" />
                     </fieldset>
 
                     <fieldset className="strike-step">
                         <label htmlFor="strike_step">Step (%):</label>
                         <div className="row">
                             <div>
-                                <input type="number" value="1" />
+                                <input type="number" defaultValue="1" />
                             </div>
                             <div>
                                 <select>

@@ -29,7 +29,7 @@ export default class RiseFallFilter extends React.Component {
 
 			        <fieldset id="duration_container">
 			            <label htmlFor="duration_amount">Duration:</label>
-			            <input name="duration_amount" id="duration_amount" size="4" maxlength="5" value="5" type="text" />
+					<input type="number" name="duration_amount" id="duration_amount" size="4" maxLength="5" defaultValue="5"  />
 			            <select name="duration_units">
 			            	<option value="h">hours</option>
 							<option value="m">minutes</option>
