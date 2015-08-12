@@ -1,5 +1,6 @@
 import React from 'react';
 import LogoSpinner from '../common/LogoSpinner';
+import ErrorMsg from '../common/ErrorMsg';
 
 export default class LoginPage extends React.Component {
 
@@ -27,15 +28,14 @@ export default class LoginPage extends React.Component {
 						<LogoSpinner spinning={this.state.progress}/>
 					</p>
 					<h3>Sign in to your account</h3>
-					<p className="errorfield bigerror" style={{display: 'none' }}>
-		                Binary.com now requires your email and password to log in. If you have both a real-money and a virtual-money account, please use the password from your real-money account.
-					</p>
 					<p>
 						<input name="email" placeholder="Email" type="email"></input>
 					</p>
+					<ErrorMsg shown={false} text="You need to enter an email" />
 				  	<p>
 				    	<input name="password" placeholder="Password" type="password"></input>
 				  	</p>
+					<ErrorMsg shown={false} text="Need a pass" />
 				  	<p>
 						<button onClick={::this.submitLogin}>Sign in</button>
 				  	</p>
