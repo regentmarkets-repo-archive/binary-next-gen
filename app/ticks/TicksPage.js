@@ -1,5 +1,5 @@
 import React from 'react';
-import LiveData from '../_data/livedata';
+import LiveData from '../_data/LiveData';
 import TickTable from './TickTable';
 
 export default class TicksPage extends React.Component {
@@ -7,7 +7,7 @@ export default class TicksPage extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const liveData = new LiveData('aaPPaXJZlhm72g5Zi7doW7JstsRlHHBamrHVDEC0xyDmdm97')
+		const liveData = new LiveData()
 
 		liveData.onDataChange = (function(dataType) {
 			if (dataType == 'activeSymbols') {

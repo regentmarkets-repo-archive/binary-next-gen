@@ -3,7 +3,7 @@ import Ticks from './Ticks';
 
 export default class LiveData {
 
-    constructor(apiToken) {
+    constructor() {
 
         this.offerings = [];
         this.contracts = {};
@@ -22,7 +22,7 @@ export default class LiveData {
         this.events.on('symbols', ::this.activeSymbolsHandler);
         this.events.on('contracts', ::this.contractHandler);
 
-        this.api.authorize(apiToken);
+        this.api.authorize('yVHlmNpJNKfOUgJ2UfFAhujYnYGrnlozvg63bHdhA3LqyhtE');
     }
 
     dataChanged(whatData) {

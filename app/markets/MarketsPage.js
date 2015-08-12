@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux';
 import * as MarketsActions from '../_actions/MarketsActions';
 import MarketsList from './MarketsList';
 import MarketsSearch from './MarketsSearch';
-import { LiveData } from 'binary-live-api';
+import LiveData from '../_data/LiveData';
 
 @connect(state => ({ markets: state.markets }))
 export default class MarketsPage extends React.Component {
@@ -12,7 +12,7 @@ export default class MarketsPage extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const liveData = new LiveData('fcR6ZySPS3u0ezqOEt0bCZqpAuvXejg0vRUtulSAaCDISBPlrWtjOiIK1u8ZhGf0D8fJVWi4Zepb35jwAD6IpE7JF3gyFpT0BD6aH8Q7xIhb4FNKqasHWySW1pRJBI7T')
+		const liveData = new LiveData();
 
 		liveData.onDataChange = (function(data) {
 			this.state = { activeSymbols: liveData.activeSymbols };
