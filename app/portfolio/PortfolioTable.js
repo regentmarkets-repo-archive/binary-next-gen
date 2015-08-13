@@ -7,6 +7,8 @@ export default class PortfolioTable {
 
         const { contracts, totals, onViewDetails } = this.props;
 
+		contracts.slice().sort((x, y) => Math.sign(x.fmb_id, y.fmb_id));
+
 		return (
 			<table>
 				<thead>
@@ -25,8 +27,8 @@ export default class PortfolioTable {
 					<tr>
 						<th></th>
 						<th></th>
-						<th>USD {totals.purchase}</th>
-                        <th>USD {totals.indicative}</th>
+						<th>USD&nbsp;{totals.purchase}</th>
+                        <th>USD&nbsp;{totals.indicative}</th>
                         <th></th>
 					</tr>
 				</thead>

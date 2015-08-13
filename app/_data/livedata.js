@@ -33,7 +33,7 @@ export default class LiveData {
 
         this.balance = {
             currency: r.data.currency,
-            amount: r.data.balance
+            amount: +r.data.balance
         };
         this.dataChanged('balance');
     }

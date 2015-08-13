@@ -7,6 +7,8 @@ export default class PortfolioDetails {
 
 		const { contract } = this.props;
 
+		const returnOnContract = ((contract.bid_price - contract.buy_price) * 100 / contract.buy_price).toFixed(2);
+
 		return (
 			<div>
 				<table>
@@ -57,13 +59,13 @@ export default class PortfolioDetails {
 					</thead>
 					<tbody>
 						<tr>
-							<td>{contract.currency} {contract.buy_price}</td>
-							<td>{contract.currency} {contract.indicative}</td>
-							<td>{contract.currency} {contract.final_price}</td>
+							<td>{contract.currency}&nbsp;{contract.buy_price}</td>
+							<td>{contract.currency}&nbsp;{contract.bid_price}</td>
+							<td>{contract.currency}&nbsp;{contract.final_price}</td>
 						</tr>
 						<tr>
 							<td></td>
-							<td>-???</td>
+							<td>{returnOnContract}%</td>
 							<td></td>
 						</tr>
 					</tbody>

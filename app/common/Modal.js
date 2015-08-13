@@ -15,7 +15,7 @@ export default class Modal {
 		return (
 			<div className="full-screen-overlay" onClick={onClose} style={{ opacity: anim.opacity.val }}>
 				<div className="modal" style={{ transform: `scale(${anim.scale.val})` }}>
-					<button onClick={onClose}>X</button>
+					<button className="close-btn" onClick={onClose}>X</button>
 					{children}
 				</div>
 			</div>

@@ -12,7 +12,7 @@ export default class PortfolioPage extends React.Component {
 		const liveData = new LiveData();
 
 		this.state = {
-			balance: {},
+			balance: null,
 			detailsShown: false,
 			contractDetails: {},
 			contracts: [],
@@ -36,6 +36,7 @@ export default class PortfolioPage extends React.Component {
 	}
 
 	showDetails(contract) {
+		console.log(contract);
 		this.setState({ contractDetails: contract, detailsShown: true });
 	}
 
@@ -45,13 +46,16 @@ export default class PortfolioPage extends React.Component {
 
 	render() {
 
+		const { balance, detailsShown, contractDetails, contracts, totals } = this.state;
+		const balanceStr = balance ? `${balance.currency} ${balance.amount.toFixed(2)}` : '';
+
 		return (
 			<div>
-				<h3>Account balance : {this.state.balance.currency} {this.state.balance.amount}</h3>
-				<Modal shown={this.state.detailsShown} onClose={::this.onCloseDetails}>
-					<PortfolioDetails contract={this.state.contractDetails} />
+				<h3>Account balance: {balanceStr} </h3>
+				<Modal shown={detailsShown} onClose={::this.onCloseDetails}>
+					<PortfolioDetails contract={contractDetails} />
 				</Modal>
-				<PortfolioTable contracts={this.state.contracts} totals={this.state.totals} onViewDetails={::this.showDetails} />
+				<PortfolioTable contracts={contracts} totals={totals} onViewDetails={::this.showDetails} />
 			</div>
 		);
 	}

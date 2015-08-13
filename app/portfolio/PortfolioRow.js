@@ -10,8 +10,8 @@ export default class PortfolioRow {
             <tr>
                 <td>{contract.fmb_id}</td>
                 <td>{contract.longcode}</td>
-                <td>{contract.currency} {contract.buy_price}</td>
-                <td>{contract.currency} {contract.buy_price}</td>
+                <td>{contract.currency}&nbsp;{contract.buy_price}</td>
+                <td>{contract.currency}&nbsp;{contract.bid_price}</td>
                 <td><button onClick={onViewDetails.bind(this, contract)}>View</button></td>
             </tr>
         );
