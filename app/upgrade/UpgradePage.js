@@ -68,13 +68,13 @@ export default class UpgradePage extends React.Component {
 		)];
 
 		return (
-			<form className='wide-form' >
-				<p>
+			<div className="wide-form" >
+				<p className="media">
 					<LogoSpinner spinning={this.state.progress}/>
 				</p>
-				<h3>Open Real Money Account</h3>
+				<h3>Upgrade to Real Money Account</h3>
 				{ steps[this.state.currentPage] }
-			</form>
+			</div>
 		);
 	}
 }

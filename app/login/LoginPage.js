@@ -63,7 +63,7 @@ export default class LoginPage extends React.Component {
 		return (
 			<div className="login-content">
     			<div id="content">
-					<p>
+					<p className="media">
 						<LogoSpinner spinning={progress}/>
 					</p>
 					<h3>Sign in to your account</h3>
@@ -73,11 +73,9 @@ export default class LoginPage extends React.Component {
 					<ErrorMsg shown={passwordNotEntered} text="Need a pass" />
 					<ErrorMsg shown={credentialsInvalid} text="Access denied" />
 					<button onClick={::this.tryLogin}>Sign in</button>
-				  	<p>
+					<p className="row">
 				    	<a href="#">Forgot password?</a>
-				  	</p>
-				  	<p>
-				    	<a href="#">Open an Account</a>
+				    	<a href="#">Sign Up</a>
 				  	</p>
 				</div>
 			</div>

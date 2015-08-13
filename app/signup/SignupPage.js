@@ -84,9 +84,10 @@ export default class SignupPage extends React.Component {
 		return (
 			<div className="signup-content">
     			<div id="content">
-					<p>
+					<p className="media">
 						<LogoSpinner spinning={progress}/>
 					</p>
+					<h3>Sign up for account</h3>
 					<InputGroup type="email" placeholder="Email" onChange={::this.emailChange} />
 					<ErrorMsg shown={emailNotValid} text="You need to enter an email" />
 					<fieldset>
