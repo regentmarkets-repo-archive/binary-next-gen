@@ -3,8 +3,13 @@ import PortfolioRow from './PortfolioRow';
 
 export default class PortfolioTable {
 
-	render() {
+	static propTypes = {
+		contracts: React.PropTypes.array.isRequired,
+		totals: React.PropTypes.object.isRequired,
+        onViewDetails: React.PropTypes.func.isRequired,
+	};
 
+	render() {
         const { contracts, totals, onViewDetails } = this.props;
 
 		contracts.slice().sort((x, y) => Math.sign(x.fmb_id, y.fmb_id));

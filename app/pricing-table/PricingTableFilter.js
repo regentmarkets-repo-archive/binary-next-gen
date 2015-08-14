@@ -14,7 +14,7 @@ export default class PricingTableFilter extends React.Component {
             stepTerms: 'moneyness',
             from: '95',
             stepFreq: 'daily',
-            fromDate: Date.now()
+            fromDate: Date.now(),
         };
     }
 

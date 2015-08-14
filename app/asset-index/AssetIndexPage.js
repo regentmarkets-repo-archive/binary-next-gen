@@ -9,11 +9,10 @@ export default class AsssetIndexPage extends React.Component {
 		super(props);
 	}
 
-	onAssetSelect(idx) {
+	onAssetSelect() {
 	}
 
 	render() {
-
 		return (
 			<div>
                 <SegmentedControl

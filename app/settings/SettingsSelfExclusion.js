@@ -1,5 +1,5 @@
 import React from 'react';
-import InputGroup from '../common/InputGroup'
+import InputGroup from '../common/InputGroup';
 
 export default class SettingsSelfExclusion extends React.Component {
 
@@ -11,7 +11,6 @@ export default class SettingsSelfExclusion extends React.Component {
 	}
 
 	render() {
-
 		return (
 			<div>
 				<InputGroup id="MAXCASHBAL" label="Maximum account cash balance" type="number" hint="Once this limit is reached, you may no longer deposit."/>

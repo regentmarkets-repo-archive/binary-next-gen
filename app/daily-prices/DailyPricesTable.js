@@ -4,7 +4,6 @@ import Direction from '../common/Direction';
 export default class DailyPricesTable {
 
 	render() {
-
 		return (
 			<table>
 				<thead>

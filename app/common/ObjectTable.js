@@ -1,6 +1,12 @@
 import React from 'react';
 
 class ObjectTableRow {
+
+	static propTypes = {
+        name: React.PropTypes.string,
+		value: React.PropTypes.object,
+    };
+
 	render() {
 		return (
 			<tr>
@@ -12,6 +18,10 @@ class ObjectTableRow {
 }
 
 export default class ObjectTable {
+
+	static propTypes = {
+		object: React.PropTypes.object,
+	};
 
 	render() {
 		return (

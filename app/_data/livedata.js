@@ -4,7 +4,6 @@ import Ticks from './Ticks';
 export default class LiveData {
 
     constructor() {
-
         this.offerings = [];
         this.contracts = {};
         this.portfolio = [];
@@ -30,10 +29,9 @@ export default class LiveData {
     }
 
     authorizeResponseHandler(r) {
-
         this.balance = {
             currency: r.data.currency,
-            amount: +r.data.balance
+            amount: +r.data.balance,
         };
         this.dataChanged('balance');
     }
@@ -42,7 +40,7 @@ export default class LiveData {
         this.ticks.appendData({
             symbol: r.echo.ticks,
             quote: r.data.quote,
-            epoch: r.data.epoch
+            epoch: r.data.epoch,
         });
         this.dataChanged('ticks');
     }
@@ -53,8 +51,7 @@ export default class LiveData {
     }
 
     portfolioHandler(r) {
-
-        const entry = this.portfolio.find(c => c.id == r.data.id);
+        const entry = this.portfolio.find(c => c.id === r.data.id);
 
         if (!entry) {
             this.portfolio.push(r.data);
@@ -76,7 +73,6 @@ export default class LiveData {
     }
 
     trackActiveSymbols() {
-
         const list = this.activeSymbols.map(s => s.symbol);
 
         this.api.trackSymbols(list.slice(list.length - 20));

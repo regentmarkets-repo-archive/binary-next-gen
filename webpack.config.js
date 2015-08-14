@@ -23,7 +23,7 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.js$/,
-            loaders: ['react-hot', 'babel?stage=0'],
+            loaders: ['react-hot', 'babel?stage=0', 'eslint-loader'],
             exclude: /node_modules/
         }, {
             test: /react-sparklines/,

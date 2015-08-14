@@ -10,7 +10,6 @@ export default class SettingsLimits extends React.Component {
 	}
 
 	render() {
-
 		return (
 			<div>
 				<h2>CR300810 - Trading Limits</h2>

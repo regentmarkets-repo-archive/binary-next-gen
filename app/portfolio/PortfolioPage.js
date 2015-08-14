@@ -16,13 +16,13 @@ export default class PortfolioPage extends React.Component {
 			detailsShown: false,
 			contractDetails: {},
 			contracts: [],
-			totals: {}
+			totals: {},
 		};
 
 		liveData.api.getPortfolio();
 
-		liveData.onDataChange = (function(dataType) {
-			if (dataType != 'portfolio') return;
+		liveData.onDataChange = (dataType) => {
+			if (dataType !== 'portfolio') return;
 
 			this.setState({
 				balance: liveData.balance,
@@ -30,9 +30,9 @@ export default class PortfolioPage extends React.Component {
 				totals: {
 					purchase: liveData.portfolio.length && liveData.portfolio.reduce((x, y) => x + +y.buy_price, 0),
 					indicative: liveData.portfolio.length && liveData.portfolio.reduce((x, y) => x + +y.buy_price, 0),
-				}
+				},
 			});
-		}).bind(this);
+		};
 	}
 
 	showDetails(contract) {
@@ -45,7 +45,6 @@ export default class PortfolioPage extends React.Component {
 	}
 
 	render() {
-
 		const { balance, detailsShown, contractDetails, contracts, totals } = this.state;
 		const balanceStr = balance ? `${balance.currency} ${balance.amount.toFixed(2)}` : '';
 

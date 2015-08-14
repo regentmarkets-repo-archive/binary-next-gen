@@ -3,8 +3,11 @@ import moment from 'moment';
 
 export default class ContractDetails {
 
-	render() {
+	static propTypes = {
+		contract: React.PropTypes.object.isRequired,
+	};
 
+	render() {
 		const { contract } = this.props;
 
 		const returnOnContract = ((contract.bid_price - contract.buy_price) * 100 / contract.buy_price).toFixed(2);

@@ -4,7 +4,6 @@ import AssetIndexRow from './AssetIndexRow';
 export default class AssetIndexTable {
 
     render() {
-
         const assets = [{}, {}, {}];
 
         return (

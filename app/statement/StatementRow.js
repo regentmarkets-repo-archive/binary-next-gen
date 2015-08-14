@@ -2,13 +2,17 @@ import React from 'react';
 
 export default class StatementRow {
 
-    render() {
+    static propTypes = {
+		contract: React.PropTypes.object.isRequired,
+        onViewDetails: React.PropTypes.func.isRequired,
+	};
 
+    render() {
         const { contract, onViewDetails } = this.props;
 
         return (
             <tr>
-                <td>{contract.purchase_time}</td>            
+                <td>{contract.purchase_time}</td>
                 <td>{contract.fmb_id}</td>
                 <td>{contract.longcode}</td>
                 <td>{contract.currency}&nbsp;{contract.buy_price}</td>

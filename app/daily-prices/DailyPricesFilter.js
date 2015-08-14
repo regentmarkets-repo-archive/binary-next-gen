@@ -2,6 +2,11 @@ import React from 'react';
 
 export default class DailyPricesFilter extends React.Component {
 
+	static propTypes = {
+        minAvailableDuration: React.PropTypes.number,
+		onCalculate: React.PropTypes.func,
+    };
+
 	constructor(props) {
 		super(props);
 
@@ -11,7 +16,6 @@ export default class DailyPricesFilter extends React.Component {
 	}
 
 	render() {
-
 		const { minAvailableDuration, onCalculate } = this.props;
 
 		return (

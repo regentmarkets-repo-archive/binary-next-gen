@@ -3,16 +3,16 @@ export const marketStructure = [{
     submarkets: [
         'Major Pairs',
         'Minor Pairs',
-        'Smart FX'
-    ]
+        'Smart FX',
+    ],
 }, {
     name: 'Indices',
     submarkets: [
         'Asia/Oceania',
         'Europe/Africa',
         'Americas',
-        'Smart Indices'
-    ]
+        'Smart Indices',
+    ],
 }, {
     name: 'Stocks',
     submarkets: [
@@ -20,19 +20,19 @@ export const marketStructure = [{
         'Belgian Stocks',
         'Dutch Stocks',
         'Germany Stocks',
-        'United Kingdom Stocks'
-    ]
+        'United Kingdom Stocks',
+    ],
 }, {
     name: 'Commodities',
     submarkets: [
         'Metals',
-        'Energy'
-    ]
+        'Energy',
+    ],
 }, {
     name: 'Randoms',
     submarkets: [
         'Indices',
         'Quotidians',
-        'Nocturnes'
-    ]
+        'Nocturnes',
+    ],
 }];

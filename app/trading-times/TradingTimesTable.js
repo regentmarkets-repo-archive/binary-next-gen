@@ -4,7 +4,6 @@ import TradingTimesRow from './TradingTimesRow';
 export default class TradingTimesTable {
 
 	render() {
-
         const times = [{}, {}, {}];
 
 		return (

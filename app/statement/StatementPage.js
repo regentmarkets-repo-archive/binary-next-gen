@@ -15,22 +15,22 @@ export default class StatenentPage extends React.Component {
 			detailsShown: false,
 			contractDetails: {},
 			contracts: [],
-			totals: {}
+			totals: {},
 		};
 
 		liveData.api.getPortfolio();
 
-		liveData.onDataChange = (function(dataType) {
-			if (dataType != 'portfolio') return;
+		liveData.onDataChange = (dataType) => {
+			if (dataType !== 'portfolio') return;
 
 			this.setState({
 				contracts: liveData.portfolio,
 				totals: {
 					purchase: liveData.portfolio.length && liveData.portfolio.reduce((x, y) => x + +y.buy_price, 0),
 					indicative: liveData.portfolio.length && liveData.portfolio.reduce((x, y) => x + +y.buy_price, 0),
-				}
+				},
 			});
-		}).bind(this);
+		};
 	}
 
 	showDetails(contract) {
@@ -43,7 +43,6 @@ export default class StatenentPage extends React.Component {
 	}
 
 	render() {
-
 		const { detailsShown, contractDetails, contracts, totals } = this.state;
 
 		return (

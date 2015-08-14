@@ -9,12 +9,11 @@ export default class Ticks {
     }
 
     appendData(data) {
-
         if (!this.ticks[data.symbol]) this.ticks[data.symbol] = { history: [] };
 
         this.ticks[data.symbol].history.push({
             epoch: data.epoch,
-            quote: data.quote
+            quote: data.quote,
         });
     }
 
@@ -23,7 +22,6 @@ export default class Ticks {
     }
 
     current(symbol) {
-
         if (!this.ticks[symbol]) return {};
 
         const lastTick = this.ticks[symbol].history[this.ticks[symbol].history.length - 1];
@@ -37,7 +35,6 @@ export default class Ticks {
     }
 
     diff(symbol) {
-
         const t = this.ticks[symbol];
 
         if (!t || !t.history || t.history.length <= 1) return 0;

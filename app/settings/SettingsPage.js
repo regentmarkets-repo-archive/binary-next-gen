@@ -1,32 +1,33 @@
 import React from 'react';
 import SegmentedControl from '../common/SegmentedControl';
-import { Link } from 'react-router';
-
 
 export default class SettingsPage extends React.Component {
+
+	static propTypes = {
+		children: React.PropTypes.any,
+    };
 
 	constructor(props) {
 		super(props);
 
 		this.state = {
-			currentPage: 0
+			currentPage: 0,
 		};
 	}
 
 	render() {
-
 		const navigationLinks = [{
 			href: '/settings/details',
-			text: 'Personal Details'
+			text: 'Personal Details',
 		}, {
 			href: '/settings/security',
-			text: 'Security'
+			text: 'Security',
 		}, {
 			href: '/settings/exclusion',
-			text: 'Self Exclusion'
+			text: 'Self Exclusion',
 		}, {
 			href: '/settings/limits',
-			text: 'Limits'
+			text: 'Limits',
 		}];
 
 		return (

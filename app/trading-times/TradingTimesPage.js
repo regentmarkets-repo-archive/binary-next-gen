@@ -10,7 +10,6 @@ export default class TradingTimesPage extends React.Component {
 	}
 
 	render() {
-
 		return (
 			<div>
 				<SegmentedControl

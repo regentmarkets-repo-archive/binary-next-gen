@@ -4,11 +4,10 @@ import MarketItem from './MarketItem';
 export default class MarketsList {
 
 	static propTypes = {
-		markets: React.PropTypes.array.isRequired
+		markets: React.PropTypes.array.isRequired,
 	};
 
 	render() {
-
 		const { markets } = this.props;
 
 		return (

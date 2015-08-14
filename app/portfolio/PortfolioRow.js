@@ -2,8 +2,12 @@ import React from 'react';
 
 export default class PortfolioRow {
 
-    render() {
+    static propTypes = {
+		contract: React.PropTypes.object.isRequired,
+        onViewDetails: React.PropTypes.func.isRequired,
+	};
 
+    render() {
         const { contract, onViewDetails } = this.props;
 
         return (

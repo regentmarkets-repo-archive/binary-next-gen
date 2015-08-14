@@ -1,10 +1,8 @@
 import React from 'react';
-import { marketStructure } from '../asset-index/MarketStructure';
 
 export default class TradeConfirmation {
 
 	render() {
-
 		return (
 			<div>
 	    		<h4>Trade Confirmation</h4>

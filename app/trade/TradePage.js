@@ -12,14 +12,13 @@ export default class TradePage extends React.Component {
 
 		this.state = { };
 
-		liveData.onDataChange = (function(data) {
+		liveData.onDataChange = () => {
 			this.setState({
 			});
-		}).bind(this);
+		};
 	}
 
 	render() {
-
 		return (
 			<div>
 				<TradeForm />

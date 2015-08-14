@@ -8,7 +8,7 @@ export default class TickRow {
 
 	static propTypes = {
 		tick: React.PropTypes.object.isRequired,
-		history: React.PropTypes.array
+		history: React.PropTypes.array,
 	};
 
 	render() {

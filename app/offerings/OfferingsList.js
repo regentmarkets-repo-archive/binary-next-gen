@@ -5,11 +5,10 @@ import ObjectTable from '../common/ObjectTable';
 export default class OfferingsList {
 
 	static propTypes = {
-		offerings: React.PropTypes.object.isRequired
+		offerings: React.PropTypes.object.isRequired,
 	};
 
 	render() {
-
 		const offerings = this.props.offerings;
 
 		return (

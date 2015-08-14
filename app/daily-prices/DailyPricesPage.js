@@ -9,7 +9,6 @@ export default class DailyPricesPage extends React.Component {
 	}
 
 	render() {
-
 		return (
 			<div>
 				<DailyPricesFilter />

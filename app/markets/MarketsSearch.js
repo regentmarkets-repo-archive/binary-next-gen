@@ -3,11 +3,10 @@ import React from 'react';
 export default class MarketSearch {
 
 	static propTypes = {
-      	actions: React.PropTypes.object.isRequired
+      	actions: React.PropTypes.object.isRequired,
     };
 
     render() {
-
 		const { actions } = this.props;
 
 		return (

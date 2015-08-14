@@ -13,7 +13,6 @@ export default class RiseFallTablePage extends React.Component {
 	}
 
 	render() {
-
 		return (
 			<div>
 				<RiseFallFilter onCalculate={::this.refilter} />

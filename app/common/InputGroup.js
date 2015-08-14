@@ -3,7 +3,7 @@ import React from 'react';
 export default class InputGroup extends React.Component {
 
 	static propTypes = {
-		type: React.PropTypes.string.isRequired,		
+		type: React.PropTypes.string.isRequired,
 		id: React.PropTypes.string,
 		label: React.PropTypes.string,
 		hint: React.PropTypes.string,
@@ -14,11 +14,10 @@ export default class InputGroup extends React.Component {
 	};
 
 	static defaultValue = {
-		type: 'text'
+		type: 'text',
 	};
 
 	render() {
-
 		const { id, label, type, hint, value, readOnly, placeholder, onChange } = this.props;
 
 		return (

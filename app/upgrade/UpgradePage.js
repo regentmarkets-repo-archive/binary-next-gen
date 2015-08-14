@@ -11,7 +11,7 @@ export default class UpgradePage extends React.Component {
 
 		this.state = {
 			progress: false,
-			currentPage: 0
+			currentPage: 0,
 		};
 	}
 
@@ -21,14 +21,14 @@ export default class UpgradePage extends React.Component {
 	nextStep(e) {
 		e.preventDefault();
 		this.setState({
-			currentPage: this.state.currentPage + 1
+			currentPage: this.state.currentPage + 1,
 		});
 	}
 
 	openAccount(e) {
 		e.preventDefault();
 		this.setState({
-			progress: true
+			progress: true,
 		});
 		this.performSignup();
 	}
@@ -36,12 +36,11 @@ export default class UpgradePage extends React.Component {
 	previousStep(e) {
 		e.preventDefault();
 		this.setState({
-			currentPage: this.state.currentPage - 1
+			currentPage: this.state.currentPage - 1,
 		});
 	}
 
 	render() {
-
 		const steps = [(
 			<div>
 				<UpgradeStep1 />

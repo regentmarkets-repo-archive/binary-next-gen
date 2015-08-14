@@ -2,7 +2,7 @@ import React from 'react';
 import LogoSpinner from '../common/LogoSpinner';
 import Countries from '../common/Countries';
 import ErrorMsg from '../common/ErrorMsg';
-import InputGroup from '../common/InputGroup'
+import InputGroup from '../common/InputGroup';
 
 export default class SignupPage extends React.Component {
 
@@ -19,34 +19,33 @@ export default class SignupPage extends React.Component {
 			confirmationNotEntered: false,
 			passwordsDontMatch: false,
 			validatedOnce: false,
-			progress: false
+			progress: false,
 		};
 	}
 
 	performSignup() {
 		this.setState({
-			progress: true
+			progress: true,
 		});
 	}
 
 	validate() {
 		const { email, password, confirmPassword } = this.state;
 		const emailNotValid = !/\S+@\S+\.\S+/.test(email);
-		const passwordNotEntered = password.length == 0;
-		const confirmationNotEntered = confirmPassword.length == 0;
-		const passwordsDontMatch = confirmPassword.length > 0 && password == confirmPassword;
+		const passwordNotEntered = password.length === 0;
+		const confirmationNotEntered = confirmPassword.length === 0;
+		const passwordsDontMatch = confirmPassword.length > 0 && password === confirmPassword;
 
 		this.setState({
 			validatedOnce: true,
 			emailNotValid,
 			passwordNotEntered,
 			confirmationNotEntered,
-			passwordsDontMatch
+			passwordsDontMatch,
 		});
 	}
 
-	trySignup(e) {
-
+	trySignup() {
 		this.validate();
 
 		if (!(this.state.emailNotValid ||
@@ -69,7 +68,7 @@ export default class SignupPage extends React.Component {
 
 	confirmPasswordChange(event) {
 		if (this.state.validatedOnce) this.validate();
-		this.setState({ confirmPassword : event.target.value });
+		this.setState({ confirmPassword: event.target.value });
 	}
 
 	passwordChange(event) {
@@ -78,7 +77,6 @@ export default class SignupPage extends React.Component {
 	}
 
 	render() {
-
 		const { progress, emailNotValid, passwordNotEntered, confirmationNotEntered, passwordsDontMatch } = this.state;
 
 		return (

@@ -5,16 +5,15 @@ export default class Direction {
 	static propTypes = {
 		diff: React.PropTypes.number.isRequired,
 		width: React.PropTypes.number,
-		height: React.PropTypes.number
+		height: React.PropTypes.number,
 	};
 
 	static defaultProps = {
 		width: 20,
-		height: 20
+		height: 20,
 	};
 
 	render() {
-
 		const { diff, width, height } = this.props;
 
 		return (

@@ -2,17 +2,21 @@ import React from 'react';
 
 export default class IntradayPricesFilter extends React.Component {
 
+	static propTypes = {
+        minAvailableDuration: React.PropTypes.number,
+		onCalculate: React.PropTypes.func,
+    };
+
 	constructor(props) {
 		super(props);
 
 		this.state = {
 			underlying: 'LOreal',
-			date: Date.now
+			date: Date.now(),
 		};
 	}
 
 	render() {
-
 		const { minAvailableDuration, onCalculate } = this.props;
 
 		return (

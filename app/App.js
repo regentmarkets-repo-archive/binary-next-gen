@@ -2,6 +2,11 @@ import React from 'react';
 import { Link } from 'react-router';
 
 export default class App extends React.Component {
+
+    static propTypes = {
+        children: React.PropTypes.any,
+    };
+
     render() {
         return (
             <div id="content">

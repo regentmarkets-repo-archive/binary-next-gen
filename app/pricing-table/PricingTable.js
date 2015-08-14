@@ -4,7 +4,6 @@ import PricingTableRow from './PricingTableRow';
 export default class PricingTable {
 
 	render() {
-
         const times = [{}, {}, {}];
 
 		return (

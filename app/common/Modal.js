@@ -5,11 +5,11 @@ export default class Modal {
 
 	static propTypes = {
         shown: React.PropTypes.bool,
-		onClose: React.PropTypes.func
+		onClose: React.PropTypes.func,
+		children: React.PropTypes.any,
     };
 
 	renderModal(anim) {
-
 		const { onClose, children } = this.props;
 
 		return (
@@ -23,35 +23,31 @@ export default class Modal {
 	}
 
 	getEndValue() {
-
 		return (!this.props.shown)
-		? {}
-		: {
-			modal: {
-				scale: { val: 1, config: [1500, 40] },
-				opacity: { val: 1, config: [1000, 40] }
-			}
-		};
+			? {}
+			: {
+				modal: {
+					scale: { val: 1, config: [1500, 40] },
+					opacity: { val: 1, config: [1000, 40] },
+				},
+			};
 	}
 
 	willEnter() {
-
 	    return {
-			scale: { val: .75 },
-			opacity: { val: .5 }
-		}
+			scale: { val: 0.75 },
+			opacity: { val: 0.5 },
+		};
 	}
 
-	willLeave(key, value, endValue, currentValue, currentSpeed) {
-
+	willLeave() {
 		return {
 			scale: { val: 0, config: [1000, 40] },
-			opacity: { val: 0, config: [1000, 40] }
-		}
+			opacity: { val: 0, config: [1000, 40] },
+		};
 	}
 
 	render() {
-
 		return (
 			<TransitionSpring
 				endValue={::this.getEndValue}

@@ -11,7 +11,6 @@ export default class TradeForm extends React.Component {
 	}
 
 	render() {
-
 		return (
 			<div>
 				<SegmentedControl

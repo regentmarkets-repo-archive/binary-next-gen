@@ -3,7 +3,7 @@ import React from 'react';
 export default class MarketItem {
 
 	static propTypes = {
-		market: React.PropTypes.object.isRequired
+		market: React.PropTypes.object.isRequired,
 	};
 
 	render() {

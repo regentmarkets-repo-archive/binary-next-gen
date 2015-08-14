@@ -11,7 +11,6 @@ export default class SettingsPersonalDetails extends React.Component {
 	}
 
 	render() {
-
 		return (
 			<div>
 				<legend>details</legend>

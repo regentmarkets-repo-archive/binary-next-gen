@@ -1,5 +1,5 @@
 import React from 'react';
-import InputGroup from '../common/InputGroup'
+import InputGroup from '../common/InputGroup';
 
 export default class SettingsSecurity extends React.Component {
 
@@ -11,7 +11,6 @@ export default class SettingsSecurity extends React.Component {
 	}
 
 	render() {
-
 		return (
 			<div>
 				<p>An additional password can be used to restrict access to the cashier.</p>

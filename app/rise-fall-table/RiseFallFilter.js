@@ -12,11 +12,10 @@ export default class RiseFallFilter extends React.Component {
 
 	static propTypes = {
 		minAvailableDuration: React.PropTypes.number,
-		onCalculate: React.PropTypes.func.isRequired
+		onCalculate: React.PropTypes.func.isRequired,
 	};
 
 	render() {
-
 		const { minAvailableDuration, onCalculate } = this.props;
 
 		return (

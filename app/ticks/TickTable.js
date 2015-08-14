@@ -4,11 +4,10 @@ import TickRow from './TickRow';
 export default class TickTable {
 
 	static propTypes = {
-		ticks: React.PropTypes.object.isRequired
+		ticks: React.PropTypes.object.isRequired,
 	};
 
 	render() {
-
 		const { ticks } = this.props;
 	 	const symbols = ticks.symbols();
 

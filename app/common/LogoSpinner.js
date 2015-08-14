@@ -3,7 +3,7 @@ import React from 'react';
 export default class LogoSpinner {
 
 	static propTypes = {
-        spinning: React.PropTypes.bool
+        spinning: React.PropTypes.bool,
     };
 
 	render() {

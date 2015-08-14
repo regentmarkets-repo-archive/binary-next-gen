@@ -7,16 +7,16 @@ export default class TicksPage extends React.Component {
 	constructor(props) {
 		super(props);
 
-		const liveData = new LiveData()
+		const liveData = new LiveData();
 
-		liveData.onDataChange = (function(dataType) {
-			if (dataType == 'activeSymbols') {
+		liveData.onDataChange = (dataType) => {
+			if (dataType === 'activeSymbols') {
 				liveData.trackActiveSymbols();
 			}
-			if (dataType == 'ticks') {
+			if (dataType === 'ticks') {
 				this.setState( { ticks: liveData.ticks });
 			}
-		}).bind(this);
+		};
 
 		this.state = { ticks: liveData.ticks };
 

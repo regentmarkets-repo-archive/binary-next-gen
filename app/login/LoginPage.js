@@ -1,7 +1,7 @@
 import React from 'react';
 import LogoSpinner from '../common/LogoSpinner';
 import ErrorMsg from '../common/ErrorMsg';
-import InputGroup from '../common/InputGroup'
+import InputGroup from '../common/InputGroup';
 
 export default class LoginPage extends React.Component {
 
@@ -15,26 +15,24 @@ export default class LoginPage extends React.Component {
 			passwordNotEntered: false,
 			credentialsInvalid: false,
 			validatedOnce: false,
-			progress: false
+			progress: false,
 		};
 	}
 
 	performLogin() {
 		this.setState({
-			progress: true
+			progress: true,
 		});
-
-		const credentialsInvalid = true;
 	}
 
 	validate() {
 		const emailNotValid = !/\S+@\S+\.\S+/.test(this.state.email);
-		const passwordNotEntered = this.state.password.length == 0;
+		const passwordNotEntered = this.state.password.length === 0;
 
 		this.setState({
 			validatedOnce: true,
 			emailNotValid,
-			passwordNotEntered
+			passwordNotEntered,
 		});
 	}
 
@@ -57,7 +55,6 @@ export default class LoginPage extends React.Component {
     }
 
 	render() {
-
 		const { progress, emailNotValid, passwordNotEntered, credentialsInvalid } = this.state;
 
 		return (
