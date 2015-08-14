@@ -1,10 +1,10 @@
 import React from 'react';
 import LiveData from '../_data/LiveData';
 import Modal from '../common/Modal';
-import PortfolioTable from './PortfolioTable';
-import ContractDetails from './ContractDetails';
+import StatementTable from './StatementTable';
+import ContractDetails from '../portfolio/ContractDetails';
 
-export default class PortfolioPage extends React.Component {
+export default class StatenentPage extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -12,7 +12,6 @@ export default class PortfolioPage extends React.Component {
 		const liveData = new LiveData();
 
 		this.state = {
-			balance: null,
 			detailsShown: false,
 			contractDetails: {},
 			contracts: [],
@@ -25,7 +24,6 @@ export default class PortfolioPage extends React.Component {
 			if (dataType != 'portfolio') return;
 
 			this.setState({
-				balance: liveData.balance,
 				contracts: liveData.portfolio,
 				totals: {
 					purchase: liveData.portfolio.length && liveData.portfolio.reduce((x, y) => x + +y.buy_price, 0),
@@ -46,16 +44,14 @@ export default class PortfolioPage extends React.Component {
 
 	render() {
 
-		const { balance, detailsShown, contractDetails, contracts, totals } = this.state;
-		const balanceStr = balance ? `${balance.currency} ${balance.amount.toFixed(2)}` : '';
+		const { detailsShown, contractDetails, contracts, totals } = this.state;
 
 		return (
 			<div>
-				<h3>Account balance: {balanceStr} </h3>
 				<Modal shown={detailsShown} onClose={::this.onCloseDetails}>
 					<ContractDetails contract={contractDetails} />
 				</Modal>
-				<PortfolioTable contracts={contracts} totals={totals} onViewDetails={::this.showDetails} />
+				<StatementTable contracts={contracts} totals={totals} onViewDetails={::this.showDetails} />
 			</div>
 		);
 	}

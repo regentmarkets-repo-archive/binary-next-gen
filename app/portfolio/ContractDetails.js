@@ -1,7 +1,7 @@
 import React from 'react';
 import moment from 'moment';
 
-export default class PortfolioDetails {
+export default class ContractDetails {
 
 	render() {
 

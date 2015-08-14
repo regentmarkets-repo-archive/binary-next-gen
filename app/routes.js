@@ -17,6 +17,7 @@ import PricingTablePage from './pricing-table/PricingTablePage';
 import DailyPricesPage from './daily-prices/DailyPricesPage';
 import IntradayPricesPage from './intraday-prices/IntradayPricesPage';
 import PortfolioPage from './portfolio/PortfolioPage';
+import StatementPage from './statement/StatementPage';
 import TradePage from './trade/TradePage';
 import SettingsPage from './settings/SettingsPage';
 import SettingsPersonalDetails from './settings/SettingsPersonalDetails';
@@ -43,6 +44,7 @@ export default (
         <Route path="daily-prices" component={DailyPricesPage} />
         <Route path="intraday-prices" component={IntradayPricesPage} />
         <Route path="portfolio" component={PortfolioPage} />
+        <Route path="statement" component={StatementPage} />    
         <Route path="settings" component={SettingsPage}>
             <Route path="details" component={SettingsPersonalDetails}/>
             <Route path="security" component={SettingsSecurity}/>
