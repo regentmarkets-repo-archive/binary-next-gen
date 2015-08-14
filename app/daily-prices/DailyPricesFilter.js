@@ -16,16 +16,14 @@ export default class DailyPricesFilter extends React.Component {
 	}
 
 	render() {
-		const { minAvailableDuration, onCalculate } = this.props;
-
 		return (
-				<form>
-					<label>
-						Days to display
-						<input type="number" size="3" defaultValue="30" />
-					</label>
-					<button>View</button>
-				</form>
+			<div>
+				<label>
+					Days to display
+					<input type="number" size="3" defaultValue="30" />
+				</label>
+				<button>View</button>
+			</div>
 		);
 	}
 }

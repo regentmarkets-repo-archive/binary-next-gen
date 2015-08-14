@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, DefaultRoute } from 'react-router';
+import { Route } from 'react-router';
 
 import App from './App';
 import HomePage from './home/HomePage';
@@ -44,7 +44,7 @@ export default (
         <Route path="daily-prices" component={DailyPricesPage} />
         <Route path="intraday-prices" component={IntradayPricesPage} />
         <Route path="portfolio" component={PortfolioPage} />
-        <Route path="statement" component={StatementPage} />    
+        <Route path="statement" component={StatementPage} />
         <Route path="settings" component={SettingsPage}>
             <Route path="details" component={SettingsPersonalDetails}/>
             <Route path="security" component={SettingsSecurity}/>

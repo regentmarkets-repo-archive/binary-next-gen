@@ -3,7 +3,7 @@ import { createStore, combineReducers, compose } from 'redux';
 import { provide } from 'react-redux';
 import * as reducers from './_reducers';
 import { devTools, persistState } from 'redux-devtools';
-import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
+// import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 import { Router } from 'react-router';
 import BrowserHistory from 'react-router/lib/BrowserHistory';
 import routes from './routes';

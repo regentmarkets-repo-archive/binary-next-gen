@@ -5,7 +5,7 @@ import ObjectTable from '../common/ObjectTable';
 export default class OfferingsList {
 
 	static propTypes = {
-		offerings: React.PropTypes.object.isRequired,
+		offerings: React.PropTypes.array.isRequired,
 	};
 
 	render() {

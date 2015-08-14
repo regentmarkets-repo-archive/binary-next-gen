@@ -12,7 +12,7 @@ export default class ActiveSymbolsPage extends React.Component {
 
 		liveData.onDataChange = () => {
 			this.state = { activeSymbols: liveData.activeSymbols };
-		}.bind(this);
+		};
 
 		this.state = { activeSymbols: liveData.activeSymbols || [] };
 	}

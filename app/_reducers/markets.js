@@ -38,12 +38,12 @@ const initialState = {
     shownMarkets: marketsList,
 };
 
-export default function markets(state = initialState, action) {
+export default function marketsData(state = initialState, action) {
     const doFilter = (markets = state.allMarkets, query = state.query) => {
-        query = query.toLowerCase();
+        queryLc = query.toLowerCase();
 
         return markets.filter(m =>
-            query == '' ||
+            queryLc === '' ||
             m.id.toLowerCase().includes(query) ||
             m.name.toLowerCase().includes(query)
         );
@@ -54,13 +54,13 @@ export default function markets(state = initialState, action) {
             return {
                 ...state,
                 shownMarkets: doFilter(state.markets, action.query),
-                query: action.query
+                query: action.query,
             };
         case UPDATE_MARKETS:
             return {
                 ...state,
                 allMarkets: action.markets,
-                shownMarkets: doFilter(action.markets, state.query)
+                shownMarkets: doFilter(action.markets, state.query),
             };
         default:
             return state;

@@ -1,5 +1,5 @@
 import React from 'react';
-import InputGroup from '../common/InputGroup'
+import InputGroup from '../common/InputGroup';
 
 export default class SettingsPersonalDetails extends React.Component {
 

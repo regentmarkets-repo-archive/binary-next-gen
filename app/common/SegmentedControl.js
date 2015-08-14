@@ -13,7 +13,7 @@ export default class SegmentedControl extends React.Component {
 
         this.state = {
             activeIndex: 0,
-        }
+        };
     }
 
     selected(idx) {

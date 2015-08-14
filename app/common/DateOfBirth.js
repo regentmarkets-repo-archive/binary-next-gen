@@ -1,9 +1,9 @@
 import React from 'react';
 import moment from 'moment';
 
-class DobDay {
+export default class DateOfBirth {
 
-	render() {
+	renderDobDay() {
 		const days = Array.apply(0, Array(31));
 
 		return (
@@ -15,10 +15,8 @@ class DobDay {
 			</select>
 		);
 	}
-}
 
-class DobMonth {
-	render() {
+	renderDobMonth() {
 		const months = moment.localeData()._months;
 
 		return (
@@ -30,11 +28,8 @@ class DobMonth {
 			</select>
 		);
 	}
-}
 
-class DobYear {
-
-	render() {
+	renderDobYear() {
 		const years = Array.apply(0, Array(80));
 		const lastValidYear = new Date().getFullYear() - 18;
 
@@ -47,16 +42,13 @@ class DobYear {
 			</select>
 		);
 	}
-}
-
-export default class DateOfBirth {
 
 	render() {
 		return (
 			<span className="dob">
-				<DobDay/>
-				<DobMonth/>
-				<DobYear/>
+				{this.renderDobDay()}
+				{this.renderDobMonth()}
+				{this.renderDobYear()}
 			</span>
 		);
 	}

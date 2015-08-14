@@ -1,21 +1,5 @@
 import React from 'react';
-
-class ObjectTableRow {
-
-	static propTypes = {
-        name: React.PropTypes.string,
-		value: React.PropTypes.object,
-    };
-
-	render() {
-		return (
-			<tr>
-				<td>{this.props.name}</td>
-				<td>{this.props.value}</td>
-			</tr>
-		);
-	}
-}
+import ObjectTableRow from './ObjectTableRow';
 
 export default class ObjectTable {
 
