@@ -23,7 +23,7 @@
     "react-redux": "^0.2.2",
     "react-router": "^1.0.0-beta3",
     "react-sparklines": "*",
-    "redux": "^1.0.0-rc",
+    "redux": "*",
     "redux-devtools": "^0.1.2"
   },
   "devDependencies": {

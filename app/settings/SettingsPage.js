@@ -17,7 +17,7 @@ export default class SettingsPage extends React.Component {
 
 	render() {
 		const navigationLinks = [{
-			href: '/settings/details',
+			href: '/settings/',
 			text: 'Personal Details',
 		}, {
 			href: '/settings/security',

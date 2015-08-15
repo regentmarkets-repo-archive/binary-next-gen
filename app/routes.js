@@ -1,6 +1,3 @@
-import React from 'react';
-import { Route } from 'react-router';
-
 import App from './App';
 import HomePage from './home/HomePage';
 import LoginPage from './login/LoginPage';
@@ -26,30 +23,31 @@ import SettingsSelfExclusion from './settings/SettingsSelfExclusion';
 import SettingsLimits from './settings/SettingsLimits';
 
 
-export default (
-    <Route component={App}>
-        <Route path="/" component={HomePage}/>
-		<Route path="login" component={LoginPage} />
-		<Route path="signup" component={SignupPage} />
-        <Route path="upgrade" component={UpgradePage} />
-        <Route path="trade" component={TradePage} />
-		<Route path="ticks" component={TicksPage} />
-		<Route path="offerings" component={OfferingsPage} />
-		<Route path="active-symbols" component={ActiveSymbolsPage} />
-		<Route path="markets" component={MarketsPage} />
-		<Route path="asset-index" component={AssetIndexPage} />
-		<Route path="rise-fall-table" component={RiseFallTablePage} />
-		<Route path="trading-times" component={TradingTimesPage} />
-		<Route path="pricing-table" component={PricingTablePage} />
-        <Route path="daily-prices" component={DailyPricesPage} />
-        <Route path="intraday-prices" component={IntradayPricesPage} />
-        <Route path="portfolio" component={PortfolioPage} />
-        <Route path="statement" component={StatementPage} />
-        <Route path="settings" component={SettingsPage}>
-            <Route path="details" component={SettingsPersonalDetails}/>
-            <Route path="security" component={SettingsSecurity}/>
-            <Route path="exclusion" component={SettingsSelfExclusion}/>
-            <Route path="limits" component={SettingsLimits}/>
-       </Route>
-    </Route>
-);
+export default {
+    component: App,
+    childRoutes: [
+        { path: '/', component: HomePage },
+        { path: 'login', component: LoginPage },
+        { path: 'signup', component: SignupPage },
+        { path: 'upgrade', component: UpgradePage },
+        { path: 'trade', component: TradePage },
+        { path: 'ticks', component: TicksPage },
+        { path: 'offerings', component: OfferingsPage },
+        { path: 'active-symbols', component: ActiveSymbolsPage },
+        { path: 'markets', component: MarketsPage },
+        { path: 'asset-index', component: AssetIndexPage },
+        { path: 'rise-fall-table', component: RiseFallTablePage },
+        { path: 'trading-times', component: TradingTimesPage },
+        { path: 'pricing-table', component: PricingTablePage },
+        { path: 'daily-prices', component: DailyPricesPage },
+        { path: 'intraday-prices', component: IntradayPricesPage },
+        { path: 'portfolio', component: PortfolioPage },
+        { path: 'statement', component: StatementPage },
+        { component: SettingsPage, childRoutes: [
+            { path: 'settings', component: SettingsPersonalDetails },
+            { path: 'settings/security', component: SettingsSecurity },
+            { path: 'settings/exclusion', component: SettingsSelfExclusion },
+            { path: 'settings/limits', component: SettingsLimits },
+        ]},
+    ],
+};
