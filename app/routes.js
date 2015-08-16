@@ -22,11 +22,12 @@ import SettingsSecurity from './settings/SettingsSecurity';
 import SettingsSelfExclusion from './settings/SettingsSelfExclusion';
 import SettingsLimits from './settings/SettingsLimits';
 
+const rootPath = window.location.origin.includes('github') ? 'binary-next-gen/' : '/';
 
 export default {
     component: App,
     childRoutes: [
-        { path: '/', component: HomePage },
+        { path: rootPath, component: HomePage },
         { path: 'login', component: LoginPage },
         { path: 'signup', component: SignupPage },
         { path: 'upgrade', component: UpgradePage },

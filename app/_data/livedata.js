@@ -18,10 +18,10 @@ export default class LiveData {
         this.events.on('portfolio', ::this.portfolioHandler);
         this.events.on('offerings', ::this.offeringsHandler);
         this.events.on('tick', ::this.ticksHandler);
-        this.events.on('symbols', ::this.activeSymbolsHandler);
+        this.events.on('active_symbols', ::this.activeSymbolsHandler);
         this.events.on('contracts', ::this.contractHandler);
 
-        this.api.authorize('yVHlmNpJNKfOUgJ2UfFAhujYnYGrnlozvg63bHdhA3LqyhtE');
+        this.api.authorize('8NS2r0HzIPiamwR9opmloyibNQowkNdnhssv0UH4HPR9zF1d');
     }
 
     dataChanged(whatData) {
