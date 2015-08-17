@@ -40,12 +40,11 @@ const initialState = {
 
 export default function marketsData(state = initialState, action) {
     const doFilter = (markets = state.allMarkets, query = state.query) => {
-        queryLc = query.toLowerCase();
-
+        const queryLc = query.toLowerCase();
         return markets.filter(m =>
             queryLc === '' ||
-            m.id.toLowerCase().includes(query) ||
-            m.name.toLowerCase().includes(query)
+            m.id.toLowerCase().includes(queryLc) ||
+            m.name.toLowerCase().includes(queryLc)
         );
     };
 

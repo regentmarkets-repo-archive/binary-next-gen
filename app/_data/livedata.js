@@ -1,9 +1,17 @@
 import { LiveApi } from 'binary-live-api';
 import Ticks from './Ticks';
 
+let instance = null;
+
 export default class LiveData {
 
     constructor() {
+        if (!instance) {
+            instance = this;
+        }
+
+        this.dataHandlers = {};
+
         this.offerings = [];
         this.contracts = {};
         this.portfolio = [];
@@ -22,10 +30,23 @@ export default class LiveData {
         this.events.on('contracts', ::this.contractHandler);
 
         this.api.authorize('8NS2r0HzIPiamwR9opmloyibNQowkNdnhssv0UH4HPR9zF1d');
+        this.api.getActiveSymbolsByName();
+
+        return instance;
     }
 
-    dataChanged(whatData) {
-        if (this.onDataChange) this.onDataChange(whatData);
+    addDataHandler(dataType, func) {
+        if (!this.dataHandlers[dataType]) {
+            this.dataHandlers[dataType] = [];
+        }
+        this.dataHandlers[dataType].push(func);
+    }
+
+    dataChanged(dataType, data) {
+        const handlers = this.dataHandlers[dataType];
+        if (handlers) {
+            handlers.forEach(handler => handler(data));
+        }
     }
 
     authorizeResponseHandler(r) {
@@ -34,6 +55,11 @@ export default class LiveData {
             amount: +r.data.balance,
         };
         this.dataChanged('balance');
+    }
+
+    activeSymbolsHandler(r) {
+        this.activeSymbols = Object.keys(r.data).map(x => r.data[x]);
+        this.dataChanged('activeSymbols', this.activeSymbols);
     }
 
     ticksHandler(r) {
@@ -60,11 +86,6 @@ export default class LiveData {
         }
 
         this.dataChanged('portfolio');
-    }
-
-    activeSymbolsHandler(r) {
-        this.activeSymbols = Object.keys(r.data).map(x => r.data[x]);
-        this.dataChanged('activeSymbols');
     }
 
     contractHandler(r) {

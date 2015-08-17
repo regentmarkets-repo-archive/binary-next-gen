@@ -10,9 +10,9 @@ export default class ActiveSymbolsPage extends React.Component {
 
 		const liveData = new LiveData();
 
-		liveData.onDataChange = () => {
+		liveData.addDataHandler('activeSymbols', () => {
 			this.state = { activeSymbols: liveData.activeSymbols };
-		};
+		});
 
 		this.state = { activeSymbols: liveData.activeSymbols || [] };
 	}

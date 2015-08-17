@@ -19,19 +19,18 @@ export default class MarketsPage extends React.Component {
 
 		const liveData = new LiveData();
 
-		liveData.onDataChange = (data) => {
-			this.state = { activeSymbols: liveData.activeSymbols };
+		liveData.addDataHandler('activeSymbols', data => {
+			this.updateMarketData(data);
+		});
+	}
 
-			if (data !== 'active_symbols') return;
-
-			const { dispatch } = this.props;
-			const actions = bindActionCreators(MarketsActions, dispatch);
-			const parsed = Object.keys(data.active_symbols).map(m => ({
-				id: data.active_symbols[m].symbol,
-				name: data.active_symbols[m].display_name,
-			}));
-			actions.updateMarkets(parsed);
-		};
+	updateMarketData(data) {
+		const actions = bindActionCreators(MarketsActions, this.props.dispatch);
+		const parsed = data.map(m => ({
+			id: m.symbol,
+			name: m.display_name,
+		}));
+		actions.updateMarkets(parsed);
 	}
 
 	render() {
