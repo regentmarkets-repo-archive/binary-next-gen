@@ -2,7 +2,8 @@ import {
     SERVER_DATA_FOR_AUTHORIZE,
     SERVER_DATA_FOR_MARKETS,
     SERVER_DATA_FOR_OFFERINGS,
-    SERVER_DATA_FOR_ACTIVE_SYMBOLS
+    SERVER_DATA_FOR_ACTIVE_SYMBOLS,
+    SERVER_DATA_FOR_TRADING_TIMES
 } from '../_constants/ActionTypes';
 
 const initialState = {
@@ -39,6 +40,14 @@ export default function serverData(state = initialState, action) {
             return {
                 ...state,
                 activeSymbols: Object.keys(data).map(x => data[x]),
+            };
+        }
+        case SERVER_DATA_FOR_TRADING_TIMES: {
+            const data = action.serverResponse.data.markets;
+            window.console.log('yolo madafaka', data);
+            return {
+                ...state,
+                tradingTimes: Object.keys(data).map(x => data[x]),
             };
         }
         default:

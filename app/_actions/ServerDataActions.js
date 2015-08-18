@@ -27,3 +27,10 @@ export function serverDataForActiveSymbols(serverResponse) {
         serverResponse,
     };
 }
+
+export function serverDataForTradingTimes(serverResponse) {
+    return {
+        type: types.SERVER_DATA_FOR_TRADING_TIMES,
+        serverResponse,
+    };
+}

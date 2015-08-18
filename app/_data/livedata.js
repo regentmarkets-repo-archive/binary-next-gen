@@ -25,6 +25,7 @@ export default class LiveData {
         this.api.events.on('portfolio', portfolioHandler);
         this.api.events.on('tick', ticksHandler);
         this.api.events.on('contracts', contractsHandler);
+        this.api.events.on('trading_times', (data) => store.dispatch(actions.serverDataForTradingTimes(data)));
 
         return instance;
     }
@@ -32,7 +33,8 @@ export default class LiveData {
     init() {
         this.api.authorize('8NS2r0HzIPiamwR9opmloyibNQowkNdnhssv0UH4HPR9zF1d');
         this.api.getActiveSymbolsByName();
-        this.api.getOfferings();
+        this.api.getOfferings({ contracts: 1 });
+        this.api.getTradingTimes();
     }
 
     trackActiveSymbols() {
