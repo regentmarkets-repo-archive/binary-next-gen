@@ -6,10 +6,3 @@ export function filterMarkets(query) {
         query,
     };
 }
-
-export function updateMarkets(markets) {
-    return {
-        type: types.UPDATE_MARKETS,
-        markets,
-    };
-}

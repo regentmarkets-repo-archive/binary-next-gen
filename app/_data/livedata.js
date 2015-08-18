@@ -1,96 +1,38 @@
 import { LiveApi } from 'binary-live-api';
-import Ticks from './Ticks';
+import * as actions from '../_actions/ServerDataActions';
+
+// import Ticks from './Ticks';
+import portfolioHandler from './PortfolioHandler';
+import ticksHandler from './TicksHandler';
+import contractsHandler from './ContractsHandler';
 
 let instance = null;
 
 export default class LiveData {
 
-    constructor() {
+    constructor(store) {
         if (!instance) {
             instance = this;
         }
 
-        this.dataHandlers = {};
-
-        this.offerings = [];
-        this.contracts = {};
-        this.portfolio = [];
-        this.activeSymbols = [];
-
-        this.ticks = new Ticks();
+        window.console.log('this.props', this.props);
 
         this.api = new LiveApi();
 
-        this.events = this.api.events;
-        this.events.on('authorize', ::this.authorizeResponseHandler);
-        this.events.on('portfolio', ::this.portfolioHandler);
-        this.events.on('offerings', ::this.offeringsHandler);
-        this.events.on('tick', ::this.ticksHandler);
-        this.events.on('active_symbols', ::this.activeSymbolsHandler);
-        this.events.on('contracts', ::this.contractHandler);
-
-        this.api.authorize('8NS2r0HzIPiamwR9opmloyibNQowkNdnhssv0UH4HPR9zF1d');
-        this.api.getActiveSymbolsByName();
+        this.api.events.on('authorize', (data) => store.dispatch(actions.serverDataForAuthorize(data)));
+        this.api.events.on('offerings', (data) => store.dispatch(actions.serverDataForOfferings(data)));
+        this.api.events.on('active_symbols', (data) => store.dispatch(actions.serverDataForActiveSymbols(data)));
+        this.api.events.on('portfolio', portfolioHandler);
+        this.api.events.on('tick', ticksHandler);
+        this.api.events.on('contracts', contractsHandler);
 
         return instance;
     }
 
-    addDataHandler(dataType, func) {
-        if (!this.dataHandlers[dataType]) {
-            this.dataHandlers[dataType] = [];
-        }
-        this.dataHandlers[dataType].push(func);
-    }
-
-    dataChanged(dataType, data) {
-        const handlers = this.dataHandlers[dataType];
-        if (handlers) {
-            handlers.forEach(handler => handler(data));
-        }
-    }
-
-    authorizeResponseHandler(r) {
-        this.balance = {
-            currency: r.data.currency,
-            amount: +r.data.balance,
-        };
-        this.dataChanged('balance');
-    }
-
-    activeSymbolsHandler(r) {
-        this.activeSymbols = Object.keys(r.data).map(x => r.data[x]);
-        this.dataChanged('activeSymbols', this.activeSymbols);
-    }
-
-    ticksHandler(r) {
-        this.ticks.appendData({
-            symbol: r.echo.ticks,
-            quote: r.data.quote,
-            epoch: r.data.epoch,
-        });
-        this.dataChanged('ticks');
-    }
-
-    offeringsHandler(r) {
-        this.offerings = r.data.offerings;
-        this.dataChanged('offerings');
-    }
-
-    portfolioHandler(r) {
-        const entry = this.portfolio.find(c => c.id === r.data.id);
-
-        if (!entry) {
-            this.portfolio.push(r.data);
-        } else {
-            Object.assign(entry, r.data);
-        }
-
-        this.dataChanged('portfolio');
-    }
-
-    contractHandler(r) {
-        this.contracts = r.data;
-        this.dataChanged('contracts');
+    init() {
+        this.api.authorize('8NS2r0HzIPiamwR9opmloyibNQowkNdnhssv0UH4HPR9zF1d');
+        this.api.getActiveSymbolsByName();
+        this.api.getOfferings();
     }
 
     trackActiveSymbols() {

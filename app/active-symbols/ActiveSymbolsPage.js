@@ -2,7 +2,6 @@ import React from 'react';
 import LiveData from '../_data/LiveData';
 import SymbolList from './SymbolList';
 
-
 export default class ActiveSymbolsPage extends React.Component {
 
 	constructor(props) {

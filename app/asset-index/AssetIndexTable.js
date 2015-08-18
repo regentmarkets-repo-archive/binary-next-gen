@@ -3,15 +3,22 @@ import AssetIndexRow from './AssetIndexRow';
 
 export default class AssetIndexTable {
 
+    static propTypes = {
+		submarket: React.PropTypes.string.isRequired,
+        assets: React.PropTypes.array.isRequired,
+	};
+
     render() {
-        const assets = [{}, {}, {}];
+        const { submarket, assets } = this.props;
+
+        window.console.log('submarket', submarket);
 
         return (
             <table>
                 <thead>
                     <tr>
                         <th colSpan="100">
-                            Major Pairs
+                            {submarket}
                         </th>
                     </tr>
                     <tr>
@@ -23,7 +30,7 @@ export default class AssetIndexTable {
                     </tr>
                 </thead>
                 <tbody>
-                    {assets.map((a, i) => <AssetIndexRow key={i} asset={a} />)}
+                    {assets.map((a, i) => <AssetIndexRow key={i} symbol={a.symbol_display} />)}
                 </tbody>
             </table>
         );

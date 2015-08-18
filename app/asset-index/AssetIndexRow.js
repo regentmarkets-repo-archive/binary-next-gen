@@ -1,11 +1,18 @@
 import React from 'react';
 
 export default class AssetIndexRow {
+
+    static propTypes = {
+		symbol: React.PropTypes.string.isRequired,
+	};
+
     render() {
+        const { symbol } = this.props;
+
         return (
             <tr>
                 <td>
-                    AUD/JPY
+                    {symbol}
                 </td>
                 <td>
                     <a href="#">

@@ -1,1 +1,2 @@
-export { default as markets } from './markets';
+export markets from './markets';
+export serverData from './serverData';

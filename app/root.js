@@ -7,6 +7,7 @@ import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 import { Router } from 'react-router';
 import BrowserHistory from 'react-router/lib/BrowserHistory';
 import routes from './routes';
+import LiveData from './_data/LiveData';
 
 const finalCreateStore = compose(
   devTools(),
@@ -21,7 +22,8 @@ const store = finalCreateStore(reducer);
 export default class Root extends React.Component {
     render() {
         const history = new BrowserHistory();
-
+        const liveData = new LiveData(store);
+        liveData.init();
         return (
             <div>
                 <Router history={history} children={routes}/>

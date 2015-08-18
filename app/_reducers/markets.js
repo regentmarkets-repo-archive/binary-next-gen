@@ -1,41 +1,9 @@
 import { FILTER_MARKETS, UPDATE_MARKETS } from '../_constants/ActionTypes';
 
-const marketsList =  [{
-    id: 'eur50',
-    name: 'Euro 50 Index',
-}, {
-    id: 'wsidx',
-    name: 'Wall Streen Index',
-}, {
-    id: 'danone',
-    name: 'Danone',
-}, {
-    id: 'loreal',
-    name: 'L\'Oreal',
-}, {
-    id: 'vivendi',
-    name: 'Vivendi',
-}, {
-    id: 'oil',
-    name: 'Oil/USD',
-}, {
-    id: 'gold',
-    name: 'Gold/USD',
-}, {
-    id: 'platinum',
-    name: 'Platinum/USD',
-}, {
-    id: 'rnd100',
-    name: 'Random 100 Index',
-}, {
-    id: 'rndsun',
-    name: 'Random Sun',
-}];
-
 const initialState = {
-    allMarkets: marketsList,
+    allMarkets: [],
     query: '',
-    shownMarkets: marketsList,
+    shownMarkets: [],
 };
 
 export default function marketsData(state = initialState, action) {
@@ -58,8 +26,8 @@ export default function marketsData(state = initialState, action) {
         case UPDATE_MARKETS:
             return {
                 ...state,
-                allMarkets: action.markets,
-                shownMarkets: doFilter(action.markets, state.query),
+                shownMarkets: doFilter(state.markets, action.query),
+                query: action.query,
             };
         default:
             return state;

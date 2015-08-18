@@ -8,6 +8,7 @@ import OfferingsPage from './offerings/OfferingsPage';
 import ActiveSymbolsPage from './active-symbols/ActiveSymbolsPage';
 import MarketsPage from './markets/MarketsPage';
 import AssetIndexPage from './asset-index/AssetIndexPage';
+import AssetIndexTable from './asset-index/AssetIndexTable';
 import RiseFallTablePage from './rise-fall-table/RiseFallTablePage';
 import TradingTimesPage from './trading-times/TradingTimesPage';
 import PricingTablePage from './pricing-table/PricingTablePage';
@@ -22,12 +23,10 @@ import SettingsSecurity from './settings/SettingsSecurity';
 import SettingsSelfExclusion from './settings/SettingsSelfExclusion';
 import SettingsLimits from './settings/SettingsLimits';
 
-const rootPath = window.location.origin.includes('github') ? 'binary-next-gen/' : '/';
-
 export default {
     component: App,
     childRoutes: [
-        { path: rootPath, component: HomePage },
+        { path: '/', component: HomePage },
         { path: 'login', component: LoginPage },
         { path: 'signup', component: SignupPage },
         { path: 'upgrade', component: UpgradePage },
@@ -36,7 +35,9 @@ export default {
         { path: 'offerings', component: OfferingsPage },
         { path: 'active-symbols', component: ActiveSymbolsPage },
         { path: 'markets', component: MarketsPage },
-        { path: 'asset-index', component: AssetIndexPage },
+        { path: 'asset-index', component: AssetIndexPage, childRoutes: [
+            { path: 'asset-index/:market', component: AssetIndexTable },
+        ]},
         { path: 'rise-fall-table', component: RiseFallTablePage },
         { path: 'trading-times', component: TradingTimesPage },
         { path: 'pricing-table', component: PricingTablePage },
