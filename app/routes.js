@@ -11,6 +11,7 @@ import AssetIndexPage from './asset-index/AssetIndexPage';
 import AssetIndexTable from './asset-index/AssetIndexTable';
 import RiseFallTablePage from './rise-fall-table/RiseFallTablePage';
 import TradingTimesPage from './trading-times/TradingTimesPage';
+import TradingTimesTable from './trading-times/TradingTimesTable';
 import PricingTablePage from './pricing-table/PricingTablePage';
 import DailyPricesPage from './daily-prices/DailyPricesPage';
 import IntradayPricesPage from './intraday-prices/IntradayPricesPage';
@@ -38,8 +39,10 @@ export default {
         { path: 'asset-index', component: AssetIndexPage, childRoutes: [
             { path: 'asset-index/:market', component: AssetIndexTable },
         ]},
+        { path: 'trading-times', component: TradingTimesPage, childRoutes: [
+            { path: ':market', component: TradingTimesTable },
+        ]},
         { path: 'rise-fall-table', component: RiseFallTablePage },
-        { path: 'trading-times', component: TradingTimesPage },
         { path: 'pricing-table', component: PricingTablePage },
         { path: 'daily-prices', component: DailyPricesPage },
         { path: 'intraday-prices', component: IntradayPricesPage },

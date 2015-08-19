@@ -1,6 +1,5 @@
 import React from 'react';
 import SegmentedControl from '../common/SegmentedControl';
-import { marketStructure } from '../asset-index/MarketStructure';
 
 export default class TradeForm extends React.Component {
 
@@ -14,8 +13,8 @@ export default class TradeForm extends React.Component {
 		return (
 			<div>
 				<SegmentedControl
-					segments={marketStructure.map(m => m.name)}
-					onSelect={this.onAssetSelect} />
+					segments={['Forex', 'Something']}
+					onSelect={::this.onMarketSelect} />
 
 				<SegmentedControl
 					segments={['Up/Down', 'Rise/Fall', 'Higher/Lower', 'Touch/No Touch', 'In/Out']} />

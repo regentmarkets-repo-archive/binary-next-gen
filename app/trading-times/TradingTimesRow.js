@@ -1,14 +1,22 @@
 import React from 'react';
 
 export default class TradingTimesRow {
+
+    static propTypes = {
+        symbol: React.PropTypes.object.isRequired,
+    };
+
     render() {
+        const { symbol } = this.props;
+        const eventStrs = symbol.events.map(e => e.descrip + ':' + e.dates);
+
         return (
             <tr>
-                <td>AUD/JPY</td>
-                <td>00:00:00</td>
-                <td>23:59:59</td>
-                <td>23:59:59</td>
-                <td>Closes early (at 21:00): Fridays</td>
+                <td>{symbol.name}</td>
+                <td>{symbol.times.open}</td>
+                <td>{symbol.times.close}</td>
+                <td>{symbol.times.settlement}</td>
+                <td>{eventStrs.join(', ')}</td>
             </tr>
         );
     }

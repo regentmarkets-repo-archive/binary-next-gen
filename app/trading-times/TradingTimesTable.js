@@ -3,15 +3,19 @@ import TradingTimesRow from './TradingTimesRow';
 
 export default class TradingTimesTable {
 
+	static propTypes = {
+		submarket: React.PropTypes.object.isRequired,
+	};
+
 	render() {
-        const times = [{}, {}, {}];
+		const { submarket } = this.props;
 
 		return (
 			<table>
 				<thead>
                     <tr>
                         <th colSpan="100">
-                            Major Pairs
+                            {submarket.name}
                         </th>
                     </tr>
 					<tr>
@@ -23,7 +27,7 @@ export default class TradingTimesTable {
 					</tr>
 				</thead>
 				<tbody>
-                    {times.map((t, i) => <TradingTimesRow key={i} time={t} />)}
+                    {submarket.symbols.map((s, i) => <TradingTimesRow key={i} symbol={s} />)}
 				</tbody>
 			</table>
 		);
