@@ -37,7 +37,7 @@ export default {
         { path: 'active-symbols', component: ActiveSymbolsPage },
         { path: 'markets', component: MarketsPage },
         { path: 'asset-index', component: AssetIndexPage, childRoutes: [
-            { path: 'asset-index/:market', component: AssetIndexTable },
+            { path: ':market', component: AssetIndexTable },
         ]},
         { path: 'trading-times', component: TradingTimesPage, childRoutes: [
             { path: ':market', component: TradingTimesTable },

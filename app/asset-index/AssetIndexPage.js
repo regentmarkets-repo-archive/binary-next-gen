@@ -7,6 +7,7 @@ import AssetIndexTable from './AssetIndexTable';
 export default class AsssetIndexPage extends React.Component {
 
 	static propTypes = {
+		params: React.PropTypes.object.isRequired,
 		offerings: React.PropTypes.array.isRequired,
 	};
 
@@ -14,35 +15,21 @@ export default class AsssetIndexPage extends React.Component {
 		offerings: [],
 	};
 
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			offerings: [],
-			marketSelected: {},
-		};
-	}
-
-	onMarketSelect(e) {
-		window.console.log(e);
-	}
-
 	render() {
-		const { offerings } = this.props;
+		const { offerings, params } = this.props;
 
 		const marketLinks = offerings.map(x => ({
-			href: x.market.toLowerCase(),
+			href: '/asset-index/' + x.market.toLowerCase(),
 			text: x.market,
 		}));
 
-		const marketSelected = offerings[0] || { available: [] };
+		const marketFromRoute = offerings.find(x => x.market.toLowerCase() === params.market.toLowerCase());
+		const marketSelected = marketFromRoute || { available: [] };
 
 		return (
 			<div>
-                <SegmentedControl
-					segments={marketLinks}
-					onSelect={::this.onMarketSelect} />
-				{ marketSelected.available.map(x => <AssetIndexTable submarket={x.submarket} assets={x.available} />) }
+                <SegmentedControl segments={marketLinks} />
+				{ marketSelected.available.map(x => <AssetIndexTable submarket={x} />) }
 			</div>
 		);
 	}

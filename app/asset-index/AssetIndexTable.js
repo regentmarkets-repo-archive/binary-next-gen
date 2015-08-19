@@ -5,18 +5,17 @@ export default class AssetIndexTable {
 
     static propTypes = {
 		submarket: React.PropTypes.string.isRequired,
-        assets: React.PropTypes.array.isRequired,
 	};
 
     render() {
-        const { submarket, assets } = this.props;
+        const { submarket } = this.props;
 
         return (
             <table>
                 <thead>
                     <tr>
                         <th colSpan="100">
-                            {submarket}
+                            {submarket.submarket}
                         </th>
                     </tr>
                     <tr>
@@ -28,7 +27,7 @@ export default class AssetIndexTable {
                     </tr>
                 </thead>
                 <tbody>
-                    {assets.map((a, i) => <AssetIndexRow key={i} symbol={a.symbol_display} />)}
+                    {submarket.available.map((a, i) => <AssetIndexRow key={i} symbol={a.symbol_display} />)}
                 </tbody>
             </table>
         );

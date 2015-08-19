@@ -32,6 +32,7 @@ export default class TradingTimesPage extends React.Component {
 
 		return (
 			<div>
+				<p><input type="date" /> </p>
 				<SegmentedControl segments={marketLinks} />
 				{marketSelected.submarkets.map((s, i) => <TradingTimesTable key={i} submarket={s} />) }
 			</div>
