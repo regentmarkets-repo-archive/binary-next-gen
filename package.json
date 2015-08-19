@@ -18,7 +18,7 @@
   "dependencies": {
     "binary-live-api": "*",
     "moment": "*",
-    "react": "^0.13.3",
+    "react": "^0.13.0",
     "react-motion": "*",
     "react-redux": "*",
     "react-router": "^1.0.0-beta3",

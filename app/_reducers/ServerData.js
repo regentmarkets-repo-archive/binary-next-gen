@@ -44,7 +44,6 @@ export default function serverData(state = initialState, action) {
         }
         case SERVER_DATA_FOR_TRADING_TIMES: {
             const data = action.serverResponse.data.markets;
-            window.console.log('yolo madafaka', data);
             return {
                 ...state,
                 tradingTimes: Object.keys(data).map(x => data[x]),

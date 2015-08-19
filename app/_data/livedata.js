@@ -15,8 +15,6 @@ export default class LiveData {
             instance = this;
         }
 
-        window.console.log('this.props', this.props);
-
         this.api = new LiveApi();
 
         this.api.events.on('authorize', (data) => store.dispatch(actions.serverDataForAuthorize(data)));

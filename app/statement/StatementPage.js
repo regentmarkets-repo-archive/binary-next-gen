@@ -34,7 +34,6 @@ export default class StatenentPage extends React.Component {
 	}
 
 	showDetails(contract) {
-		// console.log(contract);
 		this.setState({ contractDetails: contract, detailsShown: true });
 	}
 

@@ -17,7 +17,6 @@ export default class AsssetIndexPage extends React.Component {
 	constructor(props) {
 		super(props);
 
-		window.console.log(props);
 		this.state = {
 			offerings: [],
 			marketSelected: {},
@@ -30,7 +29,6 @@ export default class AsssetIndexPage extends React.Component {
 
 	render() {
 		const { offerings } = this.props;
-		// const { marketSelected } = this.state;
 
 		const marketLinks = offerings.map(x => ({
 			href: x.market.toLowerCase(),
@@ -38,8 +36,6 @@ export default class AsssetIndexPage extends React.Component {
 		}));
 
 		const marketSelected = offerings[0] || { available: [] };
-
-		window.console.log(offerings);
 
 		return (
 			<div>

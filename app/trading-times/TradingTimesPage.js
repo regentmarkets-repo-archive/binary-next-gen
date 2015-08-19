@@ -7,6 +7,7 @@ import TradingTimesTable from './TradingTimesTable';
 export default class TradingTimesPage extends React.Component {
 
 	static propTypes = {
+		params: React.PropTypes.object.isRequired,
 		tradingTimes: React.PropTypes.array.isRequired,
 	};
 
@@ -18,25 +19,20 @@ export default class TradingTimesPage extends React.Component {
 		super(props);
 	}
 
-	onMarketSelect(e) {
-		window.console.log(e);
-	}
-
 	render() {
-		const { tradingTimes } = this.props;
+		const { tradingTimes, params } = this.props;
 
 		const marketLinks = tradingTimes.map(x => ({
-			href: x.name.toLowerCase(),
+			href: '/trading-times/' + x.name.toLowerCase(),
 			text: x.name,
 		}));
 
-		const marketSelected = tradingTimes[0] || { submarkets: [] };
+		const marketFromRoute = tradingTimes.find(x => x.name.toLowerCase() === params.market.toLowerCase());
+		const marketSelected = marketFromRoute || { submarkets: [] };
 
 		return (
 			<div>
-				<SegmentedControl
-					segments={marketLinks}
-					onSelect={::this.onMarketSelect} />
+				<SegmentedControl segments={marketLinks} />
 				{marketSelected.submarkets.map((s, i) => <TradingTimesTable key={i} submarket={s} />) }
 			</div>
 		);

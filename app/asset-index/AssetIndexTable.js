@@ -11,9 +11,6 @@ export default class AssetIndexTable {
     render() {
         const { submarket, assets } = this.props;
 
-        const yolos = assets[0].available[0].available.map(x => x);
-        window.console.log('yolos', yolos);
-
         return (
             <table>
                 <thead>
