@@ -3,7 +3,9 @@ import {
     SERVER_DATA_FOR_MARKETS,
     SERVER_DATA_FOR_OFFERINGS,
     SERVER_DATA_FOR_ACTIVE_SYMBOLS,
-    SERVER_DATA_FOR_TRADING_TIMES
+    SERVER_DATA_FOR_TRADING_TIMES,
+    SERVER_DATA_FOR_PORTFOLIO,
+    SERVER_DATA_FOR_STATEMENT
 } from '../_constants/ActionTypes';
 
 const initialState = {
@@ -47,6 +49,27 @@ export default function serverData(state = initialState, action) {
             return {
                 ...state,
                 tradingTimes: Object.keys(data).map(x => data[x]),
+            };
+        }
+        case SERVER_DATA_FOR_PORTFOLIO: {
+            return state;
+            /* const data = action.serverResponse.data.markets;
+            const entry = this.portfolio.find(c => c.id === r.data.id);
+
+            if (!entry) {
+                this.portfolio.push(r.data);
+            } else {
+                Object.assign(entry, r.data);
+            }
+            return {
+                ...state,
+                tradingTimes: Object.keys(data).map(x => data[x]),
+            }; */
+        }
+        case SERVER_DATA_FOR_STATEMENT: {
+            return {
+                ...state,
+                statement: action.serverResponse.data.transactions,
             };
         }
         default:

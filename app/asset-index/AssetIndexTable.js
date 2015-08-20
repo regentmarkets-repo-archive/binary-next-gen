@@ -4,7 +4,7 @@ import AssetIndexRow from './AssetIndexRow';
 export default class AssetIndexTable {
 
     static propTypes = {
-		submarket: React.PropTypes.string.isRequired,
+		submarket: React.PropTypes.object.isRequired,
 	};
 
     render() {

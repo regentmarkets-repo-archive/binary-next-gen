@@ -34,3 +34,17 @@ export function serverDataForTradingTimes(serverResponse) {
         serverResponse,
     };
 }
+
+export function serverDataForPortfolio(serverResponse) {
+    return {
+        type: types.SERVER_DATA_FOR_PORTFOLIO,
+        serverResponse,
+    };
+}
+
+export function serverDataForStatement(serverResponse) {
+    return {
+        type: types.SERVER_DATA_FOR_STATEMENT,
+        serverResponse,
+    };
+}
