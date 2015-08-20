@@ -38,6 +38,7 @@ export default class LiveData {
         this.api.getOfferings({ contracts: 1 });
         this.api.getTradingTimes();
         this.api.getStatement();
+        this.api.getPortfolio();
     }
 
     trackActiveSymbols() {

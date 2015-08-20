@@ -12,9 +12,7 @@ export default class TradeForm extends React.Component {
 	render() {
 		return (
 			<div>
-				<SegmentedControl
-					segments={['Forex', 'Something']}
-					onSelect={::this.onMarketSelect} />
+				<SegmentedControl segments={['Forex', 'Something']} />
 
 				<SegmentedControl
 					segments={['Up/Down', 'Rise/Fall', 'Higher/Lower', 'Touch/No Touch', 'In/Out']} />

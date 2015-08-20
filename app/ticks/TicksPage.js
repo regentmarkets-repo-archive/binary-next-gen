@@ -1,5 +1,4 @@
 import React from 'react';
-import LiveData from '../_data/LiveData';
 import TickTable from './TickTable';
 
 export default class TicksPage extends React.Component {

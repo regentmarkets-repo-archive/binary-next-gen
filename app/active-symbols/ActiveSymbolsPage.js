@@ -1,24 +1,18 @@
 import React from 'react';
-import LiveData from '../_data/LiveData';
+import { connect } from 'react-redux';
 import SymbolList from './SymbolList';
 
+@connect(state => ({ activeSymbols: state.serverData.activeSymbols }))
 export default class ActiveSymbolsPage extends React.Component {
 
-	constructor(props) {
-		super(props);
-
-		const liveData = new LiveData();
-
-		liveData.addDataHandler('activeSymbols', () => {
-			this.state = { activeSymbols: liveData.activeSymbols };
-		});
-
-		this.state = { activeSymbols: liveData.activeSymbols || [] };
-	}
+	static propTypes = {
+		activeSymbols: React.PropTypes.array.isRequired,
+	};
 
 	render() {
+		const { activeSymbols } = this.props;
 		return (
-			<SymbolList symbols={this.state.activeSymbols} />
+			<SymbolList symbols={activeSymbols} />
 		);
 	}
 }

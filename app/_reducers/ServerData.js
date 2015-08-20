@@ -14,6 +14,7 @@ const initialState = {
     offerings: [],
     activeSymbols: [],
     transactions: [],
+    contracts: [],
 };
 
 export default function serverData(state = initialState, action) {
@@ -53,19 +54,30 @@ export default function serverData(state = initialState, action) {
             };
         }
         case SERVER_DATA_FOR_PORTFOLIO: {
-            return state;
-            /* const data = action.serverResponse.data.markets;
-            const entry = this.portfolio.find(c => c.id === r.data.id);
+            window.console.log('SERVER_DATA_FOR_PORTFOLIO', action);
+
+            const contracts = state.contracts.slice();
+            const newContract = action.serverResponse.data;
+            const entry = contracts.find(c => c.id === newContract.id);
 
             if (!entry) {
-                this.portfolio.push(r.data);
+                contracts.push(newContract);
             } else {
-                Object.assign(entry, r.data);
+                Object.assign(entry, newContract);
             }
+
+            /*
+            const data = action.serverResponse.data.markets;
+            const entry = this.portfolio.find(c => c.id === r.data.id);
+            */
             return {
                 ...state,
-                tradingTimes: Object.keys(data).map(x => data[x]),
-            }; */
+                contracts,
+                // totals: {
+                //     purchase: contracts.length && contracts.reduce((x, y) => x + +y.buy_price, 0),
+                //     indicative: contracts.length && contracts.reduce((x, y) => x + +y.buy_price, 0),
+                // },
+            };
         }
         case SERVER_DATA_FOR_STATEMENT: {
             return {

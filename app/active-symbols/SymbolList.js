@@ -4,7 +4,7 @@ import ObjectTable from '../common/ObjectTable';
 export default class SymbolList extends React.Component {
 
 	static propTypes = {
-		symbols: React.PropTypes.object,
+		symbols: React.PropTypes.array.isRequired,
 	};
 
 	render() {

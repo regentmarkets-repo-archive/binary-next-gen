@@ -4,7 +4,7 @@ export default class ObjectTableRow {
 
 	static propTypes = {
         name: React.PropTypes.string,
-		value: React.PropTypes.object,
+		value: React.PropTypes.any,
     };
 
 	render() {
