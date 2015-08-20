@@ -1,40 +1,28 @@
 import React from 'react';
-import LiveData from '../_data/LiveData';
+import { connect } from 'react-redux';
 import Modal from '../common/Modal';
 import StatementTable from './StatementTable';
-import ContractDetails from '../portfolio/ContractDetails';
+import TransactionDetails from './TransactionDetails';
 
+@connect(state => ({ transactions: state.serverData.transactions }))
 export default class StatenentPage extends React.Component {
+
+	static propTypes = {
+		transactions: React.PropTypes.array.isRequired,
+	};
 
 	constructor(props) {
 		super(props);
 
-		const liveData = new LiveData();
-
 		this.state = {
 			detailsShown: false,
-			contractDetails: {},
-			contracts: [],
+			transactionDetails: {},
 			totals: {},
-		};
-
-		liveData.api.getPortfolio();
-
-		liveData.onDataChange = (dataType) => {
-			if (dataType !== 'portfolio') return;
-
-			this.setState({
-				contracts: liveData.portfolio,
-				totals: {
-					purchase: liveData.portfolio.length && liveData.portfolio.reduce((x, y) => x + +y.buy_price, 0),
-					indicative: liveData.portfolio.length && liveData.portfolio.reduce((x, y) => x + +y.buy_price, 0),
-				},
-			});
 		};
 	}
 
-	showDetails(contract) {
-		this.setState({ contractDetails: contract, detailsShown: true });
+	showDetails(transaction) {
+		this.setState({ transactionDetails: transaction, detailsShown: true });
 	}
 
 	onCloseDetails() {
@@ -42,14 +30,16 @@ export default class StatenentPage extends React.Component {
 	}
 
 	render() {
-		const { detailsShown, contractDetails, contracts, totals } = this.state;
+		const { transactions } = this.props;
+		const { detailsShown, transactionDetails } = this.state;
+		const totals = {};
 
 		return (
 			<div>
 				<Modal shown={detailsShown} onClose={::this.onCloseDetails}>
-					<ContractDetails contract={contractDetails} />
+					<TransactionDetails transaction={transactionDetails} />
 				</Modal>
-				<StatementTable contracts={contracts} totals={totals} onViewDetails={::this.showDetails} />
+				<StatementTable transactions={transactions} totals={totals} onViewDetails={::this.showDetails} />
 			</div>
 		);
 	}

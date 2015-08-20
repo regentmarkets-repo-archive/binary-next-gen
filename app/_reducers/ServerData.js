@@ -13,6 +13,7 @@ const initialState = {
     markets: [],
     offerings: [],
     activeSymbols: [],
+    transactions: [],
 };
 
 export default function serverData(state = initialState, action) {
@@ -69,7 +70,7 @@ export default function serverData(state = initialState, action) {
         case SERVER_DATA_FOR_STATEMENT: {
             return {
                 ...state,
-                statement: action.serverResponse.data.transactions,
+                transactions: action.serverResponse.data.transactions,
             };
         }
         default:
