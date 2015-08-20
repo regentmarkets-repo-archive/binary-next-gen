@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment';
+import { shortDateStr } from '../common/DateUtils';
 
 export default class TransactionDetails {
 
@@ -23,7 +23,7 @@ export default class TransactionDetails {
 					</thead>
 					<tbody>
 						<tr>
-							<td>{moment.unix(transaction.transaction_time).format('h:mm:ss a')}</td>
+							<td>{shortDateStr(transaction.transaction_time)}</td>
 							<td>??????</td>
 						</tr>
 					</tbody>

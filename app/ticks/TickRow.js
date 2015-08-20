@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment';
+import { shortDateStr } from '../common/DateUtils';
 import Direction from '../common/Direction';
 
 import { Sparklines, SparklinesLine, SparklinesSpots } from 'react-sparklines';
@@ -26,7 +26,7 @@ export default class TickRow {
 					{tick.quote}
 				</td>
 				<td>
-					{moment(tick.epoch).format('h:mm:ss a')}
+					{shortDateStr(tick.epoch)}
 				</td>
 				<td>
 					{tick.diff.toPrecision(2)}

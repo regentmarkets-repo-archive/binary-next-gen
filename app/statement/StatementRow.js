@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment';
+import { shortDateStr } from '../common/DateUtils';
 
 export default class StatementRow {
 
@@ -13,7 +13,7 @@ export default class StatementRow {
 
         return (
             <tr>
-                <td>{moment.unix(transaction.transaction_time).format('h:mm:ss a')}</td>
+                <td>{shortDateStr(transaction.transaction_time)}</td>
                 <td>{transaction.id}</td>
                 <td>{transaction.action_type}</td>
                 <td>{transaction.longcode}???</td>

@@ -1,5 +1,5 @@
 import React from 'react';
-import moment from 'moment';
+import { LOCALIZED_MONTHS } from '../common/DateUtils';
 
 export default class DateOfBirth {
 
@@ -17,12 +17,10 @@ export default class DateOfBirth {
 	}
 
 	renderDobMonth() {
-		const months = moment.localeData()._months;
-
 		return (
 			<select id="dobmm" name="dobmm">
 				<option disabled>Month</option>
-				{ months.map((o, i) =>
+				{ LOCALIZED_MONTHS.map((o, i) =>
 					<option key={i} value={i}>{o}</option>
 				) }
 			</select>
