@@ -58,6 +58,7 @@ export default function serverData(state = initialState, action) {
 
             const contracts = state.contracts.slice();
             const newContract = action.serverResponse.data;
+            if (!newContract) return state;
             const entry = contracts.find(c => c.id === newContract.id);
 
             if (!entry) {
@@ -66,10 +67,6 @@ export default function serverData(state = initialState, action) {
                 Object.assign(entry, newContract);
             }
 
-            /*
-            const data = action.serverResponse.data.markets;
-            const entry = this.portfolio.find(c => c.id === r.data.id);
-            */
             return {
                 ...state,
                 contracts,

@@ -18,18 +18,29 @@ const finalCreateStore = compose(
 const reducer = combineReducers(reducers);
 const store = finalCreateStore(reducer);
 
+function openDevTools() {
+    const win = window.open(null, 'redux-devtools', 'menubar=no,location=no,resizable=yes,scrollbars=no,status=no');
+    win.location.reload();
+
+    setTimeout(() => {
+        React.render(
+            <DebugPanel top right bottom left >
+                <DevTools store={store} monitor={LogMonitor} />
+            </DebugPanel>
+        , win.document.body);
+    }, 10);
+}
+
 @provide(store)
 export default class Root extends React.Component {
     render() {
         const history = new BrowserHistory();
         const liveData = new LiveData(store);
+        openDevTools();
         liveData.init();
         return (
             <div>
                 <Router history={history} children={routes}/>
-                <DebugPanel top right bottom>
-                    <DevTools store={store} monitor={LogMonitor} />
-                </DebugPanel>
             </div>
         );
     }
