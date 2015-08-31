@@ -1,6 +1,6 @@
 import React from 'react';
 import { createStore, combineReducers, compose } from 'redux';
-import { provide } from 'react-redux';
+import { Provider } from 'react-redux';
 import * as reducers from './_reducers';
 import { devTools, persistState } from 'redux-devtools';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
@@ -10,10 +10,9 @@ import routes from './routes';
 import LiveData from './_data/LiveData';
 
 const finalCreateStore = compose(
-  devTools(),
-  persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/)),
-  createStore
-);
+    devTools(),
+    persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
+)(createStore);
 
 const reducer = combineReducers(reducers);
 const store = finalCreateStore(reducer);
@@ -31,7 +30,6 @@ function openDevTools() {
     }, 10);
 }
 
-@provide(store)
 export default class Root extends React.Component {
     render() {
         const history = new BrowserHistory();
@@ -39,9 +37,9 @@ export default class Root extends React.Component {
         openDevTools();
         liveData.init();
         return (
-            <div>
-                <Router history={history} children={routes}/>
-            </div>
+            <Provider store={store}>
+                {() => <Router history={history} children={routes}/>}
+            </Provider>
         );
     }
 }
