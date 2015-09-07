@@ -14,13 +14,6 @@ export function serverDataForMarkets(serverResponse) {
     };
 }
 
-export function serverDataForOfferings(serverResponse) {
-    return {
-        type: types.SERVER_DATA_FOR_OFFERINGS,
-        serverResponse,
-    };
-}
-
 export function serverDataForActiveSymbols(serverResponse) {
     return {
         type: types.SERVER_DATA_FOR_ACTIVE_SYMBOLS,
