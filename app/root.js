@@ -1,11 +1,12 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 import { createStore, combineReducers, compose } from 'redux';
 import { Provider } from 'react-redux';
 import * as reducers from './_reducers';
 import { devTools, persistState } from 'redux-devtools';
 import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 import { Router } from 'react-router';
-import BrowserHistory from 'react-router/lib/BrowserHistory';
+import BrowserHistory from 'history/lib/createBrowserHistory';
 import routes from './routes';
 import LiveData from './_data/LiveData';
 
@@ -22,7 +23,7 @@ function openDevTools() {
     win.location.reload();
 
     setTimeout(() => {
-        React.render(
+        ReactDOM.render(
             <DebugPanel top right bottom left >
                 <DevTools store={store} monitor={LogMonitor} />
             </DebugPanel>
@@ -38,7 +39,7 @@ export default class Root extends React.Component {
         liveData.init();
         return (
             <Provider store={store}>
-                {() => <Router history={history} children={routes}/>}
+                <Router history={history} children={routes}/>
             </Provider>
         );
     }

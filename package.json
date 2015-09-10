@@ -17,11 +17,12 @@
   "license": "MIT",
   "dependencies": {
     "binary-live-api": "*",
+    "history": "^1.9.1",
     "moment": "*",
-    "react": "^0.13.0",
-    "react-motion": "*",
+    "react": "^0.14.0-rc1",
+    "react-dom": "^0.14.0-rc1",
     "react-redux": "*",
-    "react-router": "^1.0.0-beta3",
+    "react-router": "^1.0.0-rc1",
     "react-sparklines": "*",
     "redux": "*",
     "redux-devtools": "*"
