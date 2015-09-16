@@ -1,37 +1,35 @@
 import React from 'react';
 import TickRow from './TickRow';
 
-export default class TickTable {
+const TickTable = (props) => {
+ 	const symbols = props.ticks.symbols();
 
-	static propTypes = {
-		ticks: React.PropTypes.object.isRequired,
-	};
+	return (
+		<table>
+			<thead>
+				<tr>
+					<th></th>
+					<th>Name</th>
+					<th>Value</th>
+					<th>Updated</th>
+					<th>Change</th>
+					<th>Chart</th>
+				</tr>
+			</thead>
+			<tbody>
+				{symbols.map((symbol, i) =>
+					<TickRow
+						key={i}
+						tick={ticks.current(symbol)}
+						history={ticks.history(symbol)} />
+				)}
+			</tbody>
+		</table>
+	);
+};
 
-	render() {
-		const { ticks } = this.props;
-	 	const symbols = ticks.symbols();
+TickTable.propTypes = {
+	ticks: React.PropTypes.object.isRequired,
+};
 
-		return (
-			<table>
-				<thead>
-					<tr>
-						<th></th>
-						<th>Name</th>
-						<th>Value</th>
-						<th>Updated</th>
-						<th>Change</th>
-						<th>Chart</th>
-					</tr>
-				</thead>
-				<tbody>
-					{symbols.map((symbol, i) =>
-						<TickRow
-							key={i}
-							tick={ticks.current(symbol)}
-							history={ticks.history(symbol)} />
-					)}
-				</tbody>
-			</table>
-		);
-	}
-}
+export default TickTable;

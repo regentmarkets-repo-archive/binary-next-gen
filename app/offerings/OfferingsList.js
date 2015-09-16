@@ -2,34 +2,29 @@ import React from 'react';
 import ObjectTable from '../common/ObjectTable';
 
 
-export default class OfferingsList {
+const OfferingsList = (props) => (
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Value</th>
+				<th>Time</th>
+				<th>Change</th>
+				<th>Chart</th>
+			</tr>
+		</thead>
+		<tbody>
+			<div>
+				{ Object.keys(props.offerings).map((s, i) =>
+					<ObjectTable key={i} object={props.offerings[s]} />
+				)}
+			</div>
+		</tbody>
+	</table>
+);
 
-	static propTypes = {
-		offerings: React.PropTypes.array.isRequired,
-	};
+OfferingsList.propTypes = {
+	offerings: React.PropTypes.array.isRequired,
+};
 
-	render() {
-		const offerings = this.props.offerings;
-
-		return (
-			<table>
-				<thead>
-					<tr>
-						<th>Name</th>
-						<th>Value</th>
-						<th>Time</th>
-						<th>Change</th>
-						<th>Chart</th>
-					</tr>
-				</thead>
-				<tbody>
-					<div>
-						{ Object.keys(offerings).map((s, i) =>
-							<ObjectTable key={i} object={offerings[s]} />
-						)}
-					</div>
-				</tbody>
-			</table>
-		);
-	}
-}
+export default OfferingsList;

@@ -1,43 +1,42 @@
 import React from 'react';
 import PortfolioRow from './PortfolioRow';
 
-export default class PortfolioTable {
+const PortfolioTable = (props) => {
+    const { contracts, totals, onViewDetails } = props;
 
-	static propTypes = {
-		contracts: React.PropTypes.array.isRequired,
-		totals: React.PropTypes.object.isRequired,
-        onViewDetails: React.PropTypes.func.isRequired,
-	};
+	contracts.slice().sort((x, y) => Math.sign(x.fmb_id, y.fmb_id));
 
-	render() {
-        const { contracts, totals, onViewDetails } = this.props;
+	return (
+		<table>
+			<thead>
+				<tr>
+					<th>Ref.</th>
+					<th>Contract Details</th>
+					<th>Purchase</th>
+                    <th>Indicative</th>
+                    <th></th>
+				</tr>
+			</thead>
+			<tbody>
+                {contracts.map((c, i) => <PortfolioRow key={i} contract={c} onViewDetails={onViewDetails} />)}
+			</tbody>
+			<thead>
+				<tr>
+					<th></th>
+					<th></th>
+					<th>USD&nbsp;{totals.purchase}</th>
+                    <th>USD&nbsp;{totals.indicative}</th>
+                    <th></th>
+				</tr>
+			</thead>
+		</table>
+	);
+};
 
-		contracts.slice().sort((x, y) => Math.sign(x.fmb_id, y.fmb_id));
+PortfolioTable.propTypes = {
+	contracts: React.PropTypes.array.isRequired,
+	totals: React.PropTypes.object.isRequired,
+    onViewDetails: React.PropTypes.func.isRequired,
+};
 
-		return (
-			<table>
-				<thead>
-					<tr>
-						<th>Ref.</th>
-						<th>Contract Details</th>
-						<th>Purchase</th>
-                        <th>Indicative</th>
-                        <th></th>
-					</tr>
-				</thead>
-				<tbody>
-                    {contracts.map((c, i) => <PortfolioRow key={i} contract={c} onViewDetails={onViewDetails} />)}
-				</tbody>
-				<thead>
-					<tr>
-						<th></th>
-						<th></th>
-						<th>USD&nbsp;{totals.purchase}</th>
-                        <th>USD&nbsp;{totals.indicative}</th>
-                        <th></th>
-					</tr>
-				</thead>
-			</table>
-		);
-	}
-}
+export default PortfolioTable;

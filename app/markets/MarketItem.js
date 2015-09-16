@@ -1,23 +1,18 @@
 import React from 'react';
 
-export default class MarketItem {
+const MarketItem = (props) => (
+	<tr>
+		<td>
+			{props.market.id}
+		</td>
+		<td>
+			{props.market.name}
+		</td>
+	</tr>
+);
 
-	static propTypes = {
-		market: React.PropTypes.object.isRequired,
-	};
+MarketItem.propTypes = {
+	market: React.PropTypes.object.isRequired,
+};
 
-	render() {
-		const { market } = this.props;
-
-		return (
-			<tr>
-				<td>
-					{market.id}
-				</td>
-				<td>
-					{market.name}
-				</td>
-			</tr>
-		);
-	}
-}
+export default MarketItem;

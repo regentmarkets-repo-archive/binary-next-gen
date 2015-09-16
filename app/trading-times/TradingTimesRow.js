@@ -1,23 +1,22 @@
 import React from 'react';
 
-export default class TradingTimesRow {
+const TradingTimesRow = (props) => {
+    const { symbol } = props;
+    const eventStrs = symbol.events.map(e => e.descrip + ':' + e.dates);
 
-    static propTypes = {
-        symbol: React.PropTypes.object.isRequired,
-    };
+    return (
+        <tr>
+            <td>{symbol.name}</td>
+            <td>{symbol.times.open}</td>
+            <td>{symbol.times.close}</td>
+            <td>{symbol.times.settlement}</td>
+            <td>{eventStrs.join(', ')}</td>
+        </tr>
+    );
+};
 
-    render() {
-        const { symbol } = this.props;
-        const eventStrs = symbol.events.map(e => e.descrip + ':' + e.dates);
+TradingTimesRow.propTypes = {
+    symbol: React.PropTypes.object.isRequired,
+};
 
-        return (
-            <tr>
-                <td>{symbol.name}</td>
-                <td>{symbol.times.open}</td>
-                <td>{symbol.times.close}</td>
-                <td>{symbol.times.settlement}</td>
-                <td>{eventStrs.join(', ')}</td>
-            </tr>
-        );
-    }
-}
+export default TradingTimesRow;

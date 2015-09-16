@@ -4,40 +4,39 @@ import Direction from '../common/Direction';
 
 import { Sparklines, SparklinesLine, SparklinesSpots } from 'react-sparklines';
 
-export default class TickRow {
+const TickRow = (props) => {
+	const { tick, history } = props;
 
-	static propTypes = {
-		tick: React.PropTypes.object.isRequired,
-		history: React.PropTypes.array,
-	};
+	return (
+		<tr>
+			<td>
+				<Direction diff={tick.diff} />
+			</td>
+			<td>
+				{tick.symbol}
+			</td>
+			<td>
+				{tick.quote}
+			</td>
+			<td>
+				{shortDateStr(tick.epoch)}
+			</td>
+			<td>
+				{tick.diff.toPrecision(2)}
+			</td>
+			<td>
+				<Sparklines data={history.map((h) => h.quote)} limit={50}>
+					<SparklinesLine />
+					<SparklinesSpots />
+				</Sparklines>
+			</td>
+		</tr>
+	);
+};
 
-	render() {
-		const { tick, history } = this.props;
+TickRow.propTypes = {
+	tick: React.PropTypes.object.isRequired,
+	history: React.PropTypes.array,
+};
 
-		return (
-			<tr>
-				<td>
-					<Direction diff={tick.diff} />
-				</td>
-				<td>
-					{tick.symbol}
-				</td>
-				<td>
-					{tick.quote}
-				</td>
-				<td>
-					{shortDateStr(tick.epoch)}
-				</td>
-				<td>
-					{tick.diff.toPrecision(2)}
-				</td>
-				<td>
-					<Sparklines data={history.map((h) => h.quote)} limit={50}>
-						<SparklinesLine />
-						<SparklinesSpots />
-					</Sparklines>
-				</td>
-			</tr>
-		);
-	}
-}
+export default TickRow;
