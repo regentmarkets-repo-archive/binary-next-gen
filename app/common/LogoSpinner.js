@@ -1,16 +1,15 @@
 import React from 'react';
 
-export default class LogoSpinner {
+const LogoSpinner = (props) => {
+	const classNames = ['form-logo', props.spinning ? 'spinner' : null];
 
-	static propTypes = {
-        spinning: React.PropTypes.bool,
-    };
+	return (
+		<img className={classNames.join(' ')} src="https://static.binary.com/images/pages/binary-symbol-logo.svg"/>
+	);
+};
 
-	render() {
-		const classNames = ['form-logo', this.props.spinning ? 'spinner' : null];
+LogoSpinner.propTypes = {
+	spinning: React.PropTypes.bool,
+};
 
-		return (
-			<img className={classNames.join(' ')} src="https://static.binary.com/images/pages/binary-symbol-logo.svg"/>
-		);
-	}
-}
+export default LogoSpinner;

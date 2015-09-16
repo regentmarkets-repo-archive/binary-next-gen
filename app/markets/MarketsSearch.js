@@ -1,18 +1,13 @@
 import React from 'react';
 
-export default class MarketSearch {
+const MarketSearch = (props) => (
+	<input type="search"
+		placeholder="Search for markets"
+		onChange={e => props.actions.filterMarkets(e.target.value)} />
+);
 
-	static propTypes = {
-      	actions: React.PropTypes.object.isRequired,
-    };
+MarketSearch.propTypes = {
+	actions: React.PropTypes.object.isRequired,
+};
 
-    render() {
-		const { actions } = this.props;
-
-		return (
-			<input type="search"
-				placeholder="Search for markets"
-				onChange={e => actions.filterMarkets(e.target.value)} />
-		);
-	}
-}
+export default MarketSearch;

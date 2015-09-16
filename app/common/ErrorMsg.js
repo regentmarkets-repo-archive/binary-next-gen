@@ -1,21 +1,18 @@
 import React from 'react';
 
-export default class ErrorMsg {
+const ErrorMsg = (props) => {
+	if (!props.shown) return <span />;
 
-	static propTypes = {
-		shown: React.PropTypes.bool.isRequired,
-		text: React.PropTypes.string.isRequired,
-	};
+	return (
+		<p className="errorfield">
+			{props.text}
+		</p>
+	);
+};
 
-	render() {
-		const { shown, text } = this.props;
+ErrorMsg.propTypes = {
+	shown: React.PropTypes.bool.isRequired,
+	text: React.PropTypes.string.isRequired,
+};
 
-		if (!shown) return <span />;
-
-		return (
-			<p className="errorfield">
-				{text}
-			</p>
-		);
-	}
-}
+export default ErrorMsg;

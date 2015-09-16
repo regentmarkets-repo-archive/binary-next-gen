@@ -1,18 +1,15 @@
 import React from 'react';
 
-export default class ObjectTableRow {
+const ObjectTableRow = (props) => (
+	<tr>
+		<td>{props.name}</td>
+		<td>{props.value}</td>
+	</tr>
+);
 
-	static propTypes = {
-        name: React.PropTypes.string,
-		value: React.PropTypes.any,
-    };
+ObjectTableRow.propTypes = {
+    name: React.PropTypes.string,
+	value: React.PropTypes.any,
+};
 
-	render() {
-		return (
-			<tr>
-				<td>{this.props.name}</td>
-				<td>{this.props.value}</td>
-			</tr>
-		);
-	}
-}
+export default ObjectTableRow;

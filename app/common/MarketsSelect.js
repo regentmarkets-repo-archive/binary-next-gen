@@ -175,19 +175,14 @@ const markets = [
     },
 ];
 
-export default class MarketsSelect {
-
-    render() {
-        return (
-            <select {...this.props}>
-                { markets.map(market =>
-                    <optgroup label={market.name}>
-                        {market.submarkets.map(subm =>
-                            <option value={subm.id}>{subm.name}</option>
-                        )}
-                    </optgroup>
+export default () => (
+    <select {...this.props}>
+        { markets.map(market =>
+            <optgroup label={market.name}>
+                {market.submarkets.map(subm =>
+                    <option value={subm.id}>{subm.name}</option>
                 )}
-            </select>
-        );
-    }
-}
+            </optgroup>
+        )}
+    </select>
+);

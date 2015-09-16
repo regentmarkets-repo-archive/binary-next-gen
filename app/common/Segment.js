@@ -1,22 +1,22 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-export default class Segment {
+const Segment = (props) => {
+    const { href, text, active, onSelect } = props;
 
-    static propTypes = {
-        href: React.PropTypes.string,
-        text: React.PropTypes.string,
-        active: React.PropTypes.bool,
-        onSelect: React.PropTypes.func,
-    };
+    return (
+        <li className={active && 'active'}>
+            <Link to={href} onClick={onSelect} activeClassName="active">{text}</Link>
+        </li>
+    );
+};
 
-    render() {
-        const { href, text, active, onSelect } = this.props;
+Segment.propTypes = {
+    href: React.PropTypes.string,
+    text: React.PropTypes.string,
+    active: React.PropTypes.bool,
+    onSelect: React.PropTypes.func,
+};
 
-        return (
-            <li className={active && 'active'}>
-                <Link to={href} onClick={onSelect} activeClassName="active">{text}</Link>
-            </li>
-        );
-    }
-}
+
+export default Segment;
