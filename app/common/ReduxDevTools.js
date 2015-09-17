@@ -19,5 +19,5 @@ export default (store) => {
             </DebugPanel>
             , win.document.getElementById('react-devtools-root')
         );
-    }, 0);
+    }, 10);
 };

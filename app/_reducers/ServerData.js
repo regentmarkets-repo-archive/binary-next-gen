@@ -1,32 +1,42 @@
 import {
     SERVER_DATA_FOR_AUTHORIZE,
+    SERVER_DATA_FOR_BALANCE,
     SERVER_DATA_FOR_MARKETS,
     SERVER_DATA_FOR_OFFERINGS,
     SERVER_DATA_FOR_ACTIVE_SYMBOLS,
     SERVER_DATA_FOR_TRADING_TIMES,
-    SERVER_DATA_FOR_PORTFOLIO,
     SERVER_DATA_FOR_STATEMENT
 } from '../_constants/ActionTypes';
 
 const initialState = {
-    balance: {},
+    account: {},
+    balances: [],
     markets: [],
     offerings: [],
     activeSymbols: [],
     transactions: [],
-    contracts: [],
 };
 
 export default function serverData(state = initialState, action) {
     switch (action.type) {
         case SERVER_DATA_FOR_AUTHORIZE: {
-            const data = action.serverResponse.data;
+            const { currency, balance, loginid, fullname } = action.serverResponse.data;
             return {
                 ...state,
-                balance: {
-                    currency: data.currency,
-                    amount: +data.balance,
+                account: {
+                    balance: {
+                        currency,
+                        amount: +balance,
+                    },
+                    loginid,
+                    fullname,
                 },
+            };
+        }
+        case SERVER_DATA_FOR_BALANCE: {
+            return {
+                ...state,
+                balances: action.serverResponse.data.balance,
             };
         }
         case SERVER_DATA_FOR_MARKETS:
@@ -51,29 +61,6 @@ export default function serverData(state = initialState, action) {
             return {
                 ...state,
                 tradingTimes: Object.keys(data).map(x => data[x]),
-            };
-        }
-        case SERVER_DATA_FOR_PORTFOLIO: {
-            window.console.log('SERVER_DATA_FOR_PORTFOLIO', action);
-
-            const contracts = state.contracts.slice();
-            const newContract = action.serverResponse.data;
-            if (!newContract) return state;
-            const entry = contracts.find(c => c.id === newContract.id);
-
-            if (!entry) {
-                contracts.push(newContract);
-            } else {
-                Object.assign(entry, newContract);
-            }
-
-            return {
-                ...state,
-                contracts,
-                // totals: {
-                //     purchase: contracts.length && contracts.reduce((x, y) => x + +y.buy_price, 0),
-                //     indicative: contracts.length && contracts.reduce((x, y) => x + +y.buy_price, 0),
-                // },
             };
         }
         case SERVER_DATA_FOR_STATEMENT: {

@@ -72,7 +72,7 @@ const ContractDetails = (props) => {
 };
 
 ContractDetails.propTypes = {
-	contract: React.PropTypes.object.isRequired,
+	contract: React.PropTypes.object,
 };
 
 export default ContractDetails;

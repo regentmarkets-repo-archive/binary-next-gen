@@ -35,12 +35,13 @@ const willLeave = () => ({
 
 const Modal = (props) => (
 	<TransitionSpring
-		endValue={() => { getEndValue(props.shown); }}
+		endValue={() => getEndValue(props.shown)}
 		willEnter={willEnter}
 		willLeave={willLeave}>
-		{x => <div>
-				{Object.keys(x).map(key =>
-						<div key={key}>
+		{currentValue =>
+            <div>
+				{Object.keys(currentValue).map(key =>
+					<div key={key}>
 						<ModalContent anim={x[key]} />
 					</div>
 				)}

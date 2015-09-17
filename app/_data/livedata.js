@@ -5,6 +5,7 @@ let instance = null;
 
 const handlers = {
     'authorize': 'serverDataForAuthorize',
+    'balance': 'serverDataForBalance',
     'active_symbols': 'serverDataForActiveSymbols',
     'trading_times': 'serverDataForTradingTimes',
     'portfolio': 'serverDataForPortfolio',
@@ -30,10 +31,11 @@ export default class LiveData {
     }
 
     init() {
-        this.api.authorize('mwGbSK17LQkYVWmjeoYNswFUs2KXJs8NXbFi4e7FFdtGQZts');
+        this.api.authorize('LDj563aNHpoMZ2xpHVB6ghLR9z5PJurPyNKmiNSRgqtRFbjn');
         this.api.getActiveSymbolsBrief();
         this.api.getTradingTimes();
         this.api.getStatement();
+        this.api.getBalance();
         this.api.getPortfolio();
     }
 
