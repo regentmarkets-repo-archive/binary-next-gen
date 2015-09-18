@@ -5,7 +5,8 @@ import {
     SERVER_DATA_OFFERINGS,
     SERVER_DATA_ACTIVE_SYMBOLS,
     SERVER_DATA_TRADING_TIMES,
-    SERVER_DATA_STATEMENT
+    SERVER_DATA_STATEMENT,
+    SERVER_DATA_TICK_STREAM
 } from '../_constants/ActionTypes';
 
 const initialState = {
@@ -67,6 +68,12 @@ export default function serverData(state = initialState, action) {
             return {
                 ...state,
                 transactions: action.serverResponse.data.transactions,
+            };
+        }
+        case SERVER_DATA_TICK_STREAM: {
+            return {
+                ...state,
+                ticks: action.serverResponse.data,
             };
         }
         default:

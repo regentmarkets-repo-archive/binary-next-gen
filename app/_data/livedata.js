@@ -4,12 +4,13 @@ import * as actions from '../_actions/ServerDataActions';
 let instance = null;
 
 const handlers = {
-    'authorize': 'serverDataForAuthorize',
-    'balance': 'serverDataForBalance',
-    'active_symbols': 'serverDataForActiveSymbols',
-    'trading_times': 'serverDataForTradingTimes',
-    'portfolio': 'serverDataForPortfolio',
-    'statement': 'serverDataForStatement',
+    'authorize': 'serverDataAuthorize',
+    'balance': 'serverDataBalance',
+    'active_symbols': 'serverDataActiveSymbols',
+    'trading_times': 'serverDataTradingTimes',
+    'portfolio': 'serverDataPortfolio',
+    'statement': 'serverDataStatement',
+    'ticks': 'serverDataTickStream',
 };
 
 export default class LiveData {
