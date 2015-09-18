@@ -1,29 +1,18 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import TickTable from './TickTable';
 
+@connect(state => ({ ticks: state.serverData.ticks }))
 export default class TicksPage extends React.Component {
 
-	constructor(props) {
-		super(props);
-
-		liveData.onDataChange = (dataType) => {
-			if (dataType === 'activeSymbols') {
-				liveData.trackActiveSymbols();
-			}
-			if (dataType === 'ticks') {
-				this.setState( { ticks: liveData.ticks });
-			}
-		};
-
-		this.state = { ticks: liveData.ticks };
-
-		liveData.api.getActiveSymbolsBrief();
-  	}
+	static propTypes = {
+		ticks: React.PropTypes.array.isRequired,
+	};
 
 	render() {
 		return (
 			<div>
-				<TickTable ticks={this.state.ticks} />
+				<TickTable ticks={this.props.ticks} />
 			</div>
 		);
 	}

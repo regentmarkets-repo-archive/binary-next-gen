@@ -37,6 +37,7 @@ export default class LiveData {
         this.api.getStatement();
         this.api.getBalance();
         this.api.getPortfolio();
+        this.api.subscribeToTicks(['frxUSDJPY', 'R_50']);
     }
 
     trackActiveSymbols() {

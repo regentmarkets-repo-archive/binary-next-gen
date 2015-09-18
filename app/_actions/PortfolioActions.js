@@ -1,7 +1,7 @@
 import * as types from '../_constants/ActionTypes';
 
 export const serverDataForPortfolio = (serverResponse) => ({
-    type: types.SERVER_DATA_FOR_PORTFOLIO,
+    type: types.SERVER_DATA_PORTFOLIO,
     serverResponse,
 });
 

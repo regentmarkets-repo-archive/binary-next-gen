@@ -1,5 +1,5 @@
 import {
-    SERVER_DATA_FOR_PORTFOLIO,
+    SERVER_DATA_PORTFOLIO,
     DETAILS_FOR_CONTRACT,
 } from '../_constants/ActionTypes';
 
@@ -11,7 +11,7 @@ const initialState = {
 
 export default function serverData(state = initialState, action) {
     switch (action.type) {
-        case SERVER_DATA_FOR_PORTFOLIO: {
+        case SERVER_DATA_PORTFOLIO: {
             return {
                 ...state,
                 contracts: action.serverResponse.data.contracts,

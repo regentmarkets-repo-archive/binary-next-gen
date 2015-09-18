@@ -26,7 +26,6 @@ export default class PortfolioPage extends React.Component {
 	}
 
 	render() {
-		window.console.log(this.props);
 		const { contracts, contractShown, areDetailsShown } = this.props.portfolio;
 		const { balance } = this.props.account;
 		const balanceStr = balance && balance.amount && `${balance.currency} ${balance.amount.toFixed(2)}`;
