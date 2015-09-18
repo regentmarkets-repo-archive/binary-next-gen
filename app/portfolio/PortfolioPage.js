@@ -18,13 +18,11 @@ export default class PortfolioPage extends React.Component {
 	showDetails(contract) {
 		const actions = bindActionCreators(PortfolioActions, this.props.dispatch);
 		actions.detailsForContract(true, contract);
-		// this.setState({ contractDetails: contract, detailsShown: true });
 	}
 
 	onCloseDetails() {
 		const actions = bindActionCreators(PortfolioActions, this.props.dispatch);
 		actions.detailsForContract(false);
-		// this.setState({ detailsShown: false });
 	}
 
 	render() {
@@ -32,7 +30,6 @@ export default class PortfolioPage extends React.Component {
 		const { contracts, contractShown, areDetailsShown } = this.props.portfolio;
 		const { balance } = this.props.account;
 		const balanceStr = balance && balance.amount && `${balance.currency} ${balance.amount.toFixed(2)}`;
-		const totals = {};
 
 		return (
 			<div>
@@ -42,7 +39,6 @@ export default class PortfolioPage extends React.Component {
 				</Modal>
 				<PortfolioTable
 					contracts={contracts}
-					totals={totals}
 					onViewDetails={::this.showDetails} />
 			</div>
 		);

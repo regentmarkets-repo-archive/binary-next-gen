@@ -15,10 +15,6 @@ export default function serverData(state = initialState, action) {
             return {
                 ...state,
                 contracts: action.serverResponse.data.contracts,
-                // totals: {
-                //     purchase: contracts.length && contracts.reduce((x, y) => x + +y.buy_price, 0),
-                //     indicative: contracts.length && contracts.reduce((x, y) => x + +y.buy_price, 0),
-                // },
             };
         }
         case DETAILS_FOR_CONTRACT: {
