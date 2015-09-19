@@ -10,7 +10,8 @@ const handlers = {
     'trading_times': 'serverDataTradingTimes',
     'portfolio': 'serverDataPortfolio',
     'statement': 'serverDataStatement',
-    'ticks': 'serverDataTickStream',
+    'tick': 'serverDataTickStream',
+    'ticks': 'serverDataTickHistory',
 };
 
 export default class LiveData {
