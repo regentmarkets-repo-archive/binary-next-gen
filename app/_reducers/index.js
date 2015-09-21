@@ -1,3 +1,13 @@
-export markets from './markets';
-export serverData from './serverData';
-export portfolio from './PortfolioReducers';
+import { combineReducers } from 'redux';
+
+import markets from './markets';
+import serverData from './serverData';
+import portfolios from './PortfolioReducers';
+import ticks from './TickReducers';
+
+export default combineReducers({
+    markets,
+    serverData,
+    portfolios,
+    ticks,
+});

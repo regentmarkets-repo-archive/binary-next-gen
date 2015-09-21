@@ -5,8 +5,10 @@ import { DevTools, DebugPanel, LogMonitor } from 'redux-devtools/lib/react';
 export default (store) => {
     // give it a name so it reuses the same window
     const win = window.open(null, 'redux-devtools', 'menubar=no,location=no,resizable=yes,scrollbars=no,status=no');
-
-    win.document.getElementById('react-devtools-root').remove();
+    const reduxDevtools = win.document.getElementById('redux-devtools');
+    if (reduxDevtools) {
+        reduxDevtools.remove();
+    }
     win.document.write('<div id="react-devtools-root"></div>');
 
     // wait a little bit for it to reload, then render

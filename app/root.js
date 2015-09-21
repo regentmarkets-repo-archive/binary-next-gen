@@ -1,7 +1,7 @@
 import React from 'react';
-import { createStore, combineReducers, compose } from 'redux';
+import { createStore, compose } from 'redux';
 import { Provider } from 'react-redux';
-import * as reducers from './_reducers';
+import reducers from './_reducers';
 import { devTools, persistState } from 'redux-devtools';
 import { Router } from 'react-router';
 import BrowserHistory from 'history/lib/createBrowserHistory';
@@ -14,8 +14,7 @@ const finalCreateStore = compose(
     persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
 )(createStore);
 
-const reducer = combineReducers(reducers);
-const store = finalCreateStore(reducer);
+const store = finalCreateStore(reducers);
 
 export default class Root extends React.Component {
     render() {
