@@ -1,5 +1,4 @@
 import {
-    SERVER_DATA_AUTHORIZE,
     SERVER_DATA_BALANCE,
     SERVER_DATA_MARKETS,
     SERVER_DATA_OFFERINGS,
@@ -19,20 +18,6 @@ const initialState = {
 
 export default function serverData(state = initialState, action) {
     switch (action.type) {
-        case SERVER_DATA_AUTHORIZE: {
-            const { currency, balance, loginid, fullname } = action.serverResponse.data;
-            return {
-                ...state,
-                account: {
-                    balance: {
-                        currency,
-                        amount: +balance,
-                    },
-                    loginid,
-                    fullname,
-                },
-            };
-        }
         case SERVER_DATA_BALANCE: {
             return {
                 ...state,

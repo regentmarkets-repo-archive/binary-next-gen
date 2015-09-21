@@ -1,13 +1,15 @@
 import { combineReducers } from 'redux';
 
-import markets from './markets';
+import account from './accountReducers';
+import markets from './marketsReducers';
 import serverData from './serverData';
-import portfolios from './PortfolioReducers';
+import portfolio from './PortfolioReducers';
 import ticks from './TickReducers';
 
 export default combineReducers({
+    account,
     markets,
     serverData,
-    portfolios,
+    portfolio,
     ticks,
 });

@@ -18,6 +18,7 @@
   "dependencies": {
     "binary-live-api": "*",
     "history": "^1.9.1",
+    "immutable": "^3.7.5",
     "moment": "*",
     "react": "^0.14.0-rc1",
     "react-dom": "^0.14.0-rc1",

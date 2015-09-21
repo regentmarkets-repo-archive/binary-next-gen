@@ -33,13 +33,13 @@ export default class LiveData {
     }
 
     init() {
-        this.api.authorize('6CqDC5zjAUzmLiKqohYy9WkP6RYadverdD2f8RfIrdLoyie7');
-        this.api.getActiveSymbolsBrief();
-        this.api.getTradingTimes();
+        this.api.authorize('APv0AO4MYll6F8LBJoee4wEJiYUoA4Q7X5wsOv2GUMR4V2Wy');
+        // this.api.getActiveSymbolsBrief();
+        // this.api.getTradingTimes();
         this.api.getStatement();
         this.api.getBalance();
         this.api.getPortfolio();
-        this.api.subscribeToTicks(['frxUSDJPY', 'R_50']);
+        // this.api.subscribeToTicks(['frxUSDJPY', 'R_50']);
     }
 
     trackActiveSymbols() {
