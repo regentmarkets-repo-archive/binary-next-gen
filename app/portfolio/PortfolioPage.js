@@ -6,7 +6,7 @@ import Modal from '../common/Modal';
 import PortfolioTable from './PortfolioTable';
 import ContractDetails from './ContractDetails';
 
-@connect(state => ({ account: state.serverData.account, portfolio: state.portfolio }))
+@connect(state => ({ account: state.account, portfolio: state.portfolio }))
 export default class PortfolioPage extends React.Component {
 
 	static propTypes = {
@@ -27,9 +27,8 @@ export default class PortfolioPage extends React.Component {
 
 	render() {
 		const { contracts, contractShown, areDetailsShown } = this.props.portfolio.toJS();
-		const { balance } = this.props.account;
+		const balance = this.props.account.toJS().balance;
 		const balanceStr = balance && balance.amount && `${balance.currency} ${balance.amount.toFixed(2)}`;
-		window.console.log(this.props);
 		return (
 			<div>
 				<h3>Account balance: {balanceStr} </h3>
