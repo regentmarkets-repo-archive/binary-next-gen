@@ -27,17 +27,3 @@ export function serverDataStatement(serverResponse) {
         serverResponse,
     };
 }
-
-export function serverDataTickHistory(serverResponse) {
-    return {
-        type: types.SERVER_DATA_TICK_STREAM,
-        serverResponse,
-    };
-}
-
-export function serverDataTickStream(serverResponse) {
-    return {
-        type: types.SERVER_DATA_TICK_HISTORY,
-        serverResponse,
-    };
-}

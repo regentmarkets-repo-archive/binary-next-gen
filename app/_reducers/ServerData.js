@@ -16,7 +16,7 @@ const initialState = {
     transactions: [],
 };
 
-export default function serverData(state = initialState, action) {
+export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_BALANCE: {
             return {
@@ -57,4 +57,4 @@ export default function serverData(state = initialState, action) {
         default:
             return state;
     }
-}
+};

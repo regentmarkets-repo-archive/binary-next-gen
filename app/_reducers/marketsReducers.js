@@ -6,7 +6,7 @@ const initialState = {
     shownMarkets: [],
 };
 
-export default function marketsData(state = initialState, action) {
+export default (state = initialState, action) => {
     const doFilter = (markets = state.allMarkets, query = state.query) => {
         const queryLc = query.toLowerCase();
         return markets.filter(m =>
@@ -32,4 +32,4 @@ export default function marketsData(state = initialState, action) {
         default:
             return state;
     }
-}
+};

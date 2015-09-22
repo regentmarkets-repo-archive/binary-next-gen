@@ -6,21 +6,11 @@ import {
 
 const initialState = new Map();
 
-export default function serverData(state = initialState, action) {
+export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_AUTHORIZE: {
             const { currency, balance, loginid, fullname } = action.serverResponse.data;
-            // return {
-            //     ...state,
-            //     account: {
-            //         balance: {
-            //             currency,
-            //             amount: +balance,
-            //         },
-            //         loginid,
-            //         fullname,
-            //     },
-            // };
+
             return new Map({
                 balance: {
                     currency,
@@ -33,4 +23,4 @@ export default function serverData(state = initialState, action) {
         default:
             return state;
     }
-}
+};

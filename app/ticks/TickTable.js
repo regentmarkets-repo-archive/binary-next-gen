@@ -2,8 +2,6 @@ import React from 'react';
 import TickRow from './TickRow';
 
 const TickTable = (props) => {
- 	const symbols = props.ticks.symbols();
-
 	return (
 		<table>
 			<thead>
@@ -17,11 +15,11 @@ const TickTable = (props) => {
 				</tr>
 			</thead>
 			<tbody>
-				{symbols.map((symbol, i) =>
+				{props.ticks.keySeq().map((symbol) =>
 					<TickRow
-						key={i}
-						tick={ticks.current(symbol)}
-						history={ticks.history(symbol)} />
+						key={symbol}
+						symbol={symbol}
+						history={props.ticks.get(symbol).toJS()} />
 				)}
 			</tbody>
 		</table>

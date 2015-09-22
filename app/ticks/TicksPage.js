@@ -2,11 +2,11 @@ import React from 'react';
 import { connect } from 'react-redux';
 import TickTable from './TickTable';
 
-@connect(state => ({ ticks: state.serverData.ticks }))
+@connect(state => ({ ticks: state.ticks }))
 export default class TicksPage extends React.Component {
 
 	static propTypes = {
-		ticks: React.PropTypes.array.isRequired,
+		ticks: React.PropTypes.object.isRequired,
 	};
 
 	render() {

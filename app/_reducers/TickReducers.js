@@ -1,41 +1,26 @@
+import { Stack, Map } from 'immutable';
+
 import {
     SERVER_DATA_TICK_STREAM,
     SERVER_DATA_TICK_HISTORY
 } from '../_constants/ActionTypes';
 
-const initialState = {
-    ticks: [],
-};
+const initialState = new Map();
 
-export default function serverData(state = initialState, action) {
+export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_TICK_STREAM: {
             const symbol = action.serverResponse.echo.ticks;
-            if (!state.ticks[symbol]) {
-                return {
-                    ...state,
-                    ticks: [{
-                        history: [],
-                    }],
-                };
-            }
-            this.ticks[data.symbol].history.push({
-                epoch: action.serverResponse.data.epoch,
-                quote: action.serverResponsedata.quote,
-            });
+            const { epoch, quote } = action.serverResponse.data;
+            const newTick = { epoch, quote };
 
-            return {
-                ...state,
-                ticks: action.serverResponse.data,
-            };
+            return state.update(symbol, Stack.of(newTick), (v) => v.push(newTick)); // v.shift()
         }
         case SERVER_DATA_TICK_HISTORY: {
-            return {
-                ...state,
-                ticks: action.serverResponse.data,
-            };
+            const { symbol } = action.serverResponse.echo.ticks;
+            return state.set(symbol, Stack.of(action.serverResponse.data));
         }
         default:
             return state;
     }
-}
+};

@@ -11,7 +11,7 @@ const initialState = new Map({
     contracts: List.of(),
 });
 
-export default function serverData(state = initialState, action) {
+export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_PORTFOLIO: {
             return state.set('contracts', fromJS(action.serverResponse.data.contracts));
@@ -24,4 +24,4 @@ export default function serverData(state = initialState, action) {
         default:
             return state;
     }
-}
+};
