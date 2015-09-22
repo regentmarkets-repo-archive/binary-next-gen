@@ -1,28 +1,25 @@
+import { List, Map, fromJS } from 'immutable';
+
 import {
     SERVER_DATA_PORTFOLIO,
     DETAILS_FOR_CONTRACT,
 } from '../_constants/ActionTypes';
 
-const initialState = {
+const initialState = new Map({
     detailsShown: false,
     contractShown: undefined,
-    contracts: [],
-};
+    contracts: List.of(),
+});
 
 export default function serverData(state = initialState, action) {
     switch (action.type) {
         case SERVER_DATA_PORTFOLIO: {
-            return {
-                ...state,
-                contracts: action.serverResponse.data.contracts,
-            };
+            return state.set('contracts', fromJS(action.serverResponse.data.contracts));
         }
         case DETAILS_FOR_CONTRACT: {
-            return {
-                ...state,
-                areDetailsShown: action.areDetailsShown,
-                contractShown: action.contractShown,
-            };
+            return state
+                .set('areDetailsShown', action.areDetailsShown)
+                .set('contractShown', action.contractShown);
         }
         default:
             return state;
