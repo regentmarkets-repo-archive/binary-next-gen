@@ -7,7 +7,7 @@ import PortfolioTable from './PortfolioTable';
 import ContractDetails from './ContractDetails';
 
 @connect(state => ({ account: state.account, portfolio: state.portfolio }))
-export default class PortfolioPage extends React.Component {
+export default class PortfolioPane extends React.Component {
 
 	static propTypes = {
 		account: React.PropTypes.object.isRequired,

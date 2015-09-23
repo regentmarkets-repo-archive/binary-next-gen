@@ -4,7 +4,7 @@ import UpgradeStep1 from './UpgradeStep1';
 import UpgradeStep2 from './UpgradeStep2';
 import UpgradeStep3 from './UpgradeStep3';
 
-export default class UpgradePage extends React.Component {
+export default class UpgradePane extends React.Component {
 
 	constructor(props) {
 		super(props);

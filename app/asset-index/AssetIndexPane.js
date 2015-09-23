@@ -4,7 +4,7 @@ import SegmentedControl from '../common/SegmentedControl';
 import AssetIndexTable from './AssetIndexTable';
 
 @connect(state => ({ offerings: state.serverData.offerings }))
-export default class AsssetIndexPage extends React.Component {
+export default class AsssetIndexPane extends React.Component {
 
 	static propTypes = {
 		params: React.PropTypes.object.isRequired,

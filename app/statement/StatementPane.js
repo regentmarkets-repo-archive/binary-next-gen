@@ -5,7 +5,7 @@ import StatementTable from './StatementTable';
 import TransactionDetails from './TransactionDetails';
 
 @connect(state => ({ transactions: state.serverData.transactions }))
-export default class StatenentPage extends React.Component {
+export default class StatenentPane extends React.Component {
 
 	static propTypes = {
 		transactions: React.PropTypes.array.isRequired,

@@ -4,7 +4,7 @@ import SegmentedControl from '../common/SegmentedControl';
 import TradingTimesTable from './TradingTimesTable';
 
 @connect(state => ({ tradingTimes: state.serverData.tradingTimes }))
-export default class TradingTimesPage extends React.Component {
+export default class TradingTimesPane extends React.Component {
 
 	static propTypes = {
 		params: React.PropTypes.object.isRequired,

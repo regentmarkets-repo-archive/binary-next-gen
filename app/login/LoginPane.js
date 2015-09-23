@@ -3,7 +3,7 @@ import LogoSpinner from '../common/LogoSpinner';
 import ErrorMsg from '../common/ErrorMsg';
 import InputGroup from '../common/InputGroup';
 
-export default class LoginPage extends React.Component {
+export default class LoginPane extends React.Component {
 
 	constructor(props) {
 		super(props);

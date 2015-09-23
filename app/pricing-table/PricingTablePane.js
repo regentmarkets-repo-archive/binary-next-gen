@@ -3,7 +3,7 @@ import SegmentedControl from '../common/SegmentedControl';
 import PricingTable from './PricingTable';
 import PricingTableFilter from './PricingTableFilter';
 
-export default class TradingTimesPage extends React.Component {
+export default class TradingTimesPane extends React.Component {
 
 	constructor(props) {
 		super(props);

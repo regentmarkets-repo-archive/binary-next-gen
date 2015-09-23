@@ -2,7 +2,7 @@ import React from 'react';
 import TradeForm from './TradeForm';
 import TradeConfirmation from './TradeConfirmation';
 
-export default class TradePage extends React.Component {
+export default class TradePane extends React.Component {
 
 	constructor(props) {
 		super(props);

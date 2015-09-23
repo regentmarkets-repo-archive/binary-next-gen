@@ -1,7 +1,7 @@
 import React from 'react';
 import SegmentedControl from '../common/SegmentedControl';
 
-export default class SettingsPage extends React.Component {
+export default class SettingsPane extends React.Component {
 
 	static propTypes = {
 		children: React.PropTypes.any,

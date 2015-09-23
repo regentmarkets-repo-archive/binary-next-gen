@@ -4,7 +4,7 @@ import Countries from '../common/Countries';
 import ErrorMsg from '../common/ErrorMsg';
 import InputGroup from '../common/InputGroup';
 
-export default class SignupPage extends React.Component {
+export default class SignupPane extends React.Component {
 
 	constructor(props) {
 		super(props);

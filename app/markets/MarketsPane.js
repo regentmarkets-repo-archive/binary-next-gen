@@ -6,7 +6,7 @@ import MarketsList from './MarketsList';
 import MarketsSearch from './MarketsSearch';
 
 @connect(state => ({ markets: state.markets }))
-export default class MarketsPage extends React.Component {
+export default class MarketsPane extends React.Component {
 
 	static propTypes = {
         markets: React.PropTypes.object,
