@@ -1,10 +1,11 @@
-import { FILTER_MARKETS, UPDATE_MARKETS } from '../_constants/ActionTypes';
+import { Map } from 'immutable';
+import { FILTER_MARKETS, UPDATE_MARKETS, SERVER_DATA_ACTIVE_SYMBOLS } from '../_constants/ActionTypes';
 
-const initialState = {
-    allMarkets: [],
+const initialState = new Map({
+    active: [],
     query: '',
     shownMarkets: [],
-};
+});
 
 export default (state = initialState, action) => {
     const doFilter = (markets = state.allMarkets, query = state.query) => {
@@ -17,6 +18,10 @@ export default (state = initialState, action) => {
     };
 
     switch (action.type) {
+        case SERVER_DATA_ACTIVE_SYMBOLS: {
+            const data = action.serverResponse.data;
+            return state.set('active', data);
+        }
         case FILTER_MARKETS:
             return {
                 ...state,

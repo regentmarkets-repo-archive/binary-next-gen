@@ -2,6 +2,7 @@ import { Map } from 'immutable';
 
 import {
     SERVER_DATA_AUTHORIZE,
+    SERVER_DATA_BALANCE,
 } from '../_constants/ActionTypes';
 
 const initialState = new Map();
@@ -11,7 +12,7 @@ export default (state = initialState, action) => {
         case SERVER_DATA_AUTHORIZE: {
             const { currency, balance, loginid, fullname } = action.serverResponse.data;
 
-            return new Map({
+            return state.merge({
                 balance: {
                     currency,
                     amount: +balance,
@@ -20,6 +21,8 @@ export default (state = initialState, action) => {
                 fullname,
             });
         }
+        case SERVER_DATA_BALANCE:
+            return state.set('balances', action.serverResponse.data);
         default:
             return state;
     }

@@ -1,5 +1,5 @@
 import { LiveApi } from 'binary-live-api';
-import * as actions from '../_actions/ServerDataActions';
+import * as actions from '../_actions';
 
 let instance = null;
 
@@ -34,12 +34,12 @@ export default class LiveData {
 
     init() {
         this.api.authorize('APv0AO4MYll6F8LBJoee4wEJiYUoA4Q7X5wsOv2GUMR4V2Wy');
-        // this.api.getActiveSymbolsBrief();
+        this.api.getActiveSymbolsBrief();
         // this.api.getTradingTimes();
-        this.api.getStatement();
+        // this.api.getStatement();
         this.api.getBalance();
         this.api.getPortfolio();
-        this.api.subscribeToTicks(['frxUSDJPY', 'R_50']);
+        // this.api.subscribeToTicks(['frxUSDJPY', 'R_50']);
     }
 
     trackActiveSymbols() {

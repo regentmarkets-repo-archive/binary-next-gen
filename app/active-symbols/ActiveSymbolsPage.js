@@ -2,15 +2,15 @@ import React from 'react';
 import { connect } from 'react-redux';
 import SymbolList from './SymbolList';
 
-@connect(state => ({ activeSymbols: state.serverData.activeSymbols }))
+@connect(state => ({ markets: state.markets }))
 export default class ActiveSymbolsPage extends React.Component {
 
 	static propTypes = {
-		activeSymbols: React.PropTypes.array.isRequired,
+		markets: React.PropTypes.object.isRequired,
 	};
 
 	render() {
-		const { activeSymbols } = this.props;
+		const activeSymbols = this.props.markets.active;
 		return (
 			<SymbolList symbols={activeSymbols} />
 		);
