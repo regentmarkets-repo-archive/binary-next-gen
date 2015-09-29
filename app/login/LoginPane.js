@@ -2,6 +2,7 @@ import React from 'react';
 import LogoSpinner from '../common/LogoSpinner';
 import ErrorMsg from '../common/ErrorMsg';
 import InputGroup from '../common/InputGroup';
+import LanguagePicker from '../common/LanguagePicker';
 
 export default class LoginPane extends React.Component {
 
@@ -69,6 +70,7 @@ export default class LoginPane extends React.Component {
 					<InputGroup type="password" placeholder="Password" onChange={::this.passwordChange} />
 					<ErrorMsg shown={passwordNotEntered} text="Need a pass" />
 					<ErrorMsg shown={credentialsInvalid} text="Access denied" />
+					<LanguagePicker />
 					<button onClick={::this.tryLogin}>Sign in</button>
 					<p className="row">
 				    	<a href="#">Forgot password?</a>

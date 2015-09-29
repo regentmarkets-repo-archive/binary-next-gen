@@ -21,4 +21,8 @@ MarketsList.propTypes = {
 	markets: React.PropTypes.array.isRequired,
 };
 
+MarketsList.defaultProps = {
+	markets: {},
+};
+
 export default MarketsList;

@@ -1,19 +1,21 @@
 import React from 'react';
 
-const InputGroup = (props) => {
-	const { id, label, type, hint, value, readOnly, placeholder, onChange } = props;
+const SelectGroup = (props) => {
+	const { id, label, hint, value, items, readOnly, placeholder, onChange } = props;
 
 	return (
 		<fieldset>
             {label && <label htmlFor={id}>{label}</label>}
-			<input id={id} type={type} defaultValue={value} readOnly={readOnly} placeholder={placeholder} onChange={onChange} />
+			<select id={id} readOnly={readOnly} placeholder={placeholder} onChange={onChange} defaultValue={value}>
+				{ items.map(i => <option key={i.value} value={i.value}>{i.text}</option> ) }
+			</select>
 			{hint && <p className="hint">{hint}</p>}
 		</fieldset>
 	);
 };
 
-InputGroup.propTypes = {
-	type: React.PropTypes.string.isRequired,
+SelectGroup.propTypes = {
+	items: React.PropTypes.array,
 	id: React.PropTypes.string,
 	label: React.PropTypes.string,
 	hint: React.PropTypes.string,
@@ -23,8 +25,4 @@ InputGroup.propTypes = {
 	onChange: React.PropTypes.func,
 };
 
-InputGroup.defaultValue = {
-	type: 'text',
-};
-
-export default InputGroup;
+export default SelectGroup;

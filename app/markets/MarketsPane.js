@@ -23,13 +23,14 @@ export default class MarketsPane extends React.Component {
 	}
 
 	render() {
-		const { markets, dispatch } = this.props;
+		const { dispatch } = this.props;
+		const { shownMarkets } = this.props.markets.toJS(); // tree, active, shownMarkets, query
 		const actions = bindActionCreators(MarketsActions, dispatch);
 
 		return (
 			<div>
 				<MarketsSearch actions={actions} />
-  				<MarketsList markets={markets.shownMarkets} />
+  				<MarketsList markets={shownMarkets} />
 			</div>
 		);
 	}
