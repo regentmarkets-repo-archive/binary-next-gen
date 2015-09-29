@@ -43,5 +43,5 @@ const languages = [{
 }];
 
 export default () => (
-    <SelectGroup items={languages} />
+    <SelectGroup items={languages} value="EN" />
 );

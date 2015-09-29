@@ -12,6 +12,7 @@ export default class LoginPane extends React.Component {
 		this.state = {
 			email: '',
 			password: '',
+			language: 'EN',
 			emailNotValid: false,
 			passwordNotEntered: false,
 			credentialsInvalid: false,
@@ -34,6 +35,7 @@ export default class LoginPane extends React.Component {
 			validatedOnce: true,
 			emailNotValid,
 			passwordNotEntered,
+			language,
 		});
 	}
 
@@ -55,6 +57,10 @@ export default class LoginPane extends React.Component {
         this.setState({ password: event.target.value });
     }
 
+	languageChange(event) {
+		this.setState({ language: event.target.value });
+	}
+
 	render() {
 		const { progress, emailNotValid, passwordNotEntered, credentialsInvalid } = this.state;
 
@@ -70,7 +76,7 @@ export default class LoginPane extends React.Component {
 					<InputGroup type="password" placeholder="Password" onChange={::this.passwordChange} />
 					<ErrorMsg shown={passwordNotEntered} text="Need a pass" />
 					<ErrorMsg shown={credentialsInvalid} text="Access denied" />
-					<LanguagePicker />
+					<LanguagePicker onChange={::this.languageChange}/>
 					<button onClick={::this.tryLogin}>Sign in</button>
 					<p className="row">
 				    	<a href="#">Forgot password?</a>
