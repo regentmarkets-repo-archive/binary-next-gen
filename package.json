@@ -22,7 +22,7 @@
     "moment": "*",
     "react": "^0.14.0-rc1",
     "react-dom": "^0.14.0-rc1",
-    "react-motion": "^0.2.7",
+    "react-motion": "^0.3.0",
     "react-redux": "*",
     "react-router": "^1.0.0-rc1",
     "react-sparklines": "*",

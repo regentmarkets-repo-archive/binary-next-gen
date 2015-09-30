@@ -4,11 +4,11 @@ import Modal from '../common/Modal';
 import StatementTable from './StatementTable';
 import TransactionDetails from './TransactionDetails';
 
-@connect(state => ({ transactions: state.serverData.transactions }))
+@connect(state => ({ statement: state.statement }))
 export default class StatenentPane extends React.Component {
 
 	static propTypes = {
-		transactions: React.PropTypes.array.isRequired,
+		statement: React.PropTypes.object.isRequired,
 	};
 
 	constructor(props) {
@@ -30,7 +30,7 @@ export default class StatenentPane extends React.Component {
 	}
 
 	render() {
-		const { transactions } = this.props;
+		const { transactions } = this.props.statement.toJS();
 		const { detailsShown, transactionDetails } = this.state;
 		const totals = {};
 
