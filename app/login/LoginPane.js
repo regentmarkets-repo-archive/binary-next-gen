@@ -35,7 +35,6 @@ export default class LoginPane extends React.Component {
 			validatedOnce: true,
 			emailNotValid,
 			passwordNotEntered,
-			language,
 		});
 	}
 
@@ -65,12 +64,12 @@ export default class LoginPane extends React.Component {
 		const { progress, emailNotValid, passwordNotEntered, credentialsInvalid } = this.state;
 
 		return (
-			<div className="login-content">
+			<div className="login-content inverse">
     			<div id="content">
 					<p className="media">
 						<LogoSpinner spinning={progress}/>
+						<img src="https://static.binary.com/images/pages/binary-type-logo.svg" />
 					</p>
-					<h3>Sign in to your account</h3>
 					<InputGroup type="email" placeholder="Email" onChange={::this.emailChange} />
 					<ErrorMsg shown={emailNotValid} text="You need to enter an email" />
 					<InputGroup type="password" placeholder="Password" onChange={::this.passwordChange} />

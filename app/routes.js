@@ -1,6 +1,7 @@
 import App from './App';
 import HomePage from './home/HomePage';
 import LoginPane from './login/LoginPane';
+import TickTradePane from './tick-trade/TickTradePane';
 import SignupPane from './signup/SignupPane';
 import UpgradePane from './upgrade/UpgradePane';
 import TicksPane from './ticks/TicksPane';
@@ -29,6 +30,7 @@ export default {
     childRoutes: [
         { path: '/', component: HomePage },
         { path: 'login', component: LoginPane },
+        { path: 'tick-trade', component: TickTradePane },
         { path: 'signup', component: SignupPane },
         { path: 'upgrade', component: UpgradePane },
         { path: 'trade', component: TradePane },
