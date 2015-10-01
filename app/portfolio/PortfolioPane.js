@@ -18,11 +18,8 @@ const PortfolioPane = (props) => {
 	};
 
 	const { contracts, contractShown, areDetailsShown } = props.portfolio.toJS();
-	const balance = props.account.toJS().balance;
-	const balanceStr = balance && balance.amount && `${balance.currency} ${balance.amount.toFixed(2)}`;
 	return (
 		<div>
-			<h3>Account balance: {balanceStr} </h3>
 			<Modal shown={areDetailsShown} onClose={onCloseDetails}>
 				<ContractDetails contract={contractShown} />
 			</Modal>

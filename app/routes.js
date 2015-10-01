@@ -1,7 +1,10 @@
 import App from './App';
 import HomePage from './home/HomePage';
+import NavigationMenu from './navigation/NavigationMenu';
 import LoginPane from './login/LoginPane';
 import TickTradePage from './tick-trade/TickTradePage';
+import PortfolioPage from './portfolio/PortfolioPage';
+import StatementPane from './statement/StatementPane';
 import SignupPane from './signup/SignupPane';
 import UpgradePane from './upgrade/UpgradePane';
 import TicksPane from './ticks/TicksPane';
@@ -16,8 +19,6 @@ import TradingTimesTable from './trading-times/TradingTimesTable';
 import PricingTablePane from './pricing-table/PricingTablePane';
 import DailyPricesPane from './daily-prices/DailyPricesPane';
 import IntradayPricesPane from './intraday-prices/IntradayPricesPane';
-import PortfolioPage from './portfolio/PortfolioPage';
-import StatementPane from './statement/StatementPane';
 import TradePane from './trade/TradePane';
 import SettingsPane from './settings/SettingsPane';
 import SettingsPersonalDetails from './settings/SettingsPersonalDetails';
@@ -29,9 +30,11 @@ export default {
     component: App,
     childRoutes: [
         { path: '/', component: HomePage },
+        { path: 'nav', component: NavigationMenu },
         { path: 'login', component: LoginPane },
         { path: 'tick-trade', component: TickTradePage },
         { path: 'portfolio', component: PortfolioPage },
+        { path: 'statement', component: StatementPane },
         { path: 'signup', component: SignupPane },
         { path: 'upgrade', component: UpgradePane },
         { path: 'trade', component: TradePane },
@@ -49,7 +52,6 @@ export default {
         { path: 'pricing-table', component: PricingTablePane },
         { path: 'daily-prices', component: DailyPricesPane },
         { path: 'intraday-prices', component: IntradayPricesPane },
-        { path: 'statement', component: StatementPane },
         { component: SettingsPane, childRoutes: [
             { path: 'settings', component: SettingsPersonalDetails },
             { path: 'settings/security', component: SettingsSecurity },

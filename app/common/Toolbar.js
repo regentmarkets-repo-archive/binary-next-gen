@@ -3,10 +3,9 @@ import { Link } from 'react-router';
 
 const Toolbar = () => (
 	<div>
-	<Link to={'/'}>Home</Link>
-		<button>Hamburger</button>
-		<button>Something</button>
-		<button>Other thing</button>
+		<button>☰</button>
+		<Link to={'/tick-trade'} className="button">Trade</Link>
+		<Link to={'/portfolio'} className="button">Portfolio</Link>
 	</div>
 );
 

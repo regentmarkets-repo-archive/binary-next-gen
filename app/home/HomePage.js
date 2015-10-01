@@ -3,6 +3,7 @@ import { Link } from 'react-router';
 
 export default () => (
 	<div>
+		<h3><Link to={`/nav`}>Navigation</Link></h3>
 		<h3><Link to={`/login`}>Login</Link></h3>
 		<h3><Link to={`/tick-trade`}>Tick Trade</Link></h3>
 		<h3><Link to={`/portfolio`}>Open Positions</Link></h3>
