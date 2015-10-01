@@ -7,7 +7,7 @@ export default () => (
 		<h3><Link to={`/tick-trade`}>Tick Trade</Link></h3>
 		<h3><Link to={`/portfolio`}>Open Positions</Link></h3>
 		<h3><Link to={`/statement`}>Statement</Link></h3>
-		<h3><Link to={`/markets`}>Markets</Link></h3>
+		<h3><Link to={`/markets`}>Market Picker</Link></h3>
 		<hr />
 		<h3><Link to={`/signup`}>Signup</Link></h3>
 		<h3><Link to={`/upgrade`}>Upgrade</Link></h3>

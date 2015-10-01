@@ -1,7 +1,7 @@
 import App from './App';
 import HomePage from './home/HomePage';
 import LoginPane from './login/LoginPane';
-import TickTradePane from './tick-trade/TickTradePane';
+import TickTradePage from './tick-trade/TickTradePage';
 import SignupPane from './signup/SignupPane';
 import UpgradePane from './upgrade/UpgradePane';
 import TicksPane from './ticks/TicksPane';
@@ -16,7 +16,7 @@ import TradingTimesTable from './trading-times/TradingTimesTable';
 import PricingTablePane from './pricing-table/PricingTablePane';
 import DailyPricesPane from './daily-prices/DailyPricesPane';
 import IntradayPricesPane from './intraday-prices/IntradayPricesPane';
-import PortfolioPane from './portfolio/PortfolioPane';
+import PortfolioPage from './portfolio/PortfolioPage';
 import StatementPane from './statement/StatementPane';
 import TradePane from './trade/TradePane';
 import SettingsPane from './settings/SettingsPane';
@@ -30,7 +30,8 @@ export default {
     childRoutes: [
         { path: '/', component: HomePage },
         { path: 'login', component: LoginPane },
-        { path: 'tick-trade', component: TickTradePane },
+        { path: 'tick-trade', component: TickTradePage },
+        { path: 'portfolio', component: PortfolioPage },
         { path: 'signup', component: SignupPane },
         { path: 'upgrade', component: UpgradePane },
         { path: 'trade', component: TradePane },
@@ -48,7 +49,6 @@ export default {
         { path: 'pricing-table', component: PricingTablePane },
         { path: 'daily-prices', component: DailyPricesPane },
         { path: 'intraday-prices', component: IntradayPricesPane },
-        { path: 'portfolio', component: PortfolioPane },
         { path: 'statement', component: StatementPane },
         { component: SettingsPane, childRoutes: [
             { path: 'settings', component: SettingsPersonalDetails },

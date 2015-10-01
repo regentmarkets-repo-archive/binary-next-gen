@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import Toolbar from '../common/Toolbar';
 import Modal from '../common/Modal';
 import StatementTable from './StatementTable';
 import TransactionDetails from './TransactionDetails';
@@ -36,6 +37,7 @@ export default class StatenentPane extends React.Component {
 
 		return (
 			<div>
+				<Toolbar />
 				<Modal shown={detailsShown} onClose={::this.onCloseDetails}>
 					<TransactionDetails transaction={transactionDetails} />
 				</Modal>
