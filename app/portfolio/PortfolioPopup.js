@@ -1,9 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { MobilePage } from '../common';
+import Popup from '../common/Popup';
 import PortfolioPane from './PortfolioPane';
-
-window.console.log(MobilePage);
 
 @connect(state => ({ account: state.account, portfolio: state.portfolio }))
 export default class PortfolioPage extends React.Component {
@@ -16,9 +14,9 @@ export default class PortfolioPage extends React.Component {
 
 	render() {
 		return (
-			<MobilePage>
+			<Popup>
 				<PortfolioPane {...this.props} />
-			</MobilePage>
+			</Popup>
 		);
 	}
 }

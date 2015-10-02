@@ -3,7 +3,7 @@ import HomePage from './home/HomePage';
 import NavigationMenu from './navigation/NavigationMenu';
 import LoginPane from './login/LoginPane';
 import TickTradePage from './tick-trade/TickTradePage';
-import PortfolioPage from './portfolio/PortfolioPage';
+import { PortfolioPage, PortfolioPopup } from './portfolio';
 import StatementPane from './statement/StatementPane';
 import SignupPane from './signup/SignupPane';
 import UpgradePane from './upgrade/UpgradePane';
@@ -34,6 +34,7 @@ export default {
         { path: 'login', component: LoginPane },
         { path: 'tick-trade', component: TickTradePage },
         { path: 'portfolio', component: PortfolioPage },
+        { path: 'portfolio-popup', component: PortfolioPopup },
         { path: 'statement', component: StatementPane },
         { path: 'signup', component: SignupPane },
         { path: 'upgrade', component: UpgradePane },
