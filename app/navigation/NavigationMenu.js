@@ -1,6 +1,8 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import BalanceDisplay from './BalanceDisplay';
+import LanguagePicker from '../common/LanguagePicker';
 
 @connect(state => ({ account: state.account }))
 export default class NavigationMenu extends React.Component {
@@ -12,12 +14,13 @@ export default class NavigationMenu extends React.Component {
 	render() {
 		return (
 			<div>
+			    <label>VRTC123 (switcher)</label>
 				<BalanceDisplay account={this.props.account} />
-				<button>Trade</button>
-				<button>Open Positions</button>
-				<button>Statement?!?</button>
-				<button>Trade</button>
-				<button>Trade</button>
+				<Link to={`/tick-trade`}>Trade</Link>
+				<Link to={`/portfolio`}>Open Positions</Link>
+				<Link to={`/statement`}>Statement</Link>
+				<LanguagePicker />
+				<button>????</button>
 				<button>Sign Out</button>
 			</div>
 		);

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Toolbar from '../common/Toolbar';
+import Toolbar from '../navigation/Toolbar';
 import TickTradePane from './TickTradePane';
 
 @connect(state => ({ tickTrade: state.tickTrade }))

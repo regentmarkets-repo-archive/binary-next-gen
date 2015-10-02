@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import Toolbar from '../common/Toolbar';
+import Toolbar from '../navigation/Toolbar';
 import PortfolioPane from './PortfolioPane';
 
 @connect(state => ({ account: state.account, portfolio: state.portfolio }))

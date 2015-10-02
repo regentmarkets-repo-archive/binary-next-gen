@@ -1,8 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
+import DesktopToolbar from '../navigation/DesktopToolbar';
 
 export default () => (
 	<div>
+		<DesktopToolbar />
 		<h3><Link to={`/nav`}>Navigation</Link></h3>
 		<h3><Link to={`/login`}>Login</Link></h3>
 		<h3><Link to={`/tick-trade`}>Tick Trade</Link></h3>
