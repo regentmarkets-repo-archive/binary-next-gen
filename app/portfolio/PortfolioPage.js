@@ -3,8 +3,6 @@ import { connect } from 'react-redux';
 import { MobilePage } from '../common';
 import PortfolioPane from './PortfolioPane';
 
-window.console.log(MobilePage);
-
 @connect(state => ({ account: state.account, portfolio: state.portfolio }))
 export default class PortfolioPage extends React.Component {
 
