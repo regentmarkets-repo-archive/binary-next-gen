@@ -17,7 +17,7 @@ const PortfolioTable = (props) => {
 			<thead>
 				<tr>
 					<th>Ref.</th>
-					<th>Contract Details</th>
+					<th>Contract</th>
 					<th>Purchase</th>
                     <th>Indicative</th>
                     <th></th>

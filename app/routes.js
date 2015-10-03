@@ -19,6 +19,7 @@ import TradingTimesTable from './trading-times/TradingTimesTable';
 import PricingTablePane from './pricing-table/PricingTablePane';
 import DailyPricesPane from './daily-prices/DailyPricesPane';
 import IntradayPricesPane from './intraday-prices/IntradayPricesPane';
+import ProfitTablePane from './profit-table/ProfitTablePane';
 import TradePane from './trade/TradePane';
 import SettingsPane from './settings/SettingsPane';
 import SettingsPersonalDetails from './settings/SettingsPersonalDetails';
@@ -53,6 +54,7 @@ export default {
         { path: 'pricing-table', component: PricingTablePane },
         { path: 'daily-prices', component: DailyPricesPane },
         { path: 'intraday-prices', component: IntradayPricesPane },
+        { path: 'profit-table', component: ProfitTablePane },
         { component: SettingsPane, childRoutes: [
             { path: 'settings', component: SettingsPersonalDetails },
             { path: 'settings/security', component: SettingsSecurity },
