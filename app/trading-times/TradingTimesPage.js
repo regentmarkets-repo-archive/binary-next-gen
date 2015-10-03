@@ -1,9 +1,9 @@
 import React from 'react';
 import { MobilePage } from '../common';
-import PortfolioContainer from './PortfolioContainer';
+import TradingTimesContainer from './TradingTimesContainer';
 
 export default (props) => (
 	<MobilePage>
-		<PortfolioContainer {...props} />
+		<TradingTimesContainer {...props} />
 	</MobilePage>
 );
