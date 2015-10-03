@@ -31,7 +31,6 @@ const PortfolioPane = (props) => {
 };
 
 PortfolioPane.propTypes = {
-	account: React.PropTypes.object.isRequired,
 	portfolio: React.PropTypes.object,
 	dispatch: React.PropTypes.func,
 };

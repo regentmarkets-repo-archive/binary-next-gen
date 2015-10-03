@@ -1,4 +1,4 @@
-import { List, Map, fromJS } from 'immutable';
+import { Map, fromJS } from 'immutable';
 
 import {
     SERVER_DATA_PORTFOLIO,
@@ -8,7 +8,7 @@ import {
 const initialState = new Map({
     detailsShown: false,
     contractShown: undefined,
-    contracts: List.of(),
+    contracts: [],
 });
 
 export default (state = initialState, action) => {
