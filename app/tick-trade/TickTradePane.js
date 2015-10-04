@@ -22,7 +22,7 @@ export default (props) => (
 			</tbody>
 		</table>
 
-		<label>Select Underlying</label>
+		<label>Underlying</label>
 		<fieldset>
 			<button>Forex</button><button>Randoms</button>
 		</fieldset>
@@ -32,7 +32,8 @@ export default (props) => (
 			<button>Up</button><button>Down</button><button>Digit Match</button><button>Digit Differs</button>
 		</fieldset>
 		<fieldset>
-			<label>No. ticks:</label><input type="number" defaultValue={5} /> <button>+</button><button>-</button>
+			<label>No. ticks:</label>
+			<button>5</button><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button>
 		</fieldset>
 		<label>Select Amount</label>
 		<fieldset>
