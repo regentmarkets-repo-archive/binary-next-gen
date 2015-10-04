@@ -1,10 +1,13 @@
 import App from './App';
 import HomePage from './home/HomePage';
 import NavigationMenu from './navigation/NavigationMenu';
-import LoginPane from './login/LoginPane';
+import LoginPage from './login/LoginPage';
 import TickTradePage from './tick-trade/TickTradePage';
+import TickTradePane from './tick-trade/TickTradePane';
+import TickTradeInPane from './tick-trade/TickTradeInPane';
+import TickTradeSettingsPane from './tick-trade/TickTradePage';
 import { PortfolioPage, PortfolioPopup } from './portfolio';
-import StatementPane from './statement/StatementPane';
+import StatementPage from './statement/StatementPage';
 import SignupPane from './signup/SignupPane';
 import UpgradePane from './upgrade/UpgradePane';
 import TicksPane from './ticks/TicksPane';
@@ -32,11 +35,16 @@ export default {
     childRoutes: [
         { path: '/', component: HomePage },
         { path: 'nav', component: NavigationMenu },
-        { path: 'login', component: LoginPane },
+        { path: 'login', component: LoginPage },
         { path: 'tick-trade', component: TickTradePage },
+        { component: TickTradePage, childRoutes: [
+            { path: 'tick-trade', component: TickTradePane },
+            { path: 'tick-trade/in', component: TickTradeInPane },
+            { path: 'tick-trade/settings', component: TickTradeSettingsPane },
+        ]},
         { path: 'portfolio', component: PortfolioPage },
         { path: 'portfolio-popup', component: PortfolioPopup },
-        { path: 'statement', component: StatementPane },
+        { path: 'statement', component: StatementPage },
         { path: 'signup', component: SignupPane },
         { path: 'upgrade', component: UpgradePane },
         { path: 'trade', component: TradePane },

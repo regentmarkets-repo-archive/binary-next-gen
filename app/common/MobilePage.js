@@ -4,7 +4,7 @@ import { MobileToolbar } from '../navigation';
 const MobilePage = (props) => (
 	<div className="mobile-page">
 		<div className="mobile-content">
-			<MobileToolbar />
+			{props.toolbarShown ? <MobileToolbar /> : null}
 			{props.children}
 		</div>
 	</div>
@@ -12,6 +12,11 @@ const MobilePage = (props) => (
 
 MobilePage.propTypes = {
 	children: React.PropTypes.any,
+	toolbarShown: React.PropTypes.bool,
+};
+
+MobilePage.defaultProps = {
+	toolbarShown: true,
 };
 
 export default MobilePage;

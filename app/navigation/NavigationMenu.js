@@ -12,13 +12,14 @@ export default class NavigationMenu extends React.Component {
 	};
 
 	render() {
+		const account = this.props.account.toJS();
 		return (
 			<div>
-			    <label>VRTC123 (switcher)</label>
-				<BalanceDisplay account={this.props.account} />
-				<Link to={`/tick-trade`}>Trade</Link>
-				<Link to={`/portfolio`}>Open Positions</Link>
-				<Link to={`/statement`}>Statement</Link>
+			    <label>{account.loginid} (switcher)</label>
+				<BalanceDisplay account={account} />
+				<Link to={`/tick-trade`} activeClassName="active">Trade</Link>
+				<Link to={`/portfolio`} activeClassName="active">Open Positions</Link>
+				<Link to={`/statement`} activeClassName="active">Statement</Link>
 				<LanguagePicker />
 				<button>????</button>
 				<button>Sign Out</button>

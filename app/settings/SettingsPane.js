@@ -7,14 +7,6 @@ export default class SettingsPane extends React.Component {
 		children: React.PropTypes.any,
     };
 
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			currentPage: 0,
-		};
-	}
-
 	render() {
 		const navigationLinks = [{
 			href: '/settings/',

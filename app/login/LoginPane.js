@@ -67,7 +67,7 @@ export default class LoginPane extends React.Component {
 			<div className="login-content inverse">
 				<p className="media">
 					<LogoSpinner spinning={progress}/>
-					<img src="https://static.binary.com/images/pages/binary-type-logo.svg" />
+					<img className="logo-text" src="https://static.binary.com/images/pages/binary-type-logo.svg" />
 				</p>
 				<InputGroup type="email" placeholder="Email" onChange={::this.emailChange} />
 				<ErrorMsg shown={emailNotValid} text="You need to enter an email" />
