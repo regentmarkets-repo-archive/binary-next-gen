@@ -3,8 +3,10 @@ import { MobileToolbar } from '../navigation';
 
 const MobilePage = (props) => (
 	<div className="mobile-page">
-		<MobileToolbar />
-		{props.children}
+		<div className="mobile-content">
+			<MobileToolbar />
+			{props.children}
+		</div>
 	</div>
 );
 

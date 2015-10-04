@@ -81,23 +81,21 @@ export default class SignupPane extends React.Component {
 
 		return (
 			<div className="signup-content">
-    			<div id="content">
-					<p className="media">
-						<LogoSpinner spinning={progress}/>
-					</p>
-					<h3>Sign up for account</h3>
-					<InputGroup type="email" placeholder="Email" onChange={::this.emailChange} />
-					<ErrorMsg shown={emailNotValid} text="You need to enter an email" />
-					<fieldset>
-						<Countries />
-					</fieldset>
-					<InputGroup type="password" placeholder="Password" onChange={::this.passwordChange} />
-					<ErrorMsg shown={passwordNotEntered} text="Enter a password" />
-					<InputGroup type="password" placeholder="Confirm Password" onChange={::this.confirmPasswordChange} />
-					<ErrorMsg shown={confirmationNotEntered} text="Enter your password again" />
-					<ErrorMsg shown={passwordsDontMatch} text="Two passwords do not match" />
-					<button onClick={::this.trySignup}>Create Account</button>
-				</div>
+				<p className="media">
+					<LogoSpinner spinning={progress}/>
+				</p>
+				<h3>Sign up for account</h3>
+				<InputGroup type="email" placeholder="Email" onChange={::this.emailChange} />
+				<ErrorMsg shown={emailNotValid} text="You need to enter an email" />
+				<fieldset>
+					<Countries />
+				</fieldset>
+				<InputGroup type="password" placeholder="Password" onChange={::this.passwordChange} />
+				<ErrorMsg shown={passwordNotEntered} text="Enter a password" />
+				<InputGroup type="password" placeholder="Confirm Password" onChange={::this.confirmPasswordChange} />
+				<ErrorMsg shown={confirmationNotEntered} text="Enter your password again" />
+				<ErrorMsg shown={passwordsDontMatch} text="Two passwords do not match" />
+				<button onClick={::this.trySignup}>Create Account</button>
 			</div>
 		);
 	}

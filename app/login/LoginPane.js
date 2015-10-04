@@ -65,23 +65,21 @@ export default class LoginPane extends React.Component {
 
 		return (
 			<div className="login-content inverse">
-    			<div id="content">
-					<p className="media">
-						<LogoSpinner spinning={progress}/>
-						<img src="https://static.binary.com/images/pages/binary-type-logo.svg" />
-					</p>
-					<InputGroup type="email" placeholder="Email" onChange={::this.emailChange} />
-					<ErrorMsg shown={emailNotValid} text="You need to enter an email" />
-					<InputGroup type="password" placeholder="Password" onChange={::this.passwordChange} />
-					<ErrorMsg shown={passwordNotEntered} text="Need a pass" />
-					<ErrorMsg shown={credentialsInvalid} text="Access denied" />
-					<LanguagePicker onChange={::this.languageChange}/>
-					<button onClick={::this.tryLogin}>Sign in</button>
-					<p className="row">
-				    	<a href="#">Forgot password?</a>
-				    	<a href="#">Sign Up</a>
-				  	</p>
-				</div>
+				<p className="media">
+					<LogoSpinner spinning={progress}/>
+					<img src="https://static.binary.com/images/pages/binary-type-logo.svg" />
+				</p>
+				<InputGroup type="email" placeholder="Email" onChange={::this.emailChange} />
+				<ErrorMsg shown={emailNotValid} text="You need to enter an email" />
+				<InputGroup type="password" placeholder="Password" onChange={::this.passwordChange} />
+				<ErrorMsg shown={passwordNotEntered} text="Need a pass" />
+				<ErrorMsg shown={credentialsInvalid} text="Access denied" />
+				<LanguagePicker onChange={::this.languageChange}/>
+				<button onClick={::this.tryLogin}>Sign in</button>
+				<p className="row">
+			    	<a href="#">Forgot password?</a>
+			    	<a href="#">Sign Up</a>
+			  	</p>
 			</div>
 		);
 	}

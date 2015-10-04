@@ -1,7 +1,7 @@
 import React from 'react';
 
 export default (props) => (
-	<div id="content">
+	<div>
 		<button>Change Time Settings</button>
 		<fieldset>
 			<label>USD/JPY will RISE over next 5 ticks</label>
