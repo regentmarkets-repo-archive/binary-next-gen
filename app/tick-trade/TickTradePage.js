@@ -12,7 +12,6 @@ export default class TickTradePage extends React.Component {
 	render() {
 		return (
 			<MobilePage>
-				yolo
 				{this.props.children}
 			</MobilePage>
 		);

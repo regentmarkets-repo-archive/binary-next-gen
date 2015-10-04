@@ -5,7 +5,7 @@ import LoginPage from './login/LoginPage';
 import TickTradePage from './tick-trade/TickTradePage';
 import TickTradePane from './tick-trade/TickTradePane';
 import TickTradeInPane from './tick-trade/TickTradeInPane';
-import TickTradeSettingsPane from './tick-trade/TickTradePage';
+import TickTradeSettingsPane from './tick-trade/TickTradeSettingsPane';
 import { PortfolioPage, PortfolioPopup } from './portfolio';
 import StatementPage from './statement/StatementPage';
 import SignupPane from './signup/SignupPane';
@@ -36,11 +36,9 @@ export default {
         { path: '/', component: HomePage },
         { path: 'nav', component: NavigationMenu },
         { path: 'login', component: LoginPage },
-        { path: 'tick-trade', component: TickTradePage },
-        { component: TickTradePage, childRoutes: [
-            { path: 'tick-trade', component: TickTradePane },
-            { path: 'tick-trade/in', component: TickTradeInPane },
-            { path: 'tick-trade/settings', component: TickTradeSettingsPane },
+        { path: 'tick-trade', indexRoute: { component: TickTradePane }, component: TickTradePage, childRoutes: [
+            { path: 'in', component: TickTradeInPane },
+            { path: 'settings', component: TickTradeSettingsPane },
         ]},
         { path: 'portfolio', component: PortfolioPage },
         { path: 'portfolio-popup', component: PortfolioPopup },
@@ -63,11 +61,10 @@ export default {
         { path: 'daily-prices', component: DailyPricesPane },
         { path: 'intraday-prices', component: IntradayPricesPane },
         { path: 'profit-table', component: ProfitTablePane },
-        { component: SettingsPane, childRoutes: [
-            { path: 'settings', component: SettingsPersonalDetails },
-            { path: 'settings/security', component: SettingsSecurity },
-            { path: 'settings/exclusion', component: SettingsSelfExclusion },
-            { path: 'settings/limits', component: SettingsLimits },
+        { path: 'settings', indexRoute: { component: SettingsPersonalDetails }, component: SettingsPane, childRoutes: [
+            { path: 'security', component: SettingsSecurity },
+            { path: 'exclusion', component: SettingsSelfExclusion },
+            { path: 'limits', component: SettingsLimits },
         ]},
     ],
 };
