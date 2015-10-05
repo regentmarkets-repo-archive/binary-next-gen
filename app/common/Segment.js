@@ -18,5 +18,4 @@ Segment.propTypes = {
     onSelect: React.PropTypes.func,
 };
 
-
 export default Segment;

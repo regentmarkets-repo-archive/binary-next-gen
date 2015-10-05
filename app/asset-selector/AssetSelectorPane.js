@@ -3,13 +3,15 @@ import { bindActionCreators } from 'redux';
 import * as AssetActions from '../_actions/AssetActions';
 import AssetList from './AssetList';
 import AssetSearch from './AssetSearch';
+import MarketSelector from './MarketSelector';
 
 const AssetSelectorPane = props => {
-	const { shownAssets } = props.assets.toJS(); // tree, active, shownAssets, query
+	const { shownAssets, tree } = props.assets.toJS(); // tree, active, shownAssets, query
 	const actions = bindActionCreators(AssetActions, props.dispatch);
 
 	return (
 		<div>
+			<MarketSelector markets={Object.keys(tree)} />
 			<AssetSearch actions={actions} />
 			<AssetList assets={shownAssets} />
 		</div>
