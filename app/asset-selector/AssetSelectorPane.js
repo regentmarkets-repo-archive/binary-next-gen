@@ -5,7 +5,6 @@ import AssetList from './AssetList';
 import AssetSearch from './AssetSearch';
 
 const AssetSelectorPane = props => {
-	window.console.log(props, props.assets);
 	const { shownAssets } = props.assets.toJS(); // tree, active, shownAssets, query
 	const actions = bindActionCreators(AssetActions, props.dispatch);
 

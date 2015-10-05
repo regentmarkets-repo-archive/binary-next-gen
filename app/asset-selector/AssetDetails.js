@@ -1,28 +1,30 @@
 import React from 'react';
-import AssetItem from './MarketItem';
 
-const AssetList = (props) => (
+const AssetDetails = (props) => (
 	<table>
 		<thead>
 			<tr>
-				<th>Code</th>
 				<th>Name</th>
+				<th>Value</th>
 			</tr>
 		</thead>
 		<tbody>
-			{props.assets.map(asset =>
-				<AssetItemkey={asset.symbol} asset={asset} />
+			{Object.keys(props.asset).map((key) =>
+				<tr>
+					<td>{key}</td>
+					<td>{props.asset[key]}</td>
+				</tr>
 			)}
 		</tbody>
 	</table>
 );
 
-AssetList.propTypes = {
-	assets: React.PropTypes.array.isRequired,
+AssetDetails.propTypes = {
+	asset: React.PropTypes.object.isRequired,
 };
 
-AssetList.defaultProps = {
-	assets: [],
+AssetDetails.defaultProps = {
+	asset: {},
 };
 
-export default AssetList;
+export default AssetDetails;
