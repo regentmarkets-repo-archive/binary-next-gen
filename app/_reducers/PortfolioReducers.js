@@ -18,8 +18,8 @@ export default (state = initialState, action) => {
             return state.set('contracts', fromJS(action.serverResponse.data.contracts));
         }
         case SERVER_DATA_PROPOSAL_OPEN_CONTRACT: {
-            window.console.log(action.serverResponse.data);
-            return state; // .set('contracts', fromJS(action.serverResponse.data.contracts));
+            const proposal = action.serverResponse.data;
+            return state.mergeDeepIn(['contracts', proposal.id], proposal);
         }
         case DETAILS_FOR_CONTRACT: {
             return state

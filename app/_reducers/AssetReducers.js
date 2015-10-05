@@ -1,11 +1,11 @@
-import { Map } from 'immutable';
-import { FILTER_MARKETS, UPDATE_MARKETS, SERVER_DATA_ACTIVE_SYMBOLS } from '../_constants/ActionTypes';
+import { fromJS } from 'immutable';
+import { FILTER_ASSETS, UPDATE_ASSETS, SERVER_DATA_ACTIVE_SYMBOLS } from '../_constants/ActionTypes';
 
-const initialState = new Map({
+const initialState = fromJS({
     active: [],
     tree: {},
     query: '',
-    shownMarkets: [],
+    shownAssets: [],
 });
 
 const generateTree = (symbols) => {
@@ -19,7 +19,7 @@ const generateTree = (symbols) => {
 };
 
 export default (state = initialState, action) => {
-    const doFilter = (markets = state.allMarkets, query = state.query) => {
+    const doFilter = (assets = state.allAssets, query = state.query) => {
         const queryLc = query.toLowerCase();
         return markets.filter(m =>
             queryLc === '' ||
@@ -35,16 +35,16 @@ export default (state = initialState, action) => {
                 .set('active', activeSymbols)
                 .set('tree', generateTree(activeSymbols));
         }
-        case FILTER_MARKETS:
+        case FILTER_ASSETS:
             return {
                 ...state,
-                shownMarkets: doFilter(state.markets, action.query),
+                shownAssets: doFilter(state.markets, action.query),
                 query: action.query,
             };
-        case UPDATE_MARKETS:
+        case UPDATE_ASSETS:
             return {
                 ...state,
-                shownMarkets: doFilter(state.markets, action.query),
+                shownAssets: doFilter(state.markets, action.query),
                 query: action.query,
             };
         default:

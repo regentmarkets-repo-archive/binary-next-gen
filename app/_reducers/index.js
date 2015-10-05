@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 
 import account from './AccountReducers';
-import markets from './MarketsReducers';
+import assets from './AssetReducers';
 import portfolio from './PortfolioReducers';
 import statement from './StatementReducers';
 import ticks from './TickReducers';
@@ -10,7 +10,7 @@ import profitTable from './ProfitTableReducers';
 
 export default combineReducers({
     account,
-    markets,
+    assets,
     portfolio,
     statement,
     ticks,

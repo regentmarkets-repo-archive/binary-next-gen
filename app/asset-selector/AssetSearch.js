@@ -1,13 +1,13 @@
 import React from 'react';
 
-const MarketSearch = (props) => (
+const AssetSearch = (props) => (
 	<input type="search"
-		placeholder="Search for markets"
+		placeholder="Search for assets"
 		onChange={e => props.actions.filterMarkets(e.target.value)} />
 );
 
-MarketSearch.propTypes = {
+AssetSearch.propTypes = {
 	actions: React.PropTypes.object.isRequired,
 };
 
-export default MarketSearch;
+export default AssetSearch;
