@@ -12,6 +12,7 @@ const handlers = {
     'statement': 'serverDataStatement',
     'tick': 'serverDataTickStream',
     'ticks': 'serverDataTickHistory',
+    'proposal_open_contract': 'serverDataProposalOpenContract',
 };
 
 export default class LiveData {
