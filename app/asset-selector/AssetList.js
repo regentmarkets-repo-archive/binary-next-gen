@@ -11,7 +11,7 @@ const AssetList = (props) => (
 		</thead>
 		<tbody>
 			{props.assets.map(asset =>
-				<AssetItem	key={asset.symbol}	market={asset} />
+				<AssetItem key={asset.symbol} asset={asset} />
 			)}
 		</tbody>
 	</table>

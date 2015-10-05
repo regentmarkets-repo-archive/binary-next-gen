@@ -1,37 +1,25 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import * as AssetActions from '../_actions/AssetActions';
 import AssetList from './AssetList';
 import AssetSearch from './AssetSearch';
 
-@connect(state => ({ assets: state.assets }))
-export default class AssetSeelctorPane extends React.Component {
+const AssetSelectorPane = props => {
+	window.console.log(props, props.assets);
+	const { shownAssets } = props.assets.toJS(); // tree, active, shownAssets, query
+	const actions = bindActionCreators(AssetActions, props.dispatch);
 
-	static propTypes = {
-        assets: React.PropTypes.object,
-		dispatch: React.PropTypes.func,
-    };
+	return (
+		<div>
+			<AssetSearch actions={actions} />
+			<AssetList assets={shownAssets} />
+		</div>
+	);
+};
 
-	updateAssetData(data) {
-		const actions = bindActionCreators(AssetActions, this.props.dispatch);
-		const parsed = data.map(a => ({
-			id: a.symbol,
-			name: a.display_name,
-		}));
-		actions.updateAssets(parsed);
-	}
+AssetSelectorPane.propTypes = {
+    assets: React.PropTypes.object,
+	dispatch: React.PropTypes.func,
+};
 
-	render() {
-		const { dispatch } = this.props;
-		const { shownAssets } = this.props.assets.toJS(); // tree, active, shownAssets, query
-		const actions = bindActionCreators(AssetActions, dispatch);
-
-		return (
-			<div>
-				<AssetSearch actions={actions} />
-  				<AssetList assets={shownAssets} />
-			</div>
-		);
-	}
-}
+export default AssetSelectorPane;

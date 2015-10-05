@@ -3,10 +3,10 @@ import React from 'react';
 const AssetItem = (props) => (
 	<tr>
 		<td>
-			{props.asset.id}
+			{props.asset.symbol}
 		</td>
 		<td>
-			{props.asset.name}
+			{props.asset.display_name}
 		</td>
 	</tr>
 );

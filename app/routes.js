@@ -13,7 +13,7 @@ import UpgradePane from './upgrade/UpgradePane';
 import TicksPane from './ticks/TicksPane';
 import OfferingsPane from './offerings/OfferingsPane';
 import ActiveSymbolsPane from './active-symbols/ActiveSymbolsPane';
-import AssetSelectorPane from './asset-selector/AssetSelectorPane';
+import AssetSelectorPage from './asset-selector/AssetSelectorPage';
 import AssetIndexPane from './asset-index/AssetIndexPane';
 import AssetIndexTable from './asset-index/AssetIndexTable';
 import RiseFallTablePane from './rise-fall-table/RiseFallTablePane';
@@ -49,7 +49,7 @@ export default {
         { path: 'ticks', component: TicksPane },
         { path: 'offerings', component: OfferingsPane },
         { path: 'active-symbols', component: ActiveSymbolsPane },
-        { path: 'asset-selector', component: AssetSelectorPane },
+        { path: 'asset-selector', component: AssetSelectorPage },
         { path: 'asset-index', component: AssetIndexPane, childRoutes: [
             { path: ':market', component: AssetIndexTable },
         ]},

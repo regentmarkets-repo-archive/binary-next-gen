@@ -1,6 +1,6 @@
 import * as types from '../_constants/ActionTypes';
 
-export function filterMarkets(query) {
+export function filterAssets(query) {
     return {
         type: types.FILTER_ASSETS,
         query,
