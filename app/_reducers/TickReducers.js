@@ -2,7 +2,7 @@ import { Stack, Map } from 'immutable';
 
 import {
     SERVER_DATA_TICK_STREAM,
-    SERVER_DATA_TICK_HISTORY
+    SERVER_DATA_TICK_HISTORY,
 } from '../_constants/ActionTypes';
 
 const initialState = new Map();

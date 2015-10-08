@@ -1,7 +1,7 @@
 import { Map } from 'immutable';
 
 import {
-    SERVER_DATA_STATEMENT
+    SERVER_DATA_STATEMENT,
 } from '../_constants/ActionTypes';
 
 const initialState = new Map({

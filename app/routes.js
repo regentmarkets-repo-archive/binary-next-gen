@@ -49,7 +49,7 @@ export default {
         { path: 'ticks', component: TicksPane },
         { path: 'offerings', component: OfferingsPane },
         { path: 'active-symbols', component: ActiveSymbolsPane },
-        { path: 'asset-selector', component: AssetSelectorPage },
+        { path: 'asset-selector/:market', component: AssetSelectorPage },
         { path: 'asset-index', component: AssetIndexPane, childRoutes: [
             { path: ':market', component: AssetIndexTable },
         ]},

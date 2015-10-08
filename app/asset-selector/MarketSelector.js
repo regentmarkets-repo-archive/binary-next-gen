@@ -6,20 +6,21 @@ const MarketSelector = (props) => {
 		href: '/asset-selector/' + market.toLowerCase(),
 		text: market,
 	}));
-	// const marketFromRoute = offerings.find(x => x.market.toLowerCase() === params.market.toLowerCase());
-	// const marketSelected = marketFromRoute || { available: [] };
-	// { marketSelected.available.map(x => <AssetIndexTable submarket={x} />) }
+	const marketFromRouteIdx = props.markets.indexOf(m => m.toLowerCase() === selected);
+
 	return (
-		<SegmentedControl segments={marketLinks} />
+		<SegmentedControl segments={marketLinks} activeIndex={marketFromRouteIdx} />
 	);
 };
 
 MarketSelector.propTypes = {
 	markets: React.PropTypes.array.isRequired,
+	selected: React.PropTypes.string,
 };
 
 MarketSelector.defaultProps = {
 	markets: [],
+	selected: 'favorites',
 };
 
 export default MarketSelector;

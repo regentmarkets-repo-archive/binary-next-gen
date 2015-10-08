@@ -63,8 +63,7 @@ export default class UpgradePane extends React.Component {
 					<button onClick={::this.previousStep}>Back</button>
 					<button onClick={::this.openAccount}>Open Account</button>
 				</p>
-			</div>
-		)];
+			</div>)];
 
 		return (
 			<div className="wide-form" >

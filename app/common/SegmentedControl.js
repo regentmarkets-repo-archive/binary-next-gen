@@ -1,46 +1,28 @@
 import React from 'react';
 import Segment from './Segment';
 
-export default class SegmentedControl extends React.Component {
+const SegmentedControl = props => {
+    const segments = (typeof props.segments[0] !== 'string')
+        ? props.segments
+        : props.segments.map(s => ({ href: '#', text: s }));
 
-    static propTypes = {
-        segments: React.PropTypes.array.isRequired,
-        onSelect: React.PropTypes.func,
-    }
+    return (
+        <ul role="segmented">
+            {segments.map((segment, idx) =>
+                <Segment
+                    key={idx}
+                    href={segment.href}
+                    text={segment.text}
+                    active={idx === props.activeIndex} />
+            )}
+        </ul>
+    );
+};
 
-    constructor(props) {
-        super(props);
+SegmentedControl.propTypes = {
+    segments: React.PropTypes.array.isRequired,
+    activeIndex: React.PropTypes.number.isRequired,
+    onSelect: React.PropTypes.func,
+};
 
-        this.state = {
-            activeIndex: 0,
-        };
-    }
-
-    selected(idx) {
-        this.setState({
-            activeIndex: idx,
-        });
-
-        const { onSelect } = this.props;
-        onSelect && onSelect(idx);
-    }
-
-    render() {
-        const segments = (typeof this.props.segments[0] !== 'string')
-            ? this.props.segments
-            : this.props.segments.map(s => ({ href: '#', text: s }));
-
-        return (
-            <ul role="segmented">
-                {segments.map((segment, idx) =>
-                    <Segment
-                        key={idx}
-                        href={segment.href}
-                        text={segment.text}
-                        active={idx === this.state.activeIndex}
-                        onSelect={this.selected.bind(this, idx)} />
-                )}
-            </ul>
-        );
-    }
-}
+export default SegmentedControl;

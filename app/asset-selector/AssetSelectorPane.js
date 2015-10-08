@@ -11,7 +11,7 @@ const AssetSelectorPane = props => {
 
 	return (
 		<div>
-			<MarketSelector markets={Object.keys(tree)} />
+			<MarketSelector markets={Object.keys(tree)} selected={props.params.market}/>
 			<AssetSearch actions={actions} />
 			<AssetList assets={shownAssets} />
 		</div>
