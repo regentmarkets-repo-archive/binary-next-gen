@@ -1,7 +1,7 @@
 import React from 'react';
 import AssetItem from './AssetItem';
 
-const AssetList = (props) => (
+const AssetList = ({assets}) => (
 	<table>
 		<thead>
 			<tr>
@@ -10,7 +10,7 @@ const AssetList = (props) => (
 			</tr>
 		</thead>
 		<tbody>
-			{props.assets.map(asset =>
+			{assets.map(asset =>
 				<AssetItem key={asset.symbol} asset={asset} />
 			)}
 		</tbody>

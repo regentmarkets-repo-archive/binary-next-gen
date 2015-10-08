@@ -6,18 +6,18 @@ import PortfolioTable from './PortfolioTable';
 import ContractDetails from './ContractDetails';
 
 
-const PortfolioPane = (props) => {
+const PortfolioPane = ({portfolio, dispatch}) => {
 	const showDetails = (contract) => {
-		const actions = bindActionCreators(PortfolioActions, props.dispatch);
+		const actions = bindActionCreators(PortfolioActions, dispatch);
 		actions.detailsForContract(true, contract);
 	};
 
 	const onCloseDetails = () => {
-		const actions = bindActionCreators(PortfolioActions, props.dispatch);
+		const actions = bindActionCreators(PortfolioActions, dispatch);
 		actions.detailsForContract(false);
 	};
 
-	const { contracts, contractShown, areDetailsShown } = props.portfolio.toJS();
+	const { contracts, contractShown, areDetailsShown } = portfolio.toJS();
 	return (
 		<div>
 			<Modal shown={areDetailsShown} onClose={onCloseDetails}>

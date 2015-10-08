@@ -1,10 +1,10 @@
 import React from 'react';
 import { InputGroup } from '../common';
 
-const AssetSearch = (props) => (
+const AssetSearch = ({actions}) => (
 	<InputGroup type="search"
 		placeholder="Search for assets"
-		onChange={e => props.actions.filterAssets(e.target.value)} />
+		onChange={e => actions.filterAssets(e.target.value)} />
 );
 
 AssetSearch.propTypes = {

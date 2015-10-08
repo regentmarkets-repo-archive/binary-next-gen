@@ -1,7 +1,7 @@
 import React from 'react';
 import TickRow from './TickRow';
 
-const TickTable = (props) => {
+const TickTable = ({ticks}) => {
 	return (
 		<table>
 			<thead>
@@ -15,11 +15,11 @@ const TickTable = (props) => {
 				</tr>
 			</thead>
 			<tbody>
-				{props.ticks.keySeq().map((symbol) =>
+				{ticks.keySeq().map((symbol) =>
 					<TickRow
 						key={symbol}
 						symbol={symbol}
-						history={props.ticks.get(symbol).toJS()} />
+						history={ticks.get(symbol).toJS()} />
 				)}
 			</tbody>
 		</table>

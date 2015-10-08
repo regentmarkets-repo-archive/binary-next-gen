@@ -6,8 +6,7 @@ const calculatePortfolioTotals = (contracts) => ({
     indicative: contracts.length && contracts.reduce((x, y) => x + +y.buy_price, 0),
 });
 
-const PortfolioTable = (props) => {
-    const { contracts, onViewDetails } = props;
+const PortfolioTable = ({contracts, onViewDetails}) => {
     const totals = calculatePortfolioTotals(contracts);
 
 	contracts.slice().sort((x, y) => Math.sign(x.fmb_id, y.fmb_id));

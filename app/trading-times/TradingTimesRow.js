@@ -1,7 +1,6 @@
 import React from 'react';
 
-const TradingTimesRow = (props) => {
-    const { symbol } = props;
+const TradingTimesRow = ({symbol}) => {
     const eventStrs = symbol.events.map(e => e.descrip + ':' + e.dates);
 
     return (

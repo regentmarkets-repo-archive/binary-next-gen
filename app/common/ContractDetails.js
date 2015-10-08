@@ -1,9 +1,7 @@
 import React from 'react';
 import { shortDateStr } from '../common/DateUtils';
 
-const ContractDetails = (props) => {
-	const { contract } = props;
-
+const ContractDetails = ({contract}) => {
 	const returnOnContract = ((contract.bid_price - contract.buy_price) * 100 / contract.buy_price).toFixed(2);
 
 	return (

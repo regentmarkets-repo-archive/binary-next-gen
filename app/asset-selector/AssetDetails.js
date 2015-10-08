@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AssetDetails = (props) => (
+const AssetDetails = ({asset}) => (
 	<table>
 		<thead>
 			<tr>
@@ -9,10 +9,10 @@ const AssetDetails = (props) => (
 			</tr>
 		</thead>
 		<tbody>
-			{Object.keys(props.asset).map((key) =>
+			{Object.keys(asset).map((key) =>
 				<tr>
 					<td>{key}</td>
-					<td>{props.asset[key]}</td>
+					<td>{asset[key]}</td>
 				</tr>
 			)}
 		</tbody>

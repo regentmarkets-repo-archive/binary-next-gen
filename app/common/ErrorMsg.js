@@ -1,14 +1,8 @@
 import React from 'react';
 
-const ErrorMsg = (props) => {
-	if (!props.shown) return <span />;
-
-	return (
-		<p className="errorfield">
-			{props.text}
-		</p>
-	);
-};
+const ErrorMsg = ({shown, text}) => (
+	shown ? <span /> : <p className="errorfield">{text}</p>
+);
 
 ErrorMsg.propTypes = {
 	shown: React.PropTypes.bool.isRequired,

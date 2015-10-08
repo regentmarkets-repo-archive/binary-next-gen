@@ -1,9 +1,7 @@
 import React from 'react';
 import StatementRow from './StatementRow';
 
-const StatementTable = (props) => {
-    const { transactions, totals, onViewDetails } = props;
-
+const StatementTable = ({transactions, totals, onViewDetails}) => {
 	transactions.slice().sort((x, y) => Math.sign(x.fmb_id, y.fmb_id));
 
 	return (

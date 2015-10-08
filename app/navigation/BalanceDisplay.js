@@ -1,7 +1,6 @@
 import React from 'react';
 
-const BalanceDisplay = (props) => {
-	const { balance } = props.account;
+const BalanceDisplay = ({account: {balance}}) => {
 	const balanceStr = balance && balance.amount && `${balance.currency} ${balance.amount.toFixed(2)}`;
 
 	return (

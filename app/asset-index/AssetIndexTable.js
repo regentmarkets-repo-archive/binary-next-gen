@@ -1,12 +1,12 @@
 import React from 'react';
 import AssetIndexRow from './AssetIndexRow';
 
-const AssetIndexTable = (props) => (
+const AssetIndexTable = ({submarket}) => (
     <table>
         <thead>
             <tr>
                 <th colSpan="100">
-                    {props.submarket.submarket}
+                    {submarket.submarket}
                 </th>
             </tr>
             <tr>

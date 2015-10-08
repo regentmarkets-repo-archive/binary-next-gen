@@ -11,7 +11,7 @@ const initialState = new Map({
 export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_TRADING_TIMES:
-            const data = action.serverResponse.data.markets;
+            const data = action.serverResponse.trading_times.markets;
             return state.set('markets', data);
         default:
             return state;

@@ -2,9 +2,7 @@ import React from 'react';
 import SegmentedControl from '../common/SegmentedControl';
 import TradingTimesTable from './TradingTimesTable';
 
-const TradingTimesPane = (props) => {
-	const { tradingTimes, params } = props;
-
+const TradingTimesPane = ({tradingTimes, params}) => {
 	const marketLinks = tradingTimes.map(x => ({
 		href: '/trading-times/' + x.name.toLowerCase(),
 		text: x.name,

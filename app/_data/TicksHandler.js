@@ -1,11 +1,11 @@
 // import { provide } from 'react-redux';
 
 // @provide(store)
-export default function ticksHandler(r) {
+export default function ticksHandler(response) {
     this.ticks.appendData({
-        symbol: r.echo.ticks,
-        quote: r.data.quote,
-        epoch: r.data.epoch,
+        symbol: response.echo_req.ticks,
+        quote: response.ticks.quote,
+        epoch: response.ticks.epoch,
     });
     this.dataChanged('ticks');
 }

@@ -10,7 +10,7 @@ const initialState = new Map();
 export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_AUTHORIZE: {
-            const { currency, balance, loginid, fullname } = action.serverResponse.data;
+            const { currency, balance, loginid, fullname } = action.serverResponse.authorize;
 
             return state.merge({
                 balance: {
@@ -22,7 +22,7 @@ export default (state = initialState, action) => {
             });
         }
         case SERVER_DATA_BALANCE:
-            return state.set('balances', action.serverResponse.data);
+            return state.set('balances', action.serverResponse.balances);
         default:
             return state;
     }

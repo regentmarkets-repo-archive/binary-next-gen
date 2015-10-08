@@ -9,8 +9,7 @@ const historyDiff = (history) => {
 	return history[history.length - 1].quote - history[history.length - 2].quote;
 };
 
-const TickRow = (props) => {
-	const { symbol, history } = props;
+const TickRow = ({symbol, history}) => {
 	const diff = historyDiff(history);
 	const { quote, epoch } = history[history.length - 1] || {};
 

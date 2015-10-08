@@ -1,7 +1,7 @@
 import React from 'react';
 import TradingTimesRow from './TradingTimesRow';
 
-const TradingTimesTable = (props) => (
+const TradingTimesTable = ({submarket}) => (
 	<table>
 		<thead>
             <tr>
@@ -18,7 +18,7 @@ const TradingTimesTable = (props) => (
 			</tr>
 		</thead>
 		<tbody>
-            {props.submarket.symbols.map((s, i) => <TradingTimesRow key={i} symbol={s} />)}
+            {submarket.symbols.map((s, i) => <TradingTimesRow key={i} symbol={s} />)}
 		</tbody>
 	</table>
 );

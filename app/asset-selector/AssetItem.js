@@ -1,12 +1,12 @@
 import React from 'react';
 
-const AssetItem = (props) => (
+const AssetItem = ({asset}) => (
 	<tr>
 		<td>
-			{props.asset.symbol}
+			{asset.symbol}
 		</td>
 		<td>
-			{props.asset.display_name}
+			{asset.display_name}
 		</td>
 	</tr>
 );

@@ -30,7 +30,7 @@ const doFilter = (assetList, query) => {
 export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_ACTIVE_SYMBOLS: {
-            const activeSymbols = action.serverResponse.data;
+            const activeSymbols = action.serverResponse.active_symbols;
 
             return state.merge({
                 list: activeSymbols,

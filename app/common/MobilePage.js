@@ -1,11 +1,11 @@
 import React from 'react';
 import { MobileToolbar } from '../navigation';
 
-const MobilePage = (props) => (
+const MobilePage = ({children, toolbarShown}) => (
 	<div className="mobile-page">
 		<div className="mobile-content">
-			{props.toolbarShown ? <MobileToolbar /> : null}
-			{props.children}
+			{toolbarShown ? <MobileToolbar /> : null}
+			{children}
 		</div>
 	</div>
 );

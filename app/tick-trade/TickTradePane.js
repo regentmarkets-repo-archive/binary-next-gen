@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-export default (props) => (
+export default () => (
 	<div>
 		<Link to={`/tick-trade/settings`} className="button">Change Time Settings</Link>
 		<fieldset>

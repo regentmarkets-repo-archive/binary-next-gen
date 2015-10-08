@@ -1,9 +1,9 @@
 import React from 'react';
 
-const AssetIndexRow = (props) => (
+const AssetIndexRow = ({symbol}) => (
     <tr>
         <td>
-            {props.symbol}
+            {symbol}
         </td>
         <td>
             <a href="#">

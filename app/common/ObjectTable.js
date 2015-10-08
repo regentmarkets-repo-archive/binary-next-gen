@@ -1,7 +1,7 @@
 import React from 'react';
 import ObjectTableRow from './ObjectTableRow';
 
-const ObjectTable = (props) => (
+const ObjectTable = ({object}) => (
 	<table>
 		<thead>
 			<tr>
@@ -10,7 +10,7 @@ const ObjectTable = (props) => (
 			</tr>
 		</thead>
 		<tbody>
-			{Object.keys(props.object).map((k, i ) => <ObjectTableRow key={i} name={k} value={props.object[k]}/>)}
+			{Object.keys(props.object).map(k => <ObjectTableRow key={k} name={k} value={object[k]}/>)}
 		</tbody>
 	</table>
 );

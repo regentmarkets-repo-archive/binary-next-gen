@@ -1,12 +1,12 @@
 import React from 'react';
 import { SegmentedControl } from '../common';
 
-const MarketSelector = (props) => {
-	const marketLinks = props.markets.map(market => ({
+const MarketSelector = ({markets, selected}) => {
+	const marketLinks = markets.map(market => ({
 		href: '/asset-selector/' + market.toLowerCase(),
 		text: market,
 	}));
-	const marketFromRouteIdx = props.markets.indexOf(m => m.toLowerCase() === selected);
+	const marketFromRouteIdx = markets.indexOf(m => m.toLowerCase() === selected);
 
 	return (
 		<SegmentedControl segments={marketLinks} activeIndex={marketFromRouteIdx} />
