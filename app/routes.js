@@ -8,8 +8,8 @@ import TickTradeInPane from './tick-trade/TickTradeInPane';
 import TickTradeSettingsPane from './tick-trade/TickTradeSettingsPane';
 import { PortfolioPage, PortfolioPopup } from './portfolio';
 import StatementPage from './statement/StatementPage';
-import SignupPane from './signup/SignupPane';
-import UpgradePane from './upgrade/UpgradePane';
+import SignupPage from './signup/SignupPage';
+import UpgradePage from './upgrade/UpgradePage';
 import TicksPane from './ticks/TicksPane';
 import OfferingsPane from './offerings/OfferingsPane';
 import ActiveSymbolsPane from './active-symbols/ActiveSymbolsPane';
@@ -43,8 +43,8 @@ export default {
         { path: 'portfolio', component: PortfolioPage },
         { path: 'portfolio-popup', component: PortfolioPopup },
         { path: 'statement', component: StatementPage },
-        { path: 'signup', component: SignupPane },
-        { path: 'upgrade', component: UpgradePane },
+        { path: 'signup', component: SignupPage },
+        { path: 'upgrade', component: UpgradePage },
         { path: 'trade', component: TradePane },
         { path: 'ticks', component: TicksPane },
         { path: 'offerings', component: OfferingsPane },

@@ -1,23 +1,30 @@
 import React from 'react';
-import { Link } from 'react-router';
-import { LogoSpinner } from '../common';
+import DesktopNavLink from './DesktopNavLink';
 
 const DesktopToolbar = () => (
-	<div>
-		<LogoSpinner />
-		<Link to={'/trade'} activeClassName="active" className="button">Trade</Link>
-		<Link to={'/trade'} activeClassName="active" className="button">Chart</Link>
-		<Link to={'/portfolio-popup'} activeClassName="active" className="button">Portfolio</Link>
-		<Link to={'/statement'} activeClassName="active" className="button">Statement</Link>
-		<Link to={'/asset-index'} activeClassName="active" className="button">Asset Index</Link>
-		<Link to={'/profit-table'} activeClassName="active" className="button">Profit Table</Link>
-		<Link to={'/settings'} activeClassName="active" className="button">Settings</Link>
-		<Link to={`/rise-fall-table`} activeClassName="active" className="button">Rise/Fall Table</Link>
-		<Link to={`/trading-times`} activeClassName="active" className="button">Trading Times</Link>
-		<Link to={`/pricing-table`} activeClassName="active" className="button">Pricing Table</Link>
-		<Link to={`/daily-prices`} activeClassName="active" className="button">Daily Prices</Link>
-		<Link to={`/intraday-prices`} activeClassName="active" className="button">Intrday Prices</Link>
-	</div>
+	<header>
+    	<div className="header-content">
+	        <a id="logo" href="https://www.binaryqa03.com/?l=EN">
+	            <img src="https://borisyankov.github.io/binary-static/images/pages/binary-symbol-logo.svg" />
+	            <img src="https://borisyankov.github.io/binary-static/images/pages/binary-text.svg" />
+	        </a>
+        	<nav>
+	    		<ul className="nav1st">
+					<DesktopNavLink to="/trade" text="Trade" />
+					<DesktopNavLink to="/asset-index" text="Asset&nbsp;Index" />
+					<DesktopNavLink to="/trading-times" text="Trading&nbsp;Times" />
+					<DesktopNavLink to="/pricing-table" text="Pricing&nbsp;Table" />
+					<DesktopNavLink to="/rise-fall-table" text="Rise/Fall&nbsp;Table" />
+					<DesktopNavLink to="/balances" text="Balances" />
+					<DesktopNavLink to="/Portfolio" text="Portfolio" />
+					<DesktopNavLink to="/profit-table" text="Profit&nbsp;Table" />
+					<DesktopNavLink to="/statement" text="Statement" />
+					<DesktopNavLink to="/daily-prices" text="Daily&nbsp;Prices" />
+					<DesktopNavLink to="/settings" text="Settings" />
+				</ul>
+			</nav>
+		</div>
+	</header>
 );
 
 export default DesktopToolbar;
