@@ -20,7 +20,7 @@ const DesktopToolbar = () => (
 					<DesktopNavLink to="/profit-table" text="Profit&nbsp;Table" />
 					<DesktopNavLink to="/statement" text="Statement" />
 					<DesktopNavLink to="/daily-prices" text="Daily&nbsp;Prices" />
-					<DesktopNavLink to="/settings" text="Settings" />
+					<DesktopNavLink to="/settings/" text="Settings" />
 				</ul>
 			</nav>
 		</div>

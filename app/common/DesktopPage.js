@@ -4,7 +4,9 @@ import { DesktopToolbar } from '../navigation';
 const DesktopPage = ({children}) => (
 	<div className="desktop-page">
 		<DesktopToolbar />
-		{children}
+		<div className="desktop-content">
+			{children}
+		</div>
 	</div>
 );
 

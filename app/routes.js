@@ -17,15 +17,15 @@ import ActiveSymbolsPane from './active-symbols/ActiveSymbolsPane';
 import AssetSelectorPage from './asset-selector/AssetSelectorPage';
 import AssetIndexPane from './asset-index/AssetIndexPane';
 import AssetIndexTable from './asset-index/AssetIndexTable';
-import RiseFallTablePane from './rise-fall-table/RiseFallTablePane';
+import RiseFallTablePage from './rise-fall-table/RiseFallTablePage';
 import TradingTimesPane from './trading-times/TradingTimesPane';
 import TradingTimesTable from './trading-times/TradingTimesTable';
-import PricingTablePane from './pricing-table/PricingTablePane';
-import DailyPricesPane from './daily-prices/DailyPricesPane';
+import PricingTablePage from './pricing-table/PricingTablePage';
+import DailyPricesPage from './daily-prices/DailyPricesPage';
 import IntradayPricesPane from './intraday-prices/IntradayPricesPane';
 import ProfitTablePane from './profit-table/ProfitTablePane';
-import TradePane from './trade/TradePane';
-import SettingsPane from './settings/SettingsPane';
+import TradePage from './trade/TradePage';
+import SettingsPage from './settings/SettingsPage';
 import SettingsPersonalDetails from './settings/SettingsPersonalDetails';
 import SettingsSecurity from './settings/SettingsSecurity';
 import SettingsSelfExclusion from './settings/SettingsSelfExclusion';
@@ -49,10 +49,11 @@ export default {
         { path: 'balances', component: BalancesPage },
         { path: 'signup', component: SignupPage },
         { path: 'upgrade', component: UpgradePage },
-        { path: 'trade', component: TradePane },
+        { path: 'trade', component: TradePage },
         { path: 'ticks', component: TicksPane },
         { path: 'offerings', component: OfferingsPane },
         { path: 'active-symbols', component: ActiveSymbolsPane },
+        { path: 'asset-selector', component: AssetSelectorPage },
         { path: 'asset-selector/:market', component: AssetSelectorPage },
         { path: 'asset-index', component: AssetIndexPane, childRoutes: [
             { path: ':market', component: AssetIndexTable },
@@ -60,12 +61,12 @@ export default {
         { path: 'trading-times', component: TradingTimesPane, childRoutes: [
             { path: ':market', component: TradingTimesTable },
         ]},
-        { path: 'rise-fall-table', component: RiseFallTablePane },
-        { path: 'pricing-table', component: PricingTablePane },
-        { path: 'daily-prices', component: DailyPricesPane },
+        { path: 'rise-fall-table', component: RiseFallTablePage },
+        { path: 'pricing-table', component: PricingTablePage },
+        { path: 'daily-prices', component: DailyPricesPage },
         { path: 'intraday-prices', component: IntradayPricesPane },
         { path: 'profit-table', component: ProfitTablePane },
-        { path: 'settings', indexRoute: { component: SettingsPersonalDetails }, component: SettingsPane, childRoutes: [
+        { path: 'settings', indexRoute: { component: SettingsPersonalDetails }, component: SettingsPage, childRoutes: [
             { path: 'security', component: SettingsSecurity },
             { path: 'exclusion', component: SettingsSelfExclusion },
             { path: 'limits', component: SettingsLimits },

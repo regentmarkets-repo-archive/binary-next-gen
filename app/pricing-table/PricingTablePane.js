@@ -1,12 +1,10 @@
 import React from 'react';
-import { DesktopToolbar } from '../navigation';
 import SegmentedControl from '../common/SegmentedControl';
 import PricingTable from './PricingTable';
 import PricingTableFilter from './PricingTableFilter';
 
 const PricingTablePane = ({onAssetSelect}) => (
-	<div className="pricing-table-content">
-		<DesktopToolbar />
+	<div>
 		<PricingTableFilter />
 		<SegmentedControl
 			segments={['Mid', 'Bid', 'Ask', 'Spread']}
