@@ -12,6 +12,8 @@ export MarketsSelect from './MarketsSelect';
 export MobilePage from './MobilePage';
 export Modal from './Modal';
 export ModalAnimated from './ModalAnimated';
+export NumberPlain from './NumberPlain';
+export NumberColored from './NumberColored';
 export ObjectTable from './ObjectTable';
 export ObjectTableRow from './ObjectTableRow';
 export Popup from './Popup';

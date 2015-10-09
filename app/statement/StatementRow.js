@@ -1,5 +1,6 @@
 import React from 'react';
 import { shortDateStr } from '../common/DateUtils';
+import { NumberPlain, NumberColored } from '../common';
 
 const StatementRow = (props) => {
     const { transaction, onViewDetails } = props;
@@ -10,8 +11,8 @@ const StatementRow = (props) => {
             <td>{transaction.id}</td>
             <td>{transaction.action_type}</td>
             <td>{transaction.longcode}???</td>
-            <td>{(+transaction.amount).toFixed(2)}</td>
-            <td>{(+transaction.balance_after).toFixed(2)}</td>
+            <td><NumberColored value={transaction.amount} /></td>
+            <td><NumberPlain value={transaction.balance_after} /></td>
             <td><button onClick={onViewDetails.bind(this, transaction)}>View</button></td>
         </tr>
     );

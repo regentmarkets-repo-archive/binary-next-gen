@@ -1,4 +1,5 @@
 import React from 'react';
+import { NumberPlain } from '../common';
 import PortfolioRow from './PortfolioRow';
 
 const calculatePortfolioTotals = (contracts) => ({
@@ -27,8 +28,8 @@ const PortfolioTable = ({contracts, onViewDetails}) => {
 			<thead>
 				<tr>
 					<th></th>
-					<th>USD&nbsp;{totals.purchase.toFixed(2)}</th>
-                    <th>USD&nbsp;{totals.indicative.toFixed(2)}</th>
+					<th><NumberPlain currency="USD" value={totals.purchase} /></th>
+                    <th><NumberPlain currency="USD" value={totals.indicative} /></th>
                     <th></th>
 				</tr>
 			</thead>

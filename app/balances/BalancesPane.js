@@ -1,4 +1,5 @@
 import React from 'react';
+import { NumberPlain } from '../common';
 
 export default (props) => {
 	const balances = props.account.toJS().balances;
@@ -18,7 +19,7 @@ export default (props) => {
 						<tr>
 							<td>{b.loginid}</td>
 							<td>{b.currency}</td>
-							<td>{(+b.balance).toFixed(2)}</td>
+							<td><NumberPlain value={b.balance} /></td>
 						</tr>
 					))}
 				</tbody>
