@@ -16,7 +16,6 @@ const PortfolioTable = ({contracts, onViewDetails}) => {
 			<thead>
 				<tr>
 					<th>Ref.</th>
-					<th>Contract</th>
 					<th>Purchase</th>
                     <th>Indicative</th>
                     <th></th>
@@ -27,7 +26,6 @@ const PortfolioTable = ({contracts, onViewDetails}) => {
 			</tbody>
 			<thead>
 				<tr>
-					<th></th>
 					<th></th>
 					<th>USD&nbsp;{totals.purchase.toFixed(2)}</th>
                     <th>USD&nbsp;{totals.indicative.toFixed(2)}</th>
