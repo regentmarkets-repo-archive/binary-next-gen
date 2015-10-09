@@ -1,5 +1,6 @@
 import React from 'react';
-import SegmentedControl from '../common/SegmentedControl';
+import { DesktopToolbar } from '../navigation';
+import { SegmentedControl } from '../common';
 
 export default class SettingsPane extends React.Component {
 
@@ -24,6 +25,7 @@ export default class SettingsPane extends React.Component {
 
 		return (
 			<div>
+				<DesktopToolbar />
 				<SegmentedControl segments={navigationLinks} />
 				{this.props.children}
 			</div>

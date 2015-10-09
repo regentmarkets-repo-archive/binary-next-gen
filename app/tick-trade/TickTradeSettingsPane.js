@@ -2,11 +2,10 @@ import React from 'react';
 
 export default (props) => (
 	<div>
-		<label>Underlying</label>
+		<label>Underlying Asset</label>
 		<fieldset>
-			<button>Forex</button><button>Randoms</button>
+			<button>Forex > USD/JPY</button>
 		</fieldset>
-		<label>USD/JPY</label>
 		<label>Select Trade</label>
 		<fieldset>
 			<button>Up</button><button>Down</button><button>Digit Match</button><button>Digit Differs</button>

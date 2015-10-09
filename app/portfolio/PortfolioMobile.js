@@ -1,9 +1,9 @@
 import React from 'react';
-import { DesktopPage } from '../common';
+import { MobilePage } from '../common';
 import PortfolioContainer from './PortfolioContainer';
 
 export default (props) => (
-	<DesktopPage>
+	<MobilePage>
 		<PortfolioContainer {...props} />
-	</DesktopPage>
+	</MobilePage>
 );

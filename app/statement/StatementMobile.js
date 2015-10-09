@@ -1,9 +1,9 @@
 import React from 'react';
-import { DesktopPage } from '../common';
+import { MobilePage } from '../common';
 import StatementPane from './StatementPane';
 
 export default (props) => (
-	<DesktopPage>
+	<MobilePage>
 		<StatementPane {...props} />
-	</DesktopPage>
+	</MobilePage>
 );

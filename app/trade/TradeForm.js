@@ -3,7 +3,7 @@ import SegmentedControl from '../common/SegmentedControl';
 
 export default () => (
 	<div>
-		<SegmentedControl segments={['Forex', 'Something']} />
+		<SegmentedControl segments={['Forex', 'Indices', 'Stocks', 'Commodities', 'Randoms']} />
 
 		<SegmentedControl
 			segments={['Up/Down', 'Rise/Fall', 'Higher/Lower', 'Touch/No Touch', 'In/Out']} />
