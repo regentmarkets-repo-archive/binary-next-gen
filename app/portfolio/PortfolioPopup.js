@@ -3,7 +3,7 @@ import { Popup } from '../common';
 import PortfolioContainer from './PortfolioContainer';
 
 export default (props) => (
-	<Popup>
+	<Popup shown={true}>
 		<PortfolioContainer {...props} />
 	</Popup>
 );

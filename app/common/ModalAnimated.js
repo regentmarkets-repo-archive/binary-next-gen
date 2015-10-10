@@ -4,7 +4,7 @@ import { TransitionMotion } from 'react-motion';
 const ModalContent = ({onClose, children}) => (
 	<div className="full-screen-overlay" onClick={onClose} style={{ opacity: anim.opacity.val }}>
 		<div className="modal" style={{ transform: `scale(${anim.scale.val})` }}>
-			<button className="close-btn" onClick={onClose}>X</button>
+			<button className="close-btn" onClick={onClose}>✖</button>
 			{children}
 		</div>
 	</div>

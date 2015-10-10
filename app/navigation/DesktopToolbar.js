@@ -16,7 +16,7 @@ const DesktopToolbar = () => (
 					<DesktopNavLink to="/trading-times" text="Trading&nbsp;Times" />
 					<DesktopNavLink to="/pricing-table" text="Pricing&nbsp;Table" />
 					<DesktopNavLink to="/rise-fall-table" text="Rise/Fall&nbsp;Table" />
-					<DesktopNavLink to="/Portfolio" text="Portfolio" />
+					<DesktopNavLink to="/portfolio-popup" text="Portfolio" />
 					<DesktopNavLink to="/profit-table" text="Profit&nbsp;Table" />
 					<DesktopNavLink to="/statement" text="Statement" />
 					<DesktopNavLink to="/daily-prices" text="Daily&nbsp;Prices" />
