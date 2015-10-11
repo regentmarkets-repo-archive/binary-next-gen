@@ -37,7 +37,7 @@ export default class LiveData {
         this.api.authorize('8ysiSLSEqosDL6tjMBQJSgARCIQ2SNRcoDeTnnY3f8dNvDMu');
         this.api.getActiveSymbolsFull();
         this.api.getTradingTimes();
-        this.api.getStatement({ description: 1, limit: 10 });
+        this.api.getStatement({ description: 1 });
         this.api.getBalance();
         this.api.getPortfolio();
 //        this.api.subscribeToTicks(['frxUSDJPY', 'R_50']);
