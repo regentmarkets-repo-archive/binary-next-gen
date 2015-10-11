@@ -1,36 +1,27 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import SegmentedControl from '../common/SegmentedControl';
+import { MarketSelector } from '../common';
 import AssetIndexTable from './AssetIndexTable';
 
-@connect(state => ({ offerings: state.serverData.offerings }))
-export default class AsssetIndexPane extends React.Component {
+const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
 
-	static propTypes = {
-		params: React.PropTypes.object.isRequired,
-		offerings: React.PropTypes.array.isRequired,
-	};
+const AssetIndexPane = ({assets, params}) => {
+	const { tree, list } = assets.toJS(); // tree, active, shownAssets, query
+	const marketName = (params.market && capitalize(params.market)) || 'Forex';
+	const submarkets = Object.keys(tree[marketName] || []);
 
-	static defaultProps = {
-		offerings: [],
-	};
+	return (
+		<div>
+			<MarketSelector markets={Object.keys(tree)} selected={params.market} prefixRoute="/asset-index/" />
+			{submarkets.map(submarket =>
+				<AssetIndexTable key={submarket} submarket={submarket} assets={list.filter(a => a.submarket_display_name === submarket)} />
+			)}
+		</div>
+	);
+};
 
-	render() {
-		const { offerings, params } = this.props;
+AssetIndexPane.propTypes = {
+	assets: React.PropTypes.object.isRequired,
+	params: React.PropTypes.object.isRequired,
+};
 
-		const marketLinks = offerings.map(x => ({
-			href: '/asset-index/' + x.market.toLowerCase(),
-			text: x.market,
-		}));
-
-		const marketFromRoute = offerings.find(x => x.market.toLowerCase() === params.market.toLowerCase());
-		const marketSelected = marketFromRoute || { available: [] };
-
-		return (
-			<div>
-                <SegmentedControl segments={marketLinks} />
-				{ marketSelected.available.map(x => <AssetIndexTable submarket={x} />) }
-			</div>
-		);
-	}
-}
+export default AssetIndexPane;

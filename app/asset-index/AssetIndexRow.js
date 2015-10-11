@@ -1,35 +1,27 @@
 import React from 'react';
 
-const AssetIndexRow = ({symbol}) => (
+const AssetIndexRow = ({asset}) => (
     <tr>
         <td>
-            {symbol}
+            {asset.display_name}
         </td>
         <td>
-            <a href="#">
-                5t–365d
-            </a>
+            5t–365d
         </td>
         <td>
-            <a href="#">
-                1h–365d
-            </a>
+            1h–365d
         </td>
         <td>
-            <a href="#">
-                1d–365d
-            </a>
+            1d–365d
         </td>
         <td>
-            <a href="#">
-                1d–365d
-            </a>
+            1d–365d
         </td>
     </tr>
 );
 
 AssetIndexRow.propTypes = {
-    symbol: React.PropTypes.string.isRequired,
+    asset: React.PropTypes.object.isRequired,
 };
 
 export default AssetIndexRow;

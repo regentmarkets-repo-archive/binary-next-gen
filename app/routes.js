@@ -15,7 +15,7 @@ import TicksPane from './ticks/TicksPane';
 import OfferingsPane from './offerings/OfferingsPane';
 import ActiveSymbolsPane from './active-symbols/ActiveSymbolsPane';
 import AssetSelectorPage from './asset-selector/AssetSelectorPage';
-import AssetIndexPane from './asset-index/AssetIndexPane';
+import AssetIndexPage from './asset-index/AssetIndexPage';
 import AssetIndexTable from './asset-index/AssetIndexTable';
 import RiseFallTablePage from './rise-fall-table/RiseFallTablePage';
 import TradingTimesPane from './trading-times/TradingTimesPane';
@@ -55,7 +55,7 @@ export default {
         { path: 'active-symbols', component: ActiveSymbolsPane },
         { path: 'asset-selector', component: AssetSelectorPage },
         { path: 'asset-selector/:market', component: AssetSelectorPage },
-        { path: 'asset-index', component: AssetIndexPane, childRoutes: [
+        { path: 'asset-index', component: AssetIndexPage, childRoutes: [
             { path: ':market', component: AssetIndexTable },
         ]},
         { path: 'trading-times', component: TradingTimesPane, childRoutes: [

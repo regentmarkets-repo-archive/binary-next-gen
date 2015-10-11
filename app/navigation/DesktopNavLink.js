@@ -2,13 +2,9 @@ import React from 'react';
 import { Link } from 'react-router';
 
 const DesktopNavLink = ({to, text}) => (
-	<li className="submenu">
-        <div>
-			<Link to={to} activeClassName="active">
-				{text}
-			</Link>
-        </div>
-	</li>
+	<Link to={to} className="toolbar-btn" activeClassName="active">
+		{text}
+	</Link>
 );
 
 DesktopNavLink.propTypes = {

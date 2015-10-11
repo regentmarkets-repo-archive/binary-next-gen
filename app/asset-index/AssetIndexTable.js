@@ -1,12 +1,12 @@
 import React from 'react';
 import AssetIndexRow from './AssetIndexRow';
 
-const AssetIndexTable = ({submarket}) => (
+const AssetIndexTable = ({submarket, assets}) => (
     <table>
         <thead>
             <tr>
                 <th colSpan="100">
-                    {submarket.submarket}
+                    {submarket}
                 </th>
             </tr>
             <tr>
@@ -18,13 +18,14 @@ const AssetIndexTable = ({submarket}) => (
             </tr>
         </thead>
         <tbody>
-            {submarket.available.map((a, i) => <AssetIndexRow key={i} symbol={a.symbol_display} />)}
+            {assets.map(a => <AssetIndexRow key={a.symbol} asset={a} />)}
         </tbody>
     </table>
 );
 
 AssetIndexTable.propTypes = {
-    submarket: React.PropTypes.object.isRequired,
+    submarket: React.PropTypes.string.isRequired,
+    assets: React.PropTypes.array.isRequired,
 };
 
 export default AssetIndexTable;
