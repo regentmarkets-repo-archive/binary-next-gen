@@ -1,5 +1,5 @@
 import React from 'react';
-import Direction from '../common/Direction';
+import { Direction, NumberColored } from '../common';
 
 export default () => (
 	<table>
@@ -21,8 +21,8 @@ export default () => (
 				<td>169.45</td>
 				<td>165.90</td>
 				<td>166.38</td>
-				<td>-2.30</td>
-				<td>-2.30<Direction diff={-2.30} /></td>
+				<td><NumberColored value={-2.30} /></td>
+				<td><NumberColored value={-2.30} /><Direction diff={-2.30} /></td>
 			</tr>
 		</tbody>
 		<thead>
@@ -46,8 +46,8 @@ export default () => (
 				<td>169.45</td>
 				<td>165.90</td>
 				<td>166.38</td>
-				<td>-2.30</td>
-				<td>-2.30<Direction diff={-2.30} /></td>
+				<td><NumberColored value={1.20} /></td>
+				<td><NumberColored value={1.20} /><Direction diff={1.20} /></td>
 			</tr>
 		</tbody>
 	</table>

@@ -3,7 +3,7 @@ import { Link } from 'react-router';
 
 const DesktopNavLink = ({to, text}) => (
 	<li className="submenu">
-        <div className="nav-trade">
+        <div>
 			<Link to={to} activeClassName="active">
 				{text}
 			</Link>
