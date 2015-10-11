@@ -1,8 +1,14 @@
 import React from 'react';
 
-const Popup = ({shown, onClose, children}) => shown ? (
+const Popup = ({shown, title, onClose, children}) => shown ? (
 	<div className="popup">
-		<button className="close-btn" onClick={onClose}>✖</button>
+		<div className="popup-title">
+			<label>{title}</label>
+			<div>
+				<button className="popup-btn" onClick={onClose}>&mdash;</button>
+				<button className="popup-btn" onClick={onClose}>✖</button>
+			</div>
+		</div>
 		{children}
 	</div>
 ) : <div />;

@@ -25,11 +25,36 @@
             padding: 1rem;
         }
         .popup {
-            border: 5px solid #2a3052;
+            border: 2px solid #2a3052;
             width: 50%;
+            position: absolute;
+            left: 50px;
+            top: 50px;
+        }
+        .popup-title {
+            color: white;
+            background: #2a3052;
+            height: 2rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        .popup-title label {
+            margin-left: .5rem;
         }
         .button.active {
             border-color: rgba(0, 0, 0, .5);
+        }
+        .popup-btn, .popup-btn:hover, .close-btn, .close-btn:hover {
+            background: transparent;
+            border: none;
+            padding: .5rem;
+        }
+        .close-btn {
+            position: relative;
+            color: black;
+            margin-top: -1rem;
+            margin-right: -1rem;
+            float: right;
         }
         .mobile-page {
             display: flex;
