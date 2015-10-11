@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ErrorMsg = ({shown, text}) => (
-	shown ? <span /> : <p className="errorfield">{text}</p>
+	shown ? <p className="errorfield">{text}</p> : <span />
 );
 
 ErrorMsg.propTypes = {

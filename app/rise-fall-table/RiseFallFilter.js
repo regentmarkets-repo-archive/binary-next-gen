@@ -5,7 +5,8 @@ const RiseFallFilter = ({minAvailableDuration, onCalculate, currencies = ['USD']
 	<form name="rise_fall" id="rise_fall_form">
 		<div className="row">
 	        <fieldset>
-	            <label htmlFor="atleast">Start time:</label>
+	            <label htmlFor="atleast">Start time</label>
+				<br/>
 	            <select id="atleast" name="date_start">
 					<option>Now</option>
 				</select>

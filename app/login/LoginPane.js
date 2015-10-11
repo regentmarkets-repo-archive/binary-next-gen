@@ -61,7 +61,7 @@ export default class LoginPane extends React.Component {
 	}
 
 	render() {
-		const { progress, emailNotValid, passwordNotEntered, credentialsInvalid } = this.state;
+		const { validatedOnce, progress, emailNotValid, passwordNotEntered, credentialsInvalid } = this.state;
 
 		return (
 			<div className="login-content inverse">
@@ -70,7 +70,7 @@ export default class LoginPane extends React.Component {
 					<img className="logo-text" src="https://static.binary.com/images/pages/binary-type-logo.svg" />
 				</p>
 				<InputGroup type="email" placeholder="Email" onChange={::this.emailChange} />
-				<ErrorMsg shown={emailNotValid} text="You need to enter an email" />
+				<ErrorMsg shown={validatedOnce && emailNotValid} text="You need to enter an email" />
 				<InputGroup type="password" placeholder="Password" onChange={::this.passwordChange} />
 				<ErrorMsg shown={passwordNotEntered} text="Need a pass" />
 				<ErrorMsg shown={credentialsInvalid} text="Access denied" />
