@@ -13,3 +13,10 @@ export function serverDataBalance(serverResponse) {
         serverResponse,
     };
 }
+
+export function serverDataPayoutCurrencies(serverResponse) {
+    return {
+        type: types.SERVER_DATA_PAYOUT_CURRENCIES,
+        serverResponse,
+    };
+}

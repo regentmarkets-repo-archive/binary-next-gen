@@ -13,6 +13,7 @@ const handlers = {
     'tick': 'serverDataTickStream',
     'ticks': 'serverDataTickHistory',
     'proposal_open_contract': 'serverDataProposalOpenContract',
+    'payout_currencies': 'serverDataPayoutCurrencies',
 };
 
 export default class LiveData {
@@ -34,12 +35,13 @@ export default class LiveData {
     }
 
     init() {
-        this.api.authorize('8ysiSLSEqosDL6tjMBQJSgARCIQ2SNRcoDeTnnY3f8dNvDMu');
+        this.api.authorize('OKKpJri13yJpvkh85ppNXVb1UKTf9XxnAt4kSR9dvxM1QuQS');
         this.api.getActiveSymbolsFull();
         this.api.getTradingTimes();
-        this.api.getStatement({ description: 1 });
+        this.api.getStatement({ description: 1, limit: 10 });
         this.api.getBalance();
         this.api.getPortfolio();
+        this.api.getPayoutCurrencies();
 //        this.api.subscribeToTicks(['frxUSDJPY', 'R_50']);
     }
 
