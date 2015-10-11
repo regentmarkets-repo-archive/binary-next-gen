@@ -35,7 +35,7 @@ export default class LiveData {
     }
 
     init() {
-        this.api.authorize('OKKpJri13yJpvkh85ppNXVb1UKTf9XxnAt4kSR9dvxM1QuQS');
+        this.api.authorize('Il0lKBwZxpEiCGNhnEna8y9n1HVuCYOQjPtRFafLtGF5YuUF');
         this.api.getActiveSymbolsFull();
         this.api.getTradingTimes();
         this.api.getStatement({ description: 1, limit: 10 });

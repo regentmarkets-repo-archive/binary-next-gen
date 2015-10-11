@@ -1,16 +1,22 @@
 import React from 'react';
+import { NumberColored, NumberPlain } from '../common';
+import { dateTimeStr } from '../common/DateUtils';
 
-const ProfitRow = ({contract, onViewDetails}) => (
+const ProfitRow = ({profit, onViewDetails}) => (
     <tr>
-        <td>{contract.fmb_id}</td>
-        <td>{contract.longcode}</td>
-        <td>{contract.currency}&nbsp;{contract.buy_price}</td>
-        <td>{contract.currency}&nbsp;{contract.bid_price}</td>
-        <td><button onClick={onViewDetails.bind(this, contract)}>View</button></td>
+        <td>{dateTimeStr(profit.date)}</td>
+        <td>{profit.ref}</td>
+        <td>{profit.details}</td>
+        <td><NumberPlain value={profit.purchasePrice} /></td>
+        <td>{dateTimeStr(profit.saleDate)} {profit.saleDate.toString()}</td>
+        <td><NumberPlain value={profit.salePrice} /></td>
+        <td><NumberColored value={profit.profitLoss} /></td>
+        <td><button onClick={onViewDetails.bind(this, profit)}>View</button></td>
     </tr>
 );
+
 ProfitRow.propTypes = {
-	contract: React.PropTypes.object.isRequired,
+	profit: React.PropTypes.object.isRequired,
     onViewDetails: React.PropTypes.func.isRequired,
 };
 
