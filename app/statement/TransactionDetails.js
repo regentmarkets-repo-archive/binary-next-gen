@@ -1,5 +1,5 @@
 import React from 'react';
-import { shortDateStr } from '../common/DateUtils';
+import { timeStr } from '../common/DateUtils';
 
 // const returnOnContract = ((contract.bid_price - contract.buy_price) * 100 / contract.buy_price).toFixed(2);
 
@@ -15,7 +15,7 @@ const TransactionDetails = ({transaction}) => (
 			</thead>
 			<tbody>
 				<tr>
-					<td>{shortDateStr(transaction.transaction_time)}</td>
+					<td>{timeStr(transaction.transaction_time)}</td>
 					<td>??????</td>
 				</tr>
 			</tbody>

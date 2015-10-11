@@ -1,5 +1,5 @@
 import React from 'react';
-import { shortDateStr } from '../common/DateUtils';
+import { timeStr } from '../common/DateUtils';
 import Direction from '../common/Direction';
 import TickSparkline from './TickSparkline';
 
@@ -18,7 +18,7 @@ const TickRow = ({symbol, history}) => {
 			<td><Direction diff={diff} /></td>
 			<td>{symbol}</td>
 			<td>{quote}</td>
-			<td>{shortDateStr(epoch)}</td>
+			<td>{timeStr(epoch)}</td>
 			<td>{diff.toPrecision(2)}</td>
 			<td><TickSparkline history={history} /></td>
 		</tr>

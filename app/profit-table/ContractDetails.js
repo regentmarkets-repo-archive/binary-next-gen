@@ -1,5 +1,5 @@
 import React from 'react';
-import { shortDateStr } from '../common/DateUtils';
+import { timeStr } from '../common/DateUtils';
 
 const ContractDetails = (props) => {
 	const { contract } = props;
@@ -18,9 +18,9 @@ const ContractDetails = (props) => {
 				</thead>
 				<tbody>
 					<tr>
-						<td>{shortDateStr(contract.date_start)}</td>
+						<td>{timeStr(contract.date_start)}</td>
 						<td>todo</td>
-						<td>{shortDateStr(contract.expiry_time)}</td>
+						<td>{timeStr(contract.expiry_time)}</td>
 					</tr>
 					<tr>
 						<td></td>

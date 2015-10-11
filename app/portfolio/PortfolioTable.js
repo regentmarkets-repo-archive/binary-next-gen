@@ -2,7 +2,7 @@ import React from 'react';
 import { NumberPlain } from '../common';
 import PortfolioRow from './PortfolioRow';
 
-const calculatePortfolioTotals = (contracts) => ({
+const calculatePortfolioTotals = contracts => ({
     purchase: contracts.length && contracts.reduce((x, y) => x + +y.buy_price, 0),
     indicative: contracts.length && contracts.reduce((x, y) => x + +y.buy_price, 0),
 });

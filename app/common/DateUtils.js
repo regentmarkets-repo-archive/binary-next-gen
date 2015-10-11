@@ -2,10 +2,14 @@ import moment from 'moment';
 
 export const LOCALIZED_MONTHS = moment.localeData()._months;
 
-export function shortDateStr(date) {
-    return moment.unix(date).format('h:mm:ss\u00a0a');
+export function timeStr(date) {
+    return moment.unix(date).format('hh:mm:ss');
 }
 
-export function fullDateStr(date) {
-    return moment.unix(date).format('YYYY-MM-DD h:mm:ss\u00a0a');
+export function dateStr(date) {
+    return moment.unix(date).format('YYYY-MM-DD');
+}
+
+export function dateTimeStr(date) {
+    return moment.unix(date).format('YYYY-MM-DD hh:mm:ss');
 }
