@@ -1,5 +1,9 @@
 import { Map } from 'immutable';
-import { FILTER_ASSETS, SERVER_DATA_ACTIVE_SYMBOLS } from '../_constants/ActionTypes';
+import {
+    FILTER_ASSETS,
+    SERVER_DATA_ACTIVE_SYMBOLS,
+    SERVER_DATA_TRADING_TIMES,
+} from '../_constants/ActionTypes';
 
 const initialState = new Map({
     list: [],
@@ -8,7 +12,7 @@ const initialState = new Map({
     shownAssets: [],
 });
 
-const generateTree = (symbols) => {
+const generateTree = symbols => {
     const tree = {};
     symbols.forEach((sym) => {
         if (!tree[sym.market_display_name]) tree[sym.market_display_name] = {};
@@ -18,13 +22,18 @@ const generateTree = (symbols) => {
     return new Map(tree);
 };
 
-const doFilter = (assetList, query) => {
-    const queryLc = query.toLowerCase();
+const doFilter = (assetList, query, queryLc = query.toLowerCase()) => {
     return assetList.filter(m =>
         queryLc === '' ||
         m.get('symbol').toLowerCase().includes(queryLc) ||
         m.get('display_name').toLowerCase().includes(queryLc)
     );
+};
+
+const flattenTradingTimes = tradingTimes => {
+    return tradingTimes.markets
+        .reduce((x, y) => x.concat(y.submarkets), [])
+        .reduce((x, y) => x.concat(y.symbols), []);
 };
 
 export default (state = initialState, action) => {
@@ -43,6 +52,10 @@ export default (state = initialState, action) => {
             return state
                 .set('query', action.query)
                 .set('shownAssets', doFilter(state.get('list'), action.query));
+        }
+        case SERVER_DATA_TRADING_TIMES: {
+            const flatTimes = flattenTradingTimes(action.serverResponse.trading_times);
+            return state.set('times', flatTimes);
         }
         default:
             return state;

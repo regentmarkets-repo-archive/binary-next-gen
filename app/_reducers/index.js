@@ -5,7 +5,6 @@ import assets from './AssetReducers';
 import portfolio from './PortfolioReducers';
 import statement from './StatementReducers';
 import ticks from './TickReducers';
-import tradingTimes from './TradingTimesReducers';
 import profitTable from './ProfitTableReducers';
 import tickTrade from './TickTradeReducers';
 
@@ -16,6 +15,5 @@ export default combineReducers({
     statement,
     ticks,
     tickTrade,
-    tradingTimes,
     profitTable,
 });
