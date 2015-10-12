@@ -7,6 +7,7 @@ import {
 
 const initialState = new Map({
     list: [],
+    times: [],
     tree: {},
     query: '',
     shownAssets: [],

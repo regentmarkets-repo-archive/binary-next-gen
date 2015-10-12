@@ -18,7 +18,7 @@ import AssetSelectorPage from './asset-selector/AssetSelectorPage';
 import AssetIndexPage from './asset-index/AssetIndexPage';
 import AssetIndexTable from './asset-index/AssetIndexTable';
 import RiseFallTablePage from './rise-fall-table/RiseFallTablePage';
-import TradingTimesPane from './trading-times/TradingTimesPane';
+import TradingTimesPage from './trading-times/TradingTimesPage';
 import TradingTimesTable from './trading-times/TradingTimesTable';
 import PricingTablePage from './pricing-table/PricingTablePage';
 import DailyPricesPage from './daily-prices/DailyPricesPage';
@@ -58,7 +58,7 @@ export default {
         { path: 'asset-index', component: AssetIndexPage, childRoutes: [
             { path: ':market', component: AssetIndexTable },
         ]},
-        { path: 'trading-times', component: TradingTimesPane, childRoutes: [
+        { path: 'trading-times', component: TradingTimesPage, childRoutes: [
             { path: ':market', component: TradingTimesTable },
         ]},
         { path: 'rise-fall-table', component: RiseFallTablePage },

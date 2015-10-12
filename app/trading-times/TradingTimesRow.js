@@ -1,21 +1,21 @@
 import React from 'react';
 
-const TradingTimesRow = ({symbol}) => {
-    const eventStrs = symbol.events.map(e => e.descrip + ':' + e.dates);
+const TradingTimesRow = ({asset}) => {
+    const eventStrs = asset.events.map(e => e.descrip + ': ' + e.dates);
 
     return (
         <tr>
-            <td>{symbol.name}</td>
-            <td>{symbol.times.open}</td>
-            <td>{symbol.times.close}</td>
-            <td>{symbol.times.settlement}</td>
-            <td>{eventStrs.join(', ')}</td>
+            <td>{asset.name}</td>
+            <td>{asset.times.open}</td>
+            <td>{asset.times.close}</td>
+            <td>{asset.times.settlement}</td>
+            <td>{eventStrs.map(event => <div>{event}</div>)}</td>
         </tr>
     );
 };
 
 TradingTimesRow.propTypes = {
-    symbol: React.PropTypes.object.isRequired,
+    asset: React.PropTypes.object.isRequired,
 };
 
 export default TradingTimesRow;
