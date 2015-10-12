@@ -1,6 +1,7 @@
 import React from 'react';
-import { MarketSelector } from '../common';
+import { InputGroup, MarketSelector } from '../common';
 import TradingTimesTable from './TradingTimesTable';
+import { todayStr, oneYearAgoStr } from '../common/DateUtils';
 
 const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
 
@@ -12,6 +13,7 @@ const TradingTimesPane = ({assets, params}) => {
 
 	return (
 		<div>
+		<InputGroup type="date" value={todayStr()} min={oneYearAgoStr()} max={todayStr()} />
 			<MarketSelector markets={Object.keys(tree)} selected={params.market} prefixRoute="/trading-times/" />
 			{submarkets.map(submarket =>
 				<TradingTimesTable
