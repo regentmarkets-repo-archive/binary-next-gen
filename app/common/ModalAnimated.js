@@ -1,7 +1,7 @@
 import React from 'react';
 import { TransitionMotion } from 'react-motion';
 
-const ModalContent = ({onClose, children}) => (
+const ModalContent = ({onClose, anim, children}) => (
 	<div className="full-screen-overlay" onClick={onClose} style={{ opacity: anim.opacity.val }}>
 		<div className="modal" style={{ transform: `scale(${anim.scale.val})` }}>
 			<button className="close-btn" onClick={onClose}>✖</button>
@@ -38,7 +38,7 @@ const Modal = ({shown}) => (
             <div>
             	{Object.keys(interpolatedStyles).map(key =>
 					<div key={key}>
-						<ModalContent anim={x[key]} />
+						<ModalContent anim={interpolatedStyles[key]} />
 					</div>
             	)}
           </div>

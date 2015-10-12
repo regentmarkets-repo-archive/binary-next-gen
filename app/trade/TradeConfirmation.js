@@ -12,38 +12,38 @@ export default () => (
         		</tr>
 			</tbody>
 		</table>
-	    <div>
+		<div>
 	        USD <strong>100.00</strong> payout if Dutch Index <strong>touches 506.00</strong> through close on 2015-08-10.
-	    </div>
+		</div>
 
-	    <div>
-	        <span>
-	            <span>Potential Payout</span>
-	            <span>100.00</span>
-	        </span>
-	        <span>
-	            <span>Total Cost</span>
-	            <span>44.03</span>
-	        </span>
-	        <span>
-	            <span>Potential Profit</span>
-	            <span>55.97</span>
-	        </span>
-	    </div>
-	    <div>
-	        <span>
-	            <span>Buy Price</span>
-	            <span>44.03</span>
-	        </span>
-	        <span>
-	            <span>Final Price</span>
-	            <span></span>
-	        </span>
-	        <span>
-	            <span>Profit</span>
-	            <span>55.97</span>
-	        </span>
-	    </div>
+		<div>
+			<span>
+				<span>Potential Payout</span>
+				<span>100.00</span>
+			</span>
+			<span>
+				<span>Total Cost</span>
+				<span>44.03</span>
+			</span>
+			<span>
+				<span>Potential Profit</span>
+				<span>55.97</span>
+			</span>
+		</div>
+		<div>
+			<span>
+				<span>Buy Price</span>
+				<span>44.03</span>
+			</span>
+			<span>
+				<span>Final Price</span>
+				<span></span>
+			</span>
+			<span>
+				<span>Profit</span>
+				<span>55.97</span>
+			</span>
+		</div>
 
         <span>Your transaction reference number is 8816770508</span>
         <button>View</button>

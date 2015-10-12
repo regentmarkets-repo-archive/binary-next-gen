@@ -46,7 +46,7 @@ export default class LiveData {
     }
 
     trackActiveSymbols() {
-        const list = this.activeSymbols.map(s => s.symbol);
+        const list = this.activeSymbols.map(sym => sym.symbol);
 
         this.api.trackSymbols(list.slice(list.length - 20));
     }

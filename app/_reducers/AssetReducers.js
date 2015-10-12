@@ -24,10 +24,10 @@ const generateTree = symbols => {
 };
 
 const doFilter = (assetList, query, queryLc = query.toLowerCase()) => {
-    return assetList.filter(m =>
+    return assetList.filter(asset =>
         queryLc === '' ||
-        m.get('symbol').toLowerCase().includes(queryLc) ||
-        m.get('display_name').toLowerCase().includes(queryLc)
+        asset.get('symbol').toLowerCase().includes(queryLc) ||
+        asset.get('display_name').toLowerCase().includes(queryLc)
     );
 };
 

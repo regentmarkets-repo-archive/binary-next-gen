@@ -9,7 +9,6 @@ export ErrorMsg from './ErrorMsg';
 export InputGroup from './InputGroup';
 export LanguagePicker from './LanguagePicker';
 export LogoSpinner from './LogoSpinner';
-export MarketsSelect from './MarketsSelect';
 export MarketSelector from './MarketSelector';
 export MobilePage from './MobilePage';
 export Modal from './Modal';

@@ -14,7 +14,7 @@ export default class NavigationMenu extends React.Component {
 		const account = this.props.account.toJS();
 		return (
 			<nav className="sidebar">
-			    <label>{account.loginid} (switcher)</label>
+				<label>{account.loginid} (switcher)</label>
 				<label>Account balance: <NumberPlain currency={account.currency} value={account.balance} /></label>
 				<Link to={`/tick-trade`} className="sidebar-btn" activeClassName="active">Trade</Link>
 				<Link to={`/portfolio`} className="sidebar-btn" activeClassName="active">Open Positions</Link>

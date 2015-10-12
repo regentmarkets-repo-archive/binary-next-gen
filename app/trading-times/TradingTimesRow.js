@@ -9,7 +9,7 @@ const TradingTimesRow = ({asset}) => {
             <td>{asset.times.open}</td>
             <td>{asset.times.close}</td>
             <td>{asset.times.settlement}</td>
-            <td>{eventStrs.map(event => <div>{event}</div>)}</td>
+            <td>{eventStrs.map((event, i) => <div key={i}>{event}</div>)}</td>
         </tr>
     );
 };
