@@ -1,10 +1,11 @@
 import React from 'react';
+import { Link } from 'react-router';
 
 export default (props) => (
 	<div>
 		<label>Underlying Asset</label>
 		<fieldset>
-			<button>Forex > USD/JPY</button>
+			<Link to={'/asset-selector'} className="button">Forex > USD/JPY</Link>
 		</fieldset>
 		<label>Select Trade</label>
 		<fieldset>
