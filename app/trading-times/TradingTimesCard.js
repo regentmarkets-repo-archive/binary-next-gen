@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputGroup, MarketSelector } from '../common';
+import { InputGroup, MarketSelector, MarketSubmarketSelector } from '../common';
 import TradingTimesTable from './TradingTimesTable';
 import { todayStr, oneYearAgoStr } from '../common/DateUtils';
 
@@ -15,6 +15,7 @@ const TradingTimesCard = ({assets, params}) => {
 		<div>
 		<InputGroup type="date" value={todayStr()} min={oneYearAgoStr()} max={todayStr()} />
 			<MarketSelector markets={Object.keys(tree)} selected={params.market} prefixRoute="/trading-times/" />
+			<MarketSubmarketSelector tree={tree} />
 			{submarkets.map(submarket =>
 				<TradingTimesTable
 					key={submarket}

@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import * as AssetActions from '../_actions/AssetActions';
 import AssetList from './AssetList';
 import AssetSearch from './AssetSearch';
-import { MarketSelector } from '../common';
+import { MarketSelector, MarketSubmarketSelector } from '../common';
 
 const AssetSelectorCard = ({assets, params, dispatch}) => {
 	const { shownAssets, tree } = assets.toJS(); // tree, active, shownAssets, query
@@ -12,6 +12,7 @@ const AssetSelectorCard = ({assets, params, dispatch}) => {
 	return (
 		<div>
 			<MarketSelector markets={Object.keys(tree)} selected={params.market} prefixRoute="/asset-selector/" />
+			<MarketSubmarketSelector tree={tree} />
 			<AssetSearch actions={actions} />
 			<AssetList assets={shownAssets} />
 		</div>
