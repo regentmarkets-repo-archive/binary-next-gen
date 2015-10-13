@@ -1,20 +1,6 @@
 import React from 'react';
-import { DragSource as dragSource } from 'react-dnd';
 
-const cardSource = {
-  	beginDrag(props) {
-    	return {
-			text: props.text,
-    	};
-	},
-};
-
-const collect = (connect, monitor) => ({
-	connectDragSource: connect.dragSource(),
-	isDragging: monitor.isDragging(),
-});
-
-const Panel = ({title, onClose, position = { left: 100, top: 100, width: 500, height: 350 }, children}) => (
+const Panel = ({shown = true, title, onClose, position = { left: 100, top: 100, width: 500, height: 350 }, children}) => shown ? (
 	<div className="panel" style={{ left: position.left, top: position.top, width: position.width, height: position.height }}>
 		<div className="panel-title">
 			<label>{title}</label>
@@ -25,7 +11,7 @@ const Panel = ({title, onClose, position = { left: 100, top: 100, width: 500, he
 		</div>
 		{children}
 	</div>
-);
+) : <div />;
 
 Panel.propTypes = {
 	shown: React.PropTypes.bool,
@@ -33,4 +19,4 @@ Panel.propTypes = {
 	children: React.PropTypes.any,
 };
 
-export default dragSource('card', cardSource, collect)(Panel);
+export default Panel;

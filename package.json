@@ -21,7 +21,6 @@
     "immutable": "^3.7.5",
     "moment": "*",
     "react": "^0.14.0-rc1",
-    "react-dnd": "^1.1.8",
     "react-dom": "^0.14.0-rc1",
     "react-motion": "^0.3.0",
     "react-redux": "*",

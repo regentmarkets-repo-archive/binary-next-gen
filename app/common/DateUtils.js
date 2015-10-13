@@ -19,7 +19,7 @@ export function dateToInput(date) {
 }
 
 export function tomorrowStr() {
-    return moment().add(1, 'days').format('YYYY-MM-DD');
+    return moment().add('days', 1).format('YYYY-MM-DD');
 }
 
 export function todayStr() {
@@ -27,5 +27,5 @@ export function todayStr() {
 }
 
 export function oneYearAgoStr() {
-    return moment().add(-1, 'years').format('YYYY-MM-DD');
+    return moment().add('years', -1).format('YYYY-MM-DD');
 }
