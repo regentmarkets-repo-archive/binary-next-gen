@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import WorkspacePane from './WorkspacePane';
+import WorkspaceCard from './WorkspaceCard';
 
 @connect(state => ({ workspace: state.workspace }))
 export default class WorkspaceContainer extends React.Component {
@@ -11,7 +11,7 @@ export default class WorkspaceContainer extends React.Component {
 
 	render() {
 		return (
-			<WorkspacePane {...this.props} />
+			<WorkspaceCard {...this.props} />
 		);
 	}
 }

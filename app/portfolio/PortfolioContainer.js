@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import PortfolioPane from './PortfolioPane';
+import PortfolioCard from './PortfolioCard';
 
 @connect(state => ({ portfolio: state.portfolio }))
 export default class PortfolioContainer extends React.Component {
@@ -12,7 +12,7 @@ export default class PortfolioContainer extends React.Component {
 
 	render() {
 		return (
-			<PortfolioPane {...this.props} />
+			<PortfolioCard {...this.props} />
 		);
 	}
 }

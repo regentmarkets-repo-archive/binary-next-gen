@@ -1,9 +1,9 @@
 import React from 'react';
 import { DesktopPage } from '../common';
-import StatementPane from './StatementPane';
+import StatementCard from './StatementCard';
 
 export default (props) => (
 	<DesktopPage>
-		<StatementPane {...props} />
+		<StatementCard {...props} />
 	</DesktopPage>
 );

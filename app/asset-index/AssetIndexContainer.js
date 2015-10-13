@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import AssetIndexPane from './AssetIndexPane';
+import AssetIndexCard from './AssetIndexCard';
 
 @connect(state => ({ assets: state.assets }))
 export default class AsssetIndexContainer extends React.Component {
@@ -12,7 +12,7 @@ export default class AsssetIndexContainer extends React.Component {
 
 	render() {
 		return (
-			<AssetIndexPane {...this.props} />
+			<AssetIndexCard {...this.props} />
 		);
 	}
 }

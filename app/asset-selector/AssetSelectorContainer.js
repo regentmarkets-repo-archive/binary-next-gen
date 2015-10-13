@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import AssetSelectorPane from './AssetSelectorPane';
+import AssetSelectorCard from './AssetSelectorCard';
 
 @connect(state => ({ assets: state.assets }))
 export default class AssetSelectorContainer extends React.Component {
@@ -12,7 +12,7 @@ export default class AssetSelectorContainer extends React.Component {
 
 	render() {
 		return (
-			<AssetSelectorPane {...this.props} />
+			<AssetSelectorCard {...this.props} />
 		);
 	}
 }

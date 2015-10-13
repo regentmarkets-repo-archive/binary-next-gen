@@ -5,7 +5,7 @@ import AssetList from './AssetList';
 import AssetSearch from './AssetSearch';
 import { MarketSelector } from '../common';
 
-const AssetSelectorPane = ({assets, params, dispatch}) => {
+const AssetSelectorCard = ({assets, params, dispatch}) => {
 	const { shownAssets, tree } = assets.toJS(); // tree, active, shownAssets, query
 	const actions = bindActionCreators(AssetActions, dispatch);
 
@@ -18,9 +18,9 @@ const AssetSelectorPane = ({assets, params, dispatch}) => {
 	);
 };
 
-AssetSelectorPane.propTypes = {
+AssetSelectorCard.propTypes = {
     assets: React.PropTypes.object,
 	dispatch: React.PropTypes.func,
 };
 
-export default AssetSelectorPane;
+export default AssetSelectorCard;

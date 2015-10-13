@@ -1,9 +1,9 @@
 import React from 'react';
 import { DesktopPage } from '../common';
-import PricingTablePane from './PricingTablePane';
+import PricingTableCard from './PricingTableCard';
 
 export default (props) => (
 	<DesktopPage>
-		<PricingTablePane {...props} />
+		<PricingTableCard {...props} />
 	</DesktopPage>
 );

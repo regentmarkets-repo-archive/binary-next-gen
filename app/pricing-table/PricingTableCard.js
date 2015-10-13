@@ -3,7 +3,7 @@ import SegmentedControl from '../common/SegmentedControl';
 import PricingTable from './PricingTable';
 import PricingTableFilter from './PricingTableFilter';
 
-const PricingTablePane = ({onAssetSelect}) => (
+const PricingTableCard = ({onAssetSelect}) => (
 	<div>
 		<PricingTableFilter />
 		<SegmentedControl
@@ -13,4 +13,4 @@ const PricingTablePane = ({onAssetSelect}) => (
 	</div>
 );
 
-export default PricingTablePane;
+export default PricingTableCard;

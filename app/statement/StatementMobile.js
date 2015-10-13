@@ -1,9 +1,9 @@
 import React from 'react';
 import { MobilePage } from '../common';
-import StatementPane from './StatementPane';
+import StatementCard from './StatementCard';
 
 export default (props) => (
 	<MobilePage>
-		<StatementPane {...props} />
+		<StatementCard {...props} />
 	</MobilePage>
 );

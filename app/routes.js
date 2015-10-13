@@ -3,18 +3,18 @@ import HomePage from './home/HomePage';
 import NavigationMenu from './navigation/NavigationMenu';
 import LoginPage from './login/LoginPage';
 import TickTradePage from './tick-trade/TickTradePage';
-import TickTradePane from './tick-trade/TickTradePane';
-import TickTradeInPane from './tick-trade/TickTradeInPane';
-import TickTradeSettingsPane from './tick-trade/TickTradeSettingsPane';
+import TickTradeCard from './tick-trade/TickTradeCard';
+import TickTradeInCard from './tick-trade/TickTradeInCard';
+import TickTradeSettingsCard from './tick-trade/TickTradeSettingsCard';
 import { PortfolioPage, PortfolioMobile, PortfolioPanel } from './portfolio';
 import { StatementPage, StatementMobile } from './statement';
 import WorkspacePage from './workspace/WorkspacePage';
 import SignupPage from './signup/SignupPage';
 import BalancesPage from './balances/BalancesPage';
 import UpgradePage from './upgrade/UpgradePage';
-import TicksPane from './ticks/TicksPane';
-import OfferingsPane from './offerings/OfferingsPane';
-import ActiveSymbolsPane from './active-symbols/ActiveSymbolsPane';
+import TicksCard from './ticks/TicksCard';
+import OfferingsCard from './offerings/OfferingsCard';
+import ActiveSymbolsCard from './active-symbols/ActiveSymbolsCard';
 import AssetSelectorPage from './asset-selector/AssetSelectorPage';
 import AssetIndexPage from './asset-index/AssetIndexPage';
 import AssetIndexTable from './asset-index/AssetIndexTable';
@@ -38,9 +38,9 @@ export default {
         { path: '/', component: HomePage },
         { path: 'nav', component: NavigationMenu },
         { path: 'login', component: LoginPage },
-        { path: 'tick-trade', indexRoute: { component: TickTradePane }, component: TickTradePage, childRoutes: [
-            { path: 'in', component: TickTradeInPane },
-            { path: 'settings', component: TickTradeSettingsPane },
+        { path: 'tick-trade', indexRoute: { component: TickTradeCard }, component: TickTradePage, childRoutes: [
+            { path: 'in', component: TickTradeInCard },
+            { path: 'settings', component: TickTradeSettingsCard },
         ]},
         { path: 'portfolio', component: PortfolioPage },
         { path: 'portfolio-mobile', component: PortfolioMobile },
@@ -52,9 +52,9 @@ export default {
         { path: 'signup', component: SignupPage },
         { path: 'upgrade', component: UpgradePage },
         { path: 'trade', component: TradePage },
-        { path: 'ticks', component: TicksPane },
-        { path: 'offerings', component: OfferingsPane },
-        { path: 'active-symbols', component: ActiveSymbolsPane },
+        { path: 'ticks', component: TicksCard },
+        { path: 'offerings', component: OfferingsCard },
+        { path: 'active-symbols', component: ActiveSymbolsCard },
         { path: 'asset-selector', component: AssetSelectorPage },
         { path: 'asset-selector/:market', component: AssetSelectorPage },
         { path: 'asset-index', component: AssetIndexPage, childRoutes: [

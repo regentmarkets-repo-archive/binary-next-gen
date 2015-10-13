@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import TickTable from './TickTable';
 
 @connect(state => ({ ticks: state.ticks }))
-export default class TicksPane extends React.Component {
+export default class TicksCard extends React.Component {
 
 	static propTypes = {
 		ticks: React.PropTypes.object.isRequired,

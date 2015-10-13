@@ -6,7 +6,7 @@ import PortfolioTable from './PortfolioTable';
 import ContractDetails from './ContractDetails';
 
 
-const PortfolioPane = ({portfolio, dispatch}) => {
+const PortfolioCard = ({portfolio, dispatch}) => {
 	const showDetails = (contract) => {
 		const actions = bindActionCreators(PortfolioActions, dispatch);
 		actions.detailsForContract(true, contract);
@@ -30,9 +30,9 @@ const PortfolioPane = ({portfolio, dispatch}) => {
 	);
 };
 
-PortfolioPane.propTypes = {
+PortfolioCard.propTypes = {
 	portfolio: React.PropTypes.object,
 	dispatch: React.PropTypes.func,
 };
 
-export default PortfolioPane;
+export default PortfolioCard;

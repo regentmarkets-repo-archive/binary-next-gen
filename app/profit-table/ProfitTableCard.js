@@ -23,7 +23,7 @@ const profits = [{
     profitLoss: -1.02,
 }];
 
-const ProfitTablePane = (props) => {
+const ProfitTableCard = (props) => {
 	const showDetails = contract => {
 		const actions = bindActionCreators(PortfolioActions, props.dispatch);
 		actions.detailsForContract(true, contract);
@@ -47,9 +47,9 @@ const ProfitTablePane = (props) => {
 	);
 };
 
-ProfitTablePane.propTypes = {
+ProfitTableCard.propTypes = {
 	profitTable: React.PropTypes.object,
 	dispatch: React.PropTypes.func,
 };
 
-export default ProfitTablePane;
+export default ProfitTableCard;

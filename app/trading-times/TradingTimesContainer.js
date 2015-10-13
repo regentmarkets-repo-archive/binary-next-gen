@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import TradingTimesPane from './TradingTimesPane';
+import TradingTimesCard from './TradingTimesCard';
 
 @connect(state => ({ assets: state.assets }))
 export default class TradingTimesContainer extends React.Component {
@@ -12,7 +12,7 @@ export default class TradingTimesContainer extends React.Component {
 
 	render() {
 		return (
-			<TradingTimesPane {...this.props} />
+			<TradingTimesCard {...this.props} />
 		);
 	}
 }

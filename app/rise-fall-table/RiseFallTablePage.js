@@ -1,9 +1,9 @@
 import React from 'react';
 import { DesktopPage } from '../common';
-import RiseFallTablePane from './RiseFallTablePane';
+import RiseFallTableCard from './RiseFallTableCard';
 
 export default (props) => (
 	<DesktopPage>
-		<RiseFallTablePane {...props} />
+		<RiseFallTableCard {...props} />
 	</DesktopPage>
 );

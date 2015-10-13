@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ProfitTablePane from './ProfitTablePane';
+import ProfitTableCard from './ProfitTableCard';
 
 @connect(state => ({ profitTable: state.profitTable }))
 export default class ProfitTablePage extends React.Component {
@@ -11,6 +11,6 @@ export default class ProfitTablePage extends React.Component {
 	};
 
 	render() {
-		return <ProfitTablePane {...this.props} />;
+		return <ProfitTableCard {...this.props} />;
 	}
 }

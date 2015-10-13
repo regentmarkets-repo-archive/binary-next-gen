@@ -1,9 +1,9 @@
 import React from 'react';
 import { MobilePage } from '../common';
-import SignupPane from './SignupPane';
+import SignupCard from './SignupCard';
 
 export default (props) => (
 	<MobilePage toolbarShown={false}>
-		<SignupPane {...props} />
+		<SignupCard {...props} />
 	</MobilePage>
 );

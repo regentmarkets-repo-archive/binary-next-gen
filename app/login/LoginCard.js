@@ -4,7 +4,7 @@ import ErrorMsg from '../common/ErrorMsg';
 import InputGroup from '../common/InputGroup';
 import LanguagePicker from '../common/LanguagePicker';
 
-export default class LoginPane extends React.Component {
+export default class LoginCard extends React.Component {
 
 	constructor(props) {
 		super(props);

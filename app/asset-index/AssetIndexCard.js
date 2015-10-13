@@ -4,7 +4,7 @@ import AssetIndexTable from './AssetIndexTable';
 
 const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
 
-const AssetIndexPane = ({assets, params}) => {
+const AssetIndexCard = ({assets, params}) => {
 	const { tree, list } = assets.toJS(); // tree, active, shownAssets, query
 	const marketName = (params.market && capitalize(params.market)) || 'Forex';
 	const submarkets = Object.keys(tree[marketName] || []);
@@ -19,9 +19,9 @@ const AssetIndexPane = ({assets, params}) => {
 	);
 };
 
-AssetIndexPane.propTypes = {
+AssetIndexCard.propTypes = {
 	assets: React.PropTypes.object.isRequired,
 	params: React.PropTypes.object.isRequired,
 };
 
-export default AssetIndexPane;
+export default AssetIndexCard;

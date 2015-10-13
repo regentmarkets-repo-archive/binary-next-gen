@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import BalancesPane from './BalancesPane';
+import BalancesCard from './BalancesCard';
 
 @connect(state => ({ account: state.account }))
 export default class BalancesContainer extends React.Component {
@@ -11,7 +11,7 @@ export default class BalancesContainer extends React.Component {
 
 	render() {
 		return (
-			<BalancesPane {...this.props} />
+			<BalancesCard {...this.props} />
 		);
 	}
 }

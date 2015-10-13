@@ -1,9 +1,9 @@
 import React from 'react';
 import { DesktopPage } from '../common';
-import DailyPricesPane from './DailyPricesPane';
+import DailyPricesCard from './DailyPricesCard';
 
 export default (props) => (
 	<DesktopPage>
-		<DailyPricesPane {...props} />
+		<DailyPricesCard {...props} />
 	</DesktopPage>
 );

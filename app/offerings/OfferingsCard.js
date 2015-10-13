@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import OfferingsList from './OfferingsList';
 
 @connect(state => ({ offerings: state.serverData.offerings }))
-export default class OfferingsPane extends React.Component {
+export default class OfferingsCard extends React.Component {
 
 	static propTypes = {
 		offerings: React.PropTypes.array.isRequired,

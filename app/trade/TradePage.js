@@ -1,9 +1,9 @@
 import React from 'react';
 import { DesktopPage } from '../common';
-import TradePane from './TradePane';
+import TradeCard from './TradeCard';
 
 export default (props) => (
 	<DesktopPage>
-		<TradePane {...props} />
+		<TradeCard {...props} />
 	</DesktopPage>
 );

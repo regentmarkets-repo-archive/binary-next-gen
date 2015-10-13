@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import SymbolList from './SymbolList';
 
 @connect(state => ({ assets: state.assets }))
-export default class ActiveSymbolsPane extends React.Component {
+export default class ActiveSymbolsCard extends React.Component {
 
 	static propTypes = {
 		assets: React.PropTypes.object.isRequired,

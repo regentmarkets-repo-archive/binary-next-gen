@@ -1,9 +1,9 @@
 import React from 'react';
 import { MobilePage } from '../common';
-import LoginPane from './LoginPane';
+import LoginCard from './LoginCard';
 
 export default (props) => (
 	<MobilePage toolbarShown={false}>
-		<LoginPane {...props} />
+		<LoginCard {...props} />
 	</MobilePage>
 );
