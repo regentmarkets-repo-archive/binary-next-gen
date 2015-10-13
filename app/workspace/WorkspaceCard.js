@@ -6,17 +6,13 @@ import TradingTimesPanel from '../trading-times/TradingTimesPanel';
 import ProfitTablePanel from '../profit-table/ProfitTablePanel';
 import AssetSelectorPanel from '../asset-selector/AssetSelectorPanel';
 
-class WorkspaceCard extends React.Component {
-	render() {
-		return (
-			<div>
-				<AssetSelectorPanel position={{left: 10, top: 100, width: 300, height: 300 }} />
-				<PortfolioPanel position={{left: 50, top: 300, width: 500, height: 300 }} />
-				<TradingTimesPanel position={{left: 650, top: 300, width: 500, height: 300 }} />
-				<ProfitTablePanel position={{left: 1250, top: 300, width: 500, height: 300 }} />
-			</div>
-		);
-	}
-}
+const WorkspaceCard = () => (
+	<div>
+		<AssetSelectorPanel position={{left: 10, top: 100, width: 300, height: 300 }} />
+		<PortfolioPanel position={{left: 50, top: 300, width: 500, height: 300 }} />
+		<TradingTimesPanel position={{left: 650, top: 300, width: 500, height: 300 }} />
+		<ProfitTablePanel position={{left: 1250, top: 300, width: 500, height: 300 }} />
+	</div>
+);
 
 export default dragDropContext(HTML5Backend)(WorkspaceCard);
