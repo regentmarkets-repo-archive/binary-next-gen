@@ -12,7 +12,7 @@ export default () => (
 		<h4><Link to={`/statement-mobile`}>Statement</Link></h4>
 		<h4><Link to={`/asset-selector`}>Asset Selector</Link></h4>
 		<hr />
-		<h4><Link to={`/workspace`}>Workspace</Link> | <Link to={`/portfolio-popup`}>Portfolio Popup</Link> | <Link to={`/signup`}>Signup</Link> | <Link to={`/upgrade`}>Upgrade</Link> | <Link to={`/ticks`}>Ticks</Link> | <Link to="/balances">Balances</Link>
+		<h4><Link to={`/workspace`}>Workspace</Link> | <Link to={`/signup`}>Signup</Link> | <Link to={`/upgrade`}>Upgrade</Link> | <Link to={`/ticks`}>Ticks</Link> | <Link to="/balances">Balances</Link>
 </h4>
 	</div>
 );

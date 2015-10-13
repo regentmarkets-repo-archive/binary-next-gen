@@ -6,7 +6,7 @@ import TickTradePage from './tick-trade/TickTradePage';
 import TickTradePane from './tick-trade/TickTradePane';
 import TickTradeInPane from './tick-trade/TickTradeInPane';
 import TickTradeSettingsPane from './tick-trade/TickTradeSettingsPane';
-import { PortfolioPage, PortfolioMobile, PortfolioPopup } from './portfolio';
+import { PortfolioPage, PortfolioMobile, PortfolioPanel } from './portfolio';
 import { StatementPage, StatementMobile } from './statement';
 import WorkspacePage from './workspace/WorkspacePage';
 import SignupPage from './signup/SignupPage';
@@ -44,7 +44,7 @@ export default {
         ]},
         { path: 'portfolio', component: PortfolioPage },
         { path: 'portfolio-mobile', component: PortfolioMobile },
-        { path: 'portfolio-popup', component: PortfolioPopup },
+        { path: 'portfolio-panel', component: PortfolioPanel },
         { path: 'statement', component: StatementPage },
         { path: 'statement-mobile', component: StatementMobile },
         { path: 'workspace', component: WorkspacePage },

@@ -24,27 +24,25 @@
         .logo-text {
             padding: 1rem;
         }
-        .popup {
+        .panel {
             border: 2px solid #2a3052;
-            width: 50%;
             position: absolute;
-            left: 50px;
-            top: 50px;
+            background: white;
         }
-        .popup-title {
+        .panel-title {
             color: white;
             background: #2a3052;
             height: 2rem;
             display: flex;
             justify-content: space-between;
         }
-        .popup-title label {
+        .panel-title label {
             margin-left: .5rem;
         }
         .button.active {
             border-color: rgba(0, 0, 0, .5);
         }
-        .popup-btn, .popup-btn:hover, .close-btn, .close-btn:hover {
+        .panel-btn, .panel-btn:hover, .close-btn, .close-btn:hover {
             background: transparent;
             border: none;
             padding: .5rem;
@@ -67,7 +65,7 @@
             height: 567px;
             overflow-x: hidden;
             overflow-y: auto;
-            box-shadow: 0 0 0 .5rem rgba(42, 48, 82, .5);            
+            box-shadow: 0 0 0 .5rem rgba(42, 48, 82, .5);
         }
         .desktop-content {
             padding: 1rem .5rem;
@@ -109,6 +107,12 @@
         }
         button, button:hover, a.button, a.button:hover {
             background: #2a3052;
+        }
+        td a.button, td button {
+            margin: -.25rem 0;
+        }
+        .full-screen-overlay {
+            z-index: 9999;
         }
     </style>
 </head>

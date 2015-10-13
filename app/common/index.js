@@ -17,7 +17,7 @@ export NumberPlain from './NumberPlain';
 export NumberColored from './NumberColored';
 export ObjectTable from './ObjectTable';
 export ObjectTableRow from './ObjectTableRow';
-export Popup from './Popup';
+export Panel from './Panel';
 export ReduxDevTools from './ReduxDevTools';
 export Segment from './Segment';
 export SegmentedControl from './SegmentedControl';

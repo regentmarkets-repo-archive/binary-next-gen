@@ -5,4 +5,4 @@ export PortfolioTable from './PortfolioTable';
 export PortfolioPane from './PortfolioPane';
 export PortfolioPage from './PortfolioPage';
 export PortfolioMobile from './PortfolioMobile';
-export PortfolioPopup from './PortfolioPopup';
+export PortfolioPanel from './PortfolioPanel';

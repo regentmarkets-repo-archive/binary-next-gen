@@ -1,9 +1,9 @@
 import React from 'react';
-import { Popup } from '../common';
+import { Panel } from '../common';
 import PortfolioContainer from './PortfolioContainer';
 
 export default (props) => (
-	<Popup shown={true} title="Open Positions">
+	<Panel title="Open Positions" position={props.position}>
 		<PortfolioContainer {...props} />
-	</Popup>
+	</Panel>
 );
