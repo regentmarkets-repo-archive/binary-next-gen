@@ -5,7 +5,7 @@ import DesktopNavLink from './DesktopNavLink';
 const DesktopToolbar = () => (
 	<header>
     	<div className="header-content">
-			<Link id="logo" to="/">
+			<Link id="logo" to="/workspace">
 				<img src="https://borisyankov.github.io/binary-static/images/pages/binary-symbol-logo.svg" />
 				<img src="https://borisyankov.github.io/binary-static/images/pages/binary-text.svg" />
 			</Link>

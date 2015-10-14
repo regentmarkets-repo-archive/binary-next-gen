@@ -1,7 +1,7 @@
 import React from 'react';
 
-const InputGroup = ({id, label, type, hint, value, min, max, readOnly, placeholder, onChange}) => (
-	<fieldset>
+const InputGroup = ({id, className, label, type, hint, value, min, max, readOnly, placeholder, onChange}) => (
+	<fieldset className={className}>
         {label && <label htmlFor={id}>{label}</label>}
 		<input id={id} type={type} defaultValue={value} readOnly={readOnly} placeholder={placeholder} onChange={onChange} min={min} max={max} />
 		{hint && <p className="hint">{hint}</p>}
@@ -9,8 +9,9 @@ const InputGroup = ({id, label, type, hint, value, min, max, readOnly, placehold
 );
 
 InputGroup.propTypes = {
-	type: React.PropTypes.string.isRequired,
+	type: React.PropTypes.string,
 	id: React.PropTypes.string,
+	className: React.PropTypes.string,
 	label: React.PropTypes.string,
 	hint: React.PropTypes.string,
 	value: React.PropTypes.string,
@@ -19,10 +20,6 @@ InputGroup.propTypes = {
 	readOnly: React.PropTypes.bool,
 	placeholder: React.PropTypes.string,
 	onChange: React.PropTypes.func,
-};
-
-InputGroup.defaultValue = {
-	type: 'text',
 };
 
 export default InputGroup;

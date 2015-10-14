@@ -64,7 +64,7 @@ export default class LoginCard extends React.Component {
 		const { validatedOnce, progress, emailNotValid, passwordNotEntered, credentialsInvalid } = this.state;
 
 		return (
-			<div className="login-content inverse">
+			<div className="login-content">
 				<p className="media">
 					<LogoSpinner spinning={progress}/>
 					<img className="logo-text" src="https://static.binary.com/images/pages/binary-type-logo.svg" />

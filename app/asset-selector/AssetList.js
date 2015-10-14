@@ -6,7 +6,7 @@ const AssetList = ({assets}) => (
 		<thead>
 			<tr>
 				<th></th>
-				<th>Name</th>
+				<th>Asset</th>
 				<th>Market</th>
 			</tr>
 		</thead>

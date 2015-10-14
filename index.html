@@ -10,6 +10,9 @@
             -ms-user-select: none;
             user-select: none;
         }
+        html {
+            font-size: 15px;
+        }
         .wide-form { max-width: 420px; }
         .login-content a, .login-content h3, .signup-content h3 {
             text-align: center;
@@ -54,18 +57,21 @@
             margin-right: -1rem;
             float: right;
         }
-        .mobile-page {
+        .mobile-screen {
             display: flex;
             align-items: center;
             justify-content: center;
             height: 100%;
         }
-        .mobile-content {
+        .mobile-page {
             width: 360px;
             height: 567px;
             overflow-x: hidden;
             overflow-y: auto;
             box-shadow: 0 0 0 .5rem rgba(42, 48, 82, .5);
+        }
+        .mobile-content {
+            padding: .5rem;
         }
         .desktop-content {
             padding: 1rem .5rem;
@@ -108,9 +114,6 @@
         button, button:hover, a.button, a.button:hover {
             background: #2a3052;
         }
-        td a.button, td button {
-            margin: -.25rem 0;
-        }
         .full-screen-overlay {
             z-index: 9999;
         }
@@ -122,6 +125,12 @@
              width: 17rem;
              margin: .5rem -1rem;
              justify-content: space-between;
+        }
+        .market-submarket-selector, .asset-search, .asset-search > input {
+            width: 100%;
+        }
+        .asset-search {
+            margin-bottom: 0;
         }
     </style>
 </head>

@@ -1,7 +1,7 @@
 import React from 'react';
 
 const MarketSubmarketSelector = ({tree}) => (
-	<select>
+	<select className="market-submarket-selector">
 		<option>All</option>
 		{Object.keys(tree).map(market => (
 			<optgroup key={market} label={market}>
