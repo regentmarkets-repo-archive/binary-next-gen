@@ -13,7 +13,7 @@ const TradingTimesCard = ({assets, params}) => {
 
 	return (
 		<div>
-		<InputGroup type="date" value={todayStr()} min={oneYearAgoStr()} max={todayStr()} />
+			<InputGroup type="date" value={todayStr()} min={oneYearAgoStr()} max={todayStr()} />
 			<MarketSelector markets={Object.keys(tree)} selected={params.market} prefixRoute="/trading-times/" />
 			<MarketSubmarketSelector tree={tree} />
 			{submarkets.map(submarket =>

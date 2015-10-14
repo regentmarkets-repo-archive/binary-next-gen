@@ -19,6 +19,7 @@ export NumberColored from './NumberColored';
 export ObjectTable from './ObjectTable';
 export ObjectTableRow from './ObjectTableRow';
 export Panel from './Panel';
+export RangeGroup from './RangeGroup';
 export ReduxDevTools from './ReduxDevTools';
 export Segment from './Segment';
 export SegmentedControl from './SegmentedControl';
