@@ -1,7 +1,7 @@
 import React from 'react';
-import TickRow from './TickRow';
+import TicksRow from './TicksRow';
 
-const TickTable = ({ticks}) => {
+const TicksTable = ({ticks}) => {
 	return (
 		<table>
 			<thead>
@@ -16,7 +16,7 @@ const TickTable = ({ticks}) => {
 			</thead>
 			<tbody>
 				{ticks.keySeq().map((symbol) =>
-					<TickRow
+					<TicksRow
 						key={symbol}
 						symbol={symbol}
 						history={ticks.get(symbol).toJS()} />
@@ -26,8 +26,8 @@ const TickTable = ({ticks}) => {
 	);
 };
 
-TickTable.propTypes = {
+TicksTable.propTypes = {
 	ticks: React.PropTypes.object.isRequired,
 };
 
-export default TickTable;
+export default TicksTable;

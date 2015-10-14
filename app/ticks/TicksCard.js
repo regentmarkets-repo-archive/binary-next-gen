@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import TickTable from './TickTable';
+import TicksTable from './TicksTable';
 
 @connect(state => ({ ticks: state.ticks }))
 export default class TicksCard extends React.Component {
@@ -12,7 +12,7 @@ export default class TicksCard extends React.Component {
 	render() {
 		return (
 			<div>
-				<TickTable ticks={this.props.ticks} />
+				<TicksTable ticks={this.props.ticks} />
 			</div>
 		);
 	}

@@ -9,10 +9,10 @@ const historyDiff = (history) => {
 	return history[history.length - 1].quote - history[history.length - 2].quote;
 };
 
-const TickRow = ({symbol, history}) => {
+const TicksRow = ({symbol, history}) => {
 	const diff = historyDiff(history);
 	const { quote, epoch } = history[history.length - 1] || {};
-
+	window.console.log(history);
 	return (
 		<tr>
 			<td><Direction diff={diff} /></td>
@@ -25,9 +25,9 @@ const TickRow = ({symbol, history}) => {
 	);
 };
 
-TickRow.propTypes = {
+TicksRow.propTypes = {
 	symbol: React.PropTypes.string.isRequired,
 	history: React.PropTypes.array.isRequired,
 };
 
-export default TickRow;
+export default TicksRow;

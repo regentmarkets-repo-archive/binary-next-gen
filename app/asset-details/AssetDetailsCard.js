@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AssetDetails = ({asset}) => (
+const AssetDetailsCard = ({asset}) => (
 	<table>
 		<thead>
 			<tr>
@@ -19,12 +19,12 @@ const AssetDetails = ({asset}) => (
 	</table>
 );
 
-AssetDetails.propTypes = {
+AssetDetailsCard.propTypes = {
 	asset: React.PropTypes.object.isRequired,
 };
 
-AssetDetails.defaultProps = {
+AssetDetailsCard.defaultProps = {
 	asset: {},
 };
 
-export default AssetDetails;
+export default AssetDetailsCard;
