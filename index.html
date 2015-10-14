@@ -42,6 +42,10 @@
         .panel-title label {
             margin-left: .5rem;
         }
+        .panel-content {
+            height: calc(100% - 2rem);
+            overflow: auto;
+        }
         .button.active {
             border-color: rgba(0, 0, 0, .5);
         }
@@ -49,6 +53,9 @@
             background: transparent;
             border: none;
             padding: .5rem;
+        }
+        .panel-btn:hover, .toolbar-btn:hover {
+            background-color: rgba(255, 255, 255, .1);
         }
         .close-btn {
             position: relative;
@@ -126,11 +133,23 @@
              margin: .5rem -1rem;
              justify-content: space-between;
         }
-        .market-submarket-selector, .asset-search, .asset-search > input {
+        .market-submarket-selector, .asset-search, .asset-search > input, .trading-times-date-picker > input {
             width: 100%;
         }
         .asset-search {
             margin-bottom: 0;
+        }
+        tbody > tr:hover {
+            background-color: rgba(42, 48, 82, .1);
+        }
+        .info-icon {
+            display: inline-block;
+            color: white;
+            background: #2a3052;
+            border-radius: 50px;
+            line-height: 1.2;
+            height: 1.2rem;
+            width: 1.2rem;
         }
     </style>
 </head>

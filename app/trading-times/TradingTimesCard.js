@@ -13,8 +13,10 @@ const TradingTimesCard = ({assets, params}) => {
 
 	return (
 		<div>
-			<InputGroup type="date" value={todayStr()} min={oneYearAgoStr()} max={todayStr()} />
-			<MarketSubmarketSelector tree={tree} />
+			<div className="row">
+				<MarketSubmarketSelector tree={tree} />
+				<InputGroup type="date" value={todayStr()} min={oneYearAgoStr()} max={todayStr()} className="trading-times-date-picker" />
+			</div>
 			{submarkets.map(submarket =>
 				<TradingTimesTable
 					key={submarket}

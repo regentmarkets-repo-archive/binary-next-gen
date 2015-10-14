@@ -11,7 +11,9 @@ const Panel = ({title, onClose, position = { left: 100, top: 100, width: 500, he
 					<button className="panel-btn" onClick={onClose}>✖</button>
 				</div>
 			</div>
-			{children}
+			<div className="panel-content">
+				{children}
+			</div>
 		</div>
 	</Draggable>
 );

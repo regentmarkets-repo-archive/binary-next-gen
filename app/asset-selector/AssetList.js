@@ -8,6 +8,7 @@ const AssetList = ({assets}) => (
 				<th></th>
 				<th>Asset</th>
 				<th>Market</th>
+				<th></th>
 			</tr>
 		</thead>
 		<tbody>

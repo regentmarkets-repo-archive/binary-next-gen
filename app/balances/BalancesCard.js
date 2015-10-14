@@ -16,7 +16,7 @@ export default (props) => {
 				</thead>
 				<tbody>
 					{balances.map(b => (
-						<tr>
+						<tr key={b.loginid}>
 							<td>{b.loginid}</td>
 							<td>{b.currency}</td>
 							<td><NumberPlain value={b.balance} /></td>

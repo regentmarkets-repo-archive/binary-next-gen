@@ -6,6 +6,7 @@ export DesktopPage from './DesktopPage';
 export Direction from './Direction';
 export DurationPicker from './DurationPicker';
 export ErrorMsg from './ErrorMsg';
+export InfoIcon from './InfoIcon';
 export InputGroup from './InputGroup';
 export LanguagePicker from './LanguagePicker';
 export LogoSpinner from './LogoSpinner';
