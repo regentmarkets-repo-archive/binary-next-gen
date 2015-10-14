@@ -8,10 +8,10 @@ import ProfitTablePanel from '../profit-table/ProfitTablePanel';
 
 export default (props) => (
 	<div>
-		<AssetSelectorPanel position={{left: 1, top: 55, width: 300, heigt: 600 }} />
-		<TicksPanel position={{left: 305, top: 55, width: 500, heigt: 300 }} />
-		<AssetDetailsPanel position={{left: 1, top: 55, width: 300, heigt: 600 }} />
-		<PortfolioPanel position={{left: 50, top: 300, width: 500, heigt: 300 }} />
+		<AssetSelectorPanel position={{left: 1, top: 55, width: 320, heigt: 600 }} />
+		<TicksPanel position={{left: 325, top: 55, width: 500, heigt: 300 }} />
+		<AssetDetailsPanel position={{left: 325, top: 55, width: 300, heigt: 600 }} />
+		<PortfolioPanel position={{left: 325, top: 300, width: 500, heigt: 300 }} />
 		<TradingTimesPanel position={{left: 650, top: 300, width: 500, heigt: 300 }} />
 		<ProfitTablePanel position={{left: 1250, top: 300, width: 500, heigt: 300 }} />
 	</div>

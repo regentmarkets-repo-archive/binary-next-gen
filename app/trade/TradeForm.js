@@ -9,7 +9,7 @@ export default () => (
 			segments={['Up/Down', 'Rise/Fall', 'Higher/Lower', 'Touch/No Touch', 'In/Out']} />
 
 		<select>
-			<option value="all">All</option>
+			<option value="all">All Markets</option>
 			<option value="asia_oceania">Asia/Oceania</option>
 			<option value="europe_africa">Europe/Africa</option>
 			<option value="americas">Americas</option>

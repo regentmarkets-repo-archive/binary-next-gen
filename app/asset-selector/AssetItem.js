@@ -3,10 +3,13 @@ import React from 'react';
 const AssetItem = ({asset}) => (
 	<tr>
 		<td>
-			{asset.symbol}
+			☆
 		</td>
 		<td>
 			{asset.display_name}
+		</td>
+		<td>
+			{asset.market_display_name + ' > ' + asset.submarket_display_name}
 		</td>
 	</tr>
 );

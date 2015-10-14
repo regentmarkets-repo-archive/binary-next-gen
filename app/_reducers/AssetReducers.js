@@ -27,7 +27,9 @@ const doFilter = (assetList, query, queryLc = query.toLowerCase()) => {
     return assetList.filter(asset =>
         queryLc === '' ||
         asset.get('symbol').toLowerCase().includes(queryLc) ||
-        asset.get('display_name').toLowerCase().includes(queryLc)
+        asset.get('display_name').toLowerCase().includes(queryLc) ||
+        asset.get('market_display_name').toLowerCase().includes(queryLc) ||
+        asset.get('submarket_display_name').toLowerCase().includes(queryLc)
     );
 };
 

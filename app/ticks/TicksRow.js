@@ -1,6 +1,6 @@
 import React from 'react';
 import { timeStr } from '../common/DateUtils';
-import Direction from '../common/Direction';
+import { Direction, NumberColored } from '../common';
 import TickSparkline from './TickSparkline';
 
 const historyDiff = (history) => {
@@ -19,7 +19,7 @@ const TicksRow = ({symbol, history}) => {
 			<td>{symbol}</td>
 			<td>{quote}</td>
 			<td>{timeStr(epoch)}</td>
-			<td>{diff.toPrecision(2)}</td>
+			<td><NumberColored value={diff.toPrecision(2)} /></td>
 			<td><TickSparkline history={history} /></td>
 		</tr>
 	);

@@ -5,8 +5,9 @@ const AssetList = ({assets}) => (
 	<table>
 		<thead>
 			<tr>
-				<th>Code</th>
+				<th></th>
 				<th>Name</th>
+				<th>Market</th>
 			</tr>
 		</thead>
 		<tbody>

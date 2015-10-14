@@ -3,7 +3,7 @@ import { Panel } from '../common';
 import AssetSelectorContainer from './AssetSelectorContainer';
 
 export default (props) => (
-	<Panel title="Open Positions" position={props.position}>
+	<Panel title="Assets" position={props.position}>
 		<AssetSelectorContainer {...props} params={{ market: 'forex' }} />
 	</Panel>
 );
