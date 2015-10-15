@@ -2,7 +2,7 @@ import React from 'react';
 import AssetItem from './AssetItem';
 
 const AssetList = ({assets}) => (
-	<table>
+	<table className="asset-list">
 		<thead>
 			<tr>
 				<th></th>

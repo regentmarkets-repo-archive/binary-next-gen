@@ -15,7 +15,6 @@ export default (props) => (
 		<fieldset>
 			<label>No. ticks:</label>
 			<RangeGroup min={5} max={10} items={['5', '6', '7', '8', '9', '10']} />
-			<button>5</button><button>6</button><button>7</button><button>8</button><button>9</button><button>10</button>
 		</fieldset>
 		<label>Select Amount</label>
 		<fieldset>

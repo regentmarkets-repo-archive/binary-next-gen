@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Sparklines, SparklinesLine } from 'react-sparklines';
+import TickSparkline from '../ticks/TickSparkline';
 
 export default (props) => (
 	<div>
@@ -8,9 +8,7 @@ export default (props) => (
 		<fieldset>
 			<label>USD/JPY will RISE over next 5 ticks</label>
 		</fieldset>
-		<Sparklines>
-			<SparklinesLine width={320} height={200} />
-		</Sparklines>
+		<TickSparkline width={320} height={200} />
 		<fieldset>
 			<label>Payout: USD</label><input type="number" defaultValue={15} /> <button>+</button><button>-</button>
 		</fieldset>
