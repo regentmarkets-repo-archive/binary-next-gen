@@ -1,10 +1,10 @@
 import React from 'react';
 import { Star, InfoIcon } from '../common';
 
-const AssetItem = ({asset, onSelect}) => (
+const AssetItem = ({asset, isFavorite, onSelect, onFavor}) => (
 	<tr onClick={() => onSelect(asset.symbol)}>
 		<td>
-			<Star />
+			<Star on={isFavorite} onClick={() => onFavor(asset.symbol)} />
 		</td>
 		<td>
 			{asset.display_name}

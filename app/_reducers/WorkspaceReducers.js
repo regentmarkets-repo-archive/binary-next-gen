@@ -1,4 +1,4 @@
-import { fromJS } from 'immutable';
+import { Map, Set } from 'immutable';
 
 import {
     WORKSPACE_VIEW_ASSET_DETAILS,
@@ -7,10 +7,9 @@ import {
     WORKSPACE_UNFAVOR_ASSET,
 } from '../_constants/ActionTypes';
 
-const initialState = fromJS({
-    symbolDetails: 'frxUSDJPY',
-    favoriteAssets: ['R_50', 'frxUSDJPY', 'RDBEAR'],
+const initialState = new Map({
     symbolSelected: 'frxUSDJPY',
+    favoriteAssets: Set.of('R_50', 'frxUSDJPY', 'RDBEAR'),
 });
 
 export default (state = initialState, action) => {
@@ -22,7 +21,8 @@ export default (state = initialState, action) => {
             return state.set('symbolSelected', action.symbol);
         }
         case WORKSPACE_FAVOR_ASSET: {
-            return state;
+            return state.update('favoriteAssets', x =>
+                x.has(action.symbol) ? x.remove(action.symbol) : x.add(action.symbol));
         }
         case WORKSPACE_UNFAVOR_ASSET: {
             return state;

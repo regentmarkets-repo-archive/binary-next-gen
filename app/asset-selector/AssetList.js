@@ -13,7 +13,11 @@ const AssetList = (props) => (
 		</thead>
 		<tbody>
 			{props.assets.map(asset =>
-				<AssetItem key={asset.symbol} asset={asset} {...props} />
+				<AssetItem
+					key={asset.symbol}
+					asset={asset}
+					isFavorite={props.favorites.has(asset.symbol)}
+					{...props} />
 			)}
 		</tbody>
 	</table>

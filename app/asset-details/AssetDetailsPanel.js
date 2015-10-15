@@ -3,7 +3,7 @@ import { Panel } from '../common';
 import AssetDetailsContainer from './AssetDetailsContainer';
 
 export default (props) => (
-	<Panel title={props.asset && props.asset.display_name} position={props.position}>
+	<Panel title="Asset Details" position={props.position}>
 		<AssetDetailsContainer {...props} />
 	</Panel>
 );

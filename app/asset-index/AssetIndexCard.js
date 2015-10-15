@@ -11,9 +11,15 @@ const AssetIndexCard = ({assets, params}) => {
 
 	return (
 		<div>
-			<MarketSelector markets={Object.keys(tree)} selected={params.market} prefixRoute="/asset-index/" />
+			<MarketSelector
+				markets={Object.keys(tree)}
+				selected={params.market}
+				prefixRoute="/asset-index/" />
 			{submarkets.map(submarket =>
-				<AssetIndexTable key={submarket} submarket={submarket} assets={list.filter(a => a.submarket_display_name === submarket)} />
+				<AssetIndexTable
+					key={submarket}
+					submarket={submarket}
+					assets={list.filter(a => a.submarket_display_name === submarket)} />
 			)}
 		</div>
 	);
