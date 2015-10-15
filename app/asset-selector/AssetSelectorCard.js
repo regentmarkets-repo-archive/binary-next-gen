@@ -9,10 +9,6 @@ const AssetSelectorCard = ({assets, dispatch}) => {
 	const { shownAssets, tree } = assets.toJS(); // tree, active, shownAssets, query
 	const actions = bindActionCreators(WorkspaceActions, dispatch);
 
-	const assetSelected = (asset) => {
-		actions.workspaceAssetSelect(asset);
-	};
-
 	const assetFavored = (asset) => {
 		actions.workspaceFavorAsset(asset);
 	};
@@ -25,7 +21,11 @@ const AssetSelectorCard = ({assets, dispatch}) => {
 		<div>
 			<MarketSubmarketSelector tree={tree} />
 			<AssetSearch actions={actions} />
-			<AssetList assets={shownAssets} onSelect={assetSelected} onFavor={assetFavored} onInfo={assetInfoed} />
+			<AssetList
+				assets={shownAssets}
+				onSelect={(asset) => actions.workspaceAssetSelect(asset)}
+				onFavor={assetFavored}
+				onInfo={assetInfoed} />
 		</div>
 	);
 };

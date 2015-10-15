@@ -1,30 +1,14 @@
 import React from 'react';
+import AssetDetailsTable from './AssetDetailsTable';
 
-const AssetDetailsCard = ({asset}) => (
-	<table>
-		<thead>
-			<tr>
-				<th>Name</th>
-				<th>Value</th>
-			</tr>
-		</thead>
-		<tbody>
-			{Object.keys(asset).map((key) =>
-				<tr>
-					<td>{key}</td>
-					<td>{asset[key]}</td>
-				</tr>
-			)}
-		</tbody>
-	</table>
-);
-
-AssetDetailsCard.propTypes = {
-	asset: React.PropTypes.object.isRequired,
+const AssetDetailsCard = ({assets, workspace}) => {
+	const symbolDetails = assets.get('list').find(x => x.get('symbol') === workspace.get('symbolDetails'));
+	return !selectedAsset ? <div /> : <AssetDetailsTable asset={symbolDetails.toSeq()} />;
 };
 
-AssetDetailsCard.defaultProps = {
-	asset: {},
+AssetDetailsCard.propTypes = {
+	assets: React.PropTypes.object.isRequired,
+	workspace: React.PropTypes.object.isRequired,
 };
 
 export default AssetDetailsCard;

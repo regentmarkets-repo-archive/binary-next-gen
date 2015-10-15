@@ -1,8 +1,8 @@
 import React from 'react';
 import { Star, InfoIcon } from '../common';
 
-const AssetItem = ({asset}) => (
-	<tr>
+const AssetItem = ({asset, onSelect}) => (
+	<tr onClick={() => onSelect(asset.symbol)}>
 		<td>
 			<Star />
 		</td>
