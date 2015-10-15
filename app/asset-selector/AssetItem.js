@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star, InfoIcon } from '../common';
+import { Star } from '../common';
 
 export default class AssetItem extends React.Component {
 
@@ -30,7 +30,7 @@ export default class AssetItem extends React.Component {
 					{asset.get('market_display_name') + ' > ' + asset.get('submarket_display_name')}
 				</td>
 				<td>
-					<InfoIcon />
+					<span className="info-icon"> i</span>
 				</td>
 			</tr>
 		);

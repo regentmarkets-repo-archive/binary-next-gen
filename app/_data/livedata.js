@@ -42,7 +42,7 @@ export default class LiveData {
         this.api.getBalance();
         this.api.getPortfolio();
         this.api.getPayoutCurrencies();
-        // this.api.subscribeToTicks(['R_50', 'frxUSDJPY', 'RDBEAR']);
+        this.api.subscribeToTicks(['R_50', 'frxUSDJPY', 'RDBEAR']);
     }
 
     trackActiveSymbols() {

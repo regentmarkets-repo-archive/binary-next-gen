@@ -9,7 +9,6 @@ export default class AssetSelectorContainer extends React.Component {
 		assets: React.PropTypes.object,
 		assetSelector: React.PropTypes.object,
 		workspace: React.PropTypes.object,
-		dispatch: React.PropTypes.func,
 	};
 
 	shouldComponentUpdate(nextProps) {

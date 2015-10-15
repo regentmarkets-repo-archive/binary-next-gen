@@ -6,9 +6,14 @@ import TicksTable from './TicksTable';
 export default class TicksCard extends React.Component {
 
 	static propTypes = {
-		ticks: React.PropTypes.object.isRequired,
 		assets: React.PropTypes.object.isRequired,
+		ticks: React.PropTypes.object.isRequired,
 	};
+
+	shouldComponentUpdate(nextProps) {
+	   	return nextProps.ticks !== this.props.ticks ||
+			nextProps.assets !== this.props.assets;
+	}
 
 	render() {
 		return (

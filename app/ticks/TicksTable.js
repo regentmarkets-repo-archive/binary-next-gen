@@ -20,7 +20,7 @@ const TicksTable = ({ticks, assets}) => {
 						key={symbol}
 						symbol={symbol}
 						asset={assets.get('list').find(x => x.get('symbol') === symbol)}
-						history={ticks.get(symbol).toJS()} />
+						history={ticks.get(symbol)} />
 				)}
 			</tbody>
 		</table>

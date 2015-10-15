@@ -9,27 +9,35 @@ const historyDiff = (history) => {
 	return history[history.length - 1].quote - history[history.length - 2].quote;
 };
 
-const TicksRow = ({history, asset}) => {
-	if (!asset) return <tr/>;
+export default class TicksRow extends React.Component {
 
-	const diff = historyDiff(history);
-	const { quote, epoch } = history[history.length - 1] || {};
+	static propTypes = {
+		asset: React.PropTypes.object.isRequired,
+		history: React.PropTypes.object.isRequired,
+	};
 
-	return (
-		<tr>
-			<td><Direction diff={diff} /></td>
-			<td>{asset.get('display_name')}</td>
-			<td>{quote}</td>
-			<td>{timeStr(epoch)}</td>
-			<td><NumberColored value={diff.toPrecision(2)} /></td>
-			<td><TickSparkline history={history} /></td>
-		</tr>
-	);
-};
+	shouldComponentUpdate(nextProps) {
+		return nextProps.asset !== this.props.asset ||
+			nextProps.history !== this.props.history;
+	}
 
-TicksRow.propTypes = {
-	asset: React.PropTypes.object,
-	history: React.PropTypes.array.isRequired,
-};
+	render() {
+		const {asset} = this.props;
+		if (!asset) return <tr/>;
 
-export default TicksRow;
+		const history = this.props.history.toJS();
+		const diff = historyDiff(history);
+		const { quote, epoch } = history[history.length - 1] || {};
+
+		return (
+			<tr>
+				<td><Direction diff={diff} /></td>
+				<td>{asset.get('display_name')}</td>
+				<td>{quote}</td>
+				<td>{timeStr(epoch)}</td>
+				<td><NumberColored value={diff.toPrecision(2)} /></td>
+				<td><TickSparkline history={history} /></td>
+			</tr>
+		);
+	}
+}

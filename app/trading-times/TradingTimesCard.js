@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputGroup, MarketSubmarketSelector } from '../common';
+import { InputGroup, MarketSelector } from '../common';
 import TradingTimesTable from './TradingTimesTable';
 import { todayStr, oneYearAgoStr } from '../common/DateUtils';
 
@@ -13,9 +13,8 @@ export default class TradingTimesCard extends React.Component {
 	};
 
 	shouldComponentUpdate(nextProps) {
-		window.console.log(nextProps.assets !== this.props.assets, nextProps.tradingTimesWorkspace !== this.props.tradingTimesWorkspace);
-
-		return nextProps.assets !== this.props.assets && nextProps.tradingTimesWorkspace !== this.props.tradingTimesWorkspace;
+		return nextProps.assets !== this.props.assets ||
+			nextProps.tradingTimesWorkspace !== this.props.tradingTimesWorkspace;
 	}
 
 	changeSubmarket() {
@@ -24,15 +23,14 @@ export default class TradingTimesCard extends React.Component {
 
 	render() {
 		const {assets, tradingTimesWorkspace} = this.props;
-		const {tree, times, list} = assets.toJS();
+		const {times, list} = assets.toJS();
 		const submarket = tradingTimesWorkspace.get('submarket');
 		const submarketForAsset = symbol => list.find(x => x.symbol === symbol).submarket_display_name;
 
 		return (
 			<div>
 				<div className="row">
-					<MarketSubmarketSelector
-						tree={tree}
+					<MarketSelector
 						onChange={x => this.changeSubmarket(x)}
 						showAllOption={false} />
 					<InputGroup type="date" value={todayStr()} min={oneYearAgoStr()} max={todayStr()} className="trading-times-date-picker" />
@@ -45,6 +43,3 @@ export default class TradingTimesCard extends React.Component {
 		);
 	}
 }
-
-
-// TradingTimesCard.

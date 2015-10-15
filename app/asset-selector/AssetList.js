@@ -1,30 +1,41 @@
 import React from 'react';
 import AssetItem from './AssetItem';
 
-const AssetList = (props) => (
-	<table className="asset-list">
-		<thead>
-			<tr>
-				<th></th>
-				<th>Asset</th>
-				<th>Market</th>
-				<th></th>
-			</tr>
-		</thead>
-		<tbody>
-			{props.assets.map(asset =>
-				<AssetItem
-					key={asset.get('symbol')}
-					asset={asset}
-					isFavorite={props.favorites.has(asset.get('symbol'))}
-					{...props} />
-			)}
-		</tbody>
-	</table>
-);
+export default class AssetList extends React.Component {
 
-AssetList.propTypes = {
-	assets: React.PropTypes.object.isRequired,
-};
+	static propTypes = {
+		assets: React.PropTypes.object.isRequired,
+		favorites: React.PropTypes.object.isRequired,
+	};
 
-export default AssetList;
+	shouldComponentUpdate(nextProps) {
+		return nextProps.assets !== this.props.assets ||
+			nextProps.favorites !== this.props.favorites;
+	}
+
+	render() {
+		const {assets, favorites} = this.props;
+
+		return (
+			<table className="asset-list">
+				<thead>
+					<tr>
+						<th></th>
+						<th>Asset</th>
+						<th>Market</th>
+						<th></th>
+					</tr>
+				</thead>
+				<tbody>
+					{assets.map(asset =>
+						<AssetItem
+							key={asset.get('symbol')}
+							asset={asset}
+							isFavorite={favorites.has(asset.get('symbol'))}
+							{...this.props} />
+					)}
+				</tbody>
+			</table>
+		);
+	}
+}

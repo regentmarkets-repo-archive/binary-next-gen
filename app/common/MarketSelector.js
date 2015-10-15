@@ -1,26 +1,33 @@
 import React from 'react';
-import { SegmentedControl } from '../common';
+import { connect } from 'react-redux';
 
-const MarketSelector = ({markets, selected, prefixRoute}) => {
-	const marketLinks = markets.map(market => ({
-		href: prefixRoute + market.toLowerCase(),
-		text: market,
-	}));
-	const marketFromRouteIdx = markets.indexOf(m => m.toLowerCase() === selected);
+@connect(state => ({ assets: state.assets }))
+export default class MarketSelector extends React.Component {
 
-	return (
-		<SegmentedControl segments={marketLinks} activeIndex={marketFromRouteIdx} />
-	);
-};
+	static propTypes = {
+		assets: React.PropTypes.object.isRequired,
+		showAllOption: React.PropTypes.bool.isRequired,
+	};
 
-MarketSelector.propTypes = {
-	markets: React.PropTypes.array.isRequired,
-	selected: React.PropTypes.string,
-};
+	shouldComponentUpdate(nextProps) {
+		return nextProps.assets !== this.props.assets;
+	}
 
-MarketSelector.defaultProps = {
-	markets: [],
-	selected: 'favorites',
-};
+	render() {
+		const {assets, showAllOption} = this.props;
+		const tree = assets.get('tree').toJS();
 
-export default MarketSelector;
+		return (
+			<select className="market-submarket-selector">
+				{showAllOption ? <option>All</option> : null}
+				{Object.keys(tree).map(market => (
+					<optgroup key={market} label={market}>
+						{Object.keys(tree[market]).map(submarket =>
+							<option key={submarket} value={submarket}>{submarket}</option>
+						)}
+					</optgroup>
+				))}
+			</select>
+		);
+	}
+}
