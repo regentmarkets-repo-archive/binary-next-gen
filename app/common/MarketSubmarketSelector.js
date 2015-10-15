@@ -1,8 +1,8 @@
 import React from 'react';
 
-const MarketSubmarketSelector = ({tree}) => (
+const MarketSubmarketSelector = ({tree, showAllOption}) => (
 	<select className="market-submarket-selector">
-		<option>All</option>
+		{showAllOption ? <option>All</option> : null}
 		{Object.keys(tree).map(market => (
 			<optgroup key={market} label={market}>
 				{Object.keys(tree[market]).map(submarket => <option key={submarket} value={submarket}>{submarket}</option>)}
@@ -13,10 +13,11 @@ const MarketSubmarketSelector = ({tree}) => (
 
 MarketSubmarketSelector.propTypes = {
 	tree: React.PropTypes.object.isRequired,
+	showAllOption: React.PropTypes.bool.isRequired,
 };
 
 MarketSubmarketSelector.defaultProps = {
-	markets: [],
+	showAllOption: false,
 };
 
 export default MarketSubmarketSelector;
