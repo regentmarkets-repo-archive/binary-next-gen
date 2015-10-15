@@ -11,14 +11,12 @@ export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_TICK_STREAM: {
             const symbol = action.serverResponse.echo_req.ticks;
-            // window.console.log(action.serverResponse, action.serverResponse.echo_req, action.serverResponse.echo_req.tick);
             const { tick } = action.serverResponse;
             const newTick = {
                 epoch: tick.epoch,
                 quote: +tick.quote,
             };
-            // window.console.log(symbol, newTick);
-            return state.update(symbol, List.of(newTick), v => v.push(newTick)); // v.shift()
+            return state.update(symbol, List.of(newTick), v => v.takeLast(60).push(newTick));
         }
         case SERVER_DATA_TICK_HISTORY: {
             const { symbol } = action.serverResponse.echo_req.ticks;
