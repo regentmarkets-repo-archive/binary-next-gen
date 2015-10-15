@@ -4,19 +4,21 @@ import { Direction, NumberColored } from '../common';
 import TickSparkline from './TickSparkline';
 
 const historyDiff = (history) => {
-	if (!history || history.size <= 1) return 0;
+	if (!history || history.length <= 1) return 0;
 
 	return history[history.length - 1].quote - history[history.length - 2].quote;
 };
 
-const TicksRow = ({symbol, history}) => {
+const TicksRow = ({history, asset}) => {
+	if (!asset) return <tr/>;
+
 	const diff = historyDiff(history);
 	const { quote, epoch } = history[history.length - 1] || {};
-	window.console.log(history);
+
 	return (
 		<tr>
 			<td><Direction diff={diff} /></td>
-			<td>{symbol}</td>
+			<td>{asset.get('display_name')}</td>
 			<td>{quote}</td>
 			<td>{timeStr(epoch)}</td>
 			<td><NumberColored value={diff.toPrecision(2)} /></td>
@@ -26,7 +28,7 @@ const TicksRow = ({symbol, history}) => {
 };
 
 TicksRow.propTypes = {
-	symbol: React.PropTypes.string.isRequired,
+	asset: React.PropTypes.object,
 	history: React.PropTypes.array.isRequired,
 };
 

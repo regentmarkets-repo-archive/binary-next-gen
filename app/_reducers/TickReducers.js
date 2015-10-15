@@ -1,4 +1,4 @@
-import { Stack, Map } from 'immutable';
+import { List, Map } from 'immutable';
 
 import {
     SERVER_DATA_TICK_STREAM,
@@ -18,11 +18,11 @@ export default (state = initialState, action) => {
                 quote: +tick.quote,
             };
             // window.console.log(symbol, newTick);
-            return state.update(symbol, Stack.of(newTick), v => v.push(newTick)); // v.shift()
+            return state.update(symbol, List.of(newTick), v => v.push(newTick)); // v.shift()
         }
         case SERVER_DATA_TICK_HISTORY: {
             const { symbol } = action.serverResponse.echo_req.ticks;
-            return state.set(symbol, Stack.of(action.serverResponse.data));
+            return state.set(symbol, List.of(action.serverResponse.data));
         }
         default:
             return state;

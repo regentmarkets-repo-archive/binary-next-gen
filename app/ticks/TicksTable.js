@@ -1,7 +1,7 @@
 import React from 'react';
 import TicksRow from './TicksRow';
 
-const TicksTable = ({ticks}) => {
+const TicksTable = ({ticks, assets}) => {
 	return (
 		<table>
 			<thead>
@@ -19,6 +19,7 @@ const TicksTable = ({ticks}) => {
 					<TicksRow
 						key={symbol}
 						symbol={symbol}
+						asset={assets.get('list').find(x => x.get('symbol') === symbol)}
 						history={ticks.get(symbol).toJS()} />
 				)}
 			</tbody>
@@ -28,6 +29,7 @@ const TicksTable = ({ticks}) => {
 
 TicksTable.propTypes = {
 	ticks: React.PropTypes.object.isRequired,
+	assets: React.PropTypes.object.isRequired,
 };
 
 export default TicksTable;
