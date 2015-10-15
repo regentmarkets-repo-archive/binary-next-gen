@@ -9,7 +9,7 @@ const historyDiff = (history) => {
 	return history[history.length - 1].quote - history[history.length - 2].quote;
 };
 
-export default class TicksRow extends React.Component {
+export default class WatchlistRow extends React.Component {
 
 	static propTypes = {
 		asset: React.PropTypes.object.isRequired,

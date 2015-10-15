@@ -11,7 +11,6 @@ const ProfitTable = ({profits, onViewDetails}) => (
 			<tr>
                 <th>Purchase Date</th>
 				<th>Ref.</th>
-				<th>Contract</th>
 				<th>Purchase Price</th>
                 <th>Sale Date</th>
                 <th>Sale Price</th>

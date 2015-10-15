@@ -12,7 +12,7 @@ import WorkspacePage from './workspace/WorkspacePage';
 import SignupPage from './signup/SignupPage';
 import BalancesPage from './balances/BalancesPage';
 import UpgradePage from './upgrade/UpgradePage';
-import TicksCard from './ticks/TicksCard';
+import WatchlistCard from './watchlist/WatchlistCard';
 import OfferingsCard from './offerings/OfferingsCard';
 import ActiveSymbolsCard from './active-symbols/ActiveSymbolsCard';
 import AssetSelectorPage from './asset-selector/AssetSelectorPage';
@@ -52,7 +52,7 @@ export default {
         { path: 'signup', component: SignupPage },
         { path: 'upgrade', component: UpgradePage },
         { path: 'trade', component: TradePage },
-        { path: 'ticks', component: TicksCard },
+        { path: 'ticks', component: WatchlistCard },
         { path: 'offerings', component: OfferingsCard },
         { path: 'active-symbols', component: ActiveSymbolsCard },
         { path: 'asset-selector', component: AssetSelectorPage },

@@ -3,7 +3,7 @@ import AssetSelectorPanel from '../asset-selector/AssetSelectorPanel';
 import AssetDetailsPanel from '../asset-details/AssetDetailsPanel';
 import PortfolioPanel from '../portfolio/PortfolioPanel';
 import TradingTimesPanel from '../trading-times/TradingTimesPanel';
-import TicksPanel from '../ticks/TicksPanel';
+import WatchlistPanel from '../watchlist/WatchlistPanel';
 import ProfitTablePanel from '../profit-table/ProfitTablePanel';
 import BalancesPanel from '../balances/BalancesPanel';
 import StatementPanel from '../statement/StatementPanel';
@@ -15,7 +15,7 @@ export default (props) => (
 		<AssetSelectorPanel position={{left: 1, top: 163, width: 320, height: 450 }} />
 		<AssetDetailsPanel position={{left: 1, top: 615, width: 320, height: 350 }} />
 
-		<TicksPanel position={{left: 325, top: 52, width: 500, height: 200 }} />
+		<WatchlistPanel position={{left: 325, top: 52, width: 500, height: 200 }} />
 		<TickTradePanel position={{left: 325, top: 300, width: 500, height: 300 }} />
 		<TradingTimesPanel position={{left: 325, top: 650, width: 500, height: 300 }} />
 

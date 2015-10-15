@@ -14,12 +14,12 @@ const DesktopToolbar = () => (
 					<DesktopNavLink to="/trade" text="Trade" />
 					<DesktopNavLink to="/asset-index" text="Asset&nbsp;Index" />
 					<DesktopNavLink to="/trading-times" text="Trading&nbsp;Times" />
-					<DesktopNavLink to="/pricing-table" text="Pricing&nbsp;Table" />
-					<DesktopNavLink to="/rise-fall-table" text="Rise/Fall&nbsp;Table" />
 					<DesktopNavLink to="/portfolio" text="Portfolio" />
 					<DesktopNavLink to="/profit-table" text="Profit&nbsp;Table" />
 					<DesktopNavLink to="/statement" text="Statement" />
 					<DesktopNavLink to="/daily-prices" text="Daily&nbsp;Prices" />
+					<DesktopNavLink to="/pricing-table" text="Pricing&nbsp;Table" />
+					<DesktopNavLink to="/rise-fall-table" text="Rise/Fall&nbsp;Table" />
 					<DesktopNavLink to="/settings/" text="Settings" />
 				</ul>
 			</nav>

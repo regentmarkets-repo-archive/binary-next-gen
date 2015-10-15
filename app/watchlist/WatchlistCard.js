@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import TicksTable from './TicksTable';
+import WatchlistTable from './WatchlistTable';
 
 @connect(state => ({ ticks: state.ticks, assets: state.assets }))
-export default class TicksCard extends React.Component {
+export default class WatchlistCard extends React.Component {
 
 	static propTypes = {
 		assets: React.PropTypes.object.isRequired,
@@ -17,7 +17,7 @@ export default class TicksCard extends React.Component {
 
 	render() {
 		return (
-			<TicksTable ticks={this.props.ticks} assets={this.props.assets} />
+			<WatchlistTable ticks={this.props.ticks} assets={this.props.assets} />
 		);
 	}
 }

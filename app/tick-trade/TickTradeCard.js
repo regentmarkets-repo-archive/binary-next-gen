@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import TickSparkline from '../ticks/TickSparkline';
+import TickSparkline from '../watchlist/TickSparkline';
 
 export default (props) => (
 	<div>

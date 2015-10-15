@@ -12,7 +12,6 @@ const StatementTable = ({transactions, currency, onViewDetails}) => (
 				<th>Date</th>
 				<th>Ref.</th>
 				<th>Action</th>
-				<th>Description</th>
 				<th>Credit/Debit</th>
 				<th>Balance&nbsp;({currency})</th>
 				<th></th>

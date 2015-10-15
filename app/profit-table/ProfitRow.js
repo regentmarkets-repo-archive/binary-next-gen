@@ -6,7 +6,6 @@ const ProfitRow = ({profit, onViewDetails}) => (
     <tr>
         <td>{dateTimeStr(profit.date)}</td>
         <td>{profit.ref}</td>
-        <td>{profit.details}</td>
         <td><NumberPlain value={profit.purchasePrice} /></td>
         <td>{dateTimeStr(profit.saleDate)} {profit.saleDate.toString()}</td>
         <td><NumberPlain value={profit.salePrice} /></td>

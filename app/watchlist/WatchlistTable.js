@@ -1,7 +1,7 @@
 import React from 'react';
-import TicksRow from './TicksRow';
+import WatchlistRow from './WatchlistRow';
 
-const TicksTable = ({ticks, assets}) => {
+const WatchlistTable = ({ticks, assets}) => {
 	return (
 		<table>
 			<thead>
@@ -16,7 +16,7 @@ const TicksTable = ({ticks, assets}) => {
 			</thead>
 			<tbody>
 				{ticks.keySeq().map((symbol) =>
-					<TicksRow
+					<WatchlistRow
 						key={symbol}
 						symbol={symbol}
 						asset={assets.get('list').find(x => x.get('symbol') === symbol)}
@@ -27,9 +27,9 @@ const TicksTable = ({ticks, assets}) => {
 	);
 };
 
-TicksTable.propTypes = {
+WatchlistTable.propTypes = {
 	ticks: React.PropTypes.object.isRequired,
 	assets: React.PropTypes.object.isRequired,
 };
 
-export default TicksTable;
+export default WatchlistTable;
