@@ -1,25 +1,35 @@
 import React from 'react';
 
-const NumberPlain = (props) => {
-	if (isNaN(props.value)) {
-		return <span />;
+export default class NumberPlain extends React.Component {
+
+	static propTypes = {
+		currency: React.PropTypes.string,
+		value: React.PropTypes.any,
+		className: React.PropTypes.string,
+	};
+
+	shouldComponentUpdate(nextProps) {
+		return nextProps.value !== this.props.value &&
+			nextProps.currency !== this.props.currency &&
+			nextProps.className !== this.props.className;
 	}
 
-	const value = +props.value;
-	let formattedValue = value.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+	render() {
+		const {currency, className} = this.props;
+		const value = +this.props.value;
 
-	if (value < 0) {
-		formattedValue = '(' + formattedValue.substring(1) + ')';
+		if (isNaN(value)) {
+			return <span />;
+		}
+
+		let formattedValue = value.toFixed(2).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+
+		if (value < 0) {
+			formattedValue = '(' + formattedValue.substring(1) + ')';
+		}
+
+		return (
+			<span className={className}>{currency} {formattedValue}</span>
+		);
 	}
-
-	return (
-		<span {...props}>{props.currency} {formattedValue}</span>
-	);
-};
-
-NumberPlain.propTypes = {
-	currency: React.PropTypes.string,
-	value: React.PropTypes.any,
-};
-
-export default NumberPlain;
+}

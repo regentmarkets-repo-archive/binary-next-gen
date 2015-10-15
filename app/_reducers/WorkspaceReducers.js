@@ -1,5 +1,5 @@
 import { Map, Set } from 'immutable';
-import Perf from 'react-addons-perf';
+// import Perf from 'react-addons-perf';
 
 import {
     WORKSPACE_VIEW_ASSET_DETAILS,
@@ -26,13 +26,13 @@ export default (state = initialState, action) => {
             return state.set('symbolSelected', action.symbol);
         }
         case WORKSPACE_FAVOR_ASSET: {
-            Perf.start();
-            setTimeout(() => {
-                Perf.stop();
-                const measurements = Perf.getLastMeasurements();
-                Perf.printInclusive(measurements);
-                Perf.printWasted(measurements);
-            }, 1000);
+            // Perf.start();
+            // setTimeout(() => {
+            //     Perf.stop();
+            //     const measurements = Perf.getLastMeasurements();
+            //     Perf.printInclusive(measurements);
+            //     Perf.printWasted(measurements);
+            // }, 1000);
             return state.update('favoriteAssets', x =>
                 x.has(action.symbol) ? x.remove(action.symbol) : x.add(action.symbol));
         }

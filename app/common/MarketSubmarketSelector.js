@@ -5,7 +5,9 @@ const MarketSubmarketSelector = ({tree, showAllOption}) => (
 		{showAllOption ? <option>All</option> : null}
 		{Object.keys(tree).map(market => (
 			<optgroup key={market} label={market}>
-				{Object.keys(tree[market]).map(submarket => <option key={submarket} value={submarket}>{submarket}</option>)}
+				{Object.keys(tree[market]).map(submarket =>
+					<option key={submarket} value={submarket}>{submarket}</option>
+				)}
 			</optgroup>
 		))}
 	</select>

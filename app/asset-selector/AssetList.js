@@ -14,9 +14,9 @@ const AssetList = (props) => (
 		<tbody>
 			{props.assets.map(asset =>
 				<AssetItem
-					key={asset.symbol}
+					key={asset.get('symbol')}
 					asset={asset}
-					isFavorite={props.favorites.has(asset.symbol)}
+					isFavorite={props.favorites.has(asset.get('symbol'))}
 					{...props} />
 			)}
 		</tbody>
@@ -24,11 +24,7 @@ const AssetList = (props) => (
 );
 
 AssetList.propTypes = {
-	assets: React.PropTypes.array.isRequired,
-};
-
-AssetList.defaultProps = {
-	assets: [],
+	assets: React.PropTypes.object.isRequired,
 };
 
 export default AssetList;

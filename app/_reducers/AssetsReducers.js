@@ -1,16 +1,13 @@
-import { Map } from 'immutable';
+import { fromJS } from 'immutable';
 import {
-    FILTER_ASSETS,
     SERVER_DATA_ACTIVE_SYMBOLS,
     SERVER_DATA_TRADING_TIMES,
 } from '../_constants/ActionTypes';
 
-const initialState = new Map({
+const initialState = fromJS({
     list: [],
     times: [],
     tree: {},
-    query: '',
-    shownAssets: [],
 });
 
 const generateTree = symbols => {
@@ -20,17 +17,7 @@ const generateTree = symbols => {
         if (!tree[sym.market_display_name][sym.submarket_display_name]) tree[sym.market_display_name][sym.submarket_display_name] = {};
         tree[sym.market_display_name][sym.submarket_display_name][sym] = sym.display_name;
     });
-    return new Map(tree);
-};
-
-const doFilter = (assetList, query, queryLc = query.toLowerCase()) => {
-    return assetList.filter(asset =>
-        queryLc === '' ||
-        asset.get('symbol').toLowerCase().includes(queryLc) ||
-        asset.get('display_name').toLowerCase().includes(queryLc) ||
-        asset.get('market_display_name').toLowerCase().includes(queryLc) ||
-        asset.get('submarket_display_name').toLowerCase().includes(queryLc)
-    );
+    return tree;
 };
 
 const flattenTradingTimes = tradingTimes => {
@@ -47,14 +34,7 @@ export default (state = initialState, action) => {
             return state.merge({
                 list: activeSymbols,
                 tree: generateTree(activeSymbols),
-                query: '',
-                shownAssets: activeSymbols,
             });
-        }
-        case FILTER_ASSETS: {
-            return state
-                .set('query', action.query)
-                .set('shownAssets', doFilter(state.get('list'), action.query));
         }
         case SERVER_DATA_TRADING_TIMES: {
             const flatTimes = flattenTradingTimes(action.serverResponse.trading_times);

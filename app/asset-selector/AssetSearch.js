@@ -1,16 +1,16 @@
 import React from 'react';
 import { InputGroup } from '../common';
 
-const AssetSearch = ({actions}) => (
+const AssetSearch = ({onChange}) => (
 	<InputGroup
 		className="asset-search"
 		type="search"
 		placeholder="Search for assets"
-		onChange={e => actions.filterAssets(e.target.value)} />
+		onChange={onChange} />
 );
 
 AssetSearch.propTypes = {
-	actions: React.PropTypes.object.isRequired,
+	onChange: React.PropTypes.func.isRequired,
 };
 
 export default AssetSearch;
