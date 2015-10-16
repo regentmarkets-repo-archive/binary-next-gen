@@ -3,9 +3,9 @@ import { NumberColored } from '../common';
 import { dateStr } from '../common/DateUtils';
 import ProfitRow from './ProfitRow';
 
-const calulateTotals = profits => profits.map(p => +p.salePrice).reduce((x, y) => x + y, 0);
+const calulateTotals = transactions => transactions.map(t => +t.amount).reduce((x, y) => x + y, 0);
 
-const ProfitTable = ({profits, onViewDetails}) => (
+const ProfitTable = ({transactions, onViewDetails}) => (
 	<table>
 		<thead>
 			<tr>
@@ -19,14 +19,14 @@ const ProfitTable = ({profits, onViewDetails}) => (
 			</tr>
 		</thead>
 		<tbody>
-            {profits.map(p => <ProfitRow key={p.ref} profit={p} onViewDetails={onViewDetails} />)}
+            {transactions.map(t => <ProfitRow key={t.transaction_id} transaction={t} onViewDetails={onViewDetails} />)}
 		</tbody>
 		<thead>
 			<tr>
-				<th>{profits[0] && `${dateStr(profits[0].date)} - ${dateStr(profits[profits.length - 1].date)}`}</th>
+				<th>{transactions[0] && `${dateStr(transactions[0].date)} - ${dateStr(transactions[transactions.length - 1].date)}`}</th>
 				<th colSpan={4}></th>
 				<th>Total Profit/Loss</th>
-                <th><NumberColored value={calulateTotals(profits)} /></th>
+                <th><NumberColored value={calulateTotals(transactions)} /></th>
                 <th></th>
 			</tr>
 		</thead>
@@ -34,7 +34,7 @@ const ProfitTable = ({profits, onViewDetails}) => (
 );
 
 ProfitTable.propTypes = {
-	profits: React.PropTypes.array.isRequired,
+	transactions: React.PropTypes.any.isRequired,
     onViewDetails: React.PropTypes.func.isRequired,
 };
 

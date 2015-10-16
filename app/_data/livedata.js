@@ -15,6 +15,7 @@ const handlers = {
     'ticks': 'serverDataTickHistory',
     'proposal_open_contract': 'serverDataProposalOpenContract',
     'payout_currencies': 'serverDataPayoutCurrencies',
+    'profit_table': 'serverDataProfitTable',
 };
 
 export default class LiveData {
@@ -41,6 +42,7 @@ export default class LiveData {
         this.api.getTradingTimes();
         this.api.getAssetIndex();
         this.api.getStatement({ description: 1, limit: 10 });
+        this.api.getProfitTable();
         this.api.getBalance();
         this.api.getPortfolio();
         this.api.getPayoutCurrencies();
