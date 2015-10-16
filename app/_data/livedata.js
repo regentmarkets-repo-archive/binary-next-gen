@@ -52,4 +52,13 @@ export default class LiveData {
 
         this.api.trackSymbols(list.slice(list.length - 20));
     }
+
+    trackSymbols(symbols) {
+        this.api.unsubscribeFromAllTicks();
+        this.api.subscribeToTicks(symbols);
+    }
+
+    static instance() {
+        return instance;
+    }
 }
