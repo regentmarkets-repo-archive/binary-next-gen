@@ -1,16 +1,17 @@
 import React from 'react';
 import { NumberColored } from '../common';
-import { dateStr } from '../common/DateUtils';
 import ProfitRow from './ProfitRow';
 
-const calulateTotals = transactions => transactions.map(t => +t.amount).reduce((x, y) => x + y, 0);
+const calulateTotals = transactions => transactions.map(t => +t.get('sell_price') - +t.get('buy_price')).reduce((x, y) => x + y, 0);
 
-const ProfitTable = ({transactions, onViewDetails}) => (
+const ProfitTable = ({transactions, onViewDetails}) => {
+	window.console.log(transactions);
+	return (
 	<table>
 		<thead>
 			<tr>
-                <th>Purchase Date</th>
 				<th>Ref.</th>
+				<th>Purchase Date</th>
 				<th>Purchase Price</th>
                 <th>Sale Date</th>
                 <th>Sale Price</th>
@@ -19,12 +20,17 @@ const ProfitTable = ({transactions, onViewDetails}) => (
 			</tr>
 		</thead>
 		<tbody>
-            {transactions.map(t => <ProfitRow key={t.transaction_id} transaction={t} onViewDetails={onViewDetails} />)}
+            {transactions.map(t =>
+				<ProfitRow
+					key={t.get('transaction_id')}
+					transaction={t}
+					onViewDetails={onViewDetails} />)}
 		</tbody>
 		<thead>
 			<tr>
-				<th>{transactions[0] && `${dateStr(transactions[0].date)} - ${dateStr(transactions[transactions.length - 1].date)}`}</th>
-				<th colSpan={4}></th>
+				<th></th>
+				{transactions.size ? <th>{transactions.first().get('purchase_time')} – {transactions.last().get('purchase_time')}</th> : <th />}
+				<th colSpan={2}></th>
 				<th>Total Profit/Loss</th>
                 <th><NumberColored value={calulateTotals(transactions)} /></th>
                 <th></th>
@@ -32,6 +38,7 @@ const ProfitTable = ({transactions, onViewDetails}) => (
 		</thead>
 	</table>
 );
+};
 
 ProfitTable.propTypes = {
 	transactions: React.PropTypes.any.isRequired,

@@ -25,8 +25,10 @@ import PricingTablePage from './pricing-table/PricingTablePage';
 import DailyPricesPage from './daily-prices/DailyPricesPage';
 import IntradayPricesPane from './intraday-prices/IntradayPricesPane';
 import ProfitTablePage from './profit-table/ProfitTablePage';
+import ProfitTableMobile from './profit-table/ProfitTableMobile';
 import TradePage from './trade/TradePage';
 import SettingsPage from './settings/SettingsPage';
+import SettingsMobile from './settings/SettingsMobile';
 import SettingsPersonalDetails from './settings/SettingsPersonalDetails';
 import SettingsSecurity from './settings/SettingsSecurity';
 import SettingsSelfExclusion from './settings/SettingsSelfExclusion';
@@ -68,6 +70,12 @@ export default {
         { path: 'daily-prices', component: DailyPricesPage },
         { path: 'intraday-prices', component: IntradayPricesPane },
         { path: 'profit-table', component: ProfitTablePage },
+        { path: 'profit-table-mobile', component: ProfitTableMobile },
+        { path: 'settings-mobile', indexRoute: { component: SettingsPersonalDetails }, component: SettingsMobile, childRoutes: [
+            { path: 'security', component: SettingsSecurity },
+            { path: 'exclusion', component: SettingsSelfExclusion },
+            { path: 'limits', component: SettingsLimits },
+        ]},
         { path: 'settings', indexRoute: { component: SettingsPersonalDetails }, component: SettingsPage, childRoutes: [
             { path: 'security', component: SettingsSecurity },
             { path: 'exclusion', component: SettingsSelfExclusion },

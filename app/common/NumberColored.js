@@ -9,7 +9,7 @@ export default class NumberColored extends React.Component {
 	};
 
 	shouldComponentUpdate(nextProps) {
-		return nextProps.value !== this.props.value &&
+		return nextProps.value !== this.props.value ||
 			nextProps.currency !== this.props.currency;
 	}
 

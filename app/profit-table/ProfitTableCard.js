@@ -23,7 +23,7 @@ const ProfitTableCard = (props) => {
 				<ContractDetails contract={contractShown} />
 			</Modal>
 			<ProfitTable
-				transactions={profitTable.get('transactions')}
+				transactions={profitTable}
 				onViewDetails={showDetails} />
 		</div>
 	);

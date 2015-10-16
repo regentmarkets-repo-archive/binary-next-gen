@@ -9,8 +9,8 @@ export default class NumberPlain extends React.Component {
 	};
 
 	shouldComponentUpdate(nextProps) {
-		return nextProps.value !== this.props.value &&
-			nextProps.currency !== this.props.currency &&
+		return nextProps.value !== this.props.value ||
+			nextProps.currency !== this.props.currency ||
 			nextProps.className !== this.props.className;
 	}
 

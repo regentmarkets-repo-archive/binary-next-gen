@@ -1,15 +1,14 @@
 import React from 'react';
 import { NumberColored, NumberPlain } from '../common';
-import { dateTimeStr } from '../common/DateUtils';
 
 const ProfitRow = ({transaction, onViewDetails}) => (
     <tr>
-        <td>{dateTimeStr(transaction.date)}</td>
-        <td>{transaction.contract_id}</td>
-        <td><NumberPlain value={transaction.buy_price} /></td>
-        <td>{dateTimeStr(transaction.saleDate)} {transaction.sell_time}</td>
-        <td><NumberPlain value={transaction.sell_price} /></td>
-        <td><NumberColored value={transaction.profitLoss} /></td>
+        <td>{transaction.get('contract_id')}</td>
+        <td>{transaction.get('purchase_time')}</td>
+        <td><NumberPlain value={transaction.get('buy_price')} /></td>
+        <td>{transaction.get('sell_time')}</td>
+        <td><NumberPlain value={transaction.get('sell_price')} /></td>
+        <td><NumberColored value={transaction.get('sell_price') - transaction.get('buy_price')} /></td>
         <td><button onClick={onViewDetails.bind(this, transaction)}>View</button></td>
     </tr>
 );
