@@ -2,32 +2,34 @@ import React from 'react';
 import { MarketSelector } from '../common';
 import AssetIndexTable from './AssetIndexTable';
 
-const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
+export default class AssetIndexCard extends React.Component {
 
-const AssetIndexCard = ({assets, params}) => {
-	const { tree, list } = assets.toJS(); // tree, active, shownAssets, query
-	const marketName = (params.market && capitalize(params.market)) || 'Forex';
-	const submarkets = Object.keys(tree[marketName] || []);
+	static propTypes = {
+		assets: React.PropTypes.object.isRequired,
+		assetIndexWorkspace: React.PropTypes.object.isRequired,
+	};
 
-	return (
-		<div>
-			<MarketSelector
-				markets={Object.keys(tree)}
-				selected={params.market}
-				prefixRoute="/asset-index/" />
-			{submarkets.map(submarket =>
+	shouldComponentUpdate(nextProps) {
+		return nextProps.assets !== this.props.assets ||
+			nextProps.assetIndexWorkspace !== this.props.assetIndexWorkspace;
+	}
+
+	render() {
+		const {assets, assetIndexWorkspace} = this.props;
+		const {index, list} = assets.toJS();
+		const submarket = assetIndexWorkspace.get('submarket');
+		const submarketForAsset = symbol => list.find(x => x.symbol === symbol).submarket_display_name;
+
+		return (
+			<div>
+				<MarketSelector
+					onChange={x => this.changeSubmarket(x)}
+					showAllOption={false} />
 				<AssetIndexTable
 					key={submarket}
 					submarket={submarket}
-					assets={list.filter(a => a.submarket_display_name === submarket)} />
-			)}
-		</div>
-	);
-};
-
-AssetIndexCard.propTypes = {
-	assets: React.PropTypes.object.isRequired,
-	params: React.PropTypes.object.isRequired,
-};
-
-export default AssetIndexCard;
+					index={index.filter(a => submarketForAsset(a.symbol) === submarket)} />
+			</div>
+		);
+	}
+}

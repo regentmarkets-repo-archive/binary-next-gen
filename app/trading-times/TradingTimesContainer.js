@@ -6,7 +6,6 @@ import TradingTimesCard from './TradingTimesCard';
 export default class TradingTimesContainer extends React.Component {
 
 	static propTypes = {
-		params: React.PropTypes.object.isRequired,
 		assets: React.PropTypes.object.isRequired,
 		tradingTimesWorkspace: React.PropTypes.object.isRequired,
 	};

@@ -3,8 +3,6 @@ import { InputGroup, MarketSelector } from '../common';
 import TradingTimesTable from './TradingTimesTable';
 import { todayStr, oneYearAgoStr } from '../common/DateUtils';
 
-// const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
-
 export default class TradingTimesCard extends React.Component {
 
 	static propTypes = {

@@ -8,6 +8,7 @@ const handlers = {
     'balance': 'serverDataBalance',
     'active_symbols': 'serverDataActiveSymbols',
     'trading_times': 'serverDataTradingTimes',
+    'asset_index': 'serverDataAssetIndex',
     'portfolio': 'serverDataPortfolio',
     'statement': 'serverDataStatement',
     'tick': 'serverDataTickStream',
@@ -38,6 +39,7 @@ export default class LiveData {
         this.api.authorize('XUd9szQFIlRGYzPtMj2UZCLWLeut1WTFFD5ItlRCFH4DUXXo');
         this.api.getActiveSymbolsFull();
         this.api.getTradingTimes();
+        this.api.getAssetIndex();
         this.api.getStatement({ description: 1, limit: 10 });
         this.api.getBalance();
         this.api.getPortfolio();

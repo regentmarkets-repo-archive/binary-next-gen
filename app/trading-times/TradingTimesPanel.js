@@ -4,6 +4,6 @@ import TradingTimesContainer from './TradingTimesContainer';
 
 export default (props) => (
 	<Panel title="Trading Times" position={props.position}>
-		<TradingTimesContainer {...props} params={{ market: 'forex' }} />
+		<TradingTimesContainer {...props} />
 	</Panel>
 );

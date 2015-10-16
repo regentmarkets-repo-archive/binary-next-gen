@@ -15,6 +15,9 @@ const initialState = new Map({
         submarket: 'Asia/Oceania',
         date: new Date(),
     }),
+    assetIndex: new Map({
+        submarket: 'Asia/Oceania',
+    }),
 });
 
 export default (state = initialState, action) => {
