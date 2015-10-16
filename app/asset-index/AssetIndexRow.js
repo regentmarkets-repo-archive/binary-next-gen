@@ -1,27 +1,19 @@
 import React from 'react';
 
-const AssetIndexRow = ({asset}) => (
+const AssetIndexRow = ({assetIndex}) => (
     <tr>
         <td>
-            {asset.display_name}
+            {assetIndex[1]}
         </td>
-        <td>
-            5t–365d
-        </td>
-        <td>
-            1h–365d
-        </td>
-        <td>
-            1d–365d
-        </td>
-        <td>
-            1d–365d
-        </td>
+        {assetIndex[2].map(idx =>
+            <td key={idx}>{idx[2]}–{idx[3]}</td>
+        )}
+        {Array(8 - assetIndex[2].length).fill(<td></td>)}
     </tr>
 );
 
 AssetIndexRow.propTypes = {
-    asset: React.PropTypes.object.isRequired,
+    assetIndex: React.PropTypes.array.isRequired,
 };
 
 export default AssetIndexRow;

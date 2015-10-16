@@ -1,7 +1,8 @@
 import { Map } from 'immutable';
 
 import {
-    UPDATE_TICK_TRADE_PARAMETERS,
+    UPDATE_TICK_TRADE_SUBMARKET,
+    UPDATE_TICK_TRADE_DATE,
 } from '../_constants/ActionTypes';
 
 const initialState = new Map({
@@ -18,7 +19,9 @@ const initialState = new Map({
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case UPDATE_TICK_TRADE_PARAMETERS:
+        case UPDATE_TICK_TRADE_SUBMARKET:
+            return state.merge(action.parameters);
+        case UPDATE_TICK_TRADE_DATE:
             return state.merge(action.parameters);
         default:
             return state;

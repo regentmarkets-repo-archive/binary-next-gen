@@ -6,6 +6,9 @@ import {
     WORKSPACE_ASSET_SELECT,
     WORKSPACE_FAVOR_ASSET,
     WORKSPACE_UNFAVOR_ASSET,
+    UPDATE_TICK_TRADE_SUBMARKET,
+    UPDATE_TICK_TRADE_DATE,
+    UPDATE_ASSET_INDEX_SUBMARKET,
 } from '../_constants/ActionTypes';
 
 const initialState = new Map({
@@ -41,6 +44,15 @@ export default (state = initialState, action) => {
         }
         case WORKSPACE_UNFAVOR_ASSET: {
             return state;
+        }
+        case UPDATE_TICK_TRADE_SUBMARKET: {
+            return state.merge({ tradingTimes: { submarket: action.submarket }});
+        }
+        case UPDATE_TICK_TRADE_DATE: {
+            return state.merge({ tradingTimes: { date: action.date }});
+        }
+        case UPDATE_ASSET_INDEX_SUBMARKET: {
+            return state.merge({ assetIndex: { submarket: action.submarket }});
         }
         default:
             return state;

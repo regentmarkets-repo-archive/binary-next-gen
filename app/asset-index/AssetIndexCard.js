@@ -5,30 +5,31 @@ import AssetIndexTable from './AssetIndexTable';
 export default class AssetIndexCard extends React.Component {
 
 	static propTypes = {
+		actions: React.PropTypes.object.isRequired,
 		assets: React.PropTypes.object.isRequired,
-		assetIndexWorkspace: React.PropTypes.object.isRequired,
+		assetIndexFilter: React.PropTypes.object.isRequired,
 	};
 
 	shouldComponentUpdate(nextProps) {
 		return nextProps.assets !== this.props.assets ||
-			nextProps.assetIndexWorkspace !== this.props.assetIndexWorkspace;
+			nextProps.assetIndexFilter !== this.props.assetIndexFilter;
 	}
 
 	render() {
-		const {assets, assetIndexWorkspace} = this.props;
+		const {actions, assets, assetIndexFilter} = this.props;
 		const {index, list} = assets.toJS();
-		const submarket = assetIndexWorkspace.get('submarket');
+		const submarket = assetIndexFilter.get('submarket');
 		const submarketForAsset = symbol => list.find(x => x.symbol === symbol).submarket_display_name;
 
 		return (
 			<div>
 				<MarketSelector
-					onChange={x => this.changeSubmarket(x)}
+					onChange={x => actions.updateAssetIndexSubmarket(x)}
 					showAllOption={false} />
 				<AssetIndexTable
 					key={submarket}
 					submarket={submarket}
-					index={index.filter(a => submarketForAsset(a.symbol) === submarket)} />
+					index={index.filter(a => submarketForAsset(a[0]) === submarket)} />
 			</div>
 		);
 	}

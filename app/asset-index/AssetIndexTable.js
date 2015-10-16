@@ -9,16 +9,15 @@ const AssetIndexTable = ({submarket, index}) => (
                     {submarket}
                 </th>
             </tr>
+            {index[0] &&
             <tr>
                 <th></th>
-                <th>Up/<wbr/>Down</th>
-                <th>Touch/<wbr/>No Touch</th>
-                <th>Ends Between/<wbr/>Outside</th>
-                <th>Stays Between/<wbr/>Goes Outside</th>
-            </tr>
+                { index[0][2].map((idx) => <th key={idx}>{idx[1]}</th>)}
+                {Array(8 - index[0][2].length).fill(<th></th>)}
+            </tr>}
         </thead>
         <tbody>
-            {index.map(a => <AssetIndexRow key={a.symbol} asset={a} />)}
+            {index.map(idx => <AssetIndexRow key={idx[0]} assetIndex={idx} />)}
         </tbody>
     </table>
 );

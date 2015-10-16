@@ -6,6 +6,7 @@ export default class MarketSelector extends React.Component {
 
 	static propTypes = {
 		assets: React.PropTypes.object.isRequired,
+		onChange: React.PropTypes.func.isRequired,
 		showAllOption: React.PropTypes.bool.isRequired,
 	};
 
@@ -14,11 +15,11 @@ export default class MarketSelector extends React.Component {
 	}
 
 	render() {
-		const {assets, showAllOption} = this.props;
+		const {assets, onChange, showAllOption} = this.props;
 		const tree = assets.get('tree').toJS();
 
 		return (
-			<select className="market-submarket-selector">
+			<select className="market-submarket-selector" onChange={e => onChange(e.target.value)}>
 				{showAllOption ? <option>All</option> : null}
 				{Object.keys(tree).map(market => (
 					<optgroup key={market} label={market}>

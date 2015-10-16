@@ -27,3 +27,23 @@ export function workspaceUnfavorAsset(symbol) {
         symbol,
     };
 }
+
+export function updateTickTradeSubmarket(submarket) {
+    return {
+        type: types.UPDATE_TICK_TRADE_SUBMARKET,
+        submarket,
+    };
+}
+export function updateTickTradeDate(date) {
+    return {
+        type: types.UPDATE_TICK_TRADE_DATE,
+        date,
+    };
+}
+
+export function updateAssetIndexSubmarket(submarket) {
+    return {
+        type: types.UPDATE_ASSET_INDEX_SUBMARKET,
+        submarket,
+    };
+}
