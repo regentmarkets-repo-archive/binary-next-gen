@@ -7,11 +7,14 @@ const AssetSelectorCard = ({actions, assets, assetSelector, workspace}) => {
 
 	const onSelect = asset => actions.workspaceAssetSelect(asset);
 	const onFavor = asset => actions.workspaceFavorAsset(asset);
-	const onSearchQueryChange = e => actions.filterAssets(assets.get('list'), e.target.value);
+	const onSearchQueryChange = e => actions.updateAssetSelectorSearchQuery(assets.get('list'), e.target.value);
+	const onSubmarketChange = e => actions.updateAssetSelectorSubmarket(assets.get('list'), e);
 
 	return (
 		<div>
-			<MarketSelector showAllOption={true} />
+			<MarketSelector
+				onChange={onSubmarketChange}
+				showAllOption={true} />
 			<InputGroup
 				className="asset-search"
 				type="search"

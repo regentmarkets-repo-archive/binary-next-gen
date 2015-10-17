@@ -20,7 +20,7 @@ export default class MarketSelector extends React.Component {
 
 		return (
 			<select className="market-submarket-selector" onChange={e => onChange(e.target.value)}>
-				{showAllOption ? <option>All</option> : null}
+				{showAllOption ? <option value="">All</option> : null}
 				{Object.keys(tree).map(market => (
 					<optgroup key={market} label={market}>
 						{Object.keys(tree[market]).map(submarket =>

@@ -1,9 +1,17 @@
 import * as types from '../_constants/ActionTypes';
 
-export function filterAssets(assets, query) {
+export function updateAssetSelectorSearchQuery(assets, query) {
     return {
-        type: types.FILTER_ASSETS,
+        type: types.UPDATE_ASSET_SELECTOR_SEARCH_QUERY,
         assets,
         query,
+    };
+}
+
+export function updateAssetSelectorSubmarket(assets, submarket) {
+    return {
+        type: types.UPDATE_ASSET_SELECTOR_SUBMARKET,
+        assets,
+        submarket,
     };
 }
