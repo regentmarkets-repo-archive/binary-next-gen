@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default (props) => (
+export default () => (
 	<div>
 		<fieldset>
 			<label>USD/JPY will RISE over next 5 ticks</label>

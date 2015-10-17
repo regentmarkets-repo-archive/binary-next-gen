@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default (props) => {
+export default () => {
     // const state = {
     //     contractType: 'higher',
     //     market: 'AUD',

@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import TickSparkline from '../watchlist/TickSparkline';
 
-export default (props) => (
+export default () => (
 	<div>
 		<Link to={`/tick-trade/settings`} className="button">Change Time Settings</Link>
 		<fieldset>

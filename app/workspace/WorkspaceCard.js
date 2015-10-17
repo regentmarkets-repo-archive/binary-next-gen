@@ -9,7 +9,7 @@ import ProfitTablePanel from '../profit-table/ProfitTablePanel';
 import BalancesPanel from '../balances/BalancesPanel';
 import StatementPanel from '../statement/StatementPanel';
 
-export default (props) => (
+export default () => (
 	<div>
 		<BalancesPanel position={{left: 1, top: 52, width: 320, height: 110 }} />
 		<AssetSelectorPanel position={{left: 1, top: 165, width: 320, height: 445 }} />
