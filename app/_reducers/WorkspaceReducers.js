@@ -14,7 +14,7 @@ import {
 
 const initialState = new Map({
     symbolSelected: 'frxUSDJPY',
-    favoriteAssets: Set.of('R_50', 'frxUSDJPY', 'RDBEAR'),
+    favoriteAssets: Set.of(),
     tradingTimes: new Map({
         submarket: 'Asia/Oceania',
         date: new Date(),

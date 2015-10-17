@@ -17,7 +17,10 @@ const AssetIndexTable = ({submarket, index}) => (
             </tr>}
         </thead>
         <tbody>
-            {index.map(idx => <AssetIndexRow key={idx[0]} assetIndex={idx} />)}
+            {index.map(idx =>
+                <AssetIndexRow
+                    key={idx}
+                    assetIndex={idx} />)}
         </tbody>
     </table>
 );
