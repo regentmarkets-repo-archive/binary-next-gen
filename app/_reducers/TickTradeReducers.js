@@ -17,6 +17,17 @@ const initialState = new Map({
     priceProposal: { },
 });
 
+// api.getPriceProposal({
+//     symbol: symbol,
+//     duration,
+//     currency,
+//     amount,
+//     date_start: new Date(),
+//     basis,
+//     duration_unit: 't',
+//     contract_type,
+// });
+
 export default (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_TICK_TRADE_SUBMARKET:

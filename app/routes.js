@@ -1,6 +1,6 @@
 import App from './App';
 import HomePage from './home/HomePage';
-import NavigationMenu from './navigation/NavigationMenu';
+import NavigationMenuMobile from './navigation/NavigationMenuMobile';
 import LoginPage from './login/LoginPage';
 import TickTradePage from './tick-trade/TickTradePage';
 import TickTradeCard from './tick-trade/TickTradeCard';
@@ -38,7 +38,7 @@ export default {
     component: App,
     childRoutes: [
         { path: '/', component: HomePage },
-        { path: 'nav', component: NavigationMenu },
+        { path: 'nav', component: NavigationMenuMobile },
         { path: 'login', component: LoginPage },
         { path: 'tick-trade', indexRoute: { component: TickTradeCard }, component: TickTradePage, childRoutes: [
             { path: 'in', component: TickTradeInCard },
