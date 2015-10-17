@@ -2,11 +2,11 @@ import React from 'react';
 import { Link } from 'react-router';
 import { RangeGroup } from '../common';
 
-export default () => (
+export default (workspace) => (
 	<div>
 		<label>Underlying Asset</label>
 		<fieldset>
-			<Link to={'/asset-selector'} className="button">Forex > USD/JPY</Link>
+			<Link to={'/asset-selector'} className="button">Forex > USD/JPY}</Link>
 		</fieldset>
 		<label>Select Trade</label>
 		<fieldset>

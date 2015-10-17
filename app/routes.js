@@ -2,8 +2,8 @@ import App from './App';
 import HomePage from './home/HomePage';
 import NavigationMenuMobile from './navigation/NavigationMenuMobile';
 import LoginPage from './login/LoginPage';
-import TickTradePage from './tick-trade/TickTradePage';
-import TickTradeCard from './tick-trade/TickTradeCard';
+import TickTradeMobile from './tick-trade/TickTradeMobile';
+import TickTradePage from './tick-trade/TickTradeCard';
 import TickTradeInCard from './tick-trade/TickTradeInCard';
 import TickTradeSettingsCard from './tick-trade/TickTradeSettingsCard';
 import { PortfolioPage, PortfolioMobile, PortfolioPanel } from './portfolio';
@@ -40,7 +40,7 @@ export default {
         { path: '/', component: HomePage },
         { path: 'nav', component: NavigationMenuMobile },
         { path: 'login', component: LoginPage },
-        { path: 'tick-trade', indexRoute: { component: TickTradeCard }, component: TickTradePage, childRoutes: [
+        { path: 'tick-trade', indexRoute: { component: TickTradePage }, component: TickTradeMobile, childRoutes: [
             { path: 'in', component: TickTradeInCard },
             { path: 'settings', component: TickTradeSettingsCard },
         ]},
