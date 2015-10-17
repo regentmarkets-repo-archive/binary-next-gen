@@ -4,6 +4,6 @@ import PortfolioContainer from './PortfolioContainer';
 
 export default (props) => (
 	<MobilePage>
-		<PortfolioContainer {...props} />
+		<PortfolioContainer compact={true} {...props} />
 	</MobilePage>
 );

@@ -6,7 +6,7 @@ import PortfolioTable from './PortfolioTable';
 import ContractDetails from './ContractDetails';
 
 
-const PortfolioCard = ({portfolio, dispatch}) => {
+const PortfolioCard = ({compact, portfolio, dispatch}) => {
 	const showDetails = (contract) => {
 		const actions = bindActionCreators(PortfolioActions, dispatch);
 		actions.detailsForContract(true, contract);
@@ -24,6 +24,7 @@ const PortfolioCard = ({portfolio, dispatch}) => {
 				<ContractDetails contract={contractShown} />
 			</Modal>
 			<PortfolioTable
+				compact={compact}
 				contracts={contracts}
 				onViewDetails={showDetails} />
 		</div>
@@ -31,6 +32,7 @@ const PortfolioCard = ({portfolio, dispatch}) => {
 };
 
 PortfolioCard.propTypes = {
+	compact: React.PropTypes.bool,
 	portfolio: React.PropTypes.object,
 	dispatch: React.PropTypes.func,
 };

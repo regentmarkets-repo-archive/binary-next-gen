@@ -7,7 +7,7 @@ const calculatePortfolioTotals = contracts => ({
     indicative: contracts.length && contracts.reduce((x, y) => x + +y.buy_price, 0),
 });
 
-const PortfolioTable = ({contracts, onViewDetails}) => {
+const PortfolioTable = ({compact, contracts, onViewDetails}) => {
     const totals = calculatePortfolioTotals(contracts);
 
 	contracts.slice().sort((x, y) => Math.sign(x.fmb_id, y.fmb_id));
@@ -19,25 +19,31 @@ const PortfolioTable = ({contracts, onViewDetails}) => {
 					<th>Ref.</th>
 					<th>Purchase</th>
                     <th>Indicative</th>
-                    <th></th>
+                    {!compact && <th></th>}
 				</tr>
 			</thead>
 			<tbody>
-                {contracts.map((c, i) => <PortfolioRow key={i} contract={c} onViewDetails={onViewDetails} />)}
+                {contracts.map((c, i) =>
+                    <PortfolioRow
+                        key={i}
+                        compact={compact}
+                        contract={c}
+                        onViewDetails={onViewDetails} />)}
 			</tbody>
-			<thead>
+			<tfoot>
 				<tr>
-					<th></th>
+                    <th></th>
 					<th><NumberPlain currency="USD" value={totals.purchase} /></th>
                     <th><NumberPlain currency="USD" value={totals.indicative} /></th>
-                    <th></th>
+                    {!compact && <th></th>}
 				</tr>
-			</thead>
+			</tfoot>
 		</table>
 	);
 };
 
 PortfolioTable.propTypes = {
+    compact: React.PropTypes.bool,
 	contracts: React.PropTypes.array.isRequired,
     onViewDetails: React.PropTypes.func.isRequired,
 };

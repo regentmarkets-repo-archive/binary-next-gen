@@ -12,7 +12,7 @@ import StatementPanel from '../statement/StatementPanel';
 export default (props) => (
 	<div>
 		<BalancesPanel position={{left: 1, top: 52, width: 320, height: 110 }} />
-		<AssetSelectorPanel position={{left: 1, top: 163, width: 320, height: 450 }} />
+		<AssetSelectorPanel position={{left: 1, top: 165, width: 320, height: 445 }} />
 		<AssetDetailsPanel position={{left: 1, top: 615, width: 320, height: 370 }} />
 
 		<WatchlistPanel position={{left: 325, top: 52, width: 550, height: 200 }} />
@@ -21,6 +21,6 @@ export default (props) => (
 
 		<PortfolioPanel position={{left: 880, top: 52, width: 800, height: 300 }} />
 		<StatementPanel position={{left: 880, top: 355, width: 800, height: 300 }} />
-		<ProfitTablePanel position={{left: 880, top: 660, width: 800, height: 300 }} />
+		<ProfitTablePanel position={{left: 880, top: 660, width: 800, height: 320 }} />
 	</div>
 );

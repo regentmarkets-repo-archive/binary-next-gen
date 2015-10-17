@@ -5,35 +5,42 @@ import StatementRow from './StatementRow';
 
 const calulateTotals = transactions => transactions.map(t => +t.amount).reduce((x, y) => x + y, 0);
 
-const StatementTable = ({transactions, currency, onViewDetails}) => (
+const StatementTable = ({compact, currency, transactions, onViewDetails}) => (
 	<table>
 		<thead>
 			<tr>
 				<th>Date</th>
-				<th>Ref.</th>
+				{!compact && <th>Ref.</th>}
 				<th>Action</th>
 				<th>Credit/Debit</th>
 				<th>Balance&nbsp;({currency})</th>
-				<th></th>
+				{!compact && <th></th>}
 			</tr>
 		</thead>
 		<tbody>
-            {transactions.map((t, i) => <StatementRow key={i} transaction={t} onViewDetails={onViewDetails} />)}
+            {transactions.map((t, i) =>
+				<StatementRow
+					key={i}
+					compact={compact}
+					transaction={t}
+					onViewDetails={onViewDetails} />)}
 		</tbody>
-		<thead>
+		<tfoot>
 			<tr>
 				<th>{transactions[0] && dateStr(transactions[0].transaction_time)}</th>
-				<th colSpan={3}></th>
+				<th></th>
+				{!compact && <th></th>}
 				<th><NumberColored value={calulateTotals(transactions)} /></th>
 				<th><NumberPlain value={transactions[0] && transactions[0].balance_after} /></th>
-				<th></th>
+				{!compact && <th></th>}
 			</tr>
-		</thead>
+		</tfoot>
 	</table>
 );
 
 
 StatementTable.propTypes = {
+	compact: React.PropTypes.bool,
 	transactions: React.PropTypes.array.isRequired,
     onViewDetails: React.PropTypes.func.isRequired,
 };

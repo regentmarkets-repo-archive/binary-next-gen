@@ -16,13 +16,14 @@ const ProfitTableCard = (props) => {
 		actions.detailsForContract(false);
 	};
 
-	const { contractShown, areDetailsShown, profitTable } = props;
+	const { contractShown, compact, areDetailsShown, profitTable } = props;
 	return (
 		<div>
 			<Modal shown={areDetailsShown} onClose={onCloseDetails}>
 				<ContractDetails contract={contractShown} />
 			</Modal>
 			<ProfitTable
+				compact={compact}
 				transactions={profitTable}
 				onViewDetails={showDetails} />
 		</div>
@@ -30,6 +31,7 @@ const ProfitTableCard = (props) => {
 };
 
 ProfitTableCard.propTypes = {
+	compact: React.PropTypes.bool,
 	profitTable: React.PropTypes.object,
 	dispatch: React.PropTypes.func,
 };

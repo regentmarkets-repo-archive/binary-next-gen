@@ -4,6 +4,6 @@ import StatementCard from './StatementCard';
 
 export default (props) => (
 	<MobilePage>
-		<StatementCard {...props} />
+		<StatementCard compact={true} {...props} />
 	</MobilePage>
 );

@@ -14,7 +14,7 @@ export default class NavigationMenu extends React.Component {
 		const account = this.props.account.toJS();
 		return (
 			<nav className="sidebar">
-				<div>
+				<div className="orange">
 					{account.loginid}<br/>
 					{account.email}<br/>
 					<NumberPlain currency={account.currency} value={account.balance} />
