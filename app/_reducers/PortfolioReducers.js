@@ -1,4 +1,4 @@
-import { Map, fromJS } from 'immutable';
+import { fromJS, List } from 'immutable';
 
 import {
     SERVER_DATA_PORTFOLIO,
@@ -6,22 +6,21 @@ import {
     DETAILS_FOR_CONTRACT,
 } from '../_constants/ActionTypes';
 
-const initialState = new Map({
+const initialState = fromJS({
     detailsShown: false,
     contractShown: undefined,
     contracts: [],
+    proposals: {},
 });
 
 export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_PORTFOLIO: {
-            return state.set('contracts', fromJS(action.serverResponse.portfolio.contracts));
+            return state.set('contracts', new List(action.serverResponse.portfolio.contracts));
         }
         case SERVER_DATA_PROPOSAL_OPEN_CONTRACT: {
             const proposal = action.serverResponse.proposal_open_contract;
-            const id = action.serverResponse.echo_req.fmb_id;
-            if (!state.getIn('contracts', id)) return state;
-            return state.mergeDeepIn(['contracts', id], proposal);
+            return state.setIn(['proposals', proposal.fmb_id], proposal);
         }
         case DETAILS_FOR_CONTRACT: {
             return state

@@ -2,16 +2,10 @@ import React from 'react';
 import { NumberPlain } from '../common';
 import PortfolioRow from './PortfolioRow';
 
-const calculatePortfolioTotals = contracts => ({
-    purchase: contracts.length && contracts.reduce((x, y) => x + +y.buy_price, 0),
-    indicative: contracts.length && contracts.reduce((x, y) => x + +y.buy_price, 0),
-});
+const totalPurchase = contracts => contracts.reduce((x, y) => x + +y.buy_price, 0);
+const totalIndicative = () => 0; // proposals =>  proposals.values().reduce((x, y) => x + +y, 0);
 
-const PortfolioTable = ({compact, contracts, onViewDetails}) => {
-    const totals = calculatePortfolioTotals(contracts);
-
-	contracts.slice().sort((x, y) => Math.sign(x.fmb_id, y.fmb_id));
-
+const PortfolioTable = ({compact, contracts, proposals, onViewDetails}) => {
 	return (
 		<table>
 			<thead>
@@ -28,13 +22,14 @@ const PortfolioTable = ({compact, contracts, onViewDetails}) => {
                         key={i}
                         compact={compact}
                         contract={c}
+                        proposal={proposals.get(c.fmb_id)}
                         onViewDetails={onViewDetails} />)}
 			</tbody>
 			<tfoot>
 				<tr>
                     <th></th>
-					<th><NumberPlain currency="USD" value={totals.purchase} /></th>
-                    <th><NumberPlain currency="USD" value={totals.indicative} /></th>
+					<th><NumberPlain currency="USD" value={totalPurchase(contracts)} /></th>
+                    <th><NumberPlain currency="USD" value={totalIndicative(proposals)} /></th>
                     {!compact && <th></th>}
 				</tr>
 			</tfoot>
@@ -44,7 +39,7 @@ const PortfolioTable = ({compact, contracts, onViewDetails}) => {
 
 PortfolioTable.propTypes = {
     compact: React.PropTypes.bool,
-	contracts: React.PropTypes.array.isRequired,
+	contracts: React.PropTypes.object.isRequired,
     onViewDetails: React.PropTypes.func.isRequired,
 };
 

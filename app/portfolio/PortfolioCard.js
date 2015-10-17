@@ -1,32 +1,24 @@
 import React from 'react';
-import { bindActionCreators } from 'redux';
-import * as PortfolioActions from '../_actions/PortfolioActions';
 import Modal from '../common/Modal';
 import PortfolioTable from './PortfolioTable';
 import ContractDetails from './ContractDetails';
 
 
-const PortfolioCard = ({compact, portfolio, dispatch}) => {
-	const showDetails = (contract) => {
-		const actions = bindActionCreators(PortfolioActions, dispatch);
-		actions.detailsForContract(true, contract);
-	};
+const PortfolioCard = ({compact, portfolio, actions}) => {
+	const contractShown = portfolio.get('contractShown');
+	const proposalShown = contractShown && portfolio.get('proposals').get(contractShown.fmb_id);
 
-	const onCloseDetails = () => {
-		const actions = bindActionCreators(PortfolioActions, dispatch);
-		actions.detailsForContract(false);
-	};
-
-	const { contracts, contractShown, areDetailsShown } = portfolio.toJS();
 	return (
 		<div>
-			<Modal shown={areDetailsShown} onClose={onCloseDetails}>
-				<ContractDetails contract={contractShown} />
+			<Modal shown={portfolio.get('areDetailsShown')}
+				onClose={() => actions.detailsForContract(false)}>
+				<ContractDetails contract={contractShown} proposal={proposalShown} />
 			</Modal>
 			<PortfolioTable
 				compact={compact}
-				contracts={contracts}
-				onViewDetails={showDetails} />
+				contracts={portfolio.get('contracts')}
+				proposals={portfolio.get('proposals')}
+				onViewDetails={contract => actions.detailsForContract(true, contract)} />
 		</div>
 	);
 };

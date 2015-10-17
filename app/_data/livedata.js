@@ -39,13 +39,14 @@ export default class LiveData {
     init() {
         this.api.authorize('GTE68xHUZvgS6Cp478EPvYZe6EqJ2CRUtlNYBo7zJ7CXBmdL');
         this.api.getActiveSymbolsFull();
+        this.api.getPortfolio();
         this.api.getTradingTimes();
         this.api.getAssetIndex();
         this.api.getStatement({ description: 1, limit: 10 });
         this.api.getProfitTable({ description: 1, limit: 10 });
         this.api.getBalance();
-        this.api.getPortfolio();
         this.api.getPayoutCurrencies();
+        this.api.subscribeToAllOpenContracts();
         // this.api.subscribeToTicks(['R_50', 'frxUSDJPY', 'RDBEAR']);
     }
 

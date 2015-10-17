@@ -1,9 +1,9 @@
 import React from 'react';
 import { timeStr } from '../common/DateUtils';
 
-const returnOnContract = (contract) => ((contract.bid_price - contract.buy_price) * 100 / contract.buy_price).toFixed(2);
+const returnOnContract = (contract, proposal) => (proposal.bid_price - contract.buy_price) * 100 / contract.buy_price;
 
-const ContractDetails = ({contract}) => (
+const ContractDetails = ({contract, proposal}) => (
 	<div>
 		<table>
 			<thead>
@@ -16,7 +16,7 @@ const ContractDetails = ({contract}) => (
 			<tbody>
 				<tr>
 					<td>{timeStr(contract.date_start)}</td>
-					<td>todo</td>
+					<td>{proposal && proposal.spot_time}</td>
 					<td>{timeStr(contract.expiry_time)}</td>
 				</tr>
 				<tr>
@@ -31,11 +31,16 @@ const ContractDetails = ({contract}) => (
 					<th>Current Spot</th>
 					<th>Exit Spot</th>
 				</tr>
+				<tr>
+					<th>???</th>
+					<th>{proposal && proposal.spot}</th>
+					<th>???</th>
+				</tr>
 			</thead>
 			<tbody>
 				<tr>
 					<td>{contract.entry_spot}</td>
-					<td>{contract.spot}</td>
+					<td>{proposal && proposal.bid_price}</td>
 					<td>{contract.exit_spot}</td>
 				</tr>
 				<tr>
@@ -59,7 +64,7 @@ const ContractDetails = ({contract}) => (
 				</tr>
 				<tr>
 					<td></td>
-					<td>{returnOnContract(contract)}%</td>
+					<td>{proposal && returnOnContract(contract, proposal).toFixed(2)}%</td>
 					<td></td>
 				</tr>
 			</tbody>
@@ -69,6 +74,7 @@ const ContractDetails = ({contract}) => (
 
 ContractDetails.propTypes = {
 	contract: React.PropTypes.object,
+	proposal: React.PropTypes.object,
 };
 
 export default ContractDetails;
