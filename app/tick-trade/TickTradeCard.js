@@ -1,20 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { RangeGroup } from '../common';
-import TickSparkline from '../watchlist/TickSparkline';
+import TickTradeSparkline from '../watchlist/TickTradeSparkline';
 import LiveData from '../_data/LiveData';
 import TickTradeType from './TickTradeType';
-
-const testHistory = [
-	{quote: 10}, {quote: 50}, {quote: 20}, {quote: 10}, {quote: 50},
-	{quote: 20}, {quote: 50}, {quote: 40}, {quote: 10}, {quote: 50},
-	{quote: 20}, {quote: 50}, {quote: 40}, {quote: 30}, {quote: 50},
-	{quote: 20}, {quote: 50}, {quote: 40}, {quote: 60}, {quote: 50},
-	{quote: 20}, {quote: 50}, {quote: 40}, {quote: 20}, {quote: 50},
-	{quote: 20}, {quote: 50}, {quote: 40}, {quote: 10}, {quote: 50},
-	{quote: 20}, {quote: 50}, {quote: 40}, {quote: 40}, {quote: 50},
-	{quote: 20}, {quote: 50}, {quote: 40}, {quote: 40}, {quote: 50},
-];
 
 export default class TickTradeCard extends React.Component {
 
@@ -25,8 +14,9 @@ export default class TickTradeCard extends React.Component {
 		workspace: React.PropTypes.object.isRequired,
 	};
 
-	getPrice(tickTrade) {
+	getPrice() {
 		const liveData = new LiveData();
+		const {tickTrade} = this.props;
 
 		liveData.api.unsubscribeFromAllProposals();
 
@@ -40,71 +30,88 @@ export default class TickTradeCard extends React.Component {
 			symbol: tickTrade.get('assetSymbol'),
 		});
 	}
-	placeOrder(tickTrade) {
-		const liveData = new LiveData();
 
+	placeOrder() {
+		const liveData = new LiveData();
+		const {tickTrade} = this.props;
 		liveData.api.buyContract(tickTrade.get('id'), tickTrade.get('ask_price'));
 	}
 
+	getTickHistory() {
+		const {tickTrade} = this.props;
+		return tickTrade.get('ticks').toJS();
+	}
+
+	getSelectedAssetName() {
+		const {assets, workspace} = this.props;
+		const asset = assets.get('list').find(x =>
+			x.get('symbol') === workspace.get('symbolSelected'));
+
+		return asset ? asset.get('display_name') : '';
+	}
+
 	render() {
-		const {actions, assets, tickTrade, workspace} = this.props;
-
-		const selectedAssetName = () => {
-			const asset = assets.get('list').find(x =>
-				x.get('symbol') === workspace.get('symbolSelected'));
-
-			return asset ? asset.get('display_name') : '';
-		};
+		const {actions, tickTrade} = this.props;
+		const history = this.getTickHistory();
+		const spot = history[history.length - 1].quote;
 
 		return (
 			<div>
 				{JSON.stringify(tickTrade.get('proposal'))}
 				<fieldset>
-					<TickSparkline width={344} height={120} history={testHistory} />
+					<TickTradeSparkline
+						width={344}
+						height={120}
+						history={history}
+						isCall={tickTrade.get('contractType') === 'CALL'}
+						spot={spot} />
 				</fieldset>
 				<div className="row">
 					<label>Asset</label>
-					<fieldset style={{flex: 3}}>
-						<Link to={'/asset-selector?goback'} className="button">{selectedAssetName()}</Link>
+					<fieldset style={{flex: 4}}>
+						<Link to={'/asset-selector?goback&tick'} className="button">
+							{this.getSelectedAssetName() || '...'}
+						</Link>
 					</fieldset>
 				</div>
 				<div className="row">
-					<label>Trade Type</label>
-					<fieldset style={{flex: 3}}>
+					<label>Type</label>
+					<fieldset style={{flex: 4}}>
 						<TickTradeType
 							value={tickTrade.get('contractType')}
 							onChange={e => actions.updateTickTradeParameters({ contractType: e.target.value })} />
 					</fieldset>
 				</div>
 				<div className="row">
-					<label>No. ticks:</label>
-					<fieldset style={{flex: 3}}>
+					<label>Ticks</label>
+					<div style={{flex: 4}}>
 						<RangeGroup
 							min={5} max={10}
 							items={['5', '6', '7', '8', '9', '10']}
 							value={tickTrade.get('duration')}
 							onChange={e => actions.updateTickTradeParameters({ duration: +e.target.value })} />
-					</fieldset>
+					</div>
 				</div>
 				<div className="row">
 					<label>Amount</label>
-					<fieldset style={{flex: 3}}>
+					<fieldset style={{flex: 4}}>
 						<button>Payout: {tickTrade.get('currency')} {tickTrade.get('amount')}</button>
 					</fieldset>
 				</div>
 				<fieldset>
-					<Link to={'/asset-selector'} className="soft-btn">{selectedAssetName()}</Link>
+					<Link to={'/asset-selector?goback&tick'} className="soft-btn">{this.getSelectedAssetName()}</Link>
 					&nbsp;will&nbsp;
 					<Link to="/trade-type-selector" className="soft-btn">{tickTrade.get('contractType')}</Link>
 					&nbsp;over&nbsp;next&nbsp;
 					<Link to="/duration-selector" className="soft-btn">{tickTrade.get('duration')} ticks</Link>
 				</fieldset>
-				<fieldset>
-					<label>Price: {tickTrade.get('currency')} {tickTrade.get('ask_price')}</label>
-					<br/>
-					<button className="buy-btn" onClick={() => this.getPrice(tickTrade)}>Get Price</button>
-					<button className="buy-btn" onClick={() => this.placeOrder(tickTrade)}>Place Order</button>
-				</fieldset>
+				<div className="row" style={{ fontSize: '1.4rem', marginBottom: '1rem' }}>
+					<label>Spot: {spot}</label><label>Price: {tickTrade.get('currency')} {tickTrade.get('ask_price')}</label>
+				</div>
+				<div>
+					<button className="buy-btn" onClick={() => this.getPrice()}>Get Price</button>
+					<button className="buy-btn" onClick={() => this.placeOrder()}>Place Order</button>
+				</div>
 			</div>
 		);
 	}

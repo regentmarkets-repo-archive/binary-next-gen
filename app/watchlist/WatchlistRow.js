@@ -1,7 +1,7 @@
 import React from 'react';
 import { timeStr } from '../common/DateUtils';
 import { Direction, NumberColored } from '../common';
-import TickSparkline from './TickSparkline';
+import WatchlistSparkline from './WatchlistSparkline';
 
 const historyDiff = (history) => {
 	if (!history || history.length <= 1) return 0;
@@ -13,7 +13,7 @@ export default class WatchlistRow extends React.Component {
 
 	static propTypes = {
 		asset: React.PropTypes.object.isRequired,
-		compact: React.PropTypes.bool.isRequired,
+		compact: React.PropTypes.bool,
 		history: React.PropTypes.object.isRequired,
 	};
 
@@ -37,7 +37,7 @@ export default class WatchlistRow extends React.Component {
 				<td>{quote}</td>
 				{!compact && <td>{timeStr(epoch)}</td>}
 				<td><NumberColored value={diff.toPrecision(2)} /></td>
-				<td><TickSparkline history={history} /></td>
+				<td><WatchlistSparkline history={history} /></td>
 			</tr>
 		);
 	}

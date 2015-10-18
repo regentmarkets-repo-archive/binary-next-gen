@@ -1,6 +1,7 @@
 import React from 'react';
-import AssetList from './AssetList';
+import AssetSelectorList from './AssetSelectorList';
 import { MarketSelector, InputGroup } from '../common';
+import LiveData from '../_data/LiveData';
 
 const AssetSelectorCard = ({actions, assets, assetSelector, history, workspace}) => {
 	const shownAssets = assetSelector.get('shownAssets');
@@ -8,6 +9,11 @@ const AssetSelectorCard = ({actions, assets, assetSelector, history, workspace})
 	const onSelect = (asset) => {
 		actions.workspaceAssetSelect(asset);
 		if (~window.location.search.indexOf('goback')) history.goBack();
+		if (~window.location.search.indexOf('tick')) {
+			const liveData = new LiveData();
+			liveData.api.getTickHistory(asset, { end: 'latest', count: 20 });
+			liveData.api.subscribeToTick(asset);
+		}
 	};
 	const onFavor = asset => actions.workspaceFavorAsset(asset);
 	const onSearchQueryChange = e => actions.updateAssetSelectorSearchQuery(assets.get('list'), e.target.value);
@@ -17,13 +23,14 @@ const AssetSelectorCard = ({actions, assets, assetSelector, history, workspace})
 		<div>
 			<MarketSelector
 				onChange={onSubmarketChange}
-				showAllOption={true} />
+				showAllOption={true}
+				showMarkets={~window.location.search.indexOf('tick') ? ['Forex', 'Randoms'] : null} />
 			<InputGroup
 				className="asset-search"
 				type="search"
 				placeholder="Search for assets"
 				onChange={onSearchQueryChange} />
-			<AssetList
+			<AssetSelectorList
 				assets={shownAssets}
 				favorites={workspace.get('favoriteAssets')}
 				onSelect={onSelect}

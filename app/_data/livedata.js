@@ -12,7 +12,7 @@ const handlers = {
     'portfolio': 'serverDataPortfolio',
     'statement': 'serverDataStatement',
     'tick': 'serverDataTickStream',
-    'ticks': 'serverDataTickHistory',
+    'history': 'serverDataTickHistory',
     'proposal_open_contract': 'serverDataProposalOpenContract',
     'payout_currencies': 'serverDataPayoutCurrencies',
     'profit_table': 'serverDataProfitTable',

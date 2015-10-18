@@ -1,7 +1,7 @@
 import React from 'react';
-import AssetItem from './AssetItem';
+import AssetSelectorItem from './AssetSelectorItem';
 
-export default class AssetList extends React.Component {
+export default class AssetSelectorList extends React.Component {
 
 	static propTypes = {
 		assets: React.PropTypes.object.isRequired,
@@ -28,7 +28,7 @@ export default class AssetList extends React.Component {
 				</thead>
 				<tbody>
 					{assets.map(asset =>
-						<AssetItem
+						<AssetSelectorItem
 							key={asset.get('symbol')}
 							asset={asset}
 							isFavorite={favorites.has(asset.get('symbol'))}

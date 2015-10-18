@@ -1,7 +1,7 @@
 import React from 'react';
 import { Star } from '../common';
 
-export default class AssetItem extends React.Component {
+export default class AssetSelectorItem extends React.Component {
 
 	static propTypes = {
 		isFavorite: React.PropTypes.bool.isRequired,

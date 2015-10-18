@@ -2,19 +2,19 @@ import React from 'react';
 
 import { Sparklines, SparklinesLine, SparklinesSpots } from 'react-sparklines';
 
-const TickSparkline = (props) => (
+const WatchlistSparkline = (props) => (
 	<Sparklines {...props} data={props.history.map((h) => h.quote)} limit={30} >
 		<SparklinesLine />
 		<SparklinesSpots />
 	</Sparklines>
 );
 
-TickSparkline.propTypes = {
+WatchlistSparkline.propTypes = {
 	history: React.PropTypes.array,
 };
 
-TickSparkline.defaultProps = {
+WatchlistSparkline.defaultProps = {
 	history: [],
 };
 
-export default TickSparkline;
+export default WatchlistSparkline;

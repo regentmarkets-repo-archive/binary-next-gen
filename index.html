@@ -87,6 +87,9 @@
         .mobile-content tbody tr {
             cursor: pointer;
         }
+        .mobile-content button, .mobile-content input[type=range], .mobile-content a.button, .mobile-content .range-selector-items {
+            width: 100%;
+        }
         .desktop-content {
             padding: 1rem .5rem;
         }
@@ -132,13 +135,10 @@
         .full-screen-overlay {
             z-index: 9999;
         }
-        .range-selector {
-
-        }
         .range-selector-items {
              display: flex;
-             width: 17rem;
-             margin: .5rem -1rem;
+             width: 15rem;
+             margin: .5rem .3rem;
              justify-content: space-between;
         }
         .market-submarket-selector, .asset-search, .asset-search > input, .trading-times-date-picker > input {
@@ -194,14 +194,14 @@
         }
         .trade-type-selector {
             border-radius: 2px;
-            background: #eee;
+            background-color: rgba(42, 48, 82, .1);
             padding: .5rem 0;
         }
         .trade-type-selector input {
             display: none;
         }
         .trade-type-selector label {
-            padding: .5rem .25rem;
+            padding: .5rem .45rem;
             cursor: pointer;
         }
         .trade-type-selector input[type=radio]:checked+label{

@@ -30,7 +30,7 @@ const WatchlistTable = ({assets, compact, ticks}) => {
 
 WatchlistTable.propTypes = {
 	assets: React.PropTypes.object.isRequired,
-	compact: React.PropTypes.bool.isRequired,
+	compact: React.PropTypes.bool,
 	ticks: React.PropTypes.object.isRequired,
 };
 

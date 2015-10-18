@@ -7,7 +7,7 @@ export default class WatchlistCard extends React.Component {
 
 	static propTypes = {
 		assets: React.PropTypes.object.isRequired,
-		compact: React.PropTypes.bool.isRequired,
+		compact: React.PropTypes.bool,
 		ticks: React.PropTypes.object.isRequired,
 	};
 
