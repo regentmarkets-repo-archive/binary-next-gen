@@ -5,15 +5,15 @@ export default () => (
 	<div>
 		<legend>details</legend>
 
-		<InputGroup id="name" label="Name" type="text" value="sdfsdf sdfsdf (Mr)" readOnly={true} />
-		<InputGroup id="dob" label="Date of birth" type="date" value="1918-03-01" readOnly={true} />
-		<InputGroup id="residence" label="Country of Residence" type="text" value="Indonesia" readOnly={true} />
+		<InputGroup id="name" label="Name" type="text" value="Boris Yankov (Mr)" readOnly={true} />
+		<InputGroup id="dob" label="Date of birth" type="date" value="1981-12-12" readOnly={true} />
+		<InputGroup id="residence" label="Country of Residence" type="text" value="Bulgaria" readOnly={true} />
 		<InputGroup id="email" label="Email" type="email" value="bobtester@mailinator.com" readOnly={true} />
 
 		<legend>Address</legend>
 
-		<InputGroup id="address1" type="text" label="First line of home address" value="sdfsadf" />
-		<InputGroup id="address2" type="text" label="Second line of home address" value="asdfasdf" />
+		<InputGroup id="address1" type="text" label="First line of home address" value="St. Petersen Str." />
+		<InputGroup id="address2" type="text" label="Second line of home address" value="Wallnuts 12-44" />
 		<InputGroup id="city" type="text" label="Town/City" value="sdfasdf" />
 
 		<fieldset>

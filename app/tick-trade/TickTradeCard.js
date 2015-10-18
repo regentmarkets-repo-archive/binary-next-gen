@@ -98,16 +98,19 @@ export default class TickTradeCard extends React.Component {
 						<button>Payout: {tickTrade.get('currency')} {tickTrade.get('amount')}</button>
 					</fieldset>
 				</div>
-				<fieldset>
-					<Link to={'/asset-selector?goback&tick'} className="soft-btn">{this.getSelectedAssetName()}</Link>
-					&nbsp;will&nbsp;
-					<Link to="/trade-type-selector" className="soft-btn">{tickTrade.get('contractType')}</Link>
-					&nbsp;over&nbsp;next&nbsp;
-					<Link to="/duration-selector" className="soft-btn">{tickTrade.get('duration')} ticks</Link>
-				</fieldset>
-				<div className="row" style={{ fontSize: '1.4rem', marginBottom: '1rem' }}>
-					<label>Spot: {spot}</label><label>Price: {tickTrade.get('currency')} {tickTrade.get('ask_price')}</label>
+				<div style={{ background: 'rgba(42, 48, 82, .1)', borderRadius: 2, padding: '.5rem .25rem .25rem .25rem', marginBottom: '1rem'}}>
+					<div>
+						<Link to={'/asset-selector?goback&tick'} className="soft-btn">{this.getSelectedAssetName()}</Link>
+						&nbsp;will&nbsp;
+						<Link to="/trade-type-selector" className="soft-btn">{tickTrade.get('contractType')}</Link>
+						&nbsp;over&nbsp;next&nbsp;
+						<Link to="/duration-selector" className="soft-btn">{tickTrade.get('duration')} ticks</Link>
+					</div>
+					<div className="row" style={{ fontSize: '1.4rem' }}>
+						<label>Spot: {spot}</label><label>Price: {tickTrade.get('currency')} {tickTrade.get('ask_price')}</label>
+					</div>
 				</div>
+
 				<div>
 					<button className="buy-btn" onClick={() => this.getPrice()}>Get Price</button>
 					<button className="buy-btn" onClick={() => this.placeOrder()}>Place Order</button>

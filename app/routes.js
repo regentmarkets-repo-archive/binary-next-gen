@@ -12,7 +12,7 @@ import WorkspacePage from './workspace/WorkspacePage';
 import SignupPage from './signup/SignupPage';
 import BalancesPage from './balances/BalancesPage';
 import UpgradePage from './upgrade/UpgradePage';
-import WatchlistCard from './watchlist/WatchlistCard';
+import WatchlistPage from './watchlist/WatchlistPage';
 import WatchlistMobile from './watchlist/WatchlistMobile';
 import OfferingsCard from './offerings/OfferingsCard';
 import ActiveSymbolsCard from './active-symbols/ActiveSymbolsCard';
@@ -55,7 +55,7 @@ export default {
         { path: 'signup', component: SignupPage },
         { path: 'upgrade', component: UpgradePage },
         { path: 'trade', component: TradePage },
-        { path: 'watchlist', component: WatchlistCard },
+        { path: 'watchlist', component: WatchlistPage },
         { path: 'watchlist-mobile', component: WatchlistMobile },
         { path: 'offerings', component: OfferingsCard },
         { path: 'active-symbols', component: ActiveSymbolsCard },

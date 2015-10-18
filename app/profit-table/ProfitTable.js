@@ -11,7 +11,7 @@ const ProfitTable = ({compact, transactions, onViewDetails}) => (
 				{!compact && <th>Ref.</th>}
 				<th>Purchase Date</th>
 				<th>Purchase Price</th>
-                <th>Sale Date</th>
+                {!compact && <th>Sale Date</th>}
                 <th>Sale Price</th>
                 <th>Profit/Loss</th>
                 {!compact && <th></th>}
@@ -29,7 +29,8 @@ const ProfitTable = ({compact, transactions, onViewDetails}) => (
 			<tr>
 				{!compact && <th></th>}
 				{transactions.size ? <th>{transactions.first().get('purchase_time')} – {transactions.last().get('purchase_time')}</th> : <th />}
-				<th colSpan={2}></th>
+				<th></th>
+				{!compact && <th></th>}
 				<th>Total</th>
                 <th><NumberColored value={calulateTotals(transactions)} /></th>
                 {!compact && <th></th>}

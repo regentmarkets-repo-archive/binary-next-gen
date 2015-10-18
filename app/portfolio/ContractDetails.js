@@ -16,7 +16,7 @@ const ContractDetails = ({contract, proposal}) => (
 			<tbody>
 				<tr>
 					<td>{timeStr(contract.date_start)}</td>
-					<td>{proposal && proposal.spot_time}</td>
+					<td>{proposal && timeStr(proposal.spot_time)}</td>
 					<td>{timeStr(contract.expiry_time)}</td>
 				</tr>
 				<tr>
