@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { RangeGroup } from '../common';
 
-export default (workspace) => (
+export default () => (
 	<div>
 		<label>Underlying Asset</label>
 		<fieldset>

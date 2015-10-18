@@ -3,12 +3,26 @@ import { Link } from 'react-router';
 import { RangeGroup } from '../common';
 import TickSparkline from '../watchlist/TickSparkline';
 
+const testHistory = [
+	{quote: 10}, {quote: 50}, {quote: 20}, {quote: 10}, {quote: 50},
+	{quote: 20}, {quote: 50}, {quote: 40}, {quote: 10}, {quote: 50},
+	{quote: 20}, {quote: 50}, {quote: 40}, {quote: 30}, {quote: 50},
+	{quote: 20}, {quote: 50}, {quote: 40}, {quote: 60}, {quote: 50},
+	{quote: 20}, {quote: 50}, {quote: 40}, {quote: 20}, {quote: 50},
+	{quote: 20}, {quote: 50}, {quote: 40}, {quote: 10}, {quote: 50},
+	{quote: 20}, {quote: 50}, {quote: 40}, {quote: 40}, {quote: 50},
+	{quote: 20}, {quote: 50}, {quote: 40}, {quote: 40}, {quote: 50},
+];
+
 export default (workspace) => (
 	<div>
+		<fieldset>
+			<TickSparkline width={344} height={120} history={testHistory} />
+		</fieldset>
 		<div className="row">
 			<label>Underlying Asset</label>
 			<fieldset style={{flex: 2}}>
-				<Link to={'/asset-selector'} className="button">USD/JPY</Link>
+				<Link to={'/asset-selector'} className="button">USD/JPY {workspace.symbol}</Link>
 			</fieldset>
 		</div>
 		<div className="row">
@@ -32,11 +46,10 @@ export default (workspace) => (
 		<fieldset>
 			<Link to={'/asset-selector'} className="button">a</Link> will <button>RISE</button> over next <button>5 ticks</button>
 		</fieldset>
-		<TickSparkline width={320} height={200} />
 		<fieldset>
 			<label>Price: USD 7.1</label>
 			<br/>
-			<button>Buy</button>
+			<button className="buy-btn">Place Order</button>
 		</fieldset>
 	</div>
 );
