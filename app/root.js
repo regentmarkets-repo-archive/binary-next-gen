@@ -6,14 +6,7 @@ import { Router } from 'react-router';
 import BrowserHistory from 'history/lib/createBrowserHistory';
 import routes from './routes';
 import LiveData from './_data/LiveData';
-// import { compose } from 'redux';
-// import { devTools, persistState } from 'redux-devtools';
-// import openDevTools from './common/ReduxDevTools';
-//
-// const finalCreateStore = compose(
-//     devTools(),
-//     persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
-// )(createStore);
+// import DevTools from './common/ReduxDevTools';
 
 const store = createStore(reducers);
 
@@ -21,11 +14,11 @@ export default class Root extends React.Component {
     render() {
         const history = new BrowserHistory();
         const liveData = new LiveData(store);
-        // openDevTools(store);
+        // <DevTools />
         liveData.init();
         return (
             <Provider store={store}>
-                <Router history={history} children={routes}/>
+                <Router history={history} children={routes} />
             </Provider>
         );
     }
