@@ -2,18 +2,20 @@ import { fromJS } from 'immutable';
 import {
     SERVER_DATA_ACTIVE_SYMBOLS,
     UPDATE_ASSET_SELECTOR_SEARCH_QUERY,
+    UPDATE_ASSET_SELECTOR_MARKETS,
     UPDATE_ASSET_SELECTOR_SUBMARKET,
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
     query: '',
+    markets: [],
     submarket: '',
     shownAssets: [],
 });
 
 const similarStr = (str1, str2) => str1.toLowerCase().includes(str2.toLowerCase());
 
-const doFilter = (assetList, query, submarket) => {
+const doFilter = (assetList, query, markets, submarket) => {
     return assetList.filter(asset =>
         (submarket === '' ||
             submarket === asset.get('submarket_display_name')) &&
@@ -34,12 +36,17 @@ export default (state = initialState, action) => {
         case UPDATE_ASSET_SELECTOR_SEARCH_QUERY: {
             return state
                 .set('query', action.query)
-                .set('shownAssets', doFilter(action.assets, action.query, state.get('submarket')));
+                .set('shownAssets', doFilter(action.assets, action.query, state.get('market'), state.get('submarket')));
         }
         case UPDATE_ASSET_SELECTOR_SUBMARKET: {
             return state
                 .set('submarket', action.submarket)
-                .set('shownAssets', doFilter(action.assets, state.get('query'), action.submarket));
+                .set('shownAssets', doFilter(action.assets, state.get('query'), state.get('market'), action.submarket));
+        }
+        case UPDATE_ASSET_SELECTOR_MARKETS: {
+            return state
+                .set('markets', fromJS(action.markets))
+                .set('shownAssets', doFilter(action.assets, state.get('query'), action.markets, state.get('submarket')));
         }
         default:
             return state;

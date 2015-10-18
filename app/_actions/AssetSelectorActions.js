@@ -8,6 +8,14 @@ export function updateAssetSelectorSearchQuery(assets, query) {
     };
 }
 
+export function updateAssetSelectorMarkets(assets, markets) {
+    return {
+        type: types.UPDATE_ASSET_SELECTOR_MARKETS,
+        assets,
+        markets,
+    };
+}
+
 export function updateAssetSelectorSubmarket(assets, submarket) {
     return {
         type: types.UPDATE_ASSET_SELECTOR_SUBMARKET,

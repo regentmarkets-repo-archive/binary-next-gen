@@ -1,7 +1,7 @@
 import React from 'react';
 import WatchlistRow from './WatchlistRow';
 
-const WatchlistTable = ({ticks, assets}) => {
+const WatchlistTable = ({assets, compact, ticks}) => {
 	return (
 		<table>
 			<thead>
@@ -9,7 +9,7 @@ const WatchlistTable = ({ticks, assets}) => {
 					<th></th>
 					<th>Name</th>
 					<th>Value</th>
-					<th>Updated</th>
+					{!compact && <th>Updated</th>}
 					<th>Change</th>
 					<th>Chart</th>
 				</tr>
@@ -18,6 +18,7 @@ const WatchlistTable = ({ticks, assets}) => {
 				{ticks.keySeq().map((symbol) =>
 					<WatchlistRow
 						key={symbol}
+						compact={compact}
 						symbol={symbol}
 						asset={assets.get('list').find(x => x.get('symbol') === symbol)}
 						history={ticks.get(symbol)} />
@@ -28,8 +29,9 @@ const WatchlistTable = ({ticks, assets}) => {
 };
 
 WatchlistTable.propTypes = {
-	ticks: React.PropTypes.object.isRequired,
 	assets: React.PropTypes.object.isRequired,
+	compact: React.PropTypes.bool.isRequired,
+	ticks: React.PropTypes.object.isRequired,
 };
 
 export default WatchlistTable;

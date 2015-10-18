@@ -34,6 +34,8 @@ export default (state = initialState, action) => {
             return state.merge(action.parameters);
         case UPDATE_TICK_TRADE_DATE:
             return state.merge(action.parameters);
+        // case PLACE_ORDER:
+        //     return state.merge
         default:
             return state;
     }

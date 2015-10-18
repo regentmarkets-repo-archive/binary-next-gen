@@ -2,10 +2,13 @@ import React from 'react';
 import AssetList from './AssetList';
 import { MarketSelector, InputGroup } from '../common';
 
-const AssetSelectorCard = ({actions, assets, assetSelector, workspace}) => {
+const AssetSelectorCard = ({actions, assets, assetSelector, history, workspace}) => {
 	const shownAssets = assetSelector.get('shownAssets');
 
-	const onSelect = asset => actions.workspaceAssetSelect(asset);
+	const onSelect = (asset) => {
+		actions.workspaceAssetSelect(asset);
+		history.goBack();
+	};
 	const onFavor = asset => actions.workspaceFavorAsset(asset);
 	const onSearchQueryChange = e => actions.updateAssetSelectorSearchQuery(assets.get('list'), e.target.value);
 	const onSubmarketChange = e => actions.updateAssetSelectorSubmarket(assets.get('list'), e);

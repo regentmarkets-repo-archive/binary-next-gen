@@ -16,7 +16,6 @@ export default class TickTradeContainer extends React.Component {
     };
 
 	render() {
-		window.console.log(TickTradeCard, this.workspace);
 		return (
 			<TickTradeCard
 				actions={bindActionCreators(Actions, this.props.dispatch)}

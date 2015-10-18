@@ -13,6 +13,7 @@ export default class WatchlistRow extends React.Component {
 
 	static propTypes = {
 		asset: React.PropTypes.object.isRequired,
+		compact: React.PropTypes.bool.isRequired,
 		history: React.PropTypes.object.isRequired,
 	};
 
@@ -22,7 +23,7 @@ export default class WatchlistRow extends React.Component {
 	}
 
 	render() {
-		const {asset} = this.props;
+		const {asset, compact} = this.props;
 		if (!asset) return <tr/>;
 
 		const history = this.props.history.toJS();
@@ -34,7 +35,7 @@ export default class WatchlistRow extends React.Component {
 				<td><Direction diff={diff} /></td>
 				<td>{asset.get('display_name')}</td>
 				<td>{quote}</td>
-				<td>{timeStr(epoch)}</td>
+				{!compact && <td>{timeStr(epoch)}</td>}
 				<td><NumberColored value={diff.toPrecision(2)} /></td>
 				<td><TickSparkline history={history} /></td>
 			</tr>

@@ -3,7 +3,7 @@ import HomePage from './home/HomePage';
 import NavigationMenuMobile from './navigation/NavigationMenuMobile';
 import LoginPage from './login/LoginPage';
 import TickTradeMobile from './tick-trade/TickTradeMobile';
-import TickTradePage from './tick-trade/TickTradeCard';
+import TickTradeContainer from './tick-trade/TickTradeContainer';
 import TickTradeInCard from './tick-trade/TickTradeInCard';
 import TickTradeSettingsCard from './tick-trade/TickTradeSettingsCard';
 import { PortfolioPage, PortfolioMobile, PortfolioPanel } from './portfolio';
@@ -13,6 +13,7 @@ import SignupPage from './signup/SignupPage';
 import BalancesPage from './balances/BalancesPage';
 import UpgradePage from './upgrade/UpgradePage';
 import WatchlistCard from './watchlist/WatchlistCard';
+import WatchlistMobile from './watchlist/WatchlistMobile';
 import OfferingsCard from './offerings/OfferingsCard';
 import ActiveSymbolsCard from './active-symbols/ActiveSymbolsCard';
 import AssetSelectorPage from './asset-selector/AssetSelectorPage';
@@ -40,7 +41,7 @@ export default {
         { path: '/', component: HomePage },
         { path: 'nav', component: NavigationMenuMobile },
         { path: 'login', component: LoginPage },
-        { path: 'tick-trade', indexRoute: { component: TickTradePage }, component: TickTradeMobile, childRoutes: [
+        { path: 'tick-trade', indexRoute: { component: TickTradeContainer }, component: TickTradeMobile, childRoutes: [
             { path: 'in', component: TickTradeInCard },
             { path: 'settings', component: TickTradeSettingsCard },
         ]},
@@ -54,7 +55,8 @@ export default {
         { path: 'signup', component: SignupPage },
         { path: 'upgrade', component: UpgradePage },
         { path: 'trade', component: TradePage },
-        { path: 'ticks', component: WatchlistCard },
+        { path: 'watchlist', component: WatchlistCard },
+        { path: 'watchlist-mobile', component: WatchlistMobile },
         { path: 'offerings', component: OfferingsCard },
         { path: 'active-symbols', component: ActiveSymbolsCard },
         { path: 'asset-selector', component: AssetSelectorPage },
