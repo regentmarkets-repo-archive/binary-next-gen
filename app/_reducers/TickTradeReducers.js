@@ -4,6 +4,7 @@ import {
     WORKSPACE_ASSET_SELECT,
     SERVER_DATA_PROPOSAL,
     UPDATE_TICK_TRADE_PARAMETERS,
+    SERVER_DATA_BUY_CONTRACT,
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
@@ -13,6 +14,7 @@ const initialState = fromJS({
     basis: 'payout',
     currency: 'USD',
     amount: 100,
+    buyResult: {},
 });
 
 export default (state = initialState, action) => {
@@ -24,8 +26,10 @@ export default (state = initialState, action) => {
             return state.merge(action.parameters);
         }
         case SERVER_DATA_PROPOSAL: {
-            window.console.log(action.serverResponse.proposal, state);
             return state.merge(action.serverResponse.proposal);
+        }
+        case SERVER_DATA_BUY_CONTRACT: {
+            return state.set('buyResult', action.serverResponse.buy);
         }
         default:
             return state;

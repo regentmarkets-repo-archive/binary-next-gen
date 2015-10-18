@@ -7,7 +7,7 @@ const AssetSelectorCard = ({actions, assets, assetSelector, history, workspace})
 
 	const onSelect = (asset) => {
 		actions.workspaceAssetSelect(asset);
-		history.goBack();
+		if (~window.location.search.indexOf('goback')) history.goBack();
 	};
 	const onFavor = asset => actions.workspaceFavorAsset(asset);
 	const onSearchQueryChange = e => actions.updateAssetSelectorSearchQuery(assets.get('list'), e.target.value);

@@ -20,3 +20,8 @@ export const serverDataProposal = (serverResponse) => ({
     type: types.SERVER_DATA_PROPOSAL,
     serverResponse,
 });
+
+export const serverDataBuyContract = (serverResponse) => ({
+    type: types.SERVER_DATA_BUY_CONTRACT,
+    serverResponse,
+});

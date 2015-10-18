@@ -20,7 +20,7 @@ export default class NavigationMenu extends React.Component {
 					<NumberPlain currency={account.currency} value={account.balance} />
 				</div>
 				<Link to={`/tick-trade`} className="sidebar-btn" activeClassName="active"><img src="/public/trade.svg" />Trade</Link>
-				<Link to={`/watchlist-mobile`} className="sidebar-btn" activeClassName="active"><img src="/public/watchlist.svg" />Trade</Link>
+				<Link to={`/watchlist-mobile`} className="sidebar-btn" activeClassName="active"><img src="/public/watchlist.svg" />Watchlist</Link>
 				<Link to={`/portfolio-mobile`} className="sidebar-btn" activeClassName="active"><img src="/public/portfolio.svg" />Open Positions</Link>
 				<Link to={`/profit-table-mobile`} className="sidebar-btn" activeClassName="active"><img src="/public/profit.svg" />Profit Table</Link>
 				<Link to={`/statement-mobile`} className="sidebar-btn" activeClassName="active"><img src="/public/statement.svg" />Statement</Link>

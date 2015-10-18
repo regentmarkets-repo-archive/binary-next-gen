@@ -17,6 +17,7 @@ const handlers = {
     'payout_currencies': 'serverDataPayoutCurrencies',
     'profit_table': 'serverDataProfitTable',
     'proposal': 'serverDataProposal',
+    'buy': 'serverDataBuy',
 };
 
 export default class LiveData {
