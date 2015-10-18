@@ -20,29 +20,32 @@ export default class TickTradeCard extends React.Component {
 	static propTypes = {
 		actions: React.PropTypes.object.isRequired,
 		assets: React.PropTypes.object.isRequired,
+		tickTrade: React.PropTypes.object.isRequired,
 		workspace: React.PropTypes.object.isRequired,
 	};
 
-	placeOrder() {
-		const {workspace} = this.props;
+	placeOrder(tickTrade) {
 		const liveData = new LiveData();
+
+		liveData.api.unsubscribeFromAllProposals();
+
 		liveData.api.subscribeToPriceForContractProposal({
-  			amount: '100',
-			basis: 'payout', // or stake
-			contract_type: 'CALL', // or one of the other 3
-			currency: 'USD', // should it be pickable?
-			duration: '10', // tick amount
+  			amount: tickTrade.get('amount'),
+			basis: tickTrade.get('basis'),
+			contract_type: tickTrade.get('contractType'),
+			currency: tickTrade.get('currency'),
+			duration: tickTrade.get('duration'),
 			duration_unit: 't',
-			symbol: workspace.get('symbolSelected'),
+			symbol: tickTrade.get('assetSymbol'),
 		});
 	}
 
 	render() {
-		const {workspace} = this.props;
-		// const {actions, workspace, assets} = this.props;
+		const {actions, tickTrade, workspace} = this.props;
 		// actions.updateAssetSelectorMarkets(assets.get('list'), ['Indices', 'Randoms']);
 		return (
 			<div>
+				{JSON.stringify(tickTrade.get('proposal'))}
 				<fieldset>
 					<TickSparkline width={344} height={120} history={testHistory} />
 				</fieldset>
@@ -61,26 +64,30 @@ export default class TickTradeCard extends React.Component {
 				<div className="row">
 					<label>No. ticks:</label>
 					<fieldset style={{flex: 2}}>
-						<RangeGroup min={5} max={10} items={['5', '6', '7', '8', '9', '10']} />
+						<RangeGroup
+							min={5} max={10}
+							items={['5', '6', '7', '8', '9', '10']}
+							value={tickTrade.get('amount')}
+							onChange={(e) => actions.updateTickTradeParameters({ duration: e.target.value })}/>
 					</fieldset>
 				</div>
 				<div className="row">
 					<label>Select Amount</label>
 					<fieldset style={{flex: 2}}>
-						<button>Payout: USD 20</button>
+						<button>Payout: {tickTrade.get('currency')} {tickTrade.get('amount')}</button>
 					</fieldset>
 				</div>
 				<fieldset>
-					<Link to={'/asset-selector'} className="soft-btn">{workspace.get('symbolSelected')}</Link>
+					<Link to={'/asset-selector'} className="soft-btn">{tickTrade.get('assetSymbol')}</Link>
 					&nbsp;will&nbsp;
 					<Link to="/trade-type-selector" className="soft-btn">RISE</Link>
 					&nbsp;over&nbsp;next&nbsp;
 					<Link to="/duration-selector" className="soft-btn">5 ticks</Link>
 				</fieldset>
 				<fieldset>
-					<label>Price: USD 7.1</label>
+					<label>Price: {tickTrade.get('currency')} {tickTrade.get('ask_price')}</label>
 					<br/>
-					<button className="buy-btn" onClick={() => this.placeOrder()}>Place Order</button>
+					<button className="buy-btn" onClick={() => this.placeOrder(tickTrade)}>Place Order</button>
 				</fieldset>
 			</div>
 		);

@@ -17,7 +17,7 @@ RangeGroup.propTypes = {
 	id: React.PropTypes.string,
 	label: React.PropTypes.string,
 	hint: React.PropTypes.string,
-	value: React.PropTypes.string,
+	value: React.PropTypes.number,
 	min: React.PropTypes.number,
 	max: React.PropTypes.number,
 	step: React.PropTypes.number,

@@ -30,13 +30,13 @@ export function workspaceUnfavorAsset(symbol) {
 
 export function updateTickTradeSubmarket(submarket) {
     return {
-        type: types.UPDATE_TICK_TRADE_SUBMARKET,
+        type: types.UPDATE_TRADING_TIMES_SUBMARKET,
         submarket,
     };
 }
 export function updateTickTradeDate(date) {
     return {
-        type: types.UPDATE_TICK_TRADE_DATE,
+        type: types.UPDATE_TRADING_TIMES_DATE,
         date,
     };
 }

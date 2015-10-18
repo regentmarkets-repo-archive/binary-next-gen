@@ -1,41 +1,32 @@
-import { Map } from 'immutable';
+import { fromJS } from 'immutable';
 
 import {
-    UPDATE_TICK_TRADE_SUBMARKET,
-    UPDATE_TICK_TRADE_DATE,
+    WORKSPACE_ASSET_SELECT,
+    SERVER_DATA_PROPOSAL,
+    UPDATE_TICK_TRADE_PARAMETERS,
 } from '../_constants/ActionTypes';
 
-const initialState = new Map({
-    assetSymbol: null,
-    tradeType: null,
+const initialState = fromJS({
+    assetSymbol: 'R_50',
+    contractType: 'CALL',
     duration: 5,
-    return: {
-        basis: 'payout',
-        currency: 'USD',
-        amount: 0,
-    },
-    priceProposal: { },
+    basis: 'payout',
+    currency: 'USD',
+    amount: 100,
 });
-
-// api.getPriceProposal({
-//     symbol: symbol,
-//     duration,
-//     currency,
-//     amount,
-//     date_start: new Date(),
-//     basis,
-//     duration_unit: 't',
-//     contract_type,
-// });
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case UPDATE_TICK_TRADE_SUBMARKET:
+        case WORKSPACE_ASSET_SELECT: {
+            return state.merge({ 'assetSymbol': action.symbol });
+        }
+        case UPDATE_TICK_TRADE_PARAMETERS: {
             return state.merge(action.parameters);
-        case UPDATE_TICK_TRADE_DATE:
-            return state.merge(action.parameters);
-        // case PLACE_ORDER:
-        //     return state.merge
+        }
+        case SERVER_DATA_PROPOSAL: {
+            window.console.log(action.serverResponse.proposal, state);
+            return state.merge(action.serverResponse.proposal);
+        }
         default:
             return state;
     }

@@ -7,13 +7,13 @@ import {
     WORKSPACE_ASSET_SELECT,
     WORKSPACE_FAVOR_ASSET,
     WORKSPACE_UNFAVOR_ASSET,
-    UPDATE_TICK_TRADE_SUBMARKET,
-    UPDATE_TICK_TRADE_DATE,
+    UPDATE_TRADING_TIMES_SUBMARKET,
+    UPDATE_TRADING_TIMES_DATE,
     UPDATE_ASSET_INDEX_SUBMARKET,
 } from '../_constants/ActionTypes';
 
 const initialState = new Map({
-    symbolSelected: 'frxUSDJPY',
+    symbolSelected: 'R_50',
     favoriteAssets: Set.of(),
     tradingTimes: new Map({
         submarket: 'Asia/Oceania',
@@ -48,10 +48,10 @@ export default (state = initialState, action) => {
         case WORKSPACE_UNFAVOR_ASSET: {
             return state;
         }
-        case UPDATE_TICK_TRADE_SUBMARKET: {
+        case UPDATE_TRADING_TIMES_SUBMARKET: {
             return state.merge({ tradingTimes: { submarket: action.submarket }});
         }
-        case UPDATE_TICK_TRADE_DATE: {
+        case UPDATE_TRADING_TIMES_DATE: {
             return state.merge({ tradingTimes: { date: action.date }});
         }
         case UPDATE_ASSET_INDEX_SUBMARKET: {
