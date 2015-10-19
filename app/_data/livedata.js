@@ -39,7 +39,7 @@ export default class LiveData {
     }
 
     init() {
-        this.api.authorize('Bwy5yBRGLOZkhJNGewgFQcjFqyyDlgkc1WBszsZXn9AaCcEi');
+        this.api.authorize('8PgmMxKGP0ARsRs');
         this.api.getActiveSymbolsFull();
         this.api.getPortfolio();
         this.api.getTradingTimes();
@@ -49,7 +49,6 @@ export default class LiveData {
         this.api.getBalance();
         this.api.getPayoutCurrencies();
         this.api.subscribeToAllOpenContracts();
-        // this.api.subscribeToTicks(['R_50', 'frxUSDJPY', 'RDBEAR']);
     }
 
     trackActiveSymbols() {

@@ -3,9 +3,6 @@ import HomePage from './home/HomePage';
 import NavigationMenuMobile from './navigation/NavigationMenuMobile';
 import LoginPage from './login/LoginPage';
 import TickTradeMobile from './tick-trade/TickTradeMobile';
-import TickTradeContainer from './tick-trade/TickTradeContainer';
-import TickTradeInCard from './tick-trade/TickTradeInCard';
-import TickTradeSettingsCard from './tick-trade/TickTradeSettingsCard';
 import { PortfolioPage, PortfolioMobile, PortfolioPanel } from './portfolio';
 import { StatementPage, StatementMobile } from './statement';
 import WorkspacePage from './workspace/WorkspacePage';
@@ -41,10 +38,7 @@ export default {
         { path: '/', component: HomePage },
         { path: 'nav', component: NavigationMenuMobile },
         { path: 'login', component: LoginPage },
-        { path: 'tick-trade', indexRoute: { component: TickTradeContainer }, component: TickTradeMobile, childRoutes: [
-            { path: 'in', component: TickTradeInCard },
-            { path: 'settings', component: TickTradeSettingsCard },
-        ]},
+        { path: 'tick-trade', component: TickTradeMobile },
         { path: 'portfolio', component: PortfolioPage },
         { path: 'portfolio-mobile', component: PortfolioMobile },
         { path: 'portfolio-panel', component: PortfolioPanel },

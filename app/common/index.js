@@ -20,6 +20,7 @@ export NumberColored from './NumberColored';
 export ObjectTable from './ObjectTable';
 export ObjectTableRow from './ObjectTableRow';
 export Panel from './Panel';
+export RadioGroup from './RadioGroup';
 export RangeGroup from './RangeGroup';
 export ReduxDevTools from './ReduxDevTools';
 export Segment from './Segment';
