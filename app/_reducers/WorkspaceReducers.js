@@ -13,7 +13,7 @@ import {
 } from '../_constants/ActionTypes';
 
 const initialState = new Map({
-    symbolSelected: 'R_50',
+    symbolSelected: '...',
     favoriteAssets: Set.of(),
     tradingTimes: new Map({
         submarket: 'Asia/Oceania',

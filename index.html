@@ -87,7 +87,7 @@
         .mobile-content tbody tr {
             cursor: pointer;
         }
-        .mobile-content button, .mobile-content input[type=range], .mobile-content a.button, .mobile-content .range-selector-items {
+        .tick-trade-mobile button:not(.close-btn), .tick-trade-mobile input[type=range], .tick-trade-mobile a.button, .tick-trade-mobile .range-selector-items {
             width: 100%;
         }
         .desktop-content {
@@ -208,6 +208,9 @@
             background: #2a3052;
             border-radius: 2px;
             color: white;
+        }
+        .mobile-content .modal {
+            max-width: 360px;
         }
     </style>
 </head>

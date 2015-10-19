@@ -11,7 +11,7 @@ import {
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
-    assetSymbol: 'R_50',
+    assetSymbol: '...',
     contractType: 'CALL',
     duration: 5,
     basis: 'payout',
@@ -37,6 +37,7 @@ export default (state = initialState, action) => {
             return state.merge(action.serverResponse.proposal);
         }
         case SERVER_DATA_BUY: {
+            window.console.log('buy', state.set('receipt', fromJS(action.serverResponse.buy)).toJS());
             return state.set('receipt', fromJS(action.serverResponse.buy));
         }
         case DISCARD_PURCHASE_RECEIPT: {

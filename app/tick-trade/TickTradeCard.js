@@ -58,7 +58,7 @@ export default class TickTradeCard extends React.Component {
 		const receipt = tickTrade.get('receipt');
 
 		return (
-			<div>
+			<div className="tick-trade-mobile">
 				<Modal shown={receipt}
 					onClose={() => actions.discardPurchaseReceipt()}>
 					<PurchaseConfirmation receipt={receipt} />
@@ -84,7 +84,10 @@ export default class TickTradeCard extends React.Component {
 					<fieldset style={{flex: 4}}>
 						<TickTradeType
 							value={tickTrade.get('contractType')}
-							onChange={e => actions.updateTickTradeParameters({ contractType: e.target.value })} />
+							onChange={e => {
+								actions.updateTickTradeParameters({ contractType: e.target.value });
+								this.getPrice();
+							}} />
 					</fieldset>
 				</div>
 				<div className="row">
@@ -94,7 +97,10 @@ export default class TickTradeCard extends React.Component {
 							min={5} max={10}
 							items={['5', '6', '7', '8', '9', '10']}
 							value={tickTrade.get('duration')}
-							onChange={e => actions.updateTickTradeParameters({ duration: +e.target.value })} />
+							onChange={e => {
+								actions.updateTickTradeParameters({ duration: +e.target.value });
+								this.getPrice();
+							}} />
 					</div>
 				</div>
 				<div className="row">
@@ -117,7 +123,6 @@ export default class TickTradeCard extends React.Component {
 				</div>
 
 				<div>
-					<button className="buy-btn" onClick={() => this.getPrice()}>Get Price</button>
 					<button className="buy-btn" onClick={() => this.placeOrder()}>Place Order</button>
 				</div>
 			</div>
