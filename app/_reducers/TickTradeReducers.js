@@ -7,6 +7,7 @@ import {
     SERVER_DATA_BUY,
     SERVER_DATA_TICK_HISTORY,
     SERVER_DATA_TICK_STREAM,
+    DISCARD_PURCHASE_RECEIPT,
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
@@ -16,7 +17,6 @@ const initialState = fromJS({
     basis: 'payout',
     currency: 'USD',
     amount: 100,
-    buyResult: {},
     ticks: [
         {quote: 0}, {quote: 0}, {quote: 0}, {quote: 0}, {quote: 0},
         {quote: 0}, {quote: 0}, {quote: 0}, {quote: 0}, {quote: 0},
@@ -37,7 +37,10 @@ export default (state = initialState, action) => {
             return state.merge(action.serverResponse.proposal);
         }
         case SERVER_DATA_BUY: {
-            return state.set('buyResult', action.serverResponse.buy);
+            return state.set('receipt', fromJS(action.serverResponse.buy));
+        }
+        case DISCARD_PURCHASE_RECEIPT: {
+            return state.delete('receipt');
         }
         case SERVER_DATA_TICK_HISTORY: {
             const symbol = action.serverResponse.echo_req.ticks;

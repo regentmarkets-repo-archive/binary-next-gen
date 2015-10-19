@@ -14,3 +14,7 @@ export const serverDataBuy = (serverResponse) => ({
     type: types.SERVER_DATA_BUY,
     serverResponse,
 });
+
+export const discardPurchaseReceipt = () => ({
+    type: types.DISCARD_PURCHASE_RECEIPT,
+});

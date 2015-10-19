@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { RangeGroup } from '../common';
+import { RangeGroup, Modal } from '../common';
 import TickTradeSparkline from '../watchlist/TickTradeSparkline';
 import LiveData from '../_data/LiveData';
 import TickTradeType from './TickTradeType';
+import PurchaseConfirmation from './PurchaseConfirmation';
 
 export default class TickTradeCard extends React.Component {
 
@@ -54,10 +55,14 @@ export default class TickTradeCard extends React.Component {
 		const {actions, tickTrade} = this.props;
 		const history = this.getTickHistory();
 		const spot = history[history.length - 1].quote;
+		const receipt = tickTrade.get('receipt');
 
 		return (
 			<div>
-				{JSON.stringify(tickTrade.get('proposal'))}
+				<Modal shown={receipt}
+					onClose={() => actions.discardPurchaseReceipt()}>
+					<PurchaseConfirmation receipt={receipt} />
+				</Modal>
 				<fieldset>
 					<TickTradeSparkline
 						width={344}
