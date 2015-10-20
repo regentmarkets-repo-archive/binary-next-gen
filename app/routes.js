@@ -3,6 +3,7 @@ import HomePage from './home/HomePage';
 import NavigationMenuMobile from './navigation/NavigationMenuMobile';
 import LoginPage from './login/LoginPage';
 import TickTradeMobile from './tick-trade/TickTradeMobile';
+import PayoutSelectorMobile from './tick-trade/PayoutSelectorMobile';
 import { PortfolioPage, PortfolioMobile, PortfolioPanel } from './portfolio';
 import { StatementPage, StatementMobile } from './statement';
 import WorkspacePage from './workspace/WorkspacePage';
@@ -39,6 +40,7 @@ export default {
         { path: 'nav', component: NavigationMenuMobile },
         { path: 'login', component: LoginPage },
         { path: 'tick-trade', component: TickTradeMobile },
+        { path: 'payout-selector', component: PayoutSelectorMobile },
         { path: 'portfolio', component: PortfolioPage },
         { path: 'portfolio-mobile', component: PortfolioMobile },
         { path: 'portfolio-panel', component: PortfolioPanel },

@@ -9,6 +9,10 @@ export default class RadioGroup extends React.Component {
 		onChange: React.PropTypes.func.isRequired,
 	};
 
+	static defaultProps = {
+		className: 'radio-selector',
+	}
+
 	render() {
 		const {className, onChange, options, value} = this.props;
 

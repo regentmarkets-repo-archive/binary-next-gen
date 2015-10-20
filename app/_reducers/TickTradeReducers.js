@@ -37,7 +37,6 @@ export default (state = initialState, action) => {
             return state.merge(action.serverResponse.proposal);
         }
         case SERVER_DATA_BUY: {
-            window.console.log('buy', state.set('receipt', fromJS(action.serverResponse.buy)).toJS());
             return state.set('receipt', fromJS(action.serverResponse.buy));
         }
         case DISCARD_PURCHASE_RECEIPT: {

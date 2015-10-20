@@ -106,7 +106,7 @@ export default class TickTradeCard extends React.Component {
 				<div className="row">
 					<label>Amount</label>
 					<fieldset style={{flex: 4}}>
-						<button>Payout: {tickTrade.get('currency')} {tickTrade.get('amount')}</button>
+						<Link calssName="button" to="/payout-selector">Payout: {tickTrade.get('currency')} {tickTrade.get('amount')}</Link>
 					</fieldset>
 				</div>
 				<div style={{ background: 'rgba(42, 48, 82, .1)', borderRadius: 2, padding: '.5rem .25rem .25rem .25rem', marginBottom: '1rem'}}>

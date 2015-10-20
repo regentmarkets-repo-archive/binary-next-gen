@@ -1,5 +1,6 @@
 export ContractDetails from './ContractDetails';
 export Countries from './Countries';
+export CurrencySelector from './CurrencySelector';
 export DateOfBirth from './DateOfBirth';
 export DateUtils from './DateUtils';
 export DesktopPage from './DesktopPage';
