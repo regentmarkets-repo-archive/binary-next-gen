@@ -36,6 +36,7 @@
     "babel-core": "^5.0.12",
     "babel-eslint": "^4.1.3",
     "babel-loader": "^5.0.0",
+    "cordova": "^5.3.3",
     "css-loader": "^0.12.0",
     "eslint": "^1.0.0",
     "eslint-config-airbnb": "^0.1.0",
