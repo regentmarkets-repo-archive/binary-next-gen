@@ -1,10 +1,11 @@
 import React from 'react';
-import { MobileToolbar } from '../navigation';
+import { MobileToolbarFull, MobileToolbarBack } from '../navigation';
 
-const MobilePage = ({children, toolbarShown, inverse}) => (
+const MobilePage = ({backBtnBarTitle, children, toolbarShown, inverse}) => (
 	<div className="mobile-screen">
 		<div className={inverse ? 'mobile-page inverse' : 'mobile-page'}>
-			{toolbarShown ? <MobileToolbar /> : null}
+			{toolbarShown ? <MobileToolbarFull /> : null}
+			{backBtnBarTitle ? <MobileToolbarBack backBtnBarTitle={backBtnBarTitle} /> : null}
 			<div className="mobile-content">
 				{children}
 			</div>
@@ -13,6 +14,7 @@ const MobilePage = ({children, toolbarShown, inverse}) => (
 );
 
 MobilePage.propTypes = {
+	backBtnBarTitle: React.PropTypes.string,
 	children: React.PropTypes.any,
 	toolbarShown: React.PropTypes.bool,
 	inverse: React.PropTypes.bool,

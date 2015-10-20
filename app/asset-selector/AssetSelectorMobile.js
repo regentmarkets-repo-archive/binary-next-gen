@@ -3,7 +3,7 @@ import { MobilePage } from '../common';
 import AssetSelectorContainer from './AssetSelectorContainer';
 
 export default (props) => (
-	<MobilePage toolbarShown={false}>
+	<MobilePage toolbarShown={false} backBtnBarTitle="Select Asset">
 		<AssetSelectorContainer {...props} />
 	</MobilePage>
 );

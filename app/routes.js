@@ -14,7 +14,7 @@ import WatchlistPage from './watchlist/WatchlistPage';
 import WatchlistMobile from './watchlist/WatchlistMobile';
 import OfferingsCard from './offerings/OfferingsCard';
 import ActiveSymbolsCard from './active-symbols/ActiveSymbolsCard';
-import AssetSelectorPage from './asset-selector/AssetSelectorPage';
+import AssetSelectorMobile from './asset-selector/AssetSelectorMobile';
 import AssetIndexPage from './asset-index/AssetIndexPage';
 import AssetIndexTable from './asset-index/AssetIndexTable';
 import RiseFallTablePage from './rise-fall-table/RiseFallTablePage';
@@ -55,8 +55,7 @@ export default {
         { path: 'watchlist-mobile', component: WatchlistMobile },
         { path: 'offerings', component: OfferingsCard },
         { path: 'active-symbols', component: ActiveSymbolsCard },
-        { path: 'asset-selector', component: AssetSelectorPage },
-        { path: 'asset-selector/:market', component: AssetSelectorPage },
+        { path: 'asset-selector', component: AssetSelectorMobile },
         { path: 'asset-index', component: AssetIndexPage, childRoutes: [
             { path: ':market', component: AssetIndexTable },
         ]},

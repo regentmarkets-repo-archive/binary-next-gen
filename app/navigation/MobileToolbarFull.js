@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const Toolbar = () => (
+export default () => (
 	<div className="mobile-toolbar">
 		<Link to="/nav" activeClassName="active" className="toolbar-btn">☰</Link>
 		<Link to={'/tick-trade'} activeClassName="active" className="toolbar-btn"><img src="/public/trade.svg" /></Link>
@@ -12,5 +12,3 @@ const Toolbar = () => (
 		<Link to={`/settings-mobile`} activeClassName="active" className="toolbar-btn"><img src="/public/settings.svg" /></Link>
 	</div>
 );
-
-export default Toolbar;
