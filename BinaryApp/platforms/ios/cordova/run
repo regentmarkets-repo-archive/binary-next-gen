@@ -19,7 +19,18 @@
        under the License.
 */
 
-// Coho updates this line:
-var VERSION = "4.1.1";
+var args = process.argv,
+    run   = require('./lib/run');
 
-console.log(VERSION);
+// Handle help flag
+if (['--help', '/?', '-h', 'help', '-help', '/help'].indexOf(args[2]) > -1) {
+    run.help();
+} else {
+    run.run(args).done(function() {
+        console.log('** RUN SUCCEEDED **');
+    }, function (err) {
+        var errorMessage = (err && err.stack) ? err.stack : err;
+        console.error(errorMessage);
+        process.exit(2);
+    });
+}

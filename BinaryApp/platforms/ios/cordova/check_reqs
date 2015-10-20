@@ -19,7 +19,14 @@
        under the License.
 */
 
-// Coho updates this line:
-var VERSION = "4.1.1";
+var check_reqs = require('./lib/check_reqs');
 
-console.log(VERSION);
+// check for help flag
+if (['--help', '/?', '-h', 'help', '-help', '/help'].indexOf(process.argv[2]) > -1) {
+    check_reqs.help();
+} else {
+  check_reqs.run().done(null, function (err) {
+      console.error('Failed to check requirements due to ' + err);
+      process.exit(2);
+  });
+}

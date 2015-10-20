@@ -19,7 +19,11 @@
        under the License.
 */
 
-// Coho updates this line:
-var VERSION = "4.1.1";
+var clean = require('./lib/clean');
 
-console.log(VERSION);
+clean.run(process.argv).done(function () {
+    console.log('** CLEAN SUCCEEDED **');
+}, function(err) {
+    console.error(err);
+    process.exit(2);
+});
