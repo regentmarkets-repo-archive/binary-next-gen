@@ -3,10 +3,11 @@ import React from 'react';
 export default class RadioGroup extends React.Component {
 
 	static propTypes = {
-		value: React.PropTypes.string,
 		className: React.PropTypes.string,
+		name: React.PropTypes.string,
 		options: React.PropTypes.array.isRequired,
 		onChange: React.PropTypes.func.isRequired,
+		value: React.PropTypes.any,
 	};
 
 	static defaultProps = {
@@ -14,7 +15,7 @@ export default class RadioGroup extends React.Component {
 	}
 
 	render() {
-		const {className, onChange, options, value} = this.props;
+		const {className, onChange, options, name, value} = this.props;
 
 		return (
 			<fieldgroup className={className}>
@@ -22,7 +23,7 @@ export default class RadioGroup extends React.Component {
 					<span key={o.value}>
 						<input id={o.value}
 							type="radio"
-							name="12345"
+							name={name}
 							value={o.value}
 							defaultChecked={o.value === value}
 							onChange={onChange} />

@@ -1,9 +1,9 @@
 import React from 'react';
 import { MobilePage } from '../common';
-import PayoutSelector from './PayoutSelector';
+import PayoutSelectorContainer from './PayoutSelectorContainer';
 
 export default (props) => (
 	<MobilePage toolbarShown={false} backBtnBarTitle="Select Payout">
-		<PayoutSelector {...props} />
+		<PayoutSelectorContainer {...props} />
 	</MobilePage>
 );

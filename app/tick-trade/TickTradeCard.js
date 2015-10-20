@@ -22,11 +22,11 @@ export default class TickTradeCard extends React.Component {
 		liveData.api.unsubscribeFromAllProposals();
 
 		liveData.api.subscribeToPriceForContractProposal({
-  			amount: tickTrade.get('amount'),
+  			amount: tickTrade.get('amount').toString(),
 			basis: tickTrade.get('basis'),
 			contract_type: tickTrade.get('contractType'),
 			currency: tickTrade.get('currency'),
-			duration: tickTrade.get('duration'),
+			duration: tickTrade.get('duration').toString(),
 			duration_unit: 't',
 			symbol: tickTrade.get('assetSymbol'),
 		});
@@ -96,9 +96,9 @@ export default class TickTradeCard extends React.Component {
 						<RangeGroup
 							min={5} max={10}
 							items={['5', '6', '7', '8', '9', '10']}
-							value={tickTrade.get('duration')}
+							value={+tickTrade.get('duration')}
 							onChange={e => {
-								actions.updateTickTradeParameters({ duration: +e.target.value });
+								actions.updateTickTradeParameters({ duration: e.target.value });
 								this.getPrice();
 							}} />
 					</div>
@@ -106,7 +106,11 @@ export default class TickTradeCard extends React.Component {
 				<div className="row">
 					<label>Amount</label>
 					<fieldset style={{flex: 4}}>
-						<Link calssName="button" to="/payout-selector">Payout: {tickTrade.get('currency')} {tickTrade.get('amount')}</Link>
+						<Link
+							className="button"
+							to="/payout-selector">
+							{tickTrade.get('basis')}: {tickTrade.get('currency')} {tickTrade.get('amount')}
+						</Link>
 					</fieldset>
 				</div>
 				<div style={{ background: 'rgba(42, 48, 82, .1)', borderRadius: 2, padding: '.5rem .25rem .25rem .25rem', marginBottom: '1rem'}}>

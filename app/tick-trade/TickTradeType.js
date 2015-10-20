@@ -12,7 +12,7 @@ export default class TickTradeType extends React.Component {
 
 	render() {
 		return (
-			<RadioGroup options={contractTypes} {...this.props}/>
+			<RadioGroup name="trade-type" options={contractTypes} {...this.props}/>
 		);
 	}
 }
