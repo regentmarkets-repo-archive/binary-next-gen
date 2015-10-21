@@ -9,7 +9,8 @@ const initialState = new List();
 export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_PROFIT_TABLE: {
-            return fromJS(action.serverResponse.profit_table.transactions);
+            const transactions = action.serverResponse.profit_table.transactions;
+            return fromJS(transactions || []);
         }
         default:
             return state;

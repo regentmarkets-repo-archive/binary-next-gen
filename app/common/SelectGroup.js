@@ -1,24 +1,24 @@
 import React from 'react';
 
-const SelectGroup = ({id, label, hint, value, items, readOnly, placeholder, onChange}) => (
+const SelectGroup = ({id, label, hint, value, options, readOnly, placeholder, onChange}) => (
 	<fieldset>
         {label && <label htmlFor={id}>{label}</label>}
 		<select id={id} readOnly={readOnly} placeholder={placeholder} onChange={onChange} defaultValue={value}>
-			{ items.map(i => <option key={i.value} value={i.value}>{i.text}</option> ) }
+			{options.map(o => <option key={o.value} value={o.value}>{o.text}</option> )}
 		</select>
 		{hint && <p className="hint">{hint}</p>}
 	</fieldset>
 );
 
 SelectGroup.propTypes = {
-	items: React.PropTypes.array,
+	hint: React.PropTypes.string,
 	id: React.PropTypes.string,
 	label: React.PropTypes.string,
-	hint: React.PropTypes.string,
-	value: React.PropTypes.string,
-	readOnly: React.PropTypes.bool,
-	placeholder: React.PropTypes.string,
 	onChange: React.PropTypes.func,
+	options: React.PropTypes.array,
+	placeholder: React.PropTypes.string,
+	readOnly: React.PropTypes.bool,
+	value: React.PropTypes.string,
 };
 
 export default SelectGroup;
