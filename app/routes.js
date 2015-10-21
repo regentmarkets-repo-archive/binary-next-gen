@@ -5,6 +5,7 @@ import LoginPage from './login/LoginPage';
 import TickTradeMobile from './tick-trade/TickTradeMobile';
 import PayoutSelectorMobile from './tick-trade/PayoutSelectorMobile';
 import { PortfolioPage, PortfolioMobile, PortfolioPanel } from './portfolio';
+import ContractDetailsMobile from './contract-details/ContractDetailsMobile';
 import { StatementPage, StatementMobile } from './statement';
 import WorkspacePage from './workspace/WorkspacePage';
 import SignupPage from './signup/SignupPage';
@@ -44,6 +45,7 @@ export default {
         { path: 'portfolio', component: PortfolioPage },
         { path: 'portfolio-mobile', component: PortfolioMobile },
         { path: 'portfolio-panel', component: PortfolioPanel },
+        { path: 'contract/:id', component: ContractDetailsMobile },
         { path: 'statement', component: StatementPage },
         { path: 'statement-mobile', component: StatementMobile },
         { path: 'workspace', component: WorkspacePage },

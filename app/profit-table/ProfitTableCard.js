@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import * as PortfolioActions from '../_actions/PortfolioActions';
 import { Modal } from '../common';
 import ProfitTable from './ProfitTable';
-import ContractDetails from './ContractDetails';
+import ContractDetailsCard from '../contract-details/ContractDetailsCard';
 
 const ProfitTableCard = (props) => {
 	const showDetails = contract => {
@@ -20,7 +20,7 @@ const ProfitTableCard = (props) => {
 	return (
 		<div>
 			<Modal shown={areDetailsShown} onClose={onCloseDetails}>
-				<ContractDetails contract={contractShown} />
+				<ContractDetailsCard contract={contractShown} />
 			</Modal>
 			<ProfitTable
 				compact={compact}

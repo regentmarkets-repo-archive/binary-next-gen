@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal } from '../common';
 import PortfolioTable from './PortfolioTable';
-import ContractDetails from './ContractDetails';
+import ContractDetailsCard from '../contract-details/ContractDetailsCard';
 
 
 const PortfolioCard = ({compact, portfolio, actions}) => {
@@ -12,7 +12,7 @@ const PortfolioCard = ({compact, portfolio, actions}) => {
 		<div>
 			<Modal shown={portfolio.get('areDetailsShown')}
 				onClose={() => actions.detailsForContract(false)}>
-				<ContractDetails contract={contractShown} proposal={proposalShown} />
+				<ContractDetailsCard contract={contractShown} proposal={proposalShown} />
 			</Modal>
 			<PortfolioTable
 				compact={compact}

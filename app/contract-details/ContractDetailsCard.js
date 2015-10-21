@@ -3,7 +3,7 @@ import { timeStr } from '../common/DateUtils';
 
 const returnOnContract = (contract, proposal) => (proposal.bid_price - contract.buy_price) * 100 / contract.buy_price;
 
-const ContractDetails = ({contract, proposal}) => (
+const ContractDetailsCard = ({contract, proposal}) => (
 	<div>
 		<table>
 			<thead>
@@ -72,9 +72,9 @@ const ContractDetails = ({contract, proposal}) => (
 	</div>
 );
 
-ContractDetails.propTypes = {
+ContractDetailsCard.propTypes = {
 	contract: React.PropTypes.object,
 	proposal: React.PropTypes.object,
 };
 
-export default ContractDetails;
+export default ContractDetailsCard;

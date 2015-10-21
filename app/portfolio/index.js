@@ -1,4 +1,3 @@
-export ContractDetails from './ContractDetails';
 export PortfolioRow from './PortfolioRow';
 export PortfolioTable from './PortfolioTable';
 

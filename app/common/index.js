@@ -1,4 +1,3 @@
-export ContractDetails from './ContractDetails';
 export Countries from './Countries';
 export CurrencySelector from './CurrencySelector';
 export DateOfBirth from './DateOfBirth';
