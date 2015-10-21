@@ -6,7 +6,7 @@ const PortfolioRow = (props) => {
 
     return (
         <tr onClick={() => onViewDetails(contract)}>
-            <td>{contract.fmb_id}</td>
+            <td>{contract.contract_id}</td>
             <td><NumberPlain currency={contract.currency} value={contract.buy_price} /></td>
             <td>{proposal && <NumberPlain currency={contract.currency} value={proposal.bid_price} />}</td>
             {!compact && <td><button onClick={() => onViewDetails(contract)}>View</button></td>}

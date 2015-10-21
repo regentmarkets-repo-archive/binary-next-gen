@@ -11,7 +11,7 @@ import {
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
-    assetSymbol: '...',
+    assetSymbol: 'R_100',
     contractType: 'CALL',
     duration: 5,
     basis: 'payout',

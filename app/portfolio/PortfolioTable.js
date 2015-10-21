@@ -22,7 +22,7 @@ const PortfolioTable = ({compact, contracts, proposals, onViewDetails}) => {
                         key={i}
                         compact={compact}
                         contract={c}
-                        proposal={proposals.get(c.fmb_id)}
+                        proposal={proposals.get(c.contract_id)}
                         onViewDetails={onViewDetails} />)}
 			</tbody>
 			<tfoot>

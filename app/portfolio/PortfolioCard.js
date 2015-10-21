@@ -6,7 +6,7 @@ import ContractDetails from './ContractDetails';
 
 const PortfolioCard = ({compact, portfolio, actions}) => {
 	const contractShown = portfolio.get('contractShown');
-	const proposalShown = contractShown && portfolio.get('proposals').get(contractShown.fmb_id);
+	const proposalShown = contractShown && portfolio.get('proposals').get(contractShown.contract_id);
 
 	return (
 		<div>

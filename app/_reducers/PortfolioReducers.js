@@ -20,7 +20,7 @@ export default (state = initialState, action) => {
         }
         case SERVER_DATA_PROPOSAL_OPEN_CONTRACT: {
             const proposal = action.serverResponse.proposal_open_contract;
-            return state.setIn(['proposals', proposal.fmb_id], proposal);
+            return state.setIn(['proposals', proposal.contract_id], proposal);
         }
         case DETAILS_FOR_CONTRACT: {
             return state
