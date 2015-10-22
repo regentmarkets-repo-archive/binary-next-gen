@@ -215,3 +215,11 @@ tbody > tr:hover {
 .radio-selector img {
     width: 1.5rem;
 }
+.back-btn {
+    width: 3rem;
+    display: inline-block;
+    text-align: center;
+    margin-left: -1rem;
+    font-size: 1.5rem;
+    line-height: 1;
+}

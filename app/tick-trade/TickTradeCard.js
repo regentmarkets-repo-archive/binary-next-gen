@@ -15,23 +15,6 @@ export default class TickTradeCard extends React.Component {
 		workspace: React.PropTypes.object.isRequired,
 	};
 
-	getPrice() {
-		const liveData = new LiveData();
-		const {tickTrade} = this.props;
-
-		liveData.api.unsubscribeFromAllProposals();
-
-		liveData.api.subscribeToPriceForContractProposal({
-  			amount: tickTrade.get('amount').toString(),
-			basis: tickTrade.get('basis'),
-			contract_type: tickTrade.get('contractType'),
-			currency: tickTrade.get('currency'),
-			duration: tickTrade.get('duration').toString(),
-			duration_unit: 't',
-			symbol: tickTrade.get('assetSymbol'),
-		});
-	}
-
 	placeOrder() {
 		const liveData = new LiveData();
 		const {tickTrade} = this.props;
@@ -56,6 +39,7 @@ export default class TickTradeCard extends React.Component {
 		const history = this.getTickHistory();
 		const spot = history[history.length - 1].quote;
 		const receipt = tickTrade.get('receipt');
+		const assetName = this.getSelectedAssetName() || '...';
 
 		return (
 			<div className="tick-trade-mobile">
@@ -73,11 +57,14 @@ export default class TickTradeCard extends React.Component {
 				</fieldset>
 				<TickTradeParameters
 					actions={actions}
+					assetName={assetName}
 					assets={assets}
 					tickTrade={tickTrade}
 					workspace={workspace} />
 				<TradeDisplay
 					assets={assets}
+					assetName={assetName}
+					spot={spot}
 					tickTrade={tickTrade}
 					workspace={workspace} />
 				<div>

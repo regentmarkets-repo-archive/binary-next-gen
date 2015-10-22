@@ -10,7 +10,7 @@ const history = data => data.map(x => x.quote);
 
 const TickTradeSparkline = (props) => {
 	const h = history(props.history);
-	const y = 120 - ypos(h, h[h.length - 1]);
+	const y = (120 - ypos(h, h[h.length - 1])) || props.height;
 
 	return (
 		<Sparklines {...props} data={h} limit={20} >

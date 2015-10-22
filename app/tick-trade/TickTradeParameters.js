@@ -6,6 +6,7 @@ import LiveData from '../_data/LiveData';
 export default class TickTradeParameters extends React.Component {
 
 	static propTypes = {
+		assetName: React.PropTypes.string.isRequired,
 		actions: React.PropTypes.object.isRequired,
 		assets: React.PropTypes.object.isRequired,
 		tickTrade: React.PropTypes.object.isRequired,
@@ -29,16 +30,8 @@ export default class TickTradeParameters extends React.Component {
 		});
 	}
 
-	getSelectedAssetName() {
-		const {assets, workspace} = this.props;
-		const asset = assets.get('list').find(x =>
-			x.get('symbol') === workspace.get('symbolSelected'));
-
-		return asset ? asset.get('display_name') : '';
-	}
-
 	render() {
-		const {actions, tickTrade} = this.props;
+		const {actions, assetName, tickTrade} = this.props;
 
 		return (
 			<div>
@@ -46,7 +39,7 @@ export default class TickTradeParameters extends React.Component {
 					<label>Asset</label>
 					<fieldset style={{flex: 4}}>
 						<Link to={'/asset-selector?goback&tick'} className="button">
-							{this.getSelectedAssetName() || '...'}
+							{assetName}
 						</Link>
 					</fieldset>
 				</div>
