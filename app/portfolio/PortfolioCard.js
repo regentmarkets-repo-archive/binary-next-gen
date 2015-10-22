@@ -18,6 +18,7 @@ const PortfolioCard = ({compact, portfolio, actions}) => {
 				compact={compact}
 				contracts={portfolio.get('contracts')}
 				proposals={portfolio.get('proposals')}
+				history={history}
 				onViewDetails={contract => actions.detailsForContract(true, contract)} />
 		</div>
 	);
