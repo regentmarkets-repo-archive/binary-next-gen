@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal } from '../common';
+import { Modal } from '../_common';
 import TickTradeSparkline from '../watchlist/TickTradeSparkline';
 import LiveData from '../_data/LiveData';
 import TickTradeParameters from './TickTradeParameters';

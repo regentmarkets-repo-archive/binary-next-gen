@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal } from '../common';
+import { Modal } from '../_common';
 import PortfolioTable from './PortfolioTable';
 import ContractDetailsCard from '../contract-details/ContractDetailsCard';
 

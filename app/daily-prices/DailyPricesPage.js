@@ -1,5 +1,5 @@
 import React from 'react';
-import { DesktopPage } from '../common';
+import { DesktopPage } from '../_common';
 import DailyPricesCard from './DailyPricesCard';
 
 export default (props) => (

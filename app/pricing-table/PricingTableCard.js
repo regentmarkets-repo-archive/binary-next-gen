@@ -1,5 +1,5 @@
 import React from 'react';
-import SegmentedControl from '../common/SegmentedControl';
+import SegmentedControl from '../_common/SegmentedControl';
 import PricingTable from './PricingTable';
 import PricingTableFilter from './PricingTableFilter';
 

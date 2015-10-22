@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { SelectGroup, RadioGroup } from '../common';
+import { SelectGroup, RadioGroup } from '../_common';
 
 @connect(state => ({ account: state.account }))
 export default class CurrencySelector extends React.Component {

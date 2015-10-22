@@ -1,8 +1,8 @@
 import React from 'react';
-import LogoSpinner from '../common/LogoSpinner';
-import ErrorMsg from '../common/ErrorMsg';
-import InputGroup from '../common/InputGroup';
-import LanguagePicker from '../common/LanguagePicker';
+import LogoSpinner from '../_common/LogoSpinner';
+import ErrorMsg from '../_common/ErrorMsg';
+import InputGroup from '../_common/InputGroup';
+import LanguagePicker from '../_common/LanguagePicker';
 
 export default class LoginCard extends React.Component {
 

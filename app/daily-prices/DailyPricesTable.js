@@ -1,5 +1,5 @@
 import React from 'react';
-import { Direction, NumberColored } from '../common';
+import { Direction, NumberColored } from '../_common';
 
 export default () => (
 	<table>

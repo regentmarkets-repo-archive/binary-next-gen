@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { DirectionAndValue } from '../common';
+import { DirectionAndValue } from '../_common';
 
 export default class TickTradeDisplay extends React.Component {
 

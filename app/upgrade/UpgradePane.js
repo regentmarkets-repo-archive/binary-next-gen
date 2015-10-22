@@ -1,5 +1,5 @@
 import React from 'react';
-import LogoSpinner from '../common/LogoSpinner';
+import LogoSpinner from '../_common/LogoSpinner';
 import UpgradeStep1 from './UpgradeStep1';
 import UpgradeStep2 from './UpgradeStep2';
 import UpgradeStep3 from './UpgradeStep3';

@@ -6,7 +6,7 @@ import { Router } from 'react-router';
 import BrowserHistory from 'history/lib/createBrowserHistory';
 import routes from './routes';
 import LiveData from './_data/LiveData';
-// import DevTools from './common/ReduxDevTools';
+// import DevTools from './_common/ReduxDevTools';
 
 const store = createStore(reducers);
 

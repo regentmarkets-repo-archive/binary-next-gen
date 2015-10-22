@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { NumberPlain, LanguagePicker } from '../common';
+import { NumberPlain, LanguagePicker } from '../_common';
 
 @connect(state => ({ account: state.account }))
 export default class NavigationMenu extends React.Component {

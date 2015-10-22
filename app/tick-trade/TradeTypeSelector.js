@@ -1,5 +1,5 @@
 import React from 'react';
-import { RadioGroup } from '../common';
+import { RadioGroup } from '../_common';
 import tradeTypes from '../_constants/tradeTypes';
 
 export default class TradeTypeSelector extends React.Component {

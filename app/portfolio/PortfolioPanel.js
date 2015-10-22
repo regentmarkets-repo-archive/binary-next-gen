@@ -1,5 +1,5 @@
 import React from 'react';
-import { Panel } from '../common';
+import { Panel } from '../_common';
 import PortfolioContainer from './PortfolioContainer';
 
 export default (props) => (

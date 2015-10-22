@@ -1,5 +1,5 @@
 import React from 'react';
-import { MobilePage } from '../common';
+import { MobilePage } from '../_common';
 import TradeTypeSelector from './TradeTypeSelector';
 
 export default (props) => (

@@ -1,5 +1,5 @@
 import React from 'react';
-import { RangeGroup } from '../common';
+import { RangeGroup } from '../_common';
 
 export default () => (
     <fieldset>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Panel } from '../common';
+import { Panel } from '../_common';
 import BalancesContainer from './BalancesContainer';
 
 export default (props) => (

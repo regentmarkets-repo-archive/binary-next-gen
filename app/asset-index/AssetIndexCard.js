@@ -1,5 +1,5 @@
 import React from 'react';
-import { MarketSelector } from '../common';
+import { MarketSelector } from '../_common';
 import AssetIndexTable from './AssetIndexTable';
 
 export default class AssetIndexCard extends React.Component {

@@ -1,5 +1,5 @@
 import React from 'react';
-import { NumberPlain } from '../common';
+import { NumberPlain } from '../_common';
 
 export default (props) => {
 	const balances = props.account.toJS().balances;

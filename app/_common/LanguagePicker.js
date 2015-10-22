@@ -1,5 +1,5 @@
 import React from 'react';
-import { SelectGroup } from '../common';
+import { SelectGroup } from '../_common';
 import languages from '../_constants/languages';
 
 export default () => (

@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-// import Modal from '../common/Modal';
+// import Modal from '../_common/Modal';
 import StatementTable from './StatementTable';
 // import TransactionDetails from './TransactionDetails';
 

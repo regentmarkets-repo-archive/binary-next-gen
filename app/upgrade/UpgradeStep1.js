@@ -1,5 +1,5 @@
 import React from 'react';
-import DateOfBirth from '../common/DateOfBirth';
+import DateOfBirth from '../_common/DateOfBirth';
 
 export default class UpgradeStep1 extends React.Component {
 

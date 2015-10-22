@@ -1,5 +1,5 @@
 import React from 'react';
-import { NumberPlain } from '../common';
+import { NumberPlain } from '../_common';
 
 const PortfolioRow = (props) => {
     const { compact, contract, history, proposal, onViewDetails } = props;

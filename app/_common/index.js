@@ -1,7 +1,6 @@
 export Countries from './Countries';
 export CurrencySelector from './CurrencySelector';
 export DateOfBirth from './DateOfBirth';
-export DateUtils from './DateUtils';
 export DesktopPage from './DesktopPage';
 export Direction from './Direction';
 export DirectionAndValue from './DirectionAndValue';

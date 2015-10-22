@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star } from '../common';
+import { Star } from '../_common';
 
 export default class AssetSelectorItem extends React.Component {
 

@@ -1,6 +1,6 @@
 import React from 'react';
-import { timeStr } from '../common/DateUtils';
-import { Direction, NumberColored } from '../common';
+import { timeStr } from '../_utils/DateUtils';
+import { Direction, NumberColored } from '../_common';
 import WatchlistSparkline from './WatchlistSparkline';
 
 const historyDiff = (history) => {

@@ -1,6 +1,6 @@
 import React from 'react';
 import Direction from './Direction';
-import { directionClassName } from './ClassNameUtils';
+import { directionClassName } from '../_utils/StyleUtils';
 
 const DirectionAndValue = ({diff, value}) => (
 	<span>

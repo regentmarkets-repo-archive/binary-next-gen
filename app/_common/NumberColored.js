@@ -1,6 +1,6 @@
 import React from 'react';
 import NumberPlain from './NumberPlain';
-import { directionClassName } from './ClassNameUtils';
+import { directionClassName } from '../_utils/StyleUtils';
 
 export default class NumberColored extends React.Component {
 

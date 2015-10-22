@@ -1,5 +1,5 @@
 import React from 'react';
-import { RadioGroup, CurrencySelector } from '../common';
+import { RadioGroup, CurrencySelector } from '../_common';
 
 const basisTypes = [
 	{ value: 'payout', text: 'Payout' },

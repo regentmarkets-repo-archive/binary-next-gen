@@ -1,5 +1,5 @@
 import React from 'react';
-import { Panel } from '../common';
+import { Panel } from '../_common';
 import StatementCard from './StatementCard';
 
 export default (props) => (

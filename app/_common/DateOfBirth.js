@@ -1,5 +1,5 @@
 import React from 'react';
-import { LOCALIZED_MONTHS } from '../common/DateUtils';
+import { LOCALIZED_MONTHS } from '../_utils/DateUtils';
 
 
 const DobDay = () => {

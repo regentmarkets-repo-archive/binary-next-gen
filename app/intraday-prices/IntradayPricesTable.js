@@ -1,5 +1,5 @@
 import React from 'react';
-import Direction from '../common/Direction';
+import Direction from '../_common/Direction';
 
 export default () => (
 	<table>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { SegmentedControl } from '../common';
+import { SegmentedControl } from '../_common';
 
 export default (props) => {
 	const navigationLinks = [{

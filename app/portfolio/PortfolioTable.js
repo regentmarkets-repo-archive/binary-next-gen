@@ -1,5 +1,5 @@
 import React from 'react';
-import { NumberPlain } from '../common';
+import { NumberPlain } from '../_common';
 import PortfolioRow from './PortfolioRow';
 
 const totalPurchase = contracts => contracts.reduce((x, y) => x + +y.buy_price, 0);

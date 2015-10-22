@@ -1,5 +1,5 @@
 import React from 'react';
-import { CurrencySelector, RangeGroup } from '../common';
+import { CurrencySelector, RangeGroup } from '../_common';
 
 const RiseFallFilter = ({onCalculate}) => (
 	<form name="rise_fall" id="rise_fall_form">

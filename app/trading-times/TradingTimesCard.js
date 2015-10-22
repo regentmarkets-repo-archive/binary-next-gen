@@ -1,7 +1,7 @@
 import React from 'react';
-import { InputGroup, MarketSelector } from '../common';
+import { InputGroup, MarketSelector } from '../_common';
 import TradingTimesTable from './TradingTimesTable';
-import { todayStr, oneYearAgoStr } from '../common/DateUtils';
+import { todayStr, oneYearAgoStr } from '../_utils/DateUtils';
 
 export default class TradingTimesCard extends React.Component {
 

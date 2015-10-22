@@ -1,6 +1,6 @@
 import React from 'react';
 import AssetSelectorList from './AssetSelectorList';
-import { MarketSelector, InputGroup } from '../common';
+import { MarketSelector, InputGroup } from '../_common';
 import LiveData from '../_data/LiveData';
 
 const AssetSelectorCard = ({actions, assets, assetSelector, history, workspace}) => {

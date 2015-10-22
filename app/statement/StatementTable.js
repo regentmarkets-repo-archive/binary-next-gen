@@ -1,6 +1,6 @@
 import React from 'react';
-import { NumberColored, NumberPlain } from '../common';
-import { dateStr } from '../common/DateUtils';
+import { NumberColored, NumberPlain } from '../_common';
+import { dateStr } from '../_utils/DateUtils';
 import StatementRow from './StatementRow';
 
 const calulateTotals = transactions => transactions.map(t => +t.amount).reduce((x, y) => x + y, 0);

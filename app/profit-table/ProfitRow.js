@@ -1,5 +1,5 @@
 import React from 'react';
-import { NumberColored, NumberPlain } from '../common';
+import { NumberColored, NumberPlain } from '../_common';
 
 const ProfitRow = ({compact, transaction, onViewDetails}) => (
     <tr>

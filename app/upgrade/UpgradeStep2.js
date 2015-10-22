@@ -1,5 +1,5 @@
 import React from 'react';
-import Countries from '../common/Countries';
+import Countries from '../_common/Countries';
 
 export default class UpgradeStep2 extends React.Component {
 

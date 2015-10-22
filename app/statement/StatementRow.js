@@ -1,6 +1,6 @@
 import React from 'react';
-import { dateTimeStr } from '../common/DateUtils';
-import { NumberPlain, NumberColored } from '../common';
+import { dateTimeStr } from '../_utils/DateUtils';
+import { NumberPlain, NumberColored } from '../_common';
 
 const StatementRow = ({compact, transaction, onViewDetails}) => (
     <tr>

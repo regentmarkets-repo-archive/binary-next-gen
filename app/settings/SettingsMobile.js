@@ -1,5 +1,5 @@
 import React from 'react';
-import { MobilePage } from '../common';
+import { MobilePage } from '../_common';
 import SettingsCard from './SettingsCard';
 
 export default (props) => (

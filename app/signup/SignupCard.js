@@ -1,8 +1,8 @@
 import React from 'react';
-import LogoSpinner from '../common/LogoSpinner';
-import Countries from '../common/Countries';
-import ErrorMsg from '../common/ErrorMsg';
-import InputGroup from '../common/InputGroup';
+import LogoSpinner from '../_common/LogoSpinner';
+import Countries from '../_common/Countries';
+import ErrorMsg from '../_common/ErrorMsg';
+import InputGroup from '../_common/InputGroup';
 
 export default class SignupCard extends React.Component {
 

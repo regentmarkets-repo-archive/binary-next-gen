@@ -1,5 +1,5 @@
 import React from 'react';
-import { NumberColored } from '../common';
+import { NumberColored } from '../_common';
 import ProfitRow from './ProfitRow';
 
 const calulateTotals = transactions => transactions.map(t => +t.get('sell_price') - +t.get('buy_price')).reduce((x, y) => x + y, 0);

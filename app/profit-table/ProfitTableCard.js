@@ -1,7 +1,7 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
 import * as PortfolioActions from '../_actions/PortfolioActions';
-import { Modal } from '../common';
+import { Modal } from '../_common';
 import ProfitTable from './ProfitTable';
 import ContractDetailsCard from '../contract-details/ContractDetailsCard';
 

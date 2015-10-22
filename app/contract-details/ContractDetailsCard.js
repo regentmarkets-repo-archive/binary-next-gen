@@ -1,5 +1,5 @@
 import React from 'react';
-import { timeStr } from '../common/DateUtils';
+import { timeStr } from '../_utils/DateUtils';
 
 const returnOnContract = (contract, proposal) => (proposal.bid_price - contract.buy_price) * 100 / contract.buy_price;
 

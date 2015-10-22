@@ -1,5 +1,5 @@
 import React from 'react';
-import { dateTimeStr } from '../common/DateUtils';
+import { dateTimeStr } from '../_utils/DateUtils';
 
 const PurchaseConfirmation = ({receipt}) => (
 	<div>

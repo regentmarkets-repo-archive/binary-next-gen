@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { RangeGroup } from '../common';
+import { RangeGroup } from '../_common';
 import LiveData from '../_data/LiveData';
 
 export default class TickTradeParameters extends React.Component {
