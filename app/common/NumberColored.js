@@ -1,5 +1,6 @@
 import React from 'react';
 import NumberPlain from './NumberPlain';
+import { directionClassName } from './ClassNameUtils';
 
 export default class NumberColored extends React.Component {
 
@@ -15,9 +16,9 @@ export default class NumberColored extends React.Component {
 
 	render() {
 		const {value, currency} = this.props;
-		const className = (value < 0 && 'number-negative') || (value > 0 && 'number-positive') || '';
+
 		return (
-			<NumberPlain className={className} value={value} currency={currency} />
+			<NumberPlain className={directionClassName(value)} value={value} currency={currency} />
 		);
 	}
 }

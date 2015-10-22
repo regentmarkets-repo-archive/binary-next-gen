@@ -38,6 +38,7 @@ export default class TickTradeCard extends React.Component {
 		const {actions, assets, tickTrade, workspace} = this.props;
 		const history = this.getTickHistory();
 		const spot = history[history.length - 1].quote;
+		const diff = history.length > 1 ? history[history.length - 1].quote - history[history.length - 2].quote : 0;
 		const receipt = tickTrade.get('receipt');
 		const assetName = this.getSelectedAssetName() || '...';
 
@@ -64,6 +65,7 @@ export default class TickTradeCard extends React.Component {
 				<TradeDisplay
 					assets={assets}
 					assetName={assetName}
+					diff={diff}
 					spot={spot}
 					tickTrade={tickTrade}
 					workspace={workspace} />

@@ -4,6 +4,7 @@ export DateOfBirth from './DateOfBirth';
 export DateUtils from './DateUtils';
 export DesktopPage from './DesktopPage';
 export Direction from './Direction';
+export DirectionAndValue from './DirectionAndValue';
 export DurationPicker from './DurationPicker';
 export ErrorMsg from './ErrorMsg';
 export InfoIcon from './InfoIcon';
