@@ -1,10 +1,6 @@
 import React from 'react';
-import { Modal } from '../common';
-import TickTradeSparkline from '../watchlist/TickTradeSparkline';
+import { Link } from 'react-router';
 import LiveData from '../_data/LiveData';
-import TickTradeParameters from './TickTradeParameters';
-import TradeDisplay from './TradeDisplay';
-import PurchaseConfirmation from './PurchaseConfirmation';
 
 export default class TickTradeCard extends React.Component {
 
@@ -52,36 +48,21 @@ export default class TickTradeCard extends React.Component {
 	}
 
 	render() {
-		const {actions, assets, tickTrade, workspace} = this.props;
+		const {tickTrade} = this.props;
 		const history = this.getTickHistory();
 		const spot = history[history.length - 1].quote;
-		const receipt = tickTrade.get('receipt');
 
 		return (
-			<div className="tick-trade-mobile">
-				<Modal shown={receipt}
-					onClose={() => actions.discardPurchaseReceipt()}>
-					<PurchaseConfirmation receipt={receipt} />
-				</Modal>
-				<fieldset>
-					<TickTradeSparkline
-						width={344}
-						height={120}
-						history={history}
-						isCall={tickTrade.get('contractType') === 'CALL'}
-						spot={spot} />
-				</fieldset>
-				<TickTradeParameters
-					actions={actions}
-					assets={assets}
-					tickTrade={tickTrade}
-					workspace={workspace} />
-				<TradeDisplay
-					assets={assets}
-					tickTrade={tickTrade}
-					workspace={workspace} />
+			<div style={{ background: 'rgba(42, 48, 82, .1)', borderRadius: 2, padding: '.5rem .25rem .25rem .25rem', marginBottom: '1rem'}}>
 				<div>
-					<button className="buy-btn" onClick={() => this.placeOrder()}>Place Order</button>
+					<Link to={'/asset-selector?goback&tick'} className="soft-btn">{this.getSelectedAssetName()}</Link>
+					&nbsp;will&nbsp;
+					<Link to="/trade-type-selector" className="soft-btn">{tickTrade.get('contractType')}</Link>
+					&nbsp;over&nbsp;next&nbsp;
+					<Link to="/duration-selector" className="soft-btn">{tickTrade.get('duration')} ticks</Link>
+				</div>
+				<div className="row" style={{ fontSize: '1.4rem' }}>
+					<label>Spot: {spot}</label><label>Price: {tickTrade.get('currency')} {tickTrade.get('ask_price')}</label>
 				</div>
 			</div>
 		);

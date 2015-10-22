@@ -18,6 +18,7 @@ import ActiveSymbolsCard from './active-symbols/ActiveSymbolsCard';
 import AssetSelectorMobile from './asset-selector/AssetSelectorMobile';
 import AssetIndexPage from './asset-index/AssetIndexPage';
 import AssetIndexTable from './asset-index/AssetIndexTable';
+import TradeTypeSelectorMobile from './tick-trade/TradeTypeSelectorMobile';
 import RiseFallTablePage from './rise-fall-table/RiseFallTablePage';
 import TradingTimesPage from './trading-times/TradingTimesPage';
 import TradingTimesTable from './trading-times/TradingTimesTable';
@@ -58,6 +59,7 @@ export default {
         { path: 'offerings', component: OfferingsCard },
         { path: 'active-symbols', component: ActiveSymbolsCard },
         { path: 'asset-selector', component: AssetSelectorMobile },
+        { path: 'trade-type-selector', component: TradeTypeSelectorMobile },
         { path: 'asset-index', component: AssetIndexPage, childRoutes: [
             { path: ':market', component: AssetIndexTable },
         ]},
