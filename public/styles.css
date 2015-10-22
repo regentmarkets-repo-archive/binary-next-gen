@@ -212,3 +212,6 @@ tbody > tr:hover {
 .mobile-content .modal {
     max-width: 360px;
 }
+.radio-selector img {
+    width: 1.5rem;
+}
