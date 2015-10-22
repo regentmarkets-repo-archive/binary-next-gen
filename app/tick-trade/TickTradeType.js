@@ -1,20 +1,12 @@
 import React from 'react';
 import { RadioGroup } from '../common';
-
-const contractTypes = [
-	{ value: 'CALL', text: 'Rise', img: '/public/trade-higher.svg' },
-	{ value: 'PUT', text: 'Fall', img: '/public/trade-lower.svg' },
-	{ value: 'DIGITMATCH', text: 'Digit Match', img: '/public/trade-match.svg' },
-	{ value: 'DIGITDIFF', text: 'Digit Differs', img: '/public/trade-differs.svg' },
-	{ value: 'ASIANU', text: 'Asian Up', img: '/public/trade-asianup.svg' },
-	{ value: 'ASIAND', text: 'Asian Down', img: '/public/trade-asiandown.svg' },
-];
+import tradeTypes from '../_constants/tradeTypes';
 
 export default class TickTradeType extends React.Component {
-
 	render() {
+		const tickTradeTypes = tradeTypes.filter(x => x.ticks);
 		return (
-			<RadioGroup name="trade-type" options={contractTypes} {...this.props}/>
+			<RadioGroup name="trade-type" options={tickTradeTypes} {...this.props}/>
 		);
 	}
 }

@@ -1,0 +1,16 @@
+export default [
+	{ value: 'CALL', text: 'Rise', img: '/public/trade-higher.svg', ticks: true },
+	{ value: 'PUT', text: 'Fall', img: '/public/trade-lower.svg', ticks: true },
+	{ value: 'DIGITMATCH', text: 'Digit Match', img: '/public/trade-match.svg', ticks: true },
+	{ value: 'DIGITDIFF', text: 'Digit Differs', img: '/public/trade-differs.svg', tick: true },
+	{ value: 'ASIANU', text: 'Asian Up', img: '/public/trade-asianup.svg', ticks: true },
+	{ value: 'ASIAND', text: 'Asian Down', img: '/public/trade-asiandown.svg', ticks: true },
+	{ value: 'EXPIRYRANGE', text: 'EXPIRYRANGE', img: '/public/trade-???.svg', ticks: false },
+    { value: 'EXPIRYMISS', text: 'EXPIRYMISS', img: '/public/trade-???.svg', ticks: false },
+    { value: 'RANGE', text: 'RANGE', img: '/public/trade-???.svg', ticks: false },
+    { value: 'UPORDOWN', text: 'UPORDOWN', img: '/public/trade-???.svg', ticks: false },
+    { value: 'ONETOUCH', text: 'ONETOUCH', img: '/public/trade-???.svg', ticks: false },
+    { value: 'NOTOUCH', text: 'NOTOUCH', img: '/public/trade-???.svg', ticks: false },
+    { value: 'SPREADU', text: 'SPREADU', img: '/public/trade-???.svg', ticks: false },
+    { value: 'SPREADD', text: 'SPREADD', img: '/public/trade-???.svg', ticks: false },
+];
