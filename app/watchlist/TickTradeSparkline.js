@@ -13,14 +13,16 @@ const TickTradeSparkline = (props) => {
 	const y = (120 - ypos(h, h[h.length - 1])) || props.height;
 
 	return (
-		<Sparklines {...props} data={h} limit={20} >
-			<SparklinesLine />
-			<SparklinesSpots />
-			<line x1={0} y1={y} x2={props.width} y2={y}
-				 style={{ stroke: 'green', strokeOpacity: 0.75, strokeDasharray: 'none' }} />
-			 <rect x={0} y={(props.isCall ? y - 120 : y)}
-				style={{ fill: 'green', fillOpacity: 0.1 }} />
-		</Sparklines>
+		<div className="tick-sparklines">
+			<Sparklines {...props} data={h} limit={20}>
+				<SparklinesLine />
+				<SparklinesSpots />
+				<line x1={0} y1={y} x2={props.width} y2={y}
+					 style={{ stroke: 'green', strokeOpacity: 0.75, strokeDasharray: 'none' }} />
+				 <rect x={0} y={(props.isCall ? y - 120 : y)}
+					style={{ fill: 'green', fillOpacity: 0.1 }} />
+			</Sparklines>
+		</div>
 	);
 };
 

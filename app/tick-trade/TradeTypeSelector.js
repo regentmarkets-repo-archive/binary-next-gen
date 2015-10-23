@@ -1,6 +1,6 @@
 import React from 'react';
 import { RadioGroup } from '../_common';
-import tradeTypes from '../_constants/tradeTypes';
+import { tradeTypes, digitMatchOptions } from '../_constants/TradeParams';
 
 export default class TradeTypeSelector extends React.Component {
 
@@ -13,7 +13,10 @@ export default class TradeTypeSelector extends React.Component {
 		const {tickTrades} = this.props;
 		const tickTradeTypes = tradeTypes.filter(x => !tickTrades || x.ticks);
 		return (
-			<RadioGroup name="trade-type" options={tickTradeTypes} {...this.props}/>
+			<div>
+				<RadioGroup name="digit-match" options={digitMatchOptions} {...this.props}/>
+				<RadioGroup name="trade-type" options={tickTradeTypes} {...this.props}/>
+			</div>
 		);
 	}
 }

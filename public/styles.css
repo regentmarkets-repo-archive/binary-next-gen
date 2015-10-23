@@ -203,6 +203,10 @@ tbody > tr:hover {
 .radio-selector label {
     padding: .5rem .45rem;
     cursor: pointer;
+    display: block;
+}
+.radio-selector img {
+    margin-right: .5rem;
 }
 .radio-selector input[type=radio]:checked+label{
     background: #2a3052;
@@ -222,4 +226,7 @@ tbody > tr:hover {
     margin-left: -1rem;
     font-size: 1.5rem;
     line-height: 1;
+}
+.tick-sparklines {
+    margin-bottom: 1rem;
 }
