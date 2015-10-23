@@ -4,11 +4,6 @@ import { dateTimeStr } from '../_utils/DateUtils';
 const PurchaseConfirmation = ({receipt}) => (
 	<div>
 		<table>
-			<thead>
-				<tr>
-					<th colSpan="2">Purchase Confirmation</th>
-				</tr>
-			</thead>
 			<tbody>
 				<tr>
 					<td colSpan="2">{receipt.get('longcode')}</td>
@@ -27,6 +22,7 @@ const PurchaseConfirmation = ({receipt}) => (
 				</tr>
 			</tbody>
 		</table>
+		<br/>
 		<button>Back</button>
 	</div>
 );

@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import reducers from './_reducers';
 import { Router } from 'react-router';
 import BrowserHistory from 'history/lib/createBrowserHistory';
-import routes from './routes';
+import routes from './_routes';
 import LiveData from './_data/LiveData';
 // import DevTools from './_common/ReduxDevTools';
 
