@@ -25,7 +25,7 @@ export default class TickTradeDisplay extends React.Component {
 					&nbsp;over&nbsp;next&nbsp;
 					<Link to="/duration-selector" className="soft-btn">{tickTrade.get('duration')} ticks</Link>
 				</div>
-				<div className="row" style={{ fontSize: '1.3rem' }}>
+				<div className="row" style={{ fontSize: '1.2rem' }}>
 					<label>Spot: <DirectionAndValue diff={diff} value={spot} /></label><label>Price: {tickTrade.get('currency')} {tickTrade.get('ask_price')}</label>
 				</div>
 			</div>

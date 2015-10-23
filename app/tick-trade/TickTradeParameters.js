@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { RangeGroup } from '../_common';
 import LiveData from '../_data/LiveData';
+import { tradeTypeCodeToText } from '../_utils/TradeUtils';
 
 export default class TickTradeParameters extends React.Component {
 
@@ -32,6 +33,7 @@ export default class TickTradeParameters extends React.Component {
 
 	render() {
 		const {actions, assetName, tickTrade} = this.props;
+		const tradeTypeText = tradeTypeCodeToText(tickTrade.get('contractType'));
 
 		return (
 			<div>
@@ -49,7 +51,7 @@ export default class TickTradeParameters extends React.Component {
 						<Link
 							className="button"
 							to="/trade-type-selector">
-							TRADE TYPE HERE
+							{tradeTypeText}
 						</Link>
 					</fieldset>
 				</div>

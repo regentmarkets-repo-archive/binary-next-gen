@@ -48,14 +48,12 @@ export default class TickTradeCard extends React.Component {
 					onClose={() => actions.discardPurchaseReceipt()}>
 					<PurchaseConfirmation receipt={receipt} />
 				</Modal>
-				<fieldset>
-					<TickTradeSparkline
-						width={344}
-						height={120}
-						history={history}
-						isCall={tickTrade.get('contractType') === 'CALL'}
-						spot={spot} />
-				</fieldset>
+				<TickTradeSparkline
+					width={344}
+					height={120}
+					history={history}
+					isCall={tickTrade.get('contractType') === 'CALL'}
+					spot={spot} />
 				<TickTradeParameters
 					actions={actions}
 					assetName={assetName}
@@ -69,9 +67,7 @@ export default class TickTradeCard extends React.Component {
 					spot={spot}
 					tickTrade={tickTrade}
 					workspace={workspace} />
-				<div>
-					<button className="buy-btn" onClick={() => this.placeOrder()}>Place Order</button>
-				</div>
+				<button className="buy-btn" onClick={() => this.placeOrder()}>Place Order</button>
 			</div>
 		);
 	}

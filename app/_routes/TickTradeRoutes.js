@@ -17,7 +17,7 @@ import SettingsLimits from '../settings/SettingsLimits';
 import SettingsPersonalDetails from '../settings/SettingsPersonalDetails';
 
 export default [
-//  { path: '/', component: HomePage },
+//  { path: '/', component: TickTradeMobile },
     { path: 'nav', component: NavigationMenuMobile },
     { path: 'login', component: LoginMobile },
     { path: 'tick-trade', component: TickTradeMobile },
