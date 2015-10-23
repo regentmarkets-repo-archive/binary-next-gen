@@ -4,7 +4,13 @@ import { MarketSelector, InputGroup } from '../_common';
 import LiveData from '../_data/LiveData';
 
 const AssetSelectorCard = ({actions, assets, assetSelector, history, workspace}) => {
+	const showOnlyTickTradable = !!~window.location.search.indexOf('tick');
 	const shownAssets = assetSelector.get('shownAssets');
+	const searchableAssets = assets.get('list').filter(x =>
+		!showOnlyTickTradable ||
+		x.get('market_display_name') === 'Forex' ||
+		x.get('market_display_name') === 'Randoms'
+	);
 
 	const onSelect = (asset) => {
 		actions.workspaceAssetSelect(asset);
@@ -16,15 +22,15 @@ const AssetSelectorCard = ({actions, assets, assetSelector, history, workspace})
 		}
 	};
 	const onFavor = asset => actions.workspaceFavorAsset(asset);
-	const onSearchQueryChange = e => actions.updateAssetSelectorSearchQuery(assets.get('list'), e.target.value);
-	const onSubmarketChange = e => actions.updateAssetSelectorSubmarket(assets.get('list'), e);
+	const onSearchQueryChange = e => actions.updateAssetSelectorSearchQuery(searchableAssets, e.target.value);
+	const onSubmarketChange = e => actions.updateAssetSelectorSubmarket(searchableAssets, e);
 
 	return (
 		<div>
 			<MarketSelector
 				onChange={onSubmarketChange}
 				showAllOption={true}
-				showMarkets={~window.location.search.indexOf('tick') ? ['Forex', 'Randoms'] : null} />
+				showMarkets={showOnlyTickTradable ? ['Forex', 'Randoms'] : null} />
 			<InputGroup
 				className="asset-search"
 				type="search"

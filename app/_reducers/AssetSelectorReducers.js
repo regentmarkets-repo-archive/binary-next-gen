@@ -24,7 +24,7 @@ const doFilter = (AssetSelectorList, query, markets, submarket) => {
             similarStr(asset.get('display_name'), query) ||
             similarStr(asset.get('market_display_name'), query) ||
             similarStr(asset.get('submarket_display_name'), query))
-    );
+    ).sort((x1, x2) => x1.get('display_name').localeCompare(x2.get('display_name')));
 };
 
 export default (state = initialState, action) => {

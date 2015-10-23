@@ -3,7 +3,7 @@ import { NumberPlain } from '../_common';
 
 const PortfolioRow = (props) => {
     const { compact, contract, history, proposal, onViewDetails } = props;
-    window.console.log(history);
+
     return (
         <tr onClick={compact && () => history.pushState({}, `/contract/${contract.contract_id}`)}>
             <td>{contract.contract_id}</td>
