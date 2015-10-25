@@ -8,7 +8,7 @@ import ContractDetailsMobile from '../contract-details/ContractDetailsMobile';
 import { StatementPage, StatementMobile } from '../statement';
 import WatchlistMobile from '../watchlist/WatchlistMobile';
 import AssetSelectorMobile from '../asset-selector/AssetSelectorMobile';
-import TradeTypeSelectorMobile from '../tick-trade/TradeTypeSelectorMobile';
+import TradeTypeSelectorMobile from '../trade-type-selector/TradeTypeSelectorMobile';
 import ProfitTableMobile from '../profit-table/ProfitTableMobile';
 import SettingsMobile from '../settings/SettingsMobile';
 import SettingsSecurity from '../settings/SettingsSecurity';

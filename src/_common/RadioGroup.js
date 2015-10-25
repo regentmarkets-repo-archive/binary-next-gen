@@ -1,4 +1,5 @@
 import React from 'react';
+import RadioItem from './RadioItem';
 
 export default class RadioGroup extends React.Component {
 
@@ -17,23 +18,19 @@ export default class RadioGroup extends React.Component {
 	}
 
 	render() {
-		const {className, onChange, options, name, value} = this.props;
+		const {className, onChange, name, options, value} = this.props;
 
 		return (
 			<fieldgroup className={className}>
 				{options.map(o =>
-					<span key={o.value}>
-						<input id={o.value}
-							type="radio"
-							name={name}
-							value={o.value}
-							defaultChecked={o.value === value}
-							onChange={onChange} />
-						<label htmlFor={o.value}>
-							{o.img && <img src={o.img} />}
-							{o.text}
-						</label>
-					</span>
+					<RadioItem
+						key={o.value}
+						defaultChecked={o.value === value}
+						img={o.img}
+						label={o.text}
+						name={name}
+						onChange={onChange}
+						value={o.value} />
 				)}
 			</fieldgroup>
 		);

@@ -2,7 +2,7 @@ import React from 'react';
 
 export default () => {
     // const state = {
-    //     contractType: 'higher',
+    //     tradeType: 'higher',
     //     market: 'AUD',
     //     payoutCurrency: 'usd',
     //     step: '1',

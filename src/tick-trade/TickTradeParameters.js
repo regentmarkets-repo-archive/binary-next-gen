@@ -23,7 +23,7 @@ export default class TickTradeParameters extends React.Component {
 		liveData.api.subscribeToPriceForContractProposal({
   			amount: tickTrade.get('amount').toString(),
 			basis: tickTrade.get('basis'),
-			contract_type: tickTrade.get('contractType'),
+			contract_type: tickTrade.get('tradeType'),
 			currency: tickTrade.get('currency'),
 			duration: tickTrade.get('duration').toString(),
 			duration_unit: 't',
@@ -33,7 +33,7 @@ export default class TickTradeParameters extends React.Component {
 
 	render() {
 		const {actions, assetName, tickTrade} = this.props;
-		const tradeTypeText = tradeTypeCodeToText(tickTrade.get('contractType'));
+		const tradeTypeText = tradeTypeCodeToText(tickTrade.get('tradeType'));
 
 		return (
 			<div>

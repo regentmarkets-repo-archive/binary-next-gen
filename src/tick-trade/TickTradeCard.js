@@ -52,7 +52,7 @@ export default class TickTradeCard extends React.Component {
 					width={344}
 					height={120}
 					history={history}
-					isCall={tickTrade.get('contractType') === 'CALL'}
+					isCall={tickTrade.get('tradeType') === 'CALL'}
 					spot={spot} />
 				<TickTradeParameters
 					actions={actions}

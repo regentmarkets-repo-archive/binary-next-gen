@@ -21,7 +21,7 @@ export default class TickTradeDisplay extends React.Component {
 				<div>
 					<Link to={'/asset-selector?goback&tick'} className="soft-btn">{assetName}</Link>
 					&nbsp;will&nbsp;
-					<Link to="/trade-type-selector" className="soft-btn">{tickTrade.get('contractType')}</Link>
+					<Link to="/trade-type-selector" className="soft-btn">{tickTrade.get('tradeType')}</Link>
 					&nbsp;over&nbsp;next&nbsp;
 					<Link to="/duration-selector" className="soft-btn">{tickTrade.get('duration')} ticks</Link>
 				</div>
