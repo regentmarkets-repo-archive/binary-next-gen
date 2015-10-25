@@ -14,7 +14,6 @@ module.exports = {
         publicPath: '/static/'
     },
     plugins: [
-        new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin()
     ],
     resolve: {
@@ -23,7 +22,7 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.js$/,
-            loaders: ['react-hot', 'babel?stage=0', 'eslint-loader'],
+            loaders: ['babel?stage=0', 'eslint-loader'],
             exclude: /node_modules/
         }, {
             test: /react-sparklines/,
