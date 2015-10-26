@@ -7,7 +7,7 @@
     <author email="boris@binary.com" href="http://binary.com">
         Boris @ Binary Ltd.
     </author>
-    <content src="" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
