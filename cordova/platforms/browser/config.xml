@@ -1,13 +1,13 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="io.cordova.hellocordova" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>HelloCordova</name>
+<widget id="binary" version="0.0.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+    <name>Binary</name>
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Binary.com - Binary Options Triding
     </description>
-    <author email="dev@cordova.apache.org" href="http://cordova.io">
+    <author email="boris@binary.com" href="http://binary.com">
         Apache Cordova Team
     </author>
-    <content src="index.html" />
+    <content src="" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />
