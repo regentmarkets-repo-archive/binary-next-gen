@@ -38,12 +38,15 @@ export default class LiveData {
         return instance;
     }
 
-    init() {
-        this.api.authorize('8PgmMxKGP0ARsRs');
+    initUnauthorized() {
         this.api.getActiveSymbolsFull();
-        this.api.getPortfolio();
         this.api.getTradingTimes();
         this.api.getAssetIndex();
+    }
+
+    initAuthorized() {
+        this.api.authorize('8PgmMxKGP0ARsRs');
+        this.api.getPortfolio();
         this.api.getStatement({ description: 1, limit: 10 });
         this.api.getProfitTable({ description: 1, limit: 10 });
         this.api.getBalance();

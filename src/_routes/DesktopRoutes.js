@@ -25,7 +25,7 @@ import SettingsLimits from '../settings/SettingsLimits';
 import StatementPage from '../statement/StatementPage';
 
 export default [
-    { path: '/', component: HomePage },
+    { path: '/home', component: HomePage },
     { path: 'portfolio', component: PortfolioPage },
     { path: 'statement', component: StatementPage },
     { path: 'workspace', component: WorkspacePage },

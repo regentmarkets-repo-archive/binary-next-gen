@@ -1,20 +1,20 @@
 import React from 'react';
+import { bindActionCreators } from 'redux';
 import * as Actions from '../_actions';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import PortfolioCard from './PortfolioCard';
+import SigninCard from './SigninCard';
 
-@connect(state => ({ portfolio: state.portfolio }))
-export default class PortfolioContainer extends React.Component {
+@connect(state => ({ signin: state.signin }))
+export default class SigninContainer extends React.Component {
 
 	static propTypes = {
-		portfolio: React.PropTypes.object,
 		dispatch: React.PropTypes.func,
+		signin: React.PropTypes.object,
 	};
 
 	render() {
 		return (
-			<PortfolioCard
+			<SigninCard
 				actions={bindActionCreators(Actions, this.props.dispatch)}
 				{...this.props} />
 		);

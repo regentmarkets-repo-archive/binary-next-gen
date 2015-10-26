@@ -1,5 +1,5 @@
 import NavigationMenuMobile from '../navigation/NavigationMenuMobile';
-import LoginMobile from '../login/LoginMobile';
+import SigninMobile from '../signin/SigninMobile';
 import TickTradeMobile from '../tick-trade/TickTradeMobile';
 import PayoutSelectorMobile from '../tick-trade/PayoutSelectorMobile';
 import PurchaseConfirmationMobile from '../tick-trade/PurchaseConfirmationMobile';
@@ -17,9 +17,9 @@ import SettingsLimits from '../settings/SettingsLimits';
 import SettingsPersonalDetails from '../settings/SettingsPersonalDetails';
 
 export default [
-//  { path: '/', component: TickTradeMobile },
+    { path: '/', component: TickTradeMobile },
     { path: 'nav', component: NavigationMenuMobile },
-    { path: 'login', component: LoginMobile },
+    { path: 'signin', component: SigninMobile },
     { path: 'tick-trade', component: TickTradeMobile },
     { path: 'payout-selector', component: PayoutSelectorMobile },
     { path: 'purchase-confirmation', component: PurchaseConfirmationMobile },

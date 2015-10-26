@@ -228,3 +228,16 @@ tbody > tr:hover {
 .mobile-content .modal {
     max-width: 360px;
 }
+.signin-btn {
+    margin-top: 2rem;
+    margin-bottom: 6rem;
+}
+.outline-link, .outline-link:hover {
+    display: block;
+    border: 1px solid white;
+    border-radius: 2px;
+    font-weight: normal;
+    padding: .5rem !important;
+    height: 2.5rem;
+    text-decoration: none;
+}
