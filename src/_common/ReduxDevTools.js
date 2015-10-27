@@ -1,13 +1,26 @@
 import React from 'react';
-import { createDevTools } from 'redux-devtools';
-import LogMonitor from 'redux-devtools-log-monitor';
+import { compose, createStore, applyMiddleware } from 'redux';
+import { devTools, persistState } from 'redux-devtools';
 import DockMonitor from 'redux-devtools-dock-monitor';
 
-export default createDevTools(
-    <DockMonitor toggleVisibilityKey="H" changePositionKey="Q">
-        <LogMonitor />
-    </DockMonitor>
-);
+// export default createDevTools(
+//     <DockMonitor toggleVisibilityKey="H" changePositionKey="Q">
+//         <LogMonitor />
+//     </DockMonitor>
+// );
+
+// const finalCreateStore = compose(
+//   // Enables your middleware:
+//   applyMiddleware(m1, m2, m3), // any Redux middleware, e.g. redux-thunk
+//
+//   // Provides support for DevTools:
+//   devTools(),
+//
+//   // Lets you write ?debug_session=<name> in address bar to persist debug sessions
+//   persistState(window.location.href.match(/[?&]debug_session=([^&]+)\b/))
+// )(createStore);
+//
+// const store = finalCreateStore(reducer);
 
 // import React from 'react';
 // import ReactDom from 'react-dom';

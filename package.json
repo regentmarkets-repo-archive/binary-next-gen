@@ -32,10 +32,13 @@
     "react-router": "^1.0.0-rc3",
     "react-sparklines": "*",
     "redux": "*",
-    "redux-localstorage": "^0.4.0"
+    "redux-localstorage": "^0.4.0",
+    "redux-localstorage-filter": "^0.1.1",
+    "redux-router": "^0.1.0",
+    "redux-thunk": "^1.0.0"
   },
   "devDependencies": {
-    "babel-core": "^5.0.12",
+    "babel-core": "*",
     "babel-eslint": "^4.1.3",
     "babel-loader": "^5.0.0",
     "cordova": "^5.3.3",
