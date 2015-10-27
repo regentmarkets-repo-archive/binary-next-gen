@@ -1,4 +1,5 @@
 import { Map } from 'immutable';
+import StateStorage from '../_store/StateStorage';
 
 import {
     SERVER_DATA_AUTHORIZE,
@@ -7,7 +8,7 @@ import {
     SERVER_DATA_BUY,
 } from '../_constants/ActionTypes';
 
-const initialState = new Map({
+const initialState = new Map(StateStorage.get('account') || {
     balances: [],
     loginid: '',
     fullname: '',

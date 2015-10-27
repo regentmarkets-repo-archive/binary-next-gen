@@ -1,21 +1,29 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-import { persistState } from 'redux-devtools';
+// import { persistState } from 'redux-devtools';
 import thunk from 'redux-thunk';
 import rootReducer from '../_reducers';
 import DevTools from './DevTools';
+import persistState, {mergePersistedState} from 'redux-localstorage';
+import adapter from 'redux-localstorage/lib/adapters/localStorage';
+import filter from 'redux-localstorage-filter';
+
+
+const reducer = compose(
+    mergePersistedState()
+)(rootReducer);
+
+const storage = compose(
+    filter('nested.key')
+)(adapter(window.localStorage));
 
 const finalCreateStore = compose(
     applyMiddleware(thunk),
     DevTools.instrument(),
-    persistState(
-        window.location.href.match(
-            /[?&]debug_session=([^&]+)\b/
-        )
-    )
+    persistState(storage, 'my-storage-key')
 )(createStore);
 
 export default function configureStore(initialState) {
-    const store = finalCreateStore(rootReducer, initialState);
+    const store = finalCreateStore(reducer, initialState);
 
     if (module.hot) {
         module.hot.accept('../_reducers', () =>
@@ -25,19 +33,3 @@ export default function configureStore(initialState) {
 
     return store;
 }
-
-
-// const reducer = compose(
-//     mergePersistedState()
-// )(reducers);
-//
-// const storage = compose(
-//     filter('nested.key')
-// )(adapter(window.localStorage));
-//
-// const finalCreateStore = compose(
-//     devTools(),
-//     persistState(storage, 'my-storage-key')
-// )(createStore);
-//
-// const store = finalCreateStore(reducer);
