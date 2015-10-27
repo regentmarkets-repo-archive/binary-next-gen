@@ -1,16 +1,25 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
-import App from '../_routes/App';
 import DevTools from './DevTools';
+import configureStore from './configureStore';
+import { Router } from 'react-router';
+import routes from '../_routes';
+import HashHistory from 'history/lib/createHashHistory';
+import LiveData from '../_data/LiveData';
+
+const store = configureStore();
+const history = new HashHistory();
+
+const liveData = new LiveData(store);
+liveData.initUnauthorized();
+liveData.initAuthorized();
 
 export default class Root extends Component {
     render() {
-        const { store } = this.props;
-        console.log('store', store);
         return (
             <Provider store={store}>
                 <div>
-                    <App />
+                    <Router history={history} children={routes} />
                     <DevTools />
                 </div>
             </Provider>
