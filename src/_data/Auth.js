@@ -6,21 +6,18 @@ export const navigateTo = (nextState, replaceState, to) => {
 };
 
 export const requireAuthOnEnter = (nextState, replaceState) => {
-    console.log('trying', StateStorage.get('token'));
     const token = StateStorage.get('token');
-    console.log('trying', StateStorage.get('token'));
+
     if (!token) {
         navigateTo(nextState, replaceState, '/signin');
     } else {
         const liveData = LiveData.instance();
-        console.log('trying', StateStorage.get('token'));
         liveData.api.authorize(token).then(
             () => {
-                console.log('token is', StateStorage.get('token'));
                 liveData.initAuthorized();
                 navigateTo(nextState, replaceState, '/');
             },
-            () => { navigateTo(nextState, replaceState, '/signin'); console.log('error is', StateStorage.get('token')); }
+            () => { navigateTo(nextState, replaceState, '/signin'); }
         );
     }
 };

@@ -24,7 +24,11 @@ import SettingsSelfExclusion from '../settings/SettingsSelfExclusion';
 import SettingsLimits from '../settings/SettingsLimits';
 import StatementPage from '../statement/StatementPage';
 
+import { requireAuthOnEnter } from '../_data/Auth';
+
+
 export default [
+    { path: 'workspace', component: WorkspacePage, onEnter: requireAuthOnEnter },
     { path: '/home', component: HomePage },
     { path: 'portfolio', component: PortfolioPage },
     { path: 'statement', component: StatementPage },

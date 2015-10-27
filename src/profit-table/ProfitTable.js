@@ -1,4 +1,5 @@
 import React from 'react';
+import { dateTimeStr } from '../_utils/DateUtils';
 import { NumberColored } from '../_common';
 import ProfitRow from './ProfitRow';
 
@@ -14,7 +15,6 @@ const ProfitTable = ({compact, transactions, onViewDetails}) => (
                 {!compact && <th>Sale Date</th>}
                 <th>Sale Price</th>
                 <th>Profit/Loss</th>
-                {!compact && <th></th>}
 			</tr>
 		</thead>
 		<tbody>
@@ -28,12 +28,11 @@ const ProfitTable = ({compact, transactions, onViewDetails}) => (
 		<tfoot>
 			<tr>
 				{!compact && <th></th>}
-				{transactions.size ? <th>{transactions.first().get('purchase_time')} – {transactions.last().get('purchase_time')}</th> : <th />}
+				{transactions.size ? <th>{dateTimeStr(transactions.first().get('purchase_time'))} – {dateTimeStr(transactions.last().get('purchase_time'))}</th> : <th />}
 				<th></th>
 				{!compact && <th></th>}
 				<th>Total</th>
                 <th><NumberColored value={calulateTotals(transactions)} /></th>
-                {!compact && <th></th>}
 			</tr>
 		</tfoot>
 	</table>

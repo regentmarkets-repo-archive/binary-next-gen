@@ -9,12 +9,11 @@ const StatementTable = ({compact, currency, transactions, onViewDetails}) => (
 	<table>
 		<thead>
 			<tr>
-				<th>Date</th>
+				<th>Purchase Date</th>
 				{!compact && <th>Ref.</th>}
 				<th>Action</th>
 				<th>Credit/Debit</th>
 				<th>Balance&nbsp;({currency})</th>
-				{!compact && <th></th>}
 			</tr>
 		</thead>
 		<tbody>
@@ -31,8 +30,7 @@ const StatementTable = ({compact, currency, transactions, onViewDetails}) => (
 				<th></th>
 				{!compact && <th></th>}
 				<th><NumberColored value={calulateTotals(transactions)} /></th>
-				<th><NumberPlain value={transactions[0] && transactions[0].balance_after} /></th>
-				{!compact && <th></th>}
+				<th><NumberPlain value={transactions[0] && transactions[0].balance_after} /></th>}
 			</tr>
 		</tfoot>
 	</table>

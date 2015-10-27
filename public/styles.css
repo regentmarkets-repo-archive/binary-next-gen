@@ -241,3 +241,7 @@ tbody > tr:hover {
     height: 2.5rem;
     text-decoration: none;
 }
+.desktop-page {
+    width: 100%;
+    height: 100%;
+}
