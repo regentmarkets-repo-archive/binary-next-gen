@@ -26,7 +26,7 @@ export default class NavigationMenu extends React.Component {
 				<Link to={`/statement-mobile`} className="sidebar-btn" activeClassName="active"><img src="/public/img/statement.svg" />Statement</Link>
 				<LanguagePicker />
 				<Link to={`/settings-mobile`} className="sidebar-btn" activeClassName="active"><img src="/public/img/settings.svg" /> Settings</Link>
-			<Link to={`/signout`} className="sidebar-btn" activeClassName="active"><img src="/public/img/signout.svg" /> Sign Out</Link>
+				<Link to={`/signout`} className="sidebar-btn" activeClassName="active"><img src="/public/img/signout.svg" /> Sign Out</Link>
 			</nav>
 		);
 	}

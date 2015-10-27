@@ -43,11 +43,15 @@ export default class SigninCard extends React.Component {
 	}
 
 	trySignin() {
-		this.props.actions.signinFieldUpdate('progress', true);
+		const {actions, history} = this.props;
+		actions.signinFieldUpdate('progress', true);
 		const token = this.props.signin.get('token');
-		LiveData.instance().api.authorize(token).then(
+		const liveData = LiveData.instance()
+		liveData.api.authorize(token).then(
 			() => {
 				StateStorage.set('token', token);
+				liveData.initAuthorized();
+				history.pushState({}, '/');
 			},
 			() => {	this.props.actions.signinFailed(); }
 		);

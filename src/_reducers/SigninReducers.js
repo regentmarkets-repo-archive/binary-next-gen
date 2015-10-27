@@ -8,7 +8,7 @@ import {
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
-    token: StateStorage.get('token') || '',
+    token: '',
     email: '',
     password: '',
     language: 'EN',
