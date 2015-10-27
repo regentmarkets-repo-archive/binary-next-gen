@@ -67,16 +67,16 @@ thead th {
     display: flex;
     align-items: center;
     justify-content: center;
+    width: 100%;
     height: 100%;
 }
 .mobile-page {
-    width: 360px;
-    height: 567px;
-    overflow: hidden;
-    box-shadow: 0 0 0 .5rem rgba(42, 48, 82, .5);
+    width: 100%;
+    height: 100%;
 }
 .mobile-content {
-    padding: .5rem;
+    padding: 3.5rem .5rem .5rem .5rem;
+    height: 100%;
 }
 .mobile-content tbody tr {
     cursor: pointer;
@@ -99,6 +99,7 @@ nav.sidebar {
     width: 240px;
     background: #2a3052;
     color: white;
+    margin: -3.5rem -.5rem -.5rem -.5rem;
 }
 .sidebar span {
     color: white;
@@ -159,6 +160,8 @@ tbody > tr:hover {
     background: #2a3052;
     height: 3rem;
     display: flex;
+    position: fixed;
+    width: 100%;
 }
 .mobile-toolbar a {
     font-weight: normal;

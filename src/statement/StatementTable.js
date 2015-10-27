@@ -30,7 +30,7 @@ const StatementTable = ({compact, currency, transactions, onViewDetails}) => (
 				<th></th>
 				{!compact && <th></th>}
 				<th><NumberColored value={calulateTotals(transactions)} /></th>
-				<th><NumberPlain value={transactions[0] && transactions[0].balance_after} /></th>}
+				<th><NumberPlain value={transactions[0] && transactions[0].balance_after} /></th>
 			</tr>
 		</tfoot>
 	</table>
