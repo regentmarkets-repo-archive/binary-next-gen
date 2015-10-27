@@ -31,7 +31,8 @@
     "react-redux": "*",
     "react-router": "^1.0.0-rc3",
     "react-sparklines": "*",
-    "redux": "*"
+    "redux": "*",
+    "redux-localstorage": "^0.4.0"
   },
   "devDependencies": {
     "babel-core": "^5.0.12",
