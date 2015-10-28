@@ -13,7 +13,6 @@ const history = new HashHistory();
 
 const liveData = new LiveData(store);
 liveData.initUnauthorized();
-liveData.initAuthorized();
 
 export default class Root extends Component {
     render() {

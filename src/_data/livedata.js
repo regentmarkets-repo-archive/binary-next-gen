@@ -45,7 +45,6 @@ export default class LiveData {
     }
 
     initAuthorized() {
-        this.api.authorize('8PgmMxKGP0ARsRs');
         this.api.getPortfolio();
         this.api.getStatement({ description: 1, limit: 10 });
         this.api.getProfitTable({ description: 1, limit: 10 });

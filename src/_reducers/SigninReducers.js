@@ -20,8 +20,6 @@ const initialState = fromJS({
     progress: false,
 });
 
-console.log('token is', StateStorage.get('token'));
-
 export default (state = initialState, action) => {
     switch (action.type) {
         case SIGNIN_START: {

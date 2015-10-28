@@ -4,6 +4,7 @@ import ErrorMsg from '../_common/ErrorMsg';
 import InputGroup from '../_common/InputGroup';
 import LanguagePicker from '../_common/LanguagePicker';
 import LiveData from '../_data/LiveData';
+import StateStorage from '../_store/StateStorage';
 
 export default class SigninCard extends React.Component {
 
@@ -43,13 +44,13 @@ export default class SigninCard extends React.Component {
 
 	trySignin() {
 		this.props.actions.signinFieldUpdate('progress', true);
-		LiveData.instance().api.authorize(this.props.signin.get('token')).then(
+		const token = this.props.signin.get('token');
+		LiveData.instance().api.authorize(token).then(
 			() => {
-				LiveData.instance().initAuthorized();
-				this.props.history.pushState({}, 'tick-trade');
-			}, () => {
-				this.props.actions.signinFailed();
-			});
+				StateStorage.set('token', token);
+			},
+			() => {	this.props.actions.signinFailed(); }
+		);
 	}
 
 	// <InputGroup type="email" placeholder="Email" onChange={::this.emailChange} />

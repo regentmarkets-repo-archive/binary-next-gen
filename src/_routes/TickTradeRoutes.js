@@ -16,10 +16,13 @@ import SettingsSelfExclusion from '../settings/SettingsSelfExclusion';
 import SettingsLimits from '../settings/SettingsLimits';
 import SettingsPersonalDetails from '../settings/SettingsPersonalDetails';
 
+import { requireAuthOnEnter, signout } from '../_data/Auth';
+
 export default [
-    { path: '/', component: TickTradeMobile },
+    { path: '/', component: TickTradeMobile, onEnter: requireAuthOnEnter },
     { path: 'nav', component: NavigationMenuMobile },
     { path: 'signin', component: SigninMobile },
+    { path: 'signout', component: SigninMobile, onEnter: signout },
     { path: 'tick-trade', component: TickTradeMobile },
     { path: 'payout-selector', component: PayoutSelectorMobile },
     { path: 'purchase-confirmation', component: PurchaseConfirmationMobile },
