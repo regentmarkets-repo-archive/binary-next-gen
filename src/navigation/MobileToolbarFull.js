@@ -1,9 +1,16 @@
 import React from 'react';
 import { Link } from 'react-router';
+import NavigationMenu from './NavigationMenu';
 
 export default () => (
 	<div className="mobile-toolbar">
-		<Link to="/nav" activeClassName="active" className="toolbar-btn">☰</Link>
+		<input id="hamburger-closer" type="radio" name="hamburger" defaultChecked={true} />
+		<label id="hamburger-overlay" htmlFor="hamburger-closer"></label>
+		<input id="hamburger-opener" className="hamburger" type="radio" name="hamburger" />
+		<label id="hamburger-btn" htmlFor="hamburger-opener" className="toolbar-btn">
+			<span>☰</span>
+			<NavigationMenu />
+		</label>
 		<Link to={'/tick-trade'} activeClassName="active" className="toolbar-btn"><img src="/public/img/trade.svg" /></Link>
 		<Link to={`/watchlist-mobile`} activeClassName="active" className="toolbar-btn"><img src="/public/img/watchlist.svg" /></Link>
 		<Link to={'/portfolio-mobile'} activeClassName="active" className="toolbar-btn"><img src="/public/img/portfolio.svg" /></Link>

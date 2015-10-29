@@ -163,16 +163,13 @@ tbody > tr:hover {
     position: fixed;
     width: 100%;
 }
-.mobile-toolbar a {
-    font-weight: normal;
-}
 .mobile-title {
     text-align: left !important;
 }
-.mobile-toolbar a {
+.mobile-toolbar .toolbar-btn {
+    font-weight: normal;
     color: white;
     text-decoration: none;
-    line-height: 3;
     text-align: center;
     flex: 1;
 }
@@ -214,7 +211,6 @@ tbody > tr:hover {
 .radio-item label {
     padding: .5rem .45rem;
     cursor: pointer;
-    disdplay: block;
 }
 .radio-item img {
     margin-right: .5rem;
@@ -237,7 +233,7 @@ tbody > tr:hover {
 }
 .outline-link, .outline-link:hover {
     display: block;
-    border: 1px solid white;
+    box-shadow: 0px 0px 0px 1px rgba(0,0,0,0.75);
     border-radius: 2px;
     font-weight: normal;
     padding: .5rem !important;
@@ -247,4 +243,37 @@ tbody > tr:hover {
 .desktop-page {
     width: 100%;
     height: 100%;
+}
+
+#hamburger-opener {
+    display: none;
+}
+#hamburger-btn > .sidebar {
+    position: absolute;
+    left: -300px;
+}
+
+#hamburger-opener:checked + #hamburger-btn > .sidebar {
+    left: 0;
+    transition: .3s;
+}
+
+#hamburger-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .5);
+    opacity: 1;
+    visibility: visible;
+    transition: .3s;
+}
+#hamburger-closer {
+    display: none;
+}
+#hamburger-closer:checked + #hamburger-overlay {
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s;
 }
