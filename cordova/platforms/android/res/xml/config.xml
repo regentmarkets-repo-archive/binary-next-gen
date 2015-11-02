@@ -11,9 +11,9 @@
         Binary.com - Binary Options Triding
     </description>
     <author email="boris@binary.com" href="http://binary.com">
-        Apache Cordova Team
+        Boris @ Binary Ltd.
     </author>
-    <content src="" />
+    <content src="index.html" />
     <access origin="*" />
     <allow-intent href="http://*/*" />
     <allow-intent href="https://*/*" />

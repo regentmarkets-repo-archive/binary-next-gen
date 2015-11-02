@@ -192,19 +192,35 @@ tbody > tr:hover {
     width: 100%;
     padding: 1rem;
 }
+.back-btn {
+    width: 3rem;
+    display: inline-block;
+    text-align: center;
+    margin-left: -1rem;
+    font-size: 1.5rem;
+    line-height: 1;
+}
+.tick-sparklines {
+    margin-bottom: 1rem;
+}
 .radio-selector {
     border-radius: 2px;
     background-color: rgba(42, 48, 82, .1);
     padding: .5rem 0;
 }
-.radio-selector input {
-    display: none;
-}
-.radio-selector label {
+.radio-item label {
     padding: .5rem .45rem;
     cursor: pointer;
+    disdplay: block;
 }
-.radio-selector input[type=radio]:checked+label{
+.radio-item img {
+    margin-right: .5rem;
+    width: 1.5rem;
+}
+.radio-item input {
+    display: none;
+}
+.radio-item input[type=radio]:checked+label{
     background: #2a3052;
     border-radius: 2px;
     color: white;
