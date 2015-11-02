@@ -17,19 +17,27 @@ git pull
 npm update or sudo npm update
 ```
 
-## Technologies used:
+## Technologies Used
 
 * [React](https://facebook.github.io/react/) - the framework
 * [React Router](https://github.com/rackt/react-router) - for routing, mapping urls to views
 * [Redux](https://github.com/rackt/redux) - state management
 * [Immutable.js](https://facebook.github.io/immutable-js/) - immutable data structures
 
-## Build process:
+## Build Process
 * [npm](https://www.npmjs.com/) - manage dependencies
 * [Babel](https://babeljs.io/) - compile ES6 code
 * [Webpack](https://webpack.github.io/) - bundle application from modules
 * [cordova](https://cordova.apache.org/) - build mobile app
 
+## Project Organization By Directory
+* _actions - Redux actions
+* _common - Common React Components
+* _data - Server/API interaction
+* _reducers - Redux reducers
+* _routes - React Router route config
+* _store - Init for routes and Redux
+* _utils - Common utils
 
 ## Useful Learning Resources
 [Egghead](https://egghead.io/)
