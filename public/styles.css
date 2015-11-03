@@ -248,6 +248,9 @@ tbody > tr:hover {
 #hamburger-opener {
     display: none;
 }
+#hamburger-btn {
+    cursor: pointer;
+}
 #hamburger-btn > .sidebar {
     position: absolute;
     left: -300px;
