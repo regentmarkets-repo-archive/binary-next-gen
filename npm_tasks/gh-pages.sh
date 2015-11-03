@@ -4,6 +4,8 @@ CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 
 cd $PROJECT_ROOT
 
+git stash
+
 git checkout gh-pages
 git checkout $CURRENT_BRANCH -- dist/*
 git checkout $CURRENT_BRANCH -- public/*
@@ -15,3 +17,5 @@ git commit -m "deployed from $CURRENT_BRANCH"
 git push --force origin gh-pages
 
 git checkout $CURRENT_BRANCH
+
+git stash pop
