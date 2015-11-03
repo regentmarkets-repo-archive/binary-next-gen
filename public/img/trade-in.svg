@@ -13,15 +13,14 @@
 </g>
 <g>
 	<g>
-		<line class="st0" x1="25" y1="50" x2="25" y2="0"/>
+		<line class="st0" x1="50" y1="36.2" x2="0" y2="36.2"/>
 	</g>
 	<g>
-		<line class="st0" x1="10" y1="25" x2="22.1" y2="25"/>
-		<polyline class="st0" points="15.1,17.6 22.5,25 15.1,32.4 		"/>
+		<line class="st0" x1="50" y1="13.8" x2="0" y2="13.8"/>
 	</g>
 	<g>
-		<line class="st0" x1="40" y1="25" x2="27.9" y2="25"/>
-		<polyline class="st0" points="34.9,17.6 27.5,25 34.9,32.4 		"/>
+		<polyline class="st0" points="46.1,25 38.7,25 33,17.6 24.7,32.4 16.2,17.6 11.8,25 2.7,25 		"/>
+		<polyline class="st0" points="39,17.6 46.4,25 39,32.4 		"/>
 	</g>
 </g>
 </svg>
