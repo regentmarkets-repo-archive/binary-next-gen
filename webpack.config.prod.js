@@ -4,15 +4,14 @@ var webpack = require('webpack');
 module.exports = {
     devtool: 'source-map',
     entry: [
-        './src/index'
+        './src'
     ],
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'app.js',
-        publicPath: '/public/'
+        publicPath: '/'
     },
     plugins: [
-        new webpack.optimize.OccurenceOrderPlugin(),
         new webpack.DefinePlugin({
             'process.env': {
                 'NODE_ENV': JSON.stringify('production')
@@ -21,6 +20,9 @@ module.exports = {
         new webpack.optimize.UglifyJsPlugin({
             compressor: {
                 warnings: false
+            },
+            output: {
+                comments: false
             }
         })
     ],
