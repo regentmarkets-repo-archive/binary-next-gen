@@ -1,5 +1,5 @@
 import StateStorage from '../_store/StateStorage';
-import LiveData from './LiveData';
+import * as LiveData from './LiveData';
 
 export const navigateTo = (nextState, replaceState, to) => {
     replaceState({ nextPathname: nextState.location.pathname }, to);
@@ -11,10 +11,8 @@ export const requireAuthOnEnter = (nextState, replaceState) => {
     if (!token) {
         navigateTo(nextState, replaceState, '/signin');
     } else {
-        const liveData = LiveData.instance();
-        liveData.api.authorize(token).then(
+        LiveData.api.authorize(token).then(
             () => {
-                liveData.initAuthorized();
                 navigateTo(nextState, replaceState, '/');
             },
             () => { navigateTo(nextState, replaceState, '/signin'); }

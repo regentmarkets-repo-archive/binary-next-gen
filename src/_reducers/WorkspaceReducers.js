@@ -1,5 +1,5 @@
 import { Map, Set } from 'immutable';
-import LiveData from '../_data/LiveData';
+import * as LiveData from '../_data/LiveData';
 // import Perf from 'react-addons-perf';
 
 import {
@@ -42,7 +42,7 @@ export default (state = initialState, action) => {
             // }, 10000);
             const newState = state.update('favoriteAssets', x =>
                 x.has(action.symbol) ? x.remove(action.symbol) : x.add(action.symbol));
-            LiveData.instance().api.trackSymbols(newState.get('favoriteAssets').toJS());
+            LiveData.trackSymbols(newState.get('favoriteAssets').toJS());
             return newState;
         }
         case WORKSPACE_UNFAVOR_ASSET: {

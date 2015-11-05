@@ -3,7 +3,7 @@ import LogoSpinner from '../_common/LogoSpinner';
 import ErrorMsg from '../_common/ErrorMsg';
 import InputGroup from '../_common/InputGroup';
 import LanguagePicker from '../_common/LanguagePicker';
-import LiveData from '../_data/LiveData';
+import * as LiveData from '../_data/LiveData';
 import StateStorage from '../_store/StateStorage';
 
 export default class SigninCard extends React.Component {
@@ -46,11 +46,9 @@ export default class SigninCard extends React.Component {
 		const {actions, history} = this.props;
 		actions.signinFieldUpdate('progress', true);
 		const token = this.props.signin.get('token');
-		const liveData = LiveData.instance()
-		liveData.api.authorize(token).then(
+		LiveData.api.authorize(token).then(
 			() => {
 				StateStorage.set('token', token);
-				liveData.initAuthorized();
 				history.pushState({}, '/');
 			},
 			() => {	this.props.actions.signinFailed(); }

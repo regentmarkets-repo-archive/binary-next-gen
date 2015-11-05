@@ -1,7 +1,7 @@
 import React from 'react';
 import AssetSelectorList from './AssetSelectorList';
 import { MarketSelector, InputGroup } from '../_common';
-import LiveData from '../_data/LiveData';
+import * as LiveData from '../_data/LiveData';
 
 const AssetSelectorCard = ({actions, assets, assetSelector, history, workspace}) => {
 	const showOnlyTickTradable = !!~window.location.search.indexOf('tick');
@@ -16,9 +16,8 @@ const AssetSelectorCard = ({actions, assets, assetSelector, history, workspace})
 		actions.workspaceAssetSelect(asset);
 		if (~window.location.search.indexOf('goback')) history.goBack();
 		if (~window.location.search.indexOf('tick')) {
-			const liveData = new LiveData();
-			liveData.api.getTickHistory(asset, { end: 'latest', count: 20 });
-			liveData.api.subscribeToTick(asset);
+			LiveData.api.getTickHistory(asset, { end: 'latest', count: 20 });
+			LiveData.api.subscribeToTick(asset);
 		}
 	};
 	const onFavor = asset => actions.workspaceFavorAsset(asset);

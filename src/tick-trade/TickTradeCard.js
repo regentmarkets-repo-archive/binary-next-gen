@@ -1,7 +1,7 @@
 import React from 'react';
 import { Modal } from '../_common';
 import TickTradeSparkline from '../watchlist/TickTradeSparkline';
-import LiveData from '../_data/LiveData';
+import * as LiveData from '../_data/LiveData';
 import TickTradeParameters from './TickTradeParameters';
 import TradeDisplay from './TradeDisplay';
 import PurchaseConfirmation from './PurchaseConfirmation';
@@ -16,9 +16,8 @@ export default class TickTradeCard extends React.Component {
 	};
 
 	placeOrder() {
-		const liveData = new LiveData();
 		const {tickTrade} = this.props;
-		liveData.api.buyContract(tickTrade.get('id'), tickTrade.get('ask_price'));
+		LiveData.api.buyContract(tickTrade.get('id'), tickTrade.get('ask_price'));
 	}
 
 	getTickHistory() {
