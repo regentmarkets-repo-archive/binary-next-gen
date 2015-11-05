@@ -28,10 +28,10 @@ export const initUnauthorized = () => {
 
 export const initAuthorized = () => {
     api.getPortfolio();
-    api.getStatement({ description: 1, limit: 10 });
-    api.getProfitTable({ description: 1, limit: 10 });
-    api.getBalance();
+    api.getStatement({ description: 1, limit: 20 });
+    api.getProfitTable({ description: 1, limit: 20 });
     api.getPayoutCurrencies();
+    api.subscribeToBalance();
     api.subscribeToAllOpenContracts();
 };
 
