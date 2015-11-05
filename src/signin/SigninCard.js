@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import LogoSpinner from '../_common/LogoSpinner';
 import ErrorMsg from '../_common/ErrorMsg';
 import InputGroup from '../_common/InputGroup';
@@ -46,7 +47,7 @@ export default class SigninCard extends React.Component {
 		const {actions, history} = this.props;
 		actions.signinFieldUpdate('progress', true);
 		const token = this.props.signin.get('token');
-		const liveData = LiveData.instance()
+		const liveData = LiveData.instance();
 		liveData.api.authorize(token).then(
 			() => {
 				StateStorage.set('token', token);
@@ -80,8 +81,10 @@ export default class SigninCard extends React.Component {
 					shown={!!signin.get('credentialsInvalid')}
 					text="Access denied" />
 
-		<LanguagePicker onChange={::this.onLanguageChange} />
-				<button className="outline-link signin-btn" onClick={::this.trySignin}>Sign in</button>
+				<LanguagePicker onChange={::this.onLanguageChange} />
+				<button className="outline-link signin-btn" onClick={::this.trySignin}>Sign In</button>
+				<Link to="/signup" className="outline-link">Create Account</Link>
+				<br />
 				<a className="outline-link" href="https://www.binary.com/user/api_token">Get your API token</a>
 			</div>
 		);
