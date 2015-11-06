@@ -1,10 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { DesktopToolbar } from '../navigation';
+import { DesktopHeader } from '../navigation';
 
 export default () => (
 	<div>
-		<DesktopToolbar />
+		<DesktopHeader />
 		<h4><Link to={`/tick-trade`}>Tick Trade</Link></h4>
 		<h4><Link to={`/login`}>Login</Link></h4>
 		<h4><Link to={`/signup`}>Signup</Link></h4>

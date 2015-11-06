@@ -1,9 +1,10 @@
 import React from 'react';
-import { DesktopToolbar } from '../navigation';
+import { DesktopHeader, DesktopSidebar } from '../navigation';
 
 const DesktopPage = ({children}) => (
 	<div className="desktop-page">
-		<DesktopToolbar />
+		<DesktopHeader />
+		<DesktopSidebar />
 		<div className="desktop-content">
 			{children}
 		</div>
