@@ -2,7 +2,7 @@
   "name": "binary-app",
   "version": "0.0.0",
   "description": "",
-  "main": "app/app.js",
+  "main": "src/index.js",
   "scripts": {
     "clean": "rimraf dist",
     "build:webpack": "NODE_ENV=production webpack --config webpack.config.prod.js",
@@ -11,7 +11,8 @@
     "deploy-win": "npm run build && npm_tasks\\gh-pages-win",
     "lint": "eslint src",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "node server.js",
+    "electron": "electron electron.js"
   },
   "keywords": [
     "binary.com",
