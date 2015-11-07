@@ -20,3 +20,17 @@ export function serverDataPayoutCurrencies(serverResponse) {
         serverResponse,
     };
 }
+
+export function serverDataAccountLimits(serverResponse) {
+    return {
+        type: types.SERVER_DATA_ACCOUNT_LIMITS,
+        serverResponse,
+    };
+}
+
+export function serverDataAccountSettings(serverResponse) {
+    return {
+        type: types.SERVER_DATA_ACCOUNT_SETTINGS,
+        serverResponse,
+    };
+}

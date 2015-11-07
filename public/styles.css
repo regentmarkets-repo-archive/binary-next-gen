@@ -112,6 +112,7 @@ header {
 }
 .header-content {
     max-width: 100%;
+    color: white;
 }
 nav.sidebar {
     display: flex;
@@ -183,10 +184,8 @@ tbody > tr:hover {
     position: fixed;
     width: 100%;
 }
-.mobile-title {
+.mobile-back-btn {
     text-align: left !important;
-}
-.mobile-toolbar .toolbar-btn {
     font-weight: normal;
     color: white;
     text-decoration: none;
@@ -296,4 +295,29 @@ tbody > tr:hover {
     visibility: hidden;
     opacity: 0;
     transition: .3s;
+}
+#desktop-sidebar {
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 4rem;
+    background: #2a3052;
+}
+.toolbar-hint {
+    position: absolute;
+    padding: .75rem;
+    margin-top: -2rem;
+    margin-left: 2rem;
+    width: 8rem;
+    border-radius: 2px;
+    background: #2a3052;
+    visibility: hidden;
+}
+.toolbar-btn:hover > .toolbar-hint {
+    visibility: visible;
+}
+#desktop-sidebar .toolbar-btn {
+    height: 3rem;
 }

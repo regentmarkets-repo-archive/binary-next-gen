@@ -1,4 +1,3 @@
-import NavigationMenuMobile from '../navigation/NavigationMenuMobile';
 import SigninMobile from '../signin/SigninMobile';
 import TickTradeMobile from '../tick-trade/TickTradeMobile';
 import PayoutSelectorMobile from '../tick-trade/PayoutSelectorMobile';
@@ -20,7 +19,6 @@ import { requireAuthOnEnter, signout } from '../_data/Auth';
 
 export default [
     { path: '/', component: TickTradeMobile, onEnter: requireAuthOnEnter },
-    { path: 'nav', component: NavigationMenuMobile },
     { path: 'signin', component: SigninMobile },
     { path: 'signout', component: SigninMobile, onEnter: signout },
     { path: 'tick-trade', component: TickTradeMobile },

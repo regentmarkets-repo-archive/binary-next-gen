@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { RangeGroup } from '../_common';
-import LiveData from '../_data/LiveData';
+import * as LiveData from '../_data/LiveData';
 import { tradeTypeCodeToText } from '../_utils/TradeUtils';
 
 export default class TickTradeParameters extends React.Component {
@@ -15,12 +15,11 @@ export default class TickTradeParameters extends React.Component {
 	};
 
 	getPrice() {
-		const liveData = new LiveData();
 		const {tickTrade} = this.props;
 
-		liveData.api.unsubscribeFromAllProposals();
+		LiveData.api.unsubscribeFromAllProposals();
 
-		liveData.api.subscribeToPriceForContractProposal({
+		LiveData.api.subscribeToPriceForContractProposal({
   			amount: tickTrade.get('amount').toString(),
 			basis: tickTrade.get('basis'),
 			contract_type: tickTrade.get('tradeType'),

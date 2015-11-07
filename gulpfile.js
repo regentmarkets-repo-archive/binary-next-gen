@@ -45,3 +45,8 @@ gulp.task('deploy', ['build'], () =>
         .pipe(file('CNAME', 'app.binary.com'))
         .pipe(ghPages())
 );
+
+gulp.task('phonegap', () =>
+    gulp.src('./dist/**/*')
+        .pipe(ghPages({ branch: 'phonegap' }))
+);

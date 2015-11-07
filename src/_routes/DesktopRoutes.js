@@ -1,7 +1,6 @@
 import HomePage from '../home/HomePage';
 import WorkspacePage from '../workspace/WorkspacePage';
 import SignupPage from '../signup/SignupPage';
-import BalancesPage from '../balances/BalancesPage';
 import UpgradePage from '../upgrade/UpgradePage';
 import WatchlistPage from '../watchlist/WatchlistPage';
 import OfferingsCard from '../offerings/OfferingsCard';
@@ -33,7 +32,6 @@ export default [
     { path: 'portfolio', component: PortfolioPage },
     { path: 'statement', component: StatementPage },
     { path: 'workspace', component: WorkspacePage },
-    { path: 'balances', component: BalancesPage },
     { path: 'signup', component: SignupPage },
     { path: 'upgrade', component: UpgradePage },
     { path: 'trade', component: TradePage },

@@ -1,8 +1,6 @@
 import { LiveApi } from 'binary-live-api';
 import * as actions from '../_actions';
 
-let instance = null;
-
 const handlers = {
     'authorize': 'serverDataAuthorize',
     'balance': 'serverDataBalance',
@@ -18,53 +16,46 @@ const handlers = {
     'profit_table': 'serverDataProfitTable',
     'proposal': 'serverDataProposal',
     'buy': 'serverDataBuy',
+    'get_limits': 'serverDataAccountLimits',
+    'get_settings': 'serverDataAccountSettings',
 };
 
-export default class LiveData {
+export const api = new LiveApi();
 
-    constructor(store) {
-        if (!instance) {
-            instance = this;
-        }
+export const initUnauthorized = () => {
+    api.getActiveSymbolsFull();
+    api.getTradingTimes();
+    api.getAssetIndex();
+};
 
-        this.api = new LiveApi();
+export const initAuthorized = () => {
+    api.getPortfolio();
+    api.getStatement({ description: 1, limit: 20 });
+    api.getProfitTable({ description: 1, limit: 20 });
+    api.getPayoutCurrencies();
+    api.subscribeToBalance();
+    api.subscribeToAllOpenContracts();
+    // api.getAccountLimits();
+    api.getAccountSettings();
+};
 
-        Object.keys(handlers).forEach(key => {
-            const action = actions[handlers[key]];
-            this.api.events.on(key, (data) => store.dispatch(action(data)));
-            this.api.events.on(key, () => window.console.log);
-        });
+export const trackSymbols = symbols => {
+    api.unsubscribeFromAllTicks();
+    api.subscribeToTicks(symbols);
+};
 
-        return instance;
+export const connect = (store, token) => {
+    Object.keys(handlers).forEach(key => {
+        const action = actions[handlers[key]];
+        api.events.on(key, (data) => store.dispatch(action(data)));
+        api.events.on(key, () => window.console.log);
+    });
+
+    if (token) {
+        api.authorize(token);
     }
 
-    initUnauthorized() {
-        this.api.getActiveSymbolsFull();
-        this.api.getTradingTimes();
-        this.api.getAssetIndex();
-    }
+    initUnauthorized();
 
-    initAuthorized() {
-        this.api.getPortfolio();
-        this.api.getStatement({ description: 1, limit: 10 });
-        this.api.getProfitTable({ description: 1, limit: 10 });
-        this.api.getBalance();
-        this.api.getPayoutCurrencies();
-        this.api.subscribeToAllOpenContracts();
-    }
-
-    trackActiveSymbols() {
-        const list = this.activeSymbols.map(sym => sym.symbol);
-
-        this.api.trackSymbols(list.slice(list.length - 20));
-    }
-
-    trackSymbols(symbols) {
-        this.api.unsubscribeFromAllTicks();
-        this.api.subscribeToTicks(symbols);
-    }
-
-    static instance() {
-        return instance;
-    }
-}
+    api.events.on('authorize', initAuthorized);
+};
