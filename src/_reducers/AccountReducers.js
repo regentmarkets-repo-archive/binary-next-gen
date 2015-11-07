@@ -1,4 +1,4 @@
-import { Map, fromJS } from 'immutable';
+import { fromJS } from 'immutable';
 import StateStorage from '../_store/StateStorage';
 
 import {
@@ -6,14 +6,18 @@ import {
     SERVER_DATA_BALANCE,
     SERVER_DATA_PAYOUT_CURRENCIES,
     SERVER_DATA_BUY,
+    SERVER_DATA_ACCOUNT_LIMITS,
+    SERVER_DATA_ACCOUNT_SETTINGS,
 } from '../_constants/ActionTypes';
 
-const initialState = new Map(StateStorage.get('account') || {
+const initialState = fromJS(StateStorage.get('account') || {
     loginid: '',
     fullname: '',
     currency: '',
     balance: 0,
     currencies: ['USD'],
+    limits: {},
+    settings: {},
 });
 
 export default (state = initialState, action) => {
@@ -30,6 +34,12 @@ export default (state = initialState, action) => {
         }
         case SERVER_DATA_PAYOUT_CURRENCIES: {
             return state.set('currencies', action.serverResponse.payout_currencies);
+        }
+        case SERVER_DATA_ACCOUNT_LIMITS: {
+            return state.set('limits', action.serverResponse.get_account_limits);
+        }
+        case SERVER_DATA_ACCOUNT_SETTINGS: {
+            return state.set('settings', action.serverResponse.get_account_settings);
         }
         default:
             return state;

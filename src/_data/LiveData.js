@@ -16,6 +16,8 @@ const handlers = {
     'profit_table': 'serverDataProfitTable',
     'proposal': 'serverDataProposal',
     'buy': 'serverDataBuy',
+    'get_limits': 'serverDataAccountLimits',
+    'get_settings': 'serverDataAccountSettings',
 };
 
 export const api = new LiveApi();
@@ -33,6 +35,8 @@ export const initAuthorized = () => {
     api.getPayoutCurrencies();
     api.subscribeToBalance();
     api.subscribeToAllOpenContracts();
+    // api.getAccountLimits();
+    api.getAccountSettings();
 };
 
 export const trackSymbols = symbols => {
