@@ -2,14 +2,14 @@ const gulp = require('gulp');
 const runSequence = require('run-sequence');
 const del = require('del');
 const file = require('gulp-file');
-const shell = require('gulp-shell')
+const shell = require('gulp-shell');
 const ghPages = require('gulp-gh-pages');
 // const sass = require('gulp-sass');
 
 const files = {
     dist: 'dist',
     js: 'src',
-    static: 'public/**/*',
+    static: ['public/**/*', 'config.xml'],
     sass: 'public/styles.sass',
 };
 
