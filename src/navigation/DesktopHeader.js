@@ -14,16 +14,14 @@ export default class DesktopHeader extends React.Component {
 
 		return (
 			<header>
-		    	<div className="header-content">
-					<Link id="logo" to="/workspace">
-						<img src="https://borisyankov.github.io/binary-static/images/pages/binary-symbol-logo.svg" />
-					</Link>
-					19:28:33 (GMT +0)
-					Balance: <NumberPlain currency={account.currency} value={account.balance} />
-					Equity: <NumberPlain currency={account.currency} value={account.balance} />
-					<LanguagePicker />
-					{account.loginid} {account.email}
-				</div>
+				<Link id="logo" to="/workspace">
+					<img src="https://borisyankov.github.io/binary-static/images/pages/binary-symbol-logo.svg" />
+				</Link>
+				<span>19:28:33 (GMT +0)</span>
+				<span>Balance: <NumberPlain currency={account.currency} value={account.balance} /></span>
+				<LanguagePicker />
+				<span>{account.loginid}</span>
+				<span>{account.email}</span>
 			</header>
 		);
 	}

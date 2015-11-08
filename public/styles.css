@@ -109,10 +109,14 @@ thead th {
 }
 header {
     position: inherit;
-}
-.header-content {
-    max-width: 100%;
+    width: 100%;
     color: white;
+    display: flex;
+    padding: 0 1rem;
+    justify-content: space-between;
+}
+header span {
+    line-height: 3;
 }
 nav.sidebar {
     display: flex;
@@ -308,9 +312,9 @@ tbody > tr:hover {
 .toolbar-hint {
     position: absolute;
     padding: .75rem;
-    margin-top: -2rem;
-    margin-left: 2rem;
-    width: 8rem;
+    margin-top: -.75rem;
+    margin-left: 1rem;
+    width: 10rem;
     border-radius: 2px;
     background: #2a3052;
     visibility: hidden;
@@ -320,4 +324,8 @@ tbody > tr:hover {
 }
 #desktop-sidebar .toolbar-btn {
     height: 3rem;
+}
+.login-content {
+    max-width: 400px;
+    margin: auto;
 }

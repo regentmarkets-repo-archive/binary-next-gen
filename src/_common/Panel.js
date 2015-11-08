@@ -7,7 +7,6 @@ const Panel = ({title, onClose, position = { left: 100, top: 100, width: 500, he
 			<div className="panel-title">
 				<label>{title}</label>
 				<div>
-					<button className="panel-btn" onClick={onClose}>&mdash;</button>
 					<button className="panel-btn" onClick={onClose}>✖</button>
 				</div>
 			</div>
