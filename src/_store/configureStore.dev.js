@@ -22,7 +22,7 @@ const finalCreateStore = compose(
     persistState(storage, 'my-storage-key')
 )(createStore);
 
-export default function configureStore(initialState) {
+const configureStore = initialState => {
     const store = finalCreateStore(reducer, initialState);
 
     if (module.hot) {
@@ -32,4 +32,6 @@ export default function configureStore(initialState) {
     }
 
     return store;
-}
+};
+
+export default configureStore;

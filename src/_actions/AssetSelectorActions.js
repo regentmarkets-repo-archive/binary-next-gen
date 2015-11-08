@@ -1,25 +1,19 @@
 import * as types from '../_constants/ActionTypes';
 
-export function updateAssetSelectorSearchQuery(assets, query) {
-    return {
-        type: types.UPDATE_ASSET_SELECTOR_SEARCH_QUERY,
-        assets,
-        query,
-    };
-}
+export const updateAssetSelectorSearchQuery = (assets, query) => ({
+    type: types.UPDATE_ASSET_SELECTOR_SEARCH_QUERY,
+    assets,
+    query,
+});
 
-export function updateAssetSelectorMarkets(assets, markets) {
-    return {
-        type: types.UPDATE_ASSET_SELECTOR_MARKETS,
-        assets,
-        markets,
-    };
-}
+export const updateAssetSelectorMarkets = (assets, markets) => ({
+    type: types.UPDATE_ASSET_SELECTOR_MARKETS,
+    assets,
+    markets,
+});
 
-export function updateAssetSelectorSubmarket(assets, submarket) {
-    return {
-        type: types.UPDATE_ASSET_SELECTOR_SUBMARKET,
-        assets,
-        submarket,
-    };
-}
+export const updateAssetSelectorSubmarket = (assets, submarket) => ({
+    type: types.UPDATE_ASSET_SELECTOR_SUBMARKET,
+    assets,
+    submarket,
+});
