@@ -1,24 +1,22 @@
 import { Map } from 'immutable';
-import { NEXT_VIDEO, PREVIOUS_VIDEO } from '../_constants/ActionTypes'
+import { CHANGE_VIDEO } from '../_constants/ActionTypes'
 
 const initialState = new Map({
-    urls: ['https://www.youtube.com/watch?v=zQJy9sFHU38'],
-    currentIndex: 0
+    title: "Bla bla bla",
+    url: 'https://www.youtube.com/watch?v=dZEnQogAd8U',
+    videos: [{
+        imgSrc: 'https://pbs.twimg.com/profile_images/567285191169687553/7kg_TF4l.jpeg',
+        title: 'Cute Cat',
+        videoUrl: 'https://www.youtube.com/watch?v=dZEnQogAd8U'
+    }],
 });
 
 export default (state=initialState, action) => {
     switch (action.type) {
-        case NEXT_VIDEO: {
-            const totalUrlSize = state.get('urls').length;
-            const oldIdx = state.get('currentIndex');
-            const newIdx = (oldIdx + 1) % totalUrlSize;
-            return state.set('currentIdx', newIdx);
-        }
-        case PREVIOUS_VIDEO: {
-            const totalUrlSize = state.get('urls').length;
-            const oldIdx = state.get('currentIndex');
-            const newIdx = (oldIdx - 1) < 0 ? (totalUrlSize - 1) : (oldIdx - 1);
-            return state.set('currentIdx', newIdx);
+        case CHANGE_VIDEO: {
+            return state.
+                set('url', action.video.url).
+                set('title', action.video.title);
         }
         default : {
             return state;
