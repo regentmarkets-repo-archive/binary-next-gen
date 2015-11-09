@@ -7,7 +7,6 @@ git clone https://github.com/binary-com/binary-next-gen.git
 npm install or sudo npm install
 npm start
 ```
-
 Then open localhost:3000 in a browser
 
 ## To update to latest version
@@ -15,6 +14,27 @@ Then open localhost:3000 in a browser
 ```
 git pull
 npm update or sudo npm update
+```
+
+## Deploy new web version
+
+We build with [Gulp](http://gulpjs.com/) and deploy to [GitHub Pages](https://pages.github.com/)
+
+```
+gulp deploy
+```
+
+## Build new mobile app version
+
+Use [PhoneGap Build](https://build.phonegap.com/)
+
+## Build new desktop app version
+
+We use [Electron](http://electron.atom.io/) to run as desktop app.
+
+```
+npm i electron-prebuilt -g
+electron
 ```
 
 ## Technologies Used
