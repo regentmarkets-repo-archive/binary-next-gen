@@ -24,6 +24,7 @@
   "license": "MIT",
   "dependencies": {
     "binary-live-api": "*",
+    "del": "^2.0.2",
     "history": "^1.9.1",
     "immutable": "^3.7.5",
     "moment": "*",
