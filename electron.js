@@ -1,4 +1,4 @@
-const app = require('src/index'); // Module to control application life.
+const app = require('app');  // Module to control application life.
 const BrowserWindow = require('browser-window'); // Module to create native browser window.
 
 // Report crashes to our server.
