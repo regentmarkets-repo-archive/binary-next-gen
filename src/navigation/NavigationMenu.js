@@ -19,14 +19,14 @@ export default class NavigationMenu extends React.Component {
 					{account.email}<br/>
 					<NumberPlain currency={account.currency} value={account.balance} />
 				</div>
-				<Link to={`/tick-trade`} className="sidebar-btn" activeClassName="active"><img src="/img/trade.svg" />Trade</Link>
-				<Link to={`/watchlist-mobile`} className="sidebar-btn" activeClassName="active"><img src="/img/watchlist.svg" />Watchlist</Link>
-				<Link to={`/portfolio-mobile`} className="sidebar-btn" activeClassName="active"><img src="/img/portfolio.svg" />Open Positions</Link>
-				<Link to={`/profit-table-mobile`} className="sidebar-btn" activeClassName="active"><img src="/img/profit.svg" />Profit Table</Link>
-				<Link to={`/statement-mobile`} className="sidebar-btn" activeClassName="active"><img src="/img/statement.svg" />Statement</Link>
+				<Link to={`/tick-trade`} className="sidebar-btn" activeClassName="active"><img src="img/trade.svg" />Trade</Link>
+				<Link to={`/watchlist-mobile`} className="sidebar-btn" activeClassName="active"><img src="img/watchlist.svg" />Watchlist</Link>
+				<Link to={`/portfolio-mobile`} className="sidebar-btn" activeClassName="active"><img src="img/portfolio.svg" />Open Positions</Link>
+				<Link to={`/profit-table-mobile`} className="sidebar-btn" activeClassName="active"><img src="img/profit.svg" />Profit Table</Link>
+				<Link to={`/statement-mobile`} className="sidebar-btn" activeClassName="active"><img src="img/statement.svg" />Statement</Link>
 				<LanguagePicker />
-				<Link to={`/settings-mobile`} className="sidebar-btn" activeClassName="active"><img src="/img/settings.svg" /> Settings</Link>
-				<Link to={`/signout`} className="sidebar-btn" activeClassName="active"><img src="/img/signout.svg" /> Sign Out</Link>
+				<Link to={`/settings-mobile`} className="sidebar-btn" activeClassName="active"><img src="img/settings.svg" /> Settings</Link>
+				<Link to={`/signout`} className="sidebar-btn" activeClassName="active"><img src="img/signout.svg" /> Sign Out</Link>
 			</nav>
 		);
 	}
