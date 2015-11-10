@@ -28,6 +28,7 @@
     "immutable": "^3.7.5",
     "moment": "*",
     "react": "^0.14.0-rc1",
+    "react-dock": "^0.2.3",
     "react-dom": "^0.14.0-rc1",
     "react-draggable": "^0.8.3",
     "react-redux": "*",

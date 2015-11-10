@@ -104,8 +104,9 @@ thead th {
 .tick-trade-mobile button:not(.close-btn), .tick-trade-mobile input[type=range], .tick-trade-mobile a.button, .tick-trade-mobile .range-selector-items {
     width: 100%;
 }
-.desktop-content {
-    padding: 1rem .5rem;
+#workspace {
+    width: 100%;
+    height: 100%;
 }
 header {
     position: inherit;
