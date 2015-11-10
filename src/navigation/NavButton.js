@@ -11,7 +11,7 @@ export default class NavButton extends React.Component {
 		const {img, text} = this.props;
 		return (
 			<button className="toolbar-btn">
-				<img className="toolbar-img" src={`/img/${img}.svg`} />
+				<img className="toolbar-img" src={`img/${img}.svg`} />
 				<span className="toolbar-hint">{text}</span>
 			</button>
 		);
