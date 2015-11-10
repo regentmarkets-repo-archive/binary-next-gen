@@ -22,6 +22,9 @@
   ],
   "author": "Boris @ Binary",
   "license": "MIT",
+  "babel": {
+    "stage": 0
+  },
   "dependencies": {
     "binary-live-api": "*",
     "history": "^1.9.1",
@@ -30,20 +33,19 @@
     "react": "^0.14.0",
     "react-dock": "^0.2.3",
     "react-dom": "^0.14.0",
-    "react-draggable": "^0.8.3",
+    "react-draggable": "1.0.2",
     "react-redux": "*",
     "react-router": "^1.0.0",
     "react-sparklines": "*",
     "redux": "*",
     "redux-localstorage": "^1.0.0-rc4",
     "redux-localstorage-filter": "^0.1.1",
-    "redux-router": "^0.1.0",
     "redux-thunk": "^1.0.0"
   },
   "devDependencies": {
-    "babel-core": "*",
-    "babel-eslint": "*",
-    "babel-loader": "*",
+    "babel-core": "^5.8.33",
+    "babel-eslint": "^4.1.5",
+    "babel-loader": "^5.3.3",
     "css-loader": "^0.12.0",
     "del": "^2.0.2",
     "eslint": "^1.0.0",
@@ -67,7 +69,6 @@
     "redux-devtools-log-monitor": "^1.0.0-beta-3",
     "rimraf": "^2.4.3",
     "run-sequence": "^1.1.4",
-    "stats-webpack-plugin": "^0.0.1",
     "style-loader": "^0.12.0",
     "url-loader": "^0.5.5",
     "uuid": "^2.0.1",

@@ -14,7 +14,6 @@ export MarketSelector from './MarketSelector';
 export MarketSelector from './MarketSelector';
 export MobilePage from './MobilePage';
 export Modal from './Modal';
-export ModalAnimated from './ModalAnimated';
 export NumberPlain from './NumberPlain';
 export NumberColored from './NumberColored';
 export ObjectTable from './ObjectTable';
