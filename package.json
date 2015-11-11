@@ -37,6 +37,7 @@
     "react-redux": "*",
     "react-router": "^1.0.0",
     "react-sparklines": "*",
+    "react-youtube": "^4.1.2",
     "redux": "*",
     "redux-localstorage": "^1.0.0-rc4",
     "redux-localstorage-filter": "^0.1.1",
