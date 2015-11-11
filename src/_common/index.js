@@ -27,3 +27,4 @@ export Segment from './Segment';
 export SegmentedControl from './SegmentedControl';
 export SelectGroup from './SelectGroup';
 export Star from './Star';
+export Tabs from './Tabs';

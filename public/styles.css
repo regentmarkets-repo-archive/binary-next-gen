@@ -330,3 +330,6 @@ tbody > tr:hover {
     max-width: 400px;
     margin: auto;
 }
+ul[role=tabs] {
+    height: 2rem;
+}

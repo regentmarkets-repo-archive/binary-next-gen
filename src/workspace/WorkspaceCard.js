@@ -1,41 +1,42 @@
 import React from 'react';
 import Dock from 'react-dock';
-import StatementCard from '../statement/StatementCard';
+import { Tabs } from '../_common';
+import PortfolioContainer from '../portfolio/PortfolioContainer';
+import ProfitTableContainer from '../profit-table/ProfitTableContainer';
+import StatementContainer from '../statement/StatementContainer';
 import AssetSelectorContainer from '../asset-selector/AssetSelectorContainer';
+import AssetDetailsContainer from '../asset-details/AssetDetailsContainer';
 import TradingTimesContainer from '../trading-times/TradingTimesContainer';
-// import TickTradePanel from '../tick-trade/TickTradePanel';
-// import AssetSelectorPanel from '../asset-selector/AssetSelectorPanel';
-// import AssetDetailsPanel from '../asset-details/AssetDetailsPanel';
-// import PortfolioPanel from '../portfolio/PortfolioPanel';
-// import TradingTimesPanel from '../trading-times/TradingTimesPanel';
-// import AssetIndexPanel from '../asset-index/AssetIndexPanel';
-// import WatchlistPanel from '../watchlist/WatchlistPanel';
-// import ProfitTablePanel from '../profit-table/ProfitTablePanel';
-// import StatementPanel from '../statement/StatementPanel';
+import AssetIndexContainer from '../asset-index/AssetIndexContainer';
 
-// <TickTradePanel position={{left: 70, top: 52, width: 300, height: 545 }} />
-// <AssetDetailsPanel position={{left: 70, top: 615, width: 300, height: 370 }} />
-//
-// <WatchlistPanel position={{left: 375, top: 52, width: 550, height: 200 }} />
-// <AssetIndexPanel position={{left: 375, top: 255, width: 550, height: 360 }} />
-// <TradingTimesPanel position={{left: 375, top: 620, width: 550, height: 360 }} />
-//
-// <PortfolioPanel position={{left: 930, top: 52, width: 800, height: 300 }} />
-// <StatementPanel position={{left: 930, top: 355, width: 800, height: 300 }} />
-// <ProfitTablePanel position={{left: 930, top: 660, width: 800, height: 320 }} />
+import TickTradePanel from '../tick-trade/TickTradePanel';
+import WatchlistPanel from '../watchlist/WatchlistPanel';
 
 export default () => (
 	<div id="workspace">
-		<div>
-			<Dock position="left" isVisible={true} dimMode="none">
-				<AssetSelectorContainer />
-			</Dock>
-			<Dock position="right" isVisible={true} dimMode="none">
-				<TradingTimesContainer />
-			</Dock>
-		</div>
+		<TickTradePanel position={{left: 70, top: 52, width: 300, height: 545 }} />
+		<WatchlistPanel position={{left: 375, top: 52, width: 550, height: 200 }} />
+
+		<Dock position="left" isVisible={true} dimMode="none">
+			<Tabs tabs={[
+					{text: 'Assets', control: AssetSelectorContainer},
+					{text: 'Details', control: AssetDetailsContainer},
+				]} />
+		</Dock>
+		<Dock position="right" isVisible={true} dimMode="none">
+			<Tabs tabs={[
+					{text: 'Trading Times', control: TradingTimesContainer},
+					{text: 'Asset Index', control: AssetIndexContainer},
+					{text: 'Videos', control: AssetIndexContainer},
+					{text: 'Assets', control: AssetIndexContainer},
+				]} />
+		</Dock>
 		<Dock position="bottom" isVisible={true} dimMode="none">
-        	<StatementCard />
+			<Tabs tabs={[
+					{text: 'Open Positions', control: PortfolioContainer},
+					{text: 'Transactions', control: StatementContainer},
+					{text: 'Profits', control: ProfitTableContainer},
+				]} />
         </Dock>
 	</div>
 );
