@@ -29,6 +29,14 @@ export default class TradeTypeSelectorCard extends React.Component {
 					<RadioItem label="Digit Match" name="trade-type" value="DIGITMATCH" img="img/trade-match.svg" onChange={onChangeTradeTypeChanged} />
 					<RadioItem label="Digit Differs" name="trade-type" value="DIGITDIFF" img="img/trade-differs.svg" onChange={onChangeTradeTypeChanged} />
 				</fieldset>
+				<fieldset className="radio-selector">
+					<RadioItem label="Digit Over" name="trade-type" value="DIGITOVER" img="img/trade-digitover.svg" onChange={onChangeTradeTypeChanged} />
+					<RadioItem label="Digit Under" name="trade-type" value="DIGITUNDER" img="img/trade-digitunder.svg" onChange={onChangeTradeTypeChanged} />
+				</fieldset>
+				<fieldset className="radio-selector">
+					<RadioItem label="Digit Even" name="trade-type" value="DIGITEVEN" img="img/trade-digiteven.svg" onChange={onChangeTradeTypeChanged} />
+					<RadioItem label="Digit Odd" name="trade-type" value="DIGITODD" img="img/trade-digitodd.svg" onChange={onChangeTradeTypeChanged} />
+				</fieldset>
 				<label>Last Digit Prediction</label><RadioGroup name="digit-match" options={digitMatchOptions} {...this.props}/>
 				<fieldset className="radio-selector">
 					<RadioItem label="Asian Up" name="trade-type" value="ASIANU" img="img/trade-asianup.svg" onChange={onChangeTradeTypeChanged} />
