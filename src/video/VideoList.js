@@ -1,14 +1,16 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import VideoRow from './VideoRow.js'
+import VideoThumbnail from './VideoThumbnail.js'
 
-const VideoList = (videos) => (
+
+const VideoList = ({videos, elementOnClick}) => (
     <ul>
-        { videos.map((v) =>
-            <VideoRow
+        { videos.map((v, i) =>
+            <VideoThumbnail
+                key={i}
                 title={v.title}
                 imgSrc={v.imgSrc}
-                url={v.url} /> ) }
+                videoUrl={v.videoUrl}
+                onClick={elementOnClick} /> ) }
     </ul>
 );
 

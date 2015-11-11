@@ -22,7 +22,7 @@ import SettingsSecurity from '../settings/SettingsSecurity';
 import SettingsSelfExclusion from '../settings/SettingsSelfExclusion';
 import SettingsLimits from '../settings/SettingsLimits';
 import StatementPage from '../statement/StatementPage';
-import VideoPanel from '../video/VideoPanel';
+import VideoPage from '../video/VideoPage';
 
 import { requireAuthOnEnter } from '../_data/Auth';
 
@@ -55,5 +55,5 @@ export default [
         { path: 'exclusion', component: SettingsSelfExclusion },
         { path: 'limits', component: SettingsLimits },
     ]},
-    { path: 'video', component: VideoPanel},
+    { path: 'video', component: VideoPage },
 ];
