@@ -14,28 +14,28 @@ import WatchlistPanel from '../watchlist/WatchlistPanel';
 
 export default () => (
 	<div id="workspace">
-		<TickTradePanel position={{left: 70, top: 52, width: 300, height: 545 }} />
-		<WatchlistPanel position={{left: 375, top: 52, width: 550, height: 200 }} />
+		<TickTradePanel position={{left: 270, top: 52, width: 300, height: 545 }} />
+		<WatchlistPanel position={{left: 575, top: 52, width: 550, height: 200 }} />
 
 		<Dock position="left" isVisible={true} dimMode="none">
-			<Tabs tabs={[
-					{text: 'Assets', control: AssetSelectorContainer},
-					{text: 'Details', control: AssetDetailsContainer},
+			<Tabs id="left-panel" tabs={[
+					{text: 'Assets', component: AssetSelectorContainer},
+					{text: 'Details', component: AssetDetailsContainer},
 				]} />
 		</Dock>
 		<Dock position="right" isVisible={true} dimMode="none">
-			<Tabs tabs={[
-					{text: 'Trading Times', control: TradingTimesContainer},
-					{text: 'Asset Index', control: AssetIndexContainer},
-					{text: 'Videos', control: AssetIndexContainer},
-					{text: 'Assets', control: AssetIndexContainer},
+			<Tabs id="right-panel" tabs={[
+					{text: 'Trading Times', component: TradingTimesContainer},
+					{text: 'Asset Index', component: AssetIndexContainer},
+					{text: 'Videos', component: AssetIndexContainer},
+					{text: 'News', component: AssetIndexContainer},
 				]} />
 		</Dock>
 		<Dock position="bottom" isVisible={true} dimMode="none">
-			<Tabs tabs={[
-					{text: 'Open Positions', control: PortfolioContainer},
-					{text: 'Transactions', control: StatementContainer},
-					{text: 'Profits', control: ProfitTableContainer},
+			<Tabs id="bottom-panel" tabs={[
+					{text: 'Open Positions', component: PortfolioContainer},
+					{text: 'Transactions', component: StatementContainer},
+					{text: 'Profits', component: ProfitTableContainer},
 				]} />
         </Dock>
 	</div>
