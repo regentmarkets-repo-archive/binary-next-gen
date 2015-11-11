@@ -1,15 +1,19 @@
 import React from 'react';
-import { connect } from 'react-redux';
-import * as VideoActions from '../_actions/VideoActions';
 
 export default class VideoThumbnail extends React.Component {
 
-    render(){
-        const imgSrc = this.props.imgSrc;
-        const title = this.props.title;
-        const videoUrl = this.props.videoUrl;
+    static propTypes = {
+		imgSrc: React.PropTypes.string.isRequired,
+		title: React.PropTypes.string.isRequired,
+		videoUrl: React.PropTypes.string.isRequired,
+		onClick: React.PropTypes.func,
+	};
+
+    render() {
+        const {imgSrc, title, videoUrl, onClick} = this.props;
+
         return (
-            <li onClick={this.props.onClick(title, videoUrl)}>
+            <li onClick={onClick(title, videoUrl)}>
                 <img src={imgSrc}/>
                 <p>{title}</p>
             </li>
