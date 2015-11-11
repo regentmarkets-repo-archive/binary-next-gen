@@ -2,8 +2,8 @@ import { Map } from 'immutable';
 import { CHANGE_ACTIVE_VIDEO, UPDATE_VIDEO_LIST } from '../_constants/ActionTypes'
 
 const initialState = new Map({
-    activeTitle: "Bla bla bla",
-    activeUrl: 'https://www.youtube.com/watch?v=dZEnQogAd8U',
+    activeTitle: "Daily Financial News by: Binary.com - Nov 10th, 2015",
+    activeUrl: 'https://www.youtube.com/watch?v=3LPy5-7HFLI',
 
     videos: [{
         imgSrc: 'https://pbs.twimg.com/profile_images/567285191169687553/7kg_TF4l.jpeg',
