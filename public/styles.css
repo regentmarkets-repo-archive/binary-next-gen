@@ -333,3 +333,7 @@ tbody > tr:hover {
 ul[role=tabs] {
     height: 2rem;
 }
+
+.button-list {
+    display: inline;
+}
