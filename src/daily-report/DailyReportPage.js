@@ -29,14 +29,14 @@ export default class DailyReportPage extends React.Component {
 
         const currentDailyReport = dailyReport.get('current');
         return (
-            <div>
+            <Panel position={{left: 27, top: 52, width: 800, height: 545 }}>
                 <ButtonList
                     buttonsInfo={newsAndAnalysis}
                     />
                 <h2>{currentDailyReport.title}</h2>
                 <p>{currentDailyReport.pubDate}</p>
                 <div dangerouslySetInnerHTML={::this.injectDailyReport(currentDailyReport.content)}></div>
-            </div>
+            </Panel>
         );
     }
 }
