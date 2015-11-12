@@ -19,7 +19,11 @@ module.exports = {
     module: {
         loaders: [{
             test: /\.js$/,
-            loaders: ['babel'],
+            loader: "babel-loader",
+            include: path.join(__dirname, 'src')
+        }, {
+            test: /\.js$/,
+            loader: "eslint-loader",
             include: path.join(__dirname, 'src')
         }]
     }

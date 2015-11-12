@@ -4,15 +4,15 @@ import {UPDATE_DAILY_REPORT_LIST, UPDATE_CURRENT_DAILY_REPORT} from '../_constan
 
 const initialState = new Map({
     current: {
-        title: "",
-        pubDate: "",
-        content: ""
+        title: '',
+        pubDate: '',
+        content: '',
     },
-    dailyReports: []
+    dailyReports: [],
 });
 
-export default (state=initialState, action) => {
-    switch(action.type) {
+export default (state = initialState, action) => {
+    switch (action.type) {
         case UPDATE_CURRENT_DAILY_REPORT: {
             return state.set('current', action.current);
         }
@@ -22,4 +22,4 @@ export default (state=initialState, action) => {
         default :
             return state;
     }
-}
+};

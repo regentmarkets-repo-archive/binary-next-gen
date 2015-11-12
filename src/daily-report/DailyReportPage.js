@@ -10,21 +10,22 @@ export default class DailyReportPage extends React.Component {
 
     static propTypes = {
         dailyReport: React.PropTypes.object.isRequired,
+        dispatch: React.PropTypes.func.isRequired,
     };
 
-    injectDailyReport(content){
+    injectDailyReport(content) {
         return {__html: content};
     }
 
-    componentDidMount(){
+    componentDidMount() {
         DailyReportData.getDailyReport().then((reports) => {
             this.props.dispatch(DailyReportActions.updateCurrentDailyReport(reports[0]));
             this.props.dispatch(DailyReportActions.updateDailyReportList(reports));
-        })
+        });
     }
 
-    render(){
-        const newsAndAnalysis = [{text: "News", onClick: ()=>{}}, {text: "Analysis", onClick: ()=>{}}];
+    render() {
+        const newsAndAnalysis = [{text: 'News', onClick: () => {}}, {text: 'Analysis', onClick: () => {}}];
         const dailyReport = this.props.dailyReport;
 
         const currentDailyReport = dailyReport.get('current');

@@ -15,7 +15,7 @@ export default class AssetSelectorContainer extends React.Component {
 	};
 
 	shouldComponentUpdate(nextProps) {
-	   	return nextProps.assets !== this.props.assets ||
+		return nextProps.assets !== this.props.assets ||
 			nextProps.assetSelector !== this.props.assetSelector ||
 			nextProps.workspace !== this.props.workspace;
 	}

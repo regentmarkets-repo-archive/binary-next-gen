@@ -1,7 +1,7 @@
-import React from 'react';
-import { compose, createStore, applyMiddleware } from 'redux';
-import { devTools, persistState } from 'redux-devtools';
-import DockMonitor from 'redux-devtools-dock-monitor';
+// import React from 'react';
+// import { compose, createStore, applyMiddleware } from 'redux';
+// import { devTools, persistState } from 'redux-devtools';
+// import DockMonitor from 'redux-devtools-dock-monitor';
 
 // export default createDevTools(
 //     <DockMonitor toggleVisibilityKey="H" changePositionKey="Q">

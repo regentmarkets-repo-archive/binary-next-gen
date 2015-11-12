@@ -16,7 +16,7 @@ export default class AssetSelectorItem extends React.Component {
 	}
 
 	render() {
-	 	const {asset, isFavorite, onSelect, onFavor} = this.props;
+		const {asset, isFavorite, onSelect, onFavor} = this.props;
 
 		return (
 			<tr onClick={() => onSelect(asset.get('symbol'))}>

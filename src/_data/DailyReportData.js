@@ -3,19 +3,19 @@ const api = 'http://js.binary.com/javascript.php';
 const params = {
     id: {
         media: '876',
-        prefix: '8grqRDVc105iX6ztb0GwqWNd7ZgqdRLk'
+        prefix: '8grqRDVc105iX6ztb0GwqWNd7ZgqdRLk',
     },
     ru: {
         media: '875',
-        prefix: 'bPzDzniJKAKx76XffYA0JmNd7ZgqdRLk'
+        prefix: 'bPzDzniJKAKx76XffYA0JmNd7ZgqdRLk',
     },
     en: {
         media: '26',
-        prefix: 'bPzDzniJKAJHH6eEtUVc2GNd7ZgqdRLk'
-    }
+        prefix: 'bPzDzniJKAJHH6eEtUVc2GNd7ZgqdRLk',
+    },
 };
 
-function getDailyReport(l='en'){
+export const getDailyReport = (l = 'en') => {
     const query = '?' + 'media=' + params[l].media
         + '&prefix=' + params[l].prefix
         + '&campaign=1&mode=txt';
@@ -27,31 +27,22 @@ function getDailyReport(l='en'){
             return response.text();
         }).
         then((xmlText) => {
-            const xml = domParser.parseFromString(xmlText, "text/xml");
+            const xml = domParser.parseFromString(xmlText, 'text/xml');
             const allItemsList = xml.querySelectorAll('item');
 
-            return Array.prototype.map.call(allItemsList, (item, idx) => {
-
+            return Array.prototype.map.call(allItemsList, item => {
                 const title = item.getElementsByTagName('title').item(0).textContent.replace(/regentmarkets\d.*$/, '');
                 const pubDate = item.getElementsByTagName('pubDate').item(0).textContent.replace(/\+0000$/, 'GMT');
-                const content = function(){
+                const content = () => {
                     const post = item.getElementsByTagName('content\\:encoded').item(0);
-                    if (post){
-                        return post.textContent;
-                    } else {
-                        return item.getElementsByTagName('encoded').item(0).textContent;
-                    }
+                    return post ? post.textContent : item.getElementsByTagName('encoded').item(0).textContent;
                 }();
 
                 return {
                     title,
                     pubDate,
-                    content
+                    content,
                 };
             });
         });
-}
-
-export default {
-    getDailyReport: getDailyReport
 };

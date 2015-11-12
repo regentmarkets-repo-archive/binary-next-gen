@@ -20,7 +20,7 @@ export default class TickTradeParameters extends React.Component {
 		LiveData.api.unsubscribeFromAllProposals();
 
 		LiveData.api.subscribeToPriceForContractProposal({
-  			amount: tickTrade.get('amount').toString(),
+			amount: tickTrade.get('amount').toString(),
 			basis: tickTrade.get('basis'),
 			contract_type: tickTrade.get('tradeType'),
 			currency: tickTrade.get('currency'),

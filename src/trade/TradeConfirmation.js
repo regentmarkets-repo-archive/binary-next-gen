@@ -5,15 +5,15 @@ export default () => (
 		<h4>Trade Confirmation</h4>
 		<p>You have purchased the following contract:</p>
 		<table>
-        	<tbody>
+			<tbody>
 				<tr>
-            		<th>Entry spot</th><td id="entry"></td>
-            		<th>Exit spot</th><td id="exit"></td>
-        		</tr>
+					<th>Entry spot</th><td id="entry"></td>
+					<th>Exit spot</th><td id="exit"></td>
+				</tr>
 			</tbody>
 		</table>
 		<div>
-	        USD <strong>100.00</strong> payout if Dutch Index <strong>touches 506.00</strong> through close on 2015-08-10.
+			USD <strong>100.00</strong> payout if Dutch Index <strong>touches 506.00</strong> through close on 2015-08-10.
 		</div>
 
 		<div>

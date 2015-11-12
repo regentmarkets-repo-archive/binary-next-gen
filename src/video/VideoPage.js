@@ -11,6 +11,7 @@ export default class VideoPage extends React.Component {
 
     static propTypes = {
 		video: React.PropTypes.object.isRequired,
+        dispatch: React.PropTypes.func.isRequired,
 	};
 
     elementOnClick(title, videoUrl) {

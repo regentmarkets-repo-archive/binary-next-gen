@@ -12,7 +12,7 @@ export default class WatchlistCard extends React.Component {
 	};
 
 	shouldComponentUpdate(nextProps) {
-	   	return nextProps.ticks !== this.props.ticks ||
+		return nextProps.ticks !== this.props.ticks ||
 			nextProps.compact !== this.props.compact ||
 			nextProps.assets !== this.props.assets;
 	}

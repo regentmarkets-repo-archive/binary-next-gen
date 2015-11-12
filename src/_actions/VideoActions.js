@@ -4,13 +4,13 @@ export const changeActiveVideo = (activeTitle, activeUrl) => {
     return {
         type: CHANGE_ACTIVE_VIDEO,
         activeTitle,
-        activeUrl
+        activeUrl,
     };
 };
 
 export const updateVideoList = (videos) => {
     return {
         type: UPDATE_VIDEO_LIST,
-        videos
+        videos,
     };
 };

@@ -5,11 +5,11 @@ export const updateCurrentDailyReport = (dr) => ({
     current: {
         title: dr.title,
         dateTime: dr.dateTime,
-        content: dr.content
-    }
+        content: dr.content,
+    },
 });
 
 export const updateDailyReportList = (drList) => ({
     type: UPDATE_DAILY_REPORT_LIST,
-    newList: drList
+    newList: drList,
 });
