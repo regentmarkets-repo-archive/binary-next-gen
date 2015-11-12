@@ -13,6 +13,11 @@ export default class AsssetIndexContainer extends React.Component {
 		assetIndexFilter: React.PropTypes.object.isRequired,
 	};
 
+	shouldComponentUpdate(nextProps) {
+		return nextProps.assets !== this.props.assets ||
+			nextProps.assetIndexFilter !== this.props.assetIndexFilter;
+	}
+
 	render() {
 		return (
 			<AssetIndexCard
