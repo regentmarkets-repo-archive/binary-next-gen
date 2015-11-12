@@ -36,10 +36,10 @@ export default (state = initialState, action) => {
             return state.set('currencies', action.serverResponse.payout_currencies);
         }
         case SERVER_DATA_ACCOUNT_LIMITS: {
-            return state.set('limits', action.serverResponse.get_account_limits);
+            return state.set('limits', action.serverResponse.get_limits);
         }
         case SERVER_DATA_ACCOUNT_SETTINGS: {
-            return state.set('settings', action.serverResponse.get_account_settings);
+            return state.set('settings', action.serverResponse.get_settings);
         }
         default:
             return state;

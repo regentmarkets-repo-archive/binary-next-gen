@@ -29,14 +29,14 @@ export const initUnauthorized = () => {
 };
 
 export const initAuthorized = () => {
+    api.getAccountLimits();
+    api.getAccountSettings();
     api.getPortfolio();
     api.getStatement({ description: 1, limit: 20 });
     api.getProfitTable({ description: 1, limit: 20 });
     api.getPayoutCurrencies();
     api.subscribeToBalance();
     api.subscribeToAllOpenContracts();
-    // api.getAccountLimits();
-    api.getAccountSettings();
 };
 
 export const trackSymbols = symbols => {

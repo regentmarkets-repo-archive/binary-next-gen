@@ -4,7 +4,7 @@ const del = require('del');
 const file = require('gulp-file');
 const shell = require('gulp-shell');
 const ghPages = require('gulp-gh-pages');
-// const sass = require('gulp-sass');
+const sass = require('gulp-sass');
 
 const files = {
     dist: 'dist',
@@ -26,7 +26,7 @@ gulp.task('static', () =>
 
 gulp.task('styles', () =>
     gulp.src(files.sass)
-        .sass()
+        .pipe(sass())
         .pipe(gulp.dest('dist'))
 );
 

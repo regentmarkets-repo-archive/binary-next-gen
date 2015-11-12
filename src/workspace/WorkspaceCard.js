@@ -1,26 +1,44 @@
 import React from 'react';
+import Dock from 'react-dock';
+import { Tabs } from '../_common';
+import PortfolioContainer from '../portfolio/PortfolioContainer';
+import ProfitTableContainer from '../profit-table/ProfitTableContainer';
+import StatementContainer from '../statement/StatementContainer';
+import AssetSelectorContainer from '../asset-selector/AssetSelectorContainer';
+import AssetDetailsContainer from '../asset-details/AssetDetailsContainer';
+import TradingTimesContainer from '../trading-times/TradingTimesContainer';
+import AssetIndexContainer from '../asset-index/AssetIndexContainer';
+import VideoPage from '../video/VideoPage';
+
 import TickTradePanel from '../tick-trade/TickTradePanel';
-import AssetSelectorPanel from '../asset-selector/AssetSelectorPanel';
-import AssetDetailsPanel from '../asset-details/AssetDetailsPanel';
-import PortfolioPanel from '../portfolio/PortfolioPanel';
-import TradingTimesPanel from '../trading-times/TradingTimesPanel';
-import AssetIndexPanel from '../asset-index/AssetIndexPanel';
 import WatchlistPanel from '../watchlist/WatchlistPanel';
-import ProfitTablePanel from '../profit-table/ProfitTablePanel';
-import StatementPanel from '../statement/StatementPanel';
 
 export default () => (
-	<div>
-		<TickTradePanel position={{left: 70, top: 52, width: 300, height: 545 }} />
-		<AssetSelectorPanel position={{left: 70, top: 52, width: 300, height: 545 }} />
-		<AssetDetailsPanel position={{left: 70, top: 615, width: 300, height: 370 }} />
+	<div id="workspace">
+		<TickTradePanel position={{left: 270, top: 52, width: 300, height: 545 }} />
+		<WatchlistPanel position={{left: 575, top: 52, width: 550, height: 200 }} />
+		<VideoPage position={{left: 575, top: 452, width: 550, height: 200 }} />
 
-		<WatchlistPanel position={{left: 375, top: 52, width: 550, height: 200 }} />
-		<AssetIndexPanel position={{left: 375, top: 255, width: 550, height: 360 }} />
-		<TradingTimesPanel position={{left: 375, top: 620, width: 550, height: 360 }} />
-
-		<PortfolioPanel position={{left: 930, top: 52, width: 800, height: 300 }} />
-		<StatementPanel position={{left: 930, top: 355, width: 800, height: 300 }} />
-		<ProfitTablePanel position={{left: 930, top: 660, width: 800, height: 320 }} />
+		<Dock position="left" isVisible={true} dimMode="none">
+			<Tabs id="left-panel" tabs={[
+				{text: 'Assets', component: AssetSelectorContainer},
+				{text: 'Details', component: AssetDetailsContainer},
+			]} />
+		</Dock>
+		<Dock position="right" isVisible={true} dimMode="none">
+			<Tabs id="right-panel" tabs={[
+				{text: 'Trading Times', component: TradingTimesContainer},
+				{text: 'Asset Index', component: AssetIndexContainer},
+				{text: 'Videos', component: AssetIndexContainer},
+				{text: 'News', component: AssetIndexContainer},
+			]} />
+		</Dock>
+		<Dock position="bottom" isVisible={true} dimMode="none">
+			<Tabs id="bottom-panel" tabs={[
+				{text: 'Open Positions', component: PortfolioContainer},
+				{text: 'Transactions', component: StatementContainer},
+				{text: 'Profits', component: ProfitTableContainer},
+			]} />
+        </Dock>
 	</div>
 );

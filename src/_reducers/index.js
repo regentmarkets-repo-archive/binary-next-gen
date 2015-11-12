@@ -10,6 +10,7 @@ import ticks from './TickReducers';
 import profitTable from './ProfitTableReducers';
 import tickTrade from './TickTradeReducers';
 import workspace from './WorkspaceReducers';
+import video from './VideoReducers';
 
 export default combineReducers({
     account,
@@ -22,4 +23,5 @@ export default combineReducers({
     tickTrade,
     profitTable,
     workspace,
+    video,
 });
