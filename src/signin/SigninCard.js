@@ -69,7 +69,7 @@ export default class SigninCard extends React.Component {
 			<div className="login-content">
 				<p className="media">
 					<LogoSpinner spinning={signin.get('progress')}/>
-					<img className="logo-text" src="https://static.binary.com/images/pages/binary-type-logo.svg" />
+					<img className="logo-text" src="img/binary-type-logo.svg" />
 				</p>
 				<InputGroup type="text" placeholder="Token" onChange={::this.onTokenChange} />
 				<ErrorMsg

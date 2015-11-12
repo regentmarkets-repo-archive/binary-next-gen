@@ -4,7 +4,7 @@ const LogoSpinner = ({spinning}) => {
 	const classNames = [spinning ? 'spinner' : null];
 
 	return (
-		<img className={classNames.join(' ')} src="https://static.binary.com/images/pages/binary-symbol-logo.svg"/>
+		<img className={classNames.join(' ')} src="img/binary-symbol-logo.svg"/>
 	);
 };
 
