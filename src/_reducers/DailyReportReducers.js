@@ -5,7 +5,7 @@ import {UPDATE_DAILY_REPORT_LIST, UPDATE_CURRENT_DAILY_REPORT} from '../_constan
 const initialState = new Map({
     current: {
         title: "",
-        dateTime: "",
+        pubDate: "",
         content: ""
     },
     dailyReports: []
