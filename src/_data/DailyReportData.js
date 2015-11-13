@@ -16,13 +16,11 @@ const params = {
 };
 
 export const getDailyReport = (l = 'en') => {
-    const query = '?' + 'media=' + params[l].media
-        + '&prefix=' + params[l].prefix
-        + '&campaign=1&mode=txt';
+    const queryUrl = `${api}?media=${params[l].media}&prefix=${params[l].prefix}&campaign=1&mode=txt`;
 
     const domParser = new DOMParser();
 
-    return window.fetch(api + query).
+    return window.fetch(queryUrl).
         then((response) => {
             return response.text();
         }).
