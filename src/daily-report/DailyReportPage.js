@@ -2,7 +2,7 @@ import {connect} from 'react-redux';
 import React from 'react';
 import Panel from '../_common/Panel';
 import ButtonList from './ButtonList';
-import DailyReportData from '../_data/DailyReportData';
+import * as DailyReportData from '../_data/DailyReportData';
 import * as DailyReportActions from '../_actions/DailyReportActions';
 
 @connect(state => ({dailyReport: state.dailyReport}))
