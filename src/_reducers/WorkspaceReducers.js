@@ -7,12 +7,19 @@ import {
     WORKSPACE_ASSET_SELECT,
     WORKSPACE_FAVOR_ASSET,
     WORKSPACE_UNFAVOR_ASSET,
+    UPDATE_ACTIVE_TAB,
     UPDATE_TRADING_TIMES_SUBMARKET,
     UPDATE_TRADING_TIMES_DATE,
     UPDATE_ASSET_INDEX_SUBMARKET,
 } from '../_constants/ActionTypes';
 
 const initialState = new Map({
+    leftPanelSize: 300,
+    leftActiveTab: 0,
+    rightPanelSize: 300,
+    rightActiveTab: 0,
+    bottomPanelSize: 300,
+    bottomActiveTab: 0,
     symbolSelected: 'R_100',
     favoriteAssets: Set.of(),
     tradingTimes: new Map({
@@ -26,6 +33,9 @@ const initialState = new Map({
 
 export default (state = initialState, action) => {
     switch (action.type) {
+        case UPDATE_ACTIVE_TAB: {
+            return state.set(action.panel + 'ActiveTab', action.index);
+        }
         case WORKSPACE_VIEW_ASSET_DETAILS: {
             return state;
         }

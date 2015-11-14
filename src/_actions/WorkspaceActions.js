@@ -20,6 +20,12 @@ export const workspaceUnfavorAsset = symbol => ({
     symbol,
 });
 
+export const updateActiveTab = (panel, index) => ({
+    type: types.UPDATE_ACTIVE_TAB,
+    panel,
+    index,
+});
+
 export const updateTickTradeSubmarket = submarket => ({
     type: types.UPDATE_TRADING_TIMES_SUBMARKET,
     submarket,

@@ -7,7 +7,7 @@ export default class Tabs extends React.Component {
         id: React.PropTypes.string.isRequired,
         tabs: React.PropTypes.array.isRequired,
         activeIndex: React.PropTypes.number.isRequired,
-        onSelect: React.PropTypes.func,
+        onChange: React.PropTypes.func,
     };
 
     static defaultProps = {
@@ -15,7 +15,7 @@ export default class Tabs extends React.Component {
     };
 
     render() {
-        const {id, tabs, activeIndex, onSelect} = this.props;
+        const {id, tabs, activeIndex, onChange} = this.props;
         const ActiveComponent = tabs.filter((tab, idx) => activeIndex === idx).map(x => x.component)[0];
 
         return (
@@ -28,7 +28,7 @@ export default class Tabs extends React.Component {
                             label={tab.text}
                             name={id}
                             value={id + idx}
-                            onChange={onSelect} />
+                            onChange={() => onChange(idx)} />
                     )}
                     {<ActiveComponent />}
                 </div>
