@@ -1,9 +1,14 @@
 import React from 'react';
-import { DesktopPage } from '../_common';
+import { DesktopHeader, DesktopSidebar } from '../_common';
 import WorkspaceContainer from './WorkspaceContainer';
 
 export default (props) => (
-	<DesktopPage>
+	<div id="workspace">
+		<DesktopHeader />
+		<DesktopSidebar />
+		<div className="desktop-content">
+			{children}
+		</div>
 		<WorkspaceContainer {...props} />
-	</DesktopPage>
+	</div>
 );

@@ -13,7 +13,7 @@ export default class DesktopHeader extends React.Component {
 		const account = this.props.account.toJS();
 
 		return (
-			<header>
+			<div id="header">
 				<Link id="logo" to="/workspace">
 					<img src="https://borisyankov.github.io/binary-static/images/pages/binary-symbol-logo.svg" />
 				</Link>
@@ -22,7 +22,7 @@ export default class DesktopHeader extends React.Component {
 				<LanguagePicker />
 				<span>{account.loginid}</span>
 				<span>{account.email}</span>
-			</header>
+			</div>
 		);
 	}
 }

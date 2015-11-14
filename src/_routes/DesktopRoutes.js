@@ -1,5 +1,5 @@
 import HomePage from '../home/HomePage';
-import WorkspacePage from '../workspace/WorkspacePage';
+import WorkspacePage from '../workspace/WorkspaceContainer';
 import SignupPage from '../signup/SignupPage';
 import UpgradePage from '../upgrade/UpgradePage';
 import WatchlistPage from '../watchlist/WatchlistPage';

@@ -25,6 +25,35 @@
 html {
     font-size: 15px;
 }
+
+/* Desktop Layout */
+
+#screen, #panels {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+#mid-panel {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+#screen {
+    flex-direction: column;
+}
+#header {
+    display: flex;
+    background: #2a3052;
+    color: white;
+    padding: 0 1rem;
+    justify-content: space-between;
+}
+#header span {
+    line-height: 3;
+}
+#workarea {
+    flex: 1;
+}
 table {
     margin-bottom: 0;
 }
@@ -103,10 +132,6 @@ thead th {
 }
 .tick-trade-mobile button:not(.close-btn), .tick-trade-mobile input[type=range], .tick-trade-mobile a.button, .tick-trade-mobile .range-selector-items {
     width: 100%;
-}
-#workspace {
-    width: 100%;
-    height: 100%;
 }
 header {
     position: inherit;
@@ -333,7 +358,6 @@ tbody > tr:hover {
 ul[role=tabs] {
     height: 2rem;
 }
-
 .button-list {
     display: inline;
 }
