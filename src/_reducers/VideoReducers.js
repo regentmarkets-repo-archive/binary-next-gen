@@ -5,11 +5,7 @@ const initialState = new Map({
     activeTitle: 'Daily Financial News by: Binary.com - Nov 10th, 2015',
     activeUrl: 'https://www.youtube.com/watch?v=3LPy5-7HFLI',
 
-    videos: [{
-        imgSrc: 'https://pbs.twimg.com/profile_images/567285191169687553/7kg_TF4l.jpeg',
-        title: 'Cute Cat',
-        videoUrl: 'https://www.youtube.com/watch?v=dZEnQogAd8U',
-    }],
+    list: [],
 });
 
 export default (state = initialState, action) => {
@@ -21,7 +17,7 @@ export default (state = initialState, action) => {
         }
 
         case UPDATE_VIDEO_LIST: {
-            return state.set('videos', action.videos);
+            return state.set('list', action.videos);
         }
 
         default : {

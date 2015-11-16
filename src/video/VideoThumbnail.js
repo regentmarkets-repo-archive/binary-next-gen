@@ -5,18 +5,18 @@ export default class VideoThumbnail extends React.Component {
     static propTypes = {
 		imgSrc: React.PropTypes.string.isRequired,
 		title: React.PropTypes.string.isRequired,
-		videoUrl: React.PropTypes.string.isRequired,
-		onClick: React.PropTypes.func,
+		videoId: React.PropTypes.string.isRequired,
+		onSelect: React.PropTypes.func,
 	};
 
     render() {
-        const {imgSrc, title, videoUrl, onClick} = this.props;
+        const {imgSrc, title, videoId} = this.props;
 
         return (
-            <li onClick={onClick(title, videoUrl)}>
+            <a target="_new" href={'https://www.youtube.com/watch?v=' + videoId}>
                 <img src={imgSrc}/>
                 <p>{title}</p>
-            </li>
+            </a>
         );
     }
 }

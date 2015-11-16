@@ -1,5 +1,6 @@
 import { LiveApi } from 'binary-live-api';
 import { readNewsFeed } from './NewsData';
+import { getVideosFromPlayList } from './VideoData';
 import * as actions from '../_actions';
 
 const handlers = {
@@ -21,6 +22,7 @@ const handlers = {
     'get_self_exclusion': 'serverDataAccountSelfExclusion',
     'get_settings': 'serverDataAccountSettings',
     'news': 'updateNewsList',
+    'videos': 'updateVideoList',
 };
 
 export const api = new LiveApi();
@@ -31,6 +33,7 @@ export const initUnauthorized = () => {
     api.getAssetIndex();
 
     readNewsFeed().then(articles => api.events.emit('news', articles));
+    getVideosFromPlayList().then(videos => api.events.emit('videos', videos));
 };
 
 export const initAuthorized = () => {

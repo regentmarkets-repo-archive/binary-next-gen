@@ -9,3 +9,4 @@ export * from './TradeActions';
 export * from './SigninActions';
 export * from './StatementActions';
 export * from './WorkspaceActions';
+export * from './VideoActions';

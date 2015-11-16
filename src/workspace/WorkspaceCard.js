@@ -9,7 +9,7 @@ import AssetDetailsContainer from '../asset-details/AssetDetailsContainer';
 import TradingTimesContainer from '../trading-times/TradingTimesContainer';
 import AssetIndexContainer from '../asset-index/AssetIndexContainer';
 import NewsContainer from '../news/NewsContainer';
-import VideoPage from '../video/VideoPage';
+import VideoListContainer from '../video/VideoListContainer';
 
 
 import TickTradePanel from '../tick-trade/TickTradePanel';
@@ -36,7 +36,6 @@ export default ({actions, workspace}) => (
 				<div id="workarea">
 					<TickTradePanel position={{left: 400, top: 52, width: 400, height: 545 }} />
 					<WatchlistPanel position={{left: 575, top: 352, width: 550, height: 200 }} />
-					<VideoPage position={{left: 575, top: 452, width: 550, height: 200 }} />
 				</div>
 				<div id="bottom-panel">
 					<Tabs
@@ -58,7 +57,7 @@ export default ({actions, workspace}) => (
 					tabs={[
 						{text: 'Trading Times', component: TradingTimesContainer},
 						{text: 'Asset Index', component: AssetIndexContainer},
-						{text: 'Videos', component: VideoPage},
+						{text: 'Videos', component: VideoListContainer},
 						{text: 'News', component: NewsContainer},
 					]} />
 			</div>
