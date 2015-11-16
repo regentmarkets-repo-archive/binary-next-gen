@@ -17,6 +17,7 @@ const handlers = {
     'proposal': 'serverDataProposal',
     'buy': 'serverDataBuy',
     'get_limits': 'serverDataAccountLimits',
+    'get_self_exclusion': 'serverDataAccountSelfExclusion',
     'get_settings': 'serverDataAccountSettings',
 };
 
@@ -30,6 +31,7 @@ export const initUnauthorized = () => {
 
 export const initAuthorized = () => {
     api.getAccountLimits();
+    api.setSelfExclusion();
     api.getAccountSettings();
     api.getPortfolio();
     api.getStatement({ description: 1, limit: 20 });

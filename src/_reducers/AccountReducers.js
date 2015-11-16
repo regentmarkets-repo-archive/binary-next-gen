@@ -7,6 +7,7 @@ import {
     SERVER_DATA_PAYOUT_CURRENCIES,
     SERVER_DATA_BUY,
     SERVER_DATA_ACCOUNT_LIMITS,
+    SERVER_DATA_ACCOUNT_SELF_EXCLUSION,
     SERVER_DATA_ACCOUNT_SETTINGS,
 } from '../_constants/ActionTypes';
 
@@ -17,6 +18,7 @@ const initialState = fromJS(StateStorage.get('account') || {
     balance: 0,
     currencies: ['USD'],
     limits: {},
+    selfExclusion: {},
     settings: {},
 });
 
@@ -37,6 +39,9 @@ export default (state = initialState, action) => {
         }
         case SERVER_DATA_ACCOUNT_LIMITS: {
             return state.set('limits', action.serverResponse.get_limits);
+        }
+        case SERVER_DATA_ACCOUNT_SELF_EXCLUSION: {
+            return state.set('selfExclusion', action.serverResponse.get_self_exclusion);
         }
         case SERVER_DATA_ACCOUNT_SETTINGS: {
             return state.set('settings', action.serverResponse.get_settings);

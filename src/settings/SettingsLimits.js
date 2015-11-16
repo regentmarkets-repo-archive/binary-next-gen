@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { NumberPlain } from '../_common';
 
 @connect(state => ({ account: state.account }))
-export default class SettingsCard extends React.Component {
+export default class SettingsLimits extends React.Component {
 
 	static propTypes = {
 		account: React.PropTypes.object.isRequired,

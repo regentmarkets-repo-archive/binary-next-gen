@@ -34,7 +34,7 @@ export default ({actions, workspace}) => (
 			</div>
 			<div id="mid-panel">
 				<div id="workarea">
-					<TickTradePanel position={{left: 400, top: 52, width: 300, height: 545 }} />
+					<TickTradePanel position={{left: 400, top: 52, width: 400, height: 545 }} />
 					<WatchlistPanel position={{left: 575, top: 352, width: 550, height: 200 }} />
 					<VideoPage position={{left: 575, top: 452, width: 550, height: 200 }} />
 				</div>

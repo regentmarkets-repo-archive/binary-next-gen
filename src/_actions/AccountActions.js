@@ -20,6 +20,11 @@ export const serverDataAccountLimits = serverResponse => ({
     serverResponse,
 });
 
+export const serverDataAccountSelfExclusion = serverResponse => ({
+    type: types.SERVER_DATA_ACCOUNT_SELF_EXCLUSION,
+    serverResponse,
+});
+
 export const serverDataAccountSettings = serverResponse => ({
     type: types.SERVER_DATA_ACCOUNT_SETTINGS,
     serverResponse,
