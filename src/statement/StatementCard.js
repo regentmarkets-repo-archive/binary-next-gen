@@ -1,7 +1,7 @@
 import React from 'react';
 import StatementTable from './StatementTable';
 
-export default class StatenentCard extends React.Component {
+export default class StatementCard extends React.Component {
 
 	static propTypes = {
 		account: React.PropTypes.object.isRequired,

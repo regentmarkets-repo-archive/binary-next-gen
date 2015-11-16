@@ -8,8 +8,9 @@ import AssetSelectorContainer from '../asset-selector/AssetSelectorContainer';
 import AssetDetailsContainer from '../asset-details/AssetDetailsContainer';
 import TradingTimesContainer from '../trading-times/TradingTimesContainer';
 import AssetIndexContainer from '../asset-index/AssetIndexContainer';
+import NewsContainer from '../news/NewsContainer';
 import VideoPage from '../video/VideoPage';
-import DailyReportPage from '../daily-report/DailyReportPage';
+
 
 import TickTradePanel from '../tick-trade/TickTradePanel';
 import WatchlistPanel from '../watchlist/WatchlistPanel';
@@ -29,7 +30,7 @@ export default ({actions, workspace}) => (
 					tabs={[
 						{text: 'Assets', component: AssetSelectorContainer},
 						{text: 'Details', component: AssetDetailsContainer},
-				]} />
+					]} />
 			</div>
 			<div id="mid-panel">
 				<div id="workarea">
@@ -46,7 +47,7 @@ export default ({actions, workspace}) => (
 							{text: 'Open Positions', component: PortfolioContainer},
 							{text: 'Transactions', component: StatementContainer},
 							{text: 'Profits', component: ProfitTableContainer},
-					]} />
+						]} />
 				</div>
 			</div>
 			<div id="right-panel">
@@ -58,8 +59,8 @@ export default ({actions, workspace}) => (
 						{text: 'Trading Times', component: TradingTimesContainer},
 						{text: 'Asset Index', component: AssetIndexContainer},
 						{text: 'Videos', component: VideoPage},
-						{text: 'News', component: DailyReportPage},
-				]} />
+						{text: 'News', component: NewsContainer},
+					]} />
 			</div>
 		</div>
 		<Footer />

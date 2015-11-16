@@ -1,14 +1,13 @@
 import { Map } from 'immutable';
-import {UPDATE_DAILY_REPORT_LIST, UPDATE_CURRENT_DAILY_REPORT} from '../_constants/ActionTypes';
+import {
+    UPDATE_NEWS_LIST,
+    UPDATE_CURRENT_DAILY_REPORT,
+} from '../_constants/ActionTypes';
 
 
 const initialState = new Map({
-    current: {
-        title: '',
-        pubDate: '',
-        content: '',
-    },
-    dailyReports: [],
+    current: {},
+    articles: [],
 });
 
 export default (state = initialState, action) => {
@@ -16,8 +15,8 @@ export default (state = initialState, action) => {
         case UPDATE_CURRENT_DAILY_REPORT: {
             return state.set('current', action.current);
         }
-        case UPDATE_DAILY_REPORT_LIST: {
-            return state.set('dailyReports', action.newList);
+        case UPDATE_NEWS_LIST: {
+            return state.set('articles', action.articles);
         }
         default :
             return state;

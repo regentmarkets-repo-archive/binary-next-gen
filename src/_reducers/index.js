@@ -11,7 +11,7 @@ import profitTable from './ProfitTableReducers';
 import tickTrade from './TickTradeReducers';
 import workspace from './WorkspaceReducers';
 import video from './VideoReducers';
-import dailyReport from './DailyReportReducers';
+import news from './NewsReducers';
 
 export default combineReducers({
     account,
@@ -25,5 +25,5 @@ export default combineReducers({
     profitTable,
     workspace,
     video,
-    dailyReport,
+    news,
 });

@@ -23,7 +23,7 @@ import SettingsSelfExclusion from '../settings/SettingsSelfExclusion';
 import SettingsLimits from '../settings/SettingsLimits';
 import StatementPage from '../statement/StatementPage';
 import VideoPage from '../video/VideoPage';
-import DailyReportPange from '../daily-report/DailyReportPage';
+import NewsContainer from '../news/NewsContainer';
 
 import { requireAuthOnEnter } from '../_data/Auth';
 
@@ -57,5 +57,5 @@ export default [
         { path: 'limits', component: SettingsLimits },
     ]},
     { path: 'video', component: VideoPage },
-    { path: 'daily-report', component: DailyReportPange },
+    { path: 'news', component: NewsContainer },
 ];

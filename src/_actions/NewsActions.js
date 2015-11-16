@@ -1,4 +1,4 @@
-import { UPDATE_DAILY_REPORT_LIST, UPDATE_CURRENT_DAILY_REPORT } from '../_constants/ActionTypes';
+import { UPDATE_NEWS_LIST, UPDATE_CURRENT_DAILY_REPORT } from '../_constants/ActionTypes';
 
 export const updateCurrentDailyReport = (dr) => ({
     type: UPDATE_CURRENT_DAILY_REPORT,
@@ -9,7 +9,7 @@ export const updateCurrentDailyReport = (dr) => ({
     },
 });
 
-export const updateDailyReportList = (drList) => ({
-    type: UPDATE_DAILY_REPORT_LIST,
+export const updateNewsList = (drList) => ({
+    type: UPDATE_NEWS_LIST,
     newList: drList,
 });

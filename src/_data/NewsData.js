@@ -15,7 +15,7 @@ const params = {
     },
 };
 
-export const getDailyReport = (l = 'en') => {
+export const getNews = (l = 'en') => {
     const queryUrl = `${api}?media=${params[l].media}&prefix=${params[l].prefix}&campaign=1&mode=txt`;
 
     const domParser = new DOMParser();
