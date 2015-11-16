@@ -9,17 +9,6 @@ export default class NewsContainer extends React.Component {
         news: React.PropTypes.object.isRequired,
     };
 
-    // injectDailyReport(content) {
-    //     return {__html: content};
-    // }
-    //
-    // componentDidMount() {
-    //     NewsData.getDailyReport().then((reports) => {
-    //         this.props.dispatch(NewsActions.updateCurrentDailyReport(reports[0]));
-    //         this.props.dispatch(NewsActions.updateDailyReportList(reports));
-    //     });
-    // }
-
     render() {
         return (
             <NewsCard {...this.props} />

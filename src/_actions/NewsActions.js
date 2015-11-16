@@ -1,7 +1,7 @@
-import { UPDATE_NEWS_LIST, UPDATE_CURRENT_DAILY_REPORT } from '../_constants/ActionTypes';
+import * as types from '../_constants/ActionTypes';
 
-export const updateCurrentDailyReport = (dr) => ({
-    type: UPDATE_CURRENT_DAILY_REPORT,
+export const updateCurrentDailyReport = dr => ({
+    type: types.UPDATE_CURRENT_DAILY_REPORT,
     current: {
         title: dr.title,
         dateTime: dr.dateTime,
@@ -9,7 +9,7 @@ export const updateCurrentDailyReport = (dr) => ({
     },
 });
 
-export const updateNewsList = (drList) => ({
-    type: UPDATE_NEWS_LIST,
-    newList: drList,
+export const updateNewsList = articles => ({
+    type: types.UPDATE_NEWS_LIST,
+    articles: articles,
 });

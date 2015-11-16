@@ -1,4 +1,5 @@
 import { LiveApi } from 'binary-live-api';
+import { readNewsFeed } from './NewsData';
 import * as actions from '../_actions';
 
 const handlers = {
@@ -19,6 +20,7 @@ const handlers = {
     'get_limits': 'serverDataAccountLimits',
     'get_self_exclusion': 'serverDataAccountSelfExclusion',
     'get_settings': 'serverDataAccountSettings',
+    'news': 'updateNewsList',
 };
 
 export const api = new LiveApi();
@@ -27,6 +29,8 @@ export const initUnauthorized = () => {
     api.getActiveSymbolsFull();
     api.getTradingTimes();
     api.getAssetIndex();
+
+    readNewsFeed().then(articles => api.events.emit('news', articles));
 };
 
 export const initAuthorized = () => {

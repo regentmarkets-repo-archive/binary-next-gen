@@ -11,7 +11,9 @@ export default class NewsCard extends React.Component {
         const articles = this.props.news.get('articles');
         return (
             <div>
-                {articles.map(article => <Article {...article} />)}
+                {articles.map((article, idx) =>
+                    <Article key={'article' + idx} {...article} />
+                )}
             </div>
         );
     }

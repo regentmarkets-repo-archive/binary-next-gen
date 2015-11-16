@@ -15,16 +15,14 @@ const params = {
     },
 };
 
-export const getNews = (l = 'en') => {
+export const readNewsFeed = (l = 'en') => {
     const queryUrl = `${api}?media=${params[l].media}&prefix=${params[l].prefix}&campaign=1&mode=txt`;
 
     const domParser = new DOMParser();
 
-    return window.fetch(queryUrl).
-        then((response) => {
-            return response.text();
-        }).
-        then((xmlText) => {
+    return fetch(queryUrl)
+        .then(response => response.text())
+        .then(xmlText => {
             const xml = domParser.parseFromString(xmlText, 'text/xml');
             const allItemsList = xml.querySelectorAll('item');
 

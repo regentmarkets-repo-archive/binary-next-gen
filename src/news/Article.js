@@ -4,7 +4,7 @@ export default class articles extends React.Component {
 
     static propTypes = {
         title: React.PropTypes.string.isRequired,
-        pubDate: React.PropTypes.object.isRequired,
+        pubDate: React.PropTypes.string.isRequired,
         content: React.PropTypes.string.isRequired,
     };
 
