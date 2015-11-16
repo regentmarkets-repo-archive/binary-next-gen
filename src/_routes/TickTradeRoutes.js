@@ -14,6 +14,8 @@ import SettingsSecurity from '../settings/SettingsSecurity';
 import SettingsSelfExclusion from '../settings/SettingsSelfExclusion';
 import SettingsLimits from '../settings/SettingsLimits';
 import SettingsPersonalDetails from '../settings/SettingsPersonalDetails';
+import NewsMobile from '../news/NewsMobile';
+import VideoMobile from '../video/VideoMobile';
 
 import { requireAuthOnEnter, signout } from '../_data/Auth';
 
@@ -39,4 +41,6 @@ export default [
         { path: 'exclusion', component: SettingsSelfExclusion },
         { path: 'limits', component: SettingsLimits },
     ]},
+    { path: 'news', component: NewsMobile },
+    { path: 'video', component: VideoMobile },
 ];
