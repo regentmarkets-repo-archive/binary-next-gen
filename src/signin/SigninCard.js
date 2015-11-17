@@ -48,7 +48,6 @@ export default class SigninCard extends React.Component {
 		const token = this.props.signin.get('token');
 		LiveData.api.authorize(token).then(
 			() => {
-				// should dispatch
 				history.pushState({}, '/');
 			},
 			() => {	this.props.actions.signinFailed(); }
