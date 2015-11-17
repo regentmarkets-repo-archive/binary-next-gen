@@ -1,8 +1,6 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-// import { persistState } from 'redux-devtools';
 import thunk from 'redux-thunk';
 import rootReducer from '../_reducers';
-import DevTools from './DevTools';
 import persistState, {mergePersistedState} from 'redux-localstorage';
 import adapter from 'redux-localstorage/lib/adapters/localStorage';
 import filter from 'redux-localstorage-filter';
@@ -18,7 +16,7 @@ const storage = compose(
 
 const finalCreateStore = compose(
     applyMiddleware(thunk),
-    DevTools.instrument(),
+    window.devToolsExtension ? window.devToolsExtension() : f => f,
     persistState(storage, 'my-storage-key')
 )(createStore);
 

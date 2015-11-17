@@ -174,7 +174,7 @@ nav.sidebar {
     color: white;
 }
 .sidebar > * {
-    padding: 1rem;
+    padding: .5rem 1rem;
     margin: 0;
 }
 .number-positive {
