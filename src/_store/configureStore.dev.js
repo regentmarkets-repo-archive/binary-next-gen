@@ -1,11 +1,10 @@
 import { createStore, applyMiddleware, compose } from 'redux';
-// import { persistState } from 'redux-devtools';
+import { persistState } from 'redux-devtools';
 import thunk from 'redux-thunk';
 import rootReducer from '../_reducers';
 import DevTools from './DevTools';
-import persistState, {mergePersistedState} from 'redux-localstorage';
+import {mergePersistedState} from 'redux-localstorage';
 import adapter from 'redux-localstorage/lib/adapters/localStorage';
-import filter from 'redux-localstorage-filter';
 
 
 const reducer = compose(
@@ -13,13 +12,12 @@ const reducer = compose(
 )(rootReducer);
 
 const storage = compose(
-    filter('nested.key')
 )(adapter(window.localStorage));
 
 const finalCreateStore = compose(
     applyMiddleware(thunk),
     DevTools.instrument(),
-    persistState(storage, 'my-storage-key')
+    persistState(storage, 'binary')
 )(createStore);
 
 const configureStore = initialState => {

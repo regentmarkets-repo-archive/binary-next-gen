@@ -1,11 +1,19 @@
-import { createStore, applyMiddleware, compose } from 'redux';
-import thunk from 'redux-thunk';
+import { createStore, applyMiddleware } from 'redux';
 import rootReducer from '../_reducers';
+import storage from 'redux-storage';
+import createEngine from 'redux-storage/engines/localStorage';
 
-const finalCreateStore = compose(
-    applyMiddleware(thunk)
-)(createStore);
+const reducer = storage.reducer(rootReducer);
 
-const configureStore = initialState => finalCreateStore(rootReducer, initialState);
+const engine = createEngine('binary-prod');
 
-export default configureStore;
+const middleware = storage.createMiddleware(engine);
+
+const finalCreateStore = applyMiddleware(middleware)(createStore);
+
+const initStore = finalCreateStore(reducer);
+
+const load = storage.createLoader(engine);
+
+export const loadedStorePromise = load(initStore);
+export const store = initStore;

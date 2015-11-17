@@ -1,6 +1,4 @@
 import { fromJS } from 'immutable';
-import StateStorage from '../_store/StateStorage';
-
 import {
     SERVER_DATA_AUTHORIZE,
     SERVER_DATA_BALANCE,
@@ -10,7 +8,7 @@ import {
     SERVER_DATA_ACCOUNT_SETTINGS,
 } from '../_constants/ActionTypes';
 
-const initialState = fromJS(StateStorage.get('account') || {
+const initialState = fromJS({
     loginid: '',
     fullname: '',
     currency: '',
