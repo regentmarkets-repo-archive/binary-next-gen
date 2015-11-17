@@ -5,7 +5,6 @@ import ErrorMsg from '../_common/ErrorMsg';
 import InputGroup from '../_common/InputGroup';
 import LanguagePicker from '../_common/LanguagePicker';
 import * as LiveData from '../_data/LiveData';
-import StateStorage from '../_store/StateStorage';
 
 export default class SigninCard extends React.Component {
 
@@ -49,7 +48,6 @@ export default class SigninCard extends React.Component {
 		const token = this.props.signin.get('token');
 		LiveData.api.authorize(token).then(
 			() => {
-				StateStorage.set('token', token);
 				history.pushState({}, '/');
 			},
 			() => {	this.props.actions.signinFailed(); }

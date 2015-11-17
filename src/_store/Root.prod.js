@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import { Provider } from 'react-redux';
 import App from '../_routes/App';
-import configureStore from './configureStore';
-
-const store = configureStore();
+import store from './configureStore';
 
 export default class Root extends Component {
     render() {
