@@ -19,7 +19,6 @@ export default class StatementCard extends React.Component {
 				<StatementTable
 					compact={compact}
 					transactions={transactions}
-					onViewDetails={::this.showDetails}
 					currency={currency} />
 			</div>
 		);

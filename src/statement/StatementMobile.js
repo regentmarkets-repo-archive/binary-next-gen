@@ -1,9 +1,9 @@
 import React from 'react';
 import { MobilePage } from '../_common';
-import StatementCard from './StatementCard';
+import StatementContainer from './StatementContainer';
 
 export default (props) => (
 	<MobilePage>
-		<StatementCard compact={true} {...props} />
+		<StatementContainer compact={true} {...props} />
 	</MobilePage>
 );

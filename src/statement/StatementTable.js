@@ -5,7 +5,7 @@ import StatementRow from './StatementRow';
 
 const calulateTotals = transactions => transactions.map(t => +t.amount).reduce((x, y) => x + y, 0);
 
-const StatementTable = ({compact, currency, transactions, onViewDetails}) => (
+const StatementTable = ({compact, currency, transactions}) => (
 	<table>
 		<thead>
 			<tr>
@@ -22,7 +22,8 @@ const StatementTable = ({compact, currency, transactions, onViewDetails}) => (
 					key={i}
 					compact={compact}
 					transaction={t}
-					onViewDetails={onViewDetails} />)}
+				/>
+			)}
 		</tbody>
 		<tfoot>
 			<tr>
@@ -40,7 +41,6 @@ const StatementTable = ({compact, currency, transactions, onViewDetails}) => (
 StatementTable.propTypes = {
 	compact: React.PropTypes.bool,
 	transactions: React.PropTypes.array.isRequired,
-    onViewDetails: React.PropTypes.func.isRequired,
 };
 
 export default StatementTable;

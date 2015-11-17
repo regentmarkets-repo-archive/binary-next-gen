@@ -44,8 +44,8 @@ export const initAuthorized = () => {
     api.getStatement({ description: 1, limit: 20 });
     api.getProfitTable({ description: 1, limit: 20 });
     api.getPayoutCurrencies();
-    api.subscribeToBalance();
-    api.subscribeToAllOpenContracts();
+    // api.subscribeToBalance();
+    // api.subscribeToAllOpenContracts();
 };
 
 export const trackSymbols = symbols => {

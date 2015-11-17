@@ -2,9 +2,9 @@ import SigninMobile from '../signin/SigninMobile';
 import TickTradeMobile from '../tick-trade/TickTradeMobile';
 import PayoutSelectorMobile from '../tick-trade/PayoutSelectorMobile';
 import PurchaseConfirmationMobile from '../tick-trade/PurchaseConfirmationMobile';
-import { PortfolioPage, PortfolioMobile, PortfolioPanel } from '../portfolio';
+import { PortfolioMobile } from '../portfolio';
 import ContractDetailsMobile from '../contract-details/ContractDetailsMobile';
-import { StatementPage, StatementMobile } from '../statement';
+import { StatementMobile } from '../statement';
 import WatchlistMobile from '../watchlist/WatchlistMobile';
 import AssetSelectorMobile from '../asset-selector/AssetSelectorMobile';
 import TradeTypeSelectorMobile from '../trade-type-selector/TradeTypeSelectorMobile';
@@ -26,11 +26,8 @@ export default [
     { path: 'tick-trade', component: TickTradeMobile },
     { path: 'payout-selector', component: PayoutSelectorMobile },
     { path: 'purchase-confirmation', component: PurchaseConfirmationMobile },
-    { path: 'portfolio', component: PortfolioPage },
     { path: 'portfolio-mobile', component: PortfolioMobile },
-    { path: 'portfolio-panel', component: PortfolioPanel },
     { path: 'contract/:id', component: ContractDetailsMobile },
-    { path: 'statement', component: StatementPage },
     { path: 'statement-mobile', component: StatementMobile },
     { path: 'watchlist-mobile', component: WatchlistMobile },
     { path: 'asset-selector', component: AssetSelectorMobile },
@@ -41,6 +38,6 @@ export default [
         { path: 'exclusion', component: SettingsSelfExclusion },
         { path: 'limits', component: SettingsLimits },
     ]},
-    { path: 'news', component: NewsMobile },
-    { path: 'video', component: VideoMobile },
+    { path: 'news-mobile', component: NewsMobile },
+    { path: 'video-mobile', component: VideoMobile },
 ];

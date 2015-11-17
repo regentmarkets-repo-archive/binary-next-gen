@@ -1,9 +1,9 @@
 import React from 'react';
 import { Panel } from '../_common';
-import StatementCard from './StatementCard';
+import StatementContainer from './StatementContainer';
 
 export default (props) => (
 	<Panel title="Statement" position={props.position}>
-		<StatementCard {...props} />
+		<StatementContainer {...props} />
 	</Panel>
 );

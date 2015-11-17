@@ -1,9 +1,9 @@
 import React from 'react';
 import { DesktopPage } from '../_common';
-import StatementCard from './StatementCard';
+import StatementContainer from './StatementContainer';
 
 export default (props) => (
 	<DesktopPage>
-		<StatementCard {...props} />
+		<StatementContainer {...props} />
 	</DesktopPage>
 );

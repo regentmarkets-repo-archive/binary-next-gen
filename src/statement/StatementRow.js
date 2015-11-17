@@ -15,7 +15,6 @@ const StatementRow = ({compact, transaction}) => (
 StatementRow.propTypes = {
     compact: React.PropTypes.bool,
     transaction: React.PropTypes.object.isRequired,
-    onViewDetails: React.PropTypes.func.isRequired,
 };
 
 export default StatementRow;
