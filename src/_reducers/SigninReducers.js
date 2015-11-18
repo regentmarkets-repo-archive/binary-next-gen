@@ -1,5 +1,4 @@
 import { fromJS } from 'immutable';
-import StateStorage from '../_store/StateStorage';
 import {
     SIGNIN_START,
     SIGNIN_FIELD_UPDATE,
@@ -26,8 +25,6 @@ export default (state = initialState, action) => {
             return state.set('progress', true);
         }
         case SIGNIN_FIELD_UPDATE: {
-            // if (this.state.validatedOnce) this.validate();
-            if (action.fieldName === 'token') StateStorage.set('token', action.fieldValue);
             return state.set(action.fieldName, action.fieldValue);
         }
         case SIGNIN_FAILED: {
