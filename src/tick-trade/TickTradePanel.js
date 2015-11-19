@@ -9,7 +9,7 @@ const TickTradePanel = props => (
 );
 
 TickTradePanel.propTypes = {
-	position: React.propTypes.object,
+	position: React.PropTypes.object,
 };
 
 export default TickTradePanel;

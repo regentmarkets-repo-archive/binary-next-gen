@@ -13,9 +13,9 @@
     "id-length": [2, { min: 1 }],
 
     "comma-dangle": [2, "always-multiline"],
-    "no-eq-null": 0,
-    "block-scoped-var": 0, // until fixed https://github.com/eslint/eslint/issues/2253
-    "no-nested-ternary": 0, // until fixed https://github.com/eslint/eslint/issues/2253
+    "no-eq-null": 2,
+    "block-scoped-var": 2,
+    "no-nested-ternary": 2,
 
     "react/jsx-no-undef": 2,
     "jsx-quotes": [2, "prefer-double"],

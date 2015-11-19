@@ -9,7 +9,7 @@ const WatchlistPanel = props => (
 );
 
 WatchlistPanel.propTypes = {
-	position: React.propTypes.object,
+	position: React.PropTypes.object,
 };
 
 export default WatchlistPanel;

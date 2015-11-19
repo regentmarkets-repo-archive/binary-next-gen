@@ -1,29 +1,29 @@
-var path = require('path');
-var webpack = require('webpack');
+const path = require('path');
+const webpack = require('webpack');
 
 module.exports = {
     devtool: 'eval',
     entry: [
-        './src'
+        './src',
     ],
     output: {
         path: path.join(__dirname, 'dist'),
         filename: 'app.js',
-        publicPath: '/'
+        publicPath: '/',
     },
     plugins: [
         new webpack.HotModuleReplacementPlugin(),
-        new webpack.NoErrorsPlugin()
+        new webpack.NoErrorsPlugin(),
     ],
     module: {
         loaders: [{
             test: /\.js$/,
-            loader: "babel-loader",
-            include: path.join(__dirname, 'src')
+            loader: 'babel-loader',
+            include: path.join(__dirname, 'src'),
         }, {
             test: /\.js$/,
-            loader: "eslint-loader",
-            include: path.join(__dirname, 'src')
-        }]
-    }
+            loader: 'eslint-loader',
+            include: path.join(__dirname, 'src'),
+        }],
+    },
 };

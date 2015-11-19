@@ -9,7 +9,7 @@ const PortfolioPanel = props => (
 );
 
 PortfolioPanel.propTypes = {
-	position: React.propTypes.object,
+	position: React.PropTypes.object,
 };
 
 export default PortfolioPanel;
