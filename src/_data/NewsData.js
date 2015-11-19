@@ -29,10 +29,8 @@ export const readNewsFeed = (l = 'en') => {
             return Array.prototype.map.call(allItemsList, item => {
                 const title = item.getElementsByTagName('title').item(0).textContent.replace(/regentmarkets\d.*$/, '');
                 const pubDate = item.getElementsByTagName('pubDate').item(0).textContent.replace(/\+0000$/, 'GMT');
-                const content = () => {
-                    const post = item.getElementsByTagName('content\\:encoded').item(0);
-                    return post ? post.textContent : item.getElementsByTagName('encoded').item(0).textContent;
-                }();
+                const post = item.getElementsByTagName('content\\:encoded').item(0);
+                const content = post ? post.textContent : item.getElementsByTagName('encoded').item(0).textContent;
 
                 return {
                     title,

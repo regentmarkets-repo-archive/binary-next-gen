@@ -1,8 +1,7 @@
-/node_modules
-/build
-/dist
-/cache
-/release
+node_modules/
+dist/
+cache/
+release/
 npm-debug.log
 .idea/
 .publish/
