@@ -1,5 +1,6 @@
 # Next-Gen Binary
 
+[![Build Status](https://travis-ci.org/binary-com/binary-next-gen.svg?branch=master)](https://travis-ci.org/binary-com/binary-next-gen)
 ## To run project
 
 ```

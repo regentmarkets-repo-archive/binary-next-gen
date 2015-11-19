@@ -1,7 +1,7 @@
 import React from 'react';
 import { SegmentedControl } from '../_common';
 
-export default (props) => {
+const SettingsCard = props => {
 	const navigationLinks = [{
 		href: '/settings/',
 		text: 'Personal Details',
@@ -23,3 +23,9 @@ export default (props) => {
 		</div>
 	);
 };
+
+SettingsCard.propTypes = {
+	children: React.PropTypes.any,
+};
+
+export default SettingsCard;

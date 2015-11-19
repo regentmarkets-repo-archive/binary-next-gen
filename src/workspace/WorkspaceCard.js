@@ -1,6 +1,6 @@
 import React from 'react';
 import { Tabs } from '../_common';
-import { DesktopHeader, DesktopSidebar } from '../navigation';
+import { DesktopHeader, DesktopSidebar, Footer } from '../navigation';
 import PortfolioContainer from '../portfolio/PortfolioContainer';
 import ProfitTableContainer from '../profit-table/ProfitTableContainer';
 import StatementContainer from '../statement/StatementContainer';
@@ -10,12 +10,8 @@ import TradingTimesContainer from '../trading-times/TradingTimesContainer';
 import AssetIndexContainer from '../asset-index/AssetIndexContainer';
 import NewsContainer from '../news/NewsContainer';
 import VideoListContainer from '../video/VideoListContainer';
-
-
 import TickTradePanel from '../tick-trade/TickTradePanel';
 import WatchlistPanel from '../watchlist/WatchlistPanel';
-
-const Footer = () => <div />; // nothing yet
 
 export default ({actions, workspace}) => (
 	<div id="screen">
