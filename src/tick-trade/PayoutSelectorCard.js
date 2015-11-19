@@ -33,7 +33,7 @@ export default class PayoutSelectorCard extends React.Component {
 					onChange={e => this.updateValue({ basis: e.target.value })}
 					{...this.props} />
 				<CurrencySelector
-					radio={true}
+					radio
 					value={tickTrade.get('currency')}
 					onChange={e => this.updateValue({ currency: e.target.value })} />
 				<input

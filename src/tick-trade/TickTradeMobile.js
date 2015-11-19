@@ -4,6 +4,6 @@ import TickTradeContainer from './TickTradeContainer';
 
 export default (props) => (
 	<MobilePage>
-		<TickTradeContainer compact={true} {...props} />
+		<TickTradeContainer compact {...props} />
 	</MobilePage>
 );

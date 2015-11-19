@@ -4,6 +4,6 @@ import WatchlistCard from './WatchlistCard';
 
 export default (props) => (
 	<MobilePage>
-		<WatchlistCard compact={true} {...props} />
+		<WatchlistCard compact {...props} />
 	</MobilePage>
 );

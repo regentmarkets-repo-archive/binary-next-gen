@@ -2,8 +2,9 @@
   "name": "binary-next-gen",
   "main": "src/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "test": "webpack --config webpack.config.dev.js",
+    "start": "node server.js",
+    "build": "npm run clean && npm run build:webpack"
   },
   "keywords": [
     "binary.com",

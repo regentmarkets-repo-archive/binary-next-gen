@@ -4,7 +4,7 @@ import NavigationMenu from './NavigationMenu';
 
 export default () => (
 	<div className="mobile-toolbar">
-		<input id="hamburger-closer" type="radio" name="hamburger" defaultChecked={true} />
+		<input id="hamburger-closer" type="radio" name="hamburger" defaultChecked />
 		<label id="hamburger-overlay" htmlFor="hamburger-closer"></label>
 		<input id="hamburger-opener" className="hamburger" type="radio" name="hamburger" />
 		<label id="hamburger-btn" htmlFor="hamburger-opener" className="toolbar-btn">

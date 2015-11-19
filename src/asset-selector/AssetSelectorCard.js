@@ -28,7 +28,7 @@ const AssetSelectorCard = ({actions, assets, assetSelector, history, workspace})
 		<div>
 			<MarketSelector
 				onChange={onSubmarketChange}
-				showAllOption={true}
+				showAllOption
 				showMarkets={showOnlyTickTradable ? ['Forex', 'Randoms'] : null} />
 			<InputGroup
 				className="asset-search"

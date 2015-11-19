@@ -17,7 +17,7 @@
     "no-nested-ternary": 0, // until fixed https://github.com/eslint/eslint/issues/2253
 
     "react/jsx-no-undef": 2,
-    "react/jsx-quotes": [2, "double", "avoid-escape"],
+    "jsx-quotes": [2, "prefer-double"],
     "react/jsx-uses-react": 2,
     "react/jsx-uses-vars": 2,
     "react/no-did-mount-set-state": 2,

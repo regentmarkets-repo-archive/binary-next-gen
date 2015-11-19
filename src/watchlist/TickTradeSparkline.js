@@ -27,6 +27,8 @@ const TickTradeSparkline = (props) => {
 };
 
 TickTradeSparkline.propTypes = {
+	height: React.PropTypes.number.isRequired,
+	width: React.PropTypes.number.isRequired,
 	history: React.PropTypes.array,
 	isCall: React.PropTypes.bool,
 };

@@ -4,6 +4,6 @@ import ProfitTableContainer from './ProfitTableContainer';
 
 export default (props) => (
 	<MobilePage>
-		<ProfitTableContainer compact={true} {...props} />
+		<ProfitTableContainer compact {...props} />
 	</MobilePage>
 );

@@ -4,6 +4,6 @@ import StatementContainer from './StatementContainer';
 
 export default (props) => (
 	<MobilePage>
-		<StatementContainer compact={true} {...props} />
+		<StatementContainer compact {...props} />
 	</MobilePage>
 );

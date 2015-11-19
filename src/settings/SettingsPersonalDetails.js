@@ -18,10 +18,10 @@ export default class SettingsPersonalDetails extends React.Component {
 			<div>
 				<legend>details</legend>
 
-				<InputGroup id="name" label="Name" type="text" value={account.name} readOnly={true} />
-				<InputGroup id="dob" label="Date of birth" type="date" value="1981-12-12" readOnly={true} />
-				<InputGroup id="residence" label="Country of Residence" type="text" value={settings.country} readOnly={true} />
-				<InputGroup id="email" label="Email" type="email" value={account.email} readOnly={true} />
+				<InputGroup id="name" label="Name" type="text" value={account.name} readOnly />
+				<InputGroup id="dob" label="Date of birth" type="date" value="1981-12-12" readOnly />
+				<InputGroup id="residence" label="Country of Residence" type="text" value={settings.country} readOnly />
+				<InputGroup id="email" label="Email" type="email" value={account.email} readOnly />
 
 				<legend>Address</legend>
 				{settings.address_line_1}
