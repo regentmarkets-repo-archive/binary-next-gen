@@ -18,7 +18,7 @@ export default ({actions, workspace}) => (
 		<DesktopHeader />
 		{false && <DesktopSidebar />}
 		<div id="panels">
-			<div id="left-panel">
+			<div id="left-panel" style={{width: workspace.get('leftPanelSize')}}>
 				<Tabs
 					id="left-panel"
 					activeIndex={workspace.get('leftActiveTab')}
@@ -33,7 +33,7 @@ export default ({actions, workspace}) => (
 					<TickTradePanel position={{left: 400, top: 52, width: 400, height: 545 }} />
 					<WatchlistPanel position={{left: 575, top: 352, width: 550, height: 200 }} />
 				</div>
-				<div id="bottom-panel">
+				<div id="bottom-panel" style={{height: workspace.get('bottomPanelSize')}}>
 					<Tabs
 						id="bottom-panel"
 						activeIndex={workspace.get('bottomActiveTab')}
@@ -45,7 +45,7 @@ export default ({actions, workspace}) => (
 						]} />
 				</div>
 			</div>
-			<div id="right-panel">
+			<div id="right-panel" style={{width: workspace.get('rightPanelSize')}}>
 				<Tabs
 					id="right-panel"
 					activeIndex={workspace.get('rightActiveTab')}

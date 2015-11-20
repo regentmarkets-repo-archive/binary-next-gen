@@ -9,16 +9,16 @@ const electron = require('gulp-atom-electron');
 const zip = require('gulp-vinyl-zip');
 
 const files = {
-    dist: 'dist',
-    js: 'src',
-    static: ['public/**/*', 'config.xml', 'electron.js'],
+    dist: '../dist',
+    js: '../src',
+    static: ['../public/**/*', './config.xml', './electron.js'],
     sass: 'public/styles.sass',
 };
 
 process.env.NODE_ENV = 'production';
 
 gulp.task('cleanup', callback =>
-    del([files.dist], callback)
+    del([files.dist], { force: true }, callback)
 );
 
 gulp.task('static', () =>
@@ -34,7 +34,7 @@ gulp.task('styles', () =>
 
 gulp.task('js', () =>
     gulp.src(files.js)
-        .pipe(shell('webpack --config ./webpack.config.prod.js'))
+        .pipe(shell('webpack --config ./webpack.config.prod.js', { cwd: '..'}))
         .pipe(gulp.dest(files.dist))
 );
 

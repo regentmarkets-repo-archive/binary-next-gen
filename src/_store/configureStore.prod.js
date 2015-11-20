@@ -15,7 +15,7 @@ const actionsToCache = [
 ];
 
 const reducer = storage.reducer(rootReducer);
-const engine = createEngine('binary-prod');
+const engine = createEngine('binary');
 const middleware = storage.createMiddleware(engine, [], actionsToCache);
 const finalCreateStore = applyMiddleware(middleware)(createStore);
 const initStore = finalCreateStore(reducer);

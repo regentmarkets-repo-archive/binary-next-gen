@@ -57,7 +57,6 @@ html {
     line-height: 3;
 }
 #left-panel, #right-panel {
-    height: 100%;
     overflow: auto;
 }
 #left-panel {

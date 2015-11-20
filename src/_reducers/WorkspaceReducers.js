@@ -14,9 +14,9 @@ import {
 } from '../_constants/ActionTypes';
 
 const initialState = new Map({
-    leftPanelSize: 300,
+    leftPanelSize: 350,
     leftActiveTab: 0,
-    rightPanelSize: 300,
+    rightPanelSize: 350,
     rightActiveTab: 0,
     bottomPanelSize: 300,
     bottomActiveTab: 0,
