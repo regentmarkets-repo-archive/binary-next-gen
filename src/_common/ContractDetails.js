@@ -1,5 +1,5 @@
 import React from 'react';
-import { timeStr } from '../_utils/DateUtils';
+import { FormattedTime } from 'react-intl';
 
 const ContractDetails = ({contract}) => {
 	const returnOnContract = ((contract.bid_price - contract.buy_price) * 100 / contract.buy_price).toFixed(2);
@@ -16,9 +16,9 @@ const ContractDetails = ({contract}) => {
 				</thead>
 				<tbody>
 					<tr>
-						<td>{timeStr(contract.date_start)}</td>
+						<td><FormattedTime value={contract.date_start} /></td>
 						<td>todo</td>
-						<td>{timeStr(contract.expiry_time)}</td>
+						<td><FormattedTime value={contract.expiry_time} /></td>
 					</tr>
 					<tr>
 						<td></td>

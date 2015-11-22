@@ -1,6 +1,5 @@
 import React from 'react';
-import { dateTimeStr } from '../_utils/DateUtils';
-import { NumberColored } from '../_common';
+import { NumberColored, FormattedDateRange } from '../_common';
 import ProfitRow from './ProfitRow';
 
 const calulateTotals = transactions => transactions.map(t => +t.get('sell_price') - +t.get('buy_price')).reduce((x, y) => x + y, 0);
@@ -28,7 +27,13 @@ const ProfitTable = ({compact, transactions, onViewDetails}) => (
 		<tfoot>
 			<tr>
 				{!compact && <th></th>}
-				{transactions.size ? <th>{dateTimeStr(transactions.first().get('purchase_time'))} – {dateTimeStr(transactions.last().get('purchase_time'))}</th> : <th />}
+				<th>
+					{transactions.size &&
+					<FormattedDateRange
+						fromDate={new Date(transactions.first().get('purchase_time') * 1000)}
+						toDate={new Date(transactions.last().get('purchase_time') * 1000)}
+					/>}
+				</th>
 				<th></th>
 				{!compact && <th></th>}
 				<th>Total</th>

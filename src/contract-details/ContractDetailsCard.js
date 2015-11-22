@@ -1,5 +1,5 @@
 import React from 'react';
-import { timeStr } from '../_utils/DateUtils';
+import { FormattedTime } from 'react-intl';
 
 const returnOnContract = (contract, proposal) => (proposal.bid_price - contract.buy_price) * 100 / contract.buy_price;
 
@@ -15,9 +15,9 @@ const ContractDetailsCard = ({contract, proposal}) => (
 			</thead>
 			<tbody>
 				<tr>
-					<td>{timeStr(contract.date_start)}</td>
-					<td>{proposal && timeStr(proposal.spot_time)}</td>
-					<td>{timeStr(contract.expiry_time)}</td>
+					<td><FormattedTime value={contract.date_start} /></td>
+					<td>{proposal && <FormattedTime value={contract.spot_time} />}</td>
+					<td><FormattedTime value={contract.expiry_time} /></td>
 				</tr>
 				<tr>
 					<td></td>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { timeStr } from '../_utils/DateUtils';
+import { FormattedTime } from 'react-intl';
 
 // const returnOnContract = ((contract.bid_price - contract.buy_price) * 100 / contract.buy_price).toFixed(2);
 
@@ -15,7 +15,7 @@ const TransactionDetails = ({transaction}) => (
 			</thead>
 			<tbody>
 				<tr>
-					<td>{timeStr(transaction.transaction_time)}</td>
+					<td><FormattedTime value={transaction.transaction_time} /></td>
 					<td>??????</td>
 				</tr>
 			</tbody>

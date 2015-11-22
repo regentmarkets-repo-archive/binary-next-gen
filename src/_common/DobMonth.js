@@ -1,5 +1,6 @@
 import React from 'react';
-import { LOCALIZED_MONTHS } from '../_utils/DateUtils';
+
+const LOCALIZED_MONTHS = [];
 
 export default () => (
 	<select id="dobmm" name="dobmm">

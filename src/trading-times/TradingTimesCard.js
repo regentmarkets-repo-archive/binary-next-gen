@@ -1,7 +1,9 @@
 import React from 'react';
 import { InputGroup, MarketSelector } from '../_common';
 import TradingTimesTable from './TradingTimesTable';
-import { todayStr, oneYearAgoStr } from '../_utils/DateUtils';
+
+const todayStr = () => new Date();
+const oneYearAgoStr = () => new Date().setFullYear(new Date().getFullYear() - 1);
 
 export default class TradingTimesCard extends React.Component {
 

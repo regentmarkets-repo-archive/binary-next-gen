@@ -1,6 +1,6 @@
 import React from 'react';
 import { NumberColored, NumberPlain } from '../_common';
-import { dateStr } from '../_utils/DateUtils';
+import { FormattedDate } from 'react-intl';
 import StatementRow from './StatementRow';
 
 const calulateTotals = transactions => transactions.map(t => +t.amount).reduce((x, y) => x + y, 0);
@@ -27,7 +27,7 @@ const StatementTable = ({compact, currency, transactions}) => (
 		</tbody>
 		<tfoot>
 			<tr>
-				<th>{transactions[0] && dateStr(transactions[0].transaction_time)}</th>
+				<th>{transactions[0] && <FormattedDate value={new Date(transactions[0].transaction_time * 1000)} />}</th>
 				<th></th>
 				{!compact && <th></th>}
 				<th><NumberColored value={calulateTotals(transactions)} /></th>

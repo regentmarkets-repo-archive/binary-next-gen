@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { IntlProvider } from 'react-intl';
 import { Provider } from 'react-redux';
 import { store } from './configureStore';
 import { Router } from 'react-router';
@@ -7,14 +8,17 @@ import HashHistory from 'history/lib/createHashHistory';
 import * as LiveData from '../_data/LiveData';
 
 const history = new HashHistory();
-LiveData.connect(store, store.getState().signin.get('token'));
+const token = store.getState().signin.get('token');
+LiveData.connect(store, token);
 
 export default class Root extends Component {
     render() {
         return (
-            <Provider store={store}>
-                <Router history={history} children={routes} />
-            </Provider>
+            <IntlProvider locale="en">
+                <Provider store={store}>
+                    <Router history={history} children={routes} />
+                </Provider>
+            </IntlProvider>
         );
     }
 }

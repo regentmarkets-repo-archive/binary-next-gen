@@ -1,10 +1,10 @@
 import React from 'react';
-import { dateTimeStr } from '../_utils/DateUtils';
+import { FormattedDate } from 'react-intl';
 import { NumberPlain, NumberColored } from '../_common';
 
 const StatementRow = ({compact, transaction}) => (
     <tr>
-        <td>{dateTimeStr(transaction.transaction_time)}</td>
+        <td><FormattedDate value={new Date(transaction.transaction_time * 1000)} /></td>
         {!compact && <td>{transaction.transaction_id}</td>}
         <td className="trade-action">{transaction.action_type}</td>
         <td><NumberColored value={transaction.amount} /></td>

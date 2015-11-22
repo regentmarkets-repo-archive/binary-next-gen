@@ -1,5 +1,5 @@
 import React from 'react';
-import { dateTimeStr } from '../_utils/DateUtils';
+import { FormattedDate } from 'react-intl';
 
 const PurchaseConfirmation = ({receipt}) => (
 	<div>
@@ -14,7 +14,7 @@ const PurchaseConfirmation = ({receipt}) => (
 				</tr>
 				<tr>
 					<td>Purchase Time</td>
-					<td>{dateTimeStr(receipt.get('purchase_time'))}</td>
+				<td><FormattedDate value={new Date(receipt.get('purchase_time') * 1000)} /></td>
 				</tr>
 				<tr>
 					<td>Balance</td>
