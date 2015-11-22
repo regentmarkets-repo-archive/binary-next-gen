@@ -53,12 +53,7 @@ gulp.task('electron', ['download-electron'], () =>
 );
 
 gulp.task('deploy', ['build'], () =>
-    gulp.src('./dist/**/*')
+    gulp.src(files.dist + '/**/*')
         .pipe(file('CNAME', 'app.binary.com'))
         .pipe(ghPages())
-);
-
-gulp.task('phonegap', () =>
-    gulp.src('./dist/**/*')
-        .pipe(ghPages({ branch: 'phonegap' }))
 );
