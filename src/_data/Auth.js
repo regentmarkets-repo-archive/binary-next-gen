@@ -7,14 +7,15 @@ export const navigateTo = (nextState, replaceState, to) => {
 };
 
 export const requireAuthOnEnter = (nextState, replaceState, cb) => {
-    loadedStorePromise.then( newState => {
+    loadedStorePromise.then( st => {
+        const newState = st.getState();
         if (!newState.signin) {
             navigateTo(nextState, replaceState, '/signin');
             cb();
             return;
         }
 
-        const token = newState.signin.token;
+        const token = newState.signin.get('token');
 
         if (!token) {
             navigateTo(nextState, replaceState, '/signin');
