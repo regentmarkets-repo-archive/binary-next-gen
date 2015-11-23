@@ -4,7 +4,6 @@ import LogoSpinner from '../_common/LogoSpinner';
 import ErrorMsg from '../_common/ErrorMsg';
 import InputGroup from '../_common/InputGroup';
 import LanguagePicker from '../_common/LanguagePicker';
-import * as LiveData from '../_data/LiveData';
 
 export default class SigninCard extends React.Component {
 
@@ -45,13 +44,8 @@ export default class SigninCard extends React.Component {
 	trySignin() {
 		const {actions, history} = this.props;
 		actions.signinFieldUpdate('progress', true);
-		const token = this.props.signin.get('token');
-		LiveData.api.authorize(token).then(
-			() => {
-				history.pushState({}, '/');
-			},
-			() => {	this.props.actions.signinFailed(); }
-		);
+
+		history.pushState({}, '/');	// no need to authorize here onEnter hook will authorize
 	}
 
 	// <InputGroup type="email" placeholder="Email" onChange={::this.emailChange} />

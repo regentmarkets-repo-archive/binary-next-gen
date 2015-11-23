@@ -22,5 +22,5 @@ const initStore = finalCreateStore(reducer);
 const load = storage.createLoader(engine);
 
 
-export const loadedStorePromise = load(initStore);
+export const loadedStorePromise = load(initStore).then(() => {return initStore;});
 export const store = initStore;

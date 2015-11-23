@@ -6,9 +6,16 @@ export const navigateTo = (nextState, replaceState, to) => {
     replaceState({ nextPathname: nextState.location.pathname }, to);
 };
 
-export const requireAuthOnEnter = (nextState, replaceState) => {
-    loadedStorePromise.then( newState => {
-        const token = newState.signin.token;
+export const requireAuthOnEnter = (nextState, replaceState, cb) => {
+    loadedStorePromise.then( st => {
+        const newState = st.getState();
+        if (!newState.signin) {
+            navigateTo(nextState, replaceState, '/signin');
+            cb();
+            return;
+        }
+
+        const token = newState.signin.get('token');
 
         if (!token) {
             navigateTo(nextState, replaceState, '/signin');
@@ -17,9 +24,12 @@ export const requireAuthOnEnter = (nextState, replaceState) => {
                 () => {
                     navigateTo(nextState, replaceState, '/');
                 },
-                () => { navigateTo(nextState, replaceState, '/signin'); }
+                () => {
+                    navigateTo(nextState, replaceState, '/signin');
+                }
             );
         }
+        cb();
     });
 };
 
