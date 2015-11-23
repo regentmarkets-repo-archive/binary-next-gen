@@ -1,10 +1,11 @@
 import React from 'react';
 import { bindActionCreators } from 'redux';
+import { getSettings } from '../_reducers/SettingsReducers';
 import * as SettingsActions from '../_actions/SettingsActions';
 import { connect } from 'react-redux';
 import SettingsCard from './SettingsCard';
 
-@connect(state => ({ settings: state.settings }))
+@connect(state => ({ settings: getSettings(state) }))
 export default class SettingsContainer extends React.Component {
 
 	static propTypes = {

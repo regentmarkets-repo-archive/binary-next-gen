@@ -10,10 +10,6 @@ import AssetSelectorMobile from '../asset-selector/AssetSelectorMobile';
 import TradeTypeSelectorMobile from '../trade-type-selector/TradeTypeSelectorMobile';
 import ProfitTableMobile from '../profit-table/ProfitTableMobile';
 import SettingsMobile from '../settings/SettingsMobile';
-import SettingsSecurity from '../settings/SettingsSecurity';
-import SettingsSelfExclusion from '../settings/SettingsSelfExclusion';
-import SettingsLimits from '../settings/SettingsLimits';
-import SettingsPersonalDetails from '../settings/SettingsPersonalDetails';
 import NewsMobile from '../news/NewsMobile';
 import VideoMobile from '../video/VideoMobile';
 
@@ -33,11 +29,7 @@ export default [
     { path: 'asset-selector', component: AssetSelectorMobile },
     { path: 'trade-type-selector', component: TradeTypeSelectorMobile },
     { path: 'profit-table-mobile', component: ProfitTableMobile },
-    { path: 'settings-mobile', indexRoute: { component: SettingsPersonalDetails }, component: SettingsMobile, childRoutes: [
-        { path: 'security', component: SettingsSecurity },
-        { path: 'exclusion', component: SettingsSelfExclusion },
-        { path: 'limits', component: SettingsLimits },
-    ]},
+    { path: 'settings-mobile', component: SettingsMobile },
     { path: 'news-mobile', component: NewsMobile },
     { path: 'video-mobile', component: VideoMobile },
 ];

@@ -56,6 +56,7 @@ export const trackSymbols = symbols => {
 export const connect = (store, token) => {
     Object.keys(handlers).forEach(key => {
         const action = actions[handlers[key]];
+
         api.events.on(key, (data) => store.dispatch(action(data)));
         api.events.on(key, () => window.console.log);
     });

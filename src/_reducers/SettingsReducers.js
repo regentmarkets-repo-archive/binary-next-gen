@@ -8,9 +8,6 @@ import {
 
 const initialState = fromJS({
     activeTab: 0,
-    limits: {},
-    selfExclusion: {},
-    personal: {},
 });
 
 export default (state = initialState, action) => {
@@ -19,15 +16,17 @@ export default (state = initialState, action) => {
             return state.set('activeTab', action.activeTabIndex);
         }
         case SERVER_DATA_ACCOUNT_LIMITS: {
-            return state.set('limits', action.serverResponse.get_limits);
+            return state.merge(action.serverResponse.get_limits);
         }
         case SERVER_DATA_ACCOUNT_SELF_EXCLUSION: {
-            return state.set('selfExclusion', action.serverResponse.get_self_exclusion);
+            return state.merge(action.serverResponse.get_self_exclusion);
         }
         case SERVER_DATA_ACCOUNT_SETTINGS: {
-            return state.set('personal', action.serverResponse.get_settings);
+            return state.merge(action.serverResponse.get_settings);
         }
         default:
             return state;
     }
 };
+
+export const getSettings = state => state.settings.toJS();
