@@ -4,6 +4,7 @@ import account from './AccountReducers';
 import assets from './AssetsReducers';
 import assetSelector from './AssetSelectorReducers';
 import portfolio from './PortfolioReducers';
+import settings from './SettingsReducers';
 import signin from './SigninReducers';
 import statement from './StatementReducers';
 import ticks from './TickReducers';
@@ -18,6 +19,7 @@ export default combineReducers({
     assets,
     assetSelector,
     portfolio,
+    settings,
     signin,
     statement,
     ticks,

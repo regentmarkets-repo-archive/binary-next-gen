@@ -20,8 +20,8 @@ export const workspaceUnfavorAsset = symbol => ({
     symbol,
 });
 
-export const updateActiveTab = (panel, index) => ({
-    type: types.UPDATE_ACTIVE_TAB,
+export const changeActiveTab = (panel, index) => ({
+    type: types.CHANGE_ACTIVE_TAB,
     panel,
     index,
 });

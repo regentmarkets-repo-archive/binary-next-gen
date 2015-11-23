@@ -1,9 +1,9 @@
 import React from 'react';
 import { MobilePage } from '../_common';
-import SettingsCard from './SettingsCard';
+import SettingsContainer from './SettingsContainer';
 
 export default (props) => (
 	<MobilePage>
-		<SettingsCard {...props} />
+		<SettingsContainer {...props} />
 	</MobilePage>
 );

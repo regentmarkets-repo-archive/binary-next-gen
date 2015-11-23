@@ -38,7 +38,7 @@ export const initUnauthorized = () => {
 
 export const initAuthorized = () => {
     api.getAccountLimits();
-    api.setSelfExclusion();
+    api.getSelfExclusion();
     api.getAccountSettings();
     api.getPortfolio();
     api.getStatement({ description: 1, limit: 20 });

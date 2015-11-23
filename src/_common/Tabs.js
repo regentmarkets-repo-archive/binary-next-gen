@@ -30,7 +30,7 @@ export default class Tabs extends React.Component {
                             value={id + idx}
                             onChange={() => onChange(idx)} />
                     )}
-                    {<ActiveComponent />}
+                    {ActiveComponent}
                 </div>
             </div>
         );

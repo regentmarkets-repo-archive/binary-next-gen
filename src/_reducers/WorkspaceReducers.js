@@ -7,7 +7,7 @@ import {
     WORKSPACE_ASSET_SELECT,
     WORKSPACE_FAVOR_ASSET,
     WORKSPACE_UNFAVOR_ASSET,
-    UPDATE_ACTIVE_TAB,
+    CHANGE_ACTIVE_TAB,
     UPDATE_TRADING_TIMES_SUBMARKET,
     UPDATE_TRADING_TIMES_DATE,
     UPDATE_ASSET_INDEX_SUBMARKET,
@@ -33,7 +33,7 @@ const initialState = new Map({
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case UPDATE_ACTIVE_TAB: {
+        case CHANGE_ACTIVE_TAB: {
             return state.set(action.panel + 'ActiveTab', action.index);
         }
         case WORKSPACE_VIEW_ASSET_DETAILS: {

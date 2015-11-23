@@ -14,18 +14,3 @@ export const serverDataPayoutCurrencies = serverResponse => ({
     type: types.SERVER_DATA_PAYOUT_CURRENCIES,
     serverResponse,
 });
-
-export const serverDataAccountLimits = serverResponse => ({
-    type: types.SERVER_DATA_ACCOUNT_LIMITS,
-    serverResponse,
-});
-
-export const serverDataAccountSelfExclusion = serverResponse => ({
-    type: types.SERVER_DATA_ACCOUNT_SELF_EXCLUSION,
-    serverResponse,
-});
-
-export const serverDataAccountSettings = serverResponse => ({
-    type: types.SERVER_DATA_ACCOUNT_SETTINGS,
-    serverResponse,
-});

@@ -56,7 +56,7 @@ html {
 #header span {
     line-height: 3;
 }
-#left-panel, #right-panel {
+#left-panel, #right-panel, #bottom-panel {
     overflow: auto;
 }
 #left-panel {

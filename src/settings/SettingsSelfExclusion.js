@@ -1,16 +1,14 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import { InputGroup } from '../_common';
 
-@connect(state => ({ account: state.account }))
 export default class SettingsSelfExclusion extends React.Component {
 
 	static propTypes = {
-		account: React.PropTypes.object.isRequired,
+		settings: React.PropTypes.object.isRequired,
 	};
 
 	render() {
-		const selfExclusion = this.props.account.get('selfExclusion');
+		const selfExclusion = this.props.settings.get('selfExclusion');
 
 		return (
 			<div>

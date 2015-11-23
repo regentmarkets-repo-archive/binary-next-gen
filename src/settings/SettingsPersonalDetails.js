@@ -1,33 +1,61 @@
 import React from 'react';
-import { connect } from 'react-redux';
 import InputGroup from '../_common/InputGroup';
 
-
-@connect(state => ({ account: state.account }))
 export default class SettingsPersonalDetails extends React.Component {
 
 	static propTypes = {
-		account: React.PropTypes.object.isRequired,
+		settings: React.PropTypes.object.isRequired,
 	};
 
 	render() {
-		const account = this.props.account.toJS();
-		const {settings} = account;
+		const personal = this.props.settings.get('personal');
 
 		return (
 			<div>
 				<legend>details</legend>
 
-				<InputGroup id="name" label="Name" type="text" value={account.name} readOnly />
-				<InputGroup id="dob" label="Date of birth" type="date" value="1981-12-12" readOnly />
-				<InputGroup id="residence" label="Country of Residence" type="text" value={settings.country} readOnly />
-				<InputGroup id="email" label="Email" type="email" value={account.email} readOnly />
+				<InputGroup
+					id="name"
+					label="Name"
+					type="text"
+					value={personal.name}
+					readOnly />
+				<InputGroup
+					id="dob"
+					label="Date of birth"
+					type="date"
+					value="1981-12-12"
+					readOnly />
+				<InputGroup
+					id="residence"
+					label="Country of Residence"
+					type="text"
+					value={personal.country}
+					readOnly />
+				<InputGroup
+					id="email"
+					label="Email"
+					type="email"
+					value={personal.email}
+					readOnly />
 
 				<legend>Address</legend>
-				{settings.address_line_1}
-				<InputGroup id="address1" type="text" label="First line of home address" value={settings.address_line_1} />
-				<InputGroup id="address2" type="text" label="Second line of home address" value={settings.address_line_2} />
-				<InputGroup id="city" type="text" label="Town/City" value={settings.address_city} />
+				{personal.address_line_1}
+				<InputGroup
+					id="address1"
+					type="text"
+					label="First line of home address"
+					value={personal.address_line_1} />
+				<InputGroup
+					id="address2"
+					type="text"
+					label="Second line of home address"
+					value={personal.address_line_2} />
+				<InputGroup
+					id="city"
+					type="text"
+					label="Town/City"
+					value={personal.address_city} />
 
 				<fieldset>
 					<label htmlFor="AddressState">State/Province</label>
@@ -36,8 +64,16 @@ export default class SettingsPersonalDetails extends React.Component {
 					</select>
 				</fieldset>
 
-				<InputGroup id="postcode" type="text" label="Postal Code / ZIP" value={settings.address_postcode} />
-				<InputGroup id="tel" type="tel" label="Telephone" value={settings.phone} />
+				<InputGroup
+					id="postcode"
+					type="text"
+					label="Postal Code / ZIP"
+					value={personal.address_postcode} />
+				<InputGroup
+					id="tel"
+					type="tel"
+					label="Telephone"
+					value={personal.phone} />
 
 				<button>Update</button>
 			</div>

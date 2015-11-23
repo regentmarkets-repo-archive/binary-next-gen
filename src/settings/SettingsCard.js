@@ -1,31 +1,19 @@
 import React from 'react';
-import { SegmentedControl } from '../_common';
+import { Tabs } from '../_common';
+import SettingsPersonalDetails from './SettingsPersonalDetails';
+import SettingsSecurity from './SettingsSecurity';
+import SettingsSelfExclusion from './SettingsSelfExclusion';
+import SettingsLimits from './SettingsLimits';
 
-const SettingsCard = props => {
-	const navigationLinks = [{
-		href: '/settings/',
-		text: 'Personal Details',
-	}, {
-		href: '/settings/security',
-		text: 'Security',
-	}, {
-		href: '/settings/exclusion',
-		text: 'Self Exclusion',
-	}, {
-		href: '/settings/limits',
-		text: 'Limits',
-	}];
-
-	return (
-		<div>
-			<SegmentedControl segments={navigationLinks} />
-			{props.children}
-		</div>
-	);
-};
-
-SettingsCard.propTypes = {
-	children: React.PropTypes.any,
-};
-
-export default SettingsCard;
+export default (props) => (
+	<Tabs
+		id="settings"
+		activeIndex={0}
+		onChange={idx => props.actions.changeSettingsActiveTab(idx)}
+		tabs={[
+			{text: 'Personal Details', component: <SettingsPersonalDetails {...props} />},
+			{text: 'Security', component: <SettingsSecurity {...props} />},
+			{text: 'Self Exclusion', component: <SettingsSelfExclusion {...props} />},
+			{text: 'Limits', component: <SettingsLimits {...props} />},
+		]} />
+);

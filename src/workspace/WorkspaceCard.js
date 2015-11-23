@@ -22,10 +22,10 @@ export default ({actions, workspace}) => (
 				<Tabs
 					id="left-panel"
 					activeIndex={workspace.get('leftActiveTab')}
-					onChange={idx => actions.updateActiveTab('left', idx)}
+					onChange={idx => actions.changeActiveTab('left', idx)}
 					tabs={[
-						{text: 'Assets', component: AssetSelectorContainer},
-						{text: 'Details', component: AssetDetailsContainer},
+						{text: 'Assets', component: <AssetSelectorContainer />},
+						{text: 'Details', component: <AssetDetailsContainer />},
 					]} />
 			</div>
 			<div id="mid-panel">
@@ -37,11 +37,11 @@ export default ({actions, workspace}) => (
 					<Tabs
 						id="bottom-panel"
 						activeIndex={workspace.get('bottomActiveTab')}
-						onChange={idx => actions.updateActiveTab('bottom', idx)}
+						onChange={idx => actions.changeActiveTab('bottom', idx)}
 						tabs={[
-							{text: 'Open Positions', component: PortfolioContainer},
-							{text: 'Transactions', component: StatementContainer},
-							{text: 'Profits', component: ProfitTableContainer},
+							{text: 'Open Positions', component: <PortfolioContainer />},
+							{text: 'Transactions', component: <StatementContainer />},
+							{text: 'Profits', component: <ProfitTableContainer />},
 						]} />
 				</div>
 			</div>
@@ -49,12 +49,12 @@ export default ({actions, workspace}) => (
 				<Tabs
 					id="right-panel"
 					activeIndex={workspace.get('rightActiveTab')}
-					onChange={idx => actions.updateActiveTab('right', idx)}
+					onChange={idx => actions.changeActiveTab('right', idx)}
 					tabs={[
-						{text: 'Trading Times', component: TradingTimesContainer},
-						{text: 'Asset Index', component: AssetIndexContainer},
-						{text: 'Videos', component: VideoListContainer},
-						{text: 'News', component: NewsContainer},
+						{text: 'Trading Times', component: <TradingTimesContainer />},
+						{text: 'Asset Index', component: <AssetIndexContainer />},
+						{text: 'Videos', component: <VideoListContainer />},
+						{text: 'News', component: <NewsContainer />},
 					]} />
 			</div>
 		</div>
