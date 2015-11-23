@@ -6,8 +6,14 @@ export const navigateTo = (nextState, replaceState, to) => {
     replaceState({ nextPathname: nextState.location.pathname }, to);
 };
 
-export const requireAuthOnEnter = (nextState, replaceState) => {
+export const requireAuthOnEnter = (nextState, replaceState, cb) => {
     loadedStorePromise.then( newState => {
+        if (!newState.signin) {
+            navigateTo(nextState, replaceState, '/signin');
+            cb();
+            return;
+        }
+
         const token = newState.signin.token;
 
         if (!token) {
@@ -17,9 +23,12 @@ export const requireAuthOnEnter = (nextState, replaceState) => {
                 () => {
                     navigateTo(nextState, replaceState, '/');
                 },
-                () => { navigateTo(nextState, replaceState, '/signin'); }
+                () => {
+                    navigateTo(nextState, replaceState, '/signin');
+                }
             );
         }
+        cb();
     });
 };
 
