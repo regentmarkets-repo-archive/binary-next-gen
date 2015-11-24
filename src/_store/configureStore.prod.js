@@ -16,10 +16,21 @@ const actionsToCache = [
 
 const reducer = storage.reducer(rootReducer);
 const engine = createEngine('binary');
-const middleware = storage.createMiddleware(engine, [], actionsToCache);
+const filteredEngine = storage.decorators.filter(engine, [
+    ['account'],
+    ['assetSelector'],
+    ['assets'],
+    ['profitTable'],
+    ['statement'],
+    ['signin'],
+]);
+
+const debouncedFilteredEngine = storage.decorators.debounce(filteredEngine, 1000);
+
+const middleware = storage.createMiddleware(debouncedFilteredEngine, [], actionsToCache);
 const finalCreateStore = applyMiddleware(middleware)(createStore);
 const initStore = finalCreateStore(reducer);
-const load = storage.createLoader(engine);
+const load = storage.createLoader(debouncedFilteredEngine);
 
 
 export const loadedStorePromise = load(initStore).then(() => {return initStore;});
