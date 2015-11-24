@@ -11,10 +11,6 @@ const history = new HashHistory();
 const token = store.getState().signin.get('token');
 LiveData.connect(store, token);
 
-window.onerror = (errorMsg, url, lineNumber) => {
-    alert('Error: ' + errorMsg + '\nScript: ' + url + '\nLine: ' + lineNumber);
-};
-
 export default class Root extends Component {
     render() {
         return (

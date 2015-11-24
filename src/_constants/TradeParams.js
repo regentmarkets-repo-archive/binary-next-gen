@@ -15,4 +15,4 @@ export const tradeTypes = [
     { value: 'SPREADD', text: 'Spread Short', img: 'img/trade-spread.svg', ticks: false },
 ];
 
-export const digitMatchOptions = Array.from(Array(10).keys()).map(x => ({ value: x, text: x }));
+export const digitMatchOptions = Array.from(Array(10).keys()).map(x => ({ value: x, text: x.toString() }));

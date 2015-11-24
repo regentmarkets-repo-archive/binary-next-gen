@@ -2,7 +2,7 @@ import React from 'react';
 import { RadioItem, RadioGroup } from '../_common';
 import { digitMatchOptions } from '../_constants/TradeParams';
 
-const TradeTypeTickTradeOptions = ({onChange}) => (
+const TradeTypeTickOptions = ({onChange}) => (
 	<div>
 		<fieldset className="radio-selector">
 			<RadioItem label="Rise" name="trade-type" value="CALL" img="img/trade-rise.svg" onChange={onChange} />
@@ -20,12 +20,12 @@ const TradeTypeTickTradeOptions = ({onChange}) => (
 			<RadioItem label="Digit Even" name="trade-type" value="DIGITEVEN" img="img/trade-digiteven.svg" onChange={onChange} />
 			<RadioItem label="Digit Odd" name="trade-type" value="DIGITODD" img="img/trade-digitodd.svg" onChange={onChange} />
 		</fieldset>
-		<label>Last Digit Prediction</label><RadioGroup name="digit-match" options={digitMatchOptions} {...this.props}/>
+		<RadioGroup label="Last Digit Prediction" name="digit-match" options={digitMatchOptions} />
 	</div>
 );
 
-TradeTypeTickTradeOptions.propTypes = {
+TradeTypeTickOptions.propTypes = {
 	onChange: React.PropTypes.func,
 };
 
-export default TradeTypeTickTradeOptions;
+export default TradeTypeTickOptions;
