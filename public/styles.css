@@ -111,6 +111,9 @@ thead th {
     height: calc(100% - 2rem);
     overflow: auto;
 }
+a.button, button, input[type=button], input[type=submit] {
+    padding: .75rem 1rem;
+}
 .button.active {
     border-color: rgba(0, 0, 0, .5);
 }
@@ -256,7 +259,10 @@ tbody > tr:hover {
 }
 .buy-btn {
     width: 100%;
-    padding: 1rem;
+    padding: 1.5rem;
+}
+fieldset {
+    margin-bottom: .5rem;
 }
 .back-btn {
     width: 3rem;
