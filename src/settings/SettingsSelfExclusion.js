@@ -11,7 +11,7 @@ export default class SettingsSelfExclusion extends React.Component {
 		const {settings} = this.props;
 
 		return (
-			<div>
+			<div className="mobile-form">
 				<InputGroup
 					id="MAXCASHBAL"
 					label="Maximum account cash balance"

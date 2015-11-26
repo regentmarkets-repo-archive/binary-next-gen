@@ -402,6 +402,6 @@ ul[role=tabs] {
     flex: 0 1 180px;
 }
 
-.address-form * {
+.mobile-form * {
     display: block;
 }

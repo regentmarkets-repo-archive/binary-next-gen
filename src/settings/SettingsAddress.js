@@ -80,7 +80,7 @@ export default class SettingsAddress extends React.Component {
 		const addressString = settings.address_line_2 ? (`${settings.address_line_1} ${settings.address_line_2}`) : settings.address_line_1;
 
 		return (
-			<div className="address-form">
+			<div className="mobile-form">
 				<legend>Location</legend>
 				<TextAreaGroup
 					id="address"

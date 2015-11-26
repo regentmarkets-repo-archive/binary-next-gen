@@ -2,7 +2,7 @@ import React from 'react';
 import InputGroup from '../_common/InputGroup';
 
 export default () => (
-	<div>
+	<div className="mobile-form">
 		<p>An additional password can be used to restrict access to the cashier.</p>
 		<InputGroup
 			id="cashierlockpassword1"
