@@ -53,18 +53,16 @@ export default class SettingsAddress extends React.Component {
 	tryUpdate() {
 		const state = this.state || {};
 		const req = {
-			set_settings: 1,
 			address_line_1: state.address,
 			address_city: state.city,
 			address_state: state.AddressState,
 			address_postcode: state.postcode,
 			phone: state.tel,
 		};
-		LiveData.api.send(req).then(
+		LiveData.api.setAccountSettings(req).then(
 			response => {
 				if (response.set_settings === 1) {
-					delete req.set_settings;
-					this.actions.updatePersonalAddress(req);
+					this.actions.updateSettingFields(req);
 				} else {
 					SettingsAddress.handleUpdateError(response);
 				}

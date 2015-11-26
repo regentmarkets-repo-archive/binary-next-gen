@@ -20,7 +20,7 @@ export const serverDataAccountSettings = serverResponse => ({
     serverResponse,
 });
 
-export const updatePersonalAddress = newAddress => ({
-    type: types.UPDATE_PERSONAL_ADDRESS,
-    newAddress,
+export const updateSettingFields = settings => ({
+    type: types.UPDATE_SETTINGS_FIELD,
+    settings,
 });
