@@ -4,6 +4,7 @@ import {
     SERVER_DATA_ACCOUNT_LIMITS,
     SERVER_DATA_ACCOUNT_SELF_EXCLUSION,
     SERVER_DATA_ACCOUNT_SETTINGS,
+    UPDATE_PERSONAL_ADDRESS,
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
@@ -23,6 +24,9 @@ export default (state = initialState, action) => {
         }
         case SERVER_DATA_ACCOUNT_SETTINGS: {
             return state.merge(action.serverResponse.get_settings);
+        }
+        case UPDATE_PERSONAL_ADDRESS: {
+            return state.merge(action.newAddress);
         }
         default:
             return state;

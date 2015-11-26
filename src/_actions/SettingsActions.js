@@ -19,3 +19,8 @@ export const serverDataAccountSettings = serverResponse => ({
     type: types.SERVER_DATA_ACCOUNT_SETTINGS,
     serverResponse,
 });
+
+export const updatePersonalAddress = newAddress => ({
+    type: types.UPDATE_PERSONAL_ADDRESS,
+    newAddress,
+});
