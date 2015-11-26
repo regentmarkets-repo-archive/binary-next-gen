@@ -237,10 +237,14 @@ tbody > tr:hover {
 .mobile-back-btn {
     text-align: left !important;
     font-weight: normal;
-    color: white;
+    color: white !important;
     text-decoration: none;
     text-align: center;
     flex: 1;
+}
+.mobile-back-btn span {
+    height: 3rem;
+    vertical-align: middle;
 }
 .asset-list tbody tr {
     cursor: pointer;
@@ -268,9 +272,9 @@ fieldset {
     width: 3rem;
     display: inline-block;
     text-align: center;
-    margin-left: -1rem;
+    margin-left: -.5rem;
     font-size: 1.5rem;
-    line-height: 1;
+    line-height: 2;
 }
 .tick-sparklines {
     margin-bottom: 1rem;
@@ -383,4 +387,7 @@ ul[role=tabs] {
 }
 .button-list {
     display: inline;
+}
+button::-moz-focus-inner, input::-moz-focus-outer {
+  border: 0;
 }

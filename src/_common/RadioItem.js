@@ -22,9 +22,9 @@ export default class RadioGroup extends React.Component {
 					value={value}
 					defaultChecked={defaultChecked}
 					onChange={onChange} />
-				<label htmlFor={value}>
-					{img && <img src={img} />}
-					{label}
+				<label
+					htmlFor={value}
+					dangerouslySetInnerHTML={{__html: (img ? `<img src=${img}>` : '') + label}}>
 				</label>
 			</span>
 		);
