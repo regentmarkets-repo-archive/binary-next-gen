@@ -1,10 +1,10 @@
 import React from 'react';
 
 const LabeledText = ({id, label, value = 'N/A'}) => (
-    <tr id={id} className={'name-val-pair'}>
-        <td className={'name'}>{`${label}: `}</td>
-        <td className={'val'}>{value}</td>
-    </tr>
+    <div id={id} className={'name-val-pair'}>
+        <span className={'name'}>{`${label}: `}</span>
+        <span className={'val'}>{value}</span>
+    </div>
 );
 
 LabeledText.propTypes = {

@@ -385,25 +385,21 @@ ul[role=tabs] {
     display: inline;
 }
 
-.borderless-table {
-    table-layout: auto;
-    width: auto;
+.name-val-pairs {
+    display: flex;
+    flex-direction: column;
 }
 
-.borderless-table > tbody {
-    border: 0;
-}
-
-.borderless-table > tbody > tr {
-    border: 0;
-}
-
-.borderless-table > tbody > tr > td {
-    text-align: left;
+.name-val-pair {
+    display: flex;
 }
 
 .name-val-pair > .name {
     font-weight: 700;
+}
+
+.name-val-pair * {
+    flex: 0 1 180px;
 }
 
 .address-form * {

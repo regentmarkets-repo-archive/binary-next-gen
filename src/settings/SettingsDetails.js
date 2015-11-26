@@ -1,5 +1,5 @@
 import React from 'react';
-import LabeledTextList from '../_common/LabeledTextList';
+import LabeledText from '../_common/LabeledText';
 import {epochToDateString} from '../_utils/DateUtils';
 
 export default class SettingsDetails extends React.Component {
@@ -30,15 +30,23 @@ export default class SettingsDetails extends React.Component {
 			label: 'Email',
 			value: settings.email,
 		};
-		const textContents = [nameObj, dobObj, residenceObj, emailObj];
-
 		return (
 			<div>
 				<legend>Details</legend>
-
-				<LabeledTextList
-					id={'personal-details'}
-					textContents={textContents} />
+				<div className="name-val-pairs">
+					<LabeledText
+						{...nameObj}
+						/>
+					<LabeledText
+						{...dobObj}
+						/>
+					<LabeledText
+						{...residenceObj}
+						/>
+					<LabeledText
+						{...emailObj}
+						/>
+				</div>
 			</div>
 		);
 	}
