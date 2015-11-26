@@ -15,7 +15,7 @@ export default class RadioGroup extends React.Component {
 		const {defaultChecked, img, label, name, onChange, value} = this.props;
 
 		return (
-			<span className="radio-item">
+			<div className="radio-item">
 				<input id={value}
 					type="radio"
 					name={name}
@@ -26,7 +26,7 @@ export default class RadioGroup extends React.Component {
 					htmlFor={value}
 					dangerouslySetInnerHTML={{__html: (img ? `<img src=${img}>` : '') + label}}>
 				</label>
-			</span>
+			</div>
 		);
 	}
 }

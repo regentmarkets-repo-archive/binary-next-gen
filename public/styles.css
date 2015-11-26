@@ -285,7 +285,7 @@ fieldset {
     padding: .5rem 0;
 }
 .radio-item label {
-    padding: .5rem .45rem;
+    padding: .5rem;
     cursor: pointer;
 }
 .radio-item img {
@@ -382,8 +382,10 @@ fieldset {
     max-width: 400px;
     margin: auto;
 }
-ul[role=tabs] {
-    height: 2rem;
+div[role=tabs] {
+    display: flex;
+    background: rgba(42, 48, 82, .75);
+    color: white;
 }
 .button-list {
     display: inline;

@@ -4,10 +4,13 @@ import PortfolioTable from './PortfolioTable';
 import ContractDetailsCard from '../contract-details/ContractDetailsCard';
 
 
-const PortfolioCard = ({compact, portfolio, actions}) => {
+const PortfolioCard = ({compact, portfolio, history, actions}) => {
 	const contractShown = portfolio.get('contractShown');
 	const proposalShown = contractShown && portfolio.get('proposals').get(contractShown.contract_id);
-
+	const onViewDetails = contract =>
+		compact
+			? history.pushState({}, `/contract/${contract.contract_id}`)
+			: actions.detailsForContract(true, contract);
 	return (
 		<div>
 			<Modal shown={portfolio.get('areDetailsShown')}
@@ -18,8 +21,7 @@ const PortfolioCard = ({compact, portfolio, actions}) => {
 				compact={compact}
 				contracts={portfolio.get('contracts')}
 				proposals={portfolio.get('proposals')}
-				history={history}
-				onViewDetails={contract => actions.detailsForContract(true, contract)} />
+				onViewDetails={onViewDetails} />
 		</div>
 	);
 };
@@ -27,7 +29,8 @@ const PortfolioCard = ({compact, portfolio, actions}) => {
 PortfolioCard.propTypes = {
 	compact: React.PropTypes.bool,
 	portfolio: React.PropTypes.object,
-	dispatch: React.PropTypes.func,
+	history: React.PropTypes.object.isRequired,
+	onViewDetails: React.PropTypes.func,
 };
 
 export default PortfolioCard;

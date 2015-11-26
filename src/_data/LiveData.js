@@ -37,13 +37,14 @@ export const initUnauthorized = () => {
 };
 
 export const initAuthorized = () => {
-    api.getAccountLimits();
-    api.getSelfExclusion();
-    api.getAccountSettings();
     api.getPortfolio();
     api.getStatement({ description: 1, limit: 20 });
     api.getProfitTable({ description: 1, limit: 20 });
-    api.getPayoutCurrencies();
+    // Disabled temporary because of API restrictions
+    // api.getAccountLimits();
+    // api.getSelfExclusion();
+    // api.getAccountSettings();
+    // api.getPayoutCurrencies();
     api.subscribeToBalance();
     api.subscribeToAllOpenContracts();
 };

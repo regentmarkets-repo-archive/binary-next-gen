@@ -3,7 +3,10 @@ import { NumberPlain } from '../_common';
 import PortfolioRow from './PortfolioRow';
 
 const totalPurchase = contracts => contracts.reduce((x, y) => x + +y.buy_price, 0);
-const totalIndicative = () => 0; // proposals =>  proposals.values().reduce((x, y) => x + +y, 0);
+const totalIndicative = () => proposals => {
+	console.log(proposals.values());
+	return proposals.values().reduce((x, y) => x + +y, 0);
+};
 
 const PortfolioTable = ({compact, contracts, proposals, onViewDetails}) => {
 	return (
