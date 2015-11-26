@@ -405,3 +405,7 @@ ul[role=tabs] {
 .name-val-pair > .name {
     font-weight: 700;
 }
+
+.address-form * {
+    display: block;
+}
