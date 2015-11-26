@@ -384,3 +384,24 @@ ul[role=tabs] {
 .button-list {
     display: inline;
 }
+
+.borderless-table {
+    table-layout: auto;
+    width: auto;
+}
+
+.borderless-table > tbody {
+    border: 0;
+}
+
+.borderless-table > tbody > tr {
+    border: 0;
+}
+
+.borderless-table > tbody > tr > td {
+    text-align: left;
+}
+
+.name-val-pair > .name {
+    font-weight: 700;
+}
