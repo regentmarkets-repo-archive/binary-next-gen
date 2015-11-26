@@ -14,14 +14,13 @@ export default class SettingsCard extends React.Component {
 
 	render() {
 		const {settings, actions} = this.props;
-
 		return (
 			<Tabs
 				id="settings"
 				activeIndex={settings.activeTab}
 				onChange={idx => actions.changeSettingsActiveTab(idx)}
 				tabs={[
-					{text: 'Personal Details', component: <SettingsPersonalDetails settings={settings} />},
+					{text: 'Personal Details', component: <SettingsPersonalDetails settings={settings} actions={actions}/>},
 					{text: 'Security', component: <SettingsSecurity settings={settings} />},
 					{text: 'Self Exclusion', component: <SettingsSelfExclusion settings={settings} />},
 					{text: 'Limits', component: <SettingsLimits settings={settings} />},

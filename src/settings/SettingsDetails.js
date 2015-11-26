@@ -1,5 +1,6 @@
 import React from 'react';
-import InputGroup from '../_common/InputGroup';
+import LabeledTextList from '../_common/LabeledTextList';
+import {epochToDateString} from '../_utils/DateUtils';
 
 export default class SettingsDetails extends React.Component {
 
@@ -9,36 +10,35 @@ export default class SettingsDetails extends React.Component {
 
 	render() {
 		const {settings} = this.props;
+		const nameObj = {
+			id: 'name',
+			label: 'Name',
+			value: settings.name,
+		};
+		const dobObj = {
+			id: 'dob',
+			label: 'Date of birth',
+			value: epochToDateString(settings.date_of_birth),
+		};
+		const residenceObj = {
+			id: 'residence',
+			label: 'Country of residence',
+			value: settings.country,
+		};
+		const emailObj = {
+			id: 'email',
+			label: 'Email',
+			value: settings.email,
+		};
+		const textContents = [nameObj, dobObj, residenceObj, emailObj];
 
 		return (
 			<div>
 				<legend>Details</legend>
 
-				<InputGroup
-					id="name"
-					label="Name"
-					type="text"
-					value={settings.name}
-					readOnly />
-				<InputGroup
-					id="dob"
-					label="Date of birth"
-					type="date"
-					value="1981-12-12"
-					readOnly />
-				<InputGroup
-					id="residence"
-					label="Country of Residence"
-					type="text"
-					value={settings.country}
-					readOnly />
-				<InputGroup
-					id="email"
-					label="Email"
-					type="email"
-					value={settings.email}
-					readOnly />
-
+				<LabeledTextList
+					id={'personal-details'}
+					textContents={textContents} />
 			</div>
 		);
 	}
