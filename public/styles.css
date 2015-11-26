@@ -384,3 +384,24 @@ ul[role=tabs] {
 .button-list {
     display: inline;
 }
+
+.name-val-pairs {
+    display: flex;
+    flex-direction: column;
+}
+
+.name-val-pair {
+    display: flex;
+}
+
+.name-val-pair > .name {
+    font-weight: 700;
+}
+
+.name-val-pair * {
+    flex: 0 1 180px;
+}
+
+.mobile-form * {
+    display: block;
+}
