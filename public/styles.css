@@ -387,9 +387,31 @@ div[role=tabs] {
     background: rgba(42, 48, 82, .75);
     color: white;
 }
+button::-moz-focus-inner, input::-moz-focus-outer {
+  border: 0;
+}
+
 .button-list {
     display: inline;
 }
-button::-moz-focus-inner, input::-moz-focus-outer {
-  border: 0;
+
+.name-val-pairs {
+    display: flex;
+    flex-direction: column;
+}
+
+.name-val-pair {
+    display: flex;
+}
+
+.name-val-pair > .name {
+    font-weight: 700;
+}
+
+.name-val-pair * {
+    flex: 0 1 180px;
+}
+
+.mobile-form * {
+    display: block;
 }

@@ -23,6 +23,7 @@ const filteredEngine = storage.decorators.filter(engine, [
     ['profitTable'],
     ['statement'],
     ['signin'],
+    ['settings'],
 ]);
 
 const debouncedFilteredEngine = storage.decorators.debounce(filteredEngine, 1000);
