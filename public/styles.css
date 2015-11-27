@@ -54,7 +54,7 @@ html {
     justify-content: space-between;
 }
 #header span {
-    line-height: 3;
+    line-height: 4;
 }
 #left-panel, #right-panel, #bottom-panel {
     overflow: auto;
@@ -144,7 +144,7 @@ a.button, button, input[type=button], input[type=submit] {
     height: 100%;
 }
 .mobile-content {
-    padding: 3.5rem .5rem .5rem .5rem;
+    padding: 5rem .5rem .5rem .5rem;
     height: 100%;
 }
 .mobile-content tbody tr {
@@ -162,7 +162,7 @@ header {
     justify-content: space-between;
 }
 header span {
-    line-height: 3;
+    line-height: 4;
 }
 nav.sidebar {
     display: flex;
@@ -170,7 +170,7 @@ nav.sidebar {
     width: 240px;
     background: #2a3052;
     color: white;
-    margin: -3.5rem -.5rem -.5rem -.5rem;
+    margin: -4rem -.5rem -.5rem -.5rem;
 }
 .sidebar span {
     color: white;
@@ -189,7 +189,7 @@ nav.sidebar {
     text-transform: capitalize;
 }
 .toolbar-btn {
-    line-height: 3;
+    line-height: 4;
     padding: 0 1rem;
 }
 .toolbar-btn.active {
@@ -229,7 +229,7 @@ tbody > tr:hover {
 .mobile-toolbar {
     color: white;
     background: #2a3052;
-    height: 3rem;
+    height: 4rem;
     display: flex;
     position: fixed;
     width: 100%;
@@ -243,7 +243,7 @@ tbody > tr:hover {
     flex: 1;
 }
 .mobile-back-btn span {
-    height: 3rem;
+    height: 4rem;
     vertical-align: middle;
 }
 .asset-list tbody tr {
@@ -269,7 +269,7 @@ fieldset {
     margin-bottom: .5rem;
 }
 .back-btn {
-    width: 3rem;
+    width: 4rem;
     display: inline-block;
     text-align: center;
     margin-left: -.5rem;
@@ -305,7 +305,7 @@ fieldset {
 }
 .signin-btn {
     margin-top: 2rem;
-    margin-bottom: 6rem;
+    margin-bottom: 7rem;
 }
 .outline-link, .outline-link:hover {
     display: block;
@@ -376,7 +376,7 @@ fieldset {
     visibility: visible;
 }
 #desktop-sidebar .toolbar-btn {
-    height: 3rem;
+    height: 4rem;
 }
 .login-content {
     max-width: 400px;
