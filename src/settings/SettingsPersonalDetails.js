@@ -1,8 +1,9 @@
 import React from 'react';
+import ImmutableStateComponent from '../_common/ImmutableStateComponent';
 import SettingsDetails from './SettingsDetails';
 import SettingsAddress from './SettingsAddress';
 
-export default class SettingsPersonalDetails extends React.Component {
+export default class SettingsPersonalDetails extends ImmutableStateComponent {
 
 	static propTypes = {
 		actions: React.PropTypes.object.isRequired,

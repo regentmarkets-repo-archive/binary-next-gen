@@ -1,11 +1,16 @@
 import React from 'react';
 import { Tabs } from '../_common';
+import ImmutableStateComponent from '../_common/ImmutableStateComponent';
 import SettingsPersonalDetails from './SettingsPersonalDetails';
 import SettingsSecurity from './SettingsSecurity';
 import SettingsSelfExclusion from './SettingsSelfExclusion';
 import SettingsLimits from './SettingsLimits';
 
-export default class SettingsCard extends React.Component {
+export default class SettingsCard extends ImmutableStateComponent {
+	constructor(props) {
+		super(props);
+		this.state = {activeTab: 0};
+	}
 
     static propTypes = {
 		actions: React.PropTypes.object.isRequired,
@@ -17,8 +22,8 @@ export default class SettingsCard extends React.Component {
 		return (
 			<Tabs
 				id="settings"
-				activeIndex={settings.activeTab}
-				onChange={idx => actions.changeSettingsActiveTab(idx)}
+				activeIndex={this.state.activeTab}
+				onChange={idx => this.setState({activeTab: idx})}
 				tabs={[
 					{text: 'Personal Details', component: <SettingsPersonalDetails settings={settings} actions={actions}/>},
 					{text: 'Security', component: <SettingsSecurity settings={settings} actions={actions}/>},

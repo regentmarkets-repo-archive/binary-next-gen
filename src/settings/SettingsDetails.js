@@ -1,8 +1,9 @@
 import React from 'react';
+import ImmutableStateComponent from '../_common/ImmutableStateComponent';
 import LabeledText from '../_common/LabeledText';
 import {epochToDateString} from '../_utils/DateUtils';
 
-export default class SettingsDetails extends React.Component {
+export default class SettingsDetails extends ImmutableStateComponent {
 
 	static propTypes = {
 		settings: React.PropTypes.object.isRequired,

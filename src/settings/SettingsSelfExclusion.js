@@ -1,8 +1,9 @@
 import React from 'react';
+import ImmutableStateComponent from '../_common/ImmutableStateComponent';
 import { InputGroup } from '../_common';
 import * as LiveData from '../_data/LiveData';
 
-export default class SettingsSelfExclusion extends React.Component {
+export default class SettingsSelfExclusion extends ImmutableStateComponent {
 
 	static propTypes = {
 		settings: React.PropTypes.object.isRequired,

@@ -1,7 +1,8 @@
 import React from 'react';
+import ImmutableStateComponent from '../_common/ImmutableStateComponent';
 import { NumberPlain } from '../_common';
 
-export default class SettingsLimits extends React.Component {
+export default class SettingsLimits extends ImmutableStateComponent {
 
 	static propTypes = {
 		settings: React.PropTypes.object.isRequired,
