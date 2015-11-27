@@ -27,7 +27,7 @@ const filteredEngine = storage.decorators.filter(engine, [
     ['statement'],
     ['signin'],
     ['settings'],
-    ['workspace'],
+    ['workspace', 'favoriteAssets'],
 ]);
 
 const debouncedFilteredEngine = storage.decorators.debounce(filteredEngine, 1000);
