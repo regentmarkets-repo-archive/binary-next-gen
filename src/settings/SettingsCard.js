@@ -1,12 +1,11 @@
 import React from 'react';
 import { Tabs } from '../_common';
-import ImmutableStateComponent from '../_common/ImmutableStateComponent';
 import SettingsPersonalDetails from './SettingsPersonalDetails';
 import SettingsSecurity from './SettingsSecurity';
 import SettingsSelfExclusion from './SettingsSelfExclusion';
 import SettingsLimits from './SettingsLimits';
 
-export default class SettingsCard extends ImmutableStateComponent {
+export default class SettingsCard extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {activeTab: 0};

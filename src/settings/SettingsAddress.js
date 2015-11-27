@@ -1,11 +1,10 @@
 import React from 'react';
-import ImmutableStateComponent from '../_common/ImmutableStateComponent';
 import InputGroup from '../_common/InputGroup';
 import * as LiveData from '../_data/LiveData';
 import SelectGroup from '../_common/SelectGroup';
 import TextAreaGroup from '../_common/TextAreaGroup';
 
-export default class SettingsAddress extends ImmutableStateComponent {
+export default class SettingsAddress extends React.Component {
 
 	static propTypes = {
 		actions: React.PropTypes.object.isRequired,
