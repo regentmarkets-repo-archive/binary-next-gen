@@ -63,7 +63,7 @@ export default class SigninCard extends React.Component {
 					<LogoSpinner spinning={signin.get('progress')}/>
 					<img className="logo-text" src="img/binary-type-logo.svg" />
 				</p>
-				<InputGroup type="text" placeholder="Token" onChange={::this.onTokenChange} />
+				<InputGroup id="token-input" type="text" placeholder="Token" onChange={::this.onTokenChange} />
 				<ErrorMsg
 					shown={signin.get('validatedOnce') && signin.get('tokenNotEntered')}
 					text="You need to enter a token" />

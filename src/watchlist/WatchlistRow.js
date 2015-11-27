@@ -14,7 +14,7 @@ export default class WatchlistRow extends React.Component {
 	static propTypes = {
 		asset: React.PropTypes.object.isRequired,
 		compact: React.PropTypes.bool,
-		history: React.PropTypes.object.isRequired,
+		history: React.PropTypes.object,
 	};
 
 	shouldComponentUpdate(nextProps) {
@@ -26,7 +26,7 @@ export default class WatchlistRow extends React.Component {
 		const {asset, compact} = this.props;
 		if (!asset) return <tr/>;
 
-		const history = this.props.history.toJS();
+		const history = this.props.history ? this.props.history.toJS() : [];
 		const diff = historyDiff(history);
 		const { quote, epoch } = history[history.length - 1] || {};
 

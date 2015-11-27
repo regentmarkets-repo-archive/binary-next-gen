@@ -23,7 +23,6 @@ export const requireAuthOnEnter = (nextState, replaceState, cb) => {
         }
 
         const token = newState.signin.get('token');
-
         if (!token) {
             navigateTo(nextState, replaceState, '/signin');
         } else {

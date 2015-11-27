@@ -2,6 +2,7 @@ import { LiveApi } from 'binary-live-api';
 import { readNewsFeed } from './NewsData';
 import { getVideosFromPlayList } from './VideoData';
 import * as actions from '../_actions';
+import { loadedStorePromise } from '../_store/configureStore';
 
 const handlers = {
     'authorize': 'serverDataAuthorize',
@@ -27,6 +28,17 @@ const handlers = {
 
 export const api = new LiveApi();
 
+const subscribeToWatchlist = () => {
+    loadedStorePromise.then(st => {
+        const newState = st.getState();
+        if (!newState.workspace) {
+            return;
+        }
+        const favs = newState.workspace.get('favoriteAssets');
+        api.subscribeToTicks(favs);
+    });
+};
+
 export const initUnauthorized = () => {
     api.getActiveSymbolsFull();
     api.getTradingTimes();
@@ -47,6 +59,7 @@ export const initAuthorized = () => {
     // api.getPayoutCurrencies();
     api.subscribeToBalance();
     api.subscribeToAllOpenContracts();
+    subscribeToWatchlist();
 };
 
 export const trackSymbols = symbols => {

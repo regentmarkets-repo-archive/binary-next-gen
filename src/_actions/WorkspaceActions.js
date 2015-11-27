@@ -1,4 +1,5 @@
 import * as types from '../_constants/ActionTypes';
+import * as LiveData from '../_data/LiveData';
 
 export const workspaceViewAssetDetails = symbol => ({
     type: types.WORKSPACE_VIEW_ASSET_DETAILS,
@@ -40,3 +41,17 @@ export const updateAssetIndexSubmarket = submarket => ({
     type: types.UPDATE_ASSET_INDEX_SUBMARKET,
     submarket,
 });
+
+export const addToWatchlist = symbol => {
+    return dispatch => {
+        LiveData.api.subscribeToTick(symbol);
+        dispatch(workspaceFavorAsset(symbol));
+    };
+};
+
+export const delFromWatchlist = symbol => {
+    return dispatch => {
+        LiveData.api.unsubscribeFromTick(symbol);
+        dispatch(workspaceUnfavorAsset(symbol));
+    };
+};

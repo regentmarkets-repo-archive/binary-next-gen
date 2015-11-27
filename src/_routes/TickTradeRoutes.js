@@ -17,7 +17,7 @@ import { requireAuthOnEnter, signout } from '../_data/Auth';
 
 export default [
     { path: '/', component: TickTradeMobile, onEnter: requireAuthOnEnter },
-    { path: 'signin', component: SigninMobile, onEnter: requireAuthOnEnter },
+    { path: 'signin', component: SigninMobile },
     { path: 'signout', component: SigninMobile, onEnter: signout },
     { path: 'tick-trade', component: TickTradeMobile, onEnter: requireAuthOnEnter },
     { path: 'payout-selector', component: PayoutSelectorMobile, onEnter: requireAuthOnEnter },

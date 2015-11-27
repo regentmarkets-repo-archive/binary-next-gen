@@ -20,7 +20,8 @@ const AssetSelectorCard = ({actions, assets, assetSelector, history, workspace})
 			LiveData.api.subscribeToTick(asset);
 		}
 	};
-	const onFavor = asset => actions.workspaceFavorAsset(asset);
+	const onFavor = asset => actions.addToWatchlist(asset);
+	const onUnfavor = asset => actions.delFromWatchlist(asset);
 	const onSearchQueryChange = e => actions.updateAssetSelectorSearchQuery(searchableAssets, e.target.value);
 	const onSubmarketChange = e => actions.updateAssetSelectorSubmarket(searchableAssets, e);
 
@@ -39,7 +40,9 @@ const AssetSelectorCard = ({actions, assets, assetSelector, history, workspace})
 				assets={shownAssets}
 				favorites={workspace.get('favoriteAssets')}
 				onSelect={onSelect}
-				onFavor={onFavor} />
+				onFavor={onFavor}
+				onUnfavor={onUnfavor}
+				selectedAsset={workspace.get('symbolSelected')} />
 		</div>
 	);
 };
