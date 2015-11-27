@@ -415,3 +415,10 @@ button::-moz-focus-inner, input::-moz-focus-outer {
 .mobile-form * {
     display: block;
 }
+
+#token-input {
+    -webkit-user-select: text;
+    -moz-user-select: text;
+    -ms-user-select: text;
+    user-select: text;
+}

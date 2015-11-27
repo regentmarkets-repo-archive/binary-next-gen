@@ -8,18 +8,20 @@ export default class AssetSelectorItem extends React.Component {
 		asset: React.PropTypes.object.isRequired,
 		onSelect: React.PropTypes.func.isRequired,
 		onFavor: React.PropTypes.func.isRequired,
+		isSelected: React.PropTypes.bool,
 	};
 
 	shouldComponentUpdate(nextProps) {
-		return nextProps.asset !== this.props.asset ||
+		return nextProps.isSelected !== this.props.isSelected ||
+			nextProps.asset !== this.props.asset ||
 			nextProps.isFavorite !== this.props.isFavorite;
 	}
 
 	render() {
-		const {asset, isFavorite, onSelect, onFavor} = this.props;
-
+		const {asset, onSelect, isFavorite, onFavor, isSelected} = this.props;
+		const bgc = isSelected ? 'aliceblue' : 'white';
 		return (
-			<tr onClick={() => onSelect(asset.get('symbol'))}>
+			<tr onClick={() => onSelect(asset.get('symbol'))} style={{backgroundColor: bgc}}>
 				<td>
 					<Star on={isFavorite} onClick={() => onFavor(asset.get('symbol'))} />
 				</td>

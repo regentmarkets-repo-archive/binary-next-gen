@@ -6,15 +6,17 @@ export default class AssetSelectorList extends React.Component {
 	static propTypes = {
 		assets: React.PropTypes.object.isRequired,
 		favorites: React.PropTypes.object.isRequired,
+		selectedAsset: React.PropTypes.string,
 	};
 
 	shouldComponentUpdate(nextProps) {
-		return nextProps.assets !== this.props.assets ||
+		return nextProps.selectedAsset !== this.props.selectedAsset ||
+			nextProps.assets !== this.props.assets ||
 			nextProps.favorites !== this.props.favorites;
 	}
 
 	render() {
-		const {assets, favorites} = this.props;
+		const {assets, favorites, selectedAsset} = this.props;
 
 		return (
 			<table className="asset-list">
@@ -32,6 +34,7 @@ export default class AssetSelectorList extends React.Component {
 							key={asset.get('symbol')}
 							asset={asset}
 							isFavorite={favorites.has(asset.get('symbol'))}
+							isSelected={selectedAsset === asset.get('symbol') ? true : false}
 							{...this.props} />
 					)}
 				</tbody>

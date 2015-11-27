@@ -39,7 +39,8 @@ const AssetSelectorCard = ({actions, assets, assetSelector, history, workspace})
 				assets={shownAssets}
 				favorites={workspace.get('favoriteAssets')}
 				onSelect={onSelect}
-				onFavor={onFavor} />
+				onFavor={onFavor}
+				selectedAsset={workspace.get('symbolSelected')}/>
 		</div>
 	);
 };
