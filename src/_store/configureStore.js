@@ -1,4 +1,5 @@
 import { createStore, applyMiddleware, compose } from 'redux';
+import thunkMiddleware from 'redux-thunk';
 import rootReducer from '../_reducers';
 import storage from 'redux-storage';
 import createEngine from 'redux-storage/engines/localStorage';
@@ -12,6 +13,8 @@ const actionsToCache = [
     ActionTypes.SERVER_DATA_PAYOUT_CURRENCIES,
     ActionTypes.SERVER_DATA_ACCOUNT_LIMITS,
     ActionTypes.SERVER_DATA_ACCOUNT_SETTINGS,
+    ActionTypes.WORKSPACE_FAVOR_ASSET,
+    ActionTypes.WORKSPACE_UNFAVOR_ASSET,
 ];
 
 const reducer = storage.reducer(rootReducer);
@@ -24,13 +27,14 @@ const filteredEngine = storage.decorators.filter(engine, [
     ['statement'],
     ['signin'],
     ['settings'],
+    ['workspace'],
 ]);
 
 const debouncedFilteredEngine = storage.decorators.debounce(filteredEngine, 1000);
+const storageMiddleware = storage.createMiddleware(debouncedFilteredEngine, [], actionsToCache);
 
-const middleware = storage.createMiddleware(debouncedFilteredEngine, [], actionsToCache);
 const finalCreateStore = compose(
-    applyMiddleware(middleware),
+    applyMiddleware(storageMiddleware, thunkMiddleware),
     window.devToolsExtension ? window.devToolsExtension() : f => f,
 )(createStore);
 const initStore = finalCreateStore(reducer);

@@ -1,7 +1,7 @@
 import React from 'react';
 import WatchlistRow from './WatchlistRow';
 
-const WatchlistTable = ({assets, compact, ticks}) => {
+const WatchlistTable = ({assets, compact, ticks, favorites}) => {
 	return (
 		<table>
 			<thead>
@@ -15,7 +15,7 @@ const WatchlistTable = ({assets, compact, ticks}) => {
 				</tr>
 			</thead>
 			<tbody>
-				{ticks.keySeq().map((symbol) =>
+				{favorites.toSeq().map( symbol =>
 					<WatchlistRow
 						key={symbol}
 						compact={compact}
@@ -32,6 +32,7 @@ WatchlistTable.propTypes = {
 	assets: React.PropTypes.object.isRequired,
 	compact: React.PropTypes.bool,
 	ticks: React.PropTypes.object.isRequired,
+	favorites: React.PropTypes.object.isRequired,
 };
 
 export default WatchlistTable;

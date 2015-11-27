@@ -8,6 +8,7 @@ export default class AssetSelectorItem extends React.Component {
 		asset: React.PropTypes.object.isRequired,
 		onSelect: React.PropTypes.func.isRequired,
 		onFavor: React.PropTypes.func.isRequired,
+		onUnfavor: React.PropTypes.func.isRequired,
 		isSelected: React.PropTypes.bool,
 	};
 
@@ -17,18 +18,28 @@ export default class AssetSelectorItem extends React.Component {
 			nextProps.isFavorite !== this.props.isFavorite;
 	}
 
+	toggleFavorite() {
+		const {asset, onFavor, onUnfavor, isFavorite} = this.props;
+		const symbol = asset.get('symbol');
+		if (isFavorite) {
+			onUnfavor(symbol);
+		} else {
+			onFavor(symbol);
+		}
+	}
+
 	render() {
-		const {asset, onSelect, isFavorite, onFavor, isSelected} = this.props;
+		const {asset, onSelect, isFavorite, isSelected} = this.props;
 		const bgc = isSelected ? 'aliceblue' : 'white';
 		return (
-			<tr onClick={() => onSelect(asset.get('symbol'))} style={{backgroundColor: bgc}}>
+			<tr style={{backgroundColor: bgc}}>
 				<td>
-					<Star on={isFavorite} onClick={() => onFavor(asset.get('symbol'))} />
+					<Star on={isFavorite} onClick={::this.toggleFavorite} />
 				</td>
-				<td>
+				<td onClick={() => onSelect(asset.get('symbol'))}>
 					{asset.get('display_name')}
 				</td>
-				<td style={{ fontSize: '.8rem' }}>
+				<td style={{ fontSize: '.8rem' }} onClick={() => onSelect(asset.get('symbol'))}>
 					{asset.get('market_display_name') + ' > ' + asset.get('submarket_display_name')}
 				</td>
 				<td>
