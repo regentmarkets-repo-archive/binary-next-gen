@@ -28,6 +28,13 @@ const handlers = {
 
 export const api = new LiveApi({ language: 'EN' });
 
+const subscribeToSelectedSymbol = () => {
+    loadedStorePromise.then(st => {
+        const selectedSymbol = st.getState().workspace.get('symbolSelected');
+        api.subscribeToTick(selectedSymbol);
+    });
+};
+
 const subscribeToWatchlist = () => {
     loadedStorePromise.then(st => {
         const newState = st.getState();
@@ -46,6 +53,7 @@ export const initUnauthorized = () => {
 
     readNewsFeed().then(articles => api.events.emit('news', articles));
     getVideosFromPlayList().then(videos => api.events.emit('videos', videos));
+    subscribeToSelectedSymbol();
 };
 
 export const initAuthorized = (authData) => {

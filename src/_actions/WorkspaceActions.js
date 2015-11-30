@@ -55,3 +55,11 @@ export const delFromWatchlist = symbol => {
         dispatch(workspaceUnfavorAsset(symbol));
     };
 };
+
+export const selectAssetSymbolForTrade = (newSymbol, oldSymbol) => {
+    return dispatch => {
+        LiveData.api.unsubscribeFromTick(oldSymbol);
+        LiveData.api.subscribeToTick(newSymbol);
+        dispatch(workspaceAssetSelect(newSymbol));
+    };
+};

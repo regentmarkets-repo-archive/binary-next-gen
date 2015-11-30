@@ -12,12 +12,13 @@ const AssetSelectorCard = ({actions, assets, assetSelector, history, workspace})
 		x.get('market_display_name') === 'Randoms'
 	);
 
-	const onSelect = (asset) => {
-		actions.workspaceAssetSelect(asset);
+	const onSelect = (newAsset) => {
+		const oldAsset = workspace.get('symbolSelected');
+		actions.selectAssetSymbolForTrade(newAsset, oldAsset);
 		if (~window.location.search.indexOf('goback')) history.goBack();
 		if (~window.location.search.indexOf('tick')) {
-			LiveData.api.getTickHistory(asset, { end: 'latest', count: 20 });
-			LiveData.api.subscribeToTick(asset);
+			LiveData.api.getTickHistory(newAsset, { end: 'latest', count: 20 });
+			LiveData.api.subscribeToTick(newAsset);
 		}
 	};
 	const onFavor = asset => actions.addToWatchlist(asset);
