@@ -19,27 +19,22 @@ export default class SettingsCard extends React.Component {
 
 	render() {
 		const {loginid} = this.props;
-		const isVirtual = (loginid.startsWith('VRTC'));
+		const isVirtual = loginid.startsWith('VRTC');
+		const tabs = isVirtual ?
+			[{text: 'Personal', component: <SettingsPersonalDetails {...this.props}/>}] :
+			[
+				{text: 'Personal', component: <SettingsPersonalDetails {...this.props}/>},
+				{text: 'Security', component: <SettingsSecurity {...this.props}/>},
+				{text: 'Self Exclusion', component: <SettingsSelfExclusion {...this.props}/>},
+				{text: 'Limits', component: <SettingsLimits {...this.props}/>},
+			];
+
 		return (
-			isVirtual ?
 			<Tabs
 				id="settings"
 				activeIndex={this.state.activeTab}
 				onChange={idx => this.setState({activeTab: idx})}
-				tabs={[
-					{text: 'Personal', component: <SettingsPersonalDetails {...this.props}/>},
-				]}
-			/> :
-			<Tabs
-				id="settings"
-				activeIndex={this.state.activeTab}
-				onChange={idx => this.setState({activeTab: idx})}
-				tabs={[
-					{text: 'Personal', component: <SettingsPersonalDetails {...this.props}/>},
-					{text: 'Security', component: <SettingsSecurity {...this.props}/>},
-					{text: 'Self Exclusion', component: <SettingsSelfExclusion {...this.props}/>},
-					{text: 'Limits', component: <SettingsLimits {...this.props}/>},
-				]}
+				tabs={tabs}
 			/>
 		);
 	}
