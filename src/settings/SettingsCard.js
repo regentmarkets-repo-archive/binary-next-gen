@@ -19,7 +19,7 @@ export default class SettingsCard extends React.Component {
 
 	render() {
 		const {loginid} = this.props;
-		const isVirtual = (loginid.startsWith('VRTC'));
+		const isVirtual = loginid.startsWith('VRTC');
 		return (
 			isVirtual ?
 			<Tabs
