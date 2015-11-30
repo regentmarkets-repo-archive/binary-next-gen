@@ -4,7 +4,6 @@ import PortfolioRow from './PortfolioRow';
 
 const totalPurchase = contracts => contracts.reduce((x, y) => x + +y.buy_price, 0);
 const totalIndicative = () => proposals => {
-	console.log(proposals.values());
 	return proposals.values().reduce((x, y) => x + +y, 0);
 };
 

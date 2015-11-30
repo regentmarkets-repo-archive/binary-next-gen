@@ -8,18 +8,18 @@ import TickTradeCard from './TickTradeCard';
 export default class TickTradeContainer extends React.Component {
 
 	static propTypes = {
-		children: React.PropTypes.any,
-		trickTrade: React.PropTypes.object,
-		assets: React.PropTypes.object,
 		dispatch: React.PropTypes.func,
-		workspace: React.PropTypes.object,
+		tickTrade: React.PropTypes.object.isRequired,
+		assets: React.PropTypes.object.isRequired,
+		workspace: React.PropTypes.object.isRequired,
     };
 
 	render() {
 		return (
 			<TickTradeCard
 				actions={bindActionCreators(Actions, this.props.dispatch)}
-				{...this.props} />
+				{...this.props}
+			/>
 		);
 	}
 }

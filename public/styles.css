@@ -204,7 +204,7 @@ button, button:hover, a.button, a.button:hover {
 .range-selector-items {
     display: flex;
     width: 15rem;
-    margin: .5rem .3rem;
+    margin: .25rem .25rem 0 .25rem;
     justify-content: space-between;
 }
 .market-submarket-selector, .asset-search, .asset-search > input, .trading-times-date-picker > input {
@@ -274,7 +274,7 @@ fieldset {
     text-align: center;
     margin-left: -.5rem;
     font-size: 1.5rem;
-    line-height: 2;
+    line-height: 2.5;
 }
 .tick-sparklines {
     margin-bottom: 1rem;
