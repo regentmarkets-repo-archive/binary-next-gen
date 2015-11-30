@@ -48,18 +48,22 @@ export const initUnauthorized = () => {
     getVideosFromPlayList().then(videos => api.events.emit('videos', videos));
 };
 
-export const initAuthorized = () => {
+export const initAuthorized = (authData) => {
+    const isVirtual = authData.authorize.loginid.startsWith('VR');
+
     api.getPortfolio();
     api.getStatement({ description: 1, limit: 20 });
     api.getProfitTable({ description: 1, limit: 20 });
-    // Disabled temporary because of API restrictions
-    // api.getAccountLimits();
-    // api.getSelfExclusion();
-    // api.getAccountSettings();
-    // api.getPayoutCurrencies();
-    api.subscribeToBalance();
+    api.getAccountSettings();
+    api.getPayoutCurrencies();
+    api.subscribeToBalance();           // some call might fail due to backend overload
     api.subscribeToAllOpenContracts();
     subscribeToWatchlist();
+
+    if (!isVirtual) {
+        api.getAccountLimits();
+        api.getSelfExclusion();
+    }
 };
 
 export const trackSymbols = symbols => {

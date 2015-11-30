@@ -14,20 +14,31 @@ export default class SettingsCard extends React.Component {
     static propTypes = {
 		actions: React.PropTypes.object.isRequired,
         settings: React.PropTypes.object.isRequired,
+		loginid: React.PropTypes.string.isRequired,
     };
 
 	render() {
-		const {settings, actions} = this.props;
+		const {loginid} = this.props;
+		const isVirtual = (loginid.startsWith('VRTC'));
 		return (
+			isVirtual ?
 			<Tabs
 				id="settings"
 				activeIndex={this.state.activeTab}
 				onChange={idx => this.setState({activeTab: idx})}
 				tabs={[
-					{text: 'Personal Details', component: <SettingsPersonalDetails settings={settings} actions={actions}/>},
-					{text: 'Security', component: <SettingsSecurity settings={settings} actions={actions}/>},
-					{text: 'Self Exclusion', component: <SettingsSelfExclusion settings={settings} actions={actions}/>},
-					{text: 'Limits', component: <SettingsLimits settings={settings} actions={actions}/>},
+					{text: 'Personal', component: <SettingsPersonalDetails {...this.props}/>},
+				]}
+			/> :
+			<Tabs
+				id="settings"
+				activeIndex={this.state.activeTab}
+				onChange={idx => this.setState({activeTab: idx})}
+				tabs={[
+					{text: 'Personal', component: <SettingsPersonalDetails {...this.props}/>},
+					{text: 'Security', component: <SettingsSecurity {...this.props}/>},
+					{text: 'Self Exclusion', component: <SettingsSelfExclusion {...this.props}/>},
+					{text: 'Limits', component: <SettingsLimits {...this.props}/>},
 				]}
 			/>
 		);

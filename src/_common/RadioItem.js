@@ -1,6 +1,6 @@
 import React from 'react';
 
-export default class RadioGroup extends React.Component {
+export default class RadioItem extends React.Component {
 
 	static propTypes = {
 		defaultChecked: React.PropTypes.bool,
@@ -13,7 +13,6 @@ export default class RadioGroup extends React.Component {
 
 	render() {
 		const {defaultChecked, img, label, name, onChange, value} = this.props;
-
 		return (
 			<div className="radio-item">
 				<input id={value}
