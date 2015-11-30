@@ -8,6 +8,7 @@ import {
     SERVER_DATA_TICK_HISTORY,
     SERVER_DATA_TICK_STREAM,
     DISCARD_PURCHASE_RECEIPT,
+    CLEAR_TRADE_TICKS,
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
@@ -27,6 +28,9 @@ const initialState = fromJS({
 
 export default (state = initialState, action) => {
     switch (action.type) {
+        case CLEAR_TRADE_TICKS: {
+            return state.set('ticks', fromJS([{quote: 0}]));
+        }
         case WORKSPACE_ASSET_SELECT: {
             return state.merge({ 'assetSymbol': action.symbol });
         }
