@@ -4,6 +4,7 @@ import {
     UPDATE_ASSET_SELECTOR_SEARCH_QUERY,
     UPDATE_ASSET_SELECTOR_MARKETS,
     UPDATE_ASSET_SELECTOR_SUBMARKET,
+    SERVER_DATA_ASSET_INDEX,
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
@@ -27,11 +28,30 @@ const doFilter = (AssetSelectorList, query, markets, submarket) => {
     ).sort((x1, x2) => x1.get('display_name').localeCompare(x2.get('display_name')));
 };
 
+const hasTick = underlyings => {
+    const withTicks = underlyings.filter(underlying => {
+        return underlying[2].includes('t');
+    });
+    return withTicks.length > 0;
+};
+
+const tickTradeFilter = assetIndex => {
+    const symbolWithTick = assetIndex.filter(asset => {
+        return hasTick(asset[2]);
+    }).map(asset => {
+        return asset[0];
+    });
+    return symbolWithTick;
+};
+
 export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_ACTIVE_SYMBOLS: {
             const activeSymbols = action.serverResponse.active_symbols;
-            return state.merge({ shownAssets: activeSymbols });
+            const filteredSymbols = state.tickOnly ? activeSymbols.filter(asset => {
+                return state.tickOnly.indexOf(asset.symbol) > -1;
+            }) : activeSymbols;
+            return state.set({ shownAssets: filteredSymbols });
         }
         case UPDATE_ASSET_SELECTOR_SEARCH_QUERY: {
             return state
@@ -47,6 +67,15 @@ export default (state = initialState, action) => {
             return state
                 .set('markets', fromJS(action.markets))
                 .set('shownAssets', doFilter(action.assets, state.get('query'), action.markets, state.get('submarket')));
+        }
+        case SERVER_DATA_ASSET_INDEX: {
+            const symbolWithTick = tickTradeFilter(action.serverResponse.asset_index);
+            const shownAssetsWithTick = state.get('shownAssets').filter(asset => {
+                return symbolWithTick.indexOf(asset.get('symbol')) > -1;
+            });
+            return state
+                .set('tickOnly', symbolWithTick)
+                .set('shownAssets', shownAssetsWithTick);
         }
         default:
             return state;

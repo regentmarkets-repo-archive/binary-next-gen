@@ -47,9 +47,9 @@ const subscribeToWatchlist = () => {
 };
 
 export const initUnauthorized = () => {
-    api.getActiveSymbolsFull();
     api.getTradingTimes();
     api.getAssetIndex();
+    api.getActiveSymbolsFull();
 
     readNewsFeed().then(articles => api.events.emit('news', articles));
     getVideosFromPlayList().then(videos => api.events.emit('videos', videos));
