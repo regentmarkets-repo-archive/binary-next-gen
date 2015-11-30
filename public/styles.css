@@ -288,7 +288,6 @@ fieldset {
     margin-bottom: 1rem;
 }
 .radio-selector {
-    display: flex;
     border-radius: 2px;
     background-color: rgba(42, 48, 82, .1);
 }

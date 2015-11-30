@@ -14,6 +14,7 @@ import {
 const initialState = fromJS({
     assetSymbol: 'R_100',
     tradeType: 'CALL',
+    barrier: 0,
     duration: 5,
     basis: 'payout',
     currency: 'USD',

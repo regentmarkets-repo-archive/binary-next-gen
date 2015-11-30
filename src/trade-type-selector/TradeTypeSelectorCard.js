@@ -14,14 +14,24 @@ export default class TradeTypeSelectorCard extends React.Component {
 	render() {
 		const {actions, isOnlyTickTrade} = this.props;
 
-		const onChange = e => {
-			actions.updateTickTradeParameters({ tradeType: e.target.value });
+		const onChange = (key, val) => {
+			const params = {};
+			params[key] = val;
+			actions.updateTickTradeParameters(params);
 		};
 
 		return (
 			<div>
-				<TradeTypeTickOptions onChange={onChange} />
-				{isOnlyTickTrade && <TradeTypeRestOptions onChange={onChange} />}
+				<TradeTypeTickOptions
+					onTypeChange={e => onChange('tradeType', e.target.value)}
+					onBarrierChange={e => onChange('barrier', e.target.value)}
+				/>
+				{isOnlyTickTrade &&
+					<TradeTypeRestOptions
+						onTypeChange={e => onChange('tradeType', e.target.value)}
+						onBarrierChange={e => onChange('barrier', e.target.value)}
+					/>
+				}
 			</div>
 		);
 	}
