@@ -21,7 +21,7 @@ export default class RadioGroup extends React.Component {
 		const {className, onChange, name, options, value} = this.props;
 
 		return (
-			<fieldgroup className={className}>
+			<fieldset className={className}>
 				{options.map(o =>
 					<RadioItem
 						key={o.value}
@@ -32,7 +32,7 @@ export default class RadioGroup extends React.Component {
 						onChange={onChange}
 						value={o.value} />
 				)}
-			</fieldgroup>
+			</fieldset>
 		);
 	}
 }

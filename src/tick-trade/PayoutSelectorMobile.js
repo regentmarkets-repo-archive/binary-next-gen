@@ -3,7 +3,7 @@ import { MobilePage } from '../_common';
 import PayoutSelectorContainer from './PayoutSelectorContainer';
 
 export default (props) => (
-	<MobilePage toolbarShown={false} backBtnBarTitle="Select Payout">
+	<MobilePage toolbarShown={false} backBtnBarTitle="Payout">
 		<PayoutSelectorContainer {...props} />
 	</MobilePage>
 );

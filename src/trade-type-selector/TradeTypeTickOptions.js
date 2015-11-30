@@ -12,6 +12,7 @@ const TradeTypeTickOptions = ({onChange}) => (
 			<RadioItem label="Digit Match" name="trade-type" value="DIGITMATCH" img="img/trade-match.svg" onChange={onChange} />
 			<RadioItem label="Digit Differs" name="trade-type" value="DIGITDIFF" img="img/trade-differs.svg" onChange={onChange} />
 		</fieldset>
+		<RadioGroup label="Last Digit Prediction" name="digit-match" options={digitMatchOptions} onChange={onChange} />
 		<fieldset className="radio-selector">
 			<RadioItem label="Digit Over" name="trade-type" value="DIGITOVER" img="img/trade-digitover.svg" onChange={onChange} />
 			<RadioItem label="Digit Under" name="trade-type" value="DIGITUNDER" img="img/trade-digitunder.svg" onChange={onChange} />
@@ -20,7 +21,7 @@ const TradeTypeTickOptions = ({onChange}) => (
 			<RadioItem label="Digit Even" name="trade-type" value="DIGITEVEN" img="img/trade-digiteven.svg" onChange={onChange} />
 			<RadioItem label="Digit Odd" name="trade-type" value="DIGITODD" img="img/trade-digitodd.svg" onChange={onChange} />
 		</fieldset>
-		<RadioGroup label="Last Digit Prediction" name="digit-match" options={digitMatchOptions} />
+		<RadioGroup label="Last Digit Prediction" name="digit-match" options={digitMatchOptions} onChange={onChange} />
 	</div>
 );
 
