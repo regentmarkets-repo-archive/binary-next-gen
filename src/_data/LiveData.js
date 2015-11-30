@@ -26,7 +26,7 @@ const handlers = {
     'videos': 'updateVideoList',
 };
 
-export const api = new LiveApi();
+export const api = new LiveApi({ language: 'EN' });
 
 const subscribeToWatchlist = () => {
     loadedStorePromise.then(st => {

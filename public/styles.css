@@ -176,7 +176,7 @@ nav.sidebar {
     color: white;
 }
 .sidebar > * {
-    padding: .5rem 1rem;
+    padding: 0 1rem;
     margin: 0;
 }
 .number-positive {
@@ -251,7 +251,7 @@ tbody > tr:hover {
 }
 .sidebar-btn img {
     width: 1.5rem;
-    margin-right: .5rem;
+    margin-right: 1rem;
 }
 .toolbar-btn img {
     width: 1.5rem;
@@ -415,10 +415,13 @@ button::-moz-focus-inner, input::-moz-focus-outer {
 .mobile-form * {
     display: block;
 }
-
-#token-input {
+/* fixes for iOS */
+input {
     -webkit-user-select: text;
     -moz-user-select: text;
     -ms-user-select: text;
     user-select: text;
+}
+select {
+    background-color: white;
 }

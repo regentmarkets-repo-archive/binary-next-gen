@@ -24,7 +24,7 @@ export default class SettingsCard extends React.Component {
 				activeIndex={this.state.activeTab}
 				onChange={idx => this.setState({activeTab: idx})}
 				tabs={[
-					{text: 'Personal Details', component: <SettingsPersonalDetails settings={settings} actions={actions}/>},
+					{text: 'Personal', component: <SettingsPersonalDetails settings={settings} actions={actions}/>},
 					{text: 'Security', component: <SettingsSecurity settings={settings} actions={actions}/>},
 					{text: 'Self Exclusion', component: <SettingsSelfExclusion settings={settings} actions={actions}/>},
 					{text: 'Limits', component: <SettingsLimits settings={settings} actions={actions}/>},
