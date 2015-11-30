@@ -41,5 +41,5 @@ const initStore = finalCreateStore(reducer);
 const load = storage.createLoader(debouncedFilteredEngine);
 
 
-export const loadedStorePromise = load(initStore).then(() => {return initStore;});
+export const rehydratedStorePromise = load(initStore).then(() => {return initStore;});
 export const store = initStore;

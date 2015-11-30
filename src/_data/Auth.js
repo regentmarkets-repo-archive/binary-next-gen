@@ -1,4 +1,4 @@
-import {loadedStorePromise, store} from '../_store/configureStore';
+import {rehydratedStorePromise, store} from '../_store/configureStore';
 import * as LiveData from './LiveData';
 import {signinFieldUpdate} from '../_actions/SigninActions';
 
@@ -14,7 +14,7 @@ export const requireAuthOnEnter = (nextState, replaceState, cb) => {
         return;
     }
 
-    loadedStorePromise.then( st => {
+    rehydratedStorePromise.then( st => {
         const newState = st.getState();
         if (!newState.signin) {
             navigateTo(nextState, replaceState, '/signin');

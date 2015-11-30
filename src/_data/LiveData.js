@@ -2,7 +2,6 @@ import { LiveApi } from 'binary-live-api';
 import { readNewsFeed } from './NewsData';
 import { getVideosFromPlayList } from './VideoData';
 import * as actions from '../_actions';
-import { loadedStorePromise } from '../_store/configureStore';
 
 const handlers = {
     'authorize': 'serverDataAuthorize',
@@ -28,35 +27,31 @@ const handlers = {
 
 export const api = new LiveApi({ language: 'EN' });
 
-const subscribeToSelectedSymbol = () => {
-    loadedStorePromise.then(st => {
-        const selectedSymbol = st.getState().workspace.get('symbolSelected');
-        api.subscribeToTick(selectedSymbol);
-    });
+const subscribeToSelectedSymbol = st => {
+    const selectedSymbol = st.getState().workspace.get('symbolSelected');
+    api.subscribeToTick(selectedSymbol);
 };
 
-const subscribeToWatchlist = () => {
-    loadedStorePromise.then(st => {
-        const newState = st.getState();
-        if (!newState.workspace) {
-            return;
-        }
-        const favs = newState.workspace.get('favoriteAssets');
-        api.subscribeToTicks(favs);
-    });
+const subscribeToWatchlist = st => {
+    const newState = st.getState();
+    if (!newState.workspace) {
+        return;
+    }
+    const favs = newState.workspace.get('favoriteAssets');
+    api.subscribeToTicks(favs);
 };
 
-export const initUnauthorized = () => {
+export const initUnauthorized = store => {
     api.getActiveSymbolsFull();
     api.getTradingTimes();
     api.getAssetIndex();
 
     readNewsFeed().then(articles => api.events.emit('news', articles));
     getVideosFromPlayList().then(videos => api.events.emit('videos', videos));
-    subscribeToSelectedSymbol();
+    subscribeToSelectedSymbol(store);
 };
 
-export const initAuthorized = (authData) => {
+export const initAuthorized = (authData, store) => {
     api.getPortfolio();
     api.getStatement({ description: 1, limit: 20 });
     api.getProfitTable({ description: 1, limit: 20 });
@@ -64,7 +59,7 @@ export const initAuthorized = (authData) => {
     api.getPayoutCurrencies();
     api.subscribeToBalance();           // some call might fail due to backend overload
     api.subscribeToAllOpenContracts();
-    subscribeToWatchlist();
+    subscribeToWatchlist(store);
 
     const isVirtual = authData.authorize.loginid.startsWith('VRTC');
     if (!isVirtual) {
@@ -90,7 +85,7 @@ export const connect = (store, token) => {
         api.authorize(token);
     }
 
-    initUnauthorized();
+    initUnauthorized(store);
 
-    api.events.on('authorize', initAuthorized);
+    api.events.on('authorize', authResponse => initAuthorized(authResponse, store));
 };
