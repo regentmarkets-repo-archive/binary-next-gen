@@ -56,10 +56,15 @@ export const delFromWatchlist = symbol => {
     };
 };
 
+export const clearTradeTicks = () => ({
+    type: types.CLEAR_TRADE_TICKS,
+});
+
 export const selectAssetSymbolForTrade = (newSymbol, oldSymbol) => {
     return dispatch => {
         LiveData.api.unsubscribeFromTick(oldSymbol);
         LiveData.api.subscribeToTick(newSymbol);
+        dispatch(clearTradeTicks());
         dispatch(workspaceAssetSelect(newSymbol));
     };
 };
