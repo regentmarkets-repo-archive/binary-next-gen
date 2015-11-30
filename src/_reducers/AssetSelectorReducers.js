@@ -28,9 +28,9 @@ const doFilter = (AssetSelectorList, query, markets, submarket) => {
     ).sort((x1, x2) => x1.get('display_name').localeCompare(x2.get('display_name')));
 };
 
-const hasTick = underlyings => {
-    const withTicks = underlyings.filter(underlying => {
-        return underlying[2].includes('t');
+const hasTick = assets => {
+    const withTicks = assets.filter(asset => {
+        return asset[2].includes('t');
     });
     return withTicks.length > 0;
 };
@@ -38,9 +38,7 @@ const hasTick = underlyings => {
 const tickTradeFilter = assetIndex => {
     const symbolWithTick = assetIndex.filter(asset => {
         return hasTick(asset[2]);
-    }).map(asset => {
-        return asset[0];
-    });
+    }).map(asset => asset[0]);
     return symbolWithTick;
 };
 
