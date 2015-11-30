@@ -49,8 +49,6 @@ export const initUnauthorized = () => {
 };
 
 export const initAuthorized = (authData) => {
-    const isVirtual = authData.authorize.loginid.startsWith('VR');
-
     api.getPortfolio();
     api.getStatement({ description: 1, limit: 20 });
     api.getProfitTable({ description: 1, limit: 20 });
@@ -60,6 +58,7 @@ export const initAuthorized = (authData) => {
     api.subscribeToAllOpenContracts();
     subscribeToWatchlist();
 
+    const isVirtual = authData.authorize.loginid.startsWith('VRTC');
     if (!isVirtual) {
         api.getAccountLimits();
         api.getSelfExclusion();
