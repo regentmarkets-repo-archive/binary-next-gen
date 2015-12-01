@@ -4,7 +4,8 @@ import { MarketSelector, InputGroup } from '../_common';
 import * as LiveData from '../_data/LiveData';
 
 const AssetSelectorCard = ({actions, assets, assetSelector, history, workspace}) => {
-	const showOnlyTickTradable = !!~window.location.search.indexOf('tick');
+	// const showOnlyTickTradable = !!~window.location.search.indexOf('tick');
+	const showOnlyTickTradable = true;
 	const shownAssets = assetSelector.get('shownAssets');
 	const searchableAssets = assets.get('list').filter(x =>
 		!showOnlyTickTradable ||
