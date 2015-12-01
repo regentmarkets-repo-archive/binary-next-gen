@@ -30,9 +30,8 @@ export default class AssetSelectorItem extends React.Component {
 
 	render() {
 		const {asset, onSelect, isFavorite, isSelected} = this.props;
-		const bgc = isSelected ? 'aliceblue' : 'white';
 		return (
-			<tr style={{backgroundColor: bgc}}>
+			<tr className={isSelected ? 'active' : ''}>
 				<td>
 					<Star on={isFavorite} onClick={::this.toggleFavorite} />
 				</td>
