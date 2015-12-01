@@ -30,13 +30,14 @@ export const requireAuthOnEnter = (nextState, replaceState, cb) => {
                 () => {
                     isAuthorized = true;
                     navigateTo(nextState, replaceState, '/');
+                    cb();
                 },
                 () => {
                     navigateTo(nextState, replaceState, '/signin');
+                    cb();
                 }
             );
         }
-        cb();
     });
 };
 

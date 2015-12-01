@@ -5,7 +5,6 @@ import * as LiveData from '../_data/LiveData';
 import { tradeTypeCodeToText } from '../_utils/TradeUtils';
 
 export default class TickTradeParameters extends React.Component {
-
 	static propTypes = {
 		assetName: React.PropTypes.string.isRequired,
 		actions: React.PropTypes.object.isRequired,
@@ -14,9 +13,13 @@ export default class TickTradeParameters extends React.Component {
 		workspace: React.PropTypes.object.isRequired,
 	};
 
-	getPrice() {
-		const {tickTrade} = this.props;
+	componentDidMount() {
+		this.props.actions.updateTickTradeParameters({ duration: 5 });
+		this.getPrice();
+	}
 
+	getPrice() {
+		const tickTrade = this.props.tickTrade;
 		LiveData.api.unsubscribeFromAllProposals();
 
 		LiveData.api.subscribeToPriceForContractProposal({

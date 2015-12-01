@@ -5,8 +5,14 @@ import * as LiveData from '../_data/LiveData';
 import TickTradeParameters from './TickTradeParameters';
 import TradeDisplay from './TradeDisplay';
 import PurchaseConfirmation from './PurchaseConfirmation';
+import PurchaseFailed from './PurchaseFailed';
 
 export default class TickTradeCard extends React.Component {
+
+	constructor(props) {
+		super(props);
+		this.state = {failure: null, buying: false};
+	}
 
 	static propTypes = {
 		actions: React.PropTypes.object.isRequired,
@@ -17,7 +23,18 @@ export default class TickTradeCard extends React.Component {
 
 	placeOrder() {
 		const {tickTrade} = this.props;
-		LiveData.api.buyContract(tickTrade.get('id'), tickTrade.get('ask_price'));
+		this.setState({buying: true});
+		const buyAttempt = LiveData.api.buyContract(tickTrade.get('id'), tickTrade.get('ask_price'));
+		buyAttempt.then(
+			receipt => {
+				this.props.actions.serverDataBuy(receipt);
+				this.setState({buying: false});
+			},
+			err => {
+				this.setState({failure: err});
+				this.setState({buying: false});
+			}
+		);
 	}
 
 	getTickHistory() {
@@ -43,7 +60,11 @@ export default class TickTradeCard extends React.Component {
 
 		return (
 			<div className="tick-trade-mobile">
-				<Modal shown={receipt}
+				<Modal shown={!!this.state.failure}
+					onClose={() => this.setState({failure: null})}>
+					<PurchaseFailed failure={this.state.failure} />
+				</Modal>
+				<Modal shown={!!receipt}
 					onClose={() => actions.discardPurchaseReceipt()}>
 					<PurchaseConfirmation receipt={receipt} />
 				</Modal>
@@ -66,7 +87,7 @@ export default class TickTradeCard extends React.Component {
 					spot={spot}
 					tickTrade={tickTrade}
 					workspace={workspace} />
-				<button className="buy-btn" onClick={() => this.placeOrder()}>Place Order</button>
+				<button className="buy-btn" onClick={() => this.placeOrder()} disabled={this.state.buying}>Place Order</button>
 			</div>
 		);
 	}

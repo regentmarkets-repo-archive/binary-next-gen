@@ -10,7 +10,7 @@ import * as LiveData from '../_data/LiveData';
 const history = new HashHistory();
 rehydratedStorePromise.then(st => {
     // const token = st.getState().signin.get('token');
-    LiveData.connect(st, '');
+    LiveData.connect(st);
 });
 
 export default class Root extends Component {

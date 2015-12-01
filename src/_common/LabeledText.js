@@ -10,7 +10,7 @@ const LabeledText = ({id, label, value = 'N/A'}) => (
 LabeledText.propTypes = {
     id: React.PropTypes.string,
     label: React.PropTypes.string.isRequired,
-    value: React.PropTypes.string.isRequired,
+    value: React.PropTypes.string,
 };
 
 export default LabeledText;
