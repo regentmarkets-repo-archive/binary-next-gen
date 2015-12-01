@@ -30,8 +30,14 @@ export default class AssetSelectorItem extends React.Component {
 
 	render() {
 		const {asset, onSelect, isFavorite, isSelected} = this.props;
+		const focuser = node => {
+			if (node !== null && isSelected) {
+				node.focus();
+			}
+		};
+
 		return (
-			<tr className={isSelected ? 'active' : ''}>
+			<tr autoFocus={isSelected} tabIndex={0} ref={focuser} >
 				<td>
 					<Star on={isFavorite} onClick={::this.toggleFavorite} />
 				</td>

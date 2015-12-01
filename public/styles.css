@@ -227,6 +227,10 @@ button, button:hover, a.button, a.button:hover {
 tbody > tr:hover {
     background-color: rgba(42, 48, 82, .1);
 }
+tr:focus {
+    background-color: rgba(42, 48, 82, .2);
+    outline: none;
+}
 .info-icon {
     display: inline-block;
     color: #2a3052;
@@ -425,10 +429,6 @@ button::-moz-focus-inner, input::-moz-focus-outer {
 
 .mobile-form * {
     display: block;
-}
-
-tr.active {
-    background-color: rgba(152, 255, 190, 0.24);
 }
 
 /* fixes for iOS */
