@@ -70,10 +70,8 @@ export default class TickTradeCard extends React.Component {
 					<PurchaseConfirmation receipt={receipt} />
 				</Modal>
 				<TickTradeSparkline
-					width={344}
-					height={100}
 					history={history}
-					isCall={tickTrade.get('tradeType') === 'CALL'}
+					showBarrier={tickTrade.get('tradeType') === 'CALL'}
 					spot={spot} />
 				<TickTradeParameters
 					actions={actions}

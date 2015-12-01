@@ -456,3 +456,6 @@ select {
 .asset-list tbody tr {
     cursor: pointer;
 }
+.tick-sparklines {
+    text-align: center;
+}
