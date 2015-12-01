@@ -25,6 +25,7 @@ export const getPriceProposal = (contract) => {
         LiveData.api.unsubscribeFromAllProposals();
         LiveData.api.subscribeToPriceForContractProposal({
             amount: contract.get('amount').toString(),
+            barrier: contract.get('barrier'),
             basis: contract.get('basis'),
             contract_type: contract.get('tradeType'),
             currency: contract.get('currency'),

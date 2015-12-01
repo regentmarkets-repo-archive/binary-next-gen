@@ -12,7 +12,7 @@ export default class TradeTypeSelectorCard extends React.Component {
 	};
 
 	render() {
-		const {actions, isOnlyTickTrade} = this.props;
+		const {actions, isOnlyTickTrade, tickTrade} = this.props;
 
 		const onChange = (key, val) => {
 			const params = {};
@@ -23,6 +23,8 @@ export default class TradeTypeSelectorCard extends React.Component {
 		return (
 			<div>
 				<TradeTypeTickOptions
+					type={tickTrade.get('tradeType')}
+					barrier={tickTrade.get('barrier')}
 					onTypeChange={e => onChange('tradeType', e.target.value)}
 					onBarrierChange={e => onChange('barrier', e.target.value)}
 				/>

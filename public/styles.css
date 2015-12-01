@@ -200,7 +200,7 @@ nav.sidebar {
     height: 100%;
 }
 .toolbar-btn {
-    line-height: 4;
+    line-height: 3.5;
     padding: 0 1rem;
 }
 .mobile-nav-btn.active {
@@ -295,17 +295,25 @@ fieldset {
     margin-bottom: 1rem;
 }
 .radio-selector {
+    display: flex;
+    margin-bottom: .5rem;
     border-radius: 2px;
     background-color: rgba(42, 48, 82, .1);
 }
+.radio-item {
+    flex: 1;
+}
 .radio-item label {
-    padding: .5rem;
     cursor: pointer;
-    line-height: 3;
+    line-height: 2;
+    display: block;
+    text-align: center;
 }
 .radio-item img {
     margin-right: .5rem;
     width: 1.5rem;
+    background-color: white;
+    box-shadow: 0 0 0 1px white;
 }
 .radio-item input {
     display: none;

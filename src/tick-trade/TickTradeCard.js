@@ -31,8 +31,10 @@ export default class TickTradeCard extends React.Component {
 				this.setState({buying: false});
 			},
 			err => {
-				this.setState({failure: err});
-				this.setState({buying: false});
+				this.setState({
+					failure: err,
+					buying: false,
+				});
 			}
 		);
 		actions.getPriceProposal(tickTrade);
@@ -86,7 +88,12 @@ export default class TickTradeCard extends React.Component {
 					spot={spot}
 					tickTrade={tickTrade}
 					workspace={workspace} />
-				<button className="buy-btn" onClick={() => this.placeOrder()} disabled={this.state.buying}>Place Order</button>
+				<button
+					className="buy-btn"
+					onClick={() => this.placeOrder()}
+					disabled={this.state.buying}>
+					Place Order
+				</button>
 			</div>
 		);
 	}
