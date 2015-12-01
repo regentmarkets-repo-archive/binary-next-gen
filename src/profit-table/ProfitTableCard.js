@@ -34,6 +34,8 @@ ProfitTableCard.propTypes = {
 	compact: React.PropTypes.bool,
 	profitTable: React.PropTypes.object,
 	dispatch: React.PropTypes.func,
+	contractShown: React.PropTypes.object,
+	areDetailsShown: React.PropTypes.bool,
 };
 
 export default ProfitTableCard;
