@@ -54,7 +54,7 @@ export default class TickTradeCard extends React.Component {
 	render() {
 		const {actions, assets, tickTrade, workspace} = this.props;
 		const history = this.getTickHistory();
-		const spot = history[history.length - 1].quote;
+		const spot = history.length > 0 ? history[history.length - 1].quote : null;
 		const diff = history.length > 1 ? history[history.length - 1].quote - history[history.length - 2].quote : 0;
 		const receipt = tickTrade.get('receipt');
 		const assetName = this.getSelectedAssetName() || '...';
