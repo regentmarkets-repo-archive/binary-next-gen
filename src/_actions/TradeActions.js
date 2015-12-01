@@ -1,4 +1,5 @@
 import * as types from '../_constants/ActionTypes';
+import * as LiveData from '../_data/LiveData';
 
 export const serverDataProposal = serverResponse => ({
     type: types.SERVER_DATA_PROPOSAL,
@@ -18,3 +19,18 @@ export const serverDataBuy = serverResponse => ({
 export const discardPurchaseReceipt = () => ({
     type: types.DISCARD_PURCHASE_RECEIPT,
 });
+
+export const getPriceProposal = (contract) => {
+    return () => {
+        LiveData.api.unsubscribeFromAllProposals();
+        LiveData.api.subscribeToPriceForContractProposal({
+            amount: contract.get('amount').toString(),
+            basis: contract.get('basis'),
+            contract_type: contract.get('tradeType'),
+            currency: contract.get('currency'),
+            duration: contract.get('duration').toString(),
+            duration_unit: contract.get('duration_unit') || 't',
+            symbol: contract.get('assetSymbol'),
+        });
+    };
+};

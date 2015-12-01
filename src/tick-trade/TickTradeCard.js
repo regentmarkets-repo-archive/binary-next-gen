@@ -22,7 +22,7 @@ export default class TickTradeCard extends React.Component {
 	};
 
 	placeOrder() {
-		const {tickTrade} = this.props;
+		const {tickTrade, actions} = this.props;
 		this.setState({buying: true});
 		const buyAttempt = LiveData.api.buyContract(tickTrade.get('id'), tickTrade.get('ask_price'));
 		buyAttempt.then(
@@ -35,6 +35,7 @@ export default class TickTradeCard extends React.Component {
 				this.setState({buying: false});
 			}
 		);
+		actions.getPriceProposal(tickTrade);
 	}
 
 	getTickHistory() {
