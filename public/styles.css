@@ -426,6 +426,11 @@ button::-moz-focus-inner, input::-moz-focus-outer {
 .mobile-form * {
     display: block;
 }
+
+tr.active {
+    background-color: rgba(152, 255, 190, 0.24);
+}
+
 /* fixes for iOS */
 input {
     -webkit-user-select: text;
@@ -436,6 +441,7 @@ input {
 select {
     background-color: white;
 }
+
 .asset-selector-container {
     display: flex;
     flex-direction: column;
