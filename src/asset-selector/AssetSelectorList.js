@@ -19,15 +19,7 @@ export default class AssetSelectorList extends React.Component {
 		const {assets, favorites, selectedAsset} = this.props;
 
 		return (
-			<table className="asset-list">
-				<thead>
-					<tr>
-						<th></th>
-						<th>Asset</th>
-						<th>Market</th>
-						<th></th>
-					</tr>
-				</thead>
+			<table>
 				<tbody>
 					{assets.map(asset =>
 						<AssetSelectorItem

@@ -142,10 +142,13 @@ a.button, button, input[type=button], input[type=submit] {
 .mobile-page {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 }
 .mobile-content {
-    padding: 5rem .5rem .5rem .5rem;
-    height: 100%;
+    padding: .5rem;
+    flex: 1;
+    overflow: auto;
 }
 .mobile-content tbody tr {
     cursor: pointer;
@@ -237,9 +240,8 @@ tbody > tr:hover {
 .mobile-toolbar {
     color: white;
     background: #2a3052;
-    height: 4rem;
+    height: 3.5rem;
     display: flex;
-    position: fixed;
     width: 100%;
 }
 .mobile-back-btn {
@@ -251,11 +253,11 @@ tbody > tr:hover {
     flex: 1;
 }
 .mobile-back-btn span {
-    height: 4rem;
+    height: 3.5rem;
     vertical-align: middle;
 }
-.asset-list tbody tr {
-    cursor: pointer;
+.sidebar-btn {
+    height: 4rem;
 }
 .sidebar-btn img {
     width: 1.5rem;
@@ -277,12 +279,12 @@ fieldset {
     margin-bottom: .5rem;
 }
 .back-btn {
-    width: 4rem;
+    width: 3.5rem;
     display: inline-block;
     text-align: center;
     margin-left: -.5rem;
     font-size: 1.5rem;
-    line-height: 2.5;
+    line-height: 2.25;
 }
 .tick-sparklines {
     margin-bottom: 1rem;
@@ -432,4 +434,18 @@ input {
 }
 select {
     background-color: white;
+}
+.asset-selector-container {
+    display: flex;
+    flex-direction: column;
+}
+.asset-list {
+    overflow: auto;
+}
+
+.asset-list tbody {
+    height: 200px;
+}
+.asset-list tbody tr {
+    cursor: pointer;
 }
