@@ -1,11 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { RangeGroup } from '../_common';
-import * as LiveData from '../_data/LiveData';
 import { tradeTypeCodeToText } from '../_utils/TradeUtils';
 
 export default class TickTradeParameters extends React.Component {
-
 	static propTypes = {
 		assetName: React.PropTypes.string.isRequired,
 		actions: React.PropTypes.object.isRequired,
@@ -14,20 +12,13 @@ export default class TickTradeParameters extends React.Component {
 		workspace: React.PropTypes.object.isRequired,
 	};
 
-	getPrice() {
-		const {tickTrade} = this.props;
+	componentDidMount() {
+		this.props.actions.updateTickTradeParameters({ duration: 5 });
+		this.getPrice(this.props.tickTrade);
+	}
 
-		LiveData.api.unsubscribeFromAllProposals();
-
-		LiveData.api.subscribeToPriceForContractProposal({
-			amount: tickTrade.get('amount').toString(),
-			basis: tickTrade.get('basis'),
-			contract_type: tickTrade.get('tradeType'),
-			currency: tickTrade.get('currency'),
-			duration: tickTrade.get('duration').toString(),
-			duration_unit: 't',
-			symbol: tickTrade.get('assetSymbol'),
-		});
+	getPrice(tickTrade) {
+		this.props.actions.getPriceProposal(tickTrade);
 	}
 
 	render() {
@@ -63,7 +54,7 @@ export default class TickTradeParameters extends React.Component {
 							value={+tickTrade.get('duration')}
 							onChange={e => {
 								actions.updateTickTradeParameters({ duration: e.target.value });
-								this.getPrice();
+								this.getPrice(tickTrade);
 							}} />
 					</div>
 				</div>

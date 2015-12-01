@@ -7,8 +7,8 @@ export default class TickTradeDisplay extends React.Component {
 	static propTypes = {
 		assetName: React.PropTypes.string.isRequired,
 		assets: React.PropTypes.object.isRequired,
-		diff: React.PropTypes.number.isRequired,
-		spot: React.PropTypes.any.isRequired,
+		diff: React.PropTypes.number,
+		spot: React.PropTypes.any,
 		tickTrade: React.PropTypes.object.isRequired,
 		workspace: React.PropTypes.object.isRequired,
 	};
@@ -26,7 +26,8 @@ export default class TickTradeDisplay extends React.Component {
 					<strong>{tickTrade.get('duration')}&nbsp;ticks</strong>
 				</div>
 				<div className="row">
-					<label>Spot: <DirectionAndValue diff={diff} value={spot} /></label><label>Price: {tickTrade.get('currency')} {tickTrade.get('ask_price')}</label>
+					<label>Spot: {spot ? <DirectionAndValue diff={diff} value={spot} /> : <span></span>}</label>
+					<label>Price: {tickTrade.get('currency')} {tickTrade.get('ask_price')}</label>
 				</div>
 			</div>
 		);

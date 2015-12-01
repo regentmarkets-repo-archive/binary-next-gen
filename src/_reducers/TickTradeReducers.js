@@ -19,18 +19,13 @@ const initialState = fromJS({
     basis: 'payout',
     currency: 'USD',
     amount: 100,
-    ticks: [
-        {quote: 0}, {quote: 0}, {quote: 0}, {quote: 0}, {quote: 0},
-        {quote: 0}, {quote: 0}, {quote: 0}, {quote: 0}, {quote: 0},
-        {quote: 0}, {quote: 0}, {quote: 0}, {quote: 0}, {quote: 0},
-        {quote: 0}, {quote: 0}, {quote: 0}, {quote: 0}, {quote: 0},
-    ],
+    ticks: [],
 });
 
 export default (state = initialState, action) => {
     switch (action.type) {
         case CLEAR_TRADE_TICKS: {
-            return state.set('ticks', fromJS([{quote: 0}]));
+            return state.set('ticks', fromJS([]));
         }
         case WORKSPACE_ASSET_SELECT: {
             return state.merge({ 'assetSymbol': action.symbol });

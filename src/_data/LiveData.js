@@ -74,17 +74,13 @@ export const trackSymbols = symbols => {
     api.subscribeToTicks(symbols);
 };
 
-export const connect = (store, token) => {
+export const connect = store => {
     Object.keys(handlers).forEach(key => {
         const action = actions[handlers[key]];
 
         api.events.on(key, (data) => store.dispatch(action(data)));
         api.events.on(key, () => window.console.log);
     });
-
-    if (token) {
-        api.authorize(token);
-    }
 
     initUnauthorized(store);
 
