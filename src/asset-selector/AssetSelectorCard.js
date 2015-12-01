@@ -28,23 +28,27 @@ const AssetSelectorCard = ({actions, assets, assetSelector, history, workspace})
 	const onSubmarketChange = e => actions.updateAssetSelectorSubmarket(searchableAssets, e);
 
 	return (
-		<div>
-			<MarketSelector
-				onChange={onSubmarketChange}
-				showAllOption
-				showMarkets={showOnlyTickTradable ? ['Forex', 'Randoms'] : null} />
-			<InputGroup
-				className="asset-search"
-				type="search"
-				placeholder="Search for assets"
-				onChange={onSearchQueryChange} />
-			<AssetSelectorList
-				assets={shownAssets}
-				favorites={workspace.get('favoriteAssets')}
-				onSelect={onSelect}
-				onFavor={onFavor}
-				onUnfavor={onUnfavor}
-				selectedAsset={workspace.get('symbolSelected')} />
+		<div className="asset-selector-container">
+			<fieldset>
+				<MarketSelector
+					onChange={onSubmarketChange}
+					showAllOption
+					showMarkets={showOnlyTickTradable ? ['Forex', 'Randoms'] : null} />
+				<InputGroup
+					className="asset-search"
+					type="search"
+					placeholder="Search for assets"
+					onChange={onSearchQueryChange} />
+			</fieldset>
+			<div className="asset-list">
+				<AssetSelectorList
+					assets={shownAssets}
+					favorites={workspace.get('favoriteAssets')}
+					onSelect={onSelect}
+					onFavor={onFavor}
+					onUnfavor={onUnfavor}
+					selectedAsset={workspace.get('symbolSelected')} />
+			</div>
 		</div>
 	);
 };
