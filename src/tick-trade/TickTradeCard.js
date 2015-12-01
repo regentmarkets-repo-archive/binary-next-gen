@@ -49,7 +49,7 @@ export default class TickTradeCard extends React.Component {
 				</Modal>
 				<TickTradeSparkline
 					width={344}
-					height={120}
+					height={100}
 					history={history}
 					isCall={tickTrade.get('tradeType') === 'CALL'}
 					spot={spot} />

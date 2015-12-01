@@ -4,7 +4,7 @@ import ProfitRow from './ProfitRow';
 
 const calulateTotals = transactions => transactions.map(t => +t.get('sell_price') - +t.get('buy_price')).reduce((x, y) => x + y, 0);
 
-const ProfitTable = ({compact, transactions, onViewDetails}) => (
+const ProfitTable = ({compact, transactions}) => (
 	<table>
 		<thead>
 			<tr>
@@ -22,7 +22,8 @@ const ProfitTable = ({compact, transactions, onViewDetails}) => (
 					key={t.get('transaction_id')}
 					compact={compact}
 					transaction={t}
-					onViewDetails={onViewDetails} />)}
+				/>
+			)}
 		</tbody>
 		<tfoot>
 			<tr>
@@ -46,7 +47,6 @@ const ProfitTable = ({compact, transactions, onViewDetails}) => (
 ProfitTable.propTypes = {
 	compact: React.PropTypes.bool,
 	transactions: React.PropTypes.any.isRequired,
-    onViewDetails: React.PropTypes.func.isRequired,
 };
 
 export default ProfitTable;

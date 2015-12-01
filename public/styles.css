@@ -23,7 +23,7 @@
     user-select: none;
 }
 html {
-    font-size: 15px;
+    font-size: 16px;
 }
 
 /* Desktop Layout */
@@ -294,6 +294,7 @@ fieldset {
 .radio-item label {
     padding: .5rem;
     cursor: pointer;
+    line-height: 3;
 }
 .radio-item img {
     margin-right: .5rem;

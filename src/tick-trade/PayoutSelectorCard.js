@@ -6,7 +6,7 @@ const basisTypes = [
 	{ value: 'stake', text: 'Stake' },
 ];
 
-const payoutAmounts = [1, 2, 5, 10, 20, 50, 100, 500, 1000, 5000, 10000, 100000].map(x => ({ value: x, text: x }));
+const payoutAmounts = [1, 2, 5, 10, 20, 50, 100, 500, 1000, 5000].map(x => ({ value: x, text: x }));
 
 export default class PayoutSelectorCard extends React.Component {
 
