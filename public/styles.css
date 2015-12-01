@@ -258,10 +258,11 @@ tbody > tr:hover {
 }
 .sidebar-btn {
     height: 4rem;
+    padding: 0;
 }
 .sidebar-btn img {
     width: 1.5rem;
-    margin-right: 1rem;
+    padding: 0 1rem;
 }
 .toolbar-btn img {
     width: 1.5rem;
