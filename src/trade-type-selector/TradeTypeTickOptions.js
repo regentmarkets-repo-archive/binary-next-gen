@@ -1,14 +1,7 @@
 import React from 'react';
 import { RadioItem, RadioGroup } from '../_common';
 import { digitMatchOptions } from '../_constants/TradeParams';
-
-const typesWithBarriers = [
-	'DIGITMATCH',
-	'DIGITDIFF',
-	'DIGITOVER',
-	'DIGITUNDER',
-];
-const typeHasBarrier = type => ~typesWithBarriers.indexOf(type);
+import { typeHasBarrier } from '../_utils/TradeUtils';
 
 const TradeTypeTickOptions = ({onTypeChange, onBarrierChange, type, barrier}) => (
 	<div>

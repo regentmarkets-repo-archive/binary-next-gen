@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { RangeGroup } from '../_common';
-import { tradeTypeCodeToText } from '../_utils/TradeUtils';
+import { tradeToFriendlyType } from '../_utils/TradeUtils';
 
 export default class TickTradeParameters extends React.Component {
 	static propTypes = {
@@ -12,18 +12,18 @@ export default class TickTradeParameters extends React.Component {
 		workspace: React.PropTypes.object.isRequired,
 	};
 
-	componentDidMount() {
-		this.props.actions.updateTickTradeParameters({ duration: 5 });
-		this.getPrice(this.props.tickTrade);
+	getPrice() {
+		const {actions, tickTrade} = this.props;
+		actions.getPriceProposal(tickTrade);
 	}
 
-	getPrice(tickTrade) {
-		this.props.actions.getPriceProposal(tickTrade);
+	componentDidMount() {
+		this.getPrice();
 	}
 
 	render() {
 		const {actions, assetName, tickTrade} = this.props;
-		const tradeTypeText = tradeTypeCodeToText(tickTrade.get('tradeType'));
+		const tradeTypeText = tradeToFriendlyType(tickTrade.get('tradeType'), tickTrade.get('barrier'));
 
 		return (
 			<div>
@@ -54,7 +54,7 @@ export default class TickTradeParameters extends React.Component {
 							value={+tickTrade.get('duration')}
 							onChange={e => {
 								actions.updateTickTradeParameters({ duration: e.target.value });
-								this.getPrice(tickTrade);
+								this.getPrice();
 							}} />
 					</div>
 				</div>

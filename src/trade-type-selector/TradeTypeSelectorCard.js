@@ -26,12 +26,12 @@ export default class TradeTypeSelectorCard extends React.Component {
 					type={tickTrade.get('tradeType')}
 					barrier={tickTrade.get('barrier')}
 					onTypeChange={e => onChange('tradeType', e.target.value)}
-					onBarrierChange={e => onChange('barrier', e.target.value)}
+					onBarrierChange={e => onChange('barrier', +e.target.value)}
 				/>
 				{isOnlyTickTrade &&
 					<TradeTypeRestOptions
 						onTypeChange={e => onChange('tradeType', e.target.value)}
-						onBarrierChange={e => onChange('barrier', e.target.value)}
+						onBarrierChange={e => onChange('barrier', +e.target.value)}
 					/>
 				}
 			</div>

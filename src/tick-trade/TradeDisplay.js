@@ -1,6 +1,6 @@
 import React from 'react';
 import { DirectionAndValue } from '../_common';
-import { tradeTypeCodeToText } from '../_utils/TradeUtils';
+import { tradeToFriendlyType } from '../_utils/TradeUtils';
 
 export default class TickTradeDisplay extends React.Component {
 
@@ -20,10 +20,10 @@ export default class TickTradeDisplay extends React.Component {
 			<div style={{ background: 'rgba(42, 48, 82, .1)', borderRadius: 2, padding: '.5rem .25rem .25rem .25rem', marginBottom: '1rem'}}>
 				<div>
 					<strong>{assetName}</strong>
-					&nbsp;will&nbsp;
-					<strong>{tradeTypeCodeToText(tickTrade.get('tradeType'))}</strong>
-					&nbsp;over&nbsp;next&nbsp;
-					<strong>{tickTrade.get('duration')}&nbsp;ticks</strong>
+					will
+					<strong>{tradeToFriendlyType(tickTrade.get('tradeType'), tickTrade.get('barrier'))}</strong>
+					over next
+					<strong>{tickTrade.get('duration')} ticks</strong>
 				</div>
 				<div className="row">
 					<label>Spot: {spot ? <DirectionAndValue diff={diff} value={spot} /> : <span></span>}</label>

@@ -21,8 +21,13 @@ export default class TickTradeCard extends React.Component {
 		workspace: React.PropTypes.object.isRequired,
 	};
 
-	placeOrder() {
+	getPriceProposal() {
 		const {tickTrade, actions} = this.props;
+		actions.getPriceProposal(tickTrade);
+	}
+
+	placeOrder() {
+		const {tickTrade} = this.props;
 		this.setState({buying: true});
 		const buyAttempt = LiveData.api.buyContract(tickTrade.get('id'), tickTrade.get('ask_price'));
 		buyAttempt.then(
@@ -37,7 +42,6 @@ export default class TickTradeCard extends React.Component {
 				});
 			}
 		);
-		actions.getPriceProposal(tickTrade);
 	}
 
 	getTickHistory() {
@@ -51,6 +55,10 @@ export default class TickTradeCard extends React.Component {
 			x.get('symbol') === workspace.get('symbolSelected'));
 
 		return asset ? asset.get('display_name') : '';
+	}
+
+	componentDidMount() {
+		this.getPriceProposal();
 	}
 
 	render() {
