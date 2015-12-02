@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { RangeGroup } from '../_common';
 import { tradeToFriendlyType } from '../_utils/TradeUtils';
+import { FormattedMessage } from 'react-intl';
 
 export default class TickTradeParameters extends React.Component {
 	static propTypes = {
@@ -28,7 +29,13 @@ export default class TickTradeParameters extends React.Component {
 		return (
 			<div>
 				<div className="row">
-					<label>Asset</label>
+					<label>
+						<FormattedMessage
+							id="asset"
+							description="label to indicate which asset is chosen, eg Random 100, AUD/USD"
+							defaultMessage="Asset"
+							/>
+					</label>
 					<fieldset style={{flex: 4}}>
 						<Link to={'/asset-selector?goback&tick'} className="button">
 							{assetName}
@@ -36,7 +43,13 @@ export default class TickTradeParameters extends React.Component {
 					</fieldset>
 				</div>
 				<div className="row">
-					<label>Type</label>
+					<label>
+						<FormattedMessage
+							id="type"
+							description="label to indicate type chosen, eg Rise, Fall"
+							defaultMessage="Type"
+							/>
+					</label>
 					<fieldset style={{flex: 4}}>
 						<Link
 							className="button"
@@ -46,7 +59,13 @@ export default class TickTradeParameters extends React.Component {
 					</fieldset>
 				</div>
 				<div className="row">
-					<label>Ticks</label>
+					<label>
+						<FormattedMessage
+							id="ticks"
+							description="label to indicate number of ticks chosen"
+							defaultMessage="Ticks"
+							/>
+					</label>
 					<div style={{flex: 4}}>
 						<RangeGroup
 							min={5} max={10}
@@ -59,7 +78,13 @@ export default class TickTradeParameters extends React.Component {
 					</div>
 				</div>
 				<div className="row">
-					<label>Amount</label>
+					<label>
+						<FormattedMessage
+							id="amount"
+							description="label to indicate amount of bet, user could choose payout or stake"
+							defaultMessage="Amount"
+							/>
+					</label>
 					<fieldset style={{flex: 4}}>
 						<Link
 							className="button"
