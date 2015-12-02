@@ -25,11 +25,11 @@ export const requireAuthOnEnter = (nextState, replaceState, cb) => {
         const token = newState.signin.get('token');
         if (!token) {
             navigateTo(nextState, replaceState, '/signin');
+            cb();
         } else {
             LiveData.api.authorize(token).then(
                 () => {
                     isAuthorized = true;
-                    navigateTo(nextState, replaceState, '/');
                     cb();
                 },
                 () => {
