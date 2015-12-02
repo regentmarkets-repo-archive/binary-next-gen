@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 export default ({backBtnBarTitle}) => (
 	<div className="mobile-toolbar">
 		<Link to="/tick-trade" activeClassName="active" className="mobile-back-btn">
-			<span className="back-btn">⇦</span>
+			<img className="back-btn" src="img/arrow-back.svg" />
 			{backBtnBarTitle}
 		</Link>
 	</div>

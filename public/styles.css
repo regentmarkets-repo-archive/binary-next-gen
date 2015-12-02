@@ -173,7 +173,7 @@ nav.sidebar {
     width: 240px;
     background: #2a3052;
     color: white;
-    margin: -4rem -.5rem -.5rem -.5rem;
+    margin: -3.5rem -.5rem -.5rem -.5rem;
 }
 .sidebar span {
     color: white;
@@ -285,11 +285,7 @@ fieldset {
 }
 .back-btn {
     width: 3.5rem;
-    display: inline-block;
-    text-align: center;
-    margin-left: -.5rem;
-    font-size: 1.5rem;
-    line-height: 2.25;
+    padding: .75rem;
 }
 .tick-sparklines {
     margin-bottom: 1rem;

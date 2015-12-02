@@ -8,7 +8,7 @@ export default () => (
 		<label id="hamburger-overlay" htmlFor="hamburger-closer"></label>
 		<input id="hamburger-opener" className="hamburger" type="radio" name="hamburger" />
 		<label id="hamburger-btn" htmlFor="hamburger-opener" className="toolbar-btn">
-			<span>☰</span>
+			<img src="img/menu.svg" />
 			<NavigationMenu />
 		</label>
 		<Link to={'/tick-trade'} activeClassName="active" className="mobile-nav-btn"><img src="img/trade.svg" /></Link>
