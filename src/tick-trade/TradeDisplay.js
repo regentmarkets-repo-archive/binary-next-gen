@@ -20,9 +20,9 @@ export default class TickTradeDisplay extends React.Component {
 			<div style={{ background: 'rgba(42, 48, 82, .1)', borderRadius: 2, padding: '.5rem .25rem .25rem .25rem', marginBottom: '1rem'}}>
 				<div>
 					<strong>{assetName}</strong>
-					will
+					<span> will </span>
 					<strong>{tradeToFriendlyType(tickTrade.get('tradeType'), tickTrade.get('barrier'))}</strong>
-					over next
+					<span> over next </span>
 					<strong>{tickTrade.get('duration')} ticks</strong>
 				</div>
 				<div className="row">
