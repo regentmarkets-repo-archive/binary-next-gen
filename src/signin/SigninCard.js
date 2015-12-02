@@ -44,7 +44,8 @@ export default class SigninCard extends React.Component {
 		const {actions, history} = this.props;
 		actions.signinFieldUpdate('progress', true);
 
-		history.pushState({}, '/');	// no need to authorize here onEnter hook will authorize
+		const mainPagePath = window.navigator.userAgent.match(/Mobile/) !== null ? '/' : '/workspace';
+		history.pushState({}, mainPagePath);	// no need to authorize here onEnter hook will authorize
 	}
 
 	// <InputGroup type="email" placeholder="Email" onChange={::this.emailChange} />
