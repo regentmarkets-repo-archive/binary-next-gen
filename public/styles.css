@@ -199,10 +199,6 @@ nav.sidebar {
     padding: 1rem;
     height: 100%;
 }
-.toolbar-btn {
-    line-height: 3.5;
-    padding: 0 1rem;
-}
 .mobile-nav-btn.active {
     box-shadow: inset 0 -3px 0 0 #e98024;
 }
@@ -264,11 +260,15 @@ tr:focus {
     height: 4rem;
     padding: 0;
 }
-.sidebar-btn img {
-    width: 1.5rem;
+.sidebar-btn > img {
+    width: 3.5rem;
+    padding: 1rem;
+}
+.toolbar-btn {
+    line-height: 3.5;
     padding: 0 1rem;
 }
-.toolbar-btn img {
+.toolbar-btn > img {
     width: 1.5rem;
     height: 100%;
 }
@@ -350,7 +350,7 @@ fieldset {
     left: -300px;
 }
 #hamburger-opener:checked + #hamburger-btn > .sidebar {
-    left: 0;
+    left: .5rem;
     transition: .3s;
 }
 #hamburger-overlay {

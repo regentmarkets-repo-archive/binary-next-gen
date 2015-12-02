@@ -58,12 +58,12 @@ export default class SigninCard extends React.Component {
 		const { signin } = this.props;
 
 		return (
-			<div className="login-content">
+			<form className="login-content">
 				<p className="media">
 					<LogoSpinner spinning={signin.get('progress')}/>
 					<img className="logo-text" src="img/binary-type-logo.svg" />
 				</p>
-				<InputGroup id="token-input" type="text" placeholder="Token" onChange={::this.onTokenChange} />
+				<InputGroup id="token-input" type="text" placeholder="Token" onChange={::this.onTokenChange} autoFocus />
 				<ErrorMsg
 					shown={signin.get('validatedOnce') && signin.get('tokenNotEntered')}
 					text="You need to enter a token" />
@@ -76,7 +76,7 @@ export default class SigninCard extends React.Component {
 				<a className="outline-link" target="new" href="https://www.binary.com/user/api_token">Get your API token</a>
 				<br />
 				<a className="outline-link" target="new" href="https://www.binary.com">Create Account</a>
-			</div>
+			</form>
 		);
 	}
 }
