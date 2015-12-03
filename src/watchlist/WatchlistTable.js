@@ -1,5 +1,6 @@
 import React from 'react';
 import WatchlistRow from './WatchlistRow';
+import { FormattedMessage } from 'react-intl';
 
 const WatchlistTable = ({assets, compact, ticks, favorites}) => {
 	return (
@@ -7,11 +8,41 @@ const WatchlistTable = ({assets, compact, ticks, favorites}) => {
 			<thead>
 				<tr>
 					<th></th>
-					<th>Name</th>
-					<th>Value</th>
-					{!compact && <th>Updated</th>}
-					<th>Change</th>
-					<th>Chart</th>
+					<th>
+						<FormattedMessage
+							id="name"
+							description=""
+							defaultMessage="Name"
+							/>
+					</th>
+					<th>
+						<FormattedMessage
+							id="value"
+							description=""
+							defaultMessage="Value"
+							/>
+					</th>
+					{!compact && <th>
+						<FormattedMessage
+							id="updated"
+							description=""
+							defaultMessage="Updated"
+							/>
+					</th>}
+					<th>
+						<FormattedMessage
+							id="change"
+							description=""
+							defaultMessage="Change"
+							/>
+					</th>
+					<th>
+						<FormattedMessage
+							id="chart"
+							description=""
+							defaultMessage="Chart"
+							/>
+					</th>
 				</tr>
 			</thead>
 			<tbody>

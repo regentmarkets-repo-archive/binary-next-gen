@@ -103,7 +103,7 @@ export default class TickTradeCard extends React.Component {
 					disabled={this.state.buying}>
 					<FormattedMessage
 						id="place-order"
-						description="button to place order"
+						description="button to place bet/order"
 						defaultMessage="Place Order"
 						/>
 				</button>

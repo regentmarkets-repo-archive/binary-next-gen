@@ -75,7 +75,7 @@ export default class SigninCard extends React.Component {
 				<button className="outline-link signin-btn" onClick={::this.trySignin}>
 					<FormattedMessage
 						id="sign-in"
-						description="signin button"
+						description="button for sign in"
 						defaultMessage="Sign In"
 						/>
 				</button>

@@ -81,7 +81,7 @@ export default class TickTradeParameters extends React.Component {
 					<label>
 						<FormattedMessage
 							id="amount"
-							description="label to indicate amount of bet, user could choose payout or stake"
+							description=""
 							defaultMessage="Amount"
 							/>
 					</label>
