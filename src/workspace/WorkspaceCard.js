@@ -20,39 +20,39 @@ export default class WorkspaceCard extends React.Component {
 		super(props);
 		this.tabTitles = defineMessages({
 			assets: {
-				id: 'assets',
+				id: 'Assets',
 				defaultMessage: 'Assets',
 			},
 			details: {
-				id: 'details',
+				id: 'Details',
 				defaultMessage: 'Details',
 			},
 			open_positions: {
-				id: 'open-positions',
+				id: 'Open Positions',
 				defaultMessage: 'Open Positions',
 			},
 			transactions: {
-				id: 'transactions',
+				id: 'Transactions',
 				defaultMessage: 'Transactions',
 			},
 			profits: {
-				id: 'profits',
+				id: 'Profits',
 				defaultMessage: 'Profits',
 			},
 			trading_times: {
-				id: 'trading-times',
+				id: 'Trading Times',
 				defaultMessage: 'Trading Times',
 			},
 			assets_index: {
-				id: 'assets-index',
+				id: 'Assets Index',
 				defaultMessage: 'Assets Index',
 			},
 			videos: {
-				id: 'videos',
+				id: 'Videos',
 				defaultMessage: 'Videos',
 			},
 			news: {
-				id: 'news',
+				id: 'News',
 				defaultMessage: 'News',
 			},
 		});

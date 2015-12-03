@@ -14,7 +14,6 @@ rehydratedStorePromise.then(st => {
 
 export default class Root extends Component {
     render() {
-        // require a huge pile of text file deserialize into JS obj for translation
         return (
             <IntlProvider locale="en">
                 <Provider store={store}>

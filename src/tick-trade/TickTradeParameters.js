@@ -31,8 +31,7 @@ export default class TickTradeParameters extends React.Component {
 				<div className="row">
 					<label>
 						<FormattedMessage
-							id="asset"
-							description="label to indicate which asset is chosen, eg Random 100, AUD/USD"
+							id="Asset"
 							defaultMessage="Asset"
 							/>
 					</label>
@@ -45,8 +44,7 @@ export default class TickTradeParameters extends React.Component {
 				<div className="row">
 					<label>
 						<FormattedMessage
-							id="type"
-							description="label to indicate type chosen, eg Rise, Fall"
+							id="Type"
 							defaultMessage="Type"
 							/>
 					</label>
@@ -61,8 +59,7 @@ export default class TickTradeParameters extends React.Component {
 				<div className="row">
 					<label>
 						<FormattedMessage
-							id="ticks"
-							description="label to indicate number of ticks chosen"
+							id="Ticks"
 							defaultMessage="Ticks"
 							/>
 					</label>
@@ -80,8 +77,7 @@ export default class TickTradeParameters extends React.Component {
 				<div className="row">
 					<label>
 						<FormattedMessage
-							id="amount"
-							description=""
+							id="Amount"
 							defaultMessage="Amount"
 							/>
 					</label>

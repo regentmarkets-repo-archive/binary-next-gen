@@ -12,19 +12,19 @@ export default class SettingsCard extends React.Component {
 		this.state = {activeTab: 0};
 		this.tabTitles = defineMessages({
 			personal: {
-				id: 'personal',
+				id: 'Personal',
 				defaultMessage: 'Personal',
 			},
 			security: {
-				id: 'security',
+				id: 'Security',
 				defaultMessage: 'Security',
 			},
 			self_ex: {
-				id: 'self-exclusion',
+				id: 'Self Exclusion',
 				defaultMessage: 'Self Exclusion',
 			},
 			limits: {
-				id: 'limits',
+				id: 'Limits',
 				defaultMessage: 'Limits',
 			},
 		});

@@ -15,22 +15,19 @@ const PortfolioTable = ({compact, contracts, proposals, onViewDetails}) => {
 				<tr>
 					<th>
 						<FormattedMessage
-							id="ref"
-							description=""
+							id="Ref."
 							defaultMessage="Ref."
 							/>
 					</th>
 					<th>
 						<FormattedMessage
-							id="purchase"
-							description=""
+							id="Purchase"
 							defaultMessage="Purchase"
 							/>
 					</th>
                     <th>
 						<FormattedMessage
-							id="indicative"
-							description=""
+							id="Indicative"
 							defaultMessage="Indicative"
 							/>
 					</th>

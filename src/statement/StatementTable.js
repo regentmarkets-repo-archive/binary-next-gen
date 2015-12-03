@@ -11,36 +11,31 @@ const StatementTable = ({compact, currency, transactions}) => (
 			<tr>
 				<th>
 					<FormattedMessage
-						id="purchase-date"
-						description=""
+						id="Purchase Date"
 						defaultMessage="Purchase Date"
 						/>
 				</th>
 				{!compact && <th>
 					<FormattedMessage
-						id="ref"
-						description=""
+						id="Ref."
 						defaultMessage="Ref."
 						/>
 				</th>}
 				<th>
 					<FormattedMessage
-						id="action"
-						description=""
+						id="Action"
 						defaultMessage="Action"
 						/>
 				</th>
 				<th>
 					<FormattedMessage
-						id="credit-debit"
-						description=""
+						id="Credit/Debit"
 						defaultMessage="Credit/Debit"
 						/>
 				</th>
 				<th>
 					<FormattedMessage
-						id="balance"
-						description=""
+						id="Balance"
 						defaultMessage="Balance ({currency})"
 						values={{currency: currency}}
 						/>

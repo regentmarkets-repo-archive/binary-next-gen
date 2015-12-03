@@ -17,36 +17,31 @@ const ProfitTable = ({compact, transactions}) => (
 				</th>}
 				<th>
 					<FormattedMessage
-						id="purchase-date"
-						description=""
+						id="Purchase Date"
 						defaultMessage="Purchase Date"
 						/>
 				</th>
 				<th>
 					<FormattedMessage
-						id="purchase-price"
-						description=""
+						id="Purchase Price"
 						defaultMessage="Purchase Price"
 						/>
 				</th>
                 {!compact && <th>
 					<FormattedMessage
-						id="sale-date"
-						description=""
+						id="Sale Date"
 						defaultMessage="Sale Date"
 						/>
 				</th>}
                 <th>
 					<FormattedMessage
-						id="sale-price"
-						description=""
+						id="Sale Price"
 						defaultMessage="Sale Price"
 						/>
 				</th>
                 <th>
 					<FormattedMessage
-						id="profit-loss"
-						description=""
+						id="Profit/Loss"
 						defaultMessage="Profit/Loss"
 						/>
 				</th>
@@ -75,8 +70,7 @@ const ProfitTable = ({compact, transactions}) => (
 				{!compact && <th></th>}
 				<th>
 					<FormattedMessage
-					id="total"
-					description=""
+					id="Total"
 					defaultMessage="Total"/>
 				</th>
                 <th><NumberColored value={calulateTotals(transactions)} /></th>

@@ -74,23 +74,20 @@ export default class SigninCard extends React.Component {
 				<LanguagePicker onChange={::this.onLanguageChange} />
 				<button className="outline-link signin-btn" onClick={::this.trySignin}>
 					<FormattedMessage
-						id="sign-in"
-						description="button for sign in"
+						id="Sign In"
 						defaultMessage="Sign In"
 						/>
 				</button>
 				<a className="outline-link" target="new" href="https://www.binary.com/user/api_token">
 					<FormattedMessage
-						id="get-token"
-						description="button to get api token"
+						id="Get your API token"
 						defaultMessage="Get your API token"
 						/>
 				</a>
 				<br />
 				<a className="outline-link" target="new" href="https://www.binary.com">
 					<FormattedMessage
-						id="sign-up"
-						description="button to sign up"
+						id="Create Account"
 						defaultMessage="Create Account"
 						/>
 				</a>

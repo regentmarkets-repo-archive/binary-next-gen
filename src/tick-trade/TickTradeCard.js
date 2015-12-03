@@ -102,8 +102,7 @@ export default class TickTradeCard extends React.Component {
 					onClick={() => this.placeOrder()}
 					disabled={this.state.buying}>
 					<FormattedMessage
-						id="place-order"
-						description="button to place bet/order"
+						id="Place Order"
 						defaultMessage="Place Order"
 						/>
 				</button>
