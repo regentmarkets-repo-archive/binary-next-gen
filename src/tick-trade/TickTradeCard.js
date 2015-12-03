@@ -41,7 +41,7 @@ export default class TickTradeCard extends React.Component {
 					buying: false,
 				});
 			}
-		);
+		).then(() => this.getPriceProposal());
 	}
 
 	getTickHistory() {
