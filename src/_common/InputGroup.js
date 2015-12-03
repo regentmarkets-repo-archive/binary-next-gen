@@ -19,7 +19,7 @@ const InputGroup = ({autoFocus, id, className, label, type, hint, value, min, ma
 );
 
 InputGroup.propTypes = {
-	autoFocus: React.PropTypes.bool.isRequired,
+	autoFocus: React.PropTypes.bool,
 	type: React.PropTypes.string,
 	id: React.PropTypes.string,
 	className: React.PropTypes.string,

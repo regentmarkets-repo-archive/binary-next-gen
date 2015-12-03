@@ -84,5 +84,5 @@ export const connect = store => {
 
     initUnauthorized(store);
 
-    api.events.on('authorize', authResponse => initAuthorized(authResponse, store));
+    api.events.on('authorize', response => initAuthorized(response, store));
 };
