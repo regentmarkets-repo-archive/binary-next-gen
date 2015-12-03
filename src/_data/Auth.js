@@ -30,13 +30,11 @@ export const requireAuthOnEnter = (nextState, replaceState, cb) => {
             LiveData.api.authorize(token).then(
                 () => {
                     isAuthorized = true;
-                    cb();
                 },
                 () => {
                     navigateTo(nextState, replaceState, '/signin');
-                    cb();
                 }
-            );
+            ).then(() => cb());
         }
     });
 };

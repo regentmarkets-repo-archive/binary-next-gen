@@ -44,7 +44,8 @@ export default class SigninCard extends React.Component {
 		const {actions, history} = this.props;
 		actions.signinFieldUpdate('progress', true);
 
-		history.pushState({}, '/');	// no need to authorize here onEnter hook will authorize
+		const mainPagePath = window.navigator.userAgent.match(/Mobile/) !== null ? '/' : '/workspace';
+		history.pushState({}, mainPagePath);	// no need to authorize here onEnter hook will authorize
 	}
 
 	// <InputGroup type="email" placeholder="Email" onChange={::this.emailChange} />
@@ -57,12 +58,19 @@ export default class SigninCard extends React.Component {
 		const { signin } = this.props;
 
 		return (
-			<div className="login-content">
+			<form className="login-content" onSubmit={e => e.preventDefault()}>
 				<p className="media">
 					<LogoSpinner spinning={signin.get('progress')}/>
 					<img className="logo-text" src="img/binary-type-logo.svg" />
 				</p>
-				<InputGroup id="token-input" type="text" placeholder="Token" onChange={::this.onTokenChange} />
+				<InputGroup
+					id="token-input"
+					type="text"
+					placeholder="Token"
+					onChange={::this.onTokenChange}
+					autoFocus
+					min={15}
+				/>
 				<ErrorMsg
 					shown={signin.get('validatedOnce') && signin.get('tokenNotEntered')}
 					text="You need to enter a token" />
@@ -75,7 +83,7 @@ export default class SigninCard extends React.Component {
 				<a className="outline-link" target="new" href="https://www.binary.com/user/api_token">Get your API token</a>
 				<br />
 				<a className="outline-link" target="new" href="https://www.binary.com">Create Account</a>
-			</div>
+			</form>
 		);
 	}
 }
