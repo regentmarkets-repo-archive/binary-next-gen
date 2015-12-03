@@ -1,6 +1,7 @@
 import React from 'react';
 import { NumberColored, FormattedDateRange } from '../_common';
 import ProfitRow from './ProfitRow';
+import { FormattedMessage } from 'react-intl';
 
 const calulateTotals = transactions => transactions.map(t => +t.get('sell_price') - +t.get('buy_price')).reduce((x, y) => x + y, 0);
 
@@ -8,12 +9,47 @@ const ProfitTable = ({compact, transactions}) => (
 	<table>
 		<thead>
 			<tr>
-				{!compact && <th>Ref.</th>}
-				<th>Purchase Date</th>
-				<th>Purchase Price</th>
-                {!compact && <th>Sale Date</th>}
-                <th>Sale Price</th>
-                <th>Profit/Loss</th>
+				{!compact && <th>
+					<FormattedMessage
+					id="ref"
+					description=""
+					defaultMessage="Ref." />
+				</th>}
+				<th>
+					<FormattedMessage
+						id="purchase-date"
+						description=""
+						defaultMessage="Purchase Date"
+						/>
+				</th>
+				<th>
+					<FormattedMessage
+						id="purchase-price"
+						description=""
+						defaultMessage="Purchase Price"
+						/>
+				</th>
+                {!compact && <th>
+					<FormattedMessage
+						id="sale-date"
+						description=""
+						defaultMessage="Sale Date"
+						/>
+				</th>}
+                <th>
+					<FormattedMessage
+						id="sale-price"
+						description=""
+						defaultMessage="Sale Price"
+						/>
+				</th>
+                <th>
+					<FormattedMessage
+						id="profit-loss"
+						description=""
+						defaultMessage="Profit/Loss"
+						/>
+				</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -37,7 +73,12 @@ const ProfitTable = ({compact, transactions}) => (
 				</th>
 				<th></th>
 				{!compact && <th></th>}
-				<th>Total</th>
+				<th>
+					<FormattedMessage
+					id="total"
+					description=""
+					defaultMessage="Total"/>
+				</th>
                 <th><NumberColored value={calulateTotals(transactions)} /></th>
 			</tr>
 		</tfoot>

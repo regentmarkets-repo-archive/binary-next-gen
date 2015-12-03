@@ -1,6 +1,7 @@
 import React from 'react';
 import { NumberPlain } from '../_common';
 import PortfolioRow from './PortfolioRow';
+import { FormattedMessage } from 'react-intl';
 
 const totalPurchase = contracts => contracts.reduce((x, y) => x + +y.buy_price, 0);
 const totalIndicative = () => proposals => {
@@ -12,9 +13,27 @@ const PortfolioTable = ({compact, contracts, proposals, onViewDetails}) => {
 		<table>
 			<thead>
 				<tr>
-					<th>Ref.</th>
-					<th>Purchase</th>
-                    <th>Indicative</th>
+					<th>
+						<FormattedMessage
+							id="ref"
+							description=""
+							defaultMessage="Ref."
+							/>
+					</th>
+					<th>
+						<FormattedMessage
+							id="purchase"
+							description=""
+							defaultMessage="Purchase"
+							/>
+					</th>
+                    <th>
+						<FormattedMessage
+							id="indicative"
+							description=""
+							defaultMessage="Indicative"
+							/>
+					</th>
                     {!compact && <th></th>}
 				</tr>
 			</thead>
