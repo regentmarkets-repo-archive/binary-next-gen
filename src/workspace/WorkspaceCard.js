@@ -29,12 +29,12 @@ export default ({actions, workspace}) => (
 						{text: 'Details', component: <AssetDetailsContainer />},
 					]} />
 			</div>
-			<Resizer />
+			<Resizer onResize={e => console.log(e)} />
 			<div id="mid-panel">
 				<div id="workarea">
 					<TickTradePanel position={{left: 400, top: 52, width: 360, height: 500 }} />
 				</div>
-				<Resizer />
+				<Resizer onResize={e => console.log(e)} />
 				<div id="bottom-panel" style={{height: workspace.get('bottomPanelSize')}}>
 					<Tabs
 						id="bottom-panel"
@@ -47,7 +47,7 @@ export default ({actions, workspace}) => (
 						]} />
 				</div>
 			</div>
-			<Resizer />
+			<Resizer onResize={e => console.log(e)} />
 			<div id="right-panel" style={{width: workspace.get('rightPanelSize')}}>
 				<Tabs
 					id="right-panel"

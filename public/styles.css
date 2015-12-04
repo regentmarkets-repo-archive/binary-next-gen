@@ -141,7 +141,6 @@ a.button, button, input[type=button], input[type=submit] {
 }
 .mobile-content {
     padding: .5rem;
-    flex: 1;
     overflow: auto;
 }
 .mobile-content tbody tr {
