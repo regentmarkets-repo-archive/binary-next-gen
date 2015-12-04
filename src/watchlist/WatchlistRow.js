@@ -35,7 +35,11 @@ export default class WatchlistRow extends React.Component {
 				<td><Direction diff={diff} /></td>
 				<td>{asset.get('display_name')}</td>
 				<td>{quote}</td>
-				{!compact && <td><FormattedDate value={epoch * 1000} /></td>}
+				{!compact && <td>
+					{epoch ?
+					<FormattedDate value={epoch * 1000} /> :
+						'-'}
+				</td>}
 				<td><NumberColored value={diff.toPrecision(2)} /></td>
 				<td><WatchlistSparkline history={history} /></td>
 			</tr>
