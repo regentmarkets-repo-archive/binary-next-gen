@@ -44,7 +44,7 @@ export default class AssetSelectorItem extends React.Component {
 				<td onClick={() => onSelect(asset.get('symbol'))}>
 					{asset.get('display_name')}
 				</td>
-				<td style={{ fontSize: '.8rem' }} onClick={() => onSelect(asset.get('symbol'))}>
+				<td className="market-hierarchy" onClick={() => onSelect(asset.get('symbol'))}>
 					{asset.get('market_display_name') + ' > ' + asset.get('submarket_display_name')}
 				</td>
 				<td>

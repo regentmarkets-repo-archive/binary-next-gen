@@ -23,6 +23,7 @@ export Panel from './Panel';
 export RadioItem from './RadioItem';
 export RadioGroup from './RadioGroup';
 export RangeGroup from './RangeGroup';
+export Resizer from './Resizer';
 export Segment from './Segment';
 export SegmentedControl from './SegmentedControl';
 export SelectGroup from './SelectGroup';

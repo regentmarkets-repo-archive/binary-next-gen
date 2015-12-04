@@ -1,5 +1,5 @@
 import React from 'react';
-import { Tabs } from '../_common';
+import { Resizer, Tabs } from '../_common';
 import { DesktopHeader, DesktopSidebar, Footer } from '../navigation';
 import PortfolioContainer from '../portfolio/PortfolioContainer';
 import ProfitTableContainer from '../profit-table/ProfitTableContainer';
@@ -11,7 +11,7 @@ import AssetIndexContainer from '../asset-index/AssetIndexContainer';
 import NewsContainer from '../news/NewsContainer';
 import VideoListContainer from '../video/VideoListContainer';
 import TickTradePanel from '../tick-trade/TickTradePanel';
-import WatchlistPanel from '../watchlist/WatchlistPanel';
+import WatchlistContainer from '../watchlist/WatchlistContainer';
 
 export default ({actions, workspace}) => (
 	<div id="screen">
@@ -25,14 +25,16 @@ export default ({actions, workspace}) => (
 					onChange={idx => actions.changeActiveTab('left', idx)}
 					tabs={[
 						{text: 'Assets', component: <AssetSelectorContainer />},
+						{text: 'Watchlist', component: <WatchlistContainer />},
 						{text: 'Details', component: <AssetDetailsContainer />},
 					]} />
 			</div>
+			<Resizer />
 			<div id="mid-panel">
 				<div id="workarea">
-					<TickTradePanel position={{left: 400, top: 52, width: 400, height: 545 }} />
-					<WatchlistPanel position={{left: 575, top: 352, width: 550, height: 200 }} />
+					<TickTradePanel position={{left: 400, top: 52, width: 360, height: 500 }} />
 				</div>
+				<Resizer />
 				<div id="bottom-panel" style={{height: workspace.get('bottomPanelSize')}}>
 					<Tabs
 						id="bottom-panel"
@@ -45,6 +47,7 @@ export default ({actions, workspace}) => (
 						]} />
 				</div>
 			</div>
+			<Resizer />
 			<div id="right-panel" style={{width: workspace.get('rightPanelSize')}}>
 				<Tabs
 					id="right-panel"

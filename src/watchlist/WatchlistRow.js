@@ -1,5 +1,4 @@
 import React from 'react';
-import { FormattedDate } from 'react-intl';
 import { Direction, NumberColored } from '../_common';
 import WatchlistSparkline from './WatchlistSparkline';
 
@@ -23,23 +22,18 @@ export default class WatchlistRow extends React.Component {
 	}
 
 	render() {
-		const {asset, compact} = this.props;
+		const {asset} = this.props;
 		if (!asset) return <tr/>;
 
 		const history = this.props.history ? this.props.history.toJS() : [];
 		const diff = historyDiff(history);
-		const { quote, epoch } = history[history.length - 1] || {};
+		const { quote } = history[history.length - 1] || {};
 
 		return (
 			<tr>
 				<td><Direction diff={diff} /></td>
 				<td>{asset.get('display_name')}</td>
 				<td>{quote}</td>
-				{!compact && <td>
-					{epoch ?
-					<FormattedDate value={epoch * 1000} /> :
-						'-'}
-				</td>}
 				<td><NumberColored value={diff.toPrecision(2)} /></td>
 				<td><WatchlistSparkline history={history} /></td>
 			</tr>
