@@ -1,6 +1,5 @@
 import React from 'react';
 import { InputGroup } from '../_common';
-import * as LiveData from '../_data/LiveData';
 
 export default class SettingsSelfExclusion extends React.Component {
 
@@ -41,18 +40,7 @@ export default class SettingsSelfExclusion extends React.Component {
 			exclude_until: state.EXCLUDEUNTIL,
 		};
 
-		LiveData.api.setSelfExclusion(req).then(
-				response => {
-				if (response.set_self_exclusion === 1) {
-					this.actions.updateSettingFields(req);
-				} else {
-					SettingsSelfExclusion.handleUpdateError(response);
-				}
-			},
-				response => {
-					SettingsSelfExclusion.handleUpdateError(response);
-			}
-		);
+		this.props.actions.attemptUpdateSelfExclusion(req, SettingsSelfExclusion.handleUpdateError);
 	}
 
 	render() {

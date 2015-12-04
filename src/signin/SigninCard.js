@@ -76,7 +76,7 @@ export default class SigninCard extends React.Component {
 					shown={!!signin.get('credentialsInvalid')}
 					text="Access denied" />
 
-				<LanguagePicker onChange={::this.onLanguageChange} />
+				<LanguagePicker onChange={::this.onLanguageChange} current={signin.get('language')} />
 				<button className="outline-link signin-btn" onClick={::this.trySignin}>Sign In</button>
 				<a className="outline-link" target="new" href="https://www.binary.com/user/api_token">Get your API token</a>
 				<br />

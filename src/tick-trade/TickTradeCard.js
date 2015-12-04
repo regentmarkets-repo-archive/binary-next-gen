@@ -1,17 +1,15 @@
 import React from 'react';
 import { Modal } from '../_common';
 import TickTradeSparkline from '../watchlist/TickTradeSparkline';
-import * as LiveData from '../_data/LiveData';
 import TickTradeParameters from './TickTradeParameters';
 import TradeDisplay from './TradeDisplay';
 import PurchaseConfirmation from './PurchaseConfirmation';
 import PurchaseFailed from './PurchaseFailed';
 
 export default class TickTradeCard extends React.Component {
-
 	constructor(props) {
 		super(props);
-		this.state = {failure: null, buying: false};
+		this.state = {failure: null};
 	}
 
 	static propTypes = {
@@ -21,6 +19,10 @@ export default class TickTradeCard extends React.Component {
 		workspace: React.PropTypes.object.isRequired,
 	};
 
+	handleBuyError(err) {
+		this.setState({failure: err});
+	}
+
 	getPriceProposal() {
 		const {tickTrade, actions} = this.props;
 		actions.getPriceProposal(tickTrade);
@@ -28,20 +30,8 @@ export default class TickTradeCard extends React.Component {
 
 	placeOrder() {
 		const {tickTrade} = this.props;
-		this.setState({buying: true});
-		const buyAttempt = LiveData.api.buyContract(tickTrade.get('id'), tickTrade.get('ask_price'));
-		buyAttempt.then(
-			receipt => {
-				this.props.actions.serverDataBuy(receipt);
-				this.setState({buying: false});
-			},
-			err => {
-				this.setState({
-					failure: err,
-					buying: false,
-				});
-			}
-		).then(() => this.getPriceProposal());
+		this.props.actions.attempBuyContract(tickTrade, this.handleBuyError);
+		this.getPriceProposal();
 	}
 
 	getTickHistory() {
@@ -99,7 +89,7 @@ export default class TickTradeCard extends React.Component {
 				<button
 					className="buy-btn"
 					onClick={() => this.placeOrder()}
-					disabled={this.state.buying}>
+					disabled={tickTrade.get('buying')}>
 					Place Order
 				</button>
 			</div>

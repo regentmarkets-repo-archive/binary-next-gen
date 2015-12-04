@@ -1,6 +1,5 @@
 import React from 'react';
 import InputGroup from '../_common/InputGroup';
-import * as LiveData from '../_data/LiveData';
 import SelectGroup from '../_common/SelectGroup';
 import TextAreaGroup from '../_common/TextAreaGroup';
 
@@ -58,18 +57,7 @@ export default class SettingsAddress extends React.Component {
 			address_postcode: state.postcode,
 			phone: state.tel,
 		};
-		LiveData.api.setAccountSettings(req).then(
-			response => {
-				if (response.set_settings === 1) {
-					this.actions.updateSettingFields(req);
-				} else {
-					SettingsAddress.handleUpdateError(response);
-				}
-			},
-			response => {
-				SettingsAddress.handleUpdateError(response);
-			}
-		);
+		this.props.actions.attemptUpdateSettings(req, SettingsAddress.handleUpdateError);
 	}
 
 	render() {

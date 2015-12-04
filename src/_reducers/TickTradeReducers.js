@@ -20,6 +20,7 @@ const initialState = fromJS({
     currency: 'USD',
     amount: 100,
     ticks: [],
+    buying: false,
 });
 
 export default (state = initialState, action) => {
