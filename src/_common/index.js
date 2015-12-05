@@ -11,6 +11,7 @@ export InfoIcon from './InfoIcon';
 export InputGroup from './InputGroup';
 export LanguagePicker from './LanguagePicker';
 export LogoSpinner from './LogoSpinner';
+export M from './M';
 export MarketSelector from './MarketSelector';
 export MarketSelector from './MarketSelector';
 export MobilePage from './MobilePage';

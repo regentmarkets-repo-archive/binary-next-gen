@@ -29,7 +29,7 @@ const PortfolioCard = ({compact, portfolio, history, actions}) => {
 PortfolioCard.propTypes = {
 	compact: React.PropTypes.bool,
 	portfolio: React.PropTypes.object,
-	history: React.PropTypes.object.isRequired,
+	history: React.PropTypes.object,
 	onViewDetails: React.PropTypes.func,
 };
 
