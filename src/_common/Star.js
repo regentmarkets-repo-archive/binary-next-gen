@@ -12,7 +12,7 @@ export default class Star extends React.Component {
 	}
 
     render() {
-        const {on, onClick} = this.props;
+        const { on, onClick } = this.props;
 
         return (
             <span onClick={onClick} style={{ fontSize: '1.5rem' }}>

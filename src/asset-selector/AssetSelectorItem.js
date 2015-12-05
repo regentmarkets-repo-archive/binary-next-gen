@@ -19,7 +19,7 @@ export default class AssetSelectorItem extends React.Component {
 	}
 
 	toggleFavorite() {
-		const {asset, onFavor, onUnfavor, isFavorite} = this.props;
+		const { asset, onFavor, onUnfavor, isFavorite } = this.props;
 		const symbol = asset.get('symbol');
 		if (isFavorite) {
 			onUnfavor(symbol);
@@ -29,7 +29,7 @@ export default class AssetSelectorItem extends React.Component {
 	}
 
 	render() {
-		const {asset, onSelect, isFavorite, isSelected} = this.props;
+		const { asset, onSelect, isFavorite, isSelected } = this.props;
 		const focuser = node => {
 			if (node !== null && isSelected) {
 				node.focus();

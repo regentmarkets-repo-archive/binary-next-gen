@@ -1,7 +1,7 @@
 import React from 'react';
 import ObjectTableRow from './ObjectTableRow';
 
-const ObjectTable = ({object}) => (
+const ObjectTable = ({ object }) => (
 	<table>
 		<thead>
 			<tr>

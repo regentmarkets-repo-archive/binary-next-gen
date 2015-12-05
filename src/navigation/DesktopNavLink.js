@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 
-const DesktopNavLink = ({to, text}) => (
+const DesktopNavLink = ({ to, text }) => (
 	<Link to={to} className="toolbar-btn" activeClassName="active">
 		{text}
 	</Link>

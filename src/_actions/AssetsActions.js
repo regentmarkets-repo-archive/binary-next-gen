@@ -10,7 +10,7 @@ export const serverDataAssetIndex = serverResponse => ({
     serverResponse,
 });
 
-export const serverDataActiveSymbols = serverResponse => ( {
+export const serverDataActiveSymbols = serverResponse => ({
     type: types.SERVER_DATA_ACTIVE_SYMBOLS,
     serverResponse,
 });

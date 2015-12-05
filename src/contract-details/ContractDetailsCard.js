@@ -3,7 +3,7 @@ import { FormattedTime } from 'react-intl';
 
 const returnOnContract = (contract, proposal) => (proposal.bid_price - contract.buy_price) * 100 / contract.buy_price;
 
-const ContractDetailsCard = ({contract, proposal}) => (
+const ContractDetailsCard = ({ contract, proposal }) => (
 	<div>
 		<table>
 			<thead>

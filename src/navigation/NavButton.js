@@ -8,7 +8,7 @@ export default class NavButton extends React.Component {
 	};
 
 	render() {
-		const {img, text} = this.props;
+		const { img, text } = this.props;
 		return (
 			<button className="toolbar-btn">
 				<img className="toolbar-img" src={`img/${img}.svg`} />

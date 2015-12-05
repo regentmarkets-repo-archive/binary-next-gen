@@ -1,7 +1,7 @@
 import React from 'react';
 import WatchlistRow from './WatchlistRow';
 
-const WatchlistTable = ({assets, ticks, favorites}) => {
+const WatchlistTable = ({ assets, ticks, favorites }) => {
 	return (
 		<table>
 			<thead>
@@ -14,7 +14,7 @@ const WatchlistTable = ({assets, ticks, favorites}) => {
 				</tr>
 			</thead>
 			<tbody>
-				{favorites.toSeq().map( symbol =>
+				{favorites.toSeq().map(symbol =>
 					<WatchlistRow
 						key={symbol}
 						symbol={symbol}

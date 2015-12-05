@@ -16,7 +16,7 @@ export default class MarketSelector extends React.Component {
 	}
 
 	render() {
-		const {assets, onChange, showAllOption, showMarkets} = this.props;
+		const { assets, onChange, showAllOption, showMarkets } = this.props;
 		const tree = assets.get('tree').toJS();
 
 		return (

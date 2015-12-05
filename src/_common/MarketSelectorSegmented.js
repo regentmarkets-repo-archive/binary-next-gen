@@ -1,7 +1,7 @@
 import React from 'react';
 import { SegmentedControl } from '../_common';
 
-const MarketSelector = ({markets, selected, prefixRoute}) => {
+const MarketSelector = ({ markets, selected, prefixRoute }) => {
 	const marketLinks = markets.map(market => ({
 		href: prefixRoute + market.toLowerCase(),
 		text: market,

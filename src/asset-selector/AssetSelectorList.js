@@ -16,7 +16,7 @@ export default class AssetSelectorList extends React.Component {
 	}
 
 	render() {
-		const {assets, favorites, selectedAsset} = this.props;
+		const { assets, favorites, selectedAsset } = this.props;
 
 		return (
 			<table>

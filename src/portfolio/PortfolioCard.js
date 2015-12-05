@@ -4,7 +4,7 @@ import PortfolioTable from './PortfolioTable';
 import ContractDetailsCard from '../contract-details/ContractDetailsCard';
 
 
-const PortfolioCard = ({compact, portfolio, history, actions}) => {
+const PortfolioCard = ({ compact, portfolio, history, actions }) => {
 	const contractShown = portfolio.get('contractShown');
 	const proposalShown = contractShown && portfolio.get('proposals').get(contractShown.contract_id);
 	const onViewDetails = contract =>

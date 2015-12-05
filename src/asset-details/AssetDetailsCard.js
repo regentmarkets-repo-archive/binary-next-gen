@@ -1,7 +1,7 @@
 import React from 'react';
 import AssetDetailsTable from './AssetDetailsTable';
 
-const AssetDetailsCard = ({assets, workspace}) => {
+const AssetDetailsCard = ({ assets, workspace }) => {
 	const symbolSelected = assets.get('list').find(x => x.get('symbol') === workspace.get('symbolSelected'));
 	return !symbolSelected ? <div /> : <AssetDetailsTable asset={symbolSelected.toSeq()} />;
 };

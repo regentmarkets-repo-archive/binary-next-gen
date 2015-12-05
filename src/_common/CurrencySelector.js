@@ -13,7 +13,7 @@ export default class CurrencySelector extends React.Component {
 	};
 
 	render() {
-		const {account, onChange, radio, value} = this.props;
+		const { account, onChange, radio, value } = this.props;
 		const currencies = account
 			.get('currencies')
 			.map(x => ({ value: x, text: x }));

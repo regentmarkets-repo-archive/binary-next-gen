@@ -13,7 +13,7 @@ export default class TickTradeParameters extends React.Component {
 	};
 
 	getPrice() {
-		const {actions, tickTrade} = this.props;
+		const { actions, tickTrade } = this.props;
 		actions.getPriceProposal(tickTrade);
 	}
 
@@ -22,14 +22,14 @@ export default class TickTradeParameters extends React.Component {
 	}
 
 	render() {
-		const {actions, assetName, tickTrade} = this.props;
+		const { actions, assetName, tickTrade } = this.props;
 		const tradeTypeText = tradeToFriendlyType(tickTrade.get('tradeType'), tickTrade.get('barrier'));
 
 		return (
 			<div>
 				<div className="row">
 					<label>Asset</label>
-					<fieldset style={{flex: 4}}>
+					<fieldset style={{ flex: 4 }}>
 						<Link to={'/asset-selector?goback&tick'} className="button">
 							{assetName}
 						</Link>
@@ -37,7 +37,7 @@ export default class TickTradeParameters extends React.Component {
 				</div>
 				<div className="row">
 					<label>Type</label>
-					<fieldset style={{flex: 4}}>
+					<fieldset style={{ flex: 4 }}>
 						<Link
 							className="button"
 							to="/trade-type-selector">
@@ -47,7 +47,7 @@ export default class TickTradeParameters extends React.Component {
 				</div>
 				<div className="row">
 					<label>Ticks</label>
-					<div style={{flex: 4}}>
+					<div style={{ flex: 4 }}>
 						<RangeGroup
 							min={5} max={10}
 							items={['5', '6', '7', '8', '9', '10']}
@@ -60,7 +60,7 @@ export default class TickTradeParameters extends React.Component {
 				</div>
 				<div className="row">
 					<label>Amount</label>
-					<fieldset style={{flex: 4}}>
+					<fieldset style={{ flex: 4 }}>
 						<Link
 							className="button"
 							to="/payout-selector">

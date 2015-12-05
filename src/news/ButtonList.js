@@ -1,9 +1,9 @@
 import React from 'react';
 
-const ButtonList = ({buttonsInfo}) => (
+const ButtonList = ({ buttonsInfo }) => (
     <div className="button-list">
         {buttonsInfo.map((info, idx) =>
-            <button onclick={info.onClick} key={idx}>
+            <button onClick={info.onClick} key={idx}>
                 {info.text}
             </button>
         )}

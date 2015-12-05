@@ -25,7 +25,7 @@ export default class VideoPage extends React.Component {
     }
 
     render() {
-        const {video} = this.props;
+        const { video } = this.props;
         const url = video.get('activeUrl');
         const title = video.get('activeTitle');
         const videos = video.get('videos');

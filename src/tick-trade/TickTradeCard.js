@@ -11,7 +11,7 @@ export default class TickTradeCard extends React.Component {
 
 	constructor(props) {
 		super(props);
-		this.state = {failure: null, buying: false};
+		this.state = { failure: null, buying: false };
 	}
 
 	static propTypes = {
@@ -22,18 +22,18 @@ export default class TickTradeCard extends React.Component {
 	};
 
 	getPriceProposal() {
-		const {tickTrade, actions} = this.props;
+		const { tickTrade, actions } = this.props;
 		actions.getPriceProposal(tickTrade);
 	}
 
 	placeOrder() {
-		const {tickTrade} = this.props;
-		this.setState({buying: true});
+		const { tickTrade } = this.props;
+		this.setState({ buying: true });
 		const buyAttempt = LiveData.api.buyContract(tickTrade.get('id'), tickTrade.get('ask_price'));
 		buyAttempt.then(
 			receipt => {
 				this.props.actions.serverDataBuy(receipt);
-				this.setState({buying: false});
+				this.setState({ buying: false });
 			},
 			err => {
 				this.setState({
@@ -45,12 +45,12 @@ export default class TickTradeCard extends React.Component {
 	}
 
 	getTickHistory() {
-		const {tickTrade} = this.props;
+		const { tickTrade } = this.props;
 		return tickTrade.get('ticks').toJS();
 	}
 
 	getSelectedAssetName() {
-		const {assets, workspace} = this.props;
+		const { assets, workspace } = this.props;
 		const asset = assets.get('list').find(x =>
 			x.get('symbol') === workspace.get('symbolSelected'));
 
@@ -62,7 +62,7 @@ export default class TickTradeCard extends React.Component {
 	}
 
 	render() {
-		const {actions, assets, tickTrade, workspace} = this.props;
+		const { actions, assets, tickTrade, workspace } = this.props;
 		const history = this.getTickHistory();
 		const spot = history.length > 0 ? history[history.length - 1].quote : null;
 		const diff = history.length > 1 ? history[history.length - 1].quote - history[history.length - 2].quote : 0;
@@ -72,7 +72,7 @@ export default class TickTradeCard extends React.Component {
 		return (
 			<div className="tick-trade-mobile">
 				<Modal shown={!!this.state.failure}
-					onClose={() => this.setState({failure: null})}>
+					onClose={() => this.setState({ failure: null })}>
 					<PurchaseFailed failure={this.state.failure} />
 				</Modal>
 				<Modal shown={!!receipt}

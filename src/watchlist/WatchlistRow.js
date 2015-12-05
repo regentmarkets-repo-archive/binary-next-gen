@@ -22,7 +22,7 @@ export default class WatchlistRow extends React.Component {
 	}
 
 	render() {
-		const {asset} = this.props;
+		const { asset } = this.props;
 		if (!asset) return <tr/>;
 
 		const history = this.props.history ? this.props.history.toJS() : [];
