@@ -7,3 +7,4 @@ webpack.*.js
 server.js
 karma.*.js
 test/integration
+./src/_constants/texts.js
