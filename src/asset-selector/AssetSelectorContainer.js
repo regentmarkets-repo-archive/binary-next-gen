@@ -1,7 +1,5 @@
 import React from 'react';
-import * as Actions from '../_actions';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import AssetSelectorCard from './AssetSelectorCard';
 
 @connect(state => ({ assets: state.assets, assetSelector: state.assetSelector, workspace: state.workspace }))
@@ -12,6 +10,7 @@ export default class AssetSelectorContainer extends React.Component {
 		assetSelector: React.PropTypes.object,
 		workspace: React.PropTypes.object,
 		dispatch: React.PropTypes.func,
+		actions: React.PropTypes.object,
 	};
 
 	shouldComponentUpdate(nextProps) {
@@ -21,8 +20,9 @@ export default class AssetSelectorContainer extends React.Component {
 	}
 
 	render() {
+		console.log(this.props.actions);
 		return (
-			<AssetSelectorCard actions={bindActionCreators(Actions, this.props.dispatch)} {...this.props} />
+			<AssetSelectorCard {...this.props} />
 		);
 	}
 }

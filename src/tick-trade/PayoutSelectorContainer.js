@@ -1,7 +1,5 @@
 import React from 'react';
-import * as Actions from '../_actions';
 import { connect } from 'react-redux';
-import { bindActionCreators } from 'redux';
 import PayoutSelectorCard from './PayoutSelectorCard';
 
 @connect(state => ({ tickTrade: state.tickTrade }))
@@ -15,7 +13,7 @@ export default class PayoutSelectorContainer extends React.Component {
 
 	render() {
 		return (
-			<PayoutSelectorCard actions={bindActionCreators(Actions, this.props.dispatch)} {...this.props} />
+			<PayoutSelectorCard {...this.props} />
 		);
 	}
 }

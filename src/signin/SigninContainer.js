@@ -1,6 +1,4 @@
 import React from 'react';
-import { bindActionCreators } from 'redux';
-import * as Actions from '../_actions';
 import { connect } from 'react-redux';
 import SigninCard from './SigninCard';
 
@@ -14,9 +12,7 @@ export default class SigninContainer extends React.Component {
 
 	render() {
 		return (
-			<SigninCard
-				actions={bindActionCreators(Actions, this.props.dispatch)}
-				{...this.props} />
+			<SigninCard {...this.props} />
 		);
 	}
 }
