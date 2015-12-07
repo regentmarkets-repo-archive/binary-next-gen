@@ -4,7 +4,7 @@ import PortfolioTable from './PortfolioTable';
 import ContractDetailsCard from '../contract-details/ContractDetailsCard';
 
 
-const PortfolioCard = ({compact, portfolio, history, actions}) => {
+const PortfolioCard = ({ compact, portfolio, history, actions }) => {
 	const contractShown = portfolio.get('contractShown');
 	const proposalShown = contractShown && portfolio.get('proposals').get(contractShown.contract_id);
 	const onViewDetails = contract =>
@@ -29,7 +29,7 @@ const PortfolioCard = ({compact, portfolio, history, actions}) => {
 PortfolioCard.propTypes = {
 	compact: React.PropTypes.bool,
 	portfolio: React.PropTypes.object,
-	history: React.PropTypes.object.isRequired,
+	history: React.PropTypes.object,
 	onViewDetails: React.PropTypes.func,
 };
 

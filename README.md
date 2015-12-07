@@ -14,7 +14,7 @@ Then open localhost:3000 in a browser
 
 ```
 git pull
-npm update or sudo npm update
+npm update (may need sudo)
 ```
 
 ## Deploy new web version
@@ -22,12 +22,16 @@ npm update or sudo npm update
 We build with [Gulp](http://gulpjs.com/) and deploy to [GitHub Pages](https://pages.github.com/)
 
 ```
+cd build
+npm install or npm update (may need sudo)
 gulp deploy
 ```
 
 ## Build new mobile app version
 
 Use [PhoneGap Build](https://build.phonegap.com/)
+
+Then [Install Shared Apps](https://build.phonegap.com/apps/1774436/share)
 
 ## Build new desktop app version
 

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LabeledText = ({id, label, value = 'N/A'}) => (
+const LabeledText = ({ id, label, value = 'N/A' }) => (
     <div id={id} className={'name-val-pair'}>
         <span className={'name'}>{`${label}: `}</span>
         <span className={'val'}>{value}</span>

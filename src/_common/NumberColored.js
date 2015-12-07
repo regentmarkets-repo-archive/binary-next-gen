@@ -15,7 +15,7 @@ export default class NumberColored extends React.Component {
 	}
 
 	render() {
-		const {value, currency} = this.props;
+		const { value, currency } = this.props;
 
 		return (
 			<NumberPlain className={directionClassName(value)} value={value} currency={currency} />

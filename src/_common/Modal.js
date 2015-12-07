@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Modal = ({shown, onClose, children}) => shown ? (
+const Modal = ({ shown, onClose, children }) => shown ? (
 	<div className="full-screen-overlay" onClick={onClose}>
 		<div className="modal">
 			<button className="close-btn" onClick={onClose}>✖</button>

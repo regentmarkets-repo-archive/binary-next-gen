@@ -14,7 +14,7 @@ export default class TickTradeParameters extends React.Component {
 	};
 
 	getPrice() {
-		const {actions, tickTrade} = this.props;
+		const { actions, tickTrade } = this.props;
 		actions.getPriceProposal(tickTrade);
 	}
 
@@ -23,32 +23,22 @@ export default class TickTradeParameters extends React.Component {
 	}
 
 	render() {
-		const {actions, assetName, tickTrade} = this.props;
+		const { actions, assetName, tickTrade } = this.props;
 		const tradeTypeText = tradeToFriendlyType(tickTrade.get('tradeType'), tickTrade.get('barrier'));
 
 		return (
 			<div>
 				<div className="row">
-					<label>
-						<FormattedMessage
-							id="Asset"
-							defaultMessage="Asset"
-							/>
-					</label>
-					<fieldset style={{flex: 4}}>
+					<label>Asset</label>
+					<fieldset style={{ flex: 4 }}>
 						<Link to={'/asset-selector?goback&tick'} className="button">
 							{assetName}
 						</Link>
 					</fieldset>
 				</div>
 				<div className="row">
-					<label>
-						<FormattedMessage
-							id="Type"
-							defaultMessage="Type"
-							/>
-					</label>
-					<fieldset style={{flex: 4}}>
+					<label>Type</label>
+					<fieldset style={{ flex: 4 }}>
 						<Link
 							className="button"
 							to="/trade-type-selector">
@@ -57,13 +47,8 @@ export default class TickTradeParameters extends React.Component {
 					</fieldset>
 				</div>
 				<div className="row">
-					<label>
-						<FormattedMessage
-							id="Ticks"
-							defaultMessage="Ticks"
-							/>
-					</label>
-					<div style={{flex: 4}}>
+					<label>Ticks</label>
+					<div style={{ flex: 4 }}>
 						<RangeGroup
 							min={5} max={10}
 							items={['5', '6', '7', '8', '9', '10']}
@@ -75,13 +60,8 @@ export default class TickTradeParameters extends React.Component {
 					</div>
 				</div>
 				<div className="row">
-					<label>
-						<FormattedMessage
-							id="Amount"
-							defaultMessage="Amount"
-							/>
-					</label>
-					<fieldset style={{flex: 4}}>
+					<label>Amount</label>
+					<fieldset style={{ flex: 4 }}>
 						<Link
 							className="button"
 							to="/payout-selector">

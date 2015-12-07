@@ -17,13 +17,13 @@ export default class PayoutSelectorCard extends React.Component {
 	};
 
 	updateValue(val) {
-		const {actions, onChange} = this.props;
+		const { actions, onChange } = this.props;
 		actions.updateTickTradeParameters(val);
 		if (onChange) onChange();
 	}
 
 	render() {
-		const {tickTrade} = this.props;
+		const { tickTrade } = this.props;
 		return (
 			<div>
 				<RadioGroup

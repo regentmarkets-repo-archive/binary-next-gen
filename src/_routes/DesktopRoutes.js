@@ -1,5 +1,5 @@
 import HomePage from '../home/HomePage';
-import WorkspacePage from '../workspace/WorkspaceContainer';
+import WorkspaceContainer from '../workspace/WorkspaceContainer';
 import SignupPage from '../signup/SignupPage';
 import UpgradePage from '../upgrade/UpgradePage';
 import WatchlistPage from '../watchlist/WatchlistPage';
@@ -29,11 +29,10 @@ import { requireAuthOnEnter } from '../_data/Auth';
 
 
 export default [
-    { path: 'workspace', component: WorkspacePage, onEnter: requireAuthOnEnter },
-    { path: '/home', component: HomePage },
+    { path: 'home', component: HomePage },
     { path: 'portfolio', component: PortfolioPage, onEnter: requireAuthOnEnter },
     { path: 'statement', component: StatementPage, onEnter: requireAuthOnEnter },
-    { path: 'workspace', component: WorkspacePage, onEnter: requireAuthOnEnter },
+    { path: 'workspace', component: WorkspaceContainer, onEnter: requireAuthOnEnter },
     { path: 'signup', component: SignupPage },
     { path: 'upgrade', component: UpgradePage },
     { path: 'trade', component: TradePage, onEnter: requireAuthOnEnter },
@@ -42,10 +41,10 @@ export default [
     { path: 'active-symbols', component: ActiveSymbolsCard, onEnter: requireAuthOnEnter },
     { path: 'asset-index', component: AssetIndexPage, onEnter: requireAuthOnEnter, childRoutes: [
         { path: ':market', component: AssetIndexTable, onEnter: requireAuthOnEnter },
-    ]},
+    ] },
     { path: 'trading-times', component: TradingTimesPage, onEnter: requireAuthOnEnter, childRoutes: [
         { path: ':market', component: TradingTimesTable, onEnter: requireAuthOnEnter },
-    ]},
+    ] },
     { path: 'rise-fall-table', component: RiseFallTablePage, onEnter: requireAuthOnEnter },
     { path: 'pricing-table', component: PricingTablePage, onEnter: requireAuthOnEnter },
     { path: 'daily-prices', component: DailyPricesPage, onEnter: requireAuthOnEnter },
@@ -55,7 +54,7 @@ export default [
         { path: 'security', component: SettingsSecurity },
         { path: 'exclusion', component: SettingsSelfExclusion },
         { path: 'limits', component: SettingsLimits },
-    ]},
+    ] },
     { path: 'video', component: VideoListContainer },
     { path: 'news', component: NewsContainer },
 ];

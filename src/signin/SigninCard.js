@@ -42,11 +42,9 @@ export default class SigninCard extends React.Component {
 	}
 
 	trySignin() {
-		const {actions, history} = this.props;
+		const { actions, history } = this.props;
 		actions.signinFieldUpdate('progress', true);
-
-		const mainPagePath = window.navigator.userAgent.match(/Mobile/) !== null ? '/' : '/workspace';
-		history.pushState({}, mainPagePath);	// no need to authorize here onEnter hook will authorize
+		history.pushState({}, '/');	// no need to authorize here onEnter hook will authorize
 	}
 
 	// <InputGroup type="email" placeholder="Email" onChange={::this.emailChange} />
@@ -58,12 +56,19 @@ export default class SigninCard extends React.Component {
 	render() {
 		const { signin } = this.props;
 		return (
-			<form className="login-content">
+			<form className="login-content" onSubmit={e => e.preventDefault()}>
 				<p className="media">
 					<LogoSpinner spinning={signin.get('progress')}/>
 					<img className="logo-text" src="img/binary-type-logo.svg" />
 				</p>
-				<InputGroup id="token-input" type="text" placeholder="Token" onChange={::this.onTokenChange} autoFocus />
+				<InputGroup
+					id="token-input"
+					type="text"
+					placeholder="Token"
+					onChange={::this.onTokenChange}
+					autoFocus
+					min={15}
+				/>
 				<ErrorMsg
 					shown={signin.get('validatedOnce') && signin.get('tokenNotEntered')}
 					text="You need to enter a token" />

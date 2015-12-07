@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AssetDetailsTable = ({asset}) => (
+const AssetDetailsTable = ({ asset }) => (
 	<table>
 		<thead>
 			<tr>

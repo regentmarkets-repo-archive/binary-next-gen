@@ -15,7 +15,7 @@ export default class Tabs extends React.Component {
     };
 
     render() {
-        const {id, tabs, activeIndex, onChange} = this.props;
+        const { id, tabs, activeIndex, onChange } = this.props;
         const ActiveComponent = tabs.filter((tab, idx) => activeIndex === idx).map(x => x.component)[0];
         return (
             <div>

@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InputGroup = ({autoFocus, id, className, label, type, hint, value, min, max, readOnly, placeholder, onChange}) => (
+const InputGroup = ({ autoFocus, id, className, label, type, hint, value, min, max, readOnly, placeholder, onChange }) => (
 	<fieldset className={className}>
         {label && <label htmlFor={id}>{label}</label>}
 		<input
@@ -19,15 +19,15 @@ const InputGroup = ({autoFocus, id, className, label, type, hint, value, min, ma
 );
 
 InputGroup.propTypes = {
-	autoFocus: React.PropTypes.bool.isRequired,
+	autoFocus: React.PropTypes.bool,
 	type: React.PropTypes.string,
 	id: React.PropTypes.string,
 	className: React.PropTypes.string,
 	label: React.PropTypes.string,
 	hint: React.PropTypes.string,
 	value: React.PropTypes.string,
-	min: React.PropTypes.string,
-	max: React.PropTypes.string,
+	min: React.PropTypes.number,
+	max: React.PropTypes.number,
 	readOnly: React.PropTypes.bool,
 	placeholder: React.PropTypes.string,
 	onChange: React.PropTypes.func,

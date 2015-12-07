@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TradingTimesRow = ({asset}) => {
+const TradingTimesRow = ({ asset }) => {
     const eventStrs = asset.events.map(e => e.descrip + ': ' + e.dates);
 
     return (

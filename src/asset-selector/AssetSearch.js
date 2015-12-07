@@ -1,7 +1,7 @@
 import React from 'react';
 import { InputGroup } from '../_common';
 
-const AssetSearch = ({onChange}) => (
+const AssetSearch = ({ onChange }) => (
 	<InputGroup
 		className="asset-search"
 		type="search"

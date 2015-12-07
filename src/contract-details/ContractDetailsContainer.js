@@ -14,7 +14,7 @@ export default class ContractDetailsContainer extends React.Component {
 	};
 
 	render() {
-		const {dispatch, params, portfolio} = this.props;
+		const { dispatch, params, portfolio } = this.props;
 		const contract = portfolio.get('contracts').find(x => x.contract_id === params.id);
 
 		if (!contract) return null;

@@ -3,7 +3,7 @@ import { RadioItem, RadioGroup } from '../_common';
 import { digitMatchOptions } from '../_constants/TradeParams';
 import { typeHasBarrier } from '../_utils/TradeUtils';
 
-const TradeTypeTickOptions = ({onTypeChange, onBarrierChange, type, barrier}) => (
+const TradeTypeTickOptions = ({ onTypeChange, onBarrierChange, type, barrier }) => (
 	<div>
 		<div className="radio-selector">
 			<RadioItem

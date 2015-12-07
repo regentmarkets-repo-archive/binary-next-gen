@@ -1,6 +1,6 @@
-import {rehydratedStorePromise, store} from '../_store/configureStore';
+import { rehydratedStorePromise, store } from '../_store/configureStore';
 import * as LiveData from './LiveData';
-import {signinFieldUpdate} from '../_actions/SigninActions';
+import { signinFieldUpdate } from '../_actions/SigninActions';
 
 let isAuthorized = false;
 
@@ -14,7 +14,7 @@ export const requireAuthOnEnter = (nextState, replaceState, cb) => {
         return;
     }
 
-    rehydratedStorePromise.then( st => {
+    rehydratedStorePromise.then(st => {
         const newState = st.getState();
         if (!newState.signin) {
             navigateTo(nextState, replaceState, '/signin');
@@ -34,7 +34,7 @@ export const requireAuthOnEnter = (nextState, replaceState, cb) => {
                 () => {
                     navigateTo(nextState, replaceState, '/signin');
                 }
-            ).then(() => cb());
+            ).then(cb);
         }
     });
 };

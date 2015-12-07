@@ -2,7 +2,7 @@ import React from 'react';
 import { FormattedDate } from 'react-intl';
 import { NumberPlain, NumberColored } from '../_common';
 
-const StatementRow = ({compact, transaction}) => (
+const StatementRow = ({ compact, transaction }) => (
     <tr>
         <td><FormattedDate value={new Date(transaction.transaction_time * 1000)} /></td>
         {!compact && <td>{transaction.transaction_id}</td>}

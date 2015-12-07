@@ -3,7 +3,7 @@ import SegmentedControl from '../_common/SegmentedControl';
 import PricingTable from './PricingTable';
 import PricingTableFilter from './PricingTableFilter';
 
-const PricingTableCard = ({onAssetSelect}) => (
+const PricingTableCard = ({ onAssetSelect }) => (
 	<div>
 		<PricingTableFilter />
 		<SegmentedControl

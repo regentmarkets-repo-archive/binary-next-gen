@@ -14,10 +14,10 @@ export default class TickTradeDisplay extends React.Component {
 	};
 
 	render() {
-		const {assetName, diff, spot, tickTrade} = this.props;
+		const { assetName, diff, spot, tickTrade } = this.props;
 
 		return (
-			<div style={{ background: 'rgba(42, 48, 82, .1)', borderRadius: 2, padding: '.5rem .25rem .25rem .25rem', marginBottom: '1rem'}}>
+			<div style={{ background: 'rgba(42, 48, 82, .1)', borderRadius: 2, padding: '.5rem .25rem .25rem .25rem', marginBottom: '1rem' }}>
 				<div>
 					<strong>{assetName}</strong>
 					<span> will </span>

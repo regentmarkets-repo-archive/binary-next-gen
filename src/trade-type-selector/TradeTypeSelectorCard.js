@@ -12,7 +12,7 @@ export default class TradeTypeSelectorCard extends React.Component {
 	};
 
 	render() {
-		const {actions, isOnlyTickTrade, tickTrade} = this.props;
+		const { actions, isOnlyTickTrade, tickTrade } = this.props;
 
 		const onChange = (key, val) => {
 			const params = {};

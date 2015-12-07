@@ -18,7 +18,7 @@ export default class RadioGroup extends React.Component {
 	}
 
 	render() {
-		const {className, onChange, name, options, value} = this.props;
+		const { className, onChange, name, options, value } = this.props;
 
 		return (
 			<div className={className}>

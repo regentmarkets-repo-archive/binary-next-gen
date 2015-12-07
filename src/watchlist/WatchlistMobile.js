@@ -1,9 +1,9 @@
 import React from 'react';
 import { MobilePage } from '../_common';
-import WatchlistCard from './WatchlistCard';
+import WatchlistContainer from './WatchlistContainer';
 
 export default (props) => (
 	<MobilePage>
-		<WatchlistCard compact {...props} />
+		<WatchlistContainer compact {...props} />
 	</MobilePage>
 );

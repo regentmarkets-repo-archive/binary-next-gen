@@ -9,25 +9,7 @@ import { defineMessages } from 'react-intl';
 export default class SettingsCard extends React.Component {
 	constructor(props) {
 		super(props);
-		this.state = {activeTab: 0};
-		this.tabTitles = defineMessages({
-			personal: {
-				id: 'Personal',
-				defaultMessage: 'Personal',
-			},
-			security: {
-				id: 'Security',
-				defaultMessage: 'Security',
-			},
-			self_ex: {
-				id: 'Self Exclusion',
-				defaultMessage: 'Self Exclusion',
-			},
-			limits: {
-				id: 'Limits',
-				defaultMessage: 'Limits',
-			},
-		});
+		this.state = { activeTab: 0 };
 	}
 
     static propTypes = {
@@ -37,23 +19,22 @@ export default class SettingsCard extends React.Component {
     };
 
 	render() {
-		const {loginid} = this.props;
+		const { loginid } = this.props;
 		const isVirtual = loginid.startsWith('VRTC');
 		const tabs = isVirtual ?
-			[{text: this.tabTitles.personal,
-				component: <SettingsPersonalDetails {...this.props}/>}] :
+			[{ text: 'Personal', component: <SettingsPersonalDetails {...this.props}/> }] :
 			[
-				{text: this.tabTitles.personal, component: <SettingsPersonalDetails {...this.props}/>},
-				{text: this.tabTitles.security, component: <SettingsSecurity {...this.props}/>},
-				{text: this.tabTitles.self_ex, component: <SettingsSelfExclusion {...this.props}/>},
-				{text: this.tabTitles.limits, component: <SettingsLimits {...this.props}/>},
+				{ text: 'Personal', component: <SettingsPersonalDetails {...this.props}/> },
+				{ text: 'Security', component: <SettingsSecurity {...this.props}/> },
+				{ text: 'Self Exclusion', component: <SettingsSelfExclusion {...this.props}/> },
+				{ text: 'Limits', component: <SettingsLimits {...this.props}/> },
 			];
 
 		return (
 			<Tabs
 				id="settings"
 				activeIndex={this.state.activeTab}
-				onChange={idx => this.setState({activeTab: idx})}
+				onChange={idx => this.setState({ activeTab: idx })}
 				tabs={tabs}
 			/>
 		);

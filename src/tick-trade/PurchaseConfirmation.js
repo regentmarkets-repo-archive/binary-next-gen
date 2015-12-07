@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedDate } from 'react-intl';
 
-const PurchaseConfirmation = ({receipt}) => (
+const PurchaseConfirmation = ({ receipt }) => (
 	<div>
 		<table>
 			<tbody>

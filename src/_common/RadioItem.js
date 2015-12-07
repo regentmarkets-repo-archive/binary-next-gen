@@ -1,5 +1,4 @@
 import React from 'react';
-import {FormattedMessage} from 'react-intl';
 
 export default class RadioItem extends React.Component {
 
@@ -14,7 +13,7 @@ export default class RadioItem extends React.Component {
 	};
 
 	render() {
-		const {checked, defaultChecked, img, label, name, onChange, value} = this.props;
+		const { checked, defaultChecked, img, label, name, onChange, value } = this.props;
 		return (
 			<span className="radio-item">
 				<input id={value}
@@ -25,11 +24,9 @@ export default class RadioItem extends React.Component {
 					defaultChecked={defaultChecked}
 					onChange={onChange}
 				/>
-				<label htmlFor={value}>
-					{img ? <img src={img}></img> : ''}
-					<FormattedMessage
-						{...label}
-						/>
+				<label
+					htmlFor={value}
+					dangerouslySetInnerHTML={{ __html: (img ? `<img src=${img}>` : '') + label }}>
 				</label>
 			</span>
 		);

@@ -56,7 +56,7 @@ export default class SettingsSelfExclusion extends React.Component {
 	}
 
 	render() {
-		const {settings} = this.props;
+		const { settings } = this.props;
 		return (
 			<div className="mobile-form">
 				<InputGroup

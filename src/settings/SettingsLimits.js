@@ -8,7 +8,7 @@ export default class SettingsLimits extends React.Component {
 	};
 
 	render() {
-		const {settings} = this.props;
+		const { settings } = this.props;
 
 		return (
 			<div>

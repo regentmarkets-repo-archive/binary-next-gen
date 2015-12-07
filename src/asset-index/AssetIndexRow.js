@@ -1,6 +1,6 @@
 import React from 'react';
 
-const AssetIndexRow = ({assetIndex}) => (
+const AssetIndexRow = ({ assetIndex }) => (
     <tr>
         <td>
             {assetIndex[1]}
