@@ -1,5 +1,6 @@
 import React from 'react';
 import WatchlistRow from './WatchlistRow';
+import M from '../_common/M';
 
 const WatchlistTable = ({ assets, ticks, favorites }) => {
 	return (
@@ -7,10 +8,18 @@ const WatchlistTable = ({ assets, ticks, favorites }) => {
 			<thead>
 				<tr>
 					<th></th>
-					<th>Name</th>
-					<th>Value</th>
-					<th>Change</th>
-					<th>Chart</th>
+					<th>
+						<M m="Name" />
+					</th>
+					<th>
+						<M m="Value" />
+					</th>
+					<th>
+						<M m="Change" />
+					</th>
+					<th>
+						<M m="Chart" />
+					</th>
 				</tr>
 			</thead>
 			<tbody>

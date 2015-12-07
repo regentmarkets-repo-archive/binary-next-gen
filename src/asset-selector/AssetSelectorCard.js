@@ -38,7 +38,7 @@ const AssetSelectorCard = ({ actions, assets, assetSelector, history, workspace 
 					className="asset-search"
 					type="search"
 					placeholder="Search for assets"
-					onChange={onSearchQueryChange} />
+					onChange={onSearchQueryChange} autoFocus/>
 			</fieldset>
 			<div className="asset-list">
 				<AssetSelectorList

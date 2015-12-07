@@ -8,8 +8,8 @@ const ypos = (data, val) => ((val - min(data)) / (max(data) - min(data)) * 120);
 const history = data => data.map(x => x.quote);
 
 const TickTradeSparkline = (props) => {
-	const height = 100;
-	const width = 344;
+	const height = props.height;
+	const width = props.width;
 	const h = history(props.history);
 	const y = (height - ypos(h, h[h.length - 1])) || height;
 
@@ -37,10 +37,14 @@ const TickTradeSparkline = (props) => {
 TickTradeSparkline.propTypes = {
 	history: React.PropTypes.array,
 	showBarrier: React.PropTypes.bool,
+	width: React.PropTypes.number,
+	height: React.PropTypes.number,
 };
 
 TickTradeSparkline.defaultProps = {
 	history: [],
+	width: 344,
+	height: 100,
 };
 
 export default TickTradeSparkline;

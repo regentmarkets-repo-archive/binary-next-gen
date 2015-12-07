@@ -1,5 +1,5 @@
 import React from 'react';
-import { NumberPlain } from '../_common';
+import { NumberPlain, M } from '../_common';
 import PortfolioRow from './PortfolioRow';
 
 const totalPurchase = contracts => contracts.reduce((x, y) => x + +y.buy_price, 0);
@@ -12,9 +12,15 @@ const PortfolioTable = ({ compact, contracts, proposals, onViewDetails }) => {
 		<table>
 			<thead>
 				<tr>
-					<th>Ref.</th>
-					<th>Purchase</th>
-                    <th>Indicative</th>
+					<th>
+						<M m="Ref." />
+					</th>
+					<th>
+						<M m="Purchase" />
+					</th>
+                    <th>
+						<M m="Indicative" />
+					</th>
                     {!compact && <th></th>}
 				</tr>
 			</thead>

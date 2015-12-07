@@ -16,7 +16,7 @@ export default class SettingsDetails extends React.Component {
 				<legend>Details</legend>
 				<div className="name-val-pairs">
 					<LabeledText
-						id="nam"
+						id="name"
 						label="Name"
 						value={settings.name}
 					/>

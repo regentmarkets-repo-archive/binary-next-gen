@@ -46,6 +46,7 @@ export default ({ actions, workspace }) => (
 							{ text: 'Profits', component: <ProfitTableContainer /> },
 						]} />
 				</div>
+				<Footer />
 			</div>
 			<Resizer onResize={e => console.log(e)} />
 			<div id="right-panel" style={{ width: workspace.get('rightPanelSize') }}>

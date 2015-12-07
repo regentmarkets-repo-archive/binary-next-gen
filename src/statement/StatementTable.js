@@ -2,6 +2,7 @@ import React from 'react';
 import { NumberColored, NumberPlain } from '../_common';
 import { FormattedDate } from 'react-intl';
 import StatementRow from './StatementRow';
+import M from '../_common/M';
 
 const calulateTotals = transactions => transactions.map(t => +t.amount).reduce((x, y) => x + y, 0);
 
@@ -9,11 +10,21 @@ const StatementTable = ({ compact, currency, transactions }) => (
 	<table>
 		<thead>
 			<tr>
-				<th>Purchase Date</th>
-				{!compact && <th>Ref.</th>}
-				<th>Action</th>
-				<th>Credit/Debit</th>
-				<th>Balance&nbsp;({currency})</th>
+				<th>
+					<M m="Purchase Date" />
+				</th>
+				{!compact && <th>
+					<M m="Ref." />
+				</th>}
+				<th>
+					<M m="Action"/>
+				</th>
+				<th>
+					<M m="Credit/Debit" />
+				</th>
+				<th>
+					<M m="Balance ({currency})" values={{ currency: currency }} />
+				</th>
 			</tr>
 		</thead>
 		<tbody>

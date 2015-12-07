@@ -1,19 +1,31 @@
 import React from 'react';
 import { NumberColored, FormattedDateRange } from '../_common';
 import ProfitRow from './ProfitRow';
-
+import M from '../_common/M';
 const calulateTotals = transactions => transactions.map(t => +t.get('sell_price') - +t.get('buy_price')).reduce((x, y) => x + y, 0);
 
 const ProfitTable = ({ compact, transactions }) => (
 	<table>
 		<thead>
 			<tr>
-				{!compact && <th>Ref.</th>}
-				<th>Purchase Date</th>
-				<th>Purchase Price</th>
-                {!compact && <th>Sale Date</th>}
-                <th>Sale Price</th>
-                <th>Profit/Loss</th>
+				{!compact && <th>
+					<M m="Ref." />
+				</th>}
+				<th>
+					<M m="Purchase Date" />
+				</th>
+				<th>
+					<M m="Purchase Price" />
+				</th>
+                {!compact && <th>
+					<M m="Sale Date" />
+				</th>}
+                <th>
+					<M m="Sale Price" />
+				</th>
+                <th>
+					<M m="Profit/Loss" />
+				</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -37,7 +49,9 @@ const ProfitTable = ({ compact, transactions }) => (
 				</th>
 				<th></th>
 				{!compact && <th></th>}
-				<th>Total</th>
+				<th>
+					<M m="Total" />
+				</th>
                 <th><NumberColored value={calulateTotals(transactions)} /></th>
 			</tr>
 		</tfoot>
