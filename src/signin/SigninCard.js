@@ -1,9 +1,5 @@
 import React from 'react';
-import LogoSpinner from '../_common/LogoSpinner';
-import ErrorMsg from '../_common/ErrorMsg';
-import InputGroup from '../_common/InputGroup';
-import LanguagePicker from '../_common/LanguagePicker';
-import M from '../_common/M';
+import { LogoSpinner, ErrorMsg, InputGroup, LanguagePicker, M } from '../_common';
 
 export default class SigninCard extends React.Component {
 

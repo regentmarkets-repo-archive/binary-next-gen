@@ -1,7 +1,6 @@
 import React from 'react';
-import { NumberPlain } from '../_common';
+import { NumberPlain, M } from '../_common';
 import PortfolioRow from './PortfolioRow';
-import M from '../_common/M';
 
 const totalPurchase = contracts => contracts.reduce((x, y) => x + +y.buy_price, 0);
 const totalIndicative = () => proposals => {
