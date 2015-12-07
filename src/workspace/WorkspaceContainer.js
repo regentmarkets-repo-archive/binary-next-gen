@@ -1,6 +1,4 @@
 import React from 'react';
-import { bindActionCreators } from 'redux';
-import * as WorkspaceActions from '../_actions/WorkspaceActions';
 import { connect } from 'react-redux';
 import WorkspaceCard from './WorkspaceCard';
 
@@ -14,9 +12,7 @@ export default class WorkspaceContainer extends React.Component {
 
 	render() {
 		return (
-			<WorkspaceCard
-				actions={bindActionCreators(WorkspaceActions, this.props.dispatch)}
-				{...this.props} />
+			<WorkspaceCard {...this.props} />
 		);
 	}
 }

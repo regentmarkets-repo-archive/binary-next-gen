@@ -1,7 +1,5 @@
 import React from 'react';
-import { bindActionCreators } from 'redux';
 import { getSettings } from '../_reducers/SettingsReducers';
-import * as SettingsActions from '../_actions/SettingsActions';
 import { connect } from 'react-redux';
 import SettingsCard from './SettingsCard';
 
@@ -16,9 +14,7 @@ export default class SettingsContainer extends React.Component {
 
 	render() {
 		return (
-			<SettingsCard
-				actions={bindActionCreators(SettingsActions, this.props.dispatch)}
-				{...this.props} />
+			<SettingsCard {...this.props} />
 		);
 	}
 }

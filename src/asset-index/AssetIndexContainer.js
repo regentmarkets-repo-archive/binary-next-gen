@@ -1,6 +1,4 @@
 import React from 'react';
-import { bindActionCreators } from 'redux';
-import * as WorkspaceActions from '../_actions/WorkspaceActions';
 import { connect } from 'react-redux';
 import AssetIndexCard from './AssetIndexCard';
 
@@ -20,9 +18,7 @@ export default class AsssetIndexContainer extends React.Component {
 
 	render() {
 		return (
-			<AssetIndexCard
-				actions={bindActionCreators(WorkspaceActions, this.props.dispatch)}
-				{...this.props} />
+			<AssetIndexCard {...this.props} />
 		);
 	}
 }

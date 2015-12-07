@@ -24,7 +24,7 @@ export default ({ actions, workspace }) => (
 					activeIndex={workspace.get('leftActiveTab')}
 					onChange={idx => actions.changeActiveTab('left', idx)}
 					tabs={[
-						{ text: 'Assets', component: <AssetSelectorContainer /> },
+						{ text: 'Assets', component: <AssetSelectorContainer actions={actions} /> },
 						{ text: 'Watchlist', component: <WatchlistContainer /> },
 						{ text: 'Details', component: <AssetDetailsContainer /> },
 					]} />
@@ -32,7 +32,7 @@ export default ({ actions, workspace }) => (
 			<Resizer onResize={e => console.log(e)} />
 			<div id="mid-panel">
 				<div id="workarea">
-					<TickTradePanel position={{ left: 400, top: 52, width: 360, height: 500 }} />
+					<TickTradePanel position={{ left: 400, top: 52, width: 360, height: 500 }} actions={actions} />
 				</div>
 				<Resizer onResize={e => console.log(e)} />
 				<div id="bottom-panel" style={{ height: workspace.get('bottomPanelSize') }}>
@@ -55,8 +55,8 @@ export default ({ actions, workspace }) => (
 					activeIndex={workspace.get('rightActiveTab')}
 					onChange={idx => actions.changeActiveTab('right', idx)}
 					tabs={[
-						{ text: 'Trading Times', component: <TradingTimesContainer /> },
-						{ text: 'Asset Index', component: <AssetIndexContainer /> },
+						{ text: 'Trading Times', component: <TradingTimesContainer actions={actions} /> },
+						{ text: 'Asset Index', component: <AssetIndexContainer actions={actions}/> },
 						{ text: 'Videos', component: <VideoListContainer /> },
 						{ text: 'News', component: <NewsContainer /> },
 					]} />

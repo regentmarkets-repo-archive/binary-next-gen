@@ -1,6 +1,4 @@
 import React from 'react';
-import { bindActionCreators } from 'redux';
-import * as WorkspaceActions from '../_actions/WorkspaceActions';
 import { connect } from 'react-redux';
 import TradingTimesCard from './TradingTimesCard';
 
@@ -15,9 +13,7 @@ export default class TradingTimesContainer extends React.Component {
 
 	render() {
 		return (
-			<TradingTimesCard
-				actions={bindActionCreators(WorkspaceActions, this.props.dispatch)}
-				{...this.props} />
+			<TradingTimesCard {...this.props} />
 		);
 	}
 }
