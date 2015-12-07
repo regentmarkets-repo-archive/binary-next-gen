@@ -1,4 +1,5 @@
 import React from 'react';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 import { InputGroup, MarketSelector } from '../_common';
 import TradingTimesTable from './TradingTimesTable';
 
@@ -7,16 +8,13 @@ const oneYearAgoStr = () => new Date().setFullYear(new Date().getFullYear() - 1)
 
 export default class TradingTimesCard extends React.Component {
 
+	shouldComponentUpdate = shouldPureComponentUpdate;
+
 	static propTypes = {
 		actions: React.PropTypes.object.isRequired,
 		assets: React.PropTypes.object.isRequired,
 		tradingTimesFilter: React.PropTypes.object.isRequired,
 	};
-
-	shouldComponentUpdate(nextProps) {
-		return nextProps.assets !== this.props.assets ||
-			nextProps.tradingTimesFilter !== this.props.tradingTimesFilter;
-	}
 
 	render() {
 		const { actions, assets, tradingTimesFilter } = this.props;

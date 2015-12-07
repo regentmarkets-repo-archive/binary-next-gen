@@ -1,6 +1,9 @@
 import React from 'react';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 
 export default class NumberPlain extends React.Component {
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
 		currency: React.PropTypes.string,
@@ -12,12 +15,6 @@ export default class NumberPlain extends React.Component {
 	static defaultProps = {
 		digits: 2,
 	};
-
-	shouldComponentUpdate(nextProps) {
-		return nextProps.value !== this.props.value ||
-			nextProps.currency !== this.props.currency ||
-			nextProps.className !== this.props.className;
-	}
 
 	render() {
 		const { currency, className, digits } = this.props;

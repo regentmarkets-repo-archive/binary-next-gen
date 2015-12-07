@@ -1,8 +1,11 @@
 import React from 'react';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 import { connect } from 'react-redux';
 
 @connect(state => ({ assets: state.assets }))
 export default class MarketSelector extends React.Component {
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
 		assets: React.PropTypes.object.isRequired,
@@ -10,10 +13,6 @@ export default class MarketSelector extends React.Component {
 		showAllOption: React.PropTypes.bool.isRequired,
 		showMarkets: React.PropTypes.array,
 	};
-
-	shouldComponentUpdate(nextProps) {
-		return nextProps.assets !== this.props.assets;
-	}
 
 	render() {
 		const { assets, onChange, showAllOption, showMarkets } = this.props;

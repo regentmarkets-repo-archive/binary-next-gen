@@ -1,19 +1,17 @@
 import React from 'react';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 import { MarketSelector } from '../_common';
 import AssetIndexTable from './AssetIndexTable';
 
 export default class AssetIndexCard extends React.Component {
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
 		actions: React.PropTypes.object.isRequired,
 		assets: React.PropTypes.object.isRequired,
 		assetIndexFilter: React.PropTypes.object.isRequired,
 	};
-
-	shouldComponentUpdate(nextProps) {
-		return nextProps.assets !== this.props.assets ||
-			nextProps.assetIndexFilter !== this.props.assetIndexFilter;
-	}
 
 	render() {
 		const { actions, assets, assetIndexFilter } = this.props;

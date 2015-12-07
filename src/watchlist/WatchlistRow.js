@@ -1,4 +1,5 @@
 import React from 'react';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 import { Direction, NumberColored } from '../_common';
 import WatchlistSparkline from './WatchlistSparkline';
 
@@ -10,16 +11,13 @@ const historyDiff = (history) => {
 
 export default class WatchlistRow extends React.Component {
 
+	shouldComponentUpdate = shouldPureComponentUpdate;
+
 	static propTypes = {
 		asset: React.PropTypes.object.isRequired,
 		compact: React.PropTypes.bool,
 		history: React.PropTypes.object,
 	};
-
-	shouldComponentUpdate(nextProps) {
-		return nextProps.asset !== this.props.asset ||
-			nextProps.history !== this.props.history;
-	}
 
 	render() {
 		const { asset } = this.props;

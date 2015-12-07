@@ -1,9 +1,12 @@
 import React from 'react';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 import { connect } from 'react-redux';
 import WatchlistTable from './WatchlistTable';
 
 @connect(state => ({ ticks: state.ticks, assets: state.assets, favorites: state.workspace.get('favoriteAssets') }))
 export default class WatchlistContainer extends React.Component {
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
 		assets: React.PropTypes.object.isRequired,
@@ -11,13 +14,6 @@ export default class WatchlistContainer extends React.Component {
 		ticks: React.PropTypes.object.isRequired,
 		favorites: React.PropTypes.object.isRequired,
 	};
-
-	shouldComponentUpdate(nextProps) {
-		return nextProps.ticks !== this.props.ticks ||
-			nextProps.compact !== this.props.compact ||
-			nextProps.assets !== this.props.assets ||
-			nextProps.favorites !== this.props.favorites;
-	}
 
 	render() {
 		return (
