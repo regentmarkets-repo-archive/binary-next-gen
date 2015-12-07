@@ -4,7 +4,7 @@ import { Provider } from 'react-redux';
 import { store, rehydratedStorePromise } from './configureStore';
 import { Router } from 'react-router';
 import routes from '../_routes';
-import ReactiveIntlProvider from '../_routes/ReactiveIntlProvider';
+import IntlProviderContainer from '../_routes/IntlProviderContainer';
 import HashHistory from 'history/lib/createHashHistory';
 import * as LiveData from '../_data/LiveData';
 
@@ -22,9 +22,9 @@ export default class Root extends Component {
     render() {
         return (
             <Provider store={store}>
-                <ReactiveIntlProvider>
+                <IntlProviderContainer>
                     <Router history={history} children={routes} />
-                </ReactiveIntlProvider>
+                </IntlProviderContainer>
             </Provider>
         );
     }

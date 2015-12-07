@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import allTexts from '../_constants/texts';
 
 @connect(state => ({ language: state.signin.get('language') }))
-export default class ReactiveIntlProvider extends React.Component {
+export default class IntlProviderContainer extends React.Component {
     static propTypes = {
         language: React.PropTypes.string.isRequired,
         children: React.PropTypes.object,
