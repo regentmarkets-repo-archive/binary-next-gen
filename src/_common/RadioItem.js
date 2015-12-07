@@ -6,7 +6,7 @@ export default class RadioItem extends React.Component {
 		checked: React.PropTypes.bool,
 		defaultChecked: React.PropTypes.bool,
 		img: React.PropTypes.string,
-		label: React.PropTypes.object.isRequired,
+		label: React.PropTypes.string.isRequired,
 		name: React.PropTypes.string.isRequired,
 		onChange: React.PropTypes.func.isRequired,
 		value: React.PropTypes.any.isRequired,

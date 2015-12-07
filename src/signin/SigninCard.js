@@ -3,7 +3,7 @@ import LogoSpinner from '../_common/LogoSpinner';
 import ErrorMsg from '../_common/ErrorMsg';
 import InputGroup from '../_common/InputGroup';
 import LanguagePicker from '../_common/LanguagePicker';
-import {FormattedMessage} from 'react-intl';
+import M from '../_common/M';
 
 export default class SigninCard extends React.Component {
 
@@ -78,23 +78,14 @@ export default class SigninCard extends React.Component {
 
 				<LanguagePicker onChange={::this.onLanguageChange} />
 				<button className="outline-link signin-btn" onClick={::this.trySignin}>
-					<FormattedMessage
-						id="Sign In"
-						defaultMessage="Sign In"
-						/>
+					<M m="Sign In" />
 				</button>
 				<a className="outline-link" target="new" href="https://www.binary.com/user/api_token">
-					<FormattedMessage
-						id="Get your API token"
-						defaultMessage="Get your API token"
-						/>
+					<M m="Get your API token" />
 				</a>
 				<br />
 				<a className="outline-link" target="new" href="https://www.binary.com">
-					<FormattedMessage
-						id="Create Account"
-						defaultMessage="Create Account"
-						/>
+					<M m="Create Account" />
 				</a>
 			</form>
 		);

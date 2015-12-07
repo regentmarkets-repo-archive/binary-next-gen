@@ -1,6 +1,6 @@
 import React from 'react';
 import { FormattedMessage } from 'react-intl';
 
-export default ({ m }) => (
-	<FormattedMessage id={m.split(' ').join('_')} defaultMessage={m} />
+export default ({ m, values }) => (
+	<FormattedMessage id={m.split(' ').join('_')} defaultMessage={m} values={values} />
 );

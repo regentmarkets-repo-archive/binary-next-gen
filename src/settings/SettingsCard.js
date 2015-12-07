@@ -4,7 +4,6 @@ import SettingsPersonalDetails from './SettingsPersonalDetails';
 import SettingsSecurity from './SettingsSecurity';
 import SettingsSelfExclusion from './SettingsSelfExclusion';
 import SettingsLimits from './SettingsLimits';
-import { defineMessages } from 'react-intl';
 
 export default class SettingsCard extends React.Component {
 	constructor(props) {

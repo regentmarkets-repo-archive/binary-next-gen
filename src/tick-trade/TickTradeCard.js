@@ -6,7 +6,7 @@ import TickTradeParameters from './TickTradeParameters';
 import TradeDisplay from './TradeDisplay';
 import PurchaseConfirmation from './PurchaseConfirmation';
 import PurchaseFailed from './PurchaseFailed';
-import { FormattedMessage } from 'react-intl';
+import M from '../_common/M';
 
 export default class TickTradeCard extends React.Component {
 
@@ -101,10 +101,7 @@ export default class TickTradeCard extends React.Component {
 					className="buy-btn"
 					onClick={() => this.placeOrder()}
 					disabled={this.state.buying}>
-					<FormattedMessage
-						id="Place Order"
-						defaultMessage="Place Order"
-						/>
+					<M m="Place Order" />
 				</button>
 			</div>
 		);

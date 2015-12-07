@@ -12,7 +12,6 @@ import NewsContainer from '../news/NewsContainer';
 import VideoListContainer from '../video/VideoListContainer';
 import TickTradePanel from '../tick-trade/TickTradePanel';
 import WatchlistContainer from '../watchlist/WatchlistContainer';
-import {defineMessages} from 'react-intl';
 
 export default ({ actions, workspace }) => (
 	<div id="screen">
@@ -66,4 +65,3 @@ export default ({ actions, workspace }) => (
 		<Footer />
 	</div>
 );
-

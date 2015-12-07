@@ -1,7 +1,8 @@
 import React from 'react';
 import { NumberColored, NumberPlain } from '../_common';
-import { FormattedDate, FormattedMessage } from 'react-intl';
+import { FormattedDate } from 'react-intl';
 import StatementRow from './StatementRow';
+import M from '../_common/M';
 
 const calulateTotals = transactions => transactions.map(t => +t.amount).reduce((x, y) => x + y, 0);
 
@@ -10,35 +11,19 @@ const StatementTable = ({ compact, currency, transactions }) => (
 		<thead>
 			<tr>
 				<th>
-					<FormattedMessage
-						id="Purchase Date"
-						defaultMessage="Purchase Date"
-						/>
+					<M m="Purchase Date" />
 				</th>
 				{!compact && <th>
-					<FormattedMessage
-						id="Ref."
-						defaultMessage="Ref."
-						/>
+					<M m="Ref." />
 				</th>}
 				<th>
-					<FormattedMessage
-						id="Action"
-						defaultMessage="Action"
-						/>
+					<M m="Action"/>
 				</th>
 				<th>
-					<FormattedMessage
-						id="Credit/Debit"
-						defaultMessage="Credit/Debit"
-						/>
+					<M m="Credit/Debit" />
 				</th>
 				<th>
-					<FormattedMessage
-						id="Balance"
-						defaultMessage="Balance ({currency})"
-						values={{currency: currency}}
-						/>
+					<M m="Balance ({currency})" values={{ currency: currency }} />
 				</th>
 			</tr>
 		</thead>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { IntlProvider, defineMessages, addLocaleData } from 'react-intl';
+import { IntlProvider, addLocaleData } from 'react-intl';
 import { Provider } from 'react-redux';
 import { store, rehydratedStorePromise } from './configureStore';
 import { Router } from 'react-router';
@@ -17,16 +17,9 @@ addLocaleData({
     parentLocale: 'en',
 });
 
-const messages = defineMessages({
-    bgBGDescription: {
-        id: 'Balance',
-        defaultMessage: 'Баланс',
-    },
-    enUPPERDescription: {
-        id: 'Balance',
-        defaultMessage: 'BALANCE',
-    },
-});
+const messages = {
+    Place_Order: 'PLACE ORDER',
+};
 
 export default class Root extends Component {
     render() {
