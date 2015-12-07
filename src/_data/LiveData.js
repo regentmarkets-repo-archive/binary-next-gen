@@ -25,7 +25,7 @@ const handlers = {
     'videos': 'updateVideoList',
 };
 
-export const api = new LiveApi({ language: 'EN' });
+export const api = new LiveApi({ language: 'EN' });;
 
 const subscribeToSelectedSymbol = st => {
     const selectedSymbol = st.getState().workspace.get('symbolSelected');
@@ -75,6 +75,9 @@ export const trackSymbols = symbols => {
 };
 
 export const connect = store => {
+    const ln = store.getState().signin.get('language');
+    api.changeLanguage(ln);
+
     Object.keys(handlers).forEach(key => {
         const action = actions[handlers[key]];
 
