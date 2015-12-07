@@ -1,7 +1,7 @@
 import React from 'react';
 import VideoThumbnail from './VideoThumbnail.js';
 
-const VideoList = ({video, onSelect}) => (
+const VideoList = ({ video, onSelect }) => (
     <ul>
         {video.get('list').map((v, i) =>
             <VideoThumbnail

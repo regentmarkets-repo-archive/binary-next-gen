@@ -41,7 +41,7 @@ export default class SigninCard extends React.Component {
 	}
 
 	trySignin() {
-		const {actions, history} = this.props;
+		const { actions, history } = this.props;
 		actions.signinFieldUpdate('progress', true);
 		history.pushState({}, '/');	// no need to authorize here onEnter hook will authorize
 	}

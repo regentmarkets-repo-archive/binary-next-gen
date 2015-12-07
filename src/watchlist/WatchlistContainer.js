@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import WatchlistTable from './WatchlistTable';
 
 @connect(state => ({ ticks: state.ticks, assets: state.assets, favorites: state.workspace.get('favoriteAssets') }))
-export default class WatchlistCard extends React.Component {
+export default class WatchlistContainer extends React.Component {
 
 	static propTypes = {
 		assets: React.PropTypes.object.isRequired,

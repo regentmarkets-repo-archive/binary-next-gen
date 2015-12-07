@@ -4,7 +4,7 @@ import ProfitRow from './ProfitRow';
 
 const calulateTotals = transactions => transactions.map(t => +t.get('sell_price') - +t.get('buy_price')).reduce((x, y) => x + y, 0);
 
-const ProfitTable = ({compact, transactions}) => (
+const ProfitTable = ({ compact, transactions }) => (
 	<table>
 		<thead>
 			<tr>

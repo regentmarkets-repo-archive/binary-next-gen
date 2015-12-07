@@ -47,7 +47,7 @@ export default (state = initialState, action) => {
             const symbol = action.serverResponse.echo_req.ticks;
             if (state.get('assetSymbol') !== symbol) return state;
 
-            const {history} = action.serverResponse;
+            const { history } = action.serverResponse;
             const ticks = history.times.map((x, i) => ({
                 epoch: history.times[i],
                 quote: +history.prices[i],

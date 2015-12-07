@@ -20,7 +20,7 @@ export default class NumberPlain extends React.Component {
 	}
 
 	render() {
-		const {currency, className, digits} = this.props;
+		const { currency, className, digits } = this.props;
 		const value = +this.props.value;
 
 		if (isNaN(value)) {

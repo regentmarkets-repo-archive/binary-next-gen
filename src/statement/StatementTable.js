@@ -5,7 +5,7 @@ import StatementRow from './StatementRow';
 
 const calulateTotals = transactions => transactions.map(t => +t.amount).reduce((x, y) => x + y, 0);
 
-const StatementTable = ({compact, currency, transactions}) => (
+const StatementTable = ({ compact, currency, transactions }) => (
 	<table>
 		<thead>
 			<tr>

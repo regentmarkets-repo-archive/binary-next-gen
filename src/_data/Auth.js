@@ -1,6 +1,6 @@
-import {rehydratedStorePromise, store} from '../_store/configureStore';
+import { rehydratedStorePromise, store } from '../_store/configureStore';
 import * as LiveData from './LiveData';
-import {signinFieldUpdate} from '../_actions/SigninActions';
+import { signinFieldUpdate } from '../_actions/SigninActions';
 
 let isAuthorized = false;
 

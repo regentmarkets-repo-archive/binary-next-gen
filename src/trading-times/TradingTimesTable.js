@@ -1,7 +1,7 @@
 import React from 'react';
 import TradingTimesRow from './TradingTimesRow';
 
-const TradingTimesTable = ({submarket, times}) => (
+const TradingTimesTable = ({ submarket, times }) => (
 	<table>
 		<thead>
             <tr>

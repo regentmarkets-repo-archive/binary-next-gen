@@ -1,7 +1,7 @@
 import React from 'react';
 import { RadioItem } from '../_common';
 
-const TradeTypeSelectorCard = ({onChange, type}) => (
+const TradeTypeSelectorCard = ({ onChange, type }) => (
 	<div>
 		<div className="radio-selector">
 			<RadioItem

@@ -41,10 +41,10 @@ export default [
     { path: 'active-symbols', component: ActiveSymbolsCard, onEnter: requireAuthOnEnter },
     { path: 'asset-index', component: AssetIndexPage, onEnter: requireAuthOnEnter, childRoutes: [
         { path: ':market', component: AssetIndexTable, onEnter: requireAuthOnEnter },
-    ]},
+    ] },
     { path: 'trading-times', component: TradingTimesPage, onEnter: requireAuthOnEnter, childRoutes: [
         { path: ':market', component: TradingTimesTable, onEnter: requireAuthOnEnter },
-    ]},
+    ] },
     { path: 'rise-fall-table', component: RiseFallTablePage, onEnter: requireAuthOnEnter },
     { path: 'pricing-table', component: PricingTablePage, onEnter: requireAuthOnEnter },
     { path: 'daily-prices', component: DailyPricesPage, onEnter: requireAuthOnEnter },
@@ -54,7 +54,7 @@ export default [
         { path: 'security', component: SettingsSecurity },
         { path: 'exclusion', component: SettingsSelfExclusion },
         { path: 'limits', component: SettingsLimits },
-    ]},
+    ] },
     { path: 'video', component: VideoListContainer },
     { path: 'news', component: NewsContainer },
 ];

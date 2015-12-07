@@ -2,7 +2,7 @@ import React from 'react';
 import Direction from './Direction';
 import { directionClassName } from '../_utils/StyleUtils';
 
-const DirectionAndValue = ({diff, value}) => (
+const DirectionAndValue = ({ diff, value }) => (
 	<span>
 		<Direction diff={diff} />
 		<span className={directionClassName(diff)}>{value}</span>

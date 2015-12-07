@@ -1,7 +1,7 @@
 import React from 'react';
 import { FormattedTime } from 'react-intl';
 
-const ContractDetails = ({contract}) => {
+const ContractDetails = ({ contract }) => {
 	const returnOnContract = ((contract.bid_price - contract.buy_price) * 100 / contract.buy_price).toFixed(2);
 
 	return (

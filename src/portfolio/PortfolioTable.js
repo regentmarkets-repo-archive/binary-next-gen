@@ -7,7 +7,7 @@ const totalIndicative = () => proposals => {
 	return proposals.values().reduce((x, y) => x + +y, 0);
 };
 
-const PortfolioTable = ({compact, contracts, proposals, onViewDetails}) => {
+const PortfolioTable = ({ compact, contracts, proposals, onViewDetails }) => {
 	return (
 		<table>
 			<thead>

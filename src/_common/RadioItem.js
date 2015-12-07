@@ -13,7 +13,7 @@ export default class RadioItem extends React.Component {
 	};
 
 	render() {
-		const {checked, defaultChecked, img, label, name, onChange, value} = this.props;
+		const { checked, defaultChecked, img, label, name, onChange, value } = this.props;
 		return (
 			<span className="radio-item">
 				<input id={value}
@@ -26,7 +26,7 @@ export default class RadioItem extends React.Component {
 				/>
 				<label
 					htmlFor={value}
-					dangerouslySetInnerHTML={{__html: (img ? `<img src=${img}>` : '') + label}}>
+					dangerouslySetInnerHTML={{ __html: (img ? `<img src=${img}>` : '') + label }}>
 				</label>
 			</span>
 		);

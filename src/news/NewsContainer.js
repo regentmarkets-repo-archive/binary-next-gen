@@ -1,5 +1,5 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { connect } from 'react-redux';
 import NewsCard from './NewsCard';
 
 @connect(state => ({ news: state.news }))

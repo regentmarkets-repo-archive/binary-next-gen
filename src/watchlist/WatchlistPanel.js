@@ -1,10 +1,10 @@
 import React from 'react';
 import { Panel } from '../_common';
-import WatchlistCard from './WatchlistCard';
+import WatchlistContainer from './WatchlistContainer';
 
 const WatchlistPanel = props => (
 	<Panel title="Watchlist" position={props.position}>
-		<WatchlistCard {...props} />
+		<WatchlistContainer {...props} />
 	</Panel>
 );
 

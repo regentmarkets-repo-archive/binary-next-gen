@@ -1,6 +1,6 @@
 import React from 'react';
 
-const LogoSpinner = ({spinning}) => {
+const LogoSpinner = ({ spinning }) => {
 	const classNames = [spinning ? 'spinner' : null];
 
 	return (

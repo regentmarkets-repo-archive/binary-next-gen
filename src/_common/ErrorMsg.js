@@ -1,6 +1,6 @@
 import React from 'react';
 
-const ErrorMsg = ({shown, text}) => (
+const ErrorMsg = ({ shown, text }) => (
 	shown ? <p className="errorfield">{text}</p> : <span />
 );
 

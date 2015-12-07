@@ -16,8 +16,8 @@ export default class AssetIndexCard extends React.Component {
 	}
 
 	render() {
-		const {actions, assets, assetIndexFilter} = this.props;
-		const {index, list} = assets.toJS();
+		const { actions, assets, assetIndexFilter } = this.props;
+		const { index, list } = assets.toJS();
 		const submarket = assetIndexFilter.get('submarket');
 		const submarketForAsset = symbol => list.find(x => x.symbol === symbol).submarket_display_name;
 

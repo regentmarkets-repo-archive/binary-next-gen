@@ -1,6 +1,6 @@
 import React from 'react';
 
-const InputGroup = ({autoFocus, id, className, label, type, hint, value, min, max, readOnly, placeholder, onChange}) => (
+const InputGroup = ({ autoFocus, id, className, label, type, hint, value, min, max, readOnly, placeholder, onChange }) => (
 	<fieldset className={className}>
         {label && <label htmlFor={id}>{label}</label>}
 		<input

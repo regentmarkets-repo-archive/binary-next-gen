@@ -11,7 +11,7 @@ export default class SettingsPersonalDetails extends React.Component {
 	};
 
 	render() {
-		const {settings, actions, loginid} = this.props;
+		const { settings, actions, loginid } = this.props;
 		const shouldHide = loginid.startsWith('VRTC');
 
 		return (

@@ -19,8 +19,8 @@ export default class TradingTimesCard extends React.Component {
 	}
 
 	render() {
-		const {actions, assets, tradingTimesFilter} = this.props;
-		const {times, list} = assets.toJS();
+		const { actions, assets, tradingTimesFilter } = this.props;
+		const { times, list } = assets.toJS();
 		const submarket = tradingTimesFilter.get('submarket');
 		const submarketForAsset = symbol => list.find(x => x.symbol === symbol).submarket_display_name;
 

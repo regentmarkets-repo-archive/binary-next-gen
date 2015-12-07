@@ -1,6 +1,6 @@
 import React from 'react';
 import LabeledText from '../_common/LabeledText';
-import {epochToDateString} from '../_utils/DateUtils';
+import { epochToDateString } from '../_utils/DateUtils';
 
 export default class SettingsDetails extends React.Component {
 
@@ -9,7 +9,7 @@ export default class SettingsDetails extends React.Component {
 	};
 
 	render() {
-		const {settings} = this.props;
+		const { settings } = this.props;
 
 		return (
 			<div>

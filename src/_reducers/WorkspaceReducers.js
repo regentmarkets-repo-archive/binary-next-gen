@@ -59,13 +59,13 @@ export default (state = initialState, action) => {
             return newState;
         }
         case UPDATE_TRADING_TIMES_SUBMARKET: {
-            return state.merge({ tradingTimes: { submarket: action.submarket }});
+            return state.merge({ tradingTimes: { submarket: action.submarket } });
         }
         case UPDATE_TRADING_TIMES_DATE: {
-            return state.merge({ tradingTimes: { date: action.date }});
+            return state.merge({ tradingTimes: { date: action.date } });
         }
         case UPDATE_ASSET_INDEX_SUBMARKET: {
-            return state.merge({ assetIndex: { submarket: action.submarket }});
+            return state.merge({ assetIndex: { submarket: action.submarket } });
         }
         default:
             return state;

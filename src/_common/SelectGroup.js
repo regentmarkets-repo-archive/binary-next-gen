@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SelectGroup = ({id, label, hint, value, options, readOnly, placeholder, onChange}) => (
+const SelectGroup = ({ id, label, hint, value, options, readOnly, placeholder, onChange }) => (
 	<fieldset>
         {label && <label htmlFor={id}>{label}</label>}
 		<select id={id} readOnly={readOnly} placeholder={placeholder} onChange={onChange} value={value}>

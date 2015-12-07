@@ -1,7 +1,7 @@
 import React from 'react';
 import { DesktopHeader, DesktopSidebar } from '../navigation';
 
-const DesktopPage = ({children}) => (
+const DesktopPage = ({ children }) => (
 	<div className="desktop-page">
 		<DesktopHeader />
 		<DesktopSidebar />

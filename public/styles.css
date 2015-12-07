@@ -23,12 +23,11 @@
     user-select: none;
 }
 html {
-    font-size: 16px;
+    font-size: 12px;
 }
-
 /* Desktop Layout */
 
-#screen {
+#root, #screen {
     width: 100%;
     height: 100%;
     display: flex;
@@ -59,15 +58,6 @@ html {
 #left-panel, #right-panel, #bottom-panel {
     overflow: auto;
 }
-#left-panel {
-    border-right: 5px solid #eee;
-}
-#right-panel {
-    border-left: 5px solid #eee;
-}
-#bottom-panel {
-    border-top: 5px solid #eee;
-}
 #workarea {
     flex: 1;
 }
@@ -76,6 +66,9 @@ table {
 }
 thead th {
     font-size: .8rem;
+}
+.market-hierarchy {
+    font-size: .8em;
 }
 .wide-form {
     max-width: 420px;
@@ -100,7 +93,7 @@ thead th {
 .panel-title {
     color: white;
     background: #2a3052;
-    height: 2rem;
+    height: 2em;
     display: flex;
     justify-content: space-between;
 }
@@ -108,7 +101,7 @@ thead th {
     margin-left: .5rem;
 }
 .panel-content {
-    height: calc(100% - 2rem);
+    height: calc(100% - 2em);
     overflow: auto;
 }
 a.button, button, input[type=button], input[type=submit] {
@@ -133,6 +126,7 @@ a.button, button, input[type=button], input[type=submit] {
     float: right;
 }
 .mobile-screen {
+    font-size: 16px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -147,7 +141,6 @@ a.button, button, input[type=button], input[type=submit] {
 }
 .mobile-content {
     padding: .5rem;
-    flex: 1;
     overflow: auto;
 }
 .mobile-content tbody tr {
@@ -462,4 +455,15 @@ select {
 }
 .tick-sparklines {
     text-align: center;
+}
+
+.resizer-vertical {
+    background: #eee;
+    cursor: e-resize;
+    width: .25rem;
+}
+.resizer-horizontal {
+    background: #eee;
+    cursor: s-resize;
+    height: .25rem;
 }

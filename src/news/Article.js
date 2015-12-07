@@ -9,13 +9,13 @@ export default class articles extends React.Component {
     };
 
     render() {
-        const {title, pubDate, content} = this.props;
+        const { title, pubDate, content } = this.props;
 
         return (
             <div>
                 <h2>{title}</h2>
                 <p>{pubDate}</p>
-                <p dangerouslySetInnerHTML={{__html: content}} />
+                <p dangerouslySetInnerHTML={{ __html: content }} />
             </div>
         );
     }

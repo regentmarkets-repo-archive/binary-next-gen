@@ -1,6 +1,6 @@
 import React from 'react';
 
-const TextAreaGroup = ({id, className, label, hint, value, readOnly, placeholder, onChange, rows, cols}) => (
+const TextAreaGroup = ({ id, className, label, hint, value, readOnly, placeholder, onChange, rows, cols }) => (
     <fieldset>
         {label && <label htmlFor={id}>{label}</label>}
             <textarea

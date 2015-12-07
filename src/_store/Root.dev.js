@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { IntlProvider } from 'react-intl';
+import { IntlProvider, defineMessages, addLocaleData } from 'react-intl';
 import { Provider } from 'react-redux';
 import { store, rehydratedStorePromise } from './configureStore';
 import { Router } from 'react-router';
@@ -12,10 +12,26 @@ rehydratedStorePromise.then(st => {
     LiveData.connect(st);
 });
 
+addLocaleData({
+    locale: 'bg-bg',
+    parentLocale: 'en',
+});
+
+const messages = defineMessages({
+    bgBGDescription: {
+        id: 'Balance',
+        defaultMessage: 'Баланс',
+    },
+    enUPPERDescription: {
+        id: 'Balance',
+        defaultMessage: 'BALANCE',
+    },
+});
+
 export default class Root extends Component {
     render() {
         return (
-            <IntlProvider locale="en">
+            <IntlProvider locale="bg-bg" messages={messages}>
                 <Provider store={store}>
                     <Router history={history} children={routes} />
                 </Provider>
