@@ -9,7 +9,7 @@ const PortfolioCard = ({ compact, portfolio, history, actions }) => {
 	const proposalShown = contractShown && portfolio.get('proposals').get(contractShown.contract_id);
 	const onViewDetails = contract =>
 		compact
-			? history.pushState({}, `/contract/${contract.contract_id}`)
+			? history.push(`/contract/${contract.contract_id}`)
 			: actions.detailsForContract(true, contract);
 	return (
 		<div>
