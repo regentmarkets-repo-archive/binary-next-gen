@@ -75,6 +75,9 @@ export const trackSymbols = symbols => {
 };
 
 export const connect = store => {
+    const ln = store.getState().signin.get('language');
+    api.changeLanguage(ln);
+
     Object.keys(handlers).forEach(key => {
         const action = actions[handlers[key]];
 

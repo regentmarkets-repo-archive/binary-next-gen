@@ -1,5 +1,9 @@
 import React from 'react';
-import { LogoSpinner, ErrorMsg, InputGroup, LanguagePicker, M } from '../_common';
+import LogoSpinner from '../_common/LogoSpinner';
+import ErrorMsg from '../_common/ErrorMsg';
+import InputGroup from '../_common/InputGroup';
+import LanguagePicker from '../_common/LanguagePicker';
+import * as LiveData from '../_data/LiveData';
 
 export default class SigninCard extends React.Component {
 
@@ -35,6 +39,7 @@ export default class SigninCard extends React.Component {
 
 	onLanguageChange(event) {
 		this.props.actions.signinFieldUpdate('language', event.target.value);
+		LiveData.api.changeLanguage(event.target.value);
 	}
 
 	trySignin() {
@@ -51,6 +56,7 @@ export default class SigninCard extends React.Component {
 
 	render() {
 		const { signin } = this.props;
+
 		return (
 			<form className="login-content" onSubmit={e => e.preventDefault()}>
 				<p className="media">
@@ -72,17 +78,11 @@ export default class SigninCard extends React.Component {
 					shown={!!signin.get('credentialsInvalid')}
 					text="Access denied" />
 
-				<LanguagePicker onChange={::this.onLanguageChange} />
-				<button className="outline-link signin-btn" onClick={::this.trySignin}>
-					<M m="Sign In" />
-				</button>
-				<a className="outline-link" target="new" href="https://www.binary.com/user/api_token">
-					<M m="Get your API token" />
-				</a>
+				<LanguagePicker onChange={::this.onLanguageChange} selected={signin.get('language')} />
+				<button className="outline-link signin-btn" onClick={::this.trySignin}>Sign In</button>
+				<a className="outline-link" target="new" href="https://www.binary.com/user/api_token">Get your API token</a>
 				<br />
-				<a className="outline-link" target="new" href="https://www.binary.com">
-					<M m="Create Account" />
-				</a>
+				<a className="outline-link" target="new" href="https://www.binary.com">Create Account</a>
 			</form>
 		);
 	}
