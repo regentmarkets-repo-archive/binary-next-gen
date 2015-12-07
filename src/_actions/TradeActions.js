@@ -38,10 +38,10 @@ export const getPriceProposal = (contract) => {
 
 export const attempBuyContract = (contract, errorHandler) => {
     return dispatch => {
-        dispatch(updateTickTradeParameters({buying: true}));
+        dispatch(updateTickTradeParameters({ buying: true }));
         LiveData.api.buyContract(contract.get('id'), contract.get('ask_price'))
             .then(response => dispatch(serverDataBuy(response)))
             .catch(errorHandler)
-            .then(() => dispatch(updateTickTradeParameters({buying: false})));
+            .then(() => dispatch(updateTickTradeParameters({ buying: false })));
     };
 };

@@ -25,7 +25,7 @@ const handlers = {
     'videos': 'updateVideoList',
 };
 
-export const api = new LiveApi({ language: 'EN' });;
+export const api = new LiveApi({ language: 'EN' });
 
 const subscribeToSelectedSymbol = st => {
     const selectedSymbol = st.getState().workspace.get('symbolSelected');

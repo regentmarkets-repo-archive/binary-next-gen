@@ -5,6 +5,7 @@ import TickTradeParameters from './TickTradeParameters';
 import TradeDisplay from './TradeDisplay';
 import PurchaseConfirmation from './PurchaseConfirmation';
 import PurchaseFailed from './PurchaseFailed';
+import LiveData from '../_data/LiveData';
 
 export default class TickTradeCard extends React.Component {
 	constructor(props) {
@@ -20,7 +21,7 @@ export default class TickTradeCard extends React.Component {
 	};
 
 	handleBuyError(err) {
-		this.setState({failure: err});
+		this.setState({ failure: err });
 	}
 
 	getPriceProposal() {
@@ -29,7 +30,6 @@ export default class TickTradeCard extends React.Component {
 	}
 
 	placeOrder() {
-
 		const { tickTrade } = this.props;
 		this.setState({ buying: true });
 		const buyAttempt = LiveData.api.buyContract(tickTrade.get('id'), tickTrade.get('ask_price'));

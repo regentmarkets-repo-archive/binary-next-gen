@@ -2,7 +2,7 @@ import React from 'react';
 import { SelectGroup } from '../_common';
 import languages from '../_constants/languages';
 
-const LanguagePicker = ({onChange, selected}) => (
+const LanguagePicker = ({ onChange, selected }) => (
     <SelectGroup options={languages} value={selected} onChange={onChange} />
 );
 
