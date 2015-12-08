@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import LabeledText from '../_common/LabeledText';
+import { LabeledText, M } from '../_common';
 import { epochToDateString } from '../_utils/DateUtils';
 
 export default class SettingsDetails extends React.Component {
@@ -13,7 +13,9 @@ export default class SettingsDetails extends React.Component {
 
 		return (
 			<div>
-				<legend>Details</legend>
+				<legend>
+					<M m="Details" />
+				</legend>
 				<div className="name-val-pairs">
 					<LabeledText
 						id="name"

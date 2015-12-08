@@ -1,8 +1,6 @@
 import React, { PropTypes } from 'react';
-import InputGroup from '../_common/InputGroup';
+import { InputGroup, SelectGroup, TextAreaGroup, M } from '../_common';
 import * as LiveData from '../_data/LiveData';
-import SelectGroup from '../_common/SelectGroup';
-import TextAreaGroup from '../_common/TextAreaGroup';
 
 export default class SettingsAddress extends React.Component {
 
@@ -78,7 +76,9 @@ export default class SettingsAddress extends React.Component {
 
 		return (
 			<div className="mobile-form">
-				<legend>Location</legend>
+				<legend>
+					<M m="Location"/>
+				</legend>
 				<TextAreaGroup
 					id="address"
 					label="Address"
@@ -109,7 +109,9 @@ export default class SettingsAddress extends React.Component {
 					value={settings.phone}
 					onChange={::this.onAddressChange} />
 
-				<button onClick={::this.tryUpdate}>Update</button>
+				<button onClick={::this.tryUpdate}>
+					<M m="Update" />
+				</button>
 			</div>
 		);
 	}

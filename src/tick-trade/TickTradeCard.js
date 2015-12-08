@@ -3,7 +3,7 @@ import { Modal } from '../_common';
 import TickTradeSparkline from '../watchlist/TickTradeSparkline';
 import * as LiveData from '../_data/LiveData';
 import TickTradeParameters from './TickTradeParameters';
-import TradeDisplay from './TradeDisplay';
+import TickTradeDisplay from './TickTradeDisplay';
 import PurchaseConfirmation from './PurchaseConfirmation';
 import PurchaseFailed from './PurchaseFailed';
 import M from '../_common/M';
@@ -90,7 +90,7 @@ export default class TickTradeCard extends React.Component {
 					assets={assets}
 					tickTrade={tickTrade}
 					workspace={workspace} />
-				<TradeDisplay
+				<TickTradeDisplay
 					assets={assets}
 					assetName={assetName}
 					diff={diff}
