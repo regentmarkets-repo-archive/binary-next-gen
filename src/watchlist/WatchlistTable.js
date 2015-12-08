@@ -9,10 +9,10 @@ const WatchlistTable = ({ assets, ticks, favorites }) => {
 				<tr>
 					<th></th>
 					<th>
-						<M m="Name" />
+						<M m="Asset" />
 					</th>
 					<th>
-						<M m="Value" />
+						<M m="Spot" />
 					</th>
 					<th>
 						<M m="Change" />

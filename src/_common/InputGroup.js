@@ -1,8 +1,11 @@
 import React, { PropTypes } from 'react';
+import M from './M';
 
 const InputGroup = ({ autoFocus, id, className, label, type, hint, value, min, max, readOnly, placeholder, onChange }) => (
 	<fieldset className={className}>
-        {label && <label htmlFor={id}>{label}</label>}
+        {label && <label htmlFor={id}>
+			<M m={label} />
+		</label>}
 		<input
 			autoFocus={autoFocus}
 			id={id}
@@ -14,7 +17,9 @@ const InputGroup = ({ autoFocus, id, className, label, type, hint, value, min, m
 			min={min}
 			max={max}
 		/>
-		{hint && <p className="hint">{hint}</p>}
+		{hint && <p className="hint">
+			<M m={hint} />
+		</p>}
 	</fieldset>
 );
 

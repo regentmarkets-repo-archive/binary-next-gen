@@ -115,7 +115,9 @@ export default class SettingsSelfExclusion extends React.Component {
 					value={settings.exclude_until}
 					onChange={::this.onSelfExclusionChange} />
 
-				<button onClick={::this.tryUpdate}>Update Settings</button>
+				<button onClick={::this.tryUpdate}>
+					<M m="Update" />
+				</button>
 			</div>
 		);
 	}
