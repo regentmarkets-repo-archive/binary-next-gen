@@ -18,6 +18,8 @@ const InputGroup = ({ autoFocus, id, className, label, type, hint, value, min, m
 	</fieldset>
 );
 
+const valueTypes = [React.PropTypes.number, React.PropTypes.object, React.PropTypes.string];
+
 InputGroup.propTypes = {
 	autoFocus: React.PropTypes.bool,
 	type: React.PropTypes.string,
@@ -25,9 +27,9 @@ InputGroup.propTypes = {
 	className: React.PropTypes.string,
 	label: React.PropTypes.string,
 	hint: React.PropTypes.string,
-	value: React.PropTypes.string,
-	min: React.PropTypes.number,
-	max: React.PropTypes.number,
+	value: React.PropTypes.oneOfType(valueTypes),
+	min: React.PropTypes.oneOfType(valueTypes),
+	max: React.PropTypes.oneOfType(valueTypes),
 	readOnly: React.PropTypes.bool,
 	placeholder: React.PropTypes.string,
 	onChange: React.PropTypes.func,
