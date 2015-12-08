@@ -13,8 +13,8 @@ const actionsToCache = [
     ActionTypes.SERVER_DATA_PAYOUT_CURRENCIES,
     ActionTypes.SERVER_DATA_ACCOUNT_LIMITS,
     ActionTypes.SERVER_DATA_ACCOUNT_SETTINGS,
-    ActionTypes.WORKSPACE_FAVOR_ASSET,
-    ActionTypes.WORKSPACE_UNFAVOR_ASSET,
+    ActionTypes.WATCHLIST_FAVOR_ASSET,
+    ActionTypes.WATCHLIST_UNFAVOR_ASSET,
 ];
 
 const reducer = storage.reducer(rootReducer);
@@ -27,7 +27,7 @@ const filteredEngine = storage.decorators.filter(engine, [
     ['statement'],
     ['signin'],
     ['settings'],
-    ['workspace', 'favoriteAssets'],
+    ['watchlist'],
 ]);
 
 const debouncedFilteredEngine = storage.decorators.debounce(filteredEngine, 1000);

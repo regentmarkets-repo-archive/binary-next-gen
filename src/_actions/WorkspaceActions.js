@@ -11,16 +11,6 @@ export const workspaceAssetSelect = symbol => ({
     symbol,
 });
 
-export const workspaceFavorAsset = symbol => ({
-    type: types.WORKSPACE_FAVOR_ASSET,
-    symbol,
-});
-
-export const workspaceUnfavorAsset = symbol => ({
-    type: types.WORKSPACE_UNFAVOR_ASSET,
-    symbol,
-});
-
 export const changeActiveTab = (panel, index) => ({
     type: types.CHANGE_ACTIVE_TAB,
     panel,
@@ -41,20 +31,6 @@ export const updateAssetIndexSubmarket = submarket => ({
     type: types.UPDATE_ASSET_INDEX_SUBMARKET,
     submarket,
 });
-
-export const addToWatchlist = symbol => {
-    return dispatch => {
-        LiveData.api.subscribeToTick(symbol);
-        dispatch(workspaceFavorAsset(symbol));
-    };
-};
-
-export const delFromWatchlist = symbol => {
-    return dispatch => {
-        LiveData.api.unsubscribeFromTick(symbol);
-        dispatch(workspaceUnfavorAsset(symbol));
-    };
-};
 
 export const clearTradeTicks = () => ({
     type: types.CLEAR_TRADE_TICKS,

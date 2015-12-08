@@ -34,10 +34,10 @@ const subscribeToSelectedSymbol = st => {
 
 const subscribeToWatchlist = st => {
     const newState = st.getState();
-    if (!newState.workspace) {
+    if (!newState.watchlist) {
         return;
     }
-    const favs = newState.workspace.get('favoriteAssets');
+    const favs = newState.watchlist;
     api.subscribeToTicks(favs);
 };
 

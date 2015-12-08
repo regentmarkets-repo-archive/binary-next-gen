@@ -1,4 +1,4 @@
-import { Map, Set } from 'immutable';
+import { Map } from 'immutable';
 // import Perf from 'react-addons-perf';
 
 import {
@@ -20,7 +20,6 @@ const initialState = new Map({
     bottomPanelSize: 300,
     bottomActiveTab: 0,
     symbolSelected: 'R_100',
-    favoriteAssets: Set.of(),
     tradingTimes: new Map({
         submarket: 'Asia/Oceania',
         date: new Date(),
