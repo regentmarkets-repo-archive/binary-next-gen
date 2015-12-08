@@ -2,6 +2,7 @@ import React from 'react';
 import { IntlProvider } from 'react-intl';
 import { connect } from 'react-redux';
 import allTexts from '../_constants/texts';
+import locale from '../_constants/languageLocaleMap';
 
 @connect(state => ({ language: state.signin.get('language') }))
 export default class IntlProviderContainer extends React.Component {
@@ -14,7 +15,7 @@ export default class IntlProviderContainer extends React.Component {
         const { language } = this.props;
 
         return (
-            <IntlProvider locale={language} messages={allTexts[language]}>
+            <IntlProvider locale={locale(language)} messages={allTexts[language]}>
                 {this.props.children}
             </IntlProvider>
         );

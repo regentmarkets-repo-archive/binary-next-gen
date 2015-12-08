@@ -15,7 +15,7 @@ import WatchlistContainer from '../watchlist/WatchlistContainer';
 
 export default ({ actions, workspace }) => (
 	<div id="screen">
-		<DesktopHeader />
+		<DesktopHeader actions={actions} />
 		{false && <DesktopSidebar />}
 		<div id="panels">
 			<div id="left-panel" style={{ width: workspace.get('leftPanelSize') }}>
