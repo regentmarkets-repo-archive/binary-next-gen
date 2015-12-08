@@ -11,6 +11,7 @@ import ticks from './TickReducers';
 import profitTable from './ProfitTableReducers';
 import tickTrade from './TickTradeReducers';
 import workspace from './WorkspaceReducers';
+import watchlist from './WatchlistReducers';
 import video from './VideoReducers';
 import news from './NewsReducers';
 
@@ -26,6 +27,7 @@ export default combineReducers({
     tickTrade,
     profitTable,
     workspace,
+    watchlist,
     video,
     news,
 });

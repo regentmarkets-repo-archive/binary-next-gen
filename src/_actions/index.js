@@ -10,4 +10,5 @@ export * from './SettingsActions';
 export * from './SigninActions';
 export * from './StatementActions';
 export * from './WorkspaceActions';
+export * from './WatchlistActions';
 export * from './VideoActions';

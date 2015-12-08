@@ -3,7 +3,7 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 import { connect } from 'react-redux';
 import WatchlistTable from './WatchlistTable';
 
-@connect(state => ({ ticks: state.ticks, assets: state.assets, favorites: state.workspace.get('favoriteAssets') }))
+@connect(state => ({ ticks: state.ticks, assets: state.assets, favorites: state.watchlist }))
 export default class WatchlistContainer extends React.Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;

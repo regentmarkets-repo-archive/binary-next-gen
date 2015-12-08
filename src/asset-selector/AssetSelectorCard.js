@@ -3,7 +3,7 @@ import AssetSelectorList from './AssetSelectorList';
 import { MarketSelector, InputGroup } from '../_common';
 import * as LiveData from '../_data/LiveData';
 
-const AssetSelectorCard = ({ actions, assets, assetSelector, history, workspace }) => {
+const AssetSelectorCard = ({ actions, assets, assetSelector, history, workspace, watchlist }) => {
 	// const showOnlyTickTradable = !!~window.location.search.indexOf('tick');
 	const showOnlyTickTradable = true;
 	const shownAssets = assetSelector.get('shownAssets');
@@ -22,8 +22,8 @@ const AssetSelectorCard = ({ actions, assets, assetSelector, history, workspace 
 			LiveData.api.subscribeToTick(newAsset);
 		}
 	};
-	const onFavor = asset => actions.addToWatchlist(asset);
-	const onUnfavor = asset => actions.delFromWatchlist(asset);
+	const onFavor = asset => actions.watchlistFavorAsset(asset);
+	const onUnfavor = asset => actions.watchlistUnfavorAsset(asset);
 	const onSearchQueryChange = e => actions.updateAssetSelectorSearchQuery(searchableAssets, e.target.value);
 	const onSubmarketChange = e => actions.updateAssetSelectorSubmarket(searchableAssets, e);
 
@@ -43,7 +43,7 @@ const AssetSelectorCard = ({ actions, assets, assetSelector, history, workspace 
 			<div className="asset-list">
 				<AssetSelectorList
 					assets={shownAssets}
-					favorites={workspace.get('favoriteAssets')}
+					favorites={watchlist}
 					onSelect={onSelect}
 					onFavor={onFavor}
 					onUnfavor={onUnfavor}
