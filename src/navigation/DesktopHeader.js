@@ -3,12 +3,20 @@ import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { M, LanguagePicker } from '../_common';
 import { FormattedNumber } from 'react-intl';
+import * as LiveData from '../_data/LiveData';
 
-@connect(state => ({ account: state.account }))
+@connect(state => ({ account: state.account, language: state.signin.get('language') }))
 export default class DesktopHeader extends React.Component {
 	static propTypes = {
 		account: React.PropTypes.object.isRequired,
+		language: React.PropTypes.string,
+		actions: React.PropTypes.object.isRequired,
 	};
+
+	onLanguageChange(event) {
+		this.props.actions.signinFieldUpdate('language', event.target.value);
+		LiveData.api.changeLanguage(event.target.value);
+	}
 
 	render() {
 		const account = this.props.account.toJS();
@@ -23,7 +31,7 @@ export default class DesktopHeader extends React.Component {
 					<M m="Balance" />&nbsp;
 					<FormattedNumber style="currency" currency={account.currency} value={account.balance} />
 				</span>
-				<LanguagePicker />
+				<LanguagePicker onChange={::this.onLanguageChange} selected={this.props.language}/>
 				<span>{account.loginid}</span>
 				<span>{account.email}</span>
 			</div>

@@ -8,6 +8,7 @@ const LanguagePicker = ({ onChange, selected }) => (
 
 LanguagePicker.propTypes = {
     selected: React.PropTypes.oneOf(languages.map(ln => ln.value)),
+    onChange: React.PropTypes.func,
 };
 
 LanguagePicker.defaultProps = {
