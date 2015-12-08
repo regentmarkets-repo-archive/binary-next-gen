@@ -4,12 +4,10 @@ import { connect } from 'react-redux';
 import { M, LanguagePicker } from '../_common';
 import { FormattedNumber } from 'react-intl';
 
-@connect(state => ({ account: state.account, language: state.signin.get('language') }))
+@connect(state => ({ account: state.account }))
 export default class DesktopHeader extends React.Component {
 	static propTypes = {
 		account: React.PropTypes.object.isRequired,
-		language: React.PropTypes.string,
-		actions: React.PropTypes.object.isRequired,
 	};
 
 	// onLanguageChange(event) {
@@ -30,7 +28,7 @@ export default class DesktopHeader extends React.Component {
 					<M m="Balance" />&nbsp;
 					<FormattedNumber style="currency" currency={account.currency} value={account.balance} />
 				</span>
-				<LanguagePicker selected={this.props.language} actions={this.props.actions}/>
+				<LanguagePicker />
 				<span>{account.loginid}</span>
 				<span>{account.email}</span>
 			</div>

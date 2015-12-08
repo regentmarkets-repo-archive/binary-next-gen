@@ -2,15 +2,18 @@ import React from 'react';
 import { SelectGroup } from '../_common';
 import languages from '../_constants/languages';
 import * as LiveData from '../_data/LiveData';
+import { connect } from 'react-redux';
+import { signinFieldUpdate } from '../_actions/SigninActions';
 
-export default class LanguagePicker {
+@connect(state => ({ selected: state.signin.get('language') }))
+export default class LanguagePicker extends React.Component {
     static propTypes = {
         selected: React.PropTypes.oneOf(languages.map(ln => ln.value)),
-        actions: React.PropTypes.object,
+        dispatch: React.PropTypes.func.isRequired,
     };
 
     updateLanguage(event) {
-        this.props.actions.signinFieldUpdate('language', event.target.value);
+        this.props.dispatch(signinFieldUpdate('language', event.target.value));
         LiveData.api.changeLanguage(event.target.value);
     }
 
