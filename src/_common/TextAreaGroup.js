@@ -1,8 +1,11 @@
 import React from 'react';
+import M from './M';
 
 const TextAreaGroup = ({ id, className, label, hint, value, readOnly, placeholder, onChange, rows, cols }) => (
     <fieldset>
-        {label && <label htmlFor={id}>{label}</label>}
+        {label && <label htmlFor={id}>
+            <M m={label} />
+        </label>}
             <textarea
                 id={id}
                 className={className}

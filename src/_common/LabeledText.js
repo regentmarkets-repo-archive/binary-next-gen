@@ -1,9 +1,10 @@
 import React from 'react';
+import M from '../_common/M';
 
 const LabeledText = ({ id, label, value = 'N/A' }) => (
     <div id={id} className={'name-val-pair'}>
-        <span className={'name'}>{`${label}: `}</span>
-        <span className={'val'}>{value}</span>
+        <M className={'name'} id={label + ':'} m={label + ':'}/>
+        <M className={'val'} id={value} m={value}/>
     </div>
 );
 

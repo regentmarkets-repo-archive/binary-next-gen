@@ -1,5 +1,5 @@
 import React from 'react';
-import { InputGroup } from '../_common';
+import { InputGroup, M } from '../_common';
 import * as LiveData from '../_data/LiveData';
 
 export default class SettingsSelfExclusion extends React.Component {
@@ -115,7 +115,9 @@ export default class SettingsSelfExclusion extends React.Component {
 					value={settings.exclude_until}
 					onChange={::this.onSelfExclusionChange} />
 
-				<button onClick={::this.tryUpdate}>Update Settings</button>
+				<button onClick={::this.tryUpdate}>
+					<M m="Update" />
+				</button>
 			</div>
 		);
 	}

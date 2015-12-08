@@ -1,4 +1,5 @@
 import React from 'react';
+import M from '../_common/M';
 
 export default class RadioItem extends React.Component {
 
@@ -24,9 +25,9 @@ export default class RadioItem extends React.Component {
 					defaultChecked={defaultChecked}
 					onChange={onChange}
 				/>
-				<label
-					htmlFor={value}
-					dangerouslySetInnerHTML={{ __html: (img ? `<img src=${img}>` : '') + label }}>
+				<label htmlFor={value}>
+					{img ? <img src={img}/> : '' }
+					<M m={label} />
 				</label>
 			</span>
 		);
