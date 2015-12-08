@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 export default class IntradayPricesFilter extends React.Component {
 
 	static propTypes = {
-        minAvailableDuration: React.PropTypes.number,
-		onCalculate: React.PropTypes.func,
+        minAvailableDuration: PropTypes.number,
+		onCalculate: PropTypes.func,
     };
 
 	constructor(props) {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import WorkspaceCard from './WorkspaceCard';
 
@@ -6,8 +6,8 @@ import WorkspaceCard from './WorkspaceCard';
 export default class WorkspaceContainer extends React.Component {
 
 	static propTypes = {
-		dispatch: React.PropTypes.func.isRequired,
-		workspace: React.PropTypes.object,
+		dispatch: PropTypes.func.isRequired,
+		workspace: PropTypes.object,
 	};
 
 	render() {

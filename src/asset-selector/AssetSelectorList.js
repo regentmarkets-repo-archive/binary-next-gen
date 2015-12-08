@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import AssetSelectorItem from './AssetSelectorItem';
 
@@ -7,9 +7,9 @@ export default class AssetSelectorList extends React.Component {
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
-		assets: React.PropTypes.object.isRequired,
-		favorites: React.PropTypes.object.isRequired,
-		selectedAsset: React.PropTypes.string,
+		assets: PropTypes.object.isRequired,
+		favorites: PropTypes.object.isRequired,
+		selectedAsset: PropTypes.string,
 	};
 
 	render() {

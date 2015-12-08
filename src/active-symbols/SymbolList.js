@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import ObjectTable from '../_common/ObjectTable';
 
 export default class SymbolList extends React.Component {
 
 	static propTypes = {
-		symbols: React.PropTypes.array.isRequired,
+		symbols: PropTypes.array.isRequired,
 	};
 
 	render() {

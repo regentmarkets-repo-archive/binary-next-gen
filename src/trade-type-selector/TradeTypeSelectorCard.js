@@ -1,14 +1,14 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import TradeTypeTickOptions from './TradeTypeTickOptions';
 import TradeTypeRestOptions from './TradeTypeRestOptions';
 
 export default class TradeTypeSelectorCard extends React.Component {
 
 	static propTypes = {
-		actions: React.PropTypes.object.isRequired,
-		isOnlyTickTrade: React.PropTypes.bool,
-		onChange: React.PropTypes.func,
-		tickTrade: React.PropTypes.object.isRequired,
+		actions: PropTypes.object.isRequired,
+		isOnlyTickTrade: PropTypes.bool,
+		onChange: PropTypes.func,
+		tickTrade: PropTypes.object.isRequired,
 	};
 
 	render() {

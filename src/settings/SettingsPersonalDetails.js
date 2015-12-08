@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import SettingsDetails from './SettingsDetails';
 import SettingsAddress from './SettingsAddress';
 
 export default class SettingsPersonalDetails extends React.Component {
 
 	static propTypes = {
-		actions: React.PropTypes.object.isRequired,
-		settings: React.PropTypes.object.isRequired,
-		loginid: React.PropTypes.string.isRequired,
+		actions: PropTypes.object.isRequired,
+		settings: PropTypes.object.isRequired,
+		loginid: PropTypes.string.isRequired,
 	};
 
 	render() {

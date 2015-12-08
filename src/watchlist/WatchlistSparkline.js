@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import { Sparklines, SparklinesLine, SparklinesSpots } from 'react-sparklines';
 
@@ -10,7 +10,7 @@ const WatchlistSparkline = (props) => (
 );
 
 WatchlistSparkline.propTypes = {
-	history: React.PropTypes.array,
+	history: PropTypes.array,
 };
 
 WatchlistSparkline.defaultProps = {

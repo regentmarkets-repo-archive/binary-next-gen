@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Modal } from '../_common';
 import TickTradeSparkline from '../watchlist/TickTradeSparkline';
 import * as LiveData from '../_data/LiveData';
@@ -16,10 +16,10 @@ export default class TickTradeCard extends React.Component {
 	}
 
 	static propTypes = {
-		actions: React.PropTypes.object.isRequired,
-		assets: React.PropTypes.object.isRequired,
-		tickTrade: React.PropTypes.object.isRequired,
-		workspace: React.PropTypes.object.isRequired,
+		actions: PropTypes.object.isRequired,
+		assets: PropTypes.object.isRequired,
+		tickTrade: PropTypes.object.isRequired,
+		workspace: PropTypes.object.isRequired,
 	};
 
 	getPriceProposal() {

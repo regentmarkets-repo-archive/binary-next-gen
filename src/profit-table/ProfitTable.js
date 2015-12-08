@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { NumberColored, FormattedDateRange } from '../_common';
 import ProfitRow from './ProfitRow';
 import M from '../_common/M';
+
 const calulateTotals = transactions => transactions.map(t => +t.get('sell_price') - +t.get('buy_price')).reduce((x, y) => x + y, 0);
 
 const ProfitTable = ({ compact, transactions }) => (
@@ -59,8 +60,8 @@ const ProfitTable = ({ compact, transactions }) => (
 );
 
 ProfitTable.propTypes = {
-	compact: React.PropTypes.bool,
-	transactions: React.PropTypes.any.isRequired,
+	compact: PropTypes.bool,
+	transactions: PropTypes.any.isRequired,
 };
 
 export default ProfitTable;

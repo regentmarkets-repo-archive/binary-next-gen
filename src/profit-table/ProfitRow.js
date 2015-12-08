@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { FormattedDate } from 'react-intl';
 
 import { NumberColored, NumberPlain } from '../_common';
@@ -15,8 +15,8 @@ const ProfitRow = ({ compact, transaction }) => (
 );
 
 ProfitRow.propTypes = {
-    compact: React.PropTypes.bool,
-	transaction: React.PropTypes.object.isRequired,
+    compact: PropTypes.bool,
+	transaction: PropTypes.object.isRequired,
 };
 
 export default ProfitRow;

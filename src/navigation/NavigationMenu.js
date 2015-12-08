@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { NumberPlain } from '../_common';
@@ -7,7 +7,7 @@ import { NumberPlain } from '../_common';
 export default class NavigationMenu extends React.Component {
 
 	static propTypes = {
-		account: React.PropTypes.object.isRequired,
+		account: PropTypes.object.isRequired,
 	};
 
 	render() {

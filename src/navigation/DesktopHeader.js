@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import { M, LanguagePicker } from '../_common';
@@ -7,7 +7,7 @@ import { FormattedNumber } from 'react-intl';
 @connect(state => ({ account: state.account }))
 export default class DesktopHeader extends React.Component {
 	static propTypes = {
-		account: React.PropTypes.object.isRequired,
+		account: PropTypes.object.isRequired,
 	};
 
 	// onLanguageChange(event) {

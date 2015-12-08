@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const ButtonList = ({ buttonsInfo }) => (
     <div className="button-list">
@@ -11,8 +11,8 @@ const ButtonList = ({ buttonsInfo }) => (
 );
 
 ButtonList.propsType = {
-    text: React.PropTypes.string.isRequired,
-    onClick: React.PropTypes.func.isRequired,
+    text: PropTypes.string.isRequired,
+    onClick: PropTypes.func.isRequired,
 };
 
 export default ButtonList;

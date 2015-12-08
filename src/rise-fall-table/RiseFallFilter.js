@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { CurrencySelector, RangeGroup } from '../_common';
 
 const RiseFallFilter = ({ onCalculate }) => (
@@ -20,8 +20,8 @@ const RiseFallFilter = ({ onCalculate }) => (
 );
 
 RiseFallFilter.propTypes = {
-	minAvailableDuration: React.PropTypes.number,
-	onCalculate: React.PropTypes.func,
+	minAvailableDuration: PropTypes.number,
+	onCalculate: PropTypes.func,
 };
 
 export default RiseFallFilter;

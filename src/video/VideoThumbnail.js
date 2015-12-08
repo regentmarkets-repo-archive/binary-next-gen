@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 export default class VideoThumbnail extends React.Component {
 
     static propTypes = {
-		imgSrc: React.PropTypes.string.isRequired,
-		title: React.PropTypes.string.isRequired,
-		videoId: React.PropTypes.string.isRequired,
-		onSelect: React.PropTypes.func,
+		imgSrc: PropTypes.string.isRequired,
+		title: PropTypes.string.isRequired,
+		videoId: PropTypes.string.isRequired,
+		onSelect: PropTypes.func,
 	};
 
     render() {

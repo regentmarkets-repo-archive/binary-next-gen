@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const AssetDetailsTable = ({ asset }) => (
 	<table>
@@ -21,7 +21,7 @@ const AssetDetailsTable = ({ asset }) => (
 
 
 AssetDetailsTable.propTypes = {
-	asset: React.PropTypes.object.isRequired,
+	asset: PropTypes.object.isRequired,
 };
 
 export default AssetDetailsTable;

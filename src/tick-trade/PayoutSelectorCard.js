@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { RadioGroup, CurrencySelector } from '../_common';
 
 const basisTypes = [
@@ -11,9 +11,9 @@ const payoutAmounts = [1, 2, 5, 10, 20, 50, 100, 500, 1000].map(x => ({ value: x
 export default class PayoutSelectorCard extends React.Component {
 
 	static propTypes = {
-		actions: React.PropTypes.object.isRequired,
-		tickTrade: React.PropTypes.object.isRequired,
-		onChange: React.PropTypes.func,
+		actions: PropTypes.object.isRequired,
+		tickTrade: PropTypes.object.isRequired,
+		onChange: PropTypes.func,
 	};
 
 	updateValue(val) {

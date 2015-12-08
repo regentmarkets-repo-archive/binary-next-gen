@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { SegmentedControl } from '../_common';
 
 const MarketSelector = ({ markets, selected, prefixRoute }) => {
@@ -14,8 +14,8 @@ const MarketSelector = ({ markets, selected, prefixRoute }) => {
 };
 
 MarketSelector.propTypes = {
-	markets: React.PropTypes.array.isRequired,
-	selected: React.PropTypes.string,
+	markets: PropTypes.array.isRequired,
+	selected: PropTypes.string,
 };
 
 MarketSelector.defaultProps = {

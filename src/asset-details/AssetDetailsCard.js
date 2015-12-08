@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import AssetDetailsTable from './AssetDetailsTable';
 
 const AssetDetailsCard = ({ assets, workspace }) => {
@@ -7,8 +7,8 @@ const AssetDetailsCard = ({ assets, workspace }) => {
 };
 
 AssetDetailsCard.propTypes = {
-	assets: React.PropTypes.object.isRequired,
-	workspace: React.PropTypes.object.isRequired,
+	assets: PropTypes.object.isRequired,
+	workspace: PropTypes.object.isRequired,
 };
 
 export default AssetDetailsCard;

@@ -1,13 +1,13 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { RadioItem } from '../_common';
 
 export default class Tabs extends React.Component {
 
     static propTypes = {
-        id: React.PropTypes.string.isRequired,
-        tabs: React.PropTypes.array.isRequired,
-        activeIndex: React.PropTypes.number.isRequired,
-        onChange: React.PropTypes.func,
+        id: PropTypes.string.isRequired,
+        tabs: PropTypes.array.isRequired,
+        activeIndex: PropTypes.number.isRequired,
+        onChange: PropTypes.func,
     };
 
     static defaultProps = {

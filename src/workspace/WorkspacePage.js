@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { DesktopHeader, DesktopSidebar } from '../_common';
 import WorkspaceContainer from './WorkspaceContainer';
 
@@ -11,7 +11,7 @@ const WorkspacePage = (props) => (
 );
 
 WorkspacePage.propTypes = {
-	children: React.PropTypes.any,
+	children: PropTypes.any,
 };
 
 export default WorkspacePage;

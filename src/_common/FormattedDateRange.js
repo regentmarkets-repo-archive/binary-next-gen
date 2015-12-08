@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { FormattedDate } from 'react-intl';
 
 const FormattedDateRange = ({ fromDate, toDate }) => (
@@ -8,8 +8,8 @@ const FormattedDateRange = ({ fromDate, toDate }) => (
 );
 
 FormattedDate.propTypes = {
-	fromDate: React.PropTypes.instanceOf(Date),
-	toDate: React.PropTypes.instanceOf(Date),
+	fromDate: PropTypes.instanceOf(Date),
+	toDate: PropTypes.instanceOf(Date),
 };
 
 export default FormattedDateRange;

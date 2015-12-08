@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const Direction = ({ diff, width, height }) => (
 	<svg width={width} height={height}>
@@ -9,9 +9,9 @@ const Direction = ({ diff, width, height }) => (
 );
 
 Direction.propTypes = {
-	diff: React.PropTypes.number.isRequired,
-	width: React.PropTypes.number,
-	height: React.PropTypes.number,
+	diff: PropTypes.number.isRequired,
+	width: PropTypes.number,
+	height: PropTypes.number,
 };
 
 Direction.defaultProps = {

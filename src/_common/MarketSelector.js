@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { connect } from 'react-redux';
 
@@ -8,10 +8,10 @@ export default class MarketSelector extends React.Component {
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
-		assets: React.PropTypes.object.isRequired,
-		onChange: React.PropTypes.func.isRequired,
-		showAllOption: React.PropTypes.bool.isRequired,
-		showMarkets: React.PropTypes.array,
+		assets: PropTypes.object.isRequired,
+		onChange: PropTypes.func.isRequired,
+		showAllOption: PropTypes.bool.isRequired,
+		showMarkets: PropTypes.array,
 	};
 
 	render() {

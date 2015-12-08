@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const SelectGroup = ({ id, label, hint, value, options, readOnly, placeholder, onChange }) => (
 	<fieldset>
@@ -11,14 +11,14 @@ const SelectGroup = ({ id, label, hint, value, options, readOnly, placeholder, o
 );
 
 SelectGroup.propTypes = {
-	hint: React.PropTypes.string,
-	id: React.PropTypes.string,
-	label: React.PropTypes.string,
-	onChange: React.PropTypes.func,
-	options: React.PropTypes.array,
-	placeholder: React.PropTypes.string,
-	readOnly: React.PropTypes.bool,
-	value: React.PropTypes.string,
+	hint: PropTypes.string,
+	id: PropTypes.string,
+	label: PropTypes.string,
+	onChange: PropTypes.func,
+	options: PropTypes.array,
+	placeholder: PropTypes.string,
+	readOnly: PropTypes.bool,
+	value: PropTypes.string,
 };
 
 export default SelectGroup;

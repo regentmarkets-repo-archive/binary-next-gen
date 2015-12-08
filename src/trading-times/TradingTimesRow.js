@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const TradingTimesRow = ({ asset }) => {
     const eventStrs = asset.events.map(e => e.descrip + ': ' + e.dates);
@@ -15,7 +15,7 @@ const TradingTimesRow = ({ asset }) => {
 };
 
 TradingTimesRow.propTypes = {
-    asset: React.PropTypes.object.isRequired,
+    asset: PropTypes.object.isRequired,
 };
 
 export default TradingTimesRow;

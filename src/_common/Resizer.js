@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 export default class Resizer extends React.Component {
 
 	static propTypes = {
-		onResize: React.PropTypes.func.isRequired,
+		onResize: PropTypes.func.isRequired,
 	};
 
 	onMouseDown() {

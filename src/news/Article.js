@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 export default class articles extends React.Component {
 
     static propTypes = {
-        title: React.PropTypes.string.isRequired,
-        pubDate: React.PropTypes.string.isRequired,
-        content: React.PropTypes.string.isRequired,
+        title: PropTypes.string.isRequired,
+        pubDate: PropTypes.string.isRequired,
+        content: PropTypes.string.isRequired,
     };
 
     render() {

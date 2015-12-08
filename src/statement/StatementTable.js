@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { NumberColored, NumberPlain } from '../_common';
 import { FormattedDate } from 'react-intl';
 import StatementRow from './StatementRow';
@@ -50,8 +50,8 @@ const StatementTable = ({ compact, currency, transactions }) => (
 
 
 StatementTable.propTypes = {
-	compact: React.PropTypes.bool,
-	transactions: React.PropTypes.array.isRequired,
+	compact: PropTypes.bool,
+	transactions: PropTypes.array.isRequired,
 };
 
 export default StatementTable;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { RadioItem, RadioGroup } from '../_common';
 import { digitMatchOptions } from '../_constants/TradeParams';
 import { typeHasBarrier } from '../_utils/TradeUtils';
@@ -90,10 +90,10 @@ const TradeTypeTickOptions = ({ onTypeChange, onBarrierChange, type, barrier }) 
 );
 
 TradeTypeTickOptions.propTypes = {
-	type: React.PropTypes.string,
-	barrier: React.PropTypes.number,
-	onTypeChange: React.PropTypes.func,
-	onBarrierChange: React.PropTypes.func,
+	type: PropTypes.string,
+	barrier: PropTypes.number,
+	onTypeChange: PropTypes.func,
+	onBarrierChange: PropTypes.func,
 };
 
 export default TradeTypeTickOptions;

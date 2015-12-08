@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Panel } from '../_common';
 import TickTradeContainer from './TickTradeContainer';
 
@@ -9,7 +9,7 @@ const TickTradePanel = props => (
 );
 
 TickTradePanel.propTypes = {
-	position: React.PropTypes.object,
+	position: PropTypes.object,
 };
 
 export default TickTradePanel;

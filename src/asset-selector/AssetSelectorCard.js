@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import AssetSelectorList from './AssetSelectorList';
 import { MarketSelector, InputGroup } from '../_common';
 import * as LiveData from '../_data/LiveData';
@@ -54,10 +54,10 @@ const AssetSelectorCard = ({ actions, assets, assetSelector, history, workspace,
 };
 
 AssetSelectorCard.propTypes = {
-	actions: React.PropTypes.object.isRequired,
-    assets: React.PropTypes.object.isRequired,
-	assetSelector: React.PropTypes.object.isRequired,
-	workspace: React.PropTypes.object.isRequired,
+	actions: PropTypes.object.isRequired,
+    assets: PropTypes.object.isRequired,
+	assetSelector: PropTypes.object.isRequired,
+	workspace: PropTypes.object.isRequired,
 };
 
 export default AssetSelectorCard;

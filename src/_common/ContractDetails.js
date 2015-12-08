@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { FormattedTime } from 'react-intl';
 
 const ContractDetails = ({ contract }) => {
@@ -70,7 +70,7 @@ const ContractDetails = ({ contract }) => {
 };
 
 ContractDetails.propTypes = {
-	contract: React.PropTypes.object.isRequired,
+	contract: PropTypes.object.isRequired,
 };
 
 export default ContractDetails;

@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { InputGroup } from '../_common';
 import * as LiveData from '../_data/LiveData';
 
 export default class SettingsSelfExclusion extends React.Component {
 
 	static propTypes = {
-		settings: React.PropTypes.object.isRequired,
-		actions: React.PropTypes.object.isRequired,
+		settings: PropTypes.object.isRequired,
+		actions: PropTypes.object.isRequired,
 	};
 
 	static handleUpdateError(response) {

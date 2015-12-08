@@ -1,6 +1,5 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import ObjectTable from '../_common/ObjectTable';
-
 
 const OfferingsList = (props) => (
 	<table>
@@ -24,7 +23,7 @@ const OfferingsList = (props) => (
 );
 
 OfferingsList.propTypes = {
-	offerings: React.PropTypes.array.isRequired,
+	offerings: PropTypes.array.isRequired,
 };
 
 export default OfferingsList;

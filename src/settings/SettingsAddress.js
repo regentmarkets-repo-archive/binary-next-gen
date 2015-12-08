@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import InputGroup from '../_common/InputGroup';
 import * as LiveData from '../_data/LiveData';
 import SelectGroup from '../_common/SelectGroup';
@@ -7,8 +7,8 @@ import TextAreaGroup from '../_common/TextAreaGroup';
 export default class SettingsAddress extends React.Component {
 
 	static propTypes = {
-		actions: React.PropTypes.object.isRequired,
-		settings: React.PropTypes.object.isRequired,
+		actions: PropTypes.object.isRequired,
+		settings: PropTypes.object.isRequired,
 	};
 
 	static handleUpdateError(response) {

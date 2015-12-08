@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const RangeGroup = ({ id, label, hint, value, min, max, step, items, readOnly, onChange }) => (
 	<div className="range-selector">
@@ -13,16 +13,16 @@ const RangeGroup = ({ id, label, hint, value, min, max, step, items, readOnly, o
 );
 
 RangeGroup.propTypes = {
-	items: React.PropTypes.array,
-	id: React.PropTypes.string,
-	label: React.PropTypes.string,
-	hint: React.PropTypes.string,
-	value: React.PropTypes.number,
-	min: React.PropTypes.number,
-	max: React.PropTypes.number,
-	step: React.PropTypes.number,
-	readOnly: React.PropTypes.bool,
-	onChange: React.PropTypes.func,
+	items: PropTypes.array,
+	id: PropTypes.string,
+	label: PropTypes.string,
+	hint: PropTypes.string,
+	value: PropTypes.number,
+	min: PropTypes.number,
+	max: PropTypes.number,
+	step: PropTypes.number,
+	readOnly: PropTypes.bool,
+	onChange: PropTypes.func,
 };
 
 export default RangeGroup;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { NumberPlain, M } from '../_common';
 import PortfolioRow from './PortfolioRow';
 
@@ -48,9 +48,9 @@ const PortfolioTable = ({ compact, contracts, proposals, onViewDetails }) => {
 };
 
 PortfolioTable.propTypes = {
-    compact: React.PropTypes.bool,
-	contracts: React.PropTypes.object.isRequired,
-    onViewDetails: React.PropTypes.func.isRequired,
+    compact: PropTypes.bool,
+	contracts: PropTypes.object.isRequired,
+    onViewDetails: PropTypes.func.isRequired,
 };
 
 export default PortfolioTable;

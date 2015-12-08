@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import TradeTypeSelectorCard from './TradeTypeSelectorCard';
 
@@ -6,7 +6,7 @@ import TradeTypeSelectorCard from './TradeTypeSelectorCard';
 export default class TradeTypeSelectorContainer extends React.Component {
 
 	static propTypes = {
-		dispatch: React.PropTypes.func,
+		dispatch: PropTypes.func,
 	};
 
 	render() {

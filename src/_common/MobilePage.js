@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { MobileToolbarFull, MobileToolbarBack } from '../navigation';
 
 const MobilePage = ({ backBtnBarTitle, children, toolbarShown, inverse }) => (
@@ -12,10 +12,10 @@ const MobilePage = ({ backBtnBarTitle, children, toolbarShown, inverse }) => (
 );
 
 MobilePage.propTypes = {
-	backBtnBarTitle: React.PropTypes.string,
-	children: React.PropTypes.any,
-	toolbarShown: React.PropTypes.bool,
-	inverse: React.PropTypes.bool,
+	backBtnBarTitle: PropTypes.string,
+	children: PropTypes.any,
+	toolbarShown: PropTypes.bool,
+	inverse: PropTypes.bool,
 };
 
 MobilePage.defaultProps = {

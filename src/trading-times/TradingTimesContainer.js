@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import TradingTimesCard from './TradingTimesCard';
 
@@ -6,9 +6,9 @@ import TradingTimesCard from './TradingTimesCard';
 export default class TradingTimesContainer extends React.Component {
 
 	static propTypes = {
-		assets: React.PropTypes.object.isRequired,
-		dispatch: React.PropTypes.func.isRequired,
-		tradingTimesFilter: React.PropTypes.object.isRequired,
+		assets: PropTypes.object.isRequired,
+		dispatch: PropTypes.func.isRequired,
+		tradingTimesFilter: PropTypes.object.isRequired,
 	};
 
 	render() {

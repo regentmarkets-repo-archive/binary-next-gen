@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import LogoSpinner from '../_common/LogoSpinner';
 import ErrorMsg from '../_common/ErrorMsg';
 import InputGroup from '../_common/InputGroup';
@@ -7,9 +7,9 @@ import LanguagePicker from '../_common/LanguagePicker';
 export default class SigninCard extends React.Component {
 
 	static propTypes = {
-		actions: React.PropTypes.object.isRequired,
-		history: React.PropTypes.object.isRequired,
-		signin: React.PropTypes.object.isRequired,
+		actions: PropTypes.object.isRequired,
+		history: PropTypes.object.isRequired,
+		signin: PropTypes.object.isRequired,
 	};
 
 	// validate() {

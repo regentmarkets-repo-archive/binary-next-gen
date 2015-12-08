@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import AssetDetailsCard from './AssetDetailsCard';
 
@@ -6,8 +6,8 @@ import AssetDetailsCard from './AssetDetailsCard';
 export default class AssetDetailsContainer extends React.Component {
 
 	static propTypes = {
-		assets: React.PropTypes.object,
-		dispatch: React.PropTypes.func,
+		assets: PropTypes.object,
+		dispatch: PropTypes.func,
 	};
 
 	render() {

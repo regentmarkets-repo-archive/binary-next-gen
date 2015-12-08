@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 
 export default class Star extends React.Component {
@@ -6,8 +6,8 @@ export default class Star extends React.Component {
     shouldComponentUpdate = shouldPureComponentUpdate;
 
     static propTypes = {
-		on: React.PropTypes.bool.isRequired,
-		onClick: React.PropTypes.func.isRequired,
+		on: PropTypes.bool.isRequired,
+		onClick: PropTypes.func.isRequired,
 	};
 
     render() {

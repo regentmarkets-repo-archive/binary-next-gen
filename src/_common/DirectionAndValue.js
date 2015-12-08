@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Direction from './Direction';
 import { directionClassName } from '../_utils/StyleUtils';
 
@@ -10,8 +10,8 @@ const DirectionAndValue = ({ diff, value }) => (
 );
 
 DirectionAndValue.propTypes = {
-	diff: React.PropTypes.number.isRequired,
-	value: React.PropTypes.number.isRequired,
+	diff: PropTypes.number.isRequired,
+	value: PropTypes.number.isRequired,
 };
 
 export default DirectionAndValue;

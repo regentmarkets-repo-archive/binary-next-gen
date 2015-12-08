@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { TransitionMotion } from 'react-motion';
 
 const ModalContent = ({ onClose, anim, children }) => (
@@ -36,20 +36,20 @@ const Modal = ({ shown }) => (
         willLeave={willLeave}>
         {interpolatedStyles =>
             <div>
-            	{Object.keys(interpolatedStyles).map(key =>
+				{Object.keys(interpolatedStyles).map(key =>
 					<div key={key}>
 						<ModalContent anim={interpolatedStyles[key]} />
 					</div>
-            	)}
+				)}
           </div>
         }
       </TransitionMotion>
 );
 
 Modal.propTypes = {
-	shown: React.PropTypes.bool,
-	onClose: React.PropTypes.func,
-	children: React.PropTypes.any,
+	shown: PropTypes.bool,
+	onClose: PropTypes.func,
+	children: PropTypes.any,
 };
 
 export default Modal;

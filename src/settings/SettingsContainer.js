@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { getSettings } from '../_reducers/SettingsReducers';
 import { connect } from 'react-redux';
 import SettingsCard from './SettingsCard';
@@ -7,9 +7,9 @@ import SettingsCard from './SettingsCard';
 export default class SettingsContainer extends React.Component {
 
 	static propTypes = {
-		dispatch: React.PropTypes.func.isRequired,
-		settings: React.PropTypes.object,
-		loginid: React.PropTypes.string.isRequired,
+		dispatch: PropTypes.func.isRequired,
+		settings: PropTypes.object,
+		loginid: PropTypes.string.isRequired,
 	};
 
 	render() {

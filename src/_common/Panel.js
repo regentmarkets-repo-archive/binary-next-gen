@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Draggable from 'react-draggable';
 
 const Panel = ({ title, onClose, position = { left: 100, top: 100, width: 500, height: 350 }, children }) => (
@@ -18,9 +18,9 @@ const Panel = ({ title, onClose, position = { left: 100, top: 100, width: 500, h
 );
 
 Panel.propTypes = {
-	shown: React.PropTypes.bool,
-	onClose: React.PropTypes.func,
-	children: React.PropTypes.any,
+	shown: PropTypes.bool,
+	onClose: PropTypes.func,
+	children: PropTypes.any,
 };
 
 export default Panel;

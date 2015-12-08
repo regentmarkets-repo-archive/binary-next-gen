@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Article from './Article';
 
 export default class NewsCard extends React.Component {
 
     static propTypes = {
-        news: React.PropTypes.object.isRequired,
+        news: PropTypes.object.isRequired,
     };
 
     render() {

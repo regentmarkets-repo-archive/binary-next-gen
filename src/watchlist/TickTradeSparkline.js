@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 import { Sparklines, SparklinesLine, SparklinesSpots } from 'react-sparklines';
 
@@ -35,10 +35,10 @@ const TickTradeSparkline = (props) => {
 };
 
 TickTradeSparkline.propTypes = {
-	history: React.PropTypes.array,
-	showBarrier: React.PropTypes.bool,
-	width: React.PropTypes.number,
-	height: React.PropTypes.number,
+	history: PropTypes.array,
+	showBarrier: PropTypes.bool,
+	width: PropTypes.number,
+	height: PropTypes.number,
 };
 
 TickTradeSparkline.defaultProps = {

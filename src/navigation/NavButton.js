@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 export default class NavButton extends React.Component {
 
 	static propTypes = {
-		img: React.PropTypes.string.isRequired,
-		text: React.PropTypes.string.isRequired,
+		img: PropTypes.string.isRequired,
+		text: PropTypes.string.isRequired,
 	};
 
 	render() {

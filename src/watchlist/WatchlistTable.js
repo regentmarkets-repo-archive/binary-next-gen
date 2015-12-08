@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import WatchlistRow from './WatchlistRow';
 import M from '../_common/M';
 
@@ -36,9 +36,9 @@ const WatchlistTable = ({ assets, ticks, favorites }) => {
 };
 
 WatchlistTable.propTypes = {
-	assets: React.PropTypes.object.isRequired,
-	ticks: React.PropTypes.object.isRequired,
-	favorites: React.PropTypes.object.isRequired,
+	assets: PropTypes.object.isRequired,
+	ticks: PropTypes.object.isRequired,
+	favorites: PropTypes.object.isRequired,
 };
 
 export default WatchlistTable;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const InputGroup = ({ autoFocus, id, className, label, type, hint, value, min, max, readOnly, placeholder, onChange }) => (
 	<fieldset className={className}>
@@ -18,21 +18,21 @@ const InputGroup = ({ autoFocus, id, className, label, type, hint, value, min, m
 	</fieldset>
 );
 
-const valueTypes = [React.PropTypes.number, React.PropTypes.object, React.PropTypes.string];
+const valueTypes = [PropTypes.number, PropTypes.instanceOf(Date), PropTypes.string];
 
 InputGroup.propTypes = {
-	autoFocus: React.PropTypes.bool,
-	type: React.PropTypes.string,
-	id: React.PropTypes.string,
-	className: React.PropTypes.string,
-	label: React.PropTypes.string,
-	hint: React.PropTypes.string,
-	value: React.PropTypes.oneOfType(valueTypes),
-	min: React.PropTypes.oneOfType(valueTypes),
-	max: React.PropTypes.oneOfType(valueTypes),
-	readOnly: React.PropTypes.bool,
-	placeholder: React.PropTypes.string,
-	onChange: React.PropTypes.func,
+	autoFocus: PropTypes.bool,
+	type: PropTypes.string,
+	id: PropTypes.string,
+	className: PropTypes.string,
+	label: PropTypes.string,
+	hint: PropTypes.string,
+	value: PropTypes.oneOfType(valueTypes),
+	min: PropTypes.oneOfType(valueTypes),
+	max: PropTypes.oneOfType(valueTypes),
+	readOnly: PropTypes.bool,
+	placeholder: PropTypes.string,
+	onChange: PropTypes.func,
 };
 
 export default InputGroup;

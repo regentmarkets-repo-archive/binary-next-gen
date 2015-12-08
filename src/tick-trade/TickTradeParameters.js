@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { RangeGroup } from '../_common';
 import { tradeToFriendlyType } from '../_utils/TradeUtils';
@@ -6,11 +6,11 @@ import M from '../_common/M';
 
 export default class TickTradeParameters extends React.Component {
 	static propTypes = {
-		assetName: React.PropTypes.string.isRequired,
-		actions: React.PropTypes.object.isRequired,
-		assets: React.PropTypes.object.isRequired,
-		tickTrade: React.PropTypes.object.isRequired,
-		workspace: React.PropTypes.object.isRequired,
+		assetName: PropTypes.string.isRequired,
+		actions: PropTypes.object.isRequired,
+		assets: PropTypes.object.isRequired,
+		tickTrade: PropTypes.object.isRequired,
+		workspace: PropTypes.object.isRequired,
 	};
 
 	getPrice() {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const LogoSpinner = ({ spinning }) => {
 	const classNames = [spinning ? 'spinner' : null];
@@ -9,7 +9,7 @@ const LogoSpinner = ({ spinning }) => {
 };
 
 LogoSpinner.propTypes = {
-	spinning: React.PropTypes.bool,
+	spinning: PropTypes.bool,
 };
 
 export default LogoSpinner;

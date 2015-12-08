@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const AssetIndexRow = ({ assetIndex }) => (
     <tr>
@@ -13,7 +13,7 @@ const AssetIndexRow = ({ assetIndex }) => (
 );
 
 AssetIndexRow.propTypes = {
-    assetIndex: React.PropTypes.array.isRequired,
+    assetIndex: PropTypes.array.isRequired,
 };
 
 export default AssetIndexRow;

@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import RadioItem from './RadioItem';
 
 export default class RadioGroup extends React.Component {
 
 	static propTypes = {
-		className: React.PropTypes.string,
-		name: React.PropTypes.string,
-		text: React.PropTypes.string,
-		img: React.PropTypes.string,
-		options: React.PropTypes.array.isRequired,
-		onChange: React.PropTypes.func.isRequired,
-		value: React.PropTypes.any,
+		className: PropTypes.string,
+		name: PropTypes.string,
+		text: PropTypes.string,
+		img: PropTypes.string,
+		options: PropTypes.array.isRequired,
+		onChange: PropTypes.func.isRequired,
+		value: PropTypes.any,
 	};
 
 	static defaultProps = {

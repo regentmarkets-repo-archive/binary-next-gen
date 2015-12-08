@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import ProfitTableCard from './ProfitTableCard';
 
@@ -6,8 +6,8 @@ import ProfitTableCard from './ProfitTableCard';
 export default class ProfitTablePage extends React.Component {
 
 	static propTypes = {
-		profitTable: React.PropTypes.object,
-		dispatch: React.PropTypes.func,
+		profitTable: PropTypes.object,
+		dispatch: PropTypes.func,
 	};
 
 	render() {

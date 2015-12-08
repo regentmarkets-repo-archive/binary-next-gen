@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const ObjectTableRow = (props) => (
 	<tr>
@@ -8,8 +8,8 @@ const ObjectTableRow = (props) => (
 );
 
 ObjectTableRow.propTypes = {
-    name: React.PropTypes.string,
-	value: React.PropTypes.any,
+    name: PropTypes.string,
+	value: PropTypes.any,
 };
 
 export default ObjectTableRow;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { DesktopHeader, DesktopSidebar } from '../navigation';
 
 const DesktopPage = ({ children }) => (
@@ -12,7 +12,7 @@ const DesktopPage = ({ children }) => (
 );
 
 DesktopPage.propTypes = {
-	children: React.PropTypes.any,
+	children: PropTypes.any,
 };
 
 export default DesktopPage;

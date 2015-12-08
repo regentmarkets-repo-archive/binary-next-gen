@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import SymbolList from './SymbolList';
 
@@ -6,7 +6,7 @@ import SymbolList from './SymbolList';
 export default class ActiveSymbolsCard extends React.Component {
 
 	static propTypes = {
-		assets: React.PropTypes.object.isRequired,
+		assets: PropTypes.object.isRequired,
 	};
 
 	render() {

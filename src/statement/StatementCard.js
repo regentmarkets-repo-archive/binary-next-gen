@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import StatementTable from './StatementTable';
 
 export default class StatementCard extends React.Component {
 
 	static propTypes = {
-		account: React.PropTypes.object.isRequired,
-		statement: React.PropTypes.object.isRequired,
-		compact: React.PropTypes.bool,
+		account: PropTypes.object.isRequired,
+		statement: PropTypes.object.isRequired,
+		compact: PropTypes.bool,
 	};
 
 	render() {

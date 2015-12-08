@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { MarketSelector } from '../_common';
 import AssetIndexTable from './AssetIndexTable';
@@ -8,9 +8,9 @@ export default class AssetIndexCard extends React.Component {
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
-		actions: React.PropTypes.object.isRequired,
-		assets: React.PropTypes.object.isRequired,
-		assetIndexFilter: React.PropTypes.object.isRequired,
+		actions: PropTypes.object.isRequired,
+		assets: PropTypes.object.isRequired,
+		assetIndexFilter: PropTypes.object.isRequired,
 	};
 
 	render() {

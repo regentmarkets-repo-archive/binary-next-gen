@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { InputGroup } from '../_common';
 
 const AssetSearch = ({ onChange }) => (
@@ -10,7 +10,7 @@ const AssetSearch = ({ onChange }) => (
 );
 
 AssetSearch.propTypes = {
-	onChange: React.PropTypes.func.isRequired,
+	onChange: PropTypes.func.isRequired,
 };
 
 export default AssetSearch;

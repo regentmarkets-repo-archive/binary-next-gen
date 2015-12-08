@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Panel } from '../_common';
 import PortfolioContainer from './PortfolioContainer';
 
@@ -9,7 +9,7 @@ const PortfolioPanel = props => (
 );
 
 PortfolioPanel.propTypes = {
-	position: React.PropTypes.object,
+	position: PropTypes.object,
 };
 
 export default PortfolioPanel;

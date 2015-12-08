@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { FormattedDate } from 'react-intl';
 
 const PurchaseConfirmation = ({ receipt }) => (
@@ -28,7 +28,7 @@ const PurchaseConfirmation = ({ receipt }) => (
 );
 
 PurchaseConfirmation.propTypes = {
-	proposal: React.PropTypes.object,
+	proposal: PropTypes.object,
 };
 
 export default PurchaseConfirmation;

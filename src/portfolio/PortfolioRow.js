@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { NumberPlain } from '../_common';
 
 const PortfolioRow = ({ compact, contract, proposal, onViewDetails }) => (
@@ -11,9 +11,9 @@ const PortfolioRow = ({ compact, contract, proposal, onViewDetails }) => (
 );
 
 PortfolioRow.propTypes = {
-    compact: React.PropTypes.bool,
-	contract: React.PropTypes.object.isRequired,
-    onViewDetails: React.PropTypes.func.isRequired,
+    compact: PropTypes.bool,
+	contract: PropTypes.object.isRequired,
+    onViewDetails: PropTypes.func.isRequired,
 };
 
 export default PortfolioRow;

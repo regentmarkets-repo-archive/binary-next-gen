@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
 const DesktopNavLink = ({ to, text }) => (
@@ -8,8 +8,8 @@ const DesktopNavLink = ({ to, text }) => (
 );
 
 DesktopNavLink.propTypes = {
-	to: React.PropTypes.string,
-	text: React.PropTypes.string,
+	to: PropTypes.string,
+	text: PropTypes.string,
 };
 
 export default DesktopNavLink;

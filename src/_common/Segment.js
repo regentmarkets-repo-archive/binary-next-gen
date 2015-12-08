@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 
 const Segment = (props) => {
@@ -12,10 +12,10 @@ const Segment = (props) => {
 };
 
 Segment.propTypes = {
-    href: React.PropTypes.string,
-    text: React.PropTypes.string,
-    active: React.PropTypes.bool,
-    onSelect: React.PropTypes.func,
+    href: PropTypes.string,
+    text: PropTypes.string,
+    active: PropTypes.bool,
+    onSelect: PropTypes.func,
 };
 
 export default Segment;

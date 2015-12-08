@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { SelectGroup } from '../_common';
 import languages from '../_constants/languages';
 import * as LiveData from '../_data/LiveData';
@@ -8,8 +8,8 @@ import { signinFieldUpdate } from '../_actions/SigninActions';
 @connect(state => ({ selected: state.signin.get('language') }))
 export default class LanguagePicker extends React.Component {
     static propTypes = {
-        selected: React.PropTypes.oneOf(languages.map(ln => ln.value)),
-        dispatch: React.PropTypes.func.isRequired,
+        selected: PropTypes.oneOf(languages.map(ln => ln.value)),
+        dispatch: PropTypes.func.isRequired,
     };
 
     updateLanguage(event) {

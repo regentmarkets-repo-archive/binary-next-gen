@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import TickTradeCard from './TickTradeCard';
 
@@ -6,10 +6,10 @@ import TickTradeCard from './TickTradeCard';
 export default class TickTradeContainer extends React.Component {
 
 	static propTypes = {
-		dispatch: React.PropTypes.func,
-		tickTrade: React.PropTypes.object.isRequired,
-		assets: React.PropTypes.object.isRequired,
-		workspace: React.PropTypes.object.isRequired,
+		dispatch: PropTypes.func,
+		tickTrade: PropTypes.object.isRequired,
+		assets: PropTypes.object.isRequired,
+		workspace: PropTypes.object.isRequired,
     };
 
 	render() {

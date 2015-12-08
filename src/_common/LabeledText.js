@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const LabeledText = ({ id, label, value = 'N/A' }) => (
     <div id={id} className={'name-val-pair'}>
@@ -8,9 +8,9 @@ const LabeledText = ({ id, label, value = 'N/A' }) => (
 );
 
 LabeledText.propTypes = {
-    id: React.PropTypes.string,
-    label: React.PropTypes.string.isRequired,
-    value: React.PropTypes.string,
+    id: PropTypes.string,
+    label: PropTypes.string.isRequired,
+    value: PropTypes.string,
 };
 
 export default LabeledText;

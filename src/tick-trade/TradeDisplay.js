@@ -1,16 +1,16 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { DirectionAndValue } from '../_common';
 import { tradeToFriendlyType } from '../_utils/TradeUtils';
 
 export default class TickTradeDisplay extends React.Component {
 
 	static propTypes = {
-		assetName: React.PropTypes.string.isRequired,
-		assets: React.PropTypes.object.isRequired,
-		diff: React.PropTypes.number,
-		spot: React.PropTypes.any,
-		tickTrade: React.PropTypes.object.isRequired,
-		workspace: React.PropTypes.object.isRequired,
+		assetName: PropTypes.string.isRequired,
+		assets: PropTypes.object.isRequired,
+		diff: PropTypes.number,
+		spot: PropTypes.any,
+		tickTrade: PropTypes.object.isRequired,
+		workspace: PropTypes.object.isRequired,
 	};
 
 	render() {

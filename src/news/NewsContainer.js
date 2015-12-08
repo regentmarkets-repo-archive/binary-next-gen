@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import NewsCard from './NewsCard';
 
@@ -6,7 +6,7 @@ import NewsCard from './NewsCard';
 export default class NewsContainer extends React.Component {
 
     static propTypes = {
-        news: React.PropTypes.object.isRequired,
+        news: PropTypes.object.isRequired,
     };
 
     render() {

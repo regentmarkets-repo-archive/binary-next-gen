@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import LabeledText from '../_common/LabeledText';
 import { epochToDateString } from '../_utils/DateUtils';
 
 export default class SettingsDetails extends React.Component {
 
 	static propTypes = {
-		settings: React.PropTypes.object.isRequired,
+		settings: PropTypes.object.isRequired,
 	};
 
 	render() {

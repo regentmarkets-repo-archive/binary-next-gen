@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import StatementCard from './StatementCard';
 
@@ -6,8 +6,8 @@ import StatementCard from './StatementCard';
 export default class StatementContainer extends React.Component {
 
 	static propTypes = {
-		profitTable: React.PropTypes.object,
-		dispatch: React.PropTypes.func,
+		profitTable: PropTypes.object,
+		dispatch: PropTypes.func,
 	};
 
 	render() {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import VideoList from './VideoList';
 
@@ -6,7 +6,7 @@ import VideoList from './VideoList';
 export default class VideoListContainer extends React.Component {
 
     static propTypes = {
-		video: React.PropTypes.object.isRequired,
+		video: PropTypes.object.isRequired,
 	};
 
     render() {

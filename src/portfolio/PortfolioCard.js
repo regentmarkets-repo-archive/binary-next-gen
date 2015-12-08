@@ -1,8 +1,7 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Modal } from '../_common';
 import PortfolioTable from './PortfolioTable';
 import ContractDetailsCard from '../contract-details/ContractDetailsCard';
-
 
 const PortfolioCard = ({ compact, portfolio, history, actions }) => {
 	const contractShown = portfolio.get('contractShown');
@@ -27,10 +26,10 @@ const PortfolioCard = ({ compact, portfolio, history, actions }) => {
 };
 
 PortfolioCard.propTypes = {
-	compact: React.PropTypes.bool,
-	portfolio: React.PropTypes.object,
-	history: React.PropTypes.object,
-	onViewDetails: React.PropTypes.func,
+	compact: PropTypes.bool,
+	portfolio: PropTypes.object,
+	history: PropTypes.object,
+	onViewDetails: PropTypes.func,
 };
 
 export default PortfolioCard;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Tabs } from '../_common';
 import SettingsPersonalDetails from './SettingsPersonalDetails';
 import SettingsSecurity from './SettingsSecurity';
@@ -6,15 +6,16 @@ import SettingsSelfExclusion from './SettingsSelfExclusion';
 import SettingsLimits from './SettingsLimits';
 
 export default class SettingsCard extends React.Component {
+
 	constructor(props) {
 		super(props);
 		this.state = { activeTab: 0 };
 	}
 
     static propTypes = {
-		actions: React.PropTypes.object.isRequired,
-        settings: React.PropTypes.object.isRequired,
-		loginid: React.PropTypes.string.isRequired,
+		actions: PropTypes.object.isRequired,
+        settings: PropTypes.object.isRequired,
+		loginid: PropTypes.string.isRequired,
     };
 
 	render() {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const TextAreaGroup = ({ id, className, label, hint, value, readOnly, placeholder, onChange, rows, cols }) => (
     <fieldset>
@@ -18,16 +18,16 @@ const TextAreaGroup = ({ id, className, label, hint, value, readOnly, placeholde
 );
 
 TextAreaGroup.propTypes = {
-    id: React.PropTypes.string,
-    className: React.PropTypes.string,
-    label: React.PropTypes.string,
-    hint: React.PropTypes.string,
-    value: React.PropTypes.string,
-    rows: React.PropTypes.number,
-    cols: React.PropTypes.number,
-    readOnly: React.PropTypes.bool,
-    placeholder: React.PropTypes.string,
-    onChange: React.PropTypes.func,
+    id: PropTypes.string,
+    className: PropTypes.string,
+    label: PropTypes.string,
+    hint: PropTypes.string,
+    value: PropTypes.string,
+    rows: PropTypes.number,
+    cols: PropTypes.number,
+    readOnly: PropTypes.bool,
+    placeholder: PropTypes.string,
+    onChange: PropTypes.func,
 };
 
 export default TextAreaGroup;

@@ -1,17 +1,17 @@
-import { Panel } from '../_common';
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import YouTube from 'react-youtube';
-import VideoList from './VideoList';
-import VideoData from '../_data/VideoData';
+import { Panel } from '../_common';
 import * as VideoActions from '../_actions/VideoActions';
+import VideoData from '../_data/VideoData';
+import VideoList from './VideoList';
 
-@connect(state => ({video: state.video}))
+@connect(state => ({ video: state.video }))
 export default class VideoPage extends React.Component {
 
     static propTypes = {
-		video: React.PropTypes.object.isRequired,
-        dispatch: React.PropTypes.func.isRequired,
+		video: PropTypes.object.isRequired,
+        dispatch: PropTypes.func.isRequired,
 	};
 
     elementOnClick(title, videoUrl) {

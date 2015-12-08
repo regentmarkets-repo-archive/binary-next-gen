@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { Star } from '../_common';
 
@@ -7,12 +7,12 @@ export default class AssetSelectorItem extends React.Component {
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
-		isFavorite: React.PropTypes.bool.isRequired,
-		asset: React.PropTypes.object.isRequired,
-		onSelect: React.PropTypes.func.isRequired,
-		onFavor: React.PropTypes.func.isRequired,
-		onUnfavor: React.PropTypes.func.isRequired,
-		isSelected: React.PropTypes.bool,
+		isFavorite: PropTypes.bool.isRequired,
+		asset: PropTypes.object.isRequired,
+		onSelect: PropTypes.func.isRequired,
+		onFavor: PropTypes.func.isRequired,
+		onUnfavor: PropTypes.func.isRequired,
+		isSelected: PropTypes.bool,
 	};
 
 	toggleFavorite() {

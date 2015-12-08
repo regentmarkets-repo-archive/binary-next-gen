@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { InputGroup, MarketSelector } from '../_common';
 import { todayString } from '../_utils/DateUtils';
@@ -11,9 +11,9 @@ export default class TradingTimesCard extends React.Component {
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
-		actions: React.PropTypes.object.isRequired,
-		assets: React.PropTypes.object.isRequired,
-		tradingTimesFilter: React.PropTypes.object.isRequired,
+		actions: PropTypes.object.isRequired,
+		assets: PropTypes.object.isRequired,
+		tradingTimesFilter: PropTypes.object.isRequired,
 	};
 
 	render() {

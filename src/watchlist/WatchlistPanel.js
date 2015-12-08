@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { Panel } from '../_common';
 import WatchlistContainer from './WatchlistContainer';
 
@@ -9,7 +9,7 @@ const WatchlistPanel = props => (
 );
 
 WatchlistPanel.propTypes = {
-	position: React.PropTypes.object,
+	position: PropTypes.object,
 };
 
 export default WatchlistPanel;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { FormattedTime } from 'react-intl';
 
 const returnOnContract = (contract, proposal) => (proposal.bid_price - contract.buy_price) * 100 / contract.buy_price;
@@ -73,8 +73,8 @@ const ContractDetailsCard = ({ contract, proposal }) => (
 );
 
 ContractDetailsCard.propTypes = {
-	contract: React.PropTypes.object,
-	proposal: React.PropTypes.object,
+	contract: PropTypes.object,
+	proposal: PropTypes.object,
 };
 
 export default ContractDetailsCard;

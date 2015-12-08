@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import TradingTimesRow from './TradingTimesRow';
 
 const TradingTimesTable = ({ submarket, times }) => (
@@ -24,8 +24,8 @@ const TradingTimesTable = ({ submarket, times }) => (
 );
 
 TradingTimesTable.propTypes = {
-	submarket: React.PropTypes.string.isRequired,
-	times: React.PropTypes.array.isRequired,
+	submarket: PropTypes.string.isRequired,
+	times: PropTypes.array.isRequired,
 };
 
 export default TradingTimesTable;

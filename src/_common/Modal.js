@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const Modal = ({ shown, onClose, children }) => shown ? (
 	<div className="full-screen-overlay" onClick={onClose}>
@@ -10,9 +10,9 @@ const Modal = ({ shown, onClose, children }) => shown ? (
 ) : <div />;
 
 Modal.propTypes = {
-	shown: React.PropTypes.bool,
-	onClose: React.PropTypes.func,
-	children: React.PropTypes.any,
+	shown: PropTypes.bool,
+	onClose: PropTypes.func,
+	children: PropTypes.any,
 };
 
 export default Modal;

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import ProfitTable from './ProfitTable';
 
 const ProfitTableCard = (props) => {
@@ -12,11 +12,11 @@ const ProfitTableCard = (props) => {
 };
 
 ProfitTableCard.propTypes = {
-	compact: React.PropTypes.bool,
-	profitTable: React.PropTypes.object,
-	dispatch: React.PropTypes.func,
-	contractShown: React.PropTypes.object,
-	areDetailsShown: React.PropTypes.bool,
+	compact: PropTypes.bool,
+	profitTable: PropTypes.object,
+	dispatch: PropTypes.func,
+	contractShown: PropTypes.object,
+	areDetailsShown: PropTypes.bool,
 };
 
 export default ProfitTableCard;

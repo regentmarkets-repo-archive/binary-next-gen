@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import ObjectTableRow from './ObjectTableRow';
 
 const ObjectTable = ({ object }) => (
@@ -16,6 +16,6 @@ const ObjectTable = ({ object }) => (
 );
 
 ObjectTable.propTypes = {
-	object: React.PropTypes.object,
+	object: PropTypes.object,
 };
 export default ObjectTable;

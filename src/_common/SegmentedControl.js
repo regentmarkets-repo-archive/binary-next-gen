@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import Segment from './Segment';
 
 const SegmentedControl = props => {
@@ -20,9 +20,9 @@ const SegmentedControl = props => {
 };
 
 SegmentedControl.propTypes = {
-    segments: React.PropTypes.array.isRequired,
-    activeIndex: React.PropTypes.number.isRequired,
-    onSelect: React.PropTypes.func,
+    segments: PropTypes.array.isRequired,
+    activeIndex: PropTypes.number.isRequired,
+    onSelect: PropTypes.func,
 };
 
 export default SegmentedControl;

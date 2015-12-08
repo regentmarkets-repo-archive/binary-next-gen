@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 
 export default class NumberPlain extends React.Component {
@@ -6,10 +6,10 @@ export default class NumberPlain extends React.Component {
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
-		currency: React.PropTypes.string,
-		value: React.PropTypes.any,
-		digits: React.PropTypes.number,
-		className: React.PropTypes.string,
+		currency: PropTypes.string,
+		value: PropTypes.any,
+		digits: PropTypes.number,
+		className: PropTypes.string,
 	};
 
 	static defaultProps = {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import OfferingsList from './OfferingsList';
 
@@ -6,7 +6,7 @@ import OfferingsList from './OfferingsList';
 export default class OfferingsCard extends React.Component {
 
 	static propTypes = {
-		offerings: React.PropTypes.array.isRequired,
+		offerings: PropTypes.array.isRequired,
 	};
 
 	render() {

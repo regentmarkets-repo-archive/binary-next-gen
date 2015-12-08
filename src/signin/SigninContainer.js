@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import SigninCard from './SigninCard';
 
@@ -6,8 +6,8 @@ import SigninCard from './SigninCard';
 export default class SigninContainer extends React.Component {
 
 	static propTypes = {
-		dispatch: React.PropTypes.func,
-		signin: React.PropTypes.object,
+		dispatch: PropTypes.func,
+		signin: PropTypes.object,
 	};
 
 	render() {

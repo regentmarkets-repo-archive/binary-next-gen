@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { Direction, NumberColored } from '../_common';
 import WatchlistSparkline from './WatchlistSparkline';
@@ -14,9 +14,9 @@ export default class WatchlistRow extends React.Component {
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
-		asset: React.PropTypes.object.isRequired,
-		compact: React.PropTypes.bool,
-		history: React.PropTypes.object,
+		asset: PropTypes.object.isRequired,
+		compact: PropTypes.bool,
+		history: PropTypes.object,
 	};
 
 	render() {

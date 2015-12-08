@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import AssetIndexRow from './AssetIndexRow';
 
 const AssetIndexTable = ({ submarket, index }) => (
@@ -26,8 +26,8 @@ const AssetIndexTable = ({ submarket, index }) => (
 );
 
 AssetIndexTable.propTypes = {
-    submarket: React.PropTypes.string.isRequired,
-    index: React.PropTypes.array.isRequired,
+    submarket: PropTypes.string.isRequired,
+    index: PropTypes.array.isRequired,
 };
 
 export default AssetIndexTable;

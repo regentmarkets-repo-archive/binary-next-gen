@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 export default class RadioItem extends React.Component {
 
 	static propTypes = {
-		checked: React.PropTypes.bool,
-		defaultChecked: React.PropTypes.bool,
-		img: React.PropTypes.string,
-		label: React.PropTypes.string.isRequired,
-		name: React.PropTypes.string.isRequired,
-		onChange: React.PropTypes.func.isRequired,
-		value: React.PropTypes.any.isRequired,
+		checked: PropTypes.bool,
+		defaultChecked: PropTypes.bool,
+		img: PropTypes.string,
+		label: PropTypes.string.isRequired,
+		name: PropTypes.string.isRequired,
+		onChange: PropTypes.func.isRequired,
+		value: PropTypes.any.isRequired,
 	};
 
 	render() {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import ContractDetailsCard from './ContractDetailsCard';
 
@@ -6,8 +6,8 @@ import ContractDetailsCard from './ContractDetailsCard';
 export default class ContractDetailsContainer extends React.Component {
 
 	static propTypes = {
-		portfolio: React.PropTypes.object,
-		params: React.PropTypes.object,
+		portfolio: PropTypes.object,
+		params: PropTypes.object,
 	};
 
 	render() {

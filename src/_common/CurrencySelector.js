@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { SelectGroup, RadioGroup } from '../_common';
 
@@ -6,10 +6,10 @@ import { SelectGroup, RadioGroup } from '../_common';
 export default class CurrencySelector extends React.Component {
 
 	static propTypes = {
-		account: React.PropTypes.object,
-		onChange: React.PropTypes.func,
-		radio: React.PropTypes.bool,
-		value: React.PropTypes.string,
+		account: PropTypes.object,
+		onChange: PropTypes.func,
+		radio: PropTypes.bool,
+		value: PropTypes.string,
 	};
 
 	render() {
