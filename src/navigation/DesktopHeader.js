@@ -1,8 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { M, LanguagePicker } from '../_common';
-import { FormattedNumber } from 'react-intl';
+import { M, LanguagePicker, NumberPlain } from '../_common';
 
 @connect(state => ({ account: state.account }))
 export default class DesktopHeader extends React.Component {
@@ -26,7 +25,7 @@ export default class DesktopHeader extends React.Component {
 				<span>19:28:33 (GMT +0)</span>
 				<span>
 					<M m="Balance" />&nbsp;
-					<FormattedNumber style="currency" currency={account.currency} value={account.balance} />
+					<NumberPlain currency={account.currency} value={account.balance} />
 				</span>
 				<LanguagePicker />
 				<span>{account.loginid}</span>

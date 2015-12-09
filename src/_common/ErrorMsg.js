@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
+import { M } from '../_common';
 
 const ErrorMsg = ({ shown, text }) => (
-	shown ? <p className="errorfield">{text}</p> : <span />
+	shown ? <p className="errorfield"><M m={text} /></p> : <span />
 );
 
 ErrorMsg.propTypes = {

@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { DirectionAndValue, M } from '../_common';
+import { DirectionAndValue, M, NumberPlain } from '../_common';
 import { tradeToFriendlyType } from '../_utils/TradeUtils';
 
 export default class TickTradeDisplay extends React.Component {
@@ -29,7 +29,10 @@ export default class TickTradeDisplay extends React.Component {
 				</div>
 				<div className="row">
 					<label>{spot ? <DirectionAndValue diff={diff} value={spot} /> : <span></span>}</label>
-					<label>Price: {tickTrade.get('currency')} {tickTrade.get('ask_price')}</label>
+					<label>
+						<M m="Price" /><span>: </span>
+						<NumberPlain currency={tickTrade.get('currency')} value={tickTrade.get('ask_price')} />
+					</label>
 				</div>
 			</div>
 		);

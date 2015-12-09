@@ -1,29 +1,35 @@
 import React, { PropTypes } from 'react';
 import { FormattedDate } from 'react-intl';
+import { epochToDateString } from '../_utils/DateUtils';
+import { M } from '../_common';
 
 const PurchaseConfirmation = ({ receipt }) => (
 	<div>
 		<table>
 			<tbody>
 				<tr>
-					<td colSpan="2">{receipt.get('longcode')}</td>
+					<td colSpan="2">
+						{receipt.get('longcode')}
+					</td>
 				</tr>
 				<tr>
-					<td>Purchase Price</td>
+					<td><M m="Purchase Price" /></td>
 					<td>{receipt.get('buy_price')}</td>
 				</tr>
 				<tr>
-					<td>Purchase Time</td>
-				<td><FormattedDate value={new Date(receipt.get('purchase_time') * 1000)} /></td>
+					<td><M m="Purchase Time" /></td>
+				<td>
+					<FormattedDate value={epochToDateString(receipt.get('purchase_time'))} />
+				</td>
 				</tr>
 				<tr>
-					<td>Balance</td>
+					<td><M m="Balance" /></td>
 					<td>{receipt.get('balance_after')}</td>
 				</tr>
 			</tbody>
 		</table>
 		<br/>
-		<button>Back</button>
+		<button><M m="Back" /></button>
 	</div>
 );
 

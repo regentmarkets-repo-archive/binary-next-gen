@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import NavigationMenu from './NavigationMenu';
+import MobileSidebar from './MobileSidebar';
 
 export default () => (
 	<div className="mobile-toolbar">
@@ -9,7 +9,7 @@ export default () => (
 		<input id="hamburger-opener" className="hamburger" type="radio" name="hamburger" />
 		<label id="hamburger-btn" htmlFor="hamburger-opener" className="toolbar-btn">
 			<img src="img/menu.svg" />
-			<NavigationMenu />
+			<MobileSidebar />
 		</label>
 		<Link to={'/tick-trade'} activeClassName="active" className="mobile-nav-btn"><img src="img/trade.svg" /></Link>
 		<Link to={`/watchlist-mobile`} activeClassName="active" className="mobile-nav-btn"><img src="img/watchlist.svg" /></Link>

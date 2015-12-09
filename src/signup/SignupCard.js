@@ -1,8 +1,5 @@
 import React from 'react';
-import LogoSpinner from '../_common/LogoSpinner';
-import Countries from '../_common/Countries';
-import ErrorMsg from '../_common/ErrorMsg';
-import InputGroup from '../_common/InputGroup';
+import { Countries, ErrorMsg, InputGroup, LogoSpinner, M } from '../_common';
 
 export default class SignupCard extends React.Component {
 
@@ -84,18 +81,36 @@ export default class SignupCard extends React.Component {
 				<p className="media">
 					<LogoSpinner spinning={progress}/>
 				</p>
-				<h3>Sign up for account</h3>
-				<InputGroup type="email" placeholder="Email" onChange={::this.emailChange} />
-				<ErrorMsg shown={emailNotValid} text="You need to enter an email" />
+				<InputGroup
+					type="email"
+					placeholder="Email"
+					onChange={::this.emailChange} />
+				<ErrorMsg
+					shown={emailNotValid}
+					text="You need to enter an email" />
 				<fieldset>
 					<Countries />
 				</fieldset>
-				<InputGroup type="password" placeholder="Password" onChange={::this.passwordChange} />
-				<ErrorMsg shown={passwordNotEntered} text="Enter a password" />
-				<InputGroup type="password" placeholder="Confirm Password" onChange={::this.confirmPasswordChange} />
-				<ErrorMsg shown={confirmationNotEntered} text="Enter your password again" />
-				<ErrorMsg shown={passwordsDontMatch} text="Two passwords do not match" />
-				<button onClick={::this.trySignup}>Create Account</button>
+				<InputGroup
+					type="password"
+					placeholder="Password"
+					onChange={::this.passwordChange} />
+				<ErrorMsg
+					shown={passwordNotEntered}
+					text="Enter a password" />
+				<InputGroup
+					type="password"
+					placeholder="Confirm Password"
+					onChange={::this.confirmPasswordChange} />
+				<ErrorMsg
+					shown={confirmationNotEntered}
+					text="Enter your password again" />
+				<ErrorMsg
+					shown={passwordsDontMatch}
+					text="Two passwords do not match" />
+				<button onClick={::this.trySignup}>
+					<M m="Create Account" />
+				</button>
 			</div>
 		);
 	}

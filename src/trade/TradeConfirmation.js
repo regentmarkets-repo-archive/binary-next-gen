@@ -1,14 +1,14 @@
 import React from 'react';
+import { M } from '../_common';
 
 export default () => (
 	<div>
-		<h4>Trade Confirmation</h4>
-		<p>You have purchased the following contract:</p>
+		<h4><M m="Trade Confirmation" /></h4>
 		<table>
 			<tbody>
 				<tr>
-					<th>Entry spot</th><td id="entry"></td>
-					<th>Exit spot</th><td id="exit"></td>
+					<th><M m="Entry spot" /></th><td id="entry"></td>
+					<th><M m="Exit spot" /></th><td id="exit"></td>
 				</tr>
 			</tbody>
 		</table>

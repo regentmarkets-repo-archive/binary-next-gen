@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { connect } from 'react-redux';
+import { M } from '../_common';
 
 @connect(state => ({ assets: state.assets }))
 export default class MarketSelector extends React.Component {
@@ -20,7 +21,7 @@ export default class MarketSelector extends React.Component {
 
 		return (
 			<select className="market-submarket-selector" onChange={e => onChange(e.target.value)}>
-				{showAllOption ? <option value="">All</option> : null}
+				{showAllOption ? <option value=""><M m="All" /></option> : null}
 				{Object
 					.keys(tree)
 					.filter(market => !showMarkets || ~showMarkets.indexOf(market))

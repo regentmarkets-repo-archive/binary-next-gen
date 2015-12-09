@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { RangeGroup } from '../_common';
 import { tradeToFriendlyType } from '../_utils/TradeUtils';
-import M from '../_common/M';
+import { M, NumberPlain } from '../_common';
 
 export default class TickTradeParameters extends React.Component {
 	static propTypes = {
@@ -46,7 +46,7 @@ export default class TickTradeParameters extends React.Component {
 						<Link
 							className="button"
 							to="/trade-type-selector">
-							{tradeTypeText}
+							<M m={tradeTypeText} />
 						</Link>
 					</fieldset>
 				</div>
@@ -73,7 +73,8 @@ export default class TickTradeParameters extends React.Component {
 						<Link
 							className="button"
 							to="/payout-selector">
-							{tickTrade.get('basis')}: {tickTrade.get('currency')} {tickTrade.get('amount')}
+							<M m={tickTrade.get('basis')} /><span>: </span>
+							<NumberPlain currency={tickTrade.get('currency')} value={tickTrade.get('amount')} />
 						</Link>
 					</fieldset>
 				</div>

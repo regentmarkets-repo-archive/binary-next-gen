@@ -1,10 +1,10 @@
 import React from 'react';
-import LogoSpinner from '../_common/LogoSpinner';
+import { LogoSpinner, M } from '../_common';
 import UpgradeStep1 from './UpgradeStep1';
 import UpgradeStep2 from './UpgradeStep2';
 import UpgradeStep3 from './UpgradeStep3';
 
-export default class UpgradePane extends React.Component {
+export default class UpgradeCard extends React.Component {
 
 	constructor(props) {
 		super(props);
@@ -45,23 +45,33 @@ export default class UpgradePane extends React.Component {
 			<div>
 				<UpgradeStep1 />
 				<p>
-					<button onClick={::this.nextStep}>Next</button>
+					<button onClick={::this.nextStep}>
+						<M m="Next" />
+					</button>
 				</p>
 			</div>
 		), (
 			<div>
 				<UpgradeStep2 />
 				<p>
-					<button onClick={::this.previousStep}>Back</button>
-					<button onClick={::this.nextStep}>Next</button>
+					<button onClick={::this.previousStep}>
+						<M m="Back" />
+					</button>
+					<button onClick={::this.nextStep}>
+						<M m="Next" />
+					</button>
 				</p>
 			</div>
 		), (
 			<div>
 				<UpgradeStep3 />
 				<p>
-					<button onClick={::this.previousStep}>Back</button>
-					<button onClick={::this.openAccount}>Open Account</button>
+					<button onClick={::this.previousStep}>
+						<M m="Back" />
+					</button>
+					<button onClick={::this.openAccount}>
+						<M m="Open Account" />
+					</button>
 				</p>
 			</div>)];
 
@@ -70,7 +80,7 @@ export default class UpgradePane extends React.Component {
 				<p className="media">
 					<LogoSpinner spinning={this.state.progress}/>
 				</p>
-				<h3>Upgrade to Real Money Account</h3>
+				<h3><M m="Upgrade to Real Money Account" /></h3>
 				{ steps[this.state.currentPage] }
 			</div>
 		);

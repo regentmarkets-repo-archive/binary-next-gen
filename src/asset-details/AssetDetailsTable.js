@@ -1,11 +1,12 @@
 import React, { PropTypes } from 'react';
+import { M } from '../_common';
 
 const AssetDetailsTable = ({ asset }) => (
 	<table>
 		<thead>
 			<tr>
-				<th>Property</th>
-				<th>Value</th>
+				<th><M m="Property" /></th>
+				<th><M m="Value" /></th>
 			</tr>
 		</thead>
 		<tbody>

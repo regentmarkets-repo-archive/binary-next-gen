@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { InputGroup } from '../_common';
+import { InputGroup, M } from '../_common';
 import * as LiveData from '../_data/LiveData';
 
 export default class SettingsSelfExclusion extends React.Component {

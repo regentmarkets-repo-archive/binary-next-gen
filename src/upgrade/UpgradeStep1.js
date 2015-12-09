@@ -1,5 +1,5 @@
 import React from 'react';
-import DateOfBirth from '../_common/DateOfBirth';
+import { DateOfBirth, M } from '../_common';
 
 export default class UpgradeStep1 extends React.Component {
 
@@ -22,7 +22,7 @@ export default class UpgradeStep1 extends React.Component {
 					<input name="Email" placeholder="Email" type="email" />
 				</p>
 				<p>
-					<label htmlFor="dobdd">Date of birth</label>
+					<label htmlFor="dobdd"><M m="Date of birth" /></label>
 				</p>
 				<p>
 					<DateOfBirth/>

@@ -53,7 +53,7 @@ const ProfitTable = ({ compact, transactions }) => (
 				<th>
 					<M m="Total" />
 				</th>
-                <th><NumberColored value={calulateTotals(transactions)} /></th>
+                <th><NumberColored currency="USD" value={calulateTotals(transactions)} /></th>
 			</tr>
 		</tfoot>
 	</table>

@@ -1,5 +1,5 @@
 import React from 'react';
-import Countries from '../_common/Countries';
+import { Countries, M } from '../_common';
 
 export default class UpgradeStep2 extends React.Component {
 
@@ -7,7 +7,7 @@ export default class UpgradeStep2 extends React.Component {
 		return (
 			<div>
 				<p>
-					<label>Home Address</label>
+					<label><M m="Home Address" /></label>
 				</p>
 				<p>
 					<Countries />

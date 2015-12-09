@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
+import { FormattedNumber } from 'react-intl';
 
 export default class NumberPlain extends React.Component {
 
@@ -31,7 +32,12 @@ export default class NumberPlain extends React.Component {
 		}
 
 		return (
-			<span className={className}>{currency} {formattedValue}</span>
+			<FormattedNumber
+				className={className}
+				style={currency && 'currency'}
+				currency={currency}
+				value={formattedValue}
+			/>
 		);
 	}
 }

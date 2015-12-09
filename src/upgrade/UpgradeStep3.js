@@ -1,4 +1,5 @@
 import React from 'react';
+import { M } from '../_common';
 
 export default class UpgradeStep3 extends React.Component {
 
@@ -6,7 +7,9 @@ export default class UpgradeStep3 extends React.Component {
 		return (
 			<div>
 				<p>
-					<label>Security</label>
+					<label>
+						<M m="Security" />
+					</label>
 				</p>
 				<p>
 					<input name="chooseapassword" placeholder="Password" type="password" />

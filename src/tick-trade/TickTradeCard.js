@@ -1,12 +1,11 @@
 import React, { PropTypes } from 'react';
-import { Modal } from '../_common';
+import { Modal, M } from '../_common';
 import TickTradeSparkline from '../watchlist/TickTradeSparkline';
 import * as LiveData from '../_data/LiveData';
 import TickTradeParameters from './TickTradeParameters';
 import TickTradeDisplay from './TickTradeDisplay';
 import PurchaseConfirmation from './PurchaseConfirmation';
 import PurchaseFailed from './PurchaseFailed';
-import M from '../_common/M';
 
 export default class TickTradeCard extends React.Component {
 
