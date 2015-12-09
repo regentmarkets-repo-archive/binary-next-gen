@@ -41,18 +41,24 @@ const subscribeToWatchlist = st => {
     api.subscribeToTicks(favs);
 };
 
-export const initUnauthorized = store => {
+export const changeLanguage = ln => {
+    api.changeLanguage(ln);
+    api.getActiveSymbolsFull();
+    api.getPortfolio();
+    api.getStatement({ description: 1, limit: 20 });
+};
+
+const initUnauthorized = store => {
     api.getActiveSymbolsFull();
     api.getTradingTimes();
     api.getAssetIndex();
-    api.getActiveSymbolsFull();
 
     readNewsFeed().then(articles => api.events.emit('news', articles));
     getVideosFromPlayList().then(videos => api.events.emit('videos', videos));
     subscribeToSelectedSymbol(store);
 };
 
-export const initAuthorized = (authData, store) => {
+const initAuthorized = (authData, store) => {
     api.getPortfolio();
     api.getStatement({ description: 1, limit: 20 });
     api.getProfitTable({ description: 1, limit: 20 });
