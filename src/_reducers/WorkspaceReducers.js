@@ -1,5 +1,4 @@
 import { Map } from 'immutable';
-// import Perf from 'react-addons-perf';
 
 import {
     WORKSPACE_VIEW_ASSET_DETAILS,
@@ -41,20 +40,11 @@ export default (state = initialState, action) => {
             return state.set('symbolSelected', action.symbol);
         }
         case WORKSPACE_FAVOR_ASSET: {
-            // Perf.start();
-            // setTimeout(() => {
-            //     Perf.stop();
-            //     const measurements = Perf.getLastMeasurements();
-            //     Perf.printInclusive(measurements);
-            //     Perf.printWasted(measurements);
-            // }, 10000);
             const newState = state.update('favoriteAssets', x => x.add(action.symbol));
-            // LiveData.trackSymbols(newState.get('favoriteAssets').toJS());
             return newState;
         }
         case WORKSPACE_UNFAVOR_ASSET: {
             const newState = state.update('favoriteAssets', x => x.delete(action.symbol));
-            // LiveData.trackSymbols(newState.get('favoriteAssets').toJS());
             return newState;
         }
         case UPDATE_TRADING_TIMES_SUBMARKET: {
