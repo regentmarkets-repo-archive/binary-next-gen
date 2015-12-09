@@ -54,6 +54,6 @@
     "webpack": "^1.12.4",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-dev-server": "^1.4.7",
-    "webpack-hot-middleware": "^2.4.1",
+    "webpack-hot-middleware": "^2.4.1"
   }
 }
