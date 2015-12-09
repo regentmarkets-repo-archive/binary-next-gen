@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
-import Direction from './Direction';
+import { Direction, NumberPlain } from './';
 import { directionClassName } from '../_utils/StyleUtils';
 
 const DirectionAndValue = ({ diff, value }) => (
 	<span>
 		<Direction diff={diff} />
-		<span className={directionClassName(diff)}>{value}</span>
+		<NumberPlain className={directionClassName(diff)} value={value} />
 	</span>
 );
 

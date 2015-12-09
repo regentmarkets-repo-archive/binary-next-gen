@@ -23,7 +23,7 @@ const StatementTable = ({ compact, currency, transactions }) => (
 					<M m="Credit/Debit" />
 				</th>
 				<th>
-					<M m="Balance ({currency})" values={{ currency: currency }} />
+					<M m="Balance" /> ({currency})
 				</th>
 			</tr>
 		</thead>

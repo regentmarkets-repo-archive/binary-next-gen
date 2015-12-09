@@ -25,19 +25,22 @@ export default class NumberPlain extends React.Component {
 			return <span />;
 		}
 
-		let formattedValue = value.toFixed(digits).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+		// let formattedValue = value.toFixed(digits).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
 
-		if (value < 0) {
-			formattedValue = '(' + formattedValue.substring(1) + ')';
-		}
+		// if (value < 0) {
+			// formattedValue = '(' + formattedValue.substring(1) + ')';
+		// }
 
 		return (
-			<FormattedNumber
-				className={className}
-				style={currency && 'currency'}
-				currency={currency}
-				value={formattedValue}
-			/>
+			<span className={className}>
+				<FormattedNumber
+					style={currency && 'currency'}
+					currency={currency}
+					value={value}
+					minimumFractionDigits={digits}
+					maximumFractionDigits={digits}
+				/>
+			</span>
 		);
 	}
 }

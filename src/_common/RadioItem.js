@@ -7,7 +7,7 @@ export default class RadioItem extends React.Component {
 		checked: PropTypes.bool,
 		defaultChecked: PropTypes.bool,
 		img: PropTypes.string,
-		label: PropTypes.string.isRequired,
+		label: PropTypes.any.isRequired,
 		name: PropTypes.string.isRequired,
 		onChange: PropTypes.func.isRequired,
 		value: PropTypes.any.isRequired,
@@ -27,7 +27,7 @@ export default class RadioItem extends React.Component {
 				/>
 				<label htmlFor={value}>
 					{img ? <img src={img}/> : '' }
-					<M m={label} />
+					{typeof label === 'string' ? <M m={label} /> : label}
 				</label>
 			</span>
 		);
