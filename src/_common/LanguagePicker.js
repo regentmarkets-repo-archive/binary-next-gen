@@ -14,7 +14,7 @@ export default class LanguagePicker extends React.Component {
 
     updateLanguage(event) {
         this.props.dispatch(signinFieldUpdate('language', event.target.value));
-        LiveData.api.changeLanguage(event.target.value);
+        LiveData.changeLanguage(event.target.value);
     }
 
     render() {
