@@ -37,7 +37,7 @@ export default class TickTradeParameters extends React.Component {
 						<M m="Asset" />
 					</label>
 					<fieldset style={{ flex: 4 }}>
-						<Link to={'/asset-selector?goback&tick'} className="button">
+						<Link to={'/asset-selector?goback&tick'} className="btn-primary">
 							{assetName}
 						</Link>
 					</fieldset>
@@ -48,7 +48,7 @@ export default class TickTradeParameters extends React.Component {
 					</label>
 					<fieldset style={{ flex: 4 }}>
 						<Link
-							className="button"
+							className="btn-primary"
 							to="/trade-type-selector">
 							<M m={tradeTypeText} />
 						</Link>
@@ -75,7 +75,7 @@ export default class TickTradeParameters extends React.Component {
 					</label>
 					<fieldset style={{ flex: 4 }}>
 						<Link
-							className="button"
+							className="btn-primary"
 							to="/payout-selector">
 							<M m={tickTrade.get('basis')} /><span>: </span>
 							<NumberPlain currency={tickTrade.get('currency')} value={tickTrade.get('amount')} />
