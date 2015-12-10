@@ -7,12 +7,15 @@ const ghPages = require('gulp-gh-pages');
 const sass = require('gulp-sass');
 const electron = require('gulp-atom-electron');
 const zip = require('gulp-vinyl-zip');
+const po2json = require('gulp-po2json');
+const through = require('through2');
 
 const files = {
     dist: '../dist',
     js: '../src',
     static: ['../public/**/*', './config.xml', './electron.js'],
     sass: 'public/styles.sass',
+    translations: './translations',
 };
 
 process.env.NODE_ENV = 'production';
@@ -51,6 +54,14 @@ gulp.task('electron', ['download-electron'], () =>
         .pipe(electron({ version: '0.34.3', platform: 'win32' }))
         .pipe(zip.dest('./binary-app.zip'))
 );
+
+gulp.task('po2json', function () {
+    return gulp.src(files.translations + '/*.po')
+        .pipe(po2json())
+        .pipe(gulp.dest(files.js + '/_constants/po/'));
+});
+
+gulp.task
 
 gulp.task('deploy', ['build'], () =>
     gulp.src(files.dist + '/**/*')
