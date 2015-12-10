@@ -1,7 +1,10 @@
 import React, { PropTypes } from 'react';
-import M from '../_common/M';
+import shouldPureComponentUpdate from 'react-pure-render/function';
+import { M } from '../_common';
 
 export default class RadioItem extends React.Component {
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
 		checked: PropTypes.bool,

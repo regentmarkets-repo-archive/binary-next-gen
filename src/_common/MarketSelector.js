@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { connect } from 'react-redux';
-import { M } from '../_common';
+import { FormattedMessage } from 'react-intl';
 
 @connect(state => ({ assets: state.assets }))
 export default class MarketSelector extends React.Component {
@@ -21,7 +21,11 @@ export default class MarketSelector extends React.Component {
 
 		return (
 			<select className="market-submarket-selector" onChange={e => onChange(e.target.value)}>
-				{showAllOption ? <option value=""><M m="All" /></option> : null}
+				{showAllOption ?
+					<FormattedMessage id="All" message="All">
+						{message => <option value="">{message}</option>}
+					</FormattedMessage>
+				: null}
 				{Object
 					.keys(tree)
 					.filter(market => !showMarkets || ~showMarkets.indexOf(market))
