@@ -6,7 +6,9 @@ import createEngine from 'redux-storage/engines/localStorage';
 import * as ActionTypes from '../_constants/ActionTypes';
 
 const actionsToCache = [
-    ActionTypes.SIGNIN_FIELD_UPDATE,
+    ActionTypes.ADD_TOKEN,
+    ActionTypes.REMOVE_TOKEN,
+    ActionTypes.SERVER_AUTH_FAILED,
     ActionTypes.SERVER_DATA_ASSET_INDEX,
     ActionTypes.SERVER_DATA_BALANCE,
     ActionTypes.SERVER_DATA_BUY,
@@ -25,7 +27,6 @@ const filteredEngine = storage.decorators.filter(engine, [
     ['assets'],
     ['profitTable'],
     ['statement'],
-    ['signin'],
     ['settings'],
     ['watchlist'],
 ]);

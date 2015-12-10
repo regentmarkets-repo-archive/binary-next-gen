@@ -7,7 +7,6 @@ import {
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
-    token: '',
     email: '',
     password: '',
     language: 'EN',

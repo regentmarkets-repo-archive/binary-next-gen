@@ -14,3 +14,17 @@ export const serverDataPayoutCurrencies = serverResponse => ({
     type: types.SERVER_DATA_PAYOUT_CURRENCIES,
     serverResponse,
 });
+
+export const serverAuthFailed = serverResponse => ({
+    type: types.SERVER_AUTH_FAILED,
+    serverResponse,
+});
+
+export const addToken = token => ({
+    type: types.ADD_TOKEN,
+    token,
+});
+
+export const removeToken = () => ({
+    type: types.REMOVE_TOKEN,
+});
