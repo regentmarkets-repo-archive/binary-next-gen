@@ -2,7 +2,6 @@ import React from 'react';
 import { Resizer, Tabs } from '../_common';
 import { DesktopHeader, DesktopSidebar, Footer } from '../navigation';
 import PortfolioContainer from '../portfolio/PortfolioContainer';
-import ProfitTableContainer from '../profit-table/ProfitTableContainer';
 import StatementContainer from '../statement/StatementContainer';
 import AssetSelectorContainer from '../asset-selector/AssetSelectorContainer';
 import AssetDetailsContainer from '../asset-details/AssetDetailsContainer';
@@ -10,7 +9,7 @@ import TradingTimesContainer from '../trading-times/TradingTimesContainer';
 import AssetIndexContainer from '../asset-index/AssetIndexContainer';
 import NewsContainer from '../news/NewsContainer';
 import VideoListContainer from '../video/VideoListContainer';
-import TickTradePanel from '../tick-trade/TickTradePanel';
+import TickTradeContainer from '../tick-trade/TickTradeContainer';
 import WatchlistContainer from '../watchlist/WatchlistContainer';
 
 export default ({ actions, workspace }) => (
@@ -25,14 +24,14 @@ export default ({ actions, workspace }) => (
 					onChange={idx => actions.changeActiveTab('left', idx)}
 					tabs={[
 						{ text: 'Assets', component: <AssetSelectorContainer actions={actions} /> },
-						{ text: 'Watchlist', component: <WatchlistContainer /> },
-						{ text: 'Details', component: <AssetDetailsContainer /> },
+						{ text: 'Watchlist', component: <WatchlistContainer actions={actions} /> },
+						{ text: 'Details', component: <AssetDetailsContainer actions={actions} /> },
 					]} />
 			</div>
 			<Resizer onResize={e => console.log(e)} />
 			<div id="mid-panel">
 				<div id="workarea">
-					<TickTradePanel position={{ left: 400, top: 52, width: 360, height: 500 }} actions={actions} />
+					<TickTradeContainer actions={actions} />
 				</div>
 				<Resizer onResize={e => console.log(e)} />
 				<div id="bottom-panel" style={{ height: workspace.get('bottomPanelSize') }}>
@@ -43,7 +42,6 @@ export default ({ actions, workspace }) => (
 						tabs={[
 							{ text: 'Open Positions', component: <PortfolioContainer /> },
 							{ text: 'Transactions', component: <StatementContainer /> },
-							{ text: 'Profits', component: <ProfitTableContainer /> },
 						]} />
 				</div>
 				<Footer />

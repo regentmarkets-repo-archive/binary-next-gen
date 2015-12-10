@@ -22,7 +22,7 @@ export default class MarketSelector extends React.Component {
 		return (
 			<select className="market-submarket-selector" onChange={e => onChange(e.target.value)}>
 				{showAllOption ?
-					<FormattedMessage id="All" message="All">
+					<FormattedMessage id="All" defaultMessage="All">
 						{message => <option value="">{message}</option>}
 					</FormattedMessage>
 				: null}

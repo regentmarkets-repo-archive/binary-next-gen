@@ -11,7 +11,7 @@ export default class AssetSelectorCard extends React.Component {
 		assets: PropTypes.object.isRequired,
 		assetSelector: PropTypes.object.isRequired,
 		workspace: PropTypes.object.isRequired,
-		history: PropTypes.object.isRequired,
+		history: PropTypes.object,
 		watchlist: PropTypes.object.isRequired,
 	};
 
