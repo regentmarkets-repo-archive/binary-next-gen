@@ -1,4 +1,4 @@
-export { serverDataAuthorize, serverDataBalance, serverDataPayoutCurrencies, updateToken, removeToken } from './AccountActions';
+export { serverDataAuthorize, serverDataBalance, serverDataPayoutCurrencies, updateToken } from './AccountActions';
 export { serverDataTradingTimes, serverDataAssetIndex, serverDataActiveSymbols } from './AssetsActions';
 export { updateAssetSelectorSearchQuery, updateAssetSelectorMarkets, updateAssetSelectorSubmarket } from './AssetSelectorActions';
 export { serverDataPortfolio, detailsForContract, serverDataProposalOpenContract } from './PortfolioActions';
