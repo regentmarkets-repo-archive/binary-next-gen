@@ -4,6 +4,7 @@ import languages from '../_constants/languages';
 import * as LiveData from '../_data/LiveData';
 import { connect } from 'react-redux';
 import { signinFieldUpdate } from '../_actions/SigninActions';
+import Perf from 'react-addons-perf';
 
 @connect(state => ({ selected: state.signin.get('language') }))
 export default class LanguagePicker extends React.Component {
@@ -15,6 +16,13 @@ export default class LanguagePicker extends React.Component {
     updateLanguage(event) {
         this.props.dispatch(signinFieldUpdate('language', event.target.value));
         LiveData.changeLanguage(event.target.value);
+        Perf.start();
+        setTimeout(() => {
+            Perf.stop();
+            const measurements = Perf.getLastMeasurements();
+            Perf.printInclusive(measurements);
+            Perf.printWasted(measurements);
+        }, 10000);
     }
 
     render() {
