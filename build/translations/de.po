@@ -1,0 +1,209 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Michael Borkovec <MBO>, 2013.
+# NIAM <info@merequetengue.es>, 2013.
+# Annette Canora <a.canora@gmail.com>, 2013.
+# Vera <lengger.translationgmx.com>, 2013.
+# Michael Borkovec <MBO>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2015-12-04 15:47+0000\n"
+"Last-Translator: Robert Grundler <grundlertex@gmail.com>\n"
+"Language-Team: German <https://hosted.weblate.org/projects/binary/static/de/"
+">\n"
+"Language: de\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.5-dev\n"
+
+msgid "All"
+msgstr "Alle"
+
+msgid "Property"
+msgstr ""
+
+msgid "Value"
+msgstr ""
+
+msgid "Balance"
+msgstr "Guthaben"
+
+msgid "Trade"
+msgstr "Handel"
+
+msgid "Watchlist"
+msgstr ""
+
+msgid "Open Positions"
+msgstr ""
+
+msgid "Profit Table"
+msgstr "Gewinntabelle"
+
+msgid "Statement"
+msgstr "Abrechnung"
+
+msgid "Settings"
+msgstr "Einstellungen"
+
+msgid "Sign Out"
+msgstr ""
+
+msgid "View"
+msgstr "Ansehen"
+
+msgid "Ref."
+msgstr "Ref."
+
+msgid "Purchase"
+msgstr "Kauf"
+
+msgid "Indicative"
+msgstr "Indikativ"
+
+msgid "Purchase Date"
+msgstr "Kaufdatum"
+
+msgid "Purchase Price"
+msgstr "Kaufpreis"
+
+msgid "Sale Date"
+msgstr "Verkaufsdatum"
+
+msgid "Sale Price"
+msgstr "Verkaufskurs"
+
+msgid "Profit/Loss"
+msgstr "Gewinn/Verlust"
+
+#, fuzzy
+msgid "Total"
+msgstr "Gesamtkosten"
+
+msgid "Location"
+msgstr ""
+
+msgid "Update"
+msgstr "Aktualisieren"
+
+msgid "Details"
+msgstr "Angaben"
+
+msgid "Trading Limits"
+msgstr "Handelslimits"
+
+msgid "Item"
+msgstr "Posten"
+
+msgid "Limit ({currency})"
+msgstr ""
+
+msgid "Maximum number of open positions"
+msgstr "Maximale Anzahl offener Positionen"
+
+msgid "Maximum account cash balance"
+msgstr "Maximales Kontoguthaben"
+
+msgid "Maximum daily turnover"
+msgstr "Maximaler Tagesumsatz"
+
+msgid "Maximum aggregate payouts on open positions"
+msgstr "Maximale Gesamtauszahlungen auf offene Positionen"
+
+msgid "Withdrawal limits"
+msgstr "Auszahlungslimits"
+
+msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
+msgstr ""
+
+msgid "You have already withdrawn the equivalent of EUR {drawn}."
+msgstr ""
+
+msgid "An additional password can be used to restrict access to the cashier."
+msgstr ""
+"Es darf ein zusätzliches Passwort verwendet werden, um den Zugang zum "
+"Kassensabschnitt zu beschränken."
+
+msgid "Sign In"
+msgstr ""
+
+msgid "Get your API token"
+msgstr ""
+
+msgid "Create Account"
+msgstr ""
+
+msgid "Action"
+msgstr "Handlung"
+
+msgid "Credit/Debit"
+msgstr "Gutschrift/Lastschrift"
+
+msgid "Purchase Time"
+msgstr "Kaufuhrzeit"
+
+msgid "Back"
+msgstr "Zurück"
+
+msgid "Place Order"
+msgstr ""
+
+msgid "{asset} will {type} over next {duration}"
+msgstr ""
+
+msgid "Price"
+msgstr "Kurs"
+
+msgid "Asset"
+msgstr "Kapital"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "Ticks"
+msgstr "Ticks"
+
+msgid "Amount"
+msgstr "Betrag"
+
+msgid "Trade Confirmation"
+msgstr "Handelsbestätigung"
+
+msgid "Entry spot"
+msgstr "Startkurs"
+
+msgid "Exit spot"
+msgstr "Schlusskurs"
+
+msgid "Next"
+msgstr "Weiter"
+
+msgid "Open Account"
+msgstr "Konto eröffnen"
+
+msgid "Upgrade to Real Money Account"
+msgstr ""
+
+msgid "Date of birth"
+msgstr "Geburtsdatum"
+
+msgid "Home Address"
+msgstr ""
+
+msgid "Security"
+msgstr "Sicherheit"
+
+msgid "Spot"
+msgstr "Kassakurs"
+
+msgid "Change"
+msgstr "Veränderung"
+
+msgid "Chart"
+msgstr "Diagramm"

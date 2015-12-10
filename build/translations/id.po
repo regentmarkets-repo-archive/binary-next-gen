@@ -1,0 +1,202 @@
+# Indonesian translations for I package.
+# Copyright (C) 2011 THE I'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the I package.
+# root <id-trans@regentmarkets.com>, 2011.
+msgid ""
+msgstr ""
+"Project-Id-Version: I 18N\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2015-12-04 04:55+0000\n"
+"Last-Translator: Putri Kumala <putri@regentmarkets.com>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/binary/static/"
+"id/>\n"
+"Language: id\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.5-dev\n"
+
+msgid "All"
+msgstr "Semua"
+
+msgid "Property"
+msgstr ""
+
+msgid "Value"
+msgstr ""
+
+msgid "Balance"
+msgstr "Saldo"
+
+msgid "Trade"
+msgstr "Trade"
+
+msgid "Watchlist"
+msgstr ""
+
+msgid "Open Positions"
+msgstr ""
+
+msgid "Profit Table"
+msgstr "Tabel Laba Rugi"
+
+msgid "Statement"
+msgstr "Pernyataan"
+
+msgid "Settings"
+msgstr "Pengaturan"
+
+msgid "Sign Out"
+msgstr ""
+
+msgid "View"
+msgstr "Lihat"
+
+msgid "Ref."
+msgstr "Ref."
+
+msgid "Purchase"
+msgstr "Beli"
+
+msgid "Indicative"
+msgstr "Indikatif"
+
+msgid "Purchase Date"
+msgstr "Tanggal Beli"
+
+msgid "Purchase Price"
+msgstr "Harga Beli"
+
+msgid "Sale Date"
+msgstr "Tanggal Jual"
+
+msgid "Sale Price"
+msgstr "Harga Jual"
+
+msgid "Profit/Loss"
+msgstr "Untung/Rugi"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Location"
+msgstr ""
+
+msgid "Update"
+msgstr "Memperbarui"
+
+msgid "Details"
+msgstr "Rincian"
+
+msgid "Trading Limits"
+msgstr "Batasan Trading"
+
+msgid "Item"
+msgstr "Bagian"
+
+msgid "Limit ({currency})"
+msgstr ""
+
+msgid "Maximum number of open positions"
+msgstr "Maksimal jumlah posisi terbuka"
+
+msgid "Maximum account cash balance"
+msgstr "Maksimum saldo tunai"
+
+msgid "Maximum daily turnover"
+msgstr "Maksimum turnover harian"
+
+msgid "Maximum aggregate payouts on open positions"
+msgstr "Jumlah maksimal hasil rata-rata pada posisi terbuka"
+
+msgid "Withdrawal limits"
+msgstr "Batas penarikan"
+
+msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
+msgstr ""
+
+msgid "You have already withdrawn the equivalent of EUR {drawn}."
+msgstr ""
+
+msgid "An additional password can be used to restrict access to the cashier."
+msgstr "Kata sandi tambahan dapat digunakan untuk membatasi akses ke kasir."
+
+msgid "Sign In"
+msgstr ""
+
+msgid "Get your API token"
+msgstr ""
+
+msgid "Create Account"
+msgstr ""
+
+msgid "Action"
+msgstr "Aksi"
+
+msgid "Credit/Debit"
+msgstr "Kredit/Debit"
+
+msgid "Purchase Time"
+msgstr "Waktu Beli"
+
+msgid "Back"
+msgstr "Kembali"
+
+msgid "Place Order"
+msgstr ""
+
+msgid "{asset} will {type} over next {duration}"
+msgstr ""
+
+msgid "Price"
+msgstr "Harga"
+
+msgid "Asset"
+msgstr "Aset"
+
+msgid "Type"
+msgstr "Tipe"
+
+msgid "Ticks"
+msgstr "Hasil Tik"
+
+msgid "Amount"
+msgstr "Jumlah"
+
+msgid "Trade Confirmation"
+msgstr "Konfirmasi Trading"
+
+msgid "Entry spot"
+msgstr "Spot awal"
+
+msgid "Exit spot"
+msgstr "Spot akhir"
+
+msgid "Next"
+msgstr "Lanjutkan"
+
+msgid "Open Account"
+msgstr "Daftar Akun"
+
+msgid "Upgrade to Real Money Account"
+msgstr ""
+
+msgid "Date of birth"
+msgstr "Tanggal lahir"
+
+msgid "Home Address"
+msgstr ""
+
+msgid "Security"
+msgstr "Keamanan"
+
+msgid "Spot"
+msgstr "Posisi"
+
+msgid "Change"
+msgstr "Perubahan"
+
+msgid "Chart"
+msgstr "Grafik"

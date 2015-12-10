@@ -1,0 +1,205 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Michael Borkovec <MBO>, 2013.
+# Natascha <info@tradonline.com.ar>, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2015-12-01 22:29+0000\n"
+"Last-Translator: olga borg <olga@binary.com>\n"
+"Language-Team: Spanish <https://hosted.weblate.org/projects/binary/static/es/"
+">\n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.5-dev\n"
+
+msgid "All"
+msgstr "Todo"
+
+msgid "Property"
+msgstr ""
+
+msgid "Value"
+msgstr ""
+
+msgid "Balance"
+msgstr "Saldo"
+
+msgid "Trade"
+msgstr "Operar"
+
+msgid "Watchlist"
+msgstr ""
+
+msgid "Open Positions"
+msgstr ""
+
+msgid "Profit Table"
+msgstr "Tabla de beneficios"
+
+msgid "Statement"
+msgstr "Extracto"
+
+msgid "Settings"
+msgstr "Configuración"
+
+msgid "Sign Out"
+msgstr ""
+
+msgid "View"
+msgstr "Ver"
+
+msgid "Ref."
+msgstr "Ref."
+
+msgid "Purchase"
+msgstr "Compra"
+
+msgid "Indicative"
+msgstr "Indicativo"
+
+msgid "Purchase Date"
+msgstr "Fecha de compra"
+
+msgid "Purchase Price"
+msgstr "Precio de compra"
+
+msgid "Sale Date"
+msgstr "Fecha de venta"
+
+msgid "Sale Price"
+msgstr "Precio venta"
+
+msgid "Profit/Loss"
+msgstr "Perdido/Ganado"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Location"
+msgstr ""
+
+msgid "Update"
+msgstr "Actualizar"
+
+msgid "Details"
+msgstr "detalles"
+
+msgid "Trading Limits"
+msgstr "Límites"
+
+msgid "Item"
+msgstr "Artículo"
+
+msgid "Limit ({currency})"
+msgstr ""
+
+msgid "Maximum number of open positions"
+msgstr "Número máximo de posiciones abiertas"
+
+msgid "Maximum account cash balance"
+msgstr "Saldo de caja máximo en la cuenta"
+
+msgid "Maximum daily turnover"
+msgstr "Volumen de negocios diario máximo"
+
+msgid "Maximum aggregate payouts on open positions"
+msgstr "Máximo de pagos agregados en posiciones abiertas"
+
+msgid "Withdrawal limits"
+msgstr "Límites de retiro"
+
+msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
+msgstr ""
+
+msgid "You have already withdrawn the equivalent of EUR {drawn}."
+msgstr ""
+
+msgid "An additional password can be used to restrict access to the cashier."
+msgstr ""
+"Se puede utilizar una contraseña adicional para restringir el acceso al "
+"cajero."
+
+msgid "Sign In"
+msgstr ""
+
+msgid "Get your API token"
+msgstr ""
+
+msgid "Create Account"
+msgstr ""
+
+msgid "Action"
+msgstr "Acción"
+
+msgid "Credit/Debit"
+msgstr "Crédito/débito"
+
+msgid "Purchase Time"
+msgstr "Hora de compra"
+
+msgid "Back"
+msgstr "Atrás"
+
+msgid "Place Order"
+msgstr ""
+
+msgid "{asset} will {type} over next {duration}"
+msgstr ""
+
+msgid "Price"
+msgstr "Precio"
+
+msgid "Asset"
+msgstr "Activo"
+
+msgid "Type"
+msgstr "Tipo"
+
+msgid "Ticks"
+msgstr "Intervalos"
+
+msgid "Amount"
+msgstr "Monto"
+
+msgid "Trade Confirmation"
+msgstr "Confirmación"
+
+msgid "Entry spot"
+msgstr "Punto de entrada"
+
+msgid "Exit spot"
+msgstr "Punto de salida"
+
+msgid "Next"
+msgstr "Siguiente"
+
+msgid "Open Account"
+msgstr "Abrir una cuenta"
+
+msgid "Upgrade to Real Money Account"
+msgstr ""
+
+msgid "Date of birth"
+msgstr "Fecha de nacimiento"
+
+msgid "Home Address"
+msgstr ""
+
+msgid "Security"
+msgstr "Seguridad"
+
+msgid "Spot"
+msgstr "Precio actual del mercado"
+
+msgid "Change"
+msgstr "Cambio"
+
+msgid "Chart"
+msgstr "Gráfico"
