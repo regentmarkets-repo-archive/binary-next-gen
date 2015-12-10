@@ -1,6 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router';
-import MobileSidebar from './MobileSidebar';
+import { MobileSidebar, MobileToobarBtn } from './';
 
 export default () => (
 	<div className="mobile-toolbar">
@@ -11,11 +10,11 @@ export default () => (
 			<img src="img/menu.svg" />
 			<MobileSidebar />
 		</label>
-		<Link to={'/tick-trade'} activeClassName="active" className="mobile-nav-btn"><img src="img/trade.svg" /></Link>
-		<Link to={`/watchlist-mobile`} activeClassName="active" className="mobile-nav-btn"><img src="img/watchlist.svg" /></Link>
-		<Link to={'/portfolio-mobile'} activeClassName="active" className="mobile-nav-btn"><img src="img/portfolio.svg" /></Link>
-		<Link to={`/profit-table-mobile`} activeClassName="active" className="mobile-nav-btn"><img src="img/profit.svg" /></Link>
-		<Link to={'/statement-mobile'} activeClassName="active" className="mobile-nav-btn"><img src="img/statement.svg" /></Link>
-		<Link to={`/settings-mobile`} activeClassName="active" className="mobile-nav-btn"><img src="img/settings.svg" /></Link>
+		<MobileToobarBtn to={'/tick-trade'} img="img/trade.svg" />
+		<MobileToobarBtn to={`/watchlist-mobile`} img="img/watchlist.svg" />
+		<MobileToobarBtn to={'/portfolio-mobile'} img="img/portfolio.svg" />
+		<MobileToobarBtn to={`/video-mobile`} img="img/profit.svg" />
+		<MobileToobarBtn to={'/statement-mobile'} img="img/statement.svg" />
+		<MobileToobarBtn to={`/settings-mobile`} img="img/settings.svg" />
 	</div>
 );

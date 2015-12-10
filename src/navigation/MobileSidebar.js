@@ -41,18 +41,18 @@ export default class MobileSidebar extends React.Component {
 					<M m="Open Positions" />
 				</Link>
 				<Link
-					to={`/profit-table-mobile`}
-					className="sidebar-btn"
-					activeClassName="active">
-					<img src="img/profit.svg" />
-					<M m="Profit Table" />
-				</Link>
-				<Link
 					to={`/statement-mobile`}
 					className="sidebar-btn"
 					activeClassName="active">
 					<img src="img/statement.svg" />
 					<M m="Statement" />
+				</Link>
+				<Link
+					to={`/video-mobile`}
+					className="sidebar-btn"
+					activeClassName="active">
+					<img src="img/profit.svg" />
+					<M m="Binary TV" />
 				</Link>
 				<Link
 					to={`/settings-mobile`}

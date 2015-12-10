@@ -25,8 +25,6 @@ export default class NumberPlain extends React.Component {
 			return <span />;
 		}
 
-		// let formattedValue = value.toFixed(digits).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
-
 		// if (value < 0) {
 			// formattedValue = '(' + formattedValue.substring(1) + ')';
 		// }
