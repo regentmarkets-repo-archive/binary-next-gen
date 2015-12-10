@@ -15,6 +15,7 @@ const actionsToCache = [
     ActionTypes.SERVER_DATA_PAYOUT_CURRENCIES,
     ActionTypes.SERVER_DATA_ACCOUNT_LIMITS,
     ActionTypes.SERVER_DATA_ACCOUNT_SETTINGS,
+    ActionTypes.UPDATE_SETTINGS_FIELD,
     ActionTypes.WATCHLIST_FAVOR_ASSET,
     ActionTypes.WATCHLIST_UNFAVOR_ASSET,
 ];

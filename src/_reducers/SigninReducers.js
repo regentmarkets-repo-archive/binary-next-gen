@@ -9,7 +9,6 @@ import {
 const initialState = fromJS({
     email: '',
     password: '',
-    language: 'EN',
     tokenNotEntered: false,
     emailNotValid: false,
     passwordNotEntered: false,
