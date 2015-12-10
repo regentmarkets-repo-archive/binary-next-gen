@@ -6,9 +6,7 @@ import createEngine from 'redux-storage/engines/localStorage';
 import * as ActionTypes from '../_constants/ActionTypes';
 
 const actionsToCache = [
-    ActionTypes.ADD_TOKEN,
-    ActionTypes.REMOVE_TOKEN,
-    ActionTypes.SERVER_AUTH_FAILED,
+    ActionTypes.UPDATE_TOKEN,
     ActionTypes.SERVER_DATA_ASSET_INDEX,
     ActionTypes.SERVER_DATA_BALANCE,
     ActionTypes.SERVER_DATA_BUY,

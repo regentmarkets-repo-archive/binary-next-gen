@@ -1,6 +1,6 @@
 import { rehydratedStorePromise, store } from '../_store/configureStore';
 import * as LiveData from './LiveData';
-import { serverAuthFailed, removeToken } from '../_actions/AccountActions';
+import { updateToken } from '../_actions/AccountActions';
 import { signinFailed } from '../_actions/SigninActions';
 
 let isAuthorized = false;
@@ -33,8 +33,8 @@ export const requireAuthOnEnter = (nextState, replaceState, cb) => {
                 () => {
                     isAuthorized = true;
                 },
-                err => {
-                    st.dispatch(serverAuthFailed(err));
+                () => {
+                    st.dispatch(updateToken(''));
                     st.dispatch(signinFailed());
                     navigateTo(nextState, replaceState, '/signin');
                 }
@@ -45,6 +45,6 @@ export const requireAuthOnEnter = (nextState, replaceState, cb) => {
 
 export const signout = (nextState, replaceState) => {
     isAuthorized = false;
-    store.dispatch(removeToken());
+    store.dispatch(updateToken(''));
     navigateTo(nextState, replaceState, '/signin');
 };

@@ -15,16 +15,7 @@ export const serverDataPayoutCurrencies = serverResponse => ({
     serverResponse,
 });
 
-export const serverAuthFailed = serverResponse => ({
-    type: types.SERVER_AUTH_FAILED,
-    serverResponse,
-});
-
-export const addToken = token => ({
-    type: types.ADD_TOKEN,
+export const updateToken = token => ({
+    type: types.UPDATE_TOKEN,
     token,
-});
-
-export const removeToken = () => ({
-    type: types.REMOVE_TOKEN,
 });
