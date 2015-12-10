@@ -55,6 +55,24 @@ electron
 * [Webpack](https://webpack.github.io/) - bundle application from modules
 * [cordova](https://cordova.apache.org/) - build mobile app
 
+## Translation-related command
+
+1. to extract text for translation:
+
+    ```
+    cd ./build
+    python3 extract.py
+    ```
+2. to submit text to translators: 
+   push to translation branch, weblate hook will be triggered
+3. to make latest translation available in apps
+    
+    ```
+    cd ./build
+    gulp po2json
+    ```
+
+
 ## Project Organization By Directory
 * _actions - Redux actions
 * _common - Common React Components
