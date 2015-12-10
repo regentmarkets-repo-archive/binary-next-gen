@@ -1,16 +1,7 @@
-* {
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-    -moz-user-select: none;
-    -webkit-user-drag: none;
-    -ms-user-drag: none;
-    user-drag: none;
-}
 #screen {
     font-size: 12px;
 }
+
 /* Desktop Layout */
 
 #root, #screen {
@@ -18,6 +9,7 @@
     height: 100%;
     display: flex;
 }
+
 #panels {
     flex: 1;
     display: flex;
@@ -28,9 +20,11 @@
     flex: 1;
     flex-direction: column;
 }
+
 #screen {
     flex-direction: column;
 }
+
 #header {
     display: flex;
     background: #2a3052;
@@ -38,41 +32,41 @@
     padding: 0 1rem;
     justify-content: space-between;
 }
+
 #header span {
     line-height: 4;
 }
+
 #left-panel, #right-panel, #bottom-panel {
     overflow: auto;
 }
+
 #workarea {
     flex: 1;
 }
+
 table {
     margin-bottom: 0;
 }
+
 .market-hierarchy {
     font-size: .8em;
 }
+
 .wide-form {
     max-width: 420px;
 }
-.login-content a, .login-content h3, .signup-content h3 {
-    text-align: center;
-}
-.login-content {
-    padding: 1rem;
-}
-.login-content a {
-    padding: 1rem 0;
-}
+
 .logo-text {
     padding: 1rem;
 }
+
 .panel {
     border: 2px solid #2a3052;
     position: absolute;
     background: white;
 }
+
 .panel-title {
     color: white;
     background: #2a3052;
@@ -80,27 +74,26 @@ table {
     display: flex;
     justify-content: space-between;
 }
+
 .panel-title label {
     margin-left: .5rem;
 }
+
 .panel-content {
     height: calc(100% - 2em);
     overflow: auto;
 }
-a.button, button, input[type=button], input[type=submit] {
-    padding: .75rem 1rem;
-}
-.button.active {
-    border-color: rgba(0, 0, 0, .5);
-}
+
 .panel-btn, .panel-btn:hover, .close-btn, .close-btn:hover {
     background: transparent;
     border: none;
     padding: .5rem;
 }
+
 .panel-btn:hover, .toolbar-btn:hover, .sidebar-btn:hover {
     background-color: rgba(255, 255, 255, .1);
 }
+
 .close-btn {
     position: relative;
     color: black;
@@ -108,6 +101,7 @@ a.button, button, input[type=button], input[type=submit] {
     margin-right: -1rem;
     float: right;
 }
+
 .mobile-screen {
     display: flex;
     align-items: center;
@@ -115,6 +109,7 @@ a.button, button, input[type=button], input[type=submit] {
     width: 100%;
     height: 100%;
 }
+
 .mobile-page {
     font-size: 15px;
     width: 100%;
@@ -122,16 +117,20 @@ a.button, button, input[type=button], input[type=submit] {
     display: flex;
     flex-direction: column;
 }
+
 .mobile-content {
     padding: .5rem;
     overflow: auto;
 }
+
 .mobile-content tbody tr {
     cursor: pointer;
 }
+
 .tick-trade-mobile button:not(.close-btn), .tick-trade-mobile input[type=range], .tick-trade-mobile a.button, .tick-trade-mobile .range-selector-items {
     width: 100%;
 }
+
 header {
     position: inherit;
     width: 100%;
@@ -140,9 +139,11 @@ header {
     padding: 0 1rem;
     justify-content: space-between;
 }
+
 header span {
     line-height: 4;
 }
+
 nav.sidebar {
     display: flex;
     flex-direction: column;
@@ -151,58 +152,65 @@ nav.sidebar {
     color: white;
     margin: -3.5rem -.5rem -.5rem -.5rem;
 }
+
 .sidebar span {
     color: white;
 }
+
 .sidebar > * {
     padding: 0 1rem;
     margin: 0;
 }
+
 .number-positive {
     color: green;
 }
+
 .number-negative {
     color: red;
 }
+
 .trade-action {
     text-transform: capitalize;
 }
+
 .mobile-nav-btn {
     text-align: center;
     flex: 1;
 }
+
 .mobile-nav-btn img {
     padding: 1rem;
     height: 100%;
 }
+
 .mobile-nav-btn.active {
     box-shadow: inset 0 -3px 0 0 #e98024;
 }
+
 button, button:hover, a.button, a.button:hover {
     background: #2a3052;
 }
+
 .full-screen-overlay {
     z-index: 9999;
 }
+
 .range-selector-items {
     display: flex;
     width: 15rem;
     margin: .25rem .25rem 0 .25rem;
     justify-content: space-between;
 }
+
 .market-submarket-selector, .asset-search, .asset-search > input, .trading-times-date-picker > input {
     width: 100%;
 }
+
 .asset-search {
     margin-bottom: 0;
 }
-tbody > tr:hover {
-    background-color: rgba(42, 48, 82, .1);
-}
-tr:focus {
-    background-color: rgba(42, 48, 82, .2);
-    outline: none;
-}
+
 .info-icon {
     display: inline-block;
     color: #2a3052;
@@ -213,6 +221,7 @@ tr:focus {
     height: 1.2rem;
     width: 1.2rem;
 }
+
 .mobile-toolbar {
     color: white;
     background: #2a3052;
@@ -220,6 +229,7 @@ tr:focus {
     display: flex;
     width: 100%;
 }
+
 .mobile-back-btn {
     text-align: left !important;
     font-weight: normal;
@@ -228,108 +238,117 @@ tr:focus {
     text-align: center;
     flex: 1;
 }
+
 .mobile-back-btn span {
     height: 3.5rem;
     vertical-align: middle;
 }
+
 .sidebar-btn {
     height: 4rem;
     padding: 0;
 }
+
 .sidebar-btn > img {
     width: 3.5rem;
     padding: 1rem;
 }
+
 .toolbar-btn {
     line-height: 3.5;
     padding: 0 1rem;
 }
+
 .toolbar-btn > img {
     width: 1.5rem;
     height: 100%;
 }
+
 .account-info {
     background: #e98024;
     padding: .5rem;
 }
+
 .buy-btn {
     width: 100%;
     padding: 1.5rem;
 }
+
 fieldset {
     margin-bottom: .5rem;
 }
+
 .back-btn {
     width: 3.5rem;
     padding: .75rem;
 }
+
 .tick-sparklines {
     margin-bottom: 1rem;
 }
+
 .radio-selector {
     display: flex;
     margin-bottom: .5rem;
     border-radius: 2px;
     background-color: rgba(42, 48, 82, .1);
 }
+
 .radio-item {
     flex: 1;
 }
+
 .radio-item label {
     cursor: pointer;
     line-height: 2;
     display: block;
     text-align: center;
 }
+
 .radio-item img {
     margin-right: .5rem;
     width: 1.5rem;
     background-color: white;
     box-shadow: 0 0 0 1px white;
 }
+
 .radio-item input {
     display: none;
 }
+
 .radio-item input[type=radio]:checked+label {
     background: #2a3052;
     border-radius: 2px;
     color: white;
 }
+
 .mobile-content .modal {
     max-width: 360px;
 }
-.signin-btn {
-    margin-top: 2rem;
-    margin-bottom: 7rem;
-}
-.outline-link, .outline-link:hover {
-    display: block;
-    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.75);
-    border-radius: 2px;
-    font-weight: normal;
-    padding: .5rem !important;
-    height: 2.5rem;
-    text-decoration: none;
-    text-transform: uppercase;
-}
+
 .desktop-page {
     width: 100%;
     height: 100%;
 }
+
 #hamburger-opener {
     display: none;
 }
+
 #hamburger-btn {
     cursor: pointer;
 }
+
 #hamburger-btn > .sidebar {
     position: absolute;
     left: -300px;
 }
+
 #hamburger-opener:checked + #hamburger-btn > .sidebar {
     left: .5rem;
     transition: .3s;
 }
+
 #hamburger-overlay {
     position: fixed;
     left: 0;
@@ -341,14 +360,17 @@ fieldset {
     visibility: visible;
     transition: .3s;
 }
+
 #hamburger-closer {
     display: none;
 }
+
 #hamburger-closer:checked + #hamburger-overlay {
     visibility: hidden;
     opacity: 0;
     transition: .3s;
 }
+
 #desktop-sidebar {
     position: fixed;
     z-index: 9999;
@@ -358,6 +380,7 @@ fieldset {
     width: 4rem;
     background: #2a3052;
 }
+
 .toolbar-hint {
     position: absolute;
     padding: .75rem;
@@ -368,26 +391,23 @@ fieldset {
     background: #2a3052;
     visibility: hidden;
 }
+
 .toolbar-btn:hover > .toolbar-hint {
     visibility: visible;
 }
+
 #desktop-sidebar .toolbar-btn {
     height: 4rem;
 }
-.login-content {
-    max-width: 400px;
-    margin: auto;
-}
-.login-content input, .login-content button, .login-content select {
-    width: 100%;
-}
+
 div[role=tabs] {
     display: flex;
     background: rgba(42, 48, 82, .75);
     color: white;
 }
+
 button::-moz-focus-inner, input::-moz-focus-outer {
-  border: 0;
+    border: 0;
 }
 
 .button-list {
@@ -411,17 +431,6 @@ button::-moz-focus-inner, input::-moz-focus-outer {
     flex: 0 1 180px;
 }
 
-.mobile-form * {
-    display: block;
-}
-
-/* fixes for iOS */
-input {
-    -webkit-user-select: text;
-    -moz-user-select: text;
-    -ms-user-select: text;
-    user-select: text;
-}
 select {
     background-color: white;
 }
@@ -430,6 +439,7 @@ select {
     display: flex;
     flex-direction: column;
 }
+
 .asset-list {
     overflow: auto;
 }
@@ -437,9 +447,11 @@ select {
 .asset-list tbody {
     height: 200px;
 }
+
 .asset-list tbody tr {
     cursor: pointer;
 }
+
 .tick-sparklines {
     text-align: center;
 }
@@ -449,8 +461,20 @@ select {
     cursor: e-resize;
     width: .25rem;
 }
+
 .resizer-horizontal {
     background: #eee;
     cursor: s-resize;
     height: .25rem;
+}
+
+.mobile-form {
+    display: flex;
+    flex-direction: column;
+    max-width: 400px;
+    margin: auto;
+}
+
+.mobile-form input, .mobile-form button, .mobile-form select {
+    width: 100%;
 }
