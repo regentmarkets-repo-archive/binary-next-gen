@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import allTexts from '../_constants/texts';
 import locale from '../_constants/languageLocaleMap';
 
-@connect(state => ({ language: state.signin.get('language') }))
+@connect(state => ({ language: state.settings.get('language') }))
 export default class IntlProviderContainer extends React.Component {
     static propTypes = {
         language: PropTypes.string.isRequired,

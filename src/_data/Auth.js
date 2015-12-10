@@ -1,6 +1,7 @@
 import { rehydratedStorePromise, store } from '../_store/configureStore';
 import * as LiveData from './LiveData';
-import { signinFieldUpdate } from '../_actions/SigninActions';
+import { updateToken } from '../_actions/AccountActions';
+import { signinFailed } from '../_actions/SigninActions';
 
 let isAuthorized = false;
 
@@ -16,14 +17,15 @@ export const requireAuthOnEnter = (nextState, replaceState, cb) => {
 
     rehydratedStorePromise.then(st => {
         const newState = st.getState();
-        if (!newState.signin) {
+        if (!newState.account) {
             navigateTo(nextState, replaceState, '/signin');
             cb();
             return;
         }
 
-        const token = newState.signin.get('token');
+        const token = newState.account.get('token');
         if (!token) {
+            st.dispatch(signinFailed());
             navigateTo(nextState, replaceState, '/signin');
             cb();
         } else {
@@ -32,6 +34,8 @@ export const requireAuthOnEnter = (nextState, replaceState, cb) => {
                     isAuthorized = true;
                 },
                 () => {
+                    st.dispatch(updateToken(''));
+                    st.dispatch(signinFailed());
                     navigateTo(nextState, replaceState, '/signin');
                 }
             ).then(cb);
@@ -41,6 +45,6 @@ export const requireAuthOnEnter = (nextState, replaceState, cb) => {
 
 export const signout = (nextState, replaceState) => {
     isAuthorized = false;
-    store.dispatch(signinFieldUpdate('token', ''));
+    store.dispatch(updateToken(''));
     navigateTo(nextState, replaceState, '/signin');
 };
