@@ -9,6 +9,7 @@ import {
 
 const initialState = fromJS({
     activeTab: 0,
+    language: 'EN',
 });
 
 export default (state = initialState, action) => {

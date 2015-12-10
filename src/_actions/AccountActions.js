@@ -14,3 +14,8 @@ export const serverDataPayoutCurrencies = serverResponse => ({
     type: types.SERVER_DATA_PAYOUT_CURRENCIES,
     serverResponse,
 });
+
+export const updateToken = token => ({
+    type: types.UPDATE_TOKEN,
+    token,
+});

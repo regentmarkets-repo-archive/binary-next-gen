@@ -30,7 +30,7 @@ export default class SigninCard extends React.Component {
 	// }
 
 	onTokenChange(event) {
-		this.props.actions.signinFieldUpdate('token', event.target.value);
+		this.props.actions.updateToken(event.target.value);
 	}
 
 	// onLanguageChange(event) {

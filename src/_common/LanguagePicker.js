@@ -3,10 +3,10 @@ import { SelectGroup } from '../_common';
 import languages from '../_constants/languages';
 import * as LiveData from '../_data/LiveData';
 import { connect } from 'react-redux';
-import { signinFieldUpdate } from '../_actions/SigninActions';
+import { updateSettingFields } from '../_actions/SettingsActions';
 import Perf from 'react-addons-perf';
 
-@connect(state => ({ selected: state.signin.get('language') }))
+@connect(state => ({ selected: state.settings.get('language') }))
 export default class LanguagePicker extends React.Component {
     static propTypes = {
         selected: PropTypes.oneOf(languages.map(ln => ln.value)),
@@ -14,7 +14,7 @@ export default class LanguagePicker extends React.Component {
     };
 
     updateLanguage(event) {
-        this.props.dispatch(signinFieldUpdate('language', event.target.value));
+        this.props.dispatch(updateSettingFields({ language: event.target.value }));
         LiveData.changeLanguage(event.target.value);
         Perf.start();
         setTimeout(() => {

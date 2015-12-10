@@ -4,6 +4,7 @@ import {
     SERVER_DATA_BALANCE,
     SERVER_DATA_PAYOUT_CURRENCIES,
     SERVER_DATA_BUY,
+    UPDATE_TOKEN,
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
@@ -11,6 +12,7 @@ const initialState = fromJS({
     fullname: '',
     currency: '',
     balance: 0,
+    token: '',
     currencies: ['USD'],
 });
 
@@ -28,6 +30,9 @@ export default (state = initialState, action) => {
         }
         case SERVER_DATA_PAYOUT_CURRENCIES: {
             return state.set('currencies', action.serverResponse.payout_currencies);
+        }
+        case UPDATE_TOKEN: {
+            return state.set('token', action.token);
         }
         default:
             return state;
