@@ -30,9 +30,13 @@ export default class MarketSelector extends React.Component {
 					.keys(tree)
 					.filter(market => !showMarkets || ~showMarkets.indexOf(market))
 					.map(market => (
-					<optgroup key={market} label={market}>
-						{Object.keys(tree[market]).map(submarket =>
-							<option key={submarket} value={submarket}>{submarket}</option>
+					<optgroup key={market} label={tree[market].display_name}>
+						{Object.keys(tree[market].submarkets).map(submarket =>
+							<option key={submarket} value={submarket}>
+								{tree[market]
+									.submarkets[submarket]
+									.display_name}
+							</option>
 						)}
 					</optgroup>
 				))}

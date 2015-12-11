@@ -24,7 +24,7 @@ const initialState = new Map({
         date: new Date(),
     }),
     assetIndex: new Map({
-        submarket: 'Asia/Oceania',
+        submarket: 'asia_oceania',
     }),
 });
 

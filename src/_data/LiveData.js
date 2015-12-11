@@ -44,6 +44,7 @@ const subscribeToWatchlist = st => {
 export const changeLanguage = ln => {
     api.changeLanguage(ln);
     api.getActiveSymbolsFull();
+    api.getAssetIndex();
     api.getPortfolio();
     api.getStatement({ description: 1, limit: 20 });
 };

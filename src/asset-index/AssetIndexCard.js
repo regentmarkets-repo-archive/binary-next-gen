@@ -15,9 +15,13 @@ export default class AssetIndexCard extends React.Component {
 
 	render() {
 		const { actions, assets, assetIndexFilter } = this.props;
-		const { index, list } = assets.toJS();
+		const { index, list, tree } = assets.toJS();
 		const submarket = assetIndexFilter.get('submarket');
-		const submarketForAsset = symbol => list.find(x => x.symbol === symbol).submarket_display_name;
+		const submarketName = Object.keys(tree).map(market => {
+			const subs = tree[market].submarkets;
+			if (Object.keys(subs).indexOf(submarket) > -1) return subs[submarket].display_name;
+		})[0];
+		const submarketForAsset = symbol => list.find(x => x.symbol === symbol).submarket;
 
 		return (
 			<div>
@@ -26,7 +30,7 @@ export default class AssetIndexCard extends React.Component {
 					showAllOption={false} />
 				<AssetIndexTable
 					key={submarket}
-					submarket={submarket}
+					submarket={submarketName}
 					index={index.filter(a => submarketForAsset(a[0]) === submarket)} />
 			</div>
 		);

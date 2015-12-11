@@ -13,14 +13,20 @@ const initialState = fromJS({
 });
 
 const generateTree = symbols => {
-    const tree = {};
-    symbols.forEach((sym) => {
-        if (!tree[sym.market_display_name]) tree[sym.market_display_name] = {};
-        if (!tree[sym.market_display_name][sym.submarket_display_name]) tree[sym.market_display_name][sym.submarket_display_name] = {};
-        tree[sym.market_display_name][sym.submarket_display_name][sym] = sym.display_name;
+    const tree = { };
+    symbols.forEach(sym => {
+        if (!tree[sym.market]) tree[sym.market] = { display_name: sym.market_display_name, submarkets: {} };
+
+        if (!tree[sym.market].submarkets[sym.submarket]) {
+            tree[sym.market].submarkets[sym.submarket] = { display_name: sym.submarket_display_name, symbols: {} };
+        }
+        if (!tree[sym.market].submarkets[sym.submarket].symbols[sym.symbol]) {
+            tree[sym.market].submarkets[sym.submarket].symbols[sym.symbol] = { display_name: sym.display_name };
+        }
     });
     return tree;
 };
+
 
 const flattenTradingTimes = tradingTimes => {
     return tradingTimes.markets

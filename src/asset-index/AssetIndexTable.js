@@ -13,7 +13,7 @@ const AssetIndexTable = ({ submarket, index }) => (
             <tr>
                 <th></th>
                 { index[0][2].map((idx) => <th key={idx}>{idx[1]}</th>)}
-                {Array(8 - index[0][2].length).fill(<th></th>)}
+                {Array(8 - index[0][2].length).map(id => <th key={id}></th>)}
             </tr>}
         </thead>
         <tbody>
