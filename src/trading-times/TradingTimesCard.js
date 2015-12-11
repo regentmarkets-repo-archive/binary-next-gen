@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { InputGroup, MarketSelector } from '../_common';
-import { todayString } from '../_utils/DateUtils';
+import { dateToDateString, todayString } from '../_utils/DateUtils';
 import TradingTimesTable from './TradingTimesTable';
 
 const oneYearAgoStr = () => new Date().setFullYear(new Date().getFullYear() - 1);
@@ -26,6 +26,7 @@ export default class TradingTimesCard extends React.Component {
 		}).filter(name => !!name)[0];
 
 		const submarketForAsset = symbol => list.find(x => x.symbol === symbol).submarket;
+		const tradingTimesDate = tradingTimesFilter.get('date');
 
 		return (
 			<div>
@@ -33,7 +34,13 @@ export default class TradingTimesCard extends React.Component {
 					<MarketSelector
 						onChange={x => actions.updateTickTradeSubmarket(x)}
 						showAllOption={false} />
-					<InputGroup type="date" value={todayString()} min={oneYearAgoStr()} max={todayString()} className="trading-times-date-picker" />
+					<InputGroup
+						type="date"
+						value={dateToDateString(tradingTimesDate)}
+						min={oneYearAgoStr()}
+						max={todayString()}
+						className="trading-times-date-picker"
+						onChange={x => actions.updateTradingTimesDate(x.target.valueAsDate)}/>
 				</div>
 				<TradingTimesTable
 					key={submarket}

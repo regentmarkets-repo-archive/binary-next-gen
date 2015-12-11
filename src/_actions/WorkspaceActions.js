@@ -22,10 +22,15 @@ export const updateTickTradeSubmarket = submarket => ({
     submarket,
 });
 
-export const updateTickTradeDate = date => ({
-    type: types.UPDATE_TRADING_TIMES_DATE,
-    date,
-});
+export const updateTradingTimesDate = date => {
+    return dispatch => {
+        LiveData.api.getTradingTimes(date);
+        dispatch({
+            type: types.UPDATE_TRADING_TIMES_DATE,
+            date,
+        });
+    };
+};
 
 export const updateAssetIndexSubmarket = submarket => ({
     type: types.UPDATE_ASSET_INDEX_SUBMARKET,

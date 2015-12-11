@@ -20,11 +20,11 @@ const initialState = new Map({
     bottomActiveTab: 0,
     symbolSelected: 'R_100',
     tradingTimes: new Map({
-        submarket: 'asia_oceania',
+        submarket: 'europe_africa',
         date: new Date(),
     }),
     assetIndex: new Map({
-        submarket: 'asia_oceania',
+        submarket: 'europe_africa',
     }),
 });
 
@@ -48,13 +48,13 @@ export default (state = initialState, action) => {
             return newState;
         }
         case UPDATE_TRADING_TIMES_SUBMARKET: {
-            return state.merge({ tradingTimes: { submarket: action.submarket } });
+            return state.update('tradingTimes', v => v.merge({ submarket: action.submarket }));
         }
         case UPDATE_TRADING_TIMES_DATE: {
-            return state.merge({ tradingTimes: { date: action.date } });
+            return state.update('tradingTimes', v => v.merge({ date: action.date }));
         }
         case UPDATE_ASSET_INDEX_SUBMARKET: {
-            return state.merge({ assetIndex: { submarket: action.submarket } });
+            return state.update('assetIndex', v => v.merge({ submarket: action.submarket }));
         }
         default:
             return state;

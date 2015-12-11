@@ -10,5 +10,5 @@ export { changeSettingsActiveTab, serverDataAccountLimits, serverDataAccountSelf
 export { signinStart, signinFieldUpdate, signinFailed } from './SigninActions';
 export { serverDataStatement } from './StatementActions';
 export { watchlistFavorAsset, watchlistUnfavorAsset } from './WatchlistActions';
-export { workspaceViewAssetDetails, workspaceAssetSelect, workspaceFavorAsset, workspaceUnfavorAsset, changeActiveTab, updateTickTradeSubmarket, updateTickTradeDate, updateAssetIndexSubmarket, addToWatchlist, delFromWatchlist, clearTradeTicks, selectAssetSymbolForTrade } from './WorkspaceActions';
+export { workspaceViewAssetDetails, workspaceAssetSelect, workspaceFavorAsset, workspaceUnfavorAsset, changeActiveTab, updateTickTradeSubmarket, updateTradingTimesDate, updateAssetIndexSubmarket, addToWatchlist, delFromWatchlist, clearTradeTicks, selectAssetSymbolForTrade } from './WorkspaceActions';
 export { changeActiveVideo, updateVideoList } from './VideoActions';
