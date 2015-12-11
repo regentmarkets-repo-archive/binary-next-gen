@@ -5,7 +5,7 @@ import { DesktopHeader } from '../navigation';
 export default () => (
 	<div>
 		<DesktopHeader />
-		<h4><Link to={`/tick-trade`}>Tick Trade</Link></h4>
+		<h4><Link to={`/mobile`}>Tick Trade</Link></h4>
 		<h4><Link to={`/login`}>Login</Link></h4>
 		<h4><Link to={`/signup`}>Signup</Link></h4>
 		<h4><Link to={`/upgrade`}>Upgrade</Link></h4>

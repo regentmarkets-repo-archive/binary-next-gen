@@ -10,11 +10,12 @@ export default () => (
 			<img src="img/menu.svg" />
 			<MobileSidebar />
 		</label>
-		<MobileToolbarBtn to={'/tick-trade'} img="img/trade.svg" />
+		<MobileToolbarBtn to={'/mobile'} img="img/trade.svg" />
 		<MobileToolbarBtn to={`/watchlist-mobile`} img="img/watchlist.svg" />
 		<MobileToolbarBtn to={'/portfolio-mobile'} img="img/portfolio.svg" />
-		<MobileToolbarBtn to={`/video-mobile`} img="img/profit.svg" />
 		<MobileToolbarBtn to={'/statement-mobile'} img="img/statement.svg" />
+		<MobileToolbarBtn to={`/news-mobile`} img="img/profit.svg" />
+		<MobileToolbarBtn to={`/resources-mobile`} img="img/profit.svg" />
 		<MobileToolbarBtn to={`/settings-mobile`} img="img/settings.svg" />
 	</div>
 );

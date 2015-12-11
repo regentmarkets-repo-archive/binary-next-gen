@@ -1,10 +1,10 @@
 import App from './App';
 
-import TickTradeRoutes from './TickTradeRoutes';
+import MobileRoutes from './MobileRoutes';
 import DesktopRoutes from './DesktopRoutes';
 import CommonRoutes from './CommonRoutes';
 
-const childRoutes = [].concat(DesktopRoutes).concat(TickTradeRoutes).concat(CommonRoutes);
+const childRoutes = [].concat(DesktopRoutes).concat(MobileRoutes).concat(CommonRoutes);
 
 export default {
     component: App,

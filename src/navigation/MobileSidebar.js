@@ -20,7 +20,7 @@ export default class MobileSidebar extends React.Component {
 					<NumberPlain currency={account.currency} value={account.balance} />
 				</div>
 				<Link
-					to={`/tick-trade`}
+					to={`/mobile`}
 					className="sidebar-btn"
 					activeClassName="active">
 					<img src="img/trade.svg" />
@@ -48,11 +48,18 @@ export default class MobileSidebar extends React.Component {
 					<M m="Statement" />
 				</Link>
 				<Link
-					to={`/video-mobile`}
+					to={`/news-mobile`}
 					className="sidebar-btn"
 					activeClassName="active">
 					<img src="img/profit.svg" />
-					<M m="Binary TV" />
+					<M m="News" />
+				</Link>
+				<Link
+					to={`/resources-mobile`}
+					className="sidebar-btn"
+					activeClassName="active">
+					<img src="img/profit.svg" />
+					<M m="Resources" />
 				</Link>
 				<Link
 					to={`/settings-mobile`}
