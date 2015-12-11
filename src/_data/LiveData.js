@@ -93,5 +93,5 @@ export const connect = store => {
 
     initUnauthorized(store);
 
-    api.events.on('authorize', response => initAuthorized(response, store));
+    api.events.on('authorize', response => response.error ? null : initAuthorized(response, store));
 };
