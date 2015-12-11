@@ -27,7 +27,7 @@
   },
   "dependencies": {
     "binary-live-api": "*",
-    "history": "^1.15.0",
+    "history": "^1.16.0",
     "immutable": "^3.7.5",
     "react": "^0.14.3",
     "react-dom": "^0.14.3",
