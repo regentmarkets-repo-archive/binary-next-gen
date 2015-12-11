@@ -1,0 +1,202 @@
+# Chinese translations for PACKAGE package.
+# Copyright (C) 2015 THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Automatically generated, 2015.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2015-12-02 23:46+0000\n"
+"Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/binary/"
+"static/zh_TW/>\n"
+"Language: zh_TW\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.5-dev\n"
+
+msgid "All"
+msgstr "所有"
+
+msgid "Property"
+msgstr ""
+
+msgid "Value"
+msgstr ""
+
+msgid "Balance"
+msgstr "餘額"
+
+msgid "Trade"
+msgstr "交易"
+
+msgid "Watchlist"
+msgstr ""
+
+msgid "Open Positions"
+msgstr ""
+
+msgid "Profit Table"
+msgstr "利潤表"
+
+msgid "Statement"
+msgstr "帳單"
+
+msgid "Settings"
+msgstr "設定"
+
+msgid "Sign Out"
+msgstr ""
+
+msgid "View"
+msgstr "檢視"
+
+msgid "Ref."
+msgstr "參考"
+
+msgid "Purchase"
+msgstr "買入"
+
+msgid "Indicative"
+msgstr "指示性"
+
+msgid "Purchase Date"
+msgstr "買入日期"
+
+msgid "Purchase Price"
+msgstr "買入價格"
+
+msgid "Sale Date"
+msgstr "賣出日期"
+
+msgid "Sale Price"
+msgstr "賣出價格"
+
+msgid "Profit/Loss"
+msgstr "利潤/虧損"
+
+msgid "Total"
+msgstr ""
+
+msgid "Location"
+msgstr ""
+
+msgid "Update"
+msgstr "更新"
+
+msgid "Details"
+msgstr "詳細資料"
+
+msgid "Trading Limits"
+msgstr "交易限制"
+
+msgid "Item"
+msgstr "項目"
+
+msgid "Limit ({currency})"
+msgstr ""
+
+msgid "Maximum number of open positions"
+msgstr "最大未平倉頭寸數目"
+
+msgid "Maximum account cash balance"
+msgstr "最大帳戶現金餘額"
+
+msgid "Maximum daily turnover"
+msgstr "最大日成交量"
+
+msgid "Maximum aggregate payouts on open positions"
+msgstr "未平倉頭寸的最大賠付總額"
+
+msgid "Withdrawal limits"
+msgstr "取款限額"
+
+msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
+msgstr ""
+
+msgid "You have already withdrawn the equivalent of EUR {drawn}."
+msgstr ""
+
+msgid "An additional password can be used to restrict access to the cashier."
+msgstr "可使用額外密碼來限制對收銀台的存取。"
+
+msgid "Sign In"
+msgstr ""
+
+msgid "Get your API token"
+msgstr ""
+
+msgid "Create Account"
+msgstr ""
+
+msgid "Action"
+msgstr "動作"
+
+msgid "Credit/Debit"
+msgstr "借記/貸記"
+
+msgid "Purchase Time"
+msgstr "買入時間"
+
+msgid "Back"
+msgstr "返回"
+
+msgid "Place Order"
+msgstr ""
+
+msgid "{asset} will {type} over next {duration}"
+msgstr ""
+
+msgid "Price"
+msgstr "價格"
+
+msgid "Asset"
+msgstr "資產"
+
+msgid "Type"
+msgstr ""
+
+msgid "Ticks"
+msgstr ""
+
+msgid "Amount"
+msgstr "金額"
+
+msgid "Trade Confirmation"
+msgstr "交易確認"
+
+msgid "Entry spot"
+msgstr "入市現價"
+
+msgid "Exit spot"
+msgstr "退出現價"
+
+msgid "Next"
+msgstr "下一頁"
+
+msgid "Open Account"
+msgstr "開戶"
+
+msgid "Upgrade to Real Money Account"
+msgstr ""
+
+msgid "Date of birth"
+msgstr "出生日期"
+
+msgid "Home Address"
+msgstr ""
+
+msgid "Security"
+msgstr "安全"
+
+msgid "Spot"
+msgstr "現價"
+
+msgid "Change"
+msgstr "變更"
+
+msgid "Chart"
+msgstr "圖表"

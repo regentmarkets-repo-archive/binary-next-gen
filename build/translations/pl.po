@@ -1,0 +1,206 @@
+# Polish translation files.
+# Copyright (C) Binary.com Regentmarkets
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2015-12-05 14:01+0000\n"
+"Last-Translator: Ewelina Bruździak <e.bruzdziak@gmail.com>\n"
+"Language-Team: Polish <https://hosted.weblate.org/projects/binary/static/pl/"
+">\n"
+"Language: pl\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
+"|| n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.5-dev\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+msgid "All"
+msgstr "Wszystko"
+
+msgid "Property"
+msgstr ""
+
+msgid "Value"
+msgstr ""
+
+msgid "Balance"
+msgstr "Saldo"
+
+msgid "Trade"
+msgstr "Zakład"
+
+msgid "Watchlist"
+msgstr ""
+
+msgid "Open Positions"
+msgstr ""
+
+msgid "Profit Table"
+msgstr "Tabela zysków"
+
+msgid "Statement"
+msgstr "Stan konta"
+
+msgid "Settings"
+msgstr "Ustawienia"
+
+msgid "Sign Out"
+msgstr ""
+
+msgid "View"
+msgstr "Widok"
+
+msgid "Ref."
+msgstr "Ref."
+
+msgid "Purchase"
+msgstr "Kup"
+
+msgid "Indicative"
+msgstr "Orientacyjny"
+
+msgid "Purchase Date"
+msgstr "Data zakupu"
+
+msgid "Purchase Price"
+msgstr "Cena zakupu"
+
+msgid "Sale Date"
+msgstr "Data sprzedaży"
+
+msgid "Sale Price"
+msgstr "Cena sprzedaży"
+
+msgid "Profit/Loss"
+msgstr "Zysk/Strata"
+
+msgid "Total"
+msgstr "Całkowity"
+
+msgid "Location"
+msgstr ""
+
+msgid "Update"
+msgstr "Aktualizuj"
+
+msgid "Details"
+msgstr "Szczegóły"
+
+msgid "Trading Limits"
+msgstr "Limity handlowe"
+
+msgid "Item"
+msgstr "Element"
+
+msgid "Limit ({currency})"
+msgstr ""
+
+msgid "Maximum number of open positions"
+msgstr "Maksymalna dzienna liczba otwartych pozycji"
+
+msgid "Maximum account cash balance"
+msgstr "Maksymalne saldo gotówki na koncie"
+
+msgid "Maximum daily turnover"
+msgstr "Maksymalny dzienny obrót"
+
+msgid "Maximum aggregate payouts on open positions"
+msgstr "Maksymalne zagregowane wypłaty dla pozycji otwartych"
+
+msgid "Withdrawal limits"
+msgstr "Limity wypłat"
+
+msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
+msgstr ""
+
+msgid "You have already withdrawn the equivalent of EUR {drawn}."
+msgstr ""
+
+msgid "An additional password can be used to restrict access to the cashier."
+msgstr ""
+"Dodatkowe hasło może być wykorzystane do ograniczania dostępu do sekcji "
+"Kasjer."
+
+msgid "Sign In"
+msgstr ""
+
+msgid "Get your API token"
+msgstr ""
+
+msgid "Create Account"
+msgstr ""
+
+msgid "Action"
+msgstr "Czynności"
+
+msgid "Credit/Debit"
+msgstr "Winien/Ma"
+
+msgid "Purchase Time"
+msgstr "Godzina zakupu"
+
+msgid "Back"
+msgstr "Poprzedni"
+
+msgid "Place Order"
+msgstr ""
+
+msgid "{asset} will {type} over next {duration}"
+msgstr ""
+
+msgid "Price"
+msgstr "Cena"
+
+msgid "Asset"
+msgstr "Kapitał"
+
+msgid "Type"
+msgstr "Typ"
+
+msgid "Ticks"
+msgstr "Najmniejsze zmiany ceny"
+
+msgid "Amount"
+msgstr "Kwota"
+
+msgid "Trade Confirmation"
+msgstr "Potwierdzenie zawarcia zakładu"
+
+msgid "Entry spot"
+msgstr "Pozycja wejściowa"
+
+msgid "Exit spot"
+msgstr "Punkt wyjściowy"
+
+msgid "Next"
+msgstr "Następny"
+
+msgid "Open Account"
+msgstr "Otwórz konto"
+
+msgid "Upgrade to Real Money Account"
+msgstr ""
+
+msgid "Date of birth"
+msgstr "Data urodzenia"
+
+msgid "Home Address"
+msgstr ""
+
+msgid "Security"
+msgstr "Bezpieczeństwo"
+
+msgid "Spot"
+msgstr "Cena aktualna"
+
+msgid "Change"
+msgstr "Zmiana"
+
+msgid "Chart"
+msgstr "Wykres"

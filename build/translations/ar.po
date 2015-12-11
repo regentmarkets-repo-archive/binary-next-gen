@@ -1,0 +1,205 @@
+# Arabic translation file for binary.com.
+# Copyright (C) Binary.com Regentmarkets
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: 1.0\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2015-12-07 02:34+0000\n"
+"Last-Translator: Rudy Karam <rudykaram6@gmail.com>\n"
+"Language-Team: Arabic <https://hosted.weblate.org/projects/binary/static/ar/"
+">\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
+"&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+"X-Generator: Weblate 2.5-dev\n"
+"X-Poedit-SourceCharset: UTF-8\n"
+
+msgid "All"
+msgstr "الجميع"
+
+msgid "Property"
+msgstr ""
+
+msgid "Value"
+msgstr ""
+
+msgid "Balance"
+msgstr "رصيد"
+
+msgid "Trade"
+msgstr "التداول"
+
+msgid "Watchlist"
+msgstr ""
+
+msgid "Open Positions"
+msgstr ""
+
+msgid "Profit Table"
+msgstr "جدول الأرباح"
+
+msgid "Statement"
+msgstr "كشف الحساب"
+
+msgid "Settings"
+msgstr "الإعدادات"
+
+msgid "Sign Out"
+msgstr ""
+
+msgid "View"
+msgstr "شاهد"
+
+msgid "Ref."
+msgstr "مرجع"
+
+msgid "Purchase"
+msgstr "شراء"
+
+msgid "Indicative"
+msgstr "ارشادي"
+
+msgid "Purchase Date"
+msgstr "تاريخ الشراء"
+
+msgid "Purchase Price"
+msgstr "سعر الشراء"
+
+msgid "Sale Date"
+msgstr "تاريخ البيع"
+
+msgid "Sale Price"
+msgstr "سعر البيع"
+
+msgid "Profit/Loss"
+msgstr "الربح/الخسارة"
+
+#, fuzzy
+msgid "Total"
+msgstr "التكلفة الإجمالية"
+
+msgid "Location"
+msgstr ""
+
+msgid "Update"
+msgstr "حدث"
+
+msgid "Details"
+msgstr "التفاصيل"
+
+msgid "Trading Limits"
+msgstr "حدود التداول"
+
+msgid "Item"
+msgstr "بند"
+
+msgid "Limit ({currency})"
+msgstr ""
+
+msgid "Maximum number of open positions"
+msgstr "الحد الأقصى لعدد المعاملات المفتوحة"
+
+msgid "Maximum account cash balance"
+msgstr "الحد الأقصى لرصيد الحساب النقدي"
+
+msgid "Maximum daily turnover"
+msgstr "الحد الأقصى لحجم التداول اليومي"
+
+msgid "Maximum aggregate payouts on open positions"
+msgstr "الحد الأقصى لإجمالي عوائد المعاملات المفتوحة"
+
+msgid "Withdrawal limits"
+msgstr "حدود السحب"
+
+msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
+msgstr ""
+
+msgid "You have already withdrawn the equivalent of EUR {drawn}."
+msgstr ""
+
+msgid "An additional password can be used to restrict access to the cashier."
+msgstr "يمكن استخدام كلمة مرور إضافية لحظر الوصول لصفحة الصراف."
+
+msgid "Sign In"
+msgstr ""
+
+msgid "Get your API token"
+msgstr ""
+
+msgid "Create Account"
+msgstr ""
+
+msgid "Action"
+msgstr "عمل"
+
+msgid "Credit/Debit"
+msgstr "ائتمان/خصم"
+
+msgid "Purchase Time"
+msgstr "وقت الشراء"
+
+msgid "Back"
+msgstr "للخلف"
+
+msgid "Place Order"
+msgstr ""
+
+msgid "{asset} will {type} over next {duration}"
+msgstr ""
+
+msgid "Price"
+msgstr "سعر"
+
+msgid "Asset"
+msgstr "أصول"
+
+msgid "Type"
+msgstr "نوع"
+
+msgid "Ticks"
+msgstr "الحركات"
+
+msgid "Amount"
+msgstr "مبلغ"
+
+msgid "Trade Confirmation"
+msgstr "تأكيد التداول"
+
+msgid "Entry spot"
+msgstr "سعر البدء"
+
+msgid "Exit spot"
+msgstr "سعر النهاية"
+
+msgid "Next"
+msgstr "التالي"
+
+msgid "Open Account"
+msgstr "يفتح حساب"
+
+msgid "Upgrade to Real Money Account"
+msgstr ""
+
+msgid "Date of birth"
+msgstr "تاريخ الميلاد"
+
+msgid "Home Address"
+msgstr ""
+
+msgid "Security"
+msgstr "الأمان"
+
+msgid "Spot"
+msgstr "السعر"
+
+msgid "Change"
+msgstr "تغير"
+
+msgid "Chart"
+msgstr "رسم بياني"

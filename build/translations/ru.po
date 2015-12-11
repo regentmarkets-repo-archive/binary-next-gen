@@ -1,0 +1,204 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: BOM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2015-12-01 22:05+0000\n"
+"Last-Translator: Alina Demidova <alinademidova1@gmail.com>\n"
+"Language-Team: Russian <https://hosted.weblate.org/projects/binary/static/ru/"
+">\n"
+"Language: ru\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.5-dev\n"
+
+msgid "All"
+msgstr "Все"
+
+msgid "Property"
+msgstr ""
+
+msgid "Value"
+msgstr ""
+
+msgid "Balance"
+msgstr "Баланс"
+
+msgid "Trade"
+msgstr "Начать работу"
+
+msgid "Watchlist"
+msgstr ""
+
+msgid "Open Positions"
+msgstr ""
+
+msgid "Profit Table"
+msgstr "Анализ счета"
+
+msgid "Statement"
+msgstr "История счета"
+
+msgid "Settings"
+msgstr "Настройки"
+
+msgid "Sign Out"
+msgstr ""
+
+msgid "View"
+msgstr "Просмотр"
+
+msgid "Ref."
+msgstr "Номер"
+
+msgid "Purchase"
+msgstr "Покупка"
+
+msgid "Indicative"
+msgstr "Временная цена"
+
+msgid "Purchase Date"
+msgstr "Дата покупки"
+
+msgid "Purchase Price"
+msgstr "Цена покупки"
+
+msgid "Sale Date"
+msgstr "Дата продажи"
+
+msgid "Sale Price"
+msgstr "Цена прод."
+
+msgid "Profit/Loss"
+msgstr "Плюс/Минус"
+
+msgid "Total"
+msgstr "Total"
+
+msgid "Location"
+msgstr ""
+
+msgid "Update"
+msgstr "Обновить"
+
+msgid "Details"
+msgstr "Подробности"
+
+msgid "Trading Limits"
+msgstr "Торговые лимиты"
+
+msgid "Item"
+msgstr "Описание"
+
+msgid "Limit ({currency})"
+msgstr ""
+
+msgid "Maximum number of open positions"
+msgstr "Максимальное количество открытых позиций"
+
+msgid "Maximum account cash balance"
+msgstr "Максимальный баланс на счету"
+
+msgid "Maximum daily turnover"
+msgstr "Максимальный дневной оборот"
+
+msgid "Maximum aggregate payouts on open positions"
+msgstr "Максимальная совокупная выплата по открытым позициям"
+
+msgid "Withdrawal limits"
+msgstr "Лимиты на вывод"
+
+msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
+msgstr ""
+
+msgid "You have already withdrawn the equivalent of EUR {drawn}."
+msgstr ""
+
+msgid "An additional password can be used to restrict access to the cashier."
+msgstr ""
+"Можно использовать дополнительный пароль для ограничения доступа к кассе."
+
+msgid "Sign In"
+msgstr ""
+
+msgid "Get your API token"
+msgstr ""
+
+msgid "Create Account"
+msgstr ""
+
+msgid "Action"
+msgstr "Акт"
+
+msgid "Credit/Debit"
+msgstr "Кредит/Дебет"
+
+msgid "Purchase Time"
+msgstr "Время покупки"
+
+msgid "Back"
+msgstr "назад"
+
+msgid "Place Order"
+msgstr ""
+
+msgid "{asset} will {type} over next {duration}"
+msgstr ""
+
+msgid "Price"
+msgstr "Цена"
+
+msgid "Asset"
+msgstr "Актив"
+
+msgid "Type"
+msgstr "Тип"
+
+msgid "Ticks"
+msgstr "Тики"
+
+msgid "Amount"
+msgstr "Количество"
+
+msgid "Trade Confirmation"
+msgstr "Подтверждение контракта"
+
+msgid "Entry spot"
+msgstr "Входная котировка"
+
+msgid "Exit spot"
+msgstr "Выходная котировка"
+
+msgid "Next"
+msgstr "Далее"
+
+msgid "Open Account"
+msgstr "Открыть счет"
+
+msgid "Upgrade to Real Money Account"
+msgstr ""
+
+msgid "Date of birth"
+msgstr "Ваша дата рождения"
+
+msgid "Home Address"
+msgstr ""
+
+msgid "Security"
+msgstr "Безопасность"
+
+msgid "Spot"
+msgstr "Спот-котировка"
+
+msgid "Change"
+msgstr "Изменение"
+
+msgid "Chart"
+msgstr "График"
