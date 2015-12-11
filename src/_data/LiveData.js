@@ -45,8 +45,9 @@ export const changeLanguage = ln => {
     api.changeLanguage(ln);
     api.getActiveSymbolsFull();
     api.getAssetIndex();
-    api.getPortfolio();
-    api.getStatement({ description: 1, limit: 20 });
+    api.getTradingTimes();
+    // api.getPortfolio();
+    // api.getStatement({ description: 1, limit: 20 }); we do not need this until we need longcode
 };
 
 const initUnauthorized = store => {

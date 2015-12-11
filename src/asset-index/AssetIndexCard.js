@@ -20,7 +20,7 @@ export default class AssetIndexCard extends React.Component {
 		const submarketName = Object.keys(tree).map(market => {
 			const subs = tree[market].submarkets;
 			if (Object.keys(subs).indexOf(submarket) > -1) return subs[submarket].display_name;
-		})[0];
+		}).filter(name => !!name)[0];
 		const submarketForAsset = symbol => list.find(x => x.symbol === symbol).submarket;
 
 		return (
