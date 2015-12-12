@@ -44,8 +44,10 @@ const subscribeToWatchlist = st => {
 export const changeLanguage = ln => {
     api.changeLanguage(ln);
     api.getActiveSymbolsFull();
-    api.getPortfolio();
-    api.getStatement({ description: 1, limit: 20 });
+    api.getAssetIndex();
+    api.getTradingTimes();
+    // api.getPortfolio();
+    // api.getStatement({ description: 1, limit: 20 }); we do not need this until we need longcode
 };
 
 const initUnauthorized = store => {

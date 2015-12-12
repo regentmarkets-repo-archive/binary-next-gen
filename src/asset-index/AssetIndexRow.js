@@ -8,7 +8,7 @@ const AssetIndexRow = ({ assetIndex }) => (
         {assetIndex[2].map(idx =>
             <td key={idx}>{idx[2]}–{idx[3]}</td>
         )}
-        {Array(8 - assetIndex[2].length).fill(<td></td>)}
+        {Array(8 - assetIndex[2].length).map(id => <td key={id}></td>)}
     </tr>
 );
 
