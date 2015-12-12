@@ -20,11 +20,11 @@ const initialState = new Map({
     bottomActiveTab: 0,
     symbolSelected: 'R_100',
     tradingTimes: new Map({
-        submarket: 'Asia/Oceania',
+        submarket: 'asia_oceania',
         date: new Date(),
     }),
     assetIndex: new Map({
-        submarket: 'Asia/Oceania',
+        submarket: 'asia_oceania',
     }),
 });
 
