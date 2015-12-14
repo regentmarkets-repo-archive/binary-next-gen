@@ -4,7 +4,7 @@ import { InputGroup, MarketSelector } from '../_common';
 import { dateToDateString, todayString } from '../_utils/DateUtils';
 import TradingTimesTable from './TradingTimesTable';
 
-const oneYearAgoStr = () => new Date().setFullYear(new Date().getFullYear() - 1);
+const oneYearAfterStr = () => new Date().setFullYear(new Date().getFullYear() + 1);
 
 export default class TradingTimesCard extends React.Component {
 
@@ -37,8 +37,8 @@ export default class TradingTimesCard extends React.Component {
 					<InputGroup
 						type="date"
 						value={dateToDateString(tradingTimesDate)}
-						min={oneYearAgoStr()}
-						max={todayString()}
+						min={todayString()}
+						max={oneYearAfterStr()}
 						className="trading-times-date-picker"
 						onChange={x => actions.updateTradingTimesDate(x.target.valueAsDate)}/>
 				</div>
