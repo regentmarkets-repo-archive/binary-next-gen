@@ -35,8 +35,8 @@ export default class AssetSelectorItem extends React.Component {
 
 		return (
 			<tr autoFocus={isSelected} tabIndex={0} ref={focuser} >
-				<td>
-					<Star on={isFavorite} onClick={::this.toggleFavorite} />
+				<td onClick={::this.toggleFavorite}>
+					<Star on={isFavorite} />
 				</td>
 				<td onClick={() => onSelect(asset.get('symbol'))}>
 					{asset.get('display_name')}
