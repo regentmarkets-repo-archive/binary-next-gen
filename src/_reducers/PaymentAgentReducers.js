@@ -1,9 +1,9 @@
-import { Map, List } from 'immutable';
+import { fromJS } from 'immutable';
 import { SERVER_DATA_PAYMENT_AGENTS, CHANGE_PAYMENT_AGENT_COUNTRY } from '../_constants/ActionTypes';
 
-const initialState = new Map({
+const initialState = fromJS({
     selectedCountry: 'id',
-    paymentAgents: List.of(),
+    paymentAgents: [],
 });
 
 export default (state = initialState, action) => {

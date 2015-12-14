@@ -18,7 +18,7 @@ export default class PaymentAgentsList extends React.Component {
                     </tr>
                 </thead>
                 <tbody>
-                    { paymentAgents.map(pa => <PaymentAgentsItem key={pa.name} paymentAgent={pa.toJS()}/>) }
+                    { paymentAgents.toJS().map(pa => <PaymentAgentsItem key={pa.name} paymentAgent={pa}/>) }
                 </tbody>
             </table>
         );
