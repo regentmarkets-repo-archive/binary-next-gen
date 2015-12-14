@@ -12,6 +12,7 @@ import ProfitTableMobile from '../profit-table/ProfitTableMobile';
 import SettingsMobile from '../settings/SettingsMobile';
 import NewsMobile from '../mobile/NewsMobile';
 import ResourcesMobile from '../mobile/ResourcesMobile';
+import PaymentAgentsMobile from '../payment-agents/PaymentAgentsMobile';
 
 import { requireAuthOnEnter, signout } from '../_data/Auth';
 
@@ -31,4 +32,5 @@ export default [
     { path: 'settings-mobile', component: SettingsMobile, onEnter: requireAuthOnEnter },
     { path: 'news-mobile', component: NewsMobile },
     { path: 'resources-mobile', component: ResourcesMobile },
+    { path: 'payment-agent-list-mobile', component: PaymentAgentsMobile, onEnter: requireAuthOnEnter },
 ];
