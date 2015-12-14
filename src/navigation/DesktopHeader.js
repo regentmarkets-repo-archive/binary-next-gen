@@ -20,7 +20,7 @@ export default class DesktopHeader extends React.Component {
 		return (
 			<div id="header">
 				<Link id="logo" to="/workspace">
-					<img src="https://borisyankov.github.io/binary-static/images/pages/binary-symbol-logo.svg" />
+					<img src="img/binary-symbol-logo.svg" />
 				</Link>
 				<span>19:28:33 (GMT +0)</span>
 				<span>

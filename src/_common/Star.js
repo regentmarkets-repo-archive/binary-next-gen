@@ -7,14 +7,13 @@ export default class Star extends React.Component {
 
     static propTypes = {
 		on: PropTypes.bool.isRequired,
-		onClick: PropTypes.func.isRequired,
 	};
 
     render() {
-        const { on, onClick } = this.props;
+        const { on } = this.props;
 
         return (
-            <span onClick={onClick} style={{ fontSize: '1.5rem' }}>
+            <span style={{ fontSize: '1.5rem' }}>
                 {on ? '★' : '☆'}
             </span>
         );

@@ -43,6 +43,7 @@ export default class SigninCard extends React.Component {
 		const { signin } = this.props;
 
 		return (
+			<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'space-between' }}>
 				<form className="mobile-form" onSubmit={e => e.preventDefault()}>
 					<p className="media">
 						<LogoSpinner spinning={signin.get('progress')}/>
@@ -67,14 +68,19 @@ export default class SigninCard extends React.Component {
 					<button className="btn-primary" onClick={::this.trySignin}>
 						<M m="Sign In" />
 					</button>
+				</form>
 
-				<a className="btn-secondary" target="new" href="https://www.binary.com/user/api_token">
-					<M m="Get your API token" />
-				</a>
-				<a className="btn-secondary" target="new" href="https://www.binary.com">
-					<M m="Create Account" />
-				</a>
-			</form>
+				<p style={{ alignSelf: 'bottom' }}>
+					<a className="btn-secondary" target="new" href="https://www.binary.com/user/api_token">
+						<M m="Get your API token" />
+					</a>
+				</p>
+				<p>
+					<a className="btn-secondary" target="new" href="https://www.binary.com">
+						<M m="Create Account" />
+					</a>
+				</p>
+			</div>
 		);
 	}
 }

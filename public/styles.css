@@ -102,24 +102,19 @@ table {
     float: right;
 }
 
-.mobile-screen {
+.mobile-page {
+    font-size: 15px;
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 100%;
-    height: 100%;
-}
-
-.mobile-page {
-    font-size: 15px;
-    width: 100%;
-    height: 100%;
-    display: flex;
+    flex: 1;
     flex-direction: column;
 }
 
 .mobile-content {
     padding: .5rem;
+    width: 100%;
+    flex: 1;
     overflow: auto;
 }
 
@@ -186,10 +181,6 @@ nav.sidebar {
 
 .mobile-nav-btn.active {
     box-shadow: inset 0 -3px 0 0 #e98024;
-}
-
-button, button:hover, a.button, a.button:hover {
-    background: #2a3052;
 }
 
 .full-screen-overlay {
@@ -406,10 +397,6 @@ div[role=tabs] {
     color: white;
 }
 
-button::-moz-focus-inner, input::-moz-focus-outer {
-    border: 0;
-}
-
 .button-list {
     display: inline;
 }
@@ -472,6 +459,7 @@ select {
     display: flex;
     flex-direction: column;
     max-width: 400px;
+    height: 100%;
     margin: auto;
 }
 

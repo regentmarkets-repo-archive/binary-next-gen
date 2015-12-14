@@ -45,7 +45,7 @@ export default class AssetSelectorItem extends React.Component {
 					{asset.get('market_display_name') + ' > ' + asset.get('submarket_display_name')}
 				</td>
 				<td>
-					<span className="info-icon"> i</span>
+					<img src="img/info.svg" style={{ width: '1rem' }} />
 				</td>
 			</tr>
 		);
