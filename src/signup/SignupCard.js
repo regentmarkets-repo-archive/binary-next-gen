@@ -2,40 +2,29 @@ import React from 'react';
 import { Countries, ErrorMsg, InputGroup, LogoSpinner, M } from '../_common';
 
 export default class SignupCard extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			validatedOnce: false,
-			residence: '',
-			password: '',
-			email: '',
-			confirmPassword: '',
-			progress: false,
-		};
-	}
-
 	static propTypes = {
+		signup: React.PropTypes.object.isRequired,
 		actions: React.PropTypes.object.isRequired,
 	};
 
 	emailValid() {
-		const { email } = this.state;
+		const { email } = this.props.signup.toJS();
 
 		return /\S+@\S+\.\S+/.test(email);
 	}
 
 	passwordValid() {
-		const { password } = this.state;
+		const { password } = this.props.signup.toJS();
 		return /^[\s.A-Za-z0-9@_:+-\/=]{5,25}$/.test(password);
 	}
 
 	confirmationValid() {
-		const { password, confirmPassword } = this.state;
+		const { password, confirmPassword } = this.props.signup.toJS();
 		return password === confirmPassword;
 	}
 
 	performSignup() {
-		const { email, password, verificationCode, residence } = this.state;
+		const { email, password, verificationCode, residence } = this.props.signup.toJS();
 		this.props.actions.signupStart({
 			email: email,
 			client_password: password,
@@ -45,7 +34,7 @@ export default class SignupCard extends React.Component {
 	}
 
 	trySignup() {
-		this.setState({ validatedOnce: true });
+		this.props.actions.signupFieldUpdate('validatedOnce', true);
 		if (this.emailValid() && this.passwordValid() && this.confirmationValid()) {
 			/*
 			suppose we need to perform verification and then ask user to verify,
@@ -55,23 +44,23 @@ export default class SignupCard extends React.Component {
 	}
 
 	emailChange(event) {
-		this.setState({ email: event.target.value });
+		this.props.actions.signupFieldUpdate('email', event.target.value);
 	}
 
 	residenceChange(event) {
-		this.setState({ residence: event.target.value });
+		this.props.actions.signupFieldUpdate('residence', event.target.value);
 	}
 
 	confirmPasswordChange(event) {
-		this.setState({ confirmPassword: event.target.value });
+		this.props.actions.signupFieldUpdate('confirmPassword', event.target.value);
 	}
 
 	passwordChange(event) {
-		this.setState({ password: event.target.value });
+		this.props.actions.signupFieldUpdate('password', event.target.value);
 	}
 
 	render() {
-		const { residence, validatedOnce, progress } = this.state;
+		const { residence, validatedOnce, progress } = this.props.signup.toJS();
 		const countryNotSelected = !residence;
 		const emailNotValid = !this.emailValid();
 		const passwordNotValid = !this.passwordValid();
