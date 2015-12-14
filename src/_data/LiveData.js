@@ -23,6 +23,7 @@ const handlers = {
     'get_settings': 'serverDataAccountSettings',
     'news': 'updateNewsList',
     'videos': 'updateVideoList',
+    'paymentagent_list': 'serverDataPaymentAgents',
 };
 
 export const api = new LiveApi({ language: 'EN' });
@@ -68,6 +69,7 @@ const initAuthorized = (authData, store) => {
     api.getPayoutCurrencies();
     api.subscribeToBalance();           // some call might fail due to backend overload
     api.subscribeToAllOpenContracts();
+    api.getPaymentAgentsForCountry('id');
     subscribeToWatchlist(store);
 
     const isVirtual = authData.authorize.loginid.startsWith('VRTC');

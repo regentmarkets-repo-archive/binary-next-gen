@@ -10,7 +10,7 @@ import {
 const initialState = fromJS({
     loginid: '',
     fullname: '',
-    currency: '',
+    currency: 'USD',
     balance: 0,
     token: '',
     currencies: ['USD'],
