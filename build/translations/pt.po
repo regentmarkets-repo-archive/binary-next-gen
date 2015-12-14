@@ -1,0 +1,203 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+msgid ""
+msgstr ""
+"Project-Id-Version: BOM\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2015-12-06 23:37+0000\n"
+"Last-Translator: Alcino Jorge <alcino@binary.com>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/binary/static/"
+"pt/>\n"
+"Language: pt\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.5-dev\n"
+
+msgid "All"
+msgstr "Tudo"
+
+msgid "Property"
+msgstr ""
+
+msgid "Value"
+msgstr ""
+
+msgid "Balance"
+msgstr "Saldo"
+
+msgid "Trade"
+msgstr "Negociar"
+
+msgid "Watchlist"
+msgstr ""
+
+msgid "Open Positions"
+msgstr ""
+
+msgid "Profit Table"
+msgstr "Tabela de Lucros"
+
+msgid "Statement"
+msgstr "Extrato"
+
+msgid "Settings"
+msgstr "Definições"
+
+msgid "Sign Out"
+msgstr ""
+
+msgid "View"
+msgstr "Ver"
+
+msgid "Ref."
+msgstr "Ref."
+
+msgid "Purchase"
+msgstr "Comprar"
+
+msgid "Indicative"
+msgstr "Indicativo"
+
+msgid "Purchase Date"
+msgstr "Data de Compra"
+
+msgid "Purchase Price"
+msgstr "Preço de Compra"
+
+msgid "Sale Date"
+msgstr "Data de Venda"
+
+msgid "Sale Price"
+msgstr "Preço de venda"
+
+msgid "Profit/Loss"
+msgstr "Lucro/Perda"
+
+#, fuzzy
+msgid "Total"
+msgstr "Custo Total"
+
+msgid "Location"
+msgstr ""
+
+msgid "Update"
+msgstr "Atualização"
+
+msgid "Details"
+msgstr "Dados"
+
+msgid "Trading Limits"
+msgstr "Limites de Negociação"
+
+msgid "Item"
+msgstr "Artigo"
+
+msgid "Limit ({currency})"
+msgstr ""
+
+msgid "Maximum number of open positions"
+msgstr "Número máximo de posições em aberto"
+
+msgid "Maximum account cash balance"
+msgstr "Saldo máximo de numerário em conta"
+
+msgid "Maximum daily turnover"
+msgstr "Volume de negócios máximo diário"
+
+msgid "Maximum aggregate payouts on open positions"
+msgstr "Pagamentos máximos de agregados sobre posições em aberto"
+
+msgid "Withdrawal limits"
+msgstr "Limites de retirada"
+
+msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
+msgstr ""
+
+msgid "You have already withdrawn the equivalent of EUR {drawn}."
+msgstr ""
+
+msgid "An additional password can be used to restrict access to the cashier."
+msgstr "Uma senha adicional pode ser usada para restringir acesso ao Caixa."
+
+msgid "Sign In"
+msgstr ""
+
+msgid "Get your API token"
+msgstr ""
+
+msgid "Create Account"
+msgstr ""
+
+msgid "Action"
+msgstr "Ação"
+
+msgid "Credit/Debit"
+msgstr "Crédito/Débito"
+
+msgid "Purchase Time"
+msgstr "Hora da Compra"
+
+msgid "Back"
+msgstr "Retroceder"
+
+msgid "Place Order"
+msgstr ""
+
+msgid "{asset} will {type} over next {duration}"
+msgstr ""
+
+msgid "Price"
+msgstr "Preço"
+
+msgid "Asset"
+msgstr "Ativos"
+
+msgid "Type"
+msgstr "Tipo"
+
+msgid "Ticks"
+msgstr "Ticks"
+
+msgid "Amount"
+msgstr "Quantia"
+
+msgid "Trade Confirmation"
+msgstr "Confirmação de Negociação"
+
+msgid "Entry spot"
+msgstr "Preço de entrada"
+
+msgid "Exit spot"
+msgstr "Preço de saída"
+
+msgid "Next"
+msgstr "Próximo"
+
+msgid "Open Account"
+msgstr "Abrir Conta"
+
+msgid "Upgrade to Real Money Account"
+msgstr ""
+
+msgid "Date of birth"
+msgstr "Data de nascimento"
+
+msgid "Home Address"
+msgstr ""
+
+msgid "Security"
+msgstr "Segurança"
+
+msgid "Spot"
+msgstr "Preço Atual do Mercado"
+
+msgid "Change"
+msgstr "Alterar"
+
+msgid "Chart"
+msgstr "Gráfico"

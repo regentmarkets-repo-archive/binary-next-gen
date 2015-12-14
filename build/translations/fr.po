@@ -1,0 +1,278 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# Michael Borkovec <MBO>, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+# Vera Linhart, 2013.
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2015-11-25 18:30+0000\n"
+"Last-Translator: Chloe Chevreton <chloe-che@hotmail.fr>\n"
+"Language-Team: French <https://hosted.weblate.org/projects/binary/static/fr/"
+">\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=n > 1;\n"
+"X-Generator: Weblate 2.5-dev\n"
+
+msgid "All"
+msgstr "Tout"
+
+msgid "Property"
+msgstr ""
+
+msgid "Value"
+msgstr ""
+
+msgid "Balance"
+msgstr "Solde"
+
+msgid "Trade"
+msgstr "Trade"
+
+msgid "Watchlist"
+msgstr ""
+
+msgid "Open Positions"
+msgstr ""
+
+msgid "Profit Table"
+msgstr "Tableau des Bénéfices"
+
+msgid "Statement"
+msgstr "Relevé"
+
+msgid "Settings"
+msgstr "Paramètres"
+
+msgid "Sign Out"
+msgstr ""
+
+msgid "View"
+msgstr "Voir"
+
+msgid "Ref."
+msgstr "Réf."
+
+msgid "Purchase"
+msgstr "Achat"
+
+msgid "Indicative"
+msgstr "Indicatif"
+
+msgid "Purchase Date"
+msgstr "Date d'achat"
+
+msgid "Purchase Price"
+msgstr "Prix d'achat"
+
+msgid "Sale Date"
+msgstr "Date de Vente"
+
+msgid "Sale Price"
+msgstr "Prix de vente"
+
+msgid "Profit/Loss"
+msgstr "Bénéfice/Perte"
+
+#, fuzzy
+msgid "Total"
+msgstr "Coût Total"
+
+msgid "Location"
+msgstr ""
+
+msgid "Update"
+msgstr "Mise à Jour"
+
+#, fuzzy
+msgid "Details"
+msgstr "détails"
+
+msgid "Trading Limits"
+msgstr "Limites de Trading"
+
+msgid "Item"
+msgstr "Elément"
+
+msgid "Limit ({currency})"
+msgstr ""
+
+msgid "Maximum number of open positions"
+msgstr "Nombre maximal de positions ouvertes"
+
+msgid "Maximum account cash balance"
+msgstr "Solde de trésorerie maximal du compte"
+
+msgid "Maximum daily turnover"
+msgstr "Chiffre d'affaires maximal journalier"
+
+msgid "Maximum aggregate payouts on open positions"
+msgstr "Maximum de versements cumulés sur les positions ouvertes"
+
+msgid "Withdrawal limits"
+msgstr "Limites de prélèvement"
+
+msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
+msgstr ""
+
+msgid "You have already withdrawn the equivalent of EUR {drawn}."
+msgstr ""
+
+msgid "An additional password can be used to restrict access to the cashier."
+msgstr ""
+"Un mot de passe supplémentaire peut être utilisé afin de restreindre l'accès "
+"à la caisse."
+
+msgid "Sign In"
+msgstr ""
+
+msgid "Get your API token"
+msgstr ""
+
+msgid "Create Account"
+msgstr ""
+
+msgid "Action"
+msgstr "Action"
+
+msgid "Credit/Debit"
+msgstr "Crédit/ Débit"
+
+msgid "Purchase Time"
+msgstr "Heure d'Achat"
+
+msgid "Back"
+msgstr "Retour"
+
+msgid "Place Order"
+msgstr ""
+
+msgid "{asset} will {type} over next {duration}"
+msgstr ""
+
+msgid "Price"
+msgstr "Prix"
+
+msgid "Asset"
+msgstr "Actif"
+
+msgid "Type"
+msgstr "Type"
+
+msgid "Ticks"
+msgstr "Intervalles"
+
+msgid "Amount"
+msgstr "Montant"
+
+msgid "Trade Confirmation"
+msgstr "Confirmation de Trade"
+
+msgid "Entry spot"
+msgstr "Point d'entrée"
+
+msgid "Exit spot"
+msgstr "Point de sortie"
+
+msgid "Next"
+msgstr "Suivant"
+
+msgid "Open Account"
+msgstr "Ouvrir un Compte"
+
+msgid "Upgrade to Real Money Account"
+msgstr ""
+
+msgid "Date of birth"
+msgstr "Date de naissance"
+
+msgid "Home Address"
+msgstr ""
+
+msgid "Security"
+msgstr "Sécurité"
+
+msgid "Spot"
+msgstr "Actuel"
+
+msgid "Change"
+msgstr "Variation"
+
+msgid "Chart"
+msgstr "Graphique"

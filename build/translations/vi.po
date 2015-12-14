@@ -1,0 +1,202 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: I 18N\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2015-12-06 10:38+0000\n"
+"Last-Translator: Pham Minh Hieu <hphamv7@gmail.com>\n"
+"Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary/static/"
+"vi/>\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.5-dev\n"
+
+msgid "All"
+msgstr "Tất cả"
+
+msgid "Property"
+msgstr ""
+
+msgid "Value"
+msgstr ""
+
+msgid "Balance"
+msgstr "Số dư tài khoản"
+
+msgid "Trade"
+msgstr "Giao dịch"
+
+msgid "Watchlist"
+msgstr ""
+
+msgid "Open Positions"
+msgstr ""
+
+msgid "Profit Table"
+msgstr "Bảng lợi nhuận"
+
+msgid "Statement"
+msgstr "Tuyên bố"
+
+msgid "Settings"
+msgstr "Thiết lập"
+
+msgid "Sign Out"
+msgstr ""
+
+msgid "View"
+msgstr "Xem"
+
+msgid "Ref."
+msgstr "Tham khảo."
+
+msgid "Purchase"
+msgstr "Mua"
+
+msgid "Indicative"
+msgstr "Chỉ thị"
+
+msgid "Purchase Date"
+msgstr "Ngày Mua"
+
+msgid "Purchase Price"
+msgstr "Giá Mua"
+
+msgid "Sale Date"
+msgstr "Ngày Bán hàng"
+
+msgid "Sale Price"
+msgstr "Giá bán hàng"
+
+msgid "Profit/Loss"
+msgstr "Lợi nhuận/Thua lỗ"
+
+msgid "Total"
+msgstr "Tổng"
+
+msgid "Location"
+msgstr ""
+
+msgid "Update"
+msgstr "Cập nhật"
+
+msgid "Details"
+msgstr "Chi tiết"
+
+msgid "Trading Limits"
+msgstr "Giới hạn Giao dịch"
+
+msgid "Item"
+msgstr "Hạng mục"
+
+msgid "Limit ({currency})"
+msgstr ""
+
+msgid "Maximum number of open positions"
+msgstr "Số tối đa của vị thế mở"
+
+msgid "Maximum account cash balance"
+msgstr "Số dư tài khoản tối đa"
+
+msgid "Maximum daily turnover"
+msgstr "Thu nhập hàng ngày tối đa"
+
+msgid "Maximum aggregate payouts on open positions"
+msgstr "Tập hợp tiền thưởng tối đa trên vị thế mở"
+
+msgid "Withdrawal limits"
+msgstr "Giới hạn rút tiền"
+
+msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
+msgstr ""
+
+msgid "You have already withdrawn the equivalent of EUR {drawn}."
+msgstr ""
+
+msgid "An additional password can be used to restrict access to the cashier."
+msgstr "Mật khẩu phụ có thể dùng để hạn chế truy cập vào khu thu ngân."
+
+msgid "Sign In"
+msgstr ""
+
+msgid "Get your API token"
+msgstr ""
+
+msgid "Create Account"
+msgstr ""
+
+msgid "Action"
+msgstr "Hành động"
+
+msgid "Credit/Debit"
+msgstr "Tín dụng/Ghi nợ"
+
+msgid "Purchase Time"
+msgstr "Thời Gian mua"
+
+msgid "Back"
+msgstr "Quay lại"
+
+msgid "Place Order"
+msgstr ""
+
+msgid "{asset} will {type} over next {duration}"
+msgstr ""
+
+msgid "Price"
+msgstr "Giá"
+
+msgid "Asset"
+msgstr "Tài sản"
+
+msgid "Type"
+msgstr ""
+
+msgid "Ticks"
+msgstr "Giây"
+
+msgid "Amount"
+msgstr "Số tiền"
+
+msgid "Trade Confirmation"
+msgstr "Xác nhận Giao dịch"
+
+msgid "Entry spot"
+msgstr "Giá giao ngay Đi vào"
+
+msgid "Exit spot"
+msgstr "Giá giao ngay thoát ra"
+
+msgid "Next"
+msgstr "Tiếp theo"
+
+msgid "Open Account"
+msgstr "Mở Tài khoản"
+
+msgid "Upgrade to Real Money Account"
+msgstr ""
+
+msgid "Date of birth"
+msgstr "Ngày sinh"
+
+msgid "Home Address"
+msgstr ""
+
+msgid "Security"
+msgstr "Bảo mật"
+
+msgid "Spot"
+msgstr "Giao ngay"
+
+msgid "Change"
+msgstr "Thay đổi"
+
+msgid "Chart"
+msgstr "BIểu đồ"
