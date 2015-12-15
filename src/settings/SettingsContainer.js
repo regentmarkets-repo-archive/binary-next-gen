@@ -1,6 +1,6 @@
 import React from 'react';
-import { getSettings } from '../_reducers/SettingsReducers';
 import { connect } from 'react-redux';
+import { getSettings } from '../_reducers/SettingsReducers';
 import SettingsCard from './SettingsCard';
 
 @connect(state => ({ settings: getSettings(state), loginid: state.account.get('loginid') }))

@@ -1,14 +1,12 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import StatementCard from './StatementCard';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 
 @connect(state => ({ statement: state.statement, account: state.account }))
 export default class StatementContainer extends React.Component {
 
-	static propTypes = {
-		profitTable: PropTypes.object,
-		dispatch: PropTypes.func,
-	};
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		return <StatementCard {...this.props} />;
