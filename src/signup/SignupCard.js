@@ -2,79 +2,69 @@ import React from 'react';
 import { Countries, ErrorMsg, InputGroup, LogoSpinner, M } from '../_common';
 
 export default class SignupCard extends React.Component {
+	static propTypes = {
+		signup: React.PropTypes.object.isRequired,
+		actions: React.PropTypes.object.isRequired,
+	};
 
-	constructor(props) {
-		super(props);
+	emailValid() {
+		const { email } = this.props.signup.toJS();
 
-		this.state = {
-			email: '',
-			residence: '',
-			password: '',
-			confirmPassword: '',
-			emailNotValid: false,
-			passwordNotEntered: false,
-			confirmationNotEntered: false,
-			passwordsDontMatch: false,
-			validatedOnce: false,
-			progress: false,
-		};
+		return /\S+@\S+\.\S+/.test(email);
+	}
+
+	passwordValid() {
+		const { password } = this.props.signup.toJS();
+		return /^[\s.A-Za-z0-9@_:+-\/=]{5,25}$/.test(password);
+	}
+
+	confirmationValid() {
+		const { password, confirmPassword } = this.props.signup.toJS();
+		return password === confirmPassword;
 	}
 
 	performSignup() {
-		this.setState({
-			progress: true,
-		});
-	}
-
-	validate() {
-		const { email, password, confirmPassword } = this.state;
-		const emailNotValid = !/\S+@\S+\.\S+/.test(email);
-		const passwordNotEntered = password.length === 0;
-		const confirmationNotEntered = confirmPassword.length === 0;
-		const passwordsDontMatch = confirmPassword.length > 0 && password === confirmPassword;
-
-		this.setState({
-			validatedOnce: true,
-			emailNotValid,
-			passwordNotEntered,
-			confirmationNotEntered,
-			passwordsDontMatch,
+		const { email, password, verificationCode, residence } = this.props.signup.toJS();
+		this.props.actions.signupStart({
+			email: email,
+			client_password: password,
+			residence: residence,
+			verification_code: verificationCode,
 		});
 	}
 
 	trySignup() {
-		this.validate();
-
-		if (!(this.state.emailNotValid ||
-			this.state.passwordNotEntered ||
-			this.state.confirmationNotEntered ||
-			this.state.passwordsDontMatch)) {
-			this.performSignup();
+		this.props.actions.signupFieldUpdate('validatedOnce', true);
+		if (this.emailValid() && this.passwordValid() && this.confirmationValid()) {
+			/*
+			suppose we need to perform verification and then ask user to verify,
+			but this sucks in mobile, so deferred and seeks JY opinions
+			* */
 		}
 	}
 
 	emailChange(event) {
-		if (this.state.validatedOnce) this.validate();
-		this.setState({ email: event.target.value });
+		this.props.actions.signupFieldUpdate('email', event.target.value);
 	}
 
 	residenceChange(event) {
-		if (this.state.validatedOnce) this.validate();
-		this.setState({ residence: event.target.value });
+		this.props.actions.signupFieldUpdate('residence', event.target.value);
 	}
 
 	confirmPasswordChange(event) {
-		if (this.state.validatedOnce) this.validate();
-		this.setState({ confirmPassword: event.target.value });
+		this.props.actions.signupFieldUpdate('confirmPassword', event.target.value);
 	}
 
 	passwordChange(event) {
-		if (this.state.validatedOnce) this.validate();
-		this.setState({ password: event.target.value });
+		this.props.actions.signupFieldUpdate('password', event.target.value);
 	}
 
 	render() {
-		const { progress, emailNotValid, passwordNotEntered, confirmationNotEntered, passwordsDontMatch } = this.state;
+		const { residence, validatedOnce, progress } = this.props.signup.toJS();
+		const countryNotSelected = !residence;
+		const emailNotValid = !this.emailValid();
+		const passwordNotValid = !this.passwordValid();
+		const passwordsDontMatch = !this.confirmationValid();
 
 		return (
 			<div className="signup-content">
@@ -86,28 +76,28 @@ export default class SignupCard extends React.Component {
 					placeholder="Email"
 					onChange={::this.emailChange} />
 				<ErrorMsg
-					shown={emailNotValid}
+					shown={validatedOnce && emailNotValid}
 					text="You need to enter an email" />
 				<fieldset>
-					<Countries />
+					<Countries onChange={::this.residenceChange}/>
 				</fieldset>
+				<ErrorMsg
+					shown={validatedOnce && countryNotSelected}
+					text="Please select a country" />
 				<InputGroup
 					type="password"
 					placeholder="Password"
 					onChange={::this.passwordChange} />
 				<ErrorMsg
-					shown={passwordNotEntered}
-					text="Enter a password" />
+					shown={validatedOnce && passwordNotValid}
+					text="Password not valid" />
 				<InputGroup
 					type="password"
 					placeholder="Confirm Password"
 					onChange={::this.confirmPasswordChange} />
 				<ErrorMsg
-					shown={confirmationNotEntered}
-					text="Enter your password again" />
-				<ErrorMsg
-					shown={passwordsDontMatch}
-					text="Two passwords do not match" />
+					shown={validatedOnce && passwordsDontMatch}
+					text="Passwords do not match" />
 				<button onClick={::this.trySignup}>
 					<M m="Create Account" />
 				</button>

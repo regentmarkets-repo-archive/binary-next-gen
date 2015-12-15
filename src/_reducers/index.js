@@ -14,6 +14,8 @@ import workspace from './WorkspaceReducers';
 import watchlist from './WatchlistReducers';
 import video from './VideoReducers';
 import news from './NewsReducers';
+import paymentAgent from './PaymentAgentReducers';
+import signup from './SignupReducers';
 
 export default combineReducers({
     account,
@@ -30,4 +32,6 @@ export default combineReducers({
     watchlist,
     video,
     news,
+    paymentAgent,
+    signup,
 });
