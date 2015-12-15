@@ -26,13 +26,14 @@ const PortfolioTable = ({ compact, contracts, proposals, onViewDetails }) => {
 			</thead>
 			<tbody>
                 {contracts.map((c, i) =>
-                    <PortfolioRow
+					<PortfolioRow
                         key={i}
                         compact={compact}
                         contract={c}
                         proposal={proposals.get(c.contract_id)}
 						history={history}
-                        onViewDetails={onViewDetails} />
+                        onViewDetails={onViewDetails}
+					/>
 				)}
 			</tbody>
 			<tfoot>

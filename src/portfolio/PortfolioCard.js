@@ -13,14 +13,16 @@ const PortfolioCard = ({ compact, portfolio, history, actions }) => {
 	return (
 		<div>
 			<Modal shown={portfolio.get('areDetailsShown')}
-				onClose={() => actions.detailsForContract(false)}>
+				onClose={() => actions.detailsForContract(false)}
+			>
 				<ContractDetailsCard contract={contractShown} proposal={proposalShown} />
 			</Modal>
 			<PortfolioTable
 				compact={compact}
 				contracts={portfolio.get('contracts')}
 				proposals={portfolio.get('proposals')}
-				onViewDetails={onViewDetails} />
+				onViewDetails={onViewDetails}
+			/>
 		</div>
 	);
 };

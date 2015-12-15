@@ -30,7 +30,8 @@ export default class RadioGroup extends React.Component {
 						label={o.text}
 						name={name}
 						onChange={onChange}
-						value={o.value} />
+						value={o.value}
+					/>
 				)}
 			</div>
 		);

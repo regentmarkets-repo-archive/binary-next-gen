@@ -22,56 +22,64 @@ export default class MobileSidebar extends React.Component {
 				<Link
 					to={`/mobile`}
 					className="sidebar-btn"
-					activeClassName="active">
+					activeClassName="active"
+				>
 					<img src="img/trade.svg" />
 					<M m="Trade" />
 				</Link>
 				<Link
 					to={`/watchlist-mobile`}
 					className="sidebar-btn"
-					activeClassName="active">
+					activeClassName="active"
+				>
 					<img src="img/watchlist.svg" />
 					<M m="Watchlist" />
 				</Link>
 				<Link
 					to={`/portfolio-mobile`}
 					className="sidebar-btn"
-					activeClassName="active">
+					activeClassName="active"
+				>
 					<img src="img/portfolio.svg" />
 					<M m="Open Positions" />
 				</Link>
 				<Link
 					to={`/statement-mobile`}
 					className="sidebar-btn"
-					activeClassName="active">
+					activeClassName="active"
+				>
 					<img src="img/statement.svg" />
 					<M m="Statement" />
 				</Link>
 				<Link
 					to={`/news-mobile`}
 					className="sidebar-btn"
-					activeClassName="active">
+					activeClassName="active"
+				>
 					<img src="img/news.svg" />
 					<M m="News" />
 				</Link>
 				<Link
 					to={`/resources-mobile`}
 					className="sidebar-btn"
-					activeClassName="active">
+					activeClassName="active"
+				>
 					<img src="img/profit.svg" />
 					<M m="Resources" />
 				</Link>
 				<Link
 					to={`/settings-mobile`}
 					className="sidebar-btn"
-					activeClassName="active">
+					activeClassName="active"
+				>
 					<img src="img/settings.svg" />
 					<M m="Settings" />
 				</Link>
 				<Link
 					to={`/signout`}
 					className="sidebar-btn"
-					activeClassName="active">
+					activeClassName="active"
+				>
 					<img src="img/signout.svg" />
 					<M m="Sign Out" />
 				</Link>

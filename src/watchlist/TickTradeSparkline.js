@@ -20,15 +20,18 @@ const TickTradeSparkline = (props) => {
 				height={height}
 				data={h}
 				limit={20}
-				{...props}>
+				{...props}
+			>
 				<SparklinesLine />
 				<SparklinesSpots />
 				<line
 					x1={0} y1={y} x2={width} y2={y}
-					style={{ stroke: 'green', strokeOpacity: 0.75, strokeDasharray: 'none' }} />
+					style={{ stroke: 'green', strokeOpacity: 0.75, strokeDasharray: 'none' }}
+				/>
 				<rect
 					x={0} y={(props.showBarrier ? y - height : y)}
-					style={{ fill: 'green', fillOpacity: 0.1 }} />
+					style={{ fill: 'green', fillOpacity: 0.1 }}
+				/>
 			</Sparklines>
 		</div>
 	);

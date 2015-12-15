@@ -28,7 +28,8 @@ const WatchlistTable = ({ assets, ticks, favorites }) => {
 						key={symbol}
 						symbol={symbol}
 						asset={assets.get('list').find(x => x.get('symbol') === symbol)}
-						history={ticks.get(symbol)} />
+						history={ticks.get(symbol)}
+					/>
 				)}
 			</tbody>
 		</table>

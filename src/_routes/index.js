@@ -8,5 +8,5 @@ const childRoutes = [].concat(DesktopRoutes).concat(MobileRoutes).concat(CommonR
 
 export default {
     component: App,
-    childRoutes: childRoutes,
+    childRoutes,
 };

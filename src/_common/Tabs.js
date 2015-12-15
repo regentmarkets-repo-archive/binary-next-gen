@@ -27,7 +27,8 @@ export default class Tabs extends React.Component {
                             label={tab.text}
                             name={id}
                             value={id + idx}
-                            onChange={() => onChange(idx)} />
+                            onChange={() => onChange(idx)}
+                        />
                     )}
                 </div>
                 {ActiveComponent}

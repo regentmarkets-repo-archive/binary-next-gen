@@ -20,7 +20,9 @@ const AssetIndexTable = ({ submarket, index }) => (
             {index.map(idx =>
                 <AssetIndexRow
                     key={idx}
-                    assetIndex={idx} />)}
+                    assetIndex={idx}
+                />
+            )}
         </tbody>
     </table>
 );

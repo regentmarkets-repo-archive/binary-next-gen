@@ -83,32 +83,36 @@ export default class SettingsAddress extends React.Component {
 					id="address"
 					label="Address"
 					value={addressString}
-					onChange={::this.onAddressChange} />
+					onChange={::this.onAddressChange}
+				/>
 				<InputGroup
 					id="city"
 					type="text"
 					label="Town/City"
 					value={settings.address_city}
-					onChange={::this.onAddressChange} />
+					onChange={::this.onAddressChange}
+				/>
 				<SelectGroup
 					id="AddressState"
 					label="State/Province"
 					value=""
 					options={SettingsAddress.hardCodedStateCodes}
-					onChange={::this.onAddressChange} />
+					onChange={::this.onAddressChange}
+				/>
 				<InputGroup
 					id="postcode"
 					type="text"
 					label="Postal Code / ZIP"
 					value={settings.address_postcode}
-					onChange={::this.onAddressChange} />
+					onChange={::this.onAddressChange}
+				/>
 				<InputGroup
 					id="tel"
 					type="tel"
 					label="Telephone"
 					value={settings.phone}
-					onChange={::this.onAddressChange} />
-
+					onChange={::this.onAddressChange}
+				/>
 				<button onClick={::this.tryUpdate}>
 					<M m="Update" />
 				</button>

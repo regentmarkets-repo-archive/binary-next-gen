@@ -33,19 +33,22 @@ export default class TradingTimesCard extends React.Component {
 				<div className="row">
 					<MarketSelector
 						onChange={x => actions.updateTickTradeSubmarket(x)}
-						showAllOption={false} />
+						showAllOption={false}
+					/>
 					<InputGroup
 						type="date"
 						value={dateToDateString(tradingTimesDate)}
 						min={todayString()}
 						max={oneYearAfterStr()}
 						className="trading-times-date-picker"
-						onChange={x => actions.updateTradingTimesDate(x.target.valueAsDate)}/>
+						onChange={x => actions.updateTradingTimesDate(x.target.valueAsDate)}
+					/>
 				</div>
 				<TradingTimesTable
 					key={submarket}
 					submarket={submarketName}
-					times={times.filter(a => submarketForAsset(a.symbol) === submarket)} />
+					times={times.filter(a => submarketForAsset(a.symbol) === submarket)}
+				/>
 			</div>
 		);
 	}

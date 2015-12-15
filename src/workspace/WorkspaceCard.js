@@ -26,7 +26,8 @@ export default ({ actions, workspace }) => (
 						{ text: 'Assets', component: <AssetSelectorContainer actions={actions} /> },
 						{ text: 'Watchlist', component: <WatchlistContainer actions={actions} /> },
 						{ text: 'Details', component: <AssetDetailsContainer actions={actions} /> },
-					]} />
+					]}
+				/>
 			</div>
 			<Resizer onResize={e => console.log(e)} />
 			<div id="mid-panel">
@@ -42,7 +43,8 @@ export default ({ actions, workspace }) => (
 						tabs={[
 							{ text: 'Open Positions', component: <PortfolioContainer /> },
 							{ text: 'Transactions', component: <StatementContainer /> },
-						]} />
+						]}
+					/>
 				</div>
 				<Footer />
 			</div>
@@ -57,7 +59,8 @@ export default ({ actions, workspace }) => (
 						{ text: 'Asset Index', component: <AssetIndexContainer actions={actions}/> },
 						{ text: 'Videos', component: <VideoListContainer /> },
 						{ text: 'News', component: <NewsContainer /> },
-					]} />
+					]}
+				/>
 			</div>
 		</div>
 		<Footer />

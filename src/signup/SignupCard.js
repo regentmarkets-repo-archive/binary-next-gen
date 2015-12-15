@@ -26,9 +26,9 @@ export default class SignupCard extends React.Component {
 	performSignup() {
 		const { email, password, verificationCode, residence } = this.props.signup.toJS();
 		this.props.actions.signupStart({
-			email: email,
+			email,
 			client_password: password,
-			residence: residence,
+			residence,
 			verification_code: verificationCode,
 		});
 	}
@@ -74,30 +74,37 @@ export default class SignupCard extends React.Component {
 				<InputGroup
 					type="email"
 					placeholder="Email"
-					onChange={::this.emailChange} />
+					onChange={::this.emailChange}
+				/>
 				<ErrorMsg
 					shown={validatedOnce && emailNotValid}
-					text="You need to enter an email" />
+					text="You need to enter an email"
+				/>
 				<fieldset>
 					<Countries onChange={::this.residenceChange}/>
 				</fieldset>
 				<ErrorMsg
 					shown={validatedOnce && countryNotSelected}
-					text="Please select a country" />
+					text="Please select a country"
+				/>
 				<InputGroup
 					type="password"
 					placeholder="Password"
-					onChange={::this.passwordChange} />
+					onChange={::this.passwordChange}
+				/>
 				<ErrorMsg
 					shown={validatedOnce && passwordNotValid}
-					text="Password not valid" />
+					text="Password not valid"
+				/>
 				<InputGroup
 					type="password"
 					placeholder="Confirm Password"
-					onChange={::this.confirmPasswordChange} />
+					onChange={::this.confirmPasswordChange}
+				/>
 				<ErrorMsg
 					shown={validatedOnce && passwordsDontMatch}
-					text="Passwords do not match" />
+					text="Passwords do not match"
+				/>
 				<button onClick={::this.trySignup}>
 					<M m="Create Account" />
 				</button>

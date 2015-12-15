@@ -49,7 +49,8 @@ export default class TickTradeParameters extends React.Component {
 					<fieldset style={{ flex: 4 }}>
 						<Link
 							className="btn-primary"
-							to="/trade-type-selector">
+							to="/trade-type-selector"
+						>
 							<M m={tradeTypeText} />
 						</Link>
 					</fieldset>
@@ -66,17 +67,19 @@ export default class TickTradeParameters extends React.Component {
 							onChange={e => {
 								actions.updateTickTradeParameters({ duration: e.target.value });
 								this.getPrice();
-							}} />
+							}}
+						/>
 					</div>
+					<div className="row">
 				</div>
-				<div className="row">
 					<label>
 						<M m="Amount" />
 					</label>
 					<fieldset style={{ flex: 4 }}>
 						<Link
 							className="btn-primary"
-							to="/payout-selector">
+							to="/payout-selector"
+						>
 							<M m={tickTrade.get('basis')} /><span>: </span>
 							<NumberPlain currency={tickTrade.get('currency')} value={tickTrade.get('amount')} />
 						</Link>

@@ -15,12 +15,11 @@ export default class StatementCard extends React.Component {
 		const { compact } = this.props;
 
 		return (
-			<div>
-				<StatementTable
-					compact={compact}
-					transactions={transactions}
-					currency={currency} />
-			</div>
+			<StatementTable
+				compact={compact}
+				transactions={transactions}
+				currency={currency}
+			/>
 		);
 	}
 }

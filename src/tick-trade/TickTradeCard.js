@@ -72,34 +72,40 @@ export default class TickTradeCard extends React.Component {
 		return (
 			<div className="tick-trade-mobile">
 				<Modal shown={!!this.state.failure}
-					onClose={() => this.setState({ failure: null })}>
+					onClose={() => this.setState({ failure: null })}
+				>
 					<PurchaseFailed failure={this.state.failure} />
 				</Modal>
 				<Modal shown={!!receipt}
-					onClose={() => actions.discardPurchaseReceipt()}>
+					onClose={() => actions.discardPurchaseReceipt()}
+				>
 					<PurchaseConfirmation receipt={receipt} />
 				</Modal>
 				<TickTradeSparkline
 					history={history}
 					showBarrier={tickTrade.get('tradeType') === 'CALL'}
-					spot={spot} />
+					spot={spot}
+				/>
 				<TickTradeParameters
 					actions={actions}
 					assetName={assetName}
 					assets={assets}
 					tickTrade={tickTrade}
-					workspace={workspace} />
+					workspace={workspace}
+				/>
 				<TickTradeDisplay
 					assets={assets}
 					assetName={assetName}
 					diff={diff}
 					spot={spot}
 					tickTrade={tickTrade}
-					workspace={workspace} />
+					workspace={workspace}
+				/>
 				<button
 					className="buy-btn"
 					onClick={() => this.placeOrder()}
-					disabled={this.state.buying}>
+					disabled={this.state.buying}
+				>
 					<M m="Place Order" />
 				</button>
 			</div>

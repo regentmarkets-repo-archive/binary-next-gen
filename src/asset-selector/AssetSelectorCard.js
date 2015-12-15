@@ -46,12 +46,15 @@ export default class AssetSelectorCard extends React.Component {
 					<MarketSelector
 						onChange={onSubmarketChange}
 						showAllOption
-						showMarkets={showOnlyTickTradable ? ['Forex', 'Randoms'] : null} />
+						showMarkets={showOnlyTickTradable ? ['Forex', 'Randoms'] : null}
+					/>
 					<InputGroup
 						className="asset-search"
 						type="search"
 						placeholder="Search for assets"
-						onChange={onSearchQueryChange} autoFocus/>
+						onChange={onSearchQueryChange}
+						autoFocus
+					/>
 				</fieldset>
 				<div className="asset-list">
 					<AssetSelectorList
@@ -60,7 +63,8 @@ export default class AssetSelectorCard extends React.Component {
 						onSelect={onSelect}
 						onFavor={onFavor}
 						onUnfavor={onUnfavor}
-						selectedAsset={workspace.get('symbolSelected')} />
+						selectedAsset={workspace.get('symbolSelected')}
+					/>
 				</div>
 			</div>
 		);

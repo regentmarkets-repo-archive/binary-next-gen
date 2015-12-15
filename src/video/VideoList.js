@@ -9,7 +9,8 @@ const VideoList = ({ video, onSelect }) => (
                 title={v.title}
                 imgSrc={v.imgSrc}
                 videoId={v.videoId}
-                onClick={onSelect} />
+                onClick={onSelect}
+            />
         )}
     </ul>
 );

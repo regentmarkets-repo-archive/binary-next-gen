@@ -27,9 +27,10 @@ export default class Resizer extends React.Component {
 
 	render() {
 		return (
-			<div className="resizer-vertical"
-				onMouseDown={::this.onMouseDown}>
-			</div>
+			<div
+				className="resizer-vertical"
+				onMouseDown={::this.onMouseDown}
+			/>
 		);
 	}
 }

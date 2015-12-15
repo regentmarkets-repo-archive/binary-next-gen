@@ -10,13 +10,15 @@ const PaymentAgentsItem = ({ paymentAgent }) => {
                     <M m="Deposit commision: " />
                     <NumberPlain
                         currency={paymentAgent.currencies}
-                        value={paymentAgent.deposit_commission} />
+                        value={paymentAgent.deposit_commission}
+                    />
                 </div>
                 <div>
                     <M m="Withdrawal commision: " />
                     <NumberPlain
                         currency={paymentAgent.currencies}
-                        value={paymentAgent.withdrawal_commission} />
+                        value={paymentAgent.withdrawal_commission}
+                    />
                 </div>
             </td>
             <td>
