@@ -22,3 +22,7 @@ export default (state = initialState, action) => {
             return state;
     }
 };
+
+export const getArticles = state => state.news.get('articles');
+
+export const getArticle = (state, id) => state.news.get('articles')[id];

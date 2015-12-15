@@ -17,8 +17,9 @@
     "block-scoped-var": 2,
     "no-nested-ternary": 2,
 
-    "react/jsx-no-undef": 2,
     "jsx-quotes": [2, "prefer-double"],
+    "react/jsx-indent-props": [0, 'tab'],
+    "react/jsx-no-undef": 2,
     "react/no-multi-comp": 0,
     "react/jsx-uses-react": 2,
     "react/jsx-uses-vars": 2,

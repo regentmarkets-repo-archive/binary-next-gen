@@ -51,7 +51,7 @@ export default class MobileSidebar extends React.Component {
 					to={`/news-mobile`}
 					className="sidebar-btn"
 					activeClassName="active">
-					<img src="img/profit.svg" />
+					<img src="img/news.svg" />
 					<M m="News" />
 				</Link>
 				<Link

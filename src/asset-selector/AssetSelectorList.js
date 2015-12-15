@@ -24,7 +24,8 @@ export default class AssetSelectorList extends React.Component {
 							asset={asset}
 							isFavorite={favorites.has(asset.get('symbol'))}
 							isSelected={selectedAsset === asset.get('symbol') ? true : false}
-							{...this.props} />
+							{...this.props}
+						/>
 					)}
 				</tbody>
 			</table>

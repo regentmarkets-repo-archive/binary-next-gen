@@ -1,16 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import NewsCard from './NewsCard';
+import Article from './Article';
 
-@connect(state => ({ articles: state.news.get('articles') }))
-export default class NewsContainer extends React.Component {
+@connect(state => ({ article: state.WUUUUT }))
+export default class ArticleContainer extends React.Component {
 
     shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
         return (
-            <NewsCard {...this.props} />
+            <Article {...this.props} />
         );
     }
 }

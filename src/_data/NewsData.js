@@ -15,6 +15,13 @@ const params = {
     },
 };
 
+const xmlToNewsItem = xmlItem => ({
+    title: xmlItem.getElementsByTagName('title').item(0).textContent.replace(/regentmarkets\d.*$/, ''),
+    pubDate: xmlItem.getElementsByTagName('pubDate').item(0).textContent.replace(/\+0000$/, 'GMT'),
+    description: xmlItem.getElementsByTagName('description').item(0).textContent,
+    content: xmlItem.getElementsByTagName('encoded').item(0).textContent,
+});
+
 export const readNewsFeed = (l = 'en') => {
     const queryUrl = `${api}?media=${params[l].media}&prefix=${params[l].prefix}&campaign=1&mode=txt`;
 
@@ -26,17 +33,6 @@ export const readNewsFeed = (l = 'en') => {
             const xml = domParser.parseFromString(xmlText, 'text/xml');
             const allItemsList = xml.querySelectorAll('item');
 
-            return Array.prototype.map.call(allItemsList, item => {
-                const title = item.getElementsByTagName('title').item(0).textContent.replace(/regentmarkets\d.*$/, '');
-                const pubDate = item.getElementsByTagName('pubDate').item(0).textContent.replace(/\+0000$/, 'GMT');
-                const post = item.getElementsByTagName('content\\:encoded').item(0);
-                const content = post ? post.textContent : item.getElementsByTagName('encoded').item(0).textContent;
-
-                return {
-                    title,
-                    pubDate,
-                    content,
-                };
-            });
+            return Array.from(allItemsList).map(xmlToNewsItem);
         });
 };
