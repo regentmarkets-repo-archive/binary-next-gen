@@ -52,7 +52,7 @@ export default class PaymentAgentWithdrawForm extends React.Component {
 
         const selectedPaymentAgentName = selectedPaymentAgent ?
             paymentAgentOptions.filter(pa => pa.value === selectedPaymentAgent)[0].text :
-            null;
+            paymentAgentOptions[0].text;
         return (
             <div>
                 <Modal
