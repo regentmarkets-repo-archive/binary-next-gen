@@ -1,7 +1,7 @@
 import React from 'react';
 
-export default () => (
-	<select name="residence">
+export default ({ onChange }) => (
+	<select name="residence" onChange={onChange}>
 		<option value="">Country of Residence</option>
 		<option value="af">Afghanistan</option>
 		<option value="ax">Aland Islands</option>
