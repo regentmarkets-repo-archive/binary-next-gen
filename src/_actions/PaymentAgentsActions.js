@@ -15,37 +15,36 @@ export const serverDataPaymentAgents = serverResponse => ({
     serverResponse,
 });
 
+const withdrawToPaymentAgentHelper = (opts, success, failure, dispatch) => {
+    dispatch(updatePaymentAgentField('inProgress', true));
+    LiveData.api
+        .withdrawToPaymentAgent(...opts)
+        .then(success, failure)
+        .then(() => dispatch(updatePaymentAgentField('inProgress', false)));
+};
+
 export const withdrawToPaymentAgent = (agentId, currency, amount) => {
     return dispatch => {
-        dispatch(updatePaymentAgentField('inWithdraw', true));
-        LiveData.api.withdrawToPaymentAgent({
-            paymentagent_loginid: agentId,
-            currency,
-            amount,
-        }).then(
-            () => dispatch(updatePaymentAgentField('withdrawFailed', false)),
-                err => {
-                dispatch(updatePaymentAgentField('withdrawFailed', true));
-                dispatch(updatePaymentAgentField('withdrawError', err.message));
-            }
-        ).then(() => dispatch(updatePaymentAgentField('inWithdraw', false)));
+        const opts = { paymentagent_loginid: agentId, currency, amount };
+        const success = () => dispatch(updatePaymentAgentField('withdrawFailed', false));
+        const failure = err => {
+            dispatch(updatePaymentAgentField('withdrawFailed', true));
+            dispatch(updatePaymentAgentField('withdrawError', err.message));
+        };
+
+        withdrawToPaymentAgentHelper(opts, success, failure, dispatch);
     };
 };
 
 export const withdrawToPaymentAgentDryRun = (agentId, currency, amount) => {
     return dispatch => {
-        dispatch(updatePaymentAgentField('inDryRun', true));
-        LiveData.api.withdrawToPaymentAgent({
-            paymentagent_loginid: agentId,
-            currency,
-            amount,
-            dry_run: 1,
-        }).then(
-            () => dispatch(updatePaymentAgentField('dryRunFailed', false)),
-            err => {
-                dispatch(updatePaymentAgentField('dryRunFailed', true));
-                dispatch(updatePaymentAgentField('dryRunError', err.message));
-            }
-        ).then(() => dispatch(updatePaymentAgentField('inDryRun', false)));
+        const opts = { paymentagent_loginid: agentId, currency, amount, dry_run: 1 };
+        const success = () => dispatch(updatePaymentAgentField('dryRunFailed', false));
+        const failure = err => {
+            dispatch(updatePaymentAgentField('dryRunFailed', true));
+            dispatch(updatePaymentAgentField('dryRunError', err.message));
+        };
+
+        withdrawToPaymentAgentHelper(opts, success, failure, dispatch);
     };
 };
