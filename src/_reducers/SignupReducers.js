@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import { SIGNUP_FAILED, SIGNUP_FIELD_UPDATE, SIGNUP_START } from '../_constants/ActionTypes';
+import { SIGNUP_ERROR, SIGNUP_FIELD_UPDATE, SIGNUP_START } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
     validatedOnce: false,
@@ -18,7 +18,7 @@ export default (state = initialState, action) => {
         case SIGNUP_FIELD_UPDATE: {
             return state.set(action.fieldName, action.fieldValue);
         }
-        case SIGNUP_FAILED: {
+        case SIGNUP_ERROR: {
             return state;
         }
         default: {

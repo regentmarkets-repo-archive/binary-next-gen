@@ -11,6 +11,6 @@ export const signupStart = () => ({
 });
 
 export const signupFailed = (serverResponse) => ({
-    type: types.SIGNUP_FAILED,
+    type: types.SIGNUP_ERROR,
     serverResponse,
 });
