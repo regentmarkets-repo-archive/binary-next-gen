@@ -3,7 +3,7 @@ import PaymentAgentsItem from './PaymentAgentsItem';
 
 export default class PaymentAgentsList extends React.Component {
     static propTypes = {
-        paymentAgents: PropTypes.object.isRequired,
+        paymentAgents: PropTypes.array.isRequired,
     };
 
     render() {
@@ -18,7 +18,7 @@ export default class PaymentAgentsList extends React.Component {
                     </tr>
                 </thead>
                 <tbody>
-                    { paymentAgents.toJS().map(pa => <PaymentAgentsItem key={pa.name} paymentAgent={pa}/>) }
+                    { paymentAgents.map(pa => <PaymentAgentsItem key={pa.name} paymentAgent={pa}/>) }
                 </tbody>
             </table>
         );
