@@ -1,9 +1,20 @@
 import { fromJS } from 'immutable';
-import { SERVER_DATA_PAYMENT_AGENTS, CHANGE_PAYMENT_AGENT_COUNTRY } from '../_constants/ActionTypes';
+import {
+    SERVER_DATA_PAYMENT_AGENTS,
+    UPDATE_PAYMENT_AGENT_FIELD,
+} from '../_constants/ActionTypes';
 
 const initialState = fromJS({
     selectedCountry: 'id',
     paymentAgents: [],
+    selectedPaymentAgent: '',
+    withdrawFailed: false,
+    withdrawError: '',
+    dryRunFailed: false,
+    dryRunError: '',
+    inDryRun: false,
+    inWithdraw: false,
+    withdrawAmount: 0,
 });
 
 export default (state = initialState, action) => {
@@ -11,8 +22,8 @@ export default (state = initialState, action) => {
         case SERVER_DATA_PAYMENT_AGENTS: {
             return state.merge({ paymentAgents: action.serverResponse.paymentagent_list.list });
         }
-        case CHANGE_PAYMENT_AGENT_COUNTRY: {
-            return state.merge({ selectedCountry: action.country });
+        case UPDATE_PAYMENT_AGENT_FIELD: {
+            return state.set(action.fieldName, action.fieldValue);
         }
         default: {
             return state;
