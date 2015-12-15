@@ -33,6 +33,13 @@ export default class PaymentAgentWithdrawForm extends React.Component {
         this.props.actions.withdrawToPaymentAgentDryRun(selectedPaymentAgent, currency, withdrawAmount);
     }
 
+    confirmWithdraw() {
+        const { currency, selectedPaymentAgent, withdrawAmount } = this.props;
+        this.props.actions.updatePaymentAgentField('withdrawClicked', false);
+        this.props.actions.updatePaymentAgentField('confirmClicked', true);
+        this.props.actions.withdrawToPaymentAgent(selectedPaymentAgent, currency, withdrawAmount);
+    }
+
     render() {
         const {
             actions,
@@ -66,7 +73,7 @@ export default class PaymentAgentWithdrawForm extends React.Component {
                         <div>
                             <h3>Confirmation</h3>
                             <p>{`Are you sure you want to withdraw ${currency} ${withdrawAmount} to ${selectedPaymentAgentName} ?`}</p>
-                            <button>Confirm</button>
+                            <button onClick={::this.confirmWithdraw}>Confirm</button>
                         </div>
                     }
                     onClose={() => actions.updatePaymentAgentField('withdrawClicked', false)}/>
