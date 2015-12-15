@@ -65,11 +65,10 @@ const initAuthorized = (authData, store) => {
     api.getPortfolio();
     api.getStatement({ description: 1, limit: 20 });
     api.getProfitTable({ description: 1, limit: 20 });
-    api.getAccountSettings();
+    api.getAccountSettings().then(msg => api.getPaymentAgentsForCountry(msg.settings.country_code));
     api.getPayoutCurrencies();
     api.subscribeToBalance();           // some call might fail due to backend overload
     api.subscribeToAllOpenContracts();
-    api.getPaymentAgentsForCountry('id');
     subscribeToWatchlist(store);
 
     const isVirtual = authData.authorize.loginid.startsWith('VRTC');

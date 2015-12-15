@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import PaymentAgentsList from './PaymentAgentsList';
 import PaymentAgentWithdrawForm from './PaymentAgentWithdrawForm';
-import Tabs from '../_common/Tabs';
+import { Tabs, M } from '../_common';
 
 export default class PaymentAgentsCard extends React.Component {
     static propTypes = {
@@ -30,11 +30,13 @@ export default class PaymentAgentsCard extends React.Component {
             },
         ];
         return (
-            <Tabs
-                activeIndex={this.state.activeTab}
-                onChange={idx => this.setState({ activeTab: idx })}
-                id="pa-card"
-                tabs={tabs} />
+            paymentAgents.length === 0 ?
+                <div><M m="Sorry, Payment Agent is not available in your country" /></div> :
+                <Tabs
+                    activeIndex={this.state.activeTab}
+                    onChange={idx => this.setState({ activeTab: idx })}
+                    id="pa-card"
+                    tabs={tabs} />
         );
     }
 }
