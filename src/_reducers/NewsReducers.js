@@ -25,4 +25,4 @@ export default (state = initialState, action) => {
 
 export const getArticles = state => state.news.get('articles');
 
-export const getArticle = (state, id) => state.news.get('articles')[id];
+export const getArticle = (state, index) => state.news.get('articles')[index] || { };

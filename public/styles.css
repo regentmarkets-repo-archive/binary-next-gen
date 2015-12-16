@@ -175,7 +175,7 @@ nav.sidebar {
 }
 
 .mobile-nav-btn img {
-    padding: 1rem;
+    padding: 1rem 0;
     height: 100%;
 }
 
@@ -465,4 +465,32 @@ select {
 
 .mobile-form input, .mobile-form button, .mobile-form select {
     width: 100%;
+}
+
+.article-preview {
+    text-decoration: none;
+    color: #333;
+}
+
+.article-preview h2 {
+    font-size: 1.4rem;
+    margin: 1rem 0;
+}
+
+.video-list {
+    margin: 0 -.5rem;
+}
+.video-thumbnail {
+    margin: .5rem;
+    min-width: 10rem;
+}
+
+.video-thumbnail img {
+    width: 100%;
+}
+
+.video-thumbnail h5 {
+    text-decoration: none;
+    text-align: center;
+    margin-top: 1rem;
 }

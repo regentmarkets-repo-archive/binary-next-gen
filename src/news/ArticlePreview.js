@@ -1,22 +1,21 @@
 import React, { PropTypes } from 'react';
+import { Link } from 'react-router';
 
 export default class ArticlePreview extends React.Component {
 
     static propTypes = {
         title: PropTypes.string.isRequired,
-        pubDate: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
     };
 
     render() {
-        const { title, pubDate, description } = this.props;
+        const { description, title } = this.props;
 
         return (
-            <div className="article-preview">
+            <Link className="article-preview" to="/article/0">
                 <h2>{title}</h2>
-                <p>{pubDate}</p>
                 <p dangerouslySetInnerHTML={{ __html: description }} />
-            </div>
+            </Link>
         );
     }
 }

@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
-import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { M, NumberPlain } from '../_common';
+import { NumberPlain } from '../_common';
+import SidebarBtn from './SidebarBtn';
 
 @connect(state => ({ account: state.account }))
 export default class MobileSidebar extends React.Component {
@@ -19,70 +19,14 @@ export default class MobileSidebar extends React.Component {
 					{account.email}<br/>
 					<NumberPlain currency={account.currency} value={account.balance} />
 				</div>
-				<Link
-					to={`/mobile`}
-					className="sidebar-btn"
-					activeClassName="active"
-				>
-					<img src="img/trade.svg" />
-					<M m="Trade" />
-				</Link>
-				<Link
-					to={`/watchlist-mobile`}
-					className="sidebar-btn"
-					activeClassName="active"
-				>
-					<img src="img/watchlist.svg" />
-					<M m="Watchlist" />
-				</Link>
-				<Link
-					to={`/portfolio-mobile`}
-					className="sidebar-btn"
-					activeClassName="active"
-				>
-					<img src="img/portfolio.svg" />
-					<M m="Open Positions" />
-				</Link>
-				<Link
-					to={`/statement-mobile`}
-					className="sidebar-btn"
-					activeClassName="active"
-				>
-					<img src="img/statement.svg" />
-					<M m="Statement" />
-				</Link>
-				<Link
-					to={`/news-mobile`}
-					className="sidebar-btn"
-					activeClassName="active"
-				>
-					<img src="img/news.svg" />
-					<M m="News" />
-				</Link>
-				<Link
-					to={`/resources-mobile`}
-					className="sidebar-btn"
-					activeClassName="active"
-				>
-					<img src="img/profit.svg" />
-					<M m="Resources" />
-				</Link>
-				<Link
-					to={`/settings-mobile`}
-					className="sidebar-btn"
-					activeClassName="active"
-				>
-					<img src="img/settings.svg" />
-					<M m="Settings" />
-				</Link>
-				<Link
-					to={`/signout`}
-					className="sidebar-btn"
-					activeClassName="active"
-				>
-					<img src="img/signout.svg" />
-					<M m="Sign Out" />
-				</Link>
+				<SidebarBtn to="/mobile" img="img/trade.svg" text="Trade" />
+				<SidebarBtn to="/watchlist-mobile" img="img/watchlist.svg" text="Watchlist" />
+				<SidebarBtn to="/portfolio-mobile" img="img/portfolio.svg" text="Open Positions" />
+				<SidebarBtn to="/statement-mobile" img="img/statement.svg" text="Statement" />
+				<SidebarBtn to="/news-mobile" img="img/news.svg" text="News" />
+				<SidebarBtn to="/resources-mobile" img="img/resources.svg" text="Resources" />
+				<SidebarBtn to="/settings-mobile" img="img/settings.svg" text="Settings" />
+				<SidebarBtn to="/signout" img="img/signout.svg" text="Sign Out" />
 			</nav>
 		);
 	}

@@ -11,6 +11,7 @@ import TradeTypeSelectorMobile from '../trade-type-selector/TradeTypeSelectorMob
 import ProfitTableMobile from '../profit-table/ProfitTableMobile';
 import SettingsMobile from '../settings/SettingsMobile';
 import NewsMobile from '../mobile/NewsMobile';
+import ArticleMobile from '../news/ArticleMobile';
 import ResourcesMobile from '../mobile/ResourcesMobile';
 import PaymentAgentsMobile from '../payment-agents/PaymentAgentsMobile';
 
@@ -31,6 +32,7 @@ export default [
     { path: 'profit-table-mobile', component: ProfitTableMobile, onEnter: requireAuthOnEnter },
     { path: 'settings-mobile', component: SettingsMobile, onEnter: requireAuthOnEnter },
     { path: 'news-mobile', component: NewsMobile },
+    { path: 'article/:index', component: ArticleMobile },
     { path: 'resources-mobile', component: ResourcesMobile },
     { path: 'payment-agent-list-mobile', component: PaymentAgentsMobile, onEnter: requireAuthOnEnter },
 ];

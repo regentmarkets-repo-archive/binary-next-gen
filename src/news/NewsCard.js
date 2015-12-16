@@ -5,14 +5,19 @@ export default class NewsCard extends React.Component {
 
     static propTypes = {
         articles: PropTypes.array.isRequired,
+        history: PropTypes.object.isRequired,
     };
 
     render() {
-        const { articles } = this.props;
+        const { articles, history } = this.props;
         return (
             <div>
                 {articles.map((article, idx) =>
-                    <ArticlePreview key={'article' + idx} {...article} />
+                    <ArticlePreview
+                        key={'article' + idx}
+                        {...article}
+                        onClick={() => history.push(`/article/${idx}`)}
+                    />
                 )}
             </div>
         );

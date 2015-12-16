@@ -9,26 +9,6 @@ export default class SigninCard extends React.Component {
 		signin: PropTypes.object.isRequired,
 	};
 
-	// validate() {
-	// 	const emailNotValid = !isValidEmail(this.state.email);
-	// 	const passwordNotEntered = this.state.password.length === 0;
-	//
-	// 	// actions.validation
-	// 	this.setState({
-	// 		validatedOnce: true,
-	// 		emailNotValid,
-	// 		passwordNotEntered,
-	// 	});
-	// }
-
-	// trySignin() {
-	// 	this.validate();
-	//
-	// 	if (!(this.state.emailNotValid || this.state.passwordNotEntered)) {
-	// 		this.performLogin();
-	// 	}
-	// }
-
 	onTokenChange(event) {
 		this.props.actions.updateToken(event.target.value);
 	}
