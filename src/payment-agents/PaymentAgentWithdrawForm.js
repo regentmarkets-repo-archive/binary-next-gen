@@ -15,8 +15,7 @@ export default class PaymentAgentWithdrawForm extends React.Component {
         confirmClicked: PropTypes.bool,
         dryRunFailed: PropTypes.bool,
         dryRunError: PropTypes.string,
-        inDryRun: PropTypes.bool,
-        inWithdraw: PropTypes.bool,
+        inProgress: PropTypes.bool,
     };
 
     onAmountChange(event) {
@@ -50,8 +49,7 @@ export default class PaymentAgentWithdrawForm extends React.Component {
             withdrawError,
             dryRunFailed,
             dryRunError,
-            inDryRun,
-            inWithdraw,
+            inProgress,
             withdrawAmount,
             withdrawClicked,
             confirmClicked,
@@ -63,7 +61,7 @@ export default class PaymentAgentWithdrawForm extends React.Component {
         return (
             <div>
                 <Modal
-                    shown={!inDryRun && withdrawClicked}
+                    shown={!inProgress && withdrawClicked}
                     children={
                         dryRunFailed ?
                         <div>
@@ -78,7 +76,7 @@ export default class PaymentAgentWithdrawForm extends React.Component {
                     }
                     onClose={() => actions.updatePaymentAgentField('withdrawClicked', false)}/>
                 <Modal
-                    shown={!inWithdraw && confirmClicked}
+                    shown={!inProgress && confirmClicked}
                     onClose={() => actions.updatePaymentAgentField('confirmClicked', false)}
                     children={
                         withdrawFailed ?

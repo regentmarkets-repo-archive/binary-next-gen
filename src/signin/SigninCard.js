@@ -17,6 +17,7 @@ export default class SigninCard extends React.Component {
 		const { actions, history } = this.props;
 		actions.signinFieldUpdate('progress', true);
 		history.push('/'); // no need to authorize here onEnter hook will authorize
+		console.log('Sign in click');
 	}
 
 	render() {
@@ -36,7 +37,7 @@ export default class SigninCard extends React.Component {
 						onChange={::this.onTokenChange}
 						autoFocus
 						min={15}
-					/>
+						autoComplete="off" />
 					<ErrorMsg
 						shown={signin.get('validatedOnce') && signin.get('tokenNotEntered')}
 						text="You need to enter a token"

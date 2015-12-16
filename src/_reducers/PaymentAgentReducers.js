@@ -12,8 +12,7 @@ const initialState = fromJS({
     withdrawError: '',
     dryRunFailed: false,
     dryRunError: '',
-    inDryRun: false,
-    inWithdraw: false,
+    inProgress: false,
     withdrawAmount: 0,
 });
 
