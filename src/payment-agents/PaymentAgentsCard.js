@@ -26,7 +26,8 @@ export default class PaymentAgentsCard extends React.Component {
                     paymentAgentOptions={paymentAgentOptions}
                     currency={currency}
                     {...paymentAgent.toJS()}
-                    {...this.props} />,
+                    {...this.props}
+                />,
             },
         ];
         return (
@@ -36,7 +37,8 @@ export default class PaymentAgentsCard extends React.Component {
                     activeIndex={this.state.activeTab}
                     onChange={idx => this.setState({ activeTab: idx })}
                     id="pa-card"
-                    tabs={tabs} />
+                    tabs={tabs}
+                />
         );
     }
 }

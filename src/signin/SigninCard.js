@@ -37,7 +37,8 @@ export default class SigninCard extends React.Component {
 						onChange={::this.onTokenChange}
 						autoFocus
 						min={15}
-						autoComplete="off" />
+						autoComplete="off"
+					/>
 					<ErrorMsg
 						shown={signin.get('validatedOnce') && signin.get('tokenNotEntered')}
 						text="You need to enter a token"

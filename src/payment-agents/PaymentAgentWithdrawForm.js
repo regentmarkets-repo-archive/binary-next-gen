@@ -74,7 +74,8 @@ export default class PaymentAgentWithdrawForm extends React.Component {
                             <button onClick={::this.confirmWithdraw}>Confirm</button>
                         </div>
                     }
-                    onClose={() => actions.updatePaymentAgentField('withdrawClicked', false)}/>
+                    onClose={() => actions.updatePaymentAgentField('withdrawClicked', false)}
+                />
                 <Modal
                     shown={!inProgress && confirmClicked}
                     onClose={() => actions.updatePaymentAgentField('confirmClicked', false)}
@@ -88,25 +89,30 @@ export default class PaymentAgentWithdrawForm extends React.Component {
                             <h3>Congratulations</h3>
                             <p>Your withdrawal is success</p>
                         </div>
-                    } />
+                    }
+                />
                 <SelectGroup
                     label="Payment agent"
                     options={paymentAgentOptions}
                     placeholder="Choose a payment agent"
                     value={selectedPaymentAgent}
-                    onChange={::this.selectPaymentAgent} />
+                    onChange={::this.selectPaymentAgent}
+                />
                 <ErrorMsg
                     shown={!selectedPaymentAgent}
-                    text="Please select a payment agent to withdraw" />
+                    text="Please select a payment agent to withdraw"
+                />
                 <InputGroup
                     label={`Withdraw (${currency})`}
                     placeholder="Amount"
                     type="number"
                     min={0}
-                    max={5000} />
+                    max={5000}
+                />
                 <ErrorMsg
                     shown={false}
-                    text="" />
+                    text=""
+                />
                 <button onClick={::this.tryWithdraw}>
                     <M m="Withdraw"/>
                 </button>
