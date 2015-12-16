@@ -24,6 +24,8 @@ import SettingsLimits from '../settings/SettingsLimits';
 import StatementPage from '../statement/StatementPage';
 import VideoListContainer from '../video/VideoListContainer';
 import NewsContainer from '../news/NewsContainer';
+import ChartTest from '../charting/ChartTest';
+
 
 import { requireAuthOnEnter } from '../_data/Auth';
 
@@ -57,4 +59,5 @@ export default [
     ] },
     { path: 'video', component: VideoListContainer },
     { path: 'news', component: NewsContainer },
+    { path: 'chart', component: ChartTest },
 ];

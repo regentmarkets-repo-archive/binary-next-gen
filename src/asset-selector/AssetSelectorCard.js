@@ -1,4 +1,3 @@
-
 import React, { PropTypes } from 'react';
 import AssetSelectorList from './AssetSelectorList';
 import { MarketSelector, InputGroup } from '../_common';
