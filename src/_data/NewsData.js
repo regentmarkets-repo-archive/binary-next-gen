@@ -1,4 +1,4 @@
-const api = 'http://js.binary.com/javascript.php';
+const api = 'https://js.binary.com/javascript.php';
 
 const params = {
     id: {
