@@ -3,7 +3,6 @@ import {
     SIGNIN_START,
     SIGNIN_FIELD_UPDATE,
     SIGNIN_FAILED,
-    SERVER_DATA_AUTHORIZE,
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
@@ -27,9 +26,6 @@ export default (state = initialState, action) => {
         }
         case SIGNIN_FAILED: {
             return state.set('progress', false).set('credentialsInvalid', true);
-        }
-        case SERVER_DATA_AUTHORIZE: {
-            return state.set('credentialsInvalid', action.serverResponse.error);
         }
         default:
             return state;
