@@ -18,7 +18,7 @@ export const serverDataPaymentAgents = serverResponse => ({
 const withdrawToPaymentAgentHelper = (opts, success, failure, dispatch) => {
     dispatch(updatePaymentAgentField('inProgress', true));
     LiveData.api
-        .withdrawToPaymentAgent(...opts)
+        .withdrawToPaymentAgent(opts)
         .then(success, failure)
         .then(() => dispatch(updatePaymentAgentField('inProgress', false)));
 };
