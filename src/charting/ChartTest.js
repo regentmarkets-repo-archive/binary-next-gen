@@ -1,9 +1,9 @@
 import React from 'react';
-import EChart from './EChart';
+import ChartTradeVisualizer from './ChartTradeVisualizer';
 
 export default class ChartTest extends React.Component {
 
 	render() {
-		return <EChart />;
+		return <ChartTradeVisualizer />;
 	}
 }

@@ -17,7 +17,6 @@ export default class SigninCard extends React.Component {
 		const { actions, history } = this.props;
 		actions.signinFieldUpdate('progress', true);
 		history.push('/'); // no need to authorize here onEnter hook will authorize
-		console.log('Sign in click');
 	}
 
 	render() {

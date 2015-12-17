@@ -39,7 +39,7 @@ InputGroup.propTypes = {
 	readOnly: PropTypes.bool,
 	placeholder: PropTypes.string,
 	onChange: PropTypes.func,
-	autoComplete: PropTypes.bool,
+	autoComplete: PropTypes.string,
 };
 
 export default InputGroup;

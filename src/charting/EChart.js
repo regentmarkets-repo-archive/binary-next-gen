@@ -1,18 +1,24 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
+import ReactDOM from 'react-dom';
 import echarts from 'echarts';
 import 'echarts/chart/line';
-// import 'echarts/coord/Axis';
-import chartOptions from './ChartOptionsLine1';
+import 'echarts/chart/k';
 
-const WordCloudChart = React.createClass({
+export default class EChart extends React.Component {
+
+    static propTypes = {
+		options: PropTypes.object.isRequired,
+		style: PropTypes.object,
+    };
+
     componentDidMount() {
-        const mychart = echarts.init(document.getElementById('chart'));
-        mychart.setOption(chartOptions);
-    },
+        const node = ReactDOM.findDOMNode(this);
+        const mychart = echarts.init(node);
+        const { options } = this.props;
+        mychart.setOption(options);
+    }
 
     render() {
-        return <div id="chart" style = {{ width: '80%', height: '600px' }} />;
-    },
-});
-
-export default WordCloudChart;
+        return <div {...this.props}/>;
+    }
+}
