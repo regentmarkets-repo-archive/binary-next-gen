@@ -98,10 +98,6 @@ export default class PaymentAgentWithdrawForm extends React.Component {
                     value={selectedPaymentAgent}
                     onChange={::this.selectPaymentAgent}
                 />
-                <ErrorMsg
-                    shown={!selectedPaymentAgent}
-                    text="Please select a payment agent to withdraw"
-                />
                 <InputGroup
                     label={`Withdraw (${currency})`}
                     placeholder="Amount"
