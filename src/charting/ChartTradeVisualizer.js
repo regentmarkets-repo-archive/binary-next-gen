@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import EChart from './EChart';
-import chartOptionsTrade from './options/ChartOptionsTrade';
+// import chartOptionsTrade from './options/ChartOptionsTrade';
+import chartOptionsLineTests from './options/chartOptionsLineTests';
 
 export default class ChartTradeVisualizer extends React.Component {
 
@@ -12,7 +13,7 @@ export default class ChartTradeVisualizer extends React.Component {
         return (
             <EChart
                 style={{ width: '100%', height: '400px' }}
-                options={chartOptionsTrade}
+                options={chartOptionsLineTests}
                 {...this.props}
             />
         );

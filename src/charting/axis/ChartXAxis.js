@@ -1,14 +1,11 @@
-export default ({ color, data }) => [{
+export default ({ color, textColor, data }) => [{
     type: 'category',
     data,
     axisLabel: {
         show: true,
-        interval: 'auto',
-        rotate: 45,
-        margin: 8,
         formatter: '{value}月',
         textStyle: {
-            color: 'blue',
+            color: textColor,
             fontFamily: 'Roboto',
             fontSize: 15,
         },
