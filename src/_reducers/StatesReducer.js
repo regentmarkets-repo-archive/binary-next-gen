@@ -1,7 +1,7 @@
-import { fromJS } from 'immutable';
+import { Map } from 'immutable';
 import { SERVER_DATA_STATES } from '../_constants/ActionTypes';
 
-const initialState = fromJS({});
+const initialState = new Map();
 
 export default (state = initialState, action) => {
     switch (action.type) {

@@ -12,7 +12,7 @@ export default class States extends React.Component {
 
     render() {
         const { states, country, onChange } = this.props;
-        const statesForCountry = states[country] || [{ value: 'none', text: 'Loading ...' }];
+        const statesForCountry = states.get(country) || [{ value: 'none', text: 'Loading ...' }];
         return (
         <select id={country + 'states'} onChange={onChange}>
             <option value="">State/Province</option>

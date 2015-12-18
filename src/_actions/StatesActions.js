@@ -4,7 +4,7 @@ import { SERVER_DATA_STATES } from '../_constants/ActionTypes';
 export const getStatesForCountry = country => {
     return (dispatch, getState) => {
         const { states } = getState();
-        if (states[country]) {
+        if (states.get(country)) {
             return;
         }
         LiveData.api.getStatesForCountry(country).then(data => dispatch({
