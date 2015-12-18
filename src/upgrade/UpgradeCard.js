@@ -5,7 +5,6 @@ import UpgradeStep2 from './UpgradeStep2';
 import UpgradeStep3 from './UpgradeStep3';
 
 export default class UpgradeCard extends React.Component {
-
 	constructor(props) {
 		super(props);
 
@@ -14,6 +13,11 @@ export default class UpgradeCard extends React.Component {
 			currentPage: 0,
 		};
 	}
+
+	static propTypes = {
+		upgrade: React.PropTypes.object.isRequired,
+		actions: React.PropTypes.object.isRequired,
+	};
 
 	performSignup() {
 	}
@@ -41,39 +45,44 @@ export default class UpgradeCard extends React.Component {
 	}
 
 	render() {
-		const steps = [(
-			<div>
-				<UpgradeStep1 />
-				<p>
-					<button onClick={::this.nextStep}>
-						<M m="Next" />
-					</button>
-				</p>
-			</div>
-		), (
-			<div>
-				<UpgradeStep2 />
-				<p>
-					<button onClick={::this.previousStep}>
-						<M m="Back" />
-					</button>
-					<button onClick={::this.nextStep}>
-						<M m="Next" />
-					</button>
-				</p>
-			</div>
-		), (
-			<div>
-				<UpgradeStep3 />
-				<p>
-					<button onClick={::this.previousStep}>
-						<M m="Back" />
-					</button>
-					<button onClick={::this.openAccount}>
-						<M m="Open Account" />
-					</button>
-				</p>
-			</div>)];
+		const {
+			firstName,
+			lastName,
+			dateOfBirth,
+			addressCity,
+			addressPostcode,
+			addressLine1,
+			addressLine2,
+			phone,
+			residence,
+			secretQuestion,
+			secretAnswer,
+			addressState,
+			} = this.props.upgrade.toJS();
+		const actions = this.props.actions;
+		const steps = [
+			<UpgradeStep1
+				firstName={firstName}
+				lastName={lastName}
+				dateOfBirth={dateOfBirth}
+				actions={actions}
+			/>,
+			<UpgradeStep2
+				addressCity={addressCity}
+				addressPostcode={addressPostcode}
+				addressLine1={addressLine1}
+				addressLine2={addressLine2}
+				phone={phone}
+				residence={residence}
+				actions={actions}
+				addressState={addressState}
+			/>,
+			<UpgradeStep3
+				secretQuestion={secretQuestion}
+				secretAnswer={secretAnswer}
+				actions={actions}
+			/>,
+		];
 
 		return (
 			<div className="wide-form" >
@@ -81,7 +90,7 @@ export default class UpgradeCard extends React.Component {
 					<LogoSpinner spinning={this.state.progress}/>
 				</p>
 				<h3><M m="Upgrade to Real Money Account" /></h3>
-				{ steps[this.state.currentPage] }
+				{ steps[this.props.upgrade.get('activeStep')] }
 			</div>
 		);
 	}

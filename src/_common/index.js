@@ -30,5 +30,6 @@ export Segment from './Segment';
 export SegmentedControl from './SegmentedControl';
 export SelectGroup from './SelectGroup';
 export Star from './Star';
+export States from './States';
 export Tabs from './Tabs';
 export TextAreaGroup from './TextAreaGroup';
