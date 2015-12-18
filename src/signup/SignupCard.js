@@ -35,6 +35,7 @@ export default class SignupCard extends React.Component {
 
 	trySignup() {
 		this.props.actions.signupFieldUpdate('validatedOnce', true);
+		this.props.actions.signupFieldUpdate('progress', true);
 		if (this.emailValid() && this.passwordValid() && this.confirmationValid()) {
 			/*
 			suppose we need to perform verification and then ask user to verify,

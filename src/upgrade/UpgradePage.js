@@ -1,9 +1,9 @@
 import React from 'react';
 import { MobilePage } from '../_common';
-import UpgradeCard from './UpgradeCard';
+import UpgradeContainer from './UpgradeContainer';
 
 export default (props) => (
 	<MobilePage toolbarShown={false}>
-		<UpgradeCard {...props} />
+		<UpgradeContainer {...props} />
 	</MobilePage>
 );

@@ -3,10 +3,10 @@ import DobDay from './DobDay';
 import DobMonth from './DobMonth';
 import DobYear from './DobYear';
 
-export default () => (
+export default ({ date, onDayChange, onMonthChange, onYearChange }) => (
 	<span className="dob">
-		<DobDay />
-		<DobMonth />
-		<DobYear />
+		<DobDay day={date.getDate()} onDayChange={onDayChange} />
+		<DobMonth month={date.getMonth()} onMonthChange={onMonthChange} />
+		<DobYear year={date.getFullYear()} onYearChange={onYearChange} />
 	</span>
 );

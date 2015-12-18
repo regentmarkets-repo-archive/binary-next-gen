@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { ErrorMsg, InputGroup, LanguagePicker, LogoSpinner, M } from '../_common';
+import { Link } from 'react-router';
 
 export default class SigninCard extends React.Component {
 
@@ -17,7 +18,6 @@ export default class SigninCard extends React.Component {
 		const { actions, history } = this.props;
 		actions.signinFieldUpdate('progress', true);
 		history.push('/'); // no need to authorize here onEnter hook will authorize
-		console.log('Sign in click');
 	}
 
 	render() {
@@ -59,9 +59,9 @@ export default class SigninCard extends React.Component {
 					</a>
 				</p>
 				<p>
-					<a className="btn-secondary" target="new" href="https://www.binary.com">
+					<Link to="/signup" className="btn-secondary">
 						<M m="Create Account" />
-					</a>
+					</Link>
 				</p>
 			</div>
 		);
