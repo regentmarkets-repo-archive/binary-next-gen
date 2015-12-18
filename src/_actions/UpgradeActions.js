@@ -48,9 +48,12 @@ export const upgradeConfirm = () => {
             secret_answer: secretAnswer,
         };
 
-        LiveData.api.createRealAccount(opts).then(() => {
-            dispatch({ type: UPGRADE_FIELD_CLEAR });
-            dispatch(upgradeFieldUpdate('success', true));
-        });
+        LiveData.api.createRealAccount(opts)
+            .then(() => {
+                dispatch({ type: UPGRADE_FIELD_CLEAR });
+                dispatch(upgradeFieldUpdate('success', true));
+            },
+            err => dispatch(upgradeFieldUpdate('error', err.message)))
+            .then(() => dispatch(upgradeFieldUpdate('progress', false)));
     };
 };

@@ -1,5 +1,5 @@
 import React from 'react';
-import { M, ErrorMsg } from '../_common';
+import { M, ErrorMsg, Modal } from '../_common';
 
 export default class UpgradeStep3 extends React.Component {
 	constructor(props) {
@@ -11,6 +11,7 @@ export default class UpgradeStep3 extends React.Component {
 		actions: React.PropTypes.object.isRequired,
 		secretQuestion: React.PropTypes.string.isRequired,
 		secretAnswer: React.PropTypes.string.isRequired,
+		error: React.PropTypes.string,
 	};
 
 	previousStep(e) {
@@ -47,7 +48,7 @@ export default class UpgradeStep3 extends React.Component {
 	}
 
 	render() {
-		const { secretAnswer, secretQuestion } = this.props;
+		const { secretAnswer, secretQuestion, error } = this.props;
 		const { showErr, checked } = this.state;
 		return (
 			<div>
@@ -59,6 +60,16 @@ export default class UpgradeStep3 extends React.Component {
 				<p>
 					<input name="chooseapassword" placeholder="Password" type="password" />
 				</p>
+				<Modal
+					shown={!!error}
+					onClose={() => this.props.actions.upgradeFieldUpdate('error', null)}
+					children={
+						<div>
+							<h3>Upgrade Failed</h3>
+							<p>{error}</p>
+						</div>
+					}
+				/>
 				<p>
 					<select name="secretquestion" onChange={::this.secretQuestionChange} value={secretQuestion}>
 						<option value="">Secret question</option>

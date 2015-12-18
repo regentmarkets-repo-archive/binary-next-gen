@@ -12,7 +12,7 @@ export default class UpgradeCard extends React.Component {
 	};
 
 	componentWillReceiveProps(nextProps) {
-		if (nextProps.upgrade.get('success')) {
+		if (nextProps.upgrade.get('success') === true) {
 			this.props.history.push('/');
 		}
 	}
@@ -33,6 +33,7 @@ export default class UpgradeCard extends React.Component {
 			secretQuestion,
 			secretAnswer,
 			addressState,
+			error,
 			} = this.props.upgrade.toJS();
 
 		const actions = this.props.actions;
@@ -57,6 +58,7 @@ export default class UpgradeCard extends React.Component {
 				secretQuestion={secretQuestion}
 				secretAnswer={secretAnswer}
 				actions={actions}
+				error={error}
 			/>,
 		];
 
