@@ -5,24 +5,21 @@ export default () => ({
     itemStyle: {
        normal: {
            color: 'green',
-           lineStyle: 'solid',
-           borderWidth: 5,
+           lineStyle: 'dashed',
+           borderWidth: 1,
            borderColor: 'red',
            barBorderColor: 'yellow',
            barBorderWidth: 5,
        },
     },
     data: [
-        {
-            type: 'average',
-            name: '最大值',
-            itemStyle: {
-                normal: {
-                    color: 'pink',
-                    borderColor: 'red',
-                    borderRadius: 10,
-                },
-            },
-        },
+        [
+            { name: 'From Start Time', value: 'Start', xAxis: '10:15:25', yAxis: 0 },
+            { name: 'To Start Time', xAxis: '10:15:25', yAxis: 5 },
+        ],
+        [
+            { name: 'From Spot', value: 'Start', xAxis: '10:15:25', yAxis: 3 },
+            { name: 'To Spot', xAxis: '10:15:31', yAxis: 3 },
+        ],
     ],
 });

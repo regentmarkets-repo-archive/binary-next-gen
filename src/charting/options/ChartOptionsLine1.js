@@ -1,37 +1,4 @@
 export default {
-    title: {
-        text: '未来一周气温变化',
-        subtext: '纯属虚构',
-    },
-    tooltip: {
-        trigger: 'axis',
-    },
-    legend: {
-        data: ['最高气温', '最低气温'],
-    },
-    toolbox: {
-        show: true,
-        feature: {
-            mark: {
-                show: true,
-            },
-            dataView: {
-                show: true,
-                readOnly: false,
-            },
-            magicType: {
-                show: true,
-                type: ['line', 'bar'],
-            },
-            restore: {
-                show: true,
-            },
-            saveAsImage: {
-                show: true,
-            },
-        },
-    },
-    calculable: true,
     xAxis: [{
         type: 'category',
         boundaryGap: false,
@@ -58,28 +25,10 @@ export default {
         ],
         },
         markLine: {
-            data: [{
-                type: 'average',
-                name: '平均值',
-            }],
-        },
-    }, {
-        name: '最低气温',
-        type: 'line',
-        data: [1, -2, 2, 5, 3, 2, 0],
-        markPoint: {
-            data: [{
-                name: '周最低',
-                value: -2,
-                xAxis: 1,
-                yAxis: -1.5,
-            }],
-        },
-        markLine: {
-            data: [{
-                type: 'average',
-                name: '平均值',
-            }],
+            data: [[
+        { name: 'start of markLine1', value: 100, x: 50, y: 20 },
+        { name: 'end of markLine1', x: 150, y: 120 },
+    ]],
         },
     }],
 };
