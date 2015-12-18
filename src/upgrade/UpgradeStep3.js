@@ -24,7 +24,8 @@ export default class UpgradeStep3 extends React.Component {
 		const { secretAnswer } = this.props;
 		const { checked } = this.state;
 		if (this.secretAnsValid(secretAnswer) && checked) {
-			// submit form
+			this.props.actions.upgradeFieldUpdate('progress', true);
+			this.props.actions.upgradeConfirm();
 		}
 	}
 

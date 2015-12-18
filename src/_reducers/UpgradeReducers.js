@@ -3,6 +3,7 @@ import { UPGRADE_FIELD_UPDATE, UPGRADE_DOB_UPDATE, UPGRADE_FIELD_CLEAR } from '.
 
 const initialState = fromJS({
     activeStep: 0,
+    progress: false,
     salutation: 'Mr',
     firstName: '',
     lastName: '',
@@ -16,6 +17,7 @@ const initialState = fromJS({
     phone: '',
     secretQuestion: '',
     secretAnswer: '',
+    success: false,
 });
 
 export default (state = initialState, action) => {
