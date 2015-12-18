@@ -61,8 +61,6 @@ gulp.task('po2json', function () {
         .pipe(gulp.dest(files.js + '/_constants/po/'));
 });
 
-gulp.task
-
 gulp.task('deploy', ['build'], () =>
     gulp.src(files.dist + '/**/*')
         .pipe(file('CNAME', 'app.binary.com'))
