@@ -1,7 +1,23 @@
-export default () => [{
-    type: 'value',
-    position: 'right',
+export default ({ color, data }) => [{
+    type: 'category',
+    data,
     axisLabel: {
-        formatter: '$ {value}',
+        show: true,
+        interval: 'auto',
+        rotate: 45,
+        margin: 8,
+        formatter: '{value}月',
+        textStyle: {
+            color: 'blue',
+            fontFamily: 'Roboto',
+            fontSize: 15,
+        },
+    },
+    splitLine: {
+        show: true,
+        lineStyle: {
+            color,
+            width: 1,
+        },
     },
 }];
