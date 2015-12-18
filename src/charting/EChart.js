@@ -19,6 +19,6 @@ export default class EChart extends React.Component {
     }
 
     render() {
-        return <div {...this.props}/>;
+        return <div {...this.props} />;
     }
 }

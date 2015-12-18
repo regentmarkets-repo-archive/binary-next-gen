@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
 import EChart from './EChart';
-import chartOptionsTrade from './ChartOptionsTrade';
+import chartOptionsTrade from './options/ChartOptionsTrade';
 
 export default class ChartTradeVisualizer extends React.Component {
 
     static propTypes = {
-        tradeParameters: PropTypes.object, // .isRequired,
+        tradeParameters: PropTypes.object.isRequired,
     };
 
     render() {

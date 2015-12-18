@@ -4,6 +4,6 @@ import ChartTradeVisualizer from './ChartTradeVisualizer';
 export default class ChartTest extends React.Component {
 
 	render() {
-		return <ChartTradeVisualizer />;
+		return <ChartTradeVisualizer tradeParameters={{}} />;
 	}
 }
