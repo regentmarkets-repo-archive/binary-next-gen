@@ -38,7 +38,7 @@ export const upgradeConfirm = () => {
             phone,
             first_name: firstName,
             last_name: lastName,
-            date_of_birth: dateOfBirth,
+            date_of_birth: dateOfBirth.toISOString().slice(0, 10),
             address_line_1: addressLine1,
             address_line_2: addressLine2,
             address_city: addressCity,
@@ -48,6 +48,12 @@ export const upgradeConfirm = () => {
             secret_answer: secretAnswer,
         };
 
-        LiveData.api.createRealAccount(opts).then(() => dispatch({ type: UPGRADE_FIELD_CLEAR }));
+        LiveData.api.createRealAccount(opts)
+            .then(() => {
+                dispatch({ type: UPGRADE_FIELD_CLEAR });
+                dispatch(upgradeFieldUpdate('success', true));
+            },
+            err => dispatch(upgradeFieldUpdate('error', err.message)))
+            .then(() => dispatch(upgradeFieldUpdate('progress', false)));
     };
 };

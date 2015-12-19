@@ -5,47 +5,22 @@ import UpgradeStep2 from './UpgradeStep2';
 import UpgradeStep3 from './UpgradeStep3';
 
 export default class UpgradeCard extends React.Component {
-	constructor(props) {
-		super(props);
-
-		this.state = {
-			progress: false,
-			currentPage: 0,
-		};
-	}
-
 	static propTypes = {
 		upgrade: React.PropTypes.object.isRequired,
 		actions: React.PropTypes.object.isRequired,
+		history: React.PropTypes.object.isRequired,
 	};
 
-	performSignup() {
-	}
-
-	nextStep(e) {
-		e.preventDefault();
-		this.setState({
-			currentPage: this.state.currentPage + 1,
-		});
-	}
-
-	openAccount(e) {
-		e.preventDefault();
-		this.setState({
-			progress: true,
-		});
-		this.performSignup();
-	}
-
-	previousStep(e) {
-		e.preventDefault();
-		this.setState({
-			currentPage: this.state.currentPage - 1,
-		});
+	componentWillReceiveProps(nextProps) {
+		if (nextProps.upgrade.get('success') === true) {
+			this.props.history.push('/');
+		}
 	}
 
 	render() {
 		const {
+			activeStep,
+			progress,
 			firstName,
 			lastName,
 			dateOfBirth,
@@ -58,7 +33,9 @@ export default class UpgradeCard extends React.Component {
 			secretQuestion,
 			secretAnswer,
 			addressState,
+			error,
 			} = this.props.upgrade.toJS();
+
 		const actions = this.props.actions;
 		const steps = [
 			<UpgradeStep1
@@ -81,16 +58,17 @@ export default class UpgradeCard extends React.Component {
 				secretQuestion={secretQuestion}
 				secretAnswer={secretAnswer}
 				actions={actions}
+				error={error}
 			/>,
 		];
 
 		return (
 			<div className="wide-form" >
 				<p className="media">
-					<LogoSpinner spinning={this.state.progress}/>
+					<LogoSpinner spinning={progress}/>
 				</p>
 				<h3><M m="Upgrade to Real Money Account" /></h3>
-				{ steps[this.props.upgrade.get('activeStep')] }
+				{ steps[activeStep] }
 			</div>
 		);
 	}
