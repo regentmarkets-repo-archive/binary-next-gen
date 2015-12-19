@@ -4,7 +4,8 @@
   "scripts": {
     "test": "webpack --config webpack.config.dev.js",
     "start": "node server.js",
-    "build": "npm run clean && npm run build:webpack"
+    "build": "npm run clean && npm run build:webpack",
+    "translate": "bash fetch-translation.sh"
   },
   "keywords": [
     "binary.com",

@@ -1,0 +1,14 @@
+export const ar = require('json!./ar.json');
+export const de = require('json!./de.json');
+export const en = require('json!./en.json');
+export const es = require('json!./es.json');
+export const fr = require('json!./fr.json');
+export const id = require('json!./id.json');
+export const it = require('json!./it.json');
+export const ja = require('json!./ja.json');
+export const pl = require('json!./pl.json');
+export const pt = require('json!./pt.json');
+export const ru = require('json!./ru.json');
+export const vi = require('json!./vi.json');
+export const zhCN = require('json!./zh_cn.json');
+export const zhTW = require('json!./zh_tw.json');

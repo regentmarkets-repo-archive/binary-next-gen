@@ -15,7 +15,7 @@ export default class IntlProviderContainer extends React.Component {
         const { language } = this.props;
 
         return (
-            <IntlProvider locale={locale(language)} messages={allTexts[language]}>
+            <IntlProvider locale={locale(language)} messages={allTexts(language)}>
                 {this.props.children}
             </IntlProvider>
         );
