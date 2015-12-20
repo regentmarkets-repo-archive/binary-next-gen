@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Modal, M } from '../_common';
-import TickTradeSparkline from '../watchlist/TickTradeSparkline';
+import TradeChart from '../charting/TradeChart';
 import * as LiveData from '../_data/LiveData';
 import TickTradeParameters from './TickTradeParameters';
 import TickTradeDisplay from './TickTradeDisplay';
@@ -81,7 +81,7 @@ export default class TickTradeCard extends React.Component {
 				>
 					<PurchaseConfirmation receipt={receipt} />
 				</Modal>
-				<TickTradeSparkline
+				<TradeChart
 					history={history}
 					showBarrier={tickTrade.get('tradeType') === 'CALL'}
 					spot={spot}

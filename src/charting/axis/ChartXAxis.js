@@ -1,6 +1,7 @@
 export default ({ color, textColor, data }) => [{
     type: 'category',
     data,
+    boundaryGap: false,
     axisLabel: {
         show: true,
         formatter: '{value}月',
