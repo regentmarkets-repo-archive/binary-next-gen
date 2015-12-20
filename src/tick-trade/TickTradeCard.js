@@ -82,6 +82,7 @@ export default class TickTradeCard extends React.Component {
 					<PurchaseConfirmation receipt={receipt} />
 				</Modal>
 				<TradeChart
+					className="trade-chart"
 					history={history}
 					showBarrier={tickTrade.get('tradeType') === 'CALL'}
 					spot={spot}

@@ -494,3 +494,7 @@ select {
     text-align: center;
     margin-top: 1rem;
 }
+
+.trade-chart {
+    margin: 1rem auto;
+}

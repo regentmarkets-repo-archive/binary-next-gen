@@ -21,10 +21,10 @@ export default class TradeChart extends React.Component {
 
     render() {
         const { history, spot } = this.props;
-        const options = chartOptionsTrade({ data: history.map(x => x.quote), spot: +spot, theme });
+        const options = chartOptionsTrade({ history, spot: +spot, theme });
         return (
             <EChart
-                style={{ width: '344px', height: '200px', margin: '0 auto' }}
+                style={{ width: '320px', height: '100px' }}
                 options={options}
                 {...this.props}
             />

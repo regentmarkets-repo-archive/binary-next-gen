@@ -1,5 +1,6 @@
 export default ({ color, textColor, data }) => [{
     type: 'category',
+    scale: true,
     data,
     boundaryGap: false,
     axisLabel: {
