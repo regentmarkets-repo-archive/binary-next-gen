@@ -17,7 +17,7 @@ export default class TradeChart extends React.Component {
     static defaultProps = {
         history: [],
         spot: 0,
-    }
+    };
 
     render() {
         const { history, spot } = this.props;
