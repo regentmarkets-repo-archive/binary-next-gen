@@ -15,11 +15,11 @@ export default class SizeProvider extends React.Component {
     };
 
     componentDidMount() {
-        window.addEventListener('resize', () => this.onResize(this));
+        window.onresize = () => this.onResize(this);
     }
 
     componentWillUnmount() {
-        window.removeEventListener('resize', () => this.onResize(this));
+        window.onresize = null;
     }
 
     onResize(ele) {
