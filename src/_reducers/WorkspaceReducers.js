@@ -9,6 +9,7 @@ import {
     UPDATE_TRADING_TIMES_SUBMARKET,
     UPDATE_TRADING_TIMES_DATE,
     UPDATE_ASSET_INDEX_SUBMARKET,
+    UPDATE_WORKSPACE_FIELD,
 } from '../_constants/ActionTypes';
 
 const initialState = new Map({
@@ -55,6 +56,9 @@ export default (state = initialState, action) => {
         }
         case UPDATE_ASSET_INDEX_SUBMARKET: {
             return state.update('assetIndex', v => v.merge({ submarket: action.submarket }));
+        }
+        case UPDATE_WORKSPACE_FIELD: {
+            return state.set(action.fieldName, action.fieldValue);
         }
         default:
             return state;
