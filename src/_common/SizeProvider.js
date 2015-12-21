@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from 'react-dom';
 
 export default class SizeProvider extends React.Component {
     constructor(props) {
@@ -10,23 +11,20 @@ export default class SizeProvider extends React.Component {
     }
 
     static propTypes = {
-        windowSizeRelation: React.PropTypes.func.isRequired,
-        height: React.PropTypes.string,
-        width: React.PropTypes.string,
         children: React.PropTypes.object,
     };
 
     componentDidMount() {
-        window.addEventListener('resize', e => this.onResize(this, e));
+        window.addEventListener('resize', () => this.onResize(this));
     }
 
     componentWillUnmount() {
-        window.removeEventListener('resize', e => this.onResize(this, e));
+        window.removeEventListener('resize', () => this.onResize(this));
     }
 
-    onResize(ele, e) {
-        const newSize = ele.props.windowSizeRelation(e.target.innerWidth, e.target.innerHeight);
-        ele.setState({ height: newSize.height, width: newSize.width });
+    onResize(ele) {
+        const targetDOM = ReactDOM.findDOMNode(ele);
+        ele.setState({ height: targetDOM.clientHeight, width: targetDOM.clientWidth });
     }
 
     render() {
