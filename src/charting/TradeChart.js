@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import EChart from './EChart';
+import SizeProvider from '../_common/SizeProvider';
 import chartOptionsTrade from './options/ChartOptionsTrade';
 
 const theme = {
@@ -23,11 +24,13 @@ export default class TradeChart extends React.Component {
         const { history, spot } = this.props;
         const options = chartOptionsTrade({ history, spot: +spot, theme });
         return (
-            <EChart
-                style={{ width: '320px', height: '100px' }}
-                options={options}
-                {...this.props}
-            />
+            <SizeProvider style={{ width: '100%', height: '100px' }}>
+                <EChart
+                    style={{ width: '320px', height: '100px' }}
+                    options={options}
+                    {...this.props}
+                />
+            </SizeProvider>
         );
     }
 }
