@@ -49,3 +49,9 @@ export const selectAssetSymbolForTrade = (newSymbol, oldSymbol) => {
         dispatch(workspaceAssetSelect(newSymbol));
     };
 };
+
+export const updateWorkspaceField = (fieldName, fieldValue) => ({
+    type: types.UPDATE_WORKSPACE_FIELD,
+    fieldName,
+    fieldValue,
+});

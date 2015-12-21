@@ -1,7 +1,10 @@
 import React, { PropTypes } from 'react';
 
 export default class Resizer extends React.Component {
-
+	constructor(props) {
+		super(props);
+		this.state = { mousemove: ::this.onGlobalMouseMove, mouseup: ::this.onGlobalMouseUp };
+	}
 	static propTypes = {
 		onResize: PropTypes.func.isRequired,
 	};
@@ -11,8 +14,8 @@ export default class Resizer extends React.Component {
 	}
 
 	addGlobalEventHandlers() {
-		document.addEventListener('mousemove', ::this.onGlobalMouseMove);
-		document.addEventListener('mouseup', ::this.onGlobalMouseUp);
+		window.addEventListener('mousemove', this.state.mousemove);
+		window.addEventListener('mouseup', this.state.mouseup);
 	}
 
 	onGlobalMouseMove(e) {
@@ -21,8 +24,8 @@ export default class Resizer extends React.Component {
 
 	onGlobalMouseUp(e) {
 		this.props.onResize(e);
-		document.removeEventListener('mousemove', ::this.onGlobalMouseMove);
-		document.removeEventListener('mouseup', ::this.onGlobalMouseUp);
+		window.removeEventListener('mousemove', this.state.mousemove);
+		window.removeEventListener('mouseup', this.state.mouseup);
 	}
 
 	render() {

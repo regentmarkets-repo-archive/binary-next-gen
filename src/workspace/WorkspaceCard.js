@@ -29,7 +29,7 @@ export default ({ actions, workspace }) => (
 					]}
 				/>
 			</div>
-			<Resizer onResize={e => console.log(e)} />
+			<Resizer onResize={e => actions.updateWorkspaceField('leftPanelSize', e.x - 1)} />
 			<div id="mid-panel">
 				<div id="workarea">
 					<TickTradeContainer actions={actions} />
@@ -48,7 +48,7 @@ export default ({ actions, workspace }) => (
 				</div>
 				<Footer />
 			</div>
-			<Resizer onResize={e => console.log(e)} />
+			<Resizer onResize={e => actions.updateWorkspaceField('rightPanelSize', window.innerWidth - e.x - 1)} />
 			<div id="right-panel" style={{ width: workspace.get('rightPanelSize') }}>
 				<Tabs
 					id="right-panel"
