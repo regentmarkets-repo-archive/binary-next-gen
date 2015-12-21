@@ -1,3 +1,7 @@
+body {
+    height: 100%;
+}
+
 #screen {
     font-size: 12px;
 }
@@ -455,18 +459,6 @@ select {
     height: .25rem;
 }
 
-.mobile-form {
-    display: flex;
-    flex-direction: column;
-    max-width: 400px;
-    height: 100%;
-    margin: auto;
-}
-
-.mobile-form input, .mobile-form button, .mobile-form select {
-    width: 100%;
-}
-
 .article-preview {
     text-decoration: none;
     color: #333;
@@ -497,4 +489,26 @@ select {
 
 .trade-chart {
     margin: 1rem auto;
+}
+
+.mobile-form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.startup-content input,
+.startup-content .button,
+.startup-content select,
+.startup-content .btn-secondary {
+    width: 100%;
+}
+
+.startup-content {
+    display: flex;
+    flex: 1;
+    max-width: 360px;
+    margin: auto;
+    flex-direction: column;
+    align-content: space-between;
 }

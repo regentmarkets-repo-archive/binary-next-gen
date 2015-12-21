@@ -24,7 +24,7 @@ export default class SigninCard extends React.Component {
 		const { signin } = this.props;
 
 		return (
-			<div style={{ display: 'flex', flexDirection: 'column', alignItems: 'space-between' }}>
+			<div className="startup-content">
 				<form className="mobile-form" onSubmit={e => e.preventDefault()}>
 					<p className="media">
 						<LogoSpinner spinning={signin.get('progress')}/>
@@ -58,11 +58,9 @@ export default class SigninCard extends React.Component {
 						<M m="Get your API token" />
 					</a>
 				</p>
-				<p>
-					<Link to="/create-account" className="btn-secondary">
-						<M m="Create Account" />
-					</Link>
-				</p>
+				<Link to="/create-account" className="btn-secondary">
+					<M m="Create Account" />
+				</Link>
 			</div>
 		);
 	}

@@ -69,7 +69,7 @@ export default class CreateAccountCard extends React.Component {
 		const passwordsDontMatch = !this.confirmationValid();
 
 		return (
-			<div className="create-account-content">
+			<div className="startup-content">
 				<p className="media">
 					<LogoSpinner spinning={progress}/>
 					<img className="logo-text" src="img/binary-type-logo.svg" />
@@ -114,11 +114,9 @@ export default class CreateAccountCard extends React.Component {
 					</button>
 				</form>
 
-				<p>
-					<Link to="/signin" className="btn-secondary">
-						<M m="Sign in" />
-					</Link>
-				</p>
+				<Link to="/signin" className="btn-secondary">
+					<M m="Sign in" />
+				</Link>
 			</div>
 		);
 	}
