@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
-import { ErrorMsg, InputGroup, LanguagePicker, LogoSpinner, M } from '../_common';
 import { Link } from 'react-router';
+import { ErrorMsg, InputGroup, LanguagePicker, LogoSpinner, M } from '../_common';
 
 export default class SigninCard extends React.Component {
 

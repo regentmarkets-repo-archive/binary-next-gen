@@ -3,7 +3,6 @@ import { Modal, M } from '../_common';
 import TradeChart from '../charting/TradeChart';
 import * as LiveData from '../_data/LiveData';
 import TickTradeParameters from './TickTradeParameters';
-import TickTradeDisplay from './TickTradeDisplay';
 import PurchaseConfirmation from './PurchaseConfirmation';
 import PurchaseFailed from './PurchaseFailed';
 
@@ -65,7 +64,7 @@ export default class TickTradeCard extends React.Component {
 		const { actions, assets, tickTrade, workspace } = this.props;
 		const history = this.getTickHistory();
 		const spot = history.length > 0 ? history[history.length - 1].quote : null;
-		const diff = history.length > 1 ? history[history.length - 1].quote - history[history.length - 2].quote : 0;
+		// const diff = history.length > 1 ? history[history.length - 1].quote - history[history.length - 2].quote : 0;
 		const receipt = tickTrade.get('receipt');
 		const assetName = this.getSelectedAssetName() || '...';
 
@@ -91,14 +90,6 @@ export default class TickTradeCard extends React.Component {
 					actions={actions}
 					assetName={assetName}
 					assets={assets}
-					tickTrade={tickTrade}
-					workspace={workspace}
-				/>
-				<TickTradeDisplay
-					assets={assets}
-					assetName={assetName}
-					diff={diff}
-					spot={spot}
 					tickTrade={tickTrade}
 					workspace={workspace}
 				/>

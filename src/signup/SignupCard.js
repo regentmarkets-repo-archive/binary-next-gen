@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router';
 import { Countries, ErrorMsg, InputGroup, LogoSpinner, M } from '../_common';
 
 export default class SignupCard extends React.Component {
@@ -71,44 +72,53 @@ export default class SignupCard extends React.Component {
 			<div className="signup-content">
 				<p className="media">
 					<LogoSpinner spinning={progress}/>
+					<img className="logo-text" src="img/binary-type-logo.svg" />
 				</p>
-				<InputGroup
-					type="email"
-					placeholder="Email"
-					onChange={::this.emailChange}
-				/>
-				<ErrorMsg
-					shown={validatedOnce && emailNotValid}
-					text="You need to enter an email"
-				/>
-				<fieldset>
-					<Countries onChange={::this.residenceChange}/>
-				</fieldset>
-				<ErrorMsg
-					shown={validatedOnce && countryNotSelected}
-					text="Please select a country"
-				/>
-				<InputGroup
-					type="password"
-					placeholder="Password"
-					onChange={::this.passwordChange}
-				/>
-				<ErrorMsg
-					shown={validatedOnce && passwordNotValid}
-					text="Password not valid"
-				/>
-				<InputGroup
-					type="password"
-					placeholder="Confirm Password"
-					onChange={::this.confirmPasswordChange}
-				/>
-				<ErrorMsg
-					shown={validatedOnce && passwordsDontMatch}
-					text="Passwords do not match"
-				/>
-				<button onClick={::this.trySignup}>
-					<M m="Create Account" />
-				</button>
+				<form className="mobile-form" onSubmit={e => e.preventDefault()}>
+					<InputGroup
+						type="email"
+						placeholder="Email"
+						onChange={::this.emailChange}
+					/>
+					<ErrorMsg
+						shown={validatedOnce && emailNotValid}
+						text="You need to enter an email"
+					/>
+					<fieldset>
+						<Countries onChange={::this.residenceChange}/>
+					</fieldset>
+					<ErrorMsg
+						shown={validatedOnce && countryNotSelected}
+						text="Please select a country"
+					/>
+					<InputGroup
+						type="password"
+						placeholder="Password"
+						onChange={::this.passwordChange}
+					/>
+					<ErrorMsg
+						shown={validatedOnce && passwordNotValid}
+						text="Password not valid"
+					/>
+					<InputGroup
+						type="password"
+						placeholder="Confirm Password"
+						onChange={::this.confirmPasswordChange}
+					/>
+					<ErrorMsg
+						shown={validatedOnce && passwordsDontMatch}
+						text="Passwords do not match"
+					/>
+					<button onClick={::this.trySignup}>
+						<M m="Create Account" />
+					</button>
+				</form>
+
+				<p>
+					<Link to="/signin" className="btn-secondary">
+						<M m="Sign in" />
+					</Link>
+				</p>
 			</div>
 		);
 	}

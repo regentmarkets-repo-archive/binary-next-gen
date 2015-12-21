@@ -1,4 +1,5 @@
 import SigninMobile from '../signin/SigninMobile';
+import SignupMobile from '../signup/SignupMobile';
 import TickTradeMobile from '../tick-trade/TickTradeMobile';
 import PayoutSelectorMobile from '../tick-trade/PayoutSelectorMobile';
 import PurchaseConfirmationMobile from '../tick-trade/PurchaseConfirmationMobile';
@@ -19,6 +20,7 @@ import { requireAuthOnEnter, signout } from '../_data/Auth';
 
 export default [
     { path: 'signin', component: SigninMobile },
+    { path: 'signup', component: SignupMobile },
     { path: 'signout', component: SigninMobile, onEnter: signout },
     { path: 'mobile', component: TickTradeMobile, onEnter: requireAuthOnEnter },
     { path: 'payout-selector', component: PayoutSelectorMobile, onEnter: requireAuthOnEnter },
@@ -34,5 +36,5 @@ export default [
     { path: 'news-mobile', component: NewsMobile },
     { path: 'article/:index', component: ArticleMobile },
     { path: 'resources-mobile', component: ResourcesMobile },
-    { path: 'payment-agent-list-mobile', component: PaymentAgentsMobile, onEnter: requireAuthOnEnter },
+    { path: 'payment-agents', component: PaymentAgentsMobile, onEnter: requireAuthOnEnter },
 ];
