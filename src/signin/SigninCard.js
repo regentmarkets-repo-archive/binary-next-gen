@@ -59,7 +59,7 @@ export default class SigninCard extends React.Component {
 					</a>
 				</p>
 				<p>
-					<Link to="/signup" className="btn-secondary">
+					<Link to="/create-account" className="btn-secondary">
 						<M m="Create Account" />
 					</Link>
 				</p>

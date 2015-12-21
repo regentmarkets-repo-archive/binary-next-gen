@@ -12,7 +12,7 @@ export { serverDataStatement } from './StatementActions';
 export { watchlistFavorAsset, watchlistUnfavorAsset } from './WatchlistActions';
 export { workspaceViewAssetDetails, workspaceAssetSelect, workspaceFavorAsset, workspaceUnfavorAsset, changeActiveTab, updateTickTradeSubmarket, updateTradingTimesDate, updateAssetIndexSubmarket, addToWatchlist, delFromWatchlist, clearTradeTicks, selectAssetSymbolForTrade } from './WorkspaceActions';
 export { changeActiveVideo, updateVideoList } from './VideoActions';
-export { signupFailed, signupFieldUpdate, signupStart } from './SignupActions';
+export { createAccountFailed, createAccountFieldUpdate, createAccountStart } from './CreateAccountActions';
 export { serverDataPaymentAgents, withdrawToPaymentAgent, withdrawToPaymentAgentDryRun, updatePaymentAgentField } from './PaymentAgentsActions';
 export { upgradeFieldUpdate, upgradeDOBUpdate, upgradeConfirm } from './UpgradeActions';
 export { getStatesForCountry } from './StatesActions';

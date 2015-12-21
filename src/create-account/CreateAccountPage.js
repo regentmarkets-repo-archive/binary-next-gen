@@ -1,10 +1,10 @@
 import React from 'react';
 import SigninHero from '../signin/SigninHero';
-import SignupContainer from './SignupContainer';
+import CreateAccountContainer from './CreateAccountContainer';
 
 export default () => (
 	<div>
 		<SigninHero />
-		<SignupContainer />
+		<CreateAccountContainer />
 	</div>
 );

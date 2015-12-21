@@ -15,7 +15,7 @@ import watchlist from './WatchlistReducers';
 import video from './VideoReducers';
 import news from './NewsReducers';
 import paymentAgent from './PaymentAgentReducers';
-import signup from './SignupReducers';
+import createAccount from './CreateAccountReducers';
 import upgrade from './UpgradeReducers';
 import states from './StatesReducer';
 
@@ -35,7 +35,7 @@ export default combineReducers({
     video,
     news,
     paymentAgent,
-    signup,
+    createAccount,
     upgrade,
     states,
 });

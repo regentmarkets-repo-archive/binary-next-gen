@@ -2,31 +2,31 @@ import React from 'react';
 import { Link } from 'react-router';
 import { Countries, ErrorMsg, InputGroup, LogoSpinner, M } from '../_common';
 
-export default class SignupCard extends React.Component {
+export default class CreateAccountCard extends React.Component {
 	static propTypes = {
-		signup: React.PropTypes.object.isRequired,
+		createAccount: React.PropTypes.object.isRequired,
 		actions: React.PropTypes.object.isRequired,
 	};
 
 	emailValid() {
-		const { email } = this.props.signup.toJS();
+		const { email } = this.props.createAccount.toJS();
 
 		return /\S+@\S+\.\S+/.test(email);
 	}
 
 	passwordValid() {
-		const { password } = this.props.signup.toJS();
+		const { password } = this.props.createAccount.toJS();
 		return /^[\s.A-Za-z0-9@_:+-\/=]{5,25}$/.test(password);
 	}
 
 	confirmationValid() {
-		const { password, confirmPassword } = this.props.signup.toJS();
+		const { password, confirmPassword } = this.props.createAccount.toJS();
 		return password === confirmPassword;
 	}
 
-	performSignup() {
-		const { email, password, verificationCode, residence } = this.props.signup.toJS();
-		this.props.actions.signupStart({
+	performCreateAccount() {
+		const { email, password, verificationCode, residence } = this.props.createAccount.toJS();
+		this.props.actions.createAccountStart({
 			email,
 			client_password: password,
 			residence,
@@ -34,9 +34,9 @@ export default class SignupCard extends React.Component {
 		});
 	}
 
-	trySignup() {
-		this.props.actions.signupFieldUpdate('validatedOnce', true);
-		this.props.actions.signupFieldUpdate('progress', true);
+	tryCreateAccount() {
+		this.props.actions.createAccountFieldUpdate('validatedOnce', true);
+		this.props.actions.createAccountFieldUpdate('progress', true);
 		if (this.emailValid() && this.passwordValid() && this.confirmationValid()) {
 			/*
 			suppose we need to perform verification and then ask user to verify,
@@ -46,30 +46,30 @@ export default class SignupCard extends React.Component {
 	}
 
 	emailChange(event) {
-		this.props.actions.signupFieldUpdate('email', event.target.value);
+		this.props.actions.createAccountFieldUpdate('email', event.target.value);
 	}
 
 	residenceChange(event) {
-		this.props.actions.signupFieldUpdate('residence', event.target.value);
+		this.props.actions.createAccountFieldUpdate('residence', event.target.value);
 	}
 
 	confirmPasswordChange(event) {
-		this.props.actions.signupFieldUpdate('confirmPassword', event.target.value);
+		this.props.actions.createAccountFieldUpdate('confirmPassword', event.target.value);
 	}
 
 	passwordChange(event) {
-		this.props.actions.signupFieldUpdate('password', event.target.value);
+		this.props.actions.createAccountFieldUpdate('password', event.target.value);
 	}
 
 	render() {
-		const { residence, validatedOnce, progress } = this.props.signup.toJS();
+		const { residence, validatedOnce, progress } = this.props.createAccount.toJS();
 		const countryNotSelected = !residence;
 		const emailNotValid = !this.emailValid();
 		const passwordNotValid = !this.passwordValid();
 		const passwordsDontMatch = !this.confirmationValid();
 
 		return (
-			<div className="signup-content">
+			<div className="create-account-content">
 				<p className="media">
 					<LogoSpinner spinning={progress}/>
 					<img className="logo-text" src="img/binary-type-logo.svg" />
@@ -109,7 +109,7 @@ export default class SignupCard extends React.Component {
 						shown={validatedOnce && passwordsDontMatch}
 						text="Passwords do not match"
 					/>
-					<button onClick={::this.trySignup}>
+						<button onClick={::this.tryCreateAccount}>
 						<M m="Create Account" />
 					</button>
 				</form>

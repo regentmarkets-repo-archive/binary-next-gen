@@ -1,6 +1,5 @@
-import HomePage from '../home/HomePage';
 import WorkspaceContainer from '../workspace/WorkspaceContainer';
-// import SignupPage from '../signup/SignupPage';
+// import CreateAccountPage from '../create-account/CreateAccountPage';
 import UpgradePage from '../upgrade/UpgradePage';
 import WatchlistPage from '../watchlist/WatchlistPage';
 import OfferingsCard from '../offerings/OfferingsCard';
@@ -31,11 +30,10 @@ import { requireAuthOnEnter } from '../_data/Auth';
 
 
 export default [
-    { path: 'home', component: HomePage },
     { path: 'portfolio', component: PortfolioPage, onEnter: requireAuthOnEnter },
     { path: 'statement', component: StatementPage, onEnter: requireAuthOnEnter },
     { path: 'workspace', component: WorkspaceContainer, onEnter: requireAuthOnEnter },
-    // { path: 'signup', component: SignupPage },
+    // { path: 'create-account', component: CreateAccountPage },
     { path: 'upgrade', component: UpgradePage },
     { path: 'trade', component: TradePage, onEnter: requireAuthOnEnter },
     { path: 'watchlist', component: WatchlistPage, onEnter: requireAuthOnEnter },
