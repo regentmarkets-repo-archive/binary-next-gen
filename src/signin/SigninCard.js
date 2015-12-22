@@ -53,14 +53,16 @@ export default class SigninCard extends React.Component {
 					</button>
 				</form>
 
-				<p style={{ alignSelf: 'bottom' }}>
+				<p>
 					<a className="btn-secondary" target="new" href="https://www.binary.com/user/api_token">
 						<M m="Get your API token" />
 					</a>
 				</p>
-				<Link to="/create-account" className="btn-secondary">
-					<M m="Create Account" />
-				</Link>
+				<p>
+					<Link to="/create-account" className="btn-secondary">
+						<M m="Create Account" />
+					</Link>
+				</p>
 			</div>
 		);
 	}

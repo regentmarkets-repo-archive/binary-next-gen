@@ -119,7 +119,9 @@ table {
     padding: .5rem;
     width: 100%;
     flex: 1;
-    overflow: auto;
+    display: flex;
+    align-content: stretch;
+    flex-direction: column;
 }
 
 .mobile-content tbody tr {
