@@ -113,11 +113,11 @@ export default class CreateAccountCard extends React.Component {
 						<M m="Create Account" />
 					</button>
 				</form>
-				<p>
+				<fieldset>
 					<Link to="/signin" className="btn-secondary">
 						<M m="Sign in" />
 					</Link>
-				</p>
+				</fieldset>
 			</div>
 		);
 	}
