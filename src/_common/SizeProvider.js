@@ -38,7 +38,7 @@ export default class SizeProvider extends React.Component {
         const { children } = this.props;
         const { height, width } = this.state;
         return (
-            <div {...this.props}>
+            <div>
                 {
                     React.Children.map(children, child => React.cloneElement(child, { style: { height, width } }))
                 }
