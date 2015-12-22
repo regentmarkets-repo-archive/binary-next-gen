@@ -26,7 +26,6 @@ export default class TradeChart extends React.Component {
         return (
             <SizeProvider style={{ width: '100%', height: '100px' }}>
                 <EChart
-                    style={{ width: '320px', height: '100px' }}
                     options={options}
                     {...this.props}
                 />
