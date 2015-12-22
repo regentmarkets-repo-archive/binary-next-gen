@@ -4,14 +4,16 @@ import ReactDOM from 'react-dom';
 export default class SizeProvider extends React.Component {
     constructor(props) {
         super(props);
+        const { height, width } = props.style;
         this.state = {
-            height: '100px',
-            width: '800px',
+            height,
+            width,
         };
     }
 
     static propTypes = {
         children: React.PropTypes.object,
+        style: React.PropTypes.object.isRequired,
     };
 
     componentDidMount() {

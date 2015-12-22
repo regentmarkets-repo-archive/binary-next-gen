@@ -6,8 +6,8 @@ import SizeProvider from '../_common/SizeProvider';
 export default class ChartTest extends React.Component {
 	render() {
 		return (
-			<SizeProvider>
-				<Echart options={chartOptsK} style={{ width: '800px', height: '600px' }} />
+			<SizeProvider style={{ height: '100%', width: '100%' }}>
+				<Echart options={chartOptsK} />
 			</SizeProvider>
 		);
 	}
