@@ -220,6 +220,7 @@ nav.sidebar {
 }
 
 .mobile-toolbar {
+    z-index: 9999;
     color: white;
     background: #2a3052;
     height: 3.5rem;

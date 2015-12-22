@@ -52,12 +52,6 @@ export default class SigninCard extends React.Component {
 						<M m="Sign In" />
 					</button>
 				</form>
-
-				<fieldset>
-					<a className="btn-secondary" target="new" href="https://www.binary.com/user/api_token">
-						<M m="Get your API token" />
-					</a>
-				</fieldset>
 				<fieldset>
 					<Link to="/create-account" className="btn-secondary">
 						<M m="Create Account" />
