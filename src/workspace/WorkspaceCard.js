@@ -29,12 +29,15 @@ export default ({ actions, workspace }) => (
 					]}
 				/>
 			</div>
-			<Resizer onResize={e => actions.updateWorkspaceField('leftPanelSize', e.x - 1)} />
+			<Resizer className="resizer-vertical" onResize={e => actions.updateWorkspaceField('leftPanelSize', e.x - 4)} />
 			<div id="mid-panel">
 				<div id="workarea">
 					<TickTradeContainer actions={actions} />
 				</div>
-				<Resizer onResize={e => console.log(e)} />
+				<Resizer
+					className="resizer-horizontal"
+					onResize={e => actions.updateWorkspaceField('bottomPanelSize', window.innerHeight - e.y - 4)}
+				/>
 				<div id="bottom-panel" style={{ height: workspace.get('bottomPanelSize') }}>
 					<Tabs
 						id="bottom-panel"
@@ -48,7 +51,10 @@ export default ({ actions, workspace }) => (
 				</div>
 				<Footer />
 			</div>
-			<Resizer onResize={e => actions.updateWorkspaceField('rightPanelSize', window.innerWidth - e.x - 1)} />
+			<Resizer
+				className="resizer-vertical"
+				onResize={e => actions.updateWorkspaceField('rightPanelSize', window.innerWidth - e.x - 4)}
+			/>
 			<div id="right-panel" style={{ width: workspace.get('rightPanelSize') }}>
 				<Tabs
 					id="right-panel"
