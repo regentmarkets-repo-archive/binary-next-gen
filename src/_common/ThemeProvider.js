@@ -10,6 +10,6 @@ export default class ThemeProvider extends React.Component {
 
     render() {
         const theme = this.props.theme;
-        return <div style={{ height: '100%', width: '100%' }} className={(theme === 'dark') ? 'inverse' : ''}>{this.props.children}</div>;
+        return <div id="theme-wrapper" className={(theme === 'dark') ? 'inverse' : ''}>{this.props.children}</div>;
     }
 }
