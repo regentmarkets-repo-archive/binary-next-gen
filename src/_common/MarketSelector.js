@@ -13,14 +13,15 @@ export default class MarketSelector extends React.Component {
 		onChange: PropTypes.func.isRequired,
 		showAllOption: PropTypes.bool.isRequired,
 		showMarkets: PropTypes.array,
+		value: PropTypes.string,
 	};
 
 	render() {
-		const { assets, onChange, showAllOption, showMarkets } = this.props;
+		const { assets, onChange, showAllOption, showMarkets, value } = this.props;
 		const tree = assets.get('tree').toJS();
 
 		return (
-			<select className="market-submarket-selector" onChange={e => onChange(e.target.value)}>
+			<select className="market-submarket-selector" onChange={e => onChange(e.target.value)} value={value}>
 				{showAllOption ?
 					<FormattedMessage id="All" defaultMessage="All">
 						{message => <option value="">{message}</option>}

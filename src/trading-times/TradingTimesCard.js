@@ -34,6 +34,7 @@ export default class TradingTimesCard extends React.Component {
 					<MarketSelector
 						onChange={x => actions.updateTickTradeSubmarket(x)}
 						showAllOption={false}
+						value={submarket}
 					/>
 					<InputGroup
 						type="date"

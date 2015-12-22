@@ -7,7 +7,7 @@ export default class ChartTest extends React.Component {
 	render() {
 		return (
 			<SizeProvider style={{ height: '100%', width: '100%' }}>
-				<Echart options={chartOptsK} />
+				<Echart options={chartOptsK} style={{ height: '500px', width: '800px' }}/>
 			</SizeProvider>
 		);
 	}
