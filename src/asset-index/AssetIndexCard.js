@@ -28,6 +28,7 @@ export default class AssetIndexCard extends React.Component {
 				<MarketSelector
 					onChange={x => actions.updateAssetIndexSubmarket(x)}
 					showAllOption={false}
+					value={submarket}
 				/>
 				<AssetIndexTable
 					key={submarket}
