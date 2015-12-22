@@ -7,6 +7,7 @@ export default class Resizer extends React.Component {
 	}
 	static propTypes = {
 		onResize: PropTypes.func.isRequired,
+		className: PropTypes.string,
 	};
 
 	onMouseDown() {
@@ -31,7 +32,7 @@ export default class Resizer extends React.Component {
 	render() {
 		return (
 			<div
-				className="resizer-vertical"
+				className={this.props.className}
 				onMouseDown={::this.onMouseDown}
 			/>
 		);
