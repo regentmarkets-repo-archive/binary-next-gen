@@ -518,3 +518,8 @@ select {
     flex-direction: column;
     align-content: space-between;
 }
+
+#theme-wrapper {
+    width: 100%;
+    height: 100%;
+}
