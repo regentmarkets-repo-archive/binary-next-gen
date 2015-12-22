@@ -9,11 +9,19 @@ export default class SettingsGeneral extends React.Component {
 		loginid: PropTypes.string.isRequired,
 	};
 
+	onThemeChange(e) {
+		this.props.actions.updateSettingFields({ theme: e.target.value });
+	}
+
 	render() {
+		const { theme } = this.props.settings;
 		return (
 			<div>
 				<LanguagePicker />
-				THEME PICKER
+				<select onChange={::this.onThemeChange} value={theme}>
+					<option value="light">Light</option>
+					<option value="dark">Dark</option>
+				</select>
 			</div>
 		);
 	}

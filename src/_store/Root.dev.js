@@ -7,6 +7,7 @@ import { Router } from 'react-router';
 import routes from '../_routes';
 import IntlProviderContainer from '../_routes/IntlProviderContainer';
 import HashHistory from 'history/lib/createHashHistory';
+import ThemeProvider from '../_common/ThemeProvider';
 import * as LiveData from '../_data/LiveData';
 import * as AllActions from '../_actions';
 
@@ -31,7 +32,9 @@ export default class Root extends React.Component {
         return (
             <Provider store={store}>
                 <IntlProviderContainer>
-                    <Router history={history} children={routes} createElement={::this.createElementWithActions} />
+                    <ThemeProvider>
+                        <Router history={history} children={routes} createElement={::this.createElementWithActions} />
+                    </ThemeProvider>
                 </IntlProviderContainer>
             </Provider>
         );
