@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import TradingTimesRow from './TradingTimesRow';
 
-const TradingTimesTable = ({ submarket, times }) => (
+const TradingTimesTable = ({ submarket, times, compact }) => (
 	<table>
 		<thead>
             <tr>
@@ -14,11 +14,11 @@ const TradingTimesTable = ({ submarket, times }) => (
 				<th>Opens</th>
 				<th>Closes</th>
                 <th>Settles</th>
-                <th>Upcoming Events</th>
+				{!compact && <th>Upcoming Events</th>}
 			</tr>
 		</thead>
 		<tbody>
-            {times.map(t => <TradingTimesRow key={t.symbol} asset={t} />)}
+            {times.map(t => <TradingTimesRow key={t.symbol} asset={t} compact={compact}/>)}
 		</tbody>
 	</table>
 );

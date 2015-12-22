@@ -61,7 +61,7 @@ export default ({ actions, workspace }) => (
 					activeIndex={workspace.get('rightActiveTab')}
 					onChange={idx => actions.changeActiveTab('right', idx)}
 					tabs={[
-						{ text: 'Trading Times', component: <TradingTimesContainer actions={actions} /> },
+						{ text: 'Trading Times', component: <TradingTimesContainer compact actions={actions} /> },
 						{ text: 'Asset Index', component: <AssetIndexContainer actions={actions}/> },
 						{ text: 'Videos', component: <VideoListContainer /> },
 						{ text: 'News', component: <NewsContainer /> },

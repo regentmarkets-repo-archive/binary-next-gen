@@ -48,6 +48,7 @@ export default class TradingTimesCard extends React.Component {
 					key={submarket}
 					submarket={submarketName}
 					times={times.filter(a => submarketForAsset(a.symbol) === submarket)}
+					{...this.props}
 				/>
 			</div>
 		);
