@@ -13,7 +13,7 @@ export default class ResourcesMobile extends React.Component {
     render() {
         const tabs = [
             { text: 'Asset Index', component: <AssetIndexContainer {...this.props} /> },
-            { text: 'Trading Times', component: <TradingTimesContainer {...this.props} /> },
+            { text: 'Trading Times', component: <TradingTimesContainer compact {...this.props} /> },
         ];
 
         return (
