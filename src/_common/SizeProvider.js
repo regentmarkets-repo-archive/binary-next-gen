@@ -8,6 +8,7 @@ export default class SizeProvider extends React.Component {
         this.state = {
             height,
             width,
+            resize: ::this.onResize,
         };
     }
 
@@ -22,11 +23,11 @@ export default class SizeProvider extends React.Component {
         //     width: node.clientWidth,
         //     height: node.clientHeight,
         // });
-        window.addEventListener('resize', ::this.onResize, true);
+        window.addEventListener('resize', this.state.resize, true);
     }
 
     componentWillUnmount() {
-        window.removeEventListener('resize', ::this.onResize);
+        window.removeEventListener('resize', this.state.resize);
     }
 
     onResize() {
