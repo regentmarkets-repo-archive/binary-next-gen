@@ -9,8 +9,7 @@ const getLineFromStartToEnd = (history) => {
 };
 
 export default (history) => ({
-    symbol: 'arrow',
-    symbolSize: [0, 3],
+    symbolSize: [0, 0],
     itemStyle: {
        normal: {
            color: 'red',
