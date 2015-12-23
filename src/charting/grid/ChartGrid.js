@@ -1,8 +1,8 @@
 export default ({ color }) => ({
     x: 0,
-    y: 0,
-    x2: 0,
-    y2: 0,
+    y: 10,
+    x2: 50,
+    y2: 20,
     backgroundColor: 'white',
     borderColor: color,
 });

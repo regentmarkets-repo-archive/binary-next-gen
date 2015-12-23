@@ -3,6 +3,9 @@ export default ({ data, markLine }) => [{
     type: 'line',
     clickable: false,
     showLegendSymbol: false,
+    animation: true,
+    addDataAnimation: true,
+    symbol: 'none',
     data,
     itemStyle: {
         normal: {

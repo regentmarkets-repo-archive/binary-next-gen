@@ -494,7 +494,7 @@ select {
 }
 
 .trade-chart {
-    margin: 1rem auto;
+    margin-bottom: 1rem;
 }
 
 .mobile-form {

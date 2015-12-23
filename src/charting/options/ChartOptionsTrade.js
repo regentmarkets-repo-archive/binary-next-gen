@@ -10,5 +10,8 @@ export default ({ history, spot, theme }) => ({
     grid: createGrid({ color: theme.gridColor }),
     xAxis: createXAxis({ color: theme.gridColor, data: history.length > 0 ? history.map(x => x.epoch) : [0], textColor: theme.axisTextColor }),
     yAxis: createYAxis({ color: theme.gridColor, textColor: theme.axisTextColor }),
-    series: createSeries({ data: history.map(x => x.quote), markLine: createMarkLineSpot({ spot }) }),
+    series: createSeries({
+        data: history.map(x => x.quote),
+        markLine: createMarkLineSpot({ history, spot }),
+    }),
 });

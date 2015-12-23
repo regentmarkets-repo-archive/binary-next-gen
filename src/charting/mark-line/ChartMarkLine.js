@@ -1,10 +1,21 @@
-export default ({ spot }) => ({
+const getLineFromStartToEnd = (history) => {
+    const fromEpoch = history[0].epoch;
+    const toEpoch = history[history.length - 1].epoch;
+    const spot = history[history.length - 1].quote;
+    console.log(spot);
+    return [
+        { name: 'From ', value: 'Start', xAxis: fromEpoch, yAxis: spot },
+        { name: 'To Spot', xAxis: toEpoch, yAxis: spot },
+    ];
+};
+
+export default ({ history, spot }) => ({
     large: true,
     symbol: 'arrow',
     symbolSize: [10, 10],
     itemStyle: {
        normal: {
-           color: 'green',
+           color: 'red',
            lineStyle: 'dashed',
            borderWidth: 1,
            borderColor: 'red',
@@ -13,13 +24,6 @@ export default ({ spot }) => ({
        },
     },
     data: [
-        // [
-        //     { name: 'From Start Time', value: 'Start', xAxis: '10:15:25', yAxis: 0 },
-        //     { name: 'To Start Time', xAxis: '10:15:25', yAxis: 5 },
-        // ],
-        [
-            { name: 'From Spot', value: 'Start', xAxis: '10:15:25', yAxis: spot },
-            { name: 'To Spot', xAxis: '10:15:31', yAxis: spot },
-        ],
+        getLineFromStartToEnd(history, spot),
     ],
 });

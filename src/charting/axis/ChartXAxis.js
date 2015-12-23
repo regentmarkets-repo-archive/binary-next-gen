@@ -5,11 +5,11 @@ export default ({ color, textColor, data }) => [{
     boundaryGap: false,
     axisLabel: {
         show: true,
-        formatter: '{value}月',
+        formatter: '{value}',
         textStyle: {
             color: textColor,
             fontFamily: 'Roboto',
-            fontSize: 15,
+            fontSize: 10,
         },
     },
     splitLine: {

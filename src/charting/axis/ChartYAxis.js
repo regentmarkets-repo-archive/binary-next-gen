@@ -8,7 +8,7 @@ export default ({ color, textColor }) => [{
         textStyle: {
             color: textColor,
             fontFamily: 'Roboto',
-            fontSize: 15,
+            fontSize: 10,
         },
     },
     splitLine: {
