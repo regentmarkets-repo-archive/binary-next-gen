@@ -36,11 +36,11 @@ export const requireAuthOnEnter = (nextState, replaceState, cb) => {
                     isAuthorized = true;
                 },
                 () => {
-                    st.dispatch(signinFieldUpdate('progress', false));
                     st.dispatch(signinFieldUpdate('credentialsInvalid', true));
                     navigateTo(nextState, replaceState, '/signin');
-                }
-            ).then(cb);
+                })
+                .then(() => st.dispatch(signinFieldUpdate('progress', false)))
+                .then(cb);
         }
     });
 };

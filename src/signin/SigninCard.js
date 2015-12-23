@@ -45,7 +45,7 @@ export default class SigninCard extends React.Component {
 						text="You need to enter a token"
 					/>
 					<ErrorMsg
-						shown={signin.get('validatedOnce') && signin.get('credentialsInvalid')}
+						shown={signin.get('validatedOnce') && signin.get('credentialsInvalid') && !signin.get('tokenNotEntered')}
 						text="Access denied"
 					/>
 					<LanguagePicker />
