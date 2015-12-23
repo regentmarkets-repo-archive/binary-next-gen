@@ -1,3 +1,5 @@
+import { epochToTimeString } from '../../_utils/DateUtils';
+
 export default ({ color, textColor, data }) => [{
     type: 'category',
     scale: true,
@@ -5,9 +7,10 @@ export default ({ color, textColor, data }) => [{
     axisTick: false,
     data,
     boundaryGap: false,
+    splitNumber: 5,
     axisLabel: {
         show: true,
-        formatter: '{value}',
+        formatter: v => epochToTimeString(v),
         textStyle: {
             color: textColor,
             fontFamily: 'Roboto',

@@ -3,9 +3,10 @@ export default ({ color, textColor }) => [{
     scale: true,
     axisLine: false,
     position: 'right',
+    splitNumber: 3,
     axisLabel: {
         show: true,
-        formatter: '$ {value}',
+        formatter: v => new Intl.NumberFormat().format(v),
         textStyle: {
             color: textColor,
             fontFamily: 'Roboto',
