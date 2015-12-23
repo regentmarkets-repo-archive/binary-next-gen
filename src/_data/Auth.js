@@ -1,7 +1,7 @@
 import { rehydratedStorePromise, store } from '../_store/configureStore';
 import * as LiveData from './LiveData';
 import { updateToken } from '../_actions/AccountActions';
-import { signinFailed } from '../_actions/SigninActions';
+import { signinFieldUpdate } from '../_actions/SigninActions';
 
 let isAuthorized = false;
 
@@ -25,20 +25,22 @@ export const requireAuthOnEnter = (nextState, replaceState, cb) => {
 
         const token = newState.account.get('token');
         if (!token) {
-            st.dispatch(signinFailed());
+            st.dispatch(signinFieldUpdate('progress', false));
+            st.dispatch(signinFieldUpdate('tokenNotEntered', true));
             navigateTo(nextState, replaceState, '/signin');
             cb();
         } else {
             LiveData.api.authorize(token).then(
                 () => {
+                    st.dispatch(signinFieldUpdate('credentialsInvalid', false));
                     isAuthorized = true;
                 },
                 () => {
-                    st.dispatch(updateToken(''));
-                    st.dispatch(signinFailed());
+                    st.dispatch(signinFieldUpdate('credentialsInvalid', true));
                     navigateTo(nextState, replaceState, '/signin');
-                }
-            ).then(cb);
+                })
+                .then(() => st.dispatch(signinFieldUpdate('progress', false)))
+                .then(cb);
         }
     });
 };
