@@ -11,11 +11,7 @@ export default class Star extends React.Component {
 
     render() {
         const { on } = this.props;
-
-        return (
-            <span style={{ fontSize: '1.5rem' }}>
-                {on ? '★' : '☆'}
-            </span>
-        );
+        const imgFile = on ? 'img/star-on.svg' : 'img/star-off.svg';
+        return <img style={{ width: '1rem' }} src={imgFile} />;
     }
 }
