@@ -44,8 +44,12 @@ export default class TickTradeCard extends React.Component {
 	}
 
 	getTickHistory() {
-		const { tickTrade } = this.props;
-		return tickTrade.get('ticks').toJS();
+		const { ticks, ticksHistory } = this.props.tickTrade.toJS();
+		if (ticks.length < 20) {
+			const combinedTicks = ticksHistory.concat(ticks);
+			return (combinedTicks.length < 20 ? combinedTicks : combinedTicks.slice(-20));
+		}
+		return ticks;
 	}
 
 	getSelectedAssetName() {
