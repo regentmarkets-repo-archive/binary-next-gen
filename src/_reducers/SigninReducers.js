@@ -2,7 +2,7 @@ import { fromJS } from 'immutable';
 import {
     SIGNIN_START,
     SIGNIN_FIELD_UPDATE,
-    SIGNIN_FAILED,
+    UPDATE_TOKEN,
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
@@ -24,8 +24,11 @@ export default (state = initialState, action) => {
         case SIGNIN_FIELD_UPDATE: {
             return state.set(action.fieldName, action.fieldValue);
         }
-        case SIGNIN_FAILED: {
-            return state.set('progress', false).set('credentialsInvalid', true);
+        case UPDATE_TOKEN: {
+            if (action.token) {
+                return state.set('tokenNotEntered', false);
+            }
+            return state.set('tokenNotEntered', true);
         }
         default:
             return state;
