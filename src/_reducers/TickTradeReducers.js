@@ -20,12 +20,13 @@ const initialState = fromJS({
     currency: 'USD',
     amount: 100,
     ticks: [],
+    ticksHistory: [],
 });
 
 export default (state = initialState, action) => {
     switch (action.type) {
         case CLEAR_TRADE_TICKS: {
-            return state.set('ticks', fromJS([]));
+            return state.set('ticks', fromJS([])).set('ticksHistory', fromJS([]));
         }
         case WORKSPACE_ASSET_SELECT: {
             return state.merge({ 'assetSymbol': action.symbol });
@@ -43,7 +44,7 @@ export default (state = initialState, action) => {
             return state.delete('receipt');
         }
         case SERVER_DATA_TICK_HISTORY: {
-            const symbol = action.serverResponse.echo_req.ticks;
+            const symbol = action.serverResponse.echo_req.ticks_history;
             if (state.get('assetSymbol') !== symbol) return state;
 
             const { history } = action.serverResponse;
@@ -51,10 +52,10 @@ export default (state = initialState, action) => {
                 epoch: history.times[i],
                 quote: +history.prices[i],
             }));
-            return state.set('ticks', fromJS(ticks));
+            return state.set('ticksHistory', fromJS(ticks));
         }
         case SERVER_DATA_TICK_STREAM: {
-            const symbol = action.serverResponse.echo_req.ticks;
+            const symbol = action.serverResponse.tick.symbol;
             if (state.get('assetSymbol') !== symbol) return state;
 
             const { tick } = action.serverResponse;
