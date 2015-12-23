@@ -34,7 +34,6 @@ export default class EChart extends React.Component {
         if (areArraysEqual(data, newData)) return false;
 
         // const newData = getNewData(nextProps.options.series[0].data, nextProps.options.series[0].data);
-        console.log(newData[19]);
         this.echart.addData([
             [
                 0,        // Series Index

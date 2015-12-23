@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Modal, M } from '../_common';
+import { Modal, M, NumberPlain } from '../_common';
 import TradeChart from '../charting/TradeChart';
 import * as LiveData from '../_data/LiveData';
 import TickTradeParameters from './TickTradeParameters';
@@ -102,7 +102,8 @@ export default class TickTradeCard extends React.Component {
 					onClick={() => this.placeOrder()}
 					disabled={this.state.buying}
 				>
-					<M m="Place Order" />
+					<M m="Purchase for " />
+					<NumberPlain currency={tickTrade.get('currency')} value={tickTrade.get('ask_price')} />
 				</button>
 			</div>
 		);
