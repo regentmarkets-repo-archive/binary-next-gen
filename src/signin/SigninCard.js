@@ -17,6 +17,7 @@ export default class SigninCard extends React.Component {
 	trySignin() {
 		const { actions, history } = this.props;
 		actions.signinFieldUpdate('progress', true);
+		actions.signinFieldUpdate('validatedOnce', true);
 		history.push('/'); // no need to authorize here onEnter hook will authorize
 	}
 
@@ -44,7 +45,7 @@ export default class SigninCard extends React.Component {
 						text="You need to enter a token"
 					/>
 					<ErrorMsg
-						shown={!!signin.get('credentialsInvalid')}
+						shown={signin.get('validatedOnce') && signin.get('credentialsInvalid')}
 						text="Access denied"
 					/>
 					<LanguagePicker />
