@@ -1,6 +1,7 @@
 export default ({ color, textColor }) => [{
     type: 'value',
     scale: true,
+    axisLine: false,
     position: 'right',
     axisLabel: {
         show: true,

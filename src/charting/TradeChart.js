@@ -5,7 +5,7 @@ import chartOptionsTrade from './options/ChartOptionsTrade';
 
 const theme = {
     gridColor: '#eee',
-    axisTextColor: 'rgb(64, 68, 72)',
+    axisTextColor: 'rgba(64, 68, 72, .5)',
 };
 
 export default class TradeChart extends React.Component {

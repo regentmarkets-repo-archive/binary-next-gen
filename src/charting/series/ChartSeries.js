@@ -1,10 +1,10 @@
-export default ({ data, markLine }) => [{
+export default ({ data, markLine, markPoint }) => [{
     name: 'SERIES NAME',
     type: 'line',
     clickable: false,
     showLegendSymbol: false,
-    animation: true,
-    addDataAnimation: true,
+    animation: false,
+    addDataAnimation: false,
     symbol: 'none',
     data,
     itemStyle: {
@@ -20,4 +20,5 @@ export default ({ data, markLine }) => [{
         },
     },
     markLine,
+    markPoint,
 }];
