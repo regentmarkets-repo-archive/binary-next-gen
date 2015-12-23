@@ -12,6 +12,8 @@ export default class SigninCard extends React.Component {
 
 	onTokenChange(event) {
 		this.props.actions.updateToken(event.target.value);
+		this.props.actions.signinFieldUpdate('validatedOnce', false);
+		this.props.actions.signinFieldUpdate('credentialsInvalid', false);
 	}
 
 	trySignin() {

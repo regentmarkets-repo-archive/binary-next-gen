@@ -39,8 +39,10 @@ export const requireAuthOnEnter = (nextState, replaceState, cb) => {
                     st.dispatch(signinFieldUpdate('credentialsInvalid', true));
                     navigateTo(nextState, replaceState, '/signin');
                 })
-                .then(() => st.dispatch(signinFieldUpdate('progress', false)))
-                .then(cb);
+                .then(() => {
+                    st.dispatch(signinFieldUpdate('progress', false));
+                    cb();
+                });
         }
     });
 };
