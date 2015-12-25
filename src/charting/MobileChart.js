@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import EChart from './EChart';
 import SizeProvider from '../_common/SizeProvider';
-import createChartOptions from './options/TradeChartOptions';
+import createOptions from './options/MobileChartOptions';
 
 const theme = {
     gridColor: '#eee',
@@ -22,9 +22,9 @@ export default class TradeChart extends React.Component {
 
     render() {
         const { history, spot } = this.props;
-        const options = createChartOptions({ history, spot: +spot, theme });
+        const options = createOptions({ history, spot: +spot, theme });
         return (
-            <SizeProvider style={{ width: '100%', height: '100px' }}>
+            <SizeProvider style={{ width: '100%', height: '120px' }}>
                 <EChart
                     options={options}
                     {...this.props}

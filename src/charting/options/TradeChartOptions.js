@@ -2,7 +2,7 @@ import createXAxis from '../axis/ChartXAxis';
 import createYAxis from '../axis/ChartYAxis';
 // import createTooltip from '../tooltip/ChartTooltip';
 import createSeries from '../series/ChartSeries';
-import createGrid from '../grid/ChartGrid';
+import createGrid from '../grid/TradeChartGrid';
 import createMarkLineSpot from '../mark-line/ChartMarkLineSpot';
 // import createMarkPointSpot from '../mark-point/ChartMarkPointSpot';
 
@@ -16,4 +16,10 @@ export default ({ history, theme }) => ({
         markLine: createMarkLineSpot(history),
         // markPoint: createMarkPointSpot(history),
     }),
+    dataZoom: {
+        show: true,
+        realtime: true,
+        start: 50,
+        end: 100,
+    },
 });
