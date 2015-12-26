@@ -6,14 +6,16 @@ import createMarkLineSpot from '../mark-line/ChartMarkLineSpot';
 import createDataZoom from '../data-zoom/MobileDataZoom';
 
 export default ({ history, theme }) => ({
-    // tooltip: createTooltip(),
-    grid: createGrid({ color: theme.gridColor }),
-    xAxis: createXAxis({ color: theme.gridColor, data: history.length > 0 ? history.map(x => x.epoch) : [0], textColor: theme.axisTextColor }),
-    yAxis: createYAxis({ color: theme.gridColor, textColor: theme.axisTextColor }),
+    grid: createGrid({ theme }),
+    xAxis: createXAxis({
+        theme,
+        data: history.length > 0 ? history.map(x => x.epoch) : [0],
+    }),
+    yAxis: createYAxis({ theme }),
     series: createSeries({
+        theme,
         data: history.map(x => x.quote),
         markLine: createMarkLineSpot(history),
-        // markPoint: createMarkPointSpot(history),
     }),
-    dataZoom: createDataZoom(),
+    dataZoom: createDataZoom({ theme }),
 });

@@ -1,6 +1,6 @@
 import { epochToTimeString } from '../../_utils/DateUtils';
 
-export default ({ color, textColor, data }) => [{
+export default ({ theme, data }) => [{
     type: 'category',
     scale: true,
     axisLine: false,
@@ -12,7 +12,7 @@ export default ({ color, textColor, data }) => [{
         show: true,
         formatter: v => epochToTimeString(v),
         textStyle: {
-            color: textColor,
+            color: theme.text,
             fontFamily: 'Roboto',
             fontSize: 10,
         },
@@ -20,7 +20,7 @@ export default ({ color, textColor, data }) => [{
     splitLine: {
         show: true,
         lineStyle: {
-            color,
+            color: theme.grid,
             width: 1,
         },
     },

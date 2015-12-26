@@ -1,25 +1,21 @@
 import createXAxis from '../axis/ChartXAxis';
 import createYAxis from '../axis/ChartYAxis';
-// import createTooltip from '../tooltip/ChartTooltip';
 import createSeries from '../series/ChartSeries';
 import createGrid from '../grid/TradeChartGrid';
 import createMarkLineSpot from '../mark-line/ChartMarkLineSpot';
-// import createMarkPointSpot from '../mark-point/ChartMarkPointSpot';
+import createDataZoom from '../data-zoom/MobileDataZoom';
+import createTooltip from '../tooltip/ChartTooltip';
+import createMarkPointSpot from '../mark-point/ChartMarkPointSpot';
 
 export default ({ history, theme }) => ({
-    // tooltip: createTooltip(),
-    grid: createGrid({ color: theme.gridColor }),
-    xAxis: createXAxis({ color: theme.gridColor, data: history.length > 0 ? history.map(x => x.epoch) : [0], textColor: theme.axisTextColor }),
-    yAxis: createYAxis({ color: theme.gridColor, textColor: theme.axisTextColor }),
+    tooltip: createTooltip(),
+    grid: createGrid({ theme }),
+    xAxis: createXAxis({ theme, data: history.length > 0 ? history.map(x => x.epoch) : [0] }),
+    yAxis: createYAxis({ theme }),
     series: createSeries({
         data: history.map(x => x.quote),
         markLine: createMarkLineSpot(history),
-        // markPoint: createMarkPointSpot(history),
+        markPoint: createMarkPointSpot(history),
     }),
-    dataZoom: {
-        show: true,
-        realtime: true,
-        start: 50,
-        end: 100,
-    },
+    dataZoom: createDataZoom({ theme }),
 });

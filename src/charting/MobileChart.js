@@ -4,8 +4,12 @@ import SizeProvider from '../_common/SizeProvider';
 import createOptions from './options/MobileChartOptions';
 
 const theme = {
-    gridColor: '#eee',
-    axisTextColor: 'rgba(64, 68, 72, .5)',
+    background: 'white',
+    line: 'rgba(42, 48, 82, 0.8)',
+    fill: 'rgba(42, 48, 82, 0.2)',
+    text: '#999',
+    grid: '#eee',
+    axisText: 'rgba(64, 68, 72, .5)',
 };
 
 export default class TradeChart extends React.Component {

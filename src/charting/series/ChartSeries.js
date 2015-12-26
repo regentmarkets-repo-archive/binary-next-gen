@@ -1,4 +1,4 @@
-export default ({ data, markLine, markPoint }) => [{
+export default ({ theme, data, markLine, markPoint }) => [{
     name: 'SERIES NAME',
     type: 'line',
     clickable: false,
@@ -10,12 +10,12 @@ export default ({ data, markLine, markPoint }) => [{
     itemStyle: {
         normal: {
             lineStyle: {
-                color: 'rgba(42, 48, 82, 0.8)',
+                color: theme.line,
                 width: 2,
             },
             areaStyle: {
                 type: 'default',
-                color: 'rgba(42, 48, 82, 0.2)',
+                color: theme.fill,
             },
         },
     },

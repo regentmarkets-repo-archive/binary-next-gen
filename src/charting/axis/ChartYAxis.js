@@ -1,4 +1,4 @@
-export default ({ color, textColor }) => [{
+export default ({ theme }) => [{
     type: 'value',
     scale: true,
     axisLine: false,
@@ -8,7 +8,7 @@ export default ({ color, textColor }) => [{
         show: true,
         formatter: v => new Intl.NumberFormat().format(v),
         textStyle: {
-            color: textColor,
+            color: theme.text,
             fontFamily: 'Roboto',
             fontSize: 10,
         },
@@ -16,7 +16,7 @@ export default ({ color, textColor }) => [{
     splitLine: {
         show: true,
         lineStyle: {
-            color,
+            color: theme.grid,
             width: 1,
         },
     },
