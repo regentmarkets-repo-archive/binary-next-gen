@@ -6,6 +6,8 @@ import createMarkLineSpot from '../mark-line/ChartMarkLineSpot';
 import createDataZoom from '../data-zoom/MobileDataZoom';
 
 export default ({ history, theme }) => ({
+    animation: false,
+    addDataAnimation: false,
     grid: createGrid({ theme }),
     xAxis: createXAxis({
         theme,
