@@ -3,7 +3,6 @@ import React, { PropTypes } from 'react';
 const RangeGroup = ({ id, label, hint, value, min, max, step, items, readOnly, onChange }) => (
 	<div className="range-selector">
         {label && <label htmlFor={id}>{label}</label>}
-		<br />
 		<input type="range" defaultValue={value} readOnly={readOnly} onChange={onChange} min={min} max={max} step={step} />
 		<div className="range-selector-items">
 			{ items.map(i => <label key={i}>{i}</label>) }
