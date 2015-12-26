@@ -11,7 +11,7 @@ export default ({ history, theme }) => ({
     grid: createGrid({ theme }),
     xAxis: createXAxis({
         theme,
-        data: history.length > 0 ? history.map(x => x.epoch) : [0],
+        data: history.map(x => x.epoch),
     }),
     yAxis: createYAxis({ theme }),
     series: createSeries({

@@ -4,8 +4,6 @@ import echarts from 'echarts';
 import 'echarts/chart/line';
 import 'echarts/chart/k';
 
-// const getNewData = () => [];
-
 const areArraysEqual = (ar1, ar2) =>
     ar1.filter((x, idx) => x !== ar2[idx]).length === 0;
 
@@ -37,11 +35,13 @@ export default class EChart extends React.Component {
         this.echart.addData([
             [
                 0,        // Series Index
-                newData[19],  // New data
+                newData[newData.length - 1],  // New data
                 false,     // Whether the new data is inserted from the head of the queue
                 false,    // Whether to increase the queue length , false then delete the original custom data , the team head insertion puncturing the tail , the tail insertion puncturing team head
+                123123,
             ],
         ]);
+        // this.echart.setOption(options); set options for spot line
 
         return false;
     }

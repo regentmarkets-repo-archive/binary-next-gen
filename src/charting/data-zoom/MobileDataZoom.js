@@ -1,8 +1,8 @@
 export default ({ theme }) => ({
     show: true,
     realtime: true,
-    start: 50,
-    end: 100,
+    start: 30,
+    end: 50,
     height: 20,
     backgroundColor: theme.background,
     dataBackgroundColor: theme.text,
