@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: I 18N\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2015-12-06 10:38+0000\n"
+"PO-Revision-Date: 2015-12-26 17:39+0000\n"
 "Last-Translator: Pham Minh Hieu <hphamv7@gmail.com>\n"
-"Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary/static/"
-"vi/>\n"
+"Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-app"
+"/next-gen-app/vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,10 +22,10 @@ msgid "All"
 msgstr "Tất cả"
 
 msgid "Property"
-msgstr ""
+msgstr "Tài sản"
 
 msgid "Value"
-msgstr ""
+msgstr "Giá trị"
 
 msgid "Balance"
 msgstr "Số dư tài khoản"
@@ -34,10 +34,10 @@ msgid "Trade"
 msgstr "Giao dịch"
 
 msgid "Watchlist"
-msgstr ""
+msgstr "Danh sách theo dõi"
 
 msgid "Open Positions"
-msgstr ""
+msgstr "Vị thế mở"
 
 msgid "Profit Table"
 msgstr "Bảng lợi nhuận"
@@ -49,7 +49,7 @@ msgid "Settings"
 msgstr "Thiết lập"
 
 msgid "Sign Out"
-msgstr ""
+msgstr "Đăng xuất"
 
 msgid "View"
 msgstr "Xem"
@@ -82,7 +82,7 @@ msgid "Total"
 msgstr "Tổng"
 
 msgid "Location"
-msgstr ""
+msgstr "Vị trí"
 
 msgid "Update"
 msgstr "Cập nhật"
@@ -97,7 +97,7 @@ msgid "Item"
 msgstr "Hạng mục"
 
 msgid "Limit ({currency})"
-msgstr ""
+msgstr "Giới hạn ({Tiền tệ})"
 
 msgid "Maximum number of open positions"
 msgstr "Số tối đa của vị thế mở"
@@ -115,22 +115,22 @@ msgid "Withdrawal limits"
 msgstr "Giới hạn rút tiền"
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
-msgstr ""
+msgstr "Giới hạn rút tiền của bạn là {limit} (hoặc loại tiền tương đương)."
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
-msgstr ""
+msgstr "Bạn đã rút tiền tương đương với đồng EUR {drawn}."
 
 msgid "An additional password can be used to restrict access to the cashier."
 msgstr "Mật khẩu phụ có thể dùng để hạn chế truy cập vào khu thu ngân."
 
 msgid "Sign In"
-msgstr ""
+msgstr "Đăng nhập"
 
 msgid "Get your API token"
-msgstr ""
+msgstr "Nhận mã API của bạn"
 
 msgid "Create Account"
-msgstr ""
+msgstr "Đăng kí tài khoản"
 
 msgid "Action"
 msgstr "Hành động"
@@ -145,10 +145,10 @@ msgid "Back"
 msgstr "Quay lại"
 
 msgid "Place Order"
-msgstr ""
+msgstr "Đặt lệnh"
 
 msgid "{asset} will {type} over next {duration}"
-msgstr ""
+msgstr "{asset} sẽ {type} qua tiếp theo {duration}"
 
 msgid "Price"
 msgstr "Giá"
@@ -157,7 +157,7 @@ msgid "Asset"
 msgstr "Tài sản"
 
 msgid "Type"
-msgstr ""
+msgstr "Loại"
 
 msgid "Ticks"
 msgstr "Giây"
@@ -181,13 +181,13 @@ msgid "Open Account"
 msgstr "Mở Tài khoản"
 
 msgid "Upgrade to Real Money Account"
-msgstr ""
+msgstr "Nâng cấp lên Tài Khoản Tiền Thực"
 
 msgid "Date of birth"
 msgstr "Ngày sinh"
 
 msgid "Home Address"
-msgstr ""
+msgstr "Địa chỉ nhà"
 
 msgid "Security"
 msgstr "Bảo mật"
