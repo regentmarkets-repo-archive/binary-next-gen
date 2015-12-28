@@ -13,11 +13,12 @@ export default class ContractDetailsContainer extends React.Component {
 	render() {
 		const { params, portfolio } = this.props;
 		const contract = portfolio.get('contracts').find(x => x.contract_id === params.id);
+		const proposal = portfolio.get('proposals').get(params.id);
 
 		if (!contract) return null;
 
 		return (
-			<ContractDetailsCard contract={contract} {...this.props} />
+			<ContractDetailsCard contract={contract} proposal={proposal} {...this.props} />
 		);
 	}
 }
