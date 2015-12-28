@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { FormattedTime } from 'react-intl';
+import { secondsToTimeString } from '../_utils/DateUtils';
 import { NumberColored, NumberPlain } from '../_common';
 
 const returnOnContract = (contract, proposal) => (proposal.bid_price - contract.buy_price) * 100 / contract.buy_price;
@@ -22,8 +23,10 @@ const ContractDetailsCard = ({ contract, proposal }) => (
 				</tr>
 				<tr>
 					<td></td>
-					<td>now - start</td>
-					<td>end - now</td>
+					<td>
+						{proposal && secondsToTimeString(window.parseInt(proposal.current_spot_time) - proposal.date_start)}
+					</td>
+					<td>{proposal && secondsToTimeString(proposal.date_expiry - window.parseInt(proposal.current_spot_time))}</td>
 				</tr>
 			</tbody>
 			<thead>
