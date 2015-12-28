@@ -4,6 +4,7 @@ import {
     SERVER_DATA_PORTFOLIO,
     SERVER_DATA_PROPOSAL_OPEN_CONTRACT,
     DETAILS_FOR_CONTRACT,
+    UPDATE_NOW,
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
@@ -11,6 +12,7 @@ const initialState = fromJS({
     contractShown: undefined,
     contracts: [],
     proposals: {},
+    now: Math.floor(Date.now() / 1000),
 });
 
 export default (state = initialState, action) => {
@@ -26,6 +28,9 @@ export default (state = initialState, action) => {
             return state
                 .set('areDetailsShown', action.areDetailsShown)
                 .set('contractShown', action.contractShown);
+        }
+        case UPDATE_NOW: {
+            return state.set('now', Math.floor(Date.now() / 1000));
         }
         default:
             return state;

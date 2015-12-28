@@ -1,28 +1,32 @@
 import React, { PropTypes } from 'react';
 import { FormattedTime } from 'react-intl';
+import { secondsToTimeString } from '../_utils/DateUtils';
+import { NumberColored, NumberPlain } from '../_common';
 
 const returnOnContract = (contract, proposal) => (proposal.bid_price - contract.buy_price) * 100 / contract.buy_price;
 
-const ContractDetailsCard = ({ contract, proposal }) => (
+const ContractDetailsCard = ({ contract, proposal, nowEpoch }) => (
 	<div>
 		<table>
 			<thead>
 				<tr>
 					<th>Start Time</th>
-					<th>Now</th>
+					<th>Current Spot Time</th>
 					<th>End Time</th>
 				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td><FormattedTime value={contract.date_start} /></td>
-					<td>{proposal && <FormattedTime value={contract.spot_time} />}</td>
-					<td><FormattedTime value={contract.expiry_time} /></td>
+					<td>{proposal && <FormattedTime value={proposal.date_start * 1000} format="full" />}</td>
+					<td>{proposal && <FormattedTime value={window.parseInt(proposal.current_spot_time) * 1000} format="full" />}</td>
+					<td>{proposal && <FormattedTime value={proposal.date_expiry * 1000} format="full" />}</td>
 				</tr>
 				<tr>
 					<td></td>
-					<td>now - start</td>
-					<td>end - now</td>
+					<td>
+						{proposal && secondsToTimeString(nowEpoch - proposal.date_start)}
+					</td>
+					<td>{proposal && secondsToTimeString(proposal.date_expiry - nowEpoch)}</td>
 				</tr>
 			</tbody>
 			<thead>
@@ -31,17 +35,12 @@ const ContractDetailsCard = ({ contract, proposal }) => (
 					<th>Current Spot</th>
 					<th>Exit Spot</th>
 				</tr>
-				<tr>
-					<th>???</th>
-					<th>{proposal && proposal.spot}</th>
-					<th>???</th>
-				</tr>
 			</thead>
 			<tbody>
 				<tr>
-					<td>{contract.entry_spot}</td>
-					<td>{proposal && proposal.bid_price}</td>
-					<td>{contract.exit_spot}</td>
+					<td>{proposal && proposal.entry_spot}</td>
+					<td>{proposal && <NumberColored value={proposal.current_spot} isProfit={v => v - proposal.entry_spot}/>}</td>
+					<td>{proposal && (proposal.exit_spot || '-')}</td>
 				</tr>
 				<tr>
 					<td></td>
@@ -58,14 +57,31 @@ const ContractDetailsCard = ({ contract, proposal }) => (
 			</thead>
 			<tbody>
 				<tr>
-					<td>{contract.currency}&nbsp;{contract.buy_price}</td>
-					<td>{contract.currency}&nbsp;{contract.bid_price}</td>
-					<td>{contract.currency}&nbsp;{contract.final_price}</td>
+					<td><NumberPlain value={contract.buy_price} currency={contract.currency}/></td>
+					<td>
+						{proposal &&
+						<NumberColored
+						value={proposal.bid_price}
+						currency={contract.currency}
+						isProfit={v => v - contract.buy_price}
+						/>}
+					</td>
+					<td>{contract.final_price ? <NumberPlain value={contract.final_price} currency={contract.currency}/> : '-'}</td>
 				</tr>
 				<tr>
 					<td></td>
-					<td>{proposal && returnOnContract(contract, proposal).toFixed(2)}%</td>
+					<td>{proposal && <NumberColored value={returnOnContract(contract, proposal).toFixed(2)} />}%</td>
 					<td></td>
+				</tr>
+			</tbody>
+			<thead>
+				<tr>
+					<th colSpan="3">Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td colSpan="3">{contract.longcode}</td>
 				</tr>
 			</tbody>
 		</table>

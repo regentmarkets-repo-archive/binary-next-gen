@@ -4,6 +4,17 @@ import { connect } from 'react-redux';
 import allTexts from '../_constants/texts';
 import locale from '../_constants/languageLocaleMap';
 
+const timeFormats = {
+    'full': {
+        'day': 'numeric',
+        'month': 'numeric',
+        'year': 'numeric',
+        'hour': 'numeric',
+        'minute': 'numeric',
+        'second': 'numeric',
+    },
+};
+
 @connect(state => ({ language: state.settings.get('language') }))
 export default class IntlProviderContainer extends React.Component {
     static propTypes = {
@@ -15,7 +26,7 @@ export default class IntlProviderContainer extends React.Component {
         const { language } = this.props;
 
         return (
-            <IntlProvider locale={locale(language)} messages={allTexts(language)}>
+            <IntlProvider locale={locale(language)} messages={allTexts(language)} formats={{ 'time': timeFormats }}>
                 {this.props.children}
             </IntlProvider>
         );

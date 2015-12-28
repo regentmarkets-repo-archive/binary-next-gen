@@ -1,10 +1,10 @@
 import React, { PropTypes } from 'react';
 import { MobileToolbarFull, MobileToolbarBack } from '../navigation';
 
-const MobilePage = ({ backBtnBarTitle, children, toolbarShown, inverse }) => (
+const MobilePage = ({ backBtnBarTitle, children, toolbarShown, inverse, backTo }) => (
 	<div className={inverse ? 'mobile-page inverse' : 'mobile-page'}>
 		{toolbarShown ? <MobileToolbarFull /> : null}
-		{backBtnBarTitle ? <MobileToolbarBack backBtnBarTitle={backBtnBarTitle} /> : null}
+		{backBtnBarTitle ? <MobileToolbarBack backBtnBarTitle={backBtnBarTitle} to={backTo} /> : null}
 		<div className="mobile-content">
 			{children}
 		</div>

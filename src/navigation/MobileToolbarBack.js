@@ -4,7 +4,15 @@ import { M } from '../_common';
 
 export default ({ backBtnBarTitle }) => (
 	<div className="mobile-toolbar">
-		<Link to="/mobile" activeClassName="active" className="mobile-back-btn">
+		<Link
+			to={'/'}
+			activeClassName="active"
+			className="mobile-back-btn"
+			onClick={e => {
+				e.preventDefault();
+				history.back();
+				}}
+		>
 			<img className="back-btn" src="img/arrow-back.svg" />
 			<M m={backBtnBarTitle} />
 		</Link>
