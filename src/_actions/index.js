@@ -1,7 +1,7 @@
 export { serverDataAuthorize, serverDataBalance, serverDataPayoutCurrencies, updateToken } from './AccountActions';
 export { serverDataTradingTimes, serverDataAssetIndex, serverDataActiveSymbols } from './AssetsActions';
 export { updateAssetSelectorSearchQuery, updateAssetSelectorMarkets, updateAssetSelectorSubmarket } from './AssetSelectorActions';
-export { serverDataPortfolio, detailsForContract, serverDataProposalOpenContract } from './PortfolioActions';
+export { serverDataPortfolio, detailsForContract, serverDataProposalOpenContract, updateNow } from './PortfolioActions';
 export { serverDataProfitTable } from './ProfitTableActions';
 export { updateCurrentDailyReport, updateNewsList } from './NewsActions';
 export { serverDataTickStream, serverDataTickHistory } from './TickActions';

@@ -5,7 +5,7 @@ import { NumberColored, NumberPlain } from '../_common';
 
 const returnOnContract = (contract, proposal) => (proposal.bid_price - contract.buy_price) * 100 / contract.buy_price;
 
-const ContractDetailsCard = ({ contract, proposal }) => (
+const ContractDetailsCard = ({ contract, proposal, nowEpoch }) => (
 	<div>
 		<table>
 			<thead>
@@ -24,9 +24,9 @@ const ContractDetailsCard = ({ contract, proposal }) => (
 				<tr>
 					<td></td>
 					<td>
-						{proposal && secondsToTimeString(window.parseInt(proposal.current_spot_time) - proposal.date_start)}
+						{proposal && secondsToTimeString(nowEpoch - proposal.date_start)}
 					</td>
-					<td>{proposal && secondsToTimeString(proposal.date_expiry - window.parseInt(proposal.current_spot_time))}</td>
+					<td>{proposal && secondsToTimeString(proposal.date_expiry - nowEpoch)}</td>
 				</tr>
 			</tbody>
 			<thead>
@@ -72,6 +72,16 @@ const ContractDetailsCard = ({ contract, proposal }) => (
 					<td></td>
 					<td>{proposal && <NumberColored value={returnOnContract(contract, proposal).toFixed(2)} />}%</td>
 					<td></td>
+				</tr>
+			</tbody>
+			<thead>
+				<tr>
+					<th colSpan="3">Description</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr>
+					<td colSpan="3">{contract.longcode}</td>
 				</tr>
 			</tbody>
 		</table>

@@ -15,3 +15,7 @@ export const serverDataProposalOpenContract = serverResponse => ({
     type: types.SERVER_DATA_PROPOSAL_OPEN_CONTRACT,
     serverResponse,
 });
+
+export const updateNow = () => ({
+    type: types.UPDATE_NOW,
+});
