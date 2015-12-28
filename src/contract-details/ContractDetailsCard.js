@@ -1,12 +1,33 @@
 import React, { PropTypes } from 'react';
 import { FormattedTime } from 'react-intl';
 import { secondsToTimeString } from '../_utils/DateUtils';
-import { NumberColored, NumberPlain } from '../_common';
+import { NumberColored, NumberPlain, Modal } from '../_common';
 
 const returnOnContract = (contract, proposal) => (proposal.bid_price - contract.buy_price) * 100 / contract.buy_price;
-
-const ContractDetailsCard = ({ contract, proposal, nowEpoch }) => (
+const profitInPercentage = (buy, sell) => (sell - buy) / buy * 100;
+const ContractDetailsCard = ({ contract, proposal, nowEpoch, soldResultShown, actions }) => (
 	<div>
+		<Modal shown={soldResultShown} onClose={actions.closeSoldResult}>
+			<h3>Trade Confirmation</h3>
+			<div>You have sold the following contract.</div>
+			<table>
+				<thead>
+					<tr>
+						<th>Buy Price</th>
+						<th>Sale Price</th>
+						<th>Return</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td>{contract.buy_price}</td>
+						<td>{soldResultShown && soldResultShown.soldPrice}</td>
+						<td>{soldResultShown && profitInPercentage(contract.buy_price, soldResultShown.soldPrice)}%</td>
+					</tr>
+				</tbody>
+			</table>
+			<div>Your transaction reference no is {soldResultShown && soldResultShown.transId}</div>
+		</Modal>
 		<table>
 			<thead>
 				<tr>
@@ -85,12 +106,18 @@ const ContractDetailsCard = ({ contract, proposal, nowEpoch }) => (
 				</tr>
 			</tbody>
 		</table>
+		{proposal && (proposal.is_valid_to_sell === 1) ?
+		<button onClick={() => actions.sellContract(contract.contract_id, 0)}>Sell</button> :
+		<div>{proposal && proposal.validation_error}</div>}
 	</div>
 );
 
 ContractDetailsCard.propTypes = {
 	contract: PropTypes.object,
 	proposal: PropTypes.object,
+	nowEpoch: PropTypes.number,
+	soldResultShown: PropTypes.object,
+	actions: PropTypes.object,
 };
 
 export default ContractDetailsCard;

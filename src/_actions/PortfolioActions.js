@@ -19,3 +19,14 @@ export const serverDataProposalOpenContract = serverResponse => ({
 export const updateNow = () => ({
     type: types.UPDATE_NOW,
 });
+
+export const updateSoldContract = (contractId, soldPrice, transId) => ({
+    type: types.UPDATE_SOLD_CONTRACT,
+    contractId,
+    soldPrice,
+    transId,
+});
+
+export const closeSoldResult = () => ({
+    type: types.CLOSE_SOLD_RESULT,
+});
