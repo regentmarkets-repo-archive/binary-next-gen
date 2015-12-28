@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { FormattedTime } from 'react-intl';
 import { secondsToTimeString } from '../_utils/DateUtils';
-import { NumberColored, NumberPlain, Modal } from '../_common';
+import { NumberColored, NumberPlain, Modal, LabeledText } from '../_common';
 import ContractSoldDetails from './ContractSoldDetails';
 
 const returnOnContract = (contract, proposal) => (proposal.bid_price - contract.buy_price) * 100 / contract.buy_price;
@@ -93,7 +93,10 @@ const ContractDetailsCard = ({ contract, proposal, nowEpoch, soldResultShown, ac
 			</tbody>
 		</table>
 		{proposal && (proposal.is_valid_to_sell === 1) ?
-		<button onClick={() => actions.sellContract(contract.contract_id, 0)}>Sell</button> :
+		<div>
+			<LabeledText id="market-price" label="Market Price" value={proposal.bid_price}/>
+			<button onClick={() => actions.sellContract(contract.contract_id, 0)}>Sell on market</button>
+		</div> :
 		<div>{proposal && proposal.validation_error}</div>}
 	</div>
 );
