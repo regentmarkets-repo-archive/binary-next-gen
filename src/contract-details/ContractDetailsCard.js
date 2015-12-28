@@ -2,31 +2,17 @@ import React, { PropTypes } from 'react';
 import { FormattedTime } from 'react-intl';
 import { secondsToTimeString } from '../_utils/DateUtils';
 import { NumberColored, NumberPlain, Modal } from '../_common';
+import ContractSoldDetails from './ContractSoldDetails';
 
 const returnOnContract = (contract, proposal) => (proposal.bid_price - contract.buy_price) * 100 / contract.buy_price;
-const profitInPercentage = (buy, sell) => (sell - buy) / buy * 100;
 const ContractDetailsCard = ({ contract, proposal, nowEpoch, soldResultShown, actions }) => (
 	<div>
-		<Modal shown={soldResultShown} onClose={actions.closeSoldResult}>
-			<h3>Trade Confirmation</h3>
-			<div>You have sold the following contract.</div>
-			<table>
-				<thead>
-					<tr>
-						<th>Buy Price</th>
-						<th>Sale Price</th>
-						<th>Return</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr>
-						<td>{contract.buy_price}</td>
-						<td>{soldResultShown && soldResultShown.soldPrice}</td>
-						<td>{soldResultShown && profitInPercentage(contract.buy_price, soldResultShown.soldPrice)}%</td>
-					</tr>
-				</tbody>
-			</table>
-			<div>Your transaction reference no is {soldResultShown && soldResultShown.transId}</div>
+		<Modal shown={!!soldResultShown} onClose={actions.closeSoldResult}>
+			<ContractSoldDetails
+				buyPrice={contract.buy_price}
+				soldPrice={soldResultShown && soldResultShown.soldPrice}
+				transID={soldResultShown && soldResultShown.transId}
+			/>
 		</Modal>
 		<table>
 			<thead>
