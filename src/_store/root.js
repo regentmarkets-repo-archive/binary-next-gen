@@ -13,7 +13,7 @@ import * as AllActions from '../_actions';
 
 import config from 'json!../config.json';
 
-console.log(config);
+window.console.log(config);
 
 const history = new HashHistory();
 rehydratedStorePromise.then(st => {
