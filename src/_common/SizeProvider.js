@@ -27,7 +27,7 @@ export default class SizeProvider extends React.Component {
     }
 
     componentWillUnmount() {
-        window.removeEventListener('resize', this.state.resize);
+        window.removeEventListener('resize', this.state.resize, true);
     }
 
     onResize() {
