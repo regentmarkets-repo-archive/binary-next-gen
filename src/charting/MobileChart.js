@@ -20,12 +20,12 @@ export default class TradeChart extends React.Component {
     };
 
     static defaultProps = {
-        history: [],
         spot: 0,
     };
 
     render() {
         const { history, spot } = this.props;
+        if (history.length === 0) return null;
         const options = createOptions({ history, spot: +spot, theme });
         return (
             <SizeProvider style={{ width: '100%', height: '120px' }}>

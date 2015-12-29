@@ -1,12 +1,19 @@
 import React, { PropTypes } from 'react';
 import { FormattedTime } from 'react-intl';
 import { secondsToTimeString } from '../_utils/DateUtils';
-import { NumberColored, NumberPlain } from '../_common';
+import { NumberColored, NumberPlain, Modal, LabeledText } from '../_common';
+import ContractSoldDetails from './ContractSoldDetails';
 
 const returnOnContract = (contract, proposal) => (proposal.bid_price - contract.buy_price) * 100 / contract.buy_price;
-
-const ContractDetailsCard = ({ contract, proposal, nowEpoch }) => (
+const ContractDetailsCard = ({ contract, proposal, nowEpoch, soldResultShown, actions }) => (
 	<div>
+		<Modal shown={!!soldResultShown} onClose={actions.closeSoldResult}>
+			<ContractSoldDetails
+				buyPrice={contract.buy_price}
+				soldPrice={soldResultShown && soldResultShown.soldPrice}
+				transID={soldResultShown && soldResultShown.transId}
+			/>
+		</Modal>
 		<table>
 			<thead>
 				<tr>
@@ -85,12 +92,21 @@ const ContractDetailsCard = ({ contract, proposal, nowEpoch }) => (
 				</tr>
 			</tbody>
 		</table>
+		{proposal && (proposal.is_valid_to_sell === 1) ?
+		<div>
+			<LabeledText id="market-price" label="Market Price" value={proposal.bid_price}/>
+			<button onClick={() => actions.sellContract(contract.contract_id, 0)}>Sell on market</button>
+		</div> :
+		<div>{proposal && proposal.validation_error}</div>}
 	</div>
 );
 
 ContractDetailsCard.propTypes = {
 	contract: PropTypes.object,
 	proposal: PropTypes.object,
+	nowEpoch: PropTypes.number,
+	soldResultShown: PropTypes.object,
+	actions: PropTypes.object,
 };
 
 export default ContractDetailsCard;

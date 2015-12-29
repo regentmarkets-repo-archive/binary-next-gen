@@ -19,12 +19,19 @@ export default class ContractDetailsContainer extends React.Component {
 		const { params, portfolio } = this.props;
 		const contract = portfolio.get('contracts').find(x => x.contract_id === params.id);
 		const proposal = portfolio.get('proposals').get(params.id);
+		const soldResultShown = portfolio.get('soldResultShown');
 		const now = portfolio.get('now');
 
 		if (!contract) return null;
 
 		return (
-			<ContractDetailsCard contract={contract} proposal={proposal} nowEpoch={now} {...this.props} />
+			<ContractDetailsCard
+				contract={contract}
+				proposal={proposal}
+				nowEpoch={now}
+				soldResultShown={soldResultShown}
+				{...this.props}
+			/>
 		);
 	}
 }
