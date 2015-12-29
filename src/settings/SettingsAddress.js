@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { InputGroup, SelectGroup, TextAreaGroup, M } from '../_common';
+import { InputGroup, TextAreaGroup, M, States } from '../_common';
 import * as LiveData from '../_data/LiveData';
 
 export default class SettingsAddress extends React.Component {
@@ -19,25 +19,6 @@ export default class SettingsAddress extends React.Component {
 			}
 		}
 	}
-
-	static hardCodedStateCodes = [
-		{
-		value: '',
-		text: 'Please select',
-		},
-		{
-			value: 'AC',
-			text: 'Aceh',
-		},
-		{
-			value: 'BA',
-			text: 'Bali',
-		},
-		{
-			value: 'BB',
-			text: 'Bangka Belitung',
-		},
-	];
 
 	onAddressChange(event) {
 		const key = event.target.id;
@@ -92,11 +73,9 @@ export default class SettingsAddress extends React.Component {
 					value={settings.address_city}
 					onChange={::this.onAddressChange}
 				/>
-				<SelectGroup
+				<States
 					id="AddressState"
-					label="State/Province"
-					value=""
-					options={SettingsAddress.hardCodedStateCodes}
+					country={settings.country_code}
 					onChange={::this.onAddressChange}
 				/>
 				<InputGroup

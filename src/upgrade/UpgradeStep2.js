@@ -57,7 +57,6 @@ export default class UpgradeStep2 extends React.Component {
 	}
 
 	countryChange(e) {
-		this.props.actions.getStatesForCountry(e.target.value);
 		this.props.actions.upgradeFieldUpdate('residence', e.target.value);
 	}
 
@@ -90,7 +89,7 @@ export default class UpgradeStep2 extends React.Component {
 	}
 
 	render() {
-		const { addressCity, addressPostcode, addressLine1, addressLine2, phone, residence, actions, addressState } = this.props;
+		const { addressCity, addressPostcode, addressLine1, addressLine2, phone, residence, addressState } = this.props;
 		const cityValid = this.cityValid(addressCity);
 		const postcodeValid = this.postcodeValid(addressPostcode);
 		const address1Valid = this.address1Valid(addressLine1);
@@ -104,7 +103,7 @@ export default class UpgradeStep2 extends React.Component {
 				</p>
 				<p>
 					<Countries onChange={::this.countryChange} value={residence}/>
-					<States country={residence} onChange={::this.stateChange} actions={actions} value={addressState} />
+					<States country={residence} onChange={::this.stateChange} value={addressState} />
 				</p>
 				<ErrorMsg
 					shown={showErr && !residence}
