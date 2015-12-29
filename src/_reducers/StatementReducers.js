@@ -1,17 +1,23 @@
-import { Map } from 'immutable';
+import { fromJS } from 'immutable';
 
 import {
     SERVER_DATA_STATEMENT,
 } from '../_constants/ActionTypes';
 
-const initialState = new Map({
-    transactions: [],
+const initialState = fromJS({
+    transactions: {},
 });
 
 export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_STATEMENT: {
-            return state.set('transactions', action.serverResponse.statement.transactions);
+            const newTx = {};
+            action.serverResponse.statement
+                .transactions
+                .forEach(tx => {
+                    newTx[tx.transaction_id] = tx;
+                });
+            return state.set('transactions', newTx);
         }
         default:
             return state;

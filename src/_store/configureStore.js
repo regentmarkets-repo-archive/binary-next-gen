@@ -16,6 +16,7 @@ const actionsToCache = [
     ActionTypes.UPDATE_SETTINGS_FIELD,
     ActionTypes.WATCHLIST_FAVOR_ASSET,
     ActionTypes.WATCHLIST_UNFAVOR_ASSET,
+    ActionTypes.SERVER_DATA_STATEMENT,
 ];
 
 const reducer = storage.reducer(rootReducer);
@@ -35,7 +36,7 @@ const storageMiddleware = storage.createMiddleware(debouncedFilteredEngine, [], 
 
 const finalCreateStore = compose(
     applyMiddleware(storageMiddleware, thunkMiddleware),
-    window.devToolsExtension ? window.devToolsExtension() : f => f,
+    window.devToolsExtension ? window.devToolsExtension() : f => f
 )(createStore);
 const initStore = finalCreateStore(reducer);
 const load = storage.createLoader(debouncedFilteredEngine);
