@@ -1,5 +1,6 @@
 import * as types from '../_constants/ActionTypes';
 import * as LiveData from '../_data/LiveData';
+import { updateSoldContract } from './PortfolioActions';
 
 export const serverDataProposal = serverResponse => ({
     type: types.SERVER_DATA_PROPOSAL,
@@ -32,6 +33,14 @@ export const getPriceProposal = (contract) => {
             duration: contract.get('duration').toString(),
             duration_unit: contract.get('duration_unit') || 't',
             symbol: contract.get('assetSymbol'),
+        });
+    };
+};
+
+export const sellContract = (id, price) => {
+    return dispatch => {
+        LiveData.api.sellContract(id, price).then(res => {
+            dispatch(updateSoldContract(res.sell.contract_id, res.sell.sold_for, res.sell.transaction_id));
         });
     };
 };
