@@ -11,12 +11,9 @@ const initialState = fromJS({
 export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_STATEMENT: {
-            const newTx = {};
-            action.serverResponse.statement
+            const newTx = action.serverResponse.statement
                 .transactions
-                .forEach(tx => {
-                    newTx[tx.transaction_id] = tx;
-                });
+                .reduce((pv, cv) => pv.set(cv.transaction_id, cv), state.get('transactions'));
             return state.set('transactions', newTx);
         }
         default:
