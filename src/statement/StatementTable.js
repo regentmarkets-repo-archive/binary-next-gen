@@ -28,7 +28,7 @@ const StatementTable = ({ compact, currency, transactions }) => (
 			</tr>
 		</thead>
 		<tbody>
-            {transactions.map((t, i) =>
+            {transactions.sort((a, b) => (b.transaction_id - a.transaction_id)).map((t, i) =>
 				<StatementRow
 					key={i}
 					compact={compact}

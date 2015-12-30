@@ -12,6 +12,19 @@ import VideoListContainer from '../video/VideoListContainer';
 import TickTradeContainer from '../tick-trade/TickTradeContainer';
 import WatchlistContainer from '../watchlist/WatchlistContainer';
 
+const updateSizeWithBoundary = (size, update, min, max) => {
+	if (size < min) {
+		update(10);
+		return;
+	}
+
+	if (size > max) {
+		return;
+	}
+
+	update(size);
+};
+
 export default ({ actions, workspace }) => (
 	<div id="screen">
 		<DesktopHeader actions={actions} />
@@ -29,14 +42,27 @@ export default ({ actions, workspace }) => (
 					]}
 				/>
 			</div>
-			<Resizer className="resizer-vertical" onResize={e => actions.updateWorkspaceField('leftPanelSize', e.x - 4)} />
+			<Resizer
+				className="resizer-vertical"
+				onResize={e => {
+					const update = actions.updateWorkspaceField.bind(null, 'leftPanelSize');
+					const size = e.x - 4;
+					updateSizeWithBoundary(size, update, 100, 750);
+					}
+				}
+			/>
 			<div id="mid-panel">
 				<div id="workarea">
 					<TickTradeContainer actions={actions} />
 				</div>
 				<Resizer
 					className="resizer-horizontal"
-					onResize={e => actions.updateWorkspaceField('bottomPanelSize', window.innerHeight - e.y - 4)}
+					onResize={e => {
+						const update = actions.updateWorkspaceField.bind(null, 'bottomPanelSize');
+						const size = window.innerHeight - e.y - 4;
+						updateSizeWithBoundary(size, update, 100, 300);
+						}
+					}
 				/>
 				<div id="bottom-panel" style={{ height: workspace.get('bottomPanelSize') }}>
 					<Tabs
@@ -53,7 +79,11 @@ export default ({ actions, workspace }) => (
 			</div>
 			<Resizer
 				className="resizer-vertical"
-				onResize={e => actions.updateWorkspaceField('rightPanelSize', window.innerWidth - e.x - 4)}
+				onResize={e => {
+					const update = actions.updateWorkspaceField.bind(null, 'rightPanelSize');
+					const size = window.innerWidth - e.x - 4;
+					updateSizeWithBoundary(size, update, 100, 700);
+				}}
 			/>
 			<div id="right-panel" style={{ width: workspace.get('rightPanelSize') }}>
 				<Tabs
