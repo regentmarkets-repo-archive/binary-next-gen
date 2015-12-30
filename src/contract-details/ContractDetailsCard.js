@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { FormattedTime } from 'react-intl';
 import { secondsToTimeString } from '../_utils/DateUtils';
-import { NumberColored, NumberPlain, Modal, LabeledText } from '../_common';
+import { NumberColored, NumberPlain, Modal, LabeledText, M } from '../_common';
 import ContractSoldDetails from './ContractSoldDetails';
 
 const returnOnContract = (contract, proposal) => (proposal.bid_price - contract.buy_price) * 100 / contract.buy_price;
@@ -17,9 +17,9 @@ const ContractDetailsCard = ({ contract, proposal, nowEpoch, soldResultShown, ac
 		<table>
 			<thead>
 				<tr>
-					<th>Start Time</th>
-					<th>Current Spot Time</th>
-					<th>End Time</th>
+					<th><M m="Start Time" /></th>
+					<th><M m="Current Spot Time" /></th>
+					<th><M m="End Time" /></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -38,9 +38,9 @@ const ContractDetailsCard = ({ contract, proposal, nowEpoch, soldResultShown, ac
 			</tbody>
 			<thead>
 				<tr>
-					<th>Entry Spot</th>
-					<th>Current Spot</th>
-					<th>Exit Spot</th>
+					<th><M m="Entry Spot" /></th>
+					<th><M m="Current Spot" /></th>
+					<th><M m="Exit Spot" /></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -57,9 +57,9 @@ const ContractDetailsCard = ({ contract, proposal, nowEpoch, soldResultShown, ac
 			</tbody>
 			<thead>
 				<tr>
-					<th>Purchase Price</th>
-					<th>Indicative Price</th>
-					<th>Final Price</th>
+					<th><M m="Purchase Price" /></th>
+					<th><M m="Indicative Price" /></th>
+					<th><M m="Final Price" /></th>
 				</tr>
 			</thead>
 			<tbody>
@@ -83,7 +83,7 @@ const ContractDetailsCard = ({ contract, proposal, nowEpoch, soldResultShown, ac
 			</tbody>
 			<thead>
 				<tr>
-					<th colSpan="3">Description</th>
+					<th colSpan="3"><M m="Description" /></th>
 				</tr>
 			</thead>
 			<tbody>
