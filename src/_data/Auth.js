@@ -2,6 +2,7 @@ import { rehydratedStorePromise, store } from '../_store/configureStore';
 import * as LiveData from './LiveData';
 import { updateToken } from '../_actions/AccountActions';
 import { signinFieldUpdate } from '../_actions/SigninActions';
+import { trackUserId } from '../_utils/Analytics';
 
 let isAuthorized = false;
 
@@ -31,9 +32,10 @@ export const requireAuthOnEnter = (nextState, replaceState, cb) => {
             cb();
         } else {
             LiveData.api.authorize(token).then(
-                () => {
+                response => {
                     st.dispatch(signinFieldUpdate('credentialsInvalid', false));
                     isAuthorized = true;
+                    trackUserId(response.authorize.loginid);
                 },
                 () => {
                     st.dispatch(signinFieldUpdate('credentialsInvalid', true));
