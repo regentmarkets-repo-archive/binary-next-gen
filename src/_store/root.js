@@ -10,12 +10,15 @@ import HashHistory from 'history/lib/createHashHistory';
 import ThemeProvider from '../_common/ThemeProvider';
 import * as LiveData from '../_data/LiveData';
 import * as AllActions from '../_actions';
+import { trackRoute } from '../_utils/Analytics';
 
 import config from 'json!../config.json';
 
 window.console.log(config);
 
 const history = new HashHistory();
+history.listen(location => trackRoute(location.pathname));
+
 rehydratedStorePromise.then(st => {
     LiveData.connect(st);
 });
@@ -37,7 +40,11 @@ export default class Root extends React.Component {
             <Provider store={store}>
                 <IntlProviderContainer>
                     <ThemeProvider>
-                        <Router history={history} children={routes} createElement={::this.createElementWithActions} />
+                        <Router
+                            history={history}
+                            children={routes}
+                            createElement={::this.createElementWithActions}
+                        />
                     </ThemeProvider>
                 </IntlProviderContainer>
             </Provider>
