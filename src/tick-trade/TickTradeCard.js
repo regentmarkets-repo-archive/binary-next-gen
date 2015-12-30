@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Modal, M, NumberPlain } from '../_common';
+import { trackEvent } from '../_utils/Analytics';
 import MobileChart from '../charting/MobileChart';
 import * as LiveData from '../_data/LiveData';
 import TickTradeParameters from './TickTradeParameters';
@@ -29,6 +30,7 @@ export default class TickTradeCard extends React.Component {
 		const { tickTrade } = this.props;
 		this.setState({ buying: true });
 		const buyAttempt = LiveData.api.buyContract(tickTrade.get('id'), tickTrade.get('ask_price'));
+		trackEvent('buy-contract', tickTrade.toJS());
 		buyAttempt.then(
 			receipt => {
 				this.props.actions.serverDataBuy(receipt);
