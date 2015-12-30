@@ -1,16 +1,20 @@
 import * as types from '../_constants/ActionTypes';
 import * as LiveData from '../_data/LiveData';
 import { updateSoldContract } from './PortfolioActions';
+import { trackEvent } from '../_utils/Analytics';
 
 export const serverDataProposal = serverResponse => ({
     type: types.SERVER_DATA_PROPOSAL,
     serverResponse,
 });
 
-export const updateTickTradeParameters = parameters => ({
-    type: types.UPDATE_TICK_TRADE_PARAMETERS,
-    parameters,
-});
+export const updateTickTradeParameters = parameters => {
+    trackEvent('update-trade-paremeters', parameters);
+    return {
+        type: types.UPDATE_TICK_TRADE_PARAMETERS,
+        parameters,
+    };
+};
 
 export const serverDataBuy = serverResponse => ({
     type: types.SERVER_DATA_BUY,
@@ -38,6 +42,7 @@ export const getPriceProposal = (contract) => {
 };
 
 export const sellContract = (id, price) => {
+    trackEvent('sell-contract', { id, price });
     return dispatch => {
         LiveData.api.sellContract(id, price).then(res => {
             dispatch(updateSoldContract(res.sell.contract_id, res.sell.sold_for, res.sell.transaction_id));
