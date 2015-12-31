@@ -28,6 +28,7 @@ export default class AssetSelectorCard extends React.Component {
 		const onSelect = newAsset => {
 			const oldAsset = workspace.get('symbolSelected');
 			actions.selectAssetSymbolForTrade(newAsset, oldAsset);
+			actions.getTradingOptions(newAsset);
 			if (~window.location.search.indexOf('goback')) history.goBack();
 			if (~window.location.search.indexOf('tick')) {
 				LiveData.api.getTickHistory(newAsset, { end: 'latest', count: 20 });

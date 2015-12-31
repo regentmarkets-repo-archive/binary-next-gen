@@ -32,6 +32,7 @@ const subscribeToSelectedSymbol = st => {
     const selectedSymbol = st.getState().workspace.get('symbolSelected');
     api.getTickHistory(selectedSymbol, { end: 'latest', count: 20 });
     api.subscribeToTick(selectedSymbol);
+    st.dispatch(actions.getTradingOptions(selectedSymbol));
 };
 
 const subscribeToWatchlist = st => {

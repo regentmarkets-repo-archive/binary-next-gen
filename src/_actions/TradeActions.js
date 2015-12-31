@@ -49,3 +49,22 @@ export const sellContract = (id, price) => {
         });
     };
 };
+
+export const updateQuickTradeParams = (symbol, tradeType, params) => {
+    trackEvent('update-quick-trade-params', { symbol, params });
+    return {
+        type: types.UPDATE_QUICK_TRADE_PARAMS,
+        symbol,
+        tradeType,
+        params,
+    };
+};
+
+export const updateQuickTradePriceProposalSubscription = () => {
+    LiveData.api.unsubscribeFromAllProposals();
+    return (dispatch, getState) => {
+        const quickTrade = getState().quickTrade;
+        const trades = quickTrade.flatten(1).toArray();
+        trades.forEach(t => LiveData.api.subscribeToPriceForContractProposal(t));
+    };
+};

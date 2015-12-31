@@ -1,3 +1,4 @@
+export Collapsible from './Collapsible';
 export Countries from './Countries';
 export CurrencySelector from './CurrencySelector';
 export DateOfBirth from './DateOfBirth';
