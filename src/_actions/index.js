@@ -5,7 +5,7 @@ export { serverDataPortfolio, detailsForContract, serverDataProposalOpenContract
 export { serverDataProfitTable } from './ProfitTableActions';
 export { updateCurrentDailyReport, updateNewsList } from './NewsActions';
 export { serverDataTickStream, serverDataTickHistory } from './TickActions';
-export { serverDataProposal, updateTickTradeParameters, serverDataBuy, discardPurchaseReceipt, getPriceProposal, sellContract, updateQuickTradeParams } from './TradeActions';
+export { serverDataProposal, updateTickTradeParameters, serverDataBuy, discardPurchaseReceipt, getPriceProposal, sellContract, updateQuickTradeParams, updateQuickTradePriceProposalSubscription } from './TradeActions';
 export { changeSettingsActiveTab, serverDataAccountLimits, serverDataAccountSelfExclusion, serverDataAccountSettings, updateSettingFields } from './SettingsActions';
 export { signinStart, signinFieldUpdate, signinFailed } from './SigninActions';
 export { serverDataStatement } from './StatementActions';

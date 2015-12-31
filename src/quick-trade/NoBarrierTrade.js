@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { Collapsible, InputGroup, RadioGroup } from '../_common';
+import { Collapsible, InputGroup, RadioGroup, LabeledText } from '../_common';
 
 const basisTypes = [
     { value: 'payout', text: 'Payout' },
@@ -12,6 +12,7 @@ export default class NoBarrierTrade extends Component {
         actions: PropTypes.object.isRequired,
         params: PropTypes.object,
         currency: PropTypes.string.isRequired,
+        proposal: PropTypes.object,
     };
 
     componentWillMount() {
@@ -20,29 +21,34 @@ export default class NoBarrierTrade extends Component {
             basis: 'payout',
             contract_type: tradeInfo.contract_type,
             currency,
+            duration: 5,
+            amount: 10,
             duration_unit: 't',
             symbol: tradeInfo.underlying_symbol,
         });
+        actions.updateQuickTradePriceProposalSubscription(tradeInfo.underlying_symbol, tradeInfo.contract_type);
     }
 
     onChangeBasis(e) {
         const { tradeInfo, actions } = this.props;
         actions.updateQuickTradeParams(tradeInfo.underlying_symbol, tradeInfo.contract_type, { basis: e.target.value });
+        actions.updateQuickTradePriceProposalSubscription(tradeInfo.underlying_symbol, tradeInfo.contract_type);
     }
 
     onDurationUpdates(e) {
         const { tradeInfo, actions } = this.props;
-        console.log(tradeInfo);
         actions.updateQuickTradeParams(tradeInfo.underlying_symbol, tradeInfo.contract_type, { duration: e.target.value });
+        actions.updateQuickTradePriceProposalSubscription(tradeInfo.underlying_symbol, tradeInfo.contract_type);
     }
 
     onPayoutUpdate(e) {
         const { tradeInfo, actions } = this.props;
         actions.updateQuickTradeParams(tradeInfo.underlying_symbol, tradeInfo.contract_type, { amount: e.target.value });
+        actions.updateQuickTradePriceProposalSubscription(tradeInfo.underlying_symbol, tradeInfo.contract_type);
     }
 
     render() {
-        const { tradeInfo, params } = this.props;
+        const { tradeInfo, params, proposal } = this.props;
         return (
             <Collapsible title={tradeInfo.contract_display} >
                 <RadioGroup
@@ -63,6 +69,7 @@ export default class NoBarrierTrade extends Component {
                     onChange={::this.onPayoutUpdate}
                     value={params && params.payout}
                 />
+                {proposal && <LabeledText label="Price" value={proposal.ask_price} />}
                 <button>Purchase</button>
             </Collapsible>
         );

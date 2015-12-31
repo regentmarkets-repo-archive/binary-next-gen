@@ -22,7 +22,7 @@ export default class QuickTradeContainer extends React.Component {
     };
 
     render() {
-        const { tradingOptions, workspace, assetSelector } = this.props;
+        const { tradingOptions, workspace, assetSelector, proposals } = this.props;
         const selected = workspace.get('symbolSelected');
         const assets = assetSelector.get('availableAssets').toJS().map(x => ({ value: x.symbol, text: x.display_name }));
 
@@ -30,12 +30,13 @@ export default class QuickTradeContainer extends React.Component {
         const opt = tradingOptions
             .get(selected, [])
             .filter(t => (t.min_contract_duration && !isNaN(t.min_contract_duration)));
-
+        const proposalsForSelected = proposals.get(selected);
         return (
             <QuickTradeCard
                 assetSelected={selected}
                 assets={assets}
                 trades={opt}
+                proposals={proposalsForSelected}
                 {...this.props}
             />
         );

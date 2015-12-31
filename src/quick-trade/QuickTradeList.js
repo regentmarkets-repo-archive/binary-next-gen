@@ -1,9 +1,17 @@
 import React, { Component, PropTypes } from 'react';
 import NoBarrierTrade from './NoBarrierTrade';
 
-const showTrade = (t, actions, params, currency) => {
+const showTrade = (t, actions, params, currency, proposal) => {
     switch (t.barriers) {
-        case 0: return <NoBarrierTrade tradeInfo={t} actions={actions} params={params && params.toJS()} currency={currency} />;
+        case 0: return (
+            <NoBarrierTrade
+                tradeInfo={t}
+                actions={actions}
+                params={params && params.toJS()}
+                currency={currency}
+                proposal={proposal}
+            />
+        );
         default: return null;
     }
 };
@@ -14,6 +22,7 @@ export default class QuickTradeList extends Component {
         actions: PropTypes.object.isRequired,
         quickTradeParams: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
+        proposals: PropTypes.object.isRequired,
     };
 
     // onTradeSelect(e){
@@ -22,7 +31,7 @@ export default class QuickTradeList extends Component {
     // }
 
     render() {
-        const { trades, actions, quickTradeParams, currency } = this.props;
+        const { trades, actions, quickTradeParams, currency, proposals } = this.props;
         return (
             <table>
                 <thead>
@@ -34,7 +43,13 @@ export default class QuickTradeList extends Component {
                     {trades.map((t, idx) => (
                             <tr key={idx}>
                                 <td>
-                                    {showTrade(t, actions, quickTradeParams.getIn([t.underlying_symbol, t.contract_type]), currency)}
+                                    {showTrade(
+                                        t,
+                                        actions,
+                                        quickTradeParams.getIn([t.underlying_symbol, t.contract_type]),
+                                        currency,
+                                        proposals.getIn([t.underlying_symbol, t.contract_type])
+                                    )}
                                 </td>
                             </tr>
                         )

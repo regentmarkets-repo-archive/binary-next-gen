@@ -60,11 +60,13 @@ export const updateQuickTradeParams = (symbol, tradeType, params) => {
     };
 };
 
-export const updateQuickTradePriceProposalSubscription = () => {
-    LiveData.api.unsubscribeFromAllProposals();
+export const updateQuickTradePriceProposalSubscription = (symbol, trade) => {
     return (dispatch, getState) => {
         const quickTrade = getState().quickTrade;
-        const trades = quickTrade.flatten(1).toArray();
-        trades.forEach(t => LiveData.api.subscribeToPriceForContractProposal(t));
+        const opts = quickTrade.getIn([symbol, trade]);
+        // const proposals = getState().proposals;
+        // const proposalID = proposals.getIn([symbol, trade]);
+        // LiveData.api.unsubscribeByID(proposalID);
+        LiveData.api.subscribeToPriceForContractProposal(opts.toJS());
     };
 };
