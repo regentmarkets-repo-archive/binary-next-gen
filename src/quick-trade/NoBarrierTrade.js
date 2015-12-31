@@ -36,15 +36,20 @@ export default class NoBarrierTrade extends Component {
     }
 
     onDurationUpdates(e) {
+        e.persist();
         const { tradeInfo, actions } = this.props;
-        actions.updateQuickTradeParams(tradeInfo.underlying_symbol, tradeInfo.contract_type, { duration: e.target.value });
-        actions.updateQuickTradePriceProposalSubscription(tradeInfo.underlying_symbol, tradeInfo.contract_type);
+        setTimeout(() => {
+            actions.updateQuickTradeParams(tradeInfo.underlying_symbol, tradeInfo.contract_type, { duration: e.target.value });
+            actions.updateQuickTradePriceProposalSubscription(tradeInfo.underlying_symbol, tradeInfo.contract_type);
+        }, 500);
     }
 
     onPayoutUpdate(e) {
         const { tradeInfo, actions } = this.props;
-        actions.updateQuickTradeParams(tradeInfo.underlying_symbol, tradeInfo.contract_type, { amount: e.target.value });
-        actions.updateQuickTradePriceProposalSubscription(tradeInfo.underlying_symbol, tradeInfo.contract_type);
+        setTimeout(() => {
+            actions.updateQuickTradeParams(tradeInfo.underlying_symbol, tradeInfo.contract_type, { amount: e.target.value });
+            actions.updateQuickTradePriceProposalSubscription(tradeInfo.underlying_symbol, tradeInfo.contract_type);
+        }, 500);
     }
 
     render() {
