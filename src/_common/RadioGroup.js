@@ -19,12 +19,11 @@ export default class RadioGroup extends React.Component {
 
 	render() {
 		const { className, onChange, name, options, value } = this.props;
-
 		return (
 			<div className={className}>
 				{options.map(o =>
 					<RadioItem
-						key={o.value}
+						key={name + o.value}
 						defaultChecked={o.value === value}
 						img={o.img}
 						label={o.text}

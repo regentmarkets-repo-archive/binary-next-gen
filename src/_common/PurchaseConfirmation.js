@@ -9,22 +9,22 @@ const PurchaseConfirmation = ({ receipt }) => (
 			<tbody>
 				<tr>
 					<td colSpan="2">
-						{receipt.get('longcode')}
+						{receipt.longcode}
 					</td>
 				</tr>
 				<tr>
 					<td><M m="Purchase Price" /></td>
-					<td>{receipt.get('buy_price')}</td>
+					<td>{receipt.buy_price}</td>
 				</tr>
 				<tr>
 					<td><M m="Purchase Time" /></td>
 				<td>
-					<FormattedTime value={epochToDateString(receipt.get('purchase_time'))} />
+					<FormattedTime value={epochToDateString(receipt.purchase_time)} />
 				</td>
 				</tr>
 				<tr>
 					<td><M m="Balance" /></td>
-					<td>{receipt.get('balance_after')}</td>
+					<td>{receipt.balance_after}</td>
 				</tr>
 			</tbody>
 		</table>

@@ -25,6 +25,78 @@ const TradeTypeTickOptions = ({ onTypeChange, onBarrierChange, type, barrier }) 
 		</div>
 		<div className="radio-selector">
 			<RadioItem
+				checked={type === 'ONETOUCH'}
+				label="Touches"
+				name="trade-type"
+				value="ONETOUCH"
+				img="img/trade-touch.svg"
+				onChange={onTypeChange}
+			/>
+			<RadioItem
+				checked={type === 'NOTOUCH'}
+				label="No Touch"
+				name="trade-type"
+				value="NOTOUCH"
+				img="img/trade-notouch.svg"
+				onChange={onTypeChange}
+			/>
+		</div>
+		<div className="radio-selector">
+			<RadioItem
+				checked={type === 'ASIANU'}
+				label="Asian Up"
+				name="trade-type"
+				value="ASIANU"
+				img="img/trade-asianup.svg"
+				onChange={onTypeChange}
+			/>
+			<RadioItem
+				checked={type === 'ASIAND'}
+				label="Asian Down"
+				name="trade-type"
+				value="ASIAND"
+				img="img/trade-asiandown.svg"
+				onChange={onTypeChange}
+			/>
+		</div>
+		<div className="radio-selector">
+			<RadioItem
+				checked={type === 'RANGE'}
+				label="Stay Between"
+				name="trade-type"
+				value="RANGE"
+				img="img/trade-in.svg"
+				onChange={onTypeChange}
+			/>
+			<RadioItem
+				checked={type === 'UPORDOWN'}
+				label="Goes Outside"
+				name="trade-type"
+				value="UPORDOWN"
+				img="img/trade-outside.svg"
+				onChange={onTypeChange}
+			/>
+		</div>
+		<div className="radio-selector">
+			<RadioItem
+				checked={type === 'EXPIRYMISS'}
+				label="Ends Outside"
+				name="trade-type"
+				value="EXPIRYMISS"
+				img="img/trade-out.svg"
+				onChange={onTypeChange}
+			/>
+			<RadioItem
+				checked={type === 'EXPIRYRANGE'}
+				label="Ends Between"
+				name="trade-type"
+				value="EXPIRYRANGE"
+				img="img/trade-between.svg"
+				onChange={onTypeChange}
+			/>
+		</div>
+		<div className="radio-selector">
+			<RadioItem
 				checked={type === 'DIGITEVEN'}
 				label="Digit Even"
 				name="trade-type"
@@ -74,6 +146,24 @@ const TradeTypeTickOptions = ({ onTypeChange, onBarrierChange, type, barrier }) 
 				name="trade-type"
 				value="DIGITUNDER"
 				img="img/trade-digitunder.svg"
+				onChange={onTypeChange}
+			/>
+		</div>
+		<div className="radio-selector">
+			<RadioItem
+				checked={type === 'SPREADU'}
+				label="Spread Up"
+				name="trade-type"
+				value="SPREADU"
+				img="img/trade-spread.svg"
+				onChange={onTypeChange}
+			/>
+			<RadioItem
+				checked={type === 'SPREADD'}
+				label="Spread Down"
+				name="trade-type"
+				value="SPREADD"
+				img="img/trade-spread.svg"
 				onChange={onTypeChange}
 			/>
 		</div>
