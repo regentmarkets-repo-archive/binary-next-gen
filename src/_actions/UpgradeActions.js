@@ -1,5 +1,6 @@
 import { UPGRADE_FIELD_UPDATE, UPGRADE_DOB_UPDATE, UPGRADE_FIELD_CLEAR } from '../_constants/ActionTypes';
 import * as LiveData from '../_data/LiveData';
+import config from 'json!../config.json';
 
 export const upgradeFieldUpdate = (fieldName, fieldValue) => ({
     type: UPGRADE_FIELD_UPDATE,
@@ -46,6 +47,7 @@ export const upgradeConfirm = () => {
             address_postcode: addressPostcode,
             secret_question: secretQuestion,
             secret_answer: secretAnswer,
+            affiliate_token: config.affiliateToken,
         };
 
         LiveData.api.createRealAccount(opts)

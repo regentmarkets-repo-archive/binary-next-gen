@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
 import { Countries, ErrorMsg, InputGroup, LogoSpinner, M } from '../_common';
+import config from 'json!../config.json';
 
 export default class CreateAccountCard extends React.Component {
 	static propTypes = {
@@ -31,6 +32,7 @@ export default class CreateAccountCard extends React.Component {
 			client_password: password,
 			residence,
 			verification_code: verificationCode,
+			affiliate_token: config.affiliateToken,
 		});
 	}
 

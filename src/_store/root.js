@@ -11,7 +11,6 @@ import ThemeProvider from '../_common/ThemeProvider';
 import * as LiveData from '../_data/LiveData';
 import * as AllActions from '../_actions';
 import { trackRoute } from '../_utils/Analytics';
-
 import config from 'json!../config.json';
 
 window.console.log(config);
