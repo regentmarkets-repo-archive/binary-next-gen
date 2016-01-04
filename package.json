@@ -3,6 +3,8 @@
   "main": "src/index.js",
   "scripts": {
     "test": "webpack --config webpack.config.dev.js",
+    "test-unit": "mocha --compilers js:babel-core/register ./src/**/__tests__/*.js",
+    "test-unit:watch": "mocha --compilers js:babel-core/register  --watch ./src/**/__tests__/*.js",
     "start": "node server.js",
     "build": "npm run clean && npm run build:webpack",
     "translate": "bash fetch-translation.sh"
@@ -58,9 +60,12 @@
     "eslint-config-airbnb": "^2.0.0",
     "eslint-loader": "^1.2.0",
     "eslint-plugin-react": "^3.13.1",
+    "expect": "^1.13.4",
     "express": "^4.13.3",
     "json-loader": "^0.5.4",
+    "mocha": "^2.3.4",
     "react-addons-perf": "^0.14.3",
+    "react-addons-test-utils": "^0.14.5",
     "webpack": "^1.12.7",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-hot-middleware": "^2.6.0"
