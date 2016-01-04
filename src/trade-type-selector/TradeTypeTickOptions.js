@@ -1,7 +1,20 @@
 import React, { PropTypes } from 'react';
 import { RadioItem, RadioGroup } from '../_common';
-import { digitMatchOptions } from '../_constants/TradeParams';
-import { typeHasBarrier } from '../_utils/TradeUtils';
+import { typeHasBarrier, digitOptions } from '../_utils/TradeUtils';
+
+const digitOptionsByType = type => {
+	switch (type) {
+		case 'DIGITOVER': {
+			return digitOptions(0, 9);
+		}
+		case 'DIGITUNDER': {
+			return digitOptions(1, 10);
+		}
+		default: {
+			return digitOptions(0, 10);
+		}
+	}
+};
 
 const TradeTypeTickOptions = ({ onTypeChange, onBarrierChange, type, barrier }) => (
 	<div>
@@ -171,7 +184,7 @@ const TradeTypeTickOptions = ({ onTypeChange, onBarrierChange, type, barrier }) 
 			<RadioGroup
 				label="Last Digit Prediction"
 				name="digit-match-differ"
-				options={digitMatchOptions}
+				options={digitOptionsByType(type)}
 				onChange={onBarrierChange}
 				value={barrier}
 			/>

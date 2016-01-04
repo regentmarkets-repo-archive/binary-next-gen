@@ -14,3 +14,10 @@ export const tradeToFriendlyType = (code, barrier) =>
 
 export const pipsToDigits = pips =>
     Math.abs(Math.log10(pips));
+
+export const digitOptions = (from, to) => {
+    const tArr = new Uint8Array(to - from);
+    const arr = Array.from(tArr);
+    return arr.map((i, idx) => idx + from).map(x => ({ value: x, text: x.toString() }));
+};
+
