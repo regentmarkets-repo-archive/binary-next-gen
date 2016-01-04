@@ -23,6 +23,8 @@ export NumberColored from './NumberColored';
 export ObjectTable from './ObjectTable';
 export ObjectTableRow from './ObjectTableRow';
 export Panel from './Panel';
+export PurchaseFailed from './PurchaseFailed';
+export PurchaseConfirmation from './PurchaseConfirmation';
 export RadioItem from './RadioItem';
 export RadioGroup from './RadioGroup';
 export RangeGroup from './RangeGroup';

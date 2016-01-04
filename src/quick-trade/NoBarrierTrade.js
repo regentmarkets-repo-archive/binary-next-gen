@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import { Collapsible, InputGroup, RadioGroup, LabeledText } from '../_common';
+import { Collapsible, InputGroup, RadioGroup, LabeledText, Modal, PurchaseFailed, PurchaseConfirmation } from '../_common';
+import * as LiveData from '../_data/LiveData';
 
 const basisTypes = [
     { value: 'payout', text: 'Payout' },
@@ -13,6 +14,8 @@ export default class NoBarrierTrade extends Component {
         params: PropTypes.object,
         currency: PropTypes.string.isRequired,
         proposal: PropTypes.object,
+        receipt: PropTypes.object,
+        failure: PropTypes.object,
     };
 
     componentWillMount() {
@@ -36,47 +39,65 @@ export default class NoBarrierTrade extends Component {
     }
 
     onDurationUpdates(e) {
-        e.persist();
         const { tradeInfo, actions } = this.props;
-        setTimeout(() => {
-            actions.updateQuickTradeParams(tradeInfo.underlying_symbol, tradeInfo.contract_type, { duration: e.target.value });
-            actions.updateQuickTradePriceProposalSubscription(tradeInfo.underlying_symbol, tradeInfo.contract_type);
-        }, 500);
+        const newV = e.target.value;
+        actions.updateQuickTradeParams(tradeInfo.underlying_symbol, tradeInfo.contract_type, { duration: newV });
+        actions.updateQuickTradePriceProposalSubscription(tradeInfo.underlying_symbol, tradeInfo.contract_type);
     }
 
     onPayoutUpdate(e) {
         const { tradeInfo, actions } = this.props;
-        setTimeout(() => {
-            actions.updateQuickTradeParams(tradeInfo.underlying_symbol, tradeInfo.contract_type, { amount: e.target.value });
-            actions.updateQuickTradePriceProposalSubscription(tradeInfo.underlying_symbol, tradeInfo.contract_type);
-        }, 500);
+        const newV = e.target.value;
+        actions.updateQuickTradeParams(tradeInfo.underlying_symbol, tradeInfo.contract_type, { amount: newV });
+        actions.updateQuickTradePriceProposalSubscription(tradeInfo.underlying_symbol, tradeInfo.contract_type);
+    }
+
+    onPurchaseClick() {
+        const { proposal, actions, tradeInfo } = this.props;
+        LiveData.api.buyContract(proposal.id, proposal.ask_price)
+            .then(receipt => actions.setQuickTradeField(tradeInfo.underlying_symbol, tradeInfo.contract_type, 'receipt', receipt.buy))
+            .catch(error => actions.setQuickTradeField(tradeInfo.underlying_symbol, tradeInfo.contract_type, 'failure', error));
     }
 
     render() {
-        const { tradeInfo, params, proposal } = this.props;
+        const { tradeInfo, params, proposal, receipt, actions, failure } = this.props;
         return (
-            <Collapsible title={tradeInfo.contract_display} >
-                <RadioGroup
-                    name={tradeInfo.contract_type}
-                    options={basisTypes}
-                    onChange={::this.onChangeBasis}
-                    value={params && params.basis}
-                />
-                <InputGroup
-                    type="number"
-                    label="Ticks"
-                    onChange={::this.onDurationUpdates}
-                    value={params && params.duration}
-                />
-                <InputGroup
-                    type="number"
-                    label="Payout"
-                    onChange={::this.onPayoutUpdate}
-                    value={params && params.payout}
-                />
-                {proposal && <LabeledText label="Price" value={proposal.ask_price} />}
-                <button>Purchase</button>
-            </Collapsible>
+            <div>
+                <Modal
+                    shown={!!failure}
+                    onClose={() => actions.setQuickTradeField(tradeInfo.underlying_symbol, tradeInfo.contract_type, 'failure', null)}
+                >
+                    {failure && <PurchaseFailed failure={failure} />}
+                </Modal>
+                <Modal
+                    shown={!!receipt}
+                    onClose={() => actions.setQuickTradeField(tradeInfo.underlying_symbol, tradeInfo.contract_type, 'receipt', null)}
+                >
+                    {receipt && <PurchaseConfirmation receipt={receipt} />}
+                </Modal>
+                <Collapsible title={tradeInfo.contract_display} >
+                    <RadioGroup
+                        name={tradeInfo.contract_type}
+                        options={basisTypes}
+                        onChange={::this.onChangeBasis}
+                        value={params && params.basis}
+                    />
+                    <InputGroup
+                        type="number"
+                        label="Ticks"
+                        onChange={::this.onDurationUpdates}
+                        value={params && params.duration}
+                    />
+                    <InputGroup
+                        type="number"
+                        label="Payout"
+                        onChange={::this.onPayoutUpdate}
+                        value={params && params.amount}
+                    />
+                    {proposal && <LabeledText label="Price" value={proposal.ask_price} />}
+                    <button onClick={::this.onPurchaseClick}>Purchase</button>
+                </Collapsible>
+            </div>
         );
     }
 }

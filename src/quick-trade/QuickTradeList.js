@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import NoBarrierTrade from './NoBarrierTrade';
 
-const showTrade = (t, actions, params, currency, proposal) => {
+const showTrade = (t, actions, params, currency, proposal, receipt, failure) => {
     switch (t.barriers) {
         case 0: return (
             <NoBarrierTrade
@@ -10,9 +10,11 @@ const showTrade = (t, actions, params, currency, proposal) => {
                 params={params && params.toJS()}
                 currency={currency}
                 proposal={proposal}
+                receipt={receipt}
+                failure={failure}
             />
         );
-        default: return null;
+        default: return <div></div>;
     }
 };
 
@@ -20,7 +22,7 @@ export default class QuickTradeList extends Component {
     static propTypes = {
         trades: PropTypes.array.isRequired,
         actions: PropTypes.object.isRequired,
-        quickTradeParams: PropTypes.object.isRequired,
+        quickTrade: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
         proposals: PropTypes.object.isRequired,
     };
@@ -31,7 +33,7 @@ export default class QuickTradeList extends Component {
     // }
 
     render() {
-        const { trades, actions, quickTradeParams, currency, proposals } = this.props;
+        const { trades, actions, quickTrade, currency, proposals } = this.props;
         return (
             <table>
                 <thead>
@@ -46,9 +48,11 @@ export default class QuickTradeList extends Component {
                                     {showTrade(
                                         t,
                                         actions,
-                                        quickTradeParams.getIn([t.underlying_symbol, t.contract_type]),
+                                        quickTrade.getIn([t.underlying_symbol, t.contract_type, 'params']),
                                         currency,
-                                        proposals.getIn([t.underlying_symbol, t.contract_type])
+                                        proposals.getIn([t.underlying_symbol, t.contract_type]),
+                                        quickTrade.getIn([t.underlying_symbol, t.contract_type, 'receipt']),
+                                        quickTrade.getIn([t.underlying_symbol, t.contract_type, 'failure'])
                                     )}
                                 </td>
                             </tr>

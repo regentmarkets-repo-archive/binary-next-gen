@@ -6,7 +6,7 @@ import QuickTradeCard from './QuickTradeCard';
     tradingOptions: state.tradingOptions,
     workspace: state.workspace,
     assetSelector: state.assetSelector,
-    quickTradeParams: state.quickTrade,
+    quickTrade: state.quickTrade,
     proposals: state.proposals,
     currency: state.account.get('currency'),
 }))
@@ -16,7 +16,7 @@ export default class QuickTradeContainer extends React.Component {
         workspace: PropTypes.object.isRequired,
         assetSelector: PropTypes.object.isRequired,
         proposals: PropTypes.object,
-        quickTradeParams: PropTypes.object,
+        quickTrade: PropTypes.object,
         actions: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
     };

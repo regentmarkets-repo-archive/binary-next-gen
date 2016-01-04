@@ -1,11 +1,9 @@
 import React, { PropTypes } from 'react';
-import { Modal, M, NumberPlain } from '../_common';
+import { Modal, M, NumberPlain, PurchaseFailed, PurchaseConfirmation } from '../_common';
 import { trackEvent } from '../_utils/Analytics';
 import MobileChart from '../charting/MobileChart';
 import * as LiveData from '../_data/LiveData';
 import TickTradeParameters from './TickTradeParameters';
-import PurchaseConfirmation from './PurchaseConfirmation';
-import PurchaseFailed from './PurchaseFailed';
 
 export default class TickTradeCard extends React.Component {
 
@@ -84,7 +82,7 @@ export default class TickTradeCard extends React.Component {
 				<Modal shown={!!receipt}
 					onClose={() => actions.discardPurchaseReceipt()}
 				>
-					<PurchaseConfirmation receipt={receipt} />
+					<PurchaseConfirmation receipt={receipt && receipt.toJS()} />
 				</Modal>
 				<MobileChart
 					className="trade-chart"

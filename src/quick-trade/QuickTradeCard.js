@@ -8,7 +8,7 @@ export default class QuickTradeCard extends Component {
         assets: PropTypes.array.isRequired,
         trades: PropTypes.array,
         actions: PropTypes.object.isRequired,
-        quickTradeParams: PropTypes.object.isRequired,
+        quickTrade: PropTypes.object.isRequired,
     };
 
     onAssetChange(e) {
