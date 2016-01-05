@@ -38,7 +38,7 @@ export default class TradingTimesCard extends React.Component {
 					/>
 					<InputGroup
 						type="date"
-						value={dateToDateString(tradingTimesDate)}
+						defaultValue={dateToDateString(tradingTimesDate)}
 						min={todayString()}
 						max={oneYearAfterStr()}
 						className="trading-times-date-picker"
