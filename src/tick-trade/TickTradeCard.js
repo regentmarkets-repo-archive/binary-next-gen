@@ -1,11 +1,9 @@
 import React, { PropTypes } from 'react';
-import { Modal, M, NumberPlain } from '../_common';
+import { Modal, M, NumberPlain, PurchaseFailed, PurchaseConfirmation } from '../_common';
 import { trackEvent } from '../_utils/Analytics';
 import MobileChart from '../charting/MobileChart';
 import * as LiveData from '../_data/LiveData';
 import TickTradeParameters from './TickTradeParameters';
-import PurchaseConfirmation from './PurchaseConfirmation';
-import PurchaseFailed from './PurchaseFailed';
 
 export default class TickTradeCard extends React.Component {
 
@@ -67,7 +65,7 @@ export default class TickTradeCard extends React.Component {
 	}
 
 	render() {
-		const { actions, assets, tickTrade, workspace } = this.props;
+		const { actions, assets, tickTrade } = this.props;
 		const history = this.getTickHistory();
 		const spot = history.length > 0 ? history[history.length - 1].quote : null;
 		// const diff = history.length > 1 ? history[history.length - 1].quote - history[history.length - 2].quote : 0;
@@ -84,7 +82,7 @@ export default class TickTradeCard extends React.Component {
 				<Modal shown={!!receipt}
 					onClose={() => actions.discardPurchaseReceipt()}
 				>
-					<PurchaseConfirmation receipt={receipt} />
+					<PurchaseConfirmation receipt={receipt && receipt.toJS()} />
 				</Modal>
 				<MobileChart
 					className="trade-chart"
@@ -97,7 +95,6 @@ export default class TickTradeCard extends React.Component {
 					assetName={assetName}
 					assets={assets}
 					tickTrade={tickTrade}
-					workspace={workspace}
 				/>
 				<button
 					className="buy-btn"

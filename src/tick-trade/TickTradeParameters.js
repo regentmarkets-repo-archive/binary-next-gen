@@ -14,7 +14,6 @@ export default class TickTradeParameters extends React.Component {
 		actions: PropTypes.object.isRequired,
 		assets: PropTypes.object.isRequired,
 		tickTrade: PropTypes.object.isRequired,
-		workspace: PropTypes.object.isRequired,
 	};
 
 	getPrice() {

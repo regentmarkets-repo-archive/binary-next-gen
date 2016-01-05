@@ -18,24 +18,30 @@ import paymentAgent from './PaymentAgentReducers';
 import createAccount from './CreateAccountReducers';
 import upgrade from './UpgradeReducers';
 import states from './StatesReducer';
+import tradingOptions from './TradingOptionsReducer';
+import proposals from './ProposalsReducers';
+import quickTrade from './QuickTradeReducers';
 
 export default combineReducers({
     account,
     assets,
     assetSelector,
+    createAccount,
+    news,
+    paymentAgent,
     portfolio,
+    profitTable,
+    proposals,
+    quickTrade,
     settings,
     signin,
+    states,
     statement,
     ticks,
     tickTrade,
-    profitTable,
+    tradingOptions,
+    upgrade,
+    video,
     workspace,
     watchlist,
-    video,
-    news,
-    paymentAgent,
-    createAccount,
-    upgrade,
-    states,
 });
