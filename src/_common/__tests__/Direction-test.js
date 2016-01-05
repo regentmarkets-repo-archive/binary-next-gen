@@ -3,7 +3,7 @@ import TestUtils from 'react-addons-test-utils';
 import expect from 'expect';
 import Direction from '../Direction';
 
-const getOutputForComponent = component => {
+const renderShallow = component => {
     const renderer = TestUtils.createRenderer();
     renderer.render(component);
     return renderer.getRenderOutput();
@@ -12,17 +12,17 @@ const getOutputForComponent = component => {
 
 describe('Direction', () => {
     it('renders without any properties', () => {
-        const output = getOutputForComponent(<Direction />);
+        const output = renderShallow(<Direction />);
         expect(output.type).toEqual('svg');
     });
 
     it('renders when direction is negative', () => {
-        const output = getOutputForComponent(<Direction direction={-1} />);
+        const output = renderShallow(<Direction direction={-1} />);
         expect(output.type).toEqual('svg');
     });
 
     it('renders when direction is positive', () => {
-        const output = getOutputForComponent(<Direction direction={1} />);
+        const output = renderShallow(<Direction direction={1} />);
         expect(output.type).toEqual('svg');
     });
 });

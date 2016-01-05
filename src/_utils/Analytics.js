@@ -1,4 +1,5 @@
-const analytics = window.ga;
+const nullFunc = () => {};
+const analytics = window.ga || nullFunc;
 
 export const trackUserId = userId =>
     analytics('set', 'userId', userId);

@@ -4,7 +4,7 @@
   "scripts": {
     "test": "webpack --config webpack.config.dev.js",
     "test-unit": "mocha --compilers js:babel-core/register ./src/**/__tests__/*.js",
-    "test-unit:watch": "mocha --compilers js:babel-core/register  --watch ./src/**/__tests__/*.js",
+    "test-watch": "mocha --compilers js:babel-core/register  --watch ./src/**/__tests__/*.js",
     "start": "node server.js",
     "build": "npm run clean && npm run build:webpack",
     "translate": "bash fetch-translation.sh"
@@ -13,7 +13,8 @@
     "binary.com",
     "webpack",
     "react",
-    "redux"
+    "redux",
+    "websockets"
   ],
   "author": "Boris @ Binary",
   "license": "MIT",
@@ -33,8 +34,8 @@
     "echarts": "^2.2.8",
     "history": "^1.17.0",
     "immutable": "^3.7.5",
-    "react": "^0.14.5",
-    "react-dom": "^0.14.5",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6",
     "react-draggable": "^1.1.1",
     "react-intl": "^2.0.0-beta-1",
     "react-pure-render": "^1.0.2",
@@ -47,9 +48,9 @@
     "redux-thunk": "^1.0.3"
   },
   "devDependencies": {
-    "babel-core": "^6.3.26",
+    "babel-core": "^6.4.0",
     "babel-eslint": "^5.0.0-beta6",
-    "babel-loader": "^6.2.0",
+    "babel-loader": "^6.2.1",
     "babel-plugin-react-intl": "^2.0.0",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-function-bind": "^6.3.13",
@@ -57,16 +58,16 @@
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "eslint": "^1.10.3",
-    "eslint-config-airbnb": "^2.0.0",
+    "eslint-config-airbnb": "^3.1.0",
     "eslint-loader": "^1.2.0",
-    "eslint-plugin-react": "^3.13.1",
+    "eslint-plugin-react": "^3.14.0",
     "expect": "^1.13.4",
     "express": "^4.13.3",
     "json-loader": "^0.5.4",
     "mocha": "^2.3.4",
-    "react-addons-perf": "^0.14.3",
-    "react-addons-test-utils": "^0.14.5",
-    "webpack": "^1.12.7",
+    "react-addons-perf": "^0.14.6",
+    "react-addons-test-utils": "^0.14.6",
+    "webpack": "^1.12.10",
     "webpack-dev-middleware": "^1.2.0",
     "webpack-hot-middleware": "^2.6.0"
   }

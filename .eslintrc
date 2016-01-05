@@ -10,6 +10,7 @@
   ],
   "rules": {
     "indent": [0, 4],
+    "max-len": [1, 120, 4],
     "id-length": [2, { min: 1 }],
 
     "comma-dangle": [2, "always-multiline"],
