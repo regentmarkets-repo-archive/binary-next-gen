@@ -70,8 +70,8 @@ export default ({ actions, workspace }) => (
 						activeIndex={workspace.get('bottomActiveTab')}
 						onChange={idx => actions.changeActiveTab('bottom', idx)}
 						tabs={[
-							{ text: 'Open Positions', component: <PortfolioContainer /> },
-							{ text: 'Transactions', component: <StatementContainer /> },
+							{ text: 'Open Positions', component: <PortfolioContainer actions={actions} /> },
+							{ text: 'Transactions', component: <StatementContainer actions={actions} /> },
 						]}
 					/>
 				</div>
@@ -93,8 +93,8 @@ export default ({ actions, workspace }) => (
 					tabs={[
 						{ text: 'Trading Times', component: <TradingTimesContainer compact actions={actions} /> },
 						{ text: 'Asset Index', component: <AssetIndexContainer actions={actions}/> },
-						{ text: 'Videos', component: <VideoListContainer /> },
-						{ text: 'News', component: <NewsContainer /> },
+						{ text: 'Videos', component: <VideoListContainer actions={actions} /> },
+						{ text: 'News', component: <NewsContainer actions={actions} /> },
 					]}
 				/>
 			</div>

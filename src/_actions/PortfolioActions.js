@@ -18,6 +18,7 @@ export const serverDataProposalOpenContract = serverResponse => ({
 
 export const updateNow = () => ({
     type: types.UPDATE_NOW,
+    now: Math.floor(Date.now() / 1000),
 });
 
 export const updateSoldContract = (contractId, soldPrice, transId) => ({

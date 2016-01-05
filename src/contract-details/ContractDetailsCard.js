@@ -3,6 +3,7 @@ import { FormattedTime } from 'react-intl';
 import { secondsToTimeString } from '../_utils/DateUtils';
 import { NumberColored, NumberPlain, Modal, LabeledText, M } from '../_common';
 import ContractSoldDetails from './ContractSoldDetails';
+import { forceUpdateAll } from '../_utils/ApiWorkaroundUtils';
 
 const returnOnContract = (contract, proposal) => (proposal.bid_price - contract.buy_price) * 100 / contract.buy_price;
 const ContractDetailsCard = ({ contract, proposal, nowEpoch, soldResultShown, actions }) => (
@@ -95,7 +96,15 @@ const ContractDetailsCard = ({ contract, proposal, nowEpoch, soldResultShown, ac
 		{proposal && (proposal.is_valid_to_sell === 1) ?
 		<div>
 			<LabeledText id="market-price" label="Market Price" value={proposal.bid_price}/>
-			<button onClick={() => actions.sellContract(contract.contract_id, 0)}>Sell on market</button>
+			<button
+				onClick={() => {
+					actions.sellContract(contract.contract_id, 0);
+					forceUpdateAll();
+					}
+				}
+			>
+				Sell on market
+			</button>
 		</div> :
 		<div>{proposal && proposal.validation_error}</div>}
 	</div>

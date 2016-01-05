@@ -25,7 +25,10 @@ export default (state = initialState, action) => {
         }
         case SERVER_DATA_PROPOSAL_OPEN_CONTRACT: {
             const proposal = action.serverResponse.proposal_open_contract;
-            return state.setIn(['proposals', proposal.contract_id], proposal);
+            if (proposal.contract_id) {
+                return state.setIn(['proposals', proposal.contract_id], proposal);
+            }
+            return state;
         }
         case DETAILS_FOR_CONTRACT: {
             return state
@@ -33,7 +36,7 @@ export default (state = initialState, action) => {
                 .set('contractShown', action.contractShown);
         }
         case UPDATE_NOW: {
-            return state.set('now', Math.floor(Date.now() / 1000));
+            return state.set('now', action.now);
         }
         case UPDATE_SOLD_CONTRACT: {
             return state.set('soldResultShown', {
