@@ -184,8 +184,8 @@ nav.sidebar {
 }
 
 .mobile-nav-btn img {
-    padding: 1rem 0;
-    height: 100%;
+    padding: 1rem .125rem;
+    height: 3.5rem;
 }
 
 .mobile-nav-btn.active {
