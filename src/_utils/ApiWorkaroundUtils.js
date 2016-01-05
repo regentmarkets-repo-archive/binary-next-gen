@@ -1,8 +1,8 @@
 import * as LiveData from '../_data/LiveData';
+import { todayEpoch } from './DateUtils';
 
 export const forceStatementUpdate = () => {
-    const todayEpoch = Math.floor(Date.now() / 1000) - 86400;
-    LiveData.api.getStatement({ description: 1, date_from: todayEpoch });
+    LiveData.api.getStatement({ description: 1, date_from: todayEpoch() });
 };
 
 export const forcePortfolioUpdate = () => {

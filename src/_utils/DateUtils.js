@@ -25,3 +25,14 @@ export const secondsToTimeString = secs => {
         + (minutes > 0 ? `${minutes} minute(s)` : '')
         + (seconds > 0 ? `${seconds} second(s)` : '');
 };
+
+/**
+ * @param {number} x -> X days away from today, negative means before, positive means after
+  */
+export const xDayEpoch = x => {
+    const secsAway = (x - 1) * 86400;
+    return Math.floor(Date.now() / 1000) + secsAway;
+};
+
+// return epoch at the starting point of today
+export const todayEpoch = () => xDayEpoch(0);

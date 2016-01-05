@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import StatementTable from './StatementTable';
 import Tabs from '../_common/Tabs';
 import * as LiveData from '../_data/LiveData';
-import { todayString, epochToDateString } from '../_utils/DateUtils';
+import { todayString, epochToDateString, todayEpoch, xDayEpoch } from '../_utils/DateUtils';
 import { forceStatementUpdate } from '../_utils/ApiWorkaroundUtils';
 
 const getLastXMonthEpoch = x => {
@@ -83,12 +83,12 @@ export default class StatementCard extends React.Component {
 		this.setState({ activeIdx: idx });
 		switch (idx) {
 			case 0: {
-				const today = Math.floor(Date.now() / 1000) - 86400;
+				const today = todayEpoch();
 				LiveData.api.getStatement({ description: 1, date_from: today });
 				break;
 			}
 			case 1: {
-				const yesterday = Math.floor(Date.now() / 1000) - (86400 * 2);
+				const yesterday = xDayEpoch(-1);
 				LiveData.api.getStatement({ description: 1, date_from: yesterday });
 				break;
 			}
