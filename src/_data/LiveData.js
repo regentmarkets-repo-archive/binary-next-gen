@@ -17,7 +17,6 @@ const handlers = {
     'payout_currencies': 'serverDataPayoutCurrencies',
     'profit_table': 'serverDataProfitTable',
     'proposal': 'serverDataProposal',
-    'buy': 'serverDataBuy',
     'get_limits': 'serverDataAccountLimits',
     'get_self_exclusion': 'serverDataAccountSelfExclusion',
     'get_settings': 'serverDataAccountSettings',

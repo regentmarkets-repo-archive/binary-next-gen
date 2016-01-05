@@ -8,6 +8,7 @@ export default class PortfolioContainer extends React.Component {
 	static propTypes = {
 		portfolio: PropTypes.object,
 		dispatch: PropTypes.func,
+		actions: PropTypes.object.isRequired,
 	};
 
 	render() {

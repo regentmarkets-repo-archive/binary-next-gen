@@ -27,12 +27,12 @@ const PortfolioTable = ({ compact, contracts, proposals, onViewDetails }) => {
 			<tbody>
                 {contracts.map((c, i) =>
 					<PortfolioRow
-                        key={i}
-                        compact={compact}
-                        contract={c}
-                        proposal={proposals.get(c.contract_id)}
+						key={i}
+						compact={compact}
+						contract={c}
+						proposal={proposals.get(c.contract_id)}
 						history={history}
-                        onViewDetails={onViewDetails}
+						onViewDetails={onViewDetails}
 					/>
 				)}
 			</tbody>
