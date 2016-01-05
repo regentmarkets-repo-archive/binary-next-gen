@@ -9,10 +9,6 @@ export default class PortfolioCard extends React.Component {
 		forcePortfolioUpdate();
 	}
 
-	componentDidMount() {
-		setInterval(this.props.actions.updateNow, 1000);
-	}
-
 	static propTypes = {
 		compact: PropTypes.bool,
 		portfolio: PropTypes.object,
@@ -29,7 +25,6 @@ export default class PortfolioCard extends React.Component {
 			compact
 				? history.push(`/contract/${contract.contract_id}`)
 				: actions.detailsForContract(true, contract);
-		const nowEpoch = portfolio.get('now');
 		return (
 			<div>
 				<Modal
@@ -43,7 +38,6 @@ export default class PortfolioCard extends React.Component {
 					contracts={portfolio.get('contracts')}
 					proposals={portfolio.get('proposals')}
 					onViewDetails={onViewDetails}
-					nowEpoch={nowEpoch}
 				/>
 			</div>
 		);

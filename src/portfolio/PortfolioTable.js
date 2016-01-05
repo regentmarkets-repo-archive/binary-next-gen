@@ -6,14 +6,6 @@ const totalPurchase = contracts => contracts.reduce((x, y) => x + +y.buy_price, 
 const totalIndicative = () => proposals => {
 	return proposals.values().reduce((x, y) => x + +y, 0);
 };
-const contractNotExpired = (contracts, proposals) => contracts
-	.filter(c => {
-		const p = proposals.get(c.contract_id);
-		if (!p) {
-			return true;
-		}
-		return p.is_expired === 0;
-	});
 
 const PortfolioTable = ({ compact, contracts, proposals, onViewDetails }) => {
 	return (
@@ -33,8 +25,7 @@ const PortfolioTable = ({ compact, contracts, proposals, onViewDetails }) => {
 				</tr>
 			</thead>
 			<tbody>
-                {contractNotExpired(contracts, proposals)
-					.map((c, i) =>
+                {contracts.map((c, i) =>
 					<PortfolioRow
 						key={i}
 						compact={compact}
@@ -48,8 +39,8 @@ const PortfolioTable = ({ compact, contracts, proposals, onViewDetails }) => {
 			<tfoot>
 				<tr>
                     <th></th>
-					<th><NumberPlain currency="USD" value={totalPurchase(contractNotExpired(contracts, proposals))} /></th>
-                    <th><NumberPlain currency="USD" value={totalIndicative(proposals.filter(p => p.is_expired === 0))} /></th>
+					<th><NumberPlain currency="USD" value={totalPurchase(contracts)} /></th>
+                    <th><NumberPlain currency="USD" value={totalIndicative(proposals)} /></th>
                     {!compact && <th></th>}
 				</tr>
 			</tfoot>
