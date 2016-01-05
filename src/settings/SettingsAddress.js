@@ -52,7 +52,7 @@ export default class SettingsAddress extends React.Component {
 		LiveData.api.setAccountSettings(req).then(
 			response => {
 				if (response.set_settings === 1) {
-					this.actions.updateSettingFields(req);
+					this.props.actions.updateSettingFields(req);
 				} else {
 					SettingsAddress.handleUpdateError(response);
 				}
@@ -89,6 +89,7 @@ export default class SettingsAddress extends React.Component {
 					id="AddressState"
 					country={settings.country_code}
 					onChange={::this.onAddressChange}
+					selected={settings.address_state}
 				/>
 				<InputGroup
 					id="postcode"
