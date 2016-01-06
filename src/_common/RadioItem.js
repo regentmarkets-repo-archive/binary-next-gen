@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import { M } from '../_common';
+import { M } from './';
 
 export default class RadioItem extends React.Component {
 

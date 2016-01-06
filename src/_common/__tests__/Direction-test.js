@@ -7,8 +7,7 @@ const renderShallow = component => {
     const renderer = TestUtils.createRenderer();
     renderer.render(component);
     return renderer.getRenderOutput();
-}
-
+};
 
 describe('Direction', () => {
     it('renders without any properties', () => {

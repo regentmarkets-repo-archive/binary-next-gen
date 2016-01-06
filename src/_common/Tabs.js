@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { RadioItem } from '../_common';
+import RadioItem from './RadioItem';
 
 export default class Tabs extends React.Component {
 

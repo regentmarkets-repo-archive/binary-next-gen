@@ -36,7 +36,7 @@ const storageMiddleware = storage.createMiddleware(debouncedFilteredEngine, [], 
 
 const finalCreateStore = compose(
     applyMiddleware(storageMiddleware, thunkMiddleware),
-    window.devToolsExtension ? window.devToolsExtension() : f => f
+    (typeof window !== 'undefined' && window.devToolsExtension) ? window.devToolsExtension() : f => f
 )(createStore);
 const initStore = finalCreateStore(reducer);
 const load = storage.createLoader(debouncedFilteredEngine);

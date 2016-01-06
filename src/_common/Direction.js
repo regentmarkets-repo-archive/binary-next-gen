@@ -39,12 +39,13 @@ const Direction = ({ diff, width, height }) => {
 };
 
 Direction.propTypes = {
-	diff: PropTypes.number.isRequired,
+	diff: PropTypes.number,
 	width: PropTypes.number,
 	height: PropTypes.number,
 };
 
 Direction.defaultProps = {
+	diff: 0,
 	width: 15 * 0.866,
 	height: 15,
 };
