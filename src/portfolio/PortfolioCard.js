@@ -2,13 +2,8 @@ import React, { PropTypes } from 'react';
 import { Modal } from '../_common';
 import PortfolioTable from './PortfolioTable';
 import ContractDetailsCard from '../contract-details/ContractDetailsCard';
-import { forcePortfolioUpdate } from '../_utils/ApiWorkaroundUtils';
 
 export default class PortfolioCard extends React.Component {
-	componentWillMount() {
-		forcePortfolioUpdate();
-	}
-
 	static propTypes = {
 		compact: PropTypes.bool,
 		portfolio: PropTypes.object,
