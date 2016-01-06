@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
 
+import appInfo from './AppInfoReducers';
 import account from './AccountReducers';
 import assets from './AssetsReducers';
 import assetSelector from './AssetSelectorReducers';
@@ -23,6 +24,7 @@ import proposals from './ProposalsReducers';
 import quickTrade from './QuickTradeReducers';
 
 export default combineReducers({
+    appInfo,
     account,
     assets,
     assetSelector,

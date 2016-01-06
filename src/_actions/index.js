@@ -1,4 +1,5 @@
 export { serverDataAuthorize, serverDataBalance, serverDataPayoutCurrencies, updateToken } from './AccountActions';
+export { updateAppInfo } from './AppInfoActions';
 export { serverDataTradingTimes, serverDataAssetIndex, serverDataActiveSymbols } from './AssetsActions';
 export { updateAssetSelectorSearchQuery, updateAssetSelectorMarkets, updateAssetSelectorSubmarket } from './AssetSelectorActions';
 export { serverDataPortfolio, detailsForContract, serverDataProposalOpenContract, updateNow, closeSoldResult } from './PortfolioActions';
