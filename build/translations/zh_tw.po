@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2015-12-02 23:46+0000\n"
+"PO-Revision-Date: 2016-01-06 04:52+0000\n"
 "Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
-"Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/binary/"
-"static/zh_TW/>\n"
-"Language: zh_TW\n"
+"Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/binary-"
+"app/next-gen-app/zh_TW/>\n"
+"Language: zh_tw\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,10 +22,10 @@ msgid "All"
 msgstr "所有"
 
 msgid "Property"
-msgstr ""
+msgstr "財產"
 
 msgid "Value"
-msgstr ""
+msgstr "價值"
 
 msgid "Balance"
 msgstr "餘額"
@@ -34,10 +34,10 @@ msgid "Trade"
 msgstr "交易"
 
 msgid "Watchlist"
-msgstr ""
+msgstr "關注清單"
 
 msgid "Open Positions"
-msgstr ""
+msgstr "未平倉頭寸"
 
 msgid "Profit Table"
 msgstr "利潤表"
@@ -49,7 +49,7 @@ msgid "Settings"
 msgstr "設定"
 
 msgid "Sign Out"
-msgstr ""
+msgstr "登出"
 
 msgid "View"
 msgstr "檢視"
@@ -79,10 +79,10 @@ msgid "Profit/Loss"
 msgstr "利潤/虧損"
 
 msgid "Total"
-msgstr ""
+msgstr "合計"
 
 msgid "Location"
-msgstr ""
+msgstr "位置"
 
 msgid "Update"
 msgstr "更新"
@@ -97,7 +97,7 @@ msgid "Item"
 msgstr "項目"
 
 msgid "Limit ({currency})"
-msgstr ""
+msgstr "限值 ({貨幣})"
 
 msgid "Maximum number of open positions"
 msgstr "最大未平倉頭寸數目"
@@ -115,22 +115,22 @@ msgid "Withdrawal limits"
 msgstr "取款限額"
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
-msgstr ""
+msgstr "您的提款上限是 {限值} (或其他貨幣的等值)。"
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
-msgstr ""
+msgstr "您已提款相等於歐元 {提款值}。"
 
 msgid "An additional password can be used to restrict access to the cashier."
 msgstr "可使用額外密碼來限制對收銀台的存取。"
 
 msgid "Sign In"
-msgstr ""
+msgstr "登入"
 
 msgid "Get your API token"
-msgstr ""
+msgstr "領取API權杖"
 
 msgid "Create Account"
-msgstr ""
+msgstr "新增帳戶"
 
 msgid "Action"
 msgstr "動作"
@@ -145,10 +145,10 @@ msgid "Back"
 msgstr "返回"
 
 msgid "Place Order"
-msgstr ""
+msgstr "下訂單"
 
 msgid "{asset} will {type} over next {duration}"
-msgstr ""
+msgstr "{資產}將在{時段}期內{類型}"
 
 msgid "Price"
 msgstr "價格"
@@ -157,10 +157,10 @@ msgid "Asset"
 msgstr "資產"
 
 msgid "Type"
-msgstr ""
+msgstr "類型"
 
 msgid "Ticks"
-msgstr ""
+msgstr "跳動點"
 
 msgid "Amount"
 msgstr "金額"
@@ -181,13 +181,13 @@ msgid "Open Account"
 msgstr "開戶"
 
 msgid "Upgrade to Real Money Account"
-msgstr ""
+msgstr "升級為真實金錢帳戶"
 
 msgid "Date of birth"
 msgstr "出生日期"
 
 msgid "Home Address"
-msgstr ""
+msgstr "住家地址"
 
 msgid "Security"
 msgstr "安全"
