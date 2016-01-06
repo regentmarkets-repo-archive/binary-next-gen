@@ -15,7 +15,7 @@ export const detailsForContract = (areDetailsShown, contractShown) => ({
 
 export const serverDataProposalOpenContract = serverResponse => {
     const proposal = serverResponse.proposal_open_contract;
-    if (proposal.is_expired === 1) {
+    if (proposal.is_expired && proposal.is_expired === 1) {
         forceUpdateAll();
     }
     return {
