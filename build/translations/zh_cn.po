@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: 1228\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2015-12-04 05:03+0000\n"
+"PO-Revision-Date: 2016-01-06 04:52+0000\n"
 "Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
-"Language-Team: Chinese (China) <https://hosted.weblate.org/projects/binary/"
-"static/zh_CN/>\n"
+"Language-Team: Chinese (China) <https://hosted.weblate.org/projects/binary-"
+"app/next-gen-app/zh_CN/>\n"
 "Language: zh_cn\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -23,10 +23,10 @@ msgid "All"
 msgstr "所有"
 
 msgid "Property"
-msgstr ""
+msgstr "财产"
 
 msgid "Value"
-msgstr ""
+msgstr "价值"
 
 msgid "Balance"
 msgstr "余额"
@@ -35,10 +35,10 @@ msgid "Trade"
 msgstr "交易"
 
 msgid "Watchlist"
-msgstr ""
+msgstr "关注列表"
 
 msgid "Open Positions"
-msgstr ""
+msgstr "未平仓头寸"
 
 msgid "Profit Table"
 msgstr "利润表"
@@ -50,7 +50,7 @@ msgid "Settings"
 msgstr "设置"
 
 msgid "Sign Out"
-msgstr ""
+msgstr "注销"
 
 msgid "View"
 msgstr "查看"
@@ -83,7 +83,7 @@ msgid "Total"
 msgstr "总计"
 
 msgid "Location"
-msgstr ""
+msgstr "位置"
 
 msgid "Update"
 msgstr "更新"
@@ -98,7 +98,7 @@ msgid "Item"
 msgstr "项目"
 
 msgid "Limit ({currency})"
-msgstr ""
+msgstr "限值 ({货币})"
 
 msgid "Maximum number of open positions"
 msgstr "最大未平仓头寸数目"
@@ -116,22 +116,22 @@ msgid "Withdrawal limits"
 msgstr "取款限额"
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
-msgstr ""
+msgstr "您的提款上限是{限值} (或其他货币的等值)。"
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
-msgstr ""
+msgstr "您已提款相等于欧元 {提款值}。"
 
 msgid "An additional password can be used to restrict access to the cashier."
 msgstr "可使用额外密码来限制对收银台的访问。"
 
 msgid "Sign In"
-msgstr ""
+msgstr "登录"
 
 msgid "Get your API token"
-msgstr ""
+msgstr "领取API令牌"
 
 msgid "Create Account"
-msgstr ""
+msgstr "创立账户"
 
 msgid "Action"
 msgstr "操作"
@@ -146,10 +146,10 @@ msgid "Back"
 msgstr "返回"
 
 msgid "Place Order"
-msgstr ""
+msgstr "下订单"
 
 msgid "{asset} will {type} over next {duration}"
-msgstr ""
+msgstr "{资产} 将在 {时段}期内{类型}"
 
 msgid "Price"
 msgstr "价格"
@@ -182,13 +182,13 @@ msgid "Open Account"
 msgstr "开户"
 
 msgid "Upgrade to Real Money Account"
-msgstr ""
+msgstr "升级为真实金钱账户"
 
 msgid "Date of birth"
 msgstr "出生日期"
 
 msgid "Home Address"
-msgstr ""
+msgstr "住家地址"
 
 msgid "Security"
 msgstr "安全"
