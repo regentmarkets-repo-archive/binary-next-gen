@@ -38,7 +38,10 @@ const StatementTable = ({ compact, currency, transactions }) => (
 		</tbody>
 		<tfoot>
 			<tr>
-				<th>{transactions[0] && <FormattedDate value={new Date(transactions[0].transaction_time * 1000)} />}</th>
+				<th>
+					{transactions[0] &&
+						<FormattedDate value={new Date(transactions[0].transaction_time * 1000)} />}
+				</th>
 				<th></th>
 				{!compact && <th></th>}
 				<th><NumberColored value={calulateTotals(transactions)} /></th>

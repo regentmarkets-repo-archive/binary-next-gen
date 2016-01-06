@@ -70,7 +70,9 @@ export default class PaymentAgentWithdrawForm extends React.Component {
                         </div> :
                         <div>
                             <h3>Confirmation</h3>
-                            <p>{`Are you sure you want to withdraw ${currency} ${withdrawAmount} to ${selectedPaymentAgentName} ?`}</p>
+                            <p>
+                                Are you sure you want to withdraw {currency} {withdrawAmount} to {selectedPaymentAgentName}?
+                            </p>
                             <button onClick={::this.confirmWithdraw}>Confirm</button>
                         </div>
                     }

@@ -24,11 +24,11 @@ const ContractDetailsCard = ({ contract, proposal, nowEpoch, soldResultShown, ac
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>{proposal && <FormattedTime value={proposal.date_start * 1000} format="full" />}</td>
-					<td>{proposal && <FormattedTime value={window.parseInt(proposal.current_spot_time) * 1000} format="full" />}</td>
-					<td>{proposal && <FormattedTime value={proposal.date_expiry * 1000} format="full" />}</td>
-				</tr>
+				{proposal && <tr>
+					<td><FormattedTime value={proposal.date_start * 1000} format="full" /></td>
+					<td><FormattedTime value={window.parseInt(proposal.current_spot_time) * 1000} format="full" /></td>
+					<td><FormattedTime value={proposal.date_expiry * 1000} format="full" /></td>
+				</tr>}
 				<tr>
 					<td></td>
 					<td>
@@ -45,11 +45,11 @@ const ContractDetailsCard = ({ contract, proposal, nowEpoch, soldResultShown, ac
 				</tr>
 			</thead>
 			<tbody>
-				<tr>
-					<td>{proposal && proposal.entry_spot}</td>
-					<td>{proposal && <NumberColored value={proposal.current_spot} isProfit={v => v - proposal.entry_spot}/>}</td>
-					<td>{proposal && (proposal.exit_spot || '-')}</td>
-				</tr>
+				{proposal && <tr>
+					<td>proposal.entry_spot}</td>
+					<td><NumberColored value={proposal.current_spot} isProfit={v => v - proposal.entry_spot}/></td>
+					<td>{(proposal.exit_spot || '-')}</td>
+				</tr>}
 				<tr>
 					<td></td>
 					<td></td>

@@ -24,13 +24,13 @@ export default class SigninCard extends React.Component {
 	}
 
 	render() {
-		const { signin } = this.props;
+		const { progress, validatedOnce, credentialsInvalid, tokenNotEntered } = this.props.signin.toJS();
 
 		return (
 			<div className="startup-content">
 				<form className="mobile-form" onSubmit={e => e.preventDefault()}>
 					<p className="media">
-						<LogoSpinner spinning={signin.get('progress')}/>
+						<LogoSpinner spinning={progress}/>
 						<img className="logo-text" src="img/binary-type-logo.svg" />
 					</p>
 					<InputGroup
@@ -43,11 +43,11 @@ export default class SigninCard extends React.Component {
 						autoComplete="off"
 					/>
 					<ErrorMsg
-						shown={signin.get('validatedOnce') && signin.get('tokenNotEntered')}
+						shown={validatedOnce && tokenNotEntered}
 						text="You need to enter a token"
 					/>
 					<ErrorMsg
-						shown={signin.get('validatedOnce') && signin.get('credentialsInvalid') && !signin.get('tokenNotEntered')}
+						shown={validatedOnce && credentialsInvalid && !tokenNotEntered}
 						text="Access denied"
 					/>
 					<LanguagePicker />

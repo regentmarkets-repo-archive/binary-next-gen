@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
 import M from './M';
 
-const InputGroup = ({ autoFocus, id, className, label, type, hint, value, min, max, readOnly, placeholder, onChange, autoComplete, defaultValue }) => (
+const InputGroup = ({ autoFocus, id, className, label, type, hint, value, min, max,
+	readOnly, placeholder, onChange, autoComplete, defaultValue }) => (
 	<fieldset className={className}>
         {label && <label htmlFor={id}>
 			<M m={label} />

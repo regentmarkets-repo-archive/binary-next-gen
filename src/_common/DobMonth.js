@@ -1,6 +1,19 @@
 import React from 'react';
 
-const MONTHS = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
+const MONTHS = [
+	'January',
+	'February',
+	'March',
+	'April',
+	'May',
+	'June',
+	'July',
+	'August',
+	'September',
+	'October',
+	'November',
+	'December',
+];
 
 export default ({ month, onMonthChange }) => (
 	<select id="dobmm" name="dobmm" defaultValue={month} onChange={onMonthChange}>

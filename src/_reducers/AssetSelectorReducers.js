@@ -56,21 +56,27 @@ export default (state = initialState, action) => {
         }
         case UPDATE_ASSET_SELECTOR_SEARCH_QUERY: {
             const availableAssets = state.get('availableAssets');
+            const shownAssets = doFilter(availableAssets, action.query, state.get('market'), state.get('submarket'));
+
             return state
                 .set('query', action.query)
-                .set('shownAssets', doFilter(availableAssets, action.query, state.get('market'), state.get('submarket')));
+                .set('shownAssets', shownAssets);
         }
         case UPDATE_ASSET_SELECTOR_SUBMARKET: {
             const availableAssets = state.get('availableAssets');
+            const shownAssets = doFilter(availableAssets, state.get('query'), state.get('market'), action.submarket);
+
             return state
                 .set('submarket', action.submarket)
-                .set('shownAssets', doFilter(availableAssets, state.get('query'), state.get('market'), action.submarket));
+                .set('shownAssets', shownAssets);
         }
         case UPDATE_ASSET_SELECTOR_MARKETS: {
             const availableAssets = state.get('availableAssets');
+            const shownAssets = doFilter(availableAssets, state.get('query'), action.markets, state.get('submarket'));
+
             return state
                 .set('markets', fromJS(action.markets))
-                .set('shownAssets', doFilter(availableAssets, state.get('query'), action.markets, state.get('submarket')));
+                .set('shownAssets', shownAssets);
         }
         case SERVER_DATA_ASSET_INDEX: {
             const symbolWithTick = tickTradeFilter(action.serverResponse.asset_index);

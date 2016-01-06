@@ -24,7 +24,8 @@ export default class QuickTradeContainer extends React.Component {
     render() {
         const { tradingOptions, workspace, assetSelector, proposals } = this.props;
         const selected = workspace.get('symbolSelected');
-        const assets = assetSelector.get('availableAssets').toJS().map(x => ({ value: x.symbol, text: x.display_name }));
+        const availableAssets = assetSelector.get('availableAssets').toJS();
+        const assets = availableAssets.map(x => ({ value: x.symbol, text: x.display_name }));
 
         // quick trade provides tick only trades
         const opt = tradingOptions

@@ -3,7 +3,8 @@ import { NumberColored, FormattedDateRange } from '../_common';
 import ProfitRow from './ProfitRow';
 import M from '../_common/M';
 
-const calulateTotals = transactions => transactions.map(t => +t.get('sell_price') - +t.get('buy_price')).reduce((x, y) => x + y, 0);
+const calulateTotals = transactions =>
+	transactions.map(t => +t.get('sell_price') - +t.get('buy_price')).reduce((x, y) => x + y, 0);
 
 const ProfitTable = ({ compact, transactions }) => (
 	<table>

@@ -53,7 +53,9 @@ export default class SettingsAddress extends React.Component {
 
 	render() {
 		const { settings } = this.props;
-		const addressString = settings.address_line_2 ? (`${settings.address_line_1} ${settings.address_line_2}`) : settings.address_line_1;
+		const addressString = settings.address_line_2
+			? (`${settings.address_line_1} ${settings.address_line_2}`)
+			: settings.address_line_1;
 
 		return (
 			<div className="mobile-form">

@@ -72,10 +72,27 @@ export default class UpgradeStep1 extends React.Component {
 						<option value="Dr">Dr</option>
 						<option value="Prof">Prof</option>
 					</select>
-					<input name="fname" placeholder="First name" type="text" value={firstName} onChange={::this.fnameChange} maxLength="30" />
-					<input name="lname" placeholder="Family name" type="text" value={lastName} onChange={::this.lnameChange} maxLength="30" />
+					<input
+						name="fname"
+						placeholder="First name"
+						type="text"
+						value={firstName}
+						onChange={::this.fnameChange}
+						maxLength="30"
+					/>
+					<input
+						name="lname"
+						placeholder="Family name"
+						type="text"
+						value={lastName}
+						onChange={::this.lnameChange}
+						maxLength="30"
+					/>
 				</p>
-				<ErrorMsg shown={!(fnameValid && lnameValid) && this.state.showErr} text="2-30 characters, letters, spaces and  - . ' are allowed" />
+				<ErrorMsg
+					shown={!(fnameValid && lnameValid) && this.state.showErr}
+					text="2-30 characters, letters, spaces and  - . ' are allowed"
+				/>
 				<p>
 					<label htmlFor="dobdd"><M m="Date of birth" /></label>
 				</p>

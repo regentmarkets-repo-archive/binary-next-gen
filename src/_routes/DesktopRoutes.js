@@ -50,7 +50,11 @@ export default [
     { path: 'daily-prices', component: DailyPricesPage, onEnter: requireAuthOnEnter },
     { path: 'intraday-prices', component: IntradayPricesPane, onEnter: requireAuthOnEnter },
     { path: 'profit-table', component: ProfitTablePage, onEnter: requireAuthOnEnter },
-    { path: 'settings', indexRoute: { component: SettingsPersonalDetails }, onEnter: requireAuthOnEnter, component: SettingsPage, childRoutes: [
+    { path: 'settings',
+        indexRoute: { component: SettingsPersonalDetails },
+        onEnter: requireAuthOnEnter,
+        component: SettingsPage,
+        childRoutes: [
         { path: 'security', component: SettingsSecurity },
         { path: 'exclusion', component: SettingsSelfExclusion },
         { path: 'limits', component: SettingsLimits },

@@ -37,7 +37,7 @@ export default class EChart extends React.Component {
                 0,        // Series Index
                 newData[newData.length - 1],  // New data
                 false,     // Whether the new data is inserted from the head of the queue
-                false,    // Whether to increase the queue length , false then delete the original custom data , the team head insertion puncturing the tail , the tail insertion puncturing team head
+                false,    // Whether to increase the queue length
                 123123,
             ],
         ]);

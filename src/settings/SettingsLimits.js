@@ -58,7 +58,7 @@ export default class SettingsLimits extends React.Component {
 				</h2>
 				<p>
 					<M m="Your withdrawal limit is {limit} (or equivalent in other currency)."
-						values={{ limit: <strong>EUR <NumberPlain value={settings.lifetime_limit} digits={0} /></strong> }}
+						values={{ limit: <b>EUR <NumberPlain value={settings.lifetime_limit} digits={0} /></b> }}
 					/>
 				</p>
 				<p>

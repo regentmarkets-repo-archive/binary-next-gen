@@ -82,7 +82,14 @@ export default class UpgradeStep3 extends React.Component {
 						<option value="Brand of first car">Brand of first car</option>
 						<option value="Favourite artist">Favourite artist</option>
 					</select>
-					<input name="secretanswer" value={secretAnswer} placeholder="Answer to secret question" type="text" maxLength="50" onChange={::this.secretAnsChange} />
+					<input
+						name="secretanswer"
+						value={secretAnswer}
+						placeholder="Answer to secret question"
+						type="text"
+						maxLength="50"
+						onChange={::this.secretAnsChange}
+					/>
 				</p>
 				<ErrorMsg
 					shown={showErr && !secretQuestion}
@@ -94,8 +101,15 @@ export default class UpgradeStep3 extends React.Component {
 				/>
 				<p>
 					<label>
-						<input name="tnc" type="checkbox" checked={this.state.checked} onClick={::this.checkBoxClicked}/>
-						I have read and agree to the <a href="https://www.binary.com/terms-and-conditions" target="_blank">terms and conditions</a> of the site.
+						<input
+							name="tnc"
+							type="checkbox"
+							checked={this.state.checked}
+							onClick={::this.checkBoxClicked}
+						/>
+						<span>I have read and agree to the </span>
+						<a href="https://www.binary.com/terms-and-conditions" target="_blank">terms and conditions</a>
+						<span> of the site.</span>
 					</label>
 				</p>
 				<ErrorMsg

@@ -110,8 +110,22 @@ export default class UpgradeStep2 extends React.Component {
 					text="Please choose your country"
 				/>
 				<p>
-					<input name="AddressTown" value={addressCity} placeholder="Town/City" type="text" maxLength="35" onChange={::this.cityChange} />
-					<input name="AddressPostcode" value={addressPostcode} placeholder="Postal Code / ZIP" type="text" maxLength="20" onChange={::this.postcodeChange} />
+					<input
+						name="AddressTown"
+						value={addressCity}
+						placeholder="Town/City"
+						type="text"
+						maxLength="35"
+						onChange={::this.cityChange}
+					/>
+					<input
+						name="AddressPostcode"
+						value={addressPostcode}
+						placeholder="Postal Code / ZIP"
+						type="text"
+						maxLength="20"
+						onChange={::this.postcodeChange}
+					/>
 				</p>
 				<ErrorMsg
 					shown={showErr && !cityValid}
@@ -122,17 +136,38 @@ export default class UpgradeStep2 extends React.Component {
 					text="Postcode must not contain +"
 				/>
 				<p>
-					<input name="Address1" value={addressLine1} placeholder="First line" type="text" maxLength="70" onChange={::this.address1Change} />
+					<input
+						name="Address1"
+						value={addressLine1}
+						placeholder="First line"
+						type="text"
+						maxLength="70"
+						onChange={::this.address1Change}
+					/>
 				</p>
 				<ErrorMsg
 					shown={showErr && !address1Valid}
 					text="Address must not be empty"
 				/>
 				<p>
-					<input name="Address2" value={addressLine2} placeholder="Second line" type="text" maxLength="70" onChange={::this.address2Change} />
+					<input
+						name="Address2"
+						value={addressLine2}
+						placeholder="Second line"
+						type="text"
+						maxLength="70"
+						onChange={::this.address2Change}
+					/>
 				</p>
 				<p>
-					<input name="Tel" value={phone} placeholder="Telephone" type="tel" maxLength="35" onChange={::this.phoneChange} />
+					<input
+						name="Tel"
+						value={phone}
+						placeholder="Telephone"
+						type="tel"
+						maxLength="35"
+						onChange={::this.phoneChange}
+					/>
 				</p>
 				<ErrorMsg
 					shown={showErr && !phoneValid}

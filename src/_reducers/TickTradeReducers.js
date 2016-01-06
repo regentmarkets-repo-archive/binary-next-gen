@@ -29,7 +29,7 @@ export default (state = initialState, action) => {
             return state.set('ticks', fromJS([])).set('ticksHistory', fromJS([]));
         }
         case WORKSPACE_ASSET_SELECT: {
-            return state.merge({ 'assetSymbol': action.symbol });
+            return state.merge({ assetSymbol: action.symbol });
         }
         case UPDATE_TICK_TRADE_PARAMETERS: {
             return state.merge(action.parameters);
