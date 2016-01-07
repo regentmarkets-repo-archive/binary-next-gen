@@ -23,7 +23,6 @@ export default class DesktopHeader extends React.Component {
 					<NumberPlain currency={account.currency} value={account.balance} />
 				</span>
 				<LanguagePicker />
-				<span>{account.loginid}</span>
 				<span>{account.email}</span>
 			</div>
 		);

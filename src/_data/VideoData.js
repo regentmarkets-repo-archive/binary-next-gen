@@ -3,11 +3,12 @@ const key = 'AIzaSyDM8-uF9EGwVl4litOnFGSbBzWodGVRnLU';
 
 const dailyNewsPlaylist = 'PLVJJAiu3lRjYz1XO_yoyIRxgz5zBlQc-g';
 
-const playlistItemApi = 'https://www.googleapis.com/youtube/v3/playlistItems';
-const playlistApi = 'https://www.googleapis.com/youtube/v3/playlists';
+const playlistItemApiUrl = 'https://www.googleapis.com/youtube/v3/playlistItems';
+const playlistApiUrl = 'https://www.googleapis.com/youtube/v3/playlists';
 
 export const getVideosFromPlayList = (playlistID = dailyNewsPlaylist, max = 50) => {
-    const queryUrl = `${playlistItemApi}?part=contentDetails,snippet,status&playlistId=${playlistID}&maxResults=${max}&key=${key}`;
+    const queryUrl = `${playlistItemApiUrl}?part=contentDetails,snippet,status` +
+        `&playlistId=${playlistID}&maxResults=${max}&key=${key}`;
 
     return fetch(queryUrl)
         .then(response => response.json())
@@ -27,7 +28,7 @@ export const getAllPlaylists = (channelID = binaryChannelID, max = 50) => {
         'maxResults=' + max + '&' +
         'key=' + key;
 
-    return fetch(playlistApi + '?' + query).
+    return fetch(playlistApiUrl + '?' + query).
         then((response) => {
             return response.json();
         }).

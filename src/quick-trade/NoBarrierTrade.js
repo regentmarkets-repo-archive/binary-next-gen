@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import { Collapsible, InputGroup, RadioGroup, LabeledText, Modal, PurchaseFailed, PurchaseConfirmation } from '../_common';
+import { Collapsible, InputGroup, RadioGroup, LabeledText,
+    Modal, PurchaseFailed, PurchaseConfirmation } from '../_common';
 import * as LiveData from '../_data/LiveData';
 
 const basisTypes = [
@@ -55,8 +56,22 @@ export default class NoBarrierTrade extends Component {
     onPurchaseClick() {
         const { proposal, actions, tradeInfo } = this.props;
         LiveData.api.buyContract(proposal.id, proposal.ask_price)
-            .then(receipt => actions.setQuickTradeField(tradeInfo.underlying_symbol, tradeInfo.contract_type, 'receipt', receipt.buy))
-            .catch(error => actions.setQuickTradeField(tradeInfo.underlying_symbol, tradeInfo.contract_type, 'failure', error));
+            .then(receipt =>
+                actions.setQuickTradeField(
+                    tradeInfo.underlying_symbol,
+                    tradeInfo.contract_type,
+                    'receipt',
+                    receipt.buy
+                )
+            )
+            .catch(error =>
+                actions.setQuickTradeField(
+                    tradeInfo.underlying_symbol,
+                    tradeInfo.contract_type,
+                    'failure',
+                    error
+                )
+            );
     }
 
     render() {
@@ -65,13 +80,27 @@ export default class NoBarrierTrade extends Component {
             <div>
                 <Modal
                     shown={!!failure}
-                    onClose={() => actions.setQuickTradeField(tradeInfo.underlying_symbol, tradeInfo.contract_type, 'failure', null)}
+                    onClose={() =>
+                        actions.setQuickTradeField(
+                            tradeInfo.underlying_symbol,
+                            tradeInfo.contract_type,
+                            'failure',
+                            null
+                        )
+                    }
                 >
                     {failure && <PurchaseFailed failure={failure} />}
                 </Modal>
                 <Modal
                     shown={!!receipt}
-                    onClose={() => actions.setQuickTradeField(tradeInfo.underlying_symbol, tradeInfo.contract_type, 'receipt', null)}
+                    onClose={() =>
+                        actions.setQuickTradeField(
+                            tradeInfo.underlying_symbol,
+                            tradeInfo.contract_type,
+                            'receipt',
+                            null
+                        )
+                    }
                 >
                     {receipt && <PurchaseConfirmation receipt={receipt} />}
                 </Modal>

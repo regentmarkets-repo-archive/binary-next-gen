@@ -53,7 +53,7 @@ export default class PaymentAgentWithdrawForm extends React.Component {
             withdrawAmount,
             withdrawClicked,
             confirmClicked,
-            } = this.props;
+        } = this.props;
 
         const selectedPaymentAgentName = selectedPaymentAgent ?
             paymentAgentOptions.filter(pa => pa.value === selectedPaymentAgent)[0].text :
@@ -65,13 +65,14 @@ export default class PaymentAgentWithdrawForm extends React.Component {
                     children={
                         dryRunFailed ?
                         <div>
-                            <h3>Withdrawal Failed</h3>
+                            <h3><M m="Withdrawal Failed" /></h3>
                             <p>{dryRunError}</p>
                         </div> :
                         <div>
-                            <h3>Confirmation</h3>
+                            <h3><M m="Confirmation" /></h3>
                             <p>
-                                Are you sure you want to withdraw {currency} {withdrawAmount} to {selectedPaymentAgentName}?
+                                <M m="Are you sure you want to withdraw" />
+                                <span> {currency} {withdrawAmount} to {selectedPaymentAgentName}?></span>
                             </p>
                             <button onClick={::this.confirmWithdraw}>Confirm</button>
                         </div>

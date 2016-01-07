@@ -74,7 +74,9 @@ const ContractDetailsCard = ({ contract, proposal, nowEpoch, soldResultShown, ac
 						isProfit={v => v - contract.buy_price}
 						/>}
 					</td>
-					<td>{contract.final_price ? <NumberPlain value={contract.final_price} currency={contract.currency}/> : '-'}</td>
+					<td>{contract.final_price
+							? <NumberPlain value={contract.final_price} currency={contract.currency}/>
+							: '-'}</td>
 				</tr>
 				<tr>
 					<td></td>
