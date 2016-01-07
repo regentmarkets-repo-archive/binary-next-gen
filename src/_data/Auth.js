@@ -1,4 +1,5 @@
 import { store } from '../_store/configureStore';
+import { bindActionCreators } from 'redux';
 import * as LiveData from './LiveData';
 import { updateToken, signinFieldUpdate, updateAppInfo } from '../_actions';
 import { trackUserId } from '../_utils/Analytics';
@@ -10,23 +11,34 @@ export const tryAuth = (st) => {
     }
 
     const token = newState.account.get('token');
+    const actions = bindActionCreators(
+        {
+            updateToken,
+            signinFieldUpdate,
+            updateAppInfo,
+        },
+        st.dispatch
+    );
+
     if (!token) {
-        st.dispatch(signinFieldUpdate('progress', false));
-        st.dispatch(signinFieldUpdate('tokenNotEntered', true));
+        actions.signinFieldUpdate('progress', false);
+        actions.signinFieldUpdate('tokenNotEntered', true);
         return Promise.reject();
     }
-    st.dispatch(updateAppInfo('authorized', false));
+
+    actions.updateAppInfo('authorized', false);
+
     return LiveData.api.authorize(token).then(
         response => {
-            st.dispatch(signinFieldUpdate('credentialsInvalid', false));
+            actions.signinFieldUpdate('credentialsInvalid', false);
             trackUserId(response.authorize.loginid);
-            st.dispatch(updateAppInfo('authorized', true));
+            actions.updateAppInfo('authorized', true);
         },
         () => {
-            st.dispatch(signinFieldUpdate('credentialsInvalid', true));
+            actions.signinFieldUpdate('credentialsInvalid', true);
         })
         .then(() => {
-            st.dispatch(signinFieldUpdate('progress', false));
+            actions.signinFieldUpdate('progress', false);
         });
 };
 
@@ -47,6 +59,7 @@ export const requireAuthOnEnter = (nextState, replaceState, cb) => {
 
 export const signout = (nextState, replaceState) => {
     store.dispatch(updateToken(''));
+    store.dispatch(signinFieldUpdate('validatedOnce', false));
     store.dispatch(updateAppInfo('authorized', false));
     navigateTo(nextState, replaceState, '/signin');
 };
