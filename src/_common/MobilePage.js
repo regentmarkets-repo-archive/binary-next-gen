@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { MobileToolbarFull, MobileToolbarBack } from '../navigation';
-import LoadingView from '../_common/LoadingView';
 
 @connect(state => ({ isAuthorized: state.appInfo.get('authorized') }))
 export default class MobilePage extends React.Component {
@@ -19,17 +18,15 @@ export default class MobilePage extends React.Component {
 	};
 
 	render() {
-		const { backBtnBarTitle, children, toolbarShown, inverse, backTo, isAuthorized } = this.props;
+		const { backBtnBarTitle, children, toolbarShown, inverse, backTo } = this.props;
 		return (
-			isAuthorized ?
-				<div className={inverse ? 'mobile-page inverse' : 'mobile-page'}>
-					{toolbarShown ? <MobileToolbarFull /> : null}
-					{backBtnBarTitle ? <MobileToolbarBack backBtnBarTitle={backBtnBarTitle} to={backTo} /> : null}
-					<div className="mobile-content">
-						{children}
-					</div>
-				</div> :
-				<LoadingView />
+			<div className={inverse ? 'mobile-page inverse' : 'mobile-page'}>
+				{toolbarShown ? <MobileToolbarFull /> : null}
+				{backBtnBarTitle ? <MobileToolbarBack backBtnBarTitle={backBtnBarTitle} to={backTo} /> : null}
+				<div className="mobile-content">
+					{children}
+				</div>
+			</div>
 		);
 	}
 }
