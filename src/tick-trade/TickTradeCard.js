@@ -4,7 +4,6 @@ import { trackEvent } from '../_utils/Analytics';
 import MobileChart from '../charting/MobileChart';
 import * as LiveData from '../_data/LiveData';
 import TickTradeParameters from './TickTradeParameters';
-import { forceUpdateAll } from '../_utils/ApiWorkaroundUtils';
 
 export default class TickTradeCard extends React.Component {
 
@@ -20,9 +19,9 @@ export default class TickTradeCard extends React.Component {
 		workspace: PropTypes.object.isRequired,
 	};
 
-	getPriceProposal() {
+	subscribeToPriceProposal() {
 		const { tickTrade, actions } = this.props;
-		actions.getPriceProposal(tickTrade);
+		actions.subscribeToPriceProposal(tickTrade);
 	}
 
 	placeOrder() {
@@ -41,10 +40,7 @@ export default class TickTradeCard extends React.Component {
 					buying: false,
 				});
 			}
-		).then(() => {
-			this.getPriceProposal();
-			forceUpdateAll();			// manual update to mimic realtime-stream-api, update both as it's simpler
-		});
+		).then(() => this.subscribeToPriceProposal());
 	}
 
 	getTickHistory() {
@@ -65,7 +61,7 @@ export default class TickTradeCard extends React.Component {
 	}
 
 	componentDidMount() {
-		this.getPriceProposal();
+		this.subscribeToPriceProposal();
 	}
 
 	render() {
