@@ -10,7 +10,7 @@ export const createAccountStart = () => ({
     type: types.CREATE_ACCOUNT_START,
 });
 
-export const createAccountFailed = (serverResponse) => ({
+export const createAccountFailed = (error) => ({
     type: types.CREATE_ACCOUNT_ERROR,
-    serverResponse,
+    error,
 });
