@@ -2,12 +2,14 @@ import { fromJS } from 'immutable';
 import { CREATE_ACCOUNT_ERROR, CREATE_ACCOUNT_FIELD_UPDATE, CREATE_ACCOUNT_START } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
+    step: 0,
     validatedOnce: false,
     residence: '',
     password: '',
     email: '',
     confirmPassword: '',
     progress: false,
+    error: null,
 });
 
 export default (state = initialState, action) => {
@@ -19,7 +21,7 @@ export default (state = initialState, action) => {
             return state.set(action.fieldName, action.fieldValue);
         }
         case CREATE_ACCOUNT_ERROR: {
-            return state;
+            return state.set('error', action.error);
         }
         default: {
             return state;
