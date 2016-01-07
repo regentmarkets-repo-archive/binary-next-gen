@@ -31,7 +31,9 @@ export default class Tabs extends React.Component {
                         />
                     )}
                 </div>
-                {ActiveComponent}
+                <div className="tab-content">
+                    {ActiveComponent}
+                </div>
             </div>
         );
     }

@@ -9,11 +9,6 @@ export default class DesktopHeader extends React.Component {
 		account: PropTypes.object.isRequired,
 	};
 
-	// onLanguageChange(event) {
-	//	this.props.actions.signinFieldUpdate('language', event.target.value);
-	//	LiveData.api.changeLanguage(event.target.value);
-	// }
-
 	render() {
 		const account = this.props.account.toJS();
 

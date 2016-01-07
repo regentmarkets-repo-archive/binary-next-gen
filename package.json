@@ -5,15 +5,7 @@
     "test": "webpack --config webpack.config.dev.js",
     "test:unit": "mocha --compilers js:babel-core/register ./src/**/__tests__/*.js",
     "test:watch": "mocha --compilers js:babel-core/register --watch ./src/**/__tests__/*.js",
-
-    "test:coverage": "istanbul cover ./node_modules/mocha/bin/_mocha -- --compilers js:babel-core/register ./src/_common/__tests__/*.js",
-
-    "test:coverage2": "istanbul cover -x './src/**/__tests__/*.js' ./node_modules/mocha/bin/_mocha -- -R spec --compilers js:babel-core/register",
-    "test:single": "istanbul cover -x node_modules/mocha/.bin/_mocha ./src/**/__tests__/*.js -- -R spec  --compilers js:babel-core/register",
-    "test:try1": "istanbul cover node_modules/mocha/.bin/mocha -- --compilers js:babel-core/register --require scripts/test-helper.js --recursive 'src/__tests__/**/*.test.js'",
-    "test:try2": "istanbul cover ./node_modules/.bin/_mocha -- --compilers js:babel/register --recursive 'src/__tests__/**/*.test.js'",
-    "test:try3": "istanbul cover ./node_modules/mocha/bin/_mocha -- --compilers js:babel-core/register --recursive './src/__tests__/*.js'",
-    "test:try4": "istanbul cover ./node_modules/mocha/bin/_mocha -- --compilers js:babel-core/register ./src/_common/__tests__/*.js'",
+    "test:coverage": "istanbul cover ./node_modules/mocha/bin/_mocha ./src/_common/__tests__/*.js -- --compilers js:babel-core/register",
     "start": "node server.js",
     "build": "npm run clean && npm run build:webpack",
     "translate": "bash fetch-translation.sh"

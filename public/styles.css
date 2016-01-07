@@ -119,7 +119,6 @@ table {
 
 .mobile-content {
     padding: .5rem;
-    width: 100%;
     flex: 1;
     display: flex;
     align-content: stretch;
@@ -406,6 +405,14 @@ div[role=tabs] {
     display: flex;
     background: rgba(42, 48, 82, .75);
     color: white;
+}
+
+.tab-content, #workarea {
+    padding: .5rem;
+}
+
+.market-submarket-selector {
+    margin-bottom: .5rem;
 }
 
 .button-list {
