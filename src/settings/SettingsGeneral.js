@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import LanguagePicker from '../_common/LanguagePicker';
+import { LanguagePicker, M } from '../_common';
 
 export default class SettingsGeneral extends React.Component {
 
@@ -17,8 +17,10 @@ export default class SettingsGeneral extends React.Component {
 		const { theme } = this.props.settings;
 		return (
 			<div>
-				<LanguagePicker />
-				<select onChange={::this.onThemeChange} value={theme}>
+				<label htmlFor="language-selector"><M m="Language" /></label>
+				<LanguagePicker id="language-selector" />
+				<label htmlFor="theme-selector"><M m="Color Theme" /></label>
+				<select onChange={::this.onThemeChange} value={theme} id="theme-selector">
 					<option value="light">Light</option>
 					<option value="dark">Dark</option>
 				</select>

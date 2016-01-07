@@ -534,3 +534,7 @@ select {
 .trade-parameters .range-selector {
     margin-top: .5rem;
 }
+
+#language-selector, #theme-selector {
+    width: 100%;
+}
