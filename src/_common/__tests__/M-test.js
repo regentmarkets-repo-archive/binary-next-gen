@@ -1,17 +1,11 @@
 import React from 'react';
-import TestUtils from 'react-addons-test-utils';
 import expect from 'expect';
 import expectJSX from 'expect-jsx';
-import FormattedMessage from 'react-intl';
+import { FormattedMessage } from 'react-intl';
+import { renderShallow } from '../../_utils/TestUtils';
 import M from '../M';
 
 expect.extend(expectJSX);
-
-const renderShallow = component => {
-    const renderer = TestUtils.createRenderer();
-    renderer.render(component);
-    return renderer.getRenderOutput();
-};
 
 describe('M', () => {
     it('renders even whithout properties', () => {
@@ -21,9 +15,7 @@ describe('M', () => {
 
     it('renders FormattedMessage', () => {
         const output = renderShallow(<M />);
-        const expected = (
-            <FormattedMessage />
-        );
+        const expected = (<FormattedMessage defaultMessage="" id="" />);
         expect(output).toIncludeJSX(expected);
     });
 });

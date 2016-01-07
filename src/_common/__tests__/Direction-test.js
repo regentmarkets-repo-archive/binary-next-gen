@@ -1,13 +1,7 @@
 import React from 'react';
-import TestUtils from 'react-addons-test-utils';
 import expect from 'expect';
+import { renderShallow } from '../../_utils/TestUtils';
 import Direction from '../Direction';
-
-const renderShallow = component => {
-    const renderer = TestUtils.createRenderer();
-    renderer.render(component);
-    return renderer.getRenderOutput();
-};
 
 describe('Direction', () => {
     it('renders without any properties', () => {

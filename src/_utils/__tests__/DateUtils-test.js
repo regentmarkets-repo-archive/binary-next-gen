@@ -8,7 +8,7 @@ describe('dateToDateString', () => {
     });
     it('converts last day of the year', () => {
         const str = dateToDateString(new Date(1999, 11, 31));
-        expect(str).toEqual('2000-12-31');
+        expect(str).toEqual('1999-12-31');
     });
 });
 

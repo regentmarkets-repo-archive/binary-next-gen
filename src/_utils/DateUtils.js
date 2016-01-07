@@ -1,11 +1,14 @@
+const dateAsLocalISOString = date =>
+    new Date(date - date.getTimezoneOffset() * 60000).toISOString();
+
 export const dateToDateString = date =>
-    date.toISOString().slice(0, 10);
+    dateAsLocalISOString(date).slice(0, 10);
 
 export const epochToDateString = epoch =>
     dateToDateString(new Date(epoch * 1000));
 
 export const dateToTimeString = date =>
-    date.toISOString().slice(11, 19);
+    dateAsLocalISOString(date).slice(11, 19);
 
 export const epochToTimeString = epoch =>
     dateToTimeString(new Date(epoch * 1000));
