@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { RadioGroup, CurrencySelector } from '../_common';
+import { RadioGroup, CurrencySelector, ErrorMsg } from '../_common';
 
 const basisTypes = [
 	{ value: 'payout', text: 'Payout' },
@@ -18,7 +18,13 @@ export default class PayoutSelectorCard extends React.Component {
 
 	updateValue(val) {
 		const { actions, onChange } = this.props;
-		actions.updateTickTradeParameters(val);
+
+		if (val.amount > 100000) {
+			actions.updateTickTradeParameters({ amount: 100000 });
+		} else {
+			actions.updateTickTradeParameters(val);
+		}
+
 		if (onChange) onChange();
 	}
 
@@ -43,6 +49,10 @@ export default class PayoutSelectorCard extends React.Component {
 					min={1} max={100000}
 					value={tickTrade.get('amount')}
 					onChange={e => this.updateValue({ amount: e.target.value })}
+				/>
+				<ErrorMsg
+					shown={tickTrade.get('amount') === 100000}
+					text="Max value is 100,000"
 				/>
 				<RadioGroup
 					name="amount"
