@@ -25,7 +25,8 @@ export default class EmailVerificationForm extends React.Component {
             verification_code: createAccount.get('verificationCode'),
         })
             .then(() => history.push('/signin'))
-            .catch(err => actions.createAccountFailed(err));
+            .catch(err => actions.createAccountFailed(err))
+            .then(() => actions.createAccountFieldUpdate('progress', false));
     }
 
     render() {
@@ -40,8 +41,8 @@ export default class EmailVerificationForm extends React.Component {
                     placeholder="Verification Code"
                 />
                 <ErrorMsg
-                    shown={error}
-                    text={error && error.message}
+                    shown={!!error}
+                    text={(error && error.message) || '-'}
                 />
                 <button onClick={::this.onVerify}><M m="Verify" /></button>
             </div>

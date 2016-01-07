@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Countries, ErrorMsg, InputGroup, LogoSpinner, M } from '../_common';
+import { Countries, ErrorMsg, InputGroup, M } from '../_common';
 import * as LiveData from '../_data/LiveData';
 import config from 'json!../config.json';
 
@@ -67,7 +67,7 @@ export default class CreateAccountCard extends React.Component {
     }
 
     render() {
-        const { residence, validatedOnce, progress } = this.props.createAccount.toJS();
+        const { residence, validatedOnce } = this.props.createAccount.toJS();
         const countryNotSelected = !residence;
         const emailNotValid = !this.emailValid();
         const passwordNotValid = !this.passwordValid();
@@ -75,10 +75,6 @@ export default class CreateAccountCard extends React.Component {
 
         return (
             <div className="startup-content">
-                <p className="media">
-                    <LogoSpinner spinning={progress}/>
-                    <img className="logo-text" src="img/binary-type-logo.svg" />
-                </p>
                 <form className="mobile-form" onSubmit={e => e.preventDefault()}>
                     <InputGroup
                         type="email"
