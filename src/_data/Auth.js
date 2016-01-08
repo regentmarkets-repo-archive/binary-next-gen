@@ -1,56 +1,65 @@
-import { rehydratedStorePromise, store } from '../_store/configureStore';
+import { store } from '../_store/configureStore';
+import { bindActionCreators } from 'redux';
 import * as LiveData from './LiveData';
-import { updateToken } from '../_actions/AccountActions';
-import { signinFieldUpdate } from '../_actions/SigninActions';
+import { updateToken, signinFieldUpdate, updateAppInfo } from '../_actions';
 import { trackUserId } from '../_utils/Analytics';
 
-let isAuthorized = false;
+export const tryAuth = (st) => {
+    const newState = st.getState();
+    if (!newState.account) {
+        return Promise.reject();
+    }
+
+    const token = newState.account.get('token');
+    const actions = bindActionCreators(
+        {
+            updateToken,
+            signinFieldUpdate,
+            updateAppInfo,
+        },
+        st.dispatch
+    );
+
+    if (!token) {
+        actions.signinFieldUpdate('progress', false);
+        actions.signinFieldUpdate('tokenNotEntered', true);
+        return Promise.reject();
+    }
+
+    actions.updateAppInfo('authorized', false);
+
+    return LiveData.api.authorize(token).then(
+        response => {
+            actions.signinFieldUpdate('credentialsInvalid', false);
+            trackUserId(response.authorize.loginid);
+            actions.updateAppInfo('authorized', true);
+        },
+        () => {
+            actions.signinFieldUpdate('credentialsInvalid', true);
+        })
+        .then(() => {
+            actions.signinFieldUpdate('progress', false);
+        });
+};
 
 export const navigateTo = (nextState, replaceState, to) => {
     replaceState({ nextPathname: nextState.location.pathname }, to);
 };
 
 export const requireAuthOnEnter = (nextState, replaceState, cb) => {
-    if (isAuthorized) {
+    const authorized = store.getState().appInfo.get('authorized');
+    if (authorized) {
         cb();
         return;
     }
 
-    rehydratedStorePromise.then(st => {
-        const newState = st.getState();
-        if (!newState.account) {
-            navigateTo(nextState, replaceState, '/signin');
-            cb();
-            return;
-        }
-
-        const token = newState.account.get('token');
-        if (!token) {
-            st.dispatch(signinFieldUpdate('progress', false));
-            st.dispatch(signinFieldUpdate('tokenNotEntered', true));
-            navigateTo(nextState, replaceState, '/signin');
-            cb();
-        } else {
-            LiveData.api.authorize(token).then(
-                response => {
-                    st.dispatch(signinFieldUpdate('credentialsInvalid', false));
-                    isAuthorized = true;
-                    trackUserId(response.authorize.loginid);
-                },
-                () => {
-                    st.dispatch(signinFieldUpdate('credentialsInvalid', true));
-                    navigateTo(nextState, replaceState, '/signin');
-                })
-                .then(() => {
-                    st.dispatch(signinFieldUpdate('progress', false));
-                    cb();
-                });
-        }
-    });
+    navigateTo(nextState, replaceState, '/signin');
+    cb();
 };
 
 export const signout = (nextState, replaceState) => {
-    isAuthorized = false;
     store.dispatch(updateToken(''));
+    store.dispatch(signinFieldUpdate('validatedOnce', false));
+    store.dispatch(updateAppInfo('authorized', false));
     navigateTo(nextState, replaceState, '/signin');
 };

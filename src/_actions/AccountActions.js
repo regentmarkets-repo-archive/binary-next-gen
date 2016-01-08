@@ -1,14 +1,18 @@
 import * as types from '../_constants/ActionTypes';
+import { forceUpdateAll } from '../_utils/ApiWorkaroundUtils';
 
 export const serverDataAuthorize = serverResponse => ({
     type: types.SERVER_DATA_AUTHORIZE,
     serverResponse,
 });
 
-export const serverDataBalance = serverResponse => ({
-    type: types.SERVER_DATA_BALANCE,
-    serverResponse,
-});
+export const serverDataBalance = serverResponse => {
+    forceUpdateAll();
+    return {
+        type: types.SERVER_DATA_BALANCE,
+            serverResponse,
+    };
+};
 
 export const serverDataPayoutCurrencies = serverResponse => ({
     type: types.SERVER_DATA_PAYOUT_CURRENCIES,

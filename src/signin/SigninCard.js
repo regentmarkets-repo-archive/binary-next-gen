@@ -1,10 +1,12 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
+import * as LiveData from '../_data/LiveData';
 import { ErrorMsg, InputGroup, LanguagePicker, LogoSpinner, M } from '../_common';
 
 export default class SigninCard extends React.Component {
 
 	static propTypes = {
+		token: PropTypes.string,
 		actions: PropTypes.object.isRequired,
 		history: PropTypes.object.isRequired,
 		signin: PropTypes.object.isRequired,
@@ -14,13 +16,26 @@ export default class SigninCard extends React.Component {
 		this.props.actions.updateToken(event.target.value);
 		this.props.actions.signinFieldUpdate('validatedOnce', false);
 		this.props.actions.signinFieldUpdate('credentialsInvalid', false);
+		this.validateToken(event.target.value);
+	}
+
+	validateToken(token) {
+		if (token === '') {
+			this.props.actions.signinFieldUpdate('tokenNotEntered', true);
+		}
 	}
 
 	trySignin() {
-		const { actions, history } = this.props;
+		const { actions, history, token } = this.props;
 		actions.signinFieldUpdate('progress', true);
 		actions.signinFieldUpdate('validatedOnce', true);
-		history.push('/'); // no need to authorize here onEnter hook will authorize
+		LiveData.api.authorize(token).then(
+			() => {
+				actions.updateAppInfo('authorized', true);
+				history.push('/');
+			},
+			() => actions.signinFieldUpdate('credentialsInvalid', true)
+		).then(() => actions.signinFieldUpdate('progress', false));
 	}
 
 	render() {

@@ -3,7 +3,6 @@ import StatementTable from './StatementTable';
 import Tabs from '../_common/Tabs';
 import * as LiveData from '../_data/LiveData';
 import { todayString, epochToDateString, todayEpoch, xDayEpoch } from '../_utils/DateUtils';
-import { forceStatementUpdate } from '../_utils/ApiWorkaroundUtils';
 
 const getLastXMonthEpoch = x => {
 	const d = new Date();
@@ -17,10 +16,6 @@ export default class StatementCard extends React.Component {
 		this.state = {
 			activeIdx: 0,
 		};
-	}
-
-	componentWillMount() {
-		forceStatementUpdate();
 	}
 
 	static propTypes = {

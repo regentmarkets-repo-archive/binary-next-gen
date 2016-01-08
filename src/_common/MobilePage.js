@@ -1,25 +1,32 @@
 import React, { PropTypes } from 'react';
+import { connect } from 'react-redux';
 import { MobileToolbarFull, MobileToolbarBack } from '../navigation';
 
-const MobilePage = ({ backBtnBarTitle, children, toolbarShown, inverse, backTo }) => (
-	<div className={inverse ? 'mobile-page inverse' : 'mobile-page'}>
-		{toolbarShown ? <MobileToolbarFull /> : null}
-		{backBtnBarTitle ? <MobileToolbarBack backBtnBarTitle={backBtnBarTitle} to={backTo} /> : null}
-		<div className="mobile-content">
-			{children}
-		</div>
-	</div>
-);
+@connect(state => ({ isAuthorized: state.appInfo.get('authorized') }))
+export default class MobilePage extends React.Component {
+	static propTypes = {
+		backBtnBarTitle: PropTypes.string,
+		children: PropTypes.any,
+		toolbarShown: PropTypes.bool,
+		inverse: PropTypes.bool,
+		backTo: PropTypes.any,
+		isAuthorized: PropTypes.bool,
+	};
 
-MobilePage.propTypes = {
-	backBtnBarTitle: PropTypes.string,
-	children: PropTypes.any,
-	toolbarShown: PropTypes.bool,
-	inverse: PropTypes.bool,
-};
+	static defaultProps = {
+		toolbarShown: true,
+	};
 
-MobilePage.defaultProps = {
-	toolbarShown: true,
-};
-
-export default MobilePage;
+	render() {
+		const { backBtnBarTitle, children, toolbarShown, inverse, backTo } = this.props;
+		return (
+			<div className={inverse ? 'mobile-page inverse' : 'mobile-page'}>
+				{toolbarShown ? <MobileToolbarFull /> : null}
+				{backBtnBarTitle ? <MobileToolbarBack backBtnBarTitle={backBtnBarTitle} to={backTo} /> : null}
+				<div className="mobile-content">
+					{children}
+				</div>
+			</div>
+		);
+	}
+}

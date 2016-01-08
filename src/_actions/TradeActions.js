@@ -25,7 +25,7 @@ export const discardPurchaseReceipt = () => ({
     type: types.DISCARD_PURCHASE_RECEIPT,
 });
 
-export const getPriceProposal = (contract) => {
+export const subscribeToPriceProposal = (contract) => {
     return () => {
         LiveData.api.unsubscribeFromAllProposals();
         LiveData.api.subscribeToPriceForContractProposal({

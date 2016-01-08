@@ -18,7 +18,7 @@ export default class TickTradeParameters extends React.Component {
 
 	getPrice() {
 		const { actions, tickTrade } = this.props;
-		actions.getPriceProposal(tickTrade);
+		actions.subscribeToPriceProposal(tickTrade);
 	}
 
 	componentDidMount() {
