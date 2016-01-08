@@ -21,7 +21,7 @@ const doFilter = (AssetSelectorList, query, markets, submarket) => {
     return AssetSelectorList.filter(asset =>
         (submarket === '' ||
             submarket === asset.get('submarket_display_name')) &&
-        (query === '' ||
+        (query.trim() === '' ||
             similarStr(asset.get('symbol'), query) ||
             similarStr(asset.get('display_name'), query) ||
             similarStr(asset.get('market_display_name'), query) ||
