@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { M, LanguagePicker, NumberPlain } from '../_common';
+import { Clock, M, LanguagePicker, NumberPlain } from '../_common';
 
 @connect(state => ({ account: state.account }))
 export default class DesktopHeader extends React.Component {
@@ -17,7 +17,7 @@ export default class DesktopHeader extends React.Component {
 				<Link id="logo" to="/workspace">
 					<img src="img/binary-symbol-logo.svg" />
 				</Link>
-				<span>19:28:33 (GMT +0)</span>
+				<Clock />
 				<span>
 					<M m="Balance" />&nbsp;
 					<NumberPlain currency={account.currency} value={account.balance} />

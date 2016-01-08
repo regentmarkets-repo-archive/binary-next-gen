@@ -1,5 +1,11 @@
-const dateAsLocalISOString = date =>
-    new Date(date - date.getTimezoneOffset() * 60000).toISOString();
+export const gmtToLocal = date =>
+    new Date(date - date.getTimezoneOffset() * 60000);
+
+export const localToGmt = date =>
+    new Date(date + date.getTimezoneOffset() * 60000);
+
+export const dateAsLocalISOString = date =>
+    gmtToLocal(date).toISOString();
 
 export const dateToDateString = date =>
     dateAsLocalISOString(date).slice(0, 10);

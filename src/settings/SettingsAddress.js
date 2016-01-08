@@ -6,7 +6,9 @@ export default class SettingsAddress extends React.Component {
 	constructor(props) {
 		super(props);
 		const { settings } = props;
-		const addressString = settings.address_line_2 ? (`${settings.address_line_1} ${settings.address_line_2}`) : settings.address_line_1;
+		const addressString = settings.address_line_2
+			? (`${settings.address_line_1} ${settings.address_line_2}`)
+			: settings.address_line_1;
 		this.state = {
 			address: addressString,
 			city: settings.address_city,
