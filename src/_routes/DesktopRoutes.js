@@ -23,6 +23,7 @@ import SettingsLimits from '../settings/SettingsLimits';
 import StatementPage from '../statement/StatementPage';
 import VideoListContainer from '../video/VideoListContainer';
 import NewsContainer from '../news/NewsContainer';
+import PaymentAgentsModal from '../payment-agents/PaymentAgentsModal';
 import ChartTest from '../charting/ChartTest';
 
 
@@ -62,4 +63,5 @@ export default [
     { path: 'video', component: VideoListContainer },
     { path: 'news', component: NewsContainer },
     { path: 'chart', component: ChartTest },
+    { path: 'deposit', component: PaymentAgentsModal },
 ];

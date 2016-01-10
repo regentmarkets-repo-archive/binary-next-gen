@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import { Clock, M, LanguagePicker, NumberPlain } from '../_common';
+import { Clock, LanguagePicker, NumberPlain } from '../_common';
 
 @connect(state => ({ account: state.account }))
 export default class DesktopHeader extends React.Component {
