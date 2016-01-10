@@ -546,6 +546,10 @@ select {
     width: 100%;
 }
 
-#deposit-btn {
+#deposit-btn, .language-picker {
     margin: .5rem 0;
+}
+
+#deposit-btn {
+    line-height: 1.75;
 }

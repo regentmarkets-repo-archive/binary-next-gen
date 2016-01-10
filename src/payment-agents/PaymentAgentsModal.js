@@ -3,7 +3,7 @@ import { Modal } from '../_common';
 import PaymentAgentsContainer from './PaymentAgentsContainer';
 
 export default (props) => (
-    <Modal>
+    <Modal shown>
         <PaymentAgentsContainer {...props} />
     </Modal>
 );

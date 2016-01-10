@@ -19,9 +19,9 @@ export default class DesktopHeader extends React.Component {
 				</Link>
 				<Clock />
 				<NumberPlain currency={account.currency} value={account.balance} />
-				<LanguagePicker />
+				<LanguagePicker className="language-picker" />
 				<span>{account.email}</span>
-				<button id="deposit-btn" className="btn-secondary">Deposit</button>
+				<Link to="/deposit" id="deposit-btn" className="btn-secondary">Deposit</Link>
 			</div>
 		);
 	}

@@ -7,7 +7,7 @@ import RadioItem from '../RadioItem';
 expect.extend(expectJSX);
 
 describe('RadioItem', () => {
-    it('renders witho no properties', () => {
+    it('renders with no properties', () => {
         const output = renderShallow(<RadioItem />);
         expect(output.type).toEqual('span');
     });

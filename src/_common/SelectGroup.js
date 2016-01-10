@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 import M from './M';
 
-const SelectGroup = ({ id, label, hint, value, options, readOnly, placeholder, onChange }) => (
-	<fieldset>
+const SelectGroup = ({ className, id, label, hint, value, options, readOnly, placeholder, onChange }) => (
+	<fieldset className={className}>
         {label && <label htmlFor={id}>
 			<M m={label} />
 		</label>}
@@ -22,6 +22,10 @@ SelectGroup.propTypes = {
 	placeholder: PropTypes.string,
 	readOnly: PropTypes.bool,
 	value: PropTypes.string,
+};
+
+SelectGroup.defaultProps = {
+	options: [],
 };
 
 export default SelectGroup;
