@@ -545,3 +545,7 @@ select {
 #language-selector, #theme-selector {
     width: 100%;
 }
+
+#deposit-btn {
+    margin: .5rem 0;
+}

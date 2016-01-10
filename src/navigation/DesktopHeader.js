@@ -13,17 +13,15 @@ export default class DesktopHeader extends React.Component {
 		const account = this.props.account.toJS();
 
 		return (
-			<div id="header">
+			<div id="header" className="inverse">
 				<Link id="logo" to="/workspace">
 					<img src="img/binary-symbol-logo.svg" />
 				</Link>
 				<Clock />
-				<span>
-					<M m="Balance" />&nbsp;
-					<NumberPlain currency={account.currency} value={account.balance} />
-				</span>
+				<NumberPlain currency={account.currency} value={account.balance} />
 				<LanguagePicker />
 				<span>{account.email}</span>
+				<button id="deposit-btn" className="btn-secondary">Deposit</button>
 			</div>
 		);
 	}
