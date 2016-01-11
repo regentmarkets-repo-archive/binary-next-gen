@@ -124,6 +124,7 @@ table {
     align-content: stretch;
     flex-direction: column;
     overflow: auto;
+    width: 100%;
 }
 
 .mobile-content tbody tr {
@@ -197,12 +198,12 @@ nav.sidebar {
 
 .range-selector-items {
     display: flex;
-    width: 15rem;
+    width: 100%;
     margin: .25rem .25rem 0 .25rem;
     justify-content: space-between;
 }
 
-.market-submarket-selector, .asset-search, .asset-search > input, .trading-times-date-picker > input {
+.market-submarket-selector, .asset-search, .asset-search > input, .trading-times-date-picker > input, input[type=range] {
     width: 100%;
 }
 
