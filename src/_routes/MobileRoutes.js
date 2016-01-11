@@ -15,6 +15,7 @@ import NewsMobile from '../mobile/NewsMobile';
 import ArticleMobile from '../news/ArticleMobile';
 import ResourcesMobile from '../mobile/ResourcesMobile';
 import PaymentAgentsMobile from '../payment-agents/PaymentAgentsMobile';
+import DurationMobile from '../tick-trade/DurationMobile';
 import QuickTradeContainer from '../quick-trade/QuickTradeContainer';
 
 import { requireAuthOnEnter, signout } from '../_data/Auth';
@@ -39,4 +40,5 @@ export default [
     { path: 'resources-mobile', component: ResourcesMobile },
     { path: 'payment-agents', component: PaymentAgentsMobile, onEnter: requireAuthOnEnter },
     { path: 'quick-trade', component: QuickTradeContainer, onEnter: requireAuthOnEnter },
+    { path: 'duration', component: DurationMobile, onEnter: requireAuthOnEnter },
 ];
