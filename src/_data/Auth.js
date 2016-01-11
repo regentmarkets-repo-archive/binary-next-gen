@@ -27,7 +27,6 @@ export const tryAuth = (st) => {
     }
 
     actions.updateAppInfo('authorized', false);
-
     return LiveData.api.authorize(token).then(
         response => {
             actions.signinFieldUpdate('credentialsInvalid', false);

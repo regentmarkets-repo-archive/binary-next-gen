@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { RadioGroup, CurrencySelector } from '../_common';
+import { RadioGroup, CurrencySelector, InputGroup } from '../_common';
 
 const basisTypes = [
 	{ value: 'payout', text: 'Payout' },
@@ -7,9 +7,9 @@ const basisTypes = [
 ];
 
 const payoutAmounts = [1, 2, 5, 10, 20, 50, 100, 500, 1000].map(x => ({ value: x, text: x }));
-
+const maxAmount = 100000;
+const minAmount = 1;
 export default class PayoutSelectorCard extends React.Component {
-
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
 		tickTrade: PropTypes.object.isRequired,
@@ -18,7 +18,15 @@ export default class PayoutSelectorCard extends React.Component {
 
 	updateValue(val) {
 		const { actions, onChange } = this.props;
-		actions.updateTickTradeParameters(val);
+
+		if (val.amount > maxAmount) {
+			actions.updateTickTradeParameters({ amount: maxAmount });
+		} else if (val.amount < minAmount) {
+			actions.updateTickTradeParameters({ amount: minAmount });
+		} else {
+			actions.updateTickTradeParameters(val);
+		}
+
 		if (onChange) onChange();
 	}
 
@@ -38,9 +46,9 @@ export default class PayoutSelectorCard extends React.Component {
 					value={tickTrade.get('currency')}
 					onChange={e => this.updateValue({ currency: e.target.value })}
 				/>
-				<input
+				<InputGroup
 					type="number"
-					min={1} max={100000}
+					min={minAmount} max={maxAmount}
 					value={tickTrade.get('amount')}
 					onChange={e => this.updateValue({ amount: e.target.value })}
 				/>

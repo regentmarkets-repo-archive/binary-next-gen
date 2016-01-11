@@ -457,6 +457,14 @@ select {
     cursor: pointer;
 }
 
+.asset-list tbody tr.selected {
+    background-color: rgba(42, 48, 82, 0.2);
+}
+
+.inverse .asset-list tbody tr.selected {
+    background-color: rgba(221, 221, 221, 0.2);
+}
+
 .tick-sparklines {
     text-align: center;
 }

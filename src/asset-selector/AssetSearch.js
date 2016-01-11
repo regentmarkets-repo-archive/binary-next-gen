@@ -6,7 +6,8 @@ const AssetSearch = ({ onChange }) => (
 		className="asset-search"
 		type="search"
 		placeholder="Search for assets"
-		onChange={onChange} />
+		onChange={onChange}
+	/>
 );
 
 AssetSearch.propTypes = {
