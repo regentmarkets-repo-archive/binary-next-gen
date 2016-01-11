@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import StatementTable from './StatementTable';
-import Tabs from '../_common/Tabs';
+import { M, Tabs } from '../_common';
 import * as LiveData from '../_data/LiveData';
 import { todayString, epochToDateString, todayEpoch, xDayEpoch } from '../_utils/DateUtils';
 
@@ -117,11 +117,14 @@ export default class StatementCard extends React.Component {
 					activeIndex={activeIdx}
 					onChange={::this.onFilterChange}
 				/>
-				<StatementTable
-					compact={compact}
-					transactions={filteredTransactions}
-					currency={currency}
-				/>
+				{filteredTransactions.length > 0 ?
+					<StatementTable
+						compact={compact}
+						transactions={filteredTransactions}
+						currency={currency}
+					/> :
+					<M m="There are no transactions for selected period" />
+				}
 			</div>
 		);
 	}
