@@ -29,7 +29,7 @@ export default class AssetSelectorItem extends React.Component {
 		const { asset, onSelect, isFavorite, isSelected } = this.props;
 
 		return (
-			<tr className={isSelected ? 'focus-like' : ''} tabIndex={0}>
+			<tr className={isSelected ? 'selected' : ''} tabIndex={0}>
 				<td onClick={::this.toggleFavorite}>
 					<Star on={isFavorite} />
 				</td>
