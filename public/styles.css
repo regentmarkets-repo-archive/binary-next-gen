@@ -37,7 +37,7 @@ body {
     justify-content: space-between;
 }
 
-#header span {
+#header > span {
     line-height: 4;
 }
 
@@ -561,4 +561,9 @@ select {
 
 #deposit-btn {
     line-height: 1.75;
+}
+
+.balance {
+    font-size: 1.5rem;
+    line-height: 2 !important;
 }

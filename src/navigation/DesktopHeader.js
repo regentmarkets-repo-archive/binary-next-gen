@@ -18,9 +18,9 @@ export default class DesktopHeader extends React.Component {
 					<img src="img/binary-symbol-logo.svg" />
 				</Link>
 				<Clock />
-				<NumberPlain currency={account.currency} value={account.balance} />
 				<LanguagePicker className="language-picker" />
 				<span>{account.email}</span>
+				<NumberPlain className="balance" currency={account.currency} value={account.balance} />
 				<Link to="/deposit" id="deposit-btn" className="btn-secondary">Deposit</Link>
 			</div>
 		);
