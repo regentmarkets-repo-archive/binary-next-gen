@@ -104,7 +104,10 @@ table {
     margin-top: -1rem;
     margin-right: -1rem;
     float: right;
-    box-shadow: none;
+}
+
+.close-btn, .close-btn:hover {
+    box-shadow: none !important;
 }
 
 .mobile-page {

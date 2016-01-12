@@ -3,7 +3,7 @@ import expect from 'expect';
 import { renderShallow } from '../../_utils/TestUtils';
 import NumberPlain from '../NumberPlain';
 
-describe('Direction', () => {
+describe('NumberPlain', () => {
     it('renders without any properties', () => {
         const output = renderShallow(<NumberPlain />);
         expect(output.type).toEqual('span');

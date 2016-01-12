@@ -6,7 +6,7 @@ import SelectGroup from '../SelectGroup';
 
 expect.extend(expectJSX);
 
-describe('RadioItem', () => {
+describe('SelectGroup', () => {
     it('renders with no properties', () => {
         const output = renderShallow(<SelectGroup />);
         expect(output.type).toEqual('fieldset');
@@ -16,7 +16,7 @@ describe('RadioItem', () => {
         const output = renderShallow(<SelectGroup className="test-class" />);
         expect(output.props.className).toEqual("test-class");
     });
-    
+
     it('passes id to select', () => {
         const output = renderShallow(<SelectGroup id="test-id" />);
         const expected = (
