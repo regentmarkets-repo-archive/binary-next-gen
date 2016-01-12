@@ -7,7 +7,7 @@ const Modal = ({ shown, onClose, children }) => shown ? (
 			{children}
 		</div>
 	</div>
-) : <div></div>;
+) : <div />;
 
 Modal.propTypes = {
 	shown: PropTypes.bool,
