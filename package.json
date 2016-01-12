@@ -32,7 +32,7 @@
   },
   "dependencies": {
     "binary-live-api": "*",
-    "echarts": "^2.2.8",
+    "echarts": "^3.0.0",
     "history": "^1.17.0",
     "immutable": "^3.7.5",
     "react": "^0.14.6",
