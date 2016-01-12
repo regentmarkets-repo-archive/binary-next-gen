@@ -5,13 +5,13 @@ const basises = ['payout', 'stake'];
 const payouts = [5, 10, 50, 100, 500, 1000];
 export default class FullTradePayout extends Component {
     static propTypes = {
-        basis: PropTypes.oneOf(basises),
-        amount: PropTypes.number,
+        basis: PropTypes.oneOf(basises).isRequired,
+        amount: PropTypes.number.isRequired,
         max: PropTypes.number,
         min: PropTypes.number,
         currency: PropTypes.string.isRequired,
-        onAmountChange: PropTypes.func,     // both functions take the updated value instead of event object
-        onBasisChange: PropTypes.func,
+        onAmountChange: PropTypes.func.isRequired,     // both functions take the updated value instead of event object
+        onBasisChange: PropTypes.func.isRequired,
     };
 
     guardedAmountUpdate(e) {
