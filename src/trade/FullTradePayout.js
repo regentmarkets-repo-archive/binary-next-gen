@@ -59,11 +59,6 @@ export default class FullTradePayout extends Component {
                 />
                 <RadioGroup
                     className="radio-selector"
-                    options={[{ text: 'min', value: 'min' }, { text: 'max', value: 'max' }]}
-                    onChange={::this.setMinMax}
-                />
-                <RadioGroup
-                    className="radio-selector"
                     options={payoutOptions}
                     onChange={::this.guardedAmountUpdate}
                     value={amount}

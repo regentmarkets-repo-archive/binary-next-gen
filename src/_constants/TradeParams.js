@@ -18,3 +18,5 @@ export const tradeTypes = [
     { value: 'SPREADU', text: 'Spread Long', img: 'img/trade-spread.svg', ticks: false },
     { value: 'SPREADD', text: 'Spread Short', img: 'img/trade-spread.svg', ticks: false },
 ];
+
+export const durationUnit = ['t', 's', 'm', 'h', 'd'];

@@ -2,21 +2,25 @@ import React, { PropTypes, Component } from 'react';
 import BarrierInput from './BarrierInput';
 
 export default class FullTradeBarriers extends Component {
-    /***
-     * should show barriers with default values
-     * there could be 0, 1, or 2 barriers
-     */
     static propTypes = {
-        barriersInfo: PropTypes.array.isRequired,  // shape = { name, min, max, onBarrierChange }, assuming always numeric
+        barrier1: PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            defaultValue: PropTypes.number.isRequired,
+            onChange: PropTypes.func,
+        }),
+        barrier2: PropTypes.shape({
+            name: PropTypes.string.isRequired,
+            defaultValue: PropTypes.number.isRequired,
+            onChange: PropTypes.func,
+        }),
     };
 
     render() {
-        const { barriersInfo } = this.props;
+        const { barrier1, barrier2 } = this.props;
         return (
-            <div>
-                {barriersInfo.map(b => {
-                    return <BarrierInput min={b.min} max={b.max} name={b.name} onBarrierChange={b.onBarrierChange} />;
-                })}
+            <div className="row">
+                {barrier1 && <BarrierInput {...barrier1} />}
+                {barrier2 && <BarrierInput {...barrier2} />}
             </div>
         );
     }
