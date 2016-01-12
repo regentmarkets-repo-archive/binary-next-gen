@@ -41,6 +41,11 @@ body {
     line-height: 4;
 }
 
+#header > * {
+    margin-left: .5rem;
+    margin-right: .5rem;
+}
+
 #left-panel, #right-panel, #bottom-panel {
     overflow: auto;
 }

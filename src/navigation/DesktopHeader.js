@@ -19,6 +19,7 @@ export default class DesktopHeader extends React.Component {
 					<img src={config.logo} />
 				</Link>
 				<Clock />
+				<div style={{ flex: 1 }} />
 				<LanguagePicker className="language-picker" />
 				<span>{account.email}</span>
 				<NumberPlain className="balance" currency={account.currency} value={account.balance} />
