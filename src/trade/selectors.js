@@ -3,73 +3,13 @@ import { Set } from 'immutable';
 import { durationLarger, durationLesser, durationIsBetween } from '../_utils/TradeUtils';
 
 const selectedAssetTicksSelector = state => {
-    const selectedSymbol = state.fullTrade.get('symbol');
+    const fullTrade = state.trade.get('1').toJS();      // hardcoded 1 as fulltrade
+    const selectedSymbol = fullTrade.symbol;
     const ticks = state.ticks.get(selectedSymbol).toJS();
     return {
         ticks,
     };
 };
-
-/*
-const typeSelector = state => {
-    const selectedSymbol = state.fullTrade.get('symbol');
-    const tradingOptions = state.tradingOptions.get(selectedSymbol);
-    const allTypes = tradingOptions.map(opt => ({ value: opt.contract_type, text: opt.contract_display }));
-    return (new Set(allTypes)).toJS();
-};*/
-/*
-const durationSelector = state => {
-    const selectedSymbol = state.fullTrade.get('symbol');
-    const tradingOptions = state.tradingOptions.get(selectedSymbol);    // assuming it's available
-    const selectedType = state.fullTrade.get('type');
-    const relatedTradingOptions = tradingOptions.filter(opt => opt.contract_type === selectedType);
-    const mins = relatedTradingOptions.map(opt => opt.min_contract_duration);
-    const maxs = relatedTradingOptions.map(opt => opt.max_contract_duration);
-
-    const min = mins.reduce((a, b) => durationLesser(a, b) ? a : b);
-    const max = maxs.reduce((a, b) => durationLarger(a, b) ? a : b);
-
-    const selectedDuration = state.fullTrade.get('duration');
-    return {
-        min,
-        max,
-        duration: selectedDuration.slice(0, -1),
-        unit: selectedDuration.slice(-1),
-    };
-};
-
-// return an array, {} means no barrier required
-const barriersSelector = state => {
-    const selectedSymbol = state.fullTrade.get('symbol');
-    const selectedType = state.fullTrade.get('type');
-    const selectedDuration = state.fullTrade.get('duration');
-    const tradingOptions = state.tradingOptions.get(selectedSymbol);
-    const relatedTradingOptions = tradingOptions.filter(opt => {
-        return opt.contract_type === selectedType &&
-            durationIsBetween(selectedDuration, opt.min_contract_duration, opt.max_contract_duration);
-    });
-    const relatedTradingBarriers = relatedTradingOptions.map(opt => {
-        if (opt.barriers === 1) {
-            return [{
-                name: 'Barrier',
-                defaultValue: opt.barrier,
-            }];
-        }
-        if (opt.barriers === 2) {
-            return [{
-                name: 'High Barrier',
-                defaultValue: opt.high_barrier,
-            }, {
-                name: 'Low Barrier',
-                defaultValue: opt.low_barrier,
-            }];
-        }
-
-        return [];
-    });
-
-    return relatedTradingBarriers;
-};*/
 
 const durationInfo = (opts, duration, unit) => {
     const min = opts
@@ -124,10 +64,11 @@ const barriersInfo = (opts, selectedDuration) => {
 };
 
 const contractsSelector = state => {
-    const selectedSymbol = state.fullTrade.get('symbol');
-    const selectedDuration = state.fullTrade.get('duration');       // eg. '5'
-    const selectedDurationUnit = state.fullTrade.get('durationUnit');       // eg. 'h'
-    const selectedCategory = state.fullTrade.get('tradeCategory');
+    const fullTrade = state.trade.get('1').toJS();      // hardcoded 1 as fulltrade
+    const selectedSymbol = fullTrade.symbol;
+    const selectedDuration = fullTrade.duration;       // eg. '5'
+    const selectedDurationUnit = fullTrade.durationUnit;       // eg. 'h'
+    const selectedCategory = fullTrade.tradeCategory;
 
     const tradingOptions = state.tradingOptions.get(selectedSymbol);
     const relatedTradingOptions = tradingOptions.filter(opt => opt.contract_category === selectedCategory);
@@ -153,21 +94,25 @@ const contractsSelector = state => {
         return [
             {
                 name: 'Rise',
+                value: 'CALL',
                 durationInfo: riseDurationInfo,
                 barriersInfo: riseBarriersInfo,
             },
             {
                 name: 'Fall',
+                value: 'PUT',
                 durationInfo: fallDurationInfo,
                 barriersInfo: fallBarriersInfo,
             },
             {
                 name: 'Higher',
+                value: 'CALL',
                 durationInfo: higherDurationInfo,
                 barriersInfo: higherBarriersInfo,
             },
             {
                 name: 'Lower',
+                value: 'PUT',
                 durationInfo: lowerDurationInfo,
                 barriersInfo: lowerBarriersInfo,
             },
@@ -182,6 +127,7 @@ const contractsSelector = state => {
         const barriersInfoObj = barriersInfo(opts, selectedDuration + selectedDurationUnit);
         return {
             name: opts[0].contract_display_name,
+            value: opts[0].contract_type,
             durationInfo: durationInfoObj,
             barriersInfo: barriersInfoObj,
         };
@@ -194,10 +140,12 @@ const availableAssetsSelector = state => {
     return availables.map(asset => ({ text: asset.display_name, value: asset.symbol }));
 };
 
-const selectedAssetSelector = state => state.fullTrade.get('symbol');
+const selectedAssetSelector = state => state.trade.getIn(['1', 'symbol']);
+
 const tradingTypeSelector = state => {
-    const selected = state.fullTrade.get('tradeCategory');
-    const selectedSymbol = state.fullTrade.get('symbol');
+    const fullTrade = state.trade.get('1').toJS();      // hardcoded 1 as fulltrade
+    const selected = fullTrade.tradeCategory;
+    const selectedSymbol = fullTrade.symbol;
     const relevantOptions = state.tradingOptions.get(selectedSymbol);
 
     const tempObj = {};
@@ -211,7 +159,7 @@ const tradingTypeSelector = state => {
 };
 
 const payoutSelector = state => {
-    const { basis, amount } = state.fullTrade.toJS();
+    const { basis, amount } = state.trade.get('1').toJS();
     const currency = state.account.get('currency');
 
     return {

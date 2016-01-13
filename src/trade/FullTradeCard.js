@@ -52,6 +52,14 @@ export default class FullTradeCard extends Component {
         this.updateParams('durationUnit', unit);
     }
 
+    updateBarrier1(barrier) {
+        this.updateParams('barrier', barrier);      // it's barrier not barrier1, as this is what backend return
+    }
+
+    updateBarrier2(barrier) {
+        this.updateParams('barrier2', barrier);
+    }
+
     updateBasis(basis) {
         this.updateParams('basis', basis);
     }
@@ -67,10 +75,24 @@ export default class FullTradeCard extends Component {
             <div>
                 <MobileChart history={ticksInfo.ticks} />
                 <div className="row">
-                    <SelectGroup options={availableAssets} value={selectedAsset} />
-                    <FullTradeCategorySelector {...tradingTypeInfo} />
+                    <SelectGroup
+                        options={availableAssets}
+                        value={selectedAsset}
+                        onChange={e => this.updateAssetSelected(e.target.value)}
+                    />
+                    <FullTradeCategorySelector
+                        onCategoryChange={e => this.updateTradeCategory(e.target.value)}
+                        {...tradingTypeInfo}
+                    />
                 </div>
-                <FullTradeTypeSelector contractOptions={contractOptions} />
+                <FullTradeTypeSelector
+                    contractOptions={contractOptions}
+                    onTypeChange={::this.updateTradeType}
+                    onDurationChange={::this.updateDuration}
+                    onDurationUnitChange={::this.updateDurationUnit}
+                    onBarrier1Change={::this.updateBarrier1}
+                    onBarrier2Change={::this.updateBarrier2}
+                />
                 <FullTradePayout {...payoutInfo} />
             </div>
         );
