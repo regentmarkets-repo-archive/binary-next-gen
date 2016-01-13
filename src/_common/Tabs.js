@@ -4,6 +4,7 @@ import RadioItem from './RadioItem';
 export default class Tabs extends React.Component {
 
     static propTypes = {
+        className: PropTypes.string,
         id: PropTypes.string.isRequired,
         tabs: PropTypes.array.isRequired,
         activeIndex: PropTypes.number.isRequired,
@@ -12,13 +13,14 @@ export default class Tabs extends React.Component {
 
     static defaultProps = {
         activeIndex: 0,
+        tabs: [],
     };
 
     render() {
-        const { id, tabs, activeIndex, onChange } = this.props;
+        const { className, id, tabs, activeIndex, onChange } = this.props;
         const ActiveComponent = tabs.filter((tab, idx) => activeIndex === idx).map(x => x.component)[0];
         return (
-            <div>
+            <div className={className}>
                 <div role="tabs">
                     {tabs.map((tab, idx) =>
                         <RadioItem
