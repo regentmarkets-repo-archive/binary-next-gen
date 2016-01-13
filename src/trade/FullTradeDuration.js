@@ -6,7 +6,7 @@ export default class FullTradeDuration extends Component {
     static propTypes = {
         min: PropTypes.string.isRequired,
         max: PropTypes.string.isRequired,
-        unit: PropTypes.string,
+        durationUnit: PropTypes.string,
         duration: PropTypes.number,
         forwardStartingOptions: PropTypes.array,
         onValueChange: PropTypes.func,
@@ -14,8 +14,8 @@ export default class FullTradeDuration extends Component {
     };
 
     guardedValueUpdate(e) {
-        const { min, max, unit, onValueChange } = this.props;
-        const val = e.target.value + unit;
+        const { min, max, durationUnit, onValueChange } = this.props;
+        const val = e.target.value + durationUnit;
 
         if (durationLarger(val, max)) {
             onValueChange(max);
@@ -31,7 +31,7 @@ export default class FullTradeDuration extends Component {
         const availableTypes = durationTypes(min, max).map(u => ({ value: u, text: durationText(u) }));
 
         return (
-            <div>
+            <div className="row">
                 <InputGroup
                     type="number"
                     hint="Duration of contract"

@@ -15,6 +15,7 @@ export default class AppInfoProxy extends Component {
         Connecting...
         If this is taking too long, kindly check your connection.
         `;
-        return (connected ? this.props.children : <LoadingView text={msg}/>);
+
+        return (!!connected ? React.Children.only(this.props.children) : <LoadingView text={msg}/>);
     }
 }

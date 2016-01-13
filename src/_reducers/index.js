@@ -22,6 +22,7 @@ import states from './StatesReducer';
 import tradingOptions from './TradingOptionsReducer';
 import proposals from './ProposalsReducers';
 import quickTrade from './QuickTradeReducers';
+import fullTrade from './FullTradeReducers';
 
 export default combineReducers({
     appInfo,
@@ -46,4 +47,5 @@ export default combineReducers({
     video,
     workspace,
     watchlist,
+    fullTrade,
 });

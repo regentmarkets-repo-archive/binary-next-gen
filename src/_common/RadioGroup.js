@@ -5,7 +5,7 @@ export default class RadioGroup extends React.Component {
 
 	static propTypes = {
 		className: PropTypes.string,
-		name: PropTypes.string,
+		name: PropTypes.string.isRequired,
 		text: PropTypes.string,
 		img: PropTypes.string,
 		options: PropTypes.any.isRequired,

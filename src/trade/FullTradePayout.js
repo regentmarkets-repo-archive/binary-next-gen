@@ -59,6 +59,7 @@ export default class FullTradePayout extends Component {
                 />
                 <RadioGroup
                     className="radio-selector"
+                    name="payouts"
                     options={payoutOptions}
                     onChange={::this.guardedAmountUpdate}
                     value={amount}

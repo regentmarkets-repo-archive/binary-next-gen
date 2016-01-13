@@ -1,12 +1,9 @@
 import React, { PropTypes, Component } from 'react';
 import MobileChart from '../charting/MobileChart';
-import AssetSelectorContainer from '../asset-selector/AssetSelectorContainer';
+import { SelectGroup } from '../_common';
 import FullTradeCategorySelector from './FullTradeCategorySelector';
 import FullTradeTypeSelector from './FullTradeTypeSelector';
-import FullTradeBarriers from './FullTradeBarriers';
-import FullTradeDuration from './FullTradeDuration';
 import FullTradePayout from './FullTradePayout';
-import { Modal } from '../_common';
 
 export default class FullTradeCard extends Component {
     constructor(props) {
@@ -18,33 +15,63 @@ export default class FullTradeCard extends Component {
     }
 
     static propTypes = {
-        assetsInfo: PropTypes.array.isRequired,
-        tradingTypes: PropTypes.array.isRequired,
-        barriersInfo: PropTypes.array.isRequired,
-        durationInfo: PropTypes.object.isRequired,
+        id: PropTypes.string.isRequired,
+        priceProposalID: PropTypes.string,
+        availableAssets: PropTypes.array.isRequired,
+        selectedAsset: PropTypes.string.isRequired,
+        tradingTypeInfo: PropTypes.object.isRequired,
+        contractOptions: PropTypes.array.isRequired,
         payoutInfo: PropTypes.object.isRequired,
-        ticksInfo: PropTypes.array.isRequired,
+        ticksInfo: PropTypes.object.isRequired,
+        actions: PropTypes.object.isRequired,
     };
 
+    updateParams(name, value) {
+        const { actions, id } = this.props;
+        actions.updateTradeParams(id, name, value);
+        actions.updatePriceProposalSubscription(id);
+    }
+
+    updateAssetSelected(symbol) {
+        this.updateParams('symbol', symbol);
+    }
+
+    updateTradeCategory(category) {
+        this.updateParams('tradeCategory', category);
+    }
+
+    updateTradeType(type) {
+        this.updateParams('type', type);
+    }
+
+    updateDuration(duration) {
+        this.updateParams('duration', duration);
+    }
+
+    updateDurationUnit(unit) {
+        this.updateParams('durationUnit', unit);
+    }
+
+    updateBasis(basis) {
+        this.updateParams('basis', basis);
+    }
+
+    updateAmount(amount) {
+        this.updateParams('amount', amount);
+    }
+
     render() {
-        const { assetsInfo, tradingTypes, barriersInfo, durationInfo, payoutInfo, ticksInfo } = this.props;
-        const { showAssets } = this.state;
-        const
+        const { selectedAsset, availableAssets, tradingTypeInfo, contractOptions, payoutInfo, ticksInfo } = this.props;
 
         return (
             <div>
                 <MobileChart history={ticksInfo.ticks} />
                 <div className="row">
-                    <button onClick={() => this.setState({ showAssets: true })}>{assetsInfo.selected}</button>
-                    <Modal shown={showAssets} onClose={() => this.setState({ showAssets: false })}>
-                        <AssetSelectorContainer/>
-                    </Modal>
-                    <FullTradeCategorySelector {...tradingTypes} />
-                    <FullTradeTypeSelector {} />
-                    <FullTradeDuration {...durationInfo} />
-                    <FullTradeBarriers barriersInfo={barriersInfo} />
-                    <FullTradePayout {...payoutInfo} />
+                    <SelectGroup options={availableAssets} value={selectedAsset} />
+                    <FullTradeCategorySelector {...tradingTypeInfo} />
                 </div>
+                <FullTradeTypeSelector contractOptions={contractOptions} />
+                <FullTradePayout {...payoutInfo} />
             </div>
         );
     }
