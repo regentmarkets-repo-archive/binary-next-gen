@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-01-04 23:00+0000\n"
+"PO-Revision-Date: 2016-01-13 06:34+0000\n"
 "Last-Translator: Ehab Gubil <egubil@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/ar/>\n"
@@ -36,10 +36,10 @@ msgid "Trade"
 msgstr "التداول"
 
 msgid "Watchlist"
-msgstr ""
+msgstr "قائمة المراقبة"
 
 msgid "Open Positions"
-msgstr ""
+msgstr "المراكز المفتوحة"
 
 msgid "Profit Table"
 msgstr "جدول الأرباح"
@@ -51,7 +51,7 @@ msgid "Settings"
 msgstr "الإعدادات"
 
 msgid "Sign Out"
-msgstr ""
+msgstr "تسجيل الخروج"
 
 msgid "View"
 msgstr "شاهد"
@@ -81,10 +81,10 @@ msgid "Profit/Loss"
 msgstr "الربح/الخسارة"
 
 msgid "Total"
-msgstr ""
+msgstr "الإجمالي"
 
 msgid "Location"
-msgstr ""
+msgstr "الموقع"
 
 msgid "Update"
 msgstr "حدث"
@@ -99,7 +99,7 @@ msgid "Item"
 msgstr "بند"
 
 msgid "Limit ({currency})"
-msgstr ""
+msgstr "الحد ({currency})"
 
 msgid "Maximum number of open positions"
 msgstr "الحد الأقصى لعدد المعاملات المفتوحة"
@@ -117,22 +117,22 @@ msgid "Withdrawal limits"
 msgstr "حدود السحب"
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
-msgstr ""
+msgstr "حد السحب الخاص بك {limit} (أو ما يعادلها بالعملات الأخرى)."
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
-msgstr ""
+msgstr "لقد سحبت بالفعل ما يعادل يورو {drawn}."
 
 msgid "An additional password can be used to restrict access to the cashier."
 msgstr "يمكن استخدام كلمة مرور إضافية لحظر الوصول لصفحة الصراف."
 
 msgid "Sign In"
-msgstr ""
+msgstr "تسجيل الدخول"
 
 msgid "Get your API token"
-msgstr ""
+msgstr "احصل على الرمز المميز الخاص بك API"
 
 msgid "Create Account"
-msgstr ""
+msgstr "إنشاء حساب"
 
 msgid "Action"
 msgstr "عمل"
@@ -147,10 +147,10 @@ msgid "Back"
 msgstr "للخلف"
 
 msgid "Place Order"
-msgstr ""
+msgstr "وضع الأمر"
 
 msgid "{asset} will {type} over next {duration}"
-msgstr ""
+msgstr "{asset} سوف {type} على مدى {duration}"
 
 msgid "Price"
 msgstr "سعر"
@@ -183,13 +183,13 @@ msgid "Open Account"
 msgstr "يفتح حساب"
 
 msgid "Upgrade to Real Money Account"
-msgstr ""
+msgstr "الترقية لحساب حقيقي"
 
 msgid "Date of birth"
 msgstr "تاريخ الميلاد"
 
 msgid "Home Address"
-msgstr ""
+msgstr "عنوان المنزل"
 
 msgid "Security"
 msgstr "الأمان"
