@@ -127,6 +127,7 @@ table {
 
 .mobile-content {
     padding: .5rem;
+    min-width: 350px;
     flex: 1;
     display: flex;
     align-content: stretch;
