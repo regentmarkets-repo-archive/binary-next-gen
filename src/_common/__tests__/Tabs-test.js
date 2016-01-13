@@ -19,4 +19,9 @@ describe('Tabs', () => {
         const output = renderShallow(<Tabs className="test-class" />);
         expect(output.props.className).toEqual('test-class');
     });
+
+    it('style passed to it is set to the wrapper div', () => {
+        const output = renderShallow(<Tabs style={{ width: '100%' }} />);
+        expect(output.props.style).toEqual({ width: '100%' });
+    });
 });

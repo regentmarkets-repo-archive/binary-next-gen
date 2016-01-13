@@ -4,15 +4,15 @@ import PortfolioContainer from '../portfolio/PortfolioContainer';
 import StatementContainer from '../statement/StatementContainer';
 
 export default ({ actions, workspace }) => (
-	<div id="bottom-panel" style={{ height: workspace.get('bottomPanelSize') }}>
-		<Tabs
-			id="bottom-panel"
-			activeIndex={workspace.get('bottomActiveTab')}
-			onChange={idx => actions.changeActiveTab('bottom', idx)}
-			tabs={[
-				{ text: 'Open Positions', component: <PortfolioContainer actions={actions} /> },
-				{ text: 'Transactions', component: <StatementContainer actions={actions} /> },
-			]}
-		/>
-	</div>
+	<Tabs
+		activeIndex={workspace.get('bottomActiveTab')}
+		className="bottom-panel"
+		id="bottom-panel"
+		onChange={idx => actions.changeActiveTab('bottom', idx)}
+		style={{ height: workspace.get('bottomPanelSize') }}
+		tabs={[
+			{ text: 'Open Positions', component: <PortfolioContainer actions={actions} /> },
+			{ text: 'Transactions', component: <StatementContainer actions={actions} /> },
+		]}
+	/>
 );

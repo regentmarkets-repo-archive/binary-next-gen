@@ -37,7 +37,7 @@ body {
     justify-content: space-between;
 }
 
-#header > span {
+#header > span, #logo {
     line-height: 4;
 }
 
@@ -46,8 +46,18 @@ body {
     margin-right: .5rem;
 }
 
-#left-panel, #right-panel, #bottom-panel {
+.left-panel, .right-panel, .#bottom-panel {
     overflow: auto;
+}
+
+.right-panel {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.right-panel div[role=tabs] {
+    flex-direction: column;
+    align-content: flex-start;
 }
 
 #workarea {
@@ -151,10 +161,6 @@ header {
     display: flex;
     padding: 0 1rem;
     justify-content: space-between;
-}
-
-header span {
-    line-height: 4;
 }
 
 nav.sidebar {

@@ -6,17 +6,17 @@ import NewsContainer from '../news/NewsContainer';
 import VideoListContainer from '../video/VideoListContainer';
 
 export default ({ actions, workspace }) => (
-	<div id="right-panel" style={{ width: workspace.get('rightPanelSize') }}>
-		<Tabs
-			id="right-panel"
-			activeIndex={workspace.get('rightActiveTab')}
-			onChange={idx => actions.changeActiveTab('right', idx)}
-			tabs={[
-				{ text: 'Trading Times', component: <TradingTimesContainer compact actions={actions} /> },
-				{ text: 'Asset Index', component: <AssetIndexContainer actions={actions}/> },
-				{ text: 'Videos', component: <VideoListContainer actions={actions} /> },
-				{ text: 'News', component: <NewsContainer actions={actions} /> },
-			]}
-		/>
-	</div>
+	<Tabs
+		activeIndex={workspace.get('rightActiveTab')}
+		className="right-panel"
+		id="right-panel"
+		onChange={idx => actions.changeActiveTab('right', idx)}
+		style={{ width: workspace.get('rightPanelSize') }}
+		tabs={[
+			{ img: 'img/binary-symbol-logo.svg', component: <TradingTimesContainer compact actions={actions} /> },
+			{ img: 'img/resources.svg', component: <AssetIndexContainer actions={actions}/> },
+			{ img: 'img/news.svg', component: <VideoListContainer actions={actions} /> },
+			{ img: 'img/news.svg', component: <NewsContainer actions={actions} /> },
+		]}
+	/>
 );
