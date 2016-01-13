@@ -2,7 +2,7 @@ import React from 'react';
 import { addLocaleData } from 'react-intl';
 import { Provider } from 'react-redux';
 import { bindActionCreators } from 'redux';
-import { store, rehydratedStorePromise } from './configureStore';
+import { store, rehydratedStorePromise } from './persistentStore';
 import { Router } from 'react-router';
 import routes from '../_routes';
 import IntlProviderContainer from '../_routes/IntlProviderContainer';

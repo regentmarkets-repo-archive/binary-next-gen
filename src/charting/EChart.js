@@ -29,8 +29,6 @@ export default class EChart extends React.Component {
 
         if (areArraysEqual(data, newData)) return false;
 
-        console.log(this.echart);
-
         this.echart.setOption(this.props.options);
 
         // this.echart.addData([

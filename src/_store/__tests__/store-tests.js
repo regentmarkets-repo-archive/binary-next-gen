@@ -1,10 +1,10 @@
 import expect from 'expect';
-import store from '../configureStore';
+import store from '../persistentStore';
 
 describe('store', () => {
     it('should work with a series of actions', () => {
         store.dispatch({
-            type: 'DO_IT_NOW_MOTHERCUKER',
+            type: 'DO_SOMETHING',
             hello: 'its me',
         });
 
