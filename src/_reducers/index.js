@@ -1,27 +1,27 @@
 import { combineReducers } from 'redux';
 
-import appInfo from './AppInfoReducers';
-import account from './AccountReducers';
-import assets from './AssetsReducers';
-import assetSelector from './AssetSelectorReducers';
-import portfolio from './PortfolioReducers';
-import settings from './SettingsReducers';
-import signin from './SigninReducers';
-import statement from './StatementReducers';
-import ticks from './TickReducers';
-import profitTable from './ProfitTableReducers';
-import tickTrade from './TickTradeReducers';
-import workspace from './WorkspaceReducers';
-import watchlist from './WatchlistReducers';
-import video from './VideoReducers';
-import news from './NewsReducers';
-import paymentAgent from './PaymentAgentReducers';
-import createAccount from './CreateAccountReducers';
-import upgrade from './UpgradeReducers';
+import appInfo from './AppInfoReducer';
+import account from './AccountReducer';
+import assets from './AssetsReducer';
+import assetSelector from './AssetSelectorReducer';
+import portfolio from './PortfolioReducer';
+import settings from './SettingsReducer';
+import signin from './SigninReducer';
+import statement from './StatementReducer';
+import ticks from './TickReducer';
+import profitTable from './ProfitTableReducer';
+import tickTrade from './TickTradeReducer';
+import workspace from './WorkspaceReducer';
+import watchlist from './WatchlistReducer';
+import video from './VideoReducer';
+import news from './NewsReducer';
+import paymentAgent from './PaymentAgentReducer';
+import createAccount from './CreateAccountReducer';
+import upgrade from './UpgradeReducer';
 import states from './StatesReducer';
 import tradingOptions from './TradingOptionsReducer';
-import proposals from './ProposalsReducers';
-import quickTrade from './QuickTradeReducers';
+import proposals from './ProposalsReducer';
+import quickTrade from './QuickTradeReducer';
 
 export default combineReducers({
     appInfo,
