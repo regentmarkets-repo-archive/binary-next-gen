@@ -15,7 +15,8 @@ const initialState = fromJS({
     availableAssets: [],
 });
 
-const similarStr = (str1, str2) => str1.toLowerCase().includes(str2.toLowerCase());
+export const similarStr = (str1 = '', str2 = '') =>
+    str1.toLowerCase().includes(str2.toLowerCase());
 
 const doFilter = (AssetSelectorList, query, markets, submarket) => {
     return AssetSelectorList.filter(asset =>
