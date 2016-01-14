@@ -5,6 +5,13 @@ import { durationLarger, durationLesser, durationIsBetween } from '../_utils/Tra
 const selectedAssetTicksSelector = state => {
     const fullTrade = state.trade.get('1').toJS();      // hardcoded 1 as fulltrade
     const selectedSymbol = fullTrade.symbol;
+
+    if (!state.ticks.get(selectedSymbol)) {
+        return {
+            ticks: [],
+        };
+    }
+
     const ticks = state.ticks.get(selectedSymbol).toJS();
     return {
         ticks,
@@ -71,6 +78,11 @@ const contractsSelector = state => {
     const selectedCategory = fullTrade.tradeCategory;
 
     const tradingOptions = state.tradingOptions.get(selectedSymbol);
+
+    if (!tradingOptions) {
+        return [];      // data not received yet
+    }
+
     const relatedTradingOptions = tradingOptions.filter(opt => opt.contract_category === selectedCategory);
 
     // hardcoded logic due to backend does not return sufficient info...
@@ -147,6 +159,12 @@ const tradingTypeSelector = state => {
     const selected = fullTrade.tradeCategory;
     const selectedSymbol = fullTrade.symbol;
     const relevantOptions = state.tradingOptions.get(selectedSymbol);
+
+    if (!relevantOptions) {
+        return {
+            allCategories: [],
+        };
+    }
 
     const tempObj = {};
     relevantOptions.forEach(opt => { tempObj[opt.contract_category] = opt.contract_category_display; });

@@ -84,6 +84,7 @@ export const setQuickTradeField = (symbol, tradeType, field, value) => ({
 
 export const updateTradeParams = (id, fieldName, fieldValue) => ({
     type: types.UPDATE_TRADE_PARAMS,
+    id,
     fieldName,
     fieldValue,
 });
@@ -108,7 +109,9 @@ export const updatePriceProposalSubscription = tradeID => {
             priceProposalID,
             } = tradeObj;
 
-        LiveData.api.unsubscribeByID(priceProposalID);
+        if (priceProposalID) {
+            LiveData.api.unsubscribeByID(priceProposalID);
+        }
         LiveData.api.subscribeToPriceForContractProposal({
             amount,
             basis,

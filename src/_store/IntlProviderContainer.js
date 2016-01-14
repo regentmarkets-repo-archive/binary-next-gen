@@ -23,11 +23,10 @@ export default class IntlProviderContainer extends React.Component {
     };
 
     render() {
-        const { language } = this.props;
-
+        const { language, children } = this.props;
         return (
             <IntlProvider locale={locale(language)} messages={allTexts(language)} formats={{ time: timeFormats }}>
-                {this.props.children}
+                {children}
             </IntlProvider>
         );
     }

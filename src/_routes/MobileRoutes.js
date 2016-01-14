@@ -17,7 +17,7 @@ import ResourcesMobile from '../mobile/ResourcesMobile';
 import PaymentAgentsMobile from '../payment-agents/PaymentAgentsMobile';
 import QuickTradeContainer from '../quick-trade/QuickTradeContainer';
 
-import FullTradeContainer from '../trade/FullTradeContainer';
+import FullTradePage from '../trade/FullTradePage';
 
 import { requireAuthOnEnter, signout } from '../_data/Auth';
 
@@ -41,5 +41,5 @@ export default [
     { path: 'resources-mobile', component: ResourcesMobile },
     { path: 'payment-agents', component: PaymentAgentsMobile, onEnter: requireAuthOnEnter },
     { path: 'quick-trade', component: QuickTradeContainer, onEnter: requireAuthOnEnter },
-    { path: 'test', component: FullTradeContainer, onEnter: requireAuthOnEnter },
+    { path: 'test', component: FullTradePage, onEnter: requireAuthOnEnter },
 ];

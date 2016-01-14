@@ -33,7 +33,10 @@ export default class FullTradeCard extends Component {
     }
 
     updateAssetSelected(symbol) {
+        const { actions } = this.props;
         this.updateParams('symbol', symbol);
+        actions.getTradingOptions(symbol);
+        actions.getTicksBySymbol(symbol);
     }
 
     updateTradeCategory(category) {
@@ -70,7 +73,6 @@ export default class FullTradeCard extends Component {
 
     render() {
         const { selectedAsset, availableAssets, tradingTypeInfo, contractOptions, payoutInfo, ticksInfo } = this.props;
-
         return (
             <div>
                 <MobileChart history={ticksInfo.ticks} />

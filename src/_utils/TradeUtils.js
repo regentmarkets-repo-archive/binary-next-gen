@@ -28,7 +28,7 @@ export const durationText = unit => {
         case 'm': return 'Minutes';
         case 'h': return 'Hours';
         case 'd': return 'Days';
-        default: return null;
+        default: return undefined;
     }
 };
 

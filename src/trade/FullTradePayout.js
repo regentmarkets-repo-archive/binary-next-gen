@@ -15,7 +15,7 @@ export default class FullTradePayout extends Component {
     };
 
     guardedAmountUpdate(e) {
-        const val = parseFloat(e.target.value);
+        const val = +e.target.value;
         const { min, max, onAmountChange } = this.props;
         if (val > max) {
             onAmountChange(max);
