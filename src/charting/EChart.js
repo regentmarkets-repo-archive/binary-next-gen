@@ -1,8 +1,6 @@
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import echarts from 'echarts';
-import 'echarts/chart/line';
-import 'echarts/chart/k';
 
 const areArraysEqual = (ar1, ar2) =>
     ar1.filter((x, idx) => x !== ar2[idx]).length === 0;
@@ -31,17 +29,19 @@ export default class EChart extends React.Component {
 
         if (areArraysEqual(data, newData)) return false;
 
-        // const newData = getNewData(nextProps.options.series[0].data, nextProps.options.series[0].data);
-        this.echart.addData([
-            [
-                0,        // Series Index
-                newData[newData.length - 1],  // New data
-                false,     // Whether the new data is inserted from the head of the queue
-                false,    // Whether to increase the queue length
-                123123,
-            ],
-        ]);
-        // this.echart.setOption(options); set options for spot line
+        console.log(this.echart);
+
+        this.echart.setOption(this.props.options);
+
+        // this.echart.addData([
+        //     [
+        //         0,        // Series Index
+        //         newData[newData.length - 1],  // New data
+        //         false,     // Whether the new data is inserted from the head of the queue
+        //         false,    // Whether to increase the queue length
+        //         123123,
+        //     ],
+        // ]);
 
         return false;
     }

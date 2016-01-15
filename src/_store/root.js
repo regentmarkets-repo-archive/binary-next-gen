@@ -14,9 +14,6 @@ import * as AllActions from '../_actions';
 import AppInfoProxy from './AppInfoProxy';
 
 import { trackRoute } from '../_utils/Analytics';
-import config from 'json!../config.json';
-
-window.console.log(config);
 
 const history = new HashHistory();
 history.listen(location => trackRoute(location.pathname));

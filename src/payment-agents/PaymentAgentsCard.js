@@ -7,6 +7,7 @@ export default class PaymentAgentsCard extends React.Component {
     static propTypes = {
         paymentAgent: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
+        country: PropTypes.string.isRequired,
     };
 
     constructor(props) {
@@ -15,7 +16,7 @@ export default class PaymentAgentsCard extends React.Component {
     }
 
     render() {
-        const { paymentAgent, currency } = this.props;
+        const { paymentAgent, currency, country } = this.props;
         const paymentAgents = paymentAgent.toJS().paymentAgents;
         const paymentAgentOptions = paymentAgents.map(pa => ({ value: pa.paymentagent_loginid, text: pa.name }));
 
@@ -32,7 +33,9 @@ export default class PaymentAgentsCard extends React.Component {
         ];
         return (
             paymentAgents.length === 0 ?
-                <div><M m="Sorry, Payment Agent is not available in your country" /></div> :
+                <div>
+                    <M m="Sorry, we have no payment agents in" /> {country}
+                </div> :
                 <Tabs
                     activeIndex={this.state.activeTab}
                     onChange={idx => this.setState({ activeTab: idx })}

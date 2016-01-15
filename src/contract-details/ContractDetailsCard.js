@@ -25,7 +25,7 @@ const ContractDetailsCard = ({ contract, proposal, nowEpoch, soldResultShown, ac
 			<tbody>
 				{proposal && <tr>
 					<td><FormattedTime value={proposal.date_start * 1000} format="full" /></td>
-					<td><FormattedTime value={window.parseInt(proposal.current_spot_time) * 1000} format="full" /></td>
+					<td><FormattedTime value={+proposal.current_spot_time * 1000} format="full" /></td>
 					<td><FormattedTime value={proposal.date_expiry * 1000} format="full" /></td>
 				</tr>}
 				<tr>
@@ -45,7 +45,7 @@ const ContractDetailsCard = ({ contract, proposal, nowEpoch, soldResultShown, ac
 			</thead>
 			<tbody>
 				{proposal && <tr>
-					<td>proposal.entry_spot}</td>
+					<td>{proposal.entry_spot}</td>
 					<td><NumberColored value={proposal.current_spot} isProfit={v => v - proposal.entry_spot}/></td>
 					<td>{(proposal.exit_spot || '-')}</td>
 				</tr>}
@@ -98,7 +98,7 @@ const ContractDetailsCard = ({ contract, proposal, nowEpoch, soldResultShown, ac
 		<div>
 			<LabeledText id="market-price" label="Market Price" value={proposal.bid_price}/>
 			<button onClick={() => actions.sellContract(contract.contract_id, 0)}>
-				Sell on market
+				Sell at market
 			</button>
 		</div> :
 		<div>{proposal && proposal.validation_error}</div>}

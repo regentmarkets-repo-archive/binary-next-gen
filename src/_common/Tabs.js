@@ -4,21 +4,24 @@ import RadioItem from './RadioItem';
 export default class Tabs extends React.Component {
 
     static propTypes = {
-        id: PropTypes.string.isRequired,
-        tabs: PropTypes.array.isRequired,
         activeIndex: PropTypes.number.isRequired,
+        className: PropTypes.string,
+        id: PropTypes.string.isRequired,
+        style: PropTypes.object,
+        tabs: PropTypes.array.isRequired,
         onChange: PropTypes.func,
     };
 
     static defaultProps = {
         activeIndex: 0,
+        tabs: [],
     };
 
     render() {
-        const { id, tabs, activeIndex, onChange } = this.props;
+        const { activeIndex, className, id, style, tabs, onChange } = this.props;
         const ActiveComponent = tabs.filter((tab, idx) => activeIndex === idx).map(x => x.component)[0];
         return (
-            <div>
+            <div className={className} style={style}>
                 <div role="tabs">
                     {tabs.map((tab, idx) =>
                         <RadioItem
@@ -26,6 +29,7 @@ export default class Tabs extends React.Component {
                             defaultChecked={activeIndex === idx}
                             label={tab.text}
                             name={id}
+                            img={tab.img}
                             value={id + idx}
                             onChange={() => onChange(idx)}
                         />

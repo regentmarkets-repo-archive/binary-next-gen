@@ -21,23 +21,19 @@ export default class NumberPlain extends React.Component {
 		const { currency, className, digits } = this.props;
 		const value = +this.props.value;
 
-		if (isNaN(value)) {
-			return <span />;
-		}
-
 		// if (value < 0) {
 			// formattedValue = '(' + formattedValue.substring(1) + ')';
 		// }
 
 		return (
 			<span className={className}>
-				<FormattedNumber
+				{value ? <FormattedNumber
 					style={currency && 'currency'}
 					currency={currency}
 					value={value}
 					minimumFractionDigits={digits}
 					maximumFractionDigits={digits}
-				/>
+				/> : null}
 			</span>
 		);
 	}

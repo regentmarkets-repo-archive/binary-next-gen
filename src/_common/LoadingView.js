@@ -1,7 +1,8 @@
 import React from 'react';
+import { LogoSpinner } from '../_common';
 
 export default () => (
     <div className="mobile-page">
-        <img className="spinner" src="img/binary-symbol-logo.svg" />
+        <LogoSpinner />
     </div>
 );

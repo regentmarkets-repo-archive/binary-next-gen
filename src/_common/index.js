@@ -1,3 +1,4 @@
+export Clock from './Clock';
 export Collapsible from './Collapsible';
 export Countries from './Countries';
 export CurrencySelector from './CurrencySelector';
