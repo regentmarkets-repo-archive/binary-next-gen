@@ -103,7 +103,7 @@ msgid "Maximum number of open positions"
 msgstr "Numero massimo di posizioni aperte"
 
 msgid "Maximum account cash balance"
-msgstr "Saldo di cassa massimo sull'account"
+msgstr "Saldo massimo dell'account"
 
 msgid "Maximum daily turnover"
 msgstr "Turnover massimo giornaliero"
