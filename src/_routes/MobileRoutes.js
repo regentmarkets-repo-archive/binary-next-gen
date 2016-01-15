@@ -18,6 +18,8 @@ import PaymentAgentsMobile from '../payment-agents/PaymentAgentsMobile';
 import DurationMobile from '../tick-trade/DurationMobile';
 import QuickTradeContainer from '../quick-trade/QuickTradeContainer';
 
+import FullTradePage from '../trade/FullTradePage';
+
 import { requireAuthOnEnter, signout } from '../_data/Auth';
 
 export default [
@@ -41,4 +43,5 @@ export default [
     { path: 'payment-agents', component: PaymentAgentsMobile, onEnter: requireAuthOnEnter },
     { path: 'quick-trade', component: QuickTradeContainer, onEnter: requireAuthOnEnter },
     { path: 'duration', component: DurationMobile, onEnter: requireAuthOnEnter },
+    { path: 'test', component: FullTradePage, onEnter: requireAuthOnEnter },
 ];

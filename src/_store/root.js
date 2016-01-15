@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux';
 import { store, rehydratedStorePromise } from './persistentStore';
 import { Router } from 'react-router';
 import routes from '../_routes';
-import IntlProviderContainer from '../_routes/IntlProviderContainer';
+import IntlProviderContainer from './IntlProviderContainer';
 import HashHistory from 'history/lib/createHashHistory';
 import ThemeProvider from '../_common/ThemeProvider';
 import { tryAuth } from '../_data/Auth';

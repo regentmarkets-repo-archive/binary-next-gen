@@ -1,6 +1,7 @@
 import * as types from '../_constants/ActionTypes';
 import * as LiveData from '../_data/LiveData';
 import { updateSoldContract } from './PortfolioActions';
+import { updateProposalByID } from './ProposalsActions';
 import { trackEvent } from '../_utils/Analytics';
 
 export const serverDataProposal = serverResponse => ({
@@ -80,3 +81,58 @@ export const setQuickTradeField = (symbol, tradeType, field, value) => ({
     field,
     value,
 });
+
+export const updateTradeParams = (id, fieldName, fieldValue) => ({
+    type: types.UPDATE_TRADE_PARAMS,
+    id,
+    fieldName,
+    fieldValue,
+});
+
+export const updatePriceProposalSubscription = tradeID => {
+    return (dispatch, getState) => {
+        const tradeObj = getState().trade.get(tradeID).toJS();
+        const currency = getState().account.get('currency');
+        const {
+            amount,
+            basis,
+            type,
+            duration,
+            durationUnit,
+            symbol,
+            barrier,
+            barrier2,
+            amountPerPoint,
+            stopType,
+            stopProfit,
+            stopLoss,
+            priceProposalID,
+            } = tradeObj;
+
+        if (!(amount && basis && type && duration && durationUnit && symbol)) {
+            return;
+        }
+
+        if (priceProposalID) {
+            LiveData.api.unsubscribeByID(priceProposalID);
+        }
+        LiveData.api.subscribeToPriceForContractProposal({
+            amount,
+            basis,
+            contract_type: type,
+            duration,
+            currency,
+            duration_unit: durationUnit,
+            symbol,
+            barrier,                // works if barrier is undefined as undefined is drop when stringify to JSON
+            barrier2,
+            amount_per_point: amountPerPoint,
+            stop_type: stopType,
+            stop_profit: stopProfit,
+            stop_loss: stopLoss,
+        }).then(response => {
+            dispatch(updateTradeParams(tradeID, 'priceProposalID', response.proposal.id));
+            dispatch(updateProposalByID(response.proposal.id, response.proposal));
+        });
+    };
+};
