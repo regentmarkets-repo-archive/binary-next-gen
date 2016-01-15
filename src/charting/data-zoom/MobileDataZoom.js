@@ -1,7 +1,7 @@
 export default ({ theme }) => ({
     show: true,
     realtime: true,
-    start: 30,
+    start: 20,
     end: 50,
     height: 20,
     backgroundColor: theme.background,

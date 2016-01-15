@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fullTradeSelectors } from '../_selectors/FulTradeSelectors';
+import { fullTradeSelectors } from '../_selectors/FullTradeSelectors';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import FullTradeCard from './FullTradeCard';
 
