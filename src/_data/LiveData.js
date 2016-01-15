@@ -40,7 +40,7 @@ const subscribeToWatchlist = st => {
         return;
     }
     const favs = newState.watchlist;
-    api.subscribeToTicks(favs);
+    api.subscribeToTicks(favs.toJS());
 };
 
 export const changeLanguage = ln => {

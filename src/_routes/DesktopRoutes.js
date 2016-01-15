@@ -26,9 +26,7 @@ import NewsContainer from '../news/NewsContainer';
 import PaymentAgentsModal from '../payment-agents/PaymentAgentsModal';
 import ChartTest from '../charting/ChartTest';
 
-
 import { requireAuthOnEnter } from '../_data/Auth';
-
 
 export default [
     { path: 'portfolio', component: PortfolioPage, onEnter: requireAuthOnEnter },

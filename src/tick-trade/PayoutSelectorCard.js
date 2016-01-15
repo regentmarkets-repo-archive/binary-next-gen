@@ -19,9 +19,9 @@ export default class PayoutSelectorCard extends React.Component {
 	updateValue(val) {
 		const { actions, onChange } = this.props;
 
-		if (parseFloat(val.amount) > maxAmount) {
+		if (+val.amount > maxAmount) {
 			actions.updateTickTradeParameters({ amount: maxAmount });
-		} else if (parseFloat(val.amount) < minAmount) {
+		} else if (+val.amount < minAmount) {
 			actions.updateTickTradeParameters({ amount: minAmount });
 		} else {
 			actions.updateTickTradeParameters(val);
