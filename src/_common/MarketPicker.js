@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
 
 @connect(state => ({ assets: state.assets }))
-export default class MarketSelector extends React.Component {
+export default class MarketPicker extends React.Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
@@ -21,7 +21,7 @@ export default class MarketSelector extends React.Component {
 		const tree = assets.get('tree').toJS();
 
 		return (
-			<select className="market-submarket-selector" onChange={e => onChange(e.target.value)} value={value}>
+			<select className="market-submarket-picker" onChange={e => onChange(e.target.value)} value={value}>
 				{showAllOption ?
 					<FormattedMessage id="All" defaultMessage="All">
 						{message => <option value="">{message}</option>}

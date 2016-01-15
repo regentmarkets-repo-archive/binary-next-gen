@@ -218,7 +218,7 @@ nav.sidebar {
     justify-content: space-between;
 }
 
-.market-submarket-selector, .asset-search, .asset-search > input, .trading-times-date-picker > input, input[type=range] {
+.market-submarket-picker, .asset-search, .asset-search > input, .trading-times-date-picker > input, input[type=range] {
     width: 100%;
 }
 
@@ -427,7 +427,7 @@ div[role=tabs] {
     padding: .5rem;
 }
 
-.market-submarket-selector {
+.market-submarket-picker {
     margin-bottom: .5rem;
 }
 
@@ -456,7 +456,7 @@ select {
     background-color: white;
 }
 
-.asset-selector-container {
+.asset-picker-container {
     display: flex;
     flex-direction: column;
 }
@@ -566,7 +566,7 @@ select {
     margin-top: .5rem;
 }
 
-#language-selector, #theme-selector {
+#language-picker, #theme-picker {
     width: 100%;
 }
 

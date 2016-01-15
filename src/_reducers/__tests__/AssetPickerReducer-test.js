@@ -1,7 +1,7 @@
 import expect from 'expect';
 import { fromJS } from 'immutable';
-import * as actions from '../../_actions/AssetSelectorActions';
-import AssetSelectorReducer, { similarStr } from '../AssetSelectorReducer';
+import * as actions from '../../_actions/AssetPickerActions';
+import AssetPickerReducer, { similarStr } from '../AssetPickerReducer';
 
 const getInitialState = (props) => ({
     query: '',
@@ -12,7 +12,7 @@ const getInitialState = (props) => ({
     ...props
 });
 
-describe('AssetSelectorReducers', () => {
+describe('AssetPickerReducers', () => {
     describe('similarStr', () => {
         it('parameters can be undefined', () => {
             expect(() => similarStr(undefined, undefined)).toNotThrow();
@@ -42,10 +42,10 @@ describe('AssetSelectorReducers', () => {
         });
     });
 
-    describe('updateAssetSelectorSearchQuery', () => {
+    describe('updateAssetPickerSearchQuery', () => {
         it('should return empty result when given empty asset list with empty query', () => {
             const stateBefore = fromJS();
-            const actual = AssetSelectorReducer(stateBefore, actions.updateAssetSelectorSearchQuery([], ''));
+            const actual = AssetPickerReducer(stateBefore, actions.updateAssetPickerSearchQuery([], ''));
             const expected = fromJS(getInitialState());
             expect(actual.toJS()).toEqual(expected.toJS());
         });
@@ -54,7 +54,7 @@ describe('AssetSelectorReducers', () => {
             const stateBefore = fromJS(getInitialState({
                 availableAssets: [{ display_name: 'asset1' }, { display_name: 'asset2' }, { display_name: 'asset3' }],
             }));
-            const actual = AssetSelectorReducer(stateBefore, actions.updateAssetSelectorSearchQuery([], ''));
+            const actual = AssetPickerReducer(stateBefore, actions.updateAssetPickerSearchQuery([], ''));
             const expected = fromJS(getInitialState({
                 availableAssets: [{ display_name: 'asset1' }, { display_name: 'asset2' }, { display_name: 'asset3' }],
             }));
@@ -65,7 +65,7 @@ describe('AssetSelectorReducers', () => {
             const stateBefore = fromJS(getInitialState({
                 availableAssets: [{ display_name: 'asset1' }, { display_name: 'asset2' }, { display_name: 'asset3' }],
             }));
-            const actual = AssetSelectorReducer(stateBefore, actions.updateAssetSelectorSearchQuery([], '     '));
+            const actual = AssetPickerReducer(stateBefore, actions.updateAssetPickerSearchQuery([], '     '));
             const expected = fromJS(getInitialState({
                 availableAssets: [{ display_name: 'asset1' }, { display_name: 'asset2' }, { display_name: 'asset3' }],
             }));
@@ -76,15 +76,15 @@ describe('AssetSelectorReducers', () => {
             const stateBefore = fromJS(getInitialState({
                 availableAssets: [{ display_name: 'asset1' }, { display_name: 'asset2' }, { display_name: 'asset3' }],
             }));
-            const stateAfter = AssetSelectorReducer(stateBefore, actions.updateAssetSelectorSearchQuery([], 'asset1'));
+            const stateAfter = AssetPickerReducer(stateBefore, actions.updateAssetPickerSearchQuery([], 'asset1'));
             const expected = [{ display_name: 'asset1' }];
             expect(stateAfter.toJS().shownAssets).toEqual(expected);
         });
     });
 
-    describe('updateAssetSelectorMarkets', () => {
+    describe('updateAssetPickerMarkets', () => {
     });
 
-    describe('updateAssetSelectorSubmarket', () => {
+    describe('updateAssetPickerSubmarket', () => {
     });
 });

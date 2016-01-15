@@ -3,7 +3,7 @@ import { combineReducers } from 'redux';
 import appInfo from './AppInfoReducer';
 import account from './AccountReducer';
 import assets from './AssetsReducer';
-import assetSelector from './AssetSelectorReducer';
+import AssetPicker from './AssetPickerReducer';
 import portfolio from './PortfolioReducer';
 import settings from './SettingsReducer';
 import signin from './SigninReducer';
@@ -28,7 +28,7 @@ export default combineReducers({
     appInfo,
     account,
     assets,
-    assetSelector,
+    AssetPicker,
     createAccount,
     news,
     paymentAgent,

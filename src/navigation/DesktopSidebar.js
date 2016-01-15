@@ -18,7 +18,7 @@ const DesktopSidebar = () => (
 		<NavButton img="videos" text="Videos" />
 		<NavButton img="news" text="News" />
 		<NavButton img="alerts" text="Alerts" />
-		<NavButton img="assets" text="Asset Selector" />
+		<NavButton img="assets" text="Assets" />
 		<NavButton img="cashier" text="Cashier" />
 		<NavButton img="charts" text="Charts" />
 	</div>

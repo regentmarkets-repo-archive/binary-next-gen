@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import TradeTypeTickOptions from './TradeTypeTickOptions';
 import TradeTypeRestOptions from './TradeTypeRestOptions';
 
-export default class TradeTypeSelectorCard extends React.Component {
+export default class TradeTypePickerCard extends React.Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,

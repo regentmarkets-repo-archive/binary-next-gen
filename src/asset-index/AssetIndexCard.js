@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import { MarketSelector } from '../_common';
+import { MarketPicker } from '../_common';
 import AssetIndexTable from './AssetIndexTable';
 
 export default class AssetIndexCard extends React.Component {
@@ -25,7 +25,7 @@ export default class AssetIndexCard extends React.Component {
 
 		return (
 			<div>
-				<MarketSelector
+				<MarketPicker
 					onChange={x => actions.updateAssetIndexSubmarket(x)}
 					showAllOption={false}
 					value={submarket}

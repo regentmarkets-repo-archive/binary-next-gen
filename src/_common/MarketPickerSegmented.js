@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { SegmentedControl } from '../_common';
 
-const MarketSelector = ({ markets, selected, prefixRoute }) => {
+const MarketPicker = ({ markets, selected, prefixRoute }) => {
 	const marketLinks = markets.map(market => ({
 		href: prefixRoute + market.toLowerCase(),
 		text: market,
@@ -13,14 +13,14 @@ const MarketSelector = ({ markets, selected, prefixRoute }) => {
 	);
 };
 
-MarketSelector.propTypes = {
+MarketPicker.propTypes = {
 	markets: PropTypes.array.isRequired,
 	selected: PropTypes.string,
 };
 
-MarketSelector.defaultProps = {
+MarketPicker.defaultProps = {
 	markets: [],
 	selected: 'favorites',
 };
 
-export default MarketSelector;
+export default MarketPicker;

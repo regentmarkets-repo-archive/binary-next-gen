@@ -1,24 +1,24 @@
 import React, { PropTypes } from 'react';
-import AssetSelectorList from './AssetSelectorList';
-import { MarketSelector, InputGroup } from '../_common';
+import AssetPickerList from './AssetPickerList';
+import { MarketPicker, InputGroup } from '../_common';
 import * as LiveData from '../_data/LiveData';
 
-export default class AssetSelectorCard extends React.Component {
+export default class AssetPickerCard extends React.Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
 		assets: PropTypes.object.isRequired,
-		assetSelector: PropTypes.object.isRequired,
+		AssetPicker: PropTypes.object.isRequired,
 		workspace: PropTypes.object.isRequired,
 		history: PropTypes.object,
 		watchlist: PropTypes.object.isRequired,
 	};
 
 	render() {
-		const { actions, assets, assetSelector, history, workspace, watchlist } = this.props;
+		const { actions, assets, AssetPicker, history, workspace, watchlist } = this.props;
 		// const showOnlyTickTradable = !!~window.location.search.indexOf('tick');
 		const showOnlyTickTradable = true;
-		const shownAssets = assetSelector.get('shownAssets');
+		const shownAssets = AssetPicker.get('shownAssets');
 		const searchableAssets = assets.get('list').filter(x =>
 			!showOnlyTickTradable ||
 			x.get('market_display_name') === 'Forex' ||
@@ -37,13 +37,13 @@ export default class AssetSelectorCard extends React.Component {
 		};
 		const onFavor = asset => actions.watchlistFavorAsset(asset);
 		const onUnfavor = asset => actions.watchlistUnfavorAsset(asset);
-		const onSearchQueryChange = e => actions.updateAssetSelectorSearchQuery(searchableAssets, e.target.value);
-		const onSubmarketChange = e => actions.updateAssetSelectorSubmarket(searchableAssets, e);
+		const onSearchQueryChange = e => actions.updateAssetPickerSearchQuery(searchableAssets, e.target.value);
+		const onSubmarketChange = e => actions.updateAssetPickerSubmarket(searchableAssets, e);
 
 		return (
-			<div className="asset-selector-container">
+			<div className="asset-picker-container">
 				<fieldset>
-					<MarketSelector
+					<MarketPicker
 						onChange={onSubmarketChange}
 						showAllOption
 						showMarkets={showOnlyTickTradable ? ['Forex', 'Randoms'] : null}
@@ -57,7 +57,7 @@ export default class AssetSelectorCard extends React.Component {
 					/>
 				</fieldset>
 				<div className="asset-list">
-					<AssetSelectorList
+					<AssetPickerList
 						assets={shownAssets}
 						favorites={watchlist}
 						onSelect={onSelect}

@@ -5,7 +5,7 @@ import QuickTradeCard from './QuickTradeCard';
 @connect(state => ({
     tradingOptions: state.tradingOptions,
     workspace: state.workspace,
-    assetSelector: state.assetSelector,
+    AssetPicker: state.AssetPicker,
     quickTrade: state.quickTrade,
     proposals: state.proposals,
     currency: state.account.get('currency'),
@@ -14,7 +14,7 @@ export default class QuickTradeContainer extends React.Component {
     static propTypes = {
         tradingOptions: PropTypes.object.isRequired,
         workspace: PropTypes.object.isRequired,
-        assetSelector: PropTypes.object.isRequired,
+        AssetPicker: PropTypes.object.isRequired,
         proposals: PropTypes.object,
         quickTrade: PropTypes.object,
         actions: PropTypes.object.isRequired,
@@ -22,9 +22,9 @@ export default class QuickTradeContainer extends React.Component {
     };
 
     render() {
-        const { tradingOptions, workspace, assetSelector, proposals } = this.props;
+        const { tradingOptions, workspace, AssetPicker, proposals } = this.props;
         const selected = workspace.get('symbolSelected');
-        const availableAssets = assetSelector.get('availableAssets').toJS();
+        const availableAssets = AssetPicker.get('availableAssets').toJS();
         const assets = availableAssets.map(x => ({ value: x.symbol, text: x.display_name }));
 
         // quick trade provides tick only trades

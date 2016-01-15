@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import AssetSelectorItem from './AssetSelectorItem';
+import AssetPickerItem from './AssetPickerItem';
 
-export default class AssetSelectorList extends React.Component {
+export default class AssetPickerList extends React.Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
@@ -19,7 +19,7 @@ export default class AssetSelectorList extends React.Component {
 			<table>
 				<tbody>
 					{assets.map(asset =>
-						<AssetSelectorItem
+						<AssetPickerItem
 							key={asset.get('symbol')}
 							asset={asset}
 							isFavorite={favorites.has(asset.get('symbol'))}

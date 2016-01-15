@@ -5,7 +5,7 @@ const engine = createEngine('binary');
 
 const filteredEngine = storage.decorators.filter(engine, [
     ['account'],
-    ['assetSelector'],
+    ['AssetPicker'],
     ['assets'],
     ['profitTable'],
     ['statement'],

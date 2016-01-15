@@ -3,7 +3,7 @@ import Tabs from '../_common/Tabs';
 import FullTradeDuration from './FullTradeDuration';
 import FullTradeBarriers from './FullTradeBarriers';
 
-export default class FullTradeTypeSelector extends Component {
+export default class FullTradeTypePicker extends Component {
     static propTypes = {
         selectedType: PropTypes.string.isRequired,
         contractOptions: PropTypes.array.isRequired,      // ele should have name, barriersInfo, durationInfo

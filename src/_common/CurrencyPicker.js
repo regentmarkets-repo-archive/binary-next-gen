@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { SelectGroup, RadioGroup } from '../_common';
 
 @connect(state => ({ account: state.account }))
-export default class CurrencySelector extends React.Component {
+export default class CurrencyPicker extends React.Component {
 
 	static propTypes = {
 		account: PropTypes.object,
@@ -19,7 +19,7 @@ export default class CurrencySelector extends React.Component {
 			.map(x => ({ value: x, text: x }));
 
 		return radio ? (
-			<RadioGroup name="currency-selector" options={currencies} value={value} onChange={onChange} />
+			<RadioGroup name="currency-picker" options={currencies} value={value} onChange={onChange} />
 		) : (
 			<SelectGroup options={currencies} value="USD" onChange={onChange} />
 		);

@@ -1,8 +1,8 @@
 import React, { PropTypes, Component } from 'react';
 import MobileChart from '../charting/MobileChart';
 import { SelectGroup } from '../_common';
-import FullTradeCategorySelector from './FullTradeCategorySelector';
-import FullTradeTypeSelector from './FullTradeTypeSelector';
+import FullTradeCategoryPicker from './FullTradeCategoryPicker';
+import FullTradeTypePicker from './FullTradeTypePicker';
 import FullTradePayout from './FullTradePayout';
 
 export default class FullTradeCard extends Component {
@@ -98,12 +98,12 @@ export default class FullTradeCard extends Component {
                         value={selectedAsset}
                         onChange={e => this.updateAssetSelected(e.target.value)}
                     />
-                    <FullTradeCategorySelector
+                    <FullTradeCategoryPicker
                         onCategoryChange={::this.updateTradeCategory}
                         {...tradingTypeInfo}
                     />
                 </div>
-                <FullTradeTypeSelector
+                <FullTradeTypePicker
                     contractOptions={contractOptions}
                     onTypeChange={::this.updateTradeType}
                     onDurationChange={::this.updateDuration}

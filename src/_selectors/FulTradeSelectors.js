@@ -201,11 +201,11 @@ const contractsSelector = state => {
 };
 
 const availableAssetsSelector = state => {
-    const availables = state.assetSelector.get('availableAssets').toJS();
+    const availables = state.AssetPicker.get('availableAssets').toJS();
     return availables.map(asset => ({ text: asset.display_name, value: asset.symbol }));
 };
 
-const selectedAssetSelector = state => state.trade.getIn(['1', 'symbol']);
+const selectedAssetPicker = state => state.trade.getIn(['1', 'symbol']);
 
 const tradingTypeSelector = state => {
     const fullTrade = state.trade.get('1').toJS();      // hardcoded 1 as fulltrade
@@ -232,7 +232,7 @@ const tradingTypeSelector = state => {
     };
 };
 
-const payoutSelector = state => {
+const PayoutPicker = state => {
     const { basis, amount } = state.trade.get('1').toJS();
     const currency = state.account.get('currency');
 
@@ -244,11 +244,11 @@ const payoutSelector = state => {
 };
 
 export const fullTradeSelector = createSelector(
-    selectedAssetSelector,
+    selectedAssetPicker,
     tradingTypeSelector,
     selectedAssetTicksSelector,
     contractsSelector,
-    payoutSelector,
+    PayoutPicker,
     availableAssetsSelector,
     (selectedAsset, tradingTypeInfo, ticksInfo, contractOptions, payoutInfo, availableAssets) => ({
         selectedAsset,

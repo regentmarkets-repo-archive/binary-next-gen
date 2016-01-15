@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import SelectGroup from '../_common/SelectGroup';
 
-export default class FullTradeCategorySelector extends Component {
+export default class FullTradeCategoryPicker extends Component {
     static propTypes = {
         allCategories: PropTypes.array.isRequired,
         selectedCategory: PropTypes.string,

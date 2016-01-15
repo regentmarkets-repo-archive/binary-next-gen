@@ -17,10 +17,10 @@ export default class SettingsGeneral extends React.Component {
 		const { theme } = this.props.settings;
 		return (
 			<div>
-				<label htmlFor="language-selector"><M m="Language" /></label>
-				<LanguagePicker id="language-selector" />
-				<label htmlFor="theme-selector"><M m="Color Theme" /></label>
-				<select onChange={::this.onThemeChange} value={theme} id="theme-selector">
+				<label htmlFor="language-picker"><M m="Language" /></label>
+				<LanguagePicker id="language-picker" />
+				<label htmlFor="theme-picker"><M m="Color Theme" /></label>
+				<select onChange={::this.onThemeChange} value={theme} id="theme-picker">
 					<option value="light">Light</option>
 					<option value="dark">Dark</option>
 				</select>

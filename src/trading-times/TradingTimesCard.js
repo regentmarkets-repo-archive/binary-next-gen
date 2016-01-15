@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import { InputGroup, MarketSelector } from '../_common';
+import { InputGroup, MarketPicker } from '../_common';
 import { dateToDateString, todayString } from '../_utils/DateUtils';
 import TradingTimesTable from './TradingTimesTable';
 
@@ -31,7 +31,7 @@ export default class TradingTimesCard extends React.Component {
 		return (
 			<div>
 				<div className="row">
-					<MarketSelector
+					<MarketPicker
 						onChange={x => actions.updateTickTradeSubmarket(x)}
 						showAllOption={false}
 						value={submarket}

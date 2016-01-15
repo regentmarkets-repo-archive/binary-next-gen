@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { RadioItem } from '../_common';
 
-const TradeTypeSelectorCard = ({ onChange, type }) => (
+const TradeTypePickerCard = ({ onChange, type }) => (
 	<div>
 		<div className="radio-selector">
 			<RadioItem
@@ -107,7 +107,7 @@ const TradeTypeSelectorCard = ({ onChange, type }) => (
 	</div>
 );
 
-TradeTypeSelectorCard.propTypes = {
+TradeTypePickerCard.propTypes = {
 	type: PropTypes.string,
 	barrier: PropTypes.number,
 	onChange: PropTypes.func,
