@@ -5,6 +5,7 @@ import FullTradeBarriers from './FullTradeBarriers';
 
 export default class FullTradeTypeSelector extends Component {
     static propTypes = {
+        selectedType: PropTypes.string.isRequired,
         contractOptions: PropTypes.array.isRequired,      // ele should have name, barriersInfo, durationInfo
         onTypeChange: PropTypes.func,
         onDurationChange: PropTypes.func,

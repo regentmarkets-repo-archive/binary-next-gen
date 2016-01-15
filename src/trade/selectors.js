@@ -1,6 +1,8 @@
 import { createSelector } from 'reselect';
 import { Set } from 'immutable';
-import { durationLarger, durationLesser, durationIsBetween } from '../_utils/TradeUtils';
+import { durationIsBetween, durationToSecs } from '../_utils/TradeUtils';
+import { durationUnits } from '../_constants/TradeParams';
+// import { durationLarger, durationLesser, durationIsBetween, durationTypes } from '../_utils/TradeUtils';
 
 const selectedAssetTicksSelector = state => {
     const fullTrade = state.trade.get('1').toJS();      // hardcoded 1 as fulltrade
@@ -18,20 +20,71 @@ const selectedAssetTicksSelector = state => {
     };
 };
 
-const durationInfo = (opts, duration, unit) => {
-    const min = opts
-        .map(opt => opt.min_contract_duration)
-        .reduce((a, b) => durationLesser(a, b) ? a : b);
+const durationInfo = (opts, duration, durationUnit) => {
+    const allUnits = [].concat
+        .apply([], opts.map(opt => [opt.min_contract_duration.slice(-1), opt.max_contract_duration.slice(-1)]));
 
-    const max = opts
-        .map(opt => opt.max_contract_duration)
-        .reduce((a, b) => durationLarger(a, b) ? a : b);
+    const minUnit = allUnits.reduce((a, b) => durationUnits.indexOf(a) < durationUnits.indexOf(b) ? a : b);
+    const maxUnit = allUnits.reduce((a, b) => durationUnits.indexOf(a) > durationUnits.indexOf(b) ? a : b);
+    const minIdx = durationUnits.indexOf(minUnit);
+    const maxIdx = durationUnits.indexOf(maxUnit);
+    const unitOptions = durationUnits.slice(minIdx, maxIdx + 1);
+
+    if (durationUnit === 't') {
+        return {
+            durationUnit,
+            duration,
+            min: 5,
+            max: 10,
+            unitOptions,
+        };
+    }
+
+    const selectedDurationMinSec = durationToSecs(1, durationUnit);
+    const minSecs = opts
+        .filter(opt => opt.min_contract_duration.indexOf('t') === -1)
+        .map(opt => durationToSecs(opt.min_contract_duration.slice(0, -1), opt.min_contract_duration.slice(-1)))
+        .filter(s => s >= selectedDurationMinSec);
+    const maxSecs = opts
+        .filter(opt => opt.max_contract_duration.indexOf('t') === -1)
+        .map(opt => durationToSecs(opt.max_contract_duration.slice(0, -1), opt.max_contract_duration.slice(-1)))
+        .filter(s => s >= selectedDurationMinSec);
+
+    const minSec = minSecs.reduce((a, b) => Math.min(a, b));
+    const maxSec = maxSecs.reduce((a, b) => Math.max(a, b));
+
+    let min;
+    let max;
+    switch (durationUnit) {
+        case 's': {
+            min = minSec;
+            max = maxSec;
+            break;
+        }
+        case 'm': {
+            min = Math.floor(minSec / 60);
+            max = Math.floor(maxSec / 60);
+            break;
+        }
+        case 'h': {
+            min = Math.floor(minSec / 3600);
+            max = Math.floor(maxSec / 3600);
+            break;
+        }
+        case 'd': {
+            min = Math.floor(minSec / 86400);
+            max = Math.floor(maxSec / 86400);
+            break;
+        }
+        default: throw new Error('Unknown duration unit: ' + durationUnit);
+    }
 
     return {
+        durationUnit,
+        duration,
         min,
         max,
-        unit,
-        duration,
+        unitOptions,
     };
 };
 
@@ -138,7 +191,7 @@ const contractsSelector = state => {
         const durationInfoObj = durationInfo(opts, selectedDuration, selectedDurationUnit);
         const barriersInfoObj = barriersInfo(opts, selectedDuration + selectedDurationUnit);
         return {
-            name: opts[0].contract_display_name,
+            name: opts[0].contract_display,
             value: opts[0].contract_type,
             durationInfo: durationInfoObj,
             barriersInfo: barriersInfoObj,
@@ -156,13 +209,15 @@ const selectedAssetSelector = state => state.trade.getIn(['1', 'symbol']);
 
 const tradingTypeSelector = state => {
     const fullTrade = state.trade.get('1').toJS();      // hardcoded 1 as fulltrade
-    const selected = fullTrade.tradeCategory;
+    const selectedCategory = fullTrade.tradeCategory;
+    const selectedType = fullTrade.type;
     const selectedSymbol = fullTrade.symbol;
     const relevantOptions = state.tradingOptions.get(selectedSymbol);
 
     if (!relevantOptions) {
         return {
             allCategories: [],
+            selectedType,
         };
     }
 
@@ -172,7 +227,8 @@ const tradingTypeSelector = state => {
     const categories = Object.keys(tempObj).map(k => ({ text: tempObj[k], value: k }));
     return {
         allCategories: categories,
-        selected,
+        selectedCategory,
+        selectedType,
     };
 };
 
@@ -184,8 +240,6 @@ const payoutSelector = state => {
         basis,
         amount,
         currency,
-        onAmountChange: m => console.log(m),
-        onBasisChange: m => console.log(m),
     };
 };
 

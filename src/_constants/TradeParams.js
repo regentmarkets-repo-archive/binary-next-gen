@@ -19,4 +19,4 @@ export const tradeTypes = [
     { value: 'SPREADD', text: 'Spread Short', img: 'img/trade-spread.svg', ticks: false },
 ];
 
-export const durationUnit = ['t', 's', 'm', 'h', 'd'];
+export const durationUnits = ['t', 's', 'm', 'h', 'd'];

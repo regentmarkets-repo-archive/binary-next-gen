@@ -4,14 +4,14 @@ import SelectGroup from '../_common/SelectGroup';
 export default class FullTradeCategorySelector extends Component {
     static propTypes = {
         allCategories: PropTypes.array.isRequired,
-        selected: PropTypes.string,
+        selectedCategory: PropTypes.string,
         onCategoryChange: PropTypes.func,
     };
 
     render() {
-        const { allCategories, selected, onCategoryChange } = this.props;
+        const { allCategories, selectedCategory, onCategoryChange } = this.props;
         return (
-            <SelectGroup options={allCategories} value={selected} onChange={e => onCategoryChange(e.target.value)} />
+            <SelectGroup options={allCategories} value={selectedCategory} onChange={e => onCategoryChange(e.target.value)} />
         );
     }
 }

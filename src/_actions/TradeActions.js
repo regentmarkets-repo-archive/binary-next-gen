@@ -109,13 +109,17 @@ export const updatePriceProposalSubscription = tradeID => {
             priceProposalID,
             } = tradeObj;
 
+        if (!(amount && basis && type && duration && durationUnit && symbol)) {
+            return;
+        }
+
         if (priceProposalID) {
             LiveData.api.unsubscribeByID(priceProposalID);
         }
         LiveData.api.subscribeToPriceForContractProposal({
             amount,
             basis,
-            type,
+            contract_type: type,
             duration,
             currency,
             duration_unit: durationUnit,

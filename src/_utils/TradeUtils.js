@@ -1,4 +1,4 @@
-import { tradeTypes, durationUnit } from '../_constants/TradeParams';
+import { tradeTypes, durationUnits } from '../_constants/TradeParams';
 
 export const tradeTypeTextToCode = text =>
     tradeTypes.find(x => x.text === text).value;
@@ -32,38 +32,52 @@ export const durationText = unit => {
     }
 };
 
+export const durationToSecs = (duration, unit) => {
+    switch (unit) {
+        case 's': return 1 * duration;
+        case 'm': return 60 * duration;
+        case 'h': return 3600 * duration;
+        case 'd': return 86400 * duration;
+        default: return undefined;
+    }
+};
+
 export const durationTypes = (min, max) => {
     const minUnit = min.slice(-1)[0];
     const maxUnit = max.slice(-1)[0];
 
-    const minIdx = durationUnit.indexOf(minUnit);
-    const maxIdx = durationUnit.indexOf(maxUnit);
+    const minIdx = durationUnits.indexOf(minUnit);
+    const maxIdx = durationUnits.indexOf(maxUnit);
 
-    return durationUnit.slice(minIdx, maxIdx + 1);
+    return durationUnits.slice(minIdx, maxIdx + 1);
 };
 
 export const durationLarger = (a, b) => {
     const aUnit = a.slice(-1)[0];
     const bUnit = b.slice(-1)[0];
-    const aUnitOrder = durationUnit.indexOf(aUnit);
-    const bUnitOrder = durationUnit.indexOf(bUnit);
-    const aValue = a.slice(0, -1);
-    const bValue = b.slice(0, -1);
 
-    if (aUnitOrder > bUnitOrder) {
-        return true;
-    }
-    if (aUnitOrder < bUnitOrder) {
-        return false;
+    const oneT = aUnit === 't' ? bUnit !== 't' : bUnit === 't';
+    if (oneT) {
+        throw new Error('ticks cannot be compared to other unit');
     }
 
-    return aValue > bValue;
+    const aValue = +(a.slice(0, -1));
+    const bValue = +(b.slice(0, -1));
+    const aInSecs = durationToSecs(aValue, aUnit);
+    const bInSecs = durationToSecs(bValue, bUnit);
+
+    return aInSecs > bInSecs;
 };
 
 export const durationLesser = (a, b) => {
     return (a !== b) && (durationLarger(a, b) === false);
 };
 
+// this function is inclusive to fit use case
 export const durationIsBetween = (a, min, max) => {
-    return durationLesser(a, max) && durationLarger(a, min);
+    if (a.indexOf('t') !== -1) {
+        const tick = +a.slice(-1);
+        return tick >= 5 && tick <= 10;
+    }
+    return (!durationLesser(a, min)) && (!durationLarger(a, max));
 };

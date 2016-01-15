@@ -6,14 +6,6 @@ import FullTradeTypeSelector from './FullTradeTypeSelector';
 import FullTradePayout from './FullTradePayout';
 
 export default class FullTradeCard extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            showAssets: false,
-            showTradingType: false,
-        };
-    }
-
     static propTypes = {
         id: PropTypes.string.isRequired,
         priceProposalID: PropTypes.string,
@@ -25,6 +17,30 @@ export default class FullTradeCard extends Component {
         ticksInfo: PropTypes.object.isRequired,
         actions: PropTypes.object.isRequired,
     };
+
+    componentWillReceiveProps(nextProps) {
+        const { tradingTypeInfo, contractOptions } = nextProps;
+        const { allCategories, selectedCategory, selectedType } = tradingTypeInfo;
+
+        // set default for tradeCategory if needed
+        if (!allCategories.find(ctg => ctg.value === selectedCategory) && allCategories[0]) {
+            this.updateTradeCategory(allCategories[0].value);
+        }
+
+        // set default for tradeType if needed
+        if (!contractOptions.find(opt => opt.value === selectedType) && contractOptions[0]) {
+            this.updateTradeType(contractOptions[0].value);
+        }
+
+        // set default for duration if needed
+        const selectedOptions = contractOptions.find(opt => opt.value === selectedType);
+        if (selectedOptions) {
+            const { min, max, duration } = selectedOptions.durationInfo;
+            if (duration > max || duration < min) {
+                this.updateDuration(min);
+            }
+        }
+    }
 
     updateParams(name, value) {
         const { actions, id } = this.props;
@@ -48,7 +64,7 @@ export default class FullTradeCard extends Component {
     }
 
     updateDuration(duration) {
-        this.updateParams('duration', duration);
+        this.updateParams('duration', +duration);
     }
 
     updateDurationUnit(unit) {
@@ -83,7 +99,7 @@ export default class FullTradeCard extends Component {
                         onChange={e => this.updateAssetSelected(e.target.value)}
                     />
                     <FullTradeCategorySelector
-                        onCategoryChange={e => this.updateTradeCategory(e.target.value)}
+                        onCategoryChange={::this.updateTradeCategory}
                         {...tradingTypeInfo}
                     />
                 </div>
@@ -94,8 +110,12 @@ export default class FullTradeCard extends Component {
                     onDurationUnitChange={::this.updateDurationUnit}
                     onBarrier1Change={::this.updateBarrier1}
                     onBarrier2Change={::this.updateBarrier2}
+                    selectedType={tradingTypeInfo.selectedType}
                 />
-                <FullTradePayout {...payoutInfo} />
+                <FullTradePayout {...payoutInfo}
+                    onAmountChange={::this.updateAmount}
+                    onBasisChange={::this.updateBasis}
+                />
             </div>
         );
     }

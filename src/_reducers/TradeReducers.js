@@ -9,6 +9,7 @@ const initialState = fromJS({
         durationUnit: 'd',
         basis: 'payout',
         amount: 100,
+        type: 'CALL',
     },
 });
 

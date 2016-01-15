@@ -1,44 +1,59 @@
 import React, { PropTypes, Component } from 'react';
 import { InputGroup, SelectGroup } from '../_common';
-import { durationLarger, durationLesser, durationText, durationTypes } from '../_utils/TradeUtils';
+import { durationText } from '../_utils/TradeUtils';
 
 export default class FullTradeDuration extends Component {
     static propTypes = {
-        min: PropTypes.string.isRequired,
-        max: PropTypes.string.isRequired,
         durationUnit: PropTypes.string,
         duration: PropTypes.number,
         forwardStartingOptions: PropTypes.array,
+        min: PropTypes.number.isRequired,
+        max: PropTypes.number.isRequired,
         onValueChange: PropTypes.func,
         onUnitChange: PropTypes.func,
+        unitOptions: PropTypes.array.isRequired,
     };
 
     guardedValueUpdate(e) {
-        const { min, max, durationUnit, onValueChange } = this.props;
-        const val = e.target.value + durationUnit;
+        const { min, max, onValueChange } = this.props;
+        const val = e.target.value;
+        if (!val) {
+            onValueChange(undefined);
+            return;
+        }
 
-        if (durationLarger(val, max)) {
+        if (val > max) {
             onValueChange(max);
+            return;
         }
 
-        if (durationLesser(val, min)) {
+        if (val < min) {
             onValueChange(min);
+            return;
         }
+
+        onValueChange(val);
     }
 
     render() {
-        const { min, max, duration, onUnitChange } = this.props;
-        const availableTypes = durationTypes(min, max).map(u => ({ value: u, text: durationText(u) }));
+        const { min, max, duration, durationUnit, onUnitChange, unitOptions } = this.props;
+        const availableUnits = unitOptions.map(u => ({ value: u, text: durationText(u) }));
 
         return (
             <div className="row">
                 <InputGroup
                     type="number"
                     hint="Duration of contract"
+                    min={min}
+                    max={max}
                     value={duration}
                     onChange={::this.guardedValueUpdate}
                 />
-                <SelectGroup options={availableTypes} onChange={e => onUnitChange(e.target.value)} />
+                <SelectGroup
+                    options={availableUnits}
+                    onChange={e => onUnitChange(e.target.value)}
+                    value={durationUnit}
+                />
             </div>
         );
     }
