@@ -21,7 +21,14 @@ export default class FullTradeTypeSelector extends Component {
     }
 
     render() {
-        const { contractOptions, onDurationChange, onDurationUnitChange, onBarrier1Change, onBarrier2Change } = this.props;
+        const {
+            contractOptions,
+            onDurationChange,
+            onDurationUnitChange,
+            onBarrier1Change,
+            onBarrier2Change,
+        } = this.props;
+
         const tabs = contractOptions.map(opt => ({
             text: opt.name,
             component: (

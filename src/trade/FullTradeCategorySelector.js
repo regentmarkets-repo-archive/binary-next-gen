@@ -11,7 +11,11 @@ export default class FullTradeCategorySelector extends Component {
     render() {
         const { allCategories, selectedCategory, onCategoryChange } = this.props;
         return (
-            <SelectGroup options={allCategories} value={selectedCategory} onChange={e => onCategoryChange(e.target.value)} />
+            <SelectGroup
+                options={allCategories}
+                value={selectedCategory}
+                onChange={e => onCategoryChange(e.target.value)}
+            />
         );
     }
 }
