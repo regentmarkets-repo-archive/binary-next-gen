@@ -31,16 +31,6 @@ export default class EChart extends React.Component {
 
         this.echart.setOption(this.props.options);
 
-        // this.echart.addData([
-        //     [
-        //         0,        // Series Index
-        //         newData[newData.length - 1],  // New data
-        //         false,     // Whether the new data is inserted from the head of the queue
-        //         false,    // Whether to increase the queue length
-        //         123123,
-        //     ],
-        // ]);
-
         return false;
     }
 

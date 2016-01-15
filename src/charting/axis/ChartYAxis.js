@@ -1,7 +1,9 @@
-export default ({ theme }) => [{
+export default ({ theme }) => ({
     type: 'value',
     scale: true,
-    axisLine: false,
+    axisTick: {
+        show: false,
+    },
     position: 'right',
     splitNumber: 3,
     axisLabel: {
@@ -13,6 +15,12 @@ export default ({ theme }) => [{
             fontSize: 10,
         },
     },
+    axisLine: {
+        show: true,
+        lineStyle: {
+            color: theme.grid,
+        },
+    },
     splitLine: {
         show: true,
         lineStyle: {
@@ -20,4 +28,4 @@ export default ({ theme }) => [{
             width: 1,
         },
     },
-}];
+});

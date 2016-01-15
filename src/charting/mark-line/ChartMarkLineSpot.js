@@ -10,20 +10,20 @@ const getLineFromStartToEnd = (history) => {
 
 export default (history) => ({
     symbolSize: [0, 0],
-    itemStyle: {
-       normal: {
-           color: 'red',
-           lineStyle: 'dashed',
-           borderWidth: 1,
-           borderColor: 'red',
-           barBorderColor: 'yellow',
-           barBorderWidth: 5,
-           label: {
-               show: true,
-               position: 'inner',
-           },
-       },
-    },
+    // itemStyle: {
+    //    normal: {
+    //        color: 'red',
+    //        lineStyle: 'dashed',
+    //        borderWidth: 1,
+    //        borderColor: 'red',
+    //        barBorderColor: 'yellow',
+    //        barBorderWidth: 5,
+    //        label: {
+    //            show: true,
+    //            position: 'inner',
+    //        },
+    //    },
+    // },
     data: [
         getLineFromStartToEnd(history),
     ],

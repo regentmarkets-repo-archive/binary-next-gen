@@ -1,6 +1,6 @@
 import { epochToTimeString } from '../../_utils/DateUtils';
 
-export default ({ theme, data }) => [{
+export default ({ theme, data }) => ({
     type: 'category',
     scale: true,
     axisLine: false,
@@ -24,4 +24,4 @@ export default ({ theme, data }) => [{
             width: 1,
         },
     },
-}];
+});
