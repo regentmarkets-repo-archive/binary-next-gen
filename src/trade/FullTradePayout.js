@@ -46,7 +46,7 @@ export default class FullTradePayout extends Component {
                     className="radio-selector"
                     name="basis"
                     options={basisOptions}
-                    onChange={onBasisChange}
+                    onChange={e => onBasisChange(e.target.value)}
                     value={basis}
                 />
                 <InputGroup

@@ -243,6 +243,12 @@ const payoutSelector = state => {
     };
 };
 
+const proposalSelector = state => {
+    const allProposals = state.proposals.toJS();
+    const { priceProposalID } = state.trade.get('1').toJS();
+    return priceProposalID ? allProposals[priceProposalID] : undefined;
+};
+
 export const fullTradeSelector = createSelector(
     selectedAssetSelector,
     tradingTypeSelector,
@@ -250,7 +256,8 @@ export const fullTradeSelector = createSelector(
     contractsSelector,
     payoutSelector,
     availableAssetsSelector,
-    (selectedAsset, tradingTypeInfo, ticksInfo, contractOptions, payoutInfo, availableAssets) => ({
+    proposalSelector,
+    (selectedAsset, tradingTypeInfo, ticksInfo, contractOptions, payoutInfo, availableAssets, proposal) => ({
         selectedAsset,
         ticksInfo,
         contractOptions,
@@ -258,5 +265,6 @@ export const fullTradeSelector = createSelector(
         payoutInfo,
         id: '1',
         availableAssets,
+        proposal,
     })
 );

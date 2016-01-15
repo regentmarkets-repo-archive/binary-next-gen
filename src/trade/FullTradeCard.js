@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import MobileChart from '../charting/MobileChart';
-import { SelectGroup } from '../_common';
+import { SelectGroup, NumberPlain } from '../_common';
 import FullTradeCategorySelector from './FullTradeCategorySelector';
 import FullTradeTypeSelector from './FullTradeTypeSelector';
 import FullTradePayout from './FullTradePayout';
@@ -15,6 +15,7 @@ export default class FullTradeCard extends Component {
         contractOptions: PropTypes.array.isRequired,
         payoutInfo: PropTypes.object.isRequired,
         ticksInfo: PropTypes.object.isRequired,
+        proposal: PropTypes.object,
         actions: PropTypes.object.isRequired,
     };
 
@@ -33,13 +34,13 @@ export default class FullTradeCard extends Component {
         }
 
         // set default for duration if needed
-        const selectedOptions = contractOptions.find(opt => opt.value === selectedType);
-        if (selectedOptions) {
-            const { min, max, duration } = selectedOptions.durationInfo;
-            if (duration > max || duration < min) {
-                this.updateDuration(min);
-            }
-        }
+        // const selectedOptions = contractOptions.find(opt => opt.value === selectedType);
+        // if (selectedOptions) {
+        //     const { min, max, duration } = selectedOptions.durationInfo;
+        //     if (duration > max || duration < min) {
+        //         this.updateDuration(min);
+        //     }
+        // }
     }
 
     updateParams(name, value) {
@@ -88,10 +89,17 @@ export default class FullTradeCard extends Component {
     }
 
     render() {
-        const { selectedAsset, availableAssets, tradingTypeInfo, contractOptions, payoutInfo, ticksInfo } = this.props;
+        const {
+            selectedAsset,
+            availableAssets,
+            tradingTypeInfo,
+            contractOptions,
+            payoutInfo,
+            ticksInfo,
+            proposal } = this.props;
         return (
             <div>
-                <MobileChart history={ticksInfo.ticks} />
+                {false && <MobileChart history={ticksInfo.ticks} />}
                 <div className="row">
                     <SelectGroup
                         options={availableAssets}
@@ -116,6 +124,7 @@ export default class FullTradeCard extends Component {
                     onAmountChange={::this.updateAmount}
                     onBasisChange={::this.updateBasis}
                 />
+                <NumberPlain currency={payoutInfo.currency} value={proposal && proposal.ask_price} digits={2} />
             </div>
         );
     }
