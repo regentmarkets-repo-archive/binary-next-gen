@@ -10,6 +10,7 @@ export default ({ theme, data }) => ({
     splitNumber: 5,
     axisLabel: {
         show: true,
+        margin: 2,
         formatter: v => epochToTimeString(v),
         textStyle: {
             color: theme.text,
