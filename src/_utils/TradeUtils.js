@@ -81,3 +81,16 @@ export const durationIsBetween = (a, min, max) => {
     }
     return (!durationLesser(a, min)) && (!durationLarger(a, max));
 };
+
+export const contractCategoryDisplay = category => {
+    switch (category) {
+        case 'asian': return 'Asians';
+        case 'callput': return 'Up/Down';
+        case 'digits': return 'Digits';
+        case 'endsinout': return 'Ends In/Out';
+        case 'staysinout': return 'Stays In/Out';
+        case 'touchnotouch': return 'Touch/No Touch';
+        case 'spreads': return 'Spreads';
+        default: return undefined;
+    }
+};
