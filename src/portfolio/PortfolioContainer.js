@@ -1,16 +1,10 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
 import PortfolioCard from './PortfolioCard';
+import portfolioSelectors from '../_selectors/PortfolioSelectors';
 
-@connect(state => ({ portfolio: state.portfolio }))
+@connect(portfolioSelectors)
 export default class PortfolioContainer extends React.Component {
-
-	static propTypes = {
-		portfolio: PropTypes.object,
-		dispatch: PropTypes.func,
-		actions: PropTypes.object.isRequired,
-	};
-
 	render() {
 		return (
 			<PortfolioCard {...this.props} />

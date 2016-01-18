@@ -2,12 +2,7 @@ import React, { PropTypes } from 'react';
 import { NumberPlain, M } from '../_common';
 import PortfolioRow from './PortfolioRow';
 
-const totalPurchase = contracts => contracts.reduce((x, y) => x + +y.buy_price, 0);
-const totalIndicative = () => proposals => {
-	return proposals.values().reduce((x, y) => x + +y, 0);
-};
-
-const PortfolioTable = ({ compact, contracts, proposals, onViewDetails }) => {
+const PortfolioTable = ({ compact, contracts, proposals, onViewDetails, purchaseTotal, indicativeTotal }) => {
 	return (
 		<table>
 			<thead>
@@ -39,8 +34,8 @@ const PortfolioTable = ({ compact, contracts, proposals, onViewDetails }) => {
 			<tfoot>
 				<tr>
                     <th></th>
-					<th><NumberPlain currency="USD" value={totalPurchase(contracts)} /></th>
-                    <th><NumberPlain currency="USD" value={totalIndicative(proposals)} /></th>
+					<th><NumberPlain currency="USD" value={purchaseTotal} /></th>
+                    <th><NumberPlain currency="USD" value={indicativeTotal} /></th>
                     {!compact && <th></th>}
 				</tr>
 			</tfoot>
