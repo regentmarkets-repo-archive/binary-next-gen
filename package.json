@@ -2,9 +2,10 @@
   "name": "binary-next-gen",
   "main": "src/index.js",
   "scripts": {
-    "test": "webpack --config webpack.config.dev.js",
+    "test": "npm run test:eslint && npm run test:unit",
+    "test:eslint": "webpack --config webpack.config.dev.js",
     "test:unit": "mocha --compilers js:babel-core/register ./src/**/__tests__/*.js",
-    "test:watch": "mocha --compilers js:babel-core/register --watch ./src/**/__tests__/*.js",
+    "test:watch": "npm test -- --watch",
     "test:coverage": "istanbul cover ./node_modules/mocha/bin/_mocha ./src/_common/__tests__/*.js -- --compilers js:babel-core/register",
     "start": "node server.js",
     "build": "npm run clean && npm run build:webpack",
@@ -32,7 +33,7 @@
   },
   "dependencies": {
     "binary-live-api": "*",
-    "echarts": "^3.0.0",
+    "echarts": "^3.0.1",
     "history": "^1.17.0",
     "immutable": "^3.7.5",
     "react": "^0.14.6",

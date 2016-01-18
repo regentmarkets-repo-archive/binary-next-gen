@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { fullTradeSelector } from './selectors';
+import { fullTradeSelectors } from '../_selectors/FullTradeSelectors';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import FullTradeCard from './FullTradeCard';
 
-@connect(fullTradeSelector)
+@connect(fullTradeSelectors)
 export default class FullTradeContainer extends Component {
     shouldComponentUpdate = shouldPureComponentUpdate;
 

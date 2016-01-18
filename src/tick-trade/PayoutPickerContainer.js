@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import DurationCard from './DurationCard';
+import PayoutPickerCard from './PayoutPickerCard';
 
 @connect(state => ({ tickTrade: state.tickTrade }))
 export default class PayoutPickerContainer extends React.Component {
 	render() {
 		return (
-			<DurationCard {...this.props} />
+			<PayoutPickerCard {...this.props} />
 		);
 	}
 }

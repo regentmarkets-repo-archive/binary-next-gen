@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import TradeTypeSelectorCard from './TradeTypeSelectorCard';
+import TradeTypePickerCard from './TradeTypePickerCard';
 
 @connect(state => ({ tickTrade: state.tickTrade }))
-export default class TradeTypeSelectorContainer extends React.Component {
+export default class TradeTypePickerContainer extends React.Component {
 
 	static propTypes = {
 		dispatch: PropTypes.func,
@@ -11,7 +11,7 @@ export default class TradeTypeSelectorContainer extends React.Component {
 
 	render() {
 		return (
-			<TradeTypeSelectorCard {...this.props} />
+			<TradeTypePickerCard {...this.props} />
 		);
 	}
 }

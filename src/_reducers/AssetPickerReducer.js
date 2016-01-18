@@ -1,9 +1,9 @@
 import { fromJS } from 'immutable';
 import {
     SERVER_DATA_ACTIVE_SYMBOLS,
-    UPDATE_ASSET_SELECTOR_SEARCH_QUERY,
-    UPDATE_ASSET_SELECTOR_MARKETS,
-    UPDATE_ASSET_SELECTOR_SUBMARKET,
+    UPDATE_ASSET_PICKER_SEARCH_QUERY,
+    UPDATE_ASSET_PICKER_MARKETS,
+    UPDATE_ASSET_PICKER_SUBMARKET,
     SERVER_DATA_ASSET_INDEX,
 } from '../_constants/ActionTypes';
 
@@ -15,10 +15,11 @@ const initialState = fromJS({
     availableAssets: [],
 });
 
-const similarStr = (str1, str2) => str1.toLowerCase().includes(str2.toLowerCase());
+export const similarStr = (str1 = '', str2 = '') =>
+    str1.toLowerCase().includes(str2.toLowerCase());
 
-const doFilter = (AssetSelectorList, query, markets, submarket) => {
-    return AssetSelectorList.filter(asset =>
+const doFilter = (AssetPickerList, query, markets, submarket) => {
+    return AssetPickerList.filter(asset =>
         (submarket === '' ||
             submarket === asset.get('submarket_display_name')) &&
         (query.trim() === '' ||
@@ -54,7 +55,7 @@ export default (state = initialState, action) => {
                 .set('availableAssets', fromJS(filteredSymbols))
                 .set('shownAssets', fromJS(filteredSymbols));
         }
-        case UPDATE_ASSET_SELECTOR_SEARCH_QUERY: {
+        case UPDATE_ASSET_PICKER_SEARCH_QUERY: {
             const availableAssets = state.get('availableAssets');
             const shownAssets = doFilter(availableAssets, action.query, state.get('market'), state.get('submarket'));
 
@@ -62,7 +63,7 @@ export default (state = initialState, action) => {
                 .set('query', action.query)
                 .set('shownAssets', shownAssets);
         }
-        case UPDATE_ASSET_SELECTOR_SUBMARKET: {
+        case UPDATE_ASSET_PICKER_SUBMARKET: {
             const availableAssets = state.get('availableAssets');
             const shownAssets = doFilter(availableAssets, state.get('query'), state.get('market'), action.submarket);
 
@@ -70,7 +71,7 @@ export default (state = initialState, action) => {
                 .set('submarket', action.submarket)
                 .set('shownAssets', shownAssets);
         }
-        case UPDATE_ASSET_SELECTOR_MARKETS: {
+        case UPDATE_ASSET_PICKER_MARKETS: {
             const availableAssets = state.get('availableAssets');
             const shownAssets = doFilter(availableAssets, state.get('query'), action.markets, state.get('submarket'));
 

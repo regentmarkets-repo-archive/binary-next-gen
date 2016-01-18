@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import { getSettings } from '../_reducers/SettingsReducers';
+import { getSettings } from '../_reducers/SettingsReducer';
 import PaymentAgentsCard from './PaymentAgentsCard';
 
 @connect(state => ({

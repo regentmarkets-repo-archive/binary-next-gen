@@ -1,9 +1,9 @@
 import React from 'react';
 import { MobilePage } from '../_common';
-import AssetSelectorContainer from './AssetSelectorContainer';
+import AssetPickerContainer from './AssetPickerContainer';
 
 export default (props) => (
 	<MobilePage toolbarShown={false} backBtnBarTitle="Asset">
-		<AssetSelectorContainer {...props} />
+		<AssetPickerContainer {...props} />
 	</MobilePage>
 );

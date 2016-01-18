@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { Star } from '../_common';
 
-export default class AssetSelectorItem extends React.Component {
+export default class AssetPickerItem extends React.Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 

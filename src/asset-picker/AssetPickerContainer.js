@@ -1,21 +1,21 @@
 import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { connect } from 'react-redux';
-import AssetSelectorCard from './AssetSelectorCard';
+import AssetPickerCard from './AssetPickerCard';
 
 @connect(state => ({
 	assets: state.assets,
-	assetSelector: state.assetSelector,
+	AssetPicker: state.AssetPicker,
 	workspace: state.workspace,
 	watchlist: state.watchlist,
 }))
-export default class AssetSelectorContainer extends React.Component {
+export default class AssetPickerContainer extends React.Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
 		assets: PropTypes.object,
-		assetSelector: PropTypes.object,
+		AssetPicker: PropTypes.object,
 		workspace: PropTypes.object,
 		watchlist: PropTypes.object,
 		dispatch: PropTypes.func,
@@ -24,7 +24,7 @@ export default class AssetSelectorContainer extends React.Component {
 
 	render() {
 		return (
-			<AssetSelectorCard {...this.props} />
+			<AssetPickerCard {...this.props} />
 		);
 	}
 }

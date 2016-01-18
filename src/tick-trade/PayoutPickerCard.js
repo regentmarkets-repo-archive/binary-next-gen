@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { RadioGroup, CurrencySelector, InputGroup } from '../_common';
+import { RadioGroup, CurrencyPicker, InputGroup } from '../_common';
 
 const basisTypes = [
 	{ value: 'payout', text: 'Payout' },
@@ -9,7 +9,7 @@ const basisTypes = [
 const payoutAmounts = [1, 2, 5, 10, 20, 50, 100, 500, 1000].map(x => ({ value: x, text: x }));
 const maxAmount = 100000;
 const minAmount = 1;
-export default class PayoutSelectorCard extends React.Component {
+export default class PayoutPickerCard extends React.Component {
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
 		tickTrade: PropTypes.object.isRequired,
@@ -41,7 +41,7 @@ export default class PayoutSelectorCard extends React.Component {
 					onChange={e => this.updateValue({ basis: e.target.value })}
 					{...this.props}
 				/>
-				<CurrencySelector
+				<CurrencyPicker
 					radio
 					value={tickTrade.get('currency')}
 					onChange={e => this.updateValue({ currency: e.target.value })}

@@ -201,7 +201,7 @@ const contractsSelector = state => {
 };
 
 const availableAssetsSelector = state => {
-    const availables = state.assetSelector.get('availableAssets').toJS();
+    const availables = state.AssetPicker.get('availableAssets').toJS();
     return availables.map(asset => ({ text: asset.display_name, value: asset.symbol }));
 };
 
@@ -243,13 +243,7 @@ const payoutSelector = state => {
     };
 };
 
-const proposalSelector = state => {
-    const allProposals = state.proposals.toJS();
-    const { priceProposalID } = state.trade.get('1').toJS();
-    return priceProposalID ? allProposals[priceProposalID] : undefined;
-};
-
-export const fullTradeSelector = createSelector(
+export const fullTradeSelectors = createSelector(
     selectedAssetSelector,
     tradingTypeSelector,
     selectedAssetTicksSelector,

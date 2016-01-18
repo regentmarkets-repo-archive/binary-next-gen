@@ -1,8 +1,8 @@
 export default ({ theme }) => ({
-    x: 0,
-    y: 10,
-    x2: 40,
-    y2: 45,
+    top: 5,
+    left: 20,
+    right: 40,
+    bottom: 40,
     backgroundColor: 'white',
     borderColor: theme.grid,
 });

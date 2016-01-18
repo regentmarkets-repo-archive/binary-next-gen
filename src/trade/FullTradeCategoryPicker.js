@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import SelectGroup from '../_common/SelectGroup';
 
-export default class FullTradeCategorySelector extends Component {
+export default class FullTradeCategoryPicker extends Component {
     static propTypes = {
         allCategories: PropTypes.array.isRequired,
         selectedCategory: PropTypes.string,
@@ -11,7 +11,11 @@ export default class FullTradeCategorySelector extends Component {
     render() {
         const { allCategories, selectedCategory, onCategoryChange } = this.props;
         return (
-            <SelectGroup options={allCategories} value={selectedCategory} onChange={e => onCategoryChange(e.target.value)} />
+            <SelectGroup
+                options={allCategories}
+                value={selectedCategory}
+                onChange={e => onCategoryChange(e.target.value)}
+            />
         );
     }
 }

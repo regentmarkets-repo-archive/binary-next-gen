@@ -1,9 +1,9 @@
 import React from 'react';
 import { MobilePage } from '../_common';
-import TradeTypeSelectorContainer from './TradeTypeSelectorContainer';
+import TradeTypePickerContainer from './TradeTypePickerContainer';
 
 export default (props) => (
 	<MobilePage toolbarShown={false} backBtnBarTitle="Trade Type">
-		<TradeTypeSelectorContainer {...props} />
+		<TradeTypePickerContainer {...props} />
 	</MobilePage>
 );

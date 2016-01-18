@@ -1,4 +1,4 @@
-import { store } from '../_store/configureStore';
+import { store } from '../_store/persistentStore';
 import { bindActionCreators } from 'redux';
 import * as LiveData from './LiveData';
 import { updateToken, signinFieldUpdate, updateAppInfo } from '../_actions';
