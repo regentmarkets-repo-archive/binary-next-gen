@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import { objectToArray } from '../_utils/ArrayUtils';
 
 export const contractsSelector = state => state.contracts;
 
@@ -13,7 +14,7 @@ export const purchaseTotalSelector = createSelector(
 export const indicativeTotalSelector = createSelector(
     proposalsSelector,
     proposals =>
-        proposals.toArray().reduce((x, y) => x + +y.bid_price, 0),
+        objectToArray(proposals).reduce((x, y) => x + +y.bid_price, 0),
 );
 
 export default createSelector(

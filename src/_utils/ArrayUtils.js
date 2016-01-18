@@ -1,1 +1,4 @@
-export const arrayHas = (arr, v) => arr.indexOf(v) > -1;
+export const objectToArray = obj =>
+    typeof obj.toArray !== 'undefined' ?
+        obj.toArray() :
+        Object.keys(obj).map(key => obj[key]);
