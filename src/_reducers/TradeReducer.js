@@ -31,11 +31,10 @@ export default (state = initialState, action) => {
         }
         case SERVER_DATA_PROPOSAL: {
             if (action.serverResponse.error) {
-                console.log('no proposal', action.serverResponse);
                 return state;
             }
             const proposalID = action.serverResponse.proposal.id;
-            const entry = state.findEntry(v => v.proposal ? v.proposal.id === proposalID : false);
+            const entry = state.findEntry(v => v.get('proposal') ? v.get('proposal').id === proposalID : false);
             if (entry) {
                 return state.setIn([entry[0], 'proposal'], action.serverResponse.proposal);
             }

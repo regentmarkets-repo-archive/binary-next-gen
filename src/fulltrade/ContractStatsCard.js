@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import { LabeledText } from '../_common';
+import { LabeledText, M } from '../_common';
 
 export default class ContractStatsCard extends Component {
     static propTypes = {
@@ -18,6 +18,7 @@ export default class ContractStatsCard extends Component {
                 <LabeledText label="Cost" value={cost.toString()}/>
                 <LabeledText label="Potential Winning" value={winning.toString()}/>
                 <LabeledText label="Potential Winning" value={winningPercent.toString() + '%'}/>
+                <M m={proposal.longcode}/>
             </div>
         );
     }

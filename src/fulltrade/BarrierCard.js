@@ -19,19 +19,18 @@ export default class BarrierCard extends Component {
     };
 
     render() {
-        const { barrier2, barrier1Info, barrier2Info, onBarrier1Change, onBarrier2Change, spot } = this.props;
-        const barrier = this.props.barrier || 0;
+        const { barrier, barrier2, barrier1Info, barrier2Info, onBarrier1Change, onBarrier2Change, spot } = this.props;
         return (
             <div>
                 {barrier1Info &&
                     <div>
                         <BarrierInput {...barrier1Info} onChange={onBarrier1Change} />
-                        {spot && <p>{barrier2Info ? `High spot: ${spot + barrier}` : `Target spot: ${spot + barrier}`}</p>}
+                        {spot && <p>{(barrier2Info ? 'High spot: ' : 'Target spot: ') + `${barrier || spot}`}</p>}
                     </div>}
                 {barrier2Info &&
                     <div>
                         <BarrierInput {...barrier2Info} onChange={onBarrier2Change} />
-                        {spot && <p>{`Low spot: ${spot + barrier2}`}</p>}
+                        {spot && <p>{`Low spot: ${barrier2}`}</p>}
                     </div>}
             </div>
         );

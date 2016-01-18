@@ -220,19 +220,27 @@ const contractsSelector = state => {
 const tradesSelector = state => state.trades.toJS();
 
 const assetsSelector = state => {
-    const availables = state.assetSelector.get('availableAssets').toJS();
+    const availables = state.AssetPicker.get('availableAssets').toJS();
     return availables.map(asset => ({ text: asset.display_name, value: asset.symbol }));
 };
+
+const ticksSelector = state => state.ticks.toJS();
+
+const currencySelector = state => state.account.get('currency');
 
 export const fullTradesSelector = createSelector(
     contractsSelector,
     tradesSelector,
     assetsSelector,
-    (contracts, trades, assets) => {
+    ticksSelector,
+    currencySelector,
+    (contracts, trades, assets, ticks, currency) => {
         return {
             contracts,
             trades,
             assets,
+            ticks,
+            currency,
         };
     }
 );

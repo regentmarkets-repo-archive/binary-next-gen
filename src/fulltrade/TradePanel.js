@@ -12,39 +12,16 @@ export default class TradePanel extends Component {
     static propTypes = {
         actions: PropTypes.object.isRequired,
         assets: PropTypes.array.isRequired,
+        currency: PropTypes.string.isRequired,
         contract: PropTypes.object,
         id: PropTypes.string.isRequired,
         trade: PropTypes.object.isRequired,
+        tick: PropTypes.array,
     };
 
     componentWillMount() {
         const { actions, id } = this.props;
         actions.updatePriceProposalSubscription(id);
-    }
-
-    componentWillReceiveProps(nextProps) {
-        // asset changed, update category
-        const newSymbol = nextProps.trade.symbol;
-        const oldSymbol = this.props.trade.symbol;
-        if (newSymbol !== oldSymbol) {
-            this.updateHelper('tradeCategory', 'callput');
-        }
-
-        // category change, update type
-        const newCategory = nextProps.trade.tradeCategory;
-        const oldCategory = this.props.trade.tradeCategory;
-        if (newCategory !== oldCategory) {
-            const newType = Object.keys(nextProps.contract[newCategory])[0];
-            this.updateHelper('type', newType);
-        }
-
-        // type change, update unit
-        const newType = nextProps.trade.type;
-        const oldType = this.props.trade.type;
-        if (newType !== oldType) {
-            const newDuration = nextProps.contract[newCategory][newType].durations[0];
-            this.updateHelper('durationUnit', newDuration ? newDuration.unit : undefined);
-        }
     }
 
     updateHelper(name, value, update = true) {
@@ -57,17 +34,30 @@ export default class TradePanel extends Component {
 
     onAssetChange(e) {
         this.updateHelper('symbol', e.target.value);
+        this.onCategoryChange({ target: { value: 'callput' } }, false);
     }
 
-    onCategoryChange(e) {
-        this.updateHelper('tradeCategory', e.target.value);
-        const { contract } = this.props;
-        const defaultType = Object.keys(contract[e.target.value])[0];
-        const newBarriers = contract[e.target.value][defaultType].barriers;
+    // scary but necessary as all fields have dependency on category
+    onCategoryChange(e, update) {
+        const newCategory = e.target.value;
+        this.updateHelper('tradeCategory', newCategory, update);
 
+        const { contract, tick } = this.props;
+        const defaultType = Object.keys(contract[newCategory])[0];
+        const newBarriers = contract[newCategory][defaultType].barriers;
+        const lastSpot = tick ? tick[tick.length - 1].quote : 0;
+
+        // update type
+        this.updateHelper('type', defaultType);
+
+        // update duration
+        const newDuration = contract[newCategory][defaultType].durations[0];
+        this.updateHelper('durationUnit', newDuration ? newDuration.unit : undefined);
+
+        // update barriers
         if (!newBarriers) {
-            if (e.target.value === 'spreads') {
-                const spread = contract[e.target.value][defaultType].spread;
+            if (newCategory === 'spreads') {
+                const spread = contract[newCategory][defaultType].spread;
                 this.updateHelper('amountPerPoint', spread.amountPerPoint, false);
                 this.updateHelper('stopType', spread.stopType, false);
                 this.updateHelper('stopLoss', spread.stopLoss, false);
@@ -76,15 +66,22 @@ export default class TradePanel extends Component {
             this.updateHelper('barrier', undefined, false);
             this.updateHelper('barrier2', undefined, false);
         } else if (newBarriers.length === 1) {
-            if (e.target.value === 'digits') {
+            if (newCategory === 'digits') {
                 this.updateHelper('barrier', newBarriers[0].value[0], false);
             } else {
-                this.updateHelper('barrier', newBarriers[0].value, false);
+                this.updateHelper('barrier', newBarriers[0].value + lastSpot, false);
             }
             this.updateHelper('barrier2', undefined, false);
         } else if (newBarriers.length === 2) {
-            this.updateHelper('barrier', newBarriers[0].value, false);
-            this.updateHelper('barrier2', newBarriers[1].value, false);
+            this.updateHelper('barrier', newBarriers[0].value + lastSpot, false);
+            this.updateHelper('barrier2', newBarriers[1].value + lastSpot, false);
+        }
+
+        if (newCategory !== 'spreads') {
+            this.updateHelper('amountPerPoint', undefined, false);
+            this.updateHelper('stopType', undefined, false);
+            this.updateHelper('stopLoss', undefined, false);
+            this.updateHelper('stopProfit', undefined, true);
         }
     }
 
@@ -101,11 +98,15 @@ export default class TradePanel extends Component {
     }
 
     onBarrier1Change(e) {
-        this.updateHelper('barrier', +e.target.value);
+        const { tick } = this.props;
+        const lastSpot = tick ? tick[tick.length - 1].quote : 0;
+        this.updateHelper('barrier', +e.target.value + lastSpot);
     }
 
     onBarrier2Change(e) {
-        this.updateHelper('barrier2', +e.target.value);
+        const { tick } = this.props;
+        const lastSpot = tick ? tick[tick.length - 1].quote : 0;
+        this.updateHelper('barrier2', +e.target.value + lastSpot);
     }
 
     onBasisChange(e) {
@@ -138,7 +139,7 @@ export default class TradePanel extends Component {
     }
 
     render() {
-        const { assets, contract, trade } = this.props;
+        const { assets, contract, trade, currency } = this.props;
         const selectedSymbol = trade.symbol;
         const categories = Object.keys(contract).map(c => ({ value: c, text: contractCategoryDisplay(c) }));
         const selectedCategory = trade.tradeCategory;
@@ -188,7 +189,7 @@ export default class TradePanel extends Component {
                             />}
                         {selectedCategory === 'spreads' &&
                         <SpreadBarrierCard
-                            currency="USD"              // TODO :hardcoded, to be fixed
+                            currency={currency}
                             spreadInfo={contractForType.spread}
                             amountPerPointChange={::this.onAmountPerPointChange}
                             stopTypeChange={::this.onStopTypeChange}

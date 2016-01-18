@@ -6,10 +6,12 @@ import TradePanel from './TradePanel';
 @connect(fullTradesSelector)
 export default class TradesContainer extends React.Component {
     static propTypes = {
-        contracts: PropTypes.object.isRequired,
-        trades: PropTypes.object.isRequired,
-        assets: PropTypes.array.isRequired,
         actions: PropTypes.object.isRequired,
+        assets: PropTypes.array.isRequired,
+        contracts: PropTypes.object.isRequired,
+        currency: PropTypes.string.isRequired,
+        trades: PropTypes.object.isRequired,
+        ticks: PropTypes.object.isRequired,
     };
     createTrade() {
         const { trades, actions } = this.props;
@@ -18,21 +20,25 @@ export default class TradesContainer extends React.Component {
     }
 
     render() {
-        const { assets, trades, contracts, actions } = this.props;
+        const { assets, trades, contracts, actions, ticks, currency } = this.props;
         const allID = Object.keys(trades);
         return (
             <div>
                 {allID.map(id => {
-                    const contract = contracts[trades[id].symbol];
+                    const symbol = trades[id].symbol;
+                    const contract = contracts[symbol];
+                    const tick = ticks[symbol];
                     if (contract) {
                         return (
                             <TradePanel
                                 actions={actions}
                                 assets={assets}
+                                currency={currency}
                                 key={id}
                                 id={id}
                                 trade={trades[id]}
                                 contract={contract}
+                                tick={tick}
                             />
                         );
                     }

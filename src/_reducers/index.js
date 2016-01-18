@@ -20,9 +20,9 @@ import createAccount from './CreateAccountReducer';
 import upgrade from './UpgradeReducer';
 import states from './StatesReducer';
 import tradingOptions from './TradingOptionsReducer';
-import proposals from './ProposalsReducers';
-import quickTrade from './QuickTradeReducers';
-import trades from './TradeReducers';
+import proposals from './ProposalsReducer';
+import quickTrade from './QuickTradeReducer';
+import trades from './TradeReducer';
 
 export default combineReducers({
     appInfo,
