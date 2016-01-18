@@ -8,17 +8,17 @@ export default class AssetPickerCard extends React.Component {
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
 		assets: PropTypes.object.isRequired,
-		AssetPicker: PropTypes.object.isRequired,
+		assetPicker: PropTypes.object.isRequired,
 		workspace: PropTypes.object.isRequired,
 		history: PropTypes.object,
 		watchlist: PropTypes.object.isRequired,
 	};
 
 	render() {
-		const { actions, assets, AssetPicker, history, workspace, watchlist } = this.props;
+		const { actions, assets, assetPicker, history, workspace, watchlist } = this.props;
 		// const showOnlyTickTradable = !!~window.location.search.indexOf('tick');
 		const showOnlyTickTradable = true;
-		const shownAssets = AssetPicker.get('shownAssets');
+		const shownAssets = assetPicker.get('shownAssets');
 		const searchableAssets = assets.get('list').filter(x =>
 			!showOnlyTickTradable ||
 			x.get('market_display_name') === 'Forex' ||

@@ -3,8 +3,10 @@ import { combineReducers } from 'redux';
 import appInfo from './AppInfoReducer';
 import account from './AccountReducer';
 import assets from './AssetsReducer';
-import AssetPicker from './AssetPickerReducer';
+import assetPicker from './AssetPickerReducer';
 import portfolio from './PortfolioReducer';
+import contracts from './ContractsReducer';
+import openContractProposals from './OpenContractProposalsReducer';
 import settings from './SettingsReducer';
 import signin from './SigninReducer';
 import statement from './StatementReducer';
@@ -28,11 +30,13 @@ export default combineReducers({
     appInfo,
     account,
     assets,
-    AssetPicker,
+    assetPicker,
     createAccount,
     news,
     paymentAgent,
     portfolio,
+    contracts,
+    openContractProposals,
     profitTable,
     proposals,
     quickTrade,

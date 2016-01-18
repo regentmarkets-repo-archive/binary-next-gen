@@ -5,7 +5,7 @@ import AssetPickerCard from './AssetPickerCard';
 
 @connect(state => ({
 	assets: state.assets,
-	AssetPicker: state.AssetPicker,
+	assetPicker: state.assetPicker,
 	workspace: state.workspace,
 	watchlist: state.watchlist,
 }))
@@ -15,7 +15,7 @@ export default class AssetPickerContainer extends React.Component {
 
 	static propTypes = {
 		assets: PropTypes.object,
-		AssetPicker: PropTypes.object,
+		assetPicker: PropTypes.object,
 		workspace: PropTypes.object,
 		watchlist: PropTypes.object,
 		dispatch: PropTypes.func,

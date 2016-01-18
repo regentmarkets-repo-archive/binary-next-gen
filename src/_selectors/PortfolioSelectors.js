@@ -1,12 +1,8 @@
 import { createSelector } from 'reselect';
 
-export const contractsSelector = state => {
-    return state.contracts || (state.portfolio && state.portfolio.get('contracts')) || [];
-};
+export const contractsSelector = state => state.contracts;
 
-export const proposalsSelector = state => {
-    return state.proposals || (state.portfolio && state.portfolio.get('proposals')) || {};
-};
+export const proposalsSelector = state => state.openContractProposals;
 
 export const purchaseTotalSelector = createSelector(
     contractsSelector,
@@ -16,7 +12,8 @@ export const purchaseTotalSelector = createSelector(
 
 export const indicativeTotalSelector = createSelector(
     proposalsSelector,
-    () => 0, // proposals => proposals.values().reduce((x, y) => x + +y, 0),
+    proposals =>
+        proposals.toArray().reduce((x, y) => x + +y.bid_price, 0),
 );
 
 export default createSelector(
