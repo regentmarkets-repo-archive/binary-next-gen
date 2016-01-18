@@ -144,3 +144,14 @@ export const updatePriceProposalSubscription = tradeID => {
         });
     };
 };
+
+export const purchaseByTradeID = tradeID => {
+    return (dispatch, getState) => {
+        const trade = getState().trades.get(tradeID).toJS();
+        const proposalID = trade.proposal.id;
+        const price = trade.proposal.ask_price;
+        LiveData.api.buyContract(proposalID, price)
+            .then(response => dispatch(updateTradeParams(tradeID, 'receipt', response.buy)))
+            .catch(err => dispatch(updateTradeParams(tradeID, 'buy_error', err)));
+    };
+};

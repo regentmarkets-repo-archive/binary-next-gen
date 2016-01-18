@@ -8,14 +8,16 @@ export default class ContractStatsCard extends Component {
 
     render() {
         const { proposal } = this.props;
+        const spot = proposal.spot;
         const cost = proposal.ask_price;
-        const winning = proposal.payout - cost;
-        const winningPercent = winning / cost * 100;
+        const winning = (proposal.payout - cost, 2).toFixed(2);
+        const winningPercent = (winning / cost * 100).toFixed(2);
         return (
             <div className="name-val-pairs">
+                <LabeledText label="Current Spot" value={spot.toString()}/>
                 <LabeledText label="Cost" value={cost.toString()}/>
                 <LabeledText label="Potential Winning" value={winning.toString()}/>
-                <LabeledText label="Potential Winning" value={winningPercent.toString()}/>
+                <LabeledText label="Potential Winning" value={winningPercent.toString() + '%'}/>
             </div>
         );
     }

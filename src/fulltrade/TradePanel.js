@@ -1,10 +1,12 @@
 import React, { Component, PropTypes } from 'react';
-import { SelectGroup, RadioGroup, ErrorMsg } from '../_common';
+import { SelectGroup, RadioGroup, ErrorMsg, Modal, PurchaseConfirmation } from '../_common';
 import { contractCategoryDisplay } from '../_utils/TradeUtils';
-import DurationCard from './DurationCard';
 import BarrierCard from './BarrierCard';
-import PayoutCard from './PayoutCard';
 import ContractStatsCard from './ContractStatsCard';
+import DigitBarrierCard from './DigitBarrierCard';
+import DurationCard from './DurationCard';
+import PayoutCard from './PayoutCard';
+import SpreadBarrierCard from './SpreadBarrierCard';
 
 export default class TradePanel extends Component {
     static propTypes = {
@@ -40,8 +42,8 @@ export default class TradePanel extends Component {
         const newType = nextProps.trade.type;
         const oldType = this.props.trade.type;
         if (newType !== oldType) {
-            const newUnit = nextProps.contract[newCategory][newType].durations[0].unit;
-            this.updateHelper('durationUnit', newUnit);
+            const newDuration = nextProps.contract[newCategory][newType].durations[0];
+            this.updateHelper('durationUnit', newDuration ? newDuration.unit : undefined);
         }
     }
 
@@ -62,11 +64,23 @@ export default class TradePanel extends Component {
         const { contract } = this.props;
         const defaultType = Object.keys(contract[e.target.value])[0];
         const newBarriers = contract[e.target.value][defaultType].barriers;
+
         if (!newBarriers) {
+            if (e.target.value === 'spreads') {
+                const spread = contract[e.target.value][defaultType].spread;
+                this.updateHelper('amountPerPoint', spread.amountPerPoint, false);
+                this.updateHelper('stopType', spread.stopType, false);
+                this.updateHelper('stopLoss', spread.stopLoss, false);
+                this.updateHelper('stopProfit', spread.stopProfit, true);
+            }
             this.updateHelper('barrier', undefined, false);
             this.updateHelper('barrier2', undefined, false);
         } else if (newBarriers.length === 1) {
-            this.updateHelper('barrier', newBarriers[0].value, false);
+            if (e.target.value === 'digits') {
+                this.updateHelper('barrier', newBarriers[0].value[0], false);
+            } else {
+                this.updateHelper('barrier', newBarriers[0].value, false);
+            }
             this.updateHelper('barrier2', undefined, false);
         } else if (newBarriers.length === 2) {
             this.updateHelper('barrier', newBarriers[0].value, false);
@@ -87,11 +101,11 @@ export default class TradePanel extends Component {
     }
 
     onBarrier1Change(e) {
-        this.updateHelper('barrier', e.target.value);
+        this.updateHelper('barrier', +e.target.value);
     }
 
     onBarrier2Change(e) {
-        this.updateHelper('barrier2', e.target.value);
+        this.updateHelper('barrier2', +e.target.value);
     }
 
     onBasisChange(e) {
@@ -102,8 +116,25 @@ export default class TradePanel extends Component {
         this.updateHelper('amount', e.target.value);
     }
 
+    onAmountPerPointChange(e) {
+        this.updateHelper('amountPerPoint', e.target.value);
+    }
+
+    onStopTypeChange(e) {
+        this.updateHelper('stopType', e.target.value);
+    }
+
+    onStopLossChange(e) {
+        this.updateHelper('stopLoss', e.target.value);
+    }
+
+    onStopProfitChange(e) {
+        this.updateHelper('stopProfit', e.target.value);
+    }
+
     onPurchase() {
-        console.log('purchase');
+        const { actions, id } = this.props;
+        actions.purchaseByTradeID(id);
     }
 
     render() {
@@ -115,6 +146,8 @@ export default class TradePanel extends Component {
         const selectedType = trade.type;
         const contractForType = contract[selectedCategory][selectedType];
         const barriers = contractForType && contractForType.barriers;
+        const receipt = trade.receipt;
+
         return (
             <div>
                 <div className="row">
@@ -129,6 +162,9 @@ export default class TradePanel extends Component {
                         onChange={::this.onCategoryChange}
                     />
                 </div>
+                <Modal shown={!!receipt} onClose={() => this.updateHelper('receipt', undefined)} >
+                    <PurchaseConfirmation receipt={receipt} />
+                </Modal>
                 { contractForType &&
                     <div>
                         <RadioGroup
@@ -144,15 +180,31 @@ export default class TradePanel extends Component {
                             onDurationChange={::this.onDurationChange}
                             onUnitChange={::this.onDurationUnitChange}
                         />
-                        <BarrierCard
-                            barrier={trade.barrier}
-                            barrier2={trade.barrier2}
-                            barrier1Info={barriers && barriers[0]}
-                            barrier2Info={barriers && barriers[1]}
-                            onBarrier1Change={::this.onBarrier1Change}
-                            onBarrier2Change={::this.onBarrier2Change}
-                            spot={trade.proposal && +trade.proposal.spot}
-                        />
+                        {selectedCategory === 'digits' &&
+                            <DigitBarrierCard
+                                barrier={trade.barrier}
+                                barrierInfo={barriers && barriers[0]}
+                                onBarrierChange={::this.onBarrier1Change}
+                            />}
+                        {selectedCategory === 'spreads' &&
+                        <SpreadBarrierCard
+                            currency="USD"              // TODO :hardcoded, to be fixed
+                            spreadInfo={contractForType.spread}
+                            amountPerPointChange={::this.onAmountPerPointChange}
+                            stopTypeChange={::this.onStopTypeChange}
+                            stopLossChange={::this.onStopLossChange}
+                            stopProfitChange={::this.onStopProfitChange}
+                        />}
+                        {(selectedCategory !== 'spreads' && selectedCategory !== 'digits') &&
+                            <BarrierCard
+                                barrier={trade.barrier}
+                                barrier2={trade.barrier2}
+                                barrier1Info={barriers && barriers[0]}
+                                barrier2Info={barriers && barriers[1]}
+                                onBarrier1Change={::this.onBarrier1Change}
+                                onBarrier2Change={::this.onBarrier2Change}
+                                spot={trade.proposal && +trade.proposal.spot}
+                            />}
                     </div>
                 }
                 <PayoutCard
@@ -163,7 +215,7 @@ export default class TradePanel extends Component {
                     onBasisChange={::this.onBasisChange}
                 />
                 {trade.proposal && <ContractStatsCard proposal={trade.proposal} />}
-                <ErrorMsg shown={!!trade.proposalError} text={trade.proposalError && trade.proposalError.message} />
+                <ErrorMsg shown={!!trade.proposalError} text={trade.proposalError ? trade.proposalError.message : ''} />
                 <button onClick={::this.onPurchase}>Purchase</button>
             </div>
         );

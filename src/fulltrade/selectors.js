@@ -5,6 +5,7 @@ import { durationToSecs } from '../_utils/TradeUtils';
 
 const normalizedContractFor = contracts => {
     const extraRemoved = contracts.map(contract => ({
+        amount_per_point: contract.amount_per_point,
         barrier: contract.barrier,
         barriers: contract.barriers,
         contract_category: contract.contract_category,
@@ -16,6 +17,9 @@ const normalizedContractFor = contracts => {
         low_barrier: contract.low_barrier,
         min_contract_duration: contract.min_contract_duration,
         max_contract_duration: contract.max_contract_duration,
+        stop_type: contract.stop_type,
+        stop_loss: contract.stop_loss,
+        stop_profit: contract.stop_profit,
     }));
 
     const groupByCategory = groupByKey(extraRemoved, 'contract_category');
@@ -44,10 +48,10 @@ const extractBarrier = (contracts, type) => {
             return undefined;
         }
         case 'DIGITMATCH': {
-            return [{ name: 'Digit', value: contracts[0].last_digit_options }];
+            return [{ name: 'Digit', value: contracts[0].last_digit_range }];
         }
         case 'DIGITDIFF': {
-            return [{ name: 'Digit', value: contracts[0].last_digit_options }];
+            return [{ name: 'Digit', value: contracts[0].last_digit_range }];
         }
         case 'DIGITODD': {
             return undefined;
@@ -56,10 +60,10 @@ const extractBarrier = (contracts, type) => {
             return undefined;
         }
         case 'DIGITOVER': {
-            return [{ name: 'Digit', value: contracts[0].last_digit_options }];
+            return [{ name: 'Digit', value: contracts[0].last_digit_range }];
         }
         case 'DIGITUNDER': {
-            return [{ name: 'Digit', value: contracts[0].last_digit_options }];
+            return [{ name: 'Digit', value: contracts[0].last_digit_range }];
         }
         case 'EXPIRYMISS': {
             return [
@@ -95,8 +99,10 @@ const extractBarrier = (contracts, type) => {
                 { name: 'Touch spot', value: +contracts[0].barrier1 },
             ];
         }
+        case 'SPREADU': return undefined;
+        case 'SPREADD': return undefined;
         default: {
-            return undefined;
+            throw new Error('Unknown trading type');
         }
     }
 };
@@ -131,7 +137,11 @@ const minMaxInUnits = (min, max) => {
     return durations;
 };
 
-const extractDuration = contracts => {
+const extractDuration = (contracts, type) => {
+    if (type.indexOf('SPREAD') > -1) {
+        return [];
+    }
+
     const tickContracts = contracts.filter(c => c.min_contract_duration.slice(-1) === 't');
     const tickDuration = tickContracts.length > 0 ? { min: 5, max: 10, unit: 't' } : undefined;
 
@@ -155,6 +165,20 @@ const extractDuration = contracts => {
     return nonTicksDuration;
 };
 
+const extractSpreadInfo = contracts => {
+    const amountPerPoint = contracts[0].amount_per_point;
+    const stopType = contracts[0].stop_type;
+    const stopLoss = contracts[0].stop_loss;
+    const stopProfit = contracts[0].stop_profit;
+
+    return {
+        amountPerPoint,
+        stopType,
+        stopLoss,
+        stopProfit,
+    };
+};
+
 /**
  * end result should contain information
  * to generate form, requires
@@ -163,11 +187,17 @@ const extractDuration = contracts => {
 */
 const contractAggregation = (contracts, type) => {
     const barriers = extractBarrier(contracts, type);
-    const durations = extractDuration(contracts);
+    const durations = extractDuration(contracts, type);
+
+    let spread = undefined;
+    if (type.indexOf('SPREAD') > -1) {
+        spread = extractSpreadInfo(contracts);
+    }
 
     return {
         barriers,
         durations,
+        spread,
     };
 };
 
