@@ -11,8 +11,9 @@ export default class FullTradeBarriers extends Component {
             name: PropTypes.string.isRequired,
             defaultValue: PropTypes.number.isRequired,
         }),
-        onBarrier1Change: PropTypes.func.isRequired,
-        onBarrier2Change: PropTypes.func.isRequired,
+        id: PropTypes.string,
+        onBarrier1Change: PropTypes.func,
+        onBarrier2Change: PropTypes.func,
     };
 
     render() {

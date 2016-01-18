@@ -5,15 +5,16 @@ export default class BarrierInput extends Component {
     static propTypes = {
         name: PropTypes.string.isRequired,
         onChange: PropTypes.func,
-        defaultValue: PropTypes.number,
+        value: PropTypes.any,
+        onUnmount: PropTypes.func,
     };
 
     render() {
-        const { name, defaultValue, onChange } = this.props;
+        const { name, value, onChange } = this.props;
         return (
             <InputGroup
                 label={name}
-                defaultValue={defaultValue}
+                defaultValue={+value}
                 type="number"
                 onChange={onChange}
             />

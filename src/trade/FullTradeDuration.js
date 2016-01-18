@@ -15,23 +15,8 @@ export default class FullTradeDuration extends Component {
     };
 
     guardedValueUpdate(e) {
-        const { min, max, onValueChange } = this.props;
+        const { onValueChange } = this.props;
         const val = e.target.value;
-        if (!val) {
-            onValueChange(undefined);
-            return;
-        }
-
-        if (val > max) {
-            onValueChange(max);
-            return;
-        }
-
-        if (val < min) {
-            onValueChange(min);
-            return;
-        }
-
         onValueChange(val);
     }
 
@@ -54,6 +39,7 @@ export default class FullTradeDuration extends Component {
                     onChange={e => onUnitChange(e.target.value)}
                     value={durationUnit}
                 />
+                <p>{`Min: ${min}`}</p>
             </div>
         );
     }

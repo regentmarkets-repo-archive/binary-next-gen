@@ -250,7 +250,8 @@ export const fullTradeSelectors = createSelector(
     contractsSelector,
     payoutSelector,
     availableAssetsSelector,
-    (selectedAsset, tradingTypeInfo, ticksInfo, contractOptions, payoutInfo, availableAssets) => ({
+    proposalSelector,
+    (selectedAsset, tradingTypeInfo, ticksInfo, contractOptions, payoutInfo, availableAssets, proposal) => ({
         selectedAsset,
         ticksInfo,
         contractOptions,
@@ -258,5 +259,6 @@ export const fullTradeSelectors = createSelector(
         payoutInfo,
         id: '1',
         availableAssets,
+        proposal,
     })
 );

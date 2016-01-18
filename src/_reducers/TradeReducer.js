@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import { UPDATE_TRADE_PARAMS } from '../_constants/ActionTypes';
+import { UPDATE_TRADE_PARAMS, INIT_TRADE, SERVER_DATA_PROPOSAL } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
     1: {
@@ -15,8 +15,30 @@ const initialState = fromJS({
 
 export default (state = initialState, action) => {
     switch (action.type) {
+        case INIT_TRADE: {
+            return state.set(action.id, {
+                symbol: 'R_100',
+                tradeCategory: 'callput',
+                duration: 5,
+                durationUnit: 'd',
+                basis: 'payout',
+                amount: 100,
+                type: 'CALL',
+            });
+        }
         case UPDATE_TRADE_PARAMS: {
             return state.setIn([action.id, action.fieldName], action.fieldValue);
+        }
+        case SERVER_DATA_PROPOSAL: {
+            if (action.serverResponse.error) {
+                return state;
+            }
+            const proposalID = action.serverResponse.proposal.id;
+            const entry = state.findEntry(v => v.get('proposal') ? v.get('proposal').id === proposalID : false);
+            if (entry) {
+                return state.setIn([entry[0], 'proposal'], action.serverResponse.proposal);
+            }
+            return state;
         }
         default: return state;
     }
