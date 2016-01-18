@@ -113,7 +113,7 @@ export const updatePriceProposalSubscription = tradeID => {
             proposal,
             } = tradeObj;
 
-        if (!(amount && basis && type && duration && durationUnit && symbol)) {
+        if (!(amount && basis && type && symbol)) {
             return;
         }
 

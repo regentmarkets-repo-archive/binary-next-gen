@@ -38,7 +38,7 @@ export default class TradePanel extends Component {
     }
 
     // scary but necessary as all fields have dependency on category
-    onCategoryChange(e, update) {
+    onCategoryChange(e, update = false) {
         const newCategory = e.target.value;
         this.updateHelper('tradeCategory', newCategory, update);
 
@@ -48,11 +48,11 @@ export default class TradePanel extends Component {
         const lastSpot = tick ? tick[tick.length - 1].quote : 0;
 
         // update type
-        this.updateHelper('type', defaultType);
+        this.updateHelper('type', defaultType, false);
 
         // update duration
         const newDuration = contract[newCategory][defaultType].durations[0];
-        this.updateHelper('durationUnit', newDuration ? newDuration.unit : undefined);
+        this.updateHelper('durationUnit', newDuration ? newDuration.unit : undefined, false);
 
         // update barriers
         if (!newBarriers) {
@@ -61,7 +61,7 @@ export default class TradePanel extends Component {
                 this.updateHelper('amountPerPoint', spread.amountPerPoint, false);
                 this.updateHelper('stopType', spread.stopType, false);
                 this.updateHelper('stopLoss', spread.stopLoss, false);
-                this.updateHelper('stopProfit', spread.stopProfit, true);
+                this.updateHelper('stopProfit', spread.stopProfit, false);
             }
             this.updateHelper('barrier', undefined, false);
             this.updateHelper('barrier2', undefined, false);
@@ -81,8 +81,11 @@ export default class TradePanel extends Component {
             this.updateHelper('amountPerPoint', undefined, false);
             this.updateHelper('stopType', undefined, false);
             this.updateHelper('stopLoss', undefined, false);
-            this.updateHelper('stopProfit', undefined, true);
+            this.updateHelper('stopProfit', undefined, false);
         }
+
+        const { actions, id } = this.props;
+        actions.updatePriceProposalSubscription(id);
     }
 
     onTypeChange(e) {
@@ -215,7 +218,7 @@ export default class TradePanel extends Component {
                     onAmountChange={::this.onAmountChange}
                     onBasisChange={::this.onBasisChange}
                 />
-                {trade.proposal && <ContractStatsCard proposal={trade.proposal} />}
+                {trade.proposal && <ContractStatsCard proposal={trade.proposal} spread={selectedCategory === 'spreads'} />}
                 <ErrorMsg shown={!!trade.proposalError} text={trade.proposalError ? trade.proposalError.message : ''} />
                 <button onClick={::this.onPurchase}>Purchase</button>
             </div>

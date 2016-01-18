@@ -23,6 +23,7 @@ export default class SpreadBarrierCard extends Component {
             stopLossChange,
             stopTypeChange,
             spreadInfo,
+            stopType,
             } = this.props;
 
         const stopTypeOptions = [{ text: 'Points', value: 'point' }, { text: currency, value: 'dollar' }];
@@ -32,25 +33,25 @@ export default class SpreadBarrierCard extends Component {
                     <InputGroup
                         type="number"
                         label={`Amount per point (${currency})`}
-                        value={spreadInfo.amountPerPoint}
+                        defaultValue={spreadInfo.amountPerPoint}
                         onChange={amountPerPointChange}
                     />
                     <RadioGroup
                         name="spread-param"
                         options={stopTypeOptions}
-                        value={spreadInfo.stopType}
+                        value={stopType || spreadInfo.stopType}
                         onChange={stopTypeChange}
                     />
                     <InputGroup
                         type="number"
                         label="Stop loss"
-                        value={spreadInfo.stopLoss}
+                        defaultValue={spreadInfo.stopLoss}
                         onChange={stopLossChange}
                     />
                     <InputGroup
                         type="number"
                         label="Stop profit"
-                        value={spreadInfo.stopProfit}
+                        defaultValue={spreadInfo.stopProfit}
                         onChange={stopProfitChange}
                     />
                 </div> :

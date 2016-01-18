@@ -91,12 +91,12 @@ const extractBarrier = (contracts, type) => {
         }
         case 'ONETOUCH': {
             return [
-                { name: 'Touch spot', value: +contracts[0].barrier1 },
+                { name: 'Touch spot', value: +contracts[0].barrier },
             ];
         }
         case 'NOTOUCH': {
             return [
-                { name: 'Touch spot', value: +contracts[0].barrier1 },
+                { name: 'Touch spot', value: +contracts[0].barrier },
             ];
         }
         case 'SPREADU': return undefined;
