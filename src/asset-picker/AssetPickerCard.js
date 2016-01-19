@@ -1,7 +1,6 @@
 import React, { PropTypes } from 'react';
 import AssetPickerList from './AssetPickerList';
 import { MarketPicker, InputGroup } from '../_common';
-import * as LiveData from '../_data/LiveData';
 
 export default class AssetPickerCard extends React.Component {
 
@@ -9,15 +8,40 @@ export default class AssetPickerCard extends React.Component {
 		actions: PropTypes.object.isRequired,
 		assets: PropTypes.object.isRequired,
 		AssetPicker: PropTypes.object.isRequired,
-		workspace: PropTypes.object.isRequired,
+		idSymbolMap: PropTypes.object.isRequired,
 		history: PropTypes.object,
+		params: PropTypes.object,
+		location: PropTypes.object,
+		workspace: PropTypes.object.isRequired,
 		watchlist: PropTypes.object.isRequired,
 	};
 
+	onSelect(id, newAsset) {
+		const { actions, history } = this.props;
+		actions.getTicksBySymbol(newAsset);			// TODO: unsubscribe extra symbol ticks
+		actions.updateTradeParams(id, 'symbol', newAsset);
+		actions.updatePriceProposalSubscription(id);
+		actions.getTradingOptions(newAsset);
+		history.goBack();
+	}
+
+	onFavor(asset) {
+		const { actions } = this.props;
+		actions.watchlistFavorAsset(asset);
+	}
+
+	onUnfavor(asset) {
+		const { actions } = this.props;
+		actions.watchlistUnfavorAsset(asset);
+	}
+
 	render() {
-		const { actions, assets, AssetPicker, history, workspace, watchlist } = this.props;
+		const { actions, assets, AssetPicker, watchlist, idSymbolMap } = this.props;
+		const { id } = this.props.params;
+		const { query } = this.props.location;
+		const type = query.type;
 		// const showOnlyTickTradable = !!~window.location.search.indexOf('tick');
-		const showOnlyTickTradable = true;
+		const showOnlyTickTradable = type === 'tick';
 		const shownAssets = AssetPicker.get('shownAssets');
 		const searchableAssets = assets.get('list').filter(x =>
 			!showOnlyTickTradable ||
@@ -25,18 +49,8 @@ export default class AssetPickerCard extends React.Component {
 			x.get('market_display_name') === 'Randoms'
 		);
 
-		const onSelect = newAsset => {
-			const oldAsset = workspace.get('symbolSelected');
-			actions.selectAssetSymbolForTrade(newAsset, oldAsset);
-			actions.getTradingOptions(newAsset);
-			if (~window.location.search.indexOf('goback')) history.goBack();
-			if (~window.location.search.indexOf('tick')) {
-				LiveData.api.getTickHistory(newAsset, { end: 'latest', count: 20 });
-				LiveData.api.subscribeToTick(newAsset);
-			}
-		};
-		const onFavor = asset => actions.watchlistFavorAsset(asset);
-		const onUnfavor = asset => actions.watchlistUnfavorAsset(asset);
+		const selectedSymbol = idSymbolMap[id];
+
 		const onSearchQueryChange = e => actions.updateAssetPickerSearchQuery(searchableAssets, e.target.value);
 		const onSubmarketChange = e => actions.updateAssetPickerSubmarket(searchableAssets, e);
 
@@ -60,10 +74,10 @@ export default class AssetPickerCard extends React.Component {
 					<AssetPickerList
 						assets={shownAssets}
 						favorites={watchlist}
-						onSelect={onSelect}
-						onFavor={onFavor}
-						onUnfavor={onUnfavor}
-						selectedAsset={workspace.get('symbolSelected')}
+						onSelect={asset => this.onSelect(id, asset)}
+						onFavor={::this.onFavor}
+						onUnfavor={::this.onUnfavor}
+						selectedAsset={selectedSymbol}
 					/>
 				</div>
 			</div>

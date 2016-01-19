@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { fullTradesSelector } from './selectors';
+import { fullTradesSelector } from './../_selectors/FullTradeSelector';
 import TradePanel from './TradePanel';
 
 @connect(fullTradesSelector)
@@ -15,7 +15,7 @@ export default class TradesContainer extends React.Component {
     };
     createTrade() {
         const { trades, actions } = this.props;
-        const maxID = Object.keys(trades).reduce((a, b) => Math.max(a, b));
+        const maxID = Object.keys(trades).map(id => +id).reduce((a, b) => Math.max(a, b));
         actions.initTrade(maxID);
     }
 
