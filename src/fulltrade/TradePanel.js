@@ -19,7 +19,7 @@ export default class TradePanel extends Component {
         tick: PropTypes.array,
     };
 
-    componentWillMount() {
+    componentDidMount() {
         const { actions, id } = this.props;
         actions.updatePriceProposalSubscription(id);
     }
@@ -34,6 +34,7 @@ export default class TradePanel extends Component {
 
     onAssetChange(e) {
         this.updateHelper('symbol', e.target.value);
+        this.props.actions.getTradingOptions(e.target.value);
         this.onCategoryChange({ target: { value: 'callput' } }, false);
     }
 
@@ -141,6 +142,11 @@ export default class TradePanel extends Component {
         actions.purchaseByTradeID(id);
     }
 
+    onClosePanel() {
+        const { actions, id } = this.props;
+        actions.destroyTrade(id);
+    }
+
     render() {
         const { assets, contract, trade, currency } = this.props;
         const selectedSymbol = trade.symbol;
@@ -154,6 +160,7 @@ export default class TradePanel extends Component {
 
         return (
             <div>
+                <button onClick={::this.onClosePanel}>Close Trade Panel</button>
                 <div className="row">
                     <SelectGroup
                         options={assets}
@@ -178,7 +185,7 @@ export default class TradePanel extends Component {
                             onChange={::this.onTypeChange}
                         />
                         <DurationCard
-                            duration={trade.duration}
+                            duration={+trade.duration}
                             durationUnit={trade.durationUnit}
                             options={contractForType.durations}
                             onDurationChange={::this.onDurationChange}
@@ -218,7 +225,8 @@ export default class TradePanel extends Component {
                     onAmountChange={::this.onAmountChange}
                     onBasisChange={::this.onBasisChange}
                 />
-                {trade.proposal && <ContractStatsCard proposal={trade.proposal} spread={selectedCategory === 'spreads'} />}
+                {trade.proposal &&
+                <ContractStatsCard proposal={trade.proposal} spread={selectedCategory === 'spreads'} />}
                 <ErrorMsg shown={!!trade.proposalError} text={trade.proposalError ? trade.proposalError.message : ''} />
                 <button onClick={::this.onPurchase}>Purchase</button>
             </div>
