@@ -220,7 +220,7 @@ const contractsSelector = state => {
 const tradesSelector = state => state.trades.toJS();
 
 const assetsSelector = state => {
-    const availables = state.AssetPicker.get('availableAssets').toJS();
+    const availables = state.assetPicker.get('availableAssets').toJS();
     return availables.map(asset => ({ text: asset.display_name, value: asset.symbol }));
 };
 

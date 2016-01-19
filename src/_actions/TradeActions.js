@@ -86,6 +86,15 @@ export const initTrade = id => ({
     id,
 });
 
+export const destroyTrade = id => ({
+    type: types.DESTROY_TRADE,
+    id,
+});
+
+export const destroyAllTrade = () => ({
+    type: types.DESTROY_ALL_TRADE,
+});
+
 export const updateTradeParams = (id, fieldName, fieldValue) => ({
     type: types.UPDATE_TRADE_PARAMS,
     id,

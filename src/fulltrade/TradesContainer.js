@@ -15,8 +15,9 @@ export default class TradesContainer extends React.Component {
     };
     createTrade() {
         const { trades, actions } = this.props;
-        const maxID = Object.keys(trades).reduce((a, b) => Math.max(a, b));
-        actions.initTrade(maxID);
+        const allIDs = Object.keys(trades);
+        const maxID = allIDs.length > 0 ? allIDs.reduce((a, b) => Math.max(+a, +b)) : 0;
+        actions.initTrade(maxID.toString());
     }
 
     render() {
@@ -43,7 +44,7 @@ export default class TradesContainer extends React.Component {
                         );
                     }
                 })}
-                <button onClick={::this.createTrade}>Create Trade Board</button>
+                <button onClick={::this.createTrade}>Create Trade Panel</button>
             </div>
         );
     }
