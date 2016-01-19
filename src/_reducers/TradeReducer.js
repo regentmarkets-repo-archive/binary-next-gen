@@ -1,9 +1,14 @@
 import { fromJS } from 'immutable';
 import { stringIncrement } from '../_utils/StringUtils';
-import { UPDATE_TRADE_PARAMS, DESTROY_ALL_TRADE, DESTROY_TRADE, INIT_TRADE, SERVER_DATA_PROPOSAL } from '../_constants/ActionTypes';
+import {
+    UPDATE_TRADE_PARAMS,
+    DESTROY_ALL_TRADE,
+    DESTROY_TRADE,
+    INIT_TRADE,
+    SERVER_DATA_PROPOSAL } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
-    1: {
+    0: {
         symbol: 'R_100',
         tradeCategory: 'callput',
         duration: 5,
@@ -33,7 +38,6 @@ export default (state = initialState, action) => {
         }
         case UPDATE_TRADE_PARAMS: {
             const result = state.setIn([action.id, action.fieldName], action.fieldValue);
-            console.log('up', result.toJS());
             return result;
         }
         case DESTROY_ALL_TRADE: {

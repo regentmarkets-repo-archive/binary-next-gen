@@ -14,7 +14,6 @@ export default class TickTradeContainer2 extends Component {
     };
 
     componentWillMount() {
-        console.log('will mount');
         this.props.actions.initTrade('tick');
     }
 

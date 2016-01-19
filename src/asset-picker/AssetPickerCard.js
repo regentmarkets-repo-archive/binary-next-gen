@@ -16,13 +16,24 @@ export default class AssetPickerCard extends React.Component {
 		watchlist: PropTypes.object.isRequired,
 	};
 
+	static defaultProps = {
+		params: { id: '-' },
+		location: { query: {} },
+	};
+
 	onSelect(id, newAsset) {
-		const { actions, history } = this.props;
+		const { actions, history, workspace } = this.props;
 		actions.getTicksBySymbol(newAsset);			// TODO: unsubscribe extra symbol ticks
-		actions.updateTradeParams(id, 'symbol', newAsset);
-		actions.updatePriceProposalSubscription(id);
-		actions.getTradingOptions(newAsset);
-		history.goBack();
+		if (id !== '-') {
+			actions.updateTradeParams(id, 'symbol', newAsset);
+			actions.updatePriceProposalSubscription(id);
+			actions.getTradingOptions(newAsset);
+			history.goBack();
+		} else {
+			const oldAsset = workspace.get('symbolSelected');
+			actions.selectAssetSymbolForTrade(newAsset, oldAsset);
+			actions.getTradingOptions(newAsset);
+		}
 	}
 
 	onFavor(asset) {

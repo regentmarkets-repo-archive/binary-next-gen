@@ -8,7 +8,6 @@ export const findIfExist = (obj, predicate) => {
     if (childrenMeetPredicate.indexOf(true) > -1) {
         return true;
     }
-    console.log(allChildren);
     const childrenResult = allChildren.map(child => findIfExist(child, predicate));
     return childrenResult.indexOf(true) > -1;
 };
