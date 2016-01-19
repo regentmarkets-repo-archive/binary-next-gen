@@ -13,7 +13,7 @@ describe('PortfolioSelectors', () => {
 
         it('list of one item equals this item purchase price', () => {
             const actual = purchaseTotalSelector({
-                contracts:[
+                contracts: [
                     { buy_price: 10 },
                 ],
             });

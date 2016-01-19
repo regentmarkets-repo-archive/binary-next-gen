@@ -2,125 +2,58 @@ import React, { PropTypes } from 'react';
 import StatementTable from './StatementTable';
 import { M, Tabs } from '../_common';
 import * as LiveData from '../_data/LiveData';
-import { todayString, epochToDateString, todayEpoch, xDayEpoch } from '../_utils/DateUtils';
-
-const getLastXMonthEpoch = x => {
-	const d = new Date();
-	d.setMonth(d.getMonth() - x);
-	return Math.floor(d.getTime() / 1000);
-};
+import { todayEpoch, yesterdayEpoch, getLastXMonthEpoch } from '../_utils/DateUtils';
 
 export default class StatementCard extends React.Component {
+
+	static propTypes = {
+		currency: PropTypes.string.isRequired,
+		compact: PropTypes.bool,
+		// transactions: PropTypes.object.isRequired,
+		transactionsToday: PropTypes.array.isRequired,
+		transactionsYesterday: PropTypes.array.isRequired,
+		transactionsLast30Days: PropTypes.array.isRequired,
+		transactionsLast60Days: PropTypes.array.isRequired,
+	};
+
 	constructor(props) {
 		super(props);
 		this.state = {
 			activeIdx: 0,
 		};
-	}
-
-	static propTypes = {
-		account: PropTypes.object.isRequired,
-		statement: PropTypes.object.isRequired,
-		compact: PropTypes.bool,
-	};
-
-	static tabs = [
-		{ text: 'Today' },
-		{ text: 'Yesterday' },
-		{ text: 'Last 30 days' },
-		{ text: 'Last 60 days' },
-	];
-
-	static getToday(transactions) {
-		const today = todayString();
-		return transactions.filter(tx => today === epochToDateString(tx.transaction_time));
-	}
-
-	static getYesterday(transactions) {
-		const yesterday = epochToDateString((Date.now() / 1000) - 86400);		// 1 day 86400 secs
-		return transactions.filter(tx => yesterday === epochToDateString(tx.transaction_time));
-	}
-
-	static getLast30Days(transactions) {
-		const last30DaysEpoch = getLastXMonthEpoch(1);
-		return transactions.filter(tx => tx.transaction_time > last30DaysEpoch);
-	}
-
-	static getLast60Days(transactions) {
-		const last60DaysEpoch = getLastXMonthEpoch(2);
-		return transactions.filter(tx => tx.transaction_time > last60DaysEpoch);
-	}
-
-	dateFilter(idx) {
-		const { transactions } = this.props.statement.toJS();
-		const txArray = Object.keys(transactions).map(k => transactions[k]);
-
-		switch (idx) {
-			case 0: {
-				return StatementCard.getToday(txArray);
-			}
-			case 1: {
-				return StatementCard.getYesterday(txArray);
-			}
-			case 2: {
-				return StatementCard.getLast30Days(txArray);
-			}
-			case 3: {
-				return StatementCard.getLast60Days(txArray);
-			}
-			default: {
-				return txArray;
-			}
-		}
+		this.filters = [
+			{ text: 'Today', epochFunc: () => todayEpoch(), transactions: this.props.transactionsToday },
+			{ text: 'Yesterday', epochFunc: () => yesterdayEpoch(), transactions: this.props.transactionsYesterday },
+			{ text: 'Last 30 days', epochFunc: () => getLastXMonthEpoch(1), transactions: this.props.transactionsLast30Days },
+			{ text: 'Last 60 days', epochFunc: () => getLastXMonthEpoch(2), transactions: this.props.transactionsLast60Days },
+		];
 	}
 
 	onFilterChange(idx) {
 		this.setState({ activeIdx: idx });
-		switch (idx) {
-			case 0: {
-				const today = todayEpoch();
-				LiveData.api.getStatement({ description: 1, date_from: today });
-				break;
-			}
-			case 1: {
-				const yesterday = xDayEpoch(-1);
-				LiveData.api.getStatement({ description: 1, date_from: yesterday });
-				break;
-			}
-			case 2: {
-				const lastMonthEpoch = getLastXMonthEpoch(1);
-				LiveData.api.getStatement({ description: 1, date_from: lastMonthEpoch });
-				break;
-			}
-			case 3: {
-				const last2MonthEpoch = getLastXMonthEpoch(2);
-				LiveData.api.getStatement({ description: 1, date_from: last2MonthEpoch });
-				break;
-			}
-			default: {
-				return;
-			}
-		}
+		LiveData.api.getStatement({
+			description: 1,
+			date_from: this.filters[idx].epochFunc(),
+		});
 	}
 
 	render() {
-		const { currency } = this.props.account.toJS();
 		const { activeIdx } = this.state;
-		const filteredTransactions = this.dateFilter(activeIdx);
-		const { compact } = this.props;
+		const shownTransactions = this.filters[activeIdx].transactions;
+		const { compact, currency } = this.props;
 
 		return (
 			<div>
 				<Tabs
 					id="statement-filter"
-					tabs={StatementCard.tabs}
+					tabs={this.filters}
 					activeIndex={activeIdx}
 					onChange={::this.onFilterChange}
 				/>
-				{filteredTransactions.length > 0 ?
+				{shownTransactions.length > 0 ?
 					<StatementTable
 						compact={compact}
-						transactions={filteredTransactions}
+						transactions={shownTransactions}
 						currency={currency}
 					/> :
 					<M m="There are no transactions for selected period" />

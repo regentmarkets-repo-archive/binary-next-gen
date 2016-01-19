@@ -9,7 +9,7 @@ import contracts from './ContractsReducer';
 import openContractProposals from './OpenContractProposalsReducer';
 import settings from './SettingsReducer';
 import signin from './SigninReducer';
-import statement from './StatementReducer';
+import transactions from './TransactionsReducer';
 import ticks from './TickReducer';
 import profitTable from './ProfitTableReducer';
 import tickTrade from './TickTradeReducer';
@@ -43,7 +43,7 @@ export default combineReducers({
     settings,
     signin,
     states,
-    statement,
+    transactions,
     ticks,
     tickTrade,
     tradingOptions,

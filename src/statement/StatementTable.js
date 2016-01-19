@@ -1,12 +1,10 @@
 import React, { PropTypes } from 'react';
-import { NumberColored, NumberPlain } from '../_common';
+import { M, NumberColored, NumberPlain } from '../_common';
 import { FormattedDate } from 'react-intl';
 import StatementRow from './StatementRow';
-import M from '../_common/M';
+import { epochToDate } from '../_utils/DateUtils';
 
-const calulateTotals = transactions => transactions.map(t => +t.amount).reduce((x, y) => x + y, 0);
-
-const StatementTable = ({ compact, currency, transactions }) => (
+const StatementTable = ({ compact, currency, transactions, transactionsTotal }) => (
 	<table>
 		<thead>
 			<tr>
@@ -28,7 +26,7 @@ const StatementTable = ({ compact, currency, transactions }) => (
 			</tr>
 		</thead>
 		<tbody>
-            {transactions.sort((a, b) => (b.transaction_id - a.transaction_id)).map((t, i) =>
+            {transactions.map((t, i) =>
 				<StatementRow
 					key={i}
 					compact={compact}
@@ -40,11 +38,11 @@ const StatementTable = ({ compact, currency, transactions }) => (
 			<tr>
 				<th>
 					{transactions[0] &&
-						<FormattedDate value={new Date(transactions[0].transaction_time * 1000)} />}
+						<FormattedDate value={epochToDate(transactions[0].transaction_time)} />}
 				</th>
 				<th></th>
 				{!compact && <th></th>}
-				<th><NumberColored value={calulateTotals(transactions)} /></th>
+				<th><NumberColored value={transactionsTotal} /></th>
 				<th><NumberPlain value={transactions[0] && transactions[0].balance_after} /></th>
 			</tr>
 		</tfoot>

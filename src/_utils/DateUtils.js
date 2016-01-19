@@ -1,8 +1,8 @@
 export const gmtToLocal = date =>
-    new Date(date - date.getTimezoneOffset() * 60000);
+    new Date(date - date.getTimezoneOffset() * 60 * 1000);
 
 export const localToGmt = date =>
-    new Date(date + date.getTimezoneOffset() * 60000);
+    new Date(date + date.getTimezoneOffset() * 60 * 1000);
 
 export const dateAsLocalISOString = date =>
     gmtToLocal(date).toISOString();
@@ -10,8 +10,14 @@ export const dateAsLocalISOString = date =>
 export const dateToDateString = date =>
     dateAsLocalISOString(date).slice(0, 10);
 
+export const epochToDate = epoch =>
+    new Date(epoch * 1000);
+
+export const dateToEpoch = date =>
+    date.getTime() / 1000;
+
 export const epochToDateString = epoch =>
-    dateToDateString(new Date(epoch * 1000));
+    dateToDateString(epochToDate(epoch));
 
 export const dateToTimeString = date =>
     dateAsLocalISOString(date).slice(11, 19);
@@ -22,12 +28,13 @@ export const epochToTimeString = epoch =>
 export const todayString = () =>
     dateToDateString(new Date());
 
-export const nowAsEpoch = () => Math.floor(Date.now() / 1000);
+export const nowAsEpoch = () =>
+    dateToEpoch(Date.now());
 
 export const secondsToTimeString = secs => {
-    const days = Math.floor(secs / 86400);
-    const hours = Math.floor(secs % 86400 / 3600);
-    const minutes = Math.floor(secs % 3600 / 60);
+    const days = Math.floor(secs / 60 / 60 / 24);
+    const hours = Math.floor(secs % (60 * 60 * 24) / (60 * 60));
+    const minutes = Math.floor(secs % (60 * 60) / 60);
     const seconds = Math.floor(secs % 60);
     return (days > 0 ? `${days} day(s) ` : '')
         + (hours > 0 ? `${hours} hour(s)` : '')
@@ -35,13 +42,16 @@ export const secondsToTimeString = secs => {
         + (seconds > 0 ? `${seconds} second(s)` : '');
 };
 
-/**
- * @param {number} x -> X days away from today, negative means before, positive means after
-  */
+export const getLastXMonthEpoch = x => {
+	const d = new Date();
+	d.setMonth(d.getMonth() - x);
+	return Math.floor(d.getTime() / 1000);
+};
+
 export const xDayEpoch = x => {
-    const secsAway = (x - 1) * 86400;
+    const secsAway = (x - 1) * 60 * 60 * 24;
     return Math.floor(Date.now() / 1000) + secsAway;
 };
 
-// return epoch at the starting point of today
 export const todayEpoch = () => xDayEpoch(0);
+export const yesterdayEpoch = () => xDayEpoch(-1);

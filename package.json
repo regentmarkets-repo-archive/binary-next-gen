@@ -6,7 +6,7 @@
     "test:eslint": "webpack --config webpack.config.dev.js",
     "test:unit": "mocha --compilers js:babel-core/register ./src/**/__tests__/*.js",
     "test:watch": "npm test -- --watch",
-    "test:coverage": "istanbul cover ./node_modules/mocha/bin/_mocha ./src/_common/__tests__/*.js -- --compilers js:babel-core/register",
+    "test:coverage": "babel-node ./node_modules/istanbul/lib/cli cover ./node_modules/mocha/bin/_mocha ./src/_common/__tests__/*.js",
     "start": "node server.js",
     "build": "npm run clean && npm run build:webpack",
     "translate": "bash fetch-translation.sh"

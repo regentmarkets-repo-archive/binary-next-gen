@@ -8,7 +8,7 @@ const filteredEngine = storage.decorators.filter(engine, [
     ['assetPicker'],
     ['assets'],
     ['profitTable'],
-    ['statement'],
+    ['transactions'],
     ['settings'],
     ['watchlist'],
 ]);
