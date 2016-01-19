@@ -18,6 +18,7 @@ export default class TradesContainer extends React.Component {
 
         const allIDs = Object.keys(trades).map(id => +id);
         const maxID = allIDs.length > 0 ? allIDs.reduce((a, b) => Math.max(a, b)) : 0;
+        console.log(maxID);
         actions.initTrade(maxID.toString());
     }
 

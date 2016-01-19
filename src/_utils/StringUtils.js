@@ -1,7 +1,10 @@
 export const stringIncrement = s => {
     const toNumber = +s;
+    if (toNumber === 0) {
+        return 1;
+    }
     if (!!toNumber) {
-        return (toNumber + 1).toString();
+        return toNumber + 1;
     }
     const captureTrailingNumber = /(\D+)(\d*)$/g;
     const match = captureTrailingNumber.exec(s);
