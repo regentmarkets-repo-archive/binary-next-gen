@@ -34,6 +34,7 @@ export default class TradePanel extends Component {
 
     onAssetChange(e) {
         this.updateHelper('symbol', e.target.value);
+        this.props.actions.getTradingOptions(e.target.value);
         this.onCategoryChange({ target: { value: 'callput' } }, false);
     }
 
@@ -184,7 +185,7 @@ export default class TradePanel extends Component {
                             onChange={::this.onTypeChange}
                         />
                         <DurationCard
-                            duration={trade.duration}
+                            duration={+trade.duration}
                             durationUnit={trade.durationUnit}
                             options={contractForType.durations}
                             onDurationChange={::this.onDurationChange}

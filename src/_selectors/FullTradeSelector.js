@@ -36,10 +36,10 @@ const normalizedContractFor = contracts => {
 const extractBarrier = (contracts, type) => {
     switch (type) {
         case 'CALL': {
-            return [{ name: 'Higher than', value: 0 }];
+            return [{ name: 'Higher than', defaultValue: 0 }];
         }
         case 'PUT': {
-            return [{ name: 'Lower than', value: 0 }];
+            return [{ name: 'Lower than', defaultValue: 0 }];
         }
         case 'ASIANU': {
             return undefined;
@@ -48,10 +48,10 @@ const extractBarrier = (contracts, type) => {
             return undefined;
         }
         case 'DIGITMATCH': {
-            return [{ name: 'Digit', value: contracts[0].last_digit_range }];
+            return [{ name: 'Digit', defaultValue: contracts[0].last_digit_range }];
         }
         case 'DIGITDIFF': {
-            return [{ name: 'Digit', value: contracts[0].last_digit_range }];
+            return [{ name: 'Digit', defaultValue: contracts[0].last_digit_range }];
         }
         case 'DIGITODD': {
             return undefined;
@@ -60,43 +60,43 @@ const extractBarrier = (contracts, type) => {
             return undefined;
         }
         case 'DIGITOVER': {
-            return [{ name: 'Digit', value: contracts[0].last_digit_range }];
+            return [{ name: 'Digit', defaultValue: contracts[0].last_digit_range }];
         }
         case 'DIGITUNDER': {
-            return [{ name: 'Digit', value: contracts[0].last_digit_range }];
+            return [{ name: 'Digit', defaultValue: contracts[0].last_digit_range }];
         }
         case 'EXPIRYMISS': {
             return [
-                { name: 'High barrier', value: +contracts[0].high_barrier },
-                { name: 'Low barrier', value: +contracts[0].low_barrier },
+                { name: 'High barrier', defaultValue: +contracts[0].high_barrier },
+                { name: 'Low barrier', defaultValue: +contracts[0].low_barrier },
             ];
         }
         case 'EXPIRYRANGE': {
             return [
-                { name: 'High barrier', value: +contracts[0].high_barrier },
-                { name: 'Low barrier', value: +contracts[0].low_barrier },
+                { name: 'High barrier', defaultValue: +contracts[0].high_barrier },
+                { name: 'Low barrier', defaultValue: +contracts[0].low_barrier },
             ];
         }
         case 'RANGE': {
             return [
-                { name: 'High barrier', value: +contracts[0].high_barrier },
-                { name: 'Low barrier', value: +contracts[0].low_barrier },
+                { name: 'High barrier', defaultValue: +contracts[0].high_barrier },
+                { name: 'Low barrier', defaultValue: +contracts[0].low_barrier },
             ];
         }
         case 'UPORDOWN': {
             return [
-                { name: 'High barrier', value: +contracts[0].high_barrier },
-                { name: 'Low barrier', value: +contracts[0].low_barrier },
+                { name: 'High barrier', defaultValue: +contracts[0].high_barrier },
+                { name: 'Low barrier', defaultValue: +contracts[0].low_barrier },
             ];
         }
         case 'ONETOUCH': {
             return [
-                { name: 'Touch spot', value: +contracts[0].barrier },
+                { name: 'Touch spot', defaultValue: +contracts[0].barrier },
             ];
         }
         case 'NOTOUCH': {
             return [
-                { name: 'Touch spot', value: +contracts[0].barrier },
+                { name: 'Touch spot', defaultValue: +contracts[0].barrier },
             ];
         }
         case 'SPREADU': return undefined;

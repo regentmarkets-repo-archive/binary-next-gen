@@ -7,11 +7,11 @@ export default class BarrierCard extends Component {
         barrier2: PropTypes.number,
         barrier1Info: PropTypes.shape({
             name: PropTypes.string.isRequired,
-            value: PropTypes.any.isRequired,
+            defaultValue: PropTypes.any.isRequired,
         }),
         barrier2Info: PropTypes.shape({
             name: PropTypes.string.isRequired,
-            value: PropTypes.any.isRequired,
+            defaultValue: PropTypes.any.isRequired,
         }),
         onBarrier1Change: PropTypes.func,
         onBarrier2Change: PropTypes.func,
