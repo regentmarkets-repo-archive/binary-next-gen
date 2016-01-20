@@ -9,7 +9,6 @@ import { StatementMobile } from '../statement';
 import WatchlistMobile from '../watchlist/WatchlistMobile';
 import AssetPickerMobile from '../asset-picker/AssetPickerMobile';
 import TradeTypePickerMobile from '../trade-type-picker/TradeTypePickerMobile';
-import ProfitTableMobile from '../profit-table/ProfitTableMobile';
 import SettingsMobile from '../settings/SettingsMobile';
 import NewsMobile from '../mobile/NewsMobile';
 import ArticleMobile from '../news/ArticleMobile';
@@ -33,7 +32,6 @@ export default [
     { path: 'watchlist-mobile', component: WatchlistMobile, onEnter: requireAuthOnEnter },
     { path: 'asset-picker/:id', component: AssetPickerMobile, onEnter: requireAuthOnEnter },
     { path: 'trade-type-picker/:id', component: TradeTypePickerMobile, onEnter: requireAuthOnEnter },
-    { path: 'profit-table-mobile', component: ProfitTableMobile, onEnter: requireAuthOnEnter },
     { path: 'settings-mobile', component: SettingsMobile, onEnter: requireAuthOnEnter },
     { path: 'news-mobile', component: NewsMobile },
     { path: 'article/:index', component: ArticleMobile },

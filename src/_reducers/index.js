@@ -11,7 +11,6 @@ import settings from './SettingsReducer';
 import signin from './SigninReducer';
 import transactions from './TransactionsReducer';
 import ticks from './TickReducer';
-import profitTable from './ProfitTableReducer';
 import tickTrade from './TickTradeReducer';
 import workspace from './WorkspaceReducer';
 import watchlist from './WatchlistReducer';
@@ -37,7 +36,6 @@ export default combineReducers({
     portfolio,
     contracts,
     openContractProposals,
-    profitTable,
     proposals,
     quickTrade,
     settings,

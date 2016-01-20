@@ -12,7 +12,6 @@ import TradingTimesTable from '../trading-times/TradingTimesTable';
 import PricingTablePage from '../pricing-table/PricingTablePage';
 import DailyPricesPage from '../daily-prices/DailyPricesPage';
 import IntradayPricesPane from '../intraday-prices/IntradayPricesPane';
-import ProfitTablePage from '../profit-table/ProfitTablePage';
 import PortfolioPage from '../portfolio/PortfolioPage';
 import TradePage from '../trade/TradePage';
 import SettingsPage from '../settings/SettingsPage';
@@ -48,7 +47,6 @@ export default [
     { path: 'pricing-table', component: PricingTablePage, onEnter: requireAuthOnEnter },
     { path: 'daily-prices', component: DailyPricesPage, onEnter: requireAuthOnEnter },
     { path: 'intraday-prices', component: IntradayPricesPane, onEnter: requireAuthOnEnter },
-    { path: 'profit-table', component: ProfitTablePage, onEnter: requireAuthOnEnter },
     { path: 'settings',
         indexRoute: { component: SettingsPersonalDetails },
         onEnter: requireAuthOnEnter,

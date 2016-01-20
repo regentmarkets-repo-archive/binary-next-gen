@@ -3,7 +3,6 @@ export * from './AppInfoActions';
 export * from './AssetsActions';
 export * from './AssetPickerActions';
 export * from './PortfolioActions';
-export * from './ProfitTableActions';
 export * from './NewsActions';
 export * from './TickActions';
 export * from './TradeActions';

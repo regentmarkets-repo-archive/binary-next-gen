@@ -15,7 +15,6 @@ const handlers = {
     history: 'serverDataTickHistory',
     proposal_open_contract: 'serverDataProposalOpenContract',
     payout_currencies: 'serverDataPayoutCurrencies',
-    profit_table: 'serverDataProfitTable',
     proposal: 'serverDataProposal',
     get_limits: 'serverDataAccountLimits',
     get_self_exclusion: 'serverDataAccountSelfExclusion',
@@ -65,7 +64,6 @@ const initUnauthorized = store => {
 const initAuthorized = (authData, store) => {
     api.getPortfolio();
     api.getStatement({ description: 1, limit: 20 });
-    api.getProfitTable({ description: 1, limit: 20 });
     api.getAccountSettings().then(msg => api.getPaymentAgentsForCountry(msg.get_settings.country_code));
     api.getPayoutCurrencies();
     api.subscribeToBalance();           // some call might fail due to backend overload
