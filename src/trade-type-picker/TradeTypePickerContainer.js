@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import TradeTypePickerCard from './TradeTypePickerCard';
 
-@connect(state => ({ tickTrade: state.tickTrade }))
+@connect(state => ({ trades: state.trades.toJS() }))
 export default class TradeTypePickerContainer extends React.Component {
 
 	static propTypes = {
@@ -11,7 +11,7 @@ export default class TradeTypePickerContainer extends React.Component {
 
 	render() {
 		return (
-			<TradeTypePickerCard {...this.props} />
+			<TradeTypePickerCard {...this.props} tickOnly />		// TODO: hardcoded tickOnly
 		);
 	}
 }

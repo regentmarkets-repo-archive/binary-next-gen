@@ -66,6 +66,7 @@ export default class TickTradeParameters extends React.Component {
                         <Link
                             className="btn-secondary"
                             to={`/payout-picker/${id}`}
+                            query={{ currency }}
                         >
                             <M m={trade.basis} /><span>: </span>
                             <NumberPlain currency={currency} value={trade.amount} />

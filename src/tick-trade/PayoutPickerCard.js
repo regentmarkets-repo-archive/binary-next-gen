@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { RadioGroup, CurrencyPicker, InputGroup } from '../_common';
+import { RadioGroup, InputGroup } from '../_common';
 
 const basisTypes = [
 	{ value: 'payout', text: 'Payout' },
@@ -12,51 +12,56 @@ const minAmount = 1;
 export default class PayoutPickerCard extends React.Component {
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
-		tickTrade: PropTypes.object.isRequired,
-		onChange: PropTypes.func,
+		location: PropTypes.object.isRequired,
+		params: PropTypes.object.isRequired,
+		trades: PropTypes.object.isRequired,
 	};
 
-	updateValue(val) {
-		const { actions, onChange } = this.props;
+	updateValue(name, value) {
+		const { actions } = this.props;
+		const { id } = this.props.params;
 
-		if (+val.amount > maxAmount) {
-			actions.updateTickTradeParameters({ amount: maxAmount });
-		} else if (+val.amount < minAmount) {
-			actions.updateTickTradeParameters({ amount: minAmount });
+		if (name === 'amount') {
+			let amount = +value;
+			if (amount > maxAmount) {
+				amount = maxAmount;
+			} else if (amount < minAmount) {
+				amount = minAmount;
+			}
+
+			actions.updateTradeParams(id, name, amount);
 		} else {
-			actions.updateTickTradeParameters(val);
+			actions.updateTradeParams(id, name, value);
 		}
-
-		if (onChange) onChange();
 	}
 
 	render() {
-		const { tickTrade } = this.props;
+		const { trades } = this.props;
+		const { id } = this.props.params;
+		const { query } = this.props.location;
+		const currency = query.currency;
+		const trade = trades[id];
 		return (
 			<div>
 				<RadioGroup
 					name="basis"
 					options={basisTypes}
-					value={tickTrade.get('basis')}
-					onChange={e => this.updateValue({ basis: e.target.value })}
+					value={trade.basis}
+					onChange={e => this.updateValue('basis', e.target.value)}
 					{...this.props}
-				/>
-				<CurrencyPicker
-					radio
-					value={tickTrade.get('currency')}
-					onChange={e => this.updateValue({ currency: e.target.value })}
 				/>
 				<InputGroup
 					type="number"
+					label={currency}
 					min={minAmount} max={maxAmount}
-					value={tickTrade.get('amount')}
-					onChange={e => this.updateValue({ amount: e.target.value })}
+					value={trade.amount}
+					onChange={e => this.updateValue('amount', e.target.value)}
 				/>
 				<RadioGroup
 					name="amount"
-					value={tickTrade.get('amount')}
+					value={trade.amount}
 					options={payoutAmounts}
-					onChange={e => this.updateValue({ amount: e.target.value })}
+					onChange={e => this.updateValue('amount', e.target.value)}
 					{...this.props}
 				/>
 			</div>
