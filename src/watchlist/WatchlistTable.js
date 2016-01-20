@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import WatchlistRow from './WatchlistRow';
 import M from '../_common/M';
 
-const WatchlistTable = ({ assets, ticks, favorites }) => {
+const WatchlistTable = ({ assets, ticks, watchlist }) => {
 	return (
 		<table>
 			<thead>
@@ -23,7 +23,7 @@ const WatchlistTable = ({ assets, ticks, favorites }) => {
 				</tr>
 			</thead>
 			<tbody>
-				{favorites.toSeq().map(symbol =>
+				{watchlist.toSeq().map(symbol =>
 					<WatchlistRow
 						key={symbol}
 						symbol={symbol}
@@ -39,7 +39,7 @@ const WatchlistTable = ({ assets, ticks, favorites }) => {
 WatchlistTable.propTypes = {
 	assets: PropTypes.object.isRequired,
 	ticks: PropTypes.object.isRequired,
-	favorites: PropTypes.object.isRequired,
+	watchlist: PropTypes.object.isRequired,
 };
 
 export default WatchlistTable;

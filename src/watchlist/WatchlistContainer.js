@@ -1,19 +1,13 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { connect } from 'react-redux';
 import WatchlistTable from './WatchlistTable';
+import WatchlistSelectors from '../_selectors/WatchlistSelectors';
 
-@connect(state => ({ ticks: state.ticks, assets: state.assets, favorites: state.watchlist }))
+@connect(WatchlistSelectors)
 export default class WatchlistContainer extends React.Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
-
-	static propTypes = {
-		assets: PropTypes.object.isRequired,
-		compact: PropTypes.bool,
-		ticks: PropTypes.object.isRequired,
-		favorites: PropTypes.object.isRequired,
-	};
 
 	render() {
 		return (
