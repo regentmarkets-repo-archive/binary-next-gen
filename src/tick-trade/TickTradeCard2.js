@@ -57,6 +57,7 @@ export default class TickTradeCard extends React.Component {
                 <TickTradeParameters
                     assets={assets}
                     currency={currency}
+                    durationChange={e => this.updateHelper('duration', e.target.value)}
                     id={id}
                     trade={trade}
                 />
