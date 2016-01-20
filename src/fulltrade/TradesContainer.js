@@ -7,7 +7,7 @@ import TradePanel from './TradePanel';
 export default class TradesContainer extends React.Component {
     static propTypes = {
         actions: PropTypes.object.isRequired,
-        assets: PropTypes.array.isRequired,
+        assets: PropTypes.object.isRequired,
         contracts: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
         trades: PropTypes.object.isRequired,
@@ -30,7 +30,7 @@ export default class TradesContainer extends React.Component {
                     const symbol = trades[id].symbol;
                     const contract = contracts[symbol];
                     const tick = ticks[symbol];
-                    if (contract) {
+                    if (contract && tick) {
                         return (
                             <TradePanel
                                 actions={actions}

@@ -16,6 +16,7 @@ const initialState = fromJS({
         basis: 'payout',
         amount: 50,
         type: 'CALL',
+        barrierType: 'relative',
     },
 });
 
@@ -26,15 +27,7 @@ export default (state = initialState, action) => {
             if (state.has(newID)) {
                 return state;
             }
-            return state.set(newID.toString(), fromJS({
-                symbol: 'R_100',
-                tradeCategory: 'callput',
-                duration: 5,
-                durationUnit: 't',
-                basis: 'payout',
-                amount: 50,
-                type: 'CALL',
-            }));
+            return state.set(newID.toString(), initialState.get('0'));
         }
         case UPDATE_TRADE_PARAMS: {
             const result = state.setIn([action.id, action.fieldName], action.fieldValue);
