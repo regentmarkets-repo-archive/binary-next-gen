@@ -98,7 +98,7 @@ const createDefaultBarriers = (contracts, category, type, duration, durationUnit
 export default class TradePanel extends Component {
     static propTypes = {
         actions: PropTypes.object.isRequired,
-        assets: PropTypes.array.isRequired,
+        assets: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
         contract: PropTypes.object,
         id: PropTypes.string.isRequired,
@@ -106,8 +106,9 @@ export default class TradePanel extends Component {
         tick: PropTypes.array,
     };
 
-    componentDidMount() {
+    componentWillMount() {
         const { actions, id } = this.props;
+        this.onCategoryChange({ target: { value: 'callput' } }, false);
         actions.updatePriceProposalSubscription(id);
     }
 
@@ -275,7 +276,7 @@ export default class TradePanel extends Component {
                 />
                 <div className="row">
                     <SelectGroup
-                        options={assets}
+                        optgroups={assets}
                         value={selectedSymbol}
                         onChange={::this.onAssetChange}
                     />

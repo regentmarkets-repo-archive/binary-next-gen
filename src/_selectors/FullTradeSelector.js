@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import { List } from 'immutable';
 import { durationUnits } from '../_constants/TradeParams';
 import { groupByKey } from '../_utils/ArrayUtils';
 import { durationToSecs } from '../_utils/TradeUtils';
@@ -242,8 +243,18 @@ const contractsSelector = state => {
 const tradesSelector = state => state.trades.toJS();
 
 const assetsSelector = state => {
-    const availables = state.assetPicker.get('availableAssets').toJS();
-    return availables.map(asset => ({ text: asset.display_name, value: asset.symbol }));
+    const symbolsToArray = sym => sym.map((v, k) => ({ text: v.get('display_name'), value: k }));
+    const submarketsToSymbols = submarkets => {
+        return submarkets.reduce((r, v) => {
+            return r.concat(symbolsToArray(v.get('symbols')));
+        }, List.of());
+    };
+    const marketToSymbols = markets => markets.map(m => {
+        const s = submarketsToSymbols(m.get('submarkets'));
+        return s;
+    });
+    const wholeTree = state.assets.get('tree');
+    return marketToSymbols(wholeTree).toJS();
 };
 
 const ticksSelector = state => state.ticks.toJS();
