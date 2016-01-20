@@ -11,3 +11,10 @@ export const stringIncrement = s => {
     const incremented = match[2] ? `${match[1]}${+match[2] + 1}` : match[1] + '0';
     return incremented;
 };
+
+export const numberToSignedString = n => {
+    if (n >= 0) {
+        return '+' + n;
+    }
+    return n.toString();
+};

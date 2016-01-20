@@ -16,7 +16,7 @@ const digitOptionsByType = type => {
 	}
 };
 
-const TradeTypeTickOptions = ({ onTypeChange, onBarrierChange, type, barrier }) => (
+const TradeTypeTickOptions = ({ onTypeChange, onBarrierChange, type, barrier, tickOnly }) => (
 	<div>
 		<div className="radio-selector">
 			<RadioItem
@@ -36,7 +36,7 @@ const TradeTypeTickOptions = ({ onTypeChange, onBarrierChange, type, barrier }) 
 				onChange={onTypeChange}
 			/>
 		</div>
-		<div className="radio-selector">
+		{tickOnly && <div className="radio-selector">
 			<RadioItem
 				checked={type === 'ONETOUCH'}
 				label="Touches"
@@ -53,7 +53,7 @@ const TradeTypeTickOptions = ({ onTypeChange, onBarrierChange, type, barrier }) 
 				img="img/trade-notouch.svg"
 				onChange={onTypeChange}
 			/>
-		</div>
+		</div>}
 		<div className="radio-selector">
 			<RadioItem
 				checked={type === 'ASIANU'}
@@ -72,7 +72,7 @@ const TradeTypeTickOptions = ({ onTypeChange, onBarrierChange, type, barrier }) 
 				onChange={onTypeChange}
 			/>
 		</div>
-		<div className="radio-selector">
+		{!tickOnly && <div className="radio-selector">
 			<RadioItem
 				checked={type === 'RANGE'}
 				label="Stay Between"
@@ -89,8 +89,8 @@ const TradeTypeTickOptions = ({ onTypeChange, onBarrierChange, type, barrier }) 
 				img="img/trade-outside.svg"
 				onChange={onTypeChange}
 			/>
-		</div>
-		<div className="radio-selector">
+		</div>}
+		{!tickOnly && <div className="radio-selector">
 			<RadioItem
 				checked={type === 'EXPIRYMISS'}
 				label="Ends Outside"
@@ -107,7 +107,7 @@ const TradeTypeTickOptions = ({ onTypeChange, onBarrierChange, type, barrier }) 
 				img="img/trade-between.svg"
 				onChange={onTypeChange}
 			/>
-		</div>
+		</div>}
 		<div className="radio-selector">
 			<RadioItem
 				checked={type === 'DIGITEVEN'}
@@ -162,7 +162,7 @@ const TradeTypeTickOptions = ({ onTypeChange, onBarrierChange, type, barrier }) 
 				onChange={onTypeChange}
 			/>
 		</div>
-		<div className="radio-selector">
+		{!tickOnly && <div className="radio-selector">
 			<RadioItem
 				checked={type === 'SPREADU'}
 				label="Spread Up"
@@ -179,7 +179,7 @@ const TradeTypeTickOptions = ({ onTypeChange, onBarrierChange, type, barrier }) 
 				img="img/trade-spread.svg"
 				onChange={onTypeChange}
 			/>
-		</div>
+		</div>}
 		{!!typeHasBarrier(type) &&
 			<RadioGroup
 				label="Last Digit Prediction"

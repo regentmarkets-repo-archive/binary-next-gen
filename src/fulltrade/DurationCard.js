@@ -25,7 +25,7 @@ export default class DurationCard extends Component {
                     <div className="row">
                         <InputGroup
                             type="number"
-                            defaultValue={duration}
+                            value={duration}
                             min={min}
                             max={max}
                             onChange={onDurationChange}

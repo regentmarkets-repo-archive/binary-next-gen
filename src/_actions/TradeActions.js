@@ -2,6 +2,7 @@ import * as types from '../_constants/ActionTypes';
 import * as LiveData from '../_data/LiveData';
 import { updateSoldContract } from './PortfolioActions';
 import { trackEvent } from '../_utils/Analytics';
+import { numberToSignedString } from '../_utils/StringUtils';
 
 export const serverDataProposal = serverResponse => ({
     type: types.SERVER_DATA_PROPOSAL,
@@ -120,14 +121,15 @@ export const updatePriceProposalSubscription = (tradeID, trade) => {
             stopProfit,
             stopLoss,
             proposal,
+            barrierType,
             } = tradeObj;
 
         if (!(amount && basis && type && symbol)) {
             return;
         }
 
-        const stringBarrier1 = barrier && (barrier > 0 ? '+' + barrier : barrier.toString());
-        const stringBarrier2 = barrier2 && (barrier2 > 0 ? '+' + barrier2 : barrier2.toString());
+        const b1 = barrier && (barrierType === 'relative' ? numberToSignedString(barrier) : barrier);
+        const b2 = barrier2 && (barrierType === 'relative' ? numberToSignedString(barrier2) : barrier2);
 
         if (proposal) {
             const proposalID = proposal.id;
@@ -141,8 +143,8 @@ export const updatePriceProposalSubscription = (tradeID, trade) => {
             currency,
             duration_unit: durationUnit,
             symbol,
-            barrier: stringBarrier1,
-            barrier2: stringBarrier2,
+            barrier: b1,
+            barrier2: b2,
             amount_per_point: amountPerPoint,
             stop_type: stopType,
             stop_profit: stopProfit,
