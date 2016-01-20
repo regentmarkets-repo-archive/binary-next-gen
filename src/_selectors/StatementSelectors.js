@@ -1,30 +1,17 @@
-import { createSelector } from 'reselect';
+import { createStructuredSelector } from 'reselect';
 import {
     transactionsTodaySelector,
     transactionsYesterdaySelector,
+    transactionsLast7DaysSelector,
     transactionsLast30DaysSelector,
-    transactionsLast60DaysSelector,
 } from './TransactionsSelectors';
 
 export const currencySelector = state => state.account.get('currency');
 
-export default createSelector([
-        currencySelector,
-        transactionsTodaySelector,
-        transactionsYesterdaySelector,
-        transactionsLast30DaysSelector,
-        transactionsLast60DaysSelector,
-    ], (
-        currency,
-        transactionsToday,
-        transactionsYesterday,
-        transactionsLast30Days,
-        transactionsLast60Days,
-    ) => ({
-        currency,
-        transactionsToday,
-        transactionsYesterday,
-        transactionsLast30Days,
-        transactionsLast60Days,
-    }),
-);
+export default createStructuredSelector({
+    currency: currencySelector,
+    transactionsToday: transactionsTodaySelector,
+    transactionsYesterday: transactionsYesterdaySelector,
+    transactionsLast7Days: transactionsLast7DaysSelector,
+    transactionsLast30Days: transactionsLast30DaysSelector,
+});

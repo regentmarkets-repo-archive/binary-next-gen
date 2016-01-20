@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import StatementTable from './StatementTable';
 import { M, Tabs } from '../_common';
 import * as LiveData from '../_data/LiveData';
-import { todayEpoch, yesterdayEpoch, getLastXMonthEpoch } from '../_utils/DateUtils';
+import { todayEpoch, yesterdayEpoch, last7DaysEpoch, last30DaysEpoch } from '../_utils/DateUtils';
 
 export default class StatementCard extends React.Component {
 
@@ -12,8 +12,8 @@ export default class StatementCard extends React.Component {
 		// transactions: PropTypes.object.isRequired,
 		transactionsToday: PropTypes.array.isRequired,
 		transactionsYesterday: PropTypes.array.isRequired,
+		transactionsLast7Days: PropTypes.array.isRequired,
 		transactionsLast30Days: PropTypes.array.isRequired,
-		transactionsLast60Days: PropTypes.array.isRequired,
 	};
 
 	constructor(props) {
@@ -22,10 +22,10 @@ export default class StatementCard extends React.Component {
 			activeIdx: 0,
 		};
 		this.filters = [
-			{ text: 'Today', epochFunc: () => todayEpoch(), transactions: this.props.transactionsToday },
-			{ text: 'Yesterday', epochFunc: () => yesterdayEpoch(), transactions: this.props.transactionsYesterday },
-			{ text: 'Last 30 days', epochFunc: () => getLastXMonthEpoch(1), transactions: this.props.transactionsLast30Days },
-			{ text: 'Last 60 days', epochFunc: () => getLastXMonthEpoch(2), transactions: this.props.transactionsLast60Days },
+			{ text: 'Today', epochFunc: todayEpoch, transactions: this.props.transactionsToday },
+			{ text: 'Yesterday', epochFunc: yesterdayEpoch, transactions: this.props.transactionsYesterday },
+			{ text: 'Last 7 Days', epochFunc: last7DaysEpoch, transactions: this.props.transactionsLast7Days },
+			{ text: 'Last 30 Days', epochFunc: last30DaysEpoch, transactions: this.props.transactionsLast30Days },
 		];
 	}
 

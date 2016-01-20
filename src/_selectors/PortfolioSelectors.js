@@ -1,4 +1,4 @@
-import { createSelector } from 'reselect';
+import { createSelector, createStructuredSelector } from 'reselect';
 import { objectToArray } from '../_utils/ArrayUtils';
 
 export const contractsSelector = state => state.contracts;
@@ -21,12 +21,9 @@ export const indicativeTotalSelector = createSelector(
             .reduce((x, y) => x + y, 0),
 );
 
-export default createSelector(
-    [contractsSelector, proposalsSelector, purchaseTotalSelector, indicativeTotalSelector],
-    (contracts, proposals, purchaseTotal, indicativeTotal) => ({
-        contracts,
-        proposals,
-        purchaseTotal,
-        indicativeTotal,
-    }),
-);
+export default createStructuredSelector({
+    contracts: contractsSelector,
+    proposals: proposalsSelector,
+    purchaseTotal: purchaseTotalSelector,
+    indicativeTotal: indicativeTotalSelector,
+});

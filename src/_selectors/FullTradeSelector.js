@@ -1,4 +1,4 @@
-import { createSelector } from 'reselect';
+import { createStructuredSelector } from 'reselect';
 import { durationUnits } from '../_constants/TradeParams';
 import { groupByKey } from '../_utils/ArrayUtils';
 import { durationToSecs } from '../_utils/TradeUtils';
@@ -228,19 +228,10 @@ const ticksSelector = state => state.ticks.toJS();
 
 const currencySelector = state => state.account.get('currency');
 
-export const fullTradesSelector = createSelector(
-    contractsSelector,
-    tradesSelector,
-    assetsSelector,
-    ticksSelector,
-    currencySelector,
-    (contracts, trades, assets, ticks, currency) => {
-        return {
-            contracts,
-            trades,
-            assets,
-            ticks,
-            currency,
-        };
-    }
-);
+export const fullTradesSelector = createStructuredSelector({
+    contracts: contractsSelector,
+    trades: tradesSelector,
+    assets: assetsSelector,
+    ticks: ticksSelector,
+    currency: currencySelector,
+});

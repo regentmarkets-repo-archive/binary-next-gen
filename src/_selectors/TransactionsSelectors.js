@@ -1,15 +1,10 @@
-import { createSelector } from 'reselect';
-import { todayString, epochToDateString, getLastXMonthEpoch } from '../_utils/DateUtils';
+import { createSelector, createStructuredSelector } from 'reselect';
+import { todayString, epochToDateString, yesterdayEpoch, getLastXMonthEpoch } from '../_utils/DateUtils';
 
-export const transactionsSelector = state => state.transactions.toJS();
+const toPlainJS = obj =>
+    typeof obj.toJS === 'undefined' ? obj : obj.toJS();
 
-export const transactionsTotalSelector = createSelector(
-    transactionsSelector,
-    transactions =>
-        transactions
-            .map(t => +t.amount)
-            .reduce((x, y) => x + y, 0),
-);
+export const transactionsSelector = state => toPlainJS(state.transactions);
 
 export const transactionsTodaySelector = createSelector(
     transactionsSelector,
@@ -22,47 +17,41 @@ export const transactionsTodaySelector = createSelector(
 export const transactionsYesterdaySelector = createSelector(
     transactionsSelector,
     transactions => {
-       const yesterday = epochToDateString((Date.now() / 1000) - 60 * 60 * 24);
+       const yesterday = yesterdayEpoch();
        return transactions.filter(tx => yesterday === epochToDateString(tx.transaction_time));
    }
+);
+
+export const transactionsLast7DaysSelector = createSelector(
+    transactionsSelector,
+    transactions => {
+        const Last7DaysEpoch = epochToDateString((Date.now() / 1000) - 60 * 60 * 24 * 7);
+        return transactions.filter(tx => tx.transaction_time > Last7DaysEpoch);
+    }
 );
 
 export const transactionsLast30DaysSelector = createSelector(
     transactionsSelector,
     transactions => {
-        const last30DaysEpoch = getLastXMonthEpoch(1);
-        return transactions.filter(tx => tx.transaction_time > last30DaysEpoch);
+        const Last30DaysEpoch = getLastXMonthEpoch(1);
+        return transactions.filter(tx => tx.transaction_time > Last30DaysEpoch);
     }
 );
 
-export const transactionsLast60DaysSelector = createSelector(
+
+export const transactionsTotalSelector = createSelector(
     transactionsSelector,
-    transactions => {
-        const last60DaysEpoch = getLastXMonthEpoch(2);
-        return transactions.filter(tx => tx.transaction_time > last60DaysEpoch);
-    }
+    transactions =>
+        transactions
+            .map(t => +t.amount)
+            .reduce((x, y) => x + y, 0),
 );
 
-export default createSelector([
-        transactionsSelector,
-        transactionsTodaySelector,
-        transactionsYesterdaySelector,
-        transactionsLast30DaysSelector,
-        transactionsLast60DaysSelector,
-        transactionsTotalSelector,
-    ], (
-        transactions,
-        transactionsToday,
-        transactionsYesterday,
-        transactionsLast30Days,
-        transactionsLast60Days,
-        transactionsTotal
-    ) => ({
-        transactions,
-        transactionsToday,
-        transactionsYesterday,
-        transactionsLast30Days,
-        transactionsLast60Days,
-        transactionsTotal,
-    }),
-);
+export default createStructuredSelector({
+    transactions: transactionsSelector,
+    transactionsToday: transactionsTodaySelector,
+    transactionsYesterday: transactionsYesterdaySelector,
+    transactionsLast7Days: transactionsLast7DaysSelector,
+    transactionsLast30Days: transactionsLast30DaysSelector,
+    transactionsTotal: transactionsTotalSelector,
+});

@@ -55,3 +55,5 @@ export const xDayEpoch = x => {
 
 export const todayEpoch = () => xDayEpoch(0);
 export const yesterdayEpoch = () => xDayEpoch(-1);
+export const last7DaysEpoch = () => xDayEpoch(-6);
+export const last30DaysEpoch = () => xDayEpoch(-29);
