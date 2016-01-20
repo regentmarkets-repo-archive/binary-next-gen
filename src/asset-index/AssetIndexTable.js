@@ -2,11 +2,6 @@ import React, { PropTypes } from 'react';
 import { fromJS } from 'immutable';
 import AssetIndexRow from './AssetIndexRow';
 
-const indexTypeExtraction = (index) => fromJS(index
-    .map((symbols) => symbols[2].map((type) => type[1]))
-    .reduce((prv, curr) => prv.concat(curr)))
-    .toOrderedSet();
-
 const AssetIndexTable = ({ submarket, index }) => (
     <table>
         <thead>

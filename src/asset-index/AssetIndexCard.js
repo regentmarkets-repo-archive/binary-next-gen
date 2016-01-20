@@ -10,18 +10,12 @@ export default class AssetIndexCard extends React.Component {
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
 		assets: PropTypes.object.isRequired,
-		assetIndexFilter: PropTypes.object.isRequired,
+		submarketId: PropTypes.string.isRequired,
+		submarketId: PropTypes.string.isRequired,
 	};
 
 	render() {
-		const { actions, assets, assetIndexFilter } = this.props;
-		const { index, list, tree } = assets.toJS();
-		const submarket = assetIndexFilter.get('submarket');
-		const submarketName = Object.keys(tree).map(market => {
-			const subs = tree[market].submarkets;
-			if (Object.keys(subs).indexOf(submarket) > -1) return subs[submarket].display_name;
-		}).filter(name => !!name)[0];
-		const submarketForAsset = symbol => list.find(x => x.symbol === symbol).submarket;
+		const { actions, assets, submarketId, submarketName } = this.props;
 
 		return (
 			<div>
