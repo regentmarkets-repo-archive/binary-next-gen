@@ -1,36 +1,51 @@
 import React, { PropTypes, Component } from 'react';
-import BarrierInput from './BarrierInput';
+import BarrierInput from './RelativeBarrierInput';
 
 export default class BarrierCard extends Component {
     static propTypes = {
         barrier: PropTypes.number,
         barrier2: PropTypes.number,
-        barrier1Info: PropTypes.shape({
-            name: PropTypes.string.isRequired,
-            defaultValue: PropTypes.any.isRequired,
-        }),
-        barrier2Info: PropTypes.shape({
-            name: PropTypes.string.isRequired,
-            defaultValue: PropTypes.any.isRequired,
-        }),
+        barrierInfo: PropTypes.object,
+        isIntraDay: PropTypes.bool,
         onBarrier1Change: PropTypes.func,
         onBarrier2Change: PropTypes.func,
         spot: PropTypes.number,
     };
 
     render() {
-        const { barrier, barrier2, barrier1Info, barrier2Info, onBarrier1Change, onBarrier2Change, spot } = this.props;
+        const {
+            barrier,
+            barrier2,
+            barrierInfo,
+            isIntraDay,
+            onBarrier1Change,
+            onBarrier2Change,
+            spot,
+            } = this.props;
+        const expiryType = isIntraDay ? 'intraday' : 'daily';
+        const barrier1Info = barrierInfo[expiryType][0];
+        const barrier2Info = barrierInfo[expiryType][1];
         return (
             <div>
                 {barrier1Info &&
                     <div>
-                        <BarrierInput {...barrier1Info} onChange={onBarrier1Change} />
-                        {spot && <p>{(barrier2Info ? 'High spot: ' : 'Target spot: ') + `${barrier || spot}`}</p>}
+                        <BarrierInput
+                            {...barrier1Info}
+                            onChange={onBarrier1Change}
+                            isIntraDay={isIntraDay}
+                            value={barrier}
+                            spot={spot}
+                        />
                     </div>}
                 {barrier2Info &&
                     <div>
-                        <BarrierInput {...barrier2Info} onChange={onBarrier2Change} />
-                        {spot && <p>{`Low spot: ${barrier2}`}</p>}
+                        <BarrierInput
+                            {...barrierInfo[expiryType][1]}
+                            onChange={onBarrier2Change}
+                            isIntraDay={isIntraDay}
+                            value={barrier2}
+                            spot={spot}
+                        />
                     </div>}
             </div>
         );

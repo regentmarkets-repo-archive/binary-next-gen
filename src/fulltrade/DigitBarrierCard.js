@@ -16,7 +16,7 @@ export default class DigitBarrierCard extends Component {
                     <p>{barrierInfo.name}</p>
                     <RadioGroup
                         name="digit-selections"
-                        options={barrierInfo.value.map(b => ({ text: b, value: b }))}
+                        options={barrierInfo.values.map(b => ({ text: b, value: b }))}
                         value={barrier}
                         onChange={onBarrierChange}
                     />

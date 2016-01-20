@@ -16,6 +16,7 @@ const initialState = fromJS({
         basis: 'payout',
         amount: 50,
         type: 'CALL',
+        barrierType: 'relative',
     },
 });
 

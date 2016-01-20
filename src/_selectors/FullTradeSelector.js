@@ -12,6 +12,7 @@ const normalizedContractFor = contracts => {
         contract_category_display: contract.contract_category_display,
         contract_display: contract.contract_display,
         contract_type: contract.contract_type,
+        expiry_type: contract.expiry_type,
         high_barrier: contract.high_barrier,
         last_digit_range: contract.last_digit_range,
         low_barrier: contract.low_barrier,
@@ -34,12 +35,49 @@ const normalizedContractFor = contracts => {
 };
 
 const extractBarrier = (contracts, type) => {
+    const extractDigitBarrierHelper = contractsGroupedByExpiry => {
+        const expiryTypes = Object.keys(contractsGroupedByExpiry);
+        const result = {};
+        expiryTypes.forEach(et => {
+            const contractsByExpiry = contractsGroupedByExpiry[et];
+            result[et] = [{
+                name: 'Digit',
+                values: contractsByExpiry[0].last_digit_range,
+                defaultValue: contractsByExpiry[0].last_digit_range[0],
+            }];
+        });
+        return result;
+    };
+    const extract2BarriersHelper = contractsGroupedByExpiry => {
+        const expiryTypes = Object.keys(contractsGroupedByExpiry);
+        const result = {};
+        expiryTypes.forEach(et => {
+            const contractsByExpiry = contractsGroupedByExpiry[et];
+            result[et] = [
+                { name: 'High barrier', defaultValue: contractsByExpiry[0].high_barrier },
+                { name: 'Low barrier', defaultValue: contractsByExpiry[0].low_barrier },
+            ];
+        });
+        return result;
+    };
+    const extract1BarrierHelper = (contractGroupedByExpiry, barrierName) => {
+        const expiryTypes = Object.keys(contractGroupedByExpiry);
+        const result = {};
+        expiryTypes.forEach(et => {
+            const contractsByExpiry = contractGroupedByExpiry[et];
+            const contractWithBarrier = contractsByExpiry.find(c => !!c.barrier);
+            result[et] = [{ name: barrierName, defaultValue: contractWithBarrier && contractWithBarrier.barrier }];
+        });
+        return result;
+    };
+
+    const groupByExpiryType = groupByKey(contracts, 'expiry_type');
     switch (type) {
         case 'CALL': {
-            return [{ name: 'Higher than', defaultValue: 0 }];
+            return extract1BarrierHelper(groupByExpiryType, 'Higher than');
         }
         case 'PUT': {
-            return [{ name: 'Lower than', defaultValue: 0 }];
+            return extract1BarrierHelper(groupByExpiryType, 'Lower than');
         }
         case 'ASIANU': {
             return undefined;
@@ -48,10 +86,10 @@ const extractBarrier = (contracts, type) => {
             return undefined;
         }
         case 'DIGITMATCH': {
-            return [{ name: 'Digit', defaultValue: contracts[0].last_digit_range }];
+            return extractDigitBarrierHelper(groupByExpiryType);
         }
         case 'DIGITDIFF': {
-            return [{ name: 'Digit', defaultValue: contracts[0].last_digit_range }];
+            return extractDigitBarrierHelper(groupByExpiryType);
         }
         case 'DIGITODD': {
             return undefined;
@@ -60,44 +98,28 @@ const extractBarrier = (contracts, type) => {
             return undefined;
         }
         case 'DIGITOVER': {
-            return [{ name: 'Digit', defaultValue: contracts[0].last_digit_range }];
+            return extractDigitBarrierHelper(groupByExpiryType);
         }
         case 'DIGITUNDER': {
-            return [{ name: 'Digit', defaultValue: contracts[0].last_digit_range }];
+            return extractDigitBarrierHelper(groupByExpiryType);
         }
         case 'EXPIRYMISS': {
-            return [
-                { name: 'High barrier', defaultValue: +contracts[0].high_barrier },
-                { name: 'Low barrier', defaultValue: +contracts[0].low_barrier },
-            ];
+            return extract2BarriersHelper(groupByExpiryType);
         }
         case 'EXPIRYRANGE': {
-            return [
-                { name: 'High barrier', defaultValue: +contracts[0].high_barrier },
-                { name: 'Low barrier', defaultValue: +contracts[0].low_barrier },
-            ];
+            return extract2BarriersHelper(groupByExpiryType);
         }
         case 'RANGE': {
-            return [
-                { name: 'High barrier', defaultValue: +contracts[0].high_barrier },
-                { name: 'Low barrier', defaultValue: +contracts[0].low_barrier },
-            ];
+            return extract2BarriersHelper(groupByExpiryType);
         }
         case 'UPORDOWN': {
-            return [
-                { name: 'High barrier', defaultValue: +contracts[0].high_barrier },
-                { name: 'Low barrier', defaultValue: +contracts[0].low_barrier },
-            ];
+            return extract2BarriersHelper(groupByExpiryType);
         }
         case 'ONETOUCH': {
-            return [
-                { name: 'Touch spot', defaultValue: +contracts[0].barrier },
-            ];
+            return extract1BarrierHelper(groupByExpiryType, 'Touch spot');
         }
         case 'NOTOUCH': {
-            return [
-                { name: 'Touch spot', defaultValue: +contracts[0].barrier },
-            ];
+            return extract1BarrierHelper(groupByExpiryType, 'Touch spot');
         }
         case 'SPREADU': return undefined;
         case 'SPREADD': return undefined;
