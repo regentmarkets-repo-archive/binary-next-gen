@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { SelectGroup, RadioGroup, ErrorMsg, Modal, PurchaseConfirmation } from '../_common';
 import { contractCategoryDisplay, durationToSecs } from '../_utils/TradeUtils';
+import { tradeTypes } from '../_constants/TradeParams';
 import BarrierCard from './BarrierCard';
 import ContractStatsCard from './ContractStatsCard';
 import DigitBarrierCard from './DigitBarrierCard';
@@ -23,6 +24,10 @@ import MobileChart from '../charting/MobileChart';
  * 3. ticks is always within 5 to 10
  * 4. digit trade is always ticks only
  */
+const getTradeTypeText = type => {
+    const name = tradeTypes.find(t => t.value === type).text;
+    return name;
+};
 
 const createDefaultType = (contracts, category) => {
     return Object.keys(contracts[category])[0];
@@ -116,7 +121,9 @@ export default class TradePanel extends Component {
 
     onAssetChange(e) {
         this.updateHelper('symbol', e.target.value);
-        this.props.actions.getTradingOptions(e.target.value);
+        const { actions } = this.props;
+        actions.getTradingOptions(e.target.value);
+        actions.getTicksBySymbol(e.target.value);
         this.onCategoryChange({ target: { value: 'callput' } }, false);
     }
 
@@ -200,7 +207,7 @@ export default class TradePanel extends Component {
     }
 
     onBarrier1Change(e) {
-        this.updateHelper('barrier', e.target.value);
+        this.updateHelper('barrier', +e.target.value);
     }
 
     onBarrier2Change(e) {
@@ -208,7 +215,7 @@ export default class TradePanel extends Component {
     }
 
     onBasisChange(e) {
-        this.updateHelper('basis', +e.target.value);
+        this.updateHelper('basis', e.target.value);
     }
 
     onAmountChange(e) {
@@ -246,7 +253,9 @@ export default class TradePanel extends Component {
         const selectedSymbol = trade.symbol;
         const categories = Object.keys(contract).map(c => ({ value: c, text: contractCategoryDisplay(c) }));
         const selectedCategory = trade.tradeCategory;
-        const types = Object.keys(contract[selectedCategory]).map(type => ({ text: type, value: type }));
+        const types = Object
+            .keys(contract[selectedCategory])
+            .map(type => ({ text: getTradeTypeText(type), value: type }));
         const selectedType = trade.type;
         const contractForType = contract[selectedCategory][selectedType];
         const barriers = contractForType && contractForType.barriers;
