@@ -7,6 +7,7 @@ import DigitBarrierCard from './DigitBarrierCard';
 import DurationCard from './DurationCard';
 import PayoutCard from './PayoutCard';
 import SpreadBarrierCard from './SpreadBarrierCard';
+import MobileChart from '../charting/MobileChart';
 
 /**
  * This UI is coded with a few assumptions, which should always be true, this comments serves as a future reference
@@ -241,7 +242,7 @@ export default class TradePanel extends Component {
     }
 
     render() {
-        const { assets, contract, trade, currency } = this.props;
+        const { assets, contract, trade, currency, tick } = this.props;
         const selectedSymbol = trade.symbol;
         const categories = Object.keys(contract).map(c => ({ value: c, text: contractCategoryDisplay(c) }));
         const selectedCategory = trade.tradeCategory;
@@ -252,10 +253,17 @@ export default class TradePanel extends Component {
         const receipt = trade.receipt;
         const isTick = trade.durationUnit === 't';
         const isIntraDay = durationToSecs(trade.duration, trade.durationUnit) <= 86400;
+        const lastSpot = tick ? tick[tick.length - 1].quote : 0;
 
         return (
             <div>
                 <button onClick={::this.onClosePanel}>Close Trade Panel</button>
+                <MobileChart
+                    className="trade-chart"
+                    history={tick}
+                    showBarrier={!!barriers}
+                    spot={lastSpot}
+                />
                 <div className="row">
                     <SelectGroup
                         options={assets}
