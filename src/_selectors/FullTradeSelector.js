@@ -3,6 +3,7 @@ import { List } from 'immutable';
 import { durationUnits } from '../_constants/TradeParams';
 import { groupByKey } from '../_utils/ArrayUtils';
 import { durationToSecs } from '../_utils/TradeUtils';
+import { epochToTimeString, nowAsEpoch, timeStringBigger, timeStringSmaller } from '../_utils/DateUtils';
 
 const normalizedContractFor = contracts => {
     const extraRemoved = contracts.map(contract => ({
@@ -256,8 +257,33 @@ const assetsSelector = state => {
         const s = submarketsToSymbols(m.get('submarkets'));
         return s;
     });
+    const availableAssetsFilter = (assets, times, now) => {
+        const nowInTimeString = epochToTimeString(now);
+        const availabilities = {};
+        times.forEach(s => {
+            if (!s.times) {
+                return;
+            }
+            const open = s.times.open[0];
+            const close = s.times.close[0];
+
+            // assuming close time is larger than open time
+            if (timeStringBigger(nowInTimeString, open) && timeStringSmaller(nowInTimeString, close)) {
+                availabilities[s.symbol] = true;
+            }
+        });
+        console.log('n', nowInTimeString);
+        console.log('a', availabilities);
+        const availableAssets = assets.map(symbols => symbols.filter(s => availabilities[s.value]));
+        return availableAssets;
+    };
+
     const wholeTree = state.assets.get('tree');
-    return marketToSymbols(wholeTree).toJS();
+    const timesObj = state.assets.get('times').toJS();
+    const structuredSymbols = marketToSymbols(wholeTree);
+    const filteredAvailableAssets = availableAssetsFilter(structuredSymbols, timesObj, nowAsEpoch()).toJS();
+
+    return filteredAvailableAssets;
 };
 
 const ticksSelector = state => state.ticks.toJS();

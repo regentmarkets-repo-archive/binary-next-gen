@@ -68,10 +68,23 @@ export const initTrade = id => ({
     id,
 });
 
-export const destroyTrade = id => ({
-    type: types.DESTROY_TRADE,
-    id,
-});
+export const destroyTrade = id => {
+    return (dispatch, getState) => {
+        const allTrades = getState().trades.toJS();
+        if (Object.keys(allTrades).length === 1) {
+            return;
+        }
+
+        const relatedTrade = allTrades[id];
+        const sameSymbolExists = findIfExist(allTrades, (o, k) => o.symbol === relatedTrade.symbol && k !== id);
+        if (!sameSymbolExists) {
+            LiveData.api.subscribeToTick(relatedTrade.symbol);
+        }
+        LiveData.api.unsubscribeByID(relatedTrade.proposal.id);
+
+        dispatch({ type: types.DESTROY_TRADE, id });
+    };
+};
 
 export const destroyAllTrade = () => ({
     type: types.DESTROY_ALL_TRADE,
@@ -84,21 +97,6 @@ export const updateTradeParams = (id, fieldName, fieldValue) => {
         id,
         fieldName,
         fieldValue,
-    };
-};
-
-export const unsubscribeProposal = proposalID => {
-    LiveData.api.unsubscribeByID(proposalID);
-};
-
-export const unsubscribeTick = id => {
-    return (dispatch, getState) => {
-        const allTrades = getState().trades.toJS();
-        const relatedSymbol = allTrades[id].symbol;
-        const sameSymbolExists = findIfExist(allTrades, (o, k) => o.symbol === relatedSymbol && k !== id);
-        if (!sameSymbolExists) {
-            LiveData.api.subscribeToTick(relatedSymbol);
-        }
     };
 };
 
