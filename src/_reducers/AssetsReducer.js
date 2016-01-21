@@ -46,7 +46,7 @@ export default (state = initialState, action) => {
         }
         case SERVER_DATA_TRADING_TIMES: {
             const flatTimes = flattenTradingTimes(action.serverResponse.trading_times);
-            return state.set('times', flatTimes);
+            return state.set('times', fromJS(flatTimes));
         }
         case SERVER_DATA_ASSET_INDEX: {
             return state.set('index', action.serverResponse.asset_index);

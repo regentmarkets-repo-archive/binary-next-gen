@@ -3,6 +3,7 @@ import * as LiveData from '../_data/LiveData';
 import { updateSoldContract } from './PortfolioActions';
 import { trackEvent } from '../_utils/Analytics';
 import { numberToSignedString } from '../_utils/StringUtils';
+import { findIfExist } from '../_utils/ObjectUtils';
 
 export const serverDataProposal = serverResponse => ({
     type: types.SERVER_DATA_PROPOSAL,
@@ -21,26 +22,6 @@ export const serverDataBuy = serverResponse => ({
     type: types.SERVER_DATA_BUY,
     serverResponse,
 });
-
-export const discardPurchaseReceipt = () => ({
-    type: types.DISCARD_PURCHASE_RECEIPT,
-});
-
-export const subscribeToPriceProposal = (contract) => {
-    return () => {
-        LiveData.api.unsubscribeFromAllProposals();
-        LiveData.api.subscribeToPriceForContractProposal({
-            amount: contract.get('amount').toString(),
-            barrier: contract.get('barrier'),
-            basis: contract.get('basis'),
-            contract_type: contract.get('tradeType'),
-            currency: contract.get('currency'),
-            duration: contract.get('duration').toString(),
-            duration_unit: contract.get('duration_unit') || 't',
-            symbol: contract.get('assetSymbol'),
-        });
-    };
-};
 
 export const sellContract = (id, price) => {
     trackEvent('sell-contract', { id, price });
@@ -87,21 +68,37 @@ export const initTrade = id => ({
     id,
 });
 
-export const destroyTrade = id => ({
-    type: types.DESTROY_TRADE,
-    id,
-});
+export const destroyTrade = id => {
+    return (dispatch, getState) => {
+        const allTrades = getState().trades.toJS();
+        if (Object.keys(allTrades).length === 1) {
+            return;
+        }
+
+        const relatedTrade = allTrades[id];
+        const sameSymbolExists = findIfExist(allTrades, (o, k) => o.symbol === relatedTrade.symbol && k !== id);
+        if (!sameSymbolExists) {
+            LiveData.api.subscribeToTick(relatedTrade.symbol);
+        }
+        LiveData.api.unsubscribeByID(relatedTrade.proposal.id);
+
+        dispatch({ type: types.DESTROY_TRADE, id });
+    };
+};
 
 export const destroyAllTrade = () => ({
     type: types.DESTROY_ALL_TRADE,
 });
 
-export const updateTradeParams = (id, fieldName, fieldValue) => ({
-    type: types.UPDATE_TRADE_PARAMS,
-    id,
-    fieldName,
-    fieldValue,
-});
+export const updateTradeParams = (id, fieldName, fieldValue) => {
+    trackEvent('update-trade-paremeters', { fieldName, fieldValue });
+    return {
+        type: types.UPDATE_TRADE_PARAMS,
+        id,
+        fieldName,
+        fieldValue,
+    };
+};
 
 export const updatePriceProposalSubscription = (tradeID, trade) => {
     return (dispatch, getState) => {

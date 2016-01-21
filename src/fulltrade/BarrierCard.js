@@ -23,8 +23,8 @@ export default class BarrierCard extends Component {
             spot,
             } = this.props;
         const expiryType = isIntraDay ? 'intraday' : 'daily';
-        const barrier1Info = barrierInfo[expiryType][0];
-        const barrier2Info = barrierInfo[expiryType][1];
+        const barrier1Info = barrierInfo[expiryType] && barrierInfo[expiryType][0];
+        const barrier2Info = barrierInfo[expiryType] && barrierInfo[expiryType][1];
         return (
             <div>
                 {barrier1Info &&
