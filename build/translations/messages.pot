@@ -204,3 +204,33 @@ msgstr ""
 
 msgid "Closes"
 msgstr ""
+
+msgid "Personal"
+msgstr ""
+
+msgid "General"
+msgstr ""
+
+msgid "Trading Times"
+msgstr ""
+
+msgid "Asset Index"
+msgstr ""
+
+msgid "Today"
+msgstr ""
+
+msgid "Yesterday"
+msgstr ""
+
+msgid "Tomorrow"
+msgstr ""
+
+msgid "Takeout"
+msgstr ""
+
+msgid "News"
+msgstr ""
+
+msgid "Resources"
+msgstr ""
