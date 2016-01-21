@@ -67,7 +67,10 @@ const extractBarrier = (contracts, type) => {
         expiryTypes.forEach(et => {
             const contractsByExpiry = contractGroupedByExpiry[et];
             const contractWithBarrier = contractsByExpiry.find(c => !!c.barrier);
-            result[et] = [{ name: barrierName, defaultValue: contractWithBarrier && contractWithBarrier.barrier }];
+            if (!contractWithBarrier) {
+                return;
+            }
+            result[et] = [{ name: barrierName, defaultValue: contractWithBarrier.barrier }];
         });
         return result;
     };

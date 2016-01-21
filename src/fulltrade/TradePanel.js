@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { SelectGroup, RadioGroup, ErrorMsg, Modal, PurchaseConfirmation } from '../_common';
+import { SelectGroup, RadioGroup, ErrorMsg, Modal, M, PurchaseConfirmation } from '../_common';
 import { contractCategoryDisplay, durationToSecs } from '../_utils/TradeUtils';
 import { tradeTypes } from '../_constants/TradeParams';
 import BarrierCard from './BarrierCard';
@@ -63,6 +63,11 @@ const createDefaultBarriers = (contracts, category, type, duration, durationUnit
     const barrierByExpiry = barriers[expiryType];
     if (category === 'digits') {
         return [barrierByExpiry && barrierByExpiry[0].defaultValue];
+    }
+
+    if (!barrierByExpiry) {
+        // this expiry type have no barrier
+        return [undefined, undefined];
     }
 
     if (barrierByExpiry.length === 1) {
@@ -267,7 +272,9 @@ export default class TradePanel extends Component {
 
         return (
             <div>
-                <button onClick={::this.onClosePanel}>Close Trade Panel</button>
+                <button onClick={::this.onClosePanel}>
+                    <M m="Close" />
+                </button>
                 <MobileChart
                     className="trade-chart"
                     history={tick}
@@ -342,7 +349,9 @@ export default class TradePanel extends Component {
                 {trade.proposal &&
                 <ContractStatsCard proposal={trade.proposal} spread={selectedCategory === 'spreads'} />}
                 <ErrorMsg shown={!!trade.proposalError} text={trade.proposalError ? trade.proposalError.message : ''} />
-                <button onClick={::this.onPurchase}>Purchase</button>
+                <button onClick={::this.onPurchase}>
+                    <M m="Purchase" />
+                </button>
             </div>
         );
     }
