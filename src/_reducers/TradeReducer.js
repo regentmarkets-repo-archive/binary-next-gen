@@ -37,7 +37,10 @@ export default (state = initialState, action) => {
             return initialState;
         }
         case DESTROY_TRADE: {
-            return state.delete(action.id);
+            if (state.size > 1) {
+                return state.delete(action.id);
+            }
+            return state;
         }
         case SERVER_DATA_PROPOSAL: {
             if (action.serverResponse.error) {

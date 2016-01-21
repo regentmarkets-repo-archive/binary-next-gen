@@ -87,15 +87,10 @@ export const initTrade = id => ({
     id,
 });
 
-export const destroyTrade = id => {
-    return (dispatch, getState) => {
-        const trades = getState().trades.toJS();
-        if (Object.keys(trades) > 1) {
-            dispatch({ type: types.DESTROY_TRADE, id });
-        }
-        return;
-    };
-};
+export const destroyTrade = id => ({
+    type: types.DESTROY_TRADE,
+    id,
+});
 
 export const destroyAllTrade = () => ({
     type: types.DESTROY_ALL_TRADE,
