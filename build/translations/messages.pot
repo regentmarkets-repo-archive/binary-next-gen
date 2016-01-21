@@ -180,3 +180,27 @@ msgstr ""
 
 msgid "Chart"
 msgstr ""
+
+msgid "Purchase for"
+msgstr ""
+
+msgid "Rise"
+msgstr ""
+
+msgid "Stake"
+msgstr ""
+
+msgid "Payout"
+msgstr ""
+
+msgid "Deposit"
+msgstr ""
+
+msgid "Transactions"
+msgstr ""
+
+msgid "Opens"
+msgstr ""
+
+msgid "Closes"
+msgstr ""
