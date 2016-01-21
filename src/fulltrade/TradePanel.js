@@ -117,6 +117,14 @@ export default class TradePanel extends Component {
         actions.updatePriceProposalSubscription(id);
     }
 
+    componentWillUnmount() {
+        const { actions, id, trade } = this.props;
+        actions.unsubscribeTick(id);
+        if (trade.proposal) {
+            actions.unsubscribeProposal(trade.proposal.id);
+        }
+    }
+
     updateHelper(name, value, update = true) {
         const { actions, id } = this.props;
         actions.updateTradeParams(id, name, value);

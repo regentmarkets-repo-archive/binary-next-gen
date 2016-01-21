@@ -4,7 +4,7 @@ export const findIfExist = (obj, predicate) => {
     }
 
     const allChildren = Object.keys(obj).map(k => obj[k]);
-    const childrenMeetPredicate = allChildren.map(child => predicate(child));
+    const childrenMeetPredicate = allChildren.map((child, k) => predicate(child, k));
     if (childrenMeetPredicate.indexOf(true) > -1) {
         return true;
     }
