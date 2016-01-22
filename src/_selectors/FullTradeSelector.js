@@ -272,8 +272,6 @@ const assetsSelector = state => {
                 availabilities[s.symbol] = true;
             }
         });
-        console.log('n', nowInTimeString);
-        console.log('a', availabilities);
         const availableAssets = assets.map(symbols => symbols.filter(s => availabilities[s.value]));
         return availableAssets;
     };

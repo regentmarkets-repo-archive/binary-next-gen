@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import { SelectGroup, RadioGroup, ErrorMsg, Modal, M, PurchaseConfirmation } from '../_common';
+import { SelectGroup, ErrorMsg, Modal, M, PurchaseConfirmation } from '../_common';
+import RadioGroup from './workaround/CustomRadioGroup';
 import { contractCategoryDisplay, durationToSecs } from '../_utils/TradeUtils';
 import { tradeTypes } from '../_constants/TradeParams';
 import BarrierCard from './BarrierCard';
@@ -101,6 +102,26 @@ const createDefaultBarriers = (contracts, category, type, duration, durationUnit
 };
 
 export default class TradePanel extends Component {
+    constructor(props) {
+        super(props);
+        this.updateHelper = ::this.updateHelper;
+        this.onAssetChange = ::this.onAssetChange;
+        this.onCategoryChange = ::this.onCategoryChange;
+        this.onTypeChange = ::this.onTypeChange;
+        this.onDurationChange = ::this.onDurationChange;
+        this.onDurationUnitChange = ::this.onDurationUnitChange;
+        this.onBarrier1Change = ::this.onBarrier1Change;
+        this.onBarrier2Change = ::this.onBarrier2Change;
+        this.onBasisChange = ::this.onBasisChange;
+        this.onAmountChange = this.onAmountChange.bind(this);
+        this.onAmountPerPointChange = ::this.onAmountPerPointChange;
+        this.onStopLossChange = ::this.onStopLossChange;
+        this.onStopTypeChange = ::this.onStopTypeChange;
+        this.onStopProfitChange = ::this.onStopProfitChange;
+        this.onPurchase = ::this.onPurchase;
+        this.onClosePanel = ::this.onClosePanel;
+    }
+
     static propTypes = {
         actions: PropTypes.object.isRequired,
         assets: PropTypes.object.isRequired,
@@ -255,7 +276,7 @@ export default class TradePanel extends Component {
     }
 
     render() {
-        const { assets, contract, trade, currency, tick } = this.props;
+        const { assets, contract, id, trade, currency, tick } = this.props;
         const selectedSymbol = trade.symbol;
         const categories = Object.keys(contract).map(c => ({ value: c, text: contractCategoryDisplay(c) }));
         const selectedCategory = trade.tradeCategory;
@@ -272,7 +293,7 @@ export default class TradePanel extends Component {
 
         return (
             <div>
-                <button onClick={::this.onClosePanel}>
+                <button onClick={this.onClosePanel}>
                     <M m="Close" />
                 </button>
                 <MobileChart
@@ -285,12 +306,12 @@ export default class TradePanel extends Component {
                     <SelectGroup
                         optgroups={assets}
                         value={selectedSymbol}
-                        onChange={::this.onAssetChange}
+                        onChange={this.onAssetChange}
                     />
                     <SelectGroup
                         options={categories}
                         value={selectedCategory}
-                        onChange={::this.onCategoryChange}
+                        onChange={this.onCategoryChange}
                     />
                 </div>
                 <Modal shown={!!receipt} onClose={() => this.updateHelper('receipt', undefined)} >
@@ -299,32 +320,34 @@ export default class TradePanel extends Component {
                 { contractForType &&
                     <div>
                         <RadioGroup
-                            name="trading-types"
+                            name={'trading-types' + id}
                             options={types}
                             value={selectedType}
-                            onChange={::this.onTypeChange}
+                            onChange={this.onTypeChange}
                         />
                         <DurationCard
                             duration={+trade.duration}
                             durationUnit={trade.durationUnit}
                             options={contractForType.durations}
-                            onDurationChange={::this.onDurationChange}
-                            onUnitChange={::this.onDurationUnitChange}
+                            onDurationChange={this.onDurationChange}
+                            onUnitChange={this.onDurationUnitChange}
                         />
                         {selectedCategory === 'digits' &&
                             <DigitBarrierCard
                                 barrier={trade.barrier}
                                 barrierInfo={barriers && barriers.tick[0]}
-                                onBarrierChange={::this.onBarrier1Change}
+                                id={id}
+                                onBarrierChange={this.onBarrier1Change}
                             />}
                         {selectedCategory === 'spreads' &&
                         <SpreadBarrierCard
+                            amountPerPointChange={this.onAmountPerPointChange}
                             currency={currency}
+                            id={id}
                             spreadInfo={contractForType.spread}
-                            amountPerPointChange={::this.onAmountPerPointChange}
-                            stopTypeChange={::this.onStopTypeChange}
-                            stopLossChange={::this.onStopLossChange}
-                            stopProfitChange={::this.onStopProfitChange}
+                            stopTypeChange={this.onStopTypeChange}
+                            stopLossChange={this.onStopLossChange}
+                            stopProfitChange={this.onStopProfitChange}
                         />}
                         {(selectedCategory !== 'spreads' && selectedCategory !== 'digits' && !isTick) &&
                             <BarrierCard
@@ -333,23 +356,24 @@ export default class TradePanel extends Component {
                                 barrierInfo={barriers}
                                 isTick={isTick}
                                 isIntraDay={isIntraDay}
-                                onBarrier1Change={::this.onBarrier1Change}
-                                onBarrier2Change={::this.onBarrier2Change}
+                                onBarrier1Change={this.onBarrier1Change}
+                                onBarrier2Change={this.onBarrier2Change}
                                 spot={trade.proposal && +trade.proposal.spot}
                             />}
                     </div>
                 }
                 <PayoutCard
-                    basis={trade.basis}
                     amount={+trade.amount}
+                    basis={trade.basis}
                     currency="USD"
-                    onAmountChange={::this.onAmountChange}
-                    onBasisChange={::this.onBasisChange}
+                    id={id}
+                    onAmountChange={this.onAmountChange}
+                    onBasisChange={this.onBasisChange}
                 />
                 {trade.proposal &&
                 <ContractStatsCard proposal={trade.proposal} spread={selectedCategory === 'spreads'} />}
                 <ErrorMsg shown={!!trade.proposalError} text={trade.proposalError ? trade.proposalError.message : ''} />
-                <button onClick={::this.onPurchase}>
+                <button onClick={this.onPurchase}>
                     <M m="Purchase" />
                 </button>
             </div>

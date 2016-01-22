@@ -4,7 +4,7 @@ import TickTradeCard from './TickTradeCard';
 import { tickTradesSelector } from './../_selectors/TickTradeSelector';
 
 @connect(tickTradesSelector)
-export default class TickTradeContainer2 extends Component {
+export default class TickTradeContainer extends Component {
     static propTypes = {
         actions: PropTypes.object.isRequired,
         assets: PropTypes.array.isRequired,
