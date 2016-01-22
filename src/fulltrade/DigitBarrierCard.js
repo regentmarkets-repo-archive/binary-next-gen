@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import { RadioGroup } from './workaround/CustomRadioGroup';
+import RadioGroup from './workaround/CustomRadioGroup';
 
 export default class DigitBarrierCard extends Component {
     static propTypes = {
@@ -12,17 +12,19 @@ export default class DigitBarrierCard extends Component {
     render() {
         const { barrier, barrierInfo, id, onBarrierChange } = this.props;
         return (
-            barrierInfo ?
-                <div>
-                    <p>{barrierInfo.name}</p>
-                    <RadioGroup
-                        name={'digit-selections' + id}
-                        options={barrierInfo.values.map(b => ({ text: b, value: b }))}
-                        value={barrier}
-                        onChange={onBarrierChange}
-                    />
-                </div> :
-                <div/>
+            <div>
+                {barrierInfo ?
+                    <div>
+                        <p>{barrierInfo.name}</p>
+                        <RadioGroup
+                            name={'digit-selections' + id}
+                            options={barrierInfo.values.map(b => ({ text: b, value: b }))}
+                            value={barrier}
+                            onChange={onBarrierChange}
+                        />
+                    </div> :
+                    <div/>}
+            </div>
         );
     }
 }

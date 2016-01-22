@@ -316,7 +316,7 @@ export default class TradePanel extends Component {
         const contractForType = contract[selectedCategory][selectedType];
         const barriers = contractForType && contractForType.barriers;
         const receipt = trade.receipt;
-        const isTick = trade.durationUnit.slice(-1) === 't';
+        const isTick = trade.durationUnit && trade.durationUnit.slice(-1) === 't';
         const isBelow2Min = isTick || durationToSecs(trade.duration, trade.durationUnit) < 120;
         const isIntraDay = durationToSecs(trade.duration, trade.durationUnit) <= 86400;
         const lastSpot = tick ? tick[tick.length - 1].quote : 0;

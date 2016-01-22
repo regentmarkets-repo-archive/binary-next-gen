@@ -20,7 +20,7 @@ export default class TickTradeParameters extends React.Component {
     render() {
         const { assets, currency, durationChange, id, trade } = this.props;
         const tradeTypeText = tradeToFriendlyType(trade.type, trade.barrier);
-
+        const tradeAsset = assets.find(a => a.value === trade.symbol);
         return (
             <div className="trade-parameters">
                 <div className="row">
@@ -30,7 +30,7 @@ export default class TickTradeParameters extends React.Component {
                         </label>
                         <br />
                         <Link to={`/asset-picker/${id}`} query={{ type: 'tick' }} className="btn-secondary">
-                            {assets.find(a => a.value === trade.symbol).text}
+                            {tradeAsset && tradeAsset.text}
                         </Link>
                     </fieldset>
                     <fieldset>
