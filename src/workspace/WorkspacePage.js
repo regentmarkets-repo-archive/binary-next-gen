@@ -1,17 +1,24 @@
 import React, { PropTypes } from 'react';
-import { DesktopHeader, DesktopSidebar } from '../_common';
+import { connect } from 'react-redux';
+import { DesktopHeader, DesktopSidebar, LoadingView } from '../_common';
 import WorkspaceContainer from './WorkspaceContainer';
 
-const WorkspacePage = (props) => (
-	<div id="workspace">
-		<DesktopHeader />
-		<DesktopSidebar />
-		<WorkspaceContainer {...props} />
-	</div>
-);
+@connect(state => ({ isAuthorized: state.appInfo.get('authorized') }))
+export default class WorkspacePage extends React.Component {
+	static propTypes = {
+		children: PropTypes.any,
+		isAuthorized: PropTypes.bool.isRequired,
+	};
 
-WorkspacePage.propTypes = {
-	children: PropTypes.any,
-};
-
-export default WorkspacePage;
+	render() {
+		return (
+			this.props.isAuthorized ?
+				<div id="workspace">
+					<DesktopHeader />
+					<DesktopSidebar />
+					<WorkspaceContainer {...this.props} />
+				</div> :
+				<LoadingView />
+		);
+	}
+}

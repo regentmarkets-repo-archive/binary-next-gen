@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import { M } from '../_common';
+import M from './M';
 
 export default class RadioItem extends React.Component {
 
@@ -10,10 +10,10 @@ export default class RadioItem extends React.Component {
 		checked: PropTypes.bool,
 		defaultChecked: PropTypes.bool,
 		img: PropTypes.string,
-		label: PropTypes.any.isRequired,
-		name: PropTypes.string.isRequired,
-		onChange: PropTypes.func.isRequired,
-		value: PropTypes.any.isRequired,
+		label: PropTypes.any,
+		name: PropTypes.string,
+		onChange: PropTypes.func,
+		value: PropTypes.any,
 	};
 
 	render() {

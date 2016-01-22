@@ -1,18 +1,23 @@
 import React, { PropTypes } from 'react';
-import Article from './Article';
+import ArticlePreview from './ArticlePreview';
 
 export default class NewsCard extends React.Component {
 
     static propTypes = {
-        news: PropTypes.object.isRequired,
+        articles: PropTypes.array.isRequired,
+        history: PropTypes.object,
     };
 
     render() {
-        const articles = this.props.news.get('articles');
+        const { articles, history } = this.props;
         return (
             <div>
                 {articles.map((article, idx) =>
-                    <Article key={'article' + idx} {...article} />
+                    <ArticlePreview
+                        key={'article' + idx}
+                        {...article}
+                        onClick={() => history.push(`/article/${idx}`)}
+                    />
                 )}
             </div>
         );

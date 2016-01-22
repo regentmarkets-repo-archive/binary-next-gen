@@ -13,7 +13,7 @@ export default () => (
 			</tbody>
 		</table>
 		<div>
-			USD <strong>100.00</strong> payout if Dutch Index <strong>touches 506.00</strong> through close on 2015-08-10.
+			USD <strong>100.00</strong> payout if Index <strong>touches 506.00</strong> through close on 2015-08-10.
 		</div>
 
 		<div>

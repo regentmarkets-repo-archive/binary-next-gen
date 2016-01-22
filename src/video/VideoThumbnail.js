@@ -13,9 +13,9 @@ export default class VideoThumbnail extends React.Component {
         const { imgSrc, title, videoId } = this.props;
 
         return (
-            <a target="_new" href={'https://www.youtube.com/watch?v=' + videoId}>
+            <a className="video-thumbnail" target="_new" href={'https://www.youtube.com/watch?v=' + videoId}>
                 <img src={imgSrc}/>
-                <p>{title}</p>
+                <h5>{title}</h5>
             </a>
         );
     }

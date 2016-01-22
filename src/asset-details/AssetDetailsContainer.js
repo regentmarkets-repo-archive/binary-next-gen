@@ -1,14 +1,12 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 import AssetDetailsCard from './AssetDetailsCard';
 
 @connect(state => ({ assets: state.assets, workspace: state.workspace }))
 export default class AssetDetailsContainer extends React.Component {
 
-	static propTypes = {
-		assets: PropTypes.object,
-		dispatch: PropTypes.func,
-	};
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		return (

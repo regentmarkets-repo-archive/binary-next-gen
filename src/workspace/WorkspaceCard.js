@@ -1,66 +1,60 @@
 import React from 'react';
-import { Resizer, Tabs } from '../_common';
-import { DesktopHeader, DesktopSidebar, Footer } from '../navigation';
-import PortfolioContainer from '../portfolio/PortfolioContainer';
-import ProfitTableContainer from '../profit-table/ProfitTableContainer';
-import StatementContainer from '../statement/StatementContainer';
-import AssetSelectorContainer from '../asset-selector/AssetSelectorContainer';
-import AssetDetailsContainer from '../asset-details/AssetDetailsContainer';
-import TradingTimesContainer from '../trading-times/TradingTimesContainer';
-import AssetIndexContainer from '../asset-index/AssetIndexContainer';
-import NewsContainer from '../news/NewsContainer';
-import VideoListContainer from '../video/VideoListContainer';
-import TickTradePanel from '../tick-trade/TickTradePanel';
-import WatchlistContainer from '../watchlist/WatchlistContainer';
+import { Resizer } from '../_common';
+import { DesktopHeader, Footer } from '../navigation';
+import TickTradeContainer from '../tick-trade/TickTradeContainer';
+import WorkspaceLeftPanel from './WorkspaceLeftPanel';
+import WorkspaceRightPanel from './WorkspaceRightPanel';
+import WorkspaceBottomPanel from './WorkspaceBottomPanel';
+
+const updateSizeWithBoundary = (size, update, min, max) => {
+	if (size < min) {
+		update(10);
+		return;
+	}
+
+	if (size > max) {
+		return;
+	}
+
+	update(size);
+};
 
 export default ({ actions, workspace }) => (
 	<div id="screen">
 		<DesktopHeader actions={actions} />
-		{false && <DesktopSidebar />}
 		<div id="panels">
-			<div id="left-panel" style={{ width: workspace.get('leftPanelSize') }}>
-				<Tabs
-					id="left-panel"
-					activeIndex={workspace.get('leftActiveTab')}
-					onChange={idx => actions.changeActiveTab('left', idx)}
-					tabs={[
-						{ text: 'Assets', component: <AssetSelectorContainer actions={actions} /> },
-						{ text: 'Watchlist', component: <WatchlistContainer /> },
-						{ text: 'Details', component: <AssetDetailsContainer /> },
-					]} />
-			</div>
-			<Resizer onResize={e => console.log(e)} />
+			<WorkspaceLeftPanel actions={actions} workspace={workspace} />
+			<Resizer
+				className="resizer-vertical"
+				onResize={e => {
+					const update = actions.updateWorkspaceField.bind(null, 'leftPanelSize');
+					const size = e.x - 4;
+					updateSizeWithBoundary(size, update, 100, 750);
+				}}
+			/>
 			<div id="mid-panel">
 				<div id="workarea">
-					<TickTradePanel position={{ left: 400, top: 52, width: 360, height: 500 }} actions={actions} />
+					<TickTradeContainer actions={actions} />
 				</div>
-				<Resizer onResize={e => console.log(e)} />
-				<div id="bottom-panel" style={{ height: workspace.get('bottomPanelSize') }}>
-					<Tabs
-						id="bottom-panel"
-						activeIndex={workspace.get('bottomActiveTab')}
-						onChange={idx => actions.changeActiveTab('bottom', idx)}
-						tabs={[
-							{ text: 'Open Positions', component: <PortfolioContainer /> },
-							{ text: 'Transactions', component: <StatementContainer /> },
-							{ text: 'Profits', component: <ProfitTableContainer /> },
-						]} />
-				</div>
-				<Footer />
+				<Resizer
+					className="resizer-horizontal"
+					onResize={e => {
+						const update = actions.updateWorkspaceField.bind(null, 'bottomPanelSize');
+						const size = window.innerHeight - e.y - 4;
+						updateSizeWithBoundary(size, update, 100, 300);
+					}}
+				/>
+				<WorkspaceBottomPanel actions={actions} workspace={workspace} />
 			</div>
-			<Resizer onResize={e => console.log(e)} />
-			<div id="right-panel" style={{ width: workspace.get('rightPanelSize') }}>
-				<Tabs
-					id="right-panel"
-					activeIndex={workspace.get('rightActiveTab')}
-					onChange={idx => actions.changeActiveTab('right', idx)}
-					tabs={[
-						{ text: 'Trading Times', component: <TradingTimesContainer actions={actions} /> },
-						{ text: 'Asset Index', component: <AssetIndexContainer actions={actions}/> },
-						{ text: 'Videos', component: <VideoListContainer /> },
-						{ text: 'News', component: <NewsContainer /> },
-					]} />
-			</div>
+			<Resizer
+				className="resizer-vertical"
+				onResize={e => {
+					const update = actions.updateWorkspaceField.bind(null, 'rightPanelSize');
+					const size = window.innerWidth - e.x - 4;
+					updateSizeWithBoundary(size, update, 100, 700);
+				}}
+			/>
+			<WorkspaceRightPanel actions={actions} workspace={workspace} />
 		</div>
 		<Footer />
 	</div>

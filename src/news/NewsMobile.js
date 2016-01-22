@@ -4,6 +4,6 @@ import NewsContainer from './NewsContainer';
 
 export default (props) => (
 	<MobilePage>
-		<NewsContainer compact {...props} />
+		<NewsContainer {...props} />
 	</MobilePage>
 );
