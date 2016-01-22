@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { InputGroup, SelectGroup, ErrorMsg } from '../_common';
 import ForwardStartingOptions from './ForwardStartingOptions';
-import { durationText } from '../_utils/TradeUtils';
+import { durationText } from '../../_utils/TradeUtils';
 
 export default class DurationCard extends Component {
     static propTypes = {

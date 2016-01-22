@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import RadioGroup from './workaround/CustomRadioGroup';
+import RadioGroup from './../workaround/CustomRadioGroup';
 
 export default class DigitBarrierCard extends Component {
     static propTypes = {

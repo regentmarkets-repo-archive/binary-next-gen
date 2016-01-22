@@ -3,12 +3,12 @@ import { SelectGroup, ErrorMsg, Modal, M, PurchaseConfirmation } from '../_commo
 import RadioGroup from './workaround/CustomRadioGroup';
 import { contractCategoryDisplay, durationToSecs } from '../_utils/TradeUtils';
 import { tradeTypes } from '../_constants/TradeParams';
-import BarrierCard from './BarrierCard';
+import BarrierCard from './barriers/BarrierCard';
 import ContractStatsCard from './ContractStatsCard';
-import DigitBarrierCard from './DigitBarrierCard';
-import DurationCard from './DurationCard';
+import DigitBarrierCard from './barriers/DigitBarrierCard';
+import DurationCard from './durations/DurationCard';
 import PayoutCard from './PayoutCard';
-import SpreadBarrierCard from './SpreadBarrierCard';
+import SpreadBarrierCard from './barriers/SpreadBarrierCard';
 import MobileChart from '../charting/MobileChart';
 
 /**
