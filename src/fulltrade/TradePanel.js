@@ -328,6 +328,7 @@ export default class TradePanel extends Component {
                         <DurationCard
                             duration={+trade.duration}
                             durationUnit={trade.durationUnit}
+                            forwardStartingDuration={contractForType.forwardStartingDuration}
                             options={contractForType.durations}
                             onDurationChange={this.onDurationChange}
                             onUnitChange={this.onDurationUnitChange}
