@@ -1,6 +1,6 @@
 {
   "name": "binary-next-gen",
-  "main": "src/index.js",
+  "main": "src/electron.js",
   "scripts": {
     "test": "npm run test:eslint && npm run test:unit",
     "test:eslint": "webpack --config webpack.config.dev.js",
@@ -46,9 +46,9 @@
     "react-sparklines": "*",
     "react-youtube": "^5.0.0",
     "redux": "^3.0.4",
-    "reselect": "^2.0.1",
     "redux-storage": "^1.4.3",
-    "redux-thunk": "^1.0.3"
+    "redux-thunk": "^1.0.3",
+    "reselect": "^2.0.1"
   },
   "devDependencies": {
     "babel-core": "^6.4.0",
