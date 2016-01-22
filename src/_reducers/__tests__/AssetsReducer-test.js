@@ -1,52 +1,53 @@
 import expect from 'expect';
 import { fromJS } from 'immutable';
-import * as actions from '../../_actions/AssetPickerActions';
+import * as actions from '../../_actions/AssetsActions';
 import AssetsReducer from '../AssetsReducer';
 
 describe('AssetsReducers', () => {
+    it('by default the state is empty', () => {
+        const noAction = { type: '' };
+        const initialState = AssetsReducer(undefined, noAction);
+        const expected = fromJS([]);
+        expect(expected).toEqual(initialState);
+    });
+
     describe('serverDataActiveSymbols', () => {
-        it('by default is empty', () => {
-            const stateBefore = fromJS();
-            const actual = AssetsReducer(stateBefore, actions.updateAssetPickerSearchQuery([], ''));
-            const expected = fromJS(getInitialState());
-            expect(actual.toJS()).toEqual(expected.toJS());
+        it('should be empty on empty server response', () => {
+            const action = actions.serverDataActiveSymbols({ active_symbols: [] });
+            const stateAfter = AssetsReducer(undefined, action);
+            const expected = fromJS([]);
+            expect(expected).toEqual(stateAfter);
         });
 
-        it('when query is empty returns all assets', () => {
-            const stateBefore = fromJS(getInitialState({
-                availableAssets: [{ display_name: 'asset1' }, { display_name: 'asset2' }, { display_name: 'asset3' }],
-            }));
-            const actual = AssetPickerReducer(stateBefore, actions.updateAssetPickerSearchQuery([], ''));
-            const expected = fromJS(getInitialState({
-                availableAssets: [{ display_name: 'asset1' }, { display_name: 'asset2' }, { display_name: 'asset3' }],
-            }));
-            expect(actual.get('availableAssets')).toEqual(expected.get('availableAssets'));
+        it('should contain all server response', () => {
+            const assetList = [{
+                "market": "indices",
+                "symbol": "AEX",
+                "market_display_name": "Indices",
+                "symbol_type": "stockindex",
+                "exchange_is_open": 0,
+                "submarket": "europe_africa",
+                "display_name": "Dutch Index",
+                "submarket_display_name": "Europe/Africa",
+                "is_trading_suspended": 0,
+                "pip": "0.01"
+            },
+            {
+                "market": "indices",
+                "symbol": "AS51",
+                "market_display_name": "Indices",
+                "symbol_type": "stockindex",
+                "exchange_is_open": 0,
+                "submarket": "asia_oceania",
+                "display_name": "Australian Index",
+                "submarket_display_name": "Asia/Oceania",
+                "is_trading_suspended": 0,
+                "pip": "0.01"
+            }];
+            const action = actions.serverDataActiveSymbols({ active_symbols: assetList });
+            const stateAfter = AssetsReducer(undefined, action);
+            const expected = fromJS(assetList);
+            expect(expected).toEqual(stateAfter);
         });
-
-        it('query containing only spaces is treated as empty', () => {
-            const stateBefore = fromJS(getInitialState({
-                availableAssets: [{ display_name: 'asset1' }, { display_name: 'asset2' }, { display_name: 'asset3' }],
-            }));
-            const actual = AssetPickerReducer(stateBefore, actions.updateAssetPickerSearchQuery([], '     '));
-            const expected = fromJS(getInitialState({
-                availableAssets: [{ display_name: 'asset1' }, { display_name: 'asset2' }, { display_name: 'asset3' }],
-            }));
-            expect(actual.toJS().availableAssets).toEqual(expected.toJS().availableAssets);
-        });
-
-        it('full name search returns matching assets', () => {
-            const stateBefore = fromJS(getInitialState({
-                availableAssets: [{ display_name: 'asset1' }, { display_name: 'asset2' }, { display_name: 'asset3' }],
-            }));
-            const stateAfter = AssetPickerReducer(stateBefore, actions.updateAssetPickerSearchQuery([], 'asset1'));
-            const expected = [{ display_name: 'asset1' }];
-            expect(stateAfter.toJS().shownAssets).toEqual(expected);
-        });
-    });
-
-    describe('updateAssetPickerMarkets', () => {
-    });
-
-    describe('updateAssetPickerSubmarket', () => {
     });
 });

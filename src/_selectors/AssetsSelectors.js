@@ -2,20 +2,29 @@ import { createSelector, createStructuredSelector } from 'reselect';
 
 export const assetsSelector = state => state.assets;
 
-export const marketTreeSelector = state => createSelector(
+export const marketTreeSelector = createSelector(
     assetsSelector,
     assets => {
-        const tree = { };
+        const tree = {};
         assets.forEach(sym => {
             if (!tree[sym.market]) {
-                tree[sym.market] = { display_name: sym.market_display_name, submarkets: {} };
+                tree[sym.market] = {
+                    display_name: sym.market_display_name,
+                    submarkets: {}
+                };
             }
 
             if (!tree[sym.market].submarkets[sym.submarket]) {
-                tree[sym.market].submarkets[sym.submarket] = { display_name: sym.submarket_display_name, symbols: {} };
+                tree[sym.market].submarkets[sym.submarket] = {
+                    display_name: sym.submarket_display_name,
+                    symbols: {}
+                };
             }
+
             if (!tree[sym.market].submarkets[sym.submarket].symbols[sym.symbol]) {
-                tree[sym.market].submarkets[sym.submarket].symbols[sym.symbol] = { display_name: sym.display_name };
+                tree[sym.market].submarkets[sym.submarket].symbols[sym.symbol] = {
+                    display_name: sym.display_name
+                };
             }
         });
         return tree;
