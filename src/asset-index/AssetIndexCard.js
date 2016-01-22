@@ -10,24 +10,25 @@ export default class AssetIndexCard extends React.Component {
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
 		assets: PropTypes.object.isRequired,
-		submarketId: PropTypes.string.isRequired,
-		submarketId: PropTypes.string.isRequired,
+		assetIndex: PropTypes.array.isRequired,
+		indexTradeTypes: PropTypes.array.isRequired,
+		submarket: PropTypes.object.isRequired,
 	};
 
 	render() {
-		const { actions, assets, submarketId, submarketName } = this.props;
+		const { actions, assetIndex, indexTradeTypes, submarket } = this.props;
 
 		return (
 			<div>
 				<MarketPicker
 					onChange={x => actions.updateAssetIndexSubmarket(x)}
 					showAllOption={false}
-					value={submarket}
+					value={submarket.id}
 				/>
 				<AssetIndexTable
-					key={submarket}
-					submarket={submarketName}
-					index={index.filter(a => submarketForAsset(a[0]) === submarket)}
+					submarketName={submarket.name}
+					index={assetIndex}
+					indexTradeTypes={indexTradeTypes}
 				/>
 			</div>
 		);

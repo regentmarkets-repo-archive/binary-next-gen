@@ -22,22 +22,18 @@ export const getVideosFromPlayList = (playlistID = dailyNewsPlaylist, max = 50) 
         ));
 };
 
-export const getAllPlaylists = (channelID = binaryChannelID, max = 50) => {
-    const query = 'part=snippet&' +
-        'channelId=' + channelID + '&' +
+const playlistUrl = (channelId, max) =>
+    playlistApiUrl + '?' +
+        'part=snippet&' +
+        'channelId=' + channelId + '&' +
         'maxResults=' + max + '&' +
         'key=' + key;
-
-    return fetch(playlistApiUrl + '?' + query).
-        then((response) => {
-            return response.json();
-        }).
-        then((js) => {
-            return js.items.map((pl) => {
-               return {
-                   title: pl.snippet.title,
-                   playlistId: pl.id,
-               };
-            });
-        });
-};
+export const getAllPlaylists = (channelId = binaryChannelID, max = 50) =>
+    fetch(playlistUrl(channelId, max))
+        .then(response => response.json())
+        .then(js =>
+            js.items.map(pl => ({
+               title: pl.snippet.title,
+               playlistId: pl.id,
+            })
+        ));

@@ -1,4 +1,4 @@
-const nullFunc = () => {};
+const nullFunc = () => null;
 const analytics = (typeof window !== 'undefined' && window.ga) || nullFunc;
 
 export const trackUserId = userId =>

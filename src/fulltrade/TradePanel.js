@@ -29,9 +29,8 @@ const getTradeTypeText = type => {
     return name;
 };
 
-const createDefaultType = (contracts, category) => {
-    return Object.keys(contracts[category])[0];
-};
+const createDefaultType = (contracts, category) =>
+    Object.keys(contracts[category])[0];
 
 const createDefaultDuration = (contracts, category, type) => {
     if (category === 'spreads') {

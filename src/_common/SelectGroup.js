@@ -8,13 +8,11 @@ const SelectGroup = ({ className, id, label, hint, value, options, optgroups, re
 		</label>}
 		<select id={id} readOnly={readOnly} placeholder={placeholder} onChange={onChange} value={value}>
 			{options.map(o => <option key={o.value} value={o.value}>{o.text}</option>)}
-			{Object.keys(optgroups).map(grp => {
-				return (
-					<optgroup key={grp} label={grp}>
-						{optgroups[grp].map(o => <option key={o.value} value={o.value}>{o.text}</option>)}
-					</optgroup>
-				);
-			})}
+			{Object.keys(optgroups).map(grp =>
+				<optgroup key={grp} label={grp}>
+					{optgroups[grp].map(o => <option key={o.value} value={o.value}>{o.text}</option>)}
+				</optgroup>
+			)}
 		</select>
 		{hint && <p className="hint">{hint}</p>}
 	</fieldset>

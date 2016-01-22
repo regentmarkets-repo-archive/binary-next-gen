@@ -2,33 +2,35 @@ import { createSelector, createStructuredSelector } from 'reselect';
 
 export const assetsSelector = state => state.assets;
 
+export const submarketForAsset = (state, symbol) =>
+    state.assets.find(x => x.symbol === symbol).submarket;
+
 export const marketTreeSelector = createSelector(
     assetsSelector,
-    assets => {
-        const tree = {};
-        assets.forEach(sym => {
+    assets =>
+        assets.reduce((tree, sym) => {
             if (!tree[sym.market]) {
                 tree[sym.market] = {
                     display_name: sym.market_display_name,
-                    submarkets: {}
+                    submarkets: {},
                 };
             }
 
             if (!tree[sym.market].submarkets[sym.submarket]) {
                 tree[sym.market].submarkets[sym.submarket] = {
                     display_name: sym.submarket_display_name,
-                    symbols: {}
+                    symbols: {},
                 };
             }
 
             if (!tree[sym.market].submarkets[sym.submarket].symbols[sym.symbol]) {
                 tree[sym.market].submarkets[sym.submarket].symbols[sym.symbol] = {
-                    display_name: sym.display_name
+                    display_name: sym.display_name,
                 };
             }
-        });
-        return tree;
-    },
+
+            return tree;
+        }, {}),
 );
 
 // export const submarketNameSelector = Object.keys(tree).map(market => {
@@ -36,7 +38,6 @@ export const marketTreeSelector = createSelector(
 //     if (Object.keys(subs).indexOf(submarket) > -1) return subs[submarket].display_name;
 // }).filter(name => !!name)[0];
 
-// const submarketForAsset = symbol => list.find(x => x.symbol === symbol).submarket;
 
 export default createStructuredSelector({
     assets: assetsSelector,

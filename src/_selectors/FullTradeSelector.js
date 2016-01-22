@@ -244,11 +244,11 @@ const tradesSelector = state => state.trades.toJS();
 
 const assetsSelector = state => {
     const symbolsToArray = sym => sym.map((v, k) => ({ text: v.get('display_name'), value: k }));
-    const submarketsToSymbols = submarkets => {
-        return submarkets.reduce((r, v) => {
-            return r.concat(symbolsToArray(v.get('symbols')));
-        }, List.of());
-    };
+    const submarketsToSymbols = submarkets =>
+        submarkets.reduce((r, v) =>
+            r.concat(symbolsToArray(v.get('symbols'))),
+            List.of()
+        );
     const marketToSymbols = markets => markets.map(m => {
         const s = submarketsToSymbols(m.get('submarkets'));
         return s;

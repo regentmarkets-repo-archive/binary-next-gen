@@ -26,8 +26,8 @@ export const discardPurchaseReceipt = () => ({
     type: types.DISCARD_PURCHASE_RECEIPT,
 });
 
-export const subscribeToPriceProposal = (contract) => {
-    return () => {
+export const subscribeToPriceProposal = (contract) =>
+    () => {
         LiveData.api.unsubscribeFromAllProposals();
         LiveData.api.subscribeToPriceForContractProposal({
             amount: contract.get('amount').toString(),
@@ -40,7 +40,6 @@ export const subscribeToPriceProposal = (contract) => {
             symbol: contract.get('assetSymbol'),
         });
     };
-};
 
 export const sellContract = (id, price) => {
     trackEvent('sell-contract', { id, price });
@@ -61,8 +60,8 @@ export const updateQuickTradeParams = (symbol, tradeType, params) => {
     };
 };
 
-export const updateQuickTradePriceProposalSubscription = (symbol, trade) => {
-    return (dispatch, getState) => {
+export const updateQuickTradePriceProposalSubscription = (symbol, trade) =>
+    (dispatch, getState) => {
         const quickTrade = getState().quickTrade;
         const opts = quickTrade.getIn([symbol, trade, 'params']);
         const proposal = getState().proposals.getIn([symbol, trade]);
@@ -72,7 +71,6 @@ export const updateQuickTradePriceProposalSubscription = (symbol, trade) => {
         }
         LiveData.api.subscribeToPriceForContractProposal(opts.toJS());
     };
-};
 
 export const setQuickTradeField = (symbol, tradeType, field, value) => ({
     type: types.SET_QUICK_TRADE_FIELD,
@@ -103,8 +101,8 @@ export const updateTradeParams = (id, fieldName, fieldValue) => ({
     fieldValue,
 });
 
-export const updatePriceProposalSubscription = (tradeID, trade) => {
-    return (dispatch, getState) => {
+export const updatePriceProposalSubscription = (tradeID, trade) =>
+    (dispatch, getState) => {
         const tradeObj = trade ? trade : getState().trades.get(tradeID).toJS();
         const currency = getState().account.get('currency');
         const {
@@ -157,10 +155,10 @@ export const updatePriceProposalSubscription = (tradeID, trade) => {
             dispatch(updateTradeParams(tradeID, 'proposal', undefined));
         });
     };
-};
 
-export const purchaseByTradeID = (tradeID, trade) => {
-    return (dispatch, getState) => {
+
+export const purchaseByTradeID = (tradeID, trade) =>
+    (dispatch, getState) => {
         const tradeSelected = trade ? trade : getState().trades.get(tradeID).toJS();
         trackEvent('buy-contract', tradeSelected);
         const proposalID = tradeSelected.proposal.id;
@@ -171,4 +169,3 @@ export const purchaseByTradeID = (tradeID, trade) => {
             .catch(err => dispatch(updateTradeParams(tradeID, 'buy_error', err)))
             .then(() => dispatch(updateTradeParams(tradeID, 'buying', false)));
     };
-};

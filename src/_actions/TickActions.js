@@ -11,12 +11,11 @@ export const serverDataTickHistory = serverResponse => ({
     serverResponse,
 });
 
-export const getTicksBySymbol = symbol => {
-    return (dispatch, getState) => {
+export const getTicksBySymbol = symbol =>
+    (dispatch, getState) => {
         const { ticks } = getState();
         if (!ticks.get(symbol)) {
             LiveData.api.getTickHistory(symbol, { end: 'latest', count: 20 });
             LiveData.api.subscribeToTick(symbol);
         }
     };
-};

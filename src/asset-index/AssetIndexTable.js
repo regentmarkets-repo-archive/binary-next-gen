@@ -1,38 +1,43 @@
 import React, { PropTypes } from 'react';
-import { fromJS } from 'immutable';
 import AssetIndexRow from './AssetIndexRow';
+import { indexTypeExtraction } from '../_selectors/AssetIndexSelectors';
 
-const AssetIndexTable = ({ submarket, index }) => (
-    <table>
-        <thead>
-            <tr>
-                <th colSpan="100">
-                    {submarket}
-                </th>
-            </tr>
-            {index[0] &&
-            <tr>
-                <th></th>
-                { indexTypeExtraction(index)
-                    .map((typeName, k) => <th key={k}>{typeName}</th>)
-                }
-            </tr>}
-        </thead>
-        <tbody>
-            {index.map(idx =>
-                <AssetIndexRow
-                    key={idx}
-                    assetIndex={idx}
-                    header={indexTypeExtraction(index).toJS()}
-                />
-            )}
-        </tbody>
-    </table>
-);
+export default class AssetIndexTable extends React.Component {
 
-AssetIndexTable.propTypes = {
-    submarket: PropTypes.string.isRequired,
-    index: PropTypes.array.isRequired,
-};
+    static propTypes = {
+        submarketName: PropTypes.string.isRequired,
+        index: PropTypes.array.isRequired,
+    };
 
-export default AssetIndexTable;
+    render() {
+        const { submarketName, index } = this.props;
+
+        return (
+            <table>
+                <thead>
+                    <tr>
+                        <th colSpan="100">
+                        {submarketName}
+                        </th>
+                    </tr>
+                    {index[0] &&
+                    <tr>
+                        <th></th>
+                        {index.map((typeName, key) =>
+                            <th key={key}>{typeName}</th>
+                        )}
+                    </tr>}
+                </thead>
+                <tbody>
+                    {index.map(idx =>
+                        <AssetIndexRow
+                            key={idx}
+                            assetIndex={idx}
+                            header={indexTypeExtraction(index).toJS()}
+                        />
+                    )}
+                </tbody>
+            </table>
+        );
+    }
+}

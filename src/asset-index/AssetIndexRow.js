@@ -11,12 +11,13 @@ const AssetIndexRow = ({ assetIndex, header }) => (
                 <td key={k}>
                     {typeInfo ? typeInfo[2] + '-' + typeInfo[3] : '-'}
                 </td>
-                );
+            );
         })}
     </tr>
 );
 
 AssetIndexRow.propTypes = {
+    header: PropTypes.array.isRequired,
     assetIndex: PropTypes.array.isRequired,
 };
 
