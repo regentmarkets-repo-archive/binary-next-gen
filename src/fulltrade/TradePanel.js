@@ -24,6 +24,7 @@ import MobileChart from '../charting/MobileChart';
  *    quants.
  * 3. ticks is always within 5 to 10
  * 4. digit trade is always ticks only
+ * 5. barriers are non available for contract below 2 minutes
  */
 const getTradeTypeText = type => {
     const name = tradeTypes.find(t => t.value === type).text;
@@ -42,7 +43,7 @@ const createDefaultDuration = (contracts, category, type) => {
     return [d.min, d.unit];
 };
 
-const createDefaultBarriers = (contracts, category, type, duration, durationUnit, lastSpot) => {
+const createDefaultBarriers = (contracts, category, type, duration, durationUnit) => {
     if (category === 'spreads') {
         return [];
     }
@@ -54,6 +55,11 @@ const createDefaultBarriers = (contracts, category, type, duration, durationUnit
         expiryType = 'intraday';
     } else {
         expiryType = 'daily';
+    }
+
+    // this is an observation, might not always true
+    if (durationToSecs(duration, durationUnit) < 120) {
+        return [undefined, undefined];
     }
 
     const barriers = contracts[category][type].barriers;
@@ -78,7 +84,7 @@ const createDefaultBarriers = (contracts, category, type, duration, durationUnit
                 return [undefined, undefined];
             }
             case 'intraday': return [+barrierByExpiry[0].defaultValue];
-            case 'daily': return [+barrierByExpiry[0].defaultValue + lastSpot];
+            case 'daily': return [+barrierByExpiry[0].defaultValue];
             default: throw new Error('unknown expiry');
         }
     }
@@ -90,10 +96,7 @@ const createDefaultBarriers = (contracts, category, type, duration, durationUnit
                 return [undefined, undefined];
             }
             case 'intraday': return [+barrierByExpiry[0].defaultValue, +barrierByExpiry[1].defaultValue];
-            case 'daily': return [
-                +barrierByExpiry[0].defaultValue + lastSpot,
-                +barrierByExpiry[1].defaultValue + lastSpot,
-            ];
+            case 'daily': return [+barrierByExpiry[0].defaultValue, +barrierByExpiry[1].defaultValue];
             default: throw new Error('unknown expiry');
         }
     }
@@ -112,6 +115,7 @@ export default class TradePanel extends Component {
         this.onDurationUnitChange = ::this.onDurationUnitChange;
         this.onBarrier1Change = ::this.onBarrier1Change;
         this.onBarrier2Change = ::this.onBarrier2Change;
+        this.onBarrierTypeChange = ::this.onBarrierTypeChange;
         this.onBasisChange = ::this.onBasisChange;
         this.onAmountChange = this.onAmountChange.bind(this);
         this.onAmountPerPointChange = ::this.onAmountPerPointChange;
@@ -241,6 +245,31 @@ export default class TradePanel extends Component {
         this.updateHelper('barrier2', +e.target.value);
     }
 
+    onBarrierTypeChange(type) {
+        const { tick, trade } = this.props;
+        const lastSpot = tick ? tick[tick.length - 1].quote : 0;
+
+        if (type === 'relative') {
+            if (trade.barrier) {
+                this.updateHelper('barrier', trade.barrier - lastSpot, false);
+            }
+            if (trade.barrier2) {
+                this.updateHelper('barrier2', trade.barrier2 - lastSpot, false);
+            }
+        }
+
+        if (type === 'absolute') {
+            if (trade.barrier) {
+                this.updateHelper('barrier', trade.barrier + lastSpot, false);
+            }
+            if (trade.barrier2) {
+                this.updateHelper('barrier2', trade.barrier2 + lastSpot, false);
+            }
+        }
+
+        this.updateHelper('barrierType', type);
+    }
+
     onBasisChange(e) {
         this.updateHelper('basis', e.target.value);
     }
@@ -287,7 +316,8 @@ export default class TradePanel extends Component {
         const contractForType = contract[selectedCategory][selectedType];
         const barriers = contractForType && contractForType.barriers;
         const receipt = trade.receipt;
-        const isTick = trade.durationUnit === 't';
+        const isTick = trade.durationUnit.slice(-1) === 't';
+        const isBelow2Min = isTick || durationToSecs(trade.duration, trade.durationUnit) < 120;
         const isIntraDay = durationToSecs(trade.duration, trade.durationUnit) <= 86400;
         const lastSpot = tick ? tick[tick.length - 1].quote : 0;
 
@@ -350,15 +380,16 @@ export default class TradePanel extends Component {
                             stopLossChange={this.onStopLossChange}
                             stopProfitChange={this.onStopProfitChange}
                         />}
-                        {(selectedCategory !== 'spreads' && selectedCategory !== 'digits' && !isTick) &&
+                        {(selectedCategory !== 'spreads' && selectedCategory !== 'digits' && !isBelow2Min) &&
                             <BarrierCard
                                 barrier={trade.barrier}
                                 barrier2={trade.barrier2}
                                 barrierInfo={barriers}
-                                isTick={isTick}
+                                barrierType={trade.barrierType}
                                 isIntraDay={isIntraDay}
                                 onBarrier1Change={this.onBarrier1Change}
                                 onBarrier2Change={this.onBarrier2Change}
+                                onBarrierTypeChange={this.onBarrierTypeChange}
                                 spot={trade.proposal && +trade.proposal.spot}
                             />}
                     </div>

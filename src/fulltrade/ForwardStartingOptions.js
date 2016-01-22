@@ -14,6 +14,7 @@ export default class ForwardStartingOptions extends Component {
         const msg = `You can choose from for ${range[0].date} to ${range[2].date}`;
         return (
             <div>
+                {'forward starting options placeholder'}
                 {msg}
             </div>
         );
