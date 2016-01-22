@@ -1,18 +1,26 @@
 import React, { PropTypes } from 'react';
-import { DesktopHeader, DesktopSidebar } from '../navigation';
+import { connect } from 'react-redux';
+import { DesktopHeader } from '../navigation';
+import LoadingView from '../_common/LoadingView';
 
-const DesktopPage = ({ children }) => (
-	<div className="desktop-page">
-		<DesktopHeader />
-		<DesktopSidebar />
-		<div className="desktop-content">
-			{children}
-		</div>
-	</div>
-);
+@connect(state => ({ isAuthorized: state.appInfo.get('authorized') }))
+export default class DesktopPage extends React.Component {
+	static propTypes = {
+		children: PropTypes.any,
+		isAuthorized: PropTypes.bool,
+	};
 
-DesktopPage.propTypes = {
-	children: PropTypes.any,
-};
-
-export default DesktopPage;
+	render() {
+		const { children, isAuthorized } = this.props;
+		return (
+			isAuthorized ?
+				<div className="desktop-page">
+					<DesktopHeader />
+					<div className="desktop-content">
+						{children}
+					</div>
+				</div> :
+				<LoadingView />
+		);
+	}
+}

@@ -7,16 +7,11 @@ export default class Star extends React.Component {
 
     static propTypes = {
 		on: PropTypes.bool.isRequired,
-		onClick: PropTypes.func.isRequired,
 	};
 
     render() {
-        const { on, onClick } = this.props;
-
-        return (
-            <span onClick={onClick} style={{ fontSize: '1.5rem' }}>
-                {on ? '★' : '☆'}
-            </span>
-        );
+        const { on } = this.props;
+        const imgFile = on ? 'img/star-on.svg' : 'img/star-off.svg';
+        return <img style={{ width: '1rem' }} src={imgFile} />;
     }
 }

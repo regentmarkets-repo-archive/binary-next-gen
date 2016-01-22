@@ -64,57 +64,64 @@ export default class SettingsSelfExclusion extends React.Component {
 					label="Maximum account cash balance"
 					type="number"
 					hint="Once this limit is reached, you may no longer deposit."
-					value={settings.max_balance}
-					onChange={::this.onSelfExclusionChange} />
+					defaultValue={settings.max_balance}
+					onChange={::this.onSelfExclusionChange}
+				/>
 				<InputGroup
 					id="DAILYTURNOVERLIMIT"
 					label="Daily turnover limit"
 					type="number"
 					hint="Maximum aggregate contract purchases per day."
-					value={settings.max_turnover}
-					onChange={::this.onSelfExclusionChange} />
+					defaultValue={settings.max_turnover}
+					onChange={::this.onSelfExclusionChange}
+				/>
 				<InputGroup
 					id="DAILYLOSSLIMIT"
 					label="Daily limit on losses"
 					type="number"
 					hint="Maximum aggregate loss per day."
-					value={settings.max_losses}
-					onChange={::this.onSelfExclusionChange} />
+					defaultValue={settings.max_losses}
+					onChange={::this.onSelfExclusionChange}
+				/>
 				<InputGroup
 					id="7DAYTURNOVERLIMIT"
 					label="7-day turnover limit"
 					type="number"
 					hint="Maximum aggregate contract purchases over a 7-day period."
-					value={settings.max_7day_turnover}
-					onChange={::this.onSelfExclusionChange} />
+					defaultValue={settings.max_7day_turnover}
+					onChange={::this.onSelfExclusionChange}
+				/>
 				<InputGroup
 					id="7DAYLOSSLIMIT"
 					label="7-day limit on losses"
 					type="number"
 					hint="Maximum aggregate loss over a 7-day period."
-					value={settings.max_7day_losses}
-					onChange={::this.onSelfExclusionChange} />
+					defaultValue={settings.max_7day_losses}
+					onChange={::this.onSelfExclusionChange}
+				/>
 				<InputGroup
 					id="MAXOPENPOS"
 					label="Maximum number of open positions"
 					type="number"
-					value={settings.max_open_bets}
-					onChange={::this.onSelfExclusionChange} />
+					defaultValue={settings.max_open_bets}
+					onChange={::this.onSelfExclusionChange}
+				/>
 				<InputGroup
 					id="SESSIONDURATION"
 					label="Session duration limit, in minutes"
 					type="number"
 					hint="You will be automatically logged out after such time."
-					value={settings.session_duration_limit}
-					onChange={::this.onSelfExclusionChange} />
+					defaultValue={settings.session_duration_limit}
+					onChange={::this.onSelfExclusionChange}
+				/>
 				<InputGroup
 					id="EXCLUDEUNTIL"
 					label="Exclude me from the website until"
 					type="text"
 					hint="Please enter date in the format YYYY-MM-DD."
-					value={settings.exclude_until}
-					onChange={::this.onSelfExclusionChange} />
-
+					defaultValue={settings.exclude_until}
+					onChange={::this.onSelfExclusionChange}
+				/>
 				<button onClick={::this.tryUpdate}>
 					<M m="Update" />
 				</button>

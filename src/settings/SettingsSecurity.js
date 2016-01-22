@@ -9,11 +9,13 @@ export default () => (
 		<InputGroup
 			id="cashierlockpassword1"
 			label="Cashier password"
-			type="password" />
+			type="password"
+		/>
 		<InputGroup
 			id="cashierlockpassword2"
 			label="Re-enter your password"
-			type="password" />
+			type="password"
+		/>
 		<button>
 			<M m="Update" />
 		</button>

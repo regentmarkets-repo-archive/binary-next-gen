@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Tabs } from '../_common';
+import SettingsGeneral from './SettingsGeneral';
 import SettingsPersonalDetails from './SettingsPersonalDetails';
 import SettingsSecurity from './SettingsSecurity';
 import SettingsSelfExclusion from './SettingsSelfExclusion';
@@ -22,8 +23,11 @@ export default class SettingsCard extends React.Component {
 		const { loginid } = this.props;
 		const isVirtual = loginid.startsWith('VRTC');
 		const tabs = isVirtual ?
-			[{ text: 'Personal', component: <SettingsPersonalDetails {...this.props}/> }] :
 			[
+				{ text: 'General', component: <SettingsGeneral {...this.props}/> },
+				{ text: 'Personal', component: <SettingsPersonalDetails {...this.props}/> },
+			] : [
+				{ text: 'General', component: <SettingsGeneral {...this.props}/> },
 				{ text: 'Personal', component: <SettingsPersonalDetails {...this.props}/> },
 				{ text: 'Security', component: <SettingsSecurity {...this.props}/> },
 				{ text: 'Self Exclusion', component: <SettingsSelfExclusion {...this.props}/> },

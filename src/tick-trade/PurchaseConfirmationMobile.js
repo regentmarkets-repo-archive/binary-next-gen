@@ -1,6 +1,5 @@
 import React from 'react';
-import { MobilePage } from '../_common';
-import PurchaseConfirmation from './PurchaseConfirmation';
+import { MobilePage, PurchaseConfirmation } from '../_common';
 
 export default (props) => (
 	<MobilePage toolbarShown={false} backBtnBarTitle="Purchase Confirmation">
