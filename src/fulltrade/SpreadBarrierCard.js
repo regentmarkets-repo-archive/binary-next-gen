@@ -6,6 +6,7 @@ export default class SpreadBarrierCard extends Component {
         amountPerPoint: PropTypes.number,
         amountPerPointChange: PropTypes.func,
         currency: PropTypes.string,
+        id: PropTypes.string,
         stopLoss: PropTypes.number,
         stopLossChange: PropTypes.func,
         stopProfit: PropTypes.number,
@@ -19,6 +20,7 @@ export default class SpreadBarrierCard extends Component {
         const {
             amountPerPointChange,
             currency,
+            id,
             stopProfitChange,
             stopLossChange,
             stopTypeChange,
@@ -37,7 +39,7 @@ export default class SpreadBarrierCard extends Component {
                         onChange={amountPerPointChange}
                     />
                     <RadioGroup
-                        name="spread-param"
+                        name={'spread-param' + id}
                         options={stopTypeOptions}
                         value={stopType || spreadInfo.stopType}
                         onChange={stopTypeChange}
