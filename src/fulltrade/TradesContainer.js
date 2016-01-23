@@ -17,16 +17,16 @@ export default class TradesContainer extends React.Component {
         const { trades, actions } = this.props;
 
         const allIDs = Object.keys(trades).map(id => +id).filter(n => !isNaN(n));
-        const maxID = allIDs.length > 0 ? allIDs.reduce((a, b) => Math.max(a, b)) : -1;
-        actions.initTrade(maxID.toString());
+        const maxId = allIDs.length > 0 ? allIDs.reduce((a, b) => Math.max(a, b)) : -1;
+        actions.initTrade(maxId.toString());
     }
 
     render() {
         const { assets, trades, contracts, actions, ticks, currency } = this.props;
-        const allID = Object.keys(trades);
+        const allId = Object.keys(trades);
         return (
             <div>
-                {allID.map(id => {
+                {allId.map(id => {
                     const symbol = trades[id].symbol;
                     const contract = contracts[symbol];
                     const tick = ticks[symbol];

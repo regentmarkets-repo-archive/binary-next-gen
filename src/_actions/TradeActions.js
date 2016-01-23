@@ -42,18 +42,16 @@ export const updateQuickTradeParams = (symbol, tradeType, params) => {
     };
 };
 
-export const updateQuickTradePriceProposalSubscription = (symbol, trade) => {
-    return (dispatch, getState) => {
+export const updateQuickTradePriceProposalSubscription = (symbol, trade) =>
+    (dispatch, getState) => {
         const quickTrade = getState().quickTrade;
         const opts = quickTrade.getIn([symbol, trade, 'params']);
         const proposal = getState().proposals.getIn([symbol, trade]);
         if (proposal) {
-            const proposalID = proposal.id;
-            LiveData.api.unsubscribeByID(proposalID);
+            LiveData.api.unsubscribeByID(proposal.id);
         }
         LiveData.api.subscribeToPriceForContractProposal(opts.toJS());
     };
-};
 
 export const setQuickTradeField = (symbol, tradeType, field, value) => ({
     type: types.SET_QUICK_TRADE_FIELD,
@@ -68,8 +66,8 @@ export const initTrade = id => ({
     id,
 });
 
-export const destroyTrade = id => {
-    return (dispatch, getState) => {
+export const destroyTrade = id =>
+    (dispatch, getState) => {
         const allTrades = getState().trades.toJS();
         if (Object.keys(allTrades).length === 1) {
             return;
@@ -84,7 +82,6 @@ export const destroyTrade = id => {
 
         dispatch({ type: types.DESTROY_TRADE, id });
     };
-};
 
 export const destroyAllTrade = () => ({
     type: types.DESTROY_ALL_TRADE,
@@ -100,9 +97,9 @@ export const updateTradeParams = (id, fieldName, fieldValue) => {
     };
 };
 
-export const updatePriceProposalSubscription = (tradeID, trade) => {
-    return (dispatch, getState) => {
-        const tradeObj = trade ? trade : getState().trades.get(tradeID).toJS();
+export const updatePriceProposalSubscription = (tradeId, trade) =>
+    (dispatch, getState) => {
+        const tradeObj = trade ? trade : getState().trades.get(tradeId).toJS();
         const currency = getState().account.get('currency');
         const {
             amount,
@@ -129,8 +126,7 @@ export const updatePriceProposalSubscription = (tradeID, trade) => {
         const b2 = barrier2 && (barrierType === 'relative' ? numberToSignedString(barrier2) : barrier2);
 
         if (proposal) {
-            const proposalID = proposal.id;
-            LiveData.api.unsubscribeByID(proposalID);
+            LiveData.api.unsubscribeByID(proposal.id);
         }
         LiveData.api.subscribeToPriceForContractProposal({
             amount,
@@ -147,25 +143,23 @@ export const updatePriceProposalSubscription = (tradeID, trade) => {
             stop_profit: stopProfit,
             stop_loss: stopLoss,
         }).then(response => {
-            dispatch(updateTradeParams(tradeID, 'proposalError', undefined));
-            dispatch(updateTradeParams(tradeID, 'proposal', response.proposal));
+            dispatch(updateTradeParams(tradeId, 'proposalError', undefined));
+            dispatch(updateTradeParams(tradeId, 'proposal', response.proposal));
         }).catch(err => {
-            dispatch(updateTradeParams(tradeID, 'proposalError', err));
-            dispatch(updateTradeParams(tradeID, 'proposal', undefined));
+            dispatch(updateTradeParams(tradeId, 'proposalError', err));
+            dispatch(updateTradeParams(tradeId, 'proposal', undefined));
         });
     };
-};
 
-export const purchaseByTradeID = (tradeID, trade) => {
-    return (dispatch, getState) => {
-        const tradeSelected = trade ? trade : getState().trades.get(tradeID).toJS();
+export const purchaseByTradeId = (tradeId, trade) =>
+    (dispatch, getState) => {
+        const tradeSelected = trade ? trade : getState().trades.get(tradeId).toJS();
         trackEvent('buy-contract', tradeSelected);
-        const proposalID = tradeSelected.proposal.id;
+        const proposalId = tradeSelected.proposal.id;
         const price = tradeSelected.proposal.ask_price;
-        dispatch(updateTradeParams(tradeID, 'buying', true));
-        LiveData.api.buyContract(proposalID, price)
-            .then(response => dispatch(updateTradeParams(tradeID, 'receipt', response.buy)))
-            .catch(err => dispatch(updateTradeParams(tradeID, 'buy_error', err)))
-            .then(() => dispatch(updateTradeParams(tradeID, 'buying', false)));
+        dispatch(updateTradeParams(tradeId, 'buying', true));
+        LiveData.api.buyContract(proposalId, price)
+            .then(response => dispatch(updateTradeParams(tradeId, 'receipt', response.buy)))
+            .catch(err => dispatch(updateTradeParams(tradeId, 'buy_error', err)))
+            .then(() => dispatch(updateTradeParams(tradeId, 'buying', false)));
     };
-};

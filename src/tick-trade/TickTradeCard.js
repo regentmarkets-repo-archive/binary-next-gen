@@ -22,7 +22,7 @@ export default class TickTradeCard extends React.Component {
 
     placeOrder() {
         const { actions, id, trade } = this.props;
-        actions.purchaseByTradeID(id, trade);
+        actions.purchaseByTradeId(id, trade);
     }
 
     componentDidMount() {
