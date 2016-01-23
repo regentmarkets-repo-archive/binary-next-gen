@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import { SelectGroup, RadioGroup, ErrorMsg, Modal, PurchaseConfirmation } from '../_common';
+import { SelectGroup, ErrorMsg, Modal, M, PurchaseConfirmation } from '../_common';
+import RadioGroup from './workaround/CustomRadioGroup';
 import { contractCategoryDisplay, durationToSecs } from '../_utils/TradeUtils';
 import { tradeTypes } from '../_constants/TradeParams';
 import BarrierCard from './BarrierCard';
@@ -23,6 +24,7 @@ import MobileChart from '../charting/MobileChart';
  *    quants.
  * 3. ticks is always within 5 to 10
  * 4. digit trade is always ticks only
+ * 5. barriers are non available for contract below 2 minutes
  */
 const getTradeTypeText = type => {
     const name = tradeTypes.find(t => t.value === type).text;
@@ -40,7 +42,7 @@ const createDefaultDuration = (contracts, category, type) => {
     return [d.min, d.unit];
 };
 
-const createDefaultBarriers = (contracts, category, type, duration, durationUnit, lastSpot) => {
+const createDefaultBarriers = (contracts, category, type, duration, durationUnit) => {
     if (category === 'spreads') {
         return [];
     }
@@ -54,6 +56,11 @@ const createDefaultBarriers = (contracts, category, type, duration, durationUnit
         expiryType = 'daily';
     }
 
+    // this is an observation, might not always true
+    if (durationToSecs(duration, durationUnit) < 120) {
+        return [undefined, undefined];
+    }
+
     const barriers = contracts[category][type].barriers;
     if (!barriers) {
         return [undefined, undefined];
@@ -64,6 +71,11 @@ const createDefaultBarriers = (contracts, category, type, duration, durationUnit
         return [barrierByExpiry && barrierByExpiry[0].defaultValue];
     }
 
+    if (!barrierByExpiry) {
+        // this expiry type have no barrier
+        return [undefined, undefined];
+    }
+
     if (barrierByExpiry.length === 1) {
         switch (expiryType) {
             case 'tick': {
@@ -71,7 +83,7 @@ const createDefaultBarriers = (contracts, category, type, duration, durationUnit
                 return [undefined, undefined];
             }
             case 'intraday': return [+barrierByExpiry[0].defaultValue];
-            case 'daily': return [+barrierByExpiry[0].defaultValue + lastSpot];
+            case 'daily': return [+barrierByExpiry[0].defaultValue];
             default: throw new Error('unknown expiry');
         }
     }
@@ -83,10 +95,7 @@ const createDefaultBarriers = (contracts, category, type, duration, durationUnit
                 return [undefined, undefined];
             }
             case 'intraday': return [+barrierByExpiry[0].defaultValue, +barrierByExpiry[1].defaultValue];
-            case 'daily': return [
-                +barrierByExpiry[0].defaultValue + lastSpot,
-                +barrierByExpiry[1].defaultValue + lastSpot,
-            ];
+            case 'daily': return [+barrierByExpiry[0].defaultValue, +barrierByExpiry[1].defaultValue];
             default: throw new Error('unknown expiry');
         }
     }
@@ -95,6 +104,27 @@ const createDefaultBarriers = (contracts, category, type, duration, durationUnit
 };
 
 export default class TradePanel extends Component {
+    constructor(props) {
+        super(props);
+        this.updateHelper = ::this.updateHelper;
+        this.onAssetChange = ::this.onAssetChange;
+        this.onCategoryChange = ::this.onCategoryChange;
+        this.onTypeChange = ::this.onTypeChange;
+        this.onDurationChange = ::this.onDurationChange;
+        this.onDurationUnitChange = ::this.onDurationUnitChange;
+        this.onBarrier1Change = ::this.onBarrier1Change;
+        this.onBarrier2Change = ::this.onBarrier2Change;
+        this.onBarrierTypeChange = ::this.onBarrierTypeChange;
+        this.onBasisChange = ::this.onBasisChange;
+        this.onAmountChange = this.onAmountChange.bind(this);
+        this.onAmountPerPointChange = ::this.onAmountPerPointChange;
+        this.onStopLossChange = ::this.onStopLossChange;
+        this.onStopTypeChange = ::this.onStopTypeChange;
+        this.onStopProfitChange = ::this.onStopProfitChange;
+        this.onPurchase = ::this.onPurchase;
+        this.onClosePanel = ::this.onClosePanel;
+    }
+
     static propTypes = {
         actions: PropTypes.object.isRequired,
         assets: PropTypes.object.isRequired,
@@ -214,6 +244,31 @@ export default class TradePanel extends Component {
         this.updateHelper('barrier2', +e.target.value);
     }
 
+    onBarrierTypeChange(type) {
+        const { tick, trade } = this.props;
+        const lastSpot = tick ? tick[tick.length - 1].quote : 0;
+
+        if (type === 'relative') {
+            if (trade.barrier) {
+                this.updateHelper('barrier', trade.barrier - lastSpot, false);
+            }
+            if (trade.barrier2) {
+                this.updateHelper('barrier2', trade.barrier2 - lastSpot, false);
+            }
+        }
+
+        if (type === 'absolute') {
+            if (trade.barrier) {
+                this.updateHelper('barrier', trade.barrier + lastSpot, false);
+            }
+            if (trade.barrier2) {
+                this.updateHelper('barrier2', trade.barrier2 + lastSpot, false);
+            }
+        }
+
+        this.updateHelper('barrierType', type);
+    }
+
     onBasisChange(e) {
         this.updateHelper('basis', e.target.value);
     }
@@ -249,7 +304,7 @@ export default class TradePanel extends Component {
     }
 
     render() {
-        const { assets, contract, trade, currency, tick } = this.props;
+        const { assets, contract, id, trade, currency, tick } = this.props;
         const selectedSymbol = trade.symbol;
         const categories = Object.keys(contract).map(c => ({ value: c, text: contractCategoryDisplay(c) }));
         const selectedCategory = trade.tradeCategory;
@@ -260,13 +315,16 @@ export default class TradePanel extends Component {
         const contractForType = contract[selectedCategory][selectedType];
         const barriers = contractForType && contractForType.barriers;
         const receipt = trade.receipt;
-        const isTick = trade.durationUnit === 't';
+        const isTick = trade.durationUnit && trade.durationUnit.slice(-1) === 't';
+        const isBelow2Min = isTick || durationToSecs(trade.duration, trade.durationUnit) < 120;
         const isIntraDay = durationToSecs(trade.duration, trade.durationUnit) <= 86400;
         const lastSpot = tick ? tick[tick.length - 1].quote : 0;
 
         return (
             <div>
-                <button onClick={::this.onClosePanel}>Close Trade Panel</button>
+                <button onClick={this.onClosePanel}>
+                    <M m="Close" />
+                </button>
                 <MobileChart
                     className="trade-chart"
                     history={tick}
@@ -277,12 +335,12 @@ export default class TradePanel extends Component {
                     <SelectGroup
                         optgroups={assets}
                         value={selectedSymbol}
-                        onChange={::this.onAssetChange}
+                        onChange={this.onAssetChange}
                     />
                     <SelectGroup
                         options={categories}
                         value={selectedCategory}
-                        onChange={::this.onCategoryChange}
+                        onChange={this.onCategoryChange}
                     />
                 </div>
                 <Modal shown={!!receipt} onClose={() => this.updateHelper('receipt', undefined)} >
@@ -291,57 +349,64 @@ export default class TradePanel extends Component {
                 { contractForType &&
                     <div>
                         <RadioGroup
-                            name="trading-types"
+                            name={'trading-types' + id}
                             options={types}
                             value={selectedType}
-                            onChange={::this.onTypeChange}
+                            onChange={this.onTypeChange}
                         />
                         <DurationCard
                             duration={+trade.duration}
                             durationUnit={trade.durationUnit}
+                            forwardStartingDuration={contractForType.forwardStartingDuration}
                             options={contractForType.durations}
-                            onDurationChange={::this.onDurationChange}
-                            onUnitChange={::this.onDurationUnitChange}
+                            onDurationChange={this.onDurationChange}
+                            onUnitChange={this.onDurationUnitChange}
                         />
                         {selectedCategory === 'digits' &&
                             <DigitBarrierCard
                                 barrier={trade.barrier}
                                 barrierInfo={barriers && barriers.tick[0]}
-                                onBarrierChange={::this.onBarrier1Change}
+                                id={id}
+                                onBarrierChange={this.onBarrier1Change}
                             />}
                         {selectedCategory === 'spreads' &&
                         <SpreadBarrierCard
+                            amountPerPointChange={this.onAmountPerPointChange}
                             currency={currency}
+                            id={id}
                             spreadInfo={contractForType.spread}
-                            amountPerPointChange={::this.onAmountPerPointChange}
-                            stopTypeChange={::this.onStopTypeChange}
-                            stopLossChange={::this.onStopLossChange}
-                            stopProfitChange={::this.onStopProfitChange}
+                            stopTypeChange={this.onStopTypeChange}
+                            stopLossChange={this.onStopLossChange}
+                            stopProfitChange={this.onStopProfitChange}
                         />}
-                        {(selectedCategory !== 'spreads' && selectedCategory !== 'digits' && !isTick) &&
+                        {(selectedCategory !== 'spreads' && selectedCategory !== 'digits' && !isBelow2Min) &&
                             <BarrierCard
                                 barrier={trade.barrier}
                                 barrier2={trade.barrier2}
                                 barrierInfo={barriers}
-                                isTick={isTick}
+                                barrierType={trade.barrierType}
                                 isIntraDay={isIntraDay}
-                                onBarrier1Change={::this.onBarrier1Change}
-                                onBarrier2Change={::this.onBarrier2Change}
+                                onBarrier1Change={this.onBarrier1Change}
+                                onBarrier2Change={this.onBarrier2Change}
+                                onBarrierTypeChange={this.onBarrierTypeChange}
                                 spot={trade.proposal && +trade.proposal.spot}
                             />}
                     </div>
                 }
                 <PayoutCard
-                    basis={trade.basis}
                     amount={+trade.amount}
+                    basis={trade.basis}
                     currency="USD"
-                    onAmountChange={::this.onAmountChange}
-                    onBasisChange={::this.onBasisChange}
+                    id={id}
+                    onAmountChange={this.onAmountChange}
+                    onBasisChange={this.onBasisChange}
                 />
                 {trade.proposal &&
                 <ContractStatsCard proposal={trade.proposal} spread={selectedCategory === 'spreads'} />}
                 <ErrorMsg shown={!!trade.proposalError} text={trade.proposalError ? trade.proposalError.message : ''} />
-                <button onClick={::this.onPurchase}>Purchase</button>
+                <button onClick={this.onPurchase}>
+                    <M m="Purchase" />
+                </button>
             </div>
         );
     }

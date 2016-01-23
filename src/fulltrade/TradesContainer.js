@@ -16,8 +16,8 @@ export default class TradesContainer extends React.Component {
     createTrade() {
         const { trades, actions } = this.props;
 
-        const allIDs = Object.keys(trades).map(id => +id);
-        const maxID = allIDs.length > 0 ? allIDs.reduce((a, b) => Math.max(a, b)) : 0;
+        const allIDs = Object.keys(trades).map(id => +id).filter(n => !isNaN(n));
+        const maxID = allIDs.length > 0 ? allIDs.reduce((a, b) => Math.max(a, b)) : -1;
         actions.initTrade(maxID.toString());
     }
 

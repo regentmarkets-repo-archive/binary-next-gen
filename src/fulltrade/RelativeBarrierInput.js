@@ -3,25 +3,25 @@ import { InputGroup } from '../_common';
 
 export default class BarrierInput extends Component {
     static propTypes = {
+        barrierType: PropTypes.oneOf(['relative', 'absolute']),
         name: PropTypes.string.isRequired,
         onChange: PropTypes.func,
-        defaultValue: PropTypes.any,
         onUnmount: PropTypes.func,
         value: PropTypes.number,
         spot: PropTypes.number,
     };
 
     render() {
-        const { name, onChange, value, spot } = this.props;
+        const { barrierType, name, onChange, value, spot } = this.props;
         return (
             <div>
                 <InputGroup
-                    label={name + ' offset'}
+                    label={name + (barrierType === 'relative' ? ' offset' : '')}
                     type="number"
                     onChange={onChange}
                     value={value}
                 />
-                {spot && <p>{`Target spot: ${spot + value}`}</p>}
+                {(barrierType === 'relative' && spot) && <p>{`Target spot: ${spot + value}`}</p>}
             </div>
         );
     }

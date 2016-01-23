@@ -582,3 +582,22 @@ select {
     font-size: 1.5rem;
     line-height: 2 !important;
 }
+
+/* Start of hack, mimic radio group using button */
+.radio-button {
+    flex: 1;
+    color: rgba(64, 68, 72, 1);
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.selected-radio.radio-button {
+    background-color: #2a3052;
+    border-radius: 2px;
+    color: white;
+}
+
+.radio-button:hover {
+    box-shadow: none!important;
+}
+/* Start of hack, mimic radio group using button */
