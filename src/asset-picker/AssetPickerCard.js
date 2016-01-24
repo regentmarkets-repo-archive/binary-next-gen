@@ -54,7 +54,7 @@ export default class AssetPickerCard extends React.Component {
 		// const showOnlyTickTradable = !!~window.location.search.indexOf('tick');
 		const showOnlyTickTradable = type === 'tick';
 		const shownAssets = assetPicker.get('shownAssets');
-		const searchableAssets = assets.get('list').filter(x =>
+		const searchableAssets = assets.filter(x =>
 			!showOnlyTickTradable ||
 			x.get('market_display_name') === 'Forex' ||
 			x.get('market_display_name') === 'Randoms'

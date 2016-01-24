@@ -2,8 +2,6 @@ import WorkspaceContainer from '../workspace/WorkspaceContainer';
 // import CreateAccountPage from '../create-account/CreateAccountPage';
 import UpgradePage from '../upgrade/UpgradePage';
 import WatchlistPage from '../watchlist/WatchlistPage';
-import OfferingsCard from '../offerings/OfferingsCard';
-import ActiveSymbolsCard from '../active-symbols/ActiveSymbolsCard';
 import AssetIndexPage from '../asset-index/AssetIndexPage';
 import AssetIndexTable from '../asset-index/AssetIndexTable';
 import RiseFallTablePage from '../rise-fall-table/RiseFallTablePage';
@@ -34,8 +32,6 @@ export default [
     { path: 'upgrade', component: UpgradePage },
     { path: 'trade', component: TradePage, onEnter: requireAuthOnEnter },
     { path: 'watchlist', component: WatchlistPage, onEnter: requireAuthOnEnter },
-    { path: 'offerings', component: OfferingsCard, onEnter: requireAuthOnEnter },
-    { path: 'active-symbols', component: ActiveSymbolsCard, onEnter: requireAuthOnEnter },
     { path: 'asset-index', component: AssetIndexPage, onEnter: requireAuthOnEnter, childRoutes: [
         { path: ':market', component: AssetIndexTable, onEnter: requireAuthOnEnter },
     ] },

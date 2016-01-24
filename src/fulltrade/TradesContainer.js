@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { fullTradesSelector } from './../_selectors/FullTradeSelector';
+import { fullTradesSelector } from './../_selectors/FullTradeSelectors';
 import TradePanel from './TradePanel';
 
 @connect(fullTradesSelector)
