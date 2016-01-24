@@ -1,14 +1,19 @@
 import { createSelector, createStructuredSelector } from 'reselect';
+import { toPlainJS } from '../_utils/ObjectUtils';
 
-export const workspaceSelector = state => state.workspace;
+export const workspaceSelector = state => toPlainJS(state.workspace);
 
 export const assetIndexSubmarketSelector = createSelector(
-    [workspaceSelector],
-    (workspace) => ({
-        submarket: workspace.get('assetIndex').get('submarketId'),
-    })
+    workspaceSelector,
+    workspace => workspace.assetIndex.submarketId,
+);
+
+export const tradingTimesFilterSelector = createSelector(
+    workspaceSelector,
+    workspace => workspace.tradingTimes,
 );
 
 export default createStructuredSelector({
     assetIndexSubmarket: assetIndexSubmarketSelector,
+    tradingTimesFilter: tradingTimesFilterSelector,
 });

@@ -1,8 +1,6 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 import { todayString, epochToDateString, yesterdayEpoch, getLastXMonthEpoch } from '../_utils/DateUtils';
-
-const toPlainJS = obj =>
-    typeof obj.toJS === 'undefined' ? obj : obj.toJS();
+import { toPlainJS } from '../_utils/ObjectUtils';
 
 export const transactionsSelector = state => toPlainJS(state.transactions);
 

@@ -279,7 +279,7 @@ const contractsSelector = state => {
     return allContracts.toJS();
 };
 
-const tradesSelector = state => state.trades.toJS();
+export const tradesSelector = state => state.trades.toJS();
 
 const assetsSelector = state => {
     const symbolsToArray = sym => sym.map((v, k) => ({ text: v.get('display_name'), value: k }));

@@ -1,6 +1,7 @@
 import { createSelector, createStructuredSelector } from 'reselect';
+import { toPlainJS } from '../_utils/ObjectUtils';
 
-export const assetsSelector = state => state.assets;
+export const assetsSelector = state => toPlainJS(state.assets);
 
 export const submarketForAsset = (state, symbol) =>
     state.assets.find(x => x.symbol === symbol).submarket;

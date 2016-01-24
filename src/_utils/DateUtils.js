@@ -87,3 +87,6 @@ export const timeStringSmaller = (a, b) => {
     }
     return !timeStringBigger(a, b);
 };
+
+export const oneYearAfterStr = () =>
+	new Date().setFullYear(new Date().getFullYear() + 1);
