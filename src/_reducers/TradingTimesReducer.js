@@ -14,7 +14,7 @@ export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_TRADING_TIMES: {
             const flatTimes = flattenTradingTimes(action.serverResponse.trading_times);
-            return state.set(flatTimes);
+            return state.merge(flatTimes);
         }
         default:
             return state;

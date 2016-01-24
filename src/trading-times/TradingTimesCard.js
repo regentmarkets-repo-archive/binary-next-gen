@@ -20,11 +20,6 @@ export default class TradingTimesCard extends React.Component {
 		const submarket = tradingTimesFilter.submarket;
 		const tradingTimesDate = tradingTimesFilter.date;
 
-		// const submarketName = Object.keys(tree).map(market => {
-		// 	const subs = tree[market].submarkets;
-		// 	if (Object.keys(subs).indexOf(submarket) > -1) return subs[submarket].display_name;
-		// }).filter(name => !!name)[0];
-
 		const submarketForAsset = symbol =>
 			assets.find(x => x.symbol === symbol).submarket;
 
@@ -47,7 +42,6 @@ export default class TradingTimesCard extends React.Component {
 				</div>
 				<TradingTimesTable
 					key={submarket}
-					submarket={submarket.name}
 					times={tradingTimes.filter(a => submarketForAsset(a.symbol) === submarket)}
 					{...this.props}
 				/>
