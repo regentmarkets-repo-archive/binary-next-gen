@@ -1,15 +1,12 @@
 import React, { PropTypes } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
 import { MarketPicker } from '../_common';
 import AssetIndexTable from './AssetIndexTable';
 
 export default class AssetIndexCard extends React.Component {
 
-	shouldComponentUpdate = shouldPureComponentUpdate;
-
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
-		assets: PropTypes.object.isRequired,
+		assets: PropTypes.array.isRequired,
 		assetIndex: PropTypes.array.isRequired,
 		indexTradeTypes: PropTypes.array.isRequired,
 		submarket: PropTypes.object.isRequired,
@@ -23,7 +20,7 @@ export default class AssetIndexCard extends React.Component {
 				<MarketPicker
 					onChange={x => actions.updateAssetIndexSubmarket(x)}
 					showAllOption={false}
-					value={submarket.id}
+					value={submarket}
 				/>
 				<AssetIndexTable
 					submarketName={submarket.name}

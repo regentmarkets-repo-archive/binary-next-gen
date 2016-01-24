@@ -8,11 +8,11 @@ export default class LoadingView extends Component {
 
     render() {
         const { text, shown } = this.props;
-        return (
-            <div className="mobile-page" style={shown ? {} : { display: 'none' } }>
+        return shown ? (
+            <div className="mobile-page">
                 <img className="spinner" src="img/binary-symbol-logo.svg" />
                 <p>{text}</p>
             </div>
-        );
+        ) : null;
     }
 }
