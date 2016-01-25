@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
-import RadioGroup from './workaround/CustomRadioGroup';
+import RadioGroup from './../workaround/CustomRadioGroup';
+import CollapsibleFormSnippet from '../../_common/CollapsibleFormSnippet';
 
 export default class DigitBarrierCard extends Component {
     static propTypes = {
@@ -12,7 +13,7 @@ export default class DigitBarrierCard extends Component {
     render() {
         const { barrier, barrierInfo, id, onBarrierChange } = this.props;
         return (
-            <div>
+            <CollapsibleFormSnippet label="Digits" show>
                 {barrierInfo ?
                     <div>
                         <p>{barrierInfo.name}</p>
@@ -24,7 +25,7 @@ export default class DigitBarrierCard extends Component {
                         />
                     </div> :
                     <div/>}
-            </div>
+            </CollapsibleFormSnippet>
         );
     }
 }
