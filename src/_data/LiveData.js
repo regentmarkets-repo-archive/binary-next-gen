@@ -4,32 +4,33 @@ import { getVideosFromPlayList } from './VideoData';
 import * as actions from '../_actions';
 
 const handlers = {
-    'authorize': 'serverDataAuthorize',
-    'balance': 'serverDataBalance',
-    'active_symbols': 'serverDataActiveSymbols',
-    'trading_times': 'serverDataTradingTimes',
-    'asset_index': 'serverDataAssetIndex',
-    'portfolio': 'serverDataPortfolio',
-    'statement': 'serverDataStatement',
-    'tick': 'serverDataTickStream',
-    'history': 'serverDataTickHistory',
-    'proposal_open_contract': 'serverDataProposalOpenContract',
-    'payout_currencies': 'serverDataPayoutCurrencies',
-    'profit_table': 'serverDataProfitTable',
-    'proposal': 'serverDataProposal',
-    'buy': 'serverDataBuy',
-    'get_limits': 'serverDataAccountLimits',
-    'get_self_exclusion': 'serverDataAccountSelfExclusion',
-    'get_settings': 'serverDataAccountSettings',
-    'news': 'updateNewsList',
-    'videos': 'updateVideoList',
+    authorize: 'serverDataAuthorize',
+    balance: 'serverDataBalance',
+    active_symbols: 'serverDataActiveSymbols',
+    trading_times: 'serverDataTradingTimes',
+    asset_index: 'serverDataAssetIndex',
+    portfolio: 'serverDataPortfolio',
+    statement: 'serverDataStatement',
+    tick: 'serverDataTickStream',
+    history: 'serverDataTickHistory',
+    proposal_open_contract: 'serverDataProposalOpenContract',
+    payout_currencies: 'serverDataPayoutCurrencies',
+    proposal: 'serverDataProposal',
+    get_limits: 'serverDataAccountLimits',
+    get_self_exclusion: 'serverDataAccountSelfExclusion',
+    get_settings: 'serverDataAccountSettings',
+    news: 'updateNewsList',
+    videos: 'updateVideoList',
+    paymentagent_list: 'serverDataPaymentAgents',
 };
 
 export const api = new LiveApi({ language: 'EN' });
 
 const subscribeToSelectedSymbol = st => {
     const selectedSymbol = st.getState().workspace.get('symbolSelected');
+    api.getTickHistory(selectedSymbol, { end: 'latest', count: 20 });
     api.subscribeToTick(selectedSymbol);
+    st.dispatch(actions.getTradingOptions(selectedSymbol));
 };
 
 const subscribeToWatchlist = st => {
@@ -38,14 +39,16 @@ const subscribeToWatchlist = st => {
         return;
     }
     const favs = newState.watchlist;
-    api.subscribeToTicks(favs);
+    api.subscribeToTicks(favs.toJS());
 };
 
 export const changeLanguage = ln => {
     api.changeLanguage(ln);
     api.getActiveSymbolsFull();
-    api.getPortfolio();
-    api.getStatement({ description: 1, limit: 20 });
+    api.getAssetIndex();
+    api.getTradingTimes();
+    // api.getPortfolio();
+    // api.getStatement({ description: 1, limit: 20 }); we do not need this until we need longcode
 };
 
 const initUnauthorized = store => {
@@ -61,8 +64,7 @@ const initUnauthorized = store => {
 const initAuthorized = (authData, store) => {
     api.getPortfolio();
     api.getStatement({ description: 1, limit: 20 });
-    api.getProfitTable({ description: 1, limit: 20 });
-    api.getAccountSettings();
+    api.getAccountSettings().then(msg => api.getPaymentAgentsForCountry(msg.get_settings.country_code));
     api.getPayoutCurrencies();
     api.subscribeToBalance();           // some call might fail due to backend overload
     api.subscribeToAllOpenContracts();
@@ -93,5 +95,5 @@ export const connect = store => {
 
     initUnauthorized(store);
 
-    api.events.on('authorize', response => initAuthorized(response, store));
+    api.events.on('authorize', response => response.error ? null : initAuthorized(response, store));
 };

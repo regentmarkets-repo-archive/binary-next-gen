@@ -14,8 +14,8 @@ const TextAreaGroup = ({ id, className, label, hint, value, readOnly, placeholde
                 placeholder={placeholder}
                 onChange={onChange}
                 rows={rows}
-                cols={cols}>
-            </textarea>
+                cols={cols}
+            />
         {hint && <p className="hint">{hint}</p>}
     </fieldset>
 );

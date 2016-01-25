@@ -10,10 +10,10 @@ const AssetDetailsTable = ({ asset }) => (
 			</tr>
 		</thead>
 		<tbody>
-			{asset.map((val, key) =>
-				<tr>
+			{Object.keys(asset).map((key, idx) =>
+				<tr key={idx}>
 					<td>{key}</td>
-					<td>{val}</td>
+					<td>{asset[key]}</td>
 				</tr>
 			)}
 		</tbody>

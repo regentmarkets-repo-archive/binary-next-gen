@@ -1,108 +1,75 @@
 import React, { PropTypes } from 'react';
-import { Modal, M } from '../_common';
-import TickTradeSparkline from '../watchlist/TickTradeSparkline';
-import * as LiveData from '../_data/LiveData';
+import { Modal, M, NumberPlain, PurchaseFailed, PurchaseConfirmation } from '../_common';
+import MobileChart from '../charting/MobileChart';
 import TickTradeParameters from './TickTradeParameters';
-import TickTradeDisplay from './TickTradeDisplay';
-import PurchaseConfirmation from './PurchaseConfirmation';
-import PurchaseFailed from './PurchaseFailed';
 
 export default class TickTradeCard extends React.Component {
 
-	constructor(props) {
-		super(props);
-		this.state = { failure: null, buying: false };
-	}
+    static propTypes = {
+        actions: PropTypes.object.isRequired,
+        assets: PropTypes.array.isRequired,        // all assets available
+        currency: PropTypes.string.isRequired,
+        id: PropTypes.string.isRequired,
+        tick: PropTypes.array.isRequired,          // ticks for this trade instance, correspond to symbol selected
+        trade: PropTypes.object.isRequired,         // trade params for this trade instance
+    };
 
-	static propTypes = {
-		actions: PropTypes.object.isRequired,
-		assets: PropTypes.object.isRequired,
-		tickTrade: PropTypes.object.isRequired,
-		workspace: PropTypes.object.isRequired,
-	};
+    updateHelper(field, name) {
+        const { actions, id, trade } = this.props;
+        actions.updateTradeParams(id, field, name);
+        actions.updatePriceProposalSubscription(id, trade);
+    }
 
-	getPriceProposal() {
-		const { tickTrade, actions } = this.props;
-		actions.getPriceProposal(tickTrade);
-	}
+    placeOrder() {
+        const { actions, id, trade } = this.props;
+        actions.purchaseByTradeID(id, trade);
+    }
 
-	placeOrder() {
-		const { tickTrade } = this.props;
-		this.setState({ buying: true });
-		const buyAttempt = LiveData.api.buyContract(tickTrade.get('id'), tickTrade.get('ask_price'));
-		buyAttempt.then(
-			receipt => {
-				this.props.actions.serverDataBuy(receipt);
-				this.setState({ buying: false });
-			},
-			err => {
-				this.setState({
-					failure: err,
-					buying: false,
-				});
-			}
-		).then(() => this.getPriceProposal());
-	}
+    componentDidMount() {
+        const { actions, id, trade } = this.props;
+        actions.updatePriceProposalSubscription(id, trade);
+    }
 
-	getTickHistory() {
-		const { tickTrade } = this.props;
-		return tickTrade.get('ticks').toJS();
-	}
+    render() {
+        const { assets, currency, id, trade, tick } = this.props;
+        const history = tick;
+        const spot = history.length > 0 ? history[history.length - 1].quote : null;
+        const receipt = trade.receipt;
 
-	getSelectedAssetName() {
-		const { assets, workspace } = this.props;
-		const asset = assets.get('list').find(x =>
-			x.get('symbol') === workspace.get('symbolSelected'));
-
-		return asset ? asset.get('display_name') : '';
-	}
-
-	componentDidMount() {
-		this.getPriceProposal();
-	}
-
-	render() {
-		const { actions, assets, tickTrade, workspace } = this.props;
-		const history = this.getTickHistory();
-		const spot = history.length > 0 ? history[history.length - 1].quote : null;
-		const diff = history.length > 1 ? history[history.length - 1].quote - history[history.length - 2].quote : 0;
-		const receipt = tickTrade.get('receipt');
-		const assetName = this.getSelectedAssetName() || '...';
-
-		return (
-			<div className="tick-trade-mobile">
-				<Modal shown={!!this.state.failure}
-					onClose={() => this.setState({ failure: null })}>
-					<PurchaseFailed failure={this.state.failure} />
-				</Modal>
-				<Modal shown={!!receipt}
-					onClose={() => actions.discardPurchaseReceipt()}>
-					<PurchaseConfirmation receipt={receipt} />
-				</Modal>
-				<TickTradeSparkline
-					history={history}
-					showBarrier={tickTrade.get('tradeType') === 'CALL'}
-					spot={spot} />
-				<TickTradeParameters
-					actions={actions}
-					assetName={assetName}
-					assets={assets}
-					tickTrade={tickTrade}
-					workspace={workspace} />
-				<TickTradeDisplay
-					assets={assets}
-					assetName={assetName}
-					diff={diff}
-					spot={spot}
-					tickTrade={tickTrade}
-					workspace={workspace} />
-				<button
-					className="buy-btn"
-					onClick={() => this.placeOrder()}
-					disabled={this.state.buying}>
-					<M m="Place Order" />
-				</button>
-			</div>
-		);
-	}
+        return (
+            <div className="tick-trade-mobile">
+                <Modal shown={!!trade.buy_error}
+                       onClose={() => this.updateHelper('buy_error', false)}
+                >
+                    <PurchaseFailed failure={trade.buy_error} />
+                </Modal>
+                <Modal shown={!!receipt}
+                       onClose={() => this.updateHelper('receipt', undefined)}
+                >
+                    <PurchaseConfirmation receipt={receipt} />
+                </Modal>
+                <MobileChart
+                    className="trade-chart"
+                    history={history}
+                    showBarrier={tick.type === 'CALL'}
+                    spot={spot}
+                />
+                <TickTradeParameters
+                    assets={assets}
+                    currency={currency}
+                    durationChange={e => this.updateHelper('duration', e.target.value)}
+                    id={id}
+                    trade={trade}
+                />
+                <button
+                    className="buy-btn"
+                    onClick={() => this.placeOrder()}
+                    disabled={trade.buying}
+                >
+                    <M m="Purchase for " />
+                    <NumberPlain currency={currency} value={trade.proposal && trade.proposal.ask_price} />
+                </button>
+            </div>
+        );
+    }
 }

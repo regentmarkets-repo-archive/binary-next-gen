@@ -19,4 +19,4 @@ export const tradeTypes = [
     { value: 'SPREADD', text: 'Spread Short', img: 'img/trade-spread.svg', ticks: false },
 ];
 
-export const digitMatchOptions = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9].map(x => ({ value: x, text: x.toString() }));
+export const durationUnits = ['t', 's', 'm', 'h', 'd'];

@@ -1,20 +1,46 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import TickTradeCard from './TickTradeCard';
+import { tickTradesSelector } from './../_selectors/TickTradeSelector';
 
-@connect(state => ({ tickTrade: state.tickTrade, workspace: state.workspace, assets: state.assets }))
-export default class TickTradeContainer extends React.Component {
-
-	static propTypes = {
-		dispatch: PropTypes.func,
-		tickTrade: PropTypes.object.isRequired,
-		assets: PropTypes.object.isRequired,
-		workspace: PropTypes.object.isRequired,
+@connect(tickTradesSelector)
+export default class TickTradeContainer extends Component {
+    static propTypes = {
+        actions: PropTypes.object.isRequired,
+        assets: PropTypes.array.isRequired,
+        currency: PropTypes.string.isRequired,
+        trades: PropTypes.object.isRequired,
+        ticks: PropTypes.object.isRequired,
     };
 
-	render() {
-		return (
-			<TickTradeCard {...this.props} />
-		);
-	}
+    componentWillMount() {
+        this.props.actions.initTrade('tick');
+    }
+
+    render() {
+        const { actions, assets, currency, trades, ticks } = this.props;
+        const allTickID = Object.keys(trades).filter(id => id.indexOf('tick') > -1);
+        return (
+            <div>
+                {allTickID.map(id => {
+                    const trade = trades[id];
+                    const symbol = trade.symbol;
+                    const tick = ticks[symbol];
+                    return (
+                        tick && trade ?
+                            <TickTradeCard
+                                actions={actions}
+                                assets={assets}
+                                currency={currency}
+                                key={id}
+                                id={id}
+                                tick={tick}
+                                trade={trade}
+                            /> :
+                            <div key={id} />
+                    );
+                })}
+            </div>
+        );
+    }
 }
