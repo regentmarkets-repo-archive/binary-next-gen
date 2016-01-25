@@ -446,7 +446,11 @@ export default class TradePanel extends Component {
                     onBasisChange={this.onBasisChange}
                 />
                 {trade.proposal &&
-                <ContractStatsCard proposal={trade.proposal} spread={selectedCategory === 'spreads'} />}
+                <ContractStatsCard
+                    proposal={trade.proposal}
+                    spread={selectedCategory === 'spreads'}
+                    lastSpot={lastSpot}
+                />}
                 <ErrorMsg shown={!!trade.proposalError} text={trade.proposalError ? trade.proposalError.message : ''} />
                 <button onClick={this.onPurchase}>
                     <M m="Purchase" />
