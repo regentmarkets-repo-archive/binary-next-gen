@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import BarrierInput from './RelativeBarrierInput';
+import CollapsibleFormSnippet from '../../_common/CollapsibleFormSnippet';
 
 export default class BarrierCard extends Component {
     static propTypes = {
@@ -33,7 +34,7 @@ export default class BarrierCard extends Component {
             (!isIntraDay && 'Absolute barrier available') :
             'Relative barrier';
         return (
-            <div>
+            <CollapsibleFormSnippet label="Barriers" show>
                 {barrier1Info &&
                     <div>
                         <BarrierInput
@@ -59,7 +60,7 @@ export default class BarrierCard extends Component {
                 <a onClick={() => onBarrierTypeChange(barrierType === 'relative' ? 'absolute' : 'relative')}>
                     {toggleMsg}
                 </a>
-            </div>
+            </CollapsibleFormSnippet>
         );
     }
 }

@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { InputGroup, SelectGroup, ErrorMsg } from '../../_common';
+import { CollapsibleFormSnippet, InputGroup, SelectGroup, ErrorMsg } from '../../_common';
 import ForwardStartingOptions from './ForwardStartingOptions';
 import { durationText } from '../../_utils/TradeUtils';
 
@@ -46,7 +46,7 @@ export default class DurationCard extends Component {
                     />
                 }
                 {currentUnitBlock ?
-                    <div>
+                    <CollapsibleFormSnippet label="Durations" show>
                         <div className="row">
                             <InputGroup
                                 type="number"
@@ -62,7 +62,7 @@ export default class DurationCard extends Component {
                             />
                         </div>
                         <ErrorMsg shown={showError} text={errorMsg} />
-                    </div> :
+                    </CollapsibleFormSnippet> :
                     <div/>}
             </div>
         );

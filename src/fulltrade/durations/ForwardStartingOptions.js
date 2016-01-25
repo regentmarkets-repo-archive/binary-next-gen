@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { InputGroup } from '../../_common';
+import { InputGroup, CollapsibleFormSnippet } from '../../_common';
 import RadioGroup from '../workaround/CustomRadioGroup';
 import { epochToUTCTimeString, dateToEpoch, dateToUTCTimeString, timeStringToSeconds } from '../../_utils/DateUtils';
 /**
@@ -50,7 +50,7 @@ export default class ForwardStartingOptions extends Component {
         const max = dateToUTCTimeString(ranges[selectedIdx].close);
         const timeString = dateStart ? epochToUTCTimeString(dateStart) : '';
         return (
-            <div>
+            <CollapsibleFormSnippet label="Start times">
                 <RadioGroup
                     options={dayOptions}
                     onChange={::this.selectDay}
@@ -64,7 +64,7 @@ export default class ForwardStartingOptions extends Component {
                     value={timeString}
                 />
                 <button onClick={::this.removeDateStart}>Now</button>
-            </div>
+            </CollapsibleFormSnippet>
         );
     }
 }
