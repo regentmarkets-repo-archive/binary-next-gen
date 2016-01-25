@@ -6,7 +6,8 @@ export default () => (
 		<SegmentedControl segments={['Forex', 'Indices', 'Stocks', 'Commodities', 'Randoms']} />
 
 		<SegmentedControl
-			segments={['Up/Down', 'Rise/Fall', 'Higher/Lower', 'Touch/No Touch', 'In/Out']} />
+			segments={['Up/Down', 'Rise/Fall', 'Higher/Lower', 'Touch/No Touch', 'In/Out']}
+		/>
 
 		<select>
 			<option value="all">All Markets</option>

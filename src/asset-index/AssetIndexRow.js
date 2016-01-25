@@ -1,14 +1,18 @@
 import React, { PropTypes } from 'react';
 
-const AssetIndexRow = ({ assetIndex }) => (
+const AssetIndexRow = ({ assetIndex, header }) => (
     <tr>
         <td>
             {assetIndex[1]}
         </td>
-        {assetIndex[2].map(idx =>
-            <td key={idx}>{idx[2]}–{idx[3]}</td>
-        )}
-        {Array(8 - assetIndex[2].length).fill(<td></td>)}
+        {header.map((typeName, k) => {
+            const typeInfo = assetIndex[2].filter((type) => type[1] === typeName)[0];
+            return (
+                <td key={k}>
+                    {typeInfo ? typeInfo[2] + '-' + typeInfo[3] : '-'}
+                </td>
+                );
+        })}
     </tr>
 );
 

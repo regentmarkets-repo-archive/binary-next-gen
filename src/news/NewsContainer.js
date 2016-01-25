@@ -1,13 +1,12 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 import NewsCard from './NewsCard';
 
-@connect(state => ({ news: state.news }))
+@connect(state => ({ articles: state.news.get('articles') }))
 export default class NewsContainer extends React.Component {
 
-    static propTypes = {
-        news: PropTypes.object.isRequired,
-    };
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
         return (

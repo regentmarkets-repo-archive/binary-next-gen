@@ -28,7 +28,12 @@ export default class LanguagePicker extends React.Component {
     render() {
         const { selected } = this.props;
         return (
-            <SelectGroup options={languages} value={selected} onChange={::this.updateLanguage} />
+            <SelectGroup
+                options={languages}
+                value={selected}
+                onChange={::this.updateLanguage}
+                {...this.props}
+            />
         );
     }
 }

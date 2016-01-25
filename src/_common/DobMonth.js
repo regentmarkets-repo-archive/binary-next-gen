@@ -1,11 +1,24 @@
 import React from 'react';
 
-const LOCALIZED_MONTHS = [];
+const MONTHS = [
+	'January',
+	'February',
+	'March',
+	'April',
+	'May',
+	'June',
+	'July',
+	'August',
+	'September',
+	'October',
+	'November',
+	'December',
+];
 
-export default () => (
-	<select id="dobmm" name="dobmm">
+export default ({ month, onMonthChange }) => (
+	<select id="dobmm" name="dobmm" defaultValue={month} onChange={onMonthChange}>
 		<option disabled>Month</option>
-		{LOCALIZED_MONTHS.map((o, i) =>
+		{MONTHS.map((o, i) =>
 			<option key={i} value={i}>{o}</option>
 		)}
 	</select>

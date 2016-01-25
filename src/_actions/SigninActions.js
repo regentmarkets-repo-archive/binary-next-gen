@@ -9,7 +9,3 @@ export const signinFieldUpdate = (fieldName, fieldValue) => ({
     fieldName,
     fieldValue,
 });
-
-export const signinFailed = () => ({
-    type: types.SIGNIN_FAILED,
-});

@@ -8,7 +8,8 @@ const PricingTableCard = ({ onAssetSelect }) => (
 		<PricingTableFilter />
 		<SegmentedControl
 			segments={['Mid', 'Bid', 'Ask', 'Spread']}
-			onSelect={onAssetSelect} />
+			onSelect={onAssetSelect}
+		/>
 		<PricingTable />
 	</div>
 );
