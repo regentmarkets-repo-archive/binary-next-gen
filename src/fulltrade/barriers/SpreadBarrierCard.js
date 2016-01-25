@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
-import { RadioGroup, InputGroup } from '../_common';
+import { RadioGroup, InputGroup } from '../../_common';
+import CollapsibleFormSnippet from '../../_common/CollapsibleFormSnippet';
 
 export default class SpreadBarrierCard extends Component {
     static propTypes = {
@@ -31,7 +32,7 @@ export default class SpreadBarrierCard extends Component {
         const stopTypeOptions = [{ text: 'Points', value: 'point' }, { text: currency, value: 'dollar' }];
         return (
             spreadInfo ?
-                <div>
+                <CollapsibleFormSnippet label="Spreads" show>
                     <InputGroup
                         type="number"
                         label={`Amount per point (${currency})`}
@@ -56,7 +57,7 @@ export default class SpreadBarrierCard extends Component {
                         defaultValue={spreadInfo.stopProfit}
                         onChange={stopProfitChange}
                     />
-                </div> :
+                </CollapsibleFormSnippet> :
                 <div/>
         );
     }

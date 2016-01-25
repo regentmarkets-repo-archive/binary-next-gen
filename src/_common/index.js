@@ -1,5 +1,6 @@
 export Clock from './Clock';
 export Collapsible from './Collapsible';
+export CollapsibleFormSnippet from './CollapsibleFormSnippet';
 export Countries from './Countries';
 export CurrencyPicker from './CurrencyPicker';
 export DateOfBirth from './DateOfBirth';
