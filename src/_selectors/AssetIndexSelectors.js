@@ -8,7 +8,7 @@ export const assetIndexSelector = state => toPlainJS(state.assetIndex);
 export const indexTradeTypesSelector = createSelector(
     assetIndexSelector,
     index =>
-        console.log(index) || index
+        index
             .map(symbols => symbols[2].map(type => type[1]))
             .reduce((prv, curr) => prv.concat(curr))
 );

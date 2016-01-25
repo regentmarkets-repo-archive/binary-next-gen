@@ -42,7 +42,7 @@ export default class Root extends React.Component {
     render() {
         return (
             <Provider store={store}>
-                <AppInfoProxy>
+                {/*<AppInfoProxy>*/}
                     <IntlProviderContainer>
                         <ThemeProvider>
                             <Router
@@ -52,7 +52,7 @@ export default class Root extends React.Component {
                             />
                         </ThemeProvider>
                     </IntlProviderContainer>
-                </AppInfoProxy>
+                {/*</AppInfoProxy>*/}
             </Provider>
         );
     }

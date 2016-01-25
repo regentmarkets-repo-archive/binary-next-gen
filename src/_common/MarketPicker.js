@@ -19,7 +19,7 @@ export default class MarketPicker extends React.Component {
 
 	render() {
 		const { marketTree, onChange, allOptionShown, showMarkets, value } = this.props;
-		console.log(this.props);
+
 		return (
 			<select className="market-submarket-picker" onChange={e => onChange(e.target.value)} value={value}>
 				{allOptionShown ?

@@ -11,7 +11,7 @@ export default class AppInfoProxy extends Component {
 
     render() {
         const { connected } = this.props.appInfo;
-
+        //console.log(this.props);
         return (connected ?
             this.props.children :
             <LoadingView text={'Connecting taking too long, you might be offline.'}/>);

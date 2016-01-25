@@ -21,13 +21,13 @@ export const similarStr = (str1 = '', str2 = '') =>
 const doFilter = (assetPickerList, query, markets, submarket) =>
     assetPickerList.filter(asset =>
         (submarket === '' ||
-            submarket === asset.get('submarket_display_name')) &&
+            submarket === asset.submarket_display_name) &&
         (query.trim() === '' ||
-            similarStr(asset.get('symbol'), query) ||
-            similarStr(asset.get('display_name'), query) ||
-            similarStr(asset.get('market_display_name'), query) ||
-            similarStr(asset.get('submarket_display_name'), query))
-    ).sort((x1, x2) => x1.get('display_name').localeCompare(x2.get('display_name')));
+            similarStr(asset.symbol, query) ||
+            similarStr(asset.display_name, query) ||
+            similarStr(asset.market_display_name, query) ||
+            similarStr(asset.submarket_display_name, query))
+    ).sort((x1, x2) => x1.display_name.localeCompare(x2.display_name));
 
 const hasTick = assets =>
     assets
@@ -77,7 +77,7 @@ export default (state = initialState, action) => {
         case SERVER_DATA_ASSET_INDEX: {
             const symbolWithTick = tickTradeFilter(action.serverResponse.asset_index);
             const shownAssetsWithTick = state.get('availableAssets').filter(asset =>
-                symbolWithTick.indexOf(asset.get('symbol')) > -1
+                symbolWithTick.indexOf(asset.symbol) > -1
             );
             return state
                 .set('tickOnly', symbolWithTick)
