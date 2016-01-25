@@ -1,6 +1,5 @@
 import { fromJS } from 'immutable';
 import expect from 'expect';
-import { assetsSelector, marketTreeSelector } from '../AssetSelectors';
 import assetIndexSelectors, { assetIndexSelector, indexTradeTypesSelector } from '../AssetIndexSelectors';
 
 describe('AssetIndexSelectors', () => {

@@ -6,9 +6,9 @@ export default class AssetPickerCard extends React.Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
-		assets: PropTypes.object.isRequired,
+		assets: PropTypes.array.isRequired,
 		assetPicker: PropTypes.object.isRequired,
-		idSymbolMap: PropTypes.object.isRequired,
+		idSymbolMap: PropTypes.array.isRequired,
 		history: PropTypes.object,
 		params: PropTypes.object,
 		location: PropTypes.object,
@@ -70,7 +70,7 @@ export default class AssetPickerCard extends React.Component {
 				<fieldset>
 					<MarketPicker
 						onChange={onSubmarketChange}
-						showAllOption
+						allOptionShown
 						showMarkets={showOnlyTickTradable ? ['Forex', 'Randoms'] : null}
 					/>
 					<InputGroup

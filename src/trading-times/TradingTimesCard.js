@@ -28,7 +28,7 @@ export default class TradingTimesCard extends React.Component {
 				<div className="row">
 					<MarketPicker
 						onChange={x => actions.updateTickTradeSubmarket(x)}
-						showAllOption={false}
+						allOptionShown={false}
 						value={submarket}
 					/>
 					<InputGroup

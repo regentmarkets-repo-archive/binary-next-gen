@@ -12,17 +12,17 @@ export default class MarketPicker extends React.Component {
 	static propTypes = {
 		marketTree: PropTypes.object.isRequired,
 		onChange: PropTypes.func.isRequired,
-		showAllOption: PropTypes.bool.isRequired,
+		allOptionShown: PropTypes.bool.isRequired,
 		showMarkets: PropTypes.array,
 		value: PropTypes.string,
 	};
 
 	render() {
-		const { marketTree, onChange, showAllOption, showMarkets, value } = this.props;
+		const { marketTree, onChange, allOptionShown, showMarkets, value } = this.props;
 		console.log(this.props);
 		return (
 			<select className="market-submarket-picker" onChange={e => onChange(e.target.value)} value={value}>
-				{showAllOption ?
+				{allOptionShown ?
 					<FormattedMessage id="All" defaultMessage="All">
 						{message => <option value="">{message}</option>}
 					</FormattedMessage>
