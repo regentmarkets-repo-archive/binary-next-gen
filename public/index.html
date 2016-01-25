@@ -1,18 +1,38 @@
+<!DOCTYPE html>
 <html>
 <head>
-    <meta name='viewport' content='width=device-width, initial-scale=1'/>
-    <link rel='icon' href="https://static.binary.com/images/favicons/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57">
-    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700&subset=latin,vietnamese,cyrillic-ext,latin-ext,cyrillic' rel='stylesheet' type='text/css'/>
-    <link rel='stylesheet' href='https://style.binary.com/binary.css' />
-    <link rel='stylesheet' href='styles.css' />
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
+    <link rel="icon" href="https://static.binary.com/images/favicons/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700&subset=latin,vietnamese,cyrillic-ext,latin-ext,cyrillic" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="https://style.binary.com/binary.css" />
+    <link rel="stylesheet" href="styles.css" />
 </head>
+
 <body>
-    <div id="root">
+    <div id="root" class="app">
         <div class="mobile-page">
             <img class="spinner" src="img/binary-symbol-logo.svg" />
         </div>
     </div>
-</body>
-<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,Promise,Array.from,Array.prototype.includes,String.prototype.startsWith,String.prototype.includes,Intl.~locale.en,Intl.~locale.id,Intl.~locale.ru,Intl.~locale.fr"></script>
+
+<script>
+window._trackJs = {
+    token: "346262e7ffef497d85874322fff3bbf8",
+    application: "binary-next-gen",
+    enabled: window.location.hostname !== 'localhost'
+}
+</script>
+<script type="text/javascript" src="https://d2zah9y47r7bi2.cloudfront.net/releases/current/tracker.js"></script>
+
+<script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-40877026-8', 'auto');
+    ga('send', 'pageview');
+</script>
+<script async src='//www.google-analytics.com/analytics.js'></script>
+
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,Promise,Array.from,Array.prototype.includes,String.prototype.startsWith,String.prototype.includes,Math.sign,Intl.~locale.en,Intl.~locale.id,Intl.~locale.ru,Intl.~locale.fr&unknown=polyfill"></script>
 <script src="app.js"></script>
+
+</body>
 </html>

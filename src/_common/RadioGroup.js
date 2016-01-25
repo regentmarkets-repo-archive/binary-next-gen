@@ -5,7 +5,7 @@ export default class RadioGroup extends React.Component {
 
 	static propTypes = {
 		className: PropTypes.string,
-		name: PropTypes.string,
+		name: PropTypes.string.isRequired,
 		text: PropTypes.string,
 		img: PropTypes.string,
 		options: PropTypes.any.isRequired,
@@ -15,22 +15,22 @@ export default class RadioGroup extends React.Component {
 
 	static defaultProps = {
 		className: 'radio-selector',
-	}
+	};
 
 	render() {
 		const { className, onChange, name, options, value } = this.props;
-
 		return (
 			<div className={className}>
 				{options.map(o =>
 					<RadioItem
-						key={o.value}
+						key={name + o.value}
 						defaultChecked={o.value === value}
 						img={o.img}
 						label={o.text}
 						name={name}
 						onChange={onChange}
-						value={o.value} />
+						value={o.value}
+					/>
 				)}
 			</div>
 		);

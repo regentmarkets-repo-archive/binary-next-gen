@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import { MarketSelector } from '../_common';
+import { MarketPicker } from '../_common';
 import AssetIndexTable from './AssetIndexTable';
 
 export default class AssetIndexCard extends React.Component {
@@ -15,19 +15,26 @@ export default class AssetIndexCard extends React.Component {
 
 	render() {
 		const { actions, assets, assetIndexFilter } = this.props;
-		const { index, list } = assets.toJS();
+		const { index, list, tree } = assets.toJS();
 		const submarket = assetIndexFilter.get('submarket');
-		const submarketForAsset = symbol => list.find(x => x.symbol === symbol).submarket_display_name;
+		const submarketName = Object.keys(tree).map(market => {
+			const subs = tree[market].submarkets;
+			if (Object.keys(subs).indexOf(submarket) > -1) return subs[submarket].display_name;
+		}).filter(name => !!name)[0];
+		const submarketForAsset = symbol => list.find(x => x.symbol === symbol).submarket;
 
 		return (
 			<div>
-				<MarketSelector
+				<MarketPicker
 					onChange={x => actions.updateAssetIndexSubmarket(x)}
-					showAllOption={false} />
+					showAllOption={false}
+					value={submarket}
+				/>
 				<AssetIndexTable
 					key={submarket}
-					submarket={submarket}
-					index={index.filter(a => submarketForAsset(a[0]) === submarket)} />
+					submarket={submarketName}
+					index={index.filter(a => submarketForAsset(a[0]) === submarket)}
+				/>
 			</div>
 		);
 	}

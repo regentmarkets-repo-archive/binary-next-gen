@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 const Modal = ({ shown, onClose, children }) => shown ? (
 	<div className="full-screen-overlay" onClick={onClose}>
 		<div className="modal">
-			<button className="close-btn" onClick={onClose}>✖</button>
+			<button className="close-btn" onClick={onClose}><img src="img/close.svg" /></button>
 			{children}
 		</div>
 	</div>

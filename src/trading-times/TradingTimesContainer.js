@@ -1,15 +1,12 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 import TradingTimesCard from './TradingTimesCard';
 
 @connect(state => ({ assets: state.assets, tradingTimesFilter: state.workspace.get('tradingTimes') }))
 export default class TradingTimesContainer extends React.Component {
 
-	static propTypes = {
-		assets: PropTypes.object.isRequired,
-		dispatch: PropTypes.func.isRequired,
-		tradingTimesFilter: PropTypes.object.isRequired,
-	};
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		return (

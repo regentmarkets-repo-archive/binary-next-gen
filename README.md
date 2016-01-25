@@ -82,6 +82,9 @@ electron
 * _store - Init for routes and Redux
 * _utils - Common utils
 
+## Translations
+Please see [Weblate](https://hosted.weblate.org/projects/binary-app/next-gen-app/)
+
 ## Useful Learning Resources
 [Egghead](https://egghead.io/)
 

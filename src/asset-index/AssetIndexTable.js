@@ -1,5 +1,11 @@
 import React, { PropTypes } from 'react';
+import { fromJS } from 'immutable';
 import AssetIndexRow from './AssetIndexRow';
+
+const indexTypeExtraction = (index) => fromJS(index
+    .map((symbols) => symbols[2].map((type) => type[1]))
+    .reduce((prv, curr) => prv.concat(curr)))
+    .toOrderedSet();
 
 const AssetIndexTable = ({ submarket, index }) => (
     <table>
@@ -12,15 +18,19 @@ const AssetIndexTable = ({ submarket, index }) => (
             {index[0] &&
             <tr>
                 <th></th>
-                { index[0][2].map((idx) => <th key={idx}>{idx[1]}</th>)}
-                {Array(8 - index[0][2].length).fill(<th></th>)}
+                { indexTypeExtraction(index)
+                    .map((typeName, k) => <th key={k}>{typeName}</th>)
+                }
             </tr>}
         </thead>
         <tbody>
             {index.map(idx =>
                 <AssetIndexRow
                     key={idx}
-                    assetIndex={idx} />)}
+                    assetIndex={idx}
+                    header={indexTypeExtraction(index).toJS()}
+                />
+            )}
         </tbody>
     </table>
 );
