@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { InputGroup, SelectGroup, ErrorMsg } from '../_common';
+import { InputGroup, SelectGroup, ErrorMsg } from '../../_common';
 import ForwardStartingOptions from './ForwardStartingOptions';
 import { durationText } from '../../_utils/TradeUtils';
 
@@ -12,6 +12,7 @@ export default class DurationCard extends Component {
         options: PropTypes.array,
         onUnitChange: PropTypes.func,
         onDurationChange: PropTypes.func,
+        onStartDateChange: PropTypes.func,
     };
 
     render() {
@@ -23,9 +24,10 @@ export default class DurationCard extends Component {
             options,
             onUnitChange,
             onDurationChange,
+            onStartDateChange,
             } = this.props;
 
-        const optionsToUse = dateStart ? forwardStartingDuration.options : options;
+        const optionsToUse = dateStart && forwardStartingDuration ? forwardStartingDuration.options : options;
         const unitOptions = optionsToUse.map(opt => ({ value: opt.unit, text: durationText(opt.unit) }));
         const currentUnitBlock = optionsToUse.find(opt => opt.unit === durationUnit);
 
@@ -36,7 +38,13 @@ export default class DurationCard extends Component {
         const errorMsg = (duration > max ? `Maximum is ${max} ` : `Minimum is ${min} `) + durationText(durationUnit);
         return (
             <div>
-                {forwardStartingDuration && <ForwardStartingOptions range={forwardStartingDuration.range} />}
+                {forwardStartingDuration &&
+                    <ForwardStartingOptions
+                        dateStart={dateStart}
+                        ranges={forwardStartingDuration.range}
+                        onStartDateChange={onStartDateChange}
+                    />
+                }
                 {currentUnitBlock ?
                     <div>
                         <div className="row">

@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import { RadioGroup, InputGroup } from '../_common';
+import { RadioGroup, InputGroup } from '../../_common';
 
 export default class SpreadBarrierCard extends Component {
     static propTypes = {
