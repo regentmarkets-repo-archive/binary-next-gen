@@ -1,6 +1,7 @@
 import { combineReducers } from 'redux';
 
-import appInfo from './AppInfoReducer';
+import appConfig from './AppConfigReducer';
+import appState from './AppStateReducer';
 import account from './AccountReducer';
 import assets from './AssetsReducer';
 import assetIndex from './AssetIndexReducer';
@@ -28,7 +29,8 @@ import quickTrade from './QuickTradeReducer';
 import trades from './TradeReducer';
 
 export default combineReducers({
-    appInfo,
+    appState,
+    appConfig,
     account,
     assets,
     assetIndex,

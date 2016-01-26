@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { MobileToolbarFull, MobileToolbarBack } from '../navigation';
 
-@connect(state => ({ isAuthorized: state.appInfo.get('authorized') }))
+@connect(state => ({ isAuthorized: state.appState.get('authorized') }))
 export default class MobilePage extends React.Component {
 	static propTypes = {
 		backBtnBarTitle: PropTypes.string,

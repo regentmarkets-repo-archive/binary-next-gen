@@ -1,7 +1,7 @@
 import { store } from '../_store/persistentStore';
 import { bindActionCreators } from 'redux';
 import * as LiveData from './LiveData';
-import { updateToken, signinFieldUpdate, updateAppInfo } from '../_actions';
+import { updateToken, signinFieldUpdate, updateAppState } from '../_actions';
 import { trackUserId } from '../_utils/Analytics';
 
 export const tryAuth = (st) => {
@@ -15,7 +15,7 @@ export const tryAuth = (st) => {
         {
             updateToken,
             signinFieldUpdate,
-            updateAppInfo,
+            updateAppState,
         },
         st.dispatch
     );
@@ -26,16 +26,15 @@ export const tryAuth = (st) => {
         return Promise.reject();
     }
 
-    actions.updateAppInfo('authorized', false);
-    return LiveData.api.authorize(token).then(
-        response => {
-            actions.signinFieldUpdate('credentialsInvalid', false);
-            trackUserId(response.authorize.loginid);
-            actions.updateAppInfo('authorized', true);
-        },
-        () => {
-            actions.signinFieldUpdate('credentialsInvalid', true);
-        })
+    actions.updateAppState('authorized', false);
+    return LiveData.api.authorize(token)
+        .then(
+            response => {
+                actions.signinFieldUpdate('credentialsInvalid', false);
+                trackUserId(response.authorize.loginid);
+                actions.updateAppState('authorized', true);
+            },
+            () => actions.signinFieldUpdate('credentialsInvalid', true))
         .then(() => {
             actions.signinFieldUpdate('progress', false);
         });
@@ -46,7 +45,7 @@ export const navigateTo = (nextState, replaceState, to) => {
 };
 
 export const requireAuthOnEnter = (nextState, replaceState, cb) => {
-    const authorized = store.getState().appInfo.get('authorized');
+    const authorized = store.getState().appState.get('authorized');
     if (authorized) {
         cb();
         return;
@@ -59,6 +58,6 @@ export const requireAuthOnEnter = (nextState, replaceState, cb) => {
 export const signout = (nextState, replaceState) => {
     store.dispatch(updateToken(''));
     store.dispatch(signinFieldUpdate('validatedOnce', false));
-    store.dispatch(updateAppInfo('authorized', false));
+    store.dispatch(updateAppState('authorized', false));
     navigateTo(nextState, replaceState, '/signin');
 };

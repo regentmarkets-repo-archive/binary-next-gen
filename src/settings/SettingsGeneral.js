@@ -10,7 +10,7 @@ export default class SettingsGeneral extends React.Component {
 	};
 
 	onThemeChange(e) {
-		this.props.actions.updateSettingFields({ theme: e.target.value });
+		this.props.actions.updateAppConfig('theme', e.target.value);
 	}
 
 	render() {

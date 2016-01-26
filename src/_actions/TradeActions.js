@@ -48,7 +48,8 @@ export const updateQuickTradePriceProposalSubscription = (symbol, trade) =>
         const opts = quickTrade.getIn([symbol, trade, 'params']);
         const proposal = getState().proposals.getIn([symbol, trade]);
         if (proposal) {
-            LiveData.api.unsubscribeByID(proposal.id);
+            const proposalID = proposal.id;
+            LiveData.api.unsubscribeByID(proposalID);
         }
         LiveData.api.subscribeToPriceForContractProposal(opts.toJS());
     };
@@ -97,9 +98,9 @@ export const updateTradeParams = (id, fieldName, fieldValue) => {
     };
 };
 
-export const updatePriceProposalSubscription = (tradeId, trade) =>
+export const updatePriceProposalSubscription = (tradeID, trade) =>
     (dispatch, getState) => {
-        const tradeObj = trade ? trade : getState().trades.get(tradeId).toJS();
+        const tradeObj = trade ? trade : getState().trades.get(tradeID).toJS();
         const currency = getState().account.get('currency');
         const {
             amount,
@@ -127,7 +128,8 @@ export const updatePriceProposalSubscription = (tradeId, trade) =>
         const b2 = barrier2 && (barrierType === 'relative' ? numberToSignedString(barrier2) : barrier2);
 
         if (proposal) {
-            LiveData.api.unsubscribeByID(proposal.id);
+            const proposalID = proposal.id;
+            LiveData.api.unsubscribeByID(proposalID);
         }
         LiveData.api.subscribeToPriceForContractProposal({
             amount,
@@ -144,24 +146,29 @@ export const updatePriceProposalSubscription = (tradeId, trade) =>
             stop_type: stopType,
             stop_profit: stopProfit,
             stop_loss: stopLoss,
-        }).then(response => {
-            dispatch(updateTradeParams(tradeId, 'proposalError', undefined));
-            dispatch(updateTradeParams(tradeId, 'proposal', response.proposal));
-        }).catch(err => {
-            dispatch(updateTradeParams(tradeId, 'proposalError', err));
-            dispatch(updateTradeParams(tradeId, 'proposal', undefined));
-        });
+        }).then(
+            response => {
+                dispatch(updateTradeParams(tradeID, 'proposalError', undefined));
+                dispatch(updateTradeParams(tradeID, 'proposal', response.proposal));
+            },
+            err => {
+                dispatch(updateTradeParams(tradeID, 'proposalError', err));
+                dispatch(updateTradeParams(tradeID, 'proposal', undefined));
+            }
+        );
     };
 
-export const purchaseByTradeId = (tradeId, trade) =>
+export const purchaseByTradeID = (tradeID, trade) =>
     (dispatch, getState) => {
-        const tradeSelected = trade ? trade : getState().trades.get(tradeId).toJS();
+        const tradeSelected = trade ? trade : getState().trades.get(tradeID).toJS();
         trackEvent('buy-contract', tradeSelected);
-        const proposalId = tradeSelected.proposal.id;
+        const proposalID = tradeSelected.proposal.id;
         const price = tradeSelected.proposal.ask_price;
-        dispatch(updateTradeParams(tradeId, 'buying', true));
-        LiveData.api.buyContract(proposalId, price)
-            .then(response => dispatch(updateTradeParams(tradeId, 'receipt', response.buy)))
-            .catch(err => dispatch(updateTradeParams(tradeId, 'buy_error', err)))
-            .then(() => dispatch(updateTradeParams(tradeId, 'buying', false)));
+        dispatch(updateTradeParams(tradeID, 'buying', true));
+        LiveData.api.buyContract(proposalID, price)
+            .then(
+                response => dispatch(updateTradeParams(tradeID, 'receipt', response.buy)),
+                err => dispatch(updateTradeParams(tradeID, 'buy_error', err))
+            )
+            .then(() => dispatch(updateTradeParams(tradeID, 'buying', false)));
     };
