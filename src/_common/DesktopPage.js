@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { DesktopHeader } from '../navigation';
 import LoadingView from '../_common/LoadingView';
 
-@connect(state => ({ isAuthorized: state.appInfo.get('authorized') }))
+@connect(state => ({ isAuthorized: state.appState.get('authorized') }))
 export default class DesktopPage extends React.Component {
 	static propTypes = {
 		children: PropTypes.any,
