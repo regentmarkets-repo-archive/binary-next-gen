@@ -6,7 +6,7 @@
     "test:eslint": "webpack --config webpack.config.dev.js",
     "test:unit": "mocha --compilers js:babel-core/register ./src/**/__tests__/*.js",
     "test:watch": "npm test -- --watch",
-    "test:coverage": "babel-node ./node_modules/istanbul/lib/cli cover ./node_modules/mocha/bin/_mocha ./src/_common/__tests__/*.js",
+    "test:coverage": "babel-node ./node_modules/.bin/babel-istanbul cover ./node_modules/.bin/_mocha ./src/**/__tests__/*.js",
     "start": "node server.js",
     "build": "npm run clean && npm run build:webpack",
     "translate": "bash fetch-translation.sh"
@@ -53,6 +53,7 @@
   "devDependencies": {
     "babel-core": "^6.4.0",
     "babel-eslint": "^5.0.0-beta6",
+    "babel-istanbul": "^0.6.0",
     "babel-loader": "^6.2.1",
     "babel-plugin-react-intl": "^2.0.0",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
@@ -67,7 +68,7 @@
     "expect": "^1.13.4",
     "expect-jsx": "^2.2.2",
     "express": "^4.13.3",
-    "istanbul": "^0.4.2",
+    "isparta": "^4.0.0",
     "json-loader": "^0.5.4",
     "mocha": "^2.3.4",
     "react-addons-perf": "^0.14.6",
