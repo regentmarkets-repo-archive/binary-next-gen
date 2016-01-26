@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component, PropTypes, Children } from 'react';
 import { connect } from 'react-redux';
 import LoadingView from '../loading-view/LoadingView';
 
@@ -13,7 +13,7 @@ export default class AppInfoProxy extends Component {
         const { connected } = this.props.appInfo;
         //console.log(this.props);
         return (connected ?
-            this.props.children :
+            Children.only(this.props.children) :
             <LoadingView text={'Connecting taking too long, you might be offline.'}/>);
     }
 }

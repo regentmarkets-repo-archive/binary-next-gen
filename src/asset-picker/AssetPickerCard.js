@@ -30,7 +30,7 @@ export default class AssetPickerCard extends React.Component {
 			actions.getTradingOptions(newAsset);
 			history.goBack();
 		} else {
-			const oldAsset = workspace.get('symbolSelected');
+			const oldAsset = workspace.symbolSelected;
 			actions.selectAssetSymbolForTrade(newAsset, oldAsset);
 			actions.getTradingOptions(newAsset);
 		}
@@ -56,8 +56,8 @@ export default class AssetPickerCard extends React.Component {
 		const shownAssets = assetPicker.shownAssets;
 		const searchableAssets = assets.filter(x =>
 			!showOnlyTickTradable ||
-			x.get('market_display_name') === 'Forex' ||
-			x.get('market_display_name') === 'Randoms'
+			x.market_display_name === 'Forex' ||
+			x.market_display_name === 'Randoms'
 		);
 
 		const selectedSymbol = idSymbolMap[id];
