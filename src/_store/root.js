@@ -27,8 +27,14 @@ export default class Root extends React.Component {
         rehydratedStorePromise.then(st => {
             LiveData.connect(st);
             tryAuth(st)
-                .then(() => st.dispatch(AllActions.updateAppState('connected', true)))
-                .catch(() => st.dispatch(AllActions.updateAppState('connected', true)));
+                .then(
+                    () => {
+                        st.dispatch(AllActions.updateAppState('connected', true));
+                    },
+                    () => {
+                        st.dispatch(AllActions.updateAppState('connected', true));
+                    }
+                );
         });
     }
 

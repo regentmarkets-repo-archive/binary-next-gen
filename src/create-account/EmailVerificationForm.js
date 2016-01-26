@@ -24,9 +24,10 @@ export default class EmailVerificationForm extends React.Component {
             residence: createAccount.get('residence'),
             verification_code: createAccount.get('verificationCode'),
         })
-            .then(() => history.push('/signin'))
-            .catch(err => actions.createAccountFailed(err))
-            .then(() => actions.createAccountFieldUpdate('progress', false));
+            .then(
+                () => history.push('/signin'),
+                err => actions.createAccountFailed(err)
+            ).then(() => actions.createAccountFieldUpdate('progress', false));
     }
 
     render() {

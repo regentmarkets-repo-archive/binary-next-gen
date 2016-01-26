@@ -7,7 +7,7 @@ import { trackUserId } from '../_utils/Analytics';
 export const tryAuth = (st) => {
     const newState = st.getState();
     if (!newState.account) {
-        return LiveData.api.ping();
+        return Promise.reject();
     }
 
     const token = newState.account.get('token');
@@ -23,19 +23,18 @@ export const tryAuth = (st) => {
     if (!token) {
         actions.signinFieldUpdate('progress', false);
         actions.signinFieldUpdate('tokenNotEntered', true);
-        return LiveData.api.ping();
+        return Promise.reject();
     }
 
     actions.updateAppState('authorized', false);
-    return LiveData.api.authorize(token).then(
-        response => {
-            actions.signinFieldUpdate('credentialsInvalid', false);
-            trackUserId(response.authorize.loginid);
-            actions.updateAppState('authorized', true);
-        },
-        () => {
-            actions.signinFieldUpdate('credentialsInvalid', true);
-        })
+    return LiveData.api.authorize(token)
+        .then(
+            response => {
+                actions.signinFieldUpdate('credentialsInvalid', false);
+                trackUserId(response.authorize.loginid);
+                actions.updateAppState('authorized', true);
+            },
+            () => actions.signinFieldUpdate('credentialsInvalid', true))
         .then(() => {
             actions.signinFieldUpdate('progress', false);
         });
