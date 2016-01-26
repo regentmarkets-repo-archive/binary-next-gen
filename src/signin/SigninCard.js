@@ -31,7 +31,7 @@ export default class SigninCard extends React.Component {
 		actions.signinFieldUpdate('validatedOnce', true);
 		LiveData.api.authorize(token).then(
 			() => {
-				actions.updateAppInfo('authorized', true);
+				actions.updateAppState('authorized', true);
 				history.push('/');
 			},
 			() => actions.signinFieldUpdate('credentialsInvalid', true)

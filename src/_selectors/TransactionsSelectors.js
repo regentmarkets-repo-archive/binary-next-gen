@@ -44,7 +44,7 @@ export const transactionsTotalSelector = createSelector(
     transactions =>
         transactions
             .map(t => +t.amount)
-            .reduce((x, y) => x + y, 0),
+            .reduce((x, y) => x + y, 0)
 );
 
 export default createStructuredSelector({

@@ -1,5 +1,6 @@
 export * from './AccountActions';
-export * from './AppInfoActions';
+export * from './AppConfigActions';
+export * from './AppStateActions';
 export * from './AssetsActions';
 export * from './AssetPickerActions';
 export * from './PortfolioActions';
