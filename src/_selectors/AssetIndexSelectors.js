@@ -9,6 +9,7 @@ export const indexTradeTypesSelector = createSelector(
     assetIndexSelector,
     index =>
         index
+            .filter(symbols => symbols[2])
             .map(symbols => symbols[2].map(type => type[1]))
             .reduce((prv, curr) => prv.concat(curr))
 );

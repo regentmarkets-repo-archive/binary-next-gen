@@ -5,21 +5,15 @@ import { indexTypeExtraction } from '../_selectors/AssetIndexSelectors';
 export default class AssetIndexTable extends React.Component {
 
     static propTypes = {
-        submarketName: PropTypes.string.isRequired,
         index: PropTypes.array.isRequired,
     };
 
     render() {
-        const { submarketName, index } = this.props;
+        const { index } = this.props;
 
         return (
             <table>
                 <thead>
-                    <tr>
-                        <th colSpan="100">
-                        {submarketName}
-                        </th>
-                    </tr>
                     {index[0] &&
                     <tr>
                         <th></th>

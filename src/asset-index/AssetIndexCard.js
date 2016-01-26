@@ -9,7 +9,7 @@ export default class AssetIndexCard extends React.Component {
 		assets: PropTypes.array.isRequired,
 		assetIndex: PropTypes.array.isRequired,
 		indexTradeTypes: PropTypes.array.isRequired,
-		submarket: PropTypes.object.isRequired,
+		submarket: PropTypes.string.isRequired,
 	};
 
 	render() {
@@ -23,7 +23,6 @@ export default class AssetIndexCard extends React.Component {
 					value={submarket}
 				/>
 				<AssetIndexTable
-					submarketName={submarket.name}
 					index={assetIndex}
 					indexTradeTypes={indexTradeTypes}
 				/>

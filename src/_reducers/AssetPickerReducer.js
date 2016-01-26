@@ -18,16 +18,19 @@ const initialState = fromJS({
 export const similarStr = (str1 = '', str2 = '') =>
     str1.toLowerCase().includes(str2.toLowerCase());
 
+const matcher = (asset, query, submarket) =>
+    (submarket === '' ||
+        submarket === asset.submarket_display_name) &&
+    (query.trim() === '' ||
+        similarStr(asset.symbol, query) ||
+        similarStr(asset.display_name, query) ||
+        similarStr(asset.market_display_name, query) ||
+        similarStr(asset.submarket_display_name, query));
+
 const doFilter = (assetPickerList, query, markets, submarket) =>
-    assetPickerList.filter(asset =>
-        (submarket === '' ||
-            submarket === asset.submarket_display_name) &&
-        (query.trim() === '' ||
-            similarStr(asset.symbol, query) ||
-            similarStr(asset.display_name, query) ||
-            similarStr(asset.market_display_name, query) ||
-            similarStr(asset.submarket_display_name, query))
-    ).sort((x1, x2) => x1.display_name.localeCompare(x2.display_name));
+    assetPickerList
+        .filter(asset => matcher(asset, query, submarket))
+        .sort((x1, x2) => x1.display_name.localeCompare(x2.display_name));
 
 const hasTick = assets =>
     assets
