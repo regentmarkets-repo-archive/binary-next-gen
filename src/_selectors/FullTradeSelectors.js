@@ -1,9 +1,18 @@
-import { createStructuredSelector } from 'reselect';
+import { createSelector, createStructuredSelector } from 'reselect';
 import { List } from 'immutable';
 import { durationUnits } from '../_constants/TradeParams';
 import { groupByKey } from '../_utils/ArrayUtils';
 import { durationToSecs } from '../_utils/TradeUtils';
-import { epochToUTCTimeString, nowAsEpoch, timeStringBigger, timeStringSmaller } from '../_utils/DateUtils';
+import {
+    epochToUTCTimeString,
+    nowAsEpoch,
+    timeStringBigger,
+    timeStringSmaller,
+    splitSecsToUnits,
+} from '../_utils/DateUtils';
+import { assetsSelector, marketTreeSelector } from './AssetSelectors';
+
+import { tradingTimesSelector } from './TradingTimesSelectors';
 
 const normalizedContractFor = contracts => {
     const extraRemoved = contracts.map(contract => ({
@@ -79,56 +88,33 @@ const extractBarrier = (contracts, type) => {
 
     const groupByExpiryType = groupByKey(contracts, 'expiry_type');
     switch (type) {
-        case 'CALL': {
+        case 'CALL':
             return extract1BarrierHelper(groupByExpiryType, 'Higher than');
-        }
-        case 'PUT': {
+        case 'PUT':
             return extract1BarrierHelper(groupByExpiryType, 'Lower than');
-        }
-        case 'ASIANU': {
+        case 'ASIANU':
+        case 'ASIAND':
             return undefined;
-        }
-        case 'ASIAND': {
+        case 'DIGITMATCH':
+        case 'DIGITDIFF':
+            return extractDigitBarrierHelper(groupByExpiryType);
+        case 'DIGITODD':
+        case 'DIGITEVEN':
             return undefined;
-        }
-        case 'DIGITMATCH': {
+        case 'DIGITOVER':
+        case 'DIGITUNDER':
             return extractDigitBarrierHelper(groupByExpiryType);
-        }
-        case 'DIGITDIFF': {
-            return extractDigitBarrierHelper(groupByExpiryType);
-        }
-        case 'DIGITODD': {
-            return undefined;
-        }
-        case 'DIGITEVEN': {
-            return undefined;
-        }
-        case 'DIGITOVER': {
-            return extractDigitBarrierHelper(groupByExpiryType);
-        }
-        case 'DIGITUNDER': {
-            return extractDigitBarrierHelper(groupByExpiryType);
-        }
-        case 'EXPIRYMISS': {
+        case 'EXPIRYMISS':
+        case 'EXPIRYRANGE':
+        case 'RANGE':
+        case 'UPORDOWN':
             return extract2BarriersHelper(groupByExpiryType);
-        }
-        case 'EXPIRYRANGE': {
-            return extract2BarriersHelper(groupByExpiryType);
-        }
-        case 'RANGE': {
-            return extract2BarriersHelper(groupByExpiryType);
-        }
-        case 'UPORDOWN': {
-            return extract2BarriersHelper(groupByExpiryType);
-        }
-        case 'ONETOUCH': {
+        case 'ONETOUCH':
+        case 'NOTOUCH':
             return extract1BarrierHelper(groupByExpiryType, 'Touch spot');
-        }
-        case 'NOTOUCH': {
-            return extract1BarrierHelper(groupByExpiryType, 'Touch spot');
-        }
-        case 'SPREADU': return undefined;
-        case 'SPREADD': return undefined;
+        case 'SPREADU':
+        case 'SPREADD':
+            return undefined;
         default: {
             throw new Error('Unknown trading type');
         }
@@ -141,17 +127,9 @@ const durationSecHelper = duration => {
     return durationToSecs(d, u);
 };
 
-const secsToDifferentUnit = sec => {
-    const minute = Math.floor(sec / 60);
-    const hour = Math.floor(minute / 60);
-    const day = Math.floor(hour / 24);
-
-    return [sec, minute, hour, day];
-};
-
 const minMaxInUnits = (min, max) => {
-    const minInUnits = secsToDifferentUnit(min);
-    const maxInUnits = secsToDifferentUnit(max);
+    const minInUnits = splitSecsToUnits(min);
+    const maxInUnits = splitSecsToUnits(max);
     const durations = [];
     for (let i = 0; i < minInUnits.length; i++) {
         const unit = durationUnits[i + 1];
@@ -245,23 +223,12 @@ const extractSpreadInfo = contracts => {
  * list of min, max, unit [{ min, max, unit}]
  * list of [{barrier_name, barrier_default}]
 */
-const contractAggregation = (contracts, type) => {
-    const barriers = extractBarrier(contracts, type);
-    const durations = extractDuration(contracts, type);
-    const forwardStartingDuration = extractForwardStartingDuration(contracts, type);
-
-    let spread = undefined;
-    if (type.indexOf('SPREAD') > -1) {
-        spread = extractSpreadInfo(contracts);
-    }
-
-    return {
-        barriers,
-        durations,
-        forwardStartingDuration,
-        spread,
-    };
-};
+const contractAggregation = (contracts, type) => ({
+    barriers: extractBarrier(contracts, type),
+    durations: extractDuration(contracts, type),
+    forwardStartingDuration: extractForwardStartingDuration(contracts, type),
+    spread: (type.indexOf('SPREAD') > -1) ? extractSpreadInfo(contracts) : null,
+});
 
 const contractsSelector = state => {
     const allContracts = state.tradingOptions.map(symbol => {
@@ -281,43 +248,47 @@ const contractsSelector = state => {
 
 export const tradesSelector = state => state.trades.toJS();
 
-const assetsSelector = state => {
-    const symbolsToArray = sym => sym.map((v, k) => ({ text: v.get('display_name'), value: k }));
-    const submarketsToSymbols = submarkets =>
-        submarkets.reduce((r, v) =>
-            r.concat(symbolsToArray(v.get('symbols'))),
-            List.of()
-        );
-    const marketToSymbols = markets => markets.map(m => {
-        const s = submarketsToSymbols(m.get('submarkets'));
-        return s;
+const availableAssetsFilter = (assets, times, now) => {
+    const nowInTimeString = epochToUTCTimeString(now);
+    const availabilities = {};
+    times.forEach(s => {
+        if (!s.times) {
+            return;
+        }
+        const open = s.times.open[0];
+        const close = s.times.close[0];
+
+        // assuming close time is larger than open time
+        if (timeStringBigger(nowInTimeString, open) && timeStringSmaller(nowInTimeString, close)) {
+            availabilities[s.symbol] = true;
+        }
     });
-    const availableAssetsFilter = (assets, times, now) => {
-        const nowInTimeString = epochToUTCTimeString(now);
-        const availabilities = {};
-        times.forEach(s => {
-            if (!s.times) {
-                return;
-            }
-            const open = s.times.open[0];
-            const close = s.times.close[0];
-
-            // assuming close time is larger than open time
-            if (timeStringBigger(nowInTimeString, open) && timeStringSmaller(nowInTimeString, close)) {
-                availabilities[s.symbol] = true;
-            }
-        });
-        const availableAssets = assets.map(symbols => symbols.filter(s => availabilities[s.value]));
-        return availableAssets;
-    };
-
-    const wholeTree = state.assets.get('tree');
-    const timesObj = state.assets.get('times').toJS();
-    const structuredSymbols = marketToSymbols(wholeTree);
-    const filteredAvailableAssets = availableAssetsFilter(structuredSymbols, timesObj, nowAsEpoch()).toJS();
-
-    return filteredAvailableAssets;
+    const availableAssets = assets.map(symbols => symbols.filter(s => availabilities[s.value]));
+    return availableAssets;
 };
+
+const symbolsToArray = sym =>
+    sym.map((v, k) => ({
+        text: v.get('display_name'),
+        value: k,
+    }));
+
+const submarketsToSymbols = submarkets =>
+    submarkets.reduce((r, v) =>
+        r.concat(symbolsToArray(v.get('symbols'))),
+        List.of()
+    );
+
+const marketToSymbols = markets =>
+    markets.map(m =>
+        submarketsToSymbols(m.get('submarkets'))
+    );
+
+const availableAssetsSelector = createSelector(
+    [assetsSelector, tradingTimesSelector, marketTreeSelector],
+    (assets, tradingTimes, marketTree) =>
+        availableAssetsFilter(marketToSymbols(marketTree), tradingTimes, nowAsEpoch()).toJS()
+);
 
 const ticksSelector = state => state.ticks.toJS();
 
@@ -326,7 +297,7 @@ const currencySelector = state => state.account.get('currency');
 export const fullTradesSelector = createStructuredSelector({
     contracts: contractsSelector,
     trades: tradesSelector,
-    assets: assetsSelector,
+    assets: availableAssetsSelector,
     ticks: ticksSelector,
     currency: currencySelector,
 });

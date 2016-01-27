@@ -31,7 +31,7 @@ describe('AssetIndexSelectors', () => {
         it('should be initialized successfully', () => {
             const actual = assetIndexSelectors({
                 assetIndex: [
-                    [[], [], []]
+                    ['', '', [[], []]]
                 ],
                 workspace: {
                     assetIndex: 0
