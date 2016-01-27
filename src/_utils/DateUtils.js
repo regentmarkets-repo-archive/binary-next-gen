@@ -14,7 +14,7 @@ export const epochToDate = epoch =>
     new Date(epoch * 1000);
 
 export const dateToEpoch = date =>
-    date.getTime() / 1000;
+    Math.floor(date.getTime() / 1000);
 
 export const epochToDateString = epoch =>
     dateToDateString(epochToDate(epoch));
@@ -22,8 +22,24 @@ export const epochToDateString = epoch =>
 export const dateToTimeString = date =>
     dateAsLocalISOString(date).slice(11, 19);
 
+export const dateToUTCTimeString = date =>
+    date.toISOString().slice(11, 19);
+
 export const epochToTimeString = epoch =>
     dateToTimeString(new Date(epoch * 1000));
+
+export const epochToUTCTimeString = epoch => {
+    const d = new Date(epoch * 1000);
+    return d.toISOString().slice(11, 19);
+};
+
+// only supported format = "09:20", seconds are not supported
+export const timeStringToSeconds = timeString => {
+    const h = +timeString.slice(0, 2);
+    const m = +timeString.slice(3, 5);
+
+    return (h * 3600) + (m * 60);
+};
 
 export const todayString = () =>
     dateToDateString(new Date());

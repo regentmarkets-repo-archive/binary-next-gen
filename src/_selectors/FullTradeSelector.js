@@ -3,7 +3,7 @@ import { List } from 'immutable';
 import { durationUnits } from '../_constants/TradeParams';
 import { groupByKey } from '../_utils/ArrayUtils';
 import { durationToSecs } from '../_utils/TradeUtils';
-import { epochToTimeString, nowAsEpoch, timeStringBigger, timeStringSmaller } from '../_utils/DateUtils';
+import { epochToUTCTimeString, nowAsEpoch, timeStringBigger, timeStringSmaller } from '../_utils/DateUtils';
 
 const normalizedContractFor = contracts => {
     const extraRemoved = contracts.map(contract => ({
@@ -15,6 +15,7 @@ const normalizedContractFor = contracts => {
         contract_display: contract.contract_display,
         contract_type: contract.contract_type,
         expiry_type: contract.expiry_type,
+        forward_starting_options: contract.forward_starting_options,
         high_barrier: contract.high_barrier,
         last_digit_range: contract.last_digit_range,
         low_barrier: contract.low_barrier,
@@ -164,7 +165,7 @@ const minMaxInUnits = (min, max) => {
     return durations;
 };
 
-const extractDuration = (contracts, type) => {
+const extractDurationHelper = (contracts, type) => {
     if (type.indexOf('SPREAD') > -1) {
         return [];
     }
@@ -192,6 +193,38 @@ const extractDuration = (contracts, type) => {
     return nonTicksDuration;
 };
 
+const extractForwardStartingDuration = (contracts, type) => {
+    const forwardStartingContracts = contracts.filter(c => !!c.forward_starting_options);
+    if (forwardStartingContracts.length === 0) {
+        return undefined;
+    }
+
+    if (forwardStartingContracts.length > 1) {
+        throw new Error('Assumption broken, more than one contract with forward starting options');
+    }
+
+    const forwardStartingRange = forwardStartingContracts[0].forward_starting_options
+        .map(obj => {
+            const open = new Date(obj.open * 1000);
+            const close = new Date(obj.close * 1000);
+            const date = new Date(obj.date * 1000);
+            return { open, close, date };
+        });
+
+    const forwardStartingDurations = extractDurationHelper(forwardStartingContracts, type);
+    return {
+        range: forwardStartingRange,
+        options: forwardStartingDurations,
+    };
+};
+
+const extractDuration = (contracts, type) => {
+    // const forwardStartingDuration = contracts.filter(c => !!c.forward_starting_options);
+    const nonForwardStartingContracts = contracts.filter(c => !c.forward_starting_options);
+
+    return extractDurationHelper(nonForwardStartingContracts, type);
+};
+
 const extractSpreadInfo = contracts => {
     const amountPerPoint = contracts[0].amount_per_point;
     const stopType = contracts[0].stop_type;
@@ -215,6 +248,7 @@ const extractSpreadInfo = contracts => {
 const contractAggregation = (contracts, type) => {
     const barriers = extractBarrier(contracts, type);
     const durations = extractDuration(contracts, type);
+    const forwardStartingDuration = extractForwardStartingDuration(contracts, type);
 
     let spread = undefined;
     if (type.indexOf('SPREAD') > -1) {
@@ -224,6 +258,7 @@ const contractAggregation = (contracts, type) => {
     return {
         barriers,
         durations,
+        forwardStartingDuration,
         spread,
     };
 };
@@ -258,7 +293,7 @@ const assetsSelector = state => {
         return s;
     });
     const availableAssetsFilter = (assets, times, now) => {
-        const nowInTimeString = epochToTimeString(now);
+        const nowInTimeString = epochToUTCTimeString(now);
         const availabilities = {};
         times.forEach(s => {
             if (!s.times) {
@@ -272,8 +307,6 @@ const assetsSelector = state => {
                 availabilities[s.symbol] = true;
             }
         });
-        console.log('n', nowInTimeString);
-        console.log('a', availabilities);
         const availableAssets = assets.map(symbols => symbols.filter(s => availabilities[s.value]));
         return availableAssets;
     };

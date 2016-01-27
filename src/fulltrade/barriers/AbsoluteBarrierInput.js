@@ -1,28 +1,27 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { InputGroup } from '../_common';
 
-export default class BarrierInput extends Component {
+export default class AbsoluteBarrierInput extends Component {
     static propTypes = {
         name: PropTypes.string.isRequired,
         onChange: PropTypes.func,
         defaultValue: PropTypes.any,
         onUnmount: PropTypes.func,
         value: PropTypes.number,
-        spot: PropTypes.number,
     };
 
     render() {
-        const { name, onChange, value, spot } = this.props;
+        const { name, onChange, value } = this.props;
         return (
             <div>
                 <InputGroup
-                    label={name + ' offset'}
+                    label={name}
                     type="number"
                     onChange={onChange}
                     value={value}
                 />
-                {spot && <p>{`Target spot: ${spot + value}`}</p>}
             </div>
         );
     }
 }
+

@@ -1,11 +1,13 @@
 import React, { PropTypes, Component } from 'react';
-import { RadioGroup, InputGroup } from '../_common';
+import { RadioGroup, InputGroup } from '../../_common';
+import CollapsibleFormSnippet from '../../_common/CollapsibleFormSnippet';
 
 export default class SpreadBarrierCard extends Component {
     static propTypes = {
         amountPerPoint: PropTypes.number,
         amountPerPointChange: PropTypes.func,
         currency: PropTypes.string,
+        id: PropTypes.string,
         stopLoss: PropTypes.number,
         stopLossChange: PropTypes.func,
         stopProfit: PropTypes.number,
@@ -19,6 +21,7 @@ export default class SpreadBarrierCard extends Component {
         const {
             amountPerPointChange,
             currency,
+            id,
             stopProfitChange,
             stopLossChange,
             stopTypeChange,
@@ -29,7 +32,7 @@ export default class SpreadBarrierCard extends Component {
         const stopTypeOptions = [{ text: 'Points', value: 'point' }, { text: currency, value: 'dollar' }];
         return (
             spreadInfo ?
-                <div>
+                <CollapsibleFormSnippet label="Spreads" show>
                     <InputGroup
                         type="number"
                         label={`Amount per point (${currency})`}
@@ -37,7 +40,7 @@ export default class SpreadBarrierCard extends Component {
                         onChange={amountPerPointChange}
                     />
                     <RadioGroup
-                        name="spread-param"
+                        name={'spread-param' + id}
                         options={stopTypeOptions}
                         value={stopType || spreadInfo.stopType}
                         onChange={stopTypeChange}
@@ -54,7 +57,7 @@ export default class SpreadBarrierCard extends Component {
                         defaultValue={spreadInfo.stopProfit}
                         onChange={stopProfitChange}
                     />
-                </div> :
+                </CollapsibleFormSnippet> :
                 <div/>
         );
     }

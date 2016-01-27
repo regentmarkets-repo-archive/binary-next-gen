@@ -46,7 +46,7 @@ body {
     margin-right: .5rem;
 }
 
-.left-panel, .right-panel, .#bottom-panel {
+.left-panel, .right-panel, .bottom-panel {
     overflow: auto;
 }
 
@@ -581,4 +581,49 @@ select {
 .balance {
     font-size: 1.5rem;
     line-height: 2 !important;
+}
+
+/* Start of hack, mimic radio group using button */
+.radio-button {
+    flex: 1;
+    color: rgba(64, 68, 72, 1);
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.selected-radio.radio-button {
+    background-color: #2a3052;
+    border-radius: 2px;
+    color: white;
+}
+
+.radio-button:hover {
+    box-shadow: none!important;
+}
+/* Start of hack, mimic radio group using button */
+
+.snippet {
+    outline-style: solid;
+    outline-color: rgba(233, 168, 36, 1);
+    padding: 10px;
+    margin: 10px;
+}
+
+.collapsible .focusable:focus + .collapsed {
+    display: block;
+}
+
+.focusable {
+    display: block;
+    cursor: pointer;
+}
+
+.focusable:hover {
+    color: blue;
+    cursor: pointer;
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 5px;
 }
