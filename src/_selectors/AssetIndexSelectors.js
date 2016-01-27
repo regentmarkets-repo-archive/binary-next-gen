@@ -5,40 +5,45 @@ import { toPlainJS } from '../_utils/ObjectUtils';
 
 export const assetIndexSelector = state => toPlainJS(state.assetIndex);
 
-export const submarketForAsset = (assets, symbol) =>
-    assets.find(x => x.symbol === symbol).submarket;
+export const assetSymbolsInSubmarket = (assets, submarket) =>
+    assets
+        .reduce((symbols, asset) => {
+            if (asset.submarket === submarket) {
+                symbols.push(asset.symbol);
+            }
+            return symbols;
+        }, []);
 
 export const shownAssetIndexRowsSelector = createSelector(
     [assetsSelector, assetIndexSubmarketSelector, assetIndexSelector],
-    (assets, submarket, assetIndex) =>
-        assetIndex
-            .filter(a => submarketForAsset(assets, a[0]) === submarket.id)
+    (assets, submarket, assetIndex) => {
+        const symbols = assetSymbolsInSubmarket(assets, submarket);
+        return assetIndex
+            .filter(a => symbols.some(x => x === a[0]));
+    },
 );
 
 export const assetIndexHeadersSelector = createSelector(
     shownAssetIndexRowsSelector,
     shownAssetIndexRows =>
-        shownAssetIndexRows.map(col => col[1])
+        shownAssetIndexRows
+            .reduce((acc, row) =>
+                (acc[2].length > row[2].length ? acc : row), ['', '', []])[2]
+            .map(x => x[1])
 );
 
-export const indexTradeTypesSelector = createSelector(
-    assetIndexSelector,
-    index =>
-        index.length === 0 ?
-            [] :
-            index
-                .filter(symbols => symbols[2])
-                .map(symbols => symbols[2].map(type => type[1]))
-                .reduce((prv, curr) => prv.concat(curr))
-);
+const assetIndexRowToDuration = row =>
+    row ? `${row[2]}–${row[3]}` : '—';
 
 export const durationsSelector = createSelector(
-    shownAssetIndexRowsSelector,
-    shownAssetIndexRows =>
+    [shownAssetIndexRowsSelector, assetIndexHeadersSelector],
+    (shownAssetIndexRows, headers) =>
         shownAssetIndexRows
             .map(assetIndexRow => ({
                 assetName: assetIndexRow[1],
-                times: assetIndexRow[2].map(x => x[2] + ' _ ' + x[3]),
+                times: headers.map((header, idx) =>
+                    assetIndexRowToDuration(assetIndexRow[2][idx])
+                ),
             }))
 );
 
