@@ -1,33 +1,32 @@
 import React, { PropTypes } from 'react';
 import AssetIndexRow from './AssetIndexRow';
-import { indexTypeExtraction } from '../_selectors/AssetIndexSelectors';
 
 export default class AssetIndexTable extends React.Component {
 
     static propTypes = {
-        index: PropTypes.array.isRequired,
+        headers: PropTypes.array.isRequired,
+        durations: PropTypes.array.isRequired,
     };
 
     render() {
-        const { index } = this.props;
+        const { headers, durations } = this.props;
 
         return (
             <table>
                 <thead>
-                    {index[0] &&
                     <tr>
                         <th></th>
-                        {index.map((typeName, key) =>
-                            <th key={key}>{typeName}</th>
+                        {headers.map((assetName, idx) =>
+                            <th key={idx}>{assetName}</th>
                         )}
-                    </tr>}
+                    </tr>
                 </thead>
                 <tbody>
-                    {index.map(idx =>
+                    {durations.map((duration, idx) =>
                         <AssetIndexRow
                             key={idx}
-                            assetIndex={idx}
-                            header={indexTypeExtraction(index).toJS()}
+                            assetName={duration.assetName}
+                            times={duration.times}
                         />
                     )}
                 </tbody>
