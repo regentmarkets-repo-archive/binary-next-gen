@@ -18,11 +18,15 @@ describe('AssetIndexSelectors', () => {
     describe('durationsSelector', () => {
         it('should be retrieved', () => {
             const actual = durationsSelector({
+                assets: [],
                 assetIndex: [
-                    [[], [], []]
+                    ['', '', [[], []]]
                 ],
+                workspace: {
+                    assetIndex: 0
+                },
             });
-            expect(actual).toEqual([[[], [], []]]);
+            expect(actual).toEqual([]);
         });
     });
 
@@ -30,6 +34,7 @@ describe('AssetIndexSelectors', () => {
     describe('assetIndexSelectors', () => {
         it('should be initialized successfully', () => {
             const actual = assetIndexSelectors({
+                assets: [],
                 assetIndex: [
                     ['', '', [[], []]]
                 ],
