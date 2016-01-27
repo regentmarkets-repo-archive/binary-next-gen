@@ -10,10 +10,11 @@
   ],
   "rules": {
     "react/jsx-no-bind": 0,
-
+    "prefer-template": 0,
+    "arrow-body-style": 0,
     "indent": [0, 4],
     "max-len": [1, 120, 4],
-    "id-length": [2, { min: 1 }],
+    "id-length": [2, { "min": 1 }],
 
     "comma-dangle": [2, "always-multiline"],
     "no-eq-null": 2,
@@ -21,7 +22,7 @@
     "no-nested-ternary": 2,
 
     "jsx-quotes": [2, "prefer-double"],
-    "react/jsx-indent-props": [0, 'tab'],
+    "react/jsx-indent-props": [0, "tab"],
     "react/jsx-no-undef": 2,
     "react/no-multi-comp": 0,
     "react/jsx-uses-react": 2,
