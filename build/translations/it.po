@@ -115,7 +115,8 @@ msgid "Withdrawal limits"
 msgstr "Limiti per i prelievi"
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
-msgstr "Il tuo limite di prelievo è di {limit} (o equivalente in altra valuta)."
+msgstr ""
+"Il tuo limite di prelievo è di {limit} (o equivalente in altra valuta)."
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
 msgstr "Hai già prelevato l'equivalente di EUR {drawn}."
@@ -202,3 +203,156 @@ msgstr "Cambio"
 
 msgid "Chart"
 msgstr "Grafico"
+
+#, fuzzy
+msgid "Purchase For"
+msgstr "Acquisto"
+
+msgid "Rise"
+msgstr ""
+
+msgid "Stake"
+msgstr ""
+
+msgid "Payout"
+msgstr ""
+
+msgid "Deposit"
+msgstr ""
+
+#, fuzzy
+msgid "Transactions"
+msgstr "Conferma del trade"
+
+msgid "Opens"
+msgstr ""
+
+msgid "Closes"
+msgstr ""
+
+msgid "Personal"
+msgstr ""
+
+msgid "General"
+msgstr ""
+
+#, fuzzy
+msgid "Trading Times"
+msgstr "Limiti del trading"
+
+#, fuzzy
+msgid "Asset Index"
+msgstr "Asset"
+
+msgid "Today"
+msgstr ""
+
+msgid "Yesterday"
+msgstr ""
+
+msgid "Tomorrow"
+msgstr ""
+
+msgid "Takeout"
+msgstr ""
+
+msgid "News"
+msgstr ""
+
+msgid "Resources"
+msgstr ""
+
+msgid "Last 7 Days"
+msgstr ""
+
+msgid "Last 30 Days"
+msgstr ""
+
+msgid "Daily Report"
+msgstr ""
+
+msgid "Up/Down"
+msgstr ""
+
+msgid "Touch/No Touch"
+msgstr ""
+
+msgid "Ends In/Out"
+msgstr ""
+
+msgid "Stays In/Goes Out"
+msgstr ""
+
+#, fuzzy
+msgid "Settles"
+msgstr "Impostazioni"
+
+msgid "Language"
+msgstr ""
+
+msgid "Color Theme"
+msgstr ""
+
+msgid "Light"
+msgstr ""
+
+msgid "Dark"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+#, fuzzy
+msgid "Date Of Birth"
+msgstr "Data di nascita"
+
+msgid "Country Of Residence"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "There are no transactions for selected period"
+msgstr ""
+
+msgid "Sell"
+msgstr ""
+
+msgid "Buy"
+msgstr ""
+
+msgid "Digit Even"
+msgstr ""
+
+msgid "Touches"
+msgstr ""
+
+msgid "Digit Over"
+msgstr ""
+
+msgid "Digit Match"
+msgstr ""
+
+msgid "Digit Under"
+msgstr ""
+
+msgid "Digit Odd"
+msgstr ""
+
+msgid "Digit Differs"
+msgstr ""
+
+msgid "No Touch"
+msgstr ""
+
+msgid "Fall"
+msgstr ""
+
+msgid "Asian Down"
+msgstr ""
+
+msgid "Asian Up"
+msgstr ""
+
+msgid "Search For Assets"
+msgstr ""

@@ -8,6 +8,8 @@ const sass = require('gulp-sass');
 const electron = require('gulp-atom-electron');
 const zip = require('gulp-vinyl-zip');
 const po2json = require('gulp-po2json');
+const rename = require('gulp-rename');
+const jsonTransform = require('gulp-json-transform');
 const through = require('through2');
 
 const files = {
@@ -16,6 +18,7 @@ const files = {
     static: ['../public/**/*', './config.xml', './electron.js'],
     sass: 'public/styles.sass',
     translations: './translations',
+    jsons: './translations/json',
 };
 
 process.env.NODE_ENV = 'production';
@@ -55,11 +58,28 @@ gulp.task('electron', ['download-electron'], () =>
         .pipe(zip.dest('./binary-app.zip'))
 );
 
-gulp.task('po2json', function () {
-    return gulp.src(files.translations + '/*.po')
+gulp.task('po2json', () =>
+    gulp.src(files.translations + '/*.po')
         .pipe(po2json())
-        .pipe(gulp.dest(files.js + '/_constants/po/'));
-});
+        .pipe(gulp.dest(files.jsons))
+);
+
+gulp.task('json2js', () =>
+    gulp.src(files.jsons + '/*.json')
+        .pipe(jsonTransform(json => {
+            const jsonString = JSON.stringify(json);
+            return 'export default ' + jsonString;
+        }))
+        .pipe(rename(path => {
+            path.dirname = '';
+            path.extname = '.js';
+        }))
+        .pipe(gulp.dest(files.js + '/_constants/po/'))
+);
+
+gulp.task('update-translation', callback =>
+    runSequence('po2json', 'json2js', callback)
+);
 
 gulp.task('deploy', ['build'], () =>
     gulp.src(files.dist + '/**/*')
