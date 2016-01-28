@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2015-12-18 17:01+0000\n"
-"Last-Translator: naofum <naofum@gmail.com>\n"
+"PO-Revision-Date: 2016-01-28 07:50+0000\n"
+"Last-Translator: Haruna Sekiya <hrnmyrn@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/ja/>\n"
 "Language: ja\n"
@@ -203,155 +203,149 @@ msgstr "変化値"
 msgid "Chart"
 msgstr "チャート"
 
-#, fuzzy
 msgid "Purchase For"
-msgstr "購入"
+msgstr "XXXを購入する"
 
 msgid "Rise"
-msgstr ""
+msgstr "ハイ"
 
 msgid "Stake"
-msgstr ""
+msgstr "Stake"
 
 msgid "Payout"
-msgstr ""
+msgstr "ペイアウト"
 
 msgid "Deposit"
-msgstr ""
+msgstr "ご入金"
 
-#, fuzzy
 msgid "Transactions"
-msgstr "トレード確定"
+msgstr "お取引"
 
 msgid "Opens"
-msgstr ""
+msgstr "オープン"
 
 msgid "Closes"
-msgstr ""
+msgstr "クローズ"
 
 msgid "Personal"
-msgstr ""
+msgstr "個人"
 
 msgid "General"
-msgstr ""
+msgstr "一般"
 
-#, fuzzy
 msgid "Trading Times"
-msgstr "トレードの上限について"
+msgstr "取引時間"
 
-#, fuzzy
 msgid "Asset Index"
-msgstr "取引対象"
+msgstr "資産インデックス"
 
 msgid "Today"
-msgstr ""
+msgstr "今日"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "昨日"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "明日"
 
 msgid "Takeout"
-msgstr ""
+msgstr "テイクアウト"
 
 msgid "News"
-msgstr ""
+msgstr "ニュース"
 
 msgid "Resources"
-msgstr ""
+msgstr "リソース"
 
 msgid "Last 7 Days"
-msgstr ""
+msgstr "直近7日間"
 
 msgid "Last 30 Days"
-msgstr ""
+msgstr "直近30日間"
 
 msgid "Daily Report"
-msgstr ""
+msgstr "デイリーレポート"
 
 msgid "Up/Down"
-msgstr ""
+msgstr "アップ/ダウン"
 
 msgid "Touch/No Touch"
-msgstr ""
+msgstr "タッチ/ノータッチ"
 
 msgid "Ends In/Out"
-msgstr ""
+msgstr "レンジ内/レンジ外"
 
 msgid "Stays In/Goes Out"
-msgstr ""
+msgstr "レンジ内/レンジ外に留まる"
 
-#, fuzzy
 msgid "Settles"
-msgstr "各種設定"
+msgstr "約定時間"
 
 msgid "Language"
-msgstr ""
+msgstr "言語"
 
 msgid "Color Theme"
-msgstr ""
+msgstr "テーマカラー"
 
 msgid "Light"
-msgstr ""
+msgstr "ライト"
 
 msgid "Dark"
-msgstr ""
+msgstr "ダーク"
 
 msgid "Name"
-msgstr ""
+msgstr "名前"
 
-#, fuzzy
 msgid "Date Of Birth"
 msgstr "生年月日"
 
 msgid "Country Of Residence"
-msgstr ""
+msgstr "居住国"
 
 msgid "Email"
-msgstr ""
+msgstr "Eメール"
 
 msgid "There are no transactions for selected period"
-msgstr ""
+msgstr "選択された期間のお取引はありません。"
 
 msgid "Sell"
-msgstr ""
+msgstr "転売"
 
 msgid "Buy"
-msgstr ""
+msgstr "購入"
 
 msgid "Digit Even"
-msgstr ""
+msgstr "数字も"
 
 msgid "Touches"
-msgstr ""
+msgstr "タッチ"
 
 msgid "Digit Over"
-msgstr ""
+msgstr "数字オーバー"
 
 msgid "Digit Match"
-msgstr ""
+msgstr "数字と一致"
 
 msgid "Digit Under"
-msgstr ""
+msgstr "数字オーバー"
 
 msgid "Digit Odd"
-msgstr ""
+msgstr "奇数"
 
 msgid "Digit Differs"
-msgstr ""
+msgstr "数字と異なる"
 
 msgid "No Touch"
-msgstr ""
+msgstr "ノータッチ"
 
 msgid "Fall"
-msgstr ""
+msgstr "ロー"
 
 msgid "Asian Down"
-msgstr ""
+msgstr "Asianダウン"
 
 msgid "Asian Up"
-msgstr ""
+msgstr "Asisnアップ"
 
 msgid "Search For Assets"
-msgstr ""
+msgstr "資産検索"
