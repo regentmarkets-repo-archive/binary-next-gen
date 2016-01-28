@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import config from 'json!../config.json';
+import config from '../config';
 import { Clock, LanguagePicker, NumberPlain } from '../_common';
 
 @connect(state => ({ account: state.account }))

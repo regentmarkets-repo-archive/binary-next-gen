@@ -1,6 +1,6 @@
 import { UPGRADE_FIELD_UPDATE, UPGRADE_DOB_UPDATE, UPGRADE_FIELD_CLEAR } from '../_constants/ActionTypes';
 import * as LiveData from '../_data/LiveData';
-import config from 'json!../config.json';
+import config from '../config.json';
 
 export const upgradeFieldUpdate = (fieldName, fieldValue) => ({
     type: UPGRADE_FIELD_UPDATE,
