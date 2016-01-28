@@ -55,7 +55,7 @@ export default (state = initialState, action) => {
             return state.update('tradingTimes', v => v.merge({ date: action.date }));
         }
         case UPDATE_ASSET_INDEX_SUBMARKET: {
-            return state.update('assetIndex', v => v.merge({ submarket: action.submarket }));
+            return state.update('assetIndex', v => v.merge({ submarketId: action.submarket }));
         }
         case UPDATE_WORKSPACE_FIELD: {
             return state.set(action.fieldName, action.fieldValue);
