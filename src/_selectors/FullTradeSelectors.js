@@ -258,8 +258,11 @@ const availableAssetsFilter = (assets, times, now) => {
         const open = s.times.open[0];
         const close = s.times.close[0];
 
-        // assuming close time is larger than open time
-        if (timeStringBigger(nowInTimeString, open) && timeStringSmaller(nowInTimeString, close)) {
+        // Assuming closing time is larger than open time
+        // TODO: some of Random does have time which does not fit into assumption
+        if (s.name.indexOf('Random') > -1) {
+            availabilities[s.symbol] = true;
+        } else if (timeStringBigger(nowInTimeString, open) && timeStringSmaller(nowInTimeString, close)) {
             availabilities[s.symbol] = true;
         }
     });
