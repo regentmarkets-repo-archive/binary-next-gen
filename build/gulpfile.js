@@ -67,7 +67,6 @@ gulp.task('po2json', () =>
 gulp.task('json2js', () =>
     gulp.src(files.jsons + '/*.json')
         .pipe(jsonTransform(json => {
-            console.log(json)
             const jsonString = JSON.stringify(json);
             return 'export default ' + jsonString;
         }))
