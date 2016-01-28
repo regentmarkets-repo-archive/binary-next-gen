@@ -69,6 +69,8 @@
     "eslint-plugin-react": "^3.16.1",
     "expect": "^1.13.4",
     "expect-jsx": "^2.2.2",
+    "express": "^4.13.3",
+    "isparta": "^4.0.0",
     "express": "^4.13.4",
     "istanbul": "^0.4.2",
     "isparta": "^4.0.0",
