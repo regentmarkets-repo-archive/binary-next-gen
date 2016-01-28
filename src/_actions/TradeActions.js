@@ -158,7 +158,7 @@ export const updatePriceProposalSubscription = (tradeID, trade) =>
         );
     };
 
-export const purchaseByTradeID = (tradeID, trade) =>
+export const purchaseByTradeId = (tradeID, trade) =>
     (dispatch, getState) => {
         const tradeSelected = trade ? trade : getState().trades.get(tradeID).toJS();
         trackEvent('buy-contract', tradeSelected);

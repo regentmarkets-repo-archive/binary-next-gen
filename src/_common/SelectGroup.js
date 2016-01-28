@@ -24,7 +24,7 @@ SelectGroup.propTypes = {
 	label: PropTypes.string,
 	onChange: PropTypes.func,
 	options: PropTypes.array,
-	optgroups: PropTypes.object,
+	optgroups: PropTypes.array,
 	placeholder: PropTypes.string,
 	readOnly: PropTypes.bool,
 	value: PropTypes.string,

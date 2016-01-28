@@ -138,7 +138,7 @@ export default class TradePanel extends Component {
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
-        assets: PropTypes.object.isRequired,
+        assets: PropTypes.array.isRequired,
         currency: PropTypes.string.isRequired,
         contract: PropTypes.object,
         id: PropTypes.string.isRequired,

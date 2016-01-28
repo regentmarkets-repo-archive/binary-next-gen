@@ -5,14 +5,16 @@ import TradePanel from './TradePanel';
 
 @connect(fullTradesSelector)
 export default class TradesContainer extends React.Component {
+
     static propTypes = {
         actions: PropTypes.object.isRequired,
-        assets: PropTypes.object.isRequired,
+        assets: PropTypes.array.isRequired,
         contracts: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
         trades: PropTypes.object.isRequired,
         ticks: PropTypes.object.isRequired,
     };
+
     createTrade() {
         const { trades, actions } = this.props;
 

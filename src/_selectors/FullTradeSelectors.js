@@ -1,5 +1,4 @@
 import { createSelector, createStructuredSelector } from 'reselect';
-import { List } from 'immutable';
 import { durationUnits } from '../_constants/TradeParams';
 import { groupByKey } from '../_utils/ArrayUtils';
 import { durationToSecs } from '../_utils/TradeUtils';
@@ -251,6 +250,7 @@ export const tradesSelector = state => state.trades.toJS();
 const availableAssetsFilter = (assets, times, now) => {
     const nowInTimeString = epochToUTCTimeString(now);
     const availabilities = {};
+
     times.forEach(s => {
         if (!s.times) {
             return;
@@ -264,30 +264,31 @@ const availableAssetsFilter = (assets, times, now) => {
         }
     });
     const availableAssets = assets.map(symbols => symbols.filter(s => availabilities[s.value]));
+
     return availableAssets;
 };
 
-const symbolsToArray = sym =>
-    sym.map((v, k) => ({
-        text: v.get('display_name'),
-        value: k,
+const symbolsToArray = symbols =>
+    Object.keys(symbols).map((v, idx) => ({
+        text: symbols[v].display_name,
+        value: idx,
     }));
 
 const submarketsToSymbols = submarkets =>
-    submarkets.reduce((r, v) =>
-        r.concat(symbolsToArray(v.get('symbols'))),
-        List.of()
+    Object.keys(submarkets).reduce((r, v) =>
+        r.concat(symbolsToArray(submarkets[v].symbols)),
+        []
     );
 
 const marketToSymbols = markets =>
-    markets.map(m =>
-        submarketsToSymbols(m.get('submarkets'))
+    Object.keys(markets).map(m =>
+        submarketsToSymbols(markets[m].submarkets)
     );
 
 const availableAssetsSelector = createSelector(
     [assetsSelector, tradingTimesSelector, marketTreeSelector],
     (assets, tradingTimes, marketTree) =>
-        availableAssetsFilter(marketToSymbols(marketTree), tradingTimes, nowAsEpoch()).toJS()
+        availableAssetsFilter(marketToSymbols(marketTree), tradingTimes, nowAsEpoch())
 );
 
 const ticksSelector = state => state.ticks.toJS();

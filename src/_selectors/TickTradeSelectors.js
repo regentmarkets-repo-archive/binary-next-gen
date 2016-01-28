@@ -1,6 +1,5 @@
-import { createSelector, createStructuredSelector } from 'reselect';
+import { createSelector } from 'reselect';
 import { fullTradesSelector } from './FullTradeSelectors';
-import { assetsSelector } from './AssetSelectors';
 import { findIfExist } from '../_utils/ObjectUtils';
 
 const tickAssetFilter = (assets, contracts) => {
@@ -27,8 +26,3 @@ export const tickTradesSelector = createSelector(
         return refTrade;
     }
 );
-
-export default createStructuredSelector({
-    assets: assetsSelector,
-    ...tickTradesSelector,
-});

@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import TickTradeCard from './TickTradeCard';
-import { tickTradesSelector } from './../_selectors/TickTradeSelector';
+import { tickTradesSelector } from '../_selectors/TickTradeSelector';
 
 @connect(tickTradesSelector)
 export default class TickTradeContainer extends Component {
@@ -20,6 +20,7 @@ export default class TickTradeContainer extends Component {
     render() {
         const { actions, assets, currency, trades, ticks } = this.props;
         const allTickId = Object.keys(trades).filter(id => id.indexOf('tick') > -1);
+
         return (
             <div>
                 {allTickId.map(id => {
