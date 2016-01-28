@@ -21,12 +21,8 @@ export default class SettingsGeneral extends React.Component {
 				<LanguagePicker id="language-picker" />
 				<label htmlFor="theme-picker"><M m="Color Theme" /></label>
 				<select onChange={::this.onThemeChange} value={theme} id="theme-picker">
-					<option value="light">
-						<M m="Light" />
-					</option>
-					<option value="dark">
-						<M m="Dark" />
-					</option>
+					<option value="light">Light</option>
+					<option value="dark">Dark</option>
 				</select>
 			</div>
 		);

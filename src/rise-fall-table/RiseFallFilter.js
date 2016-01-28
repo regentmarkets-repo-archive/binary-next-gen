@@ -8,9 +8,7 @@ const RiseFallFilter = ({ onCalculate }) => (
 				<label htmlFor="atleast">Start time</label>
 				<br/>
 				<select id="atleast" name="date_start">
-					<option>
-						<M m="Now" />
-					</option>
+					<option>Now</option>
 				</select>
 			</fieldset>
 			<RangeGroup label="Measure" min={0} max={3} items={['Ticks', 'Seconds', 'Minutes', 'Hours']} />
