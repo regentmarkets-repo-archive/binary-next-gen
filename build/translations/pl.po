@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-01-05 15:34+0000\n"
+"PO-Revision-Date: 2016-01-28 12:29+0000\n"
 "Last-Translator: Ewelina Bruździak <e.bruzdziak@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/pl/>\n"
@@ -206,155 +206,150 @@ msgstr "Zmiana"
 msgid "Chart"
 msgstr "Wykres"
 
-#, fuzzy
 msgid "Purchase For"
-msgstr "Kup"
+msgstr "Kup za"
 
 msgid "Rise"
-msgstr ""
+msgstr "Wzrost"
 
 msgid "Stake"
-msgstr ""
+msgstr "Stawka"
 
 msgid "Payout"
-msgstr ""
+msgstr "Wypłata"
 
 msgid "Deposit"
-msgstr ""
+msgstr "Wpłata"
 
-#, fuzzy
 msgid "Transactions"
-msgstr "Potwierdzenie zawarcia zakładu"
+msgstr "Transakcje"
 
 msgid "Opens"
-msgstr ""
+msgstr "Otwarcie"
 
 msgid "Closes"
-msgstr ""
+msgstr "Zamknięcie"
 
 msgid "Personal"
-msgstr ""
+msgstr "Osobiste"
 
 msgid "General"
-msgstr ""
+msgstr "Ogólne"
 
-#, fuzzy
 msgid "Trading Times"
-msgstr "Limity handlowe"
+msgstr "Godziny handlu"
 
-#, fuzzy
 msgid "Asset Index"
-msgstr "Aktywa"
+msgstr "Indeks aktywów"
 
 msgid "Today"
-msgstr ""
+msgstr "Dzisiaj"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Wczoraj"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "Jutro"
 
 msgid "Takeout"
 msgstr ""
 
 msgid "News"
-msgstr ""
+msgstr "Wiadomości"
 
 msgid "Resources"
-msgstr ""
+msgstr "Zasoby"
 
 msgid "Last 7 Days"
-msgstr ""
+msgstr "Ostatnie 7 dni"
 
 msgid "Last 30 Days"
-msgstr ""
+msgstr "Ostatnie 30 dni"
 
 msgid "Daily Report"
-msgstr ""
+msgstr "Raport codzienny"
 
 msgid "Up/Down"
-msgstr ""
+msgstr "Góra/Dół"
 
 msgid "Touch/No Touch"
-msgstr ""
+msgstr "Osiągnie/Nie osiągnie"
 
 msgid "Ends In/Out"
-msgstr ""
+msgstr "Zakończy się w/poza"
 
 msgid "Stays In/Goes Out"
-msgstr ""
+msgstr "Pozostanie w/poza"
 
 #, fuzzy
 msgid "Settles"
 msgstr "Ustawienia"
 
 msgid "Language"
-msgstr ""
+msgstr "Język"
 
 msgid "Color Theme"
-msgstr ""
+msgstr "Motyw kolorystyczny"
 
 msgid "Light"
-msgstr ""
+msgstr "Jasny"
 
 msgid "Dark"
-msgstr ""
+msgstr "Ciemny"
 
 msgid "Name"
-msgstr ""
+msgstr "Imię"
 
-#, fuzzy
 msgid "Date Of Birth"
 msgstr "Data urodzenia"
 
 msgid "Country Of Residence"
-msgstr ""
+msgstr "Państwo zamieszkania"
 
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 msgid "There are no transactions for selected period"
-msgstr ""
+msgstr "Brak transakcji w wybranym okresie"
 
 msgid "Sell"
-msgstr ""
+msgstr "Sprzedaj"
 
 msgid "Buy"
-msgstr ""
+msgstr "Kup"
 
 msgid "Digit Even"
-msgstr ""
+msgstr "Cyfra parzysta"
 
 msgid "Touches"
-msgstr ""
+msgstr "Osiągnie"
 
 msgid "Digit Over"
 msgstr ""
 
 msgid "Digit Match"
-msgstr ""
+msgstr "Cyfra zgadza się"
 
 msgid "Digit Under"
 msgstr ""
 
 msgid "Digit Odd"
-msgstr ""
+msgstr "Cyfra nieparzysta"
 
 msgid "Digit Differs"
-msgstr ""
+msgstr "Cyfra nie zgadza się"
 
 msgid "No Touch"
-msgstr ""
+msgstr "Nie osiągnie"
 
 msgid "Fall"
-msgstr ""
+msgstr "Spadek"
 
 msgid "Asian Down"
-msgstr ""
+msgstr "Azjatycki – Spadek"
 
 msgid "Asian Up"
-msgstr ""
+msgstr "Azjatycki – Wzrost"
 
 msgid "Search For Assets"
-msgstr ""
+msgstr "Szukaj aktywów"
