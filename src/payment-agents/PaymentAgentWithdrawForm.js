@@ -74,7 +74,9 @@ export default class PaymentAgentWithdrawForm extends React.Component {
                                 <M m="Are you sure you want to withdraw" />
                                 <span> {currency} {withdrawAmount} to {selectedPaymentAgentName}?></span>
                             </p>
-                            <button onClick={::this.confirmWithdraw}>Confirm</button>
+                            <button onClick={::this.confirmWithdraw}>
+                                <M m="Confirm" />
+                            </button>
                         </div>
                     }
                     onClose={() => actions.updatePaymentAgentField('withdrawClicked', false)}
@@ -85,12 +87,12 @@ export default class PaymentAgentWithdrawForm extends React.Component {
                     children={
                         withdrawFailed ?
                         <div>
-                            <h3>Withdrawal Failed</h3>
+                            <h3><M m="Withdrawal Failed" /></h3>
                             <p>{withdrawError}</p>
                         </div> :
                         <div>
-                            <h3>Congratulations</h3>
-                            <p>Your withdrawal is success</p>
+                            <h3><M m="Congratulations" /></h3>
+                            <p><M m="Your withdrawal is success" /></p>
                         </div>
                     }
                 />

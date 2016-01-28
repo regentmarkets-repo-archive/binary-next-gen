@@ -280,11 +280,6 @@ const submarketsToSymbols = submarkets =>
         []
     );
 
-const marketToSymbols = markets =>
-    Object.keys(markets).map(m =>
-        submarketsToSymbols(markets[m].submarkets)
-    );
-
 const flattenSubmarkets = markets => {
     const flatten = {};
     Object.keys(markets).forEach(m =>

@@ -1,12 +1,17 @@
 import React, { PropTypes } from 'react';
 import ObjectTableRow from './ObjectTableRow';
+import M from '../_common/M';
 
 const ObjectTable = ({ object }) => (
 	<table>
 		<thead>
 			<tr>
-				<th>Name</th>
-				<th>Value</th>
+				<th>
+					<M m="Name" />
+				</th>
+				<th>
+					<M m="Value" />
+				</th>
 			</tr>
 		</thead>
 		<tbody>

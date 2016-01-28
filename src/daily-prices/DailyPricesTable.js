@@ -1,17 +1,18 @@
 import React from 'react';
 import { Direction, NumberColored } from '../_common';
+import M from '../_common/M';
 
 export default () => (
 	<table>
 		<thead>
 			<tr>
-				<th>Date</th>
-				<th>Open</th>
-				<th>High</th>
-				<th>Low</th>
-				<th>Close</th>
-				<th>Change</th>
-				<th>Rel Change</th>
+				<th><M m="Date" /></th>
+				<th><M m="Open" /></th>
+				<th><M m="High" /></th>
+				<th><M m="Low" /></th>
+				<th><M m="Close" /></th>
+				<th><M m="Change" /></th>
+				<th><M m="Rel Change" /></th>
 			</tr>
 		</thead>
 		<tbody>
@@ -27,21 +28,21 @@ export default () => (
 		</tbody>
 		<thead>
 			<tr>
-				<th colSpan="7">Summary</th>
+				<th colSpan="7"><M m="Summary" /></th>
 			</tr>
 			<tr>
-				<th>Statistic</th>
-				<th>Open</th>
-				<th>High</th>
-				<th>Low</th>
-				<th>Close</th>
-				<th>Average Change</th>
-				<th>Rel Change</th>
+				<th><M m="Statistic" /></th>
+				<th><M m="Open" /></th>
+				<th><M m="High" /></th>
+				<th><M m="Low" /></th>
+				<th><M m="Close" /></th>
+				<th><M m="Average Change" /></th>
+				<th><M m="Rel Change" /></th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td>Maximum</td>
+				<td><M m="Maximum" /></td>
 				<td>168.68</td>
 				<td>169.45</td>
 				<td>165.90</td>

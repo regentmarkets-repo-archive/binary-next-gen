@@ -1,17 +1,17 @@
 import React, { PropTypes } from 'react';
-import NumberColored from '../_common/NumberColored';
+import { NumberColored, M } from '../_common';
 
 const profitInPercentage = (buy, sell) => (sell - buy) / buy * 100;
 const ContractSoldDetails = ({ buyPrice, soldPrice, transId }) => (
     <div>
-        <h3>Trade Confirmation</h3>
-        <div>You have sold the following contract.</div>
+        <h3><M m="Trade Confirmation" /></h3>
+        <div><M m="You have sold the following contract." /></div>
         <table>
             <thead>
                 <tr>
-                    <th>Buy Price</th>
-                    <th>Sale Price</th>
-                    <th>Return</th>
+                    <th><M m="Buy Price" /></th>
+                    <th><M m="Sale Price" /></th>
+                    <th><M m="Return" /></th>
                 </tr>
             </thead>
             <tbody>
@@ -22,7 +22,7 @@ const ContractSoldDetails = ({ buyPrice, soldPrice, transId }) => (
                 </tr>
             </tbody>
         </table>
-        <div>Your transaction reference no is {transId}</div>
+        <div><M m="Your transaction reference no is {transId}" values={{ transId }} /></div>
     </div>
 );
 

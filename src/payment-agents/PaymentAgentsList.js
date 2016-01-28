@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import PaymentAgentsItem from './PaymentAgentsItem';
+import M from '../_common/M';
 
 export default class PaymentAgentsList extends React.Component {
     static propTypes = {
@@ -12,9 +13,9 @@ export default class PaymentAgentsList extends React.Component {
             <table>
                 <thead>
                     <tr>
-                        <th>Payment Agent</th>
-                        <th>Commissions</th>
-                        <th>Banks</th>
+                        <th><M m="Payment Agent" /></th>
+                        <th><M m="Commissions" /></th>
+                        <th><M m="Banks" /></th>
                     </tr>
                 </thead>
                 <tbody>
