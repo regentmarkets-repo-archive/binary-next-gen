@@ -2,39 +2,39 @@ import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
+import assetSelectors from '../_selectors/AssetSelectors';
 
-@connect(state => ({ assets: state.assets }))
+@connect(assetSelectors)
 export default class MarketPicker extends React.Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
-		assets: PropTypes.object.isRequired,
+		marketTree: PropTypes.object.isRequired,
 		onChange: PropTypes.func.isRequired,
-		showAllOption: PropTypes.bool.isRequired,
+		allOptionShown: PropTypes.bool.isRequired,
 		showMarkets: PropTypes.array,
 		value: PropTypes.string,
 	};
 
 	render() {
-		const { assets, onChange, showAllOption, showMarkets, value } = this.props;
-		const tree = assets.get('tree').toJS();
+		const { marketTree, onChange, allOptionShown, showMarkets, value } = this.props;
 
 		return (
 			<select className="market-submarket-picker" onChange={e => onChange(e.target.value)} value={value}>
-				{showAllOption ?
+				{allOptionShown ?
 					<FormattedMessage id="All" defaultMessage="All">
 						{message => <option value="">{message}</option>}
 					</FormattedMessage>
 				: null}
 				{Object
-					.keys(tree)
+					.keys(marketTree)
 					.filter(market => !showMarkets || ~showMarkets.indexOf(market))
 					.map(market => (
-					<optgroup key={market} label={tree[market].display_name}>
-						{Object.keys(tree[market].submarkets).map(submarket =>
+					<optgroup key={market} label={marketTree[market].display_name}>
+						{Object.keys(marketTree[market].submarkets).map(submarket =>
 							<option key={submarket} value={submarket}>
-								{tree[market]
+								{marketTree[market]
 									.submarkets[submarket]
 									.display_name}
 							</option>

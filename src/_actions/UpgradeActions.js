@@ -14,8 +14,8 @@ export const upgradeDOBUpdate = (dayMonthOrYear, val) => ({
     val,
 });
 
-export const upgradeConfirm = () => {
-    return (dispatch, getState) => {
+export const upgradeConfirm = () =>
+    (dispatch, getState) => {
         const { upgrade } = getState();
         const {
             salutation,
@@ -58,4 +58,3 @@ export const upgradeConfirm = () => {
             err => dispatch(upgradeFieldUpdate('error', err.message)))
             .then(() => dispatch(upgradeFieldUpdate('progress', false)));
     };
-};

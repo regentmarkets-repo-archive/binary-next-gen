@@ -56,21 +56,21 @@ export default class NoBarrierTrade extends Component {
     onPurchaseClick() {
         const { proposal, actions, tradeInfo } = this.props;
         LiveData.api.buyContract(proposal.id, proposal.ask_price)
-            .then(receipt =>
-                actions.setQuickTradeField(
-                    tradeInfo.underlying_symbol,
-                    tradeInfo.contract_type,
-                    'receipt',
-                    receipt.buy
-                )
-            )
-            .catch(error =>
-                actions.setQuickTradeField(
-                    tradeInfo.underlying_symbol,
-                    tradeInfo.contract_type,
-                    'failure',
-                    error
-                )
+            .then(
+                receipt =>
+                    actions.setQuickTradeField(
+                        tradeInfo.underlying_symbol,
+                        tradeInfo.contract_type,
+                        'receipt',
+                        receipt.buy
+                    ),
+                error =>
+                    actions.setQuickTradeField(
+                        tradeInfo.underlying_symbol,
+                        tradeInfo.contract_type,
+                        'failure',
+                        error
+                    )
             );
     }
 

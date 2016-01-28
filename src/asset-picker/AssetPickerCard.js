@@ -6,9 +6,9 @@ export default class AssetPickerCard extends React.Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
-		assets: PropTypes.object.isRequired,
+		assets: PropTypes.array.isRequired,
 		assetPicker: PropTypes.object.isRequired,
-		idSymbolMap: PropTypes.object.isRequired,
+		idSymbolMap: PropTypes.array.isRequired,
 		history: PropTypes.object,
 		params: PropTypes.object,
 		location: PropTypes.object,
@@ -30,7 +30,7 @@ export default class AssetPickerCard extends React.Component {
 			actions.getTradingOptions(newAsset);
 			history.goBack();
 		} else {
-			const oldAsset = workspace.get('symbolSelected');
+			const oldAsset = workspace.symbolSelected;
 			actions.selectAssetSymbolForTrade(newAsset, oldAsset);
 			actions.getTradingOptions(newAsset);
 		}
@@ -53,11 +53,11 @@ export default class AssetPickerCard extends React.Component {
 		const type = query.type;
 		// const showOnlyTickTradable = !!~window.location.search.indexOf('tick');
 		const showOnlyTickTradable = type === 'tick';
-		const shownAssets = assetPicker.get('shownAssets');
-		const searchableAssets = assets.get('list').filter(x =>
+		const shownAssets = assetPicker.shownAssets;
+		const searchableAssets = assets.filter(x =>
 			!showOnlyTickTradable ||
-			x.get('market_display_name') === 'Forex' ||
-			x.get('market_display_name') === 'Randoms'
+			x.market_display_name === 'Forex' ||
+			x.market_display_name === 'Randoms'
 		);
 
 		const selectedSymbol = idSymbolMap[id];
@@ -70,7 +70,7 @@ export default class AssetPickerCard extends React.Component {
 				<fieldset>
 					<MarketPicker
 						onChange={onSubmarketChange}
-						showAllOption
+						allOptionShown
 						showMarkets={showOnlyTickTradable ? ['Forex', 'Randoms'] : null}
 					/>
 					<InputGroup

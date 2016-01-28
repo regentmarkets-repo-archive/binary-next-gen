@@ -3,12 +3,12 @@ import { SelectGroup, ErrorMsg, Modal, M, PurchaseConfirmation } from '../_commo
 import RadioGroup from './workaround/CustomRadioGroup';
 import { contractCategoryDisplay, durationToSecs } from '../_utils/TradeUtils';
 import { tradeTypes } from '../_constants/TradeParams';
-import BarrierCard from './BarrierCard';
+import BarrierCard from './barriers/BarrierCard';
 import ContractStatsCard from './ContractStatsCard';
-import DigitBarrierCard from './DigitBarrierCard';
-import DurationCard from './DurationCard';
+import DigitBarrierCard from './barriers/DigitBarrierCard';
+import DurationCard from './durations/DurationCard';
 import PayoutCard from './PayoutCard';
-import SpreadBarrierCard from './SpreadBarrierCard';
+import SpreadBarrierCard from './barriers/SpreadBarrierCard';
 import MobileChart from '../charting/MobileChart';
 
 /**
@@ -25,15 +25,15 @@ import MobileChart from '../charting/MobileChart';
  * 3. ticks is always within 5 to 10
  * 4. digit trade is always ticks only
  * 5. barriers are non available for contract below 2 minutes
+ * 6. forward starting does not have barriers
  */
 const getTradeTypeText = type => {
     const name = tradeTypes.find(t => t.value === type).text;
     return name;
 };
 
-const createDefaultType = (contracts, category) => {
-    return Object.keys(contracts[category])[0];
-};
+const createDefaultType = (contracts, category) =>
+    Object.keys(contracts[category])[0];
 
 const createDefaultDuration = (contracts, category, type) => {
     if (category === 'spreads') {
@@ -80,7 +80,7 @@ const createDefaultBarriers = (contracts, category, type, duration, durationUnit
     if (barrierByExpiry.length === 1) {
         switch (expiryType) {
             case 'tick': {
-                console.log('Should not have tick expiry');
+                // console.log('Should not have tick expiry');
                 return [undefined, undefined];
             }
             case 'intraday': return [+barrierByExpiry[0].defaultValue];
@@ -92,7 +92,7 @@ const createDefaultBarriers = (contracts, category, type, duration, durationUnit
     if (barrierByExpiry.length === 2) {
         switch (expiryType) {
             case 'tick': {
-                console.log('Should not have tick expiry');
+                // console.log('Should not have tick expiry');
                 return [undefined, undefined];
             }
             case 'intraday': return [+barrierByExpiry[0].defaultValue, +barrierByExpiry[1].defaultValue];
@@ -104,6 +104,15 @@ const createDefaultBarriers = (contracts, category, type, duration, durationUnit
     throw new Error('default barrier creation failed');
 };
 
+const durationIsWithinRange = (duration, durationUnit, range) => {
+    const relatedBlock = range.find(r => r.unit === durationUnit);
+    if (!relatedBlock) {
+        return false;
+    }
+
+    return duration <= relatedBlock.max && duration >= relatedBlock.min;
+};
+
 export default class TradePanel extends Component {
     constructor(props) {
         super(props);
@@ -113,6 +122,7 @@ export default class TradePanel extends Component {
         this.onTypeChange = ::this.onTypeChange;
         this.onDurationChange = ::this.onDurationChange;
         this.onDurationUnitChange = ::this.onDurationUnitChange;
+        this.onStartDateChange = ::this.onStartDateChange;
         this.onBarrier1Change = ::this.onBarrier1Change;
         this.onBarrier2Change = ::this.onBarrier2Change;
         this.onBarrierTypeChange = ::this.onBarrierTypeChange;
@@ -174,6 +184,7 @@ export default class TradePanel extends Component {
         const newDuration = createDefaultDuration(contract, newCategory, defaultType);
         this.updateHelper('duration', newDuration[0], false);
         this.updateHelper('durationUnit', newDuration[1], false);
+        this.updateHelper('dateStart', undefined, false);
 
         const newBarrier = createDefaultBarriers(
             contract,
@@ -216,8 +227,27 @@ export default class TradePanel extends Component {
 
         this.updateHelper('duration', newDuration[0], false);
         this.updateHelper('durationUnit', newDuration[1], false);
+        this.updateHelper('dateStart', undefined, false);
         this.updateHelper('barrier', newBarrier[0], false);
         this.updateHelper('barrier2', newBarrier[1], true);
+    }
+
+    onStartDateChange(epoch) {
+        const { contract, trade } = this.props;
+        const { duration, durationUnit, tradeCategory, type } = trade;
+        const newDurations = contract[tradeCategory][type].forwardStartingDuration.options;
+
+        // do not reset duration unless the old one is not valid
+        if (!epoch || durationIsWithinRange(duration, durationUnit, newDurations)) {
+            this.updateHelper('dateStart', epoch);
+            return undefined;
+        }
+
+        this.updateHelper('dateStart', epoch, false);
+        this.updateHelper('duration', newDurations[0].min, false);
+        this.updateHelper('durationUnit', newDurations[0].unit, false);
+        this.updateHelper('barrier', undefined, false);
+        this.updateHelper('barrier2', undefined, true);
     }
 
     onDurationChange(e) {
@@ -233,8 +263,14 @@ export default class TradePanel extends Component {
         const lastSpot = tick ? tick[tick.length - 1].quote : 0;
         const newBarrier = createDefaultBarriers(contract, tradeCategory, type, duration, newUnit, lastSpot);
 
-        this.updateHelper('barrier', newBarrier[0], false);
-        this.updateHelper('barrier2', newBarrier[1], true);
+        // if it's forward starting type, do not update barrier as not applicable
+        if (!trade.dateStart) {
+            this.updateHelper('barrier', newBarrier[0], false);
+            this.updateHelper('barrier2', newBarrier[1], false);
+        }
+
+        const { actions, id } = this.props;
+        actions.updatePriceProposalSubscription(id);
     }
 
     onBarrier1Change(e) {
@@ -296,7 +332,7 @@ export default class TradePanel extends Component {
 
     onPurchase() {
         const { actions, id } = this.props;
-        actions.purchaseByTradeID(id);
+        actions.purchaseByTradeId(id);
     }
 
     onClosePanel() {
@@ -356,12 +392,14 @@ export default class TradePanel extends Component {
                             onChange={this.onTypeChange}
                         />
                         <DurationCard
+                            dateStart={trade.dateStart}
                             duration={+trade.duration}
                             durationUnit={trade.durationUnit}
                             forwardStartingDuration={contractForType.forwardStartingDuration}
                             options={contractForType.durations}
                             onDurationChange={this.onDurationChange}
                             onUnitChange={this.onDurationUnitChange}
+                            onStartDateChange={this.onStartDateChange}
                         />
                         {selectedCategory === 'digits' &&
                             <DigitBarrierCard
@@ -380,7 +418,11 @@ export default class TradePanel extends Component {
                             stopLossChange={this.onStopLossChange}
                             stopProfitChange={this.onStopProfitChange}
                         />}
-                        {(selectedCategory !== 'spreads' && selectedCategory !== 'digits' && !isBelow2Min) &&
+                        {(selectedCategory !== 'spreads' &&
+                            selectedCategory !== 'digits' &&
+                            !isBelow2Min &&
+                            !trade.dateStart
+                        ) &&
                             <BarrierCard
                                 barrier={trade.barrier}
                                 barrier2={trade.barrier2}
@@ -403,7 +445,11 @@ export default class TradePanel extends Component {
                     onBasisChange={this.onBasisChange}
                 />
                 {trade.proposal &&
-                <ContractStatsCard proposal={trade.proposal} spread={selectedCategory === 'spreads'} />}
+                <ContractStatsCard
+                    proposal={trade.proposal}
+                    spread={selectedCategory === 'spreads'}
+                    lastSpot={lastSpot}
+                />}
                 <ErrorMsg shown={!!trade.proposalError} text={trade.proposalError ? trade.proposalError.message : ''} />
                 <button onClick={this.onPurchase}>
                     <M m="Purchase" />

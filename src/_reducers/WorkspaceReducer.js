@@ -25,7 +25,7 @@ const initialState = new Map({
         date: new Date(),
     }),
     assetIndex: new Map({
-        submarket: 'europe_africa',
+        submarketId: 'europe_africa',
     }),
 });
 

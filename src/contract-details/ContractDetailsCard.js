@@ -11,7 +11,7 @@ const ContractDetailsCard = ({ contract, proposal, nowEpoch, soldResultShown, ac
 			<ContractSoldDetails
 				buyPrice={contract.buy_price}
 				soldPrice={soldResultShown && soldResultShown.soldPrice}
-				transID={soldResultShown && soldResultShown.transId}
+				transId={soldResultShown && soldResultShown.transId}
 			/>
 		</Modal>
 		<table>

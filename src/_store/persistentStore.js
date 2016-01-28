@@ -13,7 +13,7 @@ const storageLoader = storage.createLoader(storageEngine);
 
 const finalCreateStore = compose(
     applyMiddleware(storageMiddleware, thunkMiddleware),
-    enableDevTools(),
+    enableDevTools()
 )(createStore);
 
 export const store = finalCreateStore(storageReducer);

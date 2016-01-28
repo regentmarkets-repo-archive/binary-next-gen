@@ -1,14 +1,17 @@
 import { combineReducers } from 'redux';
 
-import appInfo from './AppInfoReducer';
+import appConfig from './AppConfigReducer';
+import appState from './AppStateReducer';
 import account from './AccountReducer';
 import assets from './AssetsReducer';
+import assetIndex from './AssetIndexReducer';
 import assetPicker from './AssetPickerReducer';
 import portfolio from './PortfolioReducer';
 import contracts from './ContractsReducer';
 import openContractProposals from './OpenContractProposalsReducer';
 import settings from './SettingsReducer';
 import signin from './SigninReducer';
+import tradingTimes from './TradingTimesReducer';
 import transactions from './TransactionsReducer';
 import ticks from './TickReducer';
 import tickTrade from './TickTradeReducer';
@@ -26,9 +29,11 @@ import quickTrade from './QuickTradeReducer';
 import trades from './TradeReducer';
 
 export default combineReducers({
-    appInfo,
+    appState,
+    appConfig,
     account,
     assets,
+    assetIndex,
     assetPicker,
     createAccount,
     news,
@@ -41,6 +46,7 @@ export default combineReducers({
     settings,
     signin,
     states,
+    tradingTimes,
     transactions,
     ticks,
     tickTrade,

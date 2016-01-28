@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { DesktopHeader, DesktopSidebar, LoadingView } from '../_common';
 import WorkspaceContainer from './WorkspaceContainer';
 
-@connect(state => ({ isAuthorized: state.appInfo.get('authorized') }))
+@connect(state => ({ isAuthorized: state.appState.get('authorized') }))
 export default class WorkspacePage extends React.Component {
 	static propTypes = {
 		children: PropTypes.any,

@@ -1,8 +1,8 @@
 import * as LiveData from '../_data/LiveData';
 import { SERVER_DATA_STATES } from '../_constants/ActionTypes';
 
-export const getStatesForCountry = country => {
-    return (dispatch, getState) => {
+export const getStatesForCountry = country =>
+    (dispatch, getState) => {
         const { states } = getState();
         if (states.get(country)) {
             return;
@@ -13,4 +13,3 @@ export const getStatesForCountry = country => {
             states: data.states_list,
         }));
     };
-};

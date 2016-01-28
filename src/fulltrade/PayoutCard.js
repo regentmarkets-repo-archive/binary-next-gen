@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import { InputGroup } from '../_common';
+import { InputGroup, CollapsibleFormSnippet } from '../_common';
 import RadioGroup from './workaround/CustomRadioGroup';
 
 const basises = ['payout', 'stake'];
@@ -19,7 +19,7 @@ export default class PayoutCard extends Component {
         const basisOptions = basises.map(i => ({ text: i, value: i }));
         const payoutOptions = payouts.map(i => ({ text: i, value: i }));
         return (
-            <div>
+            <CollapsibleFormSnippet label="Payout/Stakes" show>
                 <RadioGroup
                     className="radio-selector"
                     name={'basis' + id}
@@ -40,7 +40,7 @@ export default class PayoutCard extends Component {
                     onChange={onAmountChange}
                     value={amount}
                 />
-            </div>
+            </CollapsibleFormSnippet>
         );
     }
 }

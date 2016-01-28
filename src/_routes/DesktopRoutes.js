@@ -2,14 +2,11 @@ import WorkspaceContainer from '../workspace/WorkspaceContainer';
 // import CreateAccountPage from '../create-account/CreateAccountPage';
 import UpgradePage from '../upgrade/UpgradePage';
 import WatchlistPage from '../watchlist/WatchlistPage';
-import OfferingsCard from '../offerings/OfferingsCard';
-import ActiveSymbolsCard from '../active-symbols/ActiveSymbolsCard';
 import AssetIndexPage from '../asset-index/AssetIndexPage';
 import AssetIndexTable from '../asset-index/AssetIndexTable';
 import RiseFallTablePage from '../rise-fall-table/RiseFallTablePage';
 import TradingTimesPage from '../trading-times/TradingTimesPage';
 import TradingTimesTable from '../trading-times/TradingTimesTable';
-import PricingTablePage from '../pricing-table/PricingTablePage';
 import DailyPricesPage from '../daily-prices/DailyPricesPage';
 import IntradayPricesPane from '../intraday-prices/IntradayPricesPane';
 import PortfolioPage from '../portfolio/PortfolioPage';
@@ -35,8 +32,6 @@ export default [
     { path: 'upgrade', component: UpgradePage },
     { path: 'trade', component: TradePage, onEnter: requireAuthOnEnter },
     { path: 'watchlist', component: WatchlistPage, onEnter: requireAuthOnEnter },
-    { path: 'offerings', component: OfferingsCard, onEnter: requireAuthOnEnter },
-    { path: 'active-symbols', component: ActiveSymbolsCard, onEnter: requireAuthOnEnter },
     { path: 'asset-index', component: AssetIndexPage, onEnter: requireAuthOnEnter, childRoutes: [
         { path: ':market', component: AssetIndexTable, onEnter: requireAuthOnEnter },
     ] },
@@ -44,7 +39,6 @@ export default [
         { path: ':market', component: TradingTimesTable, onEnter: requireAuthOnEnter },
     ] },
     { path: 'rise-fall-table', component: RiseFallTablePage, onEnter: requireAuthOnEnter },
-    { path: 'pricing-table', component: PricingTablePage, onEnter: requireAuthOnEnter },
     { path: 'daily-prices', component: DailyPricesPage, onEnter: requireAuthOnEnter },
     { path: 'intraday-prices', component: IntradayPricesPane, onEnter: requireAuthOnEnter },
     { path: 'settings',

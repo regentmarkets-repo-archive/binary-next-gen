@@ -46,7 +46,7 @@ body {
     margin-right: .5rem;
 }
 
-.left-panel, .right-panel, .#bottom-panel {
+.left-panel, .right-panel, .bottom-panel {
     overflow: auto;
 }
 
@@ -512,9 +512,11 @@ select {
 .video-list {
     margin: 0 -.5rem;
 }
+
 .video-thumbnail {
     margin: .5rem;
     min-width: 10rem;
+    text-decoration: none;
 }
 
 .video-thumbnail img {
@@ -601,3 +603,29 @@ select {
     box-shadow: none!important;
 }
 /* Start of hack, mimic radio group using button */
+
+.snippet {
+    outline-style: solid;
+    outline-color: rgba(233, 168, 36, 1);
+    padding: 10px;
+    margin: 10px;
+}
+
+.collapsible .focusable:focus + .collapsed {
+    display: block;
+}
+
+.focusable {
+    display: block;
+    cursor: pointer;
+}
+
+.focusable:hover {
+    color: blue;
+    cursor: pointer;
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 5px;
+}

@@ -4,7 +4,7 @@ import storage from 'redux-storage';
 import rootReducer from '../_reducers';
 
 const finalCreateStore = compose(
-    applyMiddleware(thunkMiddleware),
+    applyMiddleware(thunkMiddleware)
 )(createStore);
 
 export default finalCreateStore(rootReducer);

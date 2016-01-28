@@ -19,10 +19,10 @@ export default class TickTradeContainer extends Component {
 
     render() {
         const { actions, assets, currency, trades, ticks } = this.props;
-        const allTickID = Object.keys(trades).filter(id => id.indexOf('tick') > -1);
+        const allTickId = Object.keys(trades).filter(id => id.indexOf('tick') > -1);
         return (
             <div>
-                {allTickID.map(id => {
+                {allTickId.map(id => {
                     const trade = trades[id];
                     const symbol = trade.symbol;
                     const tick = ticks[symbol];

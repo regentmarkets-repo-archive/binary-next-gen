@@ -5,13 +5,12 @@ import { bindActionCreators } from 'redux';
 import { store, rehydratedStorePromise } from './persistentStore';
 import { Router } from 'react-router';
 import routes from '../_routes';
-import IntlProviderContainer from './IntlProviderContainer';
 import HashHistory from 'history/lib/createHashHistory';
-import ThemeProvider from '../_common/ThemeProvider';
 import { tryAuth } from '../_data/Auth';
 import * as LiveData from '../_data/LiveData';
 import * as AllActions from '../_actions';
-import AppInfoProxy from './AppInfoProxy';
+import AppStateProvider from './AppStateProvider';
+import AppConfigProvider from './AppConfigProvider';
 
 import { trackRoute } from '../_utils/Analytics';
 
@@ -28,8 +27,14 @@ export default class Root extends React.Component {
         rehydratedStorePromise.then(st => {
             LiveData.connect(st);
             tryAuth(st)
-                .then(() => st.dispatch(AllActions.updateAppInfo('connected', true)))
-                .catch(() => st.dispatch(AllActions.updateAppInfo('connected', true)));
+                .then(
+                    () => {
+                        st.dispatch(AllActions.updateAppState('connected', true));
+                    },
+                    () => {
+                        st.dispatch(AllActions.updateAppState('connected', true));
+                    }
+                );
         });
     }
 
@@ -42,17 +47,15 @@ export default class Root extends React.Component {
     render() {
         return (
             <Provider store={store}>
-                <AppInfoProxy>
-                    <IntlProviderContainer>
-                        <ThemeProvider>
-                            <Router
-                                history={history}
-                                children={routes}
-                                createElement={::this.createElementWithActions}
-                            />
-                        </ThemeProvider>
-                    </IntlProviderContainer>
-                </AppInfoProxy>
+                <AppStateProvider>
+                    <AppConfigProvider>
+                        <Router
+                            history={history}
+                            children={routes}
+                            createElement={::this.createElementWithActions}
+                        />
+                    </AppConfigProvider>
+                </AppStateProvider>
             </Provider>
         );
     }

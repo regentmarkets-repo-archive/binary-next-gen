@@ -1,3 +1,6 @@
+export const toPlainJS = obj =>
+    obj && (typeof obj.toJS === 'undefined' ? obj : obj.toJS());
+
 export const findIfExist = (obj, predicate) => {
     if (typeof obj !== 'object') {
         return false;
