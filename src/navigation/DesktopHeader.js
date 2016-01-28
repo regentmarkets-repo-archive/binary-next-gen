@@ -24,7 +24,7 @@ export default class DesktopHeader extends React.Component {
 				<span>{account.email}</span>
 				<NumberPlain className="balance" currency={account.currency} value={account.balance} />
 				<Link to="/deposit" id="deposit-btn" className="btn-secondary"><M m="Deposit" /></Link>
-				<Link to="/signout" id="signout"><M m="Log out" /></Link>
+				<Link to="/signout" id="signout-btn" className="btn-secondary"><M m="Log out" /></Link>
 			</div>
 		);
 	}

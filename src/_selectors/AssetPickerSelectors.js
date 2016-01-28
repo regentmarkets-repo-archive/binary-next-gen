@@ -8,7 +8,7 @@ import { toPlainJS } from '../_utils/ObjectUtils';
 //
 export const idSymbolMapSelector = createSelector(
      assetsSelector,
-     assets => toPlainJS(assets.map(v => v.symbol)),
+     assets => toPlainJS(assets.map(v => v.symbol))
  );
 
 // export const assetPickerSelector = createSelector(

@@ -20,7 +20,7 @@ export const similarStr = (str1 = '', str2 = '') =>
 
 const matcher = (asset, query, submarket) =>
     (submarket === '' ||
-        submarket === asset.submarket_display_name) &&
+        submarket === asset.submarket) &&
     (query.trim() === '' ||
         similarStr(asset.symbol, query) ||
         similarStr(asset.display_name, query) ||
@@ -55,7 +55,7 @@ export default (state = initialState, action) => {
         }
         case UPDATE_ASSET_PICKER_SEARCH_QUERY: {
             const availableAssets = state.get('availableAssets');
-            const shownAssets = doFilter(availableAssets, action.query, state.get('market'), state.get('submarket'));
+            const shownAssets = doFilter(availableAssets.toJS(), action.query, state.get('market'), state.get('submarket'));
 
             return state
                 .set('query', action.query)
@@ -63,7 +63,7 @@ export default (state = initialState, action) => {
         }
         case UPDATE_ASSET_PICKER_SUBMARKET: {
             const availableAssets = state.get('availableAssets');
-            const shownAssets = doFilter(availableAssets, state.get('query'), state.get('market'), action.submarket);
+            const shownAssets = doFilter(availableAssets.toJS(), state.get('query'), state.get('market'), action.submarket);
 
             return state
                 .set('submarket', action.submarket)
@@ -71,7 +71,7 @@ export default (state = initialState, action) => {
         }
         case UPDATE_ASSET_PICKER_MARKETS: {
             const availableAssets = state.get('availableAssets');
-            const shownAssets = doFilter(availableAssets, state.get('query'), action.markets, state.get('submarket'));
+            const shownAssets = doFilter(availableAssets.toJS(), state.get('query'), action.markets, state.get('submarket'));
 
             return state
                 .set('markets', fromJS(action.markets))
