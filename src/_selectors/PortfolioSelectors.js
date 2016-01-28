@@ -10,7 +10,7 @@ export const purchaseTotalSelector = createSelector(
     contracts =>
         contracts
             .map(x => +x.buy_price)
-            .reduce((x, y) => x + y, 0),
+            .reduce((x, y) => x + y, 0)
 );
 
 export const indicativeTotalSelector = createSelector(
@@ -18,7 +18,7 @@ export const indicativeTotalSelector = createSelector(
     proposals =>
         objectToArray(proposals)
             .map(x => +x.bid_price)
-            .reduce((x, y) => x + y, 0),
+            .reduce((x, y) => x + y, 0)
 );
 
 export default createStructuredSelector({

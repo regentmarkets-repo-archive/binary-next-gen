@@ -19,6 +19,9 @@ export const dateToEpoch = date =>
 export const epochToDateString = epoch =>
     dateToDateString(epochToDate(epoch));
 
+export const epochToDateTimeString = epoch =>
+    epochToDate(epoch).toUTCString();
+
 export const dateToTimeString = date =>
     dateAsLocalISOString(date).slice(11, 19);
 

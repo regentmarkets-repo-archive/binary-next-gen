@@ -51,7 +51,7 @@ describe('AssetPickerReducers', () => {
         });
 
         it('when query is empty returns all assets', () => {
-            const stateBefore = new Map(getInitialState({
+            const stateBefore = fromJS(getInitialState({
                 availableAssets: [{ display_name: 'asset1' }, { display_name: 'asset2' }, { display_name: 'asset3' }],
             }));
             const actual = AssetPickerReducer(stateBefore, actions.updateAssetPickerSearchQuery([], '')).toJS();
@@ -62,7 +62,7 @@ describe('AssetPickerReducers', () => {
         });
 
         it('query containing only spaces is treated as empty', () => {
-            const stateBefore = new Map(getInitialState({
+            const stateBefore = fromJS(getInitialState({
                 availableAssets: [{ display_name: 'asset1' }, { display_name: 'asset2' }, { display_name: 'asset3' }],
             }));
             const actual = AssetPickerReducer(stateBefore, actions.updateAssetPickerSearchQuery([], '     ')).toJS();
@@ -73,7 +73,7 @@ describe('AssetPickerReducers', () => {
         });
 
         it('full name search returns matching assets', () => {
-            const stateBefore = new Map(getInitialState({
+            const stateBefore = fromJS(getInitialState({
                 availableAssets: [{ display_name: 'asset1' }, { display_name: 'asset2' }, { display_name: 'asset3' }],
             }));
             const stateAfter = AssetPickerReducer(stateBefore, actions.updateAssetPickerSearchQuery([], 'asset1')).toJS();
