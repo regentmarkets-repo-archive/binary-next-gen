@@ -34,17 +34,11 @@ body {
     display: flex;
     background: #2a3052;
     color: white;
-    padding: 0 1rem;
     justify-content: space-between;
 }
 
-#header > span, #logo {
+#logo {
     line-height: 4;
-}
-
-#header > * {
-    margin-left: .5rem;
-    margin-right: .5rem;
 }
 
 .left-panel, .right-panel, .bottom-panel {
@@ -573,8 +567,15 @@ select {
     width: 100%;
 }
 
-#deposit-btn, .language-picker {
-    margin: .5rem 0;
+#deposit-btn, .language-picker, #clock {
+    margin: .5rem;
+}
+
+#clock {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #deposit-btn {

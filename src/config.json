@@ -1,6 +1,7 @@
 {
     "brand": "Binary",
     "logo": "img/binary-symbol-logo.svg",
+    "logo2": "img/binary-type-logo.svg",
     "affiliateToken": "",
     "colors": {
         "brandColor": "#123123"
