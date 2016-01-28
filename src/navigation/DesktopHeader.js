@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
-import config from 'json!../config.json';
 import { Clock, LanguagePicker, NumberPlain, M } from '../_common';
 import { MobileSidebar } from './';
+import config from '../config';
 
 @connect(state => ({ account: state.account }))
 export default class DesktopHeader extends React.Component {
