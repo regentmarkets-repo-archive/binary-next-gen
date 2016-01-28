@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { LanguagePicker, M } from '../_common';
+import { LanguagePicker } from '../_common';
 
 export default class SettingsGeneral extends React.Component {
 
@@ -21,12 +21,8 @@ export default class SettingsGeneral extends React.Component {
 				<LanguagePicker id="language-picker" />
 				<label htmlFor="theme-picker"><M m="Color Theme" /></label>
 				<select onChange={::this.onThemeChange} value={theme} id="theme-picker">
-					<option value="light">
-						<M m="Light" />
-					</option>
-					<option value="dark">
-						<M m="Dark" />
-					</option>
+					<option value="light">Light</option>
+					<option value="dark">Dark</option>
 				</select>
 			</div>
 		);

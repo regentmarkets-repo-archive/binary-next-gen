@@ -1,5 +1,4 @@
 import React from 'react';
-import M from '../_common/M';
 
 const MONTHS = [
 	'January',
@@ -18,13 +17,9 @@ const MONTHS = [
 
 export default ({ month, onMonthChange }) => (
 	<select id="dobmm" name="dobmm" defaultValue={month} onChange={onMonthChange}>
-		<option disabled>
-			<M m="Month" />
-		</option>
+		<option disabled>Month</option>
 		{MONTHS.map((o, i) =>
-			<option key={i} value={i}>
-				<M m={o} />
-			</option>
+			<option key={i} value={i}>{o}</option>
 		)}
 	</select>
 );
