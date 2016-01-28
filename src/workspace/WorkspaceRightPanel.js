@@ -13,7 +13,7 @@ export default ({ actions, workspace }) => (
 		onChange={idx => actions.changeActiveTab('right', idx)}
 		style={{ width: workspace.get('rightPanelSize') }}
 		tabs={[
-			{ img: 'img/binary-symbol-logo.svg', component: <TradingTimesContainer compact actions={actions} /> },
+			{ img: 'img/resources.svg', component: <TradingTimesContainer compact actions={actions} /> },
 			{ img: 'img/resources.svg', component: <AssetIndexContainer actions={actions}/> },
 			{ img: 'img/news.svg', component: <VideoListContainer actions={actions} /> },
 			{ img: 'img/news.svg', component: <NewsContainer actions={actions} /> },

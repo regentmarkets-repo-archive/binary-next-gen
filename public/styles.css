@@ -37,10 +37,6 @@ body {
     justify-content: space-between;
 }
 
-#logo {
-    line-height: 4;
-}
-
 .left-panel, .right-panel, .bottom-panel {
     overflow: auto;
 }
@@ -282,8 +278,9 @@ nav.sidebar {
 
 .buy-btn {
     width: 100%;
-    padding: 1.5rem;
-    margin-top: 2rem;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    font-size: 1.25rem;
 }
 
 fieldset {
@@ -420,6 +417,9 @@ div[role=tabs] {
 
 .tab-content, #workarea {
     padding: .5rem;
+}
+.tab-content {
+    flex: 1;
 }
 
 .market-submarket-picker {
@@ -567,8 +567,17 @@ select {
     width: 100%;
 }
 
-#deposit-btn, .language-picker, #clock {
+#deposit-btn, .language-picker, #clock, #logo {
     margin: .5rem;
+}
+
+#logo img {
+    height: 2rem;
+}
+
+#logo img:nth-child(2) {
+    margin-left: .25rem;
+    height: 1.75rem;
 }
 
 #clock {
