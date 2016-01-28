@@ -1,4 +1,4 @@
-const binaryChannelID = 'UCATAKOpB9mWQGMYgk-Y4MTw';
+const binaryChannelId = 'UCATAKOpB9mWQGMYgk-Y4MTw';
 const key = 'AIzaSyDM8-uF9EGwVl4litOnFGSbBzWodGVRnLU';
 
 const dailyNewsPlaylist = 'PLVJJAiu3lRjYz1XO_yoyIRxgz5zBlQc-g';
@@ -6,9 +6,9 @@ const dailyNewsPlaylist = 'PLVJJAiu3lRjYz1XO_yoyIRxgz5zBlQc-g';
 const playlistItemApiUrl = 'https://www.googleapis.com/youtube/v3/playlistItems';
 const playlistApiUrl = 'https://www.googleapis.com/youtube/v3/playlists';
 
-export const getVideosFromPlayList = (playlistID = dailyNewsPlaylist, max = 50) => {
+export const getVideosFromPlayList = (playlistId = dailyNewsPlaylist, max = 50) => {
     const queryUrl = `${playlistItemApiUrl}?part=contentDetails,snippet,status` +
-        `&playlistId=${playlistID}&maxResults=${max}&key=${key}`;
+        `&playlistId=${playlistId}&maxResults=${max}&key=${key}`;
 
     return fetch(queryUrl)
         .then(response => response.json())
@@ -22,22 +22,18 @@ export const getVideosFromPlayList = (playlistID = dailyNewsPlaylist, max = 50) 
         ));
 };
 
-export const getAllPlaylists = (channelID = binaryChannelID, max = 50) => {
-    const query = 'part=snippet&' +
-        'channelId=' + channelID + '&' +
+const playlistUrl = (channelId, max) =>
+    playlistApiUrl + '?' +
+        'part=snippet&' +
+        'channelId=' + channelId + '&' +
         'maxResults=' + max + '&' +
         'key=' + key;
-
-    return fetch(playlistApiUrl + '?' + query).
-        then((response) => {
-            return response.json();
-        }).
-        then((js) => {
-            return js.items.map((pl) => {
-               return {
-                   title: pl.snippet.title,
-                   playlistId: pl.id,
-               };
-            });
-        });
-};
+export const getAllPlaylists = (channelId = binaryChannelId, max = 50) =>
+    fetch(playlistUrl(channelId, max))
+        .then(response => response.json())
+        .then(js =>
+            js.items.map(pl => ({
+               title: pl.snippet.title,
+               playlistId: pl.id,
+            })
+        ));

@@ -1,10 +1,8 @@
 import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { InputGroup, MarketPicker } from '../_common';
-import { dateToDateString, todayString } from '../_utils/DateUtils';
+import { dateToDateString, todayString, oneYearAfterStr } from '../_utils/DateUtils';
 import TradingTimesTable from './TradingTimesTable';
-
-const oneYearAfterStr = () => new Date().setFullYear(new Date().getFullYear() + 1);
 
 export default class TradingTimesCard extends React.Component {
 
@@ -12,28 +10,25 @@ export default class TradingTimesCard extends React.Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
-		assets: PropTypes.object.isRequired,
+		assets: PropTypes.array.isRequired,
+		tradingTimes: PropTypes.array.isRequired,
 		tradingTimesFilter: PropTypes.object.isRequired,
 	};
 
 	render() {
-		const { actions, assets, tradingTimesFilter } = this.props;
-		const { times, list, tree } = assets.toJS();
-		const submarket = tradingTimesFilter.get('submarket');
-		const submarketName = Object.keys(tree).map(market => {
-			const subs = tree[market].submarkets;
-			if (Object.keys(subs).indexOf(submarket) > -1) return subs[submarket].display_name;
-		}).filter(name => !!name)[0];
+		const { actions, assets, tradingTimes, tradingTimesFilter } = this.props;
+		const submarket = tradingTimesFilter.submarket;
+		const tradingTimesDate = tradingTimesFilter.date;
 
-		const submarketForAsset = symbol => list.find(x => x.symbol === symbol).submarket;
-		const tradingTimesDate = tradingTimesFilter.get('date');
+		const submarketForAsset = symbol =>
+			assets.find(x => x.symbol === symbol).submarket;
 
 		return (
 			<div>
 				<div className="row">
 					<MarketPicker
 						onChange={x => actions.updateTickTradeSubmarket(x)}
-						showAllOption={false}
+						allOptionShown={false}
 						value={submarket}
 					/>
 					<InputGroup
@@ -47,8 +42,7 @@ export default class TradingTimesCard extends React.Component {
 				</div>
 				<TradingTimesTable
 					key={submarket}
-					submarket={submarketName}
-					times={times.filter(a => submarketForAsset(a.symbol) === submarket)}
+					times={tradingTimes.filter(a => submarketForAsset(a.symbol) === submarket)}
 					{...this.props}
 				/>
 			</div>

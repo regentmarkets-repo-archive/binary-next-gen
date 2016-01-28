@@ -1,14 +1,9 @@
 import React, { PropTypes } from 'react';
 import TradingTimesRow from './TradingTimesRow';
 
-const TradingTimesTable = ({ submarket, times, compact }) => (
+const TradingTimesTable = ({ times, compact }) => (
 	<table>
 		<thead>
-            <tr>
-				<th colSpan="100">
-                    {submarket}
-                </th>
-            </tr>
 			<tr>
 				<th>Asset</th>
 				<th>Opens</th>
@@ -24,7 +19,6 @@ const TradingTimesTable = ({ submarket, times, compact }) => (
 );
 
 TradingTimesTable.propTypes = {
-	submarket: PropTypes.string.isRequired,
 	times: PropTypes.array.isRequired,
 };
 

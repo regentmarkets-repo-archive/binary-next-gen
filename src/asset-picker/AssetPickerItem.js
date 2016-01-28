@@ -17,7 +17,7 @@ export default class AssetPickerItem extends React.Component {
 
 	toggleFavorite() {
 		const { asset, onFavor, onUnfavor, isFavorite } = this.props;
-		const symbol = asset.get('symbol');
+		const symbol = asset.symbol;
 		if (isFavorite) {
 			onUnfavor(symbol);
 		} else {
@@ -33,11 +33,11 @@ export default class AssetPickerItem extends React.Component {
 				<td onClick={::this.toggleFavorite}>
 					<Star on={isFavorite} />
 				</td>
-				<td onClick={() => onSelect(asset.get('symbol'))}>
-					{asset.get('display_name')}
+				<td onClick={() => onSelect(asset.symbol)}>
+					{asset.display_name}
 				</td>
-				<td className="market-hierarchy" onClick={() => onSelect(asset.get('symbol'))}>
-					{asset.get('market_display_name') + ' > ' + asset.get('submarket_display_name')}
+				<td className="market-hierarchy" onClick={() => onSelect(asset.symbol)}>
+					{asset.market_display_name + ' > ' + asset.submarket_display_name}
 				</td>
 				<td>
 					<img src="img/info.svg" style={{ width: '1rem' }} />

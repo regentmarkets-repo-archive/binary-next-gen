@@ -2,8 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import TradingTimesCard from './TradingTimesCard';
+import tradingTimesSelectors from '../_selectors/TradingTimesSelectors';
 
-@connect(state => ({ assets: state.assets, tradingTimesFilter: state.workspace.get('tradingTimes') }))
+@connect(tradingTimesSelectors)
 export default class TradingTimesContainer extends React.Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;

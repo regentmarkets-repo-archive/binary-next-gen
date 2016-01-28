@@ -11,7 +11,7 @@ describe('store', () => {
     it('should work with a series of actions', () => {
         store.dispatch({
             type: 'DO_SOMETHING',
-            hello: 'its me',
+            hello: 'world',
         });
 
         const actual = store.getState();

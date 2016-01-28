@@ -7,7 +7,7 @@ export default class AssetPickerList extends React.Component {
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
-		assets: PropTypes.object.isRequired,
+		assets: PropTypes.array.isRequired,
 		favorites: PropTypes.object.isRequired,
 		selectedAsset: PropTypes.string,
 	};
@@ -20,10 +20,10 @@ export default class AssetPickerList extends React.Component {
 				<tbody>
 					{assets.map(asset =>
 						<AssetPickerItem
-							key={asset.get('symbol')}
+							key={asset.symbol}
 							asset={asset}
-							isFavorite={favorites.has(asset.get('symbol'))}
-							isSelected={selectedAsset === asset.get('symbol') ? true : false}
+							isFavorite={favorites.has(asset.symbol)}
+							isSelected={selectedAsset === asset.symbol}
 							{...this.props}
 						/>
 					)}

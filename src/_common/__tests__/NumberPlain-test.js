@@ -1,7 +1,10 @@
 import React from 'react';
 import expect from 'expect';
+import expectJSX from 'expect-jsx';
 import { renderShallow } from '../../_utils/TestUtils';
 import NumberPlain from '../NumberPlain';
+
+expect.extend(expectJSX);
 
 describe('NumberPlain', () => {
     it('renders without any properties', () => {

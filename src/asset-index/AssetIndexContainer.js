@@ -2,8 +2,9 @@ import React from 'react';
 import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import AssetIndexCard from './AssetIndexCard';
+import assetIndexSelectors from '../_selectors/AssetIndexSelectors';
 
-@connect(state => ({ assets: state.assets, assetIndexFilter: state.workspace.get('assetIndex') }))
+@connect(assetIndexSelectors)
 export default class AsssetIndexContainer extends React.Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;

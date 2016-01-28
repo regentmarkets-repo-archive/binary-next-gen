@@ -32,9 +32,8 @@ const getTradeTypeText = type => {
     return name;
 };
 
-const createDefaultType = (contracts, category) => {
-    return Object.keys(contracts[category])[0];
-};
+const createDefaultType = (contracts, category) =>
+    Object.keys(contracts[category])[0];
 
 const createDefaultDuration = (contracts, category, type) => {
     if (category === 'spreads') {
@@ -81,7 +80,7 @@ const createDefaultBarriers = (contracts, category, type, duration, durationUnit
     if (barrierByExpiry.length === 1) {
         switch (expiryType) {
             case 'tick': {
-                console.log('Should not have tick expiry');
+                // console.log('Should not have tick expiry');
                 return [undefined, undefined];
             }
             case 'intraday': return [+barrierByExpiry[0].defaultValue];
@@ -93,7 +92,7 @@ const createDefaultBarriers = (contracts, category, type, duration, durationUnit
     if (barrierByExpiry.length === 2) {
         switch (expiryType) {
             case 'tick': {
-                console.log('Should not have tick expiry');
+                // console.log('Should not have tick expiry');
                 return [undefined, undefined];
             }
             case 'intraday': return [+barrierByExpiry[0].defaultValue, +barrierByExpiry[1].defaultValue];
@@ -333,7 +332,7 @@ export default class TradePanel extends Component {
 
     onPurchase() {
         const { actions, id } = this.props;
-        actions.purchaseByTradeID(id);
+        actions.purchaseByTradeId(id);
     }
 
     onClosePanel() {

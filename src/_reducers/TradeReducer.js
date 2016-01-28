@@ -23,11 +23,11 @@ const initialState = fromJS({
 export default (state = initialState, action) => {
     switch (action.type) {
         case INIT_TRADE: {
-            const newID = stringIncrement(action.id);
-            if (state.has(newID)) {
+            const newId = stringIncrement(action.id);
+            if (state.has(newId)) {
                 return state;
             }
-            return state.set(newID.toString(), initialState.get('0'));
+            return state.set(newId.toString(), initialState.get('0'));
         }
         case UPDATE_TRADE_PARAMS: {
             const result = state.setIn([action.id, action.fieldName], action.fieldValue);
@@ -43,8 +43,8 @@ export default (state = initialState, action) => {
             if (action.serverResponse.error) {
                 return state;
             }
-            const proposalID = action.serverResponse.proposal.id;
-            const entry = state.findEntry(v => v.get('proposal') ? v.get('proposal').id === proposalID : false);
+            const proposalId = action.serverResponse.proposal.id;
+            const entry = state.findEntry(v => v.get('proposal') ? v.get('proposal').id === proposalId : false);
             if (entry) {
                 return state.setIn([entry[0], 'proposal'], action.serverResponse.proposal);
             }

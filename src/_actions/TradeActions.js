@@ -42,8 +42,8 @@ export const updateQuickTradeParams = (symbol, tradeType, params) => {
     };
 };
 
-export const updateQuickTradePriceProposalSubscription = (symbol, trade) => {
-    return (dispatch, getState) => {
+export const updateQuickTradePriceProposalSubscription = (symbol, trade) =>
+    (dispatch, getState) => {
         const quickTrade = getState().quickTrade;
         const opts = quickTrade.getIn([symbol, trade, 'params']);
         const proposal = getState().proposals.getIn([symbol, trade]);
@@ -53,7 +53,6 @@ export const updateQuickTradePriceProposalSubscription = (symbol, trade) => {
         }
         LiveData.api.subscribeToPriceForContractProposal(opts.toJS());
     };
-};
 
 export const setQuickTradeField = (symbol, tradeType, field, value) => ({
     type: types.SET_QUICK_TRADE_FIELD,
@@ -68,8 +67,8 @@ export const initTrade = id => ({
     id,
 });
 
-export const destroyTrade = id => {
-    return (dispatch, getState) => {
+export const destroyTrade = id =>
+    (dispatch, getState) => {
         const allTrades = getState().trades.toJS();
         if (Object.keys(allTrades).length === 1) {
             return;
@@ -84,7 +83,6 @@ export const destroyTrade = id => {
 
         dispatch({ type: types.DESTROY_TRADE, id });
     };
-};
 
 export const destroyAllTrade = () => ({
     type: types.DESTROY_ALL_TRADE,
@@ -100,8 +98,8 @@ export const updateTradeParams = (id, fieldName, fieldValue) => {
     };
 };
 
-export const updatePriceProposalSubscription = (tradeID, trade) => {
-    return (dispatch, getState) => {
+export const updatePriceProposalSubscription = (tradeID, trade) =>
+    (dispatch, getState) => {
         const tradeObj = trade ? trade : getState().trades.get(tradeID).toJS();
         const currency = getState().account.get('currency');
         const {
@@ -159,10 +157,9 @@ export const updatePriceProposalSubscription = (tradeID, trade) => {
             }
         );
     };
-};
 
-export const purchaseByTradeID = (tradeID, trade) => {
-    return (dispatch, getState) => {
+export const purchaseByTradeID = (tradeID, trade) =>
+    (dispatch, getState) => {
         const tradeSelected = trade ? trade : getState().trades.get(tradeID).toJS();
         trackEvent('buy-contract', tradeSelected);
         const proposalID = tradeSelected.proposal.id;
@@ -175,4 +172,3 @@ export const purchaseByTradeID = (tradeID, trade) => {
             )
             .then(() => dispatch(updateTradeParams(tradeID, 'buying', false)));
     };
-};

@@ -513,9 +513,11 @@ select {
 .video-list {
     margin: 0 -.5rem;
 }
+
 .video-thumbnail {
     margin: .5rem;
     min-width: 10rem;
+    text-decoration: none;
 }
 
 .video-thumbnail img {
