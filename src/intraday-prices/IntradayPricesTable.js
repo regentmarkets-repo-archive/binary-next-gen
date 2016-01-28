@@ -1,13 +1,14 @@
 import React from 'react';
 import Direction from '../_common/Direction';
+import M from '../_common/M';
 
 export default () => (
 	<table>
 		<thead>
 			<tr>
-				<th>Time</th>
-				<th>Price</th>
-				<th>Change</th>
+				<th><M m="Time" /></th>
+				<th><M m="Price" /></th>
+				<th><M m="Change" /></th>
 			</tr>
 		</thead>
 		<tbody>

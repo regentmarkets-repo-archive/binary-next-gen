@@ -1,15 +1,16 @@
 import React, { PropTypes } from 'react';
+import M from '../_common/M';
 import TradingTimesRow from './TradingTimesRow';
 
 const TradingTimesTable = ({ times, compact }) => (
 	<table>
 		<thead>
 			<tr>
-				<th>Asset</th>
-				<th>Opens</th>
-				<th>Closes</th>
-                <th>Settles</th>
-				{!compact && <th>Upcoming Events</th>}
+				<th><M m="Asset" /></th>
+				<th><M m="Opens" /></th>
+				<th><M m="Closes" /></th>
+                <th><M m="Settles" /></th>
+				{!compact && <th><M m="Upcoming Events" /></th>}
 			</tr>
 		</thead>
 		<tbody>

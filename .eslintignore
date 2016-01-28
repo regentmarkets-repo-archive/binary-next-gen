@@ -8,3 +8,4 @@ server.js
 karma.*.js
 test/integration
 ./src/_constants/texts.js
+./src/_constants/po/*.js

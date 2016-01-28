@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { CurrencyPicker, RangeGroup } from '../_common';
+import { CurrencyPicker, RangeGroup, M } from '../_common';
 
 const RiseFallFilter = ({ onCalculate }) => (
 	<form name="rise_fall" id="rise_fall_form">
@@ -15,7 +15,9 @@ const RiseFallFilter = ({ onCalculate }) => (
 			<RangeGroup label="Duration" min={5} max={10} items={['5', '6', '7', '8', '9', '10']} />
 			<CurrencyPicker value="USD" />
 		</div>
-		<button onClick={onCalculate}>Calculate</button>
+		<button onClick={onCalculate}>
+			<M m="Calculate" />
+		</button>
 	</form>
 );
 

@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import { connect } from 'react-redux';
 import config from 'json!../config.json';
-import { Clock, LanguagePicker, NumberPlain } from '../_common';
+import { Clock, LanguagePicker, NumberPlain, M } from '../_common';
 
 @connect(state => ({ account: state.account }))
 export default class DesktopHeader extends React.Component {
@@ -23,8 +23,8 @@ export default class DesktopHeader extends React.Component {
 				<LanguagePicker className="language-picker" />
 				<span>{account.email}</span>
 				<NumberPlain className="balance" currency={account.currency} value={account.balance} />
-				<Link to="/deposit" id="deposit-btn" className="btn-secondary">Deposit</Link>
-				<Link to="/signout" id="signout">Log out</Link>
+				<Link to="/deposit" id="deposit-btn" className="btn-secondary"><M m="Deposit" /></Link>
+				<Link to="/signout" id="signout-btn" className="btn-secondary"><M m="Log out" /></Link>
 			</div>
 		);
 	}

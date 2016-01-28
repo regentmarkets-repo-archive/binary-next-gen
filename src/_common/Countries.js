@@ -1,4 +1,5 @@
 import React from 'react';
+import M from '../_common/M';
 
 export default ({ onChange, value }) => (
 	<select name="residence" onChange={onChange} value={value}>
@@ -56,7 +57,7 @@ export default ({ onChange, value }) => (
 		<option value="cd">Congo, The Democratic Repu...</option>
 		<option value="ck">Cook Islands</option>
 		<option disabled="" value="cr">Costa Rica</option>
-		<option value="ci">Cote D"Ivoire</option>
+		<option value="ci">Cote D'Ivoire</option>
 		<option value="hr">Croatia</option>
 		<option value="cu">Cuba</option>
 		<option value="cy">Cyprus</option>
@@ -118,11 +119,11 @@ export default ({ onChange, value }) => (
 		<option value="kz">Kazakhstan</option>
 		<option value="ke">Kenya</option>
 		<option value="ki">Kiribati</option>
-		<option value="kp">Korea, Democratic People"s...</option>
+		<option value="kp">Korea, Democratic People's...</option>
 		<option value="kr">Korea, Republic of</option>
 		<option value="kw">Kuwait</option>
 		<option value="kg">Kyrgyzstan</option>
-		<option value="la">Lao People"s Democratic Re...</option>
+		<option value="la">Lao People's Democratic Re...</option>
 		<option value="lv">Latvia</option>
 		<option value="lb">Lebanon</option>
 		<option value="ls">Lesotho</option>
