@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: 1228\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-01-06 04:52+0000\n"
+"PO-Revision-Date: 2016-01-28 07:51+0000\n"
 "Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
 "Language-Team: Chinese (China) <https://hosted.weblate.org/projects/binary-"
 "app/next-gen-app/zh_CN/>\n"
@@ -202,155 +202,149 @@ msgstr "变动"
 msgid "Chart"
 msgstr "图表"
 
-#, fuzzy
 msgid "Purchase For"
 msgstr "买入"
 
 msgid "Rise"
-msgstr ""
+msgstr "上涨"
 
 msgid "Stake"
-msgstr ""
+msgstr "投注金额"
 
 msgid "Payout"
-msgstr ""
+msgstr "赔付额"
 
 msgid "Deposit"
-msgstr ""
+msgstr "存款"
 
-#, fuzzy
 msgid "Transactions"
-msgstr "交易确认"
+msgstr "交易"
 
 msgid "Opens"
-msgstr ""
+msgstr "开盘"
 
 msgid "Closes"
-msgstr ""
+msgstr "收盘"
 
 msgid "Personal"
-msgstr ""
+msgstr "个人"
 
 msgid "General"
-msgstr ""
+msgstr "一般条款"
 
-#, fuzzy
 msgid "Trading Times"
-msgstr "交易限制"
+msgstr "交易时间"
 
-#, fuzzy
 msgid "Asset Index"
-msgstr "资产"
+msgstr "资产指数"
 
 msgid "Today"
-msgstr ""
+msgstr "今日"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "昨日"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "明日"
 
 msgid "Takeout"
-msgstr ""
+msgstr "取得"
 
 msgid "News"
-msgstr ""
+msgstr "新闻"
 
 msgid "Resources"
-msgstr ""
+msgstr "资源"
 
 msgid "Last 7 Days"
-msgstr ""
+msgstr "过去7天"
 
 msgid "Last 30 Days"
-msgstr ""
+msgstr "过去30天"
 
 msgid "Daily Report"
-msgstr ""
+msgstr "日报"
 
 msgid "Up/Down"
-msgstr ""
+msgstr "上/下"
 
 msgid "Touch/No Touch"
-msgstr ""
+msgstr "触及/未触及"
 
 msgid "Ends In/Out"
-msgstr ""
+msgstr "到期时价格处于某个范围之内/之外"
 
 msgid "Stays In/Goes Out"
-msgstr ""
+msgstr "保持在某个范围之内/之外"
 
-#, fuzzy
 msgid "Settles"
-msgstr "设置"
+msgstr "结算"
 
 msgid "Language"
-msgstr ""
+msgstr "语言"
 
 msgid "Color Theme"
-msgstr ""
+msgstr "颜色主题"
 
 msgid "Light"
-msgstr ""
+msgstr "浅色"
 
 msgid "Dark"
-msgstr ""
+msgstr "深色"
 
 msgid "Name"
-msgstr ""
+msgstr "姓名"
 
-#, fuzzy
 msgid "Date Of Birth"
 msgstr "出生日期"
 
 msgid "Country Of Residence"
-msgstr ""
+msgstr "居住国"
 
 msgid "Email"
-msgstr ""
+msgstr "电子邮件"
 
 msgid "There are no transactions for selected period"
-msgstr ""
+msgstr "选定期间无任何交易"
 
 msgid "Sell"
-msgstr ""
+msgstr "售出"
 
 msgid "Buy"
-msgstr ""
+msgstr "买入"
 
 msgid "Digit Even"
-msgstr ""
+msgstr "数字为偶数"
 
 msgid "Touches"
-msgstr ""
+msgstr "触及"
 
 msgid "Digit Over"
-msgstr ""
+msgstr "数字超过限额"
 
 msgid "Digit Match"
-msgstr ""
+msgstr "数字相符"
 
 msgid "Digit Under"
-msgstr ""
+msgstr "数字低于限额"
 
 msgid "Digit Odd"
-msgstr ""
+msgstr "数字为奇数"
 
 msgid "Digit Differs"
-msgstr ""
+msgstr "数字不相符"
 
 msgid "No Touch"
-msgstr ""
+msgstr "未触及"
 
 msgid "Fall"
-msgstr ""
+msgstr "下降"
 
 msgid "Asian Down"
-msgstr ""
+msgstr "亚洲下跌期权"
 
 msgid "Asian Up"
-msgstr ""
+msgstr "亚洲上涨期权"
 
 msgid "Search For Assets"
-msgstr ""
+msgstr "搜索资产"
