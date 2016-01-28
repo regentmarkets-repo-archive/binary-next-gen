@@ -1,5 +1,4 @@
 import React from 'react';
-import M from '../_common/M';
 
 export default ({ onChange, value }) => (
 	<select name="residence" onChange={onChange} value={value}>
