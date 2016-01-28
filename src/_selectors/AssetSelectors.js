@@ -28,7 +28,7 @@ export const marketTreeSelector = createSelector(
             }
 
             return tree;
-        }, {}),
+        }, {})
 );
 
 // export const submarketNameSelector = Object.keys(tree).map(market => {

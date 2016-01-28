@@ -8,7 +8,7 @@ export default class TradesContainer extends React.Component {
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
-        assets: PropTypes.array.isRequired,
+        assets: PropTypes.object.isRequired,
         contracts: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
         trades: PropTypes.object.isRequired,
