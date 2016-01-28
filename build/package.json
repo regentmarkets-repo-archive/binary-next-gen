@@ -53,5 +53,9 @@
     "url-loader": "^0.5.5",
     "uuid": "^2.0.1",
     "webpack": "^1.12.11"
+  },
+  "devDependencies": {
+    "gulp-json-transform": "^0.3.0",
+    "gulp-rename": "^1.2.2"
   }
 }
