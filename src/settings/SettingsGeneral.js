@@ -5,8 +5,8 @@ export default class SettingsGeneral extends React.Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
-		settings: PropTypes.object.isRequired,
 		loginid: PropTypes.string.isRequired,
+		appConfig: PropTypes.object.isRequired,
 	};
 
 	onThemeChange(e) {
@@ -14,7 +14,7 @@ export default class SettingsGeneral extends React.Component {
 	}
 
 	render() {
-		const { theme } = this.props.settings;
+		const { theme } = this.props.appConfig;
 		return (
 			<div>
 				<label htmlFor="language-picker"><M m="Language" /></label>
