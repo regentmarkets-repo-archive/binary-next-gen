@@ -42,19 +42,22 @@ describe('ArrayUtils', () => {
         expect(Object.keys(grouped).length).toEqual(5);
     });
 
-});
-
-describe('objectToArray', ()=>{
-    const fruitArr = ["Apple","Mango","Orange"];
-    const strObj = objectToArray("");
-    const obj =  objectToArray(fruitArr);
-    it("Get the array length", () =>{
+    it("s array is of length 3", () =>{
+        const fruitArr = ["Apple","Mango","Orange"];
+        const obj =  objectToArray(fruitArr);
         expect(Object.keys(obj).length).toEqual(3);
     });
-    it('get a variable key or index from the array', ()=>{
+
+    it("s second array object's key is 1", ()=>{
+        const fruitArr = ["Apple","Mango","Orange"];
+        const obj =  objectToArray(fruitArr);
         expect(obj.indexOf("Mango")).toEqual(1);
     });
-    it('its an empty variable or non array conevrtible ', ()=>{
+
+    it('s an empty variable or non array convertible', ()=>{
+        const fruitArr = ["Apple","Mango","Orange"];
+        const obj =  objectToArray(fruitArr);
         expect(objectToArray('').length).toEqual(0);
-    })
-})
+    });
+
+});

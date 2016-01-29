@@ -4,7 +4,7 @@ import {createRenderer} from 'react-addons-test-utils';
 import Collapsible  from '../Collapsible';
 
 describe('Collapsible', ()=>{
-	it('works', ()=>{
+	it('should render the same component as the Collapsible component', ()=>{
 		let renderer = createRenderer();
 		renderer.render(<Collapsible title="title">HEllo</Collapsible>);
 		let actualElement =	renderer.getRenderOutput();
@@ -12,7 +12,6 @@ describe('Collapsible', ()=>{
                 				<summary>title</summary>
               						HEllo
            					   </details>);
-
 	    expect(actualElement).toEqual(expectedElement);            			
 	});
 });

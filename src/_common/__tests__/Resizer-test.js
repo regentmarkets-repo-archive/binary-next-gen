@@ -1,13 +1,11 @@
 import React from 'react';
 import expect from 'expect';
-import {createRenderer} from 'react-addons-test-utils';
-import { shallow,render } from 'enzyme';
+import { shallow } from 'enzyme';
 import Resizer from '../Resizer';
 
 describe('Resizer', ()=>{
-	let wrapper = shallow(<Resizer className="myClass" onResize = {() => {}} />)
-
-	it('The className is myClass',()=>{
+	it('should contain the class myClass',()=>{
+		const wrapper = shallow(<Resizer className="myClass" onResize = {() => {}} />)
 		expect(wrapper.props().className).toEqual('myClass');
 	});
 });

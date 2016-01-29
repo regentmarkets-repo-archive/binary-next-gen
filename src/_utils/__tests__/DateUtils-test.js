@@ -18,6 +18,7 @@ describe('epochToDateString', () => {
         expect(str).toEqual('2001-09-09');
     });
 });
+
 describe('secondsToTimeString', () => {
     it('convert seconds to minutes',() =>{
         const seconds = 60 ;
@@ -37,38 +38,38 @@ describe('getLastXMonthEpoch', () => {
 });
 
 describe('epochToDate', () =>{
-    it('convert epoch format to date', () =>{
+    it('converts epoch format to date', () =>{
         const epochTime = (new Date())/1000;
         expect(epochToDate(new Date()/1000)).toEqual(new Date());
     });
 });
 
 describe('dateToEpoch', () => {
-    it('convert date to epoch equivalent', ()=>{
+    it('converts date to epoch equivalent', ()=>{
         expect(dateToEpoch(new Date())).toEqual(Math.floor(new Date()/1000));
     });
 });
 
 describe('timeStringSmaller', () => {
-    it('Comapare two time strings and determine if the first is smaller', ()=>{
-        expect(timeStringSmaller('010203','020203')).toEqual(true);
+    it('Compares the two time strings and determine if the first is smaller', ()=>{
+        expect(timeStringSmaller('01:02:03','02:02:03')).toEqual(true);
     });
 
-    it('Comapare two and determine the two times are thesame', ()=>{
-        expect(timeStringSmaller('010203','010203')).toEqual(false);
+    it('s two time strings are thesame ', ()=>{
+        expect(timeStringSmaller('01:02:03','01:02:03')).toEqual(false);
     });
 });
 
 describe('timeStringBigger',()=>{
-    it('compare two time string and determine the first is bigger', ()=>{
-        expect(timeStringBigger('010203','010103')).toEqual(true);
+    it('first time string is ahead by one minute', ()=>{
+        expect(timeStringBigger('01:02:03','01:01:03')).toEqual(true);
     });
 
-    it('when the first string time is bigger by seconds',()=>{
-        expect(timeStringBigger('010203','010201')).toEqual(true);
+    it('first time string is higher by seconds',()=>{
+        expect(timeStringBigger('01:02:03','01:02:01')).toEqual(true);
     });
 
-    it('compare two time strings and determine the second is bigger', ()=>{
-        expect(timeStringBigger('010203','010204')).toEqual(false);
+    it('second time string is higher by 1 second', ()=>{
+        expect(timeStringBigger('01:02:03','01:02:04')).toEqual(false);
     });
 });
