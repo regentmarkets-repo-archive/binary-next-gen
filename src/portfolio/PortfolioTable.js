@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { NumberPlain, M } from '../_common';
 import PortfolioRow from './PortfolioRow';
 
-const PortfolioTable = ({ compact, contracts, proposals, onViewDetails, purchaseTotal, indicativeTotal }) => (
+const PortfolioTable = ({ compact, contracts, onViewDetails, purchaseTotal, indicativeTotal }) => (
 	<table>
 		<thead>
 			<tr>
@@ -24,7 +24,6 @@ const PortfolioTable = ({ compact, contracts, proposals, onViewDetails, purchase
 					key={i}
 					compact={compact}
 					contract={c}
-					proposal={proposals.get(c.contract_id)}
 					history={history}
 					onViewDetails={onViewDetails}
 				/>
@@ -43,7 +42,7 @@ const PortfolioTable = ({ compact, contracts, proposals, onViewDetails, purchase
 
 PortfolioTable.propTypes = {
     compact: PropTypes.bool,
-	contracts: PropTypes.object.isRequired,
+	contracts: PropTypes.array.isRequired,
     onViewDetails: PropTypes.func.isRequired,
 };
 
