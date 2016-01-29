@@ -307,9 +307,16 @@ const ticksSelector = state => state.ticks.toJS();
 
 const currencySelector = state => state.account.get('currency');
 
+const tradesIdsSelector = createSelector(
+    tradesSelector,
+    trades =>
+        Object.keys(trades)
+);
+
 export const fullTradesSelector = createStructuredSelector({
     contracts: contractsSelector,
     trades: tradesSelector,
+    tradesIds: tradesIdsSelector,
     assets: availableAssetsSelector,
     ticks: ticksSelector,
     currency: currencySelector,

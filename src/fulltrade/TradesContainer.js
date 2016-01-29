@@ -12,37 +12,35 @@ export default class TradesContainer extends React.Component {
         contracts: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
         trades: PropTypes.object.isRequired,
+        tradesIds: PropTypes.array.isRequired,
         ticks: PropTypes.object.isRequired,
     };
 
     createTrade() {
-        const { trades, actions } = this.props;
+        const { tradesIds, actions } = this.props;
 
-        const allIDs = Object.keys(trades).map(id => +id).filter(n => !isNaN(n));
-        const maxId = allIDs.length > 0 ? allIDs.reduce((a, b) => Math.max(a, b)) : -1;
+        const maxId = tradesIds.reduce((a, b) => Math.max(a, b), -1);
         actions.initTrade(maxId.toString());
     }
 
     render() {
-        const { assets, trades, contracts, actions, ticks, currency } = this.props;
-        const allId = Object.keys(trades);
+        const { trades, tradesIds, contracts, ticks } = this.props;
+
         return (
             <div>
-                {allId.map(id => {
+                {tradesIds.map(id => {
                     const symbol = trades[id].symbol;
                     const contract = contracts[symbol];
                     const tick = ticks[symbol];
                     if (contract && tick) {
                         return (
                             <TradePanel
-                                actions={actions}
-                                assets={assets}
-                                currency={currency}
                                 key={id}
                                 id={id}
-                                trade={trades[id]}
                                 contract={contract}
                                 tick={tick}
+                                trade={trades[id]}
+                                {...this.props}
                             />
                         );
                     }

@@ -48,7 +48,7 @@ export default class AssetPickerCard extends React.Component {
 	render() {
 		const { actions, shownAssets, watchlist, idSymbolMap } = this.props;
 		const { id } = this.props.params;
-		const { query } = this.props.location;
+		// const { query } = this.props.location;
 		// const type = query.type;
 
 		const selectedSymbol = idSymbolMap[id];
