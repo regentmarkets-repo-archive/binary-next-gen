@@ -640,3 +640,11 @@ select {
     font-weight: 500;
     margin-bottom: 5px;
 }
+
+.trades-grid {
+    display: flex;
+}
+
+.trades-tabs {
+    display: flex;
+}
