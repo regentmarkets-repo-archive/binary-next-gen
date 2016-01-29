@@ -126,17 +126,40 @@ const durationSecHelper = duration => {
     return durationToSecs(d, u);
 };
 
+const shouldBlockExist = (min, max, unit) => {
+    if (max < 1) {
+        return false;
+    }
+    switch (unit) {
+        case 's': {
+            return min < 60;
+        }
+        case 'm': {
+            return min < 60;
+        }
+        case 'h': {
+            return min < 24;
+        }
+        case 'd': {
+            return true;
+        }
+        default: throw new Error('Invalid time unit');
+    }
+};
+
 const minMaxInUnits = (min, max) => {
     const minInUnits = splitSecsToUnits(min);
     const maxInUnits = splitSecsToUnits(max);
     const durations = [];
     for (let i = 0; i < minInUnits.length; i++) {
         const unit = durationUnits[i + 1];
-        if (maxInUnits[i] > 1) {
+        const minI = minInUnits[i];
+        const maxI = maxInUnits[i];
+        if (shouldBlockExist(minI, maxI, unit)) {
             durations.push({
                 unit,
-                min: minInUnits[i] > 0 ? minInUnits[i] : 1,
-                max: maxInUnits[i] });
+                min: minI > 0 ? minI : 1,
+                max: maxI });
         }
     }
     return durations;
