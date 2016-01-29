@@ -1,5 +1,11 @@
 import { createSelector, createStructuredSelector } from 'reselect';
-import { todayString, epochToDateString, yesterdayEpoch, getLastXMonthEpoch } from '../_utils/DateUtils';
+import {
+    todayString,
+    epochToDateString,
+    yesterdayString,
+    getLastXMonthEpoch,
+    last7DaysEpoch,
+} from '../_utils/DateUtils';
 import { toPlainJS } from '../_utils/ObjectUtils';
 
 export const transactionsSelector = state => toPlainJS(state.transactions);
@@ -15,7 +21,7 @@ export const transactionsTodaySelector = createSelector(
 export const transactionsYesterdaySelector = createSelector(
     transactionsSelector,
     transactions => {
-       const yesterday = yesterdayEpoch();
+       const yesterday = yesterdayString();
        return transactions.filter(tx => yesterday === epochToDateString(tx.transaction_time));
    }
 );
@@ -23,7 +29,7 @@ export const transactionsYesterdaySelector = createSelector(
 export const transactionsLast7DaysSelector = createSelector(
     transactionsSelector,
     transactions => {
-        const Last7DaysEpoch = epochToDateString((Date.now() / 1000) - 60 * 60 * 24 * 7);
+        const Last7DaysEpoch = last7DaysEpoch();
         return transactions.filter(tx => tx.transaction_time > Last7DaysEpoch);
     }
 );

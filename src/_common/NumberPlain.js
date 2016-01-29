@@ -27,7 +27,7 @@ export default class NumberPlain extends React.Component {
 
 		return (
 			<span className={className}>
-				{value ? <FormattedNumber
+				{value === 0 || value ? <FormattedNumber
 					style={currency && 'currency'}
 					currency={currency}
 					value={value}
