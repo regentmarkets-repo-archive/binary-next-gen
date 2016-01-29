@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: BOM\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-01-18 16:33+0000\n"
-"Last-Translator: Gabriela Balieiro Moreira <eusouagabi@gmail.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/binary-app/"
-"next-gen-app/pt/>\n"
+"PO-Revision-Date: 2016-01-29 06:43+0000\n"
+"Last-Translator: Alcino Jorge <alcino@binary.com>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/binary-app"
+"/next-gen-app/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -201,155 +201,149 @@ msgstr "Alterar"
 msgid "Chart"
 msgstr "Gráfico"
 
-#, fuzzy
 msgid "Purchase For"
-msgstr "Comprar"
+msgstr "Comprar por"
 
 msgid "Rise"
-msgstr ""
+msgstr "Subir"
 
 msgid "Stake"
-msgstr ""
+msgstr "Aposta"
 
 msgid "Payout"
-msgstr ""
+msgstr "Prêmio"
 
 msgid "Deposit"
-msgstr ""
+msgstr "Depósito"
 
-#, fuzzy
 msgid "Transactions"
-msgstr "Confirmação de Negociação"
+msgstr "Transações"
 
 msgid "Opens"
-msgstr ""
+msgstr "Abre"
 
 msgid "Closes"
-msgstr ""
+msgstr "Fecha"
 
 msgid "Personal"
-msgstr ""
+msgstr "Pessoal"
 
 msgid "General"
-msgstr ""
+msgstr "Geral"
 
-#, fuzzy
 msgid "Trading Times"
-msgstr "Limites de Negociação"
+msgstr "Limites de negociação"
 
-#, fuzzy
 msgid "Asset Index"
-msgstr "Ativos"
+msgstr "Índice de ativos"
 
 msgid "Today"
-msgstr ""
+msgstr "Hoje"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Ontem"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "Amanhã"
 
 msgid "Takeout"
-msgstr ""
+msgstr "Retirada"
 
 msgid "News"
-msgstr ""
+msgstr "Notícias"
 
 msgid "Resources"
-msgstr ""
+msgstr "Recursos"
 
 msgid "Last 7 Days"
-msgstr ""
+msgstr "Últimos 7 dias"
 
 msgid "Last 30 Days"
-msgstr ""
+msgstr "Últimos 30 dias"
 
 msgid "Daily Report"
-msgstr ""
+msgstr "Relatório diário"
 
 msgid "Up/Down"
-msgstr ""
+msgstr "Acima/Abaixo"
 
 msgid "Touch/No Touch"
-msgstr ""
+msgstr "Toca/Não Toca"
 
 msgid "Ends In/Out"
-msgstr ""
+msgstr "Termina Dentro/Fora"
 
 msgid "Stays In/Goes Out"
-msgstr ""
+msgstr "Fica dentro/Sai fora"
 
-#, fuzzy
 msgid "Settles"
-msgstr "Definições"
+msgstr "Estabelece-se"
 
 msgid "Language"
-msgstr ""
+msgstr "Idioma"
 
 msgid "Color Theme"
-msgstr ""
+msgstr "Tema de cores"
 
 msgid "Light"
-msgstr ""
+msgstr "Claro"
 
 msgid "Dark"
-msgstr ""
+msgstr "Escuro"
 
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
-#, fuzzy
 msgid "Date Of Birth"
 msgstr "Data de nascimento"
 
 msgid "Country Of Residence"
-msgstr ""
+msgstr "País de residência"
 
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 msgid "There are no transactions for selected period"
-msgstr ""
+msgstr "Não existem transações para o período selecionado"
 
 msgid "Sell"
-msgstr ""
+msgstr "Vender"
 
 msgid "Buy"
-msgstr ""
+msgstr "Comprar"
 
 msgid "Digit Even"
-msgstr ""
+msgstr "Dígito par"
 
 msgid "Touches"
-msgstr ""
+msgstr "Toca"
 
 msgid "Digit Over"
-msgstr ""
+msgstr "Dígito acima de"
 
 msgid "Digit Match"
-msgstr ""
+msgstr "Dígito correspondente"
 
 msgid "Digit Under"
-msgstr ""
+msgstr "Dígito abaixo de"
 
 msgid "Digit Odd"
-msgstr ""
+msgstr "Dígito ímpar"
 
 msgid "Digit Differs"
-msgstr ""
+msgstr "Dígito difere"
 
 msgid "No Touch"
-msgstr ""
+msgstr "Não toca"
 
 msgid "Fall"
-msgstr ""
+msgstr "Descer"
 
 msgid "Asian Down"
-msgstr ""
+msgstr "Asiáticas abaixo"
 
 msgid "Asian Up"
-msgstr ""
+msgstr "Asiáticas acima"
 
 msgid "Search For Assets"
-msgstr ""
+msgstr "Procurar ativos"
