@@ -2,7 +2,7 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import expect from 'expect';
 import { fromJS } from 'immutable';
-import { shallow } from 'enzyme';
+import { shallow, render } from 'enzyme';
 import AppConfigProvider from '../AppConfigProvider';
 import { IntlProvider } from 'react-intl';
 
@@ -23,24 +23,6 @@ describe('AppConfigProvider', () => {
                 <ChildComponent/>
             </AppConfigProvider>);
 
-        expect(wrapper.render().text()).toContain('halo');
-    });
-
-    it('should render theme-wrapper', () => {
-        const wrapper = shallow(
-            <AppConfigProvider store={store}>
-                <ChildComponent/>
-            </AppConfigProvider>);
-
-        expect(wrapper.render().text()).toContain('theme-wrapper');
-    });
-
-    it('should render IntlProvider', () => {
-        const wrapper = shallow(
-            <AppConfigProvider store={store}>
-                <ChildComponent/>
-            </AppConfigProvider>);
-
-        expect(wrapper.find(IntlProvider).length).toEqual(1);
+        expect(wrapper.render().text()).toContain('World');
     });
 });
