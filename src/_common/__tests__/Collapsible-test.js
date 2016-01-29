@@ -12,8 +12,6 @@ describe('Collapsible', ()=>{
                 				<summary>title</summary>
               						HEllo
            					   </details>);
-		console.log("the actualElement is", actualElement);
-		console.log("the expectedElement is ", expectedElement);
 
 	    expect(actualElement).toEqual(expectedElement);            			
 	});

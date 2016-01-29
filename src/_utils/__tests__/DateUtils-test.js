@@ -45,7 +45,7 @@ describe('epochToDate', () =>{
 
 describe('dateToEpoch', () => {
     it('convert date to epoch equivalent', ()=>{
-        expect(dateToEpoch(new Date())).toEqual(new Date()/1000);
+        expect(dateToEpoch(new Date())).toEqual(Math.floor(new Date()/1000));
     });
 });
 
