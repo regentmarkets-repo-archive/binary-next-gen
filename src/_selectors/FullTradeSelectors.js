@@ -255,15 +255,24 @@ const availableAssetsFilter = (assets, times, now) => {
         if (!s.times) {
             return;
         }
-        const open = s.times.open[0];
-        const close = s.times.close[0];
+        const open = s.times.open;
+        const close = s.times.close;
 
         // Assuming closing time is larger than open time
         // TODO: some of Random does have time which does not fit into assumption
         if (s.name.indexOf('Random') > -1) {
             availabilities[s.symbol] = true;
-        } else if (timeStringBigger(nowInTimeString, open) && timeStringSmaller(nowInTimeString, close)) {
-            availabilities[s.symbol] = true;
+        } else if (open.length === 1) {
+            if (timeStringBigger(nowInTimeString, open[0]) && timeStringSmaller(nowInTimeString, close[0])) {
+                availabilities[s.symbol] = true;
+            }
+        } else if (open.length === 2) {
+            if (
+                (timeStringBigger(nowInTimeString, open[0]) && timeStringSmaller(nowInTimeString, close[0])) ||
+                (timeStringBigger(nowInTimeString, open[1]) && timeStringSmaller(nowInTimeString, close[1]))
+            ) {
+                availabilities[s.symbol] = true;
+            }
         }
     });
     const availableAssets = assets.filter(s => availabilities[s.value]);
