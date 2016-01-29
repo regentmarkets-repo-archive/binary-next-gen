@@ -1,20 +1,21 @@
 import React from 'react';
 import expect from 'expect';
-import {createRenderer} from 'react-addons-test-utils';
-import { shallow,render } from 'enzyme';
+import { shallow } from 'enzyme';
 import Star from '../Star';
 
 describe('Star',()=>{
-
-	let wrapper = shallow(<Star on="true" />)
-	it('The first node is of type img', ()=>{
+	it('s first node is of type img', ()=>{
+		const wrapper = shallow(<Star on="true" />)
 		expect(wrapper.nodes[0].type).toEqual('img');
 	});
-	it('The image name is star-on.svg', ()=>{
+
+	it('returns star-on.svg', ()=>{
+		const wrapper = shallow(<Star on="true" />)
 		expect(wrapper.nodes[0].props.src).toEqual('img/star-on.svg');
 	});
-	let wrap = shallow(<Star />);
-	it('The image name is star-off.svg', ()=>{
-		expect(wrap.nodes[0].props.src).toEqual('img/star-off.svg');
+
+	it('has an image named star-off.svg', ()=>{
+		const wrapper = shallow(<Star />);
+		expect(wrapper.nodes[0].props.src).toEqual('img/star-off.svg');
 	});
-})
+});
