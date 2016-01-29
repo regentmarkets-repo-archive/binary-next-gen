@@ -1,18 +1,19 @@
 import React from 'react';
 import expect from 'expect';
-import {createRenderer} from 'react-addons-test-utils';
+import { shallow,render } from 'enzyme';
 import { FormattedTime } from 'react-intl';
 import Clock from '../Clock';
 
 describe('Clock',()=>{
-	it('works',()=>{
-		let renderer = createRenderer();
-		let date = new Date();
-		date.setMilliseconds(0)
-		renderer.render(<Clock time={ date}> </Clock>);
-		let actualElement = renderer.getRenderOutput();
-		let expectedElement = <FormattedTime value={date} hour="numeric" minute="numeric" second="numeric" />;
-        actualElement.props.value.setMilliseconds(0);
-		expect(actualElement).toEqual(expectedElement);
+	const wrapper = shallow(<Clock time={ new Date()}> </Clock>);
+    const time = new Date(wrapper.node.props.value);
+	it("The day is Today's day ",()=>{
+		expect(time.getDate()).toEqual((new Date()).getDate());
+	});
+	it("The hour is the same as the current hour ",()=>{
+		expect(time.getHours()).toEqual((new Date()).getHours());
+	});
+	it("The minutes are the same ",()=>{
+		expect(time.getMinutes()).toEqual((new Date()).getMinutes());
 	});
 });
