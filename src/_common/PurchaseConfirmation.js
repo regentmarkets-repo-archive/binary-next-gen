@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { FormattedTime } from 'react-intl';
-import { epochToDateString } from '../_utils/DateUtils';
+import { epochToDate } from '../_utils/DateUtils';
 import { M } from '../_common';
 
 const PurchaseConfirmation = ({ receipt }) => (
@@ -19,7 +19,7 @@ const PurchaseConfirmation = ({ receipt }) => (
 				<tr>
 					<td><M m="Purchase Time" /></td>
 				<td>
-					<FormattedTime value={epochToDateString(receipt.purchase_time)} />
+					<FormattedTime value={epochToDate(receipt.purchase_time)} format="full" />
 				</td>
 				</tr>
 				<tr>

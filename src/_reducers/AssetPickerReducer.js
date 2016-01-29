@@ -46,16 +46,17 @@ export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_ACTIVE_SYMBOLS: {
             const activeSymbols = action.serverResponse.active_symbols;
-            const filteredSymbols = state.get('tickOnly') ? activeSymbols.filter(asset =>
-                state.get('tickOnly').indexOf(asset.symbol) > -1
-            ) : activeSymbols;
+            const filteredSymbols = state.get('tickOnly') ?
+                activeSymbols.filter(asset => state.get('tickOnly').indexOf(asset.symbol) > -1) :
+                activeSymbols;
             return state
                 .set('availableAssets', fromJS(filteredSymbols))
                 .set('shownAssets', fromJS(filteredSymbols));
         }
         case UPDATE_ASSET_PICKER_SEARCH_QUERY: {
             const availableAssets = state.get('availableAssets');
-            const shownAssets = doFilter(availableAssets.toJS(), action.query, state.get('market'), state.get('submarket'));
+            const shownAssets =
+                doFilter(availableAssets.toJS(), action.query, state.get('market'), state.get('submarket'));
 
             return state
                 .set('query', action.query)
@@ -63,7 +64,8 @@ export default (state = initialState, action) => {
         }
         case UPDATE_ASSET_PICKER_SUBMARKET: {
             const availableAssets = state.get('availableAssets');
-            const shownAssets = doFilter(availableAssets.toJS(), state.get('query'), state.get('market'), action.submarket);
+            const shownAssets =
+                doFilter(availableAssets.toJS(), state.get('query'), state.get('market'), action.submarket);
 
             return state
                 .set('submarket', action.submarket)
@@ -71,7 +73,8 @@ export default (state = initialState, action) => {
         }
         case UPDATE_ASSET_PICKER_MARKETS: {
             const availableAssets = state.get('availableAssets');
-            const shownAssets = doFilter(availableAssets.toJS(), state.get('query'), action.markets, state.get('submarket'));
+            const shownAssets =
+                doFilter(availableAssets.toJS(), state.get('query'), action.markets, state.get('submarket'));
 
             return state
                 .set('markets', fromJS(action.markets))
@@ -80,7 +83,7 @@ export default (state = initialState, action) => {
         case SERVER_DATA_ASSET_INDEX: {
             const symbolWithTick = tickTradeFilter(action.serverResponse.asset_index);
             const shownAssetsWithTick = state.get('availableAssets').filter(asset =>
-                symbolWithTick.indexOf(asset.symbol) > -1
+                symbolWithTick.indexOf(asset.get('symbol')) > -1
             );
             return state
                 .set('tickOnly', symbolWithTick)
