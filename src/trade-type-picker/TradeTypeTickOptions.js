@@ -133,7 +133,10 @@ const TradeTypeTickOptions = ({ onTypeChange, onBarrierChange, type, barrier, ti
 				name="trade-type"
 				value="DIGITMATCH"
 				img="img/trade-match.svg"
-				onChange={onTypeChange}
+				onChange={e => {
+					onTypeChange(e);
+					onBarrierChange({ target: { value: 0 } });
+				}}
 			/>
 			<RadioItem
 				checked={type === 'DIGITDIFF'}
@@ -141,7 +144,10 @@ const TradeTypeTickOptions = ({ onTypeChange, onBarrierChange, type, barrier, ti
 				name="trade-type"
 				value="DIGITDIFF"
 				img="img/trade-differs.svg"
-				onChange={onTypeChange}
+				onChange={e => {
+					onTypeChange(e);
+					onBarrierChange({ target: { value: 0 } });
+				}}
 			/>
 		</div>
 		<div className="radio-selector">
@@ -151,7 +157,10 @@ const TradeTypeTickOptions = ({ onTypeChange, onBarrierChange, type, barrier, ti
 				name="trade-type"
 				value="DIGITOVER"
 				img="img/trade-digitover.svg"
-				onChange={onTypeChange}
+				onChange={e => {
+					onTypeChange(e);
+					onBarrierChange({ target: { value: 0 } });
+				}}
 			/>
 			<RadioItem
 				checked={type === 'DIGITUNDER'}
@@ -159,7 +168,10 @@ const TradeTypeTickOptions = ({ onTypeChange, onBarrierChange, type, barrier, ti
 				name="trade-type"
 				value="DIGITUNDER"
 				img="img/trade-digitunder.svg"
-				onChange={onTypeChange}
+				onChange={e => {
+					onTypeChange(e);
+					onBarrierChange({ target: { value: 9 } });
+				}}
 			/>
 		</div>
 		{!tickOnly && <div className="radio-selector">
