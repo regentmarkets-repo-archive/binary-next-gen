@@ -7,7 +7,6 @@ export default class AssetPickerCard extends React.Component {
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
 		shownAssets: PropTypes.array.isRequired,
-		assetPicker: PropTypes.object.isRequired,
 		idSymbolMap: PropTypes.array.isRequired,
 		history: PropTypes.object,
 		params: PropTypes.object,
@@ -47,10 +46,10 @@ export default class AssetPickerCard extends React.Component {
 	}
 
 	render() {
-		const { actions, shownAssets, assetPicker, watchlist, idSymbolMap } = this.props;
+		const { actions, shownAssets, watchlist, idSymbolMap } = this.props;
 		const { id } = this.props.params;
 		const { query } = this.props.location;
-		const type = query.type;
+		// const type = query.type;
 
 		const selectedSymbol = idSymbolMap[id];
 

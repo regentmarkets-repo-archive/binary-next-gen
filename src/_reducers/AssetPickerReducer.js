@@ -1,10 +1,10 @@
 import { fromJS } from 'immutable';
 import {
-    SERVER_DATA_ACTIVE_SYMBOLS,
+    // SERVER_DATA_ACTIVE_SYMBOLS,
     UPDATE_ASSET_PICKER_SEARCH_QUERY,
     UPDATE_ASSET_PICKER_MARKETS,
     UPDATE_ASSET_PICKER_SUBMARKET,
-    SERVER_DATA_ASSET_INDEX,
+    // SERVER_DATA_ASSET_INDEX,
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
