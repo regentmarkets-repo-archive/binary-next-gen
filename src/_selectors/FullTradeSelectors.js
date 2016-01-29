@@ -9,7 +9,7 @@ import {
     timeStringSmaller,
     splitSecsToUnits,
 } from '../_utils/DateUtils';
-import { assetsSelector, marketTreeSelector } from './AssetSelectors';
+import { marketTreeSelector } from './AssetSelectors';
 
 import { tradingTimesSelector } from './TradingTimesSelectors';
 
@@ -258,20 +258,23 @@ const availableAssetsFilter = (assets, times, now) => {
         const open = s.times.open[0];
         const close = s.times.close[0];
 
-        // assuming close time is larger than open time
-        if (timeStringBigger(nowInTimeString, open) && timeStringSmaller(nowInTimeString, close)) {
+        // Assuming closing time is larger than open time
+        // TODO: some of Random does have time which does not fit into assumption
+        if (s.name.indexOf('Random') > -1) {
+            availabilities[s.symbol] = true;
+        } else if (timeStringBigger(nowInTimeString, open) && timeStringSmaller(nowInTimeString, close)) {
             availabilities[s.symbol] = true;
         }
     });
-    const availableAssets = assets.map(symbols => symbols.filter(s => availabilities[s.value]));
+    const availableAssets = assets.filter(s => availabilities[s.value]);
 
     return availableAssets;
 };
 
 const symbolsToArray = symbols =>
-    Object.keys(symbols).map((v, idx) => ({
+    Object.keys(symbols).map(v => ({
         text: symbols[v].display_name,
-        value: idx,
+        value: v,
     }));
 
 const submarketsToSymbols = submarkets =>
@@ -280,15 +283,24 @@ const submarketsToSymbols = submarkets =>
         []
     );
 
-const marketToSymbols = markets =>
-    Object.keys(markets).map(m =>
-        submarketsToSymbols(markets[m].submarkets)
+const flattenSubmarkets = markets => {
+    const flatten = {};
+    Object.keys(markets).forEach(m =>
+        flatten[m] = submarketsToSymbols(markets[m].submarkets)
     );
+    return flatten;
+};
 
 const availableAssetsSelector = createSelector(
-    [assetsSelector, tradingTimesSelector, marketTreeSelector],
-    (assets, tradingTimes, marketTree) =>
-        availableAssetsFilter(marketToSymbols(marketTree), tradingTimes, nowAsEpoch())
+    [tradingTimesSelector, marketTreeSelector],
+    (tradingTimes, marketTree) => {
+        const assetsGroupByMarkets = flattenSubmarkets(marketTree);
+        const filteredAssets = {};
+        Object.keys(assetsGroupByMarkets).forEach(m =>
+            filteredAssets[m] = availableAssetsFilter(assetsGroupByMarkets[m], tradingTimes, nowAsEpoch())
+        );
+        return filteredAssets;
+    }
 );
 
 const ticksSelector = state => state.ticks.toJS();

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { Collapsible, InputGroup, RadioGroup, LabeledText,
-    Modal, PurchaseFailed, PurchaseConfirmation } from '../_common';
+    Modal, PurchaseFailed, PurchaseConfirmation, M } from '../_common';
 import * as LiveData from '../_data/LiveData';
 
 const basisTypes = [
@@ -124,7 +124,9 @@ export default class NoBarrierTrade extends Component {
                         value={params && params.amount}
                     />
                     {proposal && <LabeledText label="Price" value={proposal.ask_price} />}
-                    <button onClick={::this.onPurchaseClick}>Purchase</button>
+                    <button onClick={::this.onPurchaseClick}>
+                        <M m="Purchase" />
+                    </button>
                 </Collapsible>
             </div>
         );

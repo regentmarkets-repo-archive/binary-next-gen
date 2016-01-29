@@ -1,10 +1,11 @@
 import React from 'react';
+import M from '../_common/M';
 
 export default () => (
 	<table>
 		<thead>
 			<tr>
-				<th>Asset</th>
+				<th><M m="Asset" /></th>
 				<th>Rise Contract Return</th>
 				<th>Fall Contract Return</th>
 			</tr>

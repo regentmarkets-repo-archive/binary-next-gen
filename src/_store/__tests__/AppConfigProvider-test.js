@@ -2,7 +2,7 @@ import React from 'react';
 import configureStore from 'redux-mock-store';
 import expect from 'expect';
 import { fromJS } from 'immutable';
-import { shallow } from 'enzyme';
+import { shallow, render } from 'enzyme';
 import AppConfigProvider from '../AppConfigProvider';
 import { IntlProvider } from 'react-intl';
 
@@ -14,7 +14,7 @@ describe('AppConfigProvider', () => {
     }
     const middlewares = []; // add your middlewares like `redux-thunk`
     const mockStore = configureStore(middlewares);
-    const getState = { appConfig: fromJS({ theme: 'light', language: 'EN' }) };
+    const getState = { appConfig: fromJS({ theme: 'dark', language: 'EN' }) };
     const store = mockStore(getState, []);
 
     it('should render children', () => {
@@ -23,24 +23,14 @@ describe('AppConfigProvider', () => {
                 <ChildComponent/>
             </AppConfigProvider>);
 
-        expect(wrapper.render().text()).toContain('halo');
+        expect(wrapper.render().text()).toContain('World');
     });
 
     it('should render theme-wrapper', () => {
-        const wrapper = shallow(
+        const wrapper = render(
             <AppConfigProvider store={store}>
                 <ChildComponent/>
             </AppConfigProvider>);
-
-        expect(wrapper.render().text()).toContain('theme-wrapper');
-    });
-
-    it('should render IntlProvider', () => {
-        const wrapper = shallow(
-            <AppConfigProvider store={store}>
-                <ChildComponent/>
-            </AppConfigProvider>);
-
-        expect(wrapper.find(IntlProvider).length).toEqual(1);
+        expect(wrapper.find('#theme-wrapper').hasClass('inverse')).toEqual(true);
     });
 });

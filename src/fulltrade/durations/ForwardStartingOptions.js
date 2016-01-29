@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { InputGroup, CollapsibleFormSnippet } from '../../_common';
+import { InputGroup, CollapsibleFormSnippet, M } from '../../_common';
 import RadioGroup from '../workaround/CustomRadioGroup';
 import { epochToUTCTimeString, dateToEpoch, dateToUTCTimeString, timeStringToSeconds } from '../../_utils/DateUtils';
 /**
@@ -63,7 +63,9 @@ export default class ForwardStartingOptions extends Component {
                     onChange={::this.onChange}
                     value={timeString}
                 />
-                <button onClick={::this.removeDateStart}>Now</button>
+                <button onClick={::this.removeDateStart}>
+                    <M m="Now" />
+                </button>
             </CollapsibleFormSnippet>
         );
     }

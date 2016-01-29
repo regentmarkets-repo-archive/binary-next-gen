@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import M from '../_common/M';
 
 export default class IntradayPricesFilter extends React.Component {
 
@@ -64,7 +65,9 @@ export default class IntradayPricesFilter extends React.Component {
 					<option value="2015-07-20">2015-07-20</option>
 					<option value="2015-07-17">2015-07-17</option>
 				</select>
-				<button>View</button>
+				<button>
+					<M m="View" />
+				</button>
 			</div>
 		);
 	}
