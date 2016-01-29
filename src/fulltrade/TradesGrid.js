@@ -43,7 +43,7 @@ export default class TradesGrid extends React.Component {
                         );
                     }
                 })}
-                <button onClick={::this.createTrade}>+</button>
+                <button className="btn-secondary" onClick={::this.createTrade}>+</button>
             </div>
         );
     }

@@ -617,9 +617,8 @@ select {
 
 .snippet {
     outline-style: solid;
-    outline-color: rgba(233, 168, 36, 1);
-    padding: 10px;
-    margin: 10px;
+    outline-color: rgba(42, 48, 82, .25);
+    padding: .5rem;
 }
 
 .collapsible .focusable:focus + .collapsed {
@@ -643,6 +642,10 @@ select {
 
 .trades-grid {
     display: flex;
+}
+
+.trades-grid > * {
+    margin-right: .5rem;
 }
 
 .trades-tabs {
