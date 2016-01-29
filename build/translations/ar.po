@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-01-13 06:34+0000\n"
+"PO-Revision-Date: 2016-01-29 07:42+0000\n"
 "Last-Translator: Ehab Gubil <egubil@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/ar/>\n"
@@ -203,155 +203,149 @@ msgstr "تغير"
 msgid "Chart"
 msgstr "رسم بياني"
 
-#, fuzzy
 msgid "Purchase For"
-msgstr "شراء"
+msgstr "شراء لأجل"
 
 msgid "Rise"
-msgstr ""
+msgstr "صعود"
 
 msgid "Stake"
-msgstr ""
+msgstr "الحصة"
 
 msgid "Payout"
-msgstr ""
+msgstr "العائد"
 
 msgid "Deposit"
-msgstr ""
+msgstr "إيداع"
 
-#, fuzzy
 msgid "Transactions"
-msgstr "تأكيد التداول"
+msgstr "المعاملات"
 
 msgid "Opens"
-msgstr ""
+msgstr "افتتاح"
 
 msgid "Closes"
-msgstr ""
+msgstr "إغلاق"
 
 msgid "Personal"
-msgstr ""
+msgstr "شخصية"
 
 msgid "General"
-msgstr ""
+msgstr "عام"
 
-#, fuzzy
 msgid "Trading Times"
-msgstr "حدود التداول"
+msgstr "أوقات التداول"
 
-#, fuzzy
 msgid "Asset Index"
-msgstr "أصول"
+msgstr "مؤشر الأصول"
 
 msgid "Today"
-msgstr ""
+msgstr "اليوم"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "أمس"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "غدا"
 
 msgid "Takeout"
-msgstr ""
+msgstr "خروج"
 
 msgid "News"
-msgstr ""
+msgstr "أخبار"
 
 msgid "Resources"
-msgstr ""
+msgstr "الموارد"
 
 msgid "Last 7 Days"
-msgstr ""
+msgstr "آخر 7 أيام"
 
 msgid "Last 30 Days"
-msgstr ""
+msgstr "آخر 30 يوما"
 
 msgid "Daily Report"
-msgstr ""
+msgstr "التقرير اليومي"
 
 msgid "Up/Down"
-msgstr ""
+msgstr "فوق/تحت"
 
 msgid "Touch/No Touch"
-msgstr ""
+msgstr "الوصول/عدم الوصول"
 
 msgid "Ends In/Out"
-msgstr ""
+msgstr "ينتهي بين/خارج"
 
 msgid "Stays In/Goes Out"
-msgstr ""
+msgstr "يبقى بين/يخرج عن"
 
-#, fuzzy
 msgid "Settles"
-msgstr "الإعدادات"
+msgstr "يستقر"
 
 msgid "Language"
-msgstr ""
+msgstr "اللغة"
 
 msgid "Color Theme"
-msgstr ""
+msgstr "لون النمط"
 
 msgid "Light"
-msgstr ""
+msgstr "ضوء"
 
 msgid "Dark"
-msgstr ""
+msgstr "ظلام"
 
 msgid "Name"
-msgstr ""
+msgstr "الاسم"
 
-#, fuzzy
 msgid "Date Of Birth"
 msgstr "تاريخ الميلاد"
 
 msgid "Country Of Residence"
-msgstr ""
+msgstr "بلد الإقامة"
 
 msgid "Email"
-msgstr ""
+msgstr "البريد الإلكتروني"
 
 msgid "There are no transactions for selected period"
-msgstr ""
+msgstr "لا توجد عمليات للفترة المحددة"
 
 msgid "Sell"
-msgstr ""
+msgstr "بيع"
 
 msgid "Buy"
-msgstr ""
+msgstr "شراء"
 
 msgid "Digit Even"
-msgstr ""
+msgstr "حتى الأرقام"
 
 msgid "Touches"
-msgstr ""
+msgstr "الوصول"
 
 msgid "Digit Over"
-msgstr ""
+msgstr "فوق الأرقام"
 
 msgid "Digit Match"
-msgstr ""
+msgstr "مطابقة الأرقام"
 
 msgid "Digit Under"
-msgstr ""
+msgstr "تحت الأرقام"
 
 msgid "Digit Odd"
-msgstr ""
+msgstr "أرقام فردية"
 
 msgid "Digit Differs"
-msgstr ""
+msgstr "اختلاف الأرقام"
 
 msgid "No Touch"
-msgstr ""
+msgstr "عدم الوصول"
 
 msgid "Fall"
-msgstr ""
+msgstr "الهبوط"
 
 msgid "Asian Down"
-msgstr ""
+msgstr "الآسيوية إلى أسفل"
 
 msgid "Asian Up"
-msgstr ""
+msgstr "الآسيوية إلى أعلى"
 
 msgid "Search For Assets"
-msgstr ""
+msgstr "البحث عن الأصول"
