@@ -5,7 +5,6 @@ import AssetPickerReducer from '../AssetPickerReducer';
 
 const getInitialState = (props) => ({
     query: '',
-    markets: [],
     submarket: '',
     ...props
 });
@@ -39,15 +38,6 @@ describe('AssetPickerReducers', () => {
                 availableAssets: [{ display_name: 'asset1' }, { display_name: 'asset2' }, { display_name: 'asset3' }],
             })).toJS();
             expect(actual.availableAssets).toEqual(expected.availableAssets);
-        });
-
-        it('full name search returns matching assets', () => {
-            const stateBefore = fromJS(getInitialState({
-                availableAssets: [{ display_name: 'asset1' }, { display_name: 'asset2' }, { display_name: 'asset3' }],
-            }));
-            const stateAfter = AssetPickerReducer(stateBefore, actions.updateAssetPickerSearchQuery('asset1')).toJS();
-            const expected = [{ display_name: 'asset1' }];
-            expect(stateAfter.shownAssets).toEqual(expected);
         });
     });
 
