@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { Clock, LanguagePicker, NumberPlain, M } from '../_common';
 import { MobileSidebar } from './';
 import config from '../config';
+import { Clock, LanguagePicker, NumberPlain } from '../_common';
 
 @connect(state => ({ account: state.account }))
 export default class DesktopHeader extends React.Component {
