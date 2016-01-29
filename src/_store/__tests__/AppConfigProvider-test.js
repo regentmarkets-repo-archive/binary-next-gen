@@ -14,7 +14,7 @@ describe('AppConfigProvider', () => {
     }
     const middlewares = []; // add your middlewares like `redux-thunk`
     const mockStore = configureStore(middlewares);
-    const getState = { appConfig: fromJS({ theme: 'light', language: 'EN' }) };
+    const getState = { appConfig: fromJS({ theme: 'dark', language: 'EN' }) };
     const store = mockStore(getState, []);
 
     it('should render children', () => {
@@ -24,5 +24,13 @@ describe('AppConfigProvider', () => {
             </AppConfigProvider>);
 
         expect(wrapper.render().text()).toContain('World');
+    });
+
+    it('should render theme-wrapper', () => {
+        const wrapper = render(
+            <AppConfigProvider store={store}>
+                <ChildComponent/>
+            </AppConfigProvider>);
+        expect(wrapper.find('#theme-wrapper').hasClass('inverse')).toEqual(true);
     });
 });
