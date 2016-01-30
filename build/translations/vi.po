@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: I 18N\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-01-21 07:04+0000\n"
+"PO-Revision-Date: 2016-01-30 07:45+0000\n"
 "Last-Translator: Pham Minh Hieu <hphamv7@gmail.com>\n"
-"Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-app/"
-"next-gen-app/vi/>\n"
+"Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-app"
+"/next-gen-app/vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -201,128 +201,122 @@ msgstr "Thay đổi"
 msgid "Chart"
 msgstr "BIểu đồ"
 
-#, fuzzy
 msgid "Purchase For"
 msgstr "Mua"
 
 msgid "Rise"
-msgstr ""
+msgstr "Tăng"
 
 msgid "Stake"
-msgstr ""
+msgstr "Cá cược"
 
 msgid "Payout"
-msgstr ""
+msgstr "Tiền thưởng"
 
 msgid "Deposit"
-msgstr ""
+msgstr "Gửi tiền"
 
-#, fuzzy
 msgid "Transactions"
-msgstr "Xác nhận Giao dịch"
+msgstr "Giao dịch"
 
 msgid "Opens"
-msgstr ""
+msgstr "Bắt đầu"
 
 msgid "Closes"
-msgstr ""
+msgstr "Kết thúc"
 
 msgid "Personal"
-msgstr ""
+msgstr "Cá nhân"
 
 msgid "General"
-msgstr ""
+msgstr "Tổng quan"
 
-#, fuzzy
 msgid "Trading Times"
-msgstr "Giới hạn Giao dịch"
+msgstr "Thời Gian Giao Dịch"
 
-#, fuzzy
 msgid "Asset Index"
-msgstr "Tài sản"
+msgstr "Chỉ số Tài sản"
 
 msgid "Today"
-msgstr ""
+msgstr "Hôm nay"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Ngày hôm qua"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "Ngày mai"
 
 msgid "Takeout"
-msgstr ""
+msgstr "Đưa ra"
 
 msgid "News"
-msgstr ""
+msgstr "Tin tức"
 
 msgid "Resources"
-msgstr ""
+msgstr "Nguồn thông tin"
 
 msgid "Last 7 Days"
-msgstr ""
+msgstr "7 ngày trước"
 
 msgid "Last 30 Days"
-msgstr ""
+msgstr "30 ngày trước"
 
 msgid "Daily Report"
-msgstr ""
+msgstr "Báo Cáo Hàng Ngày"
 
 msgid "Up/Down"
-msgstr ""
+msgstr "Lên/Xuống"
 
 msgid "Touch/No Touch"
-msgstr ""
+msgstr "Chạm/Không chạm"
 
 msgid "Ends In/Out"
-msgstr ""
+msgstr "Kết thúc Trong/Ngoài"
 
 msgid "Stays In/Goes Out"
-msgstr ""
+msgstr "Ở trong/Ra ngoài"
 
-#, fuzzy
 msgid "Settles"
 msgstr "Cài đặt"
 
 msgid "Language"
-msgstr ""
+msgstr "Ngôn ngữ"
 
 msgid "Color Theme"
-msgstr ""
+msgstr "Màu sắc giao diện"
 
 msgid "Light"
-msgstr ""
+msgstr "Màu nhạt"
 
 msgid "Dark"
-msgstr ""
+msgstr "Màu đậm"
 
 msgid "Name"
-msgstr ""
+msgstr "Tên"
 
-#, fuzzy
 msgid "Date Of Birth"
-msgstr "Ngày sinh"
+msgstr "Ngày sinh"
 
 msgid "Country Of Residence"
-msgstr ""
+msgstr "Quốc gia cư trú"
 
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 msgid "There are no transactions for selected period"
-msgstr ""
+msgstr "Không có giao dịch nào trong khoảng thời gian này"
 
 msgid "Sell"
-msgstr ""
+msgstr "Bán"
 
 msgid "Buy"
-msgstr ""
+msgstr "Mua"
 
 msgid "Digit Even"
-msgstr ""
+msgstr "Số chẵn"
 
 msgid "Touches"
-msgstr ""
+msgstr "Chạm"
 
 msgid "Digit Over"
 msgstr ""
@@ -331,25 +325,25 @@ msgid "Digit Match"
 msgstr ""
 
 msgid "Digit Under"
-msgstr ""
+msgstr "Số dưới"
 
 msgid "Digit Odd"
-msgstr ""
+msgstr "Số lẻ"
 
 msgid "Digit Differs"
-msgstr ""
+msgstr "Số khác"
 
 msgid "No Touch"
-msgstr ""
+msgstr "Không chạm"
 
 msgid "Fall"
-msgstr ""
+msgstr "Xuống"
 
 msgid "Asian Down"
-msgstr ""
+msgstr "Người châu Á xuống"
 
 msgid "Asian Up"
-msgstr ""
+msgstr "Người châu Á lên"
 
 msgid "Search For Assets"
-msgstr ""
+msgstr "Tìm Kiếm Tài Sản"
