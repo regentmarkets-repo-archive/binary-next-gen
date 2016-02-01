@@ -126,29 +126,20 @@ const durationSecHelper = duration => {
     return durationToSecs(d, u);
 };
 
-// block is a structure that describe min and max of specific time unit
-const blockIsValid = (min, max, unit) => {
-    if (max < 1) {
-        return false;
-    }
-    switch (unit) {
-        case 's': {
-            return min < 60;
-        }
-        case 'm': {
-            return min < 60;
-        }
-        case 'h': {
-            return min < 24;
-        }
-        case 'd': {
-            return true;
-        }
-        default: throw new Error('Invalid time unit');
-    }
-};
-
 const extractMinMaxInUnits = (min, max) => {
+    // block is a structure that describe min and max of specific time unit
+    const blockIsValid = (minArg, maxArg, unit) => {
+        if (maxArg < 1) {
+            return false;
+        }
+        switch (unit) {
+            case 's': return minArg < 60;
+            case 'm': return minArg < 60;
+            case 'h': return minArg < 24;
+            case 'd': return true;
+            default: throw new Error('Invalid time unit');
+        }
+    };
     const minInUnits = splitSecsToUnits(min);
     const maxInUnits = splitSecsToUnits(max);
     const durations = [];
@@ -291,6 +282,14 @@ const availableAssetsFilter = (assets, times, now) => {
                 availabilities[s.symbol] = true;
             }
         } else if (open.length === 2) {
+            if (timeStringBigger(open[0], close[0])) {
+                if (
+                    (timeStringBigger(nowInTimeString, open[0]) && timeStringSmaller(nowInTimeString, close[0])) ||
+                    (timeStringBigger(nowInTimeString, open[1]) && timeStringSmaller(nowInTimeString, close[1]))
+                ) {
+                    availabilities[s.symbol] = true;
+                }
+            }
             if (
                 (timeStringBigger(nowInTimeString, open[0]) && timeStringSmaller(nowInTimeString, close[0])) ||
                 (timeStringBigger(nowInTimeString, open[1]) && timeStringSmaller(nowInTimeString, close[1]))
