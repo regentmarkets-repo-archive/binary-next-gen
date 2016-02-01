@@ -37,7 +37,8 @@ describe('AssetPickerSelectors', () => {
         it('should be retrieved', () => {
             const actual = assetPickerSelectors({
                 assets: [],
-                assetPicker: {}
+                assetPicker: {},
+                trades: fromJS([]),
             });
             expect(actual).toExist();
         });

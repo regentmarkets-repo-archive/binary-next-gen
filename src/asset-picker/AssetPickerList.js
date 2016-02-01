@@ -8,6 +8,7 @@ export default class AssetPickerList extends React.Component {
 
 	static propTypes = {
 		assets: PropTypes.array.isRequired,
+		compact: PropTypes.bool,
 		favorites: PropTypes.object.isRequired,
 		selectedAsset: PropTypes.string,
 	};
