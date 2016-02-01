@@ -126,28 +126,29 @@ const durationSecHelper = duration => {
     return durationToSecs(d, u);
 };
 
-const shouldBlockExist = (min, max, unit) => {
-    if (max < 1) {
-        return false;
-    }
-    switch (unit) {
-        case 's': {
-            return min < 60;
+const extractMinMaxInUnits = (min, max) => {
+    // block is a structure that describe min and max of specific time unit
+    const blockIsValid = (min, max, unit) => {
+        if (max < 1) {
+            return false;
         }
-        case 'm': {
-            return min < 60;
+        switch (unit) {
+            case 's': {
+                return min < 60;
+            }
+            case 'm': {
+                return min < 60;
+            }
+            case 'h': {
+                return min < 24;
+            }
+            case 'd': {
+                return true;
+            }
+            default: throw new Error('Invalid time unit');
         }
-        case 'h': {
-            return min < 24;
-        }
-        case 'd': {
-            return true;
-        }
-        default: throw new Error('Invalid time unit');
-    }
-};
+    };
 
-const minMaxInUnits = (min, max) => {
     const minInUnits = splitSecsToUnits(min);
     const maxInUnits = splitSecsToUnits(max);
     const durations = [];
@@ -155,7 +156,7 @@ const minMaxInUnits = (min, max) => {
         const unit = durationUnits[i + 1];
         const minI = minInUnits[i];
         const maxI = maxInUnits[i];
-        if (shouldBlockExist(minI, maxI, unit)) {
+        if (blockIsValid(minI, maxI, unit)) {
             durations.push({
                 unit,
                 min: minI > 0 ? minI : 1,
@@ -185,7 +186,7 @@ const extractDurationHelper = (contracts, type) => {
         .map(c => durationSecHelper(c.max_contract_duration))
         .reduce((a, b) => Math.max(a, b));
 
-    const nonTicksDuration = minMaxInUnits(nonTickMinSec, nonTickMaxSec);
+    const nonTicksDuration = extractMinMaxInUnits(nonTickMinSec, nonTickMaxSec);
     if (tickDuration) {
         nonTicksDuration.unshift(tickDuration);
     }
