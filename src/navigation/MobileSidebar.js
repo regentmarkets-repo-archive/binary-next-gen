@@ -2,8 +2,9 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { NumberPlain } from '../_common';
 import SidebarBtn from './SidebarBtn';
+import SidebarSelectors from './SidebarSelectors';
 
-@connect(state => ({ account: state.account }))
+@connect(SidebarSelectors)
 export default class MobileSidebar extends React.Component {
 
 	static propTypes = {
@@ -11,7 +12,8 @@ export default class MobileSidebar extends React.Component {
 	};
 
 	render() {
-		const account = this.props.account.toJS();
+		const { account } = this.props;
+
 		return (
 			<nav className="sidebar">
 				<div className="account-info">
