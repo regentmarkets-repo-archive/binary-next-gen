@@ -1,5 +1,5 @@
 import expect from 'expect';
-import { stringIncrement } from '../StringUtils';
+import { stringIncrement,numberToSignedString } from '../StringUtils';
 
 describe('stringIncrement', () => {
     it('increase string numberically adding trailing number', () => {
@@ -14,5 +14,11 @@ describe('stringIncrement', () => {
 
         const result = stringIncrement(testString);
         expect(result).toEqual('1000');
+    });
+});
+
+describe('numberToSignedString', ()=>{
+    it('Convert Number to a Signed string', ()=>{
+        expect(numberToSignedString(4567)).toEqual('+4567');
     });
 });
