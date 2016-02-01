@@ -3,7 +3,7 @@
   "main": "src/electron.js",
   "scripts": {
     "test": "npm run test:unit",
-    "test:full": "npm run test:eslint && npm run test:unit",
+    "test:full": "npm run test:eslint && test:coveralls",
     "test:eslint": "webpack --config webpack.config.dev.js",
     "test:unit": "mocha --compilers js:babel-core/register ./src/**/__tests__/*.js",
     "test:watch": "npm test -- --watch",

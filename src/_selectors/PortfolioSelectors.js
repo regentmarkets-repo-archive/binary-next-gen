@@ -1,17 +1,17 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 
-//export const contractsSelector = state => state.contracts;
+// export const contractsSelector = state => state.contracts;
 //
-//export const proposalsSelector = state => state.openContractProposals;
+// export const proposalsSelector = state => state.openContractProposals;
 //
 //
-//export const purchaseTotalSelector = createSelector(
+// export const purchaseTotalSelector = createSelector(
 //    contractsSelector,
 //    contracts =>
 //        contracts
 //            .map(x => +x.buy_price)
 //            .reduce((x, y) => x + y, 0)
-//);
+// );
 //
 const portfolioSelector =
     state => state.portfolio.toJS();
