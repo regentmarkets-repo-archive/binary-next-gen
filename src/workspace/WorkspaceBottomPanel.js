@@ -5,11 +5,11 @@ import StatementContainer from '../statement/StatementContainer';
 
 export default ({ actions, workspace }) => (
 	<Tabs
-		activeIndex={workspace.get('bottomActiveTab')}
+		activeIndex={workspace.bottomActiveTab}
 		className="bottom-panel"
 		id="bottom-panel"
 		onChange={idx => actions.changeActiveTab('bottom', idx)}
-		style={{ height: workspace.get('bottomPanelSize') }}
+		style={{ height: workspace.bottomPanelSize }}
 		tabs={[
 			{ text: 'Open Positions', component: <PortfolioContainer actions={actions} /> },
 			{ text: 'Transactions', component: <StatementContainer actions={actions} /> },

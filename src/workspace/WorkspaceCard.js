@@ -22,8 +22,26 @@ const updateSizeWithBoundary = (size, update, min, max) => {
 export default ({ actions, workspace }) => (
 	<div id="screen">
 		<DesktopHeader actions={actions} />
+		<div>
+			<button
+				onClick={() => {
+					const isHidden = workspace.leftPanelHidden;
+					actions.updateWorkspaceField('leftPanelHidden', !isHidden);
+				}}
+			>Toggle Left</button>
+			<button onClick={() => {
+					const isHidden = workspace.bottomPanelHidden;
+					actions.updateWorkspaceField('bottomPanelHidden', !isHidden);
+				}}
+			>Toggle Bottom</button>
+			<button onClick={() => {
+					const isHidden = workspace.rightPanelHidden;
+					actions.updateWorkspaceField('rightPanelHidden', !isHidden);
+				}}
+			>Toggle Right</button>
+		</div>
 		<div id="panels">
-			<WorkspaceLeftPanel actions={actions} workspace={workspace} />
+			{!workspace.leftPanelHidden && <WorkspaceLeftPanel actions={actions} workspace={workspace} />}
 			<Resizer
 				className="resizer-vertical"
 				onResize={e => {
@@ -44,7 +62,7 @@ export default ({ actions, workspace }) => (
 						updateSizeWithBoundary(size, update, 100, 300);
 					}}
 				/>
-				<WorkspaceBottomPanel actions={actions} workspace={workspace} />
+				{!workspace.bottomPanelHidden && <WorkspaceBottomPanel actions={actions} workspace={workspace} />}
 			</div>
 			<Resizer
 				className="resizer-vertical"
@@ -54,7 +72,7 @@ export default ({ actions, workspace }) => (
 					updateSizeWithBoundary(size, update, 100, 700);
 				}}
 			/>
-			<WorkspaceRightPanel actions={actions} workspace={workspace} />
+			{!workspace.rightPanelHidden && <WorkspaceRightPanel actions={actions} workspace={workspace} />}
 		</div>
 		<Footer />
 	</div>
