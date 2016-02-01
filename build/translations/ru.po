@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: BOM\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-01-29 13:52+0000\n"
+"PO-Revision-Date: 2016-02-01 16:09+0000\n"
 "Last-Translator: Alina Demidova <alinademidova1@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/ru/>\n"
@@ -218,12 +218,11 @@ msgstr "Выплата"
 msgid "Deposit"
 msgstr "Пополнение"
 
-#, fuzzy
 msgid "Transactions"
-msgstr "Подтверждение контракта"
+msgstr "Сделки"
 
 msgid "Opens"
-msgstr ""
+msgstr "Открытие"
 
 msgid "Closes"
 msgstr ""
