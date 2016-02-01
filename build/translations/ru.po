@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: BOM\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-02-01 16:31+0000\n"
-"Last-Translator: olga borg <olga@binary.com>\n"
+"PO-Revision-Date: 2016-02-01 19:47+0000\n"
+"Last-Translator: Alina Demidova <alinademidova1@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/ru/>\n"
 "Language: ru\n"
@@ -225,131 +225,127 @@ msgid "Opens"
 msgstr "Открытие"
 
 msgid "Closes"
-msgstr ""
+msgstr "Закрытие"
 
 msgid "Personal"
-msgstr ""
+msgstr "Личные данные"
 
 msgid "General"
-msgstr ""
+msgstr "Общее"
 
-#, fuzzy
 msgid "Trading Times"
-msgstr "Торговые лимиты"
+msgstr "Время торговли"
 
-#, fuzzy
 msgid "Asset Index"
-msgstr "Актив"
+msgstr "Индекс активов"
 
 msgid "Today"
-msgstr ""
+msgstr "Сегодня"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Вчера"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "Завтра"
 
 msgid "Takeout"
-msgstr ""
+msgstr "Выкуп"
 
 msgid "News"
-msgstr ""
+msgstr "Новости"
 
 msgid "Resources"
-msgstr ""
+msgstr "Ресурсы"
 
 msgid "Last 7 Days"
-msgstr ""
+msgstr "Последние 7 дней"
 
 msgid "Last 30 Days"
-msgstr ""
+msgstr "Последние 30 дней"
 
 msgid "Daily Report"
-msgstr ""
+msgstr "Анализ рынка"
 
 msgid "Up/Down"
-msgstr ""
+msgstr "Вверх/Вниз"
 
 msgid "Touch/No Touch"
-msgstr ""
+msgstr "Касание/Нет касания"
 
 msgid "Ends In/Out"
-msgstr ""
+msgstr "Закончится внутри/вне"
 
 msgid "Stays In/Goes Out"
-msgstr ""
+msgstr "Останется Внутри/Выйдет за пределы"
 
-#, fuzzy
 msgid "Settles"
-msgstr "Настройки"
+msgstr "Заканчивается"
 
 msgid "Language"
-msgstr ""
+msgstr "Язык"
 
 msgid "Color Theme"
-msgstr ""
+msgstr "Цветовая схема"
 
 msgid "Light"
-msgstr ""
+msgstr "Светлый"
 
 msgid "Dark"
-msgstr ""
+msgstr "Тёмный"
 
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
-#, fuzzy
 msgid "Date Of Birth"
-msgstr "Ваша дата рождения"
+msgstr "Дата рождения"
 
 msgid "Country Of Residence"
-msgstr ""
+msgstr "Страна проживания"
 
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 msgid "There are no transactions for selected period"
-msgstr ""
+msgstr "Сделки за выбранный период отсутствуют"
 
 msgid "Sell"
-msgstr ""
+msgstr "Продать"
 
 msgid "Buy"
-msgstr ""
+msgstr "Купить"
 
 msgid "Digit Even"
-msgstr ""
+msgstr "Чётная цифра"
 
 msgid "Touches"
-msgstr ""
+msgstr "Коснется"
 
 msgid "Digit Over"
-msgstr ""
+msgstr "Цифра выше"
 
 msgid "Digit Match"
-msgstr ""
+msgstr "Совпадение цифр"
 
 msgid "Digit Under"
-msgstr ""
+msgstr "Цифра ниже"
 
 msgid "Digit Odd"
-msgstr ""
+msgstr "Нечётная цифра"
 
 msgid "Digit Differs"
-msgstr ""
+msgstr "Несовпадение цифр"
 
 msgid "No Touch"
-msgstr ""
+msgstr "Нет касания"
 
 msgid "Fall"
-msgstr ""
+msgstr "Падение"
 
 msgid "Asian Down"
-msgstr ""
+msgstr "Азиатские вниз"
 
 msgid "Asian Up"
-msgstr ""
+msgstr "Азиатские вверх"
 
 msgid "Search For Assets"
-msgstr ""
+msgstr "Поиск активов"
