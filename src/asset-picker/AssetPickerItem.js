@@ -7,12 +7,14 @@ export default class AssetPickerItem extends React.Component {
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
-		isFavorite: PropTypes.bool.isRequired,
 		asset: PropTypes.object.isRequired,
+		compact: PropTypes.bool,
+		isFavorite: PropTypes.bool.isRequired,
+		isSelected: PropTypes.bool,
 		onSelect: PropTypes.func.isRequired,
 		onFavor: PropTypes.func.isRequired,
 		onUnfavor: PropTypes.func.isRequired,
-		isSelected: PropTypes.bool,
+		onCreateTrade: PropTypes.func,
 	};
 
 	toggleFavorite() {
@@ -26,7 +28,7 @@ export default class AssetPickerItem extends React.Component {
 	}
 
 	render() {
-		const { asset, onSelect, isFavorite, isSelected } = this.props;
+		const { asset, compact, onSelect, onCreateTrade, isFavorite, isSelected } = this.props;
 
 		return (
 			<tr className={isSelected ? 'selected' : ''} tabIndex={0}>
@@ -39,9 +41,9 @@ export default class AssetPickerItem extends React.Component {
 				<td className="market-hierarchy" onClick={() => onSelect(asset.symbol)}>
 					{asset.market_display_name + ' > ' + asset.submarket_display_name}
 				</td>
-				<td>
+				{!compact && <td onClick={() => onCreateTrade(asset.symbol)}>
 					<img src="img/info.svg" style={{ width: '1rem' }} />
-				</td>
+				</td>}
 			</tr>
 		);
 	}

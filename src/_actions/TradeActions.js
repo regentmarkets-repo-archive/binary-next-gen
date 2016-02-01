@@ -62,9 +62,10 @@ export const setQuickTradeField = (symbol, tradeType, field, value) => ({
     value,
 });
 
-export const initTrade = id => ({
+export const initTrade = (id, symbol) => ({
     type: types.INIT_TRADE,
     id,
+    symbol,
 });
 
 export const destroyTrade = id =>
