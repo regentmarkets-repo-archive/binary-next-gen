@@ -1,13 +1,12 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 import { durationUnits } from '../_constants/TradeParams';
-import { groupByKey } from '../_utils/ArrayUtils';
+import { groupByKey, arrayToObject } from '../_utils/ArrayUtils';
 import { durationToSecs } from '../_utils/TradeUtils';
 import {
     epochToUTCTimeString,
     nowAsEpoch,
-    timeStringBigger,
-    timeStringSmaller,
     splitSecsToUnits,
+    timeStringIsBetween,
 } from '../_utils/DateUtils';
 import { marketTreeSelector } from './AssetSelectors';
 
@@ -126,29 +125,20 @@ const durationSecHelper = duration => {
     return durationToSecs(d, u);
 };
 
-// block is a structure that describe min and max of specific time unit
-const blockIsValid = (min, max, unit) => {
-    if (max < 1) {
-        return false;
-    }
-    switch (unit) {
-        case 's': {
-            return min < 60;
-        }
-        case 'm': {
-            return min < 60;
-        }
-        case 'h': {
-            return min < 24;
-        }
-        case 'd': {
-            return true;
-        }
-        default: throw new Error('Invalid time unit');
-    }
-};
-
 const extractMinMaxInUnits = (min, max) => {
+    // block is a structure that describe min and max of specific time unit
+    const blockIsValid = (minArg, maxArg, unit) => {
+        if (maxArg < 1) {
+            return false;
+        }
+        switch (unit) {
+            case 's': return minArg < 60;
+            case 'm': return minArg < 60;
+            case 'h': return minArg < 24;
+            case 'd': return true;
+            default: throw new Error('Invalid time unit');
+        }
+    };
     const minInUnits = splitSecsToUnits(min);
     const maxInUnits = splitSecsToUnits(max);
     const durations = [];
@@ -204,12 +194,19 @@ const extractForwardStartingDuration = (contracts, type) => {
         throw new Error('Assumption broken, more than one contract with forward starting options');
     }
 
-    const forwardStartingRange = forwardStartingContracts[0].forward_starting_options
-        .map(obj => {
-            const open = new Date(obj.open * 1000);
-            const close = new Date(obj.close * 1000);
-            const date = new Date(obj.date * 1000);
-            return { open, close, date };
+    const forwardOptions = forwardStartingContracts[0].forward_starting_options;
+    const groupByDate = groupByKey(forwardOptions, 'date');
+    const forwardStartingRange = [];
+    Object.keys(groupByDate)
+        .sort((a, b) => +a < +b)
+        .forEach(date => {
+            const timesPerDateArr = groupByDate[date].map(obj => {
+                const open = new Date(obj.open * 1000);
+                const close = new Date(obj.close * 1000);
+                return { open, close };
+            });
+            const timesPerDateObj = arrayToObject(timesPerDateArr);
+            forwardStartingRange.push({ date: new Date(date * 1000), ...timesPerDateObj });
         });
 
     const forwardStartingDurations = extractDurationHelper(forwardStartingContracts, type);
@@ -283,18 +280,15 @@ const availableAssetsFilter = (assets, times, now) => {
         const close = s.times.close;
 
         // Assuming closing time is larger than open time
-        // TODO: some of Random does have time which does not fit into assumption
         if (s.name.indexOf('Random') > -1) {
             availabilities[s.symbol] = true;
         } else if (open.length === 1) {
-            if (timeStringBigger(nowInTimeString, open[0]) && timeStringSmaller(nowInTimeString, close[0])) {
+            if (timeStringIsBetween(open[0], close[0], nowInTimeString)) {
                 availabilities[s.symbol] = true;
             }
         } else if (open.length === 2) {
-            if (
-                (timeStringBigger(nowInTimeString, open[0]) && timeStringSmaller(nowInTimeString, close[0])) ||
-                (timeStringBigger(nowInTimeString, open[1]) && timeStringSmaller(nowInTimeString, close[1]))
-            ) {
+            if (timeStringIsBetween(open[0], close[0], nowInTimeString) ||
+                timeStringIsBetween(open[1], close[1], nowInTimeString)) {
                 availabilities[s.symbol] = true;
             }
         }
@@ -345,6 +339,12 @@ const tradesIdsSelector = createSelector(
     trades =>
         Object.keys(trades)
 );
+
+// only get numeric keys, as tick trade does not support multiple panel
+export const maxTradeIdSelector = state => {
+    const tradesIds = state.trades.keySeq().filter(k => !isNaN(+k));
+    return tradesIds.reduce((a, b) => Math.max(a, b), -1);
+};
 
 export const fullTradesSelector = createStructuredSelector({
     contracts: contractsSelector,

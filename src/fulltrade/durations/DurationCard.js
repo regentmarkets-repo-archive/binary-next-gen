@@ -46,7 +46,7 @@ export default class DurationCard extends Component {
                     />
                 }
                 {currentUnitBlock ?
-                    <CollapsibleFormSnippet label="Durations" show>
+                    <CollapsibleFormSnippet label="Durations">
                         <div className="row">
                             <InputGroup
                                 type="number"

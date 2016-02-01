@@ -2,6 +2,7 @@ import { createSelector, createStructuredSelector } from 'reselect';
 import { assetsSelector } from './AssetSelectors';
 import { watchlistSelector } from './WatchlistSelectors';
 import { workspaceSelector } from './WorkspaceSelectors';
+import { maxTradeIdSelector } from './FullTradeSelectors';
 import { toPlainJS } from '../_utils/ObjectUtils';
 
 export const idSymbolMapSelector = createSelector(
@@ -61,6 +62,7 @@ export default createStructuredSelector({
     shownAssets: shownAssetsSelector,
 	filter: assetFilterSelector,
     markets: marketsSelector,
+    maxTradeId: maxTradeIdSelector,
 	workspace: workspaceSelector,
 	watchlist: watchlistSelector,
 	idSymbolMap: idSymbolMapSelector,

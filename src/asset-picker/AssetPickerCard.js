@@ -6,11 +6,13 @@ export default class AssetPickerCard extends React.Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
-		shownAssets: PropTypes.array.isRequired,
-		idSymbolMap: PropTypes.array.isRequired,
+		compact: PropTypes.bool,
 		history: PropTypes.object,
-		params: PropTypes.object,
+		idSymbolMap: PropTypes.array.isRequired,
 		location: PropTypes.object,
+		maxTradeId: PropTypes.number.isRequired,
+		params: PropTypes.object,
+		shownAssets: PropTypes.array.isRequired,
 		workspace: PropTypes.object.isRequired,
 		watchlist: PropTypes.object.isRequired,
 	};
@@ -19,6 +21,13 @@ export default class AssetPickerCard extends React.Component {
 		params: { id: '-' },
 		location: { query: {} },
 	};
+
+	onCreateTrade(asset) {
+		const { actions, maxTradeId } = this.props;
+		actions.initTrade(maxTradeId.toString(), asset);
+		actions.getTradingOptions(asset);
+		actions.getTicksBySymbol(asset);
+	}
 
 	onSelect(id, newAsset) {
 		const { actions, history, workspace } = this.props;
@@ -78,6 +87,7 @@ export default class AssetPickerCard extends React.Component {
 					<AssetPickerList
 						assets={shownAssets}
 						favorites={watchlist}
+						onCreateTrade={::this.onCreateTrade}
 						onSelect={asset => this.onSelect(id, asset)}
 						onFavor={::this.onFavor}
 						onUnfavor={::this.onUnfavor}

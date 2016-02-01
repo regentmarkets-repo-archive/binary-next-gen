@@ -362,12 +362,12 @@ export default class TradePanel extends Component {
                 <button className="btn-secondary" onClick={this.onClosePanel}>
                     <M m="X" />
                 </button>
-                <MobileChart
+                {tick && <MobileChart
                     className="trade-chart"
                     history={tick}
                     showBarrier={!!barriers}
                     spot={lastSpot}
-                />
+                />}
                 <div className="row">
                     <SelectGroup
                         optgroups={assets}

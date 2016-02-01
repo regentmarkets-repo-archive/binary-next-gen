@@ -32,7 +32,7 @@ export default class SpreadBarrierCard extends Component {
         const stopTypeOptions = [{ text: 'Points', value: 'point' }, { text: currency, value: 'dollar' }];
         return (
             spreadInfo ?
-                <CollapsibleFormSnippet label="Spreads" show>
+                <CollapsibleFormSnippet label="Spreads">
                     <InputGroup
                         type="number"
                         label={`Amount per point (${currency})`}
