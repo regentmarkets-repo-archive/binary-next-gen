@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router';
 import { Countries, ErrorMsg, InputGroup, M } from '../_common';
 import * as LiveData from '../_data/LiveData';
-import config from 'json!../config.json';
+import config from '../config';
 
 export default class CreateAccountCard extends React.Component {
     static propTypes = {
