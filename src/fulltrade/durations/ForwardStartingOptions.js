@@ -46,8 +46,8 @@ export default class ForwardStartingOptions extends Component {
         const { selectedDay } = this.state;
         const selectedRange = ranges.find(r => dateToEpoch(r.date) === selectedDay);
         const selectedIdx = ranges.indexOf(selectedRange);
-        const min = dateToUTCTimeString(ranges[selectedIdx].open);
-        const max = dateToUTCTimeString(ranges[selectedIdx].close);
+        const min = dateToUTCTimeString(ranges[selectedIdx].open[0]);
+        const max = dateToUTCTimeString(ranges[selectedIdx].close[0]);
         const timeString = dateStart ? epochToUTCTimeString(dateStart) : '';
 
         return (

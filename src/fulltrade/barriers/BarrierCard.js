@@ -34,8 +34,8 @@ export default class BarrierCard extends Component {
             (!isIntraDay && 'Absolute barrier available') :
             'Relative barrier';
         return (
-            <CollapsibleFormSnippet label="Barriers" show>
-                {barrier1Info &&
+            <div>
+                {barrier1Info && <CollapsibleFormSnippet label="Barriers" show>
                     <div>
                         <BarrierInput
                             {...barrier1Info}
@@ -45,22 +45,23 @@ export default class BarrierCard extends Component {
                             value={barrier}
                             spot={spot}
                         />
-                    </div>}
-                {barrier2Info &&
-                    <div>
-                        <BarrierInput
-                            {...barrierInfo[expiryType][1]}
-                            barrierType={barrierType}
-                            onChange={onBarrier2Change}
-                            isIntraDay={isIntraDay}
-                            value={barrier2}
-                            spot={spot}
-                        />
-                    </div>}
-                <a onClick={() => onBarrierTypeChange(barrierType === 'relative' ? 'absolute' : 'relative')}>
-                    {toggleMsg}
-                </a>
-            </CollapsibleFormSnippet>
+                    </div>
+                    {barrier2Info &&
+                        <div>
+                            <BarrierInput
+                                {...barrierInfo[expiryType][1]}
+                                barrierType={barrierType}
+                                onChange={onBarrier2Change}
+                                isIntraDay={isIntraDay}
+                                value={barrier2}
+                                spot={spot}
+                            />
+                        </div>}
+                    <a onClick={() => onBarrierTypeChange(barrierType === 'relative' ? 'absolute' : 'relative')}>
+                        {toggleMsg}
+                    </a>
+                </CollapsibleFormSnippet>}
+            </div>
         );
     }
 }

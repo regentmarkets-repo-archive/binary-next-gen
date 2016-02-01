@@ -27,7 +27,9 @@ export default (state = initialState, action) => {
             if (state.has(newId)) {
                 return state;
             }
-            return state.set(newId.toString(), initialState.get('0'));
+            const initTrade = initialState.get('0');
+            const initState = action.symbol ? initTrade.set('symbol', action.symbol) : initTrade;
+            return state.set(newId.toString(), initState);
         }
         case UPDATE_TRADE_PARAMS: {
             const result = state.setIn([action.id, action.fieldName], action.fieldValue);

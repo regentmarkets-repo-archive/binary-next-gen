@@ -116,6 +116,20 @@ export const timeStringSmaller = (a, b) => {
     return !timeStringBigger(a, b);
 };
 
+export const timeStringIsBetween = (start, end, target) => {
+    if (timeStringBigger(end, start)) {
+        return timeStringBigger(target, start) && timeStringSmaller(target, end);
+    }
+    /**
+     * if open time is bigger than close time
+     * target should not between close and open time
+     * eg. '09:00:00' is not between '23:00:00' (start) and '08:00:00'(close)
+     * because it is between '08:00:00' to '23:00:00'
+     * */
+
+    return !(timeStringBigger(target, end) && timeStringSmaller(target, start));
+};
+
 export const oneYearAfterStr = () =>
 	new Date().setFullYear(new Date().getFullYear() + 1);
 

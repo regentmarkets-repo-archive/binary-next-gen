@@ -8,6 +8,7 @@ export default class TradesGrid extends React.Component {
         assets: PropTypes.object.isRequired,
         contracts: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
+        focusedTradeId: PropTypes.number,
         trades: PropTypes.object.isRequired,
         tradesIds: PropTypes.array.isRequired,
         ticks: PropTypes.object.isRequired,
@@ -30,7 +31,7 @@ export default class TradesGrid extends React.Component {
                     const contract = contracts[symbol];
                     const tick = ticks[symbol];
 
-                    if (contract && tick) {
+                    if (contract) {
                         return (
                             <TradePanel
                                 key={id}

@@ -1,5 +1,5 @@
 import expect from 'expect';
-import { dateToDateString, epochToDateString,secondsToTimeString,getLastXMonthEpoch,dateToEpoch,epochToDate, timeStringSmaller, timeStringBigger} from '../DateUtils.js';
+import { dateToDateString, epochToDateString, timeStringIsBetween } from '../DateUtils.js';
 
 describe('dateToDateString', () => {
     it('converts first day of the year', () => {
@@ -19,57 +19,34 @@ describe('epochToDateString', () => {
     });
 });
 
-describe('secondsToTimeString', () => {
-    it('convert seconds to minutes',() =>{
-        const seconds = 60 ;
-        expect(secondsToTimeString(seconds)).toEqual('1 minute(s)');
-    });
-    it('convert seconds to Days,hour, minute and second', ()=>{
-        expect(secondsToTimeString(90177)).toEqual('1 day(s) 1 hour(s)2 minute(s)57 second(s)');
-    });
-
-});
-
-describe('getLastXMonthEpoch', () => {
-    it('Set the x months from the current date and convert time in epoch', ()=>{
-        const currTimeEpoch = (new Date()).getTime()/1000;
-        expect(getLastXMonthEpoch(0)).toEqual(Math.floor(currTimeEpoch));
-    });
-});
-
-describe('epochToDate', () =>{
-    it('converts epoch format to date', () =>{
-        const epochTime = (new Date())/1000;
-        expect(epochToDate(new Date()/1000)).toEqual(new Date());
-    });
-});
-
-describe('dateToEpoch', () => {
-    it('converts date to epoch equivalent', ()=>{
-        expect(dateToEpoch(new Date())).toEqual(Math.floor(new Date()/1000));
-    });
-});
-
-describe('timeStringSmaller', () => {
-    it('Compares the two time strings and determine if the first is smaller', ()=>{
-        expect(timeStringSmaller('01:02:03','02:02:03')).toEqual(true);
+describe('timeStringIsBetween', () => {
+    it('should return true if target string is between start and end time string', () => {
+        const target = '09:00:22';
+        const start = '08:00:00';
+        const end = '10:10:00';
+        expect(timeStringIsBetween(start, end, target)).toEqual(true);
     });
 
-    it('s two time strings are thesame ', ()=>{
-        expect(timeStringSmaller('01:02:03','01:02:03')).toEqual(false);
-    });
-});
-
-describe('timeStringBigger',()=>{
-    it('first time string is ahead by one minute', ()=>{
-        expect(timeStringBigger('01:02:03','01:01:03')).toEqual(true);
+    it('should return false if target string is outside of start and end time string', () => {
+        const target = '07:00:22';
+        const start = '08:00:00';
+        const end = '10:10:00';
+        expect(timeStringIsBetween(start, end, target)).toEqual(false);
     });
 
-    it('first time string is higher by seconds',()=>{
-        expect(timeStringBigger('01:02:03','01:02:01')).toEqual(true);
+    it('should return true if start time is larger than end time, and target time is within range', () => {
+        const target = '12:00:22';
+        const start = '10:10:00';
+        const end = '08:00:00';
+
+        expect(timeStringIsBetween(start, end, target)).toEqual(true);
     });
 
-    it('second time string is higher by 1 second', ()=>{
-        expect(timeStringBigger('01:02:03','01:02:04')).toEqual(false);
+    it('should return false if start time is larger than end time, and target time is out of range', () => {
+        const target = '09:00:22';
+        const start = '10:10:00';
+        const end = '08:00:00';
+
+        expect(timeStringIsBetween(start, end, target)).toEqual(false);
     });
 });

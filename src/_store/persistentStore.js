@@ -12,7 +12,7 @@ const storageReducer = storage.reducer(rootReducer);
 const storageLoader = storage.createLoader(storageEngine);
 
 const finalCreateStore = compose(
-    applyMiddleware(storageMiddleware, thunkMiddleware),
+    applyMiddleware(thunkMiddleware, storageMiddleware),
     enableDevTools()
 )(createStore);
 
