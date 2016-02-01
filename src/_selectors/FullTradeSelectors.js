@@ -126,29 +126,29 @@ const durationSecHelper = duration => {
     return durationToSecs(d, u);
 };
 
-const extractMinMaxInUnits = (min, max) => {
-    // block is a structure that describe min and max of specific time unit
-    const blockIsValid = (min, max, unit) => {
-        if (max < 1) {
-            return false;
+// block is a structure that describe min and max of specific time unit
+const blockIsValid = (min, max, unit) => {
+    if (max < 1) {
+        return false;
+    }
+    switch (unit) {
+        case 's': {
+            return min < 60;
         }
-        switch (unit) {
-            case 's': {
-                return min < 60;
-            }
-            case 'm': {
-                return min < 60;
-            }
-            case 'h': {
-                return min < 24;
-            }
-            case 'd': {
-                return true;
-            }
-            default: throw new Error('Invalid time unit');
+        case 'm': {
+            return min < 60;
         }
-    };
+        case 'h': {
+            return min < 24;
+        }
+        case 'd': {
+            return true;
+        }
+        default: throw new Error('Invalid time unit');
+    }
+};
 
+const extractMinMaxInUnits = (min, max) => {
     const minInUnits = splitSecsToUnits(min);
     const maxInUnits = splitSecsToUnits(max);
     const durations = [];
