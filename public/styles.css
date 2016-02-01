@@ -368,6 +368,7 @@ fieldset {
     opacity: 1;
     visibility: visible;
     transition: .3s;
+    z-index: 985;
 }
 
 #hamburger-closer {
@@ -388,6 +389,7 @@ fieldset {
     flex-direction: column;
     width: 4rem;
     background: #2a3052;
+    z-index: 986;
 }
 
 .toolbar-hint {
