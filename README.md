@@ -4,6 +4,8 @@
 
 [![Coverage Status](https://coveralls.io/repos/github/binary-com/binary-next-gen/badge.svg?branch=master)](https://coveralls.io/github/binary-com/binary-next-gen?branch=master)
 
+[![Coverage Status](https://coveralls.io/repos/github/nuruddeensalihu/binary-next-gen/badge.svg?branch=nuru%2Fcoveralls)](https://coveralls.io/github/nuruddeensalihu/binary-next-gen?branch=nuru%2Fcoveralls)
+
 ## To run project
 
 ```
