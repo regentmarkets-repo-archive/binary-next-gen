@@ -1,6 +1,6 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 import { durationUnits } from '../_constants/TradeParams';
-import { groupByKey } from '../_utils/ArrayUtils';
+import { groupByKey, arrayToObject } from '../_utils/ArrayUtils';
 import { durationToSecs } from '../_utils/TradeUtils';
 import {
     epochToUTCTimeString,
@@ -194,12 +194,19 @@ const extractForwardStartingDuration = (contracts, type) => {
         throw new Error('Assumption broken, more than one contract with forward starting options');
     }
 
-    const forwardStartingRange = forwardStartingContracts[0].forward_starting_options
-        .map(obj => {
-            const open = new Date(obj.open * 1000);
-            const close = new Date(obj.close * 1000);
-            const date = new Date(obj.date * 1000);
-            return { open, close, date };
+    const forwardOptions = forwardStartingContracts[0].forward_starting_options;
+    const groupByDate = groupByKey(forwardOptions, 'date');
+    const forwardStartingRange = [];
+    Object.keys(groupByDate)
+        .sort((a, b) => +a < +b)
+        .forEach(date => {
+            const timesPerDateArr = groupByDate[date].map(obj => {
+                const open = new Date(obj.open * 1000);
+                const close = new Date(obj.close * 1000);
+                return { open, close };
+            });
+            const timesPerDateObj = arrayToObject(timesPerDateArr);
+            forwardStartingRange.push({ date: new Date(date * 1000), ...timesPerDateObj });
         });
 
     const forwardStartingDurations = extractDurationHelper(forwardStartingContracts, type);
