@@ -5,9 +5,8 @@ import { durationToSecs } from '../_utils/TradeUtils';
 import {
     epochToUTCTimeString,
     nowAsEpoch,
-    timeStringBigger,
-    timeStringSmaller,
     splitSecsToUnits,
+    timeStringIsBetween,
 } from '../_utils/DateUtils';
 import { marketTreeSelector } from './AssetSelectors';
 
@@ -274,26 +273,15 @@ const availableAssetsFilter = (assets, times, now) => {
         const close = s.times.close;
 
         // Assuming closing time is larger than open time
-        // TODO: some of Random does have time which does not fit into assumption
         if (s.name.indexOf('Random') > -1) {
             availabilities[s.symbol] = true;
         } else if (open.length === 1) {
-            if (timeStringBigger(nowInTimeString, open[0]) && timeStringSmaller(nowInTimeString, close[0])) {
+            if (timeStringIsBetween(open[0], close[0], nowInTimeString)) {
                 availabilities[s.symbol] = true;
             }
         } else if (open.length === 2) {
-            if (timeStringBigger(open[0], close[0])) {
-                if (
-                    (timeStringBigger(nowInTimeString, open[0]) && timeStringSmaller(nowInTimeString, close[0])) ||
-                    (timeStringBigger(nowInTimeString, open[1]) && timeStringSmaller(nowInTimeString, close[1]))
-                ) {
-                    availabilities[s.symbol] = true;
-                }
-            }
-            if (
-                (timeStringBigger(nowInTimeString, open[0]) && timeStringSmaller(nowInTimeString, close[0])) ||
-                (timeStringBigger(nowInTimeString, open[1]) && timeStringSmaller(nowInTimeString, close[1]))
-            ) {
+            if (timeStringIsBetween(open[0], close[0], nowInTimeString) ||
+                timeStringIsBetween(open[1], close[1], nowInTimeString)) {
                 availabilities[s.symbol] = true;
             }
         }

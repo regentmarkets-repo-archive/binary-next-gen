@@ -20,5 +20,5 @@ export const arrayEqual = (a, b) => {
         return false;
     }
 
-    return a.filter((x, idx) => x !== b[idx]).length === 0;
+    return !(a.some((x, idx) => x !== b[idx]));
 };
