@@ -1,6 +1,9 @@
 # Next-Gen Binary
 
 [![Build Status](https://travis-ci.org/binary-com/binary-next-gen.svg?branch=master)](https://travis-ci.org/binary-com/binary-next-gen)
+
+[![Coverage Status](https://coveralls.io/repos/github/binary-com/binary-next-gen/badge.svg?branch=master)](https://coveralls.io/github/binary-com/binary-next-gen?branch=master)
+
 ## To run project
 
 ```
@@ -47,6 +50,7 @@ electron
 * [React](https://facebook.github.io/react/) - the framework
 * [React Router](https://github.com/rackt/react-router) - for routing, mapping urls to views
 * [Redux](https://github.com/rackt/redux) - state management
+* [Reselect](https://github.com/rackt/reselect) - data selection and computation
 * [Immutable.js](https://facebook.github.io/immutable-js/) - immutable data structures
 
 ## Build Process

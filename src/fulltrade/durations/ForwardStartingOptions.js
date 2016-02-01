@@ -49,6 +49,7 @@ export default class ForwardStartingOptions extends Component {
         const min = dateToUTCTimeString(ranges[selectedIdx].open);
         const max = dateToUTCTimeString(ranges[selectedIdx].close);
         const timeString = dateStart ? epochToUTCTimeString(dateStart) : '';
+
         return (
             <CollapsibleFormSnippet label="Start times">
                 <RadioGroup
@@ -63,7 +64,7 @@ export default class ForwardStartingOptions extends Component {
                     onChange={::this.onChange}
                     value={timeString}
                 />
-                <button onClick={::this.removeDateStart}>
+                <button className="btn-secondary" onClick={::this.removeDateStart}>
                     <M m="Now" />
                 </button>
             </CollapsibleFormSnippet>

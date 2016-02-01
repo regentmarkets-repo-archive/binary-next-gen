@@ -1,7 +1,7 @@
 import React from 'react';
 import { Resizer } from '../_common';
 import { DesktopHeader, Footer } from '../navigation';
-import TickTradeContainer from '../tick-trade/TickTradeContainer';
+import TradesContainer from '../fulltrade/TradesContainer';
 import WorkspaceLeftPanel from './WorkspaceLeftPanel';
 import WorkspaceRightPanel from './WorkspaceRightPanel';
 import WorkspaceBottomPanel from './WorkspaceBottomPanel';
@@ -34,7 +34,7 @@ export default ({ actions, workspace }) => (
 			/>
 			<div id="mid-panel">
 				<div id="workarea">
-					<TickTradeContainer actions={actions} />
+					<TradesContainer actions={actions} />
 				</div>
 				<Resizer
 					className="resizer-horizontal"

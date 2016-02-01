@@ -22,7 +22,12 @@ export default class Clock extends React.Component {
     render() {
         const { time } = this.state;
         return (
-            <FormattedTime value={time} hour="numeric" minute="numeric" second="numeric" />
+            <FormattedTime
+                value={time}
+                hour="numeric"
+                minute="numeric"
+                second="numeric"
+            />
         );
     }
 }

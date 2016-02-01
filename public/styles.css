@@ -34,17 +34,7 @@ body {
     display: flex;
     background: #2a3052;
     color: white;
-    padding: 0 1rem;
     justify-content: space-between;
-}
-
-#header > span, #logo {
-    line-height: 4;
-}
-
-#header > * {
-    margin-left: .5rem;
-    margin-right: .5rem;
 }
 
 .left-panel, .right-panel, .bottom-panel {
@@ -59,6 +49,18 @@ body {
 .right-panel div[role=tabs] {
     flex-direction: column;
     align-content: flex-start;
+}
+
+.right-panel .radio-item {
+    flex: none;
+}
+
+.right-panel .radio-item img {
+    background: inherit;
+    box-shadow: none;
+    margin: 0;
+    padding: .5rem;
+    width: 3rem;
 }
 
 #workarea {
@@ -239,7 +241,6 @@ nav.sidebar {
 }
 
 .mobile-toolbar {
-    z-index: 9999;
     color: white;
     background: #2a3052;
     height: 3.5rem;
@@ -288,8 +289,9 @@ nav.sidebar {
 
 .buy-btn {
     width: 100%;
-    padding: 1.5rem;
-    margin-top: 2rem;
+    padding: 1rem;
+    margin-top: 1.5rem;
+    font-size: 1.25rem;
 }
 
 fieldset {
@@ -360,6 +362,7 @@ fieldset {
 #hamburger-btn > .sidebar {
     position: absolute;
     left: -300px;
+    z-index: 995;
 }
 
 #hamburger-opener:checked + #hamburger-btn > .sidebar {
@@ -377,6 +380,7 @@ fieldset {
     opacity: 1;
     visibility: visible;
     transition: .3s;
+    z-index: 985;
 }
 
 #hamburger-closer {
@@ -426,6 +430,9 @@ div[role=tabs] {
 
 .tab-content, #workarea {
     padding: .5rem;
+}
+.tab-content {
+    flex: 1;
 }
 
 .market-submarket-picker {
@@ -573,8 +580,24 @@ select {
     width: 100%;
 }
 
-#deposit-btn, .language-picker {
-    margin: .5rem 0;
+#deposit-btn, .language-picker, #clock, #logo {
+    margin: .5rem;
+}
+
+#logo img {
+    height: 2rem;
+}
+
+#logo img:nth-child(2) {
+    margin-left: .25rem;
+    height: 1.75rem;
+}
+
+#clock {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 #deposit-btn {
@@ -607,9 +630,8 @@ select {
 
 .snippet {
     outline-style: solid;
-    outline-color: rgba(233, 168, 36, 1);
-    padding: 10px;
-    margin: 10px;
+    outline-color: rgba(42, 48, 82, .25);
+    padding: .5rem;
 }
 
 .collapsible .focusable:focus + .collapsed {
@@ -629,4 +651,16 @@ select {
 .form-label {
     font-weight: 500;
     margin-bottom: 5px;
+}
+
+.trades-grid {
+    display: flex;
+}
+
+.trades-grid > * {
+    margin-right: .5rem;
+}
+
+.trades-tabs {
+    display: flex;
 }

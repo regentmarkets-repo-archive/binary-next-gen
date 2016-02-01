@@ -126,17 +126,41 @@ const durationSecHelper = duration => {
     return durationToSecs(d, u);
 };
 
-const minMaxInUnits = (min, max) => {
+// block is a structure that describe min and max of specific time unit
+const blockIsValid = (min, max, unit) => {
+    if (max < 1) {
+        return false;
+    }
+    switch (unit) {
+        case 's': {
+            return min < 60;
+        }
+        case 'm': {
+            return min < 60;
+        }
+        case 'h': {
+            return min < 24;
+        }
+        case 'd': {
+            return true;
+        }
+        default: throw new Error('Invalid time unit');
+    }
+};
+
+const extractMinMaxInUnits = (min, max) => {
     const minInUnits = splitSecsToUnits(min);
     const maxInUnits = splitSecsToUnits(max);
     const durations = [];
     for (let i = 0; i < minInUnits.length; i++) {
         const unit = durationUnits[i + 1];
-        if (maxInUnits[i] > 1) {
+        const minI = minInUnits[i];
+        const maxI = maxInUnits[i];
+        if (blockIsValid(minI, maxI, unit)) {
             durations.push({
                 unit,
-                min: minInUnits[i] > 0 ? minInUnits[i] : 1,
-                max: maxInUnits[i] });
+                min: minI > 0 ? minI : 1,
+                max: maxI });
         }
     }
     return durations;
@@ -162,7 +186,7 @@ const extractDurationHelper = (contracts, type) => {
         .map(c => durationSecHelper(c.max_contract_duration))
         .reduce((a, b) => Math.max(a, b));
 
-    const nonTicksDuration = minMaxInUnits(nonTickMinSec, nonTickMaxSec);
+    const nonTicksDuration = extractMinMaxInUnits(nonTickMinSec, nonTickMaxSec);
     if (tickDuration) {
         nonTicksDuration.unshift(tickDuration);
     }
@@ -255,15 +279,24 @@ const availableAssetsFilter = (assets, times, now) => {
         if (!s.times) {
             return;
         }
-        const open = s.times.open[0];
-        const close = s.times.close[0];
+        const open = s.times.open;
+        const close = s.times.close;
 
         // Assuming closing time is larger than open time
         // TODO: some of Random does have time which does not fit into assumption
         if (s.name.indexOf('Random') > -1) {
             availabilities[s.symbol] = true;
-        } else if (timeStringBigger(nowInTimeString, open) && timeStringSmaller(nowInTimeString, close)) {
-            availabilities[s.symbol] = true;
+        } else if (open.length === 1) {
+            if (timeStringBigger(nowInTimeString, open[0]) && timeStringSmaller(nowInTimeString, close[0])) {
+                availabilities[s.symbol] = true;
+            }
+        } else if (open.length === 2) {
+            if (
+                (timeStringBigger(nowInTimeString, open[0]) && timeStringSmaller(nowInTimeString, close[0])) ||
+                (timeStringBigger(nowInTimeString, open[1]) && timeStringSmaller(nowInTimeString, close[1]))
+            ) {
+                availabilities[s.symbol] = true;
+            }
         }
     });
     const availableAssets = assets.filter(s => availabilities[s.value]);
@@ -307,9 +340,16 @@ const ticksSelector = state => state.ticks.toJS();
 
 const currencySelector = state => state.account.get('currency');
 
+const tradesIdsSelector = createSelector(
+    tradesSelector,
+    trades =>
+        Object.keys(trades)
+);
+
 export const fullTradesSelector = createStructuredSelector({
     contracts: contractsSelector,
     trades: tradesSelector,
+    tradesIds: tradesIdsSelector,
     assets: availableAssetsSelector,
     ticks: ticksSelector,
     currency: currencySelector,

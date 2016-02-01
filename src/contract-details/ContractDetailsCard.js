@@ -4,8 +4,8 @@ import { secondsToTimeString } from '../_utils/DateUtils';
 import { NumberColored, NumberPlain, Modal, LabeledText, M } from '../_common';
 import ContractSoldDetails from './ContractSoldDetails';
 
-const returnOnContract = (contract, proposal) => (proposal.bid_price - contract.buy_price) * 100 / contract.buy_price;
-const ContractDetailsCard = ({ contract, proposal, nowEpoch, soldResultShown, actions }) => (
+const returnOnContract = contract => (contract.bid_price - contract.buy_price) * 100 / contract.buy_price;
+const ContractDetailsCard = ({ contract, nowEpoch, soldResultShown, actions }) => (
 	<div>
 		<Modal shown={!!soldResultShown} onClose={actions.closeSoldResult}>
 			<ContractSoldDetails
@@ -23,17 +23,17 @@ const ContractDetailsCard = ({ contract, proposal, nowEpoch, soldResultShown, ac
 				</tr>
 			</thead>
 			<tbody>
-				{proposal && <tr>
-					<td><FormattedTime value={proposal.date_start * 1000} format="full" /></td>
-					<td><FormattedTime value={+proposal.current_spot_time * 1000} format="full" /></td>
-					<td><FormattedTime value={proposal.date_expiry * 1000} format="full" /></td>
+				{contract && <tr>
+					<td><FormattedTime value={contract.date_start * 1000} format="full" /></td>
+					<td><FormattedTime value={+contract.current_spot_time * 1000} format="full" /></td>
+					<td><FormattedTime value={contract.date_expiry * 1000} format="full" /></td>
 				</tr>}
 				<tr>
 					<td></td>
 					<td>
-						{proposal && secondsToTimeString(nowEpoch - proposal.date_start)}
+						{contract && secondsToTimeString(nowEpoch - contract.date_start)}
 					</td>
-					<td>{proposal && secondsToTimeString(proposal.date_expiry - nowEpoch)}</td>
+					<td>{contract && secondsToTimeString(contract.date_expiry - nowEpoch)}</td>
 				</tr>
 			</tbody>
 			<thead>
@@ -44,10 +44,10 @@ const ContractDetailsCard = ({ contract, proposal, nowEpoch, soldResultShown, ac
 				</tr>
 			</thead>
 			<tbody>
-				{proposal && <tr>
-					<td>{proposal.entry_spot}</td>
-					<td><NumberColored value={proposal.current_spot} isProfit={v => v - proposal.entry_spot}/></td>
-					<td>{(proposal.exit_spot || '-')}</td>
+				{contract && <tr>
+					<td>{contract.entry_spot}</td>
+					<td><NumberColored value={contract.current_spot} isProfit={v => v - contract.entry_spot}/></td>
+					<td>{(contract.exit_spot || '-')}</td>
 				</tr>}
 				<tr>
 					<td></td>
@@ -66,9 +66,9 @@ const ContractDetailsCard = ({ contract, proposal, nowEpoch, soldResultShown, ac
 				<tr>
 					<td><NumberPlain value={contract.buy_price} currency={contract.currency}/></td>
 					<td>
-						{proposal &&
+						{contract &&
 						<NumberColored
-						value={proposal.bid_price}
+						value={contract.bid_price}
 						currency={contract.currency}
 						isProfit={v => v - contract.buy_price}
 						/>}
@@ -79,7 +79,7 @@ const ContractDetailsCard = ({ contract, proposal, nowEpoch, soldResultShown, ac
 				</tr>
 				<tr>
 					<td></td>
-					<td>{proposal && <NumberColored value={returnOnContract(contract, proposal).toFixed(2)} />}%</td>
+					<td>{contract && <NumberColored value={returnOnContract(contract).toFixed(2)} />}%</td>
 					<td></td>
 				</tr>
 			</tbody>
@@ -94,20 +94,19 @@ const ContractDetailsCard = ({ contract, proposal, nowEpoch, soldResultShown, ac
 				</tr>
 			</tbody>
 		</table>
-		{proposal && (proposal.is_valid_to_sell === 1) ?
+		{contract && (contract.is_valid_to_sell === 1) ?
 		<div>
-			<LabeledText id="market-price" label="Market Price" value={proposal.bid_price}/>
+			<LabeledText id="market-price" label="Market Price" value={contract.bid_price}/>
 			<button onClick={() => actions.sellContract(contract.contract_id, 0)}>
 				Sell at market
 			</button>
 		</div> :
-		<div>{proposal && proposal.validation_error}</div>}
+		<div>{contract && contract.validation_error}</div>}
 	</div>
 );
 
 ContractDetailsCard.propTypes = {
 	contract: PropTypes.object,
-	proposal: PropTypes.object,
 	nowEpoch: PropTypes.number,
 	soldResultShown: PropTypes.object,
 	actions: PropTypes.object,

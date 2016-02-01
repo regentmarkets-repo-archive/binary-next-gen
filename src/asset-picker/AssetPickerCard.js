@@ -6,8 +6,7 @@ export default class AssetPickerCard extends React.Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
-		assets: PropTypes.array.isRequired,
-		assetPicker: PropTypes.object.isRequired,
+		shownAssets: PropTypes.array.isRequired,
 		idSymbolMap: PropTypes.array.isRequired,
 		history: PropTypes.object,
 		params: PropTypes.object,
@@ -47,23 +46,17 @@ export default class AssetPickerCard extends React.Component {
 	}
 
 	render() {
-		const { actions, assets, assetPicker, watchlist, idSymbolMap } = this.props;
+		const { actions, shownAssets, watchlist, idSymbolMap } = this.props;
 		const { id } = this.props.params;
-		const { query } = this.props.location;
-		const type = query.type;
-		// const showOnlyTickTradable = !!~window.location.search.indexOf('tick');
-		const showOnlyTickTradable = type === 'tick';
-		const shownAssets = assetPicker.shownAssets;
-		const searchableAssets = assets.filter(x =>
-			!showOnlyTickTradable ||
-			x.market_display_name === 'Forex' ||
-			x.market_display_name === 'Randoms'
-		);
+		// const { query } = this.props.location;
+		// const type = query.type;
 
 		const selectedSymbol = idSymbolMap[id];
 
-		const onSearchQueryChange = e => actions.updateAssetPickerSearchQuery(searchableAssets, e.target.value);
-		const onSubmarketChange = e => actions.updateAssetPickerSubmarket(searchableAssets, e);
+		const onSearchQueryChange = e => actions.updateAssetPickerSearchQuery(e.target.value);
+		const onSubmarketChange = e => actions.updateAssetPickerSubmarket(e);
+
+		const showOnlyTickTradable = false;
 
 		return (
 			<div className="asset-picker-container">

@@ -359,8 +359,8 @@ export default class TradePanel extends Component {
 
         return (
             <div>
-                <button onClick={this.onClosePanel}>
-                    <M m="Close" />
+                <button className="btn-secondary" onClick={this.onClosePanel}>
+                    <M m="X" />
                 </button>
                 <MobileChart
                     className="trade-chart"
@@ -451,7 +451,7 @@ export default class TradePanel extends Component {
                     lastSpot={lastSpot}
                 />}
                 <ErrorMsg shown={!!trade.proposalError} text={trade.proposalError ? trade.proposalError.message : ''} />
-                <button onClick={this.onPurchase}>
+            <button className="buy-btn" onClick={this.onPurchase}>
                     <M m="Purchase" />
                 </button>
             </div>

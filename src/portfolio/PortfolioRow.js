@@ -1,15 +1,15 @@
 import React, { PropTypes } from 'react';
 import { M, NumberPlain, NumberColored } from '../_common';
 
-const PortfolioRow = ({ compact, contract, proposal, onViewDetails }) => (
+const PortfolioRow = ({ compact, contract, onViewDetails }) => (
     <tr onClick={() => onViewDetails(contract)}>
         <td>{contract.transaction_id}</td>
         <td><NumberPlain currency={contract.currency} value={contract.buy_price} /></td>
         <td>
-            {proposal &&
+            {contract &&
                 <NumberColored
                     currency={contract.currency}
-                    value={proposal.bid_price}
+                    value={contract.bid_price}
                     isProfit={v => v - contract.buy_price}
                 />}
         </td>
