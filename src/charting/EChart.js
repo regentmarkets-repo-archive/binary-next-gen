@@ -1,9 +1,7 @@
 import React, { PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import echarts from 'echarts';
-
-const areArraysEqual = (ar1, ar2) =>
-    ar1.filter((x, idx) => x !== ar2[idx]).length === 0;
+import { arrayEqual } from '../_utils/ArrayUtils';
 
 export default class EChart extends React.Component {
 
@@ -27,7 +25,7 @@ export default class EChart extends React.Component {
         const data = this.props.options.series[0].data;
         const newData = nextProps.options.series[0].data;
 
-        if (areArraysEqual(data, newData)) return false;
+        if (arrayEqual(data, newData)) return false;
 
         this.echart.setOption(this.props.options);
 

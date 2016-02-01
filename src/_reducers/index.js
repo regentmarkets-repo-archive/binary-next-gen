@@ -8,7 +8,7 @@ import assetIndex from './AssetIndexReducer';
 import assetPicker from './AssetPickerReducer';
 import portfolio from './PortfolioReducer';
 import contracts from './ContractsReducer';
-import openContractProposals from './OpenContractProposalsReducer';
+import openContracts from './OpenContractProposalsReducer';
 import settings from './SettingsReducer';
 import signin from './SigninReducer';
 import tradingTimes from './TradingTimesReducer';
@@ -40,7 +40,7 @@ export default combineReducers({
     paymentAgent,
     portfolio,
     contracts,
-    openContractProposals,
+    openContracts,
     proposals,
     quickTrade,
     settings,
