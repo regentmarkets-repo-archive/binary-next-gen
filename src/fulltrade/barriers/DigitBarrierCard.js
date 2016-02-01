@@ -13,7 +13,7 @@ export default class DigitBarrierCard extends Component {
     render() {
         const { barrier, barrierInfo, id, onBarrierChange } = this.props;
         return (
-            <CollapsibleFormSnippet label="Digits" show>
+            <CollapsibleFormSnippet label="Digits">
                 {barrierInfo ?
                     <div>
                         <p>{barrierInfo.name}</p>
