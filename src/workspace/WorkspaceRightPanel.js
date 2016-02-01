@@ -7,11 +7,11 @@ import VideoListContainer from '../video/VideoListContainer';
 
 export default ({ actions, workspace }) => (
 	<Tabs
-		activeIndex={workspace.get('rightActiveTab')}
+		activeIndex={workspace.rightActiveTab}
 		className="right-panel"
 		id="right-panel"
 		onChange={idx => actions.changeActiveTab('right', idx)}
-		style={{ width: workspace.get('rightPanelSize') }}
+		style={{ width: workspace.rightPanelSize }}
 		tabs={[
 			{ img: 'img/resources.svg', component: <TradingTimesContainer compact actions={actions} /> },
 			{ img: 'img/resources.svg', component: <AssetIndexContainer actions={actions}/> },
