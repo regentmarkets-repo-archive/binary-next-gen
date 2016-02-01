@@ -14,3 +14,11 @@ export const objectToArray = obj =>
     typeof obj.toArray !== 'undefined' ?
         obj.toArray() :
         Object.keys(obj).map(key => obj[key]);
+
+export const arrayEqual = (a, b) => {
+    if (a.length !== b.length) {
+        return false;
+    }
+
+    return a.filter((x, idx) => x !== b[idx]).length === 0;
+};
