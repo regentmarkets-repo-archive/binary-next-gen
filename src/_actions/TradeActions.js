@@ -77,9 +77,12 @@ export const destroyTrade = id =>
         const relatedTrade = allTrades[id];
         const sameSymbolExists = findIfExist(allTrades, (o, k) => o.symbol === relatedTrade.symbol && k !== id);
         if (!sameSymbolExists) {
-            LiveData.api.subscribeToTick(relatedTrade.symbol);
+            LiveData.api.unsubscribeFromTick(relatedTrade.symbol);
         }
-        LiveData.api.unsubscribeByID(relatedTrade.proposal.id);
+
+        if (relatedTrade.proposal) {
+            LiveData.api.unsubscribeByID(relatedTrade.proposal.id);
+        }
 
         dispatch({ type: types.DESTROY_TRADE, id });
     };
