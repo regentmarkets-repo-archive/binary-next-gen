@@ -4,4 +4,5 @@ node_js:
 notifications:
     email: false
 before_install: npm install
-install: npm run test:coverage
+install: npm run test:unit
+after_script: "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js"
