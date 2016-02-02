@@ -4,6 +4,7 @@ import EmailVerificationForm from './EmailVerificationForm';
 import AccountInfoForm from './AccountInfoForm';
 
 export default class CreateAccountCard extends React.Component {
+
 	static propTypes = {
 		createAccount: React.PropTypes.object.isRequired,
 	};

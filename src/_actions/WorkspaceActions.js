@@ -54,3 +54,7 @@ export const updateWorkspaceField = (fieldName, fieldValue) => ({
     fieldName,
     fieldValue,
 });
+
+export const toggleTradeMode = () => ({
+    type: types.TOGGLE_TRADE_MODE,
+});

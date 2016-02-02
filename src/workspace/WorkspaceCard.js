@@ -39,6 +39,12 @@ export default ({ actions, workspace }) => (
 					actions.updateWorkspaceField('rightPanelHidden', !isHidden);
 				}}
 			>Toggle Right</button>
+			<button onClick={() => {
+					actions.toggleTradeMode();
+				}}
+			>
+				Toggle Trade Mode
+			</button>
 		</div>
 		<div id="panels">
 			{!workspace.leftPanelHidden && <WorkspaceLeftPanel actions={actions} workspace={workspace} />}
@@ -52,7 +58,10 @@ export default ({ actions, workspace }) => (
 			/>
 			<div id="mid-panel">
 				<div id="workarea">
-					<TradesContainer actions={actions} />
+					<TradesContainer
+						actions={actions}
+						tradeMode={workspace.tradeMode}
+					/>
 				</div>
 				<Resizer
 					className="resizer-horizontal"
