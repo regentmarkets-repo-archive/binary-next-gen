@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { DesktopHeader } from '../navigation';
 import LoadingView from '../_common/LoadingView';
 
 @connect(state => ({ isAuthorized: state.appState.get('authorized') }))
@@ -15,7 +14,6 @@ export default class DesktopPage extends React.Component {
 		return (
 			isAuthorized ?
 				<div className="desktop-page">
-					<DesktopHeader />
 					<div className="desktop-content">
 						{children}
 					</div>

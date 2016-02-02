@@ -10,7 +10,6 @@ import TradingTimesTable from '../trading-times/TradingTimesTable';
 import DailyPricesPage from '../daily-prices/DailyPricesPage';
 import IntradayPricesPane from '../intraday-prices/IntradayPricesPane';
 import PortfolioPage from '../portfolio/PortfolioPage';
-import TradePage from '../trade/TradePage';
 import SettingsPage from '../settings/SettingsPage';
 import SettingsPersonalDetails from '../settings/SettingsPersonalDetails';
 import SettingsSecurity from '../settings/SettingsSecurity';
@@ -21,6 +20,7 @@ import VideoListContainer from '../video/VideoListContainer';
 import NewsContainer from '../news/NewsContainer';
 import PaymentAgentsModal from '../payment-agents/PaymentAgentsModal';
 import ChartTest from '../charting/ChartTest';
+import TradesPage from '../fulltrade/TradesPage';
 
 import { requireAuthOnEnter } from '../_data/Auth';
 
@@ -30,7 +30,7 @@ export default [
     { path: 'workspace', component: WorkspaceContainer, onEnter: requireAuthOnEnter },
     // { path: 'create-account', component: CreateAccountPage },
     { path: 'upgrade', component: UpgradePage },
-    { path: 'trade', component: TradePage, onEnter: requireAuthOnEnter },
+    { path: 'trade', component: TradesPage, onEnter: requireAuthOnEnter },
     { path: 'watchlist', component: WatchlistPage, onEnter: requireAuthOnEnter },
     { path: 'asset-index', component: AssetIndexPage, onEnter: requireAuthOnEnter, childRoutes: [
         { path: ':market', component: AssetIndexTable, onEnter: requireAuthOnEnter },

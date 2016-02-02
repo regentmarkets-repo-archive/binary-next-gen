@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import WorkspaceCard from './WorkspaceCard';
 
-@connect(state => ({ workspace: state.workspace, isAuthorized: state.appState.get('authorized') }))
+@connect(state => ({ workspace: state.workspace.toJS(), isAuthorized: state.appState.get('authorized') }))
 export default class WorkspaceContainer extends React.Component {
 
 	static propTypes = {

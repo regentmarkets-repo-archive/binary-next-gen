@@ -10,6 +10,7 @@ import {
     UPDATE_TRADING_TIMES_DATE,
     UPDATE_ASSET_INDEX_SUBMARKET,
     UPDATE_WORKSPACE_FIELD,
+    TOGGLE_TRADE_MODE,
 } from '../_constants/ActionTypes';
 
 const initialState = new Map({
@@ -19,6 +20,7 @@ const initialState = new Map({
     rightActiveTab: 0,
     bottomPanelSize: 300,
     bottomActiveTab: 0,
+    tradeMode: 'grid',
     symbolSelected: 'R_100',
     tradingTimes: new Map({
         submarket: 'europe_africa',
@@ -59,6 +61,10 @@ export default (state = initialState, action) => {
         }
         case UPDATE_WORKSPACE_FIELD: {
             return state.set(action.fieldName, action.fieldValue);
+        }
+        case TOGGLE_TRADE_MODE: {
+            const newTradeMode = state.get('tradeMode') === 'grid' ? 'tabs' : 'grid';
+            return state.set('tradeMode', newTradeMode);
         }
         default:
             return state;
