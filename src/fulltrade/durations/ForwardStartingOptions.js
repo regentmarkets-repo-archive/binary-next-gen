@@ -15,6 +15,13 @@ export default class ForwardStartingOptions extends Component {
         };
     }
 
+    componentWillReceiveProps(nextProps) {
+        const defaultDay = dateToEpoch(nextProps.ranges[0].date);
+        if (nextProps.ranges !== this.props.ranges) {
+            this.setState({ selectedDay: defaultDay });
+        }
+    }
+
     static propTypes = {
         dateStart: PropTypes.number,
         onStartDateChange: PropTypes.func,

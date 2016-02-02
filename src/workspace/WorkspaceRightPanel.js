@@ -10,8 +10,12 @@ export default ({ actions, workspace }) => (
 		activeIndex={workspace.rightActiveTab}
 		className="right-panel"
 		id="right-panel"
-		onChange={idx => actions.changeActiveTab('right', idx)}
-		style={{ width: workspace.rightPanelSize }}
+		showContent={!workspace.rightPanelHidden}
+		onChange={idx => {
+			actions.updateWorkspaceField('rightPanelHidden', false);
+			actions.changeActiveTab('right', idx);
+		}}
+		style={workspace.rightPanelHidden ? {} : { width: workspace.rightPanelSize }}
 		tabs={[
 			{ img: 'img/resources.svg', component: <TradingTimesContainer compact actions={actions} /> },
 			{ img: 'img/resources.svg', component: <AssetIndexContainer actions={actions}/> },
