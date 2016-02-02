@@ -363,7 +363,7 @@ export default class TradePanel extends Component {
         const disabled = trade.disabled;
 
         return (
-            <fieldset className="trade-panel" disabled={disabled}>
+            <fieldset disabled={disabled} className="trade-panel">
                 <button className="btn-secondary" onClick={!disabled && this.onClosePanel}>
                     <M m="X" />
                 </button>
