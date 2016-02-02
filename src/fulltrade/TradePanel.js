@@ -358,7 +358,7 @@ export default class TradePanel extends Component {
         const lastSpot = tick ? tick[tick.length - 1].quote : 0;
 
         return (
-            <div>
+            <div className="trade-panel">
                 <button className="btn-secondary" onClick={this.onClosePanel}>
                     <M m="X" />
                 </button>

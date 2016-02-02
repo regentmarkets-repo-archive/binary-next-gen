@@ -647,11 +647,6 @@ select {
     display: flex;
 }
 
-.trades-grid > * {
-    margin-right: .5rem;
-    flex: 1;
-}
-
 .trades-tabs {
     display: flex;
 }
@@ -663,4 +658,9 @@ select {
 .asset-picker-trade-btn {
     padding: .4rem;
     visibility: hidden;;
+}
+
+.trade-panel {
+    margin-right: .5rem;
+    flex: 1;
 }
