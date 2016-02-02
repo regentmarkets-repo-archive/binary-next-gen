@@ -7,18 +7,20 @@ export default class Tabs extends React.Component {
         activeIndex: PropTypes.number.isRequired,
         className: PropTypes.string,
         id: PropTypes.string.isRequired,
+        onChange: PropTypes.func,
+        showContent: PropTypes.bool,
         style: PropTypes.object,
         tabs: PropTypes.array.isRequired,
-        onChange: PropTypes.func,
     };
 
     static defaultProps = {
         activeIndex: 0,
+        showContent: true,
         tabs: [],
     };
 
     render() {
-        const { activeIndex, className, id, style, tabs, onChange } = this.props;
+        const { activeIndex, className, id, style, showContent, tabs, onChange } = this.props;
         const ActiveComponent = tabs.filter((tab, idx) => activeIndex === idx).map(x => x.component)[0];
         return (
             <div className={className} style={style}>
@@ -35,9 +37,9 @@ export default class Tabs extends React.Component {
                         />
                     )}
                 </div>
-                <div className="tab-content">
+                {showContent && <div className="tab-content">
                     {ActiveComponent}
-                </div>
+                </div>}
             </div>
         );
     }
