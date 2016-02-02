@@ -51,7 +51,7 @@ const createDefaultBarriers = (contracts, category, type, duration, durationUnit
     let expiryType;
     if (durationUnit === 't') {
         expiryType = 'tick';
-    } else if (durationToSecs(duration, durationUnit) <= 86400) {
+    } else if (durationToSecs(duration, durationUnit) < 86400) {
         expiryType = 'intraday';
     } else {
         expiryType = 'daily';
@@ -358,7 +358,7 @@ export default class TradePanel extends Component {
         const receipt = trade.receipt;
         const isTick = trade.durationUnit && trade.durationUnit.slice(-1) === 't';
         const isBelow2Min = isTick || durationToSecs(trade.duration, trade.durationUnit) < 120;
-        const isIntraDay = durationToSecs(trade.duration, trade.durationUnit) <= 86400;
+        const isIntraDay = durationToSecs(trade.duration, trade.durationUnit) < 86400;
         const lastSpot = tick ? tick[tick.length - 1].quote : 0;
         const disabled = trade.disabled;
 
