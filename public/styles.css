@@ -65,7 +65,7 @@ body {
 
 #workarea {
     flex: 1;
-    overflow: hidden;
+    overflow: auto;
 }
 
 table {
@@ -570,7 +570,7 @@ select {
     width: 100%;
 }
 
-#deposit-btn, .language-picker, #clock, #logo {
+#deposit-btn, .language-picker, #clock, #logo, .toggle-buttons {
     margin: .5rem;
 }
 
@@ -663,4 +663,13 @@ select {
 .trade-panel {
     margin-right: .5rem;
     flex: 1;
+}
+
+.toggle-buttons .btn-secondary.checked {
+    background: rgba(255, 255, 255, .75);
+}
+
+.toggle-buttons .btn-secondary {
+    width: 3rem;
+    background: rgba(255, 255, 255, .5);
 }

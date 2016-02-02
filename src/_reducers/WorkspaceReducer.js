@@ -11,13 +11,17 @@ import {
     UPDATE_ASSET_INDEX_SUBMARKET,
     UPDATE_WORKSPACE_FIELD,
     TOGGLE_TRADE_MODE,
+    TOGGLE_PANEL,
 } from '../_constants/ActionTypes';
 
 const initialState = new Map({
+    leftPanelVisible: true,
     leftPanelSize: 350,
     leftActiveTab: 0,
+    rightPanelVisible: true,
     rightPanelSize: 350,
     rightActiveTab: 0,
+    bottomPanelVisible: true,
     bottomPanelSize: 300,
     bottomActiveTab: 0,
     tradeMode: 'grid',
@@ -65,6 +69,10 @@ export default (state = initialState, action) => {
         case TOGGLE_TRADE_MODE: {
             const newTradeMode = state.get('tradeMode') === 'grid' ? 'tabs' : 'grid';
             return state.set('tradeMode', newTradeMode);
+        }
+        case TOGGLE_PANEL: {
+            const panelField = action.panel + 'PanelVisible';
+            return state.set(panelField, !state.get(panelField));
         }
         default:
             return state;

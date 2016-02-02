@@ -58,3 +58,8 @@ export const updateWorkspaceField = (fieldName, fieldValue) => ({
 export const toggleTradeMode = () => ({
     type: types.TOGGLE_TRADE_MODE,
 });
+
+export const togglePanel = panel => ({
+    type: types.TOGGLE_PANEL,
+    panel,
+});
