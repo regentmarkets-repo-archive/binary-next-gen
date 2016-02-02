@@ -81,7 +81,7 @@ export default ({ actions, workspace }) => (
 					updateSizeWithBoundary(size, update, 100, 700);
 				}}
 			/>
-			{!workspace.rightPanelHidden && <WorkspaceRightPanel actions={actions} workspace={workspace} />}
+			<WorkspaceRightPanel actions={actions} workspace={workspace} />
 		</div>
 		<Footer />
 	</div>

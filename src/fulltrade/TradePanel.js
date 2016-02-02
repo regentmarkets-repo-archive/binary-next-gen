@@ -161,11 +161,15 @@ export default class TradePanel extends Component {
     }
 
     onAssetChange(e) {
-        this.updateHelper('symbol', e.target.value);
-        const { actions } = this.props;
-        actions.getTradingOptions(e.target.value);
-        actions.getTicksBySymbol(e.target.value);
-        this.onCategoryChange({ target: { value: 'callput' } }, false);
+        const { id, actions } = this.props;
+        const symbol = e.target.value;
+        actions.updateTradeParams(id, 'disabled', true);
+        actions.getTradingOptions(symbol, () => {
+            this.updateHelper('symbol', symbol);
+            this.onCategoryChange({ target: { value: 'callput' } }, false);
+            actions.updateTradeParams(id, 'disabled', false);
+        });
+        actions.getTicksBySymbol(symbol);
     }
 
     // scary but necessary as all fields have dependency on category
@@ -356,10 +360,11 @@ export default class TradePanel extends Component {
         const isBelow2Min = isTick || durationToSecs(trade.duration, trade.durationUnit) < 120;
         const isIntraDay = durationToSecs(trade.duration, trade.durationUnit) <= 86400;
         const lastSpot = tick ? tick[tick.length - 1].quote : 0;
+        const disabled = trade.disabled;
 
         return (
-            <div className="trade-panel">
-                <button className="btn-secondary" onClick={this.onClosePanel}>
+            <fieldset className="trade-panel" disabled={disabled}>
+                <button className="btn-secondary" onClick={!disabled && this.onClosePanel}>
                     <M m="X" />
                 </button>
                 {tick && <MobileChart
@@ -451,10 +456,10 @@ export default class TradePanel extends Component {
                     lastSpot={lastSpot}
                 />}
                 <ErrorMsg shown={!!trade.proposalError} text={trade.proposalError ? trade.proposalError.message : ''} />
-            <button className="buy-btn" onClick={this.onPurchase}>
+                <button className="buy-btn" onClick={!disabled && this.onPurchase}>
                     <M m="Purchase" />
                 </button>
-            </div>
+            </fieldset>
         );
     }
 }
