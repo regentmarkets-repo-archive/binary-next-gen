@@ -32,4 +32,17 @@ describe('WorkspaceReducer', () => {
             expect(actual).toEqual(expected);
         });
     });
+
+    describe('togglePanel', () => {
+        it('should be able to toggle left panel to visible', () => {
+            const stateBefore = fromJS({
+                leftPanelVisible: false,
+            });
+            const actual = WorkspaceReducer(stateBefore, actions.togglePanel('left'));
+            const expected = fromJS({
+                leftPanelVisible: true,
+            });
+            expect(actual).toEqual(expected);
+        });
+    });
 });

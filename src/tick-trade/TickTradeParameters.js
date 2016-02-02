@@ -30,8 +30,13 @@ export default class TickTradeParameters extends React.Component {
                             <M m="Asset" />
                         </label>
                         <br />
-                        <Link to={`/asset-picker/${id}`} query={{ type: 'tick' }} className="btn-secondary">
-                            {tradeAsset && tradeAsset.text.toUpperCase()}
+                        <Link className="btn-secondary"
+                            to={{
+                                pathname: `/asset-picker/${id}`,
+                                query: { type: 'tick' },
+                            }}
+                        >
+                            {tradeAsset && tradeAsset.text}
                         </Link>
                     </fieldset>
                     <fieldset>
@@ -43,7 +48,7 @@ export default class TickTradeParameters extends React.Component {
                             className="btn-secondary"
                             to={`/trade-type-picker/${id}`}
                         >
-                            <M m={tradeTypeText.toUpperCase()} />
+                            <M m={tradeTypeText} />
                         </Link>
                     </fieldset>
                 </div>
@@ -66,8 +71,10 @@ export default class TickTradeParameters extends React.Component {
                         <br />
                         <Link
                             className="btn-secondary"
-                            to={`/payout-picker/${id}`}
-                            query={{ currency }}
+                            to={{
+                                pathname: `/payout-picker/${id}`,
+                                query: currency,
+                            }}
                         >
                             <M m={trade.basis.toUpperCase()} /><span>: </span>
                             <NumberPlain currency={currency} value={trade.amount} />
