@@ -20,7 +20,7 @@ export const shownAssetIndexRowsSelector = createSelector(
         const symbols = assetSymbolsInSubmarket(assets, submarket);
         return assetIndex
             .filter(a => symbols.some(x => x === a[0]));
-    },
+    }
 );
 
 export const assetIndexHeadersSelector = createSelector(
