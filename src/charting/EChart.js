@@ -16,6 +16,14 @@ export default class EChart extends React.Component {
         const { options } = this.props;
         this.echart.setOption(options);
     }
+    
+    componentDidUpdate(nextProps) {
+        if (nextProps.style !== this.props.style) {
+            this.echart.resize();
+        }
+
+        this.echart.setOption(nextProps.options);
+    }
 
     componentDidUpdate(nextProps) {
         if (nextProps.style !== this.props.style) {
