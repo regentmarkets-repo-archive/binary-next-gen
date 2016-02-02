@@ -11,7 +11,8 @@
     "test:coveralls": "npm run test:coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "start": "node server.js",
     "build": "npm run clean && npm run build:webpack",
-    "translate": "bash fetch-translation.sh"
+    "translate": "bash fetch-translation.sh",
+    "nativefier": "./node_modules/.bin/nativefier"
   },
   "keywords": [
     "binary.com",
@@ -75,6 +76,7 @@
     "json-loader": "^0.5.4",
     "mocha": "^2.4.5",
     "mocha-lcov-reporter": "^1.0.0",
+    "nativefier": "^6.8.0",
     "react-addons-perf": "^0.14.7",
     "react-addons-test-utils": "^0.14.7",
     "redux-mock-store": "0.0.6",
