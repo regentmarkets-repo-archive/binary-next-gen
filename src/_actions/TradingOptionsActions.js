@@ -7,12 +7,17 @@ export const updateTradingOptions = (symbol, opts) => ({
     opts,
 });
 
-export const getTradingOptions = symbol =>
+export const getTradingOptions = (symbol, cb) =>
     (dispatch, getState) => {
         const { tradingOptions } = getState();
         if (!tradingOptions.get(symbol)) {
             LiveData.api.getContractsForSymbol(symbol).then(res => {
                 dispatch(updateTradingOptions(symbol, res.contracts_for.available));
+                if (typeof cb === 'function') {
+                    cb();
+                }
             });
+        } else if (typeof cb === 'function') {
+            cb();
         }
     };

@@ -198,7 +198,7 @@ const extractForwardStartingDuration = (contracts, type) => {
     const groupByDate = groupByKey(forwardOptions, 'date');
     const forwardStartingRange = [];
     Object.keys(groupByDate)
-        .sort((a, b) => +a < +b)
+        .sort((a, b) => +a > +b)
         .forEach(date => {
             const timesPerDateArr = groupByDate[date].map(obj => {
                 const open = new Date(obj.open * 1000);
