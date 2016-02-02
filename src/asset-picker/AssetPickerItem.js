@@ -31,7 +31,7 @@ export default class AssetPickerItem extends React.Component {
 		const { asset, compact, onSelect, onCreateTrade, isFavorite, isSelected } = this.props;
 
 		return (
-			<tr className={isSelected ? 'selected' : ''} tabIndex={0}>
+			<tr className={isSelected ? 'asset-picker-item selected' : 'asset-picker-item'} tabIndex={0}>
 				<td onClick={::this.toggleFavorite}>
 					<Star on={isFavorite} />
 				</td>
@@ -42,7 +42,9 @@ export default class AssetPickerItem extends React.Component {
 					{asset.market_display_name + ' > ' + asset.submarket_display_name}
 				</td>
 				{!compact && <td onClick={() => onCreateTrade(asset.symbol)}>
-					<img src="img/info.svg" style={{ width: '1rem' }} />
+					<button className="asset-picker-trade-btn">
+						<img src="img/trade.svg" style={{ width: '1rem' }} />
+					</button>
 				</td>}
 			</tr>
 		);

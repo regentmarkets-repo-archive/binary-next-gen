@@ -10,7 +10,6 @@ export DirectionAndValue from './DirectionAndValue';
 export DurationPicker from './DurationPicker';
 export ErrorMsg from './ErrorMsg';
 export FormattedDateRange from './FormattedDateRange';
-export InfoIcon from './InfoIcon';
 export InputGroup from './InputGroup';
 export LanguagePicker from './LanguagePicker';
 export LabeledText from './LabeledText';

@@ -65,6 +65,7 @@ body {
 
 #workarea {
     flex: 1;
+    overflow: hidden;
 }
 
 table {
@@ -227,17 +228,6 @@ nav.sidebar {
 
 .asset-search {
     margin-bottom: 0;
-}
-
-.info-icon {
-    display: inline-block;
-    color: #2a3052;
-    font-weight: bold;
-    box-shadow: 0 0 0 2px #2a3052;
-    border-radius: 50px;
-    line-height: 1.2;
-    height: 1.2rem;
-    width: 1.2rem;
 }
 
 .mobile-toolbar {
@@ -498,12 +488,12 @@ select {
 }
 
 .resizer-vertical {
-    cursor: e-resize;
+    cursor: ew-resize;
     width: .25rem;
 }
 
 .resizer-horizontal {
-    cursor: s-resize;
+    cursor: ns-resize;
     height: .25rem;
 }
 
@@ -659,8 +649,18 @@ select {
 
 .trades-grid > * {
     margin-right: .5rem;
+    flex: 1;
 }
 
 .trades-tabs {
     display: flex;
+}
+
+.asset-picker-item:hover .asset-picker-trade-btn {
+    visibility: visible;
+}
+
+.asset-picker-trade-btn {
+    padding: .4rem;
+    visibility: hidden;;
 }

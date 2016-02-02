@@ -14,6 +14,10 @@ export default class TradesContainer extends React.Component {
         tradeMode: PropTypes.string.isRequired,
     };
 
+    static defaultValues = {
+        tradeMode: 'grid',
+    };
+
     render() {
         const { tradeMode } = this.props;
         return tradeMode === 'grid' ?
