@@ -9,7 +9,7 @@ msgstr ""
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2016-02-03 21:31+0000\n"
-"Last-Translator: olga borg <olga@binary.com>\n"
+"Last-Translator: cameliagf <cameliagf@yahoo.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/es/>\n"
 "Language: es\n"
@@ -297,7 +297,6 @@ msgstr "Oscuro"
 msgid "Name"
 msgstr "Nombre"
 
-#, fuzzy
 msgid "Date Of Birth"
 msgstr "Fecha de nacimiento"
 
