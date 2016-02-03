@@ -8,8 +8,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-02-01 15:49+0000\n"
-"Last-Translator: cameliagf <cameliagf@yahoo.com>\n"
+"PO-Revision-Date: 2016-02-03 21:31+0000\n"
+"Last-Translator: olga borg <olga@binary.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/es/>\n"
 "Language: es\n"
@@ -204,128 +204,123 @@ msgstr "Cambio"
 msgid "Chart"
 msgstr "Gráfico"
 
-#, fuzzy
 msgid "Purchase For"
-msgstr "Compra"
+msgstr "Compre por"
 
 msgid "Rise"
-msgstr ""
+msgstr "Alza"
 
 msgid "Stake"
-msgstr ""
+msgstr "Apuesta"
 
 msgid "Payout"
-msgstr ""
+msgstr "Pago"
 
 msgid "Deposit"
-msgstr ""
+msgstr "Deposite"
 
-#, fuzzy
 msgid "Transactions"
-msgstr "Confirmación"
+msgstr "Transacciones"
 
 msgid "Opens"
-msgstr ""
+msgstr "Abre"
 
 msgid "Closes"
-msgstr ""
+msgstr "Cierra"
 
 msgid "Personal"
-msgstr ""
+msgstr "Personal"
 
 msgid "General"
-msgstr ""
+msgstr "General"
 
-#, fuzzy
 msgid "Trading Times"
-msgstr "Límites"
+msgstr "Horario comercial"
 
-#, fuzzy
 msgid "Asset Index"
-msgstr "Activo"
+msgstr "Índice de activos"
 
 msgid "Today"
-msgstr ""
+msgstr "Hoy"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Ayer"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "Mañana"
 
 msgid "Takeout"
 msgstr ""
 
 msgid "News"
-msgstr ""
+msgstr "Noticias"
 
 msgid "Resources"
-msgstr ""
+msgstr "Recursos"
 
 msgid "Last 7 Days"
-msgstr ""
+msgstr "Los últimos 7 días"
 
 msgid "Last 30 Days"
-msgstr ""
+msgstr "Los últimos 30 días"
 
 msgid "Daily Report"
-msgstr ""
+msgstr "Informe diario"
 
 msgid "Up/Down"
-msgstr ""
+msgstr "Arriba/Abajo"
 
 msgid "Touch/No Touch"
-msgstr ""
+msgstr "Toque/Sin Toque"
 
 msgid "Ends In/Out"
-msgstr ""
+msgstr "Finaliza dentro/fuera"
 
 msgid "Stays In/Goes Out"
-msgstr ""
+msgstr "Queda dentro/Sale fuera"
 
-#, fuzzy
 msgid "Settles"
-msgstr "Configuración"
+msgstr "Finaliza"
 
 msgid "Language"
-msgstr ""
+msgstr "Idioma"
 
 msgid "Color Theme"
-msgstr ""
+msgstr "Gama de colores"
 
 msgid "Light"
-msgstr ""
+msgstr "Claro"
 
 msgid "Dark"
-msgstr ""
+msgstr "Oscuro"
 
 msgid "Name"
-msgstr ""
+msgstr "Nombre"
 
 #, fuzzy
 msgid "Date Of Birth"
 msgstr "Fecha de nacimiento"
 
 msgid "Country Of Residence"
-msgstr ""
+msgstr "País de residencia"
 
 msgid "Email"
-msgstr ""
+msgstr "Correo electrónico"
 
 msgid "There are no transactions for selected period"
-msgstr ""
+msgstr "No hay transacciones para el período seleccionado"
 
 msgid "Sell"
-msgstr ""
+msgstr "Vender"
 
 msgid "Buy"
-msgstr ""
+msgstr "Comprar"
 
 msgid "Digit Even"
-msgstr ""
+msgstr "Dígito par"
 
 msgid "Touches"
-msgstr ""
+msgstr "Toca"
 
 msgid "Digit Over"
 msgstr ""
@@ -343,16 +338,16 @@ msgid "Digit Differs"
 msgstr ""
 
 msgid "No Touch"
-msgstr ""
+msgstr "Sin Toque"
 
 msgid "Fall"
-msgstr ""
+msgstr "Baja"
 
 msgid "Asian Down"
-msgstr ""
+msgstr "Asiáticas abajo"
 
 msgid "Asian Up"
-msgstr ""
+msgstr "Asiáticas arriba"
 
 msgid "Search For Assets"
-msgstr ""
+msgstr "Busque activos"
