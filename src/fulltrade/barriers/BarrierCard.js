@@ -12,6 +12,7 @@ export default class BarrierCard extends Component {
         onBarrier1Change: PropTypes.func,
         onBarrier2Change: PropTypes.func,
         onBarrierTypeChange: PropTypes.func,
+        pipSize: PropTypes.number,
         spot: PropTypes.number,
     };
 
@@ -25,6 +26,7 @@ export default class BarrierCard extends Component {
             onBarrier1Change,
             onBarrier2Change,
             onBarrierTypeChange,
+            pipSize,
             spot,
             } = this.props;
         const expiryType = isIntraDay ? 'intraday' : 'daily';
@@ -40,8 +42,10 @@ export default class BarrierCard extends Component {
                         <BarrierInput
                             {...barrier1Info}
                             barrierType={barrierType}
+                            expiryType={expiryType}
                             onChange={onBarrier1Change}
                             isIntraDay={isIntraDay}
+                            pipSize={pipSize}
                             value={barrier}
                             spot={spot}
                         />
@@ -51,15 +55,18 @@ export default class BarrierCard extends Component {
                             <BarrierInput
                                 {...barrierInfo[expiryType][1]}
                                 barrierType={barrierType}
+                                expiryType={expiryType}
                                 onChange={onBarrier2Change}
+                                pipSize={pipSize}
                                 isIntraDay={isIntraDay}
                                 value={barrier2}
                                 spot={spot}
                             />
                         </div>}
+                    {spot &&
                     <a onClick={() => onBarrierTypeChange(barrierType === 'relative' ? 'absolute' : 'relative')}>
                         {toggleMsg}
-                    </a>
+                    </a>}
                 </CollapsibleFormSnippet>}
             </div>
         );

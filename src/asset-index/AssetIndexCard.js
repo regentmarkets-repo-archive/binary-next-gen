@@ -6,13 +6,13 @@ export default class AssetIndexCard extends React.Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
-		headers: PropTypes.array.isRequired,
-		durations: PropTypes.array.isRequired,
+		assetIndexRows: PropTypes.array.isRequired,
 		submarket: PropTypes.string.isRequired,
 	};
 
 	render() {
-		const { actions, durations, headers, submarket } = this.props;
+		const { actions, assetIndexRows, submarket } = this.props;
+		const headers = assetIndexRows.shift();
 
 		return (
 			<div>
@@ -23,7 +23,7 @@ export default class AssetIndexCard extends React.Component {
 				/>
 				<AssetIndexTable
 					headers={headers}
-					durations={durations}
+					durations={assetIndexRows}
 				/>
 			</div>
 		);

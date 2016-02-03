@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
-import { FormattedDate } from 'react-intl';
+import { FormattedTime } from 'react-intl';
 import { NumberPlain, NumberColored } from '../_common';
 import { epochToDate } from '../_utils/DateUtils';
 
 const StatementRow = ({ compact, transaction }) => (
     <tr>
-        <td><FormattedDate value={epochToDate(transaction.transaction_time)} /></td>
+        <td><FormattedTime value={epochToDate(transaction.transaction_time)} format="full" /></td>
         {!compact && <td>{transaction.transaction_id}</td>}
         <td className="trade-action">{transaction.action_type}</td>
         <td><NumberColored value={transaction.amount} /></td>

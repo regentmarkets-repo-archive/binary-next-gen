@@ -18,7 +18,7 @@ export default class CreateAccountCard extends React.Component {
 
     passwordValid() {
         const { password } = this.props.createAccount.toJS();
-        return /^[\s.A-Za-z0-9@_:+-\/=]{5,25}$/.test(password);
+        return /^[ -~]{6,25}$/.test(password);
     }
 
     confirmationValid() {
