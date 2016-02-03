@@ -26,7 +26,7 @@ const WatchlistTable = ({ assets, ticks, watchlist }) => (
 				<WatchlistRow
 					key={symbol}
 					symbol={symbol}
-					asset={assets.get('list').find(x => x.get('symbol') === symbol)}
+					asset={assets.find(x => x.get('symbol') === symbol)}
 					history={ticks.get(symbol)}
 				/>
 			)}

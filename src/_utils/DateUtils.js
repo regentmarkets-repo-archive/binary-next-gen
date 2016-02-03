@@ -34,6 +34,9 @@ export const dateToEpoch = date =>
 export const epochToDateString = epoch =>
     dateToDateString(epochToDate(epoch));
 
+export const epochToUTCDateString = epoch =>
+    epochToDate(epoch).toISOString().slice(0, 10);
+
 export const epochToDateTimeString = epoch =>
     epochToDate(epoch).toUTCString();
 
@@ -75,7 +78,7 @@ export const getLastXMonthEpoch = x => {
 };
 
 export const xDayEpoch = x => {
-    const secsAway = (x - 1) * 60 * 60 * 24;
+    const secsAway = x * 60 * 60 * 24;
     return Math.floor(Date.now() / 1000) + secsAway;
 };
 
@@ -85,11 +88,17 @@ export const last7DaysEpoch = () => xDayEpoch(-6);
 export const last30DaysEpoch = () => xDayEpoch(-29);
 
 
-export const todayString = () =>
+export const todayLocaleString = () =>
     dateToDateString(new Date());
+
+export const todayUTCString = () =>
+    (new Date()).toISOString().slice(0, 10);
 
 export const yesterdayString = () =>
     dateToDateString(new Date(yesterdayEpoch() * 1000));
+
+export const yesterdayUTCString = () =>
+    (new Date(yesterdayEpoch() * 1000)).toISOString().slice(0, 10);
 
 // time string comparison
 export const timeStringBigger = (a, b) => {

@@ -1,7 +1,7 @@
 import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { InputGroup, MarketPicker } from '../_common';
-import { dateToDateString, todayString, oneYearAfterStr } from '../_utils/DateUtils';
+import { dateToDateString, todayLocaleString, oneYearAfterStr } from '../_utils/DateUtils';
 import TradingTimesTable from './TradingTimesTable';
 
 export default class TradingTimesCard extends React.Component {
@@ -34,7 +34,7 @@ export default class TradingTimesCard extends React.Component {
 					<InputGroup
 						type="date"
 						defaultValue={dateToDateString(tradingTimesDate)}
-						min={todayString()}
+						min={todayLocaleString()}
 						max={oneYearAfterStr()}
 						className="trading-times-date-picker"
 						onChange={x => actions.updateTradingTimesDate(x.target.valueAsDate)}

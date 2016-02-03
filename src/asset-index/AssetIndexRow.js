@@ -12,7 +12,7 @@ export default class AssetIndexRow extends React.Component {
 
         return (
             <tr>
-                <td>
+                <td className="row-id">
                     {assetName}
                 </td>
                 {times.map((time, k) =>
