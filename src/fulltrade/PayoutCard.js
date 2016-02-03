@@ -29,7 +29,9 @@ export default class PayoutCard extends Component {
                 />
                 <InputGroup
                     type="number"
-                    value={amount}
+                    defaultValue={amount}
+                    min={0}
+                    step={0.01}
                     label={currency.toUpperCase()}
                     onChange={onAmountChange}
                 />

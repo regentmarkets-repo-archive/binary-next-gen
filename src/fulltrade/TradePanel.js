@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { SelectGroup, ErrorMsg, Modal, M, PurchaseConfirmation } from '../_common';
+import { SelectGroup, ErrorMsg, Modal, M, PurchaseConfirmation, PurchaseFailed } from '../_common';
 import RadioGroup from './workaround/CustomRadioGroup';
 import { contractCategoryDisplay, durationToSecs, isIntraday } from '../_utils/TradeUtils';
 import { tradeTypes } from '../_constants/TradeParams';
@@ -403,6 +403,9 @@ export default class TradePanel extends Component {
                 </div>
                 <Modal shown={!!receipt} onClose={() => this.updateHelper('receipt', undefined)} >
                     <PurchaseConfirmation receipt={receipt} />
+                </Modal>
+                <Modal shown={!!trade.buy_error} onClose={() => this.updateHelper('buy_error', undefined)}>
+                    <PurchaseFailed failure={trade.buy_error} />
                 </Modal>
                 { contractForType &&
                     <div>
