@@ -17,6 +17,10 @@ describe('epochToDateString', () => {
         const str = epochToDateString(1000000000);
         expect(str).toEqual('2001-09-09');
     });
+    it('returns undefined on undefined', () => {
+        const str = epochToDateString();
+        expect(str).toNotExist();
+    });
 });
 
 describe('timeStringIsBetween', () => {
