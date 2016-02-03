@@ -7,7 +7,7 @@ const PurchaseConfirmation = ({ receipt }) => (
 	<div>
 		<table>
 			<thead>
-				<th colSpan="2">{`Contract Ref. ${receipt.contract_id}`}</th>
+				<th colSpan="2">{`Transaction Ref. ${receipt.transaction_id}`}</th>
 			</thead>
 			<tbody>
 				<tr>
