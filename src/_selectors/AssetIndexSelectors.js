@@ -2,10 +2,11 @@ import { createSelector, createStructuredSelector } from 'reselect';
 import { assetsSelector } from './AssetSelectors';
 import { assetIndexSubmarketSelector } from './WorkspaceSelectors';
 import { toPlainJS } from '../_utils/ObjectUtils';
+import { shallowMerge } from '../_utils/ArrayUtils';
 
 export const assetIndexSelector = state => toPlainJS(state.assetIndex);
 
-export const assetSymbolsInSubmarket = (assets, submarket) =>
+const assetSymbolsInSubmarket = (assets, submarket) =>
     assets
         .reduce((symbols, asset) => {
             if (asset.submarket === submarket) {
@@ -14,7 +15,7 @@ export const assetSymbolsInSubmarket = (assets, submarket) =>
             return symbols;
         }, []);
 
-export const shownAssetIndexRowsSelector = createSelector(
+const shownAssetIndexRowsSelector = createSelector(
     [assetsSelector, assetIndexSubmarketSelector, assetIndexSelector],
     (assets, submarket, assetIndex) => {
         const symbols = assetSymbolsInSubmarket(assets, submarket);
@@ -23,7 +24,32 @@ export const shownAssetIndexRowsSelector = createSelector(
     }
 );
 
-export const assetIndexHeadersSelector = createSelector(
+const assetIndexRowToDuration = row =>
+    row ? `${row[2]}–${row[3]}` : '—';
+
+const assetIndexTableSelector = createSelector(
+    shownAssetIndexRowsSelector,
+    assetIndexRows => {
+        // find union of all type
+        const headers = assetIndexRows.reduce((prev, curr) => {
+            const types = curr[2].map(durations => durations[1]).filter(t => !!t);
+            return shallowMerge(prev, types);
+        }, []);
+        const data = assetIndexRows.map(row => {
+            const name = row[1];
+            const durations = headers
+                .map(type =>
+                    assetIndexRowToDuration(row[2].find(x => x[1] === type))
+                );
+            durations.unshift(name);
+            return durations;
+        });
+        data.unshift(headers);
+        return data;
+    }
+);
+
+const assetIndexHeadersSelector = createSelector(
     shownAssetIndexRowsSelector,
     shownAssetIndexRows =>
         shownAssetIndexRows
@@ -32,10 +58,7 @@ export const assetIndexHeadersSelector = createSelector(
             .map(x => x[1])
 );
 
-const assetIndexRowToDuration = row =>
-    row ? `${row[2]}–${row[3]}` : '—';
-
-export const durationsSelector = createSelector(
+const durationsSelector = createSelector(
     [shownAssetIndexRowsSelector, assetIndexHeadersSelector],
     (shownAssetIndexRows, headers) =>
         shownAssetIndexRows
@@ -49,6 +72,5 @@ export const durationsSelector = createSelector(
 
 export default createStructuredSelector({
     submarket: assetIndexSubmarketSelector,
-    headers: assetIndexHeadersSelector,
-    durations: durationsSelector,
+    assetIndexRows: assetIndexTableSelector,
 });
