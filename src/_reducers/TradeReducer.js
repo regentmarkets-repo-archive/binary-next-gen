@@ -5,7 +5,9 @@ import {
     DESTROY_ALL_TRADE,
     DESTROY_TRADE,
     INIT_TRADE,
-    SERVER_DATA_PROPOSAL } from '../_constants/ActionTypes';
+    SERVER_DATA_PROPOSAL,
+    REMOVE_PERSONAL_DATA,
+} from '../_constants/ActionTypes';
 
 const initialState = fromJS({
     0: {
@@ -51,6 +53,9 @@ export default (state = initialState, action) => {
                 return state.setIn([entry[0], 'proposal'], action.serverResponse.proposal);
             }
             return state;
+        }
+        case REMOVE_PERSONAL_DATA: {
+            return initialState;
         }
         default: return state;
     }

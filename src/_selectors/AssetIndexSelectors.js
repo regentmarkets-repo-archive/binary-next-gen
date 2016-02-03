@@ -49,27 +49,6 @@ const assetIndexTableSelector = createSelector(
     }
 );
 
-const assetIndexHeadersSelector = createSelector(
-    shownAssetIndexRowsSelector,
-    shownAssetIndexRows =>
-        shownAssetIndexRows
-            .reduce((acc, row) =>
-                (acc[2].length > row[2].length ? acc : row), ['', '', []])[2]
-            .map(x => x[1])
-);
-
-const durationsSelector = createSelector(
-    [shownAssetIndexRowsSelector, assetIndexHeadersSelector],
-    (shownAssetIndexRows, headers) =>
-        shownAssetIndexRows
-            .map(assetIndexRow => ({
-                assetName: assetIndexRow[1],
-                times: headers.map((header, idx) =>
-                    assetIndexRowToDuration(assetIndexRow[2][idx])
-                ),
-            }))
-);
-
 export default createStructuredSelector({
     submarket: assetIndexSubmarketSelector,
     assetIndexRows: assetIndexTableSelector,

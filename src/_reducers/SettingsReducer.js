@@ -5,6 +5,7 @@ import {
     SERVER_DATA_ACCOUNT_SELF_EXCLUSION,
     SERVER_DATA_ACCOUNT_SETTINGS,
     UPDATE_SETTINGS_FIELD,
+    REMOVE_PERSONAL_DATA,
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
@@ -27,6 +28,9 @@ export default (state = initialState, action) => {
         }
         case UPDATE_SETTINGS_FIELD: {
             return state.merge(action.settings);
+        }
+        case REMOVE_PERSONAL_DATA: {
+            return initialState;
         }
         default:
             return state;
