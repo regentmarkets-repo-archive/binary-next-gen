@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import { SelectGroup, ErrorMsg, Modal, M, PurchaseConfirmation } from '../_common';
 import RadioGroup from './workaround/CustomRadioGroup';
-import { contractCategoryDisplay, durationToSecs } from '../_utils/TradeUtils';
+import { contractCategoryDisplay, durationToSecs, isIntraday } from '../_utils/TradeUtils';
 import { tradeTypes } from '../_constants/TradeParams';
 import BarrierCard from './barriers/BarrierCard';
 import ContractStatsCard from './ContractStatsCard';
@@ -51,7 +51,7 @@ const createDefaultBarriers = (contracts, category, type, duration, durationUnit
     let expiryType;
     if (durationUnit === 't') {
         expiryType = 'tick';
-    } else if (durationToSecs(duration, durationUnit) < 86400) {
+    } else if (isIntraday(duration, durationUnit)) {
         expiryType = 'intraday';
     } else {
         expiryType = 'daily';
@@ -159,7 +159,7 @@ export default class TradePanel extends Component {
         }
         // if no realtime feed, dont provide options to change between relative and absolute
         if (!proposal || !proposal.spot) {
-            const isIntraDay = durationToSecs(nextProps.trade.duration, nextProps.trade.durationUnit) < 86400;
+            const isIntraDay = isIntraday(nextProps.trade.duration, nextProps.trade.durationUnit);
             const newBarrierType = isIntraDay ? 'relative' : 'absolute';
             if (nextProps.trade.barrierType !== newBarrierType) {
                 this.updateHelper('barrierType', newBarrierType);
@@ -373,7 +373,7 @@ export default class TradePanel extends Component {
         const receipt = trade.receipt;
         const isTick = trade.durationUnit && trade.durationUnit.slice(-1) === 't';
         const isBelow2Min = isTick || durationToSecs(trade.duration, trade.durationUnit) < 120;
-        const isIntraDay = durationToSecs(trade.duration, trade.durationUnit) < 86400;
+        const isIntraDay = isIntraday(trade.duration, trade.durationUnit);
         const lastSpot = tick ? tick[tick.length - 1].quote : 0;
         const disabled = trade.disabled;
         const pipSize = trade.pipSize;
