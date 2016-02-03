@@ -128,7 +128,7 @@ const durationSecHelper = duration => {
 const extractMinMaxInUnits = (min, max) => {
     // block is a structure that describe min and max of specific time unit
     const blockIsValid = (minArg, maxArg, unit) => {
-        if (maxArg < 1) {
+        if (maxArg <= 1) {
             return false;
         }
         switch (unit) {
@@ -266,7 +266,15 @@ const contractsSelector = state => {
     return allContracts.toJS();
 };
 
-export const tradesSelector = state => state.trades.toJS();
+export const tradesSelector = createSelector(
+    [state => state.trades, state => state.assets.toJS()],
+    (trades, assets) =>
+        trades.map(t => {
+            const symbolDetails = assets.find(a => a.symbol === t.get('symbol'));
+            const pipSize = symbolDetails && symbolDetails.pip.length - 1;
+            return t.set('pipSize', pipSize);
+        }).toJS()
+);
 
 const availableAssetsFilter = (assets, times, now) => {
     const nowInTimeString = epochToUTCTimeString(now);

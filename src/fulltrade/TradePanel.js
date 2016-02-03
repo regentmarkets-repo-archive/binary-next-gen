@@ -152,6 +152,21 @@ export default class TradePanel extends Component {
         actions.updatePriceProposalSubscription(id);
     }
 
+    componentWillReceiveProps(nextProps) {
+        const proposal = nextProps.trade.proposal;
+        if (proposal && proposal === this.props.trade.proposal) {
+            return;
+        }
+        // if no realtime feed, dont provide options to change between relative and absolute
+        if (!proposal || !proposal.spot) {
+            const isIntraDay = durationToSecs(nextProps.trade.duration, nextProps.trade.durationUnit) < 86400;
+            const newBarrierType = isIntraDay ? 'relative' : 'absolute';
+            if (nextProps.trade.barrierType !== newBarrierType) {
+                this.updateHelper('barrierType', newBarrierType);
+            }
+        }
+    }
+
     updateHelper(name, value, update = true) {
         const { actions, id } = this.props;
         actions.updateTradeParams(id, name, value);
@@ -361,6 +376,7 @@ export default class TradePanel extends Component {
         const isIntraDay = durationToSecs(trade.duration, trade.durationUnit) < 86400;
         const lastSpot = tick ? tick[tick.length - 1].quote : 0;
         const disabled = trade.disabled;
+        const pipSize = trade.pipSize;
 
         return (
             <fieldset disabled={disabled} className="trade-panel">
@@ -434,6 +450,7 @@ export default class TradePanel extends Component {
                                 barrierInfo={barriers}
                                 barrierType={trade.barrierType}
                                 isIntraDay={isIntraDay}
+                                pipSize={pipSize}
                                 onBarrier1Change={this.onBarrier1Change}
                                 onBarrier2Change={this.onBarrier2Change}
                                 onBarrierTypeChange={this.onBarrierTypeChange}
