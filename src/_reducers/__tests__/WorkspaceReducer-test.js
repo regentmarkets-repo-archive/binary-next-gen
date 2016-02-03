@@ -1,4 +1,3 @@
-/*
 import expect from 'expect';
 import { fromJS } from 'immutable';
 import * as actions from '../../_actions/WorkspaceActions';
@@ -47,4 +46,3 @@ describe('WorkspaceReducer', () => {
         });
     });
 });
-*/
