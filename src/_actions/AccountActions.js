@@ -23,3 +23,7 @@ export const updateToken = token => ({
     type: types.UPDATE_TOKEN,
     token,
 });
+
+export const removePersonalData = () => ({
+    type: types.REMOVE_PERSONAL_DATA,
+});

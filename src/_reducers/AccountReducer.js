@@ -5,6 +5,7 @@ import {
     SERVER_DATA_PAYOUT_CURRENCIES,
     SERVER_DATA_BUY,
     UPDATE_TOKEN,
+    REMOVE_PERSONAL_DATA,
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
@@ -36,6 +37,9 @@ export default (state = initialState, action) => {
         }
         case UPDATE_TOKEN: {
             return state.set('token', action.token);
+        }
+        case REMOVE_PERSONAL_DATA: {
+            return initialState;
         }
         default:
             return state;

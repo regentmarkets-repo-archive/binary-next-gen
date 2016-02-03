@@ -3,6 +3,7 @@ import { toPlainJS } from '../_utils/ObjectUtils';
 
 export const assetsSelector = state => toPlainJS(state.assets);
 
+// return a tree structure, hierarchy as [market -> submarket -> symbol]
 export const marketTreeSelector = createSelector(
     assetsSelector,
     assets =>

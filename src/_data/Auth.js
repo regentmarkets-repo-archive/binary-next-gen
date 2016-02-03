@@ -1,7 +1,7 @@
 import { store } from '../_store/persistentStore';
 import { bindActionCreators } from 'redux';
 import * as LiveData from './LiveData';
-import { updateToken, signinFieldUpdate, updateAppState } from '../_actions';
+import { updateToken, signinFieldUpdate, updateAppState, removePersonalData } from '../_actions';
 import { trackUserId } from '../_utils/Analytics';
 
 export const tryAuth = (st) => {
@@ -56,7 +56,7 @@ export const requireAuthOnEnter = (nextState, replaceState, cb) => {
 };
 
 export const signout = (nextState, replaceState) => {
-    store.dispatch(updateToken(''));
+    store.dispatch(removePersonalData());
     store.dispatch(signinFieldUpdate('validatedOnce', false));
     store.dispatch(updateAppState('authorized', false));
     navigateTo(nextState, replaceState, '/signin');

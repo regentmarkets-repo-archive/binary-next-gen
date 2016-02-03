@@ -16,8 +16,8 @@ export default class AssetIndexTable extends React.Component {
                 <thead>
                     <tr>
                         <th></th>
-                        {headers.map((assetName, idx) =>
-                            <th key={idx}>{assetName}</th>
+                        {headers.map((type, idx) =>
+                            <th key={idx}>{type}</th>
                         )}
                     </tr>
                 </thead>
@@ -25,8 +25,8 @@ export default class AssetIndexTable extends React.Component {
                     {durations.map((duration, idx) =>
                         <AssetIndexRow
                             key={idx}
-                            assetName={duration.assetName}
-                            times={duration.times}
+                            assetName={duration[0]}
+                            times={duration.slice(1)}
                         />
                     )}
                 </tbody>

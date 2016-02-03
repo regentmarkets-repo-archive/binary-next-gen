@@ -2,7 +2,7 @@ import { fromJS } from 'immutable';
 import expect from 'expect';
 import assetIndexSelectors, { assetIndexSelector, durationsSelector } from '../AssetIndexSelectors';
 
-describe('AssetIndexSelectors', () => {
+describe.skip('AssetIndexSelectors', () => {
 
     describe('assetIndexSelector', () => {
         it('should be retrieved', () => {

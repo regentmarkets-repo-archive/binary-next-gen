@@ -5,6 +5,7 @@ import {
     UPDATE_NOW,
     UPDATE_SOLD_CONTRACT,
     CLOSE_SOLD_RESULT,
+    REMOVE_PERSONAL_DATA,
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
@@ -32,6 +33,9 @@ export default (state = initialState, action) => {
         }
         case CLOSE_SOLD_RESULT: {
             return state.set('soldResultShown', undefined);
+        }
+        case REMOVE_PERSONAL_DATA: {
+            return initialState;
         }
         default:
             return state;

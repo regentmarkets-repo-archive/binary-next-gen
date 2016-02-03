@@ -1,11 +1,14 @@
 import React, { PropTypes } from 'react';
 import { FormattedTime } from 'react-intl';
 import { epochToDate } from '../_utils/DateUtils';
-import { M } from '../_common';
+import { M, NumberPlain } from '../_common';
 
 const PurchaseConfirmation = ({ receipt }) => (
 	<div>
 		<table>
+			<thead>
+				<th colSpan="2">{`Transaction Ref. ${receipt.transaction_id}`}</th>
+			</thead>
 			<tbody>
 				<tr>
 					<td colSpan="2">
@@ -24,7 +27,9 @@ const PurchaseConfirmation = ({ receipt }) => (
 				</tr>
 				<tr>
 					<td><M m="Balance" /></td>
-					<td>{receipt.balance_after}</td>
+					<td>
+						<NumberPlain value={receipt.balance_after} />
+					</td>
 				</tr>
 			</tbody>
 		</table>

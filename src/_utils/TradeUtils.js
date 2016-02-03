@@ -42,6 +42,8 @@ export const durationToSecs = (duration, unit) => {
     }
 };
 
+export const isIntraday = (duration, unit) => durationToSecs(duration, unit) < 60 * 60 * 24;
+
 export const contractCategoryDisplay = category => {
     switch (category) {
         case 'asian': return 'Asians';
