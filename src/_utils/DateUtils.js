@@ -32,7 +32,7 @@ export const dateToEpoch = date =>
     Math.floor(date.getTime() / 1000);
 
 export const epochToDateString = epoch =>
-    dateToDateString(epochToDate(epoch));
+    epoch && dateToDateString(epochToDate(epoch));
 
 export const epochToUTCDateString = epoch =>
     epochToDate(epoch).toISOString().slice(0, 10);

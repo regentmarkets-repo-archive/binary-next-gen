@@ -47,8 +47,6 @@ export const changeLanguage = ln => {
     api.getActiveSymbolsFull();
     api.getAssetIndex();
     api.getTradingTimes();
-    // api.getPortfolio();
-    // api.getStatement({ description: 1, limit: 20 }); we do not need this until we need longcode
 };
 
 const initUnauthorized = store => {
@@ -64,7 +62,9 @@ const initUnauthorized = store => {
 const initAuthorized = (authData, store) => {
     api.getPortfolio();
     api.getStatement({ description: 1, limit: 20 });
-    api.getAccountSettings().then(msg => api.getPaymentAgentsForCountry(msg.get_settings.country_code));
+    api.getAccountSettings().then(msg =>
+        api.getPaymentAgentsForCountry(msg.get_settings.country_code)
+    );
     api.getPayoutCurrencies();
     api.subscribeToBalance();           // some call might fail due to backend overload
     api.subscribeToAllOpenContracts();
