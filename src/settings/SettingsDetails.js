@@ -10,7 +10,7 @@ export default class SettingsDetails extends React.Component {
 
 	render() {
 		const { settings } = this.props;
-		console.log(settings);
+
 		return (
 			<div>
 				<legend>

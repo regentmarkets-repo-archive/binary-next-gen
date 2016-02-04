@@ -14,7 +14,7 @@ export default class AssetPickerCard extends React.Component {
 		params: PropTypes.object,
 		shownAssets: PropTypes.array.isRequired,
 		workspace: PropTypes.object.isRequired,
-		watchlist: PropTypes.object.isRequired,
+		watchlist: PropTypes.array.isRequired,
 	};
 
 	static defaultProps = {
