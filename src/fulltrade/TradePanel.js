@@ -10,6 +10,7 @@ import DurationCard from './durations/DurationCard';
 import PayoutCard from './PayoutCard';
 import SpreadBarrierCard from './barriers/SpreadBarrierCard';
 import MobileChart from '../charting/MobileChart';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 
 /**
  * This UI is coded with a few assumptions, which should always be true, this comments serves as a future reference
@@ -146,10 +147,10 @@ export default class TradePanel extends Component {
         tick: PropTypes.array,
     };
 
+    shouldComponentUpdate = shouldPureComponentUpdate;
+
     componentWillMount() {
-        const { actions, id } = this.props;
         this.onCategoryChange({ target: { value: 'callput' } }, false);
-        actions.updatePriceProposalSubscription(id);
     }
 
     componentWillReceiveProps(nextProps) {

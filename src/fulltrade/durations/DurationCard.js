@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { CollapsibleFormSnippet, InputGroup, SelectGroup, ErrorMsg } from '../../_common';
 import ForwardStartingOptions from './ForwardStartingOptions';
 import { durationText } from '../../_utils/TradeUtils';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 
 export default class DurationCard extends Component {
     static propTypes = {
@@ -14,6 +15,8 @@ export default class DurationCard extends Component {
         onDurationChange: PropTypes.func,
         onStartDateChange: PropTypes.func,
     };
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
         const {
