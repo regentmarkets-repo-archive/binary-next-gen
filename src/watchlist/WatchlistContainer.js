@@ -9,9 +9,20 @@ export default class WatchlistContainer extends React.Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
+	static propTypes = {
+		assets: React.PropTypes.object,
+		ticks: React.PropTypes.object,
+		watchlist: React.PropTypes.object,
+	};
+
 	render() {
+		const { assets, ticks, watchlist } = this.props;
 		return (
-			<WatchlistTable {...this.props} />
+			<WatchlistTable
+				ticks={ticks.toJS()}
+				assets={assets.toJS()}
+				watchlist={watchlist.toJS()}
+			/>
 		);
 	}
 }

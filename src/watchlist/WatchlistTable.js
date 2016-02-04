@@ -22,12 +22,12 @@ const WatchlistTable = ({ assets, ticks, watchlist }) => (
 			</tr>
 		</thead>
 		<tbody>
-			{watchlist.toSeq().map(symbol =>
+			{watchlist.map(symbol =>
 				<WatchlistRow
 					key={symbol}
 					symbol={symbol}
-					asset={assets.find(x => x.get('symbol') === symbol)}
-					history={ticks.get(symbol)}
+					asset={assets.find(x => x.symbol === symbol)}
+					history={ticks[symbol]}
 				/>
 			)}
 		</tbody>
@@ -35,9 +35,9 @@ const WatchlistTable = ({ assets, ticks, watchlist }) => (
 );
 
 WatchlistTable.propTypes = {
-	assets: PropTypes.object.isRequired,
+	assets: PropTypes.array.isRequired,
 	ticks: PropTypes.object.isRequired,
-	watchlist: PropTypes.object.isRequired,
+	watchlist: PropTypes.array.isRequired,
 };
 
 export default WatchlistTable;

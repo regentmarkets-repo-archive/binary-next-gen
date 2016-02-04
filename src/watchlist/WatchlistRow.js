@@ -16,14 +16,14 @@ export default class WatchlistRow extends React.Component {
 	static propTypes = {
 		asset: PropTypes.object.isRequired,
 		compact: PropTypes.bool,
-		history: PropTypes.object,
+		history: PropTypes.array,
 	};
 
 	render() {
 		const { asset } = this.props;
 		if (!asset) return <tr/>;
 
-		const history = this.props.history ? this.props.history.toJS() : [];
+		const history = this.props.history ? this.props.history : [];
 		const diff = historyDiff(history);
 		const { quote } = history[history.length - 1] || {};
 
