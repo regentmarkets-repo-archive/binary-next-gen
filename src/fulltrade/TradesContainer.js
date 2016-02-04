@@ -1,4 +1,5 @@
 import React, { PropTypes } from 'react';
+import { Map, ToIndexedSequence } from 'immutable';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { connect } from 'react-redux';
 import { fullTradesSelector } from './../_selectors/FullTradeSelectors';
@@ -11,6 +12,11 @@ export default class TradesContainer extends React.Component {
     shouldComponentUpdate = shouldPureComponentUpdate;
 
     static propTypes = {
+        assets: PropTypes.object,
+        contracts: PropTypes.instanceOf(Map),
+        trades: PropTypes.instanceOf(Map),
+        tradesIds: PropTypes.instanceOf(ToIndexedSequence),
+        ticks: PropTypes.instanceOf(Map),
         tradeMode: PropTypes.string.isRequired,
     };
 
@@ -19,9 +25,23 @@ export default class TradesContainer extends React.Component {
     };
 
     render() {
-        const { tradeMode } = this.props;
+        const { assets, contracts, trades, tradesIds, tradeMode, ticks } = this.props;
         return tradeMode === 'grid' ?
-                <TradesGrid {...this.props} /> :
-                <TradesTabs {...this.props} />;
+                <TradesGrid
+                    {...this.props}
+                    assets={assets}
+                    contracts={contracts.toJS()}
+                    trades={trades.toJS()}
+                    tradesIds={tradesIds.toJS()}
+                    ticks={ticks.toJS()}
+                /> :
+                <TradesTabs
+                    {...this.props}
+                    assets={assets}
+                    contracts={contracts.toJS()}
+                    trades={trades.toJS()}
+                    tradesIds={tradesIds.toJS()}
+                    ticks={ticks.toJS()}
+                />;
     }
 }

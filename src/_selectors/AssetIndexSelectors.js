@@ -9,8 +9,8 @@ export const assetIndexSelector = state => toPlainJS(state.assetIndex);
 const assetSymbolsInSubmarket = (assets, submarket) =>
     assets
         .reduce((symbols, asset) => {
-            if (asset.submarket === submarket) {
-                symbols.push(asset.symbol);
+            if (asset.get('submarket') === submarket) {
+                symbols.push(asset.get('symbol'));
             }
             return symbols;
         }, []);

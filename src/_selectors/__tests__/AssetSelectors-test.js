@@ -29,21 +29,21 @@ describe('AssetSelectors', () => {
             const actual = marketTreeSelector({
                 assets: []
             });
-            expect(actual).toEqual({});
+            expect(actual).toEqual(fromJS({}));
         });
 
         it('should contain one asset inside tree when one asset is provided', () => {
             const actual = marketTreeSelector({
-                assets: [{
+                assets: fromJS([{
                     "market": "indices",
                     "symbol": "AEX",
                     "market_display_name": "Indices",
                     "submarket": "europe_africa",
                     "display_name": "Dutch Index",
                     "submarket_display_name": "Europe/Africa",
-                }]
+                }])
             });
-            const expected = {
+            const expected = fromJS({
                 "indices": {
                     "display_name": "Indices",
                     "submarkets": {
@@ -57,13 +57,13 @@ describe('AssetSelectors', () => {
                         }
                     }
                 }
-            };
+            });
             expect(actual).toEqual(expected);
         });
 
         it('should deep nest assets correctly into a tree', () => {
             const actual = marketTreeSelector({
-                assets: [{
+                assets: fromJS([{
                     "market": "indices",
                     "symbol": "AEX",
                     "market_display_name": "Indices",
@@ -86,9 +86,9 @@ describe('AssetSelectors', () => {
                     "submarket": "europe_africa",
                     "display_name": "Belgian Index",
                     "submarket_display_name": "Europe/Africa",
-                }]
+                }])
             });
-            const expected = {
+            const expected = fromJS({
                 "indices": {
                     "display_name": "Indices",
                     "submarkets": {
@@ -113,7 +113,7 @@ describe('AssetSelectors', () => {
                         }
                     }
                 }
-            };
+            });
             expect(actual).toEqual(expected);
         });
     });

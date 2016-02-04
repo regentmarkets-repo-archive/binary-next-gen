@@ -36,7 +36,7 @@ describe('AssetPickerSelectors', () => {
     describe('assetPickerSelectors', () => {
         it('should be retrieved', () => {
             const actual = assetPickerSelectors({
-                assets: [],
+                assets: fromJS([]),
                 assetPicker: {},
                 trades: fromJS([]),
             });

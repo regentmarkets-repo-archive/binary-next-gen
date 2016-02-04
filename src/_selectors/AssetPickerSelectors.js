@@ -7,7 +7,7 @@ import { toPlainJS } from '../_utils/ObjectUtils';
 
 export const idSymbolMapSelector = createSelector(
      assetsSelector,
-     assets => toPlainJS(assets.map(v => v.symbol))
+     assets => toPlainJS(assets.map(v => v.get('symbol')))
 );
 
 export const similarStr = (str1 = '', str2 = '') =>
@@ -45,7 +45,8 @@ const doFilter = (availableAssets, query, markets, submarket) =>
 //     x.market_display_name === 'Randoms'
 // );
 
-const availableAssetsSelector = assetsSelector;
+// TODO: convert to JS temporarily as isolating changes
+const availableAssetsSelector = state => assetsSelector(state).toJS();
 
 export const marketsSelector = () => [];
 
