@@ -5,109 +5,56 @@ import CreateAccountReducer from '../CreateAccountReducer';
 
 describe('CreateAccountReducer',()=>{
   it('should be able to CREATE_ACCOUNT_START',()=>{
-    const initialState = fromJS({
-        step: 0,
-        validatedOnce: false,
-        residence: '',
-        password: '',
-        email: '',
-        confirmPassword: '',
+    const beforeState = fromJS({
         progress: false,
-        error: null,
     });
-    const expected  = fromJS({
-      step: 0,
-      validatedOnce: false,
-      residence: '',
-      password: '',
-      email: '',
-      confirmPassword: '',
+    const expectedState  = fromJS({
       progress: true,
-      error: null,
     });
     const action = {
       type: CREATE_ACCOUNT_START,
     };
-    const actual = CreateAccountReducer(initialState,action);
-    expect(actual.toJS()).toEqual(expected.toJS());
+    const actualState = CreateAccountReducer(beforeState,action);
+    expect(actualState).toEqual(expectedState);
   });
 
   it('should be able to update account field', ()=>{
-    const initialState = fromJS({
-        step: 0,
-        validatedOnce: false,
-        residence: '',
-        password: '',
-        email: '',
-        confirmPassword: '',
-        progress: false,
-        error: null,
-    });
-    const expected  = fromJS({
-      step: 0,
-      validatedOnce: false,
-      residence: '',
-      password: '',
+    const beforeState = fromJS({});
+    const expectedState  = fromJS({
       email: 'example@binary.com',
-      confirmPassword: '',
-      progress: false,
-      error: null,
     });
     const action = {
       type: CREATE_ACCOUNT_FIELD_UPDATE,
       fieldName: 'email',
       fieldValue: 'example@binary.com'
     };
-    const actual = CreateAccountReducer(initialState,action);
-    expect(actual.toJS()).toEqual(expected.toJS());
+    const actualState = CreateAccountReducer(beforeState,action);
+    expect(actualState).toEqual(expectedState);
   });
 
   it('should handle create account error',()=>{
-    const initialState = fromJS({
-        step: 0,
-        validatedOnce: false,
-        residence: '',
-        password: '',
-        email: '',
-        confirmPassword: '',
-        progress: false,
-        error: null,
-    });
-    const expected  = fromJS({
-      step: 0,
-      validatedOnce: false,
-      residence: '',
-      password: '',
-      email: '',
-      confirmPassword: '',
-      progress: false,
+    const stateBefore = fromJS({});
+    const expectedState  = fromJS({
       error: 'Create account failed.',
     });
     const action = {
       type: CREATE_ACCOUNT_ERROR,
       error: 'Create account failed.',
     };
-    const actual = CreateAccountReducer(initialState,action);
-    expect(actual.toJS()).toEqual(expected.toJS());
+    const actualState = CreateAccountReducer(stateBefore,action);
+    expect(actualState).toEqual(expectedState);
   });
 
-  it('should return default create account state when no type is provided',()=>{
-    const initialState = fromJS({
-        step: 0,
-        validatedOnce: false,
-        residence: '',
-        password: '',
-        email: '',
-        confirmPassword: '',
-        progress: false,
-        error: null,
+  it('should return the same create account state when no type is provided',()=>{
+    const beforeState = fromJS({
+        type: '',
+        error: 'Create account failed.',
     });
-    const expected = initialState;
     const action = {
       type: '',
       error: 'Create account failed.',
     };
-    const actual = CreateAccountReducer(initialState,action);
-    expect(actual.toJS()).toEqual(expected.toJS());
+    const actualState = CreateAccountReducer(beforeState,action);
+    expect(actualState).toEqual(beforeState);
   })
 });

@@ -4,31 +4,29 @@ import { UPDATE_APP_CONFIG } from '../../_constants/ActionTypes';
 import expect from 'expect';
 
 describe('AppConfigReducer',()=>{
-  it('should update appconfig',()=>{
+  it('should update appconfig state with the given field and value',()=>{
     const action ={
       type: UPDATE_APP_CONFIG,
       field: 'language',
       value: 'FR',
     };
-    const expected = fromJS({
+    const expectedState = fromJS({
         language: 'FR',
-        theme: 'light',
     });
-    const actual =AppConfigReducer(fromJS(),action);
-    expect(actual.toJS()).toEqual(expected.toJS());
+    const actualState = AppConfigReducer(fromJS({}),action);
+    expect(actualState).toEqual(expectedState);
   });
 
-  it('should return default AppConfig state',()=>{
-    const initialState = fromJS({
+  it('should return the same appConfig state when wrong state type is given',()=>{
+    const beforeState = fromJS({
         language: 'EN',
-        theme: 'light',
     });
     const action ={
       type: 'NON_EXISTING_TYPE',
       field: 'language',
       value: 'light',
     };
-    const actual =AppConfigReducer(fromJS(),action);
-    expect(actual.toJS()).toEqual(initialState.toJS());
+    const actualState = AppConfigReducer(beforeState,action);
+    expect(actualState).toEqual(beforeState);
   })
 });

@@ -18,21 +18,20 @@ describe('ContractsReducer',()=>{
       },
     };
     const beforeState = fromJS([]);
-    const expected = fromJS([{PurchaseInfo: 'Info',Value : 3,}]);
-    const actual = ContractsReducer(beforeState,action);
-    expect(actual.toJS()).toEqual(expected.toJS());
+    const expectedState = fromJS([{PurchaseInfo: 'Info',Value : 3,}]);
+    const actualState = ContractsReducer(beforeState,action);
+    expect(actualState.toJS()).toEqual(expectedState.toJS());
   });
 
-  it('should return empty result when given wrong actiontype',()=>{
+  it('should return the same state when given wrong actiontype',()=>{
     const action = {
       type: 'NON_EXISTING_TYPE',
       serverResponse: {
         asset_index: 3,
       },
     };
-    const arr = [];
-    const beforeState = fromJS();
-    const actual = ContractsReducer(beforeState,action);
-    expect(actual.toJS()).toEqual(fromJS(arr).toJS());
+    const beforeState = fromJS([]);
+    const actualState = ContractsReducer(beforeState,action);
+    expect(actualState).toEqual(beforeState);
   });
 });

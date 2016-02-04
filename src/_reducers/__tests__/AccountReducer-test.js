@@ -11,23 +11,20 @@ import {
 
 
 describe('AccountReducer',()=>{
-  it('should be able to authorize data',()=>{
+  it('should be able to authorize data from the server',()=>{
     const response = {
          'msg_type': 'authorize',
          'authorize': {
            'currency': '',
-           'balance': 0,
            'fullname': 'Mr abc dfk',
            'loginid': 'MF2203',
          },
     };
-    const initialState = fromJS({
-        loginid: 'MF2203',
-        fullname: 'Mr abc dfk',
-        currency: 'USD',
-        balance: 0,
-        token: '',
-        currencies: ['USD'],
+    const beforeState = fromJS({});
+    const stateExpected = fromJS({
+        'currency': 'USD',
+        'fullname': 'Mr abc dfk',
+        'loginid': 'MF2203',
     });
     const action = {
       type: SERVER_DATA_AUTHORIZE,
@@ -35,10 +32,8 @@ describe('AccountReducer',()=>{
         authorize: response.authorize,
       },
     };
-    const stateBefore = fromJS();
-    const actual = AccountReducer(stateBefore,action);
-    const expected = initialState;
-    expect(actual.toJS()).toEqual(expected.toJS());
+    const actualState = AccountReducer(beforeState,action);
+    expect(actualState).toEqual(stateExpected);
   });
 
   it('should update balance with the response balance ',()=>{
@@ -51,17 +46,12 @@ describe('AccountReducer',()=>{
       },
     };
 
-    const stateBefore = fromJS();
-    const actual = AccountReducer(stateBefore,action);
-    const expected = fromJS({
-        loginid: '',
-        fullname: '',
-        currency: 'USD',
+    const beforeState = fromJS({});
+    const actualState = AccountReducer(beforeState,action);
+    const expectedState = fromJS({
         balance: 10,
-        token: '',
-        currencies: ['USD'],
     });
-    expect(actual.toJS()).toEqual(expected.toJS());
+    expect(actualState).toEqual(expectedState);
   });
 
   it('should update balance after purchase', ()=>{
@@ -71,17 +61,11 @@ describe('AccountReducer',()=>{
         balance_after: 30,
       },
     };
-    const stateBefore = fromJS();
-    const actual = AccountReducer(stateBefore,action);
-    const expected = fromJS({
-        loginid: '',
+    const beforeState = fromJS({});
+    const actualState = AccountReducer(beforeState,action);
+    const expectedState = fromJS({
         account: { balance: 30},
-        fullname: '',
-        currency: 'USD',
-        balance: 0,
-        token: '',
-        currencies: ['USD'],
     });
-    expect(actual.toJS()).toEqual(expected.toJS());
+    expect(actualState).toEqual(expectedState);
   })
 });

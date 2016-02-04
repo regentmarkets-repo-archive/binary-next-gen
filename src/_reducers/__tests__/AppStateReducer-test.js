@@ -4,31 +4,30 @@ import { UPDATE_APP_STATE } from '../../_constants/ActionTypes';
 import expect from 'expect';
 
 describe('AppStateReducer',()=>{
-  it('should update appstate',()=>{
-    const action ={
+  it('should update appstate field with the given value',() => {
+    const stateBefore = fromJS({});
+    const action = {
       type: UPDATE_APP_STATE,
       field: 'authorized',
       value: true,
     };
-    const expected = fromJS({
+    const stateExpectedAfter = fromJS({
         authorized: true,
-        connected: false,
     });
-    const actual =AppStateReducer(fromJS(),action);
-    expect(actual.toJS()).toEqual(expected.toJS());
+
+    const actualState = AppStateReducer(stateBefore, action);
+
+    expect(stateExpectedAfter).toEqual(actualState);
   });
 
-  it('should return default appstate state',()=>{
-    const initialState = fromJS({
-        authorized: false,
-        connected: false,
-    });
-    const action ={
-      type: 'NON_EXISTING_TYPE',
-      field: 'authorized',
-      value: true,
+  it('should return the same state when a wrong actiontype is provided',()=>{
+    const stateBefore = {
+        someProperty: 'some value',
     };
-    const actual =AppStateReducer(fromJS(),action);
-    expect(actual.toJS()).toEqual(initialState.toJS());
-  })
+    const action = {
+        type: 'NON_EXISTING_TYPE',
+    };
+    const actualState = AppStateReducer(stateBefore, action);
+    expect(actualState).toEqual(stateBefore);
+  });
 });
