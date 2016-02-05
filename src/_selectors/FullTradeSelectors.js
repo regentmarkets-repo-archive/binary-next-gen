@@ -8,7 +8,7 @@ import {
     splitSecsToUnits,
     timeStringIsBetween,
 } from '../_utils/DateUtils';
-import { marketTreeSelector } from './AssetSelectors';
+import { assetsSelector, marketTreeSelector } from './AssetSelectors';
 
 import { tradingTimesSelector } from './TradingTimesSelectors';
 
@@ -250,8 +250,9 @@ const contractAggregation = (contracts, type) => ({
     spread: (type.indexOf('SPREAD') > -1) ? extractSpreadInfo(contracts) : null,
 });
 
-const contractsSelector = state => {
-    const allContracts = state.tradingOptions.map(symbol => {
+const contractPerSymbol = createSelector(
+    symbol => symbol,
+    symbol => {
         const normalized = normalizedContractFor(symbol);
         Object.keys(normalized).forEach(category => {
             const categoryObj = normalized[category];
@@ -262,18 +263,23 @@ const contractsSelector = state => {
             normalized[category] = categoryObj;
         });
         return normalized;
-    });
-    return allContracts.toJS();
-};
+    }
+);
+
+const contractsSelector = createSelector(
+    state => state.tradingOptions,
+    tradingOptions =>
+        tradingOptions.map(symbol => contractPerSymbol(symbol))
+);
 
 export const tradesSelector = createSelector(
-    [state => state.trades, state => state.assets.toJS()],
+    [state => state.trades, assetsSelector],
     (trades, assets) =>
         trades.map(t => {
-            const symbolDetails = assets.find(a => a.symbol === t.get('symbol'));
-            const pipSize = symbolDetails && symbolDetails.pip.length - 1;
+            const symbolDetails = assets.find(a => a.get('symbol') === t.get('symbol'));
+            const pipSize = symbolDetails && symbolDetails.get('pip').length - 1;
             return t.set('pipSize', pipSize);
-        }).toJS()
+        })
 );
 
 const availableAssetsFilter = (assets, times, now) => {
@@ -329,23 +335,23 @@ const flattenSubmarkets = markets => {
 const availableAssetsSelector = createSelector(
     [tradingTimesSelector, marketTreeSelector],
     (tradingTimes, marketTree) => {
-        const assetsGroupByMarkets = flattenSubmarkets(marketTree);
+        const assetsGroupByMarkets = flattenSubmarkets(marketTree.toJS());
         const filteredAssets = {};
         Object.keys(assetsGroupByMarkets).forEach(m =>
-            filteredAssets[m] = availableAssetsFilter(assetsGroupByMarkets[m], tradingTimes, nowAsEpoch())
+            filteredAssets[m] = availableAssetsFilter(assetsGroupByMarkets[m], tradingTimes.toJS(), nowAsEpoch())
         );
         return filteredAssets;
     }
 );
 
-const ticksSelector = state => state.ticks.toJS();
+const ticksSelector = state => state.ticks;
 
 const currencySelector = state => state.account.get('currency');
 
 const tradesIdsSelector = createSelector(
     tradesSelector,
     trades =>
-        Object.keys(trades)
+        trades.keySeq()
 );
 
 // only get numeric keys, as tick trade does not support multiple panel

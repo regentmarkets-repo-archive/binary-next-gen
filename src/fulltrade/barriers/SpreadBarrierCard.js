@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { RadioGroup, InputGroup } from '../../_common';
 import CollapsibleFormSnippet from '../../_common/CollapsibleFormSnippet';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 
 export default class SpreadBarrierCard extends Component {
     static propTypes = {
@@ -16,6 +17,8 @@ export default class SpreadBarrierCard extends Component {
         stopTypeChange: PropTypes.func,
         spreadInfo: PropTypes.object,
     };
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
         const {

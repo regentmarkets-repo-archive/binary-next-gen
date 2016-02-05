@@ -3,12 +3,15 @@ import { Link } from 'react-router';
 import config from '../config';
 import { Clock, LanguagePicker, M } from '../_common';
 import { MobileSidebar, ToggleButtons, Balance } from './';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 
 export default class DesktopHeader extends React.Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
 	};
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		return (
