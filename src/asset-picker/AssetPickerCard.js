@@ -59,7 +59,7 @@ export default class AssetPickerCard extends React.Component {
 		const { id } = this.props.params;
 		// const { query } = this.props.location;
 		// const type = query.type;
-
+		console.log(this.props);
 		const selectedSymbol = idSymbolMap[id];
 
 		const onSearchQueryChange = e => actions.updateAssetPickerSearchQuery(e.target.value);

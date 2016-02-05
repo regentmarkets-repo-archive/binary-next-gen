@@ -1,6 +1,12 @@
 export const toPlainJS = obj =>
     obj && (typeof obj.toJS === 'undefined' ? obj : obj.toJS());
 
+export const immutableChildrenToJS = obj =>
+    Object.keys(obj).reduce((acc, key) => {
+        acc[key] = toPlainJS(obj[key]);
+        return acc;
+    }, {});
+
 export const findIfExist = (obj, predicate) => {
     if (typeof obj !== 'object') {
         return false;

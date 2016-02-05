@@ -3,7 +3,6 @@ import { assetsSelector } from './AssetSelectors';
 import { watchlistSelector } from './WatchlistSelectors';
 import { workspaceSelector } from './WorkspaceSelectors';
 import { maxTradeIdSelector } from './FullTradeSelectors';
-import { toPlainJS } from '../_utils/ObjectUtils';
 
 export const idSymbolMapSelector = createSelector(
      assetsSelector,
@@ -15,17 +14,20 @@ export const similarStr = (str1 = '', str2 = '') =>
 
 const matcher = (asset, query, submarket) =>
     (submarket === '' ||
-        submarket === asset.submarket) &&
+        submarket === asset.get('submarket')) &&
     (query.trim() === '' ||
-        similarStr(asset.symbol, query) ||
-        similarStr(asset.display_name, query) ||
-        similarStr(asset.market_display_name, query) ||
-        similarStr(asset.submarket_display_name, query));
+        similarStr(asset.get('symbol'), query) ||
+        similarStr(asset.get('display_name', query) ||
+        similarStr(asset.get('market_display_name'), query) ||
+        similarStr(asset.get('submarket_display_name'), query)
+    ));
 
 const doFilter = (availableAssets, query, markets, submarket) =>
     availableAssets
         .filter(asset => matcher(asset, query, submarket))
-        .sort((x1, x2) => x1.display_name.localeCompare(x2.display_name));
+        .sort((x1, x2) =>
+            x1.get('display_name').localeCompare(x2.get('display_name'))
+        );
 
 // const hasTick = assets =>
 //     assets
@@ -54,7 +56,7 @@ export const assetFilterSelector = state => state.assetPicker;
 export const shownAssetsSelector = createSelector(
     [availableAssetsSelector, assetFilterSelector], // todo: availableAssetsSelector
     (availableAssets, filter) =>
-        doFilter(availableAssets, filter.query, filter.market, filter.submarket)
+        doFilter(availableAssets, filter.get('query'), filter.get('market'), filter.get('submarket'))
 );
 
 export default createStructuredSelector({

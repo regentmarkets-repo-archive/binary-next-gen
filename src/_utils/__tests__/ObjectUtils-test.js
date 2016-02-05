@@ -1,6 +1,6 @@
 import expect from 'expect';
 import { fromJS } from 'immutable';
-import { findIfExist, toPlainJS } from '../ObjectUtils';
+import { findIfExist, toPlainJS, immutableChildrenToJS } from '../ObjectUtils';
 
 describe('findIfExist', () => {
     it('find if any values in object meet a predicate, recursively', () => {
@@ -49,16 +49,64 @@ describe('toPlainJS', () => {
         expect(obj).toEqual(actual);
     });
 
-    it('should transform immutable children of plain object', () => {
+    it('should not transform immutable children of plain object', () => {
+        const obj = {
+            someObj: {
+                someProp: 'someVal',
+                anotherProp: 123,
+            }
+        };
+        const immutableObj = {
+            someObj: fromJS({
+                someProp: 'someVal',
+                anotherProp: 123,
+            }),
+        };
+        const actual = toPlainJS(immutableObj);
+        expect(obj).toNotEqual(actual);
+    });
+});
+
+describe('immutableChildrenToJS', () => {
+    it('should throw when passed undefined', () => {
+        expect(() => immutableChildrenToJS()).toThrow();
+    });
+
+    it('should return empty object with empty input', () => {
+        const obj = {};
+        const actual = immutableChildrenToJS(obj);
+        expect(obj).toEqual(actual);
+    });
+
+    it('should return new object, and not transform the input parameter', () => {
+        const obj = {};
+        const actual = immutableChildrenToJS(obj);
+        expect(obj).toNotBe(actual);
+    });
+
+    it('should return the same object if it has no immutable children', () => {
         const obj = {
             someProp: 'someVal',
             anotherProp: 123,
         };
-        const immutableObj = {
-            someProp: fromJS('someVal'),
-            anotherProp: fromJS(123),
+        const actual = immutableChildrenToJS(obj);
+        expect(obj).toEqual(actual);
+    });
+
+    it('should transform immutable children of plain object', () => {
+        const obj = {
+            someObj: {
+                someProp: 'someVal',
+                anotherProp: 123,
+            }
         };
-        const actual = toPlainJS(immutableObj);
+        const immutableObj = {
+            someObj: fromJS({
+                someProp: 'someVal',
+                anotherProp: 123,
+            }),
+        };
+        const actual = immutableChildrenToJS(immutableObj);
         expect(obj).toEqual(actual);
     });
 });

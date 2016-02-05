@@ -1,5 +1,4 @@
 import { createStructuredSelector } from 'reselect';
-import { toPlainJS } from '../_utils/ObjectUtils';
 import { assetsSelector } from './AssetSelectors';
 
 export const ticksSelector = state => state.ticks;
