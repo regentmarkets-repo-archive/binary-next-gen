@@ -7,7 +7,7 @@
 },
   "scripts": {
     "test": "npm run test:unit",
-    "test:full": "npm run test:unit && test:eslint && npm run test:coveralls",
+    "test:full": "npm run test:unit && npm run test:eslint && npm run test:coveralls",
     "test:eslint": "webpack --config webpack.config.dev.js",
     "test:unit": "mocha --compilers js:babel-core/register ./src/**/__tests__/*.js",
     "test:watch": "npm test -- --watch",
