@@ -1,5 +1,6 @@
 import expect from 'expect';
-import { findIfExist } from '../ObjectUtils';
+import { fromJS } from 'immutable';
+import { findIfExist, toPlainJS } from '../ObjectUtils';
 
 describe('findIfExist', () => {
     it('find if any values in object meet a predicate, recursively', () => {
@@ -24,5 +25,27 @@ describe('findIfExist', () => {
 
         expect(result1).toEqual(true);
         expect(result2).toEqual(true);
+    });
+});
+
+describe('toPlainJS', () => {
+    it('should not throw when passed undefined', () => {
+        expect(() => toPlainJS()).toNotThrow();
+    });
+
+    it('should return the same object if it is not immutable', () => {
+        const obj = {};
+        const actual = toPlainJS(obj);
+        expect(obj).toBe(actual);
+    });
+
+    it('should return equivalent object if it is immutable', () => {
+        const obj = {
+            someProp: 'someVal',
+            anotherProp: 123,
+        };
+        const immutableObj = fromJS(obj);
+        const actual = toPlainJS(immutableObj);
+        expect(obj).toEqual(actual);
     });
 });
