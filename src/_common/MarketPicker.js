@@ -2,9 +2,9 @@ import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
-import assetSelectors from '../_selectors/AssetSelectors';
+import { marketTreeSelector } from '../_selectors/AssetSelectors';
 
-@connect(assetSelectors)
+@connect(state => ({ marketTree: marketTreeSelector(state) }))
 export default class MarketPicker extends React.Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
@@ -27,16 +27,13 @@ export default class MarketPicker extends React.Component {
 						{message => <option value="">{message}</option>}
 					</FormattedMessage>
 				: null}
-				{Object
-					.keys(marketTree)
-					.filter(market => !showMarkets || ~showMarkets.indexOf(market))
-					.map(market => (
-					<optgroup key={market} label={marketTree[market].display_name}>
-						{Object.keys(marketTree[market].submarkets).map(submarket =>
-							<option key={submarket} value={submarket}>
-								{marketTree[market]
-									.submarkets[submarket]
-									.display_name}
+				{marketTree
+					.filter((marketObj, marketKey) => !showMarkets || ~showMarkets.indexOf(marketKey))
+					.map((market, k) => (
+					<optgroup key={k} label={market.get('display_name')}>
+						{market.get('submarkets').map((submarket, submarketKey) =>
+							<option key={submarketKey} value={submarketKey}>
+								{submarket.get('display_name')}
 							</option>
 						)}
 					</optgroup>

@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { InputGroup, CollapsibleFormSnippet } from '../_common';
 import RadioGroup from './workaround/CustomRadioGroup';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 
 const basises = ['payout', 'stake'];
 const payouts = [5, 10, 50, 100, 500, 1000];
@@ -13,6 +14,8 @@ export default class PayoutCard extends Component {
         onAmountChange: PropTypes.func.isRequired,     // both functions take the updated value instead of event object
         onBasisChange: PropTypes.func.isRequired,
     };
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
         const { onBasisChange, basis, id, amount, currency, onAmountChange } = this.props;
@@ -29,7 +32,9 @@ export default class PayoutCard extends Component {
                 />
                 <InputGroup
                     type="number"
-                    value={amount}
+                    defaultValue={amount}
+                    min={0}
+                    step={0.01}
                     label={currency.toUpperCase()}
                     onChange={onAmountChange}
                 />

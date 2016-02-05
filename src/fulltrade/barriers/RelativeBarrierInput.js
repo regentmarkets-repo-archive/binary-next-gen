@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { InputGroup, NumberPlain } from '../../_common';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 
 export default class BarrierInput extends Component {
     static propTypes = {
@@ -12,6 +13,8 @@ export default class BarrierInput extends Component {
         value: PropTypes.number,
         spot: PropTypes.number,
     };
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
         const { barrierType, expiryType, name, onChange, pipSize, value, spot } = this.props;

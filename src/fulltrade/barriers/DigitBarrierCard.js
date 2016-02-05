@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import RadioGroup from './../workaround/CustomRadioGroup';
 import CollapsibleFormSnippet from '../../_common/CollapsibleFormSnippet';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 
 export default class DigitBarrierCard extends Component {
     static propTypes = {
@@ -9,6 +10,8 @@ export default class DigitBarrierCard extends Component {
         id: PropTypes.string,
         onBarrierChange: PropTypes.func,
     };
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
         const { barrier, barrierInfo, id, onBarrierChange } = this.props;

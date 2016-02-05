@@ -2,7 +2,7 @@ import React, { PropTypes } from 'react';
 import M from './M';
 
 const InputGroup = ({ autoFocus, id, className, label, type, hint, value, min, max,
-	readOnly, placeholder, onChange, autoComplete, defaultValue }) => (
+	readOnly, placeholder, onChange, autoComplete, defaultValue, step }) => (
 	<fieldset className={className}>
         {label && <label htmlFor={id}>
 			<M m={label} />
@@ -12,6 +12,7 @@ const InputGroup = ({ autoFocus, id, className, label, type, hint, value, min, m
 			id={id}
 			type={type}
 			value={value}
+			step={step}
 			defaultValue={!value && defaultValue}
 			readOnly={readOnly}
 			placeholder={placeholder}
@@ -38,6 +39,7 @@ InputGroup.propTypes = {
 	value: PropTypes.oneOfType(valueTypes),
 	min: PropTypes.oneOfType(valueTypes),
 	max: PropTypes.oneOfType(valueTypes),
+	step: PropTypes.any,
 	readOnly: PropTypes.bool,
 	placeholder: PropTypes.string,
 	onChange: PropTypes.func,

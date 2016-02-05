@@ -6,7 +6,7 @@ import { maxTradeIdSelector } from './FullTradeSelectors';
 
 export const idSymbolMapSelector = createSelector(
      assetsSelector,
-     assets => assets.map(v => v.symbol)
+     assets => assets.map(v => v.get('symbol'))
 );
 
 export const similarStr = (str1 = '', str2 = '') =>
@@ -47,7 +47,8 @@ const doFilter = (availableAssets, query, markets, submarket) =>
 //     x.market_display_name === 'Randoms'
 // );
 
-const availableAssetsSelector = assetsSelector;
+// TODO: convert to JS temporarily as isolating changes
+const availableAssetsSelector = state => assetsSelector(state).toJS();
 
 export const marketsSelector = () => [];
 

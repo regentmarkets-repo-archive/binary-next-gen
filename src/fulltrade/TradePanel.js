@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { SelectGroup, ErrorMsg, Modal, M, PurchaseConfirmation } from '../_common';
+import { SelectGroup, ErrorMsg, Modal, M, PurchaseConfirmation, PurchaseFailed } from '../_common';
 import RadioGroup from './workaround/CustomRadioGroup';
 import { contractCategoryDisplay, durationToSecs, isIntraday } from '../_utils/TradeUtils';
 import { tradeTypes } from '../_constants/TradeParams';
@@ -10,6 +10,7 @@ import DurationCard from './durations/DurationCard';
 import PayoutCard from './PayoutCard';
 import SpreadBarrierCard from './barriers/SpreadBarrierCard';
 import MobileChart from '../charting/MobileChart';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 
 /**
  * This UI is coded with a few assumptions, which should always be true, this comments serves as a future reference
@@ -146,10 +147,10 @@ export default class TradePanel extends Component {
         tick: PropTypes.array,
     };
 
+    shouldComponentUpdate = shouldPureComponentUpdate;
+
     componentWillMount() {
-        const { actions, id } = this.props;
         this.onCategoryChange({ target: { value: 'callput' } }, false);
-        actions.updatePriceProposalSubscription(id);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -403,6 +404,9 @@ export default class TradePanel extends Component {
                 </div>
                 <Modal shown={!!receipt} onClose={() => this.updateHelper('receipt', undefined)} >
                     <PurchaseConfirmation receipt={receipt} />
+                </Modal>
+                <Modal shown={!!trade.buy_error} onClose={() => this.updateHelper('buy_error', undefined)}>
+                    <PurchaseFailed failure={trade.buy_error} />
                 </Modal>
                 { contractForType &&
                     <div>

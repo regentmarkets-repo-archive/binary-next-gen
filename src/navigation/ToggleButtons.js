@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { workspaceSelector } from '../_selectors/WorkspaceSelectors';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 
 @connect(workspaceSelector)
 export default class ToggleButtons extends React.Component {
@@ -11,6 +12,8 @@ export default class ToggleButtons extends React.Component {
 		rightPanelVisible: PropTypes.bool.isRequired,
 		actions: PropTypes.object.isRequired,
 	};
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		const { leftPanelVisible, rightPanelVisible, bottomPanelVisible, actions } = this.props;
