@@ -48,4 +48,17 @@ describe('toPlainJS', () => {
         const actual = toPlainJS(immutableObj);
         expect(obj).toEqual(actual);
     });
+
+    it('should transform immutable children of plain object', () => {
+        const obj = {
+            someProp: 'someVal',
+            anotherProp: 123,
+        };
+        const immutableObj = {
+            someProp: fromJS('someVal'),
+            anotherProp: fromJS(123),
+        };
+        const actual = toPlainJS(immutableObj);
+        expect(obj).toEqual(actual);
+    });
 });

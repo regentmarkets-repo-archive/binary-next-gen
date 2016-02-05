@@ -7,7 +7,7 @@ import { toPlainJS } from '../_utils/ObjectUtils';
 
 export const idSymbolMapSelector = createSelector(
      assetsSelector,
-     assets => toPlainJS(assets.map(v => v.symbol))
+     assets => assets.map(v => v.symbol)
 );
 
 export const similarStr = (str1 = '', str2 = '') =>
@@ -49,7 +49,7 @@ const availableAssetsSelector = assetsSelector;
 
 export const marketsSelector = () => [];
 
-export const assetFilterSelector = state => toPlainJS(state.assetPicker);
+export const assetFilterSelector = state => state.assetPicker;
 
 export const shownAssetsSelector = createSelector(
     [availableAssetsSelector, assetFilterSelector], // todo: availableAssetsSelector
