@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { toPlainJS } from '../_utils/ObjectUtils';
+import { immutableChildrenToJS } from '../_utils/ObjectUtils';
 import TickTradeCard from './TickTradeCard';
 import { tickTradesSelector } from '../_selectors/TickTradeSelector';
 
@@ -20,7 +20,7 @@ export default class TickTradeContainer extends Component {
     }
 
     render() {
-        const { actions, assets, currency, trades, ticks } = toPlainJS(this.props);
+        const { actions, assets, currency, trades, ticks } = immutableChildrenToJS(this.props);
         const allTickId = Object.keys(trades).filter(id => id.indexOf('tick') > -1);
 
         return (

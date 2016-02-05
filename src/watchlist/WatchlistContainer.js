@@ -1,7 +1,7 @@
 import React from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { connect } from 'react-redux';
-import { toPlainJS } from '../_utils/ObjectUtils';
+import { immutableChildrenToJS } from '../_utils/ObjectUtils';
 import WatchlistTable from './WatchlistTable';
 import WatchlistSelectors from '../_selectors/WatchlistSelectors';
 
@@ -12,7 +12,7 @@ export default class WatchlistContainer extends React.Component {
 
 	render() {
 		return (
-			<WatchlistTable {...toPlainJS(this.props)} />
+			<WatchlistTable {...immutableChildrenToJS(this.props)} />
 		);
 	}
 }

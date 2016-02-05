@@ -7,7 +7,7 @@ export default class WatchlistTable extends React.Component {
 	static propTypes = {
 		assets: PropTypes.array.isRequired,
 		ticks: PropTypes.object.isRequired,
-		watchlist: PropTypes.object.isRequired,
+		watchlist: PropTypes.array.isRequired,
 	};
 
 	render() {

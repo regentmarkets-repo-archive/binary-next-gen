@@ -1,11 +1,14 @@
 import React, { PropTypes, Component } from 'react';
 import { LabeledText, M } from '../_common';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 
 export default class ContractStatsCard extends Component {
     static propTypes = {
         proposal: PropTypes.object,
         spread: PropTypes.bool,
     };
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
         const { proposal, spread } = this.props;
