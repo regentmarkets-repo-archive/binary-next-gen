@@ -1,9 +1,10 @@
 verbose: false
 instrumentation:
-    extension: .js
+    extensions:
+      - .js
     root: ./src
     default-excludes: true
-    excludes: ['**/__tests__/**', 'src/electron.js']
+    excludes: ['**/__tests__/**' ,'./electron.js','./_store/persistentStore.js','./_store/storageEngine.js','./_store/basicStore.js']
     embed-source: false
     variable: __coverage__
     compact: true
