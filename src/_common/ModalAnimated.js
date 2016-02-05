@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+/*import React, { PropTypes } from 'react';
 import { TransitionMotion } from 'react-motion';
 
 const ModalContent = ({ onClose, anim, children }) => (
@@ -53,3 +53,4 @@ Modal.propTypes = {
 };
 
 export default Modal;
+*/
