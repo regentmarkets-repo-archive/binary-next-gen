@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { immutableChildrenToJS } from '../_utils/ObjectUtils';
 import PortfolioCard from './PortfolioCard';
 import portfolioSelectors from '../_selectors/PortfolioSelectors';
 
@@ -7,7 +8,7 @@ import portfolioSelectors from '../_selectors/PortfolioSelectors';
 export default class PortfolioContainer extends React.Component {
 	render() {
 		return (
-			<PortfolioCard {...this.props} />
+			<PortfolioCard {...immutableChildrenToJS(this.props)} />
 		);
 	}
 }

@@ -35,7 +35,7 @@ export const epochToDateString = epoch =>
     epoch && dateToDateString(epochToDate(epoch));
 
 export const epochToUTCDateString = epoch =>
-    epochToDate(epoch).toISOString().slice(0, 10);
+    epoch && epochToDate(epoch).toISOString().slice(0, 10);
 
 export const epochToDateTimeString = epoch =>
     epochToDate(epoch).toUTCString();

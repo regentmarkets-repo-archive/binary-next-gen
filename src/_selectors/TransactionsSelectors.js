@@ -6,9 +6,8 @@ import {
     getLastXMonthEpoch,
     last7DaysEpoch,
 } from '../_utils/DateUtils';
-import { toPlainJS } from '../_utils/ObjectUtils';
 
-export const transactionsSelector = state => toPlainJS(state.transactions);
+export const transactionsSelector = state => state.transactions;
 
 export const transactionsTodaySelector = createSelector(
     transactionsSelector,

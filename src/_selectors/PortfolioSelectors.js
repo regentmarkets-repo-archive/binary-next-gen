@@ -1,10 +1,10 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 
 const portfolioSelector =
-    state => state.portfolio.toJS();
+    state => state.portfolio;
 
 const openContractsSelector =
-    state => state.openContracts.valueSeq().toJS();
+    state => state.openContracts.valueSeq();
 
 export const indicativeTotalSelector = createSelector(
     openContractsSelector,
