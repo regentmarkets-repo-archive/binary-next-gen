@@ -51,7 +51,7 @@ const availableAssetsSelector = assetsSelector;
 
 export const marketsSelector = () => [];
 
-export const assetFilterSelector = state => state.assetPicker;
+export const assetFilterSelector = state => console.log(state.assetPicker) || state.assetPicker;
 
 export const shownAssetsSelector = createSelector(
     [availableAssetsSelector, assetFilterSelector], // todo: availableAssetsSelector

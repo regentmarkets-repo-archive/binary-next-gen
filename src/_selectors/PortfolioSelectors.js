@@ -10,7 +10,7 @@ export const indicativeTotalSelector = createSelector(
     openContractsSelector,
     contracts =>
         contracts
-            .map(x => +x.bid_price)
+            .map(x => +x.get('bid_price'))
             .reduce((x, y) => x + y, 0)
 );
 
@@ -18,7 +18,7 @@ export const purchaseTotalSelector = createSelector(
     openContractsSelector,
     contracts =>
         contracts
-            .map(x => +x.buy_price)
+            .map(x => +x.get('buy_price'))
             .reduce((x, y) => x + y, 0)
 );
 
