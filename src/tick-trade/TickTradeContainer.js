@@ -9,7 +9,7 @@ export default class TickTradeContainer extends Component {
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
-        assets: PropTypes.object.isRequired,
+        assets: PropTypes.array.isRequired,
         currency: PropTypes.string.isRequired,
         trades: PropTypes.object.isRequired,
         ticks: PropTypes.object.isRequired,
@@ -33,7 +33,7 @@ export default class TickTradeContainer extends Component {
                         tick && trade ?
                             <TickTradeCard
                                 actions={actions}
-                                assets={assets.toJS()}
+                                assets={assets}
                                 currency={currency}
                                 key={id}
                                 id={id}

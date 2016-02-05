@@ -26,7 +26,7 @@ const doFilter = (availableAssets, query, markets, submarket) =>
     availableAssets
         .filter(asset => matcher(asset, query, submarket))
         .sort((x1, x2) =>
-            x1.get('display_name').localeCompare(x2.get('display_name'))
+            x1.display_name.localeCompare(x2.display_name)
         );
 
 // const hasTick = assets =>
@@ -52,7 +52,7 @@ const availableAssetsSelector = state => assetsSelector(state).toJS();
 
 export const marketsSelector = () => [];
 
-export const assetFilterSelector = state => console.log(state.assetPicker) || state.assetPicker;
+export const assetFilterSelector = state => state.assetPicker;
 
 export const shownAssetsSelector = createSelector(
     [availableAssetsSelector, assetFilterSelector], // todo: availableAssetsSelector
