@@ -1,19 +1,18 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
 import { connect } from 'react-redux';
+import shouldPureComponentUpdate from 'react-pure-render/function';
+import { immutableChildrenToJS } from '../_utils/ObjectUtils';
 import WorkspaceCard from './WorkspaceCard';
+import workspaceSelectors from '../_selectors/WorkspaceSelectors';
 
-@connect(state => ({ workspace: state.workspace.toJS(), isAuthorized: state.appState.get('authorized') }))
+@connect(workspaceSelectors)
 export default class WorkspaceContainer extends React.Component {
 
-	static propTypes = {
-		dispatch: PropTypes.func.isRequired,
-		workspace: PropTypes.object,
-		isAuthorized: PropTypes.bool,
-	};
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		return (
-			<WorkspaceCard {...this.props} />
+			<WorkspaceCard {...immutableChildrenToJS(this.props)} />
 		);
 	}
 }

@@ -26,7 +26,7 @@ const doFilter = (availableAssets, query, markets, submarket) =>
     availableAssets
         .filter(asset => matcher(asset, query, submarket))
         .sort((x1, x2) =>
-            x1.display_name.localeCompare(x2.display_name)
+            x1.get('display_name').localeCompare(x2.get('display_name'))
         );
 
 // const hasTick = assets =>
@@ -48,7 +48,7 @@ const doFilter = (availableAssets, query, markets, submarket) =>
 // );
 
 // TODO: convert to JS temporarily as isolating changes
-const availableAssetsSelector = state => assetsSelector(state).toJS();
+const availableAssetsSelector = assetsSelector;
 
 export const marketsSelector = () => [];
 

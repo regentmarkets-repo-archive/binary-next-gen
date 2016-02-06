@@ -1,10 +1,9 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 import { assetsSelector } from './AssetSelectors';
 import { assetIndexSubmarketSelector } from './WorkspaceSelectors';
-import { toPlainJS } from '../_utils/ObjectUtils';
 import { shallowMerge } from '../_utils/ArrayUtils';
 
-export const assetIndexSelector = state => toPlainJS(state.assetIndex);
+export const assetIndexSelector = state => state.assetIndex;
 
 const assetSymbolsInSubmarket = (assets, submarket) =>
     assets
