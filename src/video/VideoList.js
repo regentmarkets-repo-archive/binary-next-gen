@@ -1,14 +1,14 @@
 import React from 'react';
 import VideoThumbnail from './VideoThumbnail.js';
 
-const VideoList = ({ video, onSelect }) => (
+const VideoList = ({ videos, onSelect }) => (
     <ul className="video-list row">
-        {video.get('list').map((v, i) =>
+        {videos.map(video =>
             <VideoThumbnail
-                key={'video' + i}
-                title={v.title}
-                imgSrc={v.imgSrc}
-                videoId={v.videoId}
+                key={video.videoId}
+                title={video.title}
+                imgSrc={video.imgSrc}
+                videoId={video.videoId}
                 onClick={onSelect}
             />
         )}

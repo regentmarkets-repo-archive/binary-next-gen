@@ -1,10 +1,15 @@
 import App from './App';
 
-import MobileRoutes from './MobileRoutes';
-import DesktopRoutes from './DesktopRoutes';
-import CommonRoutes from './CommonRoutes';
+import mobileRoutes from './MobileRoutes';
+import webRoutes from './WebRoutes';
+import standaloneRoutes from './StandaloneRoutes';
+import commonRoutes from './CommonRoutes';
 
-const childRoutes = [].concat(DesktopRoutes).concat(MobileRoutes).concat(CommonRoutes);
+const childRoutes = []
+    .concat(webRoutes)
+    .concat(mobileRoutes)
+    .concat(standaloneRoutes)
+    .concat(commonRoutes);
 
 export default {
     component: App,

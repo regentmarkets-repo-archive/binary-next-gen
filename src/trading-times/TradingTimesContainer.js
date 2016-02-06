@@ -1,5 +1,4 @@
 import React from 'react';
-import { List } from 'immutable';
 import { connect } from 'react-redux';
 import { immutableChildrenToJS } from '../_utils/ObjectUtils';
 import shouldPureComponentUpdate from 'react-pure-render/function';

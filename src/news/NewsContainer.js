@@ -9,6 +9,7 @@ export default class NewsContainer extends React.Component {
     shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
+        console.log('news updating');
         return (
             <NewsCard {...this.props} />
         );

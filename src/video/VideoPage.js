@@ -14,10 +14,6 @@ export default class VideoPage extends React.Component {
         dispatch: PropTypes.func.isRequired,
 	};
 
-    elementOnClick(title, videoUrl) {
-        return () => this.props.dispatch(VideoActions.changeActiveVideo(title, videoUrl));
-    }
-
     componentDidMount() {
         VideoData.getAllVideo().then((vl) => {
             this.props.dispatch(VideoActions.updateVideoList(vl));

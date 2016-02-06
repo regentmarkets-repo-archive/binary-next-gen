@@ -1,5 +1,4 @@
-import WorkspaceContainer from '../workspace/WorkspaceContainer';
-// import CreateAccountPage from '../create-account/CreateAccountPage';
+import CreateAccountPage from '../create-account/CreateAccountPage';
 import UpgradePage from '../upgrade/UpgradePage';
 import WatchlistPage from '../watchlist/WatchlistPage';
 import AssetIndexPage from '../asset-index/AssetIndexPage';
@@ -27,8 +26,7 @@ import { requireAuthOnEnter } from '../_data/Auth';
 export default [
     { path: 'portfolio', component: PortfolioPage, onEnter: requireAuthOnEnter },
     { path: 'statement', component: StatementPage, onEnter: requireAuthOnEnter },
-    { path: 'workspace', component: WorkspaceContainer, onEnter: requireAuthOnEnter },
-    // { path: 'create-account', component: CreateAccountPage },
+    { path: 'create-account', component: CreateAccountPage },
     { path: 'upgrade', component: UpgradePage },
     { path: 'trade', component: TradesPage, onEnter: requireAuthOnEnter },
     { path: 'watchlist', component: WatchlistPage, onEnter: requireAuthOnEnter },

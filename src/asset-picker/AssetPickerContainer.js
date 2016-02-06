@@ -11,7 +11,6 @@ export default class AssetPickerContainer extends React.Component {
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
-
 		return (
 			<AssetPickerCard {...immutableChildrenToJS(this.props)} />
 		);
