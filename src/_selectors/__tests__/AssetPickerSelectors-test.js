@@ -34,27 +34,36 @@ describe('AssetPickerSelectors', () => {
     });
 
     describe('assetPickerSelectors', () => {
-        it('should be retrieved', () => {
-            const actual = assetPickerSelectors({
-                assets: fromJS([]),
-                assetPicker: fromJS({}),
-                trades: fromJS([]),
-            });
+
+        const emptyState = () => ({
+            assets: fromJS([]),
+            assetPicker: fromJS({}),
+            trades: fromJS([]),
+        });
+
+        it('should be able to execute', () => {
+            const state = emptyState();
+
+            const actual = assetPickerSelectors(state);
+
             expect(actual).toExist();
         });
-    });
 
-    // describe('assetIndexSelectors', () => {
-    //     it('should be initialized successfully', () => {
-    //         const actual = assetIndexSelectors({
-    //             assetIndex: [
-    //                 [[], [], []]
-    //             ],
-    //             workspace: {
-    //                 assetIndex: 0
-    //             },
-    //         });
-    //         expect(actual).toExist();
-    //     });
-    // });
+        it('should return the same result for the same state', () => {
+            const state = emptyState();
+
+            const first = assetPickerSelectors(state);
+            const second = assetPickerSelectors(state);
+
+            expect(first.availableAssets).toBe(second.availableAssets);
+            expect(first.filter).toBe(second.filter);
+            expect(first.maxTradeId).toBe(second.maxTradeId);
+            expect(first.shownAssets).toBe(second.shownAssets);
+            expect(first.symbolIds).toBe(second.symbolIds);
+            expect(first.watchlist).toBe(second.watchlist);
+            expect(first.workspace).toBe(second.workspace);
+
+            expect(first).toBe(second);
+        });
+    });
 });

@@ -4,7 +4,7 @@ import { watchlistSelector } from './WatchlistSelectors';
 import { workspaceSelector } from './WorkspaceSelectors';
 import { maxTradeIdSelector } from './FullTradeSelectors';
 
-export const idSymbolMapSelector = createSelector(
+export const symbolIdsSelector = createSelector(
      assetsSelector,
      assets => assets.map(v => v.get('symbol'))
 );
@@ -12,22 +12,19 @@ export const idSymbolMapSelector = createSelector(
 export const similarStr = (str1 = '', str2 = '') =>
     str1.toLowerCase().includes(str2.toLowerCase());
 
-const matcher = (asset, query, submarket) =>
-    (submarket === '' ||
-        submarket === asset.get('submarket')) &&
-    (query.trim() === '' ||
-        similarStr(asset.get('symbol'), query) ||
-        similarStr(asset.get('display_name', query) ||
-        similarStr(asset.get('market_display_name'), query) ||
-        similarStr(asset.get('submarket_display_name'), query)
-    ));
+const doesMatchMarket = (asset, filter) =>
+    filter.get('submarket') === '' ||
+        filter.get('submarket') === asset.get('submarket');
 
-const doFilter = (availableAssets, query, markets, submarket) =>
-    availableAssets
-        .filter(asset => matcher(asset, query, submarket))
-        .sort((x1, x2) =>
-            x1.get('display_name').localeCompare(x2.get('display_name'))
-        );
+const doesMatchQuery = (asset, filter) =>
+    filter.get('query').trim() === '' ||
+        similarStr(asset.get('symbol'), filter.get('query')) ||
+        similarStr(asset.get('display_name'), filter.get('query')) ||
+        similarStr(asset.get('market_display_name'), filter.get('query')) ||
+        similarStr(asset.get('submarket_display_name'), filter.get('query'));
+
+const doesMatchFilter = (asset, filter) =>
+    doesMatchMarket(asset, filter) && doesMatchQuery(asset, filter);
 
 // const hasTick = assets =>
 //     assets
@@ -47,26 +44,26 @@ const doFilter = (availableAssets, query, markets, submarket) =>
 //     x.market_display_name === 'Randoms'
 // );
 
-// TODO: convert to JS temporarily as isolating changes
 const availableAssetsSelector = assetsSelector;
-
-export const marketsSelector = () => [];
 
 export const assetFilterSelector = state => state.assetPicker;
 
 export const shownAssetsSelector = createSelector(
     [availableAssetsSelector, assetFilterSelector], // todo: availableAssetsSelector
     (availableAssets, filter) =>
-        doFilter(availableAssets, filter.get('query'), filter.get('market'), filter.get('submarket'))
+        availableAssets
+            .filter(asset => doesMatchFilter(asset, filter))
+            .sort((x1, x2) =>
+                x1.get('display_name').localeCompare(x2.get('display_name'))
+            )
 );
 
 export default createStructuredSelector({
     availableAssets: availableAssetsSelector,
     shownAssets: shownAssetsSelector,
 	filter: assetFilterSelector,
-    markets: marketsSelector,
     maxTradeId: maxTradeIdSelector,
 	workspace: workspaceSelector,
 	watchlist: watchlistSelector,
-	idSymbolMap: idSymbolMapSelector,
+	symbolIds: symbolIdsSelector,
 });

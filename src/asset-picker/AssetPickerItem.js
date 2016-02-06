@@ -10,7 +10,6 @@ export default class AssetPickerItem extends React.Component {
 		asset: PropTypes.object.isRequired,
 		compact: PropTypes.bool,
 		isFavorite: PropTypes.bool.isRequired,
-		isSelected: PropTypes.bool,
 		onSelect: PropTypes.func.isRequired,
 		onFavor: PropTypes.func.isRequired,
 		onUnfavor: PropTypes.func.isRequired,
@@ -28,10 +27,10 @@ export default class AssetPickerItem extends React.Component {
 	}
 
 	render() {
-		const { asset, compact, onSelect, onCreateTrade, isFavorite, isSelected } = this.props;
+		const { asset, compact, onSelect, onCreateTrade, isFavorite } = this.props;
 
 		return (
-			<tr className={isSelected ? 'asset-picker-item selected' : 'asset-picker-item'} tabIndex={0}>
+			<tr className="asset-picker-item" tabIndex={0}>
 				<td onClick={::this.toggleFavorite}>
 					<Star on={isFavorite} />
 				</td>

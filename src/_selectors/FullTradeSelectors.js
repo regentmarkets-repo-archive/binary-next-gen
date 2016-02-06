@@ -355,10 +355,10 @@ const tradesIdsSelector = createSelector(
 );
 
 // only get numeric keys, as tick trade does not support multiple panel
-export const maxTradeIdSelector = state => {
-    const tradesIds = state.trades.keySeq().filter(k => !isNaN(+k));
-    return tradesIds.reduce((a, b) => Math.max(a, b), -1);
-};
+export const maxTradeIdSelector = state =>
+    state.trades.keySeq()
+        .filter(k => !isNaN(+k))
+        .reduce((a, b) => Math.max(a, b), -1);
 
 export const fullTradesSelector = createStructuredSelector({
     contracts: contractsSelector,

@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
+import AssetPickerFilter from './AssetPickerFilter';
 import AssetPickerList from './AssetPickerList';
-import { MarketPicker, InputGroup } from '../_common';
 
 export default class AssetPickerCard extends React.Component {
 
@@ -8,7 +8,7 @@ export default class AssetPickerCard extends React.Component {
 		actions: PropTypes.object.isRequired,
 		compact: PropTypes.bool,
 		history: PropTypes.object,
-		idSymbolMap: PropTypes.array.isRequired,
+		symbolIds: PropTypes.array.isRequired,
 		location: PropTypes.object,
 		maxTradeId: PropTypes.number.isRequired,
 		params: PropTypes.object,
@@ -55,43 +55,19 @@ export default class AssetPickerCard extends React.Component {
 	}
 
 	render() {
-		const { actions, shownAssets, watchlist, idSymbolMap } = this.props;
-		const { id } = this.props.params;
-		// const { query } = this.props.location;
-		// const type = query.type;
-
-		const selectedSymbol = idSymbolMap[id];
-
-		const onSearchQueryChange = e => actions.updateAssetPickerSearchQuery(e.target.value);
-		const onSubmarketChange = e => actions.updateAssetPickerSubmarket(e);
-
-		const showOnlyTickTradable = false;
+		const { actions, shownAssets, watchlist, params } = this.props;
 
 		return (
 			<div className="asset-picker-container">
-				<fieldset>
-					<MarketPicker
-						onChange={onSubmarketChange}
-						allOptionShown
-						showMarkets={showOnlyTickTradable ? ['Forex', 'Randoms'] : null}
-					/>
-					<InputGroup
-						className="asset-search"
-						type="search"
-						placeholder="Search for assets"
-						onChange={onSearchQueryChange}
-						autoFocus
-					/>
-				</fieldset>
+				<AssetPickerFilter actions={actions} />
 				<div className="asset-list">
 					<AssetPickerList
 						assets={shownAssets}
 						favorites={watchlist}
 						onCreateTrade={::this.onCreateTrade}
-						onSelect={asset => this.onSelect(id, asset)}
+						onSelect={asset => this.onSelect(params.id, asset)}
 						onFavor={::this.onFavor}
 						onUnfavor={::this.onUnfavor}
-						selectedAsset={selectedSymbol}
 					/>
 				</div>
 			</div>
