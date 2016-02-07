@@ -14,7 +14,7 @@ describe('PortfolioSelectors', () => {
         it('list of one item equals this item purchase price', () => {
             const actual = purchaseTotalSelector({
                 openContracts: fromJS({
-                    92001: { buy_price: 10 }
+                    92001: { buy_price: 10 },
                 }),
             });
             expect(actual).toEqual(10);
@@ -35,7 +35,7 @@ describe('PortfolioSelectors', () => {
     describe('indicativeTotal', () => {
          it('should equal 0 for emtpy proposal list', () => {
              const actual = indicativeTotalSelector({
-                 openContracts: fromJS({})
+                 openContracts: fromJS({}),
              });
              expect(actual).toEqual(0);
          });
@@ -44,7 +44,7 @@ describe('PortfolioSelectors', () => {
              const actual = indicativeTotalSelector({
                  openContracts: fromJS({
                      1: { bid_price: 10 },
-                 })
+                 }),
              });
              expect(actual).toEqual(10);
          });

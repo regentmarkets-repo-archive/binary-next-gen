@@ -54,7 +54,7 @@ describe('toPlainJS', () => {
             someObj: {
                 someProp: 'someVal',
                 anotherProp: 123,
-            }
+            },
         };
         const immutableObj = {
             someObj: fromJS({
@@ -98,7 +98,7 @@ describe('immutableChildrenToJS', () => {
             someObj: {
                 someProp: 'someVal',
                 anotherProp: 123,
-            }
+            },
         };
         const immutableObj = {
             someObj: fromJS({

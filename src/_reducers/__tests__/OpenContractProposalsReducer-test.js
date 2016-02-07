@@ -7,8 +7,8 @@ import {
     REMOVE_PERSONAL_DATA,
 } from '../../_constants/ActionTypes';
 
-describe('OpenContractProposalsReducer',()=>{
-    it('should update open contract data proposal with the new contract proposal',()=>{
+describe('OpenContractProposalsReducer', () => {
+    it('should update open contract data proposal with the new contract proposal', () => {
         const action = {
             type: SERVER_DATA_PROPOSAL_OPEN_CONTRACT,
             serverResponse: {
@@ -24,7 +24,7 @@ describe('OpenContractProposalsReducer',()=>{
         expect(actualState.toJS()).toEqual(expectedState.toJS());
     });
 
-    it('should update update contract portfolio state',()=>{
+    it('should update update contract portfolio state', () => {
         const action={
             type: SERVER_DATA_PORTFOLIO,
             serverResponse: {
@@ -47,7 +47,7 @@ describe('OpenContractProposalsReducer',()=>{
         expect(actualState.toJS()).toEqual(expectedState.toJS());
     });
 
-    it('should be able to remove personal data or discard contracts',()=>{
+    it('should be able to remove personal data or discard contracts', () => {
         const action = {
             type: REMOVE_PERSONAL_DATA,
         };

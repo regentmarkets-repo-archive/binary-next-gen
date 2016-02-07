@@ -1,11 +1,11 @@
 import expect from 'expect';
 import { fromJS } from 'immutable';
 import * as actions from '../../_actions/WorkspaceActions';
-import WorkspaceReducer from '../WorkspaceReducer';
+import workspaceReducer from '../WorkspaceReducer';
 
 describe('WorkspaceReducer', () => {
     it('should be able to be created', () => {
-        const state = WorkspaceReducer(undefined, {});
+        const state = workspaceReducer(undefined, {});
         expect(state).toExist();
     });
 
@@ -14,7 +14,7 @@ describe('WorkspaceReducer', () => {
             const stateBefore = fromJS({
                 tradeMode: 'grid',
             });
-            const actual = WorkspaceReducer(stateBefore, actions.toggleTradeMode());
+            const actual = workspaceReducer(stateBefore, actions.toggleTradeMode());
             const expected = fromJS({
                 tradeMode: 'tabs',
             });
@@ -25,7 +25,7 @@ describe('WorkspaceReducer', () => {
             const stateBefore = fromJS({
                 tradeMode: 'tabs',
             });
-            const actual = WorkspaceReducer(stateBefore, actions.toggleTradeMode());
+            const actual = workspaceReducer(stateBefore, actions.toggleTradeMode());
             const expected = fromJS({
                 tradeMode: 'grid',
             });
@@ -38,7 +38,7 @@ describe('WorkspaceReducer', () => {
             const stateBefore = fromJS({
                 leftPanelVisible: false,
             });
-            const actual = WorkspaceReducer(stateBefore, actions.togglePanel('left'));
+            const actual = workspaceReducer(stateBefore, actions.togglePanel('left'));
             const expected = fromJS({
                 leftPanelVisible: true,
             });

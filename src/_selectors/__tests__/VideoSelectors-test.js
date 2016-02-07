@@ -1,5 +1,5 @@
 import expect from 'expect';
-import videoSelectors, { videosSelector } from '../VideoSelectors'
+import videoSelectors, { videosSelector } from '../VideoSelectors';
 
 describe('VideoSelectors', () => {
     describe('videosSelector', () => {

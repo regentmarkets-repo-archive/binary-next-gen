@@ -1,4 +1,3 @@
-import { fromJS } from 'immutable';
 import expect from 'expect';
 import { transactionsTodaySelector, transactionsTotalSelector } from '../TransactionsSelectors';
 

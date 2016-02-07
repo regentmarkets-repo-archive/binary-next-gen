@@ -14,7 +14,7 @@ describe('NumberPlain', () => {
 
     it('passes className to span', () => {
         const output = renderShallow(<NumberPlain className="test-class" />);
-        expect(output.props.className).toEqual("test-class");
+        expect(output.props.className).toEqual('test-class');
     });
 
     it('not passing a value does not renders just span', () => {
@@ -22,5 +22,6 @@ describe('NumberPlain', () => {
         const expected = (
             <span className={undefined} />
         );
-        expect(output).toIncludeJSX(expected);    });
+        expect(output).toIncludeJSX(expected);
+    });
 });

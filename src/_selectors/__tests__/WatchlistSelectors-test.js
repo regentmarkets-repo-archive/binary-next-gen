@@ -1,5 +1,5 @@
 import expect from 'expect';
-import watchlistSelectors from '../WatchlistSelectors'
+import watchlistSelectors from '../WatchlistSelectors';
 
 describe('WatchlistSelectors', () => {
     describe('watchlist', () => {

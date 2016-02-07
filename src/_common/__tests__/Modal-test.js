@@ -1,7 +1,6 @@
 import React from 'react';
 import expect from 'expect';
 import expectJSX from 'expect-jsx';
-import { FormattedMessage } from 'react-intl';
 import { renderShallow } from '../../_utils/TestUtils';
 import Modal from '../Modal';
 

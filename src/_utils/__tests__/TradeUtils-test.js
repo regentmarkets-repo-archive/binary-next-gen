@@ -20,6 +20,7 @@ describe('typeHasBarrier', () => {
         const hasBarrier = typeHasBarrier('CALL');
         expect(hasBarrier).toEqual(false);
     });
+
     it('detects when a type has barriers', () => {
         const hasBarrier = typeHasBarrier('DIGITMATCH');
         expect(hasBarrier).toEqual(true);
@@ -32,6 +33,7 @@ describe('pipsToDigits', () => {
         const digits = pipsToDigits(0.01);
         expect(digits).toEqual(2);
     });
+
     it('0.0001 pips result in 4 digits after the decimal point', () => {
         const digits = pipsToDigits(0.0001);
         expect(digits).toEqual(4);

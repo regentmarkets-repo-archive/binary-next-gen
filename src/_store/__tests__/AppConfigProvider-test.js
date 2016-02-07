@@ -4,7 +4,6 @@ import expect from 'expect';
 import { fromJS } from 'immutable';
 import { shallow, render } from 'enzyme';
 import AppConfigProvider from '../AppConfigProvider';
-import { IntlProvider } from 'react-intl';
 
 describe('AppConfigProvider', () => {
     class ChildComponent extends React.Component {

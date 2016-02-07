@@ -18,7 +18,7 @@ describe('LogoSpinner', () => {
     });
 
     it('is animated (via a class) if spinning is true', () => {
-        const output = renderShallow(<LogoSpinner spinning={true} />);
+        const output = renderShallow(<LogoSpinner spinning />);
         expect(output.props.className).toEqual('spinner');
     });
 });

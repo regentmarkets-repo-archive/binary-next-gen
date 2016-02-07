@@ -6,7 +6,7 @@ describe('AssetSelectors', () => {
     describe('assetSelector', () => {
         it('should equal empty list when no assets', () => {
             const actual = assetsSelector({
-                assets: []
+                assets: [],
             });
             expect(actual).toEqual([]);
         });
@@ -18,7 +18,7 @@ describe('AssetSelectors', () => {
                 { id: 3, name: 'Asset3' },
             ];
             const actual = assetsSelector({
-                assets: assetList
+                assets: assetList,
             });
             expect(actual).toEqual(assetList);
         });
@@ -27,7 +27,7 @@ describe('AssetSelectors', () => {
     describe('marketTreeSelector', () => {
         it('should equal empty tree when no assets', () => {
             const actual = marketTreeSelector({
-                assets: []
+                assets: [],
             });
             expect(actual).toEqual(fromJS({}));
         });
@@ -35,23 +35,23 @@ describe('AssetSelectors', () => {
         it('should contain one asset inside tree when one asset is provided', () => {
             const actual = marketTreeSelector({
                 assets: fromJS([{
-                    "market": "indices",
-                    "symbol": "AEX",
-                    "market_display_name": "Indices",
-                    "submarket": "europe_africa",
-                    "display_name": "Dutch Index",
-                    "submarket_display_name": "Europe/Africa",
+                    market: 'indices',
+                    symbol: 'AEX',
+                    market_display_name: 'Indices',
+                    submarket: 'europe_africa',
+                    display_name: 'Dutch Index',
+                    submarket_display_name: 'Europe/Africa',
                 }])
             });
             const expected = fromJS({
-                "indices": {
-                    "display_name": "Indices",
-                    "submarkets": {
-                        "europe_africa": {
-                            "display_name": "Europe/Africa",
-                            "symbols": {
-                                "AEX": {
-                                    "display_name": "Dutch Index"
+                'indices': {
+                    'display_name': 'Indices',
+                    'submarkets': {
+                        'europe_africa': {
+                            'display_name': 'Europe/Africa',
+                            'symbols': {
+                                'AEX': {
+                                    'display_name': 'Dutch Index'
                                 }
                             }
                         }
@@ -64,50 +64,50 @@ describe('AssetSelectors', () => {
         it('should deep nest assets correctly into a tree', () => {
             const actual = marketTreeSelector({
                 assets: fromJS([{
-                    "market": "indices",
-                    "symbol": "AEX",
-                    "market_display_name": "Indices",
-                    "submarket": "europe_africa",
-                    "display_name": "Dutch Index",
-                    "submarket_display_name": "Europe/Africa",
+                    'market': 'indices',
+                    'symbol': 'AEX',
+                    'market_display_name': 'Indices',
+                    'submarket': 'europe_africa',
+                    'display_name': 'Dutch Index',
+                    'submarket_display_name': 'Europe/Africa',
                 },
                 {
-                    "market": "indices",
-                    "symbol": "AS51",
-                    "market_display_name": "Indices",
-                    "submarket": "asia_oceania",
-                    "display_name": "Australian Index",
-                    "submarket_display_name": "Asia/Oceania",
+                    'market': 'indices',
+                    'symbol': 'AS51',
+                    'market_display_name': 'Indices',
+                    'submarket': 'asia_oceania',
+                    'display_name': 'Australian Index',
+                    'submarket_display_name': 'Asia/Oceania',
                 },
                 {
-                    "market": "indices",
-                    "symbol": "BFX",
-                    "market_display_name": "Indices",
-                    "submarket": "europe_africa",
-                    "display_name": "Belgian Index",
-                    "submarket_display_name": "Europe/Africa",
+                    'market': 'indices',
+                    'symbol': 'BFX',
+                    'market_display_name': 'Indices',
+                    'submarket': 'europe_africa',
+                    'display_name': 'Belgian Index',
+                    'submarket_display_name': 'Europe/Africa',
                 }])
             });
             const expected = fromJS({
-                "indices": {
-                    "display_name": "Indices",
-                    "submarkets": {
-                        "europe_africa": {
-                            "display_name": "Europe/Africa",
-                            "symbols": {
-                                "AEX": {
-                                    "display_name": "Dutch Index"
+                'indices': {
+                    'display_name': 'Indices',
+                    'submarkets': {
+                        'europe_africa': {
+                            'display_name': 'Europe/Africa',
+                            'symbols': {
+                                'AEX': {
+                                    'display_name': 'Dutch Index'
                                 },
-                                "BFX": {
-                                    "display_name": "Belgian Index"
+                                'BFX': {
+                                    'display_name': 'Belgian Index'
                                 }
                             }
                         },
-                        "asia_oceania": {
-                            "display_name": "Asia/Oceania",
-                            "symbols": {
-                                "AS51": {
-                                    "display_name": "Australian Index"
+                        'asia_oceania': {
+                            'display_name': 'Asia/Oceania',
+                            'symbols': {
+                                'AS51': {
+                                    'display_name': 'Australian Index'
                                 }
                             }
                         }

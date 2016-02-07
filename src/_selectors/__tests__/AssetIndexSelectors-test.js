@@ -1,14 +1,12 @@
-import { fromJS } from 'immutable';
 import expect from 'expect';
 import assetIndexSelectors, { assetIndexSelector, durationsSelector } from '../AssetIndexSelectors';
 
 describe.skip('AssetIndexSelectors', () => {
-
     describe('assetIndexSelector', () => {
         it('should be retrieved', () => {
             const actual = assetIndexSelector({
                 assetIndex: [
-                    [[], [], []]
+                    [[], [], []],
                 ],
             });
             expect(actual).toEqual([[[], [], []]]);
@@ -20,10 +18,10 @@ describe.skip('AssetIndexSelectors', () => {
             const actual = durationsSelector({
                 assets: [],
                 assetIndex: [
-                    ['', '', [[], []]]
+                    ['', '', [[], []]],
                 ],
                 workspace: {
-                    assetIndex: 0
+                    assetIndex: 0,
                 },
             });
             expect(actual).toEqual([]);
@@ -36,10 +34,10 @@ describe.skip('AssetIndexSelectors', () => {
             const actual = assetIndexSelectors({
                 assets: [],
                 assetIndex: [
-                    ['', '', [[], []]]
+                    ['', '', [[], []]],
                 ],
                 workspace: {
-                    assetIndex: 0
+                    assetIndex: 0,
                 },
             });
             expect(actual).toExist();

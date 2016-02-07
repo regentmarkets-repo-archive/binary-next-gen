@@ -1,5 +1,5 @@
 import expect from 'expect';
-import { dateToDateString, epochToDateString, timeStringIsBetween } from '../DateUtils.js';
+import { dateToDateString, epochToDateString, timeStringIsBetween } from '../DateUtils';
 
 describe('dateToDateString', () => {
     it('converts first day of the year', () => {

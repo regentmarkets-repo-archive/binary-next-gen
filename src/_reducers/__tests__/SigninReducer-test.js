@@ -1,14 +1,14 @@
 import expect from 'expect';
 import { fromJS } from 'immutable';
 import * as actions from '../../_actions/SigninActions';
-import SigninReducer from '../SigninReducer';
+import signinReducer from '../SigninReducer';
 
 describe('SigninReducer', () => {
     it('should set progress to true on start signing in', () => {
         const stateBefore = fromJS({
             progress: false,
         });
-        const actual = SigninReducer(stateBefore, actions.signinStart());
+        const actual = signinReducer(stateBefore, actions.signinStart());
         const expected = fromJS({
             progress: true,
         });
@@ -19,7 +19,7 @@ describe('SigninReducer', () => {
         const stateBefore = fromJS({
             email: '',
         });
-        const actual = SigninReducer(stateBefore, actions.signinFieldUpdate('email', 'test@example.com'));
+        const actual = signinReducer(stateBefore, actions.signinFieldUpdate('email', 'test@example.com'));
         const expected = fromJS({
             email: 'test@example.com',
         });

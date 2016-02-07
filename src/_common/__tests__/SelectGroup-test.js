@@ -20,7 +20,12 @@ describe('SelectGroup', () => {
     it('passes id to select', () => {
         const output = renderShallow(<SelectGroup id="test-id" />);
         const expected = (
-            <select id="test-id" onChange={undefined} placeholder={undefined} readOnly={undefined} value={undefined} />
+            <select id="test-id"
+                onChange={undefined}
+                placeholder={undefined}
+                readOnly={undefined}
+                value={undefined}
+            />
         );
         expect(output).toIncludeJSX(expected);
     });

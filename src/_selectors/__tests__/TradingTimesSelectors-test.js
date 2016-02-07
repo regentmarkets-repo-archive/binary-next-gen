@@ -1,11 +1,11 @@
 import expect from 'expect';
-import tradingTimesSelectors from '../TradingTimesSelectors'
+import tradingTimesSelectors from '../TradingTimesSelectors';
 
 describe('TradingTimesSelectors', () => {
     describe('tradingTimesFilter', () => {
         it('should work with empty state', () => {
             const actual = tradingTimesSelectors({
-                workspace: {}
+                workspace: {},
             });
             const expected = {
                 assets: undefined,
