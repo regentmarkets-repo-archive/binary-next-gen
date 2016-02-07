@@ -6,11 +6,10 @@ export default class AssetPickerList extends React.Component {
 	static propTypes = {
 		assets: PropTypes.array.isRequired,
 		compact: PropTypes.bool,
-		favorites: PropTypes.array.isRequired,
 	};
 
 	render() {
-		const { assets, favorites } = this.props;
+		const { assets } = this.props;
 
 		return (
 			<table>
@@ -19,7 +18,6 @@ export default class AssetPickerList extends React.Component {
 						<AssetPickerItem
 							key={asset.symbol}
 							asset={asset}
-							isFavorite={favorites[asset.symbol]}
 							{...this.props}
 						/>
 					)}

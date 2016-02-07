@@ -8,13 +8,11 @@ export default class AssetPickerCard extends React.Component {
 		actions: PropTypes.object.isRequired,
 		compact: PropTypes.bool,
 		history: PropTypes.object,
-		symbolIds: PropTypes.array.isRequired,
 		location: PropTypes.object,
 		maxTradeId: PropTypes.number.isRequired,
 		params: PropTypes.object,
-		shownAssets: PropTypes.array.isRequired,
+		assetPickerItems: PropTypes.array.isRequired,
 		workspace: PropTypes.object.isRequired,
-		watchlist: PropTypes.array.isRequired,
 	};
 
 	static defaultProps = {
@@ -44,30 +42,23 @@ export default class AssetPickerCard extends React.Component {
 		}
 	}
 
-	onFavor(asset) {
+	onToggleWatchlistItem(asset) {
 		const { actions } = this.props;
-		actions.watchlistFavorAsset(asset);
-	}
-
-	onUnfavor(asset) {
-		const { actions } = this.props;
-		actions.watchlistUnfavorAsset(asset);
+		actions.watchlistToggleAsset(asset.symbol, !asset.isInWatchlist);
 	}
 
 	render() {
-		const { actions, shownAssets, watchlist, params } = this.props;
+		const { actions, assetPickerItems, params } = this.props;
 
 		return (
 			<div className="asset-picker-container">
 				<AssetPickerFilter actions={actions} />
 				<div className="asset-list">
 					<AssetPickerList
-						assets={shownAssets}
-						favorites={watchlist}
+						assets={assetPickerItems}
 						onCreateTrade={::this.onCreateTrade}
 						onSelect={asset => this.onSelect(params.id, asset)}
-						onFavor={::this.onFavor}
-						onUnfavor={::this.onUnfavor}
+						onToggleWatchlistItem={::this.onToggleWatchlistItem}
 					/>
 				</div>
 			</div>

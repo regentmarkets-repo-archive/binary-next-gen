@@ -9,7 +9,6 @@ export default [
     ActionTypes.SERVER_DATA_ACCOUNT_LIMITS,
     ActionTypes.SERVER_DATA_ACCOUNT_SETTINGS,
     ActionTypes.UPDATE_SETTINGS_FIELD,
-    ActionTypes.WATCHLIST_FAVOR_ASSET,
-    ActionTypes.WATCHLIST_UNFAVOR_ASSET,
+    ActionTypes.WATCHLIST_TOGGLE_ASSET,
     ActionTypes.SERVER_DATA_STATEMENT,
 ];

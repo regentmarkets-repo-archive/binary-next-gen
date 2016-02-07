@@ -1,9 +1,11 @@
-import { fromJS } from 'immutable';
+import { fromJS, List } from 'immutable';
 import expect from 'expect';
-import assetPickerSelectors, { similarStr } from '../AssetPickerSelectors';
+import assetPickerSelectors, {
+    similarStr,
+    assetPickerItemsSelector,
+} from '../AssetPickerSelectors';
 
 describe('AssetPickerSelectors', () => {
-
     describe('similarStr', () => {
         it('parameters can be undefined', () => {
             expect(() => similarStr(undefined, undefined)).toNotThrow();
@@ -33,8 +35,24 @@ describe('AssetPickerSelectors', () => {
         });
     });
 
-    describe('assetPickerSelectors', () => {
+    describe('assetPickerItemsSelector', () => {
+        const emptyState = () => ({
+            assets: fromJS([]),
+            assetPicker: fromJS({}),
+        });
 
+        it('should work with an empty state', () => {
+            const assetPickerItems = assetPickerItemsSelector(emptyState());
+            expect(assetPickerItems).toExist();
+        });
+
+        it('should return an immutable list', () => {
+            const assetPickerItems = assetPickerItemsSelector(emptyState());
+            expect(List.isList(assetPickerItems)).toEqual(true);
+        });
+    });
+
+    describe('assetPickerSelectors', () => {
         const emptyState = () => ({
             assets: fromJS([]),
             assetPicker: fromJS({}),
@@ -58,10 +76,8 @@ describe('AssetPickerSelectors', () => {
             expect(first.availableAssets).toBe(second.availableAssets);
             expect(first.filter).toBe(second.filter);
             expect(first.maxTradeId).toBe(second.maxTradeId);
-            expect(first.shownAssets).toBe(second.shownAssets);
-            expect(first.symbolIds).toBe(second.symbolIds);
-            expect(first.watchlist).toBe(second.watchlist);
             expect(first.workspace).toBe(second.workspace);
+            expect(first.assetPickerItems).toBe(second.assetPickerItems);
 
             expect(first).toBe(second);
         });

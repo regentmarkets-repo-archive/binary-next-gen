@@ -9,36 +9,24 @@ export default class AssetPickerItem extends React.Component {
 	static propTypes = {
 		asset: PropTypes.object.isRequired,
 		compact: PropTypes.bool,
-		isFavorite: PropTypes.bool.isRequired,
 		onSelect: PropTypes.func.isRequired,
-		onFavor: PropTypes.func.isRequired,
-		onUnfavor: PropTypes.func.isRequired,
+		onToggleWatchlistItem: PropTypes.func.isRequired,
 		onCreateTrade: PropTypes.func,
 	};
 
-	toggleFavorite() {
-		const { asset, onFavor, onUnfavor, isFavorite } = this.props;
-		const symbol = asset.symbol;
-		if (isFavorite) {
-			onUnfavor(symbol);
-		} else {
-			onFavor(symbol);
-		}
-	}
-
 	render() {
-		const { asset, compact, onSelect, onCreateTrade, isFavorite } = this.props;
+		const { asset, compact, onSelect, onCreateTrade, onToggleWatchlistItem } = this.props;
 
 		return (
 			<tr className="asset-picker-item" tabIndex={0}>
-				<td onClick={::this.toggleFavorite}>
-					<Star on={isFavorite} />
+				<td onClick={() => onToggleWatchlistItem(asset)}>
+					<Star on={asset.isInWatchlist} />
 				</td>
 				<td onClick={() => onSelect(asset.symbol)}>
-					{asset.display_name}
+					{asset.name}
 				</td>
 				<td className="market-hierarchy" onClick={() => onSelect(asset.symbol)}>
-					{asset.market_display_name + ' > ' + asset.submarket_display_name}
+					{asset.market + ' > ' + asset.submarket}
 				</td>
 				{!compact && <td onClick={() => onCreateTrade(asset.symbol)}>
 					<button className="asset-picker-trade-btn">

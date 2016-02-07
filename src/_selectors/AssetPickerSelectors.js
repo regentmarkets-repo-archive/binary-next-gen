@@ -58,12 +58,22 @@ export const shownAssetsSelector = createSelector(
             )
 );
 
+export const assetPickerItemsSelector = createSelector(
+    [shownAssetsSelector, watchlistSelector],
+    (shownAssets, watchlist) =>
+        shownAssets.map(asset => ({
+            symbol: asset.get('symbol'),
+            name: asset.get('display_name'),
+            isInWatchlist: watchlist.has(asset.get('symbol')),
+            market: asset.get('market_display_name'),
+            submarket: asset.get('submarket_display_name'),
+        })),
+);
+
 export default createStructuredSelector({
     availableAssets: availableAssetsSelector,
-    shownAssets: shownAssetsSelector,
+    assetPickerItems: assetPickerItemsSelector,
 	filter: assetFilterSelector,
     maxTradeId: maxTradeIdSelector,
 	workspace: workspaceSelector,
-	watchlist: watchlistSelector,
-	symbolIds: symbolIdsSelector,
 });
