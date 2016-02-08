@@ -40,24 +40,20 @@ export const tryAuth = (st) => {
         });
 };
 
-export const navigateTo = (nextState, replaceState, to) => {
-    replaceState({ nextPathname: nextState.location.pathname }, to);
-};
-
-export const requireAuthOnEnter = (nextState, replaceState, cb) => {
+export const requireAuthOnEnter = (nextState, replace, callback) => {
     const authorized = store.getState().appState.get('authorized');
     if (authorized) {
-        cb();
+        callback();
         return;
     }
 
-    navigateTo(nextState, replaceState, '/signin');
-    cb();
+    replace({ pathname: '/signin', state: nextState });
+    callback();
 };
 
-export const signout = (nextState, replaceState) => {
+export const signout = (nextState, replace) => {
     store.dispatch(removePersonalData());
     store.dispatch(signinFieldUpdate('validatedOnce', false));
     store.dispatch(updateAppState('authorized', false));
-    navigateTo(nextState, replaceState, '/signin');
+    replace({ pathname: '/signin', state: nextState });
 };
