@@ -11,7 +11,7 @@ export default class AssetPickerList extends React.Component {
 	render() {
 		const { assets } = this.props;
 
-		return (
+			return (
 			<table>
 				<tbody>
 					{assets.map(asset =>

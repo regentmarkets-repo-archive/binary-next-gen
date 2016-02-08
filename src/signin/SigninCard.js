@@ -39,7 +39,7 @@ export default class SigninCard extends React.Component {
 	}
 
 	render() {
-		const { progress, validatedOnce, credentialsInvalid, tokenNotEntered } = this.props.signin.toJS();
+		const { progress, validatedOnce, credentialsInvalid, tokenNotEntered } = this.props.signin;
 
 		return (
 			<div className="startup-content">
