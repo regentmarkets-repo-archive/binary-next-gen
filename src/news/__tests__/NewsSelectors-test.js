@@ -1,6 +1,6 @@
 import { fromJS } from 'immutable';
 import expect from 'expect';
-import newsSelectors from '../NewsSelectors';
+import newsSelectors from '../newsSelectors';
 
 describe('newsSelectors', () => {
     const emptyState = () => ({
