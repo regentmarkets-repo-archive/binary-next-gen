@@ -9,7 +9,6 @@ export default class StatementCard extends React.Component {
 	static propTypes = {
 		currency: PropTypes.string.isRequired,
 		compact: PropTypes.bool,
-		// transactions: PropTypes.object.isRequired,
 		transactionsToday: PropTypes.array.isRequired,
 		transactionsYesterday: PropTypes.array.isRequired,
 		transactionsLast7Days: PropTypes.array.isRequired,

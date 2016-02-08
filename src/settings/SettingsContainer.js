@@ -1,18 +1,18 @@
 import React from 'react';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 import { connect } from 'react-redux';
-import { getSettings } from '../_reducers/SettingsReducer';
+import { immutableChildrenToJS } from '../_utils/ObjectUtils';
 import SettingsCard from './SettingsCard';
+import settingsSelectors from './settingsSelectors';
 
-@connect(state => ({
-	settings: getSettings(state),
-	loginid: state.account.get('loginid'),
-	appConfig: state.appConfig.toJS(),
-}))
+@connect(settingsSelectors)
 export default class SettingsContainer extends React.Component {
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		return (
-			<SettingsCard {...this.props} />
+			<SettingsCard {...immutableChildrenToJS(this.props)} />
 		);
 	}
 }
