@@ -1,5 +1,5 @@
-export PortfolioRow from './PortfolioRow';
-export PortfolioTable from './PortfolioTable';
+export PortfolioItem from './PortfolioItem';
+export PortfolioList from './PortfolioList';
 
 export PortfolioCard from './PortfolioCard';
 export PortfolioPage from './PortfolioPage';

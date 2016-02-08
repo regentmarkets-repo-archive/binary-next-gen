@@ -18,8 +18,9 @@ export default (state = initialState, action) => {
         }
         case SERVER_DATA_PORTFOLIO: {
             const contracts = action.serverResponse.portfolio.contracts;
-            const mergeAll = contracts.reduce((prev, curr) => prev.mergeIn([curr.contract_id], curr), state);
-            return mergeAll;
+            return contracts
+                .reduce((prev, curr) =>
+                    prev.mergeIn([curr.contract_id], curr), state);
         }
         case REMOVE_PERSONAL_DATA: {
             return initialState;

@@ -4,7 +4,7 @@ const portfolioSelector =
     state => state.portfolio;
 
 const openContractsSelector =
-    state => state.openContracts.valueSeq();
+    state => state.openContracts;
 
 export const indicativeTotalSelector = createSelector(
     openContractsSelector,
