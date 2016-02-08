@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { NumberPlain } from '../_common';
+import Balance from '../balance/BalanceContainer';
 import SidebarBtn from './SidebarBtn';
 import SidebarSelectors from './SidebarSelectors';
 
@@ -19,7 +19,7 @@ export default class MobileSidebar extends React.Component {
 				<div className="account-info">
 					{account.loginid}<br/>
 					{account.email}<br/>
-					<NumberPlain currency={account.currency} value={account.balance} />
+					<Balance />
 				</div>
 				<SidebarBtn to="/mobile" img="img/trade.svg" text="Trade" />
 				<SidebarBtn to="/watchlist-mobile" img="img/watchlist.svg" text="Watchlist" />

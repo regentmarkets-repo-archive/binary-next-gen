@@ -1,4 +1,3 @@
-export Balance from './Balance';
 export DesktopHeader from './DesktopHeader';
 export DesktopNavLink from './DesktopNavLink';
 export DesktopSidebar from './DesktopSidebar';
