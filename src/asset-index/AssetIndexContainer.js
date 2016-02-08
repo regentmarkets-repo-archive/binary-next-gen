@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { immutableChildrenToJS } from '../_utils/ObjectUtils';
 import AssetIndexCard from './AssetIndexCard';
-import assetIndexSelectors from '../_selectors/AssetIndexSelectors';
+import assetIndexSelectors from './AssetIndexSelectors';
 
 @connect(assetIndexSelectors)
 export default class AsssetIndexContainer extends React.Component {

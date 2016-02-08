@@ -1,6 +1,6 @@
 import { createSelector, createStructuredSelector } from 'reselect';
-import { fullTradesSelector } from './FullTradeSelectors';
-import { assetsSelector } from './AssetSelectors';
+import { fullTradesSelector } from '../fulltrade/FullTradeSelectors';
+import { assetsSelector } from '../_store/baseSelectors';
 import { findIfExist } from '../_utils/ObjectUtils';
 
 const tickAssetFilter = (assets, contracts) => {

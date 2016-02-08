@@ -1,10 +1,9 @@
-import { createSelector, createStructuredSelector } from 'reselect';
+import { createSelector } from 'reselect';
 import { fromJS } from 'immutable';
-
-export const assetsSelector = state => state.assets;
+import { assetsSelector } from '../_store/baseSelectors';
 
 // return a tree structure, hierarchy as [market -> submarket -> symbol]
-export const marketTreeSelector = createSelector(
+export default createSelector(
     assetsSelector,
     assets =>
         assets.reduce((tree, sym) => {
@@ -36,15 +35,3 @@ export const marketTreeSelector = createSelector(
             return result;
         }, fromJS({}))
 );
-
-// export const submarketNameSelector = Object.keys(tree).map(market => {
-//     const subs = tree[market].submarkets;
-//     if (Object.keys(subs).indexOf(submarket) > -1) return subs[submarket].display_name;
-// }).filter(name => !!name)[0];
-
-
-export default createStructuredSelector({
-    assets: assetsSelector,
-    marketTree: marketTreeSelector,
-//    submarketName: submarketNameSelector,
-});

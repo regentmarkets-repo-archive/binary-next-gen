@@ -1,6 +1,5 @@
 import { createSelector, createStructuredSelector } from 'reselect';
-
-export const workspaceSelector = state => state.workspace;
+import { workspaceSelector } from '../_store/baseSelectors';
 
 export const assetIndexSubmarketSelector = createSelector(
     workspaceSelector,

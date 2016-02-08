@@ -8,9 +8,8 @@ import {
     splitSecsToUnits,
     timeStringIsBetween,
 } from '../_utils/DateUtils';
-import { assetsSelector, marketTreeSelector } from './AssetSelectors';
-
-import { tradingTimesSelector } from './TradingTimesSelectors';
+import { assetsSelector, tradingTimesSelector } from '../_store/baseSelectors';
+import marketTreeSelector from '../_selectors/marketTreeSelector';
 
 const normalizedContractFor = contracts => {
     const extraRemoved = contracts.map(contract => ({

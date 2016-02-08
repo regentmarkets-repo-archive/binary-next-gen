@@ -1,8 +1,6 @@
 import { createSelector, createStructuredSelector } from 'reselect';
-import { assetsSelector } from './AssetSelectors';
-import { watchlistSelector } from './WatchlistSelectors';
-import { workspaceSelector } from './WorkspaceSelectors';
-import { maxTradeIdSelector } from './FullTradeSelectors';
+import { assetsSelector, watchlistSelector, workspaceSelector } from '../_store/baseSelectors';
+import { maxTradeIdSelector } from '../fulltrade/FullTradeSelectors';
 
 export const symbolIdsSelector = createSelector(
      assetsSelector,

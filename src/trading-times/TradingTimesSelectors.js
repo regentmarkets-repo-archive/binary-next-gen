@@ -1,8 +1,6 @@
 import { createStructuredSelector } from 'reselect';
-import { assetsSelector } from './AssetSelectors';
-import { tradingTimesFilterSelector } from './WorkspaceSelectors';
-
-export const tradingTimesSelector = state => state.tradingTimes;
+import { assetsSelector, tradingTimesSelector } from '../_store/baseSelectors';
+import { tradingTimesFilterSelector } from '../workspace/WorkspaceSelectors';
 
 export default createStructuredSelector({
     assets: assetsSelector,

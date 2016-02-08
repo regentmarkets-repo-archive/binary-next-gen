@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { workspaceSelector } from '../_selectors/WorkspaceSelectors';
+import { workspaceSelector } from '../workspace/WorkspaceSelectors';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 
 @connect(workspaceSelector)

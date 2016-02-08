@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { immutableChildrenToJS } from '../_utils/ObjectUtils';
 import TickTradeCard from './TickTradeCard';
-import { tickTradesSelector } from '../_selectors/TickTradeSelector';
+import { tickTradesSelector } from './TickTradeSelectors';
 
 @connect(tickTradesSelector)
 export default class TickTradeContainer extends Component {

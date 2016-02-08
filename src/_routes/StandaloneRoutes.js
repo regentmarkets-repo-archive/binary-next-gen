@@ -6,8 +6,6 @@ import AssetIndexTable from '../asset-index/AssetIndexTable';
 import RiseFallTablePage from '../rise-fall-table/RiseFallTablePage';
 import TradingTimesPage from '../trading-times/TradingTimesPage';
 import TradingTimesTable from '../trading-times/TradingTimesTable';
-import DailyPricesPage from '../daily-prices/DailyPricesPage';
-import IntradayPricesPane from '../intraday-prices/IntradayPricesPane';
 import PortfolioPage from '../portfolio/PortfolioPage';
 import SettingsPage from '../settings/SettingsPage';
 import SettingsPersonalDetails from '../settings/SettingsPersonalDetails';
@@ -37,8 +35,6 @@ export default [
         { path: ':market', component: TradingTimesTable, onEnter: requireAuthOnEnter },
     ] },
     { path: 'rise-fall-table', component: RiseFallTablePage, onEnter: requireAuthOnEnter },
-    { path: 'daily-prices', component: DailyPricesPage, onEnter: requireAuthOnEnter },
-    { path: 'intraday-prices', component: IntradayPricesPane, onEnter: requireAuthOnEnter },
     { path: 'settings',
         indexRoute: { component: SettingsPersonalDetails },
         onEnter: requireAuthOnEnter,

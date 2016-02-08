@@ -1,6 +1,5 @@
 export DesktopHeader from './DesktopHeader';
 export DesktopNavLink from './DesktopNavLink';
-export DesktopSidebar from './DesktopSidebar';
 export Footer from './Footer';
 export NavButton from './NavButton';
 export MobileToolbarBtn from './MobileToolbarBtn';

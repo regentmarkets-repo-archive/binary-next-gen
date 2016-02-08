@@ -3,7 +3,7 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 import { connect } from 'react-redux';
 import { immutableChildrenToJS } from '../_utils/ObjectUtils';
 import AssetPickerCard from './AssetPickerCard';
-import assetPickerSelectors from '../_selectors/AssetPickerSelectors';
+import assetPickerSelectors from './AssetPickerSelectors';
 
 @connect(assetPickerSelectors)
 export default class AssetPickerContainer extends React.Component {

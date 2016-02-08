@@ -3,7 +3,7 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 import { connect } from 'react-redux';
 import VideoList from './VideoList';
 import { immutableChildrenToJS } from '../_utils/ObjectUtils';
-import videoSelectors from '../_selectors/VideoSelectors';
+import videoSelectors from './VideoSelectors';
 
 @connect(videoSelectors)
 export default class VideoListContainer extends React.Component {
