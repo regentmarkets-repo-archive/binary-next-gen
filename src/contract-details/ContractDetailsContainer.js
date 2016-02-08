@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import portfolioSelectors from '../_selectors/PortfolioSelectors';
+import portfolioSelectors from '../portfolio/PortfolioSelectors';
 import ContractDetailsCard from './ContractDetailsCard';
 
 @connect(portfolioSelectors)

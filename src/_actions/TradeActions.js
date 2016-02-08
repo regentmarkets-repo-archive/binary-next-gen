@@ -104,7 +104,7 @@ export const updateTradeParams = (id, fieldName, fieldValue) => {
 
 export const updatePriceProposalSubscription = (tradeID, trade) =>
     (dispatch, getState) => {
-        const tradeObj = trade ? trade : getState().trades.get(tradeID).toJS();
+        const tradeObj = trade || getState().trades.get(tradeID).toJS();
         const currency = getState().account.get('currency');
         const {
             amount,
@@ -164,7 +164,7 @@ export const updatePriceProposalSubscription = (tradeID, trade) =>
 
 export const purchaseByTradeId = (tradeID, trade) =>
     (dispatch, getState) => {
-        const tradeSelected = trade ? trade : getState().trades.get(tradeID).toJS();
+        const tradeSelected = trade || getState().trades.get(tradeID).toJS();
         trackEvent('buy-contract', tradeSelected);
         const proposalID = tradeSelected.proposal.id;
         const price = tradeSelected.proposal.ask_price;

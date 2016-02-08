@@ -1,7 +1,7 @@
 import expect from 'expect';
 import { fromJS } from 'immutable';
 import * as actions from '../../_actions/AssetPickerActions';
-import assetPickerReducer from '../assetPickerReducer';
+import assetPickerReducer from '../AssetPickerReducer';
 
 const getInitialState = (props) => ({
     query: '',
