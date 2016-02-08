@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-01-29 07:42+0000\n"
-"Last-Translator: Ehab Gubil <egubil@gmail.com>\n"
+"PO-Revision-Date: 2016-02-08 14:59+0000\n"
+"Last-Translator: Sittie Hadjirah Sevilla <sittiebaser@gmail.com>\n"
 "Language-Team: Arabic <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/ar/>\n"
 "Language: ar\n"
@@ -296,6 +296,7 @@ msgstr "ظلام"
 msgid "Name"
 msgstr "الاسم"
 
+#, fuzzy
 msgid "Date Of Birth"
 msgstr "تاريخ الميلاد"
 
