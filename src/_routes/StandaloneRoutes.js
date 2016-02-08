@@ -3,7 +3,6 @@ import UpgradePage from '../upgrade/UpgradePage';
 import WatchlistPage from '../watchlist/WatchlistPage';
 import AssetIndexPage from '../asset-index/AssetIndexPage';
 import AssetIndexTable from '../asset-index/AssetIndexTable';
-import RiseFallTablePage from '../rise-fall-table/RiseFallTablePage';
 import TradingTimesPage from '../trading-times/TradingTimesPage';
 import TradingTimesTable from '../trading-times/TradingTimesTable';
 import PortfolioPage from '../portfolio/PortfolioPage';
@@ -15,7 +14,7 @@ import SettingsLimits from '../settings/SettingsLimits';
 import StatementPage from '../statement/StatementPage';
 import VideoListContainer from '../video/VideoListContainer';
 import NewsContainer from '../news/NewsContainer';
-import PaymentAgentsModal from '../payment-agents/PaymentAgentsModal';
+import DepositModal from '../deposit/DepositModal';
 import ChartTest from '../charting/ChartTest';
 import TradesPage from '../fulltrade/TradesPage';
 
@@ -34,7 +33,6 @@ export default [
     { path: 'trading-times', component: TradingTimesPage, onEnter: requireAuthOnEnter, childRoutes: [
         { path: ':market', component: TradingTimesTable, onEnter: requireAuthOnEnter },
     ] },
-    { path: 'rise-fall-table', component: RiseFallTablePage, onEnter: requireAuthOnEnter },
     { path: 'settings',
         indexRoute: { component: SettingsPersonalDetails },
         onEnter: requireAuthOnEnter,
@@ -47,5 +45,5 @@ export default [
     { path: 'video', component: VideoListContainer },
     { path: 'news', component: NewsContainer },
     { path: 'chart', component: ChartTest },
-    { path: 'deposit', component: PaymentAgentsModal },
+    { path: 'deposit', component: DepositModal },
 ];

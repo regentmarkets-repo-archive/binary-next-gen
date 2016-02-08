@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import PaymentAgentsList from './PaymentAgentsList';
-import PaymentAgentWithdrawForm from './PaymentAgentWithdrawForm';
+import WithdrawalForm from './WithdrawalForm';
 import { Tabs, M } from '../_common';
 
-export default class PaymentAgentsCard extends React.Component {
+export default class DepositCard extends React.Component {
     static propTypes = {
         paymentAgent: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
@@ -23,7 +23,7 @@ export default class PaymentAgentsCard extends React.Component {
         const tabs = [
             { text: 'Payment Agents', component: <PaymentAgentsList paymentAgents={paymentAgents} /> },
             { text: 'Withdrawal',
-                component: <PaymentAgentWithdrawForm
+                component: <WithdrawalForm
                     paymentAgentOptions={paymentAgentOptions}
                     currency={currency}
                     {...paymentAgent.toJS()}

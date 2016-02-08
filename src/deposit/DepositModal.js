@@ -1,9 +1,9 @@
 import React from 'react';
 import { Modal } from '../_common';
-import PaymentAgentsContainer from './PaymentAgentsContainer';
+import DepositContainer from './DepositContainer';
 
 export default (props) => (
     <Modal shown>
-        <PaymentAgentsContainer {...props} />
+        <DepositContainer {...props} />
     </Modal>
 );

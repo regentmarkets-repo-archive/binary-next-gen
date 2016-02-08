@@ -13,7 +13,7 @@ import SettingsMobile from '../settings/SettingsMobile';
 import NewsMobile from '../mobile/NewsMobile';
 import ArticleMobile from '../news/ArticleMobile';
 import ResourcesMobile from '../mobile/ResourcesMobile';
-import PaymentAgentsMobile from '../payment-agents/PaymentAgentsMobile';
+import DepositMobile from '../deposit/DepositMobile';
 import DurationMobile from '../tick-trade/DurationMobile';
 import QuickTradeContainer from '../quick-trade/QuickTradeContainer';
 import { requireAuthOnEnter, signout } from '../_data/Auth';
@@ -35,7 +35,7 @@ export default [
     { path: 'news-mobile', component: NewsMobile },
     { path: 'article/:index', component: ArticleMobile },
     { path: 'resources-mobile', component: ResourcesMobile },
-    { path: 'payment-agents', component: PaymentAgentsMobile, onEnter: requireAuthOnEnter },
+    { path: 'deposit', component: DepositMobile, onEnter: requireAuthOnEnter },
     { path: 'quick-trade', component: QuickTradeContainer, onEnter: requireAuthOnEnter },
     { path: 'duration', component: DurationMobile, onEnter: requireAuthOnEnter },
 ];
