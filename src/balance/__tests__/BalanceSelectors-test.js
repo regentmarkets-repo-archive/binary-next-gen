@@ -1,6 +1,6 @@
 import { fromJS } from 'immutable';
 import expect from 'expect';
-import balanceSelectors from '../BalanceSelectors';
+import balanceSelectors from '../balanceSelectors';
 
 describe('balanceSelectors', () => {
     const emptyState = () => ({ account: fromJS({}) });
