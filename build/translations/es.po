@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-02-03 21:31+0000\n"
+"PO-Revision-Date: 2016-02-08 16:51+0000\n"
 "Last-Translator: cameliagf <cameliagf@yahoo.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/es/>\n"
@@ -322,19 +322,19 @@ msgid "Touches"
 msgstr "Toca"
 
 msgid "Digit Over"
-msgstr ""
+msgstr "Dígito Sobre"
 
 msgid "Digit Match"
-msgstr ""
+msgstr "Dígito Justo"
 
 msgid "Digit Under"
-msgstr ""
+msgstr "Dígito por Debajo"
 
 msgid "Digit Odd"
-msgstr ""
+msgstr "Dígito Impar"
 
 msgid "Digit Differs"
-msgstr ""
+msgstr "Dígito Difiere"
 
 msgid "No Touch"
 msgstr "Sin Toque"
