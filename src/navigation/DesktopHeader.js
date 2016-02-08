@@ -4,15 +4,12 @@ import config from '../config';
 import { Clock, LanguagePicker, M } from '../_common';
 import { MobileSidebar, ToggleButtons } from './';
 import Balance from '../balance/BalanceContainer';
-import shouldPureComponentUpdate from 'react-pure-render/function';
 
 export default class DesktopHeader extends React.Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
 	};
-
-	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		return (

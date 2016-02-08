@@ -6,28 +6,32 @@ import config from '../config';
 
 export default class CreateAccountCard extends React.Component {
     static propTypes = {
-        createAccount: React.PropTypes.object.isRequired,
+        email: React.PropTypes.string.isRequired,
+        password: React.PropTypes.string.isRequired,
+        confirmPassword: React.PropTypes.string.isRequired,
+        residence: React.PropTypes.string.isRequired,
+        verificationCode: React.PropTypes.string.isRequired,
+        validatedOnce: React.PropTypes.bool.isRequired,
         actions: React.PropTypes.object.isRequired,
     };
 
     emailValid() {
-        const { email } = this.props.createAccount.toJS();
-
+        const { email } = this.props;
         return /\S+@\S+\.\S+/.test(email);
     }
 
     passwordValid() {
-        const { password } = this.props.createAccount.toJS();
+        const { password } = this.props;
         return /^[ -~]{6,25}$/.test(password);
     }
 
     confirmationValid() {
-        const { password, confirmPassword } = this.props.createAccount.toJS();
+        const { password, confirmPassword } = this.props;
         return password === confirmPassword;
     }
 
     performCreateAccount() {
-        const { email, password, verificationCode, residence } = this.props.createAccount.toJS();
+        const { email, password, verificationCode, residence } = this.props;
         this.props.actions.createAccountStart({
             email,
             client_password: password,
@@ -38,11 +42,10 @@ export default class CreateAccountCard extends React.Component {
     }
 
     proceed() {
-        const { actions } = this.props;
+        const { actions, email } = this.props;
         actions.createAccountFieldUpdate('validatedOnce', true);
         actions.createAccountFieldUpdate('progress', true);
         if (this.emailValid() && this.passwordValid() && this.confirmationValid()) {
-            const { email } = this.props.createAccount.toJS();
             LiveData.api.verifyEmail(email).then(() => {
                 actions.createAccountFieldUpdate('step', 1);
                 actions.createAccountFieldUpdate('progress', false);
@@ -67,7 +70,7 @@ export default class CreateAccountCard extends React.Component {
     }
 
     render() {
-        const { residence, validatedOnce } = this.props.createAccount.toJS();
+        const { residence, validatedOnce } = this.props;
         const countryNotSelected = !residence;
         const emailNotValid = !this.emailValid();
         const passwordNotValid = !this.passwordValid();

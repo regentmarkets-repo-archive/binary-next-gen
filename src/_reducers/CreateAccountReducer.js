@@ -10,6 +10,7 @@ const initialState = fromJS({
     confirmPassword: '',
     progress: false,
     error: null,
+    verificationCode: '',
 });
 
 export default (state = initialState, action) => {

@@ -6,21 +6,23 @@ import AccountInfoForm from './AccountInfoForm';
 export default class CreateAccountCard extends React.Component {
 
 	static propTypes = {
+		actions: React.PropTypes.object.isRequired,
 		createAccount: React.PropTypes.object.isRequired,
 	};
 
 	render() {
-		const { createAccount } = this.props;
-		const { progress } = createAccount.toJS();
+		const { actions, createAccount } = this.props;
+		const { progress, step } = createAccount;
+
 		return (
 			<div>
 				<p className="media">
 					<LogoSpinner spinning={progress}/>
 					<img className="logo-text" src="img/binary-type-logo.svg" />
 				</p>
-				{createAccount.get('step') === 1 ?
-					<EmailVerificationForm {...this.props} /> :
-					<AccountInfoForm {...this.props} />
+				{step === 1 ?
+					<EmailVerificationForm actions={actions} {...createAccount} /> :
+					<AccountInfoForm actions={actions} {...createAccount} />
 				}
 			</div>
 		);

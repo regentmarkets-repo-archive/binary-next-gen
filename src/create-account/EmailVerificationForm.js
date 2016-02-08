@@ -5,7 +5,11 @@ import * as LiveData from '../_data/LiveData';
 export default class EmailVerificationForm extends React.Component {
     static propTypes = {
         actions: React.PropTypes.object.isRequired,
-        createAccount: React.PropTypes.object.isRequired,
+        error: React.PropTypes.object.isRequired,
+        email: React.PropTypes.string.isRequired,
+        password: React.PropTypes.string.isRequired,
+        residence: React.PropTypes.string.isRequired,
+        verificationCode: React.PropTypes.string.isRequired,
         history: React.PropTypes.object.isRequired,
     };
 
@@ -16,22 +20,21 @@ export default class EmailVerificationForm extends React.Component {
     }
 
     onVerify() {
-        const { createAccount, actions } = this.props;
+        const { actions, email, password, residence, verificationCode } = this.props;
         actions.createAccountFieldUpdate('progress', true);
         LiveData.api.createVirtualAccount({
-            email: createAccount.get('email'),
-            client_password: createAccount.get('password'),
-            residence: createAccount.get('residence'),
-            verification_code: createAccount.get('verificationCode'),
-        })
-            .then(
-                () => history.push('/signin'),
-                err => actions.createAccountFailed(err)
-            ).then(() => actions.createAccountFieldUpdate('progress', false));
+            email,
+            client_password: password,
+            residence,
+            verification_code: verificationCode,
+        }).then(
+            () => history.push('/signin'),
+            err => actions.createAccountFailed(err)
+        ).then(() => actions.createAccountFieldUpdate('progress', false));
     }
 
     render() {
-        const { error } = this.props.createAccount.toJS();
+        const { error } = this.props;
         return (
             <div>
                 <h3>
