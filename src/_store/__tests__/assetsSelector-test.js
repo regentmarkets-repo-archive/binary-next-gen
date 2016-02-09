@@ -1,5 +1,5 @@
 import expect from 'expect';
-import { assetsSelector } from '../baseSelectors';
+import { assetsSelector } from '../directSelectors';
 
 describe('assetsSelector', () => {
     it('should equal empty list when no assets', () => {

@@ -1,6 +1,6 @@
 import TickTradeMobile from '../tick-trade/TickTradeMobile';
 import WorkspaceContainer from '../workspace/WorkspaceContainer';
-import TradesContainer from '../fulltrade/TradesContainer';
+import TradesContainer from '../trades/TradesContainer';
 import { requireAuthOnEnter } from '../_data/Auth';
 
 const isMobile = /Mobile/.test(window.navigator.userAgent);

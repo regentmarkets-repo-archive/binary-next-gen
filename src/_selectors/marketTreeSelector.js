@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 import { fromJS } from 'immutable';
-import { assetsSelector } from '../_store/baseSelectors';
+import { assetsSelector } from '../_store/directSelectors';
 
 // return a tree structure, hierarchy as [market -> submarket -> symbol]
 export default createSelector(

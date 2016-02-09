@@ -22,7 +22,7 @@ export default class PayoutCard extends Component {
         const basisOptions = basises.map(i => ({ text: i, value: i }));
         const payoutOptions = payouts.map(i => ({ text: i, value: i }));
         return (
-            <CollapsibleFormSnippet label="Payout/Stakes" show>
+            <CollapsibleFormSnippet label="Payout/Stake">
                 <RadioGroup
                     className="radio-selector"
                     name={'basis' + id}

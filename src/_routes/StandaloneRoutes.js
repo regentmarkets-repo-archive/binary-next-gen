@@ -17,7 +17,7 @@ import VideoListContainer from '../video/VideoListContainer';
 import NewsContainer from '../news/NewsContainer';
 import DepositModal from '../deposit/DepositModal';
 import ChartTest from '../charting/ChartTest';
-import TradesPage from '../fulltrade/TradesPage';
+import TradesPage from '../trades/TradesPage';
 import WorkspaceContainer from '../workspace/WorkspaceContainer';
 
 import { requireAuthOnEnter } from '../_data/Auth';

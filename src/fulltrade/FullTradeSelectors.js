@@ -8,7 +8,7 @@ import {
     splitSecsToUnits,
     timeStringIsBetween,
 } from '../_utils/DateUtils';
-import { assetsSelector, tradingTimesSelector } from '../_store/baseSelectors';
+import { assetsSelector, tradingTimesSelector } from '../_store/directSelectors';
 import marketTreeSelector from '../_selectors/marketTreeSelector';
 
 const normalizedContractFor = contracts => {

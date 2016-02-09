@@ -1,5 +1,5 @@
 import { createStructuredSelector } from 'reselect';
-import { workspaceSelector } from '../_store/baseSelectors';
+import { workspaceSelector } from '../_store/directSelectors';
 
 export const assetIndexSubmarketSelector = state =>
     state.workspace.getIn(['assetIndex', 'submarketId']);

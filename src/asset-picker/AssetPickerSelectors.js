@@ -1,5 +1,5 @@
 import { createSelector, createStructuredSelector } from 'reselect';
-import { assetsSelector, watchlistSelector, workspaceSelector } from '../_store/baseSelectors';
+import { assetsSelector, watchlistSelector, workspaceSelector } from '../_store/directSelectors';
 import { maxTradeIdSelector } from '../fulltrade/FullTradeSelectors';
 
 export const symbolIdsSelector = createSelector(

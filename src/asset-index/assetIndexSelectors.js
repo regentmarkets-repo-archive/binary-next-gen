@@ -1,5 +1,5 @@
 import { createSelector, createStructuredSelector } from 'reselect';
-import { assetsSelector } from '../_store/baseSelectors';
+import { assetsSelector } from '../_store/directSelectors';
 import { assetIndexSubmarketSelector } from '../workspace/workspaceSelectors';
 import { shallowMerge } from '../_utils/ArrayUtils';
 

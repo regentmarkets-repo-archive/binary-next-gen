@@ -1,5 +1,5 @@
 import { createStructuredSelector } from 'reselect';
-import { paymentAgentSelector } from '../_store/baseSelectors';
+import { paymentAgentSelector } from '../_store/directSelectors';
 
 const currencySelector = state => state.account.get('currency');
 const countrySelector = state => state.settings.get('country');

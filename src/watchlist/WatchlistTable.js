@@ -5,13 +5,11 @@ import M from '../_common/M';
 export default class WatchlistTable extends React.Component {
 
 	static propTypes = {
-		assets: PropTypes.array.isRequired,
-		ticks: PropTypes.object.isRequired,
-		watchlist: PropTypes.array.isRequired,
+		watchlistView: PropTypes.array.isRequired,
 	};
 
 	render() {
-		const { assets, ticks, watchlist } = this.props;
+		const { watchlistView } = this.props;
 
 		return (
 			<table>
@@ -33,12 +31,10 @@ export default class WatchlistTable extends React.Component {
 					</tr>
 				</thead>
 				<tbody>
-					{watchlist.map(symbol =>
+					{watchlistView.map(x =>
 						<WatchlistRow
-							key={symbol}
-							symbol={symbol}
-							asset={assets.find(x => x.symbol === symbol)}
-							history={ticks.symbol}
+							key={x.symbol}
+							{...x}
 						/>
 					)}
 				</tbody>

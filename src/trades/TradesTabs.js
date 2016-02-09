@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Tabs } from '../_common';
-import TradePanel from './TradePanel';
+import TradePanel from '../fulltrade/TradePanel';
 
 export default class TradesTabs extends React.Component {
 

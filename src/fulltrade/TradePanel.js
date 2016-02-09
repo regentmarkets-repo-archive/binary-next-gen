@@ -28,10 +28,8 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
  * 5. barriers are non available for contract below 2 minutes
  * 6. forward starting does not have barriers
  */
-const getTradeTypeText = type => {
-    const name = tradeTypes.find(t => t.value === type).text;
-    return name;
-};
+const getTradeTypeText = type =>
+    tradeTypes.find(t => t.value === type).text;
 
 const createDefaultType = (contracts, category) =>
     Object.keys(contracts[category])[0];

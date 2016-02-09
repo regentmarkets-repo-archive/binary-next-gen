@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { Resizer } from '../_common';
-import TradesContainer from '../fulltrade/TradesContainer';
+import TradesContainer from '../trades/TradesContainer';
 import WorkspaceLeftPanel from './WorkspaceLeftPanel';
 import WorkspaceRightPanel from './WorkspaceRightPanel';
 import WorkspaceBottomPanel from './WorkspaceBottomPanel';

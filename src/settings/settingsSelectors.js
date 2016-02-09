@@ -1,5 +1,5 @@
 import { createStructuredSelector } from 'reselect';
-import { appConfigSelector, settingsSelector } from '../_store/baseSelectors';
+import { appConfigSelector, settingsSelector } from '../_store/directSelectors';
 
 const loginidSelector = state => state.account.get('loginid');
 

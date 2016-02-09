@@ -4,7 +4,7 @@ import { shallow } from 'enzyme';
 import Star from '../Star';
 
 describe('Star', () => {
-	it('s first node is of type img', () => {
+	it('should render img', () => {
 		const wrapper = shallow(<Star on="true" />);
 		expect(wrapper.nodes[0].type).toEqual('img');
 	});

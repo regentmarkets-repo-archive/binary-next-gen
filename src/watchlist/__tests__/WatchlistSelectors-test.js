@@ -6,7 +6,7 @@ describe('watchlistSelectors', () => {
     const emptyState = () => ({
         assets: fromJS([]),
         ticks: fromJS({}),
-        watchlist: fromJS({}),
+        watchlist: fromJS([]),
     });
 
     it('should work with empty state', () => {
@@ -23,9 +23,7 @@ describe('watchlistSelectors', () => {
         const first = watchlistSelectors(state);
         const second = watchlistSelectors(state);
 
-        expect(first.assets).toBe(second.assets);
-        expect(first.ticks).toBe(second.ticks);
-        expect(first.watchlist).toBe(second.watchlist);
+        expect(first.watchlistView).toBe(second.watchlistView);
 
         expect(first).toBe(second);
     });

@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import TradePanel from './TradePanel';
+import TradePanel from '../fulltrade/TradePanel';
 
 export default class TradesGrid extends React.Component {
 
