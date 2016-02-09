@@ -2,9 +2,9 @@ import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import Balance from '../balance/BalanceContainer';
 import SidebarBtn from './SidebarBtn';
-import SidebarSelectors from './SidebarSelectors';
+import sidebarSelectors from './sidebarSelectors';
 
-@connect(SidebarSelectors)
+@connect(sidebarSelectors)
 export default class MobileSidebar extends React.Component {
 
 	static propTypes = {

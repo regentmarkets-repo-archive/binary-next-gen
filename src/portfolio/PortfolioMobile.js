@@ -1,5 +1,5 @@
 import React from 'react';
-import { MobilePage } from '../_common';
+import MobilePage from '../mobile/MobilePage';
 import PortfolioContainer from './PortfolioContainer';
 
 export default (props) => (

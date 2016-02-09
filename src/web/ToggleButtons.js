@@ -1,9 +1,9 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { workspaceSelector } from '../_store/baseSelectors';
 import shouldPureComponentUpdate from 'react-pure-render/function';
+import toggleButtonsSelector from './toggleButtonsSelector';
 
-@connect(workspaceSelector)
+@connect(toggleButtonsSelector)
 export default class ToggleButtons extends React.Component {
 
 	static propTypes = {

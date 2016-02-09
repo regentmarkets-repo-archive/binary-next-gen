@@ -1,3 +1,4 @@
+import DesktopHeader from '../web/DesktopHeader';
 import CreateAccountPage from '../create-account/CreateAccountPage';
 import UpgradePage from '../upgrade/UpgradePage';
 import WatchlistPage from '../watchlist/WatchlistPage';
@@ -17,10 +18,13 @@ import NewsContainer from '../news/NewsContainer';
 import DepositModal from '../deposit/DepositModal';
 import ChartTest from '../charting/ChartTest';
 import TradesPage from '../fulltrade/TradesPage';
+import WorkspaceContainer from '../workspace/WorkspaceContainer';
 
 import { requireAuthOnEnter } from '../_data/Auth';
 
 export default [
+    { path: 'header', component: DesktopHeader, onEnter: requireAuthOnEnter },
+    { path: 'workspace', component: WorkspaceContainer, onEnter: requireAuthOnEnter },
     { path: 'portfolio', component: PortfolioPage, onEnter: requireAuthOnEnter },
     { path: 'statement', component: StatementPage, onEnter: requireAuthOnEnter },
     { path: 'create-account', component: CreateAccountPage },
