@@ -21,8 +21,8 @@ export default class WatchlistRow extends React.Component {
 			<tr>
 				<td><Direction diff={diff} /></td>
 				<td>{assetName}</td>
-				<td>{quote}</td>
-				<td><NumberColored value={diff.toPrecision(2)} /></td>
+				<td><NumberColored value={quote} /></td>
+				<td><NumberColored value={diff} /></td>
 				<td><WatchlistSparkline history={history} /></td>
 			</tr>
 		);
