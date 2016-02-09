@@ -1,6 +1,6 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 import { assetsSelector } from '../_store/baseSelectors';
-import { assetIndexSubmarketSelector } from '../workspace/WorkspaceSelectors';
+import { assetIndexSubmarketSelector } from '../workspace/workspaceSelectors';
 import { shallowMerge } from '../_utils/ArrayUtils';
 
 export const assetIndexSelector = state => state.assetIndex;

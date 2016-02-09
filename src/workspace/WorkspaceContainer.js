@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { immutableChildrenToJS } from '../_utils/ObjectUtils';
 import WorkspaceCard from './WorkspaceCard';
-import workspaceSelectors from './WorkspaceSelectors';
+import workspaceSelectors from './workspaceSelectors';
 
 @connect(workspaceSelectors)
 export default class WorkspaceContainer extends React.Component {

@@ -1,6 +1,6 @@
 import { createStructuredSelector } from 'reselect';
 import { assetsSelector, tradingTimesSelector } from '../_store/baseSelectors';
-import { tradingTimesFilterSelector } from '../workspace/WorkspaceSelectors';
+import { tradingTimesFilterSelector } from '../workspace/workspaceSelectors';
 
 export default createStructuredSelector({
     assets: assetsSelector,
