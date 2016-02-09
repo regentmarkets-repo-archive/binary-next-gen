@@ -1,5 +1,6 @@
 import React from 'react';
-import { MobileSidebar, MobileToolbarBtn } from './';
+import MobileSidebar from '../sidebar/MobileSidebar';
+import MobileToolbarBtn from './MobileToolbarBtn';
 
 export default () => (
 	<div className="mobile-toolbar">

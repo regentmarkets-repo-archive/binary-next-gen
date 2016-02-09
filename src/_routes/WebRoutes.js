@@ -1,7 +1,7 @@
-import WorkspaceContainer from '../workspace/WorkspaceContainer';
+import WebCard from '../web/WebCard';
 
 import { requireAuthOnEnter } from '../_data/Auth';
 
 export default [
-    { path: 'workspace', component: WorkspaceContainer, onEnter: requireAuthOnEnter },
+    { path: 'web', component: WebCard, onEnter: requireAuthOnEnter },
 ];

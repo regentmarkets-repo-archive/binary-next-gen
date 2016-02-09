@@ -2,7 +2,8 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import config from '../config';
 import { Clock, LanguagePicker, M } from '../_common';
-import { MobileSidebar, ToggleButtons } from './';
+import MobileSidebar from '../sidebar/MobileSidebar';
+import ToggleButtons from './ToggleButtons';
 import Balance from '../balance/BalanceContainer';
 
 export default class DesktopHeader extends React.Component {

@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { MobileToolbarFull, MobileToolbarBack } from '../navigation';
+import MobileToolbarFull from '../mobile/MobileToolbarFull';
+import MobileToolbarBack from '../mobile/MobileToolbarBack';
 
 @connect(state => ({ isAuthorized: state.appState.get('authorized') }))
 export default class MobilePage extends React.Component {
