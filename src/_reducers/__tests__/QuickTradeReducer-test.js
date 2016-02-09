@@ -1,17 +1,17 @@
 import expect from 'expect';
-import QuickTrade from '../QuickTradeReducer';
+import quickTradeReducer from '../QuickTradeReducer';
 import { UPDATE_QUICK_TRADE_PARAMS, SET_QUICK_TRADE_FIELD } from '../../_constants/ActionTypes';
 import { fromJS } from 'immutable';
 
-describe('QuickTradeReducer',()=>{
-    it('should update quick trade parameters',()=>{
+describe('QuickTradeReducer', () => {
+    it('should update quick trade parameters', () => {
         const action = {
             type: UPDATE_QUICK_TRADE_PARAMS,
             symbol: 'FX',
             tradeType: 'FOREX',
             params: {
                 PR: 'value',
-                FT: 3
+                FT: 3,
             },
         };
         const beforeState = fromJS({});
@@ -25,11 +25,13 @@ describe('QuickTradeReducer',()=>{
                 },
             },
         });
-        const actualState = QuickTrade(beforeState,action);
+
+        const actualState = quickTradeReducer(beforeState, action);
+
         expect(actualState).toEqual(expectedState);
     });
 
-    it('should be able to set quickTrade field and value',()=>{
+    it('should be able to set quickTrade field and value', () => {
         const action = {
             type: SET_QUICK_TRADE_FIELD,
             symbol: 'FX',
@@ -41,11 +43,13 @@ describe('QuickTradeReducer',()=>{
         const expectedState = fromJS({
             FX: {
                 FOREX: {
-                    amount: 0
-                }
-            }
+                    amount: 0,
+                },
+            },
         });
-        const actualState = QuickTrade(beforeState,action);
+
+        const actualState = quickTradeReducer(beforeState, action);
+
         expect(actualState.toJS()).toEqual(expectedState.toJS());
-    })
-})
+    });
+});
