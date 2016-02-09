@@ -15,13 +15,8 @@ export default class AppStateProvider extends Component {
 
     render() {
         const { connected, children } = this.props;
-        let result;
-        if (connected) {
-            result = children;
-        } else {
-            result = <LoadingView text="Taking too long to load, check connection" />;
-        }
+        const loadingView = <LoadingView text="Taking too long to load, check connection" />;
 
-        return Children.only(result);
+        return Children.only(connected ? children : loadingView);
     }
 }

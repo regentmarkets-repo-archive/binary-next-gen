@@ -23,17 +23,16 @@ export default class SettingsCard extends React.Component {
 	render() {
 		const { loginid } = this.props;
 		const isVirtual = loginid.startsWith('VRTC');
-		const tabs = isVirtual ?
-			[
-				{ text: 'General', component: <SettingsGeneral {...this.props}/> },
-				{ text: 'Personal', component: <SettingsPersonalDetails {...this.props}/> },
-			] : [
-				{ text: 'General', component: <SettingsGeneral {...this.props}/> },
-				{ text: 'Personal', component: <SettingsPersonalDetails {...this.props}/> },
-				{ text: 'Security', component: <SettingsSecurity {...this.props}/> },
-				{ text: 'Self Exclusion', component: <SettingsSelfExclusion {...this.props}/> },
-				{ text: 'Limits', component: <SettingsLimits {...this.props}/> },
-			];
+		const virtualTabs = [
+			{ text: 'General', component: <SettingsGeneral {...this.props}/> },
+			{ text: 'Personal', component: <SettingsPersonalDetails {...this.props}/> },
+		];
+		const realTabs = [
+			{ text: 'Security', component: <SettingsSecurity {...this.props}/> },
+			{ text: 'Self Exclusion', component: <SettingsSelfExclusion {...this.props}/> },
+			{ text: 'Limits', component: <SettingsLimits {...this.props}/> },
+		];
+		const tabs = isVirtual ? virtualTabs : virtualTabs.concat(realTabs);
 
 		return (
 			<Tabs

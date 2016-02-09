@@ -17,7 +17,7 @@ export default class SettingsPersonalDetails extends React.Component {
 		return (
 			<div>
 				<SettingsDetails settings={settings} />
-				{isVirtual ? null : <SettingsAddress settings={settings} actions={actions}/>}
+				{isVirtual ? null : <SettingsAddress settings={settings} actions={actions} />}
 			</div>
 		);
 	}
