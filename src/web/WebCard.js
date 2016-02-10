@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import DesktopHeader from './DesktopHeader';
+import WebHeader from './WebHeader';
 import WorkspaceContainer from '../workspace/WorkspaceContainer';
 
 export default class WewbCard extends React.Component {
@@ -13,7 +13,7 @@ export default class WewbCard extends React.Component {
 
 		return (
 			<div id="screen">
-				<DesktopHeader actions={actions} />
+				<WebHeader actions={actions} />
 				<WorkspaceContainer actions={actions} />
 			</div>
 		);

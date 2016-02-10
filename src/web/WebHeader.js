@@ -2,11 +2,11 @@ import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import config from '../config';
 import { Clock, LanguagePicker, M } from '../_common';
-import MobileSidebar from '../sidebar/MobileSidebar';
+import WebSidebar from '../sidebar/WebSidebar';
 import ToggleButtons from './ToggleButtons';
 import Balance from '../balance/BalanceContainer';
 
-export default class DesktopHeader extends React.Component {
+export default class WebHeader extends React.Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
@@ -20,7 +20,7 @@ export default class DesktopHeader extends React.Component {
 				<input id="hamburger-opener" className="hamburger" type="radio" name="hamburger" />
 				<label id="hamburger-btn" htmlFor="hamburger-opener" className="toolbar-btn">
 					<img src="img/menu.svg" />
-					<MobileSidebar />
+					<WebSidebar />
 				</label>
 				<div id="logo">
 					<img src={config.logo} />

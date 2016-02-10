@@ -1,9 +1,9 @@
 import React from 'react';
-import { DesktopPage } from '../_common';
+import { WebPage } from '../_common';
 import AssetIndexContainer from './AssetIndexContainer';
 
 export default (props) => (
-	<DesktopPage>
+	<WebPage>
 		<AssetIndexContainer {...props} />
-	</DesktopPage>
+	</WebPage>
 );

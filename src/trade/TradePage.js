@@ -1,9 +1,9 @@
 import React from 'react';
-import { DesktopPage } from '../_common';
+import { WebPage } from '../_common';
 import TradeCard from './TradeCard';
 
 export default (props) => (
-	<DesktopPage>
+	<WebPage>
 		<TradeCard {...props} />
-	</DesktopPage>
+	</WebPage>
 );

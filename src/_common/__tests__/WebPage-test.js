@@ -1,7 +1,7 @@
 import React from 'react';
 import expect from 'expect';
 import { shallow } from 'enzyme';
-import DesktopPage from '../DesktopPage';
+import WebPage from '../WebPage';
 import configureStore from 'redux-mock-store';
 import { fromJS } from 'immutable';
 
@@ -10,12 +10,12 @@ const mockStore = configureStore(middlewares);
 const getState = { appState: fromJS({ isAuthorized: true }) };
 const store = mockStore(getState, []);
 
-describe('DesktopPage', () => {
-    it('should render DesktopPage component', () => {
+describe('WebPage', () => {
+    it('should render WebPage component', () => {
         const wrapper = shallow(
-            <DesktopPage store={store} isAuthorized="true">
+            <WebPage store={store} isAuthorized="true">
                 <span>Hello</span>
-            </DesktopPage>
+            </WebPage>
         );
         expect(wrapper.children().text()).toContain('Hello');
     });

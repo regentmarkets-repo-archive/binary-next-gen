@@ -1,9 +1,9 @@
 import React from 'react';
-import { DesktopPage } from '../_common';
+import { WebPage } from '../_common';
 import WatchlistContainer from './WatchlistContainer';
 
 export default (props) => (
-	<DesktopPage>
+	<WebPage>
 		<WatchlistContainer {...props} />
-	</DesktopPage>
+	</WebPage>
 );

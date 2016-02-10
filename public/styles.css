@@ -6,7 +6,7 @@ body {
     font-size: 12px;
 }
 
-/* Desktop Layout */
+/* Web Layout */
 
 #root, #screen {
     width: 100%;
@@ -336,7 +336,7 @@ fieldset {
     max-width: 360px;
 }
 
-.desktop-page {
+.web-page {
     width: 100%;
     height: 100%;
 }
@@ -383,7 +383,7 @@ fieldset {
     transition: .3s;
 }
 
-#desktop-sidebar {
+#web-sidebar {
     position: fixed;
     z-index: 9999;
     left: 0;
@@ -408,7 +408,7 @@ fieldset {
     visibility: visible;
 }
 
-#desktop-sidebar .toolbar-btn {
+#web-sidebar .toolbar-btn {
     height: 4rem;
 }
 

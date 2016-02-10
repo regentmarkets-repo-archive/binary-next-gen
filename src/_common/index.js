@@ -4,7 +4,7 @@ export CollapsibleFormSnippet from './CollapsibleFormSnippet';
 export Countries from './Countries';
 export CurrencyPicker from './CurrencyPicker';
 export DateOfBirth from './DateOfBirth';
-export DesktopPage from './DesktopPage';
+export WebPage from './WebPage';
 export Direction from './Direction';
 export DirectionAndValue from './DirectionAndValue';
 export DurationPicker from './DurationPicker';

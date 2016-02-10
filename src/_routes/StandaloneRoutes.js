@@ -1,4 +1,4 @@
-import DesktopHeader from '../web/DesktopHeader';
+import WebHeader from '../web/WebHeader';
 import CreateAccountPage from '../create-account/CreateAccountPage';
 import UpgradePage from '../upgrade/UpgradePage';
 import WatchlistPage from '../watchlist/WatchlistPage';
@@ -23,7 +23,7 @@ import WorkspaceContainer from '../workspace/WorkspaceContainer';
 import { requireAuthOnEnter } from '../_data/Auth';
 
 export default [
-    { path: 'header', component: DesktopHeader, onEnter: requireAuthOnEnter },
+    { path: 'header', component: WebHeader, onEnter: requireAuthOnEnter },
     { path: 'workspace', component: WorkspaceContainer, onEnter: requireAuthOnEnter },
     { path: 'portfolio', component: PortfolioPage, onEnter: requireAuthOnEnter },
     { path: 'statement', component: StatementPage, onEnter: requireAuthOnEnter },

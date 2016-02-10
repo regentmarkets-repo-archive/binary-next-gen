@@ -1,9 +1,9 @@
 import React from 'react';
-import { DesktopPage } from '../_common';
+import { WebPage } from '../_common';
 import TradesContainer from './TradesContainer';
 
 export default props => (
-	<DesktopPage>
+	<WebPage>
 		<TradesContainer tradeMode="grid" {...props} />
-	</DesktopPage>
+	</WebPage>
 );

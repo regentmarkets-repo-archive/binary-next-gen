@@ -1,9 +1,9 @@
 import React from 'react';
-import { DesktopPage } from '../_common';
+import { WebPage } from '../_common';
 import TradingTimesContainer from './TradingTimesContainer';
 
 export default (props) => (
-	<DesktopPage>
+	<WebPage>
 		<TradingTimesContainer {...props} />
-	</DesktopPage>
+	</WebPage>
 );

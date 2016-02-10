@@ -1,9 +1,9 @@
 import React from 'react';
-import { DesktopPage } from '../_common';
+import { WebPage } from '../_common';
 import SettingsContainer from './SettingsContainer';
 
 export default (props) => (
-	<DesktopPage>
+	<WebPage>
 		<SettingsContainer {...props} />
-	</DesktopPage>
+	</WebPage>
 );
