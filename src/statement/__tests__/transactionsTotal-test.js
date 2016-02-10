@@ -16,7 +16,7 @@ describe('transactionsTotal', () => {
             transactions: fromJS([
                 { amount: 10 },
             ]),
-            workspace: fromJS({ transactionsFilter: 0 }),
+            workspace: fromJS({ transactionsFilter: 5 }),
         });
         expect(actual).toEqual(10);
     });
@@ -28,7 +28,7 @@ describe('transactionsTotal', () => {
                 { amount: 2 },
                 { amount: 3 },
             ]),
-            workspace: fromJS({ transactionsFilter: 0 }),
+            workspace: fromJS({ transactionsFilter: 5 }),
         });
         expect(actual).toEqual(6);
     });

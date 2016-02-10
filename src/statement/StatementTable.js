@@ -37,11 +37,11 @@ export default class StatementTable extends React.Component {
 					</tr>
 				</thead>
 				<tbody>
-					{transactions.map((t, i) =>
+					{transactions.map((transaction, i) =>
 						<StatementRow
 							key={i}
 							compact={compact}
-							transaction={t}
+							{...transaction}
 						/>
 					)}
 				</tbody>

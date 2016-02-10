@@ -5,12 +5,19 @@ export default class Tab extends React.Component {
     static propTypes = {
         imgSrc: PropTypes.string,
         selected: PropTypes.bool,
+        showIcon: PropTypes.bool,
+        showText: PropTypes.bool,
         text: PropTypes.string,
         onMouseDown: PropTypes.func.isRequired,
     };
 
+    static defaultProps = {
+        showText: true,
+        showIcon: true,
+    };
+
     render() {
-        const { imgSrc, selected, text, onMouseDown } = this.props;
+        const { imgSrc, selected, showIcon, showText, text, onMouseDown } = this.props;
 
         return (
             <div
@@ -18,8 +25,8 @@ export default class Tab extends React.Component {
                 aria-selected={selected}
                 onMouseDown={onMouseDown}
             >
-                {imgSrc && <img src={imgSrc} />}
-                {text && <span>{text}</span>}
+                {showIcon && imgSrc && <img src={imgSrc} />}
+                {showText && text && <span>{text}</span>}
             </div>
         );
     }

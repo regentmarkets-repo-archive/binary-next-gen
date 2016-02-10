@@ -7,21 +7,20 @@ import {
 } from '../_utils/DateUtils';
 
 export const transactionsTodayFilterFunc = tx =>
-    todayUTCString() === epochToUTCDateString(tx.transaction_time);
+    todayUTCString() === epochToUTCDateString(tx.get('transaction_time'));
 
 export const transactionsYesterdayFilterFunc = tx =>
-       yesterdayUTCString() === epochToUTCDateString(tx.transaction_time);
+    yesterdayUTCString() === epochToUTCDateString(tx.get('transaction_time'));
 
 export const transactionsLast7DaysFilterFunc = tx =>
-    tx.transaction_time > last7DaysEpoch();
+    tx.get('transaction_time') > last7DaysEpoch();
 
 export const transactionsLast30DaysFilterFunc = tx =>
-    tx.transaction_time > getLastXMonthEpoch(1);
+    tx.get('transaction_time') > getLastXMonthEpoch(1);
 
 export const transactionsNoFilterFunc = () => true;
 
 export default [
-    transactionsNoFilterFunc,
     transactionsTodayFilterFunc,
     transactionsYesterdayFilterFunc,
     transactionsLast7DaysFilterFunc,

@@ -42,6 +42,8 @@ export default class TabList extends React.Component {
                 {React.Children.map(this.props.children, (child, idx) =>
                     React.cloneElement(child, {
                         selected: activeIndex === idx,
+                        showIcon: showIcons,
+                        showText,
                         onMouseDown: () => this.tabSelected(idx),
                     })
                 )}
