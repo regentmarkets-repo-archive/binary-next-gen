@@ -9,7 +9,7 @@ import {
     timeStringIsBetween,
 } from '../_utils/DateUtils';
 import { assetsSelector, tradingTimesSelector } from '../_store/directSelectors';
-import marketTreeSelector from '../_selectors/marketTreeSelector';
+import { marketTreeSelector } from '../_selectors/marketTreeSelector';
 
 const normalizedContractFor = contracts => {
     const extraRemoved = contracts.map(contract => ({

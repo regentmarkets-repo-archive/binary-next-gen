@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 import Balance from '../balance/BalanceContainer';
 import SidebarBtn from './SidebarBtn';
 import sidebarSelectors from './sidebarSelectors';
@@ -7,12 +8,14 @@ import sidebarSelectors from './sidebarSelectors';
 @connect(sidebarSelectors)
 export default class MobileSidebar extends React.Component {
 
+	shouldComponentUpdate = shouldPureComponentUpdate;
+
 	static propTypes = {
 		account: PropTypes.object.isRequired,
 	};
 
 	render() {
-		const { account } = this.props;
+		const account = this.props.account.toJS();
 
 		return (
 			<nav className="sidebar">
