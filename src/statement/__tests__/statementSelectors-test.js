@@ -23,7 +23,7 @@ describe('statementSelectors', () => {
         const second = statementSelectors(state);
 
         expect(first.currency).toBe(second.currency);
-        expect(first.transactionsToday).toBe(second.transactionsToday);
+        expect(first.transactions).toBe(second.transactions);
         expect(first.tradingTimesFilter).toBe(second.tradingTimesFilter);
 
         expect(first).toBe(second);

@@ -1,5 +1,5 @@
 import expect from 'expect';
-import { transactionsTotalSelector } from '../TransactionsSelectors';
+import { transactionsTotalSelector } from '../statementSelectors';
 
 describe('transactionsTotal', () => {
     it('should equal 0 when no contracts', () => {

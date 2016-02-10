@@ -2,7 +2,6 @@ import React, { PropTypes } from 'react';
 import { M, NumberColored, NumberPlain } from '../_common';
 import { FormattedDate } from 'react-intl';
 import StatementRow from './StatementRow';
-import { epochToDate } from '../_utils/DateUtils';
 
 export default class StatementTable extends React.Component {
 
@@ -49,12 +48,12 @@ export default class StatementTable extends React.Component {
 				<tfoot>
 					<tr>
 						<th>
-							<FormattedDate value={epochToDate(transactions[0].transaction_time)} />
+							<FormattedDate value={transactions[0].date} />
 						</th>
 						<th></th>
 						{!compact && <th></th>}
 						<th><NumberColored value={transactionsTotal} /></th>
-						<th><NumberPlain value={transactions[0].balance_after} /></th>
+						<th><NumberPlain value={transactions[0].balanceAfter} /></th>
 					</tr>
 				</tfoot>
 			</table>

@@ -33,6 +33,7 @@ const initialState = new Map({
     assetIndex: new Map({
         submarketId: 'europe_africa',
     }),
+    transactionsFilter: 0,
 });
 
 export default (state = initialState, action) => {

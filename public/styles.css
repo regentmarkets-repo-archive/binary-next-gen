@@ -680,7 +680,7 @@ select {
 
 
 
-div[role=tabs], div[role=tablist] {
+div[role=tablist] {
     display: flex;
     background: rgba(42, 48, 82, .75);
     color: white;
@@ -691,9 +691,8 @@ div[role=tablist].vertical {
     align-content: flex-start;
 }
 
-div[role=tab].active {
+div[role=tab][aria-selected=true] {
     background: #2a3052;
-    /*box-shadow: inset 0 -3px 0 0 #e98024;*/
 }
 
 div[role=tab] {
