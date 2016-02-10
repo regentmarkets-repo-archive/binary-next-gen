@@ -6,8 +6,7 @@ import {
     getLastXMonthEpoch,
     last7DaysEpoch,
 } from '../_utils/DateUtils';
-
-export const transactionsSelector = state => state.transactions;
+import { transactionsSelector } from '../_store/directSelectors';
 
 export const transactionsTodaySelector = createSelector(
     transactionsSelector,

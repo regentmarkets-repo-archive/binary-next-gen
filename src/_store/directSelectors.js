@@ -6,5 +6,6 @@ export const paymentAgentSelector = state => state.paymentAgent;
 export const settingsSelector = state => state.settings;
 export const ticksSelector = state => state.ticks;
 export const tradingTimesSelector = state => state.tradingTimes;
+export const transactionsSelector = state => state.transactions;
 export const watchlistSelector = state => state.watchlist;
 export const workspaceSelector = state => state.workspace;
