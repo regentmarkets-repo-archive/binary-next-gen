@@ -1,9 +1,9 @@
-import { createSelector } from 'reselect';
+import { createSelector, createStructuredSelector } from 'reselect';
 import { fromJS } from 'immutable';
 import { assetsSelector } from '../_store/directSelectors';
 
 // return a tree structure, hierarchy as [market -> submarket -> symbol]
-export default createSelector(
+export const marketTreeSelector = createSelector(
     assetsSelector,
     assets =>
         assets.reduce((tree, sym) => {
@@ -35,3 +35,7 @@ export default createSelector(
             return result;
         }, fromJS({}))
 );
+
+export default createStructuredSelector({
+    marketTree: marketTreeSelector,
+});

@@ -17,6 +17,7 @@ export LoadingView from './LoadingView';
 export LogoSpinner from './LogoSpinner';
 export M from './M';
 export MarketPicker from './MarketPicker';
+export MarketPickerContainer from './MarketPickerContainer';
 export Modal from './Modal';
 export NumberPlain from './NumberPlain';
 export NumberColored from './NumberColored';

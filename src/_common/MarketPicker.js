@@ -1,13 +1,7 @@
 import React, { PropTypes } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
-import { connect } from 'react-redux';
 import { FormattedMessage } from 'react-intl';
-import marketTreeSelector from '../_selectors/marketTreeSelector';
 
-@connect(state => ({ marketTree: marketTreeSelector(state) }))
 export default class MarketPicker extends React.Component {
-
-	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
 		marketTree: PropTypes.object.isRequired,

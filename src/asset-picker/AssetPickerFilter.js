@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { MarketPicker, InputGroup } from '../_common';
+import { MarketPickerContainer, InputGroup } from '../_common';
 
 export default class AssetPickerFilter extends React.Component {
 
@@ -17,7 +17,7 @@ export default class AssetPickerFilter extends React.Component {
 
 		return (
 			<fieldset>
-				<MarketPicker
+				<MarketPickerContainer
 					onChange={onSubmarketChange}
 					allOptionShown
 					showMarkets={showOnlyTickTradable ? ['Forex', 'Randoms'] : null}
