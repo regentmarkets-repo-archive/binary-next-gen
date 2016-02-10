@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import StatementTable from './StatementTable';
 import { M, Tabs } from '../_common';
+import TabList from '../_common/TabList';
 import * as LiveData from '../_data/LiveData';
 import { todayEpoch, yesterdayEpoch, last7DaysEpoch, last30DaysEpoch } from '../_utils/DateUtils';
 
@@ -43,6 +44,11 @@ export default class StatementCard extends React.Component {
 
 		return (
 			<div>
+				<TabList
+					tabs={this.filters}
+					activeIndex={activeIdx}
+					onChange={::this.onFilterChange}
+				/>
 				<Tabs
 					id="statement-filter"
 					tabs={this.filters}

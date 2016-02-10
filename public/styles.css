@@ -677,3 +677,40 @@ select {
 .row-id {
     font-weight: bold;
 }
+
+
+
+div[role=tabs], div[role=tablist] {
+    display: flex;
+    background: rgba(42, 48, 82, .75);
+    color: white;
+}
+
+div[role=tablist].vertical {
+    flex-direction: column;
+    align-content: flex-start;
+}
+
+div[role=tab].active {
+    background: #2a3052;
+    /*box-shadow: inset 0 -3px 0 0 #e98024;*/
+}
+
+div[role=tab] {
+    flex: 1;
+    cursor: pointer;
+    line-height: 2;
+    display: block;
+    text-align: center;
+}
+
+div[role=tab] img {
+    margin-right: .5rem;
+    width: 1.5rem;
+    background-color: white;
+    box-shadow: 0 0 0 1px white;
+}
+
+div[role=tabpanel] {
+    background: red;
+}
