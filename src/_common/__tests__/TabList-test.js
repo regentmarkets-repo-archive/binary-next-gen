@@ -25,12 +25,12 @@ describe('<TabList />', () => {
         expect(wrapper.find('span').length).toBe(3);
     });
 
-    it('should pass activeIndex to children', () => {
+    it('should set at least one child to selected', () => {
         const wrapper = shallow(
             <TabList>
                 <span />
             </TabList>
         );
-        expect(wrapper.contains(<span selected />)).toBe(true);
+        expect(wrapper.find('span[selected]').length).toBe(1);
     });
 });

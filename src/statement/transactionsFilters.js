@@ -17,3 +17,14 @@ export const transactionsLast7DaysFilterFunc = tx =>
 
 export const transactionsLast30DaysFilterFunc = tx =>
     tx.transaction_time > getLastXMonthEpoch(1);
+
+export const transactionsNoFilterFunc = () => true;
+
+export default [
+    transactionsNoFilterFunc,
+    transactionsTodayFilterFunc,
+    transactionsYesterdayFilterFunc,
+    transactionsLast7DaysFilterFunc,
+    transactionsLast30DaysFilterFunc,
+    transactionsNoFilterFunc,
+];

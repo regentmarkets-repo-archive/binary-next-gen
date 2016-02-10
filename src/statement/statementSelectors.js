@@ -6,19 +6,7 @@ import {
     transactionsSelector,
     transactionsFilterSelector,
 } from '../_store/directSelectors';
-import {
-    transactionsTodayFilterFunc,
-    transactionsYesterdayFilterFunc,
-    transactionsLast7DaysFilterFunc,
-    transactionsLast30DaysFilterFunc,
-} from './transactionsFilters';
-
-const filters = [
-    transactionsTodayFilterFunc,
-    transactionsYesterdayFilterFunc,
-    transactionsLast7DaysFilterFunc,
-    transactionsLast30DaysFilterFunc,
-];
+import transactionFilterFuncs from './transactionsFilters';
 
 const StatementRecord = new Record({
     ref: 0,
@@ -31,13 +19,13 @@ const StatementRecord = new Record({
 export const filteredTransactionsSelector = createSelector(
     [transactionsSelector, transactionsFilterSelector],
     (transactions, filterIdx) =>
-        transactions.filter(filters[filterIdx])
+        transactions.filter(transactionFilterFuncs[filterIdx])
             .map(t => new StatementRecord({
-                ref: t.transaction_id,
-                date: epochToDate(t.transaction_time),
-                actionType: t.action_type,
-                amount: t.amount,
-                balanceAfter: t.balance_after,
+                ref: t.get('transaction_id'),
+                date: epochToDate(t.get('transaction_time')),
+                actionType: t.get('action_type'),
+                amount: +t.get('amount'),
+                balanceAfter: t.get('balance_after'),
             })),
 );
 
@@ -45,8 +33,7 @@ export const transactionsTotalSelector = createSelector(
     filteredTransactionsSelector,
     filteredTransactions =>
         filteredTransactions
-            .map(t => +t.amount)
-            .reduce((x, y) => x + y, 0)
+            .reduce((acc, v) => acc + v.amount, 0)
 );
 
 export default createStructuredSelector({

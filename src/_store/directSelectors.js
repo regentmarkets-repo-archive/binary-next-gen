@@ -10,5 +10,8 @@ export const transactionsSelector = state => state.transactions;
 export const watchlistSelector = state => state.watchlist;
 export const workspaceSelector = state => state.workspace;
 
-export const currencySelector = state => state.account.get('currency');
-export const transactionsFilterSelector = state => state.workspace.get('transactionsFilter');
+export const currencySelector = state =>
+    state.account.get('currency');
+
+export const transactionsFilterSelector = state =>
+    state.workspace.get('transactionsFilter');
