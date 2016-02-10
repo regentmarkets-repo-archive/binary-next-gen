@@ -1,13 +1,13 @@
 import { fromJS } from 'immutable';
 import expect from 'expect';
-import Transactions from '../TransactionsReducer';
+import ransactionsReducer from '../TransactionsReducer';
 import {
     SERVER_DATA_STATEMENT,
     REMOVE_PERSONAL_DATA,
 } from '../../_constants/ActionTypes';
 
-describe('TransactionsReducer',()=>{
-    it('should be able to update statement data',()=>{
+describe('TransactionsReducer', () => {
+    it('should be able to update statement data', () => {
         const action = {
             type: SERVER_DATA_STATEMENT,
             serverResponse: {
@@ -19,21 +19,21 @@ describe('TransactionsReducer',()=>{
             },
         };
         const beforeState = fromJS({});
-        const actualState = Transactions(beforeState,action);
-        const expectedState = fromJS({deposit: 100});
+        const actualState = ransactionsReducer(beforeState, action);
+        const expectedState = fromJS({ deposit: 100 });
         expect(actualState).toEqual(expectedState);
     });
 
-    it('should be able to clear transactional data',()=>{
+    it('should be able to clear transactional data', () => {
         const action = {
             type: REMOVE_PERSONAL_DATA,
         };
         const beforeState = fromJS([]);
-        const actualState = Transactions(beforeState,action);
+        const actualState = ransactionsReducer(beforeState, action);
         expect(actualState).toEqual(beforeState);
     });
 
-    it('should return transaction unchaned when action type is not provided',()=>{
+    it('should return transaction unchaned when action type is not provided', () => {
         const action = {
             serverResponse: {
                 statement: {
@@ -42,9 +42,9 @@ describe('TransactionsReducer',()=>{
                     },
                 },
             },
-        } ;
+        };
         const beforeState = fromJS({});
-        const actualState = Transactions(beforeState,action);
+        const actualState = ransactionsReducer(beforeState, action);
         expect(actualState).toEqual(beforeState);
     });
 });

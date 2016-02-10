@@ -1,6 +1,6 @@
 import { fromJS } from 'immutable';
 import expect from 'expect';
-import Settings from '../SettingsReducer'
+import settingsReducer from '../SettingsReducer';
 import {
     CHANGE_SETTINGS_ACTIVE_TAB,
     SERVER_DATA_ACCOUNT_LIMITS,
@@ -10,19 +10,19 @@ import {
     REMOVE_PERSONAL_DATA,
 } from '../../_constants/ActionTypes';
 
-describe('SettingsReducer',()=>{
-    it('should be able to set or select active tab by index',()=>{
+describe('SettingsReducer', () => {
+    it('should be able to set or select active tab by index', () => {
         const action = {
             type: CHANGE_SETTINGS_ACTIVE_TAB,
             activeTabIndex: 2,
         };
-        const stateBeefore = fromJS({activeTab: 0});
-        const expectedState = fromJS({activeTab: 2});
-        const actualState = Settings(stateBeefore,action);
+        const stateBefore = fromJS({ activeTab: 0 });
+        const expectedState = fromJS({ activeTab: 2 });
+        const actualState = settingsReducer(stateBefore, action);
         expect(actualState).toEqual(expectedState);
     });
 
-    it('should be able to update account limits',()=>{
+    it('should be able to update account limits', () => {
         const action = {
             type: SERVER_DATA_ACCOUNT_LIMITS,
             serverResponse: {
@@ -32,12 +32,12 @@ describe('SettingsReducer',()=>{
             },
         };
         const beforeState = fromJS({});
-        const expectedState = fromJS({withdrawal: 100});
-        const actualState = Settings(beforeState,action);
+        const expectedState = fromJS({ withdrawal: 100 });
+        const actualState = settingsReducer(beforeState, action);
         expect(actualState).toEqual(expectedState);
     });
 
-    it('should be able to update self_exclusions',()=>{
+    it('should be able to update self_exclusions', () => {
         const action = {
             type: SERVER_DATA_ACCOUNT_SELF_EXCLUSION,
             serverResponse: {
@@ -47,56 +47,56 @@ describe('SettingsReducer',()=>{
             },
         };
         const beforeState = fromJS({});
-        const expectedState = fromJS({turnover_limit: 100});
-        const actualState = Settings(beforeState,action);
+        const expectedState = fromJS({ turnover_limit: 100 });
+        const actualState = settingsReducer(beforeState, action);
         expect(actualState).toEqual(expectedState);
     });
 
-    it('should be able to update account settings',()=>{
+    it('should be able to update account settings', () => {
         const action = {
             type: SERVER_DATA_ACCOUNT_SETTINGS,
             serverResponse: {
                 get_settings: {
-                    Name: 'My Name',
+                    name: 'My Name',
                 },
             },
         };
         const beforeState = fromJS({});
-        const expectedState = fromJS({Name: 'My Name'});
-        const actualState = Settings(beforeState,action);
+        const expectedState = fromJS({ name: 'My Name' });
+        const actualState = settingsReducer(beforeState, action);
         expect(actualState).toEqual(expectedState);
     });
 
-    it('shoulbd be able to update account setting field',()=>{
+    it('shoulbd be able to update account setting field', () => {
         const action = {
             type: UPDATE_SETTINGS_FIELD,
             settings:
             {
-                Field: 'Name',
+                field: 'Name',
                 value: 'My Name',
             },
         };
         const beforeState = fromJS({});
-        const expectedState = fromJS({Field: 'Name', value: 'My Name'});
-        const actualState = Settings(beforeState,action);
+        const expectedState = fromJS({ field: 'Name', value: 'My Name' });
+        const actualState = settingsReducer(beforeState, action);
         expect(actualState.toJS()).toEqual(expectedState.toJS());
     });
 
-    it('should be able to clear settings',()=>{
+    it('should be able to clear settings', () => {
         const action = {
             type: REMOVE_PERSONAL_DATA,
         };
-        const beforeState = fromJS({activeTab: 0,});
-        const actualState = Settings(beforeState,action);
+        const beforeState = fromJS({ activeTab: 0 });
+        const actualState = settingsReducer(beforeState, action);
         expect(actualState).toEqual(beforeState);
     });
 
-    it('should return settings unchanged when no action type is provided',()=>{
+    it('should return settings unchanged when no action type is provided', () => {
         const action = {
-            type: ''
+            type: '',
         };
-        const beforeState = fromJS({ Name: 'My Name'});
-        const actualState = Settings(beforeState,action);
+        const beforeState = fromJS({ name: 'My Name' });
+        const actualState = settingsReducer(beforeState, action);
         expect(actualState).toEqual(beforeState);
     });
 });
