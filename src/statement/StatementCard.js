@@ -10,22 +10,23 @@ export default class StatementCard extends React.Component {
 		actions: PropTypes.object.isRequired,
 		currency: PropTypes.string.isRequired,
 		compact: PropTypes.bool,
-		transactionFilter: PropTypes.number.isRequired,
+		transactionsFilter: PropTypes.number.isRequired,
 		transactions: PropTypes.array.isRequired,
+		transactionsTotal: PropTypes.number.isRequired,
 	};
 
 	onFilterChange(idx) {
 		const { actions } = this.props;
-		actions.updateWorkspaceField('transactionFilter', idx);
+		actions.updateWorkspaceField('transactionsFilter', idx);
 	}
 
 	render() {
-		const { compact, currency, transactionFilter, transactions } = this.props;
+		const { compact, currency, transactionsFilter, transactions, transactionsTotal } = this.props;
 
 		return (
 			<div>
 				<TabList
-					activeIndex={transactionFilter}
+					activeIndex={transactionsFilter}
 					onChange={::this.onFilterChange}
 				>
 					<Tab text="Today" />
@@ -37,9 +38,12 @@ export default class StatementCard extends React.Component {
 					<StatementTable
 						compact={compact}
 						transactions={transactions}
+						transactionsTotal={transactionsTotal}
 						currency={currency}
 					/> :
-					<M m="There are no transactions for selected period" />
+					<div className="centerer">
+						<M m="There are no transactions for selected period" />
+					</div>
 				}
 			</div>
 		);

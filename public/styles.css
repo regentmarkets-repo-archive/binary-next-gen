@@ -713,3 +713,9 @@ div[role=tab] img {
 div[role=tabpanel] {
     background: red;
 }
+
+.centerer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}

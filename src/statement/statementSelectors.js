@@ -6,10 +6,10 @@ import {
     transactionsSelector,
     transactionsFilterSelector,
 } from '../_store/directSelectors';
-import transactionFilterFuncs from './transactionsFilters';
+import transactionsFilterFuncs from './transactionsFilters';
 
 const StatementRecord = new Record({
-    ref: 0,
+    refId: '',
     date: 0,
     actionType: '',
     amount: 0,
@@ -19,13 +19,14 @@ const StatementRecord = new Record({
 export const filteredTransactionsSelector = createSelector(
     [transactionsSelector, transactionsFilterSelector],
     (transactions, filterIdx) =>
-        transactions.filter(transactionFilterFuncs[filterIdx])
+        transactions
+            .filter(transactionsFilterFuncs[filterIdx])
             .map(t => new StatementRecord({
-                ref: t.get('transaction_id'),
+                refId: t.get('transaction_id'),
                 date: epochToDate(t.get('transaction_time')),
                 actionType: t.get('action_type'),
                 amount: +t.get('amount'),
-                balanceAfter: t.get('balance_after'),
+                balanceAfter: +t.get('balance_after'),
             })),
 );
 
@@ -33,11 +34,12 @@ export const transactionsTotalSelector = createSelector(
     filteredTransactionsSelector,
     filteredTransactions =>
         filteredTransactions
-            .reduce((acc, v) => acc + v.amount, 0)
+            .reduce((acc, v) => acc + v.get('amount'), 0)
 );
 
 export default createStructuredSelector({
     currency: currencySelector,
     transactionsFilter: transactionsFilterSelector,
     transactions: filteredTransactionsSelector,
+    transactionsTotal: transactionsTotalSelector,
 });

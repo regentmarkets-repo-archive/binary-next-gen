@@ -8,7 +8,7 @@ export default class Tab extends React.Component {
         showIcon: PropTypes.bool,
         showText: PropTypes.bool,
         text: PropTypes.string,
-        onMouseDown: PropTypes.func.isRequired,
+        onMouseDown: PropTypes.func,
     };
 
     static defaultProps = {

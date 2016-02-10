@@ -22,9 +22,11 @@ export default class StatementTable extends React.Component {
 						<th>
 							<M m="Purchase Date" />
 						</th>
-						{!compact && <th>
-							<M m="Ref." />
-						</th>}
+						{!compact &&
+							<th>
+								<M m="Ref." />
+							</th>
+						}
 						<th>
 							<M m="Action"/>
 						</th>
@@ -37,9 +39,9 @@ export default class StatementTable extends React.Component {
 					</tr>
 				</thead>
 				<tbody>
-					{transactions.map((transaction, i) =>
+					{transactions.map((transaction, idx) =>
 						<StatementRow
-							key={i}
+							key={idx}
 							compact={compact}
 							{...transaction}
 						/>
@@ -50,7 +52,7 @@ export default class StatementTable extends React.Component {
 						<th>
 							<FormattedDate value={transactions[0].date} />
 						</th>
-						<th></th>
+						<th />
 						{!compact && <th></th>}
 						<th><NumberColored value={transactionsTotal} /></th>
 						<th><NumberPlain value={transactions[0].balanceAfter} /></th>

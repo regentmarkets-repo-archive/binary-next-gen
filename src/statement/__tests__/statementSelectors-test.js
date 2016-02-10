@@ -26,6 +26,7 @@ describe('statementSelectors', () => {
         expect(first.currency).toBe(second.currency);
         expect(first.transactions).toBe(second.transactions);
         expect(first.tradingTimesFilter).toBe(second.tradingTimesFilter);
+        expect(first.transactionsTotal).toBe(second.transactionsTotal);
 
         expect(first).toBe(second);
     });
