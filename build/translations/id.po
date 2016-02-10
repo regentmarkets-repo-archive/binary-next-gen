@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: I 18N\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2015-12-30 10:24+0000\n"
+"PO-Revision-Date: 2016-02-10 07:19+0000\n"
 "Last-Translator: Putri Kumala <putri@regentmarkets.com>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-app/"
-"next-gen-app/id/>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-app"
+"/next-gen-app/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -202,155 +202,149 @@ msgstr "Perubahan"
 msgid "Chart"
 msgstr "Grafik"
 
-#, fuzzy
 msgid "Purchase For"
-msgstr "Beli"
+msgstr "Untuk Pembelian"
 
 msgid "Rise"
-msgstr ""
+msgstr "Rise"
 
 msgid "Stake"
-msgstr ""
+msgstr "Modal"
 
 msgid "Payout"
-msgstr ""
+msgstr "Hasil"
 
 msgid "Deposit"
-msgstr ""
+msgstr "Deposit"
 
-#, fuzzy
 msgid "Transactions"
-msgstr "Konfirmasi Trading"
+msgstr "Transaksi"
 
 msgid "Opens"
-msgstr ""
+msgstr "Buka"
 
 msgid "Closes"
-msgstr ""
+msgstr "Tutup"
 
 msgid "Personal"
-msgstr ""
+msgstr "Pribadi"
 
 msgid "General"
-msgstr ""
+msgstr "Umum"
 
-#, fuzzy
 msgid "Trading Times"
-msgstr "Batasan Trading"
+msgstr "Waktu Trading"
 
-#, fuzzy
 msgid "Asset Index"
-msgstr "Aset"
+msgstr "Indeks Aset"
 
 msgid "Today"
-msgstr ""
+msgstr "Hari ini"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Kemarin"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "Besok"
 
 msgid "Takeout"
-msgstr ""
+msgstr "Mengambil"
 
 msgid "News"
-msgstr ""
+msgstr "Berita"
 
 msgid "Resources"
-msgstr ""
+msgstr "Sumber"
 
 msgid "Last 7 Days"
-msgstr ""
+msgstr "7 Hari Terakhir"
 
 msgid "Last 30 Days"
-msgstr ""
+msgstr "30 Hari Terakhir"
 
 msgid "Daily Report"
-msgstr ""
+msgstr "Laporan Harian"
 
 msgid "Up/Down"
-msgstr ""
+msgstr "Up/Down"
 
 msgid "Touch/No Touch"
-msgstr ""
+msgstr "Touch/No Touch"
 
 msgid "Ends In/Out"
-msgstr ""
+msgstr "Ends In/Out"
 
 msgid "Stays In/Goes Out"
-msgstr ""
+msgstr "Stays In/Goes Out"
 
-#, fuzzy
 msgid "Settles"
-msgstr "Pengaturan"
+msgstr "Diselesaikan"
 
 msgid "Language"
-msgstr ""
+msgstr "Bahasa"
 
 msgid "Color Theme"
-msgstr ""
+msgstr "Warna Tema"
 
 msgid "Light"
-msgstr ""
+msgstr "Terang"
 
 msgid "Dark"
-msgstr ""
+msgstr "Gelap"
 
 msgid "Name"
-msgstr ""
+msgstr "Nama"
 
-#, fuzzy
 msgid "Date Of Birth"
-msgstr "Tanggal lahir"
+msgstr "Tanggal Lahir"
 
 msgid "Country Of Residence"
-msgstr ""
+msgstr "Negara Domisili"
 
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 msgid "There are no transactions for selected period"
-msgstr ""
+msgstr "Tidak ditemukan transaksi bagi periode yang dipilih"
 
 msgid "Sell"
-msgstr ""
+msgstr "Jual"
 
 msgid "Buy"
-msgstr ""
+msgstr "Beli"
 
 msgid "Digit Even"
-msgstr ""
+msgstr "Digit Even"
 
 msgid "Touches"
-msgstr ""
+msgstr "Touches"
 
 msgid "Digit Over"
-msgstr ""
+msgstr "Digit Over"
 
 msgid "Digit Match"
-msgstr ""
+msgstr "Digit Match"
 
 msgid "Digit Under"
-msgstr ""
+msgstr "Digit Under"
 
 msgid "Digit Odd"
-msgstr ""
+msgstr "Digit Odd"
 
 msgid "Digit Differs"
-msgstr ""
+msgstr "Digit Differs"
 
 msgid "No Touch"
-msgstr ""
+msgstr "No Touch"
 
 msgid "Fall"
-msgstr ""
+msgstr "Fall"
 
 msgid "Asian Down"
-msgstr ""
+msgstr "Asian Down"
 
 msgid "Asian Up"
-msgstr ""
+msgstr "Asian Up"
 
 msgid "Search For Assets"
-msgstr ""
+msgstr "Pencarian Aset"
