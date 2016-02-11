@@ -1,8 +1,13 @@
 import React, { PropTypes } from 'react';
-import Tabs from '../_common/Tabs';
 import AssetPickerContainer from '../asset-picker/AssetPickerContainer';
 import AssetDetailsContainer from '../asset-details/AssetDetailsContainer';
 import WatchlistContainer from '../watchlist/WatchlistContainer';
+
+const components = [
+	AssetPickerContainer,
+	WatchlistContainer,
+	AssetDetailsContainer,
+];
 
 export default class WorkspaceLeftPanel extends React.Component {
 
@@ -14,19 +19,15 @@ export default class WorkspaceLeftPanel extends React.Component {
 	render() {
 		const { actions, workspace } = this.props;
 
+		const ActiveComponent = components[workspace.leftActiveTab];
+
 		return (
-			<Tabs
-				activeIndex={workspace.leftActiveTab}
-				className="left-panel"
-				id="left-panel"
-				onChange={idx => actions.changeActiveTab('left', idx)}
+			<div
+				className="workspace-panel"
 				style={{ width: workspace.leftPanelSize }}
-				tabs={[
-					{ text: 'Assets', component: <AssetPickerContainer actions={actions} /> },
-					{ text: 'Watchlist', component: <WatchlistContainer actions={actions} /> },
-					{ text: 'Details', component: <AssetDetailsContainer actions={actions} /> },
-				]}
-			/>
+			>
+				<ActiveComponent actions={actions} />
+			</div>
 		);
 	}
 }

@@ -16,7 +16,7 @@ export default class ToggleButtons extends React.Component {
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
-		const { leftPanelVisible, rightPanelVisible, bottomPanelVisible, actions } = this.props;
+		const { leftPanelVisible, rightPanelVisible, actions } = this.props;
 
 		return (
 			<div className="toggle-buttons">
@@ -27,20 +27,14 @@ export default class ToggleButtons extends React.Component {
 					<img src="img/left-panel.svg" />
 				</button>
 				<button
-					className={`btn-secondary ${bottomPanelVisible && 'checked'}`}
-					onClick={() => actions.togglePanel('bottom')}
+					className={`btn-secondary`}
+					onClick={() => actions.toggleTradeMode()}
 				>
 					<img src="img/bottom-panel.svg" />
 				</button>
 				<button
 					className={`btn-secondary ${rightPanelVisible && 'checked'}`}
 					onClick={() => actions.togglePanel('right')}
-				>
-					<img src="img/right-panel.svg" />
-				</button>
-				<button
-					className="btn-secondary"
-					onClick={() => actions.toggleTradeMode()}
 				>
 					<img src="img/right-panel.svg" />
 				</button>

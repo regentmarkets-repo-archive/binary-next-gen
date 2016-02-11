@@ -1,14 +1,16 @@
 import React, { PropTypes } from 'react';
 
 export default class Resizer extends React.Component {
-	constructor(props) {
-		super(props);
-		this.state = { mousemove: ::this.onGlobalMouseMove, mouseup: ::this.onGlobalMouseUp };
-	}
+
 	static propTypes = {
 		onResize: PropTypes.func.isRequired,
 		className: PropTypes.string,
 	};
+
+	constructor(props) {
+		super(props);
+		this.state = { mousemove: ::this.onGlobalMouseMove, mouseup: ::this.onGlobalMouseUp };
+	}
 
 	onMouseDown() {
 		this.addGlobalEventHandlers();

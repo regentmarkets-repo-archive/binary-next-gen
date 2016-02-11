@@ -59,8 +59,17 @@ body {
     background: inherit;
     box-shadow: none;
     margin: 0;
-    padding: .5rem;
     width: 3rem;
+}
+
+.workspace-panel {
+    padding: .5rem;
+    overflow: auto;
+    display: flex;
+}
+
+.workspace-panel > div {
+    width: 100%;
 }
 
 #workarea {
@@ -705,8 +714,12 @@ div[role=tab] {
 }
 
 div[role=tab] img {
-    width: 3rem;
+    width: 2.5rem;
     padding: .5rem;
+}
+
+ div[role=tablist].vertical div[role=tab] {
+    flex: inherit;
 }
 
 div[role=tabpanel] {

@@ -3,7 +3,6 @@ import Resizer from '../_common/Resizer';
 import TradesContainer from '../trades/TradesContainer';
 import WorkspaceLeftPanel from './WorkspaceLeftPanel';
 import WorkspaceRightPanel from './WorkspaceRightPanel';
-import WorkspaceBottomPanel from './WorkspaceBottomPanel';
 import Tab from '../_common/Tab';
 import TabList from '../_common/TabList';
 
@@ -25,12 +24,22 @@ export default class WorkspaceCard extends React.Component {
 	render() {
 		const { actions, workspace } = this.props;
 
+		const onChangeLeftPanel = idx =>
+			actions.updateWorkspaceField('leftActiveTab', idx);
+
+		const onChangeRightPanel = idx =>
+			actions.updateWorkspaceField('rightActiveTab', idx);
+
 		return (
 			<div id="panels">
-				<TabList vertical showText={false}>
+				<TabList
+					vertical
+					showText={false}
+					onChange={idx => onChangeLeftPanel(idx)}
+				>
 					<Tab imgSrc="img/trade.svg" text="Assets" />
 					<Tab imgSrc="img/watchlist.svg" text="Watchlist" />
-					<Tab imgSrc="img/watchlist.svg" text="Details" />
+					<Tab imgSrc="img/info.svg" text="Details" />
 				</TabList>
 				{workspace.leftPanelVisible &&
 					<WorkspaceLeftPanel actions={actions} workspace={workspace} />}
@@ -42,23 +51,11 @@ export default class WorkspaceCard extends React.Component {
 						updateSizeWithBoundary(size, update, 100, 750);
 					}}
 				/>
-				<div id="mid-panel">
-					<div id="workarea">
-						<TradesContainer
-							actions={actions}
-							tradeMode={workspace.tradeMode}
-						/>
-					</div>
-					<Resizer
-						className="resizer-horizontal"
-						onResize={e => {
-							const update = actions.updateWorkspaceField.bind(null, 'bottomPanelSize');
-							const size = window.innerHeight - e.y - 4;
-							updateSizeWithBoundary(size, update, 100, 300);
-						}}
+				<div id="workarea">
+					<TradesContainer
+						actions={actions}
+						tradeMode={workspace.tradeMode}
 					/>
-				{workspace.bottomPanelVisible &&
-					<WorkspaceBottomPanel actions={actions} workspace={workspace} />}
 				</div>
 				<Resizer
 					className="resizer-vertical"
@@ -70,7 +67,13 @@ export default class WorkspaceCard extends React.Component {
 				/>
 				{workspace.rightPanelVisible &&
 					<WorkspaceRightPanel actions={actions} workspace={workspace} />}
-				<TabList vertical showText={false}>
+				<TabList
+					vertical
+					showText={false}
+					onChange={idx => onChangeRightPanel(idx)}
+				>
+					<Tab imgSrc="img/portfolio.svg" text="Open Positions" />
+					<Tab imgSrc="img/statement.svg" text="Statement" />
 					<Tab imgSrc="img/resources.svg" text="Trading Times" />
 					<Tab imgSrc="img/resources.svg" text="Asset Index" />
 					<Tab imgSrc="img/news.svg" text="Video" />

@@ -12,7 +12,7 @@ export default class AssetIndexCard extends React.Component {
 
 	render() {
 		const { actions, assetIndexRows, submarket } = this.props;
-		const headers = assetIndexRows.shift();
+		const headers = assetIndexRows.shift() || [];
 
 		return (
 			<div>

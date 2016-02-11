@@ -33,7 +33,10 @@ export default class PortfolioItem extends React.Component {
                 </td>
                 {!compact &&
                     <td>
-                        <button onClick={() => onViewDetails(contract)}>
+                        <button
+                            className="btn-secondary"
+                            onClick={() => onViewDetails(contract)}
+                        >
                             <M m="View" />
                         </button>
                     </td>

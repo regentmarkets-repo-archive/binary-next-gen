@@ -1,6 +1,7 @@
 import SigninMobile from '../signin/SigninMobile';
 import CreateAccountMobile from '../create-account/CreateAccountMobile';
 import TickTradeMobile from '../tick-trade/TickTradeMobile';
+import FullTradeMobile from '../fulltrade/FullTradeMobile';
 import PayoutPickerMobile from '../tick-trade/PayoutPickerMobile';
 import PurchaseConfirmationMobile from '../tick-trade/PurchaseConfirmationMobile';
 import PortfolioMobile from '../portfolio/PortfolioMobile';
@@ -23,6 +24,7 @@ export default [
     { path: 'create-account', component: CreateAccountMobile },
     { path: 'signout', component: SigninMobile, onEnter: signout },
     { path: 'mobile', component: TickTradeMobile, onEnter: requireAuthOnEnter },
+    { path: 'full-trade-mobile', component: FullTradeMobile, onEnter: requireAuthOnEnter },
     { path: 'payout-picker/:id', component: PayoutPickerMobile, onEnter: requireAuthOnEnter },
     { path: 'purchase-confirmation', component: PurchaseConfirmationMobile, onEnter: requireAuthOnEnter },
     { path: 'portfolio-mobile', component: PortfolioMobile, onEnter: requireAuthOnEnter },

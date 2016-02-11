@@ -1,9 +1,19 @@
 import React, { PropTypes } from 'react';
-import Tabs from '../_common/Tabs';
 import TradingTimesContainer from '../trading-times/TradingTimesContainer';
 import AssetIndexContainer from '../asset-index/AssetIndexContainer';
 import NewsContainer from '../news/NewsContainer';
 import VideoListContainer from '../video/VideoListContainer';
+import PortfolioContainer from '../portfolio/PortfolioContainer';
+import StatementContainer from '../statement/StatementContainer';
+
+const components = [
+	PortfolioContainer,
+	StatementContainer,
+	TradingTimesContainer,
+	AssetIndexContainer,
+	VideoListContainer,
+	NewsContainer,
+];
 
 export default class WorkspaceRightPanel extends React.Component {
 
@@ -15,24 +25,15 @@ export default class WorkspaceRightPanel extends React.Component {
 	render() {
 		const { actions, workspace } = this.props;
 
+		const ActiveComponent = components[workspace.rightActiveTab];
+
 		return (
-			<Tabs
-				activeIndex={workspace.rightActiveTab}
-				className="right-panel"
-				id="right-panel"
-				showContent={!workspace.rightPanelHidden}
-				onChange={idx => {
-					actions.updateWorkspaceField('rightPanelHidden', false);
-					actions.changeActiveTab('right', idx);
-				}}
-				style={workspace.rightPanelHidden ? {} : { width: workspace.rightPanelSize }}
-				tabs={[
-					{ img: 'img/resources.svg', component: <TradingTimesContainer compact actions={actions} /> },
-					{ img: 'img/resources.svg', component: <AssetIndexContainer actions={actions}/> },
-					{ img: 'img/news.svg', component: <VideoListContainer actions={actions} /> },
-					{ img: 'img/news.svg', component: <NewsContainer actions={actions} /> },
-				]}
-			/>
+			<div
+				className="workspace-panel"
+				style={{ width: workspace.rightPanelSize }}
+			>
+				<ActiveComponent actions={actions} />
+			</div>
 		);
 	}
 }
