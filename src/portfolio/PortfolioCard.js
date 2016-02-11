@@ -4,6 +4,7 @@ import Modal from '../containers/Modal';
 import ContractDetailsContainer from '../contract-details/ContractDetailsContainer';
 
 export default class PortfolioCard extends React.Component {
+
 	static propTypes = {
 		compact: PropTypes.bool,
 		portfolio: PropTypes.object,
@@ -16,10 +17,13 @@ export default class PortfolioCard extends React.Component {
 		actions: PropTypes.object,
 	};
 
+	static contextTypes = {
+		router: React.PropTypes.object.isRequired,
+	};
+
 	render() {
 		const {
 			compact,
-			history,
 			actions,
 			contracts,
 			portfolio,
@@ -27,9 +31,11 @@ export default class PortfolioCard extends React.Component {
 			indicativeTotal,
 		} = this.props;
 
+		const { router } = this.context;
+
 		const onViewDetails = contract =>
 			compact
-				? history.push(`/contract/${contract.contract_id}`)
+				? router.push(`/contract/${contract.contract_id}`)
 				: actions.detailsForContract(true, contract);
 
 		return (

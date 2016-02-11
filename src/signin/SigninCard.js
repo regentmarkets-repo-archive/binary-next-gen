@@ -12,8 +12,11 @@ export default class SigninCard extends React.Component {
 	static propTypes = {
 		token: PropTypes.string,
 		actions: PropTypes.object.isRequired,
-		history: PropTypes.object.isRequired,
 		signin: PropTypes.object.isRequired,
+	};
+
+	static contextTypes = {
+		router: React.PropTypes.object.isRequired,
 	};
 
 	onTokenChange(event) {
@@ -29,17 +32,22 @@ export default class SigninCard extends React.Component {
 		}
 	}
 
-	trySignin() {
-		const { actions, history, token } = this.props;
+	async trySignin() {
+		const { actions, token } = this.props;
+		const { router } = this.context;
+
 		actions.signinFieldUpdate('progress', true);
 		actions.signinFieldUpdate('validatedOnce', true);
-		LiveData.api.authorize(token).then(
-			() => {
-				actions.updateAppState('authorized', true);
-				history.push('/');
-			},
-			() => actions.signinFieldUpdate('credentialsInvalid', true)
-		).then(() => actions.signinFieldUpdate('progress', false));
+
+		try {
+			await LiveData.api.authorize(token);
+			actions.updateAppState('authorized', true);
+			router.push('/');
+		} catch (e) {
+			actions.signinFieldUpdate('credentialsInvalid', true);
+		} finally {
+			actions.signinFieldUpdate('progress', false);
+		}
 	}
 
 	render() {

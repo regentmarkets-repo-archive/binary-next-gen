@@ -5,6 +5,7 @@ import InputGroup from '../_common/InputGroup';
 import * as LiveData from '../_data/LiveData';
 
 export default class EmailVerificationForm extends React.Component {
+
     static propTypes = {
         actions: React.PropTypes.object.isRequired,
         error: React.PropTypes.object.isRequired,
@@ -12,7 +13,10 @@ export default class EmailVerificationForm extends React.Component {
         password: React.PropTypes.string.isRequired,
         residence: React.PropTypes.string.isRequired,
         verificationCode: React.PropTypes.string.isRequired,
-        history: React.PropTypes.object.isRequired,
+    };
+
+    static contextTypes = {
+        router: React.PropTypes.object.isRequired,
     };
 
     onVerificationCodeEntered(event) {
@@ -21,18 +25,24 @@ export default class EmailVerificationForm extends React.Component {
         actions.createAccountFieldUpdate('error', null);
     }
 
-    onVerify() {
+    async onVerify() {
         const { actions, email, password, residence, verificationCode } = this.props;
+        const { router } = this.context;
+
         actions.createAccountFieldUpdate('progress', true);
-        LiveData.api.createVirtualAccount({
-            email,
-            client_password: password,
-            residence,
-            verification_code: verificationCode,
-        }).then(
-            () => history.push('/signin'),
-            err => actions.createAccountFailed(err)
-        ).then(() => actions.createAccountFieldUpdate('progress', false));
+        try {
+            await LiveData.api.createVirtualAccount({
+                email,
+                client_password: password,
+                residence,
+                verification_code: verificationCode,
+            });
+            router.push('/signin');
+        } catch (err) {
+            actions.createAccountFailed(err);
+        } finally {
+            actions.createAccountFieldUpdate('progress', false);
+        }
     }
 
     render() {

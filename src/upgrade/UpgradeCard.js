@@ -13,9 +13,13 @@ export default class UpgradeCard extends React.Component {
 		history: React.PropTypes.object.isRequired,
 	};
 
+	static contextTypes = {
+		router: React.PropTypes.object.isRequired,
+	};
+
 	componentWillReceiveProps(nextProps) {
 		if (nextProps.upgrade.get('success') === true) {
-			this.props.history.push('/');
+			this.context.router.push('/');
 		}
 	}
 
