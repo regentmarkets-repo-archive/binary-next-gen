@@ -42,6 +42,7 @@ export default class ToggleButtons extends React.Component {
 					className="btn-secondary"
 					onClick={() => actions.toggleTradeMode()}
 				>
+					<img src="img/right-panel.svg" />
 				</button>
 			</div>
 		);

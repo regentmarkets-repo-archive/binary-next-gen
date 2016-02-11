@@ -4,18 +4,15 @@ import TradesContainer from '../trades/TradesContainer';
 import WorkspaceLeftPanel from './WorkspaceLeftPanel';
 import WorkspaceRightPanel from './WorkspaceRightPanel';
 import WorkspaceBottomPanel from './WorkspaceBottomPanel';
+import Tab from '../_common/Tab';
+import TabList from '../_common/TabList';
 
 const updateSizeWithBoundary = (size, update, min, max) => {
-	if (size < min) {
+	if (size >= min && size <= max) {
+		update(size);
+	} else if (size < min) {
 		update(10);
-		return;
 	}
-
-	if (size > max) {
-		return;
-	}
-
-	update(size);
 };
 
 export default class WorkspaceCard extends React.Component {
@@ -30,6 +27,11 @@ export default class WorkspaceCard extends React.Component {
 
 		return (
 			<div id="panels">
+				<TabList vertical showText={false}>
+					<Tab imgSrc="img/trade.svg" text="Assets" />
+					<Tab imgSrc="img/watchlist.svg" text="Watchlist" />
+					<Tab imgSrc="img/watchlist.svg" text="Details" />
+				</TabList>
 				{workspace.leftPanelVisible &&
 					<WorkspaceLeftPanel actions={actions} workspace={workspace} />}
 				<Resizer
@@ -68,6 +70,12 @@ export default class WorkspaceCard extends React.Component {
 				/>
 				{workspace.rightPanelVisible &&
 					<WorkspaceRightPanel actions={actions} workspace={workspace} />}
+				<TabList vertical showText={false}>
+					<Tab imgSrc="img/resources.svg" text="Trading Times" />
+					<Tab imgSrc="img/resources.svg" text="Asset Index" />
+					<Tab imgSrc="img/news.svg" text="Video" />
+					<Tab imgSrc="img/news.svg" text="News" />
+				</TabList>
 			</div>
 		);
 	}

@@ -21,6 +21,7 @@ export default class MobilePage extends React.Component {
 
 	render() {
 		const { backBtnBarTitle, children, toolbarShown, inverse, backTo } = this.props;
+
 		return (
 			<div className={inverse ? 'mobile-page inverse' : 'mobile-page'}>
 				{toolbarShown ? <MobileToolbarFull /> : null}

@@ -1,8 +1,12 @@
 import React from 'react';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 import MobileSidebar from '../sidebar/MobileSidebar';
 import MobileToolbarBtn from './MobileToolbarBtn';
 
 export default class MobileToolbarFull extends React.Component {
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
+
 	render() {
 		return (
 			<div className="mobile-toolbar">

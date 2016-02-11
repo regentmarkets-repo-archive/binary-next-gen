@@ -395,11 +395,13 @@ export default class TradePanel extends Component {
                 />}
                 <div className="row">
                     <SelectGroup
+                        id="assets-select"
                         optgroups={assets}
                         value={selectedSymbol}
                         onChange={this.onAssetChange}
                     />
                     <SelectGroup
+                        id="categories-select"
                         options={categories}
                         value={selectedCategory}
                         onChange={this.onCategoryChange}

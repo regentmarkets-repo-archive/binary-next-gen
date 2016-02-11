@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import Direction from '../_common/Direction';
+import NumberPlain from '../_common/NumberPlain';
 import NumberColored from '../_common/NumberColored';
 import WatchlistSparkline from './WatchlistSparkline';
 
@@ -22,7 +23,7 @@ export default class WatchlistRow extends React.Component {
 			<tr>
 				<td><Direction diff={diff} /></td>
 				<td>{assetName}</td>
-				<td><NumberColored value={quote} /></td>
+				<td><NumberPlain value={quote} /></td>
 				<td><NumberColored value={diff} /></td>
 				<td><WatchlistSparkline history={history} /></td>
 			</tr>

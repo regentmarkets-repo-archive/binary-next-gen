@@ -24,6 +24,7 @@ export default class Tab extends React.Component {
                 role="tab"
                 aria-selected={selected}
                 onMouseDown={onMouseDown}
+                title={text}
             >
                 {showIcon && imgSrc && <img src={imgSrc} />}
                 {showText && text && <span>{text}</span>}

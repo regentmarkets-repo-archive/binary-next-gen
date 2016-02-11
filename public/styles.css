@@ -687,6 +687,7 @@ div[role=tablist] {
 }
 
 div[role=tablist].vertical {
+    min-width: 3rem;
     flex-direction: column;
     align-content: flex-start;
 }
@@ -704,10 +705,8 @@ div[role=tab] {
 }
 
 div[role=tab] img {
-    margin-right: .5rem;
-    width: 1.5rem;
-    background-color: white;
-    box-shadow: 0 0 0 1px white;
+    width: 3rem;
+    padding: .5rem;
 }
 
 div[role=tabpanel] {
@@ -718,4 +717,9 @@ div[role=tabpanel] {
     display: flex;
     justify-content: center;
     align-content: center;
+}
+
+#assets-select, #categories-select {
+    min-width: 10rem;
+    width: 100%;
 }
