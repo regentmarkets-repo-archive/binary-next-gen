@@ -1,7 +1,9 @@
 import React, { PropTypes } from 'react';
-import { NumberColored, M } from '../_common';
+import M from '../_common/M';
+import NumberColored from '../_common/NumberColored';
 
 const profitInPercentage = (buy, sell) => (sell - buy) / buy * 100;
+
 const ContractSoldDetails = ({ buyPrice, soldPrice, transId }) => (
     <div>
         <h3><M m="Trade Confirmation" /></h3>

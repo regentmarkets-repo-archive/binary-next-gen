@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { NumberPlain } from '../_common';
+import NumberPlain from '../_common/NumberPlain';
 
 export default class BalanceCard extends React.Component {
 

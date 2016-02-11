@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Tabs } from '../_common';
+import Tabs from '../_common/Tabs';
 import TradingTimesContainer from '../trading-times/TradingTimesContainer';
 import AssetIndexContainer from '../asset-index/AssetIndexContainer';
 import NewsContainer from '../news/NewsContainer';

@@ -1,5 +1,6 @@
 import React from 'react';
-import { InputGroup, M } from '../_common';
+import M from '../_common/M';
+import InputGroup from '../_common/InputGroup';
 
 export default () => (
 	<div className="mobile-form">

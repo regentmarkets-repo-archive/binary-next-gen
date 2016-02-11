@@ -1,5 +1,5 @@
 import React from 'react';
-import { WebPage } from '../_common';
+import WebPage from '../containers/WebPage';
 import TradesContainer from './TradesContainer';
 
 export default props => (

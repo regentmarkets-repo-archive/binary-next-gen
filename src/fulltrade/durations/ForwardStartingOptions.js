@@ -1,5 +1,7 @@
 import React, { Component, PropTypes } from 'react';
-import { InputGroup, CollapsibleFormSnippet, M } from '../../_common';
+import M from '../../_common/M';
+import InputGroup from '../../_common/InputGroup';
+import CollapsibleFormSnippet from '../../containers/CollapsibleFormSnippet';
 import RadioGroup from '../workaround/CustomRadioGroup';
 import { epochToUTCTimeString, dateToEpoch, dateToUTCTimeString, timeStringToSeconds } from '../../_utils/DateUtils';
 /**

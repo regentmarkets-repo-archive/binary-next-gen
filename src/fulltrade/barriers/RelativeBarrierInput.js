@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
-import { InputGroup, NumberPlain } from '../../_common';
+import InputGroup from '../../_common/InputGroup';
+import NumberPlain from '../../_common/NumberPlain';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 
 export default class BarrierInput extends Component {

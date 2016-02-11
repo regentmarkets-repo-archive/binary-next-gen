@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { MarketPickerContainer } from '../_common';
+import MarketPickerContainer from '../_common/MarketPickerContainer';
 import AssetIndexTable from './AssetIndexTable';
 
 export default class AssetIndexCard extends React.Component {

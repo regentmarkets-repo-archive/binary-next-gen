@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
-import { M, NumberPlain } from '../_common';
+import M from '../_common/M';
+import NumberPlain from '../_common/NumberPlain';
 
 const PaymentAgentsItem = ({ paymentAgent }) => (
     <tr>

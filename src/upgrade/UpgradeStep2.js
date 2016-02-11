@@ -1,5 +1,8 @@
 import React from 'react';
-import { Countries, M, States, ErrorMsg } from '../_common';
+import M from '../_common/M';
+import States from '../_common/States';
+import ErrorMsg from '../_common/ErrorMsg';
+import Countries from '../_common/Countries';
 
 export default class UpgradeStep2 extends React.Component {
 	constructor(props) {

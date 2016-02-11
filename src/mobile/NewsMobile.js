@@ -1,5 +1,6 @@
 import React from 'react';
-import { MobilePage, Tabs } from '../_common';
+import Tabs from '../_common/Tabs';
+import MobilePage from '../containers/MobilePage';
 import NewsContainer from '../news/NewsContainer';
 import VideoListContainer from '../video/VideoListContainer';
 

@@ -1,5 +1,7 @@
 import React from 'react';
-import { DateOfBirth, M, ErrorMsg } from '../_common';
+import M from '../_common/M';
+import ErrorMsg from '../_common/ErrorMsg';
+import DateOfBirth from '../_common/DateOfBirth';
 
 export default class UpgradeStep1 extends React.Component {
 	constructor(props) {

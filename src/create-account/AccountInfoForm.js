@@ -1,6 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router';
-import { Countries, ErrorMsg, InputGroup, M } from '../_common';
+import M from '../_common/M';
+import Countries from '../_common/Countries';
+import ErrorMsg from '../_common/ErrorMsg';
+import InputGroup from '../_common/InputGroup';
 import * as LiveData from '../_data/LiveData';
 import config from '../config';
 

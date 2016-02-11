@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
-import { M, NumberColored, NumberPlain } from '../_common';
+import M from '../_common/M';
+import NumberPlain from '../_common/NumberPlain';
+import NumberColored from '../_common/NumberColored';
 import { FormattedDate } from 'react-intl';
 import StatementRow from './StatementRow';
 

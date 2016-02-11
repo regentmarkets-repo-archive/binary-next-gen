@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
-import { RadioItem, RadioGroup } from '../_common';
+import RadioItem from '../_common/RadioItem';
+import RadioGroup from '../_common/RadioGroup';
 import { typeHasBarrier, digitOptions } from '../_utils/TradeUtils';
 
 const digitOptionsByType = type => {

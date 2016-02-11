@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { InputGroup } from '../_common';
+import InputGroup from '../_common/InputGroup';
 
 const AssetSearch = ({ onChange }) => (
 	<InputGroup

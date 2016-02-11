@@ -1,5 +1,5 @@
 import React from 'react';
-import MobilePage from '../mobile/MobilePage';
+import MobilePage from '../containers/MobilePage';
 import StatementContainer from './StatementContainer';
 
 export default (props) => (

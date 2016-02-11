@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
-import { M, NumberPlain, NumberColored } from '../_common';
+import M from '../_common/M';
+import NumberPlain from '../_common/NumberPlain';
+import NumberColored from '../_common/NumberColored';
 
 export default class PortfolioItem extends React.Component {
 

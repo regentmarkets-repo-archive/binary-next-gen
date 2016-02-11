@@ -1,5 +1,5 @@
 import React from 'react';
-import { WebPage } from '../_common';
+import WebPage from '../containers/WebPage';
 import WatchlistContainer from './WatchlistContainer';
 
 export default (props) => (

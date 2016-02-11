@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { InputGroup } from '../_common';
+import InputGroup from '../_common/InputGroup';
 
 export default class AbsoluteBarrierInput extends Component {
     static propTypes = {
@@ -24,4 +24,3 @@ export default class AbsoluteBarrierInput extends Component {
         );
     }
 }
-

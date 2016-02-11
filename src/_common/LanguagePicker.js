@@ -1,8 +1,8 @@
 import React, { PropTypes } from 'react';
-import { SelectGroup } from '../_common';
-import languages from '../_constants/languages';
-import * as LiveData from '../_data/LiveData';
 import { connect } from 'react-redux';
+import * as LiveData from '../_data/LiveData';
+import SelectGroup from '../_common/SelectGroup';
+import languages from '../_constants/languages';
 import { updateAppConfig } from '../_actions/AppConfigActions';
 import Perf from 'react-addons-perf';
 

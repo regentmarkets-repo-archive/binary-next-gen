@@ -1,11 +1,14 @@
 import React, { PropTypes, Component } from 'react';
-import { InputGroup, CollapsibleFormSnippet } from '../_common';
+import InputGroup from '../_common/InputGroup';
+import CollapsibleFormSnippet from '../containers/CollapsibleFormSnippet';
 import RadioGroup from './workaround/CustomRadioGroup';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 
 const basises = ['payout', 'stake'];
 const payouts = [5, 10, 50, 100, 500, 1000];
+
 export default class PayoutCard extends Component {
+
     static propTypes = {
         amount: PropTypes.number.isRequired,
         basis: PropTypes.oneOf(basises).isRequired,

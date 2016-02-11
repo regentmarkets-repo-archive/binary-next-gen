@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import { Star } from '../_common';
+import Star from '../_common/Star';
 
 export default class AssetPickerItem extends React.Component {
 

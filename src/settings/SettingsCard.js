@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Tabs } from '../_common';
+import Tabs from '../_common/Tabs';
 import SettingsGeneral from './SettingsGeneral';
 import SettingsPersonalDetails from './SettingsPersonalDetails';
 import SettingsSecurity from './SettingsSecurity';

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal } from '../_common';
+import Modal from '../containers/Modal';
 import DepositContainer from './DepositContainer';
 
 export default (props) => (

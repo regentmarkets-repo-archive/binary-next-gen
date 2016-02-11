@@ -1,6 +1,8 @@
 import React, { PropTypes, Component } from 'react';
-import { RadioGroup, InputGroup } from '../../_common';
-import CollapsibleFormSnippet from '../../_common/CollapsibleFormSnippet';
+import RadioGroup from '../../_common/RadioGroup';
+import InputGroup from '../../_common/InputGroup';
+
+import CollapsibleFormSnippet from '../../containers/CollapsibleFormSnippet';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 
 export default class SpreadBarrierCard extends Component {

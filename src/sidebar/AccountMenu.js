@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { NumberPlain } from '../_common';
+import NumberPlain from '../_common/NumberPlain';
 import SidebarBtn from './SidebarBtn';
 
 @connect(state => ({ account: state.account }))

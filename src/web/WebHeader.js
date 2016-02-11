@@ -1,7 +1,9 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import config from '../config';
-import { Clock, LanguagePicker, M } from '../_common';
+import M from '../_common/M';
+import Clock from '../_common/Clock';
+import LanguagePicker from '../_common/LanguagePicker';
 import WebSidebar from '../sidebar/WebSidebar';
 import ToggleButtons from './ToggleButtons';
 import Balance from '../balance/BalanceContainer';

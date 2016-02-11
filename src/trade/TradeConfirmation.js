@@ -1,5 +1,5 @@
 import React from 'react';
-import { M } from '../_common';
+import M from '../_common/M';
 
 export default () => (
 	<div>

@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
-import { LanguagePicker, M } from '../_common';
+import M from '../_common/M';
+import LanguagePicker from '../_common/LanguagePicker';
 
 export default class SettingsGeneral extends React.Component {
 

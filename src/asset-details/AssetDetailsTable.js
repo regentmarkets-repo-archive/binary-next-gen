@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { M } from '../_common';
+import M from '../_common/M';
 
 const AssetDetailsTable = ({ asset }) => (
 	<table>

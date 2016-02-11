@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import RadioGroup from './../workaround/CustomRadioGroup';
-import CollapsibleFormSnippet from '../../_common/CollapsibleFormSnippet';
+import CollapsibleFormSnippet from '../../containers/CollapsibleFormSnippet';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 
 export default class DigitBarrierCard extends Component {

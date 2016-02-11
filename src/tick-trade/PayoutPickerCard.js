@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
-import { RadioGroup, InputGroup } from '../_common';
+import RadioGroup from '../_common/RadioGroup';
+import InputGroup from '../_common/InputGroup';
 
 const basisTypes = [
 	{ value: 'payout', text: 'Payout' },
@@ -9,6 +10,7 @@ const basisTypes = [
 const payoutAmounts = [1, 2, 5, 10, 20, 50, 100, 500, 1000].map(x => ({ value: x, text: x }));
 const maxAmount = 100000;
 const minAmount = 1;
+
 export default class PayoutPickerCard extends React.Component {
 	static propTypes = {
 		actions: PropTypes.object.isRequired,

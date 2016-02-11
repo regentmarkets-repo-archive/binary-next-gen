@@ -1,5 +1,9 @@
 import React, { PropTypes } from 'react';
-import { ErrorMsg, InputGroup, SelectGroup, M, Modal } from '../_common';
+import M from '../_common/M';
+import ErrorMsg from '../_common/ErrorMsg';
+import InputGroup from '../_common/InputGroup';
+import SelectGroup from '../_common/SelectGroup';
+import Modal from '../containers/Modal';
 import currencies from '../_constants/currencies';
 
 export default class WithdrawForm extends React.Component {

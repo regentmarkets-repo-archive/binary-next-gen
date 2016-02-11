@@ -1,9 +1,10 @@
-import storage from 'redux-storage';
-import createEngine from 'redux-storage/engines/localStorage';
+import createEngine from 'redux-storage-engine-localstorage';
+import filter from 'redux-storage-decorator-filter';
+import debounce from 'redux-storage-decorator-debounce';
 
 const engine = createEngine('binary');
 
-const filteredEngine = storage.decorators.filter(engine, [
+const filteredEngine = filter(engine, [
     ['account'],
     ['assetPicker'],
     ['assets'],
@@ -12,4 +13,4 @@ const filteredEngine = storage.decorators.filter(engine, [
     ['watchlist'],
 ]);
 
-export default storage.decorators.debounce(filteredEngine, 1000);
+export default debounce(filteredEngine, 1000);

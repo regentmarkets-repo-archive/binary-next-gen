@@ -1,5 +1,7 @@
 import React from 'react';
-import { M, ErrorMsg, Modal } from '../_common';
+import M from '../_common/M';
+import ErrorMsg from '../_common/ErrorMsg';
+import Modal from '../containers/Modal';
 
 export default class UpgradeStep3 extends React.Component {
 	constructor(props) {

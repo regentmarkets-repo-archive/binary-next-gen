@@ -1,5 +1,10 @@
 import React, { Component, PropTypes } from 'react';
-import { SelectGroup, ErrorMsg, Modal, M, PurchaseConfirmation, PurchaseFailed } from '../_common';
+import M from '../_common/M';
+import ErrorMsg from '../_common/ErrorMsg';
+import SelectGroup from '../_common/SelectGroup';
+import PurchaseFailed from '../_common/PurchaseFailed';
+import PurchaseConfirmation from '../_common/PurchaseConfirmation';
+import Modal from '../containers/Modal';
 import RadioGroup from './workaround/CustomRadioGroup';
 import { contractCategoryDisplay, durationToSecs, isIntraday } from '../_utils/TradeUtils';
 import { tradeTypes } from '../_constants/TradeParams';

@@ -1,6 +1,12 @@
 import React, { Component, PropTypes } from 'react';
-import { Collapsible, InputGroup, RadioGroup, LabeledText,
-    Modal, PurchaseFailed, PurchaseConfirmation, M } from '../_common';
+import Collapsible from '../containers/Collapsible';
+import M from '../_common/M';
+import InputGroup from '../_common/InputGroup';
+import RadioGroup from '../_common/RadioGroup';
+import LabeledText from '../_common/LabeledText';
+import PurchaseFailed from '../_common/PurchaseFailed';
+import PurchaseConfirmation from '../_common/PurchaseConfirmation';
+import Modal from '../containers/Modal';
 import * as LiveData from '../_data/LiveData';
 
 const basisTypes = [

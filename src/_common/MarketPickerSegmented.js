@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { SegmentedControl } from '../_common';
+import SegmentedControl from '../_common/SegmentedControl';
 
 const MarketPicker = ({ markets, selected, prefixRoute }) => {
 	const marketLinks = markets.map(market => ({

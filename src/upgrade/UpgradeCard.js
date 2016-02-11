@@ -1,10 +1,12 @@
 import React from 'react';
-import { LogoSpinner, M } from '../_common';
+import M from '../_common/M';
+import LogoSpinner from '../_common/LogoSpinner';
 import UpgradeStep1 from './UpgradeStep1';
 import UpgradeStep2 from './UpgradeStep2';
 import UpgradeStep3 from './UpgradeStep3';
 
 export default class UpgradeCard extends React.Component {
+
 	static propTypes = {
 		upgrade: React.PropTypes.object.isRequired,
 		actions: React.PropTypes.object.isRequired,

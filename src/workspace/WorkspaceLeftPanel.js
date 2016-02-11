@@ -1,5 +1,5 @@
 import React, { PropTypes } from 'react';
-import { Tabs } from '../_common';
+import Tabs from '../_common/Tabs';
 import AssetPickerContainer from '../asset-picker/AssetPickerContainer';
 import AssetDetailsContainer from '../asset-details/AssetDetailsContainer';
 import WatchlistContainer from '../watchlist/WatchlistContainer';

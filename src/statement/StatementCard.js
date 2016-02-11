@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import StatementTable from './StatementTable';
-import { M } from '../_common';
+import M from '../_common/M';
 import Tab from '../_common/Tab';
 import TabList from '../_common/TabList';
 

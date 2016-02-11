@@ -1,5 +1,7 @@
 import React, { PropTypes } from 'react';
-import { DirectionAndValue, M, NumberPlain } from '../_common';
+import M from '../_common/M';
+import NumberPlain from '../_common/NumberPlain';
+import DirectionAndValue from '../_common/DirectionAndValue';
 import { tradeToFriendlyType } from '../_utils/TradeUtils';
 
 export default class TickTradeDisplay extends React.Component {

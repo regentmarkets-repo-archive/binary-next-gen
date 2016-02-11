@@ -1,10 +1,15 @@
 import React, { PropTypes } from 'react';
 import { FormattedTime } from 'react-intl';
 import { secondsToTimeString } from '../_utils/DateUtils';
-import { NumberColored, NumberPlain, Modal, LabeledText, M } from '../_common';
+import M from '../_common/M';
+import LabeledText from '../_common/LabeledText';
+import NumberPlain from '../_common/NumberPlain';
+import NumberColored from '../_common/NumberColored';
+import Modal from '../containers/Modal';
 import ContractSoldDetails from './ContractSoldDetails';
 
 const returnOnContract = contract => (contract.bid_price - contract.buy_price) * 100 / contract.buy_price;
+
 const ContractDetailsCard = ({ contract, nowEpoch, soldResultShown, actions }) => (
 	<div>
 		<Modal shown={!!soldResultShown} onClose={actions.closeSoldResult}>

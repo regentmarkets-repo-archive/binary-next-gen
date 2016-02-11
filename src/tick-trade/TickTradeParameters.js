@@ -1,9 +1,10 @@
 import React, { PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { Link } from 'react-router';
-import { RangeGroup } from '../_common';
+import M from '../_common/M';
+import RangeGroup from '../_common/RangeGroup';
+import NumberPlain from '../_common/NumberPlain';
 import { tradeToFriendlyType } from '../_utils/TradeUtils';
-import { M, NumberPlain } from '../_common';
 
 export default class TickTradeParameters extends React.Component {
 

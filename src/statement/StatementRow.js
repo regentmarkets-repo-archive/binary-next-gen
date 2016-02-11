@@ -1,6 +1,7 @@
 import React, { PropTypes } from 'react';
 import { FormattedTime } from 'react-intl';
-import { NumberPlain, NumberColored } from '../_common';
+import NumberPlain from '../_common/NumberPlain';
+import NumberColored from '../_common/NumberColored';
 
 export default class StatementRow extends React.Component {
 

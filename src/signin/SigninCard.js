@@ -1,7 +1,11 @@
 import React, { PropTypes } from 'react';
 import { Link } from 'react-router';
 import * as LiveData from '../_data/LiveData';
-import { ErrorMsg, InputGroup, LanguagePicker, LogoSpinner, M } from '../_common';
+import M from '../_common/M';
+import ErrorMsg from '../_common/ErrorMsg';
+import LogoSpinner from '../_common/LogoSpinner';
+import InputGroup from '../_common/InputGroup';
+import LanguagePicker from '../_common/LanguagePicker';
 
 export default class SigninCard extends React.Component {
 

@@ -1,5 +1,7 @@
 import React from 'react';
-import { InputGroup, M, ErrorMsg } from '../_common';
+import M from '../_common/M';
+import ErrorMsg from '../_common/ErrorMsg';
+import InputGroup from '../_common/InputGroup';
 import * as LiveData from '../_data/LiveData';
 
 export default class EmailVerificationForm extends React.Component {

@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import BarrierInput from './RelativeBarrierInput';
-import CollapsibleFormSnippet from '../../_common/CollapsibleFormSnippet';
+import CollapsibleFormSnippet from '../../containers/CollapsibleFormSnippet';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 
 export default class BarrierCard extends Component {

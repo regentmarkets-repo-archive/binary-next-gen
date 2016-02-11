@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
-import { M, RangeGroup } from '../_common';
+import M from '../_common/M';
+import RangeGroup from '../_common/RangeGroup';
 
 export default class PayoutPickerCard extends React.Component {
 	static propTypes = {

@@ -1,7 +1,8 @@
 import React, { PropTypes } from 'react';
 import PaymentAgentsList from './PaymentAgentsList';
 import WithdrawalForm from './WithdrawalForm';
-import { Tabs, M } from '../_common';
+import M from '../_common/M';
+import Tabs from '../_common/Tabs';
 
 export default class DepositCard extends React.Component {
     static propTypes = {

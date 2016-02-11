@@ -1,5 +1,6 @@
 import React, { PropTypes } from 'react';
-import { MarketPickerContainer, InputGroup } from '../_common';
+import MarketPickerContainer from '../_common/MarketPickerContainer';
+import InputGroup from '../_common/InputGroup';
 
 export default class AssetPickerFilter extends React.Component {
 

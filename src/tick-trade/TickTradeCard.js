@@ -1,5 +1,9 @@
 import React, { PropTypes } from 'react';
-import { Modal, M, NumberPlain, PurchaseFailed, PurchaseConfirmation } from '../_common';
+import M from '../_common/M';
+import NumberPlain from '../_common/NumberPlain';
+import PurchaseFailed from '../_common/PurchaseFailed';
+import PurchaseConfirmation from '../_common/PurchaseConfirmation';
+import Modal from '../containers/Modal';
 import MobileChart from '../charting/MobileChart';
 import TickTradeParameters from './TickTradeParameters';
 

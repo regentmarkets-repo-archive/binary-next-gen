@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
 import PortfolioList from './PortfolioList';
-import Modal from '../_common/Modal';
+import Modal from '../containers/Modal';
 import ContractDetailsContainer from '../contract-details/ContractDetailsContainer';
 
 export default class PortfolioCard extends React.Component {
