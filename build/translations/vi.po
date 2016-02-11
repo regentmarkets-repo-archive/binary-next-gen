@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: I 18N\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-02-01 07:14+0000\n"
-"Last-Translator: Pham Minh Hieu <hphamv7@gmail.com>\n"
+"PO-Revision-Date: 2016-02-11 13:58+0000\n"
+"Last-Translator: Sittie Hadjirah Sevilla <sittiebaser@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-app"
 "/next-gen-app/vi/>\n"
 "Language: vi\n"
@@ -153,197 +153,260 @@ msgstr "{asset} sẽ {type} qua tiếp theo {duration}"
 msgid "Price"
 msgstr "Giá"
 
+#, fuzzy
 msgid "Asset"
 msgstr "Tài sản"
 
+#, fuzzy
 msgid "Type"
 msgstr "Loại"
 
+#, fuzzy
 msgid "Ticks"
 msgstr "Giây"
 
+#, fuzzy
 msgid "Amount"
 msgstr "Số tiền"
 
+#, fuzzy
 msgid "Trade Confirmation"
 msgstr "Xác nhận Giao dịch"
 
+#, fuzzy
 msgid "Entry spot"
 msgstr "Giá giao ngay Đi vào"
 
+#, fuzzy
 msgid "Exit spot"
 msgstr "Giá giao ngay thoát ra"
 
+#, fuzzy
 msgid "Next"
 msgstr "Tiếp theo"
 
+#, fuzzy
 msgid "Open Account"
 msgstr "Mở Tài khoản"
 
+#, fuzzy
 msgid "Upgrade to Real Money Account"
 msgstr "Nâng cấp lên Tài Khoản Tiền Thực"
 
+#, fuzzy
 msgid "Date of birth"
 msgstr "Ngày sinh"
 
+#, fuzzy
 msgid "Home Address"
 msgstr "Địa chỉ nhà"
 
+#, fuzzy
 msgid "Security"
 msgstr "Bảo mật"
 
+#, fuzzy
 msgid "Spot"
 msgstr "Giao ngay"
 
+#, fuzzy
 msgid "Change"
 msgstr "Thay đổi"
 
+#, fuzzy
 msgid "Chart"
 msgstr "BIểu đồ"
 
 msgid "Purchase For"
 msgstr "Mua"
 
+#, fuzzy
 msgid "Rise"
 msgstr "Tăng"
 
+#, fuzzy
 msgid "Stake"
 msgstr "Cá cược"
 
+#, fuzzy
 msgid "Payout"
 msgstr "Tiền thưởng"
 
+#, fuzzy
 msgid "Deposit"
 msgstr "Gửi tiền"
 
 msgid "Transactions"
 msgstr "Giao dịch"
 
+#, fuzzy
 msgid "Opens"
 msgstr "Bắt đầu"
 
+#, fuzzy
 msgid "Closes"
 msgstr "Kết thúc"
 
+#, fuzzy
 msgid "Personal"
 msgstr "Cá nhân"
 
+#, fuzzy
 msgid "General"
 msgstr "Tổng quan"
 
+#, fuzzy
 msgid "Trading Times"
 msgstr "Thời Gian Giao Dịch"
 
+#, fuzzy
 msgid "Asset Index"
 msgstr "Chỉ số Tài sản"
 
+#, fuzzy
 msgid "Today"
 msgstr "Hôm nay"
 
+#, fuzzy
 msgid "Yesterday"
 msgstr "Ngày hôm qua"
 
+#, fuzzy
 msgid "Tomorrow"
 msgstr "Ngày mai"
 
+#, fuzzy
 msgid "Takeout"
 msgstr "Đưa ra"
 
+#, fuzzy
 msgid "News"
 msgstr "Tin tức"
 
+#, fuzzy
 msgid "Resources"
 msgstr "Nguồn thông tin"
 
+#, fuzzy
 msgid "Last 7 Days"
 msgstr "7 ngày trước"
 
+#, fuzzy
 msgid "Last 30 Days"
 msgstr "30 ngày trước"
 
+#, fuzzy
 msgid "Daily Report"
 msgstr "Báo Cáo Hàng Ngày"
 
+#, fuzzy
 msgid "Up/Down"
 msgstr "Lên/Xuống"
 
+#, fuzzy
 msgid "Touch/No Touch"
 msgstr "Chạm/Không chạm"
 
+#, fuzzy
 msgid "Ends In/Out"
 msgstr "Kết thúc Trong/Ngoài"
 
+#, fuzzy
 msgid "Stays In/Goes Out"
 msgstr "Ở trong/Ra ngoài"
 
+#, fuzzy
 msgid "Settles"
 msgstr "Cài đặt"
 
+#, fuzzy
 msgid "Language"
 msgstr "Ngôn ngữ"
 
+#, fuzzy
 msgid "Color Theme"
 msgstr "Màu sắc giao diện"
 
+#, fuzzy
 msgid "Light"
 msgstr "Màu nhạt"
 
+#, fuzzy
 msgid "Dark"
 msgstr "Màu đậm"
 
+#, fuzzy
 msgid "Name"
 msgstr "Tên"
 
+#, fuzzy
 msgid "Date Of Birth"
 msgstr "Ngày sinh"
 
+#, fuzzy
 msgid "Country Of Residence"
 msgstr "Quốc gia cư trú"
 
+#, fuzzy
 msgid "Email"
 msgstr "Email"
 
+#, fuzzy
 msgid "There are no transactions for selected period"
 msgstr "Không có giao dịch nào trong khoảng thời gian này"
 
+#, fuzzy
 msgid "Sell"
 msgstr "Bán"
 
+#, fuzzy
 msgid "Buy"
 msgstr "Mua"
 
+#, fuzzy
 msgid "Digit Even"
 msgstr "Số chẵn"
 
+#, fuzzy
 msgid "Touches"
 msgstr "Chạm"
 
+#, fuzzy
 msgid "Digit Over"
 msgstr "Số vượt quá"
 
+#, fuzzy
 msgid "Digit Match"
 msgstr "Số phù hợp"
 
+#, fuzzy
 msgid "Digit Under"
 msgstr "Số dưới"
 
+#, fuzzy
 msgid "Digit Odd"
 msgstr "Số lẻ"
 
+#, fuzzy
 msgid "Digit Differs"
 msgstr "Số khác"
 
+#, fuzzy
 msgid "No Touch"
 msgstr "Không chạm"
 
+#, fuzzy
 msgid "Fall"
 msgstr "Xuống"
 
+#, fuzzy
 msgid "Asian Down"
 msgstr "Người châu Á xuống"
 
+#, fuzzy
 msgid "Asian Up"
 msgstr "Người châu Á lên"
 
+#, fuzzy
 msgid "Search For Assets"
 msgstr "Tìm Kiếm Tài Sản"
