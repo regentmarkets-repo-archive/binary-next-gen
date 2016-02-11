@@ -4,6 +4,7 @@ import { getStatesForCountry } from '../_actions/StatesActions';
 
 @connect(state => ({ states: state.states }))
 export default class States extends React.Component {
+
     static propTypes = {
         country: React.PropTypes.string.isRequired,
         onChange: React.PropTypes.func.isRequired,
@@ -27,15 +28,16 @@ export default class States extends React.Component {
     render() {
         const { states, country, onChange, id, selected } = this.props;
         const statesForCountry = states.get(country) || [{ value: 'none', text: 'Loading ...' }];
+
         return (
-        <select id={id} onChange={onChange}>
-            <option value="">State/Province</option>
-            {statesForCountry.map(o => (
-                o.value === selected ?
-                    <option key={o.value} value={o.value} selected>{o.text}</option> :
-                    <option key={o.value} value={o.value}>{o.text}</option>
-            ))}
-        </select>
+            <select id={id} onChange={onChange}>
+                <option value="">State/Province</option>
+                {statesForCountry.map(o => (
+                    o.value === selected ?
+                        <option key={o.value} value={o.value} selected>{o.text}</option> :
+                        <option key={o.value} value={o.value}>{o.text}</option>
+                ))}
+            </select>
         );
     }
 }

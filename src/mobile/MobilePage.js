@@ -5,6 +5,7 @@ import MobileToolbarBack from '../mobile/MobileToolbarBack';
 
 @connect(state => ({ isAuthorized: state.appState.get('authorized') }))
 export default class MobilePage extends React.Component {
+
 	static propTypes = {
 		backBtnBarTitle: PropTypes.string,
 		children: PropTypes.any,

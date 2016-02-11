@@ -4,6 +4,7 @@ import LoadingView from '../_common/LoadingView';
 
 @connect(state => ({ isAuthorized: state.appState.get('authorized') }))
 export default class WebPage extends React.Component {
+
 	static propTypes = {
 		children: PropTypes.any,
 		isAuthorized: PropTypes.bool,

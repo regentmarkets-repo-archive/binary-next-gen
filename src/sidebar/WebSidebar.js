@@ -10,17 +10,18 @@ export default class MobileSidebar extends React.Component {
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
-		account: PropTypes.object.isRequired,
+		email: PropTypes.string.isRequired,
+		loginid: PropTypes.string.isRequired,
 	};
 
 	render() {
-		const account = this.props.account.toJS();
+		const { loginid, email } = this.props;
 
 		return (
 			<nav className="sidebar">
 				<div className="account-info">
-					{account.loginid}<br/>
-					{account.email}<br/>
+					{loginid}<br/>
+					{email}<br/>
 				</div>
 				<SidebarBtn to="/settings-mobile" img="img/settings.svg" text="Settings" />
 				<SidebarBtn to="/signout" img="img/signout.svg" text="Sign Out" />
