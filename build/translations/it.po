@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-01-15 15:56+0000\n"
-"Last-Translator: Mauro Piccillo <mauro.piccillo@gmail.com>\n"
+"PO-Revision-Date: 2016-02-11 14:39+0000\n"
+"Last-Translator: Annalisa <ligiu@me.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/it/>\n"
 "Language: it\n"
@@ -204,155 +204,150 @@ msgstr "Cambio"
 msgid "Chart"
 msgstr "Grafico"
 
-#, fuzzy
 msgid "Purchase For"
-msgstr "Acquisto"
+msgstr "Acquisto per"
 
 msgid "Rise"
-msgstr ""
+msgstr "Aumento"
 
 msgid "Stake"
 msgstr ""
 
 msgid "Payout"
-msgstr ""
+msgstr "Payout"
 
 msgid "Deposit"
-msgstr ""
+msgstr "Deposito"
 
-#, fuzzy
 msgid "Transactions"
-msgstr "Conferma del trade"
+msgstr "Transazioni"
 
 msgid "Opens"
-msgstr ""
+msgstr "Apre"
 
 msgid "Closes"
-msgstr ""
+msgstr "Chiude"
 
 msgid "Personal"
-msgstr ""
+msgstr "Personale"
 
 msgid "General"
-msgstr ""
+msgstr "Generale"
 
-#, fuzzy
 msgid "Trading Times"
-msgstr "Limiti del trading"
+msgstr "Orari di trading"
 
-#, fuzzy
 msgid "Asset Index"
-msgstr "Asset"
+msgstr "Indice degli asset"
 
 msgid "Today"
-msgstr ""
+msgstr "Oggi"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Ieri"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "Domani"
 
 msgid "Takeout"
-msgstr ""
+msgstr "Takeout"
 
 msgid "News"
-msgstr ""
+msgstr "Novità"
 
 msgid "Resources"
-msgstr ""
+msgstr "Risorse"
 
 msgid "Last 7 Days"
-msgstr ""
+msgstr "Ultimi 7 giorni"
 
 msgid "Last 30 Days"
-msgstr ""
+msgstr "Ultimi 30 giorni"
 
 msgid "Daily Report"
-msgstr ""
+msgstr "Report giornaliero"
 
 msgid "Up/Down"
-msgstr ""
+msgstr "Up/Down"
 
 msgid "Touch/No Touch"
-msgstr ""
+msgstr "Touch/No Touch"
 
 msgid "Ends In/Out"
-msgstr ""
+msgstr "Ends In/Out"
 
 msgid "Stays In/Goes Out"
-msgstr ""
+msgstr "Stays in/Goes Out"
 
-#, fuzzy
 msgid "Settles"
-msgstr "Impostazioni"
+msgstr "Risolve"
 
 msgid "Language"
-msgstr ""
+msgstr "Lingua"
 
 msgid "Color Theme"
-msgstr ""
+msgstr "Tema a colori"
 
 msgid "Light"
-msgstr ""
+msgstr "Chiaro"
 
 msgid "Dark"
-msgstr ""
+msgstr "Scuro"
 
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #, fuzzy
 msgid "Date Of Birth"
 msgstr "Data di nascita"
 
 msgid "Country Of Residence"
-msgstr ""
+msgstr "Paese di residenza"
 
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 msgid "There are no transactions for selected period"
-msgstr ""
+msgstr "Non ci sono transazioni per il periodo selezionato"
 
 msgid "Sell"
-msgstr ""
+msgstr "Vendi"
 
 msgid "Buy"
-msgstr ""
+msgstr "Acquista"
 
 msgid "Digit Even"
-msgstr ""
+msgstr "Cifra pari"
 
 msgid "Touches"
-msgstr ""
+msgstr "Touch"
 
 msgid "Digit Over"
-msgstr ""
+msgstr "Cifra superiore"
 
 msgid "Digit Match"
-msgstr ""
+msgstr "Coppia di cifre"
 
 msgid "Digit Under"
-msgstr ""
+msgstr "Cifra inferiore"
 
 msgid "Digit Odd"
-msgstr ""
+msgstr "Cifra dispari"
 
 msgid "Digit Differs"
 msgstr ""
 
 msgid "No Touch"
-msgstr ""
+msgstr "No Touch"
 
 msgid "Fall"
-msgstr ""
+msgstr "Fall"
 
 msgid "Asian Down"
-msgstr ""
+msgstr "Asian Down"
 
 msgid "Asian Up"
-msgstr ""
+msgstr "Asian Up"
 
 msgid "Search For Assets"
-msgstr ""
+msgstr "Ricerca di asset"
