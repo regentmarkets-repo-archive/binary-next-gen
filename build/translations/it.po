@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2016-02-11 14:50+0000\n"
-"Last-Translator: Mauro Piccillo <mauro.piccillo@gmail.com>\n"
+"Last-Translator: Annalisa <ligiu@me.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/it/>\n"
 "Language: it\n"
@@ -297,7 +297,6 @@ msgstr "Scuro"
 msgid "Name"
 msgstr "Nome"
 
-#, fuzzy
 msgid "Date Of Birth"
 msgstr "Data di nascita"
 
