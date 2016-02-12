@@ -1,32 +1,21 @@
 import React from 'react';
 import expect from 'expect';
-import expectJSX from 'expect-jsx';
-import { renderShallow } from '../../_utils/TestUtils';
+import { shallow } from 'enzyme';
 import SelectGroup from '../SelectGroup';
-
-expect.extend(expectJSX);
 
 describe('SelectGroup', () => {
     it('renders with no properties', () => {
-        const output = renderShallow(<SelectGroup />);
-        expect(output.type).toEqual('fieldset');
+        const wrapper = shallow(<SelectGroup />);
+        expect(wrapper.type()).toBe('fieldset');
     });
 
     it('passes className to fieldset', () => {
-        const output = renderShallow(<SelectGroup className="test-class" />);
-        expect(output.props.className).toEqual('test-class');
+        const wrapper = shallow(<SelectGroup className="test-class" />);
+        expect(wrapper.props().className).toBe('test-class');
     });
 
     it('passes id to select', () => {
-        const output = renderShallow(<SelectGroup id="test-id" />);
-        const expected = (
-            <select id="test-id"
-                onChange={undefined}
-                placeholder={undefined}
-                readOnly={undefined}
-                value={undefined}
-            />
-        );
-        expect(output).toIncludeJSX(expected);
+        const wrapper = shallow(<SelectGroup id="test-id" />);
+        expect(wrapper.find('select').props().id).toBe('test-id');
     });
 });

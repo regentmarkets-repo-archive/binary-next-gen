@@ -1,27 +1,21 @@
 import React from 'react';
 import expect from 'expect';
-import expectJSX from 'expect-jsx';
-import { renderShallow } from '../../_utils/TestUtils';
+import { shallow } from 'enzyme';
 import NumberPlain from '../NumberPlain';
-
-expect.extend(expectJSX);
 
 describe('NumberPlain', () => {
     it('renders without any properties', () => {
-        const output = renderShallow(<NumberPlain />);
-        expect(output.type).toEqual('span');
+        const wrapper = shallow(<NumberPlain />);
+        expect(wrapper.type()).toBe('span');
     });
 
     it('passes className to span', () => {
-        const output = renderShallow(<NumberPlain className="test-class" />);
-        expect(output.props.className).toEqual('test-class');
+        const output = shallow(<NumberPlain className="test-class" />);
+        expect(output.props().className).toBe('test-class');
     });
 
-    it('not passing a value does not renders just span', () => {
-        const output = renderShallow(<NumberPlain />);
-        const expected = (
-            <span className={undefined} />
-        );
-        expect(output).toIncludeJSX(expected);
+    it('not passing a value still renders a span', () => {
+        const wrapper = shallow(<NumberPlain />);
+        expect(wrapper.find('span').length).toBe(1);
     });
 });

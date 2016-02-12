@@ -1,21 +1,16 @@
 import React from 'react';
 import expect from 'expect';
-import expectJSX from 'expect-jsx';
-import { FormattedMessage } from 'react-intl';
-import { renderShallow } from '../../_utils/TestUtils';
+import { shallow } from 'enzyme';
 import M from '../M';
-
-expect.extend(expectJSX);
 
 describe('M', () => {
     it('renders even whithout properties', () => {
-        const output = renderShallow(<M />);
-        expect(output.type).toNotEqual(null);
+        const wrapper = shallow(<M />);
+        expect(wrapper.type()).toNotBe(null);
     });
 
     it('renders FormattedMessage', () => {
-        const output = renderShallow(<M />);
-        const expected = (<FormattedMessage defaultMessage="" id="" />);
-        expect(output).toIncludeJSX(expected);
+        const wrapper = shallow(<M />);
+        expect(wrapper.find('FormattedMessage').length).toBe(1);
     });
 });

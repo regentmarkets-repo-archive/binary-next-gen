@@ -1,24 +1,21 @@
 import React from 'react';
 import expect from 'expect';
-import expectJSX from 'expect-jsx';
-import { renderShallow } from '../../_utils/TestUtils';
+import { shallow } from 'enzyme';
 import LogoSpinner from '../LogoSpinner';
-
-expect.extend(expectJSX);
 
 describe('LogoSpinner', () => {
     it('renders image element', () => {
-        const output = renderShallow(<LogoSpinner />);
-        expect(output.type).toEqual('img');
+        const wrapper = shallow(<LogoSpinner />);
+        expect(wrapper.type()).toBe('img');
     });
 
     it('is static (no classes applied) if spinning is false', () => {
-        const output = renderShallow(<LogoSpinner spinning={false} />);
-        expect(output.props.className).toEqual('');
+        const wrapper = shallow(<LogoSpinner spinning={false} />);
+        expect(wrapper.props().className).toBe('');
     });
 
     it('is animated (via a class) if spinning is true', () => {
-        const output = renderShallow(<LogoSpinner spinning />);
-        expect(output.props.className).toEqual('spinner');
+        const wrapper = shallow(<LogoSpinner spinning />);
+        expect(wrapper.props().className).toBe('spinner');
     });
 });

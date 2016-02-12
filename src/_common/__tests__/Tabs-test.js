@@ -1,27 +1,22 @@
 import React from 'react';
 import expect from 'expect';
-import expectJSX from 'expect-jsx';
-import { renderShallow } from '../../_utils/TestUtils';
+import { shallow } from 'enzyme';
 import Tabs from '../Tabs';
-
-expect.extend(expectJSX);
 
 describe('Tabs', () => {
     it('renders correctly with no properties', () => {
-        const output = renderShallow(<Tabs />);
-        const expected = (
-            <div role="tabs" />
-        );
-        expect(output).toIncludeJSX(expected);
+        const wrapper = shallow(<Tabs />);
+        expect(wrapper.type()).toBe('div');
     });
 
     it('className passed to it is set to the wrapper div', () => {
-        const output = renderShallow(<Tabs className="test-class" />);
-        expect(output.props.className).toEqual('test-class');
+        const wrapper = shallow(<Tabs className="test-class" />);
+        expect(wrapper.props().className).toBe('test-class');
     });
 
     it('style passed to it is set to the wrapper div', () => {
-        const output = renderShallow(<Tabs style={{ width: '100%' }} />);
-        expect(output.props.style).toEqual({ width: '100%' });
+        const style = { width: '100%' };
+        const wrapper = shallow(<Tabs style={style} />);
+        expect(wrapper.props().style).toBe(style);
     });
 });

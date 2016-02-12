@@ -24,10 +24,13 @@ export default class BuyButton extends React.Component {
                 disabled={disabled || !askPrice}
             >
                 <M m="Purchase for " />
-                <NumberPlain
-                    currency={currency}
-                    value={askPrice}
-                />&nbsp;
+                {askPrice &&
+                    <NumberPlain
+                        currency={currency}
+                        value={askPrice}
+                    />
+                }
+                &nbsp;
                 {payout && (
                     <NumberPlain
                         currency={currency}

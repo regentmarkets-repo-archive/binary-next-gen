@@ -1,19 +1,16 @@
 import React from 'react';
 import expect from 'expect';
-import expectJSX from 'expect-jsx';
-import { renderShallow } from '../../_utils/TestUtils';
+import { shallow } from 'enzyme';
 import Modal from '../Modal';
-
-expect.extend(expectJSX);
 
 describe('Modal', () => {
     it('renders a modal', () => {
-        const output = renderShallow(<Modal />);
-        expect(output.type).toEqual('div');
+        const wrapper = shallow(<Modal />);
+        expect(wrapper.type()).toBe('div');
     });
 
     it('renders empty div if shown is false', () => {
-        const output = renderShallow(<Modal shown={false} />);
-        expect(output).toEqualJSX(<div />);
+        const wrapper = shallow(<Modal shown={false} />);
+        expect(wrapper.find('div').children().length).toBe(0);
     });
 });
