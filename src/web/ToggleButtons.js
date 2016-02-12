@@ -7,10 +7,9 @@ import toggleButtonsSelector from './toggleButtonsSelector';
 export default class ToggleButtons extends React.Component {
 
 	static propTypes = {
-		leftPanelVisible: PropTypes.bool.isRequired,
-		bottomPanelVisible: PropTypes.bool.isRequired,
-		rightPanelVisible: PropTypes.bool.isRequired,
 		actions: PropTypes.object.isRequired,
+		leftPanelVisible: PropTypes.bool.isRequired,
+		rightPanelVisible: PropTypes.bool.isRequired,
 	};
 
 	shouldComponentUpdate = shouldPureComponentUpdate;

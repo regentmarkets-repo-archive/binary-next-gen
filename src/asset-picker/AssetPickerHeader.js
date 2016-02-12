@@ -13,7 +13,7 @@ export default class AssetPickerHeader extends React.Component {
 		return (
 			<thead>
 				<tr>
-					<th colSpan={100}>{market} <br /> {submarket}</th>
+					<th colSpan="100">{market} \ {submarket}</th>
 				</tr>
 			</thead>
 		);

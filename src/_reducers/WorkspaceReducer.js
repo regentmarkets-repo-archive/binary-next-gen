@@ -16,14 +16,11 @@ import {
 
 const initialState = new Map({
     leftPanelVisible: true,
-    leftPanelSize: 350,
+    leftPanelSize: 250,
     leftActiveTab: 0,
     rightPanelVisible: true,
-    rightPanelSize: 350,
+    rightPanelSize: 320,
     rightActiveTab: 0,
-    bottomPanelVisible: true,
-    bottomPanelSize: 300,
-    bottomActiveTab: 0,
     tradeMode: 'grid',
     symbolSelected: 'R_100',
     tradingTimes: new Map({

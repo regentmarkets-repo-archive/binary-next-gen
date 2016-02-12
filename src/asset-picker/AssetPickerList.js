@@ -30,16 +30,23 @@ export default class AssetPickerList extends React.Component {
 						);
 						prevMarket = asset.market;
 						prevSubmarket = asset.submarket;
+
+						components.push(
+							<tbody key={'tbody-' + prevSubmarket}>
+								{assets
+									.filter(x =>
+										x.submarket === prevSubmarket)
+									.map(x =>
+										<AssetPickerItem
+											key={x.symbol}
+											asset={x}
+											{...this.props}
+										/>
+									)
+								}
+							</tbody>
+						);
 					}
-					components.push(
-						<tbody key={asset.symbol}>
-							<AssetPickerItem
-								key={asset.symbol}
-								asset={asset}
-								{...this.props}
-							/>
-						</tbody>
-					);
 
 					return components;
 				}, [])}

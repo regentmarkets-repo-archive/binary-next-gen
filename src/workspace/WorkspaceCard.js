@@ -33,6 +33,7 @@ export default class WorkspaceCard extends React.Component {
 		return (
 			<div id="panels">
 				<TabList
+					id="left-tab-list"
 					vertical
 					showText={false}
 					onChange={idx => onChangeLeftPanel(idx)}
@@ -68,6 +69,7 @@ export default class WorkspaceCard extends React.Component {
 				{workspace.rightPanelVisible &&
 					<WorkspaceRightPanel actions={actions} workspace={workspace} />}
 				<TabList
+					id="right-tab-list"
 					vertical
 					showText={false}
 					onChange={idx => onChangeRightPanel(idx)}

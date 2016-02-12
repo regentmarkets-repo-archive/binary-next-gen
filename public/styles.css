@@ -709,6 +709,15 @@ div[role=tab][aria-selected=true] {
     background: #2a3052;
 }
 
+div[role=tab][aria-selected=true] {
+    box-shadow: inset 3px 0 0 0 #e98024;
+}
+
+#right-tab-list > div[role=tab][aria-selected=true] {
+    box-shadow: inset -3px 0 0 0 #e98024;
+}
+
+
 div[role=tab] {
     flex: 1;
     cursor: pointer;
@@ -739,4 +748,12 @@ div[role=tabpanel] {
 #assets-select, #categories-select {
     min-width: 10rem;
     width: 100%;
+}
+
+tr td:first-child, tr th:first-child {
+    padding-left: 0;
+}
+
+tr td:last-child, tr th:last-child {
+    padding-right: 0;
 }
