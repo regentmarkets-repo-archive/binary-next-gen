@@ -42,7 +42,8 @@ export const durationToSecs = (duration, unit) => {
     }
 };
 
-export const isIntraday = (duration, unit) => durationToSecs(duration, unit) < 60 * 60 * 24;
+export const isIntraday = (duration, unit) =>
+    durationToSecs(duration, unit) < 60 * 60 * 24;
 
 export const contractCategoryDisplay = category => {
     switch (category) {
@@ -56,3 +57,13 @@ export const contractCategoryDisplay = category => {
         default: return undefined;
     }
 };
+
+export const askPriceFromProposal = proposal =>
+    proposal && +proposal.ask_price;
+
+// TODO: consider spread, then payout?
+export const netProfitFromProposal = proposal =>
+    +proposal.payout - +proposal.ask_price;
+
+export const returnPercentageFromProposal = proposal =>
+    netProfitFromProposal(proposal) / askPriceFromProposal(proposal) * 100;

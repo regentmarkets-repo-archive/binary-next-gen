@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 import M from '../_common/M';
 import ErrorMsg from '../_common/ErrorMsg';
 import SelectGroup from '../_common/SelectGroup';
@@ -9,13 +10,13 @@ import RadioGroup from './workaround/CustomRadioGroup';
 import { contractCategoryDisplay, durationToSecs, isIntraday } from '../_utils/TradeUtils';
 import { tradeTypes } from '../_constants/TradeParams';
 import BarrierCard from './barriers/BarrierCard';
-import ContractStatsCard from './ContractStatsCard';
 import DigitBarrierCard from './barriers/DigitBarrierCard';
 import DurationCard from './durations/DurationCard';
 import PayoutCard from './PayoutCard';
 import SpreadBarrierCard from './barriers/SpreadBarrierCard';
 import MobileChart from '../charting/MobileChart';
-import shouldPureComponentUpdate from 'react-pure-render/function';
+import BuyButton from '../tick-trade/BuyButton';
+import { askPriceFromProposal } from '../_utils/TradeUtils';
 
 /**
  * This UI is coded with a few assumptions, which should always be true, this comments serves as a future reference
@@ -475,16 +476,13 @@ export default class TradePanel extends Component {
                     onAmountChange={this.onAmountChange}
                     onBasisChange={this.onBasisChange}
                 />
-                {trade.proposal &&
-                <ContractStatsCard
-                    proposal={trade.proposal}
-                    spread={selectedCategory === 'spreads'}
-                    lastSpot={lastSpot}
-                />}
                 <ErrorMsg shown={!!trade.proposalError} text={trade.proposalError ? trade.proposalError.message : ''} />
-                <button className="buy-btn" onClick={!disabled && this.onPurchase}>
-                    <M m="Purchase" />
-                </button>
+                <BuyButton
+                    askPrice={askPriceFromProposal(trade.proposal)}
+                    currency={currency}
+                    disabled={disabled}
+                    onClick={::this.onPurchase}
+                />
             </fieldset>
         );
     }

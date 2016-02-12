@@ -1,11 +1,11 @@
 import React, { PropTypes } from 'react';
-import M from '../_common/M';
-import NumberPlain from '../_common/NumberPlain';
 import PurchaseFailed from '../_common/PurchaseFailed';
 import PurchaseConfirmation from '../_common/PurchaseConfirmation';
 import Modal from '../containers/Modal';
 import MobileChart from '../charting/MobileChart';
 import TickTradeParameters from './TickTradeParameters';
+import BuyButton from './BuyButton';
+import { askPriceFromProposal } from '../_utils/TradeUtils';
 
 export default class TickTradeCard extends React.Component {
 
@@ -65,14 +65,12 @@ export default class TickTradeCard extends React.Component {
                     id={id}
                     trade={trade}
                 />
-                <button
-                    className="buy-btn"
-                    onClick={() => this.placeOrder()}
+                <BuyButton
+                    askPrice={askPriceFromProposal(trade.proposal)}
+                    currency={currency}
                     disabled={trade.buying}
-                >
-                    <M m="Purchase for " />
-                    <NumberPlain currency={currency} value={trade.proposal && trade.proposal.ask_price} />
-                </button>
+                    onClick={() => this.placeOrder()}
+                />
             </div>
         );
     }

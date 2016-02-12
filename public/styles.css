@@ -710,16 +710,16 @@ div[role=tab][aria-selected=true] {
 }
 
 div[role=tab][aria-selected=true] {
-    box-shadow: inset 3px 0 0 0 #e98024;
+    box-shadow: inset 2px 0 0 0 #e98024;
 }
 
 #right-tab-list > div[role=tab][aria-selected=true] {
-    box-shadow: inset -3px 0 0 0 #e98024;
+    box-shadow: inset -2px 0 0 0 #e98024;
 }
-
 
 div[role=tab] {
     flex: 1;
+    height: 3rem;
     cursor: pointer;
     line-height: 2;
     display: block;
@@ -727,8 +727,7 @@ div[role=tab] {
 }
 
 div[role=tab] img {
-    width: 2.5rem;
-    padding: .5rem;
+    margin: .875rem;
 }
 
  div[role=tablist].vertical div[role=tab] {
@@ -748,12 +747,4 @@ div[role=tabpanel] {
 #assets-select, #categories-select {
     min-width: 10rem;
     width: 100%;
-}
-
-tr td:first-child, tr th:first-child {
-    padding-left: 0;
-}
-
-tr td:last-child, tr th:last-child {
-    padding-right: 0;
 }
