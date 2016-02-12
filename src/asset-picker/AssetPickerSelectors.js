@@ -51,9 +51,9 @@ export const shownAssetsSelector = createSelector(
     (availableAssets, filter) =>
         availableAssets
             .filter(asset => doesMatchFilter(asset, filter))
-            .sort((x1, x2) =>
-                x1.get('display_name').localeCompare(x2.get('display_name'))
-            )
+            // .sort((x1, x2) =>
+            //     x1.get('display_name').localeCompare(x2.get('display_name'))
+            // )
 );
 
 export const assetPickerItemsSelector = createSelector(

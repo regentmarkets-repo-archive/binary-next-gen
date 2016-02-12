@@ -25,12 +25,9 @@ export default class AssetPickerItem extends React.Component {
 				<td onClick={() => onSelect(asset.symbol)}>
 					{asset.name}
 				</td>
-				<td className="market-hierarchy" onClick={() => onSelect(asset.symbol)}>
-					{asset.market + ' > ' + asset.submarket}
-				</td>
 				{!compact && <td onClick={() => onCreateTrade(asset.symbol)}>
 					<button className="asset-picker-trade-btn">
-						<img src="img/trade.svg" style={{ width: '1rem' }} />
+						Trade
 					</button>
 				</td>}
 			</tr>

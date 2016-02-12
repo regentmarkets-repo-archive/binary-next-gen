@@ -55,6 +55,7 @@ export default class AssetPickerCard extends React.Component {
 				<AssetPickerFilter actions={actions} />
 				<div className="asset-list">
 					<AssetPickerList
+						grouped
 						assets={assetPickerItems}
 						onCreateTrade={::this.onCreateTrade}
 						onSelect={asset => this.onSelect(params.id, asset)}
