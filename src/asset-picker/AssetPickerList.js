@@ -20,7 +20,6 @@ export default class AssetPickerList extends React.Component {
 			<table>
 				{assets.reduce((components, asset) => {
 					if (grouped && prevSubmarket !== asset.submarket) {
-						console.log(asset.submarket);
 						components.push(
 							<AssetPickerHeader
 								key={asset.submarket}

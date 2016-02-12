@@ -51,13 +51,32 @@ export const shownAssetsSelector = createSelector(
     (availableAssets, filter) =>
         availableAssets
             .filter(asset => doesMatchFilter(asset, filter))
-            // .sort((x1, x2) =>
-            //     x1.get('display_name').localeCompare(x2.get('display_name'))
-            // )
+);
+
+export const sortedShownAssetsSelector = createSelector(
+    [shownAssetsSelector],
+    shownAssets =>
+        shownAssets
+            .sort((x1, x2) =>
+                 x1.get('display_name').localeCompare(x2.get('display_name'))
+            )
+);
+
+export const sortedByMarketShownAssetsSelector = createSelector(
+    [shownAssetsSelector],
+    shownAssets =>
+        shownAssets
+            .sort((x1, x2) => {
+                 const marketDiff = x1.get('market_display_name').localeCompare(x2.get('market_display_name'));
+                 if (marketDiff !== 0) return marketDiff;
+                 const submarketDiff = x1.get('submarket_display_name').localeCompare(x2.get('submarket_display_name'));
+                 if (submarketDiff !== 0) return submarketDiff;
+                 return x1.get('display_name').localeCompare(x2.get('display_name'));
+             })
 );
 
 export const assetPickerItemsSelector = createSelector(
-    [shownAssetsSelector, watchlistSelector],
+    [sortedByMarketShownAssetsSelector, watchlistSelector],
     (shownAssets, watchlist) =>
         shownAssets.map(asset => ({
             symbol: asset.get('symbol'),
