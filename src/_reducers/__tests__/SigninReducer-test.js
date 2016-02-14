@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import { fromJS } from 'immutable';
 import * as actions from '../../_actions/SigninActions';
 import signinReducer from '../SigninReducer';
@@ -12,7 +12,7 @@ describe('SigninReducer', () => {
         const expected = fromJS({
             progress: true,
         });
-        expect(actual).toEqual(expected);
+        expect(expected).to.equal(actual);
     });
 
     it('should change a field value with signinFieldUpdate', () => {
@@ -23,6 +23,6 @@ describe('SigninReducer', () => {
         const expected = fromJS({
             email: 'test@example.com',
         });
-        expect(actual).toEqual(expected);
+        expect(expected).to.equal(actual);
     });
 });

@@ -3,7 +3,7 @@ import React, { PropTypes } from 'react';
 export default class TabList extends React.Component {
 
     static propTypes = {
-        id: PropTypes.string.isRequired,
+        id: PropTypes.string,
         children: PropTypes.array.isRequired,
         activeIndex: PropTypes.number.isRequired,
         vertical: PropTypes.bool.isRequired,

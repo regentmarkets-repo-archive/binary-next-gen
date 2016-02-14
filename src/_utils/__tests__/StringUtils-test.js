@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import { stringIncrement, numberToSignedString } from '../StringUtils';
 
 describe('stringIncrement', () => {
@@ -6,19 +6,19 @@ describe('stringIncrement', () => {
         const testString = 'halo1';
 
         const result = stringIncrement(testString);
-        expect(result).toEqual('halo2');
+        expect(result).to.equal('halo2');
     });
 
     it('increase number only string', () => {
         const testString = '999';
 
         const result = stringIncrement(testString);
-        expect(result).toEqual('1000');
+        expect(result).to.equal('1000');
     });
 });
 
 describe('numberToSignedString', () => {
     it('Convert Number to a Signed string', () => {
-        expect(numberToSignedString(4567)).toEqual('+4567');
+        expect(numberToSignedString(4567)).to.equal('+4567');
     });
 });

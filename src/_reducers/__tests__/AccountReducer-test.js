@@ -1,6 +1,6 @@
 import { fromJS } from 'immutable';
 import accountReducer from '../AccountReducer';
-import expect from 'expect';
+import { expect } from 'chai';
 import {
     SERVER_DATA_AUTHORIZE,
     SERVER_DATA_BALANCE,
@@ -31,7 +31,7 @@ describe('accountReducer', () => {
             },
         };
         const actualState = accountReducer(beforeState, action);
-        expect(actualState).toEqual(stateExpected);
+        expect(actualState).to.equal(stateExpected);
     });
 
     it('should update balance with the response balance ', () => {
@@ -49,7 +49,7 @@ describe('accountReducer', () => {
         const expectedState = fromJS({
             balance: 10,
         });
-        expect(actualState).toEqual(expectedState);
+        expect(expectedState).to.equal(actualState);
     });
 
     it('should update balance after purchase', () => {
@@ -64,6 +64,6 @@ describe('accountReducer', () => {
         const expectedState = fromJS({
             account: { balance: 30 },
         });
-        expect(actualState).toEqual(expectedState);
+        expect(expectedState).to.equal(actualState);
     });
 });

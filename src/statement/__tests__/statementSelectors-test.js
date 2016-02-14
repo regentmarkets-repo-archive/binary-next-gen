@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import expect from 'expect';
+import { expect } from 'chai';
 import statementSelectors from '../statementSelectors';
 
 describe('statementSelectors', () => {
@@ -14,7 +14,7 @@ describe('statementSelectors', () => {
 
         const actual = statementSelectors(state);
 
-        expect(actual).toExist();
+        expect(actual).to.be.ok;
     });
 
     it('should return the same result for the same state', () => {
@@ -23,11 +23,11 @@ describe('statementSelectors', () => {
         const first = statementSelectors(state);
         const second = statementSelectors(state);
 
-        expect(first.currency).toBe(second.currency);
-        expect(first.transactions).toBe(second.transactions);
-        expect(first.tradingTimesFilter).toBe(second.tradingTimesFilter);
-        expect(first.transactionsTotal).toBe(second.transactionsTotal);
+        expect(first.currency).to.equal(second.currency);
+        expect(first.transactions).to.equal(second.transactions);
+        expect(first.tradingTimesFilter).to.equal(second.tradingTimesFilter);
+        expect(first.transactionsTotal).to.equal(second.transactionsTotal);
 
-        expect(first).toBe(second);
+        expect(first).to.equal(second);
     });
 });

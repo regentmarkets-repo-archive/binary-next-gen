@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import { groupByKey, arrayToObject } from '../ArrayUtils';
 
 describe('groupByKey', () => {
@@ -39,7 +39,7 @@ describe('groupByKey', () => {
         ];
 
         const grouped = groupByKey(arr, 'value');
-        expect(Object.keys(grouped).length).toEqual(5);
+        expect(Object.keys(grouped).length).to.equal(5);
     });
 });
 
@@ -81,8 +81,8 @@ describe('arrayToObject', () => {
         ];
 
         const converted = arrayToObject(arr);
-        expect(Object.keys(converted).length).toEqual(2);
-        expect(converted.text.length).toEqual(8);
-        expect(converted.value).toEqual([0, 1, 0, 1, 2, 2, 3, 4]);
+        expect(Object.keys(converted).length).to.equal(2);
+        expect(converted.text.length).to.equal(8);
+        expect(converted.value).to.deep.equal([0, 1, 0, 1, 2, 2, 3, 4]);
     });
 });

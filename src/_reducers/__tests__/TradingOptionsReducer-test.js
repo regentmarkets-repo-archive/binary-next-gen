@@ -1,6 +1,9 @@
-import expect from 'expect';
+import chai, { expect } from 'chai';
+import chaiImmutable from 'chai-immutable';
+chai.use(chaiImmutable);
+
+import { fromJS, Map } from 'immutable';
 import tradingOptionsReducer from '../TradingOptionsReducer';
-import { fromJS } from 'immutable';
 import { UPDATE_TRADING_OPTIONS } from '../../_constants/ActionTypes';
 
 describe('TradingOptionsReducer', () => {
@@ -10,9 +13,9 @@ describe('TradingOptionsReducer', () => {
             symbol: 'FX',
             opts: ['FX', 'TX'],
         };
-        const beforeState = fromJS({});
+        const beforeState = new Map({});
         const actualState = tradingOptionsReducer(beforeState, action);
         const expectedState = fromJS({ FX: ['FX', 'TX'] });
-        expect(actualState.toJS()).toEqual(expectedState.toJS());
+        expect(expectedState).to.equal(actualState);
     });
 });

@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import expect from 'expect';
+import { expect } from 'chai';
 import { CREATE_ACCOUNT_ERROR, CREATE_ACCOUNT_FIELD_UPDATE, CREATE_ACCOUNT_START } from '../../_constants/ActionTypes';
 import createAccountReducer from '../CreateAccountReducer';
 
@@ -15,7 +15,7 @@ describe('CreateAccountReducer', () => {
             type: CREATE_ACCOUNT_START,
         };
         const actualState = createAccountReducer(beforeState, action);
-        expect(actualState).toEqual(expectedState);
+        expect(expectedState).to.equal(actualState);
     });
 
     it('should be able to update account field', () => {
@@ -29,7 +29,7 @@ describe('CreateAccountReducer', () => {
             fieldValue: 'example@binary.com',
         };
         const actualState = createAccountReducer(beforeState, action);
-        expect(actualState).toEqual(expectedState);
+        expect(expectedState).to.equal(actualState);
     });
 
     it('should handle create account error', () => {
@@ -42,7 +42,7 @@ describe('CreateAccountReducer', () => {
             error: 'Create account failed.',
         };
         const actualState = createAccountReducer(stateBefore, action);
-        expect(actualState).toEqual(expectedState);
+        expect(expectedState).to.equal(actualState);
     });
 
     it('should return the same create account state when no type is provided', () => {
@@ -55,6 +55,6 @@ describe('CreateAccountReducer', () => {
             error: 'Create account failed.',
         };
         const actualState = createAccountReducer(beforeState, action);
-        expect(actualState).toEqual(beforeState);
+        expect(actualState).to.equal(beforeState);
     });
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import expect from 'expect';
+import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import WebPage from '../WebPage';
 import configureStore from 'redux-mock-store';
@@ -17,6 +17,6 @@ describe('WebPage', () => {
                 <span>Hello</span>
             </WebPage>
         );
-        expect(wrapper.children().text()).toContain('Hello');
+        expect(wrapper.children().text()).to.contain('Hello');
     });
 });

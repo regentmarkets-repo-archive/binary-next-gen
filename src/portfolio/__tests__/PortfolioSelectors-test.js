@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import expect from 'expect';
+import { expect } from 'chai';
 import portfolioSelectors from '../PortfolioSelectors';
 
  describe('portfolioSelectors', () => {
@@ -11,7 +11,7 @@ import portfolioSelectors from '../PortfolioSelectors';
      it('should be able to be created', () => {
          const state = emptyState();
          const selectors = portfolioSelectors(state);
-         expect(selectors).toExist();
+         expect(selectors).to.be.ok;
      });
 
      it('should return same immutable value for the same input state', () => {
@@ -19,11 +19,11 @@ import portfolioSelectors from '../PortfolioSelectors';
          const first = portfolioSelectors(state);
          const second = portfolioSelectors(state);
 
-         expect(first.contracts).toBe(second.contracts);
-         expect(first.portfolio).toBe(second.portfolio);
-         expect(first.purchaseTotal).toBe(second.purchaseTotal);
-         expect(first.indicativeTotal).toBe(second.indicativeTotal);
+         expect(first.contracts).to.equal(second.contracts);
+         expect(first.portfolio).to.equal(second.portfolio);
+         expect(first.purchaseTotal).to.equal(second.purchaseTotal);
+         expect(first.indicativeTotal).to.equal(second.indicativeTotal);
 
-         expect(first).toBe(second);
+         expect(first).to.equal(second);
      });
  });

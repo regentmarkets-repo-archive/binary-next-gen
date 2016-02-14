@@ -1,5 +1,5 @@
 import { fromJS, List, Set, Map } from 'immutable';
-import expect from 'expect';
+import { expect } from 'chai';
 import watchlistSelectors from '../watchlistSelectors';
 
 describe('watchlistSelectors', () => {
@@ -14,7 +14,7 @@ describe('watchlistSelectors', () => {
 
         const actual = watchlistSelectors(state);
 
-        expect(actual).toExist();
+        expect(actual).to.be.ok;
     });
 
     it('should return the same result for the same state', () => {
@@ -23,9 +23,9 @@ describe('watchlistSelectors', () => {
         const first = watchlistSelectors(state);
         const second = watchlistSelectors(state);
 
-        expect(first.watchlistView).toBe(second.watchlistView);
+        expect(first.watchlistView).to.equal(second.watchlistView);
 
-        expect(first).toBe(second);
+        expect(first).to.equal(second);
     });
 
     it('should asemble a view model from input selectors', () => {
@@ -44,10 +44,10 @@ describe('watchlistSelectors', () => {
 
         const watchlistView = watchlistSelectors(state).watchlistView.toJS();
 
-        expect(watchlistView.length).toBe(1);
-        expect(watchlistView[0].symbol).toBe('R_100');
-        expect(watchlistView[0].assetName).toBe('Random 100 Index');
-        expect(watchlistView[0].quote).toBe(123);
-        expect(watchlistView[0].diff).toBe(23);
+        expect(watchlistView).to.have.length(1);
+        expect(watchlistView[0].symbol).to.equal('R_100');
+        expect(watchlistView[0].assetName).to.equal('Random 100 Index');
+        expect(watchlistView[0].quote).to.equal(123);
+        expect(watchlistView[0].diff).to.equal(23);
     });
 });

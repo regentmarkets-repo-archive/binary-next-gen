@@ -1,7 +1,7 @@
 import { fromJS } from 'immutable';
 import appConfigReducer from '../AppConfigReducer';
 import { UPDATE_APP_CONFIG } from '../../_constants/ActionTypes';
-import expect from 'expect';
+import { expect } from 'chai';
 
 describe('AppConfigReducer', () => {
     it('should update appconfig state with the given field and value', () => {
@@ -14,7 +14,7 @@ describe('AppConfigReducer', () => {
             language: 'FR',
         });
         const actualState = appConfigReducer(fromJS({}), action);
-        expect(actualState).toEqual(expectedState);
+        expect(expectedState).to.equal(actualState);
     });
 
     it('should return the same appConfig state when wrong state type is given', () => {
@@ -27,6 +27,6 @@ describe('AppConfigReducer', () => {
             value: 'light',
         };
         const actualState = appConfigReducer(beforeState, action);
-        expect(actualState).toEqual(beforeState);
+        expect(actualState).to.equal(beforeState);
     });
 });

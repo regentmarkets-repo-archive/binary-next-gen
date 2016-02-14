@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import expect from 'expect';
+import { expect } from 'chai';
 import balanceSelectors from '../balanceSelectors';
 
 describe('balanceSelectors', () => {
@@ -8,6 +8,6 @@ describe('balanceSelectors', () => {
 	it('should be able to be created', () => {
         const state = emptyState();
 		const selector = balanceSelectors(state);
-		expect(selector).toExist();
+		expect(selector).to.be.ok;
 	});
 });

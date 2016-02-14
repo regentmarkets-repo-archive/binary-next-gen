@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import expect from 'expect';
+import { expect } from 'chai';
 import ransactionsReducer from '../TransactionsReducer';
 import {
     SERVER_DATA_STATEMENT,
@@ -21,7 +21,7 @@ describe('TransactionsReducer', () => {
         const beforeState = fromJS({});
         const actualState = ransactionsReducer(beforeState, action);
         const expectedState = fromJS({ deposit: 100 });
-        expect(actualState).toEqual(expectedState);
+        expect(expectedState).to.equal(actualState);
     });
 
     it('should be able to clear transactional data', () => {
@@ -30,7 +30,7 @@ describe('TransactionsReducer', () => {
         };
         const beforeState = fromJS([]);
         const actualState = ransactionsReducer(beforeState, action);
-        expect(actualState).toEqual(beforeState);
+        expect(actualState).to.equal(beforeState);
     });
 
     it('should return transaction unchaned when action type is not provided', () => {
@@ -45,6 +45,6 @@ describe('TransactionsReducer', () => {
         };
         const beforeState = fromJS({});
         const actualState = ransactionsReducer(beforeState, action);
-        expect(actualState).toEqual(beforeState);
+        expect(actualState).to.equal(beforeState);
     });
 });

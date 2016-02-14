@@ -1,17 +1,17 @@
 import React from 'react';
 import { shallow } from 'enzyme';
-import expect from 'expect';
+import { expect } from 'chai';
 import TabList from '../TabList';
 
 describe('<TabList />', () => {
     it('should render', () => {
         const wrapper = shallow(<TabList />);
-        expect(wrapper).toExist();
+        expect(wrapper).to.be.ok;
     });
 
     it('should render a single item if contained', () => {
         const wrapper = shallow(<TabList>Hello</TabList>);
-        expect(wrapper.nodes.length).toBe(1);
+        expect(wrapper.nodes).to.have.length(1);
     });
 
     it('should render as many children as contained', () => {
@@ -22,7 +22,7 @@ describe('<TabList />', () => {
                 <span />
             </TabList>
         );
-        expect(wrapper.find('span').length).toBe(3);
+        expect(wrapper.find('span')).to.have.length(3);
     });
 
     it('should set at least one child to selected', () => {
@@ -31,6 +31,6 @@ describe('<TabList />', () => {
                 <span />
             </TabList>
         );
-        expect(wrapper.find('span[selected]').length).toBe(1);
+        expect(wrapper.find('span[selected]')).to.have.length(1);
     });
 });

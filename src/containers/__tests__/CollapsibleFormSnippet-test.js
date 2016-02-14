@@ -1,5 +1,5 @@
 import React from 'react';
-import expect from 'expect';
+import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import CollapsibleFormSnippet from '../CollapsibleFormSnippet';
 
@@ -10,7 +10,7 @@ describe('CollapsibleFormSnippet', () => {
 				label<span>Hello</span>
 			</CollapsibleFormSnippet>
 		);
-		expect(wrapper.children().contains('label')).toEqual(true);
+		expect(wrapper.children().contains('label')).to.be.true;
 	});
 	it('contains the children node', () => {
 		const wrapper = shallow(
@@ -18,6 +18,6 @@ describe('CollapsibleFormSnippet', () => {
 				label<span>Hello</span>
 			</CollapsibleFormSnippet>
 		);
-		expect(wrapper.contains(<span>Hello</span>)).toEqual(true);
+		expect(wrapper.contains(<span>Hello</span>)).to.be.true;
 	});
 });

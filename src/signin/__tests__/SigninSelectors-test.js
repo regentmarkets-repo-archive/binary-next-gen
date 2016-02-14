@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import expect from 'expect';
+import { expect } from 'chai';
 import signinSelectors from '../SigninSelectors';
 
 describe('signinSelectors', () => {
@@ -13,7 +13,7 @@ describe('signinSelectors', () => {
         const state = emptyState();
         const selectors = signinSelectors(state);
 
-        expect(selectors).toExist();
+        expect(selectors).to.be.ok;
     });
 
     it('should return immutable result', () => {
@@ -21,6 +21,6 @@ describe('signinSelectors', () => {
         const first = signinSelectors(state);
         const second = signinSelectors(state);
 
-        expect(first).toBe(second);
+        expect(first).to.equal(second);
     });
 });

@@ -1,5 +1,8 @@
+import chai, { expect } from 'chai';
+import chaiImmutable from 'chai-immutable';
+chai.use(chaiImmutable);
+
 import { Map } from 'immutable';
-import expect from 'expect';
 import { SERVER_DATA_STATES } from '../../_constants/ActionTypes';
 import stateReducer from '../StatesReducer';
 
@@ -12,8 +15,10 @@ describe('StatesReducer', () => {
         };
         const beforeState = new Map({});
         const expectedState = new Map({ COUNTRY: ['AY', 'WY'] });
+
         const actualState = stateReducer(beforeState, action);
-        expect(actualState).toEqual(expectedState);
+
+        expect(expectedState).to.equal(actualState);
     });
 
     it('should return the default or initial state when action type is wrong or not given', () => {
@@ -22,6 +27,6 @@ describe('StatesReducer', () => {
         };
         const beforeState = new Map({});
         const actualState = stateReducer(beforeState, action);
-        expect(actualState).toEqual(beforeState);
+        expect(actualState).to.equal(beforeState);
     });
 });

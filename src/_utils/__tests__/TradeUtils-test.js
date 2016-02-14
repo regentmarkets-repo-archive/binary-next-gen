@@ -1,29 +1,29 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import { tradeTypeTextToCode, tradeTypeCodeToText, typeHasBarrier, pipsToDigits } from '../TradeUtils.js';
 
 describe('tradeTypeTextToCode', () => {
     it('returns the code behind friendly name', () => {
         const code = tradeTypeTextToCode('Rise');
-        expect(code).toEqual('CALL');
+        expect(code).to.equal('CALL');
     });
 });
 
 describe('tradeTypeCodeToText', () => {
     it('returns friendly name from code', () => {
         const typeStr = tradeTypeCodeToText('CALL');
-        expect(typeStr).toEqual('Rise');
+        expect(typeStr).to.equal('Rise');
     });
 });
 
 describe('typeHasBarrier', () => {
     it('detects when a type has no barriers', () => {
         const hasBarrier = typeHasBarrier('CALL');
-        expect(hasBarrier).toEqual(false);
+        expect(hasBarrier).to.be.false;
     });
 
     it('detects when a type has barriers', () => {
         const hasBarrier = typeHasBarrier('DIGITMATCH');
-        expect(hasBarrier).toEqual(true);
+        expect(hasBarrier).to.be.true;
     });
 });
 
@@ -31,11 +31,11 @@ describe('typeHasBarrier', () => {
 describe('pipsToDigits', () => {
     it('0.01 pips result in 2 digits after the decimal point', () => {
         const digits = pipsToDigits(0.01);
-        expect(digits).toEqual(2);
+        expect(digits).to.equal(2);
     });
 
     it('0.0001 pips result in 4 digits after the decimal point', () => {
         const digits = pipsToDigits(0.0001);
-        expect(digits).toEqual(4);
+        expect(digits).to.equal(4);
     });
 });

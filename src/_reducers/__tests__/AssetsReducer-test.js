@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import { fromJS } from 'immutable';
 import * as actions from '../../_actions/AssetsActions';
 import assetsReducer from '../AssetsReducer';
@@ -8,7 +8,7 @@ describe('assetsReducers', () => {
         const noAction = { type: '' };
         const initialState = assetsReducer(undefined, noAction);
         const expected = fromJS([]);
-        expect(expected).toEqual(initialState);
+        expect(expected).to.equal(initialState);
     });
 
     describe('serverDataActiveSymbols', () => {
@@ -16,7 +16,7 @@ describe('assetsReducers', () => {
             const action = actions.serverDataActiveSymbols({ active_symbols: [] });
             const stateAfter = assetsReducer(undefined, action);
             const expected = fromJS([]);
-            expect(expected).toEqual(stateAfter);
+            expect(expected).to.equal(stateAfter);
         });
     });
 });

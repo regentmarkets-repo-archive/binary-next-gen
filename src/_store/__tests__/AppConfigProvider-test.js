@@ -1,6 +1,6 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
-import expect from 'expect';
+import { expect } from 'chai';
 import { fromJS } from 'immutable';
 import { shallow, render } from 'enzyme';
 import AppConfigProvider from '../AppConfigProvider';
@@ -22,7 +22,7 @@ describe('AppConfigProvider', () => {
                 <ChildComponent/>
             </AppConfigProvider>);
 
-        expect(wrapper.render().text()).toContain('World');
+        expect(wrapper.render().text()).to.contain('World');
     });
 
     it('should render theme-wrapper', () => {
@@ -30,6 +30,6 @@ describe('AppConfigProvider', () => {
             <AppConfigProvider store={store}>
                 <ChildComponent/>
             </AppConfigProvider>);
-        expect(wrapper.find('#theme-wrapper').hasClass('inverse')).toEqual(true);
+        expect(wrapper.find('#theme-wrapper').hasClass('inverse')).to.be.true;
     });
 });

@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import expect from 'expect';
+import { expect } from 'chai';
 import depositSelectors from '../depositSelectors';
 
 describe('depositSelectors', () => {
@@ -12,7 +12,7 @@ describe('depositSelectors', () => {
     it('should be able to be created', () => {
         const state = emptyState();
         const selectors = depositSelectors(state);
-        expect(selectors).toExist();
+        expect(selectors).to.be.ok;
     });
 
     it('should return same immutable value for the same input state', () => {
@@ -20,10 +20,10 @@ describe('depositSelectors', () => {
         const first = depositSelectors(state);
         const second = depositSelectors(state);
 
-        expect(first.paymentAgent).toBe(second.paymentAgent);
-        expect(first.currency).toBe(second.currency);
-        expect(first.country).toBe(second.country);
+        expect(first.paymentAgent).to.equal(second.paymentAgent);
+        expect(first.currency).to.equal(second.currency);
+        expect(first.country).to.equal(second.country);
 
-        expect(first).toBe(second);
+        expect(first).to.equal(second);
     });
 });

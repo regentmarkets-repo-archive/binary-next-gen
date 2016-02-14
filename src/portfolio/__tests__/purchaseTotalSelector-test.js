@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import expect from 'expect';
+import { expect } from 'chai';
 import { purchaseTotalSelector } from '../PortfolioSelectors';
 
 describe('purchaseTotal', () => {
@@ -7,7 +7,7 @@ describe('purchaseTotal', () => {
         const actual = purchaseTotalSelector({
             openContracts: fromJS({}),
         });
-        expect(actual).toEqual(0);
+        expect(actual).to.equal(0);
     });
 
     it('list of one item equals this item purchase price', () => {
@@ -16,7 +16,7 @@ describe('purchaseTotal', () => {
                 92001: { buy_price: 10 },
             }),
         });
-        expect(actual).toEqual(10);
+        expect(actual).to.equal(10);
     });
 
     it('list of multiple items results in sum of their prices', () => {
@@ -27,6 +27,6 @@ describe('purchaseTotal', () => {
                 3003: { buy_price: 3 },
             }),
         });
-        expect(actual).toEqual(6);
+        expect(actual).to.equal(6);
     });
 });

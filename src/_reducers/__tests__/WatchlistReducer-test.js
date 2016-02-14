@@ -1,5 +1,5 @@
 import { Set } from 'immutable';
-import expect from 'expect';
+import { expect } from 'chai';
 import watchlistReducer from '../WatchlistReducer';
 import { WATCHLIST_TOGGLE_ASSET, REMOVE_PERSONAL_DATA } from '../../_constants/ActionTypes';
 
@@ -13,7 +13,7 @@ describe('WatchlistReducer', () => {
         const beforeState = new Set();
         const expectedState = Set.of('A');
         const actualState = watchlistReducer(beforeState, action);
-        expect(expectedState).toEqual(actualState);
+        expect(expectedState).to.equal(actualState);
     });
 
     it('should be able to unsubscribe user from watchlist', () => {
@@ -25,7 +25,7 @@ describe('WatchlistReducer', () => {
         const beforeState = Set.of('A');
         const expectedState = Set.of();
         const actualState = watchlistReducer(beforeState, action);
-        expect(expectedState).toEqual(actualState);
+        expect(expectedState).to.equal(actualState);
     });
 
     it('should be able to clear list of subscribers', () => {
@@ -35,6 +35,6 @@ describe('WatchlistReducer', () => {
         const beforeState = Set.of('A');
         const expectedState = Set.of();
         const actualState = watchlistReducer(beforeState, action);
-        expect(actualState).toEqual(expectedState);
+        expect(expectedState).to.equal(actualState);
     });
 });

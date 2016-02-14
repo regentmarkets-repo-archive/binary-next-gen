@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import expect from 'expect';
+import { expect } from 'chai';
 import upgradeReducer from '../UpgradeReducer';
 import { UPGRADE_FIELD_UPDATE, UPGRADE_DOB_UPDATE, UPGRADE_FIELD_CLEAR } from '../../_constants/ActionTypes';
 
@@ -12,8 +12,10 @@ describe('UpgradeReducer', () => {
         };
         const beforeState = fromJS({});
         const expectedState = fromJS({ username: 'myusername' });
+
         const actualState = upgradeReducer(beforeState, action);
-        expect(actualState).toEqual(expectedState);
+
+        expect(expectedState).to.equal(actualState);
     });
 
     it('should be able to update the day field of the account upgrade DOB ', () => {
@@ -24,8 +26,10 @@ describe('UpgradeReducer', () => {
         };
         const beforeState = fromJS({ dateOfBirth: new Date('2001-01-01') });
         const actualState = upgradeReducer(beforeState, action).get('dateOfBirth').getDate();
+
         const expectedState = (new Date()).getDate();
-        expect(actualState).toEqual(expectedState);
+
+        expect(expectedState).to.equal(actualState);
     });
 
     it('should be able to update the month field of the account upgrade DOB', () => {
@@ -34,10 +38,11 @@ describe('UpgradeReducer', () => {
             dayMonthOrYear: 'month',
             val: (new Date()).getMonth() + 1,
         };
+        const expectedState = (new Date()).getMonth() + 1;
         const beforeState = fromJS({ dateOfBirth: new Date('2001-10-10') });
         const actualState = upgradeReducer(beforeState, action).get('dateOfBirth').getMonth();
-        const expectedState = (new Date()).getMonth() + 1;
-        expect(actualState).toEqual(expectedState);
+
+        expect(expectedState).to.equal(actualState);
     });
 
 
@@ -50,7 +55,7 @@ describe('UpgradeReducer', () => {
         const beforeState = fromJS({ dateOfBirth: new Date('2001-10-10') });
         const actualState = upgradeReducer(beforeState, action).get('dateOfBirth').getFullYear();
         const expectedState = (new Date()).getFullYear();
-        expect(actualState).toEqual(expectedState);
+        expect(expectedState).to.equal(actualState);
     });
 
     it('it should be able to clear upgrade fields values and set it to default values', () => {
@@ -78,9 +83,10 @@ describe('UpgradeReducer', () => {
         };
         const beforeState = fromJS({});
         const actualState = upgradeReducer(beforeState, action);
-        expect(actualState.get('activeStep')).toEqual(initialState.get('activeStep'));
-        expect(actualState.get('success')).toEqual(initialState.get('success'));
-        expect(actualState.get('addressPostcode')).toEqual(initialState.get('addressPostcode'));
+
+        expect(actualState.get('activeStep')).to.equal(initialState.get('activeStep'));
+        expect(actualState.get('success')).to.equal(initialState.get('success'));
+        expect(actualState.get('addressPostcode')).to.equal(initialState.get('addressPostcode'));
     });
 
     it('should return upgrade state unchanged when wrong or no action type is given ', () => {
@@ -88,7 +94,9 @@ describe('UpgradeReducer', () => {
         const action = {
             type: 'WRONG_TYPE',
         };
+
         const actualState = upgradeReducer(beforeState, action);
-        expect(actualState).toEqual(beforeState);
+
+        expect(actualState).to.equal(beforeState);
     });
 });

@@ -1,7 +1,7 @@
 import { fromJS } from 'immutable';
 import appStateReducer from '../AppStateReducer';
 import { UPDATE_APP_STATE } from '../../_constants/ActionTypes';
-import expect from 'expect';
+import { expect } from 'chai';
 
 describe('AppStateReducer', () => {
     it('should update appstate field with the given value', () => {
@@ -17,7 +17,7 @@ describe('AppStateReducer', () => {
 
         const actualState = appStateReducer(stateBefore, action);
 
-        expect(stateExpectedAfter).toEqual(actualState);
+        expect(stateExpectedAfter).to.equal(actualState);
     });
 
     it('should return the same state when a wrong actiontype is provided', () => {
@@ -28,6 +28,6 @@ describe('AppStateReducer', () => {
             type: 'NON_EXISTING_TYPE',
         };
         const actualState = appStateReducer(stateBefore, action);
-        expect(actualState).toEqual(stateBefore);
+        expect(actualState).to.equal(stateBefore);
     });
 });

@@ -1,5 +1,5 @@
 import React from 'react';
-import expect from 'expect';
+import { expect } from 'chai';
 import { createRenderer } from 'react-addons-test-utils';
 import Collapsible from '../Collapsible';
 
@@ -14,6 +14,6 @@ describe('Collapsible', () => {
 				Hello
 			</details>
 		);
-		expect(expectedElement).toEqual(actualElement);
+		expect(expectedElement).to.deep.equal(actualElement);
 	});
 });

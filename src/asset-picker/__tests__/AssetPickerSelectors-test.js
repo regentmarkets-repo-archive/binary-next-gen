@@ -1,5 +1,5 @@
 import { fromJS, List } from 'immutable';
-import expect from 'expect';
+import { expect } from 'chai';
 import assetPickerSelectors, {
     similarStr,
     assetPickerItemsSelector,
@@ -8,30 +8,30 @@ import assetPickerSelectors, {
 describe('AssetPickerSelectors', () => {
     describe('similarStr', () => {
         it('parameters can be undefined', () => {
-            expect(() => similarStr(undefined, undefined)).toNotThrow();
-            expect(() => similarStr(undefined, 'abc')).toNotThrow();
-            expect(() => similarStr('abc', undefined)).toNotThrow();
+            expect(() => similarStr(undefined, undefined)).to.not.throw();
+            expect(() => similarStr(undefined, 'abc')).to.not.throw();
+            expect(() => similarStr('abc', undefined)).to.not.throw();
         });
 
         it('undefined matches empty string', () => {
-            expect(similarStr(undefined, undefined)).toEqual(true);
-            expect(similarStr(undefined, '')).toEqual(true);
-            expect(similarStr('', undefined)).toEqual(true);
+            expect(similarStr(undefined, undefined)).to.be.true;
+            expect(similarStr(undefined, '')).to.be.true;
+            expect(similarStr('', undefined)).to.be.true;
         });
 
         it('if text is not contained return false', () => {
             const match = similarStr('abcdefghi', 'xyz');
-            expect(match).toEqual(false);
+            expect(match).to.be.false;
         });
 
         it('if text is contained return true', () => {
             const match = similarStr('abcdefghi', 'cde');
-            expect(match).toEqual(true);
+            expect(match).to.be.true;
         });
 
         it('if text is contained, regardless of case, return true', () => {
             const match = similarStr('abcdefghi', 'AbC');
-            expect(match).toEqual(true);
+            expect(match).to.be.true;
         });
     });
 
@@ -43,12 +43,12 @@ describe('AssetPickerSelectors', () => {
 
         it('should work with an empty state', () => {
             const assetPickerItems = assetPickerItemsSelector(emptyState());
-            expect(assetPickerItems).toExist();
+            expect(assetPickerItems).to.be.ok;
         });
 
         it('should return an immutable list', () => {
             const assetPickerItems = assetPickerItemsSelector(emptyState());
-            expect(List.isList(assetPickerItems)).toEqual(true);
+            expect(List.isList(assetPickerItems)).to.be.true;
         });
     });
 
@@ -64,7 +64,7 @@ describe('AssetPickerSelectors', () => {
 
             const actual = assetPickerSelectors(state);
 
-            expect(actual).toExist();
+            expect(actual).to.be.ok;
         });
 
         it('should return the same result for the same state', () => {
@@ -73,13 +73,13 @@ describe('AssetPickerSelectors', () => {
             const first = assetPickerSelectors(state);
             const second = assetPickerSelectors(state);
 
-            expect(first.availableAssets).toBe(second.availableAssets);
-            expect(first.filter).toBe(second.filter);
-            expect(first.maxTradeId).toBe(second.maxTradeId);
-            expect(first.workspace).toBe(second.workspace);
-            expect(first.assetPickerItems).toBe(second.assetPickerItems);
+            expect(first.availableAssets).to.equal(second.availableAssets);
+            expect(first.filter).to.equal(second.filter);
+            expect(first.maxTradeId).to.equal(second.maxTradeId);
+            expect(first.workspace).to.equal(second.workspace);
+            expect(first.assetPickerItems).to.equal(second.assetPickerItems);
 
-            expect(first).toBe(second);
+            expect(first).to.equal(second);
         });
     });
 });

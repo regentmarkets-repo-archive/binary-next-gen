@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import expect from 'expect';
+import { expect } from 'chai';
 import { marketTreeSelector } from '../marketTreeSelector';
 
 describe('marketTreeSelector', () => {
@@ -7,7 +7,7 @@ describe('marketTreeSelector', () => {
         const actual = marketTreeSelector({
             assets: [],
         });
-        expect(actual).toEqual(fromJS({}));
+        expect(actual).to.equal(fromJS({}));
     });
 
     it('should contain one asset inside tree when one asset is provided', () => {
@@ -36,7 +36,7 @@ describe('marketTreeSelector', () => {
                 },
             },
         });
-        expect(actual).toEqual(expected);
+        expect(expected).to.equal(actual);
     });
 
     it('should deep nest assets correctly into a tree', () => {
@@ -92,6 +92,6 @@ describe('marketTreeSelector', () => {
                 },
             },
         });
-        expect(actual).toEqual(expected);
+        expect(expected).to.equal(actual);
     });
 });

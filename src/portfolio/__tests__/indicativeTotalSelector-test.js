@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import expect from 'expect';
+import { expect } from 'chai';
 import { indicativeTotalSelector } from '../PortfolioSelectors';
 
 describe('indicativeTotal', () => {
@@ -7,7 +7,7 @@ describe('indicativeTotal', () => {
          const actual = indicativeTotalSelector({
              openContracts: fromJS({}),
          });
-         expect(actual).toEqual(0);
+         expect(actual).to.equal(0);
      });
 
      it('should equal the sell price of a single proposal', () => {
@@ -16,7 +16,7 @@ describe('indicativeTotal', () => {
                  1: { bid_price: 10 },
              }),
          });
-         expect(actual).toEqual(10);
+         expect(actual).to.equal(10);
      });
 
      it('should equal the sum of proposal bid prices', () => {
@@ -27,6 +27,6 @@ describe('indicativeTotal', () => {
                  3: { bid_price: 3 },
              }),
          });
-         expect(actual).toEqual(6);
+         expect(actual).to.equal(6);
      });
  });

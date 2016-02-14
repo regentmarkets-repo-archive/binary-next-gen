@@ -1,4 +1,7 @@
-import expect from 'expect';
+import chai, { expect } from 'chai';
+import chaiImmutable from 'chai-immutable';
+chai.use(chaiImmutable);
+
 import { fromJS } from 'immutable';
 import proposals from '../ProposalsReducer';
 import { SERVER_DATA_PROPOSAL, UPDATE_PROPOSAL_BY_ID } from '../../_constants/ActionTypes';
@@ -22,7 +25,7 @@ describe('ProposalsReducer', () => {
             },
         });
         const actualState = proposals(beforeState, action);
-        expect(expectedState).toEqual(actualState);
+        expect(expectedState).to.equal(actualState);
     });
 
     it('should be able to select proposal by id and update it with new proposal provided', () => {
@@ -36,7 +39,7 @@ describe('ProposalsReducer', () => {
             0: 1,
         });
         const actualState = proposals(beforeState, action);
-        expect(actualState.toJS()).toEqual(expectedState.toJS());
+        expect(actualState).to.equal(expectedState);
     });
 
     it('should return thesame propsal state when proposal type is not provided', () => {
@@ -45,6 +48,6 @@ describe('ProposalsReducer', () => {
             proposal: 1,
         };
         const actualState = proposals(beforeState, action);
-        expect(actualState).toEqual(beforeState);
+        expect(actualState).to.equal(beforeState);
     });
 });

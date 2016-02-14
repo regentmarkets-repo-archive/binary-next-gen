@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import expect from 'expect';
+import { expect } from 'chai';
 import tradingTimesSelectors from '../tradingTimesSelectors';
 
 describe('tradingTimesSelectors', () => {
@@ -14,7 +14,7 @@ describe('tradingTimesSelectors', () => {
 
         const actual = tradingTimesSelectors(state);
 
-        expect(actual).toExist();
+        expect(actual).to.be.ok;
     });
 
     it('should return the same result for the same state', () => {
@@ -23,11 +23,11 @@ describe('tradingTimesSelectors', () => {
         const first = tradingTimesSelectors(state);
         const second = tradingTimesSelectors(state);
 
-        expect(first.assets).toBe(second.assets);
-        expect(first.tradingTimes).toBe(second.tradingTimes);
-        expect(first.tradingTimesFilter).toBe(second.tradingTimesFilter);
+        expect(first.assets).to.equal(second.assets);
+        expect(first.tradingTimes).to.equal(second.tradingTimes);
+        expect(first.tradingTimesFilter).to.equal(second.tradingTimesFilter);
 
-        expect(first).toBe(second);
+        expect(first).to.equal(second);
     });
 
     it('should work with empty state', () => {
@@ -39,6 +39,6 @@ describe('tradingTimesSelectors', () => {
             tradingTimes: undefined,
             tradingTimesFilter: undefined,
         };
-        expect(expected).toEqual(actual);
+        expect(expected).to.deep.equal(actual);
     });
 });

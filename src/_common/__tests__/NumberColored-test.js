@@ -1,5 +1,5 @@
 import React from 'react';
-import expect from 'expect';
+import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import NumberColored from '../NumberColored';
 
@@ -8,13 +8,13 @@ describe('NumberColored', () => {
 		const wrapper = shallow(
 			<NumberColored value={3} currency="USD" />
 		);
-		expect(wrapper.node.props.className).toEqual('number-positive');
+		expect(wrapper.node.props.className).to.equal('number-positive');
 	});
 
 	it('should contain the class number-negative ', () => {
 		const wrapper = shallow(
 			<NumberColored value={-5} currency="USD" />
 		);
-		expect(wrapper.node.props.className).toEqual('number-negative');
+		expect(wrapper.node.props.className).to.equal('number-negative');
 	});
 });

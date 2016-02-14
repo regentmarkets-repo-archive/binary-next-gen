@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import videoSelectors, { videosSelector } from '../VideoSelectors';
 
 describe('VideoSelectors', () => {
@@ -13,7 +13,7 @@ describe('VideoSelectors', () => {
             const firstList = videosSelector(state);
             const secondList = videosSelector(state);
 
-            expect(firstList).toBe(secondList);
+            expect(firstList).to.equal(secondList);
         });
     });
 
@@ -23,7 +23,7 @@ describe('VideoSelectors', () => {
 
             const expected = { videos: [{}, {}, {}] };
             const actual = videoSelectors(state);
-            expect(expected).toEqual(actual);
+            expect(expected).to.deep.equal(actual);
         });
 
         it('should return the same result from the same state', () => {
@@ -32,7 +32,7 @@ describe('VideoSelectors', () => {
             const firstList = videoSelectors(state);
             const secondList = videoSelectors(state);
 
-            expect(firstList).toBe(secondList);
+            expect(firstList).to.equal(secondList);
         });
     });
 });

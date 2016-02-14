@@ -1,4 +1,7 @@
-import expect from 'expect';
+import chai, { expect } from 'chai';
+import chaiImmutable from 'chai-immutable';
+chai.use(chaiImmutable);
+
 import { Map } from 'immutable';
 import newsReducer, { getArticles, getArticle } from '../NewsReducer';
 import {
@@ -20,7 +23,7 @@ describe('NewsReducer', () => {
                 description: 'current description',
             },
         });
-        expect(actualState).toEqual(expectedState);
+        expect(expectedState).to.equal(actualState);
     });
 
     it('should update news list with the new list', () => {
@@ -33,7 +36,7 @@ describe('NewsReducer', () => {
             articles: ['current title', 'current description'],
         });
         const actualState = newsReducer(stateBefore, action);
-        expect(actualState).toEqual(expectedState);
+        expect(expectedState).to.equal(actualState);
     });
 
     it('should return the same state when no news action type is given or news action type is wrong', () => {
@@ -54,7 +57,7 @@ describe('NewsReducer', () => {
         };
         const actualState = getArticles(state);
         const expectedState = ['article 1', 'article 2', 'article 3'];
-        expect(actualState).toEqual(expectedState);
+        expect(expectedState).to.deep.equal(actualState);
     });
 
     it('should be able to fetch an article by index', () => {
@@ -65,6 +68,6 @@ describe('NewsReducer', () => {
         };
         const actualState = getArticle(state, 1);
         const expectedState = 'article 2';
-        expect(actualState).toEqual(expectedState);
+        expect(expectedState).to.equal(actualState);
     });
 });

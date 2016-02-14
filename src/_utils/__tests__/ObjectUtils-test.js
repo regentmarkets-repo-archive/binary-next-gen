@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import { fromJS } from 'immutable';
 import { findIfExist, toPlainJS, immutableChildrenToJS } from '../ObjectUtils';
 
@@ -23,20 +23,20 @@ describe('findIfExist', () => {
         const result1 = findIfExist(testObj, predicate1);
         const result2 = findIfExist(testObj, predicate2);
 
-        expect(result1).toEqual(true);
-        expect(result2).toEqual(true);
+        expect(result1).to.be.true;
+        expect(result2).to.be.true;
     });
 });
 
 describe('toPlainJS', () => {
     it('should not throw when passed undefined', () => {
-        expect(() => toPlainJS()).toNotThrow();
+        expect(() => toPlainJS()).to.not.throw();
     });
 
     it('should return the same object if it is not immutable', () => {
         const obj = {};
         const actual = toPlainJS(obj);
-        expect(obj).toBe(actual);
+        expect(obj).to.equal(actual);
     });
 
     it('should return equivalent object if it is immutable', () => {
@@ -46,7 +46,7 @@ describe('toPlainJS', () => {
         };
         const immutableObj = fromJS(obj);
         const actual = toPlainJS(immutableObj);
-        expect(obj).toEqual(actual);
+        expect(obj).to.deep.equal(actual);
     });
 
     it('should not transform immutable children of plain object', () => {
@@ -63,25 +63,25 @@ describe('toPlainJS', () => {
             }),
         };
         const actual = toPlainJS(immutableObj);
-        expect(obj).toNotEqual(actual);
+        expect(obj).to.not.deep.equal(actual);
     });
 });
 
 describe('immutableChildrenToJS', () => {
     it('should throw when passed undefined', () => {
-        expect(() => immutableChildrenToJS()).toThrow();
+        expect(() => immutableChildrenToJS()).to.throw();
     });
 
     it('should return empty object with empty input', () => {
         const obj = {};
         const actual = immutableChildrenToJS(obj);
-        expect(obj).toEqual(actual);
+        expect(obj).to.deep.equal(actual);
     });
 
     it('should return new object, and not transform the input parameter', () => {
         const obj = {};
         const actual = immutableChildrenToJS(obj);
-        expect(obj).toNotBe(actual);
+        expect(obj).to.not.equal(actual);
     });
 
     it('should return the same object if it has no immutable children', () => {
@@ -90,11 +90,11 @@ describe('immutableChildrenToJS', () => {
             anotherProp: 123,
         };
         const actual = immutableChildrenToJS(obj);
-        expect(obj).toEqual(actual);
+        expect(obj).to.deep.equal(actual);
     });
 
     it('should transform immutable children of plain object', () => {
-        const obj = {
+        const expected = {
             someObj: {
                 someProp: 'someVal',
                 anotherProp: 123,
@@ -107,6 +107,6 @@ describe('immutableChildrenToJS', () => {
             }),
         };
         const actual = immutableChildrenToJS(immutableObj);
-        expect(obj).toEqual(actual);
+        expect(expected).to.deep.equal(actual);
     });
 });

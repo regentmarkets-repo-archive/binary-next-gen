@@ -1,16 +1,16 @@
 import React from 'react';
-import expect from 'expect';
+import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import RadioItem from '../RadioItem';
 
 describe('RadioItem', () => {
     it('renders with no properties', () => {
         const wrapper = shallow(<RadioItem />);
-        expect(wrapper.type()).toBe('span');
+        expect(wrapper.type()).to.equal('span');
     });
 
     it('renders a label even if no properties', () => {
         const wrapper = shallow(<RadioItem />);
-        expect(wrapper.find('label').length).toBe(1);
+        expect(wrapper.find('label')).to.have.length(1);
     });
 });

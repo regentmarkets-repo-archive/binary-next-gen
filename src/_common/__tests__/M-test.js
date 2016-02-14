@@ -1,16 +1,16 @@
 import React from 'react';
-import expect from 'expect';
+import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import M from '../M';
 
 describe('M', () => {
     it('renders even whithout properties', () => {
         const wrapper = shallow(<M />);
-        expect(wrapper.type()).toNotBe(null);
+        expect(wrapper.type()).to.not.equal(null);
     });
 
     it('renders FormattedMessage', () => {
         const wrapper = shallow(<M />);
-        expect(wrapper.find('FormattedMessage').length).toBe(1);
+        expect(wrapper.find('FormattedMessage')).to.have.length(1);
     });
 });

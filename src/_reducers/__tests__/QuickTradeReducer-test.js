@@ -1,4 +1,4 @@
-import expect from 'expect';
+import { expect } from 'chai';
 import quickTradeReducer from '../QuickTradeReducer';
 import { UPDATE_QUICK_TRADE_PARAMS, SET_QUICK_TRADE_FIELD } from '../../_constants/ActionTypes';
 import { fromJS } from 'immutable';
@@ -28,7 +28,7 @@ describe('QuickTradeReducer', () => {
 
         const actualState = quickTradeReducer(beforeState, action);
 
-        expect(actualState).toEqual(expectedState);
+        expect(expectedState).to.equal(actualState);
     });
 
     it('should be able to set quickTrade field and value', () => {
@@ -50,6 +50,6 @@ describe('QuickTradeReducer', () => {
 
         const actualState = quickTradeReducer(beforeState, action);
 
-        expect(actualState.toJS()).toEqual(expectedState.toJS());
+        expect(expectedState).to.equal(actualState);
     });
 });

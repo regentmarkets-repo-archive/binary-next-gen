@@ -1,5 +1,8 @@
+import chai, { expect } from 'chai';
+import chaiImmutable from 'chai-immutable';
+chai.use(chaiImmutable);
+
 import { fromJS } from 'immutable';
-import expect from 'expect';
 import contractsReducer from '../ContractsReducer';
 import {
     SERVER_DATA_PORTFOLIO,
@@ -17,8 +20,10 @@ describe('ContractsReducer', () => {
         };
         const beforeState = fromJS([]);
         const expectedState = fromJS([{}]);
+
         const actualState = contractsReducer(beforeState, action);
-        expect(actualState.toJS()).toEqual(expectedState.toJS());
+
+        expect(expectedState).to.equal(actualState);
     });
 
     it('should return the same state when given wrong actiontype', () => {
@@ -30,6 +35,6 @@ describe('ContractsReducer', () => {
         };
         const beforeState = fromJS([]);
         const actualState = contractsReducer(beforeState, action);
-        expect(actualState).toEqual(beforeState);
+        expect(actualState).to.equal(beforeState);
     });
 });

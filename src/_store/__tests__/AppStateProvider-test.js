@@ -1,6 +1,6 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
-import expect from 'expect';
+import { expect } from 'chai';
 import { fromJS } from 'immutable';
 import { shallow } from 'enzyme';
 import AppStateProvider from '../AppStateProvider';
@@ -26,7 +26,7 @@ describe('AppStateProvider', () => {
                 <ChildComponent/>
             </AppStateProvider>);
 
-        expect(wrapper.render().text()).toContain('check connection');
+        expect(wrapper.render().text()).to.contain('check connection');
     });
 
     it('should show children if connected, whether error or not', () => {
@@ -42,6 +42,6 @@ describe('AppStateProvider', () => {
                 <ChildComponent/>
             </AppStateProvider>);
 
-        expect(wrapper.render().text()).toExclude('check connection');
+        expect(wrapper.render().text()).to.not.include('check connection');
     });
 });

@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import expect from 'expect';
+import { expect } from 'chai';
 import { transactionsTotalSelector } from '../statementSelectors';
 
 describe('transactionsTotal', () => {
@@ -8,7 +8,7 @@ describe('transactionsTotal', () => {
             transactions: fromJS([]),
             workspace: fromJS({}),
         });
-        expect(actual).toEqual(0);
+        expect(actual).to.equal(0);
     });
 
     it('list of one item equals this item purchase price', () => {
@@ -19,7 +19,7 @@ describe('transactionsTotal', () => {
             workspace: fromJS({ transactionsFilter: 4 }), // do not filter
         };
         const actual = transactionsTotalSelector(state);
-        expect(actual).toEqual(10);
+        expect(actual).to.equal(10);
     });
 
     it('list of multiple items results in sum of their prices', () => {
@@ -32,6 +32,6 @@ describe('transactionsTotal', () => {
             workspace: fromJS({ transactionsFilter: 4 }), // do not filter
         };
         const actual = transactionsTotalSelector(state);
-        expect(actual).toEqual(6);
+        expect(actual).to.equal(6);
     });
 });
