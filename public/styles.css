@@ -709,7 +709,7 @@ div[role=tab][aria-selected=true] {
     background: #2a3052;
 }
 
-div[role=tab][aria-selected=true] {
+.vertical > div[role=tab][aria-selected=true] {
     box-shadow: inset 2px 0 0 0 #e98024;
 }
 
@@ -719,7 +719,6 @@ div[role=tab][aria-selected=true] {
 
 div[role=tab] {
     flex: 1;
-    height: 3rem;
     cursor: pointer;
     line-height: 2;
     display: block;
