@@ -9,6 +9,11 @@
     "react"
   ],
   "rules": {
+    "no-empty-label": 0,
+    "space-before-keywords": [0, 'always'],
+    "space-after-keywords": [0, 'always'],
+    "space-return-throw-case": 0,
+
     "react/jsx-no-bind": 0,
     "no-unused-expressions": 0,
     "no-param-reassign": 0,
