@@ -10,7 +10,7 @@ const initialState = fromJS([]);
 export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_PORTFOLIO: {
-            const contracts = action.serverResponse.portfolio.contracts;
+            const contracts = fromJS(action.serverResponse.portfolio.contracts);
             return state.merge(new List(contracts));
         }
         case REMOVE_PERSONAL_DATA: {

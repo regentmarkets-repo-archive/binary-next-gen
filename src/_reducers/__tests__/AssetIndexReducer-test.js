@@ -23,9 +23,10 @@ describe('AssetIndexReducer', () => {
         const action = {
             type: 'NON_EXISTING_TYPE',
         };
-        const arr = [];
+        const expected = fromJS([]);
         const beforeState = fromJS();
         const actualState = assetIndexReducer(beforeState, action);
-        expect(actualState.toJS()).to.equal(fromJS(arr).toJS());
+
+        expect(expected).to.equal(actualState);
     });
 });

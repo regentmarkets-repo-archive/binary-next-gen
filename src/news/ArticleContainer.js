@@ -1,17 +1,18 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
+import { immutableChildrenToJS } from '../_utils/ObjectUtils';
 import Article from './Article';
-import { getArticle } from '../_reducers/NewsReducer';
+import newsSelectors from './newsSelectors';
 
-@connect(state => ({ ...getArticle(state, 0) }))
+@connect(newsSelectors)
 export default class ArticleContainer extends React.Component {
 
     shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
         return (
-            <Article {...this.props} />
+            <Article {...immutableChildrenToJS(this.props)} />
         );
     }
 }
