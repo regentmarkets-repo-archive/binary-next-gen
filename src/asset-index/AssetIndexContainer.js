@@ -6,7 +6,7 @@ import AssetIndexCard from './AssetIndexCard';
 import assetIndexSelectors from './assetIndexSelectors';
 
 @connect(assetIndexSelectors)
-export default class AsssetIndexContainer extends React.Component {
+export default class AssetIndexContainer extends React.Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
