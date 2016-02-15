@@ -74,9 +74,9 @@ export default class WorkspaceCard extends React.Component {
 				>
 					<Tab imgSrc="img/portfolio.svg" text="Open Positions" />
 					<Tab imgSrc="img/statement.svg" text="Statement" />
-					<Tab imgSrc="img/resources.svg" text="Trading Times" />
+					<Tab imgSrc="img/time.svg" text="Trading Times" />
 					<Tab imgSrc="img/resources.svg" text="Asset Index" />
-					<Tab imgSrc="img/news.svg" text="Video" />
+					<Tab imgSrc="img/video.svg" text="Video" />
 					<Tab imgSrc="img/news.svg" text="News" />
 				</TabList>
 			</div>
