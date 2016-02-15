@@ -31,15 +31,20 @@ export default class SettingsSelfExclusion extends React.Component {
 
 	tryUpdate() {
 		const state = this.state || {};
+		const { settings } = this.props;
 		const req = {
-			max_balance: state.MAXCASHBAL,
-			max_turnover: state.DAILYTURNOVERLIMIT,
-			max_losses: state.DAILYLOSSLIMIT,
-			max_7day_turnover: state['7DAYTURNOVERLIMIT'],
-			max_7day_losses: state['7DAYLOSSLIMIT'],
-			max_open_bets: state.MAXOPENPOS,
-			session_duration_limit: state.SESSIONDURATION,
-			exclude_until: state.EXCLUDEUNTIL,
+			max_balance: (state.MAXCASHBAL) ? state.MAXCASHBAL : settings.max_balance,
+			max_turnover: (state.DAILYTURNOVERLIMIT) ? state.DAILYTURNOVERLIMIT : settings.max_turnover,
+			max_losses: (state.DAILYLOSSLIMIT) ? state.DAILYLOSSLIMIT : settings.max_losses,
+			max_7day_turnover: (state['7DAYTURNOVERLIMIT']) ? state['7DAYTURNOVERLIMIT'] : settings.max_7day_turnover,
+			max_7day_losses: (state['7DAYLOSSLIMIT']) ? state['7DAYLOSSLIMIT'] : settings.max_7day_losses,
+			max_30day_turnover: (state['30DAYTURNOVERLIMIT'])
+									? state['30DAYTURNOVERLIMIT']
+									: settings.max_30day_turnover,
+			max_30day_losses: (state['30DAYLOSSLIMIT']) ? state['30DAYLOSSLIMIT'] : settings.max_30day_losses,
+			max_open_bets: (state.MAXOPENPOS) ? state.MAXOPENPOS : settings.max_open_bets,
+			session_duration_limit: (state.SESSIONDURATION) ? state.SESSIONDURATION : settings.session_duration_limit,
+			exclude_until: (state.EXCLUDEUNTIL) ? state.EXCLUDEUNTIL : settings.exclude_until,
 		};
 
 		LiveData.api.setSelfExclusion(req).then(
@@ -98,6 +103,22 @@ export default class SettingsSelfExclusion extends React.Component {
 					type="number"
 					hint="Maximum aggregate loss over a 7-day period."
 					defaultValue={settings.max_7day_losses}
+					onChange={::this.onSelfExclusionChange}
+				/>
+				<InputGroup
+					id="30DAYTURNOVERLIMIT"
+					label="30-day turnover limit"
+					type="number"
+					hint="Maximum aggregate contract purchases over a 30-day period."
+					defaultValue={settings.max_30day_turnover}
+					onChange={::this.onSelfExclusionChange}
+				/>
+				<InputGroup
+					id="30DAYLOSSLIMIT"
+					label="30-day limit on losses"
+					type="number"
+					hint="Maximum aggregate loss over a 30-day period."
+					defaultValue={settings.max_30day_losses}
 					onChange={::this.onSelfExclusionChange}
 				/>
 				<InputGroup
