@@ -626,7 +626,6 @@ select {
 .radio-button:hover {
     box-shadow: none!important;
 }
-/* Start of hack, mimic radio group using button */
 
 .snippet {
     background-color: rgba(42, 48, 82, .05);

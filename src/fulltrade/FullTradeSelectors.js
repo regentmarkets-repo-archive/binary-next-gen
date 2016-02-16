@@ -8,7 +8,7 @@ import {
     splitSecsToUnits,
     timeStringIsBetween,
 } from '../_utils/DateUtils';
-import { assetsSelector, tradingTimesSelector } from '../_store/directSelectors';
+import { assetsSelector, ticksSelector, tradingTimesSelector } from '../_store/directSelectors';
 import { marketTreeSelector } from '../_selectors/marketTreeSelector';
 
 const normalizedContractFor = contracts => {
@@ -342,8 +342,6 @@ const availableAssetsSelector = createSelector(
         return filteredAssets;
     }
 );
-
-const ticksSelector = state => state.ticks;
 
 const currencySelector = state => state.account.get('currency');
 

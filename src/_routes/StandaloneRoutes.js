@@ -2,6 +2,7 @@ import WebHeader from '../web/WebHeader';
 import CreateAccountPage from '../create-account/CreateAccountPage';
 import UpgradePage from '../upgrade/UpgradePage';
 import WatchlistPage from '../watchlist/WatchlistPage';
+import AssetDetailsPage from '../asset-details/AssetDetailsPage';
 import AssetIndexPage from '../asset-index/AssetIndexPage';
 import AssetIndexTable from '../asset-index/AssetIndexTable';
 import TradingTimesPage from '../trading-times/TradingTimesPage';
@@ -37,6 +38,7 @@ export default [
     { path: 'create-account', component: CreateAccountPage },
     { path: 'upgrade', component: UpgradePage },
     { path: 'watchlist', component: WatchlistPage, onEnter: requireAuthOnEnter },
+    { path: 'asset-details', component: AssetDetailsPage },
     { path: 'asset-index', component: AssetIndexPage, onEnter: requireAuthOnEnter, childRoutes: [
         { path: ':market', component: AssetIndexTable, onEnter: requireAuthOnEnter },
     ] },
