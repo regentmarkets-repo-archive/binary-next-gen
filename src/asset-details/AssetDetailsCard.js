@@ -8,11 +8,12 @@ export default class AssetDetailsCard extends React.Component {
 
 	static propTypes = {
 		activeAsset: PropTypes.object,
+		durations: PropTypes.array,
 		tradingTimes: PropTypes.object,
 	};
 
 	render() {
-		const { activeAsset, tradingTimes } = this.props;
+		const { activeAsset, durations, tradingTimes } = this.props;
 
 		if (!activeAsset) return null;
 
@@ -32,7 +33,7 @@ export default class AssetDetailsCard extends React.Component {
 				}
 				<br />
 				<h5><M m="Durations" /></h5>
-				<AssetDetailsDurations />
+				<AssetDetailsDurations durations={durations} />
 			</div>
 		);
 	}

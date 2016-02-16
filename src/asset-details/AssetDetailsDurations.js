@@ -1,29 +1,29 @@
 import React, { PropTypes } from 'react';
 
-export default class AssetDetailsTradingTimes extends React.Component {
+export default class AssetDetailsDurations extends React.Component {
 
 	static propTypes = {
-		activeAsset: PropTypes.object,
+		durations: PropTypes.array.isRequired,
 	};
 
 	render() {
+		const { durations } = this.props;
+
 		return (
 			<table>
 				<thead>
 					<tr>
-						<th></th>
-						<th>Ticks</th>
-						<th>Seconds</th>
-						<th>Minutes</th>
-						<th>Hours</th>
-						<th>Days</th>
+						<th>Trade Type</th>
+						<th>Durations</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr><td>Up/Down</td><td colSpan="5" /></tr>
-					<tr><td>Touch/No Touch</td><td colSpan="5" /></tr>
-					<tr><td>Ends In/Out</td><td colSpan="5" /></tr>
-					<tr><td>Stays In/Goes Out</td><td colSpan="5" /></tr>
+					{durations[2].map((x, i) =>
+						<tr key={i}>
+							<td>{x[1]}</td>
+							<td>{x[2]} &ndash; {x[3]}</td>
+						</tr>
+					)}
 				</tbody>
 			</table>
 		);
