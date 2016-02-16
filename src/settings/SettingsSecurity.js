@@ -47,8 +47,7 @@ export default class SettingsSecurity extends React.Component {
             unlock_password: state.cashierlockpassword1,
         };
 
-        const isValid = (pw1, pw2) => ((pw1 === pw2) && pw1.length > 6);
-
+        const isValid = (pw1, pw2) => ((pw1 === pw2) && (pw1.length > 6));
         if (!!(settings.cashier_password)) {
             delete req.lock_password;
             LiveData.api.setCashierLock(req)
