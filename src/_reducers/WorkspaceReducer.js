@@ -10,6 +10,7 @@ import {
     UPDATE_TRADING_TIMES_DATE,
     UPDATE_ASSET_INDEX_SUBMARKET,
     UPDATE_WORKSPACE_FIELD,
+    CHANGE_ACTIVE_WORKSPACE_TAB,
     CHANGE_WORKSPACE_PANEL_SIZE,
     TOGGLE_TRADE_MODE,
     TOGGLE_PANEL,
@@ -65,9 +66,14 @@ export default (state = initialState, action) => {
         case UPDATE_WORKSPACE_FIELD: {
             return state.set(action.fieldName, action.fieldValue);
         }
+        case CHANGE_ACTIVE_WORKSPACE_TAB: {
+            return state
+                .set(action.panel + 'ActiveTab', action.index)
+                .set(action.panel + 'PanelVisible', true);
+        }
         case CHANGE_WORKSPACE_PANEL_SIZE: {
             return state
-                .set(action.panel + 'PanelSize', action.size)
+                .set(action.panel + 'PanelSize', action.size > 100 ? action.size : 100)
                 .set(action.panel + 'PanelVisible', action.size > 100);
         }
         case TOGGLE_TRADE_MODE: {

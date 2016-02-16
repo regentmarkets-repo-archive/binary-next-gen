@@ -6,14 +6,6 @@ import WorkspaceRightPanel from './WorkspaceRightPanel';
 import Tab from '../_common/Tab';
 import TabList from '../_common/TabList';
 
-const updateSizeWithBoundary = (size, update, min = 100, max = 750) => {
-	if (size >= min && size <= max) {
-		update(size);
-	} else if (size < min) {
-		update(0);
-	}
-};
-
 export default class WorkspaceCard extends React.Component {
 
 	static propTypes = {
@@ -24,19 +16,13 @@ export default class WorkspaceCard extends React.Component {
 	render() {
 		const { actions, workspace } = this.props;
 
-		const onChangeLeftPanel = size =>
-			actions.changeWorkspacePanelSize('left', size);
-
-		const onChangeRightPanel = size =>
-			actions.changeWorkspacePanelSize('right', size);
-
 		return (
 			<div id="panels">
 				<TabList
 					id="left-tab-list"
 					vertical
 					showText={false}
-					onChange={idx => onChangeLeftPanel(idx)}
+					onChange={idx => actions.changeActiveWorkspaceTab('left', idx)}
 				>
 					<Tab imgSrc="img/trade.svg" text="Assets" />
 					<Tab imgSrc="img/watchlist.svg" text="Watchlist" />
@@ -45,7 +31,7 @@ export default class WorkspaceCard extends React.Component {
 					<WorkspaceLeftPanel actions={actions} workspace={workspace} />}
 				<Resizer
 					className="resizer-vertical"
-					onResize={e => onChangeLeftPanel(e.x - 45)}
+					onResize={e => actions.changeWorkspacePanelSize('left', e.x - 45)}
 				/>
 				<div id="workarea">
 					<TradesContainer
@@ -55,7 +41,7 @@ export default class WorkspaceCard extends React.Component {
 				</div>
 				<Resizer
 					className="resizer-vertical"
-					onResize={e => onChangeRightPanel(window.innerWidth - e.x - 48)}
+					onResize={e => actions.changeWorkspacePanelSize('right', window.innerWidth - e.x - 48)}
 				/>
 				{workspace.rightPanelVisible &&
 					<WorkspaceRightPanel actions={actions} workspace={workspace} />}
@@ -63,7 +49,7 @@ export default class WorkspaceCard extends React.Component {
 					id="right-tab-list"
 					vertical
 					showText={false}
-					onChange={idx => onChangeRightPanel(idx)}
+					onChange={idx => actions.changeActiveWorkspaceTab('right', idx)}
 				>
 					<Tab imgSrc="img/portfolio.svg" text="Open Positions" />
 					<Tab imgSrc="img/statement.svg" text="Statement" />
