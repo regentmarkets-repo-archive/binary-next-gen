@@ -5,6 +5,7 @@ import NewsContainer from '../news/NewsContainer';
 import VideoListContainer from '../video/VideoListContainer';
 import PortfolioContainer from '../portfolio/PortfolioContainer';
 import StatementContainer from '../statement/StatementContainer';
+import AssetDetailsContainer from '../asset-details/AssetDetailsContainer';
 
 const components = [
 	PortfolioContainer,
@@ -13,6 +14,7 @@ const components = [
 	AssetIndexContainer,
 	VideoListContainer,
 	NewsContainer,
+	AssetDetailsContainer,
 ];
 
 export default class WorkspaceRightPanel extends React.Component {

@@ -7,6 +7,7 @@ describe('assetDetailsSelectors', () => {
         assets: fromJS([
             { symbol: '1', name: 'Asset1' },
         ]),
+        tradingTimes: fromJS([]),
         workspace: fromJS({
             symbolSelected: '1',
         }),
@@ -15,6 +16,8 @@ describe('assetDetailsSelectors', () => {
     it('should work with empty state', () => {
         const state = {
             assets: [],
+            tradingTimes: [],
+            workspace: {},
         };
         const assetDetails = assetDetailsSelectors(state);
 

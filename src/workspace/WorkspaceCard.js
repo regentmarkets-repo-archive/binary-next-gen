@@ -40,7 +40,6 @@ export default class WorkspaceCard extends React.Component {
 				>
 					<Tab imgSrc="img/trade.svg" text="Assets" />
 					<Tab imgSrc="img/watchlist.svg" text="Watchlist" />
-					<Tab imgSrc="img/info.svg" text="Details" />
 				</TabList>
 				{workspace.leftPanelVisible &&
 					<WorkspaceLeftPanel actions={actions} workspace={workspace} />}
@@ -78,6 +77,7 @@ export default class WorkspaceCard extends React.Component {
 					<Tab imgSrc="img/resources.svg" text="Asset Index" />
 					<Tab imgSrc="img/video.svg" text="Video" />
 					<Tab imgSrc="img/news.svg" text="News" />
+					<Tab imgSrc="img/info.svg" text="Details" />
 				</TabList>
 			</div>
 		);
