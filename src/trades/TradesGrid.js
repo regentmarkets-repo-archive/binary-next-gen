@@ -5,21 +5,11 @@ export default class TradesGrid extends React.Component {
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
-        assets: PropTypes.object.isRequired,
         contracts: PropTypes.object.isRequired,
-        currency: PropTypes.string.isRequired,
-        focusedTradeId: PropTypes.number,
         trades: PropTypes.object.isRequired,
         tradesIds: PropTypes.array.isRequired,
         ticks: PropTypes.object.isRequired,
     };
-
-    createTrade() {
-        const { tradesIds, actions } = this.props;
-
-        const maxId = tradesIds.reduce((a, b) => Math.max(a, b), -1);
-        actions.initTrade(maxId.toString());
-    }
 
     render() {
         const { trades, tradesIds, contracts, ticks } = this.props;
@@ -44,7 +34,6 @@ export default class TradesGrid extends React.Component {
                         );
                     }
                 })}
-                <button className="btn-secondary" onClick={::this.createTrade}>+</button>
             </div>
         );
     }

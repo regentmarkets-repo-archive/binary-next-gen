@@ -14,6 +14,13 @@ export default class WebHeader extends React.Component {
 		actions: PropTypes.object.isRequired,
 	};
 
+    createTrade() {
+        const { actions } = this.props;
+        // const maxId = tradesIds.reduce((a, b) => Math.max(a, b), -1);
+        actions.initTrade('123');
+    }
+
+
 	render() {
 		return (
 			<div id="header" className="inverse">
@@ -32,6 +39,7 @@ export default class WebHeader extends React.Component {
 					<Clock />
 				</div>
 				<ToggleButtons actions={this.props.actions} />
+				<button id="new-trade-btn" className="btn-secondary" onClick={::this.createTrade}>New Trade</button>
 				<LanguagePicker className="language-picker" />
 				<Balance />
 				<Link to="/deposit" id="deposit-btn" className="btn-secondary">

@@ -580,7 +580,7 @@ select {
     width: 100%;
 }
 
-#deposit-btn, .language-picker, #clock, #logo, .toggle-buttons {
+#new-trade-btn, #deposit-btn, .language-picker, #clock, #logo, .toggle-buttons {
     margin: .5rem;
 }
 
@@ -629,22 +629,16 @@ select {
 /* Start of hack, mimic radio group using button */
 
 .snippet {
-    outline-style: solid;
-    outline-color: rgba(42, 48, 82, .25);
+    background-color: rgba(42, 48, 82, .05);
     padding: .5rem;
+    border-radius: 2px;
 }
 
 .collapsible .focusable:focus + .collapsed {
     display: block;
 }
 
-.focusable {
-    display: block;
-    cursor: pointer;
-}
-
-.focusable:hover {
-    color: blue;
+.collapsible-title {
     cursor: pointer;
 }
 
@@ -675,8 +669,11 @@ select {
 }
 
 .trade-panel {
-    margin-right: .5rem;
     flex: 1;
+}
+
+.trade-panel + .trade-panel {
+    margin-left: .5rem;
 }
 
 .toggle-buttons .btn-secondary.checked {
