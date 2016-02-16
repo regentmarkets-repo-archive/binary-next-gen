@@ -1,28 +1,32 @@
 import React, { PropTypes } from 'react';
 import M from '../_common/M';
 
-const AssetDetailsTable = ({ asset }) => (
-	<table>
-		<thead>
-			<tr>
-				<th><M m="Property" /></th>
-				<th><M m="Value" /></th>
-			</tr>
-		</thead>
-		<tbody>
-			{Object.keys(asset).map((key, idx) =>
-				<tr key={idx}>
-					<td>{key}</td>
-					<td>{asset[key]}</td>
-				</tr>
-			)}
-		</tbody>
-	</table>
-);
+export default class AssetDetailsTable extends React.Component {
 
+	static propTypes = {
+		asset: PropTypes.object.isRequired,
+	};
 
-AssetDetailsTable.propTypes = {
-	asset: PropTypes.object.isRequired,
-};
+	render() {
+		const { asset } = this.props;
 
-export default AssetDetailsTable;
+		return (
+			<table>
+				<thead>
+					<tr>
+						<th><M m="Property" /></th>
+						<th><M m="Value" /></th>
+					</tr>
+				</thead>
+				<tbody>
+					{Object.keys(asset).map((key, idx) =>
+						<tr key={idx}>
+							<td>{key}</td>
+							<td>{asset[key]}</td>
+						</tr>
+					)}
+				</tbody>
+			</table>
+		);
+	}
+}

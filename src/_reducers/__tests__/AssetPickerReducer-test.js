@@ -27,9 +27,9 @@ describe('assetPickerReducers', () => {
                 availableAssets: [{ display_name: 'asset1' }, { display_name: 'asset2' }, { display_name: 'asset3' }],
             }));
             const actual = assetPickerReducer(stateBefore, actions.updateAssetPickerSearchQuery(''));
-            const expected = getInitialState({
+            const expected = fromJS(getInitialState({
                 availableAssets: [{ display_name: 'asset1' }, { display_name: 'asset2' }, { display_name: 'asset3' }],
-            });
+            }));
 
             expect(actual).to.deep.equal(expected);
         });

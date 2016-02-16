@@ -1,14 +1,15 @@
 import React, { PropTypes } from 'react';
 import AssetDetailsTable from './AssetDetailsTable';
 
-const AssetDetailsCard = ({ assets, workspace }) => {
-	const symbolSelected = assets.find(x => x.get('symbol') === workspace.get('symbolSelected'));
-	return symbolSelected ? <AssetDetailsTable asset={symbolSelected.toJS()} /> : <div />;
-};
+export default class AssetDetailsCard extends React.Component {
 
-AssetDetailsCard.propTypes = {
-	assets: PropTypes.object.isRequired,
-	workspace: PropTypes.object.isRequired,
-};
+	static propTypes = {
+		activeAsset: PropTypes.object,
+	};
 
-export default AssetDetailsCard;
+	render() {
+		const { activeAsset } = this.props;
+
+		return activeAsset ? <AssetDetailsTable asset={activeAsset} /> : <div />;
+	}
+}

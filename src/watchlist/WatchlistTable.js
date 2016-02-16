@@ -1,6 +1,6 @@
 import React, { PropTypes } from 'react';
+import WatchlistTableHeader from './WatchlistTableHeader';
 import WatchlistRow from './WatchlistRow';
-import M from '../_common/M';
 
 export default class WatchlistTable extends React.Component {
 
@@ -13,23 +13,7 @@ export default class WatchlistTable extends React.Component {
 
 		return (
 			<table>
-				<thead>
-					<tr>
-						<th></th>
-						<th>
-							<M m="Asset" />
-						</th>
-						<th>
-							<M m="Spot" />
-						</th>
-						<th>
-							<M m="Change" />
-						</th>
-						<th>
-							<M m="Chart" />
-						</th>
-					</tr>
-				</thead>
+				<WatchlistTableHeader />
 				<tbody>
 					{watchlistView.map(x =>
 						<WatchlistRow

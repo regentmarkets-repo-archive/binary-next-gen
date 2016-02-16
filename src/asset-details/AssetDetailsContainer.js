@@ -2,15 +2,17 @@ import React from 'react';
 import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import AssetDetailsCard from './AssetDetailsCard';
+import assetDetailsSelectors from './assetDetailsSelectors';
+import { immutableChildrenToJS } from '../_utils/ObjectUtils';
 
-@connect(state => ({ assets: state.assets, workspace: state.workspace }))
+@connect(assetDetailsSelectors)
 export default class AssetDetailsContainer extends React.Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		return (
-			<AssetDetailsCard {...this.props} />
+			<AssetDetailsCard {...immutableChildrenToJS(this.props)} />
 		);
 	}
 }

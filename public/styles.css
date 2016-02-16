@@ -75,6 +75,7 @@ body {
 #workarea {
     flex: 1;
     overflow: auto;
+    display: flex;
 }
 
 table {
@@ -579,7 +580,7 @@ select {
     width: 100%;
 }
 
-#deposit-btn, .language-picker, #clock, #logo, .toggle-buttons {
+#new-trade-btn, #deposit-btn, .language-picker, #clock, #logo, .toggle-buttons {
     margin: .5rem;
 }
 
@@ -625,25 +626,18 @@ select {
 .radio-button:hover {
     box-shadow: none!important;
 }
-/* Start of hack, mimic radio group using button */
 
 .snippet {
-    outline-style: solid;
-    outline-color: rgba(42, 48, 82, .25);
+    background-color: rgba(42, 48, 82, .05);
     padding: .5rem;
+    border-radius: 2px;
 }
 
 .collapsible .focusable:focus + .collapsed {
     display: block;
 }
 
-.focusable {
-    display: block;
-    cursor: pointer;
-}
-
-.focusable:hover {
-    color: blue;
+.collapsible-title {
     cursor: pointer;
 }
 
@@ -674,8 +668,11 @@ select {
 }
 
 .trade-panel {
-    margin-right: .5rem;
     flex: 1;
+}
+
+.trade-panel + .trade-panel {
+    margin-left: .5rem;
 }
 
 .toggle-buttons .btn-secondary.checked {
@@ -686,12 +683,6 @@ select {
     width: 3rem;
     background: rgba(255, 255, 255, .5);
 }
-
-.row-id {
-    font-weight: bold;
-}
-
-
 
 div[role=tablist] {
     display: flex;
@@ -709,7 +700,7 @@ div[role=tab][aria-selected=true] {
     background: #2a3052;
 }
 
-div[role=tab][aria-selected=true] {
+.vertical > div[role=tab][aria-selected=true] {
     box-shadow: inset 2px 0 0 0 #e98024;
 }
 
@@ -719,7 +710,6 @@ div[role=tab][aria-selected=true] {
 
 div[role=tab] {
     flex: 1;
-    height: 3rem;
     cursor: pointer;
     line-height: 2;
     display: block;
@@ -747,4 +737,16 @@ div[role=tabpanel] {
 #assets-select, #categories-select {
     min-width: 10rem;
     width: 100%;
+}
+
+td.left, th.left {
+    text-align: left;
+}
+
+td.right, th.right {
+    text-align: right;
+}
+
+td.row-id {
+    font-weight: bold;
 }

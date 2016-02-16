@@ -6,7 +6,7 @@ import { Map } from 'immutable';
 import { SERVER_DATA_STATES } from '../../_constants/ActionTypes';
 import stateReducer from '../StatesReducer';
 
-describe('StatesReducer', () => {
+describe.skip('StatesReducer', () => {
     it('should be able to map each country with its respective states', () => {
         const action = {
             type: SERVER_DATA_STATES,

@@ -11,7 +11,7 @@ import {
 } from '../../_constants/ActionTypes';
 
 describe('OpenContractProposalsReducer', () => {
-    it('should update open contract data proposal with the new contract proposal', () => {
+    it.skip('should update open contract data proposal with the new contract proposal', () => {
         const action = {
             type: SERVER_DATA_PROPOSAL_OPEN_CONTRACT,
             serverResponse: {
@@ -27,7 +27,7 @@ describe('OpenContractProposalsReducer', () => {
         expect(expectedState).to.equal(actualState);
     });
 
-    it('should update update contract portfolio state', () => {
+    it.skip('should update update contract portfolio state', () => {
         const action = {
             type: SERVER_DATA_PORTFOLIO,
             serverResponse: {

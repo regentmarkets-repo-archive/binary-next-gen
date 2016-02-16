@@ -2,6 +2,7 @@ import WebHeader from '../web/WebHeader';
 import CreateAccountPage from '../create-account/CreateAccountPage';
 import UpgradePage from '../upgrade/UpgradePage';
 import WatchlistPage from '../watchlist/WatchlistPage';
+import AssetDetailsPage from '../asset-details/AssetDetailsPage';
 import AssetIndexPage from '../asset-index/AssetIndexPage';
 import AssetIndexTable from '../asset-index/AssetIndexTable';
 import TradingTimesPage from '../trading-times/TradingTimesPage';
@@ -18,19 +19,26 @@ import NewsContainer from '../news/NewsContainer';
 import DepositModal from '../deposit/DepositModal';
 import ChartTest from '../charting/ChartTest';
 import TradesPage from '../trades/TradesPage';
+import TickTradePage from '../tick-trade/TickTradePage';
+import FullTradePage from '../fulltrade/FullTradePage';
+import JpTradePage from '../tick-trade/TickTradePage';
 import WorkspaceContainer from '../workspace/WorkspaceContainer';
 
 import { requireAuthOnEnter } from '../_data/Auth';
 
 export default [
+    { path: 'trades', component: TradesPage, onEnter: requireAuthOnEnter },
+    { path: 'tick-trade', component: TickTradePage, onEnter: requireAuthOnEnter },
+    { path: 'full-trade', component: FullTradePage, onEnter: requireAuthOnEnter },
+    { path: 'jp-trade', component: JpTradePage, onEnter: requireAuthOnEnter },
     { path: 'header', component: WebHeader, onEnter: requireAuthOnEnter },
     { path: 'workspace', component: WorkspaceContainer, onEnter: requireAuthOnEnter },
     { path: 'portfolio', component: PortfolioPage, onEnter: requireAuthOnEnter },
     { path: 'statement', component: StatementPage, onEnter: requireAuthOnEnter },
     { path: 'create-account', component: CreateAccountPage },
     { path: 'upgrade', component: UpgradePage },
-    { path: 'trade', component: TradesPage, onEnter: requireAuthOnEnter },
     { path: 'watchlist', component: WatchlistPage, onEnter: requireAuthOnEnter },
+    { path: 'asset-details', component: AssetDetailsPage },
     { path: 'asset-index', component: AssetIndexPage, onEnter: requireAuthOnEnter, childRoutes: [
         { path: ':market', component: AssetIndexTable, onEnter: requireAuthOnEnter },
     ] },

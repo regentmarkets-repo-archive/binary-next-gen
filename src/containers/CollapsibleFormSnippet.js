@@ -24,7 +24,7 @@ export default class CollapsibleFormSnippet extends Component {
         const { show } = this.state;
         return (
             <fieldset className="snippet collapsible">
-                <legend className="focusable form-label" onClick={::this.toggle}>{label}</legend>
+                <div className="collapsible-title" onClick={::this.toggle}>{label}</div>
                 {show && <div>{children}</div>}
             </fieldset>
         );

@@ -5,7 +5,6 @@ export default class NewsCard extends React.Component {
 
     static propTypes = {
         articles: PropTypes.array.isRequired,
-        history: PropTypes.object,
     };
 
     static contextTypes = {

@@ -6,11 +6,11 @@ import WorkspaceRightPanel from './WorkspaceRightPanel';
 import Tab from '../_common/Tab';
 import TabList from '../_common/TabList';
 
-const updateSizeWithBoundary = (size, update, min, max) => {
+const updateSizeWithBoundary = (size, update, min = 100, max = 750) => {
 	if (size >= min && size <= max) {
 		update(size);
 	} else if (size < min) {
-		update(10);
+		update(0);
 	}
 };
 
@@ -48,8 +48,7 @@ export default class WorkspaceCard extends React.Component {
 					className="resizer-vertical"
 					onResize={e => {
 						const update = actions.updateWorkspaceField.bind(null, 'leftPanelSize');
-						const size = e.x - 4;
-						updateSizeWithBoundary(size, update, 100, 750);
+						updateSizeWithBoundary(e.x - 45, update);
 					}}
 				/>
 				<div id="workarea">
@@ -62,8 +61,7 @@ export default class WorkspaceCard extends React.Component {
 					className="resizer-vertical"
 					onResize={e => {
 						const update = actions.updateWorkspaceField.bind(null, 'rightPanelSize');
-						const size = window.innerWidth - e.x - 4;
-						updateSizeWithBoundary(size, update, 100, 700);
+						updateSizeWithBoundary(window.innerWidth - e.x - 48, update);
 					}}
 				/>
 				{workspace.rightPanelVisible &&
@@ -76,9 +74,9 @@ export default class WorkspaceCard extends React.Component {
 				>
 					<Tab imgSrc="img/portfolio.svg" text="Open Positions" />
 					<Tab imgSrc="img/statement.svg" text="Statement" />
-					<Tab imgSrc="img/resources.svg" text="Trading Times" />
+					<Tab imgSrc="img/time.svg" text="Trading Times" />
 					<Tab imgSrc="img/resources.svg" text="Asset Index" />
-					<Tab imgSrc="img/news.svg" text="Video" />
+					<Tab imgSrc="img/video.svg" text="Video" />
 					<Tab imgSrc="img/news.svg" text="News" />
 				</TabList>
 			</div>
