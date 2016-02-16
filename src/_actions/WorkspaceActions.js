@@ -55,6 +55,12 @@ export const updateWorkspaceField = (fieldName, fieldValue) => ({
     fieldValue,
 });
 
+export const changeWorkspacePanelSize = (panel, size) => ({
+    type: types.CHANGE_WORKSPACE_PANEL_SIZE,
+    panel,
+    size,
+});
+
 export const toggleTradeMode = () => ({
     type: types.TOGGLE_TRADE_MODE,
 });

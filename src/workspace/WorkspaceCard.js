@@ -24,11 +24,11 @@ export default class WorkspaceCard extends React.Component {
 	render() {
 		const { actions, workspace } = this.props;
 
-		const onChangeLeftPanel = idx =>
-			actions.updateWorkspaceField('leftActiveTab', idx);
+		const onChangeLeftPanel = size =>
+			actions.changeWorkspacePanelSize('left', size);
 
-		const onChangeRightPanel = idx =>
-			actions.updateWorkspaceField('rightActiveTab', idx);
+		const onChangeRightPanel = size =>
+			actions.changeWorkspacePanelSize('right', size);
 
 		return (
 			<div id="panels">
@@ -45,10 +45,7 @@ export default class WorkspaceCard extends React.Component {
 					<WorkspaceLeftPanel actions={actions} workspace={workspace} />}
 				<Resizer
 					className="resizer-vertical"
-					onResize={e => {
-						const update = actions.updateWorkspaceField.bind(null, 'leftPanelSize');
-						updateSizeWithBoundary(e.x - 45, update);
-					}}
+					onResize={e => onChangeLeftPanel(e.x - 45)}
 				/>
 				<div id="workarea">
 					<TradesContainer
@@ -58,10 +55,7 @@ export default class WorkspaceCard extends React.Component {
 				</div>
 				<Resizer
 					className="resizer-vertical"
-					onResize={e => {
-						const update = actions.updateWorkspaceField.bind(null, 'rightPanelSize');
-						updateSizeWithBoundary(window.innerWidth - e.x - 48, update);
-					}}
+					onResize={e => onChangeRightPanel(window.innerWidth - e.x - 48)}
 				/>
 				{workspace.rightPanelVisible &&
 					<WorkspaceRightPanel actions={actions} workspace={workspace} />}

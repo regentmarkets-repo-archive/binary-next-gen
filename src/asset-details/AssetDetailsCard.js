@@ -25,6 +25,7 @@ export default class AssetDetailsCard extends React.Component {
 				{ activeAsset.is_trading_suspended ? <M m="Trading is suspended" /> : null } <br />
 				<h5><M m="Trading Times" /></h5>
 				{tradingTimes && <AssetDetailsTradingTimes times={tradingTimes.times} />}
+				<br />
 				{tradingTimes && tradingTimes.events.length > 0 &&
 					<div>
 						<h5><M m="Trading Events" /></h5>

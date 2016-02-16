@@ -10,6 +10,7 @@ import {
     UPDATE_TRADING_TIMES_DATE,
     UPDATE_ASSET_INDEX_SUBMARKET,
     UPDATE_WORKSPACE_FIELD,
+    CHANGE_WORKSPACE_PANEL_SIZE,
     TOGGLE_TRADE_MODE,
     TOGGLE_PANEL,
 } from '../_constants/ActionTypes';
@@ -63,6 +64,11 @@ export default (state = initialState, action) => {
         }
         case UPDATE_WORKSPACE_FIELD: {
             return state.set(action.fieldName, action.fieldValue);
+        }
+        case CHANGE_WORKSPACE_PANEL_SIZE: {
+            return state
+                .set(action.panel + 'PanelSize', action.size)
+                .set(action.panel + 'PanelVisible', action.size > 100);
         }
         case TOGGLE_TRADE_MODE: {
             const newTradeMode = state.get('tradeMode') === 'grid' ? 'tabs' : 'grid';
