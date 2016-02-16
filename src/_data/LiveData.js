@@ -18,6 +18,7 @@ const handlers = {
     proposal: 'serverDataProposal',
     get_limits: 'serverDataAccountLimits',
     get_self_exclusion: 'serverDataAccountSelfExclusion',
+    cashier_password: 'serverDataCashierLock',
     get_settings: 'serverDataAccountSettings',
     news: 'updateNewsList',
     videos: 'updateVideoList',
@@ -74,6 +75,7 @@ const initAuthorized = (authData, store) => {
     if (!isVirtual) {
         api.getAccountLimits();
         api.getSelfExclusion();
+        api.getCashierLockStatus();
     }
 };
 

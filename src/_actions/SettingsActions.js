@@ -15,6 +15,11 @@ export const serverDataAccountSelfExclusion = serverResponse => ({
     serverResponse,
 });
 
+export const serverDataCashierLock = serverResponse => ({
+    type: types.SERVER_DATA_CASHIER_LOCK,
+    serverResponse,
+});
+
 export const serverDataAccountSettings = serverResponse => ({
     type: types.SERVER_DATA_ACCOUNT_SETTINGS,
     serverResponse,

@@ -9,6 +9,7 @@ import {
     SERVER_DATA_ACCOUNT_LIMITS,
     SERVER_DATA_ACCOUNT_SELF_EXCLUSION,
     SERVER_DATA_ACCOUNT_SETTINGS,
+    SERVER_DATA_CASHIER_LOCK,
     UPDATE_SETTINGS_FIELD,
     REMOVE_PERSONAL_DATA,
 } from '../../_constants/ActionTypes';
@@ -57,6 +58,21 @@ describe('SettingsReducer', () => {
         const expectedState = fromJS({ turnover_limit: 100 });
 
         const actualState = settingsReducer(beforeState, action);
+
+        expect(expectedState).to.equal(actualState);
+    });
+
+    it('should be able to set the cashier account lock status', () => {
+        const action = {
+            type: SERVER_DATA_CASHIER_LOCK,
+            serverResponse: {
+                cashier_password: 1,
+            },
+        };
+        const stateBefore = fromJS({ cashier_password: 0 });
+        const expectedState = fromJS({ cashier_password: 1 });
+
+        const actualState = settingsReducer(stateBefore, action);
 
         expect(expectedState).to.equal(actualState);
     });
