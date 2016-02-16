@@ -5,7 +5,7 @@ const TradingTimesRow = ({ asset, compact }) => {
 
     return (
         <tr>
-            <td>{asset.name}</td>
+            <td className="left row-id">{asset.name}</td>
             <td>{asset.times.open.map(openTime => <div key={openTime}>{openTime}</div>)}</td>
             <td>{asset.times.close.map(closeTime => <div key={closeTime}>{closeTime}</div>)}</td>
             <td>{asset.times.settlement}</td>

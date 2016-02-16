@@ -23,13 +23,13 @@ import WorkspaceContainer from '../workspace/WorkspaceContainer';
 import { requireAuthOnEnter } from '../_data/Auth';
 
 export default [
+    { path: 'trades', component: TradesPage, onEnter: requireAuthOnEnter },
     { path: 'header', component: WebHeader, onEnter: requireAuthOnEnter },
     { path: 'workspace', component: WorkspaceContainer, onEnter: requireAuthOnEnter },
     { path: 'portfolio', component: PortfolioPage, onEnter: requireAuthOnEnter },
     { path: 'statement', component: StatementPage, onEnter: requireAuthOnEnter },
     { path: 'create-account', component: CreateAccountPage },
     { path: 'upgrade', component: UpgradePage },
-    { path: 'trade', component: TradesPage, onEnter: requireAuthOnEnter },
     { path: 'watchlist', component: WatchlistPage, onEnter: requireAuthOnEnter },
     { path: 'asset-index', component: AssetIndexPage, onEnter: requireAuthOnEnter, childRoutes: [
         { path: ':market', component: AssetIndexTable, onEnter: requireAuthOnEnter },

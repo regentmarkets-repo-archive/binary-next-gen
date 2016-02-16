@@ -8,7 +8,6 @@ import PurchaseConfirmation from '../_common/PurchaseConfirmation';
 import Modal from '../containers/Modal';
 import RadioGroup from './workaround/CustomRadioGroup';
 import { contractCategoryDisplay, durationToSecs, isIntraday } from '../_utils/TradeUtils';
-import { tradeTypes } from '../_constants/TradeParams';
 import BarrierCard from './barriers/BarrierCard';
 import DigitBarrierCard from './barriers/DigitBarrierCard';
 import DurationCard from './durations/DurationCard';
@@ -16,7 +15,7 @@ import PayoutCard from './PayoutCard';
 import SpreadBarrierCard from './barriers/SpreadBarrierCard';
 import MobileChart from '../charting/MobileChart';
 import BuyButton from '../tick-trade/BuyButton';
-import { askPriceFromProposal } from '../_utils/TradeUtils';
+import { askPriceFromProposal, tradeTypeCodeToText } from '../_utils/TradeUtils';
 
 /**
  * This UI is coded with a few assumptions, which should always be true, this comments serves as a future reference
@@ -34,9 +33,6 @@ import { askPriceFromProposal } from '../_utils/TradeUtils';
  * 5. barriers are non available for contract below 2 minutes
  * 6. forward starting does not have barriers
  */
-const getTradeTypeText = type =>
-    tradeTypes.find(t => t.value === type).text;
-
 const createDefaultType = (contracts, category) =>
     Object.keys(contracts[category])[0];
 
@@ -264,7 +260,7 @@ export default class TradePanel extends Component {
         // do not reset duration unless the old one is not valid
         if (!epoch || durationIsWithinRange(duration, durationUnit, newDurations)) {
             this.updateHelper('dateStart', epoch);
-            return undefined;
+            return;
         }
 
         this.updateHelper('dateStart', epoch, false);
@@ -371,7 +367,7 @@ export default class TradePanel extends Component {
         const selectedCategory = trade.tradeCategory;
         const types = Object
             .keys(contract[selectedCategory])
-            .map(type => ({ text: getTradeTypeText(type), value: type }));
+            .map(type => ({ text: tradeTypeCodeToText(type), value: type }));
         const selectedType = trade.type;
         const contractForType = contract[selectedCategory][selectedType];
         const barriers = contractForType && contractForType.barriers;

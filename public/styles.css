@@ -688,12 +688,6 @@ select {
     background: rgba(255, 255, 255, .5);
 }
 
-.row-id {
-    font-weight: bold;
-}
-
-
-
 div[role=tablist] {
     display: flex;
     background: rgba(42, 48, 82, .75);
@@ -747,4 +741,16 @@ div[role=tabpanel] {
 #assets-select, #categories-select {
     min-width: 10rem;
     width: 100%;
+}
+
+td.left, th.left {
+    text-align: left;
+}
+
+td.right, th.right {
+    text-align: right;
+}
+
+td.row-id {
+    font-weight: bold;
 }
