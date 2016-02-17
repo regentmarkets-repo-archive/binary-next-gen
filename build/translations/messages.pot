@@ -327,3 +327,141 @@ msgstr ""
 
 msgid "Search For Assets"
 msgstr ""
+
+msgid "Start times"
+msgstr ""
+
+msgid "Durations"
+msgstr ""
+
+msgid "Payout/Stake"
+msgstr ""
+
+msgid "Purchase for"
+msgstr ""
+
+msgid "payout"
+msgstr ""
+
+msgid "stake"
+msgstr ""
+
+msgid "Self Exclusion"
+msgstr ""
+
+msgid "Cashier Lock"
+msgstr ""
+
+msgid "Change Password"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Tick Trade"
+msgstr ""
+
+msgid "Full Trade"
+msgstr ""
+
+msgid "Address"
+msgstr ""
+
+msgid "Town/City"
+msgstr ""
+
+msgid "State/Province"
+msgstr ""
+
+msgid "Telephone"
+msgstr ""
+
+msgid "Postal Code / ZIP"
+msgstr ""
+
+msgid "Cashier password"
+msgstr ""
+
+msgid "Re-enter your password"
+msgstr ""
+
+msgid "Current password"
+msgstr ""
+
+msgid "New password"
+msgstr ""
+
+msgid "Verify new password"
+msgstr ""
+
+msgid "Change Password"
+msgstr ""
+
+msgid "Daily turnover limit"
+msgstr ""
+
+msgid "Once this limit is reached, you may no longer deposit."
+msgstr ""
+
+msgid "Maximum aggregate contract purchases per day."
+msgstr ""
+
+msgid "Daily limit on losses"
+msgstr ""
+
+msgid "Maximum aggregate loss per day."
+msgstr ""
+
+msgid "7-day turnover limit"
+msgstr ""
+
+msgid "Maximum aggregate contract purchases over a 7-day period."
+msgstr ""
+
+msgid "7-day limit on losses"
+msgstr ""
+
+msgid "Maximum aggregate loss over a 7-day period."
+msgstr ""
+
+msgid "30-day turnover limit"
+msgstr ""
+
+msgid "Maximum aggregate contract purchases over a 30-day period."
+msgstr ""
+
+msgid "30-day limit on losses"
+msgstr ""
+
+msgid "Maximum aggregate loss over a 30-day period."
+msgstr ""
+
+msgid "Maximum number of open positions"
+msgstr ""
+
+msgid "Session duration limit, in minutes"
+msgstr ""
+
+msgid "You will be automatically logged out after such time."
+msgstr ""
+
+msgid "Exclude me from the website until"
+msgstr ""
+
+msgid "Limits"
+msgstr ""
+
+msgid "Please enter date in the format YYYY-MM-DD."
+msgstr ""
+
+msgid "New Trade"
+msgstr ""
+
+msgid "Trade Type"
+msgstr ""
+
+msgid "Random 100 Index"
+msgstr ""
+
+msgid "Article"
+msgstr ""
