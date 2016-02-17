@@ -1,4 +1,4 @@
-import createEngine from 'redux-storage-engine-localstorage';
+import createEngine from './redux-storage-engine-localstorage-multi';
 import filter from 'redux-storage-decorator-filter';
 import debounce from 'redux-storage-decorator-debounce';
 

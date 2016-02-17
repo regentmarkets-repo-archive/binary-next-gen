@@ -21,17 +21,19 @@ export default class TradesTabs extends React.Component {
         const { trades, tradesIds } = this.props;
 
         return (
-            <TabList
-				activeIndex={this.state.activeTab}
-				onChange={idx => this.setState({ activeTab: idx })}
-            >
-                {tradesIds.map(id =>
-                    <Tab
-                        key={id}
-                        text={trades[id].symbol}
-                    />
-                )}
-            </TabList>
+            <div className="trades-tabs">
+                <TabList
+                    activeIndex={this.state.activeTab}
+                    onChange={idx => this.setState({ activeTab: idx })}
+                >
+                    {tradesIds.map(id =>
+                        <Tab
+                            key={id}
+                            text={trades[id].symbol}
+                        />
+                    )}
+                </TabList>
+            </div>
         );
     }
 }

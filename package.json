@@ -57,7 +57,6 @@
     "redux-storage": "^3.0.0",
     "redux-storage-decorator-debounce": "^1.0.0",
     "redux-storage-decorator-filter": "^1.0.0",
-    "redux-storage-engine-localstorage": "^1.0.0",
     "redux-thunk": "^1.0.3",
     "reselect": "^2.0.3"
   },

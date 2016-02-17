@@ -30,6 +30,6 @@ module.exports = {
             test: /\.js$/,
             loader: 'eslint-loader',
             include: path.join(__dirname, 'src'),
-        } */],
+        } */ ],
     },
 };

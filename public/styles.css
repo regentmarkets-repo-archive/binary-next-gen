@@ -647,7 +647,7 @@ select {
     margin-bottom: 5px;
 }
 
-.trades-grid, #workarea > div[role=tablist] {
+.trades-grid, .trades-tabs, #workarea > div[role=tablist] {
     display: flex;
     flex: 1;
 }
