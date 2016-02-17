@@ -3,6 +3,7 @@ import {
     CHANGE_SETTINGS_ACTIVE_TAB,
     SERVER_DATA_ACCOUNT_LIMITS,
     SERVER_DATA_ACCOUNT_SELF_EXCLUSION,
+    SERVER_DATA_CASHIER_LOCK,
     SERVER_DATA_ACCOUNT_SETTINGS,
     UPDATE_SETTINGS_FIELD,
     REMOVE_PERSONAL_DATA,
@@ -22,6 +23,9 @@ export default (state = initialState, action) => {
         }
         case SERVER_DATA_ACCOUNT_SELF_EXCLUSION: {
             return state.merge(action.serverResponse.get_self_exclusion);
+        }
+        case SERVER_DATA_CASHIER_LOCK: {
+            return state.set('cashier_password', action.serverResponse.cashier_password);
         }
         case SERVER_DATA_ACCOUNT_SETTINGS: {
             return state.merge(action.serverResponse.get_settings);
