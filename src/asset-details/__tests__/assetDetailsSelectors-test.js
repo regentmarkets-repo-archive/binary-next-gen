@@ -7,6 +7,8 @@ describe('assetDetailsSelectors', () => {
         assets: fromJS([
             { symbol: '1', name: 'Asset1' },
         ]),
+        assetIndex: fromJS([]),
+        tradingTimes: fromJS([]),
         workspace: fromJS({
             symbolSelected: '1',
         }),
@@ -14,7 +16,10 @@ describe('assetDetailsSelectors', () => {
 
     it('should work with empty state', () => {
         const state = {
-            assets: [],
+            assets: fromJS([]),
+            assetIndex: fromJS([]),
+            tradingTimes: fromJS([]),
+            workspace: fromJS({}),
         };
         const assetDetails = assetDetailsSelectors(state);
 
@@ -27,9 +32,9 @@ describe('assetDetailsSelectors', () => {
         const first = assetDetailsSelectors(state);
         const second = assetDetailsSelectors(state);
 
-        expect(first.assets).to.equal(second.assets);
+        expect(first.activeAsset).to.equal(second.activeAsset);
         expect(first.tradingTimes).to.equal(second.tradingTimes);
-        expect(first.tradingTimesFilter).to.equal(second.tradingTimesFilter);
+        expect(first.durations).to.equal(second.durations);
 
         expect(first).to.equal(second);
     });

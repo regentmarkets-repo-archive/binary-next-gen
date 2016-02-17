@@ -1,9 +1,7 @@
 import { createSelector, createStructuredSelector } from 'reselect';
-import { assetsSelector } from '../_store/directSelectors';
+import { assetIndexSelector, assetsSelector } from '../_store/directSelectors';
 import { assetIndexSubmarketSelector } from '../workspace/workspaceSelectors';
 import { List } from 'immutable';
-
-export const assetIndexSelector = state => state.assetIndex;
 
 const assetSymbolsInSubmarket = (assets, submarket) =>
     assets
@@ -26,7 +24,7 @@ const shownAssetIndexRowsSelector = createSelector(
 const assetIndexRowToDuration = row =>
     row ? `${row.get(2)}–${row.get(3)}` : '—';
 
-const assetIndexTableSelector = createSelector(
+export const assetIndexTableSelector = createSelector(
     shownAssetIndexRowsSelector,
     assetIndexRows => {
         // find union of all type

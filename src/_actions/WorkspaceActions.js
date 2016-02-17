@@ -55,6 +55,18 @@ export const updateWorkspaceField = (fieldName, fieldValue) => ({
     fieldValue,
 });
 
+export const changeActiveWorkspaceTab = (panel, index) => ({
+    type: types.CHANGE_ACTIVE_WORKSPACE_TAB,
+    panel,
+    index,
+});
+
+export const changeWorkspacePanelSize = (panel, size) => ({
+    type: types.CHANGE_WORKSPACE_PANEL_SIZE,
+    panel,
+    size,
+});
+
 export const toggleTradeMode = () => ({
     type: types.TOGGLE_TRADE_MODE,
 });

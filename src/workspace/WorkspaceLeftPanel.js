@@ -1,12 +1,10 @@
 import React, { PropTypes } from 'react';
 import AssetPickerContainer from '../asset-picker/AssetPickerContainer';
-import AssetDetailsContainer from '../asset-details/AssetDetailsContainer';
 import WatchlistContainer from '../watchlist/WatchlistContainer';
 
 const components = [
 	AssetPickerContainer,
 	WatchlistContainer,
-	AssetDetailsContainer,
 ];
 
 export default class WorkspaceLeftPanel extends React.Component {
