@@ -14,11 +14,11 @@ module.exports = {
     plugins: [
         new webpack.DefinePlugin({
             'process.env': {
-                'NODE_ENV': JSON.stringify('production'),
+                NODE_ENV: JSON.stringify('production'),
             },
         }),
         new webpack.optimize.UglifyJsPlugin({
-            compress: false
+            compress: false,
         }),
     ],
     module: {
@@ -26,10 +26,10 @@ module.exports = {
             test: /\.js$/,
             loader: 'babel-loader',
             include: path.join(__dirname, 'src'),
-        }, {
+        }, /* {
             test: /\.js$/,
             loader: 'eslint-loader',
             include: path.join(__dirname, 'src'),
-        }],
+        } */],
     },
 };
