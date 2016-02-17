@@ -2,7 +2,7 @@ import SigninMobile from '../signin/SigninMobile';
 import CreateAccountMobile from '../create-account/CreateAccountMobile';
 import TickTradeMobile from '../tick-trade/TickTradeMobile';
 import FullTradeMobile from '../fulltrade/FullTradeMobile';
-import PayoutPickerMobile from '../tick-trade/PayoutPickerMobile';
+import PayoutPickerMobile from '../payout-picker/PayoutPickerMobile';
 import PurchaseConfirmationMobile from '../tick-trade/PurchaseConfirmationMobile';
 import PortfolioMobile from '../portfolio/PortfolioMobile';
 import ContractDetailsMobile from '../contract-details/ContractDetailsMobile';
@@ -15,7 +15,7 @@ import NewsMobile from '../mobile/NewsMobile';
 import ArticleMobile from '../news/ArticleMobile';
 import ResourcesMobile from '../mobile/ResourcesMobile';
 import DepositMobile from '../deposit/DepositMobile';
-import DurationMobile from '../tick-trade/DurationMobile';
+import TickDurationMobile from '../duration-picker/TickDurationMobile';
 import QuickTradeContainer from '../quick-trade/QuickTradeContainer';
 import { requireAuthOnEnter, signout } from '../_data/Auth';
 
@@ -39,5 +39,5 @@ export default [
     { path: 'resources-mobile', component: ResourcesMobile },
     { path: 'deposit', component: DepositMobile, onEnter: requireAuthOnEnter },
     { path: 'quick-trade', component: QuickTradeContainer, onEnter: requireAuthOnEnter },
-    { path: 'duration', component: DurationMobile, onEnter: requireAuthOnEnter },
+    { path: 'duration', component: TickDurationMobile, onEnter: requireAuthOnEnter },
 ];

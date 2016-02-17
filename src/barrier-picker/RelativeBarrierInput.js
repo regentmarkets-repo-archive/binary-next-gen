@@ -1,9 +1,12 @@
 import React, { PropTypes, Component } from 'react';
-import InputGroup from '../../_common/InputGroup';
-import NumberPlain from '../../_common/NumberPlain';
 import shouldPureComponentUpdate from 'react-pure-render/function';
+import InputGroup from '../_common/InputGroup';
+import NumberPlain from '../_common/NumberPlain';
 
 export default class BarrierInput extends Component {
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
+
     static propTypes = {
         barrierType: PropTypes.oneOf(['relative', 'absolute']),
         expiryType: PropTypes.oneOf(['intraday', 'daily']),
@@ -15,12 +18,11 @@ export default class BarrierInput extends Component {
         spot: PropTypes.number,
     };
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
     render() {
         const { barrierType, expiryType, name, onChange, pipSize, value, spot } = this.props;
         const relativeValue = expiryType === 'daily' ? spot && (value - spot) : value;
         const absoluteValue = expiryType === 'daily' ? value : spot && (value + spot);
+
         return (
             <div>
                 <InputGroup

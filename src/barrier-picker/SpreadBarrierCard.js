@@ -1,11 +1,13 @@
 import React, { PropTypes, Component } from 'react';
-import RadioGroup from '../../_common/RadioGroup';
-import InputGroup from '../../_common/InputGroup';
-
-import CollapsibleFormSnippet from '../../containers/CollapsibleFormSnippet';
 import shouldPureComponentUpdate from 'react-pure-render/function';
+import RadioGroup from '../_common/RadioGroup';
+import InputGroup from '../_common/InputGroup';
+import CollapsibleFormSnippet from '../containers/CollapsibleFormSnippet';
 
 export default class SpreadBarrierCard extends Component {
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
+
     static propTypes = {
         amountPerPoint: PropTypes.number,
         amountPerPointChange: PropTypes.func,
@@ -20,8 +22,6 @@ export default class SpreadBarrierCard extends Component {
         spreadInfo: PropTypes.object,
     };
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
     render() {
         const {
             amountPerPointChange,
@@ -35,6 +35,7 @@ export default class SpreadBarrierCard extends Component {
             } = this.props;
 
         const stopTypeOptions = [{ text: 'Points', value: 'point' }, { text: currency, value: 'dollar' }];
+
         return (
             spreadInfo ?
                 <CollapsibleFormSnippet label="Spreads">
