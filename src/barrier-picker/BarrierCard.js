@@ -1,9 +1,12 @@
 import React, { PropTypes, Component } from 'react';
-import BarrierInput from './RelativeBarrierInput';
-import CollapsibleFormSnippet from '../../containers/CollapsibleFormSnippet';
 import shouldPureComponentUpdate from 'react-pure-render/function';
+import BarrierInput from './RelativeBarrierInput';
+import CollapsibleFormSnippet from '../containers/CollapsibleFormSnippet';
 
 export default class BarrierCard extends Component {
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
+
     static propTypes = {
         barrier: PropTypes.number,
         barrier2: PropTypes.number,
@@ -17,7 +20,6 @@ export default class BarrierCard extends Component {
         spot: PropTypes.number,
     };
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
     render() {
         const {
             barrier,
