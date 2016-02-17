@@ -115,6 +115,20 @@ const durationIsWithinRange = (duration, durationUnit, range) => {
 };
 
 export default class TradePanel extends Component {
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
+
+    static propTypes = {
+        actions: PropTypes.object.isRequired,
+        assets: PropTypes.object.isRequired,
+        currency: PropTypes.string.isRequired,
+        contract: PropTypes.object,
+        id: PropTypes.string.isRequired,
+        trade: PropTypes.object.isRequired,
+        tick: PropTypes.array,
+    };
+
+
     constructor(props) {
         super(props);
         this.updateHelper = ::this.updateHelper;
@@ -136,18 +150,6 @@ export default class TradePanel extends Component {
         this.onPurchase = ::this.onPurchase;
         this.onClosePanel = ::this.onClosePanel;
     }
-
-    static propTypes = {
-        actions: PropTypes.object.isRequired,
-        assets: PropTypes.object.isRequired,
-        currency: PropTypes.string.isRequired,
-        contract: PropTypes.object,
-        id: PropTypes.string.isRequired,
-        trade: PropTypes.object.isRequired,
-        tick: PropTypes.array,
-    };
-
-    shouldComponentUpdate = shouldPureComponentUpdate;
 
     componentWillMount() {
         this.onCategoryChange({ target: { value: 'callput' } }, false);
@@ -396,20 +398,18 @@ export default class TradePanel extends Component {
                     showBarrier={!!barriers}
                     spot={lastSpot}
                 />}
-                <div className="row">
-                    <SelectGroup
-                        id="assets-select"
-                        optgroups={assets}
-                        value={selectedSymbol}
-                        onChange={this.onAssetChange}
-                    />
-                    <SelectGroup
-                        id="categories-select"
-                        options={categories}
-                        value={selectedCategory}
-                        onChange={this.onCategoryChange}
-                    />
-                </div>
+                <SelectGroup
+                    id="assets-select"
+                    optgroups={assets}
+                    value={selectedSymbol}
+                    onChange={this.onAssetChange}
+                />
+                <SelectGroup
+                    id="categories-select"
+                    options={categories}
+                    value={selectedCategory}
+                    onChange={this.onCategoryChange}
+                />
                 { contractForType &&
                     <div>
                         <RadioGroup

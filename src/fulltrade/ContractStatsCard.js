@@ -4,12 +4,13 @@ import LabeledText from '../_common/LabeledText';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 
 export default class ContractStatsCard extends Component {
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
+
     static propTypes = {
         proposal: PropTypes.object,
         spread: PropTypes.bool,
     };
-
-    shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
         const { proposal, spread } = this.props;

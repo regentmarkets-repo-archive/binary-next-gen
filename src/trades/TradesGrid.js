@@ -21,18 +21,18 @@ export default class TradesGrid extends React.Component {
                     const contract = contracts[symbol];
                     const tick = ticks[symbol];
 
-                    if (contract) {
-                        return (
-                            <TradePanel
-                                key={id}
-                                id={id}
-                                contract={contract}
-                                tick={tick}
-                                trade={trades[id]}
-                                {...this.props}
-                            />
-                        );
-                    }
+                    if (!contract) return null;
+
+                    return (
+                        <TradePanel
+                            key={id}
+                            id={id}
+                            contract={contract}
+                            tick={tick}
+                            trade={trades[id]}
+                            {...this.props}
+                        />
+                    );
                 })}
             </div>
         );

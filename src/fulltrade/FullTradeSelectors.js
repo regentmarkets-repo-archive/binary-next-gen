@@ -12,6 +12,7 @@ import { assetsSelector, ticksSelector, tradingTimesSelector } from '../_store/d
 import { marketTreeSelector } from '../_selectors/marketTreeSelector';
 
 const normalizedContractFor = contracts => {
+
     const extraRemoved = contracts.map(contract => ({
         amount_per_point: contract.amount_per_point,
         barrier: contract.barrier,

@@ -9,10 +9,6 @@ describe('AppStateProvider', () => {
     const middlewares = []; // add your middlewares like `redux-thunk`
     const mockStore = configureStore(middlewares);
 
-    it('should not swallow any error', () => {
-        // TODO: find ways to test error
-    });
-
     it('should show loadingview if not connected', () => {
         class ChildComponent extends React.Component {
             render() {

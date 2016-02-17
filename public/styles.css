@@ -494,7 +494,7 @@ select {
 }
 
 .resizer-vertical, .resizer-horizontal {
-    background: rgba(127, 127, 127, .25);
+    background: rgba(42, 48, 82, .1);
 }
 
 .resizer-vertical {
@@ -639,6 +639,7 @@ select {
 
 .collapsible-title {
     cursor: pointer;
+    font-size: 1rem;
 }
 
 .form-label {
@@ -646,12 +647,9 @@ select {
     margin-bottom: 5px;
 }
 
-.trades-grid {
+.trades-grid, .trades-tabs  {
     display: flex;
-}
-
-.trades-tabs {
-    display: flex;
+    flex: 1;
 }
 
 .asset-picker-item:hover .asset-picker-trade-btn {

@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 
 export default class CustomRadioButton extends Component {
+
     static propTypes = {
         onClick: PropTypes.func,
         selected: PropTypes.bool,
@@ -10,6 +11,7 @@ export default class CustomRadioButton extends Component {
 
     render() {
         const { text, value, onClick, selected } = this.props;
+
         return (
             <button
                 className={'radio-button ' + (selected && 'selected-radio')}
