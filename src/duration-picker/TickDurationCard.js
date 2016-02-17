@@ -2,7 +2,8 @@ import React, { PropTypes } from 'react';
 import M from '../_common/M';
 import RangeGroup from '../_common/RangeGroup';
 
-export default class PayoutPickerCard extends React.Component {
+export default class TickDurationCard extends React.Component {
+
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
 		tickTrade: PropTypes.object.isRequired,

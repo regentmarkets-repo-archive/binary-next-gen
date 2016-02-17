@@ -11,7 +11,7 @@ import { contractCategoryDisplay, durationToSecs, isIntraday } from '../_utils/T
 import BarrierCard from './barriers/BarrierCard';
 import DigitBarrierCard from './barriers/DigitBarrierCard';
 import DurationCard from '../duration-picker/DurationCard';
-import PayoutCard from './PayoutCard';
+import PayoutCard from '../payout-picker/PayoutCard';
 import SpreadBarrierCard from './barriers/SpreadBarrierCard';
 import MobileChart from '../charting/MobileChart';
 import BuyButton from '../tick-trade/BuyButton';

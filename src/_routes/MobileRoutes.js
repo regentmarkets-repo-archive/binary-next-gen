@@ -2,7 +2,7 @@ import SigninMobile from '../signin/SigninMobile';
 import CreateAccountMobile from '../create-account/CreateAccountMobile';
 import TickTradeMobile from '../tick-trade/TickTradeMobile';
 import FullTradeMobile from '../fulltrade/FullTradeMobile';
-import PayoutPickerMobile from '../tick-trade/PayoutPickerMobile';
+import PayoutPickerMobile from '../payout-picker/PayoutPickerMobile';
 import PurchaseConfirmationMobile from '../tick-trade/PurchaseConfirmationMobile';
 import PortfolioMobile from '../portfolio/PortfolioMobile';
 import ContractDetailsMobile from '../contract-details/ContractDetailsMobile';
