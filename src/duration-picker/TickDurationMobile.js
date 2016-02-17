@@ -1,9 +1,9 @@
 import React from 'react';
 import MobilePage from '../containers/MobilePage';
-import DurationContainer from './DurationContainer';
+import TickDurationContainer from './TickDurationContainer';
 
 export default (props) => (
 	<MobilePage toolbarShown={false} backBtnBarTitle="Duration">
-		<DurationContainer {...props} />
+		<TickDurationContainer {...props} />
 	</MobilePage>
 );

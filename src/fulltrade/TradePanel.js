@@ -10,7 +10,7 @@ import RadioGroup from './workaround/CustomRadioGroup';
 import { contractCategoryDisplay, durationToSecs, isIntraday } from '../_utils/TradeUtils';
 import BarrierCard from './barriers/BarrierCard';
 import DigitBarrierCard from './barriers/DigitBarrierCard';
-import DurationCard from './durations/DurationCard';
+import DurationCard from '../duration-picker/DurationCard';
 import PayoutCard from './PayoutCard';
 import SpreadBarrierCard from './barriers/SpreadBarrierCard';
 import MobileChart from '../charting/MobileChart';
@@ -381,6 +381,12 @@ export default class TradePanel extends Component {
 
         return (
             <fieldset disabled={disabled} className="trade-panel">
+                <Modal shown={!!receipt} onClose={() => this.updateHelper('receipt', undefined)} >
+                    <PurchaseConfirmation receipt={receipt} />
+                </Modal>
+                <Modal shown={!!trade.buy_error} onClose={() => this.updateHelper('buy_error', undefined)}>
+                    <PurchaseFailed failure={trade.buy_error} />
+                </Modal>
                 <button className="btn-secondary" onClick={!disabled && this.onClosePanel}>
                     <M m="X" />
                 </button>
@@ -404,12 +410,6 @@ export default class TradePanel extends Component {
                         onChange={this.onCategoryChange}
                     />
                 </div>
-                <Modal shown={!!receipt} onClose={() => this.updateHelper('receipt', undefined)} >
-                    <PurchaseConfirmation receipt={receipt} />
-                </Modal>
-                <Modal shown={!!trade.buy_error} onClose={() => this.updateHelper('buy_error', undefined)}>
-                    <PurchaseFailed failure={trade.buy_error} />
-                </Modal>
                 { contractForType &&
                     <div>
                         <RadioGroup
