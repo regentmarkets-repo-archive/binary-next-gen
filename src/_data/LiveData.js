@@ -19,6 +19,7 @@ const handlers = {
     get_limits: 'serverDataAccountLimits',
     get_self_exclusion: 'serverDataAccountSelfExclusion',
     cashier_password: 'serverDataCashierLock',
+    change_password: 'serverDataChangePassword',
     get_settings: 'serverDataAccountSettings',
     news: 'updateNewsList',
     videos: 'updateVideoList',
