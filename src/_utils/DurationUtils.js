@@ -1,6 +1,7 @@
 import { durationUnits } from '../_constants/TradeParams';
-import { groupByKey } from '../_utils/ArrayUtils';
-import { durationToSecs, splitSecsToUnits } from '../_utils/DateUtils';
+import { groupByKey } from './ArrayUtils';
+import { splitSecsToUnits } from './DateUtils';
+import { durationToSecs } from './TradeUtils';
 
 export const isDurationWithinRange = (duration, durationUnit, range) => {
     const relatedBlock = range.find(r => r.unit === durationUnit);
