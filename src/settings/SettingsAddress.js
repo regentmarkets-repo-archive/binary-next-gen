@@ -1,11 +1,11 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
 import States from '../_common/States';
 import InputGroup from '../_common/InputGroup';
 import TextAreaGroup from '../_common/TextAreaGroup';
 import * as LiveData from '../_data/LiveData';
 
-export default class SettingsAddress extends React.Component {
+export default class SettingsAddress extends Component {
 	constructor(props) {
 		super(props);
 		const { settings } = props;

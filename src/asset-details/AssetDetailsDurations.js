@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
 
-export default class AssetDetailsDurations extends React.Component {
+export default class AssetDetailsDurations extends Component {
 
 	static propTypes = {
 		durations: PropTypes.array.isRequired,

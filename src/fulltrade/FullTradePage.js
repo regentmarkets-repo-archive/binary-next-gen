@@ -1,9 +1,9 @@
 import React from 'react';
 import WebPage from '../containers/WebPage';
-import TradePanel from './TradePanel';
+import FullTradeContainer from './FullTradeContainer';
 
 export default (props) => (
 	<WebPage>
-		<TradePanel compact {...props} />
+		<FullTradeContainer {...props} />
 	</WebPage>
 );

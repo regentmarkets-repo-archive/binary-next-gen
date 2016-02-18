@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import M from './M';
 
 const InputGroup = ({ autoFocus, id, className, label, type, hint, value, min, max,

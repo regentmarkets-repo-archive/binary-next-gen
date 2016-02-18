@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import PurchaseFailed from '../_common/PurchaseFailed';
 import PurchaseConfirmation from '../_common/PurchaseConfirmation';
 import Modal from '../containers/Modal';
@@ -7,35 +7,35 @@ import TickTradeParameters from './TickTradeParameters';
 import BuyButton from './BuyButton';
 import { askPriceFromProposal } from '../_utils/TradeUtils';
 
-export default class TickTradeCard extends React.Component {
+export default class TickTradeCard extends Component {
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
         assets: PropTypes.array.isRequired,        // all assets available
         currency: PropTypes.string.isRequired,
-        id: PropTypes.string.isRequired,
+        index: PropTypes.number.isRequired,
         tick: PropTypes.array.isRequired,          // ticks for this trade instance, correspond to symbol selected
         trade: PropTypes.object.isRequired,         // trade params for this trade instance
     };
 
     updateHelper(field, name) {
-        const { actions, id, trade } = this.props;
-        actions.updateTradeParams(id, field, name);
-        actions.updatePriceProposalSubscription(id, trade);
+        const { actions, index, trade } = this.props;
+        actions.updateTradeParams(index, field, name);
+        actions.updatePriceProposalSubscription(index, trade);
     }
 
     placeOrder() {
-        const { actions, id, trade } = this.props;
-        actions.purchaseByTradeId(id, trade);
+        const { actions, index, trade } = this.props;
+        actions.purchaseByTradeId(index, trade);
     }
 
     componentDidMount() {
-        const { actions, id, trade } = this.props;
-        actions.updatePriceProposalSubscription(id, trade);
+        const { actions, index, trade } = this.props;
+        actions.updatePriceProposalSubscription(index, trade);
     }
 
     render() {
-        const { assets, currency, id, trade, tick } = this.props;
+        const { assets, currency, index, trade, tick } = this.props;
         const history = tick;
         const spot = history.length > 0 ? history[history.length - 1].quote : null;
         const receipt = trade.receipt;
@@ -62,7 +62,7 @@ export default class TickTradeCard extends React.Component {
                     assets={assets}
                     currency={currency}
                     durationChange={e => this.updateHelper('duration', e.target.value)}
-                    id={id}
+                    id={index}
                     trade={trade}
                 />
                 <BuyButton

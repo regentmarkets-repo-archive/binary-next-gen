@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
 import NumberColored from '../_common/NumberColored';
 

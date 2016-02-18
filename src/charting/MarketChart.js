@@ -1,13 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import EChart from './EChart';
 
-// dataZoom : {
-//     show : true,
-//     start : 0,
-//     end : 100
-// },
-
-export default class MarketChart extends React.Component {
+export default class MarketChart extends Component {
 
     render() {
         return <EChart />;

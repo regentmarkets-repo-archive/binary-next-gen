@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Tabs from '../_common/Tabs';
 import MobilePage from '../containers/MobilePage';
 import AssetIndexContainer from '../asset-index/AssetIndexContainer';
 import TradingTimesContainer from '../trading-times/TradingTimesContainer';
 
-export default class ResourcesMobile extends React.Component {
+export default class ResourcesMobile extends Component {
 
     constructor(props) {
         super(props);

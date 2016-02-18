@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import EChart from './EChart';
 import SizeProvider from '../_common/SizeProvider';
 import createChartOptions from './options/TradeChartOptions';
@@ -8,7 +8,7 @@ const theme = {
     axisTextColor: 'rgba(64, 68, 72, .5)',
 };
 
-export default class TradeChart extends React.Component {
+export default class TradeChart extends Component {
 
     static propTypes = {
         history: PropTypes.array.isRequired,

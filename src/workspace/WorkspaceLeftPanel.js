@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import AssetPickerContainer from '../asset-picker/AssetPickerContainer';
 import WatchlistContainer from '../watchlist/WatchlistContainer';
 
@@ -7,7 +7,7 @@ const components = [
 	WatchlistContainer,
 ];
 
-export default class WorkspaceLeftPanel extends React.Component {
+export default class WorkspaceLeftPanel extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,

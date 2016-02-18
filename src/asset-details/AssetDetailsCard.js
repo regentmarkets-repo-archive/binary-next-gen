@@ -1,10 +1,10 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
 import AssetDetailsDurations from './AssetDetailsDurations';
 import AssetDetailsTradingTimes from './AssetDetailsTradingTimes';
 import AssetDetailsTradingEvents from './AssetDetailsTradingEvents';
 
-export default class AssetDetailsCard extends React.Component {
+export default class AssetDetailsCard extends Component {
 
 	static propTypes = {
 		activeAsset: PropTypes.object,

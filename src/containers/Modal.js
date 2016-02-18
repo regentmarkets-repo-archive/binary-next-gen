@@ -1,6 +1,6 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 
-export default class Modal extends React.Component {
+export default class Modal extends Component {
 
 	static propTypes = {
 		shown: PropTypes.bool,

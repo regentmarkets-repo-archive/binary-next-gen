@@ -6,7 +6,7 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 import ToggleButtons from './ToggleButtons';
 
 @connect(toggleButtonsSelector)
-export default class ToggleButtonsContainer extends React.Component {
+export default class ToggleButtonsContainer extends Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 

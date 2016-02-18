@@ -1,11 +1,11 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
 import NumberPlain from '../_common/NumberPlain';
 import NumberColored from '../_common/NumberColored';
 import { FormattedDate } from 'react-intl';
 import StatementRow from './StatementRow';
 
-export default class StatementTable extends React.Component {
+export default class StatementTable extends Component {
 
 	static propTypes = {
 		compact: PropTypes.bool,

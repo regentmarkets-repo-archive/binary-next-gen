@@ -1,10 +1,10 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
 import NumberPlain from '../_common/NumberPlain';
 import DirectionAndValue from '../_common/DirectionAndValue';
 import { tradeToFriendlyType } from '../_utils/TradeUtils';
 
-export default class TickTradeDisplay extends React.Component {
+export default class TickTradeDisplay extends Component {
 
 	static propTypes = {
 		assetName: PropTypes.string.isRequired,

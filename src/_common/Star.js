@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 
-export default class Star extends React.Component {
+export default class Star extends Component {
 
     shouldComponentUpdate = shouldPureComponentUpdate;
 

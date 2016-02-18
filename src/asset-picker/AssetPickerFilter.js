@@ -1,8 +1,8 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import MarketPickerContainer from '../_common/MarketPickerContainer';
 import InputGroup from '../_common/InputGroup';
 
-export default class AssetPickerFilter extends React.Component {
+export default class AssetPickerFilter extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,

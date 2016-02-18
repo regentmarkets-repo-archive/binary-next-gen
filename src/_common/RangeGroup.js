@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 
 const RangeGroup = ({ id, label, hint, value, min, max, step, items, readOnly, onChange }) => (
 	<div className="range-selector">

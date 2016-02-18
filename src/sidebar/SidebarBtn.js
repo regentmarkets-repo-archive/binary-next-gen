@@ -1,8 +1,8 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import M from '../_common/M';
 
-export default class SideBarBtn extends React.Component {
+export default class SideBarBtn extends Component {
 
 	static propTypes = {
 		to: PropTypes.string.isRequired,

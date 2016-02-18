@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import M from './M';
 
 const TextAreaGroup = ({ id, className, label, hint, value, readOnly, placeholder, onChange, rows, cols }) => (

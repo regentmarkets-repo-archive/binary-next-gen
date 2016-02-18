@@ -1,8 +1,8 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import AssetPickerFilter from './AssetPickerFilter';
 import AssetPickerList from './AssetPickerList';
 
-export default class AssetPickerCard extends React.Component {
+export default class AssetPickerCard extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,

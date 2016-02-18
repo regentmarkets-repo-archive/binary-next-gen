@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 
 import { Sparklines, SparklinesLine, SparklinesSpots } from 'react-sparklines';
 

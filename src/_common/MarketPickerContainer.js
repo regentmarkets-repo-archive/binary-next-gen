@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { connect } from 'react-redux';
 // import { immutableChildrenToJS } from '../_utils/ObjectUtils';
@@ -6,7 +6,7 @@ import marketTreeSelector from '../_selectors/marketTreeSelector';
 import MarketPicker from './MarketPicker';
 
 @connect(marketTreeSelector)
-export default class MarketPickerContainer extends React.Component {
+export default class MarketPickerContainer extends Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 

@@ -1,9 +1,9 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
 import NumberPlain from '../_common/NumberPlain';
 import PortfolioItem from './PortfolioItem';
 
-export default class PortfolioList extends React.Component {
+export default class PortfolioList extends Component {
 
 	static propTypes = {
 		compact: PropTypes.bool,

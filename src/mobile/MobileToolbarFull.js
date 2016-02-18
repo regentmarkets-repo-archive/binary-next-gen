@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import MobileSidebar from '../sidebar/MobileSidebar';
 import MobileToolbarBtn from './MobileToolbarBtn';
 
-export default class MobileToolbarFull extends React.Component {
+export default class MobileToolbarFull extends Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
@@ -19,12 +19,12 @@ export default class MobileToolbarFull extends React.Component {
 				</label>
 				<MobileToolbarBtn to={'/mobile'} img="img/trade.svg" />
 				<MobileToolbarBtn to={'/full-trade-mobile'} img="img/trade.svg" />
-				<MobileToolbarBtn to={`/watchlist-mobile`} img="img/watchlist.svg" />
+				<MobileToolbarBtn to={'/watchlist-mobile'} img="img/watchlist.svg" />
 				<MobileToolbarBtn to={'/portfolio-mobile'} img="img/portfolio.svg" />
 				<MobileToolbarBtn to={'/statement-mobile'} img="img/statement.svg" />
-				<MobileToolbarBtn to={`/news-mobile`} img="img/news.svg" />
-				<MobileToolbarBtn to={`/resources-mobile`} img="img/resources.svg" />
-				<MobileToolbarBtn to={`/settings-mobile`} img="img/settings.svg" />
+				<MobileToolbarBtn to={'/news-mobile'} img="img/news.svg" />
+				<MobileToolbarBtn to={'/resources-mobile'} img="img/resources.svg" />
+				<MobileToolbarBtn to={'/settings-mobile'} img="img/settings.svg" />
 			</div>
 		);
 	}

@@ -6,11 +6,7 @@ import { shallow, render } from 'enzyme';
 import AppConfigProvider from '../AppConfigProvider';
 
 describe('AppConfigProvider', () => {
-    class ChildComponent extends React.Component {
-        render() {
-            return <div className="halo">World</div>;
-        }
-    }
+    const ChildComponent = () => <div>Hello, World</div>;
     const middlewares = []; // add your middlewares like `redux-thunk`
     const mockStore = configureStore(middlewares);
     const getState = { appConfig: fromJS({ theme: 'dark', language: 'EN' }) };

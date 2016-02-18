@@ -1,8 +1,8 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import RadioItem from './RadioItem';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 
-export default class RadioGroup extends React.Component {
+export default class RadioGroup extends Component {
 
 	static propTypes = {
 		className: PropTypes.string,

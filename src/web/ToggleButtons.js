@@ -1,10 +1,10 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import toggleButtonsSelector from './toggleButtonsSelector';
 
 @connect(toggleButtonsSelector)
-export default class ToggleButtons extends React.Component {
+export default class ToggleButtons extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,

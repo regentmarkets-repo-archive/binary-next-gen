@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import M from '../_common/M';
 
-export default class WatchlistTableHeader extends React.Component {
+export default class WatchlistTableHeader extends Component {
 	render() {
 		return (
 			<thead>

@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import * as LiveData from '../_data/LiveData';
 import M from '../_common/M';
@@ -7,7 +7,7 @@ import LogoSpinner from '../_common/LogoSpinner';
 import InputGroup from '../_common/InputGroup';
 import LanguagePicker from '../_common/LanguagePicker';
 
-export default class SigninCard extends React.Component {
+export default class SigninCard extends Component {
 
 	static propTypes = {
 		token: PropTypes.string,

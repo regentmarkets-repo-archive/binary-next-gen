@@ -1,8 +1,8 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { FormattedNumber } from 'react-intl';
 
-export default class NumberPlain extends React.Component {
+export default class NumberPlain extends Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 

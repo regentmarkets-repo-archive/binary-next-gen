@@ -1,8 +1,8 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import SettingsDetails from './SettingsDetails';
 import SettingsAddress from './SettingsAddress';
 
-export default class SettingsPersonalDetails extends React.Component {
+export default class SettingsPersonalDetails extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,

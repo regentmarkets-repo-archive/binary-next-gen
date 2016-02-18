@@ -1,8 +1,8 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import WebHeader from './WebHeader';
 import WorkspaceContainer from '../workspace/WorkspaceContainer';
 
-export default class WewbCard extends React.Component {
+export default class WewbCard extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,

@@ -1,9 +1,9 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import NumberPlain from './NumberPlain';
 import { directionClassName } from '../_utils/StyleUtils';
 
-export default class NumberColored extends React.Component {
+export default class NumberColored extends Component {
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {

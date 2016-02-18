@@ -1,39 +1,26 @@
-import React, { PropTypes } from 'react';
-import TradePanel from '../fulltrade/TradePanel';
+import React, { PropTypes, Component } from 'react';
+import FullTradeCard from '../fulltrade/FullTradeCard';
 
-export default class TradesGrid extends React.Component {
+export default class TradesGrid extends Component {
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
-        contracts: PropTypes.object.isRequired,
-        trades: PropTypes.object.isRequired,
-        tradesIds: PropTypes.array.isRequired,
-        ticks: PropTypes.object.isRequired,
+        trades: PropTypes.array.isRequired,
     };
 
     render() {
-        const { trades, tradesIds, contracts, ticks } = this.props;
+        const { actions, trades } = this.props;
 
         return (
             <div className="trades-grid">
-                {tradesIds.map(id => {
-                    const symbol = trades[id].symbol;
-                    const contract = contracts[symbol];
-                    const tick = ticks[symbol];
-
-                    if (!contract) return null;
-
-                    return (
-                        <TradePanel
-                            key={id}
-                            id={id}
-                            contract={contract}
-                            tick={tick}
-                            trade={trades[id]}
-                            {...this.props}
-                        />
-                    );
-                })}
+                {trades.map((trade, index) =>
+                    <FullTradeCard
+                        key={index}
+                        index={index}
+                        actions={actions}
+                        {...trade}
+                    />
+                )}
             </div>
         );
     }

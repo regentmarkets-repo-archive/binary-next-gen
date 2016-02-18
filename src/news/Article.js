@@ -1,6 +1,6 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 
-export default class Article extends React.Component {
+export default class Article extends Component {
 
     static propTypes = {
         title: PropTypes.string,

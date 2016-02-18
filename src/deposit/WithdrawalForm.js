@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
 import ErrorMsg from '../_common/ErrorMsg';
 import InputGroup from '../_common/InputGroup';
@@ -6,7 +6,7 @@ import SelectGroup from '../_common/SelectGroup';
 import Modal from '../containers/Modal';
 import currencies from '../_constants/currencies';
 
-export default class WithdrawForm extends React.Component {
+export default class WithdrawForm extends Component {
     static propTypes = {
         selectedPaymentAgent: PropTypes.string,
         paymentAgentOptions: PropTypes.array.isRequired,

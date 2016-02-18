@@ -1,8 +1,8 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
 import LanguagePicker from '../_common/LanguagePicker';
 
-export default class SettingsGeneral extends React.Component {
+export default class SettingsGeneral extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,

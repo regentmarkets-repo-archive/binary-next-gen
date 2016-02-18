@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 
 const DropDown = ({ shown, onClose, component }) => shown ? (
 	<div className="full-screen-overlay" onClick={onClose}>

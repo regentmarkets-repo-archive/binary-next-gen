@@ -1,6 +1,6 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 
-export default class Tab extends React.Component {
+export default class Tab extends Component {
 
     static propTypes = {
         imgSrc: PropTypes.string,

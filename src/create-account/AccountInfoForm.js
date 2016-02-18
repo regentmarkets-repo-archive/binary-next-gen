@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router';
 import M from '../_common/M';
 import Countries from '../_common/Countries';
@@ -7,7 +7,7 @@ import InputGroup from '../_common/InputGroup';
 import * as LiveData from '../_data/LiveData';
 import config from '../config';
 
-export default class CreateAccountCard extends React.Component {
+export default class CreateAccountCard extends Component {
     static propTypes = {
         email: React.PropTypes.string.isRequired,
         password: React.PropTypes.string.isRequired,

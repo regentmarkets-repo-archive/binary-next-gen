@@ -10,11 +10,8 @@ describe('AppStateProvider', () => {
     const mockStore = configureStore(middlewares);
 
     it('should show loadingview if not connected', () => {
-        class ChildComponent extends React.Component {
-            render() {
-                return <div>Halo</div>;
-            }
-        }
+        const ChildComponent = () => <div>Hello, World</div>;
+
         const getState = { appState: fromJS({ connected: false }) };
         const store = mockStore(getState, []);
         const wrapper = shallow(
@@ -26,11 +23,8 @@ describe('AppStateProvider', () => {
     });
 
     it('should show children if connected, whether error or not', () => {
-        class ChildComponent extends React.Component {
-            render() {
-                return <div>Halo</div>;
-            }
-        }
+        const ChildComponent = () => <div>Hello, World</div>;
+
         const getState = { appState: fromJS({ connected: true }) };
         const store = mockStore(getState, []);
         const wrapper = shallow(

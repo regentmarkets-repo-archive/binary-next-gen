@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { FormattedTime } from 'react-intl';
 import { epochToDate } from '../_utils/DateUtils';
 import M from '../_common/M';

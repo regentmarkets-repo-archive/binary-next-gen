@@ -1,8 +1,8 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 
-export default class M extends React.Component {
+export default class M extends Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 

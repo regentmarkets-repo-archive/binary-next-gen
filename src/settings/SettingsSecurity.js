@@ -1,10 +1,10 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
 import InputGroup from '../_common/InputGroup';
 import * as LiveData from '../_data/LiveData';
 import * as Validation from '../_utils/ValidationUtils';
 
-export default class SettingsSecurity extends React.Component {
+export default class SettingsSecurity extends Component {
 
     constructor(props) {
         super(props);

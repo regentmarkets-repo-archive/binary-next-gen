@@ -1,9 +1,9 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
 import LabeledText from '../_common/LabeledText';
 import { epochToDateString } from '../_utils/DateUtils';
 
-export default class SettingsDetails extends React.Component {
+export default class SettingsDetails extends Component {
 
 	static propTypes = {
 		settings: PropTypes.object.isRequired,

@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 
-export default class ArticlePreview extends React.Component {
+export default class ArticlePreview extends Component {
 
     static propTypes = {
         title: PropTypes.string.isRequired,

@@ -1,8 +1,8 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import AssetPickerItem from './AssetPickerItem';
 import AssetPickerHeader from './AssetPickerHeader';
 
-export default class AssetPickerList extends React.Component {
+export default class AssetPickerList extends Component {
 
 	static propTypes = {
 		assets: PropTypes.array.isRequired,
