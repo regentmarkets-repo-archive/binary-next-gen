@@ -37,13 +37,13 @@ const contractPerSymbol = createSelector(
     }
 );
 
-const contractsSelector = createSelector(
+export const availableContractsSelector = createSelector(
     state => state.tradingOptions,
     tradingOptions =>
         tradingOptions.map(symbol => contractPerSymbol(symbol))
 );
 
-export const tradesSelector = createSelector(
+export const tradesWithDetailsSelector = createSelector(
     [state => state.trades, assetsSelector],
     (trades, assets) =>
         trades.map(t => {
@@ -53,7 +53,7 @@ export const tradesSelector = createSelector(
         })
 );
 
-const availableAssetsSelector = createSelector(
+export const availableAssetsSelector = createSelector(
     [tradingTimesSelector, marketTreeSelector],
     (tradingTimes, marketTree) => {
         const assetsGroupByMarkets = flattenSubmarkets(marketTree.toJS());
@@ -67,8 +67,8 @@ const availableAssetsSelector = createSelector(
 );
 
 export const fullTradesSelector = createStructuredSelector({
-    contracts: contractsSelector,
-    trades: tradesSelector,
+    contracts: availableContractsSelector,
+    trades: tradesWithDetailsSelector,
     assets: availableAssetsSelector,
     ticks: ticksSelector,
     currency: currencySelector,

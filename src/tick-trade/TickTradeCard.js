@@ -11,10 +11,10 @@ export default class TickTradeCard extends Component {
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
-        assets: PropTypes.array.isRequired,        // all assets available
+        assets: PropTypes.object.isRequired,        // all assets available
         currency: PropTypes.string.isRequired,
         index: PropTypes.number.isRequired,
-        tick: PropTypes.array.isRequired,          // ticks for this trade instance, correspond to symbol selected
+        ticks: PropTypes.array.isRequired,          // ticks for this trade instance, correspond to symbol selected
         trade: PropTypes.object.isRequired,         // trade params for this trade instance
     };
 
@@ -35,9 +35,8 @@ export default class TickTradeCard extends Component {
     }
 
     render() {
-        const { assets, currency, index, trade, tick } = this.props;
-        const history = tick;
-        const spot = history.length > 0 ? history[history.length - 1].quote : null;
+        const { assets, currency, index, trade, ticks } = this.props;
+        const spot = ticks.length > 0 ? ticks[ticks.length - 1].quote : null;
         const receipt = trade.receipt;
 
         return (
@@ -55,7 +54,7 @@ export default class TickTradeCard extends Component {
                 <MobileChart
                     className="trade-chart"
                     history={history}
-                    showBarrier={tick.type === 'CALL'}
+                    showBarrier={ticks.type === 'CALL'}
                     spot={spot}
                 />
                 <TickTradeParameters
