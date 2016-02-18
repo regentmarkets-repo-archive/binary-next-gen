@@ -6,20 +6,20 @@ const dailyNewsPlaylist = 'PLVJJAiu3lRjYz1XO_yoyIRxgz5zBlQc-g';
 const playlistItemApiUrl = 'https://www.googleapis.com/youtube/v3/playlistItems';
 const playlistApiUrl = 'https://www.googleapis.com/youtube/v3/playlists';
 
-export const getVideosFromPlayList = (playlistId = dailyNewsPlaylist, max = 50) => {
+export const getVideosFromPlayList = async (playlistId = dailyNewsPlaylist, max = 50) => {
     const queryUrl = `${playlistItemApiUrl}?part=contentDetails,snippet,status` +
-        `&playlistId=${playlistId}&maxResults=${max}&key=${key}`;
+        `&playlistId=${dailyNewsPlaylist}&maxResults=${50}&key=${key}`;
 
-    return fetch(queryUrl)
-        .then(response => response.json())
-        .then(json => json.items
-            .filter(v => v.status.privacyStatus === 'public')
-            .map(v => ({
-                imgSrc: v.snippet.thumbnails.medium.url,
-                title: v.snippet.title,
-                videoId: v.snippet.resourceId.videoId,
-            })
-        ));
+    const response = await fetch(queryUrl);
+    const js = await response.json();
+
+    return js.items
+        .filter(v => v.status.privacyStatus === 'public')
+        .map(v => ({
+            imgSrc: v.snippet.thumbnails.medium.url,
+            title: v.snippet.title,
+            videoId: v.snippet.resourceId.videoId,
+        }));
 };
 
 const playlistUrl = (channelId, max) =>
@@ -28,12 +28,13 @@ const playlistUrl = (channelId, max) =>
         'channelId=' + channelId + '&' +
         'maxResults=' + max + '&' +
         'key=' + key;
-export const getAllPlaylists = (channelId = binaryChannelId, max = 50) =>
-    fetch(playlistUrl(channelId, max))
-        .then(response => response.json())
-        .then(js =>
-            js.items.map(pl => ({
-               title: pl.snippet.title,
-               playlistId: pl.id,
-            })
-        ));
+
+export const getAllPlaylists = async (channelId = binaryChannelId, max = 50) => {
+    const response = await fetch(playlistUrl(channelId, max));
+    const js = await response.json();
+
+    return js.items.map(pl => ({
+       title: pl.snippet.title,
+       playlistId: pl.id,
+   }));
+};

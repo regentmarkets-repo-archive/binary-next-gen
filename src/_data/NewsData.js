@@ -22,17 +22,15 @@ const xmlToNewsItem = xmlItem => ({
     content: xmlItem.getElementsByTagName('encoded').item(0).textContent,
 });
 
-export const readNewsFeed = (l = 'en') => {
+export const readNewsFeed = async (l) => {
     const queryUrl = `${api}?media=${params[l].media}&prefix=${params[l].prefix}&campaign=1&mode=txt`;
 
     const domParser = new DOMParser();
+    const response = await fetch(queryUrl);
+    const xmlText = await response.text();
 
-    return fetch(queryUrl)
-        .then(response => response.text())
-        .then(xmlText => {
-            const xml = domParser.parseFromString(xmlText, 'text/xml');
-            const allItemsList = xml.querySelectorAll('item');
+    const xml = domParser.parseFromString(xmlText, 'text/xml');
+    const allItemsList = xml.querySelectorAll('item');
 
-            return Array.from(allItemsList).map(xmlToNewsItem);
-        });
+    return Array.from(allItemsList).map(xmlToNewsItem);
 };
