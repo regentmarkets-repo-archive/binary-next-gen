@@ -2,6 +2,7 @@ export const accountSelector = state => state.account;
 export const appConfigSelector = state => state.appConfig;
 export const assetIndexSelector = state => state.assetIndex;
 export const assetsSelector = state => state.assets;
+export const contractsSelector = state => state.contracts;
 export const createAccountSelector = state => state.createAccount;
 export const paymentAgentSelector = state => state.paymentAgent;
 export const settingsSelector = state => state.settings;

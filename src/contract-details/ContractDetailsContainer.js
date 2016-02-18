@@ -1,10 +1,10 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import portfolioSelectors from '../portfolio/PortfolioSelectors';
 import ContractDetailsCard from './ContractDetailsCard';
 
 @connect(portfolioSelectors)
-export default class ContractDetailsContainer extends React.Component {
+export default class ContractDetailsContainer extends Component {
 
 	static propTypes = {
 		contracts: PropTypes.array,

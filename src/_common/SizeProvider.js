@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import ReactDOM from 'react-dom';
 
-export default class SizeProvider extends React.Component {
+export default class SizeProvider extends Component {
     constructor(props) {
         super(props);
         const { height, width } = props.style;
@@ -18,11 +18,6 @@ export default class SizeProvider extends React.Component {
     };
 
     componentDidMount() {
-        // const node = ReactDOM.findDOMNode(this);
-        // this.setState({
-        //     width: node.clientWidth,
-        //     height: node.clientHeight,
-        // });
         window.addEventListener('resize', this.state.resize, true);
     }
 
@@ -40,9 +35,9 @@ export default class SizeProvider extends React.Component {
         const { height, width } = this.state;
         return (
             <div>
-                {
-                    React.Children.map(children, child => React.cloneElement(child, { style: { height, width } }))
-                }
+                {React.Children.map(children, child =>
+                    React.cloneElement(child, { style: { height, width } })
+                )}
             </div>
         );
     }

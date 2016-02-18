@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import RadioGroup from '../_common/RadioGroup';
 import InputGroup from '../_common/InputGroup';
 
@@ -11,7 +11,7 @@ const payoutAmounts = [1, 2, 5, 10, 20, 50, 100, 500, 1000].map(x => ({ value: x
 const maxAmount = 100000;
 const minAmount = 1;
 
-export default class PayoutPickerCard extends React.Component {
+export default class PayoutPickerCard extends Component {
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
 		location: PropTypes.object.isRequired,

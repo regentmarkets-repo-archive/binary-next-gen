@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import RadioItem from '../_common/RadioItem';
 
 const TradeTypeRestOptions = ({ onChange, type }) => (

@@ -1,8 +1,8 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 
-export default class MobileToolbarBtn extends React.Component {
+export default class MobileToolbarBtn extends Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 

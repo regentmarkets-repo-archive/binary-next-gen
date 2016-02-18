@@ -1,11 +1,11 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
 import InputGroup from '../_common/InputGroup';
 import * as LiveData from '../_data/LiveData';
 
 const isValidPassword = (pw1, pw2) => ((pw1 === pw2) && (pw1.length > 6));
 
-export default class SettingsSecurity extends React.Component {
+export default class SettingsSecurity extends Component {
 
     constructor(props) {
         super(props);

@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import TradingTimesContainer from '../trading-times/TradingTimesContainer';
 import AssetIndexContainer from '../asset-index/AssetIndexContainer';
 import NewsContainer from '../news/NewsContainer';
@@ -17,7 +17,7 @@ const components = [
 	AssetDetailsContainer,
 ];
 
-export default class WorkspaceRightPanel extends React.Component {
+export default class WorkspaceRightPanel extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,

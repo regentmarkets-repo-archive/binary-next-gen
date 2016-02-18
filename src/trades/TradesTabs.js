@@ -1,9 +1,9 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import Tab from '../_common/Tab';
 import TabList from '../_common/TabList';
-// import TradePanel from '../fulltrade/TradePanel';
+// import FullTradeCard from '../fulltrade/FullTradeCard';
 
-export default class TradesTabs extends React.Component {
+export default class TradesTabs extends Component {
 
     static propTypes = {
         actions: PropTypes.object.isRequired,

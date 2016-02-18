@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import ArticlePreview from './ArticlePreview';
 
-export default class NewsCard extends React.Component {
+export default class NewsCard extends Component {
 
     static propTypes = {
         articles: PropTypes.array.isRequired,

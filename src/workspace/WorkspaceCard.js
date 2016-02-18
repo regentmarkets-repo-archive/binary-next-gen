@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import Resizer from '../_common/Resizer';
 import TradesContainer from '../trades/TradesContainer';
 import WorkspaceLeftPanel from './WorkspaceLeftPanel';
@@ -6,7 +6,7 @@ import WorkspaceRightPanel from './WorkspaceRightPanel';
 import Tab from '../_common/Tab';
 import TabList from '../_common/TabList';
 
-export default class WorkspaceCard extends React.Component {
+export default class WorkspaceCard extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { addLocaleData } from 'react-intl';
 import { Provider } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -20,7 +20,7 @@ addLocaleData({
     parentLocale: 'en',
 });
 
-export default class Root extends React.Component {
+export default class Root extends Component {
     componentWillMount() {
         rehydratedStorePromise.then(st => {
             LiveData.connect(st);
@@ -36,9 +36,9 @@ export default class Root extends React.Component {
         });
     }
 
-    createElementWithActions(Component, props) {
+    createElementWithActions(Element, props) {
         return (
-            <Component {...props} actions={bindActionCreators(AllActions, store.dispatch)}/>
+            <Element {...props} actions={bindActionCreators(AllActions, store.dispatch)}/>
         );
     }
 

@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { Link } from 'react-router';
 import M from '../_common/M';
@@ -6,7 +6,7 @@ import RangeGroup from '../_common/RangeGroup';
 import NumberPlain from '../_common/NumberPlain';
 import { tradeToFriendlyType } from '../_utils/TradeUtils';
 
-export default class TickTradeParameters extends React.Component {
+export default class TickTradeParameters extends Component {
 
     shouldComponentUpdate = shouldPureComponentUpdate;
 
@@ -14,12 +14,12 @@ export default class TickTradeParameters extends React.Component {
         assets: PropTypes.array.isRequired,
         currency: PropTypes.string.isRequired,
         durationChange: PropTypes.func,
-        id: PropTypes.string.isRequired,
+        index: PropTypes.string.isRequired,
         trade: PropTypes.object.isRequired,
     };
 
     render() {
-        const { assets, currency, durationChange, id, trade } = this.props;
+        const { assets, currency, durationChange, index, trade } = this.props;
         const tradeTypeText = tradeToFriendlyType(trade.type, trade.barrier);
         const tradeAsset = assets.find(a => a.value === trade.symbol);
 
@@ -33,7 +33,7 @@ export default class TickTradeParameters extends React.Component {
                         <br />
                         <Link className="btn-secondary"
                             to={{
-                                pathname: `/asset-picker/${id}`,
+                                pathname: `/asset-picker/${index}`,
                                 query: { type: 'tick' },
                             }}
                         >
@@ -47,7 +47,7 @@ export default class TickTradeParameters extends React.Component {
                         <br />
                         <Link
                             className="btn-secondary"
-                            to={`/trade-type-picker/${id}`}
+                            to={`/trade-type-picker/${index}`}
                         >
                             <M m={tradeTypeText} />
                         </Link>
@@ -73,7 +73,7 @@ export default class TickTradeParameters extends React.Component {
                         <Link
                             className="btn-secondary"
                             to={{
-                                pathname: `/payout-picker/${id}`,
+                                pathname: `/payout-picker/${index}`,
                                 query: currency,
                             }}
                         >

@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getStatesForCountry } from '../_actions/StatesActions';
 
 @connect(state => ({ states: state.states }))
-export default class States extends React.Component {
+export default class States extends Component {
 
     static propTypes = {
         country: React.PropTypes.string.isRequired,

@@ -1,10 +1,10 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import SelectGroup from '../_common/SelectGroup';
 import RadioGroup from '../_common/RadioGroup';
 
 @connect(state => ({ account: state.account }))
-export default class CurrencyPicker extends React.Component {
+export default class CurrencyPicker extends Component {
 
 	static propTypes = {
 		account: PropTypes.object,

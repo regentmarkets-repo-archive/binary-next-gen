@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import M from '../_common/M';
 import ErrorMsg from '../_common/ErrorMsg';
 import DateOfBirth from '../_common/DateOfBirth';
 
-export default class UpgradeStep1 extends React.Component {
+export default class UpgradeStep1 extends Component {
 	constructor(props) {
 		super(props);
 		this.state = { showErr: false };

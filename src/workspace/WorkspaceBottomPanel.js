@@ -1,9 +1,9 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import Tabs from '../_common/Tabs';
 import PortfolioContainer from '../portfolio/PortfolioContainer';
 import StatementContainer from '../statement/StatementContainer';
 
-export default class WorkspaceBottomPanel extends React.Component {
+export default class WorkspaceBottomPanel extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,

@@ -1,5 +1,4 @@
 import { fromJS } from 'immutable';
-import { stringIncrement } from '../_utils/StringUtils';
 import {
     UPDATE_TRADE_PARAMS,
     DESTROY_ALL_TRADE,
@@ -9,29 +8,23 @@ import {
     REMOVE_PERSONAL_DATA,
 } from '../_constants/ActionTypes';
 
-const initialState = fromJS({
-    0: {
-        symbol: 'R_100',
-        tradeCategory: 'callput',
-        duration: 5,
-        durationUnit: 't',
-        basis: 'payout',
-        amount: 50,
-        type: 'CALL',
-        barrierType: 'relative',
-    },
-});
+const defaultTrade = {
+    symbol: 'R_100',
+    tradeCategory: 'callput',
+    duration: 5,
+    durationUnit: 't',
+    basis: 'stake',
+    amount: 50,
+    type: 'CALL',
+    barrierType: 'relative',
+};
+
+const initialState = fromJS([defaultTrade]);
 
 export default (state = initialState, action) => {
     switch (action.type) {
         case INIT_TRADE: {
-            const newId = stringIncrement(action.id);
-            if (state.has(newId)) {
-                return state;
-            }
-            const initTrade = initialState.get('0');
-            const initState = action.symbol ? initTrade.set('symbol', action.symbol) : initTrade;
-            return state.set(newId.toString(), initState);
+            return state.push(defaultTrade);
         }
         case UPDATE_TRADE_PARAMS: {
             const result = state.setIn([action.id, action.fieldName], action.fieldValue);

@@ -1,8 +1,8 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import PaymentAgentsItem from './PaymentAgentsItem';
 import M from '../_common/M';
 
-export default class PaymentAgentsList extends React.Component {
+export default class PaymentAgentsList extends Component {
     static propTypes = {
         paymentAgents: PropTypes.array.isRequired,
     };

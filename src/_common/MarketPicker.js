@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 
-export default class MarketPicker extends React.Component {
+export default class MarketPicker extends Component {
 
 	static propTypes = {
 		marketTree: PropTypes.object.isRequired,

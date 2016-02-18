@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import Draggable from 'react-draggable';
 
 const Panel = ({ title, onClose, position = { left: 100, top: 100, width: 500, height: 350 }, children }) => (

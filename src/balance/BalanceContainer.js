@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { immutableChildrenToJS } from '../_utils/ObjectUtils';
 import shouldPureComponentUpdate from 'react-pure-render/function';
@@ -6,7 +6,7 @@ import BalanceCard from './BalanceCard';
 import balanceSelectors from './balanceSelectors';
 
 @connect(balanceSelectors)
-export default class Balance extends React.Component {
+export default class Balance extends Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 

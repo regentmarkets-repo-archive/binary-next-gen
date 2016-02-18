@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import ObjectTableRow from './ObjectTableRow';
 import M from '../_common/M';
 

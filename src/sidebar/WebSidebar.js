@@ -1,11 +1,11 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import SidebarBtn from './SidebarBtn';
 import sidebarSelectors from './sidebarSelectors';
 
 @connect(sidebarSelectors)
-export default class MobileSidebar extends React.Component {
+export default class MobileSidebar extends Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 

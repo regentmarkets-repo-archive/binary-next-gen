@@ -1,9 +1,9 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import ReactDOM from 'react-dom';
 import echarts from 'echarts';
 import { arrayEqual } from '../_utils/ArrayUtils';
 
-export default class EChart extends React.Component {
+export default class EChart extends Component {
 
     static propTypes = {
 		options: PropTypes.object.isRequired,

@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import AssetIndexRow from './AssetIndexRow';
 
-export default class AssetIndexTable extends React.Component {
+export default class AssetIndexTable extends Component {
 
     static propTypes = {
         headers: PropTypes.array.isRequired,

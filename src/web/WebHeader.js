@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import config from '../config';
 import M from '../_common/M';
@@ -8,7 +8,7 @@ import WebSidebar from '../sidebar/WebSidebar';
 import ToggleButtons from './ToggleButtons';
 import Balance from '../balance/BalanceContainer';
 
-export default class WebHeader extends React.Component {
+export default class WebHeader extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,

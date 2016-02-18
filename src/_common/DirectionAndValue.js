@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { Direction, NumberPlain } from './';
 import { directionClassName } from '../_utils/StyleUtils';
 

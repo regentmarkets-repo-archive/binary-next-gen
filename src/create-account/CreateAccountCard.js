@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { Component } from 'react';
 import LogoSpinner from '../_common/LogoSpinner';
 import EmailVerificationForm from './EmailVerificationForm';
 import AccountInfoForm from './AccountInfoForm';
 
-export default class CreateAccountCard extends React.Component {
+export default class CreateAccountCard extends Component {
 
 	static propTypes = {
 		actions: React.PropTypes.object.isRequired,

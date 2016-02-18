@@ -1,11 +1,11 @@
-import React from 'react';
+import React, { Component } from 'react';
 import M from '../_common/M';
 import LogoSpinner from '../_common/LogoSpinner';
 import UpgradeStep1 from './UpgradeStep1';
 import UpgradeStep2 from './UpgradeStep2';
 import UpgradeStep3 from './UpgradeStep3';
 
-export default class UpgradeCard extends React.Component {
+export default class UpgradeCard extends Component {
 
 	static propTypes = {
 		upgrade: React.PropTypes.object.isRequired,
@@ -18,8 +18,9 @@ export default class UpgradeCard extends React.Component {
 	};
 
 	componentWillReceiveProps(nextProps) {
-		if (nextProps.upgrade.get('success') === true) {
-			this.context.router.push('/');
+		const { router } = this.context;
+		if (nextProps.upgrade.get('success')) {
+			router.push('/');
 		}
 	}
 

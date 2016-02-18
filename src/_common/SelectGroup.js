@@ -1,8 +1,8 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import M from './M';
 
-export default class SelectGroup extends React.Component {
+export default class SelectGroup extends Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 

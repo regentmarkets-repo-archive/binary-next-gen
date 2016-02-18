@@ -1,8 +1,8 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
 import RangeGroup from '../_common/RangeGroup';
 
-export default class TickDurationCard extends React.Component {
+export default class TickDurationCard extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,

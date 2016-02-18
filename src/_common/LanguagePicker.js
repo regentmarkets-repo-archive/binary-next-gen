@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import * as LiveData from '../_data/LiveData';
 import SelectGroup from '../_common/SelectGroup';
@@ -7,7 +7,7 @@ import { updateAppConfig } from '../_actions/AppConfigActions';
 import Perf from 'react-addons-perf';
 
 @connect(state => ({ selected: state.appConfig.get('language') }))
-export default class LanguagePicker extends React.Component {
+export default class LanguagePicker extends Component {
 
     static propTypes = {
         selected: PropTypes.oneOf(languages.map(ln => ln.value)),

@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import Tabs from '../_common/Tabs';
 import SettingsGeneral from './SettingsGeneral';
 import SettingsPersonalDetails from './SettingsPersonalDetails';
@@ -6,7 +6,7 @@ import SettingsSecurity from './SettingsSecurity';
 import SettingsSelfExclusion from './SettingsSelfExclusion';
 import SettingsLimits from './SettingsLimits';
 
-export default class SettingsCard extends React.Component {
+export default class SettingsCard extends Component {
 
 	constructor(props) {
 		super(props);

@@ -1,8 +1,8 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
 import TradingTimesRow from './TradingTimesRow';
 
-export default class TradingTimesTable extends React.Component {
+export default class TradingTimesTable extends Component {
 
 	static propTypes = {
 		times: PropTypes.array.isRequired,

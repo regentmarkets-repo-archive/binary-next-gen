@@ -1,10 +1,10 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import StatementTable from './StatementTable';
 import M from '../_common/M';
 import Tab from '../_common/Tab';
 import TabList from '../_common/TabList';
 
-export default class StatementCard extends React.Component {
+export default class StatementCard extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,

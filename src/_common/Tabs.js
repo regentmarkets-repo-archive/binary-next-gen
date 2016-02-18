@@ -1,7 +1,7 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import RadioItem from './RadioItem';
 
-export default class Tabs extends React.Component {
+export default class Tabs extends Component {
 
     static propTypes = {
         activeIndex: PropTypes.number.isRequired,

@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import QuickTradeCard from './QuickTradeCard';
 
@@ -10,7 +10,7 @@ import QuickTradeCard from './QuickTradeCard';
     proposals: state.proposals,
     currency: state.account.get('currency'),
 }))
-export default class QuickTradeContainer extends React.Component {
+export default class QuickTradeContainer extends Component {
     static propTypes = {
         tradingOptions: PropTypes.object.isRequired,
         workspace: PropTypes.object.isRequired,

@@ -1,9 +1,9 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
 import InputGroup from '../_common/InputGroup';
 import * as LiveData from '../_data/LiveData';
 
-export default class SettingsSelfExclusion extends React.Component {
+export default class SettingsSelfExclusion extends Component {
 
 	static propTypes = {
 		settings: PropTypes.object.isRequired,

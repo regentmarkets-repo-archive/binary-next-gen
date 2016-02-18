@@ -1,8 +1,8 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
 import NumberPlain from '../_common/NumberPlain';
 
-export default class SettingsLimits extends React.Component {
+export default class SettingsLimits extends Component {
 
 	static propTypes = {
 		settings: PropTypes.object.isRequired,

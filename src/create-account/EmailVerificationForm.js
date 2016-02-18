@@ -1,10 +1,10 @@
-import React from 'react';
+import React, { Component } from 'react';
 import M from '../_common/M';
 import ErrorMsg from '../_common/ErrorMsg';
 import InputGroup from '../_common/InputGroup';
 import * as LiveData from '../_data/LiveData';
 
-export default class EmailVerificationForm extends React.Component {
+export default class EmailVerificationForm extends Component {
 
     static propTypes = {
         actions: React.PropTypes.object.isRequired,

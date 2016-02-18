@@ -1,9 +1,9 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import PortfolioList from './PortfolioList';
 import Modal from '../containers/Modal';
 import ContractDetailsContainer from '../contract-details/ContractDetailsContainer';
 
-export default class PortfolioCard extends React.Component {
+export default class PortfolioCard extends Component {
 
 	static propTypes = {
 		compact: PropTypes.bool,

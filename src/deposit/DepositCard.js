@@ -1,10 +1,10 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import PaymentAgentsList from './PaymentAgentsList';
 import WithdrawalForm from './WithdrawalForm';
 import M from '../_common/M';
 import Tabs from '../_common/Tabs';
 
-export default class DepositCard extends React.Component {
+export default class DepositCard extends Component {
     static propTypes = {
         paymentAgent: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,

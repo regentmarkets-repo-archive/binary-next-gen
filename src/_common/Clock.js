@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { FormattedTime } from 'react-intl';
 
-export default class Clock extends React.Component {
+export default class Clock extends Component {
 
     constructor(props) {
         super(props);

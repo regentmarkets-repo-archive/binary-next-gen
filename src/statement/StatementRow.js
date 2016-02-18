@@ -1,9 +1,9 @@
-import React, { PropTypes } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { FormattedTime } from 'react-intl';
 import NumberPlain from '../_common/NumberPlain';
 import NumberColored from '../_common/NumberColored';
 
-export default class StatementRow extends React.Component {
+export default class StatementRow extends Component {
 
     static propTypes = {
         compact: PropTypes.bool,
