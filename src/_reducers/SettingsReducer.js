@@ -7,6 +7,7 @@ import {
     SERVER_DATA_ACCOUNT_SETTINGS,
     UPDATE_SETTINGS_FIELD,
     REMOVE_PERSONAL_DATA,
+    SERVER_DATA_CHANGE_PASSWORD,
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
@@ -32,6 +33,9 @@ export default (state = initialState, action) => {
         }
         case UPDATE_SETTINGS_FIELD: {
             return state.merge(action.settings);
+        }
+        case SERVER_DATA_CHANGE_PASSWORD: {
+            return state.set('change_password', action.serverResponse.change_password);
         }
         case REMOVE_PERSONAL_DATA: {
             return initialState;
