@@ -21,19 +21,11 @@ addLocaleData({
 });
 
 export default class Root extends Component {
-    componentWillMount() {
-        rehydratedStorePromise.then(st => {
-            LiveData.connect(st);
-            tryAuth(st)
-                .then(
-                    () => {
-                        st.dispatch(AllActions.updateAppState('connected', true));
-                    },
-                    () => {
-                        st.dispatch(AllActions.updateAppState('connected', true));
-                    }
-                );
-        });
+    async componentWillMount() {
+        const state = await rehydratedStorePromise;
+        await LiveData.connect(state);
+        await tryAuth(state);
+        state.dispatch(AllActions.updateAppState('connected', true));
     }
 
     createElementWithActions(Element, props) {

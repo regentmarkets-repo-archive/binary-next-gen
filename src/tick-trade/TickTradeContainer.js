@@ -3,9 +3,9 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 import { connect } from 'react-redux';
 import { immutableChildrenToJS } from '../_utils/ObjectUtils';
 import TickTradeCard from './TickTradeCard';
-import { tickTradesSelector } from './TickTradeSelectors';
+import singleTradeSelectors from '../trades/singleTradeSelectors';
 
-@connect(tickTradesSelector)
+@connect(singleTradeSelectors)
 export default class TickTradeContainer extends Component {
 
     shouldComponentUpdate = shouldPureComponentUpdate;

@@ -19,6 +19,7 @@ const handlers = {
     get_limits: 'serverDataAccountLimits',
     get_self_exclusion: 'serverDataAccountSelfExclusion',
     cashier_password: 'serverDataCashierLock',
+    change_password: 'serverDataChangePassword',
     get_settings: 'serverDataAccountSettings',
     news: 'updateNewsList',
     videos: 'updateVideoList',
@@ -50,13 +51,15 @@ export const changeLanguage = ln => {
     api.getTradingTimes();
 };
 
-const initUnauthorized = store => {
+const initUnauthorized = async (store) => {
     api.getActiveSymbolsFull();
     api.getTradingTimes();
     api.getAssetIndex();
 
-    readNewsFeed().then(articles => api.events.emit('news', articles));
-    getVideosFromPlayList().then(videos => api.events.emit('videos', videos));
+    const articles = await readNewsFeed('en');
+    api.events.emit('news', articles);
+    const videos = await getVideosFromPlayList();
+    api.events.emit('videos', videos);
     subscribeToSelectedSymbol(store);
 };
 
@@ -84,7 +87,7 @@ export const trackSymbols = symbols => {
     api.subscribeToTicks(symbols);
 };
 
-export const connect = store => {
+export const connect = async (store) => {
     const ln = store.getState().appConfig.get('language');
     api.changeLanguage(ln);
 
@@ -95,7 +98,7 @@ export const connect = store => {
         api.events.on(key, () => window.console.log);
     });
 
-    initUnauthorized(store);
-
     api.events.on('authorize', response => response.error ? null : initAuthorized(response, store));
+
+    await initUnauthorized(store);
 };

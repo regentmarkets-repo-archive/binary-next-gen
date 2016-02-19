@@ -5,6 +5,7 @@ import SettingsPersonalDetails from './SettingsPersonalDetails';
 import SettingsSecurity from './SettingsSecurity';
 import SettingsSelfExclusion from './SettingsSelfExclusion';
 import SettingsLimits from './SettingsLimits';
+import SettingsChangePassword from './SettingsChangePassword';
 
 export default class SettingsCard extends Component {
 
@@ -26,9 +27,10 @@ export default class SettingsCard extends Component {
 		const virtualTabs = [
 			{ text: 'General', component: <SettingsGeneral {...this.props}/> },
 			{ text: 'Personal', component: <SettingsPersonalDetails {...this.props}/> },
+			{ text: 'Change Password', component: <SettingsChangePassword /> },
 		];
 		const realTabs = [
-			{ text: 'Security', component: <SettingsSecurity {...this.props}/> },
+			{ text: 'Cashier Lock', component: <SettingsSecurity {...this.props}/> },
 			{ text: 'Self Exclusion', component: <SettingsSelfExclusion {...this.props}/> },
 			{ text: 'Limits', component: <SettingsLimits {...this.props}/> },
 		];

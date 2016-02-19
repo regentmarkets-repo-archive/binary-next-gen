@@ -20,6 +20,11 @@ export const serverDataCashierLock = serverResponse => ({
     serverResponse,
 });
 
+export const serverDataChangePassword = serverResponse => ({
+    type: types.SERVER_DATA_CHANGE_PASSWORD,
+    serverResponse,
+});
+
 export const serverDataAccountSettings = serverResponse => ({
     type: types.SERVER_DATA_ACCOUNT_SETTINGS,
     serverResponse,

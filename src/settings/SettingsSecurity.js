@@ -2,8 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
 import InputGroup from '../_common/InputGroup';
 import * as LiveData from '../_data/LiveData';
-
-const isValidPassword = (pw1, pw2) => ((pw1 === pw2) && (pw1.length > 6));
+import * as Validation from '../_utils/ValidationUtils';
 
 export default class SettingsSecurity extends Component {
 
@@ -46,7 +45,7 @@ export default class SettingsSecurity extends Component {
                 unlock_password: password1,
             });
         } else {
-            isValidPassword(password1, password2)
+            Validation.isValidPassword(password1, password2)
                 ?
                   this.sendRequest({
                       lock_password: password1,

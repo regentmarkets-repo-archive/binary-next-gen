@@ -1,17 +1,20 @@
 import { fromJS } from 'immutable';
 import { expect } from 'chai';
-import tradesSelectors from '../tradesSelectors';
+import tradeListSelectors from '../tradeListSelectors';
 
-describe('tradesSelectors', () => {
+describe('tradeListSelectors', () => {
     const emptyState = () => ({
-        trades: fromJS([]),
         assets: fromJS([]),
         account: fromJS({}),
+        ticks: fromJS({}),
+        trades: fromJS([]),
+        tradingOptions: fromJS([]),
+        tradingTimes: fromJS([]),
     });
 
     it('can be instantiated', () => {
         const state = emptyState();
-        const actual = tradesSelectors(state);
+        const actual = tradeListSelectors(state);
 
         expect(actual).to.be.ok;
     });
@@ -19,8 +22,8 @@ describe('tradesSelectors', () => {
     it('should return the same result for the same state', () => {
         const state = emptyState();
 
-        const first = tradesSelectors(state);
-        const second = tradesSelectors(state);
+        const first = tradeListSelectors(state);
+        const second = tradeListSelectors(state);
 
         expect(first.trades).to.equal(second.trades);
         expect(first.assets).to.equal(second.assets);

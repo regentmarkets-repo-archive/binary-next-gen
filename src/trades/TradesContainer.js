@@ -2,11 +2,11 @@ import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { connect } from 'react-redux';
 import { immutableChildrenToJS } from '../_utils/ObjectUtils';
-import tradesSelectors from './tradesSelectors';
+import tradeListSelectors from './tradeListSelectors';
 import TradesGrid from './TradesGrid';
 import TradesTabs from './TradesTabs';
 
-@connect(tradesSelectors)
+@connect(tradeListSelectors)
 export default class TradesContainer extends Component {
 
     shouldComponentUpdate = shouldPureComponentUpdate;
