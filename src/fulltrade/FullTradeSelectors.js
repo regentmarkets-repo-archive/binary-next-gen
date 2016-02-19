@@ -21,10 +21,10 @@ const contractAggregation = (contracts, type) => ({
     spread: (type.indexOf('SPREAD') > -1) ? extractSpreadInfo(contracts) : null,
 });
 
-const contractPerSymbol = createSelector(
-    symbol => symbol,
-    symbol => {
-        const normalized = normalizedContractFor(symbol);
+const contractsPerSymbol = createSelector(
+    contracts => contracts,
+    contracts => {
+        const normalized = normalizedContractFor(contracts);
         Object.keys(normalized).forEach(category => {
             const categoryObj = normalized[category];
             Object.keys(categoryObj).forEach(type => {
@@ -40,7 +40,7 @@ const contractPerSymbol = createSelector(
 const contractsSelector = createSelector(
     state => state.tradingOptions,
     tradingOptions =>
-        tradingOptions.map(symbol => contractPerSymbol(symbol))
+        tradingOptions.map(contractBySymbol => contractsPerSymbol(contractBySymbol))
 );
 
 export const tradesSelector = createSelector(
