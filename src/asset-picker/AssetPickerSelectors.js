@@ -84,7 +84,7 @@ export const assetPickerItemsSelector = createSelector(
             isInWatchlist: watchlist.has(asset.get('symbol')),
             market: asset.get('market_display_name'),
             submarket: asset.get('submarket_display_name'),
-        })),
+        }))
 );
 
 export default createStructuredSelector({
