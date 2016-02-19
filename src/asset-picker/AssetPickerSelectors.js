@@ -1,5 +1,6 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 import { assetsSelector, watchlistSelector, workspaceSelector } from '../_store/directSelectors';
+import { maxTradeIdSelector } from '../fulltrade/FullTradeSelectors';
 
 export const symbolIdsSelector = createSelector(
      assetsSelector,
@@ -89,6 +90,7 @@ export const assetPickerItemsSelector = createSelector(
 export default createStructuredSelector({
     availableAssets: availableAssetsSelector,
     assetPickerItems: assetPickerItemsSelector,
+    maxTradeId: maxTradeIdSelector,
 	filter: assetFilterSelector,
 	workspace: workspaceSelector,
 });

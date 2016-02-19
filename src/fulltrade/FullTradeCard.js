@@ -135,7 +135,7 @@ export default class FullTradeCard extends Component {
             defaultType,
             newDuration[0],
             newDuration[1],
-            lastSpot,
+            lastSpot
         );
 
         this.updateHelper('barrier', newBarrier[0], false);

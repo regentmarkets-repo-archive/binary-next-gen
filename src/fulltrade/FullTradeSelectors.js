@@ -37,6 +37,11 @@ const contractsPerSymbol = createSelector(
     }
 );
 
+export const maxTradeIdSelector = createSelector(
+    state => state.trades,
+    trades => trades.size - 1
+);
+
 export const availableContractsSelector = createSelector(
     state => state.tradingOptions,
     tradingOptions =>
