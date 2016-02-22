@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import AssetPickerFilter from './AssetPickerFilter';
 import AssetPickerList from './AssetPickerList';
+import M from '../_common/M';
 
 export default class AssetPickerCard extends Component {
 
@@ -62,6 +63,11 @@ export default class AssetPickerCard extends Component {
 						onToggleWatchlistItem={::this.onToggleWatchlistItem}
 					/>
 				</div>
+				{assetPickerItems.length > 0 ? null :
+					<div className="media">
+						<M m="Your search didn't match any assets" />
+					</div>
+				}
 			</div>
 		);
 	}

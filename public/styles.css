@@ -748,3 +748,14 @@ td.right, th.right {
 td.row-id {
     font-weight: bold;
 }
+
+.trade-header {
+    display: flex;
+    background: rgba(42, 48, 82, .75);
+    padding: .25rem;
+}
+
+.trade-header > span {
+    flex: 1;
+    line-height: 2;
+}

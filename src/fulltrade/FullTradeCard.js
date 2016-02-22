@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import M from '../_common/M';
 import ErrorMsg from '../_common/ErrorMsg';
 import SelectGroup from '../_common/SelectGroup';
 import PurchaseFailed from '../_common/PurchaseFailed';
@@ -17,6 +16,7 @@ import MobileChart from '../charting/MobileChart';
 import BuyButton from '../tick-trade/BuyButton';
 import { askPriceFromProposal, tradeTypeCodeToText } from '../_utils/TradeUtils';
 import { isDurationWithinRange } from '../_utils/DurationUtils';
+import TradeHeader from './TradeHeader';
 import { createDefaultType, createDefaultDuration, createDefaultBarriers } from './DefaultTradeParams';
 
 /**
@@ -290,7 +290,7 @@ export default class GenericTradeCard extends Component {
     }
 
     render() {
-        const { assetsGrouped, contract, index, trade, currency, tick } = this.props;
+        const { contract, index, trade, currency, tick } = this.props;
         const selectedSymbol = trade.symbol;
         const categories = Object.keys(contract).map(c => ({ value: c, text: contractCategoryDisplay(c) }));
         const selectedCategory = trade.tradeCategory;
@@ -316,21 +316,13 @@ export default class GenericTradeCard extends Component {
                 <Modal shown={!!trade.buy_error} onClose={() => this.updateHelper('buy_error', undefined)}>
                     <PurchaseFailed failure={trade.buy_error} />
                 </Modal>
-                <button className="btn-secondary" onClick={!disabled && this.onClosePanel}>
-                    <M m="X" />
-                </button>
+                <TradeHeader assetName={selectedSymbol} onClose={this.onClosePanel} />
                 {tick && <MobileChart
                     className="trade-chart"
                     history={tick}
                     showBarrier={!!barriers}
                     spot={lastSpot}
                 />}
-                <SelectGroup
-                    id="assets-select"
-                    optgroups={assetsGrouped}
-                    value={selectedSymbol}
-                    onChange={this.onAssetChange}
-                />
                 <SelectGroup
                     id="categories-select"
                     options={categories}
