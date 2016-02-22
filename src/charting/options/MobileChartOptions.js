@@ -4,6 +4,7 @@ import createSeries from '../series/ChartSeries';
 import createGrid from '../grid/MobileChartGrid';
 import createMarkLineSpot from '../mark-line/ChartMarkLineSpot';
 import createDataZoom from '../data-zoom/MobileDataZoom';
+import createTooltip from '../tooltip/ChartTooltip';
 
 export default ({ history, theme }) => ({
     animation: true,
@@ -19,4 +20,5 @@ export default ({ history, theme }) => ({
         markLine: createMarkLineSpot(history),
     }),
     dataZoom: createDataZoom({ theme }),
+    tooltip: createTooltip(),
 });

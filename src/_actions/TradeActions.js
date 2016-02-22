@@ -68,7 +68,7 @@ export const initTrade = (id, symbol) => ({
     symbol,
 });
 
-export const destroyTrade = id =>
+export const removeTrade = id =>
     (dispatch, getState) => {
         const allTrades = getState().trades.toJS();
         if (Object.keys(allTrades).length === 1) {
@@ -85,11 +85,11 @@ export const destroyTrade = id =>
             LiveData.api.unsubscribeByID(relatedTrade.proposal.id);
         }
 
-        dispatch({ type: types.DESTROY_TRADE, id });
+        dispatch({ type: types.REMOVE_TRADE, id });
     };
 
-export const destroyAllTrade = () => ({
-    type: types.DESTROY_ALL_TRADE,
+export const resetTrades = () => ({
+    type: types.RESET_TRADES,
 });
 
 export const updateTradeParams = (id, fieldName, fieldValue) => {
@@ -122,7 +122,7 @@ export const updatePriceProposalSubscription = (tradeID, trade) =>
             stopLoss,
             proposal,
             barrierType,
-            } = tradeObj;
+        } = tradeObj;
 
         if (!(amount && basis && type && symbol)) {
             return;

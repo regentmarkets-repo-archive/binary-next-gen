@@ -12,6 +12,7 @@ const maxAmount = 100000;
 const minAmount = 1;
 
 export default class PayoutPickerCard extends Component {
+
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
 		location: PropTypes.object.isRequired,
@@ -39,10 +40,11 @@ export default class PayoutPickerCard extends Component {
 
 	render() {
 		const { trades } = this.props;
-		const { id } = this.props.params;
+		const { index } = this.props.params;
 		const { query } = this.props.location;
 		const currency = query.currency;
-		const trade = trades[id];
+		const trade = trades[index];
+
 		return (
 			<div>
 				<RadioGroup

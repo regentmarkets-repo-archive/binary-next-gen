@@ -22,8 +22,9 @@ export default class TradeChart extends Component {
         const { history } = this.props;
         if (history.length === 0) return null;
         const options = createOptions({ history, theme });
+
         return (
-            <SizeProvider style={{ width: '100%', height: '120px' }}>
+            <SizeProvider style={{ width: '100%', height: '150px' }}>
                 <EChart
                     options={options}
                     {...this.props}

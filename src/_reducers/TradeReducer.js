@@ -1,8 +1,8 @@
 import { fromJS } from 'immutable';
 import {
     UPDATE_TRADE_PARAMS,
-    DESTROY_ALL_TRADE,
-    DESTROY_TRADE,
+    RESET_TRADES,
+    REMOVE_TRADE,
     INIT_TRADE,
     SERVER_DATA_PROPOSAL,
     REMOVE_PERSONAL_DATA,
@@ -30,10 +30,10 @@ export default (state = initialState, action) => {
             const result = state.setIn([action.id, action.fieldName], action.fieldValue);
             return result;
         }
-        case DESTROY_ALL_TRADE: {
+        case RESET_TRADES: {
             return initialState;
         }
-        case DESTROY_TRADE: {
+        case REMOVE_TRADE: {
             return state.delete(action.id);
         }
         case SERVER_DATA_PROPOSAL: {

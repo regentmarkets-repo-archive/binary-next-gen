@@ -5,6 +5,7 @@ export default class TradesGrid extends Component {
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
+        ticks: PropTypes.array.isRequired,
         trades: PropTypes.array.isRequired,
         contracts: PropTypes.object.isRequired,
     };

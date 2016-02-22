@@ -38,7 +38,7 @@ export default ({ theme }) => [{
     throttle: 100,
     zlevel: 0,
     z: 2,
-    top: 95,
+    bottom: 0,
     height: 20,
 }];
 
