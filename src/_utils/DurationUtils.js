@@ -3,6 +3,13 @@ import { arrayToObject, groupByKey } from './ArrayUtils';
 import { splitSecsToUnits } from './DateUtils';
 import { durationToSecs } from './TradeUtils';
 
+/**
+ * check is duration is within range
+ * @param {number} duration
+ * @param {char} durationUnit - one of ['s', 'h', 'm', 'd']
+ * @param {array} range - array of object, eg. [{ unit: 't', min: 5, max: 10}, ...]
+ * @returns {boolean}
+ */
 export const isDurationWithinRange = (duration, durationUnit, range) => {
     const relatedBlock = range.find(r => r.unit === durationUnit);
     if (!relatedBlock) {
@@ -18,7 +25,7 @@ export const durationSecHelper = duration => {
     return durationToSecs(d, u);
 };
 
-export const extractMinMaxInUnits = (min, max) => {
+export const extractMinMaxInUnits = (minInSecs, maxInSecs) => {
     // block is a structure that describe min and max of specific time unit
     const blockIsValid = (minArg, maxArg, unit) => {
         if (maxArg <= 1) {
@@ -32,8 +39,9 @@ export const extractMinMaxInUnits = (min, max) => {
             default: throw new Error('Invalid time unit');
         }
     };
-    const minInUnits = splitSecsToUnits(min);
-    const maxInUnits = splitSecsToUnits(max);
+    const minInUnits = splitSecsToUnits(minInSecs);
+    const maxInUnits = splitSecsToUnits(maxInSecs);
+
     const durations = [];
     for (let i = 0; i < minInUnits.length; i++) {
         const unit = durationUnits[i + 1];
@@ -63,10 +71,12 @@ export const extractDurationHelper = (contracts, type) => {
     }
     const nonTickMinSec = nonTickContracts
         .map(c => durationSecHelper(c.min_contract_duration))
+        .filter(d => !!d)
         .reduce((a, b) => Math.min(a, b));
 
     const nonTickMaxSec = nonTickContracts
         .map(c => durationSecHelper(c.max_contract_duration))
+        .filter(d => !!d)
         .reduce((a, b) => Math.max(a, b));
 
     const nonTicksDuration = extractMinMaxInUnits(nonTickMinSec, nonTickMaxSec);
@@ -110,8 +120,9 @@ export const extractForwardStartingDuration = (contracts, type) => {
 };
 
 export const extractDuration = (contracts, type) => {
+    const contractsOfType = contracts.filter(c => c.contract_type === type);
     // const forwardStartingDuration = contracts.filter(c => !!c.forward_starting_options);
-    const nonForwardStartingContracts = contracts.filter(c => !c.forward_starting_options);
+    const nonForwardStartingContracts = contractsOfType.filter(c => !c.forward_starting_options);
 
     return extractDurationHelper(nonForwardStartingContracts, type);
 };

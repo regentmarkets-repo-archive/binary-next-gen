@@ -13,7 +13,7 @@ export default class PayoutCard extends Component {
         amount: PropTypes.number.isRequired,
         basis: PropTypes.oneOf(basises).isRequired,
         currency: PropTypes.string.isRequired,
-        id: PropTypes.string,
+        id: PropTypes.number,
         onAmountChange: PropTypes.func.isRequired,     // both functions take the updated value instead of event object
         onBasisChange: PropTypes.func.isRequired,
     };

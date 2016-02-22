@@ -7,7 +7,7 @@ import { trackUserId } from '../_utils/Analytics';
 export const tryAuth = (st) => {
     const newState = st.getState();
     if (!newState.account) {
-        return Promise.reject();
+        return Promise.reject("No account");
     }
 
     const token = newState.account.get('token');
@@ -23,7 +23,7 @@ export const tryAuth = (st) => {
     if (!token) {
         actions.signinFieldUpdate('progress', false);
         actions.signinFieldUpdate('tokenNotEntered', true);
-        return Promise.reject();
+        return Promise.reject("Token does not exists");
     }
 
     actions.updateAppState('authorized', false);
