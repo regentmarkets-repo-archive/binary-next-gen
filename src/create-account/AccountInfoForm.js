@@ -47,14 +47,14 @@ export default class CreateAccountCard extends Component {
     async proceed() {
         const { actions, email } = this.props;
 
-        await actions.createAccountFieldUpdate('validatedOnce', true);
-        await actions.createAccountFieldUpdate('progress', true);
+        actions.createAccountFieldUpdate('validatedOnce', true);
+        actions.createAccountFieldUpdate('progress', true);
         if (this.emailValid() && this.passwordValid() && this.confirmationValid()) {
             try {
-                await LiveData.api.verifyEmail(email, 'account_opening').then(() => {
-                    actions.createAccountFieldUpdate('step', 1);
-                    actions.createAccountFieldUpdate('progress', false);
-                });
+                await LiveData.api.verifyEmail(email, 'account_opening');
+                actions.createAccountFieldUpdate('step', 1);
+                actions.createAccountFieldUpdate('progress', false);
+
             } catch (err) {
                 actions.createAccountFieldUpdate('error', err);
             }
