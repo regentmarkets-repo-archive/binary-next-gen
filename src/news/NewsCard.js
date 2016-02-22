@@ -16,12 +16,14 @@ export default class NewsCard extends Component {
         const { router } = this.context;
 
         return (
+
             <div>
                 {articles.map((article, idx) =>
                     <ArticlePreview
                         key={'article' + idx}
                         {...article}
                         onClick={() => router.push(`/article/${idx}`)}
+                        link = {'/article/' + idx}
                     />
                 )}
             </div>

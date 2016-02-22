@@ -19,9 +19,18 @@ const xmlToNewsItem = xmlItem => ({
     title: xmlItem.getElementsByTagName('title').item(0).textContent.replace(/regentmarkets\d.*$/, ''),
     pubDate: xmlItem.getElementsByTagName('pubDate').item(0).textContent.replace(/\+0000$/, 'GMT'),
     description: xmlItem.getElementsByTagName('description').item(0).textContent,
-    content: xmlItem.getElementsByTagName('content').item(0).textContent,
+    content: getContent(xmlItem),
 });
 
+const getContent = (xmlItem) => {
+    let element = xmlItem.getElementsByTagName('content').item(0);
+    if (!element || (typeof element === 'undefined')) {
+        element = xmlItem.getElementsByTagName('content:encoded').item(0).textContent;
+    } else {
+        element = xmlItem.getElementsByTagName('content').item(0).textContent;
+    }
+    return element;
+}
 export const readNewsFeed = async (l) => {
     const queryUrl = `${api}?media=${params[l].media}&prefix=${params[l].prefix}&campaign=1&mode=txt`;
 

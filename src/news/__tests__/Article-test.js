@@ -5,7 +5,13 @@ import Article from '../Article';
 
 describe('Article', () => {
     it('should render the component properly', () => {
-        const wrapper = shallow(<Article content="content" pubDate={(new Date()).toString()} title="Article Title"/>);
+        const props = {
+            articles: [{ title: 'Article 1', pubDate: '2001-11-02', description: 'Desc' },
+                { title: 'Article Title', pubDate: '2001-11-02', description: 'Desc' }],
+            params: { index: 1 },
+        };
+
+        const wrapper = shallow(<Article {...(props)}/>);
         expect(wrapper.render().text()).to.contain('Article Title');
     });
 });
