@@ -3,13 +3,13 @@ const getLineFromStartToEnd = (history) => {
     const toEpoch = history[history.length - 1].epoch;
     const spot = history[history.length - 1].quote;
     return [
-        { name: 'From ', xAxis: fromEpoch, yAxis: spot },
-        { name: 'To Spot', value: spot, xAxis: toEpoch, yAxis: spot },
+        { name: 'Current Spot ', xAxis: fromEpoch, yAxis: spot },
+        { value: spot, xAxis: toEpoch, yAxis: spot },
     ];
 };
 
 export default (history) => ({
-    symbolSize: [0, 0],
+    symbolSize: [1, 1],
     // itemStyle: {
     //    normal: {
     //        color: 'red',
