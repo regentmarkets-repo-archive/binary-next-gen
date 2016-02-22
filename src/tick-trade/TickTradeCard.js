@@ -53,7 +53,7 @@ export default class TickTradeCard extends Component {
                 </Modal>
                 <MobileChart
                     className="trade-chart"
-                    history={history}
+                    history={ticks}
                     showBarrier={ticks.type === 'CALL'}
                     spot={spot}
                 />
@@ -61,7 +61,7 @@ export default class TickTradeCard extends Component {
                     assets={assets}
                     currency={currency}
                     durationChange={e => this.updateHelper('duration', e.target.value)}
-                    id={index}
+                    index={index}
                     trade={trade}
                 />
                 <BuyButton

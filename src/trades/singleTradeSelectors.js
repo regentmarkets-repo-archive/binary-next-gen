@@ -1,6 +1,6 @@
 import { fromJS } from 'immutable';
 import { createSelector, createStructuredSelector } from 'reselect';
-import { currencySelector, ticksSelector } from '../_store/directSelectors';
+import { assetsSelector, currencySelector, ticksSelector } from '../_store/directSelectors';
 import {
     tradesWithDetailsSelector,
     availableAssetsSelector,
@@ -18,7 +18,8 @@ export const ticksForFirstTradeSelector = createSelector(
 );
 
 export default createStructuredSelector({
-    assets: availableAssetsSelector,
+    assets: assetsSelector,
+    assetsGrouped: availableAssetsSelector,
     contracts: availableContractsSelector,
     currency: currencySelector,
     trade: firstTradeSelector,

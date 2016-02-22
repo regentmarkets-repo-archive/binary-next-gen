@@ -42,7 +42,7 @@ export default class FullTradeCard extends Component {
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
-        assets: PropTypes.object.isRequired,
+        assetsGrouped: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
         contract: PropTypes.object,
         index: PropTypes.number.isRequired,
@@ -285,7 +285,7 @@ export default class FullTradeCard extends Component {
     }
 
     render() {
-        const { assets, contract, index, trade, currency, tick } = this.props;
+        const { assetsGrouped, contract, index, trade, currency, tick } = this.props;
         const selectedSymbol = trade.symbol;
         const categories = Object.keys(contract).map(c => ({ value: c, text: contractCategoryDisplay(c) }));
         const selectedCategory = trade.tradeCategory;
@@ -322,7 +322,7 @@ export default class FullTradeCard extends Component {
                 />}
                 <SelectGroup
                     id="assets-select"
-                    optgroups={assets}
+                    optgroups={assetsGrouped}
                     value={selectedSymbol}
                     onChange={this.onAssetChange}
                 />

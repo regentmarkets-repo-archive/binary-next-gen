@@ -14,7 +14,7 @@ export default class TickTradeParameters extends Component {
         assets: PropTypes.array.isRequired,
         currency: PropTypes.string.isRequired,
         durationChange: PropTypes.func,
-        index: PropTypes.string.isRequired,
+        index: PropTypes.number.isRequired,
         trade: PropTypes.object.isRequired,
     };
 
