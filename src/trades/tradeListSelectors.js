@@ -10,7 +10,7 @@ import {
 // tick: ticks.get(trade.get('symbol')),
 
 export default createStructuredSelector({
-    assets: availableAssetsSelector,
+    assetsGrouped: availableAssetsSelector,
     contracts: availableContractsSelector,
     currency: currencySelector,
     trades: tradesWithDetailsSelector,
