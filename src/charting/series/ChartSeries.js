@@ -1,3 +1,4 @@
+import { currencyFormatterValue } from '../formatters';
 
 export const createCurrentSpotLine = (currentSpot, length) => ({
     name: 'Current Spot',
@@ -23,7 +24,7 @@ export const createCurrentSpotLine = (currentSpot, length) => ({
         }],
         label: {
             normal: {
-                formatter: d => new Intl.NumberFormat(undefined, { minimumFractionDigits: 2 }).format(d.value),
+                formatter: currencyFormatterValue,
                 textStyle: {
                     fontFamily: 'Roboto',
                     fontSize: 11,
@@ -45,7 +46,6 @@ export const createDataLine = ({ theme, data, markLine, markPoint }) => ({
     clickable: false,
     showLegendSymbol: false,
     symbol: 'none',
-    smooth: true,
     data,
     itemStyle: {
         normal: {

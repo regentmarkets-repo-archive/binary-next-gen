@@ -1,3 +1,5 @@
+import { currencyFormatter } from '../formatters';
+
 export default ({ theme }) => ({
     type: 'value',
     scale: true,
@@ -10,7 +12,7 @@ export default ({ theme }) => ({
     axisLabel: {
         margin: 4,
         show: true,
-        formatter: v => new Intl.NumberFormat(undefined, { minimumFractionDigits: 2 }).format(v),
+        formatter: currencyFormatter,
         textStyle: {
             color: theme.text,
             fontFamily: 'Roboto',

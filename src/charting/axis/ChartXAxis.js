@@ -1,4 +1,4 @@
-import { epochToTimeString } from '../../_utils/DateUtils';
+import { timeFormatter } from '../formatters';
 
 export default ({ theme, data }) => ({
     type: 'category',
@@ -11,7 +11,7 @@ export default ({ theme, data }) => ({
     axisLabel: {
         show: true,
         margin: 2,
-        formatter: v => epochToTimeString(v),
+        formatter: timeFormatter,
         textStyle: {
             color: theme.text,
             fontFamily: 'Roboto',

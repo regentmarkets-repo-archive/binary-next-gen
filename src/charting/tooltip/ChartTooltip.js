@@ -1,13 +1,14 @@
+import { dualFormatter } from '../formatters';
+
 export default () => ({
     trigger: 'axis',
-    axis: 'y',
-    formatter: v => new Intl.NumberFormat().format(v),
     axisPointer: {
         backgroundColor: 'red',
         crossStyle: {
             type: 'dotted',
         },
-        type: 'cross',
+        type: 'line',
     },
+    formatter: dualFormatter,
     borderColor: 'red',
 });
