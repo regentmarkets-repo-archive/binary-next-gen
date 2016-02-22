@@ -10,6 +10,7 @@ export default class CollapsibleFormSnippet extends Component {
 
     static propTypes = {
         children: PropTypes.any.isRequired,
+        className: PropTypes.string,
         label: PropTypes.string,
         show: PropTypes.bool,
     };
@@ -20,12 +21,12 @@ export default class CollapsibleFormSnippet extends Component {
     }
 
     render() {
-        const { children, label } = this.props;
+        const { children, className, label } = this.props;
         const { show } = this.state;
         return (
             <fieldset className="snippet collapsible">
                 <div className="collapsible-title" onClick={::this.toggle}>{label}</div>
-                {show && <div>{children}</div>}
+                {show && <div className={className}>{children}</div>}
             </fieldset>
         );
     }

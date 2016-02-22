@@ -753,9 +753,27 @@ td.row-id {
     display: flex;
     background: rgba(42, 48, 82, .75);
     padding: .25rem;
+    margin-bottom: .5rem;
 }
 
 .trade-header > span {
     flex: 1;
     line-height: 2;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.payout-picker {
+    display: flex;
+}
+
+.payout-picker button {
+    width: 2rem;
+    height: 2rem;
 }
