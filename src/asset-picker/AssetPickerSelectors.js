@@ -1,5 +1,6 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 import { assetsSelector, watchlistSelector, workspaceSelector } from '../_store/directSelectors';
+import { maxTradeIdSelector } from '../fulltrade/FullTradeSelectors';
 
 export const symbolIdsSelector = createSelector(
      assetsSelector,
@@ -83,12 +84,13 @@ export const assetPickerItemsSelector = createSelector(
             isInWatchlist: watchlist.has(asset.get('symbol')),
             market: asset.get('market_display_name'),
             submarket: asset.get('submarket_display_name'),
-        })),
+        }))
 );
 
 export default createStructuredSelector({
     availableAssets: availableAssetsSelector,
     assetPickerItems: assetPickerItemsSelector,
+    maxTradeId: maxTradeIdSelector,
 	filter: assetFilterSelector,
 	workspace: workspaceSelector,
 });

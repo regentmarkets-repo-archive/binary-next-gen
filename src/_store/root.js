@@ -24,8 +24,10 @@ export default class Root extends Component {
     async componentWillMount() {
         const state = await rehydratedStorePromise;
         await LiveData.connect(state);
-        await tryAuth(state);
-        state.dispatch(AllActions.updateAppState('connected', true));
+        const connected = tryAuth(state);
+        connected
+            .catch(err => state.dispatch(AllActions.updateAppState('authorized', false)))
+            .then(() => state.dispatch(AllActions.updateAppState('connected', true)));
     }
 
     createElementWithActions(Element, props) {

@@ -13,7 +13,7 @@ export default (state = initialState, action) => {
             const symbol = action.serverResponse.tick.symbol;
             const { tick } = action.serverResponse;
             const newTick = {
-                epoch: tick.epoch,
+                epoch: +tick.epoch,
                 quote: +tick.quote,
             };
             return state.update(symbol, List.of(newTick), v => v.takeLast(60).push(newTick));

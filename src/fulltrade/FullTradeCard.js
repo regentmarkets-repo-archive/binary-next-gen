@@ -36,17 +36,22 @@ import { createDefaultType, createDefaultDuration, createDefaultBarriers } from 
  * 6. forward starting does not have barriers
  */
 
-export default class FullTradeCard extends Component {
+export default class GenericTradeCard extends Component {
 
     shouldComponentUpdate = shouldPureComponentUpdate;
+
+    static defaultProps = {
+        type: 'full',
+    };
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
         assets: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
-        contract: PropTypes.object,
+        contract: PropTypes.object.isRequired,
         index: PropTypes.number.isRequired,
         trade: PropTypes.object.isRequired,
+        type: PropTypes.oneOf(['tick', 'full']).isRequired,
         tick: PropTypes.array,
     };
 
@@ -135,7 +140,7 @@ export default class FullTradeCard extends Component {
             defaultType,
             newDuration[0],
             newDuration[1],
-            lastSpot,
+            lastSpot
         );
 
         this.updateHelper('barrier', newBarrier[0], false);
