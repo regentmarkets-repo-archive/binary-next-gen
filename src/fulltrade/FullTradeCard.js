@@ -1,12 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import ErrorMsg from '../_common/ErrorMsg';
-import SelectGroup from '../_common/SelectGroup';
 import PurchaseFailed from '../_common/PurchaseFailed';
 import PurchaseConfirmation from '../_common/PurchaseConfirmation';
 import Modal from '../containers/Modal';
-import RadioGroup from './workaround/CustomRadioGroup';
-import { contractCategoryDisplay, durationToSecs, isIntraday } from '../_utils/TradeUtils';
+import { durationToSecs, isIntraday } from '../_utils/TradeUtils';
 import BarrierCard from '../barrier-picker/BarrierCard';
 import DigitBarrierCard from '../barrier-picker/DigitBarrierCard';
 import DurationCard from '../duration-picker/DurationCard';
@@ -14,9 +12,10 @@ import PayoutCard from '../payout-picker/PayoutCard';
 import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
 import MobileChart from '../charting/MobileChart';
 import BuyButton from '../tick-trade/BuyButton';
-import { askPriceFromProposal, tradeTypeCodeToText } from '../_utils/TradeUtils';
+import { askPriceFromProposal } from '../_utils/TradeUtils';
 import { isDurationWithinRange } from '../_utils/DurationUtils';
 import TradeHeader from './TradeHeader';
+import TradeTypePicker from './TradeTypePicker';
 import { createDefaultType, createDefaultDuration, createDefaultBarriers } from './DefaultTradeParams';
 
 /**
@@ -292,11 +291,7 @@ export default class GenericTradeCard extends Component {
     render() {
         const { contract, index, trade, currency, tick } = this.props;
         const selectedSymbol = trade.symbol;
-        const categories = Object.keys(contract).map(c => ({ value: c, text: contractCategoryDisplay(c) }));
         const selectedCategory = trade.tradeCategory;
-        const types = Object
-            .keys(contract[selectedCategory])
-            .map(type => ({ text: tradeTypeCodeToText(type), value: type }));
         const selectedType = trade.type;
         const contractForType = contract[selectedCategory][selectedType];
         const barriers = contractForType && contractForType.barriers;
@@ -316,27 +311,25 @@ export default class GenericTradeCard extends Component {
                 <Modal shown={!!trade.buy_error} onClose={() => this.updateHelper('buy_error', undefined)}>
                     <PurchaseFailed failure={trade.buy_error} />
                 </Modal>
-                <TradeHeader assetName={selectedSymbol} onClose={this.onClosePanel} />
+                <TradeHeader
+                    assetName={selectedSymbol}
+                    onClosePanel={this.onClosePanel}
+                />
                 {tick && <MobileChart
                     className="trade-chart"
                     history={tick}
                     showBarrier={!!barriers}
                     spot={lastSpot}
                 />}
-                <SelectGroup
-                    id="categories-select"
-                    options={categories}
-                    value={selectedCategory}
-                    onChange={this.onCategoryChange}
+                <TradeTypePicker
+                    contract={contract}
+                    selectedCategory={selectedCategory}
+                    selectedType={selectedType}
+                    onCategoryChange={this.onCategoryChange}
+                    onTypeChange={this.onTypeChange}
                 />
-                { contractForType &&
+                {contractForType &&
                     <div>
-                        <RadioGroup
-                            name={'trading-types' + index}
-                            options={types}
-                            value={selectedType}
-                            onChange={this.onTypeChange}
-                        />
                         <DurationCard
                             dateStart={trade.dateStart}
                             duration={+trade.duration}
