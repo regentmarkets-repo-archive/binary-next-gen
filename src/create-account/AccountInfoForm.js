@@ -44,19 +44,20 @@ export default class CreateAccountCard extends Component {
         });
     }
 
-    proceed() {
+    async proceed() {
         const { actions, email } = this.props;
 
-        actions.createAccountFieldUpdate('validatedOnce', true);
-        actions.createAccountFieldUpdate('progress', true);
+        await actions.createAccountFieldUpdate('validatedOnce', true);
+        await actions.createAccountFieldUpdate('progress', true);
         if (this.emailValid() && this.passwordValid() && this.confirmationValid()) {
-            LiveData.api.verifyEmail(email, 'account_opening').then(() => {
-                actions.createAccountFieldUpdate('step', 1);
-                actions.createAccountFieldUpdate('progress', false);
-            })
-            .catch((err) => {
+            try {
+                await LiveData.api.verifyEmail(email, 'account_opening').then(() => {
+                    actions.createAccountFieldUpdate('step', 1);
+                    actions.createAccountFieldUpdate('progress', false);
+                });
+            } catch (err) {
                 actions.createAccountFieldUpdate('error', err);
-            });
+            }
         }
     }
 
