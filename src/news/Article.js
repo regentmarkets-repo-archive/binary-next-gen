@@ -3,19 +3,20 @@ import React, { PropTypes, Component } from 'react';
 export default class Article extends Component {
 
     static propTypes = {
-        title: PropTypes.string,
-        pubDate: PropTypes.string,
-        content: PropTypes.string,
+        articles: PropTypes.array.isRequired,
+        params: PropTypes.object.isRequired,
     };
 
     render() {
-        const { content, pubDate, title } = this.props;
+        const { articles } = this.props;
+        const { index } = this.props.params;
+        const { description, pubDate, title } = articles[index];
 
         return (
             <div>
                 <h2>{title}</h2>
                 <p>{pubDate}</p>
-                <p dangerouslySetInnerHTML={{ __html: content }} />
+                <p dangerouslySetInnerHTML={{ __html: description }} />
             </div>
         );
     }
