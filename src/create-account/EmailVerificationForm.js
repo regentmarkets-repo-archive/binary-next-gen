@@ -19,10 +19,14 @@ export default class EmailVerificationForm extends Component {
         router: React.PropTypes.object.isRequired,
     };
 
-    onVerificationCodeEntered(event) {
+    async onVerificationCodeEntered(event) {
         const { actions } = this.props;
-        actions.createAccountFieldUpdate('verificationCode', event.target.value);
-        actions.createAccountFieldUpdate('error', null);
+        try {
+            await actions.createAccountFieldUpdate('verificationCode', event.target.value);
+            await actions.createAccountFieldUpdate('error', null);
+        } catch (err) {
+            actions.createAccountFieldUpdate('error', err);
+        }
     }
 
     async onVerify() {
@@ -55,6 +59,7 @@ export default class EmailVerificationForm extends Component {
                 <InputGroup
                     type="text"
                     placeholder="Verification Code"
+                    onChange={::this.onVerificationCodeEntered}
                 />
                 <ErrorMsg
                     shown={!!error}
