@@ -4,21 +4,17 @@ export default ({ theme }) => ({
     axisTick: {
         show: false,
     },
+    boundaryGap: ['15%', '25%'],
     position: 'right',
     splitNumber: 3,
     axisLabel: {
+        margin: 4,
         show: true,
-        formatter: v => new Intl.NumberFormat().format(v),
+        formatter: v => new Intl.NumberFormat(undefined, { minimumFractionDigits: 2 }).format(v),
         textStyle: {
             color: theme.text,
             fontFamily: 'Roboto',
             fontSize: 10,
-        },
-    },
-    axisLine: {
-        show: true,
-        lineStyle: {
-            color: theme.grid,
         },
     },
     splitLine: {
