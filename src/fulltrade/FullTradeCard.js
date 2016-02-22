@@ -394,7 +394,7 @@ export default class GenericTradeCard extends Component {
                 <PayoutCard
                     amount={+trade.amount}
                     basis={trade.basis}
-                    currency="USD"
+                    currency={currency}
                     id={index}
                     onAmountChange={this.onAmountChange}
                     onBasisChange={this.onBasisChange}
