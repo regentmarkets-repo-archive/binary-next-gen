@@ -1,6 +1,5 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 import singleTradeSelectors from '../trades/singleTradeSelectors';
-import { assetsSelector } from '../_store/directSelectors';
 import { findIfExist } from '../_utils/ObjectUtils';
 import { availableAssetsSelector, availableContractsSelector } from '../fulltrade/FullTradeSelectors';
 
