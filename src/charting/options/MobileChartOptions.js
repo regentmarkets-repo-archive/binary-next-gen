@@ -3,7 +3,7 @@ import createYAxis from '../axis/ChartYAxis';
 import createDataLine from '../series/LineChartSeries';
 import createCurrentSpotLine from '../series/CurrentSpotSeries';
 import createGrid from '../grid/MobileChartGrid';
-import createMarkLineSpot from '../mark-line/ChartMarkLineSpot';
+import createMarkLineSpot, { createVerticalLine } from '../mark-line/ChartMarkLineSpot';
 import createDataZoom from '../data-zoom/MobileDataZoom';
 import createTooltip from '../tooltip/LineChartTooltip';
 
@@ -22,25 +22,7 @@ const extendXAxisData = (data, n = extendMargin) => {
     return data.concat(extension);
 };
 
-const extendSeriesData = (data, n = extendMargin) => {
-    const extension = [];
-
-    for (let i = 0; i < n; i ++) {
-        extension[i] = undefined;
-    }
-    return data.concat(extension);
-};
-
-const extendCurrentSpotLine = (data, n = 5) => {
-    const extension = [];
-
-    for (let i = 0; i < n; i ++) {
-        extension[i] = data[0];
-    }
-    return data.concat(extension);
-};
-
-export default ({ history, theme }) => ({
+export default (history, theme, verticalLineOpt) => ({
     animation: true,
     grid: createGrid({ theme }),
     xAxis: createXAxis({
@@ -52,6 +34,10 @@ export default ({ history, theme }) => ({
         createDataLine({
             theme,
             data: history.map(x => x.quote),
+            markLine: {
+                data: verticalLineOpt
+                    .map(opt => createVerticalLine(opt.x, opt.min, opt.max, opt.name)),
+            }
         }),
         createCurrentSpotLine(history[history.length - 1].quote, history.length + extendMargin),
     ],

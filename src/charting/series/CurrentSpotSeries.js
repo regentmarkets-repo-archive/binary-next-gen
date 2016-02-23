@@ -39,3 +39,29 @@ export default (currentSpot, length) => ({
         },
     },
 });
+
+export const createDataLine = ({ theme, data, markLine, markPoint }) => ({
+    name: 'Symbol data',
+    type: 'line',
+    clickable: false,
+    showLegendSymbol: false,
+    symbol: 'none',
+    data,
+    itemStyle: {
+        normal: {
+            lineStyle: {
+                color: theme.line,
+                width: 2,
+            },
+            areaStyle: {
+                type: 'default',
+                color: theme.fill,
+            },
+        },
+    },
+    markLine,
+    markPoint,
+    animationDuration: 200,
+    animationEasing: 'exponentialInOut',
+    animationEasingUpdate: 'exponentialOut',
+});
