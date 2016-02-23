@@ -17,7 +17,7 @@ export default (currentSpot, length) => ({
     markPoint: {
         symbol: 'rect',
         symbolSize: [50, 15],
-        symbolOffset: [30, 0],
+        symbolOffset: [25, 0],
         data: [{
             name: 'Spot',
             type: 'min',
@@ -34,7 +34,6 @@ export default (currentSpot, length) => ({
         itemStyle: {
             normal: {
                 color: 'rgb(220,20,60)',
-                opacity: 0.7,
             },
         },
     },

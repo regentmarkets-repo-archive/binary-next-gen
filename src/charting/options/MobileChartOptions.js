@@ -3,7 +3,6 @@ import createYAxis from '../axis/ChartYAxis';
 import createDataLine from '../series/LineChartSeries';
 import createCurrentSpotLine from '../series/CurrentSpotSeries';
 import createGrid from '../grid/MobileChartGrid';
-import createMarkLineSpot from '../mark-line/ChartMarkLineSpot';
 import createDataZoom from '../data-zoom/MobileDataZoom';
 import createTooltip from '../tooltip/LineChartTooltip';
 
