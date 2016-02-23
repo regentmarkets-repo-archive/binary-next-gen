@@ -1,23 +1,22 @@
 import { timeFormatter } from '../formatters';
 
-export default ({ theme, data }) => ({
-    type: 'category',
+export default ({ theme }) => ({
+    type: 'value',
     scale: true,
-    axisLine: false,
-    axisTick: false,
-    data,
-    boundaryGap: false,
-    splitNumber: 5,
+    min: 'dataMin',
+    max: 'dataMax',
+    boundaryGap: ['0%', '0%'],
     axisLabel: {
-        show: true,
         margin: 2,
         formatter: timeFormatter,
+        interval: 'auto',
         textStyle: {
             color: theme.text,
             fontFamily: 'Roboto',
             fontSize: 10,
         },
     },
+    splitNumber: 8,
     splitLine: {
         show: true,
         lineStyle: {

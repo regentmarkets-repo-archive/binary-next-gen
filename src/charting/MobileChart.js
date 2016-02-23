@@ -16,12 +16,26 @@ export default class TradeChart extends Component {
 
     static propTypes = {
         history: PropTypes.array.isRequired,
+        entryTime: PropTypes.number,
+        expireTime: PropTypes.number,
     };
 
     render() {
-        const { history } = this.props;
+        const { history, entryTime, expireTime } = this.props;
         if (history.length === 0) return null;
-        const options = createOptions({ history, theme });
+
+        const verticalLineOpt = [];
+
+        if (entryTime) {
+            const minQuote = history.reduce((a, b) => Math.min(a, b.quote), history[0].quote);
+            const maXQuote = history.reduce((a, b) => Math.max(a, b.quote), history[0].quote);
+            verticalLineOpt[0] = { x: entryTime, min: minQuote, max: maXQuote, name: 'Entry Time' };
+            if (expireTime) {
+                verticalLineOpt[1] = { x: expireTime, min: minQuote, max: maXQuote, name: 'Expire Time' };
+            }
+        }
+
+        const options = createOptions(history, theme, verticalLineOpt);
 
         return (
             <SizeProvider style={{ width: '100%', height: '150px' }}>

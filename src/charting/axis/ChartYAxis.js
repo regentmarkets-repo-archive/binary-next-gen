@@ -3,12 +3,8 @@ import { currencyFormatter } from '../formatters';
 export default ({ theme }) => ({
     type: 'value',
     scale: true,
-    axisTick: {
-        show: false,
-    },
-    boundaryGap: ['15%', '25%'],
     position: 'right',
-    splitNumber: 3,
+    boundaryGap: ['10%', '30%'],
     axisLabel: {
         margin: 4,
         show: true,
@@ -19,6 +15,7 @@ export default ({ theme }) => ({
             fontSize: 10,
         },
     },
+    splitNumber: 4,
     splitLine: {
         show: true,
         lineStyle: {
