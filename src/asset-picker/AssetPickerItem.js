@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import classNames from 'classnames';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import Star from '../_common/Star';
 
@@ -14,18 +15,27 @@ export default class AssetPickerItem extends Component {
 		onCreateTrade: PropTypes.func,
 	};
 
+	static defaultProps = {
+		asset: {},
+	};
+
 	render() {
 		const { asset, compact, onSelect, onCreateTrade, onToggleWatchlistItem } = this.props;
+		const { isOpen, isInWatchlist, symbol } = asset;
+		const itemClasses = classNames({
+			'asset-picker-item': true,
+			'market-closed': !isOpen,
+		});
 
 		return (
-			<tr className="asset-picker-item" tabIndex={0}>
+			<tr className={itemClasses} tabIndex={0}>
 				<td onClick={() => onToggleWatchlistItem(asset)}>
-					<Star on={asset.isInWatchlist} />
+					<Star on={isInWatchlist} />
 				</td>
-				<td onClick={() => onSelect(asset.symbol)}>
+				<td onClick={() => onSelect(symbol)}>
 					{asset.name}
 				</td>
-				{!compact && <td onClick={() => onCreateTrade(asset.symbol)}>
+				{!compact && <td onClick={() => onCreateTrade(symbol)}>
 					<button className="asset-picker-trade-btn">
 						Trade
 					</button>
