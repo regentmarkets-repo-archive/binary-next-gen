@@ -1,6 +1,6 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 import { assetIndexSelector, assetsSelector } from '../_store/directSelectors';
-import { assetIndexSubmarketSelector } from '../workspace/workspaceSelectors';
+import { assetIndexSubmarketSelector } from '../_store/directSelectors';
 import { List } from 'immutable';
 
 const assetSymbolsInSubmarket = (assets, submarket) =>

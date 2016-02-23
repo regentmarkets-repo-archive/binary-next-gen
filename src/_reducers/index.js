@@ -27,6 +27,7 @@ import tradingOptions from './TradingOptionsReducer';
 import proposals from './ProposalsReducer';
 import quickTrade from './QuickTradeReducer';
 import trades from './TradeReducer';
+import views from './ViewsReducer';
 
 export default combineReducers({
     appState,
@@ -56,4 +57,5 @@ export default combineReducers({
     workspace,
     watchlist,
     trades,
+    views,
 });

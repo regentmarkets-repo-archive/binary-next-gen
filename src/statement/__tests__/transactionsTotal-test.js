@@ -6,7 +6,7 @@ describe('transactionsTotal', () => {
     it('should equal 0 when no contracts', () => {
         const actual = transactionsTotalSelector({
             transactions: fromJS([]),
-            workspace: fromJS({}),
+            views: fromJS({}),
         });
         expect(actual).to.equal(0);
     });
@@ -16,7 +16,7 @@ describe('transactionsTotal', () => {
             transactions: fromJS([
                 { amount: 10 },
             ]),
-            workspace: fromJS({ transactionsFilter: 4 }), // do not filter
+            views: fromJS({ transactionsFilter: 4 }), // do not filter
         };
         const actual = transactionsTotalSelector(state);
         expect(actual).to.equal(10);
@@ -29,7 +29,7 @@ describe('transactionsTotal', () => {
                 { amount: 2 },
                 { amount: 3 },
             ]),
-            workspace: fromJS({ transactionsFilter: 4 }), // do not filter
+            views: fromJS({ transactionsFilter: 4 }), // do not filter
         };
         const actual = transactionsTotalSelector(state);
         expect(actual).to.equal(6);

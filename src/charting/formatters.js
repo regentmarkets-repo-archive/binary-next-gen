@@ -10,4 +10,4 @@ export const currencyFormatterValue = x =>
 export const timeFormatter = value => epochToTimeString(value);
 
 export const dualFormatter = params =>
-    timeFormatter(params[0].name) + '<br />' + currencyFormatter(params[0].value);
+    params[0] && timeFormatter(params[0].name) + '<br />' + currencyFormatter(params[0].value);

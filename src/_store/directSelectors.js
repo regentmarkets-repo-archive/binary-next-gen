@@ -11,9 +11,16 @@ export const tradingTimesSelector = state => state.tradingTimes;
 export const transactionsSelector = state => state.transactions;
 export const watchlistSelector = state => state.watchlist;
 export const workspaceSelector = state => state.workspace;
+export const viewsSelector = state => state.views;
 
 export const currencySelector = state =>
     state.account.get('currency');
 
 export const transactionsFilterSelector = state =>
-    state.workspace.get('transactionsFilter');
+    state.views.get('transactionsFilter');
+
+export const assetIndexSubmarketSelector = state =>
+    state.views.getIn(['assetIndex', 'submarketId']);
+
+export const tradingTimesFilterSelector = state =>
+    state.views.get('tradingTimes');

@@ -1,11 +1,6 @@
 import * as types from '../_constants/ActionTypes';
 import * as LiveData from '../_data/LiveData';
 
-export const workspaceViewAssetDetails = symbol => ({
-    type: types.WORKSPACE_VIEW_ASSET_DETAILS,
-    symbol,
-});
-
 export const workspaceAssetSelect = symbol => ({
     type: types.WORKSPACE_ASSET_SELECT,
     symbol,
