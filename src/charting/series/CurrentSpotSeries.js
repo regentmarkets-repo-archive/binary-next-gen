@@ -1,6 +1,6 @@
 import { currencyFormatterValue } from '../formatters';
 
-export const createCurrentSpotLine = (currentSpot, length) => ({
+export default (currentSpot, length) => ({
     name: 'Current Spot',
     type: 'line',
     showLegendSymbol: false,
@@ -38,27 +38,4 @@ export const createCurrentSpotLine = (currentSpot, length) => ({
             },
         },
     },
-});
-
-export const createDataLine = ({ theme, data, markLine, markPoint }) => ({
-    name: 'Symbol data',
-    type: 'line',
-    clickable: false,
-    showLegendSymbol: false,
-    symbol: 'none',
-    data,
-    itemStyle: {
-        normal: {
-            lineStyle: {
-                color: theme.line,
-                width: 2,
-            },
-            areaStyle: {
-                type: 'default',
-                color: theme.fill,
-            },
-        },
-    },
-    markLine,
-    markPoint,
 });

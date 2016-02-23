@@ -1,10 +1,10 @@
 import createXAxis from '../axis/ChartXAxis';
 import createYAxis from '../axis/ChartYAxis';
-import createSeries from '../series/ChartSeries';
+import createSeries from '../series/LineChartSeries';
 import createGrid from '../grid/TradeChartGrid';
 import createMarkLineSpot from '../mark-line/ChartMarkLineSpot';
 import createDataZoom from '../data-zoom/MobileDataZoom';
-import createTooltip from '../tooltip/ChartTooltip';
+import createTooltip from '../tooltip/LineChartTooltip';
 import createMarkPointSpot from '../mark-point/ChartMarkPointSpot';
 
 export default ({ history, theme }) => ({
