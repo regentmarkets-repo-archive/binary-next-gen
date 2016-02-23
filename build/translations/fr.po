@@ -79,7 +79,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-01-22 15:16+0000\n"
+"PO-Revision-Date: 2016-02-24 00:06+0000\n"
 "Last-Translator: Chloe Chevreton <chloe-che@hotmail.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/fr/>\n"
@@ -94,10 +94,10 @@ msgid "All"
 msgstr "Tout"
 
 msgid "Property"
-msgstr ""
+msgstr "Propriété"
 
 msgid "Value"
-msgstr ""
+msgstr "Valeur"
 
 msgid "Balance"
 msgstr "Solde"
@@ -109,7 +109,7 @@ msgid "Watchlist"
 msgstr ""
 
 msgid "Open Positions"
-msgstr ""
+msgstr "Positions ouvertes"
 
 msgid "Profit Table"
 msgstr "Tableau des Bénéfices"
@@ -121,7 +121,7 @@ msgid "Settings"
 msgstr "Paramètres"
 
 msgid "Sign Out"
-msgstr ""
+msgstr "Déconnexion"
 
 msgid "View"
 msgstr "Voir"
@@ -170,7 +170,7 @@ msgid "Item"
 msgstr "Elément"
 
 msgid "Limit ({currency})"
-msgstr "Limite ({devise})"
+msgstr "Limite ({currency})"
 
 msgid "Maximum number of open positions"
 msgstr "Nombre maximal de positions ouvertes"
@@ -189,9 +189,11 @@ msgstr "Limites de prélèvement"
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
 msgstr ""
+"Votre limite de retrait est de {limit} (ou l'équivalent dans une autre "
+"devise)."
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
-msgstr ""
+msgstr "Vous avez déjà retiré l'équivalent de {drawn} EUR."
 
 msgid "An additional password can be used to restrict access to the cashier."
 msgstr ""
@@ -199,10 +201,10 @@ msgstr ""
 "à la caisse."
 
 msgid "Sign In"
-msgstr ""
+msgstr "Connexion"
 
 msgid "Get your API token"
-msgstr ""
+msgstr "Obtenez votre jeton d'authetification API"
 
 msgid "Create Account"
 msgstr ""
