@@ -24,7 +24,7 @@ export default (state = initialState, action) => {
                 const quote = action.serverResponse.history.prices[idx];
                 return { epoch: +t, quote: +quote };
             });
-            
+
             return state.update(symbol, List.of(), v => v.takeLast(40).concat(history));
         }
         default:

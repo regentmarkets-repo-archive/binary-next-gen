@@ -1,4 +1,4 @@
-import { epochToTimeString } from '../_utils/DateUtils';
+import { epochToTimeString, epochToDate } from '../_utils/DateUtils';
 
 export const currencyFormatter = value =>
      new Intl.NumberFormat(undefined, { minimumFractionDigits: 2 }).format(value);
@@ -9,5 +9,10 @@ export const currencyFormatterValue = x =>
 
 export const timeFormatter = value => epochToTimeString(value);
 
+export const dateTimeFormatter = value => epochToDate(value).toLocaleString();
+
 export const dualFormatter = params =>
-    timeFormatter(params[0].name) + '<br />' + currencyFormatter(params[0].value);
+    'Date: ' + dateTimeFormatter(Math.floor(params[0].data[0]))
+    + '<br />'
+    + 'Spot: ' + currencyFormatter(params[0].data[1]);
+

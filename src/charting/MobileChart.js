@@ -14,10 +14,6 @@ const theme = {
 
 export default class TradeChart extends Component {
 
-    static defaultProps = {
-        entryTime: Math.floor(Date.now() / 1000),
-    };
-
     static propTypes = {
         history: PropTypes.array.isRequired,
         entryTime: PropTypes.number,

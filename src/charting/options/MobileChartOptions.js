@@ -3,7 +3,7 @@ import createYAxis from '../axis/ChartYAxis';
 import createDataLine from '../series/LineChartSeries';
 import createCurrentSpotLine from '../series/CurrentSpotSeries';
 import createGrid from '../grid/MobileChartGrid';
-import createMarkLineSpot, { createVerticalLine } from '../mark-line/ChartMarkLineSpot';
+import createMarkLineSpot, { createTimeBoundary } from '../mark-line/ChartMarkLineSpot';
 import createDataZoom from '../data-zoom/MobileDataZoom';
 import createTooltip from '../tooltip/LineChartTooltip';
 
@@ -39,10 +39,7 @@ export default (history, theme, verticalLineOpt) => ({
         createDataLine({
             theme,
             data: history.map(x => [x.epoch, x.quote]),
-            markLine: {
-                data: verticalLineOpt
-                    .map(opt => createVerticalLine(opt.x, opt.min, opt.max, opt.name)),
-            }
+            markLine: verticalLineOpt.length > 0 && createTimeBoundary(verticalLineOpt[0], verticalLineOpt[1]),
         }),
         createCurrentSpotLine(history),
     ],

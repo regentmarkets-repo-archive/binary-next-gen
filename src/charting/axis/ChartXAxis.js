@@ -3,7 +3,7 @@ import { timeFormatter } from '../formatters';
 export default ({ theme }) => ({
     type: 'value',
     scale: true,
-    boundaryGap: ['5%', '5%'],
+    boundaryGap: ['0%', '0%'],
     axisLabel: {
         margin: 2,
         formatter: timeFormatter,
