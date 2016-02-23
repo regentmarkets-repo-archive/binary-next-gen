@@ -16,7 +16,7 @@ export default (state = initialState, action) => {
                 epoch: +tick.epoch,
                 quote: +tick.quote,
             };
-            return state.update(symbol, List.of(newTick), v => v.takeLast(60).push(newTick));
+            return state.update(symbol, List.of(), v => v.takeLast(60).push(newTick));
         }
         case SERVER_DATA_TICK_HISTORY: {
             const symbol = action.serverResponse.echo_req.ticks_history;
@@ -25,7 +25,7 @@ export default (state = initialState, action) => {
                 return { epoch: +t, quote: +quote };
             });
 
-            return state.update(symbol, new List(history), v => v.takeLast(40).concat(history));
+            return state.update(symbol, List.of(), v => v.takeLast(40).concat(history));
         }
         default:
             return state;
