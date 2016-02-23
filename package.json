@@ -42,6 +42,7 @@
   },
   "dependencies": {
     "binary-live-api": "*",
+    "classnames": "^2.2.3",
     "echarts": "^3.0.2",
     "history": "^2.0.0",
     "immutable": "^3.7.5",

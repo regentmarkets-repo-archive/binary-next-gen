@@ -15,7 +15,7 @@ export default class TradesContainer extends Component {
         tradeMode: PropTypes.string.isRequired,
     };
 
-    static defaultValues = {
+    static defaultProps = {
         tradeMode: 'grid',
     };
 

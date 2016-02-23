@@ -7,7 +7,7 @@ describe('assetIndexSelectors', () => {
         assets: fromJS([]),
         submarket: fromJS({}),
         assetIndex: fromJS([[]]),
-        workspace: fromJS({}),
+        views: fromJS({}),
     });
 
     it('should be able to execute', () => {

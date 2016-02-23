@@ -24,7 +24,6 @@ export default ({ theme }) => [{
     showDetail: false,
     realtime: true,
     zoomLock: false,
-    // textStyle: {...},
     xAxisIndex: null,
     yAxisIndex: null,
     angleAxisIndex: null,
@@ -41,13 +40,3 @@ export default ({ theme }) => [{
     bottom: 0,
     height: 20,
 }];
-
-    // start: 20,
-    // end: 50,
-    // height: 20,
-    // backgroundColor: theme.background,
-    // dataBackgroundColor: theme.text,
-    // fillerColor:
-    // handleColor:
-    // handleSize: 10,
-    // showDetail: false,

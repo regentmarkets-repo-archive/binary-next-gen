@@ -15,4 +15,3 @@ export const dualFormatter = params =>
     'Date: ' + dateTimeFormatter(Math.floor(params[0].data[0]))
     + '<br />'
     + 'Spot: ' + currencyFormatter(params[0].data[1]);
-

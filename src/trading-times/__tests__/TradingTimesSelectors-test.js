@@ -6,7 +6,7 @@ describe('tradingTimesSelectors', () => {
     const emptyState = () => ({
         assets: fromJS([]),
         tradingTimes: fromJS({}),
-        workspace: fromJS({}),
+        views: fromJS({}),
     });
 
     it('should be able to execute', () => {
@@ -32,7 +32,7 @@ describe('tradingTimesSelectors', () => {
 
     it('should work with empty state', () => {
         const actual = tradingTimesSelectors({
-            workspace: fromJS({}),
+            views: fromJS({}),
         });
         const expected = {
             assets: undefined,

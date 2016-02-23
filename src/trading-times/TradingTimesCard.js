@@ -1,13 +1,10 @@
 import React, { PropTypes, Component } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
 import InputGroup from '../_common/InputGroup';
 import MarketPickerContainer from '../_common/MarketPickerContainer';
 import { dateToDateString, todayLocaleString, oneYearAfterStr } from '../_utils/DateUtils';
 import TradingTimesTable from './TradingTimesTable';
 
 export default class TradingTimesCard extends Component {
-
-	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,

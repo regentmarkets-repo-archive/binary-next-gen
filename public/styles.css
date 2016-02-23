@@ -777,3 +777,8 @@ input[type=number]::-webkit-outer-spin-button {
     width: 2rem;
     height: 2rem;
 }
+
+.market-closed {
+    opacity: .75;
+    background: rgba(255, 0, 0, .1);
+}

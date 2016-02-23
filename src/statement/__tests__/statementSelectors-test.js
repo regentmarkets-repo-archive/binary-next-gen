@@ -6,7 +6,7 @@ describe('statementSelectors', () => {
     const emptyState = () => ({
         account: fromJS([]),
         transactions: fromJS({}),
-        workspace: fromJS({}),
+        views: fromJS({}),
     });
 
     it('should be able to execute', () => {
