@@ -4,6 +4,7 @@ export default ({ theme }) => ({
     type: 'value',
     scale: true,
     position: 'right',
+    boundaryGap: ['10%', '30%'],
     axisLabel: {
         margin: 4,
         show: true,
