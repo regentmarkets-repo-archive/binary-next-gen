@@ -11,13 +11,19 @@ import createTooltip from '../tooltip/LineChartTooltip';
 const extendMargin = 5;
 
 // to let chart line have space between most recent spot and Y axis
-const extendXAxisData = (data, n = extendMargin) => {
+/**
+ *
+ * @param data - Array of [x, y]
+ * @param n - number to extend
+ * @returns {*|Array.<T>|string|Immutable.Iterable<K, V>}
+ */
+const extendData = (data, n = extendMargin) => {
     const dataLen = data.length;
-    const speculativeDiff = data[dataLen - 1] - data[dataLen - 2];
-    const extension = [data[dataLen - 1] + speculativeDiff];
+    const speculativeDiff = data[dataLen - 1][0] - data[dataLen - 2][0];
+    const extension = [[data[dataLen - 1][0] + speculativeDiff], undefined];
 
     for (let i = 1; i < n; i ++) {
-        extension[i] = extension[i - 1] + speculativeDiff;
+        extension[i] = [extension[i - 1][0] + speculativeDiff, undefined];
     }
     return data.concat(extension);
 };
@@ -27,19 +33,18 @@ export default (history, theme, verticalLineOpt) => ({
     grid: createGrid({ theme }),
     xAxis: createXAxis({
         theme,
-        data: extendXAxisData(history.map(x => x.epoch)),
     }),
     yAxis: createYAxis({ theme }),
     series: [
         createDataLine({
             theme,
-            data: history.map(x => x.quote),
+            data: history.map(x => [x.epoch, x.quote]),
             markLine: {
                 data: verticalLineOpt
                     .map(opt => createVerticalLine(opt.x, opt.min, opt.max, opt.name)),
             }
         }),
-        createCurrentSpotLine(history[history.length - 1].quote, history.length + extendMargin),
+        createCurrentSpotLine(history),
     ],
     dataZoom: createDataZoom({ theme }),
     tooltip: createTooltip(),

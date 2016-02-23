@@ -1,15 +1,10 @@
 import { timeFormatter } from '../formatters';
 
-export default ({ theme, data }) => ({
-    type: 'category',
+export default ({ theme }) => ({
+    type: 'value',
     scale: true,
-    axisLine: false,
-    axisTick: false,
-    data,
-    boundaryGap: false,
-    splitNumber: 5,
+    boundaryGap: ['5%', '5%'],
     axisLabel: {
-        show: true,
         margin: 2,
         formatter: timeFormatter,
         textStyle: {

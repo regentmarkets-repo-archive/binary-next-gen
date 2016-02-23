@@ -15,7 +15,7 @@ const theme = {
 export default class TradeChart extends Component {
 
     static defaultProps = {
-        entryTime: Math.floor(Date.now() / 1000) - 10000,
+        entryTime: Math.floor(Date.now() / 1000),
     };
 
     static propTypes = {
@@ -31,8 +31,8 @@ export default class TradeChart extends Component {
         const verticalLineOpt = [];
 
         if (entryTime) {
-            const minQuote = history.reduce((a, b) => Math.min(a, b.quote), 0);
-            const maXQuote = history.reduce((a, b) => Math.max(a, b.quote), 0);
+            const minQuote = history.reduce((a, b) => Math.min(a, b.quote), history[0].quote);
+            const maXQuote = history.reduce((a, b) => Math.max(a, b.quote), history[0].quote);
             verticalLineOpt[0] = { x: entryTime, min: minQuote, max: maXQuote, name: 'Entry Time' };
             if (expireTime) {
                 verticalLineOpt[1] = { x: expireTime, min: minQuote, max: maXQuote, name: 'Expire Time' };

@@ -9,8 +9,8 @@ const getLineFromStartToEnd = (history) => {
 };
 
 export const createVerticalLine = (xVal, yMin, yMax, name = 'time') => ([
-    { name: name, xAxis: xVal, yAxis: yMin },
-    { xAxis: xVal, yAxis: yMax },
+    { name: name, coord: [xVal, yMin] },
+    { coord: [xVal, yMax] },
 ]);
 
 export default (history) => ({

@@ -1,12 +1,12 @@
 import { currencyFormatterValue } from '../formatters';
 
-export default (currentSpot, length) => ({
+export default (history) => ({
     name: 'Current Spot',
     type: 'line',
     showLegendSymbol: false,
     symbol: 'none',
     smooth: true,
-    data: Array(length).fill(currentSpot),
+    data: history.map(x => [x.epoch, history[history.length - 1].quote]),
     lineStyle: {
         normal: {
             color: 'rgb(220,20,60)',
@@ -43,7 +43,6 @@ export default (currentSpot, length) => ({
 export const createDataLine = ({ theme, data, markLine, markPoint }) => ({
     name: 'Symbol data',
     type: 'line',
-    clickable: false,
     showLegendSymbol: false,
     symbol: 'none',
     data,
