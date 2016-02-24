@@ -5,6 +5,7 @@ import { immutableChildrenToJS } from '../_utils/ObjectUtils';
 import tradeListSelectors from './tradeListSelectors';
 import TradesGrid from './TradesGrid';
 import TradesTabs from './TradesTabs';
+import JpTradeCard from '../jp-trade/JpTradeCard';
 
 @connect(tradeListSelectors)
 export default class TradesContainer extends Component {
@@ -22,8 +23,11 @@ export default class TradesContainer extends Component {
     render() {
         const { tradeMode } = this.props;
 
-        return tradeMode === 'grid' ?
-            <TradesGrid {...immutableChildrenToJS(this.props)} /> :
-            <TradesTabs {...immutableChildrenToJS(this.props)} />;
+        switch (tradeMode) {
+            case 'grid': return <TradesGrid {...immutableChildrenToJS(this.props)} />;
+            case 'tabs': return <TradesTabs {...immutableChildrenToJS(this.props)} />;
+            case 'jp': return <JpTradeCard {...immutableChildrenToJS(this.props)} />;
+            default: return null;
+        }
     }
 }

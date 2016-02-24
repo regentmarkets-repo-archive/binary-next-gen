@@ -26,16 +26,16 @@ export default class ToggleButtons extends Component {
 					<img src="img/left-panel.svg" />
 				</button>
 				<button
-					className={`btn-secondary`}
-					onClick={() => actions.toggleTradeMode()}
-				>
-					<img src="img/bottom-panel.svg" />
-				</button>
-				<button
 					className={`btn-secondary ${rightPanelVisible && 'checked'}`}
 					onClick={() => actions.togglePanel('right')}
 				>
 					<img src="img/right-panel.svg" />
+				</button>
+				<button
+					className="btn-secondary"
+					onClick={() => actions.toggleTradeMode()}
+				>
+					<img src="img/bottom-panel.svg" />
 				</button>
 			</div>
 		);
