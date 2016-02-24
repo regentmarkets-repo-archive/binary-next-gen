@@ -22,8 +22,8 @@ export default class AssetPickerCard extends Component {
 	};
 
 	onCreateTrade(asset) {
-		const { actions, maxTradeId } = this.props;
-		actions.initTrade(maxTradeId.toString(), asset);
+		const { actions } = this.props;
+		actions.createTrade(asset);
 		actions.getTradingOptions(asset);
 		actions.getTicksBySymbol(asset);
 	}

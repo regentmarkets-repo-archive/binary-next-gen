@@ -3,7 +3,7 @@ import {
     UPDATE_TRADE_PARAMS,
     RESET_TRADES,
     REMOVE_TRADE,
-    INIT_TRADE,
+    CREATE_TRADE,
     SERVER_DATA_PROPOSAL,
     REMOVE_PERSONAL_DATA,
 } from '../_constants/ActionTypes';
@@ -23,8 +23,8 @@ const initialState = fromJS([defaultTrade]);
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case INIT_TRADE: {
-            return state.push(defaultTrade);
+        case CREATE_TRADE: {
+            return state.push(fromJS(defaultTrade));
         }
         case UPDATE_TRADE_PARAMS: {
             const result = state.setIn([action.id, action.fieldName], action.fieldValue);
