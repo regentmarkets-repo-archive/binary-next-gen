@@ -95,7 +95,7 @@ export const connect = async (store) => {
         const action = actions[handlers[key]];
 
         api.events.on(key, (data) => store.dispatch(action(data)));
-        api.events.on(key, () => window.console.log);
+        api.events.on(key, () => window.console.warn);
     });
 
     api.events.on('authorize', response => response.error ? null : initAuthorized(response, store));

@@ -43,9 +43,11 @@ export default (state = initialState, action) => {
             return state.set(action.fieldName, action.fieldValue);
         }
         case CHANGE_ACTIVE_WORKSPACE_TAB: {
+            const panelVisible = state.get(action.panel + 'PanelVisible');
+            const sameTabSelected = state.get(action.panel + 'ActiveTab') === action.index;
             return state
                 .set(action.panel + 'ActiveTab', action.index)
-                .set(action.panel + 'PanelVisible', true);
+                .set(action.panel + 'PanelVisible', !(panelVisible && sameTabSelected));
         }
         case CHANGE_WORKSPACE_PANEL_SIZE: {
             return state

@@ -37,9 +37,6 @@ export default (state = initialState, action) => {
             return state.delete(action.id);
         }
         case SERVER_DATA_PROPOSAL: {
-            if (action.serverResponse.error) {
-                return state;
-            }
             const proposalId = action.serverResponse.proposal.id;
             const entry = state.findEntry(v => v.get('proposal') ? v.get('proposal').id === proposalId : false);
             if (entry) {
