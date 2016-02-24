@@ -6,5 +6,5 @@ export const assetsBySymbolSelector = createSelector(
 	assetsSelector,
 	assets =>
 		assets.reduce((acc, v) =>
-			acc.set(v.get('symbol'), v), new Map()),
+			acc.set(v.get('symbol'), v), new Map())
 );
