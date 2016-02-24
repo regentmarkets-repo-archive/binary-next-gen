@@ -62,6 +62,11 @@ export const changeWorkspacePanelSize = (panel, size) => ({
     size,
 });
 
+export const changeTradeMode = (tadeMode) => ({
+    type: types.CHANGE_TRADE_MODE,
+    tadeMode,
+});
+
 export const toggleTradeMode = () => ({
     type: types.TOGGLE_TRADE_MODE,
 });

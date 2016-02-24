@@ -9,6 +9,7 @@ import {
     CHANGE_ACTIVE_WORKSPACE_TAB,
     CHANGE_WORKSPACE_PANEL_SIZE,
     TOGGLE_TRADE_MODE,
+    CHANGE_TRADE_MODE,
     TOGGLE_PANEL,
 } from '../_constants/ActionTypes';
 
@@ -59,6 +60,9 @@ export default (state = initialState, action) => {
             const currentMode = tradeModes.indexOf(state.get('tradeMode'));
             const newTradeModeIdx = currentMode >= tradeModes.length - 1 ? 0 : currentMode + 1;
             return state.set('tradeMode', tradeModes[newTradeModeIdx]);
+        }
+        case CHANGE_TRADE_MODE: {
+            return state.set('tradeMode', action.tradeMode);
         }
         case TOGGLE_PANEL: {
             const panelField = action.panel + 'PanelVisible';

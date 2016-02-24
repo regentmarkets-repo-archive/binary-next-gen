@@ -6,5 +6,6 @@ export default createSelector(
     workspace => ({
         leftPanelVisible: workspace.get('leftPanelVisible'),
         rightPanelVisible: workspace.get('rightPanelVisible'),
+        tradeMode: workspace.get('tradeMode'),
     }),
 );
