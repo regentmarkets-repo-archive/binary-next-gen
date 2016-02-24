@@ -5,51 +5,23 @@ import M from './M';
 import NumberPlain from './NumberPlain';
 
 
-const TopUpConfirmation = ({ response, loginid }) => (
-
-    !!(response.error)
-        ?
-        (<div>
-            <table>
-                <thead>
-                <tr>
-                   <th colSpan="2">{`Vitual Account Topup for ${loginid} failed`}</th>
-                </tr>
-                </thead>
-                <tbody>
-                <tr>
-
-                    <td><M m={response.error} /> </td>
-                </tr>
-                </tbody>
-            </table>
-                <br/>
-                <button><M m="Back" /></button>
+const TopUpConfirmation = ({ response }) => (
+    <div>
+        {response.error ?
+            <M m={response.error} /> :
+            <div>
+                <NumberPlain currency={response.topup_virtual.currency} value={response.topup_virtual.amount}/>
+                &nbsp;has been credited to your Virtual money account
             </div>
-        )
-    :
-    (<div>
-        <table>
-            <tr>
-                <th colSpan="2">{`Vitual Account Topup for ${loginid}`}</th>
-            </tr>
-            <tbody>
-            <tr>
-                <td><M m="currency" /></td>
-                <td><M m={response.topup_virtual.currency} /> </td>
-            </tr>
-            <tr>
-                <td><M m="Amount" /></td>
-                <td>
-                    <NumberPlain value={response.topup_virtual.amount} />
-                </td>
-            </tr>
-            </tbody>
-        </table>
-        <br/>
-        <button><M m="Back" /></button>
-    </div>)
+        }
+        <div className="centerer">
+            <button><M m="OK" /></button>
+        </div>
+    </div>
 );
 
+TopUpConfirmation.propTypes = {
+    response: PropTypes.object.isRequired,
+};
 
 export default TopUpConfirmation;

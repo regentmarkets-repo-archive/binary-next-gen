@@ -13,6 +13,9 @@ export const watchlistSelector = state => state.watchlist;
 export const workspaceSelector = state => state.workspace;
 export const viewsSelector = state => state.views;
 
+export const loginidSelector = state => state.account.get('loginid');
+export const balanceSelector = state => state.account.get('balance');
+
 export const currencySelector = state =>
     state.account.get('currency');
 

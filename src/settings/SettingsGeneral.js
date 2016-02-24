@@ -19,15 +19,15 @@ export default class SettingsGeneral extends Component {
 	onThemeChange(e) {
 		this.props.actions.updateAppConfig('theme', e.target.value);
 	}
-	topUpClick() {
-        const { actions } = this.props;
-		LiveData.api.topUpVirtualAccount().then(response => {
-            actions.updateSettingFields({ topup_virtual: { topup_virtual: response.topup_virtual } });
 
-		})
-		.catch(err => {
-            actions.updateSettingFields({ topup_virtual: { error: err.message } });
-		});
+	async topupClick() {
+        const { actions } = this.props;
+        try {
+            const response = await LiveData.api.topUpVirtualAccount();
+            actions.updateSettingFields({ topup_virtual: { topup_virtual: response.topup_virtual } });
+        } catch (e) {
+            actions.updateSettingFields({ topup_virtual: { error: e.message } });
+		}
 	}
 
 	render() {
@@ -46,12 +46,12 @@ export default class SettingsGeneral extends Component {
 				</select>
 
                 <Modal shown={ !!(topupVirtual) } onClose={() => actions.updateSettingFields({ topup_virtual: null }, false)}>
-                    <VirtualTopUpConfirmation response = { topupVirtual } loginid={ loginid } />
+                    <VirtualTopUpConfirmation response = { topupVirtual } />
                 </Modal>
                 {
                     (balance < 1000)
                         ?
-                            <button className="buy-btn" onClick={::this.topUpClick}>
+                            <button className="buy-btn" onClick={::this.topupClick}>
                                 <M m="Deposit USD 10000 virtual money into your account "/>
                             </button>
                         :
