@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-02-06 19:14+0000\n"
-"Last-Translator: Sittie Hadjirah Sevilla <sittiebaser@gmail.com>\n"
+"PO-Revision-Date: 2016-02-24 03:35+0000\n"
+"Last-Translator: Robert Grundler <grundlertex@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/de/>\n"
 "Language: de\n"
@@ -27,10 +27,10 @@ msgid "All"
 msgstr "Alle"
 
 msgid "Property"
-msgstr ""
+msgstr "Eigentum"
 
 msgid "Value"
-msgstr ""
+msgstr "Wert"
 
 #, fuzzy
 msgid "Balance"
@@ -41,10 +41,10 @@ msgid "Trade"
 msgstr "Handel"
 
 msgid "Watchlist"
-msgstr ""
+msgstr "Beobachtungsliste"
 
 msgid "Open Positions"
-msgstr ""
+msgstr "Offene Positionen"
 
 #, fuzzy
 msgid "Profit Table"
@@ -59,7 +59,7 @@ msgid "Settings"
 msgstr "Einstellungen"
 
 msgid "Sign Out"
-msgstr ""
+msgstr "Abmelden"
 
 #, fuzzy
 msgid "View"
@@ -97,12 +97,11 @@ msgstr "Verkaufskurs"
 msgid "Profit/Loss"
 msgstr "Gewinn/Verlust"
 
-#, fuzzy
 msgid "Total"
-msgstr "Gesamtkosten"
+msgstr "Gesamt"
 
 msgid "Location"
-msgstr ""
+msgstr "Ort"
 
 #, fuzzy
 msgid "Update"
@@ -120,8 +119,9 @@ msgstr "Handelslimits"
 msgid "Item"
 msgstr "Posten"
 
+#, fuzzy
 msgid "Limit ({currency})"
-msgstr ""
+msgstr "Limit ({currency})"
 
 #, fuzzy
 msgid "Maximum number of open positions"
@@ -145,9 +145,10 @@ msgstr "Auszahlungslimits"
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
 msgstr ""
+"Ihr Auszahlungslimit beträgt {limit} (oder Gegenwert in anderer Währung)."
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
-msgstr ""
+msgstr "Sie haben schon den Gegenwert von EUR {drawn} abgehoben."
 
 #, fuzzy
 msgid "An additional password can be used to restrict access to the cashier."
@@ -156,13 +157,13 @@ msgstr ""
 "Kassensabschnitt zu beschränken."
 
 msgid "Sign In"
-msgstr ""
+msgstr "Anmelden"
 
 msgid "Get your API token"
-msgstr ""
+msgstr "Holen Sie sich Ihren API-Token"
 
 msgid "Create Account"
-msgstr ""
+msgstr "Konto einrichten"
 
 #, fuzzy
 msgid "Action"
@@ -181,10 +182,10 @@ msgid "Back"
 msgstr "Zurück"
 
 msgid "Place Order"
-msgstr ""
+msgstr "Order aufgeben"
 
 msgid "{asset} will {type} over next {duration}"
-msgstr ""
+msgstr "{asset} wird {type} in den nächsten {duration}"
 
 #, fuzzy
 msgid "Price"
@@ -227,14 +228,14 @@ msgid "Open Account"
 msgstr "Konto eröffnen"
 
 msgid "Upgrade to Real Money Account"
-msgstr ""
+msgstr "Auf Echtgeldkonto wechseln"
 
 #, fuzzy
 msgid "Date of birth"
 msgstr "Geburtsdatum"
 
 msgid "Home Address"
-msgstr ""
+msgstr "Wohnanschrift"
 
 #, fuzzy
 msgid "Security"
@@ -252,155 +253,157 @@ msgstr "Veränderung"
 msgid "Chart"
 msgstr "Diagramm"
 
-#, fuzzy
 msgid "Purchase For"
-msgstr "Kauf"
+msgstr "Kauf für"
 
 msgid "Rise"
-msgstr ""
+msgstr "Steigt"
 
 msgid "Stake"
-msgstr ""
+msgstr "Einsatz"
 
 msgid "Payout"
-msgstr ""
+msgstr "Auszahlung"
 
 msgid "Deposit"
-msgstr ""
+msgstr "Einzahlung"
 
-#, fuzzy
 msgid "Transactions"
-msgstr "Handelsbestätigung"
+msgstr "Transaktionen"
 
 msgid "Opens"
-msgstr ""
+msgstr "Öffnet"
 
 msgid "Closes"
-msgstr ""
+msgstr "Schließt"
 
 msgid "Personal"
-msgstr ""
+msgstr "Persönlich"
 
 msgid "General"
-msgstr ""
+msgstr "Allgemein"
 
-#, fuzzy
 msgid "Trading Times"
-msgstr "Handelslimits"
+msgstr "Börsenzeiten"
 
-#, fuzzy
 msgid "Asset Index"
-msgstr "Kapital"
+msgstr "Kapital Index"
 
 msgid "Today"
-msgstr ""
+msgstr "Heute"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Gestern"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "Morgen"
 
 msgid "Takeout"
-msgstr ""
+msgstr "Mitnehmen"
 
 msgid "News"
-msgstr ""
+msgstr "Nachrichten"
 
 msgid "Resources"
-msgstr ""
+msgstr "Quellen"
 
 msgid "Last 7 Days"
-msgstr ""
+msgstr "Letzte 7 Tage"
 
 msgid "Last 30 Days"
-msgstr ""
+msgstr "Letzte 30 Tage"
 
 msgid "Daily Report"
-msgstr ""
+msgstr "Tagesbericht"
 
 msgid "Up/Down"
-msgstr ""
+msgstr "Hoch/Tief"
 
 msgid "Touch/No Touch"
-msgstr ""
+msgstr "Berührt/Berührt nicht"
 
 msgid "Ends In/Out"
-msgstr ""
+msgstr "Endet In/Außerhalb"
 
 msgid "Stays In/Goes Out"
-msgstr ""
+msgstr "Bleibt innerhalb/geht außerhalb"
 
-#, fuzzy
 msgid "Settles"
-msgstr "Einstellungen"
+msgstr "Bleibt"
 
 msgid "Language"
-msgstr ""
+msgstr "Sprache"
 
 msgid "Color Theme"
-msgstr ""
+msgstr "Farbthema"
 
 msgid "Light"
-msgstr ""
+msgstr "Hell"
 
 msgid "Dark"
-msgstr ""
+msgstr "Dunkel"
 
+#, fuzzy
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 #, fuzzy
 msgid "Date Of Birth"
 msgstr "Geburtsdatum"
 
 msgid "Country Of Residence"
-msgstr ""
+msgstr "Wohnsitzland"
 
 msgid "Email"
-msgstr ""
+msgstr "E-Mail"
 
+#, fuzzy
 msgid "There are no transactions for selected period"
-msgstr ""
+msgstr "Für den ausgewählten Zeitraum liegen keine Transaktionen vor."
 
+#, fuzzy
 msgid "Sell"
-msgstr ""
+msgstr "Verkaufen"
 
+#, fuzzy
 msgid "Buy"
-msgstr ""
+msgstr "Kaufen"
 
 msgid "Digit Even"
-msgstr ""
+msgstr "Kommastelle gleich"
 
 msgid "Touches"
-msgstr ""
+msgstr "Berührt"
 
 msgid "Digit Over"
-msgstr ""
+msgstr "Kommastelle über"
 
 msgid "Digit Match"
-msgstr ""
+msgstr "Kommastellen stimmen überein"
 
 msgid "Digit Under"
-msgstr ""
+msgstr "Kommastelle unter"
 
 msgid "Digit Odd"
-msgstr ""
+msgstr "Kommastelle Chance"
 
+#, fuzzy
 msgid "Digit Differs"
-msgstr ""
+msgstr "Kommastelle unterschiedlich"
 
 msgid "No Touch"
-msgstr ""
+msgstr "Berührt nicht"
 
 msgid "Fall"
-msgstr ""
+msgstr "Fällt"
 
+#, fuzzy
 msgid "Asian Down"
-msgstr ""
+msgstr "Asiatisch runter"
 
 msgid "Asian Up"
-msgstr ""
+msgstr "Asiatisch hoch"
 
+#, fuzzy
 msgid "Search For Assets"
-msgstr ""
+msgstr "Suche nach Anlagen"
