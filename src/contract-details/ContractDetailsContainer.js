@@ -1,13 +1,17 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
+import shouldPureComponentUpdate from 'react-pure-render/function';
+import { immutableChildrenToJS } from '../_utils/ObjectUtils';
 import portfolioSelectors from '../portfolio/PortfolioSelectors';
 import ContractDetailsCard from './ContractDetailsCard';
 
 @connect(portfolioSelectors)
 export default class ContractDetailsContainer extends Component {
 
+	shouldComponentUpdate = shouldPureComponentUpdate;
+
 	static propTypes = {
-		contracts: PropTypes.array,
+		contracts: PropTypes.object.isRequired,
 		params: PropTypes.object,
 		actions: PropTypes.object.isRequired,
 	};
@@ -22,18 +26,17 @@ export default class ContractDetailsContainer extends Component {
 
 	render() {
 		const { params, contracts } = this.props;
-		const contract = contracts.find(x => x.contract_id === params.id);
+		const contract = contracts.find(x => x.get('contract_id') === params.id);
 		// const soldResultShown = portfolio.get('soldResultShown');
 		// const now = portfolio.get('now');
-		console.log(contract);
 		if (!contract) return null;
 
 		return (
 			<ContractDetailsCard
-				contract={contract}
+				contract={contract.toJS()}
 				// nowEpoch={now}
 				// soldResultShown={soldResultShown}
-				{...this.props}
+				{...immutableChildrenToJS(this.props)}
 			/>
 		);
 	}

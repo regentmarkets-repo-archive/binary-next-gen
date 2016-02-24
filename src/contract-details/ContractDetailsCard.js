@@ -22,7 +22,7 @@ export default class ContractDetailsCard extends Component {
 
 	render() {
 		const { contract, nowEpoch, soldResultShown, actions } = this.props;
-		console.log(contract);
+
 		return (
 			<div>
 				<Modal shown={!!soldResultShown} onClose={actions.closeSoldResult}>

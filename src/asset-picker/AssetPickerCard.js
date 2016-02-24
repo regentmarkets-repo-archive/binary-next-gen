@@ -64,7 +64,7 @@ export default class AssetPickerCard extends Component {
 					/>
 				</div>
 				{assetPickerItems.length > 0 ? null :
-					<div className="media">
+					<div className="centerer">
 						<M m="Your search didn't match any assets" />
 					</div>
 				}
