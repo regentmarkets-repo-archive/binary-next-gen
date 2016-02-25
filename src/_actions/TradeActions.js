@@ -67,24 +67,20 @@ export const createTrade = (symbol) => ({
     symbol,
 });
 
-export const removeTrade = id =>
+export const removeTrade = index =>
     (dispatch, getState) => {
-        const allTrades = getState().trades.toJS();
-        if (Object.keys(allTrades).length === 1) {
+        const trades = getState().trades.toJS();
+        if (trades.length === 1) {
             return;
         }
 
-        const relatedTrade = allTrades[id];
-        const sameSymbolExists = findIfExist(allTrades, (o, k) => o.symbol === relatedTrade.symbol && k !== id);
-        if (!sameSymbolExists) {
-            LiveData.api.unsubscribeFromTick(relatedTrade.symbol);
+        const trade = trades[index];
+
+        if (trade.proposal) {
+            LiveData.api.unsubscribeByID(trade.proposal.id);
         }
 
-        if (relatedTrade.proposal) {
-            LiveData.api.unsubscribeByID(relatedTrade.proposal.id);
-        }
-
-        dispatch({ type: types.REMOVE_TRADE, id });
+        dispatch({ type: types.REMOVE_TRADE, index });
     };
 
 export const resetTrades = () => ({

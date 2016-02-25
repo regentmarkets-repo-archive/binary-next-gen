@@ -34,7 +34,7 @@ export default (state = initialState, action) => {
             return initialState;
         }
         case REMOVE_TRADE: {
-            return state.delete(action.id);
+            return state.remove(action.index);
         }
         case SERVER_DATA_PROPOSAL: {
             const proposalId = action.serverResponse.proposal.id;

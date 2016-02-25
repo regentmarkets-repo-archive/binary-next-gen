@@ -72,7 +72,6 @@ export default class GenericTradeCard extends Component {
         this.onStopTypeChange = ::this.onStopTypeChange;
         this.onStopProfitChange = ::this.onStopProfitChange;
         this.onPurchase = ::this.onPurchase;
-        this.onClosePanel = ::this.onClosePanel;
     }
 
     componentWillMount() {
@@ -282,13 +281,8 @@ export default class GenericTradeCard extends Component {
         actions.purchaseByTradeId(index);
     }
 
-    onClosePanel() {
-        const { actions, index } = this.props;
-        actions.destroyTrade(index);
-    }
-
     render() {
-        const { contract, index, trade, currency, tick } = this.props;
+        const { actions, contract, index, trade, currency, tick } = this.props;
         const selectedSymbol = trade.symbol;
         const selectedCategory = trade.tradeCategory;
         const selectedType = trade.type;
@@ -312,7 +306,7 @@ export default class GenericTradeCard extends Component {
                 </Modal>
                 <TradeHeader
                     assetName={selectedSymbol}
-                    onClosePanel={this.onClosePanel}
+                    onClosePanel={() => actions.removeTrade(index)}
                 />
                 {tick && <MobileChart
                     className="trade-chart"
