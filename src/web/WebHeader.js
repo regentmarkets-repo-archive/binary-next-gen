@@ -36,8 +36,6 @@ export default class WebHeader extends Component {
 				</div>
 
 				<ToggleButtonsContainer actions={this.props.actions} />
-				<button id="new-trade-btn" className="btn-secondary" onClick={::this.createTrade}>New Trade</button>
-
 
 				<button
 					id="new-trade-btn"

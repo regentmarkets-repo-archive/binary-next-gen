@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import { FormattedTime, FormattedDate } from 'react-intl';
-import M from '../_common/M';
 
 export default class Clock extends Component {
 
@@ -26,9 +25,7 @@ export default class Clock extends Component {
     }
 
     componentDidMount() {
-
         this.interval = setInterval(() => this.setState({ time: (new Date()).getTime() }), 1000);
-
     }
 
     componentWillUnmount() {
@@ -42,8 +39,7 @@ export default class Clock extends Component {
 
         return (
             <div>
-                <M m={` ${newtime} GMT`} />
-
+                {newtime} GMT
             </div>
         );
     }
