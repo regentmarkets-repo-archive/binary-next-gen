@@ -10,7 +10,6 @@ export default class AssetPickerCard extends Component {
 		compact: PropTypes.bool,
 		history: PropTypes.object,
 		location: PropTypes.object,
-		maxTradeId: PropTypes.number.isRequired,
 		params: PropTypes.object,
 		assetPickerItems: PropTypes.array.isRequired,
 		workspace: PropTypes.object.isRequired,

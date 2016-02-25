@@ -75,7 +75,6 @@ describe('AssetPickerSelectors', () => {
 
             expect(first.availableAssets).to.equal(second.availableAssets);
             expect(first.filter).to.equal(second.filter);
-            expect(first.maxTradeId).to.equal(second.maxTradeId);
             expect(first.workspace).to.equal(second.workspace);
             expect(first.assetPickerItems).to.equal(second.assetPickerItems);
 

@@ -6,7 +6,7 @@ import GenericTradeCard from './FullTradeCard';
 import singleTradeSelectors from '../trades/singleTradeSelectors';
 
 @connect(singleTradeSelectors)
-export default class AssetPickerContainer extends Component {
+export default class FullTradeContainer extends Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 

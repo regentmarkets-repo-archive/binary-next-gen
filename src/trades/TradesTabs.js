@@ -7,8 +7,7 @@ export default class TradesTabs extends Component {
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
-        trades: PropTypes.object.isRequired,
-        tradesIds: PropTypes.array.isRequired,
+        trades: PropTypes.array.isRequired,
         ticks: PropTypes.object.isRequired,
     };
 
@@ -18,7 +17,7 @@ export default class TradesTabs extends Component {
 	}
 
     render() {
-        const { trades, tradesIds } = this.props;
+        const { trades } = this.props;
 
         return (
             <div className="trades-tabs">
@@ -26,10 +25,10 @@ export default class TradesTabs extends Component {
                     activeIndex={this.state.activeTab}
                     onChange={idx => this.setState({ activeTab: idx })}
                 >
-                    {tradesIds.map(id =>
+                    {trades.map((trade, index) =>
                         <Tab
-                            key={id}
-                            text={trades[id].symbol}
+                            key={index}
+                            text={trade.symbol}
                         />
                     )}
                 </TabList>

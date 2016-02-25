@@ -45,7 +45,6 @@ export default class GenericTradeCard extends Component {
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
-        assetsGrouped: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
         contract: PropTypes.object.isRequired,
         index: PropTypes.number.isRequired,

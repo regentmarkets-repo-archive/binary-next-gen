@@ -1,4 +1,4 @@
-import { fromJS, List } from 'immutable';
+import { fromJS } from 'immutable';
 
 import {
     SERVER_DATA_PORTFOLIO,
@@ -10,8 +10,8 @@ const initialState = fromJS([]);
 export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_PORTFOLIO: {
-            const contracts = fromJS(action.serverResponse.portfolio.contracts);
-            return state.merge(new List(contracts));
+            const contracts = action.serverResponse.portfolio.contracts;
+            return state.merge(fromJS(contracts));
         }
         case REMOVE_PERSONAL_DATA: {
             return initialState;

@@ -54,10 +54,9 @@ describe('singleTradeSelectors', () => {
         expect(actual.assets).to.be.ok;
     });
 
-    it.skip('will retrieve contact for trade', () => {
+    it.skip('will retrieve contarct for trade', () => {
         const state = testState();
         const actual = singleTradeSelectors(state);
-
         expect(actual.contract).to.be.ok;
     });
 

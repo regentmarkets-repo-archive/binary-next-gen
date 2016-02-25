@@ -14,7 +14,7 @@ import { normalizedContractFor } from '../_utils/ContractUtils';
  * list of min, max, unit [{ min, max, unit}]
  * list of [{barrier_name, barrier_default}]
 */
-const contractAggregation = (contracts, type) => ({
+const aggregateContracts = (contracts, type) => ({
     barriers: extractBarrier(contracts, type),
     durations: extractDuration(contracts, type),
     forwardStartingDuration: extractForwardStartingDuration(contracts, type),
@@ -28,18 +28,13 @@ const contractsPerSymbol = createSelector(
         Object.keys(normalized).forEach(category => {
             const categoryObj = normalized[category];
             Object.keys(categoryObj).forEach(type => {
-                const contractsPerType = contractAggregation(categoryObj[type], type);
+                const contractsPerType = aggregateContracts(categoryObj[type], type);
                 categoryObj[type] = contractsPerType;
             });
             normalized[category] = categoryObj;
         });
         return normalized;
     }
-);
-
-export const maxTradeIdSelector = createSelector(
-    state => state.trades,
-    trades => trades.size - 1
 );
 
 export const availableContractsSelector = createSelector(

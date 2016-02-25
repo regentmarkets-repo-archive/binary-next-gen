@@ -652,6 +652,10 @@ select {
     flex: 1;
 }
 
+.trades-tabs div[role=tablist] {
+    width: 100%;
+}
+
 .asset-picker-item:hover .asset-picker-trade-btn {
     visibility: visible;
 }
