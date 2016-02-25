@@ -15,19 +15,14 @@ export default class StatementCard extends Component {
 		transactionsTotal: PropTypes.number.isRequired,
 	};
 
-	onFilterChange(idx) {
-		const { actions } = this.props;
-		actions.updateWorkspaceField('transactionsFilter', idx);
-	}
-
 	render() {
-		const { compact, currency, transactionsFilter, transactions, transactionsTotal } = this.props;
+		const { actions, compact, currency, transactionsFilter, transactions, transactionsTotal } = this.props;
 
 		return (
 			<div>
 				<TabList
 					activeIndex={transactionsFilter}
-					onChange={::this.onFilterChange}
+					onChange={idx => actions.updateTransactionsFilter(idx)}
 				>
 					<Tab text="Today" />
 					<Tab text="Yesterday" />

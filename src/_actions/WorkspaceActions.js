@@ -17,20 +17,6 @@ export const updateTickTradeSubmarket = submarket => ({
     submarket,
 });
 
-export const updateTradingTimesDate = date =>
-    dispatch => {
-        LiveData.api.getTradingTimes(date);
-        dispatch({
-            type: types.UPDATE_TRADING_TIMES_DATE,
-            date,
-        });
-    };
-
-export const updateAssetIndexSubmarket = submarket => ({
-    type: types.UPDATE_ASSET_INDEX_SUBMARKET,
-    submarket,
-});
-
 export const clearTradeTicks = () => ({
     type: types.CLEAR_TRADE_TICKS,
 });

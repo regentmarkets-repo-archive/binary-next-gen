@@ -12,6 +12,7 @@ export * from './SigninActions';
 export * from './StatementActions';
 export * from './WatchlistActions';
 export * from './WorkspaceActions';
+export * from './ViewsActions';
 export * from './VideoActions';
 export * from './CreateAccountActions';
 export * from './PaymentAgentsActions';

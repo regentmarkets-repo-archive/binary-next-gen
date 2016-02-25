@@ -4,6 +4,7 @@ import {
     UPDATE_TRADING_TIMES_SUBMARKET,
     UPDATE_TRADING_TIMES_DATE,
     UPDATE_ASSET_INDEX_SUBMARKET,
+    UPDATE_TRANSACTIONS_FILTER,
 } from '../_constants/ActionTypes';
 
 const initialState = new Map({
@@ -27,6 +28,9 @@ export default (state = initialState, action) => {
         }
         case UPDATE_ASSET_INDEX_SUBMARKET: {
             return state.update('assetIndex', v => v.merge({ submarketId: action.submarket }));
+        }
+        case UPDATE_TRANSACTIONS_FILTER: {
+            return state.set('transactionsFilter', action.transactionsFilter);
         }
         default:
             return state;
