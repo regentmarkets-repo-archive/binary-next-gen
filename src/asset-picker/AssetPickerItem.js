@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
-import classNames from 'classnames';
 import shouldPureComponentUpdate from 'react-pure-render/function';
+import M from '../_common/M';
 import Star from '../_common/Star';
 
 export default class AssetPickerItem extends Component {
@@ -22,18 +22,17 @@ export default class AssetPickerItem extends Component {
 	render() {
 		const { asset, compact, onSelect, onCreateTrade, onToggleWatchlistItem } = this.props;
 		const { isOpen, isInWatchlist, symbol } = asset;
-		const itemClasses = classNames({
-			'asset-picker-item': true,
-			'market-closed': !isOpen,
-		});
 
 		return (
-			<tr className={itemClasses} tabIndex={0}>
+			<tr className="asset-picker-item" tabIndex={0}>
 				<td onClick={() => onToggleWatchlistItem(asset)}>
 					<Star on={isInWatchlist} />
 				</td>
 				<td onClick={() => onSelect(symbol)}>
 					{asset.name}
+				</td>
+				<td>
+					{!isOpen && <span className="closed-notice"><M m="Closed" /></span>}
 				</td>
 				{!compact && <td onClick={() => onCreateTrade(symbol)}>
 					<button className="asset-picker-trade-btn">

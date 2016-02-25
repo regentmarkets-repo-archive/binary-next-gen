@@ -779,7 +779,19 @@ input[type=number]::-webkit-outer-spin-button {
     height: 2rem;
 }
 
-.market-closed {
+.open-notice, .closed-notice {
+    margin-left: .5rem;
+    padding: 2px 5px;
     opacity: .75;
-    background: rgba(255, 0, 0, .1);
+    text-transform: uppercase;
+    color: white;
+    border-radius: 2px;
+}
+
+.closed-notice {
+    background: red;
+}
+
+.open-notice {
+    background: green;
 }
