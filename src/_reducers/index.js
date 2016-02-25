@@ -28,7 +28,7 @@ import proposals from './ProposalsReducer';
 import quickTrade from './QuickTradeReducer';
 import trades from './TradeReducer';
 import views from './ViewsReducer';
-import time from './ServerTimeReducer';
+import server from './ServerReducer';
 
 export default combineReducers({
     appState,
@@ -39,7 +39,7 @@ export default combineReducers({
     assetPicker,
     createAccount,
     news,
-    time,
+    server,
     paymentAgent,
     portfolio,
     contracts,

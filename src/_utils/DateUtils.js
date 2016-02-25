@@ -22,6 +22,9 @@ export const dateToTimeString = date =>
 export const dateToUTCTimeString = date =>
     date.toISOString().slice(11, 19);
 
+export const dateToGMTString = date =>
+    date.toISOString().replace(/T/, ' ').replace(/\..+/, '');
+
 /* ****************************
  * Epoch to ....
  *****************************/
