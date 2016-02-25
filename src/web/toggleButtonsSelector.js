@@ -1,10 +1,6 @@
-import { createSelector } from 'reselect';
-import { workspaceSelector } from '../_store/directSelectors';
+import { createStructuredSelector } from 'reselect';
 
-export default createSelector(
-    workspaceSelector,
-    workspace => ({
-        leftPanelVisible: workspace.get('leftPanelVisible'),
-        rightPanelVisible: workspace.get('rightPanelVisible'),
-    }),
-);
+export default createStructuredSelector({
+    leftPanelVisible: state => state.workspace.get('leftPanelVisible'),
+    rightPanelVisible: state => state.workspace.get('rightPanelVisible'),
+});

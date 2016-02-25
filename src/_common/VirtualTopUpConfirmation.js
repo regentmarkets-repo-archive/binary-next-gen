@@ -10,7 +10,7 @@ const TopUpConfirmation = ({ response }) => (
         {response.error ?
             <M m={response.error} /> :
             <div>
-                <NumberPlain currency={response.topup_virtual.currency} value={response.topup_virtual.amount}/>
+                <NumberPlain currency={response.topup_virtual.currency} value={response.topup_virtual.amount} />
                 &nbsp;has been credited to your Virtual money account
             </div>
         }

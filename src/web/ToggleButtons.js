@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import toggleButtonsSelector from './toggleButtonsSelector';
 
-@connect(toggleButtonsSelector)
 export default class ToggleButtons extends Component {
 
 	static propTypes = {
@@ -11,8 +10,6 @@ export default class ToggleButtons extends Component {
 		leftPanelVisible: PropTypes.bool.isRequired,
 		rightPanelVisible: PropTypes.bool.isRequired,
 	};
-
-	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		const { leftPanelVisible, rightPanelVisible, actions } = this.props;
@@ -26,7 +23,7 @@ export default class ToggleButtons extends Component {
 					<img src="img/left-panel.svg" />
 				</button>
 				<button
-					className={`btn-secondary`}
+					className="btn-secondary"
 					onClick={() => actions.toggleTradeMode()}
 				>
 					<img src="img/bottom-panel.svg" />
