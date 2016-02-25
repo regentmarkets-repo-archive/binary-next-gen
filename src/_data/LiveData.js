@@ -13,6 +13,7 @@ const handlers = {
     statement: 'serverDataStatement',
     tick: 'serverDataTickStream',
     history: 'serverDataTickHistory',
+    time: 'serverDataTime',
     proposal_open_contract: 'serverDataProposalOpenContract',
     payout_currencies: 'serverDataPayoutCurrencies',
     proposal: 'serverDataProposal',
@@ -55,6 +56,7 @@ const initUnauthorized = async (store) => {
     api.getActiveSymbolsFull();
     api.getTradingTimes();
     api.getAssetIndex();
+    api.getServerTime();
 
     const articles = await readNewsFeed('en');
     api.events.emit('news', articles);

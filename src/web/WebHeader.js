@@ -2,10 +2,10 @@ import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import config from '../config';
 import M from '../_common/M';
-import Clock from '../_common/Clock';
+import ClockContainer from './ClockContainer';
 import LanguagePicker from '../_common/LanguagePicker';
 import WebSidebar from '../sidebar/WebSidebar';
-import ToggleButtons from './ToggleButtons';
+import ToggleButtonsContainer from './ToggleButtonsContainer';
 import Balance from '../balance/BalanceContainer';
 
 export default class WebHeader extends Component {
@@ -30,10 +30,13 @@ export default class WebHeader extends Component {
 					<img src={config.logo} />
 					<img src={config.logo2} />
 				</div>
-				<div id="clock">
-					<Clock />
+
+				<div id="clock" >
+					<ClockContainer />
 				</div>
-				<ToggleButtons actions={this.props.actions} />
+
+				<ToggleButtonsContainer actions={this.props.actions} />
+
 				<button
 					id="new-trade-btn"
 					className="btn-secondary"
@@ -41,6 +44,7 @@ export default class WebHeader extends Component {
 				>
 					New Trade
 				</button>
+
 				<LanguagePicker className="language-picker" />
 				<Balance />
 				<Link to="/deposit" id="deposit-btn" className="btn-secondary">

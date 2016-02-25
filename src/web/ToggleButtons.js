@@ -4,7 +4,6 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 import classNames from 'classnames';
 import toggleButtonsSelector from './toggleButtonsSelector';
 
-@connect(toggleButtonsSelector)
 export default class ToggleButtons extends Component {
 
 	static propTypes = {
@@ -13,8 +12,6 @@ export default class ToggleButtons extends Component {
 		rightPanelVisible: PropTypes.bool.isRequired,
 		tradeMode: PropTypes.string.isRequired,
 	};
-
-	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		const { leftPanelVisible, rightPanelVisible, tradeMode, actions } = this.props;
@@ -50,6 +47,8 @@ export default class ToggleButtons extends Component {
 					<img src="img/left-panel.svg" />
 				</button>
 				<button
+					className="btn-secondary"
+					onClick={() => actions.toggleTradeMode()}
 					className={rightBtnClasses}
 					onClick={() => actions.togglePanel('right')}
 				>

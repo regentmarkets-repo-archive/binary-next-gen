@@ -1,18 +1,31 @@
-import React, { Component } from 'react';
-import { FormattedTime } from 'react-intl';
+import React, { Component, PropTypes } from 'react';
+import { FormattedTime, FormattedDate } from 'react-intl';
 
 export default class Clock extends Component {
+
+    static propTypes = {
+        time: PropTypes.number,
+    };
 
     constructor(props) {
         super(props);
 
         this.state = {
-            time: new Date(),
+            time: (new Date()).getTime(),
+            serverDiff: 0,
         };
     }
 
+    componentWillMount() {
+        const { time } = this.props;
+        const timeEpoch = (new Date()).getTime();
+        const diff = ((time * 1000) - timeEpoch);
+
+        this.setState({ serverDiff: diff });
+    }
+
     componentDidMount() {
-        this.interval = setInterval(() => this.setState({ time: new Date() }), 1000);
+        this.interval = setInterval(() => this.setState({ time: (new Date()).getTime() }), 1000);
     }
 
     componentWillUnmount() {
@@ -20,14 +33,14 @@ export default class Clock extends Component {
 	}
 
     render() {
-        const { time } = this.state;
+        const { time, serverDiff } = this.state;
+        const newEpoch = time + serverDiff;
+        const newtime = new Date(newEpoch).toISOString().replace(/T/, ' ').replace(/\..+/, '');
+
         return (
-            <FormattedTime
-                value={time}
-                hour="numeric"
-                minute="numeric"
-                second="numeric"
-            />
+            <div>
+                {newtime} GMT
+            </div>
         );
     }
 }

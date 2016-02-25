@@ -16,6 +16,7 @@ export const viewsSelector = state => state.views;
 export const loginidSelector = state => state.account.get('loginid');
 export const balanceSelector = state => state.account.get('balance');
 
+export const serverTimeSelector = state => state.time.get('time');
 export const currencySelector = state =>
     state.account.get('currency');
 
