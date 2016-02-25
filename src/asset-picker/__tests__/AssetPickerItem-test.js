@@ -9,22 +9,22 @@ describe('AssetPickerItem', () => {
     });
 
     it('should have a class applied if the market is closed', () => {
-        const wrapper = shallow(<AssetPickerItem asset={{ isOpen: false }}/>);
-        expect(wrapper.props().className).to.contain('market-closed');
+        const wrapper = shallow(<AssetPickerItem asset={{ isOpen: false }} />);
+        expect(wrapper.find('.closed-notice')).to.have.length(1);
     });
 
     it('should not have a class applied if the market is open', () => {
-        const wrapper = shallow(<AssetPickerItem asset={{ isOpen: true }}/>);
+        const wrapper = shallow(<AssetPickerItem asset={{ isOpen: true }} />);
         expect(wrapper.props().className).to.not.contain('market-closed');
     });
 
     it('should show an off star if item is not in watch list', () => {
-        const wrapper = shallow(<AssetPickerItem asset={{ isInWatchlist: false }}/>);
+        const wrapper = shallow(<AssetPickerItem asset={{ isInWatchlist: false }} />);
         expect(wrapper.find('Star').props().on).to.equal(false);
     });
 
     it('should show an on star if item is in watch list', () => {
-        const wrapper = shallow(<AssetPickerItem asset={{ isInWatchlist: true }}/>);
+        const wrapper = shallow(<AssetPickerItem asset={{ isInWatchlist: true }} />);
         expect(wrapper.find('Star').props().on).to.equal(true);
     });
 

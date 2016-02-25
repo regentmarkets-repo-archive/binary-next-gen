@@ -49,7 +49,6 @@ export const createDefaultBarriers = (contracts, category, type, duration, durat
     if (barrierByExpiry.length === 1) {
         switch (expiryType) {
             case 'tick': {
-                // console.log('Should not have tick expiry');
                 return [undefined, undefined];
             }
             case 'intraday': return [+barrierByExpiry[0].defaultValue];
@@ -61,7 +60,6 @@ export const createDefaultBarriers = (contracts, category, type, duration, durat
     if (barrierByExpiry.length === 2) {
         switch (expiryType) {
             case 'tick': {
-                // console.log('Should not have tick expiry');
                 return [undefined, undefined];
             }
             case 'intraday': return [+barrierByExpiry[0].defaultValue, +barrierByExpiry[1].defaultValue];

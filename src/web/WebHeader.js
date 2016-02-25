@@ -14,14 +14,9 @@ export default class WebHeader extends Component {
 		actions: PropTypes.object.isRequired,
 	};
 
-    createTrade() {
-        const { actions } = this.props;
-        // const maxId = tradesIds.reduce((a, b) => Math.max(a, b), -1);
-        actions.initTrade('123');
-    }
-
-
 	render() {
+		const { actions } = this.props;
+
 		return (
 			<div id="header" className="inverse">
 				<input id="hamburger-closer" type="radio" name="hamburger" defaultChecked />
@@ -39,8 +34,19 @@ export default class WebHeader extends Component {
 				<div id="clock" >
 					<ClockContainer />
 				</div>
+
 				<ToggleButtonsContainer actions={this.props.actions} />
 				<button id="new-trade-btn" className="btn-secondary" onClick={::this.createTrade}>New Trade</button>
+
+
+				<button
+					id="new-trade-btn"
+					className="btn-secondary"
+					onClick={() => actions.createTrade()}
+				>
+					New Trade
+				</button>
+
 				<LanguagePicker className="language-picker" />
 				<Balance />
 				<Link to="/deposit" id="deposit-btn" className="btn-secondary">

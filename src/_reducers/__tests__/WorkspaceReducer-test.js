@@ -24,9 +24,20 @@ describe('WorkspaceReducer', () => {
             expect(expected).to.equal(actual);
         });
 
-        it('should be able to toggle trade mode from tabs to grid', () => {
+        it('should be able to toggle trade mode from tabs to jp', () => {
             const stateBefore = fromJS({
                 tradeMode: 'tabs',
+            });
+            const actual = workspaceReducer(stateBefore, actions.toggleTradeMode());
+            const expected = fromJS({
+                tradeMode: 'jp',
+            });
+            expect(expected).to.equal(actual);
+        });
+
+        it('should be able to toggle trade mode from jp to grid', () => {
+            const stateBefore = fromJS({
+                tradeMode: 'jp',
             });
             const actual = workspaceReducer(stateBefore, actions.toggleTradeMode());
             const expected = fromJS({

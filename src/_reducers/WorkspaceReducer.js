@@ -9,6 +9,7 @@ import {
     CHANGE_ACTIVE_WORKSPACE_TAB,
     CHANGE_WORKSPACE_PANEL_SIZE,
     TOGGLE_TRADE_MODE,
+    CHANGE_TRADE_MODE,
     TOGGLE_PANEL,
 } from '../_constants/ActionTypes';
 
@@ -43,9 +44,11 @@ export default (state = initialState, action) => {
             return state.set(action.fieldName, action.fieldValue);
         }
         case CHANGE_ACTIVE_WORKSPACE_TAB: {
+            const panelVisible = state.get(action.panel + 'PanelVisible');
+            const sameTabSelected = state.get(action.panel + 'ActiveTab') === action.index;
             return state
                 .set(action.panel + 'ActiveTab', action.index)
-                .set(action.panel + 'PanelVisible', true);
+                .set(action.panel + 'PanelVisible', !(panelVisible && sameTabSelected));
         }
         case CHANGE_WORKSPACE_PANEL_SIZE: {
             return state
@@ -53,8 +56,13 @@ export default (state = initialState, action) => {
                 .set(action.panel + 'PanelVisible', action.size > 100);
         }
         case TOGGLE_TRADE_MODE: {
-            const newTradeMode = state.get('tradeMode') === 'grid' ? 'tabs' : 'grid';
-            return state.set('tradeMode', newTradeMode);
+            const tradeModes = ['grid', 'tabs', 'jp'];
+            const currentMode = tradeModes.indexOf(state.get('tradeMode'));
+            const newTradeModeIdx = currentMode >= tradeModes.length - 1 ? 0 : currentMode + 1;
+            return state.set('tradeMode', tradeModes[newTradeModeIdx]);
+        }
+        case CHANGE_TRADE_MODE: {
+            return state.set('tradeMode', action.tradeMode);
         }
         case TOGGLE_PANEL: {
             const panelField = action.panel + 'PanelVisible';

@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
+import classNames from 'classnames';
 import toggleButtonsSelector from './toggleButtonsSelector';
 
 export default class ToggleButtons extends Component {
@@ -9,15 +10,38 @@ export default class ToggleButtons extends Component {
 		actions: PropTypes.object.isRequired,
 		leftPanelVisible: PropTypes.bool.isRequired,
 		rightPanelVisible: PropTypes.bool.isRequired,
+		tradeMode: PropTypes.string.isRequired,
 	};
 
 	render() {
-		const { leftPanelVisible, rightPanelVisible, actions } = this.props;
+		const { leftPanelVisible, rightPanelVisible, tradeMode, actions } = this.props;
+
+		const leftBtnClasses = classNames({
+			'btn-secondary ': true,
+			checked: leftPanelVisible,
+		});
+		const rightBtnClasses = classNames({
+			'btn-secondary ': true,
+			checked: rightPanelVisible,
+		});
+
+		const gridBtnClasses = classNames({
+			'btn-secondary ': true,
+			checked: tradeMode === 'grid',
+		});
+		const tabsBtnClasses = classNames({
+			'btn-secondary ': true,
+			checked: tradeMode === 'tabs',
+		});
+		const jpBtnClasses = classNames({
+			'btn-secondary ': true,
+			checked: tradeMode === 'jp',
+		});
 
 		return (
 			<div className="toggle-buttons">
 				<button
-					className={`btn-secondary ${leftPanelVisible && 'checked'}`}
+					className={leftBtnClasses}
 					onClick={() => actions.togglePanel('left')}
 				>
 					<img src="img/left-panel.svg" />
@@ -25,14 +49,29 @@ export default class ToggleButtons extends Component {
 				<button
 					className="btn-secondary"
 					onClick={() => actions.toggleTradeMode()}
+					className={rightBtnClasses}
+					onClick={() => actions.togglePanel('right')}
+				>
+					<img src="img/right-panel.svg" />
+				</button>
+				&nbsp;
+				<button
+					className={gridBtnClasses}
+					onClick={() => actions.changeTradeMode('grid')}
 				>
 					<img src="img/bottom-panel.svg" />
 				</button>
 				<button
-					className={`btn-secondary ${rightPanelVisible && 'checked'}`}
-					onClick={() => actions.togglePanel('right')}
+					className={tabsBtnClasses}
+					onClick={() => actions.changeTradeMode('tabs')}
 				>
-					<img src="img/right-panel.svg" />
+					<img src="img/bottom-panel.svg" />
+				</button>
+				<button
+					className={jpBtnClasses}
+					onClick={() => actions.changeTradeMode('jp')}
+				>
+					<img src="img/bottom-panel.svg" />
 				</button>
 			</div>
 		);

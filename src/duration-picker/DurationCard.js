@@ -32,7 +32,7 @@ export default class DurationCard extends Component {
             onUnitChange,
             onDurationChange,
             onStartDateChange,
-            } = this.props;
+        } = this.props;
 
         const optionsToUse = dateStart && forwardStartingDuration ? forwardStartingDuration.options : options;
         const unitOptions = optionsToUse.map(opt => ({ value: opt.unit, text: durationText(opt.unit) }));
@@ -53,7 +53,7 @@ export default class DurationCard extends Component {
                     />
                 }
                 {currentUnitBlock ?
-                    <CollapsibleFormSnippet label="Durations">
+                    <CollapsibleFormSnippet label="Duration">
                         <div className="row">
                             <InputGroup
                                 type="number"
