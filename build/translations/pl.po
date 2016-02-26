@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-02-26 12:24+0000\n"
-"Last-Translator: Ewelina Bruździak <e.bruzdziak@gmail.com>\n"
+"PO-Revision-Date: 2016-02-26 12:34+0000\n"
+"Last-Translator: Anna Płochocka <plochocka.anna@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/pl/>\n"
 "Language: pl\n"
@@ -121,7 +121,7 @@ msgstr ""
 "Twój limit wypłat wynosi {limit} (lub jego ekwiwalent w innej walucie)."
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
-msgstr "Ekwiwalent {drawn} EUR został już wypłacony."
+msgstr "Wypłacono już równowartość {drawn} EUR."
 
 msgid "An additional password can be used to restrict access to the cashier."
 msgstr ""
@@ -153,7 +153,7 @@ msgid "Place Order"
 msgstr "Złóż zlecenie"
 
 msgid "{asset} will {type} over next {duration}"
-msgstr "{asset} {type} w przeciągu {duration}"
+msgstr "{asset} zanotuje {type} w ciągu {duration}"
 
 msgid "Price"
 msgstr "Cena"
@@ -174,7 +174,7 @@ msgid "Trade Confirmation"
 msgstr "Potwierdzenie zawarcia zakładu"
 
 msgid "Entry spot"
-msgstr "Punkt wejściowa"
+msgstr "Pozycja wejściowa"
 
 msgid "Exit spot"
 msgstr "Punkt wyjściowy"
@@ -186,13 +186,13 @@ msgid "Open Account"
 msgstr "Otwórz konto"
 
 msgid "Upgrade to Real Money Account"
-msgstr "Zaktualizuj do konta z prawdziwymi pieniędzmi"
+msgstr "Zamień na konto z prawdziwymi pieniędzmi"
 
 msgid "Date of birth"
 msgstr "Data urodzenia"
 
 msgid "Home Address"
-msgstr "Adres domowy"
+msgstr "Adres zamieszkania"
 
 msgid "Security"
 msgstr "Bezpieczeństwo"
@@ -267,7 +267,7 @@ msgid "Last 30 Days"
 msgstr "Ostatnie 30 dni"
 
 msgid "Daily Report"
-msgstr "Raport codzienny"
+msgstr "Raport dzienny"
 
 msgid "Up/Down"
 msgstr "Góra/Dół"
