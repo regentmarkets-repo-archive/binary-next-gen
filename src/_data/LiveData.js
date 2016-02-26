@@ -30,7 +30,7 @@ const handlers = {
 export const api = new LiveApi({ language: 'EN' });
 
 const subscribeToSelectedSymbol = st => {
-    const selectedSymbol = st.getState().workspace.get('symbolSelected');
+    const selectedSymbol = st.getState().workspace.get('selectedAsset');
     api.getTickHistory(selectedSymbol, { end: 'latest', count: 20 });
     api.subscribeToTick(selectedSymbol);
     st.dispatch(actions.getTradingOptions(selectedSymbol));

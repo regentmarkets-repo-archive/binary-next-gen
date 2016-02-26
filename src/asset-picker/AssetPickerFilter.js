@@ -6,10 +6,11 @@ export default class AssetPickerFilter extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
+		filter: PropTypes.object.isRequired,
 	};
 
 	render() {
-		const { actions } = this.props;
+		const { actions, filter } = this.props;
 
 		const onSearchQueryChange = e => actions.updateAssetPickerSearchQuery(e.target.value);
 		const onSubmarketChange = e => actions.updateAssetPickerSubmarket(e);
@@ -22,9 +23,11 @@ export default class AssetPickerFilter extends Component {
 					onChange={onSubmarketChange}
 					allOptionShown
 					showMarkets={showOnlyTickTradable ? ['Forex', 'Randoms'] : null}
+					value={filter.submarket}
 				/>
 				<InputGroup
 					className="asset-search"
+					defaultValue={filter.query}
 					type="search"
 					placeholder="Search for assets"
 					onChange={onSearchQueryChange}

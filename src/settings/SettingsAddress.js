@@ -77,7 +77,7 @@ export default class SettingsAddress extends Component {
 		return (
 			<div className="mobile-form">
 				<legend>
-					<M m="Location"/>
+					<M m="Location" />
 				</legend>
 				<TextAreaGroup
 					id="address"

@@ -58,11 +58,10 @@ export const availableAssetsSelector = createSelector(
     (tradingTimes, marketTree) => {
         const assetsGroupByMarkets = flattenSubmarkets(marketTree.toJS());
         const times = tradingTimes.toJS();
-        const filteredAssets = {};
-        Object.keys(assetsGroupByMarkets).forEach(m =>
-            filteredAssets[m] = availableAssetsFilter(assetsGroupByMarkets[m], times, nowAsEpoch())
-        );
-        return filteredAssets;
+        return Object.keys(assetsGroupByMarkets).reduce((acc, m) => {
+            acc[m] = availableAssetsFilter(assetsGroupByMarkets[m], times, nowAsEpoch());
+            return acc;
+        }, {});
     }
 );
 

@@ -32,7 +32,7 @@ export default class BarrierInput extends Component {
                     value={barrierType === 'relative' ? relativeValue : absoluteValue}
                 />
                 {(barrierType === 'relative' && absoluteValue) &&
-                    <p>Target spot: <NumberPlain value={absoluteValue} digits={pipSize}/> </p>}
+                    <p>Target spot: <NumberPlain value={absoluteValue} digits={pipSize} /></p>}
             </div>
         );
     }

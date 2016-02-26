@@ -1,4 +1,3 @@
-import { fromJS } from 'immutable';
 import { createStructuredSelector } from 'reselect';
 
 export const articlesSelector = state => state.news;

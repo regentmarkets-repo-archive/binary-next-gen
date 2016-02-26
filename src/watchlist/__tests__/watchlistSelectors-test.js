@@ -7,6 +7,7 @@ describe('watchlistSelectors', () => {
         assets: fromJS([]),
         ticks: fromJS({}),
         watchlist: fromJS([]),
+        workspace: fromJS({}),
     });
 
     it('should work with empty state', () => {
@@ -40,6 +41,7 @@ describe('watchlistSelectors', () => {
             watchlist: new Set([
                 'R_100',
             ]),
+            workspace: fromJS({}),
         };
 
         const watchlistView = watchlistSelectors(state).watchlistView.toJS();

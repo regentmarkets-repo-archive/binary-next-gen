@@ -14,13 +14,19 @@ export default class WatchlistRow extends Component {
 		diff: PropTypes.number.isRequired,
 		history: PropTypes.array.isRequired,
 		quote: PropTypes.number.isRequired,
+		selected: PropTypes.bool.isRequired,
+		symbol: PropTypes.string.isRequired,
+		onSelect: PropTypes.func.isRequired,
 	};
 
 	render() {
-		const { assetName, diff, history, quote } = this.props;
+		const { symbol, assetName, diff, history, quote, selected, onSelect } = this.props;
 
 		return (
-			<tr>
+			<tr tabIndex={0}
+				className={selected ? 'selected' : null}
+				onClick={() => onSelect(symbol)}
+			>
 				<td className="row-id">{assetName}</td>
 				<td><NumberPlain value={quote} /></td>
 				<td><Direction diff={diff} /> <NumberColored value={diff} /></td>

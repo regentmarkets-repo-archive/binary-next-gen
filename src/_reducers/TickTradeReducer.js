@@ -1,7 +1,7 @@
 import { fromJS, List } from 'immutable';
 
 import {
-    WORKSPACE_ASSET_SELECT,
+    CHANGE_SELECTED_ASSET,
     SERVER_DATA_PROPOSAL,
     UPDATE_TICK_TRADE_PARAMETERS,
     SERVER_DATA_BUY,
@@ -28,7 +28,7 @@ export default (state = initialState, action) => {
         case CLEAR_TRADE_TICKS: {
             return state.set('ticks', fromJS([])).set('ticksHistory', fromJS([]));
         }
-        case WORKSPACE_ASSET_SELECT: {
+        case CHANGE_SELECTED_ASSET: {
             return state.merge({ assetSymbol: action.symbol });
         }
         case UPDATE_TICK_TRADE_PARAMETERS: {

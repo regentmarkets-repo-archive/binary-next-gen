@@ -5,7 +5,6 @@ import * as LiveData from '../_data/LiveData';
 import VirtualTopUpConfirmation from '../_common/VirtualTopUpConfirmation';
 import Modal from '../containers/Modal';
 
-
 export default class SettingsGeneral extends Component {
 
 	static propTypes = {
@@ -32,7 +31,7 @@ export default class SettingsGeneral extends Component {
 
 	render() {
 		const { theme } = this.props.appConfig;
-		const { balance, loginid, actions } = this.props;
+		const { balance, actions } = this.props;
         const topupVirtual = this.props.settings.topup_virtual;
 
 		return (
@@ -45,14 +44,17 @@ export default class SettingsGeneral extends Component {
 					<option value="dark">Dark</option>
 				</select>
 
-                <Modal shown={ !!(topupVirtual) } onClose={() => actions.updateSettingFields({ topup_virtual: null }, false)}>
+				<Modal
+					shown={topupVirtual}
+					onClose={() => actions.updateSettingFields({ topup_virtual: null }, false)}
+				>
                     <VirtualTopUpConfirmation response = { topupVirtual } />
                 </Modal>
                 {
                     (balance < 1000)
                         ?
                             <button className="buy-btn" onClick={::this.topupClick}>
-                                <M m="Deposit USD 10000 virtual money into your account "/>
+                                <M m="Deposit USD 10000 virtual money into your account " />
                             </button>
                         :
                             null

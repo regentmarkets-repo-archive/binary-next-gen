@@ -11,7 +11,7 @@ describe('Article', () => {
             params: { index: 1 },
         };
 
-        const wrapper = shallow(<Article {...(props)}/>);
+        const wrapper = shallow(<Article {...(props)} />);
         expect(wrapper.render().text()).to.contain('Article Title');
     });
 });

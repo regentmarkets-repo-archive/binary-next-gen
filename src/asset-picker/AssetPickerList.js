@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import { findDOMNode } from 'react-dom';
 import AssetPickerItem from './AssetPickerItem';
 import AssetPickerHeader from './AssetPickerHeader';
 
@@ -8,10 +9,16 @@ export default class AssetPickerList extends Component {
 		assets: PropTypes.array.isRequired,
 		compact: PropTypes.bool,
 		grouped: PropTypes.bool,
+		selectedAsset: PropTypes.string,
 	};
 
+	componentDidMount() {
+		const focusedNode = findDOMNode(this.refs.focused);
+		if (focusedNode) focusedNode.focus();
+    }
+
 	render() {
-		const { assets, grouped } = this.props;
+		const { assets, grouped, selectedAsset } = this.props;
 
 		let prevMarket = '';
 		let prevSubmarket = '';
@@ -40,6 +47,8 @@ export default class AssetPickerList extends Component {
 										<AssetPickerItem
 											key={x.symbol}
 											asset={x}
+											selected={selectedAsset === x.symbol}
+											ref={selectedAsset === x.symbol ? 'focused' : null}
 											{...this.props}
 										/>
 									)

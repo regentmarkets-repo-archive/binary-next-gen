@@ -70,7 +70,7 @@ export default class DurationCard extends Component {
                         </div>
                         <ErrorMsg shown={showError} text={errorMsg} />
                     </CollapsibleFormSnippet> :
-                    <div/>}
+                    <div />}
             </div>
         );
     }

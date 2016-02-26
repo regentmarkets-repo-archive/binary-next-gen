@@ -1,4 +1,5 @@
-import React, { PropTypes } from 'react';
+import React from 'react';
+import { showInfo, showError } from '../_utils/MessagingUtils';
 import M from '../_common/M';
 import InputGroup from '../_common/InputGroup';
 import * as LiveData from '../_data/LiveData';
@@ -9,28 +10,27 @@ export default class SettingsChangePassword extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            currpassword: '',
-            newpassword: '',
-            verpassword: '',
+            currentPassword: '',
+            newPassword: '',
+            confirmPassword: '',
         };
     }
 
     async sendRequest(req) {
         try {
             await LiveData.api.changePassword(req);
-            alert('Password changed successfully.');
+            showInfo('Password changed successfully.');
         } catch (e) {
-            alert(e.message);
+            showError(e.message);
         }
     }
 
-    Click() {
-
-        const { currpassword, newpassword, verpassword } = this.state;
-        if (!!(Validation.isValidPassword(newpassword, verpassword))) {
+    onClick() {
+        const { currentPassword, newPassword, confirmPassword } = this.state;
+        if (Validation.isValidPassword(newPassword, confirmPassword)) {
             this.sendRequest({
-                old_password: currpassword,
-                new_password: newpassword,
+                old_password: currentPassword,
+                new_password: newPassword,
             });
         } else {
             null;   // Handle the error messages here console.log('The passwords do not match or lessthan 7');
@@ -48,7 +48,6 @@ export default class SettingsChangePassword extends React.Component {
                     value={currpassword}
                     onChange={e => this.setState({ currpassword: e.target.value })}
                 />
-
                 <InputGroup
                     id="newpassword"
                     label="New password"
@@ -64,11 +63,9 @@ export default class SettingsChangePassword extends React.Component {
                     value={verpassword}
                     onChange={e => this.setState({ verpassword: e.target.value })}
                 />
-
-                <button onClick={::this.Click}>
-                    <M m="Change Password"/>
+                <button onClick={::this.onClick}>
+                    <M m="Change Password" />
                 </button>
-
             </div>
         );
     }

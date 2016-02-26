@@ -105,7 +105,7 @@ export default class UpgradeStep2 extends Component {
 					<label><M m="Home Address" /></label>
 				</p>
 				<p>
-					<Countries onChange={::this.countryChange} value={residence}/>
+					<Countries onChange={::this.countryChange} value={residence} />
 					<States country={residence} onChange={::this.stateChange} value={addressState} />
 				</p>
 				<ErrorMsg

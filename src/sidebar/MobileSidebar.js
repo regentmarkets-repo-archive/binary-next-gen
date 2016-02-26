@@ -21,8 +21,8 @@ export default class MobileSidebar extends Component {
 		return (
 			<nav className="sidebar">
 				<div className="account-info">
-					{loginid}<br/>
-					{email}<br/>
+					{loginid}<br />
+					{email}<br />
 					<BalanceContainer />
 				</div>
 				<SidebarBtn to="/mobile" img="img/trade.svg" text="Tick Trade" />

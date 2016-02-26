@@ -20,8 +20,8 @@ export default class MobileSidebar extends Component {
 		return (
 			<nav className="sidebar">
 				<div className="account-info">
-					{loginid}<br/>
-					{email}<br/>
+					{loginid}<br />
+					{email}<br />
 				</div>
 				<SidebarBtn to="/settings-mobile" img="img/settings.svg" text="Settings" />
 				<SidebarBtn to="/signout" img="img/signout.svg" text="Sign Out" />

@@ -67,3 +67,17 @@ export const netProfitFromProposal = proposal =>
 
 export const returnPercentageFromProposal = proposal =>
     netProfitFromProposal(proposal) / askPriceFromProposal(proposal) * 100;
+
+export const digitOptionsByType = type => {
+	switch (type) {
+		case 'DIGITOVER': {
+			return digitOptions(0, 9);
+		}
+		case 'DIGITUNDER': {
+			return digitOptions(1, 10);
+		}
+		default: {
+			return digitOptions(0, 10);
+		}
+	}
+};

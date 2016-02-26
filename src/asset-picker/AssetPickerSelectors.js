@@ -1,5 +1,5 @@
 import { createSelector, createStructuredSelector } from 'reselect';
-import { assetsSelector, watchlistSelector, workspaceSelector } from '../_store/directSelectors';
+import { assetsSelector, watchlistSelector, selectedAssetSelector } from '../_store/directSelectors';
 
 export const symbolIdsSelector = createSelector(
      assetsSelector,
@@ -91,5 +91,5 @@ export default createStructuredSelector({
     availableAssets: availableAssetsSelector,
     assetPickerItems: assetPickerItemsSelector,
 	filter: assetFilterSelector,
-	workspace: workspaceSelector,
+	selectedAsset: selectedAssetSelector,
 });

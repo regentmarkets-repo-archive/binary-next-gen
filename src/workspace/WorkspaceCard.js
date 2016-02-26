@@ -21,6 +21,7 @@ export default class WorkspaceCard extends Component {
 				<TabList
 					id="left-tab-list"
 					vertical
+					activeIndex={workspace.leftActiveTab}
 					showText={false}
 					onChange={idx => actions.changeActiveWorkspaceTab('left', idx)}
 				>
@@ -48,6 +49,7 @@ export default class WorkspaceCard extends Component {
 				<TabList
 					id="right-tab-list"
 					vertical
+					activeIndex={workspace.rightActiveTab}
 					showText={false}
 					onChange={idx => actions.changeActiveWorkspaceTab('right', idx)}
 				>

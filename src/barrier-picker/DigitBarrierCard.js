@@ -28,7 +28,7 @@ export default class DigitBarrierCard extends Component {
                             onChange={onBarrierChange}
                         />
                     </div> :
-                    <div/>}
+                    <div />}
             </CollapsibleFormSnippet>
         );
     }

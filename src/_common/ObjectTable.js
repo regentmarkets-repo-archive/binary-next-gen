@@ -15,7 +15,7 @@ const ObjectTable = ({ object }) => (
 			</tr>
 		</thead>
 		<tbody>
-			{Object.keys(object).map(k => <ObjectTableRow key={k} name={k} value={object[k]}/>)}
+			{Object.keys(object).map(k => <ObjectTableRow key={k} name={k} value={object[k]} />)}
 		</tbody>
 	</table>
 );

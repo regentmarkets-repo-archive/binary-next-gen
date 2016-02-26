@@ -1,7 +1,7 @@
 import { Map } from 'immutable';
 
 import {
-    WORKSPACE_ASSET_SELECT,
+    CHANGE_SELECTED_ASSET,
     WORKSPACE_FAVOR_ASSET,
     WORKSPACE_UNFAVOR_ASSET,
     CHANGE_ACTIVE_TAB,
@@ -21,7 +21,8 @@ const initialState = new Map({
     rightPanelSize: 320,
     rightActiveTab: 0,
     tradeMode: 'grid',
-    symbolSelected: 'R_100',
+    activeTradeIndex: 0,
+    selectedAsset: 'R_100',
 });
 
 export default (state = initialState, action) => {
@@ -29,8 +30,8 @@ export default (state = initialState, action) => {
         case CHANGE_ACTIVE_TAB: {
             return state.set(action.panel + 'ActiveTab', action.index);
         }
-        case WORKSPACE_ASSET_SELECT: {
-            return state.set('symbolSelected', action.symbol);
+        case CHANGE_SELECTED_ASSET: {
+            return state.set('selectedAsset', action.symbol);
         }
         case WORKSPACE_FAVOR_ASSET: {
             const newState = state.update('favoriteAssets', x => x.add(action.symbol));

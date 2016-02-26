@@ -3,7 +3,6 @@ import * as LiveData from '../_data/LiveData';
 import { updateSoldContract } from './PortfolioActions';
 import { trackEvent } from '../_utils/Analytics';
 import { numberToSignedString } from '../_utils/StringUtils';
-import { findIfExist } from '../_utils/ObjectUtils';
 
 export const serverDataProposal = serverResponse => ({
     type: types.SERVER_DATA_PROPOSAL,

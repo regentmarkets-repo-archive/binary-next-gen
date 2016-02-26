@@ -54,7 +54,6 @@ export default class CreateAccountCard extends Component {
                 await LiveData.api.verifyEmail(email, 'account_opening');
                 actions.createAccountFieldUpdate('step', 1);
                 actions.createAccountFieldUpdate('progress', false);
-
             } catch (err) {
                 actions.createAccountFieldUpdate('error', err);
             }
@@ -97,7 +96,7 @@ export default class CreateAccountCard extends Component {
                         text="You need to enter an email"
                     />
                     <fieldset>
-                        <Countries onChange={::this.residenceChange}/>
+                        <Countries onChange={::this.residenceChange} />
                     </fieldset>
                     <ErrorMsg
                         shown={validatedOnce && countryNotSelected}

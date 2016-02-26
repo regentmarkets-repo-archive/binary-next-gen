@@ -12,13 +12,11 @@ export const submarketsToSymbols = submarkets =>
         []
     );
 
-export const flattenSubmarkets = markets => {
-    const flatten = {};
-    Object.keys(markets).forEach(m =>
-        flatten[m] = submarketsToSymbols(markets[m].submarkets)
-    );
-    return flatten;
-};
+export const flattenSubmarkets = markets =>
+    Object.keys(markets).reduce((acc, m) => {
+        acc[m] = submarketsToSymbols(markets[m].submarkets);
+        return acc;
+    }, {});
 
 export const availableAssetsFilter = (assets, times, now) => {
     const nowInTimeString = epochToUTCTimeString(now);

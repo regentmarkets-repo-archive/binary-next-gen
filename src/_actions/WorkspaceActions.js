@@ -1,8 +1,8 @@
 import * as types from '../_constants/ActionTypes';
 import * as LiveData from '../_data/LiveData';
 
-export const workspaceAssetSelect = symbol => ({
-    type: types.WORKSPACE_ASSET_SELECT,
+export const changeSelectedAsset = symbol => ({
+    type: types.CHANGE_SELECTED_ASSET,
     symbol,
 });
 
@@ -24,7 +24,7 @@ export const clearTradeTicks = () => ({
 export const selectAssetSymbolForTrade = (newSymbol, oldSymbol) =>
     dispatch => {
         dispatch(clearTradeTicks());
-        dispatch(workspaceAssetSelect(newSymbol));
+        dispatch(changeSelectedAsset(newSymbol));
         LiveData.api.getTickHistory(newSymbol, { end: 'latest', count: 50 });
         LiveData.api.unsubscribeFromTick(oldSymbol);
         LiveData.api.subscribeToTick(newSymbol);

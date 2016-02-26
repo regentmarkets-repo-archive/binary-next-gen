@@ -64,7 +64,7 @@ export default class SpreadBarrierCard extends Component {
                         onChange={stopProfitChange}
                     />
                 </CollapsibleFormSnippet> :
-                <div/>
+                <div />
         );
     }
 }

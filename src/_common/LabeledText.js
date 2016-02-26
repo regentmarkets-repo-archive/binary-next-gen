@@ -1,17 +1,22 @@
 import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
 
-const LabeledText = ({ id, label, value = 'N/A' }) => (
-    <div id={id} className={'name-val-pair'}>
-        <M className={'name'} id={label + ':'} m={label + ':'}/>
-        <M className={'val'} id={value} m={value}/>
-    </div>
-);
+export default class LabeledText extends Component {
 
-LabeledText.propTypes = {
-    id: PropTypes.string,
-    label: PropTypes.string.isRequired,
-    value: PropTypes.string,
-};
+    static propTypes = {
+        id: PropTypes.string,
+        label: PropTypes.string.isRequired,
+        value: PropTypes.string,
+    };
 
-export default LabeledText;
+    render() {
+        const { id, label, value = 'N/A' } = this.props;
+
+        return (
+            <div id={id} className={'name-val-pair'}>
+                <M className={'name'} id={label + ':'} m={label + ':'} />
+                <M className={'val'} id={value} m={value} />
+            </div>
+        );
+    }
+}

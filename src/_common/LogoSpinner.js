@@ -1,15 +1,17 @@
 import React, { PropTypes, Component } from 'react';
 
-const LogoSpinner = ({ spinning }) => {
-	const classNames = [spinning ? 'spinner' : null];
+export default class LogoSpinner extends Component {
 
-	return (
-		<img className={classNames.join(' ')} src="img/binary-symbol-logo.svg"/>
-	);
-};
+	static propTypes = {
+		spinning: PropTypes.bool,
+	};
 
-LogoSpinner.propTypes = {
-	spinning: PropTypes.bool,
-};
+	render() {
+		const { spinning } = this.props;
+		const classNames = [spinning ? 'spinner' : null];
 
-export default LogoSpinner;
+		return (
+			<img className={classNames.join(' ')} src="img/binary-symbol-logo.svg" />
+		);
+	}
+}

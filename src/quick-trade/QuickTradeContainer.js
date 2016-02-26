@@ -23,7 +23,7 @@ export default class QuickTradeContainer extends Component {
 
     render() {
         const { tradingOptions, workspace, assetPicker, proposals } = this.props;
-        const selected = workspace.get('symbolSelected');
+        const selected = workspace.get('selectedAsset');
         const availableAssets = assetPicker.get('availableAssets').toJS();
         const assets = availableAssets.map(x => ({ value: x.symbol, text: x.display_name }));
 

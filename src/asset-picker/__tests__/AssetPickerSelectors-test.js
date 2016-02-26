@@ -57,6 +57,7 @@ describe('AssetPickerSelectors', () => {
             assets: fromJS([]),
             assetPicker: fromJS({}),
             trades: fromJS([]),
+            workspace: fromJS({}),
         });
 
         it('should be able to execute', () => {

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 
 const MONTHS = [
 	'January',
@@ -15,11 +15,23 @@ const MONTHS = [
 	'December',
 ];
 
-export default ({ month, onMonthChange }) => (
-	<select id="dobmm" name="dobmm" defaultValue={month} onChange={onMonthChange}>
-		<option disabled>Month</option>
-		{MONTHS.map((o, i) =>
-			<option key={i} value={i}>{o}</option>
-		)}
-	</select>
-);
+export default class DobMonth extends Component {
+
+	static propTypes = {
+		month: PropTypes.number,
+		onMonthChange: PropTypes.func,
+	};
+
+	render() {
+		const { month, onMonthChange } = this.props;
+
+		return (
+			<select id="dobmm" name="dobmm" defaultValue={month} onChange={onMonthChange}>
+				<option disabled>Month</option>
+				{MONTHS.map((o, i) =>
+					<option key={i} value={i}>{o}</option>
+				)}
+			</select>
+		);
+	}
+}

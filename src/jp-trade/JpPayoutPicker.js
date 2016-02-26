@@ -17,8 +17,8 @@ export default class JpTradeCard extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    {Array.from(new Array(10)).map(() =>
-                        <tr>
+                    {Array.from(new Array(10)).map((x) =>
+                        <tr key={x}>
                             <td>81.777</td>
                             <td>
                                 1,000<button className="btn-secondary">Buy</button>
