@@ -2,24 +2,28 @@ import React, { PropTypes, Component } from 'react';
 
 import { Sparklines, SparklinesLine, SparklinesSpots } from 'react-sparklines';
 
-const WatchlistSparkline = (props) => (
-	<Sparklines
-		data={props.history.map((h) => h.quote)}
-		limit={30}
-		width={60}
-		{...props}
-	>
-		<SparklinesLine />
-		<SparklinesSpots />
-	</Sparklines>
-);
+export default class WatchlistSparkline extends Component {
 
-WatchlistSparkline.propTypes = {
-	history: PropTypes.array,
-};
+	static propTypes = {
+		history: PropTypes.array,
+	};
 
-WatchlistSparkline.defaultProps = {
-	history: [],
-};
+	static defaultProps = {
+		history: [],
+	};
 
-export default WatchlistSparkline;
+	render() {
+		const { history } = this.props;
+		return (
+			<Sparklines
+				data={history.map((h) => h.quote)}
+				limit={30}
+				width={60}
+				{...this.props}
+			>
+				<SparklinesLine />
+				<SparklinesSpots />
+			</Sparklines>
+		);
+	}
+}

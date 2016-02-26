@@ -28,7 +28,7 @@ export default class QuickTradeCard extends Component {
                     value={assetSelected}
                     onChange={::this.onAssetChange}
                 />
-                {trades && <QuickTradeList trades={trades} {...this.props}/>}
+                {trades && <QuickTradeList trades={trades} {...this.props} />}
             </div>
         );
     }

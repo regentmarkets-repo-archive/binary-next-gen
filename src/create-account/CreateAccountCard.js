@@ -17,7 +17,7 @@ export default class CreateAccountCard extends Component {
 		return (
 			<div>
 				<p className="media">
-					<LogoSpinner spinning={progress}/>
+					<LogoSpinner spinning={progress} />
 					<img className="logo-text" src="img/binary-type-logo.svg" />
 				</p>
 				{step === 1 ?

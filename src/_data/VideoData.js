@@ -6,7 +6,7 @@ const dailyNewsPlaylist = 'PLVJJAiu3lRjYz1XO_yoyIRxgz5zBlQc-g';
 const playlistItemApiUrl = 'https://www.googleapis.com/youtube/v3/playlistItems';
 const playlistApiUrl = 'https://www.googleapis.com/youtube/v3/playlists';
 
-export const getVideosFromPlayList = async (playlistId = dailyNewsPlaylist, max = 50) => {
+export const getVideosFromPlayList = async () => {
     const queryUrl = `${playlistItemApiUrl}?part=contentDetails,snippet,status` +
         `&playlistId=${dailyNewsPlaylist}&maxResults=${50}&key=${key}`;
 

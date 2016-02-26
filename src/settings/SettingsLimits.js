@@ -23,7 +23,7 @@ export default class SettingsLimits extends Component {
 								<M m="Item" />
 							</th>
 							<th>
-								<M m="Limit ({currency})" values={{ currency: 'USD' }}/>
+								<M m="Limit ({currency})" values={{ currency: 'USD' }} />
 							</th>
 						</tr>
 					</thead>

@@ -16,9 +16,9 @@ export const createVerticalLine = (xVal, yMin, yMax, type) => ([
             normal: {
                 color: type === 'expire' ? 'rgb(239, 121, 92)' : 'rgb(252, 225, 162)',
                 width: 1,
-                type: 'dotted'
-            }
-        }
+                type: 'dotted',
+            },
+        },
     },
     {
         coord: [xVal, yMax],
@@ -26,9 +26,9 @@ export const createVerticalLine = (xVal, yMin, yMax, type) => ([
             normal: {
                 color: type === 'expire' ? 'rgb(239, 121, 92)' : 'rgb(252, 225, 162)',
                 width: 1,
-                type: 'dotted'
-            }
-        }
+                type: 'dotted',
+            },
+        },
     },
 ]);
 
@@ -45,8 +45,8 @@ export const createTimeBoundary = (line1, line2) => {
         symbol: 'none',
         data: [
             line1Opt,
-            line2Opt
-        ]
+            line2Opt,
+        ],
     };
 };
 

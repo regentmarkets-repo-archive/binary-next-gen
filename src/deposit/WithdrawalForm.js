@@ -119,7 +119,7 @@ export default class WithdrawForm extends Component {
                     text=""
                 />
                 <button onClick={::this.tryWithdraw}>
-                    <M m="Withdraw"/>
+                    <M m="Withdraw" />
                 </button>
             </div>
         );

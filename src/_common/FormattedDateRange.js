@@ -1,15 +1,20 @@
 import React, { PropTypes, Component } from 'react';
 import { FormattedDate } from 'react-intl';
 
-const FormattedDateRange = ({ fromDate, toDate }) => (
-	<span>
-		<FormattedDate value={fromDate} /> – <FormattedDate value={toDate} />
-	</span>
-);
+export default class FormattedDateRange extends Component {
 
-FormattedDate.propTypes = {
-	fromDate: PropTypes.instanceOf(Date),
-	toDate: PropTypes.instanceOf(Date),
-};
+	static propTypes = {
+		fromDate: PropTypes.instanceOf(Date),
+		toDate: PropTypes.instanceOf(Date),
+	};
 
-export default FormattedDateRange;
+	render() {
+		const { fromDate, toDate } = this.props;
+
+		return (
+			<span>
+				<FormattedDate value={fromDate} /> – <FormattedDate value={toDate} />
+			</span>
+		);
+	}
+}

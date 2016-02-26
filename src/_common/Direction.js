@@ -3,7 +3,7 @@ import React, { PropTypes, Component } from 'react';
 const DirectionNone = ({ width, height }) =>
 	<rect
 		x={width / 5}
-		y={height / 5 * 2}
+		y={height / 5 * 3}
 		width={width / 5 * 3}
 		height={height / 5}
 		style={{ fill: 'grey ' }}
@@ -21,6 +21,11 @@ const DirectionDown = ({ width, height }) =>
 		style={{ fill: 'red' }}
 	/>;
 
+DirectionNone.propTypes = DirectionUp.propTypes = DirectionDown.propTypes = {
+	width: PropTypes.number,
+	height: PropTypes.number,
+};
+
 const getDirectionComponent = diff => {
 	switch (Math.sign(diff)) {
 		case -1: return DirectionDown;
@@ -29,25 +34,28 @@ const getDirectionComponent = diff => {
 	}
 };
 
-const Direction = ({ diff, width, height }) => {
-	const DirectionComponent = getDirectionComponent(diff);
-	return (
-		<svg width={width} height={height}>
-			<DirectionComponent width={width} height={height} />
-		</svg>
-	);
-};
+export default class Direction extends Component {
 
-Direction.propTypes = {
-	diff: PropTypes.number,
-	width: PropTypes.number,
-	height: PropTypes.number,
-};
+	static propTypes = {
+		diff: PropTypes.number,
+		width: PropTypes.number,
+		height: PropTypes.number,
+	};
 
-Direction.defaultProps = {
-	diff: 0,
-	width: 15 * 0.866,
-	height: 15,
-};
+	static defaultProps = {
+		diff: 0,
+		width: 15 * 0.866,
+		height: 15,
+	};
 
-export default Direction;
+	render() {
+		const { diff, width, height } = this.props;
+		const DirectionComponent = getDirectionComponent(diff);
+
+		return (
+			<svg width={width} height={height}>
+				<DirectionComponent width={width} height={height} />
+			</svg>
+		);
+	}
+}

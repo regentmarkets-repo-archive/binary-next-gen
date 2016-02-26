@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import { showError } from '../_utils/MessagingUtils';
 import M from '../_common/M';
 import InputGroup from '../_common/InputGroup';
 import * as LiveData from '../_data/LiveData';
@@ -30,7 +31,7 @@ export default class SettingsSecurity extends Component {
         try {
             await LiveData.api.setCashierLock(req);
         } catch (e) {
-            alert(e.message);
+            showError(e.message);
         }
 
         this.clearState();
@@ -45,12 +46,10 @@ export default class SettingsSecurity extends Component {
                 unlock_password: password1,
             });
         } else {
-            Validation.isValidPassword(password1, password2)
-                ?
-                  this.sendRequest({
-                      lock_password: password1,
-                  })
-                :
+            Validation.isValidPassword(password1, password2) ?
+                this.sendRequest({
+                    lock_password: password1,
+                }) :
                 null;   // Handle the error messages here console.log('The passwords do not match or lessthan 7');
         }
     }
@@ -61,7 +60,7 @@ export default class SettingsSecurity extends Component {
 		return (
 			<div className="mobile-form">
 				<p>
-					<M m="An additional password can be used to restrict access to the cashier."/>
+					<M m="An additional password can be used to restrict access to the cashier." />
 				</p>
 				<InputGroup
 					id="password1"
@@ -78,12 +77,11 @@ export default class SettingsSecurity extends Component {
 							type="password"
                             value={password2}
                             onChange={e => this.setState({ password2: e.target.value })}
-						/>
-					:
+						/> :
 						null
 				}
 				<button onClick={::this.onClick}>
-					<M m="Update"/>
+					<M m="Update" />
 				</button>
 			</div>
 		);

@@ -1,8 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import { connect } from 'react-redux';
-import shouldPureComponentUpdate from 'react-pure-render/function';
 import classNames from 'classnames';
-import toggleButtonsSelector from './toggleButtonsSelector';
 
 export default class ToggleButtons extends Component {
 

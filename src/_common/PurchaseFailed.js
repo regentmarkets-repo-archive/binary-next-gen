@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 
 const PurchaseFailed = ({ failure }) => (
     <div>
@@ -6,5 +6,9 @@ const PurchaseFailed = ({ failure }) => (
         <p>{failure.message}</p>
     </div>
 );
+
+PurchaseFailed.propTypes = {
+    failure: PropTypes.object,
+};
 
 export default PurchaseFailed;

@@ -4,6 +4,6 @@ import DepositContainer from './DepositContainer';
 
 export default (props) => (
     <MobilePage toolbarShown={false} backBtnBarTitle="Deposit">
-        <DepositContainer {...props}/>
+        <DepositContainer {...props} />
     </MobilePage>
 );

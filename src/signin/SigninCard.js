@@ -57,7 +57,7 @@ export default class SigninCard extends Component {
 			<div className="startup-content">
 				<form className="mobile-form" onSubmit={e => e.preventDefault()}>
 					<p className="media">
-						<LogoSpinner spinning={progress}/>
+						<LogoSpinner spinning={progress} />
 						<img className="logo-text" src="img/binary-type-logo.svg" />
 					</p>
 					<InputGroup

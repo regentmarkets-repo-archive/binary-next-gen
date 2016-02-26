@@ -30,7 +30,7 @@ export default class StatementTable extends Component {
 							</th>
 						}
 						<th>
-							<M m="Action"/>
+							<M m="Action" />
 						</th>
 						<th>
 							<M m="Credit/Debit" />

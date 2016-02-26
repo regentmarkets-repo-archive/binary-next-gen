@@ -87,7 +87,7 @@ export default class ContractDetailsCard extends Component {
 					</thead>
 					<tbody>
 						<tr>
-							<td><NumberPlain value={contract.buy_price} currency={contract.currency}/></td>
+							<td><NumberPlain value={contract.buy_price} currency={contract.currency} /></td>
 							<td>
 								{contract &&
 								<NumberColored
@@ -97,7 +97,7 @@ export default class ContractDetailsCard extends Component {
 								/>}
 							</td>
 							<td>{contract.final_price
-									? <NumberPlain value={contract.final_price} currency={contract.currency}/>
+									? <NumberPlain value={contract.final_price} currency={contract.currency} />
 									: '-'}</td>
 						</tr>
 						<tr>
@@ -119,7 +119,7 @@ export default class ContractDetailsCard extends Component {
 				</table>
 				{contract && (contract.is_valid_to_sell === 1) ?
 					<div>
-						<LabeledText id="market-price" label="Market Price" value={contract.bid_price}/>
+						<LabeledText id="market-price" label="Market Price" value={contract.bid_price} />
 						<button onClick={() => actions.sellContract(contract.contract_id, 0)}>
 							Sell at market
 						</button>

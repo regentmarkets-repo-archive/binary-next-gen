@@ -27,7 +27,7 @@ export default class ContractStatsCard extends Component {
                     label={spread ? 'Maximum winning' : 'Potential Winning'}
                     value={spread ? winning.toString() : `${winning} (${winningPercent}%)` }
                 />
-                <M m={proposal.longcode}/>
+                <M m={proposal.longcode} />
             </div>
         );
     }
