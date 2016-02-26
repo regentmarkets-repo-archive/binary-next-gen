@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
+import classNames from 'classnames';
 import M from '../_common/M';
 import Star from '../_common/Star';
 
@@ -9,7 +10,8 @@ export default class AssetPickerItem extends Component {
 
 	static propTypes = {
 		asset: PropTypes.object.isRequired,
-		compact: PropTypes.bool,
+		compact: PropTypes.bool.isRequired,
+		selected: PropTypes.bool.isRequired,
 		onSelect: PropTypes.func.isRequired,
 		onToggleWatchlistItem: PropTypes.func.isRequired,
 		onCreateTrade: PropTypes.func,
@@ -17,14 +19,22 @@ export default class AssetPickerItem extends Component {
 
 	static defaultProps = {
 		asset: {},
+		compact: false,
 	};
 
 	render() {
-		const { asset, compact, onSelect, onCreateTrade, onToggleWatchlistItem } = this.props;
+		const { asset, compact, selected, onSelect, onCreateTrade, onToggleWatchlistItem } = this.props;
 		const { isOpen, isInWatchlist, symbol } = asset;
+		const classes = classNames({
+			'asset-picker-item': true,
+			selected,
+		});
 
 		return (
-			<tr className="asset-picker-item" tabIndex={0} onClick={() => onSelect(symbol)}>
+			<tr tabIndex={0}
+				className={classes}
+				onClick={() => onSelect(symbol)}
+			>
 				<td onClick={() => onToggleWatchlistItem(asset)}>
 					<Star on={isInWatchlist} />
 				</td>

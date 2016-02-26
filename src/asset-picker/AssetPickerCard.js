@@ -48,7 +48,7 @@ export default class AssetPickerCard extends Component {
 	}
 
 	render() {
-		const { actions, assetPickerItems, params, filter } = this.props;
+		const { actions, assetPickerItems, selectedAsset, params, filter } = this.props;
 
 		return (
 			<div className="asset-picker-container">
@@ -57,6 +57,7 @@ export default class AssetPickerCard extends Component {
 					<AssetPickerList
 						grouped
 						assets={assetPickerItems}
+						selectedAsset={selectedAsset}
 						onCreateTrade={::this.onCreateTrade}
 						onSelect={asset => this.onSelect(params.id, asset)}
 						onToggleWatchlistItem={::this.onToggleWatchlistItem}
