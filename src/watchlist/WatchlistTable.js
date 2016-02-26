@@ -5,11 +5,12 @@ import WatchlistRow from './WatchlistRow';
 export default class WatchlistTable extends Component {
 
 	static propTypes = {
+		actions: PropTypes.object.isRequired,
 		watchlistView: PropTypes.array.isRequired,
 	};
 
 	render() {
-		const { watchlistView } = this.props;
+		const { actions, watchlistView } = this.props;
 
 		return (
 			<table>
@@ -19,6 +20,7 @@ export default class WatchlistTable extends Component {
 						<WatchlistRow
 							key={x.symbol}
 							{...x}
+							onSelect={symbol => actions.changeSelectedAsset(symbol)}
 						/>
 					)}
 				</tbody>

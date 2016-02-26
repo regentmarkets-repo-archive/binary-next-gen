@@ -477,7 +477,7 @@ select {
     height: 200px;
 }
 
-.asset-list tbody tr {
+tr[tabindex] {
     cursor: pointer;
 }
 

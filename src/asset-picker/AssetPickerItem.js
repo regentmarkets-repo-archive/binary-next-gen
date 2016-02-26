@@ -24,11 +24,11 @@ export default class AssetPickerItem extends Component {
 		const { isOpen, isInWatchlist, symbol } = asset;
 
 		return (
-			<tr className="asset-picker-item" tabIndex={0}>
+			<tr className="asset-picker-item" tabIndex={0} onClick={() => onSelect(symbol)}>
 				<td onClick={() => onToggleWatchlistItem(asset)}>
 					<Star on={isInWatchlist} />
 				</td>
-				<td onClick={() => onSelect(symbol)}>
+				<td>
 					{asset.name}
 				</td>
 				<td>

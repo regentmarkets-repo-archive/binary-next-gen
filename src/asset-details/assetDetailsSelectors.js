@@ -5,19 +5,19 @@ import { assetIndexSelector, assetsSelector, tradingTimesSelector, workspaceSele
 export const activeAssetSelector = createSelector(
 	[assetsSelector, workspaceSelector],
 	(assets, workspace) =>
-		assets.find(x => x.get('symbol') === workspace.get('symbolSelected'))
+		assets.find(x => x.get('symbol') === workspace.get('selectedAsset'))
 );
 
 export const activeAssetTradingTimesSelector = createSelector(
 	[tradingTimesSelector, workspaceSelector],
 	(tradingTimes, workspace) =>
-		tradingTimes.find(x => x.get('symbol') === workspace.get('symbolSelected'))
+		tradingTimes.find(x => x.get('symbol') === workspace.get('selectedAsset'))
 );
 
 export const activeAssetDurationsSelector = createSelector(
 	[assetIndexSelector, workspaceSelector],
 	(assetIndex, workspace) =>
-		assetIndex.find(x => x.get(0) === workspace.get('symbolSelected'))
+		assetIndex.find(x => x.get(0) === workspace.get('selectedAsset'))
 );
 
 export default createStructuredSelector({

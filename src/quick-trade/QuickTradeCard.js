@@ -14,7 +14,7 @@ export default class QuickTradeCard extends Component {
 
     onAssetChange(e) {
         const { actions } = this.props;
-        actions.updateWorkspaceField('symbolSelected', e.target.value);
+        actions.updateWorkspaceField('selectedAsset', e.target.value);
         actions.getTradingOptions(e.target.value);
     }
 

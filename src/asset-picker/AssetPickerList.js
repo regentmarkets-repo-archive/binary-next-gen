@@ -10,6 +10,10 @@ export default class AssetPickerList extends Component {
 		grouped: PropTypes.bool,
 	};
 
+	componentDidMount() {
+		// React.findDOMNode(this.refs.activeRow).focus();
+    }
+
 	render() {
 		const { assets, grouped } = this.props;
 

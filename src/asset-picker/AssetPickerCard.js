@@ -13,7 +13,7 @@ export default class AssetPickerCard extends Component {
 		location: PropTypes.object,
 		params: PropTypes.object,
 		assetPickerItems: PropTypes.array.isRequired,
-		workspace: PropTypes.object.isRequired,
+		selectedAsset: PropTypes.string.isRequired,
 	};
 
 	static defaultProps = {
@@ -29,7 +29,7 @@ export default class AssetPickerCard extends Component {
 	}
 
 	onSelect(id, newAsset) {
-		const { actions, history, workspace } = this.props;
+		const { actions, history, selectedAsset } = this.props;
 		actions.getTicksBySymbol(newAsset);			// TODO: unsubscribe extra symbol ticks
 		if (id !== '-') {
 			actions.updateTradeParams(id, 'symbol', newAsset);
@@ -37,8 +37,7 @@ export default class AssetPickerCard extends Component {
 			actions.getTradingOptions(newAsset);
 			history.goBack();
 		} else {
-			const oldAsset = workspace.symbolSelected;
-			actions.selectAssetSymbolForTrade(newAsset, oldAsset);
+			actions.selectAssetSymbolForTrade(newAsset, selectedAsset);
 			actions.getTradingOptions(newAsset);
 		}
 	}

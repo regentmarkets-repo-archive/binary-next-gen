@@ -28,3 +28,6 @@ export const assetIndexSubmarketSelector = state =>
 
 export const tradingTimesFilterSelector = state =>
     state.views.get('tradingTimes');
+
+export const selectedAssetSelector = state =>
+    state.workspace.get('selectedAsset');
