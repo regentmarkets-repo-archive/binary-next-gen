@@ -11,17 +11,18 @@ export default class BuyButton extends Component {
         payout: PropTypes.number,
         disabled: PropTypes.bool,
         onClick: PropTypes.func.isRequired,
+        isAuthorized: PropTypes.bool.isRequired,
     };
 
     render() {
-        const { id, currency, askPrice, disabled, payout, onClick } = this.props;
+        const { id, currency, askPrice, disabled, payout, onClick, isAuthorized } = this.props;
 
         return (
             <button
                 id={id}
                 className="buy-btn"
                 onClick={onClick}
-                disabled={disabled || !askPrice}
+                disabled={disabled || !askPrice || (!isAuthorized)}
             >
                 <M m="Purchase for " />
                 {askPrice &&

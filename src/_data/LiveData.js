@@ -45,11 +45,14 @@ const subscribeToWatchlist = st => {
     api.subscribeToTicks(favs.toJS());
 };
 
-export const changeLanguage = ln => {
-    api.changeLanguage(ln);
-    api.getActiveSymbolsFull();
-    api.getAssetIndex();
-    api.getTradingTimes();
+export const changeLanguage = async (dispatch, ln) => {
+    await api.changeLanguage(ln);
+    await api.getActiveSymbolsFull();
+    await api.getAssetIndex();
+    await api.getTradingTimes();
+    api.events.on('authorize', response => response.error ?
+        null :
+        dispatch(actions.updateAppState('authorized', true)));
 };
 
 const initUnauthorized = async (store) => {

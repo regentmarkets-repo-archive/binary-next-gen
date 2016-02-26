@@ -11,6 +11,7 @@ export default class TickTradeCard extends Component {
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
+        isAuthorized: PropTypes.bool.isRequired,
         assets: PropTypes.object.isRequired,        // all assets available
         currency: PropTypes.string.isRequired,
         index: PropTypes.number.isRequired,
@@ -35,7 +36,7 @@ export default class TickTradeCard extends Component {
     }
 
     render() {
-        const { assets, currency, index, trade, ticks } = this.props;
+        const { assets, currency, index, trade, ticks, isAuthorized } = this.props;
         const spot = ticks.length > 0 ? ticks[ticks.length - 1].quote : null;
         const receipt = trade.receipt;
 
@@ -66,6 +67,7 @@ export default class TickTradeCard extends Component {
                 />
                 <BuyButton
                     askPrice={askPriceFromProposal(trade.proposal)}
+                    isAuthorized={isAuthorized}
                     currency={currency}
                     disabled={trade.buying}
                     onClick={() => this.placeOrder()}

@@ -37,4 +37,5 @@ export const tickAssetsSelector = createSelector(
 export default createStructuredSelector({
     ...singleTradeSelectors,
     assets: tickAssetsSelector,
+    isAuthorized: state => (state.appState.get('authorized')),
 });
