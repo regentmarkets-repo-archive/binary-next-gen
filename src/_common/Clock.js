@@ -7,7 +7,7 @@ export default class Clock extends Component {
         serverTimeDiff: PropTypes.number,
     };
 
-    static defaultValues = {
+    static defaultProps = {
         serverTimeDiff: 0,
     };
 
