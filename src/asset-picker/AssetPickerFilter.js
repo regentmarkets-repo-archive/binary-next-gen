@@ -27,6 +27,7 @@ export default class AssetPickerFilter extends Component {
 				/>
 				<InputGroup
 					className="asset-search"
+					defaultValue={filter.query}
 					type="search"
 					placeholder="Search for assets"
 					onChange={onSearchQueryChange}
