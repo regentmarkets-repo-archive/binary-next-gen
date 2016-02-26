@@ -9,6 +9,7 @@ export default class AssetPickerCard extends Component {
 		actions: PropTypes.object.isRequired,
 		compact: PropTypes.bool,
 		history: PropTypes.object,
+		filter: PropTypes.object,
 		location: PropTypes.object,
 		params: PropTypes.object,
 		assetPickerItems: PropTypes.array.isRequired,
@@ -48,11 +49,11 @@ export default class AssetPickerCard extends Component {
 	}
 
 	render() {
-		const { actions, assetPickerItems, params } = this.props;
+		const { actions, assetPickerItems, params, filter } = this.props;
 
 		return (
 			<div className="asset-picker-container">
-				<AssetPickerFilter actions={actions} />
+				<AssetPickerFilter actions={actions} filter={filter} />
 				<div className="asset-list">
 					<AssetPickerList
 						grouped

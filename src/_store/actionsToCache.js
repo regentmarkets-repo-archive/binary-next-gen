@@ -16,6 +16,7 @@ export default [
     ActionTypes.CHANGE_ACTIVE_WORKSPACE_TAB,
     ActionTypes.CHANGE_WORKSPACE_PANEL_SIZE,
     ActionTypes.CHANGE_TRADE_MODE,
+    ActionTypes.UPDATE_ASSET_PICKER_SUBMARKET,
     ActionTypes.TOGGLE_TRADE_MODE,
     ActionTypes.TOGGLE_PANEL,
 ];

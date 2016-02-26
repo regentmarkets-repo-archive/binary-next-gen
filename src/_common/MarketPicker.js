@@ -15,7 +15,11 @@ export default class MarketPicker extends Component {
 		const { marketTree, onChange, allOptionShown, showMarkets, value } = this.props;
 
 		return (
-			<select className="market-submarket-picker" onChange={e => onChange(e.target.value)} value={value}>
+			<select
+				value={value}
+				className="market-submarket-picker"
+				onChange={e => onChange(e.target.value)}
+			>
 				{allOptionShown ?
 					<FormattedMessage id="All" defaultMessage="All">
 						{message => <option value="">{message}</option>}
