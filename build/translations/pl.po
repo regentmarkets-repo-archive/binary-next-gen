@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-02-26 12:36+0000\n"
-"Last-Translator: Ewelina Bruździak <e.bruzdziak@gmail.com>\n"
+"PO-Revision-Date: 2016-02-27 08:31+0000\n"
+"Last-Translator: Sittie Hadjirah Sevilla <sittiebaser@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/pl/>\n"
 "Language: pl\n"
@@ -98,6 +98,7 @@ msgstr "Limity handlowe"
 msgid "Item"
 msgstr "Element"
 
+#, fuzzy
 msgid "Limit ({currency})"
 msgstr "Limit ({currency})"
 
