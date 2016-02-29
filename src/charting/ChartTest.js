@@ -1,16 +1,19 @@
 import React, { Component } from 'react';
-import MarketChart from './MarketChart';
-import TradeChart from './TradeChart';
-import MobileChart from './MobileChart';
+import { RiseFallChart } from 'binary-charts/lib/binary-charts';
+
+const testTitle = 'Test';
+const testData = [[0, 1], [1, 2], [2, 3], [3, 4], [4, 5], [5, 6], [6, 7]];
+
 
 export default class ChartTest extends Component {
+
 	render() {
 		return (
-			<div>
-				<MarketChart />
-				<TradeChart />
-				<MobileChart />
-			</div>
+			<RiseFallChart
+				className="test-chart"
+				title={testTitle}
+				data={testData}
+			/>
 		);
 	}
 }
