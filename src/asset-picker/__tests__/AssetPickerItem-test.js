@@ -13,7 +13,7 @@ describe('AssetPickerItem', () => {
         expect(wrapper.find('OpenCloseNotice')).to.have.length(1);
     });
 
-    it('should have an indicator that correctly shows if the market is open', () => {
+    it('should have an indicator that shows if the market is open', () => {
         const wrapper = shallow(<AssetPickerItem asset={{ isOpen: true }} />);
         expect(wrapper.find('OpenCloseNotice').props().isOpen).to.equal(true);
     });

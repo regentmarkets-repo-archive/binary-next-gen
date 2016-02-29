@@ -21,10 +21,9 @@ export default class AssetDetailsCard extends Component {
 		return (
 			<div>
 				<h5>
-					{ activeAsset.display_name }&nbsp;
-					<OpenCloseNotice isOpen={activeAsset.exchange_is_open} />
+					{ activeAsset.name }&nbsp;
+					<OpenCloseNotice isOpen={activeAsset.isOpen} />
 				</h5>
-				{ activeAsset.is_trading_suspended ? <M m="Trading is suspended" /> : null } <br />
 				<h5><M m="Trading Times" /></h5>
 				{tradingTimes && <AssetDetailsTradingTimes times={tradingTimes.times} />}
 				<br />

@@ -61,7 +61,7 @@ export const setQuickTradeField = (symbol, tradeType, field, value) => ({
     value,
 });
 
-export const createTrade = (symbol) => ({
+export const createTrade = symbol => ({
     type: types.CREATE_TRADE,
     symbol,
 });

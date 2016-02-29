@@ -14,7 +14,9 @@ export default class Modal extends Component {
 		return shown ? (
 			<div className="full-screen-overlay" onClick={onClose}>
 				<div className="modal">
-					<button className="close-btn" onClick={onClose}><img src="img/close.svg" /></button>
+					<button className="close-btn" onClick={onClose}>
+						<img src="img/close.svg" />
+					</button>
 					{children}
 				</div>
 			</div>

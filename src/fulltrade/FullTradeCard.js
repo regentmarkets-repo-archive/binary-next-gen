@@ -303,7 +303,7 @@ export default class GenericTradeCard extends Component {
         });
 
         return (
-            <fieldset disabled={disabled} className={classes} onClick={() => actions.changeActiveTrade(index)}>
+            <div disabled={disabled} className={classes} onClick={() => actions.changeActiveTrade(index)}>
                 <Modal shown={!!receipt} onClose={() => this.updateHelper('receipt', undefined)} >
                     <PurchaseConfirmation receipt={receipt} />
                 </Modal>
@@ -393,7 +393,7 @@ export default class GenericTradeCard extends Component {
                     disabled={disabled}
                     onClick={::this.onPurchase}
                 />
-            </fieldset>
+            </div>
         );
     }
 }
