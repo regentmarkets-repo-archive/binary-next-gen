@@ -24,5 +24,5 @@ export default createStructuredSelector({
     currency: currencySelector,
     trade: firstTradeSelector,
     ticks: ticksForFirstTradeSelector,
-    GenericTradeCard: state => (state.appState.get('authorized')),
+    isAuthorized: state => (state.appState.get('authorized')),
 });
