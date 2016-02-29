@@ -46,13 +46,13 @@ const subscribeToWatchlist = st => {
 };
 
 export const changeLanguage = async (dispatch, ln) => {
+    api.events.on('authorize', response => response.error ?
+        null :
+        dispatch(actions.updateAppState('authorized', true)));
     await api.changeLanguage(ln);
     await api.getActiveSymbolsFull();
     await api.getAssetIndex();
     await api.getTradingTimes();
-    api.events.on('authorize', response => response.error ?
-        null :
-        dispatch(actions.updateAppState('authorized', true)));
 };
 
 const initUnauthorized = async (store) => {
