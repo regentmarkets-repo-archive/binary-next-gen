@@ -4,18 +4,18 @@ import { shallow } from 'enzyme';
 import AssetPickerItem from '../AssetPickerItem';
 
 describe('AssetPickerItem', () => {
-    it('should be able to be instantiated', () => {
+    it('can be instantiated', () => {
         expect(() => <AssetPickerItem />).to.not.throw();
     });
 
-    it('should have a class applied if the market is closed', () => {
+    it('should render a compoennt that indicates open/close state', () => {
         const wrapper = shallow(<AssetPickerItem asset={{ isOpen: false }} />);
-        expect(wrapper.find('.closed-notice')).to.have.length(1);
+        expect(wrapper.find('OpenCloseNotice')).to.have.length(1);
     });
 
-    it('should not have a class applied if the market is open', () => {
+    it('should have an indicator that correctly shows if the market is open', () => {
         const wrapper = shallow(<AssetPickerItem asset={{ isOpen: true }} />);
-        expect(wrapper.props().className).to.not.contain('market-closed');
+        expect(wrapper.find('OpenCloseNotice').props().isOpen).to.equal(true);
     });
 
     it('should show an off star if item is not in watch list', () => {

@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
+import OpenCloseNotice from '../_common/OpenCloseNotice';
 import AssetDetailsDurations from './AssetDetailsDurations';
 import AssetDetailsTradingTimes from './AssetDetailsTradingTimes';
 import AssetDetailsTradingEvents from './AssetDetailsTradingEvents';
@@ -21,10 +22,7 @@ export default class AssetDetailsCard extends Component {
 			<div>
 				<h5>
 					{ activeAsset.display_name }&nbsp;
-					{activeAsset.exchange_is_open ?
-						<span className="open-notice"><M m="Open" /></span> :
-						<span className="closed-notice"><M m="Closed" /></span>
-					}
+					<OpenCloseNotice isOpen={activeAsset.exchange_is_open} />
 				</h5>
 				{ activeAsset.is_trading_suspended ? <M m="Trading is suspended" /> : null } <br />
 				<h5><M m="Trading Times" /></h5>

@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import classNames from 'classnames';
-import M from '../_common/M';
+import OpenCloseNotice from '../_common/OpenCloseNotice';
 import Star from '../_common/Star';
 
 export default class AssetPickerItem extends Component {
@@ -42,7 +42,7 @@ export default class AssetPickerItem extends Component {
 					{asset.name}
 				</td>
 				<td>
-					{!isOpen && <span className="closed-notice"><M m="Closed" /></span>}
+					<OpenCloseNotice isOpen={isOpen} />
 				</td>
 				{!compact && <td onClick={() => onCreateTrade(symbol)}>
 					<button className="asset-picker-trade-btn">

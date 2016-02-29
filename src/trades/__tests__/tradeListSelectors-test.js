@@ -10,6 +10,7 @@ describe('tradeListSelectors', () => {
         trades: fromJS([]),
         tradingOptions: fromJS([]),
         tradingTimes: fromJS([]),
+        workspace: fromJS({})
     });
 
     it('can be instantiated', () => {

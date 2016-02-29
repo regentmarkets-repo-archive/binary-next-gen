@@ -42,6 +42,11 @@ export const changeActiveWorkspaceTab = (panel, index) => ({
     index,
 });
 
+export const changeActiveTrade = (activeTradeIndex) => ({
+    type: types.CHANGE_ACTIVE_TRADE,
+    activeTradeIndex,
+});
+
 export const changeWorkspacePanelSize = (panel, size) => ({
     type: types.CHANGE_WORKSPACE_PANEL_SIZE,
     panel,

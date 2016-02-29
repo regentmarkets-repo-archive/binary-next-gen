@@ -17,6 +17,7 @@ import { isDurationWithinRange } from '../_utils/DurationUtils';
 import TradeHeader from './TradeHeader';
 import TradeTypePicker from './TradeTypePicker';
 import { createDefaultType, createDefaultDuration, createDefaultBarriers } from './DefaultTradeParams';
+import classNames from 'classnames';
 
 /**
  * This UI is coded with a few assumptions, which should always be true, this comments serves as a future reference
@@ -48,6 +49,7 @@ export default class GenericTradeCard extends Component {
         currency: PropTypes.string.isRequired,
         contract: PropTypes.object.isRequired,
         index: PropTypes.number.isRequired,
+        isActive: PropTypes.bool.isRequired,
         trade: PropTypes.object.isRequired,
         type: PropTypes.oneOf(['tick', 'full']).isRequired,
         tick: PropTypes.array,
@@ -282,7 +284,7 @@ export default class GenericTradeCard extends Component {
     }
 
     render() {
-        const { actions, contract, index, trade, currency, tick } = this.props;
+        const { actions, contract, isActive, index, trade, currency, tick } = this.props;
         const selectedSymbol = trade.symbol;
         const selectedCategory = trade.tradeCategory;
         const selectedType = trade.type;
@@ -295,9 +297,13 @@ export default class GenericTradeCard extends Component {
         const lastSpot = tick ? tick[tick.length - 1].quote : 0;
         const disabled = trade.disabled;
         const pipSize = trade.pipSize;
+        const classes = classNames({
+            'trade-panel': true,
+            'panel-active': isActive,
+        });
 
         return (
-            <fieldset disabled={disabled} className="trade-panel">
+            <fieldset disabled={disabled} className={classes} onClick={() => actions.changeActiveTrade(index)}>
                 <Modal shown={!!receipt} onClose={() => this.updateHelper('receipt', undefined)} >
                     <PurchaseConfirmation receipt={receipt} />
                 </Modal>

@@ -31,3 +31,6 @@ export const tradingTimesFilterSelector = state =>
 
 export const selectedAssetSelector = state =>
     state.workspace.get('selectedAsset');
+
+export const activeTradeIndexSelector = state =>
+    state.workspace.get('activeTradeIndex');

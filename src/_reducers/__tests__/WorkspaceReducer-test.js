@@ -13,7 +13,7 @@ describe('WorkspaceReducer', () => {
     });
 
     describe('toggleTradeMode', () => {
-        it('should be able to toggle trade mode from grid to tabs', () => {
+        it('can toggle trade mode from grid to tabs', () => {
             const stateBefore = fromJS({
                 tradeMode: 'grid',
             });

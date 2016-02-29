@@ -1,5 +1,5 @@
 import { createStructuredSelector } from 'reselect';
-import { currencySelector, ticksSelector } from '../_store/directSelectors';
+import { currencySelector, ticksSelector, activeTradeIndexSelector } from '../_store/directSelectors';
 import {
     tradesWithDetailsSelector,
     availableAssetsSelector,
@@ -12,4 +12,5 @@ export default createStructuredSelector({
     currency: currencySelector,
     trades: tradesWithDetailsSelector,
     ticks: ticksSelector, // not really!!!
+    activeTradeIndex: activeTradeIndexSelector,
 });
