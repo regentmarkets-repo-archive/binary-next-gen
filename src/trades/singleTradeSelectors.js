@@ -9,12 +9,12 @@ import {
 
 export const firstTradeSelector = createSelector(
     tradesWithDetailsSelector,
-    trades => trades.first(),
+    trades => trades.first()
 );
 
 export const ticksForFirstTradeSelector = createSelector(
     [firstTradeSelector, ticksSelector],
-    (trade, ticks) => ticks.get(trade.get('symbol')) || fromJS([]),
+    (trade, ticks) => ticks.get(trade.get('symbol')) || fromJS([])
 );
 
 export default createStructuredSelector({
@@ -24,4 +24,5 @@ export default createStructuredSelector({
     currency: currencySelector,
     trade: firstTradeSelector,
     ticks: ticksForFirstTradeSelector,
+    isAuthorized: state => (state.appState.get('authorized')),
 });

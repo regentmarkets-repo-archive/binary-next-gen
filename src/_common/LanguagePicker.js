@@ -3,8 +3,9 @@ import { connect } from 'react-redux';
 import * as LiveData from '../_data/LiveData';
 import SelectGroup from '../_common/SelectGroup';
 import languages from '../_constants/languages';
-import { updateAppConfig } from '../_actions/AppConfigActions';
+import { updateAppConfig, updateAppState } from '../_actions/';
 import Perf from 'react-addons-perf';
+
 
 @connect(state => ({ selected: state.appConfig.get('language') }))
 export default class LanguagePicker extends Component {
@@ -19,8 +20,10 @@ export default class LanguagePicker extends Component {
     };
 
     updateLanguage(event) {
-        this.props.dispatch(updateAppConfig('language', event.target.value));
-        LiveData.changeLanguage(event.target.value);
+        const { dispatch } = this.props;
+        dispatch(updateAppConfig('language', event.target.value));
+        dispatch(updateAppState('authorized', false));
+        LiveData.changeLanguage(dispatch, event.target.value);
 
         Perf.start();
         setTimeout(() => {

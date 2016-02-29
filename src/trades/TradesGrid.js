@@ -8,6 +8,7 @@ export default class TradesGrid extends Component {
         ticks: PropTypes.object.isRequired,
         trades: PropTypes.array.isRequired,
         contracts: PropTypes.object.isRequired,
+        isAuthorized: PropTypes.bool.isRequired,
     };
 
     render() {

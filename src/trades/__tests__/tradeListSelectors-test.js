@@ -10,6 +10,7 @@ describe('tradeListSelectors', () => {
         trades: fromJS([]),
         tradingOptions: fromJS([]),
         tradingTimes: fromJS([]),
+        appState: fromJS({ authorized: true }),
     });
 
     it('can be instantiated', () => {

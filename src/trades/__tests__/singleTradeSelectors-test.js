@@ -10,6 +10,7 @@ describe('singleTradeSelectors', () => {
         trades: fromJS([{}]),
         tradingOptions: fromJS([]),
         tradingTimes: fromJS([]),
+        appState: fromJS({ authorized: true }),
     });
 
     it('need to have at least one trade', () => {
@@ -24,6 +25,7 @@ describe('singleTradeSelectors', () => {
         trades: fromJS([{ symbol: 'R_9000' }]),
         tradingOptions: fromJS([]),
         tradingTimes: fromJS([]),
+        appState: fromJS({ authorized: true }),
     });
 
     it('will get account curency', () => {

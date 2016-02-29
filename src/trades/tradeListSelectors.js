@@ -1,5 +1,6 @@
 import { createStructuredSelector } from 'reselect';
 import { currencySelector, ticksSelector } from '../_store/directSelectors';
+
 import {
     tradesWithDetailsSelector,
     availableAssetsSelector,
@@ -12,4 +13,5 @@ export default createStructuredSelector({
     currency: currencySelector,
     trades: tradesWithDetailsSelector,
     ticks: ticksSelector, // not really!!!
+    isAuthorized: state => (state.appState.get('authorized')),
 });

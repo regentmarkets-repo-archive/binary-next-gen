@@ -51,6 +51,7 @@ export default class GenericTradeCard extends Component {
         trade: PropTypes.object.isRequired,
         type: PropTypes.oneOf(['tick', 'full']).isRequired,
         tick: PropTypes.array,
+        isAuthorized: PropTypes.bool.isRequired,
     };
 
     constructor(props) {
@@ -282,7 +283,7 @@ export default class GenericTradeCard extends Component {
     }
 
     render() {
-        const { actions, contract, index, trade, currency, tick } = this.props;
+        const { actions, contract, index, trade, currency, tick, isAuthorized } = this.props;
         const selectedSymbol = trade.symbol;
         const selectedCategory = trade.tradeCategory;
         const selectedType = trade.type;
@@ -386,6 +387,7 @@ export default class GenericTradeCard extends Component {
                     currency={currency}
                     disabled={disabled}
                     onClick={::this.onPurchase}
+                    isAuthorized={isAuthorized}
                 />
             </fieldset>
         );
