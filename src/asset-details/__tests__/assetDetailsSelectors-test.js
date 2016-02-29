@@ -5,7 +5,7 @@ import assetDetailsSelectors from '../assetDetailsSelectors';
 describe('assetDetailsSelectors', () => {
     const testState = () => ({
         assets: fromJS([
-            { symbol: '1', name: 'Asset1' },
+            { symbol: '1', display_name: 'Asset1', exchange_is_open: true },
         ]),
         assetIndex: fromJS([]),
         tradingTimes: fromJS([]),
@@ -42,7 +42,8 @@ describe('assetDetailsSelectors', () => {
     it('should be able to retrieve the active asset', () => {
         const state = testState();
         const assetDetails = assetDetailsSelectors(state);
+        const expected = fromJS({ name: 'Asset1', isOpen: true });
 
-        expect(assetDetails.activeAsset).to.deep.equal(fromJS({ symbol: '1', name: 'Asset1' }));
+        expect(assetDetails.activeAsset).to.deep.equal(expected);
     });
 });

@@ -24,7 +24,7 @@ const initialState = fromJS([defaultTrade]);
 export default (state = initialState, action) => {
     switch (action.type) {
         case CREATE_TRADE: {
-            const newSymbol = action.symbol || state.workspace.selectedAsset;
+            const newSymbol = action.symbol || defaultTrade.symbol; // state.workspace.selectedAsset;
             const newTrade = fromJS(defaultTrade).set('symbol', newSymbol);
 
             return state.push(newTrade);

@@ -8,7 +8,7 @@ export default class WatchlistTable extends Component {
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
 		watchlistView: PropTypes.array.isRequired,
-		selectedAsset: PropTypes.array.isRequired,
+		selectedAsset: PropTypes.string.isRequired,
 	};
 
 	componentDidMount() {

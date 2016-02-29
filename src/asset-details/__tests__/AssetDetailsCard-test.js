@@ -4,10 +4,10 @@ import { shallow } from 'enzyme';
 import AssetDetailsCard from '../AssetDetailsCard';
 
 describe('AssetDetailsCard', () => {
-    it('should not render anything if no asset is selected', () => {
-        const wrapper = shallow(<AssetDetailsCard />);
+    it('should stil render if no asset is selected', () => {
+        const wrapper = shallow(<AssetDetailsCard activeAsset={{}} />);
 
-        expect(wrapper.type()).to.be.null;
+        expect(wrapper.type()).to.not.be.null;
     });
 
     it('should be able to render with only activeAsset property set', () => {

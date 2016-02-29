@@ -41,7 +41,6 @@ export default class SigninCard extends Component {
 
 		try {
 			await LiveData.api.authorize(token);
-			actions.updateAppState('authorized', true);
 			router.push('/');
 		} catch (e) {
 			actions.signinFieldUpdate('credentialsInvalid', true);

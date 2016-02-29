@@ -16,12 +16,10 @@ export default class AssetDetailsCard extends Component {
 	render() {
 		const { activeAsset, durations, tradingTimes } = this.props;
 
-		if (!activeAsset) return null;
-
 		return (
 			<div>
 				<h5>
-					{ activeAsset.name }&nbsp;
+					{activeAsset.name}&nbsp;
 					<OpenCloseNotice isOpen={activeAsset.isOpen} />
 				</h5>
 				<h5><M m="Trading Times" /></h5>

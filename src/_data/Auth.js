@@ -32,7 +32,6 @@ export const tryAuth = (st) => {
             response => {
                 actions.signinFieldUpdate('credentialsInvalid', false);
                 trackUserId(response.authorize.loginid);
-                actions.updateAppState('authorized', true);
             },
             () => actions.signinFieldUpdate('credentialsInvalid', true))
         .then(() => {
