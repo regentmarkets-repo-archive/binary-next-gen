@@ -10,7 +10,8 @@ import DigitBarrierCard from '../barrier-picker/DigitBarrierCard';
 import DurationCard from '../duration-picker/DurationCard';
 import PayoutCard from '../payout-picker/PayoutCard';
 import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
-import MobileChart from '../charting/MobileChart';
+// import MobileChart from '../charting/MobileChart';
+import TradeChart from '../charting/TradeChart';
 import BuyButton from '../tick-trade/BuyButton';
 import { askPriceFromProposal } from '../_utils/TradeUtils';
 import { isDurationWithinRange } from '../_utils/DurationUtils';
@@ -294,7 +295,6 @@ export default class GenericTradeCard extends Component {
         const isTick = trade.durationUnit && trade.durationUnit.slice(-1) === 't';
         const isBelow2Min = isTick || durationToSecs(trade.duration, trade.durationUnit) < 120;
         const isIntraDay = isIntraday(trade.duration, trade.durationUnit);
-        const lastSpot = tick ? tick[tick.length - 1].quote : 0;
         const disabled = trade.disabled;
         const pipSize = trade.pipSize;
         const classes = classNames({
@@ -314,11 +314,9 @@ export default class GenericTradeCard extends Component {
                     assetName={selectedSymbol}
                     onClosePanel={() => actions.removeTrade(index)}
                 />
-                {tick && <MobileChart
-                    className="trade-chart"
+                {tick && <TradeChart
+                    symbol={selectedSymbol}
                     history={tick}
-                    showBarrier={!!barriers}
-                    spot={lastSpot}
                 />}
                 <TradeTypePicker
                     contract={contract}

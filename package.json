@@ -41,9 +41,9 @@
     ]
   },
   "dependencies": {
+    "binary-charts": "0.0.3-patch3",
     "binary-live-api": "*",
     "classnames": "^2.2.3",
-    "echarts": "^3.0.2",
     "history": "^2.0.0",
     "immutable": "^3.7.5",
     "react": "^0.14.7",
@@ -62,8 +62,8 @@
     "reselect": "^2.0.3"
   },
   "devDependencies": {
-    "babel-cli": "^6.5.1",
-    "babel-core": "^6.4.5",
+    "babel-cli": "^6.5.0",
+    "babel-core": "^6.5.0",
     "babel-eslint": "^5.0.0-beta6",
     "babel-istanbul": "^0.6.0",
     "babel-loader": "^6.2.1",
@@ -71,8 +71,9 @@
     "babel-plugin-transform-async-to-generator": "^6.5.0",
     "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "babel-plugin-transform-function-bind": "^6.3.13",
+    "babel-plugin-transform-regenerator": "^6.5.0",
     "babel-polyfill": "^6.5.0",
-    "babel-preset-es2015": "^6.3.13",
+    "babel-preset-es2015": "^6.5.0",
     "babel-preset-react": "^6.3.13",
     "babel-preset-stage-0": "^6.3.13",
     "chai": "^3.5.0",

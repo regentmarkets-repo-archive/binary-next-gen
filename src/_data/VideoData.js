@@ -7,11 +7,11 @@ const playlistItemApiUrl = 'https://www.googleapis.com/youtube/v3/playlistItems'
 const playlistApiUrl = 'https://www.googleapis.com/youtube/v3/playlists';
 
 export const getVideosFromPlayList = async () => {
-    const queryUrl = `${playlistItemApiUrl}?part=contentDetails,snippet,status` +
+    let queryUrl = `${playlistItemApiUrl}?part=contentDetails,snippet,status` +
         `&playlistId=${dailyNewsPlaylist}&maxResults=${50}&key=${key}`;
 
-    const response = await fetch(queryUrl);
-    const js = await response.json();
+    let response = await fetch(queryUrl);
+    let js = await response.json();
 
     return js.items
         .filter(v => v.status.privacyStatus === 'public')
@@ -30,8 +30,8 @@ const playlistUrl = (channelId, max) =>
         'key=' + key;
 
 export const getAllPlaylists = async (channelId = binaryChannelId, max = 50) => {
-    const response = await fetch(playlistUrl(channelId, max));
-    const js = await response.json();
+    let response = await fetch(playlistUrl(channelId, max));
+    let js = await response.json();
 
     return js.items.map(pl => ({
        title: pl.snippet.title,

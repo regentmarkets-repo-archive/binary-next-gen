@@ -1,35 +1,32 @@
 import React, { PropTypes, Component } from 'react';
-import EChart from './EChart';
-import SizeProvider from '../_common/SizeProvider';
-import createChartOptions from './options/TradeChartOptions';
-
-const theme = {
-    gridColor: '#eee',
-    axisTextColor: 'rgba(64, 68, 72, .5)',
-};
+import { RiseFallChart } from 'binary-charts/lib/binary-charts';
+import * as rfAdapter from './adapters/RiseFallAdapter';
 
 export default class TradeChart extends Component {
-
     static propTypes = {
+        symbol: PropTypes.string.isRequired,
         history: PropTypes.array.isRequired,
-        spot: PropTypes.number,
-    };
-
-    static defaultProps = {
-        history: [],
-        spot: 0,
+        contracts: PropTypes.array,
     };
 
     render() {
-        const { history, spot } = this.props;
-        const options = createChartOptions({ history, spot: +spot, theme });
+        const { history, contracts, symbol } = this.props;
+        const data = rfAdapter.ticksToDataArray(history);
+        const adaptedContracts = contracts && rfAdapter.openContractsToContracts(contracts);
+
+        const xOffset = 0.1;
+        const yOffset = 0.5;
+
         return (
-            <SizeProvider style={{ width: '100%', height: '100px' }}>
-                <EChart
-                    options={options}
-                    {...this.props}
-                />
-            </SizeProvider>
+            <RiseFallChart
+                className="test-chart"
+                title={symbol}
+                symbol={symbol}
+                data={data}
+                contracts={adaptedContracts}
+                xOffsetPercentage={xOffset}
+                yOffsetPercentage={yOffset}
+            />
         );
     }
 }
