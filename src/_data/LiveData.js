@@ -90,7 +90,7 @@ export const trackSymbols = symbols => {
 };
 
 export const connect = async (store) => {
-    const ln = store.getState().appConfig.get('language');
+    let ln = store.getState().appConfig.get('language');
     api.changeLanguage(ln);
 
     Object.keys(handlers).forEach(key => {
