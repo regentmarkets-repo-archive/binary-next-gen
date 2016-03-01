@@ -45,14 +45,14 @@ const subscribeToWatchlist = st => {
     api.subscribeToTicks(favs.toJS());
 };
 
-export const changeLanguage = ln => {
-    api.changeLanguage(ln);
+export const changeLanguage = language => {
+    api.changeLanguage(language);
     api.getActiveSymbolsFull();
     api.getAssetIndex();
     api.getTradingTimes();
 };
 
-const initUnauthorized = async (store) => {
+const initUnauthorized = async store => {
     api.getActiveSymbolsFull();
     api.getTradingTimes();
     api.getAssetIndex();
@@ -89,9 +89,9 @@ export const trackSymbols = symbols => {
     api.subscribeToTicks(symbols);
 };
 
-export const connect = async (store) => {
-    const ln = store.getState().appConfig.get('language');
-    api.changeLanguage(ln);
+export const connect = async store => {
+    let language = store.getState().appConfig.get('language');
+    api.changeLanguage(language);
 
     Object.keys(handlers).forEach(key => {
         const action = actions[handlers[key]];
