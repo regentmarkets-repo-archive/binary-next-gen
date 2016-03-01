@@ -41,10 +41,9 @@
     ]
   },
   "dependencies": {
-    "binary-charts": "0.0.3-patch2",
+    "binary-charts": "0.0.3-patch3",
     "binary-live-api": "*",
     "classnames": "^2.2.3",
-    "echarts": "^3.1.1",
     "history": "^2.0.0",
     "immutable": "^3.7.5",
     "react": "^0.14.7",
