@@ -1,42 +1,26 @@
 import { store } from '../_store/persistentStore';
-import { bindActionCreators } from 'redux';
 import * as LiveData from './LiveData';
-import { updateToken, signinFieldUpdate, updateAppState, removePersonalData } from '../_actions';
+import { signinFieldUpdate, updateAppState, removePersonalData } from '../_actions';
 import { trackUserId } from '../_utils/Analytics';
 
-export const tryAuth = (st) => {
-    const newState = st.getState();
-    if (!newState.account) {
-        return Promise.reject('No account');
-    }
-
-    const token = newState.account.get('token');
-    const actions = bindActionCreators(
-        {
-            updateToken,
-            signinFieldUpdate,
-            updateAppState,
-        },
-        st.dispatch
-    );
-
+export const tryAuth = async (actions, token) => {
     if (!token) {
         actions.signinFieldUpdate('progress', false);
         actions.signinFieldUpdate('tokenNotEntered', true);
-        return Promise.reject('Token does not exists');
+        throw new Error('Token does not exist');
     }
 
     actions.updateAppState('authorized', false);
-    return LiveData.api.authorize(token)
-        .then(
-            response => {
-                actions.signinFieldUpdate('credentialsInvalid', false);
-                trackUserId(response.authorize.loginid);
-            },
-            () => actions.signinFieldUpdate('credentialsInvalid', true))
-        .then(() => {
-            actions.signinFieldUpdate('progress', false);
-        });
+
+    try {
+        let response = await LiveData.api.authorize(token);
+        actions.signinFieldUpdate('credentialsInvalid', false);
+        trackUserId(response.authorize.loginid);
+    } catch (e) {
+        actions.signinFieldUpdate('credentialsInvalid', true);
+    } finally {
+        actions.signinFieldUpdate('progress', false);
+    }
 };
 
 export const requireAuthOnEnter = (nextState, replace, callback) => {

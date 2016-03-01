@@ -7,7 +7,7 @@ import { Router } from 'react-router';
 import routes from '../_routes';
 import { tryAuth } from '../_data/Auth';
 import * as LiveData from '../_data/LiveData';
-import * as AllActions from '../_actions';
+import * as allActions from '../_actions';
 import AppStateProvider from './AppStateProvider';
 import AppConfigProvider from './AppConfigProvider';
 import { hashHistory as history } from 'react-router';
@@ -22,20 +22,25 @@ addLocaleData({
 
 export default class Root extends Component {
     async componentWillMount() {
-        const state = await rehydratedStorePromise;
-        await LiveData.connect(state);
+        const reyhdratetStore = await rehydratedStorePromise;
+        let state = reyhdratetStore.getState();
+
+        await LiveData.connect(reyhdratetStore);
+        let actions = bindActionCreators(allActions, store.dispatch);
+        let token = state.account.get('token');
+
         try {
-            await tryAuth(state);
+            await tryAuth(actions, token);
         } catch (e) {
-            state.dispatch(AllActions.updateAppState('authorized', false));
+            actions.updateAppState('authorized', false);
         } finally {
-            state.dispatch(AllActions.updateAppState('connected', true));
+            actions.updateAppState('connected', true);
         }
     }
 
     createElementWithActions(Element, props) {
         return (
-            <Element {...props} actions={bindActionCreators(AllActions, store.dispatch)} />
+            <Element {...props} actions={bindActionCreators(allActions, store.dispatch)} />
         );
     }
 
