@@ -41,7 +41,7 @@
     ]
   },
   "dependencies": {
-    "binary-charts": "0.0.4",
+    "binary-charts": "0.0.5",
     "binary-live-api": "*",
     "classnames": "^2.2.3",
     "history": "^2.0.0",
