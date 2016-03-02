@@ -31,11 +31,10 @@ export default (state = initialState, action) => {
             return state.push(newTrade);
         }
         case UPDATE_TRADE_PARAMS: {
-            return state.setIn([action.id, action.fieldName], action.fieldValue);
+            return state.setIn([action.index, action.fieldName], action.fieldValue);
         }
         case UPDATE_MULTIPLE_TRADE_PARAMS: {
-            const result = state.setIn([action.id, action.fieldName], action.fieldValue);
-            return result;
+            return state.mergeIn([action.index], action.params);
         }
         case RESET_TRADES: {
             return initialState;

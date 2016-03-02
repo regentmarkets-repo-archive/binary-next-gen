@@ -41,7 +41,7 @@
     ]
   },
   "dependencies": {
-    "binary-charts": "0.0.5",
+    "binary-charts": "0.1.0",
     "binary-live-api": "*",
     "classnames": "^2.2.3",
     "history": "^2.0.0",
@@ -55,7 +55,7 @@
     "react-sparklines": "*",
     "react-youtube": "^5.1.0",
     "redux": "^3.3.1",
-    "redux-storage": "^3.0.1",
+    "redux-storage": "^4.0.0",
     "redux-storage-decorator-debounce": "^1.0.0",
     "redux-storage-decorator-filter": "^1.1.0",
     "redux-thunk": "^1.0.3",

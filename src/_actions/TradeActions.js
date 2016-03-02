@@ -86,13 +86,22 @@ export const resetTrades = () => ({
     type: types.RESET_TRADES,
 });
 
-export const updateTradeParams = (id, fieldName, fieldValue) => {
+export const updateTradeParams = (index, fieldName, fieldValue) => {
     trackEvent('update-trade-paremeters', { fieldName, fieldValue });
     return {
         type: types.UPDATE_TRADE_PARAMS,
-        id,
+        index,
         fieldName,
         fieldValue,
+    };
+};
+
+export const updateMultipleTradeParams = (index, params) => {
+    trackEvent('update-trade-paremeters', params);
+    return {
+        type: types.UPDATE_MULTIPLE_TRADE_PARAMS,
+        index,
+        params,
     };
 };
 
