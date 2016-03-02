@@ -21,7 +21,7 @@ import ChartTest from '../charting/ChartTest';
 import TradesPage from '../trades/TradesPage';
 import TickTradePage from '../tick-trade/TickTradePage';
 import FullTradePage from '../fulltrade/FullTradePage';
-import JpTradePage from '../tick-trade/TickTradePage';
+import JpTradePage from '../jp-trade/JpTradePage';
 import WorkspaceContainer from '../workspace/WorkspaceContainer';
 
 import { requireAuthOnEnter } from '../_data/Auth';
