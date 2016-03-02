@@ -1,29 +1,27 @@
 import React, { PropTypes, Component } from 'react';
 import Tab from '../_common/Tab';
 import TabList from '../_common/TabList';
-// import FullTradeCard from '../fulltrade/FullTradeCard';
+import BaseTradeCard from '../fulltrade/FullTradeCard';
 
 export default class TradesTabs extends Component {
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
-        trades: PropTypes.array.isRequired,
+        activeTradeIndex: PropTypes.number.isRequired,
         ticks: PropTypes.object.isRequired,
+        trades: PropTypes.array.isRequired,
+        contracts: PropTypes.object.isRequired,
     };
 
-	constructor(props) {
-		super(props);
-		this.state = { activeTab: 0 };
-	}
-
     render() {
-        const { trades } = this.props;
+        const { actions, activeTradeIndex, contracts, trades, ticks } = this.props;
+        const activeTrade = trades[activeTradeIndex];
 
         return (
             <div className="trades-tabs">
                 <TabList
-                    activeIndex={this.state.activeTab}
-                    onChange={idx => this.setState({ activeTab: idx })}
+                    activeIndex={activeTradeIndex}
+                    onChange={index => () => actions.changeActiveTrade(index)}
                 >
                     {trades.map((trade, index) =>
                         <Tab
@@ -32,6 +30,14 @@ export default class TradesTabs extends Component {
                         />
                     )}
                 </TabList>
+                <BaseTradeCard
+                    index={activeTradeIndex}
+                    actions={actions}
+                    trade={activeTrade}
+                    tick={ticks[activeTrade.symbol]}
+                    contract={contracts[activeTrade.symbol]}
+                    {...this.props}
+                />
             </div>
         );
     }

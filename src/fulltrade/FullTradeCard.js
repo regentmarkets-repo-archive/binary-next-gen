@@ -10,7 +10,6 @@ import DigitBarrierCard from '../barrier-picker/DigitBarrierCard';
 import DurationCard from '../duration-picker/DurationCard';
 import PayoutCard from '../payout-picker/PayoutCard';
 import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
-// import MobileChart from '../charting/MobileChart';
 import TradeChart from '../charting/TradeChart';
 import BuyButton from '../tick-trade/BuyButton';
 import { askPriceFromProposal } from '../_utils/TradeUtils';
@@ -37,7 +36,7 @@ import classNames from 'classnames';
  * 6. forward starting does not have barriers
  */
 
-export default class GenericTradeCard extends Component {
+export default class BaseTradeCard extends Component {
 
     shouldComponentUpdate = shouldPureComponentUpdate;
 

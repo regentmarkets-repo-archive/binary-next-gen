@@ -656,6 +656,10 @@ tr[tabindex] {
     flex-direction: column;
 }
 
+.trades-tabs {
+    flex-direction: column;
+}
+
 .trades-tabs div[role=tablist] {
     width: 100%;
 }

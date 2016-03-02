@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import GenericTradeCard from '../fulltrade/FullTradeCard';
+import BaseTradeCard from '../fulltrade/FullTradeCard';
 
 export default class TradesGrid extends Component {
 
@@ -17,7 +17,7 @@ export default class TradesGrid extends Component {
         return (
             <div className="trades-grid">
                 {trades.map((trade, index) =>
-                    (contracts[trade.symbol] && <GenericTradeCard
+                    (contracts[trade.symbol] && <BaseTradeCard
                         key={index}
                         index={index}
                         actions={actions}
