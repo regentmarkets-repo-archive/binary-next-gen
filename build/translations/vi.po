@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: I 18N\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-02-27 16:14+0000\n"
+"PO-Revision-Date: 2016-03-02 15:42+0000\n"
 "Last-Translator: Pham Minh Hieu <hphamv7@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-app"
 "/next-gen-app/vi/>\n"
@@ -240,7 +240,6 @@ msgstr "Chỉ số Tài sản"
 msgid "Today"
 msgstr "Hôm nay"
 
-#, fuzzy
 msgid "Yesterday"
 msgstr "Ngày hôm qua"
 
@@ -264,7 +263,6 @@ msgstr "Nguồn thông tin"
 msgid "Last 7 Days"
 msgstr "7 ngày trước"
 
-#, fuzzy
 msgid "Last 30 Days"
 msgstr "30 ngày trước"
 
