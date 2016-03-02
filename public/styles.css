@@ -809,12 +809,10 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .open-notice, .closed-notice {
-    margin-left: .5rem;
     padding: 2px 5px;
     opacity: .75;
     font-size: 80%;
     font-weight: bold;
-    vertical-align: middle;
     text-transform: uppercase;
     color: white;
     border-radius: 2px;
@@ -831,4 +829,8 @@ input[type=number]::-webkit-outer-spin-button {
 .test-chart {
     height: 200px;
     width: 100%;
+}
+
+.asset-details h4 {
+    margin-top: 0;
 }

@@ -53,6 +53,8 @@ electron
 * [Reselect](https://github.com/rackt/reselect) - data selection and computation
 * [Immutable.js](https://facebook.github.io/immutable-js/) - immutable data structures
 
+[![forthebadge](http://forthebadge.com/images/badges/built-by-hipsters.svg)](http://forthebadge.com)
+
 ## Build Process
 * [npm](https://www.npmjs.com/) - manage dependencies
 * [Babel](https://babeljs.io/) - compile ES6 code
@@ -83,3 +85,5 @@ Please see [Weblate](https://hosted.weblate.org/projects/binary-app/next-gen-app
 [Immutable JavaScript: You can't change this](https://www.youtube.com/watch?v=wA98Coal4jk)
 
 [react-router increases your productivity](https://www.youtube.com/watch?v=XZfvW1a8Xac)
+
+[![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)

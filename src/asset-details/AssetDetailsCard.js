@@ -17,11 +17,11 @@ export default class AssetDetailsCard extends Component {
 		const { activeAsset, durations, tradingTimes } = this.props;
 
 		return (
-			<div>
-				<h5>
+			<div className="asset-details">
+				<h4>
 					{activeAsset.name}&nbsp;
 					<OpenCloseNotice isOpen={activeAsset.isOpen} />
-				</h5>
+				</h4>
 				<h5><M m="Trading Times" /></h5>
 				{tradingTimes && <AssetDetailsTradingTimes times={tradingTimes.times} />}
 				<br />
