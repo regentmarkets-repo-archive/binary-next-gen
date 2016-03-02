@@ -20,7 +20,6 @@ export default class TradeChart extends Component {
         return (
             <RiseFallChart
                 className="test-chart"
-                title={symbol}
                 symbol={symbol}
                 data={data}
                 contracts={adaptedContracts}
