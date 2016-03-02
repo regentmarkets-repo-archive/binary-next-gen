@@ -1,6 +1,7 @@
 import { fromJS } from 'immutable';
 import {
     UPDATE_TRADE_PARAMS,
+    UPDATE_MULTIPLE_TRADE_PARAMS,
     RESET_TRADES,
     REMOVE_TRADE,
     CREATE_TRADE,
@@ -30,6 +31,9 @@ export default (state = initialState, action) => {
             return state.push(newTrade);
         }
         case UPDATE_TRADE_PARAMS: {
+            return state.setIn([action.id, action.fieldName], action.fieldValue);
+        }
+        case UPDATE_MULTIPLE_TRADE_PARAMS: {
             const result = state.setIn([action.id, action.fieldName], action.fieldValue);
             return result;
         }
