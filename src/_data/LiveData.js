@@ -29,15 +29,15 @@ const handlers = {
 
 export const api = new LiveApi({ language: 'EN' });
 
-const subscribeToSelectedSymbol = st => {
-    const selectedSymbol = st.getState().workspace.get('selectedAsset');
+const subscribeToSelectedSymbol = store => {
+    const selectedSymbol = store.getState().workspace.get('selectedAsset');
     api.getTickHistory(selectedSymbol, { end: 'latest', count: 20 });
     api.subscribeToTick(selectedSymbol);
-    st.dispatch(actions.getTradingOptions(selectedSymbol));
+    store.dispatch(actions.getTradingOptions(selectedSymbol));
 };
 
-const subscribeToWatchlist = st => {
-    const newState = st.getState();
+const subscribeToWatchlist = store => {
+    const newState = store.getState();
     if (!newState.watchlist) {
         return;
     }
@@ -49,12 +49,12 @@ export const changeLanguage = language => {
     api.changeLanguage(language);
     api.getActiveSymbolsFull();
     api.getAssetIndex();
-    api.getTradingTimes();
+    api.getTradingTimes(new Date());
 };
 
 const initUnauthorized = async store => {
     api.getActiveSymbolsFull();
-    api.getTradingTimes();
+    api.getTradingTimes(new Date());
     api.getAssetIndex();
     api.getServerTime();
 

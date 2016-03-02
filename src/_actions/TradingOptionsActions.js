@@ -1,21 +1,21 @@
 import { UPDATE_TRADING_OPTIONS } from '../_constants/ActionTypes';
 import * as LiveData from '../_data/LiveData';
 
-export const updateTradingOptions = (symbol, opts) => ({
+export const updateTradingOptions = (symbol, options) => ({
     type: UPDATE_TRADING_OPTIONS,
     symbol,
-    opts,
+    options,
 });
 
-export const getTradingOptions = (symbol, onDone = () => null) =>
+export const getTradingOptions = (symbol, onDone) =>
     (dispatch, getState) => {
         const { tradingOptions } = getState();
         if (!tradingOptions.get(symbol)) {
             LiveData.api.getContractsForSymbol(symbol).then(res => {
                 dispatch(updateTradingOptions(symbol, res.contracts_for.available));
-                onDone();
+                if (onDone) onDone();
             });
         } else {
-            onDone();
+            if (onDone) onDone();
         }
     };

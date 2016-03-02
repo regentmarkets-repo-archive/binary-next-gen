@@ -44,13 +44,13 @@ export const updateQuickTradeParams = (symbol, tradeType, params) => {
 export const updateQuickTradePriceProposalSubscription = (symbol, trade) =>
     (dispatch, getState) => {
         const quickTrade = getState().quickTrade;
-        const opts = quickTrade.getIn([symbol, trade, 'params']);
+        const paramns = quickTrade.getIn([symbol, trade, 'params']);
         const proposal = getState().proposals.getIn([symbol, trade]);
         if (proposal) {
             const proposalID = proposal.id;
             LiveData.api.unsubscribeByID(proposalID);
         }
-        LiveData.api.subscribeToPriceForContractProposal(opts.toJS());
+        LiveData.api.subscribeToPriceForContractProposal(paramns.toJS());
     };
 
 export const setQuickTradeField = (symbol, tradeType, field, value) => ({
