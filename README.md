@@ -86,4 +86,8 @@ Please see [Weblate](https://hosted.weblate.org/projects/binary-app/next-gen-app
 
 [react-router increases your productivity](https://www.youtube.com/watch?v=XZfvW1a8Xac)
 
+[PERFORMANCE ENGINEERING WITH REACT](http://benchling.engineering/performance-engineering-with-react/)
+
+[A DEEP DIVE INTO REACT PERF DEBUGGING](http://benchling.engineering/deep-dive-react-perf-debugging/)
+
 [![forthebadge](http://forthebadge.com/images/badges/built-with-love.svg)](http://forthebadge.com)
