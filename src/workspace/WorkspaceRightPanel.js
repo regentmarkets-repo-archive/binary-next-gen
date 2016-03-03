@@ -5,6 +5,7 @@ import NewsContainer from '../news/NewsContainer';
 import VideoListContainer from '../video/VideoListContainer';
 import PortfolioContainer from '../portfolio/PortfolioContainer';
 import StatementContainer from '../statement/StatementContainer';
+import DailyPricesContainer from '../daily-prices/DailyPricesContainer';
 import AssetDetailsContainer from '../asset-details/AssetDetailsContainer';
 
 const components = [
@@ -14,6 +15,7 @@ const components = [
 	AssetIndexContainer,
 	VideoListContainer,
 	NewsContainer,
+	DailyPricesContainer,
 	AssetDetailsContainer,
 ];
 
