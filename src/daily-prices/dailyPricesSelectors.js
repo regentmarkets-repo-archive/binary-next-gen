@@ -1,23 +1,19 @@
-import { createStructuredSelector } from 'reselect';
+import { createSelector, createStructuredSelector } from 'reselect';
+import { dailyPricesSelector } from '../_store/directSelectors';
+import { epochToDate } from '../_utils/DateUtils';
+
+const currentAssetDailyPrices = createSelector(
+    dailyPricesSelector,
+    dailyPrices =>
+        (dailyPrices.get('R_100') || []).map(x => ({
+            date: epochToDate(x.get('epoch')),
+            open: +x.get('open'),
+            high: +x.get('high'),
+            low: +x.get('low'),
+            close: +x.get('close'),
+        })),
+);
 
 export default createStructuredSelector({
-    dailyPrices: () => [{
-        date: new Date(),
-        open: 123,
-        high: 234,
-        low: 100,
-        close: 345,
-    }, {
-        date: new Date().setDate(new Date().getDate() - 1),
-        open: 123,
-        high: 234,
-        low: 100,
-        close: 345,
-    }, {
-        date: new Date().setDate(new Date().getDate() - 2),
-        open: 123,
-        high: 234,
-        low: 100,
-        close: 345,
-    }],
+    dailyPrices: currentAssetDailyPrices,
 });

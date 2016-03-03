@@ -3,7 +3,7 @@ import { fromJS } from 'immutable';
 import * as actions from '../../_actions/AssetsActions';
 import assetsReducer from '../AssetsReducer';
 
-describe('assetsReducers', () => {
+describe('assetsReducer', () => {
     it('by default the state is empty', () => {
         const noAction = { type: '' };
         const initialState = assetsReducer(undefined, noAction);

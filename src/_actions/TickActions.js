@@ -11,6 +11,11 @@ export const serverDataTickHistory = serverResponse => ({
     serverResponse,
 });
 
+export const serverDataCandles = serverResponse => ({
+    type: types.SERVER_DATA_CANDLES,
+    serverResponse,
+});
+
 export const getTicksBySymbol = symbol =>
     (dispatch, getState) => {
         const { ticks } = getState();

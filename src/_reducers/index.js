@@ -29,6 +29,7 @@ import quickTrade from './QuickTradeReducer';
 import trades from './TradesReducer';
 import views from './ViewsReducer';
 import server from './ServerReducer';
+import dailyPrices from './DailyPricesReducer';
 
 export default combineReducers({
     appState,
@@ -60,4 +61,5 @@ export default combineReducers({
     watchlist,
     trades,
     views,
+    dailyPrices,
 });

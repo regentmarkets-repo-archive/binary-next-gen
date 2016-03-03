@@ -12,7 +12,7 @@ const getInitialState = (props) => ({
     ...props,
 });
 
-describe('assetPickerReducers', () => {
+describe('assetPickerReducer', () => {
     describe('updateAssetPickerSearchQuery', () => {
         it('should return empty result when given empty asset list with empty query', () => {
             const stateBefore = fromJS();
