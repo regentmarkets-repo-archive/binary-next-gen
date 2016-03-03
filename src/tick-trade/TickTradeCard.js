@@ -36,7 +36,6 @@ export default class TickTradeCard extends Component {
 
     render() {
         const { assets, currency, index, trade, ticks } = this.props;
-        const spot = ticks.length > 0 ? ticks[ticks.length - 1].quote : null;
         const receipt = trade.receipt;
 
         return (

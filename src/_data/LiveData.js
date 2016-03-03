@@ -37,12 +37,11 @@ const subscribeToSelectedSymbol = store => {
 };
 
 const subscribeToWatchlist = store => {
-    const newState = store.getState();
-    if (!newState.watchlist) {
+    const state = store.getState();
+    if (!state.watchlist) {
         return;
     }
-    const favs = newState.watchlist;
-    api.subscribeToTicks(favs.toJS());
+    api.subscribeToTicks(state.watchlist.toJS());
 };
 
 export const changeLanguage = language => {
