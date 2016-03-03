@@ -1,7 +1,8 @@
 import { createSelector, createStructuredSelector } from 'reselect';
-import singleTradeSelectors from '../trades/singleTradeSelectors';
+import { ticksForFirstTradeSelector, firstTradeSelector } from '../trades/singleTradeSelectors';
 import { findIfExist } from '../_utils/ObjectUtils';
 import { availableAssetsSelector, availableContractsSelector } from '../fulltrade/FullTradeSelectors';
+import { currencySelector } from '../_store/directSelectors';
 
 const tickAssetFilter = (assets, contracts) => {
     const tickAssets = Object.keys(assets).reduce((a, b) => {
@@ -19,7 +20,7 @@ const tickAssetFilter = (assets, contracts) => {
 };
 
 export const tickTradesSelector = createSelector(
-    singleTradeSelectors,
+    firstTradeSelector,
     trade => {
         const tickAssets = tickAssetFilter(trade.assets, trade.contracts);
         const refTrade = trade;             // not entirely sure if this will create trouble
@@ -33,8 +34,11 @@ export const tickAssetsSelector = createSelector(
     (assets, contracts) => tickAssetFilter(assets, contracts)
 );
 
-
 export default createStructuredSelector({
-    ...singleTradeSelectors,
+    assetsGrouped: availableAssetsSelector,
+    contracts: availableContractsSelector,
+    currency: currencySelector,
+    trade: firstTradeSelector,
+    ticks: ticksForFirstTradeSelector,
     assets: tickAssetsSelector,
 });

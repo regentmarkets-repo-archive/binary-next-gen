@@ -47,13 +47,6 @@ describe('singleTradeSelectors', () => {
         expect(actual.ticks).to.deep.equal(fromJS([{ quote: 123 }]));
     });
 
-    it('should group available assets', () => {
-        const state = testState();
-        const actual = singleTradeSelectors(state);
-
-        expect(actual.assets).to.be.ok;
-    });
-
     it.skip('will retrieve contarct for trade', () => {
         const state = testState();
         const actual = singleTradeSelectors(state);
