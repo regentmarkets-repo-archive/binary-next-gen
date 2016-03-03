@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: I 18N\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-03-02 15:42+0000\n"
-"Last-Translator: Pham Minh Hieu <hphamv7@gmail.com>\n"
+"PO-Revision-Date: 2016-03-03 09:06+0000\n"
+"Last-Translator: Sittie Hadjirah Sevilla <sittiebaser@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-app"
 "/next-gen-app/vi/>\n"
 "Language: vi\n"
@@ -243,141 +243,107 @@ msgstr "Hôm nay"
 msgid "Yesterday"
 msgstr "Ngày hôm qua"
 
-#, fuzzy
 msgid "Tomorrow"
 msgstr "Ngày mai"
 
-#, fuzzy
 msgid "Takeout"
 msgstr "Đưa ra"
 
-#, fuzzy
 msgid "News"
 msgstr "Tin tức"
 
-#, fuzzy
 msgid "Resources"
 msgstr "Nguồn thông tin"
 
-#, fuzzy
 msgid "Last 7 Days"
 msgstr "7 ngày trước"
 
 msgid "Last 30 Days"
 msgstr "30 ngày trước"
 
-#, fuzzy
 msgid "Daily Report"
 msgstr "Báo Cáo Hàng Ngày"
 
-#, fuzzy
 msgid "Up/Down"
 msgstr "Lên/Xuống"
 
-#, fuzzy
 msgid "Touch/No Touch"
 msgstr "Chạm/Không chạm"
 
-#, fuzzy
 msgid "Ends In/Out"
 msgstr "Kết thúc Trong/Ngoài"
 
-#, fuzzy
 msgid "Stays In/Goes Out"
 msgstr "Ở trong/Ra ngoài"
 
-#, fuzzy
 msgid "Settles"
 msgstr "Cài đặt"
 
-#, fuzzy
 msgid "Language"
 msgstr "Ngôn ngữ"
 
-#, fuzzy
 msgid "Color Theme"
 msgstr "Màu sắc giao diện"
 
-#, fuzzy
 msgid "Light"
 msgstr "Màu nhạt"
 
-#, fuzzy
 msgid "Dark"
 msgstr "Màu đậm"
 
-#, fuzzy
 msgid "Name"
 msgstr "Tên"
 
-#, fuzzy
 msgid "Date Of Birth"
 msgstr "Ngày sinh"
 
-#, fuzzy
 msgid "Country Of Residence"
 msgstr "Quốc gia cư trú"
 
-#, fuzzy
 msgid "Email"
 msgstr "Email"
 
-#, fuzzy
 msgid "There are no transactions for selected period"
 msgstr "Không có giao dịch nào trong khoảng thời gian này"
 
-#, fuzzy
 msgid "Sell"
 msgstr "Bán"
 
-#, fuzzy
 msgid "Buy"
 msgstr "Mua"
 
-#, fuzzy
 msgid "Digit Even"
 msgstr "Số chẵn"
 
-#, fuzzy
 msgid "Touches"
 msgstr "Chạm"
 
-#, fuzzy
 msgid "Digit Over"
 msgstr "Số vượt quá"
 
-#, fuzzy
 msgid "Digit Match"
 msgstr "Số phù hợp"
 
-#, fuzzy
 msgid "Digit Under"
 msgstr "Số dưới"
 
-#, fuzzy
 msgid "Digit Odd"
 msgstr "Số lẻ"
 
-#, fuzzy
 msgid "Digit Differs"
 msgstr "Số khác"
 
-#, fuzzy
 msgid "No Touch"
 msgstr "Không chạm"
 
-#, fuzzy
 msgid "Fall"
 msgstr "Xuống"
 
-#, fuzzy
 msgid "Asian Down"
 msgstr "Người châu Á xuống"
 
-#, fuzzy
 msgid "Asian Up"
 msgstr "Người châu Á lên"
 
-#, fuzzy
 msgid "Search For Assets"
 msgstr "Tìm Kiếm Tài Sản"
