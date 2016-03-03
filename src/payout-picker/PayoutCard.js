@@ -1,6 +1,5 @@
 import React, { PropTypes, Component } from 'react';
 import InputGroup from '../_common/InputGroup';
-import CollapsibleFormSnippet from '../containers/CollapsibleFormSnippet';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 
 const basises = ['payout', 'stake'];

@@ -3,7 +3,6 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 import ErrorMsg from '../_common/ErrorMsg';
 import SelectGroup from '../_common/SelectGroup';
 import InputGroup from '../_common/InputGroup';
-import CollapsibleFormSnippet from '../containers/CollapsibleFormSnippet';
 import ForwardStartingOptions from './ForwardStartingOptions';
 import { durationText } from '../_utils/TradeUtils';
 
@@ -53,7 +52,7 @@ export default class DurationCard extends Component {
                     />
                 }
                 {currentUnitBlock ?
-                    <CollapsibleFormSnippet label="Duration">
+                    <div>
                         <div className="row">
                             <InputGroup
                                 type="number"
@@ -69,7 +68,7 @@ export default class DurationCard extends Component {
                             />
                         </div>
                         <ErrorMsg shown={showError} text={errorMsg} />
-                    </CollapsibleFormSnippet> :
+                    </div> :
                     <div />}
             </div>
         );

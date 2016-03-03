@@ -122,15 +122,7 @@ export default class BaseTradeCard extends Component {
         const defaultType = createDefaultType(contract, newCategory);
         const lastSpot = tick ? tick[tick.length - 1].quote : 0;
 
-        // update type
-        this.updateHelper('type', defaultType, false);
-
-        // update duration
         const newDuration = createDefaultDuration(contract, newCategory, defaultType);
-        this.updateHelper('duration', newDuration[0], false);
-        this.updateHelper('durationUnit', newDuration[1], false);
-        this.updateHelper('dateStart', undefined, false);
-
         const newBarrier = createDefaultBarriers(
             contract,
             newCategory,
@@ -140,6 +132,10 @@ export default class BaseTradeCard extends Component {
             lastSpot
         );
 
+        this.updateHelper('type', defaultType, false);
+        this.updateHelper('duration', newDuration[0], false);
+        this.updateHelper('durationUnit', newDuration[1], false);
+        this.updateHelper('dateStart', undefined, false);
         this.updateHelper('barrier', newBarrier[0], false);
         this.updateHelper('barrier2', newBarrier[1], false);
 
@@ -162,20 +158,22 @@ export default class BaseTradeCard extends Component {
     }
 
     onTypeChange(e) {
+        const { actions, index, contract, trade, tick } = this.props;
         const type = e.target.value;
-        this.updateHelper('type', type, false);
-
-        const { contract, trade, tick } = this.props;
         const category = trade.tradeCategory;
         const lastSpot = tick ? tick[tick.length - 1].quote : 0;
         const newDuration = createDefaultDuration(contract, category, type);
         const newBarrier = createDefaultBarriers(contract, category, type, newDuration[0], newDuration[1], lastSpot);
 
-        this.updateHelper('duration', newDuration[0], false);
-        this.updateHelper('durationUnit', newDuration[1], false);
-        this.updateHelper('dateStart', undefined, false);
-        this.updateHelper('barrier', newBarrier[0], false);
-        this.updateHelper('barrier2', newBarrier[1], true);
+        actions.updateMultipleTradeParams(index, {
+            type,
+            duration: newDuration[0],
+            durationUnit: newDuration[1],
+            dateStart: undefined,
+            barrier: newBarrier[0],
+            barrier2: newBarrier[1],
+        });
+        actions.updatePriceProposalSubscription(index);
     }
 
     onStartDateChange(epoch) {
