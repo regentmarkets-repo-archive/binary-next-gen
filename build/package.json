@@ -23,7 +23,6 @@
     "stage": 0
   },
   "dependencies": {
-    "babel-core": "^6.5.1",
     "babel-eslint": "^5.0.0-beta6",
     "babel-loader": "^6.2.2",
     "css-loader": "^0.23.1",
