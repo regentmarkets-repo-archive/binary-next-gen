@@ -26,7 +26,6 @@ export default class MobileSidebar extends Component {
 					<BalanceContainer />
 				</div>
 				<SidebarBtn to="/mobile" img="img/trade.svg" text="Tick Trade" />
-				<SidebarBtn to="/full-trade-mobile" img="img/trade.svg" text="Full Trade" />
 				<SidebarBtn to="/watchlist-mobile" img="img/watchlist.svg" text="Watchlist" />
 				<SidebarBtn to="/portfolio-mobile" img="img/portfolio.svg" text="Open Positions" />
 				<SidebarBtn to="/statement-mobile" img="img/statement.svg" text="Statement" />

@@ -6,8 +6,8 @@ export const symbolIdsSelector = createSelector(
      assets => assets.map(v => v.get('symbol'))
 );
 
-export const similarStr = (str1 = '', str2 = '') =>
-    str1.toLowerCase().includes(str2.toLowerCase());
+export const similarStr = (str1, str2) =>
+    (str1 || '').toLowerCase().includes((str2 || '').toLowerCase());
 
 const doesMatchMarket = (asset, filter) =>
     filter.get('submarket') === '' ||
