@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: 1228\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-01-28 07:51+0000\n"
-"Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
+"PO-Revision-Date: 2016-03-05 01:57+0000\n"
+"Last-Translator: Xiaojing <cai.cxj@gmail.com>\n"
 "Language-Team: Chinese (China) <https://hosted.weblate.org/projects/binary-"
 "app/next-gen-app/zh_CN/>\n"
 "Language: zh_cn\n"
@@ -116,10 +116,10 @@ msgid "Withdrawal limits"
 msgstr "取款限额"
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
-msgstr "您的提款上限是{限值} (或其他货币的等值)。"
+msgstr "您的提款上限是{限值} (或等值的其他货币)。"
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
-msgstr "您已提款相等于欧元 {提款值}。"
+msgstr "您的提款数额相当于欧元 {提款值}。"
 
 msgid "An additional password can be used to restrict access to the cashier."
 msgstr "可使用额外密码来限制对收银台的访问。"
@@ -149,7 +149,7 @@ msgid "Place Order"
 msgstr "下订单"
 
 msgid "{asset} will {type} over next {duration}"
-msgstr "{资产} 将在 {时段}期内{类型}"
+msgstr "{资产} 将在 {类型}期内{时段}"
 
 msgid "Price"
 msgstr "价格"
@@ -188,7 +188,7 @@ msgid "Date of birth"
 msgstr "出生日期"
 
 msgid "Home Address"
-msgstr "住家地址"
+msgstr "家庭住址"
 
 msgid "Security"
 msgstr "安全"
@@ -305,7 +305,7 @@ msgid "Email"
 msgstr "电子邮件"
 
 msgid "There are no transactions for selected period"
-msgstr "选定期间无任何交易"
+msgstr "选定时间段中无任何交易"
 
 msgid "Sell"
 msgstr "售出"
@@ -323,7 +323,7 @@ msgid "Digit Over"
 msgstr "数字超过限额"
 
 msgid "Digit Match"
-msgstr "数字相符"
+msgstr "数字匹配"
 
 msgid "Digit Under"
 msgstr "数字低于限额"
@@ -332,7 +332,7 @@ msgid "Digit Odd"
 msgstr "数字为奇数"
 
 msgid "Digit Differs"
-msgstr "数字不相符"
+msgstr "数字差异"
 
 msgid "No Touch"
 msgstr "未触及"
