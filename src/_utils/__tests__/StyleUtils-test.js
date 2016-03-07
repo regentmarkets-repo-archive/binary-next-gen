@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { directionClassName } from '../StyleUtils.js';
+import { directionClassName } from '../StyleUtils';
 
 describe('directionClassName', () => {
     it('returns no class name for 0', () => {

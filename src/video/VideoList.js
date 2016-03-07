@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import VideoThumbnail from './VideoThumbnail.js';
+import VideoThumbnail from './VideoThumbnail';
 
 export default class VideoList extends Component {
 

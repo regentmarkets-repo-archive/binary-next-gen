@@ -45,18 +45,15 @@ export const durationToSecs = (duration, unit) => {
 export const isIntraday = (duration, unit) =>
     durationToSecs(duration, unit) < 60 * 60 * 24;
 
-export const contractCategoryDisplay = category => {
-    switch (category) {
-        case 'asian': return 'Asians';
-        case 'callput': return 'Up/Down';
-        case 'digits': return 'Digits';
-        case 'endsinout': return 'Ends In/Out';
-        case 'staysinout': return 'Stays In/Out';
-        case 'touchnotouch': return 'Touch/No Touch';
-        case 'spreads': return 'Spreads';
-        default: return undefined;
-    }
-};
+export const contractCategoryDisplay = category => ({
+    asian: 'Asians',
+    callput: 'Up/Down',
+    digits: 'Digits',
+    endsinout: 'Ends In/Out',
+    staysinout: 'Stays In/Out',
+    touchnotouch: 'Touch/No Touch',
+    spreads: 'Spreads',
+})[category];
 
 export const askPriceFromProposal = proposal =>
     proposal && +proposal.ask_price;
@@ -81,3 +78,12 @@ export const digitOptionsByType = type => {
 		}
 	}
 };
+
+export const isDurationTick = duration =>
+    duration && duration.slice(-1) === 't';
+
+export const isDurationLessThan2Mins = (duration, durationUnit) =>
+    isDurationTick(durationUnit) || durationToSecs(duration, durationUnit) < 120;
+
+export const getLastTick = ticks =>
+    (ticks && ticks.length > 0) ? ticks[ticks.length - 1].quote : 0;
