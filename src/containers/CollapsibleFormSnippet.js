@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 
 export default class CollapsibleFormSnippet extends Component {
+
     constructor(props) {
         super(props);
         this.state = {

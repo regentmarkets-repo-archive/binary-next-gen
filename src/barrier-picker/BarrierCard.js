@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import BarrierInput from './RelativeBarrierInput';
-import CollapsibleFormSnippet from '../containers/CollapsibleFormSnippet';
 
 export default class BarrierCard extends Component {
 
@@ -39,39 +38,37 @@ export default class BarrierCard extends Component {
         const toggleMsg = barrierType === 'relative' ?
             (!isIntraDay && 'Absolute barrier available') :
             'Relative barrier';
+
+        if (!barrier1Info) return null;
+
         return (
             <div>
-                {barrier1Info && <CollapsibleFormSnippet label="Barriers" show>
-                    <div>
-                        <BarrierInput
-                            {...barrier1Info}
-                            barrierType={barrierType}
-                            expiryType={expiryType}
-                            onChange={onBarrier1Change}
-                            isIntraDay={isIntraDay}
-                            pipSize={pipSize}
-                            value={barrier}
-                            spot={spot}
-                        />
-                    </div>
-                    {barrier2Info &&
-                        <div>
-                            <BarrierInput
-                                {...barrierInfo[expiryType][1]}
-                                barrierType={barrierType}
-                                expiryType={expiryType}
-                                onChange={onBarrier2Change}
-                                pipSize={pipSize}
-                                isIntraDay={isIntraDay}
-                                value={barrier2}
-                                spot={spot}
-                            />
-                        </div>}
-                    {spot &&
-                    <a onClick={() => onBarrierTypeChange(barrierType === 'relative' ? 'absolute' : 'relative')}>
-                        {toggleMsg}
-                    </a>}
-                </CollapsibleFormSnippet>}
+                <BarrierInput
+                    {...barrier1Info}
+                    barrierType={barrierType}
+                    expiryType={expiryType}
+                    onChange={onBarrier1Change}
+                    isIntraDay={isIntraDay}
+                    pipSize={pipSize}
+                    value={barrier}
+                    spot={spot}
+                />
+                {barrier2Info &&
+                    <BarrierInput
+                        {...barrierInfo[expiryType][1]}
+                        barrierType={barrierType}
+                        expiryType={expiryType}
+                        onChange={onBarrier2Change}
+                        pipSize={pipSize}
+                        isIntraDay={isIntraDay}
+                        value={barrier2}
+                        spot={spot}
+                    />
+                }
+                {spot &&
+                <a onClick={() => onBarrierTypeChange(barrierType === 'relative' ? 'absolute' : 'relative')}>
+                    {toggleMsg}
+                </a>}
             </div>
         );
     }

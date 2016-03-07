@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import M from '../_common/M';
 import InputGroup from '../_common/InputGroup';
-import CollapsibleFormSnippet from '../containers/CollapsibleFormSnippet';
 import RadioGroup from '../fulltrade/workaround/CustomRadioGroup';
 import { epochToUTCTimeString, dateToEpoch, dateToUTCTimeString, timeStringToSeconds } from '../_utils/DateUtils';
 
@@ -61,7 +60,7 @@ export default class ForwardStartingOptions extends Component {
         const timeString = dateStart ? epochToUTCTimeString(dateStart) : '';
 
         return (
-            <CollapsibleFormSnippet label="Start times">
+            <div>
                 <RadioGroup
                     options={dayOptions}
                     onChange={::this.selectDay}
@@ -77,7 +76,7 @@ export default class ForwardStartingOptions extends Component {
                 <button className="btn-secondary" onClick={::this.removeDateStart}>
                     <M m="Now" />
                 </button>
-            </CollapsibleFormSnippet>
+            </div>
         );
     }
 }
