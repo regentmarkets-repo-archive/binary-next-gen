@@ -14,17 +14,14 @@ export default class TradeChart extends Component {
         const data = rfAdapter.ticksToDataArray(history);
         const adaptedContracts = contracts && rfAdapter.openContractsToContracts(contracts);
 
-        const xOffset = 0.1;
-        const yOffset = 0.5;
-
         return (
             <RiseFallChart
                 className="test-chart"
                 symbol={symbol}
                 data={data}
                 contracts={adaptedContracts}
-                xOffsetPercentage={xOffset}
-                yOffsetPercentage={yOffset}
+                xOffsetPercentage={0.1}
+                yOffsetPercentage={0.5}
             />
         );
     }

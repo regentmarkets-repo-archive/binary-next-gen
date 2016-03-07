@@ -838,3 +838,7 @@ input[type=number]::-webkit-outer-spin-button {
 .asset-details h4 {
     margin-top: 0;
 }
+
+#type-picker img {
+    height: 2rem;
+}

@@ -1,5 +1,11 @@
 import { expect } from 'chai';
-import { tradeTypeTextToCode, tradeTypeCodeToText, typeHasBarrier, pipsToDigits } from '../TradeUtils.js';
+import {
+    getLastTick,
+    pipsToDigits,
+    tradeTypeTextToCode,
+    tradeTypeCodeToText,
+    typeHasBarrier,
+} from '../TradeUtils';
 
 describe('tradeTypeTextToCode', () => {
     it('returns the code behind friendly name', () => {
@@ -37,5 +43,25 @@ describe('pipsToDigits', () => {
     it('0.0001 pips result in 4 digits after the decimal point', () => {
         const digits = pipsToDigits(0.0001);
         expect(digits).to.equal(4);
+    });
+});
+
+describe('getLastTick', () => {
+    it('does not throw on empty input', () => {
+        expect(getLastTick()).to.not.throw;
+        expect(getLastTick()).to.equal(0);
+    });
+
+    it('does not throw on empty list as input', () => {
+        expect(getLastTick([])).to.not.throw;
+        expect(getLastTick([])).to.equal(0);
+    });
+
+    it('single item as input, is returned as output', () => {
+        expect(getLastTick([{ quote: 5 }])).to.equal(5);
+    });
+
+    it('when passed multiple items, last one is returned', () => {
+        expect(getLastTick([{ quote: 1 }, { quote: 2 }, { quote: 3 }])).to.equal(3);
     });
 });

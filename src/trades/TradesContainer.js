@@ -17,15 +17,15 @@ export default class TradesContainer extends Component {
     };
 
     static defaultProps = {
-        tradeMode: 'grid',
+        tradeMode: 'tabs',
     };
 
     render() {
         const { tradeMode } = this.props;
 
         switch (tradeMode) {
-            case 'grid': return <TradesGrid {...immutableChildrenToJS(this.props)} />;
             case 'tabs': return <TradesTabs {...immutableChildrenToJS(this.props)} />;
+            case 'grid': return <TradesGrid {...immutableChildrenToJS(this.props)} />;
             case 'jp': return <JpTradeCard {...immutableChildrenToJS(this.props)} />;
             default: return null;
         }

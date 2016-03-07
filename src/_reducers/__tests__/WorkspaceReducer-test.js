@@ -13,20 +13,20 @@ describe('WorkspaceReducer', () => {
     });
 
     describe('toggleTradeMode', () => {
-        it('can toggle trade mode from grid to tabs', () => {
+        it('can toggle trade mode from tabs to grid', () => {
             const stateBefore = fromJS({
-                tradeMode: 'grid',
+                tradeMode: 'tabs',
             });
             const actual = workspaceReducer(stateBefore, actions.toggleTradeMode());
             const expected = fromJS({
-                tradeMode: 'tabs',
+                tradeMode: 'grid',
             });
             expect(expected).to.equal(actual);
         });
 
-        it('should be able to toggle trade mode from tabs to jp', () => {
+        it('should be able to toggle trade mode from grid to jp', () => {
             const stateBefore = fromJS({
-                tradeMode: 'tabs',
+                tradeMode: 'grid',
             });
             const actual = workspaceReducer(stateBefore, actions.toggleTradeMode());
             const expected = fromJS({
@@ -35,13 +35,13 @@ describe('WorkspaceReducer', () => {
             expect(expected).to.equal(actual);
         });
 
-        it('should be able to toggle trade mode from jp to grid', () => {
+        it('should be able to toggle trade mode from jp to tabs', () => {
             const stateBefore = fromJS({
                 tradeMode: 'jp',
             });
             const actual = workspaceReducer(stateBefore, actions.toggleTradeMode());
             const expected = fromJS({
-                tradeMode: 'grid',
+                tradeMode: 'tabs',
             });
             expect(expected).to.equal(actual);
         });

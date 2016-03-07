@@ -9,7 +9,7 @@ const TradeTypeRestOptions = ({ onChange, type }) => (
 				label="Asian Up"
 				name="trade-type"
 				value="ASIANU"
-				img="img/trade-asianup.svg"
+				img="img/trade-asianu.svg"
 				onChange={onChange}
 			/>
 			<RadioItem
@@ -17,7 +17,7 @@ const TradeTypeRestOptions = ({ onChange, type }) => (
 				label="Asian Down"
 				name="trade-type"
 				value="ASIAND"
-				img="img/trade-asiandown.svg"
+				img="img/trade-asiand.svg"
 				onChange={onChange}
 			/>
 		</div>
@@ -37,7 +37,7 @@ const TradeTypeRestOptions = ({ onChange, type }) => (
 				label="Touches"
 				name="trade-type"
 				value="ONETOUCH"
-				img="img/trade-touch.svg"
+				img="img/trade-onetouch.svg"
 				onChange={onChange}
 			/>
 			<RadioItem
@@ -54,14 +54,14 @@ const TradeTypeRestOptions = ({ onChange, type }) => (
 				label="Ends Between"
 				name="trade-type"
 				value="EXPIRYRANGE"
-				img="img/trade-between.svg"
+				img="img/trade-expiryrange.svg"
 				onChange={onChange}
 			/>
 			<RadioItem
 				label="Ends Outside"
 				name="trade-type"
 				value="EXPIRYMISS"
-				img="img/trade-outside.svg"
+				img="img/trade-expirymiss.svg"
 				onChange={onChange}
 			/>
 		</div>
@@ -72,14 +72,14 @@ const TradeTypeRestOptions = ({ onChange, type }) => (
 				label="Stays Between"
 				name="trade-type"
 				value="RANGE"
-				img="img/trade-in.svg"
+				img="img/trade-range.svg"
 				onChange={onChange}
 			/>
 			<RadioItem
 				label="Goes Outside"
 				name="trade-type"
 				value="UPORDOWN"
-				img="img/trade-out.svg"
+				img="img/trade-upordown.svg"
 				onChange={onChange}
 			/>
 		</div>
@@ -90,14 +90,14 @@ const TradeTypeRestOptions = ({ onChange, type }) => (
 				label="Spread Long"
 				name="trade-type"
 				value="SPREADU"
-				img="img/trade-spread.svg"
+				img="img/trade-spreadu.svg"
 				onChange={onChange}
 			/>
 			<RadioItem
 				label="Spread Short"
 				name="trade-type"
 				value="SPREADD"
-				img="img/trade-spread.svg"
+				img="img/trade-spreadu.svg"
 				onChange={onChange}
 			/>
 		</div>

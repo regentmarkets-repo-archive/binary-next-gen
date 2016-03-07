@@ -38,7 +38,8 @@ export default class TradesTabs extends Component {
                     tick={ticks[activeTrade.symbol]}
                     contract={contracts[activeTrade.symbol]}
                     currency={currency}
-                    isActive={ () => true}
+                    isActive
+                    {...this.props}
                 />
             </div>
         );
