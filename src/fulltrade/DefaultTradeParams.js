@@ -1,6 +1,5 @@
 import { durationToSecs, isIntraday } from '../_utils/TradeUtils';
 
-
 export const createDefaultType = (contracts, category) =>
     Object.keys(contracts[category])[0];
 

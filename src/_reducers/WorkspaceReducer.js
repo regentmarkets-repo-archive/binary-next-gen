@@ -21,7 +21,7 @@ const initialState = new Map({
     rightPanelVisible: true,
     rightPanelSize: 320,
     rightActiveTab: 0,
-    tradeMode: 'grid',
+    tradeMode: 'tabs',
     activeTradeIndex: 0,
     selectedAsset: 'R_100',
 });
@@ -61,7 +61,7 @@ export default (state = initialState, action) => {
                 .set(action.panel + 'PanelVisible', action.size > 100);
         }
         case TOGGLE_TRADE_MODE: {
-            const tradeModes = ['grid', 'tabs', 'jp'];
+            const tradeModes = ['tabs', 'grid', 'jp'];
             const currentMode = tradeModes.indexOf(state.get('tradeMode'));
             const newTradeModeIdx = currentMode >= tradeModes.length - 1 ? 0 : currentMode + 1;
             return state.set('tradeMode', tradeModes[newTradeModeIdx]);

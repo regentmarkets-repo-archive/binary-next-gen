@@ -59,7 +59,7 @@ export default class WorkspaceCard extends Component {
 					<Tab imgSrc="img/resources.svg" text="Asset Index" />
 					<Tab imgSrc="img/video.svg" text="Video" />
 					<Tab imgSrc="img/news.svg" text="News" />
-					<Tab imgSrc="img/info.svg" text="Daily Prices" />
+					<Tab imgSrc="img/ohlc.svg" text="Daily Prices" />
 					<Tab imgSrc="img/info.svg" text="Details" />
 				</TabList>
 			</div>

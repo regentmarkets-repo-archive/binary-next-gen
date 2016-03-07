@@ -22,13 +22,14 @@ export default class ToggleButtons extends Component {
 			checked: rightPanelVisible,
 		});
 
-		const gridBtnClasses = classNames({
-			'btn-secondary ': true,
-			checked: tradeMode === 'grid',
-		});
+
 		const tabsBtnClasses = classNames({
 			'btn-secondary ': true,
 			checked: tradeMode === 'tabs',
+		});
+		const gridBtnClasses = classNames({
+			'btn-secondary ': true,
+			checked: tradeMode === 'grid',
 		});
 		const jpBtnClasses = classNames({
 			'btn-secondary ': true,
@@ -53,14 +54,14 @@ export default class ToggleButtons extends Component {
 				</button>
 				&nbsp;
 				<button
-					className={gridBtnClasses}
-					onClick={() => actions.changeTradeMode('grid')}
+					className={tabsBtnClasses}
+					onClick={() => actions.changeTradeMode('tabs')}
 				>
 					<img src="img/bottom-panel.svg" />
 				</button>
 				<button
-					className={tabsBtnClasses}
-					onClick={() => actions.changeTradeMode('tabs')}
+					className={gridBtnClasses}
+					onClick={() => actions.changeTradeMode('grid')}
 				>
 					<img src="img/bottom-panel.svg" />
 				</button>
