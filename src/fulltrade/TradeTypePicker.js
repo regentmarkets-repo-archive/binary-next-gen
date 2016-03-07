@@ -4,7 +4,7 @@ import RadioGroup from './workaround/CustomRadioGroup';
 import { contractCategoryDisplay } from '../_utils/TradeUtils';
 import { tradeTypeCodeToText } from '../_utils/TradeUtils';
 
-export default class BaseTradeCard extends Component {
+export default class TradeTypePicker extends Component {
 
 
     static propTypes = {

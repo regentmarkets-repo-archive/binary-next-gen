@@ -1,9 +1,9 @@
 import React from 'react';
 import MobilePage from '../containers/MobilePage';
-import BaseTradeCard from './FullTradeCard';
+import FullTradeCard from './FullTradeCard';
 
 export default (props) => (
 	<MobilePage>
-		<BaseTradeCard compact {...props} />
+		<FullTradeCard compact {...props} />
 	</MobilePage>
 );

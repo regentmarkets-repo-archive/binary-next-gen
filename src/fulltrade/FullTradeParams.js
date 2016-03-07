@@ -28,7 +28,7 @@ import { createDefaultType, createDefaultDuration, createDefaultBarriers } from 
  * 6. forward starting does not have barriers
  */
 
-export default class BaseTradeCard extends Component {
+export default class FullTradeParams extends Component {
 
     shouldComponentUpdate = shouldPureComponentUpdate;
 
@@ -85,6 +85,7 @@ export default class BaseTradeCard extends Component {
                 this.updateHelper('barrierType', newBarrierType);
             }
         }
+
     }
 
     updateTradeParams(params) {
