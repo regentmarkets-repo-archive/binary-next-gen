@@ -46,8 +46,8 @@ export const isIntraday = (duration, unit) =>
     durationToSecs(duration, unit) < 60 * 60 * 24;
 
 export const contractCategoryDisplay = category => ({
-    asian: 'Asians',
     callput: 'Up/Down',
+    asian: 'Asians',
     digits: 'Digits',
     endsinout: 'Ends In/Out',
     staysinout: 'Stays In/Out',

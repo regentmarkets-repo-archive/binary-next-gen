@@ -1,8 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import SelectGroup from '../_common/SelectGroup';
 import TabList from '../_common/TabList';
 import Tab from '../_common/Tab';
-import RadioGroup from './workaround/CustomRadioGroup';
 import { contractCategoryDisplay } from '../_utils/TradeUtils';
 import { tradeTypeCodeToText } from '../_utils/TradeUtils';
 
@@ -22,39 +20,31 @@ export default class TradeTypePicker extends Component {
         const categories = Object
             .keys(contract)
             .map(c => ({ value: c, text: contractCategoryDisplay(c) }));
-        const selectedCategoryIndex = categories.indexOf(selectedCategory);
+        const selectedCategoryIndex = categories.findIndex(x => x.value === selectedCategory);
         const types = Object
             .keys(contract[selectedCategory])
             .map(type => ({ text: tradeTypeCodeToText(type), value: type }));
-        const index = (Math.random() * 1000 * 1000).toFixed();
+        const selectedTypeIndex = types.findIndex(x => x.value === selectedType);
 
         return (
             <div>
                 <TabList
                     activeIndex={selectedCategoryIndex}
-                    onChange={onCategoryChange}
+                    onChange={idx => onCategoryChange(categories[idx].value)}
                 >
-                    {categories.map(x =>
-                        <Tab text={x.text} />
+                    {categories.map((x, idx) =>
+                        <Tab key={idx} text={x.text} />
                     )}
                 </TabList>
-                <TabList onChange={onTypeChange}>
-                    {types.map(x =>
-                        <Tab text={x.text} imgSrc={`img/trade-${x.value}.svg`} />
+                <TabList
+                    id="type-picker"
+                    activeIndex={selectedTypeIndex}
+                    onChange={idx => onTypeChange(types[idx].value)}
+                >
+                    {types.map((x, idx) =>
+                        <Tab key={idx} text={x.text} imgSrc={`img/trade-${x.value}.svg`} />
                     )}
                 </TabList>
-                <SelectGroup
-                    id="categories-select"
-                    options={categories}
-                    value={selectedCategory}
-                    onChange={onCategoryChange}
-                />
-                <RadioGroup
-                    name={'trading-types' + index}
-                    options={types}
-                    value={selectedType}
-                    onChange={onTypeChange}
-                />
             </div>
         );
     }

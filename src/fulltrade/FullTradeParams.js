@@ -69,7 +69,7 @@ export default class BaseTradeCard extends Component {
     }
 
     componentWillMount() {
-        this.onCategoryChange({ target: { value: 'callput' } }, false);
+        this.onCategoryChange('callput');
     }
 
     componentWillReceiveProps(nextProps) {
@@ -107,18 +107,15 @@ export default class BaseTradeCard extends Component {
         actions.updateTradeParams(index, 'disabled', true);
         actions.getTradingOptions(symbol, () => {
             this.updateHelper('symbol', symbol);
-            this.onCategoryChange({ target: { value: 'callput' } }, false);
+            this.onCategoryChange('callput');
             actions.updateTradeParams(index, 'disabled', false);
         });
         actions.getTicksBySymbol(symbol);
     }
 
     // scary but necessary as all fields have dependency on category
-    onCategoryChange(e, update = false) {
-        const { contract, ticks } = this.props;
-
-        const newCategory = e.target.value;
-        this.updateHelper('tradeCategory', newCategory, update);
+    onCategoryChange(newCategory) {
+        const { actions, contract, index, ticks } = this.props;
 
         const defaultType = createDefaultType(contract, newCategory);
         const lastSpot = getLastTick(ticks);
@@ -133,41 +130,43 @@ export default class BaseTradeCard extends Component {
             lastSpot
         );
 
-        this.updateHelper('type', defaultType, false);
-        this.updateHelper('duration', newDuration[0], false);
-        this.updateHelper('durationUnit', newDuration[1], false);
-        this.updateHelper('dateStart', undefined, false);
-        this.updateHelper('barrier', newBarrier[0], false);
-        this.updateHelper('barrier2', newBarrier[1], false);
+        actions.updateMultipleTradeParams(index, {
+            tradeCategory: newCategory,
+            type: defaultType,
+            duration: newDuration[0],
+            durationUnit: newDuration[1],
+            dateStart: undefined,
+            barrier: newBarrier[0],
+            barrier2: newBarrier[1],
+            amountPerPoint: undefined,
+            stopType: undefined,
+            stopLoss: undefined,
+            stopProfit: undefined,
+        });
 
         // spread is different from all other type
-        if (newCategory === 'spreads') {
-            const spread = contract[newCategory][defaultType].spread;
-            this.updateHelper('amountPerPoint', spread.amountPerPoint, false);
-            this.updateHelper('stopType', spread.stopType, false);
-            this.updateHelper('stopLoss', spread.stopLoss, false);
-            this.updateHelper('stopProfit', spread.stopProfit, false);
-        } else {
-            this.updateHelper('amountPerPoint', undefined, false);
-            this.updateHelper('stopType', undefined, false);
-            this.updateHelper('stopLoss', undefined, false);
-            this.updateHelper('stopProfit', undefined, false);
-        }
+        // TODO: fix next
+        // if (newCategory === 'spreads') {
+        //     const spread = contract[newCategory][defaultType].spread;
+        //     this.updateHelper('amountPerPoint', spread.amountPerPoint, false);
+        //     this.updateHelper('stopType', spread.stopType, false);
+        //     this.updateHelper('stopLoss', spread.stopLoss, false);
+        //     this.updateHelper('stopProfit', spread.stopProfit, false);
+        // }
 
-        const { actions, index } = this.props;
         actions.updatePriceProposalSubscription(index);
     }
 
-    onTypeChange(e) {
+    onTypeChange(newType) {
         const { actions, index, contract, trade, ticks } = this.props;
-        const type = e.target.value;
+
         const category = trade.tradeCategory;
         const lastSpot = getLastTick(ticks);
-        const newDuration = createDefaultDuration(contract, category, type);
-        const newBarrier = createDefaultBarriers(contract, category, type, newDuration[0], newDuration[1], lastSpot);
+        const newDuration = createDefaultDuration(contract, category, newType);
+        const newBarrier = createDefaultBarriers(contract, category, newType, newDuration[0], newDuration[1], lastSpot);
 
         actions.updateMultipleTradeParams(index, {
-            type,
+            type: newType,
             duration: newDuration[0],
             durationUnit: newDuration[1],
             dateStart: undefined,
@@ -178,21 +177,23 @@ export default class BaseTradeCard extends Component {
     }
 
     onStartDateChange(epoch) {
-        const { contract, trade } = this.props;
+        const { actions, contract, index, trade } = this.props;
         const { duration, durationUnit, tradeCategory, type } = trade;
         const newDurations = contract[tradeCategory][type].forwardStartingDuration.options;
 
         // do not reset duration unless the old one is not valid
         if (!epoch || isDurationWithinRange(duration, durationUnit, newDurations)) {
-            this.updateHelper('dateStart', epoch);
+            actions.updateMultipleTradeParams(index, { dateStart: epoch });
             return;
         }
 
-        this.updateHelper('dateStart', epoch, false);
-        this.updateHelper('duration', newDurations[0].min, false);
-        this.updateHelper('durationUnit', newDurations[0].unit, false);
-        this.updateHelper('barrier', undefined, false);
-        this.updateHelper('barrier2', undefined, true);
+        actions.updateMultipleTradeParams(index, {
+            dateStart: epoch,
+            duration: newDurations[0].min,
+            durationUnit: newDurations[0].unit,
+            barrier: undefined,
+            barrier2: undefined,
+        });
     }
 
     onDurationChange(e) {
