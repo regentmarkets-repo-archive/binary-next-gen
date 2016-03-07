@@ -24,7 +24,7 @@ export default class TradeTypeTickOptions extends Component {
 						label="Rise"
 						name="trade-type"
 						value="CALL"
-						img="img/trade-rise.svg"
+						img="img/trade-call.svg"
 						onChange={onTypeChange}
 					/>
 					<RadioItem
@@ -32,7 +32,7 @@ export default class TradeTypeTickOptions extends Component {
 						label="Fall"
 						name="trade-type"
 						value="PUT"
-						img="img/trade-fall.svg"
+						img="img/trade-put.svg"
 						onChange={onTypeChange}
 					/>
 				</div>
@@ -42,7 +42,7 @@ export default class TradeTypeTickOptions extends Component {
 						label="Touches"
 						name="trade-type"
 						value="ONETOUCH"
-						img="img/trade-touch.svg"
+						img="img/trade-onetouch.svg"
 						onChange={onTypeChange}
 					/>
 					<RadioItem
@@ -60,7 +60,7 @@ export default class TradeTypeTickOptions extends Component {
 						label="Asian Up"
 						name="trade-type"
 						value="ASIANU"
-						img="img/trade-asianup.svg"
+						img="img/trade-asianu.svg"
 						onChange={onTypeChange}
 					/>
 					<RadioItem
@@ -68,7 +68,7 @@ export default class TradeTypeTickOptions extends Component {
 						label="Asian Down"
 						name="trade-type"
 						value="ASIAND"
-						img="img/trade-asiandown.svg"
+						img="img/trade-asiand.svg"
 						onChange={onTypeChange}
 					/>
 				</div>
@@ -78,7 +78,7 @@ export default class TradeTypeTickOptions extends Component {
 						label="Stay Between"
 						name="trade-type"
 						value="RANGE"
-						img="img/trade-in.svg"
+						img="img/trade-range.svg"
 						onChange={onTypeChange}
 					/>
 					<RadioItem
@@ -86,7 +86,7 @@ export default class TradeTypeTickOptions extends Component {
 						label="Goes Outside"
 						name="trade-type"
 						value="UPORDOWN"
-						img="img/trade-outside.svg"
+						img="img/trade-expirymiss.svg"
 						onChange={onTypeChange}
 					/>
 				</div>}
@@ -96,7 +96,7 @@ export default class TradeTypeTickOptions extends Component {
 						label="Ends Outside"
 						name="trade-type"
 						value="EXPIRYMISS"
-						img="img/trade-out.svg"
+						img="img/trade-upordown.svg"
 						onChange={onTypeChange}
 					/>
 					<RadioItem
@@ -104,7 +104,7 @@ export default class TradeTypeTickOptions extends Component {
 						label="Ends Between"
 						name="trade-type"
 						value="EXPIRYRANGE"
-						img="img/trade-between.svg"
+						img="img/trade-expiryrange.svg"
 						onChange={onTypeChange}
 					/>
 				</div>}
@@ -180,7 +180,7 @@ export default class TradeTypeTickOptions extends Component {
 						label="Spread Up"
 						name="trade-type"
 						value="SPREADU"
-						img="img/trade-spread.svg"
+						img="img/trade-spreadu.svg"
 						onChange={onTypeChange}
 					/>
 					<RadioItem
@@ -188,7 +188,7 @@ export default class TradeTypeTickOptions extends Component {
 						label="Spread Down"
 						name="trade-type"
 						value="SPREADD"
-						img="img/trade-spread.svg"
+						img="img/trade-spreadu.svg"
 						onChange={onTypeChange}
 					/>
 				</div>}

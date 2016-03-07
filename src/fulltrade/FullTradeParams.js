@@ -281,27 +281,22 @@ export default class BaseTradeCard extends Component {
     }
 
     render() {
-
         const { contract, index, trade, currency } = this.props;
         const selectedCategory = trade.tradeCategory;
         const selectedType = trade.type;
         const contractForType = contract[selectedCategory][selectedType];
         const barriers = contractForType && contractForType.barriers;
-        console.log('1');
         const isBelow2Min = isDurationLessThan2Mins(trade.duration, trade.durationUnit);
-        console.log('2');
         const isIntraDay = isIntraday(trade.duration, trade.durationUnit);
         const pipSize = trade.pipSize;
         const showBarrier = selectedCategory !== 'spreads' &&
             selectedCategory !== 'digits' &&
             !isBelow2Min &&
             !trade.dateStart;
-            console.log('3');
 
         const showDuration = !!contractForType;
         const showDigitBarrier = selectedCategory === 'digits';
         const showSpreadBarrier = selectedCategory === 'spreads';
-        console.log('4');
 
         return (
             <div>

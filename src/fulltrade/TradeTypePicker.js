@@ -19,7 +19,6 @@ export default class TradeTypePicker extends Component {
 
     render() {
         const { contract, selectedCategory, selectedType, onCategoryChange, onTypeChange } = this.props;
-        console.log('ready to pre');
         const categories = Object
             .keys(contract)
             .map(c => ({ value: c, text: contractCategoryDisplay(c) }));
@@ -28,7 +27,7 @@ export default class TradeTypePicker extends Component {
             .keys(contract[selectedCategory])
             .map(type => ({ text: tradeTypeCodeToText(type), value: type }));
         const index = (Math.random() * 1000 * 1000).toFixed();
-        console.log('ready to render');
+
         return (
             <div>
                 <TabList
@@ -41,7 +40,7 @@ export default class TradeTypePicker extends Component {
                 </TabList>
                 <TabList onChange={onTypeChange}>
                     {types.map(x =>
-                        <Tab text={x.text} />
+                        <Tab text={x.text} imgSrc={`img/trade-${x.value}.svg`} />
                     )}
                 </TabList>
                 <SelectGroup
