@@ -282,7 +282,7 @@ export default class FullTradeParams extends Component {
     }
 
     render() {
-        const { contract, index, trade, currency } = this.props;
+        const { actions, contract, index, trade, currency } = this.props;
         const selectedCategory = trade.tradeCategory;
         const selectedType = trade.type;
         const contractForType = contract[selectedCategory][selectedType];
@@ -302,6 +302,7 @@ export default class FullTradeParams extends Component {
         return (
             <div>
                 <TradeTypePicker
+                    actions={actions}
                     contract={contract}
                     selectedCategory={selectedCategory}
                     selectedType={selectedType}
