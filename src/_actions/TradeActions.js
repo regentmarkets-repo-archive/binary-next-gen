@@ -63,17 +63,15 @@ export const setQuickTradeField = (symbol, tradeType, field, value) => ({
 
 export const createTrade = symbol =>
     (dispatch, getState) => {
-        const activeIdx = getState().workspace.get('activeTradeIndex');
-        const symbolUsed = symbol || getState().trades.get(activeIdx).toJS().symbol;
-        const contractExist = getState().tradingOptions.get(symbolUsed);
-        const ticksExist = getState().ticks.get(symbolUsed);
+        const contractExist = getState().tradingOptions.get(symbol);
+        const ticksExist = getState().ticks.get(symbol);
 
-        const contractP = !!contractExist ? Promise.resolve() : LiveData.api.getContractsForSymbol(symbolUsed);
-        const ticksP = !!ticksExist ? Promise.resolve() : LiveData.api.subscribeToTick(symbolUsed);
+        const contractP = !!contractExist ? Promise.resolve() : LiveData.api.getContractsForSymbol(symbol);
+        const ticksP = !!ticksExist ? Promise.resolve() : LiveData.api.subscribeToTick(symbol);
 
         Promise.all([contractP, ticksP])
             .then(
-                v => dispatch({ type: types.CREATE_TRADE, symbol: symbolUsed })
+                () => dispatch({ type: types.CREATE_TRADE, symbol })
             );
     };
 
