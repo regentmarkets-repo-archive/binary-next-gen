@@ -73,10 +73,7 @@ export const createTrade = symbol =>
 
         Promise.all([contractP, ticksP])
             .then(
-                v => {
-                    console.log(v);
-                    dispatch({ type: types.CREATE_TRADE, symbol: symbolUsed });
-                }
+                v => dispatch({ type: types.CREATE_TRADE, symbol: symbolUsed })
             );
     };
 
