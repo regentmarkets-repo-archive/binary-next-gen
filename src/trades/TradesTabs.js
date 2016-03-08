@@ -9,13 +9,13 @@ export default class TradesTabs extends Component {
         actions: PropTypes.object.isRequired,
         activeTradeIndex: PropTypes.number.isRequired,
         currency: PropTypes.string.isRequired,
-        ticks: PropTypes.object.isRequired,
+        ticksForAllSymbols: PropTypes.object.isRequired,
         trades: PropTypes.array.isRequired,
         contracts: PropTypes.object.isRequired,
     };
 
     render() {
-        const { actions, activeTradeIndex, contracts, trades, ticks, currency } = this.props;
+        const { actions, activeTradeIndex, contracts, trades, ticksForAllSymbols, currency } = this.props;
         const activeTrade = trades[activeTradeIndex];
 
         return (
@@ -35,7 +35,7 @@ export default class TradesTabs extends Component {
                     index={activeTradeIndex}
                     actions={actions}
                     trade={activeTrade}
-                    tick={ticks[activeTrade.symbol]}
+                    ticks={ticksForAllSymbols[activeTrade.symbol]}
                     contract={contracts[activeTrade.symbol]}
                     currency={currency}
                     isActive

@@ -8,6 +8,7 @@ import LanguagePicker from '../_common/LanguagePicker';
 import WebSidebar from '../sidebar/WebSidebar';
 import ToggleButtonsContainer from './ToggleButtonsContainer';
 import Balance from '../balance/BalanceContainer';
+import NewTradeButton from './NewTradeButtonContainer';
 
 export default class WebHeader extends Component {
 
@@ -40,13 +41,11 @@ export default class WebHeader extends Component {
 
 				<ToggleButtonsContainer actions={this.props.actions} />
 
-				<button
+				<NewTradeButton
 					id="new-trade-btn"
 					className="btn-secondary"
-					onClick={() => actions.createTrade()}
-				>
-					New Trade
-				</button>
+					actions={actions}
+				/>
 
 				<LanguagePicker className="language-picker" />
 				<Balance />

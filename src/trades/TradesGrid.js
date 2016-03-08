@@ -6,7 +6,6 @@ export default class TradesGrid extends Component {
     static propTypes = {
         actions: PropTypes.object.isRequired,
         activeTradeIndex: PropTypes.number.isRequired,
-        ticks: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
         ticksForAllSymbols: PropTypes.object.isRequired,
         trades: PropTypes.array.isRequired,
@@ -14,7 +13,7 @@ export default class TradesGrid extends Component {
     };
 
     render() {
-        const { actions, activeTradeIndex, trades, ticksForAllSymbols, contracts, currency } = this.props;
+        const { actions, activeTradeIndex, currency, trades, ticksForAllSymbols, contracts } = this.props;
 
         return (
             <div className="trades-grid">

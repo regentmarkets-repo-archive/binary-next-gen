@@ -61,10 +61,19 @@ export const setQuickTradeField = (symbol, tradeType, field, value) => ({
     value,
 });
 
-export const createTrade = symbol => ({
-    type: types.CREATE_TRADE,
-    symbol,
-});
+export const createTrade = symbol =>
+    (dispatch, getState) => {
+        const contractExist = getState().tradingOptions.get(symbol);
+        const ticksExist = getState().ticks.get(symbol);
+
+        const contractP = !!contractExist ? Promise.resolve() : LiveData.api.getContractsForSymbol(symbol);
+        const ticksP = !!ticksExist ? Promise.resolve() : LiveData.api.subscribeToTick(symbol);
+
+        Promise.all([contractP, ticksP])
+            .then(
+                () => dispatch({ type: types.CREATE_TRADE, symbol })
+            );
+    };
 
 export const removeTrade = index =>
     (dispatch, getState) => {
