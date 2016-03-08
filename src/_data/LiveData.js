@@ -30,11 +30,14 @@ const handlers = {
 
 export const api = new LiveApi({ language: 'EN' });
 
-const subscribeToSelectedSymbol = store => {
+const subscribeToSelectedSymbolWhenInit = store => {
     const selectedSymbol = store.getState().workspace.get('selectedAsset');
     api.getTickHistory(selectedSymbol, { end: 'latest', count: 20 });
     api.subscribeToTick(selectedSymbol);
     store.dispatch(actions.getTradingOptions(selectedSymbol));
+
+    // only safe if this function is use when init
+    store.dispatch(actions.updateTradeParams(0, 'symbol', selectedSymbol));
 };
 
 const subscribeToWatchlist = store => {
@@ -64,7 +67,7 @@ const initUnauthorized = async store => {
     api.events.emit('news', articles);
     const videos = await getVideosFromPlayList();
     api.events.emit('videos', videos);
-    subscribeToSelectedSymbol(store);
+    subscribeToSelectedSymbolWhenInit(store);
 };
 
 const initAuthorized = (authData, store) => {

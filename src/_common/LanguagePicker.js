@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 import * as LiveData from '../_data/LiveData';
 import SelectGroup from '../_common/SelectGroup';
 import languages from '../_constants/languages';
@@ -8,6 +9,7 @@ import Perf from 'react-addons-perf';
 
 @connect(state => ({ selected: state.appConfig.get('language') }))
 export default class LanguagePicker extends Component {
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     static propTypes = {
         selected: PropTypes.oneOf(languages.map(ln => ln.value)),

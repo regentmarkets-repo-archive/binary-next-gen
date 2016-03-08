@@ -26,11 +26,11 @@ export default class FullTradeCard extends Component {
         isActive: PropTypes.bool.isRequired,
         trade: PropTypes.object.isRequired,
         type: PropTypes.oneOf(['tick', 'full']).isRequired,
-        tick: PropTypes.array,
+        ticks: PropTypes.array,
     };
 
     render() {
-        const { actions, isActive, index, trade, currency, tick, contract } = this.props;
+        const { actions, isActive, index, trade, currency, ticks, contract } = this.props;
         const selectedSymbol = trade.symbol;
         const receipt = trade.receipt;
         const disabled = trade.disabled;
@@ -57,10 +57,7 @@ export default class FullTradeCard extends Component {
                     assetName={selectedSymbol}
                     onClosePanel={() => actions.removeTrade(index)}
                 />
-                {(tick && Object.keys(tick).length > 0) && <TradeChart
-                    symbol={selectedSymbol}
-                    history={tick}
-                />}
+
                 {(contract && Object.keys(contract).length > 1) && <FullTradeParams {...this.props} />}
                 <BuyButton
                     askPrice={askPriceFromProposal(trade.proposal)}
