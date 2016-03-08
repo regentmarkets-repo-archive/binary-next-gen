@@ -11,6 +11,6 @@ export default createStructuredSelector({
     contracts: availableContractsSelector,
     currency: currencySelector,
     trades: tradesWithDetailsSelector,
-    ticks: ticksSelector, // not really!!!
+    ticksForAllSymbols: ticksSelector, // not really!!!
     activeTradeIndex: activeTradeIndexSelector,
 });

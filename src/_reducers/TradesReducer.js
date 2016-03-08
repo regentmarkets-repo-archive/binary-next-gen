@@ -18,7 +18,6 @@ const defaultTrade = {
     amount: 50,
     type: 'CALL',
     barrierType: 'relative',
-    lastTransactionId: undefined,       // so that we know which open contract to render on chart
 };
 
 const initialState = fromJS([defaultTrade]);
