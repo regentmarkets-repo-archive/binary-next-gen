@@ -1,13 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
+import classNames from 'classnames';
+import { TradeChart } from 'binary-charts';
 import PurchaseFailed from '../_common/PurchaseFailed';
 import PurchaseConfirmation from '../_common/PurchaseConfirmation';
 import Modal from '../containers/Modal';
-import TradeChart from '../charting/TradeChart';
 import BuyButton from '../tick-trade/BuyButton';
 import { askPriceFromProposal } from '../_utils/TradeUtils';
 import TradeHeader from './TradeHeader';
-import classNames from 'classnames';
 import FullTradeParams from './FullTradeParams';
 
 export default class FullTradeCard extends Component {
@@ -57,7 +57,10 @@ export default class FullTradeCard extends Component {
                     assetName={selectedSymbol}
                     onClosePanel={() => actions.removeTrade(index)}
                 />
-
+                {ticks && <TradeChart
+                    symbol={selectedSymbol}
+                    ticks={ticks}
+                />}
                 {(contract && Object.keys(contract).length > 1) && <FullTradeParams {...this.props} />}
                 <BuyButton
                     askPrice={askPriceFromProposal(trade.proposal)}

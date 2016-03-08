@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import PurchaseFailed from '../_common/PurchaseFailed';
 import PurchaseConfirmation from '../_common/PurchaseConfirmation';
 import Modal from '../containers/Modal';
-import TradeChart from '../charting/TradeChart';
+import { TradeChart } from 'binary-charts';
 import TickTradeParameters from './TickTradeParameters';
 import BuyButton from './BuyButton';
 import { askPriceFromProposal } from '../_utils/TradeUtils';
@@ -50,9 +50,9 @@ export default class TickTradeCard extends Component {
                 >
                     <PurchaseConfirmation receipt={receipt} />
                 </Modal>
-                {ticks.length && <TradeChart
+                {ticks && <TradeChart
                     className="trade-chart"
-                    history={ticks}
+                    ticks={ticks}
                     symbol={trade.symbol}
                 />}
                 <TickTradeParameters
