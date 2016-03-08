@@ -1,8 +1,11 @@
 import { createSelector } from 'reselect';
 
-const symbolForNewTrade = createSelector(
+const newTrade = createSelector(
     [state => state.workspace.get('activeTradeIndex'), state => state.trades],
-    (actIdx, trades) => ({ symbol: trades.getIn([actIdx, 'symbol']) })
+    (actIdx, trades) => ({
+        symbol: trades.getIn([actIdx, 'symbol']),
+        noOfTrades: trades.size,
+    })
 );
 
-export default symbolForNewTrade;
+export default newTrade;
