@@ -11,7 +11,7 @@ export default class SpreadBarrierCard extends Component {
         amountPerPoint: PropTypes.number,
         amountPerPointChange: PropTypes.func,
         currency: PropTypes.string,
-        id: PropTypes.string,
+        id: PropTypes.number,
         stopLoss: PropTypes.number,
         stopLossChange: PropTypes.func,
         stopProfit: PropTypes.number,

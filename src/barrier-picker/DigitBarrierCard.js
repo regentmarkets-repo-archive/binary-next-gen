@@ -9,7 +9,7 @@ export default class DigitBarrierCard extends Component {
     static propTypes = {
         barrier: PropTypes.number,
         barrierInfo: PropTypes.object,
-        id: PropTypes.string,
+        id: PropTypes.number,
         onBarrierChange: PropTypes.func,
     };
 
