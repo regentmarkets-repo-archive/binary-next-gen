@@ -55,7 +55,11 @@ export default class FullTradeCard extends Component {
                 </Modal>
                 <TradeHeader
                     assetName={selectedSymbol}
-                    onClosePanel={() => actions.removeTrade(index)}
+                    onClosePanel={ev => {
+                        actions.removeTrade(index);
+                        ev.stopPropagation();
+                        }
+                    }
                 />
                 {ticks && <TradeChart
                     symbol={selectedSymbol}

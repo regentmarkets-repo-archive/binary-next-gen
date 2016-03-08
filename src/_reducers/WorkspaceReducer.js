@@ -12,6 +12,7 @@ import {
     TOGGLE_TRADE_MODE,
     CHANGE_TRADE_MODE,
     TOGGLE_PANEL,
+    REMOVE_TRADE,
 } from '../_constants/ActionTypes';
 
 const initialState = new Map({
@@ -72,6 +73,12 @@ export default (state = initialState, action) => {
         case TOGGLE_PANEL: {
             const panelField = action.panel + 'PanelVisible';
             return state.set(panelField, !state.get(panelField));
+        }
+        case REMOVE_TRADE: {
+            const activeIdx = state.get('activeTradeIndex');
+            const newActIdx = activeIdx > 0 ? activeIdx - 1 : 0;
+
+            return state.set('activeTradeIndex', newActIdx);
         }
         default:
             return state;
