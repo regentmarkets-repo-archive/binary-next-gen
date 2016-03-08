@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-export default class BaseTradeCard extends Component {
+export default class TradeHeaders extends Component {
 
     static propTypes = {
         assetName: PropTypes.string.isRequired,

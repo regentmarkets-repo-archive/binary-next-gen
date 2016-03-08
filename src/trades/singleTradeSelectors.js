@@ -16,10 +16,15 @@ export const ticksForFirstTradeSelector = createSelector(
     (trade, ticks) => ticks.get(trade.get('symbol')) || fromJS([])
 );
 
+const singleContract = createSelector(
+  [availableContractsSelector, firstTradeSelector],
+  (contracts, trade) => contracts.get(trade.get('symbol'))
+);
+
 export default createStructuredSelector({
-    contracts: availableContractsSelector,
+    contract: singleContract,
     currency: currencySelector,
     isActive: () => true,
     trade: firstTradeSelector,
-    ticks: ticksForFirstTradeSelector,
+    tick: ticksForFirstTradeSelector,
 });
