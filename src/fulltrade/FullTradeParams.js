@@ -324,7 +324,7 @@ export default class FullTradeParams extends Component {
                     <DigitBarrierCard
                         barrier={trade.barrier}
                         barrierInfo={barriers && barriers.tick[0]}
-                        id={index}
+                        index={index}
                         onBarrierChange={this.onBarrier1Change}
                     />
                 }
@@ -332,7 +332,7 @@ export default class FullTradeParams extends Component {
                     <SpreadBarrierCard
                         amountPerPointChange={this.onAmountPerPointChange}
                         currency={currency}
-                        id={index}
+                        index={index}
                         spreadInfo={contractForType.spread}
                         stopTypeChange={this.onStopTypeChange}
                         stopLossChange={this.onStopLossChange}

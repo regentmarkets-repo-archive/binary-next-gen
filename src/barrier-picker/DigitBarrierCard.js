@@ -9,12 +9,12 @@ export default class DigitBarrierCard extends Component {
     static propTypes = {
         barrier: PropTypes.number,
         barrierInfo: PropTypes.object,
-        id: PropTypes.string,
+        index: PropTypes.number,
         onBarrierChange: PropTypes.func,
     };
 
     render() {
-        const { barrier, barrierInfo, id, onBarrierChange } = this.props;
+        const { barrier, barrierInfo, index, onBarrierChange } = this.props;
 
         if (!barrierInfo) return null;
 
@@ -22,7 +22,7 @@ export default class DigitBarrierCard extends Component {
             <div>
                 <p>{barrierInfo.name}</p>
                 <RadioGroup
-                    name={'digit-selections' + id}
+                    name={'digit-selections' + index}
                     options={barrierInfo.values.map(b => ({ text: b, value: b }))}
                     value={barrier}
                     onChange={onBarrierChange}
