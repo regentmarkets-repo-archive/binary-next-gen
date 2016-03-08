@@ -44,7 +44,7 @@ export default class CreateAccountCard extends Component {
         });
     }
 
-    async proceed() {
+    async continue() {
         const { actions, email } = this.props;
 
         actions.createAccountFieldUpdate('validatedOnce', true);
@@ -120,8 +120,8 @@ export default class CreateAccountCard extends Component {
                         shown={validatedOnce && passwordsDontMatch}
                         text="Passwords do not match"
                     />
-                    <button onClick={::this.proceed}>
-                        <M m="Proceed" />
+                <button onClick={::this.continue}>
+                        <M m="Continue" />
                     </button>
                 </form>
                 <fieldset>

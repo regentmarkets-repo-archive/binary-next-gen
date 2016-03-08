@@ -600,10 +600,6 @@ tr[tabindex] {
     justify-content: center;
 }
 
-#deposit-btn {
-    line-height: 1.75;
-}
-
 .balance {
     font-size: 1.5rem;
     line-height: 2 !important;
