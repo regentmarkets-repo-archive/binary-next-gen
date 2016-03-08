@@ -174,7 +174,11 @@ export const purchaseByTradeId = (tradeID, trade) =>
         dispatch(updateTradeParams(tradeID, 'buying', true));
         LiveData.api.buyContract(proposalID, price)
             .then(
-                response => dispatch(updateTradeParams(tradeID, 'receipt', response.buy)),
+                response => {
+                    dispatch(updateTradeParams(tradeID, 'receipt', response.buy));
+                    dispatch(updateTradeParams(tradeID, 'mostRecentContractId', response.buy.contract_id));
+                    LiveData.api.subscribeToOpenContract(response.buy.contract_id);
+                },
                 err => dispatch(updateTradeParams(tradeID, 'buy_error', err))
             )
             .then(() => dispatch(updateTradeParams(tradeID, 'buying', false)));

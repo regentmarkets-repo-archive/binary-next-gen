@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 import config from '../config';
 import M from '../_common/M';
 import ClockContainer from './ClockContainer';
@@ -9,6 +10,8 @@ import ToggleButtonsContainer from './ToggleButtonsContainer';
 import Balance from '../balance/BalanceContainer';
 
 export default class WebHeader extends Component {
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,

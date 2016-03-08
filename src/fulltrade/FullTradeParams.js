@@ -85,7 +85,6 @@ export default class FullTradeParams extends Component {
                 this.updateHelper('barrierType', newBarrierType);
             }
         }
-
     }
 
     updateTradeParams(params) {
