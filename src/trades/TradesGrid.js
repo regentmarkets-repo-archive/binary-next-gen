@@ -6,17 +6,15 @@ export default class TradesGrid extends Component {
     static propTypes = {
         actions: PropTypes.object.isRequired,
         activeTradeIndex: PropTypes.number.isRequired,
-        ticks: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
         ticksForAllSymbols: PropTypes.object.isRequired,
         trades: PropTypes.array.isRequired,
         contracts: PropTypes.object.isRequired,
-        currency: PropTypes.string.isRequired,
     };
 
     render() {
         const { actions, activeTradeIndex, currency, trades, ticksForAllSymbols, contracts } = this.props;
-        
+
         return (
             <div className="trades-grid">
                 {trades.map((trade, index) =>
@@ -29,7 +27,6 @@ export default class TradesGrid extends Component {
                         isActive={index === activeTradeIndex}
                         ticks={ticksForAllSymbols[trade.symbol]}
                         contract={contracts[trade.symbol]}
-                        currency={currency}
                     />)
                 )}
             </div>
