@@ -12,6 +12,8 @@ const filteredEngine = filter(engine, [
     ['settings'],
     ['watchlist'],
     ['workspace'],
+], [
+    ['workspace', 'activeTradeIndex'],
 ]);
 
 export default debounce(filteredEngine, 1000);

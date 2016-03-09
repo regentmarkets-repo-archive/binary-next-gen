@@ -45,11 +45,11 @@ export default class AssetPickerList extends Component {
 										x.submarket === prevSubmarket)
 									.map(x =>
 										<AssetPickerItem
+											{...this.props}
 											key={x.symbol}
 											asset={x}
 											selected={selectedAsset === x.symbol}
 											ref={selectedAsset === x.symbol ? 'focused' : null}
-											{...this.props}
 										/>
 									)
 								}
