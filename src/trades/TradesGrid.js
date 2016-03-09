@@ -18,7 +18,7 @@ export default class TradesGrid extends Component {
         return (
             <div className="trades-grid">
                 {trades.map((trade, index) =>
-                    (contracts[trade.symbol] && <FullTradeCard
+                    <FullTradeCard
                         key={index}
                         index={index}
                         currency={currency}
@@ -27,7 +27,7 @@ export default class TradesGrid extends Component {
                         isActive={index === activeTradeIndex}
                         ticks={ticksForAllSymbols[trade.symbol]}
                         contract={contracts[trade.symbol]}
-                    />)
+                    />
                 )}
             </div>
         );

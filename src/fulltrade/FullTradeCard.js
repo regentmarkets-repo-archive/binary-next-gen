@@ -10,6 +10,8 @@ import TradeHeader from './TradeHeader';
 import classNames from 'classnames';
 import FullTradeParams from './FullTradeParams';
 
+import { mockedContract } from './../_constants/MockContract';
+
 export default class FullTradeCard extends Component {
 
     shouldComponentUpdate = shouldPureComponentUpdate;
@@ -21,7 +23,7 @@ export default class FullTradeCard extends Component {
     static propTypes = {
         actions: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
-        contract: PropTypes.object.isRequired,
+        contract: PropTypes.object,
         index: PropTypes.number.isRequired,
         isActive: PropTypes.bool.isRequired,
         trade: PropTypes.object.isRequired,
@@ -33,7 +35,7 @@ export default class FullTradeCard extends Component {
         const { actions, isActive, index, trade, currency, ticks, contract } = this.props;
         const selectedSymbol = trade.symbol;
         const receipt = trade.receipt;
-        const disabled = trade.disabled;
+        const disabled = !contract || trade.disabled;
         const classes = classNames({
             'trade-panel': true,
             'panel-active': isActive,
@@ -61,8 +63,11 @@ export default class FullTradeCard extends Component {
                         }
                     }
                 />
-
-                {(contract && Object.keys(contract).length > 1) && <FullTradeParams {...this.props} />}
+                {
+                    disabled ?
+                        <FullTradeParams {...this.props} disabled={disabled} contract={mockedContract} /> :
+                        <FullTradeParams {...this.props} />
+                }
                 <BuyButton
                     askPrice={askPriceFromProposal(trade.proposal)}
                     currency={currency}

@@ -39,7 +39,8 @@ export default class FullTradeParams extends Component {
     static propTypes = {
         actions: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
-        contract: PropTypes.object.isRequired,
+        contract: PropTypes.object,
+        disabled: PropTypes.bool,
         index: PropTypes.number.isRequired,
         isActive: PropTypes.bool.isRequired,
         trade: PropTypes.object.isRequired,
@@ -282,7 +283,8 @@ export default class FullTradeParams extends Component {
     }
 
     render() {
-        const { actions, contract, index, trade, currency } = this.props;
+        const { actions, contract, disabled, index, trade, currency } = this.props;
+
         const selectedCategory = trade.tradeCategory;
         const selectedType = trade.type;
         const contractForType = contract[selectedCategory][selectedType];
@@ -300,7 +302,7 @@ export default class FullTradeParams extends Component {
         const showSpreadBarrier = selectedCategory === 'spreads';
 
         return (
-            <div>
+            <div disabled={disabled}>
                 <TradeTypePicker
                     actions={actions}
                     contract={contract}
