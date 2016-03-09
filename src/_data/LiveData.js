@@ -81,7 +81,7 @@ const initAuthorized = (authData, store) => {
     api.subscribeToAllOpenContracts();
     subscribeToWatchlist(store);
 
-    const isVirtual = authData.authorize.loginid.startsWith('VRTC');
+    const isVirtual = authData.authorize.is_virtual === '1';
     if (!isVirtual) {
         api.getAccountLimits();
         api.getSelfExclusion();
