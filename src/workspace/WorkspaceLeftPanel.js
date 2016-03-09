@@ -24,7 +24,7 @@ export default class WorkspaceLeftPanel extends Component {
 				className="workspace-panel"
 				style={{ width: workspace.leftPanelSize }}
 			>
-				<ActiveComponent actions={actions} />
+				<ActiveComponent {...this.props} actions={actions} />
 			</div>
 		);
 	}
