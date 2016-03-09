@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { FormattedTime } from 'react-intl';
+import { BinaryChart } from 'binary-charts';
 import M from '../_common/M';
 
 export default class ContractDetails extends Component {
@@ -14,6 +15,7 @@ export default class ContractDetails extends Component {
 
 		return (
 			<div>
+				<BinaryChart ticks={ticks} contract={contract} />
 				<table>
 					<thead>
 						<tr>

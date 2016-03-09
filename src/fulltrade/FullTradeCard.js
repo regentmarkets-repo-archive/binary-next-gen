@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import classNames from 'classnames';
-import { TradeChart } from 'binary-charts';
+import { BinaryChart } from 'binary-charts';
 import PurchaseFailed from '../_common/PurchaseFailed';
 import PurchaseConfirmation from '../_common/PurchaseConfirmation';
 import Modal from '../containers/Modal';
@@ -61,9 +61,11 @@ export default class FullTradeCard extends Component {
                         }
                     }
                 />
-                {ticks && <TradeChart
+                {ticks && <BinaryChart
                     symbol={selectedSymbol}
                     ticks={ticks}
+                    trade={trade}
+                    className="trade-chart"
                 />}
                 {(contract && Object.keys(contract).length > 1) && <FullTradeParams {...this.props} />}
                 <BuyButton

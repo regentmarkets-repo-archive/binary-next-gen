@@ -17,7 +17,6 @@ import StatementPage from '../statement/StatementPage';
 import VideoListContainer from '../video/VideoListContainer';
 import NewsContainer from '../news/NewsContainer';
 import DepositModal from '../deposit/DepositModal';
-import ChartTest from '../charting/ChartTest';
 import TradesPage from '../trades/TradesPage';
 import TickTradePage from '../tick-trade/TickTradePage';
 import FullTradePage from '../fulltrade/FullTradePage';
@@ -56,6 +55,5 @@ export default [
     ] },
     { path: 'video', component: VideoListContainer },
     { path: 'news', component: NewsContainer },
-    { path: 'chart', component: ChartTest },
     { path: 'deposit', component: DepositModal },
 ];
