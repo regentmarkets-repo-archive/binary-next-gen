@@ -11,9 +11,15 @@ import { appStateSelector } from '../_selectors/AppStateSelectors';
 export default class AppStateProvider extends Component {
 
     componentWillMount() {
-        window.setTimeout(() => {
-            this.setState({ loadingText: 'Taking too long to load, check connection.' });
-        }, 5000);
+        this.setState({ timer: window.setTimeout(this.showMessageForSlowConnection.bind(this), 4000) });
+    }
+
+    componentWillUnmount() {
+        window.clearTimeout(this.state.timer);
+    }
+
+    showMessageForSlowConnection() {
+        this.setState({ showMessage: true });
     }
 
     static propTypes = {
@@ -23,8 +29,9 @@ export default class AppStateProvider extends Component {
 
     render() {
         const { connected, children } = this.props;
-        const loadingText = this.state && this.state.loadingText;
-        const loadingView = <LoadingView text={loadingText} />;
+        const loadingText = 'Taking too long to load, check connection.';
+        const showMessage = this.state && this.state.showMessage;
+        const loadingView = <LoadingView showMessage={showMessage} text={loadingText} />;
 
         return Children.only(connected ? children : loadingView);
     }
