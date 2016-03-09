@@ -18,7 +18,7 @@
 
     "react/jsx-no-bind": 0,
     "react/prefer-stateless-function": 0,
-    
+
     "no-unused-expressions": 0,
     "no-param-reassign": 0,
     "prefer-template": 0,
@@ -43,7 +43,7 @@
     "react/jsx-uses-vars": 2,
     "react/no-did-mount-set-state": 2,
     "react/no-did-update-set-state": 2,
-    "react/no-unknown-property": 2,
+    "react/no-unknown-property": 0,
     "react/prop-types": 1,
     "react/react-in-jsx-scope": 2,
     "react/self-closing-comp": 2,

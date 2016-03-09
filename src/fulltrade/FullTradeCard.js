@@ -1,13 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
+import classNames from 'classnames';
+import { TradeChart } from 'binary-charts';
 import PurchaseFailed from '../_common/PurchaseFailed';
 import PurchaseConfirmation from '../_common/PurchaseConfirmation';
 import Modal from '../containers/Modal';
-import TradeChart from '../charting/TradeChart';
 import BuyButton from '../tick-trade/BuyButton';
 import { askPriceFromProposal } from '../_utils/TradeUtils';
 import TradeHeader from './TradeHeader';
-import classNames from 'classnames';
 import FullTradeParams from './FullTradeParams';
 
 import { mockedContract } from './../_constants/MockContract';
@@ -63,6 +63,10 @@ export default class FullTradeCard extends Component {
                         }
                     }
                 />
+                {ticks && <TradeChart
+                    symbol={selectedSymbol}
+                    ticks={ticks}
+                />}
                 {
                     disabled ?
                         <FullTradeParams {...this.props} disabled={disabled} contract={mockedContract} /> :

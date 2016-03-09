@@ -48,16 +48,13 @@ export default class SettingsGeneral extends Component {
 					shown={topupVirtual}
 					onClose={() => actions.updateSettingFields({ topup_virtual: null }, false)}
 				>
-                    <VirtualTopUpConfirmation response = { topupVirtual } />
+                    <VirtualTopUpConfirmation response={topupVirtual} />
                 </Modal>
                 {
-                    (balance < 1000)
-                        ?
-                            <button className="buy-btn" onClick={::this.topupClick}>
-                                <M m="Deposit USD 10000 virtual money into your account " />
-                            </button>
-                        :
-                            null
+                    (balance < 1000) ?
+                        <button className="buy-btn" onClick={::this.topupClick}>
+                            <M m="Deposit USD 10000 virtual money into your account " />
+                        </button> : null
                 }
 			</div>
 		);

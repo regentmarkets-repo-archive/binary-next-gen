@@ -25,15 +25,17 @@ export default class NumberPlain extends Component {
 			// formattedValue = '(' + formattedValue.substring(1) + ')';
 		// }
 
+		if (value === undefined) return null;
+
 		return (
 			<span className={className}>
-				{value === 0 || value ? <FormattedNumber
+				<FormattedNumber
 					style={currency && 'currency'}
 					currency={currency}
 					value={value}
 					minimumFractionDigits={digits}
 					maximumFractionDigits={digits}
-				/> : null}
+				/>
 			</span>
 		);
 	}
