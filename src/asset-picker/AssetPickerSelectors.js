@@ -1,5 +1,10 @@
 import { createSelector, createStructuredSelector } from 'reselect';
-import { activeTradeIndexSelector, assetsSelector, watchlistSelector, selectedAssetSelector } from '../_store/directSelectors';
+import {
+    activeTradeIndexSelector,
+    assetsSelector,
+    watchlistSelector,
+    selectedAssetSelector,
+} from '../_store/directSelectors';
 
 export const symbolIdsSelector = createSelector(
      assetsSelector,

@@ -10,7 +10,7 @@ export default class LoadingView extends Component {
         return (
             <div className="mobile-page">
                 <img className="spinner" src="img/binary-symbol-logo.svg" />
-                <p>{text}</p>
+                {text && <p>{text}</p>}
             </div>
         );
     }
