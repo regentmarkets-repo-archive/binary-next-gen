@@ -1,6 +1,7 @@
 import { LiveApi } from 'binary-live-api';
 import { readNewsFeed } from './NewsData';
 import { getVideosFromPlayList } from './VideoData';
+import { isVirtual } from '../_utils/UserUtils';
 import * as actions from '../_actions';
 
 const handlers = {
@@ -81,8 +82,7 @@ const initAuthorized = (authData, store) => {
     api.subscribeToAllOpenContracts();
     subscribeToWatchlist(store);
 
-    const isVirtual = authData.authorize.is_virtual === '1';
-    if (!isVirtual) {
+    if (!isVirtual(authData.authorize)) {
         api.getAccountLimits();
         api.getSelfExclusion();
         api.getCashierLockStatus();
