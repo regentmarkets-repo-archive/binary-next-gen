@@ -180,7 +180,9 @@ export const purchaseByTradeId = (tradeID, trade) =>
         trackEvent('buy-contract', tradeSelected);
         const proposalID = tradeSelected.proposal.id;
         const price = tradeSelected.proposal.ask_price;
+
         dispatch(updateTradeParams(tradeID, 'buying', true));
+
         LiveData.api.buyContract(proposalID, price)
             .then(
                 response => {
@@ -190,5 +192,8 @@ export const purchaseByTradeId = (tradeID, trade) =>
                 },
                 err => dispatch(updateTradeParams(tradeID, 'buy_error', err))
             )
-            .then(() => dispatch(updateTradeParams(tradeID, 'buying', false)));
+            .then(() => {
+                dispatch(updateTradeParams(tradeID, 'buying', false));
+                dispatch(updatePriceProposalSubscription(tradeID, trade));
+            });
     };
