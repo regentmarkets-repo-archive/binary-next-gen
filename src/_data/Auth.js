@@ -25,8 +25,14 @@ export const tryAuth = async (actions, token) => {
 
 export const requireAuthOnEnter = (nextState, replace, callback) => {
     const authorized = store.getState().appState.get('authorized');
+    const isVirtual = store.getState().account.get('is_virtual') === 1;
     if (authorized) {
-        callback();
+        if (isVirtual) {
+            callback();
+        } else {
+            replace({ pathname: '/only_virtual', state: nextState });
+            callback();
+        }
         return;
     }
 

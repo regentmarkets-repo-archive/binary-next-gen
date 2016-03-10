@@ -7,6 +7,7 @@ export default class AssetPickerCard extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
+		activeTradeIdx: PropTypes.number.isRequired,
 		compact: PropTypes.bool,
 		history: PropTypes.object,
 		filter: PropTypes.object,
@@ -29,8 +30,9 @@ export default class AssetPickerCard extends Component {
 	}
 
 	onSelect(id, newAsset) {
-		const { actions, history, selectedAsset } = this.props;
+		const { activeTradeIdx, actions, history, selectedAsset } = this.props;
 		actions.getTicksBySymbol(newAsset);			// TODO: unsubscribe extra symbol ticks
+
 		if (id !== '-') {
 			actions.updateTradeParams(id, 'symbol', newAsset);
 			actions.updatePriceProposalSubscription(id);
@@ -39,6 +41,7 @@ export default class AssetPickerCard extends Component {
 		} else {
 			actions.selectAssetSymbolForTrade(newAsset, selectedAsset);
 			actions.getTradingOptions(newAsset);
+			actions.updateTradeParams(activeTradeIdx, 'symbol', newAsset);
 		}
 	}
 
