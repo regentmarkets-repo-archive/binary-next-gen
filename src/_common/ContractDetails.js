@@ -10,7 +10,7 @@ export default class ContractDetails extends Component {
 	};
 
 	render() {
-		const { contract } = this.props;
+		const { contract, ticks } = this.props;
 		const returnOnContract = ((contract.bid_price - contract.buy_price) * 100 / contract.buy_price).toFixed(2);
 
 		return (

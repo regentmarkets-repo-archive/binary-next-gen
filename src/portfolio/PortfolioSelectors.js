@@ -1,10 +1,5 @@
+import { openContractsSelector, portfolioSelector, ticksSelector } from '../_store/directSelectors';
 import { createSelector, createStructuredSelector } from 'reselect';
-
-const portfolioSelector =
-    state => state.portfolio;
-
-const openContractsSelector =
-    state => state.openContracts;
 
 export const indicativeTotalSelector = createSelector(
     openContractsSelector,
@@ -23,6 +18,7 @@ export const purchaseTotalSelector = createSelector(
 );
 
 export default createStructuredSelector({
+    ticks: ticksSelector,
     contracts: openContractsSelector,
     portfolio: portfolioSelector,
     purchaseTotal: purchaseTotalSelector,

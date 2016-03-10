@@ -62,10 +62,10 @@ export default class FullTradeCard extends Component {
                     }
                 />
                 {ticks && <BinaryChart
+                    className="trade-chart"
                     symbol={selectedSymbol}
                     ticks={ticks}
                     trade={trade}
-                    className="trade-chart"
                 />}
                 {(contract && Object.keys(contract).length > 1) && <FullTradeParams {...this.props} />}
                 <BuyButton

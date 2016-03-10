@@ -27,7 +27,7 @@ export default class ContractDetailsContainer extends Component {
 	render() {
 		const { params, contracts } = this.props;
 		const contract = contracts.find(x => x.get('contract_id') === params.id);
-		console.log(contract);
+
 		const ticks = contract.get('symbol');
 		// const soldResultShown = portfolio.get('soldResultShown');
 		// const now = portfolio.get('now');

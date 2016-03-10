@@ -53,7 +53,7 @@ export default class TickTradeCard extends Component {
                 {ticks && <BinaryChart
                     className="trade-chart"
                     ticks={ticks}
-                    symbol={trade.symbol}
+                    trade={trade}
                 />}
                 <TickTradeParameters
                     assets={assets}
