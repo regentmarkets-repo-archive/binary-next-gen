@@ -29,9 +29,8 @@ export default class AppStateProvider extends Component {
 
     render() {
         const { connected, children } = this.props;
-        const loadingText = 'Taking too long to load, check connection.';
         const showMessage = this.state && this.state.showMessage;
-        const loadingView = <LoadingView showMessage={showMessage} text={loadingText} />;
+        const loadingView = <LoadingView showMessage={showMessage} />;
 
         return Children.only(connected ? children : loadingView);
     }
