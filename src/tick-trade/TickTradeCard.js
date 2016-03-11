@@ -50,11 +50,11 @@ export default class TickTradeCard extends Component {
                 >
                     <PurchaseConfirmation receipt={receipt} />
                 </Modal>
-                {ticks && <BinaryChart
+                <BinaryChart
                     className="trade-chart"
                     ticks={ticks}
                     trade={trade}
-                />}
+                />
                 <TickTradeParameters
                     assets={assets}
                     currency={currency}
