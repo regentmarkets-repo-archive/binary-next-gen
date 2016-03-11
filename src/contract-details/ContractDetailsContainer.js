@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
+import { BinaryChart } from 'binary-charts';
 import { immutableChildrenToJS } from '../_utils/ObjectUtils';
 import portfolioSelectors from '../portfolio/PortfolioSelectors';
 import ContractDetailsCard from './ContractDetailsCard';
@@ -12,6 +13,7 @@ export default class ContractDetailsContainer extends Component {
 
 	static propTypes = {
 		contracts: PropTypes.object.isRequired,
+		ticks: PropTypes.object.isRequired,
 		params: PropTypes.object,
 		actions: PropTypes.object.isRequired,
 	};
@@ -25,22 +27,29 @@ export default class ContractDetailsContainer extends Component {
 	}
 
 	render() {
-		const { params, contracts } = this.props;
-		const contract = contracts.find(x => x.get('contract_id') === params.id);
+		const { params, contracts, ticks } = this.props;
+		const contract = contracts.find(x => x.get('contract_id') === params.id).toJS();
 
-		const ticks = contract.get('symbol');
+		const history = ticks.get(contract.symbol).toJS();
 		// const soldResultShown = portfolio.get('soldResultShown');
 		// const now = portfolio.get('now');
 		if (!contract) return null;
 
 		return (
-			<ContractDetailsCard
-				contract={contract.toJS()}
-				ticks={ticks.toJS()}
-				// nowEpoch={now}
-				// soldResultShown={soldResultShown}
-				{...immutableChildrenToJS(this.props)}
-			/>
+			<div>
+				<BinaryChart
+                    className="trade-chart"
+                    ticks={history}
+                    contract={contract}
+				/>
+				<ContractDetailsCard
+					contract={contract}
+					ticks={history}
+					// nowEpoch={now}
+					// soldResultShown={soldResultShown}
+					{...immutableChildrenToJS(this.props)}
+				/>
+		</div>
 		);
 	}
 }

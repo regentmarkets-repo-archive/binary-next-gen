@@ -40,13 +40,15 @@ export default class TickTradeCard extends Component {
 
         return (
             <div className="tick-trade-mobile">
-                <Modal shown={!!trade.buy_error}
-                       onClose={() => this.updateHelper('buy_error', false)}
+                <Modal
+                    shown={!!trade.buy_error}
+                    onClose={() => this.updateHelper('buy_error', false)}
                 >
                     <PurchaseFailed failure={trade.buy_error} />
                 </Modal>
-                <Modal shown={!!receipt}
-                       onClose={() => this.updateHelper('receipt', undefined)}
+                <Modal
+                    shown={!!receipt}
+                    onClose={() => this.updateHelper('receipt', undefined)}
                 >
                     <PurchaseConfirmation receipt={receipt} />
                 </Modal>
