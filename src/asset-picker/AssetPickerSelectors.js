@@ -15,7 +15,7 @@ export const similarStr = (str1, str2) =>
     (str1 || '').toLowerCase().includes((str2 || '').toLowerCase());
 
 const doesMatchMarket = (asset, filter) =>
-    filter.get('submarket') === '' ||
+    filter.get('submarket') === 'All' ||
         filter.get('submarket') === asset.get('submarket');
 
 const doesMatchQuery = (asset, filter) =>
