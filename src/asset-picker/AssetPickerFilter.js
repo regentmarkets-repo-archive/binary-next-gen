@@ -12,8 +12,9 @@ export default class AssetPickerFilter extends Component {
 	render() {
 		const { actions, filter } = this.props;
 
-		const onSearchQueryChange = e => actions.updateAssetPickerSearchQuery(e.target.value);
-		const onSubmarketChange = e => actions.updateAssetPickerSubmarket(e);
+		const valueSelector = v => v !== 'All' ? v : ''; 
+		const onSearchQueryChange = e => actions.updateAssetPickerSearchQuery(valueSelector(e.target.value));
+		const onSubmarketChange = e => actions.updateAssetPickerSubmarket(valueSelector(e));
 
 		const showOnlyTickTradable = false;
 
