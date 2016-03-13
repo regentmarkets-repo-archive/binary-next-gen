@@ -19,6 +19,7 @@ export default class WatchlistSparkline extends Component {
 				data={history.map((h) => h.quote)}
 				limit={30}
 				width={60}
+				height={20}
 				{...this.props}
 			>
 				<SparklinesLine />
