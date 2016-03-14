@@ -11,8 +11,13 @@ export default class Modal extends Component {
 	render() {
 		const { shown, onClose, children } = this.props;
 
-		return shown ? (
-			<div className="full-screen-overlay" onClick={onClose}>
+		if (!shown) return null;
+
+		return (
+			<div
+				className="full-screen-overlay"
+				onClick={e => { if (e.target.className === 'full-screen-overlay') onClose(e); }}
+			>
 				<div className="modal">
 					<button className="close-btn" onClick={onClose}>
 						<img src="img/close.svg" />
@@ -20,6 +25,6 @@ export default class Modal extends Component {
 					{children}
 				</div>
 			</div>
-		) : <div />;
+		);
 	}
 }

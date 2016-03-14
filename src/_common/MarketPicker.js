@@ -22,7 +22,7 @@ export default class MarketPicker extends Component {
 			>
 				{allOptionShown ?
 					<FormattedMessage id="All" defaultMessage="All">
-						{message => <option>{message}</option>}
+						{message => <option value="All">{message}</option>}
 					</FormattedMessage>
 				: null}
 				{marketTree
