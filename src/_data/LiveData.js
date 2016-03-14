@@ -33,7 +33,7 @@ export const api = new LiveApi({ language: 'EN' });
 
 const subscribeToSelectedSymbolWhenInit = store => {
     const selectedSymbol = store.getState().workspace.get('selectedAsset');
-    api.getTickHistory(selectedSymbol, { end: 'latest', count: 20 });
+    api.getTickHistory(selectedSymbol, { end: 'latest', count: 60 });
     api.subscribeToTick(selectedSymbol);
     store.dispatch(actions.getTradingOptions(selectedSymbol));
 

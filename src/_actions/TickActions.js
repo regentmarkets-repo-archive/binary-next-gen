@@ -20,7 +20,7 @@ export const getTicksBySymbol = symbol =>
     (dispatch, getState) => {
         const { ticks } = getState();
         if (!ticks.get(symbol)) {
-            LiveData.api.getTickHistory(symbol, { end: 'latest', count: 20 });
+            LiveData.api.getTickHistory(symbol, { end: 'latest', count: 60 });
             LiveData.api.subscribeToTick(symbol);
         }
     };
