@@ -13,7 +13,7 @@ export default class LabeledText extends Component {
         const { id, label, value = 'N/A' } = this.props;
 
         return (
-            <div id={id} className="name-val-pair">
+            <div id={id} className={'name-val-pair'}>
                 <M className={'name'} id={label + ':'} m={label + ':'} />
                 <M className={'val'} id={value} m={value} />
             </div>
