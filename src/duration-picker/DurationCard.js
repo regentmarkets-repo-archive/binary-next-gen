@@ -59,7 +59,7 @@ export default class DurationCard extends Component {
                     <input type="checkbox" checked={!!dateStart} onClick={::this.startLaterHandler} />
                     <M m="Start Later" />
                 </label>
-                {forwardStartingDuration &&
+                {!!dateStart &&
                     <ForwardStartingOptions
                         dateStart={dateStart}
                         ranges={forwardStartingDuration.range}
