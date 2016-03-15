@@ -44,6 +44,7 @@ export default class ToggleButtons extends Component {
 				>
 					<img src="img/left-panel.svg" />
 				</button>
+				&nbsp;
 				<button
 					className="btn-secondary"
 					onClick={() => actions.toggleTradeMode()}
@@ -52,24 +53,26 @@ export default class ToggleButtons extends Component {
 				>
 					<img src="img/right-panel.svg" />
 				</button>
-				&nbsp;
+				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<button
 					className={tabsBtnClasses}
 					onClick={() => actions.changeTradeMode('tabs')}
 				>
-					<img src="img/bottom-panel.svg" />
+					<img src="img/tabs.svg" />
 				</button>
+				&nbsp;
 				<button
 					className={gridBtnClasses}
 					onClick={() => actions.changeTradeMode('grid')}
 				>
-					<img src="img/bottom-panel.svg" />
+					<img src="img/grid.svg" />
 				</button>
+				&nbsp;
 				<button
 					className={jpBtnClasses}
 					onClick={() => actions.changeTradeMode('jp')}
 				>
-					<img src="img/bottom-panel.svg" />
+					<img src="img/jp.svg" />
 				</button>
 			</div>
 		);

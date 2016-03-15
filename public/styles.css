@@ -682,12 +682,13 @@ tr[tabindex] {
 }
 
 .toggle-buttons .btn-secondary.checked {
-    background: rgba(255, 255, 255, .75);
+    background: rgba(255, 255, 255, .8);
 }
 
 .toggle-buttons .btn-secondary {
     width: 3rem;
-    background: rgba(255, 255, 255, .5);
+    background: rgba(255, 255, 255, .4);
+    box-shadow: none;
 }
 
 div[role=tablist] {
