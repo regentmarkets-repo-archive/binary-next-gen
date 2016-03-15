@@ -195,6 +195,7 @@ export default class FullTradeParams extends Component {
             barrier: undefined,
             barrier2: undefined,
         });
+        actions.updatePriceProposalSubscription(index);
     }
 
     onDurationChange(e) {

@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import M from '../_common/M';
 import InputGroup from '../_common/InputGroup';
-import RadioGroup from '../fulltrade/workaround/CustomRadioGroup';
 import {
     epochToUTCTimeString,
     dateToEpoch,
