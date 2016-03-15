@@ -1,22 +1,28 @@
 import React, { PropTypes, Component } from 'react';
+import { FormattedTime } from 'react-intl';
 import M from '../_common/M';
 
-export default class LabeledText extends Component {
+export default class LabeledDateTime extends Component {
+    static defaultProps = {
+        format: 'full',
+    };
 
     static propTypes = {
         id: PropTypes.string,
         label: PropTypes.string.isRequired,
-        value: PropTypes.string,
+        epoch: PropTypes.number.isRequired,
+        format: PropTypes.string,
     };
 
     render() {
-        const { id, label, value = 'N/A' } = this.props;
+        const { id, label, epoch, format } = this.props;
 
         return (
             <div id={id} className="name-val-pair">
                 <M className={'name'} id={label + ':'} m={label + ':'} />
-                <M className={'val'} id={value} m={value} />
+                <FormattedTime value={epoch * 1000} format={format} />
             </div>
         );
     }
 }
+
