@@ -9,7 +9,7 @@ import {
 
 const initialState = fromJS({
     query: '',
-    submarket: '',
+    submarket: 'all',
 });
 
 export default (state = initialState, action) => {

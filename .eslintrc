@@ -22,10 +22,13 @@
     "no-unused-expressions": 0,
     "no-param-reassign": 0,
     "prefer-template": 0,
+    
     "no-unused-vars": 1,
     "no-trailing-spaces": 1,
     "spaced-comment": 1,
     "padded-blocks": 1,
+    "react/jsx-closing-bracket-location": 1,
+
     "indent": [0, 4],
     "max-len": [1, 120, 4],
     "id-length": [2, { "min": 1 }],
