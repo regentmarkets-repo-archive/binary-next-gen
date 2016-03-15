@@ -1,13 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import ErrorMsg from '../_common/ErrorMsg';
+import M from '../_common/M';
 import SelectGroup from '../_common/SelectGroup';
 import InputGroup from '../_common/InputGroup';
 import ForwardStartingOptions from './ForwardStartingOptions';
 import { durationText } from '../_utils/TradeUtils';
 
 export default class DurationCard extends Component {
-
     static propTypes = {
         dateStart: PropTypes.number,
         duration: PropTypes.number,
@@ -20,6 +20,17 @@ export default class DurationCard extends Component {
     };
 
     shouldComponentUpdate = shouldPureComponentUpdate;
+
+    startLaterHandler() {
+        const { dateStart, onStartDateChange, forwardStartingDuration } = this.props;
+        if (dateStart) {
+            onStartDateChange();
+        } else {
+            const nextDay = forwardStartingDuration.range[0];
+            const nextDayOpening = Math.floor(nextDay.open[0].getTime() / 1000);
+            onStartDateChange(nextDayOpening);
+        }
+    }
 
     render() {
         const {
@@ -44,7 +55,11 @@ export default class DurationCard extends Component {
         const errorMsg = (duration > max ? `Maximum is ${max} ` : `Minimum is ${min} `) + durationText(durationUnit);
         return (
             <div>
-                {forwardStartingDuration &&
+                <label>
+                    <input type="checkbox" checked={!!dateStart} onClick={::this.startLaterHandler} />
+                    <M m="Start Later" />
+                </label>
+                {!!dateStart &&
                     <ForwardStartingOptions
                         dateStart={dateStart}
                         ranges={forwardStartingDuration.range}
