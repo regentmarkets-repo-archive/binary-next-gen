@@ -26,7 +26,7 @@ export default class DurationCard extends Component {
         if (dateStart) {
             onStartDateChange();
         } else {
-            const nextDay = forwardStartingDuration.range[0]
+            const nextDay = forwardStartingDuration.range[0];
             const nextDayOpening = Math.floor(nextDay.open[0].getTime() / 1000);
             onStartDateChange(nextDayOpening);
         }
