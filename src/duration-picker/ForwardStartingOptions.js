@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import M from '../_common/M';
 import InputGroup from '../_common/InputGroup';
 import {
     epochToUTCTimeString,
@@ -33,11 +32,7 @@ export default class ForwardStartingOptions extends Component {
         this.props.onStartDateChange(newDayEpoch + intraDayEpoch);
     }
 
-    removeDateStart() {
-        this.props.onStartDateChange(undefined);
-    }
-
-    onChange(e) {
+    selectTime(e) {
         const { dateStart } = this.props;
         const secondsPerDay = 60 * 60 * 24;
         const intraDayEpoch = dateStart % secondsPerDay;
@@ -49,7 +44,7 @@ export default class ForwardStartingOptions extends Component {
     render() {
         const { dateStart, ranges } = this.props;
         const selectedDay = new Date(dateStart * 1000);
-        const selectedRange = selectedDay && ranges.find(r => r.date.getTime() === selectedDay.getTime());
+        const selectedRange = selectedDay && ranges.find(r => r.date.toDateString() === selectedDay.toDateString());
 
         const min = selectedDay && dateToUTCTimeString(selectedRange.open[0]);
         const max = selectedDay && dateToUTCTimeString(selectedRange.close[0]);
@@ -68,12 +63,9 @@ export default class ForwardStartingOptions extends Component {
                     type="time"
                     min={min}
                     max={max}
-                    onChange={::this.onChange}
+                    onChange={::this.selectTime}
                     value={timeString}
                 />}
-                <button className="btn-secondary" onClick={::this.removeDateStart}>
-                    <M m="Now" />
-                </button>
             </div>
         );
     }
