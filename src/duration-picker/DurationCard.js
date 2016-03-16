@@ -6,6 +6,7 @@ import SelectGroup from '../_common/SelectGroup';
 import InputGroup from '../_common/InputGroup';
 import ForwardStartingOptions from './ForwardStartingOptions';
 import { durationText } from '../_utils/TradeUtils';
+import ToggleSwitch from '../_common/ToggleSwitch';
 
 export default class DurationCard extends Component {
     static propTypes = {
@@ -55,10 +56,11 @@ export default class DurationCard extends Component {
         const errorMsg = (duration > max ? `Maximum is ${max} ` : `Minimum is ${min} `) + durationText(durationUnit);
         return (
             <div>
-                <label>
-                    <input type="checkbox" checked={!!dateStart} onClick={::this.startLaterHandler} />
-                    <M m="Start Later" />
-                </label>
+                <ToggleSwitch
+                    text="Start_Later"
+                    checked={!!dateStart}
+                    onClick={::this.startLaterHandler}
+                />
                 {!!dateStart &&
                     <ForwardStartingOptions
                         dateStart={dateStart}

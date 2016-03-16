@@ -20,6 +20,7 @@ export default class TradesGrid extends Component {
             <div className="trades-grid">
                 {trades.map((trade, index) =>
                     <div
+                        className="trade-container"
                         className={index === activeTradeIndex ? 'panel-active' : ''}
                         onClick={() => actions.changeActiveTrade(index)}
                     >
