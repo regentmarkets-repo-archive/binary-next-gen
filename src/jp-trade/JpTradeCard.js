@@ -10,11 +10,12 @@ export default class JpTradeCard extends Component {
     };
 
     render() {
+        const { actions } = this.props;
         return (
             <div className="trades-jp">
-                <JpTradeTypesPicker />
-                <JpPeriodPicker />
-                <JpPayoutPicker />
+                <JpTradeTypesPicker actions={actions} />
+                <JpPeriodPicker actions={actions} />
+                <JpPayoutPicker actions={actions} />
             </div>
         );
     }
