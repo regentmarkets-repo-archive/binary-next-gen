@@ -184,16 +184,16 @@ export default class FullTradeParams extends Component {
         // do not reset duration unless the old one is not valid
         if (!epoch || isDurationWithinRange(duration, durationUnit, newDurations)) {
             actions.updateMultipleTradeParams(index, { dateStart: epoch });
-            return;
+        } else {
+            actions.updateMultipleTradeParams(index, {
+                dateStart: epoch,
+                duration: newDurations[0].min,
+                durationUnit: newDurations[0].unit,
+                barrier: undefined,
+                barrier2: undefined,
+            });
         }
-
-        actions.updateMultipleTradeParams(index, {
-            dateStart: epoch,
-            duration: newDurations[0].min,
-            durationUnit: newDurations[0].unit,
-            barrier: undefined,
-            barrier2: undefined,
-        });
+        actions.updatePriceProposalSubscription(index);
     }
 
     onDurationChange(e) {
@@ -320,6 +320,7 @@ export default class FullTradeParams extends Component {
                         onDurationChange={this.onDurationChange}
                         onUnitChange={this.onDurationUnitChange}
                         onStartDateChange={this.onStartDateChange}
+                        startLater={trade.startLater}
                     />
                 }
                 {showDigitBarrier &&

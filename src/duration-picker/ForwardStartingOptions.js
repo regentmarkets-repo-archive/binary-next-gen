@@ -1,8 +1,13 @@
 import React, { Component, PropTypes } from 'react';
 import M from '../_common/M';
 import InputGroup from '../_common/InputGroup';
-import RadioGroup from '../fulltrade/workaround/CustomRadioGroup';
-import { epochToUTCTimeString, dateToEpoch, dateToUTCTimeString, timeStringToSeconds } from '../_utils/DateUtils';
+import {
+    epochToUTCTimeString,
+    dateToEpoch,
+    dateToUTCTimeString,
+    timeStringToSeconds,
+    dateToDateString,
+} from '../_utils/DateUtils';
 
 /**
  * assumption: for each type of contract, there will only have 1 forward starting options contract
@@ -11,17 +16,7 @@ import { epochToUTCTimeString, dateToEpoch, dateToUTCTimeString, timeStringToSec
 export default class ForwardStartingOptions extends Component {
     constructor(props) {
         super(props);
-        const defaultDay = dateToEpoch(props.ranges[0].date);
-        this.state = {
-            selectedDay: defaultDay,
-        };
-    }
-
-    componentWillReceiveProps(nextProps) {
-        const defaultDay = dateToEpoch(nextProps.ranges[0].date);
-        if (nextProps.ranges !== this.props.ranges) {
-            this.setState({ selectedDay: defaultDay });
-        }
+        this.state = {};
     }
 
     static propTypes = {
@@ -31,48 +26,51 @@ export default class ForwardStartingOptions extends Component {
     };
 
     selectDay(e) {
-        this.setState({ selectedDay: e.target.value });
+        const { dateStart } = this.props;
+        const newDayEpoch = dateToEpoch(new Date(e.target.value));
+        const secondsPerDay = 60 * 60 * 24;
+        const intraDayEpoch = dateStart % secondsPerDay;
+        this.props.onStartDateChange(newDayEpoch + intraDayEpoch);
     }
 
     removeDateStart() {
-        const defaultDay = dateToEpoch(this.props.ranges[0].date);
-        this.setState({ selectedDay: defaultDay });
         this.props.onStartDateChange(undefined);
     }
 
     onChange(e) {
-        const { selectedDay } = this.state;
-        const selectedEpoch = selectedDay + timeStringToSeconds(e.target.value);
+        const { dateStart } = this.props;
+        const secondsPerDay = 60 * 60 * 24;
+        const intraDayEpoch = dateStart % secondsPerDay;
+        const dayEpoch = dateStart - intraDayEpoch;
+        const selectedEpoch = dayEpoch + timeStringToSeconds(e.target.value);
         this.props.onStartDateChange(selectedEpoch);
     }
 
     render() {
         const { dateStart, ranges } = this.props;
-        const dayOptions = ranges.map(d => {
-            const day = d.date;
-            return { text: day.toLocaleDateString(), value: dateToEpoch(day) };
-        });
-        const { selectedDay } = this.state;
-        const selectedRange = ranges.find(r => dateToEpoch(r.date) === selectedDay);
-        const selectedIdx = ranges.indexOf(selectedRange);
-        const min = dateToUTCTimeString(ranges[selectedIdx].open[0]);
-        const max = dateToUTCTimeString(ranges[selectedIdx].close[0]);
+        const selectedDay = new Date(dateStart * 1000);
+        const selectedRange = selectedDay && ranges.find(r => r.date.getTime() === selectedDay.getTime());
+
+        const min = selectedDay && dateToUTCTimeString(selectedRange.open[0]);
+        const max = selectedDay && dateToUTCTimeString(selectedRange.close[0]);
         const timeString = dateStart ? epochToUTCTimeString(dateStart) : '';
 
         return (
             <div>
-                <RadioGroup
-                    options={dayOptions}
-                    onChange={::this.selectDay}
-                    value={selectedDay}
-                />
                 <InputGroup
+                    type="date"
+                    min={dateToDateString(ranges[0].date)}
+                    max={dateToDateString(ranges[2].date)}
+                    onChange={::this.selectDay}
+                    value={selectedDay && dateToDateString(selectedDay)}
+                />
+                {selectedDay && <InputGroup
                     type="time"
                     min={min}
                     max={max}
                     onChange={::this.onChange}
                     value={timeString}
-                />
+                />}
                 <button className="btn-secondary" onClick={::this.removeDateStart}>
                     <M m="Now" />
                 </button>
