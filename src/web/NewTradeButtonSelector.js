@@ -2,8 +2,8 @@ import { createSelector } from 'reselect';
 
 const newTrade = createSelector(
     [state => state.workspace.get('activeTradeIndex'), state => state.trades],
-    (actIdx, trades) => ({
-        symbol: trades.getIn([actIdx, 'symbol']),
+    (activeIndex, trades) => ({
+        symbol: trades.getIn([activeIndex, 'symbol']),
         noOfTrades: trades.size,
     })
 );
