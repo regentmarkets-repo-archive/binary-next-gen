@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import M from '../_common/M';
 import InputGroup from '../_common/InputGroup';
-import RadioGroup from '../fulltrade/workaround/CustomRadioGroup';
 import {
     epochToUTCTimeString,
     dateToEpoch,
@@ -27,24 +26,29 @@ export default class ForwardStartingOptions extends Component {
     };
 
     selectDay(e) {
-        this.setState({ selectedDay: new Date(e.target.value) });
+        const { dateStart } = this.props;
+        const newDayEpoch = dateToEpoch(new Date(e.target.value));
+        const secondsPerDay = 60 * 60 * 24;
+        const intraDayEpoch = dateStart % secondsPerDay;
+        this.props.onStartDateChange(newDayEpoch + intraDayEpoch);
     }
 
     removeDateStart() {
-        const defaultDay = dateToEpoch(this.props.ranges[0].date);
-        this.setState({ selectedDay: defaultDay });
         this.props.onStartDateChange(undefined);
     }
 
     onChange(e) {
-        const { selectedDay } = this.state;
-        const selectedEpoch = Math.floor(selectedDay.getTime()) / 1000 + timeStringToSeconds(e.target.value);
+        const { dateStart } = this.props;
+        const secondsPerDay = 60 * 60 * 24;
+        const intraDayEpoch = dateStart % secondsPerDay;
+        const dayEpoch = dateStart - intraDayEpoch;
+        const selectedEpoch = dayEpoch + timeStringToSeconds(e.target.value);
         this.props.onStartDateChange(selectedEpoch);
     }
 
     render() {
         const { dateStart, ranges } = this.props;
-        const { selectedDay } = this.state;
+        const selectedDay = new Date(dateStart * 1000);
         const selectedRange = selectedDay && ranges.find(r => r.date.getTime() === selectedDay.getTime());
 
         const min = selectedDay && dateToUTCTimeString(selectedRange.open[0]);

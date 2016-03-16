@@ -18,7 +18,6 @@ const defaultTrade = {
     amount: 50,
     type: 'CALL',
     barrierType: 'relative',
-    startLater: false,
 };
 
 const initialState = fromJS([defaultTrade]);
