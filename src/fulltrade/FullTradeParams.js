@@ -193,6 +193,7 @@ export default class FullTradeParams extends Component {
                 barrier2: undefined,
             });
         }
+        console.log('up', epoch);
         actions.updatePriceProposalSubscription(index);
     }
 
