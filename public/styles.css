@@ -760,7 +760,11 @@ td.row-id {
 }
 
 .panel-active {
-    box-shadow: 0 0 0 3px white, 0 0 0 5px rgba(42, 48, 82, .25);
+    box-shadow: 0 0 0 2px white, 0 0 0 4px rgba(42, 48, 82, .25);
+}
+
+.trades-grid > div {
+    margin-left: 5px;
 }
 
 .trade-header {

@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import TradeHeader from './TradeHeader';
 import FullTradeCard from '../fulltrade/FullTradeCard';
 
 export default class TradesGrid extends Component {
@@ -18,16 +19,27 @@ export default class TradesGrid extends Component {
         return (
             <div className="trades-grid">
                 {trades.map((trade, index) =>
-                    <FullTradeCard
-                        key={index}
-                        index={index}
-                        currency={currency}
-                        actions={actions}
-                        trade={trade}
-                        isActive={index === activeTradeIndex}
-                        ticks={ticksForAllSymbols[trade.symbol]}
-                        contract={contracts[trade.symbol]}
-                    />
+                    <div
+                        className={index === activeTradeIndex ? 'panel-active' : ''}
+                        onClick={() => actions.changeActiveTrade(index)}
+                    >
+                        <TradeHeader
+                            assetName={trade.symbol}
+                            onClosePanel={ev => {
+                                actions.removeTrade(index);
+                                ev.stopPropagation();
+                            }}
+                        />
+                        <FullTradeCard
+                            key={index}
+                            index={index}
+                            currency={currency}
+                            actions={actions}
+                            trade={trade}
+                            ticks={ticksForAllSymbols[trade.symbol]}
+                            contract={contracts[trade.symbol]}
+                        />
+                    </div>
                 )}
             </div>
         );

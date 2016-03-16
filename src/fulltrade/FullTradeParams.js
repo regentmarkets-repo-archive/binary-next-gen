@@ -42,7 +42,6 @@ export default class FullTradeParams extends Component {
         contract: PropTypes.object,
         disabled: PropTypes.bool,
         index: PropTypes.number.isRequired,
-        isActive: PropTypes.bool.isRequired,
         trade: PropTypes.object.isRequired,
         type: PropTypes.oneOf(['tick', 'full']).isRequired,
         ticks: PropTypes.array,

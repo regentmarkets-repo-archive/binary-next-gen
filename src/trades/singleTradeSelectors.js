@@ -24,7 +24,6 @@ const singleContract = createSelector(
 export default createStructuredSelector({
     contract: singleContract,
     currency: currencySelector,
-    isActive: () => true,
     trade: firstTradeSelector,
-    tick: ticksForFirstTradeSelector,
+    ticks: ticksForFirstTradeSelector,
 });
