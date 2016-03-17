@@ -26,6 +26,7 @@ export default class TradesGrid extends Component {
             <div className="trades-grid">
                 {trades.map((trade, index) =>
                     <div
+                        key={index}
                         className={index === activeTradeIndex ? 'trade-container panel-active' : 'trade-container'}
                         onClick={() => actions.changeActiveTrade(index)}
                     >
@@ -37,7 +38,6 @@ export default class TradesGrid extends Component {
                             }}
                         />
                         <FullTradeCard
-                            key={index}
                             index={index}
                             currency={currency}
                             actions={actions}

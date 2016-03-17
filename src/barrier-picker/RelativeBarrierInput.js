@@ -29,7 +29,7 @@ export default class BarrierInput extends Component {
                     label={name + (barrierType === 'relative' ? ' offset' : '')}
                     type="number"
                     onChange={onChange}
-                    value={barrierType === 'relative' ? relativeValue : absoluteValue}
+                    defaultValue={barrierType === 'relative' ? relativeValue : absoluteValue}
                 />
                 {(barrierType === 'relative' && absoluteValue) &&
                     <p>Target spot: <NumberPlain value={absoluteValue} digits={pipSize} /></p>}
