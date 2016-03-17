@@ -37,10 +37,6 @@ export default class FullTradeCard extends Component {
         const contract = this.props.contract || mockedContract;
         const disabled = contract === mockedContract || trade.disabled;
 
-        if (ticks && ticks.length > 70) {
-            console.log('t', ticks);
-        }
-
         return (
             <div disabled={disabled} className={'trade-panel'}>
                 <Modal
