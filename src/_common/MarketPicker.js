@@ -16,7 +16,7 @@ export default class MarketPicker extends Component {
 
 		return (
 			<select
-				value={value}
+				defaultValue={value}
 				className="market-submarket-picker"
 				onChange={e => onChange(e.target.value)}
 			>
