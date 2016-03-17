@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
+import { FormattedMessage } from 'react-intl';
 import ErrorMsg from '../_common/ErrorMsg';
-import M from '../_common/M';
 import SelectGroup from '../_common/SelectGroup';
 import InputGroup from '../_common/InputGroup';
 import ForwardStartingOptions from './ForwardStartingOptions';
@@ -56,11 +56,15 @@ export default class DurationCard extends Component {
         const errorMsg = (duration > max ? `Maximum is ${max} ` : `Minimum is ${min} `) + durationText(durationUnit);
         return (
             <div>
-                <ToggleSwitch
-                    text="Start_Later"
-                    checked={!!dateStart}
-                    onClick={::this.startLaterHandler}
-                />
+                <FormattedMessage id="Start_Later" defaultMessage="Start_Later">
+                    {text =>
+                        <ToggleSwitch
+                            text={text}
+                            checked={!!dateStart}
+                            onClick={::this.startLaterHandler}
+                        />
+                    }
+                </FormattedMessage>
                 {!!dateStart &&
                     <ForwardStartingOptions
                         dateStart={dateStart}
@@ -73,14 +77,14 @@ export default class DurationCard extends Component {
                         <div className="row">
                             <InputGroup
                                 type="number"
-                                value={duration}
+                                defaultValue={duration}
                                 min={min}
                                 max={max}
                                 onChange={onDurationChange}
                             />
                             <SelectGroup
                                 options={unitOptions}
-                                value={durationUnit}
+                                defaultValue={durationUnit}
                                 onChange={onUnitChange}
                             />
                         </div>

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { connect } from 'react-redux';
-// import { immutableChildrenToJS } from '../_utils/ObjectUtils';
+import { immutableChildrenToJS } from '../_utils/ObjectUtils';
 import marketTreeSelector from '../_selectors/marketTreeSelector';
 import MarketPicker from './MarketPicker';
 
@@ -12,7 +12,7 @@ export default class MarketPickerContainer extends Component {
 
 	render() {
 		return (
-			<MarketPicker {...this.props} />
+			<MarketPicker {...immutableChildrenToJS(this.props)} />
 		);
 	}
 }

@@ -132,7 +132,7 @@ export default class TradeTypeTickOptions extends Component {
 						label="Digit Match"
 						name="trade-type"
 						value="DIGITMATCH"
-						img="img/trade-match.svg"
+						img="img/trade-digitmatch.svg"
 						onChange={e => {
 							onTypeChange(e);
 							onBarrierChange({ target: { value: 0 } });
@@ -143,7 +143,7 @@ export default class TradeTypeTickOptions extends Component {
 						label="Digit Differs"
 						name="trade-type"
 						value="DIGITDIFF"
-						img="img/trade-differs.svg"
+						img="img/trade-digitdiff.svg"
 						onChange={e => {
 							onTypeChange(e);
 							onBarrierChange({ target: { value: 0 } });

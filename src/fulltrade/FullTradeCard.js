@@ -30,10 +30,12 @@ export default class FullTradeCard extends Component {
     };
 
     render() {
-        const { actions, index, trade, currency, ticks, contract } = this.props;
+        const { actions, index, trade, currency, ticks } = this.props;
         const selectedSymbol = trade.symbol;
+
         const mostRecentContractBought = trade.mostRecentContractBought;
-        const disabled = !contract || trade.disabled;
+        const contract = this.props.contract || mockedContract;
+        const disabled = contract === mockedContract || trade.disabled;
 
         return (
             <div disabled={disabled} className={'trade-panel'}>
