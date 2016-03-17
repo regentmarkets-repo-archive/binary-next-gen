@@ -17,9 +17,15 @@ export const purchaseTotalSelector = createSelector(
             .reduce((x, y) => x + y, 0)
 );
 
+const activeOpenContractSelector = createSelector(
+    openContractsSelector,
+    openContracts =>
+        openContracts.filter(c => c.get('is_expired') === 0)
+);
+
 export default createStructuredSelector({
     ticks: ticksSelector,
-    contracts: openContractsSelector,
+    contracts: activeOpenContractSelector,
     portfolio: portfolioSelector,
     purchaseTotal: purchaseTotalSelector,
     indicativeTotal: indicativeTotalSelector,
