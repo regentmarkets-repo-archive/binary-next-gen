@@ -25,13 +25,13 @@ export default class MarketPicker extends Component {
 						{message => <option value="all">{message}</option>}
 					</FormattedMessage>
 				: null}
-				{marketTree
-					.filter((marketObj, marketKey) => !showMarkets || ~showMarkets.indexOf(marketKey))
+				{Object.keys(marketTree)
+					.filter((marketObj, marketKey) => !showMarkets || showMarkets.includes(marketKey))
 					.map((market, k) => (
-					<optgroup key={k} label={market.get('display_name')}>
-						{market.get('submarkets').map((submarket, submarketKey) =>
-							<option key={submarketKey} value={submarketKey}>
-								{submarket.get('display_name')}
+					<optgroup key={k} label={marketTree[market].display_name}>
+						{Object.keys(marketTree[market].submarkets).map(submarket =>
+							<option key={submarket} value={submarket}>
+								{marketTree[market].submarkets[submarket].display_name}
 							</option>
 						)}
 					</optgroup>
