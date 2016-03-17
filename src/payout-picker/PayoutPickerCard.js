@@ -46,7 +46,7 @@ export default class PayoutPickerCard extends Component {
 		const trade = trades[index];
 
 		return (
-			<div>
+			<div id="payout-picker">
 				<RadioGroup
 					name="basis"
 					options={basisTypes}

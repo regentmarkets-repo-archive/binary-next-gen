@@ -15,6 +15,8 @@ import {
     REMOVE_TRADE,
 } from '../_constants/ActionTypes';
 
+const resizeChart = () => setTimeout(() => window.dispatchEvent(new Event('resize')), 100);
+
 const initialState = new Map({
     leftPanelVisible: true,
     leftPanelSize: 250,
@@ -57,6 +59,7 @@ export default (state = initialState, action) => {
                 .set(action.panel + 'PanelVisible', !(panelVisible && sameTabSelected));
         }
         case CHANGE_WORKSPACE_PANEL_SIZE: {
+            resizeChart();
             return state
                 .set(action.panel + 'PanelSize', action.size > 100 ? action.size : 100)
                 .set(action.panel + 'PanelVisible', action.size > 100);
@@ -71,6 +74,7 @@ export default (state = initialState, action) => {
             return state.set('tradeMode', action.tradeMode);
         }
         case TOGGLE_PANEL: {
+            resizeChart();
             const panelField = action.panel + 'PanelVisible';
             return state.set(panelField, !state.get(panelField));
         }

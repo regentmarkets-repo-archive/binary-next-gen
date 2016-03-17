@@ -538,7 +538,7 @@ tr[tabindex] {
 }
 
 .trade-chart {
-    margin-bottom: 1rem;
+    margin: 1rem 0;
 }
 
 .mobile-form {
@@ -841,7 +841,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 #type-picker img {
-    height: 2rem;
+    height: 1.5rem;
     background: white;
     box-shadow: 0 0 0 1px white;
 }
@@ -866,8 +866,8 @@ input[type=number]::-webkit-outer-spin-button {
     display: block;
     width: 2.5rem;
     height: 1rem;
-    margin-left: .125rem;
-    margin-top: .125rem;
+    margin-left: .15rem;
+    margin-top: .15rem;
     text-indent: 150%;
     clip: rect(0 0 0 0);
     color: #2a3052;
@@ -914,4 +914,15 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .switch-input:checked + .switch-label:after {
     left: 1.5rem;
+}
+
+.switch {
+    margin: 1rem 0;
+}
+
+#duration-fields input, #duration-fields select, .payout-picker input, .payout-picker fieldset {
+    width: 100%;
+}
+.payout-picker {
+    margin-top: 1rem;
 }

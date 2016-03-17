@@ -73,24 +73,23 @@ export default class DurationCard extends Component {
                     />
                 }
                 {currentUnitBlock ?
-                    <div>
-                        <div className="row">
-                            <InputGroup
-                                type="number"
-                                defaultValue={duration}
-                                min={min}
-                                max={max}
-                                onChange={onDurationChange}
-                            />
-                            <SelectGroup
-                                options={unitOptions}
-                                defaultValue={durationUnit}
-                                onChange={onUnitChange}
-                            />
-                        </div>
-                        <ErrorMsg shown={showError} text={errorMsg} />
+                    <div id="duration-fields" className="row">
+                        <InputGroup
+                            type="number"
+                            defaultValue={duration}
+                            min={min}
+                            max={max}
+                            onChange={onDurationChange}
+                        />
+                        <SelectGroup
+                            options={unitOptions}
+                            defaultValue={durationUnit}
+                            onChange={onUnitChange}
+                        />
                     </div> :
-                    <div />}
+                    <div />
+                }
+                <ErrorMsg shown={showError} text={errorMsg} />
             </div>
         );
     }
