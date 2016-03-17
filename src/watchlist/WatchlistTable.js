@@ -7,6 +7,7 @@ export default class WatchlistTable extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
+		activeTradeIdx: PropTypes.number.isRequired,
 		watchlistView: PropTypes.array.isRequired,
 		selectedAsset: PropTypes.string.isRequired,
 	};
@@ -16,8 +17,17 @@ export default class WatchlistTable extends Component {
 		if (focusedNode) focusedNode.focus();
     }
 
+	onSelect(newAsset) {
+		const { actions, activeTradeIdx } = this.props;
+
+		actions.changeSelectedAsset(newAsset);
+		actions.getTradingOptions(newAsset);
+		actions.updateTradeParams(activeTradeIdx, 'symbol', newAsset);
+		actions.updatePriceProposalSubscription(activeTradeIdx);
+	}
+
 	render() {
-		const { actions, watchlistView, selectedAsset } = this.props;
+		const { watchlistView, selectedAsset } = this.props;
 
 		return (
 			<table>
@@ -29,7 +39,7 @@ export default class WatchlistTable extends Component {
 							{...x}
 							selected={selectedAsset === x.symbol}
 							ref={selectedAsset === x.symbol ? 'focused' : null}
-							onSelect={symbol => actions.changeSelectedAsset(symbol)}
+							onSelect={::this.onSelect}
 						/>
 					)}
 				</tbody>

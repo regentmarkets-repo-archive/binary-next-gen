@@ -1,6 +1,6 @@
 import { List, Record } from 'immutable';
 import { createSelector, createStructuredSelector } from 'reselect';
-import { ticksSelector, watchlistSelector, selectedAssetSelector } from '../_store/directSelectors';
+import { ticksSelector, watchlistSelector, selectedAssetSelector, activeTradeIndexSelector } from '../_store/directSelectors';
 import { assetsBySymbolSelector } from '../_store/keySelectors';
 
 export const WatchlistRecord = new Record({
@@ -37,6 +37,7 @@ export const watchlistViewSelector = createSelector(
 );
 
 export default createStructuredSelector({
+	activeTradeIdx: activeTradeIndexSelector,
     watchlistView: watchlistViewSelector,
 	selectedAsset: selectedAssetSelector,
 });
