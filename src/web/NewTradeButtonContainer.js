@@ -6,6 +6,7 @@ import NewTradeButton from './NewTradeButton';
 
 @connect(tradeButtonSelector)
 export default class NewTradeButtonContainer extends Component {
+
     shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
