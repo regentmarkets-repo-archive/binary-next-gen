@@ -14,10 +14,7 @@ export default class Modal extends Component {
 		if (!shown) return null;
 
 		return (
-			<div
-				className="full-screen-overlay"
-				onClick={e => { if (e.target.className === 'full-screen-overlay') onClose(e); }}
-			>
+			<div className="full-screen-overlay">
 				<div className="modal">
 					<button className="close-btn" onClick={onClose}>
 						<img src="img/close.svg" />

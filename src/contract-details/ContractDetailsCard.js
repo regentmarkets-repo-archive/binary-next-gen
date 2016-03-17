@@ -14,12 +14,17 @@ export default class ContractDetailsCard extends Component {
 	};
 
 	render() {
-		const { contract, transactionId, actions } = this.props;
+		const { contract, actions } = this.props;
 		const expired = contract.is_expired === 1;
 		const validToSell = contract.is_valid_to_sell === 1 && !expired;
+
 		return (
 			<div>
-				<h3><M m="Trasaction Reference: {id}" values={{ id: transactionId }} /></h3>
+				<h6>
+					<M m="Trasaction Reference" />
+					:
+					{contract.transaction_id}
+				</h6>
 				<table>
 					<thead>
 						<tr>
