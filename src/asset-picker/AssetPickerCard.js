@@ -42,6 +42,7 @@ export default class AssetPickerCard extends Component {
 			actions.selectAssetSymbolForTrade(newAsset, selectedAsset);
 			actions.getTradingOptions(newAsset);
 			actions.updateTradeParams(activeTradeIdx, 'symbol', newAsset);
+			actions.updatePriceProposalSubscription(activeTradeIdx);
 		}
 	}
 
