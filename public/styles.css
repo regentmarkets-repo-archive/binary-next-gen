@@ -288,7 +288,6 @@ nav.sidebar {
 }
 
 .buy-btn {
-    width: 100%;
     padding: 1rem;
     margin-top: 1.5rem;
     font-size: 1.25rem;
@@ -805,12 +804,20 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .payout-picker {
+    margin-top: 1rem;
     display: flex;
 }
 
 .payout-picker button {
     width: 2rem;
     height: 2rem;
+}
+
+.payout-full {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .open-notice, .closed-notice {
@@ -925,10 +932,6 @@ input[type=number]::-webkit-outer-spin-button {
     width: 100%;
 }
 
-.payout-picker {
-    margin-top: 1rem;
-}
-
 .sell-at-market-btn {
     height: 2.5rem;
     width: 100%;
@@ -940,4 +943,13 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .contract-details h6 {
     text-align: center;
+}
+
+.label span {
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+#earning-percentage {
+    margin-left: 0.5rem;
 }
