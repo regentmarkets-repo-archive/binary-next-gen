@@ -21,22 +21,8 @@ export const mockedContract = {
             spread: null
         }
     },
-    callput: {
+    risefall: {
         CALL: {
-            barriers: {
-                daily: [
-                    {
-                        name: 'Higher than',
-                        defaultValue: '+12.3032'
-                    }
-                ],
-                intraday: [
-                    {
-                        name: 'Higher than',
-                        defaultValue: '+0.4469'
-                    }
-                ]
-            },
             durations: [
                 {
                     min: 5,
@@ -110,20 +96,6 @@ export const mockedContract = {
             spread: null
         },
         PUT: {
-            barriers: {
-                daily: [
-                    {
-                        name: 'Lower than',
-                        defaultValue: '+12.3032'
-                    }
-                ],
-                intraday: [
-                    {
-                        name: 'Lower than',
-                        defaultValue: '+0.4469'
-                    }
-                ]
-            },
             durations: [
                 {
                     min: 5,
@@ -194,6 +166,76 @@ export const mockedContract = {
                     }
                 ]
             },
+            spread: null
+        }
+    },
+    higherlower: {
+        CALL: {
+            barriers: {
+                daily: [
+                    {
+                        name: 'Higher than',
+                        defaultValue: '+12.3032'
+                    }
+                ],
+                intraday: [
+                    {
+                        name: 'Higher than',
+                        defaultValue: '+0.4469'
+                    }
+                ]
+            },
+            durations: [
+                {
+                    unit: 'm',
+                    min: 2,
+                    max: 525600
+                },
+                {
+                    unit: 'h',
+                    min: 1,
+                    max: 8760
+                },
+                {
+                    unit: 'd',
+                    min: 1,
+                    max: 365
+                }
+            ],
+            spread: null
+        },
+        PUT: {
+            barriers: {
+                daily: [
+                    {
+                        name: 'Lower than',
+                        defaultValue: '+12.3032'
+                    }
+                ],
+                intraday: [
+                    {
+                        name: 'Lower than',
+                        defaultValue: '+0.4469'
+                    }
+                ]
+            },
+            durations: [
+                {
+                    unit: 'm',
+                    min: 2,
+                    max: 525600
+                },
+                {
+                    unit: 'h',
+                    min: 1,
+                    max: 8760
+                },
+                {
+                    unit: 'd',
+                    min: 1,
+                    max: 365
+                }
+            ],
             spread: null
         }
     },

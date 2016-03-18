@@ -74,7 +74,7 @@ export default class FullTradeParams extends Component {
     }
 
     componentWillMount() {
-        this.onCategoryChange('callput');
+        this.onCategoryChange('risefall');
     }
 
     componentWillReceiveProps(nextProps) {
@@ -112,7 +112,7 @@ export default class FullTradeParams extends Component {
         actions.updateTradeParams(index, 'disabled', true);
         actions.getTradingOptions(symbol, () => {
             this.updateHelper('symbol', symbol);
-            this.onCategoryChange('callput');
+            this.onCategoryChange('risefall');
             actions.updateTradeParams(index, 'disabled', false);
         });
         actions.getTicksBySymbol(symbol);
