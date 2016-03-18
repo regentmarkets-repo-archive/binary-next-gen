@@ -4,6 +4,7 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 
 const basises = ['payout', 'stake'];
 const payouts = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000];
+const step = 10;
 
 export default class PayoutCard extends Component {
 
@@ -18,6 +19,16 @@ export default class PayoutCard extends Component {
 
     shouldComponentUpdate = shouldPureComponentUpdate;
 
+    stepUp() {
+        const { amount, onAmountChange } = this.props;
+        onAmountChange({ target: { value: amount + step } });
+    }
+
+    stepDown() {
+        const { amount, onAmountChange } = this.props;
+        onAmountChange({ target: { value: amount - step } });
+    }
+
     render() {
         const { amount, onAmountChange } = this.props;
         // const basisOptions = basises.map(i => ({ text: i, value: i }));
@@ -31,17 +42,17 @@ export default class PayoutCard extends Component {
                     onChange={onBasisChange}
                     value={basis}
                 /> */}
-                <button className="btn-secondary">&ndash;</button>
+                <button className="btn-secondary" onClick={::this.stepDown}>&ndash;</button>
                 <InputGroup
                     type="number"
-                    defaultValue={amount}
+                    value={amount}
                     min={0.35}
                     max={100000}
                     step={1}
                     list="amounts"
                     onChange={onAmountChange}
                 />
-                <button className="btn-secondary">+</button>
+                <button className="btn-secondary" onClick={::this.stepUp}>+</button>
                 <datalist id="amounts">
                     {payouts.map(x =>
                         <option

@@ -54,7 +54,7 @@ export default class SpreadBarrierCard extends Component {
                 <InputGroup
                     type="number"
                     label="Stop loss"
-                    defaultValue={spreadInfo.stopLoss}
+                    defaultValue={30}           // TODO: hardcode default as backend return wrong data
                     onChange={stopLossChange}
                 />
                 <InputGroup

@@ -116,8 +116,28 @@ export default class FullTradeParams extends Component {
     // scary but necessary as all fields have dependency on category
     onCategoryChange(newCategory) {
         const { actions, contract, index, ticks } = this.props;
-
         const defaultType = createDefaultType(contract, newCategory);
+
+        // spreads is special case
+        if (newCategory === 'spreads') {
+            const spread = contract[newCategory][defaultType].spread;
+
+            this.updateTradeParams({
+                tradeCategory: newCategory,
+                type: defaultType,
+                duration: undefined,
+                durationUnit: undefined,
+                dateStart: undefined,
+                barrier: undefined,
+                barrier2: undefined,
+                amountPerPoint: spread.amountPerPoint,
+                stopType: spread.stopType,
+                stopLoss: 30,                               // hardcode default as backend return wrong info
+                stopProfit: spread.stopProfit,
+            });
+            return;
+        }
+
         const lastSpot = getLastTick(ticks);
 
         const newDuration = createDefaultDuration(contract, newCategory, defaultType);
@@ -143,18 +163,6 @@ export default class FullTradeParams extends Component {
             stopLoss: undefined,
             stopProfit: undefined,
         });
-
-        // spread is different from all other type
-        // TODO: fix next
-        // if (newCategory === 'spreads') {
-        //     const spread = contract[newCategory][defaultType].spread;
-        //     this.updateHelper('amountPerPoint', spread.amountPerPoint, false);
-        //     this.updateHelper('stopType', spread.stopType, false);
-        //     this.updateHelper('stopLoss', spread.stopLoss, false);
-        //     this.updateHelper('stopProfit', spread.stopProfit, false);
-        // }
-
-        actions.updatePriceProposalSubscription(index);
     }
 
     onTypeChange(newType) {
@@ -257,11 +265,13 @@ export default class FullTradeParams extends Component {
     }
 
     onAmountChange(e) {
-        this.updateHelper('amount', +e.target.value);
+        const properAmount = (+e.target.value).toFixed(2);          // avoid js floating point error
+        this.updateHelper('amount', properAmount);
     }
 
     onAmountPerPointChange(e) {
-        this.updateHelper('amountPerPoint', +e.target.value);
+        const properAmountPerPoint = (+e.target.value).toFixed(2);
+        this.updateHelper('amountPerPoint', properAmountPerPoint);
     }
 
     onStopTypeChange(e) {
@@ -310,7 +320,7 @@ export default class FullTradeParams extends Component {
                     onCategoryChange={this.onCategoryChange}
                     onTypeChange={this.onTypeChange}
                 />
-                {showDuration &&
+                {showDuration && !showSpreadBarrier &&
                     <DurationCard
                         dateStart={trade.dateStart}
                         duration={+trade.duration}
@@ -347,7 +357,7 @@ export default class FullTradeParams extends Component {
                             barrier={trade.barrier}
                             barrier2={trade.barrier2}
                             barrierInfo={barriers}
-                            barrierType={trade.barrierType}
+                            barrierType="relative"
                             isIntraDay={isIntraDay}
                             pipSize={pipSize}
                             onBarrier1Change={this.onBarrier1Change}
@@ -356,14 +366,16 @@ export default class FullTradeParams extends Component {
                             spot={trade.proposal && +trade.proposal.spot}
                         />
                 }
-                <PayoutCard
-                    amount={+trade.amount}
-                    basis={trade.basis}
-                    currency={currency}
-                    id={index}
-                    onAmountChange={this.onAmountChange}
-                    onBasisChange={this.onBasisChange}
-                />
+                {!showSpreadBarrier &&
+                    <PayoutCard
+                        amount={+trade.amount}
+                        basis={trade.basis}
+                        currency={currency}
+                        id={index}
+                        onAmountChange={this.onAmountChange}
+                        onBasisChange={this.onBasisChange}
+                    />
+                }
                 <ErrorMsg
                     shown={!!trade.proposalError}
                     text={trade.proposalError ? trade.proposalError.message : ''}
