@@ -320,7 +320,7 @@ export default class FullTradeParams extends Component {
                     onCategoryChange={this.onCategoryChange}
                     onTypeChange={this.onTypeChange}
                 />
-                {showDuration &&
+                {showDuration && !showSpreadBarrier &&
                     <DurationCard
                         dateStart={trade.dateStart}
                         duration={+trade.duration}
@@ -366,14 +366,16 @@ export default class FullTradeParams extends Component {
                             spot={trade.proposal && +trade.proposal.spot}
                         />
                 }
-                <PayoutCard
-                    amount={+trade.amount}
-                    basis={trade.basis}
-                    currency={currency}
-                    id={index}
-                    onAmountChange={this.onAmountChange}
-                    onBasisChange={this.onBasisChange}
-                />
+                {!showSpreadBarrier &&
+                    <PayoutCard
+                        amount={+trade.amount}
+                        basis={trade.basis}
+                        currency={currency}
+                        id={index}
+                        onAmountChange={this.onAmountChange}
+                        onBasisChange={this.onBasisChange}
+                    />
+                }
                 <ErrorMsg
                     shown={!!trade.proposalError}
                     text={trade.proposalError ? trade.proposalError.message : ''}

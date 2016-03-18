@@ -45,6 +45,8 @@ export default class DurationCard extends Component {
             onStartDateChange,
         } = this.props;
 
+        const allowStartLater = !!forwardStartingDuration;
+
         const optionsToUse = dateStart && forwardStartingDuration ? forwardStartingDuration.options : options;
         const unitOptions = optionsToUse.map(opt => ({ value: opt.unit, text: durationText(opt.unit) }));
         const currentUnitBlock = optionsToUse.find(opt => opt.unit === durationUnit);
@@ -56,15 +58,17 @@ export default class DurationCard extends Component {
         const errorMsg = (duration > max ? `Maximum is ${max} ` : `Minimum is ${min} `) + durationText(durationUnit);
         return (
             <div>
-                <FormattedMessage id="Start_Later" defaultMessage="Start_Later">
-                    {text =>
-                        <ToggleSwitch
-                            text={text}
-                            checked={!!dateStart}
-                            onClick={::this.startLaterHandler}
-                        />
-                    }
-                </FormattedMessage>
+                {allowStartLater &&
+                    <FormattedMessage id="Start_Later" defaultMessage="Start_Later">
+                        {text =>
+                            <ToggleSwitch
+                                text={text}
+                                checked={!!dateStart}
+                                onClick={::this.startLaterHandler}
+                            />
+                        }
+                    </FormattedMessage>
+                }
                 {!!dateStart &&
                     <ForwardStartingOptions
                         dateStart={dateStart}
