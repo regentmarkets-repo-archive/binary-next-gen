@@ -1,6 +1,7 @@
 import * as types from '../_constants/ActionTypes';
 import * as LiveData from '../_data/LiveData';
 import { updateSoldContract } from './PortfolioActions';
+import { changeActiveTrade } from './WorkspaceActions';
 import { trackEvent } from '../_utils/Analytics';
 import { numberToSignedString } from '../_utils/StringUtils';
 
@@ -65,13 +66,17 @@ export const createTrade = symbol =>
     (dispatch, getState) => {
         const contractExist = getState().tradingOptions.get(symbol);
         const ticksExist = getState().ticks.get(symbol);
+        const tradesLen = getState().trades.size;
 
         const contractP = !!contractExist ? Promise.resolve() : LiveData.api.getContractsForSymbol(symbol);
         const ticksP = !!ticksExist ? Promise.resolve() : LiveData.api.subscribeToTick(symbol);
 
         Promise.all([contractP, ticksP])
             .then(
-                () => dispatch({ type: types.CREATE_TRADE, symbol })
+                () => {
+                    dispatch({ type: types.CREATE_TRADE, symbol });
+                    dispatch(changeActiveTrade(tradesLen));
+                }
             );
     };
 

@@ -17,12 +17,11 @@ export default class TradesTabs extends Component {
     render() {
         const { actions, activeTradeIndex, contracts, trades, ticksForAllSymbols, currency } = this.props;
         const activeTrade = trades[activeTradeIndex];
-
         return (
             <div className="trades-tabs">
                 <TabList
                     activeIndex={activeTradeIndex}
-                    onChange={index => () => actions.changeActiveTrade(index)}
+                    onChange={index => actions.changeActiveTrade(index)}
                 >
                     {trades.map((trade, index) =>
                         <Tab

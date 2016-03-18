@@ -28,6 +28,10 @@ export default class TabList extends Component {
         };
     }
 
+    componentWillReceiveProps(nextProps) {
+        this.setState({ activeIndex: nextProps.activeIndex });
+    }
+
     tabSelected(index) {
         const { onChange } = this.props;
         onChange(index);
