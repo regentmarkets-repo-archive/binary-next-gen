@@ -15,11 +15,13 @@ export default class M extends Component {
 		const { m = '', values } = this.props;
 
 		return (
-			<FormattedMessage
-				id={m}
-				defaultMessage={m}
-				values={values}
-			/>
+			<span {...this.props}>
+				<FormattedMessage
+					id={m}
+					defaultMessage={m}
+					values={values}
+				/>
+			</span>
 		);
 	}
 }

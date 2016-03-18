@@ -3,8 +3,7 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 import { BinaryChart } from 'binary-charts';
 import PurchaseFailed from '../_common/PurchaseFailed';
 import Modal from '../containers/Modal';
-import BuyButton from '../tick-trade/BuyButton';
-import { askPriceFromProposal } from '../_utils/TradeUtils';
+
 import FullTradeParams from './FullTradeParams';
 import BoughtContractCard from './BoughtContractCard';
 
@@ -30,7 +29,7 @@ export default class FullTradeCard extends Component {
     };
 
     render() {
-        const { actions, index, trade, currency, ticks } = this.props;
+        const { actions, index, trade, ticks } = this.props;
         const selectedSymbol = trade.symbol;
 
         const mostRecentContractBought = trade.mostRecentContractBought;
@@ -59,12 +58,6 @@ export default class FullTradeCard extends Component {
                                 {...this.props}
                                 disabled={disabled}
                                 contract={disabled ? mockedContract : contract}
-                            />
-                            <BuyButton
-                                askPrice={askPriceFromProposal(trade.proposal)}
-                                currency={currency}
-                                disabled={disabled}
-                                onClick={() => actions.purchaseByTradeId(index)}
                             />
                         </div>
                 }

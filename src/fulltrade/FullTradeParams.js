@@ -5,7 +5,10 @@ import { isIntraday, isDurationLessThan2Mins, getLastTick } from '../_utils/Trad
 import BarrierCard from '../barrier-picker/BarrierCard';
 import DigitBarrierCard from '../barrier-picker/DigitBarrierCard';
 import DurationCard from '../duration-picker/DurationCard';
+import StakeCard from '../payout-picker/StakeCard';
 import PayoutCard from '../payout-picker/PayoutCard';
+import BuyButton from '../tick-trade/BuyButton';
+import { askPriceFromProposal } from '../_utils/TradeUtils';
 import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
 import { isDurationWithinRange } from '../_utils/DurationUtils';
 import TradeTypePicker from './TradeTypePicker';
@@ -323,6 +326,8 @@ export default class FullTradeParams extends Component {
             !isBelow2Min &&
             !trade.dateStart;
 
+        const payout = trade.proposal && trade.proposal.payout;
+
         const showDuration = !!contractForType;
         const showDigitBarrier = selectedCategory === 'digits';
         const showSpreadBarrier = selectedCategory === 'spreads';
@@ -370,29 +375,38 @@ export default class FullTradeParams extends Component {
                     />
                 }
                 {showBarrier &&
-                        <BarrierCard
-                            barrier={trade.barrier}
-                            barrier2={trade.barrier2}
-                            barrierInfo={barriers}
-                            barrierType="relative"
-                            isIntraDay={isIntraDay}
-                            pipSize={pipSize}
-                            onBarrier1Change={this.onBarrier1Change}
-                            onBarrier2Change={this.onBarrier2Change}
-                            onBarrierTypeChange={this.onBarrierTypeChange}
-                            spot={trade.proposal && +trade.proposal.spot}
-                        />
-                }
-                {!showSpreadBarrier &&
-                    <PayoutCard
-                        amount={+trade.amount}
-                        basis={trade.basis}
-                        currency={currency}
-                        id={index}
-                        onAmountChange={this.onAmountChange}
-                        onBasisChange={this.onBasisChange}
+                    <BarrierCard
+                        barrier={trade.barrier}
+                        barrier2={trade.barrier2}
+                        barrierInfo={barriers}
+                        barrierType="relative"
+                        isIntraDay={isIntraDay}
+                        pipSize={pipSize}
+                        onBarrier1Change={this.onBarrier1Change}
+                        onBarrier2Change={this.onBarrier2Change}
+                        onBarrierTypeChange={this.onBarrierTypeChange}
+                        spot={trade.proposal && +trade.proposal.spot}
                     />
                 }
+                <div className="payout-full">
+                    {!showSpreadBarrier &&
+                        <StakeCard
+                            amount={+trade.amount}
+                            basis={trade.basis}
+                            currency={currency}
+                            id={index}
+                            onAmountChange={this.onAmountChange}
+                            onBasisChange={this.onBasisChange}
+                        />
+                    }
+                    {payout && <PayoutCard stake={+trade.amount} payout={payout} />}
+                    <BuyButton
+                        askPrice={askPriceFromProposal(trade.proposal)}
+                        currency={currency}
+                        disabled={disabled}
+                        onClick={() => actions.purchaseByTradeId(index)}
+                    />
+                </div>
                 <ErrorMsg
                     shown={!!trade.proposalError}
                     text={trade.proposalError ? trade.proposalError.message : ''}
