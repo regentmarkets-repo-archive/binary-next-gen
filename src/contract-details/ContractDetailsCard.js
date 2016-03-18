@@ -49,15 +49,6 @@ export default class ContractDetailsCard extends Component {
 						</tr>
 					</tbody>
 				</table>
-				{/* {!expired &&
-					<div>
-						<M m="Market Price:" />
-						<NumberColored
-							value={contract.bid_price}
-							currency={contract.currency}
-							isProfit={v => v - contract.buy_price}
-						/>
-					</div>
 				{validToSell ?
 					<button
 						className="sell-at-market-btn"

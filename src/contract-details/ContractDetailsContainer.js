@@ -35,7 +35,7 @@ export default class ContractDetailsContainer extends Component {
 		// const soldResultShown = portfolio.get('soldResultShown');
 		// const now = portfolio.get('now');
 		if (!contract) return null;
-
+		// console.log(JSON.stringify(contract));
 		return (
 			<div className="contract-details">
 				<h6>
