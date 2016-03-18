@@ -2,6 +2,7 @@ import { store } from '../_store/persistentStore';
 import * as LiveData from './LiveData';
 import { signinFieldUpdate, updateAppState, removePersonalData } from '../_actions';
 import { trackUserId } from '../_utils/Analytics';
+import { showError } from '../_utils/MessagingUtils';
 
 export const tryAuth = async (actions, token) => {
     if (!token) {
@@ -23,6 +24,13 @@ export const tryAuth = async (actions, token) => {
     }
 };
 
+export const signout = (nextState, replace) => {
+    store.dispatch(removePersonalData());
+    store.dispatch(signinFieldUpdate('validatedOnce', false));
+    store.dispatch(updateAppState('authorized', false));
+    replace({ pathname: '/signin', state: nextState });
+};
+
 export const requireAuthOnEnter = (nextState, replace, callback) => {
     const authorized = store.getState().appState.get('authorized');
     const isVirtual = store.getState().account.get('is_virtual') === 1;
@@ -30,7 +38,8 @@ export const requireAuthOnEnter = (nextState, replace, callback) => {
         if (isVirtual) {
             callback();
         } else {
-            replace({ pathname: '/only_virtual', state: nextState });
+            showError('This site currently in Beta version, only Virtual Accounts are allowed.');
+            signout(nextState, replace);
             callback();
         }
         return;
@@ -38,11 +47,4 @@ export const requireAuthOnEnter = (nextState, replace, callback) => {
 
     replace({ pathname: '/signin', state: nextState });
     callback();
-};
-
-export const signout = (nextState, replace) => {
-    store.dispatch(removePersonalData());
-    store.dispatch(signinFieldUpdate('validatedOnce', false));
-    store.dispatch(updateAppState('authorized', false));
-    replace({ pathname: '/signin', state: nextState });
 };
