@@ -2,6 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { BinaryChart } from 'binary-charts';
+import M from '../_common/M';
 import { immutableChildrenToJS } from '../_utils/ObjectUtils';
 import portfolioSelectors from '../portfolio/PortfolioSelectors';
 import ContractDetailsCard from './ContractDetailsCard';
@@ -36,7 +37,12 @@ export default class ContractDetailsContainer extends Component {
 		if (!contract) return null;
 
 		return (
-			<div>
+			<div className="contract-details">
+				<h6>
+					{contract.longcode}
+					<M m="Trasaction Reference" />: {contract.transaction_id}
+				</h6>
+				<p></p>
 				<BinaryChart
                     className="trade-chart"
                     ticks={history}
