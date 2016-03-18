@@ -657,7 +657,9 @@ tr[tabindex] {
 }
 
 .trades-tabs div[role=tablist] {
+    min-height: 1.6rem;
     width: 100%;
+    margin-bottom: .5rem;
 }
 
 .asset-picker-item:hover .asset-picker-trade-btn {

@@ -4,11 +4,10 @@ export default class NewTradeButton extends Component {
     static propTypes = {
         actions: PropTypes.object.isRequired,
         symbol: PropTypes.string.isRequired,
-        noOfTrades: PropTypes.number.isRequired,
     };
 
     render() {
-        const { actions, symbol, noOfTrades } = this.props;
+        const { actions, symbol } = this.props;
 
         return (
             <button
@@ -16,7 +15,6 @@ export default class NewTradeButton extends Component {
                 className="btn-secondary"
                 onClick={() => {
                     actions.createTrade(symbol);
-                    actions.changeActiveTrade(noOfTrades);
                 }}
             >
                 New Trade
