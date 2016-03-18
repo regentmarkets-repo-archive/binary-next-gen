@@ -20,11 +20,6 @@ export default class ContractDetailsCard extends Component {
 
 		return (
 			<div>
-				<h6>
-					<M m="Trasaction Reference" />
-					:
-					{contract.transaction_id}
-				</h6>
 				<table>
 					<thead>
 						<tr>
@@ -54,19 +49,16 @@ export default class ContractDetailsCard extends Component {
 						</tr>
 					</tbody>
 				</table>
-				{!expired &&
-					<div>
-						<M m="Market Price:" />
-						<NumberColored
+				{validToSell ?
+					<button
+						className="sell-at-market-btn"
+						onClick={() => actions.sellContract(contract.contract_id, 0)}
+					>
+						Sell at Market (<NumberPlain
 							value={contract.bid_price}
 							currency={contract.currency}
 							isProfit={v => v - contract.buy_price}
-						/>
-					</div>
-				}
-				{validToSell ?
-					<button onClick={() => actions.sellContract(contract.contract_id, 0)}>
-						Sell at market
+						/>)
 					</button> :
 					<div>{contract.validation_error}</div>
 				}

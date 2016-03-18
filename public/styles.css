@@ -842,6 +842,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 #type-picker img {
     height: 1.5rem;
+    margin: .5rem;
     background: white;
     box-shadow: 0 0 0 1px white;
 }
@@ -923,6 +924,20 @@ input[type=number]::-webkit-outer-spin-button {
 #duration-fields input, #duration-fields select, .payout-picker input, .payout-picker fieldset {
     width: 100%;
 }
+
 .payout-picker {
     margin-top: 1rem;
+}
+
+.sell-at-market-btn {
+    height: 2.5rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.modal {
+    min-width: 320px;
+}
+.contract-details h6 {
+    text-align: center;
 }
