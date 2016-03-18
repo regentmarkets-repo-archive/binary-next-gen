@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import InputGroup from '../_common/InputGroup';
+import M from '../_common/M';
 import NumberPlain from '../_common/NumberPlain';
 
 export default class BarrierInput extends Component {
@@ -32,7 +33,10 @@ export default class BarrierInput extends Component {
                     defaultValue={barrierType === 'relative' ? relativeValue : absoluteValue}
                 />
                 {(barrierType === 'relative' && absoluteValue) &&
-                    <p>Target spot: <NumberPlain value={absoluteValue} digits={pipSize} /></p>}
+                    <p>
+                        <M m="Estimated target spot: " />
+                        <NumberPlain value={absoluteValue} digits={pipSize} />
+                    </p>}
             </div>
         );
     }

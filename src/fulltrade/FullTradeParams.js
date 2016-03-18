@@ -349,7 +349,7 @@ export default class FullTradeParams extends Component {
                             barrier={trade.barrier}
                             barrier2={trade.barrier2}
                             barrierInfo={barriers}
-                            barrierType={trade.barrierType}
+                            barrierType="relative"
                             isIntraDay={isIntraDay}
                             pipSize={pipSize}
                             onBarrier1Change={this.onBarrier1Change}
