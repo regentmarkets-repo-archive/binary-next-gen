@@ -257,11 +257,13 @@ export default class FullTradeParams extends Component {
     }
 
     onAmountChange(e) {
-        this.updateHelper('amount', +e.target.value);
+        const properAmount = (+e.target.value).toFixed(2);          // avoid js floating point error
+        this.updateHelper('amount', properAmount);
     }
 
     onAmountPerPointChange(e) {
-        this.updateHelper('amountPerPoint', +e.target.value);
+        const properAmountPerPoint = (+e.target.value).toFixed(2);
+        this.updateHelper('amountPerPoint', properAmountPerPoint);
     }
 
     onStopTypeChange(e) {
