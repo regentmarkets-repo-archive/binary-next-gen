@@ -45,7 +45,7 @@ export default class TradeTypePicker extends Component {
                     onChange={idx => onTypeChange(types[idx].value)}
                 >
                     {types.map((x, idx) =>
-                        <Tab key={idx} text={x.text} imgSrc={`img/trade-${x.value}.svg`} />
+                        <Tab key={idx} text={x.text} imgSrc={`img/trade-${x.value.toLowerCase()}.svg`} />
                     )}
                 </TabList>
             </div>

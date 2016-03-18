@@ -45,7 +45,7 @@ export default class AssetPickerItem extends Component {
 					<OpenCloseNotice isOpen={isOpen} />
 				</td>
 				{!compact && <td onClick={() => onCreateTrade(symbol)}>
-					<button className="asset-picker-trade-btn">
+					<button className="asset-picker-trade-btn btn-secondary">
 						Trade
 					</button>
 				</td>}

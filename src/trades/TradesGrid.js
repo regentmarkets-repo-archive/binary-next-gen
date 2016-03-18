@@ -15,8 +15,8 @@ export default class TradesGrid extends Component {
     };
 
     componentDidUpdate() {
-        const node = ReactDOM.findDOMNode(this);
-        node.parentNode.scrollLeft = node.scrollWidth;
+        // const node = ReactDOM.findDOMNode(this);
+        // node.parentNode.scrollLeft = node.scrollWidth;
     }
 
     render() {
