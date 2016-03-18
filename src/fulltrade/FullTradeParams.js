@@ -116,8 +116,28 @@ export default class FullTradeParams extends Component {
     // scary but necessary as all fields have dependency on category
     onCategoryChange(newCategory) {
         const { actions, contract, index, ticks } = this.props;
-
         const defaultType = createDefaultType(contract, newCategory);
+
+        // spreads is special case
+        if (newCategory === 'spreads') {
+            const spread = contract[newCategory][defaultType].spread;
+
+            this.updateTradeParams({
+                tradeCategory: newCategory,
+                type: defaultType,
+                duration: undefined,
+                durationUnit: undefined,
+                dateStart: undefined,
+                barrier: undefined,
+                barrier2: undefined,
+                amountPerPoint: spread.amountPerPoint,
+                stopType: spread.stopType,
+                stopLoss: 30,                               // hardcode default as backend return wrong info
+                stopProfit: spread.stopProfit,
+            });
+            return;
+        }
+
         const lastSpot = getLastTick(ticks);
 
         const newDuration = createDefaultDuration(contract, newCategory, defaultType);
@@ -143,18 +163,6 @@ export default class FullTradeParams extends Component {
             stopLoss: undefined,
             stopProfit: undefined,
         });
-
-        // spread is different from all other type
-        // TODO: fix next
-        // if (newCategory === 'spreads') {
-        //     const spread = contract[newCategory][defaultType].spread;
-        //     this.updateHelper('amountPerPoint', spread.amountPerPoint, false);
-        //     this.updateHelper('stopType', spread.stopType, false);
-        //     this.updateHelper('stopLoss', spread.stopLoss, false);
-        //     this.updateHelper('stopProfit', spread.stopProfit, false);
-        // }
-
-        actions.updatePriceProposalSubscription(index);
     }
 
     onTypeChange(newType) {
