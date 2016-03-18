@@ -26,6 +26,11 @@ import { createDefaultType, createDefaultDuration, createDefaultBarriers } from 
  * 4. digit trade is always ticks only
  * 5. barriers are non available for contract below 2 minutes
  * 6. forward starting does not have barriers
+ *
+ *
+ * TODO: reform the whole dependency mess,
+ * possibly a better approach would be notify user for wrong info instead of change to correct value automatically,
+ * default may not be a good idea at all as client might always want to input value
  */
 
 export default class FullTradeParams extends Component {
@@ -185,15 +190,28 @@ export default class FullTradeParams extends Component {
     }
 
     onStartDateChange(epoch) {
-        const { actions, contract, index, trade } = this.props;
+        const { contract, trade, ticks } = this.props;
+        const lastSpot = getLastTick(ticks);
         const { duration, durationUnit, tradeCategory, type } = trade;
         const newDurations = contract[tradeCategory][type].forwardStartingDuration.options;
 
         // do not reset duration unless the old one is not valid
-        if (!epoch || isDurationWithinRange(duration, durationUnit, newDurations)) {
-            actions.updateMultipleTradeParams(index, { dateStart: epoch });
+        if (!epoch) {
+            const newDuration = createDefaultDuration(contract, tradeCategory, type);
+            const newBarrier =
+                createDefaultBarriers(contract, tradeCategory, type, newDuration[0], newDuration[1], lastSpot);
+
+            this.updateTradeParams({
+                dateStart: epoch,
+                duration: newDuration[0],
+                durationUnit: newDuration[1],
+                barrier: newBarrier[0],
+                barrier2: newBarrier[1],
+            });
+        } else if (isDurationWithinRange(duration, durationUnit, newDurations)) {
+            this.updateTradeParams({ dateStart: epoch });
         } else {
-            actions.updateMultipleTradeParams(index, {
+            this.updateTradeParams({
                 dateStart: epoch,
                 duration: newDurations[0].min,
                 durationUnit: newDurations[0].unit,
@@ -201,7 +219,6 @@ export default class FullTradeParams extends Component {
                 barrier2: undefined,
             });
         }
-        actions.updatePriceProposalSubscription(index);
     }
 
     onDurationChange(e) {
