@@ -89,11 +89,16 @@ export default class FullTradeParams extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        const proposal = nextProps.trade.proposal;
+        const { proposal, symbol } = nextProps.trade;
 
         if (proposal && proposal === this.props.trade.proposal) {
             return;
         }
+
+        if (symbol !== this.props.trade.symbol) {
+            this.onAssetChange({ target: { value: symbol } });
+        }
+
         // if no realtime feed, dont provide options to change between relative and absolute
         if (!proposal || !proposal.spot) {
             const isIntraDay = isIntraday(nextProps.trade.duration, nextProps.trade.durationUnit);
