@@ -326,7 +326,7 @@ export default class FullTradeParams extends Component {
         const showSpreadBarrier = selectedCategory === 'spreads';
 
         return (
-            <div disabled={disabled}>
+            <div className="full-trade-params" disabled={disabled}>
                 <TradeTypePicker
                     actions={actions}
                     contract={contract}

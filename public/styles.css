@@ -288,9 +288,8 @@ nav.sidebar {
 }
 
 .buy-btn {
-    padding: 1rem;
-    margin-top: 1.5rem;
     font-size: 1.25rem;
+    padding: 1rem;
 }
 
 fieldset {
@@ -820,6 +819,9 @@ input[type=number]::-webkit-outer-spin-button {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
+    background: rgba(0, 0, 0, .05);
+    margin-top: 1rem;
+    padding: .5rem;
 }
 
 .open-notice, .closed-notice {
@@ -954,4 +956,19 @@ input[type=number]::-webkit-outer-spin-button {
 
 #earning-percentage {
     margin-left: 0.5rem;
+}
+
+.trades-tabs .trade-panel {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.trades-tabs .trade-chart {
+    flex: 2;
+    margin-left: 1rem;
+    height: 100%;
+}
+
+.trades-tabs .full-trade-params {
+    flex: 1;
 }
