@@ -1,6 +1,5 @@
 import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
-import NumberPlain from '../_common/NumberPlain';
 
 export default class BuyButton extends Component {
 
@@ -14,7 +13,7 @@ export default class BuyButton extends Component {
     };
 
     render() {
-        const { id, currency, askPrice, disabled, payout, onClick } = this.props;
+        const { id, askPrice, disabled, onClick } = this.props;
 
         return (
             <button
@@ -23,20 +22,7 @@ export default class BuyButton extends Component {
                 onClick={onClick}
                 disabled={disabled || !askPrice}
             >
-                <M m="Purchase for " />
-                {askPrice &&
-                    <NumberPlain
-                        currency={currency}
-                        value={askPrice}
-                    />
-                }
-                &nbsp;
-                {payout && (
-                    <NumberPlain
-                        currency={currency}
-                        value={payout}
-                    />
-                )}
+                <M m="Purchase" />
             </button>
         );
     }

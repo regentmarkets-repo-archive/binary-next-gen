@@ -1,66 +1,26 @@
 import React, { PropTypes, Component } from 'react';
-import InputGroup from '../_common/InputGroup';
+import M from '../_common/M';
+import NumberColored from '../_common/NumberColored';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 
-const basises = ['payout', 'stake'];
-const payouts = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000];
-const step = 10;
-
 export default class PayoutCard extends Component {
-
+    shouldComponentUpdate = shouldPureComponentUpdate;
     static propTypes = {
-        amount: PropTypes.number.isRequired,
-        basis: PropTypes.oneOf(basises).isRequired,
-        // currency: PropTypes.string.isRequired,
-        // id: PropTypes.number,
-        onAmountChange: PropTypes.func.isRequired,     // both functions take the updated value instead of event object
-        onBasisChange: PropTypes.func.isRequired,
+        stake: PropTypes.number.isRequired,
+        payout: PropTypes.number.isRequired,
     };
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
-    stepUp() {
-        const { amount, onAmountChange } = this.props;
-        onAmountChange({ target: { value: amount + step } });
-    }
-
-    stepDown() {
-        const { amount, onAmountChange } = this.props;
-        onAmountChange({ target: { value: amount - step } });
-    }
-
     render() {
-        const { amount, onAmountChange } = this.props;
-        // const basisOptions = basises.map(i => ({ text: i, value: i }));
-        // const payoutOptions = payouts.map(i => ({ text: i, value: i }));
+        const { stake, payout } = this.props;
+        const potentialProfitPercentage = ((payout - stake) * 100 / stake).toFixed(2);
+
         return (
-            <div className="payout-picker">
-                {/* <RadioGroup
-                    className="radio-selector"
-                    name={'basis' + id}
-                    options={basisOptions}
-                    onChange={onBasisChange}
-                    value={basis}
-                /> */}
-                <button className="btn-secondary" onClick={::this.stepDown}>&ndash;</button>
-                <InputGroup
-                    type="number"
-                    value={amount}
-                    min={0.35}
-                    max={100000}
-                    step={1}
-                    list="amounts"
-                    onChange={onAmountChange}
-                />
-                <button className="btn-secondary" onClick={::this.stepUp}>+</button>
-                <datalist id="amounts">
-                    {payouts.map(x =>
-                        <option
-                            key={'stake' + x}
-                            value={x}
-                        />
-                    )}
-                </datalist>
+            <div>
+                <div>
+                    <M m="Earning (%)" className="label" />
+                </div>
+                <NumberColored value={payout} isProfit={v => v - stake} />
+                <M id="earning-percentage" m="({profit} %)" values={ { profit: potentialProfitPercentage } } />
             </div>
         );
     }
