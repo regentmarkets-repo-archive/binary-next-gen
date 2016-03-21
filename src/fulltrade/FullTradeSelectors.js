@@ -16,7 +16,7 @@ import { normalizedContractFor } from '../_utils/ContractUtils';
 */
 const aggregateContracts = (contracts, type) => ({
     barriers: extractBarrier(contracts, type),
-    durations: extractDuration(contracts, type),
+    durations: extractDuration(contracts, type) || extractForwardStartingDuration(contracts, type).options,
     forwardStartingDuration: extractForwardStartingDuration(contracts, type),
     spread: (type.indexOf('SPREAD') > -1) ? extractSpreadInfo(contracts) : null,
 });

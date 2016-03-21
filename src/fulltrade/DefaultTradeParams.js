@@ -1,4 +1,5 @@
 import { durationToSecs, isIntraday } from '../_utils/TradeUtils';
+import { dateToEpoch } from '../_utils/DateUtils';
 
 export const createDefaultType = (contracts, category) =>
     Object.keys(contracts[category])[0];
@@ -8,7 +9,17 @@ export const createDefaultDuration = (contracts, category, type) => {
         return [undefined, undefined];
     }
     const d = contracts[category][type].durations[0];
-    return [d.min, d.unit];
+
+    if (!!d) {
+        return { duration: d.min, durationUnit: d.unit };
+    }
+
+    const forwardD = contracts[category][type].forwardStartingDuration;
+    return {
+        dateStart: dateToEpoch(forwardD.range[0].open[0]),
+        duration: forwardD.options[0].min,
+        durationUnit: forwardD.options[0].unit,
+    };
 };
 
 export const createDefaultBarriers = (contracts, category, type, duration, durationUnit) => {
@@ -68,4 +79,17 @@ export const createDefaultBarriers = (contracts, category, type, duration, durat
     }
 
     throw new Error('default barrier creation failed');
+};
+
+export const createDefaultBarrierType = (duration, durationUnit) => {
+    let barrierType;
+    if (durationUnit === 't') {
+        return undefined;
+    } else if (isIntraday(duration, durationUnit)) {
+        barrierType = 'relative';
+    } else {
+        barrierType = 'absolute';
+    }
+
+    return barrierType;         // did not use return directly as ESLint complain about it
 };
