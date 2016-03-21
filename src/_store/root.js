@@ -47,15 +47,15 @@ export default class Root extends Component {
     render() {
         return (
             <Provider store={store}>
-                <AppStateProvider>
-                    <AppConfigProvider>
+                <AppConfigProvider>
+                    <AppStateProvider>
                         <Router
                             history={history}
                             children={routes}
                             createElement={::this.createElementWithActions}
                         />
-                    </AppConfigProvider>
-                </AppStateProvider>
+                    </AppStateProvider>
+                </AppConfigProvider>
             </Provider>
         );
     }
