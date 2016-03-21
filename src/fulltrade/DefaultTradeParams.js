@@ -8,15 +8,15 @@ export const createDefaultDuration = (contracts, category, type) => {
     if (category === 'spreads') {
         return [undefined, undefined];
     }
-    const d = contracts[category][type].durations[0];
+    const d = contracts[category][type].durations;
 
     if (!!d) {
-        return { duration: d.min, durationUnit: d.unit };
+        return { duration: d[0].min, durationUnit: d[0].unit };
     }
 
     const forwardD = contracts[category][type].forwardStartingDuration;
     return {
-        dateStart: dateToEpoch(forwardD.range[0].open[0]),
+        dateStart: dateToEpoch(forwardD.range[1].open[0]),
         duration: forwardD.options[0].min,
         durationUnit: forwardD.options[0].unit,
     };

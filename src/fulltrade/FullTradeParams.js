@@ -199,14 +199,15 @@ export default class FullTradeParams extends Component {
         const category = trade.tradeCategory;
         const lastSpot = getLastTick(ticks);
         const newDuration = createDefaultDuration(contract, category, newType);
-        const newBarrier = createDefaultBarriers(contract, category, newType, newDuration[0], newDuration[1], lastSpot);
-        const newBarrierType = createDefaultBarrierType(newDuration[0], newDuration[1]);
+        const { dateStart, duration, durationUnit } = newDuration;
+        const newBarrier = createDefaultBarriers(contract, category, newType, duration, durationUnit, lastSpot);
+        const newBarrierType = createDefaultBarrierType(duration, durationUnit);
 
         this.updateTradeParams({
             type: newType,
-            duration: newDuration.duration,
-            durationUnit: newDuration.durationUnit,
-            dateStart: newDuration.dateStart,
+            duration,
+            durationUnit,
+            dateStart,
             barrier: newBarrier[0],
             barrier2: newBarrier[1],
             barrierType: newBarrierType,
@@ -353,7 +354,7 @@ export default class FullTradeParams extends Component {
                         duration={+trade.duration}
                         durationUnit={trade.durationUnit}
                         forwardStartingDuration={contractForType.forwardStartingDuration}
-                        options={contractForType.durations}
+                        options={contractForType.durations || contractForType.forwardStartingDuration.options}
                         onDurationChange={this.onDurationChange}
                         onUnitChange={this.onDurationUnitChange}
                         onStartDateChange={this.onStartDateChange}
