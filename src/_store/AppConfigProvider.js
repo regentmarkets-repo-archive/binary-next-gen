@@ -1,9 +1,10 @@
 import React, { Children, Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import { IntlProvider } from 'react-intl';
+import { IntlProvider, addLocaleData } from 'react-intl';
 import allTexts from '../_constants/texts';
 import locale from '../_constants/languageLocaleMap';
 import { appConfigSelector } from '../_selectors/AppConfigSelectors';
+import localeData from './localeData';
 
 const timeFormats = {
     full: {
@@ -23,9 +24,11 @@ export default class AppConfigProvider extends Component {
         language: PropTypes.string.isRequired,
         theme: PropTypes.string.isRequired,
     };
-
+    
     render() {
         const { children, language, theme } = this.props;
+        addLocaleData(localeData(locale(language)));
+        
         return (
             <IntlProvider locale={locale(language)} messages={allTexts(language)} formats={{ time: timeFormats }}>
                 <div id="theme-wrapper" className={(theme === 'dark') ? 'inverse' : ''}>
