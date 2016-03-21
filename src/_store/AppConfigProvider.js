@@ -24,9 +24,12 @@ export default class AppConfigProvider extends Component {
         language: PropTypes.string.isRequired,
         theme: PropTypes.string.isRequired,
     };
+    componentWillReceiveProps(nextProps) {
+        const { language } = nextProps;
+        addLocaleData(localeData(locale(language)));
+    }
     render() {
         const { children, language, theme } = this.props;
-        addLocaleData(localeData(locale(language)));
         return (
             <IntlProvider locale={locale(language)} messages={allTexts(language)} formats={{ time: timeFormats }}>
                 <div id="theme-wrapper" className={(theme === 'dark') ? 'inverse' : ''}>
