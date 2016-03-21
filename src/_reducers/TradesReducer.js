@@ -11,7 +11,7 @@ import {
 
 const defaultTrade = {
     symbol: 'R_100',
-    tradeCategory: 'callput',
+    tradeCategory: 'risefall',
     duration: 5,
     durationUnit: 't',
     basis: 'stake',

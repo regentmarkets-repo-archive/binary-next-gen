@@ -68,7 +68,10 @@ const initUnauthorized = async store => {
     api.events.emit('news', articles);
     const videos = await getVideosFromPlayList();
     api.events.emit('videos', videos);
-    subscribeToSelectedSymbolWhenInit(store);
+
+    // subscribeToSelectedSymbolWhenInit(store);
+    const selectedSymbol = store.getState().workspace.get('selectedAsset');
+    store.dispatch(actions.updateTradeParams(0, 'symbol', selectedSymbol));
 };
 
 const initAuthorized = (authData, store) => {

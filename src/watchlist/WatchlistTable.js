@@ -23,7 +23,6 @@ export default class WatchlistTable extends Component {
 		actions.changeSelectedAsset(newAsset);
 		actions.getTradingOptions(newAsset);
 		actions.updateTradeParams(activeTradeIdx, 'symbol', newAsset);
-		actions.updatePriceProposalSubscription(activeTradeIdx);
 	}
 
 	render() {
