@@ -18,6 +18,7 @@ import {
     createDefaultBarriers,
     createDefaultBarrierType,
 } from './DefaultTradeParams';
+import { mockedContract } from './../_constants/MockContract';
 
 /**
  * This UI is coded with a few assumptions, which should always be true, this comments serves as a future reference
@@ -88,29 +89,11 @@ export default class FullTradeParams extends Component {
         this.onAssetChange({ target: { value: trade.symbol } });
     }
 
-    componentWillReceiveProps(nextProps) {
-        const { proposal } = nextProps.trade;
-
-        if (proposal && proposal === this.props.trade.proposal) {
-            return;
-        }
-
-        // if no realtime feed, dont provide options to change between relative and absolute
-        if (!proposal || !proposal.spot) {
-            const isIntraDay = isIntraday(nextProps.trade.duration, nextProps.trade.durationUnit);
-            const newBarrierType = isIntraDay ? 'relative' : 'absolute';
-            if (nextProps.trade.barrierType !== newBarrierType) {
-                this.updateHelper('barrierType', newBarrierType);
-            }
-        }
-    }
-
     componentDidUpdate(prevProps) {
         const { contract, trade } = this.props;
-        if (
-            prevProps.contract !== contract ||
-            prevProps.trade.symbol !== trade.symbol
-        ) {
+
+        // do not react when mockedContract is passed in
+        if (contract === mockedContract && prevProps.contract !== contract) {
             this.onAssetChange({ target: { value: trade.symbol } });
         }
     }
