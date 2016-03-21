@@ -1,3 +1,5 @@
+import { nextXDay } from '../_utils/DateUtils';
+
 export const mockedContract = {
     asian: {
         ASIANU: {
@@ -62,21 +64,21 @@ export const mockedContract = {
                         ]
                     },
                     {
-                        date: new Date(),
+                        date: nextXDay(1),
                         open: [
-                            new Date()
+                            nextXDay(1)
                         ],
                         close: [
-                            new Date()
+                            nextXDay(1)
                         ]
                     },
                     {
-                        date: new Date(),
+                        date: nextXDay(2),
                         open: [
-                            new Date()
+                            nextXDay(2)
                         ],
                         close: [
-                            new Date()
+                            nextXDay(2)
                         ]
                     }
                 ],
@@ -135,21 +137,21 @@ export const mockedContract = {
                         ]
                     },
                     {
-                        date: new Date(),
+                        date: nextXDay(1),
                         open: [
-                            new Date()
+                            nextXDay(1)
                         ],
                         close: [
-                            new Date()
+                            nextXDay(1)
                         ]
                     },
                     {
-                        date: new Date(),
+                        date: nextXDay(2),
                         open: [
-                            new Date()
+                            nextXDay(2)
                         ],
                         close: [
-                            new Date()
+                            nextXDay(2)
                         ]
                     }
                 ],

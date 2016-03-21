@@ -89,14 +89,10 @@ export default class FullTradeParams extends Component {
     }
 
     componentWillReceiveProps(nextProps) {
-        const { proposal, symbol } = nextProps.trade;
+        const { proposal } = nextProps.trade;
 
         if (proposal && proposal === this.props.trade.proposal) {
             return;
-        }
-
-        if (symbol !== this.props.trade.symbol) {
-            this.onAssetChange({ target: { value: symbol } });
         }
 
         // if no realtime feed, dont provide options to change between relative and absolute
@@ -111,7 +107,10 @@ export default class FullTradeParams extends Component {
 
     componentDidUpdate(prevProps) {
         const { contract, trade } = this.props;
-        if (prevProps.contract !== contract) {
+        if (
+            prevProps.contract !== contract ||
+            prevProps.trade.symbol !== trade.symbol
+        ) {
             this.onAssetChange({ target: { value: trade.symbol } });
         }
     }
@@ -135,7 +134,7 @@ export default class FullTradeParams extends Component {
         const symbol = e.target.value;
         actions.updateTradeParams(index, 'disabled', true);
         actions.getTradingOptions(symbol, () => {
-            this.updateHelper('symbol', symbol);
+            this.updateHelper('symbol', symbol, false);
             this.onCategoryChange('risefall');
             actions.updateTradeParams(index, 'disabled', false);
         });
