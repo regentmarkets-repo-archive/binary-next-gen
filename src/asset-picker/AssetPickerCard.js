@@ -41,6 +41,7 @@ export default class AssetPickerCard extends Component {
 		} else {
 			actions.clearTradeTicks();
 			actions.changeSelectedAsset(newAsset);
+			actions.getTradingOptions(newAsset);
 			actions.updateTradeParams(activeTradeIdx, 'symbol', newAsset);
 			// do not subscribe price proposal and let component handle
 		}

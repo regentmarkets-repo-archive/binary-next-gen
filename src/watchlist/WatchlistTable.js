@@ -21,6 +21,7 @@ export default class WatchlistTable extends Component {
 		const { actions, activeTradeIdx } = this.props;
 
 		actions.changeSelectedAsset(newAsset);
+		actions.getTradingOptions(newAsset);
 		actions.updateTradeParams(activeTradeIdx, 'symbol', newAsset);
 	}
 
