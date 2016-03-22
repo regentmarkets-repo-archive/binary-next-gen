@@ -341,7 +341,7 @@ export default class FullTradeParams extends Component {
                         duration={+trade.duration}
                         durationUnit={trade.durationUnit}
                         forwardStartingDuration={contractForType.forwardStartingDuration}
-                        options={contractForType.durations || contractForType.forwardStartingDuration.options}
+                        options={contractForType.durations}
                         onDurationChange={this.onDurationChange}
                         onUnitChange={this.onDurationUnitChange}
                         onStartDateChange={this.onStartDateChange}
