@@ -33,8 +33,8 @@ const splitRiseFallAndHighLow = options =>
 export default (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_TRADING_OPTIONS: {
-            const enrichedOptions = splitRiseFallAndHighLow(action.options);
-            return state.set(action.symbol, enrichedOptions);
+            const optionsWithRiseFall = splitRiseFallAndHighLow(action.options);
+            return state.set(action.symbol, optionsWithRiseFall);
         }
         default: {
             return state;

@@ -1,6 +1,6 @@
-import { createSelector, createStructuredSelector } from 'reselect';
+import { createSelector } from 'reselect';
 import { nowAsEpoch } from '../_utils/DateUtils';
-import { assetsSelector, currencySelector, ticksSelector, tradingTimesSelector } from '../_store/directSelectors';
+import { assetsSelector, tradingTimesSelector } from '../_store/directSelectors';
 import { marketTreeSelector } from '../_selectors/marketTreeSelector';
 import { extractBarrier } from '../_utils/BarrierUtils';
 import { extractDuration, extractForwardStartingDuration } from '../_utils/DurationUtils';
@@ -49,7 +49,8 @@ export const tradesWithDetailsSelector = createSelector(
         trades.map(t => {
             const symbolDetails = assets.find(a => a.get('symbol') === t.get('symbol'));
             const pipSize = symbolDetails && symbolDetails.get('pip').length - 1;
-            const tradeWithPipSize = t.set('pipSize', pipSize);
+            const symbolName = symbolDetails && symbolDetails.get('display_name');
+            const tradeWithPipSize = t.set('pipSize', pipSize).set('symbolName', symbolName);
             const mostRecentContractId = t.get('mostRecentContractId');
             const mostRecentContractBought = mostRecentContractId && openContracts.get(mostRecentContractId);
             const tradeWithMostRecentTransaction =
@@ -70,11 +71,3 @@ export const availableAssetsSelector = createSelector(
         }, {});
     }
 );
-
-export const fullTradesSelector = createStructuredSelector({
-    contracts: availableContractsSelector,
-    trades: tradesWithDetailsSelector,
-    assets: availableAssetsSelector,
-    ticks: ticksSelector,
-    currency: currencySelector,
-});

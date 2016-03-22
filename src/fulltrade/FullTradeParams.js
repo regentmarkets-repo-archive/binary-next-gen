@@ -120,8 +120,8 @@ export default class FullTradeParams extends Component {
             this.updateHelper('symbol', symbol, false);
             this.onCategoryChange('risefall');
             actions.updateTradeParams(index, 'disabled', false);
+            actions.getTicksBySymbol(symbol);
         });
-        actions.getTicksBySymbol(symbol);
     }
 
     // scary but necessary as all fields have dependency on category
