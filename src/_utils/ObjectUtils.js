@@ -7,8 +7,14 @@ export const immutableChildrenToJS = obj =>
         return acc;
     }, {});
 
+/**
+ * Find if certain value is true in the object 
+ * @param obj
+ * @param predicate     (object, index) => true|false
+ * @returns {boolean}
+ */
 export const findIfExist = (obj, predicate) => {
-    if (typeof obj !== 'object') {
+    if (typeof obj !== 'object' || obj === null || obj === undefined) {
         return false;
     }
 

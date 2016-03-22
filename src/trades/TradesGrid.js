@@ -7,6 +7,7 @@ export default class TradesGrid extends Component {
     static propTypes = {
         actions: PropTypes.object.isRequired,
         activeTradeIndex: PropTypes.number.isRequired,
+        assetsIsOpen: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
         ticksForAllSymbols: PropTypes.object.isRequired,
         trades: PropTypes.array.isRequired,
@@ -19,7 +20,7 @@ export default class TradesGrid extends Component {
     }
 
     render() {
-        const { actions, activeTradeIndex, currency, trades, ticksForAllSymbols, contracts } = this.props;
+        const { actions, activeTradeIndex, assetsIsOpen, currency, trades, ticksForAllSymbols, contracts } = this.props;
 
         return (
             <div className="trades-grid">
@@ -40,6 +41,7 @@ export default class TradesGrid extends Component {
                             index={index}
                             currency={currency}
                             actions={actions}
+                            marketIsOpen={assetsIsOpen[trade.symbol][0].isOpen}
                             trade={trade}
                             ticks={ticksForAllSymbols[trade.symbol]}
                             contract={contracts[trade.symbol]}
