@@ -11,6 +11,7 @@ import it from 'react-intl/locale-data/it';
 import zh from 'react-intl/locale-data/zh';
 import id from 'react-intl/locale-data/id';
 import de from 'react-intl/locale-data/de';
+import ja from 'react-intl/locale-data/ja';
 
 const data = {
 	en, fr,
@@ -19,7 +20,7 @@ const data = {
 	ru, pl,
 	vi, it,
 	zh, id,
-    de,
+    de, ja,
 };
 
 export default ln => data[ln];
