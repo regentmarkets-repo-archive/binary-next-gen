@@ -1,6 +1,6 @@
-import { createSelector, createStructuredSelector } from 'reselect';
+import { createSelector } from 'reselect';
 import { nowAsEpoch } from '../_utils/DateUtils';
-import { assetsSelector, currencySelector, ticksSelector, tradingTimesSelector } from '../_store/directSelectors';
+import { assetsSelector, tradingTimesSelector } from '../_store/directSelectors';
 import { marketTreeSelector } from '../_selectors/marketTreeSelector';
 import { extractBarrier } from '../_utils/BarrierUtils';
 import { extractDuration, extractForwardStartingDuration } from '../_utils/DurationUtils';
@@ -70,11 +70,3 @@ export const availableAssetsSelector = createSelector(
         }, {});
     }
 );
-
-export const fullTradesSelector = createStructuredSelector({
-    contracts: availableContractsSelector,
-    trades: tradesWithDetailsSelector,
-    assets: availableAssetsSelector,
-    ticks: ticksSelector,
-    currency: currencySelector,
-});
