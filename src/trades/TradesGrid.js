@@ -30,7 +30,7 @@ export default class TradesGrid extends Component {
                         onClick={() => actions.changeActiveTrade(index)}
                     >
                         <TradeHeader
-                            assetName={trade.symbol}
+                            assetName={trade.symbolName}
                             onClosePanel={ev => {
                                 actions.removeTrade(index);
                                 ev.stopPropagation();

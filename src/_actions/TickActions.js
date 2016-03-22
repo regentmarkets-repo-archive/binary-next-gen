@@ -18,9 +18,20 @@ export const serverDataCandles = serverResponse => ({
 
 export const getTicksBySymbol = symbol =>
     (dispatch, getState) => {
-        const { ticks } = getState();
+        const { feedLicenses, ticks } = getState();
+        const license = feedLicenses.get(symbol);
         if (!ticks.get(symbol)) {
-            LiveData.api.getTickHistory(symbol, { end: 'latest', count: 60 });
-            LiveData.api.subscribeToTick(symbol);
+            if (!license) {
+                LiveData.api.getTickHistory(symbol, { end: 'latest', count: 60 });
+                LiveData.api.subscribeToTick(symbol);
+            }
+
+            if (license !== 'chartonly') {
+                LiveData.api.getTickHistory(symbol, { end: 'latest', count: 60 });
+            }
+
+            if (license === 'realtime') {
+                LiveData.api.subscribeToTick(symbol);
+            }
         }
     };
