@@ -26,7 +26,7 @@ export default class TradesTabs extends Component {
                     {trades.map((trade, index) =>
                         <Tab
                             key={index}
-                            text={trade.symbol}
+                            text={trade.symbolName}
                         />
                     )}
                 </TabList>

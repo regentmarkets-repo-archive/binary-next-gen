@@ -49,7 +49,8 @@ export const tradesWithDetailsSelector = createSelector(
         trades.map(t => {
             const symbolDetails = assets.find(a => a.get('symbol') === t.get('symbol'));
             const pipSize = symbolDetails && symbolDetails.get('pip').length - 1;
-            const tradeWithPipSize = t.set('pipSize', pipSize);
+            const symbolName = symbolDetails && symbolDetails.get('display_name');
+            const tradeWithPipSize = t.set('pipSize', pipSize).set('symbolName', symbolName);
             const mostRecentContractId = t.get('mostRecentContractId');
             const mostRecentContractBought = mostRecentContractId && openContracts.get(mostRecentContractId);
             const tradeWithMostRecentTransaction =
