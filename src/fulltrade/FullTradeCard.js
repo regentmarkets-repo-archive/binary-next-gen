@@ -53,13 +53,11 @@ export default class FullTradeCard extends Component {
                 {
                     mostRecentContractBought ?
                         <BoughtContractCard actions={actions} contract={mostRecentContractBought} tradeId={index} /> :
-                        <div>
-                            <FullTradeParams
-                                {...this.props}
-                                disabled={disabled}
-                                contract={disabled ? mockedContract : contract}
-                            />
-                        </div>
+                        <FullTradeParams
+                            {...this.props}
+                            disabled={disabled}
+                            contract={disabled ? mockedContract : contract}
+                        />
                 }
             </div>
         );

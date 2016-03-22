@@ -47,6 +47,8 @@ export const isIntraday = (duration, unit) =>
 
 export const contractCategoryDisplay = category => ({
     callput: 'Up/Down',
+    risefall: 'Rise/Fall',
+    higherlower: 'Higher/Lower',
     asian: 'Asians',
     digits: 'Digits',
     endsinout: 'Ends In/Out',

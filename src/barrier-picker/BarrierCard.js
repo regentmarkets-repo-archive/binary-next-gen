@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import BarrierInput from './RelativeBarrierInput';
+import M from '../_common/M';
 
 export default class BarrierCard extends Component {
 
@@ -28,7 +29,6 @@ export default class BarrierCard extends Component {
             isIntraDay,
             onBarrier1Change,
             onBarrier2Change,
-            onBarrierTypeChange,
             pipSize,
             spot,
             } = this.props;
@@ -36,13 +36,14 @@ export default class BarrierCard extends Component {
         const barrier1Info = barrierInfo[expiryType] && barrierInfo[expiryType][0];
         const barrier2Info = barrierInfo[expiryType] && barrierInfo[expiryType][1];
         const toggleMsg = barrierType === 'relative' ?
-            (!isIntraDay && 'Absolute barrier available') :
-            'Relative barrier';
+            'Relative barrier' :
+            'Absolute barrier';
 
         if (!barrier1Info) return null;
 
         return (
             <div>
+                <p><M m={toggleMsg} /></p>
                 <BarrierInput
                     {...barrier1Info}
                     barrierType={barrierType}
@@ -65,10 +66,6 @@ export default class BarrierCard extends Component {
                         spot={spot}
                     />
                 }
-                {spot &&
-                <a onClick={() => onBarrierTypeChange(barrierType === 'relative' ? 'absolute' : 'relative')}>
-                    {toggleMsg}
-                </a>}
             </div>
         );
     }

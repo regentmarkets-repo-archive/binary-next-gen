@@ -1,5 +1,4 @@
 import React, { PropTypes, Component } from 'react';
-import ReactDOM from 'react-dom';
 import TradeHeader from './TradeHeader';
 import FullTradeCard from '../fulltrade/FullTradeCard';
 

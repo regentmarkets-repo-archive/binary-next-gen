@@ -152,3 +152,10 @@ export const splitSecsToUnits = sec => {
 
     return [sec, minute, hour, day];
 };
+
+export const nextXDay = (x) => {
+    const tmr = new Date();
+    tmr.setDate(tmr.getDate() + x);
+    return tmr;
+};
+
