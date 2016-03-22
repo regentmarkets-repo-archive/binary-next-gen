@@ -22,6 +22,7 @@ export default class FullTradeCard extends Component {
         currency: PropTypes.string.isRequired,
         contract: PropTypes.object,
         contractBought: PropTypes.object,
+        feedLicense: PropTypes.oneOf(['daily', 'delayed', 'realtime', 'chartonly']),
         index: PropTypes.number.isRequired,
         trade: PropTypes.object.isRequired,
         type: PropTypes.oneOf(['tick', 'full']).isRequired,
