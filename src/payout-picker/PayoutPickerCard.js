@@ -17,7 +17,7 @@ export default class PayoutPickerCard extends Component {
 		actions: PropTypes.object.isRequired,
 		location: PropTypes.object.isRequired,
 		params: PropTypes.object.isRequired,
-		trades: PropTypes.object.isRequired,
+		trades: PropTypes.array.isRequired,
 	};
 
 	updateValue(name, value) {
@@ -40,10 +40,10 @@ export default class PayoutPickerCard extends Component {
 
 	render() {
 		const { trades } = this.props;
-		const { index } = this.props.params;
+		const { id } = this.props.params;
 		const { query } = this.props.location;
 		const currency = query.currency;
-		const trade = trades[index];
+		const trade = trades[id];
 
 		return (
 			<div id="payout-picker">

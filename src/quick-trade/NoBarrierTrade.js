@@ -80,35 +80,31 @@ export default class NoBarrierTrade extends Component {
             );
     }
 
+    closeModal(type, actions, tradeInfo) {
+        actions.setQuickTradeField(
+                                tradeInfo.underlying_symbol,
+                                tradeInfo.contract_type,
+                                type,
+                                null
+                            );
+    }
+
     render() {
         const { tradeInfo, params, proposal, receipt, actions, failure } = this.props;
+
         return (
             <div>
                 <Modal
                     shown={!!failure}
-                    onClose={() =>
-                        actions.setQuickTradeField(
-                            tradeInfo.underlying_symbol,
-                            tradeInfo.contract_type,
-                            'failure',
-                            null
-                        )
-                    }
+                    onClose={this.closeModal('failure', actions, tradeInfo)}
                 >
                     {failure && <PurchaseFailed failure={failure} />}
                 </Modal>
                 <Modal
                     shown={!!receipt}
-                    onClose={() =>
-                        actions.setQuickTradeField(
-                            tradeInfo.underlying_symbol,
-                            tradeInfo.contract_type,
-                            'receipt',
-                            null
-                        )
-                    }
+                    onClose={this.closeModal('receipt', actions, tradeInfo)}
                 >
-                    {receipt && <PurchaseConfirmation receipt={receipt} />}
+                    {receipt && <PurchaseConfirmation receipt={receipt} onClose={this.closeModal('receipt', actions, tradeInfo)} />}
                 </Modal>
                 <Collapsible title={tradeInfo.contract_display} >
                     <RadioGroup

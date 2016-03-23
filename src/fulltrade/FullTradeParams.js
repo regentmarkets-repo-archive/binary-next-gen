@@ -128,7 +128,6 @@ export default class FullTradeParams extends Component {
     onCategoryChange(newCategory) {
         const { contract, ticks } = this.props;
         const defaultType = createDefaultType(contract, newCategory);
-
         // spreads is special case
         if (newCategory === 'spreads') {
             const spread = contract[newCategory][defaultType].spread;
@@ -150,7 +149,6 @@ export default class FullTradeParams extends Component {
         }
 
         const lastSpot = getLastTick(ticks);
-
         const newDuration = createDefaultDuration(contract, newCategory, defaultType);
         const { dateStart, duration, durationUnit } = newDuration;
         const newBarrier = createDefaultBarriers(
@@ -161,7 +159,6 @@ export default class FullTradeParams extends Component {
             durationUnit,
             lastSpot
         );
-
         const newBarrierType = createDefaultBarrierType(duration, durationUnit);
 
         this.updateTradeParams({
@@ -401,7 +398,7 @@ export default class FullTradeParams extends Component {
                 </div>
                 <ErrorMsg
                     shown={!!trade.proposalError}
-                    text={trade.proposalError ? trade.proposalError.message : ''}
+                    text={trade.proposalError ? trade.proposalError.message.split(':')[1] : ''}
                 />
             </div>
         );
