@@ -47,7 +47,7 @@ export default class DurationCard extends Component {
 
         const allowStartLater = !!forwardStartingDuration;
         const onlyStartLater = allowStartLater && !options;
-        const forwardOptions = forwardStartingDuration.options;
+        const forwardOptions = forwardStartingDuration && forwardStartingDuration.options;
 
         let optionsToUse;
 
