@@ -1,6 +1,5 @@
 import * as types from '../_constants/ActionTypes';
 import * as LiveData from '../_data/LiveData';
-import { updateSoldContract } from './PortfolioActions';
 import { changeActiveTrade } from './WorkspaceActions';
 import { trackEvent } from '../_utils/Analytics';
 import { numberToSignedString } from '../_utils/StringUtils';
@@ -25,11 +24,7 @@ export const serverDataBuy = serverResponse => ({
 
 export const sellContract = (id, price) => {
     trackEvent('sell-contract', { id, price });
-    return dispatch => {
-        LiveData.api.sellContract(id, price).then(res => {
-            dispatch(updateSoldContract(res.sell.contract_id, res.sell.sold_for, res.sell.transaction_id));
-        });
-    };
+    LiveData.api.sellContract(id, price);
 };
 
 export const updateQuickTradeParams = (symbol, tradeType, params) => {

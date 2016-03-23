@@ -20,8 +20,7 @@ export default (state = initialState, action) => {
         case SERVER_DATA_PORTFOLIO: {
             const contracts = action.serverResponse.portfolio.contracts;
             return contracts
-                .reduce((prev, curr) =>
-                    prev.mergeIn([curr.contract_id], curr), state);
+                .reduce((prev, curr) => prev.mergeIn([curr.contract_id], curr), state);
         }
         case SERVER_DATA_TRANSACTION: {
             const tx = action.serverResponse.transaction;

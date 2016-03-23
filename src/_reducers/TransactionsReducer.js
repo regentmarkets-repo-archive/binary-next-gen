@@ -27,7 +27,7 @@ export default (state = initialState, action) => {
                 amount: rawTx.amount,
                 longcode: rawTx.longcode,
             };
-            return state.unshift(txWithoutExtraProps);
+            return state.unshift(fromJS(txWithoutExtraProps));
         }
         case REMOVE_PERSONAL_DATA: {
             return initialState;
