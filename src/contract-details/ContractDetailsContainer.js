@@ -40,7 +40,9 @@ export default class ContractDetailsContainer extends Component {
 			<div className="contract-details">
 				<h6>
 					{contract.longcode}
-					<M m="Trasaction Reference" />: {contract.transaction_id}
+					<div>
+						<M m="Transaction Reference" />: {contract.transaction_id}
+					</div>
 				</h6>
 				<p></p>
 				<BinaryChart
