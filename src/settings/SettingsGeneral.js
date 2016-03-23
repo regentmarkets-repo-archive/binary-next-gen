@@ -48,7 +48,10 @@ export default class SettingsGeneral extends Component {
 					shown={topupVirtual}
 					onClose={() => actions.updateSettingFields({ topup_virtual: null }, false)}
 				>
-                    <VirtualTopUpConfirmation response={topupVirtual} onClose={() => actions.updateSettingFields({ topup_virtual: null }, false)} />
+					<VirtualTopUpConfirmation
+						response={topupVirtual}
+						onClose={() => actions.updateSettingFields({ topup_virtual: null }, false)}
+					/>
                 </Modal>
                 {
                     (balance < 1000) ?

@@ -23,7 +23,7 @@ const splitRiseFallAndHighLow = options =>
                     return enrichedOpt;
                 }
                 default: {
-                    console.error('Callput with barrier more than 1.');
+                    // console.error('Callput with barrier more than 1.');
                     return opt;
                 }
             }

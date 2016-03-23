@@ -10,6 +10,7 @@
   ],
   "rules": {
     "no-empty-label": 0,
+    "no-confusing-arrow": 0,
     "space-before-keywords": [0, 'always'],
     "space-after-keywords": [0, 'always'],
     "space-return-throw-case": 0,

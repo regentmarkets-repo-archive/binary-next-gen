@@ -104,7 +104,12 @@ export default class NoBarrierTrade extends Component {
                     shown={!!receipt}
                     onClose={this.closeModal('receipt', actions, tradeInfo)}
                 >
-                    {receipt && <PurchaseConfirmation receipt={receipt} onClose={this.closeModal('receipt', actions, tradeInfo)} />}
+                    {receipt &&
+                        <PurchaseConfirmation
+                            receipt={receipt}
+                            onClose={this.closeModal('receipt', actions, tradeInfo)}
+                        />
+                    }
                 </Modal>
                 <Collapsible title={tradeInfo.contract_display} >
                     <RadioGroup
