@@ -41,7 +41,7 @@ export default class TradesGrid extends Component {
                             index={index}
                             currency={currency}
                             actions={actions}
-                            marketIsOpen={assetsIsOpen[trade.symbol][0].isOpen}
+                            marketIsOpen={assetsIsOpen[trade.symbol].isOpen}
                             trade={trade}
                             ticks={ticksForAllSymbols[trade.symbol]}
                             contract={contracts[trade.symbol]}

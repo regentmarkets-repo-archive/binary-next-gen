@@ -35,7 +35,7 @@ export default class TradesTabs extends Component {
                     index={activeTradeIndex}
                     actions={actions}
                     trade={activeTrade}
-                    marketIsOpen={assetsIsOpen[activeTrade.symbol][0].isOpen}
+                    marketIsOpen={assetsIsOpen[activeTrade.symbol].isOpen}
                     ticks={ticksForAllSymbols[activeTrade.symbol]}
                     contract={contracts[activeTrade.symbol]}
                     currency={currency}
