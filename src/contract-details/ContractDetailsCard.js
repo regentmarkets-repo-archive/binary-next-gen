@@ -32,13 +32,13 @@ export default class ContractDetailsCard extends Component {
 						<tr>
 							<td><NumberPlain value={contract.buy_price} currency={contract.currency} /></td>
 							<td>
-								{expired
-									? <NumberPlain value={contract.sell_price} currency={contract.currency} />
-									: '-'}
+								{expired && contract.sell_price ?
+									<NumberPlain value={contract.sell_price} currency={contract.currency} /> :
+									'-'}
 							</td>
 							<td>
 								<NumberColored
-									value={expired ?
+									value={expired && contract.sell_price ?
 										contract.sell_price - contract.buy_price :
 										contract.payout - contract.buy_price
 										}

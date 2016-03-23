@@ -5,28 +5,29 @@ import { isVirtual } from '../_utils/UserUtils';
 import * as actions from '../_actions';
 
 const handlers = {
+    active_symbols: 'serverDataActiveSymbols',
+    asset_index: 'serverDataAssetIndex',
     authorize: 'serverDataAuthorize',
     balance: 'serverDataBalance',
-    active_symbols: 'serverDataActiveSymbols',
-    trading_times: 'serverDataTradingTimes',
-    asset_index: 'serverDataAssetIndex',
-    portfolio: 'serverDataPortfolio',
-    statement: 'serverDataStatement',
-    tick: 'serverDataTickStream',
-    history: 'serverDataTickHistory',
     candles: 'serverDataCandles',
-    time: 'serverDataTime',
+    cashier_password: 'serverDataCashierLock',
+    change_password: 'serverDataChangePassword',
+    get_limits: 'serverDataAccountLimits',
+    get_self_exclusion: 'serverDataAccountSelfExclusion',
+    get_settings: 'serverDataAccountSettings',
+    history: 'serverDataTickHistory',
+    news: 'updateNewsList',
+    paymentagent_list: 'serverDataPaymentAgents',
     proposal_open_contract: 'serverDataProposalOpenContract',
     payout_currencies: 'serverDataPayoutCurrencies',
     proposal: 'serverDataProposal',
-    get_limits: 'serverDataAccountLimits',
-    get_self_exclusion: 'serverDataAccountSelfExclusion',
-    cashier_password: 'serverDataCashierLock',
-    change_password: 'serverDataChangePassword',
-    get_settings: 'serverDataAccountSettings',
-    news: 'updateNewsList',
+    portfolio: 'serverDataPortfolio',
+    statement: 'serverDataStatement',
+    time: 'serverDataTime',
+    tick: 'serverDataTickStream',
+    trading_times: 'serverDataTradingTimes',
+    transaction: 'serverTransactionStream',
     videos: 'updateVideoList',
-    paymentagent_list: 'serverDataPaymentAgents',
 };
 
 export const api = new LiveApi({ language: 'EN' });
@@ -73,6 +74,7 @@ const initAuthorized = (authData, store) => {
     api.getPayoutCurrencies();
     api.subscribeToBalance();           // some call might fail due to backend overload
     api.subscribeToAllOpenContracts();
+    api.subscribeToTransactions();
     subscribeToWatchlist(store);
 
     if (!isVirtual(authData.authorize)) {

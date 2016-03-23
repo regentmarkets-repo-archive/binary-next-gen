@@ -2,6 +2,7 @@ import { fromJS } from 'immutable';
 import {
     SERVER_DATA_PROPOSAL_OPEN_CONTRACT,
     SERVER_DATA_PORTFOLIO,
+    SERVER_DATA_TRANSACTION,
     REMOVE_PERSONAL_DATA,
 } from '../_constants/ActionTypes';
 
@@ -21,6 +22,13 @@ export default (state = initialState, action) => {
             return contracts
                 .reduce((prev, curr) =>
                     prev.mergeIn([curr.contract_id], curr), state);
+        }
+        case SERVER_DATA_TRANSACTION: {
+            const tx = action.serverResponse.transaction;
+            if (tx.action !== 'sell') {
+                return state;
+            }
+            return state.mergeIn([tx.contract_id], { sell_price: tx.amount, sell_time: tx.transaction_time });
         }
         case REMOVE_PERSONAL_DATA: {
             return initialState;

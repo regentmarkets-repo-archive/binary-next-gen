@@ -202,3 +202,11 @@ export const purchaseByTradeId = (tradeID, trade) =>
                 dispatch(updatePriceProposalSubscription(tradeID, trade));
             });
     };
+
+export const sellExpiredContract = onDone => {
+    LiveData.api.sellExpiredContracts().then(response => {
+        if (onDone) {
+            onDone(response.sell_expired);
+        }
+    });
+};

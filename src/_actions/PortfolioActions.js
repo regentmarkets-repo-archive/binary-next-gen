@@ -1,5 +1,6 @@
 import * as types from '../_constants/ActionTypes';
 import { nowAsEpoch } from '../_utils/DateUtils';
+import { sellExpiredContract } from './TradeActions';
 
 export const serverDataPortfolio = serverResponse => ({
     type: types.SERVER_DATA_PORTFOLIO,
@@ -13,10 +14,12 @@ export const detailsForContract = (areDetailsShown, contractShown) => ({
 });
 
 
-export const serverDataProposalOpenContract = serverResponse => ({
-        type: types.SERVER_DATA_PROPOSAL_OPEN_CONTRACT,
-        serverResponse,
-});
+export const serverDataProposalOpenContract = serverResponse => {
+    if (!!serverResponse.proposal_open_contract.is_expired) {
+        sellExpiredContract();
+    }
+    return { type: types.SERVER_DATA_PROPOSAL_OPEN_CONTRACT, serverResponse };
+};
 
 export const updateNow = () => ({
     type: types.UPDATE_NOW,

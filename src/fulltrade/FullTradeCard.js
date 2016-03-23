@@ -57,7 +57,11 @@ export default class FullTradeCard extends Component {
                 />
                 {
                     mostRecentContractBought ?
-                        <BoughtContractCard actions={actions} contract={mostRecentContractBought} tradeId={index} /> :
+                        <BoughtContractCard
+                            actions={actions}
+                            boughtContract={mostRecentContractBought}
+                            tradeId={index}
+                        /> :
                         <FullTradeParams
                             {...this.props}
                             disabled={disabled}
