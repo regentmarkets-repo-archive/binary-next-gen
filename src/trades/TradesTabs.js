@@ -8,6 +8,7 @@ export default class TradesTabs extends Component {
     static propTypes = {
         actions: PropTypes.object.isRequired,
         activeTradeIndex: PropTypes.number.isRequired,
+        assetsIsOpen: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
         ticksForAllSymbols: PropTypes.object.isRequired,
         trades: PropTypes.array.isRequired,
@@ -15,7 +16,7 @@ export default class TradesTabs extends Component {
     };
 
     render() {
-        const { actions, activeTradeIndex, contracts, trades, ticksForAllSymbols, currency } = this.props;
+        const { actions, activeTradeIndex, assetsIsOpen, contracts, trades, ticksForAllSymbols, currency } = this.props;
         const activeTrade = trades[activeTradeIndex];
         return (
             <div className="trades-tabs">
@@ -34,6 +35,7 @@ export default class TradesTabs extends Component {
                     index={activeTradeIndex}
                     actions={actions}
                     trade={activeTrade}
+                    marketIsOpen={assetsIsOpen[activeTrade.symbol].isOpen}
                     ticks={ticksForAllSymbols[activeTrade.symbol]}
                     contract={contracts[activeTrade.symbol]}
                     currency={currency}

@@ -1,6 +1,5 @@
 import * as types from '../_constants/ActionTypes';
 import * as LiveData from '../_data/LiveData';
-import { updateSoldContract } from './PortfolioActions';
 import { changeActiveTrade } from './WorkspaceActions';
 import { trackEvent } from '../_utils/Analytics';
 import { numberToSignedString } from '../_utils/StringUtils';
@@ -25,11 +24,7 @@ export const serverDataBuy = serverResponse => ({
 
 export const sellContract = (id, price) => {
     trackEvent('sell-contract', { id, price });
-    return dispatch => {
-        LiveData.api.sellContract(id, price).then(res => {
-            dispatch(updateSoldContract(res.sell.contract_id, res.sell.sold_for, res.sell.transaction_id));
-        });
-    };
+    LiveData.api.sellContract(id, price);
 };
 
 export const updateQuickTradeParams = (symbol, tradeType, params) => {
@@ -181,12 +176,11 @@ export const updatePriceProposalSubscription = (tradeID, trade) =>
 
 export const purchaseByTradeId = (tradeID, trade) =>
     (dispatch, getState) => {
+        dispatch(updateTradeParams(tradeID, 'disabled', true));
         const tradeSelected = trade || getState().trades.get(tradeID).toJS();
         trackEvent('buy-contract', tradeSelected);
         const proposalID = tradeSelected.proposal.id;
         const price = tradeSelected.proposal.ask_price;
-
-        dispatch(updateTradeParams(tradeID, 'buying', true));
 
         LiveData.api.buyContract(proposalID, price)
             .then(
@@ -198,7 +192,15 @@ export const purchaseByTradeId = (tradeID, trade) =>
                 err => dispatch(updateTradeParams(tradeID, 'buy_error', err))
             )
             .then(() => {
-                dispatch(updateTradeParams(tradeID, 'buying', false));
+                dispatch(updateTradeParams(tradeID, 'disabled', false));
                 dispatch(updatePriceProposalSubscription(tradeID, trade));
             });
     };
+
+export const sellExpiredContract = onDone => {
+    LiveData.api.sellExpiredContracts().then(response => {
+        if (onDone) {
+            onDone(response.sell_expired);
+        }
+    });
+};

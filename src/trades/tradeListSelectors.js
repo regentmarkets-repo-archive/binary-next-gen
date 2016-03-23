@@ -1,21 +1,15 @@
 import { createStructuredSelector } from 'reselect';
-import {
-    currencySelector,
-    ticksSelector,
-    activeTradeIndexSelector,
-    feedLicensesSelector,
-} from '../_store/directSelectors';
+import { currencySelector, ticksSelector, activeTradeIndexSelector } from '../_store/directSelectors';
 import {
     tradesWithDetailsSelector,
-    availableAssetsSelector,
     availableContractsSelector,
+    assetsIsOpenSelector,
 } from '../fulltrade/FullTradeSelectors';
 
 export default createStructuredSelector({
-    assetsGrouped: availableAssetsSelector,
+    assetsIsOpen: assetsIsOpenSelector,
     contracts: availableContractsSelector,
     currency: currencySelector,
-    feedLicensesBySymbol: feedLicensesSelector,
     trades: tradesWithDetailsSelector,
     ticksForAllSymbols: ticksSelector, // not really!!!
     activeTradeIndex: activeTradeIndexSelector,

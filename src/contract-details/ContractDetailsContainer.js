@@ -31,7 +31,7 @@ export default class ContractDetailsContainer extends Component {
 		const { params, contracts, ticks } = this.props;
 		const contract = contracts.find(x => x.get('contract_id') === params.id).toJS();
 
-		const history = ticks.get(contract.symbol).toJS();
+		const history = ticks.get(contract.underlying).toJS();
 		// const soldResultShown = portfolio.get('soldResultShown');
 		// const now = portfolio.get('now');
 		if (!contract) return null;
@@ -40,7 +40,9 @@ export default class ContractDetailsContainer extends Component {
 			<div className="contract-details">
 				<h6>
 					{contract.longcode}
-					<M m="Trasaction Reference" />: {contract.transaction_id}
+					<div>
+						<M m="Transaction Reference" />: {contract.transaction_id}
+					</div>
 				</h6>
 				<p></p>
 				<BinaryChart

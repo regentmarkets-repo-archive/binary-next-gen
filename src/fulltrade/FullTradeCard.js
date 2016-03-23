@@ -6,7 +6,7 @@ import Modal from '../containers/Modal';
 
 import FullTradeParams from './FullTradeParams';
 import BoughtContractCard from './BoughtContractCard';
-
+import { findIfExist } from '../_utils/ObjectUtils';
 import { mockedContract } from './../_constants/MockContract';
 
 export default class FullTradeCard extends Component {
@@ -23,18 +23,25 @@ export default class FullTradeCard extends Component {
         contract: PropTypes.object,
         contractBought: PropTypes.object,
         index: PropTypes.number.isRequired,
+        marketIsOpen: PropTypes.bool,
         trade: PropTypes.object.isRequired,
         type: PropTypes.oneOf(['tick', 'full']).isRequired,
         ticks: PropTypes.array,
     };
 
     render() {
-        const { actions, index, trade, ticks } = this.props;
+        const { actions, index, marketIsOpen, trade, ticks } = this.props;
         const selectedSymbol = trade.symbol;
 
         const mostRecentContractBought = trade.mostRecentContractBought;
         const contract = this.props.contract || mockedContract;
-        const disabled = contract === mockedContract || trade.disabled;
+
+        const contractAllowStartLater = findIfExist(contract, child => child && !!child.forwardStartingDuration);
+        
+        const disabled =
+            contract === mockedContract ||
+            trade.disabled ||
+            (!marketIsOpen && !contractAllowStartLater);
 
         return (
             <div disabled={disabled} className={'trade-panel'}>
@@ -52,7 +59,11 @@ export default class FullTradeCard extends Component {
                 />
                 {
                     mostRecentContractBought ?
-                        <BoughtContractCard actions={actions} contract={mostRecentContractBought} tradeId={index} /> :
+                        <BoughtContractCard
+                            actions={actions}
+                            boughtContract={mostRecentContractBought}
+                            tradeId={index}
+                        /> :
                         <FullTradeParams
                             {...this.props}
                             disabled={disabled}

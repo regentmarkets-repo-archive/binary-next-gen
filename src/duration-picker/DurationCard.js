@@ -47,7 +47,7 @@ export default class DurationCard extends Component {
 
         const allowStartLater = !!forwardStartingDuration;
         const onlyStartLater = allowStartLater && !options;
-        const forwardOptions = forwardStartingDuration.options;
+        const forwardOptions = forwardStartingDuration && forwardStartingDuration.options;
 
         let optionsToUse;
 
@@ -92,14 +92,14 @@ export default class DurationCard extends Component {
                     <div id="duration-fields" className="row">
                         <InputGroup
                             type="number"
-                            defaultValue={duration}
+                            value={duration}
                             min={min}
                             max={max}
                             onChange={onDurationChange}
                         />
                         <SelectGroup
                             options={unitOptions}
-                            defaultValue={durationUnit}
+                            value={durationUnit}
                             onChange={onUnitChange}
                         />
                     </div> :
