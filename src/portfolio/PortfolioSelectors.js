@@ -20,7 +20,7 @@ export const purchaseTotalSelector = createSelector(
 const activeOpenContractSelector = createSelector(
     openContractsSelector,
     openContracts =>
-        openContracts.filter(c => c.get('is_expired') === 0)
+        openContracts.filter(c => !c.get('sell_price'))
 );
 
 export default createStructuredSelector({
