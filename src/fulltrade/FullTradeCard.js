@@ -37,9 +37,11 @@ export default class FullTradeCard extends Component {
         const contract = this.props.contract || mockedContract;
 
         const contractAllowStartLater = findIfExist(contract, child => child && !!child.forwardStartingDuration);
-
-        const disabled = contract === mockedContract ||
-            trade.disabled || (!marketIsOpen && !contractAllowStartLater);
+        
+        const disabled =
+            contract === mockedContract ||
+            trade.disabled ||
+            (!marketIsOpen && !contractAllowStartLater);
 
         return (
             <div disabled={disabled} className={'trade-panel'}>
