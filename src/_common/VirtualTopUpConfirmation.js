@@ -6,10 +6,11 @@ export default class TopUpConfirmation extends Component {
 
     static propTypes = {
         response: PropTypes.object.isRequired,
+        onClose: PropTypes.func,
     };
 
     render() {
-        const { response } = this.props;
+        const { response, onClose } = this.props;
         return (
             <div>
                 {response.error ?
@@ -20,7 +21,7 @@ export default class TopUpConfirmation extends Component {
                     </div>
                 }
                 <div className="centerer">
-                    <button><M m="OK" /></button>
+                    <button onClick={onClose}><M m="OK" /></button>
                 </div>
             </div>
         );

@@ -8,10 +8,11 @@ export default class PurchaseConfirmation extends Component {
 
 	static propTypes = {
 		receipt: PropTypes.object,
+		onClose: PropTypes.func,
 	};
 
 	render() {
-		const { receipt } = this.props;
+		const { receipt, onClose } = this.props;
 
 		return (
 			<div>
@@ -46,7 +47,7 @@ export default class PurchaseConfirmation extends Component {
 					</tbody>
 				</table>
 				<br />
-				<button><M m="OK" /></button>
+				<button onClick={onClose}><M m="OK" /></button>
 			</div>
 		);
 	}

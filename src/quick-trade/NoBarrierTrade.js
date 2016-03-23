@@ -14,6 +14,13 @@ const basisTypes = [
     { value: 'stake', text: 'Stake' },
 ];
 
+const closeModal = (type, actions, tradeInfo) => actions.setQuickTradeField(
+                            tradeInfo.underlying_symbol,
+                            tradeInfo.contract_type,
+                            type,
+                            null
+                        );
+
 export default class NoBarrierTrade extends Component {
     static propTypes = {
         tradeInfo: PropTypes.object.isRequired,
@@ -82,33 +89,20 @@ export default class NoBarrierTrade extends Component {
 
     render() {
         const { tradeInfo, params, proposal, receipt, actions, failure } = this.props;
+
         return (
             <div>
                 <Modal
                     shown={!!failure}
-                    onClose={() =>
-                        actions.setQuickTradeField(
-                            tradeInfo.underlying_symbol,
-                            tradeInfo.contract_type,
-                            'failure',
-                            null
-                        )
-                    }
+                    onClose={closeModal('failure', actions, tradeInfo)}
                 >
                     {failure && <PurchaseFailed failure={failure} />}
                 </Modal>
                 <Modal
                     shown={!!receipt}
-                    onClose={() =>
-                        actions.setQuickTradeField(
-                            tradeInfo.underlying_symbol,
-                            tradeInfo.contract_type,
-                            'receipt',
-                            null
-                        )
-                    }
+                    onClose={closeModal('receipt', actions, tradeInfo)}
                 >
-                    {receipt && <PurchaseConfirmation receipt={receipt} />}
+                    {receipt && <PurchaseConfirmation receipt={receipt} onClose={closeModal('receipt', actions, tradeInfo)} />}
                 </Modal>
                 <Collapsible title={tradeInfo.contract_display} >
                     <RadioGroup

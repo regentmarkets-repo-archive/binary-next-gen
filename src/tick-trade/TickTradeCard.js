@@ -37,7 +37,6 @@ export default class TickTradeCard extends Component {
     render() {
         const { assets, currency, index, trade, ticks } = this.props;
         const receipt = trade.receipt;
-
         return (
             <div className="tick-trade-mobile">
                 <Modal
@@ -50,7 +49,7 @@ export default class TickTradeCard extends Component {
                     shown={!!receipt}
                     onClose={() => this.updateHelper('receipt', undefined)}
                 >
-                    <PurchaseConfirmation receipt={receipt} />
+                    <PurchaseConfirmation receipt={receipt} onClose={() => this.updateHelper('receipt', undefined)} />
                 </Modal>
                 <BinaryChart
                     className="trade-chart"
