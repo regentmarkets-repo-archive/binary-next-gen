@@ -14,13 +14,6 @@ const basisTypes = [
     { value: 'stake', text: 'Stake' },
 ];
 
-const closeModal = (type, actions, tradeInfo) => actions.setQuickTradeField(
-                            tradeInfo.underlying_symbol,
-                            tradeInfo.contract_type,
-                            type,
-                            null
-                        );
-
 export default class NoBarrierTrade extends Component {
     static propTypes = {
         tradeInfo: PropTypes.object.isRequired,
@@ -87,6 +80,15 @@ export default class NoBarrierTrade extends Component {
             );
     }
 
+    closeModal(type, actions, tradeInfo) {
+        actions.setQuickTradeField(
+                                tradeInfo.underlying_symbol,
+                                tradeInfo.contract_type,
+                                type,
+                                null
+                            );
+    }
+
     render() {
         const { tradeInfo, params, proposal, receipt, actions, failure } = this.props;
 
@@ -94,15 +96,15 @@ export default class NoBarrierTrade extends Component {
             <div>
                 <Modal
                     shown={!!failure}
-                    onClose={closeModal('failure', actions, tradeInfo)}
+                    onClose={this.closeModal('failure', actions, tradeInfo)}
                 >
                     {failure && <PurchaseFailed failure={failure} />}
                 </Modal>
                 <Modal
                     shown={!!receipt}
-                    onClose={closeModal('receipt', actions, tradeInfo)}
+                    onClose={this.closeModal('receipt', actions, tradeInfo)}
                 >
-                    {receipt && <PurchaseConfirmation receipt={receipt} onClose={closeModal('receipt', actions, tradeInfo)} />}
+                    {receipt && <PurchaseConfirmation receipt={receipt} onClose={this.closeModal('receipt', actions, tradeInfo)} />}
                 </Modal>
                 <Collapsible title={tradeInfo.contract_display} >
                     <RadioGroup
