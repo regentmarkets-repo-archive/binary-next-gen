@@ -18,7 +18,6 @@ import {
     createDefaultBarriers,
     createDefaultBarrierType,
 } from './DefaultTradeParams';
-import { mockedContract } from './../_constants/MockContract';
 
 /**
  * This UI is coded with a few assumptions, which should always be true, this comments serves as a future reference
@@ -81,10 +80,6 @@ export default class FullTradeParams extends Component {
         this.onPurchase = ::this.onPurchase;
     }
 
-    /**
-     * There will be an instant where tradeCategory is wrong,
-     * we should not rerender until the correct tradeCategory value is in place
-     */
     shouldComponentUpdate = shouldPureComponentUpdate
 
     componentWillMount() {
@@ -92,19 +87,11 @@ export default class FullTradeParams extends Component {
         this.onAssetChange({ target: { value: trade.symbol } });
     }
 
-    /**
-     * componentDidUpdate is used instead of componentWillReceiveProps because the onAssetChangeDepends on updated
-     * props, which only accessible after component update
-     * it's a mistake here that method to be reuse are coupled with component states
-     * TODO: redesign so that side effect are handle elsewhere
-     */
-    componentDidUpdate(prevProps) {
-        const { contract, trade } = this.props;
+    componentWillReceiveProps(nextProps) {
+        const { trade } = this.props;
 
-        // perform checking when contract is different, as it implies symbol change
-        // do not react when mockedContract is passed in
-        if (contract !== mockedContract && prevProps.contract !== contract) {
-            this.onAssetChange({ target: { value: trade.symbol } });
+        if (nextProps.trade.symbol !== trade.symbol) {
+            this.onAssetChange({ target: { value: nextProps.trade.symbol } });
         }
     }
 
