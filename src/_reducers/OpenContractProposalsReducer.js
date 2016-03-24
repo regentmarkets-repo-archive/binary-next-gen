@@ -4,6 +4,7 @@ import {
     SERVER_DATA_PORTFOLIO,
     SERVER_DATA_TRANSACTION,
     REMOVE_PERSONAL_DATA,
+    UPDATE_OPEN_CONTRACT_FIELD,
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({});
@@ -34,6 +35,13 @@ export default (state = initialState, action) => {
         }
         case REMOVE_PERSONAL_DATA: {
             return initialState;
+        }
+        case UPDATE_OPEN_CONTRACT_FIELD: {
+            const field = action.OpenContractField;
+            if (state.getIn([field.id], 'validation_error')) {
+                return state.setIn([field.id, 'validation_error'], field.error);
+            }
+            return state.mergeIn([field.id], field.error);
         }
         default:
             return state;
