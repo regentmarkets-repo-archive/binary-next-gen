@@ -40,6 +40,15 @@ const subscribeToWatchlist = store => {
     api.subscribeToTicks(state.watchlist.toJS());
 };
 
+const subscribeToSelectedSymbol = store => {
+    const state = store.getState();
+    if (state.workspace && state.workspace.get('selectedAsset')) {
+        const symbol = state.workspace.get('selectedAsset');
+        api.getTickHistory(symbol, { end: 'latest', count: 60 });
+        api.subscribeToTick(symbol);
+    }
+};
+
 export const changeLanguage = language => {
     api.changeLanguage(language);
     api.getActiveSymbolsFull();
@@ -76,6 +85,7 @@ const initAuthorized = (authData, store) => {
     api.subscribeToAllOpenContracts();
     api.subscribeToTransactions();
     subscribeToWatchlist(store);
+    subscribeToSelectedSymbol(store);
 
     if (!isVirtual(authData.authorize)) {
         api.getAccountLimits();
