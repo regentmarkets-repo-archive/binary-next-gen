@@ -1,8 +1,14 @@
 import { openContractsSelector, portfolioSelector, ticksSelector } from '../_store/directSelectors';
 import { createSelector, createStructuredSelector } from 'reselect';
 
-export const indicativeTotalSelector = createSelector(
+const activeOpenContractSelector = createSelector(
     openContractsSelector,
+    openContracts =>
+        openContracts.filter(c => !c.get('sell_price'))
+);
+
+export const indicativeTotalSelector = createSelector(
+    activeOpenContractSelector,
     contracts =>
         contracts
             .map(x => +x.get('bid_price'))
@@ -10,17 +16,11 @@ export const indicativeTotalSelector = createSelector(
 );
 
 export const purchaseTotalSelector = createSelector(
-    openContractsSelector,
+    activeOpenContractSelector,
     contracts =>
         contracts
             .map(x => +x.get('buy_price'))
             .reduce((x, y) => x + y, 0)
-);
-
-const activeOpenContractSelector = createSelector(
-    openContractsSelector,
-    openContracts =>
-        openContracts.filter(c => !c.get('sell_price'))
 );
 
 export default createStructuredSelector({
