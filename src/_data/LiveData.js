@@ -3,6 +3,7 @@ import { readNewsFeed } from './NewsData';
 import { getVideosFromPlayList } from './VideoData';
 import { isVirtual } from '../_utils/UserUtils';
 import * as actions from '../_actions';
+import config from '../config';
 
 const handlers = {
     active_symbols: 'serverDataActiveSymbols',
@@ -30,7 +31,7 @@ const handlers = {
     videos: 'updateVideoList',
 };
 
-export const api = new LiveApi({ language: 'EN' });
+export const api = new LiveApi({ apiUrl: config.apiUrl, language: 'EN' });
 
 const subscribeToWatchlist = store => {
     const state = store.getState();
