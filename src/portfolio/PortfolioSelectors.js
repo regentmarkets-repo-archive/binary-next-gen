@@ -1,8 +1,21 @@
 import { openContractsSelector, portfolioSelector, ticksSelector } from '../_store/directSelectors';
 import { createSelector, createStructuredSelector } from 'reselect';
 
-export const indicativeTotalSelector = createSelector(
+const activeOpenContractSelector = createSelector(
     openContractsSelector,
+    openContracts =>
+        /**
+         * check 'contract_id' is a synchronization, as contracts is combination of 2 data point,
+         * transaction_id is from transactions stream, the rest from open contract stream
+         * this check ensure open contract response is received before rendering,
+         * but does not ensure `transaction_id` is sync
+         */
+        openContracts
+            .filter(c => !c.get('sell_price') && !!c.get('contract_id'))
+);
+
+export const indicativeTotalSelector = createSelector(
+    activeOpenContractSelector,
     contracts =>
         contracts
             .map(x => +x.get('bid_price'))
@@ -10,17 +23,11 @@ export const indicativeTotalSelector = createSelector(
 );
 
 export const purchaseTotalSelector = createSelector(
-    openContractsSelector,
+    activeOpenContractSelector,
     contracts =>
         contracts
             .map(x => +x.get('buy_price'))
             .reduce((x, y) => x + y, 0)
-);
-
-const activeOpenContractSelector = createSelector(
-    openContractsSelector,
-    openContracts =>
-        openContracts.filter(c => !c.get('sell_price'))
 );
 
 export default createStructuredSelector({

@@ -40,15 +40,12 @@ import { mockedContract } from './../_constants/MockContract';
  * 9. All underlying have risefall trade
  *
  *
- * TODO: re-architect the whole dependency mess,
+ * TODO: re-architect the whole dependency mess, and have unit test where applicable
  * possibly a better approach would be notify user for wrong info instead of change to correct value automatically,
  * default may not be a good idea at all as client might always want to input value
  */
 
 export default class FullTradeParams extends Component {
-
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
     static defaultProps = {
         type: 'full',
     };
@@ -84,11 +81,23 @@ export default class FullTradeParams extends Component {
         this.onPurchase = ::this.onPurchase;
     }
 
+    /**
+     * There will be an instant where tradeCategory is wrong,
+     * we should not rerender until the correct tradeCategory value is in place
+     */
+    shouldComponentUpdate = shouldPureComponentUpdate
+
     componentWillMount() {
         const { trade } = this.props;
         this.onAssetChange({ target: { value: trade.symbol } });
     }
 
+    /**
+     * componentDidUpdate is used instead of componentWillReceiveProps because the onAssetChangeDepends on updated
+     * props, which only accessible after component update
+     * it's a mistake here that method to be reuse are coupled with component states
+     * TODO: redesign so that side effect are handle elsewhere
+     */
     componentDidUpdate(prevProps) {
         const { contract, trade } = this.props;
 
@@ -304,15 +313,22 @@ export default class FullTradeParams extends Component {
     render() {
         const { actions, contract, disabled, index, trade, currency } = this.props;
 
+        /**
+         * Race condition happen when contract is updated before tradeCategory (async)
+         * thus we need to check if the tradeCategory is valid, if not valid simply use the 1st valid category
+         */
         const selectedCategory = trade.tradeCategory;
+        const categoryToUse = !!contract[selectedCategory] ? selectedCategory : Object.keys(contract)[0];
+
         const selectedType = trade.type;
-        const contractForType = contract[selectedCategory][selectedType];
+        const contractForCategory = contract[categoryToUse];
+        const contractForType = contractForCategory && contractForCategory[selectedType];
         const barriers = contractForType && contractForType.barriers;
         const isBelow2Min = isDurationLessThan2Mins(trade.duration, trade.durationUnit);
         const isIntraDay = isIntraday(trade.duration, trade.durationUnit);
         const pipSize = trade.pipSize;
-        const showBarrier = selectedCategory !== 'spreads' &&
-            selectedCategory !== 'digits' &&
+        const showBarrier = categoryToUse !== 'spreads' &&
+            categoryToUse !== 'digits' &&
             !isBelow2Min &&
             !trade.dateStart &&
             !!barriers;
@@ -320,15 +336,15 @@ export default class FullTradeParams extends Component {
         const payout = trade.proposal && trade.proposal.payout;
 
         const showDuration = !!contractForType;
-        const showDigitBarrier = selectedCategory === 'digits';
-        const showSpreadBarrier = selectedCategory === 'spreads';
+        const showDigitBarrier = categoryToUse === 'digits';
+        const showSpreadBarrier = categoryToUse === 'spreads';
 
         return (
             <div className="full-trade-params" disabled={disabled}>
                 <TradeTypePicker
                     actions={actions}
                     contract={contract}
-                    selectedCategory={selectedCategory}
+                    selectedCategory={categoryToUse}
                     selectedType={selectedType}
                     onCategoryChange={this.onCategoryChange}
                     onTypeChange={this.onTypeChange}
