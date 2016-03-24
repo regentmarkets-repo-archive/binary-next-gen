@@ -724,6 +724,7 @@ div[role=tab] {
 }
 
 div[role=tab] img {
+    width: 1.25rem;
     margin: .875rem;
 }
 
