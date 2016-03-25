@@ -30,7 +30,7 @@ export default class BarrierInput extends Component {
                     label={name + (barrierType === 'relative' ? ' offset' : '')}
                     type="number"
                     onChange={onChange}
-                    defaultValue={barrierType === 'relative' ? relativeValue : absoluteValue}
+                    value={barrierType === 'relative' ? relativeValue : absoluteValue}
                 />
                 {(barrierType === 'relative' && absoluteValue) &&
                     <p>

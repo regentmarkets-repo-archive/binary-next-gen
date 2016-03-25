@@ -42,7 +42,7 @@ export default class SpreadBarrierCard extends Component {
                 <InputGroup
                     type="number"
                     label={`Amount per point (${currency})`}
-                    defaultValue={spreadInfo.amountPerPoint}
+                    value={spreadInfo.amountPerPoint}
                     onChange={amountPerPointChange}
                 />
                 <RadioGroup
@@ -54,13 +54,13 @@ export default class SpreadBarrierCard extends Component {
                 <InputGroup
                     type="number"
                     label="Stop loss"
-                    defaultValue={30}           // TODO: hardcode default as backend return wrong data
+                    value={spreadInfo.stopLoss}           // TODO: hardcode default as backend return wrong data
                     onChange={stopLossChange}
                 />
                 <InputGroup
                     type="number"
                     label="Stop profit"
-                    defaultValue={spreadInfo.stopProfit}
+                    value={spreadInfo.stopProfit}
                     onChange={stopProfitChange}
                 />
             </div>

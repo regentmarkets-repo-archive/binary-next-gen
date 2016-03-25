@@ -18,6 +18,7 @@ import {
     createDefaultBarriers,
     createDefaultBarrierType,
 } from './DefaultTradeParams';
+import { categoryValid, allTimeRelatedFieldValid } from './TradeParamsValidation';
 import { mockedContract } from './../_constants/MockContract';
 
 /**
@@ -88,8 +89,7 @@ export default class FullTradeParams extends Component {
     shouldComponentUpdate = shouldPureComponentUpdate
 
     componentWillMount() {
-        const { trade } = this.props;
-        this.onAssetChange({ target: { value: trade.symbol } });
+        this.onAssetChange();
     }
 
     /**
@@ -99,12 +99,12 @@ export default class FullTradeParams extends Component {
      * TODO: redesign so that side effect are handle elsewhere
      */
     componentDidUpdate(prevProps) {
-        const { contract, trade } = this.props;
+        const { contract } = this.props;
 
         // perform checking when contract is different, as it implies symbol change
         // do not react when mockedContract is passed in
         if (contract !== mockedContract && prevProps.contract !== contract) {
-            this.onAssetChange({ target: { value: trade.symbol } });
+            this.onAssetChange();
         }
     }
 
@@ -122,21 +122,46 @@ export default class FullTradeParams extends Component {
         }
     }
 
-    onAssetChange(e) {
-        const { index, actions } = this.props;
-        const symbol = e.target.value;
-        actions.updateTradeParams(index, 'disabled', true);
-        actions.getTradingOptions(symbol, () => {
-            this.updateHelper('symbol', symbol, false);
-            this.onCategoryChange('risefall');
-            actions.updateTradeParams(index, 'disabled', false);
-            actions.getTicksBySymbol(symbol);
-        });
+    onAssetChange() {
+        const { contract, trade } = this.props;
+
+        const selectedCat = trade.tradeCategory;
+
+        if (!categoryValid(selectedCat, contract)) {
+            this.onCategoryChange(Object.keys(contract)[0]);
+        } else {
+            const selectedType = trade.type;
+            const selectedDateStart = trade.dateStart;
+            const selectedDuration = trade.duration;
+            const selectedDurationUnit = trade.durationUnit;
+
+            if (!allTimeRelatedFieldValid(
+                    selectedDateStart,
+                    selectedDuration,
+                    selectedDurationUnit,
+                    contract[selectedCat][selectedType]
+                )) {
+                this.onTypeChange(selectedType);
+            } else {
+                const newBarrier = createDefaultBarriers(
+                    contract,
+                    selectedCat,
+                    selectedType,
+                    selectedDuration, selectedDurationUnit
+                );
+                const newBarrierType = createDefaultBarrierType(selectedDuration, selectedDurationUnit);
+                this.updateTradeParams({
+                    barrier: newBarrier[0],
+                    barrier2: newBarrier[1],
+                    barrierType: newBarrierType,
+                });
+            }
+        }
     }
 
     // scary but necessary as all fields have dependency on category
     onCategoryChange(newCategory) {
-        const { contract, ticks } = this.props;
+        const { contract } = this.props;
         const defaultType = createDefaultType(contract, newCategory);
         // spreads is special case
         if (newCategory === 'spreads') {
@@ -158,7 +183,6 @@ export default class FullTradeParams extends Component {
             return;
         }
 
-        const lastSpot = getLastTick(ticks);
         const newDuration = createDefaultDuration(contract, newCategory, defaultType);
         const { dateStart, duration, durationUnit } = newDuration;
         const newBarrier = createDefaultBarriers(
@@ -167,7 +191,6 @@ export default class FullTradeParams extends Component {
             defaultType,
             duration,
             durationUnit,
-            lastSpot
         );
         const newBarrierType = createDefaultBarrierType(duration, durationUnit);
 
@@ -188,13 +211,12 @@ export default class FullTradeParams extends Component {
     }
 
     onTypeChange(newType) {
-        const { contract, trade, ticks } = this.props;
+        const { contract, trade } = this.props;
 
         const category = trade.tradeCategory;
-        const lastSpot = getLastTick(ticks);
         const newDuration = createDefaultDuration(contract, category, newType);
         const { dateStart, duration, durationUnit } = newDuration;
-        const newBarrier = createDefaultBarriers(contract, category, newType, duration, durationUnit, lastSpot);
+        const newBarrier = createDefaultBarriers(contract, category, newType, duration, durationUnit);
         const newBarrierType = createDefaultBarrierType(duration, durationUnit);
 
         this.updateTradeParams({
@@ -255,10 +277,9 @@ export default class FullTradeParams extends Component {
         const newUnit = e.target.value;
         this.updateHelper('durationUnit', newUnit, false);
 
-        const { contract, trade, ticks } = this.props;
+        const { contract, trade } = this.props;
         const { tradeCategory, type, duration } = trade;
-        const lastSpot = getLastTick(ticks);
-        const newBarrier = createDefaultBarriers(contract, tradeCategory, type, duration, newUnit, lastSpot);
+        const newBarrier = createDefaultBarriers(contract, tradeCategory, type, duration, newUnit);
         const newBarrierType = createDefaultBarrierType(duration, newUnit);
 
         // if it's forward starting type, do not update barrier as not applicable
