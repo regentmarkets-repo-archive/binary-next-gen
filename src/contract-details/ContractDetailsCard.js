@@ -16,7 +16,7 @@ export default class ContractDetailsCard extends Component {
 		const { contract, actions } = this.props;
 		const sold = !!contract.sell_price;
 		const validToSell = contract.is_valid_to_sell === 1 && !contract.is_expired;
-		const validationError = contract.validation_error; 
+		const validationError = contract.validation_error;
 		return (
 			<div>
 				<table>
@@ -61,10 +61,10 @@ export default class ContractDetailsCard extends Component {
 					</button> :
 					<div>
 					{validationError &&
-						(validationError.message ? 
+						(validationError.message ?
 							validationError.message.split(')')[1] :
 						validationError)
-					} 
+					}
 					</div>
 				}
 			</div>
