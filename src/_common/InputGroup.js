@@ -40,7 +40,7 @@ export default class InputGroup extends Component {
 					value={value}
 					step={step}
 					lists={lists}
-					defaultValue={!value && defaultValue}
+					defaultValue={defaultValue}
 					readOnly={readOnly}
 					placeholder={placeholder}
 					onChange={onChange}
