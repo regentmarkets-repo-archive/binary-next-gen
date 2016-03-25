@@ -29,9 +29,9 @@ export default class SettingsAddress extends Component {
 	static handleUpdateError(response) {
 		if (response.code === 'InputValidationFailed') {
 			let errorDetails;
-			for (const k in response.details) {
-				if (response.details.hasOwnProperty(k)) {
-					errorDetails = errorDetails + `\n${k} ${response.details[k]}`;
+			for (const key in response.details) {
+				if (response.details[key]) {
+					errorDetails = errorDetails + `\n${key} ${response.details[key]}`;
 				}
 			}
 		}

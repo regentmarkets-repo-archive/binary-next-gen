@@ -45,9 +45,9 @@ export const assetsIsOpenSelector = createSelector(
     assetDetails => {
         const assetsIsOpen = assetDetails.map(a => ({ symbol: a.symbol, isOpen: a.isOpen }));
         const assetsIsOpenObject = groupByKey(assetsIsOpen.toJS(), 'symbol');
-        for (let sym in assetsIsOpenObject) {
-            if (assetsIsOpenObject.hasOwnProperty(sym)) {
-                assetsIsOpenObject[sym] = assetsIsOpenObject[sym][0];
+        for (let symbol in assetsIsOpenObject) {
+            if (assetsIsOpenObject[symbol]) {
+                assetsIsOpenObject[symbol] = assetsIsOpenObject[symbol][0];
             }
         }
         return assetsIsOpenObject;
@@ -63,7 +63,7 @@ export const availableContractsSelector = createSelector(
                 const contractTree = contractsPerSymbol(contract);
 
                 // remove trade type without start later if market is closed
-                return assetsIsOpen[symbol].isOpen ?
+                return assetsIsOpen[symbol] && assetsIsOpen[symbol].isOpen ?
                     contractTree :
                     filterObjectBy(contractTree, obj =>
                         findIfExist(obj, descendent => descendent && !!descendent.forwardStartingDuration)

@@ -35,9 +35,9 @@ export const findIfExist = (obj, predicate) => {
  */
 export const filterObjectBy = (obj, predicate) => {
     const result = {};
-    for (let k in obj) {
-        if (obj.hasOwnProperty(k) && predicate(obj[k])) {
-            result[k] = obj[k];
+    for (let key in obj) {
+        if (obj[key] && predicate(obj[key])) {
+            result[key] = obj[key];
         }
     }
     return result;
