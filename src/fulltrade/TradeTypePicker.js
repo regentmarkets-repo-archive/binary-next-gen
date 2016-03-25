@@ -32,6 +32,7 @@ export default class TradeTypePicker extends Component {
         return (
             <div className="trade-type-picker">
                 <TabList
+                    id="type-category-picker"
                     activeIndex={selectedCategoryIndex}
                     onChange={idx => onCategoryChange(categories[idx].value)}
                 >

@@ -21,6 +21,11 @@ export const serverDataProposalOpenContract = serverResponse => {
     return { type: types.SERVER_DATA_PROPOSAL_OPEN_CONTRACT, serverResponse };
 };
 
+export const updateOpenContractField = OpenContractField => ({
+    type: types.UPDATE_OPEN_CONTRACT_FIELD,
+    OpenContractField,
+});
+
 export const updateNow = () => ({
     type: types.UPDATE_NOW,
     now: nowAsEpoch(),

@@ -3,6 +3,7 @@ import * as LiveData from '../_data/LiveData';
 import { changeActiveTrade } from './WorkspaceActions';
 import { trackEvent } from '../_utils/Analytics';
 import { numberToSignedString } from '../_utils/StringUtils';
+import { updateOpenContractField } from './PortfolioActions';
 
 export const serverDataProposal = serverResponse => ({
     type: types.SERVER_DATA_PROPOSAL,
@@ -22,10 +23,19 @@ export const serverDataBuy = serverResponse => ({
     serverResponse,
 });
 
-export const sellContract = (id, price) => {
-    trackEvent('sell-contract', { id, price });
-    LiveData.api.sellContract(id, price);
-};
+export const sellContract = (id, price) =>
+    async (dispatch, getState) => {
+        const contract = getState().openContracts.get(id);
+        if (!contract) {
+            return;
+        }
+        try {
+            await LiveData.api.sellContract(id, price);
+            await trackEvent('sell-contract', { id, price });
+        } catch (error) {
+            dispatch(updateOpenContractField({ id, error }));
+        }
+    };
 
 export const updateQuickTradeParams = (symbol, tradeType, params) => {
     trackEvent('update-quick-trade-params', { symbol, params });
