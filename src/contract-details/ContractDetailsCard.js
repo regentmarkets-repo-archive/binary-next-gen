@@ -60,7 +60,7 @@ export default class ContractDetailsCard extends Component {
 						/>)
 					</button> :
 					<div>
-					{(!!validationError) &&
+					{validationError &&
 						(validationError.message ? 
 							validationError.message.split(')')[1] :
 						validationError)
