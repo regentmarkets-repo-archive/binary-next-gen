@@ -37,7 +37,7 @@ export default (state = initialState, action) => {
             return initialState;
         }
         case UPDATE_OPEN_CONTRACT_FIELD: {
-            const field = action.OpenContractField;
+            const field = action.openContractField;
             if (state.getIn([field.id], 'validation_error')) {
                 return state.setIn([field.id, 'validation_error'], field.error);
             }
