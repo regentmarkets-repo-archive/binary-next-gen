@@ -11,7 +11,7 @@ const activeOpenContractSelector = createSelector(
          * but does not ensure `transaction_id` is sync
          */
         openContracts
-            .filter(c => !c.get('sell_price') && !!c.get('contract_id'))
+            .filter(c => !c.get('sell_price') && c.get('contract_id'))
 );
 
 export const indicativeTotalSelector = createSelector(

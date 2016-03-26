@@ -13,7 +13,7 @@ describe('purchaseTotal', () => {
     it('list of one item equals this item purchase price', () => {
         const actual = purchaseTotalSelector({
             openContracts: fromJS({
-                92001: { buy_price: 10 },
+                92001: { contract_id: 1, buy_price: 10 },
             }),
         });
         expect(actual).to.equal(10);
@@ -22,9 +22,9 @@ describe('purchaseTotal', () => {
     it('list of multiple items results in sum of their prices', () => {
         const actual = purchaseTotalSelector({
             openContracts: fromJS({
-                1001: { buy_price: 1 },
-                2002: { buy_price: 2 },
-                3003: { buy_price: 3 },
+                1001: { contract_id: 1, buy_price: 1 },
+                2002: { contract_id: 2, buy_price: 2 },
+                3003: { contract_id: 3, buy_price: 3 },
             }),
         });
         expect(actual).to.equal(6);
