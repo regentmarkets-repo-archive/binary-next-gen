@@ -5,12 +5,12 @@ import Modal from '../Modal';
 
 describe('Modal', () => {
     it('renders a modal', () => {
-        const wrapper = shallow(<Modal />);
+        const wrapper = shallow(<Modal shown />);
         expect(wrapper.type()).to.equal('div');
     });
 
-    it('renders empty div if shown is false', () => {
+    it('renders nothing if shown is false', () => {
         const wrapper = shallow(<Modal shown={false} />);
-        expect(wrapper.find('div').children()).to.have.length(0);
+        expect(wrapper.type()).to.equal(null);
     });
 });

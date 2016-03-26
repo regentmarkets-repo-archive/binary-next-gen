@@ -11,11 +11,11 @@ import { appStateSelector } from '../_selectors/AppStateSelectors';
 export default class AppStateProvider extends Component {
 
     componentWillMount() {
-        this.timer = window.setTimeout(this.showMessageForSlowConnection.bind(this), 4000);
+        this.timer = setTimeout(this.showMessageForSlowConnection.bind(this), 4000);
     }
 
     componentWillUnmount() {
-        window.clearTimeout(this.timer);
+        clearTimeout(this.timer);
     }
 
     showMessageForSlowConnection() {

@@ -16,7 +16,7 @@ describe('AppStateProvider', () => {
         const store = mockStore(getState, []);
         const wrapper = shallow(
             <AppStateProvider store={store}>
-                <ChildComponent/>
+                <ChildComponent />
             </AppStateProvider>);
 
         expect(wrapper.render().text()).to.contain('check connection');
@@ -29,7 +29,7 @@ describe('AppStateProvider', () => {
         const store = mockStore(getState, []);
         const wrapper = shallow(
             <AppStateProvider store={store}>
-                <ChildComponent/>
+                <ChildComponent />
             </AppStateProvider>);
 
         expect(wrapper.render().text()).to.not.include('check connection');
