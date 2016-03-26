@@ -8,7 +8,7 @@ import assetPickerReducer from '../AssetPickerReducer';
 
 const getInitialState = (props) => ({
     query: '',
-    submarket: '',
+    submarket: 'all',
     ...props,
 });
 
