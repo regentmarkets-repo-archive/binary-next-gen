@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import BuyButton from '../BuyButton';
 
-describe('AssetPickerHeader', () => {
+describe('BuyButton', () => {
     it('should be able to be rendered with no Parameters', () => {
         expect(() => <BuyButton />).to.not.throw();
     });

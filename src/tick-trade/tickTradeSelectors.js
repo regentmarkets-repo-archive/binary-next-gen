@@ -1,6 +1,6 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 import { ticksForFirstTradeSelector, firstTradeSelector } from '../trades/singleTradeSelectors';
-import { findIfExist } from '../_utils/ObjectUtils';
+import findIfExist from '../_utils/findIfExist';
 import { availableAssetsSelector, availableContractsSelector } from '../fulltrade/FullTradeSelectors';
 import { currencySelector } from '../_store/directSelectors';
 

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { connect } from 'react-redux';
-import { immutableChildrenToJS } from '../_utils/ObjectUtils';
+import immutableChildrenToJS from '../_utils/immutableChildrenToJS';
+
 import SettingsCard from './SettingsCard';
 import settingsSelectors from './settingsSelectors';
 

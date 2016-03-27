@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import { immutableChildrenToJS } from '../_utils/ObjectUtils';
+import immutableChildrenToJS from '../_utils/immutableChildrenToJS';
+
 import Article from './Article';
 import newsSelectors from './newsSelectors';
 

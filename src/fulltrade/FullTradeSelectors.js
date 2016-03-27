@@ -9,7 +9,8 @@ import { availableAssetsFilter, flattenSubmarkets } from '../_utils/AssetUtils';
 import { normalizedContractFor } from '../_utils/ContractUtils';
 import { assetPickerItemsSelector } from '../asset-picker/AssetPickerSelectors';
 import { groupByKey } from '../_utils/ArrayUtils';
-import { findIfExist, filterObjectBy } from '../_utils/ObjectUtils';
+import findIfExist from '../_utils/findIfExist';
+import filterObjectBy from '../_utils/filterObjectBy';
 
 /**
  * end result should contain information

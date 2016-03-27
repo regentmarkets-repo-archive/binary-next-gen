@@ -6,7 +6,7 @@ import Modal from '../containers/Modal';
 
 import FullTradeParams from './FullTradeParams';
 import BoughtContractCard from './BoughtContractCard';
-import { findIfExist } from '../_utils/ObjectUtils';
+import findIfExist from '../_utils/findIfExist';
 import { mockedContract } from './../_constants/MockContract';
 
 export default class FullTradeCard extends Component {

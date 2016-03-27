@@ -3,7 +3,8 @@ import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { BinaryChart } from 'binary-charts';
 import M from '../_common/M';
-import { immutableChildrenToJS } from '../_utils/ObjectUtils';
+import immutableChildrenToJS from '../_utils/immutableChildrenToJS';
+
 import portfolioSelectors from '../portfolio/PortfolioSelectors';
 import ContractDetailsCard from './ContractDetailsCard';
 

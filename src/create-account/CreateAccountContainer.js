@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import CreateAccountCard from './CreateAccountCard';
 import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import { immutableChildrenToJS } from '../_utils/ObjectUtils';
+import immutableChildrenToJS from '../_utils/immutableChildrenToJS';
+
 import createAccountSelectors from './createAccountSelectors';
 
 @connect(createAccountSelectors)
