@@ -32,7 +32,7 @@ export default class FullTradeCard extends Component {
     render() {
         const { actions, index, marketIsOpen, trade, ticks } = this.props;
         const selectedSymbol = trade.symbol;
-
+        const { durationUnit } = trade;
         const mostRecentContractBought = trade.mostRecentContractBought;
         const contract = this.props.contract || mockedContract;
 
@@ -63,6 +63,7 @@ export default class FullTradeCard extends Component {
                             actions={actions}
                             boughtContract={mostRecentContractBought}
                             tradeId={index}
+                            durationUnit={durationUnit}
                         /> :
                         <FullTradeParams
                             {...this.props}
