@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getStatesForCountry } from '../_actions/StatesActions';
 
-@connect(state => ({ states: state.states }))
+@connect(state => ({ states: state.states.toJS() }))
 export default class States extends Component {
 
     static propTypes = {

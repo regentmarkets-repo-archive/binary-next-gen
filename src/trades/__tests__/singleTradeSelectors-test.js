@@ -1,6 +1,7 @@
-import { fromJS } from 'immutable';
+import { fromJS, Map } from 'immutable';
 import { expect } from 'chai';
 import singleTradeSelectors from '../singleTradeSelectors';
+import { contractsForR_50 } from '../../_test-data/tradingOptions';
 
 describe('singleTradeSelectors', () => {
     const emptyState = () => ({
@@ -22,7 +23,7 @@ describe('singleTradeSelectors', () => {
         account: fromJS({ currency: 'JPY' }),
         ticks: fromJS({ R_9000: [{ quote: 123 }] }),
         trades: fromJS([{ symbol: 'R_9000' }]),
-        tradingOptions: fromJS([]),
+        tradingOptions: new Map({ R_9000: contractsForR_50 }),
         tradingTimes: fromJS([]),
     });
 
@@ -47,7 +48,7 @@ describe('singleTradeSelectors', () => {
         expect(actual.ticks).to.deep.equal(fromJS([{ quote: 123 }]));
     });
 
-    it.skip('will retrieve contarct for trade', () => {
+    it('will retrieve contarct for trade', () => {
         const state = testState();
         const actual = singleTradeSelectors(state);
         expect(actual.contract).to.be.ok;
