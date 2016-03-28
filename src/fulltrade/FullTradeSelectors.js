@@ -7,7 +7,6 @@ import { extractDuration, extractForwardStartingDuration } from '../_utils/Durat
 import { extractSpreadInfo } from '../_utils/SpreadUtils';
 import { availableAssetsFilter, flattenSubmarkets } from '../_utils/AssetUtils';
 import { normalizedContractFor } from '../_utils/ContractUtils';
-import { assetPickerItemsSelector } from '../asset-picker/AssetPickerSelectors';
 import { groupByKey } from '../_utils/ArrayUtils';
 import findIfExist from '../_utils/findIfExist';
 import filterObjectBy from '../_utils/filterObjectBy';
@@ -42,9 +41,9 @@ const contractsPerSymbol = createSelector(
 );
 
 export const assetsIsOpenSelector = createSelector(
-    assetPickerItemsSelector,
-    assetDetails => {
-        const assetsIsOpen = assetDetails.map(a => ({ symbol: a.symbol, isOpen: a.isOpen }));
+    assetsSelector,
+    assets => {
+        const assetsIsOpen = assets.map(a => ({ symbol: a.get('symbol'), isOpen: !!a.get('exchange_is_open') }));
         const assetsIsOpenObject = groupByKey(assetsIsOpen.toJS(), 'symbol');
         for (let symbol in assetsIsOpenObject) {
             if (assetsIsOpenObject[symbol]) {

@@ -74,7 +74,7 @@ export const extractBarrier = (contracts, type) => {
         case 'SPREADD':
             return undefined;
         default: {
-            throw new Error('Unknown trading type');
+            throw new Error(`Unknown trading type: ${type}`);
         }
     }
 };

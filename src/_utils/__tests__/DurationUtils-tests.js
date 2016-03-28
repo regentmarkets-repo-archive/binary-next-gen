@@ -1,6 +1,6 @@
 import * as DurationUtils from '../DurationUtils';
 import { expect } from 'chai';
-import { realContractsFromServer } from '../../_test-data/contracts';
+import { contractsForR_50 } from '../../_test-data/tradingOptions';
 
 /**
  *  Duration refer to string with digit follow by duration unit
@@ -49,12 +49,12 @@ describe('extractMinMaxInUnits', () => {
 describe('extractDurationHelper', () => {
 
     it('should return empty array for spreads as spreads does not have duration', () => {
-        const durationsForSpread = DurationUtils.extractDurationHelper(realContractsFromServer, 'SPREAD');
+        const durationsForSpread = DurationUtils.extractDurationHelper(contractsForR_50, 'SPREAD');
         expect(durationsForSpread).be.empty;
     });
 
     it('should return arrays of duration for non-spread type', () => {
-        const durations = DurationUtils.extractDurationHelper(realContractsFromServer, 'CALL');
+        const durations = DurationUtils.extractDurationHelper(contractsForR_50, 'CALL');
         expect(durations).to.have.length(5);
     })
 });
