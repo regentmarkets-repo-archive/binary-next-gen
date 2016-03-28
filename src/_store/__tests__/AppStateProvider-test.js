@@ -14,11 +14,12 @@ describe('AppStateProvider', () => {
 
         const getState = { appState: fromJS({ connected: false }) };
         const store = mockStore(getState, []);
-        const wrapper = shallow(
+        const testComponent =
             <AppStateProvider store={store}>
                 <ChildComponent />
-            </AppStateProvider>);
+            </AppStateProvider>;
 
+        const wrapper = shallow(testComponent);
         expect(wrapper.render().text()).to.contain('check connection');
     });
 

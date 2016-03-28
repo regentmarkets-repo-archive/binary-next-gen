@@ -11,40 +11,40 @@ import {
 } from '../../_constants/ActionTypes';
 
 describe('OpenContractProposalsReducer', () => {
-    it.skip('should update open contract data proposal with the new contract proposal', () => {
+    it('should update open contract data proposal with the new contract proposal', () => {
         const action = {
             type: SERVER_DATA_PROPOSAL_OPEN_CONTRACT,
             serverResponse: {
                 proposal_open_contract: {
-                     contract_id: 0,
+                     contract_id: '101010',
                  },
             },
         };
-        const expectedState = fromJS({ 0: { contract_id: 0 } });
+        const expectedState = fromJS({ '101010': { contract_id: '101010' } });
         const beforeState = fromJS({});
         const actualState = openContractProposalReducer(beforeState, action);
 
         expect(expectedState).to.equal(actualState);
     });
 
-    it.skip('should update update contract portfolio state', () => {
+    it('should update update contract portfolio state', () => {
         const action = {
             type: SERVER_DATA_PORTFOLIO,
             serverResponse: {
                 portfolio: {
                     contracts: [
                         {
-                            contract_id: 0,
+                            contract_id: '101',
                         },
                         {
-                            contract_id: 1,
+                            contract_id: '202',
                         },
                     ],
                 },
             },
 
         };
-        const expectedState = fromJS({ 0: { contract_id: 0 }, 1: { contract_id: 1 } });
+        const expectedState = fromJS({ '101': { contract_id: '101' }, '202': { contract_id: '202' } });
         const beforeState = fromJS({});
         const actualState = openContractProposalReducer(beforeState, action);
 

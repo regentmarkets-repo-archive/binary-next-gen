@@ -8,12 +8,7 @@ describe('BuyButton', () => {
         expect(() => <BuyButton />).to.not.throw();
     });
 
-    it.skip('should show price of contract if provided', () => {
-        const wrapper = shallow(<BuyButton askPrice={123} />);
-        expect(wrapper.find('NumberPlain')).to.have.length(1);
-    });
-
-    it('should not show price of contract if none is provided', () => {
+    it('should not show price of contract', () => {
         const wrapper = shallow(<BuyButton />);
         expect(wrapper.find('NumberPlain')).to.have.length(0);
     });
