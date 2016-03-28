@@ -22,12 +22,12 @@ export const getTicksBySymbol = symbol =>
         const license = feedLicenses.get(symbol);
         if (!ticks.get(symbol)) {
             if (!license) {
-                LiveData.api.getTickHistory(symbol, { end: 'latest', count: 60 });
+                LiveData.api.getTickHistory(symbol, { end: 'latest', count: 60, adjust_start_time: 1 });
                 LiveData.api.subscribeToTick(symbol);
             }
 
             if (license !== 'chartonly') {
-                LiveData.api.getTickHistory(symbol, { end: 'latest', count: 60 });
+                LiveData.api.getTickHistory(symbol, { end: 'latest', count: 60, adjust_start_time: 1 });
             }
 
             if (license === 'realtime') {
