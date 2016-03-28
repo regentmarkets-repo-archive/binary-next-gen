@@ -392,6 +392,9 @@ export default class FullTradeParams extends Component {
                 }
                 {showSpreadBarrier &&
                     <SpreadBarrierCard
+                        amountPerPoint={trade.amountPerPoint}
+                        stopLoss={trade.stopLoss}
+                        stopProfit={trade.stopProfit}
                         amountPerPointChange={this.onAmountPerPointChange}
                         currency={currency}
                         index={index}

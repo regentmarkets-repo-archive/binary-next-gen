@@ -23,10 +23,13 @@ export default class SpreadBarrierCard extends Component {
 
     render() {
         const {
+            amountPerPoint,
             amountPerPointChange,
             currency,
             index,
+            stopProfit,
             stopProfitChange,
+            stopLoss,
             stopLossChange,
             stopTypeChange,
             spreadInfo,
@@ -42,7 +45,7 @@ export default class SpreadBarrierCard extends Component {
                 <InputGroup
                     type="number"
                     label={`Amount per point (${currency})`}
-                    value={spreadInfo.amountPerPoint}
+                    value={amountPerPoint || spreadInfo.amountPerPoint}
                     onChange={amountPerPointChange}
                 />
                 <RadioGroup
@@ -54,13 +57,13 @@ export default class SpreadBarrierCard extends Component {
                 <InputGroup
                     type="number"
                     label="Stop loss"
-                    value={spreadInfo.stopLoss}           // TODO: hardcode default as backend return wrong data
+                    value={stopLoss || spreadInfo.stopLoss}      // TODO: hardcode default as backend return wrong data
                     onChange={stopLossChange}
                 />
                 <InputGroup
                     type="number"
                     label="Stop profit"
-                    value={spreadInfo.stopProfit}
+                    value={stopProfit || spreadInfo.stopProfit}
                     onChange={stopProfitChange}
                 />
             </div>
