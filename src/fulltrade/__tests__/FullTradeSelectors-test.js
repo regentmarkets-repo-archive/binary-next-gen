@@ -9,7 +9,7 @@ describe('assetsIsOpenSelector', () => {
 
     it('should create a tree with isOpen as key of each children', () => {
         for (let symbol in assetsIsOpen) {
-            expect(assetsIsOpen[symbol].isOpen).to.be.ok;
+            expect(assetsIsOpen[symbol].isOpen).to.not.be.undefined;
         }
     });
 
