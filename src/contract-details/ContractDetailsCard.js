@@ -10,7 +10,7 @@ export default class ContractDetailsCard extends Component {
 		nowEpoch: PropTypes.number,
 		transactionId: PropTypes.number,
 		actions: PropTypes.object,
-		durationUnit: PropTypes.string.isRequired,
+		durationUnit: PropTypes.string,
 	};
 
 	render() {

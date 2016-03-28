@@ -7,7 +7,7 @@ export default class BoughtContractCard extends Component {
         actions: PropTypes.object.isRequired,
         boughtContract: PropTypes.object.isRequired,
         tradeId: PropTypes.number.isRequired,
-        durationUnit: PropTypes.string.isRequired,
+        durationUnit: PropTypes.string,
     };
 
     render() {
