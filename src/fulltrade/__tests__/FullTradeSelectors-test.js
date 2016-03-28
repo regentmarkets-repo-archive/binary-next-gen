@@ -1,11 +1,11 @@
 import { fromJS, Map } from 'immutable';
 import { expect } from 'chai';
-import * as fts from '../FullTradeSelectors';
+import * as FullTradeSelectors from '../FullTradeSelectors';
 import { assetsFromServer } from '../../_test-data/assets';
 import { contractsForR_50, contractsForGDAXI } from '../../_test-data/tradingOptions';
 
 describe('assetsIsOpenSelector', () => {
-    const assetsIsOpen = fts.assetsIsOpenSelector({ assets: fromJS(assetsFromServer) });
+    const assetsIsOpen = FullTradeSelectors.assetsIsOpenSelector({ assets: fromJS(assetsFromServer) });
 
     it('should create a tree with isOpen as key of each children', () => {
         for (let symbol in assetsIsOpen) {
@@ -25,7 +25,7 @@ describe('assetsIsOpenSelector', () => {
 });
 
 describe('availableContractsSelector', () => {
-    const availableContracts = fts.availableContractsSelector({
+    const availableContracts = FullTradeSelectors.availableContractsSelector({
         assets: fromJS(assetsFromServer),
         tradingOptions: new Map({ R_50: contractsForR_50, GDAXI: contractsForGDAXI }),
     });
