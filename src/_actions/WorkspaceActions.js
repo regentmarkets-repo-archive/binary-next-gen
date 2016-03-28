@@ -25,7 +25,7 @@ export const selectAssetSymbolForTrade = (newSymbol, oldSymbol) =>
     dispatch => {
         dispatch(clearTradeTicks());
         dispatch(changeSelectedAsset(newSymbol));
-        LiveData.api.getTickHistory(newSymbol, { end: 'latest', count: 60 });
+        LiveData.api.getTickHistory(newSymbol, { end: 'latest', count: 60, adjust_start_time: 1 });
         LiveData.api.unsubscribeFromTick(oldSymbol);
         LiveData.api.subscribeToTick(newSymbol);
     };

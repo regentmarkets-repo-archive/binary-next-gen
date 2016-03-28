@@ -46,7 +46,7 @@ const subscribeToSelectedSymbol = store => {
     if (state.workspace && state.workspace.get('selectedAsset')) {
         const symbol = state.workspace.get('selectedAsset');
         store.dispatch(actions.getTradingOptions(symbol, () => {
-            api.getTickHistory(symbol, { end: 'latest', count: 60 });
+            api.getTickHistory(symbol, { end: 'latest', count: 60, adjust_start_time: 1 });
             api.subscribeToTick(symbol);
         }));
     }
