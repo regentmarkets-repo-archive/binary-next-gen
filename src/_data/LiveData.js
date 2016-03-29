@@ -1,7 +1,7 @@
 import { LiveApi } from 'binary-live-api';
 import { readNewsFeed } from './NewsData';
 import { getVideosFromPlayList } from './VideoData';
-import { isVirtual } from '../_utils/UserUtils';
+import isUserVirtual from '../_utils/isUserVirtual';
 import * as actions from '../_actions';
 import config from '../config';
 
@@ -90,7 +90,7 @@ const initAuthorized = (authData, store) => {
     subscribeToWatchlist(store);
     subscribeToSelectedSymbol(store);
 
-    if (!isVirtual(authData.authorize)) {
+    if (!isUserVirtual(authData.authorize)) {
         api.getAccountLimits();
         api.getSelfExclusion();
         api.getCashierLockStatus();

@@ -1,4 +1,5 @@
-import { durationToSecs, isIntraday } from '../_utils/TradeUtils';
+import durationToSecs from '../_utils/durationToSecs';
+import isIntraday from '../_utils/isIntraday';
 import { dateToEpoch } from '../_utils/DateUtils';
 
 export const createDefaultCategory = contracts => Object.keys(contracts)[0];

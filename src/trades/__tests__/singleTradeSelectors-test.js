@@ -1,7 +1,7 @@
 import { fromJS, Map } from 'immutable';
 import { expect } from 'chai';
 import singleTradeSelectors from '../singleTradeSelectors';
-import { contractsForR_50 } from '../../_test-data/tradingOptions';
+import contractsForR50 from '../../_test-data/contractsForR50';
 
 describe('singleTradeSelectors', () => {
     const emptyState = () => ({
@@ -23,7 +23,7 @@ describe('singleTradeSelectors', () => {
         account: fromJS({ currency: 'JPY' }),
         ticks: fromJS({ R_9000: [{ quote: 123 }] }),
         trades: fromJS([{ symbol: 'R_9000' }]),
-        tradingOptions: new Map({ R_9000: contractsForR_50 }),
+        tradingOptions: new Map({ R_9000: contractsForR50 }),
         tradingTimes: fromJS([]),
     });
 

@@ -5,7 +5,7 @@ import Modal from '../containers/Modal';
 import { BinaryChart } from 'binary-charts';
 import TickTradeParameters from './TickTradeParameters';
 import BuyButton from './BuyButton';
-import { askPriceFromProposal } from '../_utils/TradeUtils';
+import askPriceFromProposal from '../_utils/askPriceFromProposal';
 
 export default class TickTradeCard extends Component {
 

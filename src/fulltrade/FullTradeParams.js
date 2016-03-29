@@ -1,16 +1,18 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import ErrorMsg from '../_common/ErrorMsg';
-import { isIntraday, isDurationLessThan2Mins, getLastTick } from '../_utils/TradeUtils';
+import isIntraday from '../_utils/isIntraday';
+import isDurationLessThan2Mins from '../_utils/isDurationLessThan2Mins';
+import getLastTick from '../_utils/getLastTick';
 import BarrierCard from '../barrier-picker/BarrierCard';
 import DigitBarrierCard from '../barrier-picker/DigitBarrierCard';
 import DurationCard from '../duration-picker/DurationCard';
 import StakeCard from '../payout-picker/StakeCard';
 import PayoutCard from '../payout-picker/PayoutCard';
 import BuyButton from '../tick-trade/BuyButton';
-import { askPriceFromProposal } from '../_utils/TradeUtils';
+import askPriceFromProposal from '../_utils/askPriceFromProposal';
 import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
-import { isDurationWithinRange } from '../_utils/DurationUtils';
+import isDurationWithinRange from '../_utils/isDurationWithinRange';
 import TradeTypePicker from './TradeTypePicker';
 import {
     createDefaultType,
@@ -163,7 +165,7 @@ export default class FullTradeParams extends Component {
     onCategoryChange(newCategory) {
         const { contract } = this.props;
         const defaultType = createDefaultType(contract, newCategory);
-        // spreads is special case
+            // spreads is special case
         if (newCategory === 'spreads') {
             const spread = contract[newCategory][defaultType].spread;
 
@@ -177,7 +179,7 @@ export default class FullTradeParams extends Component {
                 barrier2: undefined,
                 amountPerPoint: spread.amountPerPoint,
                 stopType: spread.stopType,
-                stopLoss: 30,                               // hardcode default as backend return wrong info
+                stopLoss: 30, // hardcode default as backend return wrong info
                 stopProfit: spread.stopProfit,
             });
             return;

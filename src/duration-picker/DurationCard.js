@@ -5,7 +5,7 @@ import ErrorMsg from '../_common/ErrorMsg';
 import SelectGroup from '../_common/SelectGroup';
 import InputGroup from '../_common/InputGroup';
 import ForwardStartingOptions from './ForwardStartingOptions';
-import { durationText } from '../_utils/TradeUtils';
+import durationText from '../_utils/durationText';
 import ToggleSwitch from '../_common/ToggleSwitch';
 
 export default class DurationCard extends Component {

@@ -2,8 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import TabList from '../_common/TabList';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import Tab from '../_common/Tab';
-import { contractCategoryDisplay } from '../_utils/TradeUtils';
-import { tradeTypeCodeToText } from '../_utils/TradeUtils';
+import contractCategoryDisplay from '../_utils/contractCategoryDisplay';
+import tradeTypeCodeToText from '../_utils/tradeTypeCodeToText';
 
 export default class TradeTypePicker extends Component {
 

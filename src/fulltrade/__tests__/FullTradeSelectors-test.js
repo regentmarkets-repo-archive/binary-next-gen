@@ -2,7 +2,8 @@ import { fromJS, Map } from 'immutable';
 import { expect } from 'chai';
 import * as FullTradeSelectors from '../FullTradeSelectors';
 import { assetsFromServer } from '../../_test-data/assets';
-import { contractsForR_50, contractsForGDAXI } from '../../_test-data/tradingOptions';
+import contractsForR50 from '../../_test-data/contractsForR50';
+import contractsForGDAXI from '../../_test-data/contractsForGDAXI';
 
 describe('assetsIsOpenSelector', () => {
     const assetsIsOpen = FullTradeSelectors.assetsIsOpenSelector({ assets: fromJS(assetsFromServer) });
@@ -27,7 +28,7 @@ describe('assetsIsOpenSelector', () => {
 describe('availableContractsSelector', () => {
     const availableContracts = FullTradeSelectors.availableContractsSelector({
         assets: fromJS(assetsFromServer),
-        tradingOptions: new Map({ R_50: contractsForR_50, GDAXI: contractsForGDAXI }),
+        tradingOptions: new Map({ R_50: contractsForR50, GDAXI: contractsForGDAXI }),
     });
 
     it('should return contract if symbol is opened', () => {
