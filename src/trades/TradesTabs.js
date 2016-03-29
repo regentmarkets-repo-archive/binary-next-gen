@@ -17,7 +17,6 @@ export default class TradesTabs extends Component {
 
     render() {
         const { actions, activeTradeIndex, assetsIsOpen, contracts, trades, ticksForAllSymbols, currency } = this.props;
-        const activeTrade = trades[activeTradeIndex];
         return (
             <div className="trades-tabs">
                 <TabList
@@ -36,12 +35,12 @@ export default class TradesTabs extends Component {
                 <div key={index}>
                     { (index === activeTradeIndex) &&    
                         <FullTradeCard
-                            index={activeTradeIndex}
+                            index={index}
                             actions={actions}
-                            trade={activeTrade}
-                            marketIsOpen={assetsIsOpen[activeTrade.symbol].isOpen}
-                            ticks={ticksForAllSymbols[activeTrade.symbol]}
-                            contract={contracts[activeTrade.symbol]}
+                            trade={trade}
+                            marketIsOpen={assetsIsOpen[trade.symbol].isOpen}
+                            ticks={ticksForAllSymbols[trade.symbol]}
+                            contract={contracts[trade.symbol]}
                             currency={currency}
                         />
                     }
