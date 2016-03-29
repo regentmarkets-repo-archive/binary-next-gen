@@ -1,4 +1,4 @@
-import { groupByKey } from '../_utils/ArrayUtils';
+import groupByKey from '../_utils/groupByKey';
 
 export const normalizedContractFor = contracts => {
     const extraRemoved = contracts.map(contract => ({

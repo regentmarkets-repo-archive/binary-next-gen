@@ -7,7 +7,7 @@ import { extractDuration, extractForwardStartingDuration } from '../_utils/Durat
 import { extractSpreadInfo } from '../_utils/SpreadUtils';
 import { availableAssetsFilter, flattenSubmarkets } from '../_utils/AssetUtils';
 import { normalizedContractFor } from '../_utils/ContractUtils';
-import { groupByKey } from '../_utils/ArrayUtils';
+import groupByKey from '../_utils/groupByKey';
 import findIfExist from '../_utils/findIfExist';
 import filterObjectBy from '../_utils/filterObjectBy';
 

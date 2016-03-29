@@ -1,5 +1,7 @@
 import { durationUnits } from '../_constants/TradeParams';
-import { arrayToObject, groupByKey } from './ArrayUtils';
+import arrayToObject from './arrayToObject';
+import groupByKey from './groupByKey';
+
 import { splitSecsToUnits } from './DateUtils';
 import { durationToSecs } from './TradeUtils';
 
