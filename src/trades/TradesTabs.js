@@ -31,15 +31,22 @@ export default class TradesTabs extends Component {
                         />
                     )}
                 </TabList>
-                <FullTradeCard
-                    index={activeTradeIndex}
-                    actions={actions}
-                    trade={activeTrade}
-                    marketIsOpen={assetsIsOpen[activeTrade.symbol].isOpen}
-                    ticks={ticksForAllSymbols[activeTrade.symbol]}
-                    contract={contracts[activeTrade.symbol]}
-                    currency={currency}
-                />
+            {trades.map((trade, index) =>
+
+                <div key={index}>
+                    { (index === activeTradeIndex) &&    
+                        <FullTradeCard
+                            index={activeTradeIndex}
+                            actions={actions}
+                            trade={activeTrade}
+                            marketIsOpen={assetsIsOpen[activeTrade.symbol].isOpen}
+                            ticks={ticksForAllSymbols[activeTrade.symbol]}
+                            contract={contracts[activeTrade.symbol]}
+                            currency={currency}
+                        />
+                    }
+                </div>
+             )}       
             </div>
         );
     }
