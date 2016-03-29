@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { isValidEmail } from '../ValidationUtils';
+import isValidEmail from '../isValidEmail';
 
 describe('isValidEmail', () => {
     it('returns false for invalid emails', () => {

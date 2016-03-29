@@ -1,9 +1,9 @@
 import React, { PropTypes, Component } from 'react';
-import { showError } from '../_utils/MessagingUtils';
+import showError from '../_utils/showError';
 import M from '../_common/M';
 import InputGroup from '../_common/InputGroup';
 import * as LiveData from '../_data/LiveData';
-import * as Validation from '../_utils/ValidationUtils';
+import isValidPassword from '../_utils/isValidPassword';
 
 export default class SettingsSecurity extends Component {
 
@@ -46,7 +46,7 @@ export default class SettingsSecurity extends Component {
                 unlock_password: password1,
             });
         } else {
-            Validation.isValidPassword(password1, password2) ?
+            isValidPassword(password1, password2) ?
                 this.sendRequest({
                     lock_password: password1,
                 }) :

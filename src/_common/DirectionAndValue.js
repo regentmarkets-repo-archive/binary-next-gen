@@ -1,17 +1,21 @@
 import React, { PropTypes, Component } from 'react';
 import { Direction, NumberPlain } from './';
-import { directionClassName } from '../_utils/StyleUtils';
+import directionClassName from '../_utils/directionClassName';
 
-const DirectionAndValue = ({ diff, value }) => (
-	<span>
-		<Direction diff={diff} />
-		<NumberPlain className={directionClassName(diff)} value={value} />
-	</span>
-);
+export default class DirectionAndValue extends Component {
 
-DirectionAndValue.propTypes = {
-	diff: PropTypes.number.isRequired,
-	value: PropTypes.number.isRequired,
-};
+	static propTypes = {
+		diff: PropTypes.number.isRequired,
+		value: PropTypes.number.isRequired,
+	};
 
-export default DirectionAndValue;
+	render() {
+		const { diff, value } = this.props;
+		return (
+			<span>
+				<Direction diff={diff} />
+				<NumberPlain className={directionClassName(diff)} value={value} />
+			</span>
+		);
+	}
+}

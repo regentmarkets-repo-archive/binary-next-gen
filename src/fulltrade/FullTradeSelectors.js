@@ -4,9 +4,10 @@ import { assetsSelector, tradingTimesSelector } from '../_store/directSelectors'
 import { marketTreeSelector } from '../_selectors/marketTreeSelector';
 import { extractBarrier } from '../_utils/BarrierUtils';
 import { extractDuration, extractForwardStartingDuration } from '../_utils/DurationUtils';
-import { extractSpreadInfo } from '../_utils/SpreadUtils';
-import { availableAssetsFilter, flattenSubmarkets } from '../_utils/AssetUtils';
-import { normalizedContractFor } from '../_utils/ContractUtils';
+import extractSpreadInfo from '../_utils/extractSpreadInfo';
+import availableAssetsFilter from '../_utils/availableAssetsFilter';
+import flattenSubmarkets from '../_utils/flattenSubmarkets';
+import normalizedContractFor from '../_utils/normalizedContractFor';
 import groupByKey from '../_utils/groupByKey';
 import findIfExist from '../_utils/findIfExist';
 import filterObjectBy from '../_utils/filterObjectBy';

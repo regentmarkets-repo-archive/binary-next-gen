@@ -1,6 +1,6 @@
 import groupByKey from '../_utils/groupByKey';
 
-export const normalizedContractFor = contracts => {
+export default contracts => {
     const extraRemoved = contracts.map(contract => ({
         amount_per_point: contract.amount_per_point,
         barrier: contract.barrier,

@@ -1,9 +1,10 @@
 import React from 'react';
-import { showInfo, showError } from '../_utils/MessagingUtils';
+import showError from '../_utils/showError';
+import showInfo from '../_utils/showInfo';
 import M from '../_common/M';
 import InputGroup from '../_common/InputGroup';
 import * as LiveData from '../_data/LiveData';
-import * as Validation from '../_utils/ValidationUtils';
+import isValidPassword from '../_utils/isValidPassword';
 
 export default class SettingsChangePassword extends React.Component {
 
@@ -27,7 +28,7 @@ export default class SettingsChangePassword extends React.Component {
 
     onClick() {
         const { currentPassword, newPassword, confirmPassword } = this.state;
-        if (Validation.isValidPassword(newPassword, confirmPassword)) {
+        if (isValidPassword(newPassword, confirmPassword)) {
             this.sendRequest({
                 old_password: currentPassword,
                 new_password: newPassword,

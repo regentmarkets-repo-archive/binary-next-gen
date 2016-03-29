@@ -1,5 +1,5 @@
 import { expect } from 'chai';
-import { flattenSubmarkets } from '../AssetUtils';
+import flattenSubmarkets from '../flattenSubmarkets';
 
 describe('flattenSubmarkets', () => {
     it('can be called with an empty list', () => {

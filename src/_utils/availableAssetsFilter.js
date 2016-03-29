@@ -1,23 +1,5 @@
 import { epochToUTCTimeString, timeStringIsBetween } from '../_utils/DateUtils';
 
-export const symbolsToArray = symbols =>
-    Object.keys(symbols).map(v => ({
-        text: symbols[v].display_name,
-        value: v,
-    }));
-
-export const submarketsToSymbols = submarkets =>
-    Object.keys(submarkets).reduce((r, v) =>
-        r.concat(symbolsToArray(submarkets[v].symbols)),
-        []
-    );
-
-export const flattenSubmarkets = markets =>
-    Object.keys(markets).reduce((acc, m) => {
-        acc[m] = submarketsToSymbols(markets[m].submarkets);
-        return acc;
-    }, {});
-
 export const availableAssetsFilter = (assets, times, now) => {
     const nowInTimeString = epochToUTCTimeString(now);
     const availabilities = {};
