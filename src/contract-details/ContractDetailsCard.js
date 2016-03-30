@@ -48,7 +48,7 @@ export default class ContractDetailsCard extends Component {
 						</tr>
 					</tbody>
 				</table>
-				{(validToSell && !validationError) ?
+				{validToSell ?
 					<button
 						className="sell-at-market-btn"
 						onClick={() => actions.sellContract(contract.contract_id, 0)}
