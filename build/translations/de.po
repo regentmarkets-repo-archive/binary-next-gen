@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-03-23 16:54+0000\n"
+"PO-Revision-Date: 2016-03-30 16:32+0000\n"
 "Last-Translator: Karin Graf <karin_graf@hotmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/de/>\n"
@@ -31,11 +31,9 @@ msgstr "Eigentum"
 msgid "Value"
 msgstr "Wert"
 
-#, fuzzy
 msgid "Balance"
 msgstr "Guthaben"
 
-#, fuzzy
 msgid "Trade"
 msgstr "Handel"
 
@@ -45,54 +43,42 @@ msgstr "Beobachtungsliste"
 msgid "Open Positions"
 msgstr "Offene Positionen"
 
-#, fuzzy
 msgid "Profit Table"
 msgstr "Gewinntabelle"
 
-#, fuzzy
 msgid "Statement"
 msgstr "Abrechnung"
 
-#, fuzzy
 msgid "Settings"
 msgstr "Einstellungen"
 
 msgid "Sign Out"
 msgstr "Abmelden"
 
-#, fuzzy
 msgid "View"
 msgstr "Ansehen"
 
-#, fuzzy
 msgid "Ref."
 msgstr "Ref."
 
-#, fuzzy
 msgid "Purchase"
 msgstr "Kauf"
 
-#, fuzzy
 msgid "Indicative"
 msgstr "Indikativ"
 
-#, fuzzy
 msgid "Purchase Date"
 msgstr "Kaufdatum"
 
-#, fuzzy
 msgid "Purchase Price"
 msgstr "Kaufpreis"
 
-#, fuzzy
 msgid "Sale Date"
 msgstr "Verkaufsdatum"
 
-#, fuzzy
 msgid "Sale Price"
 msgstr "Verkaufskurs"
 
-#, fuzzy
 msgid "Profit/Loss"
 msgstr "Gewinn/Verlust"
 
@@ -102,43 +88,33 @@ msgstr "Gesamt"
 msgid "Location"
 msgstr "Ort"
 
-#, fuzzy
 msgid "Update"
 msgstr "Aktualisieren"
 
-#, fuzzy
 msgid "Details"
 msgstr "Angaben"
 
-#, fuzzy
 msgid "Trading Limits"
 msgstr "Handelslimits"
 
-#, fuzzy
 msgid "Item"
 msgstr "Posten"
 
-#, fuzzy
 msgid "Limit ({currency})"
 msgstr "Limit ({currency})"
 
-#, fuzzy
 msgid "Maximum number of open positions"
 msgstr "Maximale Anzahl offener Positionen"
 
-#, fuzzy
 msgid "Maximum account cash balance"
 msgstr "Maximales Kontoguthaben"
 
-#, fuzzy
 msgid "Maximum daily turnover"
 msgstr "Maximaler Tagesumsatz"
 
-#, fuzzy
 msgid "Maximum aggregate payouts on open positions"
 msgstr "Maximale Gesamtauszahlungen auf offene Positionen"
 
-#, fuzzy
 msgid "Withdrawal limits"
 msgstr "Auszahlungslimits"
 
@@ -164,19 +140,15 @@ msgstr "Holen Sie sich Ihren API-Token"
 msgid "Create Account"
 msgstr "Konto einrichten"
 
-#, fuzzy
 msgid "Action"
 msgstr "Handlung"
 
-#, fuzzy
 msgid "Credit/Debit"
 msgstr "Gutschrift/Lastschrift"
 
-#, fuzzy
 msgid "Purchase Time"
 msgstr "Kaufuhrzeit"
 
-#, fuzzy
 msgid "Back"
 msgstr "Zurück"
 
@@ -186,69 +158,54 @@ msgstr "Order aufgeben"
 msgid "{asset} will {type} over next {duration}"
 msgstr "{asset} wird {type} in den nächsten {duration}"
 
-#, fuzzy
 msgid "Price"
 msgstr "Kurs"
 
-#, fuzzy
 msgid "Asset"
 msgstr "Kapital"
 
-#, fuzzy
 msgid "Type"
 msgstr "Typ"
 
-#, fuzzy
 msgid "Ticks"
 msgstr "Ticks"
 
-#, fuzzy
 msgid "Amount"
 msgstr "Betrag"
 
-#, fuzzy
 msgid "Trade Confirmation"
 msgstr "Handelsbestätigung"
 
-#, fuzzy
 msgid "Entry spot"
 msgstr "Startkurs"
 
-#, fuzzy
 msgid "Exit spot"
 msgstr "Schlusskurs"
 
-#, fuzzy
 msgid "Next"
 msgstr "Weiter"
 
-#, fuzzy
 msgid "Open Account"
 msgstr "Konto eröffnen"
 
 msgid "Upgrade to Real Money Account"
 msgstr "Auf Echtgeldkonto wechseln"
 
-#, fuzzy
 msgid "Date of birth"
 msgstr "Geburtsdatum"
 
 msgid "Home Address"
 msgstr "Wohnanschrift"
 
-#, fuzzy
 msgid "Security"
 msgstr "Sicherheit"
 
-#, fuzzy
 msgid "Spot"
 msgstr "Kassakurs"
 
-#, fuzzy
 msgid "Change"
 msgstr "Veränderung"
 
-#, fuzzy
 msgid "Chart"
 msgstr "Diagramm"
 
@@ -342,11 +299,9 @@ msgstr "Hell"
 msgid "Dark"
 msgstr "Dunkel"
 
-#, fuzzy
 msgid "Name"
 msgstr "Name"
 
-#, fuzzy
 msgid "Date Of Birth"
 msgstr "Geburtsdatum"
 
@@ -356,15 +311,12 @@ msgstr "Wohnsitzland"
 msgid "Email"
 msgstr "E-Mail"
 
-#, fuzzy
 msgid "There are no transactions for selected period"
 msgstr "Für den ausgewählten Zeitraum liegen keine Transaktionen vor."
 
-#, fuzzy
 msgid "Sell"
 msgstr "Verkaufen"
 
-#, fuzzy
 msgid "Buy"
 msgstr "Kaufen"
 
@@ -386,7 +338,6 @@ msgstr "Kommastelle unter"
 msgid "Digit Odd"
 msgstr "Kommastelle Chance"
 
-#, fuzzy
 msgid "Digit Differs"
 msgstr "Kommastelle unterschiedlich"
 
@@ -396,13 +347,11 @@ msgstr "Berührt nicht"
 msgid "Fall"
 msgstr "Fällt"
 
-#, fuzzy
 msgid "Asian Down"
 msgstr "Asiatisch runter"
 
 msgid "Asian Up"
 msgstr "Asiatisch hoch"
 
-#, fuzzy
 msgid "Search For Assets"
 msgstr "Suche nach Anlagen"
