@@ -3,6 +3,7 @@ import ContractDetailsCard from '../contract-details/ContractDetailsCard';
 import M from '../_common/M';
 
 export default class BoughtContractCard extends Component {
+
     static propTypes = {
         actions: PropTypes.object.isRequired,
         boughtContract: PropTypes.object.isRequired,
@@ -11,6 +12,7 @@ export default class BoughtContractCard extends Component {
 
     render() {
         const { actions, boughtContract, tradeId } = this.props;
+
         return (
             <div>
                 <ContractDetailsCard actions={actions} contract={boughtContract} />

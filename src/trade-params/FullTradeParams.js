@@ -13,7 +13,7 @@ import BuyButton from '../tick-trade/BuyButton';
 import askPriceFromProposal from '../_utils/askPriceFromProposal';
 import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
 import isDurationWithinRange from '../_utils/isDurationWithinRange';
-import TradeTypePicker from './TradeTypePicker';
+import TradeTypePicker from '../trade-type-picker/TradeTypePicker';
 import {
     createDefaultType,
     createDefaultDuration,

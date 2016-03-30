@@ -19,16 +19,15 @@ export default class TradeTypePickerCard extends Component {
 		const { tickOnly, trades } = this.props;
 		const { id } = this.props.params;
 		const trade = trades[id];
+
 		return (
-			<div>
-				<TradeTypeTickOptions
-					tickOnly={tickOnly}
-					type={trade.type}
-					barrier={trade.barrier}
-					onTypeChange={e => this.onChange('type', e.target.value)}
-					onBarrierChange={e => this.onChange('barrier', +e.target.value)}
-				/>
-			</div>
+			<TradeTypeTickOptions
+				tickOnly={tickOnly}
+				type={trade.type}
+				barrier={trade.barrier}
+				onTypeChange={e => this.onChange('type', e.target.value)}
+				onBarrierChange={e => this.onChange('barrier', +e.target.value)}
+			/>
 		);
 	}
 }

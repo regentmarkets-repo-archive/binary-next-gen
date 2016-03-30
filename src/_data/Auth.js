@@ -33,18 +33,14 @@ export const signout = (nextState, replace) => {
 
 export const requireAuthOnEnter = (nextState, replace, callback) => {
     const authorized = store.getState().appState.get('authorized');
-    const isVirtual = store.getState().account.get('is_virtual') === 1;
     if (authorized) {
-        if (isVirtual) {
-            callback();
-        } else {
+        const isVirtual = store.getState().account.get('is_virtual') === 1;
+        if (!isVirtual) {
             showError('This site currently in Beta version, only Virtual Accounts are allowed.');
             signout(nextState, replace);
-            callback();
         }
-        return;
+    } else {
+        replace({ pathname: '/signin', state: nextState });
     }
-
-    replace({ pathname: '/signin', state: nextState });
     callback();
 };
