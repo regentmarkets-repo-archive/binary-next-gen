@@ -7,13 +7,14 @@ export default class BoughtContractCard extends Component {
         actions: PropTypes.object.isRequired,
         boughtContract: PropTypes.object.isRequired,
         tradeId: PropTypes.number.isRequired,
+        durationUnit: PropTypes.string,
     };
 
     render() {
-        const { actions, boughtContract, tradeId } = this.props;
+        const { actions, boughtContract, tradeId, durationUnit } = this.props;
         return (
             <div>
-                <ContractDetailsCard actions={actions} contract={boughtContract} />
+                <ContractDetailsCard actions={actions} contract={boughtContract} durationUnit={durationUnit} />
                 <button onClick={() => actions.updateTradeParams(tradeId, 'mostRecentContractId', undefined)}>
                     <M m="Go back" />
                 </button>
