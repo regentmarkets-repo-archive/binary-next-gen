@@ -29,21 +29,25 @@ export default class ContractDetailsCard extends Component {
 					</thead>
 					<tbody>
 						<tr>
-							<td><NumberPlain value={contract.buy_price} currency={contract.currency} /></td>
+							<td>
+								{contract.buy_price &&
+									<NumberPlain value={contract.buy_price} currency={contract.currency} /> }
+							</td>
 							<td>
 								{sold ?
 									<NumberPlain value={contract.sell_price} currency={contract.currency} /> :
 									'-'}
 							</td>
 							<td>
-								<NumberColored
-									value={sold ?
-										contract.sell_price - contract.buy_price :
-										contract.payout - contract.buy_price
-										}
-									currency={contract.currency}
-									isProfit={v => v}
-								/>
+								{contract.buy_price &&
+									<NumberColored
+										value={sold ?
+											contract.sell_price - contract.buy_price :
+											contract.payout - contract.buy_price
+											}
+										currency={contract.currency}
+										isProfit={v => v}
+									/>}
 							</td>
 						</tr>
 					</tbody>
