@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
 import LanguagePicker from '../_common/LanguagePicker';
 import * as LiveData from '../_data/LiveData';
-import VirtualTopUpConfirmation from '../_common/VirtualTopUpConfirmation';
+import VirtualTopUpConfirmation from './VirtualTopUpConfirmation';
 import Modal from '../containers/Modal';
 
 export default class SettingsGeneral extends Component {

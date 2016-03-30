@@ -3,7 +3,6 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 import { BinaryChart } from 'binary-charts';
 import PurchaseFailed from '../_common/PurchaseFailed';
 import Modal from '../containers/Modal';
-
 import FullTradeParams from './FullTradeParams';
 import BoughtContractCard from './BoughtContractCard';
 import findIfExist from '../_utils/findIfExist';

@@ -1,6 +1,6 @@
 import { epochToUTCTimeString, timeStringIsBetween } from '../_utils/DateUtils';
 
-export const availableAssetsFilter = (assets, times, now) => {
+export default (assets, times, now) => {
     const nowInTimeString = epochToUTCTimeString(now);
     const availabilities = {};
 

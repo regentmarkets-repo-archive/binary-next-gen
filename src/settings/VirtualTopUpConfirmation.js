@@ -1,8 +1,8 @@
 import React, { PropTypes, Component } from 'react';
-import M from './M';
-import NumberPlain from './NumberPlain';
+import M from '../_common/M';
+import NumberPlain from '../_common/NumberPlain';
 
-export default class TopUpConfirmation extends Component {
+export default class VirtualTopUpConfirmation extends Component {
 
     static propTypes = {
         response: PropTypes.object.isRequired,
