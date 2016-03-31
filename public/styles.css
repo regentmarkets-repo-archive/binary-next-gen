@@ -470,10 +470,6 @@ select {
     overflow: auto;
 }
 
-.asset-list tbody {
-    height: 200px;
-}
-
 tr[tabindex] {
     cursor: pointer;
 }
