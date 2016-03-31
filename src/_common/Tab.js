@@ -9,15 +9,19 @@ export default class Tab extends Component {
         showText: PropTypes.bool,
         text: PropTypes.string,
         onMouseDown: PropTypes.func,
+        closable: PropTypes.bool,
+        onClose: PropTypes.func,
+
     };
 
     static defaultProps = {
         showText: true,
         showIcon: true,
+        closable: false,
     };
 
     render() {
-        const { imgSrc, selected, showIcon, showText, text, onMouseDown } = this.props;
+        const { imgSrc, selected, showIcon, showText, text, onMouseDown, onClose, closable } = this.props;
 
         return (
             <div
@@ -28,6 +32,11 @@ export default class Tab extends Component {
             >
                 {showIcon && imgSrc && <img src={imgSrc} />}
                 {showText && text && <span>{text}</span>}
+                {closable &&   
+                    <button className="close-btn" onClick={onClose}>
+                            <img src="img/close.svg" />
+                    </button>
+                }
             </div>
         );
     }

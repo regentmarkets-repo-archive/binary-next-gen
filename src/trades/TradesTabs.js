@@ -28,6 +28,10 @@ export default class TradesTabs extends Component {
                         <Tab
                             key={index}
                             text={trade.symbolName}
+                            closable
+                            onClose={() => {
+                                actions.removeTrade(index);
+                            }}
                         />
                     )}
                 </TabList>
