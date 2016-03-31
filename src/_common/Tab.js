@@ -11,7 +11,6 @@ export default class Tab extends Component {
         onMouseDown: PropTypes.func,
         closable: PropTypes.bool,
         onClose: PropTypes.func,
-
     };
 
     static defaultProps = {
@@ -32,7 +31,7 @@ export default class Tab extends Component {
             >
                 {showIcon && imgSrc && <img src={imgSrc} />}
                 {showText && text && <span>{text}</span>}
-                {closable &&   
+                {closable &&
                     <button className="close-btn" onClick={onClose}>
                             <img src="img/close.svg" />
                     </button>
