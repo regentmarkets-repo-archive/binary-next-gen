@@ -3,7 +3,7 @@
   "extends": "eslint-config-airbnb",
   "env": {
     "es6": true,
-    "jasmine": true
+    "mocha": true
   },
   "plugins": [
     "react"

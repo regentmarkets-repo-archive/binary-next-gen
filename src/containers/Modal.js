@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import CloseButton from '../_common/CloseButton';
 
 export default class Modal extends Component {
 
@@ -16,9 +17,7 @@ export default class Modal extends Component {
 		return (
 			<div className="full-screen-overlay">
 				<div className="modal">
-					<button className="close-btn" onClick={onClose}>
-						<img src="img/close.svg" />
-					</button>
+					<CloseButton onClick={onClose} />
 					{children}
 				</div>
 			</div>

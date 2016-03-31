@@ -115,8 +115,7 @@ table {
     height: calc(100% - 2em);
     overflow: auto;
 }
-
-.panel-btn, .panel-btn:hover, .close-btn, .close-btn:hover {
+.panel-btn, .panel-btn:hover {
     background: transparent;
     border: none;
     padding: .5rem;
@@ -126,12 +125,8 @@ table {
     background-color: rgba(255, 255, 255, .1);
 }
 
-.close-btn {
-    position: relative;
-    color: black;
-    margin-top: -1rem;
-    margin-right: -1rem;
-    float: right;
+div[role=tab] .close-btn, .panel-active .close-btn {
+    fill: white;
 }
 
 .close-btn, .close-btn:hover {

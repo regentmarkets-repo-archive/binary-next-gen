@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import CloseButton from '../_common/CloseButton';
 
 export default class Tab extends Component {
 
@@ -31,11 +32,7 @@ export default class Tab extends Component {
             >
                 {showIcon && imgSrc && <img src={imgSrc} />}
                 {showText && text && <span>{text}</span>}
-                {closable &&
-                    <button className="close-btn" onClick={onClose}>
-                            <img src="img/close.svg" />
-                    </button>
-                }
+                {closable && <CloseButton onClick={onClose} />}
             </div>
         );
     }
