@@ -19,6 +19,16 @@ describe('<Tab />', () => {
         expect(wrapper.text()).to.equal('');
     });
 
+    it('should render tab with close button', () => {
+        const wrapper = shallow(<Tab text="Hello" showCloseIcon onClose={() => null} />);
+        expect(wrapper.find('button')).to.have.length(1);
+    });
+
+    it('should not render close button on the tab', () => {
+        const wrapper = shallow(<Tab text="Hello" onClose={() => null} />);
+        expect(wrapper.find('button')).to.have.length(0);
+    });
+
     it('should render "text" property if showText is false', () => {
         const wrapper = shallow(<Tab imgSrc="example.com/img.png" />);
         expect(wrapper.find('img')).to.have.length(1);
