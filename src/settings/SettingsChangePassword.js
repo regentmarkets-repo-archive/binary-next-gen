@@ -1,7 +1,7 @@
 import React from 'react';
 import showError from '../_utils/showError';
 import showInfo from '../_utils/showInfo';
-import M from '../_common/M';
+import Button from '../_common/Button';
 import InputGroup from '../_common/InputGroup';
 import * as LiveData from '../_data/LiveData';
 import isValidPassword from '../_utils/isValidPassword';
@@ -64,9 +64,10 @@ export default class SettingsChangePassword extends React.Component {
                     value={verpassword}
                     onChange={e => this.setState({ verpassword: e.target.value })}
                 />
-                <button onClick={::this.onClick}>
-                    <M m="Change Password" />
-                </button>
+                <Button
+                    text="Change Password"
+                    onClick={::this.onClick}
+                />
             </div>
         );
     }

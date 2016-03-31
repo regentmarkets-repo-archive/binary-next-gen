@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
+import Button from '../_common/Button';
 import NumberPlain from '../_common/NumberPlain';
 
 export default class VirtualTopUpConfirmation extends Component {
@@ -21,7 +22,7 @@ export default class VirtualTopUpConfirmation extends Component {
                     </div>
                 }
                 <div className="centerer">
-                    <button onClick={onClose}><M m="OK" /></button>
+                    <Button text="OK" onClick={onClose} />
                 </div>
             </div>
         );

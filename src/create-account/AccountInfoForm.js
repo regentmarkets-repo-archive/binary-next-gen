@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import M from '../_common/M';
+import Button from '../_common/Button';
 import Countries from '../_common/Countries';
 import ErrorMsg from '../_common/ErrorMsg';
 import InputGroup from '../_common/InputGroup';
@@ -120,9 +121,7 @@ export default class CreateAccountCard extends Component {
                         shown={validatedOnce && passwordsDontMatch}
                         text="Passwords do not match"
                     />
-                <button onClick={::this.continue}>
-                        <M m="Continue" />
-                    </button>
+                    <Button text="Continue" onClick={::this.continue} />
                 </form>
                 <fieldset>
                     <Link to="/signin" className="btn-secondary">

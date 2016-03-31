@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import M from '../_common/M';
+import Button from '../_common/Button';
 import States from '../_common/States';
 import ErrorMsg from '../_common/ErrorMsg';
 import Countries from '../_common/Countries';
@@ -177,12 +178,14 @@ export default class UpgradeStep2 extends Component {
 					text="Phone number must within 6-35 digits"
 				/>
 				<p>
-					<button onClick={::this.previousStep}>
-						<M m="Back" />
-					</button>
-					<button onClick={::this.nextStep}>
-						<M m="Next" />
-					</button>
+					<Button
+						text="Back"
+						onClick={::this.previousStep}
+					/>
+					<Button
+						text="Next"
+						onClick={::this.nextStep}
+					/>
 				</p>
 			</div>
 		);

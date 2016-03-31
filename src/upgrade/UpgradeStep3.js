@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import M from '../_common/M';
+import Button from '../_common/Button';
 import ErrorMsg from '../_common/ErrorMsg';
 import Modal from '../containers/Modal';
 
@@ -119,12 +120,14 @@ export default class UpgradeStep3 extends Component {
 					text="Please make sure you agree on our Terms and Condition"
 				/>
 				<p>
-					<button onClick={::this.previousStep}>
-						<M m="Back" />
-					</button>
-					<button onClick={::this.openAccount}>
-						<M m="Open Account" />
-					</button>
+					<Button
+						text="Back"
+						onClick={::this.previousStep}
+					/>
+					<Button
+						text="Open Account"
+						onClick={::this.openAccount}
+					/>
 				</p>
 			</div>
 		);

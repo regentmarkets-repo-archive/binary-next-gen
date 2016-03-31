@@ -1,4 +1,5 @@
 import React, { Component, PropTypes } from 'react';
+import Button from '../../_common/Button';
 
 export default class CustomRadioButton extends Component {
 
@@ -13,12 +14,11 @@ export default class CustomRadioButton extends Component {
         const { text, value, onClick, selected } = this.props;
 
         return (
-            <button
+            <Button
+                text={text}
                 className={'radio-button ' + (selected && 'selected-radio')}
                 onClick={() => onClick({ target: { value } })}
-            >
-                {text}
-            </button>
+            />
         );
     }
 }

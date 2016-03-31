@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import M from '../_common/M';
+import Button from '../_common/Button';
 
 export default class BuyButton extends Component {
 
@@ -16,14 +16,13 @@ export default class BuyButton extends Component {
         const { id, askPrice, disabled, onClick } = this.props;
 
         return (
-            <button
+            <Button
                 id={id}
                 className="buy-btn"
                 onClick={onClick}
                 disabled={disabled || !askPrice}
-            >
-                <M m="Purchase" />
-            </button>
+                text="Purchase"
+            />
         );
     }
 }

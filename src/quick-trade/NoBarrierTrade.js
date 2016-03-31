@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import Collapsible from '../containers/Collapsible';
-import M from '../_common/M';
+import Button from '../_common/Button';
 import InputGroup from '../_common/InputGroup';
 import RadioGroup from '../_common/RadioGroup';
 import LabeledText from '../_common/LabeledText';
@@ -131,9 +131,10 @@ export default class NoBarrierTrade extends Component {
                         value={params && params.amount}
                     />
                     {proposal && <LabeledText label="Price" value={proposal.ask_price} />}
-                    <button onClick={::this.onPurchaseClick}>
-                        <M m="Purchase" />
-                    </button>
+                    <Button
+                        text="Purchase"
+                        onClick={::this.onPurchaseClick}
+                    />
                 </Collapsible>
             </div>
         );

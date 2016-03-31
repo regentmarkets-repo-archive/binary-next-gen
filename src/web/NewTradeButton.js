@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import Button from '../_common/Button';
 
 export default class NewTradeButton extends Component {
     static propTypes = {
@@ -10,15 +11,14 @@ export default class NewTradeButton extends Component {
         const { actions, symbol } = this.props;
 
         return (
-            <button
+            <Button
                 id="new-trade-btn"
+                text="New Trade"
                 className="btn-secondary"
                 onClick={() => {
                     actions.createTrade(symbol);
                 }}
-            >
-                New Trade
-            </button>
+            />
         );
     }
 }

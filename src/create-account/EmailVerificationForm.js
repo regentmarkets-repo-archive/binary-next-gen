@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import M from '../_common/M';
+import Button from '../_common/Button';
 import ErrorMsg from '../_common/ErrorMsg';
 import InputGroup from '../_common/InputGroup';
 import * as LiveData from '../_data/LiveData';
@@ -65,7 +66,7 @@ export default class EmailVerificationForm extends Component {
                     shown={!!error}
                     text={(error && error.message) || '-'}
                 />
-                <button onClick={::this.onVerify}><M m="Verify" /></button>
+                <Button text="Verify" onClick={::this.onVerify} />
             </div>
         );
     }

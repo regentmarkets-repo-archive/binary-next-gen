@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
+import Button from '../_common/Button';
 import LanguagePicker from '../_common/LanguagePicker';
 import * as LiveData from '../_data/LiveData';
 import VirtualTopUpConfirmation from './VirtualTopUpConfirmation';
@@ -53,11 +54,12 @@ export default class SettingsGeneral extends Component {
 						onClose={() => actions.updateSettingFields({ topup_virtual: null }, false)}
 					/>
                 </Modal>
-                {
-                    (balance < 1000) ?
-                        <button className="buy-btn" onClick={::this.topupClick}>
-                            <M m="Deposit USD 10000 virtual money into your account " />
-                        </button> : null
+                {balance < 1000 &&
+                    <Button
+						text="Deposit USD 10,000 virtual money to your account"
+						className="buy-btn"
+						onClick={::this.topupClick}
+                    />
                 }
 			</div>
 		);

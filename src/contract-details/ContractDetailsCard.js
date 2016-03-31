@@ -57,7 +57,7 @@ export default class ContractDetailsCard extends Component {
 						className="sell-at-market-btn"
 						onClick={() => actions.sellContract(contract.contract_id, 0)}
 					>
-						Sell at Market (<NumberPlain
+						<M m="Sell at Market" /> (<NumberPlain
 							value={contract.bid_price}
 							currency={contract.currency}
 							isProfit={v => v - contract.buy_price}

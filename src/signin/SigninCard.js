@@ -2,6 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import * as LiveData from '../_data/LiveData';
 import M from '../_common/M';
+import Button from '../_common/Button';
 import ErrorMsg from '../_common/ErrorMsg';
 import LogoSpinner from '../_common/LogoSpinner';
 import InputGroup from '../_common/InputGroup';
@@ -77,9 +78,11 @@ export default class SigninCard extends Component {
 						text="Access denied"
 					/>
 					<LanguagePicker />
-					<button className="btn-primary" onClick={::this.trySignin}>
-						<M m="Sign In" />
-					</button>
+					<Button
+						text="Sign In"
+						className="btn-primary"
+						onClick={::this.trySignin}
+					/>
 				</form>
 				<fieldset>
 					<Link to="/create-account" className="btn-secondary">

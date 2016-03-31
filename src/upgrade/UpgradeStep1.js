@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import M from '../_common/M';
+import Button from '../_common/Button';
 import ErrorMsg from '../_common/ErrorMsg';
 import DateOfBirth from '../_common/DateOfBirth';
 
@@ -107,9 +108,10 @@ export default class UpgradeStep1 extends Component {
 					/>
 				</p>
 				<p>
-					<button onClick={::this.nextStep}>
-						<M m="Next" />
-					</button>
+					<Button
+						text="Next"
+						onClick={::this.nextStep}
+					/>
 				</p>
 			</div>
 		);

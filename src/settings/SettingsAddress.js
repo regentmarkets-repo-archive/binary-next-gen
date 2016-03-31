@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
+import Button from '../_common/Button';
 import States from '../_common/States';
 import InputGroup from '../_common/InputGroup';
 import TextAreaGroup from '../_common/TextAreaGroup';
@@ -112,9 +113,10 @@ export default class SettingsAddress extends Component {
 					defaultValue={settings.phone}
 					onChange={::this.onAddressChange}
 				/>
-				<button onClick={::this.tryUpdate}>
-					<M m="Update" />
-				</button>
+				<Button
+					text="Update"
+					onClick={::this.tryUpdate}
+				/>
 			</div>
 		);
 	}

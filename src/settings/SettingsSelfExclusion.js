@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import M from '../_common/M';
+import Button from '../_common/Button';
 import InputGroup from '../_common/InputGroup';
 import * as LiveData from '../_data/LiveData';
 
@@ -144,9 +144,10 @@ export default class SettingsSelfExclusion extends Component {
 					defaultValue={settings.exclude_until}
 					onChange={::this.onSelfExclusionChange}
 				/>
-				<button onClick={::this.tryUpdate}>
-					<M m="Update" />
-				</button>
+				<Button
+					text="Update"
+					onClick={::this.tryUpdate}
+				/>
 			</div>
 		);
 	}

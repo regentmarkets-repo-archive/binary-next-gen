@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ContractDetailsCard from '../contract-details/ContractDetailsCard';
-import M from '../_common/M';
+import Button from '../_common/Button';
 
 export default class BoughtContractCard extends Component {
 
@@ -16,9 +16,10 @@ export default class BoughtContractCard extends Component {
         return (
             <div>
                 <ContractDetailsCard actions={actions} contract={boughtContract} />
-                <button onClick={() => actions.updateTradeParams(tradeId, 'mostRecentContractId', undefined)}>
-                    <M m="Go back" />
-                </button>
+                <Button
+                    text="Go back"
+                    onClick={() => actions.updateTradeParams(tradeId, 'mostRecentContractId', undefined)}
+                />
             </div>
         );
     }

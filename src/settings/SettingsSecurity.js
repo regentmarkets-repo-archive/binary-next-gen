@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import showError from '../_utils/showError';
 import M from '../_common/M';
+import Button from '../_common/Button';
 import InputGroup from '../_common/InputGroup';
 import * as LiveData from '../_data/LiveData';
 import isValidPassword from '../_utils/isValidPassword';
@@ -69,20 +70,19 @@ export default class SettingsSecurity extends Component {
                     value={password1}
 					onChange={e => this.setState({ password1: e.target.value })}
 				/>
-				{
-					!!!(settings.cashier_password) ?
-						<InputGroup
-							id="password2"
-							label="Re-enter your password"
-							type="password"
-                            value={password2}
-                            onChange={e => this.setState({ password2: e.target.value })}
-						/> :
-						null
+				{settings.cashier_password ||
+					<InputGroup
+						id="password2"
+						label="Re-enter your password"
+						type="password"
+                        value={password2}
+                        onChange={e => this.setState({ password2: e.target.value })}
+					/>
 				}
-				<button onClick={::this.onClick}>
-					<M m="Update" />
-				</button>
+				<Button
+                    text="Update"
+                    onClick={::this.onClick}
+				/>
 			</div>
 		);
 	}

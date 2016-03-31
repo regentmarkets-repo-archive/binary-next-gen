@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import Button from '../_common/Button';
 
 export default class JpTradeCard extends Component {
 
@@ -21,12 +22,12 @@ export default class JpTradeCard extends Component {
                         <tr key={idx}>
                             <td>81.777</td>
                             <td>
-                                1,000<button className="btn-secondary">Buy</button>
-                                &nbsp;20 <button className="btn-secondary">Sell</button>
+                                1,000<Button className="btn-secondary" text="Buy" />
+                                &nbsp;20 <Button className="btn-secondary" text="Sell" />
                             </td>
                             <td>
-                                1,000<button className="btn-secondary">Buy</button>
-                                &nbsp;20 <button className="btn-secondary">Sell</button>
+                                1,000<Button className="btn-secondary" text="Buy" />
+                                &nbsp;20 <Button className="btn-secondary" text="Sell" />
                             </td>
                         </tr>
                     )}

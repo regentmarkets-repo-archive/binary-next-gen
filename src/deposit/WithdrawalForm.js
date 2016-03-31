@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
+import Button from '../_common/Button';
 import ErrorMsg from '../_common/ErrorMsg';
 import InputGroup from '../_common/InputGroup';
 import SelectGroup from '../_common/SelectGroup';
@@ -78,9 +79,7 @@ export default class WithdrawForm extends Component {
                                 <M m="Are you sure you want to withdraw" />
                                 <span> {currency} {withdrawAmount} to {selectedPaymentAgentName}?></span>
                             </p>
-                            <button onClick={::this.confirmWithdraw}>
-                                <M m="Confirm" />
-                            </button>
+                            <Button text="Confirm" onClick={::this.confirmWithdraw} />
                         </div>
                     }
                     onClose={() => actions.updatePaymentAgentField('withdrawClicked', false)}
@@ -118,9 +117,7 @@ export default class WithdrawForm extends Component {
                     shown={false}
                     text=""
                 />
-                <button onClick={::this.tryWithdraw}>
-                    <M m="Withdraw" />
-                </button>
+                <Button text="Withdraw" onClick={::this.tryWithdraw} />
             </div>
         );
     }
