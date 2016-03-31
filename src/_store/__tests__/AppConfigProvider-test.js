@@ -5,7 +5,7 @@ import { fromJS } from 'immutable';
 import { shallow, render } from 'enzyme';
 import AppConfigProvider from '../AppConfigProvider';
 
-describe('AppConfigProvider', () => {
+describe('<AppConfigProvider />', () => {
     const ChildComponent = () => <div>Hello, World</div>;
     const middlewares = []; // add your middlewares like `redux-thunk`
     const mockStore = configureStore(middlewares);

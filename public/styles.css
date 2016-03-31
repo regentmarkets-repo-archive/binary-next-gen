@@ -863,8 +863,6 @@ input[type=number]::-webkit-outer-spin-button {
     margin-bottom: 1rem;
 }
 
-
-
 .switch {
     position: relative;
     display: inline-block;

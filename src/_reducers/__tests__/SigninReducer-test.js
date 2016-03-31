@@ -3,7 +3,7 @@ import { fromJS } from 'immutable';
 import * as actions from '../../_actions/SigninActions';
 import signinReducer from '../SigninReducer';
 
-describe('SigninReducer', () => {
+describe('signinReducer', () => {
     it('should set progress to true on start signing in', () => {
         const stateBefore = fromJS({
             progress: false,

@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import AssetPickerItem from '../AssetPickerItem';
 
-describe('AssetPickerItem', () => {
+describe('<AssetPickerItem />', () => {
     it('can be instantiated', () => {
         expect(() => <AssetPickerItem />).to.not.throw();
     });

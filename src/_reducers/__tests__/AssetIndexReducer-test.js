@@ -5,7 +5,7 @@ import {
     SERVER_DATA_ASSET_INDEX,
 } from '../../_constants/ActionTypes';
 
-describe('AssetIndexReducer', () => {
+describe('assetIndexReducer', () => {
     it('should update asset index', () => {
         const action = {
             type: SERVER_DATA_ASSET_INDEX,

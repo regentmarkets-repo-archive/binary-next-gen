@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { createRenderer } from 'react-addons-test-utils';
 import Collapsible from '../Collapsible';
 
-describe('Collapsible', () => {
+describe('<Collapsible />', () => {
 	it('should render the same component as the Collapsible component', () => {
 		const renderer = createRenderer();
 		renderer.render(<Collapsible title="title">Hello</Collapsible>);

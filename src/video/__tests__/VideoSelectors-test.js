@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import videoSelectors, { videosSelector } from '../VideoSelectors';
 
-describe('VideoSelectors', () => {
+describe('videoSelectors', () => {
     const emptyState = () => ({
         video: [{}, {}, {}],
     });

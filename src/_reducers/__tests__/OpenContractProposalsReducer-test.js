@@ -10,7 +10,7 @@ import {
     REMOVE_PERSONAL_DATA,
 } from '../../_constants/ActionTypes';
 
-describe('OpenContractProposalsReducer', () => {
+describe('openContractProposalsReducer', () => {
     it('should update open contract data proposal with the new contract proposal', () => {
         const action = {
             type: SERVER_DATA_PROPOSAL_OPEN_CONTRACT,

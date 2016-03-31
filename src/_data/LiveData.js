@@ -42,19 +42,10 @@ const subscribeToWatchlist = store => {
 };
 
 const subscribeToSelectedSymbol = store => {
-    // const state = store.getState();
-    // if (state.workspace && state.workspace.get('selectedAsset')) {
-    //     const symbol = state.workspace.get('selectedAsset');
-    //     store.dispatch(actions.getTradingOptions(symbol, () => {
-    //         api.getTickHistory(symbol, { end: 'latest', count: 60, adjust_start_time: 1 });
-    //         api.subscribeToTick(symbol);
-    //     }));
-    // }
-
-    const symbol = 'R_100';                             // TODO: Rework on cache previous settings
-    store.dispatch(actions.getTradingOptions(symbol, () => {
-        api.getTickHistory(symbol, { end: 'latest', count: 60, adjust_start_time: 1 });
-        api.subscribeToTick(symbol);
+    const defaultSymbol = 'R_100'; // TODO: Rework on cache previous settings
+    store.dispatch(actions.getTradingOptions(defaultSymbol, () => {
+        api.getTickHistory(defaultSymbol, { end: 'latest', count: 60, adjust_start_time: 1 });
+        api.subscribeToTick(defaultSymbol);
     }));
 };
 
@@ -77,10 +68,6 @@ const initUnauthorized = async () => {
     api.events.emit('news', articles);
     const videos = await getVideosFromPlayList();
     api.events.emit('videos', videos);
-
-    // subscribeToSelectedSymbolWhenInit(store);
-    // const selectedSymbol = store.getState().workspace.get('selectedAsset');
-    // store.dispatch(actions.updateTradeParams(0, 'symbol', selectedSymbol));
 };
 
 const initAuthorized = (authData, store) => {

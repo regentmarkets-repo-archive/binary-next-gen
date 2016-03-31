@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import LogoSpinner from '../LogoSpinner';
 
-describe('LogoSpinner', () => {
+describe('<LogoSpinner />', () => {
     it('renders image element', () => {
         const wrapper = shallow(<LogoSpinner />);
         expect(wrapper.type()).to.equal('img');

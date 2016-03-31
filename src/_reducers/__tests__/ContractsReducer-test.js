@@ -8,7 +8,7 @@ import {
     SERVER_DATA_PORTFOLIO,
 } from '../../_constants/ActionTypes';
 
-describe('ContractsReducer', () => {
+describe('contractsReducer', () => {
     it('should be able to create new portfolio', () => {
         const action = {
             type: SERVER_DATA_PORTFOLIO,

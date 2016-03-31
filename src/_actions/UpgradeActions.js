@@ -14,8 +14,8 @@ export const upgradeDOBUpdate = (dayMonthOrYear, val) => ({
     val,
 });
 
-export const upgradeConfirm = () =>
-    (dispatch, getState) => {
+export const upgradeConfirm = async () =>
+    async (dispatch, getState) => {
         const { upgrade } = getState();
         const {
             salutation,
@@ -31,7 +31,7 @@ export const upgradeConfirm = () =>
             phone,
             secretQuestion,
             secretAnswer,
-            } = upgrade.toJS();
+        } = upgrade.toJS();
 
         const opts = {
             salutation,
@@ -50,11 +50,13 @@ export const upgradeConfirm = () =>
             affiliate_token: config.affiliateToken,
         };
 
-        LiveData.api.createRealAccount(opts)
-            .then(() => {
-                dispatch({ type: UPGRADE_FIELD_CLEAR });
-                dispatch(upgradeFieldUpdate('success', true));
-            },
-            err => dispatch(upgradeFieldUpdate('error', err.message)))
-            .then(() => dispatch(upgradeFieldUpdate('progress', false)));
+        try {
+            await LiveData.api.createRealAccount(opts);
+            dispatch({ type: UPGRADE_FIELD_CLEAR });
+            dispatch(upgradeFieldUpdate('success', true));
+        } catch (e) {
+            dispatch(upgradeFieldUpdate('error', e.message));
+        } finally {
+            dispatch(upgradeFieldUpdate('progress', false));
+        }
     };

@@ -6,7 +6,7 @@ import {
     REMOVE_PERSONAL_DATA,
 } from '../../_constants/ActionTypes';
 
-describe('TransactionsReducer', () => {
+describe('transactionsReducer', () => {
     it('should be able to update statement data', () => {
         const action = {
             type: SERVER_DATA_STATEMENT,

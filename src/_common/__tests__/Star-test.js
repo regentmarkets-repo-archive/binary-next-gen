@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import Star from '../Star';
 
-describe('Star', () => {
+describe('<Star />', () => {
 	it('should render img', () => {
 		const wrapper = shallow(<Star on="true" />);
 		expect(wrapper.nodes[0].type).to.equal('img');

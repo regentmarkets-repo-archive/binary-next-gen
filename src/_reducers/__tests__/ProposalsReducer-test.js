@@ -6,7 +6,7 @@ import { fromJS } from 'immutable';
 import proposalsReducer from '../ProposalsReducer';
 import { SERVER_DATA_PROPOSAL } from '../../_constants/ActionTypes';
 
-describe('ProposalsReducer', () => {
+describe('proposalsReducer', () => {
     it('should be able to update proposal data with the newly provided server data', () => {
         const beforeState = fromJS({});
         const action = {

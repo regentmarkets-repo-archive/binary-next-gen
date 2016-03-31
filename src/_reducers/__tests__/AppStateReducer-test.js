@@ -3,7 +3,7 @@ import appStateReducer from '../AppStateReducer';
 import { UPDATE_APP_STATE } from '../../_constants/ActionTypes';
 import { expect } from 'chai';
 
-describe('AppStateReducer', () => {
+describe('appStateReducer', () => {
     it('should update appstate field with the given value', () => {
         const stateBefore = fromJS({});
         const action = {

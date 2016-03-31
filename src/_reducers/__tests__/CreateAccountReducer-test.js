@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { CREATE_ACCOUNT_ERROR, CREATE_ACCOUNT_FIELD_UPDATE, CREATE_ACCOUNT_START } from '../../_constants/ActionTypes';
 import createAccountReducer from '../CreateAccountReducer';
 
-describe('CreateAccountReducer', () => {
+describe('createAccountReducer', () => {
     it('should be able to CREATE_ACCOUNT_START', () => {
         const beforeState = fromJS({
             progress: false,

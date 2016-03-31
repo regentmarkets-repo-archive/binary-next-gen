@@ -5,7 +5,7 @@ import { fromJS } from 'immutable';
 import { shallow } from 'enzyme';
 import AppStateProvider from '../AppStateProvider';
 
-describe('AppStateProvider', () => {
+describe('<AppStateProvider />', () => {
     const middlewares = []; // add your middlewares like `redux-thunk`
     const mockStore = configureStore(middlewares);
 

@@ -6,7 +6,7 @@ import {
     UPDATE_PAYMENT_AGENT_FIELD,
 } from '../../_constants/ActionTypes';
 
-describe('PaymentAgentReducer', () => {
+describe('paymentAgentReducer', () => {
     it('should update data payment agent list', () => {
         const beforeState = fromJS({});
         const action = {

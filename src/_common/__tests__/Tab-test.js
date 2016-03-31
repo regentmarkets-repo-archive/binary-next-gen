@@ -20,13 +20,13 @@ describe('<Tab />', () => {
     });
 
     it('should render a close button when closable is true', () => {
-        const wrapper = shallow(<Tab text="Hello" closable onClose={() => null} />);
-        expect(wrapper.find('.close-btn')).to.have.length(1);
+        const wrapper = shallow(<Tab text="Hello" closable />);
+        expect(wrapper.find('CloseButton')).to.have.length(1);
     });
 
     it('should not render a close button when closable is not true', () => {
-        const wrapper = shallow(<Tab text="Hello" onClose={() => null} />);
-        expect(wrapper.find('.close-btn')).to.have.length(0);
+        const wrapper = shallow(<Tab text="Hello" />);
+        expect(wrapper.find('CloseButton')).to.have.length(0);
     });
 
     it('should render "text" property if showText is false', () => {

@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import watchlistReducer from '../WatchlistReducer';
 import { WATCHLIST_TOGGLE_ASSET, REMOVE_PERSONAL_DATA } from '../../_constants/ActionTypes';
 
-describe('WatchlistReducer', () => {
+describe('watchlistReducer', () => {
     it('should be able to subsribe to watchlist', () => {
         const action = {
             type: WATCHLIST_TOGGLE_ASSET,

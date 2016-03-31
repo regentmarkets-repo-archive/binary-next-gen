@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import NumberPlain from '../NumberPlain';
 
-describe('NumberPlain', () => {
+describe('<NumberPlain />', () => {
     it('renders without any properties', () => {
         const wrapper = shallow(<NumberPlain />);
         expect(wrapper.type()).to.equal('span');
