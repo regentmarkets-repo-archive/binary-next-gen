@@ -420,7 +420,7 @@ div[role=tabs] {
     color: white;
 }
 
-.tab-content, #workarea {
+.tab-content {
     padding: .5rem;
 }
 .tab-content {
@@ -650,6 +650,10 @@ tr[tabindex] {
     margin-bottom: .5rem;
 }
 
+.trades-tabs .close-btn {
+    float: right;
+}
+
 .asset-picker-item:hover .asset-picker-trade-btn {
     visibility: visible;
 }
@@ -667,7 +671,11 @@ tr[tabindex] {
     flex: 1;
 }
 
-.trade-panel + .trade-panel {
+.trade-container {
+    max-width: 20rem;
+}
+
+.trade-container + .trade-container {
     margin-left: .5rem;
 }
 
@@ -750,12 +758,12 @@ td.row-id {
     font-weight: bold;
 }
 
-.panel-active {
+/*.panel-active {
     box-shadow: 0 0 0 2px white, 0 0 0 4px rgba(42, 48, 82, .25);
-}
+}*/
 
-.trades-grid > div {
-    margin-left: 5px;
+.trade-container:not(.panel-active) {
+    opacity: .75;
 }
 
 .trade-header {
@@ -777,6 +785,7 @@ td.row-id {
 .trade-header > span {
     flex: 1;
     line-height: 2;
+    margin-left: .5rem;
 }
 
 .close-svg path {
@@ -964,7 +973,7 @@ input[type=number]::-webkit-outer-spin-button {
     flex: 1;
 }
 
-.trades-tabs #type-category-picker {
+#type-category-picker {
     flex-direction: column;
 }
 
