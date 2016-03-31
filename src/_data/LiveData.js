@@ -42,14 +42,20 @@ const subscribeToWatchlist = store => {
 };
 
 const subscribeToSelectedSymbol = store => {
-    const state = store.getState();
-    if (state.workspace && state.workspace.get('selectedAsset')) {
-        const symbol = state.workspace.get('selectedAsset');
-        store.dispatch(actions.getTradingOptions(symbol, () => {
-            api.getTickHistory(symbol, { end: 'latest', count: 60, adjust_start_time: 1 });
-            api.subscribeToTick(symbol);
-        }));
-    }
+    // const state = store.getState();
+    // if (state.workspace && state.workspace.get('selectedAsset')) {
+    //     const symbol = state.workspace.get('selectedAsset');
+    //     store.dispatch(actions.getTradingOptions(symbol, () => {
+    //         api.getTickHistory(symbol, { end: 'latest', count: 60, adjust_start_time: 1 });
+    //         api.subscribeToTick(symbol);
+    //     }));
+    // }
+
+    const symbol = 'R_100';                             // TODO: Rework on cache previous settings
+    store.dispatch(actions.getTradingOptions(symbol, () => {
+        api.getTickHistory(symbol, { end: 'latest', count: 60, adjust_start_time: 1 });
+        api.subscribeToTick(symbol);
+    }));
 };
 
 export const changeLanguage = language => {
@@ -59,7 +65,7 @@ export const changeLanguage = language => {
     api.getTradingTimes(new Date());
 };
 
-const initUnauthorized = async store => {
+const initUnauthorized = async () => {
     api.getActiveSymbolsFull();
     api.getTradingTimes(new Date());
     api.getAssetIndex();
@@ -73,8 +79,8 @@ const initUnauthorized = async store => {
     api.events.emit('videos', videos);
 
     // subscribeToSelectedSymbolWhenInit(store);
-    const selectedSymbol = store.getState().workspace.get('selectedAsset');
-    store.dispatch(actions.updateTradeParams(0, 'symbol', selectedSymbol));
+    // const selectedSymbol = store.getState().workspace.get('selectedAsset');
+    // store.dispatch(actions.updateTradeParams(0, 'symbol', selectedSymbol));
 };
 
 const initAuthorized = (authData, store) => {
