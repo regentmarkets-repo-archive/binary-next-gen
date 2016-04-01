@@ -3,6 +3,7 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 import InputGroup from '../_common/InputGroup';
 import M from '../_common/M';
 import NumberPlain from '../_common/NumberPlain';
+import pipSizeToStepSize from '../_utils/pipSizeToStepSize';
 
 export default class BarrierInput extends Component {
 
@@ -15,14 +16,14 @@ export default class BarrierInput extends Component {
         onChange: PropTypes.func,
         onUnmount: PropTypes.func,
         pipSize: PropTypes.number,
-        value: PropTypes.number,
+        value: PropTypes.string,
         spot: PropTypes.number,
     };
 
     render() {
         const { barrierType, expiryType, name, onChange, pipSize, value, spot } = this.props;
-        const relativeValue = expiryType === 'daily' ? spot && (value - spot) : value;
-        const absoluteValue = expiryType === 'daily' ? value : spot && (value + spot);
+        const relativeValue = expiryType === 'daily' ? spot && (+value - spot) : value;
+        const absoluteValue = expiryType === 'daily' ? value : spot && (+value + spot);
 
         return (
             <div>
@@ -31,6 +32,7 @@ export default class BarrierInput extends Component {
                     type="number"
                     onChange={onChange}
                     value={barrierType === 'relative' ? relativeValue : absoluteValue}
+                    step={pipSizeToStepSize(pipSize)}
                 />
                 {(barrierType === 'relative' && absoluteValue) &&
                     <p>
