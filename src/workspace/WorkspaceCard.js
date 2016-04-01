@@ -32,7 +32,7 @@ export default class WorkspaceCard extends Component {
 					<WorkspaceLeftPanel actions={actions} workspace={workspace} />}
 				<Resizer
 					className="resizer-vertical"
-					onResize={e => actions.changeWorkspacePanelSize('left', e.x - 45)}
+					onResize={e => actions.changeWorkspacePanelSize('left', e.clientX - 45)}
 				/>
 				<div id="workarea">
 					<TradesContainer
@@ -42,7 +42,7 @@ export default class WorkspaceCard extends Component {
 				</div>
 				<Resizer
 					className="resizer-vertical"
-					onResize={e => actions.changeWorkspacePanelSize('right', window.innerWidth - e.x - 48)}
+					onResize={e => actions.changeWorkspacePanelSize('right', window.innerWidth - e.clientX - 48)}
 				/>
 				{workspace.rightPanelVisible &&
 					<WorkspaceRightPanel actions={actions} workspace={workspace} />}
