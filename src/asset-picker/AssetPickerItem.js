@@ -52,8 +52,8 @@ export default class AssetPickerItem extends Component {
 				<td style={{ textAlign: 'center' }}>
 					<OpenCloseNotice isOpen={isOpen} />
 				</td>
-				{!compact && 
-					<td onClick={(ev) => { 
+				{!compact &&
+					<td onClick={(ev) => {
 						onCreateTrade(symbol);
 						ev.stopPropagation();
 					}}

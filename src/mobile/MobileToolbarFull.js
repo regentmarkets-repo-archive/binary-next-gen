@@ -17,7 +17,7 @@ export default class MobileToolbarFull extends Component {
 					<img src="img/menu.svg" />
 					<MobileSidebar />
 				</label>
-				<MobileToolbarBtn to={'/mobile'} img="img/trade.svg" />
+				<MobileToolbarBtn to={'/'} img="img/trade.svg" />
 				<MobileToolbarBtn to={'/watchlist-mobile'} img="img/watchlist.svg" />
 				<MobileToolbarBtn to={'/portfolio-mobile'} img="img/portfolio.svg" />
 				<MobileToolbarBtn to={'/statement-mobile'} img="img/statement.svg" />
