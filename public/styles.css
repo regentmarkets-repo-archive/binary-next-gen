@@ -461,6 +461,10 @@ select {
     flex-direction: column;
 }
 
+.asset-picker-filter {
+    min-height: 5rem;
+}
+
 .asset-list {
     overflow: auto;
 }

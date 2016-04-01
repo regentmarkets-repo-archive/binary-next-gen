@@ -18,7 +18,7 @@ export default class AssetPickerFilter extends Component {
 		const showOnlyTickTradable = false;
 
 		return (
-			<fieldset>
+			<div className="asset-picker-filter">
 				<MarketPickerContainer
 					onChange={onSubmarketChange}
 					allOptionShown
@@ -33,7 +33,7 @@ export default class AssetPickerFilter extends Component {
 					onChange={onSearchQueryChange}
 					autoFocus
 				/>
-			</fieldset>
+			</div>
 		);
 	}
 }
