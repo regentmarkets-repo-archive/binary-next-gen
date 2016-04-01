@@ -10,7 +10,7 @@ const step = 10;
 export default class StakeCard extends Component {
 
     static propTypes = {
-        amount: PropTypes.number.isRequired,
+        amount: PropTypes.string.isRequired,
         basis: PropTypes.oneOf(basises).isRequired,
         // currency: PropTypes.string.isRequired,
         // id: PropTypes.number,

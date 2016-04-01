@@ -436,7 +436,7 @@ export default class FullTradeParams extends Component {
                 <div className="payout-full">
                     {!showSpreadBarrier &&
                         <StakeCard
-                            amount={+trade.amount}
+                            amount={trade.amount}
                             basis={trade.basis}
                             currency={currency}
                             id={index}

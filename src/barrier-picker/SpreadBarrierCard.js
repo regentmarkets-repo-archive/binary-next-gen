@@ -10,7 +10,7 @@ export default class SpreadBarrierCard extends Component {
     shouldComponentUpdate = shouldPureComponentUpdate;
 
     static propTypes = {
-        amountPerPoint: PropTypes.number,
+        amountPerPoint: PropTypes.string,
         amountPerPointChange: PropTypes.func,
         currency: PropTypes.string,
         index: PropTypes.number,
