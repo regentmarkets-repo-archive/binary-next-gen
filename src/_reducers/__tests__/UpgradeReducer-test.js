@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import upgradeReducer from '../UpgradeReducer';
 import { UPGRADE_FIELD_UPDATE, UPGRADE_DOB_UPDATE, UPGRADE_FIELD_CLEAR } from '../../_constants/ActionTypes';
 
-describe('UpgradeReducer', () => {
+describe('upgradeReducer', () => {
     it('should be able to update upgrade field with the new value', () => {
         const action = {
             type: UPGRADE_FIELD_UPDATE,

@@ -3,7 +3,7 @@ import quickTradeReducer from '../QuickTradeReducer';
 import { UPDATE_QUICK_TRADE_PARAMS, SET_QUICK_TRADE_FIELD } from '../../_constants/ActionTypes';
 import { fromJS } from 'immutable';
 
-describe('QuickTradeReducer', () => {
+describe('quickTradeReducer', () => {
     it('should update quick trade parameters', () => {
         const action = {
             type: UPDATE_QUICK_TRADE_PARAMS,

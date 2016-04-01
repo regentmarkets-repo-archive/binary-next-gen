@@ -5,7 +5,7 @@ import assetPickerSelectors, {
     assetPickerItemsSelector,
 } from '../AssetPickerSelectors';
 
-describe('AssetPickerSelectors', () => {
+describe('assetPickerSelectors', () => {
     describe('similarStr', () => {
         it('parameters can be undefined', () => {
             expect(() => similarStr(undefined, undefined)).to.not.throw();

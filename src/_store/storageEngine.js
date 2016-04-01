@@ -13,6 +13,7 @@ const filteredEngine = filter(engine, [
     ['watchlist'],
     ['workspace'],
 ], [
+    ['workspace', 'selectedAsset'],
     ['workspace', 'activeTradeIndex'],
 ]);
 

@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import AssetDetailsCard from '../AssetDetailsCard';
 
-describe('AssetDetailsCard', () => {
+describe('<AssetDetailsCard />', () => {
     it('should stil render if no asset is selected', () => {
         const wrapper = shallow(<AssetDetailsCard activeAsset={{}} />);
 

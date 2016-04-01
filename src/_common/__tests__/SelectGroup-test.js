@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import SelectGroup from '../SelectGroup';
 
-describe('SelectGroup', () => {
+describe('<SelectGroup />', () => {
     it('renders with no properties', () => {
         const wrapper = shallow(<SelectGroup />);
         expect(wrapper.type()).to.equal('fieldset');

@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import CollapsibleFormSnippet from '../CollapsibleFormSnippet';
 
-describe('CollapsibleFormSnippet', () => {
+describe('<CollapsibleFormSnippet />', () => {
 	it('should contain the child label', () => {
 		const wrapper = shallow(
 			<CollapsibleFormSnippet label="label">

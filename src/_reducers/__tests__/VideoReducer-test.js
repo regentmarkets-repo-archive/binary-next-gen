@@ -3,7 +3,7 @@ import { UPDATE_VIDEO_LIST } from '../../_constants/ActionTypes';
 import videoReducer from '../VideoReducer';
 import { expect } from 'chai';
 
-describe('VideoReducer', () => {
+describe('videoReducer', () => {
     it('should update video list with the new list', () => {
         const action = {
             type: UPDATE_VIDEO_LIST,

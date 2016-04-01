@@ -3,7 +3,7 @@ import appConfigReducer from '../AppConfigReducer';
 import { UPDATE_APP_CONFIG } from '../../_constants/ActionTypes';
 import { expect } from 'chai';
 
-describe('AppConfigReducer', () => {
+describe('appConfigReducer', () => {
     it('should update appconfig state with the given field and value', () => {
         const action = {
             type: UPDATE_APP_CONFIG,

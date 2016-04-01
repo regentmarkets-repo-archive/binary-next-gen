@@ -6,7 +6,7 @@ import { fromJS } from 'immutable';
 import * as actions from '../../_actions/WorkspaceActions';
 import workspaceReducer from '../WorkspaceReducer';
 
-describe('WorkspaceReducer', () => {
+describe('workspaceReducer', () => {
     it('should be able to be created', () => {
         const state = workspaceReducer(undefined, {});
         expect(state).to.be.ok;

@@ -8,7 +8,7 @@ import {
     REMOVE_PERSONAL_DATA,
 } from '../../_constants/ActionTypes';
 
-describe('PortfolioReducer', () => {
+describe('portfolioReducer', () => {
     it('should be able to update contract details', () => {
         const beforeState = fromJS({});
         const action = {

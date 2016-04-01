@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import RadioItem from '../RadioItem';
 
-describe('RadioItem', () => {
+describe('<RadioItem />', () => {
     it('renders with no properties', () => {
         const wrapper = shallow(<RadioItem />);
         expect(wrapper.type()).to.equal('span');

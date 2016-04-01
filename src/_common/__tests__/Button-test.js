@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import Button from '../Button';
 
-describe('Button', () => {
+describe('<Button />', () => {
     it('renders even whithout properties', () => {
         const wrapper = shallow(<Button />);
         expect(wrapper.type()).to.not.equal(null);

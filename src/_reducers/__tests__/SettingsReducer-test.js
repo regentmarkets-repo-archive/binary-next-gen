@@ -14,7 +14,7 @@ import {
     REMOVE_PERSONAL_DATA,
 } from '../../_constants/ActionTypes';
 
-describe('SettingsReducer', () => {
+describe('settingsReducer', () => {
     it('should be able to set or select active tab by index', () => {
         const action = {
             type: CHANGE_SETTINGS_ACTIVE_TAB,

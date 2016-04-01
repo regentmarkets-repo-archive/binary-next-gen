@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import NumberColored from '../NumberColored';
 
-describe('NumberColored', () => {
+describe('<NumberColored />', () => {
 	it('should contain the class number-positive ', () => {
 		const wrapper = shallow(
 			<NumberColored value={3} currency="USD" />

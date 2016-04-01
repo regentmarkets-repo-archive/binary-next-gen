@@ -10,7 +10,7 @@ const mockStore = configureStore(middlewares);
 const getState = { appState: fromJS({ isAuthorized: true }) };
 const store = mockStore(getState, []);
 
-describe('WebPage', () => {
+describe('<WebPage />', () => {
     it('should render WebPage component', () => {
         const wrapper = shallow(
             <WebPage store={store} isAuthorized="true">

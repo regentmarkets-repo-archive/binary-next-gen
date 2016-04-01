@@ -8,7 +8,7 @@ import {
     UPDATE_NEWS_LIST,
 } from '../../_constants/ActionTypes';
 
-describe('NewsReducer', () => {
+describe('newsReducer', () => {
     it('should update news list with the new list', () => {
         const stateBefore = fromJS([]);
         const action = {

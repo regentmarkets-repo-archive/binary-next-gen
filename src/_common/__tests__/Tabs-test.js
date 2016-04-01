@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import Tabs from '../Tabs';
 
-describe('Tabs', () => {
+describe('<Tabs />', () => {
     it('renders correctly with no properties', () => {
         const wrapper = shallow(<Tabs />);
         expect(wrapper.type()).to.equal('div');

@@ -3,7 +3,7 @@ import { fromJS, Map } from 'immutable';
 import tradingOptionsReducer from '../TradingOptionsReducer';
 import { UPDATE_TRADING_OPTIONS } from '../../_constants/ActionTypes';
 
-describe('TradingOptionsReducer', () => {
+describe('tradingOptionsReducer', () => {
     it('should be able to update trading options', () => {
         const stateBefore = new Map({});
 
