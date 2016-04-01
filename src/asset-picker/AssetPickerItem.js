@@ -34,9 +34,16 @@ export default class AssetPickerItem extends Component {
 		return (
 			<tr tabIndex={0}
 				className={classes}
-				onClick={() => onSelect(symbol)}
+				onClick={(ev) => {
+					onSelect(symbol);
+					ev.stopPropagation();
+				}}
 			>
-				<td onClick={() => onToggleWatchlistItem(asset)}>
+				<td onClick={(ev) => {
+					onToggleWatchlistItem(asset);
+					ev.stopPropagation();
+				}}
+				>
 					<Star on={isInWatchlist} />
 				</td>
 				<td>
@@ -45,7 +52,12 @@ export default class AssetPickerItem extends Component {
 				<td style={{ textAlign: 'center' }}>
 					<OpenCloseNotice isOpen={isOpen} />
 				</td>
-				{!compact && <td onClick={() => onCreateTrade(symbol)}>
+				{!compact && 
+					<td onClick={(ev) => { 
+						onCreateTrade(symbol);
+						ev.stopPropagation();
+					}}
+					>
 					<Button
 						className="asset-picker-trade-btn btn-secondary"
 						text="Trade"
