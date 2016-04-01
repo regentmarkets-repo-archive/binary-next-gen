@@ -2,6 +2,8 @@ import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import RadioGroup from '../_common/RadioGroup';
 import InputGroup from '../_common/InputGroup';
+import ErrorMsg from '../_common/ErrorMsg';
+import noOfDecimals from '../_utils/noOfDecimals';
 
 export default class SpreadBarrierCard extends Component {
 
@@ -37,6 +39,7 @@ export default class SpreadBarrierCard extends Component {
             } = this.props;
 
         const stopTypeOptions = [{ text: 'Points', value: 'point' }, { text: currency, value: 'dollar' }];
+        const decimals = noOfDecimals(amountPerPoint);
 
         if (!spreadInfo) return null;
 
@@ -45,25 +48,30 @@ export default class SpreadBarrierCard extends Component {
                 <InputGroup
                     type="number"
                     label={`Amount per point (${currency})`}
-                    value={amountPerPoint || spreadInfo.amountPerPoint}
+                    value={amountPerPoint}
                     onChange={amountPerPointChange}
+                    step="0.01"
+                />
+                <ErrorMsg
+                    shown={decimals > 2}
+                    text="Too many decimals, maximum 2 decimals allowed."
                 />
                 <RadioGroup
                     name={'spread-param' + index}
                     options={stopTypeOptions}
-                    value={stopType || spreadInfo.stopType}
+                    value={stopType}
                     onChange={stopTypeChange}
                 />
                 <InputGroup
                     type="number"
                     label="Stop loss"
-                    value={stopLoss || spreadInfo.stopLoss}      // TODO: hardcode default as backend return wrong data
+                    value={stopLoss}      // TODO: hardcode default as backend return wrong data
                     onChange={stopLossChange}
                 />
                 <InputGroup
                     type="number"
                     label="Stop profit"
-                    value={stopProfit || spreadInfo.stopProfit}
+                    value={stopProfit}
                     onChange={stopProfitChange}
                 />
             </div>

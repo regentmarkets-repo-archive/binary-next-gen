@@ -13,6 +13,7 @@ import BuyButton from '../tick-trade/BuyButton';
 import askPriceFromProposal from '../_utils/askPriceFromProposal';
 import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
 import isDurationWithinRange from '../_utils/isDurationWithinRange';
+import noOfDecimals from '../_utils/noOfDecimals';
 import TradeTypePicker from '../trade-type-picker/TradeTypePicker';
 import {
     createDefaultType,
@@ -177,7 +178,7 @@ export default class FullTradeParams extends Component {
                 dateStart: undefined,
                 barrier: undefined,
                 barrier2: undefined,
-                amountPerPoint: spread.amountPerPoint,
+                amountPerPoint: spread.amountPerPoint.toFixed(2),
                 stopType: spread.stopType,
                 stopLoss: 30, // hardcode default as backend return wrong info
                 stopProfit: spread.stopProfit,
@@ -295,11 +296,19 @@ export default class FullTradeParams extends Component {
     }
 
     onBarrier1Change(e) {
-        this.updateHelper('barrier', +e.target.value);
+        const { trade } = this.props;
+        const inputValue = e.target.value;
+        const inputDecimalPlaces = noOfDecimals(inputValue);
+        const decimalPlaces = inputDecimalPlaces > trade.pipSize ? trade.pipSize : inputDecimalPlaces;
+        this.updateHelper('barrier', (+inputValue).toFixed(decimalPlaces));
     }
 
     onBarrier2Change(e) {
-        this.updateHelper('barrier2', +e.target.value);
+        const { trade } = this.props;
+        const inputValue = e.target.value;
+        const inputDecimalPlaces = noOfDecimals(inputValue);
+        const decimalPlaces = inputDecimalPlaces > trade.pipSize ? trade.pipSize : inputDecimalPlaces;
+        this.updateHelper('barrier2', (+inputValue).toFixed(decimalPlaces));
     }
 
     onBasisChange(e) {
@@ -307,13 +316,17 @@ export default class FullTradeParams extends Component {
     }
 
     onAmountChange(e) {
-        const properAmount = (+e.target.value).toFixed(2);          // avoid js floating point error
-        this.updateHelper('amount', properAmount);
+        const inputValue = e.target.value;
+        const inputDecimalPlaces = noOfDecimals(inputValue);
+        const decimalPlaces = inputDecimalPlaces > 2 ? 2 : inputDecimalPlaces;
+        this.updateHelper('amount', (+inputValue).toFixed(decimalPlaces));
     }
 
     onAmountPerPointChange(e) {
-        const properAmountPerPoint = (+e.target.value).toFixed(2);
-        this.updateHelper('amountPerPoint', properAmountPerPoint);
+        const inputValue = e.target.value;
+        const inputDecimalPlaces = noOfDecimals(inputValue);
+        const decimalPlaces = inputDecimalPlaces > 2 ? 2 : inputDecimalPlaces;
+        this.updateHelper('amountPerPoint', (+inputValue).toFixed(decimalPlaces));
     }
 
     onStopTypeChange(e) {

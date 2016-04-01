@@ -52,7 +52,7 @@ export default class StakeCard extends Component {
                     value={amount}
                     min={0.35}
                     max={100000}
-                    step={1}
+                    step="0.01"
                     list="amounts"
                     onChange={onAmountChange}
                 />
