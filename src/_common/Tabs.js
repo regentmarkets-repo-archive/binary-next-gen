@@ -6,7 +6,7 @@ export default class Tabs extends Component {
     static propTypes = {
         activeIndex: PropTypes.number.isRequired,
         className: PropTypes.string,
-        id: PropTypes.string.isRequired,
+        id: PropTypes.string,
         onChange: PropTypes.func,
         showContent: PropTypes.bool,
         style: PropTypes.object,

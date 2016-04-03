@@ -7,8 +7,12 @@ export default class M extends Component {
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
-		m: PropTypes.string.isRequired,
+		m: PropTypes.string,
 		values: PropTypes.object,
+	};
+
+	static defaultProps = {
+		m: '',
 	};
 
 	render() {

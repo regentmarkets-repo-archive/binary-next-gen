@@ -4,9 +4,9 @@ import { Link } from 'react-router';
 export default class ArticlePreview extends Component {
 
     static propTypes = {
-        title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        link: PropTypes.string.isRequired,
+        title: PropTypes.string,
+        description: PropTypes.string,
+        link: PropTypes.string,
     };
 
     render() {

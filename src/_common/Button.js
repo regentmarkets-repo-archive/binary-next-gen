@@ -4,7 +4,11 @@ import { FormattedMessage } from 'react-intl';
 export default class Button extends Component {
 
 	static propTypes = {
-		text: PropTypes.string.isRequired,
+		text: PropTypes.string,
+	};
+
+	static defaultProps = {
+		text: '',
 	};
 
 	render() {

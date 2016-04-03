@@ -4,7 +4,11 @@ import M from '../_common/M';
 export default class OpenCloseNotice extends Component {
 
     static propTypes = {
-        isOpen: PropTypes.bool.isRequired,
+        isOpen: PropTypes.bool,
+    }
+
+    static defaultProps = {
+        isOpen: false,
     }
 
     render() {

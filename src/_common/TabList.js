@@ -4,11 +4,11 @@ export default class TabList extends Component {
 
     static propTypes = {
         id: PropTypes.string,
-        children: PropTypes.array.isRequired,
-        activeIndex: PropTypes.number.isRequired,
-        vertical: PropTypes.bool.isRequired,
-        showText: PropTypes.bool.isRequired,
-        showIcons: PropTypes.bool.isRequired,
+        children: PropTypes.node,
+        activeIndex: PropTypes.number,
+        vertical: PropTypes.bool,
+        showText: PropTypes.bool,
+        showIcons: PropTypes.bool,
         style: PropTypes.object,
         onChange: PropTypes.func,
     };

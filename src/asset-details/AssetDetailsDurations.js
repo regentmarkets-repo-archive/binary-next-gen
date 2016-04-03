@@ -4,7 +4,7 @@ import M from '../_common/M';
 export default class AssetDetailsDurations extends Component {
 
 	static propTypes = {
-		durations: PropTypes.array.isRequired,
+		durations: PropTypes.array,
 	};
 
 	render() {

@@ -3,8 +3,8 @@ import React, { PropTypes, Component } from 'react';
 export default class AssetPickerHeader extends Component {
 
 	static propTypes = {
-		market: PropTypes.string.isRequired,
-		submarket: PropTypes.string.isRequired,
+		market: PropTypes.string,
+		submarket: PropTypes.string,
 	};
 
 	render() {

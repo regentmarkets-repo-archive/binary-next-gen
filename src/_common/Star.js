@@ -6,7 +6,7 @@ export default class Star extends Component {
     shouldComponentUpdate = shouldPureComponentUpdate;
 
     static propTypes = {
-		on: PropTypes.bool.isRequired,
+		on: PropTypes.bool,
 	};
 
     render() {

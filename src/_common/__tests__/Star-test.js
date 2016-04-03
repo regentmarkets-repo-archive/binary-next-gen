@@ -5,12 +5,12 @@ import Star from '../Star';
 
 describe('<Star />', () => {
 	it('should render img', () => {
-		const wrapper = shallow(<Star on="true" />);
+		const wrapper = shallow(<Star on />);
 		expect(wrapper.nodes[0].type).to.equal('img');
 	});
 
 	it('returns star-on.svg', () => {
-		const wrapper = shallow(<Star on="true" />);
+		const wrapper = shallow(<Star on />);
 		expect(wrapper.nodes[0].props.src).to.equal('img/star-on.svg');
 	});
 

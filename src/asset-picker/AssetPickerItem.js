@@ -10,17 +10,18 @@ export default class AssetPickerItem extends Component {
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
-		asset: PropTypes.object.isRequired,
-		compact: PropTypes.bool.isRequired,
-		selected: PropTypes.bool.isRequired,
-		onSelect: PropTypes.func.isRequired,
-		onToggleWatchlistItem: PropTypes.func.isRequired,
+		asset: PropTypes.object,
+		compact: PropTypes.bool,
+		selected: PropTypes.bool,
+		onSelect: PropTypes.func,
+		onToggleWatchlistItem: PropTypes.func,
 		onCreateTrade: PropTypes.func,
 	};
 
 	static defaultProps = {
 		asset: {},
 		compact: false,
+		selected: false,
 	};
 
 	render() {

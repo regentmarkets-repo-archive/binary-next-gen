@@ -5,11 +5,11 @@ export default class BuyButton extends Component {
 
     static propTypes = {
         id: PropTypes.string,
-        currency: PropTypes.string.isRequired,
+        currency: PropTypes.string,
         askPrice: PropTypes.number,
         payout: PropTypes.number,
         disabled: PropTypes.bool,
-        onClick: PropTypes.func.isRequired,
+        onClick: PropTypes.func,
     };
 
     render() {
