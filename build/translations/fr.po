@@ -79,7 +79,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-02-24 00:09+0000\n"
+"PO-Revision-Date: 2016-04-03 16:20+0000\n"
 "Last-Translator: Chloe Chevreton <chloe-che@hotmail.fr>\n"
 "Language-Team: French <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/fr/>\n"
@@ -88,7 +88,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.6-dev\n"
 
 msgid "All"
 msgstr "Tout"
@@ -106,7 +106,7 @@ msgid "Trade"
 msgstr "Trade"
 
 msgid "Watchlist"
-msgstr ""
+msgstr "Tableau de bord"
 
 msgid "Open Positions"
 msgstr "Positions ouvertes"
@@ -154,7 +154,7 @@ msgid "Total"
 msgstr "Total"
 
 msgid "Location"
-msgstr ""
+msgstr "Emplacement"
 
 msgid "Update"
 msgstr "Mise à Jour"
@@ -278,155 +278,151 @@ msgstr "Variation"
 msgid "Chart"
 msgstr "Graphique"
 
-#, fuzzy
 msgid "Purchase For"
-msgstr "Achat"
+msgstr "Acheter pour"
 
 msgid "Rise"
-msgstr ""
+msgstr "Hausse"
 
 msgid "Stake"
-msgstr ""
+msgstr "Investissement"
 
 msgid "Payout"
-msgstr ""
+msgstr "Paiement"
 
 msgid "Deposit"
-msgstr ""
+msgstr "Dépôt"
 
-#, fuzzy
 msgid "Transactions"
-msgstr "Confirmation de Trade"
+msgstr "Transactions"
 
 msgid "Opens"
-msgstr ""
+msgstr "Ouverture"
 
 msgid "Closes"
-msgstr ""
+msgstr "Fermeture"
 
 msgid "Personal"
-msgstr ""
+msgstr "Informations personnelles"
 
 msgid "General"
-msgstr ""
+msgstr "Configuration générale"
 
-#, fuzzy
 msgid "Trading Times"
-msgstr "Limites de Trading"
+msgstr "Horaires de trading"
 
-#, fuzzy
 msgid "Asset Index"
-msgstr "Actif"
+msgstr "Indice des actifs"
 
 msgid "Today"
-msgstr ""
+msgstr "Aujourd'hui"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Hier"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "Demain"
 
 msgid "Takeout"
 msgstr ""
 
 msgid "News"
-msgstr ""
+msgstr "Actualités"
 
 msgid "Resources"
-msgstr ""
+msgstr "Ressources"
 
 msgid "Last 7 Days"
-msgstr ""
+msgstr "Les 7 derniers jours"
 
 msgid "Last 30 Days"
-msgstr ""
+msgstr "Les 30 derniers jours"
 
 msgid "Daily Report"
-msgstr ""
+msgstr "Rapport journalier"
 
 msgid "Up/Down"
-msgstr ""
+msgstr "Haut/Bas"
 
 msgid "Touch/No Touch"
 msgstr ""
 
 msgid "Ends In/Out"
-msgstr ""
+msgstr "In/Out"
 
 msgid "Stays In/Goes Out"
-msgstr ""
+msgstr "Reste dans/Sort de la zone"
 
 #, fuzzy
 msgid "Settles"
 msgstr "Paramètres"
 
 msgid "Language"
-msgstr ""
+msgstr "Langue"
 
 msgid "Color Theme"
-msgstr ""
+msgstr "Thème de couleur"
 
 msgid "Light"
-msgstr ""
+msgstr "Vif"
 
 msgid "Dark"
-msgstr ""
+msgstr "Sombre"
 
 msgid "Name"
-msgstr ""
+msgstr "Nom"
 
 #, fuzzy
 msgid "Date Of Birth"
 msgstr "Date de naissance"
 
 msgid "Country Of Residence"
-msgstr ""
+msgstr "Pays de résidence"
 
 msgid "Email"
-msgstr ""
+msgstr "E-mail"
 
 msgid "There are no transactions for selected period"
-msgstr ""
+msgstr "Il n'y a aucune transaction pour la période sélectionnée"
 
 msgid "Sell"
-msgstr ""
+msgstr "Vendre"
 
 msgid "Buy"
-msgstr ""
+msgstr "Acheter"
 
 msgid "Digit Even"
-msgstr ""
+msgstr "Chiffre pair"
 
 msgid "Touches"
-msgstr ""
+msgstr "Touche"
 
 msgid "Digit Over"
-msgstr ""
+msgstr "Chiffre supérieur"
 
 msgid "Digit Match"
-msgstr ""
+msgstr "Chiffre égal"
 
 msgid "Digit Under"
-msgstr ""
+msgstr "Chiffre inférieur"
 
 msgid "Digit Odd"
-msgstr ""
+msgstr "Chiffre impair"
 
 msgid "Digit Differs"
-msgstr ""
+msgstr "Chiffre différent"
 
 msgid "No Touch"
-msgstr ""
+msgstr "Ne touche pas"
 
 msgid "Fall"
-msgstr ""
+msgstr "Baisse"
 
 msgid "Asian Down"
-msgstr ""
+msgstr "Asian Down"
 
 msgid "Asian Up"
-msgstr ""
+msgstr "Asian Up"
 
 msgid "Search For Assets"
-msgstr ""
+msgstr "Rechercher des actifs"
