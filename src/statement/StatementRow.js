@@ -19,7 +19,7 @@ export default class StatementRow extends Component {
 
         return (
             <tr>
-                <td><FormattedTime value={date} format="full" /></td>
+                <td><FormattedTime value={date} timeZone="UTC" format="full" /></td>
                 {!compact && <td>{refN}</td>}
                 <td className="trade-action">{actionType}</td>
                 <td><NumberColored value={amount} /></td>
