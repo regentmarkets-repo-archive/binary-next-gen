@@ -4,11 +4,10 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 import { BinaryChart } from 'binary-charts';
 import M from '../_common/M';
 import immutableChildrenToJS from '../_utils/immutableChildrenToJS';
-
-import portfolioSelectors from '../portfolio/PortfolioSelectors';
+import ContractDetailsSelectors from './ContractDetailsSelectors';
 import ContractDetailsCard from './ContractDetailsCard';
 
-@connect(portfolioSelectors)
+@connect(ContractDetailsSelectors)
 export default class ContractDetailsContainer extends Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
