@@ -456,6 +456,10 @@ export default class FullTradeParams extends Component {
                     shown={!!trade.proposalError}
                     text={trade.proposalError ? trade.proposalError.message.split(')')[1] : ''}
                 />
+                <ErrorMsg
+                    shown={!!trade.contractForError}
+                    text={trade.contractForError || ''}
+                />
             </div>
         );
     }
