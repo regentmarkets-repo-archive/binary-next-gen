@@ -25,7 +25,7 @@ export const serverDataBuy = serverResponse => ({
 
 export const sellContract = (id, price) =>
     async (dispatch, getState) => {
-        const contract = getState().openContracts.get(id);
+        const contract = getState().boughtContracts.get(id);
         if (!contract) {
             return;
         }

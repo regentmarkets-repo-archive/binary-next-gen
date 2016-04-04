@@ -3,7 +3,7 @@ import chaiImmutable from 'chai-immutable';
 chai.use(chaiImmutable);
 
 import { fromJS } from 'immutable';
-import openContractProposalReducer from '../OpenContractProposalsReducer';
+import openContractProposalReducer from '../BoughtContractsReducer';
 import {
     SERVER_DATA_PROPOSAL_OPEN_CONTRACT,
     SERVER_DATA_PORTFOLIO,

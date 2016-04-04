@@ -2,7 +2,6 @@ export const accountSelector = state => state.account;
 export const appConfigSelector = state => state.appConfig;
 export const assetIndexSelector = state => state.assetIndex;
 export const assetsSelector = state => state.assets;
-export const contractsSelector = state => state.contracts;
 export const createAccountSelector = state => state.createAccount;
 export const paymentAgentSelector = state => state.paymentAgent;
 export const settingsSelector = state => state.settings;
@@ -13,7 +12,7 @@ export const watchlistSelector = state => state.watchlist;
 export const workspaceSelector = state => state.workspace;
 export const viewsSelector = state => state.views;
 export const dailyPricesSelector = state => state.dailyPrices;
-export const openContractsSelector = state => state.openContracts;
+export const boughtContractsSelector = state => state.boughtContracts;
 export const portfolioSelector = state => state.portfolio;
 export const feedLicensesSelector = state => state.feedLicenses;
 

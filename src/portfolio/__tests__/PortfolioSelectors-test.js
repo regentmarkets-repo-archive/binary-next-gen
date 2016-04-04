@@ -5,7 +5,7 @@ import portfolioSelectors from '../PortfolioSelectors';
  describe('portfolioSelectors', () => {
      const emptyState = () => ({
          portfolio: fromJS({}),
-         openContracts: fromJS({}),
+         boughtContracts: fromJS({}),
      });
 
      it('should be able to be created', () => {
