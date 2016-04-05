@@ -2,9 +2,10 @@ import React, { PropTypes, Component } from 'react';
 import Tab from '../_common/Tab';
 import TabList from '../_common/TabList';
 import FullTradeCard from '../fulltrade/FullTradeCard';
+import shouldPureComponentUpdate from 'react-pure-render/function';
+
 
 export default class TradesTabs extends Component {
-
     static propTypes = {
         actions: PropTypes.object.isRequired,
         activeTradeIndex: PropTypes.number.isRequired,
@@ -14,6 +15,16 @@ export default class TradesTabs extends Component {
         trades: PropTypes.array.isRequired,
         contracts: PropTypes.object.isRequired,
     };
+
+    componentDidUpdate(prevProps) {
+        const prevTradeLength = prevProps.trades.length;
+        const currTradeLength = this.props.trades.length;
+        const { actions } = this.props;
+
+        if (currTradeLength > prevTradeLength) {
+            actions.updatePriceProposalSubscription(prevTradeLength);
+        }
+    }
 
     render() {
         const { actions, activeTradeIndex, assetsIsOpen, contracts, trades, ticksForAllSymbols, currency } = this.props;
