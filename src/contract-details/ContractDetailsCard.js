@@ -17,6 +17,8 @@ export default class ContractDetailsCard extends Component {
 		const sold = !!contract.sell_price;
 		const validToSell = contract.is_valid_to_sell === 1 && !contract.is_expired;
 		const validationError = contract.validation_error;
+		const potentialProfit = contract.payout - contract.buy_price;
+		const profit = sold && (contract.sell_price - contract.buy_price);
 		return (
 			<div>
 				<table>
@@ -42,8 +44,8 @@ export default class ContractDetailsCard extends Component {
 								{contract.buy_price &&
 									<NumberColored
 										value={sold ?
-											contract.sell_price - contract.buy_price :
-											contract.payout - contract.buy_price
+											profit :
+											potentialProfit
 											}
 										currency={contract.currency}
 										isProfit={v => v}
@@ -70,6 +72,24 @@ export default class ContractDetailsCard extends Component {
 						validationError)
 					}
 					</div>
+				}
+				{
+					sold &&
+						<label id="profit-loss-label">
+							{profit >= 0 ? <M m="You have won " /> : <M m="You have lost " />}
+							{profit >= 0 ?
+								<NumberColored
+									value={profit}
+									currency={contract.currency}
+									isProfit={v => v}
+								/> :
+								<NumberColored
+									value={-profit}
+									currency={contract.currency}
+									isProfit={v => -v}
+								/>
+							}
+						</label>
 				}
 			</div>
 		);

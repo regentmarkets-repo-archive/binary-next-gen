@@ -1010,9 +1010,6 @@ input[type=number]::-webkit-outer-spin-button {
     margin-left: .5rem;
 }
 
-height: 100%;
-
-
 .trades-tabs .full-trade-params {
     flex: 1;
 }
@@ -1023,4 +1020,8 @@ height: 100%;
 
 .trade-type-picker {
     display: flex;
+}
+
+#profit-loss-label {
+    font-size: large;
 }
