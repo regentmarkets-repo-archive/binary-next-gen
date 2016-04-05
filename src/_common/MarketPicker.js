@@ -13,6 +13,24 @@ export default class MarketPicker extends Component {
 
 	render() {
 		const { marketTree, onChange, allOptionShown, showMarkets, value } = this.props;
+		const markets = Object.keys(marketTree);
+		const submarkets = markets.map(market => {
+			const marketSubTree = marketTree[market];
+			const marketOpt = { value: market, name: marketSubTree.display_name };
+
+			// unicode is used as &nbsp is escaped by react and css styling on opt is not reliable
+			const submarketOptArr = Object.keys(marketSubTree.submarkets)
+				.map(submarket => (
+					{
+						value: submarket,
+						name: '\u00a0\u00a0\u00a0\u00a0' + marketSubTree.submarkets[submarket].display_name,
+					}
+				));
+			submarketOptArr.unshift(marketOpt);
+			return submarketOptArr;
+		});
+
+		const flattenSubmarkets = [].concat.apply([], submarkets);
 
 		return (
 			<select
@@ -25,17 +43,9 @@ export default class MarketPicker extends Component {
 						{message => <option value="all">{message}</option>}
 					</FormattedMessage>
 				: null}
-				{Object.keys(marketTree)
-					.filter((marketObj, marketKey) => !showMarkets || showMarkets.includes(marketKey))
-					.map((market, k) => (
-					<optgroup key={k} label={marketTree[market].display_name}>
-						{Object.keys(marketTree[market].submarkets).map(submarket =>
-							<option key={submarket} value={submarket}>
-								{marketTree[market].submarkets[submarket].display_name}
-							</option>
-						)}
-					</optgroup>
-				))}
+				{flattenSubmarkets.map((opt, k) =>
+					<option key={k} value={opt.value}>{opt.name}</option>
+				)}
 			</select>
 		);
 	}
