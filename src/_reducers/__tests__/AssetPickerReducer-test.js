@@ -8,9 +8,15 @@ import assetPickerReducer from '../AssetPickerReducer';
 
 const getInitialState = (props) => ({
     query: '',
-    submarket: 'all',
+    filter: 'all',
     ...props,
 });
+
+const dummyAssetList = () => [
+    { display_name: 'asset1' },
+    { display_name: 'asset2' },
+    { display_name: 'asset3' },
+];
 
 describe('assetPickerReducer', () => {
     describe('updateAssetPickerSearchQuery', () => {
@@ -24,11 +30,11 @@ describe('assetPickerReducer', () => {
 
         it('when query is empty returns all assets', () => {
             const stateBefore = fromJS(getInitialState({
-                availableAssets: [{ display_name: 'asset1' }, { display_name: 'asset2' }, { display_name: 'asset3' }],
+                availableAssets: dummyAssetList(),
             }));
             const actual = assetPickerReducer(stateBefore, actions.updateAssetPickerSearchQuery(''));
             const expected = fromJS(getInitialState({
-                availableAssets: [{ display_name: 'asset1' }, { display_name: 'asset2' }, { display_name: 'asset3' }],
+                availableAssets: dummyAssetList(),
             }));
 
             expect(actual).to.deep.equal(expected);
@@ -36,11 +42,11 @@ describe('assetPickerReducer', () => {
 
         it('query containing only spaces is treated as empty', () => {
             const stateBefore = fromJS(getInitialState({
-                availableAssets: [{ display_name: 'asset1' }, { display_name: 'asset2' }, { display_name: 'asset3' }],
+                availableAssets: dummyAssetList(),
             }));
             const actual = assetPickerReducer(stateBefore, actions.updateAssetPickerSearchQuery('     '));
             const expected = fromJS(getInitialState({
-                availableAssets: [{ display_name: 'asset1' }, { display_name: 'asset2' }, { display_name: 'asset3' }],
+                availableAssets: dummyAssetList(),
             }));
             expect(actual.availableAssets).to.equal(expected.availableAssets);
         });
