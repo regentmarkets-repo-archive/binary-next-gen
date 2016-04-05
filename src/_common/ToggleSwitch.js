@@ -14,20 +14,26 @@ export default class ToggleSwitch extends Component {
 
     render() {
         const { checked, onClick, text } = this.props;
-
         return (
-            <div className="switch">
-                <input
-                    id="switch-1"
-                    type="checkbox"
-                    className="switch-input"
-                    checked={checked}
-                    onClick={onClick}
-                />
-                <label htmlFor="switch-1" className="switch-label">
-                    {text}
-                </label>
-            </div>
+            <div className="row"> 
+                <div className="onoffswitch">
+                    <input 
+                        type="checkbox" 
+                        name="onoffswitch" 
+                        className="onoffswitch-checkbox" 
+                        id="myonoffswitch" 
+                        checked={checked}
+                        onClick={onClick}
+                    />
+                    <label htmlFor="myonoffswitch" className="onoffswitch-label">  
+                        <span className="onoffswitch-inner"></span>
+                        <span className="onoffswitch-switch"></span>
+                    </label> 
+                </div>
+                <span className="label">
+                    <span>{text}</span>
+                </span>   
+            </div> 
         );
     }
 }
