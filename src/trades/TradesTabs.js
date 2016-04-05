@@ -2,7 +2,6 @@ import React, { PropTypes, Component } from 'react';
 import Tab from '../_common/Tab';
 import TabList from '../_common/TabList';
 import FullTradeCard from '../fulltrade/FullTradeCard';
-import shouldPureComponentUpdate from 'react-pure-render/function';
 
 
 export default class TradesTabs extends Component {
