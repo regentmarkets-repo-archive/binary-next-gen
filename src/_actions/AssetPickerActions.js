@@ -14,3 +14,8 @@ export const updateAssetPickerSubmarket = submarket => ({
     type: types.UPDATE_ASSET_PICKER_SUBMARKET,
     submarket,
 });
+
+export const updateAssetPickerFilter = marketOrSubmarket => ({
+    type: types.UPDATE_ASSET_PICKER_FILTER,
+    filter: marketOrSubmarket,
+});

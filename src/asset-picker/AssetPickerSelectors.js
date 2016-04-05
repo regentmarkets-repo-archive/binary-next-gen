@@ -14,9 +14,10 @@ export const symbolIdsSelector = createSelector(
 export const similarStr = (str1, str2) =>
     (str1 || '').toLowerCase().includes((str2 || '').toLowerCase());
 
-const doesMatchMarket = (asset, filter) =>
-    filter.get('submarket') === 'all' ||
-        filter.get('submarket') === asset.get('submarket');
+const doesMatchFilter = (asset, filter) =>
+    filter.get('filter') === 'all' ||
+        filter.get('filter') === asset.get('submarket') ||
+        filter.get('filter') === asset.get('market');
 
 const doesMatchQuery = (asset, filter) =>
     filter.get('query').trim() === '' ||
@@ -25,8 +26,8 @@ const doesMatchQuery = (asset, filter) =>
         similarStr(asset.get('market_display_name'), filter.get('query')) ||
         similarStr(asset.get('submarket_display_name'), filter.get('query'));
 
-const doesMatchFilter = (asset, filter) =>
-    doesMatchMarket(asset, filter) && doesMatchQuery(asset, filter);
+const doesMatchQueryAndFilter = (asset, filter) =>
+    doesMatchFilter(asset, filter) && doesMatchQuery(asset, filter);
 
 // const hasTick = assets =>
 //     assets
@@ -54,7 +55,7 @@ export const shownAssetsSelector = createSelector(
     [availableAssetsSelector, assetFilterSelector], // todo: availableAssetsSelector
     (availableAssets, filter) =>
         availableAssets
-            .filter(asset => doesMatchFilter(asset, filter))
+            .filter(asset => doesMatchQueryAndFilter(asset, filter))
 );
 
 export const sortedShownAssetsSelector = createSelector(
