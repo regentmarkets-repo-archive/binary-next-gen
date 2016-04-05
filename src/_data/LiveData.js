@@ -74,7 +74,7 @@ const initAuthorized = (authData, store) => {
     api.getPortfolio();
     api.getStatement({ description: 1, limit: 20 });
     api.getAccountSettings().then(msg => {
-        if (msg.get_settings.country_code != '') {
+        if (msg.get_settings.country_code !== '') {
             api.getPaymentAgentsForCountry(msg.get_settings.country_code);
         }
     });
