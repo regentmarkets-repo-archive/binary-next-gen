@@ -9,7 +9,7 @@ export default class EmailVerificationForm extends Component {
 
     static propTypes = {
         actions: React.PropTypes.object.isRequired,
-        error: React.PropTypes.object.isRequired,
+        error: React.PropTypes.object,
         email: React.PropTypes.string.isRequired,
         password: React.PropTypes.string.isRequired,
         residence: React.PropTypes.string.isRequired,
@@ -31,13 +31,12 @@ export default class EmailVerificationForm extends Component {
     }
 
     async onVerify() {
-        const { actions, email, password, residence, verificationCode } = this.props;
+        const { actions, password, residence, verificationCode } = this.props;
         const { router } = this.context;
 
         actions.createAccountFieldUpdate('progress', true);
         try {
             await LiveData.api.createVirtualAccount({
-                email,
                 client_password: password,
                 residence,
                 verification_code: verificationCode,
@@ -48,6 +47,11 @@ export default class EmailVerificationForm extends Component {
         } finally {
             actions.createAccountFieldUpdate('progress', false);
         }
+    }
+
+    goBack() {
+        const { actions } = this.props;
+        actions.createAccountFieldUpdate('step', 0);
     }
 
     render() {
@@ -66,6 +70,8 @@ export default class EmailVerificationForm extends Component {
                     shown={!!error}
                     text={(error && error.message) || '-'}
                 />
+                <Button text="Go back" onClick={::this.goBack} className="btn-secondary" /> 
+                &nbsp;
                 <Button text="Verify" onClick={::this.onVerify} />
             </div>
         );
