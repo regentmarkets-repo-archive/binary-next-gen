@@ -4,12 +4,13 @@ import {
     UPDATE_ASSET_PICKER_SEARCH_QUERY,
     UPDATE_ASSET_PICKER_MARKETS,
     UPDATE_ASSET_PICKER_SUBMARKET,
+    UPDATE_ASSET_PICKER_FILTER,
     // SERVER_DATA_ASSET_INDEX,
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
     query: '',
-    submarket: 'all',
+    filter: 'all',
 });
 
 export default (state = initialState, action) => {
@@ -34,6 +35,9 @@ export default (state = initialState, action) => {
         case UPDATE_ASSET_PICKER_MARKETS: {
             return state
                 .set('markets', fromJS(action.markets));
+        }
+        case UPDATE_ASSET_PICKER_FILTER: {
+            return state.set('filter', action.filter);
         }
         // case SERVER_DATA_ASSET_INDEX: {
         //     const symbolWithTick = tickTradeFilter(action.serverResponse.asset_index);

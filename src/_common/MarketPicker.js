@@ -13,12 +13,14 @@ export default class MarketPicker extends Component {
 
 	render() {
 		const { marketTree, onChange, allOptionShown, showMarkets, value } = this.props;
-		const markets = Object.keys(marketTree);
+		const markets = Object.keys(marketTree)
+			.filter(market => !(showMarkets && showMarkets.includes(marketTree[market].display_name)));
+
 		const submarkets = markets.map(market => {
 			const marketSubTree = marketTree[market];
 			const marketOpt = { value: market, name: marketSubTree.display_name };
 
-			// unicode is used as &nbsp is escaped by react and css styling on opt is not reliable
+			// unicode is used as &nbsp is escaped by react and css styling on select is not reliable
 			const submarketOptArr = Object.keys(marketSubTree.submarkets)
 				.map(submarket => (
 					{
