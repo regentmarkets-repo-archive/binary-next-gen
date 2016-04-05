@@ -1,6 +1,6 @@
 import { createSelector } from 'reselect';
 import { nowAsEpoch } from '../_utils/DateUtils';
-import { assetsSelector, tradingTimesSelector } from '../_store/directSelectors';
+import { assetsSelector, tradingTimesSelector, boughtContractsSelector } from '../_store/directSelectors';
 import { marketTreeSelector } from '../_selectors/marketTreeSelector';
 import extractBarrier from '../_utils/extractBarrier';
 import extractDuration from '../_utils/extractDuration';
@@ -74,15 +74,15 @@ export const availableContractsSelector = createSelector(
 );
 
 export const tradesWithDetailsSelector = createSelector(
-    [state => state.trades, assetsSelector, state => state.openContracts],
-    (trades, assets, openContracts) =>
+    [state => state.trades, assetsSelector, boughtContractsSelector],
+    (trades, assets, boughtContracts) =>
         trades.map(t => {
             const symbolDetails = assets.find(a => a.get('symbol') === t.get('symbol'));
             const pipSize = symbolDetails && symbolDetails.get('pip').length - 1;
             const symbolName = symbolDetails && symbolDetails.get('display_name');
             const tradeWithPipSize = t.set('pipSize', pipSize).set('symbolName', symbolName);
             const mostRecentContractId = t.get('mostRecentContractId');
-            const mostRecentContractBought = mostRecentContractId && openContracts.get(mostRecentContractId);
+            const mostRecentContractBought = mostRecentContractId && boughtContracts.get(mostRecentContractId);
             const tradeWithMostRecentTransaction =
                 tradeWithPipSize.set('mostRecentContractBought', mostRecentContractBought);
 

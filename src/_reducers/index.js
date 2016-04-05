@@ -7,11 +7,10 @@ import assets from './AssetsReducer';
 import assetIndex from './AssetIndexReducer';
 import assetPicker from './AssetPickerReducer';
 import createAccount from './CreateAccountReducer';
-import contracts from './ContractsReducer';
 import dailyPrices from './DailyPricesReducer';
 import feedLicenses from './FeedLicensesReducer';
 import news from './NewsReducer';
-import openContracts from './OpenContractProposalsReducer';
+import boughtContracts from './BoughtContractsReducer';
 import paymentAgent from './PaymentAgentReducer';
 import portfolio from './PortfolioReducer';
 import proposals from './ProposalsReducer';
@@ -44,8 +43,7 @@ export default combineReducers({
     server,
     paymentAgent,
     portfolio,
-    contracts,
-    openContracts,
+    boughtContracts,
     proposals,
     quickTrade,
     settings,
