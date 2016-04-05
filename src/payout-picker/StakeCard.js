@@ -22,13 +22,13 @@ export default class StakeCard extends Component {
 
     stepUp() {
         const { amount, onAmountChange } = this.props;
-        const newAmount = +(amount) + step;
+        const newAmount = +amount + step;
         onAmountChange({ target: { value: newAmount.toString() } });
     }
 
     stepDown() {
         const { amount, onAmountChange } = this.props;
-        const newAmount = +(amount) - step;
+        const newAmount = +amount - step;
         onAmountChange({ target: { value: newAmount } });
     }
 
