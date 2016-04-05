@@ -27,7 +27,7 @@ export default class RadioGroup extends Component {
 				{options.map(o =>
 					<RadioItem
 						key={name + o.value}
-						defaultChecked={o.value === value}
+						checked={o.value === value}
 						img={o.img}
 						label={o.text}
 						name={name}
