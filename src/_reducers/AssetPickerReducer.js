@@ -1,28 +1,18 @@
 import { fromJS } from 'immutable';
 import {
-    // SERVER_DATA_ACTIVE_SYMBOLS,
     UPDATE_ASSET_PICKER_SEARCH_QUERY,
     UPDATE_ASSET_PICKER_MARKETS,
     UPDATE_ASSET_PICKER_SUBMARKET,
-    // SERVER_DATA_ASSET_INDEX,
+    UPDATE_ASSET_PICKER_FILTER,
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
     query: '',
-    submarket: 'all',
+    filter: 'all',
 });
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        // case SERVER_DATA_ACTIVE_SYMBOLS: {
-        //     const activeSymbols = action.serverResponse.active_symbols;
-        //     const filteredSymbols = state.get('tickOnly') ? activeSymbols.filter(asset =>
-        //         state.get('tickOnly').indexOf(asset.symbol) > -1
-        //     ) : activeSymbols;
-        //
-        //     return state
-        //         .set('availableAssets', fromJS(filteredSymbols));
-        // }
         case UPDATE_ASSET_PICKER_SEARCH_QUERY: {
             return state
                 .set('query', action.query);
@@ -35,16 +25,9 @@ export default (state = initialState, action) => {
             return state
                 .set('markets', fromJS(action.markets));
         }
-        // case SERVER_DATA_ASSET_INDEX: {
-        //     const symbolWithTick = tickTradeFilter(action.serverResponse.asset_index);
-        //     const shownAssetsWithTick = state.get('availableAssets').filter(asset =>
-        //         symbolWithTick.indexOf(asset.symbol) > -1
-        //     );
-        //     return state
-        //         .set('tickOnly', symbolWithTick)
-        //         .set('shownAssets', shownAssetsWithTick)
-        //         .set('availableAssets', shownAssetsWithTick);
-        // }
+        case UPDATE_ASSET_PICKER_FILTER: {
+            return state.set('filter', action.filter);
+        }
         default:
             return state;
     }

@@ -9,28 +9,35 @@ export default class AssetPickerFilter extends Component {
 		filter: PropTypes.object.isRequired,
 	};
 
-	render() {
-		const { actions, filter } = this.props;
+	onSearchQueryChange(e) {
+		const { actions } = this.props;
+		actions.updateAssetPickerSearchQuery(e.target.value);
+	}
 
-		const onSearchQueryChange = e => actions.updateAssetPickerSearchQuery(e.target.value);
-		const onSubmarketChange = e => actions.updateAssetPickerSubmarket(e);
+	onFilterChange(e) {
+		const { actions } = this.props;
+		actions.updateAssetPickerFilter(e);
+	}
+
+	render() {
+		const { filter } = this.props;
 
 		const showOnlyTickTradable = false;
 
 		return (
 			<div className="asset-picker-filter">
 				<MarketPickerContainer
-					onChange={onSubmarketChange}
+					onChange={::this.onFilterChange}
 					allOptionShown
 					showMarkets={showOnlyTickTradable ? ['Forex', 'Randoms'] : null}
-					value={filter.submarket}
+					value={filter.filter}
 				/>
 				<InputGroup
 					className="asset-search"
 					defaultValue={filter.query}
 					type="search"
 					placeholder="Search for assets"
-					onChange={onSearchQueryChange}
+					onChange={::this.onSearchQueryChange}
 					autoFocus
 				/>
 			</div>
