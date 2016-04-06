@@ -10,11 +10,6 @@ export const updateTradingTimesDate = date =>
         });
     };
 
-export const updateAssetIndexSubmarket = submarket => ({
-    type: types.UPDATE_ASSET_INDEX_SUBMARKET,
-    submarket,
-});
-
 export const updateAssetIndexFilter = filter => ({
     type: types.UPDATE_ASSET_INDEX_FILTER,
     filter,
