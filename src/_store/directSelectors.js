@@ -29,6 +29,9 @@ export const transactionsFilterSelector = state =>
 export const assetIndexSubmarketSelector = state =>
     state.views.getIn(['assetIndex', 'submarketId']);
 
+export const assetIndexFilterSelector = state =>
+    state.views.getIn(['assetIndex', 'filter']);
+
 export const tradingTimesFilterSelector = state =>
     state.views.get('tradingTimes');
 

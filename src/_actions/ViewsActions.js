@@ -15,6 +15,11 @@ export const updateAssetIndexSubmarket = submarket => ({
     submarket,
 });
 
+export const updateAssetIndexFilter = filter => ({
+    type: types.UPDATE_ASSET_INDEX_FILTER,
+    filter,
+});
+
 export const updateTransactionsFilter = filterIndex => ({
     type: types.UPDATE_TRANSACTIONS_FILTER,
     transactionsFilter: filterIndex,

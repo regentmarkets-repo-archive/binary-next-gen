@@ -17,7 +17,7 @@ export default class AssetIndexCard extends Component {
 		return (
 			<div>
 				<MarketPickerContainer
-					onChange={x => actions.updateAssetIndexSubmarket(x)}
+					onChange={x => actions.updateAssetIndexFilter(x)}
 					allOptionShown={false}
 					value={submarket}
 				/>

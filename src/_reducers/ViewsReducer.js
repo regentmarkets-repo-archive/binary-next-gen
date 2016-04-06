@@ -5,6 +5,7 @@ import {
     UPDATE_TRADING_TIMES_DATE,
     UPDATE_ASSET_INDEX_SUBMARKET,
     UPDATE_TRANSACTIONS_FILTER,
+    UPDATE_ASSET_INDEX_FILTER,
 } from '../_constants/ActionTypes';
 
 const initialState = new Map({
@@ -14,6 +15,7 @@ const initialState = new Map({
     }),
     assetIndex: new Map({
         submarketId: 'europe_africa',
+        filter: 'europe_africa',
     }),
     transactionsFilter: 0,
 });
@@ -28,6 +30,9 @@ export default (state = initialState, action) => {
         }
         case UPDATE_ASSET_INDEX_SUBMARKET: {
             return state.update('assetIndex', v => v.merge({ submarketId: action.submarket }));
+        }
+        case UPDATE_ASSET_INDEX_FILTER: {
+            return state.update('assetIndex', v => v.merge({ filter: action.filter }));
         }
         case UPDATE_TRANSACTIONS_FILTER: {
             return state.set('transactionsFilter', action.transactionsFilter);
