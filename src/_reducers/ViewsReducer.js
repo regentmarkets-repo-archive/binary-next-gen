@@ -1,7 +1,6 @@
 import { Map } from 'immutable';
 
 import {
-    UPDATE_TRADING_TIMES_SUBMARKET,
     UPDATE_TRADING_TIMES_DATE,
     UPDATE_TRADING_TIMES_FILTER,
     UPDATE_TRANSACTIONS_FILTER,
@@ -23,9 +22,6 @@ const initialState = new Map({
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case UPDATE_TRADING_TIMES_SUBMARKET: {
-            return state.update('tradingTimes', v => v.merge({ submarket: action.submarket }));
-        }
         case UPDATE_TRADING_TIMES_DATE: {
             return state.update('tradingTimes', v => v.merge({ date: action.date }));
         }
