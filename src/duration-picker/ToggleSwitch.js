@@ -3,9 +3,9 @@ import React, { Component, PropTypes } from 'react';
 export default class ToggleSwitch extends Component {
 
     static propTypes = {
+        id: PropTypes.any.isRequired,
         checked: PropTypes.bool,
         onClick: PropTypes.func,
-        text: PropTypes.string,
     };
 
     static defaultProps = {
@@ -13,19 +13,20 @@ export default class ToggleSwitch extends Component {
     };
 
     render() {
-        const { checked, onClick } = this.props;
+        const { id, checked, onClick } = this.props;
+        const className = checked ? 'onoffswitch-checkbox checked' : 'onoffswitch-checkbox';
         return (
             <div className="row-spacer"> 
                 <div className="onoffswitch">
                     <input 
-                        type="checkbox" 
+                        type="text"
                         name="onoffswitch" 
-                        className="onoffswitch-checkbox" 
-                        id="myonoffswitch" 
+                        className={className}
+                        id={id}
                         checked={checked}
                         onClick={onClick}
                     />
-                    <label htmlFor="myonoffswitch" className="onoffswitch-label">  
+                    <label htmlFor={id} className="onoffswitch-label">
                         <span className="onoffswitch-inner"></span>
                         <span className="onoffswitch-switch"></span>
                     </label> 

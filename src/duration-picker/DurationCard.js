@@ -6,10 +6,11 @@ import SelectGroup from '../_common/SelectGroup';
 import InputGroup from '../_common/InputGroup';
 import ForwardStartingOptions from './ForwardStartingOptions';
 import durationText from '../_utils/durationText';
-import ToggleSwitch from '../_common/ToggleSwitch';
+import ToggleSwitch from './ToggleSwitch';
 
 export default class DurationCard extends Component {
     static propTypes = {
+        id: PropTypes.any.isRequired,
         dateStart: PropTypes.number,
         duration: PropTypes.number,
         durationUnit: PropTypes.string,
@@ -35,6 +36,7 @@ export default class DurationCard extends Component {
 
     render() {
         const {
+            id,
             dateStart,
             duration,
             durationUnit,
@@ -74,6 +76,7 @@ export default class DurationCard extends Component {
                         {text =>
                             <ToggleSwitch
                                 text={text}
+                                id={id}
                                 checked={!!dateStart}
                                 onClick={::this.startLaterHandler}
                                 disabled={onlyStartLater}
