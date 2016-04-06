@@ -758,7 +758,10 @@ td.right, th.right {
 td.row-id {
     font-weight: bold;
 }
-
+.row-spacer {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}
 /*.panel-active {
     box-shadow: 0 0 0 2px white, 0 0 0 4px rgba(42, 48, 82, .25);
 }*/
@@ -851,79 +854,56 @@ input[type=number]::-webkit-outer-spin-button {
     height: 1.5rem;
     margin: .5rem;
     background: white;
-    box-shadow: 0 0 0 1px white;
+    box-shadow: 0 0 0 1px white; 
 }
 
 .trade-chart {
     height: 250px;
     margin-bottom: 1rem;
 }
-
-.switch {
-    position: relative;
-    display: inline-block;
+.onoffswitch {
+    position: relative; width: 12em;
 }
-
-.switch-input {
+.onoffswitch-checkbox {
     display: none;
 }
-
-.switch-label {
-    display: block;
-    width: 2.5rem;
-    height: 1rem;
-    margin-left: .15rem;
-    margin-top: .15rem;
-    text-indent: 150%;
-    clip: rect(0 0 0 0);
-    color: #2a3052;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 1.6667em;
 }
-
-.switch-label:before, .switch-label:after {
-    content: "";
-    display: block;
-    position: absolute;
-    cursor: pointer;
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
 }
-
-.switch-label:before {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(127, 127, 127, .5);
-    border-radius: 9999em;
-    transition: #2a3052 0.1s ease;
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 2.5em; padding: 0; line-height: 2.5em;
+    font-size: 1.16667; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
 }
-
-.switch-label:after {
-    top: 0;
-    left: 0;
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-    background-color: #2a3052;
-    /*box-shadow: 0 0 2px rgba(127, 127, 127, .4);*/
-    transition: left 0.1s ease;
+.onoffswitch-inner:before {
+    content: "Start Later";
+    padding-left: 0.83em;
+    background-color: #2a3052; color: #FFFFFF;
 }
-
-/* When input is checked */
-
-.switch-input:checked + .switch-label {
-    /* Switch Rail */
-    /* Switch Knob */
+.onoffswitch-inner:after {
+    content: "Start Later";
+    padding-right: 0.83em;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
 }
-.switch-input:checked + .switch-label:before {
-    background-color: rgba(42, 48, 82, .5);
+.onoffswitch-switch {
+    display: block; width: 1.5em; margin: 0.5em;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    /*right: 4.6667em;*/
+    border: 0.16667em solid #999999; border-radius: 1.6667em;
+    transition: all 0.3s ease-in 0s; 
 }
-.switch-input:checked + .switch-label:after {
-    left: 1.5rem;
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
 }
-
-.switch {
-    margin: 1rem 0;
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0em; 
 }
 
 #duration-fields input, #duration-fields select, .payout-picker input, .payout-picker fieldset {
