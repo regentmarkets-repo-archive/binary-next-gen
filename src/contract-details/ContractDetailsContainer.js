@@ -32,10 +32,9 @@ export default class ContractDetailsContainer extends Component {
 		const contract = contracts.find(x => x.get('contract_id') === params.id).toJS();
 
 		const history = ticks.get(contract.underlying).toJS();
-		// const soldResultShown = portfolio.get('soldResultShown');
-		// const now = portfolio.get('now');
+
 		if (!contract) return null;
-		// console.log(JSON.stringify(contract));
+
 		return (
 			<div className="contract-details">
 				<h6>

@@ -27,11 +27,6 @@ export default class QuickTradeList extends Component {
         proposals: PropTypes.object.isRequired,
     };
 
-    // onTradeSelect(e){
-    //    // TODO: should close other trades
-    //    this.props.getPriceProposal()
-    // }
-
     render() {
         const { trades, actions, quickTrade, currency, proposals } = this.props;
         return (

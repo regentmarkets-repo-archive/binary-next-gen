@@ -1,6 +1,5 @@
 import SigninMobile from '../signin/SigninMobile';
 import CreateAccountMobile from '../create-account/CreateAccountMobile';
-// import TickTradeMobile from '../tick-trade/TickTradeMobile';
 import FullTradeMobile from '../fulltrade/FullTradeMobile';
 import PayoutPickerMobile from '../payout-picker/PayoutPickerMobile';
 import PurchaseConfirmationMobile from '../tick-trade/PurchaseConfirmationMobile';

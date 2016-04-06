@@ -29,24 +29,6 @@ const doesMatchQuery = (asset, filter) =>
 const doesMatchQueryAndFilter = (asset, filter) =>
     doesMatchFilter(asset, filter) && doesMatchQuery(asset, filter);
 
-// const hasTick = assets =>
-//     assets
-//         .filter(asset => asset[2].includes('t'))
-//         .length > 0;
-
-// const tickTradeFilter = assetIndex =>
-//     assetIndex
-//         .filter(asset => hasTick(asset[2]))
-//         .map(asset => asset[0]);
-
-// const showOnlyTickTradable = !!~window.location.search.indexOf('tick');
-// const showOnlyTickTradable = type === 'tick';
-// const searchableAssets = assets.filter(x =>
-//     !showOnlyTickTradable ||
-//     x.market_display_name === 'Forex' ||
-//     x.market_display_name === 'Randoms'
-// );
-
 const availableAssetsSelector = assetsSelector;
 
 export const assetFilterSelector = state => state.assetPicker;
