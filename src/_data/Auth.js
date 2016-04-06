@@ -1,3 +1,4 @@
+import { parseOAuthResponse } from 'binary-live-api';
 import { store } from '../_store/persistentStore';
 import * as LiveData from './LiveData';
 import { signinFieldUpdate, updateAppState, removePersonalData } from '../_actions';
@@ -36,11 +37,17 @@ export const requireAuthOnEnter = (nextState, replace, callback) => {
     if (authorized) {
         const isVirtual = store.getState().account.get('is_virtual') === 1;
         if (!isVirtual) {
-            showError('This site currently in Beta version, only Virtual Accounts are allowed.');
+            showError('This site currently in Preview, only Virtual Accounts are allowed.');
             signout(nextState, replace);
         }
     } else {
         replace({ pathname: '/signin', state: nextState });
     }
     callback();
+};
+
+export const redirectFromOAuth = (nextState, replace, callback) => {
+    // console.log(nextState.location.query);
+    // alert('yolo');
+    // callback();
 };

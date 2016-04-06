@@ -70,7 +70,7 @@ export default class EmailVerificationForm extends Component {
                     shown={!!error}
                     text={(error && error.message) || '-'}
                 />
-                <Button text="Go back" onClick={::this.goBack} className="btn-secondary" /> 
+                <Button text="Go back" onClick={::this.goBack} className="btn-secondary" />
                 &nbsp;
                 <Button text="Verify" onClick={::this.onVerify} />
             </div>

@@ -854,7 +854,7 @@ input[type=number]::-webkit-outer-spin-button {
     height: 1.5rem;
     margin: .5rem;
     background: white;
-    box-shadow: 0 0 0 1px white; 
+    box-shadow: 0 0 0 1px white;
 }
 
 .trade-chart {
@@ -862,48 +862,59 @@ input[type=number]::-webkit-outer-spin-button {
     margin-bottom: 1rem;
 }
 .onoffswitch {
-    position: relative; width: 12em;
+    position: relative;
+    width: 10rem;
 }
 .onoffswitch-checkbox {
     display: none;
 }
 .onoffswitch-label {
-    display: block; overflow: hidden; cursor: pointer;
-    border: 2px solid #999999; border-radius: 1.6667em;
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 2rem;
 }
 .onoffswitch-inner {
-    display: block; width: 200%; margin-left: -100%;
+    display: block;
+    width: 200%;
+    margin-left: -100%;
     transition: margin 0.3s ease-in 0s;
 }
 .onoffswitch-inner:before, .onoffswitch-inner:after {
-    display: block; float: left; width: 50%; height: 2.5em; padding: 0; line-height: 2.5em;
-    font-size: 1.16667; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
-    box-sizing: border-box;
+    display: block;
+    float: left;
+    width: 50%;
+    height: 2rem;
+    line-height: 2rem;
+    color: white;
 }
 .onoffswitch-inner:before {
     content: "Start Later";
-    padding-left: 0.83em;
-    background-color: #2a3052; color: #FFFFFF;
+    padding-left: 1rem;
+    background-color: rgba(42, 48, 82, 1);
+    color: #FFFFFF;
 }
 .onoffswitch-inner:after {
-    content: "Start Later";
-    padding-right: 0.83em;
-    background-color: #EEEEEE; color: #999999;
+    content: "Start Now";
+    padding-right: 1rem;
+    background-color: rgba(42, 48, 82, .25);
+    color: rgba(42, 48, 82, 1);
     text-align: right;
 }
 .onoffswitch-switch {
-    display: block; width: 1.5em; margin: 0.5em;
+    display: block;
+    width: 2rem;
+    margin: 0.5rem;
     background: #FFFFFF;
     position: absolute; top: 0; bottom: 0;
-    /*right: 4.6667em;*/
-    border: 0.16667em solid #999999; border-radius: 1.6667em;
-    transition: all 0.3s ease-in 0s; 
+    border-radius: 2rem;
+    transition: all 0.3s ease-in 0s;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
     margin-left: 0;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-    right: 0em; 
+    right: 0em;
 }
 
 #duration-fields input, #duration-fields select, .payout-picker input, .payout-picker fieldset {
