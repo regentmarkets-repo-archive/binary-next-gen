@@ -876,33 +876,48 @@ input[type=number]::-webkit-outer-spin-button {
     transition: margin 0.3s ease-in 0s;
 }
 .onoffswitch-inner:before, .onoffswitch-inner:after {
-    display: block; float: left; width: 50%; height: 2.5em; padding: 0; line-height: 2.5em;
-    font-size: 1.16667; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    display: block;
+    float: left;
+    width: 50%;
+    height: 2.5em;
+    padding: 0;
+    line-height: 2.5em;
+    font-size: 1.16667;
+    color: white;
+    font-family: Trebuchet, Arial, sans-serif;
+    font-weight: bold;
     box-sizing: border-box;
 }
 .onoffswitch-inner:before {
     content: "Start Later";
     padding-left: 0.83em;
-    background-color: #2a3052; color: #FFFFFF;
+    background-color: #2a3052;
+    color: #FFFFFF;
 }
 .onoffswitch-inner:after {
-    content: "Start Later";
+    content: "Start Now";
     padding-right: 0.83em;
-    background-color: #EEEEEE; color: #999999;
+    background-color: #EEEEEE;
+    color: #999999;
     text-align: right;
 }
 .onoffswitch-switch {
-    display: block; width: 1.5em; margin: 0.5em;
+    display: block;
+    width: 1.5em;
+    margin: 0.5em;
     background: #FFFFFF;
-    position: absolute; top: 0; bottom: 0;
+    position: absolute;
+    top: 0;
+    bottom: 0;
     /*right: 4.6667em;*/
-    border: 0.16667em solid #999999; border-radius: 1.6667em;
+    border: 0.16667em solid #999999;
+    border-radius: 1.6667em;
     transition: all 0.3s ease-in 0s; 
 }
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+.onoffswitch-checkbox.checked + .onoffswitch-label .onoffswitch-inner {
     margin-left: 0;
 }
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+.onoffswitch-checkbox.checked + .onoffswitch-label .onoffswitch-switch {
     right: 0em; 
 }
 

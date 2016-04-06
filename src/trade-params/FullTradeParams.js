@@ -387,6 +387,7 @@ export default class FullTradeParams extends Component {
                 />
                 {showDuration && !showSpreadBarrier &&
                     <DurationCard
+                        id={index}
                         dateStart={trade.dateStart}
                         duration={+trade.duration}
                         durationUnit={trade.durationUnit}
