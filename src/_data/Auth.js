@@ -22,7 +22,7 @@ export const tryAuth = async (actions, token) => {
     } finally {
         actions.signinFieldUpdate('progress', false);
     }
-};  
+};
 
 export const signout = (nextState, replace) => {
     store.dispatch(removePersonalData());
