@@ -1,21 +1,21 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 import { assetIndexSelector, assetsSelector } from '../_store/directSelectors';
-import { assetIndexSubmarketSelector } from '../_store/directSelectors';
+import { assetIndexSubmarketSelector, assetIndexFilterSelector } from '../_store/directSelectors';
 import { List } from 'immutable';
 
-const assetSymbolsInSubmarket = (assets, submarket) =>
+const assetSymbolsMatchedFilter = (assets, filter) =>
     assets
         .reduce((symbols, asset) => {
-            if (asset.get('submarket') === submarket) {
+            if (asset.get('submarket') === filter || asset.get('market') === filter) {
                 return symbols.push(asset.get('symbol'));
             }
             return symbols;
         }, List.of());
 
 const shownAssetIndexRowsSelector = createSelector(
-    [assetsSelector, assetIndexSubmarketSelector, assetIndexSelector],
-    (assets, submarket, assetIndex) => {
-        const symbols = assetSymbolsInSubmarket(assets, submarket);
+    [assetsSelector, assetIndexFilterSelector, assetIndexSelector],
+    (assets, filter, assetIndex) => {
+        const symbols = assetSymbolsMatchedFilter(assets, filter);
         return assetIndex
             .filter(a => symbols.some(x => x === a.get(0)));
     }

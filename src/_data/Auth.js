@@ -1,7 +1,7 @@
 import { parseOAuthResponse } from 'binary-live-api';
 import { store } from '../_store/persistentStore';
 import * as LiveData from './LiveData';
-import { signinFieldUpdate, updateAppState, removePersonalData } from '../_actions';
+import { signinFieldUpdate, updateAppState, removePersonalData, updateToken } from '../_actions';
 import { trackUserId } from '../_utils/Analytics';
 import showError from '../_utils/showError';
 
@@ -23,12 +23,13 @@ export const tryAuth = async (actions, token) => {
     } finally {
         actions.signinFieldUpdate('progress', false);
     }
-};
+};  
 
 export const signout = (nextState, replace) => {
     store.dispatch(removePersonalData());
     store.dispatch(signinFieldUpdate('validatedOnce', false));
     store.dispatch(updateAppState('authorized', false));
+    store.dispatch(updateToken(''));
     replace({ pathname: '/signin', state: nextState });
 };
 

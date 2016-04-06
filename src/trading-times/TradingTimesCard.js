@@ -13,21 +13,24 @@ export default class TradingTimesCard extends Component {
 		tradingTimesFilter: PropTypes.object.isRequired,
 	};
 
-	render() {
-		const { actions, assets, tradingTimes, tradingTimesFilter } = this.props;
-		const submarket = tradingTimesFilter.submarket;
-		const tradingTimesDate = tradingTimesFilter.date;
+	assetMatchFilter(symbolName, filter) {
+		const { assets } = this.props;
+		const assetObj = assets.find(x => x.symbol === symbolName);
+		return assetObj.market === filter || assetObj.submarket === filter;
+	}
 
-		const submarketForAsset = symbol =>
-			assets.find(x => x.symbol === symbol).submarket;
+	render() {
+		const { actions, tradingTimes, tradingTimesFilter } = this.props;
+		const filter = tradingTimesFilter.filter;
+		const tradingTimesDate = tradingTimesFilter.date;
 
 		return (
 			<div>
 				<div className="row">
 					<MarketPickerContainer
-						onChange={x => actions.updateTickTradeSubmarket(x)}
+						onChange={x => actions.updateTradingTimesFilter(x)}
 						allOptionShown={false}
-						value={submarket}
+						value={filter}
 					/>
 					<InputGroup
 						type="date"
@@ -39,9 +42,9 @@ export default class TradingTimesCard extends Component {
 					/>
 				</div>
 				<TradingTimesTable
-					key={submarket}
-					times={tradingTimes.filter(a => submarketForAsset(a.symbol) === submarket)}
 					{...this.props}
+					key={filter}
+					times={tradingTimes.filter(a => ::this.assetMatchFilter(a.symbol, filter))}
 				/>
 			</div>
 		);

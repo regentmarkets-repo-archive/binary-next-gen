@@ -968,3 +968,9 @@ input[type=number]::-webkit-outer-spin-button {
 #profit-loss-label {
     font-size: large;
 }
+
+#barrier-type-msg {
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0px;
+}

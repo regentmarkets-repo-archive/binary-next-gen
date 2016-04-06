@@ -12,11 +12,6 @@ export const changeActiveTab = (panel, index) => ({
     index,
 });
 
-export const updateTickTradeSubmarket = submarket => ({
-    type: types.UPDATE_TRADING_TIMES_SUBMARKET,
-    submarket,
-});
-
 export const clearTradeTicks = () => ({
     type: types.CLEAR_TRADE_TICKS,
 });
