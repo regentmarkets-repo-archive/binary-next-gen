@@ -15,6 +15,11 @@ export const updateAssetIndexFilter = filter => ({
     filter,
 });
 
+export const updateTradingTimesFilter = filter => ({
+    type: types.UPDATE_TRADING_TIMES_FILTER,
+    filter,
+});
+
 export const updateTransactionsFilter = filterIndex => ({
     type: types.UPDATE_TRANSACTIONS_FILTER,
     transactionsFilter: filterIndex,
