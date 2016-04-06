@@ -758,9 +758,9 @@ td.right, th.right {
 td.row-id {
     font-weight: bold;
 }
-.row {
-    margin-top: 10px;
-    margin-bottom: 10px;
+.row-spacer {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
 }
 /*.panel-active {
     box-shadow: 0 0 0 2px white, 0 0 0 4px rgba(42, 48, 82, .25);
@@ -862,118 +862,50 @@ input[type=number]::-webkit-outer-spin-button {
     margin-bottom: 1rem;
 }
 .onoffswitch {
-    position: relative; width: 90px;
-    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+    position: relative; width: 12em;
 }
 .onoffswitch-checkbox {
     display: none;
 }
 .onoffswitch-label {
     display: block; overflow: hidden; cursor: pointer;
-    border: 2px solid #999999; border-radius: 20px;
+    border: 2px solid #999999; border-radius: 1.6667em;
 }
 .onoffswitch-inner {
     display: block; width: 200%; margin-left: -100%;
     transition: margin 0.3s ease-in 0s;
 }
 .onoffswitch-inner:before, .onoffswitch-inner:after {
-    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
-    font-size: 14px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    display: block; float: left; width: 50%; height: 2.5em; padding: 0; line-height: 2.5em;
+    font-size: 1.16667; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
     box-sizing: border-box;
 }
 .onoffswitch-inner:before {
-    content: "ON";
-    padding-left: 10px;
+    content: "Start Later";
+    padding-left: 0.83em;
     background-color: #2a3052; color: #FFFFFF;
 }
 .onoffswitch-inner:after {
-    content: "OFF";
-    padding-right: 10px;
+    content: "Start Later";
+    padding-right: 0.83em;
     background-color: #EEEEEE; color: #999999;
     text-align: right;
 }
 .onoffswitch-switch {
-    display: block; width: 18px; margin: 6px;
+    display: block; width: 1.5em; margin: 0.5em;
     background: #FFFFFF;
     position: absolute; top: 0; bottom: 0;
-    /*right: 56px;*/
-    border: 2px solid #999999; border-radius: 20px;
+    /*right: 4.6667em;*/
+    border: 0.16667em solid #999999; border-radius: 1.6667em;
     transition: all 0.3s ease-in 0s; 
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
     margin-left: 0;
 }
 .onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
-    right: 0px; 
-}
-/*
-.switch {
-    position: relative;
-    display: inline-block;
+    right: 0em; 
 }
 
-.switch-input {
-    display: none;
-}
-
-.switch-label {
-    display: block;
-    width: 2.5rem;
-    height: 1rem;
-    margin-left: .15rem;
-    margin-top: .15rem;
-    text-indent: 150%;
-    clip: rect(0 0 0 0);
-    color: #2a3052;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-}
-
-.switch-label:before, .switch-label:after {
-    content: "";
-    display: block;
-    position: absolute;
-    cursor: pointer;
-}
-
-.switch-label:before {
-    width: 100%;
-    height: 100%;
-    background-color: rgba(127, 127, 127, .5);
-    border-radius: 9999em;
-    transition: #2a3052 0.1s ease;
-}
-
-.switch-label:after {
-    top: 0;
-    left: 0;
-    width: 1.5rem;
-    height: 1.5rem;
-    border-radius: 50%;
-    background-color: #2a3052;
-    /*box-shadow: 0 0 2px rgba(127, 127, 127, .4);*/
-    /*transition: left 0.1s ease;
-}
-
-/* When input is checked */
-/*
-.switch-input:checked + .switch-label {
-    /* Switch Rail */
-    /* Switch Knob *//*
-}
-.switch-input:checked + .switch-label:before {
-    background-color: rgba(42, 48, 82, .5);
-}
-.switch-input:checked + .switch-label:after {
-    left: 1.5rem;
-}
-
-.switch {
-    margin: 1rem 0;
-}
-*/
 #duration-fields input, #duration-fields select, .payout-picker input, .payout-picker fieldset {
     width: 100%;
 }

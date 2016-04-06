@@ -13,9 +13,9 @@ export default class ToggleSwitch extends Component {
     };
 
     render() {
-        const { checked, onClick, text } = this.props;
+        const { checked, onClick } = this.props;
         return (
-            <div className="row"> 
+            <div className="row-spacer"> 
                 <div className="onoffswitch">
                     <input 
                         type="checkbox" 
@@ -30,9 +30,6 @@ export default class ToggleSwitch extends Component {
                         <span className="onoffswitch-switch"></span>
                     </label> 
                 </div>
-                <span className="label">
-                    <span>{text}</span>
-                </span>   
             </div> 
         );
     }

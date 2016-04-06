@@ -51,7 +51,7 @@ export default class ForwardStartingOptions extends Component {
         const timeString = dateStart ? epochToUTCTimeString(dateStart) : '';
 
         return (
-            <div className="row">
+            <div className="row row-spacer">
                 <InputGroup
                     type="date"
                     min={dateToDateString(ranges[0].date)}
