@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
+import errorToString from '../_utils/errorToString';
 
 export default class ErrorMsg extends Component {
 
@@ -9,7 +10,6 @@ export default class ErrorMsg extends Component {
 	};
 	render() {
 		const { shown, text } = this.props;
-        const strText = text.split(')').length > 1 ? text.split(')')[1] : text;
-		return shown ? <p className="errorfield"><M m={strText} /></p> : <span />;
+		return shown ? <p className="errorfield"><M m={errorToString(text)} /></p> : null;
 	}
 }
