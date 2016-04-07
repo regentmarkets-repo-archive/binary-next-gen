@@ -8,7 +8,7 @@ import InputGroup from '../_common/InputGroup';
 import * as LiveData from '../_data/LiveData';
 import config from '../config';
 
-export default class CreateAccountCard extends Component {
+export default class AccountInfoForm extends Component {
     static propTypes = {
         email: React.PropTypes.string.isRequired,
         password: React.PropTypes.string.isRequired,
@@ -26,7 +26,8 @@ export default class CreateAccountCard extends Component {
 
     passwordValid() {
         const { password } = this.props;
-        return /^[ -~]{6,25}$/.test(password);
+        const expr = /(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{6,25}/;
+        return expr.test(password);
     }
 
     confirmationValid() {
@@ -94,7 +95,7 @@ export default class CreateAccountCard extends Component {
                     />
                     <ErrorMsg
                         shown={validatedOnce && emailNotValid}
-                        text="You need to enter an email"
+                        text="Please enter a valid email"
                     />
                     <fieldset>
                         <Countries onChange={::this.residenceChange} />

@@ -15,7 +15,7 @@ describe('<AppConfigProvider />', () => {
     it('should render children', () => {
         const wrapper = shallow(
             <AppConfigProvider store={store}>
-                <ChildComponent/>
+                <ChildComponent />
             </AppConfigProvider>);
 
         expect(wrapper.render().text()).to.contain('World');
@@ -24,7 +24,7 @@ describe('<AppConfigProvider />', () => {
     it('should render theme-wrapper', () => {
         const wrapper = render(
             <AppConfigProvider store={store}>
-                <ChildComponent/>
+                <ChildComponent />
             </AppConfigProvider>);
         expect(wrapper.find('#theme-wrapper').hasClass('inverse')).to.be.true;
     });
