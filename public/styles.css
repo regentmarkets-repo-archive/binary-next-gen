@@ -192,10 +192,12 @@ nav.sidebar {
 
 .number-positive {
     color: green;
+    white-space: nowrap;
 }
 
 .number-negative {
     color: red;
+    white-space: nowrap;
 }
 
 .trade-action {
