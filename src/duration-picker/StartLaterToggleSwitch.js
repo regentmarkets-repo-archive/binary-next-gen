@@ -1,9 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 
-export default class ToggleSwitch extends Component {
+export default class StartLaterToggleSwitch extends Component {
 
     static propTypes = {
         checked: PropTypes.bool,
+        id: PropTypes.any.isRequired,
         onClick: PropTypes.func,
         text: PropTypes.string,
     };
@@ -13,19 +14,18 @@ export default class ToggleSwitch extends Component {
     };
 
     render() {
-        const { checked, onClick } = this.props;
+        const { checked, id, onClick } = this.props;
+        const className = checked ? 'onoffswitch-checkbox checked' : 'onoffswitch-checkbox';
         return (
             <div className="row-spacer">
                 <div className="onoffswitch">
-                    <input
-                        type="checkbox"
+                    <button
                         name="onoffswitch"
-                        className="onoffswitch-checkbox"
-                        id="myonoffswitch"
-                        checked={checked}
+                        className={className}
+                        id={'toggle-' + id}
                         onClick={onClick}
                     />
-                    <label htmlFor="myonoffswitch" className="onoffswitch-label">
+                    <label htmlFor={'toggle-' + id} className="onoffswitch-label">
                         <span className="onoffswitch-inner"></span>
                         <span className="onoffswitch-switch"></span>
                     </label>

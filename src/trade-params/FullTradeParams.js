@@ -395,6 +395,7 @@ export default class FullTradeParams extends Component {
                         onDurationChange={this.onDurationChange}
                         onUnitChange={this.onDurationUnitChange}
                         onStartDateChange={this.onStartDateChange}
+                        tradeIndex={index}
                     />
                 }
                 {showDigitBarrier &&
