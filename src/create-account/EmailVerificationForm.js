@@ -49,8 +49,9 @@ export default class EmailVerificationForm extends Component {
         }
     }
 
-    goBack() {
+    async goBack() {
         const { actions } = this.props;
+        await actions.createAccountFieldUpdate('error', null);
         actions.createAccountFieldUpdate('step', 0);
     }
 
@@ -70,7 +71,7 @@ export default class EmailVerificationForm extends Component {
                     shown={!!error}
                     text={(error && error.message) || '-'}
                 />
-                <Button text="Go back" onClick={::this.goBack} className="btn-secondary" /> 
+                <Button text="Go back" onClick={::this.goBack} className="btn-secondary" />
                 &nbsp;
                 <Button text="Verify" onClick={::this.onVerify} />
             </div>
