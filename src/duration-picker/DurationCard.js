@@ -6,7 +6,7 @@ import SelectGroup from '../_common/SelectGroup';
 import InputGroup from '../_common/InputGroup';
 import ForwardStartingOptions from './ForwardStartingOptions';
 import durationText from '../_utils/durationText';
-import ToggleSwitch from '../_common/ToggleSwitch';
+import StartLaterToggleSwitch from './StartLaterToggleSwitch';
 
 export default class DurationCard extends Component {
     static propTypes = {
@@ -18,6 +18,7 @@ export default class DurationCard extends Component {
         onUnitChange: PropTypes.func,
         onDurationChange: PropTypes.func,
         onStartDateChange: PropTypes.func,
+        tradeIndex: PropTypes.any.isRequired,
     };
 
     shouldComponentUpdate = shouldPureComponentUpdate;
@@ -43,6 +44,7 @@ export default class DurationCard extends Component {
             onUnitChange,
             onDurationChange,
             onStartDateChange,
+            tradeIndex,
         } = this.props;
 
         const allowStartLater = !!forwardStartingDuration;
@@ -72,8 +74,9 @@ export default class DurationCard extends Component {
                 {(allowStartLater && !onlyStartLater) &&
                     <FormattedMessage id="Start_Later" defaultMessage="Start Later">
                         {text =>
-                            <ToggleSwitch
+                            <StartLaterToggleSwitch
                                 text={text}
+                                id={tradeIndex}
                                 checked={!!dateStart}
                                 onClick={::this.startLaterHandler}
                                 disabled={onlyStartLater}

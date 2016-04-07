@@ -910,10 +910,10 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: 2rem;
     transition: all 0.3s ease-in 0s;
 }
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+.onoffswitch-checkbox.checked + .onoffswitch-label .onoffswitch-inner {
     margin-left: 0;
 }
-.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+.onoffswitch-checkbox.checked + .onoffswitch-label .onoffswitch-switch {
     right: 0em;
 }
 
