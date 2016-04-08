@@ -21,7 +21,7 @@ export default class SettingsDetails extends Component {
 					<LabeledText
 						id="name"
 						label="Name"
-						value={settings.name}
+						value={settings.name || ''}
 					/>
 					<LabeledText
 						id="dob"
@@ -31,7 +31,7 @@ export default class SettingsDetails extends Component {
 					<LabeledText
 						id="residence"
 						label="Country of residence"
-						value={settings.country}
+						value={settings.country || ''}
 					/>
 					<LabeledText
 						id="email"

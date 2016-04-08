@@ -2,6 +2,9 @@ import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
 
 export default class LabeledText extends Component {
+    static defaultProps = {
+        value: 'N/A',
+    };
 
     static propTypes = {
         id: PropTypes.string,
@@ -10,8 +13,8 @@ export default class LabeledText extends Component {
     };
 
     render() {
-        const { id, label } = this.props;
-        const value = this.props.value || 'N/A';
+        const { id, label, value } = this.props;
+
         return (
             <div id={id} className={'name-val-pair'}>
                 <M className={'name'} id={label + ':'} m={label + ':'} />
