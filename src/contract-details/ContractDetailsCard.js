@@ -57,6 +57,7 @@ export default class ContractDetailsCard extends Component {
 				{validToSell ?
 					<button
 						className="sell-at-market-btn"
+						disabled={contract.selling}
 						onClick={() => actions.sellContract(contract.contract_id, 0)}
 					>
 						<M m="Sell at Market" /> (<NumberPlain
