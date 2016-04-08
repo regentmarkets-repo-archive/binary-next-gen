@@ -26,6 +26,7 @@ export default class ContractDetailsCard extends Component {
 						<tr>
 							<th><M m="Entry Price" /></th>
 							<th><M m="Exit Price" /></th>
+							<th><M m="Indicative Price" /></th>
 							<th>{sold ? <M m="Profit" /> : <M m="Potential Profit" />}</th>
 						</tr>
 					</thead>
@@ -39,6 +40,13 @@ export default class ContractDetailsCard extends Component {
 								{sold ?
 									<NumberPlain value={contract.sell_price} currency={contract.currency} /> :
 									'-'}
+							</td>
+							<td>
+								<NumberColored
+									value={contract.bid_price}
+									currency={contract.currency}
+									isProfit={v => v - contract.buy_price}
+								/>
 							</td>
 							<td>
 								{contract.buy_price &&
