@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
+import errorToString from '../_utils/errorToString';
 
 export default class ErrorMsg extends Component {
 
@@ -7,9 +8,8 @@ export default class ErrorMsg extends Component {
 		shown: PropTypes.bool.isRequired,
 		text: PropTypes.string.isRequired,
 	};
-
 	render() {
 		const { shown, text } = this.props;
-		return shown ? <p className="errorfield"><M m={text} /></p> : <span />;
+		return shown ? <p className="errorfield"><M m={errorToString(text)} /></p> : null;
 	}
 }
