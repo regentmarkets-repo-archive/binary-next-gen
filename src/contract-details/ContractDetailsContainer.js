@@ -29,9 +29,11 @@ export default class ContractDetailsContainer extends Component {
 
 	render() {
 		const { params, contracts, ticks } = this.props;
-		const contract = contracts.find(x => x.get('contract_id') === params.id).toJS();
+		const immutableContract = contracts.find(x => x.get('contract_id') === params.id);
+		const contract = immutableContract && immutableContract.toJS();
 
-		const history = ticks.get(contract.underlying).toJS();
+		const immutableHistory = ticks.get(contract.underlying);
+		const history =  immutableHistory.toJS();
 
 		if (!contract) return null;
 
