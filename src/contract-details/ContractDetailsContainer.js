@@ -52,7 +52,6 @@ export default class ContractDetailsContainer extends Component {
 				<ContractDetailsCard
 					contract={contract}
 					ticks={history}
-					// soldResultShown={soldResultShown}
 					{...immutableChildrenToJS(this.props)}
 				/>
 		</div>

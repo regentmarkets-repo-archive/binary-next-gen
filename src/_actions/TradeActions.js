@@ -30,10 +30,12 @@ export const sellContract = (id, price) =>
             return;
         }
         try {
+            dispatch(updateOpenContractField({ id, selling: true }));
             await LiveData.api.sellContract(id, price);
+            dispatch(updateOpenContractField({ id, selling: false }));
             await trackEvent('sell-contract', { id, price });
         } catch (error) {
-            dispatch(updateOpenContractField({ id, error }));
+            dispatch(updateOpenContractField({ id, validation_error: error }));
         }
     };
 
