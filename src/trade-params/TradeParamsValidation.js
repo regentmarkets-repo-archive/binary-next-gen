@@ -1,10 +1,9 @@
-const epochWithinRange = (epoch, range) =>
-    !!(range.find(r => {
-        const millis = epoch * 1000;
-        const startMillis = r.open[0].getTime();
-        const endMillis = (r.close[1] || r.close[0]).getTime();
-        return millis >= startMillis && millis <= endMillis;
-    }));
+const epochWithinRange = (epoch, range) => {
+    const millis = epoch * 1000;
+    const startMillis = range.open[0].getTime();
+    const endMillis = (range.close[1] || range.close[0]).getTime();
+    return (millis >= startMillis && millis <= endMillis);
+};
 
 export const forwardStartTimeValid = (dateStart, forwardStartingDuration) =>
     !!forwardStartingDuration.range.find(r => epochWithinRange(dateStart, r));

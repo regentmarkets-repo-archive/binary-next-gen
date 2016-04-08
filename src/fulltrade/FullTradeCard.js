@@ -67,7 +67,7 @@ export default class FullTradeCard extends Component {
                         <FullTradeParams
                             {...this.props}
                             disabled={disabled}
-                            contract={disabled ? mockedContract : contract}
+                            contract={contract}
                         />
                 }
             </div>
