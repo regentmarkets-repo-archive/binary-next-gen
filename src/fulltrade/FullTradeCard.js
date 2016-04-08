@@ -52,6 +52,7 @@ export default class FullTradeCard extends Component {
                 </Modal>
                 <BinaryChart
                     className="trade-chart"
+                    contract={mostRecentContractBought}
                     symbol={selectedSymbol}
                     ticks={ticks}
                     trade={trade}
