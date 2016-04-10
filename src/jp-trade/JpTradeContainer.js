@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import immutableChildrenToJS from '../_utils/immutableChildrenToJS';
+import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
 
 import JpTradeCard from './JpTradeCard';
 

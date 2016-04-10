@@ -5,7 +5,7 @@ import ErrorMsg from '../_common/ErrorMsg';
 import SelectGroup from '../_common/SelectGroup';
 import InputGroup from '../_common/InputGroup';
 import ForwardStartingOptions from './ForwardStartingOptions';
-import durationText from '../_utils/durationText';
+import durationText from 'binary-utils/lib/durationText';
 import StartLaterToggleSwitch from './StartLaterToggleSwitch';
 
 export default class DurationCard extends Component {

@@ -1,8 +1,8 @@
 import React, { PropTypes, Component } from 'react';
 import RadioItem from '../_common/RadioItem';
 import RadioGroup from '../_common/RadioGroup';
-import typeHasBarrier from '../_utils/typeHasBarrier';
-import digitOptionsByType from '../_utils/digitOptionsByType';
+import typeHasBarrier from 'binary-utils/lib/typeHasBarrier';
+import digitOptionsByType from 'binary-utils/lib/digitOptionsByType';
 
 export default class TradeTypeTickOptions extends Component {
 

@@ -1,5 +1,5 @@
 import * as types from '../_constants/ActionTypes';
-import { nowAsEpoch } from '../_utils/DateUtils';
+import { nowAsEpoch } from 'binary-utils/lib/DateUtils';
 import { sellExpiredContract } from './TradeActions';
 
 export const serverDataPortfolio = serverResponse => ({

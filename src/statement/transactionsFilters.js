@@ -4,7 +4,7 @@ import {
     yesterdayUTCString,
     getLastXMonthEpoch,
     last7DaysEpoch,
-} from '../_utils/DateUtils';
+} from 'binary-utils/lib/DateUtils';
 
 export const transactionsTodayFilterFunc = tx =>
     todayUTCString() === epochToUTCDateString(tx.get('transaction_time'));

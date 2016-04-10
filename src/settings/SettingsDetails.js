@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
 import LabeledText from '../_common/LabeledText';
-import { epochToDateString } from '../_utils/DateUtils';
+import { epochToDateString } from 'binary-utils/lib/DateUtils';
 
 export default class SettingsDetails extends Component {
 

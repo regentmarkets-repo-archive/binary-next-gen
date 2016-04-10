@@ -1,7 +1,7 @@
 import { LiveApi } from 'binary-live-api';
 import { readNewsFeed } from './NewsData';
 import { getVideosFromPlayList } from './VideoData';
-import isUserVirtual from '../_utils/isUserVirtual';
+import isUserVirtual from 'binary-utils/lib/isUserVirtual';
 import * as actions from '../_actions';
 import config from '../config';
 

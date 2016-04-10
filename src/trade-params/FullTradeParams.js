@@ -1,19 +1,19 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import ErrorMsg from '../_common/ErrorMsg';
-import isIntraday from '../_utils/isIntraday';
-import isDurationLessThan2Mins from '../_utils/isDurationLessThan2Mins';
-import getLastTick from '../_utils/getLastTick';
+import isIntraday from 'binary-utils/lib/isIntraday';
+import isDurationLessThan2Mins from 'binary-utils/lib/isDurationLessThan2Mins';
+import getLastTick from 'binary-utils/lib/getLastTick';
 import BarrierCard from '../barrier-picker/BarrierCard';
 import DigitBarrierCard from '../barrier-picker/DigitBarrierCard';
 import DurationCard from '../duration-picker/DurationCard';
 import StakeCard from '../payout-picker/StakeCard';
 import PayoutCard from '../payout-picker/PayoutCard';
 import BuyButton from '../tick-trade/BuyButton';
-import askPriceFromProposal from '../_utils/askPriceFromProposal';
+import askPriceFromProposal from 'binary-utils/lib/askPriceFromProposal';
 import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
-import isDurationWithinRange from '../_utils/isDurationWithinRange';
-import noOfDecimals from '../_utils/noOfDecimals';
+import isDurationWithinRange from 'binary-utils/lib/isDurationWithinRange';
+import noOfDecimals from 'binary-utils/lib/noOfDecimals';
 import TradeTypePicker from '../trade-type-picker/TradeTypePicker';
 import {
     createDefaultType,

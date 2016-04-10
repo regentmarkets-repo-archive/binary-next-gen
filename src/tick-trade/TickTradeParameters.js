@@ -4,7 +4,7 @@ import { Link } from 'react-router';
 import M from '../_common/M';
 import RangeGroup from '../_common/RangeGroup';
 import NumberPlain from '../_common/NumberPlain';
-import tradeToFriendlyType from '../_utils/tradeToFriendlyType';
+import tradeToFriendlyType from 'binary-utils/lib/tradeToFriendlyType';
 
 export default class TickTradeParameters extends Component {
 

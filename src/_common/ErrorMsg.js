@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
-import errorToString from '../_utils/errorToString';
+import errorToString from 'binary-utils/lib/errorToString';
 
 export default class ErrorMsg extends Component {
 
