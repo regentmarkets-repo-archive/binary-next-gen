@@ -14,6 +14,8 @@ const timeFormats = {
         hour: 'numeric',
         minute: 'numeric',
         second: 'numeric',
+        timeZone: 'UTC',
+        hour12: false,
     },
 };
 
@@ -31,7 +33,11 @@ export default class AppConfigProvider extends Component {
     render() {
         const { children, language, theme } = this.props;
         return (
-            <IntlProvider locale={locale(language)} messages={allTexts(language)} formats={{ time: timeFormats }}>
+            <IntlProvider
+                locale={locale(language)}
+                messages={allTexts(language)}
+                formats={{ time: timeFormats }}
+            >
                 <div id="theme-wrapper" className={(theme === 'dark') ? 'inverse' : ''}>
                     {Children.only(children)}
                 </div>
