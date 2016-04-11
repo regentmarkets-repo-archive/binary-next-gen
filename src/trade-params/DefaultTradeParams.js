@@ -7,6 +7,11 @@ export const createDefaultCategory = contracts => Object.keys(contracts)[0];
 export const createDefaultType = (contracts, category) =>
     Object.keys(contracts[category])[0];
 
+export const createDefaultStartLaterEpoch = forwardStartingDuration => {
+    const nextDayOpening = dateToEpoch(forwardStartingDuration.range[1].open[0]);
+    return nextDayOpening + (60 * 10);                      // 10 minutes * 60 secs
+};
+
 export const createDefaultDuration = (contracts, category, type) => {
     if (category === 'spreads') {
         return [undefined, undefined];
@@ -19,7 +24,7 @@ export const createDefaultDuration = (contracts, category, type) => {
 
     const forwardD = contracts[category][type].forwardStartingDuration;
     return {
-        dateStart: dateToEpoch(forwardD.range[1].open[0]),
+        dateStart: createDefaultStartLaterEpoch(forwardD),
         duration: forwardD.options[0].min,
         durationUnit: forwardD.options[0].unit,
     };
