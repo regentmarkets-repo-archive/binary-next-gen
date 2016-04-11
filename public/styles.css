@@ -859,10 +859,6 @@ input[type=number]::-webkit-outer-spin-button {
     box-shadow: 0 0 0 1px white;
 }
 
-.trade-chart {
-    height: 250px;
-    margin-bottom: 1rem;
-}
 .onoffswitch {
     position: relative;
     width: 10rem;
@@ -953,6 +949,12 @@ input[type=number]::-webkit-outer-spin-button {
 .trades-tabs .trade-chart {
     flex: 2;
     margin-left: .5rem;
+}
+
+
+.trades-grid .trade-chart {
+    height: 250px;
+    margin-bottom: 1rem;
 }
 
 .trades-tabs .full-trade-params {
