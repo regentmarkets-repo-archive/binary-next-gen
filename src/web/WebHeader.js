@@ -3,8 +3,6 @@ import { Link } from 'react-router';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import config from '../config';
 import M from '../_common/M';
-import ClockContainer from './ClockContainer';
-import LanguagePicker from '../_common/LanguagePicker';
 import WebSidebar from '../sidebar/WebSidebar';
 import ToggleButtonsContainer from './ToggleButtonsContainer';
 import Balance from '../balance/BalanceContainer';
@@ -35,10 +33,6 @@ export default class WebHeader extends Component {
 					<img src={config.logo2} />
 				</div>
 
-				<div id="clock" >
-					<ClockContainer />
-				</div>
-
 				<ToggleButtonsContainer actions={this.props.actions} />
 
 				<NewTradeButton
@@ -47,7 +41,6 @@ export default class WebHeader extends Component {
 					actions={actions}
 				/>
 
-				<LanguagePicker className="language-picker" />
 				<Balance />
 				<Link to="/deposit" id="deposit-btn" className="btn-secondary">
 					<M m="Deposit" />

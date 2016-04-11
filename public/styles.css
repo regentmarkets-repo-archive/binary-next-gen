@@ -725,16 +725,25 @@ div[role=tab] {
 }
 
 div[role=tab] img {
-    width: 1.25rem;
-    margin: .875rem;
+    width: 1.75rem;
+    margin: .5rem auto 0;
 }
 
- div[role=tablist].vertical div[role=tab] {
+div[role=tablist].vertical div[role=tab] {
     flex: inherit;
+}
+
+.vertical > div[role=tab] {
+    display: flex;
+    flex-direction: column;
 }
 
 div[role=tabpanel] {
     background: red;
+}
+
+#footer {
+    display: flex;
 }
 
 .centerer {
