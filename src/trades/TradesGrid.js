@@ -23,7 +23,7 @@ export default class TradesGrid extends Component {
         const { actions, activeTradeIndex, assetsIsOpen, currency, trades, ticksForAllSymbols, contracts } = this.props;
 
         return (
-            <div className="trades-grid">
+            <div className="trades-grid layout-4-2">
                 {trades.map((trade, index) =>
                     <div
                         key={index}

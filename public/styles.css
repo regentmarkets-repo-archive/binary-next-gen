@@ -643,7 +643,7 @@ tr[tabindex] {
     flex-direction: column;
 }
 
-.trades-tabs {
+.trades-tabs, .trades-grid > .trade-panel {
     flex-direction: column;
 }
 
@@ -672,10 +672,6 @@ tr[tabindex] {
 
 .trade-panel, .trade-container {
     flex: 1;
-}
-
-.trade-container {
-    max-width: 20rem;
 }
 
 .trade-container + .trade-container {
@@ -950,7 +946,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin-left: 0.5rem;
 }
 
-.trades-tabs .trade-panel {
+.trades-tabs .trade-panel, .trades-grid .trade-panel {
     display: flex;
     flex-direction: row-reverse;
 }
@@ -958,12 +954,6 @@ input[type=number]::-webkit-outer-spin-button {
 .trades-tabs .trade-chart {
     flex: 2;
     margin-left: .5rem;
-}
-
-
-.trades-grid .trade-chart {
-    height: 250px;
-    margin-bottom: 1rem;
 }
 
 .trades-tabs .full-trade-params {
@@ -991,4 +981,102 @@ input[type=number]::-webkit-outer-spin-button {
 .highcharts-container,
 .highcharts-container svg {
     width: 100% !important;
+}
+
+.trades-grid {
+    flex-wrap: wrap;
+}
+
+/* ===== */
+
+.layout-1-1 {
+
+}
+
+.layout-2-1 {
+    flex-direction: column;
+}
+
+.layout-2-2 {
+    flex-direction: row;
+}
+
+.layout-3-1 {
+    flex-direction: row;
+}
+
+.layout-3-1 div:nth-child(1) {
+    flex-basis: 100%;
+}
+
+.layout-3-2 {
+    flex-direction: row;
+}
+
+.layout-3-2 div:nth-child(3) {
+    flex-basis: 100%;
+}
+
+.layout-3-2 div:nth-child(3) {
+    flex-basis: 100%;
+}
+
+.layout-3-3 {
+    flex-direction: column;
+}
+
+.layout-3-3 div:nth-child(3) {
+    flex-basis: 100%;
+}
+
+.layout-3-4 {
+    flex-direction: column;
+}
+
+.layout-3-4 div:nth-child(1) {
+    flex-basis: 100%;
+}
+
+.layout-3-5 {
+    flex-direction: column;
+}
+
+.layout-4-1 {
+    flex-direction: row;
+}
+
+.layout-4-1 > div {
+    flex-basis: 40%;
+}
+
+.layout-4-2 {
+    flex-direction: row;
+}
+
+.layout-4-2 > div:nth-child(4) {
+    flex-basis: 100%;
+}
+
+.layout-4-3 {
+    flex-direction: row;
+}
+
+.layout-4-3 > div:nth-child(1) {
+    flex-basis: 100%;
+}
+
+.layout-4-4 {
+    flex-direction: row;
+}
+
+.layout-4-4 > div:nth-child(1) {
+    flex-basis: 100%;
+}
+
+.layout-4-5 {
+    flex-direction: row;
+}
+
+.layout-4-5 > div:nth-child(4) {
+    flex-basis: 100%;
 }
