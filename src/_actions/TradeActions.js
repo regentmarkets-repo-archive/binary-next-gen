@@ -1,8 +1,8 @@
 import * as types from '../_constants/ActionTypes';
 import * as LiveData from '../_data/LiveData';
 import { changeActiveTrade } from './WorkspaceActions';
-import { trackEvent } from '../_utils/Analytics';
-import numberToSignedString from '../_utils/numberToSignedString';
+import { trackEvent } from 'binary-utils/lib/Analytics';
+import numberToSignedString from 'binary-utils/lib/numberToSignedString';
 import { updateOpenContractField } from './PortfolioActions';
 
 export const serverDataProposal = serverResponse => ({
@@ -30,10 +30,12 @@ export const sellContract = (id, price) =>
             return;
         }
         try {
+            dispatch(updateOpenContractField({ id, selling: true }));
             await LiveData.api.sellContract(id, price);
+            dispatch(updateOpenContractField({ id, selling: false }));
             await trackEvent('sell-contract', { id, price });
         } catch (error) {
-            dispatch(updateOpenContractField({ id, error }));
+            dispatch(updateOpenContractField({ id, validation_error: error }));
         }
     };
 

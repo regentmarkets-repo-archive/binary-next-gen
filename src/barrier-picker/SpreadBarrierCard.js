@@ -3,7 +3,7 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 import RadioGroup from '../_common/RadioGroup';
 import InputGroup from '../_common/InputGroup';
 import ErrorMsg from '../_common/ErrorMsg';
-import noOfDecimals from '../_utils/noOfDecimals';
+import noOfDecimals from 'binary-utils/lib/noOfDecimals';
 
 export default class SpreadBarrierCard extends Component {
 

@@ -5,7 +5,7 @@ import PurchaseFailed from '../_common/PurchaseFailed';
 import Modal from '../containers/Modal';
 import FullTradeParams from '../trade-params/FullTradeParams';
 import BoughtContractCard from './BoughtContractCard';
-import findIfExist from '../_utils/findIfExist';
+import findIfExist from 'binary-utils/lib/findIfExist';
 import { mockedContract } from './../_constants/MockContract';
 
 export default class FullTradeCard extends Component {
@@ -52,6 +52,7 @@ export default class FullTradeCard extends Component {
                 </Modal>
                 <BinaryChart
                     className="trade-chart"
+                    contract={mostRecentContractBought}
                     symbol={selectedSymbol}
                     ticks={ticks}
                     trade={trade}

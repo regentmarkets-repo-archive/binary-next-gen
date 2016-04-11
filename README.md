@@ -67,8 +67,8 @@ electron
 * _data - Server/API interaction
 * _reducers - Redux reducers
 * _routes - React Router route config
+* _selectors - Get data out of store
 * _store - Init for routes and Redux
-* _utils - Common utils
 
 ## Translations
 Please see [Weblate](https://hosted.weblate.org/projects/binary-app/next-gen-app/)

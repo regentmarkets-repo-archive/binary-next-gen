@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { BinaryChart } from 'binary-charts';
 import M from '../_common/M';
-import immutableChildrenToJS from '../_utils/immutableChildrenToJS';
+import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
 import ContractDetailsSelectors from './ContractDetailsSelectors';
 import ContractDetailsCard from './ContractDetailsCard';
 
@@ -19,6 +19,18 @@ export default class ContractDetailsContainer extends Component {
 		actions: PropTypes.object.isRequired,
 	};
 
+	componentWillMount() {
+		const { actions, params, contracts, ticks } = this.props;
+		const immutableContract = contracts.find(x => x.get('contract_id') === params.id);
+		const contract = immutableContract && immutableContract.toJS();
+
+		const immutableHistory = ticks.get(contract.underlying);
+
+		if (!immutableHistory) {
+			actions.getTicksBySymbol(contract.underlying);
+		}
+	}
+
 	componentDidMount() {
 		this.interval = setInterval(this.props.actions.updateNow, 1000);
 	}
@@ -29,9 +41,11 @@ export default class ContractDetailsContainer extends Component {
 
 	render() {
 		const { params, contracts, ticks } = this.props;
-		const contract = contracts.find(x => x.get('contract_id') === params.id).toJS();
+		const immutableContract = contracts.find(x => x.get('contract_id') === params.id);
+		const contract = immutableContract && immutableContract.toJS();
 
-		const history = ticks.get(contract.underlying).toJS();
+		const immutableHistory = ticks.get(contract.underlying);
+		const history = immutableHistory && immutableHistory.toJS();
 
 		if (!contract) return null;
 
@@ -52,7 +66,6 @@ export default class ContractDetailsContainer extends Component {
 				<ContractDetailsCard
 					contract={contract}
 					ticks={history}
-					// soldResultShown={soldResultShown}
 					{...immutableChildrenToJS(this.props)}
 				/>
 		</div>

@@ -1,10 +1,10 @@
 import React, { PropTypes, Component } from 'react';
-import showError from '../_utils/showError';
+import showError from 'binary-utils/lib/showError';
 import M from '../_common/M';
 import Button from '../_common/Button';
 import InputGroup from '../_common/InputGroup';
 import * as LiveData from '../_data/LiveData';
-import isValidPassword from '../_utils/isValidPassword';
+import isValidPassword from 'binary-utils/lib/isValidPassword';
 
 export default class SettingsSecurity extends Component {
 

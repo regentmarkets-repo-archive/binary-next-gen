@@ -1,4 +1,4 @@
-import { nextXDay } from '../_utils/DateUtils';
+import { nextXDay } from 'binary-utils/lib/DateUtils';
 
 export const mockedContract = {
     asian: {

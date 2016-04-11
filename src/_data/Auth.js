@@ -1,9 +1,8 @@
-import { parseOAuthResponse } from 'binary-live-api';
 import { store } from '../_store/persistentStore';
 import * as LiveData from './LiveData';
 import { signinFieldUpdate, updateAppState, removePersonalData, updateToken } from '../_actions';
-import { trackUserId } from '../_utils/Analytics';
-import showError from '../_utils/showError';
+import { trackUserId } from 'binary-utils/lib/Analytics';
+import showError from 'binary-utils/lib/showError';
 
 export const tryAuth = async (actions, token) => {
     if (!token) {
@@ -23,7 +22,7 @@ export const tryAuth = async (actions, token) => {
     } finally {
         actions.signinFieldUpdate('progress', false);
     }
-};  
+};
 
 export const signout = (nextState, replace) => {
     store.dispatch(removePersonalData());
@@ -45,10 +44,4 @@ export const requireAuthOnEnter = (nextState, replace, callback) => {
         replace({ pathname: '/signin', state: nextState });
     }
     callback();
-};
-
-export const redirectFromOAuth = (nextState, replace, callback) => {
-    // console.log(nextState.location.query);
-    // alert('yolo');
-    // callback();
 };

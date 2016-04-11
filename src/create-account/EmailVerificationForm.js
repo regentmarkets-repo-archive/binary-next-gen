@@ -49,8 +49,9 @@ export default class EmailVerificationForm extends Component {
         }
     }
 
-    goBack() {
+    async goBack() {
         const { actions } = this.props;
+        await actions.createAccountFieldUpdate('error', null);
         actions.createAccountFieldUpdate('step', 0);
     }
 

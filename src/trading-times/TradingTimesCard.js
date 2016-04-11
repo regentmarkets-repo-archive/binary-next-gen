@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import InputGroup from '../_common/InputGroup';
 import MarketPickerContainer from '../_common/MarketPickerContainer';
-import { dateToDateString, todayLocaleString, oneYearAfterStr } from '../_utils/DateUtils';
+import { dateToDateString, todayLocaleString, oneYearAfterStr } from 'binary-utils/lib/DateUtils';
 import TradingTimesTable from './TradingTimesTable';
 
 export default class TradingTimesCard extends Component {

@@ -6,7 +6,7 @@ import {
     dateToUTCTimeString,
     timeStringToSeconds,
     dateToDateString,
-} from '../_utils/DateUtils';
+} from 'binary-utils/lib/DateUtils';
 
 /**
  * assumption: for each type of contract, there will only have 1 forward starting options contract

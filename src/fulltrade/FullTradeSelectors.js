@@ -1,17 +1,17 @@
 import { createSelector } from 'reselect';
-import { nowAsEpoch } from '../_utils/DateUtils';
+import { nowAsEpoch } from 'binary-utils/lib/DateUtils';
 import { assetsSelector, tradingTimesSelector, boughtContractsSelector } from '../_store/directSelectors';
 import { marketTreeSelector } from '../_selectors/marketTreeSelector';
-import extractBarrier from '../_utils/extractBarrier';
-import extractDuration from '../_utils/extractDuration';
-import extractForwardStartingDuration from '../_utils/extractForwardStartingDuration';
-import extractSpreadInfo from '../_utils/extractSpreadInfo';
-import availableAssetsFilter from '../_utils/availableAssetsFilter';
-import flattenSubmarkets from '../_utils/flattenSubmarkets';
-import normalizedContractFor from '../_utils/normalizedContractFor';
-import groupByKey from '../_utils/groupByKey';
-import findIfExist from '../_utils/findIfExist';
-import filterObjectBy from '../_utils/filterObjectBy';
+import extractBarrier from 'binary-utils/lib/extractBarrier';
+import extractDuration from 'binary-utils/lib/extractDuration';
+import extractForwardStartingDuration from 'binary-utils/lib/extractForwardStartingDuration';
+import extractSpreadInfo from 'binary-utils/lib/extractSpreadInfo';
+import availableAssetsFilter from 'binary-utils/lib/availableAssetsFilter';
+import flattenSubmarkets from 'binary-utils/lib/flattenSubmarkets';
+import normalizedContractFor from 'binary-utils/lib/normalizedContractFor';
+import groupByKey from 'binary-utils/lib/groupByKey';
+import findIfExist from 'binary-utils/lib/findIfExist';
+import filterObjectBy from 'binary-utils/lib/filterObjectBy';
 
 /**
  * end result should contain information

@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import NumberPlain from './NumberPlain';
-import directionClassName from '../_utils/directionClassName';
+import directionClassName from 'binary-utils/lib/directionClassName';
 
 export default class NumberColored extends Component {
 	shouldComponentUpdate = shouldPureComponentUpdate;

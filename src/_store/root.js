@@ -11,7 +11,7 @@ import * as allActions from '../_actions';
 import AppStateProvider from './AppStateProvider';
 import AppConfigProvider from './AppConfigProvider';
 import { hashHistory as history } from 'react-router';
-import { trackRoute } from '../_utils/Analytics';
+import { trackRoute } from 'binary-utils/lib/Analytics';
 
 history.listen(location => trackRoute(location.pathname));
 

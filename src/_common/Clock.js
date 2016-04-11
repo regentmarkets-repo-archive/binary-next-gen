@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { dateToGMTString } from '../_utils/DateUtils';
+import { dateToGMTString } from 'binary-utils/lib/DateUtils';
 
 export default class Clock extends Component {
 

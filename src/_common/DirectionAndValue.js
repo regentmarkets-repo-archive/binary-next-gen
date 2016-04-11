@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { Direction, NumberPlain } from './';
-import directionClassName from '../_utils/directionClassName';
+import directionClassName from 'binary-utils/lib/directionClassName';
 
 export default class DirectionAndValue extends Component {
 
