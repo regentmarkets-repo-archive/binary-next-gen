@@ -5,6 +5,7 @@ import { enableDevTools } from './DevTools';
 import rootReducer from '../_reducers';
 import actionsToCache from './actionsToCache';
 import storageEngine from './storageEngine';
+import removeNullMiddleware from './removeNullMiddleware';
 import immutableMerger from 'redux-storage-merger-immutablejs';
 
 const storageMiddleware = storage.createMiddleware(storageEngine, [], actionsToCache);
@@ -13,7 +14,7 @@ const storageReducer = storage.reducer(rootReducer, immutableMerger);
 const storageLoader = storage.createLoader(storageEngine);
 
 const finalCreateStore = compose(
-    applyMiddleware(thunkMiddleware, storageMiddleware),
+    applyMiddleware(removeNullMiddleware, thunkMiddleware, storageMiddleware),
     enableDevTools()
 )(createStore);
 
