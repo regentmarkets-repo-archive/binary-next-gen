@@ -111,7 +111,7 @@ export default class AccountInfoForm extends Component {
                     />
                     <ErrorMsg
                         shown={validatedOnce && passwordNotValid}
-                        text="Password not valid"
+                        text="Password should have lower and uppercase letters with numbers."
                     />
                     <InputGroup
                         type="password"
