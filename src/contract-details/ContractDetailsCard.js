@@ -15,6 +15,7 @@ export default class ContractDetailsCard extends Component {
 	render() {
 		const { contract, actions } = this.props;
 		const sold = !!contract.sell_price;
+		const workAroundForBackendBugIsDigitTrade = contract.shortcode && contract.shortcode.includes('DIGIT');
 		const validToSell = contract.is_valid_to_sell === 1 && !contract.is_expired;
 		const validationError = contract.validation_error;
 		const potentialProfit = contract.payout - contract.buy_price;
@@ -42,11 +43,14 @@ export default class ContractDetailsCard extends Component {
 									'-'}
 							</td>
 							<td>
-								<NumberColored
-									value={contract.bid_price}
-									currency={contract.currency}
-									isProfit={v => v - contract.buy_price}
-								/>
+								{contract.bid_price ?
+									<NumberColored
+										value={contract.bid_price}
+										currency={contract.currency}
+										isProfit={v => v - contract.buy_price}
+									/> :
+									'-'
+								}
 							</td>
 							<td>
 								{contract.buy_price &&
@@ -62,7 +66,7 @@ export default class ContractDetailsCard extends Component {
 						</tr>
 					</tbody>
 				</table>
-				{validToSell ?
+				{validToSell && !workAroundForBackendBugIsDigitTrade ?
 					<button
 						className="sell-at-market-btn"
 						disabled={contract.selling}

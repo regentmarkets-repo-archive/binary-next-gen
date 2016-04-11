@@ -7,6 +7,7 @@ import InputGroup from '../_common/InputGroup';
 import ForwardStartingOptions from './ForwardStartingOptions';
 import durationText from 'binary-utils/lib/durationText';
 import StartLaterToggleSwitch from './StartLaterToggleSwitch';
+import { createDefaultStartLaterEpoch } from '../trade-params/DefaultTradeParams';
 
 export default class DurationCard extends Component {
     static propTypes = {
@@ -28,8 +29,7 @@ export default class DurationCard extends Component {
         if (dateStart) {
             onStartDateChange();
         } else {
-            const nextDay = forwardStartingDuration.range[1];
-            const nextDayOpening = Math.floor(nextDay.open[0].getTime() / 1000);
+            const nextDayOpening = createDefaultStartLaterEpoch(forwardStartingDuration);
             onStartDateChange(nextDayOpening);
         }
     }
