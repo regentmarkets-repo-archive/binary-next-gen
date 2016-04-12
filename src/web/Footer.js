@@ -14,10 +14,16 @@ export default class WebHeader extends Component {
 	render() {
 		return (
 			<div id="footer" className="inverse">
+				<button
+					className="btn-secondary"
+					style={{ margin: '0.5rem' }}
+					onClick={() => document.getElementById('root').webkitRequestFullScreen() }
+				>
+					Full Screen
+				</button>
 				<div id="clock" >
 					<ClockContainer />
 				</div>
-
 				<LanguagePicker className="language-picker" />
 			</div>
 		);
