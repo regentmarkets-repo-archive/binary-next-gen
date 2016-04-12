@@ -72,7 +72,7 @@ export default class SettingsChangePassword extends React.Component {
                         />
                         <ErrorMsg
                             shown={validatedOnce && passwordNotValid}
-                            text="Password should have lower and uppercase letters with numbers between 6-25 characters."
+                            text="Password should have lower and uppercase letters with numbers, at least 6 characters."
                         />
                         <InputGroup
                             placeholder="Confirm new password"
