@@ -100,9 +100,6 @@ export const trackSymbols = symbols => {
 };
 
 export const connect = async store => {
-    let language = store.getState().appConfig.get('language');
-    api.changeLanguage(language);
-
     Object.keys(handlers).forEach(key => {
         const action = actions[handlers[key]];
 
