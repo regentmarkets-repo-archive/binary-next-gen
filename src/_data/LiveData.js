@@ -3,7 +3,6 @@ import { readNewsFeed } from './NewsData';
 import { getVideosFromPlayList } from './VideoData';
 import isUserVirtual from 'binary-utils/lib/isUserVirtual';
 import * as actions from '../_actions';
-import config from '../config';
 
 const handlers = {
     active_symbols: 'serverDataActiveSymbols',
@@ -31,7 +30,10 @@ const handlers = {
     videos: 'updateVideoList',
 };
 
-export const api = new LiveApi({ apiUrl: config.apiUrl, language: 'EN' });
+export const api = new LiveApi({
+    language: window.BinaryInit.language,
+    connection: window.BinaryInit.connection,
+});
 
 const subscribeToWatchlist = store => {
     const state = store.getState();
@@ -49,8 +51,8 @@ const subscribeToSelectedSymbol = store => {
     }));
 };
 
-export const changeLanguage = language => {
-    api.changeLanguage(language);
+export const changeLanguage = langCode => {
+    api.changeLanguage(langCode);
     api.getActiveSymbolsFull();
     api.getAssetIndex();
     api.getTradingTimes(new Date());
