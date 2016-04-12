@@ -1,10 +1,10 @@
 import React from 'react';
-import showError from 'binary-utils/lib/showError';
-import showInfo from 'binary-utils/lib/showInfo';
 import Button from '../_common/Button';
 import InputGroup from '../_common/InputGroup';
 import * as LiveData from '../_data/LiveData';
 import isValidPassword from 'binary-utils/lib/isValidPassword';
+import ErrorMsg from '../_common/ErrorMsg';
+import M from '../_common/M';
 
 export default class SettingsChangePassword extends React.Component {
 
@@ -14,19 +14,35 @@ export default class SettingsChangePassword extends React.Component {
             currentPassword: '',
             newPassword: '',
             confirmPassword: '',
+            validatedOnce: false,
+            passwordsDontMatch: false,
+            passwordNotValid: false,
+            successMessage: '',
+            errorMessage: '',
         };
     }
 
     async sendRequest(req) {
         try {
-            await LiveData.api.changePassword(req);
-            showInfo('Password changed successfully.');
+            const response = await LiveData.api.changePassword(req);
+            if ('error' in response) {
+               this.setState({ passwordNotValid: true });
+            } else {
+                this.setState({ successMessage: 'Password changed successfully.' });
+            }
         } catch (e) {
-            showError(e.message);
+            this.setState({ errorMessage: e.message });
         }
     }
 
     onClick() {
+        this.setState({
+            validatedOnce: true,
+            errorMessage: '',
+            successMessage: '',
+            passwordNotValid: false,
+            passwordsDontMatch: false,
+        });
         const { currentPassword, newPassword, confirmPassword } = this.state;
         if (isValidPassword(newPassword, confirmPassword)) {
             this.sendRequest({
@@ -34,41 +50,58 @@ export default class SettingsChangePassword extends React.Component {
                 new_password: newPassword,
             });
         } else {
-            null;   // Handle the error messages here console.log('The passwords do not match or lessthan 7');
+            this.setState({ passwordsDontMatch: true });
         }
     }
 
     render() {
-        const { currpassword, newpassword, verpassword } = this.state;
+        const { validatedOnce, passwordNotValid, passwordsDontMatch, successMessage, errorMessage } = this.state;
         return (
-            <div className="mobile-form">
-                <InputGroup
-                    id="currpassword"
-                    label="Current password"
-                    type="password"
-                    value={currpassword}
-                    onChange={e => this.setState({ currpassword: e.target.value })}
-                />
-                <InputGroup
-                    id="newpassword"
-                    label="New password"
-                    type="password"
-                    value={newpassword}
-                    onChange={e => this.setState({ newpassword: e.target.value })}
-                />
-                <div className="hint">Minimum 6 characters with at least 1 number</div>
-                <InputGroup
-                    id="verpassword"
-                    label="Verify new password"
-                    type="password"
-                    value={verpassword}
-                    onChange={e => this.setState({ verpassword: e.target.value })}
-                />
-                <Button
-                    text="Change Password"
-                    onClick={::this.onClick}
-                />
-            </div>
+            <div className="startup-content row-spacer">
+                <div className="mobile-form" onSubmit={e => e.preventDefault()}>
+                    <form className="mobile-form" onSubmit={e => e.preventDefault()}>
+                        <InputGroup
+                            placeholder="Current password"
+                            type="password"
+                            onChange={e => this.setState({ currentPassword: e.target.value })}
+                        />
+                        <InputGroup
+                            placeholder="New password"
+                            type="password"
+                            onChange={e => this.setState({ newPassword: e.target.value })}
+                        />
+                        <ErrorMsg
+                            shown={validatedOnce && passwordNotValid}
+                            text="Password should have lower and uppercase letters with numbers between 6-25 characters."
+                        />
+                        <InputGroup
+                            placeholder="Confirm new password"
+                            type="password"
+                            onChange={e => this.setState({ confirmPassword: e.target.value })}
+                        />
+                        <ErrorMsg
+                            shown={validatedOnce && passwordsDontMatch}
+                            text="Passwords do not match"
+                        />
+                        <Button
+                            text="Change Password"
+                            onClick={::this.onClick}
+                        />
+                        <div className="row-spacer">
+                            <ErrorMsg
+                                shown={validatedOnce && !!errorMessage}
+                                text={errorMessage}
+                            />
+                            { validatedOnce && successMessage ?
+                            <p className="successMessage">
+                                    <M m={successMessage} />
+                            </p> :
+                            null
+                            }
+                        </div>
+                    </form>
+                </div>
+             </div>
         );
     }
 }
