@@ -21,10 +21,6 @@ export default class ToggleButtons extends Component {
 			'btn-secondary ': true,
 			checked: tradeMode === 'grid',
 		});
-		const jpBtnClasses = classNames({
-			'btn-secondary ': true,
-			checked: tradeMode === 'jp',
-		});
 
 		return (
 			<div className="toggle-buttons">
@@ -40,13 +36,6 @@ export default class ToggleButtons extends Component {
 					onClick={() => actions.changeTradeMode('grid')}
 				>
 					<img src="img/grid.svg" />
-				</button>
-				&nbsp;
-				<button
-					className={jpBtnClasses}
-					onClick={() => actions.changeTradeMode('jp')}
-				>
-					<img src="img/jp.svg" />
 				</button>
 			</div>
 		);
