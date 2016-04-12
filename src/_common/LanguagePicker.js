@@ -4,10 +4,10 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 import * as LiveData from '../_data/LiveData';
 import SelectGroup from '../_common/SelectGroup';
 import languages from '../_constants/languages';
-import { updateAppConfig } from '../_actions/AppConfigActions';
+import { updateBoot } from '../_actions/BootActions';
 import Perf from 'react-addons-perf';
 
-@connect(state => ({ selected: state.appConfig.get('language') }))
+@connect(state => ({ selected: state.boot.get('language') }))
 export default class LanguagePicker extends Component {
     shouldComponentUpdate = shouldPureComponentUpdate;
 
@@ -21,7 +21,7 @@ export default class LanguagePicker extends Component {
     };
 
     updateLanguage(event) {
-        this.props.dispatch(updateAppConfig('language', event.target.value));
+        this.props.dispatch(updateBoot('language', event.target.value));
         LiveData.changeLanguage(event.target.value);
 
         Perf.start();

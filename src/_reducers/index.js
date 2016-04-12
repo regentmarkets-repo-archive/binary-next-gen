@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 
-import appConfig from './AppConfigReducer';
+import boot from './BootReducer';
 import appState from './AppStateReducer';
 import account from './AccountReducer';
 import assets from './AssetsReducer';
@@ -33,7 +33,7 @@ import watchlist from './WatchlistReducer';
 
 export default combineReducers({
     appState,
-    appConfig,
+    boot,
     account,
     assets,
     assetIndex,

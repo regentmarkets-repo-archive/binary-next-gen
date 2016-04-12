@@ -9,7 +9,7 @@ import { tryAuth } from '../_data/Auth';
 import * as LiveData from '../_data/LiveData';
 import * as allActions from '../_actions';
 import AppStateProvider from './AppStateProvider';
-import AppConfigProvider from './AppConfigProvider';
+import BootProvider from './BootProvider';
 import { trackRoute } from 'binary-utils/lib/Analytics';
 
 history.listen(location => trackRoute(location.pathname));
@@ -46,7 +46,7 @@ export default class Root extends Component {
     render() {
         return (
             <Provider store={store}>
-                <AppConfigProvider>
+                <BootProvider>
                     <AppStateProvider>
                         <Router
                             history={history}
@@ -54,7 +54,7 @@ export default class Root extends Component {
                             createElement={::this.createElementWithActions}
                         />
                     </AppStateProvider>
-                </AppConfigProvider>
+                </BootProvider>
             </Provider>
         );
     }

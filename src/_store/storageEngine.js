@@ -5,6 +5,7 @@ import debounce from 'redux-storage-decorator-debounce';
 const engine = createEngine('binary');
 
 const filteredEngine = filter(engine, [
+    ['boot'],
     ['account'],
     ['assetPicker'],
     ['assets'],

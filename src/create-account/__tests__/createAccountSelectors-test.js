@@ -20,7 +20,7 @@ import createAccountSelectors from '../createAccountSelectors';
 
          expect(first.settings).to.equal(second.settings);
          expect(first.loginid).to.equal(second.loginid);
-         expect(first.appConfig).to.equal(second.appConfig);
+         expect(first.boot).to.equal(second.boot);
 
          expect(first).to.equal(second);
      });

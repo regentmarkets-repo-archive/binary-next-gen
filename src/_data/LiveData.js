@@ -31,8 +31,8 @@ const handlers = {
 };
 
 export const api = new LiveApi({
-    language: window.BinaryInit.language,
-    connection: window.BinaryInit.connection,
+    language: window.BinaryBoot.language,
+    connection: window.BinaryBoot.connection,
 });
 
 const subscribeToWatchlist = store => {

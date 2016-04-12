@@ -6,7 +6,7 @@ describe('settingsSelectors', () => {
     const emptyState = () => ({
         settings: fromJS({}),
         account: fromJS({}),
-        appConfig: fromJS({}),
+        boot: fromJS({}),
     });
 
     it('should be able to be created', () => {
@@ -22,7 +22,7 @@ describe('settingsSelectors', () => {
 
         expect(first.settings).to.equal(second.settings);
         expect(first.loginid).to.equal(second.loginid);
-        expect(first.appConfig).to.equal(second.appConfig);
+        expect(first.boot).to.equal(second.boot);
 
         expect(first).to.equal(second);
     });

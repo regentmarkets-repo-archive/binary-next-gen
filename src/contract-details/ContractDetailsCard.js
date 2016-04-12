@@ -89,7 +89,7 @@ export default class ContractDetailsCard extends Component {
 				{
 					sold &&
 						<label id="profit-loss-label">
-							{profit >= 0 ? <M m="You have won " /> : <M m="You have lost " />}
+							{profit >= 0 ? <M m="You won " /> : <M m="You lost " />}
 							{profit >= 0 ?
 								<NumberColored
 									value={profit}
