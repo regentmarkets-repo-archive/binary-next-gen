@@ -11,17 +11,7 @@ export default class ToggleButtons extends Component {
 	};
 
 	render() {
-		const { leftPanelVisible, rightPanelVisible, tradeMode, actions } = this.props;
-
-		const leftBtnClasses = classNames({
-			'btn-secondary ': true,
-			checked: leftPanelVisible,
-		});
-		const rightBtnClasses = classNames({
-			'btn-secondary ': true,
-			checked: rightPanelVisible,
-		});
-
+		const { tradeMode, actions } = this.props;
 
 		const tabsBtnClasses = classNames({
 			'btn-secondary ': true,
@@ -38,22 +28,6 @@ export default class ToggleButtons extends Component {
 
 		return (
 			<div className="toggle-buttons">
-				<button
-					className={leftBtnClasses}
-					onClick={() => actions.togglePanel('left')}
-				>
-					<img src="img/left-panel.svg" />
-				</button>
-				&nbsp;
-				<button
-					className="btn-secondary"
-					onClick={() => actions.toggleTradeMode()}
-					className={rightBtnClasses}
-					onClick={() => actions.togglePanel('right')}
-				>
-					<img src="img/right-panel.svg" />
-				</button>
-				&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 				<button
 					className={tabsBtnClasses}
 					onClick={() => actions.changeTradeMode('tabs')}

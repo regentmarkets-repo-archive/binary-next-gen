@@ -26,7 +26,6 @@ export default class WorkspaceCard extends Component {
 					onChange={idx => actions.changeActiveWorkspaceTab('left', idx)}
 				>
 					<Tab imgSrc="img/trade.svg" text="Assets" />
-					<Tab imgSrc="img/watchlist.svg" text="Watchlist" />
 				</TabList>
 				{workspace.leftPanelVisible &&
 					<WorkspaceLeftPanel actions={actions} workspace={workspace} />}
@@ -50,10 +49,11 @@ export default class WorkspaceCard extends Component {
 					id="right-tab-list"
 					vertical
 					activeIndex={workspace.rightActiveTab}
-					showText={false}
+					showText
 					onChange={idx => actions.changeActiveWorkspaceTab('right', idx)}
 				>
-					<Tab imgSrc="img/portfolio.svg" text="Open Positions" />
+					<Tab imgSrc="img/watchlist.svg" text="Watchlist" />
+					<Tab imgSrc="img/portfolio.svg" text="Portfolio" />
 					<Tab imgSrc="img/statement.svg" text="Statement" />
 					<Tab imgSrc="img/time.svg" text="Trading Times" />
 					<Tab imgSrc="img/resources.svg" text="Asset Index" />

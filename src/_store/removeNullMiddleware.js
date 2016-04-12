@@ -20,7 +20,7 @@ export const removeNullValueKey = obj => {
     return obj;
 };
 
-const nullRemoverMiddleware = store => next => action => {
+const nullRemoverMiddleware = () => next => action => {
     const actionsKey = Object.keys(action);
     actionsKey.forEach(k => {
         if (action[k] === null) {

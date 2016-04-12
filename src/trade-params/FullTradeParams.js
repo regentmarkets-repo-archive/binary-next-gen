@@ -218,7 +218,7 @@ export default class FullTradeParams extends Component {
 
         const category = trade.tradeCategory;
         const newDuration = createDefaultDuration(contract, category, newType);
-        const { dateStart, duration, durationUnit } = newDuration;
+        const { dateStart, duration, durationUnit } = trade || newDuration;
         const newBarrier = createDefaultBarriers(contract, category, newType, duration, durationUnit);
         const newBarrierType = createDefaultBarrierType(duration, durationUnit);
 
@@ -227,9 +227,9 @@ export default class FullTradeParams extends Component {
             duration,
             durationUnit,
             dateStart,
-            barrier: newBarrier[0],
-            barrier2: newBarrier[1],
-            barrierType: newBarrierType,
+            barrier: trade.barrier || newBarrier[0],
+            barrier2: trade.barrier2 || newBarrier[1],
+            barrierType: trade.barrierType || newBarrierType,
         });
     }
 
