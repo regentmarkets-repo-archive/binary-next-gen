@@ -22,10 +22,10 @@ addLocaleData({
 
 export default class Root extends Component {
     async componentWillMount() {
-        const reyhdratetStore = await rehydratedStorePromise;
-        let state = reyhdratetStore.getState();
+        const reyhdratedStore = await rehydratedStorePromise;
+        let state = reyhdratedStore.getState();
 
-        await LiveData.connect(reyhdratetStore);
+        await LiveData.connect(reyhdratedStore);
         let actions = bindActionCreators(allActions, store.dispatch);
         let token = state.account.get('token');
 

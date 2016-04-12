@@ -57,6 +57,10 @@ export const changeLanguage = language => {
 };
 
 const initUnauthorized = async () => {
+
+};
+
+const initAuthorized = async (authData, store) => {
     api.getActiveSymbolsFull();
     api.getTradingTimes(new Date());
     api.getAssetIndex();
@@ -64,13 +68,6 @@ const initUnauthorized = async () => {
 
     api.getCandlesForLastNDays('R_100', 30);
 
-    const articles = await readNewsFeed('en');
-    api.events.emit('news', articles);
-    const videos = await getVideosFromPlayList();
-    api.events.emit('videos', videos);
-};
-
-const initAuthorized = (authData, store) => {
     api.getPortfolio();
     api.getStatement({ description: 1, limit: 20 });
     api.getAccountSettings().then(msg => {
@@ -90,6 +87,11 @@ const initAuthorized = (authData, store) => {
         api.getSelfExclusion();
         api.getCashierLockStatus();
     }
+
+    const articles = await readNewsFeed('en');
+    api.events.emit('news', articles);
+    const videos = await getVideosFromPlayList();
+    api.events.emit('videos', videos);
 };
 
 export const trackSymbols = symbols => {
