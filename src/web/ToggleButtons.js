@@ -28,14 +28,14 @@ export default class ToggleButtons extends Component {
 					className={tabsBtnClasses}
 					onClick={() => actions.changeTradeMode('tabs')}
 				>
-					<img src="img/tabs.svg" />
+					<img src="img/tabs.svg" alt="Tabs" />
 				</button>
 				&nbsp;
 				<button
 					className={gridBtnClasses}
 					onClick={() => actions.changeTradeMode('grid')}
 				>
-					<img src="img/grid.svg" />
+					<img src="img/grid.svg" alt="Grid" />
 				</button>
 			</div>
 		);

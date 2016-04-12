@@ -20,7 +20,7 @@ export default class MobileToolbarBtn extends Component {
 				activeClassName="active"
 				className="mobile-nav-btn"
 			>
-				<img src={img} />
+				<img src={img} alt="Menu" />
 			</Link>
 		);
 	}

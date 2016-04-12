@@ -11,7 +11,11 @@ export default class LogoSpinner extends Component {
 		const classNames = [spinning ? 'spinner' : null];
 
 		return (
-			<img className={classNames.join(' ')} src="img/binary-symbol-logo.svg" />
+			<img
+				alt="Loading"
+				className={classNames.join(' ')}
+				src="img/binary-symbol-logo.svg"
+			/>
 		);
 	}
 }

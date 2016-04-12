@@ -29,7 +29,7 @@ export default class RadioItem extends Component {
 					onChange={onChange}
 				/>
 				<label htmlFor={value}>
-					{img ? <img src={img} /> : '' }
+					{img ? <img src={img} role="presentation" /> : null}
 					{typeof label === 'string' ? <M m={label} /> : label}
 				</label>
 			</span>

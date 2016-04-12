@@ -25,12 +25,12 @@ export default class WebHeader extends Component {
 				<label id="hamburger-overlay" htmlFor="hamburger-closer"></label>
 				<input id="hamburger-opener" className="hamburger" type="radio" name="hamburger" />
 				<label id="hamburger-btn" htmlFor="hamburger-opener" className="toolbar-btn">
-					<img src="img/menu.svg" />
+					<img src="img/menu.svg" alt="Menu" />
 					<WebSidebar />
 				</label>
 				<div id="logo">
-					<img src={config.logo} />
-					<img src={config.logo2} />
+					<img src={config.logo} role="presentation" />
+					<img src={config.logo2} role="presentation" />
 				</div>
 
 				<ToggleButtonsContainer actions={this.props.actions} />

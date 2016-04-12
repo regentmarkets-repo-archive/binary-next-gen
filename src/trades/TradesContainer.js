@@ -6,7 +6,6 @@ import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
 import tradeListSelectors from './tradeListSelectors';
 import TradesGrid from './TradesGrid';
 import TradesTabs from './TradesTabs';
-import JpTradeContainer from '../jp-trade/JpTradeContainer';
 
 @connect(tradeListSelectors)
 export default class TradesContainer extends Component {
@@ -24,11 +23,8 @@ export default class TradesContainer extends Component {
     render() {
         const { tradeMode } = this.props;
 
-        switch (tradeMode) {
-            case 'tabs': return <TradesTabs {...immutableChildrenToJS(this.props)} />;
-            case 'grid': return <TradesGrid {...immutableChildrenToJS(this.props)} />;
-            case 'jp': return <JpTradeContainer {...immutableChildrenToJS(this.props)} />;
-            default: return null;
-        }
+        return tradeMode === 'tabs' ?
+            <TradesTabs {...immutableChildrenToJS(this.props)} /> :
+            <TradesGrid {...immutableChildrenToJS(this.props)} />;
     }
 }

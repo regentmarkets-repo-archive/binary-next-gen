@@ -18,7 +18,7 @@ export default class CreateAccountCard extends Component {
 			<div>
 				<p className="media">
 					<LogoSpinner spinning={progress} />
-					<img className="logo-text" src="img/binary-type-logo.svg" />
+					<img className="logo-text" src="img/binary-type-logo.svg" alt="Logo" />
 				</p>
 				{step === 1 ?
 					<EmailVerificationForm actions={actions} {...createAccount} /> :

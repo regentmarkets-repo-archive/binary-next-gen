@@ -1,7 +1,11 @@
 import { createSelector, createStructuredSelector } from 'reselect';
-import { assetIndexSelector, assetsSelector } from '../_store/directSelectors';
-import { assetIndexSubmarketSelector, assetIndexFilterSelector } from '../_store/directSelectors';
 import { List } from 'immutable';
+import {
+    assetIndexSelector,
+    assetsSelector,
+    assetIndexSubmarketSelector,
+    assetIndexFilterSelector,
+} from '../_store/directSelectors';
 
 const assetSymbolsMatchedFilter = (assets, filter) =>
     assets
