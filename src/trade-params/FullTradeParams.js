@@ -129,7 +129,6 @@ export default class FullTradeParams extends Component {
         const { contract, trade } = this.props;
 
         const selectedCat = trade.tradeCategory;
-
         if (!categoryValid(selectedCat, contract)) {
             this.onCategoryChange(Object.keys(contract)[0]);
         } else {
@@ -143,8 +142,21 @@ export default class FullTradeParams extends Component {
                     selectedDuration,
                     selectedDurationUnit,
                     contract[selectedCat][selectedType]
-                )) {
-                this.onTypeChange(selectedType);
+                )) {  
+                const category = trade.tradeCategory;
+                const newDuration = createDefaultDuration(contract, category, selectedType);
+                const { dateStart, duration, durationUnit } = newDuration;
+                const newBarrier = createDefaultBarriers(contract, category, selectedType, duration, durationUnit);
+                const newBarrierType = createDefaultBarrierType(duration, durationUnit);
+                this.updateTradeParams({
+                    type: selectedType,
+                    duration,
+                    durationUnit,
+                    dateStart,
+                    barrier: newBarrier[0],
+                    barrier2: newBarrier[1],
+                    barrierType: newBarrierType,
+                });
             } else {
                 const newBarrier = createDefaultBarriers(
                     contract,
@@ -215,13 +227,11 @@ export default class FullTradeParams extends Component {
 
     onTypeChange(newType) {
         const { contract, trade } = this.props;
-
         const category = trade.tradeCategory;
         const newDuration = createDefaultDuration(contract, category, newType);
         const { dateStart, duration, durationUnit } = trade || newDuration;
         const newBarrier = createDefaultBarriers(contract, category, newType, duration, durationUnit);
         const newBarrierType = createDefaultBarrierType(duration, durationUnit);
-
         this.updateTradeParams({
             type: newType,
             duration,
