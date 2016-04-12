@@ -28,6 +28,7 @@ export default class TradesTabs extends Component {
     render() {
         const { actions, activeTradeIndex, assetsIsOpen, contracts, trades, ticksForAllSymbols, currency } = this.props;
         const activeTrade = trades[activeTradeIndex];
+        const closable = trades.length > 1;
         return (
             <div className="trades-tabs">
                 <TabList
@@ -38,7 +39,7 @@ export default class TradesTabs extends Component {
                         <Tab
                             key={index}
                             text={trade.symbolName}
-                            closable
+                            closable={closable}
                             onClose={() => {
                                 actions.removeTrade(index);
                             }}
