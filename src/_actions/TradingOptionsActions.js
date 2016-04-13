@@ -9,12 +9,12 @@ export const updateTradingOptions = (symbol, options) => ({
     options,
 });
 
-export const getTradingOptions = (symbol, onDone) =>
+export const getTradingOptions = symbol =>
     (dispatch, getState) => {
         const { tradingOptions, workspace } = getState();
         const activeTradeIndex = workspace.get('activeTradeIndex');
         if (!tradingOptions.get(symbol)) {
-            LiveData.api.getContractsForSymbol(symbol)
+            return LiveData.api.getContractsForSymbol(symbol)
                 .then(
                     res => {
                         dispatch(updateFeedLicense(symbol, res.contracts_for.feed_license));
@@ -25,7 +25,7 @@ export const getTradingOptions = (symbol, onDone) =>
                         dispatch(updateTradeParams(activeTradeIndex, 'contractForError', err.message));
                     }
                 );
-        } else {
-            if (onDone) onDone();
         }
+        
+        return Promise.resolve();
     };

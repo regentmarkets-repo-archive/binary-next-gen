@@ -45,10 +45,9 @@ const subscribeToWatchlist = store => {
 
 const subscribeToSelectedSymbol = store => {
     const defaultSymbol = 'R_100'; // TODO: Rework on cache previous settings
-    store.dispatch(actions.getTradingOptions(defaultSymbol, () => {
-        api.getTickHistory(defaultSymbol, { end: 'latest', count: 60, adjust_start_time: 1 });
-        api.subscribeToTick(defaultSymbol);
-    }));
+
+    store.dispatch(actions.getTradingOptions(defaultSymbol))
+        .then(() => store.dispatch(actions.getTicksBySymbol(defaultSymbol)));
 };
 
 export const changeLanguage = langCode => {
