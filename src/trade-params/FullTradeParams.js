@@ -114,7 +114,7 @@ export default class FullTradeParams extends Component {
     updateTradeParams(params) {
         const { actions, index } = this.props;
         actions.updateMultipleTradeParams(index, params);
-        actions.updatePriceProposalSubscription(index); // TODO: auto do that with multi trade params
+        actions.updatePriceProposalSubscription(index);
     }
 
     updateHelper(name, value, update = true) {

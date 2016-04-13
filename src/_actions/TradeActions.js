@@ -4,6 +4,8 @@ import { changeActiveTrade } from './WorkspaceActions';
 import { trackEvent } from 'binary-utils/lib/Analytics';
 import numberToSignedString from 'binary-utils/lib/numberToSignedString';
 import { updateOpenContractField } from './PortfolioActions';
+import { getTicksBySymbol } from './TickActions';
+import { getTradingOptions } from './TradingOptionsActions';
 
 export const serverDataProposal = serverResponse => ({
     type: types.SERVER_DATA_PROPOSAL,
@@ -75,8 +77,8 @@ export const createTrade = symbol =>
         const ticksExist = getState().ticks.get(symbol);
         const tradesLen = getState().trades.size;
 
-        const contractP = !!contractExist ? Promise.resolve() : LiveData.api.getContractsForSymbol(symbol);
-        const ticksP = !!ticksExist ? Promise.resolve() : LiveData.api.subscribeToTick(symbol);
+        const contractP = !!contractExist ? Promise.resolve() : dispatch(getTradingOptions(symbol));
+        const ticksP = !!ticksExist ? Promise.resolve() : dispatch(getTicksBySymbol(symbol));
 
         Promise.all([contractP, ticksP])
             .then(
