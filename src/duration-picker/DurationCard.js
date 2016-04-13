@@ -72,7 +72,7 @@ export default class DurationCard extends Component {
         return (
             <div>
                 {(allowStartLater && !onlyStartLater) &&
-                    <FormattedMessage id="Start_Later" defaultMessage="Start Later">
+                    <FormattedMessage id="Start Later" defaultMessage="Start Later">
                         {text =>
                             <StartLaterToggleSwitch
                                 text={text}

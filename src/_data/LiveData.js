@@ -3,7 +3,6 @@ import { readNewsFeed } from './NewsData';
 import { getVideosFromPlayList } from './VideoData';
 import isUserVirtual from 'binary-utils/lib/isUserVirtual';
 import * as actions from '../_actions';
-import config from '../config';
 
 const handlers = {
     active_symbols: 'serverDataActiveSymbols',
@@ -31,7 +30,10 @@ const handlers = {
     videos: 'updateVideoList',
 };
 
-export const api = new LiveApi({ apiUrl: config.apiUrl, language: 'EN' });
+export const api = new LiveApi({
+    language: window.BinaryBoot.language,
+    connection: window.BinaryBoot.connection,
+});
 
 const subscribeToWatchlist = store => {
     const state = store.getState();
@@ -49,28 +51,23 @@ const subscribeToSelectedSymbol = store => {
     }));
 };
 
-export const changeLanguage = language => {
-    api.changeLanguage(language);
+export const changeLanguage = langCode => {
+    api.changeLanguage(langCode);
     api.getActiveSymbolsFull();
     api.getAssetIndex();
     api.getTradingTimes(new Date());
 };
 
 const initUnauthorized = async () => {
+
+};
+
+const initAuthorized = async (authData, store) => {
     api.getActiveSymbolsFull();
     api.getTradingTimes(new Date());
     api.getAssetIndex();
     api.getServerTime();
 
-    api.getCandlesForLastNDays('R_100', 30);
-
-    const articles = await readNewsFeed('en');
-    api.events.emit('news', articles);
-    const videos = await getVideosFromPlayList();
-    api.events.emit('videos', videos);
-};
-
-const initAuthorized = (authData, store) => {
     api.getPortfolio();
     api.getStatement({ description: 1, limit: 20 });
     api.getAccountSettings().then(msg => {
@@ -90,6 +87,11 @@ const initAuthorized = (authData, store) => {
         api.getSelfExclusion();
         api.getCashierLockStatus();
     }
+
+    const articles = await readNewsFeed('en');
+    api.events.emit('news', articles);
+    const videos = await getVideosFromPlayList();
+    api.events.emit('videos', videos);
 };
 
 export const trackSymbols = symbols => {
@@ -98,9 +100,6 @@ export const trackSymbols = symbols => {
 };
 
 export const connect = async store => {
-    let language = store.getState().appConfig.get('language');
-    api.changeLanguage(language);
-
     Object.keys(handlers).forEach(key => {
         const action = actions[handlers[key]];
 

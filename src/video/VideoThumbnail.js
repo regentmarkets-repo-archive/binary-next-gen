@@ -14,7 +14,7 @@ export default class VideoThumbnail extends Component {
 
         return (
             <a className="video-thumbnail" target="_new" href={'https://www.youtube.com/watch?v=' + videoId}>
-                <img src={imgSrc} />
+                <img src={imgSrc} role="presentation" />
                 <h5>{title}</h5>
             </a>
         );

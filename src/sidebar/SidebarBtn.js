@@ -19,7 +19,7 @@ export default class SideBarBtn extends Component {
 				activeClassName="active"
 				className="sidebar-btn"
 			>
-			<img src={img} />
+			<img src={img} role="presentation" />
 				<M m={text} />
 			</Link>
 		);

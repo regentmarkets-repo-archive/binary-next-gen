@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import { UPDATE_APP_CONFIG } from '../_constants/ActionTypes';
+import { UPDATE_BOOT } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
     language: 'EN',
@@ -8,7 +8,7 @@ const initialState = fromJS({
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case UPDATE_APP_CONFIG: {
+        case UPDATE_BOOT: {
             return state.set(action.field, action.value);
         }
         default: {

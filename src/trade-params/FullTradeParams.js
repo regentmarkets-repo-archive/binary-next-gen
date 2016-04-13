@@ -128,9 +128,8 @@ export default class FullTradeParams extends Component {
     onAssetChange() {
         const { contract, trade } = this.props;
 
-        const selectedCat = trade.tradeCategory;
-
-        if (!categoryValid(selectedCat, contract)) {
+        const selectedCategory = trade.tradeCategory;
+        if (!categoryValid(selectedCategory, contract)) {
             this.onCategoryChange(Object.keys(contract)[0]);
         } else {
             const selectedType = trade.type;
@@ -142,13 +141,26 @@ export default class FullTradeParams extends Component {
                     selectedDateStart,
                     selectedDuration,
                     selectedDurationUnit,
-                    contract[selectedCat][selectedType]
+                    contract[selectedCategory][selectedType]
                 )) {
-                this.onTypeChange(selectedType);
+                const category = trade.tradeCategory;
+                const newDuration = createDefaultDuration(contract, category, selectedType);
+                const { dateStart, duration, durationUnit } = newDuration;
+                const newBarrier = createDefaultBarriers(contract, category, selectedType, duration, durationUnit);
+                const newBarrierType = createDefaultBarrierType(duration, durationUnit);
+                this.updateTradeParams({
+                    type: selectedType,
+                    duration,
+                    durationUnit,
+                    dateStart,
+                    barrier: newBarrier[0],
+                    barrier2: newBarrier[1],
+                    barrierType: newBarrierType,
+                });
             } else {
                 const newBarrier = createDefaultBarriers(
                     contract,
-                    selectedCat,
+                    selectedCategory,
                     selectedType,
                     selectedDuration, selectedDurationUnit
                 );
@@ -215,13 +227,11 @@ export default class FullTradeParams extends Component {
 
     onTypeChange(newType) {
         const { contract, trade } = this.props;
-
         const category = trade.tradeCategory;
         const newDuration = createDefaultDuration(contract, category, newType);
         const { dateStart, duration, durationUnit } = trade || newDuration;
         const newBarrier = createDefaultBarriers(contract, category, newType, duration, durationUnit);
         const newBarrierType = createDefaultBarrierType(duration, durationUnit);
-
         this.updateTradeParams({
             type: newType,
             duration,

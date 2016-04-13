@@ -1,5 +1,5 @@
 export const accountSelector = state => state.account;
-export const appConfigSelector = state => state.appConfig;
+export const bootSelector = state => state.boot;
 export const assetIndexSelector = state => state.assetIndex;
 export const assetsSelector = state => state.assets;
 export const createAccountSelector = state => state.createAccount;

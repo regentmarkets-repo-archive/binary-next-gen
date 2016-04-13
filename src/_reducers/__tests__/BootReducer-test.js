@@ -1,23 +1,23 @@
 import { fromJS } from 'immutable';
-import appConfigReducer from '../AppConfigReducer';
-import { UPDATE_APP_CONFIG } from '../../_constants/ActionTypes';
+import bootReducer from '../BootReducer';
+import { UPDATE_BOOT } from '../../_constants/ActionTypes';
 import { expect } from 'chai';
 
-describe('appConfigReducer', () => {
-    it('should update appconfig state with the given field and value', () => {
+describe('bootReducer', () => {
+    it('should update boot state with the given field and value', () => {
         const action = {
-            type: UPDATE_APP_CONFIG,
+            type: UPDATE_BOOT,
             field: 'language',
             value: 'FR',
         };
         const expectedState = fromJS({
             language: 'FR',
         });
-        const actualState = appConfigReducer(fromJS({}), action);
+        const actualState = bootReducer(fromJS({}), action);
         expect(expectedState).to.equal(actualState);
     });
 
-    it('should return the same appConfig state when wrong state type is given', () => {
+    it('should return the same boot state when wrong state type is given', () => {
         const beforeState = fromJS({
             language: 'EN',
         });
@@ -26,7 +26,7 @@ describe('appConfigReducer', () => {
             field: 'language',
             value: 'light',
         };
-        const actualState = appConfigReducer(beforeState, action);
+        const actualState = bootReducer(beforeState, action);
         expect(actualState).to.equal(beforeState);
     });
 });

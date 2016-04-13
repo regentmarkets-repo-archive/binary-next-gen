@@ -30,7 +30,7 @@ export default class Tab extends Component {
                 onMouseDown={onMouseDown}
                 title={text}
             >
-                {showIcon && imgSrc && <img src={imgSrc} />}
+                {showIcon && imgSrc && <img src={imgSrc} role="presentation" />}
                 {showText && text && <span>{text}</span>}
                 {closable && <CloseButton onClick={onClose} />}
             </div>

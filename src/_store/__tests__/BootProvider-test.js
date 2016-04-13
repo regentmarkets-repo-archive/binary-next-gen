@@ -3,29 +3,29 @@ import configureStore from 'redux-mock-store';
 import { expect } from 'chai';
 import { fromJS } from 'immutable';
 import { shallow, render } from 'enzyme';
-import AppConfigProvider from '../AppConfigProvider';
+import BootProvider from '../BootProvider';
 
-describe('<AppConfigProvider />', () => {
+describe('<BootProvider />', () => {
     const ChildComponent = () => <div>Hello, World</div>;
     const middlewares = []; // add your middlewares like `redux-thunk`
     const mockStore = configureStore(middlewares);
-    const getState = { appConfig: fromJS({ theme: 'dark', language: 'EN' }) };
+    const getState = { boot: fromJS({ theme: 'dark', language: 'EN' }) };
     const store = mockStore(getState, []);
 
     it('should render children', () => {
         const wrapper = shallow(
-            <AppConfigProvider store={store}>
+            <BootProvider store={store}>
                 <ChildComponent />
-            </AppConfigProvider>);
+            </BootProvider>);
 
         expect(wrapper.render().text()).to.contain('World');
     });
 
     it('should render theme-wrapper', () => {
         const wrapper = render(
-            <AppConfigProvider store={store}>
+            <BootProvider store={store}>
                 <ChildComponent />
-            </AppConfigProvider>);
+            </BootProvider>);
         expect(wrapper.find('#theme-wrapper').hasClass('inverse')).to.be.true;
     });
 });

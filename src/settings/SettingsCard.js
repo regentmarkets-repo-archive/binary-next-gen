@@ -18,7 +18,7 @@ export default class SettingsCard extends Component {
 		actions: PropTypes.object.isRequired,
         settings: PropTypes.object.isRequired,
 		loginid: PropTypes.string.isRequired,
-		appConfig: PropTypes.object.isRequired,
+		boot: PropTypes.object.isRequired,
     };
 
 	render() {

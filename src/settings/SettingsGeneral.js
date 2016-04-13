@@ -11,13 +11,13 @@ export default class SettingsGeneral extends Component {
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
 		loginid: PropTypes.string.isRequired,
-		appConfig: PropTypes.object.isRequired,
+		boot: PropTypes.object.isRequired,
 		balance: PropTypes.string.isRequired,
         settings: PropTypes.object,
 	};
 
 	onThemeChange(e) {
-		this.props.actions.updateAppConfig('theme', e.target.value);
+		this.props.actions.updateBoot('theme', e.target.value);
 	}
 
 	async topupClick() {
@@ -31,7 +31,7 @@ export default class SettingsGeneral extends Component {
 	}
 
 	render() {
-		const { theme } = this.props.appConfig;
+		const { theme } = this.props.boot;
 		const { balance, actions } = this.props;
         const topupVirtual = this.props.settings.topup_virtual;
 
@@ -50,7 +50,7 @@ export default class SettingsGeneral extends Component {
 					onClose={() => actions.updateSettingFields({ topup_virtual: null }, false)}
 				>
 					<VirtualTopUpConfirmation
-						response={topupVirtual}
+						response={topupVirtual || {} }
 						onClose={() => actions.updateSettingFields({ topup_virtual: null }, false)}
 					/>
                 </Modal>
