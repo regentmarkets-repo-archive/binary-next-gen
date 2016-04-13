@@ -7,6 +7,7 @@ import FullTradeParams from '../trade-params/FullTradeParams';
 import BoughtContractCard from './BoughtContractCard';
 import findIfExist from 'binary-utils/lib/findIfExist';
 import { mockedContract } from './../_constants/MockContract';
+import { internalTradeModelToServerTradeModel } from './adapters/TradeObjectAdapter';
 
 export default class FullTradeCard extends Component {
 
@@ -42,6 +43,9 @@ export default class FullTradeCard extends Component {
             trade.disabled ||
             (!marketIsOpen && !contractAllowStartLater);
 
+        // TODO: remove usage of adapter so we have a consistent model
+        const tradeRequiredByChart = internalTradeModelToServerTradeModel(trade);
+
         return (
             <div disabled={disabled} className={'trade-panel'}>
                 <Modal
@@ -55,7 +59,7 @@ export default class FullTradeCard extends Component {
                     contract={mostRecentContractBought}
                     symbol={selectedSymbol}
                     ticks={ticks}
-                    trade={trade}
+                    trade={tradeRequiredByChart}
                 />
                 {
                     mostRecentContractBought ?
