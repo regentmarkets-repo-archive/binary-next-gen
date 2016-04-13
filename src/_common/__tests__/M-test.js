@@ -11,6 +11,6 @@ describe('<M />', () => {
 
     it('renders FormattedMessage', () => {
         const wrapper = shallow(<M />);
-        expect(wrapper.find('FormattedMessage')).to.have.length(1);
+        expect(wrapper.find('FormattedMessage')).to.have.lengthOf(1);
     });
 });

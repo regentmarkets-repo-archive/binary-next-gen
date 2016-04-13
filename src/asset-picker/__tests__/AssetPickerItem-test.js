@@ -10,7 +10,7 @@ describe('<AssetPickerItem />', () => {
 
     it('should render a compoennt that indicates open/close state', () => {
         const wrapper = shallow(<AssetPickerItem asset={{ isOpen: false }} />);
-        expect(wrapper.find('OpenCloseNotice')).to.have.length(1);
+        expect(wrapper.find('OpenCloseNotice')).to.have.lengthOf(1);
     });
 
     it('should have an indicator that shows if the market is open', () => {
@@ -30,6 +30,6 @@ describe('<AssetPickerItem />', () => {
 
     it('should not show a button in compact mode', () => {
         const wrapper = shallow(<AssetPickerItem compact />);
-        expect(wrapper.find('button')).to.have.length(0);
+        expect(wrapper.find('button')).to.have.lengthOf(0);
     });
 });

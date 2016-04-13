@@ -16,6 +16,6 @@ describe('<NumberPlain />', () => {
 
     it('not passing a value still renders a span', () => {
         const wrapper = shallow(<NumberPlain />);
-        expect(wrapper.find('span')).to.have.length(1);
+        expect(wrapper.find('span')).to.have.lengthOf(1);
     });
 });

@@ -10,7 +10,7 @@ describe('<BuyButton />', () => {
 
     it('should not show price of contract', () => {
         const wrapper = shallow(<BuyButton />);
-        expect(wrapper.find('NumberPlain')).to.have.length(0);
+        expect(wrapper.find('NumberPlain')).to.have.lengthOf(0);
     });
 
     it('should disable the button if no ask price is provided', () => {

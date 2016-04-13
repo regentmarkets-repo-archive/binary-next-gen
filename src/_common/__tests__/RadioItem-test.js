@@ -11,6 +11,6 @@ describe('<RadioItem />', () => {
 
     it('renders a label even if no properties', () => {
         const wrapper = shallow(<RadioItem />);
-        expect(wrapper.find('label')).to.have.length(1);
+        expect(wrapper.find('label')).to.have.lengthOf(1);
     });
 });

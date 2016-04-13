@@ -46,7 +46,7 @@ describe('watchlistSelectors', () => {
 
         const watchlistView = watchlistSelectors(state).watchlistView.toJS();
 
-        expect(watchlistView).to.have.length(1);
+        expect(watchlistView).to.have.lengthOf(1);
         expect(watchlistView[0].symbol).to.equal('R_100');
         expect(watchlistView[0].assetName).to.equal('Random 100 Index');
         expect(watchlistView[0].quote).to.equal(123);

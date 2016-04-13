@@ -30,10 +30,8 @@ const handlers = {
     videos: 'updateVideoList',
 };
 
-export const api = new LiveApi({
-    language: window.BinaryBoot.language,
-    connection: window.BinaryBoot.connection,
-});
+const bootConfig = typeof window !== 'undefined' ? window.BinaryBoot : {};
+export const api = new LiveApi(bootConfig);
 
 const subscribeToWatchlist = store => {
     const state = store.getState();
