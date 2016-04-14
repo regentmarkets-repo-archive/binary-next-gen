@@ -1,20 +1,27 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import ErrorMsg from '../_common/ErrorMsg';
-import isIntraday from 'binary-utils/lib/isIntraday';
-import isDurationLessThan2Mins from 'binary-utils/lib/isDurationLessThan2Mins';
-import getLastTick from 'binary-utils/lib/getLastTick';
+import Modal from '../containers/Modal';
+
 import BarrierCard from '../barrier-picker/BarrierCard';
+import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
 import DigitBarrierCard from '../barrier-picker/DigitBarrierCard';
+
 import DurationCard from '../duration-picker/DurationCard';
 import StakeCard from '../payout-picker/StakeCard';
 import PayoutCard from '../payout-picker/PayoutCard';
 import BuyButton from '../tick-trade/BuyButton';
+import TradeTypePicker from '../trade-type-picker/TradeTypePicker';
+import AssetPickerContainer from '../asset-picker/AssetPickerContainer';
+
+import isIntraday from 'binary-utils/lib/isIntraday';
+import isDurationLessThan2Mins from 'binary-utils/lib/isDurationLessThan2Mins';
+import getLastTick from 'binary-utils/lib/getLastTick';
 import askPriceFromProposal from 'binary-utils/lib/askPriceFromProposal';
-import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
 import isDurationWithinRange from 'binary-utils/lib/isDurationWithinRange';
 import noOfDecimals from 'binary-utils/lib/noOfDecimals';
-import TradeTypePicker from '../trade-type-picker/TradeTypePicker';
+
+
 import {
     createDefaultType,
     createDefaultDuration,
@@ -387,6 +394,19 @@ export default class FullTradeParams extends Component {
 
         return (
             <div className="full-trade-params" disabled={disabled}>
+                <Modal
+                    shown={trade.showAssetPicker}
+                    onClose={() => this.updateHelper('showAssetPicker', false, false)}
+                >
+                    <AssetPickerContainer
+                        actions={actions}
+                        tradeIdx={index}
+                        selectedAsset={trade.symbol}
+                    />
+                </Modal>
+                <label onClick={() => this.updateHelper('showAssetPicker', true, false)}>
+                    {trade.symbolName}
+                </label>
                 <TradeTypePicker
                     actions={actions}
                     contract={contract}
