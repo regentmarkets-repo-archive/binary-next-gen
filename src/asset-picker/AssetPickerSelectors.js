@@ -1,9 +1,7 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 import {
-    activeTradeIndexSelector,
     assetsSelector,
     watchlistSelector,
-    selectedAssetSelector,
 } from '../_store/directSelectors';
 
 export const symbolIdsSelector = createSelector(
@@ -76,9 +74,6 @@ export const assetPickerItemsSelector = createSelector(
 );
 
 export default createStructuredSelector({
-    activeTradeIdx: activeTradeIndexSelector,
     availableAssets: availableAssetsSelector,
     assetPickerItems: assetPickerItemsSelector,
-	filter: assetFilterSelector,
-	selectedAsset: selectedAssetSelector,
 });

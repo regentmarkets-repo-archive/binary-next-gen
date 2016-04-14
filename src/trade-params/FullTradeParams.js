@@ -388,7 +388,7 @@ export default class FullTradeParams extends Component {
 
         return (
             <div className="full-trade-params" disabled={disabled}>
-                <AssetPickerContainer actions={actions} tradeIdx={index} />
+                <AssetPickerContainer actions={actions} selectedAsset={trade.symbol} tradeIdx={index} />
                 <TradeTypePicker
                     actions={actions}
                     contract={contract}
