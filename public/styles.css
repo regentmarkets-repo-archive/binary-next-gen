@@ -127,6 +127,7 @@ table {
 }
 
 div[role=tab] .close-btn, .panel-active .close-btn {
+    background: #2a3052;
     fill: white;
 }
 
