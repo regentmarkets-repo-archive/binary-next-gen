@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import Resizer from '../_common/Resizer';
 import TradesContainer from '../trades/TradesContainer';
-import WorkspaceLeftPanel from './WorkspaceLeftPanel';
 import WorkspaceRightPanel from './WorkspaceRightPanel';
 import Tab from '../_common/Tab';
 import TabList from '../_common/TabList';
@@ -18,21 +17,6 @@ export default class WorkspaceCard extends Component {
 
 		return (
 			<div id="panels">
-				<TabList
-					id="left-tab-list"
-					vertical
-					activeIndex={workspace.leftActiveTab}
-					showText={false}
-					onChange={idx => actions.changeActiveWorkspaceTab('left', idx)}
-				>
-					<Tab imgSrc="img/trade.svg" text="Assets" />
-				</TabList>
-				{workspace.leftPanelVisible &&
-					<WorkspaceLeftPanel actions={actions} workspace={workspace} />}
-				<Resizer
-					className="resizer-vertical"
-					onResize={e => actions.changeWorkspacePanelSize('left', e.clientX - 45)}
-				/>
 				<div id="workarea">
 					<TradesContainer
 						actions={actions}

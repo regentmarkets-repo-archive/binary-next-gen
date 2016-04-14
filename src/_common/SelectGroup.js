@@ -36,7 +36,15 @@ export default class SelectGroup extends Component {
 					{options.map(o => <option key={o.value} value={o.value}>{o.text}</option>)}
 					{Object.keys(optgroups).map(grp =>
 						<optgroup key={grp} label={grp}>
-							{optgroups[grp].map(o => <option key={o.value} value={o.value}>{o.text}</option>)}
+							{optgroups[grp].map(o =>
+								<option
+									key={o.value}
+									value={o.value}
+									selected={o.value === value}
+								>
+									{o.text}
+								</option>
+							)}
 						</optgroup>
 					)}
 				</select>

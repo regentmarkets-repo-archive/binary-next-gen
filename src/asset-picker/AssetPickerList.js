@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { findDOMNode } from 'react-dom';
-import AssetPickerItem from './AssetPickerItem';
-import AssetPickerHeader from './AssetPickerHeader';
+import SelectGroup from '../_common/SelectGroup';
+import groupByKey from 'binary-utils/lib/groupByKey';
 
 export default class AssetPickerList extends Component {
 
@@ -10,6 +10,7 @@ export default class AssetPickerList extends Component {
 		compact: PropTypes.bool,
 		grouped: PropTypes.bool,
 		selectedAsset: PropTypes.string,
+		onSelect: PropTypes.func.isRequired,
 	};
 
 	componentDidMount() {
@@ -18,48 +19,16 @@ export default class AssetPickerList extends Component {
     }
 
 	render() {
-		const { assets, grouped, selectedAsset } = this.props;
-
-		let prevMarket = '';
-		let prevSubmarket = '';
+		const { assets, onSelect, selectedAsset } = this.props;
+		const simplifiedAssets = assets.map(a => ({ text: a.name, value: a.symbol, market: a.market }));
+		const groupedAssets = groupByKey(simplifiedAssets, 'market');
 
 		return (
-			<table>
-				{assets.reduce((components, asset) => {
-					if (grouped && prevSubmarket !== asset.submarket) {
-						components.push(
-							<AssetPickerHeader
-								key={asset.submarket}
-								market={asset.market}
-								submarket={asset.submarket}
-								showMarket={prevMarket !== asset.market}
-							/>
-						);
-						prevMarket = asset.market;
-						prevSubmarket = asset.submarket;
-
-						components.push(
-							<tbody key={'tbody-' + prevSubmarket}>
-								{assets
-									.filter(x =>
-										x.submarket === prevSubmarket)
-									.map(x =>
-										<AssetPickerItem
-											{...this.props}
-											key={x.symbol}
-											asset={x}
-											selected={selectedAsset === x.symbol}
-											ref={selectedAsset === x.symbol ? 'focused' : null}
-										/>
-									)
-								}
-							</tbody>
-						);
-					}
-
-					return components;
-				}, [])}
-			</table>
+			<SelectGroup
+				optgroups={groupedAssets}
+				value={selectedAsset}
+				onChange={e => onSelect(e.target.value)}
+			/>
 		);
 	}
 }

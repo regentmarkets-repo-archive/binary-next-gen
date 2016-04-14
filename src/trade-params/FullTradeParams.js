@@ -23,6 +23,7 @@ import {
 } from './DefaultTradeParams';
 import { categoryValid, allTimeRelatedFieldValid } from './TradeParamsValidation';
 import { mockedContract } from './../_constants/MockContract';
+import AssetPickerContainer from './../asset-picker/AssetPickerContainer';
 
 /**
  * This UI is coded with a few assumptions, which should always be true, this comments serves as a future reference
@@ -387,6 +388,7 @@ export default class FullTradeParams extends Component {
 
         return (
             <div className="full-trade-params" disabled={disabled}>
+                <AssetPickerContainer actions={actions} selectedAsset={trade.symbol} tradeIdx={index} />
                 <TradeTypePicker
                     actions={actions}
                     contract={contract}

@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import BarrierInput from './RelativeBarrierInput';
+import BarrierInput from './BarrierInput';
 import M from '../_common/M';
 
 export default class BarrierCard extends Component {
