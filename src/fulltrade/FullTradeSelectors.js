@@ -12,6 +12,7 @@ import normalizedContractFor from 'binary-utils/lib/normalizedContractFor';
 import groupByKey from 'binary-utils/lib/groupByKey';
 import findIfExist from 'binary-utils/lib/findIfExist';
 import filterObjectBy from 'binary-utils/lib/filterObjectBy';
+import pipsToDigits from 'binary-utils/lib/pipsToDigits';
 
 /**
  * end result should contain information
@@ -78,7 +79,7 @@ export const tradesWithDetailsSelector = createSelector(
     (trades, assets, boughtContracts) =>
         trades.map(t => {
             const symbolDetails = assets.find(a => a.get('symbol') === t.get('symbol'));
-            const pipSize = symbolDetails && symbolDetails.get('pip').length - 1;
+            const pipSize = symbolDetails && pipsToDigits(symbolDetails.get('pip'));
             const symbolName = symbolDetails && symbolDetails.get('display_name');
             const tradeWithPipSize = t.set('pipSize', pipSize).set('symbolName', symbolName);
             const mostRecentContractId = t.get('mostRecentContractId');
