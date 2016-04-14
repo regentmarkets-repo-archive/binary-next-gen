@@ -12,7 +12,7 @@ export default class InputGroup extends Component {
 		className: PropTypes.string,
 		label: PropTypes.string,
 		hint: PropTypes.string,
-		lists: PropTypes.string,
+		list: PropTypes.string,
 		defaultValue: PropTypes.oneOfType(valueTypes),
 		value: PropTypes.oneOfType(valueTypes),
 		min: PropTypes.oneOfType(valueTypes),
@@ -25,7 +25,7 @@ export default class InputGroup extends Component {
 	};
 
 	render() {
-		const { autoFocus, id, className, label, type, hint, value, min, max, lists,
+		const { autoFocus, id, className, label, type, hint, value, min, max, list,
 			readOnly, placeholder, onChange, autoComplete, defaultValue, step } = this.props;
 
 		return (
@@ -39,7 +39,7 @@ export default class InputGroup extends Component {
 					type={type}
 					value={value}
 					step={step}
-					lists={lists}
+					list={list}
 					defaultValue={defaultValue}
 					readOnly={readOnly}
 					placeholder={placeholder}

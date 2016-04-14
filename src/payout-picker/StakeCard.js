@@ -50,6 +50,7 @@ export default class StakeCard extends Component {
                 </div>
                 <button className="btn-secondary" onClick={::this.stepDown}>&ndash;</button>
                 <InputGroup
+                    list="browsers"
                     type="number"
                     value={amount}
                     min={0.35}
