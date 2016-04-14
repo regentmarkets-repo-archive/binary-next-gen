@@ -22,6 +22,8 @@ import TickTradePage from '../tick-trade/TickTradePage';
 import FullTradePage from '../fulltrade/FullTradePage';
 import JpTradePage from '../jp-trade/JpTradePage';
 import WorkspaceContainer from '../workspace/WorkspaceContainer';
+import LayoutButtons from '../trades/LayoutButtons';
+
 
 import { requireAuthOnEnter } from '../_data/Auth';
 
@@ -56,4 +58,5 @@ export default [
     { path: 'video', component: VideoListContainer },
     { path: 'news', component: NewsContainer },
     { path: 'deposit', component: DepositModal },
+    { path: 'layout', component: LayoutButtons },
 ];

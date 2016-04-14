@@ -635,7 +635,7 @@ tr[tabindex] {
     margin-bottom: 5px;
 }
 
-.trades, .trades-jp, #workarea > div[role=tablist] {
+#workarea > div[role=tablist] {
     display: flex;
     flex: 1;
 }
@@ -974,11 +974,49 @@ input[type=number]::-webkit-outer-spin-button {
     width: 100% !important;
 }
 
-.trades {
-    flex-wrap: wrap;
+/* ===== */
+
+.layout-btn-container {
+    width: 20rem;
+    height: 10rem;
 }
 
-/* ===== */
+.layout-btn, .trades {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+}
+
+.layout-row-lbl {
+    width: 10rem;
+}
+
+.layout-btn-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.layout-btn {
+    border: 1px solid blue;
+    border-radius: 1px;
+    padding: 1px;
+    margin: 1px;
+    width: 2rem;
+    height: 2rem;
+}
+
+.layout-mini, .trd-panel {
+    flex: 1;
+}
+
+.layout-buttons {
+    height: 10rem;
+}
+
+.layout-mini {
+    background-color: red;
+    margin: 1px;
+}
 
 .layout-1-1 {
 
