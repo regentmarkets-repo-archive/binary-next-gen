@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
 
 import tradeListSelectors from './tradeListSelectors';
-import TradesGrid from './TradesGrid';
+import TradesLayouts from './TradesLayouts';
 import TradesTabs from './TradesTabs';
 
 @connect(tradeListSelectors)
@@ -25,6 +25,6 @@ export default class TradesContainer extends Component {
 
         return tradeMode === 'tabs' ?
             <TradesTabs {...immutableChildrenToJS(this.props)} /> :
-            <TradesGrid {...immutableChildrenToJS(this.props)} />;
+            <TradesLayouts {...immutableChildrenToJS(this.props)} />;
     }
 }
