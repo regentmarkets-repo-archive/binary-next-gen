@@ -42,7 +42,7 @@ export const getTicksBySymbol = symbol =>
                 case 'chartonly':   // TODO: do nothing until backend tell us what to do
                     break;
                 case 'realtime': return syncTicksAndHistory();
-                default:console.warn(`Unknown license type: ${license}`);
+                default:console.warn(`Unknown license type: ${license}`);   // eslint-disable-line no-console
             }
         }
         return Promise.resolve();
