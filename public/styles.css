@@ -127,6 +127,7 @@ table {
 }
 
 div[role=tab] .close-btn, .panel-active .close-btn {
+    background: #2a3052;
     fill: white;
 }
 
@@ -931,7 +932,9 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .modal {
+    max-height: 100%;
     min-width: 320px;
+    overflow: scroll;
 }
 .contract-details h6 {
     text-align: center;

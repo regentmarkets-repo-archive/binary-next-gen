@@ -1,6 +1,4 @@
 import React, { PropTypes, Component } from 'react';
-import Tab from '../_common/Tab';
-import TabList from '../_common/TabList';
 import FullTradeCard from '../fulltrade/FullTradeCard';
 import { mockedContract } from './../_constants/MockContract';
 
@@ -32,24 +30,8 @@ export default class TradesTabs extends Component {
     render() {
         const { actions, activeTradeIndex, assetsIsOpen, contracts, trades, ticksForAllSymbols, currency } = this.props;
         const activeTrade = trades[activeTradeIndex];
-        const closable = trades.length > 1;
         return (
             <div className="trades-tabs">
-                <TabList
-                    activeIndex={activeTradeIndex}
-                    onChange={index => actions.changeActiveTrade(index)}
-                >
-                    {trades.map((trade, index) =>
-                        <Tab
-                            key={index}
-                            text={trade.symbolName}
-                            closable={closable}
-                            onClose={() => {
-                                actions.removeTrade(index);
-                            }}
-                        />
-                    )}
-                </TabList>
                 <FullTradeCard
                     index={activeTradeIndex}
                     actions={actions}

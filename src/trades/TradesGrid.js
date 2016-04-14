@@ -1,5 +1,4 @@
 import React, { PropTypes, Component } from 'react';
-import TradeHeader from './TradeHeader';
 import FullTradeCard from '../fulltrade/FullTradeCard';
 
 export default class TradesGrid extends Component {
@@ -25,7 +24,6 @@ export default class TradesGrid extends Component {
 
     render() {
         const { actions, activeTradeIndex, assetsIsOpen, currency, trades, ticksForAllSymbols, contracts } = this.props;
-        const closable = trades.length > 1;
         return (
             <div className="trades-grid layout-4-2">
                 {trades.map((trade, index) =>
@@ -34,14 +32,6 @@ export default class TradesGrid extends Component {
                         className={index === activeTradeIndex ? 'trade-container panel-active' : 'trade-container'}
                         onClick={() => actions.changeActiveTrade(index)}
                     >
-                        <TradeHeader
-                            assetName={trade.symbolName}
-                            closable={closable}
-                            onClosePanel={ev => {
-                                actions.removeTrade(index);
-                                ev.stopPropagation();
-                            }}
-                        />
                         <FullTradeCard
                             index={index}
                             currency={currency}
