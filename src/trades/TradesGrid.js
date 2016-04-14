@@ -20,7 +20,6 @@ export default class TradesGrid extends Component {
 
     render() {
         const { actions, activeTradeIndex, assetsIsOpen, currency, trades, ticksForAllSymbols, contracts } = this.props;
-        const closable = trades.length > 1;
         return (
             <div className="trades-grid layout-4-2">
                 {trades.map((trade, index) =>
