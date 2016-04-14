@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import classNames from 'classnames';
-import Button from '../_common/Button';
 import OpenCloseNotice from '../_common/OpenCloseNotice';
 import Star from '../_common/Star';
 
@@ -11,21 +10,18 @@ export default class AssetPickerItem extends Component {
 
 	static propTypes = {
 		asset: PropTypes.object,
-		compact: PropTypes.bool,
 		selected: PropTypes.bool,
 		onSelect: PropTypes.func,
 		onToggleWatchlistItem: PropTypes.func,
-		onCreateTrade: PropTypes.func,
 	};
 
 	static defaultProps = {
 		asset: {},
-		compact: false,
 		selected: false,
 	};
 
 	render() {
-		const { asset, compact, selected, onSelect, onCreateTrade, onToggleWatchlistItem } = this.props;
+		const { asset, selected, onSelect, onToggleWatchlistItem } = this.props;
 		const { isOpen, isInWatchlist, symbol } = asset;
 		const classes = classNames({
 			'asset-picker-item': true,
@@ -53,17 +49,6 @@ export default class AssetPickerItem extends Component {
 				<td style={{ textAlign: 'center' }}>
 					<OpenCloseNotice isOpen={isOpen} />
 				</td>
-				{!compact &&
-					<td onClick={(ev) => {
-						onCreateTrade(symbol);
-						ev.stopPropagation();
-					}}
-					>
-					<Button
-						className="asset-picker-trade-btn btn-secondary"
-						text="Trade"
-					/>
-				</td>}
 			</tr>
 		);
 	}

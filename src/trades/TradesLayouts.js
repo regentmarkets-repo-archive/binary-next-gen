@@ -18,7 +18,7 @@ export default class TradesLayouts extends Component {
         const { actions, activeTradeIndex, assetsIsOpen, currency, trades, ticksForAllSymbols, contracts } = this.props;
 
         return (
-            <div className="trades-grid layout-4-2">
+            <div className="trades layout-4-2">
                 <LayoutButtons />
                 {trades.map((trade, index) =>
                     <div
