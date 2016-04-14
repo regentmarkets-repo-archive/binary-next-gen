@@ -42,7 +42,7 @@ export const changeActiveTrade = (activeTradeIndex) => ({
     activeTradeIndex,
 });
 
-export const setAssetBtnClicked = (assetBtnClicked) => ({
+export const setAssetBtnClicked = assetBtnClicked => ({
     type: types.SET_ASSET_BUTTON_CLICKED,
     assetBtnClicked,
 });

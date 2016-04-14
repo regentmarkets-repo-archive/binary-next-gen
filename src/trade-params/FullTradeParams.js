@@ -103,7 +103,7 @@ export default class FullTradeParams extends Component {
     }
     componentDidMount() {
         const { actions, index, trade } = this.props;
-        if (!trade.hasOwnProperty('proposal')) {
+        if (!trade.proposal) {
            actions.updatePriceProposalSubscription(index);
         }
     }
