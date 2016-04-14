@@ -1,13 +1,11 @@
 import React, { PropTypes, Component } from 'react';
-import AssetPickerFilter from './AssetPickerFilter';
 import AssetPickerList from './AssetPickerList';
-import M from '../_common/M';
 
 export default class AssetPickerCard extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
-		activeTradeIdx: PropTypes.number.isRequired,
+		tradeIdx: PropTypes.number.isRequired,
 		compact: PropTypes.bool,
 		history: PropTypes.object,
 		filter: PropTypes.object,
@@ -30,7 +28,7 @@ export default class AssetPickerCard extends Component {
 	}
 
 	onSelect(id, newAsset) {
-		const { activeTradeIdx, actions, history, selectedAsset } = this.props;
+		const { tradeIdx, actions, history, selectedAsset } = this.props;
 
 		if (id !== '-') {
 			actions.getTicksBySymbol(newAsset, selectedAsset);			// TODO: unsubscribe extra symbol ticks
@@ -41,10 +39,10 @@ export default class AssetPickerCard extends Component {
 		} else {
 			actions.clearTradeTicks();
 			actions.changeSelectedAsset(newAsset);
-			actions.updateTradeParams(activeTradeIdx, 'disabled', true);
+			actions.updateTradeParams(tradeIdx, 'disabled', true);
 			actions.getTradingOptions(newAsset, () => {
-				actions.updateTradeParams(activeTradeIdx, 'symbol', newAsset);
-				actions.updateTradeParams(activeTradeIdx, 'disabled', false);
+				actions.updateTradeParams(tradeIdx, 'symbol', newAsset);
+				actions.updateTradeParams(tradeIdx, 'disabled', false);
 				actions.getTicksBySymbol(newAsset);
 			});
 		}
@@ -56,26 +54,17 @@ export default class AssetPickerCard extends Component {
 	}
 
 	render() {
-		const { actions, assetPickerItems, selectedAsset, params, filter } = this.props;
+		const { assetPickerItems, selectedAsset, params } = this.props;
 
 		return (
 			<div className="asset-picker-container">
-				<AssetPickerFilter actions={actions} filter={filter} />
 				<div className="asset-list">
 					<AssetPickerList
-						grouped
 						assets={assetPickerItems}
 						selectedAsset={selectedAsset}
-						onCreateTrade={::this.onCreateTrade}
 						onSelect={asset => this.onSelect(params.id, asset)}
-						onToggleWatchlistItem={::this.onToggleWatchlistItem}
 					/>
 				</div>
-				{assetPickerItems.length > 0 ? null :
-					<div className="centerer">
-						<M m="Your search didn't match any assets" />
-					</div>
-				}
 			</div>
 		);
 	}

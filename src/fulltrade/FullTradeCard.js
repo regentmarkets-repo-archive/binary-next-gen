@@ -7,6 +7,7 @@ import FullTradeParams from '../trade-params/FullTradeParams';
 import BoughtContractCard from './BoughtContractCard';
 import findIfExist from 'binary-utils/lib/findIfExist';
 import { mockedContract } from './../_constants/MockContract';
+import AssetPickerContainer from './../asset-picker/AssetPickerContainer';
 import { internalTradeModelToServerTradeModel } from './adapters/TradeObjectAdapter';
 
 export default class FullTradeCard extends Component {
@@ -54,6 +55,7 @@ export default class FullTradeCard extends Component {
                 >
                     <PurchaseFailed failure={trade.buy_error} />
                 </Modal>
+                <AssetPickerContainer actions={actions} tradeIdx={index} />
                 <BinaryChart
                     className="trade-chart"
                     contract={mostRecentContractBought}
