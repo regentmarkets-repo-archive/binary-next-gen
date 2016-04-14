@@ -936,6 +936,15 @@ input[type=number]::-webkit-outer-spin-button {
     min-width: 320px;
     overflow: scroll;
 }
+
+.drop-down {
+    max-height: 100%;
+    min-width: 320px;
+    overflow: auto;
+    padding: .5rem;
+    background: white;
+}
+
 .contract-details h6 {
     text-align: center;
 }
@@ -955,12 +964,12 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .trades-tabs .trade-chart {
-    flex: 2;
+    flex: 1;
     margin-left: .5rem;
 }
 
 .trades-tabs .full-trade-params {
-    flex: 1;
+    max-width: 12rem;
 }
 
 #type-category-picker {

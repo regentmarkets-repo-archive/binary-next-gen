@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import ErrorMsg from '../_common/ErrorMsg';
-import Modal from '../containers/Modal';
+import DropDown from '../containers/DropDown';
 
 import BarrierCard from '../barrier-picker/BarrierCard';
 import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
@@ -57,6 +57,8 @@ import { mockedContract } from './../_constants/MockContract';
  */
 
 export default class FullTradeParams extends Component {
+    shouldComponentUpdate = shouldPureComponentUpdate;
+
     static defaultProps = {
         type: 'full',
     };
@@ -96,7 +98,6 @@ export default class FullTradeParams extends Component {
      * There will be an instant where tradeCategory is wrong,
      * we should not rerender until the correct tradeCategory value is in place
      */
-    shouldComponentUpdate = shouldPureComponentUpdate
 
     componentWillMount() {
         this.onAssetChange();
@@ -394,7 +395,7 @@ export default class FullTradeParams extends Component {
 
         return (
             <div className="full-trade-params" disabled={disabled}>
-                <Modal
+                <DropDown
                     shown={trade.showAssetPicker}
                     onClose={() => this.updateHelper('showAssetPicker', false, false)}
                 >
@@ -403,18 +404,26 @@ export default class FullTradeParams extends Component {
                         tradeIdx={index}
                         selectedAsset={trade.symbol}
                     />
-                </Modal>
-                <label onClick={() => this.updateHelper('showAssetPicker', true, false)}>
+                </DropDown>
+                <label onMouseDown={() => this.updateHelper('showAssetPicker', true, false)}>
                     {trade.symbolName}
                 </label>
-                <TradeTypePicker
-                    actions={actions}
-                    contract={contract}
-                    selectedCategory={categoryToUse}
-                    selectedType={selectedType}
-                    onCategoryChange={this.onCategoryChange}
-                    onTypeChange={this.onTypeChange}
-                />
+                <DropDown
+                    shown={trade.showTradeTypePicker}
+                    onClose={() => this.updateHelper('showTradeTypePicker', false, false)}
+                >
+                    <TradeTypePicker
+                        actions={actions}
+                        contract={contract}
+                        selectedCategory={categoryToUse}
+                        selectedType={selectedType}
+                        onCategoryChange={this.onCategoryChange}
+                        onTypeChange={this.onTypeChange}
+                    />
+                </DropDown>
+                <label onMouseDown={() => this.updateHelper('showTradeTypePicker', true, false)}>
+                    {trade.type}
+                </label>
                 {showDuration && !showSpreadBarrier &&
                     <DurationCard
                         dateStart={trade.dateStart}
