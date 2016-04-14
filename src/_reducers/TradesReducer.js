@@ -18,6 +18,7 @@ const defaultTrade = {
     amount: 50,
     type: 'CALL',
     barrierType: 'relative',
+    showAssetPicker: false,
 };
 
 const initialState = fromJS([defaultTrade]);
