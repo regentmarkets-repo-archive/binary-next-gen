@@ -39,12 +39,15 @@ export default class AssetPickerCard extends Component {
 		} else {
 			actions.clearTradeTicks();
 			actions.changeSelectedAsset(newAsset);
-			actions.updateTradeParams(tradeIdx, 'disabled', true);
-			actions.getTradingOptions(newAsset, () => {
-				actions.updateTradeParams(tradeIdx, 'symbol', newAsset);
-				actions.updateTradeParams(tradeIdx, 'disabled', false);
-				actions.getTicksBySymbol(newAsset);
-			});
+			actions.updateTradeParams(activeTradeIdx, 'disabled', true);
+			actions.getTradingOptions(newAsset)
+				.then(
+					() => {
+						actions.updateTradeParams(activeTradeIdx, 'symbol', newAsset);
+						actions.updateTradeParams(activeTradeIdx, 'disabled', false);
+						actions.getTicksBySymbol(newAsset);
+					}
+				);
 		}
 	}
 
