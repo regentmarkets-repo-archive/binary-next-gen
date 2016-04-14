@@ -31,21 +31,6 @@ export default class TradesTabs extends Component {
         const closable = trades.length > 1;
         return (
             <div className="trades-tabs">
-                <TabList
-                    activeIndex={activeTradeIndex}
-                    onChange={index => actions.changeActiveTrade(index)}
-                >
-                    {trades.map((trade, index) =>
-                        <Tab
-                            key={index}
-                            text={trade.symbolName}
-                            closable={closable}
-                            onClose={() => {
-                                actions.removeTrade(index);
-                            }}
-                        />
-                    )}
-                </TabList>
                 <FullTradeCard
                     index={activeTradeIndex}
                     actions={actions}
