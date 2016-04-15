@@ -4,7 +4,6 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 import config from '../config';
 import M from '../_common/M';
 import WebSidebar from '../sidebar/WebSidebar';
-import ToggleButtonsContainer from './ToggleButtonsContainer';
 import Balance from '../balance/BalanceContainer';
 import NewTradeButton from './NewTradeButtonContainer';
 
@@ -32,8 +31,6 @@ export default class WebHeader extends Component {
 					<img src={config.logo} role="presentation" />
 					<img src={config.logo2} role="presentation" />
 				</div>
-
-				<ToggleButtonsContainer actions={this.props.actions} />
 
 				<NewTradeButton
 					id="new-trade-btn"

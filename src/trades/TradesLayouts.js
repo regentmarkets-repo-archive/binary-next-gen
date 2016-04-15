@@ -1,7 +1,8 @@
 import React, { PropTypes, Component } from 'react';
 import FullTradeCard from '../fulltrade/FullTradeCard';
+import LayoutButtons from './LayoutButtons';
 
-export default class TradesGrid extends Component {
+export default class TradesLayouts extends Component {
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
@@ -11,21 +12,14 @@ export default class TradesGrid extends Component {
         ticksForAllSymbols: PropTypes.object.isRequired,
         trades: PropTypes.array.isRequired,
         contracts: PropTypes.object.isRequired,
-        assetBtnClicked: PropTypes.bool,
     };
-
-    componentDidUpdate() {
-        const { assetBtnClicked, activeTradeIndex, actions } = this.props;
-        if (assetBtnClicked) {
-            actions.updatePriceProposalSubscription(activeTradeIndex);
-            actions.setAssetBtnClicked(false);
-        }
-    }
 
     render() {
         const { actions, activeTradeIndex, assetsIsOpen, currency, trades, ticksForAllSymbols, contracts } = this.props;
+
         return (
-            <div className="trades-grid">
+            <div className="trades layout-4-2">
+                <LayoutButtons />
                 {trades.map((trade, index) =>
                     <div
                         key={index}
