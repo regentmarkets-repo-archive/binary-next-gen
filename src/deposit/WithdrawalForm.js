@@ -10,7 +10,7 @@ import currencies from '../_constants/currencies';
 export default class WithdrawForm extends Component {
     static propTypes = {
         selectedPaymentAgent: PropTypes.string,
-        paymentAgentOptions: PropTypes.array.isRequired,
+        paymentAgents: PropTypes.array.isRequired,
         currency: PropTypes.oneOf(currencies).isRequired,
         actions: PropTypes.object,
         withdrawAmount: PropTypes.number,
@@ -47,8 +47,8 @@ export default class WithdrawForm extends Component {
     render() {
         const {
             actions,
-            paymentAgentOptions,
             currency,
+            paymentAgents,
             selectedPaymentAgent,
             withdrawFailed,
             withdrawError,
@@ -60,6 +60,7 @@ export default class WithdrawForm extends Component {
             confirmClicked,
         } = this.props;
 
+        const paymentAgentOptions = paymentAgents.map(pa => ({ value: pa.paymentagent_loginid, text: pa.name }));
         const selectedPaymentAgentName = selectedPaymentAgent ?
             paymentAgentOptions.filter(pa => pa.value === selectedPaymentAgent)[0].text :
             paymentAgentOptions[0].text;

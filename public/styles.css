@@ -46,11 +46,6 @@ body {
     flex-direction: row-reverse;
 }
 
-.right-panel div[role=tabs] {
-    flex-direction: column;
-    align-content: flex-start;
-}
-
 .right-panel .radio-item {
     flex: none;
 }
@@ -428,19 +423,6 @@ fieldset {
 
 #web-sidebar .toolbar-btn {
     height: 4rem;
-}
-
-div[role=tabs] {
-    display: flex;
-    background: rgba(42, 48, 82, .75);
-    color: white;
-}
-
-.tab-content {
-    padding: .5rem;
-}
-.tab-content {
-    flex: 1;
 }
 
 .market-submarket-picker {
