@@ -10,6 +10,8 @@ export default class AssetDetailsDurations extends Component {
 	render() {
 		const { durations } = this.props;
 
+		if (!durations) return null;
+
 		return (
 			<table>
 				<thead>
