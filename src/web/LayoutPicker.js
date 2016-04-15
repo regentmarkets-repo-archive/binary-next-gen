@@ -12,13 +12,13 @@ export default class LayoutPicker extends Component {
     };
 
     render() {
-        const { tradesCount, layoutN } = this.props;
+        const { actions, tradesCount, layoutN } = this.props;
         return (
             <div className="centerer">
                 <LayoutButton tradesCount={tradesCount} layoutN={layoutN} />
                 <DropDown
                     shown={false}
-                    onClose={() => this.updateHelper('showAssetPicker', false, false)}
+                    onClose={() => actions.changeActiveLayout(2, 2)}
                 >
                     <LayoutButtonPanel />
                 </DropDown>

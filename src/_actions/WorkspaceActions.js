@@ -31,6 +31,12 @@ export const updateWorkspaceField = (fieldName, fieldValue) => ({
     fieldValue,
 });
 
+export const changeActiveLayout = (tradeCount, layoutN) => ({
+    type: types.CHANGE_ACTIVE_LAYOUT,
+    tradeCount,
+    layoutN,
+});
+
 export const changeActiveWorkspaceTab = (panel, index) => ({
     type: types.CHANGE_ACTIVE_WORKSPACE_TAB,
     panel,

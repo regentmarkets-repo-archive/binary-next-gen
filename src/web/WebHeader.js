@@ -26,7 +26,7 @@ export default class WebHeader extends Component {
 					<img src={config.logo2} role="presentation" />
 				</div>
 
-				<LayoutPicker tradesCount={4} layoutN={1} />
+				<LayoutPicker actions={actions} tradesCount={4} layoutN={1} />
 
 				<NewTradeButton
 					id="new-trade-btn"
