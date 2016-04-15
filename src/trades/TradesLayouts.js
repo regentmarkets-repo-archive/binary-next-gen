@@ -1,8 +1,10 @@
 import React, { PropTypes, Component } from 'react';
 import FullTradeCard from '../fulltrade/FullTradeCard';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 import LayoutButtons from './LayoutButtons';
 
 export default class TradesLayouts extends Component {
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
@@ -19,7 +21,7 @@ export default class TradesLayouts extends Component {
 
         return (
             <div className="trades layout-4-2">
-                <LayoutButtons />
+                <LayoutButtons actions={actions} />
                 {trades.map((trade, index) =>
                     <div
                         key={index}

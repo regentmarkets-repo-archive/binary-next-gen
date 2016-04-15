@@ -6,6 +6,6 @@ import DropDown from '../DropDown';
 describe('<DropDown />', () => {
     it('renders a drop down', () => {
         const wrapper = shallow(<DropDown />);
-        expect(wrapper.type()).to.equal('div');
+        expect(wrapper.equals(null)).to.equal(true);
     });
 });
