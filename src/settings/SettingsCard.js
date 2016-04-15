@@ -1,11 +1,21 @@
 import React, { PropTypes, Component } from 'react';
-import Tabs from '../_common/Tabs';
+import Tab from '../_common/Tab';
+import TabList from '../_common/TabList';
 import SettingsGeneral from './SettingsGeneral';
 import SettingsPersonalDetails from './SettingsPersonalDetails';
 import SettingsSecurity from './SettingsSecurity';
 import SettingsSelfExclusion from './SettingsSelfExclusion';
 import SettingsLimits from './SettingsLimits';
 import SettingsChangePassword from './SettingsChangePassword';
+
+const components = [
+	SettingsGeneral,
+	SettingsPersonalDetails,
+	SettingsSecurity,
+	SettingsSelfExclusion,
+	SettingsLimits,
+	SettingsChangePassword,
+];
 
 export default class SettingsCard extends Component {
 
@@ -23,26 +33,25 @@ export default class SettingsCard extends Component {
 
 	render() {
 		const { loginid } = this.props;
+		const { activeTab } = this.state;
 		const isVirtual = loginid.startsWith('VRTC');
-		const virtualTabs = [
-			{ text: 'General', component: <SettingsGeneral {...this.props} /> },
-			{ text: 'Personal', component: <SettingsPersonalDetails {...this.props} /> },
-			{ text: 'Change Password', component: <SettingsChangePassword /> },
-		];
-		const realTabs = [
-			{ text: 'Cashier Lock', component: <SettingsSecurity {...this.props} /> },
-			{ text: 'Self Exclusion', component: <SettingsSelfExclusion {...this.props} /> },
-			{ text: 'Limits', component: <SettingsLimits {...this.props} /> },
-		];
-		const tabs = isVirtual ? virtualTabs : virtualTabs.concat(realTabs);
+		const ActiveComponent = components[activeTab];
 
 		return (
-			<Tabs
-				id="settings"
-				activeIndex={this.state.activeTab}
-				onChange={idx => this.setState({ activeTab: idx })}
-				tabs={tabs}
-			/>
+			<div>
+				<TabList
+					activeIndex={activeTab}
+					onChange={idx => this.setState({ activeTab: idx })}
+				>
+					<Tab text="General" />
+					<Tab text="Personal" />
+					<Tab text="Change Password" />
+					{!isVirtual && <Tab text="Cashier Lock" />}
+					{!isVirtual && <Tab text="Self Exclusion" />}
+					{!isVirtual && <Tab text="Limits" />}
+				</TabList>
+				<ActiveComponent {...this.props} />
+			</div>
 		);
 	}
 }
