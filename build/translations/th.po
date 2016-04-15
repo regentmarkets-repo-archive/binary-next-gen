@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-12 13:57+0200\n"
-"PO-Revision-Date: 2016-04-13 23:19+0000\n"
+"PO-Revision-Date: 2016-04-15 11:52+0000\n"
 "Last-Translator: Jutawan <bubbleblythe@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/binary-app/next-gen-"
 "app/th/>\n"
@@ -56,7 +56,6 @@ msgstr "อ้างอิง"
 msgid "Purchase"
 msgstr "ซื้อ"
 
-#, fuzzy
 msgid "Indicative"
 msgstr "อินดิเคทีฟ"
 
@@ -96,7 +95,6 @@ msgstr "รายการ"
 msgid "Limit ({currency})"
 msgstr "วงเงิน ({currency})"
 
-#, fuzzy
 msgid "Maximum number of open positions"
 msgstr "จำนวนสูงสุดของรายการซื้อขายที่เปิดอยู่"
 
@@ -106,9 +104,8 @@ msgstr "บัญชีเงินสดคงเหลือสูงสุด
 msgid "Maximum daily turnover"
 msgstr "มูลค่าสูงสุดต่อวัน"
 
-#, fuzzy
 msgid "Maximum aggregate payouts on open positions"
-msgstr "--- เพย์เอาท์รวมสูงสุด  ---"
+msgstr "การชำระเงินรวมสูงสุดสำหรับรายการซื้อขายที่เปิดอยู่"
 
 msgid "Withdrawal limits"
 msgstr "วงเงินในการถอน"
@@ -207,10 +204,10 @@ msgid "Rise"
 msgstr "ขึ้น"
 
 msgid "Stake"
-msgstr ""
+msgstr "วางเงิน"
 
 msgid "Payout"
-msgstr ""
+msgstr "การชำระเงิน"
 
 msgid "Deposit"
 msgstr "ฝาก"
@@ -245,7 +242,6 @@ msgstr "เมื่อวาน"
 msgid "Tomorrow"
 msgstr "พรุ่งนี้"
 
-#, fuzzy
 msgid "Takeout"
 msgstr "เทคเอาท์"
 
@@ -268,15 +264,14 @@ msgid "Up/Down"
 msgstr "ขึ้น/ลง"
 
 msgid "Touch/No Touch"
-msgstr ""
+msgstr "แตะ/ไม่แตะ"
 
 msgid "Ends In/Out"
-msgstr ""
+msgstr "สิ้นสุดใน/นอก"
 
 msgid "Stays In/Goes Out"
-msgstr ""
+msgstr "ภายใน/นอก"
 
-#, fuzzy
 msgid "Settles"
 msgstr "ชำระเงิน"
 
@@ -314,37 +309,37 @@ msgid "Buy"
 msgstr "ซื้อ"
 
 msgid "Digit Even"
-msgstr ""
+msgstr "ดิจิตคู่"
 
 msgid "Touches"
-msgstr ""
+msgstr "แตะเส้น"
 
 msgid "Digit Over"
-msgstr ""
+msgstr "ดิจิตสูงกว่า"
 
 msgid "Digit Match"
-msgstr ""
+msgstr "ดิจิตลงตัว"
 
 msgid "Digit Under"
-msgstr ""
+msgstr "ดิจิตต่ำกว่า"
 
 msgid "Digit Odd"
-msgstr ""
+msgstr "ดิจิตคี่"
 
 msgid "Digit Differs"
-msgstr ""
+msgstr "ดิจิตต่างกัน"
 
 msgid "No Touch"
-msgstr ""
+msgstr "ไม่แตะเส้น"
 
 msgid "Fall"
-msgstr ""
+msgstr "ตก"
 
 msgid "Asian Down"
-msgstr ""
+msgstr "เอเชียนลง"
 
 msgid "Asian Up"
-msgstr ""
+msgstr "เอเชียนขึ้น"
 
 msgid "Search For Assets"
 msgstr "ค้นหาสินทรัพย์"
@@ -356,21 +351,20 @@ msgid "Durations"
 msgstr "ระยะเวลา"
 
 msgid "Payout/Stake"
-msgstr ""
+msgstr "ชำระเงิน/วางเงิน"
 
 msgid "Purchase for"
-msgstr "ซื้อสำหรับ"
+msgstr "จ่ายสำหรับ"
 
 msgid "payout"
-msgstr ""
+msgstr "ชำระเงิน"
 
 msgid "stake"
-msgstr ""
+msgstr "วางเงิน"
 
 msgid "Self Exclusion"
-msgstr ""
+msgstr "ไม่รวมตัวเอง"
 
-#, fuzzy
 msgid "Cashier Lock"
 msgstr "แคชเชียร์ล็อค"
 
@@ -381,10 +375,10 @@ msgid "Password"
 msgstr "รหัสผ่าน"
 
 msgid "Tick Trade"
-msgstr ""
+msgstr "เทรดช่วง"
 
 msgid "Full Trade"
-msgstr ""
+msgstr "เทรดเต็ม"
 
 msgid "Address"
 msgstr "ที่อยู่"
@@ -419,49 +413,39 @@ msgstr "ยืนยันรหัสผ่านใหม่"
 msgid "Daily turnover limit"
 msgstr "วงเงินธุรกรรมรวมต่อวัน"
 
-#, fuzzy
 msgid "Once this limit is reached, you may no longer deposit."
 msgstr "เมื่อวงเงินเต็ม คุณไม่ต้องวางเงิน"
 
-#, fuzzy
 msgid "Maximum aggregate contract purchases per day."
-msgstr "สัญญารวมสูงสุดที่ซื้อรายวัน"
+msgstr "สัญญารวมสูงสุดที่ซื้อต่อวัน"
 
-#, fuzzy
 msgid "Daily limit on losses"
 msgstr "วงเงินต่อวัน (ขาดทุน)"
 
-#, fuzzy
 msgid "Maximum aggregate loss per day."
 msgstr "วงเงินรวมสูงสุดต่อวัน (ขาดทุน)"
 
 msgid "7-day turnover limit"
 msgstr "วงเงินรวม 7 วัน"
 
-#, fuzzy
 msgid "Maximum aggregate contract purchases over a 7-day period."
 msgstr "สัญญารวมสูงสุดที่ซื้อในช่วง 7 วัน"
 
-#, fuzzy
 msgid "7-day limit on losses"
 msgstr "วงเงินในช่วง 7 วัน (ขาดทุน)"
 
-#, fuzzy
 msgid "Maximum aggregate loss over a 7-day period."
 msgstr "ขาดทุนรวมสูงสุดของรายการในช่วง 7 วัน"
 
 msgid "30-day turnover limit"
 msgstr "วงเงินรวม 30 วัน"
 
-#, fuzzy
 msgid "Maximum aggregate contract purchases over a 30-day period."
 msgstr "สัญญารวมสูงสุดที่ซื้อในช่วง 30 วัน"
 
-#, fuzzy
 msgid "30-day limit on losses"
 msgstr "วงเงินในช่วง 30 วัน (ขาดทุน)"
 
-#, fuzzy
 msgid "Maximum aggregate loss over a 30-day period."
 msgstr "ขาดทุนรวมสูงสุดของรายการในช่วง 30 วัน"
 
