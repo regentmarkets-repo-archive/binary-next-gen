@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 
-export default class TradesLayouts extends Component {
+export default class LayoutButtons extends Component {
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
