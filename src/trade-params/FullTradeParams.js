@@ -171,7 +171,7 @@ export default class FullTradeParams extends Component {
                     barrier2: newBarrier[1],
                     barrierType: newBarrierType,
                 };
-                actions.updateMultipleTradeParams(index, params); 
+                actions.updateMultipleTradeParams(index, params);
             } else {
                 const newBarrier = createDefaultBarriers(
                     contract,

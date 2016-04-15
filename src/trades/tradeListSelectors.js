@@ -1,6 +1,6 @@
 import { createStructuredSelector } from 'reselect';
 import {
-    currencySelector, ticksSelector, 
+    currencySelector, ticksSelector,
     activeTradeIndexSelector, assetBtnClickedSelector,
 } from '../_store/directSelectors';
 import {
