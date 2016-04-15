@@ -665,50 +665,8 @@ tr[tabindex] {
     box-shadow: none;
 }
 
-div[role=tablist] {
-    display: flex;
-    background: rgba(42, 48, 82, .75);
-    color: white;
-}
-
-div[role=tablist].vertical {
-    min-width: 3rem;
-    flex-direction: column;
-    align-content: flex-start;
-}
-
-div[role=tab][aria-selected=true] {
-    background: #2a3052;
-}
-
-.vertical > div[role=tab][aria-selected=true] {
-    box-shadow: inset 2px 0 0 0 #e98024;
-}
-
 #right-tab-list > div[role=tab][aria-selected=true] {
     box-shadow: inset -2px 0 0 0 #e98024;
-}
-
-div[role=tab] {
-    flex: 1;
-    cursor: pointer;
-    line-height: 2;
-    display: block;
-    text-align: center;
-}
-
-div[role=tab] img {
-    width: 1.75rem;
-    margin: .5rem auto 0;
-}
-
-div[role=tablist].vertical div[role=tab] {
-    flex: inherit;
-}
-
-.vertical > div[role=tab] {
-    display: flex;
-    flex-direction: column;
 }
 
 div[role=tabpanel] {
