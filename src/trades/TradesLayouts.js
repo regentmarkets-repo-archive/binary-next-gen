@@ -12,7 +12,16 @@ export default class TradesLayouts extends Component {
         ticksForAllSymbols: PropTypes.object.isRequired,
         trades: PropTypes.array.isRequired,
         contracts: PropTypes.object.isRequired,
+        assetBtnClicked: PropTypes.bool,
     };
+
+    componentDidUpdate() {
+        const { assetBtnClicked, activeTradeIndex, actions } = this.props;
+        if (assetBtnClicked) {
+            actions.updatePriceProposalSubscription(activeTradeIndex);
+            actions.setAssetBtnClicked(false);
+        }
+    }
 
     render() {
         const { actions, activeTradeIndex, assetsIsOpen, currency, trades, ticksForAllSymbols, contracts } = this.props;
