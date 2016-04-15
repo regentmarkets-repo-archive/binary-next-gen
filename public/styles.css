@@ -164,6 +164,14 @@ div[role=tab] .close-btn, .panel-active .close-btn {
     cursor: pointer;
 }
 
+.mobile-content .trade-panel {
+    flex-direction: column;
+}
+
+.mobile-content .full-trade-params {
+    flex: 1;
+}
+
 .tick-trade-mobile button:not(.close-btn), .tick-trade-mobile input[type=range], .tick-trade-mobile a.button, .tick-trade-mobile .range-selector-items {
     width: 100%;
 }
@@ -947,7 +955,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin-left: .5rem;
 }
 
-.full-trade-params {
+.trades .full-trade-params {
     max-width: 12rem;
 }
 
