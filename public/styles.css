@@ -1101,10 +1101,17 @@ input[type=number]::-webkit-outer-spin-button {
     flex-basis: 100%;
 }
 
-.layout-5-4 > div:nth-child(1), .layout-5-4 > div:nth-child(2) {
-    flex-basis: 45%;
+.layout-5-4 > div:nth-child(1),
+.layout-5-4 > div:nth-child(2) {
+    flex-basis: 40%;
 }
 
-.layout-5-5 > div:nth-child(4), .layout-5-5 > div:nth-child(5) {
-    flex-basis: 45%;
+.layout-5-5 > div:nth-child(1),
+.layout-5-5 > div:nth-child(2),
+.layout-5-5 > div:nth-child(3), {
+    flex-basis: 30%;
+}
+.layout-5-5 > div:nth-child(4),
+.layout-5-5 > div:nth-child(5) {
+    flex-basis: 40%;
 }
