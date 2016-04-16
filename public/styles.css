@@ -58,13 +58,12 @@ body {
 }
 
 .workspace-panel {
-    padding: .5rem;
     overflow: auto;
     display: flex;
 }
 
-.workspace-panel > div {
-    width: 100%;
+.workspace-panel > * {
+    flex: 1;
 }
 
 #workarea {
@@ -145,7 +144,6 @@ div[role=tab] .close-btn, .panel-active .close-btn {
 }
 
 .mobile-content {
-    padding: .5rem;
     min-width: 350px;
     flex: 1;
     display: flex;
@@ -153,6 +151,10 @@ div[role=tab] .close-btn, .panel-active .close-btn {
     flex-direction: column;
     overflow: auto;
     width: 100%;
+}
+
+.mobile-content > *[role=tablist] {
+    margin-bottom: .5rem;
 }
 
 .mobile-content tbody tr {

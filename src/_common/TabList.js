@@ -4,6 +4,7 @@ export default class TabList extends Component {
 
     static propTypes = {
         id: PropTypes.string,
+        className: PropTypes.string,
         children: PropTypes.node,
         activeIndex: PropTypes.number,
         vertical: PropTypes.bool,
@@ -39,14 +40,14 @@ export default class TabList extends Component {
     }
 
     render() {
-        const { id, vertical, showIcons, showText } = this.props;
+        const { id, className, vertical, showIcons, showText } = this.props;
         const { activeIndex } = this.state;
 
         return (
             <div
                 id={id}
                 role="tablist"
-                className={vertical ? 'vertical' : ''}
+                className={(vertical ? 'vertical ' : '') + className}
             >
                 {React.Children.map(this.props.children, (child, idx) =>
                     React.cloneElement(child, {

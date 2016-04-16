@@ -31,6 +31,7 @@ export default class WorkspaceCard extends Component {
 					<WorkspaceRightPanel actions={actions} workspace={workspace} />}
 				<TabList
 					id="right-tab-list"
+					className="inverse"
 					vertical
 					activeIndex={workspace.rightActiveTab}
 					showText
