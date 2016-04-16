@@ -50,7 +50,7 @@ export default class TabList extends Component {
                 className={(vertical ? 'vertical ' : '') + className}
             >
                 {React.Children.map(this.props.children, (child, idx) =>
-                    React.cloneElement(child, {
+                    child && React.cloneElement(child, {
                         selected: activeIndex === idx,
                         showIcon: showIcons,
                         showText,

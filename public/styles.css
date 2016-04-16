@@ -153,8 +153,9 @@ div[role=tab] .close-btn, .panel-active .close-btn {
     width: 100%;
 }
 
-.mobile-content > *[role=tablist] {
+.mobile-content *[role=tablist] {
     margin-bottom: .5rem;
+    flex-shrink: 0;
 }
 
 .mobile-content tbody tr {
@@ -264,9 +265,14 @@ nav.sidebar {
     flex: 1;
 }
 
-.news-list-card, .asset-index-card, .trading-times-card, .video-list {
-    flex: 1;
+.statement-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.news-list-card, .asset-index-card, .trading-times-card, .video-list, .statement-card > table {
     overflow: auto;
+    min-height: 100vh;
 }
 
 .mobile-back-btn span {
