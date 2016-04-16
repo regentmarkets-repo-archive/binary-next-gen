@@ -17,7 +17,7 @@ body {
 #panels {
     flex: 1;
     display: flex;
-    max-height: calc(100% - 3rem);
+    max-height: calc(100% - 6rem);
 }
 
 #mid-panel {
@@ -262,6 +262,11 @@ nav.sidebar {
     text-decoration: none;
     text-align: center;
     flex: 1;
+}
+
+.news-list-card, .asset-index-card, .trading-times-card, .video-list {
+    flex: 1;
+    overflow: auto;
 }
 
 .mobile-back-btn span {
@@ -894,7 +899,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .trade-chart {
     flex: 1;
-    margin-left: .5rem;
+    margin: .5rem;
 }
 
 .trades .full-trade-params {

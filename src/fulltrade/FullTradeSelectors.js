@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import { nowAsEpoch } from 'binary-utils/lib/DateUtils';
+import nowAsEpoch from 'binary-utils/lib/date/nowAsEpoch';
 import { assetsSelector, tradingTimesSelector, boughtContractsSelector } from '../_store/directSelectors';
 import { marketTreeSelector } from '../_selectors/marketTreeSelector';
 import extractBarrier from 'binary-utils/lib/extractBarrier';

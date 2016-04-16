@@ -16,8 +16,7 @@ export default class NewsCard extends Component {
         const { router } = this.context;
 
         return (
-
-            <div>
+            <div className="news-list-card">
                 {articles.map((article, idx) =>
                     <ArticlePreview
                         key={'article' + idx}
