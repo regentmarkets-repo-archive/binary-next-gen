@@ -17,12 +17,10 @@ export default class WorkspaceCard extends Component {
 
 		return (
 			<div id="panels">
-				<div id="workarea">
-					<TradesContainer
-						actions={actions}
-						tradeMode={workspace.tradeMode}
-					/>
-				</div>
+				<TradesContainer
+					actions={actions}
+					tradeMode={workspace.tradeMode}
+				/>
 				<Resizer
 					className="resizer-vertical"
 					onResize={e => actions.changeWorkspacePanelSize('right', window.innerWidth - e.clientX - 48)}

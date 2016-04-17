@@ -66,12 +66,6 @@ body {
     flex: 1;
 }
 
-#workarea {
-    flex: 1;
-    overflow: auto;
-    display: flex;
-}
-
 table {
     margin-bottom: 0;
 }
@@ -654,15 +648,6 @@ tr[tabindex] {
     margin-bottom: 5px;
 }
 
-#workarea > div[role=tablist] {
-    display: flex;
-    flex: 1;
-}
-
-.trades {
-    flex: 1;
-}
-
 .asset-picker-item:hover .asset-picker-trade-btn {
     visibility: visible;
 }
@@ -890,10 +875,10 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .drop-down {
-    max-height: 100%;
-    min-width: 320px;
+    max-height: 100vh;
     overflow: auto;
     padding: .5rem;
+    margin: 1rem;
     background: white;
 }
 
@@ -958,8 +943,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 .layout-btn, .trades {
     display: flex;
-    flex-wrap: wrap;
-    align-items: stretch;
 }
 
 .layout-row-lbl {
@@ -984,8 +967,16 @@ input[type=number]::-webkit-outer-spin-button {
     opacity: 1;
 }
 
-.layout-mini, .trade-panel {
+.trades, .layout-mini, .trade-panel {
     flex: 1;
+}
+
+.trades {
+    overflow: auto;
+}
+
+.trades, .layout-btn {
+    flex-wrap: wrap;
 }
 
 .layout-mini {
@@ -1000,6 +991,13 @@ input[type=number]::-webkit-outer-spin-button {
 
 .layout-2-1 {
     flex-direction: column;
+}
+
+.layout-2-2 {
+    flex-direction: row;
+}
+
+.layout-3-1 {
 }
 
 .layout-3-1 div:nth-child(1) {
@@ -1046,8 +1044,16 @@ input[type=number]::-webkit-outer-spin-button {
     flex-basis: 100%;
 }
 
+.layout-4-4 {
+    flex-direction: column;
+}
+
 .layout-4-4 > div:nth-child(1) {
     flex-basis: 100%;
+}
+
+.layout-4-5 {
+    flex-direction: column;
 }
 
 .layout-4-5 > div:nth-child(4) {
@@ -1081,9 +1087,10 @@ input[type=number]::-webkit-outer-spin-button {
 
 .layout-5-5 > div:nth-child(1),
 .layout-5-5 > div:nth-child(2),
-.layout-5-5 > div:nth-child(3), {
-    flex-basis: 30%;
+.layout-5-5 > div:nth-child(3) {
+    flex: 1 0 20%;
 }
+
 .layout-5-5 > div:nth-child(4),
 .layout-5-5 > div:nth-child(5) {
     flex-basis: 40%;
