@@ -153,9 +153,21 @@ div[role=tab] .close-btn, .panel-active .close-btn {
     width: 100%;
 }
 
-.mobile-content *[role=tablist] {
+[role=tablist] {
     margin-bottom: .5rem;
     flex-shrink: 0;
+}
+
+[role=tablist].vertical {
+    margin-bottom: 0;
+}
+
+.vertical > [role=tab] {
+    padding: .25rem;
+}
+
+.vertical > [role=tab] > span{
+    margin-top: .5rem;
 }
 
 .mobile-content tbody tr {
@@ -965,10 +977,10 @@ input[type=number]::-webkit-outer-spin-button {
     padding: .25rem;
     width: 2rem;
     height: 2rem;
-    opacity: .75;
+    opacity: .5;
 }
 
-.active > .layout-btn, .layout-btn:hover {
+.layout-btn.active, .layout-btn:hover {
     opacity: 1;
 }
 

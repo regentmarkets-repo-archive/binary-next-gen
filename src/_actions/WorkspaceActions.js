@@ -31,9 +31,9 @@ export const updateWorkspaceField = (fieldName, fieldValue) => ({
     fieldValue,
 });
 
-export const changeActiveLayout = (tradeCount, layoutN) => ({
+export const changeActiveLayout = (tradesCount, layoutN) => ({
     type: types.CHANGE_ACTIVE_LAYOUT,
-    tradeCount,
+    tradesCount,
     layoutN,
 });
 

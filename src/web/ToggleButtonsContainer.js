@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
 
 import toggleButtonsSelector from './toggleButtonsSelector';
-import shouldPureComponentUpdate from 'react-pure-render/function';
 import ToggleButtons from './ToggleButtons';
 
 @connect(toggleButtonsSelector)

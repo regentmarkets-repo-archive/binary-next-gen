@@ -18,7 +18,7 @@ import {
 } from '../_constants/ActionTypes';
 
 const initialState = new Map({
-    tradeCount: 1,
+    tradesCount: 1,
     layoutN: 1,
     leftPanelVisible: true,
     leftPanelSize: 250,
@@ -56,7 +56,7 @@ export default (state = initialState, action) => {
         case CHANGE_ACTIVE_LAYOUT: {
             windowResizeEvent();
             return state
-                .set('tradeCount', action.tradeCount)
+                .set('tradesCount', action.tradesCount)
                 .set('layoutN', action.layoutN);
         }
         case CHANGE_ACTIVE_WORKSPACE_TAB: {
