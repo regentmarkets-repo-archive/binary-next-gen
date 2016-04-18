@@ -15,7 +15,7 @@ export default class DropDown extends Component {
 
 		return (
 			<div className="full-screen-overlay" onClick={onClose}>
-				<div className="drop-down">
+				<div className="drop-down" onClick={e => e.stopPropagation()}>
 					{children}
 				</div>
 			</div>
