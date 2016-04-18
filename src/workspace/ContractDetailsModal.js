@@ -2,10 +2,10 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import Modal from '../containers/Modal';
 import ContractDetailsContainer from '../contract-details/ContractDetailsContainer';
-import ContractDetailsSingletonSelector from './ContractDetailsSingletonSelector';
+import ContractDetailsModalSelector from './ContractDetailsModalSelector';
 
-@connect(ContractDetailsSingletonSelector)
-export default class ContractDetailsSingleton extends Component {
+@connect(ContractDetailsModalSelector)
+export default class ContractDetailsModal extends Component {
     static propTypes = {
         actions: PropTypes.object.isRequired,
         contractShown: PropTypes.string,

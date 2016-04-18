@@ -3,7 +3,6 @@ import * as LiveData from '../_data/LiveData';
 import nowAsEpoch from 'binary-utils/lib/date/nowAsEpoch';
 import { sellExpiredContract } from './TradeActions';
 import { getTicksBySymbol } from './TickActions';
-import showError from 'binary-utils/lib/showError';
 
 export const serverDataPortfolio = serverResponse => ({
     type: types.SERVER_DATA_PORTFOLIO,
@@ -39,7 +38,7 @@ export const detailsForContract = (areDetailsShown, contractShown) => {
                     contractShown,
                 });
             },
-            err => showError(err)
+            () => null
         );
     };
 };
