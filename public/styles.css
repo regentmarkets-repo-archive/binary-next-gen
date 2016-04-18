@@ -396,6 +396,10 @@ fieldset {
     z-index: 995;
 }
 
+#header #hamburger-btn > .sidebar {
+    right: -300px !important;
+}
+
 #hamburger-opener:checked + #hamburger-btn > .sidebar {
     left: .5rem;
     transition: .3s;
@@ -909,7 +913,7 @@ input[type=number]::-webkit-outer-spin-button {
 .trade-panel {
     display: flex;
     flex-direction: row-reverse;
-    margin: .5rem;
+    margin: .25rem;
 }
 
 .trade-chart-container {

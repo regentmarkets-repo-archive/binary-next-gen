@@ -83,9 +83,9 @@ export const tradesWithDetailsSelector = createSelector(
             const symbolName = symbolDetails && symbolDetails.get('display_name');
             const tradeWithPipSize = t.set('pipSize', pipSize).set('symbolName', symbolName);
             const mostRecentContractId = t.get('mostRecentContractId');
-            const mostRecentContractBought = mostRecentContractId && boughtContracts.get(mostRecentContractId);
+            const lastBoughtContract = mostRecentContractId && boughtContracts.get(mostRecentContractId);
             const tradeWithMostRecentTransaction =
-                tradeWithPipSize.set('mostRecentContractBought', mostRecentContractBought);
+                tradeWithPipSize.set('lastBoughtContract', lastBoughtContract);
 
             return tradeWithMostRecentTransaction;
         })

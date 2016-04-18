@@ -30,10 +30,10 @@ export default class FullTradeCard extends Component {
     };
 
     render() {
-        const { actions, contract, index, marketIsOpen, trade, ticks } = this.props;
-        const { selectedSymbol, mostRecentContractBought } = trade;
+        const { actions, index, marketIsOpen, trade, ticks } = this.props;
+        const { selectedSymbol, lastBoughtContract } = trade;
 
-        const shownContract = mostRecentContractBought || contract || mockedContract;
+        const contract = this.props.contract || mockedContract;
 
         const contractAllowStartLater = findIfExist(contract, child => child && !!child.forwardStartingDuration);
 
@@ -56,22 +56,22 @@ export default class FullTradeCard extends Component {
                 <div className="trade-chart-container">
                     <BinaryChart
                         className="trade-chart"
-                        contract={shownContract}
+                        contract={lastBoughtContract}
                         symbol={selectedSymbol}
                         ticks={ticks}
                         trade={tradeRequiredByChart}
                     />
                 </div>
-                {mostRecentContractBought ?
+                {lastBoughtContract ?
                     <BoughtContractCard
                         actions={actions}
-                        boughtContract={shownContract}
+                        boughtContract={lastBoughtContract}
                         tradeId={index}
                     /> :
                     <FullTradeParams
                         {...this.props}
                         disabled={disabled}
-                        contract={shownContract}
+                        contract={contract}
                     />
                 }
             </div>
