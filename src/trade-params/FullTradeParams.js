@@ -11,7 +11,7 @@ import DurationCard from '../duration-picker/DurationCard';
 import StakeCard from '../payout-picker/StakeCard';
 import PayoutCard from '../payout-picker/PayoutCard';
 import BuyButton from '../tick-trade/BuyButton';
-import TradeTypePicker from '../trade-type-picker/TradeTypePicker';
+import TradeTypeDropDown from '../trade-type-picker/TradeTypeDropDown';
 import AssetPickerContainer from '../asset-picker/AssetPickerContainer';
 
 import isIntraday from 'binary-utils/lib/isIntraday';
@@ -408,22 +408,14 @@ export default class FullTradeParams extends Component {
                 <div onMouseDown={() => this.updateHelper('showAssetPicker', true, false)}>
                     {trade.symbolName}
                 </div>
-                <DropDown
-                    shown={trade.showTradeTypePicker}
-                    onClose={() => this.updateHelper('showTradeTypePicker', false, false)}
-                >
-                    <TradeTypePicker
-                        actions={actions}
-                        contract={contract}
-                        selectedCategory={categoryToUse}
-                        selectedType={selectedType}
-                        onCategoryChange={this.onCategoryChange}
-                        onTypeChange={this.onTypeChange}
-                    />
-                </DropDown>
-                <div onMouseDown={() => this.updateHelper('showTradeTypePicker', true, false)}>
-                    {trade.type}
-                </div>
+                <TradeTypeDropDown
+                    actions={actions}
+                    contract={contract}
+                    selectedCategory={categoryToUse}
+                    selectedType={selectedType}
+                    onCategoryChange={this.onCategoryChange}
+                    onTypeChange={this.onTypeChange}
+                />
                 {showDuration && !showSpreadBarrier &&
                     <DurationCard
                         dateStart={trade.dateStart}

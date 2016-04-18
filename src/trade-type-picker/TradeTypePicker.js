@@ -1,13 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import TabList from '../_common/TabList';
-import shouldPureComponentUpdate from 'react-pure-render/function';
 import Tab from '../_common/Tab';
 import contractCategoryDisplay from 'binary-utils/lib/contractCategoryDisplay';
 import tradeTypeCodeToText from 'binary-utils/lib/tradeTypeCodeToText';
 
 export default class TradeTypePicker extends Component {
-
-    shouldComponentUpdate = shouldPureComponentUpdate;
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
