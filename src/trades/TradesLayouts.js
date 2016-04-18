@@ -9,14 +9,15 @@ export default class TradesLayouts extends Component {
         currency: PropTypes.string.isRequired,
         ticksForAllSymbols: PropTypes.object.isRequired,
         trades: PropTypes.array.isRequired,
+        layoutN: PropTypes.number.isRequired,
         contracts: PropTypes.object.isRequired,
     };
 
     render() {
-        const { actions, assetsIsOpen, currency, trades, ticksForAllSymbols, contracts } = this.props;
+        const { actions, assetsIsOpen, currency, layoutN, trades, ticksForAllSymbols, contracts } = this.props;
 
         return (
-            <div className="trades layout-2-2">
+            <div className={`trades layout-${trades.length}-${layoutN}`}>
                 {trades.map((trade, index) =>
                     <FullTradeCard
                         key={index}

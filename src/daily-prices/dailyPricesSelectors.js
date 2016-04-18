@@ -1,6 +1,6 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 import { dailyPricesSelector } from '../_store/directSelectors';
-import { epochToDate } from 'binary-utils/lib/DateUtils';
+import epochToDate from 'binary-utils/lib/date/epochToDate';
 
 const currentAssetDailyPrices = createSelector(
     dailyPricesSelector,

@@ -1,8 +1,14 @@
 import React, { Component } from 'react';
-import Tabs from '../_common/Tabs';
+import Tab from '../_common/Tab';
+import TabList from '../_common/TabList';
 import MobilePage from '../containers/MobilePage';
 import AssetIndexContainer from '../asset-index/AssetIndexContainer';
 import TradingTimesContainer from '../trading-times/TradingTimesContainer';
+
+const components = [
+	AssetIndexContainer,
+	TradingTimesContainer,
+];
 
 export default class ResourcesMobile extends Component {
 
@@ -12,19 +18,20 @@ export default class ResourcesMobile extends Component {
     }
 
     render() {
-        const tabs = [
-            { text: 'Asset Index', component: <AssetIndexContainer {...this.props} /> },
-            { text: 'Trading Times', component: <TradingTimesContainer compact {...this.props} /> },
-        ];
+        const { activeTab } = this.state;
+        const ActiveComponent = components[activeTab];
 
         return (
             <MobilePage>
-                <Tabs
-                    id="settings"
-                    activeIndex={this.state.activeTab}
+                <TabList
+                    className="inverse"
+                    activeIndex={activeTab}
                     onChange={idx => this.setState({ activeTab: idx })}
-                    tabs={tabs}
-                />
+                >
+                    <Tab text="Asset Index" />
+                    <Tab text="Trading Times" />
+                </TabList>
+                <ActiveComponent {...this.props} />
             </MobilePage>
         );
     }

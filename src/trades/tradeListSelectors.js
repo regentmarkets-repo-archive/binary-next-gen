@@ -7,6 +7,8 @@ import {
 } from '../fulltrade/FullTradeSelectors';
 
 export default createStructuredSelector({
+    tradesCount: state => state.workspace.get('tradesCount'),
+    layoutN: state => state.workspace.get('layoutN'),
     assetsIsOpen: assetsIsOpenSelector,
     contracts: availableContractsSelector,
     currency: currencySelector,

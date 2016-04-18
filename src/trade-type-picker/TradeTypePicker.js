@@ -31,6 +31,11 @@ export default class TradeTypePicker extends Component {
 
         return (
             <div className="trade-type-picker">
+                <TabList>
+                    <Tab text="Basic" />
+                    <Tab text="Digits" />
+                    <Tab text="Advanced" />
+                </TabList>
                 <TabList
                     id="type-category-picker"
                     activeIndex={selectedCategoryIndex}

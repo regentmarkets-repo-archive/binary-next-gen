@@ -6,7 +6,7 @@ import M from '../_common/M';
 import WebSidebar from '../sidebar/WebSidebar';
 import Balance from '../balance/BalanceContainer';
 import NewTradeButton from './NewTradeButtonContainer';
-import LayoutPicker from './LayoutPicker';
+import LayoutPickerContainer from '../layout-picker/LayoutPickerContainer';
 
 export default class WebHeader extends Component {
 
@@ -26,7 +26,7 @@ export default class WebHeader extends Component {
 					<img src={config.logo2} role="presentation" />
 				</div>
 
-				<LayoutPicker tradesCount={4} layoutN={1} />
+				<LayoutPickerContainer actions={actions} />
 
 				<NewTradeButton
 					id="new-trade-btn"

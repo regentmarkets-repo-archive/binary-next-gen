@@ -15,7 +15,7 @@ export default class AssetIndexCard extends Component {
 		const headers = assetIndexRows.shift() || [];
 
 		return (
-			<div>
+			<div className="asset-index-card">
 				<MarketPickerContainer
 					onChange={x => actions.updateAssetIndexFilter(x)}
 					allOptionShown={false}

@@ -22,8 +22,7 @@ import TickTradePage from '../tick-trade/TickTradePage';
 import FullTradePage from '../fulltrade/FullTradePage';
 import JpTradePage from '../jp-trade/JpTradePage';
 import WorkspaceContainer from '../workspace/WorkspaceContainer';
-import LayoutButtonPanel from '../web/LayoutButtonPanel';
-
+import LayoutButtonPanel from '../layout-picker/LayoutButtonPanel';
 
 import { requireAuthOnEnter } from '../_data/Auth';
 
