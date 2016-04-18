@@ -48,6 +48,11 @@ export const changeActiveTrade = (activeTradeIndex) => ({
     activeTradeIndex,
 });
 
+export const setAssetBtnClicked = assetBtnClicked => ({
+    type: types.SET_ASSET_BUTTON_CLICKED,
+    assetBtnClicked,
+});
+
 export const changeWorkspacePanelSize = (panel, size) => ({
     type: types.CHANGE_WORKSPACE_PANEL_SIZE,
     panel,

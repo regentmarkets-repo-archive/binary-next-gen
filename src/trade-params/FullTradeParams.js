@@ -102,13 +102,19 @@ export default class FullTradeParams extends Component {
     componentWillMount() {
         this.onAssetChange();
     }
-
+    componentDidMount() {
+        const { actions, index, trade } = this.props;
+        if (!trade.proposal) {
+           actions.updatePriceProposalSubscription(index);
+        }
+    }
     /**
      * componentDidUpdate is used instead of componentWillReceiveProps because the onAssetChangeDepends on updated
      * props, which only accessible after component update
      * it's a mistake here that method to be reuse are coupled with component states
      * TODO: redesign so that side effect are handle elsewhere
      */
+
     componentDidUpdate(prevProps) {
         const { contract } = this.props;
 
@@ -134,7 +140,7 @@ export default class FullTradeParams extends Component {
     }
 
     onAssetChange() {
-        const { contract, trade } = this.props;
+        const { contract, trade, index, actions } = this.props;
 
         const selectedCategory = trade.tradeCategory;
         if (!categoryValid(selectedCategory, contract)) {
@@ -156,7 +162,7 @@ export default class FullTradeParams extends Component {
                 const { dateStart, duration, durationUnit } = newDuration;
                 const newBarrier = createDefaultBarriers(contract, category, selectedType, duration, durationUnit);
                 const newBarrierType = createDefaultBarrierType(duration, durationUnit);
-                this.updateTradeParams({
+                const params = {
                     type: selectedType,
                     duration,
                     durationUnit,
@@ -164,7 +170,8 @@ export default class FullTradeParams extends Component {
                     barrier: newBarrier[0],
                     barrier2: newBarrier[1],
                     barrierType: newBarrierType,
-                });
+                };
+                actions.updateMultipleTradeParams(index, params);
             } else {
                 const newBarrier = createDefaultBarriers(
                     contract,
@@ -173,11 +180,12 @@ export default class FullTradeParams extends Component {
                     selectedDuration, selectedDurationUnit
                 );
                 const newBarrierType = createDefaultBarrierType(selectedDuration, selectedDurationUnit);
-                this.updateTradeParams({
+                const params = {
                     barrier: newBarrier[0],
                     barrier2: newBarrier[1],
                     barrierType: newBarrierType,
-                });
+                };
+                actions.updateMultipleTradeParams(index, params);
             }
         }
     }

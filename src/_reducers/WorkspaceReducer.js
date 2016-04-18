@@ -15,6 +15,7 @@ import {
     CHANGE_TRADE_MODE,
     TOGGLE_PANEL,
     REMOVE_TRADE,
+    SET_ASSET_BUTTON_CLICKED,
 } from '../_constants/ActionTypes';
 
 const initialState = new Map({
@@ -29,6 +30,7 @@ const initialState = new Map({
     tradeMode: 'tabs',
     activeTradeIndex: 0,
     selectedAsset: 'R_100',
+    assetBtnClicked: false,
 });
 
 export default (state = initialState, action) => {
@@ -41,6 +43,9 @@ export default (state = initialState, action) => {
         }
         case CHANGE_ACTIVE_TRADE: {
             return state.set('activeTradeIndex', action.activeTradeIndex);
+        }
+        case SET_ASSET_BUTTON_CLICKED: {
+            return state.set('assetBtnClicked', action.assetBtnClicked);
         }
         case WORKSPACE_FAVOR_ASSET: {
             const newState = state.update('favoriteAssets', x => x.add(action.symbol));

@@ -2,6 +2,7 @@ import { createStructuredSelector } from 'reselect';
 import {
     currencySelector,
     ticksSelector,
+    assetBtnClickedSelector,
     activeTradeIndexSelector,
     tradesCountSelector,
     layoutNSelector,
@@ -21,4 +22,5 @@ export default createStructuredSelector({
     trades: tradesWithDetailsSelector,
     ticksForAllSymbols: ticksSelector, // not really!!!
     activeTradeIndex: activeTradeIndexSelector,
+    assetBtnClicked: assetBtnClickedSelector,
 });

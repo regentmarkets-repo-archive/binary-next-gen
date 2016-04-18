@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import FullTradeCard from '../fulltrade/FullTradeCard';
-
+import { mockedContract } from './../_constants/MockContract';
 
 export default class TradesTabs extends Component {
     static propTypes = {
@@ -11,15 +11,19 @@ export default class TradesTabs extends Component {
         ticksForAllSymbols: PropTypes.object.isRequired,
         trades: PropTypes.array.isRequired,
         contracts: PropTypes.object.isRequired,
+        assetBtnClicked: PropTypes.bool,
     };
 
     componentDidUpdate(prevProps) {
         const prevTradeLength = prevProps.trades.length;
-        const currTradeLength = this.props.trades.length;
-        const { actions } = this.props;
+        const { actions, trades, activeTradeIndex, assetBtnClicked } = this.props;
+        const currTradeLength = trades.length;
 
         if (currTradeLength > prevTradeLength) {
             actions.updatePriceProposalSubscription(prevTradeLength);
+        } else if (assetBtnClicked) {
+            actions.updatePriceProposalSubscription(activeTradeIndex);
+            actions.setAssetBtnClicked(false);
         }
     }
 

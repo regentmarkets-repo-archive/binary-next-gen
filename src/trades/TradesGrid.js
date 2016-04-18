@@ -11,11 +11,15 @@ export default class TradesGrid extends Component {
         ticksForAllSymbols: PropTypes.object.isRequired,
         trades: PropTypes.array.isRequired,
         contracts: PropTypes.object.isRequired,
+        assetBtnClicked: PropTypes.bool,
     };
 
     componentDidUpdate() {
-        // const node = ReactDOM.findDOMNode(this);
-        // node.parentNode.scrollLeft = node.scrollWidth;
+        const { assetBtnClicked, activeTradeIndex, actions } = this.props;
+        if (assetBtnClicked) {
+            actions.updatePriceProposalSubscription(activeTradeIndex);
+            actions.setAssetBtnClicked(false);
+        }
     }
 
     render() {

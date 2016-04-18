@@ -37,6 +37,7 @@ export default class AssetPickerCard extends Component {
 			actions.updateTradeParams(id, 'symbol', newAsset);
 			actions.updatePriceProposalSubscription(id);
 			actions.getTradingOptions(newAsset);
+            actions.setAssetBtnClicked(true);
 			history.goBack();
 		} else {
 			actions.clearTradeTicks();
@@ -50,6 +51,7 @@ export default class AssetPickerCard extends Component {
 						actions.getTicksBySymbol(newAsset);
 					}
 				);
+            actions.setAssetBtnClicked(true);
 		}
 	}
 
