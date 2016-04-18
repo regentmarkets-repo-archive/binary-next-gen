@@ -4,6 +4,7 @@ import TradesContainer from '../trades/TradesContainer';
 import WorkspaceRightPanel from './WorkspaceRightPanel';
 import Tab from '../_common/Tab';
 import TabList from '../_common/TabList';
+import ContractDetailsSingleton from '../_singletons/ContractDetailsSingleton';
 
 export default class WorkspaceCard extends Component {
 
@@ -17,6 +18,7 @@ export default class WorkspaceCard extends Component {
 
 		return (
 			<div id="panels">
+				<ContractDetailsSingleton actions={actions} />
 				<TradesContainer
 					actions={actions}
 					tradeMode={workspace.tradeMode}

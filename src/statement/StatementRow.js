@@ -20,7 +20,7 @@ export default class StatementRow extends Component {
         const { actions, contractId, compact, refN, date, actionType, amount, balanceAfter } = this.props;
 
         return (
-            <tr onClick={() => actions.getInfoByContractId(contractId)}>
+            <tr onClick={() => actions.detailsForContract(true, contractId)}>
                 <td><FormattedTime value={date} format="full" /></td>
                 {!compact && <td>{refN}</td>}
                 <td className="trade-action">{actionType}</td>
