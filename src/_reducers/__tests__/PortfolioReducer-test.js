@@ -4,7 +4,6 @@ import portfolio from '../PortfolioReducer';
 import {
     DETAILS_FOR_CONTRACT,
     UPDATE_NOW,
-    CLOSE_SOLD_RESULT,
     REMOVE_PERSONAL_DATA,
 } from '../../_constants/ActionTypes';
 
@@ -35,16 +34,6 @@ describe('portfolioReducer', () => {
         };
         const actualState = portfolio(beforeState, action);
         expect(expectedState).to.equal(actualState);
-    });
-
-    it('should be able to close contract that is sold out', () => {
-        const beforeState = fromJS({
-            type: CLOSE_SOLD_RESULT,
-            soldResultShown: undefined,
-        });
-        const action = fromJS({});
-        const actualState = portfolio(beforeState, action);
-        expect(actualState).to.equal(beforeState);
     });
 
     it('should be able to remove personal portfolio data or clear proposals', () => {
