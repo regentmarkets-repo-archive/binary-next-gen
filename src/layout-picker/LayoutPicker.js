@@ -36,7 +36,10 @@ export default class LayoutPicker extends Component {
                     <LayoutButtonPanel
                         tradesCount={tradesCount}
                         layoutN={layoutN}
-                        onLayoutChange={(...params) => actions.changeActiveLayout(...params)}
+                        onLayoutChange={(...params) => {
+                            actions.changeActiveLayout(...params);
+                            this.setState({ dropdownShown: false });
+                        }}
                     />
                 </DropDown>
             </div>

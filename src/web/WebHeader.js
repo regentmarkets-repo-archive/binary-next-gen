@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import config from '../config';
-import WebSidebar from '../sidebar/WebSidebar';
+import Logo from '../_common/Logo';
+import WebSidebarContainer from '../sidebar/WebSidebarContainer';
 import Balance from '../balance/BalanceContainer';
 import LayoutPickerContainer from '../layout-picker/LayoutPickerContainer';
 
@@ -18,22 +18,11 @@ export default class WebHeader extends Component {
 
 		return (
 			<div id="header" className="inverse">
-				<div id="logo">
-					<img src={config.logo} role="presentation" />
-					<img src={config.logo2} role="presentation" />
-				</div>
-
+				<Logo />
 				<LayoutPickerContainer actions={actions} />
-
+				<div className="spacer" />
 				<Balance />
-
-				<input id="hamburger-closer" type="radio" name="hamburger" defaultChecked />
-				<label id="hamburger-overlay" htmlFor="hamburger-closer"></label>
-				<input id="hamburger-opener" className="hamburger" type="radio" name="hamburger" />
-				<label id="hamburger-btn" htmlFor="hamburger-opener" className="toolbar-btn">
-					<img src="img/menu.svg" alt="Menu" />
-					<WebSidebar />
-				</label>
+				<WebSidebarContainer />
 			</div>
 		);
 	}

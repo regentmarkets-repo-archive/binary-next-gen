@@ -393,7 +393,7 @@ export default class FullTradeParams extends Component {
         const showSpreadBarrier = categoryToUse === 'spreads';
 
         return (
-            <div className="full-trade-params" disabled={disabled}>
+            <div className="trade-params" disabled={disabled}>
                 <DropDown
                     shown={trade.showAssetPicker}
                     onClose={() => this.updateHelper('showAssetPicker', false, false)}
