@@ -9,6 +9,7 @@ import {
 import transactionsFilterFuncs from './transactionsFilters';
 
 const StatementRecord = new Record({
+    contractId: '',
     refN: '',
     date: 0,
     actionType: '',
@@ -22,6 +23,7 @@ export const filteredTransactionsSelector = createSelector(
         transactions
             .filter(transactionsFilterFuncs[filterIdx])
             .map(t => new StatementRecord({
+                contractId: t.get('contract_id'),
                 refN: t.get('transaction_id'),
                 date: epochToDate(t.get('transaction_time')),
                 actionType: t.get('action_type'),

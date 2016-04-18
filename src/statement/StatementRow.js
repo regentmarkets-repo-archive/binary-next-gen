@@ -6,7 +6,9 @@ import NumberColored from '../_common/NumberColored';
 export default class StatementRow extends Component {
 
     static propTypes = {
+        actions: PropTypes.object.isRequired,
         compact: PropTypes.bool,
+        contractId: PropTypes.string.isRequired,
         refN: PropTypes.string.isRequired,
         date: PropTypes.object.isRequired,
         actionType: PropTypes.string.isRequired,
@@ -15,10 +17,10 @@ export default class StatementRow extends Component {
     };
 
     render() {
-        const { compact, refN, date, actionType, amount, balanceAfter } = this.props;
+        const { actions, contractId, compact, refN, date, actionType, amount, balanceAfter } = this.props;
 
         return (
-            <tr>
+            <tr onClick={() => actions.getInfoByContractId(contractId)}>
                 <td><FormattedTime value={date} format="full" /></td>
                 {!compact && <td>{refN}</td>}
                 <td className="trade-action">{actionType}</td>

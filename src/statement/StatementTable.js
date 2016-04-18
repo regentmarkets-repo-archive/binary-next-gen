@@ -8,6 +8,7 @@ import StatementRow from './StatementRow';
 export default class StatementTable extends Component {
 
 	static propTypes = {
+		actions: PropTypes.object.isRequired,
 		compact: PropTypes.bool,
 		transactions: PropTypes.array.isRequired,
 		currency: PropTypes.string.isRequired,
@@ -15,7 +16,7 @@ export default class StatementTable extends Component {
 	};
 
 	render() {
-		const { compact, currency, transactions, transactionsTotal } = this.props;
+		const { actions, compact, currency, transactions, transactionsTotal } = this.props;
 
 		return (
 			<table>
@@ -43,6 +44,7 @@ export default class StatementTable extends Component {
 				<tbody>
 					{transactions.map((transaction, idx) =>
 						<StatementRow
+							actions={actions}
 							key={idx}
 							compact={compact}
 							{...transaction}

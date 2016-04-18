@@ -31,6 +31,7 @@ export default class StatementCard extends Component {
 				</TabList>
 				{transactions.length > 0 ?
 					<StatementTable
+						actions={actions}
 						compact={compact}
 						transactions={transactions}
 						transactionsTotal={transactionsTotal}
