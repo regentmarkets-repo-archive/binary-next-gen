@@ -24,7 +24,7 @@ export default class TradesLayouts extends Component {
                         index={index}
                         currency={currency}
                         actions={actions}
-                        marketIsOpen={assetsIsOpen[trade.symbol].isOpen}
+                        marketIsOpen={assetsIsOpen[trade.symbol] && assetsIsOpen[trade.symbol].isOpen}
                         trade={trade}
                         ticks={ticksForAllSymbols[trade.symbol]}
                         contract={contracts[trade.symbol]}

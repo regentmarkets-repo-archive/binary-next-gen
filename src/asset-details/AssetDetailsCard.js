@@ -8,7 +8,7 @@ import AssetDetailsTradingEvents from './AssetDetailsTradingEvents';
 export default class AssetDetailsCard extends Component {
 
 	static propTypes = {
-		activeAsset: PropTypes.object,
+		activeAsset: PropTypes.object.isRequired,
 		durations: PropTypes.array,
 		tradingTimes: PropTypes.object,
 	};
