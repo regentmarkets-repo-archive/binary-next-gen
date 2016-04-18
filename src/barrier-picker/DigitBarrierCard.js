@@ -7,7 +7,10 @@ export default class DigitBarrierCard extends Component {
     shouldComponentUpdate = shouldPureComponentUpdate;
 
     static propTypes = {
-        barrier: PropTypes.number,
+        barrier: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+        ]),
         barrierInfo: PropTypes.object,
         index: PropTypes.number,
         onBarrierChange: PropTypes.func,

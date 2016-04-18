@@ -8,8 +8,14 @@ export default class BarrierCard extends Component {
     shouldComponentUpdate = shouldPureComponentUpdate;
 
     static propTypes = {
-        barrier: PropTypes.string,
-        barrier2: PropTypes.string,
+        barrier: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+        ]),
+        barrier2: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+        ]),
         barrierInfo: PropTypes.object,
         barrierType: PropTypes.oneOf(['relative', 'absolute']),
         isIntraDay: PropTypes.bool,

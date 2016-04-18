@@ -16,7 +16,10 @@ export default class BarrierInput extends Component {
         onChange: PropTypes.func,
         onUnmount: PropTypes.func,
         pipSize: PropTypes.number,
-        value: PropTypes.string,
+        value: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+        ]),
         spot: PropTypes.number,
     };
 

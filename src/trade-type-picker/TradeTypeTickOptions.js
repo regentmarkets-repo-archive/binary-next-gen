@@ -8,7 +8,10 @@ export default class TradeTypeTickOptions extends Component {
 
 	static propTypes = {
 		type: PropTypes.string,
-		barrier: PropTypes.number,
+		barrier: PropTypes.oneOfType([
+            PropTypes.string,
+            PropTypes.number,
+        ]),
 		tickOnly: PropTypes.bool,
 		onTypeChange: PropTypes.func,
 		onBarrierChange: PropTypes.func,

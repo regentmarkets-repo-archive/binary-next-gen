@@ -109,6 +109,9 @@ const TradeTypeRestOptions = ({ onChange, type }) => (
 
 TradeTypeRestOptions.propTypes = {
 	type: PropTypes.string,
-	barrier: PropTypes.number,
+	barrier: PropTypes.oneOfType([
+		PropTypes.string,
+		PropTypes.number,
+	]),
 	onChange: PropTypes.func,
 };
