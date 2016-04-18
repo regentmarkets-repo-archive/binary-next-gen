@@ -56,14 +56,16 @@ export const changeLanguage = langCode => {
 };
 
 const initUnauthorized = async () => {
+
+};
+
+const initAuthorized = async (authData, store) => {
     api.getActiveSymbolsFull();
     api.getTradingTimes(new Date());
     api.getAssetIndex();
     api.getServerTime();
     api.getCandlesForLastNDays('R_100', 30);
-};
 
-const initAuthorized = async (authData, store) => {
     api.getPortfolio();
     api.getStatement({ description: 1, limit: 20 });
     api.getAccountSettings().then(msg => {
