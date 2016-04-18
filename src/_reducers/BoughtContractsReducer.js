@@ -12,11 +12,11 @@ const initialState = fromJS({});
 export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_PROPOSAL_OPEN_CONTRACT: {
-            const proposal = action.serverResponse.proposal_open_contract;
-            if (Object.keys(proposal).length === 0) {
+            const openContract = action.serverResponse.proposal_open_contract;
+            if (Object.keys(openContract).length === 0) {
                 return initialState;
             }
-            return state.mergeIn([proposal.contract_id], proposal);
+            return state.mergeIn([openContract.contract_id], openContract);
         }
         case SERVER_DATA_PORTFOLIO: {
             const contracts = action.serverResponse.portfolio.contracts;
