@@ -296,8 +296,6 @@ export default class FullTradeParams extends Component {
 
     onDurationUnitChange(e) {
         const newUnit = e.target.value;
-        this.updateHelper('durationUnit', newUnit, false);
-
         const { contract, trade } = this.props;
         const { tradeCategory, type, duration } = trade;
         const newBarrier = createDefaultBarriers(contract, tradeCategory, type, duration, newUnit);
@@ -306,6 +304,7 @@ export default class FullTradeParams extends Component {
         // if it's forward starting type, do not update barrier as not applicable
         if (!trade.dateStart) {
             this.updateTradeParams({
+                durationUnit: newUnit,
                 barrier: newBarrier[0],
                 barrier2: newBarrier[1],
                 barrierType: newBarrierType,

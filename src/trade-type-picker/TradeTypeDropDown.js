@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
+import tradeToFriendlyType from 'binary-utils/lib/tradeToFriendlyType';
 import DropDown from '../containers/DropDown';
 import TradeTypePicker from './TradeTypePicker';
 
@@ -8,7 +9,7 @@ export default class TradeTypeDropDown extends Component {
     shouldComponentUpdate = shouldPureComponentUpdate;
 
     static propTypes = {
-        trade: PropTypes.object.isRequired,
+        selectedType: PropTypes.string.isRequired,
     };
 
     constructor(props) {
@@ -19,7 +20,7 @@ export default class TradeTypeDropDown extends Component {
     }
 
     render() {
-        const { trade } = this.props;
+        const { selectedType } = this.props;
         const { dropdownShown } = this.state;
 
         return (
@@ -34,9 +35,9 @@ export default class TradeTypeDropDown extends Component {
                 </DropDown>
                 <div
                     className="picker-label"
-                    onMouseDown={() => this.updateHelper('showTradeTypePicker', true, false)}
+                    onMouseDown={() => this.setState({ dropdownShown: true })}
                 >
-                    {trade}
+                    Trade type: {tradeToFriendlyType(selectedType)}
                 </div>
             </div>
         );

@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import windowResizeEvent from 'binary-utils/lib/windowResizeEvent';
 import FullTradeCard from '../fulltrade/FullTradeCard';
 
 export default class TradesLayouts extends Component {
@@ -17,6 +18,10 @@ export default class TradesLayouts extends Component {
     componentWillMount() {
         const { actions, layoutN, tradesCount } = this.props;
         actions.changeActiveLayout(tradesCount, layoutN);
+    }
+
+    componentDidUpdate() {
+        windowResizeEvent();
     }
 
     render() {

@@ -54,7 +54,6 @@ export default (state = initialState, action) => {
             return state.set(action.fieldName, action.fieldValue);
         }
         case CHANGE_ACTIVE_LAYOUT: {
-            windowResizeEvent();
             return state
                 .set('tradesCount', action.tradesCount)
                 .set('layoutN', action.layoutN);
