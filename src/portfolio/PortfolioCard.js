@@ -1,7 +1,5 @@
 import React, { PropTypes, Component } from 'react';
 import PortfolioList from './PortfolioList';
-import Modal from '../containers/Modal';
-import ContractDetailsContainer from '../contract-details/ContractDetailsContainer';
 
 export default class PortfolioCard extends Component {
 
@@ -26,7 +24,6 @@ export default class PortfolioCard extends Component {
 			compact,
 			actions,
 			contracts,
-			portfolio,
 			purchaseTotal,
 			indicativeTotal,
 		} = this.props;
@@ -36,21 +33,10 @@ export default class PortfolioCard extends Component {
 		const onViewDetails = contract =>
 			compact
 				? router.push(`/contract/${contract.contract_id}`)
-				: actions.detailsForContract(true, contract);
+				: actions.detailsForContract(true, contract.contract_id);
 
 		return (
 			<div>
-				<Modal
-					shown={portfolio && portfolio.areDetailsShown}
-					onClose={() => actions.detailsForContract(false, undefined)}
-				>
-					{portfolio.contractShown &&
-						<ContractDetailsContainer
-							actions={actions}
-							params={{ id: portfolio.contractShown.contract_id }}
-						/>
-					}
-				</Modal>
 				<PortfolioList
 					compact={compact}
 					contracts={contracts}

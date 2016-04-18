@@ -24,7 +24,7 @@ export default (state = initialState, action) => {
             const history = action.serverResponse.history.times.map((t, idx) => {
                 const quote = action.serverResponse.history.prices[idx];
                 return { epoch: +t, quote: +quote };
-            });
+            }).slice(0, 60);
 
             const liveTicks = state.get('symbol') ? state.get('symbol') : [];
             const merged = mergeSortedArrays(liveTicks, history, x => x.epoch, x => x.epoch);
