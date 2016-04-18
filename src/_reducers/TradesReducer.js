@@ -1,5 +1,6 @@
-import { fromJS } from 'immutable';
+import { fromJS, Repeat } from 'immutable';
 import {
+    CHANGE_ACTIVE_LAYOUT,
     UPDATE_TRADE_PARAMS,
     UPDATE_MULTIPLE_TRADE_PARAMS,
     RESET_TRADES,
@@ -30,6 +31,22 @@ export default (state = initialState, action) => {
             const newTrade = fromJS(defaultTrade).set('symbol', newSymbol);
 
             return state.push(newTrade);
+        }
+        case CHANGE_ACTIVE_LAYOUT: {
+            const oldTradesCount = state.size;
+            const newTradesCount = action.tradesCount;
+            const countDiff = newTradesCount - oldTradesCount;
+
+            if (countDiff > 0) {
+                const additionalTrade = Repeat(fromJS(defaultTrade), countDiff);   // eslint-disable-line new-cap
+                return state.concat(additionalTrade);
+            }
+
+            if (countDiff < 0) {
+                return state.take(newTradesCount);
+            }
+
+            return state;
         }
         case UPDATE_TRADE_PARAMS: {
             return state.setIn([action.index, action.fieldName], action.fieldValue);

@@ -40,3 +40,9 @@ export const selectedAssetSelector = state =>
 
 export const activeTradeIndexSelector = state =>
     state.workspace.get('activeTradeIndex');
+
+export const tradesCountSelector =
+    state => state.workspace.get('tradesCount');
+
+export const layoutNSelector =
+    state => state.workspace.get('layoutN');

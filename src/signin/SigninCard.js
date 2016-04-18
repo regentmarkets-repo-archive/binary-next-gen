@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
-import * as LiveData from '../_data/LiveData';
+import { tryAuth } from '../_data/Auth';
 import M from '../_common/M';
 import Button from '../_common/Button';
 import ErrorMsg from '../_common/ErrorMsg';
@@ -36,17 +36,14 @@ export default class SigninCard extends Component {
 	async trySignin() {
 		const { actions, token } = this.props;
 		const { router } = this.context;
-
-		actions.signinFieldUpdate('progress', true);
-		actions.signinFieldUpdate('validatedOnce', true);
-
 		try {
-			await LiveData.api.authorize(token);
-			router.push('/');
-		} catch (e) {
-			actions.signinFieldUpdate('credentialsInvalid', true);
-		} finally {
 			actions.signinFieldUpdate('progress', false);
+			await tryAuth(actions, token);
+		} catch (e) {
+			actions.updateAppState('authorized', false);
+		} finally {
+			actions.updateAppState('connected', true);
+			router.push('/');
 		}
 	}
 

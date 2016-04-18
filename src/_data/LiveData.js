@@ -65,6 +65,7 @@ const initAuthorized = async (authData, store) => {
     api.getAssetIndex();
     api.getServerTime();
     api.getCandlesForLastNDays('R_100', 30);
+
     api.getPortfolio();
     api.getStatement({ description: 1, limit: 20 });
     api.getAccountSettings().then(msg => {
