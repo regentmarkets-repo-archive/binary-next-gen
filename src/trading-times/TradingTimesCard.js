@@ -1,7 +1,9 @@
 import React, { PropTypes, Component } from 'react';
+import dateToDateString from 'binary-utils/lib/date/dateToDateString';
+import todayLocaleString from 'binary-utils/lib/date/todayLocaleString';
+import oneYearAfterStr from 'binary-utils/lib/date/oneYearAfterStr';
 import InputGroup from '../_common/InputGroup';
 import MarketPickerContainer from '../_common/MarketPickerContainer';
-import { dateToDateString, todayLocaleString, oneYearAfterStr } from 'binary-utils/lib/DateUtils';
 import TradingTimesTable from './TradingTimesTable';
 
 export default class TradingTimesCard extends Component {
@@ -25,7 +27,7 @@ export default class TradingTimesCard extends Component {
 		const tradingTimesDate = tradingTimesFilter.date;
 
 		return (
-			<div>
+			<div className="trading-times-card">
 				<div className="row">
 					<MarketPickerContainer
 						onChange={x => actions.updateTradingTimesFilter(x)}

@@ -1,8 +1,14 @@
 import React, { PropTypes, Component } from 'react';
+import M from '../_common/M';
+import Tab from '../_common/Tab';
+import TabList from '../_common/TabList';
 import PaymentAgentsList from './PaymentAgentsList';
 import WithdrawalForm from './WithdrawalForm';
-import M from '../_common/M';
-import Tabs from '../_common/Tabs';
+
+const components = [
+	PaymentAgentsList,
+	WithdrawalForm,
+];
 
 export default class DepositCard extends Component {
     static propTypes = {
@@ -17,32 +23,31 @@ export default class DepositCard extends Component {
     }
 
     render() {
-        const { paymentAgent, currency, country } = this.props;
+        const { paymentAgent, country } = this.props;
         const paymentAgents = paymentAgent.toJS().paymentAgents;
-        const paymentAgentOptions = paymentAgents.map(pa => ({ value: pa.paymentagent_loginid, text: pa.name }));
 
-        const tabs = [
-            { text: 'Payment Agents', component: <PaymentAgentsList paymentAgents={paymentAgents} /> },
-            { text: 'Withdrawal',
-                component: <WithdrawalForm
-                    paymentAgentOptions={paymentAgentOptions}
-                    currency={currency}
-                    {...paymentAgent.toJS()}
-                    {...this.props}
-                />,
-            },
-        ];
-        return (
-            paymentAgents.length === 0 ?
+        if (paymentAgents.length === 0) {
+            return (
                 <div>
                     <M m="Sorry, we have no payment agents in" /> {country}
-                </div> :
-                <Tabs
-                    activeIndex={this.state.activeTab}
+                </div>
+            );
+        }
+
+        const { activeTab } = this.state;
+        const ActiveComponent = components[activeTab];
+
+        return (
+            <div>
+                <TabList
+                    activeIndex={activeTab}
                     onChange={idx => this.setState({ activeTab: idx })}
-                    id="pa-card"
-                    tabs={tabs}
-                />
+                >
+                    <Tab text="Asset Index" />
+                    <Tab text="Trading Times" />
+                </TabList>
+                <ActiveComponent {...this.props} />
+            </div>
         );
     }
 }

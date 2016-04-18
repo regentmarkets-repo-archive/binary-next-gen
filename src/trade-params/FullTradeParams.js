@@ -413,9 +413,9 @@ export default class FullTradeParams extends Component {
                         selectedAsset={trade.symbol}
                     />
                 </DropDown>
-                <label onMouseDown={() => this.updateHelper('showAssetPicker', true, false)}>
+                <div onMouseDown={() => this.updateHelper('showAssetPicker', true, false)}>
                     {trade.symbolName}
-                </label>
+                </div>
                 <DropDown
                     shown={trade.showTradeTypePicker}
                     onClose={() => this.updateHelper('showTradeTypePicker', false, false)}
@@ -429,9 +429,9 @@ export default class FullTradeParams extends Component {
                         onTypeChange={this.onTypeChange}
                     />
                 </DropDown>
-                <label onMouseDown={() => this.updateHelper('showTradeTypePicker', true, false)}>
+                <div onMouseDown={() => this.updateHelper('showTradeTypePicker', true, false)}>
                     {trade.type}
-                </label>
+                </div>
                 {showDuration && !showSpreadBarrier &&
                     <DurationCard
                         dateStart={trade.dateStart}

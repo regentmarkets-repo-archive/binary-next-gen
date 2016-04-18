@@ -1,7 +1,11 @@
 import { createStructuredSelector } from 'reselect';
 import {
-    currencySelector, ticksSelector,
-    activeTradeIndexSelector, assetBtnClickedSelector,
+    currencySelector,
+    ticksSelector,
+    assetBtnClickedSelector,
+    activeTradeIndexSelector,
+    tradesCountSelector,
+    layoutNSelector,
 } from '../_store/directSelectors';
 import {
     tradesWithDetailsSelector,
@@ -10,6 +14,8 @@ import {
 } from '../fulltrade/FullTradeSelectors';
 
 export default createStructuredSelector({
+    tradesCount: tradesCountSelector,
+    layoutN: layoutNSelector,
     assetsIsOpen: assetsIsOpenSelector,
     contracts: availableContractsSelector,
     currency: currencySelector,

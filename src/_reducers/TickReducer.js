@@ -1,4 +1,5 @@
-import { List, Map } from 'immutable';
+import { fromJS, List, Map } from 'immutable';
+import mergeSortedArrays from 'binary-utils/lib/mergeSortedArrays';
 
 import {
     SERVER_DATA_TICK_STREAM,
@@ -25,7 +26,9 @@ export default (state = initialState, action) => {
                 return { epoch: +t, quote: +quote };
             });
 
-            return state.update(symbol, List.of(), v => v.takeLast(40).concat(history));
+            const liveTicks = state.get('symbol') ? state.get('symbol') : [];
+            const merged = mergeSortedArrays(liveTicks, history, x => x.epoch, x => x.epoch);
+            return state.set(symbol, fromJS(merged));
         }
         default:
             return state;

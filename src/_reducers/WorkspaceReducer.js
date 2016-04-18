@@ -8,6 +8,7 @@ import {
     WORKSPACE_UNFAVOR_ASSET,
     CHANGE_ACTIVE_TAB,
     UPDATE_WORKSPACE_FIELD,
+    CHANGE_ACTIVE_LAYOUT,
     CHANGE_ACTIVE_WORKSPACE_TAB,
     CHANGE_WORKSPACE_PANEL_SIZE,
     TOGGLE_TRADE_MODE,
@@ -18,6 +19,8 @@ import {
 } from '../_constants/ActionTypes';
 
 const initialState = new Map({
+    tradesCount: 1,
+    layoutN: 1,
     leftPanelVisible: true,
     leftPanelSize: 250,
     leftActiveTab: 0,
@@ -55,7 +58,14 @@ export default (state = initialState, action) => {
         case UPDATE_WORKSPACE_FIELD: {
             return state.set(action.fieldName, action.fieldValue);
         }
+        case CHANGE_ACTIVE_LAYOUT: {
+            windowResizeEvent();
+            return state
+                .set('tradesCount', action.tradesCount)
+                .set('layoutN', action.layoutN);
+        }
         case CHANGE_ACTIVE_WORKSPACE_TAB: {
+            windowResizeEvent();
             const panelVisible = state.get(action.panel + 'PanelVisible');
             const sameTabSelected = state.get(action.panel + 'ActiveTab') === action.index;
             return state

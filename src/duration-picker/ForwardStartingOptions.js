@@ -1,12 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import InputGroup from '../_common/InputGroup';
-import {
-    epochToUTCTimeString,
-    dateToEpoch,
-    dateToUTCTimeString,
-    timeStringToSeconds,
-    dateToDateString,
-} from 'binary-utils/lib/DateUtils';
+import epochToUTCTimeString from 'binary-utils/lib/date/epochToUTCTimeString';
+import dateToEpoch from 'binary-utils/lib/date/dateToEpoch';
+import dateToUTCTimeString from 'binary-utils/lib/date/dateToUTCTimeString';
+import timeStringToSeconds from 'binary-utils/lib/date/timeStringToSeconds';
+import dateToDateString from 'binary-utils/lib/date/dateToDateString';
 
 /**
  * assumption: for each type of contract, there will only have 1 forward starting options contract

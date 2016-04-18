@@ -19,7 +19,7 @@ export default class StatementCard extends Component {
 		const { actions, compact, currency, transactionsFilter, transactions, transactionsTotal } = this.props;
 
 		return (
-			<div>
+			<div className="statement-card">
 				<TabList
 					activeIndex={transactionsFilter}
 					onChange={idx => actions.updateTransactionsFilter(idx)}

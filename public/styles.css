@@ -17,7 +17,7 @@ body {
 #panels {
     flex: 1;
     display: flex;
-    max-height: calc(100% - 3rem);
+    max-height: calc(100% - 6rem);
 }
 
 #mid-panel {
@@ -46,11 +46,6 @@ body {
     flex-direction: row-reverse;
 }
 
-.right-panel div[role=tabs] {
-    flex-direction: column;
-    align-content: flex-start;
-}
-
 .right-panel .radio-item {
     flex: none;
 }
@@ -63,19 +58,12 @@ body {
 }
 
 .workspace-panel {
-    padding: .5rem;
     overflow: auto;
     display: flex;
 }
 
-.workspace-panel > div {
-    width: 100%;
-}
-
-#workarea {
+.workspace-panel > * {
     flex: 1;
-    overflow: auto;
-    display: flex;
 }
 
 table {
@@ -126,6 +114,10 @@ table {
     background-color: rgba(255, 255, 255, .1);
 }
 
+.close-btn {
+    cursor: pointer;
+}
+
 div[role=tab] .close-btn, .panel-active .close-btn {
     background: #2a3052;
     fill: white;
@@ -146,7 +138,6 @@ div[role=tab] .close-btn, .panel-active .close-btn {
 }
 
 .mobile-content {
-    padding: .5rem;
     min-width: 350px;
     flex: 1;
     display: flex;
@@ -156,8 +147,33 @@ div[role=tab] .close-btn, .panel-active .close-btn {
     width: 100%;
 }
 
+[role=tablist] {
+    margin-bottom: .5rem;
+    flex-shrink: 0;
+}
+
+[role=tablist].vertical {
+    margin-bottom: 0;
+}
+
+.vertical > [role=tab] {
+    padding: .25rem;
+}
+
+.vertical > [role=tab] > span{
+    margin-top: .5rem;
+}
+
 .mobile-content tbody tr {
     cursor: pointer;
+}
+
+.mobile-content .trade-panel {
+    flex-direction: column;
+}
+
+.mobile-content .full-trade-params {
+    flex: 1;
 }
 
 .tick-trade-mobile button:not(.close-btn), .tick-trade-mobile input[type=range], .tick-trade-mobile a.button, .tick-trade-mobile .range-selector-items {
@@ -253,6 +269,16 @@ nav.sidebar {
     text-decoration: none;
     text-align: center;
     flex: 1;
+}
+
+.statement-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.news-list-card, .asset-index-card, .trading-times-card, .video-list, .statement-card > table {
+    overflow: auto;
+    min-height: 100vh;
 }
 
 .mobile-back-btn span {
@@ -416,19 +442,6 @@ fieldset {
 
 #web-sidebar .toolbar-btn {
     height: 4rem;
-}
-
-div[role=tabs] {
-    display: flex;
-    background: rgba(42, 48, 82, .75);
-    color: white;
-}
-
-.tab-content {
-    padding: .5rem;
-}
-.tab-content {
-    flex: 1;
 }
 
 .market-submarket-picker {
@@ -635,15 +648,6 @@ tr[tabindex] {
     margin-bottom: 5px;
 }
 
-.trades, .trades-jp, #workarea > div[role=tablist] {
-    display: flex;
-    flex: 1;
-}
-
-.trades-jp {
-    flex-direction: column;
-}
-
 .asset-picker-item:hover .asset-picker-trade-btn {
     visibility: visible;
 }
@@ -657,12 +661,8 @@ tr[tabindex] {
     visibility: hidden;;
 }
 
-.trade-panel, .trade-container {
+.trade-panel {
     flex: 1;
-}
-
-.trade-container + .trade-container {
-    margin-left: .5rem;
 }
 
 .toggle-buttons .btn-secondary.checked {
@@ -675,50 +675,8 @@ tr[tabindex] {
     box-shadow: none;
 }
 
-div[role=tablist] {
-    display: flex;
-    background: rgba(42, 48, 82, .75);
-    color: white;
-}
-
-div[role=tablist].vertical {
-    min-width: 3rem;
-    flex-direction: column;
-    align-content: flex-start;
-}
-
-div[role=tab][aria-selected=true] {
-    background: #2a3052;
-}
-
-.vertical > div[role=tab][aria-selected=true] {
-    box-shadow: inset 2px 0 0 0 #e98024;
-}
-
 #right-tab-list > div[role=tab][aria-selected=true] {
     box-shadow: inset -2px 0 0 0 #e98024;
-}
-
-div[role=tab] {
-    flex: 1;
-    cursor: pointer;
-    line-height: 2;
-    display: block;
-    text-align: center;
-}
-
-div[role=tab] img {
-    width: 1.75rem;
-    margin: .5rem auto 0;
-}
-
-div[role=tablist].vertical div[role=tab] {
-    flex: inherit;
-}
-
-.vertical > div[role=tab] {
-    display: flex;
-    flex-direction: column;
 }
 
 div[role=tabpanel] {
@@ -913,14 +871,14 @@ input[type=number]::-webkit-outer-spin-button {
 .modal {
     max-height: 100%;
     min-width: 320px;
-    overflow: scroll;
+    overflow: auto;
 }
 
 .drop-down {
-    max-height: 100%;
-    min-width: 320px;
+    max-height: 100vh;
     overflow: auto;
     padding: .5rem;
+    margin: 1rem;
     background: white;
 }
 
@@ -944,10 +902,10 @@ input[type=number]::-webkit-outer-spin-button {
 
 .trade-chart {
     flex: 1;
-    margin-left: .5rem;
+    margin: .5rem;
 }
 
-.full-trade-params {
+.trades .full-trade-params {
     max-width: 12rem;
 }
 
@@ -974,11 +932,58 @@ input[type=number]::-webkit-outer-spin-button {
     width: 100% !important;
 }
 
+/* ===== */
+
+.layout-btn-container {
+    width: 17rem;
+    padding: 1rem;
+    background: #2a3052;
+    color: white;
+}
+
+.layout-btn, .trades {
+    display: flex;
+}
+
+.layout-row-lbl {
+    width: 5rem;
+    line-height: 2;
+}
+
+.layout-btn-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.layout-btn {
+    cursor: pointer;
+    padding: .25rem;
+    width: 2rem;
+    height: 2rem;
+    opacity: .5;
+}
+
+.layout-btn.active, .layout-btn:hover {
+    opacity: 1;
+}
+
+.trades, .layout-mini, .trade-panel {
+    flex: 1;
+}
+
 .trades {
+    overflow: auto;
+}
+
+.trades, .layout-btn {
     flex-wrap: wrap;
 }
 
-/* ===== */
+.layout-mini {
+    background-color: white;
+    border-radius: 1px;
+    margin: 1px;
+}
 
 .layout-1-1 {
 
@@ -986,6 +991,13 @@ input[type=number]::-webkit-outer-spin-button {
 
 .layout-2-1 {
     flex-direction: column;
+}
+
+.layout-2-2 {
+    flex-direction: row;
+}
+
+.layout-3-1 {
 }
 
 .layout-3-1 div:nth-child(1) {
@@ -1032,10 +1044,54 @@ input[type=number]::-webkit-outer-spin-button {
     flex-basis: 100%;
 }
 
+.layout-4-4 {
+    flex-direction: column;
+}
+
 .layout-4-4 > div:nth-child(1) {
     flex-basis: 100%;
 }
 
+.layout-4-5 {
+    flex-direction: column;
+}
+
 .layout-4-5 > div:nth-child(4) {
     flex-basis: 100%;
+}
+
+.layout-5-1 > div:nth-child(1) {
+    flex-basis: 100%;
+}
+
+.layout-5-2 {
+    flex-direction: column;
+}
+
+.layout-5-2 > div:nth-child(5) {
+    flex-basis: 100%;
+}
+
+.layout-5-3 {
+    flex-direction: column;
+}
+
+.layout-5-3 > div:nth-child(1) {
+    flex-basis: 100%;
+}
+
+.layout-5-4 > div:nth-child(1),
+.layout-5-4 > div:nth-child(2) {
+    flex-basis: 40%;
+}
+
+.layout-5-5 > div:nth-child(1),
+.layout-5-5 > div:nth-child(2),
+.layout-5-5 > div:nth-child(3) {
+    flex: 1 0 20%;
+}
+
+.layout-5-5 > div:nth-child(4),
+.layout-5-5 > div:nth-child(5) {
+    flex-basis: 40%;
 }
