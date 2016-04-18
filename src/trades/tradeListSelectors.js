@@ -1,5 +1,11 @@
 import { createStructuredSelector } from 'reselect';
-import { currencySelector, ticksSelector, activeTradeIndexSelector } from '../_store/directSelectors';
+import {
+    currencySelector,
+    ticksSelector,
+    activeTradeIndexSelector,
+    tradesCountSelector,
+    layoutNSelector,
+} from '../_store/directSelectors';
 import {
     tradesWithDetailsSelector,
     availableContractsSelector,
@@ -7,8 +13,8 @@ import {
 } from '../fulltrade/FullTradeSelectors';
 
 export default createStructuredSelector({
-    tradesCount: state => state.workspace.get('tradesCount'),
-    layoutN: state => state.workspace.get('layoutN'),
+    tradesCount: tradesCountSelector,
+    layoutN: layoutNSelector,
     assetsIsOpen: assetsIsOpenSelector,
     contracts: availableContractsSelector,
     currency: currencySelector,
