@@ -1,8 +1,6 @@
 import React, { PropTypes, Component } from 'react';
-import { Link } from 'react-router';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import config from '../config';
-import M from '../_common/M';
 import WebSidebar from '../sidebar/WebSidebar';
 import Balance from '../balance/BalanceContainer';
 import LayoutPickerContainer from '../layout-picker/LayoutPickerContainer';
@@ -28,9 +26,7 @@ export default class WebHeader extends Component {
 				<LayoutPickerContainer actions={actions} />
 
 				<Balance />
-				<Link to="/deposit" id="deposit-btn" className="btn-secondary">
-					<M m="Deposit" />
-				</Link>
+
 				<input id="hamburger-closer" type="radio" name="hamburger" defaultChecked />
 				<label id="hamburger-overlay" htmlFor="hamburger-closer"></label>
 				<input id="hamburger-opener" className="hamburger" type="radio" name="hamburger" />
