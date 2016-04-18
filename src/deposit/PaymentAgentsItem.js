@@ -31,7 +31,7 @@ export default class PaymentAgentsItem extends Component {
                     </div>
                 </td>
                 <td>
-                    Available banks: ...
+                    {paymentAgent.supported_banks}
                 </td>
             </tr>
         );

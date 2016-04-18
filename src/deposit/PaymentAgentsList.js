@@ -4,11 +4,11 @@ import M from '../_common/M';
 
 export default class PaymentAgentsList extends Component {
     static propTypes = {
-        paymentAgents: PropTypes.array.isRequired,
+        paymentAgent: PropTypes.object.isRequired,
     };
 
     render() {
-        const { paymentAgents } = this.props;
+        const { paymentAgents } = this.props.paymentAgent;
         return (
             <table>
                 <thead>

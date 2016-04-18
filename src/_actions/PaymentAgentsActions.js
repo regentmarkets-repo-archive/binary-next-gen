@@ -23,9 +23,9 @@ const withdrawToPaymentAgentHelper = (opts, success, failure, dispatch) => {
         .then(() => dispatch(updatePaymentAgentField('inProgress', false)));
 };
 
-export const withdrawToPaymentAgent = (agentId, currency, amount) =>
+export const withdrawToPaymentAgent = (agentId, currency, amount, verificationCode) =>
     dispatch => {
-        const opts = { paymentagent_loginid: agentId, currency, amount };
+        const opts = { paymentagent_loginid: agentId, currency, amount, verification_code: verificationCode };
         const success = () => dispatch(updatePaymentAgentField('withdrawFailed', false));
         const failure = err => {
             dispatch(updatePaymentAgentField('withdrawFailed', true));
@@ -35,9 +35,13 @@ export const withdrawToPaymentAgent = (agentId, currency, amount) =>
         withdrawToPaymentAgentHelper(opts, success, failure, dispatch);
     };
 
-export const withdrawToPaymentAgentDryRun = (agentId, currency, amount) =>
+export const withdrawToPaymentAgentDryRun = (agentId, currency, amount, verificationCode) =>
     dispatch => {
-        const opts = { paymentagent_loginid: agentId, currency, amount, dry_run: 1 };
+        const opts = {
+            paymentagent_loginid: agentId,
+            currency, amount, dry_run: 1,
+            verification_code: verificationCode,
+        };
         const success = () => dispatch(updatePaymentAgentField('dryRunFailed', false));
         const failure = err => {
             dispatch(updatePaymentAgentField('dryRunFailed', true));

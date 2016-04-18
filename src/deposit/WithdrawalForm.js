@@ -6,66 +6,73 @@ import InputGroup from '../_common/InputGroup';
 import SelectGroup from '../_common/SelectGroup';
 import Modal from '../containers/Modal';
 import currencies from '../_constants/currencies';
+import * as LiveData from '../_data/LiveData';
 
 export default class WithdrawForm extends Component {
     static propTypes = {
-        selectedPaymentAgent: PropTypes.string,
-        paymentAgents: PropTypes.array.isRequired,
+        paymentAgent: PropTypes.object.isRequired,
         currency: PropTypes.oneOf(currencies).isRequired,
         actions: PropTypes.object,
-        withdrawAmount: PropTypes.number,
-        withdrawFailed: PropTypes.bool,
-        withdrawError: PropTypes.string,
-        withdrawClicked: PropTypes.bool,
-        confirmClicked: PropTypes.bool,
-        dryRunFailed: PropTypes.bool,
-        dryRunError: PropTypes.string,
-        inProgress: PropTypes.bool,
+        email: PropTypes.string,
     };
-
+    async componentWillMount() {
+        const { email } = this.props;
+        await LiveData.api.sendVerificationEmail(email);
+    }
     onAmountChange(event) {
-        this.props.actions.updatePaymentAgentField('withdrawAmount', event.target.value);
+        const { actions } = this.props;
+        actions.updatePaymentAgentField('withdrawAmount', event.target.value);
     }
 
     selectPaymentAgent(event) {
-        this.props.actions.updatePaymentAgentField('selectedPaymentAgent', event.target.value);
+        const { actions } = this.props;
+        actions.updatePaymentAgentField('selectedPaymentAgent', event.target.value);
+    }
+
+    onVerificationCodeChange(event) {
+        const { actions } = this.props;
+        actions.updatePaymentAgentField('verificationCode', event.target.value);
     }
 
     tryWithdraw() {
-        const { currency, selectedPaymentAgent, withdrawAmount } = this.props;
-        this.props.actions.updatePaymentAgentField('withdrawClicked', true);
-        this.props.actions.withdrawToPaymentAgentDryRun(selectedPaymentAgent, currency, withdrawAmount);
+        const { currency, paymentAgent, actions } = this.props;
+        const { selectedPaymentAgent, withdrawAmount, verificationCode } = paymentAgent;
+        actions.updatePaymentAgentField('withdrawClicked', true);
+        actions.withdrawToPaymentAgentDryRun(selectedPaymentAgent, currency, withdrawAmount, verificationCode);
     }
 
     confirmWithdraw() {
-        const { currency, selectedPaymentAgent, withdrawAmount } = this.props;
-        this.props.actions.updatePaymentAgentField('withdrawClicked', false);
-        this.props.actions.updatePaymentAgentField('confirmClicked', true);
-        this.props.actions.withdrawToPaymentAgent(selectedPaymentAgent, currency, withdrawAmount);
+        const { currency, actions, paymentAgent } = this.props;
+        const { selectedPaymentAgent, withdrawAmount, verificationCode } = paymentAgent;
+        actions.updatePaymentAgentField('withdrawClicked', false);
+        actions.updatePaymentAgentField('confirmClicked', true);
+        actions.withdrawToPaymentAgent(selectedPaymentAgent, currency, withdrawAmount, verificationCode);
     }
 
     render() {
         const {
             actions,
             currency,
+            paymentAgent,
+        } = this.props;
+        const {
             paymentAgents,
-            selectedPaymentAgent,
-            withdrawFailed,
             withdrawError,
-            dryRunFailed,
             dryRunError,
             inProgress,
-            withdrawAmount,
+            dryRunFailed,
+            withdrawFailed,
+            selectedPaymentAgent,
             withdrawClicked,
+            withdrawAmount,
             confirmClicked,
-        } = this.props;
-
+         } = paymentAgent;
         const paymentAgentOptions = paymentAgents.map(pa => ({ value: pa.paymentagent_loginid, text: pa.name }));
         const selectedPaymentAgentName = selectedPaymentAgent ?
             paymentAgentOptions.filter(pa => pa.value === selectedPaymentAgent)[0].text :
             paymentAgentOptions[0].text;
         return (
-            <div>
+            <div className="startup-content">
                 <Modal
                     shown={!inProgress && withdrawClicked}
                     children={
@@ -78,7 +85,7 @@ export default class WithdrawForm extends Component {
                             <h3><M m="Confirmation" /></h3>
                             <p>
                                 <M m="Are you sure you want to withdraw" />
-                                <span> {currency} {withdrawAmount} to {selectedPaymentAgentName}?></span>
+                                <span> {currency} {withdrawAmount} to {selectedPaymentAgentName}? </span>
                             </p>
                             <Button text="Confirm" onClick={::this.confirmWithdraw} />
                         </div>
@@ -113,6 +120,13 @@ export default class WithdrawForm extends Component {
                     type="number"
                     min={0}
                     max={5000}
+                    onChange={::this.onAmountChange}
+                />
+                <InputGroup
+                    label="Verification Code(check your email)"
+                    placeholder="Verification Code"
+                    type="text"
+                    onChange={::this.onVerificationCodeChange}
                 />
                 <ErrorMsg
                     shown={false}
