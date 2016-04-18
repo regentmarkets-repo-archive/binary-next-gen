@@ -405,7 +405,10 @@ export default class FullTradeParams extends Component {
                         selectedAsset={trade.symbol}
                     />
                 </DropDown>
-                <div onMouseDown={() => this.updateHelper('showAssetPicker', true, false)}>
+                <div
+                    className="picker-label"
+                    onMouseDown={() => this.updateHelper('showAssetPicker', true, false)}
+                >
                     {trade.symbolName}
                 </div>
                 <TradeTypeDropDown

@@ -32,8 +32,11 @@ export default class TradeTypeDropDown extends Component {
                         {...this.props}
                     />
                 </DropDown>
-                <div onMouseDown={() => this.updateHelper('showTradeTypePicker', true, false)}>
-                    HELLO{trade}
+                <div
+                    className="picker-label"
+                    onMouseDown={() => this.updateHelper('showTradeTypePicker', true, false)}
+                >
+                    {trade}
                 </div>
             </div>
         );

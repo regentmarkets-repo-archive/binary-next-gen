@@ -5,7 +5,6 @@ import config from '../config';
 import M from '../_common/M';
 import WebSidebar from '../sidebar/WebSidebar';
 import Balance from '../balance/BalanceContainer';
-import NewTradeButton from './NewTradeButtonContainer';
 import LayoutPickerContainer from '../layout-picker/LayoutPickerContainer';
 
 export default class WebHeader extends Component {
@@ -28,12 +27,6 @@ export default class WebHeader extends Component {
 
 				<LayoutPickerContainer actions={actions} />
 
-				<NewTradeButton
-					id="new-trade-btn"
-					className="btn-secondary"
-					actions={actions}
-				/>
-
 				<Balance />
 				<Link to="/deposit" id="deposit-btn" className="btn-secondary">
 					<M m="Deposit" />
@@ -45,7 +38,6 @@ export default class WebHeader extends Component {
 					<img src="img/menu.svg" alt="Menu" />
 					<WebSidebar />
 				</label>
-
 			</div>
 		);
 	}

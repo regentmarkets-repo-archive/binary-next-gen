@@ -30,11 +30,10 @@ export default class FullTradeCard extends Component {
     };
 
     render() {
-        const { actions, index, marketIsOpen, trade, ticks } = this.props;
-        const selectedSymbol = trade.symbol;
+        const { actions, contract, index, marketIsOpen, trade, ticks } = this.props;
+        const { selectedSymbol, mostRecentContractBought } = trade;
 
-        const mostRecentContractBought = trade.mostRecentContractBought;
-        const contract = this.props.contract || mockedContract;
+        const shownContract = mostRecentContractBought || contract || mockedContract;
 
         const contractAllowStartLater = findIfExist(contract, child => child && !!child.forwardStartingDuration);
 
@@ -54,25 +53,26 @@ export default class FullTradeCard extends Component {
                 >
                     <PurchaseFailed failure={trade.buy_error} />
                 </Modal>
-                <BinaryChart
-                    className="trade-chart"
-                    contract={mostRecentContractBought}
-                    symbol={selectedSymbol}
-                    ticks={ticks}
-                    trade={tradeRequiredByChart}
-                />
-                {
-                    mostRecentContractBought ?
-                        <BoughtContractCard
-                            actions={actions}
-                            boughtContract={mostRecentContractBought}
-                            tradeId={index}
-                        /> :
-                        <FullTradeParams
-                            {...this.props}
-                            disabled={disabled}
-                            contract={contract}
-                        />
+                <div className="trade-chart-container">
+                    <BinaryChart
+                        className="trade-chart"
+                        contract={shownContract}
+                        symbol={selectedSymbol}
+                        ticks={ticks}
+                        trade={tradeRequiredByChart}
+                    />
+                </div>
+                {mostRecentContractBought ?
+                    <BoughtContractCard
+                        actions={actions}
+                        boughtContract={shownContract}
+                        tradeId={index}
+                    /> :
+                    <FullTradeParams
+                        {...this.props}
+                        disabled={disabled}
+                        contract={shownContract}
+                    />
                 }
             </div>
         );

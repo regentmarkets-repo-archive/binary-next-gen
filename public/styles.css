@@ -882,6 +882,12 @@ input[type=number]::-webkit-outer-spin-button {
     background: white;
 }
 
+.picker-label {
+    cursor: pointer;
+    padding: .5rem;
+    background: #eee;
+}
+
 .contract-details h6 {
     text-align: center;
 }
@@ -900,9 +906,14 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: row-reverse;
 }
 
-.trade-chart {
+.trade-chart-container {
+    overflow: hidden;
     flex: 1;
-    margin: .5rem;
+    padding: .5rem;
+}
+
+.trade-chart {
+
 }
 
 .trades .full-trade-params {
