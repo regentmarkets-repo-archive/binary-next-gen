@@ -9,9 +9,15 @@ export default class TradesLayouts extends Component {
         currency: PropTypes.string.isRequired,
         ticksForAllSymbols: PropTypes.object.isRequired,
         trades: PropTypes.array.isRequired,
+        tradesCount: PropTypes.number.isRequired,
         layoutN: PropTypes.number.isRequired,
         contracts: PropTypes.object.isRequired,
     };
+
+    componentWillMount() {
+        const { actions, layoutN, tradesCount } = this.props;
+        actions.changeActiveLayout(tradesCount, layoutN);
+    }
 
     render() {
         const { actions, assetsIsOpen, currency, layoutN, trades, ticksForAllSymbols, contracts } = this.props;
