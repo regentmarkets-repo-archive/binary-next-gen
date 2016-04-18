@@ -1,6 +1,5 @@
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
-import * as LiveData from '../_data/LiveData';
 import { tryAuth } from '../_data/Auth';
 import M from '../_common/M';
 import Button from '../_common/Button';
