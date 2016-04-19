@@ -111,9 +111,7 @@ export default class FullTradeParams extends Component {
      */
     componentDidUpdate(prevProps) {
         const { trade } = this.props;
-
-        // check whether contract is different, as it implies symbol change
-        // do not react when mockedContract is passed in
+        
         if (trade.symbol !== prevProps.trade.symbol) {
             this.onAssetChange();
         }
