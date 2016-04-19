@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import ErrorMsg from '../_common/ErrorMsg';
-import DropDown from '../containers/DropDown';
 
 import BarrierCard from '../barrier-picker/BarrierCard';
 import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
@@ -12,7 +11,7 @@ import StakeCard from '../payout-picker/StakeCard';
 import PayoutCard from '../payout-picker/PayoutCard';
 import BuyButton from '../tick-trade/BuyButton';
 import TradeTypeDropDown from '../trade-type-picker/TradeTypeDropDown';
-import AssetPickerContainer from '../asset-picker/AssetPickerContainer';
+import AssetPickerDropDown from '../asset-picker/AssetPickerDropDown';
 
 import isIntraday from 'binary-utils/lib/isIntraday';
 import isDurationLessThan2Mins from 'binary-utils/lib/isDurationLessThan2Mins';
@@ -21,6 +20,7 @@ import askPriceFromProposal from 'binary-utils/lib/askPriceFromProposal';
 import isDurationWithinRange from 'binary-utils/lib/isDurationWithinRange';
 import noOfDecimals from 'binary-utils/lib/noOfDecimals';
 
+import * as LiveData from '../_data/LiveData';
 
 import {
     createDefaultType,
@@ -29,7 +29,6 @@ import {
     createDefaultBarrierType,
 } from './DefaultTradeParams';
 import { categoryValid, allTimeRelatedFieldValid } from './TradeParamsValidation';
-import { mockedContract } from './../_constants/MockContract';
 
 /**
  * This UI is coded with a few assumptions, which should always be true, this comments serves as a future reference
@@ -110,13 +109,19 @@ export default class FullTradeParams extends Component {
      * TODO: redesign so that side effect are handle elsewhere
      */
     componentDidUpdate(prevProps) {
-        const { contract } = this.props;
+        const { trade } = this.props;
 
-        // perform checking when contract is different, as it implies symbol change
-        // do not react when mockedContract is passed in
-        if (contract !== mockedContract && prevProps.contract !== contract) {
+        if (trade.symbol !== prevProps.trade.symbol) {
             this.onAssetChange();
         }
+    }
+
+    componentWillUnmount() {
+        const { trade } = this.props;
+        if (trade.proposalError) {
+            return;
+        }
+        LiveData.api.unsubscribeByID(trade.proposal.id);
     }
 
     updateTradeParams(params) {
@@ -301,10 +306,11 @@ export default class FullTradeParams extends Component {
         const newBarrier = createDefaultBarriers(contract, tradeCategory, type, duration, newUnit);
         const newBarrierType = createDefaultBarrierType(duration, newUnit);
 
+        this.updateHelper('durationUnit', newUnit, false);
+
         // if it's forward starting type, do not update barrier as not applicable
         if (!trade.dateStart) {
             this.updateTradeParams({
-                durationUnit: newUnit,
                 barrier: newBarrier[0],
                 barrier2: newBarrier[1],
                 barrierType: newBarrierType,
@@ -394,22 +400,12 @@ export default class FullTradeParams extends Component {
 
         return (
             <div className="trade-params" disabled={disabled}>
-                <DropDown
-                    shown={trade.showAssetPicker}
-                    onClose={() => this.updateHelper('showAssetPicker', false, false)}
-                >
-                    <AssetPickerContainer
-                        actions={actions}
-                        tradeIdx={index}
-                        selectedAsset={trade.symbol}
-                    />
-                </DropDown>
-                <div
-                    className="picker-label"
-                    onMouseDown={() => this.updateHelper('showAssetPicker', true, false)}
-                >
-                    {trade.symbolName}
-                </div>
+                <AssetPickerDropDown
+                    actions={actions}
+                    index={index}
+                    selectedSymbol={trade.symbol}
+                    selectedSymbolName={trade.symbolName}
+                />
                 <TradeTypeDropDown
                     actions={actions}
                     contract={contract}

@@ -1053,7 +1053,7 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: column;
 }
 
-layout-3-4 > div {
+.layout-3-4 > div {
     width: 50%;
 }
 
