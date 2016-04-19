@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import ErrorMsg from '../_common/ErrorMsg';
-import DropDown from '../containers/DropDown';
 
 import BarrierCard from '../barrier-picker/BarrierCard';
 import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
@@ -12,7 +11,7 @@ import StakeCard from '../payout-picker/StakeCard';
 import PayoutCard from '../payout-picker/PayoutCard';
 import BuyButton from '../tick-trade/BuyButton';
 import TradeTypeDropDown from '../trade-type-picker/TradeTypeDropDown';
-import AssetPickerContainer from '../asset-picker/AssetPickerContainer';
+import AssetPickerDropDown from '../asset-picker/AssetPickerDropDown';
 
 import isIntraday from 'binary-utils/lib/isIntraday';
 import isDurationLessThan2Mins from 'binary-utils/lib/isDurationLessThan2Mins';
@@ -401,22 +400,12 @@ export default class FullTradeParams extends Component {
 
         return (
             <div className="trade-params" disabled={disabled}>
-                <DropDown
-                    shown={trade.showAssetPicker}
-                    onClose={() => this.updateHelper('showAssetPicker', false, false)}
-                >
-                    <AssetPickerContainer
-                        actions={actions}
-                        tradeIdx={index}
-                        selectedAsset={trade.symbol}
-                    />
-                </DropDown>
-                <div
-                    className="picker-label"
-                    onMouseDown={() => this.updateHelper('showAssetPicker', true, false)}
-                >
-                    {trade.symbolName}
-                </div>
+                <AssetPickerDropDown
+                    actions={actions}
+                    index={index}
+                    selectedSymbol={trade.symbol}
+                    selectedSymbolName={trade.symbolName}
+                />
                 <TradeTypeDropDown
                     actions={actions}
                     contract={contract}
