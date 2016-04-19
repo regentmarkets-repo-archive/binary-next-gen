@@ -4,7 +4,17 @@ import Tab from '../_common/Tab';
 import contractCategoryDisplay from 'binary-utils/lib/contractCategoryDisplay';
 import tradeTypeCodeToText from 'binary-utils/lib/tradeTypeCodeToText';
 
+const tradeGrouping = [
+    ['risefall', 'higherlower', 'endsinout', 'staysinout', 'touchnotouch'],
+    ['digits'],
+    ['spreads', 'asian'],
+];
+
 export default class TradeTypePicker extends Component {
+    constructor(props) {
+        super(props);
+        this.state = { tradeGroup: 0 };
+    }
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
@@ -15,11 +25,30 @@ export default class TradeTypePicker extends Component {
         onCategoryChange: PropTypes.func.isRequired,
     };
 
+    changeGroup(id) {
+        this.onGroupChange(id);
+        this.setState({ tradeGroup: id });
+    }
+
+    onGroupChange(group) {
+        const { contract, selectedCategory, onCategoryChange } = this.props;
+        const groupCategories = Object
+            .keys(contract)
+            .map(c => ({ value: c, text: contractCategoryDisplay(c) }))
+            .filter(c => tradeGrouping[group].includes(c.value));
+
+        if (!groupCategories.find(c => c.value === selectedCategory)) {
+            onCategoryChange(groupCategories[0].value);
+        }
+    }
+
     render() {
         const { contract, selectedCategory, selectedType, onCategoryChange, onTypeChange } = this.props;
+        const { tradeGroup } = this.state;
         const categories = Object
             .keys(contract)
-            .map(c => ({ value: c, text: contractCategoryDisplay(c) }));
+            .map(c => ({ value: c, text: contractCategoryDisplay(c) }))
+            .filter(c => tradeGrouping[tradeGroup].includes(c.value));
         const selectedCategoryIndex = categories.findIndex(x => x.value === selectedCategory);
         const types = Object
             .keys(contract[selectedCategory])
@@ -28,7 +57,7 @@ export default class TradeTypePicker extends Component {
 
         return (
             <div className="trade-type-picker">
-                <TabList>
+                <TabList activeIndex={tradeGroup} onChange={::this.changeGroup}>
                     <Tab text="Basic" />
                     <Tab text="Digits" />
                     <Tab text="Advanced" />
