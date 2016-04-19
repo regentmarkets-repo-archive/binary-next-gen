@@ -4,6 +4,7 @@ import Tab from '../_common/Tab';
 import TabList from '../_common/TabList';
 import PaymentAgentsList from './PaymentAgentsList';
 import WithdrawalForm from './WithdrawalForm';
+import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
 
 const components = [
 	PaymentAgentsList,
@@ -33,7 +34,6 @@ export default class DepositCard extends Component {
                 </div>
             );
         }
-
         const { activeTab } = this.state;
         const ActiveComponent = components[activeTab];
 
@@ -46,7 +46,7 @@ export default class DepositCard extends Component {
                     <Tab text="Asset Index" />
                     <Tab text="Trading Times" />
                 </TabList>
-                <ActiveComponent {...this.props} />
+                <ActiveComponent {...immutableChildrenToJS(this.props)} />
             </div>
         );
     }
