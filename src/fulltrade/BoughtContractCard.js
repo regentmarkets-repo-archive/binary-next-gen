@@ -14,7 +14,7 @@ export default class BoughtContractCard extends Component {
         const { actions, boughtContract, tradeId } = this.props;
 
         return (
-            <div>
+            <div className="trade-params">
                 <ContractDetailsCard actions={actions} contract={boughtContract} />
                 <Button
                     text="Go back"

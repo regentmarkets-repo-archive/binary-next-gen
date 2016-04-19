@@ -18,7 +18,7 @@ export default class BuyButton extends Component {
         return (
             <Button
                 id={id}
-                className="buy-btn"
+                className="button"
                 onClick={onClick}
                 disabled={disabled || !askPrice}
                 text="Purchase"

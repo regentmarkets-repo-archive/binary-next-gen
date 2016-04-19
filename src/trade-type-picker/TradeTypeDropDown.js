@@ -22,7 +22,6 @@ export default class TradeTypeDropDown extends Component {
     render() {
         const { selectedType } = this.props;
         const { dropdownShown } = this.state;
-
         return (
             <div>
                 <DropDown
@@ -34,10 +33,14 @@ export default class TradeTypeDropDown extends Component {
                     />
                 </DropDown>
                 <div
-                    className="picker-label"
-                    onMouseDown={() => this.setState({ dropdownShown: true })}
+                    onMouseDown={(e) => {
+                        e.preventDefault();
+                        e.stopPropagation();
+                        this.setState({ dropdownShown: true });
+                    } }
                 >
-                    Trade type: {tradeToFriendlyType(selectedType)}
+                    <span>Trade type: {tradeToFriendlyType(selectedType)}</span>
+                    <div className="arrow-down"></div>
                 </div>
             </div>
         );
