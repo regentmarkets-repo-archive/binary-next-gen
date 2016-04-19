@@ -945,10 +945,6 @@ input[type=number]::-webkit-outer-spin-button {
 	
 	border-right:.5rem solid blue; 
 }
-
-.duration-card {
-    position: static;
-}
 .trade-chart-container {
     overflow: hidden;
     flex: 1;
