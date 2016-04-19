@@ -119,6 +119,9 @@ export default class FullTradeParams extends Component {
 
     componentWillUnmount() {
         const { trade } = this.props;
+        if (trade.proposalError) {
+            return;
+        }
         LiveData.api.unsubscribeByID(trade.proposal.id);
     }
 
