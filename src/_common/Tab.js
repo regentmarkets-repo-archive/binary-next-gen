@@ -9,7 +9,7 @@ export default class Tab extends Component {
         showIcon: PropTypes.bool,
         showText: PropTypes.bool,
         text: PropTypes.string,
-        onMouseDown: PropTypes.func,
+        onClick: PropTypes.func,
         closable: PropTypes.bool,
         onClose: PropTypes.func,
     };
@@ -21,13 +21,13 @@ export default class Tab extends Component {
     };
 
     render() {
-        const { imgSrc, selected, showIcon, showText, text, onMouseDown, onClose, closable } = this.props;
+        const { imgSrc, selected, showIcon, showText, text, onClick, onClose, closable } = this.props;
 
         return (
             <div
                 role="tab"
                 aria-selected={selected}
-                onMouseDown={onMouseDown}
+                onClick={onClick}
                 title={text}
             >
                 {showIcon && imgSrc && <img src={imgSrc} role="presentation" />}

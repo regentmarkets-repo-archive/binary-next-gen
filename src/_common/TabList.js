@@ -54,7 +54,7 @@ export default class TabList extends Component {
                         selected: activeIndex === idx,
                         showIcon: showIcons,
                         showText,
-                        onMouseDown: () => this.tabSelected(idx),
+                        onClick: () => this.tabSelected(idx),
                     })
                 )}
             </div>
