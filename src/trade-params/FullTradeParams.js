@@ -21,6 +21,7 @@ import askPriceFromProposal from 'binary-utils/lib/askPriceFromProposal';
 import isDurationWithinRange from 'binary-utils/lib/isDurationWithinRange';
 import noOfDecimals from 'binary-utils/lib/noOfDecimals';
 
+import * as LiveData from '../_data/LiveData';
 
 import {
     createDefaultType,
@@ -29,7 +30,6 @@ import {
     createDefaultBarrierType,
 } from './DefaultTradeParams';
 import { categoryValid, allTimeRelatedFieldValid } from './TradeParamsValidation';
-import { mockedContract } from './../_constants/MockContract';
 
 /**
  * This UI is coded with a few assumptions, which should always be true, this comments serves as a future reference
@@ -110,13 +110,18 @@ export default class FullTradeParams extends Component {
      * TODO: redesign so that side effect are handle elsewhere
      */
     componentDidUpdate(prevProps) {
-        const { contract } = this.props;
+        const { trade } = this.props;
 
-        // perform checking when contract is different, as it implies symbol change
+        // check whether contract is different, as it implies symbol change
         // do not react when mockedContract is passed in
-        if (contract !== mockedContract && prevProps.contract !== contract) {
+        if (trade.symbol !== prevProps.trade.symbol) {
             this.onAssetChange();
         }
+    }
+
+    componentWillUnmount() {
+        const { trade } = this.props;
+        LiveData.api.unsubscribeByID(trade.proposal.id);
     }
 
     updateTradeParams(params) {
