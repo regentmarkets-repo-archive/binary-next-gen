@@ -12,6 +12,7 @@ export default class AssetPickerItem extends Component {
 		asset: PropTypes.object,
 		selected: PropTypes.bool,
 		onSelect: PropTypes.func,
+		onClose: PropTypes.func,
 		onToggleWatchlistItem: PropTypes.func,
 	};
 
@@ -21,7 +22,7 @@ export default class AssetPickerItem extends Component {
 	};
 
 	render() {
-		const { asset, selected, onSelect, onToggleWatchlistItem } = this.props;
+		const { asset, selected, onClose, onSelect, onToggleWatchlistItem } = this.props;
 		const { isOpen, isInWatchlist, symbol } = asset;
 		const classes = classNames({
 			'asset-picker-item': true,
@@ -33,6 +34,7 @@ export default class AssetPickerItem extends Component {
 				className={classes}
 				onClick={(ev) => {
 					onSelect(symbol);
+					onClose();
 					ev.stopPropagation();
 				}}
 			>

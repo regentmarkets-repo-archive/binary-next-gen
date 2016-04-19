@@ -22,35 +22,19 @@ export default class AssetPickerCard extends Component {
 		location: { query: {} },
 	};
 
-	onCreateTrade(asset) {
-		const { actions } = this.props;
-		actions.createTrade(asset);
-		actions.getTradingOptions(asset);
-		actions.getTicksBySymbol(asset);
-	}
-
 	onSelect(id, newAsset) {
-		const { tradeIdx, actions, history, selectedAsset } = this.props;
+		const { tradeIdx, actions } = this.props;
 
-		if (id !== '-') {
-			actions.getTicksBySymbol(newAsset, selectedAsset);			// TODO: unsubscribe extra symbol ticks
-			actions.updateTradeParams(id, 'symbol', newAsset);
-			actions.updatePriceProposalSubscription(id);
-			actions.getTradingOptions(newAsset);
-			history.goBack();
-		} else {
-			actions.clearTradeTicks();
-			actions.changeSelectedAsset(newAsset);
-			actions.updateTradeParams(tradeIdx, 'disabled', true);
-			actions.getTradingOptions(newAsset)
-				.then(
-					() => {
-						actions.updateTradeParams(tradeIdx, 'symbol', newAsset);
-						actions.updateTradeParams(tradeIdx, 'disabled', false);
-						actions.getTicksBySymbol(newAsset);
-					}
-				);
-		}
+		actions.changeSelectedAsset(newAsset);
+		actions.updateTradeParams(tradeIdx, 'disabled', true);
+		actions.getTradingOptions(newAsset)
+			.then(
+				() => {
+					actions.updateTradeParams(tradeIdx, 'symbol', newAsset);
+					actions.updateTradeParams(tradeIdx, 'disabled', false);
+					actions.getTicksBySymbol(newAsset);
+				}
+			);
 	}
 
 	onToggleWatchlistItem(asset) {
@@ -66,10 +50,10 @@ export default class AssetPickerCard extends Component {
 				<AssetPickerFilter actions={actions} filter={filter} />
 				<div className="asset-list">
 					<AssetPickerList
+						{...this.props}
 						grouped
 						assets={assetPickerItems}
 						selectedAsset={selectedAsset}
-						onCreateTrade={::this.onCreateTrade}
 						onSelect={asset => this.onSelect(params.id, asset)}
 						onToggleWatchlistItem={::this.onToggleWatchlistItem}
 					/>
