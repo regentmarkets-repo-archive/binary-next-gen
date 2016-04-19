@@ -15,7 +15,7 @@ export default class WithdrawForm extends Component {
         actions: PropTypes.object,
         email: PropTypes.string,
     };
-    async componentWillMount() {
+    async componentDidMount() {
         const { email } = this.props;
         await LiveData.api.sendVerificationEmail(email);
     }
