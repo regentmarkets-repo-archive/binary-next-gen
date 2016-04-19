@@ -15,7 +15,6 @@ import ArticleMobile from '../news/ArticleMobile';
 import ResourcesMobile from '../mobile/ResourcesMobile';
 import DepositMobile from '../deposit/DepositMobile';
 import TickDurationMobile from '../duration-picker/TickDurationMobile';
-import QuickTradeContainer from '../quick-trade/QuickTradeContainer';
 import { requireAuthOnEnter, signout } from '../_data/Auth';
 
 export default [
@@ -37,6 +36,5 @@ export default [
     { path: 'article/:index', component: ArticleMobile },
     { path: 'resources-mobile', component: ResourcesMobile },
     { path: 'deposit', component: DepositMobile, onEnter: requireAuthOnEnter },
-    { path: 'quick-trade', component: QuickTradeContainer, onEnter: requireAuthOnEnter },
     { path: 'duration', component: TickDurationMobile, onEnter: requireAuthOnEnter },
 ];
