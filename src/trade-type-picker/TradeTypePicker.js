@@ -16,6 +16,12 @@ export default class TradeTypePicker extends Component {
         this.state = { tradeGroup: 0 };
     }
 
+    componentWillMount() {
+        const { selectedCategory } = this.props;
+        const groupId = tradeGrouping.findIndex(categories => categories.includes(selectedCategory));
+        this.setState({ tradeGroup: groupId });
+    }
+
     static propTypes = {
         actions: PropTypes.object.isRequired,
         contract: PropTypes.object.isRequired,
