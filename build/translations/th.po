@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-12 13:57+0200\n"
-"PO-Revision-Date: 2016-04-15 11:52+0000\n"
+"PO-Revision-Date: 2016-04-19 10:16+0000\n"
 "Last-Translator: Jutawan <bubbleblythe@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/binary-app/next-gen-"
 "app/th/>\n"
@@ -117,13 +117,13 @@ msgid "You have already withdrawn the equivalent of EUR {drawn}."
 msgstr "คุณได้ถอนจำนวน {drawn} ยูโร"
 
 msgid "An additional password can be used to restrict access to the cashier."
-msgstr "รหัสผ่านสามารถใช้เพื่อเข้าถึงแคชเชียร์"
+msgstr "รหัสผ่านสามารถใช้เพื่อเข้าถึงการจัดการเงิน"
 
 msgid "Sign In"
 msgstr "เข้าสู่ระบบ"
 
 msgid "Get your API token"
-msgstr "ขอส่วนเชื่อมต่อ (API) โทเคนของคุณ"
+msgstr "ขอส่วนเชื่อมต่อ (API) โทเค่นของคุณ"
 
 msgid "Create Account"
 msgstr "สร้างบัญชี"
@@ -165,10 +165,10 @@ msgid "Trade Confirmation"
 msgstr "การยืนยันซื้อขาย"
 
 msgid "Entry spot"
-msgstr "จุดเริ่มต้น"
+msgstr "สปอตเริ่มต้น"
 
 msgid "Exit spot"
-msgstr "จุดสิ้นสุด"
+msgstr "สปอตสิ้นสุด"
 
 msgid "Next"
 msgstr "ถัดไป"
@@ -186,7 +186,7 @@ msgid "Home Address"
 msgstr "ที่อยู่ (บ้าน)"
 
 msgid "Security"
-msgstr "หลักประกัน"
+msgstr "หลักทรัพย์"
 
 msgid "Spot"
 msgstr "สปอต"
@@ -294,7 +294,7 @@ msgid "Date Of Birth"
 msgstr "วันเกิด"
 
 msgid "Country Of Residence"
-msgstr "ประเทศ"
+msgstr "ประเทศที่พำนัก"
 
 msgid "Email"
 msgstr "อีเมล์"
@@ -363,10 +363,10 @@ msgid "stake"
 msgstr "วางเงิน"
 
 msgid "Self Exclusion"
-msgstr "ไม่รวมตัวเอง"
+msgstr "พักวงเงิน"
 
 msgid "Cashier Lock"
-msgstr "แคชเชียร์ล็อค"
+msgstr "ล็อคการจ่ายเงิน"
 
 msgid "Change Password"
 msgstr "เปลี่ยนรหัสผ่าน"
@@ -396,7 +396,7 @@ msgid "Postal Code / ZIP"
 msgstr "รหัสไปรษณีย์"
 
 msgid "Cashier password"
-msgstr "รหัสผ่านแคชเชียร์"
+msgstr "รหัสผ่านเพื่อจัดการเงิน"
 
 msgid "Re-enter your password"
 msgstr "ป้อนรหัสผ่านอีกครั้ง"
@@ -414,16 +414,16 @@ msgid "Daily turnover limit"
 msgstr "วงเงินธุรกรรมรวมต่อวัน"
 
 msgid "Once this limit is reached, you may no longer deposit."
-msgstr "เมื่อวงเงินเต็ม คุณไม่ต้องวางเงิน"
+msgstr "เมื่อวงเงินเต็ม คุณไม่ต้องฝากเงินอีก"
 
 msgid "Maximum aggregate contract purchases per day."
 msgstr "สัญญารวมสูงสุดที่ซื้อต่อวัน"
 
 msgid "Daily limit on losses"
-msgstr "วงเงินต่อวัน (ขาดทุน)"
+msgstr "วงเงินขาดทุนต่อวัน"
 
 msgid "Maximum aggregate loss per day."
-msgstr "วงเงินรวมสูงสุดต่อวัน (ขาดทุน)"
+msgstr "วงเงินขาดทุนรวมสูงสุดต่อวัน"
 
 msgid "7-day turnover limit"
 msgstr "วงเงินรวม 7 วัน"
@@ -432,10 +432,10 @@ msgid "Maximum aggregate contract purchases over a 7-day period."
 msgstr "สัญญารวมสูงสุดที่ซื้อในช่วง 7 วัน"
 
 msgid "7-day limit on losses"
-msgstr "วงเงินในช่วง 7 วัน (ขาดทุน)"
+msgstr "วงเงินขาดทุนในช่วง 7 วัน"
 
 msgid "Maximum aggregate loss over a 7-day period."
-msgstr "ขาดทุนรวมสูงสุดของรายการในช่วง 7 วัน"
+msgstr "มูลค่าขาดทุนรวมสูงสุดของรายการในช่วง 7 วัน"
 
 msgid "30-day turnover limit"
 msgstr "วงเงินรวม 30 วัน"
@@ -444,7 +444,7 @@ msgid "Maximum aggregate contract purchases over a 30-day period."
 msgstr "สัญญารวมสูงสุดที่ซื้อในช่วง 30 วัน"
 
 msgid "30-day limit on losses"
-msgstr "วงเงินในช่วง 30 วัน (ขาดทุน)"
+msgstr "วงเงินขาดทุนในช่วง 30 วัน"
 
 msgid "Maximum aggregate loss over a 30-day period."
 msgstr "ขาดทุนรวมสูงสุดของรายการในช่วง 30 วัน"
@@ -453,10 +453,10 @@ msgid "Session duration limit, in minutes"
 msgstr "ระยะเวลาที่อยู่ในระบบ หน่วยเป็นนาที"
 
 msgid "You will be automatically logged out after such time."
-msgstr "คุณจะออกจากระบบโดยอัตโนมัติหลังจากนั้น"
+msgstr "ท่านจะออกจากระบบโดยอัตโนมัติหลังจากนั้น"
 
 msgid "Exclude me from the website until"
-msgstr "ยกเว้นฉันจากเว็บไซต์กระทั่ง"
+msgstr "พักฉันจากเว็บไซต์กระทั่ง"
 
 msgid "Limits"
 msgstr "วงเงิน"
@@ -471,7 +471,7 @@ msgid "Trade Type"
 msgstr "ประเภทรายการเทรด"
 
 msgid "Random 100 Index"
-msgstr "สุ่ม 100 ดัชนี"
+msgstr "ดัชนีสุ่ม 100"
 
 msgid "Article"
 msgstr "บทความ"
