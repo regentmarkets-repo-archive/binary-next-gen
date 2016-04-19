@@ -396,7 +396,12 @@ export default class FullTradeParams extends Component {
             <div className="trade-params" disabled={disabled}>
                 <DropDown
                     shown={trade.showAssetPicker}
-                    onClose={() => this.updateHelper('showAssetPicker', false, false)}
+                    onClose={(e) => {
+                            e.preventDefault();
+                            e.stopPropagation();
+                            this.updateHelper('showAssetPicker', false, false);
+                        }
+                    }
                 >
                     <AssetPickerContainer
                         actions={actions}
@@ -404,20 +409,33 @@ export default class FullTradeParams extends Component {
                         selectedAsset={trade.symbol}
                     />
                 </DropDown>
-                <div
-                    className="picker-label"
-                    onMouseDown={() => this.updateHelper('showAssetPicker', true, false)}
-                >
-                    {trade.symbolName}
-                </div>
-                <TradeTypeDropDown
-                    actions={actions}
-                    contract={contract}
-                    selectedCategory={categoryToUse}
-                    selectedType={selectedType}
-                    onCategoryChange={this.onCategoryChange}
-                    onTypeChange={this.onTypeChange}
-                />
+                <div className="picker-label">
+                <table>
+                    <tbody>
+                        <tr>
+                            <td onMouseDown={(e) => {
+                                e.preventDefault();
+                                e.stopPropagation();
+                                this.updateHelper('showAssetPicker', true, false);
+                              }
+                           }>
+                                <span>{trade.symbolName}</span>
+                                <div className="arrow-down"></div>
+                            </td>
+                            <td>
+                                <TradeTypeDropDown
+                                    actions={actions}
+                                    contract={contract}
+                                    selectedCategory={categoryToUse}
+                                    selectedType={selectedType}
+                                    onCategoryChange={this.onCategoryChange}
+                                    onTypeChange={this.onTypeChange}
+                                />
+                            </td>
+                        </tr>
+                      </tbody>
+                    </table>
+               </div>
                 {showDuration && !showSpreadBarrier &&
                     <DurationCard
                         dateStart={trade.dateStart}
