@@ -720,7 +720,7 @@ td.row-id {
     font-weight: bold;
 }
 .row-spacer {
-    margin: 1rem 0;
+    margin: .5rem 0;
 }
 
 .trade-header {
