@@ -10,6 +10,21 @@ const tradeGrouping = [
     ['spreads', 'asian'],
 ];
 
+const hasBasic = contract => {
+    const idx = Object.keys(contract).findIndex(c => tradeGrouping[0].includes(c));
+    return idx !== -1;
+};
+
+const hasDigits = contract => {
+    const idx = Object.keys(contract).findIndex(c => tradeGrouping[1].includes(c));
+    return idx !== -1;
+};
+
+const hasAdvanced = contract => {
+    const idx = Object.keys(contract).findIndex(c => tradeGrouping[2].includes(c));
+    return idx !== -1;
+};
+
 export default class TradeTypePicker extends Component {
     constructor(props) {
         super(props);
@@ -64,9 +79,9 @@ export default class TradeTypePicker extends Component {
         return (
             <div className="trade-type-picker">
                 <TabList activeIndex={tradeGroup} onChange={::this.changeGroup}>
-                    <Tab text="Basic" />
-                    <Tab text="Digits" />
-                    <Tab text="Advanced" />
+                    { hasBasic(contract) && <Tab text="Basic" />}
+                    { hasDigits(contract) && <Tab text="Digits" />}
+                    { hasAdvanced(contract) && <Tab text="Advanced" />}
                 </TabList>
                 <TabList
                     id="type-category-picker"
