@@ -1,17 +1,23 @@
 import React, { PropTypes, Component } from 'react';
+import classNames from 'classnames';
 
 export default class FlexList extends Component {
+    static defaultProps = {
+        orientation: 'horizontal',
+    };
+
     static propTypes = {
-        children: PropTypes.object,
+        children: PropTypes.any,
         orientation: PropTypes.oneOf(['horizontal', 'vertical']),
     };
 
     render() {
-        const { children } = this.props;
+        const { children, orientation } = this.props;
+        const className = classNames('flex-list', orientation);
         return (
-            <div className="labeled-list">
+            <div className={className}>
                 {
-                    React.Children.map(children, ch => <span className="list-item">{ch}</span>)
+                    React.Children.map(children, ch => <span className="flex-list-item">{ch}</span>)
                 }
             </div>
         );

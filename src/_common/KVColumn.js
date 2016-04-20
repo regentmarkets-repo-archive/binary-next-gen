@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import M from 'M';
-import Number from 'Number';
+import M from './M';
+import Number from './Number';
 
 export default class KVColumn extends Component {
     static propTypes = {
@@ -14,12 +14,16 @@ export default class KVColumn extends Component {
         const { label, value } = this.props;
         return (
             <div>
-                <M m={label} />
-                {
-                    isNaN(value) ?
-                        <M m={value} /> :
-                        <Number {...this.props} />
-                }
+                <div className="col-header">
+                    <M m={label} />
+                </div>
+                <div className="col-val">
+                    {
+                        isNaN(value) ?
+                            <M m={value} /> :
+                            <Number {...this.props} />
+                    }
+                </div>
             </div>
         );
     }
