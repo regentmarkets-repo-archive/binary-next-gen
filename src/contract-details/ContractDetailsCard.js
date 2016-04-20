@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
+import LabeledEntry from '../_common/LabeledEntry';
 import NumberPlain from '../_common/NumberPlain';
 import NumberColored from '../_common/NumberColored';
 
@@ -18,54 +19,28 @@ export default class ContractDetailsCard extends Component {
 		const workAroundForBackendBugIsDigitTrade = contract.shortcode && contract.shortcode.includes('DIGIT');
 		const validToSell = contract.is_valid_to_sell === 1 && !contract.is_expired;
 		const validationError = contract.validation_error;
-		const potentialProfit = contract.payout - contract.buy_price;
-		const profit = sold && (contract.sell_price - contract.buy_price);
+		const potentialProfit = (contract.payout - contract.buy_price).toFixed(2);
+		const profit = sold && (contract.sell_price - contract.buy_price).toFixed(2);
 		return (
 			<div>
-				<table>
-					<thead>
-						<tr>
-							<th><M m="Entry Price" /></th>
-							<th><M m="Exit Price" /></th>
-							<th><M m="Indicative Price" /></th>
-							<th>{sold ? <M m="Profit" /> : <M m="Potential Profit" />}</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>
-								{contract.buy_price &&
-									<NumberPlain value={contract.buy_price} currency={contract.currency} /> }
-							</td>
-							<td>
-								{sold ?
-									<NumberPlain value={contract.sell_price} currency={contract.currency} /> :
-									'-'}
-							</td>
-							<td>
-								{contract.bid_price ?
-									<NumberColored
-										value={contract.bid_price}
-										currency={contract.currency}
-										isProfit={v => v - contract.buy_price}
-									/> :
-									'-'
-								}
-							</td>
-							<td>
-								{contract.buy_price &&
-									<NumberColored
-										value={sold ?
-											profit :
-											potentialProfit
-											}
-										currency={contract.currency}
-										isProfit={v => v}
-									/>}
-							</td>
-						</tr>
-					</tbody>
-				</table>
+				<LabeledEntry label="Entry Price" value={contract.buy_price} currency={contract.currency} />
+				<LabeledEntry
+					label="Exit Price"
+					value={sold ? contract.sell_price : '-'}
+					currency={contract.currency}
+				/>
+				<LabeledEntry
+					label="Indicative Price"
+					value={contract.bid_price}
+					currency={contract.currency}
+					isProfit={v => v - contract.buy_price}
+				/>
+				<LabeledEntry
+					label={sold ? 'Profit' : 'Potential Profit'}
+					value={sold ? profit : potentialProfit}
+					currency={contract.currency}
+					isProfit={v => v}
+				/>
 				{validToSell && !workAroundForBackendBugIsDigitTrade ?
 					<button
 						className="sell-at-market-btn"
