@@ -4,6 +4,7 @@ import NumberPlain from '../_common/NumberPlain';
 import NumberColored from '../_common/NumberColored';
 import FlexList from '../containers/FlexList';
 import KVColumn from '../_common/KVColumn';
+import toMoney from 'binary-utils/lib/toMoney';
 
 export default class ContractDetailsCard extends Component {
 
@@ -20,8 +21,8 @@ export default class ContractDetailsCard extends Component {
 		const workAroundForBackendBugIsDigitTrade = contract.shortcode && contract.shortcode.includes('DIGIT');
 		const validToSell = contract.is_valid_to_sell === 1 && !contract.is_expired;
 		const validationError = contract.validation_error;
-		const potentialProfit = (contract.payout - contract.buy_price).toFixed(2);
-		const profit = sold && (contract.sell_price - contract.buy_price).toFixed(2);
+		const potentialProfit = toMoney(contract.payout - contract.buy_price);
+		const profit = sold && toMoney(contract.sell_price - contract.buy_price);
 		return (
 			<div>
 				<FlexList>
