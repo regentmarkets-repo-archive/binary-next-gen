@@ -16,6 +16,7 @@ export const internalTradeModelToServerTradeModel = tradeObj => {
         stopProfit,
         stopLoss,
         barrierType,
+        pipSize,
     } = tradeObj;
 
     const b1 = barrier && (barrierType === 'relative' ? numberToSignedString(barrier) : barrier);
@@ -23,6 +24,7 @@ export const internalTradeModelToServerTradeModel = tradeObj => {
 
     const serverModel = {
         amount,
+        amount_per_point: amountPerPoint,
         basis,
         contract_type: type,
         duration,
@@ -31,7 +33,8 @@ export const internalTradeModelToServerTradeModel = tradeObj => {
         symbol,
         barrier: b1,
         barrier2: b2,
-        amount_per_point: amountPerPoint,
+        barrierType,
+        pipSize,
         stop_type: stopType,
         stop_profit: stopProfit,
         stop_loss: stopLoss,
