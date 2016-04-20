@@ -29,18 +29,20 @@ export default class StatementCard extends Component {
 					<Tab text="Last 7 Days" />
 					<Tab text="Last 30 Days" />
 				</TabList>
-				{transactions.length > 0 ?
-					<StatementTable
-						actions={actions}
-						compact={compact}
-						transactions={transactions}
-						transactionsTotal={transactionsTotal}
-						currency={currency}
-					/> :
-					<div className="centerer">
-						<M m="There are no transactions for selected period" />
-					</div>
-				}
+				<div className="statement-list">
+					{transactions.length > 0 ?
+						<StatementTable
+							actions={actions}
+							compact={compact}
+							transactions={transactions}
+							transactionsTotal={transactionsTotal}
+							currency={currency}
+						/> :
+						<div className="centerer">
+							<M m="There are no transactions for selected period" />
+						</div>
+					}
+				</div>
 			</div>
 		);
 	}
