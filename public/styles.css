@@ -276,9 +276,8 @@ nav.sidebar {
     flex-direction: column;
 }
 
-.news-list-card, .asset-index-card, .trading-times-card, .video-list, .statement-card > table {
+.news-list-card, .asset-index-card, .trading-times-card, .video-list, .statement-list {
     overflow: auto;
-    min-height: 100vh;
 }
 
 .mobile-back-btn span {
