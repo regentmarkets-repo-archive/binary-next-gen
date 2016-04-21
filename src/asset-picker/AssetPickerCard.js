@@ -13,7 +13,7 @@ export default class AssetPickerCard extends Component {
 		filter: PropTypes.object,
 		location: PropTypes.object,
 		params: PropTypes.object,
-		assetPickerItems: PropTypes.array.isRequired,
+		assetPickerItems: PropTypes.object.isRequired,
 		selectedAsset: PropTypes.string.isRequired,
 	};
 
@@ -46,19 +46,18 @@ export default class AssetPickerCard extends Component {
 		const { actions, assetPickerItems, selectedAsset, params, filter } = this.props;
 
 		return (
-			<div className="asset-picker-container">
+			<div id="asset-picker-container">
 				<AssetPickerFilter actions={actions} filter={filter} />
 				<div className="asset-list">
 					<AssetPickerList
 						{...this.props}
-						grouped
 						assets={assetPickerItems}
 						selectedAsset={selectedAsset}
 						onSelect={asset => this.onSelect(params.id, asset)}
 						onToggleWatchlistItem={::this.onToggleWatchlistItem}
 					/>
 				</div>
-				{assetPickerItems.length > 0 ? null :
+				{Object.keys(assetPickerItems).length > 0 ? null :
 					<div className="centerer">
 						<M m="Your search didn't match any assets" />
 					</div>

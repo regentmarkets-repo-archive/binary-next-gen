@@ -16,7 +16,7 @@ export default class M extends Component {
 	};
 
 	render() {
-		const { m = '', values } = this.props;
+		const { m, values } = this.props;
 
 		return (
 			<span {...this.props}>
