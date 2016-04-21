@@ -3,15 +3,15 @@ export default {
         "project-id-version": "PACKAGE VERSION",
         "report-msgid-bugs-to": "",
         "pot-creation-date": "",
-        "po-revision-date": "2015-12-04 15:47+0000",
-        "last-translator": "Robert Grundler <grundlertex@gmail.com>",
-        "language-team": "German <https://hosted.weblate.org/projects/binary/static/de/>",
+        "po-revision-date": "2016-04-13 09:02+0000",
+        "last-translator": "Sittie Hadjirah Sevilla <sittiebaser@gmail.com>",
+        "language-team": "German <https://hosted.weblate.org/projects/binary-app/next-gen-app/de/>",
         "language": "de",
         "mime-version": "1.0",
         "content-type": "text/plain; charset=UTF-8",
         "content-transfer-encoding": "8bit",
         "plural-forms": "nplurals=2; plural=n != 1;",
-        "x-generator": "Weblate 2.5-dev"
+        "x-generator": "Weblate 2.6-dev"
     },
     "All": [
         null,
@@ -19,11 +19,11 @@ export default {
     ],
     "Property": [
         null,
-        ""
+        "Eigentum"
     ],
     "Value": [
         null,
-        ""
+        "Wert"
     ],
     "Balance": [
         null,
@@ -35,11 +35,11 @@ export default {
     ],
     "Watchlist": [
         null,
-        ""
+        "Beobachtungsliste"
     ],
     "Open Positions": [
         null,
-        ""
+        "Offene Positionen"
     ],
     "Profit Table": [
         null,
@@ -55,7 +55,7 @@ export default {
     ],
     "Sign Out": [
         null,
-        ""
+        "Abmelden"
     ],
     "View": [
         null,
@@ -93,9 +93,13 @@ export default {
         null,
         "Gewinn/Verlust"
     ],
+    "Total": [
+        null,
+        "Gesamt"
+    ],
     "Location": [
         null,
-        ""
+        "Ort"
     ],
     "Update": [
         null,
@@ -115,7 +119,7 @@ export default {
     ],
     "Limit ({currency})": [
         null,
-        ""
+        "Limit ({currency})"
     ],
     "Maximum number of open positions": [
         null,
@@ -139,11 +143,11 @@ export default {
     ],
     "Your withdrawal limit is {limit} (or equivalent in other currency).": [
         null,
-        ""
+        "Ihr Auszahlungslimit beträgt {limit} (oder Gegenwert in anderer Währung)."
     ],
     "You have already withdrawn the equivalent of EUR {drawn}.": [
         null,
-        ""
+        "Sie haben schon den Gegenwert von EUR {drawn} abgehoben."
     ],
     "An additional password can be used to restrict access to the cashier.": [
         null,
@@ -151,15 +155,15 @@ export default {
     ],
     "Sign In": [
         null,
-        ""
+        "Anmelden"
     ],
     "Get your API token": [
         null,
-        ""
+        "Holen Sie sich Ihren API-Token"
     ],
     "Create Account": [
         null,
-        ""
+        "Konto einrichten"
     ],
     "Action": [
         null,
@@ -179,11 +183,11 @@ export default {
     ],
     "Place Order": [
         null,
-        ""
+        "Order aufgeben"
     ],
     "{asset} will {type} over next {duration}": [
         null,
-        ""
+        "{asset} wird {type} in den nächsten {duration}"
     ],
     "Price": [
         null,
@@ -227,7 +231,7 @@ export default {
     ],
     "Upgrade to Real Money Account": [
         null,
-        ""
+        "Auf Echtgeldkonto wechseln"
     ],
     "Date of birth": [
         null,
@@ -235,7 +239,7 @@ export default {
     ],
     "Home Address": [
         null,
-        ""
+        "Wohnanschrift"
     ],
     "Security": [
         null,
@@ -253,176 +257,200 @@ export default {
         null,
         "Diagramm"
     ],
+    "Purchase For": [
+        null,
+        "Kauf für"
+    ],
     "Rise": [
         null,
-        ""
+        "Steigt"
     ],
     "Stake": [
         null,
-        ""
+        "Einsatz"
     ],
     "Payout": [
         null,
-        ""
+        "Auszahlung"
     ],
     "Deposit": [
         null,
-        ""
+        "Einzahlung"
+    ],
+    "Transactions": [
+        null,
+        "Transaktionen"
     ],
     "Opens": [
         null,
-        ""
+        "Öffnet"
     ],
     "Closes": [
         null,
-        ""
+        "Schließt"
     ],
     "Personal": [
         null,
-        ""
+        "Persönlich"
     ],
     "General": [
         null,
-        ""
+        "Allgemein"
+    ],
+    "Trading Times": [
+        null,
+        "Börsenzeiten"
+    ],
+    "Asset Index": [
+        null,
+        "Kapital Index"
     ],
     "Today": [
         null,
-        ""
+        "Heute"
     ],
     "Yesterday": [
         null,
-        ""
+        "Gestern"
     ],
     "Tomorrow": [
         null,
-        ""
+        "Morgen"
     ],
     "Takeout": [
         null,
-        ""
+        "Mitnehmen"
     ],
     "News": [
         null,
-        ""
+        "Nachrichten"
     ],
     "Resources": [
         null,
-        ""
+        "Quellen"
     ],
     "Last 7 Days": [
         null,
-        ""
+        "Letzte 7 Tage"
     ],
     "Last 30 Days": [
         null,
-        ""
+        "Letzte 30 Tage"
     ],
     "Daily Report": [
         null,
-        ""
+        "Tagesbericht"
     ],
     "Up/Down": [
         null,
-        ""
+        "Hoch/Tief"
     ],
     "Touch/No Touch": [
         null,
-        ""
+        "Berührt/Berührt nicht"
     ],
     "Ends In/Out": [
         null,
-        ""
+        "Endet In/Außerhalb"
     ],
     "Stays In/Goes Out": [
         null,
-        ""
+        "Bleibt innerhalb/geht außerhalb"
+    ],
+    "Settles": [
+        null,
+        "Bleibt"
     ],
     "Language": [
         null,
-        ""
+        "Sprache"
     ],
     "Color Theme": [
         null,
-        ""
+        "Farbthema"
     ],
     "Light": [
         null,
-        ""
+        "Hell"
     ],
     "Dark": [
         null,
-        ""
+        "Dunkel"
     ],
     "Name": [
         null,
-        ""
+        "Name"
+    ],
+    "Date Of Birth": [
+        null,
+        "Geburtsdatum"
     ],
     "Country Of Residence": [
         null,
-        ""
+        "Wohnsitzland"
     ],
     "Email": [
         null,
-        ""
+        "E-Mail"
     ],
     "There are no transactions for selected period": [
         null,
-        ""
+        "Für den ausgewählten Zeitraum liegen keine Transaktionen vor."
     ],
     "Sell": [
         null,
-        ""
+        "Verkaufen"
     ],
     "Buy": [
         null,
-        ""
+        "Kaufen"
     ],
     "Digit Even": [
         null,
-        ""
+        "Kommastelle gleich"
     ],
     "Touches": [
         null,
-        ""
+        "Berührt"
     ],
     "Digit Over": [
         null,
-        ""
+        "Kommastelle über"
     ],
     "Digit Match": [
         null,
-        ""
+        "Kommastellen stimmen überein"
     ],
     "Digit Under": [
         null,
-        ""
+        "Kommastelle unter"
     ],
     "Digit Odd": [
         null,
-        ""
+        "Kommastelle Chance"
     ],
     "Digit Differs": [
         null,
-        ""
+        "Kommastelle unterschiedlich"
     ],
     "No Touch": [
         null,
-        ""
+        "Berührt nicht"
     ],
     "Fall": [
         null,
-        ""
+        "Fällt"
     ],
     "Asian Down": [
         null,
-        ""
+        "Asiatisch runter"
     ],
     "Asian Up": [
         null,
-        ""
+        "Asiatisch hoch"
     ],
     "Search For Assets": [
         null,
-        ""
+        "Suche nach Anlagen"
     ]
 }

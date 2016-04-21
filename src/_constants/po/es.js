@@ -3,7 +3,7 @@ export default {
         "project-id-version": "PACKAGE VERSION",
         "report-msgid-bugs-to": "",
         "pot-creation-date": "",
-        "po-revision-date": "2016-01-15 14:17+0000",
+        "po-revision-date": "2016-02-27 15:47+0000",
         "last-translator": "olga borg <olga@binary.com>",
         "language-team": "Spanish <https://hosted.weblate.org/projects/binary-app/next-gen-app/es/>",
         "language": "es",
@@ -155,7 +155,7 @@ export default {
     ],
     "Sign In": [
         null,
-        "Inicio"
+        "Iniciar Sesión"
     ],
     "Get your API token": [
         null,
@@ -257,176 +257,200 @@ export default {
         null,
         "Gráfico"
     ],
+    "Purchase For": [
+        null,
+        "Compre por"
+    ],
     "Rise": [
         null,
-        ""
+        "Alza"
     ],
     "Stake": [
         null,
-        ""
+        "Apuesta"
     ],
     "Payout": [
         null,
-        ""
+        "Pago"
     ],
     "Deposit": [
         null,
-        ""
+        "Deposite"
+    ],
+    "Transactions": [
+        null,
+        "Transacciones"
     ],
     "Opens": [
         null,
-        ""
+        "Abre"
     ],
     "Closes": [
         null,
-        ""
+        "Cierra"
     ],
     "Personal": [
         null,
-        ""
+        "Personal"
     ],
     "General": [
         null,
-        ""
+        "General"
+    ],
+    "Trading Times": [
+        null,
+        "Horario comercial"
+    ],
+    "Asset Index": [
+        null,
+        "Índice de activos"
     ],
     "Today": [
         null,
-        ""
+        "Hoy"
     ],
     "Yesterday": [
         null,
-        ""
+        "Ayer"
     ],
     "Tomorrow": [
         null,
-        ""
+        "Mañana"
     ],
     "Takeout": [
         null,
-        ""
+        "Pago"
     ],
     "News": [
         null,
-        ""
+        "Noticias"
     ],
     "Resources": [
         null,
-        ""
+        "Recursos"
     ],
     "Last 7 Days": [
         null,
-        ""
+        "Los últimos 7 días"
     ],
     "Last 30 Days": [
         null,
-        ""
+        "Los últimos 30 días"
     ],
     "Daily Report": [
         null,
-        ""
+        "Informe diario"
     ],
     "Up/Down": [
         null,
-        ""
+        "Arriba/Abajo"
     ],
     "Touch/No Touch": [
         null,
-        ""
+        "Toque/Sin Toque"
     ],
     "Ends In/Out": [
         null,
-        ""
+        "Finaliza dentro/fuera"
     ],
     "Stays In/Goes Out": [
         null,
-        ""
+        "Queda dentro/Sale fuera"
+    ],
+    "Settles": [
+        null,
+        "Finaliza"
     ],
     "Language": [
         null,
-        ""
+        "Idioma"
     ],
     "Color Theme": [
         null,
-        ""
+        "Gama de colores"
     ],
     "Light": [
         null,
-        ""
+        "Claro"
     ],
     "Dark": [
         null,
-        ""
+        "Oscuro"
     ],
     "Name": [
         null,
-        ""
+        "Nombre"
+    ],
+    "Date Of Birth": [
+        null,
+        "Fecha de nacimiento"
     ],
     "Country Of Residence": [
         null,
-        ""
+        "País de residencia"
     ],
     "Email": [
         null,
-        ""
+        "Correo electrónico"
     ],
     "There are no transactions for selected period": [
         null,
-        ""
+        "No hay transacciones para el período seleccionado"
     ],
     "Sell": [
         null,
-        ""
+        "Vender"
     ],
     "Buy": [
         null,
-        ""
+        "Comprar"
     ],
     "Digit Even": [
         null,
-        ""
+        "Dígito par"
     ],
     "Touches": [
         null,
-        ""
+        "Toca"
     ],
     "Digit Over": [
         null,
-        ""
+        "Dígito Sobre"
     ],
     "Digit Match": [
         null,
-        ""
+        "Dígito Justo"
     ],
     "Digit Under": [
         null,
-        ""
+        "Dígito por Debajo"
     ],
     "Digit Odd": [
         null,
-        ""
+        "Dígito Impar"
     ],
     "Digit Differs": [
         null,
-        ""
+        "Dígito Difiere"
     ],
     "No Touch": [
         null,
-        ""
+        "Sin Toque"
     ],
     "Fall": [
         null,
-        ""
+        "Baja"
     ],
     "Asian Down": [
         null,
-        ""
+        "Asiáticas abajo"
     ],
     "Asian Up": [
         null,
-        ""
+        "Asiáticas arriba"
     ],
     "Search For Assets": [
         null,
-        ""
+        "Busque activos"
     ]
 }

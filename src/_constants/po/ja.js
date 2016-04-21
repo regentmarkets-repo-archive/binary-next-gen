@@ -2,8 +2,8 @@ export default {
     "": {
         "project-id-version": "PACKAGE VERSION",
         "pot-creation-date": "",
-        "po-revision-date": "2016-01-28 08:06+0000",
-        "last-translator": "Haruna Sekiya <hrnmyrn@gmail.com>",
+        "po-revision-date": "2016-03-09 08:15+0000",
+        "last-translator": "Fumio Miyama <miyama@regentmarkets.com>",
         "language-team": "Japanese <https://hosted.weblate.org/projects/binary-app/next-gen-app/ja/>",
         "language": "ja",
         "mime-version": "1.0",
@@ -90,7 +90,7 @@ export default {
     ],
     "Profit/Loss": [
         null,
-        "利益/損益"
+        "損益"
     ],
     "Total": [
         null,

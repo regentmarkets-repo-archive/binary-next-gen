@@ -2,8 +2,8 @@ export default {
     "": {
         "project-id-version": "PACKAGE VERSION",
         "pot-creation-date": "",
-        "po-revision-date": "2016-01-28 07:51+0000",
-        "last-translator": "Freddy Hew <hewfreddy@gmail.com>",
+        "po-revision-date": "2016-03-05 01:59+0000",
+        "last-translator": "Xiaojing <cai.cxj@gmail.com>",
         "language-team": "Chinese (Taiwan) <https://hosted.weblate.org/projects/binary-app/next-gen-app/zh_TW/>",
         "language": "zh_tw",
         "mime-version": "1.0",
@@ -142,11 +142,11 @@ export default {
     ],
     "Your withdrawal limit is {limit} (or equivalent in other currency).": [
         null,
-        "您的提款上限是 {限值} (或其他貨幣的等值)。"
+        "您的提款上限是 {限值} (或等值的其他貨幣)。"
     ],
     "You have already withdrawn the equivalent of EUR {drawn}.": [
         null,
-        "您已提款相等於歐元 {提款值}。"
+        "您的提款數額相當於歐元 {提款值}。"
     ],
     "An additional password can be used to restrict access to the cashier.": [
         null,
@@ -186,7 +186,7 @@ export default {
     ],
     "{asset} will {type} over next {duration}": [
         null,
-        "{資產}將在{時段}期內{類型}"
+        "{資產}將在{類型}期內{時段}"
     ],
     "Price": [
         null,
@@ -238,7 +238,7 @@ export default {
     ],
     "Home Address": [
         null,
-        "住家地址"
+        "家庭住址"
     ],
     "Security": [
         null,
@@ -394,7 +394,7 @@ export default {
     ],
     "There are no transactions for selected period": [
         null,
-        "選定期間無任何交易"
+        "選定時間段內無任何交易"
     ],
     "Sell": [
         null,
@@ -418,7 +418,7 @@ export default {
     ],
     "Digit Match": [
         null,
-        "數字相符"
+        "數字匹配"
     ],
     "Digit Under": [
         null,
@@ -430,7 +430,7 @@ export default {
     ],
     "Digit Differs": [
         null,
-        "數字不相符"
+        "數字不匹配"
     ],
     "No Touch": [
         null,

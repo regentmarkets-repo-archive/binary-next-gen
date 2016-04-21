@@ -3,7 +3,7 @@ export default {
         "project-id-version": "BOM",
         "report-msgid-bugs-to": "",
         "pot-creation-date": "",
-        "po-revision-date": "2016-01-29 06:43+0000",
+        "po-revision-date": "2016-02-04 15:26+0000",
         "last-translator": "Alcino Jorge <alcino@binary.com>",
         "language-team": "Portuguese <https://hosted.weblate.org/projects/binary-app/next-gen-app/pt/>",
         "language": "pt",
@@ -299,7 +299,7 @@ export default {
     ],
     "Trading Times": [
         null,
-        "Limites de negociação"
+        "Horários de negociação"
     ],
     "Asset Index": [
         null,
@@ -367,7 +367,7 @@ export default {
     ],
     "Color Theme": [
         null,
-        "Tema de cores"
+        "Tema de cor"
     ],
     "Light": [
         null,
@@ -439,7 +439,7 @@ export default {
     ],
     "Fall": [
         null,
-        "Descer"
+        "Descer."
     ],
     "Asian Down": [
         null,

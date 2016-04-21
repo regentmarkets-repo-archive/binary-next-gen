@@ -2,8 +2,8 @@ export default {
     "": {
         "project-id-version": "",
         "pot-creation-date": "",
-        "po-revision-date": "2016-01-29 02:01+0000",
-        "last-translator": "Lim Qing Wei <qingwei@regentmarkets.com>",
+        "po-revision-date": "2016-03-01 08:47+0000",
+        "last-translator": "Sittie Hadjirah Sevilla <sittiebaser@gmail.com>",
         "language-team": "English <https://hosted.weblate.org/projects/binary-app/next-gen-app/en/>",
         "language": "en",
         "mime-version": "1.0",

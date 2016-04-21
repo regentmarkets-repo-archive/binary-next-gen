@@ -3,7 +3,7 @@ export default {
         "project-id-version": "I 18N",
         "report-msgid-bugs-to": "",
         "pot-creation-date": "",
-        "po-revision-date": "2015-12-30 10:24+0000",
+        "po-revision-date": "2016-02-10 07:19+0000",
         "last-translator": "Putri Kumala <putri@regentmarkets.com>",
         "language-team": "Indonesian <https://hosted.weblate.org/projects/binary-app/next-gen-app/id/>",
         "language": "id",
@@ -257,176 +257,200 @@ export default {
         null,
         "Grafik"
     ],
+    "Purchase For": [
+        null,
+        "Untuk Pembelian"
+    ],
     "Rise": [
         null,
-        ""
+        "Rise"
     ],
     "Stake": [
         null,
-        ""
+        "Modal"
     ],
     "Payout": [
         null,
-        ""
+        "Hasil"
     ],
     "Deposit": [
         null,
-        ""
+        "Deposit"
+    ],
+    "Transactions": [
+        null,
+        "Transaksi"
     ],
     "Opens": [
         null,
-        ""
+        "Buka"
     ],
     "Closes": [
         null,
-        ""
+        "Tutup"
     ],
     "Personal": [
         null,
-        ""
+        "Pribadi"
     ],
     "General": [
         null,
-        ""
+        "Umum"
+    ],
+    "Trading Times": [
+        null,
+        "Waktu Trading"
+    ],
+    "Asset Index": [
+        null,
+        "Indeks Aset"
     ],
     "Today": [
         null,
-        ""
+        "Hari ini"
     ],
     "Yesterday": [
         null,
-        ""
+        "Kemarin"
     ],
     "Tomorrow": [
         null,
-        ""
+        "Besok"
     ],
     "Takeout": [
         null,
-        ""
+        "Mengambil"
     ],
     "News": [
         null,
-        ""
+        "Berita"
     ],
     "Resources": [
         null,
-        ""
+        "Sumber"
     ],
     "Last 7 Days": [
         null,
-        ""
+        "7 Hari Terakhir"
     ],
     "Last 30 Days": [
         null,
-        ""
+        "30 Hari Terakhir"
     ],
     "Daily Report": [
         null,
-        ""
+        "Laporan Harian"
     ],
     "Up/Down": [
         null,
-        ""
+        "Up/Down"
     ],
     "Touch/No Touch": [
         null,
-        ""
+        "Touch/No Touch"
     ],
     "Ends In/Out": [
         null,
-        ""
+        "Ends In/Out"
     ],
     "Stays In/Goes Out": [
         null,
-        ""
+        "Stays In/Goes Out"
+    ],
+    "Settles": [
+        null,
+        "Diselesaikan"
     ],
     "Language": [
         null,
-        ""
+        "Bahasa"
     ],
     "Color Theme": [
         null,
-        ""
+        "Warna Tema"
     ],
     "Light": [
         null,
-        ""
+        "Terang"
     ],
     "Dark": [
         null,
-        ""
+        "Gelap"
     ],
     "Name": [
         null,
-        ""
+        "Nama"
+    ],
+    "Date Of Birth": [
+        null,
+        "Tanggal Lahir"
     ],
     "Country Of Residence": [
         null,
-        ""
+        "Negara Domisili"
     ],
     "Email": [
         null,
-        ""
+        "Email"
     ],
     "There are no transactions for selected period": [
         null,
-        ""
+        "Tidak ditemukan transaksi bagi periode yang dipilih"
     ],
     "Sell": [
         null,
-        ""
+        "Jual"
     ],
     "Buy": [
         null,
-        ""
+        "Beli"
     ],
     "Digit Even": [
         null,
-        ""
+        "Digit Even"
     ],
     "Touches": [
         null,
-        ""
+        "Touches"
     ],
     "Digit Over": [
         null,
-        ""
+        "Digit Over"
     ],
     "Digit Match": [
         null,
-        ""
+        "Digit Match"
     ],
     "Digit Under": [
         null,
-        ""
+        "Digit Under"
     ],
     "Digit Odd": [
         null,
-        ""
+        "Digit Odd"
     ],
     "Digit Differs": [
         null,
-        ""
+        "Digit Differs"
     ],
     "No Touch": [
         null,
-        ""
+        "No Touch"
     ],
     "Fall": [
         null,
-        ""
+        "Fall"
     ],
     "Asian Down": [
         null,
-        ""
+        "Asian Down"
     ],
     "Asian Up": [
         null,
-        ""
+        "Asian Up"
     ],
     "Search For Assets": [
         null,
-        ""
+        "Pencarian Aset"
     ]
 }

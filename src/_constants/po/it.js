@@ -2,7 +2,7 @@ export default {
     "": {
         "project-id-version": "PACKAGE VERSION",
         "pot-creation-date": "",
-        "po-revision-date": "2016-01-15 15:56+0000",
+        "po-revision-date": "2016-02-21 23:46+0000",
         "last-translator": "Mauro Piccillo <mauro.piccillo@gmail.com>",
         "language-team": "Italian <https://hosted.weblate.org/projects/binary-app/next-gen-app/it/>",
         "language": "it",
@@ -256,176 +256,200 @@ export default {
         null,
         "Grafico"
     ],
+    "Purchase For": [
+        null,
+        "Acquisto per"
+    ],
     "Rise": [
         null,
-        ""
+        "Aumento"
     ],
     "Stake": [
         null,
-        ""
+        "Puntata"
     ],
     "Payout": [
         null,
-        ""
+        "Payout"
     ],
     "Deposit": [
         null,
-        ""
+        "Deposito"
+    ],
+    "Transactions": [
+        null,
+        "Transazioni"
     ],
     "Opens": [
         null,
-        ""
+        "Apre"
     ],
     "Closes": [
         null,
-        ""
+        "Chiude"
     ],
     "Personal": [
         null,
-        ""
+        "Personale"
     ],
     "General": [
         null,
-        ""
+        "Generale"
+    ],
+    "Trading Times": [
+        null,
+        "Orari di trading"
+    ],
+    "Asset Index": [
+        null,
+        "Indice degli asset"
     ],
     "Today": [
         null,
-        ""
+        "Oggi"
     ],
     "Yesterday": [
         null,
-        ""
+        "Ieri"
     ],
     "Tomorrow": [
         null,
-        ""
+        "Domani"
     ],
     "Takeout": [
         null,
-        ""
+        "Takeout"
     ],
     "News": [
         null,
-        ""
+        "Novità"
     ],
     "Resources": [
         null,
-        ""
+        "Risorse"
     ],
     "Last 7 Days": [
         null,
-        ""
+        "Ultimi 7 giorni"
     ],
     "Last 30 Days": [
         null,
-        ""
+        "Ultimi 30 giorni"
     ],
     "Daily Report": [
         null,
-        ""
+        "Report giornaliero"
     ],
     "Up/Down": [
         null,
-        ""
+        "Up/Down"
     ],
     "Touch/No Touch": [
         null,
-        ""
+        "Touch/No Touch"
     ],
     "Ends In/Out": [
         null,
-        ""
+        "Ends In/Out"
     ],
     "Stays In/Goes Out": [
         null,
-        ""
+        "Stays in/Goes Out"
+    ],
+    "Settles": [
+        null,
+        "Risolve"
     ],
     "Language": [
         null,
-        ""
+        "Lingua"
     ],
     "Color Theme": [
         null,
-        ""
+        "Tema a colori"
     ],
     "Light": [
         null,
-        ""
+        "Chiaro"
     ],
     "Dark": [
         null,
-        ""
+        "Scuro"
     ],
     "Name": [
         null,
-        ""
+        "Nome"
+    ],
+    "Date Of Birth": [
+        null,
+        "Data di nascita"
     ],
     "Country Of Residence": [
         null,
-        ""
+        "Paese di residenza"
     ],
     "Email": [
         null,
-        ""
+        "Email"
     ],
     "There are no transactions for selected period": [
         null,
-        ""
+        "Non ci sono transazioni per il periodo selezionato"
     ],
     "Sell": [
         null,
-        ""
+        "Vendi"
     ],
     "Buy": [
         null,
-        ""
+        "Acquista"
     ],
     "Digit Even": [
         null,
-        ""
+        "Cifra pari"
     ],
     "Touches": [
         null,
-        ""
+        "Touch"
     ],
     "Digit Over": [
         null,
-        ""
+        "Cifra superiore"
     ],
     "Digit Match": [
         null,
-        ""
+        "Cifra uguale"
     ],
     "Digit Under": [
         null,
-        ""
+        "Cifra inferiore"
     ],
     "Digit Odd": [
         null,
-        ""
+        "Cifra dispari"
     ],
     "Digit Differs": [
         null,
-        ""
+        "Cifra diversa"
     ],
     "No Touch": [
         null,
-        ""
+        "No Touch"
     ],
     "Fall": [
         null,
-        ""
+        "Fall"
     ],
     "Asian Down": [
         null,
-        ""
+        "Asiatiche Down"
     ],
     "Asian Up": [
         null,
-        ""
+        "Asiatiche Up"
     ],
     "Search For Assets": [
         null,
-        ""
+        "Ricerca di asset"
     ]
 }
