@@ -1,12 +1,18 @@
 import React, { PropTypes, Component } from 'react';
 import AssetPickerItem from './AssetPickerItem';
 import AssetPickerHeader from './AssetPickerHeader';
+import { findDOMNode } from 'react-dom';
 
 export default class AssetsPerSubmarket extends Component {
     static propTypes = {
         assetsInSubmarket: PropTypes.array.isRequired,
         selectedAsset: PropTypes.string.isRequired,
     };
+
+    componentDidMount() {
+        const focusedNode = findDOMNode(this.refs.focused);
+        if (focusedNode) focusedNode.focus();
+    }
 
     render() {
         const { assetsInSubmarket, selectedAsset } = this.props;
