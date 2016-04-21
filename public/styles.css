@@ -485,16 +485,13 @@ select {
     background-color: white;
 }
 
-#asset-picker-container {
-
-}
-
 .asset-picker-filter {
     min-height: 5rem;
 }
 
 .asset-list {
-    overflow: auto;
+    height: 70vh;
+    overflow: scroll;
 }
 
 tr[tabindex] {
@@ -882,9 +879,10 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .drop-down {
-    max-height: 100vh;
+    max-height: 90vh;
+    max-width: 90vw;
     overflow: auto;
-    padding: .5rem;
+    padding: 1.5rem;
     margin: 1rem;
     background: white;
 }
