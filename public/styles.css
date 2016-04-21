@@ -485,9 +485,8 @@ select {
     background-color: white;
 }
 
-.asset-picker-container {
-    display: flex;
-    flex-direction: column;
+#asset-picker-container {
+
 }
 
 .asset-picker-filter {

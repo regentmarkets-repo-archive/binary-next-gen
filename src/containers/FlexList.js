@@ -7,15 +7,17 @@ export default class FlexList extends Component {
     };
 
     static propTypes = {
+        id: PropTypes.string,
         children: PropTypes.any,
+        className: PropTypes.string,
         orientation: PropTypes.oneOf(['horizontal', 'vertical']),
     };
 
     render() {
-        const { children, orientation } = this.props;
-        const className = classNames('flex-list', orientation);
+        const { id, className, children, orientation } = this.props;
+        const combinedClassName = classNames('flex-list', orientation, className);
         return (
-            <div className={className}>
+            <div id={id} className={combinedClassName}>
                 {
                     React.Children.map(children, ch => <span className="flex-list-item">{ch}</span>)
                 }
