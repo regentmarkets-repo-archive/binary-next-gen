@@ -1,4 +1,5 @@
 import { createSelector, createStructuredSelector } from 'reselect';
+import groupByKey from 'binary-utils/lib/groupByKey';
 import {
     assetsSelector,
     watchlistSelector,
@@ -62,15 +63,17 @@ export const sortedByMarketShownAssetsSelector = createSelector(
 
 export const assetPickerItemsSelector = createSelector(
     [sortedByMarketShownAssetsSelector, watchlistSelector],
-    (shownAssets, watchlist) =>
-        shownAssets.map(asset => ({
+    (shownAssets, watchlist) => {
+        const groupedAsset = groupByKey(shownAssets.map(asset => ({
             symbol: asset.get('symbol'),
             name: asset.get('display_name'),
             isInWatchlist: watchlist.has(asset.get('symbol')),
             market: asset.get('market_display_name'),
             submarket: asset.get('submarket_display_name'),
             isOpen: !!asset.get('exchange_is_open'),
-        }))
+        })), 'submarket');
+        return groupedAsset;
+    }
 );
 
 export default createStructuredSelector({

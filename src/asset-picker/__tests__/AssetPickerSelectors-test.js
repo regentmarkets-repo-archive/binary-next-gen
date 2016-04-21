@@ -46,9 +46,9 @@ describe('assetPickerSelectors', () => {
             expect(assetPickerItems).to.be.ok;
         });
 
-        it('should return an immutable list', () => {
+        it('should return an object', () => {
             const assetPickerItems = assetPickerItemsSelector(emptyState());
-            expect(List.isList(assetPickerItems)).to.be.true;
+            expect(assetPickerItems).to.be.instanceOf(Object);
         });
     });
 

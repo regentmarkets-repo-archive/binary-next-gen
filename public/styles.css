@@ -485,17 +485,13 @@ select {
     background-color: white;
 }
 
-.asset-picker-container {
-    display: flex;
-    flex-direction: column;
-}
-
 .asset-picker-filter {
     min-height: 5rem;
 }
 
 .asset-list {
-    overflow: auto;
+    height: 70vh;
+    overflow: scroll;
 }
 
 tr[tabindex] {
@@ -883,9 +879,10 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .drop-down {
-    max-height: 100vh;
+    max-height: 90vh;
+    max-width: 90vw;
     overflow: auto;
-    padding: .5rem;
+    padding: 1.5rem;
     margin: 1rem;
     background: white;
 }
@@ -1143,4 +1140,33 @@ input[type=number]::-webkit-outer-spin-button {
 .layout-5-5 > div:nth-child(4),
 .layout-5-5 > div:nth-child(5) {
     flex-basis: 40%;
+}
+
+/* flex list should mimick table style*/
+
+.flex-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.flex-list-item {
+    flex: 1 1 auto;
+}
+
+.col-val {
+    border: 1px solid rgba(42,48,82,0.1);
+    text-align: center;
+}
+
+.col-header {
+    color: #2a3052;
+    font-weight: bold;
+    background: rgba(42,48,82,0.1);
+    padding: .5rem .25rem;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.4;
+    border: 1px solid rgba(42,48,82,0.1);
 }
