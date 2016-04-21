@@ -128,8 +128,8 @@ export const updateMultipleTradeParams = (index, params) => {
     };
 };
 
-export const updatePriceProposalSubscription = (tradeID, trade) =>
-    (dispatch, getState) => {
+export const updatePriceProposalSubscription = (tradeID, trade) => {
+    const thunk = (dispatch, getState) => {
         const tradeObj = trade || getState().trades.get(tradeID).toJS();
         const currency = getState().account.get('currency');
         const {
@@ -187,6 +187,17 @@ export const updatePriceProposalSubscription = (tradeID, trade) =>
             }
         );
     };
+
+    thunk.meta = {
+        debounce: {
+            time: 300,
+            key: `PROPOSAL_REQUESTED${tradeID}`,
+        },
+    };
+
+    return thunk;
+};
+
 
 export const purchaseByTradeId = (tradeID, trade) =>
     (dispatch, getState) => {
