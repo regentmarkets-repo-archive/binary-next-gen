@@ -25,7 +25,8 @@ export default class TickTradeDisplay extends React.Component {
 							asset: <strong>{assetName}</strong>,
 							type: <strong>{tradeToFriendlyType(tickTrade.get('tradeType'), tickTrade.get('barrier'))}</strong>,
 							duration: <strong>{tickTrade.get('duration')} ticks</strong>,
-						}} />
+						}}
+					/>
 				</div>
 				<div className="row">
 					<label>{spot ? <DirectionAndValue diff={diff} value={spot} /> : <span></span>}</label>

@@ -13,7 +13,8 @@ const SegmentedControl = props => {
                     key={idx}
                     href={segment.href}
                     text={segment.text}
-                    active={idx === props.activeIndex} />
+                    active={idx === props.activeIndex}
+                />
             )}
         </ul>
     );

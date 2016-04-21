@@ -56,6 +56,7 @@ electron
 * [cordova](https://cordova.apache.org/) - build mobile app
 
 ## Translation-related command
+Translation related files are in /build
 
 1. to extract text for translation:
 
@@ -63,13 +64,40 @@ electron
     cd ./build
     python3 extract.py
     ```
+
 2. to submit text to translators: 
    push to translation branch, weblate hook will be triggered
-3. to make latest translation available in apps
+3. to update *.po files after updating messages.pot
+   ```shell
+   > cd build
+   > python3
+   > files = [
+         './translations/ar.po',
+         './translations/de.po',
+         './translations/en.po',
+         './translations/es.po',
+         './translations/fr.po',
+         './translations/id.po',
+         './translations/it.po',
+         './translations/ja.po',
+         './translations/pl.po',
+         './translations/pt.po',
+         './translations/ru.po',
+         './translations/vi.po',
+         './translations/zh_cn.po',
+         './translations/zh_tw.po',
+     ]
+   > import subprocess
+   > for f in files:
+   ......subprocess.run(['msgmerge', '--update', f, './translation/messages.pot'])
+   >
+   ```
+
+4. to make latest translation available in apps
     
     ```
     cd ./build
-    gulp po2json
+    gulp update-translation
     ```
 
 
@@ -81,6 +109,9 @@ electron
 * _routes - React Router route config
 * _store - Init for routes and Redux
 * _utils - Common utils
+
+## Translations
+Please see [Weblate](https://hosted.weblate.org/projects/binary-app/next-gen-app/)
 
 ## Useful Learning Resources
 [Egghead](https://egghead.io/)

@@ -11,5 +11,5 @@ export const updateCurrentDailyReport = dr => ({
 
 export const updateNewsList = articles => ({
     type: types.UPDATE_NEWS_LIST,
-    articles: articles,
+    articles,
 });

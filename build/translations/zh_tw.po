@@ -7,11 +7,11 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2015-12-02 23:46+0000\n"
-"Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
-"Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/binary/"
-"static/zh_TW/>\n"
-"Language: zh_TW\n"
+"PO-Revision-Date: 2016-03-05 01:59+0000\n"
+"Last-Translator: Xiaojing <cai.cxj@gmail.com>\n"
+"Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/binary-"
+"app/next-gen-app/zh_TW/>\n"
+"Language: zh_tw\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -22,10 +22,10 @@ msgid "All"
 msgstr "所有"
 
 msgid "Property"
-msgstr ""
+msgstr "財產"
 
 msgid "Value"
-msgstr ""
+msgstr "價值"
 
 msgid "Balance"
 msgstr "餘額"
@@ -34,10 +34,10 @@ msgid "Trade"
 msgstr "交易"
 
 msgid "Watchlist"
-msgstr ""
+msgstr "關注清單"
 
 msgid "Open Positions"
-msgstr ""
+msgstr "未平倉頭寸"
 
 msgid "Profit Table"
 msgstr "利潤表"
@@ -49,7 +49,7 @@ msgid "Settings"
 msgstr "設定"
 
 msgid "Sign Out"
-msgstr ""
+msgstr "登出"
 
 msgid "View"
 msgstr "檢視"
@@ -79,10 +79,10 @@ msgid "Profit/Loss"
 msgstr "利潤/虧損"
 
 msgid "Total"
-msgstr ""
+msgstr "合計"
 
 msgid "Location"
-msgstr ""
+msgstr "位置"
 
 msgid "Update"
 msgstr "更新"
@@ -97,7 +97,7 @@ msgid "Item"
 msgstr "項目"
 
 msgid "Limit ({currency})"
-msgstr ""
+msgstr "限值 ({貨幣})"
 
 msgid "Maximum number of open positions"
 msgstr "最大未平倉頭寸數目"
@@ -115,22 +115,22 @@ msgid "Withdrawal limits"
 msgstr "取款限額"
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
-msgstr ""
+msgstr "您的提款上限是 {限值} (或等值的其他貨幣)。"
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
-msgstr ""
+msgstr "您的提款數額相當於歐元 {提款值}。"
 
 msgid "An additional password can be used to restrict access to the cashier."
 msgstr "可使用額外密碼來限制對收銀台的存取。"
 
 msgid "Sign In"
-msgstr ""
+msgstr "登入"
 
 msgid "Get your API token"
-msgstr ""
+msgstr "領取API權杖"
 
 msgid "Create Account"
-msgstr ""
+msgstr "新增帳戶"
 
 msgid "Action"
 msgstr "動作"
@@ -145,10 +145,10 @@ msgid "Back"
 msgstr "返回"
 
 msgid "Place Order"
-msgstr ""
+msgstr "下訂單"
 
 msgid "{asset} will {type} over next {duration}"
-msgstr ""
+msgstr "{資產}將在{類型}期內{時段}"
 
 msgid "Price"
 msgstr "價格"
@@ -157,10 +157,10 @@ msgid "Asset"
 msgstr "資產"
 
 msgid "Type"
-msgstr ""
+msgstr "類型"
 
 msgid "Ticks"
-msgstr ""
+msgstr "跳動點"
 
 msgid "Amount"
 msgstr "金額"
@@ -181,13 +181,13 @@ msgid "Open Account"
 msgstr "開戶"
 
 msgid "Upgrade to Real Money Account"
-msgstr ""
+msgstr "升級為真實金錢帳戶"
 
 msgid "Date of birth"
 msgstr "出生日期"
 
 msgid "Home Address"
-msgstr ""
+msgstr "家庭住址"
 
 msgid "Security"
 msgstr "安全"
@@ -200,3 +200,150 @@ msgstr "變更"
 
 msgid "Chart"
 msgstr "圖表"
+
+msgid "Purchase For"
+msgstr "買入"
+
+msgid "Rise"
+msgstr "上漲"
+
+msgid "Stake"
+msgstr "投注金額"
+
+msgid "Payout"
+msgstr "賠付額"
+
+msgid "Deposit"
+msgstr "存款"
+
+msgid "Transactions"
+msgstr "交易"
+
+msgid "Opens"
+msgstr "開盤"
+
+msgid "Closes"
+msgstr "收盤"
+
+msgid "Personal"
+msgstr "個人"
+
+msgid "General"
+msgstr "一般條款"
+
+msgid "Trading Times"
+msgstr "交易時間"
+
+msgid "Asset Index"
+msgstr "資產指數"
+
+msgid "Today"
+msgstr "今日"
+
+msgid "Yesterday"
+msgstr "昨日"
+
+msgid "Tomorrow"
+msgstr "明日"
+
+msgid "Takeout"
+msgstr "取得"
+
+msgid "News"
+msgstr "新聞"
+
+msgid "Resources"
+msgstr "資源"
+
+msgid "Last 7 Days"
+msgstr "過去7天"
+
+msgid "Last 30 Days"
+msgstr "過去30天"
+
+msgid "Daily Report"
+msgstr "日報"
+
+msgid "Up/Down"
+msgstr "上/下"
+
+msgid "Touch/No Touch"
+msgstr "觸及/未觸及"
+
+msgid "Ends In/Out"
+msgstr "到期時價格處於某個範圍內/外"
+
+msgid "Stays In/Goes Out"
+msgstr "保持在某個範圍內/外"
+
+msgid "Settles"
+msgstr "結算"
+
+msgid "Language"
+msgstr "語言"
+
+msgid "Color Theme"
+msgstr "顏色主題"
+
+msgid "Light"
+msgstr "淺色"
+
+msgid "Dark"
+msgstr "深色"
+
+msgid "Name"
+msgstr "姓名"
+
+msgid "Date Of Birth"
+msgstr "出生日期"
+
+msgid "Country Of Residence"
+msgstr "居住國"
+
+msgid "Email"
+msgstr "電子郵件"
+
+msgid "There are no transactions for selected period"
+msgstr "選定時間段內無任何交易"
+
+msgid "Sell"
+msgstr "售出"
+
+msgid "Buy"
+msgstr "買入"
+
+msgid "Digit Even"
+msgstr "數字為偶數"
+
+msgid "Touches"
+msgstr "觸及"
+
+msgid "Digit Over"
+msgstr "數字超過限額"
+
+msgid "Digit Match"
+msgstr "數字匹配"
+
+msgid "Digit Under"
+msgstr "數字低於限額"
+
+msgid "Digit Odd"
+msgstr "數字為奇數"
+
+msgid "Digit Differs"
+msgstr "數字不匹配"
+
+msgid "No Touch"
+msgstr "未觸及"
+
+msgid "Fall"
+msgstr "下降"
+
+msgid "Asian Down"
+msgstr "亞洲下跌期權"
+
+msgid "Asian Up"
+msgstr "亞洲上漲期權"
+
+msgid "Search For Assets"
+msgstr "搜尋資產"

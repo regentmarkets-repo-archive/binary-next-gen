@@ -1,5 +1,5 @@
 import React from 'react';
-import { MobileSidebar, MobileToobarBtn } from './';
+import { MobileSidebar, MobileToolbarBtn } from './';
 
 export default () => (
 	<div className="mobile-toolbar">
@@ -10,11 +10,12 @@ export default () => (
 			<img src="img/menu.svg" />
 			<MobileSidebar />
 		</label>
-		<MobileToobarBtn to={'/tick-trade'} img="img/trade.svg" />
-		<MobileToobarBtn to={`/watchlist-mobile`} img="img/watchlist.svg" />
-		<MobileToobarBtn to={'/portfolio-mobile'} img="img/portfolio.svg" />
-		<MobileToobarBtn to={`/video-mobile`} img="img/profit.svg" />
-		<MobileToobarBtn to={'/statement-mobile'} img="img/statement.svg" />
-		<MobileToobarBtn to={`/settings-mobile`} img="img/settings.svg" />
+		<MobileToolbarBtn to={'/mobile'} img="img/trade.svg" />
+		<MobileToolbarBtn to={`/watchlist-mobile`} img="img/watchlist.svg" />
+		<MobileToolbarBtn to={'/portfolio-mobile'} img="img/portfolio.svg" />
+		<MobileToolbarBtn to={'/statement-mobile'} img="img/statement.svg" />
+		<MobileToolbarBtn to={`/news-mobile`} img="img/news.svg" />
+		<MobileToolbarBtn to={`/resources-mobile`} img="img/resources.svg" />
+		<MobileToolbarBtn to={`/settings-mobile`} img="img/settings.svg" />
 	</div>
 );

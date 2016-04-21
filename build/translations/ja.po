@@ -7,10 +7,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2015-12-04 05:25+0000\n"
-"Last-Translator: Haruna Sekiya <hrnmyrn@gmail.com>\n"
-"Language-Team: Japanese <https://hosted.weblate.org/projects/binary/static/"
-"ja/>\n"
+"PO-Revision-Date: 2016-03-09 08:15+0000\n"
+"Last-Translator: Fumio Miyama <miyama@regentmarkets.com>\n"
+"Language-Team: Japanese <https://hosted.weblate.org/projects/binary-app/next-"
+"gen-app/ja/>\n"
 "Language: ja\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -22,10 +22,10 @@ msgid "All"
 msgstr "全て"
 
 msgid "Property"
-msgstr ""
+msgstr "プロパティ"
 
 msgid "Value"
-msgstr ""
+msgstr "値"
 
 msgid "Balance"
 msgstr "残高"
@@ -34,10 +34,10 @@ msgid "Trade"
 msgstr "トレード"
 
 msgid "Watchlist"
-msgstr ""
+msgstr "ウォッチリスト"
 
 msgid "Open Positions"
-msgstr ""
+msgstr "オープン ポジション"
 
 msgid "Profit Table"
 msgstr "取引詳細"
@@ -49,7 +49,7 @@ msgid "Settings"
 msgstr "各種設定"
 
 msgid "Sign Out"
-msgstr ""
+msgstr "サインアウト"
 
 msgid "View"
 msgstr "表示"
@@ -76,14 +76,13 @@ msgid "Sale Price"
 msgstr "決済価格"
 
 msgid "Profit/Loss"
-msgstr "利益/損益"
+msgstr "損益"
 
-#, fuzzy
 msgid "Total"
-msgstr "合計金額"
+msgstr "合計"
 
 msgid "Location"
-msgstr ""
+msgstr "場所"
 
 msgid "Update"
 msgstr "更新"
@@ -98,13 +97,13 @@ msgid "Item"
 msgstr "項目"
 
 msgid "Limit ({currency})"
-msgstr ""
+msgstr "限度 ({currency})"
 
 msgid "Maximum number of open positions"
 msgstr "保有可能なオープンポジションの総数"
 
 msgid "Maximum account cash balance"
-msgstr "ご口座上限金額"
+msgstr "口座上限金額"
 
 msgid "Maximum daily turnover"
 msgstr "１日あたりのトレード購入可能金額"
@@ -116,10 +115,10 @@ msgid "Withdrawal limits"
 msgstr "ご出金限度額"
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
-msgstr ""
+msgstr "引出限度額は {limit} (または他の通貨の相当額)。"
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
-msgstr ""
+msgstr "既にユーロの相当額 {drawn} を引き出しています。"
 
 msgid "An additional password can be used to restrict access to the cashier."
 msgstr ""
@@ -127,13 +126,13 @@ msgstr ""
 "ます。"
 
 msgid "Sign In"
-msgstr ""
+msgstr "サインイン"
 
 msgid "Get your API token"
-msgstr ""
+msgstr "API トークンを取得"
 
 msgid "Create Account"
-msgstr ""
+msgstr "口座を作成"
 
 msgid "Action"
 msgstr "売買"
@@ -148,10 +147,10 @@ msgid "Back"
 msgstr "戻る"
 
 msgid "Place Order"
-msgstr ""
+msgstr "注文する"
 
 msgid "{asset} will {type} over next {duration}"
-msgstr ""
+msgstr "{asset} は次の {duration} {type}"
 
 msgid "Price"
 msgstr "価格"
@@ -184,13 +183,13 @@ msgid "Open Account"
 msgstr "ご口座の開設"
 
 msgid "Upgrade to Real Money Account"
-msgstr ""
+msgstr "実際のお金の口座にアップグレード"
 
 msgid "Date of birth"
 msgstr "生年月日"
 
 msgid "Home Address"
-msgstr ""
+msgstr "自宅の住所"
 
 msgid "Security"
 msgstr "セキュリティ情報"
@@ -203,3 +202,150 @@ msgstr "変化値"
 
 msgid "Chart"
 msgstr "チャート"
+
+msgid "Purchase For"
+msgstr "XXXを購入する"
+
+msgid "Rise"
+msgstr "アップ"
+
+msgid "Stake"
+msgstr "Stake"
+
+msgid "Payout"
+msgstr "ペイアウト"
+
+msgid "Deposit"
+msgstr "ご入金"
+
+msgid "Transactions"
+msgstr "お取引"
+
+msgid "Opens"
+msgstr "オープン"
+
+msgid "Closes"
+msgstr "クローズ"
+
+msgid "Personal"
+msgstr "個人"
+
+msgid "General"
+msgstr "一般"
+
+msgid "Trading Times"
+msgstr "取引時間"
+
+msgid "Asset Index"
+msgstr "資産インデックス"
+
+msgid "Today"
+msgstr "今日"
+
+msgid "Yesterday"
+msgstr "昨日"
+
+msgid "Tomorrow"
+msgstr "明日"
+
+msgid "Takeout"
+msgstr "テイクアウト"
+
+msgid "News"
+msgstr "ニュース"
+
+msgid "Resources"
+msgstr "リソース"
+
+msgid "Last 7 Days"
+msgstr "直近7日間"
+
+msgid "Last 30 Days"
+msgstr "直近30日間"
+
+msgid "Daily Report"
+msgstr "デイリーレポート"
+
+msgid "Up/Down"
+msgstr "アップ/ダウン"
+
+msgid "Touch/No Touch"
+msgstr "タッチ/ノータッチ"
+
+msgid "Ends In/Out"
+msgstr "レンジ内/レンジ外"
+
+msgid "Stays In/Goes Out"
+msgstr "レンジ内/レンジ外に留まる"
+
+msgid "Settles"
+msgstr "約定時間"
+
+msgid "Language"
+msgstr "言語"
+
+msgid "Color Theme"
+msgstr "テーマカラー"
+
+msgid "Light"
+msgstr "ライト"
+
+msgid "Dark"
+msgstr "ダーク"
+
+msgid "Name"
+msgstr "名前"
+
+msgid "Date Of Birth"
+msgstr "生年月日"
+
+msgid "Country Of Residence"
+msgstr "居住国"
+
+msgid "Email"
+msgstr "Eメール"
+
+msgid "There are no transactions for selected period"
+msgstr "選択された期間のお取引はありません。"
+
+msgid "Sell"
+msgstr "転売"
+
+msgid "Buy"
+msgstr "購入"
+
+msgid "Digit Even"
+msgstr "数字も"
+
+msgid "Touches"
+msgstr "タッチ"
+
+msgid "Digit Over"
+msgstr "数字オーバー"
+
+msgid "Digit Match"
+msgstr "数字マッチ"
+
+msgid "Digit Under"
+msgstr "数字オーバー"
+
+msgid "Digit Odd"
+msgstr "奇数"
+
+msgid "Digit Differs"
+msgstr "数字アンマッチ"
+
+msgid "No Touch"
+msgstr "ノータッチ"
+
+msgid "Fall"
+msgstr "ダウン"
+
+msgid "Asian Down"
+msgstr "Asianダウン"
+
+msgid "Asian Up"
+msgstr "Asisnアップ"
+
+msgid "Search For Assets"
+msgstr "資産検索"
