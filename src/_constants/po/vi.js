@@ -2,8 +2,8 @@ export default {
     "": {
         "project-id-version": "I 18N",
         "pot-creation-date": "",
-        "po-revision-date": "2016-01-30 07:45+0000",
-        "last-translator": "Pham Minh Hieu <hphamv7@gmail.com>",
+        "po-revision-date": "2016-03-03 09:06+0000",
+        "last-translator": "Sittie Hadjirah Sevilla <sittiebaser@gmail.com>",
         "language-team": "Vietnamese <https://hosted.weblate.org/projects/binary-app/next-gen-app/vi/>",
         "language": "vi",
         "mime-version": "1.0",
@@ -214,11 +214,11 @@ export default {
     ],
     "Entry spot": [
         null,
-        "Giá giao ngay Đi vào"
+        "Giá tại thời điểm bắt đầu giao dịch"
     ],
     "Exit spot": [
         null,
-        "Giá giao ngay thoát ra"
+        "Giá tại thời điểm kết thúc giao dịch"
     ],
     "Next": [
         null,
@@ -246,7 +246,7 @@ export default {
     ],
     "Spot": [
         null,
-        "Giao ngay"
+        "Giá giao ngay"
     ],
     "Change": [
         null,
@@ -414,11 +414,11 @@ export default {
     ],
     "Digit Over": [
         null,
-        ""
+        "Số vượt quá"
     ],
     "Digit Match": [
         null,
-        ""
+        "Số phù hợp"
     ],
     "Digit Under": [
         null,

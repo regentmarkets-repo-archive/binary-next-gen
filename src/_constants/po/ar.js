@@ -2,7 +2,7 @@ export default {
     "": {
         "project-id-version": "1.0",
         "pot-creation-date": "",
-        "po-revision-date": "2016-01-29 07:42+0000",
+        "po-revision-date": "2016-02-08 20:40+0000",
         "last-translator": "Ehab Gubil <egubil@gmail.com>",
         "language-team": "Arabic <https://hosted.weblate.org/projects/binary-app/next-gen-app/ar/>",
         "language": "ar",

@@ -3,8 +3,8 @@ export default {
         "project-id-version": "BOM",
         "report-msgid-bugs-to": "",
         "pot-creation-date": "",
-        "po-revision-date": "2016-01-29 13:52+0000",
-        "last-translator": "Alina Demidova <alinademidova1@gmail.com>",
+        "po-revision-date": "2016-02-06 19:43+0000",
+        "last-translator": "Sittie Hadjirah Sevilla <sittiebaser@gmail.com>",
         "language-team": "Russian <https://hosted.weblate.org/projects/binary-app/next-gen-app/ru/>",
         "language": "ru",
         "mime-version": "1.0",
@@ -277,160 +277,180 @@ export default {
         null,
         "Пополнение"
     ],
+    "Transactions": [
+        null,
+        "Сделки"
+    ],
     "Opens": [
         null,
-        ""
+        "Открытие"
     ],
     "Closes": [
         null,
-        ""
+        "Закрытие"
     ],
     "Personal": [
         null,
-        ""
+        "Личные данные"
     ],
     "General": [
         null,
-        ""
+        "Общее"
+    ],
+    "Trading Times": [
+        null,
+        "Время торговли"
+    ],
+    "Asset Index": [
+        null,
+        "Индекс активов"
     ],
     "Today": [
         null,
-        ""
+        "Сегодня"
     ],
     "Yesterday": [
         null,
-        ""
+        "Вчера"
     ],
     "Tomorrow": [
         null,
-        ""
+        "Завтра"
     ],
     "Takeout": [
         null,
-        ""
+        "Выкуп"
     ],
     "News": [
         null,
-        ""
+        "Новости"
     ],
     "Resources": [
         null,
-        ""
+        "Ресурсы"
     ],
     "Last 7 Days": [
         null,
-        ""
+        "Последние 7 дней"
     ],
     "Last 30 Days": [
         null,
-        ""
+        "Последние 30 дней"
     ],
     "Daily Report": [
         null,
-        ""
+        "Анализ рынка"
     ],
     "Up/Down": [
         null,
-        ""
+        "Вверх/Вниз"
     ],
     "Touch/No Touch": [
         null,
-        ""
+        "Касание/Нет касания"
     ],
     "Ends In/Out": [
         null,
-        ""
+        "Закончится внутри/вне"
     ],
     "Stays In/Goes Out": [
         null,
-        ""
+        "Останется Внутри/Выйдет за пределы"
+    ],
+    "Settles": [
+        null,
+        "Заканчивается"
     ],
     "Language": [
         null,
-        ""
+        "Язык"
     ],
     "Color Theme": [
         null,
-        ""
+        "Цветовая схема"
     ],
     "Light": [
         null,
-        ""
+        "Светлый"
     ],
     "Dark": [
         null,
-        ""
+        "Тёмный"
     ],
     "Name": [
         null,
-        ""
+        "Имя"
+    ],
+    "Date Of Birth": [
+        null,
+        "Дата рождения"
     ],
     "Country Of Residence": [
         null,
-        ""
+        "Страна проживания"
     ],
     "Email": [
         null,
-        ""
+        "Email"
     ],
     "There are no transactions for selected period": [
         null,
-        ""
+        "Сделки за выбранный период отсутствуют"
     ],
     "Sell": [
         null,
-        ""
+        "Продать"
     ],
     "Buy": [
         null,
-        ""
+        "Купить"
     ],
     "Digit Even": [
         null,
-        ""
+        "Чётная цифра"
     ],
     "Touches": [
         null,
-        ""
+        "Коснется"
     ],
     "Digit Over": [
         null,
-        ""
+        "Цифра выше"
     ],
     "Digit Match": [
         null,
-        ""
+        "Совпадение цифр"
     ],
     "Digit Under": [
         null,
-        ""
+        "Цифра ниже"
     ],
     "Digit Odd": [
         null,
-        ""
+        "Нечётная цифра"
     ],
     "Digit Differs": [
         null,
-        ""
+        "Несовпадение цифр"
     ],
     "No Touch": [
         null,
-        ""
+        "Нет касания"
     ],
     "Fall": [
         null,
-        ""
+        "Падение"
     ],
     "Asian Down": [
         null,
-        ""
+        "Азиатские вниз"
     ],
     "Asian Up": [
         null,
-        ""
+        "Азиатские вверх"
     ],
     "Search For Assets": [
         null,
-        ""
+        "Поиск активов"
     ]
 }

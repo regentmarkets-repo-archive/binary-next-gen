@@ -2,8 +2,8 @@ export default {
     "": {
         "project-id-version": "1.0",
         "pot-creation-date": "",
-        "po-revision-date": "2016-01-28 12:29+0000",
-        "last-translator": "Ewelina Bruździak <e.bruzdziak@gmail.com>",
+        "po-revision-date": "2016-02-29 14:03+0000",
+        "last-translator": "Sittie Hadjirah Sevilla <sittiebaser@gmail.com>",
         "language-team": "Polish <https://hosted.weblate.org/projects/binary-app/next-gen-app/pl/>",
         "language": "pl",
         "mime-version": "1.0",
@@ -147,7 +147,7 @@ export default {
     ],
     "You have already withdrawn the equivalent of EUR {drawn}.": [
         null,
-        "Ekwiwalent {drawn} EUR został już wypłacony."
+        "Wypłacono już równowartość {drawn} EUR."
     ],
     "An additional password can be used to restrict access to the cashier.": [
         null,
@@ -187,7 +187,7 @@ export default {
     ],
     "{asset} will {type} over next {duration}": [
         null,
-        "{asset} {type} w przeciągu {duration}"
+        "{asset} zanotuje {type} w ciągu {duration}"
     ],
     "Price": [
         null,
@@ -215,7 +215,7 @@ export default {
     ],
     "Entry spot": [
         null,
-        "Punkt wejściowa"
+        "Pozycja wejściowa"
     ],
     "Exit spot": [
         null,
@@ -231,7 +231,7 @@ export default {
     ],
     "Upgrade to Real Money Account": [
         null,
-        "Zaktualizuj do konta z prawdziwymi pieniędzmi"
+        "Zamień na konto z prawdziwymi pieniędzmi"
     ],
     "Date of birth": [
         null,
@@ -239,7 +239,7 @@ export default {
     ],
     "Home Address": [
         null,
-        "Adres domowy"
+        "Adres zamieszkania"
     ],
     "Security": [
         null,
@@ -319,7 +319,7 @@ export default {
     ],
     "Takeout": [
         null,
-        ""
+        "Wypłata"
     ],
     "News": [
         null,
@@ -339,7 +339,7 @@ export default {
     ],
     "Daily Report": [
         null,
-        "Raport codzienny"
+        "Raport dzienny"
     ],
     "Up/Down": [
         null,
@@ -356,6 +356,10 @@ export default {
     "Stays In/Goes Out": [
         null,
         "Pozostanie w/poza"
+    ],
+    "Settles": [
+        null,
+        "Rozliczenia"
     ],
     "Language": [
         null,
@@ -411,7 +415,7 @@ export default {
     ],
     "Digit Over": [
         null,
-        ""
+        "Cyfra większa"
     ],
     "Digit Match": [
         null,
@@ -419,7 +423,7 @@ export default {
     ],
     "Digit Under": [
         null,
-        ""
+        "Cyfra mniejsza"
     ],
     "Digit Odd": [
         null,
