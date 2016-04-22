@@ -18,8 +18,8 @@ export default class FlexList extends Component {
         const combinedClassName = classNames('flex-list', orientation, className);
         return (
             <div id={id} className={combinedClassName}>
-                {
-                    React.Children.map(children, ch => <span className="flex-list-item">{ch}</span>)
+                {React.Children.map(children, child =>
+                    <span className="flex-list-item">{child}</span>)
                 }
             </div>
         );
