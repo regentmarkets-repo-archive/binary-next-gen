@@ -10,17 +10,6 @@ export default class SettingsSelfExclusion extends Component {
 		actions: PropTypes.object.isRequired,
 	};
 
-	static handleUpdateError(response) {
-		if (response.code === 'InputValidationFailed') {	// again evil code duplication
-			let errorDetails;
-			for (const k in response.details) {
-				if (response.details.hasOwnProperty(k)) {
-					errorDetails = errorDetails + `\n${k} ${response.details[k]}`;
-				}
-			}
-		}
-	}
-
 	onSelfExclusionChange(event) {
 		const key = event.target.id;		// code duplication, should be refactored into some mixin
 		const val = event.target.value;

@@ -30,7 +30,8 @@ export default class AssetPickerItem extends Component {
 		});
 
 		return (
-			<tr tabIndex={0}
+			<tr
+				tabIndex={0}
 				className={classes}
 				onClick={(ev) => {
 					onSelect(symbol);
@@ -38,7 +39,8 @@ export default class AssetPickerItem extends Component {
 					ev.stopPropagation();
 				}}
 			>
-				<td onClick={(ev) => {
+				<td
+					onClick={(ev) => {
 					onToggleWatchlistItem(asset);
 					ev.stopPropagation();
 				}}

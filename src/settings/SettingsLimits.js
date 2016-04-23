@@ -58,12 +58,14 @@ export default class SettingsLimits extends Component {
 					<M m="Withdrawal limits" />
 				</h2>
 				<p>
-					<M m="Your withdrawal limit is {limit} (or equivalent in other currency)."
+					<M
+						m="Your withdrawal limit is {limit} (or equivalent in other currency)."
 						values={{ limit: <b>EUR <NumberPlain value={settings.lifetime_limit} digits={0} /></b> }}
 					/>
 				</p>
 				<p>
-					<M m="You have already withdrawn the equivalent of EUR {drawn}."
+					<M
+						m="You have already withdrawn the equivalent of EUR {drawn}."
 						values={{ drawn: <NumberPlain value={settings.withdrawal_for_x_days_monetary} digits={0} /> }}
 					/>
 				</p>

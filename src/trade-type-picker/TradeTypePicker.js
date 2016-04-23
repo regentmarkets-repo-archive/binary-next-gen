@@ -79,9 +79,9 @@ export default class TradeTypePicker extends Component {
         return (
             <div className="trade-type-picker">
                 <TabList activeIndex={tradeGroup} onChange={::this.changeGroup}>
-                    { hasBasic(contract) && <Tab text="Basic" />}
-                    { hasDigits(contract) && <Tab text="Digits" />}
-                    { hasAdvanced(contract) && <Tab text="Advanced" />}
+                    {hasBasic(contract) && <Tab text="Basic" />}
+                    {hasDigits(contract) && <Tab text="Digits" />}
+                    {hasAdvanced(contract) && <Tab text="Advanced" />}
                 </TabList>
                 <TabList
                     id="type-category-picker"

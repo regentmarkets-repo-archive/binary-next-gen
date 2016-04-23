@@ -42,6 +42,7 @@
     "no-nested-ternary": 2,
 
     "jsx-quotes": [2, "prefer-double"],
+    "react/jsx-indent": [0, "tab"],
     "react/jsx-indent-props": [0, "tab"],
     "react/jsx-no-undef": 2,
     "react/no-multi-comp": 0,

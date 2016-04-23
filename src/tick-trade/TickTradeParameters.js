@@ -31,7 +31,8 @@ export default class TickTradeParameters extends Component {
                             <M m="Asset" />
                         </label>
                         <br />
-                        <Link className="btn-secondary"
+                        <Link
+                            className="btn-secondary"
                             to={{
                                 pathname: `/asset-picker/${index}`,
                                 query: { type: 'tick' },

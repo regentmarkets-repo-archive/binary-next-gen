@@ -23,7 +23,8 @@ export default class WatchlistRow extends Component {
 		const { symbol, assetName, diff, history, quote, selected, onSelect } = this.props;
 
 		return (
-			<tr tabIndex={0}
+			<tr
+				tabIndex={0}
 				className={selected ? 'selected' : null}
 				onClick={() => onSelect(symbol)}
 			>

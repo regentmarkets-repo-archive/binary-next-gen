@@ -17,7 +17,7 @@ export default class WebHeader extends Component {
 				<button
 					className="btn-secondary"
 					style={{ margin: '0.5rem' }}
-					onClick={() => document.getElementById('root').webkitRequestFullScreen() }
+					onClick={() => document.getElementById('root').webkitRequestFullScreen()}
 				>
 					Full Screen
 				</button>

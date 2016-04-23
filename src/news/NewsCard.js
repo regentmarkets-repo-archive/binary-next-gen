@@ -22,7 +22,7 @@ export default class NewsCard extends Component {
                         key={'article' + idx}
                         {...article}
                         onClick={() => router.push(`/article/${idx}`)}
-                        link = {'/article/' + idx}
+                        link={'/article/' + idx}
                     />
                 )}
             </div>

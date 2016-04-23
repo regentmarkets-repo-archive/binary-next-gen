@@ -19,7 +19,9 @@ export default class PaymentAgentsList extends Component {
                     </tr>
                 </thead>
                 <tbody>
-                    { paymentAgents.map(pa => <PaymentAgentsItem key={pa.name} paymentAgent={pa} />) }
+                    {paymentAgents.map(pa =>
+                        <PaymentAgentsItem key={pa.name} paymentAgent={pa} />
+                    )}
                 </tbody>
             </table>
         );

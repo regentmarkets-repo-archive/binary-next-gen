@@ -48,11 +48,11 @@ export const assetsIsOpenSelector = createSelector(
     assets => {
         const assetsIsOpen = assets.map(a => ({ symbol: a.get('symbol'), isOpen: !!a.get('exchange_is_open') }));
         const assetsIsOpenObject = groupByKey(assetsIsOpen.toJS(), 'symbol');
-        for (let symbol in assetsIsOpenObject) {
+        Object.keys(assetsIsOpenObject).forEach(symbol => {
             if (assetsIsOpenObject[symbol]) {
                 assetsIsOpenObject[symbol] = assetsIsOpenObject[symbol][0];
             }
-        }
+        });
         return assetsIsOpenObject;
     }
 );

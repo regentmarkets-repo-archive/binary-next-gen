@@ -20,7 +20,8 @@ export default class RadioItem extends Component {
 		const { checked, defaultChecked, img, label, name, onChange, value } = this.props;
 		return (
 			<span className="radio-item">
-				<input id={value}
+				<input
+					id={value}
 					checked={checked}
 					type="radio"
 					name={name}

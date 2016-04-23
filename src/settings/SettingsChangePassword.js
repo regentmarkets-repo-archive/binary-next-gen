@@ -92,7 +92,7 @@ export default class SettingsChangePassword extends React.Component {
                                 shown={validatedOnce && !!errorMessage}
                                 text={errorMessage}
                             />
-                            { validatedOnce && successMessage ?
+                            {validatedOnce && successMessage ?
                             <p className="successMessage">
                                     <M m={successMessage} />
                             </p> :

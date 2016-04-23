@@ -27,15 +27,13 @@ export default class SettingsAddress extends Component {
 		settings: PropTypes.object.isRequired,
 	};
 
-	static handleUpdateError(response) {
-		if (response.code === 'InputValidationFailed') {
-			let errorDetails;
-			for (const key in response.details) {
-				if (response.details[key]) {
-					errorDetails = errorDetails + `\n${key} ${response.details[key]}`;
-				}
-			}
-		}
+	static handleUpdateError() {
+		// if (response.code === 'InputValidationFailed') {
+		// 	const errorDetails = Object.keys(response.details)
+		// 		.filter(key => response.details[key])
+		// 		.map(key => `${key} ${response.details[key]}`)
+		// 		.join('\n');
+		// }
 	}
 
 	onAddressChange(event) {

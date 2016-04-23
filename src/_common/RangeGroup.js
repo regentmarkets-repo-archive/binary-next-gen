@@ -31,7 +31,7 @@ export default class RangeGroup extends Component {
 					step={step}
 				/>
 				<div className="range-selector-items">
-					{ items.map(i => <label key={i}>{i}</label>) }
+					{items.map(i => <label key={i}>{i}</label>)}
 				</div>
 				{hint && <p className="hint">{hint}</p>}
 			</div>

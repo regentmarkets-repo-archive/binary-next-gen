@@ -75,7 +75,7 @@ export default class UpgradeCard extends Component {
 					<LogoSpinner spinning={progress} />
 				</p>
 				<h3><M m="Upgrade to Real Money Account" /></h3>
-				{ steps[activeStep] }
+				{steps[activeStep]}
 			</div>
 		);
 	}
