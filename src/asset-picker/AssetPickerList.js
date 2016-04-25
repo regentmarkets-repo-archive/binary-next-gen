@@ -10,6 +10,11 @@ export default class AssetPickerList extends Component {
 		selectedAsset: PropTypes.string,
 	};
 
+	componentDidMount() {
+		const { assets } = this.props;
+		Object.keys(assets).forEach(name => this.refs[name].focusSelectedAsset());
+	}
+
 	render() {
 		const { assets } = this.props;
 
@@ -22,6 +27,7 @@ export default class AssetPickerList extends Component {
 								{...this.props}
 								key={submarketName}
 								assetsInSubmarket={assets[submarketName]}
+								ref={submarketName}
 							/>
 						)
 				}
