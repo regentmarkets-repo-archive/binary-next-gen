@@ -5,7 +5,7 @@ import PurchaseFailed from '../_common/PurchaseFailed';
 import Modal from '../containers/Modal';
 import FullTradeParams from '../trade-params/FullTradeParams';
 import BoughtContractCard from './BoughtContractCard';
-import findIfExist from 'binary-utils/lib/findIfExist';
+import findDeep from 'binary-utils/lib/findDeep';
 import { mockedContract } from './../_constants/MockContract';
 import { internalTradeModelToServerTradeModel } from './adapters/TradeObjectAdapter';
 
@@ -35,7 +35,7 @@ export default class FullTradeCard extends Component {
 
         const contract = this.props.contract || mockedContract;
 
-        const contractAllowStartLater = findIfExist(contract, child => child && !!child.forwardStartingDuration);
+        const contractAllowStartLater = findDeep(contract, child => child && !!child.forwardStartingDuration);
 
         const disabled =
             contract === mockedContract ||

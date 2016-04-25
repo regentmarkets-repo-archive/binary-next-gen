@@ -1,6 +1,6 @@
 import * as types from '../_constants/ActionTypes';
 import * as LiveData from '../_data/LiveData';
-import nowAsEpoch from 'binary-utils/lib/date/nowAsEpoch';
+import nowAsEpoch from 'binary-utils/lib/nowAsEpoch';
 import { sellExpiredContract } from './TradeActions';
 import { getTicksBySymbol } from './TickActions';
 

@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
-import dateToDateString from 'binary-utils/lib/date/dateToDateString';
-import todayLocaleString from 'binary-utils/lib/date/todayLocaleString';
-import oneYearAfterStr from 'binary-utils/lib/date/oneYearAfterStr';
+import dateToDateString from 'binary-utils/lib/dateToDateString';
+import todayLocaleString from 'binary-utils/lib/todayLocaleString';
+import oneYearAfterStr from 'binary-utils/lib/oneYearAfterStr';
 import InputGroup from '../_common/InputGroup';
 import MarketPickerContainer from '../_common/MarketPickerContainer';
 import TradingTimesTable from './TradingTimesTable';

@@ -50,7 +50,7 @@
   "dependencies": {
     "binary-charts": "*",
     "binary-live-api": "*",
-    "binary-utils": "^1.8.0",
+    "binary-utils": "^2.0.1",
     "classnames": "^2.2.4",
     "history": "^2.1.0",
     "immutable": "^3.8.1",
