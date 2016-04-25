@@ -1,5 +1,4 @@
 import React, { PropTypes, Component } from 'react';
-import { findDOMNode } from 'react-dom';
 import WatchlistTableHeader from './WatchlistTableHeader';
 import WatchlistRow from './WatchlistRow';
 
@@ -11,11 +10,6 @@ export default class WatchlistTable extends Component {
 		watchlistView: PropTypes.array.isRequired,
 		selectedAsset: PropTypes.string.isRequired,
 	};
-
-	componentDidMount() {
-		const focusedNode = findDOMNode(this.refs.focused);
-		if (focusedNode) focusedNode.focus();
-    }
 
 	onSelect(newAsset) {
 		const { actions, activeTradeIdx } = this.props;
@@ -37,7 +31,6 @@ export default class WatchlistTable extends Component {
 							key={x.symbol}
 							{...x}
 							selected={selectedAsset === x.symbol}
-							ref={selectedAsset === x.symbol ? 'focused' : null}
 							onSelect={::this.onSelect}
 						/>
 					)}

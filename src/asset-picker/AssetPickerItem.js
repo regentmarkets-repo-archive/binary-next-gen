@@ -32,7 +32,6 @@ export default class AssetPickerItem extends Component {
 		return (
 			<tbody>
 				<tr
-					tabIndex={0}
 					className={classes}
 					onClick={(ev) => {
 						onSelect(symbol);

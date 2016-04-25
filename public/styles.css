@@ -250,10 +250,6 @@ nav.sidebar {
     width: 100%;
 }
 
-.asset-search {
-    margin-bottom: 0;
-}
-
 .mobile-toolbar {
     color: white;
     background: #2a3052;
@@ -499,7 +495,7 @@ select {
     overflow: scroll;
 }
 
-tr[tabindex] {
+.asset-list tr {
     cursor: pointer;
 }
 

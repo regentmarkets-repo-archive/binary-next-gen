@@ -24,8 +24,6 @@ export default class WatchlistRow extends Component {
 
 		return (
 			<tr
-				tabIndex={0}
-				className={selected ? 'selected' : null}
 				onClick={() => onSelect(symbol)}
 			>
 				<td className="row-id">{assetName}</td>
