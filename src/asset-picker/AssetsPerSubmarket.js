@@ -9,7 +9,7 @@ export default class AssetsPerSubmarket extends Component {
         selectedAsset: PropTypes.string.isRequired,
     };
 
-    componentDidMount() {
+    focusSelectedAsset() {
         const focusedNode = findDOMNode(this.refs.focused);
         if (focusedNode) focusedNode.focus();
     }

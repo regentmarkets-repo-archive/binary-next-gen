@@ -489,6 +489,11 @@ select {
     min-height: 5rem;
 }
 
+#asset-picker-container {
+    width: 85vw;
+    height: 80vh;
+}
+
 .asset-list {
     height: 70vh;
     overflow: scroll;
