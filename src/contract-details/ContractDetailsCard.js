@@ -11,12 +11,13 @@ export default class ContractDetailsCard extends Component {
 	static propTypes = {
 		contract: PropTypes.object.isRequired,
 		nowEpoch: PropTypes.number,
+		className: PropTypes.string,
 		transactionId: PropTypes.number,
 		actions: PropTypes.object,
 	};
 
 	render() {
-		const { contract, actions } = this.props;
+		const { contract, actions, className } = this.props;
 		const sold = !!contract.sell_price;
 		const workAroundForBackendBugIsDigitTrade = contract.shortcode && contract.shortcode.includes('DIGIT');
 		const validToSell = contract.is_valid_to_sell === 1 && !contract.is_expired;
@@ -24,7 +25,7 @@ export default class ContractDetailsCard extends Component {
 		const potentialProfit = toMoney(contract.payout - contract.buy_price);
 		const profit = sold && toMoney(contract.sell_price - contract.buy_price);
 		return (
-			<div>
+			<div className={className}>
 				<FlexList>
 					<KVColumn label="Entry Price" value={contract.buy_price || '-'} currency={contract.currency} />
 					<KVColumn
