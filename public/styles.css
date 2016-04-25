@@ -1170,3 +1170,7 @@ input[type=number]::-webkit-outer-spin-button {
     line-height: 1.4;
     border: 1px solid rgba(42,48,82,0.1);
 }
+
+.trade-panel-receipt {
+    width: 200px;
+}
