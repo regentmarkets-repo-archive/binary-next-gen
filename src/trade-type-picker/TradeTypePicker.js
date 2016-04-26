@@ -42,6 +42,16 @@ const findCategoryForType = (contract, type) => {
     }
 };
 
+const pairUpTypes = types => {
+    const paired = [];
+    types.forEach((t, idx) => {
+        if (idx % 2 === 0) {
+            paired.push([t, types[idx + 1]]);
+        }
+    });
+    return paired;
+};
+
 export default class TradeTypePicker extends Component {
     constructor(props) {
         super(props);
@@ -89,13 +99,14 @@ export default class TradeTypePicker extends Component {
     render() {
         const { contract, selectedCategory, selectedType } = this.props;
         const { tradeGroup } = this.state;
+        // type come in pairs logically
         const types = typesForCategories(contract, tradeGrouping[tradeGroup])
             .map(type => ({ text: type, value: type }));
         const internalSelectedType = serverToInternalTradeType(selectedCategory, selectedType);
         const selectedTypeIndex = types.findIndex(x => x.value === internalSelectedType);
-
+        const typePairs = pairUpTypes(types);
         return (
-            <div className="trade-type-picker">
+            <div id="trade-type-picker">
                 <TabList activeIndex={tradeGroup} onChange={::this.changeGroup}>
                     {hasBasic(contract) && <Tab text="Basic" />}
                     {hasDigits(contract) && <Tab text="Digits" />}
@@ -106,7 +117,7 @@ export default class TradeTypePicker extends Component {
                     activeIndex={selectedTypeIndex}
                     onChange={idx => this.changeType(types[idx].value)}
                 >
-                    {types.map((x, idx) =>
+                    {typePairs.map((x, idx) =>
                         <Tab key={idx} text={x.text} imgSrc={`img/trade-${x.value.toLowerCase()}.svg`} />
                     )}
                 </TabList>

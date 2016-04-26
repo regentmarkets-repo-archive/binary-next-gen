@@ -24,7 +24,7 @@ export default class AssetPickerDropDown extends Component {
         const { actions, index, selectedSymbol, selectedSymbolName } = this.props;
         const { show } = this.state;
         return (
-            <div className="asset-picker-">
+            <div>
                 <DropDown
                     shown={show}
                     onClose={() => this.setState({ show: false })}
