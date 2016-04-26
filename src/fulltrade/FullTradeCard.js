@@ -60,6 +60,7 @@ export default class FullTradeCard extends Component {
                         symbol={selectedSymbol}
                         ticks={ticks}
                         trade={tradeRequiredByChart}
+                        pipSize={trade.pipSize}
                     />
                 </div>
                 {lastBoughtContract ?

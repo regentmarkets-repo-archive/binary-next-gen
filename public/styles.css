@@ -814,6 +814,7 @@ input[type=number]::-webkit-outer-spin-button {
 #type-pairs .type-pair {
     flex: 1 1 auto;
     display: flex;
+    cursor: pointer;
 }
 
 #type-pairs .type-pair * {
