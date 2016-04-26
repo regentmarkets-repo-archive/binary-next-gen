@@ -198,6 +198,12 @@ export const updatePriceProposalSubscription = (tradeID, trade) => {
     return thunk;
 };
 
+// Kinda hack to solve problem when user change language
+export const resubscribeAllPriceProposal = () =>
+    (dispatch, getState) => {
+        const allTrades = getState().trades.keySeq();
+        allTrades.forEach(tradeId => dispatch(updatePriceProposalSubscription(tradeId)));
+    };
 
 export const purchaseByTradeId = (tradeID, trade) =>
     (dispatch, getState) => {
