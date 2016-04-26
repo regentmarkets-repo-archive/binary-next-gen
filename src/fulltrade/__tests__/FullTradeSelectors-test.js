@@ -1,9 +1,9 @@
 import { fromJS, Map } from 'immutable';
 import { expect } from 'chai';
 import * as FullTradeSelectors from '../FullTradeSelectors';
-import assetsFromServer from 'binary-utils/tests/test-data/assets';
-import contractsForR50 from 'binary-utils/tests/test-data/contractsForR50';
-import contractsForGDAXI from 'binary-utils/tests/test-data/contractsForGDAXI';
+import assetsFromServer from 'binary-utils/test-data/assets';
+import contractsForR50 from 'binary-utils/test-data/contractsForR50';
+import contractsForGDAXI from 'binary-utils/test-data/contractsForGDAXI';
 
 describe('assetsIsOpenSelector', () => {
     const assetsIsOpen = FullTradeSelectors.assetsIsOpenSelector({ assets: fromJS(assetsFromServer) });
