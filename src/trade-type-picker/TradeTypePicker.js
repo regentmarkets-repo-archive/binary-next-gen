@@ -11,20 +11,14 @@ const tradeGrouping = [
     ['spreads', 'asian'],
 ];
 
-const hasBasic = contract => {
-    const idx = Object.keys(contract).findIndex(c => tradeGrouping[0].includes(c));
-    return idx !== -1;
-};
+const hasBasic = contract =>
+    Object.keys(contract).find(c => tradeGrouping[0].includes(c));
 
-const hasDigits = contract => {
-    const idx = Object.keys(contract).findIndex(c => tradeGrouping[1].includes(c));
-    return idx !== -1;
-};
+const hasDigits = contract =>
+    Object.keys(contract).find(c => tradeGrouping[1].includes(c));
 
-const hasAdvanced = contract => {
-    const idx = Object.keys(contract).findIndex(c => tradeGrouping[2].includes(c));
-    return idx !== -1;
-};
+const hasAdvanced = contract =>
+    Object.keys(contract).find(c => tradeGrouping[2].includes(c));
 
 const typesForCategory = (contract, category) =>
     Object.keys(contract[category]).map(type => serverToInternalTradeType(category, type));
@@ -112,17 +106,17 @@ export default class TradeTypePicker extends Component {
                     {hasAdvanced(contract) && <Tab text="Advanced" />}
                 </TabList>
                 <div id="type-pairs">
-                    {typePairs.map((x, idx) =>
+                    {typePairs.map(x =>
                         <div className="type-pair">
                             <Tab
-                                key={`${idx}0`}
+                                key={x[0].text}
                                 text={x[0].text}
                                 imgSrc={`img/trade-${x[0].value.toLowerCase()}.svg`}
                                 selected={internalSelectedType === x[0].value}
                                 onClick={() => this.changeType(x[0].value)}
                             />
                             <Tab
-                                key={`${idx}1`}
+                                key={x[1].text}
                                 text={x[1].text}
                                 imgSrc={`img/trade-${x[1].value.toLowerCase()}.svg`}
                                 selected={internalSelectedType === x[1].value}

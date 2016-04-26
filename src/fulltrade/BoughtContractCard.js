@@ -17,7 +17,7 @@ export default class BoughtContractCard extends Component {
             <div>
                 <ContractDetailsCard className="trade-panel-receipt" actions={actions} contract={boughtContract} />
                 <Button
-                    text="Go back"
+                    text="Trade Again"
                     onClick={() => actions.updateTradeParams(tradeId, 'mostRecentContractId', undefined)}
                 />
             </div>
