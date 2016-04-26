@@ -112,15 +112,24 @@ export default class TradeTypePicker extends Component {
                     {hasDigits(contract) && <Tab text="Digits" />}
                     {hasAdvanced(contract) && <Tab text="Advanced" />}
                 </TabList>
-                <TabList
-                    id="type-picker"
-                    activeIndex={selectedTypeIndex}
-                    onChange={idx => this.changeType(types[idx].value)}
-                >
-                    {typePairs.map((x, idx) =>
-                        <Tab key={idx} text={x.text} imgSrc={`img/trade-${x.value.toLowerCase()}.svg`} />
-                    )}
-                </TabList>
+                {typePairs.map((x, idx) =>
+                    <div>
+                        <Tab
+                            key={`${idx}0`}
+                            text={x[0].text}
+                            imgSrc={`img/trade-${x[0].value.toLowerCase()}.svg`}
+                            showIcon
+                            onClick={() => this.changeType(x[0].value)}
+                        />
+                        <Tab
+                            key={`${idx}1`}
+                            text={x[1].text}
+                            imgSrc={`img/trade-${x[1].value.toLowerCase()}.svg`}
+                            showIcon
+                            onClick={() => this.changeType(x[1].value)}
+                        />
+                    </div>
+                )}
             </div>
         );
     }

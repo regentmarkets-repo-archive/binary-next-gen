@@ -1,7 +1,7 @@
 import { fromJS, Map } from 'immutable';
 import { expect } from 'chai';
 import singleTradeSelectors from '../singleTradeSelectors';
-import contractsForR50 from 'binary-utils/tests/test-data/contractsForR50';
+import contractsForR50 from 'binary-utils/test-data/contractsForR50';
 
 describe('singleTradeSelectors', () => {
     const emptyState = () => ({
