@@ -20,7 +20,7 @@ export default class WatchlistRow extends Component {
 	};
 
 	render() {
-		const { symbol, assetName, diff, history, quote, selected, onSelect } = this.props;
+		const { symbol, assetName, diff, history, quote, onSelect } = this.props;
 
 		return (
 			<tr
