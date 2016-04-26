@@ -101,9 +101,8 @@ export default class TradeTypePicker extends Component {
         const { tradeGroup } = this.state;
         // type come in pairs logically
         const types = typesForCategories(contract, tradeGrouping[tradeGroup])
-            .map(type => ({ text: type, value: type }));
+            .map(type => ({ text: tradeTypeCodeToText(type), value: type }));
         const internalSelectedType = serverToInternalTradeType(selectedCategory, selectedType);
-        const selectedTypeIndex = types.findIndex(x => x.value === internalSelectedType);
         const typePairs = pairUpTypes(types);
         return (
             <div id="trade-type-picker">
@@ -112,24 +111,26 @@ export default class TradeTypePicker extends Component {
                     {hasDigits(contract) && <Tab text="Digits" />}
                     {hasAdvanced(contract) && <Tab text="Advanced" />}
                 </TabList>
-                {typePairs.map((x, idx) =>
-                    <div>
-                        <Tab
-                            key={`${idx}0`}
-                            text={x[0].text}
-                            imgSrc={`img/trade-${x[0].value.toLowerCase()}.svg`}
-                            showIcon
-                            onClick={() => this.changeType(x[0].value)}
-                        />
-                        <Tab
-                            key={`${idx}1`}
-                            text={x[1].text}
-                            imgSrc={`img/trade-${x[1].value.toLowerCase()}.svg`}
-                            showIcon
-                            onClick={() => this.changeType(x[1].value)}
-                        />
-                    </div>
-                )}
+                <div id="type-pairs">
+                    {typePairs.map((x, idx) =>
+                        <div className="type-pair">
+                            <Tab
+                                key={`${idx}0`}
+                                text={x[0].text}
+                                imgSrc={`img/trade-${x[0].value.toLowerCase()}.svg`}
+                                selected={internalSelectedType === x[0].value}
+                                onClick={() => this.changeType(x[0].value)}
+                            />
+                            <Tab
+                                key={`${idx}1`}
+                                text={x[1].text}
+                                imgSrc={`img/trade-${x[1].value.toLowerCase()}.svg`}
+                                selected={internalSelectedType === x[1].value}
+                                onClick={() => this.changeType(x[1].value)}
+                            />
+                        </div>
+                    )}
+                </div>
             </div>
         );
     }
