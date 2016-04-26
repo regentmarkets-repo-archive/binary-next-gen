@@ -1,5 +1,4 @@
 import React, { PropTypes, Component } from 'react';
-import { findDOMNode } from 'react-dom';
 import MarketPickerContainer from '../_common/MarketPickerContainer';
 import InputGroup from '../_common/InputGroup';
 
