@@ -3,7 +3,7 @@ import WebHeader from './WebHeader';
 import Footer from './Footer';
 import WorkspaceContainer from '../workspace/WorkspaceContainer';
 
-export default class WewbCard extends Component {
+export default class WebCard extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,

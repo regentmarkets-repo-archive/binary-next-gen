@@ -130,6 +130,7 @@ export const updateMultipleTradeParams = (index, params) => {
 
 export const updatePriceProposalSubscription = (tradeID, trade) => {
     const thunk = (dispatch, getState) => {
+        dispatch(updateTradeParams(tradeID, 'disabled', true));
         const tradeObj = trade || getState().trades.get(tradeID).toJS();
         const currency = getState().account.get('currency');
         const {
@@ -185,7 +186,7 @@ export const updatePriceProposalSubscription = (tradeID, trade) => {
                 dispatch(updateTradeParams(tradeID, 'proposalError', err));
                 dispatch(updateTradeParams(tradeID, 'proposal', undefined));
             }
-        );
+        ).then(() => dispatch(updateTradeParams(tradeID, 'disabled', false)));
     };
 
     thunk.meta = {
@@ -198,6 +199,12 @@ export const updatePriceProposalSubscription = (tradeID, trade) => {
     return thunk;
 };
 
+// Kinda hack to solve problem when user change language
+export const resubscribeAllPriceProposal = () =>
+    (dispatch, getState) => {
+        const allTrades = getState().trades.keySeq();
+        allTrades.forEach(tradeId => dispatch(updatePriceProposalSubscription(tradeId)));
+    };
 
 export const purchaseByTradeId = (tradeID, trade) =>
     (dispatch, getState) => {

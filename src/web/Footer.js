@@ -3,7 +3,7 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 import ClockContainer from './ClockContainer';
 import LanguagePicker from '../_common/LanguagePicker';
 
-export default class WebHeader extends Component {
+export default class Footer extends Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
@@ -24,7 +24,7 @@ export default class WebHeader extends Component {
 				<div id="clock" >
 					<ClockContainer />
 				</div>
-				<LanguagePicker className="language-picker" />
+				<LanguagePicker {...this.props} className="language-picker" />
 			</div>
 		);
 	}

@@ -93,11 +93,6 @@ export default class FullTradeParams extends Component {
         this.onPurchase = ::this.onPurchase;
     }
 
-    /**
-     * There will be an instant where tradeCategory is wrong,
-     * we should not rerender until the correct tradeCategory value is in place
-     */
-
     componentWillMount() {
         this.onAssetChange();
     }
