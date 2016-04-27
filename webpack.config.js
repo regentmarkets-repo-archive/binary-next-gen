@@ -1,29 +1,39 @@
 const path = require('path');
 const webpack = require('webpack');
+const WebpackNotifierPlugin = require('webpack-notifier');
+
+const env = process.env.NODE_ENV;
 
 module.exports = {
-    devtool: 'eval',
-    entry: [
-        './src',
-    ],
+    devtool: env === 'production' ? 'source-map' : 'eval',
+    entry: [ './src' ],
     output: {
-        path: path.join(__dirname, 'public'),
+        path: path.join(__dirname, 'dist'),
         filename: 'app.js',
-        publicPath: 'public/',
+        publicPath: '/',
     },
-    plugins: [
+    plugins: env === 'production' ? [
+        new webpack.DefinePlugin({
+            'process.env': {
+                NODE_ENV: JSON.stringify('production'),
+            },
+        }),
+        new webpack.optimize.DedupePlugin(),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                // dead_code: true,
+            },
+        }),
+    ] : [
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
+        new WebpackNotifierPlugin({ title: 'Next-gen Build' }),
     ],
     module: {
-        loaders: [{
-            test: /\.js$/,
-            loader: 'babel-loader',
-            include: path.join(__dirname, 'src'),
-        }, {
-            test: /\.js$/,
-            loader: 'eslint-loader',
-            include: path.join(__dirname, 'src'),
-        }],
+        loaders: [
+            { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
+            { test: /\.js$/, exclude: /node_modules/, loader: 'eslint' },
+            { test: /\.css$/, exclude: /node_modules/, loader: 'style!css?modules' },
+        ],
     },
 };

@@ -1,6 +1,8 @@
 import React, { PropTypes, Component } from 'react';
+import classNames from 'classnames';
 import windowResizeEvent from 'binary-utils/lib/windowResizeEvent';
 import FullTradeCard from '../fulltrade/FullTradeCard';
+import styles from '../layouts.css';
 
 export default class TradesLayouts extends Component {
 
@@ -26,9 +28,13 @@ export default class TradesLayouts extends Component {
 
     render() {
         const { actions, assetsIsOpen, currency, layoutN, trades, ticksForAllSymbols, contracts } = this.props;
+        const classes = classNames({
+            [styles.trades]: true,
+            [styles[`layout-${trades.length}-${layoutN}`]]: true,
+        });
 
         return (
-            <div className={`trades layout-${trades.length}-${layoutN}`}>
+            <div className={classes}>
                 {trades.map((trade, index) =>
                     <FullTradeCard
                         key={index}

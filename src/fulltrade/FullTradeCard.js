@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { BinaryChart } from 'binary-charts';
+// const BinaryChart = (props) => <div {...props} style={{ background: 'grey' }} />;
 import PurchaseFailed from '../_common/PurchaseFailed';
 import Modal from '../containers/Modal';
 import FullTradeParams from '../trade-params/FullTradeParams';
