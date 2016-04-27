@@ -488,12 +488,12 @@ select {
 
 #asset-picker-container {
     padding: .5rem;
-    width: 85vw;
+    width: 20vw;
+    min-width: 12rem;
     height: 80vh;
 }
 
 .asset-list {
-    height: 70vh;
     overflow: scroll;
 }
 
