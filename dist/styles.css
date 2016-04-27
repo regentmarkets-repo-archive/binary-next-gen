@@ -1,0 +1,1550 @@
+body {
+    height: 100%;
+}
+
+#screen {
+    font-size: 12px;
+}
+
+/* Web Layout */
+
+#root, #screen {
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
+#panels {
+    flex: 1;
+    display: flex;
+    max-height: calc(100% - 6rem);
+}
+
+#mid-panel {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+}
+
+#screen {
+    flex-direction: column;
+}
+
+#header {
+    display: flex;
+    background: #2a3052;
+    color: white;
+    justify-content: space-between;
+}
+
+.left-panel, .right-panel, .bottom-panel {
+    overflow: auto;
+}
+
+.right-panel {
+    display: flex;
+    flex-direction: row-reverse;
+}
+
+.right-panel .radio-item {
+    flex: none;
+}
+
+.right-panel .radio-item img {
+    background: inherit;
+    box-shadow: none;
+    margin: 0;
+    width: 3rem;
+}
+
+.workspace-panel {
+    overflow: auto;
+    display: flex;
+}
+
+.workspace-panel > * {
+    flex: 1;
+}
+
+table {
+    margin-bottom: 0;
+}
+
+.market-hierarchy {
+    font-size: .8em;
+}
+
+.wide-form {
+    max-width: 420px;
+}
+
+.logo-text {
+    padding: 1rem;
+}
+
+.panel {
+    border: 2px solid #2a3052;
+    position: absolute;
+    background: white;
+}
+
+.panel-title {
+    color: white;
+    background: #2a3052;
+    height: 2em;
+    display: flex;
+    justify-content: space-between;
+}
+
+.panel-title label {
+    margin-left: .5rem;
+}
+
+.panel-content {
+    height: calc(100% - 2em);
+    overflow: auto;
+}
+.panel-btn, .panel-btn:hover {
+    background: transparent;
+    border: none;
+    padding: .5rem;
+}
+
+.panel-btn:hover, .toolbar-btn:hover, .sidebar-btn:hover {
+    background-color: rgba(255, 255, 255, .1);
+}
+
+.close-btn {
+    cursor: pointer;
+}
+
+div[role=tab] .close-btn, .panel-active .close-btn {
+    background: #2a3052;
+    fill: white;
+}
+
+.close-btn, .close-btn:hover {
+    box-shadow: none !important;
+}
+
+.mobile-page {
+    height: 100%;
+    font-size: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    flex-direction: column;
+}
+
+.mobile-content {
+    min-width: 350px;
+    flex: 1;
+    display: flex;
+    align-content: stretch;
+    flex-direction: column;
+    overflow: auto;
+    width: 100%;
+}
+
+[role=tablist] {
+    margin-bottom: .5rem;
+    flex-shrink: 0;
+}
+
+[role=tablist].vertical {
+    margin-bottom: 0;
+}
+
+.vertical > [role=tab] {
+    padding: .25rem;
+}
+
+.vertical > [role=tab] > span{
+    margin-top: .5rem;
+}
+
+.mobile-content tbody tr {
+    cursor: pointer;
+}
+
+.mobile-content .trade-panel {
+    flex-direction: column;
+}
+
+.mobile-content .trade-params {
+    flex: 1;
+}
+
+.tick-trade-mobile button:not(.close-btn), .tick-trade-mobile input[type=range], .tick-trade-mobile a.button, .tick-trade-mobile .range-selector-items {
+    width: 100%;
+}
+
+header {
+    position: inherit;
+    width: 100%;
+    color: white;
+    display: flex;
+    padding: 0 1rem;
+    justify-content: space-between;
+}
+
+nav.sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 240px;
+    background: #2a3052;
+    color: white;
+    margin: -3.5rem -.5rem -.5rem -.5rem;
+}
+
+.sidebar span {
+    color: white;
+}
+
+.sidebar > * {
+    padding: 0 1rem;
+    margin: 0;
+}
+
+.number-positive {
+    color: green;
+    white-space: nowrap;
+}
+
+.number-negative {
+    color: red;
+    white-space: nowrap;
+}
+
+.trade-action {
+    text-transform: capitalize;
+}
+
+.mobile-nav-btn {
+    text-align: center;
+    flex: 1;
+}
+
+.mobile-nav-btn img {
+    padding: 1rem .125rem;
+    height: 3.5rem;
+}
+
+.mobile-nav-btn.active {
+    box-shadow: inset 0 -3px 0 0 #e98024;
+}
+
+.full-screen-overlay {
+    z-index: 9999;
+}
+
+.range-selector-items {
+    display: flex;
+    width: 100%;
+    margin: .25rem .25rem 0 .25rem;
+    justify-content: space-between;
+}
+
+.market-submarket-picker, .asset-search, .asset-search > input, .trading-times-date-picker > input, input[type=range] {
+    width: 100%;
+}
+
+.mobile-toolbar {
+    color: white;
+    background: #2a3052;
+    height: 3.5rem;
+    display: flex;
+    width: 100%;
+}
+
+.mobile-back-btn {
+    text-align: left !important;
+    font-weight: normal;
+    color: white !important;
+    text-decoration: none;
+    text-align: center;
+    flex: 1;
+}
+
+.statement-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.news-list-card, .asset-index-card, .trading-times-card, .video-list, .statement-list {
+    overflow: auto;
+}
+
+.mobile-back-btn span {
+    height: 3.5rem;
+    vertical-align: middle;
+}
+
+.sidebar-btn {
+    height: 4rem;
+    padding: 0;
+}
+
+.sidebar-btn > img {
+    width: 3.5rem;
+    padding: 1rem;
+}
+
+.toolbar-btn {
+    line-height: 3.5;
+    padding: 0 1rem;
+}
+
+.toolbar-btn > img {
+    width: 1.5rem;
+    height: 100%;
+}
+
+.account-info {
+    background: #e98024;
+    padding: .5rem;
+}
+
+.buy-btn {
+    font-size: 1.25rem;
+    padding: 1rem;
+}
+
+fieldset {
+    margin-bottom: .5rem;
+}
+
+.back-btn {
+    width: 3.5rem;
+    padding: .75rem;
+}
+
+.tick-sparklines {
+    margin-bottom: 1rem;
+}
+
+.radio-selector {
+    display: flex;
+    margin-bottom: .5rem;
+    border-radius: 2px;
+    background-color: rgba(42, 48, 82, .1);
+}
+
+.radio-item {
+    flex: 1;
+}
+
+.radio-item label {
+    cursor: pointer;
+    line-height: 2;
+    display: block;
+    text-align: center;
+}
+
+.radio-item img {
+    margin-right: .5rem;
+    width: 1.5rem;
+    background-color: white;
+    box-shadow: 0 0 0 1px white;
+}
+
+.radio-item input {
+    display: none;
+}
+
+.radio-item input[type=radio]:checked+label {
+    background: #2a3052;
+    border-radius: 2px;
+    color: white;
+}
+
+.mobile-content .modal {
+    max-width: 360px;
+}
+
+.web-page {
+    width: 100%;
+    height: 100%;
+}
+
+.spacer {
+    flex: 1;
+}
+
+#hamburger-opener {
+    display: none;
+}
+
+#hamburger-btn {
+    cursor: pointer;
+}
+
+#header #hamburger-btn {
+    padding: 1rem;
+    margin-left: 1rem;
+}
+
+#hamburger-btn > .sidebar {
+    position: absolute;
+    left: -300px;
+    z-index: 995;
+}
+
+#header #hamburger-btn > .sidebar {
+    right: -300px !important;
+}
+
+#hamburger-opener:checked + #hamburger-btn > .sidebar {
+    left: .5rem;
+    transition: .3s;
+}
+
+#hamburger-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, .5);
+    opacity: 1;
+    visibility: visible;
+    transition: .3s;
+    z-index: 985;
+}
+
+#hamburger-closer {
+    display: none;
+}
+
+#hamburger-closer:checked + #hamburger-overlay {
+    visibility: hidden;
+    opacity: 0;
+    transition: .3s;
+}
+
+#web-sidebar {
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    width: 4rem;
+    background: #2a3052;
+}
+
+.toolbar-hint {
+    position: absolute;
+    padding: .75rem;
+    margin-top: -.75rem;
+    margin-left: 1rem;
+    width: 10rem;
+    border-radius: 2px;
+    background: #2a3052;
+    visibility: hidden;
+}
+
+.toolbar-btn:hover > .toolbar-hint {
+    visibility: visible;
+}
+
+#web-sidebar .toolbar-btn {
+    height: 4rem;
+}
+
+.market-submarket-picker {
+    margin-bottom: .5rem;
+}
+
+.button-list {
+    display: inline;
+}
+
+.name-val-pairs {
+    display: flex;
+    flex-direction: column;
+}
+
+.name-val-pair {
+    display: flex;
+}
+
+.name-val-pair > .name {
+    font-weight: 700;
+}
+
+.name-val-pair * {
+    flex: 0 1 180px;
+}
+
+select {
+    background-color: white;
+}
+
+.asset-picker-filter {
+    min-height: 5rem;
+}
+
+#asset-picker-container {
+    padding: .5rem;
+    width: 85vw;
+    height: 80vh;
+}
+
+.asset-list {
+    height: 70vh;
+    overflow: scroll;
+}
+
+.asset-list tr {
+    cursor: pointer;
+}
+
+.asset-list tbody tr.selected {
+    background-color: rgba(42, 48, 82, 0.2);
+}
+
+.inverse .asset-list tbody tr.selected {
+    background-color: rgba(221, 221, 221, 0.2);
+}
+
+.tick-sparklines {
+    text-align: center;
+}
+
+.resizer-vertical, .resizer-horizontal {
+    background: rgba(42, 48, 82, .1);
+}
+
+.resizer-vertical {
+    cursor: ew-resize;
+    width: .25rem;
+}
+
+.resizer-horizontal {
+    cursor: ns-resize;
+    height: .25rem;
+}
+
+.article-preview {
+    text-decoration: none;
+    color: #888;
+}
+
+.article-preview h2 {
+    font-size: 1.4rem;
+    margin: 1rem 0;
+}
+
+.video-list {
+    margin: 0 -.5rem;
+}
+
+.video-thumbnail {
+    margin: .5rem;
+    min-width: 10rem;
+    text-decoration: none;
+}
+
+.video-thumbnail img {
+    width: 100%;
+}
+
+.video-thumbnail h5 {
+    text-decoration: none;
+    text-align: center;
+    margin-top: 1rem;
+}
+
+.mobile-form {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.startup-content input,
+.startup-content .button,
+.startup-content select,
+.startup-content .btn-secondary {
+    width: 100%;
+}
+
+.startup-content {
+    display: flex;
+    flex: 1;
+    max-width: 360px;
+    margin: auto;
+    flex-direction: column;
+    align-content: space-between;
+}
+
+#theme-wrapper {
+    width: 100%;
+    height: 100%;
+}
+
+.trade-parameters .btn-secondary {
+    width: 100%;
+}
+
+.trade-parameters .range-selector {
+    margin-top: .5rem;
+}
+
+#language-picker, #theme-picker {
+    width: 100%;
+}
+
+#new-trade-btn, #deposit-btn, .language-picker, #clock, #logo, .toggle-buttons {
+    margin: .5rem;
+}
+
+#logo img {
+    height: 2rem;
+}
+
+#logo img:nth-child(2) {
+    margin-left: .25rem;
+    height: 1.75rem;
+}
+
+#clock {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.balance {
+    font-size: 1.5rem;
+    line-height: 2 !important;
+}
+
+/* Start of hack, mimic radio group using button */
+.radio-button {
+    flex: 1;
+    color: rgba(64, 68, 72, 1);
+    background-color: transparent;
+    box-shadow: none;
+}
+
+.selected-radio.radio-button {
+    background-color: #2a3052;
+    border-radius: 2px;
+    color: white;
+}
+
+.radio-button:hover {
+    box-shadow: none!important;
+}
+
+.snippet {
+    background-color: rgba(42, 48, 82, .05);
+    padding: .5rem;
+    border-radius: 2px;
+}
+
+.collapsible .focusable:focus + .collapsed {
+    display: block;
+}
+
+.collapsible-title {
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.form-label {
+    font-weight: 500;
+    margin-bottom: 5px;
+}
+
+.asset-picker-item:hover .asset-picker-trade-btn {
+    visibility: visible;
+}
+
+.asset-picker-item td {
+    text-align: left;
+}
+
+.asset-picker-trade-btn {
+    padding: .25rem .5rem;
+    visibility: hidden;;
+}
+
+.trade-panel {
+    flex: 1;
+}
+
+.toggle-buttons .btn-secondary.checked {
+    background: rgba(255, 255, 255, .8);
+}
+
+.toggle-buttons .btn-secondary {
+    width: 3rem;
+    background: rgba(255, 255, 255, .4);
+    box-shadow: none;
+}
+
+#right-tab-list > div[role=tab][aria-selected=true] {
+    box-shadow: inset -2px 0 0 0 #e98024;
+}
+
+div[role=tabpanel] {
+    background: red;
+}
+
+#footer {
+    display: flex;
+}
+
+.centerer {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: .5rem;
+}
+
+#assets-select, #categories-select {
+    min-width: 10rem;
+    width: 100%;
+}
+
+td.left, th.left {
+    text-align: left;
+}
+
+td.right, th.right {
+    text-align: right;
+}
+
+td.row-id {
+    font-weight: bold;
+}
+.row-spacer {
+    margin: .5rem 0;
+}
+
+.trade-header {
+    display: flex;
+    cursor: pointer;
+    margin-bottom: .5rem;
+}
+
+.trade-header {
+    color: #2a3052;
+    background: rgba(42, 48, 82, .1);
+}
+
+.panel-active .trade-header {
+    color: white;
+    background: rgba(42, 48, 82, 1);
+}
+
+.trade-header > span {
+    flex: 1;
+    line-height: 2;
+    margin-left: .5rem;
+}
+
+.close-svg path {
+    fill: rgba(42, 48, 82, 1);
+}
+
+.panel-active .close-svg path {
+    fill: white;
+}
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    margin: 0;
+}
+
+.payout-picker {
+    display: flex;
+}
+
+.payout-picker button {
+    width: 2rem;
+    height: 2rem;
+}
+
+.payout-full {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: .5rem;
+}
+
+.open-notice, .closed-notice {
+    padding: .2em .4em;
+    opacity: .75;
+    font-size: 80%;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: white;
+    border-radius: 2px;
+}
+
+.closed-notice {
+    background: red;
+}
+
+.open-notice {
+    background: green;
+}
+
+.asset-details h4 {
+    margin-top: 0;
+}
+
+#trade-type-picker {
+    width: 20rem;
+    height: 20rem;
+}
+
+#type-pairs {
+    display: flex;
+    flex-direction: column;
+}
+
+.type-pair {
+    flex: 1 1 auto;
+    display: flex;
+    margin: .25rem .5rem;
+    cursor: pointer;
+}
+
+.type-pair * {
+    flex: 1;
+}
+
+.type-pair div[role=tab] {
+    margin: 0 .5rem;
+}
+
+.type-pair div[role=tab][aria-selected=true] {
+    color: #e98024;
+    box-shadow: inset 0 -3px 0 0 #e98024;
+}
+
+.type-pair img {
+    height: 1.5rem;
+    margin: .5rem;
+    background: white;
+    box-shadow: 0 0 0 1px white;
+}
+
+.onoffswitch {
+    position: relative;
+    width: 10rem;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block;
+    overflow: hidden;
+    cursor: pointer;
+    border-radius: 2rem;
+}
+.onoffswitch-inner {
+    display: block;
+    width: 200%;
+    margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block;
+    float: left;
+    width: 50%;
+    height: 2rem;
+    line-height: 2rem;
+    color: white;
+}
+.onoffswitch-inner:before {
+    content: "Start Later";
+    padding-left: 1rem;
+    background-color: rgba(42, 48, 82, 1);
+    color: #FFFFFF;
+}
+.onoffswitch-inner:after {
+    content: "Start Now";
+    padding-right: 1rem;
+    background-color: rgba(42, 48, 82, .25);
+    color: rgba(42, 48, 82, 1);
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block;
+    width: 2rem;
+    margin: 0.5rem;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    border-radius: 2rem;
+    transition: all 0.3s ease-in 0s;
+}
+.onoffswitch-checkbox.checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox.checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0em;
+}
+
+#duration-fields input, #duration-fields select, .payout-picker input, .payout-picker fieldset {
+    width: 100%;
+}
+
+.sell-at-market-btn {
+    height: 2.5rem;
+    width: 100%;
+    margin-top: 1rem;
+}
+
+.modal {
+    max-height: 100%;
+    min-width: 320px;
+    overflow: auto;
+}
+
+.drop-down {
+    flex-basis: auto!important;
+    max-height: 90vh;
+    max-width: 90vw;
+    overflow: auto;
+    margin: 1rem;
+    background: white;
+}
+
+.picker-label {
+    cursor: pointer;
+    padding: .5rem;
+    background: #eee;
+}
+
+.contract-details h6 {
+    text-align: center;
+}
+
+.label span {
+    font-weight: bold;
+    margin-right: 0.5rem;
+}
+
+#earning-percentage {
+    margin-left: 0.5rem;
+}
+
+.trade-panel {
+    display: flex;
+    flex-direction: row-reverse;
+    margin: .25rem;
+}
+
+.trade-chart-container {
+    overflow: hidden;
+    flex: 1;
+
+    display: flex;
+    align-items: stretch;
+}
+
+.trade-chart {
+    width: 100%;
+}
+
+#type-category-picker {
+    flex-direction: column;
+}
+
+#profit-loss-label {
+    font-size: large;
+}
+
+#barrier-type-msg {
+    font-size: 1rem;
+    margin-top: 1rem;
+    margin-bottom: 0px;
+}
+
+.highcharts-container,
+.highcharts-container svg {
+    width: 100% !important;
+}
+
+/* ===== */
+
+.layout-btn-container {
+    width: 17rem;
+    padding: 1rem;
+    background: #2a3052;
+    color: white;
+}
+
+.layout-btn, .trades {
+    display: flex;
+}
+
+.layout-row-lbl {
+    width: 5rem;
+    line-height: 2;
+}
+
+.layout-btn-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.layout-btn {
+    cursor: pointer;
+    padding: .25rem;
+    width: 2rem;
+    height: 2rem;
+    opacity: .5;
+}
+
+.layout-btn.active, .layout-btn:hover {
+    opacity: 1;
+}
+
+.trades, .layout-mini, .trade-panel {
+    flex: 1;
+}
+
+.trade-params {
+    background: #f5f5f5;
+}
+
+.trades .trade-params {
+    max-width: 10rem;
+    margin-right: .5rem;
+}
+
+.trades {
+    overflow: auto;
+}
+/*
+.trades, .layout-btn {
+    flex-wrap: wrap;
+}*/
+.layout-btn {
+    flex-wrap: wrap;
+}
+.layout-mini {
+    background-color: white;
+    border-radius: 1px;
+    margin: 1px;
+}
+
+.layout-mini-1-1 {
+
+}
+
+.layout-mini-2-1 {
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.layout-mini-2-2 {
+    flex-direction: row;
+}
+
+.layout-mini-3-1 {
+}
+
+.layout-mini-3-1 div:nth-child(1) {
+    flex-basis: 100%;
+}
+
+.layout-mini-3-2 div:nth-child(3) {
+    flex-basis: 100%;
+}
+
+.layout-mini-3-2 div:nth-child(3) {
+    flex-basis: 100%;
+}
+
+.layout-mini-3-3 {
+    flex-direction: column;
+}
+
+.layout-mini-3-3 > div {
+    width: 50%;
+}
+
+.layout-mini-3-3 div:nth-child(3) {
+    flex-basis: 100%;
+}
+
+.layout-mini-3-4 {
+    flex-direction: column;
+}
+
+.layout-mini-3-4 > div {
+    width: 50%;
+}
+
+.layout-mini-3-4 div:nth-child(1) {
+    flex-basis: 100%;
+}
+
+.layout-mini-3-5 {
+    flex-direction: column;
+    flex-wrap: nowrap;
+}
+
+.layout-mini-4-1 > div {
+    flex-basis: 40%;
+}
+
+.layout-mini-4-2 > div:nth-child(4) {
+    flex-basis: 100%;
+}
+
+.layout-mini-4-3 > div:nth-child(1) {
+    flex-basis: 100%;
+}
+
+.layout-mini-4-4 {
+    flex-direction: column;
+}
+
+.layout-mini-4-4 > div {
+    width: 50%;
+}
+
+.layout-mini-4-4 > div:nth-child(1) {
+    flex-basis: 100%;
+}
+
+.layout-mini-4-5 {
+    flex-direction: column;
+}
+
+.layout-mini-4-5 > div {
+    width: 50%;
+}
+
+.layout-mini-4-5 > div:nth-child(4) {
+    flex-basis: 100%;
+}
+
+.layout-mini-5-1 > div:nth-child(1) {
+    flex-basis: 100%;
+}
+
+.layout-mini-5-2 {
+    flex-direction: column;
+}
+
+.layout-mini-5-2 > div {
+    width: 50%;
+}
+
+.layout-mini-5-2 > div:nth-child(5) {
+    flex-basis: 100%;
+}
+
+.layout-mini-5-3 {
+    flex-direction: column;
+}
+
+.layout-mini-5-3 > div {
+    width: 50%;
+}
+
+.layout-mini-5-3 > div:nth-child(1) {
+    flex-basis: 100%;
+}
+
+.layout-mini-5-4 > div:nth-child(1),
+.layout-mini-5-4 > div:nth-child(2) {
+    flex-basis: 40%;
+}
+
+.layout-mini-5-5 > div:nth-child(1),
+.layout-mini-5-5 > div:nth-child(2),
+.layout-mini-5-5 > div:nth-child(3) {
+    flex: 1 0 20%;
+}
+
+.layout-mini-5-5 > div:nth-child(4),
+.layout-mini-5-5 > div:nth-child(5) {
+    flex-basis: 40%;
+}
+
+/*  Trade flex layout */ 
+.layout-1-1 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+     display: flex;
+}
+.layout-container-1-1-1 {
+    -ms-flex-direction: row;
+    flex-direction: row; 
+    flex: 0 0 100%;
+     display: flex;   
+}
+
+.layout-2-1 {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    display: flex;
+}
+.layout-container-2-1-1 {
+     flex-direction: row;
+    -ms-flex-direction: row;
+    height: 45%;
+    display: flex;
+    justify-content: space-between;
+}
+.layout-container-2-1-2 {
+    flex-direction: row;
+    -ms-flex-direction: row;
+    height: 45%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.layout-2-2 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+}
+.layout-container-2-2-1 {
+     flex-direction: column;
+    -ms-flex-direction: column;
+    flex: 0 0 48%;
+    display: flex;
+}
+.layout-container-2-2-2 {
+    flex-direction: column;
+    -ms-flex-direction: column;
+    flex: 0 0 48%;
+    display: flex;
+}
+
+.layout-3-1 {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+}
+.layout-container-3-1-1 {
+    flex: 0 0 100%;
+}
+.layout-container-3-1-2 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    display: flex;
+    flex: 0 0 48%;
+    justify-content: space-between;
+}
+
+.layout-3-2 {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+}
+.layout-container-3-2-1 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex: 0 0 48%;
+    display: flex;
+    justify-content: space-between;
+}
+.layout-container-3-2-2 {
+    flex: 0 0 100%;
+}
+
+.layout-3-3 {
+    -ms-flex-direction: row;
+     flex-direction: row;
+     display: flex;
+     justify-content: space-between;
+}
+.layout-container-3-3-1 {
+     flex-direction: column;
+    -ms-flex-direction: column;
+     flex: 0 0 48%;
+     display: flex;
+     justify-content: space-between;
+}
+.layout-container-3-3-2 {
+      flex: 0 0 48%; 
+      margin-right: 0rem;
+}
+
+.layout-3-4 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    justify-content: space-between;
+}
+.layout-container-3-4-1 {
+      flex: 0 0 48%; 
+      margin-right: 0rem;
+}
+.layout-container-3-4-2 {
+     flex-direction: column;
+    -ms-flex-direction: column;
+     flex: 0 0 48%;
+     display: flex;
+     justify-content: space-between;
+}
+
+.layout-3-5 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-3-5-1 {
+     flex-direction: column;
+     height: 45%;
+     flex: 0 0 100%;
+    -ms-flex-direction: column;
+     display: flex;
+     justify-content: space-between;
+}
+.layout-container-3-5-2 {
+     flex: 0 0 0;
+}
+
+.layout-4-1 {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-4-1-1 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex: 0 0 48%;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-4-1-2 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex: 0 0 48%;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-4-2 {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-4-2-1 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex: 0 0 32%;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-4-2-2 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex: 0 0 100%;
+    justify-content: space-between;
+    display: flex;
+}
+
+.layout-4-3 {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-4-3-1 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex: 0 0 100%;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-4-3-2 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex: 0 0 32%;
+    justify-content: space-between;
+    display: flex;
+}
+
+.layout-4-4 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-4-4-1 {
+    flex: 0 0 48%;
+}
+.layout-container-4-4-2 {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 45%;
+    justify-content: space-between;
+    flex: 0 0 48%;
+    display: flex;
+}
+.layout-4-5 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-4-5-1 {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 45%;
+    flex: 0 0 48%;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-4-5-2 {
+    flex: 0 0 48%;
+}
+
+.layout-5-1 {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-5-1-1 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    height: 45%;
+    flex: 0 0 100%;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-5-1-2 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    height: 45%;
+    flex: 0 0 24%;
+    justify-content: space-between;
+    display: flex;
+}
+
+.layout-5-2 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-5-2-1 {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 45%;
+    justify-content: space-between;
+    flex: 0 0 48%;
+    display: flex;
+}
+.layout-container-5-2-2 {
+    height: 45%;
+    flex: 0 0 48%;
+}
+
+.layout-5-3 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-5-3-1 {
+    height: 45%;
+    flex: 0 0 48%;
+}
+.layout-container-5-3-2 {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 45%;
+    flex: 0 0 48%;
+    justify-content: space-between;
+    display: flex;
+}
+
+.layout-5-4 {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-5-4-1 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex: 0 0 48%;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-5-4-2 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex: 0 0 32%;
+    justify-content: space-between;
+    display: flex;
+}
+
+.layout-5-5 {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-5-5-1 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex: 0 0 32%;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-5-5-2 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex: 0 0 48%;
+    justify-content: space-between;
+    display: flex;
+}
+/* Flex trade ends */
+
+/* flex list should mimick table style*/
+
+.flex-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.flex-list-item {
+    flex: 1 1 auto;
+}
+
+.col-val {
+    border: 1px solid rgba(42,48,82,0.1);
+    text-align: center;
+}
+
+.col-header {
+    color: #2a3052;
+    font-weight: bold;
+    background: rgba(42,48,82,0.1);
+    padding: .5rem .25rem;
+    text-align: center;
+    vertical-align: middle;
+    line-height: 1.4;
+    border: 1px solid rgba(42,48,82,0.1);
+}
+
+.trade-panel-receipt {
+    width: 200px;
+}
