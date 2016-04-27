@@ -31,7 +31,7 @@ export default class FullTradeCard extends Component {
 
     render() {
         const { actions, index, marketIsOpen, trade, ticks } = this.props;
-        const { selectedSymbol, lastBoughtContract } = trade;
+        const { symbolName, lastBoughtContract } = trade;
 
         const contract = this.props.contract || mockedContract;
 
@@ -57,7 +57,7 @@ export default class FullTradeCard extends Component {
                     <BinaryChart
                         className="trade-chart"
                         contract={lastBoughtContract}
-                        symbol={selectedSymbol}
+                        symbol={symbolName}
                         ticks={ticks}
                         trade={tradeRequiredByChart}
                         pipSize={trade.pipSize}
