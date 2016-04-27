@@ -393,12 +393,19 @@ fieldset {
 }
 
 #header #hamburger-btn > .sidebar {
-    right: -300px !important;
+    top: -300px !important;
+    left: inherit;
+    right: 0;
 }
 
 #hamburger-opener:checked + #hamburger-btn > .sidebar {
     left: .5rem;
     transition: .3s;
+}
+
+#header #hamburger-opener:checked + #hamburger-btn > .sidebar {
+    top: 3.5rem !important;
+    left: inherit;
 }
 
 #hamburger-overlay {
