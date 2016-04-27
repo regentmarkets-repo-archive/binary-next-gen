@@ -236,10 +236,6 @@ nav.sidebar {
 }
 
 .full-screen-overlay {
-    z-index: 9998;
-}
-
-.full-screen-overlay * {
     z-index: 9999;
 }
 

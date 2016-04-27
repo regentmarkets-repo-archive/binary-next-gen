@@ -21,7 +21,7 @@ export default class AssetPickerFilter extends Component {
 	}
 
     componentDidMount() {
-		const assetSearchNode = findDOMNode(this.refs.asset);
+		const assetSearchNode = findDOMNode(this.refs.assetSearch);
         setTimeout(() => assetSearchNode.firstChild.focus(), 300);
     }
 
@@ -33,7 +33,7 @@ export default class AssetPickerFilter extends Component {
 		return (
 			<div className="asset-picker-filter">
 				<InputGroup
-					ref="asset"
+					ref="assetSearch"
 					className="asset-search"
 					defaultValue={filter.query}
 					type="search"
