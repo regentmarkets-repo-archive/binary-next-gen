@@ -250,10 +250,6 @@ nav.sidebar {
     width: 100%;
 }
 
-.asset-search {
-    margin-bottom: 0;
-}
-
 .mobile-toolbar {
     color: white;
     background: #2a3052;
@@ -489,12 +485,18 @@ select {
     min-height: 5rem;
 }
 
+#asset-picker-container {
+    padding: .5rem;
+    width: 85vw;
+    height: 80vh;
+}
+
 .asset-list {
     height: 70vh;
     overflow: scroll;
 }
 
-tr[tabindex] {
+.asset-list tr {
     cursor: pointer;
 }
 
@@ -799,7 +801,37 @@ input[type=number]::-webkit-outer-spin-button {
     margin-top: 0;
 }
 
-#type-picker img {
+#trade-type-picker {
+    width: 20rem;
+    height: 20rem;
+}
+
+#type-pairs {
+    display: flex;
+    flex-direction: column;
+}
+
+.type-pair {
+    flex: 1 1 auto;
+    display: flex;
+    margin: .25rem .5rem;
+    cursor: pointer;
+}
+
+.type-pair * {
+    flex: 1;
+}
+
+.type-pair div[role=tab] {
+    margin: 0 .5rem;
+}
+
+.type-pair div[role=tab][aria-selected=true] {
+    color: #e98024;
+    box-shadow: inset 0 -3px 0 0 #e98024;
+}
+
+.type-pair img {
     height: 1.5rem;
     margin: .5rem;
     background: white;
@@ -879,10 +911,10 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .drop-down {
+    flex-basis: auto!important;
     max-height: 90vh;
     max-width: 90vw;
     overflow: auto;
-    padding: 1.5rem;
     margin: 1rem;
     background: white;
 }
@@ -1511,4 +1543,8 @@ input[type=number]::-webkit-outer-spin-button {
     vertical-align: middle;
     line-height: 1.4;
     border: 1px solid rgba(42,48,82,0.1);
+}
+
+.trade-panel-receipt {
+    width: 200px;
 }

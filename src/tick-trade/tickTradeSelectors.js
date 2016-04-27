@@ -1,6 +1,6 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 import { ticksForFirstTradeSelector, firstTradeSelector } from '../trades/singleTradeSelectors';
-import findIfExist from 'binary-utils/lib/findIfExist';
+import findDeep from 'binary-utils/lib/findDeep';
 import { availableAssetsSelector, availableContractsSelector } from '../fulltrade/FullTradeSelectors';
 import { currencySelector } from '../_store/directSelectors';
 
@@ -11,7 +11,7 @@ const tickAssetFilter = (assets, contracts) => {
             if (!assetContract) {
                 return true;
             }
-            return findIfExist(assetContract, o => Array.isArray(o) && o.unit === 't');
+            return findDeep(assetContract, o => Array.isArray(o) && o.unit === 't');
         });
         return a.concat(temp);
     }, []);

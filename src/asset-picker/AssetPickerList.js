@@ -22,6 +22,7 @@ export default class AssetPickerList extends Component {
 								{...this.props}
 								key={submarketName}
 								assetsInSubmarket={assets[submarketName]}
+								ref={submarketName}
 							/>
 						)
 				}

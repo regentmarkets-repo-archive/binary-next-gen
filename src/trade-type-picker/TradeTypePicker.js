@@ -3,6 +3,7 @@ import TabList from '../_common/TabList';
 import Tab from '../_common/Tab';
 import contractCategoryDisplay from 'binary-utils/lib/contractCategoryDisplay';
 import tradeTypeCodeToText from 'binary-utils/lib/tradeTypeCodeToText';
+import { serverToInternalTradeType, internalToServerTradeType } from './TradeTypeAdapter';
 
 const tradeGrouping = [
     ['risefall', 'higherlower', 'endsinout', 'staysinout', 'touchnotouch'],
@@ -10,19 +11,39 @@ const tradeGrouping = [
     ['spreads', 'asian'],
 ];
 
-const hasBasic = contract => {
-    const idx = Object.keys(contract).findIndex(c => tradeGrouping[0].includes(c));
-    return idx !== -1;
+const hasBasic = contract =>
+    Object.keys(contract).find(c => tradeGrouping[0].includes(c));
+
+const hasDigits = contract =>
+    Object.keys(contract).find(c => tradeGrouping[1].includes(c));
+
+const hasAdvanced = contract =>
+    Object.keys(contract).find(c => tradeGrouping[2].includes(c));
+
+const typesForCategory = (contract, category) =>
+    Object.keys(contract[category]).map(type => serverToInternalTradeType(category, type));
+
+const typesForCategories = (contract, categories) =>
+    categories.reduce((a, b) => a.concat(typesForCategory(contract, b)), []);
+
+const findCategoryForType = (contract, type) => {
+    switch (type) {
+        case 'CALL': return 'risefall';
+        case 'PUT': return 'risefall';
+        case 'HIGHER': return 'higherlower';
+        case 'LOWER': return 'higherlower';
+        default: return Object.keys(contract).find(cat => Object.keys(contract[cat]).includes(type));
+    }
 };
 
-const hasDigits = contract => {
-    const idx = Object.keys(contract).findIndex(c => tradeGrouping[1].includes(c));
-    return idx !== -1;
-};
-
-const hasAdvanced = contract => {
-    const idx = Object.keys(contract).findIndex(c => tradeGrouping[2].includes(c));
-    return idx !== -1;
+const pairUpTypes = types => {
+    const paired = [];
+    types.forEach((t, idx) => {
+        if (idx % 2 === 0) {
+            paired.push([t, types[idx + 1]]);
+        }
+    });
+    return paired;
 };
 
 export default class TradeTypePicker extends Component {
@@ -63,44 +84,47 @@ export default class TradeTypePicker extends Component {
         }
     }
 
-    render() {
-        const { contract, selectedCategory, selectedType, onCategoryChange, onTypeChange } = this.props;
-        const { tradeGroup } = this.state;
-        const categories = Object
-            .keys(contract)
-            .map(c => ({ value: c, text: contractCategoryDisplay(c) }))
-            .filter(c => tradeGrouping[tradeGroup].includes(c.value));
-        const selectedCategoryIndex = categories.findIndex(x => x.value === selectedCategory);
-        const types = Object
-            .keys(contract[selectedCategory])
-            .map(type => ({ text: tradeTypeCodeToText(type), value: type }));
-        const selectedTypeIndex = types.findIndex(x => x.value === selectedType);
+    changeType(type) {
+        const { contract, onTypeChange } = this.props;
+        const selectedCategory = findCategoryForType(contract, type);
+        onTypeChange(internalToServerTradeType(type), selectedCategory);
+    }
 
+    render() {
+        const { contract, selectedCategory, selectedType } = this.props;
+        const { tradeGroup } = this.state;
+        // type come in pairs logically
+        const types = typesForCategories(contract, tradeGrouping[tradeGroup])
+            .map(type => ({ text: tradeTypeCodeToText(type), value: type }));
+        const internalSelectedType = serverToInternalTradeType(selectedCategory, selectedType);
+        const typePairs = pairUpTypes(types);
         return (
-            <div className="trade-type-picker">
+            <div id="trade-type-picker">
                 <TabList activeIndex={tradeGroup} onChange={::this.changeGroup}>
                     {hasBasic(contract) && <Tab text="Basic" />}
                     {hasDigits(contract) && <Tab text="Digits" />}
                     {hasAdvanced(contract) && <Tab text="Advanced" />}
                 </TabList>
-                <TabList
-                    id="type-category-picker"
-                    activeIndex={selectedCategoryIndex}
-                    onChange={idx => onCategoryChange(categories[idx].value)}
-                >
-                    {categories.map((x, idx) =>
-                        <Tab key={idx} text={x.text} />
+                <div id="type-pairs">
+                    {typePairs.map(x =>
+                        <div className="type-pair">
+                            <Tab
+                                key={x[0].text}
+                                text={x[0].text}
+                                imgSrc={`img/trade-${x[0].value.toLowerCase()}.svg`}
+                                selected={internalSelectedType === x[0].value}
+                                onClick={() => this.changeType(x[0].value)}
+                            />
+                            <Tab
+                                key={x[1].text}
+                                text={x[1].text}
+                                imgSrc={`img/trade-${x[1].value.toLowerCase()}.svg`}
+                                selected={internalSelectedType === x[1].value}
+                                onClick={() => this.changeType(x[1].value)}
+                            />
+                        </div>
                     )}
-                </TabList>
-                <TabList
-                    id="type-picker"
-                    activeIndex={selectedTypeIndex}
-                    onChange={idx => onTypeChange(types[idx].value)}
-                >
-                    {types.map((x, idx) =>
-                        <Tab key={idx} text={x.text} imgSrc={`img/trade-${x.value.toLowerCase()}.svg`} />
-                    )}
-                </TabList>
+                </div>
             </div>
         );
     }

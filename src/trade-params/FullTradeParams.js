@@ -93,11 +93,6 @@ export default class FullTradeParams extends Component {
         this.onPurchase = ::this.onPurchase;
     }
 
-    /**
-     * There will be an instant where tradeCategory is wrong,
-     * we should not rerender until the correct tradeCategory value is in place
-     */
-
     componentWillMount() {
         this.onAssetChange();
     }
@@ -238,21 +233,22 @@ export default class FullTradeParams extends Component {
         });
     }
 
-    onTypeChange(newType) {
+    onTypeChange(newType, newCategory) {
         const { contract, trade } = this.props;
-        const category = trade.tradeCategory;
+        const category = newCategory || trade.tradeCategory;
         const newDuration = createDefaultDuration(contract, category, newType);
-        const { dateStart, duration, durationUnit } = trade || newDuration;
+        const { dateStart, duration, durationUnit } = newDuration;
         const newBarrier = createDefaultBarriers(contract, category, newType, duration, durationUnit);
         const newBarrierType = createDefaultBarrierType(duration, durationUnit);
         this.updateTradeParams({
+            tradeCategory: newCategory,
             type: newType,
             duration,
             durationUnit,
             dateStart,
-            barrier: trade.barrier || newBarrier[0],
-            barrier2: trade.barrier2 || newBarrier[1],
-            barrierType: trade.barrierType || newBarrierType,
+            barrier: newBarrier[0],
+            barrier2: newBarrier[1],
+            barrierType: newBarrierType,
         });
     }
 

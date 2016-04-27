@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { FormattedTime } from 'react-intl';
-import epochToDate from 'binary-utils/lib/date/epochToDate';
+import epochToDate from 'binary-utils/lib/epochToDate';
 import M from '../_common/M';
 import Button from '../_common/Button';
 import NumberPlain from '../_common/NumberPlain';

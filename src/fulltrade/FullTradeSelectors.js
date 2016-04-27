@@ -1,5 +1,5 @@
 import { createSelector } from 'reselect';
-import nowAsEpoch from 'binary-utils/lib/date/nowAsEpoch';
+import nowAsEpoch from 'binary-utils/lib/nowAsEpoch';
 import { assetsSelector, tradingTimesSelector, boughtContractsSelector } from '../_store/directSelectors';
 import { marketTreeSelector } from '../_selectors/marketTreeSelector';
 import extractBarrier from 'binary-utils/lib/extractBarrier';
@@ -10,7 +10,7 @@ import availableAssetsFilter from 'binary-utils/lib/availableAssetsFilter';
 import flattenSubmarkets from 'binary-utils/lib/flattenSubmarkets';
 import normalizedContractFor from 'binary-utils/lib/normalizedContractFor';
 import groupByKey from 'binary-utils/lib/groupByKey';
-import findIfExist from 'binary-utils/lib/findIfExist';
+import findDeep from 'binary-utils/lib/findDeep';
 import filterObjectBy from 'binary-utils/lib/filterObjectBy';
 import pipsToDigits from 'binary-utils/lib/pipsToDigits';
 
@@ -69,7 +69,7 @@ export const availableContractsSelector = createSelector(
                 return assetsIsOpen[symbol] && assetsIsOpen[symbol].isOpen ?
                     contractTree :
                     filterObjectBy(contractTree, obj =>
-                        findIfExist(obj, descendent => descendent && !!descendent.forwardStartingDuration)
+                        findDeep(obj, descendent => descendent && !!descendent.forwardStartingDuration)
                     );
             })
 );

@@ -1,6 +1,6 @@
 import { Record } from 'immutable';
 import { createSelector, createStructuredSelector } from 'reselect';
-import epochToDate from 'binary-utils/lib/date/epochToDate';
+import epochToDate from 'binary-utils/lib/epochToDate';
 import {
     currencySelector,
     transactionsSelector,

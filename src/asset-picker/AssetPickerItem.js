@@ -30,30 +30,31 @@ export default class AssetPickerItem extends Component {
 		});
 
 		return (
-			<tr
-				tabIndex={0}
-				className={classes}
-				onClick={(ev) => {
-					onSelect(symbol);
-					onClose();
-					ev.stopPropagation();
-				}}
-			>
-				<td
+			<tbody>
+				<tr
+					className={classes}
 					onClick={(ev) => {
-					onToggleWatchlistItem(asset);
-					ev.stopPropagation();
-				}}
+						onSelect(symbol);
+						onClose();
+						ev.stopPropagation();
+					}}
 				>
-					<Star on={isInWatchlist} />
-				</td>
-				<td>
-					{asset.name}
-				</td>
-				<td style={{ textAlign: 'center' }}>
-					<OpenCloseNotice isOpen={isOpen} />
-				</td>
-			</tr>
+					<td
+						onClick={(ev) => {
+						onToggleWatchlistItem(asset);
+						ev.stopPropagation();
+					}}
+					>
+						<Star on={isInWatchlist} />
+					</td>
+					<td>
+						{asset.name}
+					</td>
+					<td style={{ textAlign: 'center' }}>
+						<OpenCloseNotice isOpen={isOpen} />
+					</td>
+				</tr>
+			</tbody>
 		);
 	}
 }

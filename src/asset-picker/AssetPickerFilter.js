@@ -19,6 +19,11 @@ export default class AssetPickerFilter extends Component {
 		actions.updateAssetPickerFilter(e);
 	}
 
+	// componentDidMount() {
+	// 	const assetSearchNode = findDOMNode(this.refs.assetSearch);
+    //     setTimeout(() => assetSearchNode.focus(), 1000);
+    // }
+
 	render() {
 		const { filter } = this.props;
 
@@ -26,19 +31,20 @@ export default class AssetPickerFilter extends Component {
 
 		return (
 			<div className="asset-picker-filter">
-				<MarketPickerContainer
-					onChange={::this.onFilterChange}
-					allOptionShown
-					showMarkets={showOnlyTickTradable ? ['Forex', 'Randoms'] : null}
-					value={filter.filter}
-				/>
 				<InputGroup
+					ref="assetSearch"
 					className="asset-search"
 					defaultValue={filter.query}
 					type="search"
 					placeholder="Search for assets"
 					onChange={::this.onSearchQueryChange}
 					autoFocus
+				/>
+				<MarketPickerContainer
+					onChange={::this.onFilterChange}
+					allOptionShown
+					showMarkets={showOnlyTickTradable ? ['Forex', 'Randoms'] : null}
+					value={filter.filter}
 				/>
 			</div>
 		);

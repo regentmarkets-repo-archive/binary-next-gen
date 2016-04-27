@@ -20,12 +20,10 @@ export default class WatchlistRow extends Component {
 	};
 
 	render() {
-		const { symbol, assetName, diff, history, quote, selected, onSelect } = this.props;
+		const { symbol, assetName, diff, history, quote, onSelect } = this.props;
 
 		return (
 			<tr
-				tabIndex={0}
-				className={selected ? 'selected' : null}
 				onClick={() => onSelect(symbol)}
 			>
 				<td className="row-id">{assetName}</td>

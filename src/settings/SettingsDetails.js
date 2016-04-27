@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import epochToDateString from 'binary-utils/lib/date/epochToDateString';
+import epochToDateString from 'binary-utils/lib/epochToDateString';
 import M from '../_common/M';
 import LabeledText from '../_common/LabeledText';
 
