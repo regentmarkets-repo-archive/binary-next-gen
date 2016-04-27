@@ -107,16 +107,14 @@ export default class TradeTypePicker extends Component {
                 </TabList>
                 <div id="type-pairs">
                     {typePairs.map(x =>
-                        <div className="type-pair">
+                        <div className="type-pair" key={x[0].value}>
                             <Tab
-                                key={x[0].text}
                                 text={x[0].text}
                                 imgSrc={`img/trade-${x[0].value.toLowerCase()}.svg`}
                                 selected={internalSelectedType === x[0].value}
                                 onClick={() => this.changeType(x[0].value)}
                             />
                             <Tab
-                                key={x[1].text}
                                 text={x[1].text}
                                 imgSrc={`img/trade-${x[1].value.toLowerCase()}.svg`}
                                 selected={internalSelectedType === x[1].value}

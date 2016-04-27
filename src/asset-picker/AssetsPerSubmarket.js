@@ -24,7 +24,6 @@ export default class AssetsPerSubmarket extends Component {
                         key={a.symbol}
                         asset={a}
                         selected={selectedAsset === a.symbol}
-                        ref={selectedAsset === a.symbol ? 'focused' : null}
                     />
                 )}
             </table>
