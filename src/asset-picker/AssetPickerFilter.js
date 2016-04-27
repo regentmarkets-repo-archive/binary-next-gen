@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import { findDOMNode } from 'react-dom';
 import MarketPickerContainer from '../_common/MarketPickerContainer';
 import InputGroup from '../_common/InputGroup';
 
@@ -19,10 +20,10 @@ export default class AssetPickerFilter extends Component {
 		actions.updateAssetPickerFilter(e);
 	}
 
-	// componentDidMount() {
-	// 	const assetSearchNode = findDOMNode(this.refs.assetSearch);
-    //     setTimeout(() => assetSearchNode.focus(), 1000);
-    // }
+    componentDidMount() {
+		const assetSearchNode = findDOMNode(this.refs.asset);
+        setTimeout(() => assetSearchNode.firstChild.focus(), 300);
+    }
 
 	render() {
 		const { filter } = this.props;
@@ -32,7 +33,7 @@ export default class AssetPickerFilter extends Component {
 		return (
 			<div className="asset-picker-filter">
 				<InputGroup
-					ref="assetSearch"
+					ref="asset"
 					className="asset-search"
 					defaultValue={filter.query}
 					type="search"

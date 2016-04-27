@@ -236,6 +236,10 @@ nav.sidebar {
 }
 
 .full-screen-overlay {
+    z-index: 9998;
+}
+
+.full-screen-overlay * {
     z-index: 9999;
 }
 
@@ -488,6 +492,7 @@ select {
 #asset-picker-container {
     padding: .5rem;
     width: 20vw;
+    min-width: 12rem;
     height: 80vh;
 }
 
