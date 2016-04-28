@@ -27,7 +27,7 @@ export default class ContractDetailsCard extends Component {
 		const profit = sold && toMoney(contract.sell_price - contract.buy_price);
 		return (
 			<div className={className}>
-				<M className="ref-id" m={`Ref. no. ${contract.contract_id}`} />
+				{contract.transaction_ids && <M className="ref-id" m={`Ref. no. ${contract.transaction_ids.buy}`} />}
 				<FlexList>
 					<KeyValueColumn
 						label="Purchase time"
