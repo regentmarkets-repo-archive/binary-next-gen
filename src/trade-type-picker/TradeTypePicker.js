@@ -20,8 +20,12 @@ const hasDigits = contract =>
 const hasAdvanced = contract =>
     Object.keys(contract).find(c => tradeGrouping[2].includes(c));
 
-const typesForCategory = (contract, category) =>
-    Object.keys(contract[category]).map(type => serverToInternalTradeType(category, type));
+const typesForCategory = (contract, category) => {
+    if (contract[category]) {
+        return Object.keys(contract[category]).map(type => serverToInternalTradeType(category, type));
+    }
+    return [];
+};
 
 const typesForCategories = (contract, categories) =>
     categories.reduce((a, b) => a.concat(typesForCategory(contract, b)), []);
