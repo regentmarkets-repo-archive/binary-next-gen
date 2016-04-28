@@ -11,10 +11,10 @@ import SettingsChangePassword from './SettingsChangePassword';
 const components = [
 	SettingsGeneral,
 	SettingsPersonalDetails,
+	SettingsChangePassword,
 	SettingsSecurity,
 	SettingsSelfExclusion,
 	SettingsLimits,
-	SettingsChangePassword,
 ];
 
 export default class SettingsCard extends Component {
