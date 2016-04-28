@@ -409,7 +409,7 @@ export default class FullTradeParams extends Component {
                     selectedCategory={categoryToUse}
                     selectedType={selectedType}
                     onCategoryChange={this.onCategoryChange}
-                    onChange={this.onTypeChange}
+                    onChange={::this.onTypeChange}
                 />
                 {showDuration && !showSpreadBarrier &&
                     <DurationCard
