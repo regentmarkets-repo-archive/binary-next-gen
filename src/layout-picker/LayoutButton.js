@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import classNames from 'classnames';
 import sequence from 'binary-utils/lib/sequence';
+import styles from '../layouts.css';
 
 export default class LayoutButton extends Component {
 
@@ -14,15 +15,15 @@ export default class LayoutButton extends Component {
     render() {
         const { isActive, tradesCount, layoutN, onClick } = this.props;
         const classes = classNames({
-            'layout-btn': true,
-            [`layout-mini-${tradesCount}-${layoutN}`]: true,
+            [styles['layout-btn']]: true,
+            [styles[`layout-${tradesCount}-${layoutN}`]]: true,
             active: isActive,
 		});
 
         return (
             <div className={classes} onClick={onClick}>
                 {sequence(tradesCount).map(idx =>
-                    <div className="layout-mini" key={idx} />
+                    <div className={styles['layout-mini']} key={idx} />
                 )}
             </div>
         );

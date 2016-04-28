@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import styles from '../layouts.css';
 
 export default class LayoutButtons extends Component {
 
@@ -16,7 +17,7 @@ export default class LayoutButtons extends Component {
         return (
             <div className="buttons">
                 {layoutNames.map((x, idx) =>
-                    <div key={x} className={x}>
+                    <div key={x} className={styles[x]}>
                         {Array.from(new Array(layoutCounts[idx])).map((y, i) =>
                             <div style={{ backgroundColor: 'red', with: 10, height: 10 }} key={i} />
                         )}

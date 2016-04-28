@@ -1,8 +1,10 @@
 import React, { PropTypes, Component } from 'react';
+import classNames from 'classnames';
 import windowResizeEvent from 'binary-utils/lib/windowResizeEvent';
 import FullTradeCard from '../fulltrade/FullTradeCard';
 import sequence from 'binary-utils/lib/sequence';
 import layoutData from '../_store/tradeLayoutData';
+import styles from '../layouts.css';
 
 export default class TradesLayouts extends Component {
 
@@ -30,9 +32,12 @@ export default class TradesLayouts extends Component {
         const { actions, assetsIsOpen, currency, layoutN, trades, ticksForAllSymbols, contracts } = this.props;
         const tradesCount = trades.length;
         const contSize = tradesCount > 0 ? layoutData[tradesCount][layoutN] : undefined;
-
+        const classes = classNames({
+            [styles.trades]: true,
+            [styles[`layout-${trades.length}-${layoutN}`]]: true,
+        });
         return (
-                <div className={`trades layout-${trades.length}-${layoutN}`}>
+                <div className={classes}>
                     <div className={`layout-container-${tradesCount}-${layoutN}-1`}>
                     {contSize && sequence(contSize.cont1).map(index =>
                         <FullTradeCard

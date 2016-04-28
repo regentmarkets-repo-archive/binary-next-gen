@@ -34,7 +34,7 @@ gulp.task('styles', () =>
 
 gulp.task('js', () =>
     gulp.src(files.js)
-        .pipe(shell('webpack --config ./webpack.config.prod.js', { cwd: '..'}))
+        .pipe(shell('webpack --config ./webpack.config.js', { cwd: '..'}))
         .pipe(gulp.dest(files.dist))
 );
 
