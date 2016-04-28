@@ -26,8 +26,32 @@ export default class ContractDetailsCard extends Component {
 		const profit = sold && toMoney(contract.sell_price - contract.buy_price);
 		return (
 			<div className={className}>
+				<KeyValueColumn
+					label="Ref. ID"
+					value={contract.contract_id || '-'}
+				/>
 				<FlexList>
-					<KeyValueColumn label="Entry Price" value={contract.buy_price || '-'} currency={contract.currency} />
+					<KeyValueColumn
+						label="Start time"
+						value={contract.date_start || '-'}
+					/>
+					<KeyValueColumn
+						label="Exit Time"
+						value={contract.date_expiry || '-'}
+					/>
+					<KeyValueColumn
+						label="Entry Spot"
+						value={contract.entry_tick || '-'}
+					/>
+					<KeyValueColumn
+						label="Exit Spot"
+						value={contract.exit_tick || '-'}
+					/>
+					<KeyValueColumn
+						label="Entry Price"
+						value={contract.buy_price || '-'}
+						currency={contract.currency}
+					/>
 					<KeyValueColumn
 						label="Exit Price"
 						value={sold ? contract.sell_price : '-'}

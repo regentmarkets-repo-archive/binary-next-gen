@@ -327,6 +327,7 @@ fieldset {
 
 .radio-selector {
     display: flex;
+    flex-wrap: wrap;
     margin-bottom: .5rem;
     border-radius: 2px;
     background-color: rgba(42, 48, 82, .1);
