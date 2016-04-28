@@ -48,7 +48,7 @@
     overflow: auto;
 }
 
-.trades, .layout-btn {
+.layout-btn {
     flex-wrap: wrap;
 }
 
@@ -59,138 +59,365 @@
 }
 
 .layout-1-1 {
-
+    -ms-flex-direction: row;
+    flex-direction: row;
+     display: flex;
+}
+.layout-container-1-1-1 {
+    -ms-flex-direction: row;
+    flex-direction: row; 
+    flex: 0 0 100%;
+     display: flex;   
 }
 
 .layout-2-1 {
+    -ms-flex-direction: column;
     flex-direction: column;
-    flex-wrap: nowrap;
+    display: flex;
+}
+.layout-container-2-1-1 {
+     flex-direction: row;
+    -ms-flex-direction: row;
+    height: 45%;
+    display: flex;
+    justify-content: space-between;
+}
+.layout-container-2-1-2 {
+    flex-direction: row;
+    -ms-flex-direction: row;
+    height: 45%;
+    display: flex;
+    justify-content: space-between;
 }
 
 .layout-2-2 {
+    -ms-flex-direction: row;
     flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+}
+.layout-container-2-2-1 {
+     flex-direction: column;
+    -ms-flex-direction: column;
+    flex: 0 0 48%;
+    display: flex;
+}
+.layout-container-2-2-2 {
+    flex-direction: column;
+    -ms-flex-direction: column;
+    flex: 0 0 48%;
+    display: flex;
 }
 
 .layout-3-1 {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
+}
+.layout-container-3-1-1 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex: 0 0 48%;
+    height: 45%;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-3-1-2 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    display: flex;
+    flex: 0 0 48%;
+     height: 45%;
+    justify-content: space-between;
 }
 
-.layout-3-1 div:nth-child(1) {
-    flex-basis: 100%;
+.layout-3-2 {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    display: flex;
+    justify-content: space-between;
 }
-
-.layout-3-2 div:nth-child(3) {
-    flex-basis: 100%;
+.layout-container-3-2-1 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    height: 45%;
+    flex: 0 0 48%;
+    display: flex;
+    justify-content: space-between;
+    
 }
-
-.layout-3-2 div:nth-child(3) {
-    flex-basis: 100%;
+.layout-container-3-2-2 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex: 0 0 48%;
+     height: 45%;
+    justify-content: space-between;
+    display: flex;
 }
 
 .layout-3-3 {
-    flex-direction: column;
+    -ms-flex-direction: row;
+     flex-direction: row;
+     display: flex;
+     justify-content: space-between;
 }
-
-.layout-3-3 > div {
-    width: 50%;
+.layout-container-3-3-1 {
+     flex-direction: column;
+     -ms-flex-direction: column;
+     flex: 0 0 48%;
+     display: flex;
+     justify-content: space-between;
 }
-
-.layout-3-3 div:nth-child(3) {
-    flex-basis: 100%;
+.layout-container-3-3-2 {
+      flex: 0 0 48%; 
+      margin-right: 0rem;
+      flex-direction: column;
+      display: flex;
+      justify-content: space-between;
 }
 
 .layout-3-4 {
-    flex-direction: column;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
 }
-
-.layout-3-4 > div {
-    width: 50%;
+.layout-container-3-4-1 {
+      flex: 0 0 48%; 
+      margin-right: 0rem;
+      flex-direction: column;
+      display: flex;
+      justify-content: space-between;
 }
-
-.layout-3-4 div:nth-child(1) {
-    flex-basis: 100%;
+.layout-container-3-4-2 {
+     flex-direction: column;
+    -ms-flex-direction: column;
+     flex: 0 0 48%;
+     display: flex;
+     justify-content: space-between;
 }
 
 .layout-3-5 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-3-5-1 {
+     flex-direction: column;
+     flex: 0 0 100%;
+    -ms-flex-direction: column;
+     height: 100%;
+     display: flex;
+     justify-content: space-between;
+}
+.layout-container-3-5-2 {
+     flex: 0 0 0;
+}
+
+.layout-4-1 {
+    -ms-flex-direction: column;
     flex-direction: column;
-    flex-wrap: nowrap;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-4-1-1 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex: 0 0 48%;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-4-1-2 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex: 0 0 48%;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-4-2 {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-4-2-1 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex: 0 0 48%;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-4-2-2 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex: 0 0 48%;
+    justify-content: space-between;
+    display: flex;
 }
 
-.layout-4-1 > div {
-    flex-basis: 40%;
+.layout-4-3 {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
 }
-
-.layout-4-2 > div:nth-child(4) {
-    flex-basis: 100%;
+.layout-container-4-3-1 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex: 0 0 48%;
+    justify-content: space-between;
+    display: flex;
 }
-
-.layout-4-3 > div:nth-child(1) {
-    flex-basis: 100%;
+.layout-container-4-3-2 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex: 0 0 48%;
+    justify-content: space-between;
+    display: flex;
 }
 
 .layout-4-4 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-4-4-1 {
+    flex: 0 0 48%;
+    display: flex;
     flex-direction: column;
 }
-
-.layout-4-4 > div {
-    width: 50%;
+.layout-container-4-4-2 {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    flex: 0 0 48%;
+    display: flex;
 }
-
-.layout-4-4 > div:nth-child(1) {
-    flex-basis: 100%;
-}
-
 .layout-4-5 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-4-5-1 {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 100%;
+    flex: 0 0 48%;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-4-5-2 {
+    flex: 0 0 48%;
+    display: flex;
     flex-direction: column;
 }
 
-.layout-4-5 > div {
-    width: 50%;
+.layout-5-1 {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
 }
-
-.layout-4-5 > div:nth-child(4) {
-    flex-basis: 100%;
+.layout-container-5-1-1 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    height: 45%;
+    flex: 0 0 48%;
+    justify-content: space-between;
+    display: flex;
 }
-
-.layout-5-1 > div:nth-child(1) {
-    flex-basis: 100%;
+.layout-container-5-1-2 {
+    flex-direction: row;
+    height: 45%;
+    flex: 0 0 48%;
+    justify-content: space-between;
+    display: flex;
 }
 
 .layout-5-2 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-5-2-1 {
+    -ms-flex-direction: column;
     flex-direction: column;
+    height: 100%;
+    justify-content: space-between;
+    flex: 0 0 48%;
+    display: flex;
 }
-
-.layout-5-2 > div {
-    width: 50%;
-}
-
-.layout-5-2 > div:nth-child(5) {
-    flex-basis: 100%;
+.layout-container-5-2-2 {
+    flex: 0 0 48%;
+    display: flex;
+    flex-direction: column;
 }
 
 .layout-5-3 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-5-3-1 {
+    flex: 0 0 48%;
+    display: flex;
     flex-direction: column;
 }
-
-.layout-5-3 > div {
-    width: 50%;
+.layout-container-5-3-2 {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 100%;
+    flex: 0 0 48%;
+    justify-content: space-between;
+    display: flex;
 }
 
-.layout-5-3 > div:nth-child(1) {
-    flex-basis: 100%;
+.layout-5-4 {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-5-4-1 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex: 0 0 48%;
+    justify-content: space-between;
+    display: flex;
+}
+.layout-container-5-4-2 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex: 0 0 48%;
+    justify-content: space-between;
+    display: flex;
 }
 
-.layout-5-4 > div:nth-child(1),
-.layout-5-4 > div:nth-child(2) {
-    flex-basis: 40%;
+.layout-5-5 {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    justify-content: space-between;
+    display: flex;
 }
-
-.layout-5-5 > div:nth-child(1),
-.layout-5-5 > div:nth-child(2),
-.layout-5-5 > div:nth-child(3) {
-    flex: 1 0 20%;
+.layout-container-5-5-1 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex: 0 0 48%;
+    justify-content: space-between;
+    display: flex;
 }
-
-.layout-5-5 > div:nth-child(4),
-.layout-5-5 > div:nth-child(5) {
-    flex-basis: 40%;
+.layout-container-5-5-2 {
+    -ms-flex-direction: row;
+    flex-direction: row;
+    flex: 0 0 48%;
+    justify-content: space-between;
+    display: flex;
 }
+/* Flex trade ends */
