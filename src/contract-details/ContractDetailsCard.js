@@ -3,8 +3,9 @@ import M from '../_common/M';
 import NumberPlain from '../_common/NumberPlain';
 import NumberColored from '../_common/NumberColored';
 import FlexList from '../containers/FlexList';
-import KVColumn from '../_common/KVColumn';
+import KeyValueColumn from '../_common/KeyValueColumn';
 import toMoney from 'binary-utils/lib/toMoney';
+import epochToDateTime from 'binary-utils/lib/epochToDateTimeString';
 
 export default class ContractDetailsCard extends Component {
 
@@ -26,20 +27,53 @@ export default class ContractDetailsCard extends Component {
 		const profit = sold && toMoney(contract.sell_price - contract.buy_price);
 		return (
 			<div className={className}>
+				{contract.transaction_ids && <M className="ref-id" m={`Ref. no. ${contract.transaction_ids.buy}`} />}
 				<FlexList>
-					<KVColumn label="Entry Price" value={contract.buy_price || '-'} currency={contract.currency} />
-					<KVColumn
+					<KeyValueColumn
+						label="Purchase time"
+						value={contract.purchase_time ? epochToDateTime(contract.date_start) : '-'}
+					/>
+					<KeyValueColumn
+						label="Start time"
+						value={contract.date_start ? epochToDateTime(contract.date_start) : '-'}
+					/>
+					<KeyValueColumn
+						label="Exit Time"
+						value={contract.date_expiry ? epochToDateTime(contract.date_expiry) : '-'}
+					/>
+					<KeyValueColumn
+						label="Sell Time"
+						value={contract.sell_time ? epochToDateTime(contract.date_expiry) : '-'}
+					/>
+				</FlexList>
+				<FlexList>
+					<KeyValueColumn
+						label="Entry Spot"
+						value={contract.entry_tick || '-'}
+					/>
+					<KeyValueColumn
+						label="Exit Spot"
+						value={contract.exit_tick || '-'}
+					/>
+				</FlexList>
+				<FlexList>
+					<KeyValueColumn
+						label="Entry Price"
+						value={contract.buy_price || '-'}
+						currency={contract.currency}
+					/>
+					<KeyValueColumn
 						label="Exit Price"
 						value={sold ? contract.sell_price : '-'}
 						currency={contract.currency}
 					/>
-					<KVColumn
+					<KeyValueColumn
 						label="Indicative Price"
 						value={contract.bid_price || '-'}
 						currency={contract.currency}
 						isProfit={v => v - contract.buy_price}
 					/>
-					<KVColumn
+					<KeyValueColumn
 						label={sold ? 'Profit' : 'Potential Profit'}
 						value={sold ? profit : potentialProfit}
 						currency={contract.currency}

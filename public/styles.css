@@ -331,6 +331,7 @@ fieldset {
 
 .radio-selector {
     display: flex;
+    flex-wrap: wrap;
     margin-bottom: .5rem;
     border-radius: 2px;
     background-color: rgba(42, 48, 82, .1);
@@ -997,6 +998,8 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: flex-start;
+    margin-bottom: 0.3rem;
+    margin-top: 0.4rem;
 }
 
 .flex-list-item {
@@ -1006,6 +1009,8 @@ input[type=number]::-webkit-outer-spin-button {
 .col-val {
     border: 1px solid rgba(42,48,82,0.1);
     text-align: center;
+    padding-right: 0.2rem;
+    padding-left: 0.2rem;
 }
 
 .col-header {
