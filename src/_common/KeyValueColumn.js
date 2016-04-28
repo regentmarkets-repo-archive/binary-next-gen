@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import M from './M';
 import Number from './Number';
 
-export default class KVColumn extends Component {
+export default class KeyValueColumn extends Component {
     static propTypes = {
         label: PropTypes.string.isRequired,
         value: PropTypes.any,

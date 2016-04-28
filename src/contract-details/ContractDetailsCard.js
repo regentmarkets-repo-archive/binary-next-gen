@@ -3,7 +3,7 @@ import M from '../_common/M';
 import NumberPlain from '../_common/NumberPlain';
 import NumberColored from '../_common/NumberColored';
 import FlexList from '../containers/FlexList';
-import KVColumn from '../_common/KVColumn';
+import KeyValueColumn from '../_common/KeyValueColumn';
 import toMoney from 'binary-utils/lib/toMoney';
 
 export default class ContractDetailsCard extends Component {
@@ -27,19 +27,19 @@ export default class ContractDetailsCard extends Component {
 		return (
 			<div className={className}>
 				<FlexList>
-					<KVColumn label="Entry Price" value={contract.buy_price || '-'} currency={contract.currency} />
-					<KVColumn
+					<KeyValueColumn label="Entry Price" value={contract.buy_price || '-'} currency={contract.currency} />
+					<KeyValueColumn
 						label="Exit Price"
 						value={sold ? contract.sell_price : '-'}
 						currency={contract.currency}
 					/>
-					<KVColumn
+					<KeyValueColumn
 						label="Indicative Price"
 						value={contract.bid_price || '-'}
 						currency={contract.currency}
 						isProfit={v => v - contract.buy_price}
 					/>
-					<KVColumn
+					<KeyValueColumn
 						label={sold ? 'Profit' : 'Potential Profit'}
 						value={sold ? profit : potentialProfit}
 						currency={contract.currency}
