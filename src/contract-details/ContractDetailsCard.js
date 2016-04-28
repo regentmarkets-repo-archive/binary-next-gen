@@ -5,6 +5,7 @@ import NumberColored from '../_common/NumberColored';
 import FlexList from '../containers/FlexList';
 import KeyValueColumn from '../_common/KeyValueColumn';
 import toMoney from 'binary-utils/lib/toMoney';
+import epochToDateTime from 'binary-utils/lib/epochToDateTimeString';
 
 export default class ContractDetailsCard extends Component {
 
@@ -26,19 +27,26 @@ export default class ContractDetailsCard extends Component {
 		const profit = sold && toMoney(contract.sell_price - contract.buy_price);
 		return (
 			<div className={className}>
-				<KeyValueColumn
-					label="Ref. ID"
-					value={contract.contract_id || '-'}
-				/>
+				<M className="ref-id" m={`Ref. no. ${contract.contract_id}`} />
 				<FlexList>
 					<KeyValueColumn
+						label="Purchase time"
+						value={contract.purchase_time ? epochToDateTime(contract.date_start) : '-'}
+					/>
+					<KeyValueColumn
 						label="Start time"
-						value={contract.date_start || '-'}
+						value={contract.date_start ? epochToDateTime(contract.date_start) : '-'}
 					/>
 					<KeyValueColumn
 						label="Exit Time"
-						value={contract.date_expiry || '-'}
+						value={contract.date_expiry ? epochToDateTime(contract.date_expiry) : '-'}
 					/>
+					<KeyValueColumn
+						label="Sell Time"
+						value={contract.sell_time ? epochToDateTime(contract.date_expiry) : '-'}
+					/>
+				</FlexList>
+				<FlexList>
 					<KeyValueColumn
 						label="Entry Spot"
 						value={contract.entry_tick || '-'}
@@ -47,6 +55,8 @@ export default class ContractDetailsCard extends Component {
 						label="Exit Spot"
 						value={contract.exit_tick || '-'}
 					/>
+				</FlexList>
+				<FlexList>
 					<KeyValueColumn
 						label="Entry Price"
 						value={contract.buy_price || '-'}
