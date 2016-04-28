@@ -1,5 +1,4 @@
 import React, { PropTypes, Component } from 'react';
-import FlexList from '../containers/FlexList';
 import AssetsPerSubmarket from './AssetsPerSubmarket';
 
 export default class AssetPickerList extends Component {
@@ -14,19 +13,18 @@ export default class AssetPickerList extends Component {
 		const { assets } = this.props;
 
 		return (
-			<FlexList>
-				{
-					Object.keys(assets)
-						.map(submarketName =>
-							<AssetsPerSubmarket
-								{...this.props}
-								key={submarketName}
-								assetsInSubmarket={assets[submarketName]}
-								ref={submarketName}
-							/>
-						)
+			<div>
+				{Object.keys(assets)
+					.map(submarketName =>
+						<AssetsPerSubmarket
+							{...this.props}
+							key={submarketName}
+							assetsInSubmarket={assets[submarketName]}
+							ref={submarketName}
+						/>
+					)
 				}
-			</FlexList>
+			</div>
 		);
 	}
 }

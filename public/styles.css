@@ -495,7 +495,7 @@ select {
 
 #asset-picker-container {
     padding: .5rem;
-    width: 20vw;
+    width: 20rem;
     min-width: 12rem;
     height: 80vh;
 }
