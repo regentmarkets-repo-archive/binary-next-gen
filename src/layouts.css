@@ -37,6 +37,7 @@
 
 .trade-params {
     background: #f5f5f5;
+    overflow: auto;
 }
 
 .trades .trade-params {
@@ -74,15 +75,15 @@
 .layout-3-1 {
 }
 
-.layout-3-1 div:nth-child(1) {
+.layout-3-1 > div:nth-child(1) {
     flex-basis: 100%;
 }
 
-.layout-3-2 div:nth-child(3) {
+.layout-3-2 > div:nth-child(3) {
     flex-basis: 100%;
 }
 
-.layout-3-2 div:nth-child(3) {
+.layout-3-2 > div:nth-child(3) {
     flex-basis: 100%;
 }
 
@@ -90,11 +91,7 @@
     flex-direction: column;
 }
 
-.layout-3-3 > div {
-    width: 50%;
-}
-
-.layout-3-3 div:nth-child(3) {
+.layout-3-3 > div:nth-child(3) {
     flex-basis: 100%;
 }
 
@@ -102,11 +99,7 @@
     flex-direction: column;
 }
 
-.layout-3-4 > div {
-    width: 50%;
-}
-
-.layout-3-4 div:nth-child(1) {
+.layout-3-4 > div:nth-child(1) {
     flex-basis: 100%;
 }
 
@@ -131,20 +124,12 @@
     flex-direction: column;
 }
 
-.layout-4-4 > div {
-    width: 50%;
-}
-
 .layout-4-4 > div:nth-child(1) {
     flex-basis: 100%;
 }
 
 .layout-4-5 {
     flex-direction: column;
-}
-
-.layout-4-5 > div {
-    width: 50%;
 }
 
 .layout-4-5 > div:nth-child(4) {
@@ -159,10 +144,6 @@
     flex-direction: column;
 }
 
-.layout-5-2 > div {
-    width: 50%;
-}
-
 .layout-5-2 > div:nth-child(5) {
     flex-basis: 100%;
 }
@@ -171,17 +152,13 @@
     flex-direction: column;
 }
 
-.layout-5-3 > div {
-    width: 50%;
-}
-
 .layout-5-3 > div:nth-child(1) {
     flex-basis: 100%;
 }
 
 .layout-5-4 > div:nth-child(1),
 .layout-5-4 > div:nth-child(2) {
-    flex-basis: 40%;
+    flex: 1 0 40%;
 }
 
 .layout-5-5 > div:nth-child(1),

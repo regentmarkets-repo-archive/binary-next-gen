@@ -33,7 +33,7 @@ module.exports = {
         loaders: [
             { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
             { test: /\.js$/, exclude: /node_modules/, loader: 'eslint' },
-            { test: /\.css$/, exclude: /node_modules/, loader: 'style!css?modules' },
+            { test: /\.css$/, exclude: /node_modules/, loader: 'style!css?modules&importLoaders=1&localIdentName=[local]_[hash:base64:5' },
         ],
     },
 };
