@@ -1,0 +1,39 @@
+a.myAnchor {
+  color: blue; }
+  a.myAnchor:hover {
+    text-decoration: underline; }
+  a.myAnchor:visited {
+    color: purple; }
+
+.container {
+  width: 100%; }
+  .container h1 {
+    color: red; }
+  .container h2 {
+    color: black; }
+  .container h3 {
+    color: pink; }
+
+.first-component .text {
+  font-size: 1.4rem; }
+
+.first-component .button {
+  font-size: 1.7rem; }
+
+.first-component .second-component .text {
+  font-size: 1.2rem; }
+
+.first-component .second-component .button {
+  font-size: 1.4rem; }
+
+.third-component .text1 {
+  font-size: 1.4rem; }
+
+.third-component .button1 {
+  font-size: 1.7rem; }
+
+.third-component .second-component1 .text {
+  font-size: 1.2rem; }
+
+.third-component .second-component1 .button {
+  font-size: 1.4rem; }

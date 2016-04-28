@@ -2,6 +2,8 @@ import React, { PropTypes, Component } from 'react';
 import classNames from 'classnames';
 import windowResizeEvent from 'binary-utils/lib/windowResizeEvent';
 import FullTradeCard from '../fulltrade/FullTradeCard';
+import sequence from 'binary-utils/lib/sequence';
+import layoutData from '../_store/tradeLayoutData';
 import styles from '../layouts.css';
 
 export default class TradesLayouts extends Component {
@@ -28,26 +30,46 @@ export default class TradesLayouts extends Component {
 
     render() {
         const { actions, assetsIsOpen, currency, layoutN, trades, ticksForAllSymbols, contracts } = this.props;
+        const tradesCount = trades.length;
+        const contSize = tradesCount > 0 ? layoutData[tradesCount][layoutN] : undefined;
         const classes = classNames({
             [styles.trades]: true,
             [styles[`layout-${trades.length}-${layoutN}`]]: true,
         });
-
         return (
-            <div className={classes}>
-                {trades.map((trade, index) =>
-                    <FullTradeCard
-                        key={index}
-                        index={index}
-                        currency={currency}
-                        actions={actions}
-                        marketIsOpen={assetsIsOpen[trade.symbol] && assetsIsOpen[trade.symbol].isOpen}
-                        trade={trade}
-                        ticks={ticksForAllSymbols[trade.symbol]}
-                        contract={contracts[trade.symbol]}
-                        onClick={() => actions.changeActiveTrade(index)}
-                    />
-                )}
+                <div className={classes}>
+                    <div className={`layout-container-${tradesCount}-${layoutN}-1`}>
+                    {contSize && sequence(contSize.cont1).map(index =>
+                        <FullTradeCard
+                            key={index}
+                            index={index}
+                            currency={currency}
+                            actions={actions}
+                            marketIsOpen={assetsIsOpen[trades[index].symbol] &&
+                                assetsIsOpen[trades[index].symbol].isOpen}
+                            trade={trades[index]}
+                            ticks={ticksForAllSymbols[trades[index].symbol]}
+                            contract={contracts[trades[index].symbol]}
+                            onClick={() => actions.changeActiveTrade(index)}
+                        />
+                      )}
+                      </div>
+                      <div className={`layout-container-${tradesCount}-${layoutN}-2`}>
+                        {contSize && sequence(contSize.cont2).map(index =>
+                                <FullTradeCard
+                                    key={index}
+                                    index={index}
+                                    currency={currency}
+                                    actions={actions}
+                                    marketIsOpen={assetsIsOpen[trades[index].symbol] &&
+                                        assetsIsOpen[trades[index].symbol].isOpen}
+                                    trade={trades[index]}
+                                    ticks={ticksForAllSymbols[trades[index].symbol]}
+                                    contract={contracts[trades[index].symbol]}
+                                    onClick={() => actions.changeActiveTrade(index)}
+                                />
+                        )}
+                        </div>
             </div>
         );
     }

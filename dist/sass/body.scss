@@ -1,0 +1,9 @@
+a.myAnchor {
+    color: blue;
+    &:hover {
+        text-decoration: underline;
+    }
+    &:visited {
+        color: purple;
+    }
+}

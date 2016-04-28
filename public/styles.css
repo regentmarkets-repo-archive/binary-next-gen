@@ -982,9 +982,7 @@ input[type=number]::-webkit-outer-spin-button {
 .highcharts-container svg {
     width: 100% !important;
 }
-
 /* flex list should mimick table style*/
-
 .flex-list {
     display: flex;
     flex-direction: row;
