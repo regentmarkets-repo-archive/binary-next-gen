@@ -80,7 +80,6 @@ export default class FullTradeParams extends Component {
         this.updateHelper = ::this.updateHelper;
         this.onAssetChange = ::this.onAssetChange;
         this.onCategoryChange = ::this.onCategoryChange;
-        this.onTypeChange = ::this.onTypeChange;
         this.onDurationChange = ::this.onDurationChange;
         this.onDurationUnitChange = ::this.onDurationUnitChange;
         this.onStartDateChange = ::this.onStartDateChange;
@@ -410,7 +409,7 @@ export default class FullTradeParams extends Component {
                     selectedCategory={categoryToUse}
                     selectedType={selectedType}
                     onCategoryChange={this.onCategoryChange}
-                    onTypeChange={this.onTypeChange}
+                    onChange={this.onTypeChange}
                 />
                 {showDuration && !showSpreadBarrier &&
                     <DurationCard

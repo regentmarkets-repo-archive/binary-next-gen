@@ -51,6 +51,16 @@ const pairUpTypes = types => {
 };
 
 export default class TradeTypePicker extends Component {
+
+    static propTypes = {
+        actions: PropTypes.object.isRequired,
+        contract: PropTypes.object.isRequired,
+        selectedCategory: PropTypes.string.isRequired,
+        selectedType: PropTypes.string.isRequired,
+        onTypeChange: PropTypes.func.isRequired,
+        onCategoryChange: PropTypes.func.isRequired,
+    };
+
     constructor(props) {
         super(props);
         this.state = { tradeGroup: 0 };
@@ -61,15 +71,6 @@ export default class TradeTypePicker extends Component {
         const groupId = tradeGrouping.findIndex(categories => categories.includes(selectedCategory));
         this.setState({ tradeGroup: groupId });
     }
-
-    static propTypes = {
-        actions: PropTypes.object.isRequired,
-        contract: PropTypes.object.isRequired,
-        selectedCategory: PropTypes.string.isRequired,
-        selectedType: PropTypes.string.isRequired,
-        onTypeChange: PropTypes.func.isRequired,
-        onCategoryChange: PropTypes.func.isRequired,
-    };
 
     changeGroup(id) {
         this.onGroupChange(id);

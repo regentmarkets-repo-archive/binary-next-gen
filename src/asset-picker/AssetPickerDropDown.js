@@ -4,12 +4,8 @@ import DropDown from '../containers/DropDown';
 import AssetPickerContainer from './AssetPickerContainer';
 
 export default class AssetPickerDropDown extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            show: false,
-        };
-    }
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
@@ -18,16 +14,21 @@ export default class AssetPickerDropDown extends Component {
         selectedSymbolName: PropTypes.string.isRequired,
     };
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
+    constructor(props) {
+        super(props);
+        this.state = {
+            dropdownShown: false,
+        };
+    }
 
     render() {
         const { actions, index, selectedSymbol, selectedSymbolName } = this.props;
-        const { show } = this.state;
+        const { dropdownShown } = this.state;
         return (
             <div>
                 <DropDown
-                    shown={show}
-                    onClose={() => this.setState({ show: false })}
+                    shown={dropdownShown}
+                    onClose={() => this.setState({ dropdownShown: false })}
                 >
                     <AssetPickerContainer
                         actions={actions}
@@ -37,7 +38,7 @@ export default class AssetPickerDropDown extends Component {
                 </DropDown>
                 <div
                     className="picker-label"
-                    onMouseDown={() => this.setState({ show: true })}
+                    onMouseDown={() => this.setState({ dropdownShown: true })}
                 >
                     {selectedSymbolName}
                 </div>

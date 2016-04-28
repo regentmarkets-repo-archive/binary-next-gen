@@ -14,13 +14,14 @@ export default class DropDown extends Component {
 		if (!shown) return null;
 
 		return (
-			<div className="full-screen-overlay" onClick={onClose}>
+			<div>
 				<div
 					className="drop-down"
 					onClick={e => e.stopPropagation()}
 				>
 					{React.cloneElement(children, { onClose })}
 				</div>
+				<div className="full-screen-overlay" onClick={onClose} />
 			</div>
 		);
 	}
