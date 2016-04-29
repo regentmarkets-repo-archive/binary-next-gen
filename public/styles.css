@@ -853,7 +853,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .onoffswitch {
     position: relative;
-    width: 10rem;
+    width: 10em;
 }
 .onoffswitch-checkbox {
     display: none;
@@ -862,7 +862,7 @@ input[type=number]::-webkit-outer-spin-button {
     display: block;
     overflow: hidden;
     cursor: pointer;
-    border-radius: 2rem;
+    border-radius: 2em;
 }
 .onoffswitch-inner {
     display: block;
@@ -874,31 +874,32 @@ input[type=number]::-webkit-outer-spin-button {
     display: block;
     float: left;
     width: 50%;
-    height: 2rem;
-    line-height: 2rem;
+    height: 2em;
+    line-height: 2em;
     color: white;
 }
 .onoffswitch-inner:before {
     content: "Start Later";
-    padding-left: 1rem;
+    padding-left: 1em;
     background-color: rgba(42, 48, 82, 1);
     color: #FFFFFF;
 }
 .onoffswitch-inner:after {
     content: "Start Now";
-    padding-right: 1rem;
+    padding-right: 1em;
     background-color: rgba(42, 48, 82, .25);
     color: rgba(42, 48, 82, 1);
     text-align: right;
 }
 .onoffswitch-switch {
     display: block;
-    width: 2rem;
-    margin: 0.5rem;
+    width: 2em;
+    margin: 0.5em;
     background: #FFFFFF;
+    right: 7em;
     position: absolute; top: 0; bottom: 0;
-    border-radius: 2rem;
-    transition: all 0.3s ease-in 0s;
+    border-radius: 2em;
+    transition: all 0.3s ease-in 0s; 
 }
 .onoffswitch-checkbox.checked + .onoffswitch-label .onoffswitch-inner {
     margin-left: 0;
