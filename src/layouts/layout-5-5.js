@@ -1,13 +1,15 @@
 import React from 'react';
 
-export default components => [
-    <div>
-        {components[0]}
-        {components[1]}
-        {components[2]}
-    </div>,
-    <div>
-        {components[3]}
-        {components[4]}
-    </div>,
-];
+export default (components, className, onClick) => (
+    <div className={className} onClick={onClick}>
+        <div>
+            {components[0]}
+            {components[1]}
+            {components[2]}
+        </div>
+        <div>
+            {components[3]}
+            {components[4]}
+        </div>
+    </div>
+);

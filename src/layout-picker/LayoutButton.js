@@ -1,10 +1,13 @@
 import React, { PropTypes, Component } from 'react';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 import classNames from 'classnames';
 import sequence from 'binary-utils/lib/sequence';
 import * as layouts from '../layouts';
 import styles from '../layouts/layouts.css';
 
 export default class LayoutButton extends Component {
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     static propTypes = {
         isActive: PropTypes.bool,
@@ -21,13 +24,10 @@ export default class LayoutButton extends Component {
             [styles.active]: isActive,
 		});
         const layout = layouts[`Layout${tradesCount}${layoutN}`];
-
-        return (
-            <div className={classes} onClick={onClick}>
-                {layout(sequence(tradesCount).map(idx =>
-                    <div className={styles.layoutMini} key={idx} />
-                ))}
-            </div>
+        const miniLayouts = sequence(tradesCount).map(idx =>
+            <div className={styles.layoutMini} key={idx} />
         );
+
+        return layout(miniLayouts, classes, onClick);
     }
 }

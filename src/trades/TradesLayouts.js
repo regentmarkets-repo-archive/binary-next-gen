@@ -29,7 +29,7 @@ export default class TradesLayouts extends Component {
     render() {
         const { assetsIsOpen, layoutN, trades, ticksForAllSymbols, contracts } = this.props;
         const layout = layouts[`Layout${trades.length}${layoutN}`];
-        const layoutClass = `layout-${trades.length}-${layoutN}`;
+        const layoutClass = styles[`layout-${trades.length}-${layoutN}`];
 
         if (!layout) return null;
 
@@ -45,10 +45,6 @@ export default class TradesLayouts extends Component {
             />
         );
 
-        return (
-            <div className={styles.trades + ' ' + styles[layoutClass]}>
-                {layout(tradeComponents)}
-            </div>
-        );
+        return layout(tradeComponents, `${styles.trades} ${layoutClass}`);
     }
 }
