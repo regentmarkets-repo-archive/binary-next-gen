@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import styles from '../layouts.css';
+import styles from '../layouts/layouts.css';
 
 import ErrorMsg from '../_common/ErrorMsg';
 
@@ -396,7 +396,7 @@ export default class FullTradeParams extends Component {
         const showSpreadBarrier = categoryToUse === 'spreads';
 
         return (
-            <div className={styles['trade-params']} disabled={disabled}>
+            <div className={styles.tradeParams} disabled={disabled}>
                 <AssetPickerDropDown
                     actions={actions}
                     index={index}

@@ -36,16 +36,16 @@
     opacity: 1;
 }
 
-.trades, .layout-mini, .trade-panel {
+.trades, .layoutMini, .trade-panel {
     flex: 1;
 }
 
-.trade-params {
+.tradeParams {
     background: #f5f5f5;
     overflow: auto;
 }
 
-.trades .trade-params {
+.trades .tradeParams {
     max-width: 11rem;
     margin-right: .5rem;
 }
@@ -58,7 +58,7 @@
     flex-wrap: wrap;
 }
 
-.layout-mini {
+.layoutMini {
     background-color: white;
     border-radius: 1px;
     margin: 1px;

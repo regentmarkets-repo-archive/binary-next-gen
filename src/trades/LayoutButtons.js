@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import styles from '../layouts.css';
+import styles from '../layouts/layouts.css';
 
 export default class LayoutButtons extends Component {
 

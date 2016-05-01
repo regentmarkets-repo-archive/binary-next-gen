@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import classNames from 'classnames';
 import windowResizeEvent from 'binary-utils/lib/windowResizeEvent';
 import FullTradeCard from '../fulltrade/FullTradeCard';
-import styles from '../layouts.css';
+import styles from '../layouts/layouts.css';
 
 export default class TradesLayouts extends Component {
 

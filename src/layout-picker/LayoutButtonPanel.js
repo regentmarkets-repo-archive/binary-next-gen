@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import sequence from 'binary-utils/lib/sequence';
-import styles from '../layouts.css';
+import styles from '../layouts/layouts.css';
 import LayoutButton from './LayoutButton';
 
 const layoutCounts = [1, 2, 5, 5, 5];
