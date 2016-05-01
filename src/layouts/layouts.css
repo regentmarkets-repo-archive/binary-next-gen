@@ -12,6 +12,7 @@
 
 .layoutBtn, .trades {
     display: flex;
+    flex: 1;
 }
 
 .layoutRowLabel {
@@ -36,7 +37,7 @@
     opacity: 1;
 }
 
-.trades, .layoutMini, .trade-panel {
+.trade-panel, .layoutMini {
     flex: 1;
 }
 
@@ -50,129 +51,264 @@
     margin-right: .5rem;
 }
 
-.trades {
-    overflow: auto;
-}
-
-.trades, .layoutBtn {
-    flex-wrap: wrap;
-}
-
 .layoutMini {
     background-color: white;
     border-radius: 1px;
     margin: 1px;
 }
 
-.layout-1-1 {
+/* 1-1 */
 
+.layout-1-1 {
 }
+
+/* 2-1 */
 
 .layout-2-1 {
     flex-direction: column;
-    flex-wrap: nowrap;
 }
+
+/* 2-2 */
 
 .layout-2-2 {
     flex-direction: row;
 }
 
+/* 3-1 */
+
 .layout-3-1 {
+    flex-direction: column;
 }
 
-.layout-3-1 > div:nth-child(1) {
-    flex-basis: 100%;
+.layout-3-1 > div {
+    flex: 1;
 }
 
-.layout-3-2 > div:nth-child(3) {
-    flex-basis: 100%;
+.layout-3-1 > div:nth-child(2) {
+    display: flex;
 }
 
-.layout-3-2 > div:nth-child(3) {
-    flex-basis: 100%;
+/* 3-2 */
+
+.layout-3-2 {
+    flex-direction: column;
 }
+
+.layout-3-2 > div {
+    flex: 1;
+}
+
+.layout-3-2 > div:nth-child(1) {
+    display: flex;
+}
+
+/* 3-3 */
 
 .layout-3-3 {
+    flex-direction: row;
+}
+
+.layout-3-3 > div {
+    flex: 1;
+}
+
+.layout-3-3 > div:nth-child(1) {
+    display: flex;
     flex-direction: column;
 }
 
-.layout-3-3 > div:nth-child(3) {
-    flex-basis: 100%;
-}
+/* 3-4 */
 
 .layout-3-4 {
+    flex-direction: row;
+}
+
+.layout-3-4 > div {
+    flex: 1;
+}
+
+.layout-3-4 > div:nth-child(2) {
+    display: flex;
     flex-direction: column;
 }
 
-.layout-3-4 > div:nth-child(1) {
-    flex-basis: 100%;
-}
+/* 3-5 */
 
 .layout-3-5 {
     flex-direction: column;
-    flex-wrap: nowrap;
+}
+
+/* 4-1 */
+
+.layout-4-1 {
+    flex-direction: column;
 }
 
 .layout-4-1 > div {
-    flex-basis: 40%;
+    display: flex;
+    flex: 1;
 }
 
-.layout-4-2 > div:nth-child(4) {
-    flex-basis: 100%;
+.layout-4-1 {
+    flex-direction: column;
 }
 
-.layout-4-3 > div:nth-child(1) {
-    flex-basis: 100%;
+/* 4-2 */
+
+.layout-4-2 {
+    flex-direction: column;
 }
+
+.layout-4-2 > div {
+    flex: 1;
+}
+
+.layout-4-2 > div:nth-child(1) {
+    display: flex;
+}
+
+.layout-4-2 > div:nth-child(1) > div {
+    flex: 1;
+}
+
+/* 4-3 */
+
+.layout-4-3 {
+    flex-direction: column;
+}
+
+.layout-4-3 > div {
+    flex: 1;
+}
+
+.layout-4-3 > div:nth-child(2) {
+    display: flex;
+}
+
+.layout-4-3 > div:nth-child(2) > div {
+    flex: 1;
+}
+
+/* 4-4 */
 
 .layout-4-4 {
+    flex-direction: row;
+}
+
+.layout-4-4 > div {
+    flex: 1;
+}
+
+.layout-4-4 > div:nth-child(2) {
+    display: flex;
     flex-direction: column;
 }
 
-.layout-4-4 > div:nth-child(1) {
-    flex-basis: 100%;
+.layout-4-4 > div:nth-child(2) > div {
+    flex: 1;
 }
+
+/* 4-5 */
 
 .layout-4-5 {
+    flex-direction: row;
+}
+
+.layout-4-5 > div {
+    flex: 1;
+}
+
+.layout-4-5 > div:nth-child(1) {
+    display: flex;
     flex-direction: column;
 }
 
-.layout-4-5 > div:nth-child(4) {
-    flex-basis: 100%;
+.layout-4-5 > div:nth-child(1) > div {
+    flex: 1;
 }
 
-.layout-5-1 > div:nth-child(1) {
-    flex-basis: 100%;
+/* 5-1 */
+
+.layout-5-1 {
+    flex-direction: column;
 }
+
+.layout-5-1 > div {
+    flex: 1;
+}
+
+.layout-5-1 > div:nth-child(2) {
+    display: flex;
+}
+
+.layout-5-1 > div:nth-child(2) > div {
+    flex: 1;
+}
+
+/* 5-2 */
 
 .layout-5-2 {
+    flex-direction: row;
+}
+
+.layout-5-2 > div {
+    flex: 1;
+}
+
+.layout-5-2 > div:nth-child(1) {
+    display: flex;
     flex-direction: column;
 }
 
-.layout-5-2 > div:nth-child(5) {
-    flex-basis: 100%;
+.layout-5-2 > div:nth-child(1) > div {
+    flex: 1;
 }
+
+/* 5-3 */
 
 .layout-5-3 {
+    flex-direction: row;
+}
+
+.layout-5-3 > div {
+    flex: 1;
+}
+
+.layout-5-3 > div:nth-child(2) {
+    display: flex;
     flex-direction: column;
 }
 
-.layout-5-3 > div:nth-child(1) {
-    flex-basis: 100%;
+.layout-5-3 > div:nth-child(2) > div {
+    flex: 1;
 }
 
-.layout-5-4 > div:nth-child(1),
-.layout-5-4 > div:nth-child(2) {
-    flex: 1 0 40%;
+/* 5-4 */
+
+.layout-5-4 {
+    flex-direction: column;
 }
 
-.layout-5-5 > div:nth-child(1),
-.layout-5-5 > div:nth-child(2),
-.layout-5-5 > div:nth-child(3) {
-    flex: 1 0 20%;
+.layout-5-4 > div {
+    flex: 1;
+    display: flex;
 }
 
-.layout-5-5 > div:nth-child(4),
-.layout-5-5 > div:nth-child(5) {
-    flex-basis: 40%;
+.layout-5-4 > div > div {
+    flex: 1;
+}
+
+/* 5-5 */
+
+.layout-5-5 {
+    flex-direction: column;
+}
+
+.layout-5-5 > div {
+    flex: 1;
+    display: flex;
+}
+
+.layout-5-5 > div > div {
+    flex: 1;
 }

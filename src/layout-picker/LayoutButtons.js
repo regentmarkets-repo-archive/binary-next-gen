@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import styles from '../layouts/layouts.css';
+import { layoutNames } from './layouts';
 
 export default class LayoutButtons extends Component {
 
@@ -8,12 +9,6 @@ export default class LayoutButtons extends Component {
     };
 
     render() {
-        const layoutCounts = [0, 1, 2, 5, 5, 7];
-        const layoutNames = layoutCounts.reduce((acc, x, i) => {
-            const ns = Array.from(new Array(x)).map((n, idx) => `layout-${i}-${idx + 1}`);
-            return acc.concat(ns);
-        }, []);
-
         return (
             <div className="buttons">
                 {layoutNames.map((x, idx) =>

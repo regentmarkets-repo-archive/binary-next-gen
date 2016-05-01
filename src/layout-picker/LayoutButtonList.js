@@ -1,9 +1,7 @@
 import React, { PropTypes, Component } from 'react';
-import sequence from 'binary-utils/lib/sequence';
 import styles from '../layouts/layouts.css';
 import LayoutButton from './LayoutButton';
-
-const layoutCounts = [1, 2, 5, 5, 5];
+import { layoutNumbers } from './layouts';
 
 export default class LayoutButtonList extends Component {
 
@@ -18,16 +16,14 @@ export default class LayoutButtonList extends Component {
 
         return (
             <div className={styles.layoutBtnList}>
-                {layoutCounts.map((count, idx) =>
-                    sequence(layoutCounts[idx]).map(i =>
-                        <LayoutButton
-                            key={idx + '-' + i}
-                            isActive={tradesCount === idx + 1 && layoutN === i + 1}
-                            tradesCount={idx + 1}
-                            layoutN={i + 1}
-                            onClick={() => actions.changeActiveLayout(idx + 1, i + 1)}
-                        />
-                    )
+                {layoutNumbers().map(x =>
+                    <LayoutButton
+                        key={`${x.trade}-${x.layout}`}
+                        isActive={tradesCount === x.trade && layoutN === x.layout}
+                        tradesCount={x.trade}
+                        layoutN={x.layout}
+                        onClick={() => actions.changeActiveLayout(x.trade, x.layout)}
+                    />
                 )}
             </div>
         );

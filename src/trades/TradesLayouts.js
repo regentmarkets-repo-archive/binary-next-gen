@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
-import classNames from 'classnames';
 import windowResizeEvent from 'binary-utils/lib/windowResizeEvent';
 import FullTradeCard from '../fulltrade/FullTradeCard';
+import * as layouts from '../layouts';
 import styles from '../layouts/layouts.css';
 
 export default class TradesLayouts extends Component {
@@ -27,27 +27,27 @@ export default class TradesLayouts extends Component {
     }
 
     render() {
-        const { actions, assetsIsOpen, currency, layoutN, trades, ticksForAllSymbols, contracts } = this.props;
-        const classes = classNames({
-            [styles.trades]: true,
-            [styles[`layout-${trades.length}-${layoutN}`]]: true,
-        });
+        const { assetsIsOpen, layoutN, trades, ticksForAllSymbols, contracts } = this.props;
+        const layout = layouts[`Layout${trades.length}${layoutN}`];
+        const layoutClass = `layout-${trades.length}-${layoutN}`;
+
+        if (!layout) return null;
+
+        const tradeComponents = trades.map((trade, index) =>
+            <FullTradeCard
+                {...this.props}
+                key={index}
+                index={index}
+                marketIsOpen={assetsIsOpen[trade.symbol] && assetsIsOpen[trade.symbol].isOpen}
+                trade={trade}
+                ticks={ticksForAllSymbols[trade.symbol]}
+                contract={contracts[trade.symbol]}
+            />
+        );
 
         return (
-            <div className={classes}>
-                {trades.map((trade, index) =>
-                    <FullTradeCard
-                        key={index}
-                        index={index}
-                        currency={currency}
-                        actions={actions}
-                        marketIsOpen={assetsIsOpen[trade.symbol] && assetsIsOpen[trade.symbol].isOpen}
-                        trade={trade}
-                        ticks={ticksForAllSymbols[trade.symbol]}
-                        contract={contracts[trade.symbol]}
-                        onClick={() => actions.changeActiveTrade(index)}
-                    />
-                )}
+            <div className={styles.trades + ' ' + styles[layoutClass]}>
+                {layout(tradeComponents)}
             </div>
         );
     }

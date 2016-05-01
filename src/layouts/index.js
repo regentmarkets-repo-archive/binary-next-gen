@@ -1,0 +1,20 @@
+export Layout11 from './layout-1-1';
+export Layout21 from './layout-2-1';
+export Layout22 from './layout-2-2';
+export Layout31 from './layout-3-1';
+export Layout32 from './layout-3-2';
+export Layout33 from './layout-3-3';
+export Layout34 from './layout-3-4';
+export Layout35 from './layout-3-5';
+export Layout41 from './layout-4-1';
+export Layout42 from './layout-4-2';
+export Layout43 from './layout-4-3';
+export Layout44 from './layout-4-4';
+export Layout45 from './layout-4-5';
+export Layout51 from './layout-5-1';
+export Layout52 from './layout-5-2';
+export Layout53 from './layout-5-3';
+export Layout54 from './layout-5-4';
+export Layout55 from './layout-5-5';
+
+// export default (tradesCount, layoutN) = layouts[`Layout${tradesCount}${layoutN}`];
