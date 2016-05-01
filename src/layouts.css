@@ -1,25 +1,30 @@
-.layout-btn-container {
+.layoutBtnContainer {
     width: 17rem;
     padding: 1rem;
     background: #2a3052;
     color: white;
 }
 
-.layout-btn, .trades {
+.layoutBtnList {
+    padding: .5rem;
     display: flex;
 }
 
-.layout-row-lbl {
+.layoutBtn, .trades {
+    display: flex;
+}
+
+.layoutRowLabel {
     width: 5rem;
     line-height: 2;
 }
 
-.layout-btn-row {
+.layoutBtnRow {
     display: flex;
     flex-direction: row;
 }
 
-.layout-btn {
+.layoutBtn {
     cursor: pointer;
     padding: .25rem;
     width: 2rem;
@@ -27,7 +32,7 @@
     opacity: .5;
 }
 
-.layout-btn.active, .layout-btn:hover {
+.layoutBtn.active, .layoutBtn:hover {
     opacity: 1;
 }
 
@@ -49,7 +54,7 @@
     overflow: auto;
 }
 
-.trades, .layout-btn {
+.trades, .layoutBtn {
     flex-wrap: wrap;
 }
 

@@ -15,9 +15,9 @@ export default class LayoutButton extends Component {
     render() {
         const { isActive, tradesCount, layoutN, onClick } = this.props;
         const classes = classNames({
-            [styles['layout-btn']]: true,
+            [styles.layoutBtn]: true,
             [styles[`layout-${tradesCount}-${layoutN}`]]: true,
-            active: isActive,
+            [styles.active]: isActive,
 		});
 
         return (

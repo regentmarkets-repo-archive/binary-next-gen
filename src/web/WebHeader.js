@@ -20,7 +20,6 @@ export default class WebHeader extends Component {
 			<div id="header" className="inverse">
 				<Logo />
 				<LayoutPickerContainer actions={actions} />
-				<div className="spacer" />
 				<Balance />
 				<WebSidebarContainer />
 			</div>
