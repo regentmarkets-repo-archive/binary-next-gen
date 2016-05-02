@@ -61,7 +61,7 @@ export default class ContractDetailsContainer extends Component {
                     className="trade-chart"
                     ticks={history}
                     contract={contract}
-					rangeChange={(type, count) => actions.getDataForContract(contract.contract_id, type, count)}
+					rangeChange={(count, type) => actions.getDataForContract(contract.contract_id, type, count)}
 				/>
 				<ContractDetailsCard
 					contract={contract}

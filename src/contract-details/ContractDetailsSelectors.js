@@ -1,4 +1,4 @@
-import { boughtContractsSelector, ticksSelector } from '../_store/directSelectors';
+import { boughtContractsSelector } from '../_store/directSelectors';
 import { createStructuredSelector } from 'reselect';
 
 export default createStructuredSelector({
