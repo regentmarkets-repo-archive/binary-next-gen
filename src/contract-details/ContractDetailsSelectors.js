@@ -2,6 +2,7 @@ import { boughtContractsSelector, ticksSelector } from '../_store/directSelector
 import { createStructuredSelector } from 'reselect';
 
 export default createStructuredSelector({
-    ticks: ticksSelector,
+    // ticks: ticksSelector,
+    chartData: state => state.chartData,
     contracts: boughtContractsSelector,
 });

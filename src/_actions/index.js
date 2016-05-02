@@ -20,3 +20,4 @@ export * from './UpgradeActions';
 export * from './StatesActions';
 export * from './TradingOptionsActions';
 export * from './ServerTimeActions';
+export * from './ChartDataActions';

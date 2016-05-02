@@ -14,20 +14,20 @@ export default class ContractDetailsContainer extends Component {
 
 	static propTypes = {
 		contracts: PropTypes.object.isRequired,
-		ticks: PropTypes.object.isRequired,
+		chartData: PropTypes.object.isRequired,
 		params: PropTypes.object,
 		actions: PropTypes.object.isRequired,
 	};
 
 	componentWillMount() {
-		const { actions, params, contracts, ticks } = this.props;
+		const { actions, params, contracts, chartData } = this.props;
 		const immutableContract = contracts.find(x => x.get('contract_id') === params.id);
 		const contract = immutableContract && immutableContract.toJS();
 
-		const immutableHistory = ticks.get(contract.underlying);
+		const immutableHistory = chartData.get(contract.underlying);
 
 		if (!immutableHistory) {
-			actions.getTicksBySymbol(contract.underlying);
+			actions.getDataForContract(contract.contract_id, 'all');
 		}
 	}
 
@@ -40,12 +40,11 @@ export default class ContractDetailsContainer extends Component {
 	}
 
 	render() {
-		const { params, contracts, ticks } = this.props;
+		const { actions, params, contracts, chartData } = this.props;
 		const immutableContract = contracts.find(x => x.get('contract_id') === params.id);
 		const contract = immutableContract && immutableContract.toJS();
 
-		const immutableHistory = ticks.get(contract.underlying);
-		const history = immutableHistory && immutableHistory.toJS();
+		const history = chartData.get(contract.contract_id);
 
 		if (!contract) return null;
 
@@ -62,6 +61,7 @@ export default class ContractDetailsContainer extends Component {
                     className="trade-chart"
                     ticks={history}
                     contract={contract}
+					rangeChange={(type, count) => actions.getDataForContract(contract.contract_id, type, count)}
 				/>
 				<ContractDetailsCard
 					contract={contract}
