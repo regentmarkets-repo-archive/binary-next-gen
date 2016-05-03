@@ -68,6 +68,7 @@ export default class FullTradeParams extends Component {
         actions: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
         contract: PropTypes.object,
+        compact: PropTypes.bool,
         disabled: PropTypes.bool,
         index: PropTypes.number.isRequired,
         trade: PropTypes.object.isRequired,
@@ -398,14 +399,12 @@ export default class FullTradeParams extends Component {
         return (
             <div className={styles.tradeParams} disabled={disabled}>
                 <AssetPickerDropDown
-                    actions={actions}
-                    index={index}
+                    {...this.props}
                     selectedSymbol={trade.symbol}
                     selectedSymbolName={trade.symbolName}
                 />
                 <TradeTypeDropDown
-                    actions={actions}
-                    contract={contract}
+                    {...this.props}
                     selectedCategory={categoryToUse}
                     selectedType={selectedType}
                     onCategoryChange={this.onCategoryChange}

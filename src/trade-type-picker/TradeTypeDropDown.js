@@ -9,17 +9,22 @@ export default class TradeTypeDropDown extends Component {
     shouldComponentUpdate = shouldPureComponentUpdate;
 
     static propTypes = {
+        compact: PropTypes.bool,
         selectedType: PropTypes.string.isRequired,
         onChange: PropTypes.func.isRequired,
     };
 
+    static contextTypes = {
+        router: React.PropTypes.object,
+    };
+    
     constructor(props) {
         super(props);
         this.state = {
             dropdownShown: false,
         };
     }
-
+    
     render() {
         const { selectedType, onChange } = this.props;
         const { dropdownShown } = this.state;

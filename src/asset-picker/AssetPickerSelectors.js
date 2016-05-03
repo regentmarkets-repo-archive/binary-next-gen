@@ -76,6 +76,11 @@ export const assetPickerItemsSelector = createSelector(
     }
 );
 
+export const assetPickerMobileSelector = createStructuredSelector({
+    selectedAsset: state => state.trades.get(0).get('symbol'),
+    tradeIdx: () => 0,
+});
+
 export default createStructuredSelector({
     availableAssets: availableAssetsSelector,
     assetPickerItems: assetPickerItemsSelector,

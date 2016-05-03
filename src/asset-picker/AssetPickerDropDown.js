@@ -9,9 +9,14 @@ export default class AssetPickerDropDown extends Component {
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
+        compact: PropTypes.bool,
         index: PropTypes.number.isRequired,
         selectedSymbol: PropTypes.string.isRequired,
         selectedSymbolName: PropTypes.string.isRequired,
+    };
+
+    static contextTypes = {
+        router: React.PropTypes.object,
     };
 
     constructor(props) {
@@ -19,6 +24,16 @@ export default class AssetPickerDropDown extends Component {
         this.state = {
             dropdownShown: false,
         };
+    }
+
+    openAssetPicker() {
+        const { compact } = this.props;
+        const { router } = this.context;
+        if (!compact) {
+            this.setState({ dropdownShown: true });
+        } else {
+            router.push('asset-picker');
+        }
     }
 
     render() {
@@ -38,7 +53,7 @@ export default class AssetPickerDropDown extends Component {
                 </DropDown>
                 <div
                     className="picker-label"
-                    onMouseDown={() => this.setState({ dropdownShown: true })}
+                    onMouseDown={::this.openAssetPicker}
                 >
                     {selectedSymbolName}
                 </div>

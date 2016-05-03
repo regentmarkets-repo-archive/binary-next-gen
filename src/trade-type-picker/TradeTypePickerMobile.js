@@ -1,9 +1,18 @@
 import React from 'react';
+import { connect } from 'react-redux';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 import MobilePage from '../containers/MobilePage';
-import TradeTypePickerContainer from './TradeTypePickerContainer';
+import TradeTypePicker from './TradeTypePicker';
 
-export default (props) => (
-	<MobilePage toolbarShown={false} backBtnBarTitle="Trade Type">
-		<TradeTypePickerContainer {...props} />
-	</MobilePage>
-);
+export default class TradeTypePickerMobile extends React.Component {
+	
+	shouldComponentUpdate = shouldPureComponentUpdate;
+
+	render() {
+		return (
+			<MobilePage toolbarShown={false} backBtnBarTitle="Trade Type">
+				<TradeTypePicker {...this.props} />
+			</MobilePage>
+		);
+	}
+}
