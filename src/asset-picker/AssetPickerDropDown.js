@@ -11,7 +11,6 @@ export default class AssetPickerDropDown extends Component {
         actions: PropTypes.object.isRequired,
         compact: PropTypes.bool,
         index: PropTypes.number.isRequired,
-        history: PropTypes.object.isRequired,
         selectedSymbol: PropTypes.string.isRequired,
         selectedSymbolName: PropTypes.string.isRequired,
     };
