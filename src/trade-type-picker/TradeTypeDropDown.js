@@ -17,14 +17,14 @@ export default class TradeTypeDropDown extends Component {
     static contextTypes = {
         router: React.PropTypes.object,
     };
-    
+
     constructor(props) {
         super(props);
         this.state = {
             dropdownShown: false,
         };
     }
-    
+
     render() {
         const { selectedType, onChange } = this.props;
         const { dropdownShown } = this.state;
