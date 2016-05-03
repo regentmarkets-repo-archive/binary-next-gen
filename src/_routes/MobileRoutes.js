@@ -30,7 +30,7 @@ export default [
     { path: 'statement-mobile', component: StatementMobile, onEnter: requireAuthOnEnter },
     { path: 'watchlist-mobile', component: WatchlistMobile, onEnter: requireAuthOnEnter },
     { path: 'asset-picker', component: AssetPickerMobile, onEnter: requireAuthOnEnter },
-    { path: 'trade-type-picker/:id', component: TradeTypePickerMobile, onEnter: requireAuthOnEnter },
+    { path: 'trade-type-picker', component: TradeTypePickerMobile, onEnter: requireAuthOnEnter },
     { path: 'settings-mobile', component: SettingsMobile, onEnter: requireAuthOnEnter },
     { path: 'news-mobile', component: NewsMobile },
     { path: 'article/:index', component: ArticleMobile },
