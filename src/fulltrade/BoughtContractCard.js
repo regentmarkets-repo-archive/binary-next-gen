@@ -14,7 +14,7 @@ export default class BoughtContractCard extends Component {
         const { actions, boughtContract, tradeId } = this.props;
 
         return (
-            <div>
+            <div className="trade-receipt-container">
                 <ContractDetailsCard className="trade-panel-receipt" actions={actions} contract={boughtContract} />
                 <Button
                     text="Trade Again"
