@@ -5,7 +5,8 @@ import NumberColored from '../_common/NumberColored';
 import FlexList from '../containers/FlexList';
 import KeyValueColumn from '../_common/KeyValueColumn';
 import toMoney from 'binary-utils/lib/toMoney';
-import epochToDateTime from 'binary-utils/lib/epochToDateTimeString';
+import epochToDate from 'binary-utils/lib/epochToDate';
+import dateToGMTString from 'binary-utils/lib/dateToGMTString';
 
 export default class ContractDetailsCard extends Component {
 
@@ -31,19 +32,19 @@ export default class ContractDetailsCard extends Component {
 				<FlexList>
 					<KeyValueColumn
 						label="Purchase time"
-						value={contract.purchase_time ? epochToDateTime(contract.date_start) : '-'}
+						value={contract.purchase_time ? dateToGMTString(epochToDate(contract.date_start)) : '-'}
 					/>
 					<KeyValueColumn
 						label="Start time"
-						value={contract.date_start ? epochToDateTime(contract.date_start) : '-'}
+						value={contract.date_start ? dateToGMTString(epochToDate(contract.date_start)) : '-'}
 					/>
 					<KeyValueColumn
 						label="Exit Time"
-						value={contract.date_expiry ? epochToDateTime(contract.date_expiry) : '-'}
+						value={contract.date_expiry ? dateToGMTString(epochToDate(contract.date_expiry)) : '-'}
 					/>
 					<KeyValueColumn
 						label="Sell Time"
-						value={contract.sell_time ? epochToDateTime(contract.date_expiry) : '-'}
+						value={contract.sell_time ? dateToGMTString(epochToDate(contract.date_expiry)) : '-'}
 					/>
 				</FlexList>
 				<FlexList>
