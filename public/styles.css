@@ -686,6 +686,7 @@ select {
 
 .trade-panel {
     flex: 1;
+    border: .1em solid #eee !important;
 }
 
 .toggle-buttons .btn-secondary.checked {
@@ -1025,6 +1026,8 @@ input[type=number]::-webkit-outer-spin-button {
     border: 1px solid rgba(42,48,82,0.1);
 }
 
-.trade-panel-receipt {
-    width: 200px;
+.trade-receipt-container {
+    overflow: auto;
+    max-height: 27.5em;
+    max-width: 14em;
 }
