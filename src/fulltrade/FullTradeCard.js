@@ -20,6 +20,7 @@ export default class FullTradeCard extends Component {
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
+        compact: PropTypes.bool,
         currency: PropTypes.string.isRequired,
         contract: PropTypes.object,
         contractBought: PropTypes.object,
