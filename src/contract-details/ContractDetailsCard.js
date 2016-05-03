@@ -8,6 +8,8 @@ import toMoney from 'binary-utils/lib/toMoney';
 import epochToDate from 'binary-utils/lib/epochToDate';
 import dateToGMTString from 'binary-utils/lib/dateToGMTString';
 
+const epochToGMTString = epoch => dateToGMTString(epochToDate(epoch));
+
 export default class ContractDetailsCard extends Component {
 
 	static propTypes = {
@@ -32,19 +34,19 @@ export default class ContractDetailsCard extends Component {
 				<FlexList>
 					<KeyValueColumn
 						label="Purchase time"
-						value={contract.purchase_time ? dateToGMTString(epochToDate(contract.date_start)) : '-'}
+						value={contract.purchase_time ? epochToGMTString(contract.date_start) : '-'}
 					/>
 					<KeyValueColumn
 						label="Start time"
-						value={contract.date_start ? dateToGMTString(epochToDate(contract.date_start)) : '-'}
+						value={contract.date_start ? epochToGMTString(contract.date_start) : '-'}
 					/>
 					<KeyValueColumn
 						label="Exit Time"
-						value={contract.date_expiry ? dateToGMTString(epochToDate(contract.date_expiry)) : '-'}
+						value={contract.date_expiry ? epochToGMTString(contract.date_expiry) : '-'}
 					/>
 					<KeyValueColumn
 						label="Sell Time"
-						value={contract.sell_time ? dateToGMTString(epochToDate(contract.date_expiry)) : '-'}
+						value={contract.sell_time ? epochToGMTString(contract.date_expiry) : '-'}
 					/>
 				</FlexList>
 				<FlexList>

@@ -7,7 +7,7 @@ export default class AssetPickerCard extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
-		tradeIdx: PropTypes.number,
+		tradeIdx: PropTypes.number.isRequired,
 		compact: PropTypes.bool,
 		history: PropTypes.object,
 		filter: PropTypes.object,
