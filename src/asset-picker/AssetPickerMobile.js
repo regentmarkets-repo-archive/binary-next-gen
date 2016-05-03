@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 import MobilePage from '../containers/MobilePage';
 import AssetPickerContainer from './AssetPickerContainer';
 import { assetPickerMobileSelector } from './AssetPickerSelectors';
@@ -9,6 +10,8 @@ export default class AssetPickerMobile extends React.Component {
 	static contextTypes = {
 		router: React.PropTypes.object,
 	};
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		const { router } = this.context;
