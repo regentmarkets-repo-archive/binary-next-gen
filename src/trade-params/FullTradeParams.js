@@ -17,20 +17,11 @@ import AssetPickerDropDown from '../asset-picker/AssetPickerDropDown';
 
 import isIntraday from 'binary-utils/lib/isIntraday';
 import isDurationLessThan2Mins from 'binary-utils/lib/isDurationLessThan2Mins';
-import getLastTick from 'binary-utils/lib/getLastTick';
 import askPriceFromProposal from 'binary-utils/lib/askPriceFromProposal';
-import isDurationWithinRange from 'binary-utils/lib/isDurationWithinRange';
-import noOfDecimals from 'binary-utils/lib/noOfDecimals';
 
 import * as LiveData from '../_data/LiveData';
 
-import {
-    createDefaultType,
-    createDefaultDuration,
-    createDefaultBarriers,
-    createDefaultBarrierType,
-} from './DefaultTradeParams';
-import { categoryValid, allTimeRelatedFieldValid } from './TradeParamsValidation';
+import * as updateHelpers from './TradeParamsCascadingUpdates';
 
 /**
  * This UI is coded with a few assumptions, which should always be true, this comments serves as a future reference
@@ -78,7 +69,6 @@ export default class FullTradeParams extends Component {
 
     constructor(props) {
         super(props);
-        this.updateHelper = ::this.updateHelper;
         this.onAssetChange = ::this.onAssetChange;
         this.onCategoryChange = ::this.onCategoryChange;
         this.onDurationChange = ::this.onDurationChange;
@@ -87,7 +77,7 @@ export default class FullTradeParams extends Component {
         this.onBarrier1Change = ::this.onBarrier1Change;
         this.onBarrier2Change = ::this.onBarrier2Change;
         this.onBasisChange = ::this.onBasisChange;
-        this.onAmountChange = this.onAmountChange.bind(this);
+        this.onAmountChange = ::this.onAmountChange;
         this.onAmountPerPointChange = ::this.onAmountPerPointChange;
         this.onStopLossChange = ::this.onStopLossChange;
         this.onStopTypeChange = ::this.onStopTypeChange;
@@ -127,239 +117,82 @@ export default class FullTradeParams extends Component {
         actions.updatePriceProposalSubscription(index);
     }
 
-    updateHelper(name, value, update = true) {
-        const { actions, index } = this.props;
-        actions.updateTradeParams(index, name, value);
-        if (update) {
-            actions.updatePriceProposalSubscription(index);
-        }
-    }
-
     onAssetChange() {
         const { contract, trade } = this.props;
+        const updatedAsset = updateHelpers.changeAsset(trade, contract, updateHelpers.changeCategory);
 
-        const selectedCategory = trade.tradeCategory;
-        if (!categoryValid(selectedCategory, contract)) {
-            this.onCategoryChange(Object.keys(contract)[0]);
-        } else {
-            const selectedType = trade.type;
-            const selectedDateStart = trade.dateStart;
-            const selectedDuration = trade.duration;
-            const selectedDurationUnit = trade.durationUnit;
-
-            if (!allTimeRelatedFieldValid(
-                    selectedDateStart,
-                    selectedDuration,
-                    selectedDurationUnit,
-                    contract[selectedCategory][selectedType]
-                )) {
-                const category = trade.tradeCategory;
-                const newDuration = createDefaultDuration(contract, category, selectedType);
-                const { dateStart, duration, durationUnit } = newDuration;
-                const newBarrier = createDefaultBarriers(contract, category, selectedType, duration, durationUnit);
-                const newBarrierType = createDefaultBarrierType(duration, durationUnit);
-                this.updateTradeParams({
-                    type: selectedType,
-                    duration,
-                    durationUnit,
-                    dateStart,
-                    barrier: newBarrier[0],
-                    barrier2: newBarrier[1],
-                    barrierType: newBarrierType,
-                });
-            } else {
-                const newBarrier = createDefaultBarriers(
-                    contract,
-                    selectedCategory,
-                    selectedType,
-                    selectedDuration, selectedDurationUnit
-                );
-                const newBarrierType = createDefaultBarrierType(selectedDuration, selectedDurationUnit);
-                this.updateTradeParams({
-                    barrier: newBarrier[0],
-                    barrier2: newBarrier[1],
-                    barrierType: newBarrierType,
-                });
-            }
-        }
+        this.updateTradeParams(updatedAsset);
     }
 
-    // scary but necessary as all fields have dependency on category
     onCategoryChange(newCategory) {
         const { contract } = this.props;
-        const defaultType = createDefaultType(contract, newCategory);
-            // spreads is special case
-        if (newCategory === 'spreads') {
-            const spread = contract[newCategory][defaultType].spread;
-
-            this.updateTradeParams({
-                tradeCategory: newCategory,
-                type: defaultType,
-                duration: undefined,
-                durationUnit: undefined,
-                dateStart: undefined,
-                barrier: undefined,
-                barrier2: undefined,
-                amountPerPoint: spread.amountPerPoint.toFixed(2),
-                stopType: spread.stopType,
-                stopLoss: 30, // hardcode default as backend return wrong info
-                stopProfit: spread.stopProfit,
-            });
-            return;
-        }
-
-        const newDuration = createDefaultDuration(contract, newCategory, defaultType);
-        const { dateStart, duration, durationUnit } = newDuration;
-        const newBarrier = createDefaultBarriers(
-            contract,
-            newCategory,
-            defaultType,
-            duration,
-            durationUnit,
-        );
-        const newBarrierType = createDefaultBarrierType(duration, durationUnit);
-
-        this.updateTradeParams({
-            tradeCategory: newCategory,
-            type: defaultType,
-            duration,
-            durationUnit,
-            dateStart,
-            barrier: newBarrier[0],
-            barrier2: newBarrier[1],
-            amountPerPoint: undefined,
-            stopType: undefined,
-            stopLoss: undefined,
-            stopProfit: undefined,
-            barrierType: newBarrierType,
-        });
+        const updatedCategory = updateHelpers.changeCategory(newCategory, contract);
+        this.updateTradeParams(updatedCategory);
     }
 
     onTypeChange(newType, newCategory) {
         const { contract, trade } = this.props;
-        const category = newCategory || trade.tradeCategory;
-        const newDuration = createDefaultDuration(contract, category, newType);
-        const { dateStart, duration, durationUnit } = newDuration;
-        const newBarrier = createDefaultBarriers(contract, category, newType, duration, durationUnit);
-        const newBarrierType = createDefaultBarrierType(duration, durationUnit);
-        this.updateTradeParams({
-            tradeCategory: newCategory,
-            type: newType,
-            duration,
-            durationUnit,
-            dateStart,
-            barrier: newBarrier[0],
-            barrier2: newBarrier[1],
-            barrierType: newBarrierType,
-        });
+        const updatedType = updateHelpers.changeType(newType, newCategory, trade, contract);
+        this.updateTradeParams(updatedType);
     }
 
     onStartDateChange(epoch) {
-        const { contract, trade, ticks } = this.props;
-        const lastSpot = getLastTick(ticks);
-        const { duration, durationUnit, tradeCategory, type } = trade;
-        const newDurations = contract[tradeCategory][type].forwardStartingDuration.options;
-
-        // do not reset duration unless the old one is not valid
-        if (!epoch) {
-            const newDuration = createDefaultDuration(contract, tradeCategory, type);
-            const newBarrier =
-                createDefaultBarriers(
-                    contract,
-                    tradeCategory,
-                    type,
-                    newDuration.duration,
-                    newDuration.durationUnit,
-                    lastSpot
-                );
-
-            this.updateTradeParams({
-                dateStart: epoch,
-                duration: newDuration.duration,
-                durationUnit: newDuration.durationUnit,
-                barrier: newBarrier[0],
-                barrier2: newBarrier[1],
-            });
-        } else if (isDurationWithinRange(duration, durationUnit, newDurations)) {
-            this.updateTradeParams({ dateStart: epoch });
-        } else {
-            this.updateTradeParams({
-                dateStart: epoch,
-                duration: newDurations[0].min,
-                durationUnit: newDurations[0].unit,
-                barrier: undefined,
-                barrier2: undefined,
-            });
-        }
+        const { contract, trade } = this.props;
+        const updatedStartDate = updateHelpers.changeStartDate(epoch, contract, trade);
+        this.updateTradeParams(updatedStartDate);
     }
 
     onDurationChange(e) {
-        this.updateHelper('duration', e.target.value);
+        this.updateTradeParams({ duration: e.target.value });
     }
 
     onDurationUnitChange(e) {
         const newUnit = e.target.value;
         const { contract, trade } = this.props;
-        const { tradeCategory, type, duration } = trade;
-        const newBarrier = createDefaultBarriers(contract, tradeCategory, type, duration, newUnit);
-        const newBarrierType = createDefaultBarrierType(duration, newUnit);
-
-        this.updateHelper('durationUnit', newUnit, false);
-
-        // if it's forward starting type, do not update barrier as not applicable
-        if (!trade.dateStart) {
-            this.updateTradeParams({
-                barrier: newBarrier[0],
-                barrier2: newBarrier[1],
-                barrierType: newBarrierType,
-            });
-        }
+        const updatedDurationUnit = updateHelpers.changeDurationUnit(newUnit, contract, trade);
+        this.updateTradeParams(updatedDurationUnit);
     }
 
     onBarrier1Change(e) {
         const { trade } = this.props;
         const inputValue = e.target.value;
-        const inputDecimalPlaces = noOfDecimals(inputValue);
-        const decimalPlaces = inputDecimalPlaces > trade.pipSize ? trade.pipSize : inputDecimalPlaces;
-        this.updateHelper('barrier', (+inputValue).toFixed(decimalPlaces));
+        const updatedBarrier1 = updateHelpers.changeBarrier1(inputValue, trade);
+        this.updateTradeParams(updatedBarrier1);
     }
 
     onBarrier2Change(e) {
         const { trade } = this.props;
         const inputValue = e.target.value;
-        const inputDecimalPlaces = noOfDecimals(inputValue);
-        const decimalPlaces = inputDecimalPlaces > trade.pipSize ? trade.pipSize : inputDecimalPlaces;
-        this.updateHelper('barrier2', (+inputValue).toFixed(decimalPlaces));
+        const updatedBarrier2 = updateHelpers.changeBarrier2(inputValue, trade);
+        this.updateTradeParams(updatedBarrier2);
     }
 
     onBasisChange(e) {
-        this.updateHelper('basis', e.target.value);
+        this.updateTradeParams({ basis: e.target.value });
     }
 
     onAmountChange(e) {
         const inputValue = e.target.value;
-        const inputDecimalPlaces = noOfDecimals(inputValue);
-        const decimalPlaces = inputDecimalPlaces > 2 ? 2 : inputDecimalPlaces;
-        this.updateHelper('amount', (+inputValue).toFixed(decimalPlaces));
+        const updatedAmount = updateHelpers.changeAmount(inputValue);
+        this.updateTradeParams(updatedAmount);
     }
 
     onAmountPerPointChange(e) {
         const inputValue = e.target.value;
-        const inputDecimalPlaces = noOfDecimals(inputValue);
-        const decimalPlaces = inputDecimalPlaces > 2 ? 2 : inputDecimalPlaces;
-        this.updateHelper('amountPerPoint', (+inputValue).toFixed(decimalPlaces));
+        const updatedAmountPerPoint = updateHelpers.changeAmountPerPoint(inputValue);
+        this.updateTradeParams(updatedAmountPerPoint);
     }
 
     onStopTypeChange(e) {
-        this.updateHelper('stopType', e.target.value);
+        this.updateTradeParams({ stopType: e.target.value });
     }
 
     onStopLossChange(e) {
-        this.updateHelper('stopLoss', e.target.value);
+        this.updateTradeParams({ stopLoss: e.target.value });
     }
 
     onStopProfitChange(e) {
-        this.updateHelper('stopProfit', e.target.value);
+        this.updateTradeParams({ stopProfit: e.target.value });
     }
 
     onPurchase() {

@@ -94,6 +94,7 @@
     "babel-preset-stage-0": "^6.5",
     "chai": "^3.5.0",
     "chai-immutable": "^1.5.4",
+    "chai-subset": "^1.2.2",
     "coveralls": "^2.11.9",
     "css-loader": "^0.23.1",
     "enzyme": "^2.2.0",
