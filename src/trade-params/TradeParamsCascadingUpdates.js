@@ -1,5 +1,5 @@
-import getLastTick from 'binary-utils/lib/getLastTick';
 import noOfDecimals from 'binary-utils/lib/noOfDecimals';
+import isDurationWithinRange from 'binary-utils/lib/isDurationWithinRange';
 import {
     createDefaultType,
     createDefaultDuration,
@@ -127,8 +127,7 @@ export function changeType(newType, newCategory, oldTrade, contract) {
 /**
  * @param newStartDate {number}   - unix epoch
  */
-export function changeStartDate(newStartDate, contract, oldTrade, ticks) {
-    const lastSpot = getLastTick(ticks);
+export function changeStartDate(newStartDate, contract, oldTrade) {
     const { duration, durationUnit, tradeCategory, type } = oldTrade;
     const newDurations = contract[tradeCategory][type].forwardStartingDuration.options;
 
@@ -141,8 +140,7 @@ export function changeStartDate(newStartDate, contract, oldTrade, ticks) {
                 tradeCategory,
                 type,
                 newDuration.duration,
-                newDuration.durationUnit,
-                lastSpot
+                newDuration.durationUnit
             );
 
         return {

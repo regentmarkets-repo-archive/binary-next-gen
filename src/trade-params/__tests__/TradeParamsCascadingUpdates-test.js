@@ -1,9 +1,12 @@
 import * as updateHelpers from '../TradeParamsCascadingUpdates';
 import { mockedContract } from '../../_constants/MockContract';
-import { expect } from 'chai';
+import chai, { expect } from 'chai';
+import chaiSubset from 'chai-subset';
+
+chai.use(chaiSubset);
 
 describe('Update helpers', () => {
-    const mockTrade = {
+    const mockTickTrade = {
         showAssetPicker: false,
         tradeCategory: "risefall",
         symbolName: "Volatility 100 Index",
@@ -25,7 +28,33 @@ describe('Update helpers', () => {
         type: "CALL",
         disabled: false,
         basis: "stake"
-    }
+    };
+    const mockEndsInTrade = {
+        showAssetPicker: false,
+        tradeCategory: "endsinout",
+        symbolName: "Volatility 100 Index",
+        barrierType: "relative",
+        proposal: {
+            longcode: "USD 120.13 payout if Volatility 100 Index ends outside entry spot minus 49.67 to entry spot plus 49.87 at 2 minutes after contract start time.",
+            spot: "30297.76",
+            display_value: "50.00",
+            ask_price: "50.00",
+            spot_time: "1462346774",
+            date_start: 1462346774,
+            id: "778D99E4-11C9-11E6-BE96-9360E1BD001D",
+            payout: 120.13
+        },
+        duration: 2,
+        barrier: 49.87,
+        amount: 50,
+        durationUnit: "m",
+        symbol: "R_100",
+        pipSize: 2,
+        type: "EXPIRYMISS",
+        barrier2: -49.67,
+        disabled: false,
+        basis: "stake"
+    };
 
     describe('changeAmountPerPoint', () => {
         it('should never return value more than 2 decimal places', () => {
@@ -59,18 +88,64 @@ describe('Update helpers', () => {
     
     describe('changeDurationUnit', () => {
         it('should update durationUnit ', () => {
-            const updateDurationUnit = updateHelpers.changeDurationUnit('m', mockedContract, mockTrade);
+            const updateDurationUnit = updateHelpers.changeDurationUnit('m', mockedContract, mockTickTrade);
             expect(updateDurationUnit.durationUnit).to.be.equal('m');
         });
         
         it('should update barrier for trade with barrier(s)', () => {
-            // TODO
+            const updateDurationUnit = updateHelpers.changeDurationUnit('m', mockedContract, mockEndsInTrade);
+            expect(updateDurationUnit.barrier).to.not.equal(mockEndsInTrade.barrier);
         });
     });
 
     describe('changeStartDate', () => {
         it('should change start date', () => {
-            
-        })
-    })
+            const updatedStartDate = updateHelpers.changeStartDate(1462433402, mockedContract, mockTickTrade);
+            expect(updatedStartDate.dateStart).to.be.equal(1462433402);
+        });
+
+        it('should change duration if original duration does not allow start later', () => {
+            const updatedStartDate = updateHelpers.changeStartDate(1462433402, mockedContract, mockTickTrade);
+            expect(updatedStartDate.durationUnit).to.be.equal('m');
+            expect(updatedStartDate.duration).to.be.equal(2);
+        });
+    });
+
+    describe('changeType', () => {
+        it('should change type', () => {
+            const updatedType = updateHelpers.changeType('SPREADU', 'spreads', mockTickTrade, mockedContract);
+            expect(updatedType.type).to.be.equal('SPREADU');
+        });
+
+        it('should update barrier(s) if target type have barrier(s)', () => {
+            const updatedType = updateHelpers.changeType('CALL', 'higherlower', mockTickTrade, mockedContract);
+            expect(updatedType.type).to.be.equal('CALL');
+
+            // barrier are added as higherlower need it
+            expect(mockTickTrade).to.not.contains.keys('barrier');
+            expect(updatedType).to.contains.keys('barrier');
+        });
+    });
+
+    describe('changeCategory', () => {
+        it('should change category', () => {
+            const updatedCategory = updateHelpers.changeCategory('spreads', mockedContract);
+            expect(updatedCategory.tradeCategory).to.equal('spreads');
+        });
+
+        it('should setup params for new category if needed', () => {
+            const updatedCategory = updateHelpers.changeCategory('spreads', mockedContract);
+            expect(updatedCategory).to.contains.keys('stopLoss', 'stopProfit', 'amountPerPoint');
+        });
+    });
+    
+    describe('changeAsset', () => {
+        it('should retain old params if new asset allows', () => {
+            const updatedAsset = updateHelpers.changeAsset(mockTickTrade, mockedContract, updateHelpers.changeCategory);
+            const mergedWithUpdatedAsset = Object.assign({}, mockTickTrade, updatedAsset);
+            // containSubset is used because changeAsset will set undefined to barriers
+            expect(mergedWithUpdatedAsset).to.containSubset(mockTickTrade);
+        });
+    });
+
 });
