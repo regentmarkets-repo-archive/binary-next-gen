@@ -161,10 +161,6 @@ export function changeStartDate(newStartDate, contract, oldTrade) {
     };
 }
 
-export function changeDuration(newDuration) {
-    return { duration: newDuration };
-}
-
 export function changeDurationUnit(newUnit, contract, oldTrade) {
     const { tradeCategory, type, duration } = oldTrade;
 
@@ -190,10 +186,6 @@ export function changeBarrier2(newBarrier, oldTrade) {
     return { barrier2: (+newBarrier).toFixed(oldTrade.pipSize) };
 }
 
-export function changeBasis(newBasis) {
-    return { basis: newBasis };
-}
-
 export function changeAmount(newAmount) {
     const inputDecimalPlaces = noOfDecimals(newAmount);
     const decimalPlaces = inputDecimalPlaces > 2 ? 2 : inputDecimalPlaces;
@@ -204,16 +196,4 @@ export function changeAmountPerPoint(newAmountPerPoint) {
     const inputDecimalPlaces = noOfDecimals(newAmountPerPoint);
     const decimalPlaces = inputDecimalPlaces > 2 ? 2 : inputDecimalPlaces;
     return { amountPerPoint: (+newAmountPerPoint).toFixed(decimalPlaces) };
-}
-
-export function changeStopType(newStopType) {
-    return { stopType: newStopType };
-}
-
-export function changeStopLoss(newStopLoss) {
-    return { stopLoss: newStopLoss };
-}
-
-export function changeStopProfit(newStopProfit) {
-    return { stopProfit: newStopProfit };
 }
