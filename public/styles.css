@@ -1019,6 +1019,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 .trade-receipt-container {
     overflow: auto;
-    max-height: 27.5em;
-    max-width: 14em;
+    max-width: 11rem;
+    margin-right: .5rem;
 }

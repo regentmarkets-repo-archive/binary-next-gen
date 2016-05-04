@@ -45,9 +45,6 @@
 .tradeParams {
     background: #f5f5f5;
     overflow: auto;
-}
-
-.trades .tradeParams {
     max-width: 11rem;
     margin-right: .5rem;
 }

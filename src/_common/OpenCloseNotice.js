@@ -15,7 +15,7 @@ export default class OpenCloseNotice extends Component {
         const { isOpen } = this.props;
 
         return isOpen ?
-            <span className="open-notice"><M m="Open" /></span> :
-            <span className="closed-notice"><M m="Closed" /></span>;
+            <M m="Open" className="open-notice" /> :
+            <M m="Closed" className="closed-notice" />;
     }
 }
