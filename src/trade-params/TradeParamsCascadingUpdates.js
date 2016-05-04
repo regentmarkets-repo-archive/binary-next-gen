@@ -8,53 +8,51 @@ import {
 } from './DefaultTradeParams';
 import { categoryValid, allTimeRelatedFieldValid } from './TradeParamsValidation';
 
-export function changeAsset(oldTrade, contract, changeCategory) {
-
+export function changeAsset(oldTrade, contract, changeCat) {
     const selectedCategory = oldTrade.tradeCategory;
     if (!categoryValid(selectedCategory, contract)) {
-        return changeCategory(Object.keys(contract)[0]);
-    } else {
-        const selectedType = oldTrade.type;
-        const selectedDateStart = oldTrade.dateStart;
-        const selectedDuration = oldTrade.duration;
-        const selectedDurationUnit = oldTrade.durationUnit;
-
-        if (!allTimeRelatedFieldValid(
-                selectedDateStart,
-                selectedDuration,
-                selectedDurationUnit,
-                contract[selectedCategory][selectedType]
-            )) {
-            const category = oldTrade.tradeCategory;
-            const newDuration = createDefaultDuration(contract, category, selectedType);
-            const { dateStart, duration, durationUnit } = newDuration;
-            const newBarrier = createDefaultBarriers(contract, category, selectedType, duration, durationUnit);
-            const newBarrierType = createDefaultBarrierType(duration, durationUnit);
-
-            return {
-                type: selectedType,
-                duration,
-                durationUnit,
-                dateStart,
-                barrier: newBarrier[0],
-                barrier2: newBarrier[1],
-                barrierType: newBarrierType,
-            };
-        } else {
-            const newBarrier = createDefaultBarriers(
-                contract,
-                selectedCategory,
-                selectedType,
-                selectedDuration, selectedDurationUnit
-            );
-            const newBarrierType = createDefaultBarrierType(selectedDuration, selectedDurationUnit);
-            return {
-                barrier: newBarrier[0],
-                barrier2: newBarrier[1],
-                barrierType: newBarrierType,
-            };
-        }
+        return changeCat(Object.keys(contract)[0]);
     }
+
+    const selectedType = oldTrade.type;
+    const selectedDateStart = oldTrade.dateStart;
+    const selectedDuration = oldTrade.duration;
+    const selectedDurationUnit = oldTrade.durationUnit;
+
+    if (!allTimeRelatedFieldValid(
+            selectedDateStart,
+            selectedDuration,
+            selectedDurationUnit,
+            contract[selectedCategory][selectedType]
+        )) {
+        const category = oldTrade.tradeCategory;
+        const newDuration = createDefaultDuration(contract, category, selectedType);
+        const { dateStart, duration, durationUnit } = newDuration;
+        const newBarrier = createDefaultBarriers(contract, category, selectedType, duration, durationUnit);
+        const newBarrierType = createDefaultBarrierType(duration, durationUnit);
+
+        return {
+            type: selectedType,
+            duration,
+            durationUnit,
+            dateStart,
+            barrier: newBarrier[0],
+            barrier2: newBarrier[1],
+            barrierType: newBarrierType,
+        };
+    }
+    const newBarrier = createDefaultBarriers(
+        contract,
+        selectedCategory,
+        selectedType,
+        selectedDuration, selectedDurationUnit
+    );
+    const newBarrierType = createDefaultBarrierType(selectedDuration, selectedDurationUnit);
+    return {
+        barrier: newBarrier[0],
+        barrier2: newBarrier[1],
+        barrierType: newBarrierType,
+    };
 }
 
 export function changeCategory(newCategory, contract) {
@@ -152,15 +150,15 @@ export function changeStartDate(newStartDate, contract, oldTrade) {
         };
     } else if (isDurationWithinRange(duration, durationUnit, newDurations)) {
         return { dateStart: newStartDate };
-    } else {
-        return {
-            dateStart: newStartDate,
-            duration: newDurations[0].min,
-            durationUnit: newDurations[0].unit,
-            barrier: undefined,
-            barrier2: undefined,
-        };
     }
+
+    return {
+        dateStart: newStartDate,
+        duration: newDurations[0].min,
+        durationUnit: newDurations[0].unit,
+        barrier: undefined,
+        barrier2: undefined,
+    };
 }
 
 export function changeDuration(newDuration) {
@@ -174,7 +172,6 @@ export function changeDurationUnit(newUnit, contract, oldTrade) {
     if (oldTrade.dateStart) {
         return { durationUnit: newUnit };
     }
-    
     const newBarrier = createDefaultBarriers(contract, tradeCategory, type, duration, newUnit);
     const newBarrierType = createDefaultBarrierType(duration, newUnit);
     return {
