@@ -4,61 +4,27 @@ import Tab from '../_common/Tab';
 import contractCategoryDisplay from 'binary-utils/lib/contractCategoryDisplay';
 import tradeTypeCodeToText from 'binary-utils/lib/tradeTypeCodeToText';
 import { serverToInternalTradeType, internalToServerTradeType } from './TradeTypeAdapter';
-
-const tradeGrouping = [
-    ['risefall', 'higherlower', 'endsinout', 'staysinout', 'touchnotouch'],
-    ['digits'],
-    ['spreads', 'asian'],
-];
-
-const hasBasic = contract =>
-    Object.keys(contract).find(c => tradeGrouping[0].includes(c));
-
-const hasDigits = contract =>
-    Object.keys(contract).find(c => tradeGrouping[1].includes(c));
-
-const hasAdvanced = contract =>
-    Object.keys(contract).find(c => tradeGrouping[2].includes(c));
-
-const typesForCategory = (contract, category) => {
-    if (contract[category]) {
-        return Object.keys(contract[category]).map(type => serverToInternalTradeType(category, type));
-    }
-    return [];
-};
-
-const typesForCategories = (contract, categories) =>
-    categories.reduce((a, b) => a.concat(typesForCategory(contract, b)), []);
-
-const findCategoryForType = (contract, type) => {
-    switch (type) {
-        case 'CALL': return 'risefall';
-        case 'PUT': return 'risefall';
-        case 'HIGHER': return 'higherlower';
-        case 'LOWER': return 'higherlower';
-        default: return Object.keys(contract).find(cat => Object.keys(contract[cat]).includes(type));
-    }
-};
-
-const pairUpTypes = types => {
-    const paired = [];
-    types.forEach((t, idx) => {
-        if (idx % 2 === 0) {
-            paired.push([t, types[idx + 1]]);
-        }
-    });
-    return paired;
-};
+import {
+    tradeGrouping,
+    typesForCategories,
+    hasAdvanced,
+    hasBasic,
+    hasDigits,
+    findCategoryForType,
+    pairUpTypes,
+} from './TradeTypePickerUtils';
+import { changeCategory, changeType } from '../trade-params/TradeParamsCascadingUpdates';
 
 export default class TradeTypePicker extends Component {
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
         contract: PropTypes.object.isRequired,
+        onSelect: PropTypes.func.isRequired,
         selectedCategory: PropTypes.string.isRequired,
         selectedType: PropTypes.string.isRequired,
-        onTypeChange: PropTypes.func.isRequired,
-        onCategoryChange: PropTypes.func.isRequired,
+        trade: PropTypes.object.isRequired,
+        updateParams: PropTypes.func.isRequired,
     };
 
     constructor(props) {
@@ -78,21 +44,24 @@ export default class TradeTypePicker extends Component {
     }
 
     onGroupChange(group) {
-        const { contract, selectedCategory, onCategoryChange } = this.props;
+        const { contract, selectedCategory, updateParams } = this.props;
         const groupCategories = Object
             .keys(contract)
             .map(c => ({ value: c, text: contractCategoryDisplay(c) }))
             .filter(c => tradeGrouping[group].includes(c.value));
 
         if (!groupCategories.find(c => c.value === selectedCategory)) {
-            onCategoryChange(groupCategories[0].value);
+            const updatedCategory = changeCategory(groupCategories[0].value, contract);
+            updateParams(updatedCategory);
         }
     }
 
     changeType(type) {
-        const { contract, onTypeChange } = this.props;
+        const { contract, onSelect, trade, updateParams } = this.props;
         const selectedCategory = findCategoryForType(contract, type);
-        onTypeChange(internalToServerTradeType(type), selectedCategory);
+        const updatedType = changeType(internalToServerTradeType(type), selectedCategory, trade, contract);
+        updateParams(updatedType);
+        onSelect(updatedType);
     }
 
     render() {
