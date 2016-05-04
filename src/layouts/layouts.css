@@ -229,7 +229,7 @@
 
 .layout-4-4 > div:nth-child(2) > div {
     flex: 1;
-    max-height: 36%;
+    max-height: 32%;
 }
 
 /* 4-5 */
