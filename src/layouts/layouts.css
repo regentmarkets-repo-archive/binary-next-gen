@@ -70,6 +70,7 @@
 
 .layout-2-1 > div {
     flex: 1;
+    max-height: calc(96% / 2);
 }
 
 /* 2-2 */
@@ -78,7 +79,7 @@
     flex-direction: row;
 }
 
-.layout-2-1 > div {
+.layout-2-2 > div {
     flex: 1;
 }
 
@@ -90,6 +91,7 @@
 
 .layout-3-1 > div {
     flex: 1;
+    max-height: calc(96% / 2);
 }
 
 .layout-3-1 > div:nth-child(2) {
@@ -104,6 +106,7 @@
 
 .layout-3-2 > div {
     flex: 1;
+    max-height: calc(96% / 2);
 }
 
 .layout-3-2 > div:nth-child(1) {
@@ -124,7 +127,9 @@
     display: flex;
     flex-direction: column;
 }
-
+.layout-3-3 > div:nth-child(1) > div {
+    max-height: calc(96% / 2);   
+}
 /* 3-4 */
 
 .layout-3-4 {
@@ -139,7 +144,9 @@
     display: flex;
     flex-direction: column;
 }
-
+.layout-3-4 > div:nth-child(2) > div {
+    max-height: calc(96% / 2);   
+}
 /* 3-5 */
 
 .layout-3-5 {
@@ -148,6 +155,7 @@
 
 .layout-3-5 > div {
     flex: 1;
+    max-height: calc(96% / 3);
 }
 
 /* 4-1 */
@@ -159,6 +167,7 @@
 .layout-4-1 > div {
     display: flex;
     flex: 1;
+    max-height: calc(96% / 2);
 }
 
 .layout-4-1 {
@@ -173,6 +182,7 @@
 
 .layout-4-2 > div {
     flex: 1;
+    max-height: calc(96% / 2);
 }
 
 .layout-4-2 > div:nth-child(1) {
@@ -191,6 +201,7 @@
 
 .layout-4-3 > div {
     flex: 1;
+    max-height: calc(96% / 2);
 }
 
 .layout-4-3 > div:nth-child(2) {
@@ -218,6 +229,7 @@
 
 .layout-4-4 > div:nth-child(2) > div {
     flex: 1;
+    max-height: calc(96% / 3);
 }
 
 /* 4-5 */
@@ -237,6 +249,7 @@
 
 .layout-4-5 > div:nth-child(1) > div {
     flex: 1;
+    max-height: calc(96% / 3);
 }
 
 /* 5-1 */
@@ -247,6 +260,7 @@
 
 .layout-5-1 > div {
     flex: 1;
+    max-height: calc(96% / 2);
 }
 
 .layout-5-1 > div:nth-child(2) {
@@ -274,6 +288,7 @@
 
 .layout-5-2 > div:nth-child(1) > div {
     flex: 1;
+    max-height: calc(96% / 4);
 }
 
 /* 5-3 */
@@ -293,6 +308,7 @@
 
 .layout-5-3 > div:nth-child(2) > div {
     flex: 1;
+    max-height: calc(96% / 4);
 }
 
 /* 5-4 */
@@ -304,6 +320,7 @@
 .layout-5-4 > div {
     flex: 1;
     display: flex;
+    max-height: calc(96% / 2);
 }
 
 .layout-5-4 > div > div {
@@ -319,6 +336,7 @@
 .layout-5-5 > div {
     flex: 1;
     display: flex;
+    max-height: calc(96% / 2);
 }
 
 .layout-5-5 > div > div {
