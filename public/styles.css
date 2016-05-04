@@ -6,6 +6,10 @@ body {
     font-size: 12px;
 }
 
+input::-webkit-calendar-picker-indicator {
+    display: none;
+}
+
 /* Web Layout */
 
 #root, #screen {
