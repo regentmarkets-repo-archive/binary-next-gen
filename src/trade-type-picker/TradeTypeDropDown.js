@@ -24,6 +24,16 @@ export default class TradeTypeDropDown extends Component {
         };
     }
 
+    openTradeTypePicker() {
+        const { compact } = this.props;
+        const { router } = this.context;
+        if (compact) {
+            router.push('trade-type-picker');
+        } else {
+            this.setState({ dropdownShown: true });
+        }
+    }
+
     render() {
         const { trade } = this.props;
         const selectedType = trade.type;
@@ -42,7 +52,7 @@ export default class TradeTypeDropDown extends Component {
                 </DropDown>
                 <div
                     className="picker-label"
-                    onMouseDown={() => this.setState({ dropdownShown: true })}
+                    onMouseDown={::this.openTradeTypePicker}
                 >
                     Trade type: {tradeToFriendlyType(selectedType)}
                 </div>

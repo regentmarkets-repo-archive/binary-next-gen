@@ -12,7 +12,16 @@ export default class TradeTypePickerMobile extends React.Component {
 		actions: React.PropTypes.object.isRequired,
 	};
 
+	static contextTypes = {
+		router: React.PropTypes.object,
+	};
+
 	shouldComponentUpdate = shouldPureComponentUpdate;
+
+	onSelectForMobile() {
+		const { router } = this.context;
+		router.goBack();
+	}
 
 	updateParamsForMobile(params) {
 		const { actions } = this.props;
@@ -25,6 +34,7 @@ export default class TradeTypePickerMobile extends React.Component {
 			<MobilePage toolbarShown={false} backBtnBarTitle="Trade Type">
 				<TradeTypePicker
 					{...immutableChildrenToJS(this.props)}
+					onSelect={::this.onSelectForMobile}
 					updateParams={::this.updateParamsForMobile}
 				/>
 			</MobilePage>
