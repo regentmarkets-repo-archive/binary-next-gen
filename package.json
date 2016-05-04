@@ -15,7 +15,11 @@
     "test:unit-watch": "mocha --compilers js:babel-core/register --require ignore-styles --require babel-polyfill --watch ./src/**/__tests__/*.js",
     "test:coveralls": "npm run test:coverage && cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "start": "node server.js",
+    "clean": "rimraf dist",
     "build": "npm run clean && npm run build:webpack",
+    "build:webpack": "NODE_ENV=production webpack --config webpack.config.js",
+    "lint": "eslint src",
+    "electron": "electron electron.js",
     "translate": "bash fetch-translation.sh"
   },
   "keywords": [
@@ -25,7 +29,7 @@
     "redux",
     "websockets"
   ],
-  "author": "Boris @ Binary",
+  "author": "Boris, Qing Wei, Nuru @ Binary",
   "license": "MIT",
   "babel": {
     "presets": [
@@ -108,6 +112,10 @@
     "gulp": "^3.9.1",
     "gulp-concat": "^2.6.0",
     "gulp-minify-css": "^1.2.4",
+    "run-sequence": "^1.1.5",
+    "gulp-file": "^0.2.0",
+    "gulp-shell": "^0.5.2",
+    "gulp-gh-pages": "^0.5.4",
     "gulp-sass": "^2.3.1",
     "gulp-util": "^3.0.7",
     "ignore-styles": "^1.2.0",

@@ -1,44 +1,58 @@
 const gulp = require('gulp');
-const sass = require('gulp-sass');
-const concat = require('gulp-concat');
-const exec = require('child_process').exec;
-//const minify = require('gulp-minify-css'); // to create .min.css optional
-const gutil = require('gulp-util');
+const runSequence = require('run-sequence');
+const del = require('del');
+const file = require('gulp-file');
+const shell = require('gulp-shell');
+const ghPages = require('gulp-gh-pages');
+// const sass = require('gulp-sass');
+// const electron = require('gulp-atom-electron');
+// const zip = require('gulp-vinyl-zip');
 
-gulp.task('styles', () => {
-    gulp.src('public/sass/*.scss')
-        .pipe(concat('build.scss').on('error', () => concat.logError))
-        .pipe(sass().on('error', () => sass.logError))
-        //.pipe(minify()) //to minify or create minify version
-        .pipe(gulp.dest('public/css/'));
-});
+const files = {
+    dist: './dist',
+    js: './src',
+    static: ['./public/**/*', './config.xml', './electron.js'],
+    sass: 'public/styles.sass',
+};
 
-gulp.task('express', (done) => {
-    gutil.log('starting express server');
-    exec('node server.js', (err) => {
-        gutil.log('gulp could not start express server', err);
-        done(err);
-    });
-    gutil.log('Listening at http://localhost:3000');
-    done();
-});
+process.env.NODE_ENV = 'production';
 
-gulp.task('watch', (done) => {
-    gulp
-        .watch('public/sass/*.scss', ['styles'])
-        .on('change', (event) => {
-            gutil.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
-        })
-        .on('error', (err) => {
-            gutil.log('Gulp error watching sass', err);
-            done(err);
-        })
-        .on('end', () => {
-            gutil.log('it has ended');
-            done();
-        });
-});
+gulp.task('cleanup', callback =>
+    del([files.dist], { force: true }, callback)
+);
 
-gulp.task('default', ['watch', 'express']);
+gulp.task('static', () =>
+    gulp.src(files.static)
+        .pipe(gulp.dest(files.dist))
+);
 
+gulp.task('styles', () =>
+    gulp.src(files.sass)
+        .pipe(gulp.dest('dist'))
+);
 
+gulp.task('js', () =>
+    gulp.src(files.js)
+        .pipe(shell('webpack --config ./webpack.config.js'))
+        .pipe(gulp.dest(files.dist))
+);
+
+gulp.task('build', callback =>
+    runSequence('cleanup', ['static', 'js'], callback)
+);
+
+gulp.task('download-electron', () =>
+    electron.dest('./release', { version: '0.34.3', platform: 'win32' })
+);
+
+gulp.task('electron', ['download-electron'], () =>
+    gulp.src(files.dist + '/**')
+        .pipe(electron({ version: '0.34.3', platform: 'win32' }))
+        .pipe(zip.dest('./binary-app.zip'))
+);
+
+gulp.task('deploy', ['build'], () =>
+    gulp.src(files.dist + '/**/*')
+        .pipe(file('CNAME', 'app.binary.com'))
+        .pipe(ghPages())
+);
