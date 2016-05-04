@@ -147,5 +147,4 @@ describe('Update helpers', () => {
             expect(mergedWithUpdatedAsset).to.containSubset(mockTickTrade);
         });
     });
-
 });
