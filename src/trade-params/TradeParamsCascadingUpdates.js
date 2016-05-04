@@ -11,7 +11,7 @@ import { categoryValid, allTimeRelatedFieldValid } from './TradeParamsValidation
 export function changeAsset(oldTrade, contract, changeCat) {
     const selectedCategory = oldTrade.tradeCategory;
     if (!categoryValid(selectedCategory, contract)) {
-        return changeCat(Object.keys(contract)[0]);
+        return changeCat(Object.keys(contract)[0], contract);
     }
 
     const selectedType = oldTrade.type;
