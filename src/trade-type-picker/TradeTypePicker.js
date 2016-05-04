@@ -20,9 +20,7 @@ export default class TradeTypePicker extends Component {
     static propTypes = {
         actions: PropTypes.object.isRequired,
         contract: PropTypes.object.isRequired,
-        onSelect: PropTypes.func.isRequired,
-        selectedCategory: PropTypes.string.isRequired,
-        selectedType: PropTypes.string.isRequired,
+        onSelect: PropTypes.func,
         trade: PropTypes.object.isRequired,
         updateParams: PropTypes.func.isRequired,
     };
@@ -33,7 +31,8 @@ export default class TradeTypePicker extends Component {
     }
 
     componentWillMount() {
-        const { selectedCategory } = this.props;
+        const { trade } = this.props;
+        const selectedCategory = trade.tradeCategory;
         const groupId = tradeGrouping.findIndex(categories => categories.includes(selectedCategory));
         this.setState({ tradeGroup: groupId });
     }
@@ -44,7 +43,8 @@ export default class TradeTypePicker extends Component {
     }
 
     onGroupChange(group) {
-        const { contract, selectedCategory, updateParams } = this.props;
+        const { contract, trade, updateParams } = this.props;
+        const selectedCategory = trade.tradeCategory;
         const groupCategories = Object
             .keys(contract)
             .map(c => ({ value: c, text: contractCategoryDisplay(c) }))
@@ -61,11 +61,15 @@ export default class TradeTypePicker extends Component {
         const selectedCategory = findCategoryForType(contract, type);
         const updatedType = changeType(internalToServerTradeType(type), selectedCategory, trade, contract);
         updateParams(updatedType);
-        onSelect(updatedType);
+        if (onSelect) {
+            onSelect(updatedType);
+        }
     }
 
     render() {
-        const { contract, selectedCategory, selectedType } = this.props;
+        const { contract, trade } = this.props;
+        const selectedCategory = trade.tradeCategory;
+        const selectedType = trade.type;
         const { tradeGroup } = this.state;
         // type come in pairs logically
         const types = typesForCategories(contract, tradeGrouping[tradeGroup])

@@ -10,7 +10,7 @@ export default class TradeTypeDropDown extends Component {
 
     static propTypes = {
         compact: PropTypes.bool,
-        selectedType: PropTypes.string.isRequired,
+        trade: PropTypes.object.isRequired,
     };
 
     static contextTypes = {
@@ -25,7 +25,8 @@ export default class TradeTypeDropDown extends Component {
     }
 
     render() {
-        const { selectedType } = this.props;
+        const { trade } = this.props;
+        const selectedType = trade.type;
         const { dropdownShown } = this.state;
 
         return (
