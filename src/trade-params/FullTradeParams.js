@@ -90,7 +90,7 @@ export default class FullTradeParams extends Component {
     }
 
     /**
-     * componentDidUpdate is used instead of componentWillReceiveProps because the onAssetChangeDepends on updated
+     * componentDidUpdate is used instead of componentWillReceiveProps because the onAssetChange depends on updated
      * props, which only accessible after component update
      * it's a mistake here that method to be reuse are coupled with component states
      * TODO: redesign so that side effect are handle elsewhere
@@ -238,10 +238,7 @@ export default class FullTradeParams extends Component {
                 />
                 <TradeTypeDropDown
                     {...this.props}
-                    selectedCategory={categoryToUse}
-                    selectedType={selectedType}
-                    onCategoryChange={this.onCategoryChange}
-                    onChange={::this.onTypeChange}
+                    updateParams={::this.updateTradeParams}
                 />
                 {showDuration && !showSpreadBarrier &&
                     <DurationCard
