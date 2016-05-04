@@ -11,7 +11,6 @@ export default class TradeTypeDropDown extends Component {
     static propTypes = {
         compact: PropTypes.bool,
         selectedType: PropTypes.string.isRequired,
-        onChange: PropTypes.func.isRequired,
     };
 
     static contextTypes = {
@@ -26,7 +25,7 @@ export default class TradeTypeDropDown extends Component {
     }
 
     render() {
-        const { selectedType, onChange } = this.props;
+        const { selectedType } = this.props;
         const { dropdownShown } = this.state;
 
         return (
@@ -37,10 +36,7 @@ export default class TradeTypeDropDown extends Component {
                 >
                     <TradeTypePicker
                         {...this.props}
-                        onTypeChange={(...params) => {
-                            onChange(...params);
-                            this.setState({ dropdownShown: false });
-                        }}
+                        onSelect={() => this.setState({ dropdownShown: false })}
                     />
                 </DropDown>
                 <div
