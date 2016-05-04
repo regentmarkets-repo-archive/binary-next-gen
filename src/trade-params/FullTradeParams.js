@@ -238,8 +238,6 @@ export default class FullTradeParams extends Component {
                 />
                 <TradeTypeDropDown
                     {...this.props}
-                    selectedCategory={categoryToUse}
-                    selectedType={selectedType}
                     updateParams={::this.updateTradeParams}
                 />
                 {showDuration && !showSpreadBarrier &&
