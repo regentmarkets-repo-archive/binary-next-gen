@@ -1,6 +1,7 @@
 import { fromJS, Repeat } from 'immutable';
 import {
     CHANGE_ACTIVE_LAYOUT,
+    CLOSE_CONTRACT_RECEPIT,
     UPDATE_TRADE_PARAMS,
     UPDATE_MULTIPLE_TRADE_PARAMS,
     RESET_TRADES,
@@ -47,6 +48,9 @@ export default (state = initialState, action) => {
             }
 
             return state;
+        }
+        case CLOSE_CONTRACT_RECEPIT: {
+            return state.setIn([action.index, 'mostRecentContractId'], undefined);
         }
         case UPDATE_TRADE_PARAMS: {
             return state.setIn([action.index, action.fieldName], action.fieldValue);

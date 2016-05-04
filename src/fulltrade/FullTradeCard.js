@@ -5,7 +5,7 @@ import { BinaryChart } from 'binary-charts';
 import PurchaseFailed from '../_common/PurchaseFailed';
 import Modal from '../containers/Modal';
 import FullTradeParams from '../trade-params/FullTradeParams';
-import BoughtContractCard from './BoughtContractCard';
+import ContractReceiptCard from './ContractReceiptCard';
 import findDeep from 'binary-utils/lib/findDeep';
 import { mockedContract } from './../_constants/MockContract';
 import { internalTradeModelToServerTradeModel } from './adapters/TradeObjectAdapter';
@@ -66,7 +66,7 @@ export default class FullTradeCard extends Component {
                     />
                 </div>
                 {lastBoughtContract ?
-                    <BoughtContractCard
+                    <ContractReceiptCard
                         actions={actions}
                         boughtContract={lastBoughtContract}
                         tradeId={index}

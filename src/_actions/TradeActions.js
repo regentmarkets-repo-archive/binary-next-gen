@@ -119,6 +119,11 @@ export const updateTradeParams = (index, fieldName, fieldValue) => {
     };
 };
 
+export const closeContractReceipt = index => ({
+    type: types.CLOSE_CONTRACT_RECEPIT,
+    index,
+});
+
 export const updateMultipleTradeParams = (index, params) => {
     trackEvent('update-trade-paremeters', params);
     return {
