@@ -35,26 +35,27 @@ export default class AssetPickerDropDown extends Component {
             router.push('asset-picker');
         }
     }
+    onClose(e) {
+        const { actions } = this.props;
+        e.stopPropagation();
+        actions.updateAssetPickerSearchQuery('');
+        actions.updateAssetPickerFilter('all');
+        this.setState({ dropdownShown: false });
+    }
 
     render() {
         const { actions, index, selectedSymbol, selectedSymbolName } = this.props;
         const { dropdownShown } = this.state;
         return (
             <div>
-                <DropDown
-                    shown={dropdownShown}
-                    onClose={() => this.setState({ dropdownShown: false })}
-                >
+                <DropDown shown={dropdownShown} onClose={::this.onClose}>
                     <AssetPickerContainer
                         actions={actions}
                         tradeIdx={index}
                         selectedAsset={selectedSymbol}
                     />
                 </DropDown>
-                <div
-                    className="picker-label"
-                    onMouseDown={::this.openAssetPicker}
-                >
+                <div className="picker-label" onMouseDown={::this.openAssetPicker}>
                     {selectedSymbolName}
                 </div>
             </div>
