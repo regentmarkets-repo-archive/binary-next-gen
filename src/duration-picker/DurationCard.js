@@ -70,7 +70,7 @@ export default class DurationCard extends Component {
         const showError = duration > max || duration < min;
         const errorMsg = (duration > max ? `Maximum is ${max} ` : `Minimum is ${min} `) + durationText(durationUnit);
         return (
-            <div>
+            <div className="duration-picker">
                 {(allowStartLater && !onlyStartLater) &&
                     <FormattedMessage id="Start Later" defaultMessage="Start Later">
                         {text =>
@@ -92,7 +92,7 @@ export default class DurationCard extends Component {
                     />
                 }
                 {currentUnitBlock ?
-                    <div id="duration-fields" className="row">
+                    <div id="duration-fields">
                         <InputGroup
                             type="number"
                             value={duration}

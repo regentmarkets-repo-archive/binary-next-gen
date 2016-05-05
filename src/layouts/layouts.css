@@ -10,6 +10,10 @@
     display: flex;
 }
 
+.trades {
+    background: rgba(42, 48, 82, 1);
+}
+
 .layoutBtn, .trades {
     display: flex;
     flex: 1;
@@ -43,9 +47,9 @@
 }
 
 .tradeParams {
-    background: #f5f5f5;
+    abackground: #f5f5f5;
     overflow: auto;
-    max-width: 11rem;
+    max-width: 10rem;
     margin-right: .5rem;
 }
 

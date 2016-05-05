@@ -530,7 +530,7 @@ select {
 }
 
 .resizer-vertical, .resizer-horizontal {
-    background: rgba(42, 48, 82, .1);
+    background: rgba(42, 48, 82, 1);
 }
 
 .resizer-vertical {
@@ -679,11 +679,6 @@ select {
     text-align: left;
 }
 
-.trade-panel {
-    flex: 1;
-    border: .1em solid #eee !important;
-}
-
 .toggle-buttons .btn-secondary.checked {
     background: rgba(255, 255, 255, .8);
 }
@@ -785,7 +780,6 @@ input[type=number]::-webkit-outer-spin-button {
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    padding: .5rem;
 }
 
 .open-notice, .closed-notice {
@@ -925,17 +919,10 @@ input[type=number]::-webkit-outer-spin-button {
     max-height: 90vh;
     max-width: 90vw;
     overflow: auto;
-    margin: 1rem;
     background: white;
     position: absolute;
     z-index: 10000;
     box-shadow: 0 0 2rem 0 black;
-}
-
-.picker-label {
-    cursor: pointer;
-    padding: .5rem;
-    background: #eee;
 }
 
 .contract-details h6 {
@@ -953,8 +940,12 @@ input[type=number]::-webkit-outer-spin-button {
 
 .trade-panel {
     display: flex;
+    flex: 1;
     flex-direction: row-reverse;
-    margin: .25rem;
+    margin: 2px;
+    padding: .25rem;
+    background: white;
+    border-radius: 2px;
 }
 
 .trade-chart-container {
@@ -1025,4 +1016,28 @@ input[type=number]::-webkit-outer-spin-button {
     overflow: auto;
     max-width: 11rem;
     margin-right: .5rem;
+}
+
+.picker-label {
+    cursor: pointer;
+    padding-left: .25rem;
+    line-height: 2;
+    margin-bottom: .25rem;
+    display: flex;
+    justify-content: space-between;
+    background: rgba(42, 48, 82, 0.1);
+    border-radius: 2px;
+}
+
+.picker-label:hover {
+    color: white;
+    background: rgba(42, 48, 82, 1);
+    border: none;
+}
+
+#duration-fields {
+    display: flex;
+}
+#duration-fields > * {
+    flex: 1;
 }
