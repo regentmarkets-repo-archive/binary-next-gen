@@ -926,6 +926,9 @@ input[type=number]::-webkit-outer-spin-button {
     position: absolute;
     z-index: 10000;
     box-shadow: 0 0 2rem 0 black;
+   
+    /* Re position dropdown to avoid layout break*/
+    top: 7%;
 }
 
 .picker-label {
