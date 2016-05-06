@@ -150,7 +150,21 @@ div[role=tab] .close-btn, .panel-active .close-btn {
     overflow: auto;
     width: 100%;
 }
-
+.mobile-content > .trade-panel > div:last-child {
+    margin: auto;
+    margin-top: 1em;
+    max-width: 100% !important;
+}
+.mobile-content > .news-list-card,
+.mobile-content > .asset-index-card, 
+.mobile-content > .video-list,
+.mobile-content > .trading-times-card
+{
+    margin: 0 .3em 0 .3em;
+}
+.setting-container {
+    margin: 0 .3em 0 .3em;
+}
 [role=tablist] {
     margin-bottom: .5rem;
     flex-shrink: 0;

@@ -36,7 +36,7 @@ export default class SettingsGeneral extends Component {
         const topupVirtual = this.props.settings.topup_virtual;
 
 		return (
-			<div>
+			<div className="setting-container">
 				<label htmlFor="language-picker"><M m="Language" /></label>
 				<LanguagePicker id="language-picker" />
 				<label htmlFor="theme-picker"><M m="Color Theme" /></label>

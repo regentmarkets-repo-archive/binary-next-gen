@@ -53,7 +53,7 @@ export default class SettingsSelfExclusion extends Component {
 	render() {
 		const { settings } = this.props;
 		return (
-			<div className="mobile-form">
+			<div className="mobile-form setting-container">
 				<InputGroup
 					id="MAXCASHBAL"
 					label="Maximum account cash balance"
