@@ -13,7 +13,7 @@ export default class SettingsDetails extends Component {
 		const { settings } = this.props;
 
 		return (
-			<div>
+			<div className="setting-container">
 				<legend>
 					<M m="Details" />
 				</legend>

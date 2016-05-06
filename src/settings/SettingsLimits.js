@@ -12,7 +12,7 @@ export default class SettingsLimits extends Component {
 		const { settings } = this.props;
 
 		return (
-			<div>
+			<div className="setting-container">
 				<h2>
 					<M m="Trading Limits" />
 				</h2>

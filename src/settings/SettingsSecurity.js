@@ -59,7 +59,7 @@ export default class SettingsSecurity extends Component {
 		const { settings } = this.props;
         const { password1, password2 } = this.state;
 		return (
-			<div className="mobile-form">
+			<div className="mobile-form setting-container">
 				<p>
 					<M m="An additional password can be used to restrict access to the cashier." />
 				</p>
