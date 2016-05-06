@@ -17,6 +17,7 @@ export default class ContractReceiptCard extends Component {
             <div className="contract-receipt-container">
                 <ContractDetailsCard className="trade-panel-receipt" actions={actions} contract={boughtContract} />
                 <Button
+                    className="buy-again-btn"
                     text="Trade Again"
                     onClick={() => actions.closeContractReceipt(tradeId)}
                 />

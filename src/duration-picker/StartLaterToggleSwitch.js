@@ -17,19 +17,17 @@ export default class StartLaterToggleSwitch extends Component {
         const { checked, id, onClick } = this.props;
         const className = checked ? 'onoffswitch-checkbox checked' : 'onoffswitch-checkbox';
         return (
-            <div className="row-spacer">
-                <div className="onoffswitch">
-                    <button
-                        name="onoffswitch"
-                        className={className}
-                        id={'toggle-' + id}
-                        onClick={onClick}
-                    />
-                    <label htmlFor={'toggle-' + id} className="onoffswitch-label">
-                        <span className="onoffswitch-inner"></span>
-                        <span className="onoffswitch-switch"></span>
-                    </label>
-                </div>
+            <div className="onoffswitch">
+                <button
+                    name="onoffswitch"
+                    className={className}
+                    id={'toggle-' + id}
+                    onClick={onClick}
+                />
+                <label htmlFor={'toggle-' + id} className="onoffswitch-label">
+                    <span className="onoffswitch-inner"></span>
+                    <span className="onoffswitch-switch"></span>
+                </label>
             </div>
         );
     }

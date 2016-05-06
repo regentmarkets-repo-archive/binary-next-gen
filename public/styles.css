@@ -156,7 +156,7 @@ div[role=tab] .close-btn, .panel-active .close-btn {
     max-width: 100% !important;
 }
 .mobile-content > .news-list-card,
-.mobile-content > .asset-index-card, 
+.mobile-content > .asset-index-card,
 .mobile-content > .video-list,
 .mobile-content > .trading-times-card
 {
@@ -328,7 +328,7 @@ nav.sidebar {
     padding: .5rem;
 }
 
-.buy-btn {
+.buy-btn, .buy-again-btn {
     font-size: 1.25rem;
     padding: .5rem;
     width: 100%;
@@ -520,7 +520,7 @@ select {
     padding: .5rem;
     width: 20rem;
     min-width: 12rem;
-    height: 80vh;
+    bottom: 1rem;
 }
 
 .asset-list {
@@ -857,7 +857,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 .onoffswitch {
     position: relative;
-    width: 10em;
+    width: 100%;
+    margin-bottom: .25rem;
 }
 .onoffswitch-checkbox {
     display: none;
@@ -936,7 +937,8 @@ input[type=number]::-webkit-outer-spin-button {
     background: white;
     position: absolute;
     z-index: 10000;
-    box-shadow: 0 0 2rem 0 black;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .5);
+    border-radius: 2px;
 }
 
 .contract-details h6 {
