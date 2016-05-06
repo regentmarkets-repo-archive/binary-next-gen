@@ -56,6 +56,7 @@ export default class StakeCard extends Component {
                     min={0.35}
                     max={100000}
                     step="0.01"
+                    list="amounts"
                     onChange={onAmountChange}
                 />
                 <button className="btn-secondary" onClick={::this.stepUp}>+</button>
