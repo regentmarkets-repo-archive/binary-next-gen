@@ -38,6 +38,10 @@
     opacity: .5;
 }
 
+.layoutBtn > div {
+    display: flex;
+}
+
 .layoutBtn.active, .layoutBtn:hover {
     opacity: 1;
 }

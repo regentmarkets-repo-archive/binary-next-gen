@@ -237,6 +237,14 @@ export default class FullTradeParams extends Component {
                     {...this.props}
                     updateParams={::this.updateTradeParams}
                 />
+                {showDigitBarrier &&
+                    <DigitBarrierCard
+                        barrier={+(trade.barrier)}
+                        barrierInfo={barriers && barriers.tick[0]}
+                        index={index}
+                        onBarrierChange={this.onBarrier1Change}
+                    />
+                }
                 {showDuration && !showSpreadBarrier &&
                     <DurationCard
                         dateStart={trade.dateStart}
@@ -247,15 +255,7 @@ export default class FullTradeParams extends Component {
                         onDurationChange={this.onDurationChange}
                         onUnitChange={this.onDurationUnitChange}
                         onStartDateChange={this.onStartDateChange}
-                        tradeIndex={index}
-                    />
-                }
-                {showDigitBarrier &&
-                    <DigitBarrierCard
-                        barrier={+(trade.barrier)}
-                        barrierInfo={barriers && barriers.tick[0]}
                         index={index}
-                        onBarrierChange={this.onBarrier1Change}
                     />
                 }
                 {showSpreadBarrier &&

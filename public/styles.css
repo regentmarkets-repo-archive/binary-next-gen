@@ -782,7 +782,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin: 0;
 }
 
-.payout-picker {
+.payout-picker-input {
     display: flex;
 }
 
@@ -1050,14 +1050,13 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: column;
 }
 
-
-.vertical .trade-params {
+.vertical .trade-params, .vertical .contract-receipt-container {
     overflow: auto;
     max-width: 10rem;
     margin-right: .5rem;
 }
 
-.trade-params {
+.horizontal .trade-params {
     display: flex;
     flex-direction: row;
 }
@@ -1067,6 +1066,28 @@ input[type=number]::-webkit-outer-spin-button {
     margin-right: .5rem;
 }
 
-.trade-panel {
+.vertical .trade-params {
+    flex-direction: row-reverse;
+}
+
+.horizontal .trade-panel {
     flex-direction: column-reverse;
+}
+
+.payout-display {
+    display: flex;
+    flex-direction: column;
+}
+
+.duration-input, .forward-starting-input {
+    display: flex;
+}
+
+.duration-input > *, .forward-starting-input > * {
+    flex: 1;
+}
+
+.trade-params label {
+    text-transform: uppercase;
+    opacity: 0.75;
 }

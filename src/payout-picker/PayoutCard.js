@@ -15,8 +15,8 @@ export default class PayoutCard extends Component {
         const potentialProfitPercentage = ((payout - stake) * 100 / stake).toFixed(2);
 
         return (
-            <div>
-                <M m="Earning (%)" className="label" />
+            <div className="payout-display">
+                <label>Payout</label>
                 <NumberColored value={payout} isProfit={v => v - stake} />
                 <M id="earning-percentage" m="({profit} %)" values={{ profit: potentialProfitPercentage }} />
             </div>

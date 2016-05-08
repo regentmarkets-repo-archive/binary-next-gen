@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import M from '../_common/M';
+import Label from '../_common/Label';
 import RangeGroup from '../_common/RangeGroup';
 
 export default class TickDurationCard extends Component {
@@ -15,9 +15,7 @@ export default class TickDurationCard extends Component {
 		return (
 			<div>
 				<fieldset>
-					<label>
-						<M m="Scale" />
-					</label>
+					<Label text="Scale" />
 					<RangeGroup
 						min={1} max={5}
 						items={['Ticks', 'Seconds', 'Minutes', 'Hours', 'Days']}
@@ -29,9 +27,7 @@ export default class TickDurationCard extends Component {
 					/>
 				</fieldset>
 				<fieldset>
-					<label>
-						<M m="Ticks" />
-					</label>
+					<Label text="Ticks" />
 					<RangeGroup
 						min={5} max={10}
 						items={['5', '6', '7', '8', '9', '10']}

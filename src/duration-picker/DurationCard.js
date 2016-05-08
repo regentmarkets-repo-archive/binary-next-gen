@@ -4,7 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import ErrorMsg from '../_common/ErrorMsg';
 import SelectGroup from '../_common/SelectGroup';
 import InputGroup from '../_common/InputGroup';
-import M from '../_common/M';
+import Label from '../_common/Label';
 import ForwardStartingOptions from './ForwardStartingOptions';
 import durationText from 'binary-utils/lib/durationText';
 import StartLaterToggleSwitch from './StartLaterToggleSwitch';
@@ -20,7 +20,7 @@ export default class DurationCard extends Component {
         onUnitChange: PropTypes.func,
         onDurationChange: PropTypes.func,
         onStartDateChange: PropTypes.func,
-        tradeIndex: PropTypes.any.isRequired,
+        index: PropTypes.any.isRequired,
     };
 
     shouldComponentUpdate = shouldPureComponentUpdate;
@@ -45,7 +45,7 @@ export default class DurationCard extends Component {
             onUnitChange,
             onDurationChange,
             onStartDateChange,
-            tradeIndex,
+            index,
         } = this.props;
 
         const allowStartLater = !!forwardStartingDuration;
@@ -77,7 +77,7 @@ export default class DurationCard extends Component {
                         {text =>
                             <StartLaterToggleSwitch
                                 text={text}
-                                id={tradeIndex}
+                                id={index}
                                 checked={!!dateStart}
                                 onClick={::this.startLaterHandler}
                                 disabled={onlyStartLater}
@@ -94,19 +94,21 @@ export default class DurationCard extends Component {
                 }
                 {currentUnitBlock ?
                     <div id="duration-fields">
-                        <M m="Duration" className="label" />
-                        <InputGroup
-                            type="number"
-                            value={duration}
-                            min={min}
-                            max={max}
-                            onChange={onDurationChange}
-                        />
-                        <SelectGroup
-                            options={unitOptions}
-                            value={durationUnit}
-                            onChange={onUnitChange}
-                        />
+                        <Label text="Duration" />
+                        <div className="duration-input">
+                            <InputGroup
+                                type="number"
+                                value={duration}
+                                min={min}
+                                max={max}
+                                onChange={onDurationChange}
+                            />
+                            <SelectGroup
+                                options={unitOptions}
+                                value={durationUnit}
+                                onChange={onUnitChange}
+                            />
+                        </div>
                     </div> :
                     <div />
                 }

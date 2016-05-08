@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import InputGroup from '../_common/InputGroup';
-import M from '../_common/M';
+import Label from '../_common/Label';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 
 const basises = ['payout', 'stake'];
@@ -45,27 +45,29 @@ export default class StakeCard extends Component {
                     onChange={onBasisChange}
                     value={basis}
                 /> */}
-                <M m="Stake" className="label" /><br />
-                <button className="btn-secondary" onClick={::this.stepDown}>&ndash;</button>
-                <InputGroup
-                    list="browsers"
-                    type="number"
-                    value={amount}
-                    min={0.35}
-                    max={100000}
-                    step="0.01"
-                    list="amounts"
-                    onChange={onAmountChange}
-                />
-                <button className="btn-secondary" onClick={::this.stepUp}>+</button>
-                <datalist id="amounts">
-                    {payouts.map(x =>
-                        <option
-                            key={'stake' + x}
-                            value={x}
-                        />
-                    )}
-                </datalist>
+                <Label text="Stake" />
+                <div className="payout-picker-input">
+                    <button className="btn-secondary" onClick={::this.stepDown}>&ndash;</button>
+                    <InputGroup
+                        list="browsers"
+                        type="number"
+                        value={amount}
+                        min={0.35}
+                        max={100000}
+                        step="0.01"
+                        list="amounts"
+                        onChange={onAmountChange}
+                    />
+                    <button className="btn-secondary" onClick={::this.stepUp}>+</button>
+                    <datalist id="amounts">
+                        {payouts.map(x =>
+                            <option
+                                key={'stake' + x}
+                                value={x}
+                            />
+                        )}
+                    </datalist>
+                </div>
             </div>
         );
     }

@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import BarrierInput from './BarrierInput';
-import M from '../_common/M';
+import Label from '../_common/Label';
 
 export default class BarrierCard extends Component {
 
@@ -49,7 +49,7 @@ export default class BarrierCard extends Component {
 
         return (
             <div>
-                <M m={toggleMsg} className="label" />
+                <Label text={toggleMsg} />
                 <BarrierInput
                     {...barrier1Info}
                     barrierType={barrierType}
