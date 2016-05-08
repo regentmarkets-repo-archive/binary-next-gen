@@ -516,7 +516,9 @@ select {
     min-height: 5rem;
 }
 
-#asset-picker-container {
+.asset-picker-container {
+    display: flex;
+    flex-direction: column;
     padding: .5rem;
     width: 20rem;
     min-width: 12rem;
@@ -524,7 +526,7 @@ select {
 }
 
 .asset-list {
-    overflow: scroll;
+    overflow: auto;
 }
 
 .asset-list tr {
@@ -568,7 +570,7 @@ select {
 }
 
 .video-list {
-    margin: 0 -.5rem;
+    margin: 0;
 }
 
 .video-thumbnail {
@@ -815,7 +817,11 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .asset-details h4 {
-    margin-top: 0;
+    margin-top: .5rem;
+}
+
+.asset-details h4, .asset-details h5 {
+    margin-left: .5rem;
 }
 
 #trade-type-picker {
@@ -930,7 +936,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .drop-down {
-    flex-basis: auto !important;
+    display: flex;
     max-height: 90vh;
     max-width: 90vw;
     overflow: auto;

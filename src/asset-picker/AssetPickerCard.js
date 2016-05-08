@@ -39,7 +39,7 @@ export default class AssetPickerCard extends Component {
 		const { actions, assetPickerItems, selectedAsset, filter } = this.props;
 
 		return (
-			<div id="asset-picker-container">
+			<div className="asset-picker-container">
 				<AssetPickerFilter actions={actions} filter={filter} />
 				<div className="asset-list">
 					<AssetPickerList

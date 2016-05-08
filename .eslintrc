@@ -11,6 +11,8 @@
   "rules": {
     "no-empty-label": 0,
     "no-confusing-arrow": 0,
+    "no-extra-parens": 0,
+    "no-mutable-exports": 0,
     "space-before-keywords": [0, 'always'],
     "space-after-keywords": [0, 'always'],
     "space-return-throw-case": 0,
