@@ -951,11 +951,6 @@ input[type=number]::-webkit-outer-spin-button {
     text-align: center;
 }
 
-.label span {
-    font-weight: bold;
-    margin-right: 0.5rem;
-}
-
 #earning-percentage {
     margin-left: 0.5rem;
 }
@@ -988,12 +983,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 #profit-loss-label {
     font-size: large;
-}
-
-#barrier-type-msg {
-    font-size: 1rem;
-    margin-top: 1rem;
-    margin-bottom: 0px;
 }
 
 .highcharts-container,
@@ -1059,7 +1048,26 @@ input[type=number]::-webkit-outer-spin-button {
 
 #duration-fields {
     display: flex;
+    flex-direction: column;
 }
-#duration-fields > * {
+
+
+.vertical .trade-params {
+    overflow: auto;
+    max-width: 10rem;
+    margin-right: .5rem;
+}
+
+.trade-params {
+    display: flex;
+    flex-direction: row;
+}
+
+.trade-params > * {
     flex: 1;
+    margin-right: .5rem;
+}
+
+.trade-panel {
+    flex-direction: column-reverse;
 }

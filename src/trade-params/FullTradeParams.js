@@ -1,23 +1,20 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import styles from '../layouts/layouts.css';
 
+import isIntraday from 'binary-utils/lib/isIntraday';
+import isDurationLessThan2Mins from 'binary-utils/lib/isDurationLessThan2Mins';
+import askPriceFromProposal from 'binary-utils/lib/askPriceFromProposal';
 import ErrorMsg from '../_common/ErrorMsg';
 
 import BarrierCard from '../barrier-picker/BarrierCard';
 import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
 import DigitBarrierCard from '../barrier-picker/DigitBarrierCard';
-
 import DurationCard from '../duration-picker/DurationCard';
 import StakeCard from '../payout-picker/StakeCard';
 import PayoutCard from '../payout-picker/PayoutCard';
 import BuyButton from '../tick-trade/BuyButton';
 import TradeTypeDropDown from '../trade-type-picker/TradeTypeDropDown';
 import AssetPickerDropDown from '../asset-picker/AssetPickerDropDown';
-
-import isIntraday from 'binary-utils/lib/isIntraday';
-import isDurationLessThan2Mins from 'binary-utils/lib/isDurationLessThan2Mins';
-import askPriceFromProposal from 'binary-utils/lib/askPriceFromProposal';
 
 import * as LiveData from '../_data/LiveData';
 
@@ -230,7 +227,7 @@ export default class FullTradeParams extends Component {
         const showSpreadBarrier = categoryToUse === 'spreads';
 
         return (
-            <div className={styles.tradeParams} disabled={disabled}>
+            <div className="trade-params" disabled={disabled}>
                 <AssetPickerDropDown
                     {...this.props}
                     selectedSymbol={trade.symbol}
@@ -290,25 +287,23 @@ export default class FullTradeParams extends Component {
                         spot={trade.proposal && +trade.proposal.spot}
                     />
                 }
-                <div className="payout-full">
-                    {!showSpreadBarrier &&
-                        <StakeCard
-                            amount={trade.amount.toString()}
-                            basis={trade.basis}
-                            currency={currency}
-                            id={index}
-                            onAmountChange={this.onAmountChange}
-                            onBasisChange={this.onBasisChange}
-                        />
-                    }
-                    {payout && <PayoutCard stake={+trade.amount} payout={payout} />}
-                    <BuyButton
-                        askPrice={askPriceFromProposal(trade.proposal)}
+                {!showSpreadBarrier &&
+                    <StakeCard
+                        amount={trade.amount.toString()}
+                        basis={trade.basis}
                         currency={currency}
-                        disabled={disabled}
-                        onClick={() => actions.purchaseByTradeId(index)}
+                        id={index}
+                        onAmountChange={this.onAmountChange}
+                        onBasisChange={this.onBasisChange}
                     />
-                </div>
+                }
+                {payout && <PayoutCard stake={+trade.amount} payout={payout} />}
+                <BuyButton
+                    askPrice={askPriceFromProposal(trade.proposal)}
+                    currency={currency}
+                    disabled={disabled}
+                    onClick={() => actions.purchaseByTradeId(index)}
+                />
                 <ErrorMsg
                     shown={!!trade.proposalError}
                     text={trade.proposalError ? trade.proposalError.message : ''}

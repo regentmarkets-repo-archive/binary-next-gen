@@ -45,9 +45,7 @@ export default class StakeCard extends Component {
                     onChange={onBasisChange}
                     value={basis}
                 /> */}
-                <div>
-                    <M m="Buy Price" className="label" />
-                </div>
+                <M m="Stake" className="label" /><br />
                 <button className="btn-secondary" onClick={::this.stepDown}>&ndash;</button>
                 <InputGroup
                     list="browsers"

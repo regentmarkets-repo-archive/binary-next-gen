@@ -16,9 +16,7 @@ export default class PayoutCard extends Component {
 
         return (
             <div>
-                <div>
-                    <M m="Earning (%)" className="label" />
-                </div>
+                <M m="Earning (%)" className="label" />
                 <NumberColored value={payout} isProfit={v => v - stake} />
                 <M id="earning-percentage" m="({profit} %)" values={{ profit: potentialProfitPercentage }} />
             </div>

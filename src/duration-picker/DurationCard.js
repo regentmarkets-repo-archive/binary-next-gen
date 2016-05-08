@@ -4,6 +4,7 @@ import { FormattedMessage } from 'react-intl';
 import ErrorMsg from '../_common/ErrorMsg';
 import SelectGroup from '../_common/SelectGroup';
 import InputGroup from '../_common/InputGroup';
+import M from '../_common/M';
 import ForwardStartingOptions from './ForwardStartingOptions';
 import durationText from 'binary-utils/lib/durationText';
 import StartLaterToggleSwitch from './StartLaterToggleSwitch';
@@ -93,6 +94,7 @@ export default class DurationCard extends Component {
                 }
                 {currentUnitBlock ?
                     <div id="duration-fields">
+                        <M m="Duration" className="label" />
                         <InputGroup
                             type="number"
                             value={duration}

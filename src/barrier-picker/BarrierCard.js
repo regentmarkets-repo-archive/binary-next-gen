@@ -49,7 +49,7 @@ export default class BarrierCard extends Component {
 
         return (
             <div>
-                <p id="barrier-type-msg"><M m={toggleMsg} /></p>
+                <M m={toggleMsg} className="label" />
                 <BarrierInput
                     {...barrier1Info}
                     barrierType={barrierType}
