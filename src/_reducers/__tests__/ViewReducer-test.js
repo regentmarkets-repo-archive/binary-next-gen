@@ -1,9 +1,6 @@
 import { fromJS } from 'immutable';
 import {
-    UPDATE_TRADING_TIMES_SUBMARKET,
     UPDATE_TRADING_TIMES_FILTER,
-    UPDATE_TRADING_TIMES_DATE,
-    UPDATE_TRANSACTIONS_FILTER,
     UPDATE_ASSET_INDEX_FILTER,
 } from '../../_constants/ActionTypes';
 import viewReducer from '../ViewsReducer';
@@ -12,7 +9,7 @@ import { expect } from 'chai';
 describe('viewReducer', () => {
     const beforeState = fromJS({
         tradingTimes: {},
-        assetIndex: {}
+        assetIndex: {},
     });
 
     it('should update asset index filter when receive UPDATE_ASSET_INDEX_FILTER', () => {

@@ -8,52 +8,52 @@ chai.use(chaiSubset);
 describe('Update helpers', () => {
     const mockTickTrade = {
         showAssetPicker: false,
-        tradeCategory: "risefall",
-        symbolName: "Volatility 100 Index",
+        tradeCategory: 'risefall',
+        symbolName: 'Volatility 100 Index',
         proposal: {
-            longcode: "USD 97.87 payout if Volatility 100 Index after 5 ticks is strictly higher than entry spot.",
-            spot: "30331.91",
-            display_value: "50.00",
-            ask_price: "50.00",
-            spot_time: "1462345436",
+            longcode: 'USD 97.87 payout if Volatility 100 Index after 5 ticks is strictly higher than entry spot.',
+            spot: '30331.91',
+            display_value: '50.00',
+            ask_price: '50.00',
+            spot_time: '1462345436',
             date_start: 1462345436,
-            id: "5E4868A4-11C6-11E6-B440-06278E83F2F7",
-            payout: 97.87
+            id: '5E4868A4-11C6-11E6-B440-06278E83F2F7',
+            payout: 97.87,
         },
         duration: 5,
         amount: 50,
-        durationUnit: "t",
-        symbol: "R_100",
+        durationUnit: 't',
+        symbol: 'R_100',
         pipSize: 2,
-        type: "CALL",
+        type: 'CALL',
         disabled: false,
-        basis: "stake"
+        basis: 'stake',
     };
     const mockEndsInTrade = {
         showAssetPicker: false,
-        tradeCategory: "endsinout",
-        symbolName: "Volatility 100 Index",
-        barrierType: "relative",
+        tradeCategory: 'endsinout',
+        symbolName: 'Volatility 100 Index',
+        barrierType: 'relative',
         proposal: {
-            longcode: "USD 120.13 payout if Volatility 100 Index ends outside entry spot minus 49.67 to entry spot plus 49.87 at 2 minutes after contract start time.",
-            spot: "30297.76",
-            display_value: "50.00",
-            ask_price: "50.00",
-            spot_time: "1462346774",
+            longcode: 'USD 120.13 payout if Volatility 100 Index ends outside entry spot minus 49.67 to entry spot plus 49.87 at 2 minutes after contract start time.',
+            spot: '30297.76',
+            display_value: '50.00',
+            ask_price: '50.00',
+            spot_time: '1462346774',
             date_start: 1462346774,
-            id: "778D99E4-11C9-11E6-BE96-9360E1BD001D",
-            payout: 120.13
+            id: '778D99E4-11C9-11E6-BE96-9360E1BD001D',
+            payout: 120.13,
         },
         duration: 2,
         barrier: 49.87,
         amount: 50,
-        durationUnit: "m",
-        symbol: "R_100",
+        durationUnit: 'm',
+        symbol: 'R_100',
         pipSize: 2,
-        type: "EXPIRYMISS",
+        type: 'EXPIRYMISS',
         barrier2: -49.67,
         disabled: false,
-        basis: "stake"
+        basis: 'stake',
     };
 
     describe('changeAmountPerPoint', () => {
@@ -62,7 +62,7 @@ describe('Update helpers', () => {
             const updatedAmountPerPoint = updateHelpers.changeAmountPerPoint(newVal);
             expect(updatedAmountPerPoint.amountPerPoint).to.have.lengthOf(4);
         });
-    })
+    });
 
     describe('changeAmount', () => {
         it('should never return value more than 2 decimal places', () => {
@@ -70,7 +70,7 @@ describe('Update helpers', () => {
             const updatedAmount = updateHelpers.changeAmount(newVal);
             expect(updatedAmount.amount).to.have.lengthOf(4);
         });
-    })
+    });
 
     describe('changing of barriers', () => {
         it('should always return value with decimal places following pipSize', () => {
@@ -84,14 +84,14 @@ describe('Update helpers', () => {
             const updatedBarrier2 = updateHelpers.changeBarrier2(newVal, pipSize7);
             expect(updatedBarrier2.barrier2).to.have.lengthOf(9);
         });
-    })
-    
+    });
+
     describe('changeDurationUnit', () => {
         it('should update durationUnit ', () => {
             const updateDurationUnit = updateHelpers.changeDurationUnit('m', mockedContract, mockTickTrade);
             expect(updateDurationUnit.durationUnit).to.be.equal('m');
         });
-        
+
         it('should update barrier for trade with barrier(s)', () => {
             const updateDurationUnit = updateHelpers.changeDurationUnit('m', mockedContract, mockEndsInTrade);
             expect(updateDurationUnit.barrier).to.not.equal(mockEndsInTrade.barrier);
@@ -138,7 +138,7 @@ describe('Update helpers', () => {
             expect(updatedCategory).to.contains.keys('stopLoss', 'stopProfit', 'amountPerPoint');
         });
     });
-    
+
     describe('changeAsset', () => {
         it('should retain old params if new asset allows', () => {
             const updatedAsset = updateHelpers.changeAsset(mockTickTrade, mockedContract, updateHelpers.changeCategory);
@@ -147,5 +147,4 @@ describe('Update helpers', () => {
             expect(mergedWithUpdatedAsset).to.containSubset(mockTickTrade);
         });
     });
-
 });

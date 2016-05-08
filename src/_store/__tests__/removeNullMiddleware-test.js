@@ -3,34 +3,34 @@ import { assert, expect } from 'chai';
 
 describe('nullValueRemover', () => {
     it('should remove null value of shallow object', () => {
-        const shallowObj = { a: '1', b:'2', c: null };
+        const shallowObj = { a: '1', b: '2', c: null };
         const result = removeNullValueKey(shallowObj);
 
-        expect(result).to.be.deep.equal({a: '1', b: '2'});
+        expect(result).to.be.deep.equal({ a: '1', b: '2' });
     });
 
     it('should remove null value of arbritarily deep object', () => {
         const shallowObj = {
             a: '1',
-            b:'2',
+            b: '2',
             c: null,
             d: {
                 e: 's',
                 f: {},
                 g: null,
-            }
+            },
         };
         const result = removeNullValueKey(shallowObj);
 
         expect(result).to.be.deep.equal(
             {
                 a: '1',
-                b:'2',
+                b: '2',
                 d: {
                     e: 's',
                     f: {},
-                }
-            }
+                },
+            },
         );
     });
 });
@@ -60,8 +60,6 @@ describe('removeNullMiddleware', () => {
             payload: {
                 notempty: 999,
             },
-        })
-    })
+        });
+    });
 });
-
-

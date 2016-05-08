@@ -1,4 +1,4 @@
-import { fromJS, List } from 'immutable';
+import { fromJS } from 'immutable';
 import { expect } from 'chai';
 import assetPickerSelectors, {
     similarStr,
