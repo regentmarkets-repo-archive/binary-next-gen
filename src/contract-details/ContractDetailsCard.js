@@ -48,8 +48,6 @@ export default class ContractDetailsCard extends Component {
 						label="Sell Time"
 						value={contract.sell_time ? epochToGMTString(contract.date_expiry) : '-'}
 					/>
-				</FlexList>
-				<FlexList>
 					<KeyValueColumn
 						label="Entry Spot"
 						value={contract.entry_tick || '-'}
@@ -58,8 +56,6 @@ export default class ContractDetailsCard extends Component {
 						label="Exit Spot"
 						value={contract.exit_tick || '-'}
 					/>
-				</FlexList>
-				<FlexList>
 					<KeyValueColumn
 						label="Entry Price"
 						value={contract.buy_price || '-'}
@@ -103,23 +99,22 @@ export default class ContractDetailsCard extends Component {
 					}
 					</div>
 				}
-				{
-					sold &&
-						<label id="profit-loss-label">
-							{profit >= 0 ? <M m="You won " /> : <M m="You lost " />}
-							{profit >= 0 ?
-								<NumberColored
-									value={profit}
-									currency={contract.currency}
-									isProfit={v => v}
-								/> :
-								<NumberColored
-									value={-profit}
-									currency={contract.currency}
-									isProfit={v => -v}
-								/>
-							}
-						</label>
+				{sold &&
+					<label id="profit-loss-label">
+						{profit >= 0 ? <M m="You won " /> : <M m="You lost " />}
+						{profit >= 0 ?
+							<NumberColored
+								value={profit}
+								currency={contract.currency}
+								isProfit={v => v}
+							/> :
+							<NumberColored
+								value={-profit}
+								currency={contract.currency}
+								isProfit={v => -v}
+							/>
+						}
+					</label>
 				}
 			</div>
 		);

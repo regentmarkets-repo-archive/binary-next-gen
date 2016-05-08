@@ -18,10 +18,9 @@ export default class KeyValueColumn extends Component {
                     <M m={label} />
                 </div>
                 <div className="col-val">
-                    {
-                        isNaN(value) ?
-                            <M m={value} /> :
-                            <Number {...this.props} />
+                    {isNaN(value) ?
+                        <M m={value} /> :
+                        <Number {...this.props} />
                     }
                 </div>
             </div>

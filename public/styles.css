@@ -1025,7 +1025,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 .contract-receipt-container {
     overflow: auto;
-    max-width: 11rem;
     margin-right: .5rem;
 }
 
