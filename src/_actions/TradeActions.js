@@ -114,7 +114,7 @@ export const updatePriceProposalSubscription = (tradeID, trade) => {
             stopLoss,
             proposal,
             barrierType,
-        } = tradeObj;
+        } = tradeObj.params;
 
         if (!(amount && basis && type && symbol)) {
             return;
@@ -183,8 +183,8 @@ export const purchaseByTradeId = (tradeID, trade) =>
         dispatch(updateTradeUIState(tradeID, 'disabled', true));
         const tradeSelected = trade || getState().trades.get(tradeID).toJS();
         trackEvent('buy-contract', tradeSelected);
-        const proposalID = tradeSelected.proposal.id;
-        const price = tradeSelected.proposal.ask_price;
+        const proposalID = tradeSelected.proposalInfo.proposal.id;
+        const price = tradeSelected.proposalInfo.proposal.ask_price;
 
         LiveData.api.buyContract(proposalID, price)
             .then(
