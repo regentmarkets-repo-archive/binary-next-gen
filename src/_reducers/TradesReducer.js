@@ -25,9 +25,7 @@ const defaultTrade = {
         type: 'CALL',
         barrierType: 'relative',
     },
-    uiState: {
-        showAssetPicker: false,
-    },
+    uiState: {},
     proposalInfo: {},
     purchaseInfo: {},
 };
