@@ -7,8 +7,18 @@ import Modal from '../containers/Modal';
 import FullTradeParams from '../trade-params/FullTradeParams';
 import ContractReceiptCard from './ContractReceiptCard';
 import findDeep from 'binary-utils/lib/findDeep';
+import filterObjectBy from 'binary-utils/lib/filterObjectBy';
 import { mockedContract } from './../_constants/MockContract';
 import { internalTradeModelToServerTradeModel } from './adapters/TradeObjectAdapter';
+
+const getStartLaterOnlyContract = contract => {
+    const startLaterCategories =
+        filterObjectBy(contract, child =>
+            findDeep(child, descendent => descendent && !!descendent.forwardStartingDuration));
+
+    // TODO: remove durations so that only forward starting will be select
+};
+
 
 export default class FullTradeCard extends Component {
 
@@ -35,14 +45,13 @@ export default class FullTradeCard extends Component {
         const { actions, index, marketIsOpen, trade, ticks } = this.props;
         const { symbolName, lastBoughtContract } = trade;
 
-        const contract = this.props.contract || mockedContract;
-
-        const contractAllowStartLater = findDeep(contract, child => child && !!child.forwardStartingDuration);
+        const contract = marketIsOpen ?
+            (this.props.contract || mockedContract) :
+            getStartLaterOnlyContract(this.props.contract || mockedContract);
 
         const disabled =
             contract === mockedContract ||
-            trade.disabled ||
-            (!marketIsOpen && !contractAllowStartLater);
+            trade.disabled;
 
         // TODO: remove usage of adapter so we have a consistent model
         const tradeRequiredByChart = internalTradeModelToServerTradeModel(trade);

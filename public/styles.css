@@ -1061,7 +1061,7 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: row;
 }
 
-.trade-params > * {
+.horizontal .trade-params > * {
     flex: 1;
     margin-right: .5rem;
 }
@@ -1097,4 +1097,13 @@ input[type=number]::-webkit-outer-spin-button {
     font-size: 1.5rem;
     padding: 0 .5rem;
     background: rgba(42, 48, 82, 0.1);
+}
+
+.vertical .trade-type-help {
+    display: none;
+}
+
+.picker-label img {
+    height: 2rem;
+    padding: .25rem 0;
 }
