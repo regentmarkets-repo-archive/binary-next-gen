@@ -16,6 +16,7 @@ export default class ContractDetailsContainer extends Component {
 		contract: PropTypes.object.isRequired,
 		ticks: PropTypes.array,
 		params: PropTypes.object,
+		pipSize: PropTypes.number,
 		actions: PropTypes.object.isRequired,
 	};
 
@@ -47,7 +48,6 @@ export default class ContractDetailsContainer extends Component {
 					{...immutableChildrenToJS(this.props)}
                     className="trade-chart"
 					rangeChange={(count, type) => actions.getDataForContract(contract.contract_id, count, type)}
-					pipSize={2}
 				/>
 				<ContractDetailsCard
 					{...immutableChildrenToJS(this.props)}

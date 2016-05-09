@@ -1,5 +1,6 @@
-import { boughtContractsSelector, portfolioSelector } from '../_store/directSelectors';
+import { boughtContractsSelector, portfolioSelector, assetsSelector } from '../_store/directSelectors';
 import { createSelector, createStructuredSelector } from 'reselect';
+import pipsToDigits from 'binary-utils/lib/pipsToDigits';
 
 const contractToShow = createSelector(
     portfolioSelector,
@@ -13,8 +14,19 @@ const dataToShow = createSelector(
     (portfolio, chartData) => chartData.find((v, k) => k === portfolio.get('contractShown'))
 );
 
+const pipSizeSelector = createSelector(
+    assetsSelector,
+    contractToShow,
+    (assets, contract) => {
+        const symbolDetails = assets.find(a => a.get('symbol') === contract.get('underlying'));
+        const pipSize = symbolDetails && pipsToDigits(symbolDetails.get('pip'));
+        return pipSize;
+    }
+);
+
 export default createStructuredSelector({
     // ticks: ticksSelector,
     ticks: dataToShow,
     contract: contractToShow,
+    pipSize: pipSizeSelector,
 });
