@@ -8,7 +8,10 @@ import FullTradeParams from '../trade-params/FullTradeParams';
 import ContractReceiptCard from './ContractReceiptCard';
 import findDeep from 'binary-utils/lib/findDeep';
 import { mockedContract } from './../_constants/MockContract';
-import { internalTradeModelToServerTradeModel } from './adapters/TradeObjectAdapter';
+import {
+    internalTradeModelToServerTradeModel,
+    serverContractModelToChartContractModel,
+} from './adapters/TradeObjectAdapter';
 
 export default class FullTradeCard extends Component {
 
@@ -47,6 +50,7 @@ export default class FullTradeCard extends Component {
 
         // TODO: remove usage of adapter so we have a consistent model
         const tradeRequiredByChart = internalTradeModelToServerTradeModel(trade.params);
+        const contractRequiredByChart = serverContractModelToChartContractModel(lastBoughtContract);
 
         return (
             <div disabled={disabled} className={'trade-panel'}>
@@ -59,7 +63,7 @@ export default class FullTradeCard extends Component {
                 <div className="trade-chart-container">
                     <BinaryChart
                         className="trade-chart"
-                        contract={lastBoughtContract}
+                        contract={contractRequiredByChart}
                         symbol={symbolName}
                         ticks={ticks}
                         trade={tradeRequiredByChart}
