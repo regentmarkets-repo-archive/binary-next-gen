@@ -36,7 +36,9 @@ export default class Resizer extends Component {
 			<div
 				className={this.props.className}
 				onMouseDown={::this.onMouseDown}
-			/>
+			>
+				<span className="resizer-handle" />
+			</div>
 		);
 	}
 }
