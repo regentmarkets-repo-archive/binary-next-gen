@@ -46,7 +46,7 @@ export default class ContractDetailsContainer extends Component {
 				<BinaryChart
 					{...immutableChildrenToJS(this.props)}
                     className="trade-chart"
-					rangeChange={(count, type) => actions.getDataForContract(contract.contract_id, type, count)}
+					rangeChange={(count, type) => actions.getDataForContract(contract.contract_id, count, type)}
 					pipSize={2}
 				/>
 				<ContractDetailsCard

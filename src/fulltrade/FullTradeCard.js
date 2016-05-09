@@ -73,6 +73,7 @@ export default class FullTradeCard extends Component {
                         ticks={ticks}
                         trade={tradeRequiredByChart}
                         pipSize={trade.pipSize}
+                        rangeChange={(count, type) => actions.getDataForSymbol(trade.symbol, count, type)}
                     />
                 </div>
                 {lastBoughtContract ?
