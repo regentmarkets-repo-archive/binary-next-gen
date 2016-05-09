@@ -108,7 +108,9 @@ export default class FullTradeParams extends Component {
         if (proposalInfo.proposalError) {
             return;
         }
-        LiveData.api.unsubscribeByID(proposalInfo.proposal.id);
+        if (proposalInfo.proposal) {
+            LiveData.api.unsubscribeByID(proposalInfo.proposal.id);
+        }
     }
 
     updateTradeParams(params) {

@@ -62,27 +62,45 @@ export default (state = initialState, action) => {
             return state.setIn([action.index, 'purchaseInfo', 'mostRecentContractId'], undefined);
         }
         case UPDATE_TRADE_PARAMS: {
+            if (!state.get(action.index)) {
+                return state;
+            }
             return state.setIn([action.index, 'params', action.fieldName], action.fieldValue);
         }
         case UPDATE_MULTIPLE_TRADE_PARAMS: {
+            if (!state.get(action.index)) {
+                return state;
+            }
             return state.mergeIn([action.index, 'params'], action.params);
         }
         case UPDATE_TRADE_PROPOSAL: {
-            const { tradeID, fieldName, fieldValue } = action;
-            return state.setIn([tradeID, 'proposalInfo', fieldName], fieldValue);
+            if (!state.get(action.index)) {
+                return state;
+            }
+            const { index, fieldName, fieldValue } = action;
+            return state.setIn([index, 'proposalInfo', fieldName], fieldValue);
         }
         case UPDATE_TRADE_PURCHASE_INFO: {
-            const { tradeID, fieldName, fieldValue } = action;
-            return state.setIn([tradeID, 'purchaseInfo', fieldName], fieldValue);
+            if (!state.get(action.index)) {
+                return state;
+            }
+            const { index, fieldName, fieldValue } = action;
+            return state.setIn([index, 'purchaseInfo', fieldName], fieldValue);
         }
         case UPDATE_TRADE_UI_STATE: {
-            const { tradeID, fieldName, fieldValue } = action;
-            return state.setIn([tradeID, 'uiState', fieldName], fieldValue);
+            if (!state.get(action.index)) {
+                return state;
+            }
+            const { index, fieldName, fieldValue } = action;
+            return state.setIn([index, 'uiState', fieldName], fieldValue);
         }
         case RESET_TRADES: {
             return initialState;
         }
         case REMOVE_TRADE: {
+            if (!state.get(action.index)) {
+                return state;
+            }
             return state.remove(action.index);
         }
         case SERVER_DATA_PROPOSAL: {

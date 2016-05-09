@@ -41,8 +41,8 @@ export const removeTrade = index =>
 
         const trade = trades[index];
 
-        if (trade.proposal) {
-            LiveData.api.unsubscribeByID(trade.proposal.id);
+        if (trade && trade.proposalInfo.proposal) {
+            LiveData.api.unsubscribeByID(trade.proposalInfo.proposal.id);
         }
 
         dispatch({ type: types.REMOVE_TRADE, index });
@@ -73,9 +73,9 @@ export const updateMultipleTradeParams = (index, params) => {
 };
 
 // Update trade's ui state
-export const updateTradeUIState = (tradeID, fieldName, fieldValue) => ({
+export const updateTradeUIState = (index, fieldName, fieldValue) => ({
     type: types.UPDATE_TRADE_UI_STATE,
-    tradeID,
+    index,
     fieldName,
     fieldValue,
 });
@@ -86,9 +86,9 @@ export const closeContractReceipt = index => ({
 });
 
 // Update trade's price proposal
-export const updateTradeProposal = (tradeID, fieldName, fieldValue) => ({
+export const updateTradeProposal = (index, fieldName, fieldValue) => ({
     type: types.UPDATE_TRADE_PROPOSAL,
-    tradeID,
+    index,
     fieldName,
     fieldValue,
 });
@@ -96,6 +96,9 @@ export const updateTradeProposal = (tradeID, fieldName, fieldValue) => ({
 export const updatePriceProposalSubscription = (tradeID, trade) => {
     const thunk = (dispatch, getState) => {
         dispatch(updateTradeUIState(tradeID, 'disabled', true));
+        if (!getState().trades.get(tradeID)) {
+            return;
+        }
         const tradeObj = trade || getState().trades.get(tradeID).toJS();
         const currency = getState().account.get('currency');
         const {
@@ -144,8 +147,12 @@ export const updatePriceProposalSubscription = (tradeID, trade) => {
             stop_loss: stopLoss,
         }).then(
             response => {
-                dispatch(updateTradeProposal(tradeID, 'proposalError', undefined));
-                dispatch(updateTradeProposal(tradeID, 'proposal', response.proposal));
+                if (getState().trades.get(tradeID)) {
+                    dispatch(updateTradeProposal(tradeID, 'proposalError', undefined));
+                    dispatch(updateTradeProposal(tradeID, 'proposal', response.proposal));
+                } else {
+                    LiveData.api.unsubscribeByID(response.proposal.id);
+                }
             },
             err => {
                 dispatch(updateTradeProposal(tradeID, 'proposalError', err));
@@ -171,9 +178,9 @@ export const resubscribeAllPriceProposal = () =>
     };
 
 // Handle trade's purchase related operation
-export const updatePurchaseInfo = (tradeID, fieldName, fieldValue) => ({
+export const updatePurchaseInfo = (index, fieldName, fieldValue) => ({
     type: types.UPDATE_TRADE_PURCHASE_INFO,
-    tradeID,
+    index,
     fieldName,
     fieldValue,
 });
