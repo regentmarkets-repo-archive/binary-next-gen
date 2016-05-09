@@ -245,19 +245,6 @@ export default class FullTradeParams extends Component {
                         onBarrierChange={this.onBarrier1Change}
                     />
                 }
-                {showDuration && !showSpreadBarrier &&
-                    <DurationCard
-                        dateStart={trade.dateStart}
-                        duration={+trade.duration}
-                        durationUnit={trade.durationUnit}
-                        forwardStartingDuration={contractForType.forwardStartingDuration}
-                        options={contractForType.durations}
-                        onDurationChange={this.onDurationChange}
-                        onUnitChange={this.onDurationUnitChange}
-                        onStartDateChange={this.onStartDateChange}
-                        index={index}
-                    />
-                }
                 {showSpreadBarrier &&
                     <SpreadBarrierCard
                         amountPerPoint={trade.amountPerPoint}
@@ -285,6 +272,19 @@ export default class FullTradeParams extends Component {
                         onBarrier2Change={this.onBarrier2Change}
                         onBarrierTypeChange={this.onBarrierTypeChange}
                         spot={trade.proposal && +trade.proposal.spot}
+                    />
+                }
+                {showDuration && !showSpreadBarrier &&
+                    <DurationCard
+                        dateStart={trade.dateStart}
+                        duration={+trade.duration}
+                        durationUnit={trade.durationUnit}
+                        forwardStartingDuration={contractForType.forwardStartingDuration}
+                        options={contractForType.durations}
+                        onDurationChange={this.onDurationChange}
+                        onUnitChange={this.onDurationUnitChange}
+                        onStartDateChange={this.onStartDateChange}
+                        index={index}
                     />
                 }
                 {!showSpreadBarrier &&

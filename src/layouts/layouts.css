@@ -34,11 +34,11 @@
     cursor: pointer;
     padding: .25rem;
     min-width: 2rem;
-    min-height: 2rem;
+    max-height: 2rem;
     opacity: .5;
 }
 
-.layoutBtn > div {
+.layoutBtn > div, .trades > div {
     display: flex;
 }
 

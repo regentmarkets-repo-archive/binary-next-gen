@@ -4,6 +4,7 @@ import tradeToFriendlyType from 'binary-utils/lib/tradeToFriendlyType';
 import DownArrow from '../_common/DownArrow';
 import DropDown from '../containers/DropDown';
 import TradeTypePicker from './TradeTypePicker';
+import helpText from './helpText';
 
 export default class TradeTypeDropDown extends Component {
 
@@ -59,6 +60,7 @@ export default class TradeTypeDropDown extends Component {
                     {tradeToFriendlyType(selectedType)}
                     <DownArrow />
                 </div>
+                {helpText[trade.type]}
             </div>
         );
     }

@@ -72,26 +72,6 @@ export default class DurationCard extends Component {
         const errorMsg = (duration > max ? `Maximum is ${max} ` : `Minimum is ${min} `) + durationText(durationUnit);
         return (
             <div className="duration-picker">
-                {(allowStartLater && !onlyStartLater) &&
-                    <FormattedMessage id="Start Later" defaultMessage="Start Later">
-                        {text =>
-                            <StartLaterToggleSwitch
-                                text={text}
-                                id={index}
-                                checked={!!dateStart}
-                                onClick={::this.startLaterHandler}
-                                disabled={onlyStartLater}
-                            />
-                        }
-                    </FormattedMessage>
-                }
-                {!!dateStart &&
-                    <ForwardStartingOptions
-                        dateStart={dateStart}
-                        ranges={forwardStartingDuration.range}
-                        onStartDateChange={onStartDateChange}
-                    />
-                }
                 {currentUnitBlock ?
                     <div id="duration-fields">
                         <Label text="Duration" />
@@ -111,6 +91,26 @@ export default class DurationCard extends Component {
                         </div>
                     </div> :
                     <div />
+                }
+                {(allowStartLater && !onlyStartLater) &&
+                    <FormattedMessage id="Start Later" defaultMessage="Start Later">
+                        {text =>
+                            <StartLaterToggleSwitch
+                                text={text}
+                                id={index}
+                                checked={!!dateStart}
+                                onClick={::this.startLaterHandler}
+                                disabled={onlyStartLater}
+                            />
+                        }
+                    </FormattedMessage>
+                }
+                {!!dateStart &&
+                    <ForwardStartingOptions
+                        dateStart={dateStart}
+                        ranges={forwardStartingDuration.range}
+                        onStartDateChange={onStartDateChange}
+                    />
                 }
                 <ErrorMsg shown={showError} text={errorMsg} />
             </div>

@@ -1031,7 +1031,7 @@ input[type=number]::-webkit-outer-spin-button {
 .picker-label {
     cursor: pointer;
     padding-left: .25rem;
-    line-height: 2;
+    line-height: 2.5;
     margin-bottom: .25rem;
     display: flex;
     justify-content: space-between;
@@ -1090,4 +1090,11 @@ input[type=number]::-webkit-outer-spin-button {
 .trade-params label {
     text-transform: uppercase;
     opacity: 0.75;
+}
+
+.payout-picker-input .btn-secondary {
+    box-shadow: none;
+    font-size: 1.5rem;
+    padding: 0 .5rem;
+    background: rgba(42, 48, 82, 0.1);
 }
