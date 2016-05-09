@@ -59,6 +59,9 @@ export default class FullTradeParams extends Component {
         compact: PropTypes.bool,
         disabled: PropTypes.bool,
         index: PropTypes.number.isRequired,
+        pipSize: PropTypes.number.isRequired,
+        proposalInfo: PropTypes.object.isRequired,
+        tradeParams: PropTypes.object.isRequired,
         trade: PropTypes.object.isRequired,
         type: PropTypes.oneOf(['tick', 'full']).isRequired,
         ticks: PropTypes.array,
@@ -93,19 +96,19 @@ export default class FullTradeParams extends Component {
      * TODO: redesign so that side effect are handle elsewhere
      */
     componentDidUpdate(prevProps) {
-        const { trade } = this.props;
+        const { tradeParams } = this.props;
 
-        if (trade.symbol !== prevProps.trade.symbol) {
+        if (tradeParams.symbol !== prevProps.tradeParams.symbol) {
             this.onAssetChange();
         }
     }
 
     componentWillUnmount() {
-        const { trade } = this.props;
-        if (trade.proposalError) {
+        const { proposalInfo } = this.props;
+        if (proposalInfo.proposalError) {
             return;
         }
-        LiveData.api.unsubscribeByID(trade.proposal.id);
+        LiveData.api.unsubscribeByID(proposalInfo.proposal.id);
     }
 
     updateTradeParams(params) {
@@ -115,8 +118,8 @@ export default class FullTradeParams extends Component {
     }
 
     onAssetChange() {
-        const { contract, trade } = this.props;
-        const updatedAsset = updateHelpers.changeAsset(trade, contract, updateHelpers.changeCategory);
+        const { contract, tradeParams } = this.props;
+        const updatedAsset = updateHelpers.changeAsset(tradeParams, contract, updateHelpers.changeCategory);
 
         this.updateTradeParams(updatedAsset);
     }
@@ -128,14 +131,14 @@ export default class FullTradeParams extends Component {
     }
 
     onTypeChange(newType, newCategory) {
-        const { contract, trade } = this.props;
-        const updatedType = updateHelpers.changeType(newType, newCategory, trade, contract);
+        const { contract, tradeParams } = this.props;
+        const updatedType = updateHelpers.changeType(newType, newCategory, tradeParams, contract);
         this.updateTradeParams(updatedType);
     }
 
     onStartDateChange(epoch) {
-        const { contract, trade } = this.props;
-        const updatedStartDate = updateHelpers.changeStartDate(epoch, contract, trade);
+        const { contract, tradeParams } = this.props;
+        const updatedStartDate = updateHelpers.changeStartDate(epoch, contract, tradeParams);
         this.updateTradeParams(updatedStartDate);
     }
 
@@ -145,22 +148,22 @@ export default class FullTradeParams extends Component {
 
     onDurationUnitChange(e) {
         const newUnit = e.target.value;
-        const { contract, trade } = this.props;
-        const updatedDurationUnit = updateHelpers.changeDurationUnit(newUnit, contract, trade);
+        const { contract, tradeParams } = this.props;
+        const updatedDurationUnit = updateHelpers.changeDurationUnit(newUnit, contract, tradeParams);
         this.updateTradeParams(updatedDurationUnit);
     }
 
     onBarrier1Change(e) {
-        const { trade } = this.props;
+        const { tradeParams } = this.props;
         const inputValue = e.target.value;
-        const updatedBarrier1 = updateHelpers.changeBarrier1(inputValue, trade);
+        const updatedBarrier1 = updateHelpers.changeBarrier1(inputValue, tradeParams);
         this.updateTradeParams(updatedBarrier1);
     }
 
     onBarrier2Change(e) {
-        const { trade } = this.props;
+        const { tradeParams } = this.props;
         const inputValue = e.target.value;
-        const updatedBarrier2 = updateHelpers.changeBarrier2(inputValue, trade);
+        const updatedBarrier2 = updateHelpers.changeBarrier2(inputValue, tradeParams);
         this.updateTradeParams(updatedBarrier2);
     }
 
@@ -198,29 +201,28 @@ export default class FullTradeParams extends Component {
     }
 
     render() {
-        const { actions, contract, disabled, index, trade, currency } = this.props;
+        const { actions, contract, disabled, index, pipSize, proposalInfo, trade, tradeParams, currency } = this.props;
 
         /**
          * Race condition happen when contract is updated before tradeCategory (async)
          * thus we need to check if the tradeCategory is valid, if not valid simply use the 1st valid category
          */
-        const selectedCategory = trade.tradeCategory;
+        const selectedCategory = tradeParams.tradeCategory;
         const categoryToUse = !!contract[selectedCategory] ? selectedCategory : Object.keys(contract)[0];
 
-        const selectedType = trade.type;
+        const selectedType = tradeParams.type;
         const contractForCategory = contract[categoryToUse];
         const contractForType = contractForCategory && contractForCategory[selectedType];
         const barriers = contractForType && contractForType.barriers;
-        const isBelow2Min = isDurationLessThan2Mins(trade.duration, trade.durationUnit);
-        const isIntraDay = isIntraday(trade.duration, trade.durationUnit);
-        const pipSize = trade.pipSize;
+        const isBelow2Min = isDurationLessThan2Mins(tradeParams.duration, tradeParams.durationUnit);
+        const isIntraDay = isIntraday(tradeParams.duration, tradeParams.durationUnit);
         const showBarrier = categoryToUse !== 'spreads' &&
             categoryToUse !== 'digits' &&
             !isBelow2Min &&
-            !trade.dateStart &&
+            !tradeParams.dateStart &&
             !!barriers;
 
-        const payout = trade.proposal && trade.proposal.payout;
+        const payout = proposalInfo.proposal && proposalInfo.proposal.payout;
 
         const showDuration = !!contractForType;
         const showDigitBarrier = categoryToUse === 'digits';
@@ -230,8 +232,8 @@ export default class FullTradeParams extends Component {
             <div className="trade-params" disabled={disabled}>
                 <AssetPickerDropDown
                     {...this.props}
-                    selectedSymbol={trade.symbol}
-                    selectedSymbolName={trade.symbolName}
+                    selectedSymbol={tradeParams.symbol}
+                    selectedSymbolName={tradeParams.symbolName}
                 />
                 <TradeTypeDropDown
                     {...this.props}
@@ -239,7 +241,7 @@ export default class FullTradeParams extends Component {
                 />
                 {showDigitBarrier &&
                     <DigitBarrierCard
-                        barrier={+(trade.barrier)}
+                        barrier={+(tradeParams.barrier)}
                         barrierInfo={barriers && barriers.tick[0]}
                         index={index}
                         onBarrierChange={this.onBarrier1Change}
@@ -247,10 +249,10 @@ export default class FullTradeParams extends Component {
                 }
                 {showSpreadBarrier &&
                     <SpreadBarrierCard
-                        amountPerPoint={trade.amountPerPoint}
-                        stopLoss={trade.stopLoss}
-                        stopProfit={trade.stopProfit}
-                        stopType={trade.stopType}
+                        amountPerPoint={tradeParams.amountPerPoint}
+                        stopLoss={tradeParams.stopLoss}
+                        stopProfit={tradeParams.stopProfit}
+                        stopType={tradeParams.stopType}
                         amountPerPointChange={this.onAmountPerPointChange}
                         currency={currency}
                         index={index}
@@ -262,23 +264,23 @@ export default class FullTradeParams extends Component {
                 }
                 {showBarrier &&
                     <BarrierCard
-                        barrier={trade.barrier}
-                        barrier2={trade.barrier2}
+                        barrier={tradeParams.barrier}
+                        barrier2={tradeParams.barrier2}
                         barrierInfo={barriers}
-                        barrierType={trade.barrierType}
+                        barrierType={tradeParams.barrierType}
                         isIntraDay={isIntraDay}
                         pipSize={pipSize}
                         onBarrier1Change={this.onBarrier1Change}
                         onBarrier2Change={this.onBarrier2Change}
                         onBarrierTypeChange={this.onBarrierTypeChange}
-                        spot={trade.proposal && +trade.proposal.spot}
+                        spot={proposalInfo.proposal && +proposalInfo.proposal.spot}
                     />
                 }
                 {showDuration && !showSpreadBarrier &&
                     <DurationCard
-                        dateStart={trade.dateStart}
-                        duration={+trade.duration}
-                        durationUnit={trade.durationUnit}
+                        dateStart={tradeParams.dateStart}
+                        duration={+tradeParams.duration}
+                        durationUnit={tradeParams.durationUnit}
                         forwardStartingDuration={contractForType.forwardStartingDuration}
                         options={contractForType.durations}
                         onDurationChange={this.onDurationChange}
@@ -289,24 +291,24 @@ export default class FullTradeParams extends Component {
                 }
                 {!showSpreadBarrier &&
                     <StakeCard
-                        amount={trade.amount.toString()}
-                        basis={trade.basis}
+                        amount={tradeParams.amount.toString()}
+                        basis={tradeParams.basis}
                         currency={currency}
                         id={index}
                         onAmountChange={this.onAmountChange}
                         onBasisChange={this.onBasisChange}
                     />
                 }
-                {payout && <PayoutCard stake={+trade.amount} payout={payout} />}
+                {payout && <PayoutCard stake={+tradeParams.amount} payout={payout} />}
                 <BuyButton
-                    askPrice={askPriceFromProposal(trade.proposal)}
+                    askPrice={askPriceFromProposal(proposalInfo.proposal)}
                     currency={currency}
                     disabled={disabled}
                     onClick={() => actions.purchaseByTradeId(index)}
                 />
                 <ErrorMsg
-                    shown={!!trade.proposalError}
-                    text={trade.proposalError ? trade.proposalError.message : ''}
+                    shown={!!proposalInfo.proposalError}
+                    text={proposalInfo.proposalError ? proposalInfo.proposalError.message : ''}
                 />
                 <ErrorMsg
                     shown={!!trade.contractForError}

@@ -33,7 +33,8 @@ export default class FullTradeCard extends Component {
 
     render() {
         const { actions, index, marketIsOpen, trade, ticks } = this.props;
-        const { symbolName, lastBoughtContract } = trade;
+        const { lastBoughtContract } = trade.purchaseInfo;
+        const { symbolName } = trade.params;
 
         const contract = this.props.contract || mockedContract;
 
@@ -41,19 +42,19 @@ export default class FullTradeCard extends Component {
 
         const disabled =
             contract === mockedContract ||
-            trade.disabled ||
+            trade.uiState.disabled ||
             (!marketIsOpen && !contractAllowStartLater);
 
         // TODO: remove usage of adapter so we have a consistent model
-        const tradeRequiredByChart = internalTradeModelToServerTradeModel(trade);
+        const tradeRequiredByChart = internalTradeModelToServerTradeModel(trade.params);
 
         return (
             <div disabled={disabled} className={'trade-panel'}>
                 <Modal
-                    shown={!!trade.buy_error}
-                    onClose={() => actions.updateTradeParams(index, 'buy_error', undefined)}
+                    shown={!!trade.purchaseInfo.buy_error}
+                    onClose={() => actions.updatePurchaseInfo(index, 'buy_error', undefined)}
                 >
-                    <PurchaseFailed failure={trade.buy_error} />
+                    <PurchaseFailed failure={trade.purchaseInfo.buy_error} />
                 </Modal>
                 <div className="trade-chart-container">
                     <BinaryChart
@@ -73,6 +74,9 @@ export default class FullTradeCard extends Component {
                     /> :
                     <FullTradeParams
                         {...this.props}
+                        tradeParams={trade.params}
+                        proposalInfo={trade.proposalInfo}
+                        pipSize={trade.pipSize}
                         disabled={disabled}
                         contract={contract}
                     />

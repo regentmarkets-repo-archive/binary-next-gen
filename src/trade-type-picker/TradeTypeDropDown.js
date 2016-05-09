@@ -12,7 +12,7 @@ export default class TradeTypeDropDown extends Component {
 
     static propTypes = {
         compact: PropTypes.bool,
-        trade: PropTypes.object.isRequired,
+        tradeParams: PropTypes.object.isRequired,
     };
 
     static contextTypes = {
@@ -37,8 +37,8 @@ export default class TradeTypeDropDown extends Component {
     }
 
     render() {
-        const { trade } = this.props;
-        const selectedType = trade.type;
+        const { tradeParams } = this.props;
+        const selectedType = tradeParams.type;
         const { dropdownShown } = this.state;
 
         return (
@@ -56,17 +56,17 @@ export default class TradeTypeDropDown extends Component {
                 <div
                     className="picker-label"
                     onMouseDown={::this.openTradeTypePicker}
-                    title={helpText[trade.type]}
+                    title={helpText[tradeParams.type]}
                 >
                     <img
-                        src={`img/trade-${trade.type.toLowerCase()}.svg`}
-                        alt={trade.type}
+                        src={`img/trade-${tradeParams.type.toLowerCase()}.svg`}
+                        alt={tradeParams.type}
                     />
 
                     {tradeToFriendlyType(selectedType)}
                     <DownArrow />
                 </div>
-                <span className="trade-type-help">{helpText[trade.type]}</span>
+                <span className="trade-type-help">{helpText[tradeParams.type]}</span>
             </div>
         );
     }
