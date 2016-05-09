@@ -38,6 +38,7 @@ export default class SigninCard extends Component {
 		const { router } = this.context;
 		try {
 			actions.signinFieldUpdate('progress', false);
+            this.props.actions.signinFieldUpdate('validatedOnce', true);
 			await tryAuth(actions, token);
 		} catch (e) {
 			actions.updateAppState('authorized', false);
@@ -48,8 +49,7 @@ export default class SigninCard extends Component {
 	}
 
 	render() {
-		const { progress, validatedOnce, credentialsInvalid, tokenNotEntered } = this.props.signin;
-
+		const { progress, validatedOnce, credentialsInvalid, tokenNotEntered, actions } = this.props.signin;
 		return (
 			<div className="startup-content">
 				<form className="mobile-form" onSubmit={e => e.preventDefault()}>
@@ -74,7 +74,7 @@ export default class SigninCard extends Component {
 						shown={validatedOnce && credentialsInvalid && !tokenNotEntered}
 						text="Access denied"
 					/>
-					<LanguagePicker />
+					<LanguagePicker actions={actions} />
 					<Button
 						text="Sign In"
 						className="btn-primary"
