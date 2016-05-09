@@ -4,6 +4,7 @@ import {
     UPDATE_ASSET_PICKER_MARKETS,
     UPDATE_ASSET_PICKER_SUBMARKET,
     UPDATE_ASSET_PICKER_FILTER,
+    RESET_ASSET_PICKER_FILTER,
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
@@ -20,6 +21,9 @@ export default (state = initialState, action) => {
         case UPDATE_ASSET_PICKER_SUBMARKET: {
             return state
                 .set('submarket', action.submarket);
+        }
+        case RESET_ASSET_PICKER_FILTER: {
+            return initialState;
         }
         case UPDATE_ASSET_PICKER_MARKETS: {
             return state
