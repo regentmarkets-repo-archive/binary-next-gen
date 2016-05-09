@@ -16,7 +16,15 @@ const getStartLaterOnlyContract = contract => {
         filterObjectBy(contract, child =>
             findDeep(child, descendent => descendent && !!descendent.forwardStartingDuration));
 
-    // TODO: remove durations so that only forward starting will be select
+    Object.keys(startLaterCategories).forEach(category => {
+        Object.keys(startLaterCategories[category]).forEach(type => {
+            if (startLaterCategories[category][type].durations) {
+                delete startLaterCategories[category][type].durations;
+            }
+        });
+    });
+
+    return startLaterCategories;
 };
 
 
