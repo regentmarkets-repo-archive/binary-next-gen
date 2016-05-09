@@ -12,10 +12,11 @@ import {
     internalTradeModelToServerTradeModel,
     serverContractModelToChartContractModel,
 } from './adapters/TradeObjectAdapter';
+import shallowEqualDebug from './shallowEqualDebug';
 
 export default class FullTradeCard extends Component {
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
+    // shouldComponentUpdate = shouldPureComponentUpdate;
 
     static defaultProps = {
         type: 'full',
@@ -33,6 +34,10 @@ export default class FullTradeCard extends Component {
         type: PropTypes.oneOf(['tick', 'full']).isRequired,
         ticks: PropTypes.array,
     };
+
+    shouldComponentUpdate(nextProps) {
+        return !shallowEqualDebug(this.props, nextProps);
+    }
 
     render() {
         const { actions, index, marketIsOpen, trade, ticks } = this.props;
