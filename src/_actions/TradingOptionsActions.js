@@ -1,12 +1,17 @@
-import { UPDATE_TRADING_OPTIONS } from '../_constants/ActionTypes';
+import { UPDATE_TRADING_OPTIONS, TRADING_OPTIONS_ERROR } from '../_constants/ActionTypes';
 import { updateFeedLicense } from './FeedLicenseActions';
-import { updateTradeParams } from './TradeActions';
 import * as LiveData from '../_data/LiveData';
 
 export const updateTradingOptions = (symbol, options) => ({
     type: UPDATE_TRADING_OPTIONS,
     symbol,
     options,
+});
+
+export const updateTradingOptionsErr = (symbol, err) => ({
+    type: TRADING_OPTIONS_ERROR,
+    symbol,
+    err,
 });
 
 export const getTradingOptions = symbol =>
@@ -20,7 +25,7 @@ export const getTradingOptions = symbol =>
                     dispatch(updateFeedLicense(symbol, res.contracts_for.feed_license));
                     dispatch(updateTradingOptions(symbol, res.contracts_for.available));
                 }, err => {
-                    dispatch(updateTradeParams(activeTradeIndex, 'contractForError', err.message));
+                    dispatch(updateTradingOptionsErr(symbol, err));
                 });
         }
 
