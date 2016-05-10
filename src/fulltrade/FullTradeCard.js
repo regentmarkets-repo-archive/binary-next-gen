@@ -53,6 +53,7 @@ export default class FullTradeCard extends Component {
         type: PropTypes.oneOf(['tick', 'full']).isRequired,
         ticks: PropTypes.array,
         uiState: PropTypes.object.isRequired,
+        tradingTime: PropTypes.object,
     };
 
     render() {
@@ -67,16 +68,23 @@ export default class FullTradeCard extends Component {
             proposalInfo,
             pipSize,
             ticks,
+            tradingTime,
         } = this.props;
         const { lastBoughtContract } = purchaseInfo;
         const { symbolName } = params;
 
         const propsContract = this.props.contract;
+<<<<<<< HEAD
         let contract = (propsContract && !propsContract.error) ? propsContract : mockedContract;
         if (!marketIsOpen) {
             contract = getStartLaterOnlyContract(contract);
         }
 
+=======
+        const contract = (propsContract && !propsContract.error) ? propsContract : mockedContract;
+
+        const contractAllowStartLater = findDeep(contract, child => child && !!child.forwardStartingDuration);
+>>>>>>> nuruddeensalihu-nuru/pass_trading_times
         const disabled =
             contract === mockedContract ||
             uiState.disabled;
@@ -102,6 +110,7 @@ export default class FullTradeCard extends Component {
                         trade={tradeRequiredByChart}
                         pipSize={pipSize}
                         rangeChange={(count, type) => actions.getDataForSymbol(params.symbol, count, type)}
+                        tradingTime={tradingTime}
                     />
                 </div>
                 {lastBoughtContract ?

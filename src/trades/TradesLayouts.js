@@ -45,6 +45,7 @@ export default class TradesLayouts extends Component {
                 marketIsOpen={assetsIsOpen[trade.params.symbol] && assetsIsOpen[trade.params.symbol].isOpen}
                 ticks={ticksForAllSymbols[trade.params.symbol]}
                 contract={contracts[trade.params.symbol]}
+                tradingTime={trade.tradingTime}
             />
         );
 
