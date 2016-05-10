@@ -291,7 +291,6 @@ export default class FullTradeParams extends Component {
                         pipSize={pipSize}
                         onBarrier1Change={this.onBarrier1Change}
                         onBarrier2Change={this.onBarrier2Change}
-                        onBarrierTypeChange={this.onBarrierTypeChange}
                         spot={proposal && +proposal.spot}
                     />
                 }
