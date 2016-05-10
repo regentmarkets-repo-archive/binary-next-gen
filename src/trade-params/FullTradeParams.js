@@ -19,8 +19,6 @@ import AssetPickerDropDown from '../asset-picker/AssetPickerDropDown';
 import * as LiveData from '../_data/LiveData';
 import * as updateHelpers from './TradeParamsCascadingUpdates';
 
-import shallowEqualDebug from '../fulltrade/shallowEqualDebug';
-
 /**
  * This UI is coded with a few assumptions, which should always be true, this comments serves as a future reference
  * purpose.
@@ -47,11 +45,7 @@ import shallowEqualDebug from '../fulltrade/shallowEqualDebug';
  */
 
 export default class FullTradeParams extends Component {
-    // shouldComponentUpdate = shouldPureComponentUpdate;
-
-    shouldComponentUpdate(nextProps) {
-        return !shallowEqualDebug(this.props, nextProps);
-    }
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     static defaultProps = {
         type: 'full',
@@ -66,7 +60,8 @@ export default class FullTradeParams extends Component {
         disabled: PropTypes.bool,
         index: PropTypes.number.isRequired,
         pipSize: PropTypes.number.isRequired,
-        proposalInfo: PropTypes.object.isRequired,
+        proposal: PropTypes.object,
+        proposalError: PropTypes.object,
         tradeParams: PropTypes.object.isRequired,
         type: PropTypes.oneOf(['tick', 'full']).isRequired,
         ticks: PropTypes.array,
@@ -109,12 +104,12 @@ export default class FullTradeParams extends Component {
     }
 
     componentWillUnmount() {
-        const { proposalInfo } = this.props;
-        if (proposalInfo.proposalError) {
+        const { proposal, proposalError } = this.props;
+        if (proposalError) {
             return;
         }
-        if (proposalInfo.proposal) {
-            LiveData.api.unsubscribeByID(proposalInfo.proposal.id);
+        if (proposal) {
+            LiveData.api.unsubscribeByID(proposal.id);
         }
     }
 
@@ -208,7 +203,19 @@ export default class FullTradeParams extends Component {
     }
 
     render() {
-        const { actions, compact, contract, contractError, disabled, index, pipSize, proposalInfo, tradeParams, currency } = this.props;
+        const {
+            actions,
+            compact,
+            contract,
+            contractError,
+            currency,
+            disabled,
+            index,
+            pipSize,
+            proposal,
+            proposalError,
+            tradeParams,
+        } = this.props;
 
         /**
          * Race condition happen when contract is updated before tradeCategory (async)
@@ -229,7 +236,7 @@ export default class FullTradeParams extends Component {
             !tradeParams.dateStart &&
             !!barriers;
 
-        const payout = proposalInfo.proposal && proposalInfo.proposal.payout;
+        const payout = proposal && proposal.payout;
 
         const showDuration = !!contractForType;
         const showDigitBarrier = categoryToUse === 'digits';
@@ -285,7 +292,7 @@ export default class FullTradeParams extends Component {
                         onBarrier1Change={this.onBarrier1Change}
                         onBarrier2Change={this.onBarrier2Change}
                         onBarrierTypeChange={this.onBarrierTypeChange}
-                        spot={proposalInfo.proposal && +proposalInfo.proposal.spot}
+                        spot={proposal && +proposal.spot}
                     />
                 }
                 {showDuration && !showSpreadBarrier &&
@@ -313,14 +320,14 @@ export default class FullTradeParams extends Component {
                 }
                 {payout && <PayoutCard stake={+tradeParams.amount} payout={payout} />}
                 <BuyButton
-                    askPrice={askPriceFromProposal(proposalInfo.proposal)}
+                    askPrice={askPriceFromProposal(proposal)}
                     currency={currency}
                     disabled={disabled}
                     onClick={() => actions.purchaseByTradeId(index)}
                 />
                 <ErrorMsg
-                    shown={!!proposalInfo.proposalError}
-                    text={proposalInfo.proposalError ? proposalInfo.proposalError.message : ''}
+                    shown={!!proposalError}
+                    text={proposalError ? proposalError.message : ''}
                 />
                 <ErrorMsg
                     shown={!!contractError}

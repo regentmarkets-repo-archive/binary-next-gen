@@ -37,12 +37,12 @@ export default class TradesLayouts extends Component {
 
         const tradeComponents = trades.map((trade, index) =>
             <FullTradeCard
+                {...trade}
                 actions={actions}
                 currency={currency}
                 key={index}
                 index={index}
                 marketIsOpen={assetsIsOpen[trade.params.symbol] && assetsIsOpen[trade.params.symbol].isOpen}
-                trade={trade}
                 ticks={ticksForAllSymbols[trade.params.symbol]}
                 contract={contracts[trade.params.symbol]}
             />
