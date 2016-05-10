@@ -9,7 +9,7 @@ export const createDefaultType = (contracts, category) =>
 
 export const createDefaultStartLaterEpoch = forwardStartingDuration => {
     const nextDayOpening = dateToEpoch(forwardStartingDuration.range[1].open[0]);
-    return nextDayOpening + (60 * 10);                      // 10 minutes * 60 secs
+    return nextDayOpening + (60 * 15);                      // 15 minutes * 60 secs
 };
 
 export const createDefaultDuration = (contracts, category, type) => {
