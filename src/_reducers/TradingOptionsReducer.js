@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import { UPDATE_TRADING_OPTIONS } from '../_constants/ActionTypes';
+import { UPDATE_TRADING_OPTIONS, TRADING_OPTIONS_ERROR } from '../_constants/ActionTypes';
 
 const initialState = fromJS({});
 
@@ -35,6 +35,9 @@ export default (state = initialState, action) => {
         case UPDATE_TRADING_OPTIONS: {
             const optionsWithRiseFall = splitRiseFallAndHighLow(action.options);
             return state.set(action.symbol, optionsWithRiseFall);
+        }
+        case TRADING_OPTIONS_ERROR: {
+            return state.setIn([action.symbol, 'error'], action.err);
         }
         default: {
             return state;

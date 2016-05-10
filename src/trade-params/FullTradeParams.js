@@ -17,7 +17,6 @@ import TradeTypeDropDown from '../trade-type-picker/TradeTypeDropDown';
 import AssetPickerDropDown from '../asset-picker/AssetPickerDropDown';
 
 import * as LiveData from '../_data/LiveData';
-
 import * as updateHelpers from './TradeParamsCascadingUpdates';
 
 /**
@@ -56,13 +55,14 @@ export default class FullTradeParams extends Component {
         actions: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
         contract: PropTypes.object,
+        contractError: PropTypes.object,
         compact: PropTypes.bool,
         disabled: PropTypes.bool,
         index: PropTypes.number.isRequired,
         pipSize: PropTypes.number.isRequired,
-        proposalInfo: PropTypes.object.isRequired,
+        proposal: PropTypes.object,
+        proposalError: PropTypes.object,
         tradeParams: PropTypes.object.isRequired,
-        trade: PropTypes.object.isRequired,
         type: PropTypes.oneOf(['tick', 'full']).isRequired,
         ticks: PropTypes.array,
     };
@@ -104,12 +104,12 @@ export default class FullTradeParams extends Component {
     }
 
     componentWillUnmount() {
-        const { proposalInfo } = this.props;
-        if (proposalInfo.proposalError) {
+        const { proposal, proposalError } = this.props;
+        if (proposalError) {
             return;
         }
-        if (proposalInfo.proposal) {
-            LiveData.api.unsubscribeByID(proposalInfo.proposal.id);
+        if (proposal) {
+            LiveData.api.unsubscribeByID(proposal.id);
         }
     }
 
@@ -203,7 +203,19 @@ export default class FullTradeParams extends Component {
     }
 
     render() {
-        const { actions, contract, disabled, index, pipSize, proposalInfo, trade, tradeParams, currency } = this.props;
+        const {
+            actions,
+            compact,
+            contract,
+            contractError,
+            currency,
+            disabled,
+            index,
+            pipSize,
+            proposal,
+            proposalError,
+            tradeParams,
+        } = this.props;
 
         /**
          * Race condition happen when contract is updated before tradeCategory (async)
@@ -224,7 +236,7 @@ export default class FullTradeParams extends Component {
             !tradeParams.dateStart &&
             !!barriers;
 
-        const payout = proposalInfo.proposal && proposalInfo.proposal.payout;
+        const payout = proposal && proposal.payout;
 
         const showDuration = !!contractForType;
         const showDigitBarrier = categoryToUse === 'digits';
@@ -233,12 +245,17 @@ export default class FullTradeParams extends Component {
         return (
             <div className="trade-params" disabled={disabled}>
                 <AssetPickerDropDown
-                    {...this.props}
+                    actions={actions}
+                    compact={compact}
+                    index={index}
                     selectedSymbol={tradeParams.symbol}
                     selectedSymbolName={tradeParams.symbolName}
                 />
                 <TradeTypeDropDown
-                    {...this.props}
+                    actions={actions}
+                    compact={compact}
+                    contract={contract}
+                    tradeParams={tradeParams}
                     updateParams={::this.updateTradeParams}
                 />
                 {showDigitBarrier &&
@@ -275,7 +292,7 @@ export default class FullTradeParams extends Component {
                         onBarrier1Change={this.onBarrier1Change}
                         onBarrier2Change={this.onBarrier2Change}
                         onBarrierTypeChange={this.onBarrierTypeChange}
-                        spot={proposalInfo.proposal && +proposalInfo.proposal.spot}
+                        spot={proposal && +proposal.spot}
                     />
                 }
                 {showDuration && !showSpreadBarrier &&
@@ -303,18 +320,18 @@ export default class FullTradeParams extends Component {
                 }
                 {payout && <PayoutCard stake={+tradeParams.amount} payout={payout} />}
                 <BuyButton
-                    askPrice={askPriceFromProposal(proposalInfo.proposal)}
+                    askPrice={askPriceFromProposal(proposal)}
                     currency={currency}
                     disabled={disabled}
                     onClick={() => actions.purchaseByTradeId(index)}
                 />
                 <ErrorMsg
-                    shown={!!proposalInfo.proposalError}
-                    text={proposalInfo.proposalError ? proposalInfo.proposalError.message : ''}
+                    shown={!!proposalError}
+                    text={proposalError ? proposalError.message : ''}
                 />
                 <ErrorMsg
-                    shown={!!trade.contractForError}
-                    text={trade.contractForError || ''}
+                    shown={!!contractError}
+                    text={contractError && contractError.message || ''}
                 />
             </div>
         );
