@@ -34,6 +34,7 @@ export default class FullTradeCard extends Component {
         type: PropTypes.oneOf(['tick', 'full']).isRequired,
         ticks: PropTypes.array,
         uiState: PropTypes.object.isRequired,
+        tradingTime: PropTypes.object,
     };
 
     render() {
@@ -48,6 +49,7 @@ export default class FullTradeCard extends Component {
             proposalInfo,
             pipSize,
             ticks,
+            tradingTime,
         } = this.props;
         const { lastBoughtContract } = purchaseInfo;
         const { symbolName } = params;
@@ -56,7 +58,6 @@ export default class FullTradeCard extends Component {
         const contract = (propsContract && !propsContract.error) ? propsContract : mockedContract;
 
         const contractAllowStartLater = findDeep(contract, child => child && !!child.forwardStartingDuration);
-
         const disabled =
             contract === mockedContract ||
             uiState.disabled ||
@@ -82,6 +83,7 @@ export default class FullTradeCard extends Component {
                         ticks={ticks}
                         trade={tradeRequiredByChart}
                         pipSize={pipSize}
+                        tradingTime={tradingTime}
                     />
                 </div>
                 {lastBoughtContract ?
