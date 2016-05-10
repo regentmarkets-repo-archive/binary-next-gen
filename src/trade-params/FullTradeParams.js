@@ -175,8 +175,13 @@ export default class FullTradeParams extends Component {
 
     onAmountChange(e) {
         const inputValue = e.target.value;
-        const updatedAmount = updateHelpers.changeAmount(inputValue);
-        this.updateTradeParams(updatedAmount);
+        if (inputValue < 0) {
+            const updatedAmount = updateHelpers.changeAmount(1);
+            this.updateTradeParams(updatedAmount);
+        } else {
+            const updatedAmount = updateHelpers.changeAmount(inputValue);
+            this.updateTradeParams(updatedAmount);
+        }
     }
 
     onAmountPerPointChange(e) {
