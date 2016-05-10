@@ -16,7 +16,7 @@ import shallowEqualDebug from './shallowEqualDebug';
 
 export default class FullTradeCard extends Component {
 
-    // shouldComponentUpdate = shouldPureComponentUpdate;
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     static defaultProps = {
         type: 'full',
@@ -35,16 +35,17 @@ export default class FullTradeCard extends Component {
         ticks: PropTypes.array,
     };
 
-    shouldComponentUpdate(nextProps) {
-        return !shallowEqualDebug(this.props, nextProps);
-    }
+    // shouldComponentUpdate(nextProps) {
+    //     return !shallowEqualDebug(this.props, nextProps);
+    // }
 
     render() {
-        const { actions, index, marketIsOpen, trade, ticks } = this.props;
+        const { actions, currency, index, marketIsOpen, trade, ticks } = this.props;
         const { lastBoughtContract } = trade.purchaseInfo;
         const { symbolName } = trade.params;
 
-        const contract = this.props.contract || mockedContract;
+        const propsContract = this.props.contract;
+        const contract = (propsContract && !propsContract.error) ? propsContract : mockedContract;
 
         const contractAllowStartLater = findDeep(contract, child => child && !!child.forwardStartingDuration);
 
@@ -82,12 +83,16 @@ export default class FullTradeCard extends Component {
                         tradeId={index}
                     /> :
                     <FullTradeParams
-                        {...this.props}
-                        tradeParams={trade.params}
+                        actions={actions}
+                        currency={currency}
+                        contract={contract}
+                        contractError={propsContract ? propsContract.error : undefined}
+                        disabled={disabled}
+                        index={index}
                         proposalInfo={trade.proposalInfo}
                         pipSize={trade.pipSize}
-                        disabled={disabled}
-                        contract={contract}
+                        tradeParams={trade.params}
+                        ticks={ticks}
                     />
                 }
             </div>

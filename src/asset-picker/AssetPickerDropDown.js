@@ -5,7 +5,6 @@ import DropDown from '../containers/DropDown';
 import DownArrow from '../_common/DownArrow';
 import AssetPickerContainer from './AssetPickerContainer';
 
-
 export default class AssetPickerDropDown extends Component {
 
     shouldComponentUpdate = shouldPureComponentUpdate;

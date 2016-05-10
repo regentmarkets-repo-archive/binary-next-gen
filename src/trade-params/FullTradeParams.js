@@ -17,8 +17,9 @@ import TradeTypeDropDown from '../trade-type-picker/TradeTypeDropDown';
 import AssetPickerDropDown from '../asset-picker/AssetPickerDropDown';
 
 import * as LiveData from '../_data/LiveData';
-
 import * as updateHelpers from './TradeParamsCascadingUpdates';
+
+import shallowEqualDebug from '../fulltrade/shallowEqualDebug';
 
 /**
  * This UI is coded with a few assumptions, which should always be true, this comments serves as a future reference
@@ -46,7 +47,11 @@ import * as updateHelpers from './TradeParamsCascadingUpdates';
  */
 
 export default class FullTradeParams extends Component {
-    shouldComponentUpdate = shouldPureComponentUpdate;
+    // shouldComponentUpdate = shouldPureComponentUpdate;
+
+    shouldComponentUpdate(nextProps) {
+        return !shallowEqualDebug(this.props, nextProps);
+    }
 
     static defaultProps = {
         type: 'full',
@@ -56,13 +61,13 @@ export default class FullTradeParams extends Component {
         actions: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
         contract: PropTypes.object,
+        contractError: PropTypes.object,
         compact: PropTypes.bool,
         disabled: PropTypes.bool,
         index: PropTypes.number.isRequired,
         pipSize: PropTypes.number.isRequired,
         proposalInfo: PropTypes.object.isRequired,
         tradeParams: PropTypes.object.isRequired,
-        trade: PropTypes.object.isRequired,
         type: PropTypes.oneOf(['tick', 'full']).isRequired,
         ticks: PropTypes.array,
     };
@@ -203,7 +208,7 @@ export default class FullTradeParams extends Component {
     }
 
     render() {
-        const { actions, contract, disabled, index, pipSize, proposalInfo, trade, tradeParams, currency } = this.props;
+        const { actions, compact, contract, contractError, disabled, index, pipSize, proposalInfo, tradeParams, currency } = this.props;
 
         /**
          * Race condition happen when contract is updated before tradeCategory (async)
@@ -233,12 +238,17 @@ export default class FullTradeParams extends Component {
         return (
             <div className="trade-params" disabled={disabled}>
                 <AssetPickerDropDown
-                    {...this.props}
+                    actions={actions}
+                    compact={compact}
+                    index={index}
                     selectedSymbol={tradeParams.symbol}
                     selectedSymbolName={tradeParams.symbolName}
                 />
                 <TradeTypeDropDown
-                    {...this.props}
+                    actions={actions}
+                    compact={compact}
+                    contract={contract}
+                    tradeParams={tradeParams}
                     updateParams={::this.updateTradeParams}
                 />
                 {showDigitBarrier &&
@@ -313,8 +323,8 @@ export default class FullTradeParams extends Component {
                     text={proposalInfo.proposalError ? proposalInfo.proposalError.message : ''}
                 />
                 <ErrorMsg
-                    shown={!!trade.contractForError}
-                    text={trade.contractForError || ''}
+                    shown={!!contractError}
+                    text={contractError && contractError.message || ''}
                 />
             </div>
         );

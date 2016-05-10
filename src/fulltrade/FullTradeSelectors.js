@@ -62,6 +62,10 @@ export const availableContractsSelector = createSelector(
     (tradingOptions, assetsIsOpen) =>
         tradingOptions
             .map((contract, symbol) => {
+                if (contract.error) {
+                    return contract;            // do not process error
+                }
+
                 // each immediate child refer to a type, eg Rise/Fall
                 const contractTree = contractsPerSymbol(contract);
 
