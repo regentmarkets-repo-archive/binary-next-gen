@@ -13,39 +13,25 @@ export default class ContractDetailsContainer extends Component {
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
-		contracts: PropTypes.object.isRequired,
-		ticks: PropTypes.object.isRequired,
+		contract: PropTypes.object.isRequired,
+		ticks: PropTypes.array,
 		params: PropTypes.object,
+		pipSize: PropTypes.number,
 		actions: PropTypes.object.isRequired,
 	};
 
 	componentWillMount() {
-		const { actions, params, contracts, ticks } = this.props;
-		const immutableContract = contracts.find(x => x.get('contract_id') === params.id);
-		const contract = immutableContract && immutableContract.toJS();
+		const { actions, ticks } = this.props;
+		const contract = this.props.contract.toJS();
 
-		const immutableHistory = ticks.get(contract.underlying);
-
-		if (!immutableHistory) {
-			actions.getTicksBySymbol(contract.underlying);
+		if (!ticks) {
+			actions.getDataForContract(contract.contract_id, 'all');
 		}
 	}
 
-	componentDidMount() {
-		this.interval = setInterval(this.props.actions.updateNow, 1000);
-	}
-
-	componentWillUnmount() {
-		clearInterval(this.interval);
-	}
-
 	render() {
-		const { params, contracts, ticks } = this.props;
-		const immutableContract = contracts.find(x => x.get('contract_id') === params.id);
-		const contract = immutableContract && immutableContract.toJS();
-
-		const immutableHistory = ticks.get(contract.underlying);
-		const history = immutableHistory && immutableHistory.toJS();
+		const { actions } = this.props;
+		const contract = this.props.contract.toJS();
 
 		if (!contract) return null;
 
@@ -59,13 +45,11 @@ export default class ContractDetailsContainer extends Component {
 				</h6>
 				<p></p>
 				<BinaryChart
+					{...immutableChildrenToJS(this.props)}
                     className="trade-chart"
-                    ticks={history}
-                    contract={contract}
+					rangeChange={(count, type) => actions.getDataForContract(contract.contract_id, count, type)}
 				/>
 				<ContractDetailsCard
-					contract={contract}
-					ticks={history}
 					{...immutableChildrenToJS(this.props)}
 				/>
 		</div>

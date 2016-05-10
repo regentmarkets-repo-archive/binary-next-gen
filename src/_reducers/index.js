@@ -30,6 +30,7 @@ import video from './VideoReducer';
 import views from './ViewsReducer';
 import workspace from './WorkspaceReducer';
 import watchlist from './WatchlistReducer';
+import chartData from './ChartDataReducer';
 
 export default combineReducers({
     appState,
@@ -39,6 +40,7 @@ export default combineReducers({
     assetIndex,
     assetPicker,
     createAccount,
+    chartData,
     news,
     server,
     paymentAgent,

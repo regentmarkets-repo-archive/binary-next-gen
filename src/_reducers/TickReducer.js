@@ -4,6 +4,7 @@ import mergeSortedArrays from 'binary-utils/lib/mergeSortedArrays';
 import {
     SERVER_DATA_TICK_STREAM,
     SERVER_DATA_TICK_HISTORY,
+    UPDATE_CHART_DATA_BY_SYMBOL,
 } from '../_constants/ActionTypes';
 
 const initialState = new Map();
@@ -29,6 +30,10 @@ export default (state = initialState, action) => {
             const liveTicks = state.get('symbol') ? state.get('symbol') : [];
             const merged = mergeSortedArrays(liveTicks, history, x => x.epoch, x => x.epoch);
             return state.set(symbol, fromJS(merged));
+        }
+        case UPDATE_CHART_DATA_BY_SYMBOL: {
+            const { symbol, data } = action;
+            return state.set(symbol, fromJS(data));
         }
         default:
             return state;
