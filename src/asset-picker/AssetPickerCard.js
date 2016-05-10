@@ -19,12 +19,12 @@ export default class AssetPickerCard extends Component {
 		const { tradeIdx, actions } = this.props;
 
 		actions.changeSelectedAsset(newAsset);
-		actions.updateTradeParams(tradeIdx, 'disabled', true);
+		actions.updateTradeUIState(tradeIdx, 'disabled', true);
 		actions.getTradingOptions(newAsset)
 			.then(
 				() => {
 					actions.updateTradeParams(tradeIdx, 'symbol', newAsset);
-					actions.updateTradeParams(tradeIdx, 'disabled', false);
+					actions.updateTradeUIState(tradeIdx, 'disabled', false);
 					actions.getTicksBySymbol(newAsset);
 				}
 			);

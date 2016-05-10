@@ -21,7 +21,7 @@ export default class TradeTypePicker extends Component {
         actions: PropTypes.object.isRequired,
         contract: PropTypes.object.isRequired,
         onSelect: PropTypes.func,
-        trade: PropTypes.object.isRequired,
+        tradeParams: PropTypes.object.isRequired,
         updateParams: PropTypes.func.isRequired,
     };
 
@@ -31,8 +31,8 @@ export default class TradeTypePicker extends Component {
     }
 
     componentWillMount() {
-        const { trade } = this.props;
-        const selectedCategory = trade.tradeCategory;
+        const { tradeParams } = this.props;
+        const selectedCategory = tradeParams.tradeCategory;
         const groupId = tradeGrouping.findIndex(categories => categories.includes(selectedCategory));
         this.setState({ tradeGroup: groupId });
     }
@@ -43,8 +43,8 @@ export default class TradeTypePicker extends Component {
     }
 
     onGroupChange(group) {
-        const { contract, trade, updateParams } = this.props;
-        const selectedCategory = trade.tradeCategory;
+        const { contract, tradeParams, updateParams } = this.props;
+        const selectedCategory = tradeParams.tradeCategory;
         const groupCategories = Object
             .keys(contract)
             .map(c => ({ value: c, text: contractCategoryDisplay(c) }))
@@ -57,9 +57,9 @@ export default class TradeTypePicker extends Component {
     }
 
     changeType(type) {
-        const { contract, onSelect, trade, updateParams } = this.props;
+        const { contract, onSelect, tradeParams, updateParams } = this.props;
         const selectedCategory = findCategoryForType(contract, type);
-        const updatedType = changeType(internalToServerTradeType(type), selectedCategory, trade, contract);
+        const updatedType = changeType(internalToServerTradeType(type), selectedCategory, tradeParams, contract);
         updateParams(updatedType);
         if (onSelect) {
             onSelect(updatedType);
@@ -67,9 +67,9 @@ export default class TradeTypePicker extends Component {
     }
 
     render() {
-        const { contract, trade } = this.props;
-        const selectedCategory = trade.tradeCategory;
-        const selectedType = trade.type;
+        const { contract, tradeParams } = this.props;
+        const selectedCategory = tradeParams.tradeCategory;
+        const selectedType = tradeParams.type;
         const { tradeGroup } = this.state;
         // type come in pairs logically
         const types = typesForCategories(contract, tradeGrouping[tradeGroup])

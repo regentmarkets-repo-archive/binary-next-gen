@@ -42,3 +42,13 @@ export const internalTradeModelToServerTradeModel = tradeObj => {
 
     return serverModel;
 };
+
+export const serverContractModelToChartContractModel = boughtContract => {
+    const cloned = Object.assign({}, boughtContract);
+    delete cloned.bid_price;
+    delete cloned.ask_price;
+    delete cloned.current_spot;
+    delete cloned.current_spot_time;
+    delete cloned.transaction_ids;
+    return cloned;
+};

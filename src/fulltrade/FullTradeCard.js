@@ -9,7 +9,11 @@ import ContractReceiptCard from './ContractReceiptCard';
 import findDeep from 'binary-utils/lib/findDeep';
 import filterObjectBy from 'binary-utils/lib/filterObjectBy';
 import { mockedContract } from './../_constants/MockContract';
-import { internalTradeModelToServerTradeModel } from './adapters/TradeObjectAdapter';
+import {
+    internalTradeModelToServerTradeModel,
+    serverContractModelToChartContractModel,
+} from './adapters/TradeObjectAdapter';
+import shallowEqualDebug from './shallowEqualDebug';
 
 const getStartLaterOnlyContract = contract => {
     const startLaterCategories =
@@ -30,7 +34,7 @@ const getStartLaterOnlyContract = contract => {
 
 export default class FullTradeCard extends Component {
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
+    // shouldComponentUpdate = shouldPureComponentUpdate;
 
     static defaultProps = {
         type: 'full',
@@ -49,9 +53,14 @@ export default class FullTradeCard extends Component {
         ticks: PropTypes.array,
     };
 
+    shouldComponentUpdate(nextProps) {
+        return !shallowEqualDebug(this.props, nextProps);
+    }
+
     render() {
         const { actions, index, marketIsOpen, trade, ticks } = this.props;
-        const { symbolName, lastBoughtContract } = trade;
+        const { lastBoughtContract } = trade.purchaseInfo;
+        const { symbolName } = trade.params;
 
         const contract = marketIsOpen ?
             (this.props.contract || mockedContract) :
@@ -59,23 +68,24 @@ export default class FullTradeCard extends Component {
 
         const disabled =
             contract === mockedContract ||
-            trade.disabled;
+            trade.uiState.disabled ||
 
         // TODO: remove usage of adapter so we have a consistent model
-        const tradeRequiredByChart = internalTradeModelToServerTradeModel(trade);
+        const tradeRequiredByChart = internalTradeModelToServerTradeModel(trade.params);
+        const contractRequiredByChart = serverContractModelToChartContractModel(lastBoughtContract);
 
         return (
             <div disabled={disabled} className={'trade-panel'}>
                 <Modal
-                    shown={!!trade.buy_error}
-                    onClose={() => actions.updateTradeParams(index, 'buy_error', undefined)}
+                    shown={!!trade.purchaseInfo.buy_error}
+                    onClose={() => actions.updatePurchaseInfo(index, 'buy_error', undefined)}
                 >
-                    <PurchaseFailed failure={trade.buy_error} />
+                    <PurchaseFailed failure={trade.purchaseInfo.buy_error} />
                 </Modal>
                 <div className="trade-chart-container">
                     <BinaryChart
                         className="trade-chart"
-                        contract={lastBoughtContract}
+                        contract={contractRequiredByChart}
                         symbol={symbolName}
                         ticks={ticks}
                         trade={tradeRequiredByChart}
@@ -90,6 +100,9 @@ export default class FullTradeCard extends Component {
                     /> :
                     <FullTradeParams
                         {...this.props}
+                        tradeParams={trade.params}
+                        proposalInfo={trade.proposalInfo}
+                        pipSize={trade.pipSize}
                         disabled={disabled}
                         contract={contract}
                     />

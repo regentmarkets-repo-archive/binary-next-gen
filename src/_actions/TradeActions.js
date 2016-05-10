@@ -7,70 +7,13 @@ import { updateOpenContractField } from './PortfolioActions';
 import { getTicksBySymbol } from './TickActions';
 import { getTradingOptions } from './TradingOptionsActions';
 
+// Handle server proposal stream
 export const serverDataProposal = serverResponse => ({
     type: types.SERVER_DATA_PROPOSAL,
     serverResponse,
 });
 
-export const updateTickTradeParameters = parameters => {
-    trackEvent('update-trade-paremeters', parameters);
-    return {
-        type: types.UPDATE_TICK_TRADE_PARAMETERS,
-        parameters,
-    };
-};
-
-export const serverDataBuy = serverResponse => ({
-    type: types.SERVER_DATA_BUY,
-    serverResponse,
-});
-
-export const sellContract = (id, price) =>
-    async (dispatch, getState) => {
-        const contract = getState().boughtContracts.get(id);
-        if (!contract) {
-            return;
-        }
-        try {
-            dispatch(updateOpenContractField({ id, selling: true }));
-            await LiveData.api.sellContract(id, price);
-            dispatch(updateOpenContractField({ id, selling: false }));
-            await trackEvent('sell-contract', { id, price });
-        } catch (error) {
-            dispatch(updateOpenContractField({ id, validation_error: error }));
-        }
-    };
-
-export const updateQuickTradeParams = (symbol, tradeType, params) => {
-    trackEvent('update-quick-trade-params', { symbol, params });
-    return {
-        type: types.UPDATE_QUICK_TRADE_PARAMS,
-        symbol,
-        tradeType,
-        params,
-    };
-};
-
-export const updateQuickTradePriceProposalSubscription = (symbol, trade) =>
-    (dispatch, getState) => {
-        const quickTrade = getState().quickTrade;
-        const paramns = quickTrade.getIn([symbol, trade, 'params']);
-        const proposal = getState().proposals.getIn([symbol, trade]);
-        if (proposal) {
-            const proposalID = proposal.id;
-            LiveData.api.unsubscribeByID(proposalID);
-        }
-        LiveData.api.subscribeToPriceForContractProposal(paramns.toJS());
-    };
-
-export const setQuickTradeField = (symbol, tradeType, field, value) => ({
-    type: types.SET_QUICK_TRADE_FIELD,
-    symbol,
-    tradeType,
-    field,
-    value,
-});
-
+// Trade object life cycle
 export const createTrade = symbol =>
     (dispatch, getState) => {
         const contractExist = getState().tradingOptions.get(symbol);
@@ -98,8 +41,8 @@ export const removeTrade = index =>
 
         const trade = trades[index];
 
-        if (trade.proposal) {
-            LiveData.api.unsubscribeByID(trade.proposal.id);
+        if (trade && trade.proposalInfo.proposal) {
+            LiveData.api.unsubscribeByID(trade.proposalInfo.proposal.id);
         }
 
         dispatch({ type: types.REMOVE_TRADE, index });
@@ -109,6 +52,7 @@ export const resetTrades = () => ({
     type: types.RESET_TRADES,
 });
 
+// Update trade's params
 export const updateTradeParams = (index, fieldName, fieldValue) => {
     trackEvent('update-trade-paremeters', { fieldName, fieldValue });
     return {
@@ -119,11 +63,6 @@ export const updateTradeParams = (index, fieldName, fieldValue) => {
     };
 };
 
-export const closeContractReceipt = index => ({
-    type: types.CLOSE_CONTRACT_RECEPIT,
-    index,
-});
-
 export const updateMultipleTradeParams = (index, params) => {
     trackEvent('update-trade-paremeters', params);
     return {
@@ -133,9 +72,33 @@ export const updateMultipleTradeParams = (index, params) => {
     };
 };
 
+// Update trade's ui state
+export const updateTradeUIState = (index, fieldName, fieldValue) => ({
+    type: types.UPDATE_TRADE_UI_STATE,
+    index,
+    fieldName,
+    fieldValue,
+});
+
+export const closeContractReceipt = index => ({
+    type: types.CLOSE_CONTRACT_RECEPIT,
+    index,
+});
+
+// Update trade's price proposal
+export const updateTradeProposal = (index, fieldName, fieldValue) => ({
+    type: types.UPDATE_TRADE_PROPOSAL,
+    index,
+    fieldName,
+    fieldValue,
+});
+
 export const updatePriceProposalSubscription = (tradeID, trade) => {
     const thunk = (dispatch, getState) => {
-        dispatch(updateTradeParams(tradeID, 'disabled', true));
+        dispatch(updateTradeUIState(tradeID, 'disabled', true));
+        if (!getState().trades.get(tradeID)) {
+            return;
+        }
         const tradeObj = trade || getState().trades.get(tradeID).toJS();
         const currency = getState().account.get('currency');
         const {
@@ -154,7 +117,7 @@ export const updatePriceProposalSubscription = (tradeID, trade) => {
             stopLoss,
             proposal,
             barrierType,
-        } = tradeObj;
+        } = tradeObj.params;
 
         if (!(amount && basis && type && symbol)) {
             return;
@@ -184,14 +147,18 @@ export const updatePriceProposalSubscription = (tradeID, trade) => {
             stop_loss: stopLoss,
         }).then(
             response => {
-                dispatch(updateTradeParams(tradeID, 'proposalError', undefined));
-                dispatch(updateTradeParams(tradeID, 'proposal', response.proposal));
+                if (getState().trades.get(tradeID)) {
+                    dispatch(updateTradeProposal(tradeID, 'proposalError', undefined));
+                    dispatch(updateTradeProposal(tradeID, 'proposal', response.proposal));
+                } else {
+                    LiveData.api.unsubscribeByID(response.proposal.id);
+                }
             },
             err => {
-                dispatch(updateTradeParams(tradeID, 'proposalError', err));
-                dispatch(updateTradeParams(tradeID, 'proposal', undefined));
+                dispatch(updateTradeProposal(tradeID, 'proposalError', err));
+                dispatch(updateTradeProposal(tradeID, 'proposal', undefined));
             }
-        ).then(() => dispatch(updateTradeParams(tradeID, 'disabled', false)));
+        ).then(() => dispatch(updateTradeUIState(tradeID, 'disabled', false)));
     };
 
     thunk.meta = {
@@ -204,32 +171,39 @@ export const updatePriceProposalSubscription = (tradeID, trade) => {
     return thunk;
 };
 
-// Kinda hack to solve problem when user change language
 export const resubscribeAllPriceProposal = () =>
     (dispatch, getState) => {
         const allTrades = getState().trades.keySeq();
         allTrades.forEach(tradeId => dispatch(updatePriceProposalSubscription(tradeId)));
     };
 
+// Handle trade's purchase related operation
+export const updatePurchaseInfo = (index, fieldName, fieldValue) => ({
+    type: types.UPDATE_TRADE_PURCHASE_INFO,
+    index,
+    fieldName,
+    fieldValue,
+});
+
 export const purchaseByTradeId = (tradeID, trade) =>
     (dispatch, getState) => {
-        dispatch(updateTradeParams(tradeID, 'disabled', true));
+        dispatch(updateTradeUIState(tradeID, 'disabled', true));
         const tradeSelected = trade || getState().trades.get(tradeID).toJS();
         trackEvent('buy-contract', tradeSelected);
-        const proposalID = tradeSelected.proposal.id;
-        const price = tradeSelected.proposal.ask_price;
+        const proposalID = tradeSelected.proposalInfo.proposal.id;
+        const price = tradeSelected.proposalInfo.proposal.ask_price;
 
         LiveData.api.buyContract(proposalID, price)
             .then(
                 response => {
-                    dispatch(updateTradeParams(tradeID, 'receipt', response.buy));
-                    dispatch(updateTradeParams(tradeID, 'mostRecentContractId', response.buy.contract_id));
+                    dispatch(updatePurchaseInfo(tradeID, 'receipt', response.buy));
+                    dispatch(updatePurchaseInfo(tradeID, 'mostRecentContractId', response.buy.contract_id));
                     LiveData.api.subscribeToOpenContract(response.buy.contract_id);
                 },
-                err => dispatch(updateTradeParams(tradeID, 'buy_error', err))
+                err => dispatch(updatePurchaseInfo(tradeID, 'buy_error', err))
             )
             .then(() => {
-                dispatch(updateTradeParams(tradeID, 'disabled', false));
+                dispatch(updateTradeUIState(tradeID, 'disabled', false));
                 dispatch(updatePriceProposalSubscription(tradeID, trade));
             });
     };
@@ -241,3 +215,19 @@ export const sellExpiredContract = onDone => {
         }
     });
 };
+
+export const sellContract = (id, price) =>
+    async (dispatch, getState) => {
+        const contract = getState().boughtContracts.get(id);
+        if (!contract) {
+            return;
+        }
+        try {
+            dispatch(updateOpenContractField({ id, selling: true }));
+            await LiveData.api.sellContract(id, price);
+            dispatch(updateOpenContractField({ id, selling: false }));
+            await trackEvent('sell-contract', { id, price });
+        } catch (error) {
+            dispatch(updateOpenContractField({ id, validation_error: error }));
+        }
+    };

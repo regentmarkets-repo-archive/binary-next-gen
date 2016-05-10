@@ -78,14 +78,14 @@ export const tradesWithDetailsSelector = createSelector(
     [state => state.trades, assetsSelector, boughtContractsSelector],
     (trades, assets, boughtContracts) =>
         trades.map(t => {
-            const symbolDetails = assets.find(a => a.get('symbol') === t.get('symbol'));
+            const symbolDetails = assets.find(a => a.get('symbol') === t.getIn(['params', 'symbol']));
             const pipSize = symbolDetails && pipsToDigits(symbolDetails.get('pip'));
             const symbolName = symbolDetails && symbolDetails.get('display_name');
-            const tradeWithPipSize = t.set('pipSize', pipSize).set('symbolName', symbolName);
-            const mostRecentContractId = t.get('mostRecentContractId');
+            const tradeWithPipSize = t.set('pipSize', pipSize).setIn(['params', 'symbolName'], symbolName);
+            const mostRecentContractId = t.getIn(['purchaseInfo', 'mostRecentContractId']);
             const lastBoughtContract = mostRecentContractId && boughtContracts.get(mostRecentContractId);
             const tradeWithMostRecentTransaction =
-                tradeWithPipSize.set('lastBoughtContract', lastBoughtContract);
+                tradeWithPipSize.setIn(['purchaseInfo', 'lastBoughtContract'], lastBoughtContract);
 
             return tradeWithMostRecentTransaction;
         })
