@@ -7,15 +7,33 @@ import Modal from '../containers/Modal';
 import FullTradeParams from '../trade-params/FullTradeParams';
 import ContractReceiptCard from './ContractReceiptCard';
 import findDeep from 'binary-utils/lib/findDeep';
+import filterObjectBy from 'binary-utils/lib/filterObjectBy';
 import { mockedContract } from './../_constants/MockContract';
 import {
     internalTradeModelToServerTradeModel,
     serverContractModelToChartContractModel,
 } from './adapters/TradeObjectAdapter';
 
+const getStartLaterOnlyContract = contract => {
+    const startLaterCategories =
+        filterObjectBy(contract, child =>
+            findDeep(child, descendent => descendent && !!descendent.forwardStartingDuration));
+
+    Object.keys(startLaterCategories).forEach(category => {
+        Object.keys(startLaterCategories[category]).forEach(type => {
+            if (startLaterCategories[category][type].durations) {
+                delete startLaterCategories[category][type].durations;
+            }
+        });
+    });
+
+    return startLaterCategories;
+};
+
+
 export default class FullTradeCard extends Component {
     shouldComponentUpdate = shouldPureComponentUpdate;
-    
+
     static defaultProps = {
         type: 'full',
     };
@@ -29,6 +47,7 @@ export default class FullTradeCard extends Component {
         index: PropTypes.number.isRequired,
         marketIsOpen: PropTypes.bool,
         params: PropTypes.object.isRequired,
+        pipSize: PropTypes.number.isRequired,
         proposalInfo: PropTypes.object.isRequired,
         purchaseInfo: PropTypes.object.isRequired,
         type: PropTypes.oneOf(['tick', 'full']).isRequired,
@@ -53,14 +72,14 @@ export default class FullTradeCard extends Component {
         const { symbolName } = params;
 
         const propsContract = this.props.contract;
-        const contract = (propsContract && !propsContract.error) ? propsContract : mockedContract;
-
-        const contractAllowStartLater = findDeep(contract, child => child && !!child.forwardStartingDuration);
+        let contract = (propsContract && !propsContract.error) ? propsContract : mockedContract;
+        if (!marketIsOpen) {
+            contract = getStartLaterOnlyContract(contract);
+        }
 
         const disabled =
             contract === mockedContract ||
-            uiState.disabled ||
-            (!marketIsOpen && !contractAllowStartLater);
+            uiState.disabled;
 
         // TODO: remove usage of adapter so we have a consistent model
         const tradeRequiredByChart = internalTradeModelToServerTradeModel(params);
