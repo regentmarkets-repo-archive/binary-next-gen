@@ -68,7 +68,7 @@ export default class FullTradeCard extends Component {
 
         const disabled =
             contract === mockedContract ||
-            trade.uiState.disabled ||
+            trade.uiState.disabled;
 
         // TODO: remove usage of adapter so we have a consistent model
         const tradeRequiredByChart = internalTradeModelToServerTradeModel(trade.params);
