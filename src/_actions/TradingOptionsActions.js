@@ -16,8 +16,7 @@ export const updateTradingOptionsErr = (symbol, err) => ({
 
 export const getTradingOptions = symbol =>
     (dispatch, getState) => {
-        const { tradingOptions, workspace } = getState();
-        const activeTradeIndex = workspace.get('activeTradeIndex');
+        const { tradingOptions } = getState();
 
         if (!tradingOptions.get(symbol)) {
             return LiveData.api.getContractsForSymbol(symbol)

@@ -33,7 +33,7 @@ const getStartLaterOnlyContract = contract => {
 
 export default class FullTradeCard extends Component {
     shouldComponentUpdate = shouldPureComponentUpdate;
-    
+
     static defaultProps = {
         type: 'full',
     };
@@ -47,6 +47,7 @@ export default class FullTradeCard extends Component {
         index: PropTypes.number.isRequired,
         marketIsOpen: PropTypes.bool,
         params: PropTypes.object.isRequired,
+        pipSize: PropTypes.number.isRequired,
         proposalInfo: PropTypes.object.isRequired,
         purchaseInfo: PropTypes.object.isRequired,
         type: PropTypes.oneOf(['tick', 'full']).isRequired,
@@ -78,7 +79,7 @@ export default class FullTradeCard extends Component {
 
         const disabled =
             contract === mockedContract ||
-            trade.uiState.disabled;
+            uiState.disabled;
 
         // TODO: remove usage of adapter so we have a consistent model
         const tradeRequiredByChart = internalTradeModelToServerTradeModel(params);
