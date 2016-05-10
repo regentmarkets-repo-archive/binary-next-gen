@@ -13,7 +13,6 @@ import {
     internalTradeModelToServerTradeModel,
     serverContractModelToChartContractModel,
 } from './adapters/TradeObjectAdapter';
-import shallowEqualDebug from './shallowEqualDebug';
 
 const getStartLaterOnlyContract = contract => {
     const startLaterCategories =
@@ -33,9 +32,8 @@ const getStartLaterOnlyContract = contract => {
 
 
 export default class FullTradeCard extends Component {
-
-    // shouldComponentUpdate = shouldPureComponentUpdate;
-
+    shouldComponentUpdate = shouldPureComponentUpdate;
+    
     static defaultProps = {
         type: 'full',
     };
@@ -48,39 +46,51 @@ export default class FullTradeCard extends Component {
         contractBought: PropTypes.object,
         index: PropTypes.number.isRequired,
         marketIsOpen: PropTypes.bool,
-        trade: PropTypes.object.isRequired,
+        params: PropTypes.object.isRequired,
+        proposalInfo: PropTypes.object.isRequired,
+        purchaseInfo: PropTypes.object.isRequired,
         type: PropTypes.oneOf(['tick', 'full']).isRequired,
         ticks: PropTypes.array,
+        uiState: PropTypes.object.isRequired,
     };
 
-    shouldComponentUpdate(nextProps) {
-        return !shallowEqualDebug(this.props, nextProps);
-    }
-
     render() {
-        const { actions, index, marketIsOpen, trade, ticks } = this.props;
-        const { lastBoughtContract } = trade.purchaseInfo;
-        const { symbolName } = trade.params;
+        const {
+            actions,
+            currency,
+            index,
+            marketIsOpen,
+            params,
+            uiState,
+            purchaseInfo,
+            proposalInfo,
+            pipSize,
+            ticks,
+        } = this.props;
+        const { lastBoughtContract } = purchaseInfo;
+        const { symbolName } = params;
 
-        const contract = marketIsOpen ?
-            (this.props.contract || mockedContract) :
-            getStartLaterOnlyContract(this.props.contract || mockedContract);
+        const propsContract = this.props.contract;
+        let contract = (propsContract && !propsContract.error) ? propsContract : mockedContract;
+        if (!marketIsOpen) {
+            contract = getStartLaterOnlyContract(contract);
+        }
 
         const disabled =
             contract === mockedContract ||
             trade.uiState.disabled;
 
         // TODO: remove usage of adapter so we have a consistent model
-        const tradeRequiredByChart = internalTradeModelToServerTradeModel(trade.params);
+        const tradeRequiredByChart = internalTradeModelToServerTradeModel(params);
         const contractRequiredByChart = serverContractModelToChartContractModel(lastBoughtContract);
 
         return (
             <div disabled={disabled} className={'trade-panel'}>
                 <Modal
-                    shown={!!trade.purchaseInfo.buy_error}
+                    shown={!!purchaseInfo.buy_error}
                     onClose={() => actions.updatePurchaseInfo(index, 'buy_error', undefined)}
                 >
-                    <PurchaseFailed failure={trade.purchaseInfo.buy_error} />
+                    <PurchaseFailed failure={purchaseInfo.buy_error} />
                 </Modal>
                 <div className="trade-chart-container">
                     <BinaryChart
@@ -89,7 +99,7 @@ export default class FullTradeCard extends Component {
                         symbol={symbolName}
                         ticks={ticks}
                         trade={tradeRequiredByChart}
-                        pipSize={trade.pipSize}
+                        pipSize={pipSize}
                     />
                 </div>
                 {lastBoughtContract ?
@@ -99,12 +109,16 @@ export default class FullTradeCard extends Component {
                         tradeId={index}
                     /> :
                     <FullTradeParams
-                        {...this.props}
-                        tradeParams={trade.params}
-                        proposalInfo={trade.proposalInfo}
-                        pipSize={trade.pipSize}
-                        disabled={disabled}
+                        {...proposalInfo}
+                        actions={actions}
+                        currency={currency}
                         contract={contract}
+                        contractError={propsContract ? propsContract.error : undefined}
+                        disabled={disabled}
+                        index={index}
+                        pipSize={pipSize}
+                        tradeParams={params}
+                        ticks={ticks}
                     />
                 }
             </div>
