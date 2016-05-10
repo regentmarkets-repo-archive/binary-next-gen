@@ -1,10 +1,12 @@
 import React, { PropTypes, Component } from 'react';
 import windowResizeEvent from 'binary-utils/lib/windowResizeEvent';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 import FullTradeCard from '../fulltrade/FullTradeCard';
 import * as layouts from '../layouts';
 import styles from '../layouts/layouts.css';
 
 export default class TradesLayouts extends Component {
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
@@ -27,7 +29,7 @@ export default class TradesLayouts extends Component {
     }
 
     render() {
-        const { assetsIsOpen, layoutN, trades, ticksForAllSymbols, contracts } = this.props;
+        const { actions, assetsIsOpen, contracts, currency, layoutN, trades, ticksForAllSymbols } = this.props;
         const layout = layouts[`Layout${trades.length}${layoutN}`];
         const layoutClass = styles[`layout-${trades.length}-${layoutN}`];
 
@@ -35,11 +37,12 @@ export default class TradesLayouts extends Component {
 
         const tradeComponents = trades.map((trade, index) =>
             <FullTradeCard
-                {...this.props}
+                {...trade}
+                actions={actions}
+                currency={currency}
                 key={index}
                 index={index}
                 marketIsOpen={assetsIsOpen[trade.params.symbol] && assetsIsOpen[trade.params.symbol].isOpen}
-                trade={trade}
                 ticks={ticksForAllSymbols[trade.params.symbol]}
                 contract={contracts[trade.params.symbol]}
             />
