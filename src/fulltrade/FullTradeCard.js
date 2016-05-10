@@ -74,17 +74,12 @@ export default class FullTradeCard extends Component {
         const { symbolName } = params;
 
         const propsContract = this.props.contract;
-<<<<<<< HEAD
+
         let contract = (propsContract && !propsContract.error) ? propsContract : mockedContract;
         if (!marketIsOpen) {
             contract = getStartLaterOnlyContract(contract);
         }
 
-=======
-        const contract = (propsContract && !propsContract.error) ? propsContract : mockedContract;
-
-        const contractAllowStartLater = findDeep(contract, child => child && !!child.forwardStartingDuration);
->>>>>>> nuruddeensalihu-nuru/pass_trading_times
         const disabled =
             contract === mockedContract ||
             uiState.disabled;
