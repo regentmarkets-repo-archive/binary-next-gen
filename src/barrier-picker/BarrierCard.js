@@ -21,7 +21,6 @@ export default class BarrierCard extends Component {
         isIntraDay: PropTypes.bool,
         onBarrier1Change: PropTypes.func,
         onBarrier2Change: PropTypes.func,
-        onBarrierTypeChange: PropTypes.func,
         pipSize: PropTypes.number,
         spot: PropTypes.number,
     };
