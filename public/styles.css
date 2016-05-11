@@ -860,10 +860,10 @@ input[type=number]::-webkit-outer-spin-button {
     background: white;
     box-shadow: 0 0 0 1px white;
 }
-
+/* toggle-button begins */
 .onoffswitch {
     position: relative;
-    width: 100%;
+    width: 12em;
     margin-bottom: .25rem;
 }
 .onoffswitch-checkbox {
@@ -904,11 +904,14 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .onoffswitch-switch {
     display: block;
-    width: 2em;
+    width: 1.5em;
     margin: 0.5em;
     background: #FFFFFF;
-    right: 7em;
-    position: absolute; top: 0; bottom: 0;
+    right: 9.5em;
+    border: .12em solid #999999;
+    position: absolute; 
+    top: 0;
+    bottom: 0;
     border-radius: 2em;
     transition: all 0.3s ease-in 0s;
 }
@@ -918,6 +921,7 @@ input[type=number]::-webkit-outer-spin-button {
 .onoffswitch-checkbox.checked + .onoffswitch-label .onoffswitch-switch {
     right: 0em;
 }
+/* toggle-button ends */
 
 #duration-fields input, #duration-fields select, .payout-picker input, .payout-picker fieldset {
     width: 100%;
