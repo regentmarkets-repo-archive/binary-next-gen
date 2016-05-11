@@ -10,3 +10,4 @@ test/integration
 src/_constants/texts.js
 src/_constants/MockContract.js
 src/_constants/po/*.js
+src/trade-type-picker/helpText.js

@@ -10,6 +10,7 @@ import BarrierCard from '../barrier-picker/BarrierCard';
 import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
 import DigitBarrierCard from '../barrier-picker/DigitBarrierCard';
 import DurationCard from '../duration-picker/DurationCard';
+import ForwardStartingOptions from '../duration-picker/ForwardStartingOptions';
 import StakeCard from '../payout-picker/StakeCard';
 import PayoutCard from '../payout-picker/PayoutCard';
 import BuyButton from '../tick-trade/BuyButton';
@@ -309,7 +310,15 @@ export default class FullTradeParams extends Component {
                         options={contractForType.durations}
                         onDurationChange={this.onDurationChange}
                         onUnitChange={this.onDurationUnitChange}
+                        index={index}
+                    />
+                }
+                {showDuration && !showSpreadBarrier && contractForType.forwardStartingDuration &&
+                    <ForwardStartingOptions
+                        dateStart={tradeParams.dateStart}
+                        forwardStartingDuration={contractForType.forwardStartingDuration}
                         onStartDateChange={this.onStartDateChange}
+                        options={contractForType.durations}
                         index={index}
                     />
                 }
