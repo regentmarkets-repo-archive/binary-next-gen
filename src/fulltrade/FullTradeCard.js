@@ -3,7 +3,6 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 import { BinaryChart } from 'binary-charts';
 // const BinaryChart = (props) => <div {...props} style={{ background: 'grey' }} />;
 import PurchaseFailed from '../_common/PurchaseFailed';
-import Modal from '../containers/Modal';
 import FullTradeParams from '../trade-params/FullTradeParams';
 import ContractReceiptCard from './ContractReceiptCard';
 import findDeep from 'binary-utils/lib/findDeep';
@@ -13,6 +12,7 @@ import {
     internalTradeModelToServerTradeModel,
     serverContractModelToChartContractModel,
 } from './adapters/TradeObjectAdapter';
+import showError from 'binary-utils/lib/showError';
 
 const getStartLaterOnlyContract = contract => {
     const startLaterCategories =
@@ -72,7 +72,6 @@ export default class FullTradeCard extends Component {
         } = this.props;
         const { lastBoughtContract } = purchaseInfo;
         const { symbolName } = params;
-
         const propsContract = this.props.contract;
 
         let contract = (propsContract && !propsContract.error) ? propsContract : mockedContract;
@@ -90,12 +89,10 @@ export default class FullTradeCard extends Component {
 
         return (
             <div disabled={disabled} className={'trade-panel'}>
-                <Modal
-                    shown={!!purchaseInfo.buy_error}
-                    onClose={() => actions.updatePurchaseInfo(index, 'buy_error', undefined)}
-                >
-                    <PurchaseFailed failure={purchaseInfo.buy_error} />
-                </Modal>
+
+                {!!purchaseInfo.buy_error &&
+                    showError(purchaseInfo.buy_error.code + ' ' + purchaseInfo.buy_error.message)
+                }
                 <div className="trade-chart-container">
                     <BinaryChart
                         className="trade-chart"
