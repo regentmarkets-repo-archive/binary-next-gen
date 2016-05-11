@@ -7,7 +7,21 @@ describe('firstTradeSelectors', () => {
         assets: fromJS([]),
         account: fromJS({}),
         ticks: fromJS({}),
-        trades: fromJS([{ name: 'some trade' }]),
+        trades: fromJS([{
+            params: {
+                symbol: 'R_100',
+                tradeCategory: 'risefall',
+                duration: 5,
+                durationUnit: 't',
+                basis: 'stake',
+                amount: 50,
+                type: 'CALL',
+                barrierType: 'relative',
+            },
+            uiState: {},
+            proposalInfo: {},
+            purchaseInfo: {},
+        }]),
         tradingOptions: fromJS([]),
         tradingTimes: fromJS([]),
     });
@@ -16,6 +30,6 @@ describe('firstTradeSelectors', () => {
         const state = testState();
         const actual = singleTradeSelectors(state);
 
-        expect(actual.trade.get('name')).to.equal('some trade');
+        expect(actual.params.get('symbol')).to.equal('R_100');
     });
 });

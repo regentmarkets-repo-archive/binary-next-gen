@@ -22,7 +22,9 @@ describe('singleTradeSelectors', () => {
         assets: fromJS([{ name: 'some asset' }]),
         account: fromJS({ currency: 'JPY' }),
         ticks: fromJS({ R_9000: [{ quote: 123 }] }),
-        trades: fromJS([{ symbol: 'R_9000' }]),
+        trades: fromJS([{
+            params: {symbol: 'R_9000'},
+        }]),
         tradingOptions: new Map({ R_9000: contractsForR50 }),
         tradingTimes: fromJS([]),
     });
@@ -38,7 +40,7 @@ describe('singleTradeSelectors', () => {
         const state = testState();
         const actual = singleTradeSelectors(state);
 
-        expect(actual.trade.toJS().symbol).to.equal('R_9000');
+        expect(actual.params.toJS().symbol).to.equal('R_9000');
     });
 
     it('will select last tick', () => {

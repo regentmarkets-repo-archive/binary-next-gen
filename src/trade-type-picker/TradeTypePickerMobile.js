@@ -30,10 +30,13 @@ export default class TradeTypePickerMobile extends React.Component {
 	}
 
 	render() {
+		const { actions, contract, trade } = immutableChildrenToJS(this.props);
 		return (
 			<MobilePage toolbarShown={false} backBtnBarTitle="Trade Type">
 				<TradeTypePicker
-					{...immutableChildrenToJS(this.props)}
+					actions={actions}
+					contract={contract}
+					tradeParams={trade.params}
 					onSelect={::this.onSelectForMobile}
 					updateParams={::this.updateParamsForMobile}
 				/>
