@@ -1122,3 +1122,10 @@ input[type=number]::-webkit-outer-spin-button {
     border-left: 1px solid rgba(255, 255, 255, 0.5);
     border-right: 1px solid rgba(255, 255, 255, 0.5);
 }
+
+.info-icon {
+    background-color: rgba(42, 48, 82, .5);
+    width: 1rem;
+    margin-left: .5rem;
+    border-radius: 10px;
+}
