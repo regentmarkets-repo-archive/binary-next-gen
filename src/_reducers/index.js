@@ -20,10 +20,10 @@ import signin from './SigninReducer';
 import states from './StatesReducer';
 import server from './ServerReducer';
 
-import tradesParams from './trades/TradesParams';
-import tradesProposalInfo from './trades/TradesProposalInfo';
-import tradesPurchaseInfo from './trades/TradesPurchaseInfo';
-import tradesUIStates from './trades/TradesUIState';
+import tradesParams from './trades/TradesParamsReducer';
+import tradesProposalInfo from './trades/TradesProposalInfoReducer';
+import tradesPurchaseInfo from './trades/TradesPurchaseInfoReducer';
+import tradesUIStates from './trades/TradesUIStateReducer';
 
 import tradingOptions from './TradingOptionsReducer';
 import tradingTimes from './TradingTimesReducer';
