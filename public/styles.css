@@ -176,7 +176,7 @@ div[role=tab] .close-btn, .panel-active .close-btn {
 }
 
 .vertical > [role=tab] {
-    padding: .25rem;
+    padding: .25rem .25rem .25rem .1rem;
 }
 
 .vertical > [role=tab] > span{
@@ -1063,6 +1063,9 @@ input[type=number]::-webkit-outer-spin-button {
 
 .horizontal .trade-params > * {
     flex: 1;
+}
+
+.horizontal .trade-params > div {
     margin-right: .5rem;
 }
 

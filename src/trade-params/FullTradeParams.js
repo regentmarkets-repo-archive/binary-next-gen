@@ -45,6 +45,7 @@ import * as updateHelpers from './TradeParamsCascadingUpdates';
  */
 
 export default class FullTradeParams extends Component {
+
     shouldComponentUpdate = shouldPureComponentUpdate;
 
     static defaultProps = {

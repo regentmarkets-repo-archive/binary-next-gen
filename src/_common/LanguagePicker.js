@@ -7,6 +7,7 @@ import languages from '../_constants/languages';
 
 @connect(state => ({ selected: state.boot.get('language') }))
 export default class LanguagePicker extends Component {
+
     shouldComponentUpdate = shouldPureComponentUpdate;
 
     static propTypes = {
