@@ -86,7 +86,6 @@ export default class FullTradeCard extends Component {
         // TODO: remove usage of adapter so we have a consistent model
         const tradeRequiredByChart = internalTradeModelToServerTradeModel(params);
         const contractRequiredByChart = serverContractModelToChartContractModel(lastBoughtContract);
-
         return (
             <div disabled={disabled} className={'trade-panel'}>
                 <Modal

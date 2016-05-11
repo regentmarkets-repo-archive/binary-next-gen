@@ -10,7 +10,6 @@ import {
     assetsIsOpenSelector,
     tradesParamsSelector,
     tradesPipSizeSelector,
-    tradesPurchaseInfo,
     tradesTradingTimesSelector,
 } from '../fulltrade/FullTradeSelectors';
 
@@ -22,7 +21,7 @@ export default createStructuredSelector({
     paramsList: tradesParamsSelector,
     pipSizeList: tradesPipSizeSelector,
     proposalInfoList: state => state.tradesProposalInfo,
-    purchaseInfoList: tradesPurchaseInfo,
+    purchaseInfoList: state => state.tradesPurchaseInfo,
     tradesCount: tradesCountSelector,
     ticksForAllSymbols: ticksSelector, // not really!!!
     tradingTimeList: tradesTradingTimesSelector,
