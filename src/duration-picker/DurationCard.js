@@ -1,14 +1,10 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import { FormattedMessage } from 'react-intl';
 import ErrorMsg from '../_common/ErrorMsg';
 import SelectGroup from '../_common/SelectGroup';
 import InputGroup from '../_common/InputGroup';
 import Label from '../_common/Label';
-import ForwardStartingOptions from './ForwardStartingOptions';
 import durationText from 'binary-utils/lib/durationText';
-import StartLaterToggleSwitch from './StartLaterToggleSwitch';
-import { createDefaultStartLaterEpoch } from '../trade-params/DefaultTradeParams';
 
 export default class DurationCard extends Component {
     static propTypes = {
@@ -19,21 +15,9 @@ export default class DurationCard extends Component {
         options: PropTypes.array,
         onUnitChange: PropTypes.func,
         onDurationChange: PropTypes.func,
-        onStartDateChange: PropTypes.func,
-        index: PropTypes.any.isRequired,
     };
 
     shouldComponentUpdate = shouldPureComponentUpdate;
-
-    startLaterHandler() {
-        const { dateStart, onStartDateChange, forwardStartingDuration } = this.props;
-        if (dateStart) {
-            onStartDateChange();
-        } else {
-            const nextDayOpening = createDefaultStartLaterEpoch(forwardStartingDuration);
-            onStartDateChange(nextDayOpening);
-        }
-    }
 
     render() {
         const {
@@ -44,8 +28,6 @@ export default class DurationCard extends Component {
             options,
             onUnitChange,
             onDurationChange,
-            onStartDateChange,
-            index,
         } = this.props;
 
         const allowStartLater = !!forwardStartingDuration;
@@ -91,26 +73,6 @@ export default class DurationCard extends Component {
                         </div>
                     </div> :
                     <div />
-                }
-                {(allowStartLater && !onlyStartLater) &&
-                    <FormattedMessage id="Start Later" defaultMessage="Start Later">
-                        {text =>
-                            <StartLaterToggleSwitch
-                                text={text}
-                                id={index}
-                                checked={!!dateStart}
-                                onClick={::this.startLaterHandler}
-                                disabled={onlyStartLater}
-                            />
-                        }
-                    </FormattedMessage>
-                }
-                {!!dateStart &&
-                    <ForwardStartingOptions
-                        dateStart={dateStart}
-                        ranges={forwardStartingDuration.range}
-                        onStartDateChange={onStartDateChange}
-                    />
                 }
                 <ErrorMsg shown={showError} text={errorMsg} />
             </div>

@@ -5,6 +5,9 @@ import dateToEpoch from 'binary-utils/lib/dateToEpoch';
 import dateToUTCTimeString from 'binary-utils/lib/dateToUTCTimeString';
 import timeStringToSeconds from 'binary-utils/lib/timeStringToSeconds';
 import dateToDateString from 'binary-utils/lib/dateToDateString';
+import { createDefaultStartLaterEpoch } from '../trade-params/DefaultTradeParams';
+import StartLaterToggleSwitch from './StartLaterToggleSwitch';
+import { FormattedMessage } from 'react-intl';
 
 /**
  * assumption: for each type of contract, there will only have 1 forward starting options contract
@@ -18,9 +21,21 @@ export default class ForwardStartingOptions extends Component {
 
     static propTypes = {
         dateStart: PropTypes.number,
+        forwardStartingDuration: PropTypes.object,       // treated as special case
+        index: PropTypes.number.isRequired,
+        options: PropTypes.array,
         onStartDateChange: PropTypes.func,
-        ranges: PropTypes.array.isRequired,
     };
+
+    startLaterHandler() {
+        const { dateStart, onStartDateChange, forwardStartingDuration } = this.props;
+        if (dateStart) {
+            onStartDateChange();
+        } else {
+            const nextDayOpening = createDefaultStartLaterEpoch(forwardStartingDuration);
+            onStartDateChange(nextDayOpening);
+        }
+    }
 
     selectDay(e) {
         const { dateStart } = this.props;
@@ -40,8 +55,12 @@ export default class ForwardStartingOptions extends Component {
     }
 
     render() {
-        const { dateStart, ranges } = this.props;
-        const selectedDay = new Date(dateStart * 1000);
+        const { dateStart, forwardStartingDuration, index, options } = this.props;
+        const ranges = forwardStartingDuration.range;
+        const allowStartLater = !!forwardStartingDuration;
+        const onlyStartLater = allowStartLater && !options;
+
+        const selectedDay = dateStart && new Date(dateStart * 1000);
         const selectedRange = selectedDay && ranges.find(r => r.date.toDateString() === selectedDay.toDateString());
 
         const min = selectedDay && dateToUTCTimeString(selectedRange.open[0]);
@@ -50,20 +69,35 @@ export default class ForwardStartingOptions extends Component {
 
         return (
             <div className="forward-starting-input">
-                <InputGroup
-                    type="date"
-                    min={dateToDateString(ranges[0].date)}
-                    max={dateToDateString(ranges[2].date)}
-                    onChange={::this.selectDay}
-                    value={selectedDay && dateToDateString(selectedDay)}
-                />
-                {selectedDay && <InputGroup
-                    type="time"
-                    min={min}
-                    max={max}
-                    onChange={::this.selectTime}
-                    value={timeString}
-                />}
+                {(allowStartLater && !onlyStartLater) &&
+                <FormattedMessage id="Start Later" defaultMessage="Start Later">
+                    {text =>
+                        <StartLaterToggleSwitch
+                            text={text}
+                            id={index}
+                            checked={!!dateStart}
+                            onClick={::this.startLaterHandler}
+                            disabled={onlyStartLater}
+                        />
+                    }
+                </FormattedMessage>
+                }
+                {allowStartLater && dateStart &&
+                    <InputGroup
+                        type="date"
+                        min={dateToDateString(ranges[0].date)}
+                        max={dateToDateString(ranges[2].date)}
+                        onChange={::this.selectDay}
+                        value={selectedDay && dateToDateString(selectedDay)}
+                    />}
+                {allowStartLater && dateStart && selectedDay &&
+                    <InputGroup
+                        type="time"
+                        min={min}
+                        max={max}
+                        onChange={::this.selectTime}
+                        value={timeString}
+                    />}
             </div>
         );
     }
