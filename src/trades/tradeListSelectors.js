@@ -6,7 +6,6 @@ import {
     layoutNSelector,
 } from '../_store/directSelectors';
 import {
-    tradesWithDetailsSelector,
     availableContractsSelector,
     assetsIsOpenSelector,
     tradesParamsSelector,

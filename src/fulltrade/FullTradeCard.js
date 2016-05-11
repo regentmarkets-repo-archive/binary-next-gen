@@ -13,7 +13,6 @@ import {
     internalTradeModelToServerTradeModel,
     serverContractModelToChartContractModel,
 } from './adapters/TradeObjectAdapter';
-import debug from './shallowEqualDebug';
 
 const getStartLaterOnlyContract = contract => {
     const startLaterCategories =
@@ -32,10 +31,7 @@ const getStartLaterOnlyContract = contract => {
 };
 
 export default class FullTradeCard extends Component {
-    // shouldComponentUpdate = shouldPureComponentUpdate;
-    shouldComponentUpdate(p) {
-        return !debug(this.props, p);
-    }
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     static defaultProps = {
         type: 'full',

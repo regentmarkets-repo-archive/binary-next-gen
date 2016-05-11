@@ -1,4 +1,4 @@
-import { createSelector, createStructuredSelector } from 'reselect';
+import { createSelector } from 'reselect';
 import { createListSelector } from 'reselect-map';
 import nowAsEpoch from 'binary-utils/lib/nowAsEpoch';
 import { assetsSelector, tradingTimesSelector, boughtContractsSelector } from '../_store/directSelectors';
