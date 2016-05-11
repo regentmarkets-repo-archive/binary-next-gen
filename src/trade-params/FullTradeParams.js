@@ -100,6 +100,11 @@ export default class FullTradeParams extends Component {
         const { tradeParams } = this.props;
 
         if (tradeParams.symbol !== prevProps.tradeParams.symbol) {
+            const { proposal } = prevProps;
+            if (proposal) {
+                LiveData.api.unsubscribeByID(proposal.id);
+            }
+            
             this.onAssetChange();
         }
     }
