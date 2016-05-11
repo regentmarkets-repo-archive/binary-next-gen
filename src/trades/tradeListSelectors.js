@@ -2,7 +2,6 @@ import { createStructuredSelector } from 'reselect';
 import {
     currencySelector,
     ticksSelector,
-    activeTradeIndexSelector,
     tradesCountSelector,
     layoutNSelector,
 } from '../_store/directSelectors';
@@ -20,5 +19,4 @@ export default createStructuredSelector({
     currency: currencySelector,
     trades: tradesWithDetailsSelector,
     ticksForAllSymbols: ticksSelector, // not really!!!
-    activeTradeIndex: activeTradeIndexSelector,
 });
