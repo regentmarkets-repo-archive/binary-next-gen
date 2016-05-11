@@ -57,7 +57,6 @@ export default class TradeTypeDropDown extends Component {
                 <div
                     className="picker-label"
                     onMouseDown={::this.openTradeTypePicker}
-                    title={helpText[tradeParams.type]}
                 >
                     <img
                         src={`img/trade-${tradeParams.type.toLowerCase()}.svg`}
@@ -66,7 +65,6 @@ export default class TradeTypeDropDown extends Component {
                     {tradeToFriendlyType(selectedType, tradeParams.barrier)}
                     <DownArrow />
                 </div>
-                <span className="trade-type-help">{helpText[tradeParams.type]}</span>
             </div>
         );
     }
