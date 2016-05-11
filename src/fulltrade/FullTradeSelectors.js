@@ -1,4 +1,5 @@
-import { createSelector } from 'reselect';
+import { createSelector, createStructuredSelector } from 'reselect';
+import { createListSelector } from 'reselect-map';
 import nowAsEpoch from 'binary-utils/lib/nowAsEpoch';
 import { assetsSelector, tradingTimesSelector, boughtContractsSelector } from '../_store/directSelectors';
 import { marketTreeSelector } from '../_selectors/marketTreeSelector';
@@ -77,6 +78,53 @@ export const availableContractsSelector = createSelector(
                     );
             })
 );
+
+export const tradesParamsSelector = createListSelector(
+    [state => state.tradesParams, assetsSelector],
+    (param, assets) => {
+        const symbol = param.get('symbol');
+        const symbolDetails = assets.find(a => a.get('symbol') === symbol);
+        const symbolName = symbolDetails && symbolDetails.get('display_name');
+        return param.set('symbolName', symbolName);
+    }
+);
+
+export const tradesPurchaseInfo = createListSelector(
+    [state => state.tradesPurchaseInfo, boughtContractsSelector],
+    (purchaseInfo, boughtContracts) => {
+        const mostRecentContractId = purchaseInfo.get('mostRecentContractId');
+        const lastBoughtContract = mostRecentContractId && boughtContracts.get(mostRecentContractId);
+        return purchaseInfo.set('lastBoughtContract', lastBoughtContract);
+    }
+);
+
+export const tradesTradingTimesSelector = createListSelector(
+    [state => state.tradesParams, tradingTimesSelector],
+    (param, times) => {
+        const symbol = param.get('symbol');
+        const tradingTime = times.find(a => a.get('symbol') === symbol);
+        return tradingTime;
+    }
+);
+
+export const tradesPipSizeSelector = createListSelector(
+    [state => state.tradesParams, assetsSelector],
+    (param, assets) => {
+        const symbol = param.get('symbol');
+        const symbolDetails = assets.find(a => a.get('symbol') === symbol);
+        const pipSize = symbolDetails && pipsToDigits(symbolDetails.get('pip'));
+        return pipSize;
+    }
+);
+
+// export const tradesWithDetailsSelector = createStructuredSelector({
+//     params: tradesParamsSelector,
+//     purchaseInfo: tradesPurchaseInfo,
+//     proposalInfo: state => state.tradesProposalInfo,
+//     uiState: state => state.tradesUIStates,
+//     tradingTime: tradesTradingTimesSelector,
+//     pipSize: tradesPipSizeSelector,
+// });
 
 export const tradesWithDetailsSelector = createSelector(
     [state => state.trades, assetsSelector, boughtContractsSelector, tradingTimesSelector],

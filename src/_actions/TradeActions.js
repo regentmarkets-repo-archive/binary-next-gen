@@ -18,7 +18,7 @@ export const createTrade = symbol =>
     (dispatch, getState) => {
         const contractExist = getState().tradingOptions.get(symbol);
         const ticksExist = getState().ticks.get(symbol);
-        const tradesLen = getState().trades.size;
+        const tradesLen = getState().tradesParams.size;
 
         const contractP = !!contractExist ? Promise.resolve() : dispatch(getTradingOptions(symbol));
         const ticksP = !!ticksExist ? Promise.resolve() : dispatch(getTicksBySymbol(symbol));
@@ -34,15 +34,15 @@ export const createTrade = symbol =>
 
 export const removeTrade = index =>
     (dispatch, getState) => {
-        const trades = getState().trades.toJS();
-        if (trades.length === 1) {
+        const proposalInfoList = getState().tradesProposalInfo.toJS();
+        if (proposalInfoList.length === 1) {
             return;
         }
 
-        const trade = trades[index];
+        const proposalInfo = proposalInfoList[index];
 
-        if (trade && trade.proposalInfo.proposal) {
-            LiveData.api.unsubscribeByID(trade.proposalInfo.proposal.id);
+        if (proposalInfo && proposalInfo.proposal) {
+            LiveData.api.unsubscribeByID(proposalInfo.proposal.id);
         }
 
         dispatch({ type: types.REMOVE_TRADE, index });
@@ -96,10 +96,10 @@ export const updateTradeProposal = (index, fieldName, fieldValue) => ({
 export const updatePriceProposalSubscription = (tradeID, trade) => {
     const thunk = (dispatch, getState) => {
         dispatch(updateTradeUIState(tradeID, 'disabled', true));
-        if (!getState().trades.get(tradeID)) {
+        if (!getState().tradesParams.get(tradeID)) {
             return;
         }
-        const tradeObj = trade || getState().trades.get(tradeID).toJS();
+        const tradeParam = trade || getState().tradesParams.get(tradeID).toJS();
         const currency = getState().account.get('currency');
         const {
             amount,
@@ -117,7 +117,7 @@ export const updatePriceProposalSubscription = (tradeID, trade) => {
             stopLoss,
             proposal,
             barrierType,
-        } = tradeObj.params;
+        } = tradeParam;
 
         if (!(amount && basis && type && symbol)) {
             return;
@@ -147,7 +147,7 @@ export const updatePriceProposalSubscription = (tradeID, trade) => {
             stop_loss: stopLoss,
         }).then(
             response => {
-                if (getState().trades.get(tradeID)) {
+                if (getState().tradesParams.get(tradeID)) {
                     dispatch(updateTradeProposal(tradeID, 'proposalError', undefined));
                     dispatch(updateTradeProposal(tradeID, 'proposal', response.proposal));
                 } else {
@@ -173,7 +173,7 @@ export const updatePriceProposalSubscription = (tradeID, trade) => {
 
 export const resubscribeAllPriceProposal = () =>
     (dispatch, getState) => {
-        const allTrades = getState().trades.keySeq();
+        const allTrades = getState().tradesParams.keySeq();
         allTrades.forEach(tradeId => dispatch(updatePriceProposalSubscription(tradeId)));
     };
 
@@ -188,10 +188,10 @@ export const updatePurchaseInfo = (index, fieldName, fieldValue) => ({
 export const purchaseByTradeId = (tradeID, trade) =>
     (dispatch, getState) => {
         dispatch(updateTradeUIState(tradeID, 'disabled', true));
-        const tradeSelected = trade || getState().trades.get(tradeID).toJS();
-        trackEvent('buy-contract', tradeSelected);
-        const proposalID = tradeSelected.proposalInfo.proposal.id;
-        const price = tradeSelected.proposalInfo.proposal.ask_price;
+        const proposalSelected = trade || getState().tradesProposalInfo.get(tradeID).toJS();
+        trackEvent('buy-contract', proposalSelected);
+        const proposalID = proposalSelected.proposal.id;
+        const price = proposalSelected.proposal.ask_price;
 
         LiveData.api.buyContract(proposalID, price)
             .then(
@@ -204,7 +204,7 @@ export const purchaseByTradeId = (tradeID, trade) =>
             )
             .then(() => {
                 dispatch(updateTradeUIState(tradeID, 'disabled', false));
-                dispatch(updatePriceProposalSubscription(tradeID, trade));
+                dispatch(updatePriceProposalSubscription(tradeID));
             });
     };
 

@@ -19,7 +19,12 @@ import settings from './SettingsReducer';
 import signin from './SigninReducer';
 import states from './StatesReducer';
 import server from './ServerReducer';
-import trades from './TradesReducer';
+
+import tradesParams from './trades/TradesParams';
+import tradesProposalInfo from './trades/TradesProposalInfo';
+import tradesPurchaseInfo from './trades/TradesPurchaseInfo';
+import tradesUIStates from './trades/TradesUIState';
+
 import tradingOptions from './TradingOptionsReducer';
 import tradingTimes from './TradingTimesReducer';
 import transactions from './TransactionsReducer';
@@ -51,16 +56,19 @@ export default combineReducers({
     settings,
     signin,
     states,
-    tradingTimes,
-    transactions,
     ticks,
     tickTrade,
+    tradingTimes,
+    transactions,
+    tradesParams,
+    tradesProposalInfo,
+    tradesPurchaseInfo,
+    tradesUIStates,
     tradingOptions,
     upgrade,
     video,
     workspace,
     watchlist,
-    trades,
     views,
     dailyPrices,
     feedLicenses,

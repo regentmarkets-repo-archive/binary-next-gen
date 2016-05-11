@@ -11,12 +11,17 @@ export default class TradesLayouts extends Component {
     static propTypes = {
         actions: PropTypes.object.isRequired,
         assetsIsOpen: PropTypes.object.isRequired,
-        currency: PropTypes.string.isRequired,
-        ticksForAllSymbols: PropTypes.object.isRequired,
-        trades: PropTypes.array.isRequired,
-        tradesCount: PropTypes.number.isRequired,
-        layoutN: PropTypes.number.isRequired,
         contracts: PropTypes.object.isRequired,
+        currency: PropTypes.string.isRequired,
+        layoutN: PropTypes.number.isRequired,
+        paramsList: PropTypes.array.isRequired,
+        pipSizeList: PropTypes.array.isRequired,
+        proposalInfoList: PropTypes.array.isRequired,
+        purchaseInfoList: PropTypes.array.isRequired,
+        ticksForAllSymbols: PropTypes.object.isRequired,
+        tradesCount: PropTypes.number.isRequired,
+        tradingTimeList: PropTypes.array.isRequired,
+        uiStateList: PropTypes.array.isRequired,
     };
 
     componentWillMount() {
@@ -29,23 +34,41 @@ export default class TradesLayouts extends Component {
     }
 
     render() {
-        const { actions, assetsIsOpen, contracts, currency, layoutN, trades, ticksForAllSymbols } = this.props;
-        const layout = layouts[`Layout${trades.length}${layoutN}`];
-        const layoutClass = styles[`layout-${trades.length}-${layoutN}`];
+        const {
+            actions,
+            assetsIsOpen,
+            contracts,
+            currency,
+            layoutN,
+            paramsList,
+            pipSizeList,
+            proposalInfoList,
+            purchaseInfoList,
+            tradingTimeList,
+            uiStateList,
+            ticksForAllSymbols,
+            tradesCount,
+        } = this.props;
+        const layout = layouts[`Layout${tradesCount}${layoutN}`];
+        const layoutClass = styles[`layout-${tradesCount}-${layoutN}`];
 
         if (!layout) return null;
 
-        const tradeComponents = trades.map((trade, index) =>
+        const tradeComponents = paramsList.map((param, index) =>
             <FullTradeCard
-                {...trade}
                 actions={actions}
                 currency={currency}
                 key={index}
                 index={index}
-                marketIsOpen={assetsIsOpen[trade.params.symbol] && assetsIsOpen[trade.params.symbol].isOpen}
-                ticks={ticksForAllSymbols[trade.params.symbol]}
-                contract={contracts[trade.params.symbol]}
-                tradingTime={trade.tradingTime}
+                marketIsOpen={assetsIsOpen[param.symbol] && assetsIsOpen[param.symbol].isOpen}
+                ticks={ticksForAllSymbols[param.symbol]}
+                contract={contracts[param.symbol]}
+                params={param}
+                pipSize={pipSizeList[index]}
+                purchaseInfo={purchaseInfoList[index]}
+                proposalInfo={proposalInfoList[index]}
+                uiState={uiStateList[index]}
+                tradingTime={tradingTimeList[index]}
             />
         );
 
