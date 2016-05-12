@@ -19,7 +19,7 @@ describe('singleTradeSelectors', () => {
         tradesParams: fromJS([{symbol: 'R_9000'}]),
         tradesProposalInfo: fromJS([{}]),
         tradesPurchaseInfo: fromJS([{}]),
-        tradesUIState: fromJS([{}]),
+        tradesUIStates: fromJS([{}]),
         tradingOptions: new Map({ R_9000: contractsForR50 }),
         tradingTimes: fromJS([]),
     });
