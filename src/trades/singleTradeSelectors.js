@@ -32,6 +32,11 @@ export const singleContract = createSelector(
   (contracts, symbol) => contracts.get(symbol)
 );
 
+export const mobileTradeTypePickerSelector = createStructuredSelector({
+    contract: singleContract,
+    params: state => tradesParamsSelector(state).first(),
+});
+
 export default createStructuredSelector({
     contract: singleContract,
     currency: currencySelector,
@@ -40,7 +45,7 @@ export default createStructuredSelector({
     pipSize: state => tradesPipSizeSelector(state).first(),
     proposalInfo: state => state.tradesProposalInfo.first(),
     purchaseInfo: state => state.tradesPurchaseInfo.first(),
-    uiState: state => state.tradesUIState.first(),
+    uiState: state => state.tradesUIStates.first(),
     tradingTime: state => tradesTradingTimesSelector(state).first(),
     ticks: ticksForFirstTradeSelector,
 });
