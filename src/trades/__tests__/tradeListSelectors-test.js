@@ -7,7 +7,10 @@ describe('tradeListSelectors', () => {
         assets: fromJS([]),
         account: fromJS({}),
         ticks: fromJS({}),
-        trades: fromJS([]),
+        tradesParams: fromJS([]),
+        tradesProposalInfo: fromJS([]),
+        tradesPurchaseInfo: fromJS([]),
+        tradesUIState: fromJS([]),
         tradingOptions: fromJS([]),
         tradingTimes: fromJS([]),
         workspace: fromJS({})

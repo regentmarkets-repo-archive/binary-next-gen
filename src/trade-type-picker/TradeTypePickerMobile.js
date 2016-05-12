@@ -4,7 +4,7 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
 import MobilePage from '../containers/MobilePage';
 import TradeTypePicker from './TradeTypePicker';
-import { mobileTradeTypePickerSelector } from './TradeTypePickerSelectors';
+import { mobileTradeTypePickerSelector } from '../trades/singleTradeSelectors';
 
 @connect(mobileTradeTypePickerSelector)
 export default class TradeTypePickerMobile extends React.Component {
@@ -30,13 +30,13 @@ export default class TradeTypePickerMobile extends React.Component {
 	}
 
 	render() {
-		const { actions, contract, trade } = immutableChildrenToJS(this.props);
+		const { actions, contract, params } = immutableChildrenToJS(this.props);
 		return (
 			<MobilePage toolbarShown={false} backBtnBarTitle="Trade Type">
 				<TradeTypePicker
 					actions={actions}
 					contract={contract}
-					tradeParams={trade.params}
+					tradeParams={params}
 					onSelect={::this.onSelectForMobile}
 					updateParams={::this.updateParamsForMobile}
 				/>

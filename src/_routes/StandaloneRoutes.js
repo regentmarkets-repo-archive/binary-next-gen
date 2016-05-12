@@ -18,7 +18,6 @@ import VideoListContainer from '../video/VideoListContainer';
 import NewsContainer from '../news/NewsContainer';
 import DepositModal from '../deposit/DepositModal';
 import TradesPage from '../trades/TradesPage';
-import TickTradePage from '../tick-trade/TickTradePage';
 import FullTradePage from '../fulltrade/FullTradePage';
 import JpTradePage from '../jp-trade/JpTradePage';
 import WorkspaceContainer from '../workspace/WorkspaceContainer';
@@ -29,7 +28,6 @@ import { requireAuthOnEnter } from '../_data/Auth';
 
 export default [
     { path: 'trades', component: TradesPage, onEnter: requireAuthOnEnter },
-    { path: 'tick-trade', component: TickTradePage, onEnter: requireAuthOnEnter },
     { path: 'full-trade', component: FullTradePage, onEnter: requireAuthOnEnter },
     { path: 'jp-trade', component: JpTradePage, onEnter: requireAuthOnEnter },
     { path: 'header', component: WebHeader, onEnter: requireAuthOnEnter },

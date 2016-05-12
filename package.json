@@ -79,6 +79,7 @@
     "redux-storage-merger-immutablejs": "^1.0.1",
     "redux-thunk": "^2.1.0",
     "reselect": "^2.5.1",
+    "reselect-map": "0.0.1",
     "trackjs": "^2.3.1"
   },
   "devDependencies": {

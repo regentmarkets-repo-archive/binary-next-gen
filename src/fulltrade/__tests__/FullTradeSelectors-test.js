@@ -51,3 +51,57 @@ describe('availableContractsSelector', () => {
         }
     });
 });
+
+describe('tradesParamsSelector', () => {
+    const mockState = {
+        tradesParams: fromJS([{
+            symbol: 'R_100',
+        }]),
+        assets: fromJS([{
+            symbol: 'R_100',
+            display_name: 'Random 100',
+        }]),
+    };
+
+    it('should set symbolName for each trade params', () => {
+        const actual = FullTradeSelectors.tradesParamsSelector(mockState);
+        expect(actual.toJS()).to.be.deep.equal([{ symbol: 'R_100', symbolName: 'Random 100'} ]);
+    });
+});
+
+describe('tradesTradingTimesSelector', () => {
+    const mockState = {
+        tradesParams: fromJS([{
+            symbol: 'R_100',
+        }]),
+        tradingTimes: fromJS([{
+            symbol: 'R_100',
+            events: [],
+            name: 'Volatile 100',
+            settlement: '',
+            times: {},
+        }]),
+    };
+
+    it('should get trading times correspond to trade symbol', () => {
+        const actual = FullTradeSelectors.tradesTradingTimesSelector(mockState);
+        expect(actual.toJS()).to.be.deep.equal(mockState.tradingTimes.toJS());
+    });
+});
+
+describe('tradesPipSizeSelector', () => {
+    const mockState = {
+        tradesParams: fromJS([{
+            symbol: 'R_100',
+        }]),
+        assets: fromJS([{
+            symbol: 'R_100',
+            pip: 0.01
+        }]),
+    };
+
+    it('should get pipSize from assets by deriving pip properties', () => {
+        const actual = FullTradeSelectors.tradesPipSizeSelector(mockState);
+        expect(actual.toJS()).to.be.deep.equal([2]);
+    });
+});
