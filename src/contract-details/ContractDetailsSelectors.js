@@ -5,7 +5,10 @@ import pipsToDigits from 'binary-utils/lib/pipsToDigits';
 const contractToShow = createSelector(
     portfolioSelector,
     boughtContractsSelector,
-    (portfolio, contracts) => contracts.find(x => x.get('contract_id') === portfolio.get('contractShown'))
+    (portfolio, contracts) => {
+        const contract = contracts.find(x => x.get('contract_id') === portfolio.get('contractShown'));
+        return contract && contract.set('barrierType', 'absolute');
+    }
 );
 
 const dataToShow = createSelector(
