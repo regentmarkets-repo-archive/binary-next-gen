@@ -571,11 +571,16 @@ select {
 
 .video-list {
     margin: 0;
+    flex-wrap: wrap;
+    display: flex;
+    flex-direction: row;
 }
 
 .video-thumbnail {
-    margin: .5rem;
-    min-width: 10rem;
+    margin: auto;
+    min-width: 10em;
+    max-width: 23em;
+    float: left;
     text-decoration: none;
 }
 
