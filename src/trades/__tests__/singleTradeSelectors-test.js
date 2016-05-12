@@ -12,24 +12,25 @@ describe('singleTradeSelectors', () => {
         tradingOptions: fromJS([]),
         tradingTimes: fromJS([]),
     });
+    const testState = () => ({
+        assets: fromJS([{ name: 'some asset' }]),
+        account: fromJS({ currency: 'JPY' }),
+        ticks: fromJS({ R_9000: [{ quote: 123 }] }),
+        tradesParams: fromJS([{symbol: 'R_9000'}]),
+        tradesProposalInfo: fromJS([{}]),
+        tradesPurchaseInfo: fromJS([{}]),
+        tradesUIState: fromJS([{}]),
+        tradingOptions: new Map({ R_9000: contractsForR50 }),
+        tradingTimes: fromJS([]),
+    });
+
 
     it('need to have at least one trade', () => {
         const state = emptyState();
         expect(() => singleTradeSelectors(state)).to.throw;
     });
 
-    const testState = () => ({
-        assets: fromJS([{ name: 'some asset' }]),
-        account: fromJS({ currency: 'JPY' }),
-        ticks: fromJS({ R_9000: [{ quote: 123 }] }),
-        trades: fromJS([{
-            params: {symbol: 'R_9000'},
-        }]),
-        tradingOptions: new Map({ R_9000: contractsForR50 }),
-        tradingTimes: fromJS([]),
-    });
-
-    it('will get account curency', () => {
+    it('will get account currency', () => {
         const state = testState();
         const actual = singleTradeSelectors(state);
 

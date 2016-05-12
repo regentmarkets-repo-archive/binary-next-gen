@@ -2,44 +2,45 @@ import { fromJS } from 'immutable';
 import { createSelector, createStructuredSelector } from 'reselect';
 import { currencySelector, ticksSelector } from '../_store/directSelectors';
 import {
-    tradesWithDetailsSelector,
+    tradesParamsSelector,
+    tradesPipSizeSelector,
+    tradesTradingTimesSelector,
     availableContractsSelector,
     assetsIsOpenSelector,
 } from '../fulltrade/FullTradeSelectors';
 
-
-export const firstTradeSelector = createSelector(
-    tradesWithDetailsSelector,
-    trades => trades.first()
+const firstTradeSymbol = createSelector(
+    state => tradesParamsSelector(state).first(),
+    firstTradeParam => firstTradeParam.get('symbol')
 );
 
 const marketIsOpen = createSelector(
-    [assetsIsOpenSelector, firstTradeSelector],
-    (assets, firstTrade) => {
-        const firstTradeAsset = assets[firstTrade.getIn(['params', 'symbol'])];
+    [assetsIsOpenSelector, firstTradeSymbol],
+    (assets, symbol) => {
+        const firstTradeAsset = assets[symbol];
         return firstTradeAsset && firstTradeAsset.isOpen;
     }
 );
 
 export const ticksForFirstTradeSelector = createSelector(
-    [firstTradeSelector, ticksSelector],
-    (trade, ticks) => ticks.get(trade.getIn(['params', 'symbol'])) || fromJS([])
+    [firstTradeSymbol, ticksSelector],
+    (symbol, ticks) => ticks.get(symbol) || fromJS([])
 );
 
 export const singleContract = createSelector(
-  [availableContractsSelector, firstTradeSelector],
-  (contracts, trade) => contracts.get(trade.getIn(['params', 'symbol']))
+  [availableContractsSelector, firstTradeSymbol],
+  (contracts, symbol) => contracts.get(symbol)
 );
 
 export default createStructuredSelector({
     contract: singleContract,
     currency: currencySelector,
     marketIsOpen,
-    params: state => firstTradeSelector(state).get('params'),
-    pipSize: state => firstTradeSelector(state).get('pipSize'),
-    proposalInfo: state => firstTradeSelector(state).get('proposalInfo'),
-    purchaseInfo: state => firstTradeSelector(state).get('purchaseInfo'),
-    uiState: state => firstTradeSelector(state).get('uiState'),
-    tradingTime: state => firstTradeSelector(state).get('tradingTime'),    // TODO: rethink if this is correct
+    params: state => tradesParamsSelector(state).first(),
+    pipSize: state => tradesPipSizeSelector(state).first(),
+    proposalInfo: state => state.tradesProposalInfo.first(),
+    purchaseInfo: state => state.tradesPurchaseInfo.first(),
+    uiState: state => state.tradesUIState.first(),
+    tradingTime: state => tradesTradingTimesSelector(state).first(),
     ticks: ticksForFirstTradeSelector,
 });

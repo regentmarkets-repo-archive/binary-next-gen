@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import { createListSelector } from 'reselect-map';
 import nowAsEpoch from 'binary-utils/lib/nowAsEpoch';
-import { assetsSelector, tradingTimesSelector, boughtContractsSelector } from '../_store/directSelectors';
+import { assetsSelector, tradingTimesSelector } from '../_store/directSelectors';
 import { marketTreeSelector } from '../_selectors/marketTreeSelector';
 import extractBarrier from 'binary-utils/lib/extractBarrier';
 import extractDuration from 'binary-utils/lib/extractDuration';
@@ -106,36 +106,6 @@ export const tradesPipSizeSelector = createListSelector(
         const pipSize = symbolDetails && pipsToDigits(symbolDetails.get('pip'));
         return pipSize;
     }
-);
-
-// export const tradesWithDetailsSelector = createStructuredSelector({
-//     params: tradesParamsSelector,
-//     purchaseInfo: tradesPurchaseInfo,
-//     proposalInfo: state => state.tradesProposalInfo,
-//     uiState: state => state.tradesUIStates,
-//     tradingTime: tradesTradingTimesSelector,
-//     pipSize: tradesPipSizeSelector,
-// });
-
-export const tradesWithDetailsSelector = createSelector(
-    [state => state.trades, assetsSelector, boughtContractsSelector, tradingTimesSelector],
-    (trades, assets, boughtContracts, times) =>
-        trades.map(trade => {
-            const symbol = trade.getIn(['params', 'symbol']);
-            const symbolDetails = assets.find(a => a.get('symbol') === symbol);
-            const tradingTime = times.find(a => a.get('symbol') === symbol);
-            const pipSize = symbolDetails && pipsToDigits(symbolDetails.get('pip'));
-            const symbolName = symbolDetails && symbolDetails.get('display_name');
-            const tradeWithPipSize = trade.set('pipSize', pipSize)
-                                      .set('tradingTime', tradingTime)
-                                      .setIn(['params', 'symbolName'], symbolName);
-            const mostRecentContractId = trade.getIn(['purchaseInfo', 'mostRecentContractId']);
-            const lastBoughtContract = mostRecentContractId && boughtContracts.get(mostRecentContractId);
-            const tradeWithMostRecentTransaction =
-                tradeWithPipSize.setIn(['purchaseInfo', 'lastBoughtContract'], lastBoughtContract);
-
-            return tradeWithMostRecentTransaction;
-        })
 );
 
 export const availableAssetsSelector = createSelector(
