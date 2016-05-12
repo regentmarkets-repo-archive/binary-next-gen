@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import tradeToFriendlyType from 'binary-utils/lib/tradeToFriendlyType';
+import Label from '../_common/Label';
 import DownArrow from '../_common/DownArrow';
 import DropDown from '../containers/DropDown';
 import TradeTypePicker from './TradeTypePicker';
@@ -40,7 +41,6 @@ export default class TradeTypeDropDown extends Component {
         const { tradeParams } = this.props;
         const selectedType = tradeParams.type;
         const { dropdownShown } = this.state;
-
         return (
             <div>
                 <DropDown
@@ -52,21 +52,19 @@ export default class TradeTypeDropDown extends Component {
                         onSelect={() => this.setState({ dropdownShown: false })}
                     />
                 </DropDown>
-                <label>Trade Type</label>
+                <Label text="Trade Type" />
+                <img className="info-icon" src="img/info.svg" title={helpText[tradeParams.type]} role="presentation" />
                 <div
                     className="picker-label"
                     onMouseDown={::this.openTradeTypePicker}
-                    title={helpText[tradeParams.type]}
                 >
                     <img
                         src={`img/trade-${tradeParams.type.toLowerCase()}.svg`}
                         alt={tradeParams.type}
                     />
-
-                    {tradeToFriendlyType(selectedType)}
+                    {tradeToFriendlyType(selectedType, tradeParams.barrier)}
                     <DownArrow />
                 </div>
-                <span className="trade-type-help">{helpText[tradeParams.type]}</span>
             </div>
         );
     }

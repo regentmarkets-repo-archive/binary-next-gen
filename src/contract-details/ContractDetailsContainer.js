@@ -43,14 +43,13 @@ export default class ContractDetailsContainer extends Component {
 						<M m="Transaction Reference" />: {contract.transaction_id}
 					</div>
 				</h6>
-				<p></p>
+				<ContractDetailsCard
+					{...immutableChildrenToJS(this.props)}
+				/>
 				<BinaryChart
 					{...immutableChildrenToJS(this.props)}
                     className="trade-chart"
 					rangeChange={(count, type) => actions.getDataForContract(contract.contract_id, count, type)}
-				/>
-				<ContractDetailsCard
-					{...immutableChildrenToJS(this.props)}
 				/>
 		</div>
 		);

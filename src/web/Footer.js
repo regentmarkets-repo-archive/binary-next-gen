@@ -11,8 +11,8 @@ const performPerfTest = () => {
 		Perf.stop();
 		const measurements = Perf.getLastMeasurements();
 		// Perf.printInclusive(measurements);
-		// Perf.printWasted(measurements);
-		Perf.printOperations(measurements);
+		Perf.printWasted(measurements);
+		// Perf.printOperations(measurements);
 	}, 10000);
 };
 

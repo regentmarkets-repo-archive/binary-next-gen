@@ -42,7 +42,6 @@ export default class FullTradeCard extends Component {
         compact: PropTypes.bool,
         currency: PropTypes.string.isRequired,
         contract: PropTypes.object,
-        contractBought: PropTypes.object,
         index: PropTypes.number.isRequired,
         marketIsOpen: PropTypes.bool,
         params: PropTypes.object.isRequired,
@@ -58,6 +57,7 @@ export default class FullTradeCard extends Component {
     render() {
         const {
             actions,
+            compact,
             currency,
             index,
             marketIsOpen,
@@ -85,7 +85,8 @@ export default class FullTradeCard extends Component {
 
         // TODO: remove usage of adapter so we have a consistent model
         const tradeRequiredByChart = internalTradeModelToServerTradeModel(params);
-        const contractRequiredByChart = serverContractModelToChartContractModel(lastBoughtContract);
+        const contractRequiredByChart = lastBoughtContract &&
+            serverContractModelToChartContractModel(lastBoughtContract);
         return (
             <div disabled={disabled} className={'trade-panel'}>
                 <Modal
@@ -117,6 +118,7 @@ export default class FullTradeCard extends Component {
                         actions={actions}
                         currency={currency}
                         contract={contract}
+                        compact={compact}
                         contractError={propsContract ? propsContract.error : undefined}
                         disabled={disabled}
                         index={index}
