@@ -9,6 +9,17 @@ import {
 
 const initialState = new Map();
 
+// it will skip merging if existing ticks already contains new ticks
+const mergeTicks = (existingTicks, newTicks) => {
+    if (existingTicks.length === 0) {
+        return newTicks;
+    }
+    if (newTicks[0].epoch > existingTicks[0].epoch) {
+        return existingTicks;
+    }
+    return mergeSortedArrays(existingTicks, newTicks, x => x.epoch, x => x.epoch);
+};
+
 export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_TICK_STREAM: {
@@ -18,22 +29,24 @@ export default (state = initialState, action) => {
                 epoch: +tick.epoch,
                 quote: +tick.quote,
             };
-            return state.update(symbol, List.of(), v => v.takeLast(60).push(newTick));
+            return state.update(symbol, List.of(), v => v.takeLast(4999).push(newTick));
         }
         case SERVER_DATA_TICK_HISTORY: {
             const symbol = action.serverResponse.echo_req.ticks_history;
             const history = action.serverResponse.history.times.map((t, idx) => {
                 const quote = action.serverResponse.history.prices[idx];
                 return { epoch: +t, quote: +quote };
-            }).slice(0, 60);
+            });
 
-            const liveTicks = state.get('symbol') ? state.get('symbol') : [];
-            const merged = mergeSortedArrays(liveTicks, history, x => x.epoch, x => x.epoch);
+            const liveTicks = state.get(symbol) ? state.get(symbol).toJS() : [];
+            const merged = mergeTicks(liveTicks, history);
             return state.set(symbol, fromJS(merged));
         }
         case UPDATE_CHART_DATA_BY_SYMBOL: {
             const { symbol, data } = action;
-            return state.set(symbol, fromJS(data));
+            const liveTicks = state.get(symbol) ? state.get(symbol).toJS() : [];
+            const merged = mergeTicks(liveTicks, data);
+            return state.set(symbol, fromJS(merged));
         }
         default:
             return state;
