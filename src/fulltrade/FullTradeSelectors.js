@@ -89,15 +89,6 @@ export const tradesParamsSelector = createListSelector(
     }
 );
 
-export const tradesPurchaseInfo = createListSelector(
-    [state => state.tradesPurchaseInfo, boughtContractsSelector],
-    (purchaseInfo, boughtContracts) => {
-        const mostRecentContractId = purchaseInfo.get('mostRecentContractId');
-        const lastBoughtContract = mostRecentContractId && boughtContracts.get(mostRecentContractId);
-        return purchaseInfo.set('lastBoughtContract', lastBoughtContract);
-    }
-);
-
 export const tradesTradingTimesSelector = createListSelector(
     [state => state.tradesParams, tradingTimesSelector],
     (param, times) => {
