@@ -105,7 +105,6 @@ export default class FullTradeParams extends Component {
             if (proposal) {
                 LiveData.api.unsubscribeByID(proposal.id);
             }
-            
             this.onAssetChange();
         }
     }

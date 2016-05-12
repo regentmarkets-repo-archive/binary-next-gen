@@ -151,11 +151,6 @@ div[role=tab] .close-btn, .panel-active .close-btn {
     overflow: auto;
     width: 100%;
 }
-.mobile-content > .trade-panel > div:last-child {
-    margin: auto;
-    margin-top: 1em;
-    max-width: 100% !important;
-}
 
 .news-list-card,
 .setting-container
@@ -525,6 +520,11 @@ select {
     min-width: 12rem;
 }
 
+.mobile-content .asset-picker-container,
+.mobile-content .trade-type-picker {
+    width: auto;
+}
+
 .asset-list {
     overflow: auto;
 }
@@ -830,7 +830,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin-left: .5rem;
 }
 
-#trade-type-picker {
+.trade-type-picker {
     width: 20rem;
     height: 20rem;
 }
@@ -1101,6 +1101,7 @@ input[type=number]::-webkit-outer-spin-button {
 .trade-params label {
     text-transform: uppercase;
     opacity: 0.75;
+    line-height: 1.5;
 }
 
 .payout-picker-input .btn-secondary {

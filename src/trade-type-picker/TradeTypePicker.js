@@ -77,7 +77,7 @@ export default class TradeTypePicker extends Component {
         const internalSelectedType = serverToInternalTradeType(selectedCategory, selectedType);
         const typePairs = pairUpTypes(types);
         return (
-            <div id="trade-type-picker">
+            <div className="trade-type-picker">
                 <TabList activeIndex={tradeGroup} onChange={::this.changeGroup}>
                     {hasBasic(contract) && <Tab text="Basic" />}
                     {hasDigits(contract) && <Tab text="Digits" />}
