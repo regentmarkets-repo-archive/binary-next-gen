@@ -14,7 +14,7 @@ export default (state = initialState, action) => {
         case SERVER_DATA_PROPOSAL_OPEN_CONTRACT: {
             const openContract = action.serverResponse.proposal_open_contract;
             if (Object.keys(openContract).length === 0) {
-                return initialState;
+                return state;
             }
             return state.mergeIn([openContract.contract_id], openContract);
         }

@@ -6,17 +6,24 @@ import {
     layoutNSelector,
 } from '../_store/directSelectors';
 import {
-    tradesWithDetailsSelector,
     availableContractsSelector,
     assetsIsOpenSelector,
+    tradesParamsSelector,
+    tradesPipSizeSelector,
+    tradesTradingTimesSelector,
 } from '../fulltrade/FullTradeSelectors';
 
 export default createStructuredSelector({
-    tradesCount: tradesCountSelector,
-    layoutN: layoutNSelector,
     assetsIsOpen: assetsIsOpenSelector,
     contracts: availableContractsSelector,
     currency: currencySelector,
-    trades: tradesWithDetailsSelector,
+    layoutN: layoutNSelector,
+    paramsList: tradesParamsSelector,
+    pipSizeList: tradesPipSizeSelector,
+    proposalInfoList: state => state.tradesProposalInfo,
+    purchaseInfoList: state => state.tradesPurchaseInfo,
+    tradesCount: tradesCountSelector,
     ticksForAllSymbols: ticksSelector, // not really!!!
+    tradingTimeList: tradesTradingTimesSelector,
+    uiStateList: state => state.tradesUIStates,
 });
