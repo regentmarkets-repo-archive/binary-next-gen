@@ -156,16 +156,16 @@ div[role=tab] .close-btn, .panel-active .close-btn {
     margin-top: 1em;
     max-width: 100% !important;
 }
-.mobile-content > .news-list-card,
+
+.news-list-card,
+.setting-container
 .mobile-content > .asset-index-card,
 .mobile-content > .video-list,
 .mobile-content > .trading-times-card
 {
-    margin: 0 .3em 0 .3em;
+    margin: 0 .25em 0 .25em;
 }
-.setting-container {
-    margin: 0 .3em 0 .3em;
-}
+
 [role=tablist] {
     margin-bottom: .5rem;
     flex-shrink: 0;
@@ -571,16 +571,17 @@ select {
 
 .video-list {
     margin: 0;
-    flex-wrap: wrap;
     display: flex;
+    flex-wrap: wrap;
     flex-direction: row;
+    align-content: space-around;
 }
 
 .video-thumbnail {
-    margin: auto;
-    min-width: 10em;
-    max-width: 23em;
-    float: left;
+    flex: 1;
+    margin: .5rem;
+    min-width: 10rem;
+    max-width: 20rem;
     text-decoration: none;
 }
 
