@@ -38,8 +38,8 @@ export default (state = initialState, action) => {
         }
         case CLOSE_CONTRACT_RECEPIT: {
             return state
-                .setIn([action.index, 'mostRecentContractId'], undefined)
-                .setIn([action.index, 'lastBoughtContract'], undefined);
+                .deleteIn([action.index, 'mostRecentContractId'])
+                .deleteIn([action.index, 'lastBoughtContract']);
         }
         case UPDATE_TRADE_PURCHASE_INFO: {
             if (!state.get(action.index)) {

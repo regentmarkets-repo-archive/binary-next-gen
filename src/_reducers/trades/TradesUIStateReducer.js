@@ -38,7 +38,7 @@ export default (state = initialState, action) => {
                 return state;
             }
             const { index, fieldName, fieldValue } = action;
-            return state.setIn([index, 'uiState', fieldName], fieldValue);
+            return state.setIn([index, fieldName], fieldValue);
         }
         case RESET_TRADES: {
             return initialState;
