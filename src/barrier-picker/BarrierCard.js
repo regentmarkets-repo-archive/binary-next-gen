@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import BarrierInput from './BarrierInput';
-import Label from '../_common/Label';
 
 export default class BarrierCard extends Component {
 
@@ -40,9 +39,6 @@ export default class BarrierCard extends Component {
         const expiryType = isIntraDay ? 'intraday' : 'daily';
         const barrier1Info = barrierInfo[expiryType] && barrierInfo[expiryType][0];
         const barrier2Info = barrierInfo[expiryType] && barrierInfo[expiryType][1];
-        const toggleMsg = barrierType === 'relative' ?
-            'Relative barrier' :
-            'Absolute barrier';
 
         if (!barrier1Info) return null;
 
