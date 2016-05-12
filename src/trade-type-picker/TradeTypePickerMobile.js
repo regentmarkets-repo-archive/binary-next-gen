@@ -4,7 +4,7 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
 import MobilePage from '../containers/MobilePage';
 import TradeTypePicker from './TradeTypePicker';
-import { mobileTradeTypePickerSelector } from './TradeTypePickerSelectors';
+import mobileTradeTypePickerSelector from '../trades/singleTradeSelectors';
 
 @connect(mobileTradeTypePickerSelector)
 export default class TradeTypePickerMobile extends React.Component {
