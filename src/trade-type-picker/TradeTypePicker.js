@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import TabList from '../_common/TabList';
 import Tab from '../_common/Tab';
-import contractCategoryDisplay from 'binary-utils/lib/contractCategoryDisplay';
+import contractCategoryToText from 'binary-utils/lib/contractCategoryToText';
 import tradeTypeCodeToText from 'binary-utils/lib/tradeTypeCodeToText';
 import { serverToInternalTradeType, internalToServerTradeType } from './TradeTypeAdapter';
 import {
@@ -47,7 +47,7 @@ export default class TradeTypePicker extends Component {
         const selectedCategory = tradeParams.tradeCategory;
         const groupCategories = Object
             .keys(contract)
-            .map(c => ({ value: c, text: contractCategoryDisplay(c) }))
+            .map(c => ({ value: c, text: contractCategoryToText(c) }))
             .filter(c => tradeGrouping[group].includes(c.value));
 
         if (!groupCategories.find(c => c.value === selectedCategory)) {
