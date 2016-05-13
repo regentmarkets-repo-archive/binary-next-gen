@@ -143,7 +143,7 @@ div[role=tab] .close-btn, .panel-active .close-btn {
 }
 
 .mobile-content {
-    min-width: 350px;
+    min-width: 320px;
     flex: 1;
     display: flex;
     align-content: stretch;
@@ -1029,11 +1029,6 @@ input[type=number]::-webkit-outer-spin-button {
     border: 1px solid rgba(42,48,82,0.1);
 }
 
-.contract-receipt-container {
-    overflow: auto;
-    margin-right: .5rem;
-}
-
 .picker-label {
     cursor: pointer;
     padding-left: .25rem;
@@ -1062,18 +1057,22 @@ input[type=number]::-webkit-outer-spin-button {
     margin-right: .5rem;
 }
 
-.horizontal .trade-params {
+.horizontal .trade-params,
+.mobile-content .trade-params
+ {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-.horizontal .trade-params > * {
+.horizontal .trade-params > *,
+.mobile-content .trade-params > * {
     flex: 1;
     min-width: 10rem;
 }
 
-.horizontal .trade-params > div {
+.horizontal .trade-params > div,
+.mobile-content .trade-params > div {
     margin-right: .5rem;
 }
 
@@ -1137,4 +1136,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 .statement-row {
     cursor: pointer;
+}
+
+.barrier-input {
+    display: flex;
 }
