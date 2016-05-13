@@ -100,6 +100,7 @@ export const updatePriceProposalSubscription = (tradeID, trade) => {
             return;
         }
         const tradeParam = trade || getState().tradesParams.get(tradeID).toJS();
+        const { proposal } = getState().tradesProposalInfo.get(tradeID).toJS();
         const currency = getState().account.get('currency');
         const {
             amount,
@@ -115,7 +116,6 @@ export const updatePriceProposalSubscription = (tradeID, trade) => {
             stopType,
             stopProfit,
             stopLoss,
-            proposal,
             barrierType,
         } = tradeParam;
 

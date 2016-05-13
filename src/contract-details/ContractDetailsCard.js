@@ -23,7 +23,6 @@ export default class ContractDetailsCard extends Component {
 	render() {
 		const { contract, actions, className } = this.props;
 		const sold = !!contract.sell_price;
-		const workAroundForBackendBugIsDigitTrade = contract.shortcode && contract.shortcode.includes('DIGIT');
 		const validToSell = contract.is_valid_to_sell === 1 && !contract.is_expired;
 		const validationError = contract.validation_error;
 		const potentialProfit = toMoney(contract.payout - contract.buy_price);
@@ -34,7 +33,7 @@ export default class ContractDetailsCard extends Component {
 				<FlexList>
 					<KeyValueColumn
 						label="Purchase time"
-						value={contract.purchase_time ? epochToGMTString(contract.date_start) : '-'}
+						value={contract.purchase_time ? epochToGMTString(contract.purchase_time) : '-'}
 					/>
 					<KeyValueColumn
 						label="Start time"
@@ -46,7 +45,7 @@ export default class ContractDetailsCard extends Component {
 					/>
 					<KeyValueColumn
 						label="Sell Time"
-						value={contract.sell_time ? epochToGMTString(contract.date_expiry) : '-'}
+						value={contract.sell_time ? epochToGMTString(contract.sell_time) : '-'}
 					/>
 					<KeyValueColumn
 						label="Entry Spot"
@@ -79,26 +78,26 @@ export default class ContractDetailsCard extends Component {
 						isProfit={v => v}
 					/>
 				</FlexList>
-				{validToSell && !workAroundForBackendBugIsDigitTrade ?
-					<button
-						className="sell-at-market-btn"
-						disabled={contract.selling}
-						onClick={() => actions.sellContract(contract.contract_id, 0)}
-					>
-						<M m="Sell at Market" /> (<NumberPlain
+				<button
+					className="sell-at-market-btn"
+					disabled={contract.selling || !validToSell}
+					onClick={() => actions.sellContract(contract.contract_id, 0)}
+				>
+					<M m="Sell at Market" />
+					{validToSell &&
+						<NumberPlain
 							value={contract.bid_price}
 							currency={contract.currency}
 							isProfit={v => v - contract.buy_price}
-						/>)
-					</button> :
-					<div>
-					{validationError &&
-						(validationError.message ?
-							validationError.message.split(')')[1] :
-						validationError)
-					}
-					</div>
+						/>}
+				</button>
+				<div>
+				{validationError &&
+					(validationError.message ?
+						validationError.message.split(')')[1] :
+					validationError)
 				}
+				</div>
 				{sold &&
 					<label id="profit-loss-label">
 						{profit >= 0 ? <M m="You won " /> : <M m="You lost " />}
