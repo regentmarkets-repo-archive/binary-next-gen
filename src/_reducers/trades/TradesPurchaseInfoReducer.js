@@ -62,7 +62,9 @@ export default (state = initialState, action) => {
         }
         case SERVER_DATA_PROPOSAL_OPEN_CONTRACT: {
             const openContract = action.serverResponse.proposal_open_contract;
-            const index = state.findIndex(v => v.get('mostRecentContractId') === openContract.contract_id);
+            const index = state.findIndex(
+                v => v.get('mostRecentContractId') && (v.get('mostRecentContractId') === openContract.contract_id)
+            );
             if (index > -1) {
                 return state.setIn([index, 'lastBoughtContract'], openContract);
             }
