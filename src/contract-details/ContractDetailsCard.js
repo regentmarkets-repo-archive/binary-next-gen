@@ -33,7 +33,7 @@ export default class ContractDetailsCard extends Component {
 				<FlexList>
 					<KeyValueColumn
 						label="Purchase time"
-						value={contract.purchase_time ? epochToGMTString(contract.date_start) : '-'}
+						value={contract.purchase_time ? epochToGMTString(contract.purchase_time) : '-'}
 					/>
 					<KeyValueColumn
 						label="Start time"
@@ -45,7 +45,7 @@ export default class ContractDetailsCard extends Component {
 					/>
 					<KeyValueColumn
 						label="Sell Time"
-						value={contract.sell_time ? epochToGMTString(contract.date_expiry) : '-'}
+						value={contract.sell_time ? epochToGMTString(contract.sell_time) : '-'}
 					/>
 					<KeyValueColumn
 						label="Entry Spot"
