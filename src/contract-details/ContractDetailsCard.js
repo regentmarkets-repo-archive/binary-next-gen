@@ -7,8 +7,24 @@ import KeyValueColumn from '../_common/KeyValueColumn';
 import toMoney from 'binary-utils/lib/toMoney';
 import epochToDate from 'binary-utils/lib/epochToDate';
 import dateToGMTString from 'binary-utils/lib/dateToGMTString';
+import contractCodeToText from 'binary-utils/lib/contractCodeToText';
 
 const epochToGMTString = epoch => dateToGMTString(epochToDate(epoch));
+
+const ContractDetailsDate = ({ contract, code }) => (
+	<KeyValueColumn
+		label={contractCodeToText(code)}
+		value={contract[code] ? epochToGMTString(contract[code]) : '-'}
+	/>
+);
+
+const ContractDetailsMoney = ({ contract, code }) => (
+	<KeyValueColumn
+		label={contractCodeToText(code)}
+		value={contract[code] || '-'}
+		currency={contract.currency}
+	/>
+);
 
 export default class ContractDetailsCard extends Component {
 
@@ -27,44 +43,22 @@ export default class ContractDetailsCard extends Component {
 		const validationError = contract.validation_error;
 		const potentialProfit = toMoney(contract.payout - contract.buy_price);
 		const profit = sold && toMoney(contract.sell_price - contract.buy_price);
+
 		return (
 			<div className={className}>
 				{contract.transaction_ids && <M className="ref-id" m={`Ref. no. ${contract.transaction_ids.buy}`} />}
 				<FlexList>
-					<KeyValueColumn
-						label="Purchase time"
-						value={contract.purchase_time ? epochToGMTString(contract.purchase_time) : '-'}
-					/>
-					<KeyValueColumn
-						label="Start time"
-						value={contract.date_start ? epochToGMTString(contract.date_start) : '-'}
-					/>
-					<KeyValueColumn
-						label="Exit Time"
-						value={contract.date_expiry ? epochToGMTString(contract.date_expiry) : '-'}
-					/>
-					<KeyValueColumn
-						label="Sell Time"
-						value={contract.sell_time ? epochToGMTString(contract.sell_time) : '-'}
-					/>
-					<KeyValueColumn
-						label="Entry Spot"
-						value={contract.entry_tick || '-'}
-					/>
-					<KeyValueColumn
-						label="Exit Spot"
-						value={contract.exit_tick || '-'}
-					/>
-					<KeyValueColumn
-						label="Entry Price"
-						value={contract.buy_price || '-'}
-						currency={contract.currency}
-					/>
-					<KeyValueColumn
-						label="Exit Price"
-						value={sold ? contract.sell_price : '-'}
-						currency={contract.currency}
-					/>
+					<ContractDetailsDate contract={contract} code={'purchase_time'} />
+					<ContractDetailsDate contract={contract} code={'date_start'} />
+					<ContractDetailsDate contract={contract} code={'date_expiry'} />
+					<ContractDetailsDate contract={contract} code={'sell_time'} />
+
+					<ContractDetailsMoney contract={contract} code={'entry_tick'} />
+					<ContractDetailsMoney contract={contract} code={'exit_tick'} />
+					<ContractDetailsMoney contract={contract} code={'buy_price'} />
+					{sold ? <ContractDetailsMoney contract={contract} code={'sell_price'} /> : null}
+					{/* <ContractDetailsMoney contract={contract} code={'bid_price'} /> */}
+
 					<KeyValueColumn
 						label="Indicative Price"
 						value={contract.bid_price || '-'}
