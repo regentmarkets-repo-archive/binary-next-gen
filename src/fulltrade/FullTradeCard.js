@@ -1,13 +1,14 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { BinaryChart } from 'binary-charts';
-// const BinaryChart = (props) => <div {...props} style={{ background: 'grey' }} />;
-import PurchaseFailed from '../_common/PurchaseFailed';
-import Modal from '../containers/Modal';
-import FullTradeParams from '../trade-params/FullTradeParams';
-import ContractReceiptCard from './ContractReceiptCard';
 import findDeep from 'binary-utils/lib/findDeep';
 import filterObjectBy from 'binary-utils/lib/filterObjectBy';
+// const BinaryChart = (props) => <div {...props} style={{ background: 'grey' }} />;
+import PurchaseFailed from '../_common/PurchaseFailed';
+import Button from '../_common/Button';
+import Modal from '../containers/Modal';
+import FullTradeParams from '../trade-params/FullTradeParams';
+import ContractDetailsReceipt from '../contract-details/ContractDetailsReceipt';
 import { mockedContract } from './../_constants/MockContract';
 import {
     internalTradeModelToServerTradeModel,
@@ -109,11 +110,17 @@ export default class FullTradeCard extends Component {
                     />
                 </div>
                 {lastBoughtContract ?
-                    <ContractReceiptCard
-                        actions={actions}
-                        boughtContract={lastBoughtContract}
-                        tradeId={index}
-                    /> :
+                    <div>
+                        <ContractDetailsReceipt
+                            actions={actions}
+                            contract={lastBoughtContract}
+                        />
+                        <Button
+                            className="buy-again-btn"
+                            text="Trade Again"
+                            onClick={() => actions.closeContractReceipt(index)}
+                        />
+                    </div> :
                     <FullTradeParams
                         {...proposalInfo}
                         actions={actions}

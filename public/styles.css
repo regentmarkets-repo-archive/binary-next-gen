@@ -953,10 +953,6 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: 2px;
 }
 
-.contract-details h6 {
-    text-align: center;
-}
-
 #earning-percentage {
     margin-left: 0.5rem;
 }
@@ -987,7 +983,7 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: column;
 }
 
-#profit-loss-label {
+.profit-loss-label {
     font-size: large;
 }
 
@@ -1140,4 +1136,17 @@ input[type=number]::-webkit-outer-spin-button {
 
 .barrier-input {
     display: flex;
+}
+
+.contract-details {
+    display: flex;
+}
+
+.contract-detail {
+    display: flex;
+    background-color: fred;
+}
+
+.contract-detail > *:first-child {
+    width: 8rem;
 }
