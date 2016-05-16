@@ -21,7 +21,6 @@ export default (state = initialState, action) => {
             // remove this 2 keys as we do not need it
             delete openContract.current_spot;
             delete openContract.current_spot_time;
-            delete openContract.transaction_ids;
 
             return state.mergeIn([openContract.contract_id], openContract);
         }
