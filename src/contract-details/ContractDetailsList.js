@@ -1,9 +1,8 @@
 import React, { PropTypes, Component } from 'react';
-import M from '../_common/M';
 import ContractDetailString from './ContractDetailString';
 import ContractDetailTime from './ContractDetailTime';
 import ContractDetailMoney from './ContractDetailMoney';
-import toMoney from 'binary-utils/lib/toMoney';
+// import toMoney from 'binary-utils/lib/toMoney';
 
 export default class ContractDetailsList extends Component {
 
@@ -17,8 +16,8 @@ export default class ContractDetailsList extends Component {
 	render() {
 		const { contract } = this.props;
 		const sold = !!contract.sell_price;
-		const potentialProfit = toMoney(contract.payout - contract.buy_price);
-		const profit = sold && toMoney(contract.sell_price - contract.buy_price);
+		// const potentialProfit = toMoney(contract.payout - contract.buy_price);
+		// const profit = sold && toMoney(contract.sell_price - contract.buy_price);
 
 		return (
 			<div className="trade-panel-receipt">
@@ -43,19 +42,13 @@ export default class ContractDetailsList extends Component {
 				<ContractDetailMoney contract={contract} code={'exit_tick'} />
 				<ContractDetailMoney contract={contract} code={'buy_price'} />
 				{sold ? <ContractDetailMoney contract={contract} code={'sell_price'} /> : null}
-				{/* <ContractDetailsMoney contract={contract} code={'bid_price'} /> */}
-				<div>
-					<M m="Indicative Price" />
-					value={contract.bid_price || '-'}
-					currency={contract.currency}
-					isProfit={v => v - contract.buy_price}
-				</div>
-				<div>
+				<ContractDetailMoney contract={contract} code={'bid_price'} />
+				{/* <div>
 					<M m={sold ? 'Profit' : 'Potential Profit'} />
 					value={sold ? profit : potentialProfit}
 					currency={contract.currency}
 					isProfit={v => v}
-				</div>
+				</div> */}
 			</div>
 		);
 	}

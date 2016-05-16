@@ -22,7 +22,6 @@ import FullTradePage from '../fulltrade/FullTradePage';
 import JpTradePage from '../jp-trade/JpTradePage';
 import WorkspaceContainer from '../workspace/WorkspaceContainer';
 import LayoutButtonPanel from '../layout-picker/LayoutButtonPanel';
-import LabeledList from '../containers/FlexList';
 
 import { requireAuthOnEnter } from '../_data/Auth';
 
@@ -57,5 +56,4 @@ export default [
     { path: 'news', component: NewsContainer },
     { path: 'deposit', component: DepositModal },
     { path: 'layout', component: LayoutButtonPanel },
-    { path: 'flexlist', component: LabeledList },
 ];

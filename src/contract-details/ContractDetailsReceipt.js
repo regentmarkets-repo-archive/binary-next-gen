@@ -15,7 +15,7 @@ export default class ContractDetailsReceipt extends Component {
 		const { contract, actions } = this.props;
 
 		return (
-			<div className="cont-receipt">
+			<div className="contract-receipt">
 				<h6>{contract.longcode}</h6>
 				<ContractDetailsList contract={contract} />
 				<SellAtMarketButton
