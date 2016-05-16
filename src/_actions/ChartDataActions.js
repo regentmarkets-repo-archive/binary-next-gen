@@ -1,9 +1,10 @@
 import { api } from '../_data/LiveData';
 import { UPDATE_CHART_DATA_BY_CONTRACT, UPDATE_CHART_DATA_BY_SYMBOL } from '../_constants/ActionTypes';
+import { getOpenContract } from './PortfolioActions';
 
 export const getDataForContract = (contractID, durationCount, durationType) =>
     dispatch =>
-        api.getDataForContract(contractID, durationCount, durationType)
+        api.getDataForContract(() => getOpenContract(contractID), durationCount, durationType)
             .then(ticks =>
                 dispatch({
                     type: UPDATE_CHART_DATA_BY_CONTRACT,
