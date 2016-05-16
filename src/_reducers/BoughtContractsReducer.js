@@ -12,10 +12,16 @@ const initialState = fromJS({});
 export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_PROPOSAL_OPEN_CONTRACT: {
-            const openContract = action.serverResponse.proposal_open_contract;
+            // clone to isolate side effect
+            const openContract = Object.assign({}, action.serverResponse.proposal_open_contract);
             if (Object.keys(openContract).length === 0) {
                 return state;
             }
+
+            // remove this 2 keys as we do not need it
+            delete openContract.current_spot;
+            delete openContract.current_spot_time;
+
             return state.mergeIn([openContract.contract_id], openContract);
         }
         case SERVER_DATA_PORTFOLIO: {

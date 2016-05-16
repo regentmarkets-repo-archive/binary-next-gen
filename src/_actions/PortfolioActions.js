@@ -9,11 +9,21 @@ export const serverDataPortfolio = serverResponse => ({
     serverResponse,
 });
 
-export const getOpenContract = contractId =>
+export const subscribeToOpenContract = contractId =>
     (dispatch, getState) => {
         const boughtContracts = getState().boughtContracts;
         if (!boughtContracts.get(contractId)) {
             return LiveData.api.subscribeToOpenContract(contractId)
+                .then(response => response.proposal_open_contract);
+        }
+        return Promise.resolve(boughtContracts.get(contractId).toJS());
+    };
+
+export const getOpenContract = contractId =>
+    (dispatch, getState) => {
+        const boughtContracts = getState().boughtContracts;
+        if (!boughtContracts.get(contractId)) {
+            return LiveData.api.getContractInfo(contractId)
                 .then(response => response.proposal_open_contract);
         }
         return Promise.resolve(boughtContracts.get(contractId).toJS());
@@ -28,7 +38,7 @@ export const detailsForContract = (areDetailsShown, contractShown) => {
         };
     }
     return dispatch => {
-        const openContract = dispatch(getOpenContract(contractShown));
+        const openContract = dispatch(subscribeToOpenContract(contractShown));
         return openContract.then(
             contract => {
                 dispatch(getTicksBySymbol(contract.underlying));
