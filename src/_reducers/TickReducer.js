@@ -10,7 +10,7 @@ import {
 const initialState = new Map();
 
 // it will skip merging if existing ticks already contains new ticks
-const mergeTicks = (existingTicks, newTicks) => {
+export const mergeTicks = (existingTicks, newTicks) => {
     if (existingTicks.length === 0) {
         return newTicks;
     }
@@ -40,12 +40,18 @@ export default (state = initialState, action) => {
 
             const liveTicks = state.get(symbol) ? state.get(symbol).toJS() : [];
             const merged = mergeTicks(liveTicks, history);
+            if (merged.length === liveTicks.length) {
+                return state;
+            }
             return state.set(symbol, fromJS(merged));
         }
         case UPDATE_CHART_DATA_BY_SYMBOL: {
             const { symbol, data } = action;
             const liveTicks = state.get(symbol) ? state.get(symbol).toJS() : [];
             const merged = mergeTicks(liveTicks, data);
+            if (merged.length === liveTicks.length) {
+                return state;
+            }
             return state.set(symbol, fromJS(merged));
         }
         default:
