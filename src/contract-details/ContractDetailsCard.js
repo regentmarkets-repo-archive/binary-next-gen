@@ -1,8 +1,12 @@
 import React, { PropTypes, Component } from 'react';
 import { BinaryChart } from 'binary-charts';
 import ContractDetailsReceipt from './ContractDetailsReceipt';
+import debug from '../fulltrade/shallowEqualDebug';
 
 export default class ContractDetailsCard extends Component {
+	shouldComponentUpdate(p) {
+		return !debug(p, this.props);
+	}
 
 	static propTypes = {
 		contract: PropTypes.object.isRequired,
@@ -11,7 +15,7 @@ export default class ContractDetailsCard extends Component {
 
 	render() {
 		const { contract, actions } = this.props;
-
+		console.log('rp');
 		return (
 			<div className="contract-details">
 				<BinaryChart

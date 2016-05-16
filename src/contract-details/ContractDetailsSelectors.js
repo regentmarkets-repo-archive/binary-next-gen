@@ -3,12 +3,16 @@ import { createSelector, createStructuredSelector } from 'reselect';
 import pipsToDigits from 'binary-utils/lib/pipsToDigits';
 
 const contractToShow = createSelector(
-    portfolioSelector,
-    boughtContractsSelector,
-    (portfolio, contracts) => {
-        const contract = contracts.find(x => x.get('contract_id') === portfolio.get('contractShown'));
-        return contract && contract.set('barrierType', 'absolute');
+    [state => portfolioSelector(state).get('contractShown'), boughtContractsSelector],
+    (contractID, contracts) => {
+        const contract = contracts.find(x => x.get('contract_id') === contractID);
+        return contract;
     }
+);
+
+const contractWithBarrierType = createSelector(
+    contractToShow,
+    contract => contract && contract.set('barrierType', 'absolute')
 );
 
 const dataToShow = createSelector(
@@ -30,6 +34,6 @@ const pipSizeSelector = createSelector(
 export default createStructuredSelector({
     // ticks: ticksSelector,
     ticks: dataToShow,
-    contract: contractToShow,
+    contract: contractWithBarrierType,
     pipSize: pipSizeSelector,
 });
