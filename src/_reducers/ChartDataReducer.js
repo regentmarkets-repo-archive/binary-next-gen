@@ -1,5 +1,5 @@
-import { fromJS } from 'immutable';
-import { UPDATE_CHART_DATA_BY_CONTRACT } from '../_constants/ActionTypes';
+import { fromJS, List } from 'immutable';
+import { UPDATE_CHART_DATA_BY_CONTRACT, SERVER_DATA_TICK_STREAM } from '../_constants/ActionTypes';
 
 const initialState = fromJS({});
 
