@@ -45,7 +45,7 @@ import * as updateHelpers from './TradeParamsCascadingUpdates';
  * default may not be a good idea at all as client might always want to input value
  */
 
-export default class FullTradeParams extends Component {
+export default class TradeParams extends Component {
 
     shouldComponentUpdate = shouldPureComponentUpdate;
 

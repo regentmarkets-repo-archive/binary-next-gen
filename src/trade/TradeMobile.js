@@ -1,9 +1,9 @@
 import React from 'react';
 import MobilePage from '../containers/MobilePage';
-import FullTradeContainer from './FullTradeContainer';
+import SingleTradeContainer from './SingleTradeContainer';
 
 export default (props) => (
 	<MobilePage>
-		<FullTradeContainer compact {...props} />
+		<SingleTradeContainer compact {...props} />
 	</MobilePage>
 );

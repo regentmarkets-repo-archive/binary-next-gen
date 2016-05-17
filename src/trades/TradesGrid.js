@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import FullTradeCard from '../fulltrade/FullTradeCard';
+import TradeCard from '../trade/TradeCard';
 
 export default class TradesGrid extends Component {
 
@@ -28,7 +28,7 @@ export default class TradesGrid extends Component {
                         className={index === activeTradeIndex ? 'trade-container panel-active' : 'trade-container'}
                         onClick={() => actions.changeActiveTrade(index)}
                     >
-                        <FullTradeCard
+                        <TradeCard
                             index={index}
                             currency={currency}
                             actions={actions}

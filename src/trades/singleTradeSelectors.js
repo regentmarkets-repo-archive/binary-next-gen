@@ -7,7 +7,7 @@ import {
     tradesTradingTimesSelector,
     availableContractsSelector,
     assetsIsOpenSelector,
-} from '../fulltrade/FullTradeSelectors';
+} from '../trade/TradeSelectors';
 
 const firstTradeSymbol = createSelector(
     state => tradesParamsSelector(state).first(),

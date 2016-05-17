@@ -7,7 +7,7 @@ import filterObjectBy from 'binary-utils/lib/filterObjectBy';
 import PurchaseFailed from '../_common/PurchaseFailed';
 import Button from '../_common/Button';
 import Modal from '../containers/Modal';
-import FullTradeParams from '../trade-params/FullTradeParams';
+import TradeParams from '../trade-params/TradeParams';
 import ContractDetailsReceipt from '../contract-details/ContractDetailsReceipt';
 import { mockedContract } from './../_constants/MockContract';
 import {
@@ -31,7 +31,7 @@ const getStartLaterOnlyContract = contract => {
     return startLaterCategories;
 };
 
-export default class FullTradeCard extends Component {
+export default class TradeCard extends Component {
     shouldComponentUpdate = shouldPureComponentUpdate;
 
     static defaultProps = {
@@ -121,7 +121,7 @@ export default class FullTradeCard extends Component {
                             onClick={() => actions.closeContractReceipt(index)}
                         />
                     </div> :
-                    <FullTradeParams
+                    <TradeParams
                         {...proposalInfo}
                         actions={actions}
                         currency={currency}

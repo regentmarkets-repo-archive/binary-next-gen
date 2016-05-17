@@ -1,7 +1,7 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 import { ticksForFirstTradeSelector, firstTradeSelector } from '../trades/singleTradeSelectors';
 import findDeep from 'binary-utils/lib/findDeep';
-import { availableAssetsSelector, availableContractsSelector } from '../fulltrade/FullTradeSelectors';
+import { availableAssetsSelector, availableContractsSelector } from '../trade/TradeSelectors';
 import { currencySelector } from '../_store/directSelectors';
 
 const tickAssetFilter = (assets, contracts) => {

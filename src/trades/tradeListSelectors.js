@@ -11,7 +11,7 @@ import {
     tradesParamsSelector,
     tradesPipSizeSelector,
     tradesTradingTimesSelector,
-} from '../fulltrade/FullTradeSelectors';
+} from '../trade/TradeSelectors';
 
 export default createStructuredSelector({
     assetsIsOpen: assetsIsOpenSelector,

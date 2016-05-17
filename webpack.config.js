@@ -33,7 +33,7 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
-            { test: /\.css$/, exclude: /node_modules/, loader: 'style!css!postcss?modules&importLoaders=1&localIdentName=[local]_[hash:base64:5]' },
+            { test: /\.css$/, exclude: /node_modules/, loader: 'style!css?modules&importLoaders=1&localIdentName=[local]_[hash:base64:5]' },
             { test: /\.js$/, exclude: /node_modules/, loader: 'eslint' },
         ],
         // noParse: /babel/,
