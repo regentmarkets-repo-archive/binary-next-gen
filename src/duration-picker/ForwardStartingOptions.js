@@ -68,36 +68,40 @@ export default class ForwardStartingOptions extends Component {
         const timeString = dateStart ? epochToUTCTimeString(dateStart) : '';
 
         return (
-            <div className="forward-starting-input">
+            <div className="forward-starting-group">
                 {(allowStartLater && !onlyStartLater) &&
-                <FormattedMessage id="Start Later" defaultMessage="Start Later">
-                    {text =>
-                        <StartLaterToggleSwitch
-                            text={text}
-                            id={index}
-                            checked={!!dateStart}
-                            onClick={::this.startLaterHandler}
-                            disabled={onlyStartLater}
-                        />
-                    }
-                </FormattedMessage>
+                    <FormattedMessage id="Start Later" defaultMessage="Start Later">
+                        {text =>
+                            <StartLaterToggleSwitch
+                                text={text}
+                                id={index}
+                                checked={!!dateStart}
+                                onClick={::this.startLaterHandler}
+                                disabled={onlyStartLater}
+                            />
+                        }
+                    </FormattedMessage>
                 }
                 {allowStartLater && dateStart &&
-                    <InputGroup
-                        type="date"
-                        min={dateToDateString(ranges[0].date)}
-                        max={dateToDateString(ranges[2].date)}
-                        onChange={::this.selectDay}
-                        value={selectedDay && dateToDateString(selectedDay)}
-                    />}
-                {allowStartLater && dateStart && selectedDay &&
-                    <InputGroup
-                        type="time"
-                        min={min}
-                        max={max}
-                        onChange={::this.selectTime}
-                        value={timeString}
-                    />}
+                    <div className="forward-starting-input">
+                        <InputGroup
+                            type="date"
+                            min={dateToDateString(ranges[0].date)}
+                            max={dateToDateString(ranges[2].date)}
+                            onChange={::this.selectDay}
+                            value={selectedDay && dateToDateString(selectedDay)}
+                        />
+                        {selectedDay &&
+                            <InputGroup
+                                type="time"
+                                min={min}
+                                max={max}
+                                onChange={::this.selectTime}
+                                value={timeString}
+                            />
+                        }
+                    </div>
+                }
             </div>
         );
     }

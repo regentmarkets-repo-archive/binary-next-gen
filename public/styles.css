@@ -911,10 +911,11 @@ input[type=number]::-webkit-outer-spin-button {
 .onoffswitch-switch {
     display: block;
     width: 2em;
-    margin: 0.5em;
+    height: 1.5em;
+    margin: 0.25em;
     background: #FFFFFF;
     right: 7em;
-    position: absolute; top: 0; bottom: 0;
+    position: absolute;
     border-radius: 2em;
     transition: all 0.3s ease-in 0s;
 }
@@ -1086,11 +1087,15 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: column;
 }
 
-.duration-input, .forward-starting-input {
+.duration-input, .forward-starting-group, .forward-starting-input {
     display: flex;
 }
 
-.duration-input > *, .forward-starting-input > * {
+.forward-starting-group {
+    flex-direction: column;
+}
+
+.duration-input > *, .forward-starting-group > * {
     flex: 1;
     -webkit-flex: 1 1 auto;         /* workaround for safari bug */
 }
@@ -1150,7 +1155,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .contract-detail > *:first-child {
-    width: 8rem;
+    width: 7rem;
     opacity: .5;
     text-transform: uppercase;
     font-weight: bold;
@@ -1158,7 +1163,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .horizontal .contract-detail {
     flex-direction: column;
-    margin-bottom: .5rem;
+    margin: 0 .5rem .5rem 0;
 }
 
 .horizontal .trade-panel-receipt {

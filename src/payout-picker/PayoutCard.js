@@ -1,5 +1,4 @@
 import React, { PropTypes, Component } from 'react';
-import M from '../_common/M';
 import NumberColored from '../_common/NumberColored';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 
@@ -17,8 +16,10 @@ export default class PayoutCard extends Component {
         return (
             <div className="payout-display">
                 <label>Payout</label>
-                <NumberColored value={payout} isProfit={v => v - stake} />
-                <M id="earning-percentage" m="({profit} %)" values={{ profit: potentialProfitPercentage }} />
+                <span>
+                    <NumberColored value={payout} isProfit={v => v - stake} />
+                    ({potentialProfitPercentage} %)
+                </span>
             </div>
         );
     }
