@@ -9,7 +9,7 @@ export default class ContractDetailsCard extends Component {
 			chartType: 'ticks',
 		};
 	}
-	
+
 	static propTypes = {
 		contract: PropTypes.object.isRequired,
 		actions: PropTypes.object,
@@ -20,18 +20,37 @@ export default class ContractDetailsCard extends Component {
 		}),
 	};
 
+	changeDataType(type) {
+		const { actions, contract } = this.props;
+		const { chartType } = this.state;
+
+		if (chartType === type) {
+			return;
+		}
+
+		actions
+			.getDataForContract(contract.contract_id, 1, 'all', type)
+			.then(() => this.setState({ chartType: type }));
+	}
+
 	render() {
 		const { contract, chartData, actions, pipSize } = this.props;
-		const { ticks } = chartData;
+		const { chartType } = this.state;
+		const { ticks, candles } = chartData;
+
+		const type = (chartType === 'candles' && candles) ? 'candles' : 'ticks';
+		const data = type === 'candles' ? candles : ticks;
+
 		return (
 			<div className="contract-details">
 				<BinaryChart
+					className="trade-chart"
 					contract={contract}
-					ticks={ticks}
-                    className="trade-chart"
-					rangeChange={(count, type) =>
-						actions.getDataForContract(contract.contract_id, count, type)
+					ticks={data}
+					rangeChange={(count, durationType) =>
+						actions.getDataForContract(contract.contract_id, count, durationType)
 					}
+					typeChange={::this.changeDataType}
 					pipSize={pipSize}
 				/>
 				<ContractDetailsReceipt contract={contract} />

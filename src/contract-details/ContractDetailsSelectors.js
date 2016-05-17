@@ -16,14 +16,12 @@ const contractWithBarrierType = createSelector(
 );
 
 const dataToShow = createSelector(
-    portfolioSelector,
-    state => state.chartData,
-    (portfolio, chartData) => chartData.find((v, k) => k === portfolio.get('contractShown'))
+    [state => portfolioSelector(state).get('contractShown'), state => state.chartData],
+    (contractID, chartData) => chartData.find((v, k) => k === contractID)
 );
 
 const pipSizeSelector = createSelector(
-    assetsSelector,
-    contractToShow,
+    [assetsSelector, contractToShow],
     (assets, contract) => {
         const symbolDetails = assets.find(a => a.get('symbol') === contract.get('underlying'));
         const pipSize = symbolDetails && pipsToDigits(symbolDetails.get('pip'));
