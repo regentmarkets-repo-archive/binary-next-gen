@@ -10,14 +10,22 @@ export default class ContractDetailsContainer extends Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
+	static defaultProps = {
+		chartData: {},
+	};
+
 	static propTypes = {
 		contract: PropTypes.object.isRequired,
-		ticks: PropTypes.array,
+		chartData: PropTypes.shape({
+			ticks: PropTypes.array,
+			candles: PropTypes.array,
+		}),
 		actions: PropTypes.object.isRequired,
 	};
 
 	componentWillMount() {
-		const { actions, ticks, contract } = this.props;
+		const { actions, chartData, contract } = this.props;
+		const { ticks } = chartData;
 
 		if (!ticks) {
 			actions.getDataForContract(contract.get('contract_id'), 'all');

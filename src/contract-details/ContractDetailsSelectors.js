@@ -33,7 +33,7 @@ const pipSizeSelector = createSelector(
 
 export default createStructuredSelector({
     // ticks: ticksSelector,
-    ticks: dataToShow,
+    chartData: dataToShow,
     contract: contractWithBarrierType,
     pipSize: pipSizeSelector,
 });
