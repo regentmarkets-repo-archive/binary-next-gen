@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const WebpackNotifierPlugin = require('webpack-notifier');
+const autoprefixer = require('autoprefixer');
 
 const env = process.env.NODE_ENV;
 
@@ -32,8 +33,10 @@ module.exports = {
     module: {
         loaders: [
             { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
-            { test: /\.css$/, exclude: /node_modules/, loader: 'style!css?modules&importLoaders=1&localIdentName=[local]_[hash:base64:5]' },
+            { test: /\.css$/, exclude: /node_modules/, loader: 'style!css!postcss?modules&importLoaders=1&localIdentName=[local]_[hash:base64:5]' },
             { test: /\.js$/, exclude: /node_modules/, loader: 'eslint' },
         ],
+        // noParse: /babel/,
     },
+    postcss: [ autoprefixer({ browsers: ['last 2 versions'] }) ],
 };
