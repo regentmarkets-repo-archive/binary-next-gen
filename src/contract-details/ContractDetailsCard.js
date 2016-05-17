@@ -28,9 +28,8 @@ export default class ContractDetailsCard extends Component {
 			return;
 		}
 
-		actions
-			.getDataForContract(contract.contract_id, 1, 'all', type)
-			.then(() => this.setState({ chartType: type }));
+		actions.getDataForContract(contract.contract_id, 1, 'all', type);
+		this.setState({ chartType: type });
 	}
 
 	render() {
@@ -47,6 +46,7 @@ export default class ContractDetailsCard extends Component {
 					className="trade-chart"
 					contract={contract}
 					ticks={data}
+					type={type}
 					rangeChange={(count, durationType) =>
 						actions.getDataForContract(contract.contract_id, count, durationType)
 					}
