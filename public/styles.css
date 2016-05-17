@@ -324,7 +324,7 @@ nav.sidebar {
     padding: .5rem;
 }
 
-.buy-btn, .buy-again-btn {
+.buy-btn, .buy-again-btn, .sell-at-market-btn {
     font-size: 1.25rem;
     padding: .5rem;
     width: 100%;
@@ -930,12 +930,6 @@ input[type=number]::-webkit-outer-spin-button {
     width: 100%;
 }
 
-.sell-at-market-btn {
-    height: 2.5rem;
-    width: 100%;
-    margin-top: 1rem;
-}
-
 .modal {
     max-height: 100%;
     min-width: 320px;
@@ -1065,8 +1059,7 @@ input[type=number]::-webkit-outer-spin-button {
 .horizontal .trade-params > *,
 .mobile-content .trade-params > * {
     flex: 1;
-    -webkit-flex: 1 1 auto;         /* workaround for safari bug */
-    min-width: 10rem;
+    f-webkit-flex: 1 1 auto;         /* workaround for safari bug */
 }
 
 .horizontal .trade-params > div,
@@ -1172,5 +1165,6 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .vertical .contract-receipt {
+    overflow: auto;
     max-width: 15rem;
 }

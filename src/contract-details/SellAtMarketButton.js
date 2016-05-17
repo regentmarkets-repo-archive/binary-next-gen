@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import M from '../_common/M';
 import NumberPlain from '../_common/NumberPlain';
 
-export default class ContractDetailsCard extends Component {
+export default class SellAtMarketButton extends Component {
 
 	static propTypes = {
 		contract: PropTypes.object.isRequired,
