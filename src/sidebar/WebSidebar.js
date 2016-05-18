@@ -5,7 +5,7 @@ import SidebarBtn from './SidebarBtn';
 import sidebarSelectors from './sidebarSelectors';
 
 @connect(sidebarSelectors)
-export default class MobileSidebar extends Component {
+export default class WebSidebar extends Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
@@ -23,8 +23,8 @@ export default class MobileSidebar extends Component {
 					{loginid}<br />
 					{email}<br />
 				</div>
-				<SidebarBtn to="/deposit" img="img/profit.svg" text="Deposit" />
-				<SidebarBtn to="/settings-mobile" img="img/settings.svg" text="Settings" />
+				{/* <SidebarBtn to="/deposit" img="img/profit.svg" text="Deposit" />
+				<SidebarBtn to="/settings-mobile" img="img/settings.svg" text="Settings" /> */}
 				<SidebarBtn to="/signout" img="img/signout.svg" text="Sign Out" />
 			</nav>
 		);

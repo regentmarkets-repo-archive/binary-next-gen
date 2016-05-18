@@ -4,7 +4,7 @@ import NumberPlain from '../_common/NumberPlain';
 import SidebarBtn from './SidebarBtn';
 
 @connect(state => ({ account: state.account }))
-export default class MobileSidebar extends Component {
+export default class AccountMenu extends Component {
 
 	static propTypes = {
 		account: PropTypes.object.isRequired,

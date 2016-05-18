@@ -1173,3 +1173,21 @@ input[type=number]::-webkit-outer-spin-button {
     overflow: auto;
     max-width: 15rem;
 }
+
+.contract-receipt {
+    border-left: rgba(42, 48, 82, 1);
+    border-style: solid;
+    padding-left: .5rem;
+}
+
+.receipt-header {
+    font-size: large;
+    font-weight: 300;
+    text-align: center;
+    padding: 0.5rem;
+}
+
+/* to hide things temporarily */
+.invisible {
+    display: none;
+}
