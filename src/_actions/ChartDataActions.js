@@ -4,7 +4,7 @@ import { getOpenContract } from './PortfolioActions';
 
 export const getDataForContract = (contractID, durationCount, durationType) =>
     dispatch =>
-        api.getDataForContract(() => getOpenContract(contractID), durationCount, durationType)
+        api.getDataForContract(() => dispatch(getOpenContract(contractID)), durationCount, durationType)
             .then(ticks =>
                 dispatch({
                     type: UPDATE_CHART_DATA_BY_CONTRACT,
