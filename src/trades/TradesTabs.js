@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import FullTradeCard from '../fulltrade/FullTradeCard';
+import TradeCard from '../trade/TradeCard';
 
 
 export default class TradesTabs extends Component {
@@ -28,7 +28,7 @@ export default class TradesTabs extends Component {
         const activeTrade = trades[activeTradeIndex];
         return (
             <div className="trades-tabs">
-                <FullTradeCard
+                <TradeCard
                     index={activeTradeIndex}
                     actions={actions}
                     trade={activeTrade}

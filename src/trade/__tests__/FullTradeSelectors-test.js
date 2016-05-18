@@ -1,12 +1,12 @@
 import { fromJS, Map } from 'immutable';
 import { expect } from 'chai';
-import * as FullTradeSelectors from '../FullTradeSelectors';
+import * as TradeSelectors from '../TradeSelectors';
 import assetsFromServer from 'binary-utils/test-data/assets';
 import contractsForR50 from 'binary-utils/test-data/contractsForR50';
 import contractsForGDAXI from 'binary-utils/test-data/contractsForGDAXI';
 
 describe('assetsIsOpenSelector', () => {
-    const assetsIsOpen = FullTradeSelectors.assetsIsOpenSelector({ assets: fromJS(assetsFromServer) });
+    const assetsIsOpen = TradeSelectors.assetsIsOpenSelector({ assets: fromJS(assetsFromServer) });
 
     it('should create a tree with isOpen as key of each children', () => {
         for (let symbol in assetsIsOpen) {
@@ -26,7 +26,7 @@ describe('assetsIsOpenSelector', () => {
 });
 
 describe('availableContractsSelector', () => {
-    const availableContracts = FullTradeSelectors.availableContractsSelector({
+    const availableContracts = TradeSelectors.availableContractsSelector({
         assets: fromJS(assetsFromServer),
         tradingOptions: new Map({ R_50: contractsForR50, GDAXI: contractsForGDAXI }),
     });
@@ -64,7 +64,7 @@ describe('tradesParamsSelector', () => {
     };
 
     it('should set symbolName for each trade params', () => {
-        const actual = FullTradeSelectors.tradesParamsSelector(mockState);
+        const actual = TradeSelectors.tradesParamsSelector(mockState);
         expect(actual.toJS()).to.be.deep.equal([{ symbol: 'R_100', symbolName: 'Random 100'} ]);
     });
 });
@@ -84,7 +84,7 @@ describe('tradesTradingTimesSelector', () => {
     };
 
     it('should get trading times correspond to trade symbol', () => {
-        const actual = FullTradeSelectors.tradesTradingTimesSelector(mockState);
+        const actual = TradeSelectors.tradesTradingTimesSelector(mockState);
         expect(actual.toJS()).to.be.deep.equal(mockState.tradingTimes.toJS());
     });
 });
@@ -101,7 +101,7 @@ describe('tradesPipSizeSelector', () => {
     };
 
     it('should get pipSize from assets by deriving pip properties', () => {
-        const actual = FullTradeSelectors.tradesPipSizeSelector(mockState);
+        const actual = TradeSelectors.tradesPipSizeSelector(mockState);
         expect(actual.toJS()).to.be.deep.equal([2]);
     });
 });

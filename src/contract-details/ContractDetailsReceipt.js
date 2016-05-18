@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import Button from '../_common/Button';
 import ContractDetailsList from './ContractDetailsList';
 import SellAtMarketButton from './SellAtMarketButton';
 import ContractValidationError from './ContractValidationError';
@@ -9,10 +10,11 @@ export default class ContractDetailsReceipt extends Component {
 	static propTypes = {
 		contract: PropTypes.object.isRequired,
 		actions: PropTypes.object,
+		onTradeAgainClicked: PropTypes.func,
 	};
 
 	render() {
-		const { contract, actions } = this.props;
+		const { contract, actions, onTradeAgainClicked } = this.props;
 
 		return (
 			<div className="contract-receipt">
@@ -24,6 +26,13 @@ export default class ContractDetailsReceipt extends Component {
 				/>
 				<ContractValidationError contract={contract} />
 				<ContractWinLose contract={contract} />
+				{onTradeAgainClicked &&
+					<Button
+						className="buy-again-btn"
+						text="Trade Again"
+						onClick={onTradeAgainClicked}
+					/>
+				}
 			</div>
 		);
 	}

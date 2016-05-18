@@ -5,9 +5,8 @@ import findDeep from 'binary-utils/lib/findDeep';
 import filterObjectBy from 'binary-utils/lib/filterObjectBy';
 // const BinaryChart = (props) => <div {...props} style={{ background: 'grey' }} />;
 import PurchaseFailed from '../_common/PurchaseFailed';
-import Button from '../_common/Button';
 import Modal from '../containers/Modal';
-import FullTradeParams from '../trade-params/FullTradeParams';
+import TradeParams from '../trade-params/TradeParams';
 import ContractDetailsReceipt from '../contract-details/ContractDetailsReceipt';
 import { mockedContract } from './../_constants/MockContract';
 import {
@@ -31,7 +30,7 @@ const getStartLaterOnlyContract = contract => {
     return startLaterCategories;
 };
 
-export default class FullTradeCard extends Component {
+export default class TradeCard extends Component {
     shouldComponentUpdate = shouldPureComponentUpdate;
 
     static defaultProps = {
@@ -110,18 +109,12 @@ export default class FullTradeCard extends Component {
                     />
                 </div>
                 {lastBoughtContract ?
-                    <div>
-                        <ContractDetailsReceipt
-                            actions={actions}
-                            contract={lastBoughtContract}
-                        />
-                        <Button
-                            className="buy-again-btn"
-                            text="Trade Again"
-                            onClick={() => actions.closeContractReceipt(index)}
-                        />
-                    </div> :
-                    <FullTradeParams
+                    <ContractDetailsReceipt
+                        actions={actions}
+                        contract={lastBoughtContract}
+                        onTradeAgainClicked={() => actions.closeContractReceipt(index)}
+                    /> :
+                    <TradeParams
                         {...proposalInfo}
                         actions={actions}
                         currency={currency}

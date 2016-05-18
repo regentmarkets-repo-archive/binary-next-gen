@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import RadioGroup from '../fulltrade/workaround/CustomRadioGroup';
+import Label from '../_common/Label';
+import RadioGroup from '../trade/workaround/CustomRadioGroup';
 
 export default class DigitBarrierCard extends Component {
 
@@ -23,7 +24,7 @@ export default class DigitBarrierCard extends Component {
 
         return (
             <div>
-                <p>{barrierInfo.name}</p>
+                <Label text={barrierInfo.name} />
                 <RadioGroup
                     name={'digit-selections' + index}
                     options={barrierInfo.values.map(b => ({ text: b, value: b }))}

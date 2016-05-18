@@ -2,7 +2,9 @@ import React, { PropTypes, Component } from 'react';
 import ContractDetailString from './ContractDetailString';
 import ContractDetailTime from './ContractDetailTime';
 import ContractDetailMoney from './ContractDetailMoney';
-// import toMoney from 'binary-utils/lib/toMoney';
+
+const transactionIdsToString = ({ buy, sell }) =>
+	buy + (sell ? '–' + sell : '');
 
 export default class ContractDetailsList extends Component {
 
@@ -24,7 +26,7 @@ export default class ContractDetailsList extends Component {
 				<ContractDetailString label="Contract ID" value={contract.contract_id} />
 				<ContractDetailString
 					label="Reference ID"
-					value={contract.transaction_ids.buy + '–' + contract.transaction_ids.sell}
+					value={transactionIdsToString(contract.transaction_ids)}
 				/>
 				{/* <ContractDetailsDate contract={contract} code={'purchase_time'} /> */}
 				<ContractDetailTime contract={contract} code={'date_start'} />
@@ -33,11 +35,11 @@ export default class ContractDetailsList extends Component {
 				<ContractDetailString label="Remaining Time" value="" />
 				<ContractDetailMoney contract={contract} code={'entry_spot'} />
 				<ContractDetailMoney contract={contract} code={'barrier'} />
-				Purchase Price
+				{/* Purchase Price */}
 				<ContractDetailMoney contract={contract} code={'exit_tick'} />
 				<ContractDetailTime contract={contract} code={'exit_tick_time'} />
-				Price
-				Profit/Loss
+				{/* Price */}
+				{/* Profit/Loss */}
 				<ContractDetailMoney contract={contract} code={'entry_tick'} />
 				<ContractDetailMoney contract={contract} code={'exit_tick'} />
 				<ContractDetailMoney contract={contract} code={'buy_price'} />

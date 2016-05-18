@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import windowResizeEvent from 'binary-utils/lib/windowResizeEvent';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import FullTradeCard from '../fulltrade/FullTradeCard';
+import TradeCard from '../trade/TradeCard';
 import * as layouts from '../layouts';
 import styles from '../layouts/layouts.css';
 
@@ -55,7 +55,7 @@ export default class TradesLayouts extends Component {
         if (!layout) return null;
 
         const tradeComponents = paramsList.map((param, index) =>
-            <FullTradeCard
+            <TradeCard
                 actions={actions}
                 currency={currency}
                 key={index}

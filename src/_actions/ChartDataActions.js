@@ -2,26 +2,26 @@ import { api } from '../_data/LiveData';
 import { UPDATE_CHART_DATA_BY_CONTRACT, UPDATE_CHART_DATA_BY_SYMBOL } from '../_constants/ActionTypes';
 import { getOpenContract } from './PortfolioActions';
 
-export const getDataForContract = (contractID, durationCount, durationType) =>
+export const getDataForContract = (contractID, durationCount, durationType, style) =>
     dispatch =>
-        api.getDataForContract(() => dispatch(getOpenContract(contractID)), durationCount, durationType)
+        api.getDataForContract(() => dispatch(getOpenContract(contractID)), durationCount, durationType, style)
             .then(ticks =>
                 dispatch({
                     type: UPDATE_CHART_DATA_BY_CONTRACT,
                     contractID,
                     data: ticks,
-                    dataType: 'ticks',
+                    dataType: style,
                 })
             );
 
-export const getDataForSymbol = (symbol, durationCount, durationType) =>
+export const getDataForSymbol = (symbol, durationCount, durationType, style) =>
     dispatch =>
-        api.getDataForSymbol(symbol, durationCount, durationType)
+        api.getDataForSymbol(symbol, durationCount, durationType, style)
             .then(ticks =>
                 dispatch({
                     type: UPDATE_CHART_DATA_BY_SYMBOL,
                     symbol,
                     data: ticks,
-                    dataType: 'ticks',
+                    dataType: style,
                 })
             );

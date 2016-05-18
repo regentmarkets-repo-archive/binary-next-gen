@@ -1,10 +1,10 @@
-import FullTradeMobile from '../fulltrade/FullTradeMobile';
+import TradeMobile from '../trade/TradeMobile';
 import WebCard from '../web/WebCard';
 import { requireAuthOnEnter, redirectFromOAuth } from '../_data/Auth';
 
 const isMobile = /Mobile/.test(window.navigator.userAgent);
 
-const rootComponent = isMobile ? FullTradeMobile : WebCard;
+const rootComponent = isMobile ? TradeMobile : WebCard;
 
 export default [
     { path: '/', component: rootComponent, onEnter: requireAuthOnEnter },
