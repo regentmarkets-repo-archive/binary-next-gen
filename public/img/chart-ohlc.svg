@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" x="0px" y="0px" viewBox="0 0 100 100" xml:space="preserve">
+    <g>
+        <rect x="88" y="64" width="16" height="96"></rect>
+    </g>
+    <g>
+        <rect x="88" y="320" width="16" height="128"></rect>
+    </g>
+    <g>
+        <rect x="248" y="64" width="16" height="192"></rect>
+    </g>
+    <g>
+        <rect x="248" y="384" width="16" height="64"></rect>
+    </g>
+    <g>
+        <rect x="408" y="384" width="16" height="64"></rect>
+    </g>
+    <g>
+        <rect x="408" y="64" width="16" height="64"></rect>
+    </g>
+    <g>
+        <path d="M136,328H56V152h80V328z M72,312h48V168H72V312z"></path>
+    </g>
+    <g>
+        <path d="M296,392h-80V248h80V392z M232,376h48V264h-48V376z"></path>
+    </g>
+    <g>
+        <path d="M456,392h-80V120h80V392z M392,376h48V136h-48V376z"></path>
+    </g>
+</svg>
