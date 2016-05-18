@@ -2,7 +2,8 @@ import React, { PropTypes, Component } from 'react';
 import ContractDetailString from './ContractDetailString';
 import ContractDetailTime from './ContractDetailTime';
 import ContractDetailMoney from './ContractDetailMoney';
-import M from '../_common/M';
+import ContractDetailCustom from './ContractDetailCustom';
+// import M from '../_common/M';
 
 const transactionIdsToString = ({ buy, sell }) =>
 	buy + (sell ? '–' + sell : '');
@@ -24,32 +25,38 @@ export default class ContractDetailsList extends Component {
 
 		return (
 			<div className="trade-panel-receipt">
-				<M m="Contract Information" className="receipt-header" />
-				<ContractDetailString label="Asset" value={contract.display_name} />
-				<ContractDetailString label="Contract Type" value={contract.contract_type} />
-				<ContractDetailString
+				<ContractDetailString contract={contract} code={'contract_id'} />
+				<ContractDetailCustom
 					label="Reference ID"
 					value={transactionIdsToString(contract.transaction_ids)}
 				/>
-
-				<ContractDetailString label={'Entry Tick'} value={contract.entry_tick} />
-				<ContractDetailTime contract={contract} code={'entry_tick_time'} />
-
 				<ContractDetailTime contract={contract} code={'date_start'} />
 				<ContractDetailTime contract={contract} code={'date_expiry'} />
-				<ContractDetailMoney contract={contract} code={'buy_price'} />
+				<ContractDetailCustom label={'Remaining Time'} />
+				<ContractDetailString contract={contract} code={'entry_spot'} />
+				{/* <ContractDetailMoney contract={contract} code={'buy_price'} /> */}
 
-				{contract.barrier && <ContractDetailString label={'Barrier'} value={contract.barrier} />}
-				{contract.low_barrier && <ContractDetailString label={'Barrier'} value={contract.low_barrier} />}
-				{contract.high_barrier && <ContractDetailString label={'Barrier'} value={contract.high_barrier} />}
+				{contract.barrier && <ContractDetailCustom label={'Barrier'} value={contract.barrier} />}
+				{contract.low_barrier && <ContractDetailCustom label={'Barrier'} value={contract.low_barrier} />}
+				{contract.high_barrier && <ContractDetailCustom label={'Barrier'} value={contract.high_barrier} />}
 
-				<M m="Contract Expiry" className="receipt-header" />
-				{contract.is_forward_starting ? <ContractDetailMoney contract={contract} code="bid_price" /> : null}
-				<ContractDetailString label={'Exit tick'} value={contract.exit_tick} />
+				<ContractDetailCustom label={'Purchase Price'} />
+
+				<ContractDetailString contract={contract} code={'exit_tick'} />
 				<ContractDetailTime contract={contract} code={'exit_tick_time'} />
+				Exit Spot Time
+				Price
+				Profit/Loss
+
+				{contract.is_forward_starting ? <ContractDetailMoney contract={contract} code="bid_price" /> : null}
+
 				<ContractDetailMoney contract={contract} code={'sell_price'} />
 				<ContractDetailMoney contract={contract} code={'sell_time'} />
-				<ContractDetailString label={'Sell Tick'} value={contract.sell_spot} />
+				<ContractDetailString contract={contract} code={'sell_spot'} />
+
+				<ContractDetailTime contract={contract} code={'entry_tick_time'} />
+				<ContractDetailString contract={contract} code={'entry_tick'} />
+
 
 				{/* <div>
 					<M m={sold ? 'Profit' : 'Potential Profit'} />

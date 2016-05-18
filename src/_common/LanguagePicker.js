@@ -26,7 +26,7 @@ export default class LanguagePicker extends Component {
         // LiveData.changeLanguage(event.target.value);
         // actions.resubscribeAllPriceProposal();
         window.BinaryBoot.language = event.target.value;
-        localStorage.setItem('boot', window.BinaryBoot);
+        localStorage.setItem('boot', JSON.stringify(window.BinaryBoot));
         window.location.reload();
     }
 

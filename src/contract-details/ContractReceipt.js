@@ -1,37 +1,38 @@
 import React, { PropTypes, Component } from 'react';
-import { BinaryChart } from 'binary-charts';
+import Button from '../_common/Button';
 import ContractDetailsList from './ContractDetailsList';
 import SellAtMarketButton from './SellAtMarketButton';
 import ContractValidationError from './ContractValidationError';
 import ContractWinLose from './ContractWinLose';
 
-export default class ContractDetailsCard extends Component {
+export default class ContractReceipt extends Component {
 
 	static propTypes = {
 		contract: PropTypes.object.isRequired,
 		actions: PropTypes.object,
+		onTradeAgainClicked: PropTypes.func,
 	};
 
 	render() {
-		const { contract, actions } = this.props;
+		const { contract, actions, onTradeAgainClicked } = this.props;
 
 		return (
-			<div className="contract-details">
+			<div className="contract-receipt">
 				<h6>{contract.longcode}</h6>
-				<div className="trade-panel-receipt">
-					<ContractDetailsList contract={contract} />
-					<SellAtMarketButton
-						contract={contract}
-						onClick={() => actions.sellContract(contract.contract_id, 0)}
-					/>
-					<ContractValidationError contract={contract} />
-					<ContractWinLose contract={contract} />
-				</div>
-				<BinaryChart
-					{...this.props}
-                    className="trade-chart"
-					rangeChange={(count, type) => actions.getDataForContract(contract.contract_id, count, type)}
+				<ContractDetailsList contract={contract} />
+				<SellAtMarketButton
+					contract={contract}
+					onClick={() => actions.sellContract(contract.contract_id, 0)}
 				/>
+				<ContractValidationError contract={contract} />
+				<ContractWinLose contract={contract} />
+				{onTradeAgainClicked &&
+					<Button
+						className="buy-again-btn"
+						text="Trade Again"
+						onClick={onTradeAgainClicked}
+					/>
+				}
 			</div>
 		);
 	}

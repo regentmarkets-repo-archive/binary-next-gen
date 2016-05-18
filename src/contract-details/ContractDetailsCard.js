@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { BinaryChart } from 'binary-charts';
-import ContractDetailsReceipt from './ContractDetailsReceipt';
+import ContractReceipt from './ContractReceipt';
 
 export default class ContractDetailsCard extends Component {
 	constructor(props) {
@@ -53,7 +53,7 @@ export default class ContractDetailsCard extends Component {
 					typeChange={::this.changeDataType}
 					pipSize={pipSize}
 				/>
-				<ContractDetailsReceipt contract={contract} />
+				<ContractReceipt contract={contract} />
 			</div>
 		);
 	}

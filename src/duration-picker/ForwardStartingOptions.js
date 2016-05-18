@@ -89,12 +89,13 @@ export default class ForwardStartingOptions extends Component {
         const min = selectedDay && dateToUTCTimeString(selectedRange.open[0]);
         const max = selectedDay && dateToUTCTimeString(selectedRange.close[0]);
         const timeString = dateStart ? epochToUTCTimeString(dateStart) : '';
+        const showForwardStartingInput = allowStartLater && dateStart;
 
         return (
             <div className="forward-starting-group">
-                {allowStartLater && dateStart &&
+                {showForwardStartingInput && <Label text="Start Time" />}
+                {showForwardStartingInput &&
                     <div className="forward-starting-input">
-                        <Label text="Start Time" />
                         <InputGroup
                             type="date"
                             min={dateToDateString(ranges[0].date)}

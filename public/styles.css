@@ -329,7 +329,7 @@ nav.sidebar {
 }
 
 .buy-btn, .buy-again-btn, .sell-at-market-btn {
-    font-size: 1.25rem;
+    font-size: 1.25em;
     padding: .5rem;
     width: 100%;
 }
@@ -1086,7 +1086,15 @@ input[type=number]::-webkit-outer-spin-button {
 
 .duration-input, .forward-starting-group, .forward-starting-input {
     display: flex;
-    flex-direction: column;
+}
+
+.forward-starting-input input {
+    width: 100%;
+}
+
+.duration-input > fieldset,
+.forward-starting-input > fieldset {
+    flex: 1;
 }
 
 .forward-starting-group {
@@ -1174,8 +1182,15 @@ input[type=number]::-webkit-outer-spin-button {
     max-width: 15rem;
 }
 
+.modal .contract-receipt {
+    max-width: 25rem;
+}
+
+.modal .trade-chart {
+    min-width: 40rem;
+}
+
 .contract-receipt {
-    border-left: rgba(42, 48, 82, 1);
     border-style: solid;
     padding-left: .5rem;
 }

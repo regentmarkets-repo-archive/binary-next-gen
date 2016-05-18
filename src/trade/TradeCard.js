@@ -7,7 +7,7 @@ import filterObjectBy from 'binary-utils/lib/filterObjectBy';
 import PurchaseFailed from '../_common/PurchaseFailed';
 import Modal from '../containers/Modal';
 import TradeParams from '../trade-params/TradeParams';
-import ContractDetailsReceipt from '../contract-details/ContractDetailsReceipt';
+import ContractReceipt from '../contract-details/ContractReceipt';
 import { mockedContract } from './../_constants/MockContract';
 import {
     internalTradeModelToServerTradeModel,
@@ -109,7 +109,7 @@ export default class TradeCard extends Component {
                     />
                 </div>
                 {lastBoughtContract ?
-                    <ContractDetailsReceipt
+                    <ContractReceipt
                         actions={actions}
                         contract={lastBoughtContract}
                         onTradeAgainClicked={() => actions.closeContractReceipt(index)}
