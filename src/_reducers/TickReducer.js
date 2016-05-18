@@ -11,7 +11,7 @@ const initialState = new Map();
 
 // it will skip merging if existing ticks already contains new ticks
 export const mergeTicks = (existingTicks, newTicks) => {
-    if (existingTicks.length === 0) {
+    if (!existingTicks || existingTicks.length === 0) {
         return newTicks;
     }
     if (newTicks[0].epoch > existingTicks[0].epoch) {

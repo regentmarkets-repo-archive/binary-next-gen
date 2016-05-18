@@ -28,7 +28,7 @@ export default class ContractDetailsContainer extends Component {
 		const { ticks } = chartData;
 
 		if (!ticks) {
-			actions.getDataForContract(contract.get('contract_id'), 'all');
+			actions.getDataForContract(contract.get('contract_id'), 1, 'all', 'ticks');
 		}
 	}
 
