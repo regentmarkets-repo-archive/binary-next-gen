@@ -7,6 +7,7 @@ import timeStringToSeconds from 'binary-utils/lib/timeStringToSeconds';
 import dateToDateString from 'binary-utils/lib/dateToDateString';
 import { createDefaultStartLaterEpoch } from '../trade-params/DefaultTradeParams';
 import StartLaterToggleSwitch from './StartLaterToggleSwitch';
+import Label from '../_common/Label';
 import { FormattedMessage } from 'react-intl';
 
 /**
@@ -69,21 +70,9 @@ export default class ForwardStartingOptions extends Component {
 
         return (
             <div className="forward-starting-group">
-                {(allowStartLater && !onlyStartLater) &&
-                    <FormattedMessage id="Start Later" defaultMessage="Start Later">
-                        {text =>
-                            <StartLaterToggleSwitch
-                                text={text}
-                                id={index}
-                                checked={!!dateStart}
-                                onClick={::this.startLaterHandler}
-                                disabled={onlyStartLater}
-                            />
-                        }
-                    </FormattedMessage>
-                }
                 {allowStartLater && dateStart &&
                     <div className="forward-starting-input">
+                        <Label text="Start Time" />
                         <InputGroup
                             type="date"
                             min={dateToDateString(ranges[0].date)}
@@ -101,6 +90,19 @@ export default class ForwardStartingOptions extends Component {
                             />
                         }
                     </div>
+                }
+                {(allowStartLater && !onlyStartLater) &&
+                <FormattedMessage id="Start Later" defaultMessage="Start Later">
+                    {text =>
+                        <StartLaterToggleSwitch
+                            text={text}
+                            id={index}
+                            checked={!!dateStart}
+                            onClick={::this.startLaterHandler}
+                            disabled={onlyStartLater}
+                        />
+                    }
+                </FormattedMessage>
                 }
             </div>
         );

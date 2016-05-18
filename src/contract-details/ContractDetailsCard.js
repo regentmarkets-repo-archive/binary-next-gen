@@ -48,7 +48,7 @@ export default class ContractDetailsCard extends Component {
 					ticks={data}
 					type={type}
 					rangeChange={(count, durationType) =>
-						actions.getDataForContract(contract.contract_id, count, durationType)
+						actions.getDataForContract(contract.contract_id, count, durationType, type)
 					}
 					typeChange={::this.changeDataType}
 					pipSize={pipSize}
