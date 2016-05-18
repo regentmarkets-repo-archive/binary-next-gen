@@ -585,7 +585,6 @@ select {
     flex: 1;
     margin: .5rem;
     min-width: 10rem;
-    max-width: 20rem;
     text-decoration: none;
 }
 
@@ -1185,9 +1184,4 @@ input[type=number]::-webkit-outer-spin-button {
     font-weight: 300;
     text-align: center;
     padding: 0.5rem;
-}
-
-/* to hide things temporarily */
-.invisible {
-    display: none;
 }

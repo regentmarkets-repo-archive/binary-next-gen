@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import WatchlistContainer from '../watchlist/WatchlistContainer';
+// import WatchlistContainer from '../watchlist/WatchlistContainer';
 import TradingTimesContainer from '../trading-times/TradingTimesContainer';
 import AssetIndexContainer from '../asset-index/AssetIndexContainer';
 import NewsContainer from '../news/NewsContainer';
@@ -10,7 +10,7 @@ import DailyPricesContainer from '../daily-prices/DailyPricesContainer';
 import AssetDetailsContainer from '../asset-details/AssetDetailsContainer';
 
 const components = [
-	WatchlistContainer,
+	// WatchlistContainer,
 	PortfolioContainer,
 	StatementContainer,
 	TradingTimesContainer,

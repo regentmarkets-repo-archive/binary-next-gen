@@ -18,7 +18,7 @@ export default class ContractDetailsList extends Component {
 
 	render() {
 		const { contract } = this.props;
-		const sold = !!contract.sell_price;
+		// const sold = !!contract.sell_price;
 		// const potentialProfit = toMoney(contract.payout - contract.buy_price);
 		// const profit = sold && toMoney(contract.sell_price - contract.buy_price);
 

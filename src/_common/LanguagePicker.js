@@ -32,7 +32,6 @@ export default class LanguagePicker extends Component {
         return (
             <SelectGroup
                 {...this.props}
-                className="invisible"
                 options={languages}
                 value={selected}
                 onChange={::this.updateLanguage}
