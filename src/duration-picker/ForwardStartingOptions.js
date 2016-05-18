@@ -59,7 +59,8 @@ export default class ForwardStartingOptions extends Component {
         const { dateStart, forwardStartingDuration } = this.props;
         const ranges = forwardStartingDuration.range;
         const selectedDay = dateStart && new Date(dateStart * 1000);
-        const selectedRange = selectedDay && ranges.find(r => r.date.toDateString() === selectedDay.toDateString());
+        const selectedRange = selectedDay && ranges
+                .find(r => r.date.toISOString().slice(0, 10) === selectedDay.toISOString().slice(0, 10));
 
         const min = selectedDay && dateToUTCTimeString(selectedRange.open[0]);
         const max = selectedDay && dateToUTCTimeString(selectedRange.close[0]);
@@ -82,7 +83,8 @@ export default class ForwardStartingOptions extends Component {
         const onlyStartLater = allowStartLater && !options;
 
         const selectedDay = dateStart && new Date(dateStart * 1000);
-        const selectedRange = selectedDay && ranges.find(r => r.date.toDateString() === selectedDay.toDateString());
+        const selectedRange = selectedDay && ranges
+                .find(r => r.date.toISOString().slice(0, 10) === selectedDay.toISOString().slice(0, 10));
 
         const min = selectedDay && dateToUTCTimeString(selectedRange.open[0]);
         const max = selectedDay && dateToUTCTimeString(selectedRange.close[0]);
