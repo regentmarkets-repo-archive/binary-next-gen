@@ -5,7 +5,7 @@ import WebSidebar from './WebSidebar';
 import sidebarSelectors from './sidebarSelectors';
 
 @connect(sidebarSelectors)
-export default class MobileSidebar extends Component {
+export default class WebSidebarContainer extends Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 

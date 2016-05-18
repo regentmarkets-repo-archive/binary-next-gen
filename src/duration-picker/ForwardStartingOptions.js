@@ -39,19 +39,39 @@ export default class ForwardStartingOptions extends Component {
     }
 
     selectDay(e) {
-        const { dateStart } = this.props;
-        const newDayEpoch = dateToEpoch(new Date(e.target.value));
+        const { dateStart, forwardStartingDuration } = this.props;
+        const ranges = forwardStartingDuration.range;
+
+        const minDate = dateToDateString(ranges[0].date);
+        const maxDate = dateToDateString(ranges[2].date);
+        const inputValue = e.target.value;
+        if (inputValue > maxDate || inputValue < minDate) {
+            return;
+        }
+
+        const newDayEpoch = dateToEpoch(new Date(inputValue));
         const secondsPerDay = 60 * 60 * 24;
         const intraDayEpoch = dateStart % secondsPerDay;
         this.props.onStartDateChange(newDayEpoch + intraDayEpoch);
     }
 
     selectTime(e) {
-        const { dateStart } = this.props;
+        const { dateStart, forwardStartingDuration } = this.props;
+        const ranges = forwardStartingDuration.range;
+        const selectedDay = dateStart && new Date(dateStart * 1000);
+        const selectedRange = selectedDay && ranges.find(r => r.date.toDateString() === selectedDay.toDateString());
+
+        const min = selectedDay && dateToUTCTimeString(selectedRange.open[0]);
+        const max = selectedDay && dateToUTCTimeString(selectedRange.close[0]);
+        const inputValue = e.target.value;
+        if (inputValue < min || inputValue > max) {
+            return;
+        }
+
         const secondsPerDay = 60 * 60 * 24;
         const intraDayEpoch = dateStart % secondsPerDay;
         const dayEpoch = dateStart - intraDayEpoch;
-        const selectedEpoch = dayEpoch + timeStringToSeconds(e.target.value);
+        const selectedEpoch = dayEpoch + timeStringToSeconds(inputValue);
         this.props.onStartDateChange(selectedEpoch);
     }
 
