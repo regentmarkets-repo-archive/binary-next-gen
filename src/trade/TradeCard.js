@@ -30,6 +30,8 @@ const getStartLaterOnlyContract = contract => {
     return startLaterCategories;
 };
 
+//window.contracts = [];
+
 export default class TradeCard extends Component {
     shouldComponentUpdate = shouldPureComponentUpdate;
 
@@ -87,7 +89,8 @@ export default class TradeCard extends Component {
         const tradeRequiredByChart = internalTradeModelToServerTradeModel(params);
         const contractRequiredByChart = lastBoughtContract &&
             serverContractModelToChartContractModel(lastBoughtContract);
-
+        //console.log('repaint');
+        //if (contractRequiredByChart) window.contracts.push(contractRequiredByChart);
         return (
             <div disabled={disabled} className={'trade-panel'}>
                 <Modal
