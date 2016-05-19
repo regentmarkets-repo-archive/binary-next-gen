@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
 import { BinaryChart } from 'binary-charts';
 import findDeep from 'binary-utils/lib/findDeep';
 import filterObjectBy from 'binary-utils/lib/filterObjectBy';
@@ -33,7 +32,6 @@ const getStartLaterOnlyContract = contract => {
 //window.contracts = [];
 
 export default class TradeCard extends Component {
-    shouldComponentUpdate = shouldPureComponentUpdate;
 
     static defaultProps = {
         type: 'full',
@@ -55,6 +53,10 @@ export default class TradeCard extends Component {
         uiState: PropTypes.object.isRequired,
         tradingTime: PropTypes.object,
     };
+
+    shouldComponentUpdate(nextProps) {
+        return JSON.stringify(this.props) !== JSON.stringify(nextProps);
+    }
 
     render() {
         const {
@@ -89,8 +91,7 @@ export default class TradeCard extends Component {
         const tradeRequiredByChart = internalTradeModelToServerTradeModel(params);
         const contractRequiredByChart = lastBoughtContract &&
             serverContractModelToChartContractModel(lastBoughtContract);
-        //console.log('repaint');
-        //if (contractRequiredByChart) window.contracts.push(contractRequiredByChart);
+        // if (contractRequiredByChart) window.contracts.push(contractRequiredByChart);
         return (
             <div disabled={disabled} className={'trade-panel'}>
                 <Modal

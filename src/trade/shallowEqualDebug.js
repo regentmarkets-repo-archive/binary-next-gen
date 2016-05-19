@@ -38,11 +38,11 @@ export default function shallowEqual(objA: mixed, objB: mixed): boolean {
   if (is(objA, objB)) {
     return true;
   }
-
+  console.groupCollapsed();
   if (typeof objA !== 'object' || objA === null ||
       typeof objB !== 'object' || objB === null) {
     console.log('objects differ' + objA);
-    return false;
+    // return false;
   }
 
   const keysA = Object.keys(objA);
@@ -50,7 +50,7 @@ export default function shallowEqual(objA: mixed, objB: mixed): boolean {
 
   if (keysA.length !== keysB.length) {
     console.log('Different keys length');
-    return false;
+    // return false;
   }
 
   // Test for A's keys different from B.
@@ -60,9 +60,9 @@ export default function shallowEqual(objA: mixed, objB: mixed): boolean {
       !is(objA[keysA[i]], objB[keysA[i]])
     ) {
       console.log('Values differ ' + keysA[i]);
-      return false;
+      // return false;
     }
   }
-
+  console.groupEnd();
   return true;
 }
