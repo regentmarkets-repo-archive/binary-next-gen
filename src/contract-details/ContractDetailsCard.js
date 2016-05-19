@@ -6,7 +6,7 @@ export default class ContractDetailsCard extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			chartType: 'ticks',
+			chartType: 'area',
 		};
 	}
 
@@ -34,10 +34,9 @@ export default class ContractDetailsCard extends Component {
 
 	render() {
 		const { contract, chartData, actions, pipSize } = this.props;
-		const { chartType } = this.state;
 		const { ticks, candles } = chartData;
 
-		const type = (chartType === 'candles' && candles) ? 'candles' : 'ticks';
+		const type = candles ? 'candlestick' : 'area';
 		const data = type === 'candles' ? candles : ticks;
 
 		return (

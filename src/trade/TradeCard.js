@@ -29,7 +29,7 @@ const getStartLaterOnlyContract = contract => {
     return startLaterCategories;
 };
 
-//window.contracts = [];
+// window.contracts = [];
 
 export default class TradeCard extends Component {
 
