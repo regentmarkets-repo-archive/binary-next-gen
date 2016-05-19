@@ -50,5 +50,6 @@ export const serverContractModelToChartContractModel = boughtContract => {
     delete cloned.current_spot;
     delete cloned.current_spot_time;
     delete cloned.transaction_ids;
+    cloned.barrierType = 'absolute';
     return cloned;
 };
