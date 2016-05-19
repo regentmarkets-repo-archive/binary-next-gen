@@ -51,7 +51,7 @@ export default class ContractDetailsList extends Component {
 				{contract.is_forward_starting ? <ContractDetailMoney contract={contract} code="bid_price" /> : null}
 
 				<ContractDetailMoney contract={contract} code={'sell_price'} />
-				<ContractDetailMoney contract={contract} code={'sell_time'} />
+				<ContractDetailTime contract={contract} code={'sell_time'} />
 				<ContractDetailString contract={contract} code={'sell_spot'} />
 
 				<ContractDetailTime contract={contract} code={'entry_tick_time'} />

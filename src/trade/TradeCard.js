@@ -106,7 +106,7 @@ export default class TradeCard extends Component {
                         contract={contractRequiredByChart}
                         symbol={symbolName}
                         ticks={ticks}
-                        trade={tradeRequiredByChart}
+                        trade={!!contractRequiredByChart ? undefined : tradeRequiredByChart}
                         pipSize={pipSize}
                         rangeChange={(count, type) => actions.getDataForSymbol(params.symbol, count, type)}
                         tradingTime={tradingTime}
