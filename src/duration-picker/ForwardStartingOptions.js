@@ -6,9 +6,8 @@ import dateToUTCTimeString from 'binary-utils/lib/dateToUTCTimeString';
 import timeStringToSeconds from 'binary-utils/lib/timeStringToSeconds';
 import dateToDateString from 'binary-utils/lib/dateToDateString';
 import { createDefaultStartLaterEpoch } from '../trade-params/DefaultTradeParams';
-import StartLaterToggleSwitch from './StartLaterToggleSwitch';
+import M from '../_common/M';
 import Label from '../_common/Label';
-import { FormattedMessage } from 'react-intl';
 
 /**
  * assumption: for each type of contract, there will only have 1 forward starting options contract
@@ -28,11 +27,14 @@ export default class ForwardStartingOptions extends Component {
         onStartDateChange: PropTypes.func,
     };
 
-    startLaterHandler() {
+    startNow() {
+        const { onStartDateChange } = this.props;
+        onStartDateChange();
+    }
+
+    startLater() {
         const { dateStart, onStartDateChange, forwardStartingDuration } = this.props;
-        if (dateStart) {
-            onStartDateChange();
-        } else {
+        if (!dateStart) {
             const nextDayOpening = createDefaultStartLaterEpoch(forwardStartingDuration);
             onStartDateChange(nextDayOpening);
         }
@@ -77,7 +79,7 @@ export default class ForwardStartingOptions extends Component {
     }
 
     render() {
-        const { dateStart, forwardStartingDuration, index, options } = this.props;
+        const { dateStart, forwardStartingDuration, options } = this.props;
         const ranges = forwardStartingDuration.range;
         const allowStartLater = !!forwardStartingDuration;
         const onlyStartLater = allowStartLater && !options;
@@ -93,7 +95,31 @@ export default class ForwardStartingOptions extends Component {
 
         return (
             <div className="forward-starting-group">
-                {showForwardStartingInput && <Label text="Start Time" />}
+                {allowStartLater &&
+                    <div>
+                        <Label text={'Start Time'} />
+                        <div>
+                            <input
+                                type="radio"
+                                name="start-time"
+                                onChange={::this.startNow}
+                                checked={!dateStart}
+                                disabled={onlyStartLater}
+                            />
+                            <M m="Now" />
+                        </div>
+                        <div>
+                            <input
+                                type="radio"
+                                name="start-time"
+                                onChange={::this.startLater}
+                                checked={!!dateStart}
+                                disabled={!allowStartLater}
+                            />
+                            <M m="Later" />
+                        </div>
+                    </div>
+                }
                 {showForwardStartingInput &&
                     <div className="forward-starting-input">
                         <InputGroup
@@ -113,19 +139,6 @@ export default class ForwardStartingOptions extends Component {
                             />
                         }
                     </div>
-                }
-                {(allowStartLater && !onlyStartLater) &&
-                <FormattedMessage id="Start Later" defaultMessage="Start Later">
-                    {text =>
-                        <StartLaterToggleSwitch
-                            text={text}
-                            id={index}
-                            checked={!!dateStart}
-                            onClick={::this.startLaterHandler}
-                            disabled={onlyStartLater}
-                        />
-                    }
-                </FormattedMessage>
                 }
             </div>
         );
