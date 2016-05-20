@@ -5,10 +5,6 @@ import NumberColored from '../_common/NumberColored';
 
 export default class StatementRow extends Component {
 
-    static contextTypes = {
-        router: React.PropTypes.object,
-    };
-
     static propTypes = {
         actions: PropTypes.object.isRequired,
         compact: PropTypes.bool,
@@ -20,17 +16,11 @@ export default class StatementRow extends Component {
         balanceAfter: PropTypes.number.isRequired,
     };
 
-    showContractDetails(contractId) {
-        const { actions } = this.props;
-        const { router } = this.context;
-        actions.detailsForContract(true, contractId).then(() => router.push(`/statement-view/${contractId}`));
-    }
-
     render() {
-        const { contractId, compact, refN, date, actionType, amount, balanceAfter } = this.props;
+        const { actions, contractId, compact, refN, date, actionType, amount, balanceAfter } = this.props;
 
         return (
-            <tr className="statement-row" onClick={() => this.showContractDetails(contractId)}>
+            <tr className="statement-row" onClick={() => actions.detailsForContract(true, contractId)}>
                 <td><FormattedTime value={date} format="full" /></td>
                 {!compact && <td>{refN}</td>}
                 <td className="trade-action">{actionType}</td>

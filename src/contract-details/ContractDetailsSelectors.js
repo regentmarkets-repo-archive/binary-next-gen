@@ -23,7 +23,7 @@ export const dataToShow = createSelector(
 export const pipSizeSelector = createSelector(
     [assetsSelector, contractToShow],
     (assets, contract) => {
-        const symbolDetails = contract && assets.find(a => a.get('symbol') === contract.get('underlying'));
+        const symbolDetails = assets.find(a => a.get('symbol') === contract.get('underlying'));
         const pipSize = symbolDetails && pipsToDigits(symbolDetails.get('pip'));
         return pipSize;
     }

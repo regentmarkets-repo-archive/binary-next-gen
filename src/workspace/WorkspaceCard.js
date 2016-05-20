@@ -10,16 +10,15 @@ export default class WorkspaceCard extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
-		params: PropTypes.object.isRequired,
 		workspace: PropTypes.object.isRequired,
 	};
 
 	render() {
-		const { actions, params, workspace } = this.props;
+		const { actions, workspace } = this.props;
 
 		return (
 			<div id="panels">
-				<ContractDetailsModal actions={actions} params={params} />
+				<ContractDetailsModal actions={actions} />
 				<TradesContainer
 					actions={actions}
 					tradeMode={workspace.tradeMode}
