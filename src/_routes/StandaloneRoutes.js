@@ -25,8 +25,11 @@ import LayoutButtonPanel from '../layout-picker/LayoutButtonPanel';
 
 import { requireAuthOnEnter } from '../_data/Auth';
 
+import StatementTesting from '../contract-details/ForTesting';
+
 export default [
     { path: 'trades', component: TradesPage, onEnter: requireAuthOnEnter },
+    { path: 'statement-view/:id', component: StatementTesting, onEnter: requireAuthOnEnter },
     { path: 'trade', component: SingleTradePage, onEnter: requireAuthOnEnter },
     { path: 'jp-trade', component: JpTradePage, onEnter: requireAuthOnEnter },
     { path: 'header', component: WebHeader, onEnter: requireAuthOnEnter },
