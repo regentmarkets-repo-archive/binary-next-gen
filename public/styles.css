@@ -331,7 +331,7 @@ nav.sidebar {
 .buy-btn, .buy-again-btn, .sell-at-market-btn {
     font-size: 1.25em;
     padding: .5rem;
-    width: 100%;
+    width: auto;
 }
 
 fieldset {
@@ -1047,7 +1047,9 @@ input[type=number]::-webkit-outer-spin-button {
 
 .vertical .trade-params, .vertical .contract-receipt-container {
     overflow: auto;
-    max-width: 10rem;
+    width: 15.5rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
     margin-right: .5rem;
 }
 
@@ -1059,16 +1061,16 @@ input[type=number]::-webkit-outer-spin-button {
     flex-wrap: wrap;
 }
 
-.horizontal .trade-params > *,
-.mobile-content .trade-params > * {
-    flex: 1;
+.horizontal .trade-params > :not(button),
+.mobile-content .trade-params > :not(button) {
+    flex: 1 0 auto;
     f-webkit-flex: 1 1 auto;         /* workaround for safari bug */
 }
 
 .horizontal .trade-params > div,
 .mobile-content .trade-params > div {
     margin-right: .5rem;
-    min-width: 9rem;
+    width: 12rem;
 }
 
 .vertical .trade-params {
@@ -1154,10 +1156,22 @@ input[type=number]::-webkit-outer-spin-button {
 .contract-details {
     display: flex;
 }
+/* contract detail */
 
+/* default */
 .contract-detail {
     display: flex;
-    background-color: fred;
+    flex: 1 0 auto;
+    border: solid 1px black;
+    border-bottom: none;
+}
+
+.contract-detail > * {
+    flex: 0 0 auto;
+}
+
+.contract-detail:last-child {
+    border-bottom: solid 1px black;
 }
 
 .contract-detail > *:first-child {
@@ -1165,14 +1179,40 @@ input[type=number]::-webkit-outer-spin-button {
     opacity: .5;
     text-transform: uppercase;
     font-weight: bold;
+    border-right: solid 1px black;
 }
 
+/* horizontal */
 .horizontal .contract-detail {
     flex-direction: column;
     margin: 0 .5rem .5rem 0;
+    width: 8rem;
+    flex-grow: 0;
+    border-bottom: solid 1px black;
+    text-align: center;
 }
 
-.horizontal .trade-panel-receipt {
+.horizontal .contract-detail > *:first-child {
+    border-right: none;
+    border-bottom: solid 1px black;
+}
+
+.contract-static-info, .contract-dynamic-info {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+}
+
+.horizontal .contract-static-info, .horizontal .contract-dynamic-info {
+    display: flex;
+    flex-grow: 0;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+/* contract detail */
+
+.trade-panel-receipt {
     display: flex;
     flex-wrap: wrap;
 }

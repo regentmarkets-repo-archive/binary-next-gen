@@ -52,7 +52,7 @@ export default class ContractDetailsCard extends Component {
 					typeChange={::this.changeDataType}
 					pipSize={pipSize}
 				/>
-				<ContractReceipt contract={contract} />
+				<ContractReceipt actions={actions} contract={contract} />
 			</div>
 		);
 	}

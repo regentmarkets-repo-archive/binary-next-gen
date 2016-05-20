@@ -9,7 +9,7 @@ export default class ContractReceipt extends Component {
 
 	static propTypes = {
 		contract: PropTypes.object.isRequired,
-		actions: PropTypes.object,
+		actions: PropTypes.object.isRequired,
 		onTradeAgainClicked: PropTypes.func,
 	};
 
