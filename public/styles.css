@@ -331,7 +331,7 @@ nav.sidebar {
 .buy-btn, .buy-again-btn, .sell-at-market-btn {
     font-size: 1.25em;
     padding: .5rem;
-    width: 100%;
+    width: auto;
 }
 
 fieldset {
@@ -1047,7 +1047,9 @@ input[type=number]::-webkit-outer-spin-button {
 
 .vertical .trade-params, .vertical .contract-receipt-container {
     overflow: auto;
-    max-width: 10rem;
+    width: 15.5rem;
+    padding-left: .5rem;
+    padding-right: .5rem;
     margin-right: .5rem;
 }
 
@@ -1059,16 +1061,16 @@ input[type=number]::-webkit-outer-spin-button {
     flex-wrap: wrap;
 }
 
-.horizontal .trade-params > *,
-.mobile-content .trade-params > * {
-    flex: 1;
+.horizontal .trade-params > :not(button),
+.mobile-content .trade-params > :not(button) {
+    flex: 1 0 auto;
     f-webkit-flex: 1 1 auto;         /* workaround for safari bug */
 }
 
 .horizontal .trade-params > div,
 .mobile-content .trade-params > div {
     margin-right: .5rem;
-    min-width: 9rem;
+    width: 12rem;
 }
 
 .vertical .trade-params {

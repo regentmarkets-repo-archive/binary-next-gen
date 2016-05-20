@@ -79,7 +79,7 @@ export default class ForwardStartingOptions extends Component {
     }
 
     render() {
-        const { dateStart, forwardStartingDuration, options } = this.props;
+        const { dateStart, forwardStartingDuration, index, options } = this.props;
         const ranges = forwardStartingDuration.range;
         const allowStartLater = !!forwardStartingDuration;
         const onlyStartLater = allowStartLater && !options;
@@ -101,7 +101,7 @@ export default class ForwardStartingOptions extends Component {
                         <div>
                             <input
                                 type="radio"
-                                name="start-time"
+                                name={`start-time${index}`}
                                 onChange={::this.startNow}
                                 checked={!dateStart}
                                 disabled={onlyStartLater}
@@ -111,7 +111,7 @@ export default class ForwardStartingOptions extends Component {
                         <div>
                             <input
                                 type="radio"
-                                name="start-time"
+                                name={`start-time${index}`}
                                 onChange={::this.startLater}
                                 checked={!!dateStart}
                                 disabled={!allowStartLater}
