@@ -1,30 +1,40 @@
 import React, { PropTypes, Component } from 'react';
-import { connect } from 'react-redux';
 import Modal from '../containers/Modal';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import ContractDetailsContainer from '../contract-details/ContractDetailsContainer';
-import ContractDetailsModalSelector from './ContractDetailsModalSelector';
 
-@connect(ContractDetailsModalSelector)
 export default class ContractDetailsModal extends Component {
+    static contextTypes = {
+        router: React.PropTypes.object,
+    };
+
+    static defaultProps = {
+        params: {},
+    };
+
     static propTypes = {
         actions: PropTypes.object.isRequired,
-        contractShown: PropTypes.string,
+        params: PropTypes.object.isRequired,
     };
 
     shouldComponentUpdate = shouldPureComponentUpdate;
 
+    closeModal() {
+        const { router } = this.context;
+        router.goBack();
+    }
+
     render() {
-        const { actions, contractShown } = this.props;
+        const { actions, params } = this.props;
         return (
             <Modal
-                shown={!!contractShown}
-                onClose={() => actions.detailsForContract(false, undefined)}
+                shown={!!params.id}
+                onClose={::this.closeModal}
             >
-                {contractShown &&
+                {params.id &&
                 <ContractDetailsContainer
                     actions={actions}
-                    params={{ id: contractShown }}
+                    params={params}
                 />}
             </Modal>
         );

@@ -20,12 +20,18 @@ export default class ContractDetailsContainer extends Component {
 			ticks: PropTypes.array,
 			candles: PropTypes.array,
 		}),
+		params: PropTypes.object.isRequired,
 		actions: PropTypes.object.isRequired,
 	};
 
 	componentWillMount() {
-		const { actions, chartData, contract } = this.props;
+		const { actions, chartData, contract, params } = this.props;
 		const { ticks } = chartData;
+
+		if (!contract) {
+			actions.subscribeToOpenContract(params.id);
+			return;
+		}
 
 		if (!ticks) {
 			actions.getDataForContract(contract.get('contract_id'), 1, 'all', 'ticks');
@@ -33,6 +39,9 @@ export default class ContractDetailsContainer extends Component {
 	}
 
 	render() {
+		if (!this.props.contract) {
+			return null;
+		}
 		return (
 			<ContractDetailsCard
 				{...immutableChildrenToJS(this.props)}

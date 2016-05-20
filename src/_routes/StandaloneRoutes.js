@@ -22,11 +22,13 @@ import SingleTradePage from '../trade/SingleTradePage';
 import JpTradePage from '../jp-trade/JpTradePage';
 import WorkspaceContainer from '../workspace/WorkspaceContainer';
 import LayoutButtonPanel from '../layout-picker/LayoutButtonPanel';
+import WebCard from '../web/WebCard';
 
 import { requireAuthOnEnter } from '../_data/Auth';
 
 export default [
     { path: 'trades', component: TradesPage, onEnter: requireAuthOnEnter },
+    { path: 'statement-view/:id', component: WebCard, onEnter: requireAuthOnEnter },
     { path: 'trade', component: SingleTradePage, onEnter: requireAuthOnEnter },
     { path: 'jp-trade', component: JpTradePage, onEnter: requireAuthOnEnter },
     { path: 'header', component: WebHeader, onEnter: requireAuthOnEnter },

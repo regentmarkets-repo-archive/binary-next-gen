@@ -7,15 +7,16 @@ export default class WebCard extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
+		params: PropTypes.object.isRequired,
 	};
 
 	render() {
-		const { actions } = this.props;
+		const { actions, params } = this.props;
 
 		return (
 			<div id="screen">
 				<WebHeader actions={actions} />
-				<WorkspaceContainer actions={actions} />
+				<WorkspaceContainer actions={actions} params={params} />
 				<Footer actions={actions} />
 			</div>
 		);
