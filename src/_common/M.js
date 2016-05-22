@@ -19,13 +19,13 @@ export default class M extends Component {
 		const { m, values } = this.props;
 
 		return (
-			<span {...this.props}>
-				<FormattedMessage
-					id={m}
-					defaultMessage={m}
-					values={values}
-				/>
-			</span>
+			<FormattedMessage id={m} defaultMessage={m} values={values}>
+				{message =>
+					<span {...this.props}>
+						{message}
+					</span>
+				}
+			</FormattedMessage>
 		);
 	}
 }

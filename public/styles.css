@@ -1175,7 +1175,6 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .contract-detail > *:first-child {
-    width: 7rem;
     opacity: .5;
     text-transform: uppercase;
     font-weight: bold;

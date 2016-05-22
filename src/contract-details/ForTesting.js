@@ -2,6 +2,12 @@ import React, { PropTypes, Component } from 'react';
 import ContractDetailsContainer from './ContractDetailsContainer';
 
 export default class ForTesting extends Component {
+
+    static propTypes = {
+        actions: PropTypes.object.isRequired,
+        params: PropTypes.object.isRequired,
+    };
+
     constructor(props) {
         super(props);
         this.state = {
