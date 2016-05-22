@@ -3,18 +3,18 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 import requestFullScreen from 'binary-utils/lib/requestFullscreen';
 import ClockContainer from './ClockContainer';
 import LanguagePicker from '../_common/LanguagePicker';
-import Perf from 'react-addons-perf';
+// import Perf from 'react-addons-perf';
 
-const performPerfTest = () => {
-	Perf.start();
-	setTimeout(() => {
-		Perf.stop();
-		const measurements = Perf.getLastMeasurements();
-		// Perf.printInclusive(measurements);
-		Perf.printWasted(measurements);
-		// Perf.printOperations(measurements);
-	}, 10000);
-};
+// const performPerfTest = () => {
+// 	Perf.start();
+// 	setTimeout(() => {
+// 		Perf.stop();
+// 		const measurements = Perf.getLastMeasurements();
+// 		// Perf.printInclusive(measurements);
+// 		Perf.printWasted(measurements);
+// 		// Perf.printOperations(measurements);
+// 	}, 10000);
+// };
 
 // console.log(process.env !== 'production');
 
@@ -39,7 +39,7 @@ export default class Footer extends Component {
 				<div id="clock" >
 					<ClockContainer />
 				</div>
-				<button className="btn-secondary" onClick={performPerfTest}>Perf Test</button>
+				{/* <button className="btn-secondary" onClick={performPerfTest}>Perf Test</button> */}
 				<LanguagePicker {...this.props} className="language-picker" />
 			</div>
 		);
