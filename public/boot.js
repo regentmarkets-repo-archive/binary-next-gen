@@ -58,7 +58,7 @@
     parseUrl();
 
     const lang = window.BinaryBoot.language;
-    const oauthUrl = 'https://www.binary.com/oauth2/authorize?app_id=' + appId + '&l=' + lang;
+    const oauthUrl = 'https://oauth.binary.com/oauth2/authorize?app_id=' + appId + '&l=' + lang;
 
     if (!window.BinaryBoot.accounts || window.BinaryBoot.accounts.length === 0) {
         window.location = oauthUrl;
