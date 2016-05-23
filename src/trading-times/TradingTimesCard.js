@@ -18,7 +18,8 @@ export default class TradingTimesCard extends Component {
 	assetMatchFilter(symbolName, filter) {
 		const { assets } = this.props;
 		const assetObj = assets.find(x => x.symbol === symbolName);
-		return assetObj.market === filter || assetObj.submarket === filter;
+		const returnObj = assetObj ? (assetObj.market === filter || assetObj.submarket === filter) : null;
+		return returnObj;
 	}
 
 	render() {
