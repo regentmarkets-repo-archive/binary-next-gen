@@ -16,7 +16,7 @@ export default class WebSidebarContainer extends Component {
 
 	render() {
 		const { loginid } = this.props;
-		console.log(immutableChildrenToJS(this.props));
+
 		return (
 			<div>
 				<input id="hamburger-closer" type="radio" name="hamburger" defaultChecked />

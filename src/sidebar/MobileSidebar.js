@@ -21,7 +21,7 @@ export default class MobileSidebar extends Component {
 
 	render() {
 		const { loginid, email, accounts } = this.props;
-		console.log(accounts);
+
 		return (
 			<nav className="sidebar">
 				<div className="account-info">
@@ -29,6 +29,7 @@ export default class MobileSidebar extends Component {
 					{email}<br />
 					<BalanceContainer />
 				</div>
+				{accounts.map(x => <SidebarBtn text={x.account} />)}
 				<SidebarBtn to="/" img="img/trade.svg" text="Trade" />
 				{/* <SidebarBtn to="/watchlist-mobile" img="img/watchlist.svg" text="Watchlist" /> */}
 				<SidebarBtn to="/portfolio-mobile" img="img/portfolio.svg" text="Open Positions" />

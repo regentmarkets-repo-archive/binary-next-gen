@@ -8,8 +8,12 @@
     function parseOAuthResponse(responseUrl) {
         const matcher = /acct\d=(\w+)&token\d=([\w-]+)/g;
         let urlParts = responseUrl.split('/redirect?');
-        if (urlParts.length !== 2) urlParts = responseUrl.split('/redirect%23');
-        if (urlParts.length !== 2) throw new Error('Not a valid url');
+        if (urlParts.length !== 2) {
+            urlParts = responseUrl.split('/redirect%23'); // workaround for server bug
+        }
+        if (urlParts.length !== 2) {
+            throw new Error('Not a valid url');
+        }
 
         const params = urlParts[1].split(matcher);
 
