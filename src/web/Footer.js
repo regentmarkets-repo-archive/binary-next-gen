@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import requestFullScreen from 'binary-utils/lib/requestFullscreen';
 import ClockContainer from './ClockContainer';
-import LanguagePicker from '../_common/LanguagePicker';
+// import LanguagePicker from '../_common/LanguagePicker';
 // import Perf from 'react-addons-perf';
 
 // const performPerfTest = () => {
@@ -40,7 +40,7 @@ export default class Footer extends Component {
 					<ClockContainer />
 				</div>
 				{/* <button className="btn-secondary" onClick={performPerfTest}>Perf Test</button> */}
-				<LanguagePicker {...this.props} className="language-picker" />
+				{/* <LanguagePicker {...this.props} className="language-picker" /> */}
 			</div>
 		);
 	}
