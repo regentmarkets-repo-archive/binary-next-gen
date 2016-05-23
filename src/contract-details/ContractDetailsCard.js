@@ -2,11 +2,17 @@ import React, { PropTypes, Component } from 'react';
 import { BinaryChart } from 'binary-charts';
 import ContractReceipt from './ContractReceipt';
 
+const chartToDataType = {
+	area: 'ticks',
+	candlestick: 'candles',
+};
+
 export default class ContractDetailsCard extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			chartType: 'area',
+			dataType: 'ticks',
 		};
 	}
 
@@ -20,7 +26,7 @@ export default class ContractDetailsCard extends Component {
 		}),
 	};
 
-	changeDataType(type) {
+	changeChartType(type) {
 		const { actions, contract } = this.props;
 		const { chartType } = this.state;
 
@@ -28,16 +34,17 @@ export default class ContractDetailsCard extends Component {
 			return;
 		}
 
-		actions.getDataForContract(contract.contract_id, 1, 'all', type);
-		this.setState({ chartType: type });
+		const newDataType = chartToDataType[type];
+		actions.getDataForContract(contract.contract_id, 1, 'all', newDataType);
+		this.setState({ chartType: type, dataType: newDataType });
 	}
 
 	render() {
 		const { contract, chartData, actions, pipSize } = this.props;
+		const { chartType, dataType } = this.state;
 		const { ticks, candles } = chartData;
 
-		const type = candles ? 'candlestick' : 'area';
-		const data = type === 'candles' ? candles : ticks;
+		const data = dataType === 'candles' ? candles : ticks;
 
 		return (
 			<div className="contract-details">
@@ -45,11 +52,11 @@ export default class ContractDetailsCard extends Component {
 					className="trade-chart"
 					contract={contract}
 					ticks={data}
-					type={type}
+					type={chartType}
 					rangeChange={(count, durationType) =>
-						actions.getDataForContract(contract.contract_id, count, durationType, type)
+						actions.getDataForContract(contract.contract_id, count, durationType, dataType)
 					}
-					typeChange={::this.changeDataType}
+					typeChange={!contract.tick_count && ::this.changeChartType}
 					pipSize={pipSize}
 				/>
 				<ContractReceipt actions={actions} contract={contract} />
