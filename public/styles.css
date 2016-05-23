@@ -1239,5 +1239,5 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .payout-display span {
-    font-size: 1.5;
+    font-size: 1.2em;
 }
