@@ -56,7 +56,7 @@ export default class ContractDetailsCard extends Component {
 					rangeChange={(count, durationType) =>
 						actions.getDataForContract(contract.contract_id, count, durationType, dataType)
 					}
-					typeChange={::this.changeChartType}
+					typeChange={!contract.tick_count && ::this.changeChartType}
 					pipSize={pipSize}
 				/>
 				<ContractReceipt actions={actions} contract={contract} />
