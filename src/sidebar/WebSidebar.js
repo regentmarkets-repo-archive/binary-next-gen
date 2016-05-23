@@ -12,11 +12,15 @@ export default class WebSidebar extends Component {
 	static propTypes = {
 		email: PropTypes.string.isRequired,
 		loginid: PropTypes.string.isRequired,
+		accounts: PropTypes.arrayOf(PropTypes.shape({
+			account: PropTypes.string.isRequired,
+			token: PropTypes.string.isRequired,
+		})),
 	};
 
 	render() {
-		const { loginid, email } = this.props;
-
+		const { loginid, email, accounts } = this.props;
+		console.log(accounts);
 		return (
 			<nav className="sidebar">
 				<div className="account-info">

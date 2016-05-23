@@ -34,14 +34,17 @@ export const signout = (nextState, replace) => {
 
 export const requireAuthOnEnter = (nextState, replace, callback) => {
     const authorized = store.getState().appState.get('authorized');
-    if (authorized) {
-        const isVirtual = store.getState().account.get('is_virtual') === 1;
-        if (!isVirtual) {
-            showError('This site currently in Preview, only Virtual Accounts are allowed.');
-            signout(nextState, replace);
-        }
-    } else {
-        replace({ pathname: '/signin', state: nextState });
+    if (!authorized) {
+        window.location = 'https://www.binary.com/oauth2/authorize?app_id=1006';
     }
+    // if (authorized) {
+    //     const isVirtual = store.getState().account.get('is_virtual') === 1;
+    //     if (!isVirtual) {
+    //         showError('This site currently in Preview, only Virtual Accounts are allowed.');
+    //         signout(nextState, replace);
+    //     }
+    // } else {
+    //     replace({ pathname: '/signin', state: nextState });
+    // }
     callback();
 };

@@ -4,6 +4,7 @@ import { UPDATE_BOOT } from '../_constants/ActionTypes';
 const initialState = fromJS({
     language: 'EN',
     theme: 'light',
+    accounts: [],
 });
 
 export default (state = initialState, action) => {

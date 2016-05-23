@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
+import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
 import WebSidebar from './WebSidebar';
 import sidebarSelectors from './sidebarSelectors';
 
@@ -15,7 +16,7 @@ export default class WebSidebarContainer extends Component {
 
 	render() {
 		const { loginid } = this.props;
-
+		console.log(immutableChildrenToJS(this.props));
 		return (
 			<div>
 				<input id="hamburger-closer" type="radio" name="hamburger" defaultChecked />
@@ -23,7 +24,7 @@ export default class WebSidebarContainer extends Component {
 				<input id="hamburger-opener" className="hamburger" type="radio" name="hamburger" />
 				<label id="hamburger-btn" htmlFor="hamburger-opener" className="toolbar-btn">
 					{loginid}
-					<WebSidebar />
+					<WebSidebar {...immutableChildrenToJS(this.props)} />
 				</label>
 			</div>
 		);

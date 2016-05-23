@@ -1,11 +1,11 @@
 import { createSelector } from 'reselect';
-
-const accountSelector = state => state.account;
+import { accountSelector, bootSelector } from '../_store/directSelectors';
 
 export default createSelector(
-    [accountSelector],
-    account => ({
-        loginid: account.get('loginid'),
-        email: account.get('email'),
+    [accountSelector, bootSelector],
+    (currentAccount, boot) => ({
+        loginid: currentAccount.get('loginid'),
+        email: currentAccount.get('email'),
+        accounts: boot.get('accounts'),
     })
 );
