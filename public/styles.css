@@ -3,6 +3,10 @@ body {
     overflow: hidden;
 }
 
+button {
+    margin-right: .2rem;
+}
+
 #screen {
     font-size: 12px;
 }

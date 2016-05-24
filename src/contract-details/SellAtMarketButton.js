@@ -20,7 +20,7 @@ export default class SellAtMarketButton extends Component {
 				className="sell-at-market-btn"
 				onClick={onClick}
 			>
-				<M m="Sell at Market" />
+				<M m="Sell at Market " />
 				{validToSell &&
 					<NumberPlain
 						value={contract.bid_price}
