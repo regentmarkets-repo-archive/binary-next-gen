@@ -52,7 +52,7 @@ export default class ContractDetailsCard extends Component {
 				<h5>{contract.longcode}</h5>
 				<div className="contract-details">
 					<BinaryChart
-						className="trade-chart"
+						className="contract-chart"
 						defaultRange={6}
 						contract={contract}
 						ticks={data}
