@@ -99,24 +99,26 @@ export default class ForwardStartingOptions extends Component {
                     <div>
                         <Label text={'Start Time'} />
                         <div>
-                            <input
-                                type="radio"
-                                name={`start-time${index}`}
-                                onChange={::this.startNow}
-                                checked={!dateStart}
-                                disabled={onlyStartLater}
-                            />
-                            <M m="Now" />
-                        </div>
-                        <div>
-                            <input
-                                type="radio"
-                                name={`start-time${index}`}
-                                onChange={::this.startLater}
-                                checked={!!dateStart}
-                                disabled={!allowStartLater}
-                            />
-                            <M m="Later" />
+                            <label>
+                                <input
+                                    type="radio"
+                                    name={`start-time${index}`}
+                                    onChange={::this.startNow}
+                                    checked={!dateStart}
+                                    disabled={onlyStartLater}
+                                />
+                                <M m="Now" />
+                            </label>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name={`start-time${index}`}
+                                    onChange={::this.startLater}
+                                    checked={!!dateStart}
+                                    disabled={!allowStartLater}
+                                />
+                                <M m="Later" />
+                            </label>
                         </div>
                     </div>
                 }

@@ -50,7 +50,7 @@ export default class AssetPickerItem extends Component {
 					<td>
 						{asset.name}
 					</td>
-					<td style={{ textAlign: 'center' }}>
+					<td style={{ textAlign: 'right' }}>
 						<OpenCloseNotice isOpen={isOpen} />
 					</td>
 				</tr>
