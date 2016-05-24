@@ -25,27 +25,23 @@ export default class ContractDetailsList extends Component {
 
 		return (
 			<div className="trade-panel-receipt">
-				<div className="contract-static-info">
-					<ContractDetailString contract={contract} code={'contract_id'} />
-					<ContractDetailCustom
-						label="Reference ID"
-						value={transactionIdsToString(contract.transaction_ids)}
-					/>
-					<ContractDetailTime contract={contract} code={'date_start'} />
-					<ContractDetailString contract={contract} code={'entry_spot'} />
-					<ContractDetailTime contract={contract} code={'entry_tick_time'} />
-					{contract.barrier && <ContractDetailCustom label={'Barrier'} value={contract.barrier} />}
-					{contract.low_barrier && <ContractDetailCustom label={'Barrier'} value={contract.low_barrier} />}
-					{contract.high_barrier && <ContractDetailCustom label={'Barrier'} value={contract.high_barrier} />}
-					<ContractDetailString contract={contract} code={'buy_price'} />
-				</div>
-				<div className="contract-dynamic-info">
-					<ContractDetailString contract={contract} code={'exit_tick'} />
-					<ContractDetailTime contract={contract} code={'exit_tick_time'} />
-					{contract.is_forward_starting ? <ContractDetailMoney contract={contract} code="bid_price" /> : null}
-					<ContractDetailMoney contract={contract} code={'sell_price'} />
-					<ContractDetailTime contract={contract} code={'sell_time'} />
-				</div>
+				<ContractDetailString contract={contract} code={'contract_id'} />
+				<ContractDetailCustom
+					label="Reference ID"
+					value={transactionIdsToString(contract.transaction_ids)}
+				/>
+				<ContractDetailTime contract={contract} code={'date_start'} />
+				<ContractDetailString contract={contract} code={'entry_spot'} />
+				<ContractDetailTime contract={contract} code={'entry_tick_time'} />
+				{contract.barrier && <ContractDetailCustom label={'Barrier'} value={contract.barrier} />}
+				{contract.low_barrier && <ContractDetailCustom label={'Barrier'} value={contract.low_barrier} />}
+				{contract.high_barrier && <ContractDetailCustom label={'Barrier'} value={contract.high_barrier} />}
+				<ContractDetailMoney contract={contract} code={'buy_price'} />
+				<ContractDetailString contract={contract} code={'exit_tick'} />
+				<ContractDetailTime contract={contract} code={'exit_tick_time'} />
+				{contract.is_forward_starting ? <ContractDetailMoney contract={contract} code="bid_price" /> : null}
+				<ContractDetailMoney contract={contract} code={'sell_price'} />
+				<ContractDetailTime contract={contract} code={'sell_time'} />
 
 				{/* <ContractDetailCustom label={'Remaining Time'} /> */}
 				{/* <ContractDetailMoney contract={contract} code={'buy_price'} /> */}

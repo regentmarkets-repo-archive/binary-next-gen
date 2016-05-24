@@ -47,19 +47,22 @@ export default class ContractDetailsCard extends Component {
 		const data = dataType === 'candles' ? candles : ticks;
 
 		return (
-			<div className="contract-details">
-				<BinaryChart
-					className="trade-chart"
-					contract={contract}
-					ticks={data}
-					type={chartType}
-					rangeChange={(count, durationType) =>
-						actions.getDataForContract(contract.contract_id, count, durationType, dataType)
-					}
-					typeChange={!contract.tick_count && ::this.changeChartType}
-					pipSize={pipSize}
-				/>
-				<ContractReceipt actions={actions} contract={contract} />
+			<div>
+				<h5>{contract.longcode}</h5>
+				<div className="contract-details">
+					<BinaryChart
+						className="trade-chart"
+						contract={contract}
+						ticks={data}
+						type={chartType}
+						rangeChange={(count, durationType) =>
+							actions.getDataForContract(contract.contract_id, count, durationType, dataType)
+						}
+						typeChange={!contract.tick_count && ::this.changeChartType}
+						pipSize={pipSize}
+					/>
+					<ContractReceipt actions={actions} contract={contract} />
+				</div>
 			</div>
 		);
 	}

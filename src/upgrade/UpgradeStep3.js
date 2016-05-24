@@ -111,7 +111,7 @@ export default class UpgradeStep3 extends Component {
 							onClick={::this.checkBoxClicked}
 						/>
 						<span>I have read and agree to the </span>
-						<a href="https://www.binary.com/terms-and-conditions" target="_blank">terms and conditions</a>
+						<a href="https://binary.com/terms-and-conditions" target="_blank">terms and conditions</a>
 						<span> of the site.</span>
 					</label>
 				</p>

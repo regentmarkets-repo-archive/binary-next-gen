@@ -1150,60 +1150,35 @@ input[type=number]::-webkit-outer-spin-button {
     display: flex;
 }
 
-.contract-details {
-    display: flex;
-}
-/* contract detail */
-
 /* default */
 .contract-detail {
     display: flex;
-    flex: 1 0 auto;
-    border: solid 1px black;
-    border-bottom: none;
+    padding: .125rem;
+    margin: .125rem;
+    border-radius: 2px;
 }
 
-.contract-detail > * {
-    flex: 0 0 auto;
+.modal .contract-detail {
+    width: 100%;
+    margin-left: -.25rem;
 }
 
-.contract-detail:last-child {
-    border-bottom: solid 1px black;
+.contract-detail > span {
+    flex: 1;
 }
 
 .contract-detail > *:first-child {
     opacity: .5;
     text-transform: uppercase;
     font-weight: bold;
-    border-right: solid 1px black;
 }
 
 /* horizontal */
 .horizontal .contract-detail {
     flex-direction: column;
-    margin: 0 .5rem .5rem 0;
     width: 8rem;
-    flex-grow: 0;
-    border-bottom: solid 1px black;
+    background-color: rgba(42, 48, 82, .1);
     text-align: center;
-}
-
-.horizontal .contract-detail > *:first-child {
-    border-right: none;
-    border-bottom: solid 1px black;
-}
-
-.contract-static-info, .contract-dynamic-info {
-    display: flex;
-    flex-grow: 1;
-    flex-direction: column;
-}
-
-.horizontal .contract-static-info, .horizontal .contract-dynamic-info {
-    display: flex;
-    flex-grow: 0;
-    flex-wrap: wrap;
-    flex-direction: row;
 }
 
 /* contract detail */
@@ -1218,17 +1193,25 @@ input[type=number]::-webkit-outer-spin-button {
     max-width: 15rem;
 }
 
+.modal h5 {
+    margin: -.5rem 0 .5rem 0;
+    text-align: center;
+}
+
+.modal .contract-details {
+    display: flex;
+}
+
 .modal .contract-receipt {
     max-width: 25rem;
 }
 
 .modal .trade-chart {
-    min-width: 40rem;
+    max-width: 45rem;
 }
 
 .contract-receipt {
-    border-style: solid;
-    padding-left: .5rem;
+    margin-left: 1rem;
 }
 
 .receipt-header {

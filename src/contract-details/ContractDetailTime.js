@@ -19,7 +19,7 @@ export default class ContractDetailTime extends Component {
 		return (
 			<div className="contract-detail">
 				<M m={contractCodeToText(code)} />
-				{contract[code] ? epochToGMTString(contract[code]) : '–'}
+				<span>{contract[code] ? epochToGMTString(contract[code]) : '–'}</span>
 			</div>
 		);
 	}

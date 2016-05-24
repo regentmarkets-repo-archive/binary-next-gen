@@ -15,7 +15,7 @@ export default class ContractDetailString extends Component {
 		return (
 			<div className="contract-detail">
 				<M m={contractCodeToText(code)} />
-				{contract[code] || '–'}
+				<span>{contract[code] || '–'}</span>
 			</div>
 		);
 	}

@@ -14,7 +14,7 @@ export default class ContractDetailCustom extends Component {
 		return (
 			<div className="contract-detail">
 				<M m={label} />
-				{value || '–'}
+				<span>{value || '–'}</span>
 			</div>
 		);
 	}

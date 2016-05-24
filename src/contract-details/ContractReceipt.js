@@ -18,7 +18,6 @@ export default class ContractReceipt extends Component {
 
 		return (
 			<div className="contract-receipt">
-				<h6>{contract.longcode}</h6>
 				<ContractDetailsList contract={contract} />
 				<SellAtMarketButton
 					contract={contract}
