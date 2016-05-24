@@ -169,7 +169,7 @@ export default {
         null,
         "عمل"
     ],
-    "Credit/Debit": [
+    "Credit / Debit": [
         null,
         "ائتمان/خصم"
     ],

@@ -168,7 +168,7 @@ export default {
         null,
         "Hành động"
     ],
-    "Credit/Debit": [
+    "Credit / Debit": [
         null,
         "Tín dụng/Ghi nợ"
     ],

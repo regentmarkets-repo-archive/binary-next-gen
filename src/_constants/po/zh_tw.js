@@ -168,7 +168,7 @@ export default {
         null,
         "動作"
     ],
-    "Credit/Debit": [
+    "Credit / Debit": [
         null,
         "借記/貸記"
     ],

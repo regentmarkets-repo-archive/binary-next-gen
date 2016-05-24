@@ -169,7 +169,7 @@ export default {
         null,
         "Ação"
     ],
-    "Credit/Debit": [
+    "Credit / Debit": [
         null,
         "Crédito/Débito"
     ],

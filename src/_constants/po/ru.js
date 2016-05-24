@@ -169,7 +169,7 @@ export default {
         null,
         "Акт"
     ],
-    "Credit/Debit": [
+    "Credit / Debit": [
         null,
         "Кредит/Дебет"
     ],

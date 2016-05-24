@@ -169,7 +169,7 @@ export default {
         null,
         "Czynność"
     ],
-    "Credit/Debit": [
+    "Credit / Debit": [
         null,
         "Winien/Ma"
     ],

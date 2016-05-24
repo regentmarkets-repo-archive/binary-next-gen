@@ -29,7 +29,7 @@ export default class TradingTimesCard extends Component {
 
 		return (
 			<div className="trading-times-card">
-				<div className="row">
+				<div className="trading-times-filter">
 					<MarketPickerContainer
 						onChange={x => actions.updateTradingTimesFilter(x)}
 						allOptionShown={false}

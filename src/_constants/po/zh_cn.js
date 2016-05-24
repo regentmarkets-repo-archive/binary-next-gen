@@ -170,7 +170,7 @@ export default {
         null,
         "操作"
     ],
-    "Credit/Debit": [
+    "Credit / Debit": [
         null,
         "借方/贷方"
     ],

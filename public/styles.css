@@ -69,6 +69,7 @@ input::-webkit-clear-button { /* Removes blue cross */
 .workspace-panel {
     overflow: auto;
     display: flex;
+    align-items: flex-start;
 }
 
 .workspace-panel > * {
@@ -290,6 +291,10 @@ nav.sidebar {
     flex-direction: column;
 }
 
+.statement-card [role=tablist] {
+    margin-bottom: 0;
+}
+
 .news-list-card, .asset-index-card, .trading-times-card, .video-list, .statement-list {
     overflow: auto;
 }
@@ -477,10 +482,6 @@ fieldset {
 
 #web-sidebar .toolbar-btn {
     height: 4rem;
-}
-
-.market-submarket-picker {
-    margin-bottom: .5rem;
 }
 
 .button-list {
@@ -1223,4 +1224,9 @@ input[type=number]::-webkit-outer-spin-button {
 
 .payout-display span {
     font-size: 1.2em;
+}
+
+.trading-times-filter {
+    display: flex;
+    margin-bottom: -.5rem;
 }

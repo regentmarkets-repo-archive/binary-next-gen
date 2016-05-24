@@ -168,7 +168,7 @@ export default {
         null,
         ""
     ],
-    "Credit/Debit": [
+    "Credit / Debit": [
         null,
         ""
     ],

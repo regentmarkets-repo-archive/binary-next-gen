@@ -168,7 +168,7 @@ export default {
         null,
         "売買"
     ],
-    "Credit/Debit": [
+    "Credit / Debit": [
         null,
         "クレジット/デビット"
     ],

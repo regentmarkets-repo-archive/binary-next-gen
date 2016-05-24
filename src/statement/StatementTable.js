@@ -34,7 +34,7 @@ export default class StatementTable extends Component {
 							<M m="Action" />
 						</th>
 						<th>
-							<M m="Credit/Debit" />
+							<M m="Credit / Debit" />
 						</th>
 						<th>
 							<M m="Balance" /> ({currency})

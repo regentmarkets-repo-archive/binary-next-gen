@@ -14,7 +14,7 @@ export default class TradingTimesRow extends Component {
 
         return (
             <tr>
-                {assetName && <td className="left row-id">{assetName}</td>}
+                {assetName && <td className="row-id">{assetName}</td>}
                 <td>{times.open.map(openTime => <div key={openTime}>{openTime}</div>)}</td>
                 <td>{times.close.map(closeTime => <div key={closeTime}>{closeTime}</div>)}</td>
                 <td>{times.settlement}</td>

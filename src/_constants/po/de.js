@@ -165,7 +165,7 @@ export default {
         null,
         "Handlung"
     ],
-    "Credit/Debit": [
+    "Credit / Debit": [
         null,
         "Gutschrift/Lastschrift"
     ],
