@@ -21,6 +21,7 @@ export default class SellAtMarketButton extends Component {
 				onClick={onClick}
 			>
 				<M m="Sell at Market" />
+				<span> </span>
 				{validToSell &&
 					<NumberPlain
 						value={contract.bid_price}

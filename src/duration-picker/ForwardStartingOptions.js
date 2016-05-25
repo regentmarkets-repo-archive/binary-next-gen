@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import InputGroup from '../_common/InputGroup';
 import epochToUTCTimeString from 'binary-utils/lib/epochToUTCTimeString';
 import dateToEpoch from 'binary-utils/lib/dateToEpoch';
-import dateToUTCTimeString from 'binary-utils/lib/dateToUTCTimeString';
 import timeStringToSeconds from 'binary-utils/lib/timeStringToSeconds';
 import dateToDateString from 'binary-utils/lib/dateToDateString';
 import { createDefaultStartLaterEpoch } from '../trade-params/DefaultTradeParams';
@@ -58,19 +57,8 @@ export default class ForwardStartingOptions extends Component {
     }
 
     selectTime(e) {
-        const { dateStart, forwardStartingDuration } = this.props;
-        const ranges = forwardStartingDuration.range;
-        const selectedDay = dateStart && new Date(dateStart * 1000);
-        const selectedRange = selectedDay && ranges
-                .find(r => r.date.toISOString().slice(0, 10) === selectedDay.toISOString().slice(0, 10));
-
-        const min = selectedDay && dateToUTCTimeString(selectedRange.open[0]);
-        const max = selectedDay && dateToUTCTimeString(selectedRange.close[0]);
+        const { dateStart } = this.props;
         const inputValue = e.target.value;
-        if (inputValue < min || inputValue > max) {
-            return;
-        }
-
         const secondsPerDay = 60 * 60 * 24;
         const intraDayEpoch = dateStart % secondsPerDay;
         const dayEpoch = dateStart - intraDayEpoch;
@@ -85,11 +73,7 @@ export default class ForwardStartingOptions extends Component {
         const onlyStartLater = allowStartLater && !options;
 
         const selectedDay = dateStart && new Date(dateStart * 1000);
-        const selectedRange = selectedDay && ranges
-                .find(r => r.date.toISOString().slice(0, 10) === selectedDay.toISOString().slice(0, 10));
 
-        const min = selectedDay && dateToUTCTimeString(selectedRange.open[0]);
-        const max = selectedDay && dateToUTCTimeString(selectedRange.close[0]);
         const timeString = dateStart ? epochToUTCTimeString(dateStart) : '';
         const showForwardStartingInput = allowStartLater && dateStart;
 
@@ -98,8 +82,8 @@ export default class ForwardStartingOptions extends Component {
                 {allowStartLater &&
                     <div>
                         <Label text={'Start Time'} />
-                        <div>
-                            <label>
+                        <div className="start-time-selector">
+                            <label className={onlyStartLater && 'disabled'}>
                                 <input
                                     type="radio"
                                     name={`start-time${index}`}
@@ -134,10 +118,8 @@ export default class ForwardStartingOptions extends Component {
                         {selectedDay &&
                             <InputGroup
                                 type="time"
-                                min={min}
-                                max={max}
                                 onChange={::this.selectTime}
-                                value={timeString}
+                                defaultValue={timeString}
                             />
                         }
                     </div>

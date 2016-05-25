@@ -85,6 +85,10 @@ export default class TradeParams extends Component {
         this.onStopTypeChange = ::this.onStopTypeChange;
         this.onStopProfitChange = ::this.onStopProfitChange;
         this.onPurchase = ::this.onPurchase;
+
+        this.state = {
+            dynamicKey: 0,
+        };
     }
 
     componentWillMount() {
@@ -130,6 +134,8 @@ export default class TradeParams extends Component {
         const updatedAsset = updateHelpers.changeAsset(tradeParams, contract, updateHelpers.changeCategory);
 
         this.updateTradeParams(updatedAsset);
+        const { dynamicKey } = this.state;
+        this.setState({ dynamicKey: dynamicKey + 1 });
     }
 
     onCategoryChange(newCategory) {
@@ -254,7 +260,7 @@ export default class TradeParams extends Component {
         const showSpreadBarrier = categoryToUse === 'spreads';
 
         return (
-            <div className="trade-params" disabled={disabled}>
+            <div className="trade-params" disabled={disabled} key={this.state.dynamicKey}>
                 <AssetPickerDropDown
                     actions={actions}
                     compact={compact}

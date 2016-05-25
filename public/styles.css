@@ -15,6 +15,10 @@ input::-webkit-clear-button { /* Removes blue cross */
     -webkit-appearance: none;
     margin: 0;
 }
+
+.disabled {
+    opacity: 0.2;
+}
 /* Web Layout */
 
 #root, #screen {
@@ -332,6 +336,7 @@ nav.sidebar {
 .buy-btn, .buy-again-btn, .sell-at-market-btn {
     font-size: 1.25em;
     padding: .5rem;
+    margin-right: .2rem;
 }
 
 .vertical .buy-btn, .vertical .buy-again-btn {
@@ -1067,7 +1072,7 @@ input[type=number]::-webkit-outer-spin-button {
 .horizontal .trade-params > div,
 .mobile-content .trade-params > div {
     margin-right: .5rem;
-    width: 10rem;
+    min-width: 10rem;
 }
 
 .vertical .trade-params {
@@ -1100,6 +1105,11 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: column;
 }
 
+.forward-starting-group .start-time-selector {
+    height: 2rem;
+    padding-top: .3rem;
+}
+
 .duration-input > *, .forward-starting-group > * {
     flex: 1;
     -webkit-flex: 1 1 auto;         /* workaround for safari bug */
@@ -1107,7 +1117,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 .trade-params label {
     text-transform: uppercase;
-    opacity: 0.75;
     line-height: 1.5;
 }
 
@@ -1206,7 +1215,7 @@ input[type=number]::-webkit-outer-spin-button {
     max-width: 25rem;
 }
 
-.modal .trade-chart {
+.modal .contract-chart {
     max-width: 45rem;
 }
 

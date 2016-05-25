@@ -15,11 +15,15 @@ export const categoryValid = (category, contract) =>
     !!contract[category];
 
 export const allTimeRelatedFieldValid = (dateStart, duration, durationUnit, contractPerType) => {
+    const forwardStartingDuration = contractPerType.forwardStartingDuration;
+    if (dateStart && !forwardStartingDuration) {
+        return false;
+    }
+
     if (!contractPerType.durations) {       // only forward starting
         if (!dateStart) {
             return false;
         }
-        const forwardStartingDuration = contractPerType.forwardStartingDuration;
         const dateStartValid = forwardStartTimeValid(dateStart, forwardStartingDuration);
         const durationIsValid = durationValid(duration, durationUnit, forwardStartingDuration.options);
         return dateStartValid && durationIsValid;

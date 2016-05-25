@@ -23,7 +23,7 @@ export default (state = initialState, action) => {
             }
 
             if (state.has(openContract.contract_id)) {
-                if (!openContract.sell_spot) {
+                if (!openContract.sell_time && openContract.current_spot && openContract.current_spot_time) {
                     const latestData = state.getIn([openContract.contract_id, 'ticks']).slice(0);
                     latestData.push({ epoch: +(openContract.current_spot_time), quote: +(openContract.current_spot) });
                     return state.setIn([openContract.contract_id, 'ticks'], latestData);
