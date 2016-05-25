@@ -19,6 +19,10 @@ input::-webkit-clear-button { /* Removes blue cross */
     -webkit-appearance: none;
     margin: 0;
 }
+
+.disabled {
+    opacity: 0.2;
+}
 /* Web Layout */
 
 #root, #screen {
@@ -1111,7 +1115,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 .trade-params label {
     text-transform: uppercase;
-    opacity: 0.75;
     line-height: 1.5;
 }
 
