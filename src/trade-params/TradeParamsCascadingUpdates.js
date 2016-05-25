@@ -104,7 +104,7 @@ export function changeCategory(newCategory, contract) {
     };
 }
 
-export function changeType(newType, newCategory, oldTrade, contract) {
+export function changeType(newType, newCategory, oldTrade, contract, typeText) {
     const category = newCategory || oldTrade.tradeCategory;
     const newDuration = createDefaultDuration(contract, category, newType);
     const { dateStart, duration, durationUnit } = newDuration;
@@ -119,6 +119,7 @@ export function changeType(newType, newCategory, oldTrade, contract) {
         barrier: newBarrier[0],
         barrier2: newBarrier[1],
         barrierType: newBarrierType,
+        typeText,
     };
 }
 
