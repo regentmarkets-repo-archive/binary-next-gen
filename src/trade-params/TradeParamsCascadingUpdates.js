@@ -179,12 +179,12 @@ export function changeDurationUnit(newUnit, contract, oldTrade) {
     };
 }
 
-export function changeBarrier1(newBarrier, oldTrade) {
-    return { barrier: (+newBarrier).toFixed(oldTrade.pipSize) };
+export function changeBarrier1(newBarrier, pipSize) {
+    return { barrier: (+newBarrier).toFixed(pipSize) };
 }
 
-export function changeBarrier2(newBarrier, oldTrade) {
-    return { barrier2: (+newBarrier).toFixed(oldTrade.pipSize) };
+export function changeBarrier2(newBarrier, pipSize) {
+    return { barrier2: (+newBarrier).toFixed(pipSize) };
 }
 
 export function changeAmount(newAmount) {
