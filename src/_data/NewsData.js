@@ -33,7 +33,7 @@ const xmlToNewsItem = xmlItem => ({
 });
 
 export const readNewsFeed = async (l) => {
-    let queryUrl = `${api}?=${params[l].media}&prefix=${params[l].prefix}&campaign=1&mode=txt`;
+    let queryUrl = `${api}?media=${params[l].media}&prefix=${params[l].prefix}&campaign=1&mode=txt`;
 
     let domParser = new DOMParser();
     try {
