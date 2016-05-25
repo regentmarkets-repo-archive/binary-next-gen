@@ -59,7 +59,7 @@ export default class TradeTypePicker extends Component {
     changeType(type) {
         const { contract, onSelect, tradeParams, updateParams } = this.props;
         const selectedCategory = findCategoryForType(contract, type);
-        const updatedType = changeType(internalToServerTradeType(type), selectedCategory, tradeParams, contract);
+        const updatedType = changeType(internalToServerTradeType(type), selectedCategory, tradeParams, contract, type);
         updateParams(updatedType);
         if (onSelect) {
             onSelect(updatedType);
