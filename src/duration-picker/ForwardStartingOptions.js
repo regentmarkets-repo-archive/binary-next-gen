@@ -137,7 +137,7 @@ export default class ForwardStartingOptions extends Component {
                                 min={min}
                                 max={max}
                                 onChange={::this.selectTime}
-                                value={timeString}
+                                defaultValue={timeString}
                             />
                         }
                     </div>
