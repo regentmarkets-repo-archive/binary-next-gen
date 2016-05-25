@@ -62,7 +62,7 @@ export default class ContractDetailsCard extends Component {
 						}
 						typeChange={allowCandle && ::this.changeChartType}
 						pipSize={pipSize}
-						width={600}
+						width={700}
 					/>
 					<ContractReceipt actions={actions} contract={contract} />
 				</div>
