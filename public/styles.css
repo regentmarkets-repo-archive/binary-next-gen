@@ -1075,7 +1075,7 @@ input[type=number]::-webkit-outer-spin-button {
 .horizontal .trade-params > div,
 .mobile-content .trade-params > div {
     margin-right: .5rem;
-    width: 10rem;
+    min-width: 10rem;
 }
 
 .vertical .trade-params {
@@ -1106,6 +1106,11 @@ input[type=number]::-webkit-outer-spin-button {
 
 .forward-starting-group {
     flex-direction: column;
+}
+
+.forward-starting-group .start-time-selector {
+    height: 2rem;
+    padding-top: .3rem;
 }
 
 .duration-input > *, .forward-starting-group > * {

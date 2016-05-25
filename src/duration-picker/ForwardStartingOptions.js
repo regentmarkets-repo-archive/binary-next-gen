@@ -98,7 +98,7 @@ export default class ForwardStartingOptions extends Component {
                 {allowStartLater &&
                     <div>
                         <Label text={'Start Time'} />
-                        <div>
+                        <div className="start-time-selector">
                             <label className={onlyStartLater && 'disabled'}>
                                 <input
                                     type="radio"
