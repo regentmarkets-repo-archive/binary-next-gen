@@ -75,8 +75,8 @@ describe('Update helpers', () => {
     describe('changing of barriers', () => {
         it('should always return value with decimal places following pipSize', () => {
             const newVal = 0.99999;
-            const pipSize3 = { pipSize: 3 };
-            const pipSize7 = { pipSize: 7 };
+            const pipSize3 = 3;
+            const pipSize7 = 7;
 
             const updatedBarrier1 = updateHelpers.changeBarrier1(newVal, pipSize3);
             expect(updatedBarrier1.barrier).to.have.lengthOf(5);
