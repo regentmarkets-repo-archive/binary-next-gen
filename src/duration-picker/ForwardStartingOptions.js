@@ -58,19 +58,8 @@ export default class ForwardStartingOptions extends Component {
     }
 
     selectTime(e) {
-        const { dateStart, forwardStartingDuration } = this.props;
-        const ranges = forwardStartingDuration.range;
-        const selectedDay = dateStart && new Date(dateStart * 1000);
-        const selectedRange = selectedDay && ranges
-                .find(r => r.date.toISOString().slice(0, 10) === selectedDay.toISOString().slice(0, 10));
-
-        const min = selectedDay && dateToUTCTimeString(selectedRange.open[0]);
-        const max = selectedDay && dateToUTCTimeString(selectedRange.close[0]);
+        const { dateStart } = this.props;
         const inputValue = e.target.value;
-        if (inputValue < min || inputValue > max) {
-            return;
-        }
-
         const secondsPerDay = 60 * 60 * 24;
         const intraDayEpoch = dateStart % secondsPerDay;
         const dayEpoch = dateStart - intraDayEpoch;
@@ -134,9 +123,9 @@ export default class ForwardStartingOptions extends Component {
                         {selectedDay &&
                             <InputGroup
                                 type="time"
+                                onChange={::this.selectTime}
                                 min={min}
                                 max={max}
-                                onChange={::this.selectTime}
                                 defaultValue={timeString}
                             />
                         }
