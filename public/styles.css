@@ -3,10 +3,6 @@ body {
     overflow: hidden;
 }
 
-button {
-    margin-right: .2rem;
-}
-
 #screen {
     font-size: 12px;
 }
@@ -340,6 +336,7 @@ nav.sidebar {
 .buy-btn, .buy-again-btn, .sell-at-market-btn {
     font-size: 1.25em;
     padding: .5rem;
+    margin-right: .2rem;
 }
 
 .vertical .buy-btn, .vertical .buy-again-btn {
