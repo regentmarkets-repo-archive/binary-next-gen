@@ -29,7 +29,7 @@ export default class BarrierInput extends Component {
         const absoluteValue = expiryType === 'daily' ? value : spot && (+value + spot);
 
         return (
-            <div className="barrier-input">
+
                 <InputGroup
                     label={name + (barrierType === 'relative' ? ' offset' : '')}
                     type="number"
@@ -37,10 +37,9 @@ export default class BarrierInput extends Component {
                     value={barrierType === 'relative' ? relativeValue : absoluteValue}
                     step={pipSizeToStepSize(pipSize)}
                 />
-                {/* {(barrierType === 'relative' && absoluteValue) &&
+                /* {(barrierType === 'relative' && absoluteValue) &&
                     <NumberPlain value={absoluteValue} digits={pipSize} />
-                }*/}
-            </div>
+                }*/
         );
     }
 }

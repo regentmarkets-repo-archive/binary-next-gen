@@ -43,7 +43,7 @@ export default class BarrierCard extends Component {
         if (!barrier1Info) return null;
 
         return (
-            <div>
+            <div className="barrier-input">
                 <BarrierInput
                     {...barrier1Info}
                     barrierType={barrierType}
