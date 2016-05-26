@@ -8,5 +8,6 @@ window._trackJs = { // eslint-disable-line no-underscore-dangle
     application: 'binary-next-gen',
     enabled: window.location.hostname !== 'localhost',
 };
+require('trackjs');
 
 ReactDOM.render(<Root />, document.getElementById('root'));

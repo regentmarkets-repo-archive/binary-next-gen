@@ -1091,6 +1091,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .duration-input, .forward-starting-group, .forward-starting-input {
     display: flex;
+    flex-direction: column;
 }
 
 .forward-starting-input input {
@@ -1158,6 +1159,8 @@ input[type=number]::-webkit-outer-spin-button {
 
 .barrier-input {
     display: flex;
+    flex-direction: column;
+    max-width: 11.3em;
 }
 
 /* default */
