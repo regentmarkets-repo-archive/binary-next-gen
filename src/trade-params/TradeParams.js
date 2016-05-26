@@ -92,6 +92,7 @@ export default class TradeParams extends Component {
     }
 
     componentWillMount() {
+        console.log('mount');
         this.onAssetChange();
     }
 
@@ -168,16 +169,14 @@ export default class TradeParams extends Component {
     }
 
     onBarrier1Change(e) {
-        const { pipSize } = this.props;
         const inputValue = e.target.value;
-        const updatedBarrier1 = updateHelpers.changeBarrier1(inputValue, pipSize);
+        const updatedBarrier1 = updateHelpers.changeBarrier1(inputValue);
         this.updateTradeParams(updatedBarrier1);
     }
 
     onBarrier2Change(e) {
-        const { pipSize } = this.props;
         const inputValue = e.target.value;
-        const updatedBarrier2 = updateHelpers.changeBarrier2(inputValue, pipSize);
+        const updatedBarrier2 = updateHelpers.changeBarrier2(inputValue);
         this.updateTradeParams(updatedBarrier2);
     }
 

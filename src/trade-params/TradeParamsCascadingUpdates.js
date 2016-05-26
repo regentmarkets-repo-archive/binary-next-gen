@@ -179,11 +179,11 @@ export function changeDurationUnit(newUnit, contract, oldTrade) {
     };
 }
 
-export function changeBarrier1(newBarrier, pipSize) {
+export function changeBarrier1(newBarrier) {
     return { barrier: newBarrier };
 }
 
-export function changeBarrier2(newBarrier, pipSize) {
+export function changeBarrier2(newBarrier) {
     return { barrier2: newBarrier };
 }
 
