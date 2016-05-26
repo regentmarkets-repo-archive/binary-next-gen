@@ -3,6 +3,8 @@ export default ({
     PUT: 'Win if the exit spot is strictly lower than the entry spot.',
     CALL2: 'Win if the exit spot is strictly higher than the barrier.',
     PUT2: 'Win if the exit spot is strictly lower than the barrier.',
+    HIGHER: 'Win if the exit spot is strictly higher than the barrier.',
+    LOWER: 'Win if the exit spot is strictly lower than the barrier.',
     ONETOUCH: 'Win if the market touches the barrier at any time during the contract period.',
     NOTOUCH: 'Win if the market never touches the barrier at any time during the contract period.',
     EXPIRYRANGE: 'Win if the exit spot is strictly higher than the Low barrier and strictly lower than the High barrier.',

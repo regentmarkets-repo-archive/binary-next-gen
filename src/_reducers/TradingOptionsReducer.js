@@ -4,7 +4,9 @@ import { UPDATE_TRADING_OPTIONS, TRADING_OPTIONS_ERROR } from '../_constants/Act
 const initialState = fromJS({});
 
 const splitRiseFallAndHighLow = options =>
-    options.map(opt => {
+    options
+        .filter(opt => opt.contract_category !== 'spreads')           // TODO: temp disable spreads until backend is up
+        .map(opt => {
         if (opt.contract_category === 'callput') {
             const cloned = Object.assign({}, opt);
             switch (opt.barriers) {

@@ -7,6 +7,19 @@ import DropDown from '../containers/DropDown';
 import TradeTypePicker from './TradeTypePicker';
 import helpText from './helpText';
 
+const getInternalTradeType = tradeParams => {
+    const { type, barrier } = tradeParams;
+    if (barrier) {
+        if (type === 'CALL') {
+            return 'HIGHER';
+        }
+        if (type === 'PUT') {
+            return 'LOWER';
+        }
+    }
+    return tradeParams.type;
+};
+
 export default class TradeTypeDropDown extends Component {
 
     shouldComponentUpdate = shouldPureComponentUpdate;
@@ -39,8 +52,7 @@ export default class TradeTypeDropDown extends Component {
 
     render() {
         const { tradeParams } = this.props;
-        const selectedType = tradeParams.type;
-        const { typeText } = tradeParams;
+        const selectedType = getInternalTradeType(tradeParams);
         const { dropdownShown } = this.state;
         return (
             <div>
@@ -54,16 +66,16 @@ export default class TradeTypeDropDown extends Component {
                     />
                 </DropDown>
                 <Label text="Trade Type" />
-                <img className="info-icon" src="img/info.svg" title={helpText[tradeParams.type]} role="presentation" />
+                <img className="info-icon" src="img/info.svg" title={helpText[selectedType]} role="presentation" />
                 <div
                     className="picker-label"
                     onMouseDown={::this.openTradeTypePicker}
                 >
                     <img
-                        src={`img/trade-${tradeParams.type.toLowerCase()}.svg`}
-                        alt={tradeParams.type}
+                        src={`img/trade-${selectedType.toLowerCase()}.svg`}
+                        alt={selectedType}
                     />
-                    {tradeToFriendlyType((typeText || selectedType), tradeParams.barrier)}
+                    {tradeToFriendlyType(selectedType, tradeParams.barrier)}
                     <DownArrow />
                 </div>
             </div>
