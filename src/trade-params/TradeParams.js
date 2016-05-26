@@ -92,7 +92,6 @@ export default class TradeParams extends Component {
     }
 
     componentWillMount() {
-        console.log('mount');
         this.onAssetChange();
     }
 
@@ -124,6 +123,11 @@ export default class TradeParams extends Component {
         }
     }
 
+    dynamicKeyIncrement() {
+        const { dynamicKey } = this.state;
+        this.setState({ dynamicKey: dynamicKey + 1 });
+    }
+
     updateTradeParams(params) {
         const { actions, index } = this.props;
         actions.updateMultipleTradeParams(index, params);
@@ -133,10 +137,8 @@ export default class TradeParams extends Component {
     onAssetChange() {
         const { contract, tradeParams } = this.props;
         const updatedAsset = updateHelpers.changeAsset(tradeParams, contract, updateHelpers.changeCategory);
-
         this.updateTradeParams(updatedAsset);
-        const { dynamicKey } = this.state;
-        this.setState({ dynamicKey: dynamicKey + 1 });
+        this.dynamicKeyIncrement();
     }
 
     onCategoryChange(newCategory) {
@@ -346,7 +348,7 @@ export default class TradeParams extends Component {
                     askPrice={askPriceFromProposal(proposal)}
                     currency={currency}
                     disabled={disabled}
-                    onClick={() => actions.purchaseByTradeId(index)}
+                    onClick={this.onPurchase}
                 />
                 <ErrorMsg
                     shown={!!proposalError}

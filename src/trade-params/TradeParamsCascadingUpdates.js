@@ -49,8 +49,8 @@ export function changeAsset(oldTrade, contract, changeCat) {
     );
     const newBarrierType = createDefaultBarrierType(selectedDuration, selectedDurationUnit);
     return {
-        barrier: newBarrier[0],
-        barrier2: newBarrier[1],
+        barrier: oldTrade.barrier || newBarrier[0],
+        barrier2: oldTrade.barrier2 || newBarrier[1],
         barrierType: newBarrierType,
     };
 }
