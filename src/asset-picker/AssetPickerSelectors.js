@@ -13,30 +13,32 @@ export const symbolIdsSelector = createSelector(
 export const similarStr = (str1, str2) =>
     (str1 || '').toLowerCase().includes((str2 || '').toLowerCase());
 
-const doesMatchFilter = (asset, filter) =>
+const doesMatchFilter = (asset, filter, watchlist) =>
     filter.get('filter') === 'all' ||
         filter.get('filter') === asset.get('submarket') ||
-        filter.get('filter') === asset.get('market');
+        filter.get('filter') === asset.get('market') ||
+        filter.get('filter') === 'favorites' && watchlist.has(asset.get('symbol'));
 
-const doesMatchQuery = (asset, filter) =>
+const doesMatchQuery = (asset, filter, watchlist) =>
     filter.get('query').trim() === '' ||
         similarStr(asset.get('symbol'), filter.get('query')) ||
         similarStr(asset.get('display_name'), filter.get('query')) ||
         similarStr(asset.get('market_display_name'), filter.get('query')) ||
-        similarStr(asset.get('submarket_display_name'), filter.get('query'));
+        similarStr(asset.get('submarket_display_name'), filter.get('query')) ||
+        filter.get('query') === 'favorites' && watchlist.has(asset.get('symbol'));
 
-const doesMatchQueryAndFilter = (asset, filter) =>
-    doesMatchFilter(asset, filter) && doesMatchQuery(asset, filter);
+const doesMatchQueryAndFilter = (asset, filter, watchlist) =>
+    doesMatchFilter(asset, filter, watchlist) && doesMatchQuery(asset, filter, watchlist);
 
 const availableAssetsSelector = assetsSelector;
 
 export const assetFilterSelector = state => state.assetPicker;
 
 export const shownAssetsSelector = createSelector(
-    [availableAssetsSelector, assetFilterSelector], // todo: availableAssetsSelector
-    (availableAssets, filter) =>
+    [availableAssetsSelector, assetFilterSelector, watchlistSelector], // todo: availableAssetsSelector
+    (availableAssets, filter, watchlist) =>
         availableAssets
-            .filter(asset => doesMatchQueryAndFilter(asset, filter))
+            .filter(asset => doesMatchQueryAndFilter(asset, filter, watchlist))
 );
 
 export const sortedShownAssetsSelector = createSelector(
