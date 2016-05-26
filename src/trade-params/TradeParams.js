@@ -2,7 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 
 import isIntraday from 'binary-utils/lib/isIntraday';
-import isDurationLessThan2Mins from 'binary-utils/lib/isDurationLessThan2Mins';
 import askPriceFromProposal from 'binary-utils/lib/askPriceFromProposal';
 import ErrorMsg from '../_common/ErrorMsg';
 
@@ -246,11 +245,9 @@ export default class TradeParams extends Component {
         const contractForCategory = contract[categoryToUse];
         const contractForType = contractForCategory && contractForCategory[selectedType];
         const barriers = contractForType && contractForType.barriers;
-        const isBelow2Min = isDurationLessThan2Mins(tradeParams.duration, tradeParams.durationUnit);
         const isIntraDay = isIntraday(tradeParams.duration, tradeParams.durationUnit);
         const showBarrier = categoryToUse !== 'spreads' &&
             categoryToUse !== 'digits' &&
-            !isBelow2Min &&
             !tradeParams.dateStart &&
             !!barriers;
 
