@@ -123,6 +123,11 @@ export default class TradeParams extends Component {
         }
     }
 
+    dynamicKeyIncrement() {
+        const { dynamicKey } = this.state;
+        this.setState({ dynamicKey: dynamicKey + 1 });
+    }
+
     updateTradeParams(params) {
         const { actions, index } = this.props;
         actions.updateMultipleTradeParams(index, params);
@@ -132,10 +137,8 @@ export default class TradeParams extends Component {
     onAssetChange() {
         const { contract, tradeParams } = this.props;
         const updatedAsset = updateHelpers.changeAsset(tradeParams, contract, updateHelpers.changeCategory);
-
         this.updateTradeParams(updatedAsset);
-        const { dynamicKey } = this.state;
-        this.setState({ dynamicKey: dynamicKey + 1 });
+        this.dynamicKeyIncrement();
     }
 
     onCategoryChange(newCategory) {
@@ -168,16 +171,14 @@ export default class TradeParams extends Component {
     }
 
     onBarrier1Change(e) {
-        const { pipSize } = this.props;
         const inputValue = e.target.value;
-        const updatedBarrier1 = updateHelpers.changeBarrier1(inputValue, pipSize);
+        const updatedBarrier1 = updateHelpers.changeBarrier1(inputValue);
         this.updateTradeParams(updatedBarrier1);
     }
 
     onBarrier2Change(e) {
-        const { pipSize } = this.props;
         const inputValue = e.target.value;
-        const updatedBarrier2 = updateHelpers.changeBarrier2(inputValue, pipSize);
+        const updatedBarrier2 = updateHelpers.changeBarrier2(inputValue);
         this.updateTradeParams(updatedBarrier2);
     }
 
@@ -347,7 +348,7 @@ export default class TradeParams extends Component {
                     askPrice={askPriceFromProposal(proposal)}
                     currency={currency}
                     disabled={disabled}
-                    onClick={() => actions.purchaseByTradeId(index)}
+                    onClick={this.onPurchase}
                 />
                 <ErrorMsg
                     shown={!!proposalError}

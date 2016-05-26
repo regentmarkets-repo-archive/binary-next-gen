@@ -49,8 +49,8 @@ export function changeAsset(oldTrade, contract, changeCat) {
     );
     const newBarrierType = createDefaultBarrierType(selectedDuration, selectedDurationUnit);
     return {
-        barrier: newBarrier[0],
-        barrier2: newBarrier[1],
+        barrier: oldTrade.barrier || newBarrier[0],
+        barrier2: oldTrade.barrier2 || newBarrier[1],
         barrierType: newBarrierType,
     };
 }
@@ -179,11 +179,11 @@ export function changeDurationUnit(newUnit, contract, oldTrade) {
     };
 }
 
-export function changeBarrier1(newBarrier, pipSize) {
+export function changeBarrier1(newBarrier) {
     return { barrier: newBarrier };
 }
 
-export function changeBarrier2(newBarrier, pipSize) {
+export function changeBarrier2(newBarrier) {
     return { barrier2: newBarrier };
 }
 

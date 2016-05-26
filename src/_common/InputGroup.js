@@ -4,7 +4,6 @@ import M from './M';
 const valueTypes = [PropTypes.number, PropTypes.instanceOf(Date), PropTypes.string];
 
 export default class InputGroup extends Component {
-
 	static propTypes = {
 		autoFocus: PropTypes.bool,
 		type: PropTypes.string,

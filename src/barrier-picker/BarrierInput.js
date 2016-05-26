@@ -4,7 +4,6 @@ import InputGroup from '../_common/InputGroup';
 import pipSizeToStepSize from 'binary-utils/lib/pipSizeToStepSize';
 
 export default class BarrierInput extends Component {
-
     shouldComponentUpdate = shouldPureComponentUpdate;
 
     static propTypes = {
@@ -29,6 +28,7 @@ export default class BarrierInput extends Component {
         return (
 
                 <InputGroup
+                    autoFocus
                     label={name + (barrierType === 'relative' ? ' offset' : '')}
                     type="number"
                     onChange={onChange}
