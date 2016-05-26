@@ -104,7 +104,7 @@ export function changeCategory(newCategory, contract) {
     };
 }
 
-export function changeType(newType, newCategory, oldTrade, contract) {
+export function changeType(newType, newCategory, oldTrade, contract, typeText) {
     const category = newCategory || oldTrade.tradeCategory;
     const newDuration = createDefaultDuration(contract, category, newType);
     const { dateStart, duration, durationUnit } = newDuration;
@@ -119,6 +119,7 @@ export function changeType(newType, newCategory, oldTrade, contract) {
         barrier: newBarrier[0],
         barrier2: newBarrier[1],
         barrierType: newBarrierType,
+        typeText,
     };
 }
 
@@ -178,12 +179,12 @@ export function changeDurationUnit(newUnit, contract, oldTrade) {
     };
 }
 
-export function changeBarrier1(newBarrier, oldTrade) {
-    return { barrier: (+newBarrier).toFixed(oldTrade.pipSize) };
+export function changeBarrier1(newBarrier, pipSize) {
+    return { barrier: (+newBarrier).toFixed(pipSize) };
 }
 
-export function changeBarrier2(newBarrier, oldTrade) {
-    return { barrier2: (+newBarrier).toFixed(oldTrade.pipSize) };
+export function changeBarrier2(newBarrier, pipSize) {
+    return { barrier2: (+newBarrier).toFixed(pipSize) };
 }
 
 export function changeAmount(newAmount) {

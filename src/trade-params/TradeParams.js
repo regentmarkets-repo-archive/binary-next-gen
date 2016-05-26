@@ -168,16 +168,16 @@ export default class TradeParams extends Component {
     }
 
     onBarrier1Change(e) {
-        const { tradeParams } = this.props;
+        const { pipSize } = this.props;
         const inputValue = e.target.value;
-        const updatedBarrier1 = updateHelpers.changeBarrier1(inputValue, tradeParams);
+        const updatedBarrier1 = updateHelpers.changeBarrier1(inputValue, pipSize);
         this.updateTradeParams(updatedBarrier1);
     }
 
     onBarrier2Change(e) {
-        const { tradeParams } = this.props;
+        const { pipSize } = this.props;
         const inputValue = e.target.value;
-        const updatedBarrier2 = updateHelpers.changeBarrier2(inputValue, tradeParams);
+        const updatedBarrier2 = updateHelpers.changeBarrier2(inputValue, pipSize);
         this.updateTradeParams(updatedBarrier2);
     }
 
