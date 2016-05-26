@@ -41,7 +41,7 @@ export default class TradingTimesCard extends Component {
 						min={todayLocaleString()}
 						max={oneYearAfterStr()}
 						className="trading-times-date-picker"
-						onChange={x => actions.updateTradingTimesDate(x.target.valueAsDate)}
+						onChange={x => actions.updateTradingTimesDate(x.target.value)}
 					/>
 				</div>
 				<TradingTimesTable

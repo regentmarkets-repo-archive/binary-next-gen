@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import BarrierInput from './BarrierInput';
+import WarningMsg from '../_common/WarningMsg';
 
 export default class BarrierCard extends Component {
 
@@ -42,6 +43,14 @@ export default class BarrierCard extends Component {
 
         if (!barrier1Info) return null;
 
+        const barrier1Decimals = barrier.toString().split('.')[1];
+        const barrier1ExceedPipSize = barrier1Decimals && (barrier1Decimals.length > pipSize);
+
+        const barrier2Decimals = barrier2 && barrier2.toString().split('.')[1];
+        const barrier2ExceedPipSize = barrier2Decimals && (barrier2Decimals.length > pipSize);
+
+        const warningText = `Barriers input only allows ${pipSize} decimals, exceeded decimals will be ignored.`;
+
         return (
             <div className="barrier-input">
                 <BarrierInput
@@ -66,6 +75,10 @@ export default class BarrierCard extends Component {
                         spot={spot}
                     />
                 }
+                <WarningMsg
+                    shown={barrier1ExceedPipSize || barrier2ExceedPipSize}
+                    text={warningText}
+                />
             </div>
         );
     }
