@@ -180,11 +180,11 @@ export function changeDurationUnit(newUnit, contract, oldTrade) {
 }
 
 export function changeBarrier1(newBarrier, pipSize) {
-    return { barrier: (+newBarrier).toFixed(pipSize) };
+    return { barrier: newBarrier };
 }
 
 export function changeBarrier2(newBarrier, pipSize) {
-    return { barrier2: (+newBarrier).toFixed(pipSize) };
+    return { barrier2: newBarrier };
 }
 
 export function changeAmount(newAmount) {
