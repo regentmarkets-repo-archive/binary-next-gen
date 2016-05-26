@@ -40,7 +40,6 @@ export default class TradeTypeDropDown extends Component {
     render() {
         const { tradeParams } = this.props;
         const selectedType = tradeParams.type;
-        const { typeText } = tradeParams;
         const { dropdownShown } = this.state;
         return (
             <div>
@@ -63,7 +62,7 @@ export default class TradeTypeDropDown extends Component {
                         src={`img/trade-${tradeParams.type.toLowerCase()}.svg`}
                         alt={tradeParams.type}
                     />
-                    {tradeToFriendlyType((typeText || selectedType), tradeParams.barrier)}
+                    {tradeToFriendlyType(selectedType, tradeParams.barrier)}
                     <DownArrow />
                 </div>
             </div>
