@@ -60,6 +60,7 @@ export default class TradeParams extends Component {
         compact: PropTypes.bool,
         disabled: PropTypes.bool,
         index: PropTypes.number.isRequired,
+        onPurchaseHook: PropTypes.func,
         pipSize: PropTypes.number.isRequired,
         proposal: PropTypes.object,
         proposalError: PropTypes.object,
@@ -215,8 +216,9 @@ export default class TradeParams extends Component {
     }
 
     onPurchase() {
-        const { actions, index } = this.props;
+        const { actions, index, onPurchaseHook } = this.props;
         actions.purchaseByTradeId(index);
+        onPurchaseHook();
     }
 
     render() {
