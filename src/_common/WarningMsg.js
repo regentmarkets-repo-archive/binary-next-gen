@@ -5,7 +5,7 @@ import classnames from 'classnames';
 export default class WarningMsg extends Component {
     static propTypes = {
         className: PropTypes.string,
-        shown: PropTypes.bool.isRequired,
+        shown: PropTypes.bool,
         text: PropTypes.string.isRequired,
     };
     render() {
