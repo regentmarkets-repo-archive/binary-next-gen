@@ -31,7 +31,26 @@ const getStartLaterOnlyContract = contract => {
 
 // window.contracts = [];
 
+const zoomToLatest = chart => {
+    const { min, max, dataMax } = chart.xAxis[0].getExtremes();
+    if (min && max) {
+        const frameSize = max - min;
+        chart.xAxis[0].setExtremes(dataMax - frameSize, dataMax);
+    }
+};
+
 export default class TradeCard extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            events: [
+                {
+                    type: 'zoom-to-latest',
+                    handler: zoomToLatest,
+                },
+            ],
+        };
+    }
 
     static defaultProps = {
         type: 'full',
@@ -56,6 +75,13 @@ export default class TradeCard extends Component {
 
     shouldComponentUpdate(nextProps) {
         return JSON.stringify(this.props) !== JSON.stringify(nextProps);
+    }
+
+    zoomWhenPurchase() {
+        const { index } = this.props;
+        const domID = `trade-chart${index}`;
+        const zoomToLatestEv = new Event('zoom-to-latest');
+        document.getElementById(domID).dispatchEvent(zoomToLatestEv);
     }
 
     render() {
@@ -102,8 +128,10 @@ export default class TradeCard extends Component {
                 </Modal>
                 <div className="trade-chart-container">
                     <BinaryChart
+                        id={`trade-chart${index}`}
                         className="trade-chart"
                         contract={contractRequiredByChart}
+                        events={this.state.events}
                         symbol={symbolName}
                         ticks={ticks}
                         trade={!!contractRequiredByChart ? undefined : tradeRequiredByChart}
@@ -130,6 +158,7 @@ export default class TradeCard extends Component {
                         pipSize={pipSize}
                         tradeParams={params}
                         ticks={ticks}
+                        onPurchaseHook={}
                     />
                 }
             </div>
