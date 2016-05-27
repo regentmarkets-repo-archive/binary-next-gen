@@ -158,7 +158,7 @@ export default class TradeCard extends Component {
                         pipSize={pipSize}
                         tradeParams={params}
                         ticks={ticks}
-                        onPurchaseHook={}
+                        onPurchaseHook={::this.zoomWhenPurchase}
                     />
                 }
             </div>
