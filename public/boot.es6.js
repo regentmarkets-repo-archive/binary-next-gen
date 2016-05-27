@@ -1,15 +1,13 @@
-'use strict';
-
 (function init() {
-    var defaultConfig = {
+    const defaultConfig = {
         language: 'EN',
         theme: 'light',
-        accounts: []
+        accounts: [],
     };
 
     function parseOAuthResponse(responseUrl) {
-        var matcher = /acct\d=(\w+)&token\d=([\w-]+)/g;
-        var urlParts = responseUrl.split('/redirect?');
+        const matcher = /acct\d=(\w+)&token\d=([\w-]+)/g;
+        let urlParts = responseUrl.split('/redirect?');
         if (urlParts.length !== 2) {
             urlParts = responseUrl.split('/redirect%23'); // workaround for server bug
         }
@@ -17,15 +15,15 @@
             throw new Error('Not a valid url');
         }
 
-        var params = urlParts[1].split(matcher);
+        const params = urlParts[1].split(matcher);
 
-        var accounts = [];
+        const accounts = [];
 
-        for (var i = 1; i < params.length; i += 3) {
+        for (let i = 1; i < params.length; i += 3) {
             if (~params[i].indexOf('VRTC')) {
                 accounts.push({
                     account: params[i],
-                    token: params[i + 1]
+                    token: params[i + 1],
                 });
             }
         }
@@ -44,7 +42,7 @@
 
     function parseUrl() {
         if (~window.location.href.indexOf('acct1')) {
-            var accounts = parseOAuthResponse(window.location.href);
+            const accounts = parseOAuthResponse(window.location.href);
             window.BinaryBoot.accounts = accounts;
             try {
                 localStorage.setItem('boot', JSON.stringify(window.BinaryBoot));
@@ -55,19 +53,18 @@
         }
     }
 
-    var appId = 1006;
-    var apiUrl = 'wss://ws.binaryws.com/websockets/v3';
+    const appId = 1006;
+    const apiUrl = 'wss://ws.binaryws.com/websockets/v3';
 
     readConfig();
     parseUrl();
 
-    var lang = window.BinaryBoot.language;
-    var oauthUrl = 'https://oauth.binary.com/oauth2/authorize?app_id=' + appId + '&l=' + lang;
+    const lang = window.BinaryBoot.language;
+    const oauthUrl = 'https://oauth.binary.com/oauth2/authorize?app_id=' + appId + '&l=' + lang;
 
     if (!window.BinaryBoot.accounts || window.BinaryBoot.accounts.length === 0) {
         window.location = oauthUrl;
     }
 
     window.BinaryBoot.connection = new WebSocket(apiUrl + '?app_id=1006&l=' + lang);
-})();
-
+}());

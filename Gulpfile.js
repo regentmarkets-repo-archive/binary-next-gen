@@ -41,15 +41,15 @@ gulp.task('build', callback =>
     runSequence('cleanup', ['static', 'js'], callback)
 );
 
-gulp.task('download-electron', () =>
-    electron.dest('./release', { version: '0.34.3', platform: 'win32' })
-);
+// gulp.task('download-electron', () =>
+//     electron.dest('./release', { version: '0.34.3', platform: 'win32' })
+// );
 
-gulp.task('electron', ['download-electron'], () =>
-    gulp.src(files.dist + '/**')
-        .pipe(electron({ version: '0.34.3', platform: 'win32' }))
-        .pipe(zip.dest('./binary-app.zip'))
-);
+// gulp.task('electron', ['download-electron'], () =>
+//     gulp.src(files.dist + '/**')
+//         .pipe(electron({ version: '0.34.3', platform: 'win32' }))
+//         .pipe(zip.dest('./binary-app.zip'))
+// );
 
 gulp.task('deploy', ['build'], () =>
     gulp.src(files.dist + '/**/*')

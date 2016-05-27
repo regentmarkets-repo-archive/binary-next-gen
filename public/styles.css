@@ -673,6 +673,7 @@ select {
     color: rgba(64, 68, 72, 1);
     background-color: transparent;
     box-shadow: none;
+    padding: .5em;
 }
 
 .selected-radio.radio-button {
