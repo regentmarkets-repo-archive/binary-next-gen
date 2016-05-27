@@ -32,7 +32,7 @@ export default class MarketPicker extends Component {
 			return submarketOptArr;
 		});
 
-		const flattenSubmarkets = [].concat.apply([], submarkets);
+		const flattenSubmarkets = [].concat.apply([{ name: 'Favorites', value: 'favorites' }], submarkets);
 
 		return (
 			<select
