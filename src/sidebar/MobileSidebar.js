@@ -1,14 +1,13 @@
 import React, { PropTypes, Component } from 'react';
-import { connect } from 'react-redux';
-import shouldPureComponentUpdate from 'react-pure-render/function';
 import BalanceContainer from '../balance/BalanceContainer';
 import SidebarBtn from './SidebarBtn';
-import sidebarSelectors from './sidebarSelectors';
 
-@connect(sidebarSelectors)
+const switchToAccount = token => {
+	localStorage.setItem('account', JSON.stringify({ token }));
+	window.location = '/';
+};
+
 export default class MobileSidebar extends Component {
-
-	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
 		email: PropTypes.string.isRequired,
@@ -29,8 +28,16 @@ export default class MobileSidebar extends Component {
 					{email}<br />
 					<BalanceContainer />
 				</div>
-				{accounts.map(x => <SidebarBtn text={x.account} />)}
-				<SidebarBtn to="/" img="img/trade.svg" text="Trade" />
+				{accounts.filter(x => x.account !== loginid).map(x =>
+					<a
+						key={x.account}
+						className="sidebar-btn"
+						onClick={() => switchToAccount(x.token)}
+					>
+						<img src="img/icon.png" alt="" />
+						<span>Switch to {x.account}</span>
+					</a>
+				)}				<SidebarBtn to="/" img="img/trade.svg" text="Trade" />
 				{/* <SidebarBtn to="/watchlist-mobile" img="img/watchlist.svg" text="Watchlist" /> */}
 				<SidebarBtn to="/portfolio-mobile" img="img/portfolio.svg" text="Open Positions" />
 				<SidebarBtn to="/statement-mobile" img="img/statement.svg" text="Statement" />
