@@ -583,7 +583,7 @@ select {
     display: flex;
     flex-wrap: wrap;
     flex-direction: row;
-    align-content: space-around;
+    align-content: flex-start;
 }
 
 .video-thumbnail {
@@ -978,6 +978,10 @@ input[type=number]::-webkit-outer-spin-button {
     align-items: stretch;
 }
 
+/*.mobile-content .trade-chart-container {
+    margin-bottom: .5rem;
+}*/
+
 .trade-chart {
     width: 100%;
 }
@@ -993,21 +997,6 @@ input[type=number]::-webkit-outer-spin-button {
 .highcharts-container,
 .highcharts-container svg {
     width: 100% !important;
-}
-
-/* flex list should mimick table style*/
-
-.flex-list {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: flex-start;
-    margin-bottom: 0.3rem;
-    margin-top: 0.4rem;
-}
-
-.flex-list-item {
-    flex: 1 1 auto;
 }
 
 .col-val {
@@ -1031,8 +1020,8 @@ input[type=number]::-webkit-outer-spin-button {
 .picker-label {
     cursor: pointer;
     padding-left: .25rem;
-    line-height: 2.5;
-    margin-bottom: .25rem;
+    line-height: 2;
+    margin-bottom: .5rem;
     display: flex;
     justify-content: space-between;
     background: rgba(42, 48, 82, 0.1);
@@ -1043,6 +1032,22 @@ input[type=number]::-webkit-outer-spin-button {
     color: white;
     background: rgba(42, 48, 82, 1);
     border: none;
+}
+
+.mobile-content .trade-params > * {
+    display: flex;
+}
+
+.mobile-content .trade-params > div > label {
+    flex: 1;
+}
+
+.mobile-content .trade-params > div > div {
+    flex: 2;
+}
+
+.mobile-content .info-icon {
+    display: none;
 }
 
 #duration-fields {
@@ -1066,15 +1071,13 @@ input[type=number]::-webkit-outer-spin-button {
 
 .horizontal .trade-params > :not(button),
 .mobile-content .trade-params > :not(button) {
-    flex: 1 0 auto;
-    f-webkit-flex: 1 1 auto;         /* workaround for safari bug */
+    flex: 1;
 }
 
 .horizontal .trade-params > div,
 .mobile-content .trade-params > div {
     margin-right: .5rem;
     min-width: 10rem;
-    max-width: 15rem;
 }
 
 .vertical .trade-params {
@@ -1155,6 +1158,7 @@ input[type=number]::-webkit-outer-spin-button {
 .info-icon {
     background-color: rgba(42, 48, 82, .5);
     width: 1rem;
+    height: 1rem;
     margin-left: .5rem;
     border-radius: 10px;
 }
@@ -1163,7 +1167,7 @@ input[type=number]::-webkit-outer-spin-button {
     cursor: pointer;
 }
 
-.barrier-input input {
+.barrier-picker input {
     width: 100%;
 }
 

@@ -52,28 +52,26 @@ export default class DurationCard extends Component {
 
         const showError = duration > max || duration < min;
         const errorMsg = (duration > max ? `Maximum is ${max} ` : `Minimum is ${min} `) + durationText(durationUnit);
+
+        if (!currentUnitBlock) return null;
+
         return (
             <div className="duration-picker">
-                {currentUnitBlock ?
-                    <div id="duration-fields">
-                        <Label text="Duration" />
-                        <div className="duration-input">
-                            <InputGroup
-                                type="number"
-                                value={duration}
-                                min={min}
-                                max={max}
-                                onChange={onDurationChange}
-                            />
-                            <SelectGroup
-                                options={unitOptions}
-                                value={durationUnit}
-                                onChange={onUnitChange}
-                            />
-                        </div>
-                    </div> :
-                    <div />
-                }
+                <Label text="Duration" />
+                <div className="duration-input">
+                    <InputGroup
+                        type="number"
+                        value={duration}
+                        min={min}
+                        max={max}
+                        onChange={onDurationChange}
+                    />
+                    <SelectGroup
+                        options={unitOptions}
+                        value={durationUnit}
+                        onChange={onUnitChange}
+                    />
+                </div>
                 <ErrorMsg shown={showError} text={errorMsg} />
             </div>
         );

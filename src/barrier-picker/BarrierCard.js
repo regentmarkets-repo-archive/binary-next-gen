@@ -52,7 +52,7 @@ export default class BarrierCard extends Component {
         const warningText = `Barriers input only allows ${pipSize} decimals, exceeded decimals will be ignored.`;
 
         return (
-            <div className="barrier-input">
+            <div className="barrier-picker">
                 <BarrierInput
                     {...barrier1Info}
                     barrierType={barrierType}
