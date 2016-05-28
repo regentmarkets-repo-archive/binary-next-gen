@@ -1092,7 +1092,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 .duration-input, .forward-starting-group, .forward-starting-input {
     display: flex;
-    flex-direction: column;
 }
 
 .forward-starting-input input {
@@ -1108,9 +1107,15 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: column;
 }
 
-.forward-starting-group .start-time-selector {
-    height: 2rem;
-    padding-top: .3rem;
+.start-time-selector {
+    display: flex;
+}
+
+.start-time-selector > label {
+    flex: 1;
+    cursor: pointer;
+    line-height: 2 !important;
+    margin-bottom: .5rem;
 }
 
 .duration-input > *, .forward-starting-group > * {
@@ -1158,10 +1163,8 @@ input[type=number]::-webkit-outer-spin-button {
     cursor: pointer;
 }
 
-.barrier-input {
-    display: flex;
-    flex-direction: column;
-    max-width: 11.3em;
+.barrier-input input {
+    width: 100%;
 }
 
 /* default */
