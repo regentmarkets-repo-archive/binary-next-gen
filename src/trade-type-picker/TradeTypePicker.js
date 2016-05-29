@@ -83,7 +83,7 @@ export default class TradeTypePicker extends Component {
                     {hasDigits(contract) && <Tab text="Digits" />}
                     {hasAdvanced(contract) && <Tab text="Advanced" />}
                 </TabList>
-                <div id="type-pairs">
+                <div className="type-pairs-list">
                     {typePairs.map(x =>
                         <div className="type-pair" key={x[0].value}>
                             <Tab
