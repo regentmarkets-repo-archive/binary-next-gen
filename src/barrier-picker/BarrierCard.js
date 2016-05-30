@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import BarrierInput from './BarrierInput';
-import WarningMsg from '../_common/WarningMsg';
 
 export default class BarrierCard extends Component {
 
@@ -21,9 +20,37 @@ export default class BarrierCard extends Component {
         isIntraDay: PropTypes.bool,
         onBarrier1Change: PropTypes.func,
         onBarrier2Change: PropTypes.func,
+        onError: PropTypes.func,
         pipSize: PropTypes.number,
         spot: PropTypes.number,
     };
+
+    validateBarrier(barrier) {
+        const { pipSize } = this.props;
+        const barrierDecimals = barrier.toString().split('.')[1];
+        const barrierExceedPipSize = barrierDecimals && (barrierDecimals.length > pipSize);
+
+        if (barrierExceedPipSize) {
+            return `Barriers input only allows ${pipSize} decimals, exceeded decimals will be ignored.`;
+        }
+        return undefined;
+    }
+
+    updateBarrier1(e) {
+        const { onError, onBarrier1Change } = this.props;
+        const newBarrier1 = e.target.value;
+        const error = this.validateBarrier(newBarrier1);
+        onError(error);
+        onBarrier1Change(e);
+    }
+
+    updateBarrier2(e) {
+        const { onError, onBarrier2Change } = this.props;
+        const newBarrier2 = e.target.value;
+        const error = this.validateBarrier(newBarrier2);
+        onError(error);
+        onBarrier2Change(e);
+    }
 
     render() {
         const {
@@ -32,8 +59,6 @@ export default class BarrierCard extends Component {
             barrierInfo,
             barrierType,
             isIntraDay,
-            onBarrier1Change,
-            onBarrier2Change,
             pipSize,
             spot,
             } = this.props;
@@ -43,21 +68,13 @@ export default class BarrierCard extends Component {
 
         if (!barrier1Info) return null;
 
-        const barrier1Decimals = barrier.toString().split('.')[1];
-        const barrier1ExceedPipSize = barrier1Decimals && (barrier1Decimals.length > pipSize);
-
-        const barrier2Decimals = barrier2 && barrier2.toString().split('.')[1];
-        const barrier2ExceedPipSize = barrier2Decimals && (barrier2Decimals.length > pipSize);
-
-        const warningText = `Barriers input only allows ${pipSize} decimals, exceeded decimals will be ignored.`;
-
         return (
             <div className="barrier-picker">
                 <BarrierInput
                     {...barrier1Info}
                     barrierType={barrierType}
                     expiryType={expiryType}
-                    onChange={onBarrier1Change}
+                    onChange={::this.updateBarrier1}
                     isIntraDay={isIntraDay}
                     pipSize={pipSize}
                     value={barrier}
@@ -68,17 +85,13 @@ export default class BarrierCard extends Component {
                         {...barrierInfo[expiryType][1]}
                         barrierType={barrierType}
                         expiryType={expiryType}
-                        onChange={onBarrier2Change}
+                        onChange={::this.updateBarrier2}
                         pipSize={pipSize}
                         isIntraDay={isIntraDay}
                         value={barrier2}
                         spot={spot}
                     />
                 }
-                <WarningMsg
-                    shown={barrier1ExceedPipSize || barrier2ExceedPipSize}
-                    text={warningText}
-                />
             </div>
         );
     }

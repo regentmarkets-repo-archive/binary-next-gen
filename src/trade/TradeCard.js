@@ -2,8 +2,8 @@ import React, { Component, PropTypes } from 'react';
 import { BinaryChart } from 'binary-charts';
 import findDeep from 'binary-utils/lib/findDeep';
 import filterObjectBy from 'binary-utils/lib/filterObjectBy';
-// const BinaryChart = (props) => <div {...props} style={{ background: 'grey' }} />;
 import PurchaseFailed from '../_common/PurchaseFailed';
+import ErrorMsg from '../_common/ErrorMsg';
 import Modal from '../containers/Modal';
 import TradeParams from '../trade-params/TradeParams';
 import ContractReceipt from '../contract-details/ContractReceipt';
@@ -99,6 +99,7 @@ export default class TradeCard extends Component {
             pipSize,
             ticks,
             tradingTime,
+            tradeError,
         } = this.props;
         const { lastBoughtContract } = purchaseInfo;
         const { symbolName } = params;
@@ -123,10 +124,10 @@ export default class TradeCard extends Component {
         return (
             <div disabled={disabled} className="trade-panel">
                 <Modal
-                    shown={!!purchaseInfo.buy_error}
-                    onClose={() => actions.updatePurchaseInfo(index, 'buy_error', undefined)}
+                    shown={!!purchaseInfo.purchaseError}
+                    onClose={() => actions.updatePurchaseInfo(index, 'purchaseError', undefined)}
                 >
-                    <PurchaseFailed failure={purchaseInfo.buy_error} />
+                    <PurchaseFailed failure={purchaseInfo.purchaseError} />
                 </Modal>
                 {/* {lastBoughtContract && <h5>{lastBoughtContract.longcode}</h5>} */}
                 <div className="trade-chart-container">
@@ -164,6 +165,7 @@ export default class TradeCard extends Component {
                         onPurchaseHook={::this.zoomWhenPurchase}
                     />
                 }
+                <ErrorMsg shown={!!tradeError} text={tradeError || ''} />
             </div>
         );
     }
