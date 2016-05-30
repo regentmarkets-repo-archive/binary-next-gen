@@ -7,7 +7,6 @@ import {
     CREATE_TRADE,
     REMOVE_PERSONAL_DATA,
     UPDATE_TRADE_PURCHASE_INFO,
-    SERVER_DATA_PROPOSAL_OPEN_CONTRACT,
 } from '../../_constants/ActionTypes';
 
 const defaultPurchaseInfo = {};
