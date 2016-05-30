@@ -12,6 +12,7 @@ import {
     tradesPipSizeSelector,
     tradesTradingTimesSelector,
     tradesErrorsSelector,
+    tradesPurchaseInfoSelector,
 } from '../trade/TradeSelectors';
 
 export default createStructuredSelector({
@@ -22,7 +23,7 @@ export default createStructuredSelector({
     paramsList: tradesParamsSelector,
     pipSizeList: tradesPipSizeSelector,
     proposalInfoList: state => state.tradesProposalInfo,
-    purchaseInfoList: state => state.tradesPurchaseInfo,
+    purchaseInfoList: tradesPurchaseInfoSelector,
     tradesCount: tradesCountSelector,
     ticksForAllSymbols: ticksSelector, // not really!!!
     tradingTimeList: tradesTradingTimesSelector,
