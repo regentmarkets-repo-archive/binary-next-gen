@@ -108,6 +108,15 @@ export const tradesPipSizeSelector = createListSelector(
     }
 );
 
+export const tradesPurchaseInfoSelector = createListSelector(
+    [state => state.tradesPurchaseInfo, state => state.boughtContracts],
+    (purchaseInfo, contracts) => {
+        const contractID = purchaseInfo.get('mostRecentContractId');
+        if (!contractID) return purchaseInfo;
+        return purchaseInfo.set('lastBoughtContract', contracts.get(contractID));
+    }
+);
+
 export const availableAssetsSelector = createSelector(
     [tradingTimesSelector, marketTreeSelector],
     (tradingTimes, marketTree) => {

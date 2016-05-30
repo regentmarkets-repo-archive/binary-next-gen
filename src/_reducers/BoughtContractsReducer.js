@@ -31,13 +31,17 @@ export default (state = initialState, action) => {
         }
         case SERVER_DATA_TRANSACTION: {
             const tx = action.serverResponse.transaction;
-            if (tx.action !== 'sell') {
-                return state.mergeIn([tx.contract_id], { transaction_id: tx.transaction_id });
+            if (tx.action === 'sell') {
+                return state
+                    .mergeIn([tx.contract_id], {
+                        sell_price: tx.amount,
+                        sell_time: tx.transaction_time,
+                    })
+                    .mergeIn([tx.contract_id, 'transaction_ids'], {
+                        sell: tx.transaction_id,
+                    });
             }
-            return state.mergeIn([tx.contract_id], {
-                sell_price: tx.amount,
-                sell_time: tx.transaction_time,
-            });
+            return state;
         }
         case REMOVE_PERSONAL_DATA: {
             return initialState;

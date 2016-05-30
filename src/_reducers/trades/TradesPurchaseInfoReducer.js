@@ -60,16 +60,16 @@ export default (state = initialState, action) => {
         case REMOVE_PERSONAL_DATA: {
             return initialState;
         }
-        case SERVER_DATA_PROPOSAL_OPEN_CONTRACT: {
-            const openContract = action.serverResponse.proposal_open_contract;
-            const index = state.findIndex(
-                v => v.get('mostRecentContractId') && (v.get('mostRecentContractId') === openContract.contract_id)
-            );
-            if (index > -1) {
-                return state.setIn([index, 'lastBoughtContract'], openContract);
-            }
-            return state;
-        }
+        // case SERVER_DATA_PROPOSAL_OPEN_CONTRACT: {
+        //     const openContract = action.serverResponse.proposal_open_contract;
+        //     const index = state.findIndex(
+        //         v => v.get('mostRecentContractId') && (v.get('mostRecentContractId') === openContract.contract_id)
+        //     );
+        //     if (index > -1) {
+        //         return state.setIn([index, 'lastBoughtContract'], openContract);
+        //     }
+        //     return state;
+        // }
         default: return state;
     }
 };
