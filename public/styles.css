@@ -19,6 +19,7 @@ input::-webkit-clear-button { /* Removes blue cross */
 .disabled {
     opacity: 0.2;
 }
+
 /* Web Layout */
 
 #root, #screen {
@@ -878,7 +879,9 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .mobile-content .trade-params {
-    flex: 1;
+    margin-top: .5rem;
+    flex-direction: column;
+    flex-wrap: nowrap;
 }
 
 .horizontal .trade-params > :not(button),
@@ -905,8 +908,13 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: column;
 }
 
-.duration-input, .forward-starting-group, .forward-starting-input {
+.duration-input, .forward-starting-input, .mobile-content .forward-starting-picker {
     display: flex;
+    flex-direction: row;
+}
+
+.mobile-content .payout-display {
+    flex-direction: row;
 }
 
 .forward-starting-input input {
@@ -922,10 +930,6 @@ input[type=number]::-webkit-outer-spin-button {
     width: 100%;
 }
 
-.forward-starting-group {
-    flex-direction: column;
-}
-
 .start-time-selector {
     display: flex;
 }
@@ -937,7 +941,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin-bottom: .5rem;
 }
 
-.duration-input > *, .forward-starting-group > * {
+.duration-input > *, .forward-starting-picker > * {
     flex: 1;
     -webkit-flex: 1 1 auto;         /* workaround for safari bug */
 }
