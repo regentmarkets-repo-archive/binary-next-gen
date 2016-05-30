@@ -22,7 +22,7 @@ export default (state = initialState, action) => {
             delete openContract.current_spot;
             delete openContract.current_spot_time;
 
-            return state.mergeIn([openContract.contract_id], openContract);
+            return state.setIn([openContract.contract_id], fromJS(openContract));
         }
         case SERVER_DATA_PORTFOLIO: {
             const contracts = action.serverResponse.portfolio.contracts;
