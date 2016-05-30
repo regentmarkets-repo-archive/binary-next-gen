@@ -79,33 +79,29 @@ export default class ForwardStartingOptions extends Component {
 
         return (
             <div className="forward-starting-group">
-                {allowStartLater &&
-                    <div>
-                        <Label text={'Start Time'} />
-                        {!onlyStartLater &&
-                            <div className="start-time-selector">
-                                <label>
-                                    <input
-                                        type="radio"
-                                        name={`start-time${index}`}
-                                        onChange={::this.startNow}
-                                        checked={!dateStart}
-                                        disabled={onlyStartLater}
-                                    />
-                                    <M m="Now" />
-                                </label>
-                                <label>
-                                    <input
-                                        type="radio"
-                                        name={`start-time${index}`}
-                                        onChange={::this.startLater}
-                                        checked={!!dateStart}
-                                        disabled={!allowStartLater}
-                                    />
-                                    <M m="Later" />
-                                </label>
-                            </div>
-                        }
+                {allowStartLater && <Label text={'Start Time'} />}
+                {allowStartLater && !onlyStartLater &&
+                    <div className="start-time-selector">
+                        <label>
+                            <input
+                                type="radio"
+                                name={`start-time${index}`}
+                                onChange={::this.startNow}
+                                checked={!dateStart}
+                                disabled={onlyStartLater}
+                            />
+                            <M m="Now" />
+                        </label>
+                        <label>
+                            <input
+                                type="radio"
+                                name={`start-time${index}`}
+                                onChange={::this.startLater}
+                                checked={!!dateStart}
+                                disabled={!allowStartLater}
+                            />
+                            <M m="Later" />
+                        </label>
                     </div>
                 }
                 {showForwardStartingInput &&

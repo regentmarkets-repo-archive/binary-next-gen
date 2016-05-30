@@ -836,6 +836,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin-bottom: .5rem;
     display: flex;
     justify-content: space-between;
+    align-items: stretch;
     background: rgba(42, 48, 82, 0.1);
     border-radius: 2px;
 }
@@ -989,7 +990,6 @@ input[type=number]::-webkit-outer-spin-button {
 /* default */
 .contract-detail {
     display: flex;
-    padding: .125rem;
     margin: .125rem;
     border-radius: 2px;
 }
@@ -997,6 +997,7 @@ input[type=number]::-webkit-outer-spin-button {
 .modal .contract-detail, .vertical .contract-detail {
     width: 100%;
     margin-left: -.25rem;
+    padding: .125rem;
 }
 
 .contract-detail > span {
@@ -1027,6 +1028,10 @@ input[type=number]::-webkit-outer-spin-button {
 .vertical .contract-receipt {
     overflow: auto;
     max-width: 15rem;
+}
+
+.mobile-content .contract-receipt {
+    margin: 0;
 }
 
 .modal h5 {

@@ -118,6 +118,7 @@ export default class TradeCard extends Component {
         const contractRequiredByChart = lastBoughtContract &&
             serverContractModelToChartContractModel(lastBoughtContract);
         // if (contractRequiredByChart) window.contracts.push(contractRequiredByChart);
+
         return (
             <div disabled={disabled} className={'trade-panel'}>
                 <Modal
@@ -126,6 +127,7 @@ export default class TradeCard extends Component {
                 >
                     <PurchaseFailed failure={purchaseInfo.buy_error} />
                 </Modal>
+                {lastBoughtContract && <h5>{lastBoughtContract.longcode}</h5>}
                 <div className="trade-chart-container">
                     <BinaryChart
                         id={`trade-chart${index}`}
