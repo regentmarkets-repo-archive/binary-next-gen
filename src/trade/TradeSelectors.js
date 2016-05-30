@@ -108,11 +108,6 @@ export const tradesPipSizeSelector = createListSelector(
     }
 );
 
-export const tradesErrorsSelector = createListSelector(
-    [state => state.tradesError],
-    errors => errors.valueSeq().filter(x => x).get(0, undefined)
-);
-
 export const tradesPurchaseInfoSelector = createListSelector(
     [state => state.tradesPurchaseInfo, state => state.boughtContracts],
     (purchaseInfo, contracts) => {

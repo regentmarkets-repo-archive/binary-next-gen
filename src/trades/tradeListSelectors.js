@@ -11,7 +11,6 @@ import {
     tradesParamsSelector,
     tradesPipSizeSelector,
     tradesTradingTimesSelector,
-    tradesErrorsSelector,
     tradesPurchaseInfoSelector,
 } from '../trade/TradeSelectors';
 
@@ -28,5 +27,5 @@ export default createStructuredSelector({
     ticksForAllSymbols: ticksSelector, // not really!!!
     tradingTimeList: tradesTradingTimesSelector,
     uiStateList: state => state.tradesUIStates,
-    tradeErrorList: tradesErrorsSelector,
+    tradeErrorList: state => state.tradesError,
 });

@@ -71,7 +71,7 @@ export default class TradesLayouts extends Component {
                 proposalInfo={proposalInfoList[index]}
                 uiState={uiStateList[index]}
                 tradingTime={tradingTimeList[index]}
-                tradeError={tradeErrorList[index]}
+                tradeErrors={tradeErrorList[index]}
             />
         );
 

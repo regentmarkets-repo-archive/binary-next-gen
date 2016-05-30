@@ -39,6 +39,17 @@ const zoomToLatest = chart => {
     }
 };
 
+const errorToShow = errorObj => {
+    const { barrierError, durationError, proposalError, purchaseError } = errorObj;
+
+    if (barrierError) return barrierError;
+    if (durationError) return durationError;
+    if (proposalError) return proposalError;
+    if (purchaseError) return purchaseError;
+
+    return undefined;
+};
+
 export default class TradeCard extends Component {
     constructor(props) {
         super(props);
@@ -71,7 +82,7 @@ export default class TradeCard extends Component {
         ticks: PropTypes.array,
         uiState: PropTypes.object.isRequired,
         tradingTime: PropTypes.object,
-        tradeError: PropTypes.string,
+        tradeErrors: PropTypes.object,
     };
 
     shouldComponentUpdate(nextProps) {
@@ -99,7 +110,7 @@ export default class TradeCard extends Component {
             pipSize,
             ticks,
             tradingTime,
-            tradeError,
+            tradeErrors,
         } = this.props;
         const { lastBoughtContract } = purchaseInfo;
         const { symbolName } = params;
@@ -121,13 +132,16 @@ export default class TradeCard extends Component {
             serverContractModelToChartContractModel(lastBoughtContract);
         // if (contractRequiredByChart) window.contracts.push(contractRequiredByChart);
 
+        // contract error is not tied to trade, but symbol, thus not in tradeErrors
+        const tradeError = (propsContract ? propsContract.error : undefined) || errorToShow(tradeErrors);
+
         return (
             <div disabled={disabled} className="trade-panel">
                 <Modal
-                    shown={!!purchaseInfo.purchaseError}
-                    onClose={() => actions.updatePurchaseInfo(index, 'purchaseError', undefined)}
+                    shown={!!tradeErrors.purchaseError}
+                    onClose={() => actions.updateTradeError(index, 'purchaseError', undefined)}
                 >
-                    <PurchaseFailed failure={purchaseInfo.purchaseError} />
+                    <PurchaseFailed failure={tradeErrors.purchaseError} />
                 </Modal>
                 {/* {lastBoughtContract && <h5>{lastBoughtContract.longcode}</h5>} */}
                 <div className="trade-chart-container">
@@ -152,11 +166,11 @@ export default class TradeCard extends Component {
                     /> :
                     <TradeParams
                         {...proposalInfo}
+                        proposalError={tradeErrors.proposalError}
                         actions={actions}
                         currency={currency}
                         contract={contract}
                         compact={compact}
-                        contractError={propsContract ? propsContract.error : undefined}
                         disabled={disabled}
                         index={index}
                         pipSize={pipSize}

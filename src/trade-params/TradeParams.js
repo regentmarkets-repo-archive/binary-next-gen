@@ -61,7 +61,7 @@ export default class TradeParams extends Component {
         onPurchaseHook: PropTypes.func,
         pipSize: PropTypes.number.isRequired,
         proposal: PropTypes.object,
-        proposalError: PropTypes.object,
+        proposalError: PropTypes.any,
         tradeParams: PropTypes.object.isRequired,
         type: PropTypes.oneOf(['tick', 'full']).isRequired,
         ticks: PropTypes.array,
@@ -134,23 +134,35 @@ export default class TradeParams extends Component {
         actions.updatePriceProposalSubscription(index);
     }
 
+    // TODO: create an action that update all at once
+    clearTradeError() {
+        const { actions, index } = this.props;
+        actions.updateTradeError(index, 'barrierError', undefined);
+        actions.updateTradeError(index, 'durationError', undefined);
+        actions.updateTradeError(index, 'proposalError', undefined);
+        actions.updateTradeError(index, 'purchaseError', undefined);
+    }
+
     onAssetChange() {
         const { contract, tradeParams } = this.props;
         const updatedAsset = updateHelpers.changeAsset(tradeParams, contract, updateHelpers.changeCategory);
         this.updateTradeParams(updatedAsset);
         this.dynamicKeyIncrement();
+        this.clearTradeError();
     }
 
     onCategoryChange(newCategory) {
         const { contract } = this.props;
         const updatedCategory = updateHelpers.changeCategory(newCategory, contract);
         this.updateTradeParams(updatedCategory);
+        this.clearTradeError();
     }
 
     onTypeChange(newType, newCategory) {
         const { contract, tradeParams } = this.props;
         const updatedType = updateHelpers.changeType(newType, newCategory, tradeParams, contract);
         this.updateTradeParams(updatedType);
+        this.clearTradeError();
     }
 
     onStartDateChange(epoch) {

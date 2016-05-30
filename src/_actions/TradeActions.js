@@ -155,7 +155,6 @@ export const updatePriceProposalSubscription = (tradeID, trade) => {
         }).then(
             response => {
                 if (getState().tradesParams.get(tradeID)) {
-                    dispatch(updateTradeProposal(tradeID, 'proposalError', undefined));
                     dispatch(updateTradeError(tradeID, 'proposalError', undefined));
                     dispatch(updateTradeProposal(tradeID, 'proposal', response.proposal));
                 } else {
@@ -164,7 +163,6 @@ export const updatePriceProposalSubscription = (tradeID, trade) => {
             },
             err => {
                 dispatch(updateTradeError(tradeID, 'proposalError', err.message));
-                dispatch(updateTradeProposal(tradeID, 'proposalError', err));
                 dispatch(updateTradeProposal(tradeID, 'proposal', undefined));
             }
         ).then(() => dispatch(updateTradeUIState(tradeID, 'disabled', false)));
@@ -209,10 +207,7 @@ export const purchaseByTradeId = (tradeID, trade) =>
                     dispatch(updatePurchaseInfo(tradeID, 'mostRecentContractId', response.buy.contract_id));
                     LiveData.api.subscribeToOpenContract(response.buy.contract_id);
                 },
-                err => {
-                    dispatch(updatePurchaseInfo(tradeID, 'purchaseError', err))
-                    dispatch(updateTradeError(tradeID, 'purchaseError', err.message))
-                }
+                err => dispatch(updateTradeError(tradeID, 'purchaseError', err.message))
             )
             .then(() => {
                 dispatch(updateTradeUIState(tradeID, 'disabled', false));
