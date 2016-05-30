@@ -24,6 +24,7 @@ import tradesParams from './trades/TradesParamsReducer';
 import tradesProposalInfo from './trades/TradesProposalInfoReducer';
 import tradesPurchaseInfo from './trades/TradesPurchaseInfoReducer';
 import tradesUIStates from './trades/TradesUIStateReducer';
+import tradesError from './trades/TradesErrorReducer';
 
 import tradingOptions from './TradingOptionsReducer';
 import tradingTimes from './TradingTimesReducer';
@@ -64,6 +65,7 @@ export default combineReducers({
     tradesProposalInfo,
     tradesPurchaseInfo,
     tradesUIStates,
+    tradesError,
     tradingOptions,
     upgrade,
     video,

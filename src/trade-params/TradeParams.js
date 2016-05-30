@@ -283,7 +283,7 @@ export default class TradeParams extends Component {
                         onBarrierChange={this.onBarrier1Change}
                     />
                 }
-                {showSpreadBarrier &&
+                {/*showSpreadBarrier &&
                     <SpreadBarrierCard
                         amountPerPoint={tradeParams.amountPerPoint}
                         stopLoss={tradeParams.stopLoss}
@@ -297,7 +297,7 @@ export default class TradeParams extends Component {
                         stopLossChange={this.onStopLossChange}
                         stopProfitChange={this.onStopProfitChange}
                     />
-                }
+                */}
                 {showBarrier &&
                     <BarrierCard
                         barrier={tradeParams.barrier}

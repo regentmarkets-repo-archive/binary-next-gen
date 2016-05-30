@@ -22,6 +22,7 @@ export default class TradesLayouts extends Component {
         tradesCount: PropTypes.number.isRequired,
         tradingTimeList: PropTypes.array.isRequired,
         uiStateList: PropTypes.array.isRequired,
+        tradeErrorList: PropTypes.array.isRequired,
     };
 
     componentWillMount() {
@@ -48,6 +49,7 @@ export default class TradesLayouts extends Component {
             uiStateList,
             ticksForAllSymbols,
             tradesCount,
+            tradeErrorList,
         } = this.props;
         const layout = layouts[`Layout${tradesCount}${layoutN}`];
         const layoutClass = styles[`layout-${tradesCount}-${layoutN}`];
@@ -69,6 +71,7 @@ export default class TradesLayouts extends Component {
                 proposalInfo={proposalInfoList[index]}
                 uiState={uiStateList[index]}
                 tradingTime={tradingTimeList[index]}
+                tradeError={tradeErrorList[index]}
             />
         );
 
