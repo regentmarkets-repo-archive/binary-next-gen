@@ -93,6 +93,13 @@ export const updateTradeProposal = (index, fieldName, fieldValue) => ({
     fieldValue,
 });
 
+export const updateTradeError = (index, errorID, error) => ({
+    type: types.UPDATE_TRADE_ERROR,
+    index,
+    errorID,
+    error,
+});
+
 export const updatePriceProposalSubscription = (tradeID, trade) => {
     const thunk = (dispatch, getState) => {
         dispatch(updateTradeUIState(tradeID, 'disabled', true));
