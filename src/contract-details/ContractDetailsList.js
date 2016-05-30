@@ -33,9 +33,9 @@ export default class ContractDetailsList extends Component {
 				<ContractDetailTime contract={contract} code={'date_start'} />
 				<ContractDetailString contract={contract} code={'entry_spot'} />
 				<ContractDetailTime contract={contract} code={'entry_tick_time'} />
-				{contract.barrier && <ContractDetailCustom label={'Barrier'} value={contract.barrier} />}
-				{contract.low_barrier && <ContractDetailCustom label={'Barrier'} value={contract.low_barrier} />}
-				{contract.high_barrier && <ContractDetailCustom label={'Barrier'} value={contract.high_barrier} />}
+				<ContractDetailCustom label={'Barrier'} value={contract.barrier} />
+				<ContractDetailCustom label={'Barrier'} value={contract.low_barrier} />
+				<ContractDetailCustom label={'Barrier'} value={contract.high_barrier} />
 				<ContractDetailMoney contract={contract} code={'buy_price'} />
 				<ContractDetailString contract={contract} code={'exit_tick'} />
 				<ContractDetailTime contract={contract} code={'exit_tick_time'} />

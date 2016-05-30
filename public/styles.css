@@ -19,6 +19,7 @@ input::-webkit-clear-button { /* Removes blue cross */
 .disabled {
     opacity: 0.2;
 }
+
 /* Web Layout */
 
 #root, #screen {
@@ -836,6 +837,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin-bottom: .5rem;
     display: flex;
     justify-content: space-between;
+    align-items: stretch;
     background: rgba(42, 48, 82, 0.1);
     border-radius: 2px;
 }
@@ -877,7 +879,9 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .mobile-content .trade-params {
-    flex: 1;
+    margin-top: .5rem;
+    flex-direction: column;
+    flex-wrap: nowrap;
 }
 
 .horizontal .trade-params > :not(button),
@@ -904,8 +908,13 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: column;
 }
 
-.duration-input, .forward-starting-group, .forward-starting-input {
+.duration-input, .forward-starting-input, .mobile-content .forward-starting-picker {
     display: flex;
+    flex-direction: row;
+}
+
+.mobile-content .payout-display {
+    flex-direction: row;
 }
 
 .forward-starting-input input {
@@ -921,10 +930,6 @@ input[type=number]::-webkit-outer-spin-button {
     width: 100%;
 }
 
-.forward-starting-group {
-    flex-direction: column;
-}
-
 .start-time-selector {
     display: flex;
 }
@@ -936,7 +941,7 @@ input[type=number]::-webkit-outer-spin-button {
     margin-bottom: .5rem;
 }
 
-.duration-input > *, .forward-starting-group > * {
+.duration-input > *, .forward-starting-picker > * {
     flex: 1;
     -webkit-flex: 1 1 auto;         /* workaround for safari bug */
 }
@@ -989,7 +994,6 @@ input[type=number]::-webkit-outer-spin-button {
 /* default */
 .contract-detail {
     display: flex;
-    padding: .125rem;
     margin: .125rem;
     border-radius: 2px;
 }
@@ -997,6 +1001,7 @@ input[type=number]::-webkit-outer-spin-button {
 .modal .contract-detail, .vertical .contract-detail {
     width: 100%;
     margin-left: -.25rem;
+    padding: .125rem;
 }
 
 .contract-detail > span {
@@ -1027,6 +1032,10 @@ input[type=number]::-webkit-outer-spin-button {
 .vertical .contract-receipt {
     overflow: auto;
     max-width: 15rem;
+}
+
+.mobile-content .contract-receipt {
+    margin: 0;
 }
 
 .modal h5 {

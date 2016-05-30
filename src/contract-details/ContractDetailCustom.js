@@ -11,10 +11,12 @@ export default class ContractDetailCustom extends Component {
 	render() {
 		const { label, value } = this.props;
 
+		if (typeof value === 'undefined') return null;
+
 		return (
 			<div className="contract-detail">
 				<M m={label} />
-				<span>{value || '–'}</span>
+				<span>{value}</span>
 			</div>
 		);
 	}

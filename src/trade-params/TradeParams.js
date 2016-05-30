@@ -12,9 +12,9 @@ import DurationCard from '../duration-picker/DurationCard';
 import ForwardStartingOptions from '../duration-picker/ForwardStartingOptions';
 import StakeCard from '../payout-picker/StakeCard';
 import PayoutCard from '../payout-picker/PayoutCard';
-import BuyButton from '../tick-trade/BuyButton';
 import TradeTypeDropDown from '../trade-type-picker/TradeTypeDropDown';
 import AssetPickerDropDown from '../asset-picker/AssetPickerDropDown';
+import BuyButton from './BuyButton';
 
 import * as LiveData from '../_data/LiveData';
 import * as updateHelpers from './TradeParamsCascadingUpdates';
