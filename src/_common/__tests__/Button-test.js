@@ -9,8 +9,8 @@ describe('<Button />', () => {
         expect(wrapper.type()).to.not.equal(null);
     });
 
-    it('renders FormattedMessage', () => {
+    it('renders TranslatedComponent', () => {
         const wrapper = shallow(<Button />);
-        expect(wrapper.find('FormattedMessage')).to.have.lengthOf(1);
+        expect(wrapper.find('TranslatedComponent')).to.have.lengthOf(1);
     });
 });

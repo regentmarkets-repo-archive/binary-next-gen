@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 
-export default class Label extends Component {
+export default class TranslatedComponent extends Component {
 
 	static propTypes = {
 		component: PropTypes.string.isRequired,
