@@ -27,4 +27,5 @@ export default createStructuredSelector({
     ticksForAllSymbols: ticksSelector, // not really!!!
     tradingTimeList: tradesTradingTimesSelector,
     uiStateList: state => state.tradesUIStates,
+    tradeErrorList: state => state.tradesError,
 });

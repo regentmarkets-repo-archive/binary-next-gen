@@ -3,10 +3,9 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 
 import isIntraday from 'binary-utils/lib/isIntraday';
 import askPriceFromProposal from 'binary-utils/lib/askPriceFromProposal';
-import ErrorMsg from '../_common/ErrorMsg';
 
 import BarrierCard from '../barrier-picker/BarrierCard';
-import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
+// import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
 import DigitBarrierCard from '../barrier-picker/DigitBarrierCard';
 import DurationCard from '../duration-picker/DurationCard';
 import ForwardStartingOptions from '../duration-picker/ForwardStartingOptions';
@@ -56,14 +55,13 @@ export default class TradeParams extends Component {
         actions: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
         contract: PropTypes.object,
-        contractError: PropTypes.object,
         compact: PropTypes.bool,
         disabled: PropTypes.bool,
         index: PropTypes.number.isRequired,
         onPurchaseHook: PropTypes.func,
         pipSize: PropTypes.number.isRequired,
         proposal: PropTypes.object,
-        proposalError: PropTypes.object,
+        proposalError: PropTypes.any,
         tradeParams: PropTypes.object.isRequired,
         type: PropTypes.oneOf(['tick', 'full']).isRequired,
         ticks: PropTypes.array,
@@ -85,6 +83,8 @@ export default class TradeParams extends Component {
         this.onStopTypeChange = ::this.onStopTypeChange;
         this.onStopProfitChange = ::this.onStopProfitChange;
         this.onPurchase = ::this.onPurchase;
+        this.onDurationError = ::this.onDurationError;
+        this.onBarrierError = ::this.onBarrierError;
 
         this.state = {
             dynamicKey: 0,
@@ -134,23 +134,35 @@ export default class TradeParams extends Component {
         actions.updatePriceProposalSubscription(index);
     }
 
+    // TODO: create an action that update all at once
+    clearTradeError() {
+        const { actions, index } = this.props;
+        actions.updateTradeError(index, 'barrierError', undefined);
+        actions.updateTradeError(index, 'durationError', undefined);
+        actions.updateTradeError(index, 'proposalError', undefined);
+        actions.updateTradeError(index, 'purchaseError', undefined);
+    }
+
     onAssetChange() {
         const { contract, tradeParams } = this.props;
         const updatedAsset = updateHelpers.changeAsset(tradeParams, contract, updateHelpers.changeCategory);
         this.updateTradeParams(updatedAsset);
         this.dynamicKeyIncrement();
+        this.clearTradeError();
     }
 
     onCategoryChange(newCategory) {
         const { contract } = this.props;
         const updatedCategory = updateHelpers.changeCategory(newCategory, contract);
         this.updateTradeParams(updatedCategory);
+        this.clearTradeError();
     }
 
     onTypeChange(newType, newCategory) {
         const { contract, tradeParams } = this.props;
         const updatedType = updateHelpers.changeType(newType, newCategory, tradeParams, contract);
         this.updateTradeParams(updatedType);
+        this.clearTradeError();
     }
 
     onStartDateChange(epoch) {
@@ -170,6 +182,11 @@ export default class TradeParams extends Component {
         this.updateTradeParams(updatedDurationUnit);
     }
 
+    onDurationError(err) {
+        const { actions, index } = this.props;
+        actions.updateTradeError(index, 'durationError', err);
+    }
+
     onBarrier1Change(e) {
         const inputValue = e.target.value;
         const updatedBarrier1 = updateHelpers.changeBarrier1(inputValue);
@@ -180,6 +197,11 @@ export default class TradeParams extends Component {
         const inputValue = e.target.value;
         const updatedBarrier2 = updateHelpers.changeBarrier2(inputValue);
         this.updateTradeParams(updatedBarrier2);
+    }
+
+    onBarrierError(err) {
+        const { actions, index } = this.props;
+        actions.updateTradeError(index, 'barrierError', err);
     }
 
     onBasisChange(e) {
@@ -226,13 +248,11 @@ export default class TradeParams extends Component {
             actions,
             compact,
             contract,
-            contractError,
             currency,
             disabled,
             index,
             pipSize,
             proposal,
-            proposalError,
             tradeParams,
         } = this.props;
 
@@ -283,7 +303,7 @@ export default class TradeParams extends Component {
                         onBarrierChange={this.onBarrier1Change}
                     />
                 }
-                {showSpreadBarrier &&
+                {/* showSpreadBarrier &&
                     <SpreadBarrierCard
                         amountPerPoint={tradeParams.amountPerPoint}
                         stopLoss={tradeParams.stopLoss}
@@ -297,7 +317,7 @@ export default class TradeParams extends Component {
                         stopLossChange={this.onStopLossChange}
                         stopProfitChange={this.onStopProfitChange}
                     />
-                }
+                */}
                 {showBarrier &&
                     <BarrierCard
                         barrier={tradeParams.barrier}
@@ -309,6 +329,7 @@ export default class TradeParams extends Component {
                         onBarrier1Change={this.onBarrier1Change}
                         onBarrier2Change={this.onBarrier2Change}
                         spot={proposal && +proposal.spot}
+                        onError={this.onBarrierError}
                     />
                 }
                 {showDuration && !showSpreadBarrier &&
@@ -320,6 +341,7 @@ export default class TradeParams extends Component {
                         options={contractForType.durations}
                         onDurationChange={this.onDurationChange}
                         onUnitChange={this.onDurationUnitChange}
+                        onError={this.onDurationError}
                         index={index}
                     />
                 }
@@ -348,14 +370,6 @@ export default class TradeParams extends Component {
                     currency={currency}
                     disabled={disabled}
                     onClick={this.onPurchase}
-                />
-                <ErrorMsg
-                    shown={!!proposalError}
-                    text={proposalError ? proposalError.message : ''}
-                />
-                <ErrorMsg
-                    shown={!!contractError}
-                    text={contractError && contractError.message || ''}
                 />
             </div>
         );

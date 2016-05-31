@@ -29,11 +29,10 @@ export const getOpenContract = contractId =>
         return Promise.resolve(boughtContracts.get(contractId).toJS());
     };
 
-export const detailsForContract = (areDetailsShown, contractShown) => {
+export const detailsForContract = (contractShown) => {
     if (!contractShown) {
         return {
             type: types.DETAILS_FOR_CONTRACT,
-            areDetailsShown,
             contractShown,
         };
     }
@@ -44,7 +43,6 @@ export const detailsForContract = (areDetailsShown, contractShown) => {
                 dispatch(getTicksBySymbol(contract.underlying));
                 return dispatch({
                     type: types.DETAILS_FOR_CONTRACT,
-                    areDetailsShown,
                     contractShown,
                 });
             },
