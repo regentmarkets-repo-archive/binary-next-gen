@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import { FormattedMessage } from 'react-intl';
+import Option from '../_common/Option';
 
 export default class MarketSubmarketPicker extends Component {
 
@@ -40,16 +40,8 @@ export default class MarketSubmarketPicker extends Component {
 				className="market-submarket-picker"
 				onChange={e => onChange(e.target.value)}
 			>
-				{allOptionShown &&
-					<FormattedMessage id="All" defaultMessage="All">
-						{message => <option value="all">{message}</option>}
-					</FormattedMessage>
-				}
-				{allOptionShown &&
-					<FormattedMessage id="Favorites" defaultMessage="Favorites">
-						{message => <option value="favorites">{message}</option>}
-					</FormattedMessage>
-				}
+				{allOptionShown && <Option text="All" value="all" />}
+				{allOptionShown && <Option text="Favorites" value="all" />}
 				{flattenSubmarkets.map((opt, k) =>
 					<option key={k} value={opt.value}>{opt.name}</option>
 				)}
