@@ -22,6 +22,7 @@ describe('singleTradeSelectors', () => {
         tradesUIStates: fromJS([{}]),
         tradingOptions: new Map({ R_9000: contractsForR50 }),
         tradingTimes: fromJS([]),
+        tradesError: fromJS([]),
     });
 
 

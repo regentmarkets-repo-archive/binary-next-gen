@@ -47,5 +47,6 @@ export default createStructuredSelector({
     purchaseInfo: state => state.tradesPurchaseInfo.first(),
     uiState: state => state.tradesUIStates.first(),
     tradingTime: state => tradesTradingTimesSelector(state).first(),
+    tradeErrors: state => state.tradesError.first(),
     ticks: ticksForFirstTradeSelector,
 });

@@ -29,8 +29,17 @@ export default class TradeTypePickerMobile extends React.Component {
 		actions.updatePriceProposalSubscription(0);
 	}
 
+	clearTradeError() {
+		const { actions } = this.props;
+		actions.updateTradeError(0, 'barrierError', undefined);
+		actions.updateTradeError(0, 'durationError', undefined);
+		actions.updateTradeError(0, 'proposalError', undefined);
+		actions.updateTradeError(0, 'purchaseError', undefined);
+	}
+
 	render() {
 		const { actions, contract, params } = immutableChildrenToJS(this.props);
+		if (!contract) return null;
 		return (
 			<MobilePage toolbarShown={false} backBtnBarTitle="Trade Type">
 				<TradeTypePicker
@@ -39,6 +48,7 @@ export default class TradeTypePickerMobile extends React.Component {
 					tradeParams={params}
 					onSelect={::this.onSelectForMobile}
 					updateParams={::this.updateParamsForMobile}
+					clearTradeError={::this.clearTradeError}
 				/>
 			</MobilePage>
 		);
