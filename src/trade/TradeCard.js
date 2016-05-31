@@ -82,7 +82,7 @@ export default class TradeCard extends Component {
         ticks: PropTypes.array,
         uiState: PropTypes.object.isRequired,
         tradingTime: PropTypes.object,
-        tradeErrors: PropTypes.object,
+        tradeErrors: PropTypes.object.isRequired,
     };
 
     shouldComponentUpdate(nextProps) {

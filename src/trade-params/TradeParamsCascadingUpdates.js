@@ -55,7 +55,7 @@ export function changeAsset(oldTrade, contract, changeCat) {
     };
 }
 
-export function changeCategory(newCategory, contract) {
+export function changeCategory(newCategory, contract, oldTrade) {
     const defaultType = createDefaultType(contract, newCategory);
 
     // spreads is special case
@@ -74,6 +74,37 @@ export function changeCategory(newCategory, contract) {
             stopType: spread.stopType,
             stopLoss: 30, // hardcode default as backend return wrong info
             stopProfit: spread.stopProfit,
+        };
+    }
+
+    if (allTimeRelatedFieldValid(
+            oldTrade.dateStart,
+            oldTrade.duration,
+            oldTrade.durationUnit,
+            contract[newCategory][defaultType]
+        )) {
+        const { dateStart, duration, durationUnit } = oldTrade;
+        const newBarrier = createDefaultBarriers(
+            contract,
+            newCategory,
+            defaultType,
+            duration,
+            durationUnit,
+        );
+        const newBarrierType = createDefaultBarrierType(duration, durationUnit);
+        return {
+            tradeCategory: newCategory,
+            type: defaultType,
+            duration,
+            durationUnit,
+            dateStart,
+            barrier: newBarrier[0],
+            barrier2: newBarrier[1],
+            amountPerPoint: undefined,
+            stopType: undefined,
+            stopLoss: undefined,
+            stopProfit: undefined,
+            barrierType: newBarrierType,
         };
     }
 
@@ -106,6 +137,27 @@ export function changeCategory(newCategory, contract) {
 
 export function changeType(newType, newCategory, oldTrade, contract) {
     const category = newCategory || oldTrade.tradeCategory;
+    if (allTimeRelatedFieldValid(
+            oldTrade.dateStart,
+            oldTrade.duration,
+            oldTrade.durationUnit,
+            contract[category][newType]
+        )) {
+        const { dateStart, duration, durationUnit } = oldTrade;
+        const newBarrier = createDefaultBarriers(contract, category, newType, duration, durationUnit);
+        const newBarrierType = createDefaultBarrierType(duration, durationUnit);
+        return {
+            tradeCategory: newCategory,
+            type: newType,
+            duration,
+            durationUnit,
+            dateStart,
+            barrier: newBarrier[0],
+            barrier2: newBarrier[1],
+            barrierType: newBarrierType,
+        };
+    }
+
     const newDuration = createDefaultDuration(contract, category, newType);
     const { dateStart, duration, durationUnit } = newDuration;
     const newBarrier = createDefaultBarriers(contract, category, newType, duration, durationUnit);
