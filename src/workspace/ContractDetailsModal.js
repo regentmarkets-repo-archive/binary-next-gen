@@ -19,7 +19,7 @@ export default class ContractDetailsModal extends Component {
         return (
             <Modal
                 shown={!!contractShown}
-                onClose={() => actions.detailsForContract(false, undefined)}
+                onClose={() => actions.detailsForContract(undefined)}
             >
                 {contractShown &&
                 <ContractDetailsContainer

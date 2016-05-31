@@ -30,11 +30,12 @@ export default class PortfolioCard extends Component {
 
 		const { router } = this.context;
 
-		const onViewDetails = contract =>
-			compact
-				? router.push(`/contract/${contract.contract_id}`)
-				: actions.detailsForContract(true, contract.contract_id);
-
+		const onViewDetails = contract => {
+			actions.detailsForContract(contract.contract_id);
+			if (compact) {
+				router.push(`/contract/${contract.contract_id}`);
+			}
+		};
 		return (
 			<div>
 				<PortfolioList
