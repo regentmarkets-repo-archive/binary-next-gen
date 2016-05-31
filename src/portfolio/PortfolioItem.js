@@ -16,7 +16,7 @@ export default class PortfolioItem extends Component {
 
         return (
             <tr onClick={() => onViewDetails(contract)}>
-                <td>{contract.transaction_id}</td>
+                <td>{contract.transaction_ids.buy}</td>
                 <td>
                     <NumberPlain
                         currency={contract.currency}
