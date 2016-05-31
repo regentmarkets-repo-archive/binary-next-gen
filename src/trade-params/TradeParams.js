@@ -152,8 +152,8 @@ export default class TradeParams extends Component {
     }
 
     onCategoryChange(newCategory) {
-        const { contract } = this.props;
-        const updatedCategory = updateHelpers.changeCategory(newCategory, contract);
+        const { contract, tradeParams } = this.props;
+        const updatedCategory = updateHelpers.changeCategory(newCategory, contract, tradeParams);
         this.updateTradeParams(updatedCategory);
         this.clearTradeError();
     }

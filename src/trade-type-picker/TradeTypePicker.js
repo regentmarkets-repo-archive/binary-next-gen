@@ -51,7 +51,7 @@ export default class TradeTypePicker extends Component {
             .filter(c => tradeGrouping[group].includes(c.value));
 
         if (!groupCategories.find(c => c.value === selectedCategory)) {
-            const updatedCategory = changeCategory(groupCategories[0].value, contract);
+            const updatedCategory = changeCategory(groupCategories[0].value, contract, tradeParams);
             updateParams(updatedCategory);
         }
     }
