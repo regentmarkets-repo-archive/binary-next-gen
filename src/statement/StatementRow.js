@@ -16,11 +16,22 @@ export default class StatementRow extends Component {
         balanceAfter: PropTypes.number.isRequired,
     };
 
+    static contextTypes = {
+        router: React.PropTypes.object.isRequired,
+    };
+
     render() {
         const { actions, contractId, compact, refN, date, actionType, amount, balanceAfter } = this.props;
-
+        const { router } = this.context;
+        const viewContract = () =>
+            actions.detailsForContract(contractId)
+                .then(() => {
+                    if (compact) {
+                        router.push(`/contract/${contractId}`);
+                    }
+                });
         return (
-            <tr className="statement-row" onClick={() => actions.detailsForContract(contractId)}>
+            <tr className="statement-row" onClick={viewContract}>
                 <td><FormattedTime value={date} format="full" /></td>
                 {!compact && <td>{refN}</td>}
                 <td className="trade-action">{actionType}</td>
