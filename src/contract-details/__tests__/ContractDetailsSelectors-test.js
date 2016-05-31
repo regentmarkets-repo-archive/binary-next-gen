@@ -1,6 +1,6 @@
 import { fromJS } from 'immutable';
 import { expect } from 'chai';
-import { contractToShow, dataToShow, pipSizeSelector } from '../ContractDetailsSelectors';
+import { contractToShow, dataToShow } from '../ContractDetailsSelectors';
 
 describe('ContractDetailsSelectors', () => {
     describe('contractToShow', () => {
@@ -38,6 +38,6 @@ describe('ContractDetailsSelectors', () => {
 
             const actual = dataToShow(state);
             expect(actual.toJS()).to.be.deep.equal({ contract_id: 1, test: 0 });
-        })
+        });
     });
 });
