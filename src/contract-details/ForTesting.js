@@ -17,7 +17,7 @@ export default class ForTesting extends Component {
 
     componentDidMount() {
         const { actions, params } = this.props;
-        actions.detailsForContract(true, params.id).then(() => this.setState({ done: true }));
+        actions.detailsForContract(params.id).then(() => this.setState({ done: true }));
     }
 
     render() {

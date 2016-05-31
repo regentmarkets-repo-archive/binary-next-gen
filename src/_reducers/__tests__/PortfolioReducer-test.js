@@ -12,11 +12,9 @@ describe('portfolioReducer', () => {
         const beforeState = fromJS({});
         const action = {
             type: DETAILS_FOR_CONTRACT,
-            areDetailsShown: true,
             contractShown: false,
         };
         const expectedState = fromJS({
-            areDetailsShown: true,
             contractShown: false,
         });
         const actualState = portfolio(beforeState, action);

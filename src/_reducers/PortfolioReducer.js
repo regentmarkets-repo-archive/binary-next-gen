@@ -16,7 +16,6 @@ export default (state = initialState, action) => {
     switch (action.type) {
         case DETAILS_FOR_CONTRACT: {
             return state
-                .set('areDetailsShown', action.areDetailsShown)
                 .set('contractShown', action.contractShown);
         }
         case UPDATE_NOW: {
