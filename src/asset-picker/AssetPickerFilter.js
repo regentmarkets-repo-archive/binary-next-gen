@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { findDOMNode } from 'react-dom';
-import MarketPickerContainer from '../_common/MarketPickerContainer';
+import MarketSubmarketPickerContainer from '../_common/MarketSubmarketPickerContainer';
 import InputGroup from '../_common/InputGroup';
 
 export default class AssetPickerFilter extends Component {
@@ -41,7 +41,7 @@ export default class AssetPickerFilter extends Component {
 					onChange={::this.onSearchQueryChange}
 					autoFocus
 				/>
-				<MarketPickerContainer
+				<MarketSubmarketPickerContainer
 					onChange={::this.onFilterChange}
 					allOptionShown
 					showMarkets={showOnlyTickTradable ? ['Forex', 'Randoms'] : null}

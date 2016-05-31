@@ -3,7 +3,7 @@ import dateToDateString from 'binary-utils/lib/dateToDateString';
 import todayLocaleString from 'binary-utils/lib/todayLocaleString';
 import oneYearAfterStr from 'binary-utils/lib/oneYearAfterStr';
 import InputGroup from '../_common/InputGroup';
-import MarketPickerContainer from '../_common/MarketPickerContainer';
+import MarketSubmarketPickerContainer from '../_common/MarketSubmarketPickerContainer';
 import TradingTimesTable from './TradingTimesTable';
 
 export default class TradingTimesCard extends Component {
@@ -30,7 +30,7 @@ export default class TradingTimesCard extends Component {
 		return (
 			<div className="trading-times-card">
 				<div className="trading-times-filter">
-					<MarketPickerContainer
+					<MarketSubmarketPickerContainer
 						onChange={x => actions.updateTradingTimesFilter(x)}
 						allOptionShown={false}
 						value={filter}

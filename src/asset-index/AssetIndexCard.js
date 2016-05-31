@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import MarketPickerContainer from '../_common/MarketPickerContainer';
+import MarketSubmarketPickerContainer from '../_common/MarketSubmarketPickerContainer';
 import AssetIndexTable from './AssetIndexTable';
 
 export default class AssetIndexCard extends Component {
@@ -16,7 +16,7 @@ export default class AssetIndexCard extends Component {
 
 		return (
 			<div className="asset-index-card">
-				<MarketPickerContainer
+				<MarketSubmarketPickerContainer
 					onChange={x => actions.updateAssetIndexFilter(x)}
 					allOptionShown={false}
 					value={submarket}

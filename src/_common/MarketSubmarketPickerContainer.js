@@ -4,16 +4,16 @@ import { connect } from 'react-redux';
 import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
 
 import marketTreeSelector from '../_selectors/marketTreeSelector';
-import MarketPicker from './MarketPicker';
+import MarketSubmarketPicker from './MarketSubmarketPicker';
 
 @connect(marketTreeSelector)
-export default class MarketPickerContainer extends Component {
+export default class MarketSubmarketPickerContainer extends Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		return (
-			<MarketPicker {...immutableChildrenToJS(this.props)} />
+			<MarketSubmarketPicker {...immutableChildrenToJS(this.props)} />
 		);
 	}
 }

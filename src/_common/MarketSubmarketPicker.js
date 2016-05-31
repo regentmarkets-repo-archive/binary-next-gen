@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { FormattedMessage } from 'react-intl';
 
-export default class MarketPicker extends Component {
+export default class MarketSubmarketPicker extends Component {
 
 	static propTypes = {
 		marketTree: PropTypes.object.isRequired,
@@ -32,7 +32,7 @@ export default class MarketPicker extends Component {
 			return submarketOptArr;
 		});
 
-		const flattenSubmarkets = [].concat.apply([{ name: 'Favorites', value: 'favorites' }], submarkets);
+		const flattenSubmarkets = [].concat.apply([], submarkets);
 
 		return (
 			<select
@@ -40,11 +40,16 @@ export default class MarketPicker extends Component {
 				className="market-submarket-picker"
 				onChange={e => onChange(e.target.value)}
 			>
-				{allOptionShown ?
+				{allOptionShown &&
 					<FormattedMessage id="All" defaultMessage="All">
 						{message => <option value="all">{message}</option>}
 					</FormattedMessage>
-				: null}
+				}
+				{allOptionShown &&
+					<FormattedMessage id="Favorites" defaultMessage="Favorites">
+						{message => <option value="favorites">{message}</option>}
+					</FormattedMessage>
+				}
 				{flattenSubmarkets.map((opt, k) =>
 					<option key={k} value={opt.value}>{opt.name}</option>
 				)}

@@ -888,9 +888,12 @@ input[type=number]::-webkit-outer-spin-button {
 
 .horizontal .trade-params > div,
 .mobile-content .trade-params > div {
-    display: flex;
     margin-right: .5rem;
     min-width: 10rem;
+}
+
+.mobile-content .trade-params > div {
+    display: flex;
 }
 
 .vertical .trade-params {
