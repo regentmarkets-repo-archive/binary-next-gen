@@ -1,6 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import ErrorMsg from '../_common/ErrorMsg';
 import SelectGroup from '../_common/SelectGroup';
 import InputGroup from '../_common/InputGroup';
 import Label from '../_common/Label';
@@ -15,9 +14,59 @@ export default class DurationCard extends Component {
         options: PropTypes.array,
         onUnitChange: PropTypes.func,
         onDurationChange: PropTypes.func,
+        onError: PropTypes.func,
     };
 
     shouldComponentUpdate = shouldPureComponentUpdate;
+
+    // return error msg or undefined is no error
+    validateDuration(duration, durationUnit) {
+        const {
+            dateStart,
+            forwardStartingDuration,
+            options,
+        } = this.props;
+
+        const allowStartLater = !!forwardStartingDuration;
+        const onlyStartLater = allowStartLater && !options;
+        const forwardOptions = forwardStartingDuration && forwardStartingDuration.options;
+
+        let optionsToUse;
+
+        if (onlyStartLater) {
+            optionsToUse = forwardOptions;
+        } else if (!allowStartLater) {
+            optionsToUse = options;
+        } else {
+            optionsToUse = !!dateStart ? forwardOptions : options;
+        }
+        const currentUnitBlock = optionsToUse.find(opt => opt.unit === durationUnit);
+        const min = currentUnitBlock && currentUnitBlock.min;
+        const max = currentUnitBlock && currentUnitBlock.max;
+        const showError = duration > max || duration < min;
+        if (showError) {
+            const errorMsg =
+                (duration > max ? `Maximum is ${max} ` : `Minimum is ${min} `) + durationText(durationUnit);
+            return errorMsg;
+        }
+        return undefined;
+    }
+
+    updateDuration(e) {
+        const { onDurationChange, onError, durationUnit } = this.props;
+        const newDuration = e.target.value;
+        const err = this.validateDuration(newDuration, durationUnit);
+        onError(err);
+        onDurationChange(e);
+    }
+
+    updateDurationUnit(e) {
+        const { onUnitChange, onError, duration } = this.props;
+        const newDurationUnit = e.target.value;
+        const err = this.validateDuration(duration, newDurationUnit);
+        onError(err);
+        onUnitChange(e);
+    }
 
     render() {
         const {
@@ -26,8 +75,6 @@ export default class DurationCard extends Component {
             durationUnit,
             forwardStartingDuration,
             options,
-            onUnitChange,
-            onDurationChange,
         } = this.props;
 
         const allowStartLater = !!forwardStartingDuration;
@@ -50,9 +97,6 @@ export default class DurationCard extends Component {
         const min = currentUnitBlock && currentUnitBlock.min;
         const max = currentUnitBlock && currentUnitBlock.max;
 
-        const showError = duration > max || duration < min;
-        const errorMsg = (duration > max ? `Maximum is ${max} ` : `Minimum is ${min} `) + durationText(durationUnit);
-
         if (!currentUnitBlock) return null;
 
         return (
@@ -64,15 +108,14 @@ export default class DurationCard extends Component {
                         value={duration}
                         min={min}
                         max={max}
-                        onChange={onDurationChange}
+                        onChange={::this.updateDuration}
                     />
                     <SelectGroup
                         options={unitOptions}
                         value={durationUnit}
-                        onChange={onUnitChange}
+                        onChange={::this.updateDurationUnit}
                     />
                 </div>
-                <ErrorMsg shown={showError} text={errorMsg} />
             </div>
         );
     }

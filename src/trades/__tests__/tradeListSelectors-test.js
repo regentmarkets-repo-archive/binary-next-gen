@@ -11,6 +11,7 @@ describe('tradeListSelectors', () => {
         tradesProposalInfo: fromJS([]),
         tradesPurchaseInfo: fromJS([]),
         tradesUIState: fromJS([]),
+        tradesError: fromJS([]),
         tradingOptions: fromJS([]),
         tradingTimes: fromJS([]),
         workspace: fromJS({})
