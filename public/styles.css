@@ -848,12 +848,9 @@ input[type=number]::-webkit-outer-spin-button {
     border: none;
 }
 
-.mobile-content .trade-params > * {
-    display: flex;
-}
-
 .mobile-content .trade-params > div > label {
     flex: 1;
+    line-height: 2;
 }
 
 .mobile-content .trade-params > div > div {
@@ -885,12 +882,13 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .horizontal .trade-params > *,
-.mobile-content .trade-params > * {
+.mobile-content .trade-params > :not(button) {
     flex: 1;
 }
 
 .horizontal .trade-params > div,
 .mobile-content .trade-params > div {
+    display: flex;
     margin-right: .5rem;
     min-width: 10rem;
 }
@@ -908,7 +906,10 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: column;
 }
 
-.duration-input, .forward-starting-input, .mobile-content .forward-starting-picker {
+.duration-input,
+.forward-starting-input,
+.mobile-content .forward-starting-picker,
+.mobile-content .payout-picker {
     display: flex;
     flex-direction: row;
 }
