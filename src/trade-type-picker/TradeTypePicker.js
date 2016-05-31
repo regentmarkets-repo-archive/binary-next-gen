@@ -23,6 +23,7 @@ export default class TradeTypePicker extends Component {
         onSelect: PropTypes.func,
         tradeParams: PropTypes.object.isRequired,
         updateParams: PropTypes.func.isRequired,
+        clearTradeError: PropTypes.func.isRequired,
     };
 
     constructor(props) {
@@ -57,9 +58,10 @@ export default class TradeTypePicker extends Component {
     }
 
     changeType(type) {
-        const { contract, onSelect, tradeParams, updateParams } = this.props;
+        const { contract, onSelect, tradeParams, updateParams, clearTradeError } = this.props;
         const selectedCategory = findCategoryForType(contract, type);
         const updatedType = changeType(internalToServerTradeType(type), selectedCategory, tradeParams, contract);
+        clearTradeError();
         updateParams(updatedType);
         if (onSelect) {
             onSelect(updatedType);

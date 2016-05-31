@@ -70,7 +70,6 @@ export default class TradeParams extends Component {
     constructor(props) {
         super(props);
         this.onAssetChange = ::this.onAssetChange;
-        this.onCategoryChange = ::this.onCategoryChange;
         this.onDurationChange = ::this.onDurationChange;
         this.onDurationUnitChange = ::this.onDurationUnitChange;
         this.onStartDateChange = ::this.onStartDateChange;
@@ -85,6 +84,7 @@ export default class TradeParams extends Component {
         this.onPurchase = ::this.onPurchase;
         this.onDurationError = ::this.onDurationError;
         this.onBarrierError = ::this.onBarrierError;
+        this.clearTradeError = ::this.clearTradeError;
 
         this.state = {
             dynamicKey: 0,
@@ -148,20 +148,6 @@ export default class TradeParams extends Component {
         const updatedAsset = updateHelpers.changeAsset(tradeParams, contract, updateHelpers.changeCategory);
         this.updateTradeParams(updatedAsset);
         this.dynamicKeyIncrement();
-        this.clearTradeError();
-    }
-
-    onCategoryChange(newCategory) {
-        const { contract, tradeParams } = this.props;
-        const updatedCategory = updateHelpers.changeCategory(newCategory, contract, tradeParams);
-        this.updateTradeParams(updatedCategory);
-        this.clearTradeError();
-    }
-
-    onTypeChange(newType, newCategory) {
-        const { contract, tradeParams } = this.props;
-        const updatedType = updateHelpers.changeType(newType, newCategory, tradeParams, contract);
-        this.updateTradeParams(updatedType);
         this.clearTradeError();
     }
 
@@ -294,6 +280,7 @@ export default class TradeParams extends Component {
                     contract={contract}
                     tradeParams={tradeParams}
                     updateParams={::this.updateTradeParams}
+                    clearTradeError={this.clearTradeError}
                 />
                 {showDigitBarrier &&
                     <DigitBarrierCard
