@@ -21,7 +21,7 @@ export default class ContractDetailsList extends Component {
 		const idsStr = transactionIdsToString(contract.transaction_ids);
 
 		return (
-			<div className="trade-panel-receipt">
+			<div className="contract-details-list">
 				<ContractDetailString contract={contract} code={'contract_id'} />
 				<ContractDetailCustom label="Reference ID" value={idsStr} />
 				<ContractDetailTime contract={contract} code={'date_start'} />

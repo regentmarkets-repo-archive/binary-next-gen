@@ -20,7 +20,9 @@ export default class ContractDetailMoney extends Component {
 					<NumberPlain
 						value={contract[code]}
 						currency={contract.currency}
-					/> : '–'}
+					/> :
+					<span>–</span>
+				}
 			</div>
 		);
 	}
