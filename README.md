@@ -56,6 +56,20 @@ code-push app ls
 
 The above commands and the complete commands on code-push is avail [here](https://microsoft.github.io/code-push/docs/cli.html)
 and [here](https://github.com/Microsoft/cordova-plugin-code-push#how-does-it-work)
+
+* Adding cordova flatforms 
+
+  ```
+  cordova platform add ios --save
+  cordova platform add android --save
+  ```
+  you can view the list 
+  
+  ```
+  cordova platform ls
+  ```
+  
+  more on [cordova](https://cordova.apache.org/docs/en/latest/guide/cli/#add-plugins)
   
   * install corodva plugin
   
