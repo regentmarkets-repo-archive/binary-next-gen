@@ -25,7 +25,7 @@ app.on('ready', function() {
   mainWindow = new BrowserWindow({width: 600, height: 500});
 
   // and load the index.html of the app.
-  mainWindow.loadURL('file://' + __dirname + '/../public/index.html',{"userAgent":"Mobile"});
+  mainWindow.loadURL('file://' + __dirname + '/../www/index.html',{"userAgent":"Mobile"});
 
   // Open the DevTools.
   mainWindow.webContents.openDevTools();

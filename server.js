@@ -14,10 +14,10 @@ app.use(require('webpack-dev-middleware')(compiler, {
 
 app.use(require('webpack-hot-middleware')(compiler));
 
-app.use('/', express.static('public'));
+app.use('/', express.static('www'));
 
 app.get('*', (req, res) =>
-    res.sendFile(path.join(__dirname, 'public/index.html'))
+    res.sendFile(path.join(__dirname, 'www/index.html'))
 );
 
 

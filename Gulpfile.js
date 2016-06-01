@@ -11,8 +11,8 @@ const ghPages = require('gulp-gh-pages');
 const files = {
     dist: './dist',
     js: './src',
-    static: ['./public/**/*', './config.xml', './electron.js'],
-    sass: 'public/styles.sass',
+    static: ['./wwww/**/*', './config.xml', './electron.js'],
+    sass: 'www/styles.sass',
 };
 
 process.env.NODE_ENV = 'production';
