@@ -29,7 +29,7 @@ cd build
 npm install or npm update (may need sudo)
 gulp deploy
 ```
-## First time release
+## Setting up the App
 
 * install cordova 
 ```
@@ -79,6 +79,18 @@ and [here](https://github.com/Microsoft/cordova-plugin-code-push#how-does-it-wor
 
 for more on the above plugin [visit](https://github.com/Microsoft/cordova-plugin-code-push#getting-started)
 
+
+## Running the App - iOS Emulator
+```
+cordova build ios
+```
+then after success,
+
+```
+cordova run ios
+```
+
+the bove command apply for other flatforms , simply replace ios for the flatform name.
 
 
 ## Build new mobile app version
