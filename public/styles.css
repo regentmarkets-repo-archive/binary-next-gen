@@ -889,7 +889,7 @@ input[type=number]::-webkit-outer-spin-button {
 .horizontal .trade-params > div,
 .mobile-content .trade-params > div {
     margin-right: .5rem;
-    min-width: 10rem;
+    min-width: 11rem;
 }
 
 .mobile-content .trade-params > div {
