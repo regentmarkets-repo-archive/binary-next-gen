@@ -785,6 +785,7 @@ input[type=number]::-webkit-outer-spin-button {
     max-height: 100%;
     min-width: 320px;
     overflow: auto;
+    width: 80%
 }
 
 .drop-down {
