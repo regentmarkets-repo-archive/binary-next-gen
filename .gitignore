@@ -7,3 +7,5 @@ coverage/
 npm-debug.log
 .idea/
 .publish/
+plugins
+platforms
