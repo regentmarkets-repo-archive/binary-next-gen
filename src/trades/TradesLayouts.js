@@ -14,6 +14,7 @@ export default class TradesLayouts extends Component {
         contracts: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
         layoutN: PropTypes.number.isRequired,
+        licensesForAllSymbol: PropTypes.object.isRequired,
         paramsList: PropTypes.array.isRequired,
         pipSizeList: PropTypes.array.isRequired,
         proposalInfoList: PropTypes.array.isRequired,
@@ -41,6 +42,7 @@ export default class TradesLayouts extends Component {
             contracts,
             currency,
             layoutN,
+            licensesForAllSymbol,
             paramsList,
             pipSizeList,
             proposalInfoList,
@@ -62,6 +64,7 @@ export default class TradesLayouts extends Component {
                 currency={currency}
                 key={index}
                 index={index}
+                feedLicense={licensesForAllSymbol[param.symbol]}
                 marketIsOpen={assetsIsOpen[param.symbol] && assetsIsOpen[param.symbol].isOpen}
                 ticks={ticksForAllSymbols[param.symbol]}
                 contract={contracts[param.symbol]}

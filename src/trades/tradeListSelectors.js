@@ -4,6 +4,7 @@ import {
     ticksSelector,
     tradesCountSelector,
     layoutNSelector,
+    feedLicensesSelector,
 } from '../_store/directSelectors';
 import {
     availableContractsSelector,
@@ -19,6 +20,7 @@ export default createStructuredSelector({
     contracts: availableContractsSelector,
     currency: currencySelector,
     layoutN: layoutNSelector,
+    licensesForAllSymbol: feedLicensesSelector,
     paramsList: tradesParamsSelector,
     pipSizeList: tradesPipSizeSelector,
     proposalInfoList: state => state.tradesProposalInfo,
