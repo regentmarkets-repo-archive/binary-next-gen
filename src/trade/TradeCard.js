@@ -65,6 +65,7 @@ export default class TradeCard extends Component {
 
     static defaultProps = {
         type: 'full',
+        feedLicense: '',
     };
 
     static propTypes = {
@@ -73,6 +74,7 @@ export default class TradeCard extends Component {
         currency: PropTypes.string.isRequired,
         contract: PropTypes.object,
         index: PropTypes.number.isRequired,
+        feedLicense: PropTypes.string,
         marketIsOpen: PropTypes.bool,
         params: PropTypes.object.isRequired,
         pipSize: PropTypes.number.isRequired,
@@ -102,6 +104,7 @@ export default class TradeCard extends Component {
             compact,
             currency,
             index,
+            feedLicense,
             marketIsOpen,
             params,
             uiState,
@@ -149,6 +152,7 @@ export default class TradeCard extends Component {
                         id={`trade-chart${index}`}
                         className="trade-chart"
                         contract={contractRequiredByChart}
+                        noData={feedLicense === 'chartonly'}
                         events={this.state.events}
                         symbol={symbolName}
                         ticks={ticks}
