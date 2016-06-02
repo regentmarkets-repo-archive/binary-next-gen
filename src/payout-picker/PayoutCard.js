@@ -9,19 +9,25 @@ export default class PayoutCard extends Component {
     shouldComponentUpdate = shouldPureComponentUpdate;
 
     static propTypes = {
+        currency: PropTypes.string.isRequired,
         stake: PropTypes.number.isRequired,
         payout: PropTypes.number.isRequired,
     };
 
     render() {
-        const { stake, payout } = this.props;
+        const { currency, stake, payout } = this.props;
         const potentialProfitPercentage = ((payout - stake) * 100 / stake).toFixed(2);
 
         return (
             <div className="payout-display">
                 <Label text="Payout" />
                 <div>
-                    <NumberColored value={payout} isProfit={v => v - stake} className="payout-value" />
+                    <NumberColored
+                        className="payout-value"
+                        currency={currency}
+                        value={payout}
+                        isProfit={v => v - stake}
+                    />
                     <span> ({potentialProfitPercentage}% <M m="return" />)</span>
                 </div>
             </div>
