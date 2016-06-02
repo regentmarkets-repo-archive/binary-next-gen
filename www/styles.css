@@ -995,7 +995,7 @@ input[type=number]::-webkit-outer-spin-button {
     border-right: 1px dotted rgba(255, 255, 255, 0.5);
 }
 
-.statement-row {
+.statement-row, .portfolio-row {
     cursor: pointer;
 }
 
@@ -1012,7 +1012,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 .modal .contract-detail, .vertical .contract-detail {
     width: 100%;
-    margin-left: -.25rem;
     padding: .125rem;
 }
 
@@ -1112,7 +1111,7 @@ input[type=number]::-webkit-outer-spin-button {
     box-shadow: none;
 }
 
-.payout-picker-input .btn-flat:hover, .forward-starting-picker label:hover{
+.payout-picker-input .btn-flat:hover, .start-time-selector label:hover {
     background: rgba(42, 48, 82, 1);
     color: white;
     box-shadow: none;
