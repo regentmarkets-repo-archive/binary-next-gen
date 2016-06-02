@@ -277,6 +277,10 @@ nav.sidebar {
     padding: .5rem;
 }
 
+.sell-at-market-btn + .buy-again-btn {
+    margin-left: .5rem;
+}
+
 .vertical .buy-btn, .vertical .buy-again-btn, .vertical .sell-at-market-btn {
     width: 100%;
 }
