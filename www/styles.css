@@ -970,7 +970,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 .duration-input > *, .forward-starting-picker > * {
     flex: 1;
-    -webkit-flex: 1 1 auto;         /* workaround for safari bug */
 }
 
 .trade-params label {
@@ -1073,8 +1072,8 @@ input[type=number]::-webkit-outer-spin-button {
     min-width: 25rem;
 }
 
-.contract-receipt {
-    margin-left: .5rem;
+.vertical .contract-receipt {
+    margin-right: .5rem;
 }
 
 .trading-times-filter {
