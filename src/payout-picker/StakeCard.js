@@ -47,7 +47,7 @@ export default class StakeCard extends Component {
                 /> */}
                 <Label text="Stake" />
                 <div className="payout-picker-input">
-                    <button className="btn-secondary" onClick={::this.stepDown}>&ndash;</button>
+                    <button className="btn-flat" onClick={::this.stepDown}>&ndash;</button>
                     <InputGroup
                         list="browsers"
                         type="number"
@@ -58,7 +58,7 @@ export default class StakeCard extends Component {
                         list="amounts"
                         onChange={onAmountChange}
                     />
-                    <button className="btn-secondary" onClick={::this.stepUp}>+</button>
+                    <button className="btn-flat" onClick={::this.stepUp}>+</button>
                     <datalist id="amounts">
                         {payouts.map(x =>
                             <option

@@ -970,13 +970,6 @@ input[type=number]::-webkit-outer-spin-button {
     line-height: 1.5;
 }
 
-.payout-picker-input .btn-secondary {
-    box-shadow: none;
-    font-size: 1.5rem;
-    padding: 0 .5rem;
-    background: rgba(42, 48, 82, 0.1);
-}
-
 .picker-label img {
     height: 2rem;
     padding: .25rem 0;
@@ -1102,4 +1095,18 @@ input[type=number]::-webkit-outer-spin-button {
 
 .info-icon:hover + .tooltip {
     display: block;
+}
+
+.btn-flat {
+    color: rgba(42, 48, 82, 1);
+    font-size: 1.5rem;
+    padding: 0 .5rem;
+    background: rgba(42, 48, 82, 0.1);
+    box-shadow: none;
+}
+
+.payout-picker-input .btn-flat:hover, .forward-starting-picker label:hover{
+    background: rgba(42, 48, 82, 1);
+    color: white;
+    box-shadow: none;
 }
