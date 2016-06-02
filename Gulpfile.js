@@ -11,7 +11,7 @@ const ghPages = require('gulp-gh-pages');
 const files = {
     dist: './dist',
     js: './src',
-    static: ['./wwww/**/*', './config.xml', './electron.js'],
+    static: ['./www/**/*', './config.xml', './electron.js'],
     sass: 'www/styles.sass',
 };
 

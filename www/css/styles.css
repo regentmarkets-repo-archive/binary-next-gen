@@ -910,6 +910,10 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: column;
 }
 
+.payout-value {
+    font-size: 1.2em;
+}
+
 .duration-input,
 .forward-starting-input,
 .mobile-content .forward-starting-picker,
@@ -970,12 +974,13 @@ input[type=number]::-webkit-outer-spin-button {
 
 .resizer-vertical {
     display: flex;
-    align-items: stretch;
+    align-items: center;
 }
 
 .resizer-vertical .resizer-handle {
     width: 4px;
     margin: 3px 0;
+    height: 2rem;
     border-left: 1px dotted rgba(255, 255, 255, 0.5);
     border-right: 1px dotted rgba(255, 255, 255, 0.5);
 }
@@ -1067,10 +1072,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 .contract-receipt {
     margin-left: .5rem;
-}
-
-.payout-display span {
-    font-size: 1.2em;
 }
 
 .trading-times-filter {
