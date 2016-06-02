@@ -183,7 +183,7 @@ export default class TradeCard extends Component {
                         onPurchaseHook={::this.zoomWhenPurchase}
                     />
                 }
-                <ErrorMsg shown={!!tradeError} text={tradeError || ''} />
+                <ErrorMsg text={tradeError} />
             </div>
         );
     }
