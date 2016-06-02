@@ -21,7 +21,7 @@ export default class PayoutCard extends Component {
             <div className="payout-display">
                 <Label text="Payout" />
                 <div>
-                    <NumberColored value={payout} isProfit={v => v - stake} />
+                    <NumberColored value={payout} isProfit={v => v - stake} className="payout-value" />
                     <span> ({potentialProfitPercentage}% <M m="return" />)</span>
                 </div>
             </div>
