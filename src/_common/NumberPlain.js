@@ -33,6 +33,7 @@ export default class NumberPlain extends Component {
 					style={currency && 'currency'}
 					currency={currency}
 					value={value}
+					currencyDisplay="code"
 					minimumFractionDigits={digits}
 					maximumFractionDigits={digits}
 				/>

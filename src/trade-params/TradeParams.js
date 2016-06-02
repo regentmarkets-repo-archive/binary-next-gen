@@ -351,7 +351,7 @@ export default class TradeParams extends Component {
                         onBasisChange={this.onBasisChange}
                     />
                 }
-                {payout && <PayoutCard stake={+tradeParams.amount} payout={payout} />}
+                {payout && <PayoutCard stake={+tradeParams.amount} payout={payout} currency={currency} />}
                 <BuyButton
                     askPrice={askPriceFromProposal(proposal)}
                     currency={currency}
