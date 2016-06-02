@@ -941,13 +941,23 @@ input[type=number]::-webkit-outer-spin-button {
 
 .start-time-selector {
     display: flex;
+    margin-bottom: .5rem;
 }
 
 .start-time-selector > label {
     flex: 1;
     cursor: pointer;
-    line-height: 2 !important;
-    margin-bottom: .5rem;
+    line-height: 2.5 !important;
+    background: rgba(42, 48, 82, .1);
+    border-radius: 2px;
+}
+
+.start-time-selector > label + label {
+    margin-left: 3px;
+}
+
+.start-time-selector > label > input {
+    margin: 3px 3px 3px 6px;
 }
 
 .duration-input > *, .forward-starting-picker > * {
