@@ -277,8 +277,12 @@ nav.sidebar {
     padding: .5rem;
 }
 
-.sell-at-market-btn + .buy-again-btn {
+.horizontal .sell-at-market-btn + .buy-again-btn {
     margin-left: .5rem;
+}
+
+.vertical .sell-at-market-btn + .buy-again-btn {
+    margin-top: .5rem;
 }
 
 .vertical .buy-btn, .vertical .buy-again-btn, .vertical .sell-at-market-btn {
@@ -934,10 +938,6 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: row;
 }
 
-.forward-starting-input input {
-    width: 100%;
-}
-
 .duration-input > fieldset,
 .forward-starting-input > fieldset {
     flex: 1;
@@ -1115,4 +1115,12 @@ input[type=number]::-webkit-outer-spin-button {
     background: rgba(42, 48, 82, 1);
     color: white;
     box-shadow: none;
+}
+
+input[type=date]::-webkit-inner-spin-button,
+input[type=time]::-webkit-inner-spin-button,
+input[type=date]::-webkit-calendar-picker-indicator,
+input[type=time]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
 }

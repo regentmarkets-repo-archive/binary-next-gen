@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import InputGroup from '../_common/InputGroup';
 import epochToUTCTimeString from 'binary-utils/lib/epochToUTCTimeString';
 import dateToEpoch from 'binary-utils/lib/dateToEpoch';
 import timeStringToSeconds from 'binary-utils/lib/timeStringToSeconds';
@@ -106,7 +105,7 @@ export default class ForwardStartingOptions extends Component {
                 }
                 {showForwardStartingInput &&
                     <div className="forward-starting-input">
-                        <InputGroup
+                        <input
                             type="date"
                             min={dateToDateString(ranges[0].date)}
                             max={dateToDateString(ranges[2].date)}
@@ -114,7 +113,7 @@ export default class ForwardStartingOptions extends Component {
                             value={selectedDay && dateToDateString(selectedDay)}
                         />
                         {selectedDay &&
-                            <InputGroup
+                            <input
                                 type="time"
                                 onChange={::this.selectTime}
                                 defaultValue={timeString}
