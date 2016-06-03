@@ -714,8 +714,8 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
 }
-
 .payout-picker-input {
+
     display: flex;
 }
 
@@ -843,7 +843,6 @@ input[type=number]::-webkit-outer-spin-button {
     cursor: pointer;
     padding-left: .25rem;
     line-height: 2.5;
-    margin-bottom: .5rem;
     display: flex;
     justify-content: space-between;
     align-items: stretch;
@@ -855,6 +854,10 @@ input[type=number]::-webkit-outer-spin-button {
     color: white;
     background: rgba(42, 48, 82, 1);
     border: none;
+}
+
+.trade-params > div {
+    margin-bottom: .5rem;
 }
 
 .mobile-content .trade-params > div > label {
@@ -949,7 +952,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 .start-time-selector {
     display: flex;
-    margin-bottom: .5rem;
 }
 
 .start-time-selector > label {

@@ -1,7 +1,5 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import SelectGroup from '../_common/SelectGroup';
-import InputGroup from '../_common/InputGroup';
 import Label from '../_common/Label';
 import durationText from 'binary-utils/lib/durationText';
 
@@ -103,18 +101,16 @@ export default class DurationCard extends Component {
             <div className="duration-picker">
                 <Label text="Duration" />
                 <div className="duration-input">
-                    <InputGroup
+                    <input
                         type="number"
                         value={duration}
                         min={min}
                         max={max}
                         onChange={::this.updateDuration}
                     />
-                    <SelectGroup
-                        options={unitOptions}
-                        value={durationUnit}
-                        onChange={::this.updateDurationUnit}
-                    />
+                    <select value={durationUnit} onChange={::this.updateDurationUnit}>
+                        {unitOptions.map(o => <option key={o.value} value={o.value}>{o.text}</option>)}
+                    </select>
                 </div>
             </div>
         );
