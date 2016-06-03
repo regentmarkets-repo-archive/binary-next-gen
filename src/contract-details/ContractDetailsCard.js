@@ -35,7 +35,8 @@ export default class ContractDetailsCard extends Component {
 		}
 
 		const newDataType = chartToDataType[type];
-		actions.getDataForContract(contract.contract_id, 1, 'all', newDataType);
+		const toStream = !contract.sell_time;
+		actions.getDataForContract(contract.contract_id, 1, 'all', newDataType, toStream);
 		this.setState({ chartType: type, dataType: newDataType });
 	}
 
@@ -45,7 +46,7 @@ export default class ContractDetailsCard extends Component {
 		const { ticks, candles } = chartData;
 
 		const data = dataType === 'candles' ? candles : ticks;
-		const allowCandle = !contract.tick_count && contract.sell_time;
+		const allowCandle = !contract.tick_count;
 
 		return (
 			<div>

@@ -56,7 +56,10 @@ export default (state = initialState, action) => {
             return state.set(symbol, fromJS(merged));
         }
         case UPDATE_CHART_DATA_BY_SYMBOL: {
-            const { symbol, data } = action;
+            const { symbol, data, dataType } = action;
+            if (dataType !== 'ticks') {
+                return state;
+            }
             const liveTicks = state.get(symbol) ? state.get(symbol).toJS() : [];
             const merged = mergeTicks(liveTicks, data);
             if (merged.length === liveTicks.length) {

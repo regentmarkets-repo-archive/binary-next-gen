@@ -50,6 +50,11 @@ const errorToShow = errorObj => {
     return undefined;
 };
 
+const chartToDataType = {
+    area: 'ticks',
+    candlestick: 'candles',
+};
+
 export default class TradeCard extends Component {
     constructor(props) {
         super(props);
@@ -60,6 +65,8 @@ export default class TradeCard extends Component {
                     handler: zoomToLatest,
                 },
             ],
+            chartType: 'area',
+            dataType: 'ticks',
         };
     }
 
@@ -76,6 +83,7 @@ export default class TradeCard extends Component {
         index: PropTypes.number.isRequired,
         feedLicense: PropTypes.string,
         marketIsOpen: PropTypes.bool,
+        ohlc: PropTypes.array,
         params: PropTypes.object.isRequired,
         pipSize: PropTypes.number.isRequired,
         proposalInfo: PropTypes.object.isRequired,
@@ -98,6 +106,19 @@ export default class TradeCard extends Component {
         document.getElementById(domID).dispatchEvent(zoomToLatestEv);
     }
 
+    changeChartType(type) {
+        const { actions, params } = this.props;
+        const { chartType } = this.state;
+
+        if (chartType === type) {
+            return;
+        }
+
+        const newDataType = chartToDataType[type];
+        actions.getDataForSymbol(params.symbol, 1, 'hour', newDataType, true);
+        this.setState({ chartType: type, dataType: newDataType });
+    }
+
     render() {
         const {
             actions,
@@ -108,6 +129,7 @@ export default class TradeCard extends Component {
             marketIsOpen,
             params,
             uiState,
+            ohlc,
             purchaseInfo,
             proposalInfo,
             pipSize,
@@ -118,8 +140,10 @@ export default class TradeCard extends Component {
         const { lastBoughtContract } = purchaseInfo;
         const { symbolName } = params;
 
-        const propsContract = this.props.contract;
+        const { events, dataType, chartType } = this.state;
+        const data = dataType === 'candles' ? ohlc : ticks;
 
+        const propsContract = this.props.contract;
         let contract = (propsContract && !propsContract.error) ? propsContract : mockedContract;
         if (!marketIsOpen) {
             contract = getStartLaterOnlyContract(contract);
@@ -152,13 +176,15 @@ export default class TradeCard extends Component {
                         id={`trade-chart${index}`}
                         className="trade-chart"
                         contract={contractRequiredByChart}
+                        events={events}
                         noData={feedLicense === 'chartonly'}
-                        events={this.state.events}
-                        symbol={symbolName}
-                        ticks={ticks}
-                        trade={!!contractRequiredByChart ? undefined : tradeRequiredByChart}
                         pipSize={pipSize}
-                        rangeChange={(count, type) => actions.getDataForSymbol(params.symbol, count, type)}
+                        rangeChange={(count, type) => actions.getDataForSymbol(params.symbol, count, type, dataType)}
+                        symbol={symbolName}
+                        ticks={data}
+                        type={chartType}
+                        trade={!!contractRequiredByChart ? undefined : tradeRequiredByChart}
+                        typeChange={feedLicense !== 'chartonly' && ::this.changeChartType}
                         tradingTime={tradingTime}
                     />
                 </div>
