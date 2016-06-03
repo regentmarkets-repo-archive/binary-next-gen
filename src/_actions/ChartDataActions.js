@@ -9,7 +9,6 @@ export const getDataForContract = (contractID, durationCount, durationType, styl
             durationCount,
             durationType,
             style,
-            undefined,
             subscribe
         ).then(ticks =>
             dispatch({
@@ -22,7 +21,7 @@ export const getDataForContract = (contractID, durationCount, durationType, styl
 
 export const getDataForSymbol = (symbol, durationCount, durationType, style, subscribe) =>
     dispatch =>
-        api.getDataForSymbol(symbol, durationCount, durationType, style, undefined, subscribe)
+        api.getDataForSymbol(symbol, durationCount, durationType, style, subscribe)
             .then(ticks =>
                 dispatch({
                     type: UPDATE_CHART_DATA_BY_SYMBOL,

@@ -23,6 +23,10 @@ export default (state = initialState, action) => {
             return state.update(symbol, List.of(), v => v.takeLast(2000).push(newOHLC));
         }
         case SERVER_DATA_CANDLES: {
+            const granularity = action.serverResponse.echo_req.granularity;
+            if (granularity !== 60) {
+                return state;
+            }
             const symbol = action.serverResponse.echo_req.ticks_history;
             const candles = action.serverResponse.candles.map(c => ({
                 epoch: +c.epoch,
