@@ -15,6 +15,7 @@ export const dailyPricesSelector = state => state.dailyPrices;
 export const boughtContractsSelector = state => state.boughtContracts;
 export const portfolioSelector = state => state.portfolio;
 export const feedLicensesSelector = state => state.feedLicenses;
+export const ohlcSelector = state => state.ohlc;
 
 export const loginidSelector = state => state.account.get('loginid');
 export const balanceSelector = state => state.account.get('balance');

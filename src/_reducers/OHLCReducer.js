@@ -24,7 +24,7 @@ export default (state = initialState, action) => {
         }
         case SERVER_DATA_CANDLES: {
             const symbol = action.serverResponse.echo_req.ticks_history;
-            const candles = action.serverResponse.candles.map(c =>  ({
+            const candles = action.serverResponse.candles.map(c => ({
                 epoch: +c.epoch,
                 open: +c.open,
                 high: +c.high,

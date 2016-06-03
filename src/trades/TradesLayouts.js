@@ -20,6 +20,7 @@ export default class TradesLayouts extends Component {
         proposalInfoList: PropTypes.array.isRequired,
         purchaseInfoList: PropTypes.array.isRequired,
         ticksForAllSymbols: PropTypes.object.isRequired,
+        ohlcForAllSymbols: PropTypes.object.isRequired,
         tradesCount: PropTypes.number.isRequired,
         tradingTimeList: PropTypes.array.isRequired,
         uiStateList: PropTypes.array.isRequired,
@@ -50,6 +51,7 @@ export default class TradesLayouts extends Component {
             tradingTimeList,
             uiStateList,
             ticksForAllSymbols,
+            ohlcForAllSymbols,
             tradesCount,
             tradeErrorList,
         } = this.props;
@@ -67,6 +69,7 @@ export default class TradesLayouts extends Component {
                 feedLicense={licensesForAllSymbol[param.symbol]}
                 marketIsOpen={assetsIsOpen[param.symbol] && assetsIsOpen[param.symbol].isOpen}
                 ticks={ticksForAllSymbols[param.symbol]}
+                ohlc={ohlcForAllSymbols[param.symbol]}
                 contract={contracts[param.symbol]}
                 params={param}
                 pipSize={pipSizeList[index]}

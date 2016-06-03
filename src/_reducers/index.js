@@ -30,6 +30,7 @@ import tradingOptions from './TradingOptionsReducer';
 import tradingTimes from './TradingTimesReducer';
 import transactions from './TransactionsReducer';
 import ticks from './TickReducer';
+import ohlc from './OHLCReducer';
 import tickTrade from './TickTradeReducer';
 import upgrade from './UpgradeReducer';
 import video from './VideoReducer';
@@ -40,20 +41,23 @@ import chartData from './ChartDataReducer';
 
 export default combineReducers({
     appState,
-    boot,
     account,
     assets,
     assetIndex,
     assetPicker,
+    boot,
+    boughtContracts,
     createAccount,
     chartData,
+    dailyPrices,
+    feedLicenses,
     news,
-    server,
+    ohlc,
     paymentAgent,
     portfolio,
-    boughtContracts,
     proposals,
     quickTrade,
+    server,
     settings,
     signin,
     states,
@@ -72,6 +76,4 @@ export default combineReducers({
     workspace,
     watchlist,
     views,
-    dailyPrices,
-    feedLicenses,
 });
