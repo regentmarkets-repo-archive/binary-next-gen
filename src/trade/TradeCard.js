@@ -179,7 +179,7 @@ export default class TradeCard extends Component {
                         events={events}
                         noData={feedLicense === 'chartonly'}
                         pipSize={pipSize}
-                        rangeChange={(count, type) => actions.getDataForSymbol(params.symbol, count, type)}
+                        rangeChange={(count, type) => actions.getDataForSymbol(params.symbol, count, type, dataType)}
                         symbol={symbolName}
                         ticks={data}
                         type={chartType}

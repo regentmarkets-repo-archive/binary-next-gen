@@ -4,6 +4,7 @@ import { mergeTicks } from './TickReducer';
 import {
     SERVER_DATA_OHLC_STREAM,
     SERVER_DATA_CANDLES,
+    UPDATE_CHART_DATA_BY_SYMBOL,
 } from '../_constants/ActionTypes';
 
 const initialState = new Map();
@@ -39,6 +40,18 @@ export default (state = initialState, action) => {
             const liveCandles = state.get(symbol) ? state.get(symbol).toJS() : [];
             const merged = mergeTicks(liveCandles, candles);
             if (merged.length === liveCandles.length) {
+                return state;
+            }
+            return state.set(symbol, fromJS(merged));
+        }
+        case UPDATE_CHART_DATA_BY_SYMBOL: {
+            const { symbol, data, dataType } = action;
+            if (dataType !== 'candles') {
+                return state;
+            }
+            const liveTicks = state.get(symbol) ? state.get(symbol).toJS() : [];
+            const merged = mergeTicks(liveTicks, data);
+            if (merged.length === liveTicks.length) {
                 return state;
             }
             return state.set(symbol, fromJS(merged));
