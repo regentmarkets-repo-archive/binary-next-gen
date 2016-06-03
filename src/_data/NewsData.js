@@ -15,26 +15,24 @@ const params = {
     },
 };
 
-const getContent = (xmlItem) => {
-    let element = xmlItem.getElementsByTagName('content').item(0);
-    if (!element || (typeof element === 'undefined')) {
-        element = xmlItem.getElementsByTagName('content:encoded').item(0).textContent;
-    } else {
-        element = xmlItem.getElementsByTagName('content').item(0).textContent;
-    }
-    return element;
-};
+// const getContent = (xmlItem) => {
+//     let element = xmlItem.getElementsByTagName('encoded').item(0);
+//     if (!element || (typeof element === 'undefined')) {
+//         element = xmlItem.getElementsByTagName('encoded').item(0);
+//     }
+//     window.x = xmlItem;
+//     return element.innerHTML;
+// };
 
 const xmlToNewsItem = xmlItem => ({
     title: xmlItem.getElementsByTagName('title').item(0).textContent.replace(/regentmarkets\d.*$/, ''),
     pubDate: xmlItem.getElementsByTagName('pubDate').item(0).textContent.replace(/\+0000$/, 'GMT'),
     description: xmlItem.getElementsByTagName('description').item(0).textContent,
-    content: getContent(xmlItem),
+    content: xmlItem.getElementsByTagName('encoded').item(0).textContent,
 });
 
 export const readNewsFeed = async (l) => {
     let queryUrl = `${api}?media=${params[l].media}&prefix=${params[l].prefix}&campaign=1&mode=txt`;
-
     let domParser = new DOMParser();
     try {
         let response = await fetch(queryUrl);

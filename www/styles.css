@@ -500,6 +500,10 @@ select {
     height: .25rem;
 }
 
+.article {
+    margin: 0 1rem;
+}
+
 .article-preview {
     text-decoration: none;
     color: #888;
