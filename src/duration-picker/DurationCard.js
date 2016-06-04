@@ -1,9 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import Label from '../_common/Label';
 import durationText from 'binary-utils/lib/durationText';
+import Label from '../_common/Label';
+import DurationUnitPicker from './DurationUnitPicker';
 
 export default class DurationCard extends Component {
+
     static propTypes = {
         dateStart: PropTypes.number,
         duration: PropTypes.number,
@@ -108,9 +110,11 @@ export default class DurationCard extends Component {
                         max={max}
                         onChange={::this.updateDuration}
                     />
-                    <select value={durationUnit} onChange={::this.updateDurationUnit}>
-                        {unitOptions.map(o => <option key={o.value} value={o.value}>{o.text}</option>)}
-                    </select>
+                    <DurationUnitPicker
+                        durationUnit={durationUnit}
+                        unitOptions={unitOptions}
+                        onChange={::this.updateDurationUnit}
+                    />
                 </div>
             </div>
         );

@@ -160,11 +160,6 @@ nav.sidebar {
     color: white;
 }
 
-.sidebar > * {
-    padding: 0 1rem;
-    margin: 0;
-}
-
 .number-positive {
     color: green;
     white-space: nowrap;
@@ -248,7 +243,6 @@ nav.sidebar {
 }
 
 .sidebar-btn {
-    height: 4.5em;
     padding: 0;
 }
 
@@ -1129,4 +1123,8 @@ input[type=date]::-webkit-calendar-picker-indicator,
 input[type=time]::-webkit-calendar-picker-indicator {
     display: none;
     -webkit-appearance: none;
+}
+
+.duration-text {
+    padding: .5rem;
 }
