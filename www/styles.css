@@ -783,8 +783,8 @@ input[type=number]::-webkit-outer-spin-button {
     box-shadow: 0 0 0 1px white;
 }
 
-.payout-picker input, .payout-picker fieldset {
-    width: 100%;
+.payout-picker input {
+    width: calc(100% - 4rem);
 }
 
 .modal {
@@ -939,13 +939,12 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: row;
 }
 
-.duration-input > fieldset,
-.forward-starting-input > fieldset {
-    flex: 1;
+.forward-starting-input > input {
+    max-width: 50%;
 }
 
 .duration-input input, .duration-input select {
-    width: 100%;
+    max-width: 50%;
 }
 
 .start-time-selector {
