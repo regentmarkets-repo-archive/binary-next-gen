@@ -15,20 +15,19 @@ const params = {
     },
 };
 
-// const getContent = (xmlItem) => {
-//     let element = xmlItem.getElementsByTagName('encoded').item(0);
-//     if (!element || (typeof element === 'undefined')) {
-//         element = xmlItem.getElementsByTagName('encoded').item(0);
-//     }
-//     window.x = xmlItem;
-//     return element.innerHTML;
-// };
+const getContent = xmlItem => {
+    if (xmlItem.getElementsByTagName('content:encoded').length) {
+        return xmlItem.getElementsByTagName('content:encoded').item(0).textContent;
+    }
+
+    return xmlItem.getElementsByTagName('encoded').item(0).textContent;
+};
 
 const xmlToNewsItem = xmlItem => ({
     title: xmlItem.getElementsByTagName('title').item(0).textContent.replace(/regentmarkets\d.*$/, ''),
     pubDate: xmlItem.getElementsByTagName('pubDate').item(0).textContent.replace(/\+0000$/, 'GMT'),
     description: xmlItem.getElementsByTagName('description').item(0).textContent,
-    content: xmlItem.getElementsByTagName('encoded').item(0).textContent,
+    content: getContent(xmlItem),
 });
 
 export const readNewsFeed = async (l) => {
