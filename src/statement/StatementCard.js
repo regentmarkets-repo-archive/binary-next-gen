@@ -39,7 +39,7 @@ export default class StatementCard extends Component {
 							currency={currency}
 						/> :
 						<div className="centerer">
-							<M m="There are no transactions for selected period" />
+							<M m="There are no transactions for the selected period" />
 						</div>
 					}
 				</div>

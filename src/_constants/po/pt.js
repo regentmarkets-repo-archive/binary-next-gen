@@ -393,7 +393,7 @@ export default {
         null,
         "E-mail"
     ],
-    "There are no transactions for selected period": [
+    "There are no transactions for the selected period": [
         null,
         "Não existem transações para o período selecionado"
     ],

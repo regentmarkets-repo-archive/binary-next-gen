@@ -393,7 +393,7 @@ export default {
         null,
         "البريد الإلكتروني"
     ],
-    "There are no transactions for selected period": [
+    "There are no transactions for the selected period": [
         null,
         "لا توجد عمليات للفترة المحددة"
     ],

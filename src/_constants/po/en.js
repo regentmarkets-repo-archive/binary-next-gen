@@ -392,7 +392,7 @@ export default {
         null,
         ""
     ],
-    "There are no transactions for selected period": [
+    "There are no transactions for the selected period": [
         null,
         ""
     ],

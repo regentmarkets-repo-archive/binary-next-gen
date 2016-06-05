@@ -392,7 +392,7 @@ export default {
         null,
         "Eメール"
     ],
-    "There are no transactions for selected period": [
+    "There are no transactions for the selected period": [
         null,
         "選択された期間のお取引はありません。"
     ],
