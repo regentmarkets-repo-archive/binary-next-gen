@@ -42,6 +42,7 @@ export default class MarketSubmarketPicker extends Component {
 			>
 				{allOptionShown && <Option text="All" value="all" />}
 				{allOptionShown && <Option text="Favorites" value="favorites" />}
+				{allOptionShown && <Option text="Open For Trading" value="open" />}
 				{flattenSubmarkets.map((opt, k) =>
 					<option key={k} value={opt.value}>{opt.name}</option>
 				)}

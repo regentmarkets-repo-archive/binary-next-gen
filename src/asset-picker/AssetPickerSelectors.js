@@ -17,6 +17,7 @@ const doesMatchFilter = (asset, filter, watchlist) =>
     filter.get('filter') === 'all' ||
         filter.get('filter') === asset.get('submarket') ||
         filter.get('filter') === asset.get('market') ||
+        filter.get('filter') === 'open' && asset.get('exchange_is_open') ||
         filter.get('filter') === 'favorites' && watchlist.has(asset.get('symbol'));
 
 const doesMatchQuery = (asset, filter, watchlist) =>

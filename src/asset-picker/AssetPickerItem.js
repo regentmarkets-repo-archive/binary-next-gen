@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import classNames from 'classnames';
+import classnames from 'classnames';
 import OpenCloseNotice from '../_common/OpenCloseNotice';
 import Star from '../_common/Star';
 
@@ -24,10 +24,7 @@ export default class AssetPickerItem extends Component {
 	render() {
 		const { asset, selected, onClose, onSelect, onToggleWatchlistItem } = this.props;
 		const { isOpen, isInWatchlist, symbol } = asset;
-		const classes = classNames({
-			'asset-picker-item': true,
-			selected,
-		});
+		const classes = classnames('asset-picker-item', selected);
 
 		return (
 			<tbody>
