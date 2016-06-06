@@ -816,6 +816,10 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: 2px;
 }
 
+.horizontal .errorfield {
+    margin-right: .5rem;
+}
+
 .trade-chart-container {
     overflow: hidden;
     flex: 1;

@@ -3,7 +3,6 @@ import { BinaryChart } from 'binary-charts';
 import findDeep from 'binary-utils/lib/findDeep';
 import filterObjectBy from 'binary-utils/lib/filterObjectBy';
 import PurchaseFailed from '../_common/PurchaseFailed';
-import ErrorMsg from '../_common/ErrorMsg';
 import Modal from '../containers/Modal';
 import TradeParams from '../trade-params/TradeParams';
 import ContractReceipt from '../contract-details/ContractReceipt';
@@ -196,6 +195,7 @@ export default class TradeCard extends Component {
                     /> :
                     <TradeParams
                         {...proposalInfo}
+                        error={tradeError}
                         proposalError={tradeErrors.proposalError}
                         actions={actions}
                         currency={currency}
@@ -209,7 +209,6 @@ export default class TradeCard extends Component {
                         onPurchaseHook={::this.zoomWhenPurchase}
                     />
                 }
-                <ErrorMsg text={tradeError} />
             </div>
         );
     }

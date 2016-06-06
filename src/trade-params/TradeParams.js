@@ -4,6 +4,7 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 import isIntraday from 'binary-utils/lib/isIntraday';
 import askPriceFromProposal from 'binary-utils/lib/askPriceFromProposal';
 
+import ErrorMsg from '../_common/ErrorMsg';
 import BarrierCard from '../barrier-picker/BarrierCard';
 // import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
 import DigitBarrierCard from '../barrier-picker/DigitBarrierCard';
@@ -57,6 +58,7 @@ export default class TradeParams extends Component {
         contract: PropTypes.object,
         compact: PropTypes.bool,
         disabled: PropTypes.bool,
+        error: PropTypes.string,
         index: PropTypes.number.isRequired,
         onPurchaseHook: PropTypes.func,
         pipSize: PropTypes.number.isRequired,
@@ -236,6 +238,7 @@ export default class TradeParams extends Component {
             contract,
             currency,
             disabled,
+            error,
             index,
             pipSize,
             proposal,
@@ -267,6 +270,7 @@ export default class TradeParams extends Component {
 
         return (
             <div className="trade-params" disabled={disabled} key={this.state.dynamicKey}>
+                <ErrorMsg text={error} />
                 <AssetPickerDropDown
                     actions={actions}
                     compact={compact}
