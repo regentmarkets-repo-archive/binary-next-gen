@@ -360,6 +360,7 @@ export default class TradeParams extends Component {
                     askPrice={askPriceFromProposal(proposal)}
                     currency={currency}
                     disabled={disabled}
+                    longcode={proposal && proposal.longcode}
                     onClick={this.onPurchase}
                 />
             </div>
