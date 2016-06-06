@@ -162,7 +162,6 @@ export default class TradeCard extends Component {
 
         // contract error is not tied to trade, but symbol, thus not in tradeErrors
         const tradeError = (propsContract ? propsContract.error : undefined) || errorToShow(tradeErrors);
-
         return (
             <div disabled={disabled} className="trade-panel">
                 <Modal
@@ -184,7 +183,7 @@ export default class TradeCard extends Component {
                         symbol={symbolName}
                         ticks={data}
                         type={chartType}
-                        trade={!!contractRequiredByChart ? undefined : tradeRequiredByChart}
+                        trade={tradeRequiredByChart}
                         typeChange={feedLicense !== 'chartonly' && ::this.changeChartType}
                         tradingTime={tradingTime}
                     />
