@@ -110,12 +110,13 @@ export default class TradeCard extends Component {
         const { chartType } = this.state;
 
         if (chartType === type) {
-            return;
+            return {};
         }
 
         const newDataType = chartToDataType[type];
-        actions.getDataForSymbol(params.symbol, 1, 'hour', newDataType, true);
         this.setState({ chartType: type, dataType: newDataType });
+        const dataResult = actions.getDataForSymbol(params.symbol, 1, 'hour', newDataType, true);
+        return dataResult;
     }
 
     render() {
