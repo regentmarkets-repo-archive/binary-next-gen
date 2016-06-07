@@ -15,11 +15,11 @@ describe('<BuyButton />', () => {
 
     it('should disable the button if no ask price is provided', () => {
         const wrapper = shallow(<BuyButton />);
-        expect(wrapper.props().disabled).to.be.true;
+        expect(wrapper.children().props().disabled).to.be.true;
     });
 
     it('should disable the button if disabled property is set', () => {
         const wrapper = shallow(<BuyButton disabled askPrice={123} />);
-        expect(wrapper.props().disabled).to.be.true;
+        expect(wrapper.children().props().disabled).to.be.true;
     });
 });
