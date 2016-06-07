@@ -21,7 +21,7 @@ export default (state = initialState, action) => {
                 low: +ohlc.low,
                 close: +ohlc.close,
             };
-            return state.update(symbol, List.of(), v => v.takeLast(2000).push(newOHLC));
+            return state.update(symbol, List.of(), v => v.takeLast(1000).push(newOHLC));
         }
         case SERVER_DATA_CANDLES: {
             const granularity = action.serverResponse.echo_req.granularity;
