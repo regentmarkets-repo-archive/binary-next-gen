@@ -9,15 +9,25 @@ import {
 
 const initialState = fromJS({});
 
+const convertOpenContract = openContract => {
+    const cloned = Object.assign({}, openContract);
+    if (cloned.sell_spot && cloned.sell_spot_time) {
+        cloned.exit_tick = cloned.sell_spot;
+        cloned.exit_tick_time = cloned.sell_spot_time;
+    } else if (cloned.sell_time) {
+        cloned.exit_tick_time = cloned.sell_time;
+    }
+    return cloned;
+};
+
 export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_PROPOSAL_OPEN_CONTRACT: {
-            // clone to isolate side effect
-            const openContract = Object.assign({}, action.serverResponse.proposal_open_contract);
-            if (Object.keys(openContract).length === 0) {
+            if (Object.keys(action.serverResponse.proposal_open_contract).length === 0) {
                 return state;
             }
 
+            const openContract = convertOpenContract(action.serverResponse.proposal_open_contract);
             // remove this 2 keys as we do not need it
             delete openContract.current_spot;
             delete openContract.current_spot_time;
