@@ -186,7 +186,7 @@ export default class TradeCard extends Component {
                         events={events}
                         noData={feedLicense === 'chartonly'}
                         pipSize={pipSize}
-                        rangeChange={!contractRequiredByChart && rangeChange}
+                        rangeChange={contractRequiredByChart ? undefined : rangeChange}
                         symbol={symbolName}
                         ticks={dataToShow}
                         type={chartType}
