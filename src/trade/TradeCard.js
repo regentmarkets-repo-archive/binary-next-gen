@@ -167,6 +167,8 @@ export default class TradeCard extends Component {
                 contractChartData[contractRequiredByChart.contract_id].ticks;
         }
 
+        const rangeChange = (count, type) => actions.getDataForSymbol(params.symbol, count, type, dataType);
+
         return (
             <div disabled={disabled} className="trade-panel">
                 <Modal
@@ -184,7 +186,7 @@ export default class TradeCard extends Component {
                         events={events}
                         noData={feedLicense === 'chartonly'}
                         pipSize={pipSize}
-                        rangeChange={(count, type) => actions.getDataForSymbol(params.symbol, count, type, dataType)}
+                        rangeChange={!contractRequiredByChart && rangeChange}
                         symbol={symbolName}
                         ticks={dataToShow}
                         type={chartType}

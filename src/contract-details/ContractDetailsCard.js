@@ -48,6 +48,9 @@ export default class ContractDetailsCard extends Component {
 		const data = dataType === 'candles' ? candles : ticks;
 		const allowCandle = !contract.tick_count;
 
+		const rangeChange = (count, durationType) =>
+			actions.getDataForContract(contract.contract_id, count, durationType, dataType);
+
 		return (
 			<div>
 				<h5>{contract.longcode}</h5>
@@ -58,9 +61,7 @@ export default class ContractDetailsCard extends Component {
 						contract={contract}
 						ticks={data}
 						type={chartType}
-						rangeChange={(count, durationType) =>
-							actions.getDataForContract(contract.contract_id, count, durationType, dataType)
-						}
+						rangeChange={!contract && rangeChange}
 						typeChange={allowCandle && ::this.changeChartType}
 						pipSize={pipSize}
 					/>
