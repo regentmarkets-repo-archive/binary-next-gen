@@ -200,18 +200,18 @@ export const purchaseByTradeId = (tradeID, trade) =>
         const proposalID = proposalSelected.proposal.id;
         const price = proposalSelected.proposal.ask_price;
 
-        LiveData.api.buyContract(proposalID, price)
+        return LiveData.api.buyContract(proposalID, price)
             .then(
                 response => {
                     dispatch(updatePurchaseInfo(tradeID, 'receipt', response.buy));
                     dispatch(updatePurchaseInfo(tradeID, 'mostRecentContractId', response.buy.contract_id));
-                    LiveData.api.subscribeToOpenContract(response.buy.contract_id);
+                    return LiveData.api.subscribeToOpenContract(response.buy.contract_id);
                 },
                 err => dispatch(updateTradeError(tradeID, 'purchaseError', err.message))
             )
             .then(() => {
                 dispatch(updateTradeUIState(tradeID, 'disabled', false));
-                dispatch(updatePriceProposalSubscription(tradeID));
+                return dispatch(updatePriceProposalSubscription(tradeID));
             });
     };
 

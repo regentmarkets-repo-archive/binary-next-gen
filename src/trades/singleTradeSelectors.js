@@ -7,6 +7,7 @@ import {
     tradesTradingTimesSelector,
     availableContractsSelector,
     assetsIsOpenSelector,
+    tradesPurchaseInfoSelector,
 } from '../trade/TradeSelectors';
 
 const firstTradeSymbol = createSelector(
@@ -44,7 +45,7 @@ export default createStructuredSelector({
     params: state => tradesParamsSelector(state).first(),
     pipSize: state => tradesPipSizeSelector(state).first(),
     proposalInfo: state => state.tradesProposalInfo.first(),
-    purchaseInfo: state => state.tradesPurchaseInfo.first(),
+    purchaseInfo: state => tradesPurchaseInfoSelector(state).first(),
     uiState: state => state.tradesUIStates.first(),
     tradingTime: state => tradesTradingTimesSelector(state).first(),
     tradeErrors: state => state.tradesError.first(),
