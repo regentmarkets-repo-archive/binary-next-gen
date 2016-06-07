@@ -6,21 +6,24 @@ export default class MobileToolbarBack extends Component {
 
 	static propTypes = {
 		backBtnBarTitle: PropTypes.string,
+		actions: PropTypes.object,
+		to: PropTypes.string,
 	};
-
+	goBack(e) {
+		const { actions } = this.props;
+		e.preventDefault();
+		actions.resetAssetPickerFilter();
+		history.back();
+	}
 	render() {
 		const { backBtnBarTitle } = this.props;
-
 		return (
 			<div className="mobile-toolbar">
 				<Link
 					to={'/'}
 					activeClassName="active"
 					className="mobile-back-btn"
-					onClick={e => {
-						e.preventDefault();
-						history.back();
-					}}
+					onClick={::this.goBack}
 				>
 					<img className="back-btn" src="/img/arrow-back.svg" alt="Back" />
 					<M m={backBtnBarTitle} />

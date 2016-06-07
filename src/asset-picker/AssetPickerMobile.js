@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import MobilePage from '../containers/MobilePage';
@@ -10,14 +10,21 @@ export default class AssetPickerMobile extends React.Component {
 	static contextTypes = {
 		router: React.PropTypes.object,
 	};
-
+	static propTypes = {
+		actions: PropTypes.object,
+	};
 	shouldComponentUpdate = shouldPureComponentUpdate;
-
-	render() {
+	onClose() {
 		const { router } = this.context;
+		const { actions } = this.props;
+		actions.resetAssetPickerFilter();
+		router.goBack();
+	}
+	render() {
+		const { actions } = this.props;
 		return (
-			<MobilePage toolbarShown={false} backBtnBarTitle="Asset">
-				<AssetPickerContainer {...this.props} onClose={() => router.goBack()} />
+			<MobilePage toolbarShown={false} backBtnBarTitle="Asset" actions={actions}>
+				<AssetPickerContainer {...this.props} onClose={::this.onClose} />
 			</MobilePage>
 		);
 	}
