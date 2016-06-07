@@ -8,7 +8,6 @@ export default class MobilePage extends Component {
 
 	static propTypes = {
 		backBtnBarTitle: PropTypes.string,
-		actions: PropTypes.object,
 		children: PropTypes.any,
 		toolbarShown: PropTypes.bool,
 		inverse: PropTypes.bool,
@@ -21,13 +20,12 @@ export default class MobilePage extends Component {
 	};
 
 	render() {
-		const { backBtnBarTitle, children, toolbarShown, inverse, backTo, actions } = this.props;
+		const { backBtnBarTitle, children, toolbarShown, inverse, backTo } = this.props;
+
 		return (
 			<div className={inverse ? 'mobile-page inverse' : 'mobile-page'}>
 				{toolbarShown ? <MobileToolbarFull /> : null}
-				{backBtnBarTitle ?
-					<MobileToolbarBack backBtnBarTitle={backBtnBarTitle} to={backTo} actions={actions} />
-				: null}
+				{backBtnBarTitle ? <MobileToolbarBack backBtnBarTitle={backBtnBarTitle} to={backTo} /> : null}
 				<div className="mobile-content">
 					{children}
 				</div>
