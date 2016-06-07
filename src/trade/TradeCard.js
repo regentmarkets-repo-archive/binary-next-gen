@@ -54,6 +54,16 @@ const chartToDataType = {
     candlestick: 'candles',
 };
 
+const filterDataByContract = (data, contract) => {
+    const start = contract.date_start;
+    const end = contract.exit_time ? contract.exit_time : contract.date_expiry;
+
+    const timeFrame = end - start;
+    const buffer = Math.max(timeFrame * 0.1, 5);
+
+    return data.filter(d => d.epoch >= (start - buffer) && d.epoch <= (end + buffer));
+};
+
 export default class TradeCard extends Component {
     constructor(props) {
         super(props);
@@ -139,7 +149,6 @@ export default class TradeCard extends Component {
         } = this.props;
         const { lastBoughtContract } = purchaseInfo;
         const { symbolName } = params;
-
         const { events, dataType, chartType } = this.state;
         const data = dataType === 'candles' ? ohlc : ticks;
 
@@ -149,18 +158,18 @@ export default class TradeCard extends Component {
             contract = getStartLaterOnlyContract(contract);
         }
 
-        const disabled =
-            contract === mockedContract ||
-            uiState.disabled;
+        const disabled = contract === mockedContract || uiState.disabled;
 
         // TODO: remove usage of adapter so we have a consistent model
         const tradeRequiredByChart = internalTradeModelToServerTradeModel(params);
         const contractRequiredByChart = lastBoughtContract &&
             serverContractModelToChartContractModel(lastBoughtContract);
-        // if (contractRequiredByChart) window.contracts.push(contractRequiredByChart);
 
         // contract error is not tied to trade, but symbol, thus not in tradeErrors
         const tradeError = (propsContract ? propsContract.error : undefined) || errorToShow(tradeErrors);
+
+        const dataToShow = contractRequiredByChart ? filterDataByContract(data, contractRequiredByChart) : data;
+
         return (
             <div disabled={disabled} className="trade-panel">
                 <Modal
@@ -180,7 +189,7 @@ export default class TradeCard extends Component {
                         pipSize={pipSize}
                         rangeChange={(count, type) => actions.getDataForSymbol(params.symbol, count, type, dataType)}
                         symbol={symbolName}
-                        ticks={data}
+                        ticks={dataToShow}
                         type={chartType}
                         trade={tradeRequiredByChart}
                         typeChange={feedLicense !== 'chartonly' && ::this.changeChartType}
