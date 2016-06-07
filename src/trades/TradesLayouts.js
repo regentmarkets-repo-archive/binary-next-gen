@@ -10,6 +10,7 @@ export default class TradesLayouts extends Component {
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
+        contractChartData: PropTypes.object.isRequired,
         assetsIsOpen: PropTypes.object.isRequired,
         contracts: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
@@ -41,6 +42,7 @@ export default class TradesLayouts extends Component {
             actions,
             assetsIsOpen,
             contracts,
+            contractChartData,
             currency,
             layoutN,
             licensesForAllSymbol,
@@ -62,6 +64,7 @@ export default class TradesLayouts extends Component {
 
         const tradeComponents = paramsList.map((param, index) =>
             <TradeCard
+                contractChartData={contractChartData}
                 actions={actions}
                 currency={currency}
                 key={index}

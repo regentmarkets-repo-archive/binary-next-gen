@@ -7,6 +7,7 @@ export default class AssetPickerFilter extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
+		compact: PropTypes.bool,
 		filter: PropTypes.object.isRequired,
 	};
 
@@ -21,8 +22,11 @@ export default class AssetPickerFilter extends Component {
 	}
 
     componentDidMount() {
+		const { compact } = this.props;
 		const assetSearchNode = findDOMNode(this.refs.assetSearch);
-        setTimeout(() => assetSearchNode.firstChild.focus(), 300);
+		if (!compact) {
+			setTimeout(() => assetSearchNode.firstChild.focus(), 300);
+		}
     }
 
 	render() {

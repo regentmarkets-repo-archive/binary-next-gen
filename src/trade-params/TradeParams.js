@@ -227,8 +227,8 @@ export default class TradeParams extends Component {
 
     onPurchase() {
         const { actions, index, onPurchaseHook } = this.props;
-        actions.purchaseByTradeId(index);
         onPurchaseHook();
+        actions.purchaseByTradeId(index);
     }
 
     render() {

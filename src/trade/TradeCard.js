@@ -79,6 +79,7 @@ export default class TradeCard extends Component {
         compact: PropTypes.bool,
         currency: PropTypes.string.isRequired,
         contract: PropTypes.object,
+        contractChartData: PropTypes.object.isRequired,
         index: PropTypes.number.isRequired,
         feedLicense: PropTypes.string,
         marketIsOpen: PropTypes.bool,
@@ -123,6 +124,7 @@ export default class TradeCard extends Component {
         const {
             actions,
             compact,
+            contractChartData,
             currency,
             index,
             feedLicense,
@@ -139,7 +141,6 @@ export default class TradeCard extends Component {
         } = this.props;
         const { lastBoughtContract } = purchaseInfo;
         const { symbolName } = params;
-
         const { events, dataType, chartType } = this.state;
         const data = dataType === 'candles' ? ohlc : ticks;
 
@@ -149,18 +150,22 @@ export default class TradeCard extends Component {
             contract = getStartLaterOnlyContract(contract);
         }
 
-        const disabled =
-            contract === mockedContract ||
-            uiState.disabled;
+        const disabled = contract === mockedContract || uiState.disabled;
 
         // TODO: remove usage of adapter so we have a consistent model
         const tradeRequiredByChart = internalTradeModelToServerTradeModel(params);
         const contractRequiredByChart = lastBoughtContract &&
             serverContractModelToChartContractModel(lastBoughtContract);
-        // if (contractRequiredByChart) window.contracts.push(contractRequiredByChart);
 
         // contract error is not tied to trade, but symbol, thus not in tradeErrors
         const tradeError = (propsContract ? propsContract.error : undefined) || errorToShow(tradeErrors);
+
+        let dataToShow = data;
+        if (contractRequiredByChart && contractChartData[contractRequiredByChart.contract_id]) {
+            dataToShow = dataType === 'candles' ?
+                contractChartData[contractRequiredByChart.contract_id].ohlc :
+                contractChartData[contractRequiredByChart.contract_id].ticks;
+        }
 
         return (
             <div disabled={disabled} className="trade-panel">
@@ -181,9 +186,9 @@ export default class TradeCard extends Component {
                         pipSize={pipSize}
                         rangeChange={(count, type) => actions.getDataForSymbol(params.symbol, count, type, dataType)}
                         symbol={symbolName}
-                        ticks={data}
+                        ticks={dataToShow}
                         type={chartType}
-                        trade={!!contractRequiredByChart ? undefined : tradeRequiredByChart}
+                        trade={tradeRequiredByChart}
                         typeChange={feedLicense !== 'chartonly' && ::this.changeChartType}
                         tradingTime={tradingTime}
                     />
