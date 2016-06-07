@@ -79,48 +79,50 @@ export default class ForwardStartingOptions extends Component {
         return (
             <div className="forward-starting-picker">
                 {allowStartLater && <Label text={'Start Time'} />}
-                {allowStartLater && !onlyStartLater &&
-                    <div className="start-time-selector">
-                        <label>
+                <div className="row-spacer">
+                    {allowStartLater && !onlyStartLater &&
+                        <div className="start-time-selector">
+                            <label>
+                                <input
+                                    type="radio"
+                                    name={`start-time${index}`}
+                                    onChange={::this.startNow}
+                                    checked={!dateStart}
+                                    disabled={onlyStartLater}
+                                />
+                                <M m="Now" />
+                            </label>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name={`start-time${index}`}
+                                    onChange={::this.startLater}
+                                    checked={!!dateStart}
+                                    disabled={!allowStartLater}
+                                />
+                                <M m="Later" />
+                            </label>
+                        </div>
+                    }
+                    {showForwardStartingInput &&
+                        <div className="forward-starting-input row-spacer">
                             <input
-                                type="radio"
-                                name={`start-time${index}`}
-                                onChange={::this.startNow}
-                                checked={!dateStart}
-                                disabled={onlyStartLater}
+                                type="date"
+                                min={dateToDateString(ranges[0].date)}
+                                max={dateToDateString(ranges[2].date)}
+                                onChange={::this.selectDay}
+                                value={selectedDay && dateToDateString(selectedDay)}
                             />
-                            <M m="Now" />
-                        </label>
-                        <label>
-                            <input
-                                type="radio"
-                                name={`start-time${index}`}
-                                onChange={::this.startLater}
-                                checked={!!dateStart}
-                                disabled={!allowStartLater}
-                            />
-                            <M m="Later" />
-                        </label>
-                    </div>
-                }
-                {showForwardStartingInput &&
-                    <div className="forward-starting-input">
-                        <input
-                            type="date"
-                            min={dateToDateString(ranges[0].date)}
-                            max={dateToDateString(ranges[2].date)}
-                            onChange={::this.selectDay}
-                            value={selectedDay && dateToDateString(selectedDay)}
-                        />
-                        {selectedDay &&
-                            <input
-                                type="time"
-                                onChange={::this.selectTime}
-                                defaultValue={timeString}
-                            />
-                        }
-                    </div>
-                }
+                            {selectedDay &&
+                                <input
+                                    type="time"
+                                    onChange={::this.selectTime}
+                                    defaultValue={timeString}
+                                />
+                            }
+                        </div>
+                    }
+                </div>
             </div>
         );
     }
