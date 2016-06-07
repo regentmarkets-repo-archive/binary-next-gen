@@ -20,6 +20,7 @@ export default createStructuredSelector({
     assetsIsOpen: assetsIsOpenSelector,
     contracts: availableContractsSelector,
     currency: currencySelector,
+    contractChartData: state => state.chartData,
     layoutN: layoutNSelector,
     licensesForAllSymbol: feedLicensesSelector,
     paramsList: tradesParamsSelector,

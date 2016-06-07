@@ -40,6 +40,7 @@ export const mobileTradeTypePickerSelector = createStructuredSelector({
 
 export default createStructuredSelector({
     contract: singleContract,
+    contractChartData: state => state.chartData,
     currency: currencySelector,
     marketIsOpen,
     params: state => tradesParamsSelector(state).first(),

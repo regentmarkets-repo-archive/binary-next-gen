@@ -54,16 +54,6 @@ const chartToDataType = {
     candlestick: 'candles',
 };
 
-const filterDataByContract = (data, contract) => {
-    const start = contract.date_start;
-    const end = contract.exit_time ? contract.exit_time : contract.date_expiry;
-
-    const timeFrame = end - start;
-    const buffer = Math.max(timeFrame * 0.1, 5);
-
-    return data.filter(d => d.epoch >= (start - buffer) && d.epoch <= (end + buffer));
-};
-
 export default class TradeCard extends Component {
     constructor(props) {
         super(props);
@@ -89,6 +79,7 @@ export default class TradeCard extends Component {
         compact: PropTypes.bool,
         currency: PropTypes.string.isRequired,
         contract: PropTypes.object,
+        contractChartData: PropTypes.object.isRequired,
         index: PropTypes.number.isRequired,
         feedLicense: PropTypes.string,
         marketIsOpen: PropTypes.bool,
@@ -133,6 +124,7 @@ export default class TradeCard extends Component {
         const {
             actions,
             compact,
+            contractChartData,
             currency,
             index,
             feedLicense,
@@ -168,7 +160,12 @@ export default class TradeCard extends Component {
         // contract error is not tied to trade, but symbol, thus not in tradeErrors
         const tradeError = (propsContract ? propsContract.error : undefined) || errorToShow(tradeErrors);
 
-        const dataToShow = contractRequiredByChart ? filterDataByContract(data, contractRequiredByChart) : data;
+        let dataToShow = data;
+        if (contractRequiredByChart && contractChartData[contractRequiredByChart.contract_id]) {
+            dataToShow = dataType === 'candles' ?
+                contractChartData[contractRequiredByChart.contract_id].ohlc :
+                contractChartData[contractRequiredByChart.contract_id].ticks;
+        }
 
         return (
             <div disabled={disabled} className="trade-panel">
