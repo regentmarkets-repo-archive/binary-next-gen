@@ -45,9 +45,10 @@ export default class DurationCard extends Component {
         const max = currentUnitBlock && currentUnitBlock.max;
         const showError = duration > max || duration < min;
         if (showError) {
-            const errorMsg =
-                (duration > max ? `Maximum is ${max} ` : `Minimum is ${min} `) + durationText(durationUnit);
-            return errorMsg;
+            return (duration > max ?
+                `Maximum duration is ${max} ` :
+                `Minimum duration is ${min} `
+            ) + durationText(durationUnit);
         }
         return undefined;
     }
