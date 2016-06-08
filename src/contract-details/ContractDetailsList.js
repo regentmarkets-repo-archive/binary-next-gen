@@ -31,6 +31,7 @@ export default class ContractDetailsList extends Component {
 					<ContractDetailCustom label={'Barrier'} value={contract.barrier} />}
 				<ContractDetailCustom label={'Low Barrier'} value={contract.low_barrier} />
 				<ContractDetailCustom label={'High Barrier'} value={contract.high_barrier} />
+				<ContractDetailMoney contract={contract} code={'payout'} />
 				<ContractDetailMoney contract={contract} code={'buy_price'} />
 				<ContractDetailString contract={contract} code={'exit_tick'} />
 				<ContractDetailTime contract={contract} code={'exit_tick_time'} />

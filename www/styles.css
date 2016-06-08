@@ -938,7 +938,13 @@ input[type=number]::-webkit-outer-spin-button {
     display: flex;
     flex-direction: row;
 }
-
+.mobile-content .forward-starting-picker > div {
+    display: flex;
+    flex-direction: column;
+}
+.forward-starting-input {
+    justify-content: space-between;
+}
 .mobile-content .payout-display {
     flex-direction: row;
 }
