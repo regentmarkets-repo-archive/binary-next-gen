@@ -161,10 +161,9 @@ export default class TradeCard extends Component {
         const tradeError = (propsContract ? propsContract.error : undefined) || errorToShow(tradeErrors);
 
         let dataToShow = data;
-        if (contractRequiredByChart && contractChartData[contractRequiredByChart.contract_id]) {
-            dataToShow = dataType === 'candles' ?
-                contractChartData[contractRequiredByChart.contract_id].ohlc :
-                contractChartData[contractRequiredByChart.contract_id].ticks;
+        const contractDataExist = contractRequiredByChart && contractChartData[contractRequiredByChart.contract_id];
+        if (contractDataExist) {
+            dataToShow = contractChartData[contractRequiredByChart.contract_id].ticks || [];
         }
 
         const rangeChange = (count, type) => actions.getDataForSymbol(params.symbol, count, type, dataType);
@@ -189,7 +188,7 @@ export default class TradeCard extends Component {
                         rangeChange={contractRequiredByChart ? undefined : rangeChange}
                         symbol={symbolName}
                         ticks={dataToShow}
-                        type={chartType}
+                        type={contractDataExist ? 'area' : chartType}
                         trade={tradeRequiredByChart}
                         typeChange={feedLicense !== 'chartonly' && ::this.changeChartType}
                         tradingTime={tradingTime}

@@ -79,7 +79,7 @@ export default class ForwardStartingOptions extends Component {
         return (
             <div className="forward-starting-picker">
                 {allowStartLater && <Label text={'Start Time'} />}
-                <div className="row-spacer">
+                <div>
                     {allowStartLater && !onlyStartLater &&
                         <div className="start-time-selector">
                             <label>
@@ -105,7 +105,7 @@ export default class ForwardStartingOptions extends Component {
                         </div>
                     }
                     {showForwardStartingInput &&
-                        <div className="forward-starting-input row-spacer">
+                        <div className="forward-starting-input">
                             <input
                                 type="date"
                                 min={dateToDateString(ranges[0].date)}
