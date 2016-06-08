@@ -5,18 +5,19 @@ import arrayMax from 'binary-utils/lib/arrayMax';
 export default class DigitStatsChart extends Component {
 
 	static propTypes = {
+		orientation: PropTypes.string,
 		stats: PropTypes.arrayOf(PropTypes.number).isRequired,
 	};
 
 	render() {
-		const { stats } = this.props;
+		const { stats, orientation } = this.props;
 		const min = arrayMin(stats);
 		const max = arrayMax(stats);
 
 		return (
-			<div className="digit-stats-chart">
+			<div className={'digit-stats-chart ' + orientation}>
 				{stats.map((x, i) =>
-					<div className="digit-stats-col">
+					<div key={i} className="digit-stats-col">
 						<div
 							className="digit-stats-percentage"
 							style={{ flex: 100 - x / max * 100 }}
