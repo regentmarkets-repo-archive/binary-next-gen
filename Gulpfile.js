@@ -29,7 +29,11 @@ gulp.task('static', () =>
 gulp.task('styles', () =>
     gulp.src(files.sass)
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest(files.dist))
+        .pipe(gulp.dest('./www/'))
+);
+
+gulp.task('styles:watch', () =>
+    gulp.watch('./www/**/*.scss', ['styles'])
 );
 
 gulp.task('js', () =>
