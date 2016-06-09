@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import Label from '../_common/Label';
+import Label from 'binary-components/lib/Label';
 import pipSizeToStepSize from 'binary-utils/lib/pipSizeToStepSize';
 
 export default class BarrierCard extends Component {
