@@ -63,7 +63,7 @@
     var oauthUrl = 'https://oauth.binary.com/oauth2/authorize?app_id=' + appId + '&l=' + lang;
 
     if (!window.BinaryBoot.accounts || window.BinaryBoot.accounts.length === 0) {
-        window.location = oauthUrl;
+        // window.location = oauthUrl;
     }
 
     var redirectIndex = window.location.href.indexOf('?');
