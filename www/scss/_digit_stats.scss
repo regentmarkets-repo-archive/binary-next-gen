@@ -1,0 +1,37 @@
+
+.digit-stats-card {
+  width: 100%;
+  height: 400px;
+}
+.digit-stats-chart {
+  display: flex;
+  min-height: 100px;
+  width: 100%;
+  height: 100%;
+  flex: 1;
+  &.vertical {
+    flex-direction: column;
+  }
+}
+.digit-stats-col {
+  flex: 1;
+  display: flex;
+}
+.digit-stats-bar {
+  background-color: $color_cloud_burst_50_approx;
+  margin: 1px;
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 2px;
+  &.max {
+    background-color: $green;
+  }
+  &.min {
+    background-color: $red;
+  }
+}
+.digit-stats-percentage {
+  text-align: center;
+}
+.digit-stats-digit {
+  text-align: center;
+}

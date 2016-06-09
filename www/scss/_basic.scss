@@ -1,0 +1,583 @@
+@import "colors";
+@import "extends";
+
+body {
+  height: 100%;
+  overflow: hidden;
+}
+
+#screen {
+  font-size: 12px;
+  flex-direction: column;
+  @extend %full_flex;
+}
+
+input::-webkit-calendar-picker-indicator {
+  display: none;
+}
+
+input::-webkit-clear-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.disabled {
+  opacity: 0.2;
+}
+
+#root {
+  @extend %full_flex;
+}
+
+#panels {
+  flex: 1;
+  display: flex;
+  max-height: calc(100% - 6rem);
+}
+
+#header {
+  display: flex;
+  background: $brand_dark_blue;
+  color: $white;
+  justify-content: space-between;
+  #hamburger-btn {
+    padding: 1rem;
+    margin-left: 1rem;
+    > .sidebar {
+      top: -300px !important;
+      left: inherit;
+      right: 0;
+    }
+  }
+  #hamburger-opener:checked + #hamburger-btn > .sidebar {
+    top: 3.5rem !important;
+    left: inherit;
+  }
+}
+
+.workspace-panel {
+  overflow: auto;
+  display: flex;
+  align-items: flex-start;
+}
+
+table {
+  margin-bottom: 0;
+}
+
+.wide-form {
+  max-width: 420px;
+}
+
+.logo-text {
+  padding: 1rem;
+}
+
+.close-btn {
+  cursor: pointer;
+  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: none !important;
+  &:hover {
+    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: none !important;
+  }
+}
+
+[role=tablist] {
+  margin-bottom: .5rem;
+  flex-shrink: 0;
+  &.vertical {
+    margin-bottom: 0;
+  }
+}
+
+header {
+  position: inherit;
+  width: 100%;
+  color: $white;
+  display: flex;
+  padding: 0 1rem;
+  justify-content: space-between;
+}
+.number-positive {
+  color: $green;
+  white-space: nowrap;
+}
+.number-negative {
+  color: $red;
+  white-space: nowrap;
+}
+
+.full-screen-overlay {
+  z-index: 9999;
+}
+.drop-down {
+  display: flex;
+  max-height: 90vh;
+  max-width: 90vw;
+  overflow: auto;
+  background: $white;
+  position: absolute;
+  z-index: 10000;
+  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: 0 0 1rem 0 $black_50;
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 2px;
+  + .full-screen-overlay {
+    background: $black_10;
+  }
+}
+
+.market-submarket-picker {
+  width: 100%;
+}
+
+.range-selector-items {
+  display: flex;
+  width: 100%;
+  margin: .25rem .25rem 0 .25rem;
+  justify-content: space-between;
+}
+
+[role=tablist] {
+  margin-bottom: .5rem;
+  flex-shrink: 0;
+  &.vertical {
+    margin-bottom: 0;
+  }
+}
+
+input[type=range] {
+  width: 100%;
+}
+.sidebar-btn {
+  padding: 0;
+  > img {
+    width: 3.5rem;
+    padding: 1rem;
+  }
+}
+.toolbar-btn {
+  line-height: 3.5;
+  padding: 0 1rem;
+  > img {
+    width: 1.5rem;
+    height: 100%;
+  }
+  &:hover > .toolbar-hint {
+    visibility: visible;
+  }
+}
+.buy-btn {
+  font-size: 1.25em;
+  padding: .5rem;
+}
+.buy-again-btn {
+  font-size: 1.25em;
+  padding: .5rem;
+}
+.sell-at-market-btn {
+  font-size: 1.25em;
+  padding: .5rem;
+}
+fieldset {
+  margin-bottom: .5rem;
+}
+.back-btn {
+  width: 3.5rem;
+  padding: .75rem;
+}
+.tick-sparklines {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.radio-selector {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: .5rem;
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 2px;
+  background-color: $color_cloud_burst_10_approx;
+}
+.radio-item {
+  flex: 1;
+  label {
+    cursor: pointer;
+    line-height: 2;
+    display: block;
+    text-align: center;
+  }
+  img {
+    margin-right: .5rem;
+    width: 1.5rem;
+    background-color: $white;
+    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: 0 0 0 1px $white;
+  }
+  input {
+    display: none;
+  }
+  input[type=radio]:checked + label {
+    background: $brand_dark_blue;
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 2px;
+    color: $white;
+  }
+}
+.web-page {
+  width: 100%;
+  height: 100%;
+}
+.spacer {
+  flex: 1;
+}
+#hamburger-opener {
+  display: none;
+  &:checked + #hamburger-btn > .sidebar {
+    left: .5rem;
+    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: .3s;
+  }
+}
+#hamburger-btn {
+  cursor: pointer;
+  > .sidebar {
+    position: absolute;
+    left: -300px;
+    z-index: 995;
+  }
+}
+#hamburger-overlay {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: $black_50;
+  opacity: 1;
+  visibility: visible;
+  //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+  transition: .3s;
+  z-index: 985;
+}
+#hamburger-closer {
+  display: none;
+  &:checked + #hamburger-overlay {
+    visibility: hidden;
+    opacity: 0;
+    //Instead of the line below you could use @include transition($transition-1, $transition-2, $transition-3, $transition-4, $transition-5, $transition-6, $transition-7, $transition-8, $transition-9, $transition-10)
+    transition: .3s;
+  }
+}
+.toolbar-hint {
+  position: absolute;
+  padding: .75rem;
+  margin-top: -.75rem;
+  margin-left: 1rem;
+  width: 10rem;
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 2px;
+  background: $brand_dark_blue;
+  visibility: hidden;
+}
+.button-list {
+  display: inline;
+}
+.name-val-pairs {
+  display: flex;
+  flex-direction: column;
+}
+.name-val-pair {
+  display: flex;
+  * {
+    flex: 0 1 180px;
+  }
+  > .name {
+    font-weight: 700;
+  }
+}
+select {
+  background-color: $white;
+}
+
+.resizer-vertical {
+  background: $brand_dark_blue;
+  cursor: ew-resize;
+  width: 6px;
+  display: flex;
+  align-items: center;
+  .resizer-handle {
+    width: 4px;
+    margin: 3px 0;
+    height: 2rem;
+    border-left: 1px dotted $white_50;
+    border-right: 1px dotted $white_50;
+  }
+}
+.resizer-horizontal {
+  background: $brand_dark_blue;
+  cursor: ns-resize;
+  height: .25rem;
+}
+.startup-content {
+  display: flex;
+  flex: 1;
+  max-width: 360px;
+  margin: auto;
+  flex-direction: column;
+  align-content: space-between;
+  input {
+    width: 100%;
+  }
+  .button {
+    width: 100%;
+  }
+  select {
+    width: 100%;
+  }
+  .btn-secondary {
+    width: 100%;
+  }
+}
+#theme-wrapper {
+  width: 100%;
+  height: 100%;
+}
+.language-picker {
+  width: 100%;
+  margin: .5rem;
+}
+.theme-picker {
+  width: 100%;
+}
+#new-trade-btn {
+  margin: .5rem;
+}
+#deposit-btn {
+  margin: .5rem;
+}
+#clock {
+  margin: .5rem;
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+#logo {
+  margin: .5rem;
+  img {
+    height: 2rem;
+    &:nth-child(2) {
+      margin-left: .25rem;
+      height: 1.75rem;
+    }
+  }
+}
+.toggle-buttons {
+  margin: .5rem;
+  .btn-secondary {
+    width: 3rem;
+    background: $white_40;
+    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: none;
+    &.checked {
+      background: $white_80;
+    }
+  }
+}
+.balance {
+  font-size: 1.5rem;
+  line-height: 2 !important;
+}
+.radio-button {
+  flex: 1;
+  color: $color_cape_cod_approx;
+  background-color: transparent;
+  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: none;
+  padding: .5em;
+  &:hover {
+    //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+    box-shadow: none!important;
+  }
+}
+.form-label {
+  font-weight: 500;
+  margin-bottom: 5px;
+}
+div[role=tabpanel] {
+  background: $red;
+}
+#footer {
+  display: flex;
+  height: 3rem;
+}
+.centerer {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: .5rem;
+}
+
+td {
+  &.left {
+    text-align: left;
+  }
+  &.right {
+    text-align: right;
+  }
+  &.row-id {
+    font-weight: bold;
+  }
+}
+th {
+  &.left {
+    text-align: left;
+  }
+  &.right {
+    text-align: right;
+  }
+}
+.row-spacer {
+  margin: .5rem 0;
+}
+
+input[type=number] {
+  -moz-appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+.open-notice {
+  @extend %market_notice;
+  background: $green;
+}
+.closed-notice {
+  @extend %market_notice;
+  background: $red;
+}
+.modal {
+  max-height: 100%;
+  min-width: 320px;
+  overflow: auto;
+  width: 80%;
+  .contract-detail {
+    width: 100%;
+    padding: .125rem;
+  }
+  .contract-details-list {
+    max-width: 15rem;
+  }
+  h5 {
+    margin: -.5rem 0 .5rem 0;
+    text-align: center;
+  }
+  .contract-details {
+    display: flex;
+  }
+  .contract-receipt {
+    max-width: 25rem;
+  }
+  .contract-chart {
+    flex: 1;
+    min-width: 25rem;
+  }
+}
+
+.profit-loss-label {
+  font-size: large;
+}
+.highcharts-container {
+  width: 100% !important;
+  svg {
+    width: 100% !important;
+  }
+}
+
+.info-icon {
+  background-color: $color_cloud_burst_50_approx;
+  width: 1rem;
+  height: 1rem;
+  margin-left: .5rem;
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 10px;
+}
+.tooltip {
+  background: $white_90;
+  border: 1px solid $color_cloud_burst_25_approx;
+  color: $brand_dark_blue;
+  font-weight: bold;
+  padding: .125rem .25rem;
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 2px;
+  position: absolute;
+  display: none;
+}
+.btn-flat {
+  color: $brand_dark_blue;
+  font-size: 1.5rem;
+  padding: 0 .5rem;
+  background: $color_cloud_burst_10_approx;
+  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: none;
+}
+input[type=date]::-webkit-inner-spin-button {
+  display: none;
+  -webkit-appearance: none;
+}
+input[type=time]::-webkit-inner-spin-button {
+  display: none;
+  -webkit-appearance: none;
+}
+input[type=date]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+input[type=time]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+
+div[role=tab] .close-btn {
+  background: $brand_dark_blue;
+  fill: $white;
+}
+
+nav.sidebar {
+  display: flex;
+  flex-direction: column;
+  width: 240px;
+  background: $brand_dark_blue;
+  color: $white;
+  margin: -3.5rem -.5rem -.5rem -.5rem;
+}
+.sidebar span {
+  color: $white;
+}
+
+.selected-radio.radio-button {
+  background-color: $brand_dark_blue;
+  //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+  border-radius: 2px;
+  color: $white;
+}
+
+#right-tab-list > div[role=tab][aria-selected=true] {
+  //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+  box-shadow: inset -2px 0 0 0 $brand_orange;
+}
+.close-svg path {
+  fill: $brand_dark_blue;
+}
+
+*:hover + .tooltip {
+  display: block;
+}
+
+.account-info {
+  background: $brand_orange;
+  padding: .5rem;
+}

@@ -101,9 +101,9 @@ export default class DurationCard extends Component {
         if (!currentUnitBlock) return null;
 
         return (
-            <div className="duration-picker">
+            <div className="param-row duration-picker">
                 <Label text="Duration" />
-                <div className="duration-input">
+                <div className="duration-input param-field">
                     <input
                         type="number"
                         value={duration}

@@ -1,0 +1,13 @@
+.trading-times-card {
+  width: 100%;
+  overflow: auto;
+}
+
+.trading-times-filter {
+  display: flex;
+  margin-bottom: -.5rem;
+}
+
+.trading-times-date-picker > input {
+  width: 100%;
+}
