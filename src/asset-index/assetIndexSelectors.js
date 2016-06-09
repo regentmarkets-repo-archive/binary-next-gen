@@ -19,7 +19,9 @@ const assetSymbolsMatchedFilter = (assets, filter) =>
 const shownAssetIndexRowsSelector = createSelector(
     [assetsSelector, assetIndexFilterSelector, assetIndexSelector],
     (assets, filter, assetIndex) => {
-        const symbols = assetSymbolsMatchedFilter(assets, filter);
+        const limit = filter || assets.get(0).get('market');
+        const symbols = assetSymbolsMatchedFilter(assets, limit);
+
         return assetIndex
             .filter(a => symbols.some(x => x === a.get(0)));
     }

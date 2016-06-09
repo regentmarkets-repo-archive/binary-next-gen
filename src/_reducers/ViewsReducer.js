@@ -9,13 +9,13 @@ import {
 
 const initialState = new Map({
     tradingTimes: new Map({
-        submarket: 'europe_africa',
-        filter: 'europe_africa',
+        submarket: '',
+        filter: '',
         date: new Date(),
     }),
     assetIndex: new Map({
-        submarketId: 'europe_africa',
-        filter: 'europe_africa',
+        submarketId: '',
+        filter: '',
     }),
     transactionsFilter: 0,
 });
