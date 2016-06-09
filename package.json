@@ -117,6 +117,7 @@
     "json-loader": "^0.5.4",
     "mocha": "^2.5.3",
     "mocha-lcov-reporter": "^1.2.0",
+    "node-sass": "^3.7.0",
     "postcss-loader": "^0.9.1",
     "react-addons-perf": "^15.1.0",
     "react-addons-test-utils": "^15.1.0",
