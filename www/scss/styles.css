@@ -39,7 +39,7 @@
   width: 10rem;
   margin-right: .5rem; }
 
-.mobile-content .trade-params, .horizontal .trade-params {
+.horizontal .trade-params {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap; }
@@ -96,7 +96,7 @@
   width: 10rem;
   margin-right: .5rem; }
 
-.mobile-content .trade-params, .horizontal .trade-params {
+.horizontal .trade-params {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap; }
@@ -654,7 +654,7 @@ nav.sidebar {
   width: 10rem;
   margin-right: .5rem; }
 
-.mobile-content .trade-params, .horizontal .trade-params {
+.horizontal .trade-params {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap; }
@@ -681,7 +681,7 @@ nav.sidebar {
   flex-direction: column;
   overflow: auto;
   width: 100%; }
-  .mobile-content.setting-container > .asset-index-card {
+  .mobile-content .setting-container > .asset-index-card {
     margin: 0 .25em 0 .25em; }
   .mobile-content > .video-list {
     margin: 0 .25em 0 .25em; }
@@ -698,6 +698,7 @@ nav.sidebar {
   .mobile-content .info-icon {
     display: none; }
   .mobile-content .trade-params {
+    display: flex;
     margin-top: .5rem;
     flex-direction: column;
     flex-wrap: nowrap; }
@@ -804,7 +805,7 @@ nav.sidebar {
   width: 10rem;
   margin-right: .5rem; }
 
-.mobile-content .trade-params, .horizontal .trade-params {
+.horizontal .trade-params {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap; }

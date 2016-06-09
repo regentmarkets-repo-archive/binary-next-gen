@@ -20,7 +20,7 @@
   overflow: auto;
   width: 100%;
 
-  &.setting-container > .asset-index-card {
+  .setting-container > .asset-index-card {
     margin: 0 .25em 0 .25em;
   }
 
@@ -48,7 +48,7 @@
     display: none;
   }
   .trade-params {
-    @extend %horizontal_trade_params;
+    display: flex;
     margin-top: .5rem;
     flex-direction: column;
     flex-wrap: nowrap;
