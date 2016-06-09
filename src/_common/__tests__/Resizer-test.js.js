@@ -5,7 +5,7 @@ import Resizer from '../Resizer';
 
 describe('<Resizer />', () => {
 	it('should contain the class myClass', () => {
-		const wrapper = shallow(<Resizer className="myClass" onResize = {() => {}} />)
+		const wrapper = shallow(<Resizer className="myClass" onResize={() => {}} />);
 		expect(wrapper.props().className).to.equal('myClass');
 	});
 });

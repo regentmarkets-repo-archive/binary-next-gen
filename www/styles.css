@@ -51,10 +51,6 @@ input::-webkit-clear-button { /* Removes blue cross */
     align-items: flex-start;
 }
 
-.workspace-panel > * {
-    flex: 1;
-}
-
 table {
     margin-bottom: 0;
 }
@@ -227,6 +223,10 @@ nav.sidebar {
 .statement-card {
     display: flex;
     flex-direction: column;
+}
+
+.trading-times-card, .statement-card, .asset-index-card, .asset-details, .digit-stats-card {
+    width: 100%;
 }
 
 .statement-card [role=tablist] {
@@ -1138,4 +1138,58 @@ input[type=time]::-webkit-calendar-picker-indicator {
 
 .duration-text {
     padding: .5rem;
+}
+
+.digit-stats-chart {
+    display: flex;
+    min-height: 100px;
+    width: 100%;
+    height: 100%;
+}
+
+.digit-stats-chart.vertical {
+    flex-direction: column;
+}
+
+.digit-stats-col {
+    flex: 1;
+    display: flex;
+}
+
+.horizontal .digit-stats-col {
+    flex-direction: column;
+}
+
+.vertical .digit-stats-col {
+    flex-direction: row-reverse;
+}
+
+.digit-stats-bar {
+    background-color: rgba(42, 48, 82, .5);
+    margin: 1px;
+    border-radius: 2px;
+}
+
+.digit-stats-bar.max {
+    background-color: green;
+}
+
+.digit-stats-bar.min {
+    background-color: red;
+}
+
+.digit-stats-percentage, .digit-stats-digit {
+    text-align: center;
+}
+
+.portfolio-panel {
+    width: 100%;
+}
+
+.digit-stats-card {
+    height: 400px;
+}
+
+.digit-stats-chart {
+    flex: 1;
 }

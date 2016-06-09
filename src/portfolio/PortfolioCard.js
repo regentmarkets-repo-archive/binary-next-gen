@@ -39,7 +39,7 @@ export default class PortfolioCard extends Component {
 					}
 				});
 		return (
-			<div>
+			<div className="portfolio-panel">
 				<PortfolioList
 					compact={compact}
 					contracts={contracts}
