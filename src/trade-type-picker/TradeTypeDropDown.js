@@ -56,7 +56,7 @@ export default class TradeTypeDropDown extends Component {
         const selectedType = getInternalTradeType(tradeParams);
         const { dropdownShown } = this.state;
         return (
-            <div>
+            <div className="param-row">
                 <DropDown
                     shown={dropdownShown}
                     onClose={() => this.setState({ dropdownShown: false })}
@@ -69,7 +69,7 @@ export default class TradeTypeDropDown extends Component {
                 <Label text="Trade Type" />
                 <Info tooltip={helpText[selectedType]} role="presentation" />
                 <div
-                    className="picker-label"
+                    className="picker-label param-field"
                     onMouseDown={::this.openTradeTypePicker}
                 >
                     <img

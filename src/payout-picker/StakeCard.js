@@ -36,7 +36,7 @@ export default class StakeCard extends Component {
         // const basisOptions = basises.map(i => ({ text: i, value: i }));
         // const payoutOptions = payouts.map(i => ({ text: i, value: i }));
         return (
-            <div className="payout-picker">
+            <div className="param-row">
                 {/* <RadioGroup
                     className="radio-selector"
                     name={'basis' + id}
@@ -45,7 +45,7 @@ export default class StakeCard extends Component {
                     value={basis}
                 /> */}
                 <Label text="Stake" />
-                <div className="payout-picker-input">
+                <div className="payout-picker-input param-field">
                     <button className="btn-flat" onClick={::this.stepDown}>&ndash;</button>
                     <input
                         list="browsers"
