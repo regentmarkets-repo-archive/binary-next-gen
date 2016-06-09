@@ -16,11 +16,12 @@ describe('openContractProposalsReducer', () => {
             type: SERVER_DATA_PROPOSAL_OPEN_CONTRACT,
             serverResponse: {
                 proposal_open_contract: {
-                     contract_id: '101010',
+                    contract_type: 'CALL',
+                    contract_id: '101010',
                  },
             },
         };
-        const expectedState = fromJS({ '101010': { contract_id: '101010' } });
+        const expectedState = fromJS({ '101010': { contract_id: '101010', contract_type: 'CALL' } });
         const beforeState = fromJS({});
         const actualState = openContractProposalReducer(beforeState, action);
 

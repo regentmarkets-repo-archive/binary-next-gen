@@ -36,6 +36,7 @@ describe('Chart data reducer', () => {
             type: SERVER_DATA_PROPOSAL_OPEN_CONTRACT,
             serverResponse: {
                 proposal_open_contract: {
+                    contract_type: 'CALL',
                     contract_id: '1001',
                     current_spot: 2,
                     current_spot_time: 2,
