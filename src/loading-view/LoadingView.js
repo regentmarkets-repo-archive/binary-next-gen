@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import M from '../_common/M';
+import M from 'binary-components/lib/M';
 
 export default class LoadingView extends Component {
     static propTypes = {

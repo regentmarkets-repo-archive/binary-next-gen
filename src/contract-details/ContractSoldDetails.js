@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
-import M from '../_common/M';
-import NumberColored from '../_common/NumberColored';
+import M from 'binary-components/lib/M';
+import NumberColored from 'binary-components/lib/NumberColored';
 
 const profitInPercentage = (buy, sell) => (sell - buy) / buy * 100;
 

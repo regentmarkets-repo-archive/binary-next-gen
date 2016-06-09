@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import CloseButton from '../_common/CloseButton';
+import CloseButton from 'binary-components/lib/CloseButton';
 
 export default class Modal extends Component {
 

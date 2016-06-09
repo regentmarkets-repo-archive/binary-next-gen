@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import M from '../_common/M';
+import M from 'binary-components/lib/M';
 
 export default class WatchlistTableHeader extends Component {
 	render() {

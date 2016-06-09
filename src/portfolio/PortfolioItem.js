@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
-import NumberPlain from '../_common/NumberPlain';
-import NumberColored from '../_common/NumberColored';
+import NumberPlain from 'binary-components/lib/NumberPlain';
+import NumberColored from 'binary-components/lib/NumberColored';
 
 export default class PortfolioItem extends Component {
 

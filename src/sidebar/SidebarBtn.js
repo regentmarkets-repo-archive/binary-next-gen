@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
-import M from '../_common/M';
+import M from 'binary-components/lib/M';
 
 export default class SideBarBtn extends Component {
 

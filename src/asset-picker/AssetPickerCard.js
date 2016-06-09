@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import AssetPickerFilter from './AssetPickerFilter';
 import AssetPickerList from './AssetPickerList';
-import M from '../_common/M';
+import M from 'binary-components/lib/M';
 
 export default class AssetPickerCard extends Component {
 

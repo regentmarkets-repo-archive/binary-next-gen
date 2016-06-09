@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-import NumberPlain from '../_common/NumberPlain';
+import NumberPlain from 'binary-components/lib/NumberPlain';
 import SidebarBtn from './SidebarBtn';
 
 @connect(state => ({ account: state.account }))

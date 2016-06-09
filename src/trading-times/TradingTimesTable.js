@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import M from '../_common/M';
+import M from 'binary-components/lib/M';
 import TradingTimesRow from './TradingTimesRow';
 
 export default class TradingTimesTable extends Component {

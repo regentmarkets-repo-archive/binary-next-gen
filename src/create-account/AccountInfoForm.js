@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
-import M from '../_common/M';
-import Button from '../_common/Button';
-import Countries from '../_common/Countries';
-import ErrorMsg from '../_common/ErrorMsg';
-import InputGroup from '../_common/InputGroup';
+import M from 'binary-components/lib/M';
+import Button from 'binary-components/lib/Button';
+import Countries from 'binary-components/lib/Countries';
+import ErrorMsg from 'binary-components/lib/ErrorMsg';
+import InputGroup from 'binary-components/lib/InputGroup';
 import * as LiveData from '../_data/LiveData';
 import config from '../config';
 

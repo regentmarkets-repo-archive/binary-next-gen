@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import Label from '../_common/Label';
+import Label from 'binary-components/lib/Label';
 
 export default class DigitStatsFilter extends Component {
 

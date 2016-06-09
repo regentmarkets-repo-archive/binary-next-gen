@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import NumberPlain from '../_common/NumberPlain';
+import NumberPlain from 'binary-components/lib/NumberPlain';
 
 export default class BalanceCard extends Component {
 

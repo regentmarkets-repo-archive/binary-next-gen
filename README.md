@@ -126,7 +126,6 @@ electron
 
 ## Project Organization By Directory
 * _actions - Redux actions
-* _common - Common React Components
 * _data - Server/API interaction
 * _reducers - Redux reducers
 * _routes - React Router route config

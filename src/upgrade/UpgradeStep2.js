@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
-import M from '../_common/M';
-import Button from '../_common/Button';
-import States from '../_common/States';
-import ErrorMsg from '../_common/ErrorMsg';
-import Countries from '../_common/Countries';
+import M from 'binary-components/lib/M';
+import Button from 'binary-components/lib/Button';
+import States from '../settings/States';
+import ErrorMsg from 'binary-components/lib/ErrorMsg';
+import Countries from 'binary-components/lib/Countries';
 
 export default class UpgradeStep2 extends Component {
 	constructor(props) {

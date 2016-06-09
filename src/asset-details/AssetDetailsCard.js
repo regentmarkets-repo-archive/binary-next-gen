@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
-import M from '../_common/M';
-import OpenCloseNotice from '../_common/OpenCloseNotice';
+import M from 'binary-components/lib/M';
+import OpenCloseNotice from 'binary-components/lib/OpenCloseNotice';
 import AssetDetailsDurations from './AssetDetailsDurations';
 import AssetDetailsTradingTimes from './AssetDetailsTradingTimes';
 import AssetDetailsTradingEvents from './AssetDetailsTradingEvents';

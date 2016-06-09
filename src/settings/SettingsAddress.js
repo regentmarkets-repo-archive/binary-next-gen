@@ -1,9 +1,9 @@
 import React, { PropTypes, Component } from 'react';
-import M from '../_common/M';
-import Button from '../_common/Button';
-import States from '../_common/States';
-import InputGroup from '../_common/InputGroup';
-import TextAreaGroup from '../_common/TextAreaGroup';
+import M from 'binary-components/lib/M';
+import Button from 'binary-components/lib/Button';
+import States from './States';
+import InputGroup from 'binary-components/lib/InputGroup';
+import TextAreaGroup from 'binary-components/lib/TextAreaGroup';
 import * as LiveData from '../_data/LiveData';
 
 export default class SettingsAddress extends Component {

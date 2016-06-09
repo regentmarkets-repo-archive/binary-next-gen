@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
-import M from '../_common/M';
-import RangeGroup from '../_common/RangeGroup';
+import M from 'binary-components/lib/M';
+import RangeGroup from 'binary-components/lib/RangeGroup';
 
 export default class BetterDurationCard extends Component {
 

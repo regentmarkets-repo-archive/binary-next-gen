@@ -1,8 +1,8 @@
 import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import classnames from 'classnames';
-import OpenCloseNotice from '../_common/OpenCloseNotice';
-import Star from '../_common/Star';
+import OpenCloseNotice from 'binary-components/lib/OpenCloseNotice';
+import Star from 'binary-components/lib/Star';
 
 export default class AssetPickerItem extends Component {
 

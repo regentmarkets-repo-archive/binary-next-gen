@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
-import Button from '../_common/Button';
-import InputGroup from '../_common/InputGroup';
+import Button from 'binary-components/lib/Button';
+import InputGroup from 'binary-components/lib/InputGroup';
 import * as LiveData from '../_data/LiveData';
 
 export default class SettingsSelfExclusion extends Component {

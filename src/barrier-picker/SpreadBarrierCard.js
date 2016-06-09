@@ -1,8 +1,8 @@
 import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import RadioGroup from '../_common/RadioGroup';
-import InputGroup from '../_common/InputGroup';
-import ErrorMsg from '../_common/ErrorMsg';
+import RadioGroup from 'binary-components/lib/RadioGroup';
+import InputGroup from 'binary-components/lib/InputGroup';
+import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import noOfDecimals from 'binary-utils/lib/noOfDecimals';
 
 export default class SpreadBarrierCard extends Component {

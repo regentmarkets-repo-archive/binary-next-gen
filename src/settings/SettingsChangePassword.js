@@ -1,10 +1,10 @@
 import React from 'react';
-import Button from '../_common/Button';
-import InputGroup from '../_common/InputGroup';
+import Button from 'binary-components/lib/Button';
+import InputGroup from 'binary-components/lib/InputGroup';
 import * as LiveData from '../_data/LiveData';
 import isValidPassword from 'binary-utils/lib/isValidPassword';
-import ErrorMsg from '../_common/ErrorMsg';
-import M from '../_common/M';
+import ErrorMsg from 'binary-components/lib/ErrorMsg';
+import M from 'binary-components/lib/M';
 
 export default class SettingsChangePassword extends React.Component {
 

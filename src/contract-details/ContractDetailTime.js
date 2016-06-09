@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import M from '../_common/M';
+import M from 'binary-components/lib/M';
 import epochToDate from 'binary-utils/lib/epochToDate';
 import dateToGMTString from 'binary-utils/lib/dateToGMTString';
 import contractCodeToText from 'binary-utils/lib/contractCodeToText';

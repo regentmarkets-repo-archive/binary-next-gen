@@ -2,7 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import { BinaryChart } from 'binary-charts';
 import findDeep from 'binary-utils/lib/findDeep';
 import filterObjectBy from 'binary-utils/lib/filterObjectBy';
-import PurchaseFailed from '../_common/PurchaseFailed';
+import PurchaseFailed from 'binary-components/lib/PurchaseFailed';
 import Modal from '../containers/Modal';
 import TradeParams from '../trade-params/TradeParams';
 import ContractReceipt from '../contract-details/ContractReceipt';

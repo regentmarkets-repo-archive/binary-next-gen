@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
-import Label from '../_common/Label';
-import RangeGroup from '../_common/RangeGroup';
+import Label from 'binary-components/lib/Label';
+import RangeGroup from 'binary-components/lib/RangeGroup';
 
 export default class TickDurationCard extends Component {
 

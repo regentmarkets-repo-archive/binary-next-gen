@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import M from '../_common/M';
+import M from 'binary-components/lib/M';
 import DailyPricesRow from './DailyPricesRow';
 
 export default class DailyPricesTable extends Component {

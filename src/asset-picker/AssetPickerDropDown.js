@@ -1,8 +1,8 @@
 import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import Label from '../_common/Label';
+import Label from 'binary-components/lib/Label';
 import DropDown from '../containers/DropDown';
-import DownArrow from '../_common/DownArrow';
+import DownArrow from 'binary-components/lib/DownArrow';
 import AssetPickerContainer from './AssetPickerContainer';
 
 export default class AssetPickerDropDown extends Component {
