@@ -39,7 +39,7 @@ gulp.task('js', () =>
 );
 
 gulp.task('build', callback =>
-    runSequence('cleanup', ['static', 'js'], callback)
+    runSequence('cleanup', ['styles', 'static', 'js'], callback)
 );
 
 // gulp.task('download-electron', () =>
