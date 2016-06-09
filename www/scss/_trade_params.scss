@@ -164,7 +164,7 @@
 }
 .barrier-input {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
 }
 .param-row {
   margin-bottom: .5rem;
@@ -226,7 +226,6 @@
 .barrier-picker input {
   width: 100%;
 }
-
 .trade-header {
   display: flex;
   cursor: pointer;

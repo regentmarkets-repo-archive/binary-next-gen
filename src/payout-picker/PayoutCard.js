@@ -19,7 +19,7 @@ export default class PayoutCard extends Component {
         const potentialProfitPercentage = ((payout - stake) * 100 / stake).toFixed(2);
 
         return (
-            <div className="param-row">
+            <div className="param-row payout-display">
                 <Label text="Payout" />
                 <div>
                     <NumberColored

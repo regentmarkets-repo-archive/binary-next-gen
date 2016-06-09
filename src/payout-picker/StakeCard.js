@@ -36,7 +36,7 @@ export default class StakeCard extends Component {
         // const basisOptions = basises.map(i => ({ text: i, value: i }));
         // const payoutOptions = payouts.map(i => ({ text: i, value: i }));
         return (
-            <div className="param-row">
+            <div className="param-row payout-picker">
                 {/* <RadioGroup
                     className="radio-selector"
                     name={'basis' + id}

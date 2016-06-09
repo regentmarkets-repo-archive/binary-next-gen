@@ -934,7 +934,7 @@ nav.sidebar {
 
 .barrier-input {
   display: flex;
-  flex-direction: row; }
+  flex-direction: column; }
 
 .param-row {
   margin-bottom: .5rem; }

@@ -77,7 +77,7 @@ export default class ForwardStartingOptions extends Component {
         const showForwardStartingInput = allowStartLater && dateStart;
 
         return (
-            <div className="param-row">
+            <div className="param-row forward-starting-picker">
                 {allowStartLater && <Label text={'Start Time'} />}
                 <div className="param-field">
                     {allowStartLater && !onlyStartLater &&

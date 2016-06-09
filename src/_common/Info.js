@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 
-export default class Clock extends Component {
+export default class Info extends Component {
 
     static propTypes = {
         tooltip: PropTypes.string,
