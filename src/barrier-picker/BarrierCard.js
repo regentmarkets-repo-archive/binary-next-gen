@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import BarrierInput from './BarrierInput';
+import Label from '../_common/Label';
+import pipSizeToStepSize from 'binary-utils/lib/pipSizeToStepSize';
 
 export default class BarrierCard extends Component {
 
@@ -68,29 +69,39 @@ export default class BarrierCard extends Component {
 
         if (!barrier1Info) return null;
 
+        let barrierVal;
+        let barrier2Val;
+        if (barrierType === 'relative') {
+            barrierVal = expiryType === 'daily' ? spot && (+barrier - spot) : barrier;
+            barrier2Val = expiryType === 'daily' ? spot && (+barrier2 - spot) : barrier2;
+        } else {
+            barrierVal = expiryType === 'daily' ? barrier : spot && (+barrier + spot);
+            barrier2Val = expiryType === 'daily' ? barrier2 : spot && (+barrier2 + spot);
+        }
+
         return (
-            <div className="barrier-picker">
-                <BarrierInput
-                    {...barrier1Info}
-                    barrierType={barrierType}
-                    expiryType={expiryType}
-                    onChange={::this.updateBarrier1}
-                    isIntraDay={isIntraDay}
-                    pipSize={pipSize}
-                    value={barrier}
-                    spot={spot}
-                />
-                {barrier2Info &&
-                    <BarrierInput
-                        {...barrierInfo[expiryType][1]}
-                        barrierType={barrierType}
-                        expiryType={expiryType}
-                        onChange={::this.updateBarrier2}
-                        pipSize={pipSize}
-                        isIntraDay={isIntraDay}
-                        value={barrier2}
-                        spot={spot}
+            <div>
+                <div className="param-row">
+                    <Label text={barrier1Info.name + (barrierType === 'relative' ? ' offset' : '')} />
+                    <input
+                        className="param-field"
+                        type="number"
+                        onChange={::this.updateBarrier1}
+                        defaultValue={barrierVal}
+                        step={pipSizeToStepSize(pipSize)}
                     />
+                </div>
+                {barrier2Info &&
+                    <div className="param-row">
+                        <Label text={barrier2Info.name + (barrierType === 'relative' ? ' offset' : '')} />
+                        <input
+                            className="param-field"
+                            type="number"
+                            onChange={::this.updateBarrier2}
+                            defaultValue={barrier2Val}
+                            step={pipSizeToStepSize(pipSize)}
+                        />
+                    </div>
                 }
             </div>
         );

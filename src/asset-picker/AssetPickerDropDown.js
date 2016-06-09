@@ -46,7 +46,7 @@ export default class AssetPickerDropDown extends Component {
         const { actions, index, selectedSymbol, selectedSymbolName } = this.props;
         const { dropdownShown } = this.state;
         return (
-            <div className="param-field">
+            <div className="param-row">
                 <DropDown shown={dropdownShown} onClose={::this.onClose}>
                     <AssetPickerContainer
                         actions={actions}
@@ -55,7 +55,7 @@ export default class AssetPickerDropDown extends Component {
                     />
                 </DropDown>
                 <Label text="Asset" />
-                <div className="picker-label" onMouseDown={::this.openAssetPicker}>
+                <div className="picker-label param-field" onMouseDown={::this.openAssetPicker}>
                     {selectedSymbolName}
                     <DownArrow />
                 </div>

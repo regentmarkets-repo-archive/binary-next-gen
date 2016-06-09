@@ -103,7 +103,7 @@ export default class DurationCard extends Component {
         return (
             <div className="param-row">
                 <Label text="Duration" />
-                <div className="duration-input">
+                <div className="duration-input param-field">
                     <input
                         type="number"
                         value={duration}

@@ -26,7 +26,6 @@ export default class BarrierInput extends Component {
         const absoluteValue = expiryType === 'daily' ? value : spot && (+value + spot);
 
         return (
-
                 <InputGroup
                     autoFocus
                     label={name + (barrierType === 'relative' ? ' offset' : '')}
