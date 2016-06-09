@@ -1,0 +1,17 @@
+
+.statement-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  [role=tablist] {
+    margin-bottom: 0;
+  }
+}
+
+
+.statement-list {
+  overflow: auto;
+}
+.statement-row {
+  cursor: pointer;
+}

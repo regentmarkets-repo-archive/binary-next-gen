@@ -783,7 +783,7 @@ input[type=number]::-webkit-outer-spin-button {
     box-shadow: 0 0 0 1px white;
 }
 
-.payout-picker input {
+.payout-picker-input input {
     width: calc(100% - 4rem);
 }
 
@@ -858,19 +858,6 @@ input[type=number]::-webkit-outer-spin-button {
     border: none;
 }
 
-.trade-params > div {
-    margin-bottom: .5rem;
-}
-
-.mobile-content .trade-params > div > label {
-    flex: 1;
-    line-height: 2;
-}
-
-.mobile-content .trade-params > div > div {
-    flex: 2;
-}
-
 .mobile-content .info-icon {
     display: none;
 }
@@ -906,10 +893,6 @@ input[type=number]::-webkit-outer-spin-button {
     min-width: 11rem;
 }
 
-.mobile-content .trade-params > div {
-    display: flex;
-}
-
 .vertical .trade-params {
     flex-direction: row-reverse;
 }
@@ -933,6 +916,7 @@ input[type=number]::-webkit-outer-spin-button {
 
 .duration-input,
 .forward-starting-input,
+.barrier-input,
 .mobile-content .forward-starting-picker,
 .mobile-content .payout-picker {
     display: flex;
@@ -948,6 +932,25 @@ input[type=number]::-webkit-outer-spin-button {
 .mobile-content .payout-display {
     flex-direction: row;
 }
+/* Isolate changes */
+.param-row {
+    margin-bottom: .5rem;
+}
+
+.mobile-content .param-row {
+    display: flex;
+    flex-direction: row;
+}
+
+.mobile-content .param-row > label {
+    flex: 1;
+    line-height: 2;
+}
+
+.mobile-content .param-row > .param-field {
+    flex: 2;
+}
+/* Isolate changes */
 
 .forward-starting-input > input {
     margin-top: 0.5rem;

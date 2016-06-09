@@ -1,0 +1,35 @@
+@import "colors";
+@import "extends";
+
+.asset-picker-filter {
+  min-height: 5rem;
+}
+.asset-picker-container {
+  display: flex;
+  flex-direction: column;
+  padding: .5rem;
+  width: 16rem;
+  min-width: 12rem;
+}
+.asset-list {
+  overflow: auto;
+  tr {
+    cursor: pointer;
+  }
+  tbody tr.selected {
+    background-color: $color_cloud_burst_20_approx;
+  }
+}
+
+.asset-search {
+  width: 100%;
+  > input {
+    width: 100%;
+  }
+}
+.inverse .asset-list tbody tr.selected {
+  background-color: $color_alto_20_approx;
+}
+.asset-picker-item td {
+  text-align: left;
+}
