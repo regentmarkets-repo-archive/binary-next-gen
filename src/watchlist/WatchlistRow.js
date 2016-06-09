@@ -1,8 +1,8 @@
 import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import Direction from '../_common/Direction';
-import NumberPlain from '../_common/NumberPlain';
-import NumberColored from '../_common/NumberColored';
+import Direction from 'binary-components/lib/Direction';
+import NumberPlain from 'binary-components/lib/NumberPlain';
+import NumberColored from 'binary-components/lib/NumberColored';
 import WatchlistSparkline from './WatchlistSparkline';
 
 export default class WatchlistRow extends Component {

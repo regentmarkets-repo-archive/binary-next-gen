@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import Label from '../_common/Label';
+import Label from 'binary-components/lib/Label';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 
 const basises = ['payout', 'stake'];

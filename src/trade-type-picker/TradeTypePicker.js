@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
-import TabList from '../_common/TabList';
-import Tab from '../_common/Tab';
+import TabList from 'binary-components/lib/TabList';
+import Tab from 'binary-components/lib/Tab';
 import contractCategoryToText from 'binary-utils/lib/contractCategoryToText';
 import tradeTypeCodeToText from 'binary-utils/lib/tradeTypeCodeToText';
 import { serverToInternalTradeType, internalToServerTradeType } from './TradeTypeAdapter';

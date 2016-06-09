@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import M from '../_common/M';
-import Button from '../_common/Button';
-import ErrorMsg from '../_common/ErrorMsg';
+import M from 'binary-components/lib/M';
+import Button from 'binary-components/lib/Button';
+import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import Modal from '../containers/Modal';
 
 export default class UpgradeStep3 extends Component {

@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import toMoney from 'binary-utils/lib/toMoney';
-import M from '../_common/M';
-import NumberColored from '../_common/NumberColored';
+import M from 'binary-components/lib/M';
+import NumberColored from 'binary-components/lib/NumberColored';
 
 export default class ContractWinLose extends Component {
 

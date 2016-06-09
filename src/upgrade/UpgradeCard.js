@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import M from '../_common/M';
-import LogoSpinner from '../_common/LogoSpinner';
+import M from 'binary-components/lib/M';
+import LogoSpinner from 'binary-components/lib/LogoSpinner';
 import UpgradeStep1 from './UpgradeStep1';
 import UpgradeStep2 from './UpgradeStep2';
 import UpgradeStep3 from './UpgradeStep3';

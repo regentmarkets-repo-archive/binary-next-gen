@@ -53,6 +53,7 @@
   },
   "dependencies": {
     "binary-charts": "*",
+    "binary-components": "^1.0.0",
     "binary-live-api": "*",
     "binary-utils": "^3.3.6",
     "classnames": "^2.2.5",

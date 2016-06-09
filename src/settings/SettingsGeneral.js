@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from 'react';
-import M from '../_common/M';
-import Button from '../_common/Button';
-import LanguagePicker from '../_common/LanguagePicker';
+import M from 'binary-components/lib/M';
+import Button from 'binary-components/lib/Button';
 import * as LiveData from '../_data/LiveData';
 import VirtualTopUpConfirmation from './VirtualTopUpConfirmation';
 import Modal from '../containers/Modal';
@@ -38,7 +37,6 @@ export default class SettingsGeneral extends Component {
 		return (
 			<div className="setting-container">
 				<label htmlFor="language-picker"><M m="Language" /></label>
-				<LanguagePicker id="language-picker" className="language-picker" actions={actions} />
 				<label htmlFor="theme-picker"><M m="Color Theme" /></label>
 				<select onChange={::this.onThemeChange} value={theme} id="theme-picker" className="theme-picker">
 					<option value="light">Light</option>

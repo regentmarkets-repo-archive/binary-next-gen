@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
-import RadioGroup from '../_common/RadioGroup';
-import InputGroup from '../_common/InputGroup';
+import RadioGroup from 'binary-components/lib/RadioGroup';
+import InputGroup from 'binary-components/lib/InputGroup';
 
 const basisTypes = [
 	{ value: 'payout', text: 'Payout' },

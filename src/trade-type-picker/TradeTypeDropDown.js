@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import tradeToFriendlyType from 'binary-utils/lib/tradeToFriendlyType';
-import Label from '../_common/Label';
-import Info from '../_common/Info';
-import DownArrow from '../_common/DownArrow';
+import Label from 'binary-components/lib/Label';
+import Info from 'binary-components/lib/Info';
+import DownArrow from 'binary-components/lib/DownArrow';
 import DropDown from '../containers/DropDown';
 import TradeTypePicker from './TradeTypePicker';
 import helpText from './helpText';

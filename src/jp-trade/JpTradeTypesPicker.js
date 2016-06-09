@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
-import TabList from '../_common/TabList';
-import Tab from '../_common/Tab';
+import TabList from 'binary-components/lib/TabList';
+import Tab from 'binary-components/lib/Tab';
 
 export default class JpTradeTypesPicker extends Component {
 

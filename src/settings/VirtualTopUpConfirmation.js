@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
-import M from '../_common/M';
-import Button from '../_common/Button';
-import NumberPlain from '../_common/NumberPlain';
+import M from 'binary-components/lib/M';
+import Button from 'binary-components/lib/Button';
+import NumberPlain from 'binary-components/lib/NumberPlain';
 
 export default class VirtualTopUpConfirmation extends Component {
 

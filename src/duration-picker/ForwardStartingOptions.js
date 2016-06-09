@@ -4,8 +4,8 @@ import dateToEpoch from 'binary-utils/lib/dateToEpoch';
 import timeStringToSeconds from 'binary-utils/lib/timeStringToSeconds';
 import dateToDateString from 'binary-utils/lib/dateToDateString';
 import { createDefaultStartLaterEpoch } from '../trade-params/DefaultTradeParams';
-import M from '../_common/M';
-import Label from '../_common/Label';
+import M from 'binary-components/lib/M';
+import Label from 'binary-components/lib/Label';
 
 /**
  * assumption: for each type of contract, there will only have 1 forward starting options contract

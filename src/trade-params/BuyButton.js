@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import Button from '../_common/Button';
+import Button from 'binary-components/lib/Button';
 
 export default class BuyButton extends Component {
 

@@ -1,8 +1,8 @@
 import React, { PropTypes, Component } from 'react';
 import showError from 'binary-utils/lib/showError';
-import M from '../_common/M';
-import Button from '../_common/Button';
-import InputGroup from '../_common/InputGroup';
+import M from 'binary-components/lib/M';
+import Button from 'binary-components/lib/Button';
+import InputGroup from 'binary-components/lib/InputGroup';
 import * as LiveData from '../_data/LiveData';
 import isValidPassword from 'binary-utils/lib/isValidPassword';
 

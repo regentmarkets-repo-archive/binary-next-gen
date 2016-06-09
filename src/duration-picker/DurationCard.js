@@ -1,7 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import durationText from 'binary-utils/lib/durationText';
-import Label from '../_common/Label';
+import Label from 'binary-components/lib/Label';
 import DurationUnitPicker from './DurationUnitPicker';
 
 export default class DurationCard extends Component {

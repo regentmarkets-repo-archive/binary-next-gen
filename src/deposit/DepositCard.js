@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
-import M from '../_common/M';
-import Tab from '../_common/Tab';
-import TabList from '../_common/TabList';
+import M from 'binary-components/lib/M';
+import Tab from 'binary-components/lib/Tab';
+import TabList from 'binary-components/lib/TabList';
 import PaymentAgentsList from './PaymentAgentsList';
 import WithdrawalForm from './WithdrawalForm';
 import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';

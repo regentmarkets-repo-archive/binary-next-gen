@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import DigitStatsChart from '../_common/DigitStatsChart';
+import DigitStatsChart from 'binary-components/lib/DigitStatsChart';
 import DigitStatsFilter from './DigitStatsFilter';
 
 export default class DigitStatsCard extends Component {

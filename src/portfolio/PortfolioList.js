@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
-import M from '../_common/M';
-import NumberPlain from '../_common/NumberPlain';
+import M from 'binary-components/lib/M';
+import NumberPlain from 'binary-components/lib/NumberPlain';
 import PortfolioItem from './PortfolioItem';
 
 export default class PortfolioList extends Component {

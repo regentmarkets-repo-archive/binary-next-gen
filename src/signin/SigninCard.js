@@ -1,12 +1,12 @@
 import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import { tryAuth } from '../_data/Auth';
-import M from '../_common/M';
-import Button from '../_common/Button';
-import ErrorMsg from '../_common/ErrorMsg';
-import LogoSpinner from '../_common/LogoSpinner';
-import InputGroup from '../_common/InputGroup';
-import LanguagePicker from '../_common/LanguagePicker';
+import M from 'binary-components/lib/M';
+import Button from 'binary-components/lib/Button';
+import ErrorMsg from 'binary-components/lib/ErrorMsg';
+import LogoSpinner from 'binary-components/lib/LogoSpinner';
+import InputGroup from 'binary-components/lib/InputGroup';
+import LanguagePicker from 'binary-components/lib/LanguagePicker';
 
 export default class SigninCard extends Component {
 

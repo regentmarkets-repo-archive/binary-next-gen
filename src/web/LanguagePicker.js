@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 // import * as LiveData from '../_data/LiveData';
-import SelectGroup from '../_common/SelectGroup';
+import SelectGroup from 'binary-components/lib/SelectGroup';
 import languages from '../_constants/languages';
 
 @connect(state => ({ selected: state.boot.get('language') }))

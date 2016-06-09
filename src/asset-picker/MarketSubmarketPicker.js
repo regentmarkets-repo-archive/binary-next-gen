@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import Option from '../_common/Option';
+import Option from 'binary-components/lib/Option';
 
 export default class MarketSubmarketPicker extends Component {
 

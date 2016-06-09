@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Tab from '../_common/Tab';
-import TabList from '../_common/TabList';
+import Tab from 'binary-components/lib/Tab';
+import TabList from 'binary-components/lib/TabList';
 import MobilePage from '../containers/MobilePage';
 import NewsContainer from '../news/NewsContainer';
 import VideoListContainer from '../video/VideoListContainer';

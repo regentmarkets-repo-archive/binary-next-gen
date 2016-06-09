@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
-import LoadingView from '../_common/LoadingView';
+import LoadingView from 'binary-components/lib/LoadingView';
 
 @connect(state => ({ isAuthorized: state.appState.get('authorized') }))
 export default class WebPage extends Component {

@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { FormattedDate } from 'react-intl';
-import NumberPlain from '../_common/NumberPlain';
+import NumberPlain from 'binary-components/lib/NumberPlain';
 
 export default class DailyPricesRow extends Component {
 

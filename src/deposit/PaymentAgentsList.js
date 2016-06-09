@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import PaymentAgentsItem from './PaymentAgentsItem';
-import M from '../_common/M';
+import M from 'binary-components/lib/M';
 
 export default class PaymentAgentsList extends Component {
     static propTypes = {

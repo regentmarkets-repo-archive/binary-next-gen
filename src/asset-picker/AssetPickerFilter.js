@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import { findDOMNode } from 'react-dom';
-import MarketSubmarketPickerContainer from '../_common/MarketSubmarketPickerContainer';
-import InputGroup from '../_common/InputGroup';
+import InputGroup from 'binary-components/lib/InputGroup';
+import MarketSubmarketPickerContainer from './MarketSubmarketPickerContainer';
 
 export default class AssetPickerFilter extends Component {
 

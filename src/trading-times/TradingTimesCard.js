@@ -2,8 +2,8 @@ import React, { PropTypes, Component } from 'react';
 import dateToDateString from 'binary-utils/lib/dateToDateString';
 import todayLocaleString from 'binary-utils/lib/todayLocaleString';
 import oneYearAfterStr from 'binary-utils/lib/oneYearAfterStr';
-import InputGroup from '../_common/InputGroup';
-import MarketSubmarketPickerContainer from '../_common/MarketSubmarketPickerContainer';
+import InputGroup from 'binary-components/lib/InputGroup';
+import MarketSubmarketPickerContainer from '../asset-picker/MarketSubmarketPickerContainer';
 import TradingTimesTable from './TradingTimesTable';
 
 export default class TradingTimesCard extends Component {

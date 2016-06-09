@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import LogoSpinner from '../_common/LogoSpinner';
+import LogoSpinner from 'binary-components/lib/LogoSpinner';
 import EmailVerificationForm from './EmailVerificationForm';
 import AccountInfoForm from './AccountInfoForm';
 
