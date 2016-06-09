@@ -11,7 +11,7 @@ const sass = require('gulp-sass');
 const files = {
     dist: './dist',
     js: './src',
-    static: ['./www/**/*', './config.xml', './electron.js'],
+    static: ['./www/**/*', './config.xml', './electron.js', '!./www/**/*.scss'],
     sass: './www/*.scss',
 };
 
