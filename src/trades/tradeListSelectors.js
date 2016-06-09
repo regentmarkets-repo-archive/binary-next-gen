@@ -5,6 +5,7 @@ import {
     tradesCountSelector,
     layoutNSelector,
     feedLicensesSelector,
+    ohlcSelector,
 } from '../_store/directSelectors';
 import {
     availableContractsSelector,
@@ -19,6 +20,7 @@ export default createStructuredSelector({
     assetsIsOpen: assetsIsOpenSelector,
     contracts: availableContractsSelector,
     currency: currencySelector,
+    contractChartData: state => state.chartData,
     layoutN: layoutNSelector,
     licensesForAllSymbol: feedLicensesSelector,
     paramsList: tradesParamsSelector,
@@ -27,6 +29,7 @@ export default createStructuredSelector({
     purchaseInfoList: tradesPurchaseInfoSelector,
     tradesCount: tradesCountSelector,
     ticksForAllSymbols: ticksSelector, // not really!!!
+    ohlcForAllSymbols: ohlcSelector,
     tradingTimeList: tradesTradingTimesSelector,
     uiStateList: state => state.tradesUIStates,
     tradeErrorList: state => state.tradesError,

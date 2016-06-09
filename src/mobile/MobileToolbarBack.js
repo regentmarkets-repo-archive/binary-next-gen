@@ -22,7 +22,7 @@ export default class MobileToolbarBack extends Component {
 						history.back();
 					}}
 				>
-					<img className="back-btn" src="img/arrow-back.svg" alt="Back" />
+					<img className="back-btn" src="/img/arrow-back.svg" alt="Back" />
 					<M m={backBtnBarTitle} />
 				</Link>
 			</div>

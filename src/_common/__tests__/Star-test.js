@@ -11,11 +11,11 @@ describe('<Star />', () => {
 
 	it('returns star-on.svg', () => {
 		const wrapper = shallow(<Star on />);
-		expect(wrapper.nodes[0].props.src).to.equal('img/star-on.svg');
+		expect(wrapper.nodes[0].props.src).to.equal('/img/star-on.svg');
 	});
 
 	it('has an image named star-off.svg', () => {
 		const wrapper = shallow(<Star />);
-		expect(wrapper.nodes[0].props.src).to.equal('img/star-off.svg');
+		expect(wrapper.nodes[0].props.src).to.equal('/img/star-off.svg');
 	});
 });

@@ -10,10 +10,7 @@
 
     function parseOAuthResponse(responseUrl) {
         var matcher = /acct\d=(\w+)&token\d=([\w-]+)/g;
-        var urlParts = responseUrl.split('/redirect?');
-        if (urlParts.length !== 2) {
-            urlParts = responseUrl.split('/redirect%23'); // workaround for server bug
-        }
+        var urlParts = responseUrl.split('?');
         if (urlParts.length !== 2) {
             throw new Error('Not a valid url');
         }
@@ -69,7 +66,7 @@
         window.location = oauthUrl;
     }
 
-    var redirectIndex = window.location.href.indexOf('#/redirect');
+    var redirectIndex = window.location.href.indexOf('?');
     if (~redirectIndex) {
         history.replaceState({} , 'Binary', window.location.href.substr(0, redirectIndex - 1));
     }

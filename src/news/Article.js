@@ -10,13 +10,13 @@ export default class Article extends Component {
     render() {
         const { articles } = this.props;
         const { index } = this.props.params;
-        const { description, pubDate, title } = articles[index];
+        const { content, pubDate, title } = articles[index];
 
         return (
-            <div>
-                <h2>{title}</h2>
+            <div className="article">
+                <h1>{title}</h1>
                 <p>{pubDate}</p>
-                <p dangerouslySetInnerHTML={{ __html: description }} />
+                <p dangerouslySetInnerHTML={{ __html: content }} />
             </div>
         );
     }

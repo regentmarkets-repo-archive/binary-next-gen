@@ -1,5 +1,4 @@
 import React, { PropTypes, Component } from 'react';
-import InputGroup from '../_common/InputGroup';
 import Label from '../_common/Label';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 
@@ -47,8 +46,8 @@ export default class StakeCard extends Component {
                 /> */}
                 <Label text="Stake" />
                 <div className="payout-picker-input">
-                    <button className="btn-secondary" onClick={::this.stepDown}>&ndash;</button>
-                    <InputGroup
+                    <button className="btn-flat" onClick={::this.stepDown}>&ndash;</button>
+                    <input
                         list="browsers"
                         type="number"
                         value={amount}
@@ -58,7 +57,7 @@ export default class StakeCard extends Component {
                         list="amounts"
                         onChange={onAmountChange}
                     />
-                    <button className="btn-secondary" onClick={::this.stepUp}>+</button>
+                    <button className="btn-flat" onClick={::this.stepUp}>+</button>
                     <datalist id="amounts">
                         {payouts.map(x =>
                             <option

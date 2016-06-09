@@ -15,14 +15,12 @@ const params = {
     },
 };
 
-const getContent = (xmlItem) => {
-    let element = xmlItem.getElementsByTagName('content').item(0);
-    if (!element || (typeof element === 'undefined')) {
-        element = xmlItem.getElementsByTagName('content:encoded').item(0).textContent;
-    } else {
-        element = xmlItem.getElementsByTagName('content').item(0).textContent;
+const getContent = xmlItem => {
+    if (xmlItem.getElementsByTagName('content:encoded').length) {
+        return xmlItem.getElementsByTagName('content:encoded').item(0).textContent;
     }
-    return element;
+
+    return xmlItem.getElementsByTagName('encoded').item(0).textContent;
 };
 
 const xmlToNewsItem = xmlItem => ({
@@ -34,7 +32,6 @@ const xmlToNewsItem = xmlItem => ({
 
 export const readNewsFeed = async (l) => {
     let queryUrl = `${api}?media=${params[l].media}&prefix=${params[l].prefix}&campaign=1&mode=txt`;
-
     let domParser = new DOMParser();
     try {
         let response = await fetch(queryUrl);

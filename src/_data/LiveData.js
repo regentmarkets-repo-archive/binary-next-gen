@@ -17,6 +17,7 @@ const handlers = {
     get_settings: 'serverDataAccountSettings',
     history: 'serverDataTickHistory',
     news: 'updateNewsList',
+    ohlc: 'serverDataOHLCStream',
     paymentagent_list: 'serverDataPaymentAgents',
     proposal_open_contract: 'serverDataProposalOpenContract',
     payout_currencies: 'serverDataPayoutCurrencies',

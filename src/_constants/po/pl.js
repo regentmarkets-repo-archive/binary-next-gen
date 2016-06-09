@@ -389,7 +389,7 @@ export default {
         null,
         "E-mail"
     ],
-    "There are no transactions for selected period": [
+    "There are no transactions for the selected period": [
         null,
         "Brak transakcji w wybranym okresie"
     ],

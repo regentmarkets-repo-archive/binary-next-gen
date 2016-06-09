@@ -392,7 +392,7 @@ export default {
         null,
         "Email"
     ],
-    "There are no transactions for selected period": [
+    "There are no transactions for the selected period": [
         null,
         "Không có giao dịch nào trong khoảng thời gian này"
     ],

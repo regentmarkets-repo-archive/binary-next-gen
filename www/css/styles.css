@@ -51,10 +51,6 @@ input::-webkit-clear-button { /* Removes blue cross */
     align-items: flex-start;
 }
 
-.workspace-panel > * {
-    flex: 1;
-}
-
 table {
     margin-bottom: 0;
 }
@@ -160,11 +156,6 @@ nav.sidebar {
     color: white;
 }
 
-.sidebar > * {
-    padding: 0 1rem;
-    margin: 0;
-}
-
 .number-positive {
     color: green;
     white-space: nowrap;
@@ -234,6 +225,10 @@ nav.sidebar {
     flex-direction: column;
 }
 
+.trading-times-card, .statement-card, .asset-index-card, .asset-details, .digit-stats-card {
+    width: 100%;
+}
+
 .statement-card [role=tablist] {
     margin-bottom: 0;
 }
@@ -248,7 +243,6 @@ nav.sidebar {
 }
 
 .sidebar-btn {
-    height: 4.5em;
     padding: 0;
 }
 
@@ -275,6 +269,14 @@ nav.sidebar {
 .buy-btn, .buy-again-btn, .sell-at-market-btn {
     font-size: 1.25em;
     padding: .5rem;
+}
+
+.horizontal .sell-at-market-btn + .buy-again-btn {
+    margin-left: .5rem;
+}
+
+.vertical .sell-at-market-btn + .buy-again-btn {
+    margin-top: .5rem;
 }
 
 .vertical .buy-btn, .vertical .buy-again-btn, .vertical .sell-at-market-btn {
@@ -492,6 +494,10 @@ select {
     height: .25rem;
 }
 
+.article {
+    margin: 0 1rem;
+}
+
 .article-preview {
     text-decoration: none;
     color: #888;
@@ -706,8 +712,8 @@ input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
     -webkit-appearance: none;
 }
-
 .payout-picker-input {
+
     display: flex;
 }
 
@@ -777,8 +783,8 @@ input[type=number]::-webkit-outer-spin-button {
     box-shadow: 0 0 0 1px white;
 }
 
-.payout-picker input, .payout-picker fieldset {
-    width: 100%;
+.payout-picker input {
+    width: calc(100% - 4rem);
 }
 
 .modal {
@@ -810,6 +816,10 @@ input[type=number]::-webkit-outer-spin-button {
     border-radius: 2px;
 }
 
+.horizontal .errorfield {
+    margin-right: .5rem;
+}
+
 .trade-chart-container {
     overflow: hidden;
     flex: 1;
@@ -835,7 +845,6 @@ input[type=number]::-webkit-outer-spin-button {
     cursor: pointer;
     padding-left: .25rem;
     line-height: 2.5;
-    margin-bottom: .5rem;
     display: flex;
     justify-content: space-between;
     align-items: stretch;
@@ -847,6 +856,10 @@ input[type=number]::-webkit-outer-spin-button {
     color: white;
     background: rgba(42, 48, 82, 1);
     border: none;
+}
+
+.trade-params > div {
+    margin-bottom: .5rem;
 }
 
 .mobile-content .trade-params > div > label {
@@ -865,7 +878,7 @@ input[type=number]::-webkit-outer-spin-button {
 .vertical .trade-params, .vertical .contract-receipt-container {
     overflow: auto;
     width: 10rem;
-    margin-left: .5rem;
+    margin-right: .5rem;
 }
 
 .horizontal .trade-params,
@@ -905,6 +918,10 @@ input[type=number]::-webkit-outer-spin-button {
     flex-direction: column-reverse;
 }
 
+.vertical .trade-panel {
+    flex-direction: row-reverse;
+}
+
 .payout-display {
     display: flex;
     flex-direction: column;
@@ -921,22 +938,25 @@ input[type=number]::-webkit-outer-spin-button {
     display: flex;
     flex-direction: row;
 }
-
+.mobile-content .forward-starting-picker > div {
+    display: flex;
+    flex-direction: column;
+}
+.forward-starting-input {
+    justify-content: space-between;
+}
 .mobile-content .payout-display {
     flex-direction: row;
 }
 
-.forward-starting-input input {
-    width: 100%;
-}
-
-.duration-input > fieldset,
-.forward-starting-input > fieldset {
-    flex: 1;
+.forward-starting-input > input {
+    margin-top: 0.5rem;
+    max-width: 50%;
+    flex: 1 0 auto;
 }
 
 .duration-input input, .duration-input select {
-    width: 100%;
+    max-width: 50%;
 }
 
 .start-time-selector {
@@ -946,25 +966,26 @@ input[type=number]::-webkit-outer-spin-button {
 .start-time-selector > label {
     flex: 1;
     cursor: pointer;
-    line-height: 2 !important;
-    margin-bottom: .5rem;
+    line-height: 2.5 !important;
+    background: rgba(42, 48, 82, .1);
+    border-radius: 2px;
+}
+
+.start-time-selector > label + label {
+    margin-left: 3px;
+}
+
+.start-time-selector > label > input {
+    margin: 3px 3px 3px 6px;
 }
 
 .duration-input > *, .forward-starting-picker > * {
     flex: 1;
-    -webkit-flex: 1 1 auto;         /* workaround for safari bug */
 }
 
 .trade-params label {
     text-transform: uppercase;
     line-height: 1.5;
-}
-
-.payout-picker-input .btn-secondary {
-    box-shadow: none;
-    font-size: 1.5rem;
-    padding: 0 .5rem;
-    background: rgba(42, 48, 82, 0.1);
 }
 
 .picker-label img {
@@ -985,15 +1006,7 @@ input[type=number]::-webkit-outer-spin-button {
     border-right: 1px dotted rgba(255, 255, 255, 0.5);
 }
 
-.info-icon {
-    background-color: rgba(42, 48, 82, .5);
-    width: 1rem;
-    height: 1rem;
-    margin-left: .5rem;
-    border-radius: 10px;
-}
-
-.statement-row {
+.statement-row, .portfolio-row {
     cursor: pointer;
 }
 
@@ -1010,7 +1023,6 @@ input[type=number]::-webkit-outer-spin-button {
 
 .modal .contract-detail, .vertical .contract-detail {
     width: 100%;
-    margin-left: -.25rem;
     padding: .125rem;
 }
 
@@ -1070,11 +1082,114 @@ input[type=number]::-webkit-outer-spin-button {
     min-width: 25rem;
 }
 
-.contract-receipt {
-    margin-left: .5rem;
+.vertical .contract-receipt {
+    margin-right: .5rem;
 }
 
 .trading-times-filter {
     display: flex;
     margin-bottom: -.5rem;
+}
+
+.info-icon {
+    background-color: rgba(42, 48, 82, .5);
+    width: 1rem;
+    height: 1rem;
+    margin-left: .5rem;
+    border-radius: 10px;
+}
+
+.tooltip {
+    background: rgba(255, 255, 255, .9);
+    border: 1px solid rgba(42, 48, 82, .25);
+    color: rgba(42, 48, 82, 1);
+    font-weight: bold;
+    padding: .125rem .25rem;
+    border-radius: 2px;
+    position: absolute;
+    display: none;
+}
+
+*:hover + .tooltip {
+    display: block;
+}
+
+.btn-flat {
+    color: rgba(42, 48, 82, 1);
+    font-size: 1.5rem;
+    padding: 0 .5rem;
+    background: rgba(42, 48, 82, 0.1);
+    box-shadow: none;
+}
+
+.payout-picker-input .btn-flat:hover, .start-time-selector label:hover {
+    background: rgba(42, 48, 82, 1);
+    color: white;
+    box-shadow: none;
+}
+
+input[type=date]::-webkit-inner-spin-button,
+input[type=time]::-webkit-inner-spin-button,
+input[type=date]::-webkit-calendar-picker-indicator,
+input[type=time]::-webkit-calendar-picker-indicator {
+    display: none;
+    -webkit-appearance: none;
+}
+
+.duration-text {
+    padding: .5rem;
+}
+
+.digit-stats-chart {
+    display: flex;
+    min-height: 100px;
+    width: 100%;
+    height: 100%;
+}
+
+.digit-stats-chart.vertical {
+    flex-direction: column;
+}
+
+.digit-stats-col {
+    flex: 1;
+    display: flex;
+}
+
+.horizontal .digit-stats-col {
+    flex-direction: column;
+}
+
+.vertical .digit-stats-col {
+    flex-direction: row-reverse;
+}
+
+.digit-stats-bar {
+    background-color: rgba(42, 48, 82, .5);
+    margin: 1px;
+    border-radius: 2px;
+}
+
+.digit-stats-bar.max {
+    background-color: green;
+}
+
+.digit-stats-bar.min {
+    background-color: red;
+}
+
+.digit-stats-percentage, .digit-stats-digit {
+    text-align: center;
+}
+
+.portfolio-panel {
+    width: 100%;
+}
+
+.digit-stats-card {
+    height: 400px;
+}
+
+.digit-stats-chart {
+    flex: 1;
 }

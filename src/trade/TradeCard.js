@@ -3,7 +3,6 @@ import { BinaryChart } from 'binary-charts';
 import findDeep from 'binary-utils/lib/findDeep';
 import filterObjectBy from 'binary-utils/lib/filterObjectBy';
 import PurchaseFailed from '../_common/PurchaseFailed';
-import ErrorMsg from '../_common/ErrorMsg';
 import Modal from '../containers/Modal';
 import TradeParams from '../trade-params/TradeParams';
 import ContractReceipt from '../contract-details/ContractReceipt';
@@ -50,6 +49,11 @@ const errorToShow = errorObj => {
     return undefined;
 };
 
+const chartToDataType = {
+    area: 'ticks',
+    candlestick: 'candles',
+};
+
 export default class TradeCard extends Component {
     constructor(props) {
         super(props);
@@ -60,6 +64,8 @@ export default class TradeCard extends Component {
                     handler: zoomToLatest,
                 },
             ],
+            chartType: 'area',
+            dataType: 'ticks',
         };
     }
 
@@ -73,9 +79,11 @@ export default class TradeCard extends Component {
         compact: PropTypes.bool,
         currency: PropTypes.string.isRequired,
         contract: PropTypes.object,
+        contractChartData: PropTypes.object.isRequired,
         index: PropTypes.number.isRequired,
         feedLicense: PropTypes.string,
         marketIsOpen: PropTypes.bool,
+        ohlc: PropTypes.array,
         params: PropTypes.object.isRequired,
         pipSize: PropTypes.number.isRequired,
         proposalInfo: PropTypes.object.isRequired,
@@ -98,16 +106,32 @@ export default class TradeCard extends Component {
         document.getElementById(domID).dispatchEvent(zoomToLatestEv);
     }
 
+    changeChartType(type) {
+        const { actions, params } = this.props;
+        const { chartType } = this.state;
+
+        if (chartType === type) {
+            return {};
+        }
+
+        const newDataType = chartToDataType[type];
+        this.setState({ chartType: type, dataType: newDataType });
+        const dataResult = actions.getDataForSymbol(params.symbol, 1, 'hour', newDataType, true);
+        return dataResult;
+    }
+
     render() {
         const {
             actions,
             compact,
+            contractChartData,
             currency,
             index,
             feedLicense,
             marketIsOpen,
             params,
             uiState,
+            ohlc,
             purchaseInfo,
             proposalInfo,
             pipSize,
@@ -117,26 +141,32 @@ export default class TradeCard extends Component {
         } = this.props;
         const { lastBoughtContract } = purchaseInfo;
         const { symbolName } = params;
+        const { events, dataType, chartType } = this.state;
+        const data = dataType === 'candles' ? ohlc : ticks;
 
         const propsContract = this.props.contract;
-
         let contract = (propsContract && !propsContract.error) ? propsContract : mockedContract;
         if (!marketIsOpen) {
             contract = getStartLaterOnlyContract(contract);
         }
 
-        const disabled =
-            contract === mockedContract ||
-            uiState.disabled;
+        const disabled = contract === mockedContract || uiState.disabled;
 
         // TODO: remove usage of adapter so we have a consistent model
         const tradeRequiredByChart = internalTradeModelToServerTradeModel(params);
         const contractRequiredByChart = lastBoughtContract &&
             serverContractModelToChartContractModel(lastBoughtContract);
-        // if (contractRequiredByChart) window.contracts.push(contractRequiredByChart);
 
         // contract error is not tied to trade, but symbol, thus not in tradeErrors
         const tradeError = (propsContract ? propsContract.error : undefined) || errorToShow(tradeErrors);
+
+        let dataToShow = data;
+        const contractDataExist = contractRequiredByChart && contractChartData[contractRequiredByChart.contract_id];
+        if (contractDataExist) {
+            dataToShow = contractChartData[contractRequiredByChart.contract_id].ticks || [];
+        }
+
+        const rangeChange = (count, type) => actions.getDataForSymbol(params.symbol, count, type, dataType);
 
         return (
             <div disabled={disabled} className="trade-panel">
@@ -152,13 +182,15 @@ export default class TradeCard extends Component {
                         id={`trade-chart${index}`}
                         className="trade-chart"
                         contract={contractRequiredByChart}
+                        events={events}
                         noData={feedLicense === 'chartonly'}
-                        events={this.state.events}
-                        symbol={symbolName}
-                        ticks={ticks}
-                        trade={!!contractRequiredByChart ? undefined : tradeRequiredByChart}
                         pipSize={pipSize}
-                        rangeChange={(count, type) => actions.getDataForSymbol(params.symbol, count, type)}
+                        rangeChange={contractRequiredByChart ? undefined : rangeChange}
+                        symbol={symbolName}
+                        ticks={dataToShow}
+                        type={contractDataExist ? 'area' : chartType}
+                        trade={tradeRequiredByChart}
+                        typeChange={feedLicense !== 'chartonly' && ::this.changeChartType}
                         tradingTime={tradingTime}
                     />
                 </div>
@@ -170,6 +202,7 @@ export default class TradeCard extends Component {
                     /> :
                     <TradeParams
                         {...proposalInfo}
+                        error={tradeError}
                         proposalError={tradeErrors.proposalError}
                         actions={actions}
                         currency={currency}
@@ -183,7 +216,6 @@ export default class TradeCard extends Component {
                         onPurchaseHook={::this.zoomWhenPurchase}
                     />
                 }
-                <ErrorMsg shown={!!tradeError} text={tradeError || ''} />
             </div>
         );
     }

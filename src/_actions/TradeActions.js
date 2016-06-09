@@ -6,6 +6,7 @@ import numberToSignedString from 'binary-utils/lib/numberToSignedString';
 import { updateOpenContractField } from './PortfolioActions';
 import { getTicksBySymbol } from './TickActions';
 import { getTradingOptions } from './TradingOptionsActions';
+import { getDataForContract } from './ChartDataActions';
 
 // Handle server proposal stream
 export const serverDataProposal = serverResponse => ({
@@ -200,18 +201,20 @@ export const purchaseByTradeId = (tradeID, trade) =>
         const proposalID = proposalSelected.proposal.id;
         const price = proposalSelected.proposal.ask_price;
 
-        LiveData.api.buyContract(proposalID, price)
+        return LiveData.api.buyContract(proposalID, price)
             .then(
                 response => {
                     dispatch(updatePurchaseInfo(tradeID, 'receipt', response.buy));
                     dispatch(updatePurchaseInfo(tradeID, 'mostRecentContractId', response.buy.contract_id));
-                    LiveData.api.subscribeToOpenContract(response.buy.contract_id);
+                    return LiveData.api
+                        .subscribeToOpenContract(response.buy.contract_id)
+                        .then(() => dispatch(getDataForContract(response.buy.contract_id, 1, 'all', 'ticks')));
                 },
                 err => dispatch(updateTradeError(tradeID, 'purchaseError', err.message))
             )
             .then(() => {
                 dispatch(updateTradeUIState(tradeID, 'disabled', false));
-                dispatch(updatePriceProposalSubscription(tradeID));
+                return dispatch(updatePriceProposalSubscription(tradeID));
             });
     };
 

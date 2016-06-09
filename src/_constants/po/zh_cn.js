@@ -394,7 +394,7 @@ export default {
         null,
         "电子邮件"
     ],
-    "There are no transactions for selected period": [
+    "There are no transactions for the selected period": [
         null,
         "选定期间无任何交易"
     ],

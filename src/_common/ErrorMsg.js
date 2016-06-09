@@ -4,13 +4,21 @@ import classnames from 'classnames';
 import errorToString from 'binary-utils/lib/errorToString';
 
 export default class ErrorMsg extends Component {
+
 	static propTypes = {
 		className: PropTypes.string,
-		shown: PropTypes.bool.isRequired,
-		text: PropTypes.string.isRequired,
+		text: PropTypes.string,
 	};
+
 	render() {
-		const { shown, text, className } = this.props;
-		return shown ? <p className={classnames('errorfield', className)}><M m={errorToString(text)} /></p> : null;
+		const { text, className } = this.props;
+
+		if (!text) return null;
+
+		return (
+			<p className={classnames('errorfield', className)}>
+				<M m={errorToString(text)} />
+			</p>
+		);
 	}
 }

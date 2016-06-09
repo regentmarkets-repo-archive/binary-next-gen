@@ -1,5 +1,4 @@
 import React, { Component, PropTypes } from 'react';
-import InputGroup from '../_common/InputGroup';
 import epochToUTCTimeString from 'binary-utils/lib/epochToUTCTimeString';
 import dateToEpoch from 'binary-utils/lib/dateToEpoch';
 import timeStringToSeconds from 'binary-utils/lib/timeStringToSeconds';
@@ -80,48 +79,50 @@ export default class ForwardStartingOptions extends Component {
         return (
             <div className="forward-starting-picker">
                 {allowStartLater && <Label text={'Start Time'} />}
-                {allowStartLater && !onlyStartLater &&
-                    <div className="start-time-selector">
-                        <label>
+                <div>
+                    {allowStartLater && !onlyStartLater &&
+                        <div className="start-time-selector">
+                            <label>
+                                <input
+                                    type="radio"
+                                    name={`start-time${index}`}
+                                    onChange={::this.startNow}
+                                    checked={!dateStart}
+                                    disabled={onlyStartLater}
+                                />
+                                <M m="Now" />
+                            </label>
+                            <label>
+                                <input
+                                    type="radio"
+                                    name={`start-time${index}`}
+                                    onChange={::this.startLater}
+                                    checked={!!dateStart}
+                                    disabled={!allowStartLater}
+                                />
+                                <M m="Later" />
+                            </label>
+                        </div>
+                    }
+                    {showForwardStartingInput &&
+                        <div className="forward-starting-input">
                             <input
-                                type="radio"
-                                name={`start-time${index}`}
-                                onChange={::this.startNow}
-                                checked={!dateStart}
-                                disabled={onlyStartLater}
+                                type="date"
+                                min={dateToDateString(ranges[0].date)}
+                                max={dateToDateString(ranges[2].date)}
+                                onChange={::this.selectDay}
+                                value={selectedDay && dateToDateString(selectedDay)}
                             />
-                            <M m="Now" />
-                        </label>
-                        <label>
-                            <input
-                                type="radio"
-                                name={`start-time${index}`}
-                                onChange={::this.startLater}
-                                checked={!!dateStart}
-                                disabled={!allowStartLater}
-                            />
-                            <M m="Later" />
-                        </label>
-                    </div>
-                }
-                {showForwardStartingInput &&
-                    <div className="forward-starting-input">
-                        <InputGroup
-                            type="date"
-                            min={dateToDateString(ranges[0].date)}
-                            max={dateToDateString(ranges[2].date)}
-                            onChange={::this.selectDay}
-                            value={selectedDay && dateToDateString(selectedDay)}
-                        />
-                        {selectedDay &&
-                            <InputGroup
-                                type="time"
-                                onChange={::this.selectTime}
-                                defaultValue={timeString}
-                            />
-                        }
-                    </div>
-                }
+                            {selectedDay &&
+                                <input
+                                    type="time"
+                                    onChange={::this.selectTime}
+                                    defaultValue={timeString}
+                                />
+                            }
+                        </div>
+                    }
+                </div>
             </div>
         );
     }

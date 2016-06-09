@@ -392,7 +392,7 @@ export default {
         null,
         "電子郵件"
     ],
-    "There are no transactions for selected period": [
+    "There are no transactions for the selected period": [
         null,
         "選定期間無任何交易"
     ],

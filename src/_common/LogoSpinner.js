@@ -14,7 +14,7 @@ export default class LogoSpinner extends Component {
 			<img
 				alt="Loading"
 				className={classNames.join(' ')}
-				src="img/binary-symbol-logo.svg"
+				src="/img/binary-symbol-logo.svg"
 			/>
 		);
 	}

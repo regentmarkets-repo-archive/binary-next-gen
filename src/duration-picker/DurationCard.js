@@ -1,11 +1,11 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import SelectGroup from '../_common/SelectGroup';
-import InputGroup from '../_common/InputGroup';
-import Label from '../_common/Label';
 import durationText from 'binary-utils/lib/durationText';
+import Label from '../_common/Label';
+import DurationUnitPicker from './DurationUnitPicker';
 
 export default class DurationCard extends Component {
+
     static propTypes = {
         dateStart: PropTypes.number,
         duration: PropTypes.number,
@@ -45,9 +45,10 @@ export default class DurationCard extends Component {
         const max = currentUnitBlock && currentUnitBlock.max;
         const showError = duration > max || duration < min;
         if (showError) {
-            const errorMsg =
-                (duration > max ? `Maximum is ${max} ` : `Minimum is ${min} `) + durationText(durationUnit);
-            return errorMsg;
+            return (duration > max ?
+                `Maximum duration is ${max} ` :
+                `Minimum duration is ${min} `
+            ) + durationText(durationUnit);
         }
         return undefined;
     }
@@ -103,16 +104,16 @@ export default class DurationCard extends Component {
             <div className="duration-picker">
                 <Label text="Duration" />
                 <div className="duration-input">
-                    <InputGroup
+                    <input
                         type="number"
                         value={duration}
                         min={min}
                         max={max}
                         onChange={::this.updateDuration}
                     />
-                    <SelectGroup
-                        options={unitOptions}
-                        value={durationUnit}
+                    <DurationUnitPicker
+                        durationUnit={durationUnit}
+                        unitOptions={unitOptions}
                         onChange={::this.updateDurationUnit}
                     />
                 </div>
