@@ -11,7 +11,7 @@ const sass = require('gulp-sass');
 const files = {
     dist: './dist',
     js: './src',
-    static: ['./www/**/*', './config.xml', './electron.js'],
+    static: ['./www/**/*', './config.xml', './electron.js', '!./www/**/*.scss'],
     sass: './www/*.scss',
 };
 
@@ -39,7 +39,7 @@ gulp.task('js', () =>
 );
 
 gulp.task('build', callback =>
-    runSequence('cleanup', ['static', 'js'], callback)
+    runSequence('cleanup', ['styles', 'static', 'js'], callback)
 );
 
 // gulp.task('download-electron', () =>
