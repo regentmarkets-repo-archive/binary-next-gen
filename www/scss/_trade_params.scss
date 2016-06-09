@@ -57,6 +57,11 @@
       margin-right: .5rem;
       min-width: 11rem;
     }
+    .barrier-picker {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+    }
   }
   .trade-panel {
     flex-direction: column-reverse;
@@ -78,6 +83,7 @@
 .trade-action {
   text-transform: capitalize;
 }
+
 .payout-picker-input {
   display: flex;
   input {
@@ -87,6 +93,7 @@
     @extend %params_hover;
   }
 }
+
 .trade-type-picker {
   width: 20rem;
   height: 17rem;

@@ -80,8 +80,8 @@ export default class BarrierCard extends Component {
         }
 
         return (
-            <div>
-                <div className="param-row barrier-picker">
+            <div className="barrier-picker">
+                <div className="param-row">
                     <Label text={barrier1Info.name + (barrierType === 'relative' ? ' offset' : '')} />
                     <input
                         className="param-field"
@@ -92,7 +92,7 @@ export default class BarrierCard extends Component {
                     />
                 </div>
                 {barrier2Info &&
-                    <div className="param-row barrier-picker">
+                    <div className="param-row">
                         <Label text={barrier2Info.name + (barrierType === 'relative' ? ' offset' : '')} />
                         <input
                             className="param-field"
