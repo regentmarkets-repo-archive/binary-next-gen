@@ -214,15 +214,23 @@ export function changeStartDate(newStartDate, contract, oldTrade) {
 }
 
 export function changeDurationUnit(newUnit, contract, oldTrade) {
-    const { tradeCategory, type, duration } = oldTrade;
+    const { tradeCategory, type, dateStart, duration } = oldTrade;
+    const contractPerType = contract[tradeCategory][type];
+
+    let newDuration = duration;
+    if (!allTimeRelatedFieldValid(dateStart, duration, newUnit, contractPerType)) {
+        newDuration = contractPerType.durations.find(d => d.unit === newUnit).min;
+    }
 
     // if it's forward starting type, do not update barrier as not applicable
-    if (oldTrade.dateStart) {
-        return { durationUnit: newUnit };
+    if (dateStart) {
+        return { durationUnit: newUnit, duration: newDuration };
     }
-    const newBarrier = createDefaultBarriers(contract, tradeCategory, type, duration, newUnit);
-    const newBarrierType = createDefaultBarrierType(duration, newUnit);
+
+    const newBarrier = createDefaultBarriers(contract, tradeCategory, type, newDuration, newUnit);
+    const newBarrierType = createDefaultBarrierType(newDuration, newUnit);
     return {
+        duration: newDuration,
         durationUnit: newUnit,
         barrier: newBarrier[0],
         barrier2: newBarrier[1],
