@@ -458,13 +458,16 @@ div[role=tabpanel] {
 
 td.left {
   text-align: left; }
+
 td.right {
   text-align: right; }
+
 td.row-id {
   font-weight: bold; }
 
 th.left {
   text-align: left; }
+
 th.right {
   text-align: right; }
 
@@ -819,44 +822,63 @@ nav.sidebar {
   padding: .25rem .25rem .25rem .1rem; }
   .vertical > [role=tab] > span {
     margin-top: .5rem; }
+
 .vertical .sell-at-market-btn {
   width: 100%; }
   .vertical .sell-at-market-btn + .buy-again-btn {
     margin-top: .5rem; }
+
 .vertical .buy-btn {
   width: 100%; }
+
 .vertical .buy-again-btn {
   width: 100%; }
+
 .vertical .trade-params {
   flex-direction: row-reverse; }
+
 .vertical .trade-panel {
   flex-direction: row-reverse; }
+
 .vertical .contract-detail {
   width: 100%;
   padding: .125rem; }
+
 .vertical .contract-receipt {
   overflow: auto;
   max-width: 15rem;
   margin-right: .5rem; }
+
 .vertical .digit-stats-col {
   flex-direction: row-reverse; }
 
 .horizontal .errorfield {
   margin-right: .5rem; }
+
 .horizontal .trade-params > * {
   flex: 1; }
+
 .horizontal .trade-params > div {
   margin-right: .5rem;
   min-width: 11rem; }
+
+.horizontal .trade-params .barrier-picker {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap; }
+
 .horizontal .trade-panel {
   flex-direction: column-reverse; }
+
 .horizontal .contract-detail {
   flex-direction: column;
   width: 8rem;
   background-color: rgba(42, 48, 82, 0.1);
   text-align: center; }
+
 .horizontal .digit-stats-col {
   flex-direction: column; }
+
 .horizontal .sell-at-market-btn + .buy-again-btn {
   margin-left: .5rem; }
 
@@ -1027,5 +1049,3 @@ nav.sidebar {
     text-decoration: none;
     text-align: center;
     margin-top: 1rem; }
-
-/*# sourceMappingURL=styles.css.map */
