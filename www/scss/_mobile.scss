@@ -23,6 +23,30 @@
   .setting-container > .asset-index-card {
     margin: 0 .25em 0 .25em;
   }
+  .trade-chart-container{
+    min-height: 50%;
+    max-height: 50%;
+  }
+  .trade-params{
+    font-size: .65em;
+
+    > div {
+        input[type="number"],
+        input[type="text"],
+        input[type="date"],
+        input[type="time"],
+        img,
+        svg,
+        select,
+        btn-flat {
+          height: 3em;
+      }
+
+
+
+    }
+
+  }
 
   > {
     .video-list {
