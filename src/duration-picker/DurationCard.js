@@ -62,10 +62,7 @@ export default class DurationCard extends Component {
     }
 
     updateDurationUnit(e) {
-        const { onUnitChange, onError, duration } = this.props;
-        const newDurationUnit = e.target.value;
-        const err = this.validateDuration(duration, newDurationUnit);
-        onError(err);
+        const { onUnitChange } = this.props;
         onUnitChange(e);
     }
 
