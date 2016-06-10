@@ -3,7 +3,7 @@ import { fromJS } from 'immutable';
 import {
     SERVER_DATA_STATEMENT,
     SERVER_DATA_TRANSACTION,
-    REMOVE_PERSONAL_DATA,
+    REMOVE_STATEMENT_PERSONAL_DATA,
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS([]);
@@ -11,12 +11,10 @@ const initialState = fromJS([]);
 export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_STATEMENT: {
-            return state.merge(action.serverResponse.statement.transactions);
+            return fromJS(action.serverResponse.statement.transactions);
         }
         case SERVER_DATA_TRANSACTION: {
             const rawTx = action.serverResponse.transaction;
-
-            // short code is missing, but we do not need it
             const txWithoutExtraProps = {
                 balance_after: rawTx.balance,
                 action_type: rawTx.action,
@@ -29,7 +27,7 @@ export default (state = initialState, action) => {
             };
             return state.unshift(fromJS(txWithoutExtraProps));
         }
-        case REMOVE_PERSONAL_DATA: {
+        case REMOVE_STATEMENT_PERSONAL_DATA: {
             return initialState;
         }
         default:

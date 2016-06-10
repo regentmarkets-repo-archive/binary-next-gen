@@ -9,3 +9,7 @@ export const serverTransactionStream = serverResponse => ({
     type: types.SERVER_DATA_TRANSACTION,
     serverResponse,
 });
+
+export const removeStatementPersonalData = () => ({
+    type: types.REMOVE_STATEMENT_PERSONAL_DATA,
+});
