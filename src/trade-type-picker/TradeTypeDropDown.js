@@ -66,8 +66,8 @@ export default class TradeTypeDropDown extends Component {
                         onSelect={() => this.setState({ dropdownShown: false })}
                     />
                 </DropDown>
-                <Label text="Trade Type" />
-                <Info tooltip={helpText[selectedType]} role="presentation" />
+                {/* <Label text="Trade Type" />
+                <Info tooltip={helpText[selectedType]} role="presentation" /> */}
                 <div
                     className="picker-label param-field"
                     onMouseDown={::this.openTradeTypePicker}

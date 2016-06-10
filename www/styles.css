@@ -928,6 +928,15 @@ nav.sidebar {
   flex: 1;
   display: flex;
   align-items: stretch; }
+  .trade-chart-container .floating-control {
+    display: flex;
+    flex-direction: row; }
+    .trade-chart-container .floating-control .param-row {
+      flex: 1 0 150px;
+      margin-left: 0.5rem; }
+      .trade-chart-container .floating-control .param-row .picker-label {
+        background: green;
+        color: white; }
 
 .trade-chart {
   width: 100%; }

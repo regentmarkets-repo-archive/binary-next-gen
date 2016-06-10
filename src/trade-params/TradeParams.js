@@ -271,21 +271,6 @@ export default class TradeParams extends Component {
         return (
             <div className="trade-params" disabled={disabled} key={this.state.dynamicKey}>
                 <ErrorMsg text={error} />
-                <AssetPickerDropDown
-                    actions={actions}
-                    compact={compact}
-                    index={index}
-                    selectedSymbol={tradeParams.symbol}
-                    selectedSymbolName={tradeParams.symbolName}
-                />
-                <TradeTypeDropDown
-                    actions={actions}
-                    compact={compact}
-                    contract={contract}
-                    tradeParams={tradeParams}
-                    updateParams={::this.updateTradeParams}
-                    clearTradeError={this.clearTradeError}
-                />
                 {showDigitBarrier &&
                     <DigitBarrierCard
                         barrier={+(tradeParams.barrier)}

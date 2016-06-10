@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import { BinaryChart } from 'binary-charts';
+// import { BinaryChart } from 'binary-charts';
 import findDeep from 'binary-utils/lib/findDeep';
 import filterObjectBy from 'binary-utils/lib/filterObjectBy';
 import PurchaseFailed from 'binary-components/lib/PurchaseFailed';
@@ -11,6 +11,10 @@ import {
     internalTradeModelToServerTradeModel,
     serverContractModelToChartContractModel,
 } from './adapters/TradeObjectAdapter';
+
+import TradeChart from './experimental/TradeChart';
+import TradeTypeDropDown from '../trade-type-picker/TradeTypeDropDown';
+import AssetPickerDropDown from '../asset-picker/AssetPickerDropDown';
 
 const getStartLaterOnlyContract = contract => {
     const startLaterCategories =
@@ -120,6 +124,20 @@ export default class TradeCard extends Component {
         return dataResult;
     }
 
+    updateTradeParams(params) {
+        const { actions, index } = this.props;
+        actions.updateMultipleTradeParams(index, params);
+        actions.updatePriceProposalSubscription(index);
+    }
+
+    clearTradeError() {
+        const { actions, index } = this.props;
+        actions.updateTradeError(index, 'barrierError', undefined);
+        actions.updateTradeError(index, 'durationError', undefined);
+        actions.updateTradeError(index, 'proposalError', undefined);
+        actions.updateTradeError(index, 'purchaseError', undefined);
+    }
+
     render() {
         const {
             actions,
@@ -168,6 +186,26 @@ export default class TradeCard extends Component {
 
         const rangeChange = (count, type) => actions.getDataForSymbol(params.symbol, count, type, dataType);
 
+        const symbolAndTradeTypeControl = (
+            <div className="floating-control">
+                <AssetPickerDropDown
+                    actions={actions}
+                    compact={compact}
+                    index={index}
+                    selectedSymbol={params.symbol}
+                    selectedSymbolName={params.symbolName}
+                />
+                <TradeTypeDropDown
+                    actions={actions}
+                    compact={compact}
+                    contract={contract}
+                    tradeParams={params}
+                    updateParams={::this.updateTradeParams}
+                    clearTradeError={this.clearTradeError}
+                />
+            </div>
+        );
+
         return (
             <div disabled={disabled} className="trade-panel">
                 <Modal
@@ -177,23 +215,22 @@ export default class TradeCard extends Component {
                     <PurchaseFailed failure={tradeErrors.purchaseError} />
                 </Modal>
                 {/* {lastBoughtContract && <h5>{lastBoughtContract.longcode}</h5>} */}
-                <div className="trade-chart-container">
-                    <BinaryChart
-                        id={`trade-chart${index}`}
-                        className="trade-chart"
-                        contract={contractRequiredByChart}
-                        events={events}
-                        noData={feedLicense === 'chartonly'}
-                        pipSize={pipSize}
-                        rangeChange={contractRequiredByChart ? undefined : rangeChange}
-                        symbol={symbolName}
-                        ticks={dataToShow}
-                        type={contractDataExist ? 'area' : chartType}
-                        trade={tradeRequiredByChart}
-                        typeChange={feedLicense !== 'chartonly' && ::this.changeChartType}
-                        tradingTime={tradingTime}
-                    />
-                </div>
+                <TradeChart
+                    control={symbolAndTradeTypeControl}
+                    id={`trade-chart${index}`}
+                    className="trade-chart"
+                    contract={contractRequiredByChart}
+                    events={events}
+                    noData={feedLicense === 'chartonly'}
+                    pipSize={pipSize}
+                    rangeChange={contractRequiredByChart ? undefined : rangeChange}
+                    symbol={symbolName}
+                    ticks={dataToShow}
+                    type={contractDataExist ? 'area' : chartType}
+                    trade={tradeRequiredByChart}
+                    typeChange={feedLicense !== 'chartonly' && ::this.changeChartType}
+                    tradingTime={tradingTime}
+                />
                 {lastBoughtContract ?
                     <ContractReceipt
                         actions={actions}
