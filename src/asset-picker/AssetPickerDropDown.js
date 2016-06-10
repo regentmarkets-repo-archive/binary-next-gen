@@ -54,7 +54,7 @@ export default class AssetPickerDropDown extends Component {
                         selectedAsset={selectedSymbol}
                     />
                 </DropDown>
-                <Label text="Asset" />
+                {/* <Label text="Asset" /> */}
                 <div className="picker-label param-field" onMouseDown={::this.openAssetPicker}>
                     {selectedSymbolName}
                     <DownArrow />

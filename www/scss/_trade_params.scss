@@ -138,6 +138,18 @@
   flex: 1;
   display: flex;
   align-items: stretch;
+  .floating-control {
+    display: flex;
+    flex-direction: row;
+    .param-row {
+      flex: 1 0 150px;
+      margin-left: 0.5rem;
+      .picker-label {
+        background: $green;
+        color: white;
+      }
+    }
+  }
 }
 .trade-chart {
   width: 100%;
