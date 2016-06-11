@@ -12,7 +12,7 @@ const files = {
     dist: './dist',
     js: './src',
     static: ['./www/**/*', './config.xml', './electron.js', '!./www/**/*.scss'],
-    sass: './www/*.scss',
+    sass: './styles/*.scss',
 };
 
 process.env.NODE_ENV = 'production';
@@ -29,7 +29,7 @@ gulp.task('static', () =>
 gulp.task('styles', () =>
     gulp.src(files.sass)
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest('./www/'))
+        .pipe(gulp.dest(files.dist))
 );
 
 gulp.task('styles:watch', () =>

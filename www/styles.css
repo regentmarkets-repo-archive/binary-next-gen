@@ -11,10 +11,10 @@
 .asset-details {
   width: 100%; }
   .asset-details h4 {
-    margin-top: .5rem;
-    margin-left: .5rem; }
+    margin-top: 0.5rem;
+    margin-left: 0.5rem; }
   .asset-details h5 {
-    margin-left: .5rem; }
+    margin-left: 0.5rem; }
 
 .asset-index-card {
   width: 100%;
@@ -26,8 +26,8 @@
   display: flex; }
 
 .open-notice, .closed-notice {
-  padding: .2em .4em;
-  opacity: .75;
+  padding: 0.2em 0.4em;
+  opacity: 0.75;
   font-size: 80%;
   font-weight: bold;
   text-transform: uppercase;
@@ -37,7 +37,7 @@
 .vertical .trade-params, .vertical .contract-receipt-container {
   overflow: auto;
   width: 10rem;
-  margin-right: .5rem; }
+  margin-right: 0.5rem; }
 
 .horizontal .trade-params {
   display: flex;
@@ -55,7 +55,7 @@
 .asset-picker-container {
   display: flex;
   flex-direction: column;
-  padding: .5rem;
+  padding: 0.5rem;
   width: 16rem;
   min-width: 12rem; }
 
@@ -83,8 +83,8 @@
   display: flex; }
 
 .open-notice, .closed-notice {
-  padding: .2em .4em;
-  opacity: .75;
+  padding: 0.2em 0.4em;
+  opacity: 0.75;
   font-size: 80%;
   font-weight: bold;
   text-transform: uppercase;
@@ -94,7 +94,7 @@
 .vertical .trade-params, .vertical .contract-receipt-container {
   overflow: auto;
   width: 10rem;
-  margin-right: .5rem; }
+  margin-right: 0.5rem; }
 
 .horizontal .trade-params {
   display: flex;
@@ -166,7 +166,7 @@ table {
     box-shadow: none !important; }
 
 [role=tablist] {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   flex-shrink: 0; }
   [role=tablist].vertical {
     margin-bottom: 0; }
@@ -209,11 +209,11 @@ header {
 .range-selector-items {
   display: flex;
   width: 100%;
-  margin: .25rem .25rem 0 .25rem;
+  margin: 0.25rem 0.25rem 0;
   justify-content: space-between; }
 
 [role=tablist] {
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   flex-shrink: 0; }
   [role=tablist].vertical {
     margin-bottom: 0; }
@@ -238,22 +238,22 @@ input[type=range] {
 
 .buy-btn {
   font-size: 1.25em;
-  padding: .5rem; }
+  padding: 0.5rem; }
 
 .buy-again-btn {
   font-size: 1.25em;
-  padding: .5rem; }
+  padding: 0.5rem; }
 
 .sell-at-market-btn {
   font-size: 1.25em;
-  padding: .5rem; }
+  padding: 0.5rem; }
 
 fieldset {
-  margin-bottom: .5rem; }
+  margin-bottom: 0.5rem; }
 
 .back-btn {
   width: 3.5rem;
-  padding: .75rem; }
+  padding: 0.75rem; }
 
 .tick-sparklines {
   margin-bottom: 1rem;
@@ -262,7 +262,7 @@ fieldset {
 .radio-selector {
   display: flex;
   flex-wrap: wrap;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   border-radius: 2px;
   background-color: rgba(42, 48, 82, 0.1); }
 
@@ -274,7 +274,7 @@ fieldset {
     display: block;
     text-align: center; }
   .radio-item img {
-    margin-right: .5rem;
+    margin-right: 0.5rem;
     width: 1.5rem;
     background-color: white;
     box-shadow: 0 0 0 1px white; }
@@ -295,8 +295,8 @@ fieldset {
 #hamburger-opener {
   display: none; }
   #hamburger-opener:checked + #hamburger-btn > .sidebar {
-    left: .5rem;
-    transition: .3s; }
+    left: 0.5rem;
+    transition: 0.3s; }
 
 #hamburger-btn {
   cursor: pointer; }
@@ -314,7 +314,7 @@ fieldset {
   background: rgba(0, 0, 0, 0.5);
   opacity: 1;
   visibility: visible;
-  transition: .3s;
+  transition: 0.3s;
   z-index: 985; }
 
 #hamburger-closer {
@@ -322,11 +322,11 @@ fieldset {
   #hamburger-closer:checked + #hamburger-overlay {
     visibility: hidden;
     opacity: 0;
-    transition: .3s; }
+    transition: 0.3s; }
 
 .toolbar-hint {
   position: absolute;
-  padding: .75rem;
+  padding: 0.75rem;
   margin-top: -.75rem;
   margin-left: 1rem;
   width: 10rem;
@@ -367,7 +367,7 @@ select {
 .resizer-horizontal {
   background: #2a3052;
   cursor: ns-resize;
-  height: .25rem; }
+  height: 0.25rem; }
 
 .startup-content {
   display: flex;
@@ -391,34 +391,34 @@ select {
 
 .language-picker {
   width: 100%;
-  margin: .5rem; }
+  margin: 0.5rem; }
 
 .theme-picker {
   width: 100%; }
 
 #new-trade-btn {
-  margin: .5rem; }
+  margin: 0.5rem; }
 
 #deposit-btn {
-  margin: .5rem; }
+  margin: 0.5rem; }
 
 #clock {
-  margin: .5rem;
+  margin: 0.5rem;
   flex: 1;
   display: flex;
   align-items: center;
   justify-content: center; }
 
 #logo {
-  margin: .5rem; }
+  margin: 0.5rem; }
   #logo img {
     height: 2rem; }
     #logo img:nth-child(2) {
-      margin-left: .25rem;
+      margin-left: 0.25rem;
       height: 1.75rem; }
 
 .toggle-buttons {
-  margin: .5rem; }
+  margin: 0.5rem; }
   .toggle-buttons .btn-secondary {
     width: 3rem;
     background: rgba(255, 255, 255, 0.4);
@@ -435,7 +435,7 @@ select {
   color: #404448;
   background-color: transparent;
   box-shadow: none;
-  padding: .5em; }
+  padding: 0.5em; }
   .radio-button:hover {
     box-shadow: none !important; }
 
@@ -454,7 +454,7 @@ div[role=tabpanel] {
   display: flex;
   justify-content: center;
   align-content: center;
-  margin: .5rem; }
+  margin: 0.5rem; }
 
 td.left {
   text-align: left; }
@@ -472,7 +472,7 @@ th.right {
   text-align: right; }
 
 .row-spacer {
-  margin: .5rem 0; }
+  margin: 0.5rem 0; }
 
 input[type=number] {
   -moz-appearance: textfield; }
@@ -496,11 +496,11 @@ input[type=number]::-webkit-outer-spin-button {
   width: 80%; }
   .modal .contract-detail {
     width: 100%;
-    padding: .125rem; }
+    padding: 0.125rem; }
   .modal .contract-details-list {
     max-width: 15rem; }
   .modal h5 {
-    margin: -.5rem 0 .5rem 0;
+    margin: -.5rem 0 0.5rem;
     text-align: center; }
   .modal .contract-details {
     display: flex; }
@@ -522,7 +522,7 @@ input[type=number]::-webkit-outer-spin-button {
   background-color: rgba(42, 48, 82, 0.5);
   width: 1rem;
   height: 1rem;
-  margin-left: .5rem;
+  margin-left: 0.5rem;
   border-radius: 10px; }
 
 .tooltip {
@@ -530,7 +530,7 @@ input[type=number]::-webkit-outer-spin-button {
   border: 1px solid rgba(42, 48, 82, 0.25);
   color: #2a3052;
   font-weight: bold;
-  padding: .125rem .25rem;
+  padding: 0.125rem 0.25rem;
   border-radius: 2px;
   position: absolute;
   display: none; }
@@ -538,7 +538,7 @@ input[type=number]::-webkit-outer-spin-button {
 .btn-flat {
   color: #2a3052;
   font-size: 1.5rem;
-  padding: 0 .5rem;
+  padding: 0 0.5rem;
   background: rgba(42, 48, 82, 0.1);
   box-shadow: none; }
 
@@ -568,7 +568,7 @@ nav.sidebar {
   width: 240px;
   background: #2a3052;
   color: white;
-  margin: -3.5rem -.5rem -.5rem -.5rem; }
+  margin: -3.5rem -.5rem -.5rem; }
 
 .sidebar span {
   color: white; }
@@ -589,16 +589,16 @@ nav.sidebar {
 
 .account-info {
   background: #e98024;
-  padding: .5rem; }
+  padding: 0.5rem; }
 
 .contract-detail {
   display: flex;
-  margin: .125rem;
+  margin: 0.125rem;
   border-radius: 2px; }
   .contract-detail > span {
     flex: 1; }
   .contract-detail > *:first-child {
-    opacity: .5;
+    opacity: 0.5;
     text-transform: uppercase;
     font-weight: bold; }
 
@@ -608,7 +608,8 @@ nav.sidebar {
 
 .digit-stats-card {
   width: 100%;
-  height: 400px; }
+  height: 400px;
+  margin: 0.5rem; }
 
 .digit-stats-chart {
   display: flex;
@@ -644,8 +645,8 @@ nav.sidebar {
   display: flex; }
 
 .open-notice, .closed-notice {
-  padding: .2em .4em;
-  opacity: .75;
+  padding: 0.2em 0.4em;
+  opacity: 0.75;
   font-size: 80%;
   font-weight: bold;
   text-transform: uppercase;
@@ -655,7 +656,7 @@ nav.sidebar {
 .vertical .trade-params, .vertical .contract-receipt-container {
   overflow: auto;
   width: 10rem;
-  margin-right: .5rem; }
+  margin-right: 0.5rem; }
 
 .horizontal .trade-params {
   display: flex;
@@ -685,11 +686,11 @@ nav.sidebar {
   overflow: auto;
   width: 100%; }
   .mobile-content .setting-container > .asset-index-card {
-    margin: 0 .25em 0 .25em; }
+    margin: 0 0.25em; }
   .mobile-content > .video-list {
-    margin: 0 .25em 0 .25em; }
+    margin: 0 0.25em; }
   .mobile-content > .trading-times-card {
-    margin: 0 .25em 0 .25em; }
+    margin: 0 0.25em; }
   .mobile-content .trade-panel {
     flex-direction: column; }
   .mobile-content .modal {
@@ -702,11 +703,11 @@ nav.sidebar {
     display: none; }
   .mobile-content .trade-params {
     display: flex;
-    margin-top: .5rem;
+    margin-top: 0.5rem;
     flex-direction: column;
     flex-wrap: nowrap; }
     .mobile-content .trade-params > div {
-      margin-right: .5rem;
+      margin-right: 0.5rem;
       min-width: 11rem; }
     .mobile-content .trade-params > :not(button) {
       flex: 1; }
@@ -738,7 +739,7 @@ nav.sidebar {
   text-align: center;
   flex: 1; }
   .mobile-nav-btn img {
-    padding: 1rem .125rem;
+    padding: 1rem 0.125rem;
     height: 3.5rem; }
   .mobile-nav-btn.active {
     box-shadow: inset 0 -3px 0 0 #e98024; }
@@ -767,7 +768,7 @@ nav.sidebar {
   flex: 1; }
 
 .news-list-card {
-  margin: 0 .25em 0 .25em;
+  margin: 0 0.25em;
   overflow: auto; }
 
 .portfolio-row {
@@ -795,8 +796,8 @@ nav.sidebar {
   display: flex; }
 
 .open-notice, .closed-notice {
-  padding: .2em .4em;
-  opacity: .75;
+  padding: 0.2em 0.4em;
+  opacity: 0.75;
   font-size: 80%;
   font-weight: bold;
   text-transform: uppercase;
@@ -806,7 +807,7 @@ nav.sidebar {
 .vertical .trade-params, .vertical .contract-receipt-container {
   overflow: auto;
   width: 10rem;
-  margin-right: .5rem; }
+  margin-right: 0.5rem; }
 
 .horizontal .trade-params {
   display: flex;
@@ -819,14 +820,14 @@ nav.sidebar {
   box-shadow: none; }
 
 .vertical > [role=tab] {
-  padding: .25rem .25rem .25rem .1rem; }
+  padding: 0.25rem 0.25rem 0.25rem 0.1rem; }
   .vertical > [role=tab] > span {
-    margin-top: .5rem; }
+    margin-top: 0.5rem; }
 
 .vertical .sell-at-market-btn {
   width: 100%; }
   .vertical .sell-at-market-btn + .buy-again-btn {
-    margin-top: .5rem; }
+    margin-top: 0.5rem; }
 
 .vertical .buy-btn {
   width: 100%; }
@@ -842,24 +843,24 @@ nav.sidebar {
 
 .vertical .contract-detail {
   width: 100%;
-  padding: .125rem; }
+  padding: 0.125rem; }
 
 .vertical .contract-receipt {
   overflow: auto;
   max-width: 15rem;
-  margin-right: .5rem; }
+  margin-right: 0.5rem; }
 
 .vertical .digit-stats-col {
   flex-direction: row-reverse; }
 
 .horizontal .errorfield {
-  margin-right: .5rem; }
+  margin-right: 0.5rem; }
 
 .horizontal .trade-params > * {
   flex: 1; }
 
 .horizontal .trade-params > div {
-  margin-right: .5rem;
+  margin-right: 0.5rem;
   min-width: 11rem; }
 
 .horizontal .trade-params .barrier-picker {
@@ -880,7 +881,7 @@ nav.sidebar {
   flex-direction: column; }
 
 .horizontal .sell-at-market-btn + .buy-again-btn {
-  margin-left: .5rem; }
+  margin-left: 0.5rem; }
 
 .trade-action {
   text-transform: capitalize; }
@@ -904,13 +905,13 @@ nav.sidebar {
   .type-pair * {
     flex: 1; }
   .type-pair div[role=tab] {
-    margin: 0 .5rem; }
+    margin: 0 0.5rem; }
   .type-pair div[role=tab][aria-selected=true] {
     color: #e98024;
     box-shadow: inset 0 -3px 0 0 #e98024; }
   .type-pair img {
     height: 1.5rem;
-    margin: .5rem;
+    margin: 0.5rem;
     background: white;
     box-shadow: 0 0 0 1px white; }
 
@@ -919,7 +920,7 @@ nav.sidebar {
   flex: 1;
   flex-direction: row;
   margin: 2px;
-  padding: .25rem;
+  padding: 0.25rem;
   background: white;
   border-radius: 2px; }
 
@@ -959,7 +960,7 @@ nav.sidebar {
   flex-direction: column; }
 
 .param-row {
-  margin-bottom: .5rem; }
+  margin-bottom: 0.5rem; }
 
 .start-time-selector {
   display: flex; }
@@ -975,11 +976,11 @@ nav.sidebar {
       margin: 3px 3px 3px 6px; }
 
 .duration-text {
-  padding: .5rem; }
+  padding: 0.5rem; }
 
 .picker-label {
   cursor: pointer;
-  padding-left: .25rem;
+  padding-left: 0.25rem;
   line-height: 2.5;
   display: flex;
   justify-content: space-between;
@@ -992,7 +993,7 @@ nav.sidebar {
     border: none; }
   .picker-label img {
     height: 2rem;
-    padding: .25rem 0; }
+    padding: 0.25rem 0; }
 
 .payout-picker button {
   width: 2rem;
@@ -1011,13 +1012,13 @@ nav.sidebar {
 .trade-header {
   display: flex;
   cursor: pointer;
-  margin-bottom: .5rem;
+  margin-bottom: 0.5rem;
   color: #2a3052;
   background: rgba(42, 48, 82, 0.1); }
   .trade-header > span {
     flex: 1;
     line-height: 2;
-    margin-left: .5rem; }
+    margin-left: 0.5rem; }
 
 .trading-times-card {
   width: 100%;
@@ -1040,7 +1041,7 @@ nav.sidebar {
 
 .video-thumbnail {
   flex: 1;
-  margin: .5rem;
+  margin: 0.5rem;
   min-width: 10rem;
   text-decoration: none; }
   .video-thumbnail img {

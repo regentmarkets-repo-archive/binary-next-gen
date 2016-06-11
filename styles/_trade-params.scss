@@ -1,0 +1,244 @@
+@import "colors";
+@import "extends";
+
+.vertical {
+    > [role=tab] {
+        padding: 0.25rem 0.25rem 0.25rem 0.1rem;
+        > span {
+            margin-top: 0.5rem;
+        }
+    }
+    .sell-at-market-btn {
+        width: 100%;
+        + .buy-again-btn {
+            margin-top: 0.5rem;
+        }
+    }
+    .buy-btn {
+        width: 100%;
+    }
+    .buy-again-btn {
+        width: 100%;
+    }
+    .trade-params {
+        @extend %vertical_trade_params;
+        flex-direction: row-reverse;
+    }
+    .contract-receipt-container {
+        @extend %vertical_trade_params;
+    }
+    .trade-panel {
+        flex-direction: row-reverse;
+    }
+    .contract-detail {
+        width: 100%;
+        padding: 0.125rem;
+    }
+    .contract-receipt {
+        overflow: auto;
+        max-width: 15rem;
+        margin-right: 0.5rem;
+    }
+    .digit-stats-col {
+        flex-direction: row-reverse;
+    }
+}
+
+.horizontal {
+    .errorfield {
+        margin-right: 0.5rem;
+    }
+    .trade-params {
+        @extend %horizontal_trade_params;
+        > * {
+            flex: 1;
+        }
+        > div {
+            margin-right: 0.5rem;
+            min-width: 11rem;
+        }
+        .barrier-picker {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+        }
+    }
+    .trade-panel {
+        flex-direction: column-reverse;
+    }
+    .contract-detail {
+        flex-direction: column;
+        width: 8rem;
+        background-color: $color_cloud_burst_10_approx;
+        text-align: center;
+    }
+    .digit-stats-col {
+        flex-direction: column;
+    }
+    .sell-at-market-btn + .buy-again-btn {
+        margin-left: 0.5rem;
+    }
+}
+.trade-action {
+    text-transform: capitalize;
+}
+.payout-picker-input {
+    display: flex;
+    input {
+        width: calc(100% - 4rem);
+    }
+    .btn-flat:hover {
+        @extend %params_hover;
+    }
+}
+.trade-type-picker {
+    width: 20rem;
+    height: 17rem;
+}
+.type-pairs-list {
+    display: flex;
+    flex-direction: column;
+}
+.type-pair {
+    display: flex;
+    cursor: pointer;
+    * {
+        flex: 1;
+    }
+    div[role=tab] {
+        margin: 0 0.5rem;
+    }
+    div[role=tab][aria-selected=true] {
+        color: $brand_orange;
+        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+        box-shadow: inset 0 -3px 0 0 $brand_orange;
+    }
+    img {
+        height: 1.5rem;
+        margin: 0.5rem;
+        background: $white;
+        //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
+        box-shadow: 0 0 0 1px $white;
+    }
+}
+.trade-panel {
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    margin: 2px;
+    padding: 0.25rem;
+    background: $white;
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 2px;
+}
+.trade-chart-container {
+    overflow: hidden;
+    flex: 1;
+    display: flex;
+    align-items: stretch;
+}
+.trade-chart {
+    width: 100%;
+}
+.payout-value {
+    font-size: 1.2em;
+}
+.duration-input {
+    display: flex;
+    flex-direction: row;
+    input {
+        max-width: 50%;
+    }
+    select {
+        max-width: 50%;
+    }
+    > * {
+        flex: 1;
+    }
+}
+.forward-starting-input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    > input {
+        margin-top: 0.5rem;
+        max-width: 50%;
+        flex: 1 0 auto;
+    }
+}
+.barrier-input {
+    display: flex;
+    flex-direction: column;
+}
+.param-row {
+    margin-bottom: 0.5rem;
+}
+.start-time-selector {
+    display: flex;
+    > label {
+        flex: 1;
+        cursor: pointer;
+        line-height: 2.5 !important;
+        background: $color_cloud_burst_10_approx;
+        //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+        border-radius: 2px;
+        + label {
+            margin-left: 3px;
+        }
+        > input {
+            margin: 3px 3px 3px 6px;
+        }
+    }
+    label:hover {
+        @extend %params_hover;
+    }
+}
+.duration-text {
+    padding: 0.5rem;
+}
+.picker-label {
+    cursor: pointer;
+    padding-left: 0.25rem;
+    line-height: 2.5;
+    display: flex;
+    justify-content: space-between;
+    align-items: stretch;
+    background: $color_cloud_burst_10_approx;
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 2px;
+    &:hover {
+        color: $white;
+        background: $brand_dark_blue;
+        border: none;
+    }
+    img {
+        height: 2rem;
+        padding: 0.25rem 0;
+    }
+}
+.payout-picker button {
+    width: 2rem;
+    height: 2rem;
+}
+.forward-starting-picker > * {
+    flex: 1;
+}
+.trade-params label {
+    text-transform: uppercase;
+    line-height: 1.5;
+}
+.barrier-picker input {
+    width: 100%;
+}
+.trade-header {
+    display: flex;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+    color: $brand_dark_blue;
+    background: $color_cloud_burst_10_approx;
+    > span {
+        flex: 1;
+        line-height: 2;
+        margin-left: 0.5rem;
+    }
+}

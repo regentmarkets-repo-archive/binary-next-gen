@@ -7,6 +7,11 @@ const gutil = require('gulp-util');
 const app = express();
 const compiler = webpack(config);
 
+app.use(require('node-sass-middleware')({
+    src: path.join(__dirname, 'styles'),
+    dest: path.join(__dirname, 'www'),
+}));
+
 app.use(require('webpack-dev-middleware')(compiler, {
     noInfo: true,
     publicPath: config.output.publicPath,

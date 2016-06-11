@@ -1,0 +1,14 @@
+@import "colors";
+
+.article {
+    margin: 0 1rem;
+}
+
+.article-preview {
+    text-decoration: none;
+    color: $color_suva_gray_approx;
+    h2 {
+        font-size: 1.4rem;
+        margin: 1rem 0;
+    }
+}

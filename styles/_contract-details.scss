@@ -1,0 +1,19 @@
+.contract-detail {
+    display: flex;
+    margin: 0.125rem;
+    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
+    border-radius: 2px;
+    > span {
+        flex: 1;
+    }
+    > *:first-child {
+        opacity: 0.5;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+}
+
+.contract-details-list {
+    display: flex;
+    flex-wrap: wrap;
+}
