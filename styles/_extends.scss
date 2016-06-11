@@ -1,4 +1,3 @@
-@import 'colors';
 //@extend-elements
 //original selectors
 //#root, #screen
@@ -6,19 +5,6 @@
     width: 100%;
     height: 100%;
     display: flex;
-}
-
-//original selectors
-//.open-notice, .closed-notice
-%market_notice {
-    padding: 0.2em 0.4em;
-    opacity: 0.75;
-    font-size: 80%;
-    font-weight: bold;
-    text-transform: uppercase;
-    color: $white;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
-    border-radius: 2px;
 }
 
 //original selectors
@@ -40,8 +26,8 @@
 //original selectors
 //.payout-picker-input .btn-flat:hover, .start-time-selector label:hover
 %params_hover {
-    background: $brand_dark_blue;
-    color: $white;
+    background: $COLOR_BRAND_BLUE;
+    color: white;
     //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
     box-shadow: none;
 }

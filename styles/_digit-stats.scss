@@ -21,7 +21,7 @@
 }
 
 .digit-stats-bar {
-    background-color: $color_cloud_burst_50_approx;
+    background-color: rgba($COLOR_BRAND_BLUE, .5);
     margin: 1px;
     //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 2px;

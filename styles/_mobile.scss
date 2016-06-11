@@ -1,4 +1,3 @@
-@import "colors";
 @import "extends";
 .mobile-page {
     height: 100%;
@@ -98,12 +97,12 @@
     }
     &.active {
         //Instead of the line below you could use @include box-shadow($shadow-1, $shadow-2, $shadow-3, $shadow-4, $shadow-5, $shadow-6, $shadow-7, $shadow-8, $shadow-9, $shadow-10)
-        box-shadow: inset 0 -3px 0 0 $brand_orange;
+        box-shadow: inset 0 -3px 0 0 $COLOR_BRAND_ORANGE;
     }
 }
 .mobile-toolbar {
-    color: $white;
-    background: $brand_dark_blue;
+    color: white;
+    background: $COLOR_BRAND_BLUE;
     height: 3.5rem;
     display: flex;
     width: 100%;
@@ -111,7 +110,7 @@
 .mobile-back-btn {
     text-align: left !important;
     font-weight: normal;
-    color: $white !important;
+    color: white !important;
     text-decoration: none;
     text-align: center;
     flex: 1;
