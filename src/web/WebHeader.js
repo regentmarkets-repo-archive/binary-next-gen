@@ -17,7 +17,7 @@ export default class WebHeader extends Component {
 		const { actions } = this.props;
 
 		return (
-			<div id="header" className="inverse">
+			<div className="header inverse">
 				<Logo />
 				<LayoutPickerContainer actions={actions} />
 				<Balance />

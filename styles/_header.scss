@@ -1,0 +1,57 @@
+.header {
+    display: flex;
+    background: $COLOR_BRAND_BLUE;
+    color: white;
+    justify-content: space-between;
+    #hamburger-btn {
+        padding: 1rem;
+        margin-left: 1rem;
+        > .sidebar {
+            top: -300px !important;
+            left: inherit;
+            right: 0;
+        }
+    }
+    #hamburger-opener:checked + #hamburger-btn > .sidebar {
+        top: 3.5rem !important;
+        left: inherit;
+    }
+}
+
+#hamburger-opener {
+    display: none;
+    &:checked + #hamburger-btn > .sidebar {
+        left: 0.5rem;
+        transition: 0.3s;
+    }
+}
+#hamburger-btn {
+    cursor: pointer;
+    > .sidebar {
+        position: absolute;
+        left: -300px;
+        z-index: 995;
+    }
+}
+
+#hamburger-overlay {
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(black, .5);
+    opacity: 1;
+    visibility: visible;
+    transition: 0.3s;
+    z-index: 985;
+}
+
+#hamburger-closer {
+    display: none;
+    &:checked + #hamburger-overlay {
+        visibility: hidden;
+        opacity: 0;
+        transition: 0.3s;
+    }
+}

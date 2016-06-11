@@ -13,7 +13,7 @@ export default class WebCard extends Component {
 		const { actions } = this.props;
 
 		return (
-			<div id="screen">
+			<div className="screen">
 				<WebHeader actions={actions} />
 				<WorkspaceContainer actions={actions} />
 				<Footer actions={actions} />

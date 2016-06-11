@@ -17,7 +17,7 @@ export default class WorkspaceCard extends Component {
 		const { actions, workspace } = this.props;
 
 		return (
-			<div id="panels">
+			<div className="panels">
 				<ContractDetailsModal actions={actions} />
 				<TradesContainer
 					actions={actions}

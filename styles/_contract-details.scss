@@ -1,7 +1,6 @@
 .contract-detail {
     display: flex;
     margin: 0.125rem;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 2px;
     > span {
         flex: 1;
