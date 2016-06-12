@@ -2,6 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import Label from 'binary-components/lib/Label';
 import pipSizeToStepSize from 'binary-utils/lib/pipSizeToStepSize';
+import NumericInput from 'binary-components/lib/NumericInput';
 
 export default class BarrierCard extends Component {
 
@@ -82,25 +83,37 @@ export default class BarrierCard extends Component {
         return (
             <div className="barrier-picker">
                 <div className="param-row">
-                    <Label text={barrier1Info.name + (barrierType === 'relative' ? ' offset' : '')} />
-                    <input
+                    <Label text={barrier1Info.name} />
+                    <NumericInput
+                        className="numeric-input param-field"
+                        onChange={::this.updateBarrier1}
+                        value={+barrierVal}
+                        step={1}
+                    />
+                    {/* <input
                         className="param-field"
                         type="number"
                         onChange={::this.updateBarrier1}
                         defaultValue={barrierVal}
                         step={pipSizeToStepSize(pipSize)}
-                    />
+                    /> */}
                 </div>
                 {barrier2Info &&
                     <div className="param-row">
-                        <Label text={barrier2Info.name + (barrierType === 'relative' ? ' offset' : '')} />
-                        <input
+                        <Label text={barrier2Info.name} />
+                        <NumericInput
+                            className="numeric-input param-field"
+                            onChange={::this.updateBarrier2}
+                            value={+barrier2Val}
+                            step={1}
+                        />
+                        {/* <input
                             className="param-field"
                             type="number"
                             onChange={::this.updateBarrier2}
                             defaultValue={barrier2Val}
                             step={pipSizeToStepSize(pipSize)}
-                        />
+                        /> */}
                     </div>
                 }
             </div>

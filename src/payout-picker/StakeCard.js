@@ -1,72 +1,43 @@
 import React, { PropTypes, Component } from 'react';
-import Label from 'binary-components/lib/Label';
 import shouldPureComponentUpdate from 'react-pure-render/function';
+import Label from 'binary-components/lib/Label';
+import NumericInput from 'binary-components/lib/NumericInput';
 
-const basises = ['payout', 'stake'];
+// const basises = ['payout', 'stake'];
 const payouts = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000];
-const step = 10;
 
 export default class StakeCard extends Component {
 
+    shouldComponentUpdate = shouldPureComponentUpdate;
+
     static propTypes = {
-        amount: PropTypes.string.isRequired,
-        basis: PropTypes.oneOf(basises).isRequired,
-        // currency: PropTypes.string.isRequired,
-        // id: PropTypes.number,
+        amount: PropTypes.number.isRequired,
+//        basis: PropTypes.oneOf(basises).isRequired,
         onAmountChange: PropTypes.func.isRequired,     // both functions take the updated value instead of event object
         onBasisChange: PropTypes.func.isRequired,
     };
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
-    stepUp() {
-        const { amount, onAmountChange } = this.props;
-        const newAmount = +amount + step;
-        onAmountChange({ target: { value: newAmount.toString() } });
-    }
-
-    stepDown() {
-        const { amount, onAmountChange } = this.props;
-        const newAmount = +amount - step;
-        onAmountChange({ target: { value: newAmount } });
-    }
-
     render() {
         const { amount, onAmountChange } = this.props;
-        // const basisOptions = basises.map(i => ({ text: i, value: i }));
-        // const payoutOptions = payouts.map(i => ({ text: i, value: i }));
+
         return (
             <div className="param-row payout-picker">
                 {/* <RadioGroup
                     className="radio-selector"
                     name={'basis' + id}
                     options={basisOptions}
-                    onChange={onBasisChange}
+                    onChange={basises.map(i => ({ text: i, value: i }))}
                     value={basis}
                 /> */}
                 <Label text="Stake" />
-                <div className="payout-picker-input param-field">
-                    <button className="btn-flat" onClick={::this.stepDown}>&ndash;</button>
-                    <input
-                        list="browsers"
-                        type="number"
-                        value={amount}
-                        min={0.35}
-                        max={100000}
-                        step="0.01"
-                        list="amounts"
-                        onChange={onAmountChange}
-                    />
-                    <button className="btn-flat" onClick={::this.stepUp}>+</button>
-                    <datalist id="amounts">
-                        {payouts.map(x =>
-                            <option
-                                key={'stake' + x}
-                                value={x}
-                            />
-                        )}
-                    </datalist>
-                </div>
+                <NumericInput
+                    className="numeric-input param-field"
+                    value={amount}
+                    min={0.35}
+                    max={100000}
+                    valueList={payouts}
+                    onChange={onAmountChange}
+                />
             </div>
         );
     }

@@ -78,14 +78,15 @@
 .trade-action {
     text-transform: capitalize;
 }
-.payout-picker-input {
+.numeric-input {
     display: flex;
     input {
+        text-align: center;
         width: calc(100% - 4rem);
     }
-    .btn-flat:hover {
-        @extend %params-hover;
-    }
+}
+.btn-flat:hover {
+    @extend %params-hover;
 }
 .trade-type-picker {
     width: 20rem;
@@ -174,7 +175,7 @@
     > label {
         flex: 1;
         cursor: pointer;
-        line-height: 2.5 !important;
+        line-height: 2rem !important;
         background: rgba($COLOR_BRAND_BLUE, .1);
         //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
         border-radius: 2px;
@@ -195,7 +196,7 @@
 .picker-label {
     cursor: pointer;
     padding-left: 0.25rem;
-    line-height: 2.5;
+    line-height: 2rem;
     display: flex;
     justify-content: space-between;
     align-items: stretch;
@@ -206,8 +207,8 @@
         @extend %params-hover;
     }
     img {
-        height: 2rem;
-        padding: 0.25rem 0;
+        height: 1.5rem;
+        margin: 0.25rem 0;
     }
 }
 .payout-picker button {
@@ -220,9 +221,6 @@
 .trade-params label {
     text-transform: uppercase;
     line-height: 1.5;
-}
-.barrier-picker input {
-    width: 100%;
 }
 .trade-header {
     display: flex;

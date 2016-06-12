@@ -347,7 +347,7 @@ export default class TradeParams extends Component {
                 }
                 {!showSpreadBarrier &&
                     <StakeCard
-                        amount={tradeParams.amount.toString()}
+                        amount={+tradeParams.amount}
                         basis={tradeParams.basis}
                         currency={currency}
                         id={index}

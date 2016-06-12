@@ -437,8 +437,11 @@ input[type=number]::-webkit-outer-spin-button {
 }
 .btn-flat {
     color: $COLOR_BRAND_BLUE;
-    font-size: 1.5rem;
-    padding: 0 0.5rem;
+    font-size: 2rem;
+    line-height: 2rem;
+    padding: 0;
+    height: 2rem;
+    width: 2rem;
     background: rgba($COLOR_BRAND_BLUE, .1);
     box-shadow: none;
     &:hover {
