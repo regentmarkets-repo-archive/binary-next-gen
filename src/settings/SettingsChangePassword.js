@@ -87,18 +87,16 @@ export default class SettingsChangePassword extends React.Component {
                             text="Change Password"
                             onClick={::this.onClick}
                         />
-                        <div className="row-spacer">
                             <ErrorMsg
                                 shown={validatedOnce && !!errorMessage}
                                 text={errorMessage}
                             />
                             {validatedOnce && successMessage ?
-                            <p className="successMessage">
-                                    <M m={successMessage} />
-                            </p> :
-                            null
+                                <p className="successMessage">
+                                        <M m={successMessage} />
+                                </p> :
+                                null
                             }
-                        </div>
                     </form>
                 </div>
              </div>

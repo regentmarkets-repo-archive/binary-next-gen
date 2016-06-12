@@ -21,7 +21,7 @@ export default class PayoutCard extends Component {
         return (
             <div className="param-row payout-display">
                 <Label text="Payout" />
-                <div>
+                <div className="param-field">
                     <NumberColored
                         className="payout-value"
                         currency={currency}

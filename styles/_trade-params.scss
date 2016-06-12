@@ -13,9 +13,6 @@
             margin-top: 0.5rem;
         }
     }
-    .buy-btn {
-        width: 100%;
-    }
     .buy-again-btn {
         width: 100%;
     }
@@ -87,7 +84,7 @@
         width: calc(100% - 4rem);
     }
     .btn-flat:hover {
-        @extend %params_hover;
+        @extend %params-hover;
     }
 }
 .trade-type-picker {
@@ -189,7 +186,7 @@
         }
     }
     label:hover {
-        @extend %params_hover;
+        @extend %params-hover;
     }
 }
 .duration-text {
@@ -206,9 +203,7 @@
     //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 2px;
     &:hover {
-        color: white;
-        background: $COLOR_BRAND_BLUE;
-        border: none;
+        @extend %params-hover;
     }
     img {
         height: 2rem;

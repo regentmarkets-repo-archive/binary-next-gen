@@ -47,13 +47,6 @@
         margin-top: 0.5rem;
         flex-direction: column;
         flex-wrap: nowrap;
-        > div {
-            margin-right: 0.5rem;
-            min-width: 11rem;
-        }
-        > :not(button) {
-            flex: 1;
-        }
     }
     .forward-starting-picker {
         display: flex;

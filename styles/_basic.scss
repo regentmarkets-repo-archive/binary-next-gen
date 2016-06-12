@@ -152,6 +152,7 @@ input[type=range] {
 .buy-btn {
     font-size: 1.25em;
     padding: 0.5rem;
+    width: 100%;
 }
 .buy-again-btn {
     font-size: 1.25em;
@@ -335,6 +336,7 @@ div[role=tabpanel] {
     align-content: center;
     margin: 0.5rem;
 }
+
 td {
     &.left {
         text-align: left;
@@ -346,6 +348,7 @@ td {
         font-weight: bold;
     }
 }
+
 th {
     &.left {
         text-align: left;
@@ -354,9 +357,7 @@ th {
         text-align: right;
     }
 }
-.row-spacer {
-    margin: 0.5rem 0;
-}
+
 input[type=number] {
     -moz-appearance: textfield;
 }
@@ -440,6 +441,9 @@ input[type=number]::-webkit-outer-spin-button {
     padding: 0 0.5rem;
     background: rgba($COLOR_BRAND_BLUE, .1);
     box-shadow: none;
+    &:hover {
+        background: rgba($COLOR_BRAND_BLUE, .1) !important;
+    }
 }
 input[type=date]::-webkit-inner-spin-button {
     display: none;

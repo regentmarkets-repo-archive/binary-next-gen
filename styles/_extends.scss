@@ -16,10 +16,8 @@
 
 //original selectors
 //.payout-picker-input .btn-flat:hover, .start-time-selector label:hover
-%params_hover {
-    background: $COLOR_BRAND_BLUE;
-    color: white;
-    box-shadow: none;
+%params-hover {
+    box-shadow: inset 0 0 0 1px rgba($COLOR_BRAND_BLUE, .5);
 }
 
 %horizontal_param_row {
