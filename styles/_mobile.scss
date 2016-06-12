@@ -33,6 +33,9 @@
     .modal {
         max-width: 360px;
     }
+    .contract-detail {
+        width: 100%;
+    }
     .asset-picker-container {
         width: auto;
     }
@@ -42,6 +45,11 @@
     .info-icon {
         display: none;
     }
+    
+    .contract-details-card {
+        margin: .5rem;
+    }
+
     .trade-params {
         display: flex;
         margin-top: 0.5rem;

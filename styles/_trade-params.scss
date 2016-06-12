@@ -28,7 +28,7 @@
     }
     .contract-detail {
         width: 100%;
-        padding: 0.125rem;
+        padding: 0.125rem 0;
     }
     .contract-receipt {
         overflow: auto;
@@ -182,7 +182,7 @@
             margin-left: 3px;
         }
         > input {
-            margin: 3px 3px 3px 6px;
+            margin: 0 .5rem;
         }
     }
     label:hover {
