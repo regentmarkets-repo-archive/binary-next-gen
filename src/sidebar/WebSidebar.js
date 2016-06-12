@@ -1,7 +1,8 @@
 import React, { PropTypes, Component } from 'react';
 import SidebarBtn from './SidebarBtn';
 
-const switchToAccount = token => {
+const switchToAccount = (token, dispatch, actions) => {
+	dispatch(actions.removeStatementPersonalData());
 	localStorage.setItem('account', JSON.stringify({ token }));
 	window.location = '/';
 };
@@ -11,6 +12,8 @@ export default class WebSidebar extends Component {
 	static propTypes = {
 		email: PropTypes.string.isRequired,
 		loginid: PropTypes.string.isRequired,
+		actions: PropTypes.object.isRequired,
+		dispatch: PropTypes.func.isRequired,
 		accounts: PropTypes.arrayOf(PropTypes.shape({
 			account: PropTypes.string.isRequired,
 			token: PropTypes.string.isRequired,
@@ -18,7 +21,7 @@ export default class WebSidebar extends Component {
 	};
 
 	render() {
-		const { loginid, email, accounts } = this.props;
+		const { loginid, email, accounts, actions, dispatch } = this.props;
 
 		return (
 			<nav className="sidebar">
@@ -30,7 +33,7 @@ export default class WebSidebar extends Component {
 					<a
 						key={x.account}
 						className="sidebar-btn"
-						onClick={() => switchToAccount(x.token)}
+						onClick={() => switchToAccount(x.token, dispatch, actions)}
 					>
 						<img src="img/icon.png" alt="" />
 						<span>Switch to {x.account}</span>

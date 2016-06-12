@@ -12,6 +12,7 @@ export default class WebSidebarContainer extends Component {
 
 	static propTypes = {
 		loginid: PropTypes.string.isRequired,
+		actions: PropTypes.object.isRequired,
 	};
 
 	render() {

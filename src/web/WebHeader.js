@@ -21,7 +21,7 @@ export default class WebHeader extends Component {
 				<Logo />
 				<LayoutPickerContainer actions={actions} />
 				<Balance />
-				<WebSidebarContainer />
+				<WebSidebarContainer actions={actions} />
 			</div>
 		);
 	}
