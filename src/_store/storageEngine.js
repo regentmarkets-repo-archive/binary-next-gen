@@ -9,7 +9,6 @@ const filteredEngine = filter(engine, [
     ['account'],
     ['assetPicker'],
     ['assets'],
-    ['transactions'],
     ['settings'],
     ['watchlist'],
     ['workspace'],

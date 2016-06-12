@@ -23,7 +23,6 @@
 .digit-stats-bar {
     background-color: rgba($COLOR_BRAND_BLUE, .5);
     margin: 1px;
-    //Instead of the line below you could use @include border-radius($radius, $vertical-radius)
     border-radius: 2px;
     &.max {
         background-color: $green;
