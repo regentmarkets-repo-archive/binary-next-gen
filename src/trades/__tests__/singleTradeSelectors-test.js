@@ -17,7 +17,7 @@ describe('singleTradeSelectors', () => {
         account: fromJS({ currency: 'JPY' }),
         ohlc: fromJS({ R_9000: [{ quote: 123 }] }),
         ticks: fromJS({ R_9000: [{ quote: 123 }] }),
-        tradesParams: fromJS([{symbol: 'R_9000'}]),
+        tradesParams: fromJS([{ symbol: 'R_9000' }]),
         tradesProposalInfo: fromJS([{}]),
         tradesPurchaseInfo: fromJS([{}]),
         tradesUIStates: fromJS([{}]),
