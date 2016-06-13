@@ -148,6 +148,8 @@
     }
     select {
         max-width: 50%;
+        background-color: rgba($COLOR_BRAND_BLUE, .1);
+        border: none; 
     }
     > * {
         flex: 1;

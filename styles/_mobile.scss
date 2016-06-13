@@ -45,7 +45,7 @@
     .info-icon {
         display: none;
     }
-    
+
     .contract-details-card {
         margin: .5rem;
     }
@@ -55,7 +55,13 @@
         margin-top: 0.5rem;
         flex-direction: column;
         flex-wrap: nowrap;
+        min-height: 200px;
     }
+
+    .sell-at-market-btn, .buy-again-btn {
+        width: 100%;
+    }
+
     .forward-starting-picker {
         display: flex;
         flex-direction: row;
