@@ -1,4 +1,5 @@
 import { createSelector, createStructuredSelector } from 'reselect';
+import calculateLastDigitStats from 'binary-utils/lib/calculateLastDigitStats';
 import {
     ticksSelector,
     workspaceSelector,
@@ -8,9 +9,6 @@ import {
 } from '../_store/directSelectors';
 import digitsToPips from 'binary-utils/lib/pipsToDigits';
 
-const getLastDigit = (value, pip) =>
-    +value.toFixed(pip).slice(-1);
-
 export const selectSymbolDigitStat = createSelector(
     [ticksSelector, workspaceSelector, tradingOptionsSelector, digitStatsSelector, assetsSelector],
     (ticks, workspace, tradingOptions, digitStats, assets) => {
@@ -19,19 +17,17 @@ export const selectSymbolDigitStat = createSelector(
              tradingOptions.get(selectedAsset) &&
              tradingOptions.get(selectedAsset).some(opt => opt.contract_category === 'digits');
          const selectAssetTicks = assetSupportDigit && ticks.get(selectedAsset);
-         if (selectAssetTicks) {
-              const pipSize = digitsToPips(assets.find(a => a.get('symbol') === selectedAsset).get('pip'));
-              const size = digitStats.get('filter');
-              const previousDigits = selectAssetTicks.takeLast(size).map(t => getLastDigit(t.get('quote'), pipSize));
-              return previousDigits.reduce((a, b) => {
-                   a[b] += 1;
-                   return a;
-              }, [0, 0, 0, 0, 0, 0, 0, 0, 0, 0]);
-         }
-         return [];
+         if (!selectAssetTicks) return [];
+
+          const pipSize = digitsToPips(assets.find(a => a.get('symbol') === selectedAsset).get('pip'));
+          const size = digitStats.get('filter');
+          const lastTicks = selectAssetTicks.takeLast(size).toJS();
+
+          return calculateLastDigitStats(lastTicks, pipSize);
     }
 );
 
 export default createStructuredSelector({
-     stats: selectSymbolDigitStat,
+    filter: state => state.digitStats.get('filter'),
+    stats: selectSymbolDigitStat,
 });
