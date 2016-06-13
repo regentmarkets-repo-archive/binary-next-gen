@@ -182,7 +182,7 @@ export default class TradeCard extends Component {
                         id={`trade-chart${index}`}
                         className="trade-chart"
                         contract={contractRequiredByChart}
-                        defaultRange={0}
+                        defaultRange={1}
                         events={events}
                         noData={feedLicense === 'chartonly'}
                         pipSize={pipSize}
