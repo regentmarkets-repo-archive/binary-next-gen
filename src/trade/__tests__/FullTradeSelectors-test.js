@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import * as TradeSelectors from '../TradeSelectors';
 import assetsFromServer from 'binary-test-data/assets';
 import contractsForR50 from 'binary-test-data/contractsForR50';
-import contractsForGDAXI from 'binary-data/contractsForGDAXI';
+import contractsForGDAXI from 'binary-test-data/contractsForGDAXI';
 
 describe('assetsIsOpenSelector', () => {
     const assetsIsOpen = TradeSelectors.assetsIsOpenSelector({ assets: fromJS(assetsFromServer) });
