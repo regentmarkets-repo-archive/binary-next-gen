@@ -7,6 +7,7 @@ import assets from './AssetsReducer';
 import assetIndex from './AssetIndexReducer';
 import assetPicker from './AssetPickerReducer';
 import createAccount from './CreateAccountReducer';
+import digitStats from './DigitStatsReducer';
 import dailyPrices from './DailyPricesReducer';
 import feedLicenses from './FeedLicensesReducer';
 import news from './NewsReducer';
@@ -50,6 +51,7 @@ export default combineReducers({
     createAccount,
     chartData,
     dailyPrices,
+    digitStats,
     feedLicenses,
     news,
     ohlc,

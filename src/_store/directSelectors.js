@@ -3,6 +3,7 @@ export const bootSelector = state => state.boot;
 export const assetIndexSelector = state => state.assetIndex;
 export const assetsSelector = state => state.assets;
 export const createAccountSelector = state => state.createAccount;
+export const digitStatsSelector = state => state.digitStats;
 export const paymentAgentSelector = state => state.paymentAgent;
 export const settingsSelector = state => state.settings;
 export const ticksSelector = state => state.ticks;
@@ -16,6 +17,7 @@ export const boughtContractsSelector = state => state.boughtContracts;
 export const portfolioSelector = state => state.portfolio;
 export const feedLicensesSelector = state => state.feedLicenses;
 export const ohlcSelector = state => state.ohlc;
+export const tradingOptionsSelector = state => state.tradingOptions;
 
 export const loginidSelector = state => state.account.get('loginid');
 export const balanceSelector = state => state.account.get('balance');
