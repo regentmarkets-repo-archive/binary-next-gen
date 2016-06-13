@@ -1,6 +1,6 @@
 import { fromJS } from 'immutable';
 import { createSelector, createStructuredSelector } from 'reselect';
-import { currencySelector, ticksSelector } from '../_store/directSelectors';
+import { currencySelector, ticksSelector, ohlcSelector } from '../_store/directSelectors';
 import {
     tradesParamsSelector,
     tradesPipSizeSelector,
@@ -28,6 +28,11 @@ export const ticksForFirstTradeSelector = createSelector(
     (symbol, ticks) => ticks.get(symbol) || fromJS([])
 );
 
+export const ohlcForFirstTradeSelector = createSelector(
+    [firstTradeSymbol, ohlcSelector],
+    (symbol, ohlc) => ohlc.get(symbol) || fromJS([])
+);
+
 export const singleContract = createSelector(
   [availableContractsSelector, firstTradeSymbol],
   (contracts, symbol) => contracts.get(symbol)
@@ -43,6 +48,7 @@ export default createStructuredSelector({
     contractChartData: state => state.chartData,
     currency: currencySelector,
     marketIsOpen,
+    ohlc: ohlcForFirstTradeSelector,
     params: state => tradesParamsSelector(state).first(),
     pipSize: state => tradesPipSizeSelector(state).first(),
     proposalInfo: state => state.tradesProposalInfo.first(),
