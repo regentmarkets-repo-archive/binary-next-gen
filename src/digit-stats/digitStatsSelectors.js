@@ -11,7 +11,7 @@ import digitsToPips from 'binary-utils/lib/pipsToDigits';
 const getLastDigit = (value, pip) =>
     +value.toFixed(pip).slice(-1);
 
-const selectSymbolDigitStat = createSelector(
+export const selectSymbolDigitStat = createSelector(
     [ticksSelector, workspaceSelector, tradingOptionsSelector, digitStatsSelector, assetsSelector],
     (ticks, workspace, tradingOptions, digitStats, assets) => {
          const selectedAsset = workspace.get('selectedAsset');
