@@ -11,7 +11,7 @@ export default class DigitStatsCard extends Component {
         const stats = this.props.stats;
         // const stats = [4, 1, 6, 3, 4, 5, 6, 7, 8, 9];
 
-        if (stats.length === 0) return null;
+        if (stats.length === 0) return (<div>Digit trade type not supported.</div>);
 
         return (
             <div className="digit-stats-card">
