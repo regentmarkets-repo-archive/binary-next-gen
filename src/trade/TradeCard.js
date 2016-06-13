@@ -34,7 +34,7 @@ const zoomToLatest = chart => {
     const { min, max, dataMax } = chart.xAxis[0].getExtremes();
     if (min && max) {
         const frameSize = max - min;
-        chart.xAxis[0].setExtremes(dataMax - frameSize, dataMax);
+        chart.xAxis[0].setExtremes(dataMax - frameSize + 500, dataMax);
     }
 };
 
