@@ -78,9 +78,11 @@
         margin-left: 0.5rem;
     }
 }
+
 .trade-action {
     text-transform: capitalize;
 }
+
 .numeric-input {
     display: flex;
     input {
@@ -88,17 +90,21 @@
         width: calc(100% - 4rem);
     }
 }
+
 .btn-flat:hover {
     @extend %params-hover;
 }
+
 .trade-type-picker {
     width: 20rem;
     height: 17rem;
 }
+
 .type-pairs-list {
     display: flex;
     flex-direction: column;
 }
+
 .type-pair {
     display: flex;
     cursor: pointer;
@@ -168,23 +174,30 @@
         flex: 1;
     }
 }
+
+.start-time-selector + .forward-starting-input {
+    margin-top: .5rem;
+}
+
 .forward-starting-input {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     > input {
-        margin-top: 0.5rem;
         max-width: 50%;
-        flex: 1 0 auto;
+        flex: 1;
     }
 }
+
 .barrier-input {
     display: flex;
     flex-direction: column;
 }
+
 .param-row {
     margin-bottom: 0.5rem;
 }
+
 .start-time-selector {
     display: flex;
     > label {
@@ -204,9 +217,11 @@
         @extend %params-hover;
     }
 }
+
 .duration-text {
     padding: 0.5rem;
 }
+
 .picker-label {
     cursor: pointer;
     padding-left: 0.25rem;
@@ -224,17 +239,21 @@
         margin: 0.25rem 0;
     }
 }
+
 .payout-picker button {
     width: 2rem;
     height: 2rem;
 }
+
 .forward-starting-picker > * {
     flex: 1;
 }
+
 .trade-params label {
     text-transform: uppercase;
     line-height: 1.5;
 }
+
 .trade-header {
     display: flex;
     cursor: pointer;
