@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import ArticlePreviewMobile from './ArticlePreviewMobile';
+import ArticlePreview from './ArticlePreview';
 
 export default class NewsCardMobile extends Component {
 
@@ -18,7 +18,7 @@ export default class NewsCardMobile extends Component {
         return (
             <div className="news-list-card">
                 {articles.map((article, idx) =>
-                    <ArticlePreviewMobile
+                    <ArticlePreview
                         key={'article' + idx}
                         {...article}
                         onClick={() => router.push(`/article/${idx}`)}

@@ -20,12 +20,6 @@ export default class NewsCard extends Component {
         router: React.PropTypes.object.isRequired,
     };
 
-    componentWillMount() {
-         this.setState({
-            showArticle: false,
-            params: { index: 0 },
-        });
-    }
     render() {
         const { articles } = this.props;
         const { showArticle, params } = this.state;
