@@ -3,10 +3,13 @@ import M from 'binary-components/lib/M'
 
 export default class RealityCheckInitialCard extends Component {
     static propTypes = {
-        updateRealityCheckInterval: PropTypes.func.isRequired,
+        interval: PropTypes.number.isRequired,
+        updateInterval: PropTypes.func.isRequired,
+        confirmIntervalUpdate: PropTypes.func.isRequired,
     };
 
     render() {
+        const { confirmIntervalUpdate, updateInterval, interval } = this.props;
         return (
             <div>
                 <h3>
@@ -18,8 +21,8 @@ export default class RealityCheckInitialCard extends Component {
                 <p>
                     <M m="Please specify your preferred reality-check interval in minutes" />
                 </p>
-                <input type="number" defaultValue="10" />
-                <button>
+                <input type="number" value={interval} onChange={e => updateInterval(e.target.value)} />
+                <button onClick={confirmIntervalUpdate}>
                     <M m"Continue Trading" />
                 </button>
             </div>

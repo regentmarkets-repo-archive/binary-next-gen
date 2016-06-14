@@ -1,13 +1,27 @@
 import React, { Component, PropTypes } from 'react';
-import M from 'binary-components/lib/M'
+import M from 'binary-components/lib/M';
+import TradingStatsCard from './TradingStatsCard';
 
 export default class RealityCheckSummaryCard extends Component {
     static propTypes = {
-        updateRealityCheckInterval: PropTypes.func.isRequired,
+        confirmIntervalUpdate: PropTypes.func.isRequired,
+        interval: PropTypes.number.isRequired,
+        loginTime: PropTypes.number.isRequired,
+        sessionDuration: PropTypes.number.isRequired,
+        tradingStatistic: PropTypes.object.isRequired,
+        updateInterval: PropTypes.func.isRequired,
     };
 
     render() {
-        const { loginTime, sessionDuration, tradingStatistic } = this.props;
+        const {
+            confirmIntervalUpdate,
+            loginTime,
+            sessionDuration,
+            interval,
+            tradingStatistic,
+            updateInterval
+        } = this.props;
+        
         const currentTime = new Date();
         return (
             <div>
@@ -39,9 +53,9 @@ export default class RealityCheckSummaryCard extends Component {
                 <p>
                     <M m={`Your trading statistic since ${loginTime}`} />
                 </p>
-                //
-                <input type="number" defaultValue="10" />
-                <button>
+                <TradingStatsCard {...tradingStatistic} />
+                <input type="number" value={interval} onChange={e => updateInterval(e.target.value)} />
+                <button onClick={confirmIntervalUpdate}>
                     <M m"Continue Trading" />
                 </button>
             </div>
