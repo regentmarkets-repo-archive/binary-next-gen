@@ -3,6 +3,7 @@ export * from './BootActions';
 export * from './AppStateActions';
 export * from './AssetsActions';
 export * from './CandleStickActions';
+export * from './DigitStatActions';
 export * from './AssetPickerActions';
 export * from './PortfolioActions';
 export * from './NewsActions';
