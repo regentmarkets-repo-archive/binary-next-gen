@@ -7,7 +7,6 @@ const engine = createEngine('binary');
 const filteredEngine = filter(engine, [
     ['boot'],
     ['account'],
-    ['assetPicker'],
     ['assets'],
     ['settings'],
     ['watchlist'],
