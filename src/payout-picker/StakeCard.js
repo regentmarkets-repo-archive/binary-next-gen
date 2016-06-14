@@ -33,7 +33,7 @@ export default class StakeCard extends Component {
                 <NumericInput
                     className="numeric-input param-field"
                     value={amount}
-                    min={0.35}
+                    min={0}
                     max={100000}
                     valueList={payouts}
                     onChange={onAmountChange}
