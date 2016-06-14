@@ -1,21 +1,15 @@
-//original selectors
-//.vertical .trade-params, .vertical .contract-receipt-container
 %vertical_trade_params {
     overflow: auto;
     width: 10rem;
     margin-right: 0.5rem;
 }
 
-//original selectors
-//.horizontal .trade-params, .mobile-content .trade-params
 %horizontal_trade_params {
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 
-//original selectors
-//.payout-picker-input .btn-flat:hover, .start-time-selector label:hover
 %params-hover {
     box-shadow: inset 0 0 0 1px rgba($COLOR_BRAND_BLUE, .5);
 }

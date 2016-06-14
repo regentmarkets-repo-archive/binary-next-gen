@@ -16,15 +16,6 @@ body {
     display: flex;
 }
 
-input::-webkit-calendar-picker-indicator {
-    display: none;
-}
-
-input::-webkit-clear-button {
-    -webkit-appearance: none;
-    margin: 0;
-}
-
 .disabled {
     opacity: 0.2;
 }
@@ -358,15 +349,6 @@ th {
     }
 }
 
-input[type=number] {
-    -moz-appearance: textfield;
-}
-input[type=number]::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
-input[type=number]::-webkit-outer-spin-button {
-    -webkit-appearance: none;
-}
 .open-notice, .closed-notice {
     padding: 0.2em 0.4em;
     opacity: 0.75;
@@ -387,37 +369,8 @@ input[type=number]::-webkit-outer-spin-button {
     min-width: 320px;
     overflow: auto;
     width: 80%;
-    .contract-detail {
-        width: 100%;
-        padding: 0.125rem;
-    }
-    .contract-details-list {
-        max-width: 15rem;
-    }
-    h5 {
-        margin: -.5rem 0 0.5rem;
-        text-align: center;
-    }
-    .contract-details {
-        display: flex;
-    }
-    .contract-receipt {
-        max-width: 25rem;
-    }
-    .contract-chart {
-        flex: 1;
-        min-width: 25rem;
-    }
 }
-.profit-loss-label {
-    font-size: large;
-}
-.highcharts-container {
-    width: 100% !important;
-    svg {
-        width: 100% !important;
-    }
-}
+
 .info-icon {
     background-color: rgba($COLOR_BRAND_BLUE, .5);
     width: 1rem;
@@ -448,22 +401,7 @@ input[type=number]::-webkit-outer-spin-button {
         background: rgba($COLOR_BRAND_BLUE, .1) !important;
     }
 }
-input[type=date]::-webkit-inner-spin-button {
-    display: none;
-    -webkit-appearance: none;
-}
-input[type=time]::-webkit-inner-spin-button {
-    display: none;
-    -webkit-appearance: none;
-}
-input[type=date]::-webkit-calendar-picker-indicator {
-    display: none;
-    -webkit-appearance: none;
-}
-input[type=time]::-webkit-calendar-picker-indicator {
-    display: none;
-    -webkit-appearance: none;
-}
+
 div[role=tab] .close-btn {
     background: $COLOR_BRAND_BLUE;
     fill: white;
