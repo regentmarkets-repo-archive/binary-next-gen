@@ -30,4 +30,5 @@ export const selectSymbolDigitStat = createSelector(
 export default createStructuredSelector({
     filter: state => state.digitStats.get('filter'),
     stats: selectSymbolDigitStat,
+    symbol: state => workspaceSelector(state).get('selectedAsset'),
 });

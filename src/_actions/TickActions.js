@@ -42,3 +42,12 @@ export const getTicksBySymbol = symbol =>
         }
         return Promise.resolve();
     };
+
+export const getTicksByCount = (symbol, count) =>
+    (dispatch, getState) => {
+        const { ticks } = getState();
+        if (ticks.get(symbol) && ticks.get(symbol).size < count) {
+            return LiveData.api.getTickHistory(symbol, { end: 'latest', count, adjust_start_time: 1 });
+        }
+        return Promise.resolve();
+    };
