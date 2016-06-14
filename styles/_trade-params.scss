@@ -2,9 +2,12 @@
 
 .vertical {
     > [role=tab] {
-        padding: 0.25rem 0.25rem 0.25rem 0.1rem;
+        padding: 0.5rem 0.25rem 0.5rem 0.1rem;
         > span {
-            margin-top: 0.5rem;
+            margin-top: 0.25rem;
+        }
+        > img {
+            margin: 0 auto;
         }
     }
     .sell-at-market-btn {
@@ -148,6 +151,8 @@
     }
     select {
         max-width: 50%;
+        background-color: rgba($COLOR_BRAND_BLUE, .1);
+        border: none;
     }
     > * {
         flex: 1;

@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import Label from 'binary-components/lib/Label';
-import pipSizeToStepSize from 'binary-utils/lib/pipSizeToStepSize';
 import NumericInput from 'binary-components/lib/NumericInput';
 
 export default class BarrierCard extends Component {
@@ -61,7 +60,6 @@ export default class BarrierCard extends Component {
             barrierInfo,
             barrierType,
             isIntraDay,
-            pipSize,
             spot,
             } = this.props;
         const expiryType = isIntraDay ? 'intraday' : 'daily';
