@@ -59,6 +59,6 @@ describe('digitstatsSelector', () => {
         };
 
         const expected = selectSymbolDigitStat(state);
-        expect(expected).to.deep.equal([5, 4, 0, 0, 0, 1, 0, 0, 0, 0]);
+        expect(expected).to.deep.equal([50, 40, 0, 0, 0, 10, 0, 0, 0, 0]);
     });
 });
