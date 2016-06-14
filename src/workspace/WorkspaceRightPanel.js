@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 // import WatchlistContainer from '../watchlist/WatchlistContainer';
 import TradingTimesContainer from '../trading-times/TradingTimesContainer';
 import AssetIndexContainer from '../asset-index/AssetIndexContainer';
@@ -24,6 +25,8 @@ const components = [
 ];
 
 export default class WorkspaceRightPanel extends Component {
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
