@@ -1,4 +1,6 @@
-@import "extends";
+%params-hover {
+    box-shadow: inset 0 0 0 1px rgba($COLOR_BRAND_BLUE, .5);
+}
 
 .vertical {
     > [role=tab] {
@@ -20,11 +22,12 @@
         width: 100%;
     }
     .trade-params {
-        @extend %vertical_trade_params;
         flex-direction: row-reverse;
     }
-    .contract-receipt-container {
-        @extend %vertical_trade_params;
+    .trade-params, .contract-receipt-container {
+        overflow: auto;
+        width: 11rem;
+        margin-right: 0.5rem;
     }
     .trade-panel {
         flex-direction: row-reverse;
@@ -48,7 +51,9 @@
         margin-right: 0.5rem;
     }
     .trade-params {
-        @extend %horizontal_trade_params;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
         > * {
             flex: 1;
         }
@@ -249,7 +254,7 @@
     flex: 1;
 }
 
-.trade-params label {
+.param-row > label {
     text-transform: uppercase;
     line-height: 1.5;
 }
