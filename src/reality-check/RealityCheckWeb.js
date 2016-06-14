@@ -9,7 +9,7 @@ export default class RealityCheckWeb extends Component {
         showSummary: PropTypes.bool,
         summary: PropTypes.object,
         updateInterval: PropTypes.func.isRequired,
-        confirmIntervalUpdate: PropTypes.func.isRequired,
+        confirmIntervalUpdate: PropTypes.func.isRequired,  // do nothing beside closing the modal
     };
 
     render() {
