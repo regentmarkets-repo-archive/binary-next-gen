@@ -20,9 +20,12 @@
 }
 
 .digit-stats-bar {
+    width: 100%;
     background-color: rgba($COLOR_BRAND_BLUE, .5);
     margin: 1px;
     border-radius: 2px;
+    transform-origin: 0 50%;
+    transition: .5s ease-in;
     &.max {
         background-color: $green;
     }
