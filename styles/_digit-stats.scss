@@ -1,7 +1,6 @@
 .digit-stats-card {
     width: 100%;
     height: 400px;
-    margin: 0.5rem;
 }
 
 .digit-stats-chart {
@@ -37,5 +36,14 @@
 }
 
 .digit-stats-digit {
-    text-align: center;
+    font-size: 1.5em;
+    margin: .25rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.digit-stats-filter select {
+    width: 100%;
+    margin-bottom: .5rem;
 }

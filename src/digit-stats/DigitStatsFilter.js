@@ -1,18 +1,24 @@
-import React, { Component } from 'react';
-import Label from 'binary-components/lib/Label';
+import React, { Component, PropTypes } from 'react';
+import Option from 'binary-components/lib/Option';
 
 export default class DigitStatsFilter extends Component {
 
+    static propTypes = {
+        value: PropTypes.number,
+        onChange: PropTypes.func,
+    };
+
     render() {
+        const { onChange, value } = this.props;
+
         return (
             <div className="digit-stats-filter">
-                <Label text="Number of Ticks" />
-                <select defaultValue="100">
-                    <option value="25">25</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                    <option value="500">500</option>
-                    <option value="1000">1000</option>
+                <select value={value} onChange={onChange}>
+                    <Option text="Last 25 Ticks" value="25" />
+                    <Option text="Last 50 Ticks" value="50" />
+                    <Option text="Last 100 Ticks" value="100" />
+                    <Option text="Last 500 Ticks" value="500" />
+                    <Option text="Last 1000 Ticks" value="1000" />
                 </select>
             </div>
         );
