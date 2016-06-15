@@ -14,6 +14,16 @@
     .asset-list tbody tr.selected {
         background-color: rgba($COLOR_BRAND_BLUE, .25);
     }
+
+    .btn-flat:hover,
+    .start-time-selector label:hover,
+    .picker-label:hover {
+        box-shadow: inset 0 0 0 1px rgba(white, .5);
+    }
+
+    input {
+        border: none !important;
+    }
 }
 
 .highcharts-background {

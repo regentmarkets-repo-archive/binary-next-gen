@@ -1,7 +1,3 @@
-%params-hover {
-    box-shadow: inset 0 0 0 1px rgba($COLOR_BRAND_BLUE, .5);
-}
-
 .vertical {
     > [role=tab] {
         padding: 0.5rem 0.25rem 0.5rem 0.1rem;
@@ -96,8 +92,10 @@
     }
 }
 
-.btn-flat:hover {
-    @extend %params-hover;
+.btn-flat:hover,
+.start-time-selector label:hover,
+.picker-label:hover {
+    box-shadow: inset 0 0 0 1px rgba($COLOR_BRAND_BLUE, .5);
 }
 
 .trade-type-picker {
@@ -216,9 +214,6 @@
             margin: 0 .5rem;
         }
     }
-    label:hover {
-        @extend %params-hover;
-    }
 }
 
 .duration-text {
@@ -235,9 +230,6 @@
     align-items: stretch;
     background: rgba($COLOR_BRAND_BLUE, .1);
     border-radius: 2px;
-    &:hover {
-        @extend %params-hover;
-    }
     img {
         height: 1.5rem;
         margin: 0.25rem 0;
