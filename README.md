@@ -31,22 +31,22 @@ gulp deploy
 ```
 ## Setting up the App
 
-* install cordova 
+* install cordova
 ```
 npm install -g cordova
-
 ```
 
-* install code-push 
+* install code-push
+
 ```
 npm install -g code-push-cli
-
 ```
 
 * sign in code-push
+
 ```
 code-push login
-````
+```
 
 * list our code-push app list
 
@@ -57,24 +57,24 @@ code-push app ls
 The above commands and the complete commands on code-push is avail [here](https://microsoft.github.io/code-push/docs/cli.html)
 and [here](https://github.com/Microsoft/cordova-plugin-code-push#how-does-it-work)
 
-* Adding cordova flatforms 
+* Adding cordova pflatforms
 
-  ```
-  cordova platform add ios --save
-  cordova platform add android --save
-  ```
-  you can view the list 
-  
-  ```
-  cordova platform ls
-  ```
-  
-  more on [cordova](https://cordova.apache.org/docs/en/latest/guide/cli/#add-plugins)
-  
-  * install corodva plugin
-  
+```
+cordova platform add ios --save
+cordova platform add android --save
+```
+you can view the list
+
+```
+cordova platform ls
+```
+
+more on [cordova](https://cordova.apache.org/docs/en/latest/guide/cli/#add-plugins)
+
+* install corodva plugin
+
 ```  
-  cordova plugin add cordova-plugin-whitelist
+cordova plugin add cordova-plugin-whitelist
 ```
 
 for more on the above plugin [visit](https://github.com/Microsoft/cordova-plugin-code-push#getting-started)

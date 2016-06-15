@@ -1,4 +1,20 @@
+.news-list-card, .article {
+    margin: .5em;
+    font-size: 1rem;
+}
 .news-list-card {
-    margin: 0 0.25em;
     overflow: auto;
+}
+
+.article h1, .article-preview h2 {
+    font-size: 1.5rem;
+    margin: 0 0 .5rem 0;
+}
+
+.article-preview {
+    text-decoration: none;
+    color: $COLOR_TEXT;
+    p {
+        margin-bottom: 2rem;
+    }
 }
