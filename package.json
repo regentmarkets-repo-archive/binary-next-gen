@@ -1,6 +1,6 @@
 {
   "name": "binary-next-gen",
-  "main": "src/electron.js",
+  "main": "electrongenerator.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/binary-com/binary-next-gen.git"
@@ -19,7 +19,15 @@
     "build": "npm run clean && npm run build:webpack",
     "build:webpack": "NODE_ENV=production webpack --config webpack.config.js",
     "lint": "eslint src",
-    "electron": "electron electron.js",
+    "electron": "electron .",
+    "asar-osx": "asar pack dist/electron/Myapp-darwin-x64/Myapp.app/Contents/Resources/app dist/electron/Myapp-darwin-x64/Myapp.app/Contents/Resources/app.asar",
+    "asar-win": "asar pack dist/electron/Myapp-win32-x64/Myapp.app/Contents/Resources/app dist/electron/Myapp-win32-x64/Myapp.app/Contents/Resources/app.asar",
+    "asar-linux": "asar pack dist/electron/Myapp-linux-x64/Myapp.app/Contents/Resources/app dist/electron/Myapp-linux-x64/Myapp.app/Contents/Resources/app.asar",
+    "pack-osx": "electron-packager . Myapp --out ./dist/electron --platform=darwin --arch=x64 --ignore=node_modules/* --ignore=plugins/* --ignore=platforms/* --ignore=dist/* --ignore=styles/* --ignore=www/* --overwrite --icon=www/img/icon.png.icns",
+    "pack-win": "electron-packager . Myapp --out ./dist/electron --platform=win32 --arch=x64 --ignore=node_modules/* --ignore=plugins/* --ignore=platforms/* --ignore=dist/* --ignore=styles/* --ignore=www/* --overwrite --icon=www/img/icon.png",
+    "pack-linux": "electron-packager . Myapp --out ./dist/electron --platform=linux --arch=x86_64 --ignore=node_modules/* --ignore=plugins/* --ignore=platforms/* --ignore=dist/* --ignore=styles/* --ignore=www/* --overwrite --icon=www/img/icon.png",
+    "pack-all": "npm run pack-osx && npm run pack-linux && npm run pack-win",
+    "asar-all": "npm run asar-linux && npm run asar-osx && npm run asar-win",
     "translate": "bash fetch-translation.sh"
   },
   "keywords": [
@@ -78,6 +86,7 @@
     "trackjs": "^2.3.1"
   },
   "devDependencies": {
+    "asar": "^0.11.0",
     "babel-cli": "^6.10.1",
     "babel-core": "^6.9.1",
     "babel-eslint": "^6.0.4",
@@ -98,6 +107,8 @@
     "chai-subset": "^1.2.2",
     "coveralls": "^2.11.9",
     "css-loader": "^0.23.1",
+    "electron-packager": "^7.0.4",
+    "electron-prebuilt": "^1.2.2",
     "enzyme": "^2.3.0",
     "eslint": "~2.12.0",
     "eslint-config-airbnb": "^9.0.1",
