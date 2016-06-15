@@ -1,5 +1,5 @@
 * {
-    -webkit-tap-highlight-color:  rgba(0, 0, 0, 0);     
+    -webkit-tap-highlight-color:  rgba(0, 0, 0, 0);
 }
 
 .mobile-page {
@@ -11,6 +11,7 @@
     flex: 1;
     flex-direction: column;
 }
+
 .mobile-content {
     min-width: 320px;
     flex: 1;
@@ -132,4 +133,13 @@
     display: flex;
     flex-direction: column;
     flex: 1;
+}
+
+@media (orientation : landscape) {
+    .trade-panel {
+        flex-direction: row !important;
+    }
+    .trade-params {
+        margin-left: .5rem;
+    }
 }
