@@ -43,7 +43,7 @@ export default class MobileSidebar extends Component {
 				<SidebarBtn to="/statement-mobile" img="img/statement.svg" text="Statement" />
 				<SidebarBtn to="/news-mobile" img="img/news.svg" text="News" />
 				<SidebarBtn to="/resources-mobile" img="img/resources.svg" text="Resources" />
-				{/* <SidebarBtn to="/settings-mobile" img="img/settings.svg" text="Settings" /> */}
+				<SidebarBtn to="/settings-mobile" img="img/settings.svg" text="Settings" />
 				<SidebarBtn to="/signout" img="img/signout.svg" text="Sign Out" />
 			</nav>
 		);

@@ -1,0 +1,21 @@
+.inverse {
+    .drop-down, .trade-panel {
+        background: $COLOR_INVERSE_BG;
+    }
+
+    .picker-label, select, .start-time-selector > label, .btn-flat {
+        background-color: $COLOR_BRAND_BLUE !important;
+    }
+
+    .btn-flat, .article-preview {
+        color: $COLOR_INVERSE_TEXT;
+    }
+
+    .asset-list tbody tr.selected {
+        background-color: rgba($COLOR_BRAND_BLUE, .25);
+    }
+}
+
+.highcharts-background {
+    background: red !important;
+}
