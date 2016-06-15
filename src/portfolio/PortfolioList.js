@@ -29,7 +29,6 @@ export default class PortfolioList extends Component {
 						<th>
 							<M m="Indicative" />
 						</th>
-						{!compact && <th></th>}
 					</tr>
 				</thead>
 				<tbody>
@@ -48,7 +47,6 @@ export default class PortfolioList extends Component {
 						<th></th>
 						<th><NumberPlain currency="USD" value={purchaseTotal} /></th>
 						<th><NumberPlain currency="USD" value={indicativeTotal} /></th>
-						{!compact && <th></th>}
 					</tr>
 				</tfoot>
 			</table>

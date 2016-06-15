@@ -38,7 +38,7 @@ export default class SettingsCard extends Component {
 		const ActiveComponent = components[activeTab];
 
 		return (
-			<div>
+			<div className="settings-card">
 				<TabList
 					className="inverse"
 					activeIndex={activeTab}
