@@ -40,7 +40,6 @@ export default class SettingsCard extends Component {
 		return (
 			<div className="settings-card">
 				<TabList
-					className="inverse"
 					activeIndex={activeTab}
 					onChange={idx => this.setState({ activeTab: idx })}
 				>

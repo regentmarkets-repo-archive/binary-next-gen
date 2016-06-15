@@ -61,6 +61,7 @@ export default class ContractDetailsCard extends Component {
 						contract={contract}
 						ticks={data}
 						type={chartType}
+						theme="light"
 						rangeChange={contract ? undefined : rangeChange}
 						typeChange={allowCandle && ::this.changeChartType}
 						pipSize={pipSize}

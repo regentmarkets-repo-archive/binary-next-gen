@@ -36,7 +36,6 @@ export default class SettingsGeneral extends Component {
 
 		return (
 			<div className="setting-container">
-				<label htmlFor="language-picker"><M m="Language" /></label>
 				<label htmlFor="theme-picker"><M m="Color Theme" /></label>
 				<select onChange={::this.onThemeChange} value={theme} id="theme-picker" className="theme-picker">
 					<option value="light">Light</option>

@@ -188,6 +188,7 @@ export default class TradeCard extends Component {
                         rangeChange={contractRequiredByChart ? undefined : rangeChange}
                         symbol={symbolName}
                         ticks={dataToShow}
+                        theme="light"
                         type={contractDataExist ? 'area' : chartType}
                         trade={tradeRequiredByChart}
                         typeChange={feedLicense !== 'chartonly' && ::this.changeChartType}
