@@ -176,7 +176,6 @@ export default class TradeCard extends Component {
                 >
                     <PurchaseFailed failure={tradeErrors.purchaseError} />
                 </Modal>
-                {/* {lastBoughtContract && <h5>{lastBoughtContract.longcode}</h5>} */}
                 <div className="trade-chart-container">
                     <BinaryChart
                         id={`trade-chart${index}`}
@@ -199,6 +198,7 @@ export default class TradeCard extends Component {
                     <ContractReceipt
                         actions={actions}
                         contract={lastBoughtContract}
+                        showLongcode
                         onTradeAgainClicked={() => actions.closeContractReceipt(index)}
                     /> :
                     <TradeParams

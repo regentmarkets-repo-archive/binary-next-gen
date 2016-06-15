@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 
+import windowResizeEvent from 'binary-utils/lib/windowResizeEvent';
 import isIntraday from 'binary-utils/lib/isIntraday';
 import askPriceFromProposal from 'binary-utils/lib/askPriceFromProposal';
 
@@ -113,6 +114,7 @@ export default class TradeParams extends Component {
             }
             this.onAssetChange();
         }
+        windowResizeEvent();
     }
 
     componentWillUnmount() {
@@ -354,7 +356,11 @@ export default class TradeParams extends Component {
                         onBasisChange={this.onBasisChange}
                     />
                 }
-                {payout && <PayoutCard stake={askPriceFromProposal(proposal)} payout={payout} currency={currency} />}
+                <PayoutCard
+                    stake={askPriceFromProposal(proposal)}
+                    payout={payout}
+                    currency={currency}
+                />
                 <BuyButton
                     askPrice={askPriceFromProposal(proposal)}
                     currency={currency}

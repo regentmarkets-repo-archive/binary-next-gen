@@ -11,13 +11,15 @@ export default class ContractReceipt extends Component {
 		contract: PropTypes.object.isRequired,
 		actions: PropTypes.object.isRequired,
 		onTradeAgainClicked: PropTypes.func,
+		showLongcode: PropTypes.bool,
 	};
 
 	render() {
-		const { contract, actions, onTradeAgainClicked } = this.props;
+		const { contract, showLongcode, actions, onTradeAgainClicked } = this.props;
 
 		return (
 			<div className="contract-receipt">
+				{showLongcode && <h5>{contract.longcode}</h5>}
 				<ContractDetailsList contract={contract} />
 				<SellAtMarketButton
 					contract={contract}
