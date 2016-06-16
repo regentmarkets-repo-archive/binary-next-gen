@@ -23,9 +23,9 @@
     "asar-osx": "asar pack dist/electron/Myapp-darwin-x64/Myapp.app/Contents/Resources/app dist/electron/Myapp-darwin-x64/Myapp.app/Contents/Resources/app.asar",
     "asar-win": "asar pack dist/electron/Myapp-win32-x64/Myapp.app/Contents/Resources/app dist/electron/Myapp-win32-x64/Myapp.app/Contents/Resources/app.asar",
     "asar-linux": "asar pack dist/electron/Myapp-linux-x64/Myapp.app/Contents/Resources/app dist/electron/Myapp-linux-x64/Myapp.app/Contents/Resources/app.asar",
-    "pack-osx": "electron-packager . Myapp --out ./dist/electron --platform=darwin --arch=x64 --ignore=node_modules/* --ignore=plugins/* --ignore=platforms/* --ignore=dist/* --ignore=styles/* --ignore=www/* --overwrite --icon=www/img/icon.png.icns",
-    "pack-win": "electron-packager . Myapp --out ./dist/electron --platform=win32 --arch=x64 --ignore=node_modules/* --ignore=plugins/* --ignore=platforms/* --ignore=dist/* --ignore=styles/* --ignore=www/* --overwrite --icon=www/img/icon.png",
-    "pack-linux": "electron-packager . Myapp --out ./dist/electron --platform=linux --arch=x86_64 --ignore=node_modules/* --ignore=plugins/* --ignore=platforms/* --ignore=dist/* --ignore=styles/* --ignore=www/* --overwrite --icon=www/img/icon.png",
+    "pack-osx": "electron-packager . Myapp --out ./dist/electron --platform=darwin --arch=x64 --ignore=node_modules/* --ignore=plugins/* --ignore=platforms/* --ignore=dist/* --ignore=styles/* --ignore=src/* --overwrite --icon=www/img/icon.png.icns",
+    "pack-win": "electron-packager . Myapp --out ./dist/electron --platform=win32 --arch=x64 --ignore=node_modules/* --ignore=plugins/* --ignore=platforms/* --ignore=dist/* --ignore=styles/* --ignore=src/* --overwrite --icon=www/img/icon.png",
+    "pack-linux": "electron-packager . Myapp --out ./dist/electron --platform=linux --arch=x64 --ignore=node_modules/* --ignore=plugins/* --ignore=platforms/* --ignore=dist/* --ignore=styles/* --ignore=src/* --overwrite --icon=www/img/icon.png",
     "pack-all": "npm run pack-osx && npm run pack-linux && npm run pack-win",
     "asar-all": "npm run asar-linux && npm run asar-osx && npm run asar-win",
     "translate": "bash fetch-translation.sh"
