@@ -9,4 +9,5 @@ const rootComponent = isMobile ? TradeMobile : WebCard;
 export default [
     { path: '/', component: rootComponent, onEnter: requireAuthOnEnter },
     { path: 'redirect', component: rootComponent, onEnter: redirectFromOAuth },
+    { path: '*', component: rootComponent, onEnter: requireAuthOnEnter },
 ];
