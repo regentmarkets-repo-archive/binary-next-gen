@@ -6,6 +6,9 @@
 .trading-times-filter {
     display: flex;
     margin-bottom: -.5rem;
+    > * {
+        width: 50%;
+    }
 }
 
 .trading-times-date-picker > input {
