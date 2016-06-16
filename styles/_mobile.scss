@@ -135,11 +135,13 @@
     flex: 1;
 }
 
-@media (orientation : landscape) {
-    .trade-panel {
-        flex-direction: row !important;
-    }
-    .trade-params {
-        margin-left: .5rem;
+@media (orientation: landscape) {
+    .mobile-content {
+        .trade-panel {
+            flex-direction: row !important;
+        }
+        .trade-params {
+            margin-left: .5rem;
+        }
     }
 }

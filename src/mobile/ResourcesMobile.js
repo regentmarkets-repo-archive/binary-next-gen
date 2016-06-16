@@ -24,7 +24,6 @@ export default class ResourcesMobile extends Component {
         return (
             <MobilePage>
                 <TabList
-                    className="inverse"
                     activeIndex={activeTab}
                     onChange={idx => this.setState({ activeTab: idx })}
                 >
