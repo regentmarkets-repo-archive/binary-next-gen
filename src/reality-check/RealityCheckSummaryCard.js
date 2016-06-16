@@ -8,7 +8,7 @@ export default class RealityCheckSummaryCard extends Component {
         interval: PropTypes.number.isRequired,
         loginTime: PropTypes.number.isRequired,
         sessionDuration: PropTypes.number.isRequired,
-        tradingStatistic: PropTypes.object.isRequired,
+        tradingStatistic: PropTypes.shape(TradingStatsCard.propTypes).isRequired,
         updateInterval: PropTypes.func.isRequired,
     };
 

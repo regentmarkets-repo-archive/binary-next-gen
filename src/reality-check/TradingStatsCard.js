@@ -8,7 +8,7 @@ export default class TradingStatsCard extends Component {
         turnover: PropTypes.number.isRequired,
         profitLoss: PropTypes.number.isRequired,
         contractBought: PropTypes.number.isRequired,
-        contractSolf: PropTypes.number.isRequired,
+        contractSold: PropTypes.number.isRequired,
         openContract: PropTypes.number.isRequired,
         potentialProfit: PropTypes.number.isRequired,
     };

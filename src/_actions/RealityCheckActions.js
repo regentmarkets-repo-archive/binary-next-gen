@@ -1,7 +1,12 @@
-import { UPDATE_REALITY_CHECK } from '../_constants/ActionTypes';
+import { UPDATE_REALITY_CHECK, UPDATE_REALITY_CHECK_SUMMARY } from '../_constants/ActionTypes';
 
 export const updateRealityCheck = (fieldName, fieldValue) => ({
     type: UPDATE_REALITY_CHECK,
     fieldName,
     fieldValue,
+});
+
+export const updateRealityCheckSummary = summary => ({
+    type: UPDATE_REALITY_CHECK_SUMMARY,
+    summary,
 });

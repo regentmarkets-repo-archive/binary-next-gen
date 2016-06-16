@@ -61,15 +61,20 @@ const initUnauthorized = async () => {
 };
 
 const initAuthorized = async (authData, store) => {
-    api
-        .getLandingCompanyDetails(authData.authorize.landing_company_name)
+    api.getLandingCompanyDetails(authData.authorize.landing_company_name)
         .then(r => {
             const details = r.landing_company_details;
             const acknowledged = store.getState().realityCheck.get('acknowledged');
             if (details && details.has_reality_check && !acknowledged) {
                 store.dispatch(actions.updateRealityCheck('showInitial', true));
+                api.getRealityCheckSummary()
+                    .then(s => {
+                        const summary = s.reality_check;
+                        store.dispatch(actions.updateRealityCheckSummary('summary', summary));
+                    });
             }
         });
+
     api.getActiveSymbolsFull();
     api.getTradingTimes(new Date());
     api.getAssetIndex();
