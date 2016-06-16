@@ -90,6 +90,7 @@ export default class TradeCard extends Component {
         purchaseInfo: PropTypes.object.isRequired,
         type: PropTypes.oneOf(['tick', 'full']).isRequired,
         ticks: PropTypes.array,
+        theme: PropTypes.string,
         uiState: PropTypes.object.isRequired,
         tradingTime: PropTypes.object,
         tradeErrors: PropTypes.object.isRequired,
@@ -136,6 +137,7 @@ export default class TradeCard extends Component {
             proposalInfo,
             pipSize,
             ticks,
+            theme,
             tradingTime,
             tradeErrors,
         } = this.props;
@@ -188,7 +190,7 @@ export default class TradeCard extends Component {
                         rangeChange={contractRequiredByChart ? undefined : rangeChange}
                         symbol={symbolName}
                         ticks={dataToShow}
-                        theme="light"
+                        theme={theme}
                         type={contractDataExist ? 'area' : chartType}
                         trade={tradeRequiredByChart}
                         typeChange={feedLicense !== 'chartonly' && ::this.changeChartType}

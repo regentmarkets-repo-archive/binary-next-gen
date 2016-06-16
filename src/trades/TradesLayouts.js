@@ -23,6 +23,7 @@ export default class TradesLayouts extends Component {
         ticksForAllSymbols: PropTypes.object.isRequired,
         ohlcForAllSymbols: PropTypes.object.isRequired,
         tradesCount: PropTypes.number.isRequired,
+        theme: PropTypes.string,
         tradingTimeList: PropTypes.array.isRequired,
         uiStateList: PropTypes.array.isRequired,
         tradeErrorList: PropTypes.array.isRequired,
@@ -52,6 +53,7 @@ export default class TradesLayouts extends Component {
             purchaseInfoList,
             tradingTimeList,
             uiStateList,
+            theme,
             ticksForAllSymbols,
             ohlcForAllSymbols,
             tradesCount,
@@ -79,6 +81,7 @@ export default class TradesLayouts extends Component {
                 purchaseInfo={purchaseInfoList[index]}
                 proposalInfo={proposalInfoList[index]}
                 uiState={uiStateList[index]}
+                theme={theme}
                 tradingTime={tradingTimeList[index]}
                 tradeErrors={tradeErrorList[index]}
             />

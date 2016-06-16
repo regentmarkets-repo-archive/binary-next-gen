@@ -11,14 +11,6 @@ export default class TradesContainer extends Component {
 
     shouldComponentUpdate = shouldPureComponentUpdate;
 
-    // static propTypes = {
-    //     tradeMode: PropTypes.string.isRequired,
-    // };
-    //
-    // static defaultProps = {
-    //     tradeMode: 'tabs',
-    // };
-
     render() {
         return <TradesLayouts {...immutableChildrenToJS(this.props)} />;
     }
