@@ -1,5 +1,5 @@
 .news-list-card, .article {
-    margin: .5em;
+    padding: .5em;
     font-size: 1rem;
 }
 .news-list-card {
@@ -12,9 +12,17 @@
 }
 
 .article-preview {
+    display: inline-block;
     text-decoration: none;
     color: $COLOR_TEXT;
     p {
-        margin-bottom: 2rem;
+        margin: 0;
     }
+    &:hover {
+        box-shadow: 0 0 0 .25rem rgba($COLOR_BRAND_BLUE, .25);
+    }
+}
+
+.article-preview + .article-preview {
+    margin-top: 1rem;
 }

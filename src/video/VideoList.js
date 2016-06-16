@@ -12,7 +12,7 @@ export default class VideoList extends Component {
         const { videos, onSelect } = this.props;
 
         return (
-            <ul className="video-list">
+            <div className="video-list">
                 {videos.map(video =>
                     <VideoThumbnail
                         key={video.videoId}
@@ -22,7 +22,7 @@ export default class VideoList extends Component {
                         onClick={onSelect}
                     />
                 )}
-            </ul>
+            </div>
         );
     }
 }
