@@ -6,6 +6,7 @@ describe('tradeListSelectors', () => {
     const emptyState = () => ({
         assets: fromJS([]),
         account: fromJS({}),
+        boot: fromJS({}),
         ticks: fromJS({}),
         tradesParams: fromJS([]),
         tradesProposalInfo: fromJS([]),
