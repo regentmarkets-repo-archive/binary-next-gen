@@ -369,6 +369,10 @@ th {
     width: 80%;
 }
 
+.inverse .modal {
+    background: $COLOR_INVERSE_BG;
+}
+
 .info-icon {
     background-color: rgba($COLOR_BRAND_BLUE, .5);
     width: 1rem;
