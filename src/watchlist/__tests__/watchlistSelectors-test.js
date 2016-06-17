@@ -1,4 +1,4 @@
-import { fromJS, List, Set, Map } from 'immutable';
+import { fromJS, Set } from 'immutable';
 import { expect } from 'chai';
 import watchlistSelectors from '../watchlistSelectors';
 
@@ -35,8 +35,8 @@ describe('watchlistSelectors', () => {
                 symbol: 'R_100',
                 display_name: 'Random 100 Index',
             }]),
-            ticks: new Map({
-                R_100: new List([{ quote: 100 }, { quote: 123 }]),
+            ticks: fromJS({
+                R_100: [{ quote: 100 }, { quote: 123 }],
             }),
             watchlist: new Set([
                 'R_100',

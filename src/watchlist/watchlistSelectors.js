@@ -19,10 +19,10 @@ export const WatchlistRecord = new Record({
 const historyDiff = history =>
 	history.size < 2 ?
 		0 :
-		history.get(history.size - 1).quote - history.get(history.size - 2).quote;
+		history.get(history.size - 1).get('quote') - history.get(history.size - 2).get('quote');
 
 const historyQuote = history =>
-	history.size === 0 ? 0 : history.get(history.size - 1).quote;
+	history.size === 0 ? 0 : history.get(history.size - 1).get('quote');
 
 export const watchlistViewSelector = createSelector(
     [ticksSelector, assetsBySymbolSelector, watchlistSelector],

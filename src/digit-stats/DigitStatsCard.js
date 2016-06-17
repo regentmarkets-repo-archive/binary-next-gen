@@ -3,6 +3,7 @@ import DigitStatsChart from 'binary-components/lib/DigitStatsChart';
 import DigitStatsFilter from './DigitStatsFilter';
 
 export default class DigitStatsCard extends Component {
+
     static propTypes = {
         actions: PropTypes.object.isRequired,
         symbol: PropTypes.string.isRequired,
