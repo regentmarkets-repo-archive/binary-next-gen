@@ -15,22 +15,19 @@ export default class AssetPickerCard extends Component {
 		selectedAsset: PropTypes.string.isRequired,
 	};
 
-	onSelect(newAsset) {
+	onSelect = newAsset => {
 		const { tradeIdx, actions } = this.props;
 
 		actions.changeSelectedAsset(newAsset);
 		actions.updateTradeUIState(tradeIdx, 'disabled', true);
-		actions.getTradingOptions(newAsset)
-			.then(
-				() => {
-					actions.updateTradeParams(tradeIdx, 'symbol', newAsset);
-					actions.updateTradeUIState(tradeIdx, 'disabled', false);
-					actions.getTicksBySymbol(newAsset);
-				}
-			);
+		actions.getTradingOptions(newAsset).then(() => {
+			actions.updateTradeParams(tradeIdx, 'symbol', newAsset);
+			actions.updateTradeUIState(tradeIdx, 'disabled', false);
+			actions.getTicksBySymbol(newAsset);
+		});
 	}
 
-	onToggleWatchlistItem(asset) {
+	onToggleWatchlistItem = asset => {
 		const { actions } = this.props;
 		actions.watchlistToggleAsset(asset.symbol, !asset.isInWatchlist);
 	}
@@ -46,8 +43,8 @@ export default class AssetPickerCard extends Component {
 						{...this.props}
 						assets={assetPickerItems}
 						selectedAsset={selectedAsset}
-						onSelect={::this.onSelect}
-						onToggleWatchlistItem={::this.onToggleWatchlistItem}
+						onSelect={this.onSelect}
+						onToggleWatchlistItem={this.onToggleWatchlistItem}
 					/>
 				</div>
 				{Object.keys(assetPickerItems).length > 0 ? null :

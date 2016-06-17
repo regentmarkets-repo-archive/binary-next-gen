@@ -20,28 +20,27 @@ addLocaleData({
 });
 
 export default class Root extends Component {
+
     async componentWillMount() {
         const reyhdratedStore = await rehydratedStorePromise;
         const state = reyhdratedStore.getState();
 
         await LiveData.connect(reyhdratedStore);
-        const actions = bindActionCreators(allActions, store.dispatch);
         const token = state.account.get('token');
 
+        this.actions = bindActionCreators(allActions, store.dispatch);
+
         try {
-            await tryAuth(actions, token);
+            await tryAuth(this.actions, token);
         } catch (e) {
-            actions.updateAppState('authorized', false);
+            this.actions.updateAppState('authorized', false);
         } finally {
-            actions.updateAppState('connected', true);
+            this.actions.updateAppState('connected', true);
         }
     }
 
-    createElementWithActions(Element, props) {
-        return (
-            <Element {...props} actions={bindActionCreators(allActions, store.dispatch)} />
-        );
-    }
+    createElementWithActions = (Element, props) =>
+        <Element {...props} actions={this.actions} />
 
     render() {
         return (
@@ -51,7 +50,7 @@ export default class Root extends Component {
                         <Router
                             history={history}
                             children={routes}
-                            createElement={::this.createElementWithActions}
+                            createElement={this.createElementWithActions}
                         />
                     </AppStateProvider>
                 </BootProvider>
