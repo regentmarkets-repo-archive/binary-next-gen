@@ -8,6 +8,11 @@ import isValidPassword from 'binary-utils/lib/isValidPassword';
 
 export default class SettingsSecurity extends Component {
 
+    static propTypes = {
+		settings: PropTypes.object.isRequired,
+		actions: PropTypes.object.isRequired,
+	};
+
     constructor(props) {
         super(props);
         this.state = {
@@ -15,11 +20,6 @@ export default class SettingsSecurity extends Component {
             password2: '',
         };
     }
-
-	static propTypes = {
-		settings: PropTypes.object.isRequired,
-		actions: PropTypes.object.isRequired,
-	};
 
     clearState() {
         this.setState({
@@ -38,7 +38,7 @@ export default class SettingsSecurity extends Component {
         this.clearState();
     }
 
-	onClick() {
+	onUpdate = () => {
         const { settings } = this.props;
         const { password1, password2 } = this.state;
 
@@ -81,7 +81,7 @@ export default class SettingsSecurity extends Component {
 				}
 				<Button
                     text="Update"
-                    onClick={::this.onClick}
+                    onClick={this.onUpdate}
 				/>
 			</div>
 		);

@@ -11,12 +11,12 @@ export default class AssetPickerFilter extends Component {
 		filter: PropTypes.object.isRequired,
 	};
 
-	onSearchQueryChange(e) {
+	onSearchQueryChange = e => {
 		const { actions } = this.props;
 		actions.updateAssetPickerSearchQuery(e.target.value);
 	}
 
-	onFilterChange(e) {
+	onFilterChange = e => {
 		const { actions } = this.props;
 		actions.updateAssetPickerFilter(e);
 	}
@@ -42,11 +42,11 @@ export default class AssetPickerFilter extends Component {
 					defaultValue={filter.query}
 					type="search"
 					placeholder="Search for assets"
-					onChange={::this.onSearchQueryChange}
+					onChange={this.onSearchQueryChange}
 					autoFocus
 				/>
 				<MarketSubmarketPickerContainer
-					onChange={::this.onFilterChange}
+					onChange={this.onFilterChange}
 					allOptionShown
 					showMarkets={showOnlyTickTradable ? ['Forex', 'Randoms'] : null}
 					value={filter.filter}

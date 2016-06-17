@@ -38,7 +38,7 @@ export default class TradeTypePicker extends Component {
         this.setState({ tradeGroup: groupId });
     }
 
-    changeGroup(id) {
+    changeGroup = id => {
         this.onGroupChange(id);
         this.setState({ tradeGroup: id });
     }
@@ -80,7 +80,7 @@ export default class TradeTypePicker extends Component {
         const typePairs = pairUpTypes(types);
         return (
             <div className="trade-type-picker">
-                <TabList activeIndex={tradeGroup} onChange={::this.changeGroup}>
+                <TabList activeIndex={tradeGroup} onChange={this.changeGroup}>
                     {hasBasic(contract) && <Tab text="Basic" />}
                     {hasDigits(contract) && <Tab text="Digits" />}
                     {hasAdvanced(contract) && <Tab text="Advanced" />}

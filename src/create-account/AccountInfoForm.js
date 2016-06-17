@@ -62,19 +62,19 @@ export default class AccountInfoForm extends Component {
         }
     }
 
-    emailChange(event) {
+    emailChange = event => {
         this.props.actions.createAccountFieldUpdate('email', event.target.value);
     }
 
-    residenceChange(event) {
+    residenceChange = event => {
         this.props.actions.createAccountFieldUpdate('residence', event.target.value);
     }
 
-    confirmPasswordChange(event) {
+    confirmPasswordChange = event => {
         this.props.actions.createAccountFieldUpdate('confirmPassword', event.target.value);
     }
 
-    passwordChange(event) {
+    passwordChange = event => {
         this.props.actions.createAccountFieldUpdate('password', event.target.value);
     }
 
@@ -91,14 +91,14 @@ export default class AccountInfoForm extends Component {
                     <InputGroup
                         type="email"
                         placeholder="Email"
-                        onChange={::this.emailChange}
+                        onChange={this.emailChange}
                     />
                     <ErrorMsg
                         shown={validatedOnce && emailNotValid}
                         text="Please enter a valid email"
                     />
                     <fieldset>
-                        <Countries onChange={::this.residenceChange} />
+                        <Countries onChange={this.residenceChange} />
                     </fieldset>
                     <ErrorMsg
                         shown={validatedOnce && countryNotSelected}
@@ -107,7 +107,7 @@ export default class AccountInfoForm extends Component {
                     <InputGroup
                         type="password"
                         placeholder="Password"
-                        onChange={::this.passwordChange}
+                        onChange={this.passwordChange}
                     />
                     <ErrorMsg
                         shown={validatedOnce && passwordNotValid}
@@ -116,13 +116,13 @@ export default class AccountInfoForm extends Component {
                     <InputGroup
                         type="password"
                         placeholder="Confirm Password"
-                        onChange={::this.confirmPasswordChange}
+                        onChange={this.confirmPasswordChange}
                     />
                     <ErrorMsg
                         shown={validatedOnce && passwordsDontMatch}
                         text="Passwords do not match"
                     />
-                    <Button text="Continue" onClick={::this.continue} />
+                    <Button text="Continue" onClick={this.continue} />
                 </form>
                 <fieldset>
                     <Link to="/signin" className="btn-secondary">

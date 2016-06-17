@@ -23,9 +23,7 @@ export default class WatchlistRow extends Component {
 		onSelect: PropTypes.func.isRequired,
 	};
 
-	shouldComponentUpdate(nextProps) {
-		return shallowEqualDebug(this.props, nextProps);
-	}
+	shouldComponentUpdate = nextProps => shallowEqualDebug(this.props, nextProps);
 
 	render() {
 		const { symbol, assetName, diff, history, quote, isOpen, onSelect } = this.props;

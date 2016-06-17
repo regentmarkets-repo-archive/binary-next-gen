@@ -12,6 +12,7 @@ import Label from 'binary-components/lib/Label';
  */
 
 export default class ForwardStartingOptions extends Component {
+
     constructor(props) {
         super(props);
         this.state = {};
@@ -25,12 +26,12 @@ export default class ForwardStartingOptions extends Component {
         onStartDateChange: PropTypes.func,
     };
 
-    startNow() {
+    startNow = () => {
         const { onStartDateChange } = this.props;
         onStartDateChange();
     }
 
-    startLater() {
+    startLater = () => {
         const { dateStart, onStartDateChange, forwardStartingDuration } = this.props;
         if (!dateStart) {
             const nextDayOpening = createDefaultStartLaterEpoch(forwardStartingDuration);
@@ -38,7 +39,7 @@ export default class ForwardStartingOptions extends Component {
         }
     }
 
-    selectDay(e) {
+    onDayChange = e => {
         const { dateStart, forwardStartingDuration } = this.props;
         const ranges = forwardStartingDuration.range;
 
@@ -55,7 +56,7 @@ export default class ForwardStartingOptions extends Component {
         this.props.onStartDateChange(newDayEpoch + intraDayEpoch);
     }
 
-    selectTime(e) {
+    onTimeChange = e => {
         const { dateStart } = this.props;
         const inputValue = e.target.value;
         const secondsPerDay = 60 * 60 * 24;
@@ -86,7 +87,7 @@ export default class ForwardStartingOptions extends Component {
                                 <input
                                     type="radio"
                                     name={`start-time${index}`}
-                                    onChange={::this.startNow}
+                                    onChange={this.startNow}
                                     checked={!dateStart}
                                     disabled={onlyStartLater}
                                 />
@@ -96,7 +97,7 @@ export default class ForwardStartingOptions extends Component {
                                 <input
                                     type="radio"
                                     name={`start-time${index}`}
-                                    onChange={::this.startLater}
+                                    onChange={this.startLater}
                                     checked={!!dateStart}
                                     disabled={!allowStartLater}
                                 />
@@ -110,13 +111,13 @@ export default class ForwardStartingOptions extends Component {
                                 type="date"
                                 min={dateToDateString(ranges[0].date)}
                                 max={dateToDateString(ranges[2].date)}
-                                onChange={::this.selectDay}
+                                onChange={this.onDayChange}
                                 value={selectedDay && dateToDateString(selectedDay)}
                             />
                             {selectedDay &&
                                 <input
                                     type="time"
-                                    onChange={::this.selectTime}
+                                    onChange={this.onTimeChange}
                                     defaultValue={timeString}
                                 />
                             }

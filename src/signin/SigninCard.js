@@ -2,11 +2,9 @@ import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 import { tryAuth } from '../_data/Auth';
 import M from 'binary-components/lib/M';
-import Button from 'binary-components/lib/Button';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import LogoSpinner from 'binary-components/lib/LogoSpinner';
 import InputGroup from 'binary-components/lib/InputGroup';
-import LanguagePicker from 'binary-components/lib/LanguagePicker';
 
 export default class SigninCard extends Component {
 
@@ -20,14 +18,14 @@ export default class SigninCard extends Component {
 		router: React.PropTypes.object.isRequired,
 	};
 
-	onTokenChange(event) {
+	onTokenChange = event => {
 		this.props.actions.updateToken(event.target.value);
 		this.props.actions.signinFieldUpdate('validatedOnce', false);
 		this.props.actions.signinFieldUpdate('credentialsInvalid', false);
 		this.validateToken(event.target.value);
 	}
 
-	validateToken(token) {
+	validateToken = token => {
 		if (token === '') {
 			this.props.actions.signinFieldUpdate('tokenNotEntered', true);
 		}
@@ -49,7 +47,7 @@ export default class SigninCard extends Component {
 	}
 
 	render() {
-		const { progress, validatedOnce, credentialsInvalid, tokenNotEntered, actions } = this.props.signin;
+		const { progress, validatedOnce, credentialsInvalid, tokenNotEntered } = this.props.signin;
 		return (
 			<div className="startup-content">
 				<form className="mobile-form" onSubmit={e => e.preventDefault()}>
@@ -61,7 +59,7 @@ export default class SigninCard extends Component {
 						id="token-input"
 						type="text"
 						placeholder="Token"
-						onChange={::this.onTokenChange}
+						onChange={this.onTokenChange}
 						autoFocus
 						min={15}
 						autoComplete="off"
@@ -73,12 +71,6 @@ export default class SigninCard extends Component {
 					<ErrorMsg
 						shown={validatedOnce && credentialsInvalid && !tokenNotEntered}
 						text="Access denied"
-					/>
-					<LanguagePicker actions={actions} />
-					<Button
-						text="Sign In"
-						className="btn-primary"
-						onClick={::this.trySignin}
 					/>
 				</form>
 				<fieldset>

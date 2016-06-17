@@ -19,7 +19,7 @@ export default class DigitStatsCard extends Component {
         }
     }
 
-    updateFilter(e) {
+    updateFilter = e => {
         const newFilter = e.target.value;
         const { actions, symbol } = this.props;
         actions.updateDigitStatFilter(+newFilter);
@@ -33,7 +33,7 @@ export default class DigitStatsCard extends Component {
 
         return (
             <div className="digit-stats-card">
-                <DigitStatsFilter value={filter} onChange={::this.updateFilter} />
+                <DigitStatsFilter value={filter} onChange={this.updateFilter} />
                 <DigitStatsChart stats={stats} orientation="vertical" />
             </div>
         );

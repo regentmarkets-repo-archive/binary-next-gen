@@ -6,6 +6,7 @@ import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import Countries from 'binary-components/lib/Countries';
 
 export default class UpgradeStep2 extends Component {
+
 	constructor(props) {
 		super(props);
 		this.state = { showErr: false };
@@ -22,28 +23,24 @@ export default class UpgradeStep2 extends Component {
 		residence: React.PropTypes.string.isRequired,
 	};
 
-	cityValid(city) {
-		return city.length > 0;
-	}
+	cityValid = city =>
+		city.length > 0;
 
-	postcodeValid(postcode) {
-		return /^[^+]{0,20}$/.test(postcode);
-	}
+	postcodeValid = postcode =>
+		/^[^+]{0,20}$/.test(postcode);
 
-	address1Valid(address1) {
-		return address1.length > 0 && address1.length <= 70;
-	}
+	address1Valid = address1 =>
+		address1.length > 0 && address1.length <= 70;
 
-	phoneValid(phone) {
-		return /^\+?[0-9\s]{6,35}$/.test(phone);
-	}
+	phoneValid = phone =>
+		/^\+?[0-9\s]{6,35}$/.test(phone);
 
-	previousStep(e) {
+	previousStep = e => {
 		e.preventDefault();
 		this.props.actions.upgradeFieldUpdate('activeStep', 0);
 	}
 
-	nextStep(e) {
+	nextStep = e => {
 		e.preventDefault();
 		this.setState({ showErr: true });
 		const { addressCity, addressPostcode, addressLine1, phone, residence } = this.props;
@@ -60,34 +57,34 @@ export default class UpgradeStep2 extends Component {
 		}
 	}
 
-	countryChange(e) {
+	onCountryChange = e => {
 		this.props.actions.upgradeFieldUpdate('residence', e.target.value);
 	}
 
-	stateChange(e) {
+	onStateChange = e => {
 		this.props.actions.upgradeFieldUpdate('addressState', e.target.value);
 	}
 
-	cityChange(e) {
+	onCityChange = e => {
 		this.setState({ showErr: true });
 		this.props.actions.upgradeFieldUpdate('addressCity', e.target.value);
 	}
 
-	postcodeChange(e) {
+	onPostcodeChange = e => {
 		this.props.actions.upgradeFieldUpdate('addressPostcode', e.target.value);
 	}
 
-	address1Change(e) {
+	onAddress1Change = e => {
 		this.setState({ showErr: true });
 		this.props.actions.upgradeFieldUpdate('addressLine1', e.target.value);
 	}
 
-	address2Change(e) {
+	onAddress2Change(e) {
 		this.setState({ showErr: true });
 		this.props.actions.upgradeFieldUpdate('addressLine2', e.target.value);
 	}
 
-	phoneChange(e) {
+	onPhoneChange(e) {
 		this.setState({ showErr: true });
 		this.props.actions.upgradeFieldUpdate('phone', e.target.value);
 	}
@@ -106,8 +103,8 @@ export default class UpgradeStep2 extends Component {
 					<label><M m="Home Address" /></label>
 				</p>
 				<p>
-					<Countries onChange={::this.countryChange} value={residence} />
-					<States country={residence} onChange={::this.stateChange} value={addressState} />
+					<Countries onChange={this.onCountryChange} value={residence} />
+					<States country={residence} onChange={this.onStateChange} value={addressState} />
 				</p>
 				<ErrorMsg
 					shown={showErr && !residence}
@@ -120,7 +117,7 @@ export default class UpgradeStep2 extends Component {
 						placeholder="Town/City"
 						type="text"
 						maxLength="35"
-						onChange={::this.cityChange}
+						onChange={this.onCityChange}
 					/>
 					<input
 						name="AddressPostcode"
@@ -128,7 +125,7 @@ export default class UpgradeStep2 extends Component {
 						placeholder="Postal Code / ZIP"
 						type="text"
 						maxLength="20"
-						onChange={::this.postcodeChange}
+						onChange={this.onPostcodeChange}
 					/>
 				</p>
 				<ErrorMsg
@@ -146,7 +143,7 @@ export default class UpgradeStep2 extends Component {
 						placeholder="First line"
 						type="text"
 						maxLength="70"
-						onChange={::this.address1Change}
+						onChange={this.onAddress1Change}
 					/>
 				</p>
 				<ErrorMsg
@@ -160,7 +157,7 @@ export default class UpgradeStep2 extends Component {
 						placeholder="Second line"
 						type="text"
 						maxLength="70"
-						onChange={::this.address2Change}
+						onChange={this.onAddress2Change}
 					/>
 				</p>
 				<p>
@@ -170,7 +167,7 @@ export default class UpgradeStep2 extends Component {
 						placeholder="Telephone"
 						type="tel"
 						maxLength="35"
-						onChange={::this.phoneChange}
+						onChange={this.onPhoneChange}
 					/>
 				</p>
 				<ErrorMsg
@@ -180,11 +177,11 @@ export default class UpgradeStep2 extends Component {
 				<p>
 					<Button
 						text="Back"
-						onClick={::this.previousStep}
+						onClick={this.previousStep}
 					/>
 					<Button
 						text="Next"
-						onClick={::this.nextStep}
+						onClick={this.nextStep}
 					/>
 				</p>
 			</div>

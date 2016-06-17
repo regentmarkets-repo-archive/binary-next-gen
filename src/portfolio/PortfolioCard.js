@@ -19,25 +19,22 @@ export default class PortfolioCard extends Component {
 		router: React.PropTypes.object.isRequired,
 	};
 
-	render() {
-		const {
-			compact,
-			actions,
-			contracts,
-			purchaseTotal,
-			indicativeTotal,
-		} = this.props;
-
+	onViewDetails = contract => {
+		const { actions, compact } = this.props;
 		const { router } = this.context;
 
-		const onViewDetails = contract =>
-			actions
-				.detailsForContract(contract.contract_id)
-				.then(() => {
-					if (compact) {
-						router.push(`/contract/${contract.contract_id}`);
-					}
-				});
+		actions
+			.detailsForContract(contract.contract_id)
+			.then(() => {
+				if (compact) {
+					router.push(`/contract/${contract.contract_id}`);
+				}
+			});
+	}
+
+	render() {
+		const { compact, contracts, purchaseTotal, indicativeTotal } = this.props;
+
 		return (
 			<div className="portfolio-panel">
 				<PortfolioList
@@ -45,7 +42,7 @@ export default class PortfolioCard extends Component {
 					contracts={contracts}
 					purchaseTotal={purchaseTotal}
 					indicativeTotal={indicativeTotal}
-					onViewDetails={onViewDetails}
+					onViewDetails={this.onViewDetails}
 				/>
 			</div>
 		);

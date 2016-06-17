@@ -28,7 +28,7 @@ export default class ContractDetailsCard extends Component {
 		};
 	}
 
-	changeChartType(type) {
+	changeChartType = type => {
 		const { actions, contract } = this.props;
 		const { chartType } = this.state;
 
@@ -65,7 +65,7 @@ export default class ContractDetailsCard extends Component {
 						type={chartType}
 						theme={theme}
 						rangeChange={contract ? undefined : rangeChange}
-						typeChange={allowCandle && ::this.changeChartType}
+						typeChange={allowCandle && this.changeChartType}
 						pipSize={pipSize}
 					/>
 					<ContractReceipt actions={actions} contract={contract} />

@@ -41,7 +41,7 @@ export default class TradeTypeDropDown extends Component {
         };
     }
 
-    openTradeTypePicker() {
+    openTradeTypePicker = () => {
         const { compact } = this.props;
         const { router } = this.context;
         if (compact) {
@@ -70,7 +70,7 @@ export default class TradeTypeDropDown extends Component {
                 <Info tooltip={helpText[selectedType]} role="presentation" />
                 <div
                     className="picker-label param-field"
-                    onMouseDown={::this.openTradeTypePicker}
+                    onMouseDown={this.openTradeTypePicker}
                 >
                     <img
                         src={`img/trade-${selectedType.toLowerCase()}.svg`}

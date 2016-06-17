@@ -10,15 +10,14 @@ export default class SettingsSelfExclusion extends Component {
 		actions: PropTypes.object.isRequired,
 	};
 
-	onSelfExclusionChange(event) {
-		const key = event.target.id;		// code duplication, should be refactored into some mixin
-		const val = event.target.value;
-		const obj = {};
-		obj[key] = val;
-		this.setState(obj);
+	onSelfExclusionChange = event => {
+		const { id, value } = event.target;
+		this.setState({
+			[id]: value,
+		});
 	}
 
-	tryUpdate() {
+	tryUpdate = () => {
 		const state = this.state || {};
 		const { settings } = this.props;
 		const req = {
@@ -60,7 +59,7 @@ export default class SettingsSelfExclusion extends Component {
 					type="number"
 					hint="Once this limit is reached, you may no longer deposit."
 					defaultValue={settings.max_balance}
-					onChange={::this.onSelfExclusionChange}
+					onChange={this.onSelfExclusionChange}
 				/>
 				<InputGroup
 					id="DAILYTURNOVERLIMIT"
@@ -68,7 +67,7 @@ export default class SettingsSelfExclusion extends Component {
 					type="number"
 					hint="Maximum aggregate contract purchases per day."
 					defaultValue={settings.max_turnover}
-					onChange={::this.onSelfExclusionChange}
+					onChange={this.onSelfExclusionChange}
 				/>
 				<InputGroup
 					id="DAILYLOSSLIMIT"
@@ -76,7 +75,7 @@ export default class SettingsSelfExclusion extends Component {
 					type="number"
 					hint="Maximum aggregate loss per day."
 					defaultValue={settings.max_losses}
-					onChange={::this.onSelfExclusionChange}
+					onChange={this.onSelfExclusionChange}
 				/>
 				<InputGroup
 					id="7DAYTURNOVERLIMIT"
@@ -84,7 +83,7 @@ export default class SettingsSelfExclusion extends Component {
 					type="number"
 					hint="Maximum aggregate contract purchases over a 7-day period."
 					defaultValue={settings.max_7day_turnover}
-					onChange={::this.onSelfExclusionChange}
+					onChange={this.onSelfExclusionChange}
 				/>
 				<InputGroup
 					id="7DAYLOSSLIMIT"
@@ -92,7 +91,7 @@ export default class SettingsSelfExclusion extends Component {
 					type="number"
 					hint="Maximum aggregate loss over a 7-day period."
 					defaultValue={settings.max_7day_losses}
-					onChange={::this.onSelfExclusionChange}
+					onChange={this.onSelfExclusionChange}
 				/>
 				<InputGroup
 					id="30DAYTURNOVERLIMIT"
@@ -100,7 +99,7 @@ export default class SettingsSelfExclusion extends Component {
 					type="number"
 					hint="Maximum aggregate contract purchases over a 30-day period."
 					defaultValue={settings.max_30day_turnover}
-					onChange={::this.onSelfExclusionChange}
+					onChange={this.onSelfExclusionChange}
 				/>
 				<InputGroup
 					id="30DAYLOSSLIMIT"
@@ -108,14 +107,14 @@ export default class SettingsSelfExclusion extends Component {
 					type="number"
 					hint="Maximum aggregate loss over a 30-day period."
 					defaultValue={settings.max_30day_losses}
-					onChange={::this.onSelfExclusionChange}
+					onChange={this.onSelfExclusionChange}
 				/>
 				<InputGroup
 					id="MAXOPENPOS"
 					label="Maximum number of open positions"
 					type="number"
 					defaultValue={settings.max_open_bets}
-					onChange={::this.onSelfExclusionChange}
+					onChange={this.onSelfExclusionChange}
 				/>
 				<InputGroup
 					id="SESSIONDURATION"
@@ -123,7 +122,7 @@ export default class SettingsSelfExclusion extends Component {
 					type="number"
 					hint="You will be automatically logged out after such time."
 					defaultValue={settings.session_duration_limit}
-					onChange={::this.onSelfExclusionChange}
+					onChange={this.onSelfExclusionChange}
 				/>
 				<InputGroup
 					id="EXCLUDEUNTIL"
@@ -131,11 +130,11 @@ export default class SettingsSelfExclusion extends Component {
 					type="text"
 					hint="Please enter date in the format YYYY-MM-DD."
 					defaultValue={settings.exclude_until}
-					onChange={::this.onSelfExclusionChange}
+					onChange={this.onSelfExclusionChange}
 				/>
 				<Button
 					text="Update"
-					onClick={::this.tryUpdate}
+					onClick={this.tryUpdate}
 				/>
 			</div>
 		);

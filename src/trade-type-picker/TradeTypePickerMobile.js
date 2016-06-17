@@ -8,6 +8,7 @@ import { mobileTradeTypePickerSelector } from '../trades/singleTradeSelectors';
 
 @connect(mobileTradeTypePickerSelector)
 export default class TradeTypePickerMobile extends React.Component {
+
 	static propTypes = {
 		actions: React.PropTypes.object.isRequired,
 	};
@@ -18,18 +19,18 @@ export default class TradeTypePickerMobile extends React.Component {
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
-	onSelectForMobile() {
+	onSelectForMobile = () => {
 		const { router } = this.context;
 		router.goBack();
 	}
 
-	updateParamsForMobile(params) {
+	updateParamsForMobile = params => {
 		const { actions } = this.props;
 		actions.updateMultipleTradeParams(0, params);
 		actions.updatePriceProposalSubscription(0);
 	}
 
-	clearTradeError() {
+	clearTradeError = () => {
 		const { actions } = this.props;
 		actions.updateTradeError(0, 'barrierError', undefined);
 		actions.updateTradeError(0, 'durationError', undefined);
@@ -46,9 +47,9 @@ export default class TradeTypePickerMobile extends React.Component {
 					actions={actions}
 					contract={contract}
 					tradeParams={params}
-					onSelect={::this.onSelectForMobile}
-					updateParams={::this.updateParamsForMobile}
-					clearTradeError={::this.clearTradeError}
+					onSelect={this.onSelectForMobile}
+					updateParams={this.updateParamsForMobile}
+					clearTradeError={this.clearTradeError}
 				/>
 			</MobilePage>
 		);

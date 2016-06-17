@@ -6,10 +6,12 @@ import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
 import PortfolioCard from './PortfolioCard';
 import portfolioSelectors from './PortfolioSelectors';
 
+import shallowEqualDebug from '../trade/shallowEqualDebug';
+
 @connect(portfolioSelectors)
 export default class PortfolioContainer extends Component {
 
-	shouldComponentUpdate = shouldPureComponentUpdate;
+	shouldComponentUpdate = nextProps => shallowEqualDebug(this.props, nextProps);
 
 	render() {
 		return (

@@ -35,7 +35,7 @@ export default class SettingsChangePassword extends React.Component {
         }
     }
 
-    onClick() {
+    onChangePassword = () => {
         this.setState({
             validatedOnce: true,
             errorMessage: '',
@@ -85,7 +85,7 @@ export default class SettingsChangePassword extends React.Component {
                         />
                         <Button
                             text="Change Password"
-                            onClick={::this.onClick}
+                            onClick={this.onChangePassword}
                         />
                             <ErrorMsg
                                 shown={validatedOnce && !!errorMessage}

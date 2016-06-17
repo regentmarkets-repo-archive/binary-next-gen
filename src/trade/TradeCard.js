@@ -100,14 +100,14 @@ export default class TradeCard extends Component {
         return JSON.stringify(this.props) !== JSON.stringify(nextProps);
     }
 
-    zoomWhenPurchase() {
+    zoomWhenPurchase = () => {
         const { index } = this.props;
         const domID = `trade-chart${index}`;
         const zoomToLatestEv = new Event('zoom-to-latest');
         document.getElementById(domID).dispatchEvent(zoomToLatestEv);
     }
 
-    changeChartType(type) {
+    changeChartType = type => {
         const { actions, params } = this.props;
         const { chartType } = this.state;
 
@@ -193,7 +193,7 @@ export default class TradeCard extends Component {
                         theme={theme}
                         type={contractDataExist ? 'area' : chartType}
                         trade={tradeRequiredByChart}
-                        typeChange={feedLicense !== 'chartonly' && ::this.changeChartType}
+                        typeChange={feedLicense !== 'chartonly' && this.changeChartType}
                         tradingTime={tradingTime}
                     />
                 </div>
@@ -217,7 +217,7 @@ export default class TradeCard extends Component {
                         pipSize={pipSize}
                         tradeParams={params}
                         ticks={ticks}
-                        onPurchaseHook={::this.zoomWhenPurchase}
+                        onPurchaseHook={this.zoomWhenPurchase}
                     />
                 }
             </div>

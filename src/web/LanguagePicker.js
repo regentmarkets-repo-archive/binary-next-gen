@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-// import * as LiveData from '../_data/LiveData';
 import SelectGroup from 'binary-components/lib/SelectGroup';
 import languages from '../_constants/languages';
 
@@ -20,11 +19,7 @@ export default class LanguagePicker extends Component {
         selected: 'EN',
     };
 
-    updateLanguage(event) {
-        // const { actions } = this.props;
-        // actions.updateBoot('language', event.target.value);
-        // LiveData.changeLanguage(event.target.value);
-        // actions.resubscribeAllPriceProposal();
+    changeLanguage = event => {
         window.BinaryBoot.language = event.target.value;
         localStorage.setItem('boot', JSON.stringify(window.BinaryBoot));
         window.location.reload();
@@ -37,7 +32,7 @@ export default class LanguagePicker extends Component {
                 {...this.props}
                 options={languages}
                 value={selected}
-                onChange={::this.updateLanguage}
+                onChange={this.changeLanguage}
             />
         );
     }

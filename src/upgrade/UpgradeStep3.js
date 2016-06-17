@@ -5,10 +5,6 @@ import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import Modal from '../containers/Modal';
 
 export default class UpgradeStep3 extends Component {
-	constructor(props) {
-		super(props);
-		this.state = { showErr: false, checked: false };
-	}
 
 	static propTypes = {
 		actions: React.PropTypes.object.isRequired,
@@ -17,12 +13,17 @@ export default class UpgradeStep3 extends Component {
 		error: React.PropTypes.string,
 	};
 
-	previousStep(e) {
+	constructor(props) {
+		super(props);
+		this.state = { showErr: false, checked: false };
+	}
+
+	previousStep = e => {
 		e.preventDefault();
 		this.props.actions.upgradeFieldUpdate('activeStep', 1);
 	}
 
-	openAccount(e) {
+	openAccount = e => {
 		e.preventDefault();
 		this.setState({ showErr: true });
 		const { secretAnswer } = this.props;
@@ -33,19 +34,18 @@ export default class UpgradeStep3 extends Component {
 		}
 	}
 
-	secretAnsValid(ans) {
-		return ans.length >= 4;
-	}
+	secretAnswerValid = answer =>
+		answer.length >= 4;
 
-	secretQuestionChange(e) {
+	onSecretQuestionChange = e => {
 		this.props.actions.upgradeFieldUpdate('secretQuestion', e.target.value);
 	}
 
-	secretAnsChange(e) {
+	onSecretAnswerChange = e => {
 		this.props.actions.upgradeFieldUpdate('secretAnswer', e.target.value);
 	}
 
-	checkBoxClicked() {
+	checkBoxClicked = () => {
 		const isChecked = this.state.checked;
 		this.setState({ checked: !isChecked });
 	}
@@ -53,6 +53,7 @@ export default class UpgradeStep3 extends Component {
 	render() {
 		const { secretAnswer, secretQuestion, error } = this.props;
 		const { showErr, checked } = this.state;
+
 		return (
 			<div>
 				<p>
@@ -74,7 +75,7 @@ export default class UpgradeStep3 extends Component {
 					}
 				/>
 				<p>
-					<select name="secretquestion" onChange={::this.secretQuestionChange} value={secretQuestion}>
+					<select name="secretquestion" onChange={this.onSecretQuestionChange} value={secretQuestion}>
 						<option value="">Secret question</option>
 						<option value="Mother's maiden name">Mother's maiden name</option>
 						<option value="Name of your pet">Name of your pet</option>
@@ -91,7 +92,7 @@ export default class UpgradeStep3 extends Component {
 						placeholder="Answer to secret question"
 						type="text"
 						maxLength="50"
-						onChange={::this.secretAnsChange}
+						onChange={this.onSecretAnswerChange}
 					/>
 				</p>
 				<ErrorMsg
@@ -99,7 +100,7 @@ export default class UpgradeStep3 extends Component {
 					text="Please select a secret question"
 				/>
 				<ErrorMsg
-					shown={showErr && !this.secretAnsValid(secretAnswer)}
+					shown={showErr && !this.secretAnswerValid(secretAnswer)}
 					text="Secret answer must be at least 4 characters"
 				/>
 				<p>
@@ -108,7 +109,7 @@ export default class UpgradeStep3 extends Component {
 							name="tnc"
 							type="checkbox"
 							checked={this.state.checked}
-							onClick={::this.checkBoxClicked}
+							onClick={this.checkBoxClicked}
 						/>
 						<span>I have read and agree to the </span>
 						<a href="https://binary.com/terms-and-conditions" target="_blank">terms and conditions</a>
@@ -122,11 +123,11 @@ export default class UpgradeStep3 extends Component {
 				<p>
 					<Button
 						text="Back"
-						onClick={::this.previousStep}
+						onClick={this.previousStep}
 					/>
 					<Button
 						text="Open Account"
-						onClick={::this.openAccount}
+						onClick={this.openAccount}
 					/>
 				</p>
 			</div>

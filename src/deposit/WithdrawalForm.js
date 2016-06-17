@@ -9,27 +9,30 @@ import currencies from '../_constants/currencies';
 import * as LiveData from '../_data/LiveData';
 
 export default class WithdrawForm extends Component {
+
     static propTypes = {
         paymentAgent: PropTypes.object.isRequired,
         currency: PropTypes.oneOf(currencies).isRequired,
         actions: PropTypes.object,
         email: PropTypes.string,
     };
+
     async componentDidMount() {
         const { email } = this.props;
         await LiveData.api.sendVerificationEmail(email);
     }
-    onAmountChange(event) {
+
+    onAmountChange = event => {
         const { actions } = this.props;
         actions.updatePaymentAgentField('withdrawAmount', event.target.value);
     }
 
-    selectPaymentAgent(event) {
+    selectPaymentAgent = event => {
         const { actions } = this.props;
         actions.updatePaymentAgentField('selectedPaymentAgent', event.target.value);
     }
 
-    onVerificationCodeChange(event) {
+    onVerificationCodeChange = event => {
         const { actions } = this.props;
         actions.updatePaymentAgentField('verificationCode', event.target.value);
     }
@@ -41,7 +44,7 @@ export default class WithdrawForm extends Component {
         actions.withdrawToPaymentAgentDryRun(selectedPaymentAgent, currency, withdrawAmount, verificationCode);
     }
 
-    confirmWithdraw() {
+    confirmWithdraw = () => {
         const { currency, actions, paymentAgent } = this.props;
         const { selectedPaymentAgent, withdrawAmount, verificationCode } = paymentAgent;
         actions.updatePaymentAgentField('withdrawClicked', false);
@@ -87,7 +90,7 @@ export default class WithdrawForm extends Component {
                                 <M m="Are you sure you want to withdraw" />
                                 <span> {currency} {withdrawAmount} to {selectedPaymentAgentName}? </span>
                             </p>
-                            <Button text="Confirm" onClick={::this.confirmWithdraw} />
+                            <Button text="Confirm" onClick={this.confirmWithdraw} />
                         </div>
                     }
                     onClose={() => actions.updatePaymentAgentField('withdrawClicked', false)}
@@ -112,7 +115,7 @@ export default class WithdrawForm extends Component {
                     options={paymentAgentOptions}
                     placeholder="Choose a payment agent"
                     value={selectedPaymentAgent}
-                    onChange={::this.selectPaymentAgent}
+                    onChange={this.selectPaymentAgent}
                 />
                 <InputGroup
                     label={`Withdraw (${currency})`}
@@ -120,19 +123,19 @@ export default class WithdrawForm extends Component {
                     type="number"
                     min={0}
                     max={5000}
-                    onChange={::this.onAmountChange}
+                    onChange={this.onAmountChange}
                 />
                 <InputGroup
                     label="Verification Code(check your email)"
                     placeholder="Verification Code"
                     type="text"
-                    onChange={::this.onVerificationCodeChange}
+                    onChange={this.onVerificationCodeChange}
                 />
                 <ErrorMsg
                     shown={false}
                     text=""
                 />
-                <Button text="Withdraw" onClick={::this.tryWithdraw} />
+                <Button text="Withdraw" onClick={this.tryWithdraw} />
             </div>
         );
     }
