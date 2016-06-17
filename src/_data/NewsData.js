@@ -31,14 +31,14 @@ const xmlToNewsItem = xmlItem => ({
 });
 
 export const readNewsFeed = async (l) => {
-    let queryUrl = `${api}?media=${params[l].media}&prefix=${params[l].prefix}&campaign=1&mode=txt`;
-    let domParser = new DOMParser();
+    const queryUrl = `${api}?media=${params[l].media}&prefix=${params[l].prefix}&campaign=1&mode=txt`;
+    const domParser = new DOMParser();
     try {
-        let response = await fetch(queryUrl);
-        let xmlText = await response.text();
+        const response = await fetch(queryUrl);
+        const xmlText = await response.text();
 
-        let xml = domParser.parseFromString(xmlText, 'text/xml');
-        let allItemsList = xml.querySelectorAll('item');
+        const xml = domParser.parseFromString(xmlText, 'text/xml');
+        const allItemsList = xml.querySelectorAll('item');
 
         return Array.from(allItemsList).map(xmlToNewsItem);
     } catch (err) {
