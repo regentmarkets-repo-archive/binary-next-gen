@@ -20,19 +20,6 @@ const convertOpenContract = openContract => {
     return cloned;
 };
 
-const computeAsianBarrier = (contract, ticks) => {
-    const ticksWithinContractPeriod = ticks
-        .filter(t =>
-            t.epoch >= contract.entry_tick_time &&
-            (!contract.exit_tick_time || t.epoch <= contract.exit_tick_time)
-        );
-
-    const sum = ticksWithinContractPeriod.reduce((a, b) => a + b.quote, 0);
-    return sum / ticksWithinContractPeriod.length;
-};
-
-const asianTicksCache = {};
-
 export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_PROPOSAL_OPEN_CONTRACT: {
@@ -41,13 +28,6 @@ export default (state = initialState, action) => {
             }
 
             const openContract = convertOpenContract(action.serverResponse.proposal_open_contract);
-            if (openContract.contract_type.includes('ASIAN') && !openContract.barrier && openContract.entry_tick_time) {
-                const existingTicks = asianTicksCache[openContract.contract_id] || [];
-                existingTicks.push({ epoch: +(openContract.current_spot_time), quote: +(openContract.current_spot) });
-                asianTicksCache[openContract.contract_id] = existingTicks;
-                const avgBarrier = computeAsianBarrier(openContract, existingTicks);
-                openContract.barrier = avgBarrier;
-            }
 
             // remove this 2 keys as we do not need it
             delete openContract.current_spot;
