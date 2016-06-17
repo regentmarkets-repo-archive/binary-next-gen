@@ -11,7 +11,7 @@ export default class WatchlistTable extends Component {
 		selectedAsset: PropTypes.string.isRequired,
 	};
 
-	onSelect(newAsset) {
+	onSelect = newAsset => {
 		const { actions, activeTradeIdx } = this.props;
 
 		actions.changeSelectedAsset(newAsset);
@@ -31,7 +31,7 @@ export default class WatchlistTable extends Component {
 							key={x.symbol}
 							{...x}
 							selected={selectedAsset === x.symbol}
-							onSelect={::this.onSelect}
+							onSelect={this.onSelect}
 						/>
 					)}
 				</tbody>

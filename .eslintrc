@@ -17,10 +17,6 @@
     "space-after-keywords": [0, 'always'],
     "space-return-throw-case": 0,
 
-    "prefer-const": 0,
-
-    "react/jsx-no-bind": 0,
-
     "react/prefer-stateless-function": 0,
 
     "no-unused-expressions": 0,

@@ -4,7 +4,7 @@ import requestFullScreen from 'binary-utils/lib/requestFullscreen';
 import ClockContainer from './ClockContainer';
 // import LanguagePicker from './LanguagePicker';
 // import Perf from 'react-addons-perf';
-
+//
 // const performPerfTest = () => {
 // 	Perf.start();
 // 	setTimeout(() => {
@@ -15,8 +15,6 @@ import ClockContainer from './ClockContainer';
 // 		// Perf.printOperations(measurements);
 // 	}, 10000);
 // };
-
-// console.log(process.env !== 'production');
 
 export default class Footer extends Component {
 

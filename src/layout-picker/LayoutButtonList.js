@@ -1,9 +1,12 @@
 import React, { PropTypes, Component } from 'react';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 import styles from '../layouts/layouts.css';
 import LayoutButton from './LayoutButton';
 import { layoutNumbers } from './layouts';
 
 export default class LayoutButtonList extends Component {
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     static propTypes = {
         actions: PropTypes.object.isRequired,

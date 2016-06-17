@@ -1,8 +1,10 @@
 import React, { PropTypes, Component } from 'react';
-
+import shouldPureComponentUpdate from 'react-pure-render/function';
 import { Sparklines, SparklinesLine, SparklinesSpots } from 'react-sparklines';
 
 export default class WatchlistSparkline extends Component {
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	static propTypes = {
 		history: PropTypes.array,
