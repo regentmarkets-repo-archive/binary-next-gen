@@ -14,6 +14,7 @@ export const WatchlistRecord = new Record({
 	diff: 0,
 	quote: 0,
 	symbol: '',
+	isOpen: false,
 });
 
 const historyDiff = history =>
@@ -33,6 +34,7 @@ export const watchlistViewSelector = createSelector(
 
 			return new WatchlistRecord({
 				assetName: asset && asset.get('display_name'),
+				isOpen: asset && !!asset.get('exchange_is_open'),
 				history,
 				diff: historyDiff(history),
 				quote: historyQuote(history),
