@@ -37,7 +37,12 @@ export default (state = initialState, action) => {
 
             if (countDiff > 0) {
                 const additionalTradeParams = Repeat(fromJS(defaultParams), countDiff);   // eslint-disable-line new-cap
-                return state.concat(additionalTradeParams);
+                const updatedParams = additionalTradeParams.map((param, index) => {
+                    const newParam = param.set('amount', param.get('amount') - ((state.size + index) * 10));
+
+                    return newParam;
+                });
+                return state.concat(updatedParams);
             }
 
             if (countDiff < 0) {
