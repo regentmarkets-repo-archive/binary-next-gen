@@ -7,11 +7,6 @@ import Countries from 'binary-components/lib/Countries';
 
 export default class UpgradeStep2 extends Component {
 
-	constructor(props) {
-		super(props);
-		this.state = { showErr: false };
-	}
-
 	static propTypes = {
 		addressState: React.PropTypes.string.isRequired,
 		addressCity: React.PropTypes.string.isRequired,
@@ -22,6 +17,43 @@ export default class UpgradeStep2 extends Component {
 		actions: React.PropTypes.object.isRequired,
 		residence: React.PropTypes.string.isRequired,
 	};
+
+	constructor(props) {
+		super(props);
+		this.state = { showErr: false };
+	}
+
+	onCountryChange = e => {
+		this.props.actions.upgradeFieldUpdate('residence', e.target.value);
+	}
+
+	onStateChange = e => {
+		this.props.actions.upgradeFieldUpdate('addressState', e.target.value);
+	}
+
+	onCityChange = e => {
+		this.setState({ showErr: true });
+		this.props.actions.upgradeFieldUpdate('addressCity', e.target.value);
+	}
+
+	onPostcodeChange = e => {
+		this.props.actions.upgradeFieldUpdate('addressPostcode', e.target.value);
+	}
+
+	onAddress1Change = e => {
+		this.setState({ showErr: true });
+		this.props.actions.upgradeFieldUpdate('addressLine1', e.target.value);
+	}
+
+	onAddress2Change(e) {
+		this.setState({ showErr: true });
+		this.props.actions.upgradeFieldUpdate('addressLine2', e.target.value);
+	}
+
+	onPhoneChange(e) {
+		this.setState({ showErr: true });
+		this.props.actions.upgradeFieldUpdate('phone', e.target.value);
+	}
 
 	cityValid = city =>
 		city.length > 0;
@@ -55,38 +87,6 @@ export default class UpgradeStep2 extends Component {
 			residence) {
 			this.props.actions.upgradeFieldUpdate('activeStep', 2);
 		}
-	}
-
-	onCountryChange = e => {
-		this.props.actions.upgradeFieldUpdate('residence', e.target.value);
-	}
-
-	onStateChange = e => {
-		this.props.actions.upgradeFieldUpdate('addressState', e.target.value);
-	}
-
-	onCityChange = e => {
-		this.setState({ showErr: true });
-		this.props.actions.upgradeFieldUpdate('addressCity', e.target.value);
-	}
-
-	onPostcodeChange = e => {
-		this.props.actions.upgradeFieldUpdate('addressPostcode', e.target.value);
-	}
-
-	onAddress1Change = e => {
-		this.setState({ showErr: true });
-		this.props.actions.upgradeFieldUpdate('addressLine1', e.target.value);
-	}
-
-	onAddress2Change(e) {
-		this.setState({ showErr: true });
-		this.props.actions.upgradeFieldUpdate('addressLine2', e.target.value);
-	}
-
-	onPhoneChange(e) {
-		this.setState({ showErr: true });
-		this.props.actions.upgradeFieldUpdate('phone', e.target.value);
 	}
 
 	render() {

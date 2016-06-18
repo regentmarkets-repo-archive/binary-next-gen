@@ -7,8 +7,6 @@ import styles from '../layouts/layouts.css';
 
 export default class TradesLayouts extends Component {
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
     static propTypes = {
         actions: PropTypes.object.isRequired,
         contractChartData: PropTypes.object.isRequired,
@@ -34,6 +32,8 @@ export default class TradesLayouts extends Component {
         const { actions, layoutN, tradesCount } = this.props;
         actions.changeActiveLayout(tradesCount, layoutN);
     }
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     componentDidUpdate() {
         windowResizeEvent();

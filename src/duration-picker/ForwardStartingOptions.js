@@ -13,11 +13,6 @@ import Label from 'binary-components/lib/Label';
 
 export default class ForwardStartingOptions extends Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {};
-    }
-
     static propTypes = {
         dateStart: PropTypes.number,
         forwardStartingDuration: PropTypes.object,       // treated as special case
@@ -26,17 +21,9 @@ export default class ForwardStartingOptions extends Component {
         onStartDateChange: PropTypes.func,
     };
 
-    startNow = () => {
-        const { onStartDateChange } = this.props;
-        onStartDateChange();
-    }
-
-    startLater = () => {
-        const { dateStart, onStartDateChange, forwardStartingDuration } = this.props;
-        if (!dateStart) {
-            const nextDayOpening = createDefaultStartLaterEpoch(forwardStartingDuration);
-            onStartDateChange(nextDayOpening);
-        }
+    constructor(props) {
+        super(props);
+        this.state = {};
     }
 
     onDayChange = e => {
@@ -64,6 +51,19 @@ export default class ForwardStartingOptions extends Component {
         const dayEpoch = dateStart - intraDayEpoch;
         const selectedEpoch = dayEpoch + timeStringToSeconds(inputValue);
         this.props.onStartDateChange(selectedEpoch);
+    }
+
+    startNow = () => {
+        const { onStartDateChange } = this.props;
+        onStartDateChange();
+    }
+
+    startLater = () => {
+        const { dateStart, onStartDateChange, forwardStartingDuration } = this.props;
+        if (!dateStart) {
+            const nextDayOpening = createDefaultStartLaterEpoch(forwardStartingDuration);
+            onStartDateChange(nextDayOpening);
+        }
     }
 
     render() {

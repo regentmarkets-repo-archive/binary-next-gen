@@ -18,6 +18,14 @@ export default class UpgradeStep3 extends Component {
 		this.state = { showErr: false, checked: false };
 	}
 
+	onSecretQuestionChange = e => {
+		this.props.actions.upgradeFieldUpdate('secretQuestion', e.target.value);
+	}
+
+	onSecretAnswerChange = e => {
+		this.props.actions.upgradeFieldUpdate('secretAnswer', e.target.value);
+	}
+
 	previousStep = e => {
 		e.preventDefault();
 		this.props.actions.upgradeFieldUpdate('activeStep', 1);
@@ -37,18 +45,12 @@ export default class UpgradeStep3 extends Component {
 	secretAnswerValid = answer =>
 		answer.length >= 4;
 
-	onSecretQuestionChange = e => {
-		this.props.actions.upgradeFieldUpdate('secretQuestion', e.target.value);
-	}
-
-	onSecretAnswerChange = e => {
-		this.props.actions.upgradeFieldUpdate('secretAnswer', e.target.value);
-	}
-
 	checkBoxClicked = () => {
 		const isChecked = this.state.checked;
 		this.setState({ checked: !isChecked });
 	}
+
+	closeErrorModal = () => this.props.actions.upgradeFieldUpdate('error', null);
 
 	render() {
 		const { secretAnswer, secretQuestion, error } = this.props;
@@ -66,7 +68,7 @@ export default class UpgradeStep3 extends Component {
 				</p>
 				<Modal
 					shown={!!error}
-					onClose={() => this.props.actions.upgradeFieldUpdate('error', null)}
+					onClose={this.closeErrorModal}
 					children={
 						<div>
 							<h3>Upgrade Failed</h3>

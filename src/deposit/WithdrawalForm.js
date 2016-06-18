@@ -27,14 +27,14 @@ export default class WithdrawForm extends Component {
         actions.updatePaymentAgentField('withdrawAmount', event.target.value);
     }
 
-    selectPaymentAgent = event => {
-        const { actions } = this.props;
-        actions.updatePaymentAgentField('selectedPaymentAgent', event.target.value);
-    }
-
     onVerificationCodeChange = event => {
         const { actions } = this.props;
         actions.updatePaymentAgentField('verificationCode', event.target.value);
+    }
+
+    selectPaymentAgent = event => {
+        const { actions } = this.props;
+        actions.updatePaymentAgentField('selectedPaymentAgent', event.target.value);
     }
 
     withdraw = () => {

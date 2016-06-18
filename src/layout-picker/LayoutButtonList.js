@@ -6,13 +6,13 @@ import { layoutNumbers } from './layouts';
 
 export default class LayoutButtonList extends Component {
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
     static propTypes = {
         actions: PropTypes.object.isRequired,
         tradesCount: PropTypes.number.isRequired,
         layoutN: PropTypes.number.isRequired,
     };
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
         const { actions, tradesCount, layoutN } = this.props;

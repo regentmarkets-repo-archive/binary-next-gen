@@ -4,8 +4,6 @@ import Button from 'binary-components/lib/Button';
 
 export default class BuyButton extends Component {
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
     static propTypes = {
         id: PropTypes.string,
         currency: PropTypes.string,
@@ -14,6 +12,8 @@ export default class BuyButton extends Component {
         disabled: PropTypes.bool,
         onClick: PropTypes.func,
     };
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
         const { id, askPrice, disabled, longcode, onClick } = this.props;

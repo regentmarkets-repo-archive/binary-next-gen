@@ -28,12 +28,12 @@ const components = [
 
 export default class WorkspaceRightPanel extends Component {
 
-	shouldComponentUpdate = shouldPureComponentUpdate;
-
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
 		workspace: PropTypes.object.isRequired,
 	};
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		const { actions, workspace } = this.props;

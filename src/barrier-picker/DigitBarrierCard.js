@@ -5,8 +5,6 @@ import RadioGroup from '../trade/workaround/CustomRadioGroup';
 
 export default class DigitBarrierCard extends Component {
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
     static propTypes = {
         barrier: PropTypes.oneOfType([
             PropTypes.string,
@@ -16,6 +14,8 @@ export default class DigitBarrierCard extends Component {
         index: PropTypes.number,
         onBarrierChange: PropTypes.func,
     };
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
         const { barrier, barrierInfo, index, onBarrierChange } = this.props;

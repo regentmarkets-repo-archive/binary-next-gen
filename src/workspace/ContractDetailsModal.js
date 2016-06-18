@@ -8,12 +8,12 @@ import ContractDetailsModalSelector from './ContractDetailsModalSelector';
 @connect(ContractDetailsModalSelector)
 export default class ContractDetailsModal extends Component {
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
     static propTypes = {
         actions: PropTypes.object.isRequired,
         contractShown: PropTypes.string,
     };
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     hideDetails = () => {
         const { actions } = this.props;

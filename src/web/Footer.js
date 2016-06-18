@@ -6,11 +6,11 @@ import ClockContainer from './ClockContainer';
 
 export default class Footer extends Component {
 
-	shouldComponentUpdate = shouldPureComponentUpdate;
-
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
 	};
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	fullScreen = () => requestFullScreen(document.getElementById('root'));
 

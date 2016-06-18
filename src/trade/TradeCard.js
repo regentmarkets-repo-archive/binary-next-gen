@@ -55,19 +55,6 @@ const chartToDataType = {
 };
 
 export default class TradeCard extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            events: [
-                {
-                    type: 'zoom-to-latest',
-                    handler: zoomToLatest,
-                },
-            ],
-            chartType: 'area',
-            dataType: 'ticks',
-        };
-    }
 
     static defaultProps = {
         type: 'full',
@@ -96,8 +83,25 @@ export default class TradeCard extends Component {
         tradeErrors: PropTypes.object.isRequired,
     };
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            events: [{
+                type: 'zoom-to-latest',
+                handler: zoomToLatest,
+            }],
+            chartType: 'area',
+            dataType: 'ticks',
+        };
+    }
+
     shouldComponentUpdate(nextProps) {
         return JSON.stringify(this.props) !== JSON.stringify(nextProps);
+    }
+
+    onCloseModal = () => {
+        const { actions, index } = this.props;
+        actions.updateTradeError(index, 'purchaseError', undefined);
     }
 
     zoomWhenPurchase = () => {
@@ -119,11 +123,6 @@ export default class TradeCard extends Component {
         this.setState({ chartType: type, dataType: newDataType });
         const dataResult = actions.getDataForSymbol(params.symbol, 1, 'hour', newDataType, true);
         return dataResult;
-    }
-
-    onCloseModal = () => {
-        const { actions, index } = this.props;
-        actions.updateTradeError(index, 'purchaseError', undefined);
     }
 
     tradeAgain = () => {

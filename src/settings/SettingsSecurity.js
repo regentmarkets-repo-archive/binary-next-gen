@@ -21,6 +21,21 @@ export default class SettingsSecurity extends Component {
         };
     }
 
+	onUpdate = () => {
+        const { settings } = this.props;
+        const { password1, password2 } = this.state;
+
+        if (!!(settings.cashier_password)) {
+            this.sendRequest({
+                unlock_password: password1,
+            });
+        } else if (isValidPassword(password1, password2)) {
+            this.sendRequest({
+                lock_password: password1,
+            });
+        }
+    }
+
     clearState() {
         this.setState({
             password1: '',
@@ -36,23 +51,6 @@ export default class SettingsSecurity extends Component {
         }
 
         this.clearState();
-    }
-
-	onUpdate = () => {
-        const { settings } = this.props;
-        const { password1, password2 } = this.state;
-
-        if (!!(settings.cashier_password)) {
-            this.sendRequest({
-                unlock_password: password1,
-            });
-        } else {
-            isValidPassword(password1, password2) ?
-                this.sendRequest({
-                    lock_password: password1,
-                }) :
-                null;   // Handle the error messages here console.log('The passwords do not match or lessthan 7');
-        }
     }
 
 	render() {

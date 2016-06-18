@@ -4,8 +4,6 @@ import { Sparklines, SparklinesLine, SparklinesSpots } from 'react-sparklines';
 
 export default class WatchlistSparkline extends Component {
 
-	shouldComponentUpdate = shouldPureComponentUpdate;
-
 	static propTypes = {
 		history: PropTypes.array,
 	};
@@ -13,6 +11,8 @@ export default class WatchlistSparkline extends Component {
 	static defaultProps = {
 		history: [],
 	};
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		const { history } = this.props;

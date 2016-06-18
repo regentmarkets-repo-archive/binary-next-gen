@@ -19,17 +19,17 @@ const components = [
 
 export default class SettingsCard extends Component {
 
-	constructor(props) {
-		super(props);
-		this.state = { activeTab: 0 };
-	}
-
     static propTypes = {
 		actions: PropTypes.object.isRequired,
         settings: PropTypes.object.isRequired,
 		loginid: PropTypes.string.isRequired,
 		boot: PropTypes.object.isRequired,
     };
+
+	constructor(props) {
+		super(props);
+		this.state = { activeTab: 0 };
+	}
 
 	render() {
 		const { loginid } = this.props;

@@ -8,8 +8,6 @@ import ContractDetailsCard from './ContractDetailsCard';
 @connect(contractDetailsSelectors)
 export default class ContractDetailsContainer extends Component {
 
-	shouldComponentUpdate = shouldPureComponentUpdate;
-
 	static defaultProps = {
 		chartData: {},
 	};
@@ -31,6 +29,8 @@ export default class ContractDetailsContainer extends Component {
 			actions.getDataForContract(contract.get('contract_id'), 1, 'all', 'ticks');
 		}
 	}
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		return (

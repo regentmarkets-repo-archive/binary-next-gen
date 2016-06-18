@@ -8,6 +8,11 @@ export default class MobileToolbarBack extends Component {
 		backBtnBarTitle: PropTypes.string,
 	};
 
+	onClickBack = e => {
+		e.preventDefault();
+		history.back();
+	};
+
 	render() {
 		const { backBtnBarTitle } = this.props;
 
@@ -17,10 +22,7 @@ export default class MobileToolbarBack extends Component {
 					to={'/'}
 					activeClassName="active"
 					className="mobile-back-btn"
-					onClick={e => {
-						e.preventDefault();
-						history.back();
-					}}
+					onClick={this.onClickBack}
 				>
 					<img className="back-btn" src="/img/arrow-back.svg" alt="Back" />
 					<M m={backBtnBarTitle} />

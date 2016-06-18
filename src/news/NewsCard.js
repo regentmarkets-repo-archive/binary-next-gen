@@ -5,6 +5,15 @@ import { Link } from 'react-router';
 import M from 'binary-components/lib/M';
 
 export default class NewsCard extends Component {
+
+    static propTypes = {
+        articles: PropTypes.array.isRequired,
+    };
+
+    static contextTypes = {
+        router: React.PropTypes.object.isRequired,
+    };
+
     constructor(props) {
         super(props);
         this.state = {
@@ -12,12 +21,10 @@ export default class NewsCard extends Component {
             params: { index: 0 },
         };
     }
-    static propTypes = {
-        articles: PropTypes.array.isRequired,
-    };
 
-    static contextTypes = {
-        router: React.PropTypes.object.isRequired,
+    onClickBack = e => {
+        e.preventDefault();
+        this.setState({ showArticle: false, params: { index: 0 } });
     };
 
     render() {
@@ -31,10 +38,7 @@ export default class NewsCard extends Component {
                         to={'/'}
                         activeClassName="active"
                         className="mobile-back-btn"
-                        onClick={e => {
-                            e.preventDefault();
-                            this.setState({ showArticle: false, params: { index: 0 } });
-                        }}
+                        onClick={this.onClickBack}
                     >
                         <img className="back-btn" src="/img/arrow-back.svg" alt="Back" />
                         <M m="Back" />

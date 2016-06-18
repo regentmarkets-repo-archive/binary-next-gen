@@ -22,19 +22,6 @@ export default class SettingsChangePassword extends React.Component {
         };
     }
 
-    async sendRequest(req) {
-        try {
-            const response = await LiveData.api.changePassword(req);
-            if ('error' in response) {
-               this.setState({ passwordNotValid: true });
-            } else {
-                this.setState({ successMessage: 'Password changed successfully.' });
-            }
-        } catch (e) {
-            this.setState({ errorMessage: e.message });
-        }
-    }
-
     onChangePassword = () => {
         this.setState({
             validatedOnce: true,
@@ -51,6 +38,19 @@ export default class SettingsChangePassword extends React.Component {
             });
         } else {
             this.setState({ passwordsDontMatch: true });
+        }
+    }
+
+    async sendRequest(req) {
+        try {
+            const response = await LiveData.api.changePassword(req);
+            if ('error' in response) {
+               this.setState({ passwordNotValid: true });
+            } else {
+                this.setState({ successMessage: 'Password changed successfully.' });
+            }
+        } catch (e) {
+            this.setState({ errorMessage: e.message });
         }
     }
 

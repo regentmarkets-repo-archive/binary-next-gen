@@ -7,8 +7,6 @@ import AssetPickerContainer from './AssetPickerContainer';
 
 export default class AssetPickerDropDown extends Component {
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
     static propTypes = {
         actions: PropTypes.object.isRequired,
         compact: PropTypes.bool,
@@ -28,6 +26,14 @@ export default class AssetPickerDropDown extends Component {
         };
     }
 
+    shouldComponentUpdate = shouldPureComponentUpdate;
+
+    onClose = () => {
+        const { actions } = this.props;
+        actions.resetAssetPickerFilter();
+        this.setState({ dropdownShown: false });
+    }
+
     openAssetPicker = () => {
         const { compact } = this.props;
         const { router } = this.context;
@@ -36,12 +42,6 @@ export default class AssetPickerDropDown extends Component {
         } else {
             router.push('asset-picker');
         }
-    }
-
-    onClose = () => {
-        const { actions } = this.props;
-        actions.resetAssetPickerFilter();
-        this.setState({ dropdownShown: false });
     }
 
     render() {

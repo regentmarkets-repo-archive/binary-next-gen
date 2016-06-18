@@ -23,8 +23,6 @@ const getInternalTradeType = tradeParams => {
 
 export default class TradeTypeDropDown extends Component {
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
     static propTypes = {
         compact: PropTypes.bool,
         tradeParams: PropTypes.object.isRequired,
@@ -40,6 +38,8 @@ export default class TradeTypeDropDown extends Component {
             dropdownShown: false,
         };
     }
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     openTradeTypePicker = () => {
         const { compact } = this.props;

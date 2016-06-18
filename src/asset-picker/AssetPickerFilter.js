@@ -11,6 +11,14 @@ export default class AssetPickerFilter extends Component {
 		filter: PropTypes.object.isRequired,
 	};
 
+	componentDidMount() {
+		const { compact } = this.props;
+		const assetSearchNode = findDOMNode(this.refs.assetSearch);
+		if (!compact) {
+			setTimeout(() => assetSearchNode.firstChild.focus(), 300);
+		}
+	}
+
 	onSearchQueryChange = e => {
 		const { actions } = this.props;
 		actions.updateAssetPickerSearchQuery(e.target.value);
@@ -20,14 +28,6 @@ export default class AssetPickerFilter extends Component {
 		const { actions } = this.props;
 		actions.updateAssetPickerFilter(e);
 	}
-
-    componentDidMount() {
-		const { compact } = this.props;
-		const assetSearchNode = findDOMNode(this.refs.assetSearch);
-		if (!compact) {
-			setTimeout(() => assetSearchNode.firstChild.focus(), 300);
-		}
-    }
 
 	render() {
 		const { filter } = this.props;

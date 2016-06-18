@@ -9,11 +9,16 @@ export default class PortfolioItem extends Component {
         onViewDetails: PropTypes.func.isRequired,
     };
 
-    render() {
+    onViewDetailsClicked = () => {
         const { contract, onViewDetails } = this.props;
+        onViewDetails(contract);
+    }
+
+    render() {
+        const { contract } = this.props;
 
         return (
-            <tr className="portfolio-row" onClick={() => onViewDetails(contract)}>
+            <tr className="portfolio-row" onClick={this.onViewDetailsClicked}>
                 <td>{contract.transaction_ids && contract.transaction_ids.buy}</td>
                 <td>
                     <NumberPlain

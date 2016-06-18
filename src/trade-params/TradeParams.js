@@ -47,8 +47,6 @@ import * as updateHelpers from './TradeParamsCascadingUpdates';
 
 export default class TradeParams extends Component {
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
     static defaultProps = {
         type: 'full',
     };
@@ -82,6 +80,8 @@ export default class TradeParams extends Component {
         this.onAssetChange();
     }
 
+    shouldComponentUpdate = shouldPureComponentUpdate;
+
     /**
      * componentDidUpdate is used instead of componentWillReceiveProps because the onAssetChange depends on updated
      * props, which only accessible after component update
@@ -109,26 +109,6 @@ export default class TradeParams extends Component {
         if (proposal) {
             LiveData.api.unsubscribeByID(proposal.id);
         }
-    }
-
-    dynamicKeyIncrement = () => {
-        const { dynamicKey } = this.state;
-        this.setState({ dynamicKey: dynamicKey + 1 });
-    }
-
-    updateTradeParams = params => {
-        const { actions, index } = this.props;
-        actions.updateMultipleTradeParams(index, params);
-        actions.updatePriceProposalSubscription(index);
-    }
-
-    // TODO: create an action that update all at once
-    clearTradeError = () => {
-        const { actions, index } = this.props;
-        actions.updateTradeError(index, 'barrierError', undefined);
-        actions.updateTradeError(index, 'durationError', undefined);
-        actions.updateTradeError(index, 'proposalError', undefined);
-        actions.updateTradeError(index, 'purchaseError', undefined);
     }
 
     onAssetChange = () => {
@@ -214,6 +194,26 @@ export default class TradeParams extends Component {
     onPurchase = () => {
         const { actions, index, onPurchaseHook } = this.props;
         actions.purchaseByTradeId(index).then(onPurchaseHook);
+    }
+
+    dynamicKeyIncrement = () => {
+        const { dynamicKey } = this.state;
+        this.setState({ dynamicKey: dynamicKey + 1 });
+    }
+
+    updateTradeParams = params => {
+        const { actions, index } = this.props;
+        actions.updateMultipleTradeParams(index, params);
+        actions.updatePriceProposalSubscription(index);
+    }
+
+    // TODO: create an action that update all at once
+    clearTradeError = () => {
+        const { actions, index } = this.props;
+        actions.updateTradeError(index, 'barrierError', undefined);
+        actions.updateTradeError(index, 'durationError', undefined);
+        actions.updateTradeError(index, 'proposalError', undefined);
+        actions.updateTradeError(index, 'purchaseError', undefined);
     }
 
     render() {

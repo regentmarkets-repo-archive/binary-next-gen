@@ -8,8 +8,6 @@ import { assetPickerMobileSelector } from './AssetPickerSelectors';
 @connect(assetPickerMobileSelector)
 export default class AssetPickerMobile extends React.Component {
 
-	shouldComponentUpdate = shouldPureComponentUpdate;
-
 	static contextTypes = {
 		router: React.PropTypes.object,
 		actions: PropTypes.object,
@@ -23,6 +21,8 @@ export default class AssetPickerMobile extends React.Component {
 		const { actions } = this.props;
 		actions.resetAssetPickerFilter();
 	}
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	onClose = () => {
 		const { router } = this.context;

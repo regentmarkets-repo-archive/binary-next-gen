@@ -28,15 +28,6 @@ export default class SettingsAddress extends Component {
 		};
 	}
 
-	static handleUpdateError() {
-		// if (response.code === 'InputValidationFailed') {
-		// 	const errorDetails = Object.keys(response.details)
-		// 		.filter(key => response.details[key])
-		// 		.map(key => `${key} ${response.details[key]}`)
-		// 		.join('\n');
-		// }
-	}
-
 	onAddressChange = event => {
 		const { id, value } = event.target;
 

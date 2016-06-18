@@ -6,8 +6,6 @@ import Star from 'binary-components/lib/Star';
 
 export default class AssetPickerItem extends Component {
 
-	shouldComponentUpdate = shouldPureComponentUpdate;
-
 	static propTypes = {
 		asset: PropTypes.object,
 		selected: PropTypes.bool,
@@ -20,6 +18,8 @@ export default class AssetPickerItem extends Component {
 		asset: {},
 		selected: false,
 	};
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		const { asset, selected, onClose, onSelect, onToggleWatchlistItem } = this.props;

@@ -5,10 +5,6 @@ import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import DateOfBirth from 'binary-components/lib/DateOfBirth';
 
 export default class UpgradeStep1 extends Component {
-	constructor(props) {
-		super(props);
-		this.state = { showErr: false };
-	}
 
 	static propTypes = {
 		actions: React.PropTypes.object.isRequired,
@@ -16,6 +12,11 @@ export default class UpgradeStep1 extends Component {
 		lastName: React.PropTypes.string.isRequired,
 		dateOfBirth: React.PropTypes.instanceOf(Date).isRequired,
 	};
+
+	constructor(props) {
+		super(props);
+		this.state = { showErr: false };
+	}
 
 	onSalutationChange = e => {
 		this.props.actions.upgradeFieldUpdate('salutation', e.target.value);

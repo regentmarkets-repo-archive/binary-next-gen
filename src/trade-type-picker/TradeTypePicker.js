@@ -38,11 +38,6 @@ export default class TradeTypePicker extends Component {
         this.setState({ tradeGroup: groupId });
     }
 
-    changeGroup = id => {
-        this.onGroupChange(id);
-        this.setState({ tradeGroup: id });
-    }
-
     onGroupChange(group) {
         const { contract, tradeParams, updateParams } = this.props;
         const selectedCategory = tradeParams.tradeCategory;
@@ -55,6 +50,11 @@ export default class TradeTypePicker extends Component {
             const updatedCategory = changeCategory(groupCategories[0].value, contract, tradeParams);
             updateParams(updatedCategory);
         }
+    }
+
+    changeGroup = id => {
+        this.onGroupChange(id);
+        this.setState({ tradeGroup: id });
     }
 
     changeType(type) {

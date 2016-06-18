@@ -5,8 +5,6 @@ import NumericInput from 'binary-components/lib/NumericInput';
 
 export default class BarrierCard extends Component {
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
     static propTypes = {
         barrier: PropTypes.oneOfType([
             PropTypes.string,
@@ -25,6 +23,8 @@ export default class BarrierCard extends Component {
         pipSize: PropTypes.number,
         spot: PropTypes.number,
     };
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     validateBarrier = barrier => {
         const { pipSize } = this.props;

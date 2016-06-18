@@ -4,12 +4,12 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 
 export default class MobileToolbarBtn extends Component {
 
-	shouldComponentUpdate = shouldPureComponentUpdate;
-
 	static propTypes = {
 		to: PropTypes.string.isRequired,
 		img: PropTypes.string.isRequired,
 	};
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		const { to, img } = this.props;
