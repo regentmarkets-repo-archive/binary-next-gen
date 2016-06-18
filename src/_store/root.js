@@ -19,6 +19,8 @@ addLocaleData({
     parentLocale: 'en',
 });
 
+const emptyObject = {};
+
 export default class Root extends Component {
 
     async componentWillMount() {
@@ -39,8 +41,12 @@ export default class Root extends Component {
         }
     }
 
-    createElementWithActions = (Element, props) =>
-        <Element {...props} actions={this.actions} />
+    createElementWithActions = (Element, props) => {
+        if (!Object.keys(props.routeParams).length) {
+            props.routeParams = emptyObject;
+        }
+        return <Element {...props} actions={this.actions} />;
+    }
 
     render() {
         return (
