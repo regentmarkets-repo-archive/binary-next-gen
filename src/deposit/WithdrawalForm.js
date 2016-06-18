@@ -37,6 +37,16 @@ export default class WithdrawForm extends Component {
         actions.updatePaymentAgentField('verificationCode', event.target.value);
     }
 
+    withdraw = () => {
+        const { actions } = this.props;
+        actions.updatePaymentAgentField('withdrawClicked', false);
+    }
+
+    confirm = () => {
+        const { actions } = this.props;
+        actions.updatePaymentAgentField('confirmClicked', false);
+    }
+
     tryWithdraw() {
         const { currency, paymentAgent, actions } = this.props;
         const { selectedPaymentAgent, withdrawAmount, verificationCode } = paymentAgent;
@@ -54,7 +64,6 @@ export default class WithdrawForm extends Component {
 
     render() {
         const {
-            actions,
             currency,
             paymentAgent,
         } = this.props;
@@ -93,11 +102,11 @@ export default class WithdrawForm extends Component {
                             <Button text="Confirm" onClick={this.confirmWithdraw} />
                         </div>
                     }
-                    onClose={() => actions.updatePaymentAgentField('withdrawClicked', false)}
+                    onClose={this.withdraw}
                 />
                 <Modal
                     shown={!inProgress && confirmClicked}
-                    onClose={() => actions.updatePaymentAgentField('confirmClicked', false)}
+                    onClose={this.confirm}
                     children={
                         withdrawFailed ?
                         <div>

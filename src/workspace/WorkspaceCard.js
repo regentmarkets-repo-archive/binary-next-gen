@@ -13,6 +13,16 @@ export default class WorkspaceCard extends Component {
 		workspace: PropTypes.object.isRequired,
 	};
 
+	onResize = e => {
+		const { actions } = this.props;
+		actions.changeWorkspacePanelSize('right', window.innerWidth - e.clientX - 92);
+	}
+
+	onTabChange = idx => {
+		const { actions } = this.props;
+		actions.changeActiveWorkspaceTab('right', idx);
+	}
+
 	render() {
 		const { actions, workspace } = this.props;
 
@@ -25,7 +35,7 @@ export default class WorkspaceCard extends Component {
 				/>
 				<Resizer
 					className="resizer-vertical"
-					onResize={e => actions.changeWorkspacePanelSize('right', window.innerWidth - e.clientX - 48)}
+					onResize={this.onResize}
 				/>
 				{workspace.rightPanelVisible &&
 					<WorkspaceRightPanel actions={actions} workspace={workspace} />}
@@ -35,7 +45,7 @@ export default class WorkspaceCard extends Component {
 					vertical
 					activeIndex={workspace.rightActiveTab}
 					showText
-					onChange={idx => actions.changeActiveWorkspaceTab('right', idx)}
+					onChange={this.onTabChange}
 				>
 					<Tab imgSrc="img/watchlist.svg" text="Watchlist" />
 					<Tab imgSrc="img/portfolio.svg" text="Portfolio" />
