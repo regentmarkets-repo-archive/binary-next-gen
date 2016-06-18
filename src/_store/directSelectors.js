@@ -28,7 +28,9 @@ export const loginidSelector = state =>
 export const balanceSelector = state =>
     state.account.get('balance');
 
-export const serverTimeDiffSelector = state => state.server.get('timeDiff');
+export const serverTimeDiffSelector = state =>
+    state.server.get('timeDiff');
+
 export const currencySelector = state =>
     state.account.get('currency');
 

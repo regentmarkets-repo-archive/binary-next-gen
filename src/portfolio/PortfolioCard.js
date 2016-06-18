@@ -5,7 +5,6 @@ export default class PortfolioCard extends Component {
 
 	static propTypes = {
 		compact: PropTypes.bool,
-		portfolio: PropTypes.object,
 		contracts: PropTypes.object,
 		proposals: PropTypes.object,
 		purchaseTotal: PropTypes.number,

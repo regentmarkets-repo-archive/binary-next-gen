@@ -1,4 +1,4 @@
-import { boughtContractsSelector, portfolioSelector, ticksSelector } from '../_store/directSelectors';
+import { boughtContractsSelector } from '../_store/directSelectors';
 import { createSelector, createStructuredSelector } from 'reselect';
 
 const activeOpenContractSelector = createSelector(
@@ -32,9 +32,7 @@ export const purchaseTotalSelector = createSelector(
 );
 
 export default createStructuredSelector({
-    ticks: ticksSelector,
     contracts: activeOpenContractSelector,
-    portfolio: portfolioSelector,
     purchaseTotal: purchaseTotalSelector,
     indicativeTotal: indicativeTotalSelector,
 });
