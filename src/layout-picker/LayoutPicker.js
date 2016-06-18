@@ -18,6 +18,10 @@ export default class LayoutPicker extends Component {
         };
     }
 
+    open = () => this.setState({ dropdownShown: true });
+
+    close = () => this.setState({ dropdownShown: false });
+
     render() {
         const { actions, tradesCount, layoutN } = this.props;
         const { dropdownShown } = this.state;
@@ -27,11 +31,11 @@ export default class LayoutPicker extends Component {
                 <LayoutButton
                     tradesCount={tradesCount}
                     layoutN={layoutN}
-                    onClick={() => this.setState({ dropdownShown: true })}
+                    onClick={this.open}
                 />
                 <DropDown
                     shown={dropdownShown}
-                    onClose={() => this.setState({ dropdownShown: false })}
+                    onClose={this.close}
                 >
                     <LayoutButtonPanel
                         tradesCount={tradesCount}

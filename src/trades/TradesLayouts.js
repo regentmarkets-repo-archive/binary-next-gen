@@ -6,6 +6,7 @@ import * as layouts from '../layouts';
 import styles from '../layouts/layouts.css';
 
 export default class TradesLayouts extends Component {
+
     shouldComponentUpdate = shouldPureComponentUpdate;
 
     static propTypes = {

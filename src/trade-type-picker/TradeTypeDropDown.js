@@ -51,6 +51,8 @@ export default class TradeTypeDropDown extends Component {
         }
     }
 
+    close = () => this.setState({ dropdownShown: false });
+
     render() {
         const { tradeParams } = this.props;
         const selectedType = getInternalTradeType(tradeParams);
@@ -59,11 +61,11 @@ export default class TradeTypeDropDown extends Component {
             <div className="param-row">
                 <DropDown
                     shown={dropdownShown}
-                    onClose={() => this.setState({ dropdownShown: false })}
+                    onClose={this.close}
                 >
                     <TradeTypePicker
                         {...this.props}
-                        onSelect={() => this.setState({ dropdownShown: false })}
+                        onSelect={this.close}
                     />
                 </DropDown>
                 <Label text="Trade Type" />

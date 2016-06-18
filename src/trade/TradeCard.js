@@ -121,6 +121,16 @@ export default class TradeCard extends Component {
         return dataResult;
     }
 
+    onCloseModal = () => {
+        const { actions, index } = this.props;
+        actions.updateTradeError(index, 'purchaseError', undefined);
+    }
+
+    tradeAgain = () => {
+        const { actions, index } = this.props;
+        actions.closeContractReceipt(index);
+    }
+
     render() {
         const {
             actions,
@@ -174,7 +184,7 @@ export default class TradeCard extends Component {
             <div disabled={disabled} className="trade-panel">
                 <Modal
                     shown={!!tradeErrors.purchaseError}
-                    onClose={() => actions.updateTradeError(index, 'purchaseError', undefined)}
+                    onClose={this.onCloseModal}
                 >
                     <PurchaseFailed failure={tradeErrors.purchaseError} />
                 </Modal>
@@ -202,7 +212,7 @@ export default class TradeCard extends Component {
                         actions={actions}
                         contract={lastBoughtContract}
                         showLongcode
-                        onTradeAgainClicked={() => actions.closeContractReceipt(index)}
+                        onTradeAgainClicked={this.tradeAgain}
                     /> :
                     <TradeParams
                         {...proposalInfo}

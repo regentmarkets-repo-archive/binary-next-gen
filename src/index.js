@@ -5,7 +5,7 @@ import Root from './_store/root';
 import Perf from 'react-addons-perf';
 
 // import { whyDidYouUpdate } from 'why-did-you-update';
-// whyDidYouUpdate(React, { include: /^WatchlistRow/, exclude: /^WatchlistTable/ });
+// whyDidYouUpdate(React, { exclude: /^Connect/ });
 
 window.performPerfTest = () => {
 	Perf.start();

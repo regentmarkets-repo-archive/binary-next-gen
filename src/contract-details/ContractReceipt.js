@@ -14,8 +14,13 @@ export default class ContractReceipt extends Component {
 		showLongcode: PropTypes.bool,
 	};
 
+	sellAtMarket = () => {
+		const { actions, contract } = this.props;
+		actions.sellContract(contract.contract_id, 0);
+	}
+
 	render() {
-		const { contract, showLongcode, actions, onTradeAgainClicked } = this.props;
+		const { contract, showLongcode, onTradeAgainClicked } = this.props;
 
 		return (
 			<div className="contract-receipt">
@@ -23,7 +28,7 @@ export default class ContractReceipt extends Component {
 				<ContractDetailsList contract={contract} />
 				<SellAtMarketButton
 					contract={contract}
-					onClick={() => actions.sellContract(contract.contract_id, 0)}
+					onClick={this.sellAtMarket}
 				/>
 				<ContractValidationError contract={contract} />
 				<ContractWinLose contract={contract} />
