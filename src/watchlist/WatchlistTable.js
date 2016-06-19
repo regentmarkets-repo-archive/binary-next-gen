@@ -23,15 +23,16 @@ export default class WatchlistTable extends Component {
 	}
 
 	render() {
-		const { watchlistView } = this.props;
+		const { actions, watchlistView } = this.props;
 
 		return (
-			<table>
+			<table className="watchlist-table">
 				<WatchlistTableHeader />
 				<tbody>
 					{watchlistView.map(x =>
 						<WatchlistRow
 							key={x.get('symbol')}
+							actions={actions}
 							item={x}
 							onSelect={this.onSelect}
 						/>

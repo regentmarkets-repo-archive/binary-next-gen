@@ -433,3 +433,15 @@ nav.sidebar {
     background: $COLOR_BRAND_ORANGE;
     padding: 0.5rem;
 }
+
+.watchlist-table tr:not(:hover) .close-btn {
+    visibility: hidden;
+}
+
+.close-btn svg {
+    vertical-align: middle;
+}
+
+.watchlist-remove-cell {
+    padding: 0 .5rem 0 0;
+}
