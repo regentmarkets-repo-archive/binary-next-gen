@@ -5,24 +5,20 @@ import { Sparklines, SparklinesLine, SparklinesSpots } from 'react-sparklines';
 export default class WatchlistSparkline extends Component {
 
 	static propTypes = {
-		history: PropTypes.array,
-	};
-
-	static defaultProps = {
-		history: [],
+		history: PropTypes.object,
 	};
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
-		const { history } = this.props;
+		const history = this.props.history.toJS();
+
 		return (
 			<Sparklines
-				data={history.map((h) => h.quote)}
+				data={history.map(x => x.quote)}
 				limit={30}
 				width={60}
 				height={20}
-				{...this.props}
 			>
 				<SparklinesLine />
 				<SparklinesSpots />

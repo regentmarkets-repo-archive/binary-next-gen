@@ -4,7 +4,6 @@ import InputGroup from 'binary-components/lib/InputGroup';
 import pipSizeToStepSize from 'binary-utils/lib/pipSizeToStepSize';
 
 export default class BarrierInput extends Component {
-    shouldComponentUpdate = shouldPureComponentUpdate;
 
     static propTypes = {
         barrierType: PropTypes.oneOf(['relative', 'absolute']),
@@ -19,6 +18,8 @@ export default class BarrierInput extends Component {
         ]),
         spot: PropTypes.number,
     };
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
         const { barrierType, expiryType, name, onChange, pipSize, value, spot } = this.props;

@@ -7,8 +7,6 @@ import noOfDecimals from 'binary-utils/lib/noOfDecimals';
 
 export default class SpreadBarrierCard extends Component {
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
     static propTypes = {
         amountPerPoint: PropTypes.string,
         amountPerPointChange: PropTypes.func,
@@ -22,6 +20,8 @@ export default class SpreadBarrierCard extends Component {
         stopTypeChange: PropTypes.func,
         spreadInfo: PropTypes.object,
     };
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
         const {
