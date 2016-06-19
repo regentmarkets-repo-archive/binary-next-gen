@@ -1,5 +1,5 @@
 * {
-    -webkit-tap-highlight-color:  rgba(0, 0, 0, 0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 .mobile-page {
@@ -41,11 +41,9 @@
     .info-icon {
         display: none;
     }
-
     .contract-details-card {
-        margin: .5rem;
+        margin: 0.5rem;
     }
-
     .trade-params {
         display: flex;
         margin-top: 0.5rem;
@@ -53,11 +51,10 @@
         flex-wrap: nowrap;
         min-height: 200px;
     }
-
-    .sell-at-market-btn, .buy-again-btn {
+    .sell-at-market-btn,
+    .buy-again-btn {
         width: 100%;
     }
-
     .forward-starting-picker {
         display: flex;
         flex-direction: row;
@@ -91,6 +88,7 @@
         cursor: pointer;
     }
 }
+
 .mobile-nav-btn {
     text-align: center;
     flex: 1;
@@ -102,6 +100,7 @@
         box-shadow: inset 0 -3px 0 0 $COLOR_BRAND_ORANGE;
     }
 }
+
 .mobile-toolbar {
     color: white;
     background: $COLOR_BRAND_BLUE;
@@ -109,18 +108,19 @@
     display: flex;
     width: 100%;
 }
+
 .mobile-back-btn {
     text-align: left !important;
     font-weight: normal;
     color: white !important;
     text-decoration: none;
-    text-align: center;
     flex: 1;
     span {
         height: 3.5rem;
         vertical-align: middle;
     }
 }
+
 .mobile-form {
     display: flex;
     flex-direction: column;
@@ -133,7 +133,7 @@
             flex-direction: row !important;
         }
         .trade-params {
-            margin-left: .5rem;
+            margin-left: 0.5rem;
         }
     }
 }

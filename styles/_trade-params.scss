@@ -21,7 +21,8 @@
     .trade-params {
         flex-direction: row-reverse;
     }
-    .trade-params, .contract-receipt-container {
+    .trade-params,
+    .contract-receipt-container {
         overflow: auto;
         width: 11rem;
         margin-right: 0.5rem;
@@ -70,7 +71,7 @@
     .contract-detail {
         flex-direction: column;
         width: 8rem;
-        background-color: rgba($COLOR_BRAND_BLUE, .1);
+        background-color: rgba($COLOR_BRAND_BLUE, 0.1);
         text-align: center;
     }
     .digit-stats-col {
@@ -97,7 +98,7 @@
 .start-time-selector label:hover,
 .picker-label:hover,
 .duration-input select:hover {
-    box-shadow: inset 0 0 0 1px rgba($COLOR_BRAND_BLUE, .5);
+    box-shadow: inset 0 0 0 1px rgba($COLOR_BRAND_BLUE, 0.5);
 }
 
 .trade-type-picker {
@@ -162,6 +163,7 @@
 .payout-value {
     font-size: 1.2em;
 }
+
 .duration-input {
     display: flex;
     flex-direction: row;
@@ -170,7 +172,7 @@
     }
     select {
         max-width: 50%;
-        background-color: rgba($COLOR_BRAND_BLUE, .1);
+        background-color: rgba($COLOR_BRAND_BLUE, 0.1);
         margin-left: 3px;
         border: none;
     }
@@ -180,7 +182,7 @@
 }
 
 .start-time-selector + .forward-starting-input {
-    margin-top: .5rem;
+    margin-top: 0.5rem;
 }
 
 .forward-starting-input {
@@ -208,14 +210,14 @@
         flex: 1;
         cursor: pointer;
         line-height: 2rem !important;
-        background: rgba($COLOR_BRAND_BLUE, .1);
+        background: rgba($COLOR_BRAND_BLUE, 0.1);
         border-radius: 2px;
     }
     > label + label {
         margin-left: 3px;
     }
     > label > input {
-        margin: 0 .5rem;
+        margin: 0 0.5rem;
     }
 }
 
@@ -231,7 +233,7 @@
     display: flex;
     justify-content: space-between;
     align-items: stretch;
-    background: rgba($COLOR_BRAND_BLUE, .1);
+    background: rgba($COLOR_BRAND_BLUE, 0.1);
     border-radius: 2px;
     img {
         height: 1.5rem;
@@ -258,7 +260,7 @@
     cursor: pointer;
     margin-bottom: 0.5rem;
     color: $COLOR_BRAND_BLUE;
-    background: rgba($COLOR_BRAND_BLUE, .1);
+    background: rgba($COLOR_BRAND_BLUE, 0.1);
     > span {
         flex: 1;
         line-height: 2;

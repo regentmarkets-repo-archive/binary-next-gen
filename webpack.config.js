@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const WebpackNotifierPlugin = require('webpack-notifier');
+const styleLintPlugin = require('stylelint-webpack-plugin');
 const autoprefixer = require('autoprefixer');
 
 const env = process.env.NODE_ENV;
@@ -26,6 +27,7 @@ module.exports = {
             },
         }),
     ] : [
+        new styleLintPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         new WebpackNotifierPlugin({ title: 'Next-gen Build' }),
