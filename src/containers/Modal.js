@@ -17,7 +17,7 @@ export default class Modal extends Component {
 		return (
 			<div className="full-screen-overlay">
 				<div className="modal">
-					<CloseButton onClick={onClose} />
+					{onClose && <CloseButton onClick={onClose} />}
 					{children}
 				</div>
 			</div>

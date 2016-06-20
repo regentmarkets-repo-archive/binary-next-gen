@@ -16,6 +16,7 @@ import paymentAgent from './PaymentAgentReducer';
 import portfolio from './PortfolioReducer';
 import proposals from './ProposalsReducer';
 import quickTrade from './QuickTradeReducer';
+import realityCheck from './RealityCheckReducer';
 import settings from './SettingsReducer';
 import signin from './SigninReducer';
 import states from './StatesReducer';
@@ -59,6 +60,7 @@ export default combineReducers({
     portfolio,
     proposals,
     quickTrade,
+    realityCheck,
     server,
     settings,
     signin,

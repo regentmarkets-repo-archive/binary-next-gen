@@ -20,4 +20,6 @@ export default [
     ActionTypes.UPDATE_ASSET_PICKER_SUBMARKET,
     ActionTypes.TOGGLE_TRADE_MODE,
     ActionTypes.TOGGLE_PANEL,
+    ActionTypes.UPDATE_REALITY_CHECK,
+    ActionTypes.UPDATE_REALITY_CHECK_SUMMARY,
 ];
