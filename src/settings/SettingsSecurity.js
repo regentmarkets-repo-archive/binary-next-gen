@@ -8,6 +8,11 @@ import isValidPassword from 'binary-utils/lib/isValidPassword';
 
 export default class SettingsSecurity extends Component {
 
+    static propTypes = {
+		settings: PropTypes.object.isRequired,
+		actions: PropTypes.object.isRequired,
+	};
+
     constructor(props) {
         super(props);
         this.state = {
@@ -16,10 +21,20 @@ export default class SettingsSecurity extends Component {
         };
     }
 
-	static propTypes = {
-		settings: PropTypes.object.isRequired,
-		actions: PropTypes.object.isRequired,
-	};
+	onUpdate = () => {
+        const { settings } = this.props;
+        const { password1, password2 } = this.state;
+
+        if (!!(settings.cashier_password)) {
+            this.sendRequest({
+                unlock_password: password1,
+            });
+        } else if (isValidPassword(password1, password2)) {
+            this.sendRequest({
+                lock_password: password1,
+            });
+        }
+    }
 
     clearState() {
         this.setState({
@@ -36,23 +51,6 @@ export default class SettingsSecurity extends Component {
         }
 
         this.clearState();
-    }
-
-	onClick() {
-        const { settings } = this.props;
-        const { password1, password2 } = this.state;
-
-        if (!!(settings.cashier_password)) {
-            this.sendRequest({
-                unlock_password: password1,
-            });
-        } else {
-            isValidPassword(password1, password2) ?
-                this.sendRequest({
-                    lock_password: password1,
-                }) :
-                null;   // Handle the error messages here console.log('The passwords do not match or lessthan 7');
-        }
     }
 
 	render() {
@@ -81,7 +79,7 @@ export default class SettingsSecurity extends Component {
 				}
 				<Button
                     text="Update"
-                    onClick={::this.onClick}
+                    onClick={this.onUpdate}
 				/>
 			</div>
 		);

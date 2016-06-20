@@ -47,8 +47,6 @@ import * as updateHelpers from './TradeParamsCascadingUpdates';
 
 export default class TradeParams extends Component {
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
     static defaultProps = {
         type: 'full',
     };
@@ -72,22 +70,6 @@ export default class TradeParams extends Component {
 
     constructor(props) {
         super(props);
-        this.onAssetChange = ::this.onAssetChange;
-        this.onDurationChange = ::this.onDurationChange;
-        this.onDurationUnitChange = ::this.onDurationUnitChange;
-        this.onStartDateChange = ::this.onStartDateChange;
-        this.onBarrier1Change = ::this.onBarrier1Change;
-        this.onBarrier2Change = ::this.onBarrier2Change;
-        this.onBasisChange = ::this.onBasisChange;
-        this.onAmountChange = ::this.onAmountChange;
-        this.onAmountPerPointChange = ::this.onAmountPerPointChange;
-        this.onStopLossChange = ::this.onStopLossChange;
-        this.onStopTypeChange = ::this.onStopTypeChange;
-        this.onStopProfitChange = ::this.onStopProfitChange;
-        this.onPurchase = ::this.onPurchase;
-        this.onDurationError = ::this.onDurationError;
-        this.onBarrierError = ::this.onBarrierError;
-        this.clearTradeError = ::this.clearTradeError;
 
         this.state = {
             dynamicKey: 0,
@@ -97,6 +79,8 @@ export default class TradeParams extends Component {
     componentWillMount() {
         this.onAssetChange();
     }
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     /**
      * componentDidUpdate is used instead of componentWillReceiveProps because the onAssetChange depends on updated
@@ -127,27 +111,7 @@ export default class TradeParams extends Component {
         }
     }
 
-    dynamicKeyIncrement() {
-        const { dynamicKey } = this.state;
-        this.setState({ dynamicKey: dynamicKey + 1 });
-    }
-
-    updateTradeParams(params) {
-        const { actions, index } = this.props;
-        actions.updateMultipleTradeParams(index, params);
-        actions.updatePriceProposalSubscription(index);
-    }
-
-    // TODO: create an action that update all at once
-    clearTradeError() {
-        const { actions, index } = this.props;
-        actions.updateTradeError(index, 'barrierError', undefined);
-        actions.updateTradeError(index, 'durationError', undefined);
-        actions.updateTradeError(index, 'proposalError', undefined);
-        actions.updateTradeError(index, 'purchaseError', undefined);
-    }
-
-    onAssetChange() {
+    onAssetChange = () => {
         const { contract, tradeParams } = this.props;
         const updatedAsset = updateHelpers.changeAsset(tradeParams, contract, updateHelpers.changeCategory);
         this.updateTradeParams(updatedAsset);
@@ -155,50 +119,50 @@ export default class TradeParams extends Component {
         this.clearTradeError();
     }
 
-    onStartDateChange(epoch) {
+    onStartDateChange = epoch => {
         const { contract, tradeParams } = this.props;
         const updatedStartDate = updateHelpers.changeStartDate(epoch, contract, tradeParams);
         this.updateTradeParams(updatedStartDate);
     }
 
-    onDurationChange(e) {
+    onDurationChange = e => {
         this.updateTradeParams({ duration: e.target.value });
     }
 
-    onDurationUnitChange(e) {
+    onDurationUnitChange = e => {
         const newUnit = e.target.value;
         const { contract, tradeParams } = this.props;
         const updatedDurationUnit = updateHelpers.changeDurationUnit(newUnit, contract, tradeParams);
         this.updateTradeParams(updatedDurationUnit);
     }
 
-    onDurationError(err) {
+    onDurationError = err => {
         const { actions, index } = this.props;
         actions.updateTradeError(index, 'durationError', err);
     }
 
-    onBarrier1Change(e) {
+    onBarrier1Change = e => {
         const inputValue = e.target.value;
         const updatedBarrier1 = updateHelpers.changeBarrier1(inputValue);
         this.updateTradeParams(updatedBarrier1);
     }
 
-    onBarrier2Change(e) {
+    onBarrier2Change = e => {
         const inputValue = e.target.value;
         const updatedBarrier2 = updateHelpers.changeBarrier2(inputValue);
         this.updateTradeParams(updatedBarrier2);
     }
 
-    onBarrierError(err) {
+    onBarrierError = err => {
         const { actions, index } = this.props;
         actions.updateTradeError(index, 'barrierError', err);
     }
 
-    onBasisChange(e) {
+    onBasisChange = e => {
         this.updateTradeParams({ basis: e.target.value });
     }
 
-    onAmountChange(e) {
+    onAmountChange = e => {
         const inputValue = e.target.value;
         if (inputValue < 0) {
             const updatedAmount = updateHelpers.changeAmount(1);
@@ -209,27 +173,47 @@ export default class TradeParams extends Component {
         }
     }
 
-    onAmountPerPointChange(e) {
+    onAmountPerPointChange = e => {
         const inputValue = e.target.value;
         const updatedAmountPerPoint = updateHelpers.changeAmountPerPoint(inputValue);
         this.updateTradeParams(updatedAmountPerPoint);
     }
 
-    onStopTypeChange(e) {
+    onStopTypeChange = e => {
         this.updateTradeParams({ stopType: e.target.value });
     }
 
-    onStopLossChange(e) {
+    onStopLossChange = e => {
         this.updateTradeParams({ stopLoss: e.target.value });
     }
 
-    onStopProfitChange(e) {
+    onStopProfitChange = e => {
         this.updateTradeParams({ stopProfit: e.target.value });
     }
 
-    onPurchase() {
+    onPurchase = () => {
         const { actions, index, onPurchaseHook } = this.props;
         actions.purchaseByTradeId(index).then(onPurchaseHook);
+    }
+
+    dynamicKeyIncrement = () => {
+        const { dynamicKey } = this.state;
+        this.setState({ dynamicKey: dynamicKey + 1 });
+    }
+
+    updateTradeParams = params => {
+        const { actions, index } = this.props;
+        actions.updateMultipleTradeParams(index, params);
+        actions.updatePriceProposalSubscription(index);
+    }
+
+    // TODO: create an action that update all at once
+    clearTradeError = () => {
+        const { actions, index } = this.props;
+        actions.updateTradeError(index, 'barrierError', undefined);
+        actions.updateTradeError(index, 'durationError', undefined);
+        actions.updateTradeError(index, 'proposalError', undefined);
+        actions.updateTradeError(index, 'purchaseError', undefined);
     }
 
     render() {
@@ -284,7 +268,7 @@ export default class TradeParams extends Component {
                     compact={compact}
                     contract={contract}
                     tradeParams={tradeParams}
-                    updateParams={::this.updateTradeParams}
+                    updateParams={this.updateTradeParams}
                     clearTradeError={this.clearTradeError}
                 />
                 {showDigitBarrier &&

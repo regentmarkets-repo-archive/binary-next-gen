@@ -6,13 +6,13 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 
 export default class PayoutCard extends Component {
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
     static propTypes = {
         currency: PropTypes.string.isRequired,
         stake: PropTypes.number,
         payout: PropTypes.number,
     };
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
         const { currency, stake, payout } = this.props;

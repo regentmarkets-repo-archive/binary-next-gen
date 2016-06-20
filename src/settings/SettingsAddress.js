@@ -7,6 +7,12 @@ import TextAreaGroup from 'binary-components/lib/TextAreaGroup';
 import * as LiveData from '../_data/LiveData';
 
 export default class SettingsAddress extends Component {
+
+	static propTypes = {
+		actions: PropTypes.object.isRequired,
+		settings: PropTypes.object.isRequired,
+	};
+
 	constructor(props) {
 		super(props);
 		const { settings } = props;
@@ -22,29 +28,15 @@ export default class SettingsAddress extends Component {
 		};
 	}
 
-	static propTypes = {
-		actions: PropTypes.object.isRequired,
-		settings: PropTypes.object.isRequired,
-	};
+	onAddressChange = event => {
+		const { id, value } = event.target;
 
-	static handleUpdateError() {
-		// if (response.code === 'InputValidationFailed') {
-		// 	const errorDetails = Object.keys(response.details)
-		// 		.filter(key => response.details[key])
-		// 		.map(key => `${key} ${response.details[key]}`)
-		// 		.join('\n');
-		// }
+		this.setState({
+			[id]: value,
+		});
 	}
 
-	onAddressChange(event) {
-		const key = event.target.id;
-		const val = event.target.value;
-		const obj = {};
-		obj[key] = val;
-		this.setState(obj);
-	}
-
-	tryUpdate() {
+	tryUpdate = () => {
 		const state = this.state || {};
 		const req = {
 			address_line_1: state.address,
@@ -53,6 +45,7 @@ export default class SettingsAddress extends Component {
 			address_postcode: state.postcode,
 			phone: state.tel,
 		};
+
 		LiveData.api.setAccountSettings(req).then(
 			response => {
 				if (response.set_settings === 1) {
@@ -82,19 +75,19 @@ export default class SettingsAddress extends Component {
 					id="address"
 					label="Address"
 					value={addressString}
-					onChange={::this.onAddressChange}
+					onChange={this.onAddressChange}
 				/>
 				<InputGroup
 					id="city"
 					type="text"
 					label="Town/City"
 					defaultValue={settings.address_city}
-					onChange={::this.onAddressChange}
+					onChange={this.onAddressChange}
 				/>
 				<States
 					id="AddressState"
 					country={settings.country_code}
-					onChange={::this.onAddressChange}
+					onChange={this.onAddressChange}
 					selected={settings.address_state}
 				/>
 				<InputGroup
@@ -102,18 +95,18 @@ export default class SettingsAddress extends Component {
 					type="text"
 					label="Postal Code / ZIP"
 					defaultValue={settings.address_postcode}
-					onChange={::this.onAddressChange}
+					onChange={this.onAddressChange}
 				/>
 				<InputGroup
 					id="tel"
 					type="tel"
 					label="Telephone"
 					defaultValue={settings.phone}
-					onChange={::this.onAddressChange}
+					onChange={this.onAddressChange}
 				/>
 				<Button
 					text="Update"
-					onClick={::this.tryUpdate}
+					onClick={this.tryUpdate}
 				/>
 			</div>
 		);

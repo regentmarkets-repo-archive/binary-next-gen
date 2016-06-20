@@ -11,8 +11,10 @@ export default class MarketSubmarketPicker extends Component {
 		value: PropTypes.string,
 	};
 
+	onMarketChange = e => this.props.onChange(e.target.value);
+
 	render() {
-		const { marketTree, onChange, allOptionShown, showMarkets, value } = this.props;
+		const { marketTree, allOptionShown, showMarkets, value } = this.props;
 		const markets = Object.keys(marketTree)
 			.filter(market => !(showMarkets && showMarkets.includes(marketTree[market].display_name)));
 
@@ -22,12 +24,10 @@ export default class MarketSubmarketPicker extends Component {
 
 			// unicode is used as &nbsp is escaped by react and css styling on select is not reliable
 			const submarketOptArr = Object.keys(marketSubTree.submarkets)
-				.map(submarket => (
-					{
-						value: submarket,
-						name: '\u00a0\u00a0\u00a0\u00a0' + marketSubTree.submarkets[submarket].display_name,
-					}
-				));
+				.map(submarket => ({
+					value: submarket,
+					name: '\u00a0\u00a0\u00a0\u00a0' + marketSubTree.submarkets[submarket].display_name,
+				}));
 			submarketOptArr.unshift(marketOpt);
 			return submarketOptArr;
 		});
@@ -38,7 +38,7 @@ export default class MarketSubmarketPicker extends Component {
 			<select
 				defaultValue={value}
 				className="market-submarket-picker"
-				onChange={e => onChange(e.target.value)}
+				onChange={this.onMarketChange}
 			>
 				{allOptionShown && <Option text="All" value="all" />}
 				{allOptionShown && <Option text="Favorites" value="favorites" />}

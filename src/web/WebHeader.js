@@ -7,11 +7,11 @@ import LayoutPickerContainer from '../layout-picker/LayoutPickerContainer';
 
 export default class WebHeader extends Component {
 
-	shouldComponentUpdate = shouldPureComponentUpdate;
-
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
 	};
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		const { actions } = this.props;

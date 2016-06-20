@@ -8,6 +8,18 @@ const chartToDataType = {
 };
 
 export default class ContractDetailsCard extends Component {
+
+	static propTypes = {
+		contract: PropTypes.object.isRequired,
+		actions: PropTypes.object,
+		pipSize: PropTypes.number,
+		theme: PropTypes.string,
+		chartData: PropTypes.shape({
+			ticks: PropTypes.array,
+			candles: PropTypes.array,
+		}),
+	};
+
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -16,17 +28,7 @@ export default class ContractDetailsCard extends Component {
 		};
 	}
 
-	static propTypes = {
-		contract: PropTypes.object.isRequired,
-		actions: PropTypes.object,
-		pipSize: PropTypes.number,
-		chartData: PropTypes.shape({
-			ticks: PropTypes.array,
-			candles: PropTypes.array,
-		}),
-	};
-
-	changeChartType(type) {
+	changeChartType = type => {
 		const { actions, contract } = this.props;
 		const { chartType } = this.state;
 
@@ -41,7 +43,7 @@ export default class ContractDetailsCard extends Component {
 	}
 
 	render() {
-		const { contract, chartData, actions, pipSize } = this.props;
+		const { contract, chartData, actions, pipSize, theme } = this.props;
 		const { chartType, dataType } = this.state;
 		const { ticks, candles } = chartData;
 
@@ -61,9 +63,9 @@ export default class ContractDetailsCard extends Component {
 						contract={contract}
 						ticks={data}
 						type={chartType}
-						theme="light"
+						theme={theme}
 						rangeChange={contract ? undefined : rangeChange}
-						typeChange={allowCandle && ::this.changeChartType}
+						typeChange={allowCandle && this.changeChartType}
 						pipSize={pipSize}
 					/>
 					<ContractReceipt actions={actions} contract={contract} />

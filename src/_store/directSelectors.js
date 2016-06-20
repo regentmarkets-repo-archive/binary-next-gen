@@ -19,10 +19,18 @@ export const feedLicensesSelector = state => state.feedLicenses;
 export const ohlcSelector = state => state.ohlc;
 export const tradingOptionsSelector = state => state.tradingOptions;
 
-export const loginidSelector = state => state.account.get('loginid');
-export const balanceSelector = state => state.account.get('balance');
+export const themeSelector = state =>
+    state.boot.get('theme');
 
-export const serverTimeDiffSelector = state => state.server.get('timeDiff');
+export const loginidSelector = state =>
+    state.account.get('loginid');
+
+export const balanceSelector = state =>
+    state.account.get('balance');
+
+export const serverTimeDiffSelector = state =>
+    state.server.get('timeDiff');
+
 export const currencySelector = state =>
     state.account.get('currency');
 

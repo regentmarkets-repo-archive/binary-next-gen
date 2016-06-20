@@ -11,7 +11,7 @@
  * @flow
  */
 
-/*eslint-disable no-self-compare */
+/* eslint-disable no-self-compare */
 
 const hasOwnProperty = Object.prototype.hasOwnProperty;
 
@@ -38,10 +38,10 @@ export default function shallowEqual(objA: mixed, objB: mixed): boolean {
   if (is(objA, objB)) {
     return true;
   }
-  console.groupCollapsed();
+  window.console.groupCollapsed();
   if (typeof objA !== 'object' || objA === null ||
       typeof objB !== 'object' || objB === null) {
-    console.log('objects differ' + objA);
+    window.console.log('objects differ' + objA);
     // return false;
   }
 
@@ -49,7 +49,7 @@ export default function shallowEqual(objA: mixed, objB: mixed): boolean {
   const keysB = Object.keys(objB);
 
   if (keysA.length !== keysB.length) {
-    console.log('Different keys length');
+    window.console.log('Different keys length');
     // return false;
   }
 
@@ -59,10 +59,10 @@ export default function shallowEqual(objA: mixed, objB: mixed): boolean {
       !hasOwnProperty.call(objB, keysA[i]) ||
       !is(objA[keysA[i]], objB[keysA[i]])
     ) {
-      console.log('Values differ ' + keysA[i]);
+      window.console.log('Values differ ' + keysA[i]);
       // return false;
     }
   }
-  console.groupEnd();
+  window.console.groupEnd();
   return true;
 }

@@ -9,81 +9,13 @@
     "react"
   ],
   "rules": {
-    "no-empty-label": 0,
-    "no-confusing-arrow": 0,
-    "no-extra-parens": 0,
-    "no-mutable-exports": 0,
-    "space-before-keywords": [0, 'always'],
-    "space-after-keywords": [0, 'always'],
-    "space-return-throw-case": 0,
-
-    "prefer-const": 0,
-
-    "react/jsx-no-bind": 0,
-
-    "react/prefer-stateless-function": 0,
-
-    "no-unused-expressions": 0,
-    "no-param-reassign": 0,
-    "prefer-template": 0,
-
-    "no-unreachable": 1,
-    "no-unused-vars": 1,
-    "no-trailing-spaces": 1,
-    "spaced-comment": 1,
-    "padded-blocks": 1,
-    "react/jsx-closing-bracket-location": 1,
-
     "indent": [0, 4],
     "max-len": [1, 120, 4],
-    "id-length": [2, { "min": 1 }],
-
-    "comma-dangle": [2, "always-multiline"],
-    "no-eq-null": 2,
-    "block-scoped-var": 2,
-    "no-nested-ternary": 2,
-
-    "jsx-quotes": [2, "prefer-double"],
+    "prefer-template": 0,
+    "no-confusing-arrow": 0,
+    "no-param-reassign": 0,
     "react/jsx-indent": [0, "tab"],
+    "react/prefer-stateless-function": 0,
     "react/jsx-indent-props": [0, "tab"],
-    "react/jsx-no-undef": 2,
-    "react/no-multi-comp": 0,
-    "react/jsx-uses-react": 2,
-    "react/jsx-uses-vars": 2,
-    "react/no-did-mount-set-state": 2,
-    "react/no-did-update-set-state": 2,
-    "react/no-unknown-property": 0,
-    "react/prop-types": 1,
-    "react/react-in-jsx-scope": 2,
-    "react/self-closing-comp": 2,
-    "react/wrap-multilines": 2,
-    "react/sort-comp": [
-      2, {
-        "order": [
-          "displayName",
-          "propTypes",
-          "contextTypes",
-          "childContextTypes",
-          "mixins",
-          "statics",
-          "defaultProps",
-          "getDefaultProps",
-          "getInitialState",
-          "getChildContext",
-          "componentWillMount",
-          "componentDidMount",
-          "componentWillReceiveProps",
-          "shouldComponentUpdate",
-          "componentWillUpdate",
-          "componentDidUpdate",
-          "componentWillUnmount",
-          "/^on.+$/",
-          "/^get.+$/",
-          "/^render.+$/",
-          "/^.+$/", // All other methods go here
-          "render"
-        ]
-      }
-    ]
   }
 }

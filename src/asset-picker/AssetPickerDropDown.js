@@ -7,8 +7,6 @@ import AssetPickerContainer from './AssetPickerContainer';
 
 export default class AssetPickerDropDown extends Component {
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
     static propTypes = {
         actions: PropTypes.object.isRequired,
         compact: PropTypes.bool,
@@ -28,7 +26,15 @@ export default class AssetPickerDropDown extends Component {
         };
     }
 
-    openAssetPicker() {
+    shouldComponentUpdate = shouldPureComponentUpdate;
+
+    onClose = () => {
+        const { actions } = this.props;
+        actions.resetAssetPickerFilter();
+        this.setState({ dropdownShown: false });
+    }
+
+    openAssetPicker = () => {
         const { compact } = this.props;
         const { router } = this.context;
         if (!compact) {
@@ -37,17 +43,14 @@ export default class AssetPickerDropDown extends Component {
             router.push('asset-picker');
         }
     }
-    onClose() {
-        const { actions } = this.props;
-        actions.resetAssetPickerFilter();
-        this.setState({ dropdownShown: false });
-    }
+
     render() {
         const { actions, index, selectedSymbol, selectedSymbolName } = this.props;
         const { dropdownShown } = this.state;
+
         return (
             <div className="param-row">
-                <DropDown shown={dropdownShown} onClose={::this.onClose}>
+                <DropDown shown={dropdownShown} onClose={this.onClose}>
                     <AssetPickerContainer
                         actions={actions}
                         tradeIdx={index}
@@ -55,7 +58,7 @@ export default class AssetPickerDropDown extends Component {
                     />
                 </DropDown>
                 <Label text="Asset" />
-                <div className="picker-label param-field" onMouseDown={::this.openAssetPicker}>
+                <div className="picker-label param-field" onMouseDown={this.openAssetPicker}>
                     {selectedSymbolName}
                     <DownArrow />
                 </div>

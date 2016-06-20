@@ -7,14 +7,14 @@ import styles from '../layouts/layouts.css';
 
 export default class LayoutButton extends Component {
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
     static propTypes = {
         isActive: PropTypes.bool,
         tradesCount: PropTypes.number.isRequired,
         layoutN: PropTypes.number.isRequired,
         onClick: PropTypes.func.isRequired,
     };
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
         const { isActive, tradesCount, layoutN, onClick } = this.props;

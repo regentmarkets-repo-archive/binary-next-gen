@@ -21,16 +21,16 @@
 
 .digit-stats-bar {
     width: 100%;
-    background-color: rgba($COLOR_BRAND_BLUE, .5);
+    background-color: rgba($COLOR_BRAND_BLUE, 0.5);
     margin: 1px;
     border-radius: 2px;
     transform-origin: 0 50%;
-    transition: .5s ease-in;
+    transition: 0.5s ease-in;
     &.max {
-        background-color: $green;
+        background-color: $COLOR_GREEN;
     }
     &.min {
-        background-color: $red;
+        background-color: $COLOR_RED;
     }
 }
 
@@ -40,7 +40,7 @@
 
 .digit-stats-digit {
     font-size: 1.5em;
-    margin: .25rem;
+    margin: 0.25rem;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -48,5 +48,5 @@
 
 .digit-stats-filter select {
     width: 100%;
-    margin-bottom: .5rem;
+    margin-bottom: 0.5rem;
 }

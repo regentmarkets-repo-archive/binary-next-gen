@@ -7,6 +7,7 @@ import ContractDetailsModalSelector from './ContractDetailsModalSelector';
 
 @connect(ContractDetailsModalSelector)
 export default class ContractDetailsModal extends Component {
+
     static propTypes = {
         actions: PropTypes.object.isRequired,
         contractShown: PropTypes.string,
@@ -14,12 +15,17 @@ export default class ContractDetailsModal extends Component {
 
     shouldComponentUpdate = shouldPureComponentUpdate;
 
+    hideDetails = () => {
+        const { actions } = this.props;
+        actions.detailsForContract();
+    }
+
     render() {
         const { actions, contractShown } = this.props;
         return (
             <Modal
                 shown={!!contractShown}
-                onClose={() => actions.detailsForContract(undefined)}
+                onClose={this.hideDetails}
             >
                 {contractShown &&
                 <ContractDetailsContainer

@@ -11,49 +11,32 @@ const initialState = fromJS({});
 
 const convertOpenContract = openContract => {
     const cloned = Object.assign({}, openContract);
+
     if (cloned.sell_spot && cloned.sell_spot_time) {
         cloned.exit_tick = cloned.sell_spot;
         cloned.exit_tick_time = cloned.sell_spot_time;
     } else if (cloned.sell_time) {
         cloned.exit_tick_time = cloned.sell_time;
     }
+
+    // remove these two keys. we do not need them
+    delete cloned.current_spot;
+    delete cloned.current_spot_time;
+
     return cloned;
 };
-
-const computeAsianBarrier = (contract, ticks) => {
-    const ticksWithinContractPeriod = ticks
-        .filter(t =>
-            t.epoch >= contract.entry_tick_time &&
-            (!contract.exit_tick_time || t.epoch <= contract.exit_tick_time)
-        );
-
-    const sum = ticksWithinContractPeriod.reduce((a, b) => a + b.quote, 0);
-    return sum / ticksWithinContractPeriod.length;
-};
-
-const asianTicksCache = {};
 
 export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_PROPOSAL_OPEN_CONTRACT: {
-            if (Object.keys(action.serverResponse.proposal_open_contract).length === 0) {
+            const contract = action.serverResponse.proposal_open_contract;
+            if (Object.keys(contract).length === 0) {
                 return state;
             }
 
-            const openContract = convertOpenContract(action.serverResponse.proposal_open_contract);
-            if (openContract.contract_type.includes('ASIAN') && !openContract.barrier && openContract.entry_tick_time) {
-                const existingTicks = asianTicksCache[openContract.contract_id] || [];
-                existingTicks.push({ epoch: +(openContract.current_spot_time), quote: +(openContract.current_spot) });
-                asianTicksCache[openContract.contract_id] = existingTicks;
-                const avgBarrier = computeAsianBarrier(openContract, existingTicks);
-                openContract.barrier = avgBarrier;
-            }
+            const openContract = convertOpenContract(contract);
 
-            // remove this 2 keys as we do not need it
-            delete openContract.current_spot;
-            delete openContract.current_spot_time;
-
-            return state.setIn([openContract.contract_id], fromJS(openContract));
+            return state.set(openContract.contract_id, fromJS(openContract));
         }
         case SERVER_DATA_PORTFOLIO: {
             const contracts = action.serverResponse.portfolio.contracts;

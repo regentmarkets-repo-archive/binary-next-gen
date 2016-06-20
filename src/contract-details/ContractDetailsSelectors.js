@@ -1,4 +1,9 @@
-import { boughtContractsSelector, portfolioSelector, assetsSelector } from '../_store/directSelectors';
+import {
+    boughtContractsSelector,
+    portfolioSelector,
+    assetsSelector,
+    themeSelector,
+} from '../_store/directSelectors';
 import { createSelector, createStructuredSelector } from 'reselect';
 import pipsToDigits from 'binary-utils/lib/pipsToDigits';
 
@@ -30,7 +35,7 @@ export const pipSizeSelector = createSelector(
 );
 
 export default createStructuredSelector({
-    // ticks: ticksSelector,
+    theme: themeSelector,
     chartData: dataToShow,
     contract: contractWithBarrierType,
     pipSize: pipSizeSelector,

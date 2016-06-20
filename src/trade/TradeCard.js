@@ -55,19 +55,6 @@ const chartToDataType = {
 };
 
 export default class TradeCard extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            events: [
-                {
-                    type: 'zoom-to-latest',
-                    handler: zoomToLatest,
-                },
-            ],
-            chartType: 'area',
-            dataType: 'ticks',
-        };
-    }
 
     static defaultProps = {
         type: 'full',
@@ -90,23 +77,41 @@ export default class TradeCard extends Component {
         purchaseInfo: PropTypes.object.isRequired,
         type: PropTypes.oneOf(['tick', 'full']).isRequired,
         ticks: PropTypes.array,
+        theme: PropTypes.string,
         uiState: PropTypes.object.isRequired,
         tradingTime: PropTypes.object,
         tradeErrors: PropTypes.object.isRequired,
     };
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            events: [{
+                type: 'zoom-to-latest',
+                handler: zoomToLatest,
+            }],
+            chartType: 'area',
+            dataType: 'ticks',
+        };
+    }
+
     shouldComponentUpdate(nextProps) {
         return JSON.stringify(this.props) !== JSON.stringify(nextProps);
     }
 
-    zoomWhenPurchase() {
+    onCloseModal = () => {
+        const { actions, index } = this.props;
+        actions.updateTradeError(index, 'purchaseError', undefined);
+    }
+
+    zoomWhenPurchase = () => {
         const { index } = this.props;
         const domID = `trade-chart${index}`;
         const zoomToLatestEv = new Event('zoom-to-latest');
         document.getElementById(domID).dispatchEvent(zoomToLatestEv);
     }
 
-    changeChartType(type) {
+    changeChartType = type => {
         const { actions, params } = this.props;
         const { chartType } = this.state;
 
@@ -118,6 +123,11 @@ export default class TradeCard extends Component {
         this.setState({ chartType: type, dataType: newDataType });
         const dataResult = actions.getDataForSymbol(params.symbol, 1, 'hour', newDataType, true);
         return dataResult;
+    }
+
+    tradeAgain = () => {
+        const { actions, index } = this.props;
+        actions.closeContractReceipt(index);
     }
 
     render() {
@@ -136,6 +146,7 @@ export default class TradeCard extends Component {
             proposalInfo,
             pipSize,
             ticks,
+            theme,
             tradingTime,
             tradeErrors,
         } = this.props;
@@ -172,7 +183,7 @@ export default class TradeCard extends Component {
             <div disabled={disabled} className="trade-panel">
                 <Modal
                     shown={!!tradeErrors.purchaseError}
-                    onClose={() => actions.updateTradeError(index, 'purchaseError', undefined)}
+                    onClose={this.onCloseModal}
                 >
                     <PurchaseFailed failure={tradeErrors.purchaseError} />
                 </Modal>
@@ -188,10 +199,10 @@ export default class TradeCard extends Component {
                         rangeChange={contractRequiredByChart ? undefined : rangeChange}
                         symbol={symbolName}
                         ticks={dataToShow}
-                        theme="light"
+                        theme={theme}
                         type={contractDataExist ? 'area' : chartType}
                         trade={tradeRequiredByChart}
-                        typeChange={feedLicense !== 'chartonly' && ::this.changeChartType}
+                        typeChange={feedLicense !== 'chartonly' && this.changeChartType}
                         tradingTime={tradingTime}
                     />
                 </div>
@@ -200,7 +211,7 @@ export default class TradeCard extends Component {
                         actions={actions}
                         contract={lastBoughtContract}
                         showLongcode
-                        onTradeAgainClicked={() => actions.closeContractReceipt(index)}
+                        onTradeAgainClicked={this.tradeAgain}
                     /> :
                     <TradeParams
                         {...proposalInfo}
@@ -215,7 +226,7 @@ export default class TradeCard extends Component {
                         pipSize={pipSize}
                         tradeParams={params}
                         ticks={ticks}
-                        onPurchaseHook={::this.zoomWhenPurchase}
+                        onPurchaseHook={this.zoomWhenPurchase}
                     />
                 }
             </div>

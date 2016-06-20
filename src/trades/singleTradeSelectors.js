@@ -1,6 +1,11 @@
 import { fromJS } from 'immutable';
 import { createSelector, createStructuredSelector } from 'reselect';
-import { currencySelector, ticksSelector, ohlcSelector } from '../_store/directSelectors';
+import {
+    currencySelector,
+    ticksSelector,
+    ohlcSelector,
+    themeSelector,
+} from '../_store/directSelectors';
 import {
     tradesParamsSelector,
     tradesPipSizeSelector,
@@ -49,6 +54,7 @@ export default createStructuredSelector({
     currency: currencySelector,
     marketIsOpen,
     ohlc: ohlcForFirstTradeSelector,
+    theme: themeSelector,
     params: state => tradesParamsSelector(state).first(),
     pipSize: state => tradesPipSizeSelector(state).first(),
     proposalInfo: state => state.tradesProposalInfo.first(),

@@ -14,7 +14,7 @@ export const tryAuth = async (actions, token) => {
     actions.updateAppState('authorized', false);
 
     try {
-        let response = await LiveData.api.authorize(token);
+        const response = await LiveData.api.authorize(token);
         actions.signinFieldUpdate('credentialsInvalid', false);
         trackUserId(response.authorize.loginid);
     } catch (e) {

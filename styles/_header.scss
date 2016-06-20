@@ -25,6 +25,7 @@
         transition: 0.3s;
     }
 }
+
 #hamburger-btn {
     cursor: pointer;
     > .sidebar {
@@ -40,7 +41,7 @@
     top: 0;
     right: 0;
     bottom: 0;
-    background: rgba(black, .5);
+    background: rgba(black, 0.5);
     opacity: 1;
     visibility: visible;
     transition: 0.3s;

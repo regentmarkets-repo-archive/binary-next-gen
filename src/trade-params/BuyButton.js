@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 import Button from 'binary-components/lib/Button';
 
 export default class BuyButton extends Component {
@@ -11,6 +12,8 @@ export default class BuyButton extends Component {
         disabled: PropTypes.bool,
         onClick: PropTypes.func,
     };
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
         const { id, askPrice, disabled, longcode, onClick } = this.props;

@@ -7,23 +7,32 @@ import { assetPickerMobileSelector } from './AssetPickerSelectors';
 
 @connect(assetPickerMobileSelector)
 export default class AssetPickerMobile extends React.Component {
+
 	static contextTypes = {
 		router: React.PropTypes.object,
 		actions: PropTypes.object,
 	};
+
 	static propTypes = {
 		actions: PropTypes.object,
 	};
-	shouldComponentUpdate = shouldPureComponentUpdate;
+
 	componentWillMount() {
 		const { actions } = this.props;
 		actions.resetAssetPickerFilter();
 	}
-	render() {
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
+
+	onClose = () => {
 		const { router } = this.context;
+		router.goBack();
+	}
+
+	render() {
 		return (
 			<MobilePage toolbarShown={false} backBtnBarTitle="Asset">
-				<AssetPickerContainer {...this.props} onClose={() => router.goBack()} />
+				<AssetPickerContainer {...this.props} onClose={this.onClose} />
 			</MobilePage>
 		);
 	}

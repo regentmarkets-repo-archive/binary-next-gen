@@ -15,6 +15,7 @@ describe('singleTradeSelectors', () => {
     const testState = () => ({
         assets: fromJS([{ name: 'some asset' }]),
         account: fromJS({ currency: 'JPY' }),
+        boot: fromJS({}),
         ohlc: fromJS({ R_9000: [{ quote: 123 }] }),
         ticks: fromJS({ R_9000: [{ quote: 123 }] }),
         tradesParams: fromJS([{ symbol: 'R_9000' }]),

@@ -8,14 +8,14 @@ const payouts = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000];
 
 export default class StakeCard extends Component {
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
     static propTypes = {
         amount: PropTypes.number.isRequired,
 //        basis: PropTypes.oneOf(basises).isRequired,
         onAmountChange: PropTypes.func.isRequired,     // both functions take the updated value instead of event object
         onBasisChange: PropTypes.func.isRequired,
     };
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
         const { amount, onAmountChange } = this.props;

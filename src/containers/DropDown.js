@@ -8,6 +8,8 @@ export default class DropDown extends Component {
 		children: PropTypes.any,
 	};
 
+	onClickWithin = e => e.stopPropagation();
+
 	render() {
 		const { shown, onClose, children } = this.props;
 
@@ -17,7 +19,7 @@ export default class DropDown extends Component {
 			<div>
 				<div
 					className="drop-down"
-					onClick={e => e.stopPropagation()}
+					onClick={this.onClickWithin}
 				>
 					{React.cloneElement(children, { onClose })}
 				</div>

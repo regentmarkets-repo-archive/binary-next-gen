@@ -10,6 +10,11 @@ import { appStateSelector } from '../_selectors/AppStateSelectors';
 @connect(appStateSelector)
 export default class AppStateProvider extends Component {
 
+    static propTypes = {
+        children: PropTypes.object.isRequired,
+        connected: PropTypes.bool.isRequired,
+    };
+
     componentWillMount() {
         this.timer = setTimeout(this.showMessageForSlowConnection.bind(this), 4000);
     }
@@ -21,11 +26,6 @@ export default class AppStateProvider extends Component {
     showMessageForSlowConnection() {
         this.setState({ showMessage: true });
     }
-
-    static propTypes = {
-        children: PropTypes.object.isRequired,
-        connected: PropTypes.bool.isRequired,
-    };
 
     render() {
         const { connected, children } = this.props;

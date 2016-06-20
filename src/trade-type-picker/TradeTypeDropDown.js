@@ -23,8 +23,6 @@ const getInternalTradeType = tradeParams => {
 
 export default class TradeTypeDropDown extends Component {
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
     static propTypes = {
         compact: PropTypes.bool,
         tradeParams: PropTypes.object.isRequired,
@@ -41,7 +39,9 @@ export default class TradeTypeDropDown extends Component {
         };
     }
 
-    openTradeTypePicker() {
+    shouldComponentUpdate = shouldPureComponentUpdate;
+
+    openTradeTypePicker = () => {
         const { compact } = this.props;
         const { router } = this.context;
         if (compact) {
@@ -51,6 +51,8 @@ export default class TradeTypeDropDown extends Component {
         }
     }
 
+    close = () => this.setState({ dropdownShown: false });
+
     render() {
         const { tradeParams } = this.props;
         const selectedType = getInternalTradeType(tradeParams);
@@ -59,18 +61,18 @@ export default class TradeTypeDropDown extends Component {
             <div className="param-row">
                 <DropDown
                     shown={dropdownShown}
-                    onClose={() => this.setState({ dropdownShown: false })}
+                    onClose={this.close}
                 >
                     <TradeTypePicker
                         {...this.props}
-                        onSelect={() => this.setState({ dropdownShown: false })}
+                        onSelect={this.close}
                     />
                 </DropDown>
                 <Label text="Trade Type" />
                 <Info tooltip={helpText[selectedType]} role="presentation" />
                 <div
                     className="picker-label param-field"
-                    onMouseDown={::this.openTradeTypePicker}
+                    onMouseDown={this.openTradeTypePicker}
                 >
                     <img
                         src={`img/trade-${selectedType.toLowerCase()}.svg`}

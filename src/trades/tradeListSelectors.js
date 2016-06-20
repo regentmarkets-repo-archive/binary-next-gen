@@ -4,6 +4,7 @@ import {
     ticksSelector,
     tradesCountSelector,
     layoutNSelector,
+    themeSelector,
     feedLicensesSelector,
     ohlcSelector,
 } from '../_store/directSelectors';
@@ -22,6 +23,7 @@ export default createStructuredSelector({
     currency: currencySelector,
     contractChartData: state => state.chartData,
     layoutN: layoutNSelector,
+    theme: themeSelector,
     licensesForAllSymbol: feedLicensesSelector,
     paramsList: tradesParamsSelector,
     pipSizeList: tradesPipSizeSelector,

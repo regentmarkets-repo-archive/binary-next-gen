@@ -15,11 +15,11 @@ export default class SettingsGeneral extends Component {
         settings: PropTypes.object,
 	};
 
-	onThemeChange(e) {
+	onThemeChange = e => {
 		this.props.actions.updateBoot('theme', e.target.value);
 	}
 
-	async topupClick() {
+	async onTopup() {
         const { actions } = this.props;
         try {
             const response = await LiveData.api.topUpVirtualAccount();
@@ -37,7 +37,7 @@ export default class SettingsGeneral extends Component {
 		return (
 			<div className="setting-container">
 				<label htmlFor="theme-picker"><M m="Color Theme" /></label>
-				<select onChange={::this.onThemeChange} value={theme} id="theme-picker" className="theme-picker">
+				<select onChange={this.onThemeChange} value={theme} id="theme-picker" className="theme-picker">
 					<option value="light">Light</option>
 					<option value="dark">Dark</option>
 				</select>
@@ -55,7 +55,7 @@ export default class SettingsGeneral extends Component {
                     <Button
 						text="Deposit USD 10,000 virtual money to your account"
 						className="buy-btn"
-						onClick={::this.topupClick}
+						onClick={this.onTopup}
                     />
                 }
 			</div>

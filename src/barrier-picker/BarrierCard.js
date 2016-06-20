@@ -5,8 +5,6 @@ import NumericInput from 'binary-components/lib/NumericInput';
 
 export default class BarrierCard extends Component {
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
     static propTypes = {
         barrier: PropTypes.oneOfType([
             PropTypes.string,
@@ -26,7 +24,9 @@ export default class BarrierCard extends Component {
         spot: PropTypes.number,
     };
 
-    validateBarrier(barrier) {
+    shouldComponentUpdate = shouldPureComponentUpdate;
+
+    validateBarrier = barrier => {
         const { pipSize } = this.props;
         const barrierDecimals = barrier.toString().split('.')[1];
         const barrierExceedPipSize = barrierDecimals && (barrierDecimals.length > pipSize);
@@ -37,7 +37,7 @@ export default class BarrierCard extends Component {
         return undefined;
     }
 
-    updateBarrier1(e) {
+    updateBarrier1 = e => {
         const { onError, onBarrier1Change } = this.props;
         const newBarrier1 = e.target.value;
         const error = this.validateBarrier(newBarrier1);
@@ -45,7 +45,7 @@ export default class BarrierCard extends Component {
         onBarrier1Change(e);
     }
 
-    updateBarrier2(e) {
+    updateBarrier2 = e => {
         const { onError, onBarrier2Change } = this.props;
         const newBarrier2 = e.target.value;
         const error = this.validateBarrier(newBarrier2);
@@ -84,14 +84,14 @@ export default class BarrierCard extends Component {
                     <Label text={barrier1Info.name} />
                     <NumericInput
                         className="numeric-input param-field"
-                        onChange={::this.updateBarrier1}
+                        onChange={this.updateBarrier1}
                         value={+barrierVal}
                         step={1}
                     />
                     {/* <input
                         className="param-field"
                         type="number"
-                        onChange={::this.updateBarrier1}
+                        onChange={this.updateBarrier1}
                         defaultValue={barrierVal}
                         step={pipSizeToStepSize(pipSize)}
                     /> */}
@@ -101,14 +101,14 @@ export default class BarrierCard extends Component {
                         <Label text={barrier2Info.name} />
                         <NumericInput
                             className="numeric-input param-field"
-                            onChange={::this.updateBarrier2}
+                            onChange={this.updateBarrier2}
                             value={+barrier2Val}
                             step={1}
                         />
                         {/* <input
                             className="param-field"
                             type="number"
-                            onChange={::this.updateBarrier2}
+                            onChange={this.updateBarrier2}
                             defaultValue={barrier2Val}
                             step={pipSizeToStepSize(pipSize)}
                         /> */}

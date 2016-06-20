@@ -8,11 +8,11 @@ import sidebarSelectors from './sidebarSelectors';
 @connect(sidebarSelectors)
 export default class WebSidebarContainer extends Component {
 
-	shouldComponentUpdate = shouldPureComponentUpdate;
-
 	static propTypes = {
 		loginid: PropTypes.string.isRequired,
 	};
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		const { loginid } = this.props;

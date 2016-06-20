@@ -6,7 +6,6 @@ import * as layouts from '../layouts';
 import styles from '../layouts/layouts.css';
 
 export default class TradesLayouts extends Component {
-    shouldComponentUpdate = shouldPureComponentUpdate;
 
     static propTypes = {
         actions: PropTypes.object.isRequired,
@@ -23,6 +22,7 @@ export default class TradesLayouts extends Component {
         ticksForAllSymbols: PropTypes.object.isRequired,
         ohlcForAllSymbols: PropTypes.object.isRequired,
         tradesCount: PropTypes.number.isRequired,
+        theme: PropTypes.string,
         tradingTimeList: PropTypes.array.isRequired,
         uiStateList: PropTypes.array.isRequired,
         tradeErrorList: PropTypes.array.isRequired,
@@ -32,6 +32,8 @@ export default class TradesLayouts extends Component {
         const { actions, layoutN, tradesCount } = this.props;
         actions.changeActiveLayout(tradesCount, layoutN);
     }
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     componentDidUpdate() {
         windowResizeEvent();
@@ -52,6 +54,7 @@ export default class TradesLayouts extends Component {
             purchaseInfoList,
             tradingTimeList,
             uiStateList,
+            theme,
             ticksForAllSymbols,
             ohlcForAllSymbols,
             tradesCount,
@@ -79,6 +82,7 @@ export default class TradesLayouts extends Component {
                 purchaseInfo={purchaseInfoList[index]}
                 proposalInfo={proposalInfoList[index]}
                 uiState={uiStateList[index]}
+                theme={theme}
                 tradingTime={tradingTimeList[index]}
                 tradeErrors={tradeErrorList[index]}
             />

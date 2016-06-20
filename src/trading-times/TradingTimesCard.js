@@ -15,7 +15,7 @@ export default class TradingTimesCard extends Component {
 		tradingTimesFilter: PropTypes.object.isRequired,
 	};
 
-	assetMatchFilter(symbolName, filter) {
+	assetMatchFilter = (symbolName, filter) => {
 		const { assets } = this.props;
 		const assetObj = assets.find(x => x.symbol === symbolName);
 		const returnObj = assetObj ? (assetObj.market === filter || assetObj.submarket === filter) : null;
@@ -47,7 +47,7 @@ export default class TradingTimesCard extends Component {
 				<TradingTimesTable
 					{...this.props}
 					key={filter}
-					times={tradingTimes.filter(a => ::this.assetMatchFilter(a.symbol, filter))}
+					times={tradingTimes.filter(a => this.assetMatchFilter(a.symbol, filter))}
 				/>
 			</div>
 		);

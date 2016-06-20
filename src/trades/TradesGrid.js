@@ -13,11 +13,6 @@ export default class TradesGrid extends Component {
         contracts: PropTypes.object.isRequired,
     };
 
-    componentDidUpdate() {
-        // const node = ReactDOM.findDOMNode(this);
-        // node.parentNode.scrollLeft = node.scrollWidth;
-    }
-
     render() {
         const { actions, activeTradeIndex, assetsIsOpen, currency, trades, ticksForAllSymbols, contracts } = this.props;
         return (

@@ -24,7 +24,6 @@ module.exports = (wallaby) => ({
                 'stage-1',
             ],
             plugins: [
-                'transform-function-bind',
                 'transform-decorators-legacy',
             ],
         }),

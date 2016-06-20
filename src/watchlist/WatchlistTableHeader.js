@@ -18,6 +18,7 @@ export default class WatchlistTableHeader extends Component {
 					<th>
 						<M m="Chart" />
 					</th>
+					<th />
 				</tr>
 			</thead>
 		);

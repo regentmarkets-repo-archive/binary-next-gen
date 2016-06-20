@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-// import WatchlistContainer from '../watchlist/WatchlistContainer';
+import WatchlistContainer from '../watchlist/WatchlistContainer';
 import TradingTimesContainer from '../trading-times/TradingTimesContainer';
 import AssetIndexContainer from '../asset-index/AssetIndexContainer';
 import NewsContainer from '../news/NewsContainer';
@@ -13,7 +13,7 @@ import DigitStatsContainer from '../digit-stats/DigitStatsContainer';
 import SettingsContainer from '../settings/SettingsContainer';
 
 const components = [
-	// WatchlistContainer,
+	WatchlistContainer,
 	PortfolioContainer,
 	StatementContainer,
 	TradingTimesContainer,
@@ -28,12 +28,12 @@ const components = [
 
 export default class WorkspaceRightPanel extends Component {
 
-	shouldComponentUpdate = shouldPureComponentUpdate;
-
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
 		workspace: PropTypes.object.isRequired,
 	};
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		const { actions, workspace } = this.props;

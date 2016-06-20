@@ -5,10 +5,6 @@ import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import DateOfBirth from 'binary-components/lib/DateOfBirth';
 
 export default class UpgradeStep1 extends Component {
-	constructor(props) {
-		super(props);
-		this.state = { showErr: false };
-	}
 
 	static propTypes = {
 		actions: React.PropTypes.object.isRequired,
@@ -17,41 +13,44 @@ export default class UpgradeStep1 extends Component {
 		dateOfBirth: React.PropTypes.instanceOf(Date).isRequired,
 	};
 
-	salutationChange(e) {
+	constructor(props) {
+		super(props);
+		this.state = { showErr: false };
+	}
+
+	onSalutationChange = e => {
 		this.props.actions.upgradeFieldUpdate('salutation', e.target.value);
 	}
 
-	fnameChange(e) {
+	onFirstNameChange = e => {
 		this.setState({ showErr: true });
 		this.props.actions.upgradeFieldUpdate('firstName', e.target.value);
 	}
 
-	lnameChange(e) {
+	onLastNameChange = e => {
 		this.setState({ showErr: true });
 		this.props.actions.upgradeFieldUpdate('lastName', e.target.value);
 	}
 
-	fNameValid(fname) {
-		return /^[a-zA-Z\s'.-]{2,30}$/.test(fname);
-	}
+	onFirstNameValid = firstName =>
+		/^[a-zA-Z\s'.-]{2,30}$/.test(firstName);
 
-	lNameValid(lname) {
-		return /^[a-zA-Z\s'.-]{2,30}$/.test(lname);
-	}
+	onLastNameValid = lastName =>
+		/^[a-zA-Z\s'.-]{2,30}$/.test(lastName);
 
-	onDayChange(e) {
+	onDayChange = e => {
 		this.props.actions.upgradeDOBUpdate('day', e.target.value);
 	}
 
-	onMonthChange(e) {
+	onMonthChange = e => {
 		this.props.actions.upgradeDOBUpdate('month', e.target.value);
 	}
 
-	onYearChange(e) {
+	onYearChange = e => {
 		this.props.actions.upgradeDOBUpdate('year', e.target.value);
 	}
 
-	nextStep(e) {
+	nextStep = e => {
 		e.preventDefault();
 		this.setState({ showErr: true });
 		const { firstName, lastName } = this.props;
@@ -67,7 +66,7 @@ export default class UpgradeStep1 extends Component {
 		return (
 			<div>
 				<p>
-					<select id="mrms" name="mrms" onChange={::this.salutationChange}>
+					<select id="mrms" name="mrms" onChange={this.onSalutationChange}>
 						<option value="Mr">Mr</option>
 						<option value="Mrs">Mrs</option>
 						<option value="Ms">Ms</option>
@@ -80,7 +79,7 @@ export default class UpgradeStep1 extends Component {
 						placeholder="First name"
 						type="text"
 						value={firstName}
-						onChange={::this.fnameChange}
+						onChange={this.onFirstNameChange}
 						maxLength="30"
 					/>
 					<input
@@ -88,7 +87,7 @@ export default class UpgradeStep1 extends Component {
 						placeholder="Family name"
 						type="text"
 						value={lastName}
-						onChange={::this.lnameChange}
+						onChange={this.onLastNameChange}
 						maxLength="30"
 					/>
 				</p>
@@ -102,15 +101,15 @@ export default class UpgradeStep1 extends Component {
 				<p>
 					<DateOfBirth
 						date={dateOfBirth}
-						onDayChange={::this.onDayChange}
-						onMonthChange={::this.onMonthChange}
-						onYearChange={::this.onYearChange}
+						onDayChange={this.onDayChange}
+						onMonthChange={this.onMonthChange}
+						onYearChange={this.onYearChange}
 					/>
 				</p>
 				<p>
 					<Button
 						text="Next"
-						onClick={::this.nextStep}
+						onClick={this.nextStep}
 					/>
 				</p>
 			</div>

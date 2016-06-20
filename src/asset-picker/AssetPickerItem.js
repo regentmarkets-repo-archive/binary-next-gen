@@ -6,8 +6,6 @@ import Star from 'binary-components/lib/Star';
 
 export default class AssetPickerItem extends Component {
 
-	shouldComponentUpdate = shouldPureComponentUpdate;
-
 	static propTypes = {
 		asset: PropTypes.object,
 		selected: PropTypes.bool,
@@ -21,26 +19,34 @@ export default class AssetPickerItem extends Component {
 		selected: false,
 	};
 
+	shouldComponentUpdate = shouldPureComponentUpdate;
+
+	onRowClicked = e => {
+		const { asset, onClose, onSelect } = this.props;
+		onSelect(asset.symbol);
+		onClose();
+		e.stopPropagation();
+	};
+
+	onStarClicked = e => {
+		const { asset, onToggleWatchlistItem } = this.props;
+		onToggleWatchlistItem(asset);
+		e.stopPropagation();
+	};
+
 	render() {
-		const { asset, selected, onClose, onSelect, onToggleWatchlistItem } = this.props;
-		const { isOpen, isInWatchlist, symbol } = asset;
+		const { asset, selected } = this.props;
+		const { isOpen, isInWatchlist } = asset;
 		const classes = classnames('asset-picker-item', selected);
 
 		return (
 			<tbody>
 				<tr
 					className={classes}
-					onClick={(ev) => {
-						onSelect(symbol);
-						onClose();
-						ev.stopPropagation();
-					}}
+					onClick={this.onRowClicked}
 				>
 					<td
-						onClick={(ev) => {
-						onToggleWatchlistItem(asset);
-						ev.stopPropagation();
-					}}
+						onClick={this.onStarClicked}
 					>
 						<Star on={isInWatchlist} />
 					</td>
