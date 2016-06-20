@@ -31,40 +31,40 @@
     "all": "npm run dist && npm run release"
   },
   "build": {
-      "appId": "app.binary.com",
-      "app-category-type": "public.app-category.trading",
-      "productName": "binary trading app",
-      "osx": {
-        "title": "binary App",
-        "background": "build/background.png",
-        "icon": "build/icon.icns",
-        "icon-size": 128,
-        "target": "dmg",
-        "identity": "codesign",
-        "contents": [
-          {
-            "x": 355,
-            "y": 125,
-            "type": "link",
-            "path": "/Applications"
-          },
-          {
-            "x": 155,
-            "y": 125,
-            "type": "file"
-          }
-        ]
-      },
-      "win": {
-          "iconUrl": "https://www.binary.com/images/favicons/favicon-192x192.png",
-          "target" : "zip",
-          "loadingGif": "",
-          "msi" : true
-      },
-      "linux": {
-        "description": "Sharp Prices. Smart Trading",
-        "target": "zip"
-      }
+    "appId": "app.binary.com",
+    "app-category-type": "public.app-category.trading",
+    "productName": "binary trading app",
+    "osx": {
+      "title": "binary App",
+      "background": "build/background.png",
+      "icon": "build/icon.icns",
+      "icon-size": 128,
+      "target": "dmg",
+      "identity": "codesign",
+      "contents": [
+        {
+          "x": 355,
+          "y": 125,
+          "type": "link",
+          "path": "/Applications"
+        },
+        {
+          "x": 155,
+          "y": 125,
+          "type": "file"
+        }
+      ]
+    },
+    "win": {
+      "iconUrl": "https://www.binary.com/images/favicons/favicon-192x192.png",
+      "target": "zip",
+      "loadingGif": "",
+      "msi": true
+    },
+    "linux": {
+      "description": "Sharp Prices. Smart Trading",
+      "target": "zip"
+    }
   },
   "keywords": [
     "binary.com",
@@ -78,7 +78,7 @@
   "babel": {
     "presets": [
       "react",
-      "es2015",
+      "es2015-webpack",
       "stage-1"
     ],
     "plugins": [
@@ -132,7 +132,7 @@
     "babel-plugin-transform-react-constant-elements": "^6.9.1",
     "babel-plugin-transform-react-inline-elements": "^6.8.0",
     "babel-polyfill": "^6.9.1",
-    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-es2015-webpack": "^6.4.1",
     "babel-preset-react": "^6.5.0",
     "babel-preset-stage-0": "^6.5",
     "binary-test-data": "^1.1.0",
