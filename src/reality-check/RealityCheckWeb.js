@@ -26,7 +26,6 @@ export default class RealityCheckWeb extends Component {
         actions.updateRealityCheck('showInitial', false);
         actions.updateRealityCheck('showSummary', false);
         const secsToWait = computeIntervalForNextPopup(loginTime, interval);
-        console.log('towait', secsToWait);
         setTimeout(
             () => actions.updateRealityCheckSummary()
                 .then(() => actions.updateRealityCheck('showSummary', true)),

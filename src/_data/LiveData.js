@@ -65,9 +65,11 @@ const initAuthorized = async (authData, store) => {
         .then(r => {
             const details = r.landing_company_details;
             const acknowledged = store.getState().realityCheck.get('acknowledged');
+            console.log('ack', acknowledged);
             if (details && details.has_reality_check && !acknowledged) {
                 store.dispatch(actions.updateRealityCheck('showInitial', true));
                 store.dispatch(actions.updateRealityCheckSummary());
+                store.dispatch(actions.updateRealityCheck('acknowledged', true));
             }
         });
 

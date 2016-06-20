@@ -9,6 +9,7 @@ const filteredEngine = filter(engine, [
     ['account'],
     ['assets'],
     ['settings'],
+    ['realityCheck'],
     ['watchlist'],
     ['workspace'],
 ], [
