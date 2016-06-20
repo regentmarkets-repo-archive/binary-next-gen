@@ -117,8 +117,9 @@ const template = [
         label: 'Close',
         accelerator: 'CmdOrCtrl+W',
         role: 'close',
-        click(item, focusedWindow) {
-            focusedWindow.quit();
+        click() {
+            forceQuit = true;
+            app.quit();
         },
       },
     ],
