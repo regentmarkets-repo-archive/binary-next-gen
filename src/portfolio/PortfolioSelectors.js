@@ -13,6 +13,15 @@ const activeOpenContractSelector = createSelector(
         boughtContracts
             .filter(c => !c.get('sell_price') && c.get('contract_id'))
             .sort((a, b) => a.get('contract_id') > b.get('contract_id') ? -1 : 1)
+            .map(c => c
+                .filter((v, k) =>
+                    k === 'contract_id' ||
+                        k === 'transaction_ids' ||
+                        k === 'currency' ||
+                        k === 'buy_price' ||
+                        k === 'bid_price'
+                )
+            )
 );
 
 export const indicativeTotalSelector = createSelector(
