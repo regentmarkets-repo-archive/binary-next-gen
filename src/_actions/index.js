@@ -4,7 +4,7 @@ export * from './AppStateActions';
 export * from './AssetsActions';
 export * from './ChartDataActions';
 export * from './CandleStickActions';
-export * from './DigitStatActions';
+export * from './DigitStatsActions';
 export * from './AssetPickerActions';
 export * from './PortfolioActions';
 export * from './NewsActions';
