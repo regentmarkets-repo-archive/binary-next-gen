@@ -47,9 +47,9 @@ export default class WorkspaceCard extends Component {
 					showText
 					onChange={this.onTabChange}
 				>
-					<Tab imgSrc="img/watchlist.svg" text="Watchlist" />
 					<Tab imgSrc="img/portfolio.svg" text="Portfolio" />
 					<Tab imgSrc="img/statement.svg" text="Statement" />
+					<Tab imgSrc="img/watchlist.svg" text="Watchlist" />
 					<Tab imgSrc="img/time.svg" text="Trading Times" />
 					<Tab imgSrc="img/resources.svg" text="Asset Index" />
 					<Tab imgSrc="img/video.svg" text="Video" />

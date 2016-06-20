@@ -13,9 +13,9 @@ import DigitStatsContainer from '../digit-stats/DigitStatsContainer';
 import SettingsContainer from '../settings/SettingsContainer';
 
 const components = [
-	WatchlistContainer,
 	PortfolioContainer,
 	StatementContainer,
+	WatchlistContainer,
 	TradingTimesContainer,
 	AssetIndexContainer,
 	VideoListContainer,
