@@ -9,7 +9,7 @@ export default class RealityCheckInitialCard extends Component {
     };
 
     render() {
-        const { confirmIntervalUpdate, updateInterval, interval } = this.props;
+        const { confirmIntervalUpdate, interval, updateInterval } = this.props;
         return (
             <div>
                 <h3>
@@ -25,7 +25,7 @@ export default class RealityCheckInitialCard extends Component {
                 <p>
                     <M m="Please specify your preferred reality-check interval in minutes" />
                 </p>
-                <input type="number" value={interval} onChange={e => updateInterval(e.target.value)} />
+                <input type="number" value={Math.round(interval / 60)} onChange={e => updateInterval(e.target.value)} />
                 <button onClick={confirmIntervalUpdate}>
                     <M m="Continue Trading" />
                 </button>

@@ -6,7 +6,6 @@ const initialState = fromJS({
     acknowledged: false,
     showInitial: false,
     showSummary: false,
-    summary: {},
 });
 
 export default (state = initialState, action) => {

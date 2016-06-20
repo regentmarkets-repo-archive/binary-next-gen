@@ -21,11 +21,11 @@ export default class RealityCheckWeb extends Component {
 
     confirmIntervalUpdate = () => {
         const { actions, interval, summary } = this.props;
-        const { logintime } = summary;
+        const { loginTime } = summary;
         actions.updateRealityCheck('acknowledged', true);
         actions.updateRealityCheck('showInitial', false);
         actions.updateRealityCheck('showSummary', false);
-        const secsToWait = computeIntervalForNextPopup(logintime, interval);
+        const secsToWait = computeIntervalForNextPopup(loginTime, interval);
         console.log('towait', secsToWait);
         setTimeout(
             () => actions.updateRealityCheckSummary()
@@ -35,7 +35,7 @@ export default class RealityCheckWeb extends Component {
 
     updateInterval = (interval) => {
         const { actions } = this.props;
-        actions.updateRealityCheck('interval', interval);
+        actions.updateRealityCheck('interval', +interval * 60);
     }
 
     render() {
