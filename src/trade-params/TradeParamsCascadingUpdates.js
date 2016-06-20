@@ -144,7 +144,14 @@ export function changeType(newType, newCategory, oldTrade, contract) {
             contract[category][newType]
         )) {
         const { dateStart, duration, durationUnit } = oldTrade;
-        const newBarrier = createDefaultBarriers(contract, category, newType, duration, durationUnit);
+
+        let newBarrier;
+        if (category === oldTrade.tradeCategory) {
+            newBarrier = [oldTrade.barrier, oldTrade.barrier2];
+        } else {
+            newBarrier = createDefaultBarriers(contract, category, newType, duration, durationUnit);
+        }
+
         const newBarrierType = createDefaultBarrierType(duration, durationUnit);
         return {
             tradeCategory: newCategory,
@@ -174,9 +181,6 @@ export function changeType(newType, newCategory, oldTrade, contract) {
     };
 }
 
-/**
- * @param newStartDate {number}   - unix epoch
- */
 export function changeStartDate(newStartDate, contract, oldTrade) {
     const { duration, durationUnit, tradeCategory, type } = oldTrade;
     const newDurations = contract[tradeCategory][type].forwardStartingDuration.options;

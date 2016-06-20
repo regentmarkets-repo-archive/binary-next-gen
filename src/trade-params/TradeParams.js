@@ -63,6 +63,7 @@ export default class TradeParams extends Component {
         pipSize: PropTypes.number.isRequired,
         proposal: PropTypes.object,
         proposalError: PropTypes.any,
+        style: PropTypes.object,
         tradeParams: PropTypes.object.isRequired,
         type: PropTypes.oneOf(['tick', 'full']).isRequired,
         ticks: PropTypes.array,
@@ -227,6 +228,7 @@ export default class TradeParams extends Component {
             index,
             pipSize,
             proposal,
+            style,
             tradeParams,
         } = this.props;
 
@@ -254,7 +256,7 @@ export default class TradeParams extends Component {
         const showSpreadBarrier = categoryToUse === 'spreads';
 
         return (
-            <div className="trade-params" disabled={disabled} key={this.state.dynamicKey}>
+            <div className="trade-params" disabled={disabled} key={this.state.dynamicKey} style={style}>
                 <ErrorMsg text={error} />
                 <AssetPickerDropDown
                     actions={actions}
