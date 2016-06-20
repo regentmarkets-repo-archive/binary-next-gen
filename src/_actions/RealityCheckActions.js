@@ -1,4 +1,5 @@
 import { UPDATE_REALITY_CHECK, UPDATE_REALITY_CHECK_SUMMARY } from '../_constants/ActionTypes';
+import { api } from '../_data/LiveData';
 
 export const updateRealityCheck = (fieldName, fieldValue) => ({
     type: UPDATE_REALITY_CHECK,
@@ -6,7 +7,13 @@ export const updateRealityCheck = (fieldName, fieldValue) => ({
     fieldValue,
 });
 
-export const updateRealityCheckSummary = summary => ({
-    type: UPDATE_REALITY_CHECK_SUMMARY,
-    summary,
-});
+export const updateRealityCheckSummary = () =>
+    dispatch =>
+        api.getRealityCheckSummary()
+            .then(s => {
+                const summary = s.reality_check;
+                return dispatch({
+                    type: UPDATE_REALITY_CHECK_SUMMARY,
+                    summary,
+                });
+            });

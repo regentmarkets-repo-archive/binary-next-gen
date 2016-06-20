@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import nowAsEpoch from 'binary-utils/lib/nowAsEpoch';
+import Modal from '../containers/Modal';
 import RealityCheckInitialCard from './RealityCheckInitialCard';
 import RealityCheckSummaryCard from './RealityCheckSummaryCard';
 
@@ -25,7 +26,11 @@ export default class RealityCheckWeb extends Component {
         actions.updateRealityCheck('showInitial', false);
         actions.updateRealityCheck('showSummary', false);
         const secsToWait = computeIntervalForNextPopup(logintime, interval);
-        setTimeout(() => actions.updateRealityCheck('showSummary', true), secsToWait * 1000);
+        console.log('towait', secsToWait);
+        setTimeout(
+            () => actions.updateRealityCheckSummary()
+                .then(() => actions.updateRealityCheck('showSummary', true)),
+            secsToWait * 1000);
     }
 
     updateInterval = (interval) => {
@@ -37,7 +42,7 @@ export default class RealityCheckWeb extends Component {
         const { interval, showInitial, showSummary, summary } = this.props;
         if (!showInitial && !showSummary) return null;
         return (
-            <div>
+            <Modal shown>
                 {showInitial &&
                 <RealityCheckInitialCard
                     interval={interval}
@@ -51,7 +56,7 @@ export default class RealityCheckWeb extends Component {
                     updateInterval={this.updateInterval}
                     confirmIntervalUpdate={this.confirmIntervalUpdate}
                 />}
-            </div>
+            </Modal>
         );
     }
 }

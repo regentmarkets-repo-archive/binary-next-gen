@@ -34,19 +34,19 @@ export default class RealityCheckSummaryCard extends Component {
                             <td>
                                 <M m="Login Time" />
                             </td>
-                            <td>{loginTime}</td>
+                            <td>{loginTime.toString()}</td>
                         </tr>
                         <tr>
                             <td>
                                 <M m="Current Time" />
                             </td>
-                            <td>{currentTime}</td>
+                            <td>{currentTime.toString()}</td>
                         </tr>
                         <tr>
                             <td>
                                 <M m="Session Duration" />
                             </td>
-                            <td>{sessionDuration}</td>
+                            <td>{sessionDuration.toString()}</td>
                         </tr>
                     </tbody>
                 </table>
