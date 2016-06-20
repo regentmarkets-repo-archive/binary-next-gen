@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import PaymentAgentsItem from './PaymentAgentsItem';
-import M from 'binary-components/lib/M';
+import Th from 'binary-components/lib/Th';
 
 export default class PaymentAgentsList extends Component {
     static propTypes = {
@@ -13,9 +13,9 @@ export default class PaymentAgentsList extends Component {
             <table>
                 <thead>
                     <tr>
-                        <th><M m="Payment Agent" /></th>
-                        <th><M m="Commissions" /></th>
-                        <th><M m="Banks" /></th>
+                        <Th text="Payment Agent" />
+                        <Th text="Commissions" />
+                        <Th text="Banks" />
                     </tr>
                 </thead>
                 <tbody>

@@ -1,5 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import M from 'binary-components/lib/M';
+import Td from 'binary-components/lib/Td';
+import Th from 'binary-components/lib/Th';
 import NumberPlain from 'binary-components/lib/NumberPlain';
 
 export default class SettingsLimits extends Component {
@@ -19,9 +21,7 @@ export default class SettingsLimits extends Component {
 				<table>
 					<thead>
 						<tr>
-							<th>
-								<M m="Item" />
-							</th>
+							<Th text="Item" />
 							<th>
 								<M m="Limit ({currency})" values={{ currency: 'USD' }} />
 							</th>
@@ -29,27 +29,19 @@ export default class SettingsLimits extends Component {
 					</thead>
 					<tbody>
 						<tr>
-							<td>
-								<M m="Maximum number of open positions" />
-							</td>
+							<Td text="Maximum number of open positions" />
 							<td><NumberPlain value={settings.open_positions} digits={0} /></td>
 						</tr>
 						<tr>
-							<td>
-								<M m="Maximum account cash balance" />
-							</td>
+							<Td text="Maximum account cash balance" />
 							<td><NumberPlain value={settings.account_balance} digits={0} /></td>
 						</tr>
 						<tr>
-							<td>
-								<M m="Maximum daily turnover" />
-							</td>
+							<Td text="Maximum daily turnover" />
 							<td><NumberPlain value={settings.daily_turnover} digits={0} /></td>
 						</tr>
 						<tr>
-							<td>
-								<M m="Maximum aggregate payouts on open positions" />
-							</td>
+							<Td text="Maximum aggregate payouts on open positions" />
 							<td><NumberPlain value={settings.payout} digits={0} /></td>
 						</tr>
 					</tbody>

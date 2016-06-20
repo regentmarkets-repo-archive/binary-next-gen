@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import M from 'binary-components/lib/M';
+import Th from 'binary-components/lib/Th';
 import DailyPricesRow from './DailyPricesRow';
 
 export default class DailyPricesTable extends Component {
@@ -15,11 +15,11 @@ export default class DailyPricesTable extends Component {
             <table>
                 <thead>
                     <tr>
-                        <th><M m="Date" /></th>
-                        <th><M m="Open" /></th>
-                        <th><M m="High" /></th>
-                        <th><M m="Low" /></th>
-                        <th><M m="Close" /></th>
+                        <Th text="Date" />
+                        <Th text="Open" />
+                        <Th text="High" />
+                        <Th text="Low" />
+                        <Th text="Close" />
                     </tr>
                 </thead>
                 <tbody>

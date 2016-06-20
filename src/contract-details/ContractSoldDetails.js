@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import M from 'binary-components/lib/M';
+import Th from 'binary-components/lib/Th';
 import NumberColored from 'binary-components/lib/NumberColored';
 
 const profitInPercentage = (buy, sell) => (sell - buy) / buy * 100;
@@ -22,9 +23,9 @@ export default class ContractSoldDetails extends Component {
                 <table>
                     <thead>
                         <tr>
-                            <th><M m="Buy Price" /></th>
-                            <th><M m="Sale Price" /></th>
-                            <th><M m="Return" /></th>
+                            <Th text="Buy Price" />
+                            <Th text="Sale Price" />
+                            <Th text="Return" />
                         </tr>
                     </thead>
                     <tbody>

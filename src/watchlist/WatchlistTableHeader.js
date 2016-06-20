@@ -1,23 +1,15 @@
 import React, { Component } from 'react';
-import M from 'binary-components/lib/M';
+import Th from 'binary-components/lib/Th';
 
 export default class WatchlistTableHeader extends Component {
 	render() {
 		return (
 			<thead>
 				<tr>
-					<th>
-						<M m="Asset" />
-					</th>
-					<th>
-						<M m="Spot" />
-					</th>
-					<th>
-						<M m="Change" />
-					</th>
-					<th>
-						<M m="Chart" />
-					</th>
+					<Th text="Asset" />
+					<Th text="Spot" />
+					<Th text="Change" />
+					<Th text="Chart" />
 					<th />
 				</tr>
 			</thead>

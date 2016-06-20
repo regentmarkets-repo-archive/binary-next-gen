@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import M from 'binary-components/lib/M';
+import Th from 'binary-components/lib/Th';
 
 export default class AssetDetailsTable extends Component {
 
@@ -14,8 +14,8 @@ export default class AssetDetailsTable extends Component {
 			<table>
 				<thead>
 					<tr>
-						<th><M m="Property" /></th>
-						<th><M m="Value" /></th>
+						<Th text="Property" />
+						<Th text="Value" />
 					</tr>
 				</thead>
 				<tbody>

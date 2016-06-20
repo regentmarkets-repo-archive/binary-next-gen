@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import M from 'binary-components/lib/M';
+import Th from 'binary-components/lib/Th';
 import NumberPlain from 'binary-components/lib/NumberPlain';
 import NumberColored from 'binary-components/lib/NumberColored';
 import { FormattedDate } from 'react-intl';
@@ -22,20 +23,10 @@ export default class StatementTable extends Component {
 			<table>
 				<thead>
 					<tr>
-						<th>
-							<M m="Purchase Date" />
-						</th>
-						{!compact &&
-							<th>
-								<M m="Ref." />
-							</th>
-						}
-						<th>
-							<M m="Action" />
-						</th>
-						<th>
-							<M m="Credit / Debit" />
-						</th>
+						<Th text="Purchase Date" />
+						{!compact && <Th text="Ref." />}
+						<Th text="Action" />
+						<Th text="Credit / Debit" />
 						<th>
 							<M m="Balance" /> ({currency})
 						</th>
@@ -57,7 +48,7 @@ export default class StatementTable extends Component {
 							<FormattedDate value={transactions[0].date} />
 						</th>
 						<th />
-						{!compact && <th></th>}
+						{!compact && <th />}
 						<th><NumberColored value={transactionsTotal} /></th>
 						<th><NumberPlain value={transactions[0].balanceAfter} /></th>
 					</tr>

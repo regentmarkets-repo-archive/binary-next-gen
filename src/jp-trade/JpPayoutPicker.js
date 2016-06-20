@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import Button from 'binary-components/lib/Button';
+import Th from 'binary-components/lib/Th';
 
 export default class JpTradeCard extends Component {
 
@@ -12,9 +13,9 @@ export default class JpTradeCard extends Component {
             <table>
                 <thead>
                     <tr>
-                        <th>Excercise price</th>
-                        <th>Higher</th>
-                        <th>Lower</th>
+                        <Th text="Excercise price" />
+                        <Th text="Higher" />
+                        <Th text="Lower" />
                     </tr>
                 </thead>
                 <tbody>

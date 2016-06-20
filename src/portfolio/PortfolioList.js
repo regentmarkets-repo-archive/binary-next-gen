@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import M from 'binary-components/lib/M';
+import Th from 'binary-components/lib/Th';
 import NumberPlain from 'binary-components/lib/NumberPlain';
 import PortfolioItem from './PortfolioItem';
 
@@ -20,15 +20,9 @@ export default class PortfolioList extends Component {
 			<table>
 				<thead>
 					<tr>
-						<th>
-							<M m="Ref." />
-						</th>
-						<th>
-							<M m="Purchase" />
-						</th>
-						<th>
-							<M m="Indicative" />
-						</th>
+						<Th text="Ref." />
+						<Th text="Purchase" />
+						<Th text="Indicative" />
 					</tr>
 				</thead>
 				<tbody>
@@ -44,7 +38,7 @@ export default class PortfolioList extends Component {
 				</tbody>
 				<tfoot>
 					<tr>
-						<th></th>
+						<th />
 						<th><NumberPlain currency="USD" value={purchaseTotal} /></th>
 						<th><NumberPlain currency="USD" value={indicativeTotal} /></th>
 					</tr>

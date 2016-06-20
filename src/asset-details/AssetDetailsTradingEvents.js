@@ -1,5 +1,5 @@
 import React, { PropTypes, Component } from 'react';
-import M from 'binary-components/lib/M';
+import Th from 'binary-components/lib/Th';
 
 export default class AssetDetailsTradingEvents extends Component {
 
@@ -16,8 +16,8 @@ export default class AssetDetailsTradingEvents extends Component {
 			<table>
 				<thead>
 					<tr>
-						<th><M m="Dates" /></th>
-						<th><M m="Description" /></th>
+						<Th text="Dates" />
+						<Th text="Description" />
 					</tr>
 				</thead>
 				<tbody>

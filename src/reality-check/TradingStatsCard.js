@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import M from 'binary-components/lib/M';
+import Th from 'binary-components/lib/Th';
 
 export default class TradingStatsCard extends Component {
 
@@ -30,30 +30,14 @@ export default class TradingStatsCard extends Component {
             <table>
                 <thead>
                     <tr>
-                        <th>
-                            <M m="Login ID" />
-                        </th>
-                        <th>
-                            <M m="Currency" />
-                        </th>
-                        <th>
-                            <M m="Turnover" />
-                        </th>
-                        <th>
-                            <M m="Profit/Loss" />
-                        </th>
-                        <th>
-                            <M m="Contract Bought" />
-                        </th>
-                        <th>
-                            <M m="Contract Sold" />
-                        </th>
-                        <th>
-                            <M m="Open Contract" />
-                        </th>
-                        <th>
-                            <M m="Potental Profit" />
-                        </th>
+                        <Th text="Login ID" />
+                        <Th text="Currency" />
+                        <Th text="Turnover" />
+                        <Th text="Profit/Loss" />
+                        <Th text="Contract Bought" />
+                        <Th text="Contract Sold" />
+                        <Th text="Open Contract" />
+                        <Th text="Potental Profit" />
                     </tr>
                 </thead>
                 <tbody>
