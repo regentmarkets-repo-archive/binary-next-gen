@@ -66,22 +66,28 @@ const initAuthorized = async (authData, store) => {
         .then(r => {
             const details = r.landing_company_details;
             const acknowledged = store.getState().realityCheck.get('acknowledged');
-
-            if (details && details.has_reality_check && !acknowledged) {
-                store.dispatch(actions.updateRealityCheck('showInitial', true));
-                store.dispatch(actions.updateRealityCheck('acknowledged', true));
+            if (details && details.has_reality_check) {
+                if (!acknowledged) {
+                    store
+                        .dispatch(actions.updateRealityCheckSummary())
+                        .then(() => store.dispatch(actions.updateRealityCheck('showInitial', true)));
+                } else {
+                    const interval = store.getState().realityCheck.get('interval');
+                    const loginTime = store.getState().realityCheck.getIn(['summary', 'loginTime']);
+                    const timeToWait = timeLeftToNextRealityCheck(loginTime, interval) * 1000;
+                    store
+                        .dispatch(actions.updateRealityCheckSummary())
+                        .then(
+                            () => setTimeout(
+                                () => store.dispatch(actions.updateRealityCheck('showSummary', true)),
+                                timeToWait
+                            )
+                        );
+                }
             } else {
-                const interval = store.getState().realityCheck.get('interval');
-                const loginTime = store.getState().realityCheck.getIn(['summary', 'loginTime']);
-                const timeToWait = timeLeftToNextRealityCheck(loginTime, interval) * 1000;
-                store
-                    .dispatch(actions.updateRealityCheckSummary())
-                    .then(
-                        () => setTimeout(
-                            () => store.dispatch(actions.updateRealityCheck('showSummary', true)),
-                            timeToWait
-                        )
-                    );
+                store.dispatch(actions.updateRealityCheck('acknowledged', false));
+                store.dispatch(actions.updateRealityCheck('showInitial', false));
+                store.dispatch(actions.updateRealityCheck('showSummary', false));
             }
         });
 

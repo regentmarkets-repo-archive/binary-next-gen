@@ -48,7 +48,7 @@ export default class RealityCheckWeb extends Component {
                     updateInterval={this.updateInterval}
                     confirmIntervalUpdate={this.confirmIntervalUpdate}
                 />}
-                {showSummary &&
+                {showSummary && summary &&
                 <RealityCheckSummaryCard
                     {...summary}
                     interval={interval}
