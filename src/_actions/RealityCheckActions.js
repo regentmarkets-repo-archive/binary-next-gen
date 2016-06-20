@@ -12,8 +12,11 @@ export const updateRealityCheckSummary = () =>
         api.getRealityCheckSummary()
             .then(s => {
                 const summary = s.reality_check;
-                return dispatch({
-                    type: UPDATE_REALITY_CHECK_SUMMARY,
-                    summary,
-                });
+                if (Object.keys(summary).length > 0) {
+                    return dispatch({
+                        type: UPDATE_REALITY_CHECK_SUMMARY,
+                        summary,
+                    });
+                }
+                return undefined;
             });
