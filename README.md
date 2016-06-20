@@ -105,6 +105,7 @@ We use [Electron](http://electron.atom.io/) to run as desktop app.
 
 ```
 npm i electron-prebuilt -g
+brew install gnu-tar libicns graphicsmagick
 electron
 ```
 

@@ -1,6 +1,5 @@
 {
   "name": "binary-next-gen",
-  "main": "electrongenerator.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/binary-com/binary-next-gen.git"
@@ -19,16 +18,53 @@
     "build": "npm run clean && npm run build:webpack",
     "build:webpack": "NODE_ENV=production webpack --config webpack.config.js",
     "lint": "eslint src",
-    "electron": "electron .",
-    "asar-osx": "asar pack dist/electron/Myapp-darwin-x64/Myapp.app/Contents/Resources/app dist/electron/Myapp-darwin-x64/Myapp.app/Contents/Resources/app.asar",
-    "asar-win": "asar pack dist/electron/Myapp-win32-x64/Myapp.app/Contents/Resources/app dist/electron/Myapp-win32-x64/Myapp.app/Contents/Resources/app.asar",
-    "asar-linux": "asar pack dist/electron/Myapp-linux-x64/Myapp.app/Contents/Resources/app dist/electron/Myapp-linux-x64/Myapp.app/Contents/Resources/app.asar",
-    "pack-osx": "electron-packager . Myapp --out ./dist/electron --platform=darwin --arch=x64 --ignore=node_modules/* --ignore=plugins/* --ignore=platforms/* --ignore=dist/* --ignore=styles/* --ignore=src/* --overwrite --icon=www/img/icon.png.icns",
-    "pack-win": "electron-packager . Myapp --out ./dist/electron --platform=win32 --arch=x64 --ignore=node_modules/* --ignore=plugins/* --ignore=platforms/* --ignore=dist/* --ignore=styles/* --ignore=src/* --overwrite --icon=www/img/icon.png",
-    "pack-linux": "electron-packager . Myapp --out ./dist/electron --platform=linux --arch=x64 --ignore=node_modules/* --ignore=plugins/* --ignore=platforms/* --ignore=dist/* --ignore=styles/* --ignore=src/* --overwrite --icon=www/img/icon.png",
-    "pack-all": "npm run pack-osx && npm run pack-linux && npm run pack-win",
-    "asar-all": "npm run asar-linux && npm run asar-osx && npm run asar-win",
-    "translate": "bash fetch-translation.sh"
+    "electron": "electron ./www",
+    "translate": "bash fetch-translation.sh",
+    "dist": "build -owl --ia32 --x64",
+    "prerelease:osx": "rm -rf ./release/osx && mkdirp release/osx",
+    "release:osx": "cp -rv ./dist/osx/*.{dmg,zip} ./release/osx && PACKAGE_VERSION=$(cat app/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && echo $PACKAGE_VERSION >> ./release/osx/VERSION",
+    "prerelease:win32": "rm -rf ./release/win32 && mkdirp release/win32",
+    "release:win32": "cp -v ./dist/{RELEASES,*.nupkg,*.exe} release/win32",
+    "prerelease:win64": "rm -rf ./release/win64 && mkdirp release/win64",
+    "release:win64": "cp -v ./dist/win/{RELEASES,*.nupkg,*.exe} release/win64",
+    "release": "npm run release:osx && npm run release:win32 && npm run release:win64",
+    "all": "npm run dist && npm run release"
+  },
+  "build": {
+      "appId": "app.binary.com",
+      "app-category-type": "public.app-category.trading",
+      "productName": "binary trading app",
+      "osx": {
+        "title": "binary App",
+        "background": "build/background.png",
+        "icon": "build/icon.icns",
+        "icon-size": 128,
+        "target": "dmg",
+        "identity": "codesign",
+        "contents": [
+          {
+            "x": 355,
+            "y": 125,
+            "type": "link",
+            "path": "/Applications"
+          },
+          {
+            "x": 155,
+            "y": 125,
+            "type": "file"
+          }
+        ]
+      },
+      "win": {
+          "iconUrl": "https://www.binary.com/images/favicons/favicon-192x192.png",
+          "target" : "zip",
+          "loadingGif": "",
+          "msi" : true
+      },
+      "linux": {
+        "description": "Sharp Prices. Smart Trading",
+        "target": "zip"
+      }
   },
   "keywords": [
     "binary.com",
@@ -107,7 +143,7 @@
     "chai-subset": "^1.2.2",
     "coveralls": "^2.11.9",
     "css-loader": "^0.23.1",
-    "electron-packager": "^7.0.4",
+    "electron-builder": "^5.4.1",
     "electron-prebuilt": "^1.2.2",
     "enzyme": "^2.3.0",
     "eslint": "~2.12.0",
