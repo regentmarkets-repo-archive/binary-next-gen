@@ -114,12 +114,19 @@ const template = [
         },
       },
       {
-        label: 'Close',
-        accelerator: 'CmdOrCtrl+W',
-        role: 'close',
+        label: 'Quit',
+        accelerator: 'Command+Q',
         click() {
             forceQuit = true;
             app.quit();
+        },
+      },
+       {
+        label: 'Hide ' + name,
+        accelerator: 'Command+H',
+        role: 'hide',
+        click(item, focusedWindow) {
+            focusedWindow.hide();
         },
       },
     ],
@@ -161,7 +168,7 @@ if (process.platform === 'darwin') {
       {
         label: 'Quit',
         accelerator: 'Command+Q',
-        click() {  
+        click() {
             forceQuit = true;
             app.quit();
         },
@@ -188,11 +195,14 @@ app.on('ready', function() {
         app.quit();
     });
 
-    mainWindow.on('close', function(e) {
+    mainWindow.on('close', function (e) {
         if (!forceQuit) {
             e.preventDefault();
             mainWindow.hide();
         }
+    });
+    app.on('activate', function () {
+       mainWindow.show();
     });
 
     mainWindow.on('show', function (e) {
@@ -204,3 +214,11 @@ app.on('ready', function() {
         console.log('the main window is hiding');
     });
 });
+
+app.on('activate', function (e) {
+  mainWindow.show();
+});
+app.on('before-quit', function (e) {
+  forceQuit = true;
+});
+
