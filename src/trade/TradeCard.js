@@ -206,29 +206,30 @@ export default class TradeCard extends Component {
                         tradingTime={tradingTime}
                     />
                 </div>
-                {lastBoughtContract ?
+                {lastBoughtContract &&
                     <ContractReceipt
                         actions={actions}
                         contract={lastBoughtContract}
                         showLongcode
                         onTradeAgainClicked={this.tradeAgain}
-                    /> :
-                    <TradeParams
-                        {...proposalInfo}
-                        error={tradeError}
-                        proposalError={tradeErrors.proposalError}
-                        actions={actions}
-                        currency={currency}
-                        contract={contract}
-                        compact={compact}
-                        disabled={disabled}
-                        index={index}
-                        pipSize={pipSize}
-                        tradeParams={params}
-                        ticks={ticks}
-                        onPurchaseHook={this.zoomWhenPurchase}
                     />
                 }
+                <TradeParams
+                    {...proposalInfo}
+                    style={lastBoughtContract ? { display: 'none' } : {}}
+                    error={tradeError}
+                    proposalError={tradeErrors.proposalError}
+                    actions={actions}
+                    currency={currency}
+                    contract={contract}
+                    compact={compact}
+                    disabled={disabled}
+                    index={index}
+                    pipSize={pipSize}
+                    tradeParams={params}
+                    ticks={ticks}
+                    onPurchaseHook={this.zoomWhenPurchase}
+                />
             </div>
         );
     }
