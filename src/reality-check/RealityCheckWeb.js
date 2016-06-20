@@ -16,11 +16,9 @@ export default class RealityCheckWeb extends Component {
         showInitial: PropTypes.bool,
         showSummary: PropTypes.bool,
         summary: PropTypes.object,
-        updateInterval: PropTypes.func.isRequired,
-        confirmIntervalUpdate: PropTypes.func.isRequired,  // do nothing beside closing the modal
     };
 
-    confirmIntervalUpdate() {
+    confirmIntervalUpdate = () => {
         const { actions, interval, summary } = this.props;
         const { logintime } = summary;
         actions.updateRealityCheck('acknowledged', true);
@@ -30,23 +28,28 @@ export default class RealityCheckWeb extends Component {
         setTimeout(() => actions.updateRealityCheck('showSummary', true), secsToWait * 1000);
     }
 
+    updateInterval = (interval) => {
+        const { actions } = this.props;
+        actions.updateRealityCheck('interval', interval);
+    }
+
     render() {
-        const { interval, showInitial, showSummary, summary, updateInterval } = this.props;
+        const { interval, showInitial, showSummary, summary } = this.props;
         if (!showInitial && !showSummary) return null;
         return (
             <div>
                 {showInitial &&
                 <RealityCheckInitialCard
                     interval={interval}
-                    updateInterval={updateInterval}
-                    confirmIntervalUpdate={::this.confirmIntervalUpdate}
+                    updateInterval={this.updateInterval}
+                    confirmIntervalUpdate={this.confirmIntervalUpdate}
                 />}
                 {showSummary &&
                 <RealityCheckSummaryCard
                     {...summary}
                     interval={interval}
-                    updateInterval={updateInterval}
-                    confirmIntervalUpdate={::this.confirmIntervalUpdate}
+                    updateInterval={this.updateInterval}
+                    confirmIntervalUpdate={this.confirmIntervalUpdate}
                 />}
             </div>
         );

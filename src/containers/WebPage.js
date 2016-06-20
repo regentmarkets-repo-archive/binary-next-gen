@@ -7,6 +7,7 @@ import RealityCheckContainer from '../reality-check/RealityCheckContainer';
 export default class WebPage extends Component {
 
 	static propTypes = {
+		actions: PropTypes.object.isRequired,
 		children: PropTypes.any,
 		isAuthorized: PropTypes.bool,
 	};
@@ -16,7 +17,6 @@ export default class WebPage extends Component {
 		return (
 			isAuthorized ?
 				<div className="web-page">
-					<RealityCheckContainer action={actions} />
 					<div className="web-content">
 						{children}
 					</div>
