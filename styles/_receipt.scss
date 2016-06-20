@@ -36,9 +36,15 @@
     }
     .contract-receipt {
         max-width: 25rem;
+        padding-left: 0.5rem;
     }
     .contract-chart {
         flex: 1;
         min-width: 25rem;
     }
+}
+
+.sell-at-market-btn {
+    font-size: 1.25em;
+    width: 100%;
 }

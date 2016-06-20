@@ -3,6 +3,7 @@ import M from 'binary-components/lib/M';
 import TradingStatsCard from './TradingStatsCard';
 
 export default class RealityCheckSummaryCard extends Component {
+
     static propTypes = {
         confirmIntervalUpdate: PropTypes.func.isRequired,
         interval: PropTypes.number.isRequired,

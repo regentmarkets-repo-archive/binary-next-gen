@@ -4,13 +4,11 @@ import Modal from '../containers/Modal';
 import RealityCheckInitialCard from './RealityCheckInitialCard';
 import RealityCheckSummaryCard from './RealityCheckSummaryCard';
 
-export function timeLeftToNextRealityCheck(loginTime, interval) {
-    const currentTime = nowAsEpoch();
-    const timeLeft = interval - ((currentTime - loginTime) % interval);
-    return timeLeft;
-}
+export const timeLeftToNextRealityCheck = (loginTime, interval) =>
+    interval - ((nowAsEpoch() - loginTime) % interval);
 
 export default class RealityCheckWeb extends Component {
+
     static propTypes = {
         actions: PropTypes.object.isRequired,
         interval: PropTypes.number.isRequired,           // in seconds

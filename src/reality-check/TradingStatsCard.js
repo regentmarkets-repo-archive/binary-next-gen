@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import M from 'binary-components/lib/M';
 
 export default class TradingStatsCard extends Component {
+
     static propTypes = {
         loginID: PropTypes.string.isRequired,
         currency: PropTypes.string,
@@ -24,6 +25,7 @@ export default class TradingStatsCard extends Component {
             openContract,
             potentialProfit,
         } = this.props;
+
         return (
             <table>
                 <thead>

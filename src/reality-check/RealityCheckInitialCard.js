@@ -2,6 +2,7 @@ import React, { Component, PropTypes } from 'react';
 import M from 'binary-components/lib/M';
 
 export default class RealityCheckInitialCard extends Component {
+
     static propTypes = {
         interval: PropTypes.number.isRequired,
         updateInterval: PropTypes.func.isRequired,
