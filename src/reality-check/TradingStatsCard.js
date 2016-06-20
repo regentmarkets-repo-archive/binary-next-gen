@@ -1,5 +1,5 @@
 import React, { Component, PropTypes } from 'react';
-import M from 'binary-components/lib/M'
+import M from 'binary-components/lib/M';
 
 export default class TradingStatsCard extends Component {
     static propTypes = {

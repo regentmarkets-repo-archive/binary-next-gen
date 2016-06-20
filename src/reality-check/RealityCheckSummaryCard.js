@@ -19,9 +19,9 @@ export default class RealityCheckSummaryCard extends Component {
             sessionDuration,
             interval,
             tradingStatistic,
-            updateInterval
+            updateInterval,
         } = this.props;
-        
+
         const currentTime = new Date();
         return (
             <div>
@@ -32,19 +32,19 @@ export default class RealityCheckSummaryCard extends Component {
                     <tbody>
                         <tr>
                             <td>
-                                <M m="Login Time"/>
+                                <M m="Login Time" />
                             </td>
                             <td>{loginTime}</td>
                         </tr>
                         <tr>
                             <td>
-                                <M m="Current Time"/>
+                                <M m="Current Time" />
                             </td>
                             <td>{currentTime}</td>
                         </tr>
                         <tr>
                             <td>
-                                <M m="Session Duration"/>
+                                <M m="Session Duration" />
                             </td>
                             <td>{sessionDuration}</td>
                         </tr>
@@ -56,10 +56,9 @@ export default class RealityCheckSummaryCard extends Component {
                 <TradingStatsCard {...tradingStatistic} />
                 <input type="number" value={interval} onChange={e => updateInterval(e.target.value)} />
                 <button onClick={confirmIntervalUpdate}>
-                    <M m"Continue Trading" />
+                    <M m="Continue Trading" />
                 </button>
             </div>
         );
     }
 }
-

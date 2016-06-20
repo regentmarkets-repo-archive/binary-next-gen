@@ -32,6 +32,7 @@ export default class RealityCheckWeb extends Component {
 
     render() {
         const { interval, showInitial, showSummary, summary, updateInterval } = this.props;
+        if (!showInitial && !showSummary) return null;
         return (
             <div>
                 {showInitial &&
@@ -50,5 +51,4 @@ export default class RealityCheckWeb extends Component {
             </div>
         );
     }
-    
 }
