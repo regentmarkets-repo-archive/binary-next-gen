@@ -4,7 +4,7 @@ import Modal from '../containers/Modal';
 import RealityCheckInitialCard from './RealityCheckInitialCard';
 import RealityCheckSummaryCard from './RealityCheckSummaryCard';
 
-function computeIntervalForNextPopup(loginTime, interval) {
+export function timeLeftToNextRealityCheck(loginTime, interval) {
     const currentTime = nowAsEpoch();
     const timeLeft = interval - ((currentTime - loginTime) % interval);
     return timeLeft;
@@ -25,7 +25,7 @@ export default class RealityCheckWeb extends Component {
         actions.updateRealityCheck('acknowledged', true);
         actions.updateRealityCheck('showInitial', false);
         actions.updateRealityCheck('showSummary', false);
-        const secsToWait = computeIntervalForNextPopup(loginTime, interval);
+        const secsToWait = timeLeftToNextRealityCheck(loginTime, interval);
         setTimeout(
             () => actions.updateRealityCheckSummary()
                 .then(() => actions.updateRealityCheck('showSummary', true)),

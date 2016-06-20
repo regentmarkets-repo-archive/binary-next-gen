@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
 import RealityCheckWeb from './RealityCheckWeb';

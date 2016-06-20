@@ -14,8 +14,59 @@ export default class TradingStatsCard extends Component {
     };
 
     render() {
+        const {
+            loginID,
+            currency,
+            turnover,
+            profitLoss,
+            contractBought,
+            contractSold,
+            openContract,
+            potentialProfit,
+        } = this.props;
         return (
-            <div></div>
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+                            <M m="Login ID" />
+                        </th>
+                        <th>
+                            <M m="Currency" />
+                        </th>
+                        <th>
+                            <M m="Turnover" />
+                        </th>
+                        <th>
+                            <M m="Profit/Loss" />
+                        </th>
+                        <th>
+                            <M m="Contract Bought" />
+                        </th>
+                        <th>
+                            <M m="Contract Sold" />
+                        </th>
+                        <th>
+                            <M m="Open Contract" />
+                        </th>
+                        <th>
+                            <M m="Potental Profit" />
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{loginID}</td>
+                        <td>{currency}</td>
+                        <td>{turnover}</td>
+                        <td>{profitLoss}</td>
+                        <td>{contractBought}</td>
+                        <td>{contractSold}</td>
+                        <td>{openContract}</td>
+                        <td>{potentialProfit}</td>
+                    </tr>
+                </tbody>
+            </table>
         );
     }
 }

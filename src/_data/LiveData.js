@@ -3,6 +3,7 @@ import { readNewsFeed } from './NewsData';
 import { getVideosFromPlayList } from './VideoData';
 import isUserVirtual from 'binary-utils/lib/isUserVirtual';
 import * as actions from '../_actions';
+import { timeLeftToNextRealityCheck } from '../reality-check/RealityCheckWeb';
 
 const handlers = {
     active_symbols: 'serverDataActiveSymbols',
@@ -65,11 +66,22 @@ const initAuthorized = async (authData, store) => {
         .then(r => {
             const details = r.landing_company_details;
             const acknowledged = store.getState().realityCheck.get('acknowledged');
-            console.log('ack', acknowledged);
+
             if (details && details.has_reality_check && !acknowledged) {
                 store.dispatch(actions.updateRealityCheck('showInitial', true));
-                store.dispatch(actions.updateRealityCheckSummary());
                 store.dispatch(actions.updateRealityCheck('acknowledged', true));
+            } else {
+                const interval = store.getState().realityCheck.get('interval');
+                const loginTime = store.getState().realityCheck.getIn(['summary', 'loginTime']);
+                const timeToWait = timeLeftToNextRealityCheck(loginTime, interval) * 1000;
+                store
+                    .dispatch(actions.updateRealityCheckSummary())
+                    .then(
+                        () => setTimeout(
+                            () => store.dispatch(actions.updateRealityCheck('showSummary', true)),
+                            timeToWait
+                        )
+                    );
             }
         });
 
