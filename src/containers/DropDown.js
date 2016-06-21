@@ -8,7 +8,22 @@ export default class DropDown extends Component {
 		children: PropTypes.any,
 	};
 
+	componentDidMount() {
+		document.addEventListener('keydown', this.closeOnEscape, false);
+	}
+
+	componentWillUnmount() {
+		document.removeEventListener('keydown', this.closeOnEscape, false);
+	}
+
 	onClickWithin = e => e.stopPropagation();
+
+	closeOnEscape = (evt) => {
+		const { onClose } = this.props;
+		if (evt.keyCode === 27 && onClose) {
+			onClose();
+		}
+	}
 
 	render() {
 		const { shown, onClose, children } = this.props;

@@ -13,25 +13,11 @@ export default class ContractDetailsModal extends Component {
         contractShown: PropTypes.string,
     };
 
-    componentDidMount() {
-        document.addEventListener('keydown', this.closeOnEscape, false);
-    }
-
     shouldComponentUpdate = shouldPureComponentUpdate;
-
-    componentWillUnmount() {
-        document.removeEventListener('keydown', this.closeOnEscape, false);
-    }
 
     hideDetails = () => {
         const { actions } = this.props;
         actions.detailsForContract();
-    }
-
-    closeOnEscape = (evt) => {
-        if (evt.keyCode === 27) {
-            this.hideDetails();
-        }
     }
 
     render() {
