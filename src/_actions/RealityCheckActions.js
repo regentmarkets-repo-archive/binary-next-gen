@@ -6,6 +6,8 @@ export const updateRealityCheck = properties => ({
     properties,
 });
 
+export const updateRealityCheckInterval = interval => updateRealityCheck({ interval });
+
 export const disableRealityCheck = () => updateRealityCheck({
     acknowledged: false,
     showInitial: false,

@@ -30,7 +30,7 @@ export default class RealityCheckWeb extends Component {
 
     updateInterval = (interval) => {
         const { actions } = this.props;
-        actions.updateRealityCheck({ interval: +interval * 60 });
+        actions.updateRealityCheckInterval(+interval * 60);
     }
 
     render() {
