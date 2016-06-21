@@ -11,7 +11,7 @@ const initialState = fromJS({
 export default (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_REALITY_CHECK: {
-            return state.set(action.fieldName, action.fieldValue);
+            return state.merge(action.properties);
         }
         case UPDATE_REALITY_CHECK_SUMMARY: {
             const {

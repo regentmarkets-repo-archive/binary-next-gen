@@ -1,10 +1,33 @@
 import { UPDATE_REALITY_CHECK, UPDATE_REALITY_CHECK_SUMMARY } from '../_constants/ActionTypes';
 import { api } from '../_data/LiveData';
 
-export const updateRealityCheck = (fieldName, fieldValue) => ({
+export const updateRealityCheck = properties => ({
     type: UPDATE_REALITY_CHECK,
-    fieldName,
-    fieldValue,
+    properties,
+});
+
+export const disableRealityCheck = () => updateRealityCheck({
+    acknowledged: false,
+    showInitial: false,
+    showSummary: false,
+});
+
+export const initRealityCheck = () => updateRealityCheck({
+    acknowledged: false,
+    showInitial: true,
+    showSummary: false,
+});
+
+export const showRealityCheckPopUp = () => updateRealityCheck({
+    acknowledged: false,
+    showInitial: false,
+    showSummary: true,
+});
+
+export const ackRealityCheck = () => updateRealityCheck({
+    acknowledged: true,
+    showInitial: false,
+    showSummary: false,
 });
 
 export const updateRealityCheckSummary = () =>
