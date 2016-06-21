@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import M from 'binary-components/lib/M';
+import secsToTimeString from 'binary-utils/lib/secondsToTimeString';
 import TradingStatsCard from './TradingStatsCard';
 
 export default class RealityCheckSummaryCard extends Component {
@@ -23,7 +24,7 @@ export default class RealityCheckSummaryCard extends Component {
 
         const currentTime = new Date();
         const loginDate = new Date(loginTime * 1000);
-        const durationDate = new Date(sessionDuration * 1000);
+        const durationString = secsToTimeString(sessionDuration);
         return (
             <div>
                 <h3>
@@ -47,7 +48,7 @@ export default class RealityCheckSummaryCard extends Component {
                             <td>
                                 <M m="Session Duration" />
                             </td>
-                            <td>{durationDate.toTimeString()}</td>
+                            <td>{durationString}</td>
                         </tr>
                     </tbody>
                 </table>
