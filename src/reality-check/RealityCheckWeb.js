@@ -26,6 +26,12 @@ export default class RealityCheckWeb extends Component {
 
     confirmIntervalUpdate = () => {
         const { actions, interval, summary } = this.props;
+        const { rcError } = this.state;
+
+        if (rcError) {
+            return;
+        }
+
         const { loginTime } = summary;
         actions.ackRealityCheck();
         const secsToWait = timeLeftToNextRealityCheck(loginTime, interval);
