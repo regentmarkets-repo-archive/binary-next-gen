@@ -34,11 +34,11 @@ export default class RealityCheckWeb extends Component {
 
         const { loginTime } = summary;
         actions.ackRealityCheck();
-        const secsToWait = timeLeftToNextRealityCheck(loginTime, interval);
+        const toWait = timeLeftToNextRealityCheck(loginTime, interval) * 1000;
         setTimeout(
             () => actions.updateRealityCheckSummary()
                 .then(() => actions.showRealityCheckPopUp()),
-            secsToWait * 1000);
+            toWait);
     }
 
     updateInterval = (interval) => {

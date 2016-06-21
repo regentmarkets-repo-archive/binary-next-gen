@@ -56,6 +56,9 @@ export default class RealityCheckSummaryCard extends Component {
                     <M m={`Your trading statistic since ${loginDate.toUTCString()}`} />
                 </p>
                 <TradingStatsCard {...this.props} />
+                <p>
+                    <M m="Please specify your preferred reality-check interval in minutes" />
+                </p>
                 <input type="number" value={Math.round(interval / 60)} onChange={e => updateInterval(e.target.value)} />
                 <button onClick={confirmIntervalUpdate}>
                     <M m="Continue Trading" />
