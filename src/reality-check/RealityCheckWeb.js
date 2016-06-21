@@ -47,8 +47,8 @@ export default class RealityCheckWeb extends Component {
             this.setState({ rcError: true });
         } else {
             this.setState({ rcError: false });
-            actions.updateRealityCheckInterval(+interval * 60);
         }
+        actions.updateRealityCheckInterval(+interval * 60);
     }
 
     render() {
