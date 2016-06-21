@@ -26,12 +26,26 @@ export default class AssetPickerDropDown extends Component {
         };
     }
 
+    componentDidMount() {
+        document.addEventListener('keydown', this.closeOnEscape, false);
+    }
+
     shouldComponentUpdate = shouldPureComponentUpdate;
+
+    componentWillUnmount() {
+        document.removeEventListener('keydown', this.closeOnEscape, false);
+    }
 
     onClose = () => {
         const { actions } = this.props;
         actions.resetAssetPickerFilter();
         this.setState({ dropdownShown: false });
+    }
+
+    closeOnEscape = (evt) => {
+        if (evt.keyCode === 27) {
+            this.onClose();
+        }
     }
 
     openAssetPicker = () => {

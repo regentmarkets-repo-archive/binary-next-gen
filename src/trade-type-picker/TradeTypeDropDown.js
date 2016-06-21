@@ -39,7 +39,15 @@ export default class TradeTypeDropDown extends Component {
         };
     }
 
+    componentDidMount() {
+        document.addEventListener('keydown', this.closeOnEscape, false);
+    }
+
     shouldComponentUpdate = shouldPureComponentUpdate;
+
+    componentWillUnmount() {
+        document.removeEventListener('keydown', this.closeOnEscape, false);
+    }
 
     openTradeTypePicker = () => {
         const { compact } = this.props;
@@ -48,6 +56,12 @@ export default class TradeTypeDropDown extends Component {
             router.push('trade-type-picker');
         } else {
             this.setState({ dropdownShown: true });
+        }
+    }
+
+    closeOnEscape = (evt) => {
+        if (evt.keyCode === 27) {
+            this.close();
         }
     }
 
