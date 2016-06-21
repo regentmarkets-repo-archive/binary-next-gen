@@ -9,6 +9,21 @@ export default class Modal extends Component {
 		children: PropTypes.any,
 	};
 
+	componentDidMount() {
+		document.addEventListener('keydown', this.closeOnEscape, false);
+	}
+
+	componentWillUnmount() {
+		document.removeEventListener('keydown', this.closeOnEscape, false);
+	}
+
+	closeOnEscape = (evt) => {
+		const { onClose } = this.props;
+		if (evt.keyCode === 27 && onClose) {
+			onClose();
+		}
+	}
+
 	render() {
 		const { shown, onClose, children } = this.props;
 
