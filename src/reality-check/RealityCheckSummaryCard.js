@@ -9,7 +9,6 @@ export default class RealityCheckSummaryCard extends Component {
         interval: PropTypes.number.isRequired,
         loginTime: PropTypes.number.isRequired,
         sessionDuration: PropTypes.number.isRequired,
-        tradingStatistic: PropTypes.shape(TradingStatsCard.propTypes).isRequired,
         updateInterval: PropTypes.func.isRequired,
     };
 
@@ -23,6 +22,8 @@ export default class RealityCheckSummaryCard extends Component {
         } = this.props;
 
         const currentTime = new Date();
+        const loginDate = new Date(loginTime * 1000);
+        const durationDate = new Date(sessionDuration * 1000);
         return (
             <div>
                 <h3>
@@ -34,24 +35,24 @@ export default class RealityCheckSummaryCard extends Component {
                             <td>
                                 <M m="Login Time" />
                             </td>
-                            <td>{loginTime.toString()}</td>
+                            <td>{loginDate.toUTCString()}</td>
                         </tr>
                         <tr>
                             <td>
                                 <M m="Current Time" />
                             </td>
-                            <td>{currentTime.toString()}</td>
+                            <td>{currentTime.toUTCString()}</td>
                         </tr>
                         <tr>
                             <td>
                                 <M m="Session Duration" />
                             </td>
-                            <td>{sessionDuration.toString()}</td>
+                            <td>{durationDate.toTimeString()}</td>
                         </tr>
                     </tbody>
                 </table>
                 <p>
-                    <M m={`Your trading statistic since ${loginTime}`} />
+                    <M m={`Your trading statistic since ${loginDate.toUTCString()}`} />
                 </p>
                 <TradingStatsCard {...this.props} />
                 <input type="number" value={Math.round(interval / 60)} onChange={e => updateInterval(e.target.value)} />
