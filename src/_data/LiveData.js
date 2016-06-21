@@ -70,7 +70,7 @@ const initAuthorized = async (authData, store) => {
                 if (!acknowledged) {
                     store
                         .dispatch(actions.updateRealityCheckSummary())
-                        .then(() => store.dispatch(actions.updateRealityCheck('showInitial', true)));
+                        .then(() => store.dispatch(actions.initRealityCheck()));
                 } else {
                     const interval = store.getState().realityCheck.get('interval');
                     const loginTime = store.getState().realityCheck.getIn(['summary', 'loginTime']);
@@ -79,15 +79,13 @@ const initAuthorized = async (authData, store) => {
                         .dispatch(actions.updateRealityCheckSummary())
                         .then(
                             () => setTimeout(
-                                () => store.dispatch(actions.updateRealityCheck('showSummary', true)),
+                                () => store.dispatch(actions.showRealityCheckPopUp()),
                                 timeToWait
                             )
                         );
                 }
             } else {
-                store.dispatch(actions.updateRealityCheck('acknowledged', false));
-                store.dispatch(actions.updateRealityCheck('showInitial', false));
-                store.dispatch(actions.updateRealityCheck('showSummary', false));
+                store.dispatch(actions.disableRealityCheck());
             }
         });
 

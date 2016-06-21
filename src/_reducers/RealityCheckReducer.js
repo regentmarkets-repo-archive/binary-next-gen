@@ -1,5 +1,5 @@
 import { fromJS } from 'immutable';
-import { UPDATE_REALITY_CHECK, UPDATE_REALITY_CHECK_SUMMARY } from '../_constants/ActionTypes';
+import { UPDATE_REALITY_CHECK, UPDATE_REALITY_CHECK_SUMMARY, REMOVE_PERSONAL_DATA } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
     interval: 600,
@@ -11,7 +11,7 @@ const initialState = fromJS({
 export default (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_REALITY_CHECK: {
-            return state.set(action.fieldName, action.fieldValue);
+            return state.merge(action.properties);
         }
         case UPDATE_REALITY_CHECK_SUMMARY: {
             const {
@@ -40,6 +40,9 @@ export default (state = initialState, action) => {
                 potentialProfit: potential_profit,
                 openContract: open_contract_count,
             });
+        }
+        case REMOVE_PERSONAL_DATA: {
+            return initialState;
         }
         default: return state;
     }

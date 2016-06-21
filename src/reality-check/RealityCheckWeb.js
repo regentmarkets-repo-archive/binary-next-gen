@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import nowAsEpoch from 'binary-utils/lib/nowAsEpoch';
+import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import Modal from '../containers/Modal';
 import RealityCheckInitialCard from './RealityCheckInitialCard';
 import RealityCheckSummaryCard from './RealityCheckSummaryCard';
@@ -8,7 +9,6 @@ export const timeLeftToNextRealityCheck = (loginTime, interval) =>
     interval - ((nowAsEpoch() - loginTime) % interval);
 
 export default class RealityCheckWeb extends Component {
-
     static propTypes = {
         actions: PropTypes.object.isRequired,
         interval: PropTypes.number.isRequired,           // in seconds
@@ -17,26 +17,43 @@ export default class RealityCheckWeb extends Component {
         summary: PropTypes.object,
     };
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            rcError: false,
+        };
+    }
+
     confirmIntervalUpdate = () => {
         const { actions, interval, summary } = this.props;
+        const { rcError } = this.state;
+
+        if (rcError) {
+            return;
+        }
+
         const { loginTime } = summary;
-        actions.updateRealityCheck('acknowledged', true);
-        actions.updateRealityCheck('showInitial', false);
-        actions.updateRealityCheck('showSummary', false);
-        const secsToWait = timeLeftToNextRealityCheck(loginTime, interval);
+        actions.ackRealityCheck();
+        const toWait = timeLeftToNextRealityCheck(loginTime, interval) * 1000;
         setTimeout(
             () => actions.updateRealityCheckSummary()
-                .then(() => actions.updateRealityCheck('showSummary', true)),
-            secsToWait * 1000);
+                .then(() => actions.showRealityCheckPopUp()),
+            toWait);
     }
 
     updateInterval = (interval) => {
         const { actions } = this.props;
-        actions.updateRealityCheck('interval', +interval * 60);
+        if (+interval > 120 || + interval < 10) {
+            this.setState({ rcError: true });
+        } else {
+            this.setState({ rcError: false });
+        }
+        actions.updateRealityCheckInterval(+interval * 60);
     }
 
     render() {
         const { interval, showInitial, showSummary, summary } = this.props;
+        const { rcError } = this.state;
         if (!showInitial && !showSummary) return null;
         return (
             <Modal shown>
@@ -53,6 +70,7 @@ export default class RealityCheckWeb extends Component {
                     updateInterval={this.updateInterval}
                     confirmIntervalUpdate={this.confirmIntervalUpdate}
                 />}
+                {rcError && <ErrorMsg text="Number should between 10 to 120" />}
             </Modal>
         );
     }
