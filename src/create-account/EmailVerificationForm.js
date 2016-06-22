@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import M from 'binary-components/lib/M';
 import Button from 'binary-components/lib/Button';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
@@ -8,16 +8,16 @@ import * as LiveData from '../_data/LiveData';
 export default class EmailVerificationForm extends Component {
 
     static propTypes = {
-        actions: React.PropTypes.object.isRequired,
-        error: React.PropTypes.object,
-        email: React.PropTypes.string.isRequired,
-        password: React.PropTypes.string.isRequired,
-        residence: React.PropTypes.string.isRequired,
-        verificationCode: React.PropTypes.string.isRequired,
+        actions: PropTypes.object.isRequired,
+        error: PropTypes.object,
+        email: PropTypes.string.isRequired,
+        password: PropTypes.string.isRequired,
+        residence: PropTypes.string.isRequired,
+        verificationCode: PropTypes.string.isRequired,
     };
 
     static contextTypes = {
-        router: React.PropTypes.object.isRequired,
+        router: PropTypes.object.isRequired,
     };
 
     async onVerificationCodeEntered(event) {

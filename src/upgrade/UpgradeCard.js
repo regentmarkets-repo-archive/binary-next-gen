@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import M from 'binary-components/lib/M';
 import LogoSpinner from 'binary-components/lib/LogoSpinner';
 import UpgradeStep1 from './UpgradeStep1';
@@ -8,13 +8,13 @@ import UpgradeStep3 from './UpgradeStep3';
 export default class UpgradeCard extends Component {
 
 	static propTypes = {
-		upgrade: React.PropTypes.object.isRequired,
-		actions: React.PropTypes.object.isRequired,
-		history: React.PropTypes.object.isRequired,
+		upgrade: PropTypes.object.isRequired,
+		actions: PropTypes.object.isRequired,
+		history: PropTypes.object.isRequired,
 	};
 
 	static contextTypes = {
-		router: React.PropTypes.object.isRequired,
+		router: PropTypes.object.isRequired,
 	};
 
 	componentWillReceiveProps(nextProps) {

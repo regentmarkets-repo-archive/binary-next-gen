@@ -1,4 +1,4 @@
-import React, { PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import MobilePage from '../containers/MobilePage';
@@ -6,10 +6,10 @@ import AssetPickerContainer from './AssetPickerContainer';
 import { assetPickerMobileSelector } from './AssetPickerSelectors';
 
 @connect(assetPickerMobileSelector)
-export default class AssetPickerMobile extends React.Component {
+export default class AssetPickerMobile extends Component {
 
 	static contextTypes = {
-		router: React.PropTypes.object,
+		router: PropTypes.object,
 		actions: PropTypes.object,
 	};
 

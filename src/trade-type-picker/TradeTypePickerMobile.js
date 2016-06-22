@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
@@ -7,14 +7,14 @@ import TradeTypePicker from './TradeTypePicker';
 import { mobileTradeTypePickerSelector } from '../trades/singleTradeSelectors';
 
 @connect(mobileTradeTypePickerSelector)
-export default class TradeTypePickerMobile extends React.Component {
+export default class TradeTypePickerMobile extends Component {
 
 	static propTypes = {
-		actions: React.PropTypes.object.isRequired,
+		actions: PropTypes.object.isRequired,
 	};
 
 	static contextTypes = {
-		router: React.PropTypes.object,
+		router: PropTypes.object,
 	};
 
 	shouldComponentUpdate = shouldPureComponentUpdate;

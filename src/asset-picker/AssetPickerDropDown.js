@@ -16,7 +16,7 @@ export default class AssetPickerDropDown extends Component {
     };
 
     static contextTypes = {
-        router: React.PropTypes.object,
+        router: PropTypes.object,
     };
 
     constructor(props) {

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import LogoSpinner from 'binary-components/lib/LogoSpinner';
 import EmailVerificationForm from './EmailVerificationForm';
 import AccountInfoForm from './AccountInfoForm';
@@ -6,8 +6,8 @@ import AccountInfoForm from './AccountInfoForm';
 export default class CreateAccountCard extends Component {
 
 	static propTypes = {
-		actions: React.PropTypes.object.isRequired,
-		createAccount: React.PropTypes.object.isRequired,
+		actions: PropTypes.object.isRequired,
+		createAccount: PropTypes.object.isRequired,
 	};
 
 	render() {

@@ -15,7 +15,7 @@ export default class PortfolioCard extends Component {
 	};
 
 	static contextTypes = {
-		router: React.PropTypes.object.isRequired,
+		router: PropTypes.object.isRequired,
 	};
 
 	onViewDetails = contract => {

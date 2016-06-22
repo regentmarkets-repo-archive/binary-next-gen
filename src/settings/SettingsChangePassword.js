@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component, PropTypes } from 'react';
 import Button from 'binary-components/lib/Button';
 import InputGroup from 'binary-components/lib/InputGroup';
 import * as LiveData from '../_data/LiveData';
@@ -6,7 +6,7 @@ import isValidPassword from 'binary-utils/lib/isValidPassword';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import M from 'binary-components/lib/M';
 
-export default class SettingsChangePassword extends React.Component {
+export default class SettingsChangePassword extends Component {
 
     constructor(props) {
         super(props);

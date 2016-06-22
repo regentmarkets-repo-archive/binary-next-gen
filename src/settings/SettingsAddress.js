@@ -22,7 +22,7 @@ export default class SettingsAddress extends Component {
 		this.state = {
 			address: addressString,
 			city: settings.address_city,
-			AddressState: settings.address_state,
+			addressState: settings.address_state,
 			postcode: settings.address_postcode,
 			tel: settings.phone,
 		};
@@ -41,7 +41,7 @@ export default class SettingsAddress extends Component {
 		const req = {
 			address_line_1: state.address,
 			address_city: state.city,
-			address_state: state.AddressState,
+			address_state: state.addressState,
 			address_postcode: state.postcode,
 			phone: state.tel,
 		};
@@ -85,7 +85,7 @@ export default class SettingsAddress extends Component {
 					onChange={this.onAddressChange}
 				/>
 				<States
-					id="AddressState"
+					id="address-state"
 					country={settings.country_code}
 					onChange={this.onAddressChange}
 					selected={settings.address_state}

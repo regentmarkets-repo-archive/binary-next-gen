@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import M from 'binary-components/lib/M';
 import Button from 'binary-components/lib/Button';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
@@ -7,10 +7,10 @@ import Modal from '../containers/Modal';
 export default class UpgradeStep3 extends Component {
 
 	static propTypes = {
-		actions: React.PropTypes.object.isRequired,
-		secretQuestion: React.PropTypes.string.isRequired,
-		secretAnswer: React.PropTypes.string.isRequired,
-		error: React.PropTypes.string,
+		actions: PropTypes.object.isRequired,
+		secretQuestion: PropTypes.string.isRequired,
+		secretAnswer: PropTypes.string.isRequired,
+		error: PropTypes.string,
 	};
 
 	constructor(props) {

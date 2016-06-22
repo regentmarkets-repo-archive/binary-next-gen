@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { Link } from 'react-router';
 import M from 'binary-components/lib/M';
 import Button from 'binary-components/lib/Button';
@@ -10,13 +10,13 @@ import config from '../config';
 
 export default class AccountInfoForm extends Component {
     static propTypes = {
-        email: React.PropTypes.string.isRequired,
-        password: React.PropTypes.string.isRequired,
-        confirmPassword: React.PropTypes.string.isRequired,
-        residence: React.PropTypes.string.isRequired,
-        verificationCode: React.PropTypes.string.isRequired,
-        validatedOnce: React.PropTypes.bool.isRequired,
-        actions: React.PropTypes.object.isRequired,
+        email: PropTypes.string.isRequired,
+        password: PropTypes.string.isRequired,
+        confirmPassword: PropTypes.string.isRequired,
+        residence: PropTypes.string.isRequired,
+        verificationCode: PropTypes.string.isRequired,
+        validatedOnce: PropTypes.bool.isRequired,
+        actions: PropTypes.object.isRequired,
     };
 
     emailValid() {

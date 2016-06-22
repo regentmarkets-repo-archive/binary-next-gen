@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import M from 'binary-components/lib/M';
 import Button from 'binary-components/lib/Button';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
@@ -7,10 +7,10 @@ import DateOfBirth from 'binary-components/lib/DateOfBirth';
 export default class UpgradeStep1 extends Component {
 
 	static propTypes = {
-		actions: React.PropTypes.object.isRequired,
-		firstName: React.PropTypes.string.isRequired,
-		lastName: React.PropTypes.string.isRequired,
-		dateOfBirth: React.PropTypes.instanceOf(Date).isRequired,
+		actions: PropTypes.object.isRequired,
+		firstName: PropTypes.string.isRequired,
+		lastName: PropTypes.string.isRequired,
+		dateOfBirth: PropTypes.instanceOf(Date).isRequired,
 	};
 
 	constructor(props) {

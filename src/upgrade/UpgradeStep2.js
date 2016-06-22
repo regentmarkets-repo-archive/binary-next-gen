@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import M from 'binary-components/lib/M';
 import Button from 'binary-components/lib/Button';
 import States from '../settings/States';
@@ -8,14 +8,14 @@ import Countries from 'binary-components/lib/Countries';
 export default class UpgradeStep2 extends Component {
 
 	static propTypes = {
-		addressState: React.PropTypes.string.isRequired,
-		addressCity: React.PropTypes.string.isRequired,
-		addressPostcode: React.PropTypes.string.isRequired,
-		addressLine1: React.PropTypes.string.isRequired,
-		addressLine2: React.PropTypes.string,
-		phone: React.PropTypes.string.isRequired,
-		actions: React.PropTypes.object.isRequired,
-		residence: React.PropTypes.string.isRequired,
+		addressState: PropTypes.string.isRequired,
+		addressCity: PropTypes.string.isRequired,
+		addressPostcode: PropTypes.string.isRequired,
+		addressLine1: PropTypes.string.isRequired,
+		addressLine2: PropTypes.string,
+		phone: PropTypes.string.isRequired,
+		actions: PropTypes.object.isRequired,
+		residence: PropTypes.string.isRequired,
 	};
 
 	constructor(props) {

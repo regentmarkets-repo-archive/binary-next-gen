@@ -8,7 +8,7 @@ export default class NewsCardMobile extends Component {
     };
 
     static contextTypes = {
-        router: React.PropTypes.object.isRequired,
+        router: PropTypes.object.isRequired,
     };
 
     render() {
