@@ -10,23 +10,27 @@ export default class SettingsAddress extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
-		settings: PropTypes.object.isRequired,
+		address_line_1: PropTypes.string.isRequired,
+		address_line_2: PropTypes.string.isRequired,
+		address_postcode: PropTypes.string.isRequired,
+		address_city: PropTypes.string.isRequired,
+		city: PropTypes.string.isRequired,
+		country_code: PropTypes.string.isRequired,
+		address_state: PropTypes.string.isRequired,
+		postcode: PropTypes.string.isRequired,
+		phone: PropTypes.string.isRequired,
 	};
 
-	constructor(props) {
-		super(props);
-		const { settings } = props;
-		const addressString = settings.address_line_2
-			? (`${settings.address_line_1} ${settings.address_line_2}`)
-			: settings.address_line_1;
-		this.state = {
-			address: addressString,
-			city: settings.address_city,
-			addressState: settings.address_state,
-			postcode: settings.address_postcode,
-			tel: settings.phone,
-		};
-	}
+	// constructor(props) {
+	// 	super(props);
+	// 	// this.state = {
+	// 	// 	address: addressString,
+	// 	// 	city: settings.address_city,
+	// 	// 	addressState: settings.address_state,
+	// 	// 	postcode: settings.address_postcode,
+	// 	// 	tel: settings.phone,
+	// 	// };
+	// }
 
 	onAddressChange = event => {
 		const { id, value } = event.target;
@@ -61,47 +65,51 @@ export default class SettingsAddress extends Component {
 	}
 
 	render() {
-		const { settings } = this.props;
-		const addressString = settings.address_line_2
-			? (`${settings.address_line_1} ${settings.address_line_2}`)
-			: settings.address_line_1;
+		const { address_line_1, address_line_2, address_city, address_state,
+			address_postcode, country_code, phone } = this.props;
 
 		return (
-			<div className="mobile-form">
+			<div className="mobile-form settings-container">
 				<legend>
 					<M m="Location" />
 				</legend>
-				<TextAreaGroup
-					id="address"
-					label="Address"
-					value={addressString}
+				<InputGroup
+					id="address1"
+					label="Address1"
+					value={address_line_1}
+					onChange={this.onAddressChange}
+				/>
+				<InputGroup
+					id="address2"
+					label="Address2"
+					value={address_line_2}
 					onChange={this.onAddressChange}
 				/>
 				<InputGroup
 					id="city"
 					type="text"
 					label="Town/City"
-					defaultValue={settings.address_city}
+					defaultValue={address_city}
 					onChange={this.onAddressChange}
 				/>
 				<States
 					id="address-state"
-					country={settings.country_code}
+					country={country_code}
 					onChange={this.onAddressChange}
-					selected={settings.address_state}
+					selected={address_state}
 				/>
 				<InputGroup
 					id="postcode"
 					type="text"
 					label="Postal Code / ZIP"
-					defaultValue={settings.address_postcode}
+					defaultValue={address_postcode}
 					onChange={this.onAddressChange}
 				/>
 				<InputGroup
 					id="tel"
 					type="tel"
 					label="Telephone"
-					defaultValue={settings.phone}
+					defaultValue={phone}
 					onChange={this.onAddressChange}
 				/>
 				<Button

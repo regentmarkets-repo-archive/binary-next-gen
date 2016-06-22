@@ -28,13 +28,12 @@ export default class States extends Component {
     }
 
     render() {
-        console.log(this.props);
+        // console.log(this.props);
         const { states, country, onChange, id, selected } = this.props;
         const statesForCountry = states.country || [{ value: 'none', text: 'Loading ...' }];
 
         return (
             <select id={id} onChange={onChange} value={selected}>
-                <option value="">State/Province</option>
                 {statesForCountry.map(o => (
                     <option key={o.value} value={o.value}>{o.text}</option>
                 ))}

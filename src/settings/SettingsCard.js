@@ -30,7 +30,7 @@ export default class SettingsCard extends Component {
 	}
 
 	render() {
-		const { loginid } = this.props;
+		const { actions, loginid, settings } = this.props;
 		const { activeTab } = this.state;
 		const isVirtual = loginid.startsWith('VRTC');
 		const ActiveComponent = components[activeTab];
@@ -42,12 +42,12 @@ export default class SettingsCard extends Component {
 					onChange={idx => this.setState({ activeTab: idx })}
 				>
 					<Tab text="Personal" />
-					<Tab text="Change Password" />
+					<Tab text="Password" />
 					{!isVirtual && <Tab text="Cashier Lock" />}
 					{!isVirtual && <Tab text="Self Exclusion" />}
 					{!isVirtual && <Tab text="Limits" />}
 				</TabList>
-				<ActiveComponent {...this.props} />
+				<ActiveComponent actions={actions} loginid={loginid} {...settings} />
 			</div>
 		);
 	}

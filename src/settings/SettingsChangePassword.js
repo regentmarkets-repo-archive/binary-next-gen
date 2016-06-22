@@ -56,8 +56,9 @@ export default class SettingsChangePassword extends Component {
 
     render() {
         const { validatedOnce, passwordNotValid, passwordsDontMatch, successMessage, errorMessage } = this.state;
+
         return (
-            <div className="startup-content setting-container">
+            <div className="startup-content settings-container">
                 <div className="mobile-form" onSubmit={e => e.preventDefault()}>
                     <form className="mobile-form" onSubmit={e => e.preventDefault()}>
                         <InputGroup

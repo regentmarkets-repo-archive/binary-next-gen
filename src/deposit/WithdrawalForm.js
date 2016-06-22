@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import M from 'binary-components/lib/M';
+import P from 'binary-components/lib/P';
 import Button from 'binary-components/lib/Button';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import InputGroup from 'binary-components/lib/InputGroup';
@@ -115,7 +116,7 @@ export default class WithdrawForm extends Component {
                         </div> :
                         <div>
                             <h3><M m="Congratulations" /></h3>
-                            <p><M m="Your withdrawal is success" /></p>
+                            <P text="Your withdrawal is success" />
                         </div>
                     }
                 />

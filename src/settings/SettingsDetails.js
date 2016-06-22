@@ -6,37 +6,43 @@ import LabeledText from 'binary-components/lib/LabeledText';
 export default class SettingsDetails extends Component {
 
 	static propTypes = {
-		settings: PropTypes.object.isRequired,
+		email: PropTypes.string.isRequired,
+		name: PropTypes.string,
+		date_of_birth: PropTypes.string,
+		country: PropTypes.string.isRequired,
 	};
 
 	render() {
-		const { settings } = this.props;
+		const { email, name, date_of_birth, country } = this.props;
 
 		return (
-			<div className="setting-container">
+			<div className="settings-container">
 				<legend>
 					<M m="Details" />
 				</legend>
 				<LabeledText
+					id="email"
+					label="Email"
+					value={email}
+				/>
+				<LabeledText
 					id="name"
 					label="Name"
-					value={settings.name}
+					value={name}
 				/>
 				<LabeledText
 					id="dob"
 					label="Date of birth"
-					value={epochToDateString(settings.date_of_birth)}
+					value={epochToDateString(date_of_birth)}
 				/>
 				<LabeledText
 					id="residence"
 					label="Country of residence"
-					value={settings.country}
+					value={country}
 				/>
-				<LabeledText
-					id="email"
-					label="Email"
-					value={settings.email}
-				/>
+				<p className="notice-msg">
+					<M m="To change your name, date of birth, country of residence, or email, contact Customer Support." />
+				</p>
 			</div>
 		);
 	}

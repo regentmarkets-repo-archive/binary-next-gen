@@ -35,7 +35,7 @@ export default class SettingsGeneral extends Component {
         const topupVirtual = this.props.settings.topup_virtual;
 
 		return (
-			<div className="setting-container">
+			<div className="settings-container">
 				<label htmlFor="theme-picker"><M m="Color Theme" /></label>
 				<select onChange={this.onThemeChange} value={theme} id="theme-picker" className="theme-picker">
 					<option value="light">Light</option>

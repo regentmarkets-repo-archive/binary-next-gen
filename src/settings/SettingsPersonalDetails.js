@@ -5,19 +5,17 @@ import SettingsAddress from './SettingsAddress';
 export default class SettingsPersonalDetails extends Component {
 
 	static propTypes = {
-		actions: PropTypes.object.isRequired,
-		settings: PropTypes.object.isRequired,
 		loginid: PropTypes.string.isRequired,
 	};
 
 	render() {
-		const { settings, actions, loginid } = this.props;
+		const { loginid } = this.props;
 		const isVirtual = loginid.startsWith('VRTC');
 
 		return (
 			<div>
-				<SettingsDetails settings={settings} />
-				<SettingsAddress settings={settings} actions={actions} />
+				<SettingsDetails {...this.props} />
+				<SettingsAddress {...this.props} />
 			</div>
 		);
 	}
