@@ -29,7 +29,7 @@ export default class States extends Component {
 
     render() {
         // console.log(this.props);
-        const { states, country, onChange, id, selected } = this.props;
+        const { states, onChange, id, selected } = this.props;
         const statesForCountry = states.country || [{ value: 'none', text: 'Loading ...' }];
 
         return (

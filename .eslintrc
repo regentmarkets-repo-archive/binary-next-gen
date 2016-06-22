@@ -1,6 +1,10 @@
 {
   "parser": "babel-eslint",
-  "extends": "eslint-config-airbnb",
+  "extends": [
+    "eslint-config-airbnb",
+    "plugin:import/errors",
+    "plugin:import/warnings"
+  ],
   "env": {
     "es6": true,
     "mocha": true
@@ -19,6 +23,17 @@
     "react/prefer-stateless-function": 0,
     "react/jsx-indent-props": [0, "tab"],
     "no-unused-vars": 1,
-    "no-trailing-spaces": 1
+    "no-trailing-spaces": 1,
+    "import/named": 0,
+    "import/default": 0,
+    "import/namespace": 0,
+  },
+  "settings": {
+    "import/ignore": \.(scss|less|css)$,
+    "import/resolver": {
+      "webpack": {
+        "config": "webpack.config.js"
+      }
+    }
   }
 }
