@@ -1,7 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import Tab from 'binary-components/lib/Tab';
 import TabList from 'binary-components/lib/TabList';
-import SettingsGeneral from './SettingsGeneral';
 import SettingsPersonalDetails from './SettingsPersonalDetails';
 import SettingsSecurity from './SettingsSecurity';
 import SettingsSelfExclusion from './SettingsSelfExclusion';
@@ -9,7 +8,6 @@ import SettingsLimits from './SettingsLimits';
 import SettingsChangePassword from './SettingsChangePassword';
 
 const components = [
-	SettingsGeneral,
 	SettingsPersonalDetails,
 	SettingsChangePassword,
 	SettingsSecurity,
@@ -43,7 +41,6 @@ export default class SettingsCard extends Component {
 					activeIndex={activeTab}
 					onChange={idx => this.setState({ activeTab: idx })}
 				>
-					<Tab text="General" />
 					<Tab text="Personal" />
 					<Tab text="Change Password" />
 					{!isVirtual && <Tab text="Cashier Lock" />}

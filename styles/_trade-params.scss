@@ -1,9 +1,10 @@
 .vertical {
     > [role=tab] {
-        padding: 0.25rem 0.25rem 0.25rem 0.1rem;
-        margin-bottom: 0.25rem;
+        padding: 0.1rem;
+        margin-bottom: 0.5rem;
         > span {
-            margin-top: 0.25rem;
+            line-height: 1;
+            margin-top: 0.5rem;
         }
         > img {
             margin: 0 auto;
