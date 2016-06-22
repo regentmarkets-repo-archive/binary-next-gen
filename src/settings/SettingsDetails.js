@@ -7,13 +7,15 @@ export default class SettingsDetails extends Component {
 
 	static propTypes = {
 		email: PropTypes.string.isRequired,
-		name: PropTypes.string,
-		date_of_birth: PropTypes.string,
+		salutation: PropTypes.string,
+		first_name: PropTypes.string,
+		last_name: PropTypes.string,
+		date_of_birth: PropTypes.number,
 		country: PropTypes.string.isRequired,
 	};
 
 	render() {
-		const { email, name, date_of_birth, country } = this.props;
+		const { email, salutation, first_name, last_name, date_of_birth, country } = this.props;
 
 		return (
 			<div className="settings-container">
@@ -28,7 +30,7 @@ export default class SettingsDetails extends Component {
 				<LabeledText
 					id="name"
 					label="Name"
-					value={name}
+					value={salutation + ' ' + first_name + ' ' + last_name}
 				/>
 				<LabeledText
 					id="dob"

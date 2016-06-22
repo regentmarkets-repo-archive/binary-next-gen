@@ -15,17 +15,17 @@ export default class States extends Component {
     };
 
     componentWillMount() {
-        // const { actions, country } = this.props;
-        // actions.getStatesForCountry(country);
-    }
-
-    componentWillReceiveProps(nextProps) {
         const { actions, country } = this.props;
-
-        if (country !== nextProps.country) {
-            actions.getStatesForCountry(country);
-        }
+        actions.getStatesForCountry(country);
     }
+
+    // componentWillReceiveProps(nextProps) {
+    //     const { actions, country } = this.props;
+    //
+    //     if (country !== nextProps.country) {
+    //         actions.getStatesForCountry(country);
+    //     }
+    // }
 
     render() {
         // console.log(this.props);
@@ -33,11 +33,14 @@ export default class States extends Component {
         const statesForCountry = states.country || [{ value: 'none', text: 'Loading ...' }];
 
         return (
+            <fieldset>
+            <label forHtml={id}>State/Province</label>
             <select id={id} onChange={onChange} value={selected}>
                 {statesForCountry.map(o => (
                     <option key={o.value} value={o.value}>{o.text}</option>
                 ))}
             </select>
+            </fieldset>
         );
     }
 }

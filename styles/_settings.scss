@@ -3,6 +3,20 @@
     .notice-msg {
         margin-top: 0.5rem;
     }
+    button {
+        width: 100%;
+    }
+}
+
+.settings-address {
+    label {
+        display: inline-block;
+        width: 33%;
+    }
+    input,
+    select {
+        width: 67%;
+    }
 }
 
 .settings-container {

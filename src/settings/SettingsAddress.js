@@ -3,7 +3,6 @@ import M from 'binary-components/lib/M';
 import Button from 'binary-components/lib/Button';
 import States from './States';
 import InputGroup from 'binary-components/lib/InputGroup';
-import TextAreaGroup from 'binary-components/lib/TextAreaGroup';
 import * as LiveData from '../_data/LiveData';
 
 export default class SettingsAddress extends Component {
@@ -14,25 +13,23 @@ export default class SettingsAddress extends Component {
 		address_line_2: PropTypes.string.isRequired,
 		address_postcode: PropTypes.string.isRequired,
 		address_city: PropTypes.string.isRequired,
-		city: PropTypes.string.isRequired,
 		country_code: PropTypes.string.isRequired,
 		address_state: PropTypes.string.isRequired,
-		postcode: PropTypes.string.isRequired,
 		phone: PropTypes.string.isRequired,
 	};
 
 	// constructor(props) {
 	// 	super(props);
-	// 	// this.state = {
-	// 	// 	address: addressString,
-	// 	// 	city: settings.address_city,
-	// 	// 	addressState: settings.address_state,
-	// 	// 	postcode: settings.address_postcode,
-	// 	// 	tel: settings.phone,
-	// 	// };
+	// 	this.state = {
+	// 	 	address: addressString,
+	// 	 	city: settings.address_city,
+	// 	 	addressState: settings.address_state,
+	// 	 	postcode: settings.address_postcode,
+	// 	 	tel: settings.phone,
+	// 	 };
 	// }
 
-	onAddressChange = event => {
+	onAddressEntryChange = event => {
 		const { id, value } = event.target;
 
 		this.setState({
@@ -65,52 +62,55 @@ export default class SettingsAddress extends Component {
 	}
 
 	render() {
-		const { address_line_1, address_line_2, address_city, address_state,
+		const { actions, address_line_1, address_line_2, address_city, address_state,
 			address_postcode, country_code, phone } = this.props;
 
 		return (
-			<div className="mobile-form settings-container">
+			<div className="settings-address settings-container">
 				<legend>
 					<M m="Location" />
 				</legend>
 				<InputGroup
-					id="address1"
+					id="address_line_1"
+					type="text"
 					label="Address1"
 					value={address_line_1}
-					onChange={this.onAddressChange}
+					onChange={this.onAddressEntryChange}
 				/>
 				<InputGroup
-					id="address2"
+					id="address_line_2"
+					type="text"
 					label="Address2"
 					value={address_line_2}
-					onChange={this.onAddressChange}
+					onChange={this.onAddressEntryChange}
 				/>
 				<InputGroup
-					id="city"
+					id="address_city"
 					type="text"
 					label="Town/City"
 					defaultValue={address_city}
-					onChange={this.onAddressChange}
+					onChange={this.onAddressEntryChange}
 				/>
 				<States
-					id="address-state"
+					id="address_state"
+					actions={actions}
 					country={country_code}
-					onChange={this.onAddressChange}
+					onChange={this.onAddressEntryChange}
 					selected={address_state}
 				/>
 				<InputGroup
-					id="postcode"
+					id="address_postcode"
 					type="text"
 					label="Postal Code / ZIP"
 					defaultValue={address_postcode}
-					onChange={this.onAddressChange}
+					onChange={this.onAddressEntryChange}
 				/>
 				<InputGroup
-					id="tel"
+					id="phone"
 					type="tel"
 					label="Telephone"
 					defaultValue={phone}
-					onChange={this.onAddressChange}
+					onChange={this.onAddressEntryChange}
 				/>
 				<Button
 					text="Update"

@@ -15,7 +15,7 @@ export default class SettingsPersonalDetails extends Component {
 		return (
 			<div>
 				<SettingsDetails {...this.props} />
-				<SettingsAddress {...this.props} />
+				{!isVirtual && <SettingsAddress {...this.props} />}
 			</div>
 		);
 	}

@@ -57,10 +57,6 @@ export const changeLanguage = langCode => {
     api.getTradingTimes(new Date());
 };
 
-const initUnauthorized = async () => {
-
-};
-
 const initAuthorized = async (authData, store) => {
     api.getLandingCompanyDetails(authData.authorize.landing_company_name)
         .then(r => {
@@ -135,6 +131,4 @@ export const connect = async store => {
     });
 
     api.events.on('authorize', response => response.error ? null : initAuthorized(response, store));
-
-    await initUnauthorized(store);
 };
