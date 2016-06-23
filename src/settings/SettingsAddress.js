@@ -66,7 +66,7 @@ export default class SettingsAddress extends Component {
 			address_postcode, country_code, phone } = this.props;
 
 		return (
-			<div className="settings-address settings-container">
+			<div className="settings-address">
 				<legend>
 					<M m="Location" />
 				</legend>

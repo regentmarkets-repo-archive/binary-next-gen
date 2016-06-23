@@ -6,7 +6,7 @@ import InputGroup from 'binary-components/lib/InputGroup';
 import * as LiveData from '../_data/LiveData';
 import isValidPassword from 'binary-utils/lib/isValidPassword';
 
-export default class SettingsSecurity extends Component {
+export default class SettingsCashierLock extends Component {
 
     static propTypes = {
 		cashier_password: PropTypes.string.isRequired,
@@ -57,7 +57,7 @@ export default class SettingsSecurity extends Component {
 		const { cashier_password } = this.props;
         const { password1, password2 } = this.state;
 		return (
-			<div className="mobile-form settings-container">
+			<div className="settings-cashier-lock">
 				<p>
 					<M m="An additional password can be used to restrict access to the cashier." />
 				</p>

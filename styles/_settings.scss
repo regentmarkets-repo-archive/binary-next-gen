@@ -8,17 +8,17 @@
     }
 }
 
-.settings-address {
+.settings-address,
+.settings-self-exclusion,
+.settings-cashier-lock,
+.settings-limits {
+    padding: 0 0.5rem;
     label {
         display: inline-block;
-        width: 33%;
+        width: 50%;
     }
     input,
     select {
-        width: 67%;
+        width: 50%;
     }
-}
-
-.settings-container {
-    padding: 0 0.5rem;
 }

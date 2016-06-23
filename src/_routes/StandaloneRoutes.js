@@ -10,7 +10,7 @@ import TradingTimesTable from '../trading-times/TradingTimesTable';
 import PortfolioPage from '../portfolio/PortfolioPage';
 import SettingsPage from '../settings/SettingsPage';
 import SettingsPersonalDetails from '../settings/SettingsPersonalDetails';
-import SettingsSecurity from '../settings/SettingsSecurity';
+import SettingsCashierLock from '../settings/SettingsCashierLock';
 import SettingsSelfExclusion from '../settings/SettingsSelfExclusion';
 import SettingsLimits from '../settings/SettingsLimits';
 import StatementPage from '../statement/StatementPage';
@@ -52,7 +52,7 @@ export default [
         onEnter: requireAuthOnEnter,
         component: SettingsPage,
         childRoutes: [
-        { path: 'security', component: SettingsSecurity },
+        { path: 'security', component: SettingsCashierLock },
         { path: 'exclusion', component: SettingsSelfExclusion },
         { path: 'limits', component: SettingsLimits },
     ] },

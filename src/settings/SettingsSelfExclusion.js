@@ -63,8 +63,9 @@ export default class SettingsSelfExclusion extends Component {
 		const { max_balance, max_turnover, max_losses, max_7day_turnover,
 			max_7day_losses, max_30day_turnover, max_30day_losses, max_open_bets,
 			session_duration_limit, exclude_until } = this.props;
+
 		return (
-			<div className="mobile-form settings-container">
+			<div className="settings-self-exclusion settings-container">
 				<InputGroup
 					id="MAXCASHBAL"
 					label="Maximum account cash balance"
