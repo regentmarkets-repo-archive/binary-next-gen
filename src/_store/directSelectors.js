@@ -18,6 +18,7 @@ export const portfolioSelector = state => state.portfolio;
 export const feedLicensesSelector = state => state.feedLicenses;
 export const ohlcSelector = state => state.ohlc;
 export const tradingOptionsSelector = state => state.tradingOptions;
+export const statesSelector = state => state.states;
 
 export const themeSelector = state =>
     state.boot.get('theme');

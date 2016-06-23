@@ -16,6 +16,7 @@ export default class SettingsAddress extends Component {
 		country_code: PropTypes.string.isRequired,
 		address_state: PropTypes.string.isRequired,
 		phone: PropTypes.string.isRequired,
+		states: PropTypes.array.isRequired,
 	};
 
 	// constructor(props) {
@@ -63,7 +64,7 @@ export default class SettingsAddress extends Component {
 
 	render() {
 		const { actions, address_line_1, address_line_2, address_city, address_state,
-			address_postcode, country_code, phone } = this.props;
+			address_postcode, country_code, phone, states } = this.props;
 
 		return (
 			<div className="settings-address">
@@ -95,6 +96,7 @@ export default class SettingsAddress extends Component {
 					id="address_state"
 					actions={actions}
 					country={country_code}
+					states={states}
 					onChange={this.onAddressEntryChange}
 					selected={address_state}
 				/>

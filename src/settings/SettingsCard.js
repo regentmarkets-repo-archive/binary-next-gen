@@ -47,7 +47,7 @@ export default class SettingsCard extends Component {
 					{!isVirtual && <Tab text="Self Exclusion" />}
 					{!isVirtual && <Tab text="Limits" />}
 				</TabList>
-				<ActiveComponent actions={actions} loginid={loginid} {...settings} />
+				<ActiveComponent actions={actions} {...this.props} {...settings} />
 			</div>
 		);
 	}
