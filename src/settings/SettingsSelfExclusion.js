@@ -6,8 +6,17 @@ import * as LiveData from '../_data/LiveData';
 export default class SettingsSelfExclusion extends Component {
 
 	static propTypes = {
-		settings: PropTypes.object.isRequired,
 		actions: PropTypes.object.isRequired,
+		max_balance: PropTypes.number.isRequired,
+		max_turnover: PropTypes.number.isRequired,
+		max_losses: PropTypes.number.isRequired,
+		max_7day_turnover: PropTypes.number.isRequired,
+		max_7day_losses: PropTypes.number.isRequired,
+		max_30day_turnover: PropTypes.number.isRequired,
+		max_30day_losses: PropTypes.number.isRequired,
+		max_open_bets: PropTypes.number.isRequired,
+		session_duration_limit: PropTypes.number.isRequired,
+		exclude_until: PropTypes.number.isRequired,
 	};
 
 	onSelfExclusionChange = event => {
@@ -18,39 +27,42 @@ export default class SettingsSelfExclusion extends Component {
 	}
 
 	tryUpdate = () => {
-		const state = this.state || {};
-		const { settings } = this.props;
-		const req = {
-			max_balance: (state.MAXCASHBAL) ? state.MAXCASHBAL : settings.max_balance,
-			max_turnover: (state.DAILYTURNOVERLIMIT) ? state.DAILYTURNOVERLIMIT : settings.max_turnover,
-			max_losses: (state.DAILYLOSSLIMIT) ? state.DAILYLOSSLIMIT : settings.max_losses,
-			max_7day_turnover: (state['7DAYTURNOVERLIMIT']) ? state['7DAYTURNOVERLIMIT'] : settings.max_7day_turnover,
-			max_7day_losses: (state['7DAYLOSSLIMIT']) ? state['7DAYLOSSLIMIT'] : settings.max_7day_losses,
-			max_30day_turnover: (state['30DAYTURNOVERLIMIT'])
-									? state['30DAYTURNOVERLIMIT']
-									: settings.max_30day_turnover,
-			max_30day_losses: (state['30DAYLOSSLIMIT']) ? state['30DAYLOSSLIMIT'] : settings.max_30day_losses,
-			max_open_bets: (state.MAXOPENPOS) ? state.MAXOPENPOS : settings.max_open_bets,
-			session_duration_limit: (state.SESSIONDURATION) ? state.SESSIONDURATION : settings.session_duration_limit,
-			exclude_until: (state.EXCLUDEUNTIL) ? state.EXCLUDEUNTIL : settings.exclude_until,
-		};
-
-		LiveData.api.setSelfExclusion(req).then(
-				response => {
-				if (response.set_self_exclusion === 1) {
-					this.actions.updateSettingFields(req);
-				} else {
-					SettingsSelfExclusion.handleUpdateError(response);
-				}
-			},
-				response => {
-					SettingsSelfExclusion.handleUpdateError(response);
-			}
-		);
+		// const { max_balance, max_turnover } = this.props;
+		// const { MAXCASHBAL, DAILYTURNOVERLIMIT } = this.props;
+		//
+		// const req = {
+		// 	max_balance: MAXCASHBAL || max_balance,
+		// 	max_turnover: DAILYTURNOVERLIMIT || max_turnover,
+		// 	max_losses: (state.DAILYLOSSLIMIT) ? state.DAILYLOSSLIMIT : settings.max_losses,
+		// 	max_7day_turnover: (state['7DAYTURNOVERLIMIT']) ? state['7DAYTURNOVERLIMIT'] : settings.max_7day_turnover,
+		// 	max_7day_losses: (state['7DAYLOSSLIMIT']) ? state['7DAYLOSSLIMIT'] : settings.max_7day_losses,
+		// 	max_30day_turnover: (state['30DAYTURNOVERLIMIT'])
+		// 							? state['30DAYTURNOVERLIMIT']
+		// 							: settings.max_30day_turnover,
+		// 	max_30day_losses: (state['30DAYLOSSLIMIT']) ? state['30DAYLOSSLIMIT'] : settings.max_30day_losses,
+		// 	max_open_bets: (state.MAXOPENPOS) ? state.MAXOPENPOS : settings.max_open_bets,
+		// 	session_duration_limit: (state.SESSIONDURATION) ? state.SESSIONDURATION : settings.session_duration_limit,
+		// 	exclude_until: (state.EXCLUDEUNTIL) ? state.EXCLUDEUNTIL : settings.exclude_until,
+		// };
+		//
+		// LiveData.api.setSelfExclusion(req).then(
+		// 		response => {
+		// 		if (response.set_self_exclusion === 1) {
+		// 			this.actions.updateSettingFields(req);
+		// 		} else {
+		// 			SettingsSelfExclusion.handleUpdateError(response);
+		// 		}
+		// 	},
+		// 		response => {
+		// 			SettingsSelfExclusion.handleUpdateError(response);
+		// 	}
+		// );
 	}
 
 	render() {
-		const { settings } = this.props;
+		const { max_balance, max_turnover, max_losses, max_7day_turnover,
+			max_7day_losses, max_30day_turnover, max_30day_losses, max_open_bets,
+			session_duration_limit, exclude_until } = this.props;
 		return (
 			<div className="mobile-form settings-container">
 				<InputGroup
@@ -58,7 +70,7 @@ export default class SettingsSelfExclusion extends Component {
 					label="Maximum account cash balance"
 					type="number"
 					hint="Once this limit is reached, you may no longer deposit."
-					defaultValue={settings.max_balance}
+					defaultValue={max_balance}
 					onChange={this.onSelfExclusionChange}
 				/>
 				<InputGroup
@@ -66,7 +78,7 @@ export default class SettingsSelfExclusion extends Component {
 					label="Daily turnover limit"
 					type="number"
 					hint="Maximum aggregate contract purchases per day."
-					defaultValue={settings.max_turnover}
+					defaultValue={max_turnover}
 					onChange={this.onSelfExclusionChange}
 				/>
 				<InputGroup
@@ -74,7 +86,7 @@ export default class SettingsSelfExclusion extends Component {
 					label="Daily limit on losses"
 					type="number"
 					hint="Maximum aggregate loss per day."
-					defaultValue={settings.max_losses}
+					defaultValue={max_losses}
 					onChange={this.onSelfExclusionChange}
 				/>
 				<InputGroup
@@ -82,7 +94,7 @@ export default class SettingsSelfExclusion extends Component {
 					label="7-day turnover limit"
 					type="number"
 					hint="Maximum aggregate contract purchases over a 7-day period."
-					defaultValue={settings.max_7day_turnover}
+					defaultValue={max_7day_turnover}
 					onChange={this.onSelfExclusionChange}
 				/>
 				<InputGroup
@@ -90,7 +102,7 @@ export default class SettingsSelfExclusion extends Component {
 					label="7-day limit on losses"
 					type="number"
 					hint="Maximum aggregate loss over a 7-day period."
-					defaultValue={settings.max_7day_losses}
+					defaultValue={max_7day_losses}
 					onChange={this.onSelfExclusionChange}
 				/>
 				<InputGroup
@@ -98,7 +110,7 @@ export default class SettingsSelfExclusion extends Component {
 					label="30-day turnover limit"
 					type="number"
 					hint="Maximum aggregate contract purchases over a 30-day period."
-					defaultValue={settings.max_30day_turnover}
+					defaultValue={max_30day_turnover}
 					onChange={this.onSelfExclusionChange}
 				/>
 				<InputGroup
@@ -106,14 +118,14 @@ export default class SettingsSelfExclusion extends Component {
 					label="30-day limit on losses"
 					type="number"
 					hint="Maximum aggregate loss over a 30-day period."
-					defaultValue={settings.max_30day_losses}
+					defaultValue={max_30day_losses}
 					onChange={this.onSelfExclusionChange}
 				/>
 				<InputGroup
 					id="MAXOPENPOS"
 					label="Maximum number of open positions"
 					type="number"
-					defaultValue={settings.max_open_bets}
+					defaultValue={max_open_bets}
 					onChange={this.onSelfExclusionChange}
 				/>
 				<InputGroup
@@ -121,7 +133,7 @@ export default class SettingsSelfExclusion extends Component {
 					label="Session duration limit, in minutes"
 					type="number"
 					hint="You will be automatically logged out after such time."
-					defaultValue={settings.session_duration_limit}
+					defaultValue={session_duration_limit}
 					onChange={this.onSelfExclusionChange}
 				/>
 				<InputGroup
@@ -129,7 +141,7 @@ export default class SettingsSelfExclusion extends Component {
 					label="Exclude me from the website until"
 					type="text"
 					hint="Please enter date in the format YYYY-MM-DD."
-					defaultValue={settings.exclude_until}
+					defaultValue={exclude_until}
 					onChange={this.onSelfExclusionChange}
 				/>
 				<Button

@@ -9,7 +9,7 @@ import isValidPassword from 'binary-utils/lib/isValidPassword';
 export default class SettingsSecurity extends Component {
 
     static propTypes = {
-		settings: PropTypes.object.isRequired,
+		cashier_password: PropTypes.string.isRequired,
 		actions: PropTypes.object.isRequired,
 	};
 
@@ -22,10 +22,10 @@ export default class SettingsSecurity extends Component {
     }
 
 	onUpdate = () => {
-        const { settings } = this.props;
+        const { cashier_password } = this.props;
         const { password1, password2 } = this.state;
 
-        if (!!(settings.cashier_password)) {
+        if (cashier_password) {
             this.sendRequest({
                 unlock_password: password1,
             });
@@ -54,7 +54,7 @@ export default class SettingsSecurity extends Component {
     }
 
 	render() {
-		const { settings } = this.props;
+		const { cashier_password } = this.props;
         const { password1, password2 } = this.state;
 		return (
 			<div className="mobile-form settings-container">
@@ -68,7 +68,7 @@ export default class SettingsSecurity extends Component {
                     value={password1}
 					onChange={e => this.setState({ password1: e.target.value })}
 				/>
-				{settings.cashier_password ||
+				{cashier_password ||
 					<InputGroup
 						id="password2"
 						label="Re-enter your password"
