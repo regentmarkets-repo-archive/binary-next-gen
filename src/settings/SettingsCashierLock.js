@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import showError from 'binary-utils/lib/showError';
-import M from 'binary-components/lib/M';
+import P from 'binary-components/lib/P';
 import Button from 'binary-components/lib/Button';
 import InputGroup from 'binary-components/lib/InputGroup';
 import * as LiveData from '../_data/LiveData';
@@ -58,9 +58,7 @@ export default class SettingsCashierLock extends Component {
         const { password1, password2 } = this.state;
 		return (
 			<div className="settings-cashier-lock">
-				<p>
-					<M m="An additional password can be used to restrict access to the cashier." />
-				</p>
+				<P className="notice-msg" text="An additional password can be used to restrict access to the cashier." />
 				<InputGroup
 					id="password1"
 					label="Cashier password"

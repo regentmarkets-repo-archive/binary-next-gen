@@ -8,11 +8,16 @@
     }
 }
 
-.settings-address,
-.settings-self-exclusion,
+.settings-personal-page,
+.settings-change-password,
 .settings-cashier-lock,
+.settings-self-exclusion,
 .settings-limits {
-    padding: 0 0.5rem;
+    padding: 0 0.5rem 0.5rem;
+}
+
+.settings-address,
+.settings-self-exclusion {
     label {
         display: inline-block;
         width: 50%;
@@ -20,5 +25,11 @@
     input,
     select {
         width: 50%;
+    }
+}
+
+.settings-change-password {
+    input {
+        width: 100%;
     }
 }

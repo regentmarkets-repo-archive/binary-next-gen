@@ -65,7 +65,7 @@ export default class SettingsSelfExclusion extends Component {
 			session_duration_limit, exclude_until } = this.props;
 
 		return (
-			<div className="settings-self-exclusion settings-container">
+			<div className="settings-self-exclusion">
 				<InputGroup
 					id="MAXCASHBAL"
 					label="Maximum account cash balance"

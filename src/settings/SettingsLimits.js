@@ -52,6 +52,7 @@ export default class SettingsLimits extends Component {
 						</tr>
 					</tbody>
 				</table>
+				<br />
 				<h5><M m="Maximum Daily Turnover" /></h5>
 				<table>
 					<thead><tr /></thead>
