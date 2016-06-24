@@ -17,7 +17,7 @@ describe('ContractDetailsList', () => {
 
     it('Displays a barrier', () => {
         const simplestContract = {
-            contract_type: '',
+            contract_type: ['NUMB', 'SECONDS'],
             barrier: '123',
             transaction_ids: {},
         };
