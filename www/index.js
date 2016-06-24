@@ -27,13 +27,20 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.addEventListener('resume', this.onDeviceResume, false);
     },
     // deviceready Event Handler
     //
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
+        app.receivedEvent('root');
+        codePush.sync();
+    },
+    //call when the app resumes from the background
+    onDeviceResume: function () {
+        app.receivedEvent('resume');
+        codePush.sync();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -45,7 +52,7 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-    }
+    },
 };
 
 app.initialize();
