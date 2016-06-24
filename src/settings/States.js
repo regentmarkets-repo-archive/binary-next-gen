@@ -5,7 +5,7 @@ export default class States extends Component {
     static propTypes = {
         actions: PropTypes.object.isRequired,
         onChange: PropTypes.func.isRequired,
-        states: PropTypes.object.isRequired,
+        states: PropTypes.array.isRequired,
         selected: PropTypes.string,
         id: PropTypes.string,
     };

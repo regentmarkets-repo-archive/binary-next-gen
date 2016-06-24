@@ -92,6 +92,7 @@ export default class SettingsLimits extends Component {
 						</tr>
 					</tbody>
 				</table>
+				{num_of_days} {remainder} {withdrawal_since_inception_monetary} {num_of_days_limit}
 			</div>
 		);
 	}

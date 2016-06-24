@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import Tab from 'binary-components/lib/Tab';
 import TabList from 'binary-components/lib/TabList';
 import SettingsPersonalDetails from './SettingsPersonalDetails';
-import SettingsCashierLock from './SettingsCashierLock';
+import SettingsCashier from './SettingsCashier';
 import SettingsSelfExclusion from './SettingsSelfExclusion';
 import SettingsLimits from './SettingsLimits';
 import SettingsChangePassword from './SettingsChangePassword';
@@ -10,7 +10,7 @@ import SettingsChangePassword from './SettingsChangePassword';
 const components = [
 	SettingsPersonalDetails,
 	SettingsChangePassword,
-	SettingsCashierLock,
+	SettingsCashier,
 	SettingsSelfExclusion,
 	SettingsLimits,
 ];

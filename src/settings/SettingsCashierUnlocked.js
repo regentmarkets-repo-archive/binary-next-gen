@@ -6,10 +6,9 @@ import InputGroup from 'binary-components/lib/InputGroup';
 import * as LiveData from '../_data/LiveData';
 import isValidPassword from 'binary-utils/lib/isValidPassword';
 
-export default class SettingsCashierLock extends Component {
+export default class SettingsCashierUnlocked extends Component {
 
     static propTypes = {
-		cashier_password: PropTypes.string.isRequired,
 		actions: PropTypes.object.isRequired,
 	};
 
@@ -21,48 +20,30 @@ export default class SettingsCashierLock extends Component {
         };
     }
 
-	onUpdate = () => {
-        const { cashier_password } = this.props;
+    lockCashier = () => {
         const { password1, password2 } = this.state;
 
-        if (cashier_password) {
-            this.sendRequest({ unlock_password: password1 });
-        } else if (isValidPassword(password1, password2)) {
+        if (isValidPassword(password1, password2)) {
             this.sendRequest({ lock_password: password1 });
         }
-    }
-
-    clearState() {
-        this.setState({
-            password1: '',
-            password2: '',
-        });
-    }
-
-    lockCashier = () => {
-
-    }
-
-    unlockCashier = () => {
-
     }
 
     async sendRequest(req) {
         try {
             await LiveData.api.setCashierLock(req);
+            this.setState({
+                password1: '',
+                password2: '',
+            });
         } catch (e) {
             showError(e.message);
         }
-
-        this.clearState();
     }
 
 	render() {
-		const { cashier_password } = this.props;
         const { password1, password2 } = this.state;
 		return (
 			<div className="settings-cashier-lock">
-                <P className="notice-msg" text="Your cashier is locked as per your request - to unlock it, please enter the password." />
 				<P className="notice-msg" text="An additional password can be used to restrict access to the cashier." />
 				<InputGroup
 					id="password1"
@@ -71,18 +52,12 @@ export default class SettingsCashierLock extends Component {
                     value={password1}
 					onChange={e => this.setState({ password1: e.target.value })}
 				/>
-				{!!cashier_password ||
-					<InputGroup
-						id="password2"
-                        placeholder="Confirm password"
-						type="password"
-                        value={password2}
-                        onChange={e => this.setState({ password2: e.target.value })}
-					/>
-				}
-				<Button
-                    text="Unlock Cashier"
-                    onClick={this.unlockCashier}
+				<InputGroup
+					id="password2"
+                    placeholder="Confirm password"
+					type="password"
+                    value={password2}
+                    onChange={e => this.setState({ password2: e.target.value })}
 				/>
                 <Button
                     text="Lock Cashier"
@@ -91,5 +66,4 @@ export default class SettingsCashierLock extends Component {
 			</div>
 		);
 	}
-
 }
