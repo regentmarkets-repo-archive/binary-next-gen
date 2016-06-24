@@ -340,7 +340,8 @@ td {
     &.left {
         text-align: left;
     }
-    &.right {
+    &.right,
+    &.numeric {
         text-align: right;
     }
     &.row-id {

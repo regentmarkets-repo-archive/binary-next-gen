@@ -13,7 +13,7 @@ export default class SettingsPersonalDetails extends Component {
 		const isVirtual = loginid.startsWith('VRTC');
 
 		return (
-			<div>
+			<div className="settings-personal-page">
 				<SettingsDetails {...this.props} />
 				{!isVirtual && <SettingsAddress {...this.props} />}
 			</div>

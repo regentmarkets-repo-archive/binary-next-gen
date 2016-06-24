@@ -58,49 +58,44 @@ export default class SettingsChangePassword extends Component {
         const { validatedOnce, passwordNotValid, passwordsDontMatch, successMessage, errorMessage } = this.state;
 
         return (
-            <div className="startup-content settings-container">
-                <div className="mobile-form" onSubmit={e => e.preventDefault()}>
-                    <form className="mobile-form" onSubmit={e => e.preventDefault()}>
-                        <InputGroup
-                            placeholder="Current password"
-                            type="password"
-                            onChange={e => this.setState({ currentPassword: e.target.value })}
-                        />
-                        <InputGroup
-                            placeholder="New password"
-                            type="password"
-                            onChange={e => this.setState({ newPassword: e.target.value })}
-                        />
-                        <ErrorMsg
-                            shown={validatedOnce && passwordNotValid}
-                            text="Password should have lower and uppercase letters with numbers, at least 6 characters."
-                        />
-                        <InputGroup
-                            placeholder="Confirm new password"
-                            type="password"
-                            onChange={e => this.setState({ confirmPassword: e.target.value })}
-                        />
-                        <ErrorMsg
-                            shown={validatedOnce && passwordsDontMatch}
-                            text="Passwords do not match"
-                        />
-                        <Button
-                            text="Change Password"
-                            onClick={this.onChangePassword}
-                        />
-                            <ErrorMsg
-                                shown={validatedOnce && !!errorMessage}
-                                text={errorMessage}
-                            />
-                            {validatedOnce && successMessage ?
-                                <p className="successMessage">
-                                        <M m={successMessage} />
-                                </p> :
-                                null
-                            }
-                    </form>
-                </div>
-             </div>
+            <div className="settings-change-password">
+                <InputGroup
+                    placeholder="Current password"
+                    type="password"
+                    onChange={e => this.setState({ currentPassword: e.target.value })}
+                />
+                <InputGroup
+                    placeholder="New password"
+                    type="password"
+                    onChange={e => this.setState({ newPassword: e.target.value })}
+                />
+                <ErrorMsg
+                    shown={validatedOnce && passwordNotValid}
+                    text="Password should have lower and uppercase letters with numbers, at least 6 characters."
+                />
+                <InputGroup
+                    placeholder="Confirm new password"
+                    type="password"
+                    onChange={e => this.setState({ confirmPassword: e.target.value })}
+                />
+                <ErrorMsg
+                    shown={validatedOnce && passwordsDontMatch}
+                    text="Passwords do not match"
+                />
+                <Button
+                    text="Change Password"
+                    onClick={this.onChangePassword}
+                />
+                <ErrorMsg
+                    shown={validatedOnce && !!errorMessage}
+                    text={errorMessage}
+                />
+                {validatedOnce && successMessage &&
+                    <p className="successMessage">
+                            <M m={successMessage} />
+                    </p>
+                }
+            </div>
         );
     }
 }

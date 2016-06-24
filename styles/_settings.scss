@@ -8,17 +8,28 @@
     }
 }
 
-.settings-address {
+.settings-personal-page,
+.settings-change-password,
+.settings-cashier-lock,
+.settings-self-exclusion,
+.settings-limits {
+    padding: 0 0.5rem 0.5rem;
+}
+
+.settings-address,
+.settings-self-exclusion {
     label {
         display: inline-block;
-        width: 33%;
+        width: 50%;
     }
     input,
     select {
-        width: 67%;
+        width: 50%;
     }
 }
 
-.settings-container {
-    padding: 0 0.5rem;
+.settings-change-password {
+    input {
+        width: 100%;
+    }
 }
