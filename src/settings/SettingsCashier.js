@@ -5,7 +5,7 @@ import SettingsCashierUnlocked from './SettingsCashierUnlocked';
 export default class SettingsCashier extends Component {
 
     static propTypes = {
-		cashier_password: PropTypes.string.isRequired,
+		cashier_password: PropTypes.number.isRequired,
 		actions: PropTypes.object.isRequired,
 	};
 

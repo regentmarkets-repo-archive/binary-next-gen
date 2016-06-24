@@ -16,8 +16,7 @@
     padding: 0 0.5rem 0.5rem;
 }
 
-.settings-address,
-.settings-self-exclusion {
+.settings-address {
     label {
         display: inline-block;
         width: 50%;
@@ -25,6 +24,17 @@
     input,
     select {
         width: 50%;
+    }
+}
+
+.settings-self-exclusion {
+    label {
+        display: inline-block;
+
+        width: 60%;
+    }
+    input {
+        width: 40%;
     }
 }
 
