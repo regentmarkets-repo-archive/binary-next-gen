@@ -18,7 +18,7 @@ describe('statesReducer', () => {
 
         const actualState = stateReducer(beforeState, action);
 
-        expect(expectedState).to.equal(actualState);
+        expect(expectedState.get('COUNTRY')).to.equal(actualState);
     });
 
     it('should return the default or initial state when action type is wrong or not given', () => {
