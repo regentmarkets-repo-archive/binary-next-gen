@@ -26,13 +26,9 @@ export default class SettingsCashierLock extends Component {
         const { password1, password2 } = this.state;
 
         if (cashier_password) {
-            this.sendRequest({
-                unlock_password: password1,
-            });
+            this.sendRequest({ unlock_password: password1 });
         } else if (isValidPassword(password1, password2)) {
-            this.sendRequest({
-                lock_password: password1,
-            });
+            this.sendRequest({ lock_password: password1 });
         }
     }
 
@@ -41,6 +37,14 @@ export default class SettingsCashierLock extends Component {
             password1: '',
             password2: '',
         });
+    }
+
+    lockCashier = () => {
+
+    }
+
+    unlockCashier = () => {
+
     }
 
     async sendRequest(req) {
@@ -58,27 +62,32 @@ export default class SettingsCashierLock extends Component {
         const { password1, password2 } = this.state;
 		return (
 			<div className="settings-cashier-lock">
+                <P className="notice-msg" text="Your cashier is locked as per your request - to unlock it, please enter the password." />
 				<P className="notice-msg" text="An additional password can be used to restrict access to the cashier." />
 				<InputGroup
 					id="password1"
-					label="Cashier password"
+                    placeholder="New Password"
 					type="password"
                     value={password1}
 					onChange={e => this.setState({ password1: e.target.value })}
 				/>
-				{cashier_password ||
+				{!!cashier_password ||
 					<InputGroup
 						id="password2"
-						label="Re-enter your password"
+                        placeholder="Confirm password"
 						type="password"
                         value={password2}
                         onChange={e => this.setState({ password2: e.target.value })}
 					/>
 				}
 				<Button
-                    text="Update"
-                    onClick={this.onUpdate}
+                    text="Unlock Cashier"
+                    onClick={this.unlockCashier}
 				/>
+                <Button
+                    text="Lock Cashier"
+                    onClick={this.lockCashier}
+                />
 			</div>
 		);
 	}

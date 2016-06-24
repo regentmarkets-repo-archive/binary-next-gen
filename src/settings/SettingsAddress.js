@@ -38,13 +38,8 @@ export default class SettingsAddress extends Component {
         actions.getStatesForCountry(country_code);
     }
 
-	onAddressEntryChange = event => {
-		const { id, value } = event.target;
-
-		this.setState({
-			[id]: value,
-		});
-	}
+	onEntryChange = e =>
+		this.setState({ [e.target.id]: e.target.value });
 
 	tryUpdate = () => {
 		LiveData.api.setAccountSettings(this.state).then(() => {
@@ -70,28 +65,28 @@ export default class SettingsAddress extends Component {
 					type="text"
 					label="Address1"
 					value={address_line_1}
-					onChange={this.onAddressEntryChange}
+					onChange={this.onEntryChange}
 				/>
 				<InputGroup
 					id="address_line_2"
 					type="text"
 					label="Address2"
 					value={address_line_2}
-					onChange={this.onAddressEntryChange}
+					onChange={this.onEntryChange}
 				/>
 				<InputGroup
 					id="address_city"
 					type="text"
 					label="Town/City"
 					defaultValue={address_city}
-					onChange={this.onAddressEntryChange}
+					onChange={this.onEntryChange}
 				/>
 				<States
 					id="address_state"
 					actions={actions}
 					country={country_code}
 					states={states}
-					onChange={this.onAddressEntryChange}
+					onChange={this.onEntryChange}
 					selected={address_state}
 				/>
 				<InputGroup
@@ -99,14 +94,14 @@ export default class SettingsAddress extends Component {
 					type="text"
 					label="Postal Code / ZIP"
 					defaultValue={address_postcode}
-					onChange={this.onAddressEntryChange}
+					onChange={this.onEntryChange}
 				/>
 				<InputGroup
 					id="phone"
 					type="tel"
 					label="Telephone"
 					defaultValue={phone}
-					onChange={this.onAddressEntryChange}
+					onChange={this.onEntryChange}
 				/>
 				<Button
 					text="Update"
