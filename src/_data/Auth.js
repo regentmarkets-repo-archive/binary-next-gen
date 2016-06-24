@@ -35,7 +35,7 @@ export const signout = (nextState, replace) => {
 export const requireAuthOnEnter = (nextState, replace, callback) => {
     const authorized = store.getState().appState.get('authorized');
     if (!authorized) {
-        window.location = 'https://oauth.binary.com/oauth2/authorize?app_id=1006';
+        window.location = 'https://oauth.binary.com/oauth2/authorize?app_id=1001';
     }
     //     replace({ pathname: '/signin', state: nextState });
     callback();
