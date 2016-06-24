@@ -20,23 +20,29 @@ export default class StatementRow extends Component {
         router: PropTypes.object.isRequired,
     };
 
-    render() {
-        const { actions, contractId, compact, refN, date, actionType, amount, balanceAfter } = this.props;
+    viewContract = () => {
+        const { actions, compact, contractId } = this.props;
         const { router } = this.context;
-        const viewContract = () =>
-            actions.detailsForContract(contractId)
-                .then(() => {
-                    if (compact) {
-                        router.push(`/contract/${contractId}`);
-                    }
-                });
+
+        actions.detailsForContract(contractId).then(() => {
+            if (compact) {
+                router.push(`/contract/${contractId}`);
+            }
+        });
+    }
+
+    render() {
+        const { compact, refN, date, actionType, amount, balanceAfter } = this.props;
+
         return (
-            <tr className="statement-row" onClick={viewContract}>
-                <td><FormattedTime value={date} format="full" /></td>
-                {!compact && <td>{refN}</td>}
+            <tr className="statement-row" onClick={this.viewContract}>
+                <td className="date">
+                    <FormattedTime value={date} format="full" />
+                </td>
+                {!compact && <td className="textual">{refN}</td>}
                 <td className="trade-action">{actionType}</td>
-                <td><NumberColored value={amount} /></td>
-                <td><NumberPlain value={balanceAfter} /></td>
+                <td className="numeric"><NumberColored value={amount} /></td>
+                <td className="numeric"><NumberPlain value={balanceAfter} /></td>
             </tr>
         );
     }

@@ -20,9 +20,9 @@ export default class PortfolioList extends Component {
 			<table>
 				<thead>
 					<tr>
-						<Th text="Ref." />
-						<Th text="Purchase" />
-						<Th text="Indicative" />
+						<Th className="textual" text="Ref." />
+						<Th className="numeric" text="Purchase" />
+						<Th className="numeric" text="Indicative" />
 					</tr>
 				</thead>
 				<tbody>
@@ -39,8 +39,12 @@ export default class PortfolioList extends Component {
 				<tfoot>
 					<tr>
 						<th />
-						<th><NumberPlain currency="USD" value={purchaseTotal} /></th>
-						<th><NumberPlain currency="USD" value={indicativeTotal} /></th>
+						<th className="numeric">
+							<NumberPlain currency="USD" value={purchaseTotal} />
+						</th>
+						<th className="numeric">
+							<NumberPlain currency="USD" value={indicativeTotal} />
+						</th>
 					</tr>
 				</tfoot>
 			</table>

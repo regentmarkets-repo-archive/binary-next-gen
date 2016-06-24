@@ -16,11 +16,11 @@ export default class TradingTimesTable extends Component {
 			<table>
 				<thead>
 					<tr>
-						<Th text="Asset" />
-						<Th text="Opens" />
-						<Th text="Closes" />
-						<Th text="Settles" />
-						{!compact && <Th text="Upcoming Events" />}
+						<Th className="textual" text="Asset" />
+						<Th className="date" text="Opens" />
+						<Th className="date" text="Closes" />
+						<Th className="date" text="Settles" />
+						{!compact && <Th className="textual" text="Upcoming Events" />}
 					</tr>
 				</thead>
 				<tbody>
