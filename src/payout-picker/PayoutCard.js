@@ -29,7 +29,8 @@ export default class PayoutCard extends Component {
                         value={payout}
                         isProfit={v => v - stake}
                     />
-                    <span> ({potentialProfitPercentage}% <M m="return" />)</span>
+                    &nbsp;
+                    <span>({potentialProfitPercentage}% <M m="return" />)</span>
                 </div>}
             </div>
         );

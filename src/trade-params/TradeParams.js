@@ -335,9 +335,7 @@ export default class TradeParams extends Component {
                 {!showSpreadBarrier &&
                     <StakeCard
                         amount={+tradeParams.amount}
-                        basis={tradeParams.basis}
-                        currency={currency}
-                        id={index}
+                        isVirtual={false}
                         onAmountChange={this.onAmountChange}
                         onBasisChange={this.onBasisChange}
                     />
