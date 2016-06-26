@@ -7,7 +7,7 @@ export default class AssetPickerCard extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
-		tradeIdx: PropTypes.number.isRequired,
+		index: PropTypes.number.isRequired,
 		compact: PropTypes.bool,
 		history: PropTypes.object,
 		filter: PropTypes.object,
@@ -16,13 +16,13 @@ export default class AssetPickerCard extends Component {
 	};
 
 	onSelect = newAsset => {
-		const { tradeIdx, actions } = this.props;
+		const { index, actions } = this.props;
 
 		actions.changeSelectedAsset(newAsset);
-		actions.updateTradeUIState(tradeIdx, 'disabled', true);
+		actions.updateTradeUIState(index, 'disabled', true);
 		actions.getTradingOptions(newAsset).then(() => {
-			actions.updateTradeParams(tradeIdx, 'symbol', newAsset);
-			actions.updateTradeUIState(tradeIdx, 'disabled', false);
+			actions.updateTradeParams(index, 'symbol', newAsset);
+			actions.updateTradeUIState(index, 'disabled', false);
 			actions.getTicksBySymbol(newAsset);
 		});
 	}

@@ -18,7 +18,8 @@ import AssetPickerDropDown from '../asset-picker/AssetPickerDropDown';
 import BuyButton from './BuyButton';
 
 import * as LiveData from '../_data/LiveData';
-import * as updateHelpers from './TradeParamsCascadingUpdates';
+import { changeAsset, changeBarrier1, changeBarrier2, changeCategory, changeStartDate,
+    changeDurationUnit, changeAmount, changeAmountPerPoint } from './TradeParamsCascadingUpdates';
 
 /**
  * This UI is coded with a few assumptions, which should always be true, this comments serves as a future reference
@@ -114,15 +115,15 @@ export default class TradeParams extends Component {
 
     onAssetChange = () => {
         const { contract, tradeParams } = this.props;
-        const updatedAsset = updateHelpers.changeAsset(tradeParams, contract, updateHelpers.changeCategory);
+        const updatedAsset = changeAsset(tradeParams, contract, changeCategory);
         this.updateTradeParams(updatedAsset);
-        this.dynamicKeyIncrement();
+        this.repaintSelf();
         this.clearTradeError();
     }
 
     onStartDateChange = epoch => {
         const { contract, tradeParams } = this.props;
-        const updatedStartDate = updateHelpers.changeStartDate(epoch, contract, tradeParams);
+        const updatedStartDate = changeStartDate(epoch, contract, tradeParams);
         this.updateTradeParams(updatedStartDate);
     }
 
@@ -133,7 +134,7 @@ export default class TradeParams extends Component {
     onDurationUnitChange = e => {
         const newUnit = e.target.value;
         const { contract, tradeParams } = this.props;
-        const updatedDurationUnit = updateHelpers.changeDurationUnit(newUnit, contract, tradeParams);
+        const updatedDurationUnit = changeDurationUnit(newUnit, contract, tradeParams);
         this.updateTradeParams(updatedDurationUnit);
     }
 
@@ -144,13 +145,13 @@ export default class TradeParams extends Component {
 
     onBarrier1Change = e => {
         const inputValue = e.target.value;
-        const updatedBarrier1 = updateHelpers.changeBarrier1(inputValue);
+        const updatedBarrier1 = changeBarrier1(inputValue);
         this.updateTradeParams(updatedBarrier1);
     }
 
     onBarrier2Change = e => {
         const inputValue = e.target.value;
-        const updatedBarrier2 = updateHelpers.changeBarrier2(inputValue);
+        const updatedBarrier2 = changeBarrier2(inputValue);
         this.updateTradeParams(updatedBarrier2);
     }
 
@@ -166,17 +167,17 @@ export default class TradeParams extends Component {
     onAmountChange = e => {
         const inputValue = e.target.value;
         if (inputValue < 0) {
-            const updatedAmount = updateHelpers.changeAmount(1);
+            const updatedAmount = changeAmount(1);
             this.updateTradeParams(updatedAmount);
         } else {
-            const updatedAmount = updateHelpers.changeAmount(inputValue);
+            const updatedAmount = changeAmount(inputValue);
             this.updateTradeParams(updatedAmount);
         }
     }
 
     onAmountPerPointChange = e => {
         const inputValue = e.target.value;
-        const updatedAmountPerPoint = updateHelpers.changeAmountPerPoint(inputValue);
+        const updatedAmountPerPoint = changeAmountPerPoint(inputValue);
         this.updateTradeParams(updatedAmountPerPoint);
     }
 
@@ -197,7 +198,7 @@ export default class TradeParams extends Component {
         actions.purchaseByTradeId(index).then(onPurchaseHook);
     }
 
-    dynamicKeyIncrement = () => {
+    repaintSelf = () => {
         const { dynamicKey } = this.state;
         this.setState({ dynamicKey: dynamicKey + 1 });
     }
@@ -219,8 +220,6 @@ export default class TradeParams extends Component {
 
     render() {
         const {
-            actions,
-            compact,
             contract,
             currency,
             disabled,
@@ -254,28 +253,24 @@ export default class TradeParams extends Component {
         const showDuration = !!contractForType;
         const showDigitBarrier = categoryToUse === 'digits';
         const showSpreadBarrier = categoryToUse === 'spreads';
+        const askPrice = askPriceFromProposal(proposal);
 
         return (
             <div className="trade-params" disabled={disabled} key={this.state.dynamicKey} style={style}>
                 <ErrorMsg text={error} />
                 <AssetPickerDropDown
-                    actions={actions}
-                    compact={compact}
-                    index={index}
+                    {...this.props}
                     selectedSymbol={tradeParams.symbol}
                     selectedSymbolName={tradeParams.symbolName}
                 />
                 <TradeTypeDropDown
-                    actions={actions}
-                    compact={compact}
-                    contract={contract}
-                    tradeParams={tradeParams}
+                    {...this.props}
                     updateParams={this.updateTradeParams}
                     clearTradeError={this.clearTradeError}
                 />
                 {showDigitBarrier &&
                     <DigitBarrierCard
-                        barrier={+(tradeParams.barrier)}
+                        barrier={+tradeParams.barrier}
                         barrierInfo={barriers && barriers.tick[0]}
                         index={index}
                         onBarrierChange={this.onBarrier1Change}
@@ -341,12 +336,12 @@ export default class TradeParams extends Component {
                     />
                 }
                 <PayoutCard
-                    stake={askPriceFromProposal(proposal)}
-                    payout={payout}
+                    stake={askPrice}
+                    payout={+payout}
                     currency={currency}
                 />
                 <BuyButton
-                    askPrice={askPriceFromProposal(proposal)}
+                    askPrice={askPrice}
                     currency={currency}
                     disabled={disabled}
                     longcode={proposal && proposal.longcode}
