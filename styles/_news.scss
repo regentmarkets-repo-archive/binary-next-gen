@@ -6,6 +6,7 @@
 
 .news-list-card {
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .article h1,

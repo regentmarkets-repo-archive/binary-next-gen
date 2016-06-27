@@ -1,6 +1,8 @@
 body {
     height: 100%;
+    width: 100%;
     overflow: hidden;
+    position: fixed;
 }
 
 .screen {
@@ -85,7 +87,7 @@ header {
     box-shadow: 0 0 1rem 0 rgba(black, 0.5);
     border-radius: 2px;
     + .full-screen-overlay {
-        background: rgba(black, 0.1);
+        background: transparent;
     }
 }
 
@@ -280,30 +282,6 @@ select {
 
 .theme-picker {
     width: 100%;
-}
-
-#new-trade-btn {
-    margin: 0.5rem;
-}
-
-#deposit-btn {
-    margin: 0.5rem;
-}
-
-#logo {
-    margin: 0.5rem;
-    img {
-        height: 2rem;
-        &:nth-child(2) {
-            margin-left: 0.25rem;
-            height: 1.75rem;
-        }
-    }
-}
-
-.balance {
-    font-size: 1.5rem;
-    line-height: 2 !important;
 }
 
 .form-label {

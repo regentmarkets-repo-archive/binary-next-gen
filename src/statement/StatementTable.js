@@ -44,13 +44,17 @@ export default class StatementTable extends Component {
 				</tbody>
 				<tfoot>
 					<tr>
-						<th>
+						<th className="date">
 							<FormattedDate value={transactions[0].date} />
 						</th>
 						<th />
 						{!compact && <th />}
-						<th><NumberColored value={transactionsTotal} /></th>
-						<th><NumberPlain value={transactions[0].balanceAfter} /></th>
+						<th className="numeric">
+							<NumberColored value={transactionsTotal} />
+						</th>
+						<th className="numeric">
+							<NumberPlain value={transactions[0].balanceAfter} />
+						</th>
 					</tr>
 				</tfoot>
 			</table>

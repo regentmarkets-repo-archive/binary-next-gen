@@ -6,7 +6,7 @@
 }
 
 .layoutBtnList {
-    padding: 0.5rem;
+    padding: 0.25rem;
     display: flex;
 }
 
@@ -14,7 +14,8 @@
     background: rgba(42, 48, 82, 1);
 }
 
-.layoutBtn, .trades {
+.layoutBtn,
+.trades {
     display: flex;
     flex: 1;
     overflow: hidden;
@@ -32,21 +33,24 @@
 
 .layoutBtn {
     cursor: pointer;
-    padding: .25rem;
+    padding: 0.25rem;
     min-width: 2rem;
     max-height: 2rem;
-    opacity: .5;
+    opacity: 0.5;
 }
 
-.layoutBtn > div, .trades > div {
+.layoutBtn > div,
+.trades > div {
     display: flex;
 }
 
-.layoutBtn.active, .layoutBtn:hover {
+.layoutBtn.active,
+.layoutBtn:hover {
     opacity: 1;
 }
 
-.trade-panel, .layoutMini {
+.trade-panel,
+.layoutMini {
     flex: 1;
 }
 
@@ -57,9 +61,6 @@
 }
 
 /* 1-1 */
-
-.layout-1-1 {
-}
 
 /* 2-1 */
 
@@ -127,9 +128,11 @@
     display: flex;
     flex-direction: column;
 }
+
 .layout-3-3 > div:nth-child(1) > div {
     max-height: 50%;
 }
+
 /* 3-4 */
 
 .layout-3-4 {
@@ -144,9 +147,11 @@
     display: flex;
     flex-direction: column;
 }
+
 .layout-3-4 > div:nth-child(2) > div {
     max-height: 50%;
 }
+
 /* 3-5 */
 
 .layout-3-5 {

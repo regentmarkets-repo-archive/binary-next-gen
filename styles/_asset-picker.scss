@@ -12,6 +12,7 @@
 
 .asset-list {
     overflow: auto;
+    -webkit-overflow-scrolling: touch;
     tr {
         cursor: pointer;
     }
