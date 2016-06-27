@@ -7,68 +7,11 @@
     <author email="support@binary.com" href="http://binary.com">
         Binary Ltd.
     </author>
-    <content src="home.html"></content>
-    <preference name="permissions" value="none" />
-    <preference name="orientation" value="default" />
-    <preference name="target-device" value="universal" />
-    <preference name="fullscreen" value="false" />
-    <preference name="webviewbounce" value="true" />
-    <preference name="prerendered-icon" value="true" />
-    <preference name="stay-in-webview" value="false" />
-    <preference name="ios-statusbarstyle" value="black-opaque" />
-    <preference name="detect-data-types" value="true" />
-    <preference name="exit-on-suspend" value="false" />
-    <preference name="show-splash-screen-spinner" value="true" />
-    <preference name="auto-hide-splash-screen" value="true" />
-    <preference name="disable-cursor" value="false" />
-    <preference name="android-installLocation" value="auto" />
-    <gap:plugin name="org.apache.cordova.battery-status" />
-    <gap:plugin name="org.apache.cordova.camera" />
-    <gap:plugin name="org.apache.cordova.media-capture" />
-    <gap:plugin name="org.apache.cordova.console" />
-    <gap:plugin name="org.apache.cordova.contacts" />
-    <gap:plugin name="org.apache.cordova.device" />
-    <gap:plugin name="org.apache.cordova.device-motion" />
-    <gap:plugin name="org.apache.cordova.device-orientation" />
-    <gap:plugin name="org.apache.cordova.dialogs" />
-    <gap:plugin name="org.apache.cordova.file" />
-    <gap:plugin name="org.apache.cordova.file-transfer" />
-    <gap:plugin name="org.apache.cordova.geolocation" />
-    <gap:plugin name="org.apache.cordova.globalization" />
-    <gap:plugin name="org.apache.cordova.inappbrowser" />
-    <gap:plugin name="org.apache.cordova.media" />
-    <gap:plugin name="org.apache.cordova.network-information" />
-    <gap:plugin name="org.apache.cordova.splashscreen" />
-    <gap:plugin name="org.apache.cordova.vibration" />
-    <icon src="img/icon.png" />
-    <icon gap:platform="android" gap:qualifier="ldpi" src="res/icon/android/icon-36-ldpi.png" />
-    <icon gap:platform="android" gap:qualifier="mdpi" src="res/icon/android/icon-48-mdpi.png" />
-    <icon gap:platform="android" gap:qualifier="hdpi" src="res/icon/android/icon-72-hdpi.png" />
-    <icon gap:platform="android" gap:qualifier="xhdpi" src="res/icon/android/icon-96-xhdpi.png" />
-    <icon gap:platform="blackberry" src="res/icon/blackberry/icon-80.png" />
-    <icon gap:platform="blackberry" gap:state="hover" src="res/icon/blackberry/icon-80.png" />
-    <icon gap:platform="ios" height="57" src="res/icon/ios/icon-57.png" width="57" />
-    <icon gap:platform="ios" height="72" src="res/icon/ios/icon-72.png" width="72" />
-    <icon gap:platform="ios" height="114" src="res/icon/ios/icon-57-2x.png" width="114" />
-    <icon gap:platform="ios" height="144" src="res/icon/ios/icon-72-2x.png" width="144" />
-    <icon gap:platform="webos" src="res/icon/webos/icon-64.png" />
-    <icon gap:platform="winphone" src="res/icon/windows-phone/icon-48.png" />
-    <icon gap:platform="winphone" gap:role="background" src="res/icon/windows-phone/icon-173.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-ldpi" src="res/screen/android/screen-ldpi-portrait.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-mdpi" src="res/screen/android/screen-mdpi-portrait.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-hdpi" src="res/screen/android/screen-hdpi-portrait.png" />
-    <gap:splash gap:platform="android" gap:qualifier="port-xhdpi" src="res/screen/android/screen-xhdpi-portrait.png" />
-    <gap:splash gap:platform="blackberry" src="res/screen/blackberry/screen-225.png" />
-    <gap:splash gap:platform="ios" height="480" src="res/screen/ios/screen-iphone-portrait.png" width="320" />
-    <gap:splash gap:platform="ios" height="960" src="res/screen/ios/screen-iphone-portrait-2x.png" width="640" />
-    <gap:splash gap:platform="ios" height="1136" src="res/screen/ios/screen-iphone-portrait-568h-2x.png" width="640" />
-    <gap:splash gap:platform="ios" height="1024" src="res/screen/ios/screen-ipad-portrait.png" width="768" />
-    <gap:splash gap:platform="ios" height="768" src="res/screen/ios/screen-ipad-landscape.png" width="1024" />
-    <gap:splash gap:platform="winphone" src="res/screen/windows-phone/screen-portrait.jpg" />
-    <gap:config-file parent="CFBundleShortVersionString" platform="ios">
-        <string>100</string>
-    </gap:config-file>
-    <allow-navigation href="*" />
+    <content src="home.html" />
+    <plugin name="cordova-plugin-whitelist" spec="1" />
+    <plugin name="cordova-plugin-code-push" version="1.8.2-beta" />
+    <plugin name="cordova-plugin-splashscreen" version="3.2.2"></plugin>
+    <allow-navigation href="*://*.binary.com/*" />
     <access origin="*" />
     <plugin name="cordova-plugin-whitelist" version="1" />
     <allow-intent href="http://*/*" />
@@ -77,6 +20,79 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
+
+    <preference name="SplashScreen" value="screen" />
+    <preference name="AutoHideSplashScreen" value="false" />
+    <preference name="ShowSplashScreenSpinner" value="true" />
+    <preference name="SplashScreenDelay" value="5000" />
+
+    <feature name="SplashScreen" >
+        <param name="ios-package" value="CDVSplashScreen"/>
+        <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
+        <param name="onload" value="true" />
+    </feature>
+
+    <platform name="android">
+        <!-- you can use any density that exists in the Android project -->
+        <splash src="res/screen/android/screen-land-hdpi.png" density="land-hdpi"/>
+        <splash src="res/screen/android/screen-land-ldpi.png" density="land-ldpi"/>
+        <splash src="res/screen/android/screen-land-mdpi.png" density="land-mdpi"/>
+        <splash src="res/screen/android/screen-land-xhdpi.png" density="land-xhdpi"/>
+        
+        <splash src="res/screen/android/screen-port-hdpi.png" density="port-hdpi"/>
+        <splash src="res/screen/android/screen-port-ldpi.png" density="port-ldpi"/>
+        <splash src="res/screen/android/screen-port-mdpi.png" density="port-mdpi"/>
+        <splash src="res/screen/android/screen-port-xhdpi.png" density="port-xhdpi"/>
+    </platform>
+
+    <platform name="ios">
+        <!-- images are determined by width and height. The following are supported -->
+       <!-- you can use any density that exists in the Android project -->
+        <splash src="res/screen/ios/Default~iphone.png" width="320" height="480"/>
+        <splash src="res/screen/ios/Default@2x~iphone.png" width="640" height="960"/>
+        <splash src="res/screen/ios/Default-Portrait~ipad.png" width="768" height="1024"/>
+        <splash src="res/screen/ios/Default-Portrait@2x~ipad.png" width="1536" height="2048"/>
+        <splash src="res/screen/ios/Default-Landscape~ipad.png" width="1024" height="768"/>
+        <splash src="res/screen/ios/Default-Landscape@2x~ipad.png" width="2048" height="1536"/>
+        <splash src="res/screen/ios/Default-568h@2x~iphone.png" width="640" height="1136"/>
+        <splash src="res/screen/ios/Default-667h.png" width="750" height="1334"/>
+        <splash src="res/screen/ios/Default-736h.png" width="1242" height="2208"/>
+        <splash src="res/screen/ios/Default-Landscape-736h.png" width="2208" height="1242"/>
+    </platform>
+
+    <platform name="windows">
+        <splash src="res/screen/windows/screen-land-hdpi.png" density="land-hdpi"/>
+        <splash src="res/screen/windows/screen-land-ldpi.png" density="land-ldpi"/>
+        <splash src="res/screen/windows/screen-land-mdpi.png" density="land-mdpi"/>
+        <splash src="res/screen/windows/screen-land-xhdpi.png" density="land-xhdpi"/>
+        
+        <splash src="res/screen/windows/screen-port-hdpi.png" density="port-hdpi"/>
+        <splash src="res/screen/windows/screen-port-ldpi.png" density="port-ldpi"/>
+        <splash src="res/screen/windows/screen-port-mdpi.png" density="port-mdpi"/>
+        <splash src="res/screen/windows/screen-port-xhdpi.png" density="port-xhdpi"/>
+    </platform>
+
+    <!-- icons -->
+    <platform name="android">
+        <icon src="res/icon/android/icon-ldpi.png" density="ldpi" />
+        <icon src="res/icon/android/icon-mdpi.png" density="mdpi" />
+        <icon src="res/icon/android/icon-hdpi.png" density="hdpi" />
+        <icon src="res/icon/android/icon-xhdpi.png" density="xhdpi" />
+     </platform>
+
+     <platform name="ios">
+        <icon src="res/icon/ios/icon-ldpi.png" density="ldpi" />
+        <icon src="res/icon/ios/icon-mdpi.png" density="mdpi" />
+        <icon src="res/icon/ios/icon-hdpi.png" density="hdpi" />
+        <icon src="res/icon/ios/icon-xhdpi.png" density="xhdpi" />
+     </platform>
+     <platform name="windows">
+        <icon src="res/icon/windows/icon-ldpi.png" density="ldpi" />
+        <icon src="res/icon/windows/icon-mdpi.png" density="mdpi" />
+        <icon src="res/icon/windows/icon-hdpi.png" density="hdpi" />
+        <icon src="res/icon/windows/icon-xhdpi.png" density="xhdpi" />
+     </platform>
+
     <platform name="android">
         <allow-intent href="market:*" />
         <preference name="CodePushDeploymentKey" value="rVLju2NoxbcCyC9f3h2biGcCRx8Y4JBH-fLXW" />

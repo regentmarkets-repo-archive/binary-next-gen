@@ -34,6 +34,16 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         app.receivedEvent('deviceready');
+        app.receivedEvent('root');
+        codePush.sync();
+        setTimeout(function() {
+            navigator.splashscreen.hide();
+        }, 10);
+    },
+    //call when the app resumes from the background
+    onDeviceResume: function () {
+        app.receivedEvent('resume');
+        codePush.sync();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
