@@ -40,8 +40,6 @@ import { changeAsset, changeBarrier1, changeBarrier2, changeCategory, changeStar
  * 8. Forward starting do not have barriers
  * 9. All underlying have risefall trade
  *
- *
- * TODO: re-architect the whole dependency mess, and have unit test where applicable
  * possibly a better approach would be notify user for wrong info instead of change to correct value automatically,
  * default may not be a good idea at all as client might always want to input value
  */
@@ -168,6 +166,10 @@ export default class TradeParams extends Component {
         const inputValue = e.target.value;
         if (inputValue < 0) {
             const updatedAmount = changeAmount(1);
+            this.updateTradeParams(updatedAmount);
+        } else if (inputValue > 500) {                  // TODO: temporary to control stake amount
+            if (this.props.tradeParams.amount === 500) return;
+            const updatedAmount = changeAmount(500);
             this.updateTradeParams(updatedAmount);
         } else {
             const updatedAmount = changeAmount(inputValue);
