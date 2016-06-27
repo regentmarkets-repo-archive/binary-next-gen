@@ -18,14 +18,16 @@ export default class AssetsPerSubmarket extends Component {
                     market={market}
                     submarket={submarket}
                 />
-                {assetsInSubmarket.map(a =>
-                    <AssetPickerItem
-                        {...this.props}
-                        key={a.symbol}
-                        asset={a}
-                        selected={selectedAsset === a.symbol}
-                    />
-                )}
+                <tbody>
+                    {assetsInSubmarket.map(a =>
+                        <AssetPickerItem
+                            {...this.props}
+                            key={a.symbol}
+                            asset={a}
+                            selected={selectedAsset === a.symbol}
+                        />
+                    )}
+                </tbody>
             </table>
         );
     }

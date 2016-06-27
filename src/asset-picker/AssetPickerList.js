@@ -13,7 +13,7 @@ export default class AssetPickerList extends Component {
 		const { assets } = this.props;
 
 		return (
-			<div>
+			<div className="asset-list">
 				{Object.keys(assets)
 					.map(submarketName =>
 						<AssetsPerSubmarket

@@ -40,24 +40,22 @@ export default class AssetPickerItem extends Component {
 		const classes = classnames('asset-picker-item', selected);
 
 		return (
-			<tbody>
-				<tr
-					className={classes}
-					onClick={this.onRowClicked}
+			<tr
+				className={classes}
+				onClick={this.onRowClicked}
+			>
+				<td
+					onClick={this.onStarClicked}
 				>
-					<td
-						onClick={this.onStarClicked}
-					>
-						<Star on={isInWatchlist} />
-					</td>
-					<td>
-						{asset.name}
-					</td>
-					<td style={{ textAlign: 'right' }}>
-						<OpenCloseNotice isOpen={isOpen} />
-					</td>
-				</tr>
-			</tbody>
+					<Star on={isInWatchlist} />
+				</td>
+				<td>
+					{asset.name}
+				</td>
+				<td style={{ textAlign: 'right' }}>
+					<OpenCloseNotice isOpen={isOpen} />
+				</td>
+			</tr>
 		);
 	}
 }

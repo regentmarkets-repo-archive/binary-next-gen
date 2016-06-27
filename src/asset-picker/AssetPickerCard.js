@@ -38,15 +38,13 @@ export default class AssetPickerCard extends Component {
 		return (
 			<div className="asset-picker-container">
 				<AssetPickerFilter actions={actions} compact={compact} filter={filter} />
-				<div className="asset-list">
-					<AssetPickerList
-						{...this.props}
-						assets={assetPickerItems}
-						selectedAsset={selectedAsset}
-						onSelect={this.onSelect}
-						onToggleWatchlistItem={this.onToggleWatchlistItem}
-					/>
-				</div>
+				<AssetPickerList
+					{...this.props}
+					assets={assetPickerItems}
+					selectedAsset={selectedAsset}
+					onSelect={this.onSelect}
+					onToggleWatchlistItem={this.onToggleWatchlistItem}
+				/>
 				{Object.keys(assetPickerItems).length > 0 ? null :
 					<div className="centerer">
 						<M m="Your search didn't match any assets" />
