@@ -2,6 +2,8 @@ import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import requestFullScreen from 'binary-utils/lib/requestFullscreen';
 import exitFullScreen from 'binary-utils/lib/exitFullScreen';
+import addFullScreenEventListener from 'binary-utils/lib/addFullscreenEventListener';
+import removeFullScreenEventListener from 'binary-utils/lib/removeFullscreenEventListener';
 import ClockContainer from './ClockContainer';
 // import LanguagePicker from './LanguagePicker';
 
@@ -18,17 +20,27 @@ export default class Footer extends Component {
 		};
 	}
 
+	componentWillMount() {
+		addFullScreenEventListener(this.toggleFullScreenState);
+	}
+
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
-	fullScreen = () => {
-		requestFullScreen(document.getElementById('root'));
-		this.setState({ fullScreen: true });
+	componentWillUnmount() {
+		removeFullScreenEventListener(this.toggleFullScreenState);
 	}
 
-	minimize = () => {
-		exitFullScreen();
-		this.setState({ fullScreen: false });
+	toggleFullScreenState = () => {
+		if (this.state.fullScreen) {
+			this.setState({ fullScreen: false });
+		} else {
+			this.setState({ fullScreen: true });
+		}
 	}
+
+	fullScreen = () => requestFullScreen(document.getElementById('root'));
+
+	minimize = () => exitFullScreen();
 
 	render() {
 		const { fullScreen } = this.state;
