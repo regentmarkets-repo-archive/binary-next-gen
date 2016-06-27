@@ -16,8 +16,7 @@
     padding: 0 0.5rem 0.5rem;
 }
 
-.settings-address,
-.settings-self-exclusion {
+.settings-address {
     label {
         display: inline-block;
         width: 50%;
@@ -28,7 +27,19 @@
     }
 }
 
-.settings-change-password {
+.settings-self-exclusion {
+    label {
+        display: inline-block;
+
+        width: 60%;
+    }
+    input {
+        width: 40%;
+    }
+}
+
+.settings-change-password,
+.settings-cashier-lock {
     input {
         width: 100%;
     }

@@ -17,7 +17,7 @@ export default class AssetIndexTable extends Component {
                     <tr>
                         <th />
                         {headers.map((type, idx) =>
-                            <th key={idx}>{type}</th>
+                            <th className="date" key={idx}>{type}</th>
                         )}
                     </tr>
                 </thead>

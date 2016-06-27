@@ -17,11 +17,11 @@ export default class DailyPricesRow extends Component {
 
         return (
             <tr>
-                <td><FormattedDate value={date} /></td>
-                <td><NumberPlain value={open} /></td>
-                <td><NumberPlain value={high} /></td>
-                <td><NumberPlain value={low} /></td>
-                <td><NumberPlain value={close} /></td>
+                <td className="textual"><FormattedDate value={date} /></td>
+                <td className="numeric"><NumberPlain value={open} /></td>
+                <td className="numeric"><NumberPlain value={high} /></td>
+                <td className="numeric"><NumberPlain value={low} /></td>
+                <td className="numeric"><NumberPlain value={close} /></td>
             </tr>
         );
     }

@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 import { createListSelector } from 'reselect-map';
 import nowAsEpoch from 'binary-utils/lib/nowAsEpoch';
 import { assetsSelector, tradingTimesSelector } from '../_store/directSelectors';
-import { marketTreeSelector } from '../_selectors/marketTreeSelector';
+import { marketTreeSelector } from '../_selectors/marketTreeSelectors';
 import extractBarrier from 'binary-utils/lib/extractBarrier';
 import extractDuration from 'binary-utils/lib/extractDuration';
 import extractForwardStartingDuration from 'binary-utils/lib/extractForwardStartingDuration';

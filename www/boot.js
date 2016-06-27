@@ -20,12 +20,10 @@
         var accounts = [];
 
         for (var i = 1; i < params.length; i += 3) {
-            if (~params[i].indexOf('VRTC')) {
-                accounts.push({
-                    account: params[i],
-                    token: params[i + 1]
-                });
-            }
+            accounts.push({
+                account: params[i],
+                token: params[i + 1]
+            });
         }
 
         return accounts;
@@ -68,8 +66,9 @@
 
     var redirectIndex = window.location.href.indexOf('?');
     if (~redirectIndex) {
+        console.log(window.location.href);
         history.replaceState({} , 'Binary', window.location.href.substr(0, redirectIndex - 1));
     }
 
-    window.BinaryBoot.connection = new WebSocket(apiUrl + '?app_id=1006&l=' + lang);
+    window.BinaryBoot.connection = new WebSocket(apiUrl + '?app_id=1001&l=' + lang);
 })();

@@ -6,9 +6,9 @@ export default class WatchlistTableHeader extends Component {
 		return (
 			<thead>
 				<tr>
-					<Th text="Asset" />
-					<Th text="Spot" />
-					<Th text="Change" />
+					<Th className="textual" text="Asset" />
+					<Th className="numeric" text="Spot" />
+					<Th className="numeric" text="Change" />
 					<Th text="Chart" />
 					<th />
 				</tr>

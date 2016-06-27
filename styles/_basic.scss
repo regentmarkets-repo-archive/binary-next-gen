@@ -336,25 +336,23 @@ div[role=tabpanel] {
     margin: 0.5rem;
 }
 
-td {
-    &.left {
+td,
+th {
+    padding: 0.2rem 0.4rem;
+    &.centered {
+        text-align: center;
+    }
+    &.left,
+    &.textual {
         text-align: left;
     }
     &.right,
-    &.numeric {
+    &.numeric,
+    &.date {
         text-align: right;
     }
     &.row-id {
         font-weight: bold;
-    }
-}
-
-th {
-    &.left {
-        text-align: left;
-    }
-    &.right {
-        text-align: right;
     }
 }
 

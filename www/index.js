@@ -27,6 +27,7 @@ var app = {
     // 'load', 'deviceready', 'offline', and 'online'.
     bindEvents: function() {
         document.addEventListener('deviceready', this.onDeviceReady, false);
+        document.addEventListener('resume', this.onDeviceResume, false);
     },
     // deviceready Event Handler
     //
@@ -38,7 +39,7 @@ var app = {
         codePush.sync();
         setTimeout(function() {
             navigator.splashscreen.hide();
-        }, 10);
+        }, 100);
     },
     //call when the app resumes from the background
     onDeviceResume: function () {
@@ -55,7 +56,7 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);
-    }
+    },
 };
 
 app.initialize();

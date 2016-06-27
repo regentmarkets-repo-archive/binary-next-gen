@@ -8,22 +8,16 @@ export default class SettingsLimits extends Component {
 
 	static propTypes = {
 		account_balance: PropTypes.number.isRequired,
-		num_of_days: PropTypes.number.isRequired,
 		withdrawal_for_x_days_monetary: PropTypes.number.isRequired,
-		remainder: PropTypes.number.isRequired,
 		open_positions: PropTypes.number.isRequired,
 		lifetime_limit: PropTypes.number.isRequired,
-		num_of_days_limit: PropTypes.number.isRequired,
-		withdrawal_since_inception_monetary: PropTypes.number.isRequired,
 		market_specific: PropTypes.object.isRequired,
 		payout: PropTypes.number.isRequired,
 	};
 
 	render() {
-		const { account_balance, num_of_days, withdrawal_for_x_days_monetary,
-			remainder, open_positions, lifetime_limit, num_of_days_limit,
-			withdrawal_since_inception_monetary, market_specific, payout } = this.props;
-
+		const { account_balance, withdrawal_for_x_days_monetary,
+			open_positions, lifetime_limit, market_specific, payout } = this.props;
 		const marketLimits = [].concat(...Object.values(market_specific));
 
 		return (

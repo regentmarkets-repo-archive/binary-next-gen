@@ -16,15 +16,15 @@ export default class AssetDetailsTradingEvents extends Component {
 			<table>
 				<thead>
 					<tr>
-						<Th text="Dates" />
-						<Th text="Description" />
+						<Th className="textual" text="Dates" />
+						<Th className="textual" text="Description" />
 					</tr>
 				</thead>
 				<tbody>
 					{events.map((event, i) =>
 						<tr key={i}>
-							<td>{event.dates}</td>
-							<td>{event.descrip}</td>
+							<td className="textual">{event.dates}</td>
+							<td className="textual">{event.descrip}</td>
 						</tr>
 					)}
 				</tbody>

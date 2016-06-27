@@ -10,14 +10,17 @@ export default class AssetIndexCard extends Component {
 		submarket: PropTypes.string.isRequired,
 	};
 
+	onChangeMarketSubmarket = x =>
+		this.props.actions.updateAssetIndexFilter(x);
+
 	render() {
-		const { actions, assetIndexRows, submarket } = this.props;
+		const { assetIndexRows, submarket } = this.props;
 		const headers = assetIndexRows.shift() || [];
 
 		return (
 			<div className="asset-index-card">
 				<MarketSubmarketPickerContainer
-					onChange={x => actions.updateAssetIndexFilter(x)}
+					onChange={this.onChangeMarketSubmarket}
 					allOptionShown={false}
 					value={submarket}
 				/>

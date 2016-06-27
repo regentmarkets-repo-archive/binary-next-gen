@@ -88,13 +88,6 @@ export default class BarrierCard extends Component {
                         value={+barrierVal}
                         step={1}
                     />
-                    {/* <input
-                        className="param-field"
-                        type="number"
-                        onChange={this.updateBarrier1}
-                        defaultValue={barrierVal}
-                        step={pipSizeToStepSize(pipSize)}
-                    /> */}
                 </div>
                 {barrier2Info &&
                     <div className="param-row">
@@ -105,13 +98,6 @@ export default class BarrierCard extends Component {
                             value={+barrier2Val}
                             step={1}
                         />
-                        {/* <input
-                            className="param-field"
-                            type="number"
-                            onChange={this.updateBarrier2}
-                            defaultValue={barrier2Val}
-                            step={pipSizeToStepSize(pipSize)}
-                        /> */}
                     </div>
                 }
             </div>

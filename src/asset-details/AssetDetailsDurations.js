@@ -16,15 +16,15 @@ export default class AssetDetailsDurations extends Component {
 			<table>
 				<thead>
 					<tr>
-						<Th text="Trade Type" />
-						<Th text="Durations" />
+						<Th className="textual" text="Trade Type" />
+						<Th className="textual" text="Durations" />
 					</tr>
 				</thead>
 				<tbody>
 					{durations[2].map((x, i) =>
 						<tr key={i}>
-							<td>{x[1]}</td>
-							<td>{x[2]} &ndash; {x[3]}</td>
+							<td className="textual">{x[1]}</td>
+							<td className="textual">{x[2]} &ndash; {x[3]}</td>
 						</tr>
 					)}
 				</tbody>

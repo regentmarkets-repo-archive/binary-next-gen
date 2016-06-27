@@ -53,7 +53,7 @@ export default class AssetPickerDropDown extends Component {
                 <DropDown shown={dropdownShown} onClose={this.onClose}>
                     <AssetPickerContainer
                         actions={actions}
-                        tradeIdx={index}
+                        index={index}
                         selectedAsset={selectedSymbol}
                     />
                 </DropDown>

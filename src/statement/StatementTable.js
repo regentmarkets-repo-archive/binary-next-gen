@@ -23,11 +23,11 @@ export default class StatementTable extends Component {
 			<table>
 				<thead>
 					<tr>
-						<Th text="Purchase Date" />
-						{!compact && <Th text="Ref." />}
-						<Th text="Action" />
-						<Th text="Credit / Debit" />
-						<th>
+						<Th className="date" text="Purchase Date" />
+						{!compact && <Th className="textual" text="Ref." />}
+						<Th className="textual" text="Action" />
+						<Th className="numeric" text="Credit / Debit" />
+						<th className="numeric">
 							<M m="Balance" /> ({currency})
 						</th>
 					</tr>

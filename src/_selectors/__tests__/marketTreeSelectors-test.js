@@ -1,6 +1,6 @@
 import { fromJS } from 'immutable';
 import { expect } from 'chai';
-import { marketTreeSelector } from '../marketTreeSelector';
+import { marketTreeSelector } from '../marketTreeSelectors';
 
 describe('marketTreeSelector', () => {
     it('should equal empty tree when no assets', () => {

@@ -16,8 +16,8 @@ export default class AssetIndexRow extends Component {
                     {assetName}
                 </td>
                 {times.map((time, k) =>
-                    <td key={k}>
-                            {time}
+                    <td className="date" key={k}>
+                        {time}
                     </td>
                 )}
             </tr>

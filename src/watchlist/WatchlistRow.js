@@ -29,13 +29,13 @@ export default class WatchlistRow extends Component {
 				<td className="row-id">
 					{item.get('assetName')}
 				</td>
-				<td>
+				<td className="numeric">
 					<NumberPlain value={item.get('quote')} />
 				</td>
-				<td>
+				<td className="numeric">
 					<Direction diff={item.get('diff')} /> <NumberColored value={item.get('diff')} />
 				</td>
-				<td>
+				<td className="centered">
 					{item.get('isOpen') ?
 						<WatchlistSparkline history={item.get('history')} /> :
 						<OpenCloseNotice isOpen={false} />

@@ -15,9 +15,9 @@ export default class AssetDetailsTradingTimes extends Component {
 			<table>
 				<thead>
 					<tr>
-						<Th text="Opens" />
-						<Th text="Closes" />
-						<Th text="Settles" />
+						<Th className="date" text="Opens" />
+						<Th className="date" text="Closes" />
+						<Th className="date" text="Settles" />
 					</tr>
 				</thead>
 				<tbody>

@@ -15,11 +15,11 @@ export default class DailyPricesTable extends Component {
             <table>
                 <thead>
                     <tr>
-                        <Th text="Date" />
-                        <Th text="Open" />
-                        <Th text="High" />
-                        <Th text="Low" />
-                        <Th text="Close" />
+                        <Th className="textual" text="Date" />
+                        <Th className="numeric" text="Open" />
+                        <Th className="numeric" text="High" />
+                        <Th className="numeric" text="Low" />
+                        <Th className="numeric" text="Close" />
                     </tr>
                 </thead>
                 <tbody>

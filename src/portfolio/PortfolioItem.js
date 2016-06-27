@@ -20,13 +20,13 @@ export default class PortfolioItem extends Component {
         return (
             <tr className="portfolio-row" onClick={this.onViewDetailsClicked}>
                 <td>{contract.transaction_ids && contract.transaction_ids.buy}</td>
-                <td>
+                <td className="numeric">
                     <NumberPlain
                         currency={contract.currency}
                         value={contract.buy_price}
                     />
                 </td>
-                <td>
+                <td className="numeric">
                     {contract &&
                         <NumberColored
                             currency={contract.currency}

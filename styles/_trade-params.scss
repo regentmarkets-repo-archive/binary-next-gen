@@ -1,4 +1,7 @@
 .vertical {
+    .errorfield {
+        margin-bottom: 0.5rem;
+    }
     > [role=tab] {
         padding: 0.1rem;
         margin-bottom: 0.5rem;
@@ -47,18 +50,14 @@
 
 .horizontal {
     .errorfield {
-        margin-right: 0.5rem;
+        margin: 0.5rem 0;
     }
     .trade-params {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         flex-wrap: wrap;
         > * {
             flex: 1;
-        }
-        > div {
-            margin-right: 0.5rem;
-            min-width: 11rem;
         }
         .barrier-picker {
             display: flex;
