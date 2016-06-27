@@ -163,6 +163,10 @@ fieldset {
     margin-bottom: 0.5rem;
     border-radius: 2px;
     background-color: rgba($COLOR_BRAND_BLUE, 0.1);
+
+    .selected-radio {
+        background-color: rgba($COLOR_BRAND_BLUE, 0.8);
+    }
 }
 
 .radio-item {
