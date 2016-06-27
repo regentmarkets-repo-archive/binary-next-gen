@@ -66,7 +66,6 @@
 
     var redirectIndex = window.location.href.indexOf('?');
     if (~redirectIndex) {
-        console.log(window.location.href);
         history.replaceState({} , 'Binary', window.location.href.substr(0, redirectIndex - 1));
     }
 

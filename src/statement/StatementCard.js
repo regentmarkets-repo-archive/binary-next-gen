@@ -1,8 +1,7 @@
 import React, { PropTypes, Component } from 'react';
+import P from 'binary-components/lib/P';
+import StatementFilter from './StatementFilter';
 import StatementTable from './StatementTable';
-import M from 'binary-components/lib/M';
-import Tab from 'binary-components/lib/Tab';
-import TabList from 'binary-components/lib/TabList';
 
 export default class StatementCard extends Component {
 
@@ -16,31 +15,15 @@ export default class StatementCard extends Component {
 	};
 
 	render() {
-		const { actions, compact, currency, transactionsFilter, transactions, transactionsTotal } = this.props;
+		const { transactions } = this.props;
 
 		return (
 			<div className="statement-card">
-				<TabList
-					activeIndex={transactionsFilter}
-					onChange={idx => actions.updateTransactionsFilter(idx)}
-				>
-					<Tab text="Today" />
-					<Tab text="Yesterday" />
-					<Tab text="Last 7 Days" />
-					<Tab text="Last 30 Days" />
-				</TabList>
+				<StatementFilter {...this.props} />
 				<div className="statement-list">
-					{transactions.length > 0 ?
-						<StatementTable
-							actions={actions}
-							compact={compact}
-							transactions={transactions}
-							transactionsTotal={transactionsTotal}
-							currency={currency}
-						/> :
-						<div className="centerer">
-							<M m="There are no transactions for the selected period" />
-						</div>
+					{transactions.length === 0 ?
+						<P className="notice-msg" text="No transactions for the selected period" /> :
+						<StatementTable {...this.props} />
 					}
 				</div>
 			</div>

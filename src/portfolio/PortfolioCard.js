@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import P from 'binary-components/lib/P';
 import PortfolioList from './PortfolioList';
 
 export default class PortfolioCard extends Component {
@@ -35,14 +36,17 @@ export default class PortfolioCard extends Component {
 		const { compact, contracts, purchaseTotal, indicativeTotal } = this.props;
 
 		return (
-			<div className="portfolio-panel">
-				<PortfolioList
-					compact={compact}
-					contracts={contracts}
-					purchaseTotal={purchaseTotal}
-					indicativeTotal={indicativeTotal}
-					onViewDetails={this.onViewDetails}
-				/>
+			<div className="portfolio-card">
+				{Object.keys(contracts).length === 0 ?
+					<P className="notice-msg" text="You have no open contracts" /> :
+					<PortfolioList
+						compact={compact}
+						contracts={contracts}
+						purchaseTotal={purchaseTotal}
+						indicativeTotal={indicativeTotal}
+						onViewDetails={this.onViewDetails}
+					/>
+				}
 			</div>
 		);
 	}

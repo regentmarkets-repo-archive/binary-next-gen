@@ -2,6 +2,9 @@
     cursor: pointer;
 }
 
-.portfolio-panel {
+.portfolio-card {
     width: 100%;
+    .notice-msg {
+        margin: 0.5rem;
+    }
 }
