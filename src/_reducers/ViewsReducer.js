@@ -32,7 +32,6 @@ export default (state = initialState, action) => {
             return state.update('assetIndex', v => v.merge({ filter: action.filter }));
         }
         case UPDATE_TRANSACTIONS_FILTER: {
-            console.log('the transactionsFilter is', action.transactionsFilter);
             return state.set('transactionsFilter', action.transactionsFilter);
         }
         default:
