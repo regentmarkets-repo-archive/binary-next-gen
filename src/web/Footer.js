@@ -23,12 +23,12 @@ export default class Footer extends Component {
 	fullScreen = () => {
 		requestFullScreen(document.getElementById('root'));
 		this.setState({ fullScreen: true });
-	};
+	}
 
 	minimize = () => {
-		exitFullScreen(document.getElementById('root'));
+		exitFullScreen();
 		this.setState({ fullScreen: false });
-	};
+	}
 
 	render() {
 		const { fullScreen } = this.state;
