@@ -34,8 +34,12 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+        app.receivedEvent('deviceready');
         app.receivedEvent('root');
         codePush.sync();
+        setTimeout(function() {
+            navigator.splashscreen.hide();
+        }, 100);
     },
     //call when the app resumes from the background
     onDeviceResume: function () {
