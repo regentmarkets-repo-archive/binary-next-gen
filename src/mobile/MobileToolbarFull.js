@@ -12,12 +12,12 @@ export default class MobileToolbarFull extends Component {
 			<div className="mobile-toolbar">
 				<MobileSidebarContainer />
 				<MobileToolbarBtn to={'/'} img="img/trade.svg" />
-				{/* <MobileToolbarBtn to={'/watchlist-mobile'} img="img/watchlist.svg" /> */}
-				<MobileToolbarBtn to={'/portfolio-mobile'} img="img/portfolio.svg" />
-				<MobileToolbarBtn to={'/statement-mobile'} img="img/statement.svg" />
-				<MobileToolbarBtn to={'/news-mobile'} img="img/news.svg" />
-				<MobileToolbarBtn to={'/resources-mobile'} img="img/resources.svg" />
-				{/* <MobileToolbarBtn to={'/settings-mobile'} img="img/settings.svg" /> */}
+				{/* <MobileToolbarBtn to={'/watchlist'} img="img/watchlist.svg" /> */}
+				<MobileToolbarBtn to={'/portfolio'} img="img/portfolio.svg" />
+				<MobileToolbarBtn to={'/statement'} img="img/statement.svg" />
+				<MobileToolbarBtn to={'/news'} img="img/news.svg" />
+				<MobileToolbarBtn to={'/resources'} img="img/resources.svg" />
+				{/* <MobileToolbarBtn to={'/settings'} img="img/settings.svg" /> */}
 			</div>
 		);
 	}

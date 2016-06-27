@@ -36,8 +36,7 @@ export default class WebSidebar extends Component {
 						<span>Switch to {x.account}</span>
 					</a>
 				)}
-				{/* <SidebarBtn to="/deposit" img="img/profit.svg" text="Deposit" />
-				<SidebarBtn to="/settings-mobile" img="img/settings.svg" text="Settings" /> */}
+				{/* <SidebarBtn to="/deposit" img="img/profit.svg" text="Deposit" /> */}
 				<SidebarBtn to="/signout" img="img/signout.svg" text="Sign Out" />
 			</nav>
 		);
