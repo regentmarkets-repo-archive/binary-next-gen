@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import FullScreenSwitcher from './FullScreenSwitcher';
 import ClockContainer from './ClockContainer';
-// import LanguagePicker from './LanguagePicker';
+import LanguagePicker from './LanguagePicker';
 
 export default class Footer extends Component {
 
@@ -26,7 +26,7 @@ export default class Footer extends Component {
 				<div id="clock" >
 					<ClockContainer />
 				</div>
-				{/* <LanguagePicker {...this.props} className="language-picker" /> */}
+				<LanguagePicker />
 			</div>
 		);
 	}

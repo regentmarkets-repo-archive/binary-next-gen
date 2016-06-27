@@ -7,10 +7,7 @@ import languages from '../_constants/languages';
 @connect(state => ({ selected: state.boot.get('language') }))
 export default class LanguagePicker extends Component {
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
     static propTypes = {
-        actions: PropTypes.object.isRequired,
         selected: PropTypes.oneOf(languages.map(ln => ln.value)),
         dispatch: PropTypes.func.isRequired,
     };
@@ -18,6 +15,8 @@ export default class LanguagePicker extends Component {
     static defaultProps = {
         selected: 'EN',
     };
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
 
     changeLanguage = event => {
         window.BinaryBoot.language = event.target.value;
@@ -30,6 +29,7 @@ export default class LanguagePicker extends Component {
         return (
             <SelectGroup
                 {...this.props}
+                className="language-picker"
                 options={languages}
                 value={selected}
                 onChange={this.changeLanguage}
