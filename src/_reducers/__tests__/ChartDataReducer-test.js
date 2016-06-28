@@ -14,7 +14,7 @@ describe('Chart data reducer', () => {
             data: [1, 2, 3, 4],
             dataType: 'ticks',
         });
-        expect(actual.getIn(['1', 'ticks'])).to.deep.equal([1, 2, 3, 4]);
+        expect(actual.getIn(['1', 'ticks']).toJS()).to.deep.equal([1, 2, 3, 4]);
     });
 
     it('should store data when according to dataType', () => {
@@ -25,12 +25,12 @@ describe('Chart data reducer', () => {
             dataType: 'candles',
         });
 
-        expect(actual.getIn(['1', 'candles'])).to.deep.equal([1, 2, 3, 4]);
+        expect(actual.getIn(['1', 'candles']).toJS()).to.deep.equal([1, 2, 3, 4]);
     });
 
     // TODO: this behaviour is pretty implicit, might worth to rethink
     it('should update data when received stream of open contract', () => {
-        const initial = fromJS({}).setIn(['1001', 'ticks'], [{ epoch: 1, quote: 1 }]);
+        const initial = fromJS({}).setIn(['1001', 'ticks'], fromJS([{ epoch: 1, quote: 1 }]));
 
         const actual = chartDataReducer(initial, {
             type: SERVER_DATA_PROPOSAL_OPEN_CONTRACT,
@@ -44,6 +44,6 @@ describe('Chart data reducer', () => {
             },
         });
 
-        expect(actual.getIn(['1001', 'ticks'])).to.have.lengthOf(2);
+        expect(actual.getIn(['1001', 'ticks']).toJS()).to.have.lengthOf(2);
     });
 });
