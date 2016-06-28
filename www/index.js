@@ -37,9 +37,6 @@ var app = {
         app.receivedEvent('deviceready');
         app.receivedEvent('root');
         codePush.sync();
-        setTimeout(function() {
-            navigator.splashscreen.hide();
-        }, 100);
     },
     //call when the app resumes from the background
     onDeviceResume: function () {
