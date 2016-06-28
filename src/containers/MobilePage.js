@@ -1,9 +1,7 @@
 import React, { PropTypes, Component } from 'react';
-import { connect } from 'react-redux';
 import MobileToolbarFull from '../mobile/MobileToolbarFull';
 import MobileToolbarBack from '../mobile/MobileToolbarBack';
 
-@connect(state => ({ isAuthorized: state.appState.get('authorized') }))
 export default class MobilePage extends Component {
 
 	static propTypes = {
@@ -12,7 +10,6 @@ export default class MobilePage extends Component {
 		toolbarShown: PropTypes.bool,
 		inverse: PropTypes.bool,
 		backTo: PropTypes.any,
-		isAuthorized: PropTypes.bool,
 	};
 
 	static defaultProps = {

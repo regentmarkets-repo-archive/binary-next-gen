@@ -17,6 +17,8 @@ export default class ResourcesMobile extends Component {
         this.state = { activeTab: 0 };
     }
 
+	onTabChange = idx => this.setState({ activeTab: idx });
+
     render() {
         const { activeTab } = this.state;
         const ActiveComponent = components[activeTab];
@@ -25,7 +27,7 @@ export default class ResourcesMobile extends Component {
             <MobilePage>
                 <TabList
                     activeIndex={activeTab}
-                    onChange={idx => this.setState({ activeTab: idx })}
+                    onChange={this.onTabChange}
                 >
                     <Tab text="Asset Index" />
                     <Tab text="Trading Times" />

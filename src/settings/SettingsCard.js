@@ -29,6 +29,8 @@ export default class SettingsCard extends Component {
 		this.state = { activeTab: 0 };
 	}
 
+	onTabChange = idx => this.setState({ activeTab: idx });
+
 	render() {
 		const { actions, loginid, settings } = this.props;
 		const { activeTab } = this.state;
@@ -39,7 +41,7 @@ export default class SettingsCard extends Component {
 			<div className="settings-card">
 				<TabList
 					activeIndex={activeTab}
-					onChange={idx => this.setState({ activeTab: idx })}
+					onChange={this.onTabChange}
 				>
 					<Tab text="Personal" />
 					<Tab text="Password" />

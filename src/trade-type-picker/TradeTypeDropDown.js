@@ -45,7 +45,7 @@ export default class TradeTypeDropDown extends Component {
         const { compact } = this.props;
         const { router } = this.context;
         if (compact) {
-            router.push('trade-type-picker');
+            router.push('trade-type');
         } else {
             this.setState({ dropdownShown: true });
         }

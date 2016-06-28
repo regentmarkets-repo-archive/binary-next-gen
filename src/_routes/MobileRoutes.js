@@ -25,7 +25,7 @@ export default [
     { path: 'contract/:id', component: ContractDetailsMobile, onEnter: requireAuthOnEnter },
     { path: 'statement', component: StatementMobile, onEnter: requireAuthOnEnter },
     { path: 'watchlist', component: WatchlistMobile, onEnter: requireAuthOnEnter },
-    { path: 'asset', component: AssetPickerMobile, onEnter: requireAuthOnEnter },
+    { path: 'assets', component: AssetPickerMobile, onEnter: requireAuthOnEnter },
     { path: 'trade-type', component: TradeTypePickerMobile, onEnter: requireAuthOnEnter },
     { path: 'settings', component: SettingsMobile, onEnter: requireAuthOnEnter },
     { path: 'news', component: NewsMobile },

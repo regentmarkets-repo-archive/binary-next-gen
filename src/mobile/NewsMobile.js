@@ -17,6 +17,8 @@ export default class NewsMobile extends Component {
         this.state = { activeTab: 0 };
     }
 
+	onTabChange = idx => this.setState({ activeTab: idx });
+
     render() {
         const { activeTab } = this.state;
         const ActiveComponent = components[activeTab];
@@ -25,7 +27,7 @@ export default class NewsMobile extends Component {
             <MobilePage>
                 <TabList
                     activeIndex={activeTab}
-                    onChange={idx => this.setState({ activeTab: idx })}
+                    onChange={this.onTabChange}
                 >
                     <Tab text="Daily Report" />
                     <Tab text="Binary TV" />

@@ -40,7 +40,7 @@ export default class AssetPickerDropDown extends Component {
         if (!compact) {
             this.setState({ dropdownShown: true });
         } else {
-            router.push('asset-picker');
+            router.push('assets');
         }
     }
 
