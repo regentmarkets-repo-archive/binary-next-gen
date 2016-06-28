@@ -19,7 +19,9 @@ module.exports = {
             },
         }),
         new webpack.optimize.DedupePlugin(),
-        new webpack.optimize.UglifyJsPlugin()
+        new webpack.optimize.UglifyJsPlugin({
+            sourceMap: true,
+        })
     ] : [
         new styleLintPlugin(),
         new webpack.HotModuleReplacementPlugin(),
