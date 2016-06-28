@@ -32,7 +32,7 @@ export default class AssetPickerMobile extends Component {
 	render() {
 		return (
 			<MobilePage toolbarShown={false} backBtnBarTitle="Asset">
-				<AssetPickerContainer {...this.props} onClose={this.onClose} />
+				<AssetPickerContainer {...this.props} compact onClose={this.onClose} />
 			</MobilePage>
 		);
 	}
