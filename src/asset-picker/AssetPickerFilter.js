@@ -43,7 +43,6 @@ export default class AssetPickerFilter extends Component {
 					type="search"
 					placeholder="Search for assets"
 					onChange={this.onSearchQueryChange}
-					autoFocus
 				/>
 				<MarketSubmarketPickerContainer
 					onChange={this.onFilterChange}
