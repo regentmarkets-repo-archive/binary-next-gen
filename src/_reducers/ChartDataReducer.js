@@ -12,7 +12,7 @@ export default (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_CHART_DATA_BY_CONTRACT: {
             const { contractID, data, dataType, symbol } = action;
-            const existing = state.hasIn([contractID, dataType]) ? state.getIn([contractID, dataType]) : [];
+            const existing = state.hasIn([contractID, dataType]) ? state.getIn([contractID, dataType]).toJS() : [];
             const merged = mergeTicks(existing, data);
 
             if (merged.length === existing.length) {
