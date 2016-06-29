@@ -8,6 +8,18 @@
         accounts: []
     };
 
+    var isMobile = /Mobile/.test(window.navigator.userAgent);
+
+    // window.addEventListener('message', function (event) {
+    //     console.log(event);
+    //     var origin = event.origin || event.originalEvent.origin;
+    //     if (isMobile && origin === 'http://localhost') {
+    //     // if (true) {
+    //         window.BinaryBoot.accounts = event.data;
+    //         window.location.reload();
+    //     }
+    // });
+
     function parseOAuthResponse(responseUrl) {
         var matcher = /acct\d=(\w+)&token\d=([\w-]+)/g;
         var urlParts = responseUrl.split('?');
@@ -48,17 +60,19 @@
             } catch (e) {
                 window.console.log('Error while saving boot config', e);
             }
+
+            if (window.opener) {
+                window.opener.location.reload();
+                window.close();
+            }
         }
     }
 
-    var isMobile = /Mobile/.test(window.navigator.userAgent);
-
-    window.BinaryBoot.appId = isMobile ? 1006 : 1001;
     var apiUrl = 'wss://ws.binaryws.com/websockets/v3';
 
     readConfig();
     parseUrl();
-
+    window.BinaryBoot.appId = isMobile ? 1006 : 1001;
     var lang = window.BinaryBoot.language;
     var oauthUrl = 'https://oauth.binary.com/oauth2/authorize?app_id=' + window.BinaryBoot.appId + '&l=' + lang;
 
