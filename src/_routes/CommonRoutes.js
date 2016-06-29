@@ -1,10 +1,9 @@
 import TradeMobile from '../trade/TradeMobile';
 import WebCard from '../web/WebCard';
 import { requireAuthOnEnter } from '../_data/Auth';
+import isMobile from 'binary-utils/lib/isMobile';
 
-const isMobile = /Mobile/.test(window.navigator.userAgent);
-
-const rootComponent = isMobile ? TradeMobile : WebCard;
+const rootComponent = isMobile() ? TradeMobile : WebCard;
 
 export default [
     { path: '/', component: rootComponent, onEnter: requireAuthOnEnter },

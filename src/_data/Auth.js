@@ -8,7 +8,6 @@ export const tryAuth = async (actions, token) => {
     if (!token) {
         actions.signinFieldUpdate('progress', false);
         actions.signinFieldUpdate('tokenNotEntered', true);
-        throw new Error('Token does not exist');
     }
 
     actions.updateAppState('authorized', false);
@@ -35,7 +34,9 @@ export const signout = (nextState, replace) => {
 export const requireAuthOnEnter = (nextState, replace, callback) => {
     const authorized = store.getState().appState.get('authorized');
     if (!authorized) {
-        window.location = 'https://oauth.binary.com/oauth2/authorize?app_id=1001';
+        const oAuthUrl = `https://oauth.binary.com/oauth2/authorize?app_id=${window.BinaryBoot.appId}`;
+        window.open(oAuthUrl);
+        // window.location = oAuthUrl;
     }
     //     replace({ pathname: '/signin', state: nextState });
     callback();
