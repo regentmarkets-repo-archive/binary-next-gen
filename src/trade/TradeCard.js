@@ -227,7 +227,6 @@ export default class TradeCard extends Component {
                     index={index}
                     pipSize={pipSize}
                     tradeParams={params}
-                    ticks={ticks}
                     onPurchaseHook={this.zoomWhenPurchase}
                 />
             </div>

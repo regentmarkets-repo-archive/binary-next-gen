@@ -65,7 +65,6 @@ export default class TradeParams extends Component {
         style: PropTypes.object,
         tradeParams: PropTypes.object.isRequired,
         type: PropTypes.oneOf(['tick', 'full']).isRequired,
-        ticks: PropTypes.array,
     };
 
     constructor(props) {
