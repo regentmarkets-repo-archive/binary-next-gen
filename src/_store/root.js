@@ -3,14 +3,15 @@ import { addLocaleData } from 'react-intl';
 import { Provider } from 'react-redux';
 import { bindActionCreators } from 'redux';
 import { store, rehydratedStorePromise } from './persistentStore';
-import { Router, browserHistory as history } from 'react-router';
+import { Router } from 'react-router';
+import { trackRoute } from 'binary-utils/lib/Analytics';
 import routes from '../_routes';
+import history from '../_routes/hashHistory';
 import { tryAuth } from '../_data/Auth';
 import * as LiveData from '../_data/LiveData';
 import * as allActions from '../_actions';
 import AppStateProvider from './AppStateProvider';
 import BootProvider from './BootProvider';
-import { trackRoute } from 'binary-utils/lib/Analytics';
 
 history.listen(location => trackRoute(location.pathname));
 
