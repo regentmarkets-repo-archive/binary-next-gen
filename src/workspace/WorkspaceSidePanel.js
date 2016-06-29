@@ -26,7 +26,7 @@ const components = [
 	SettingsContainer,
 ];
 
-export default class WorkspaceRightPanel extends Component {
+export default class WorkspaceSidePanel extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,

@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import Resizer from 'binary-components/lib/Resizer';
 import TradesContainer from '../trades/TradesContainer';
-import WorkspaceRightPanel from './WorkspaceRightPanel';
+import WorkspaceSidePanel from './WorkspaceSidePanel';
 import Tab from 'binary-components/lib/Tab';
 import TabList from 'binary-components/lib/TabList';
 import ContractDetailsModal from './ContractDetailsModal';
@@ -38,7 +38,7 @@ export default class WorkspaceCard extends Component {
 					onResize={this.onResize}
 				/>
 				{workspace.rightPanelVisible &&
-					<WorkspaceRightPanel actions={actions} workspace={workspace} />}
+					<WorkspaceSidePanel {...this.props} />}
 				<TabList
 					id="right-tab-list"
 					className="inverse"
