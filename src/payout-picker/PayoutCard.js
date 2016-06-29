@@ -22,7 +22,7 @@ export default class PayoutCard extends Component {
         return (
             <div className="param-row payout-display">
                 <Label text="Payout" />
-                {payout && stake && <div className="param-field">
+                {(payout && stake) ? <div className="param-field">
                     <NumberColored
                         className="payout-value"
                         currency={currency}
@@ -31,7 +31,7 @@ export default class PayoutCard extends Component {
                     />
                     &nbsp;
                     <span>({potentialProfitPercentage}% <M m="return" />)</span>
-                </div>}
+                </div> : null}
             </div>
         );
     }
