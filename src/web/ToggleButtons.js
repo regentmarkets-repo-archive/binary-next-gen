@@ -6,7 +6,7 @@ export default class ToggleButtons extends Component {
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
 		leftPanelVisible: PropTypes.bool.isRequired,
-		rightPanelVisible: PropTypes.bool.isRequired,
+		sidePanelVisible: PropTypes.bool.isRequired,
 		tradeMode: PropTypes.string.isRequired,
 	};
 

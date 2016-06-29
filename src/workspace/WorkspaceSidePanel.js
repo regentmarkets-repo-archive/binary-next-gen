@@ -30,20 +30,21 @@ export default class WorkspaceSidePanel extends Component {
 
 	static propTypes = {
 		actions: PropTypes.object.isRequired,
-		workspace: PropTypes.object.isRequired,
+		sideActiveTab: PropTypes.number.isRequired,
+		sidePanelSize: PropTypes.number.isRequired,
 	};
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
-		const { actions, workspace } = this.props;
+		const { actions, sideActiveTab, sidePanelSize } = this.props;
 
-		const ActiveComponent = components[workspace.rightActiveTab];
+		const ActiveComponent = components[sideActiveTab];
 
 		return (
 			<div
 				className="workspace-panel"
-				style={{ width: workspace.rightPanelSize }}
+				style={{ width: sidePanelSize }}
 			>
 				<ActiveComponent actions={actions} />
 			</div>
