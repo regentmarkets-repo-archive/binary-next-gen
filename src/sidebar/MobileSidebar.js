@@ -1,11 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import BalanceContainer from '../balance/BalanceContainer';
+import AccountMenuItem from './AccountMenuItem';
 import SidebarBtn from './SidebarBtn';
-
-const switchToAccount = token => {
-	localStorage.setItem('account', JSON.stringify({ token }));
-	window.location = '/';
-};
 
 export default class MobileSidebar extends Component {
 
@@ -28,16 +24,10 @@ export default class MobileSidebar extends Component {
 					{email}<br />
 					<BalanceContainer />
 				</div>
-				{accounts.filter(x => x.account !== loginid).map(x =>
-					<a
-						key={x.account}
-						className="sidebar-btn"
-						onClick={() => switchToAccount(x.token)}
-					>
-						<img src="img/icon.png" alt="" />
-						<span>Switch to {x.account}</span>
-					</a>
-				)}
+				{accounts
+					.filter(x => x.account !== loginid)
+					.map(x => <AccountMenuItem key={x.token} account={x.account} token={x.token} />)
+				}
 				<SidebarBtn to="/" img="img/trade.svg" text="Trade" />
 				<SidebarBtn to="/watchlist" img="img/watchlist.svg" text="Watchlist" />
 				<SidebarBtn to="/portfolio" img="img/portfolio.svg" text="Open Positions" />

@@ -1,10 +1,6 @@
 import React, { PropTypes, Component } from 'react';
+import AccountMenuItem from './AccountMenuItem';
 import SidebarBtn from './SidebarBtn';
-
-const switchToAccount = token => {
-	localStorage.setItem('account', JSON.stringify({ token }));
-	window.location = '/';
-};
 
 export default class WebSidebar extends Component {
 
@@ -26,16 +22,10 @@ export default class WebSidebar extends Component {
 					{loginid}<br />
 					{email}<br />
 				</div>
-				{accounts.filter(x => x.account !== loginid).map(x =>
-					<a
-						key={x.account}
-						className="sidebar-btn"
-						onClick={() => switchToAccount(x.token)}
-					>
-						<img src="img/icon.png" alt="" />
-						<span>Switch to {x.account}</span>
-					</a>
-				)}
+				{accounts
+					.filter(x => x.account !== loginid)
+					.map(x => <AccountMenuItem key={x.token} account={x.account} token={x.token} />)
+				}
 				{/* <SidebarBtn to="/deposit" img="img/profit.svg" text="Deposit" /> */}
 				<SidebarBtn to="/signout" img="img/signout.svg" text="Sign Out" />
 			</nav>
