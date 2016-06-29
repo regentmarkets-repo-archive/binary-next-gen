@@ -21,6 +21,7 @@ window._trackJs = { // eslint-disable-line no-underscore-dangle
     token: '346262e7ffef497d85874322fff3bbf8',
     application: 'binary-next-gen',
     enabled: window.location.hostname !== 'localhost',
+	userId: (JSON.parse(localStorage.getItem('account')) || {}).loginid,
 };
 require('trackjs');
 
