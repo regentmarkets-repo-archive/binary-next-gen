@@ -32,48 +32,47 @@
         <param name="android-package" value="org.apache.cordova.splashscreen.SplashScreen" />
         <param name="onload" value="true" />
     </feature>
-    <icon src="res/screen/ios/icon.png" />
     <platform name="android">
-        <splash density="land-hdpi" src="res/screen/android/screen-land-hdpi.png" />
-        <splash density="land-ldpi" src="res/screen/android/screen-land-ldpi.png" />
-        <splash density="land-mdpi" src="res/screen/android/screen-land-mdpi.png" />
-        <splash density="land-xhdpi" src="res/screen/android/screen-land-xhdpi.png" />
-        <splash density="port-hdpi" src="res/screen/android/screen-port-hdpi.png" />
-        <splash density="port-ldpi" src="res/screen/android/screen-port-ldpi.png" />
-        <splash density="port-mdpi" src="res/screen/android/screen-port-mdpi.png" />
-        <splash density="port-xhdpi" src="res/screen/android/screen-port-xhdpi.png" />
-        <icon density="ldpi" src="res/icon/android/icon-ldpi.png" />
-        <icon density="mdpi" src="res/icon/android/icon-mdpi.png" />
-        <icon density="hdpi" src="res/icon/android/icon-hdpi.png" />
-        <icon density="xhdpi" src="res/icon/android/icon-xhdpi.png" />
+        <splash density="land-hdpi" src="res/screen/android/splash.png" />
+        <splash density="land-ldpi" src="res/screen/android/splash.png" />
+        <splash density="land-mdpi" src="res/screen/android/splash.png" />
+        <splash density="land-xhdpi" src="res/screen/android/splash.png" />
+        <splash density="port-hdpi" src="res/screen/android/splash.png" />
+        <splash density="port-ldpi" src="res/screen/android/splash.png" />
+        <splash density="port-mdpi" src="res/screen/android/splash.png" />
+        <splash density="port-xhdpi" src="res/screen/android/splash.png" />
+        <icon density="ldpi" src="res/icon/android/icon.png" />
+        <icon density="mdpi" src="res/icon/android/icon.png" />
+        <icon density="hdpi" src="res/icon/android/icon.png" />
+        <icon density="xhdpi" src="res/icon/android/icon.png" />
     </platform>
     <platform name="ios">
-        <splash height="480" src="res/screen/ios/Default~iphone.png" width="320" />
-        <splash height="960" src="res/screen/ios/Default@2x~iphone.png" width="640" />
-        <splash height="1024" src="res/screen/ios/Default-Portrait~ipad.png" width="768" />
-        <splash height="2048" src="res/screen/ios/Default-Portrait@2x~ipad.png" width="1536" />
-        <splash height="768" src="res/screen/ios/Default-Landscape~ipad.png" width="1024" />
-        <splash height="1536" src="res/screen/ios/Default-Landscape@2x~ipad.png" width="2048" />
-        <splash height="1136" src="res/screen/ios/Default-568h@2x~iphone.png" width="640" />
-        <splash height="1334" src="res/screen/ios/Default-667h.png" width="750" />
-        <splash height="2208" src="res/screen/ios/Default-736h.png" width="1242" />
+        <splash height="480" src="res/screen/ios/splash.png" width="320" />
+        <splash height="960" src="res/screen/ios/splash.png" width="640" />
+        <splash height="1024" src="res/screen/ios/splash.png" width="768" />
+        <splash height="2048" src="res/screen/ios/splash.png" width="1536" />
+        <splash height="768" src="res/screen/ios/splash.png" width="1024" />
+        <splash height="1536" src="res/screen/ios/splash.png" width="2048" />
+        <splash height="1136" src="res/screen/ios/splash.png" width="640" />
+        <splash height="1334" src="res/screen/ios/splash.png" width="750" />
+        <splash height="2208" src="res/screen/ios/splash.png" width="1242" />
         <splash height="1242" src="res/screen/ios/Default-Landscape-736h.png" width="2208" />
-        <icon height="180" src="res/icon/ios/icon-180.png" width="180" />
-        <icon height="60" src="res/icon/ios/icon-60.png" width="60" />
-        <icon height="120" src="res/icon/ios/icon-120.png" width="120" />
-        <icon height="76" src="res/icon/ios/icon-76.png" width="76" />
-        <icon height="152" src="res/icon/ios/icon-152.png" width="152" />
-        <icon height="40" src="res/icon/ios/icon-40.png" width="40" />
-        <icon height="80" src="res/icon/ios/icon-80.png" width="80" />
-        <icon height="57" src="res/icon/ios/icon-57.png" width="57" />
-        <icon height="114" src="res/icon/ios/icon-114.png" width="114" />
-        <icon height="167" src="res/icon/ios/icon-167.png" width="167" />
-        <icon height="87" src="res/icon/ios/icon-87.png" width="87" />
-        <icon height="72" src="res/icon/ios/icon-72.png" width="72" />
-        <icon height="144" src="res/icon/ios/icon-144.png" width="144" />
-        <icon height="29" src="res/icon/ios/icon-29.png" width="29" />
-        <icon height="58" src="res/icon/ios/icon-58.png" width="58" />
-        <icon height="50" src="res/icon/ios/icon-50.png" width="50" />
+        <icon height="180" src="res/icon/ios/icon.png" width="180" />
+        <icon height="60" src="res/icon/ios/icon.png" width="60" />
+        <icon height="120" src="res/icon/ios/icon.png" width="120" />
+        <icon height="76" src="res/icon/ios/icon.png" width="76" />
+        <icon height="152" src="res/icon/ios/icon.png" width="152" />
+        <icon height="40" src="res/icon/ios/icon.png" width="40" />
+        <icon height="80" src="res/icon/ios/icon.png" width="80" />
+        <icon height="57" src="res/icon/ios/icon.png" width="57" />
+        <icon height="114" src="res/icon/ios/icon.png" width="114" />
+        <icon height="167" src="res/icon/ios/icon.png" width="167" />
+        <icon height="87" src="res/icon/ios/icon.png" width="87" />
+        <icon height="72" src="res/icon/ios/icon.png" width="72" />
+        <icon height="144" src="res/icon/ios/icon.png" width="144" />
+        <icon height="29" src="res/icon/ios/icon.png" width="29" />
+        <icon height="58" src="res/icon/ios/icon.png" width="58" />
+        <icon height="50" src="res/icon/ios/icon.png" width="50" />
         <icon height="100" src="res/icon/ios/icon-100.png" width="100" />
     </platform>
     <platform name="android">
