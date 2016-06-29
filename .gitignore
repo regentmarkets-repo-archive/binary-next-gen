@@ -8,7 +8,7 @@ npm-debug.log
 .idea/
 .publish/
 plugins
-platforms
+platforms/
 
 www/styles.css
 www/styles.css.map

@@ -51,7 +51,7 @@
         }
     }
 
-    var appId = 1006;
+    var appId = 1001;
     var apiUrl = 'wss://ws.binaryws.com/websockets/v3';
 
     readConfig();
@@ -60,13 +60,13 @@
     var lang = window.BinaryBoot.language;
     var oauthUrl = 'https://oauth.binary.com/oauth2/authorize?app_id=' + appId + '&l=' + lang;
 
-    if (!window.BinaryBoot.accounts || window.BinaryBoot.accounts.length === 0) {
-        // window.location = oauthUrl;
-    }
+    // if (!window.BinaryBoot.accounts || window.BinaryBoot.accounts.length === 0) {
+    //     window.location = oauthUrl;
+    // }
 
     var redirectIndex = window.location.href.indexOf('?');
     if (~redirectIndex) {
-        history.replaceState({} , 'Binary', window.location.href.substr(0, redirectIndex - 1));
+        location.replace(window.location.href.substr(0, redirectIndex - 1));
     }
 
     window.BinaryBoot.connection = new WebSocket(apiUrl + '?app_id=1001&l=' + lang);

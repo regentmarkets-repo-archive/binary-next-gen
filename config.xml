@@ -37,7 +37,7 @@
         <splash src="res/screen/android/screen-land-ldpi.png" density="land-ldpi"/>
         <splash src="res/screen/android/screen-land-mdpi.png" density="land-mdpi"/>
         <splash src="res/screen/android/screen-land-xhdpi.png" density="land-xhdpi"/>
-        
+
         <splash src="res/screen/android/screen-port-hdpi.png" density="port-hdpi"/>
         <splash src="res/screen/android/screen-port-ldpi.png" density="port-ldpi"/>
         <splash src="res/screen/android/screen-port-mdpi.png" density="port-mdpi"/>
@@ -46,7 +46,7 @@
 
     <platform name="ios">
         <!-- images are determined by width and height. The following are supported -->
-       <!-- you can use any density that exists in the Android project -->
+        <!-- you can use any density that exists in the Android project -->
         <splash src="res/screen/ios/Default~iphone.png" width="320" height="480"/>
         <splash src="res/screen/ios/Default@2x~iphone.png" width="640" height="960"/>
         <splash src="res/screen/ios/Default-Portrait~ipad.png" width="768" height="1024"/>
@@ -64,7 +64,7 @@
         <splash src="res/screen/windows/screen-land-ldpi.png" density="land-ldpi"/>
         <splash src="res/screen/windows/screen-land-mdpi.png" density="land-mdpi"/>
         <splash src="res/screen/windows/screen-land-xhdpi.png" density="land-xhdpi"/>
-        
+
         <splash src="res/screen/windows/screen-port-hdpi.png" density="port-hdpi"/>
         <splash src="res/screen/windows/screen-port-ldpi.png" density="port-ldpi"/>
         <splash src="res/screen/windows/screen-port-mdpi.png" density="port-mdpi"/>
