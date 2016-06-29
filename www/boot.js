@@ -51,14 +51,16 @@
         }
     }
 
-    var appId = 1001;
+    var isMobile = /Mobile/.test(window.navigator.userAgent);
+
+    window.BinaryBoot.appId = isMobile ? 1006 : 1001;
     var apiUrl = 'wss://ws.binaryws.com/websockets/v3';
 
     readConfig();
     parseUrl();
 
     var lang = window.BinaryBoot.language;
-    var oauthUrl = 'https://oauth.binary.com/oauth2/authorize?app_id=' + appId + '&l=' + lang;
+    var oauthUrl = 'https://oauth.binary.com/oauth2/authorize?app_id=' + window.BinaryBoot.appId + '&l=' + lang;
 
     // if (!window.BinaryBoot.accounts || window.BinaryBoot.accounts.length === 0) {
     //     window.location = oauthUrl;
@@ -69,5 +71,5 @@
         location.replace(window.location.href.substr(0, redirectIndex - 1));
     }
 
-    window.BinaryBoot.connection = new WebSocket(apiUrl + '?app_id=1001&l=' + lang);
+    window.BinaryBoot.connection = new WebSocket(apiUrl + '?app_id=' + window.BinaryBoot.appId + '&l=' + lang);
 })();
