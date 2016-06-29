@@ -29,56 +29,33 @@ cd build
 npm install or npm update (may need sudo)
 gulp deploy
 ```
-## Setting up the App
 
-* install cordova
+## Mobile App
+
 ```
 npm install -g cordova
-```
-
-* install code-push
-
-```
+cordova platform add ios --save
+cordova platform add android --save
 npm install -g code-push-cli
 ```
 
-* sign in code-push
+Login to code-push
 
 ```
 code-push login
 ```
 
-* list our code-push app list
+List our apps:
 
 ```
 code-push app ls
 ```
 
-The above commands and the complete commands on code-push is avail [here](https://microsoft.github.io/code-push/docs/cli.html)
-and [here](https://github.com/Microsoft/cordova-plugin-code-push#how-does-it-work)
+[code-push cli](https://microsoft.github.io/code-push/docs/cli.html)
 
-* Adding cordova pflatforms
+[code-push and cordova](https://github.com/Microsoft/cordova-plugin-code-push#how-does-it-work)
 
-```
-cordova platform add ios --save
-cordova platform add android --save
-```
-you can view the list
-
-```
-cordova platform ls
-```
-
-more on [cordova](https://cordova.apache.org/docs/en/latest/guide/cli/#add-plugins)
-
-* install corodva plugin
-
-```  
-cordova plugin add cordova-plugin-whitelist
-```
-
-for more on the above plugin [visit](https://github.com/Microsoft/cordova-plugin-code-push#getting-started)
-
+[Cordova Plugins](https://cordova.apache.org/docs/en/latest/guide/cli/#add-plugins)
 
 ## Running the App - iOS Emulator
 ```
@@ -90,7 +67,7 @@ then after success,
 cordova run ios
 ```
 
-the bove command apply for other flatforms , simply replace ios for the flatform name.
+the above command apply for other platforms, simply replace ios for the platform name.
 
 
 ## Build new mobile app version
