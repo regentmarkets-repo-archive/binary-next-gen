@@ -151,7 +151,9 @@ export default class TradeCard extends Component {
             serverContractModelToChartContractModel(lastBoughtContract);
 
         // contract error is not tied to trade, but symbol, thus not in tradeErrors
-        const tradeError = Object.assign(tradeErrors, { contractError: propsContract.error });
+        const tradeError = propsContract ?
+            Object.assign(tradeErrors, { contractError: propsContract.error }) :
+            tradeErrors;
 
         let dataToShow = data;
         const contractDataExist = contractRequiredByChart && contractChartData[contractRequiredByChart.contract_id];

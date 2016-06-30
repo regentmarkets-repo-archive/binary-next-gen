@@ -12,7 +12,15 @@ import { createSelector } from 'reselect';
 
 import pipsToDigits from 'binary-utils/lib/pipsToDigits';
 
-export const paramPerTrade = index => state => tradeParamsSelector(state).get(index);
+export const paramPerTrade = index => createSelector(
+    [state => tradeParamsSelector(state).get(index), assetsSelector],
+    (param, assets) => {
+        const symbol = param.get('symbol');
+        const symbolDetails = assets.find(a => a.get('symbol') === symbol);
+        const symbolName = symbolDetails && symbolDetails.get('display_name');
+        return param.set('symbolName', symbolName);
+    }
+);
 
 const chartDataPerTrade = index => createSelector(
     [tradePurchaseInfoSelector, chartDataSelector],
