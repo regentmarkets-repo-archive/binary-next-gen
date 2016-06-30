@@ -8,8 +8,6 @@
         accounts: []
     };
 
-    var isMobile = /Mobile/.test(window.navigator.userAgent);
-
     // window.addEventListener('message', function (event) {
     //     console.log(event);
     //     var origin = event.origin || event.originalEvent.origin;
@@ -72,7 +70,7 @@
 
     readConfig();
     parseUrl();
-    window.BinaryBoot.appId = isMobile ? 1006 : 1001;
+    window.BinaryBoot.appId = window.cordova ? 1006 : 1001;
     var lang = window.BinaryBoot.language;
     var oauthUrl = 'https://oauth.binary.com/oauth2/authorize?app_id=' + window.BinaryBoot.appId + '&l=' + lang;
 
