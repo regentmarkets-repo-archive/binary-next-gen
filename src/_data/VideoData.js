@@ -16,7 +16,7 @@ export const getVideosFromPlayList = async () => {
     return js.items
         .filter(v => v.status.privacyStatus === 'public')
         .map(v => ({
-            imgSrc: v.snippet.thumbnails.medium.url,
+            imgSrc: (v.snippet.thumbnails.maxres || v.snippet.thumbnails.high).url,
             title: v.snippet.title,
             videoId: v.snippet.resourceId.videoId,
         }));
