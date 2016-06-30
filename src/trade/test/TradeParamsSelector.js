@@ -4,13 +4,13 @@ import {
     tradePurchaseInfoSelector,
     tradesErrorSelector,
     tradesUIStatesSelector,
-} from '../_store/directSelectors';
+} from '../../_store/directSelectors';
 import { createSelector, createStructuredSelector } from 'reselect';
 import findDeep from 'binary-utils/lib/findDeep';
 import filterObjectBy from 'binary-utils/lib/filterObjectBy';
-import { assetsIsOpenSelector, availableContractsSelector } from './TradeSelectors';
+import { assetsIsOpenSelector, availableContractsSelector } from '../TradeSelectors';
 import { paramPerTrade, pipSizePerTrade, tradeViewChartPerTrade } from './TradeViewChartSelector';
-import { mockedContract } from '../_constants/MockContract';
+import { mockedContract } from '../../_constants/MockContract';
 
 const contractPerTrade = index => createSelector(
     [availableContractsSelector, paramPerTrade(index)],

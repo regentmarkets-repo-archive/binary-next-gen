@@ -7,7 +7,7 @@ import {
     tradingTimesSelector,
     ticksSelector,
     ohlcSelector,
-} from '../_store/directSelectors';
+} from '../../_store/directSelectors';
 import { createSelector } from 'reselect';
 
 import pipsToDigits from 'binary-utils/lib/pipsToDigits';
