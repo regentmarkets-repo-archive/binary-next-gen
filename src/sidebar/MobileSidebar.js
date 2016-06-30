@@ -30,7 +30,7 @@ export default class MobileSidebar extends Component {
 				}
 				<SidebarBtn to="/" img="img/trade.svg" text="Trade" />
 				<SidebarBtn to="/watchlist" img="img/watchlist.svg" text="Watchlist" />
-				<SidebarBtn to="/portfolio" img="img/portfolio.svg" text="Open Positions" />
+				<SidebarBtn to="/portfolio" img="img/portfolio.svg" text="Portfolio" />
 				<SidebarBtn to="/statement" img="img/statement.svg" text="Statement" />
 				<SidebarBtn to="/news" img="img/news.svg" text="News" />
 				<SidebarBtn to="/resources" img="img/resources.svg" text="Resources" />
