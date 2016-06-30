@@ -1,0 +1,98 @@
+import {
+    assetsSelector,
+    chartDataSelector,
+    feedLicensesSelector,
+    tradeParamsSelector,
+    tradeProposalInfoSelector,
+    tradePurchaseInfoSelector,
+    tradesErrorSelector,
+    tradesUIStatesSelector,
+    tradingTimesSelector,
+    ticksSelector,
+    ohlcSelector,
+} from '../_store/directSelectors';
+import { createSelector, createStructuredSelector } from 'reselect';
+
+import { availableContractsSelector } from './TradeSelectors';
+import pipsToDigits from 'binary-utils/lib/pipsToDigits';
+
+const chartDataPerTrade = index => createSelector(
+    [tradePurchaseInfoSelector, chartDataSelector],
+    (purchaseInfo, chartData) => {
+        const contractID = purchaseInfo.getIn(index, 'lastBoughtContract', 'contract_id');
+        return chartData.get(contractID);
+    }
+);
+
+const lastBoughtContractPerTrade = index => createSelector(
+    [tradePurchaseInfoSelector],
+    purchaseInfo => purchaseInfo.getIn(index, 'lastBoughtContract')
+);
+
+const tradingTimePerTrade = index => createSelector(
+    [paramPerTrade(index), tradingTimesSelector],
+    (param, times) => {
+        const symbol = param.get('symbol');
+        return times.find(a => a.get('symbol') === symbol);
+    }
+);
+
+const ticksPerTrade = index => createSelector(
+    [paramPerTrade(index), ticksSelector],
+    (param, ticks) => {
+        const symbol = param.get('symbol');
+        return ticks.get(symbol);
+    }
+);
+
+const ohlcPerTrade = index => createSelector(
+    [paramPerTrade(index), ohlcSelector],
+    (param, ticks) => {
+        const symbol = param.get('symbol');
+        return ticks.get(symbol);
+    }
+);
+
+export const pipSizePerTrade = index => createSelector(
+    [paramPerTrade(index), assetsSelector],
+    (param, assets) => {
+        const symbol = param.get('symbol');
+        const symbolDetails = assets.find(a => a.get('symbol') === symbol);
+        return symbolDetails && pipsToDigits(symbolDetails.get('pip'));
+    }
+);
+
+export const feedLicensePerTrade = index => createSelector(
+    [feedLicensesSelector, paramPerTrade(index)],
+    (licenses, param) => {
+        const symbol = param.get('symbol');
+        return licenses.get(symbol);
+    }
+);
+
+export const paramPerTrade = index => state => tradeParamsSelector(state).get(index);
+
+export const tradeViewChartSelector = index => createSelector(
+    [
+        chartDataPerTrade(index),
+        lastBoughtContractPerTrade(index),
+        tradingTimePerTrade(index),
+        pipSizePerTrade(index),
+        feedLicensePerTrade(index),
+        paramPerTrade(index),
+        ticksPerTrade(index),
+        ohlcPerTrade(index),
+    ],
+    (chartData, lastBoughtContract, tradingTime, pipSize, license, param, ticks, ohlc) => {
+        return {
+            index,
+            ticks: chartData ? chartData.get('ticks') : ticks,
+            ohlc: chartData ? chartData.get('ohlc') : ohlc,
+            contractForChart: lastBoughtContract,
+            tradeForChart: param,
+            feedLicense: license,
+            pipSize,
+            tradingTime,
+        };
+    }
+);
