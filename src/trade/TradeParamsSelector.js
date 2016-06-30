@@ -38,6 +38,7 @@ const marketIsOpenPerTrade = index => createSelector(
 const errorPerTrade = index => state => tradesErrorSelector(state).get(index);
 const proposalPerTrade = index => state => tradeProposalInfoSelector(state).get(index);
 const uiStatePerTrade = index => state => tradesUIStatesSelector(state).get(index);
+const purchasePerTrade = index => state => tradePurchaseInfoSelector(state).get(index);
 
 const getStartLaterOnlyContract = contract => {
     const startLaterCategories =
@@ -62,11 +63,12 @@ export const tradeParamsSelector = index => createSelector(
         paramPerTrade(index),
         errorPerTrade(index),
         pipSizePerTrade(index),
+        purchasePerTrade(index),
         proposalPerTrade(index),
         uiStatePerTrade(index),
         marketIsOpenPerTrade(index),
     ],
-    (currency, contract, params, error, pipSize, proposalInfo, uiState, marketIsOpen) => {
+    (currency, contract, params, errors, pipSize, purchaseInfo, proposalInfo, uiState, marketIsOpen) => {
         let contractToUse = contract;
         if (!contract) {
             contractToUse = mockedContract;
@@ -79,11 +81,10 @@ export const tradeParamsSelector = index => createSelector(
             currency,
             contract: contractToUse,
             disabled,
-            error,
+            errors,
             index,
             pipSize,
             proposal: proposalInfo.get('proposal'),
-            proposalError: proposalInfo.get('proposalError'),
             tradeParams: params,
         };
     }

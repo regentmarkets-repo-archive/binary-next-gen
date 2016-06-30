@@ -2,8 +2,6 @@ import React, { Component, PropTypes } from 'react';
 import { BinaryChart } from 'binary-charts';
 import findDeep from 'binary-utils/lib/findDeep';
 import filterObjectBy from 'binary-utils/lib/filterObjectBy';
-import PurchaseFailed from 'binary-components/lib/PurchaseFailed';
-import Modal from '../containers/Modal';
 import TradeParams from '../trade-params/TradeParams';
 import ContractReceipt from '../contract-details/ContractReceipt';
 import { mockedContract } from './../_constants/MockContract';
@@ -99,11 +97,6 @@ export default class TradeCard extends Component {
         return JSON.stringify(this.props) !== JSON.stringify(nextProps);
     }
 
-    onCloseModal = () => {
-        const { actions, index } = this.props;
-        actions.updateTradeError(index, 'purchaseError', undefined);
-    }
-
     zoomWhenPurchase = () => {
         const { index } = this.props;
         const domID = `trade-chart${index}`;
@@ -181,12 +174,6 @@ export default class TradeCard extends Component {
 
         return (
             <div disabled={disabled} className="trade-panel">
-                <Modal
-                    shown={!!tradeErrors.purchaseError}
-                    onClose={this.onCloseModal}
-                >
-                    <PurchaseFailed failure={tradeErrors.purchaseError} />
-                </Modal>
                 <div className="trade-chart-container">
                     <BinaryChart
                         id={`trade-chart${index}`}
