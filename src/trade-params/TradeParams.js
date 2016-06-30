@@ -47,8 +47,9 @@ import { changeAsset, changeBarrier1, changeBarrier2, changeCategory, changeStar
  */
 
 const errorToShow = errorObj => {
-    const { barrierError, durationError, proposalError, purchaseError } = errorObj;
+    const { barrierError, contractError, durationError, proposalError, purchaseError } = errorObj;
 
+    if (contractError) return contractError;
     if (barrierError) return barrierError;
     if (durationError) return durationError;
     if (proposalError) return proposalError;

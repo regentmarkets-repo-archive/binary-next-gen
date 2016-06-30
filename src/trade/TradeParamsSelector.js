@@ -1,22 +1,15 @@
 import {
-    assetsSelector,
-    chartDataSelector,
     currencySelector,
-    feedLicensesSelector,
-    tradeParamsSelector,
     tradeProposalInfoSelector,
     tradePurchaseInfoSelector,
     tradesErrorSelector,
     tradesUIStatesSelector,
-    tradingTimesSelector,
-    ticksSelector,
-    ohlcSelector,
 } from '../_store/directSelectors';
 import { createSelector, createStructuredSelector } from 'reselect';
 import findDeep from 'binary-utils/lib/findDeep';
 import filterObjectBy from 'binary-utils/lib/filterObjectBy';
 import { assetsIsOpenSelector, availableContractsSelector } from './TradeSelectors';
-import { paramPerTrade, pipSizePerTrade } from './TradeViewChartSelector';
+import { paramPerTrade, pipSizePerTrade, tradeViewChartPerTrade } from './TradeViewChartSelector';
 import { mockedContract } from '../_constants/MockContract';
 
 const contractPerTrade = index => createSelector(
@@ -31,7 +24,7 @@ const marketIsOpenPerTrade = index => createSelector(
     [assetsIsOpenSelector, paramPerTrade(index)],
     (assetsIsOpen, param) => {
         const symbol = param.get('symbol');
-        return assetsIsOpen.getIn([symbol, 'isOpen']);
+        return assetsIsOpen[symbol].isOpen;
     }
 );
 
@@ -56,7 +49,7 @@ const getStartLaterOnlyContract = contract => {
     return startLaterCategories;
 };
 
-export const tradeParamsSelector = index => createSelector(
+export const tradeParamsPerTrade = index => createSelector(
     [
         currencySelector,
         contractPerTrade(index),
@@ -89,3 +82,8 @@ export const tradeParamsSelector = index => createSelector(
         };
     }
 );
+
+export const singleTest = createStructuredSelector({
+    chartProps: tradeViewChartPerTrade(0),
+    paramsProps: tradeParamsPerTrade(0),
+});

@@ -3,30 +3,28 @@ import {
     chartDataSelector,
     feedLicensesSelector,
     tradeParamsSelector,
-    tradeProposalInfoSelector,
     tradePurchaseInfoSelector,
-    tradesErrorSelector,
-    tradesUIStatesSelector,
     tradingTimesSelector,
     ticksSelector,
     ohlcSelector,
 } from '../_store/directSelectors';
-import { createSelector, createStructuredSelector } from 'reselect';
+import { createSelector } from 'reselect';
 
-import { availableContractsSelector } from './TradeSelectors';
 import pipsToDigits from 'binary-utils/lib/pipsToDigits';
+
+export const paramPerTrade = index => state => tradeParamsSelector(state).get(index);
 
 const chartDataPerTrade = index => createSelector(
     [tradePurchaseInfoSelector, chartDataSelector],
     (purchaseInfo, chartData) => {
-        const contractID = purchaseInfo.getIn(index, 'lastBoughtContract', 'contract_id');
+        const contractID = purchaseInfo.getIn([index, 'lastBoughtContract', 'contract_id']);
         return chartData.get(contractID);
     }
 );
 
 const lastBoughtContractPerTrade = index => createSelector(
     [tradePurchaseInfoSelector],
-    purchaseInfo => purchaseInfo.getIn(index, 'lastBoughtContract')
+    purchaseInfo => purchaseInfo.getIn([index, 'lastBoughtContract'])
 );
 
 const tradingTimePerTrade = index => createSelector(
@@ -70,9 +68,7 @@ export const feedLicensePerTrade = index => createSelector(
     }
 );
 
-export const paramPerTrade = index => state => tradeParamsSelector(state).get(index);
-
-export const tradeViewChartSelector = index => createSelector(
+export const tradeViewChartPerTrade = index => createSelector(
     [
         chartDataPerTrade(index),
         lastBoughtContractPerTrade(index),
@@ -83,16 +79,14 @@ export const tradeViewChartSelector = index => createSelector(
         ticksPerTrade(index),
         ohlcPerTrade(index),
     ],
-    (chartData, lastBoughtContract, tradingTime, pipSize, license, param, ticks, ohlc) => {
-        return {
-            index,
-            ticks: chartData ? chartData.get('ticks') : ticks,
-            ohlc: chartData ? chartData.get('ohlc') : ohlc,
-            contractForChart: lastBoughtContract,
-            tradeForChart: param,
-            feedLicense: license,
-            pipSize,
-            tradingTime,
-        };
-    }
+    (chartData, lastBoughtContract, tradingTime, pipSize, license, param, ticks, ohlc) => ({
+        index,
+        ticks: chartData ? chartData.get('ticks') : ticks,
+        ohlc: chartData ? chartData.get('ohlc') : ohlc,
+        contractForChart: lastBoughtContract,
+        tradeForChart: param,
+        feedLicense: license,
+        pipSize,
+        tradingTime,
+    })
 );

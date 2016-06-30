@@ -5,8 +5,6 @@ import {
     serverContractModelToChartContractModel,
 } from './adapters/TradeObjectAdapter';
 
-
-
 const zoomToLatest = chart => {
     const { min, max, dataMax } = chart.xAxis[0].getExtremes();
     if (min && max) {
@@ -25,7 +23,7 @@ export default class TradeViewChart extends Component {
         events: [{
             type: 'zoom-to-latest',
             handler: zoomToLatest,
-        }]
+        }],
     };
 
     static contextTypes = {
@@ -56,7 +54,7 @@ export default class TradeViewChart extends Component {
     rangeChange = () => {
         const { actions, tradeForChart } = this.props;
         const { dataType } = this.state;
-        return (count, type) => actions.getDataForSymbol(tradeForChart.symbol, count, type, dataType)
+        return (count, type) => actions.getDataForSymbol(tradeForChart.symbol, count, type, dataType);
     };
 
     changeChartType = type => {

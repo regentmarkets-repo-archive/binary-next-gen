@@ -36,17 +36,6 @@ const zoomToLatest = chart => {
     }
 };
 
-const errorToShow = errorObj => {
-    const { barrierError, durationError, proposalError, purchaseError } = errorObj;
-
-    if (barrierError) return barrierError;
-    if (durationError) return durationError;
-    if (proposalError) return proposalError;
-    if (purchaseError) return purchaseError;
-
-    return undefined;
-};
-
 const chartToDataType = {
     area: 'ticks',
     candlestick: 'candles',
@@ -162,7 +151,7 @@ export default class TradeCard extends Component {
             serverContractModelToChartContractModel(lastBoughtContract);
 
         // contract error is not tied to trade, but symbol, thus not in tradeErrors
-        const tradeError = (propsContract ? propsContract.error : undefined) || errorToShow(tradeErrors);
+        const tradeError = Object.assign(tradeErrors, { contractError: propsContract.error });
 
         let dataToShow = data;
         const contractDataExist = contractRequiredByChart && contractChartData[contractRequiredByChart.contract_id];
@@ -204,8 +193,7 @@ export default class TradeCard extends Component {
                 <TradeParams
                     {...proposalInfo}
                     style={lastBoughtContract ? { display: 'none' } : {}}
-                    error={tradeError}
-                    proposalError={tradeErrors.proposalError}
+                    errors={tradeError}
                     actions={actions}
                     currency={currency}
                     contract={contract}

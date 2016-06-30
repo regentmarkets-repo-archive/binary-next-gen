@@ -1,20 +1,25 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import TradeViewChart from './TradeViewChart';
-import TradeParams from '../trade-params/TradeParams';
+import TradeViewChartContainer from './TradeViewChartContainer';
+import TradeParamsContainer from './TradeParamsContainer';
 
 export default class TradeXCard extends Component {
     static propTypes = {
+        actions: PropTypes.object.isRequired,
         chartProps: PropTypes.object.isRequired,
         paramsProps: PropTypes.object.isRequired,
     };
-    
+
+    shouldComponentUpdate = shouldPureComponentUpdate;
     render() {
-        const { chartProps, paramsProps } = this.props;
+        const { actions, chartProps, paramsProps } = this.props;
         return (
-            <div disabled={disabled} className="trade-panel">
-                
+            <div className="trade-panel">
+                <div className="trade-chart-container">
+                    <TradeViewChartContainer actions={actions} chartProps={chartProps} />
+                </div>
+                <TradeParamsContainer actions={actions} paramsProps={paramsProps} />
             </div>
-        )
+        );
     }
 }

@@ -27,6 +27,7 @@ import DigitStatsCard from '../digit-stats/DigitStatsCard';
 import { requireAuthOnEnter } from '../_data/Auth';
 
 import StatementTesting from '../contract-details/ForTesting';
+import Single from '../trade/SingleTradeXCard';
 
 export default [
     { path: 'trades', component: TradesPage, onEnter: requireAuthOnEnter },
@@ -62,4 +63,5 @@ export default [
     { path: 'deposit', component: DepositModal },
     { path: 'layout', component: LayoutButtonPanel },
     { path: 'stats', component: DigitStatsCard },
+    { path: 'test', component: Single },
 ];
