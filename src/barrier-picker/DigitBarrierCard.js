@@ -22,13 +22,15 @@ export default class DigitBarrierCard extends Component {
 
         if (!barrierInfo) return null;
 
+        const options = barrierInfo.values.map(b => ({ text: b, value: b }));
+
         return (
             <div className="param-row">
                 <Label text={barrierInfo.name} />
                 <RadioGroup
                     className="param-field"
                     name={'digit-selections' + index}
-                    options={barrierInfo.values.map(b => ({ text: b, value: b }))}
+                    options={options}
                     value={barrier}
                     onChange={onBarrierChange}
                 />

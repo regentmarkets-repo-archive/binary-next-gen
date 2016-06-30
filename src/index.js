@@ -17,6 +17,7 @@ window.performPerfTest = () => {
 	}, 10000);
 };
 
+// console.log(localStorage.getItem('account'), (JSON.parse(localStorage.getItem('account')) || {}).loginid);
 window._trackJs = { // eslint-disable-line no-underscore-dangle
     token: '346262e7ffef497d85874322fff3bbf8',
     application: 'binary-next-gen',

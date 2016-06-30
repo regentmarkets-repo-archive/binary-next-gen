@@ -15,6 +15,7 @@ export default class ContractSoldDetails extends Component {
 
     render() {
         const { buyPrice, soldPrice, transId } = this.props;
+        const profit = profitInPercentage(buyPrice, soldPrice);
 
         return (
             <div>
@@ -32,7 +33,7 @@ export default class ContractSoldDetails extends Component {
                         <tr>
                             <td>{buyPrice}</td>
                             <td>{soldPrice}</td>
-                            <td><NumberColored value={profitInPercentage(buyPrice, soldPrice)} />%</td>
+                            <td><NumberColored value={profit} />%</td>
                         </tr>
                     </tbody>
                 </table>
