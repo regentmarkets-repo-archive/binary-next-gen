@@ -1,6 +1,6 @@
 import { fromJS, Map } from 'immutable';
 import { expect } from 'chai';
-import * as TradeSelectors from '../TradeSelectors';
+import * as TradeSelectors from '../TradeParamsSelector';
 import assetsFromServer from 'binary-test-data/assets';
 import contractsForR50 from 'binary-test-data/contractsForR50';
 import contractsForGDAXI from 'binary-test-data/contractsForGDAXI';
