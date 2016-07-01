@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const WebpackNotifierPlugin = require('webpack-notifier');
-const styleLintPlugin = require('stylelint-webpack-plugin');
 
 const env = process.env.NODE_ENV;
 
@@ -23,12 +22,14 @@ module.exports = {
             sourceMap: true,
         })
     ] : [
-        new styleLintPlugin(),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         new WebpackNotifierPlugin({ title: 'Next-gen Build' }),
     ],
     module: {
+        preLoaders: [
+            { test: /\.(sass|scss)$/, loader: 'stylelint' }
+        ],
         loaders: [
             { test: /\.js$/, exclude: /node_modules/, loader: 'babel' },
             { test: /\.js$/, exclude: /node_modules/, loader: 'eslint' },
