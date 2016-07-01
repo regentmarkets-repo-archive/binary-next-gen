@@ -1,4 +1,4 @@
-import { tradesCountSelector, layoutNSelector } from '../../_store/directSelectors';
+import { tradesCountSelector, tradeParamsSelector, layoutNSelector } from '../../_store/directSelectors';
 import { singleTradeSelector } from './TradeParamsSelector';
 import { createSelector, createStructuredSelector } from 'reselect';
 
@@ -12,8 +12,8 @@ const tradeListSelector = count => {
 };
 
 export const allTradesSelector = createSelector(
-    [tradesCountSelector, state => state],
-    (count, state) => tradeListSelector(count)(state)
+    [tradeParamsSelector, state => state],
+    (params, state) => tradeListSelector(params.size)(state)
 );
 
 export const layoutSelector = createStructuredSelector({
