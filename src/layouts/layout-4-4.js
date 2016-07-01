@@ -2,10 +2,10 @@ import React from 'react';
 
 export default (components, className, onClick) => (
     <div className={className} onClick={onClick}>
-        <div className="vertical">
+        <div className="horizontal">
             {components[0]}
         </div>
-        <div className="horizontal">
+        <div className="vertical">
             {components[1]}
             {components[2]}
             {components[3]}

@@ -17,7 +17,7 @@ export default class ContractValidationError extends Component {
 			validationError;
 
 		return (
-			<div>{message}</div>
+			<div className="notice-msg">{message}</div>
 		);
 	}
 }

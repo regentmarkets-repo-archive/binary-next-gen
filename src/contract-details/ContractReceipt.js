@@ -25,13 +25,13 @@ export default class ContractReceipt extends Component {
 		return (
 			<div className="contract-receipt">
 				{showLongcode && <h5>{contract.longcode}</h5>}
+				<ContractWinLose contract={contract} />
 				<ContractDetailsList contract={contract} />
 				<SellAtMarketButton
 					contract={contract}
 					onClick={this.sellAtMarket}
 				/>
 				<ContractValidationError contract={contract} />
-				<ContractWinLose contract={contract} />
 				{onTradeAgainClicked &&
 					<Button
 						className="buy-again-btn"

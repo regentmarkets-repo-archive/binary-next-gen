@@ -1,7 +1,6 @@
 import sequence from 'binary-utils/lib/sequence';
 
-// const layoutCounts = [1, 2, 5, 5, 5];
-const layoutCounts = [1, 2, 5];
+const layoutCounts = [1, 2, 5, 5, 5];
 
 export const layoutNumbers = () =>
     [].concat(...layoutCounts.map((count, idx) =>
