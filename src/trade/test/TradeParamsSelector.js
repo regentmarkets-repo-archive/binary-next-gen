@@ -83,7 +83,9 @@ export const tradeParamsPerTrade = index => createSelector(
     }
 );
 
-export const singleTest = createStructuredSelector({
-    chartProps: tradeViewChartPerTrade(0),
-    paramsProps: tradeParamsPerTrade(0),
+export const singleTradeSelector = index => createStructuredSelector({
+    chartProps: tradeViewChartPerTrade(index),
+    paramsProps: tradeParamsPerTrade(index),
 });
+
+export const mobileTradeSelector = singleTradeSelector(0);
