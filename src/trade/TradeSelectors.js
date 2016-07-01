@@ -1,19 +1,13 @@
 import { createSelector } from 'reselect';
-import { createListSelector } from 'reselect-map';
-import nowAsEpoch from 'binary-utils/lib/nowAsEpoch';
-import { assetsSelector, tradingTimesSelector } from '../_store/directSelectors';
-import { marketTreeSelector } from '../_selectors/marketTreeSelectors';
+import { assetsSelector } from '../_store/directSelectors';
 import extractBarrier from 'binary-utils/lib/extractBarrier';
 import extractDuration from 'binary-utils/lib/extractDuration';
 import extractForwardStartingDuration from 'binary-utils/lib/extractForwardStartingDuration';
 import extractSpreadInfo from 'binary-utils/lib/extractSpreadInfo';
-import availableAssetsFilter from 'binary-utils/lib/availableAssetsFilter';
-import flattenSubmarkets from 'binary-utils/lib/flattenSubmarkets';
 import normalizedContractFor from 'binary-utils/lib/normalizedContractFor';
 import groupByKey from 'binary-utils/lib/groupByKey';
 import findDeep from 'binary-utils/lib/findDeep';
 import filterObjectBy from 'binary-utils/lib/filterObjectBy';
-import pipsToDigits from 'binary-utils/lib/pipsToDigits';
 
 /**
  * end result should contain information
@@ -77,54 +71,4 @@ export const availableContractsSelector = createSelector(
                         findDeep(obj, descendent => descendent && !!descendent.forwardStartingDuration)
                     );
             })
-);
-
-export const tradesParamsSelector = createListSelector(
-    [state => state.tradesParams, assetsSelector],
-    (param, assets) => {
-        const symbol = param.get('symbol');
-        const symbolDetails = assets.find(a => a.get('symbol') === symbol);
-        const symbolName = symbolDetails && symbolDetails.get('display_name');
-        return param.set('symbolName', symbolName);
-    }
-);
-
-export const tradesTradingTimesSelector = createListSelector(
-    [state => state.tradesParams, tradingTimesSelector],
-    (param, times) => {
-        const symbol = param.get('symbol');
-        const tradingTime = times.find(a => a.get('symbol') === symbol);
-        return tradingTime;
-    }
-);
-
-export const tradesPipSizeSelector = createListSelector(
-    [state => state.tradesParams, assetsSelector],
-    (param, assets) => {
-        const symbol = param.get('symbol');
-        const symbolDetails = assets.find(a => a.get('symbol') === symbol);
-        const pipSize = symbolDetails && pipsToDigits(symbolDetails.get('pip'));
-        return pipSize;
-    }
-);
-
-export const tradesPurchaseInfoSelector = createListSelector(
-    [state => state.tradesPurchaseInfo, state => state.boughtContracts],
-    (purchaseInfo, contracts) => {
-        const contractID = purchaseInfo.get('mostRecentContractId');
-        if (!contractID) return purchaseInfo;
-        return purchaseInfo.set('lastBoughtContract', contracts.get(contractID));
-    }
-);
-
-export const availableAssetsSelector = createSelector(
-    [tradingTimesSelector, marketTreeSelector],
-    (tradingTimes, marketTree) => {
-        const assetsGroupByMarkets = flattenSubmarkets(marketTree.toJS());
-        const times = tradingTimes.toJS();
-        return Object.keys(assetsGroupByMarkets).reduce((acc, m) => {
-            acc[m] = availableAssetsFilter(assetsGroupByMarkets[m], times, nowAsEpoch());
-            return acc;
-        }, {});
-    }
 );

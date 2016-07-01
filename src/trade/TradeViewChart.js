@@ -3,7 +3,7 @@ import { BinaryChart } from 'binary-charts';
 import {
     internalTradeModelToServerTradeModel,
     serverContractModelToChartContractModel,
-} from '../adapters/TradeObjectAdapter';
+} from './adapters/TradeObjectAdapter';
 
 const zoomToLatest = chart => {
     const { min, max, dataMax } = chart.xAxis[0].getExtremes();

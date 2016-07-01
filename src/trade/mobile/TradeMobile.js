@@ -1,6 +1,6 @@
 import React from 'react';
-import MobilePage from '../containers/MobilePage';
-import TradeXCardContainer from './test/TradeXCardContainer';
+import MobilePage from '../../containers/MobilePage';
+import TradeXCardContainer from '../TradeXCardContainer';
 
 export default (props) => (
 	<MobilePage>

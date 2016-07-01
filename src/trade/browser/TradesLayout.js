@@ -2,11 +2,11 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import windowResizeEvent from 'binary-utils/lib/windowResizeEvent';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-import TradeXCardContainer from './TradeXCardContainer';
+import TradeXCardContainer from '../TradeXCardContainer';
 import * as layouts from '../../layouts';
 import styles from '../../layouts/layouts.css';
 
-import { layoutSelector } from './TradeListSelector';
+import { layoutSelector } from './LayoutSelector';
 
 @connect(layoutSelector)
 export default class TradesLayouts extends Component {

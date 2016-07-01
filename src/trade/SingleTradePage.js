@@ -1,9 +1,9 @@
 import React from 'react';
 import WebPage from '../containers/WebPage';
-import SingleTradeContainer from './SingleTradeContainer';
+import TradeCardContainer from './TradeXCardContainer';
 
 export default (props) => (
 	<WebPage>
-		<SingleTradeContainer {...props} />
+		<TradeCardContainer {...props} />
 	</WebPage>
 );

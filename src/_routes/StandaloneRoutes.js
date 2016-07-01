@@ -17,7 +17,7 @@ import StatementPage from '../statement/StatementPage';
 import VideoListContainer from '../video/VideoListContainer';
 import NewsContainer from '../news/NewsContainer';
 import DepositModal from '../deposit/DepositModal';
-import TradesPage from '../trades/TradesPage';
+import TradesPage from '../trade/browser/TradesPage';
 import SingleTradePage from '../trade/SingleTradePage';
 import JpTradePage from '../jp-trade/JpTradePage';
 import WorkspaceContainer from '../workspace/WorkspaceContainer';

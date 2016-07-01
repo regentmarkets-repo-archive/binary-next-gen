@@ -1,4 +1,4 @@
-import TradeMobile from '../trade/TradeMobile';
+import TradeMobile from '../trade/mobile/TradeMobile';
 import WebCard from '../web/WebCard';
 import { requireAuthOnEnter } from '../_data/Auth';
 import isMobile from 'binary-utils/lib/isMobile';

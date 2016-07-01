@@ -1,6 +1,6 @@
 import SigninMobile from '../signin/SigninMobile';
 import CreateAccountMobile from '../create-account/CreateAccountMobile';
-import TradeMobile from '../trade/TradeMobile';
+import TradeMobile from '../trade/mobile/TradeMobile';
 import PayoutPickerMobile from '../payout-picker/PayoutPickerMobile';
 import PortfolioMobile from '../portfolio/PortfolioMobile';
 import ContractDetailsMobile from '../contract-details/ContractDetailsMobile';

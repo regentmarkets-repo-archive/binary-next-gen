@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import Resizer from 'binary-components/lib/Resizer';
-import TradesLayout from '../trade/test/TradesLayout';
+import TradesLayout from '../trade/browser/TradesLayout';
 import WorkspaceSidePanel from './WorkspaceSidePanel';
 import WorkspaceTabs from './WorkspaceTabs';
 import ContractDetailsModal from './ContractDetailsModal';
