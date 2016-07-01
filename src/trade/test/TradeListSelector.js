@@ -1,21 +1,23 @@
-import { tradesCountSelector } from '../../_store/directSelectors';
+import { tradesCountSelector, layoutNSelector } from '../../_store/directSelectors';
 import { singleTradeSelector } from './TradeParamsSelector';
 import { createSelector, createStructuredSelector } from 'reselect';
 
 const tradeListSelector = count => {
-    const arr = new Array(count);
+    const arr = new Array(count).fill(0);
+    const selectors = arr.map((v, i) => singleTradeSelector(i));
     return createSelector(
-        arr.map((v, i) => singleTradeSelector(i)),
-        (...trades) => {
-            console.log(trades);
-            return trades;
-        }
+        selectors,
+        (...trades) => trades
     );
-}
+};
 
 export const allTradesSelector = createSelector(
     [tradesCountSelector, state => state],
-    (count, state) => {
-        return tradeListSelector(count)(state);
-    }
+    (count, state) => tradeListSelector(count)(state)
 );
+
+export const layoutSelector = createStructuredSelector({
+    trades: allTradesSelector,
+    tradesCount: tradesCountSelector,
+    layoutN: layoutNSelector,
+});

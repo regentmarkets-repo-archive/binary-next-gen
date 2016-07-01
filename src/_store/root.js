@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { addLocaleData } from 'react-intl';
 import { Provider } from 'react-redux';
 import { bindActionCreators } from 'redux';
@@ -23,6 +23,15 @@ addLocaleData({
 const emptyObject = {};
 
 export default class Root extends Component {
+    static childContextTypes = {
+        theme: PropTypes.string,
+    };
+
+    getChildContext() {
+        return {
+            theme: 'light',
+        };
+    }
 
     async componentWillMount() {
         const reyhdratedStore = await rehydratedStorePromise;
