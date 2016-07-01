@@ -24,6 +24,9 @@ export default class TradeViewChart extends Component {
             type: 'zoom-to-latest',
             handler: zoomToLatest,
         }],
+        ticks: [],
+        ohlc: [],
+        tradingTime: {},
     };
 
     static contextTypes = {
