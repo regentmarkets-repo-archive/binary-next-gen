@@ -1,9 +1,9 @@
 import React from 'react';
 import MobilePage from '../containers/MobilePage';
-import SingleTradeContainer from './SingleTradeContainer';
+import TradeXCardContainer from './test/TradeXCardContainer';
 
 export default (props) => (
 	<MobilePage>
-		<SingleTradeContainer compact {...props} />
+		<TradeXCardContainer {...props} compact index={0} />
 	</MobilePage>
 );
