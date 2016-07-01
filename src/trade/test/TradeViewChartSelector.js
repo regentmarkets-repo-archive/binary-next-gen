@@ -12,8 +12,8 @@ import { createSelector } from 'reselect';
 
 import pipsToDigits from 'binary-utils/lib/pipsToDigits';
 
-export const paramPerTrade = index => createSelector(
-    [state => tradeParamsSelector(state).get(index), assetsSelector],
+export const paramPerTrade = createSelector(
+    [(state, props) => tradeParamsSelector(state).get(props.index), assetsSelector],
     (param, assets) => {
         const symbol = param.get('symbol');
         const symbolDetails = assets.find(a => a.get('symbol') === symbol);
@@ -22,45 +22,45 @@ export const paramPerTrade = index => createSelector(
     }
 );
 
-const chartDataPerTrade = index => createSelector(
-    [tradePurchaseInfoSelector, chartDataSelector],
-    (purchaseInfo, chartData) => {
+const chartDataPerTrade = createSelector(
+    [tradePurchaseInfoSelector, chartDataSelector, (state, props) => props.index],
+    (purchaseInfo, chartData, index) => {
         const contractID = purchaseInfo.getIn([index, 'lastBoughtContract', 'contract_id']);
         return chartData.get(contractID);
     }
 );
 
-const lastBoughtContractPerTrade = index => createSelector(
-    [tradePurchaseInfoSelector],
-    purchaseInfo => purchaseInfo.getIn([index, 'lastBoughtContract'])
+const lastBoughtContractPerTrade = createSelector(
+    [tradePurchaseInfoSelector, (state, props) => props.index],
+    (purchaseInfo, index) => purchaseInfo.getIn([index, 'lastBoughtContract'])
 );
 
-const tradingTimePerTrade = index => createSelector(
-    [paramPerTrade(index), tradingTimesSelector],
+const tradingTimePerTrade = createSelector(
+    [paramPerTrade, tradingTimesSelector],
     (param, times) => {
         const symbol = param.get('symbol');
         return times.find(a => a.get('symbol') === symbol);
     }
 );
 
-const ticksPerTrade = index => createSelector(
-    [paramPerTrade(index), ticksSelector],
+const ticksPerTrade = createSelector(
+    [paramPerTrade, ticksSelector],
     (param, ticks) => {
         const symbol = param.get('symbol');
         return ticks.get(symbol);
     }
 );
 
-const ohlcPerTrade = index => createSelector(
-    [paramPerTrade(index), ohlcSelector],
+const ohlcPerTrade = createSelector(
+    [paramPerTrade, ohlcSelector],
     (param, ticks) => {
         const symbol = param.get('symbol');
         return ticks.get(symbol);
     }
 );
 
-export const pipSizePerTrade = index => createSelector(
-    [paramPerTrade(index), assetsSelector],
+export const pipSizePerTrade = createSelector(
+    [paramPerTrade, assetsSelector],
     (param, assets) => {
         const symbol = param.get('symbol');
         const symbolDetails = assets.find(a => a.get('symbol') === symbol);
@@ -68,26 +68,27 @@ export const pipSizePerTrade = index => createSelector(
     }
 );
 
-export const feedLicensePerTrade = index => createSelector(
-    [feedLicensesSelector, paramPerTrade(index)],
+export const feedLicensePerTrade = createSelector(
+    [feedLicensesSelector, paramPerTrade],
     (licenses, param) => {
         const symbol = param.get('symbol');
         return licenses.get(symbol);
     }
 );
 
-export const tradeViewChartPerTrade = index => createSelector(
+export const tradeViewChartPerTrade = createSelector(
     [
-        chartDataPerTrade(index),
-        lastBoughtContractPerTrade(index),
-        tradingTimePerTrade(index),
-        pipSizePerTrade(index),
-        feedLicensePerTrade(index),
-        paramPerTrade(index),
-        ticksPerTrade(index),
-        ohlcPerTrade(index),
+        chartDataPerTrade,
+        lastBoughtContractPerTrade,
+        tradingTimePerTrade,
+        pipSizePerTrade,
+        feedLicensePerTrade,
+        paramPerTrade,
+        ticksPerTrade,
+        ohlcPerTrade,
+        (state, props) => props.index,
     ],
-    (chartData, lastBoughtContract, tradingTime, pipSize, license, param, ticks, ohlc) => ({
+    (chartData, lastBoughtContract, tradingTime, pipSize, license, param, ticks, ohlc, index) => ({
         index,
         ticks: chartData ? chartData.get('ticks') : ticks,
         ohlc: chartData ? chartData.get('ohlc') : ohlc,

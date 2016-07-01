@@ -3,7 +3,6 @@ import { connect } from 'react-redux';
 import windowResizeEvent from 'binary-utils/lib/windowResizeEvent';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import TradeXCardContainer from './TradeXCardContainer';
-import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
 import * as layouts from '../../layouts';
 import styles from '../../layouts/layouts.css';
 
@@ -16,7 +15,6 @@ export default class TradesLayouts extends Component {
         actions: PropTypes.object.isRequired,
         layoutN: PropTypes.number.isRequired,
         tradesCount: PropTypes.number.isRequired,
-        trades: PropTypes.array.isRequired,
     };
 
     static contextTypes = {
@@ -39,18 +37,15 @@ export default class TradesLayouts extends Component {
             actions,
             layoutN,
             tradesCount,
-            trades,
         } = this.props;
-
-        const { theme } = this.context;
 
         const layout = layouts[`Layout${tradesCount}${layoutN}`];
         const layoutClass = styles[`layout-${tradesCount}-${layoutN}`];
 
         if (!layout) return null;
 
-        const tradeComponents =
-            trades.map(t => <TradeXCardContainer {...(immutableChildrenToJS(t))} actions={actions} />);
+        const tradeComponents = (new Array(tradesCount).fill(0))
+            .map((zero, idx) => <TradeXCardContainer index={idx} actions={actions} />);
 
         return layout(tradeComponents, `${styles.trades} ${layoutClass}`);
     }

@@ -17,7 +17,6 @@ export const allTradesSelector = createSelector(
 );
 
 export const layoutSelector = createStructuredSelector({
-    trades: allTradesSelector,
     tradesCount: tradesCountSelector,
     layoutN: layoutNSelector,
 });

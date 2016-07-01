@@ -12,26 +12,26 @@ import { assetsIsOpenSelector, availableContractsSelector } from '../TradeSelect
 import { paramPerTrade, pipSizePerTrade, tradeViewChartPerTrade } from './TradeViewChartSelector';
 import { mockedContract } from '../../_constants/MockContract';
 
-const contractPerTrade = index => createSelector(
-    [availableContractsSelector, paramPerTrade(index)],
+const contractPerTrade = createSelector(
+    [availableContractsSelector, paramPerTrade],
     (contracts, param) => {
         const symbol = param.get('symbol');
         return contracts.get(symbol);
     }
 );
 
-const marketIsOpenPerTrade = index => createSelector(
-    [assetsIsOpenSelector, paramPerTrade(index)],
+const marketIsOpenPerTrade = createSelector(
+    [assetsIsOpenSelector, paramPerTrade],
     (assetsIsOpen, param) => {
         const symbol = param.get('symbol');
         return assetsIsOpen[symbol].isOpen;
     }
 );
 
-const errorPerTrade = index => state => tradesErrorSelector(state).get(index);
-const proposalPerTrade = index => state => tradeProposalInfoSelector(state).get(index);
-const uiStatePerTrade = index => state => tradesUIStatesSelector(state).get(index);
-const purchasePerTrade = index => state => tradePurchaseInfoSelector(state).get(index);
+const errorPerTrade = (state, props) => tradesErrorSelector(state).get(props.index);
+const proposalPerTrade = (state, props) => tradeProposalInfoSelector(state).get(props.index);
+const uiStatePerTrade = (state, props) => tradesUIStatesSelector(state).get(props.index);
+const purchasePerTrade = (state, props) => tradePurchaseInfoSelector(state).get(props.index);
 
 const getStartLaterOnlyContract = contract => {
     const startLaterCategories =
@@ -49,24 +49,25 @@ const getStartLaterOnlyContract = contract => {
     return startLaterCategories;
 };
 
-export const tradeParamsPerTrade = index => createSelector(
+export const tradeParamsPerTrade = createSelector(
     [
         currencySelector,
-        contractPerTrade(index),
-        paramPerTrade(index),
-        errorPerTrade(index),
-        pipSizePerTrade(index),
-        purchasePerTrade(index),
-        proposalPerTrade(index),
-        uiStatePerTrade(index),
-        marketIsOpenPerTrade(index),
+        contractPerTrade,
+        paramPerTrade,
+        errorPerTrade,
+        pipSizePerTrade,
+        purchasePerTrade,
+        proposalPerTrade,
+        uiStatePerTrade,
+        marketIsOpenPerTrade,
+        (state, props) => props.index,
     ],
-    (currency, contract, params, errors, pipSize, purchaseInfo, proposalInfo, uiState, marketIsOpen) => {
+    (currency, contract, params, errors, pipSize, purchaseInfo, proposalInfo, uiState, marketIsOpen, index) => {
         let contractToUse = contract;
         if (!contract) {
             contractToUse = mockedContract;
         } else if (!marketIsOpen) {
-            contractToUse = getStartLaterOnlyContract(contract.toJS());
+            contractToUse = getStartLaterOnlyContract(contract);
         }
 
         const disabled = !contract || contractToUse.error || uiState.get('disabled');
@@ -83,9 +84,9 @@ export const tradeParamsPerTrade = index => createSelector(
     }
 );
 
-export const singleTradeSelector = index => createStructuredSelector({
-    chartProps: tradeViewChartPerTrade(index),
-    paramsProps: tradeParamsPerTrade(index),
+export const singleTradeSelector = () => createStructuredSelector({
+    chartProps: tradeViewChartPerTrade,
+    paramsProps: tradeParamsPerTrade,
 });
 
-export const mobileTradeSelector = singleTradeSelector(0);
+export const mobileTradeSelector = singleTradeSelector;
