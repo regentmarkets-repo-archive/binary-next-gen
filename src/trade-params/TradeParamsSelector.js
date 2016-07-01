@@ -1,7 +1,7 @@
 import {
     assetsSelector,
     currencySelector,
-    tradeProposalInfoSelector,
+    tradeProposalSelector,
     tradePurchaseInfoSelector,
     tradesErrorSelector,
     tradesUIStatesSelector,
@@ -94,7 +94,7 @@ const marketIsOpenPerTrade = createSelector(
 );
 
 const errorPerTrade = (state, props) => tradesErrorSelector(state).get(props.index);
-const proposalPerTrade = (state, props) => tradeProposalInfoSelector(state).get(props.index);
+const proposalPerTrade = (state, props) => tradeProposalSelector(state).get(props.index);
 const uiStatePerTrade = (state, props) => tradesUIStatesSelector(state).get(props.index);
 const purchasePerTrade = (state, props) => tradePurchaseInfoSelector(state).get(props.index);
 

@@ -22,7 +22,7 @@ export const tradingOptionsSelector = state => state.tradingOptions;
 export const statesSelector = state => state.states;
 
 export const tradeParamsSelector = state => state.tradesParams;
-export const tradeProposalInfoSelector = state => state.tradesProposalInfo;
+export const tradeProposalSelector = state => state.tradesProposalInfo;
 export const tradePurchaseInfoSelector = state => state.tradesPurchaseInfo;
 export const tradesUIStatesSelector = state => state.tradesUIStates;
 export const tradesErrorSelector = state => state.tradesError;
