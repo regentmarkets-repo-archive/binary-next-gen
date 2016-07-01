@@ -5,6 +5,7 @@ import requestFullScreen from 'binary-utils/lib/requestFullscreen';
 import exitFullScreen from 'binary-utils/lib/exitFullScreen';
 import addFullScreenEventListener from 'binary-utils/lib/addFullscreenEventListener';
 import removeFullScreenEventListener from 'binary-utils/lib/removeFullscreenEventListener';
+import { trackEvent } from 'binary-utils/lib/Analytics';
 
 export default class FullScreenSwitcher extends Component {
 
@@ -34,6 +35,7 @@ export default class FullScreenSwitcher extends Component {
 			exitFullScreen();
 		} else {
 			requestFullScreen(document.getElementById('root'));
+			trackEvent('switch-fullscreen');
 		}
 	}
 
