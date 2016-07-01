@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import TradeXCard from './TradeXCard';
-import { singleTradeSelector } from '../trade-params/TradeParamsSelector';
+import singleTradeSelector from './SingleTradeSelector';
 
 @connect(singleTradeSelector())
 export default class TradeXCardContainer extends Component {

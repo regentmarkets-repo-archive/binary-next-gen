@@ -1,5 +1,6 @@
 import {
     assetsSelector,
+    boughtContractsSelector,
     chartDataSelector,
     feedLicensesSelector,
     tradeParamsSelector,
@@ -9,8 +10,6 @@ import {
     ohlcSelector,
 } from '../../_store/directSelectors';
 import { createSelector } from 'reselect';
-import { contractReceiptPerTrade } from '../../trade-params/TradeParamsSelector';
-
 import pipsToDigits from 'binary-utils/lib/pipsToDigits';
 
 export const paramPerTrade = createSelector(
@@ -69,6 +68,17 @@ export const feedLicensePerTrade = createSelector(
     (licenses, param) => {
         const symbol = param.get('symbol');
         return licenses.get(symbol);
+    }
+);
+
+const purchasePerTrade = (state, props) => tradePurchaseInfoSelector(state).get(props.index);
+
+export const contractReceiptPerTrade = createSelector(
+    [purchasePerTrade, boughtContractsSelector],
+    (purchaseInfo, contracts) => {
+        const contractID = purchaseInfo.get('mostRecentContractId');
+        if (!contractID) return undefined;
+        return contracts.get(contractID);
     }
 );
 

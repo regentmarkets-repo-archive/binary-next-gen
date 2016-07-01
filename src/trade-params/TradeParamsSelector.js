@@ -1,13 +1,12 @@
 import {
     assetsSelector,
-    boughtContractsSelector,
     currencySelector,
     tradeProposalInfoSelector,
     tradePurchaseInfoSelector,
     tradesErrorSelector,
     tradesUIStatesSelector,
 } from '../_store/directSelectors';
-import { createSelector, createStructuredSelector } from 'reselect';
+import { createSelector } from 'reselect';
 import extractBarrier from 'binary-utils/lib/extractBarrier';
 import extractDuration from 'binary-utils/lib/extractDuration';
 import extractForwardStartingDuration from 'binary-utils/lib/extractForwardStartingDuration';
@@ -16,7 +15,7 @@ import normalizedContractFor from 'binary-utils/lib/normalizedContractFor';
 import groupByKey from 'binary-utils/lib/groupByKey';
 import findDeep from 'binary-utils/lib/findDeep';
 import filterObjectBy from 'binary-utils/lib/filterObjectBy';
-import { paramPerTrade, pipSizePerTrade, tradeViewChartPerTrade } from '../trade/trade-chart/TradeViewChartSelector';
+import { paramPerTrade, pipSizePerTrade } from '../trade/trade-chart/TradeViewChartSelector';
 import { mockedContract } from '../_constants/MockContract';
 
 const aggregateContracts = (contracts, type) => ({
@@ -149,18 +148,3 @@ export const tradeParamsPerTrade = createSelector(
         };
     }
 );
-
-export const contractReceiptPerTrade = createSelector(
-    [purchasePerTrade, boughtContractsSelector],
-    (purchaseInfo, contracts) => {
-        const contractID = purchaseInfo.get('mostRecentContractId');
-        if (!contractID) return undefined;
-        return contracts.get(contractID);
-    }
-);
-
-export const singleTradeSelector = () => createStructuredSelector({
-    contractReceiptProps: contractReceiptPerTrade,
-    chartProps: tradeViewChartPerTrade,
-    paramsProps: tradeParamsPerTrade,
-});
