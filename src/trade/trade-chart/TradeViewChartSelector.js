@@ -9,6 +9,7 @@ import {
     ohlcSelector,
 } from '../../_store/directSelectors';
 import { createSelector } from 'reselect';
+import { contractReceiptPerTrade } from '../../trade-params/TradeParamsSelector';
 
 import pipsToDigits from 'binary-utils/lib/pipsToDigits';
 
@@ -28,11 +29,6 @@ const chartDataPerTrade = createSelector(
         const contractID = purchaseInfo.getIn([index, 'lastBoughtContract', 'contract_id']);
         return chartData.get(contractID);
     }
-);
-
-const lastBoughtContractPerTrade = createSelector(
-    [tradePurchaseInfoSelector, (state, props) => props.index],
-    (purchaseInfo, index) => purchaseInfo.getIn([index, 'lastBoughtContract'])
 );
 
 const tradingTimePerTrade = createSelector(
@@ -79,7 +75,7 @@ export const feedLicensePerTrade = createSelector(
 export const tradeViewChartPerTrade = createSelector(
     [
         chartDataPerTrade,
-        lastBoughtContractPerTrade,
+        contractReceiptPerTrade,
         tradingTimePerTrade,
         pipSizePerTrade,
         feedLicensePerTrade,
