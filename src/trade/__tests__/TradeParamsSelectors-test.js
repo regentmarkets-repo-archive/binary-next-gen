@@ -1,6 +1,6 @@
 import { fromJS, Map } from 'immutable';
 import { expect } from 'chai';
-import * as TradeSelectors from '../TradeSelectors';
+import * as TradeSelectors from '../../trade-params/TradeParamsSelector';
 import assetsFromServer from 'binary-test-data/assets';
 import contractsForR50 from 'binary-test-data/contractsForR50';
 import contractsForGDAXI from 'binary-test-data/contractsForGDAXI';
@@ -49,59 +49,5 @@ describe('availableContractsSelector', () => {
                 }
             }
         }
-    });
-});
-
-describe('tradesParamsSelector', () => {
-    const mockState = {
-        tradesParams: fromJS([{
-            symbol: 'R_100',
-        }]),
-        assets: fromJS([{
-            symbol: 'R_100',
-            display_name: 'Random 100',
-        }]),
-    };
-
-    it('should set symbolName for each trade params', () => {
-        const actual = TradeSelectors.tradesParamsSelector(mockState);
-        expect(actual.toJS()).to.be.deep.equal([{ symbol: 'R_100', symbolName: 'Random 100'} ]);
-    });
-});
-
-describe('tradesTradingTimesSelector', () => {
-    const mockState = {
-        tradesParams: fromJS([{
-            symbol: 'R_100',
-        }]),
-        tradingTimes: fromJS([{
-            symbol: 'R_100',
-            events: [],
-            name: 'Volatile 100',
-            settlement: '',
-            times: {},
-        }]),
-    };
-
-    it('should get trading times correspond to trade symbol', () => {
-        const actual = TradeSelectors.tradesTradingTimesSelector(mockState);
-        expect(actual.toJS()).to.be.deep.equal(mockState.tradingTimes.toJS());
-    });
-});
-
-describe('tradesPipSizeSelector', () => {
-    const mockState = {
-        tradesParams: fromJS([{
-            symbol: 'R_100',
-        }]),
-        assets: fromJS([{
-            symbol: 'R_100',
-            pip: 0.01
-        }]),
-    };
-
-    it('should get pipSize from assets by deriving pip properties', () => {
-        const actual = TradeSelectors.tradesPipSizeSelector(mockState);
-        expect(actual.toJS()).to.be.deep.equal([2]);
     });
 });

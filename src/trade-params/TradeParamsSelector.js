@@ -1,26 +1,23 @@
+import {
+    assetsSelector,
+    currencySelector,
+    tradeProposalSelector,
+    tradePurchaseInfoSelector,
+    tradesErrorSelector,
+    tradesUIStatesSelector,
+} from '../_store/directSelectors';
 import { createSelector } from 'reselect';
-import { createListSelector } from 'reselect-map';
-import nowAsEpoch from 'binary-utils/lib/nowAsEpoch';
-import { assetsSelector, tradingTimesSelector } from '../_store/directSelectors';
-import { marketTreeSelector } from '../_selectors/marketTreeSelectors';
 import extractBarrier from 'binary-utils/lib/extractBarrier';
 import extractDuration from 'binary-utils/lib/extractDuration';
 import extractForwardStartingDuration from 'binary-utils/lib/extractForwardStartingDuration';
 import extractSpreadInfo from 'binary-utils/lib/extractSpreadInfo';
-import availableAssetsFilter from 'binary-utils/lib/availableAssetsFilter';
-import flattenSubmarkets from 'binary-utils/lib/flattenSubmarkets';
 import normalizedContractFor from 'binary-utils/lib/normalizedContractFor';
 import groupByKey from 'binary-utils/lib/groupByKey';
 import findDeep from 'binary-utils/lib/findDeep';
 import filterObjectBy from 'binary-utils/lib/filterObjectBy';
-import pipsToDigits from 'binary-utils/lib/pipsToDigits';
+import { paramPerTrade, pipSizePerTrade } from '../trade/trade-chart/TradeViewChartSelector';
+import { mockedContract } from '../_constants/MockContract';
 
-/**
- * end result should contain information
- * to generate form, requires
- * list of min, max, unit [{ min, max, unit}]
- * list of [{barrier_name, barrier_default}]
-*/
 const aggregateContracts = (contracts, type) => ({
     barriers: extractBarrier(contracts, type),
     durations: extractDuration(contracts, type),
@@ -79,52 +76,75 @@ export const availableContractsSelector = createSelector(
             })
 );
 
-export const tradesParamsSelector = createListSelector(
-    [state => state.tradesParams, assetsSelector],
-    (param, assets) => {
+
+const contractPerTrade = createSelector(
+    [availableContractsSelector, paramPerTrade],
+    (contracts, param) => {
         const symbol = param.get('symbol');
-        const symbolDetails = assets.find(a => a.get('symbol') === symbol);
-        const symbolName = symbolDetails && symbolDetails.get('display_name');
-        return param.set('symbolName', symbolName);
+        return contracts.get(symbol);
     }
 );
 
-export const tradesTradingTimesSelector = createListSelector(
-    [state => state.tradesParams, tradingTimesSelector],
-    (param, times) => {
+const marketIsOpenPerTrade = createSelector(
+    [assetsIsOpenSelector, paramPerTrade],
+    (assetsIsOpen, param) => {
         const symbol = param.get('symbol');
-        const tradingTime = times.find(a => a.get('symbol') === symbol);
-        return tradingTime;
+        return assetsIsOpen[symbol].isOpen;
     }
 );
 
-export const tradesPipSizeSelector = createListSelector(
-    [state => state.tradesParams, assetsSelector],
-    (param, assets) => {
-        const symbol = param.get('symbol');
-        const symbolDetails = assets.find(a => a.get('symbol') === symbol);
-        const pipSize = symbolDetails && pipsToDigits(symbolDetails.get('pip'));
-        return pipSize;
-    }
-);
+const errorPerTrade = (state, props) => tradesErrorSelector(state).get(props.index);
+const proposalPerTrade = (state, props) => tradeProposalSelector(state).get(props.index);
+const uiStatePerTrade = (state, props) => tradesUIStatesSelector(state).get(props.index);
+const purchasePerTrade = (state, props) => tradePurchaseInfoSelector(state).get(props.index);
 
-export const tradesPurchaseInfoSelector = createListSelector(
-    [state => state.tradesPurchaseInfo, state => state.boughtContracts],
-    (purchaseInfo, contracts) => {
-        const contractID = purchaseInfo.get('mostRecentContractId');
-        if (!contractID) return purchaseInfo;
-        return purchaseInfo.set('lastBoughtContract', contracts.get(contractID));
-    }
-);
+const getStartLaterOnlyContract = contract => {
+    const startLaterCategories =
+        filterObjectBy(contract, child =>
+            findDeep(child, descendent => descendent && !!descendent.forwardStartingDuration));
 
-export const availableAssetsSelector = createSelector(
-    [tradingTimesSelector, marketTreeSelector],
-    (tradingTimes, marketTree) => {
-        const assetsGroupByMarkets = flattenSubmarkets(marketTree.toJS());
-        const times = tradingTimes.toJS();
-        return Object.keys(assetsGroupByMarkets).reduce((acc, m) => {
-            acc[m] = availableAssetsFilter(assetsGroupByMarkets[m], times, nowAsEpoch());
-            return acc;
-        }, {});
+    Object.keys(startLaterCategories).forEach(category => {
+        Object.keys(startLaterCategories[category]).forEach(type => {
+            if (startLaterCategories[category][type].durations) {
+                delete startLaterCategories[category][type].durations;
+            }
+        });
+    });
+
+    return startLaterCategories;
+};
+
+export const tradeParamsPerTrade = createSelector(
+    [
+        currencySelector,
+        contractPerTrade,
+        paramPerTrade,
+        errorPerTrade,
+        pipSizePerTrade,
+        purchasePerTrade,
+        proposalPerTrade,
+        uiStatePerTrade,
+        marketIsOpenPerTrade,
+        (state, props) => props.index,
+    ],
+    (currency, contract, params, errors, pipSize, purchaseInfo, proposalInfo, uiState, marketIsOpen, index) => {
+        let contractToUse = contract;
+        if (!contract) {
+            contractToUse = mockedContract;
+        } else if (!marketIsOpen) {
+            contractToUse = getStartLaterOnlyContract(contract);
+        }
+
+        const disabled = !contract || contractToUse.error || uiState.get('disabled');
+        return {
+            currency,
+            contract: contractToUse,
+            disabled,
+            errors,
+            index,
+            pipSize,
+            proposal: proposalInfo.get('proposal'),
+            tradeParams: params,
+        };
     }
 );

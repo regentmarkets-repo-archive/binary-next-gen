@@ -6,6 +6,8 @@ import isIntraday from 'binary-utils/lib/isIntraday';
 import askPriceFromProposal from 'binary-utils/lib/askPriceFromProposal';
 
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
+import Modal from '../containers/Modal';
+import PurchaseFailed from 'binary-components/lib/PurchaseFailed';
 import BarrierCard from '../barrier-picker/BarrierCard';
 // import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
 import DigitBarrierCard from '../barrier-picker/DigitBarrierCard';
@@ -44,6 +46,18 @@ import { changeAsset, changeBarrier1, changeBarrier2, changeCategory, changeStar
  * default may not be a good idea at all as client might always want to input value
  */
 
+const errorToShow = errorObj => {
+    const { barrierError, contractError, durationError, proposalError, purchaseError } = errorObj;
+
+    if (contractError) return contractError;
+    if (barrierError) return barrierError;
+    if (durationError) return durationError;
+    if (proposalError) return proposalError;
+    if (purchaseError) return purchaseError;
+
+    return undefined;
+};
+
 export default class TradeParams extends Component {
 
     static defaultProps = {
@@ -56,12 +70,12 @@ export default class TradeParams extends Component {
         contract: PropTypes.object,
         compact: PropTypes.bool,
         disabled: PropTypes.bool,
-        error: PropTypes.string,
+        errors: PropTypes.object,
         index: PropTypes.number.isRequired,
         onPurchaseHook: PropTypes.func,
         pipSize: PropTypes.number.isRequired,
         proposal: PropTypes.object,
-        proposalError: PropTypes.any,
+        purchaseError: PropTypes.string,
         style: PropTypes.object,
         tradeParams: PropTypes.object.isRequired,
         type: PropTypes.oneOf(['tick', 'full']).isRequired,
@@ -101,8 +115,8 @@ export default class TradeParams extends Component {
     }
 
     componentWillUnmount() {
-        const { proposal, proposalError } = this.props;
-        if (proposalError) {
+        const { proposal, errors } = this.props;
+        if (errors.proposalError) {
             return;
         }
         if (proposal) {
@@ -182,6 +196,11 @@ export default class TradeParams extends Component {
         this.updateTradeParams(updatedAmountPerPoint);
     }
 
+    onCloseModal = () => {
+        const { actions, index } = this.props;
+        actions.updateTradeError(index, 'purchaseError', undefined);
+    }
+
     onStopTypeChange = e => {
         this.updateTradeParams({ stopType: e.target.value });
     }
@@ -199,11 +218,6 @@ export default class TradeParams extends Component {
         actions.purchaseByTradeId(index).then(onPurchaseHook);
     }
 
-    repaintSelf = () => {
-        const { dynamicKey } = this.state;
-        this.setState({ dynamicKey: dynamicKey + 1 });
-    }
-
     updateTradeParams = params => {
         const { actions, index } = this.props;
         actions.updateMultipleTradeParams(index, params);
@@ -219,12 +233,17 @@ export default class TradeParams extends Component {
         actions.updateTradeError(index, 'purchaseError', undefined);
     }
 
+    repaintSelf = () => {
+        const { dynamicKey } = this.state;
+        this.setState({ dynamicKey: dynamicKey + 1 });
+    }
+
     render() {
         const {
             contract,
             currency,
             disabled,
-            error,
+            errors,
             index,
             pipSize,
             proposal,
@@ -256,9 +275,14 @@ export default class TradeParams extends Component {
         const showSpreadBarrier = categoryToUse === 'spreads';
         const askPrice = askPriceFromProposal(proposal);
 
+        const errorText = errorToShow(errors);
+
         return (
             <div className="trade-params" disabled={disabled} key={this.state.dynamicKey} style={style}>
-                <ErrorMsg text={error} />
+                <Modal shown={!!errors.purchaseError} onClose={this.onCloseModal}>
+                    <PurchaseFailed failure={errors.purchaseError} />
+                </Modal>
+                <ErrorMsg text={contract.error || errorText} />
                 <AssetPickerDropDown
                     {...this.props}
                     selectedSymbol={tradeParams.symbol}

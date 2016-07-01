@@ -3,6 +3,7 @@ export const bootSelector = state => state.boot;
 export const assetIndexSelector = state => state.assetIndex;
 export const assetsSelector = state => state.assets;
 export const createAccountSelector = state => state.createAccount;
+export const chartDataSelector = state => state.chartData;
 export const digitStatsSelector = state => state.digitStats;
 export const paymentAgentSelector = state => state.paymentAgent;
 export const settingsSelector = state => state.settings;
@@ -19,6 +20,12 @@ export const feedLicensesSelector = state => state.feedLicenses;
 export const ohlcSelector = state => state.ohlc;
 export const tradingOptionsSelector = state => state.tradingOptions;
 export const statesSelector = state => state.states;
+
+export const tradeParamsSelector = state => state.tradesParams;
+export const tradeProposalSelector = state => state.tradesProposalInfo;
+export const tradePurchaseInfoSelector = state => state.tradesPurchaseInfo;
+export const tradesUIStatesSelector = state => state.tradesUIStates;
+export const tradesErrorSelector = state => state.tradesError;
 
 export const themeSelector = state =>
     state.boot.get('theme');

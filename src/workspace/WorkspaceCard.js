@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import Resizer from 'binary-components/lib/Resizer';
-import TradesContainer from '../trades/TradesContainer';
+import TradesLayout from '../trade/browser/TradesLayout';
 import WorkspaceSidePanel from './WorkspaceSidePanel';
 import WorkspaceTabs from './WorkspaceTabs';
 import ContractDetailsModal from './ContractDetailsModal';
@@ -19,15 +19,12 @@ export default class WorkspaceCard extends Component {
 
 	render() {
 		const { actions, workspace } = this.props;
-		const { sideActiveTab, tradeMode, sidePanelVisible } = workspace;
+		const { sideActiveTab, sidePanelVisible } = workspace;
 
 		return (
 			<div className="panels">
 				<ContractDetailsModal actions={actions} />
-				<TradesContainer
-					actions={actions}
-					tradeMode={tradeMode}
-				/>
+				<TradesLayout actions={actions} />
 				<Resizer
 					className="resizer-vertical"
 					onResize={this.onResize}
