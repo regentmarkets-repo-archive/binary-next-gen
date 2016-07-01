@@ -83,7 +83,7 @@ export default class TradeViewChart extends Component {
             <BinaryChart
                 id={`trade-chart${index}`}
                 className="trade-chart"
-                contract={serverContractModelToChartContractModel(contractForChart)}
+                contract={contractForChart && serverContractModelToChartContractModel(contractForChart)}
                 defaultRange={1}
                 events={events}
                 noData={feedLicense === 'chartonly'}
