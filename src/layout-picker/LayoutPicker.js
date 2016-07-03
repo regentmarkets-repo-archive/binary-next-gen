@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import styles from '../layouts/layouts.css';
 import DropDown from '../containers/DropDown';
 import LayoutButtonPanel from './LayoutButtonPanel';
 import LayoutButton from './LayoutButton';
@@ -18,16 +19,22 @@ export default class LayoutPicker extends Component {
         };
     }
 
+    onLayoutChange = (...params) => {
+        const { actions } = this.props;
+        actions.changeActiveLayout(...params);
+        this.setState({ dropdownShown: false });
+    }
+
     open = () => this.setState({ dropdownShown: true });
 
     close = () => this.setState({ dropdownShown: false });
 
     render() {
-        const { actions, tradesCount, layoutN } = this.props;
+        const { tradesCount, layoutN } = this.props;
         const { dropdownShown } = this.state;
 
         return (
-            <div className="centerer">
+            <div className={styles.layoutPicker}>
                 <LayoutButton
                     tradesCount={tradesCount}
                     layoutN={layoutN}
@@ -40,10 +47,7 @@ export default class LayoutPicker extends Component {
                     <LayoutButtonPanel
                         tradesCount={tradesCount}
                         layoutN={layoutN}
-                        onLayoutChange={(...params) => {
-                            actions.changeActiveLayout(...params);
-                            this.setState({ dropdownShown: false });
-                        }}
+                        onLayoutChange={this.onLayoutChange}
                     />
                 </DropDown>
             </div>

@@ -276,7 +276,7 @@ export default class TradeParams extends Component {
         const askPrice = askPriceFromProposal(proposal);
 
         const errorText = errorToShow(errors);
-        console.log('render');
+
         return (
             <div className="trade-params" disabled={disabled} key={this.state.dynamicKey} style={style}>
                 <Modal shown={!!errors.purchaseError} onClose={this.onCloseModal}>

@@ -3,7 +3,7 @@ import sequence from 'binary-utils/lib/sequence';
 import styles from '../layouts/layouts.css';
 import LayoutButton from './LayoutButton';
 
-const layoutCounts = [1, 2, 5, 5, 5];
+const layoutCounts = [1, 2, 6, 6, 6];
 
 export default class LayoutButtonPanel extends Component {
 
