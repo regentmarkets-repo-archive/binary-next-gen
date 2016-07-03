@@ -16,28 +16,28 @@ describe('ContractDetailsList', () => {
     });
 
     it('Displays a barrier', () => {
-        const simplestContract = {
-            contract_type: ['NUMB', 'SECONDS'],
+        const contractWithBarrier = {
+            contract_type: 'CALL',
             barrier: '123',
             transaction_ids: {},
         };
         const wrapper = render(
             <IntlProvider locale="en">
-                <ContractDetailsList contract={simplestContract} />
+                <ContractDetailsList contract={contractWithBarrier} />
             </IntlProvider>
         );
         expect(wrapper.text()).to.contain('123');
     });
 
     it('Does not display a barrier if DIGIT barrier', () => {
-        const simplestContract = {
+        const digitContract = {
             contract_type: 'DIGITMATCH',
             barrier: '123',
             transaction_ids: {},
         };
         const wrapper = render(
             <IntlProvider locale="en">
-                <ContractDetailsList contract={simplestContract} />
+                <ContractDetailsList contract={digitContract} />
             </IntlProvider>
         );
         expect(wrapper.text()).to.not.contain('123');
