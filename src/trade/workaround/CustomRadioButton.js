@@ -9,13 +9,18 @@ export default class CustomRadioButton extends Component {
         value: PropTypes.any,
     };
 
+    onClicked = () => {
+        const { value, onClick } = this.props;
+        onClick({ target: { value } });
+    }
+
     render() {
-        const { text, value, onClick, selected } = this.props;
+        const { text, selected } = this.props;
 
         return (
             <button
                 className={'radio-button ' + (selected && 'selected-radio')}
-                onClick={() => onClick({ target: { value } })}
+                onClick={this.onClicked}
             >
                 {text}
             </button>

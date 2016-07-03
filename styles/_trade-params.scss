@@ -49,6 +49,9 @@
 }
 
 .horizontal {
+    .trade-panel {
+        flex-direction: column;
+    }
     .errorfield {
         margin: 0.5rem 0;
     }
@@ -64,9 +67,6 @@
             flex-direction: row;
             flex-wrap: wrap;
         }
-    }
-    .trade-panel {
-        flex-direction: column;
     }
     .contract-detail {
         flex-direction: column;

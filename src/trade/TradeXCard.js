@@ -6,6 +6,7 @@ import TradeParams from '../trade-params/TradeParams';
 import ContractReceipt from '../contract-details/ContractReceipt';
 
 export default class TradeXCard extends Component {
+
     static propTypes = {
         actions: PropTypes.object.isRequired,
         compact: PropTypes.bool,

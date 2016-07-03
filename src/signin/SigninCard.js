@@ -25,6 +25,8 @@ export default class SigninCard extends Component {
 		this.validateToken(event.target.value);
 	}
 
+	onFormSubmit = e => e.preventDefault();
+
 	validateToken = token => {
 		if (token === '') {
 			this.props.actions.signinFieldUpdate('tokenNotEntered', true);
@@ -50,7 +52,7 @@ export default class SigninCard extends Component {
 		const { progress, validatedOnce, credentialsInvalid, tokenNotEntered } = this.props.signin;
 		return (
 			<div className="startup-content">
-				<form className="mobile-form" onSubmit={e => e.preventDefault()}>
+				<form className="mobile-form" onSubmit={this.onFormSubmit}>
 					<p className="media">
 						<LogoSpinner spinning={progress} />
 						<img className="logo-text" src="img/binary-type-logo.svg" alt="Logo" />

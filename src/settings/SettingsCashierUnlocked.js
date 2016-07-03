@@ -20,6 +20,12 @@ export default class SettingsCashierUnlocked extends Component {
         };
     }
 
+    onPassword1Change = e =>
+        this.setState({ password1: e.target.value });
+
+    onPassword2Change = e =>
+        this.setState({ password2: e.target.value });
+
     lockCashier = () => {
         const { password1, password2 } = this.state;
 
@@ -50,14 +56,14 @@ export default class SettingsCashierUnlocked extends Component {
                     placeholder="New Password"
 					type="password"
                     value={password1}
-					onChange={e => this.setState({ password1: e.target.value })}
+					onChange={this.onPassword1Change}
 				/>
 				<InputGroup
 					id="password2"
                     placeholder="Confirm password"
 					type="password"
                     value={password2}
-                    onChange={e => this.setState({ password2: e.target.value })}
+                    onChange={this.onPassword2Change}
 				/>
                 <Button
                     text="Lock Cashier"

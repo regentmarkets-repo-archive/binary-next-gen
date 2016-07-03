@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 
 export default class DropDown extends Component {
 
@@ -11,6 +12,8 @@ export default class DropDown extends Component {
 	componentDidMount() {
 		document.addEventListener('keydown', this.closeOnEscape, false);
 	}
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	componentWillUnmount() {
 		document.removeEventListener('keydown', this.closeOnEscape, false);

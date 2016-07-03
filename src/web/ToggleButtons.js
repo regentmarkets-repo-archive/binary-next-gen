@@ -10,8 +10,14 @@ export default class ToggleButtons extends Component {
 		tradeMode: PropTypes.string.isRequired,
 	};
 
+	switchToTabs = () =>
+		this.props.actions.changeTradeMode('tabs');
+
+	switchToGrid = () =>
+		this.props.actions.changeTradeMode('grid');
+
 	render() {
-		const { tradeMode, actions } = this.props;
+		const { tradeMode } = this.props;
 
 		const tabsBtnClasses = classNames({
 			'btn-secondary ': true,
@@ -26,14 +32,14 @@ export default class ToggleButtons extends Component {
 			<div className="toggle-buttons">
 				<button
 					className={tabsBtnClasses}
-					onClick={() => actions.changeTradeMode('tabs')}
+					onClick={this.switchToTabs}
 				>
 					<img src="img/tabs.svg" alt="Tabs" />
 				</button>
 				&nbsp;
 				<button
 					className={gridBtnClasses}
-					onClick={() => actions.changeTradeMode('grid')}
+					onClick={this.switchToGrid}
 				>
 					<img src="img/grid.svg" alt="Grid" />
 				</button>

@@ -18,6 +18,9 @@ export default class SettingsCashierLocked extends Component {
         };
     }
 
+    onPassword1Change = e =>
+        this.setState({ password1: e.target.value });
+
     unlockCashier = () => {
         const { password1 } = this.state;
         this.sendRequest({ unlock_password: password1 });
@@ -34,6 +37,7 @@ export default class SettingsCashierLocked extends Component {
 
 	render() {
         const { password1 } = this.state;
+
 		return (
 			<div className="settings-cashier-lock">
                 <P
@@ -45,7 +49,7 @@ export default class SettingsCashierLocked extends Component {
                     placeholder="New Password"
 					type="password"
                     value={password1}
-					onChange={e => this.setState({ password1: e.target.value })}
+					onChange={this.onPassword1Change}
 				/>
 				<Button
                     text="Unlock Cashier"

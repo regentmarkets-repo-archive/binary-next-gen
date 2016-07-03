@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import shouldPureComponentUpdate from 'react-pure-render/function';
 import CloseButton from 'binary-components/lib/CloseButton';
 
 export default class Modal extends Component {
@@ -12,6 +13,8 @@ export default class Modal extends Component {
 	componentDidMount() {
 		document.addEventListener('keydown', this.closeOnEscape, false);
 	}
+
+	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	componentWillUnmount() {
 		document.removeEventListener('keydown', this.closeOnEscape, false);

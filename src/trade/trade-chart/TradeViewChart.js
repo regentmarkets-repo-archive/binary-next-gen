@@ -17,17 +17,6 @@ const chartToDataType = {
     candlestick: 'candles',
 };
 export default class TradeViewChart extends Component {
-    static defaultProps = {
-        type: 'full',
-        feedLicense: '',
-        events: [{
-            type: 'zoom-to-latest',
-            handler: zoomToLatest,
-        }],
-        ticks: [],
-        ohlc: [],
-        tradingTime: {},
-    };
 
     static contextTypes = {
         theme: PropTypes.string,
@@ -44,6 +33,18 @@ export default class TradeViewChart extends Component {
         pipSize: PropTypes.number.isRequired,
         tradeForChart: PropTypes.object.isRequired,
         tradingTime: PropTypes.object.isRequired,
+    };
+
+    static defaultProps = {
+        type: 'full',
+        feedLicense: '',
+        events: [{
+            type: 'zoom-to-latest',
+            handler: zoomToLatest,
+        }],
+        ticks: [],
+        ohlc: [],
+        tradingTime: {},
     };
 
     constructor(props) {
@@ -79,6 +80,7 @@ export default class TradeViewChart extends Component {
             feedLicense, pipSize, tradeForChart, tradingTime } = this.props;
         const { theme } = this.context;
         const { chartType, dataType } = this.state;
+
         return (
             <BinaryChart
                 id={`trade-chart${index}`}

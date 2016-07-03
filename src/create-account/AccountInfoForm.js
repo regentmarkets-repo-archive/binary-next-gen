@@ -9,6 +9,7 @@ import * as LiveData from '../_data/LiveData';
 import config from '../config';
 
 export default class AccountInfoForm extends Component {
+
     static propTypes = {
         email: PropTypes.string.isRequired,
         password: PropTypes.string.isRequired,
@@ -18,6 +19,8 @@ export default class AccountInfoForm extends Component {
         validatedOnce: PropTypes.bool.isRequired,
         actions: PropTypes.object.isRequired,
     };
+
+    onFormSubmit = e => e.preventDefault();
 
     emailValid() {
         const { email } = this.props;
@@ -87,7 +90,7 @@ export default class AccountInfoForm extends Component {
 
         return (
             <div className="startup-content">
-                <form className="mobile-form" onSubmit={e => e.preventDefault()}>
+                <form className="mobile-form" onSubmit={this.onFormSubmit}>
                     <InputGroup
                         type="email"
                         placeholder="Email"

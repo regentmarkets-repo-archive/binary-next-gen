@@ -5,7 +5,7 @@ import Root from './_store/root';
 import Perf from 'react-addons-perf';
 
 // import { whyDidYouUpdate } from 'why-did-you-update';
-// whyDidYouUpdate(React, { include: [/TradeCard/, /TradeParams/], exclude: [/^Connect/, /IntlProvider/] });
+// whyDidYouUpdate(React, { exclude: [/^Connect/, /IntlProvider/, /BootProvider/] });
 
 window.performPerfTest = () => {
 	Perf.start();

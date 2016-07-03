@@ -20,6 +20,12 @@ export default class PayoutPickerCard extends Component {
 		trades: PropTypes.array.isRequired,
 	};
 
+	onBasisChange = e =>
+		this.updateValue('basis', e.target.value);
+
+	onAmountChange = e =>
+		this.updateValue('amount', e.target.value);
+
 	updateValue(name, value) {
 		const { actions } = this.props;
 		const { id } = this.props.params;
@@ -51,7 +57,7 @@ export default class PayoutPickerCard extends Component {
 					name="basis"
 					options={basisTypes}
 					value={trade.basis}
-					onChange={e => this.updateValue('basis', e.target.value)}
+					onChange={this.onBasisChange}
 					{...this.props}
 				/>
 				<InputGroup
@@ -59,13 +65,13 @@ export default class PayoutPickerCard extends Component {
 					label={currency}
 					min={minAmount} max={maxAmount}
 					value={trade.amount}
-					onChange={e => this.updateValue('amount', e.target.value)}
+					onChange={this.onAmountChange}
 				/>
 				<RadioGroup
 					name="amount"
 					value={trade.amount}
 					options={payoutAmounts}
-					onChange={e => this.updateValue('amount', e.target.value)}
+					onChange={this.onAmountChange}
 					{...this.props}
 				/>
 			</div>

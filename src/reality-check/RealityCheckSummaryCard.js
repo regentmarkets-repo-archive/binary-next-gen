@@ -1,5 +1,8 @@
 import React, { Component, PropTypes } from 'react';
 import M from 'binary-components/lib/M';
+import Td from 'binary-components/lib/Td';
+import P from 'binary-components/lib/P';
+import Button from 'binary-components/lib/Button';
 import secsToTimeString from 'binary-utils/lib/secondsToTimeString';
 import TradingStatsCard from './TradingStatsCard';
 
@@ -13,13 +16,15 @@ export default class RealityCheckSummaryCard extends Component {
         updateInterval: PropTypes.func.isRequired,
     };
 
+    onIntervalChange = e =>
+        this.props.updateInterval(e.target.value);
+
     render() {
         const {
             confirmIntervalUpdate,
             loginTime,
             sessionDuration,
             interval,
-            updateInterval,
         } = this.props;
 
         const currentTime = new Date();
@@ -33,36 +38,30 @@ export default class RealityCheckSummaryCard extends Component {
                 <table>
                     <tbody>
                         <tr>
-                            <td>
-                                <M m="Login Time" />
-                            </td>
+                            <Td text="Login Time" />
                             <td>{loginDate.toUTCString()}</td>
                         </tr>
                         <tr>
-                            <td>
-                                <M m="Current Time" />
-                            </td>
+                            <Td text="Current Time" />
                             <td>{currentTime.toUTCString()}</td>
                         </tr>
                         <tr>
-                            <td>
-                                <M m="Session Duration" />
-                            </td>
+                            <Td text="Session Duration" />
                             <td>{durationString}</td>
                         </tr>
                     </tbody>
                 </table>
                 <p>
-                    <M m={`Your trading statistic since ${loginDate.toUTCString()}`} />
+                    <M m="Your trading statistic since " /> {loginDate.toUTCString()} />
                 </p>
                 <TradingStatsCard {...this.props} />
-                <p>
-                    <M m="Please specify your preferred reality-check interval in minutes" />
-                </p>
-                <input type="number" value={Math.round(interval / 60)} onChange={e => updateInterval(e.target.value)} />
-                <button onClick={confirmIntervalUpdate}>
-                    <M m="Continue Trading" />
-                </button>
+                <P text="Please specify your preferred reality-check interval in minutes" />
+                <input
+                    type="number"
+                    value={Math.round(interval / 60)}
+                    onChange={this.onIntervalChange}
+                />
+                <Button text="Continue Trading" onClick={confirmIntervalUpdate} />
             </div>
         );
     }
