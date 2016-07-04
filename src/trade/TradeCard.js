@@ -71,29 +71,26 @@ export default class TradeCard extends Component {
         const mobileTrade = compact && (
             <div className="trade-panel">
                 {contractReceiptInJS &&
-                    <div>
-                        <ContractDetailsMobileLayout
-                            contract={contractReceiptInJS}
-                            chartComponent={
-                                <div>
-                                    {chartComponent}
-                                    <SellAtMarketButton contract={contractReceiptInJS} />
-                                    <ContractValidationError contract={contractReceiptInJS} />
-                                    <Button
-                                        className="buy-again-btn"
-                                        text="Trade Again"
-                                        onClick={this.tradeAgain}
-                                    />
-                                </div>
-                            }
-                            detailsComponent={detailsComponent}
-                            onTradeAgainClicked={this.tradeAgain}
-                        />
-                    </div>
+                    <ContractDetailsMobileLayout
+                        contract={contractReceiptInJS}
+                        chartComponent={
+                                    <div>
+                                        {chartComponent}
+                                        <SellAtMarketButton contract={contractReceiptInJS} />
+                                        <ContractValidationError contract={contractReceiptInJS} />
+                                        <Button
+                                            className="buy-again-btn"
+                                            text="Trade Again"
+                                            onClick={this.tradeAgain}
+                                        />
+                                    </div>
+                                }
+                        detailsComponent={detailsComponent}
+                        onTradeAgainClicked={this.tradeAgain}
+                    />
                 }
                 {!contractReceiptInJS && chartComponent}
                 {tradeParamsComponent}
-
             </div>
         );
 
