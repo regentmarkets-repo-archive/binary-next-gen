@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { BinaryChart } from 'binary-charts';
-import { actions } from '../../_store';
+import { actions } from '../_store';
 
 const chartToDataType = {
     area: 'ticks',
@@ -42,7 +42,7 @@ export default class ContractChart extends Component {
         actions.getDataForContract(contract.contract_id, 1, 'all', newDataType, toStream);
         this.setState({ chartType: type, dataType: newDataType });
     }
-    
+
     render() {
         const { contract, chartData, pipSize } = this.props;
         const { theme } = this.context;
@@ -64,6 +64,6 @@ export default class ContractChart extends Component {
                 typeChange={allowCandle && this.changeChartType}
                 pipSize={pipSize}
             />
-        )
+        );
     }
 }

@@ -1,75 +1,57 @@
 import React, { PropTypes, Component } from 'react';
-import { BinaryChart } from 'binary-charts';
 import { actions } from '../_store';
 import ContractReceipt from './ContractReceipt';
-
-const chartToDataType = {
-	area: 'ticks',
-	candlestick: 'candles',
-};
+import ContractChart from './ContractChart';
+import ContractDetailsMobileLayout from './mobile/ContractDetailsMobileLayout';
+import SellAtMarketButton from './SellAtMarketButton';
+import ContractValidationError from './ContractValidationError';
 
 export default class ContractDetailsCard extends Component {
-
 	static propTypes = {
+		compact: PropTypes.bool,
 		contract: PropTypes.object.isRequired,
 		pipSize: PropTypes.number,
-		theme: PropTypes.string,
 		chartData: PropTypes.shape({
 			ticks: PropTypes.array,
 			candles: PropTypes.array,
 		}),
 	};
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			chartType: 'area',
-			dataType: 'ticks',
-		};
-	}
-
-	changeChartType = type => {
+	sellAtMarket = () => {
 		const { contract } = this.props;
-		const { chartType } = this.state;
-
-		if (chartType === type) {
-			return;
-		}
-
-		const newDataType = chartToDataType[type];
-		const toStream = !contract.sell_time;
-		actions.getDataForContract(contract.contract_id, 1, 'all', newDataType, toStream);
-		this.setState({ chartType: type, dataType: newDataType });
+		actions.sellContract(contract.contract_id, 0);
 	}
 
 	render() {
-		const { contract, chartData, pipSize, theme } = this.props;
-		const { chartType, dataType } = this.state;
-		const { ticks, candles } = chartData;
+		const { compact, contract, chartData, pipSize } = this.props;
+		const chartComponent = (
+			<ContractChart
+				contract={contract}
+				chartData={chartData}
+				pipSize={pipSize}
+			/>
+		);
 
-		const data = dataType === 'candles' ? candles : ticks;
-		const allowCandle = !contract.tick_count;
-
-		const rangeChange = (count, durationType) =>
-			actions.getDataForContract(contract.contract_id, count, durationType, dataType);
+		const detailsComponent = <ContractReceipt contract={contract} />;
 
 		return (
 			<div className="contract-details-card">
 				<h5>{contract.longcode}</h5>
-				<div className="contract-details">
-					<BinaryChart
-						className="contract-chart"
-						defaultRange={6}
-						contract={contract}
-						ticks={data}
-						type={chartType}
-						theme={theme}
-						rangeChange={contract ? undefined : rangeChange}
-						typeChange={allowCandle && this.changeChartType}
-						pipSize={pipSize}
-					/>
-					<ContractReceipt contract={contract} />
-				</div>
+				{compact ?
+					<ContractDetailsMobileLayout
+						chartComponent={chartComponent}
+						detailsComponent={detailsComponent}
+					/> :
+					<div className="contract-details">
+						{chartComponent}
+						{detailsComponent}
+					</div>
+				}
+				<SellAtMarketButton
+					contract={contract}
+					onClick={this.sellAtMarket}
+				/>
+				<ContractValidationError contract={contract} />
 			</div>
 		);
 	}
