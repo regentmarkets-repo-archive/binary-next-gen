@@ -4,6 +4,7 @@ import ContractChart from './ContractChart';
 import ContractDetailsMobileLayout from './mobile/ContractDetailsMobileLayout';
 import SellAtMarketButton from './SellAtMarketButton';
 import ContractValidationError from './ContractValidationError';
+import ContractWinLose from './ContractWinLose';
 
 export default class ContractDetailsCard extends Component {
 	static propTypes = {
@@ -37,6 +38,7 @@ export default class ContractDetailsCard extends Component {
 						chartComponent={
 							<div>
 								{chartComponent}
+								<ContractWinLose contract={contract} />
 								<SellAtMarketButton contract={contract} />
 								<ContractValidationError contract={contract} />
 							</div>

@@ -8,6 +8,7 @@ import ContractReceipt from '../contract-details/ContractReceipt';
 import ContractDetailsMobileLayout from '../contract-details/mobile/ContractDetailsMobileLayout';
 import SellAtMarketButton from '../contract-details/SellAtMarketButton';
 import ContractValidationError from '../contract-details/ContractValidationError';
+import ContractWinLose from '../contract-details/ContractWinLose';
 import Button from 'binary-components/lib/Button';
 
 export default class TradeCard extends Component {
@@ -76,6 +77,7 @@ export default class TradeCard extends Component {
                         chartComponent={
                                     <div>
                                         {chartComponent}
+                                        <ContractWinLose contract={contractReceiptInJS} />
                                         <SellAtMarketButton contract={contractReceiptInJS} />
                                         <ContractValidationError contract={contractReceiptInJS} />
                                         <Button
