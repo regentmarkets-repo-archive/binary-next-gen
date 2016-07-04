@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import { actions } from '../_store';
 import M from 'binary-components/lib/M';
 import NumberPlain from 'binary-components/lib/NumberPlain';
 
@@ -6,11 +7,15 @@ export default class SellAtMarketButton extends Component {
 
 	static propTypes = {
 		contract: PropTypes.object.isRequired,
-		onClick: PropTypes.func.isRequired,
 	};
 
+	sellAtMarket = () => {
+		const { contract } = this.props;
+		actions.sellContract(contract.contract_id, 0);
+	}
+
 	render() {
-		const { contract, onClick } = this.props;
+		const { contract } = this.props;
 		const validToSell = contract.is_valid_to_sell === 1 && !contract.is_expired;
 
 		if (contract.selling || !validToSell) return null;
@@ -18,7 +23,7 @@ export default class SellAtMarketButton extends Component {
 		return (
 			<button
 				className="sell-at-market-btn"
-				onClick={onClick}
+				onClick={this.sellAtMarket}
 			>
 				<M m="Sell at Market" />
 				&nbsp;

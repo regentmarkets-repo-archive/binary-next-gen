@@ -1,5 +1,4 @@
 import React, { PropTypes, Component } from 'react';
-import { actions } from '../_store';
 import ContractReceipt from './ContractReceipt';
 import ContractChart from './ContractChart';
 import ContractDetailsMobileLayout from './mobile/ContractDetailsMobileLayout';
@@ -16,11 +15,6 @@ export default class ContractDetailsCard extends Component {
 			candles: PropTypes.array,
 		}),
 	};
-
-	sellAtMarket = () => {
-		const { contract } = this.props;
-		actions.sellContract(contract.contract_id, 0);
-	}
 
 	render() {
 		const { compact, contract, chartData, pipSize } = this.props;
@@ -39,7 +33,14 @@ export default class ContractDetailsCard extends Component {
 				<h5>{contract.longcode}</h5>
 				{compact ?
 					<ContractDetailsMobileLayout
-						chartComponent={chartComponent}
+						contract={contract}
+						chartComponent={
+							<div>
+								{chartComponent}
+								<SellAtMarketButton contract={contract} />
+								<ContractValidationError contract={contract} />
+							</div>
+						}
 						detailsComponent={detailsComponent}
 					/> :
 					<div className="contract-details">
@@ -47,11 +48,6 @@ export default class ContractDetailsCard extends Component {
 						{detailsComponent}
 					</div>
 				}
-				<SellAtMarketButton
-					contract={contract}
-					onClick={this.sellAtMarket}
-				/>
-				<ContractValidationError contract={contract} />
 			</div>
 		);
 	}

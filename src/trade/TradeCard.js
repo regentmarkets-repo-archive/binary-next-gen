@@ -55,6 +55,7 @@ export default class TradeCard extends Component {
             <ContractReceipt
                 contract={contractReceiptInJS}
                 showLongcode
+                onTradeAgainClicked={this.tradeAgain}
             />
         );
 
@@ -72,15 +73,22 @@ export default class TradeCard extends Component {
                 {contractReceiptInJS &&
                     <div>
                         <ContractDetailsMobileLayout
-                            chartComponent={chartComponent}
-                            detailsComponent={detailsComponent}
-                        />
-                        <SellAtMarketButton
                             contract={contractReceiptInJS}
-                            onClick={this.sellAtMarket}
+                            chartComponent={
+                                <div>
+                                    {chartComponent}
+                                    <SellAtMarketButton contract={contractReceiptInJS} />
+                                    <ContractValidationError contract={contractReceiptInJS} />
+                                    <Button
+                                        className="buy-again-btn"
+                                        text="Trade Again"
+                                        onClick={this.tradeAgain}
+                                    />
+                                </div>
+                            }
+                            detailsComponent={detailsComponent}
+                            onTradeAgainClicked={this.tradeAgain}
                         />
-                        <ContractValidationError contract={contractReceiptInJS} />
-                        <Button text="Trade Again" onClick={this.tradeAgain} />
                     </div>
                 }
                 {!contractReceiptInJS && chartComponent}
