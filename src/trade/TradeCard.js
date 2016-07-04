@@ -6,7 +6,10 @@ import TradeViewChart from './trade-chart/TradeViewChart';
 import TradeParams from '../trade-params/TradeParams';
 import ContractReceipt from '../contract-details/ContractReceipt';
 
-export default class TradeXCard extends Component {
+export default class TradeCard extends Component {
+    static contextTypes = {
+        router: PropTypes.object.isRequired,
+    };
 
     static propTypes = {
         compact: PropTypes.bool,
@@ -24,10 +27,17 @@ export default class TradeXCard extends Component {
     }
 
     zoomWhenPurchase = () => {
-        const { index } = this.props;
-        const domID = `trade-chart${index}`;
-        const zoomToLatestEv = new Event('zoom-to-latest');
-        document.getElementById(domID).dispatchEvent(zoomToLatestEv);
+        const { index, compact, contractReceiptProps } = this.props;
+
+        if (compact) {
+            const { router } = this.context;
+            const contract = contractReceiptProps.toJS();
+            router.push(`/contract/${contract.contract_id}`);
+        } else {
+            const domID = `trade-chart${index}`;
+            const zoomToLatestEv = new Event('zoom-to-latest');
+            document.getElementById(domID).dispatchEvent(zoomToLatestEv);
+        }
     }
 
     render() {

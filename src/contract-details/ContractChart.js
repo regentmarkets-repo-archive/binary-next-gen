@@ -1,6 +1,11 @@
 import React, { PropTypes, Component } from 'react';
 import { BinaryChart } from 'binary-charts';
-import { } from '../../_store';
+import { actions } from '../../_store';
+
+const chartToDataType = {
+    area: 'ticks',
+    candlestick: 'candles',
+};
 
 export default class ContractChart extends Component {
     static contextTypes = {
@@ -25,7 +30,7 @@ export default class ContractChart extends Component {
     }
 
     changeChartType = type => {
-        const { actions, contract } = this.props;
+        const { contract } = this.props;
         const { chartType } = this.state;
 
         if (chartType === type) {
@@ -43,6 +48,10 @@ export default class ContractChart extends Component {
         const { theme } = this.context;
         const { chartType, dataType } = this.state;
         const data = chartData[dataType];
+        const allowCandle = !contract.tick_count;
+        const rangeChange = (count, durationType) =>
+            actions.getDataForContract(contract.contract_id, count, durationType, dataType);
+
         return (
             <BinaryChart
                 className="contract-chart"
