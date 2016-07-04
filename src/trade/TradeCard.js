@@ -5,6 +5,10 @@ import { actions } from '../_store';
 import TradeViewChart from './trade-chart/TradeViewChart';
 import TradeParams from '../trade-params/TradeParams';
 import ContractReceipt from '../contract-details/ContractReceipt';
+import ContractDetailsMobileLayout from '../contract-details/mobile/ContractDetailsMobileLayout';
+import SellAtMarketButton from '../contract-details/SellAtMarketButton';
+import ContractValidationError from '../contract-details/ContractValidationError';
+import Button from 'binary-components/lib/Button';
 
 export default class TradeCard extends Component {
     static contextTypes = {
@@ -27,40 +31,71 @@ export default class TradeCard extends Component {
     }
 
     zoomWhenPurchase = () => {
-        const { index, compact, contractReceiptProps } = this.props;
+        const { index } = this.props;
+        const domID = `trade-chart${index}`;
+        const zoomToLatestEv = new Event('zoom-to-latest');
+        document.getElementById(domID).dispatchEvent(zoomToLatestEv);
+    }
 
-        if (compact) {
-            const { router } = this.context;
-            const contract = contractReceiptProps.toJS();
-            router.push(`/contract/${contract.contract_id}`);
-        } else {
-            const domID = `trade-chart${index}`;
-            const zoomToLatestEv = new Event('zoom-to-latest');
-            document.getElementById(domID).dispatchEvent(zoomToLatestEv);
-        }
+    sellAtMarket = () => {
+        const { contractReceiptProps } = this.props;
+        actions.sellContract(contractReceiptProps.toJS().contract_id, 0);
     }
 
     render() {
         const { chartProps, contractReceiptProps, compact, paramsProps } = this.props;
-        return (
-            <div className="trade-panel">
-                <div className="trade-chart-container">
-                    <TradeViewChart {...immutableChildrenToJS(chartProps)} />
-                </div>
-                {contractReceiptProps &&
-                    <ContractReceipt
-                        contract={contractReceiptProps.toJS()}
-                        showLongcode
-                        onTradeAgainClicked={this.tradeAgain}
-                    />
-                }
-                <TradeParams
-                    {...immutableChildrenToJS(paramsProps)}
-                    compact={compact}
-                    onPurchaseHook={this.zoomWhenPurchase}
-                    style={contractReceiptProps ? { display: 'none' } : undefined}
-                />
+        const contractReceiptInJS = contractReceiptProps && contractReceiptProps.toJS();
+        const chartComponent = (
+            <div className="trade-chart-container">
+                <TradeViewChart {...immutableChildrenToJS(chartProps)} />
             </div>
         );
+
+        const detailsComponent = contractReceiptInJS && (
+            <ContractReceipt
+                contract={contractReceiptInJS}
+                showLongcode
+            />
+        );
+
+        const tradeParamsComponent = (
+            <TradeParams
+                {...immutableChildrenToJS(paramsProps)}
+                compact={compact}
+                onPurchaseHook={this.zoomWhenPurchase}
+                style={contractReceiptInJS ? { display: 'none' } : undefined}
+            />
+        );
+
+        const mobileTrade = compact && (
+            <div className="trade-panel">
+                {contractReceiptInJS &&
+                    <div>
+                        <ContractDetailsMobileLayout
+                            chartComponent={chartComponent}
+                            detailsComponent={detailsComponent}
+                        />
+                        <SellAtMarketButton
+                            contract={contractReceiptInJS}
+                            onClick={this.sellAtMarket}
+                        />
+                        <ContractValidationError contract={contractReceiptInJS} />
+                        <Button text="Trade Again" onClick={this.tradeAgain} />
+                    </div>
+                }
+                {!contractReceiptInJS && chartComponent}
+                {tradeParamsComponent}
+
+            </div>
+        );
+
+        const desktopTrade = !compact && (
+            <div className="trade-panel">
+                {chartComponent}
+                {detailsComponent}
+                {tradeParamsComponent}
+            </div>
+        );
+        return compact ? mobileTrade : desktopTrade;
     }
 }
