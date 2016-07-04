@@ -16,9 +16,7 @@ import DepositMobile from '../deposit/DepositMobile';
 import { requireAuthOnEnter, signout } from '../_data/Auth';
 
 export default [
-    { path: 'signin', component: SigninMobile },
     { path: 'signup', component: CreateAccountMobile },
-    { path: 'signout', component: SigninMobile, onEnter: signout },
     { path: 'mobile', component: TradeMobile, onEnter: requireAuthOnEnter },
     { path: 'payout/:id', component: PayoutPickerMobile, onEnter: requireAuthOnEnter },
     { path: 'portfolio', component: PortfolioMobile, onEnter: requireAuthOnEnter },

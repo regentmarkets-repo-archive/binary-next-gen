@@ -15,7 +15,7 @@ export default class LoadingView extends Component {
         const { showMessage } = this.props;
         return (
             <div className="mobile-page">
-                <img className="spinner" src="/img/binary-symbol-logo.svg" alt="Loading" />
+                <img className="spinner" src="img/binary-symbol-logo.svg" alt="Loading" />
                 {showMessage &&
                     <p>
                         <M m="Taking too long to load, check connection." />

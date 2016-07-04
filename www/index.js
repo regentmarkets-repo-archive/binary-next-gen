@@ -34,19 +34,23 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
+        window.open = cordova.InAppBrowser.open;
+        window.BinaryBoot.appId = 1006;
         app.receivedEvent('root');
         codePush.sync();
     },
     //call when the app resumes from the background
     onDeviceResume: function () {
-        app.receivedEvent('resume');
+        window.open = cordova.InAppBrowser.open;
+        window.BinaryBoot.appId = 1006;
+        app.receivedEvent('root');
         codePush.sync();
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
         var parentElement = document.getElementById(id);
-        var listeningElement = parentElement.querySelector('.listening');
-        var receivedElement = parentElement.querySelector('.received');
+        var listeningElement = parentElement.querySelector('.mobile-page .listening');
+        var receivedElement = parentElement.querySelector('.mobile-page .received');
 
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
