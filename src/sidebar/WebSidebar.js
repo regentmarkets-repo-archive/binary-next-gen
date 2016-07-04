@@ -1,6 +1,5 @@
 import React, { PropTypes, Component } from 'react';
 import AccountMenuItem from './AccountMenuItem';
-import SidebarBtn from './SidebarBtn';
 import { signout } from '../_data/Auth';
 import M from 'binary-components/lib/M';
 
@@ -14,10 +13,12 @@ export default class WebSidebar extends Component {
 			token: PropTypes.string.isRequired,
 		})),
 	};
+
 	onSignOut(e) {
 		e.stopPropagation();
 		signout();
 	}
+
 	render() {
 		const { loginid, email, accounts } = this.props;
 
