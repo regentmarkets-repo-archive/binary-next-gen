@@ -10,6 +10,7 @@ import SellAtMarketButton from '../contract-details/SellAtMarketButton';
 import ContractValidationError from '../contract-details/ContractValidationError';
 import ContractWinLose from '../contract-details/ContractWinLose';
 import Button from 'binary-components/lib/Button';
+import P from 'binary-components/lib/P';
 
 export default class TradeCard extends Component {
     static contextTypes = {
@@ -46,6 +47,10 @@ export default class TradeCard extends Component {
     render() {
         const { chartProps, contractReceiptProps, compact, paramsProps } = this.props;
         const contractReceiptInJS = contractReceiptProps && contractReceiptProps.toJS();
+        if (contractReceiptInJS && Object.keys(contractReceiptInJS).length === 0) {
+            return <P text="Asset are not available now, please choose a different asset." />;
+        }
+
         const chartComponent = (
             <div className="trade-chart-container">
                 <TradeViewChart {...immutableChildrenToJS(chartProps)} />
