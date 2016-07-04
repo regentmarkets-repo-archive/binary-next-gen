@@ -2,6 +2,8 @@ import React, { PropTypes, Component } from 'react';
 import BalanceContainer from '../balance/BalanceContainer';
 import AccountMenuItem from './AccountMenuItem';
 import SidebarBtn from './SidebarBtn';
+import { signout } from '../_data/Auth';
+import M from 'binary-components/lib/M';
 
 export default class MobileSidebar extends Component {
 
@@ -13,7 +15,10 @@ export default class MobileSidebar extends Component {
 			token: PropTypes.string.isRequired,
 		})),
 	};
-
+	onSignOut(e) {
+		e.stopPropagation();
+		signout();
+	}
 	render() {
 		const { loginid, email, accounts } = this.props;
 
@@ -35,7 +40,10 @@ export default class MobileSidebar extends Component {
 				<SidebarBtn to="/news" img="img/news.svg" text="News" />
 				<SidebarBtn to="/resources" img="img/resources.svg" text="Resources" />
 				<SidebarBtn to="/settings" img="img/settings.svg" text="Settings" />
-				<SidebarBtn to="/signout" img="img/signout.svg" text="Sign Out" />
+				<label htmlFor="Sign-Out" onClick={this.onSignOut} className="sidebar-btn">
+					<img src="img/signout.svg" role="presentation" />
+					<M m="Sign Out" />
+				</label>
 			</nav>
 		);
 	}

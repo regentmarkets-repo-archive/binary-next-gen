@@ -2,6 +2,7 @@ import { store } from '../_store/persistentStore';
 import * as LiveData from './LiveData';
 import { signinFieldUpdate, updateAppState, removePersonalData, updateToken } from '../_actions';
 import { trackUserId } from 'binary-utils/lib/Analytics';
+import isMobile from 'binary-utils/lib/isMobile';
 // import showError from 'binary-utils/lib/showError';
 
 export const tryAuth = async (actions, token) => {
@@ -21,14 +22,6 @@ export const tryAuth = async (actions, token) => {
     } finally {
         actions.signinFieldUpdate('progress', false);
     }
-};
-
-export const signout = (nextState, replace) => {
-    store.dispatch(removePersonalData());
-    store.dispatch(signinFieldUpdate('validatedOnce', false));
-    store.dispatch(updateAppState('authorized', false));
-    store.dispatch(updateToken(''));
-    replace({ pathname: '/signin', state: nextState });
 };
 const parseOAuthResponse = (responseUrl) => {
     const matcher = /acct\d=(\w+)&token\d=([\w-]+)/g;
@@ -60,18 +53,35 @@ const parseUrl = (url) => {
         window.console.log('Error while saving boot config', e);
     }
 };
-export const requireAuthOnEnter = (nextState, replace, callback) => {
+const oAuthHandler = () => {
     const authorized = store.getState().appState.get('authorized');
+
     if (!authorized) {
         const oAuthUrl = `https://oauth.binary.com/oauth2/authorize?app_id=${window.BinaryBoot.appId}`;
-        const winAuth = window.open(oAuthUrl, '_blank', 'location=no');
-        winAuth.addEventListener('loadstop', (e) => {
-             if (e.url.indexOf('acct1') > -1) {
-                 parseUrl(e.url);
-                 winAuth.close();
-             }
-        });
+        if (isMobile()) {
+            const winAuth = window.open(oAuthUrl, '_blank', 'location=no');
+            winAuth.addEventListener('loadstop', (e) => {
+                if (e.url.indexOf('acct1') > -1) {
+                    parseUrl(e.url);
+                    winAuth.close();
+                    window.location.reload();
+                }
+            });
+        } else {
+            window.open(oAuthUrl);
+        }
     }
+};
+export const signout = () => {
+    store.dispatch(removePersonalData());
+    store.dispatch(signinFieldUpdate('validatedOnce', false));
+    store.dispatch(updateAppState('authorized', false));
+    store.dispatch(updateToken(''));
+    oAuthHandler();
+};
+
+export const requireAuthOnEnter = (nextState, replace, callback) => {
+    oAuthHandler();
     //     replace({ pathname: '/signin', state: nextState });
     callback();
 };

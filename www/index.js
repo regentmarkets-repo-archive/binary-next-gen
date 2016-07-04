@@ -35,13 +35,15 @@ var app = {
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
         window.open = cordova.InAppBrowser.open;
+        window.BinaryBoot.appId = 1006;
         app.receivedEvent('root');
         codePush.sync();
     },
     //call when the app resumes from the background
     onDeviceResume: function () {
         window.open = cordova.InAppBrowser.open;
-        app.receivedEvent('resume');
+        window.BinaryBoot.appId = 1006;
+        app.receivedEvent('root');
         codePush.sync();
     },
     // Update DOM on a Received Event
