@@ -1,12 +1,8 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
 import styles from '../layouts/layouts.css';
 import { layoutNames } from './layouts';
 
 export default class LayoutButtons extends Component {
-
-    static propTypes = {
-        actions: PropTypes.object.isRequired,
-    };
 
     render() {
         return (

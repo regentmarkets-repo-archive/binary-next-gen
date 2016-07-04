@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import Button from 'binary-components/lib/Button';
+import { actions } from '../_store';
 import ContractDetailsList from './ContractDetailsList';
 import SellAtMarketButton from './SellAtMarketButton';
 import ContractValidationError from './ContractValidationError';
@@ -9,13 +10,12 @@ export default class ContractReceipt extends Component {
 
 	static propTypes = {
 		contract: PropTypes.object.isRequired,
-		actions: PropTypes.object.isRequired,
 		onTradeAgainClicked: PropTypes.func,
 		showLongcode: PropTypes.bool,
 	};
 
 	sellAtMarket = () => {
-		const { actions, contract } = this.props;
+		const { contract } = this.props;
 		actions.sellContract(contract.contract_id, 0);
 	}
 

@@ -2,6 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import windowResizeEvent from 'binary-utils/lib/windowResizeEvent';
 import shouldPureComponentUpdate from 'react-pure-render/function';
+import { actions } from '../../_store';
 import TradeXCardContainer from '../TradeXCardContainer';
 import * as layouts from '../../layouts';
 import styles from '../../layouts/layouts.css';
@@ -12,7 +13,6 @@ import { layoutSelector } from './LayoutSelector';
 export default class TradesLayouts extends Component {
 
     static propTypes = {
-        actions: PropTypes.object.isRequired,
         layoutN: PropTypes.number.isRequired,
         tradesCount: PropTypes.number.isRequired,
     };
@@ -22,7 +22,7 @@ export default class TradesLayouts extends Component {
     };
 
     componentWillMount() {
-        const { actions, layoutN, tradesCount } = this.props;
+        const { layoutN, tradesCount } = this.props;
         actions.changeActiveLayout(tradesCount, layoutN);
     }
 
@@ -33,11 +33,7 @@ export default class TradesLayouts extends Component {
     }
 
     render() {
-        const {
-            actions,
-            layoutN,
-            tradesCount,
-        } = this.props;
+        const { layoutN, tradesCount } = this.props;
 
         const layout = layouts[`Layout${tradesCount}${layoutN}`];
         const layoutClass = styles[`layout-${tradesCount}-${layoutN}`];
@@ -45,9 +41,8 @@ export default class TradesLayouts extends Component {
         if (!layout) return null;
 
         const tradeComponents = (new Array(tradesCount).fill(0))
-            .map((zero, idx) => <TradeXCardContainer index={idx} actions={actions} />);
+            .map((zero, idx) => <TradeXCardContainer index={idx} />);
 
         return layout(tradeComponents, `${styles.trades} ${layoutClass}`);
     }
 }
-

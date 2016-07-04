@@ -5,12 +5,12 @@ import M from 'binary-components/lib/M';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import LogoSpinner from 'binary-components/lib/LogoSpinner';
 import InputGroup from 'binary-components/lib/InputGroup';
+import { actions } from '../_store';
 
 export default class SigninCard extends Component {
 
 	static propTypes = {
 		token: PropTypes.string,
-		actions: PropTypes.object.isRequired,
 		signin: PropTypes.object.isRequired,
 	};
 
@@ -19,9 +19,9 @@ export default class SigninCard extends Component {
 	};
 
 	onTokenChange = event => {
-		this.props.actions.updateToken(event.target.value);
-		this.props.actions.signinFieldUpdate('validatedOnce', false);
-		this.props.actions.signinFieldUpdate('credentialsInvalid', false);
+		actions.updateToken(event.target.value);
+		actions.signinFieldUpdate('validatedOnce', false);
+		actions.signinFieldUpdate('credentialsInvalid', false);
 		this.validateToken(event.target.value);
 	}
 
@@ -29,16 +29,16 @@ export default class SigninCard extends Component {
 
 	validateToken = token => {
 		if (token === '') {
-			this.props.actions.signinFieldUpdate('tokenNotEntered', true);
+			actions.signinFieldUpdate('tokenNotEntered', true);
 		}
 	}
 
 	async trySignin() {
-		const { actions, token } = this.props;
+		const { token } = this.props;
 		const { router } = this.context;
 		try {
 			actions.signinFieldUpdate('progress', false);
-            this.props.actions.signinFieldUpdate('validatedOnce', true);
+            actions.signinFieldUpdate('validatedOnce', true);
 			await tryAuth(actions, token);
 		} catch (e) {
 			actions.updateAppState('authorized', false);

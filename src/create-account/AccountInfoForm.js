@@ -5,6 +5,7 @@ import Button from 'binary-components/lib/Button';
 import Countries from 'binary-components/lib/Countries';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import InputGroup from 'binary-components/lib/InputGroup';
+import { actions } from '../_store';
 import * as LiveData from '../_data/LiveData';
 import config from '../config';
 
@@ -17,7 +18,6 @@ export default class AccountInfoForm extends Component {
         residence: PropTypes.string.isRequired,
         verificationCode: PropTypes.string.isRequired,
         validatedOnce: PropTypes.bool.isRequired,
-        actions: PropTypes.object.isRequired,
     };
 
     onFormSubmit = e => e.preventDefault();
@@ -40,7 +40,7 @@ export default class AccountInfoForm extends Component {
 
     performCreateAccount() {
         const { email, password, verificationCode, residence } = this.props;
-        this.props.actions.createAccountStart({
+        actions.createAccountStart({
             email,
             client_password: password,
             residence,
@@ -50,7 +50,7 @@ export default class AccountInfoForm extends Component {
     }
 
     async continue() {
-        const { actions, email } = this.props;
+        const { email } = this.props;
 
         actions.createAccountFieldUpdate('validatedOnce', true);
         actions.createAccountFieldUpdate('progress', true);
@@ -65,21 +65,17 @@ export default class AccountInfoForm extends Component {
         }
     }
 
-    emailChange = event => {
-        this.props.actions.createAccountFieldUpdate('email', event.target.value);
-    }
+    emailChange = event =>
+        actions.createAccountFieldUpdate('email', event.target.value);
 
-    residenceChange = event => {
-        this.props.actions.createAccountFieldUpdate('residence', event.target.value);
-    }
+    residenceChange = event =>
+        actions.createAccountFieldUpdate('residence', event.target.value);
 
-    confirmPasswordChange = event => {
-        this.props.actions.createAccountFieldUpdate('confirmPassword', event.target.value);
-    }
+    confirmPasswordChange = event =>
+        actions.createAccountFieldUpdate('confirmPassword', event.target.value);
 
-    passwordChange = event => {
-        this.props.actions.createAccountFieldUpdate('password', event.target.value);
-    }
+    passwordChange = event =>
+        actions.createAccountFieldUpdate('password', event.target.value);
 
     render() {
         const { residence, validatedOnce } = this.props;

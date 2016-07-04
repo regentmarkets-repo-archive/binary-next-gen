@@ -9,7 +9,6 @@ export default class UpgradeCard extends Component {
 
 	static propTypes = {
 		upgrade: PropTypes.object.isRequired,
-		actions: PropTypes.object.isRequired,
 		history: PropTypes.object.isRequired,
 	};
 
@@ -43,13 +42,11 @@ export default class UpgradeCard extends Component {
 			error,
 			} = this.props.upgrade.toJS();
 
-		const actions = this.props.actions;
 		const steps = [
 			<UpgradeStep1
 				firstName={firstName}
 				lastName={lastName}
 				dateOfBirth={dateOfBirth}
-				actions={actions}
 			/>,
 			<UpgradeStep2
 				addressCity={addressCity}
@@ -58,13 +55,11 @@ export default class UpgradeCard extends Component {
 				addressLine2={addressLine2}
 				phone={phone}
 				residence={residence}
-				actions={actions}
 				addressState={addressState}
 			/>,
 			<UpgradeStep3
 				secretQuestion={secretQuestion}
 				secretAnswer={secretAnswer}
-				actions={actions}
 				error={error}
 			/>,
 		];

@@ -2,12 +2,12 @@ import React, { Component, PropTypes } from 'react';
 import M from 'binary-components/lib/M';
 import Button from 'binary-components/lib/Button';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
+import { actions } from '../_store';
 import Modal from '../containers/Modal';
 
 export default class UpgradeStep3 extends Component {
 
 	static propTypes = {
-		actions: PropTypes.object.isRequired,
 		secretQuestion: PropTypes.string.isRequired,
 		secretAnswer: PropTypes.string.isRequired,
 		error: PropTypes.string,
@@ -18,17 +18,15 @@ export default class UpgradeStep3 extends Component {
 		this.state = { showErr: false, checked: false };
 	}
 
-	onSecretQuestionChange = e => {
-		this.props.actions.upgradeFieldUpdate('secretQuestion', e.target.value);
-	}
+	onSecretQuestionChange = e =>
+		actions.upgradeFieldUpdate('secretQuestion', e.target.value);
 
-	onSecretAnswerChange = e => {
-		this.props.actions.upgradeFieldUpdate('secretAnswer', e.target.value);
-	}
+	onSecretAnswerChange = e =>
+		actions.upgradeFieldUpdate('secretAnswer', e.target.value);
 
 	previousStep = e => {
 		e.preventDefault();
-		this.props.actions.upgradeFieldUpdate('activeStep', 1);
+		actions.upgradeFieldUpdate('activeStep', 1);
 	}
 
 	openAccount = e => {
@@ -37,8 +35,8 @@ export default class UpgradeStep3 extends Component {
 		const { secretAnswer } = this.props;
 		const { checked } = this.state;
 		if (this.secretAnsValid(secretAnswer) && checked) {
-			this.props.actions.upgradeFieldUpdate('progress', true);
-			this.props.actions.upgradeConfirm();
+			actions.upgradeFieldUpdate('progress', true);
+			actions.upgradeConfirm();
 		}
 	}
 
@@ -50,7 +48,7 @@ export default class UpgradeStep3 extends Component {
 		this.setState({ checked: !isChecked });
 	}
 
-	closeErrorModal = () => this.props.actions.upgradeFieldUpdate('error', null);
+	closeErrorModal = () => actions.upgradeFieldUpdate('error', null);
 
 	render() {
 		const { secretAnswer, secretQuestion, error } = this.props;

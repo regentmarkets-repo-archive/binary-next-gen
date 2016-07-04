@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import { actions } from '../_store';
 import WatchlistTableHeader from './WatchlistTableHeader';
 import WatchlistRow from './WatchlistRow';
 import shouldPureComponentUpdate from 'react-pure-render/function';
@@ -6,7 +7,6 @@ import shouldPureComponentUpdate from 'react-pure-render/function';
 export default class WatchlistTable extends Component {
 
 	static propTypes = {
-		actions: PropTypes.object.isRequired,
 		activeTradeIdx: PropTypes.number.isRequired,
 		watchlistView: PropTypes.object.isRequired,
 		selectedAsset: PropTypes.string.isRequired,
@@ -15,7 +15,7 @@ export default class WatchlistTable extends Component {
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	onSelect = newAsset => {
-		const { actions, activeTradeIdx } = this.props;
+		const { activeTradeIdx } = this.props;
 
 		actions.changeSelectedAsset(newAsset);
 		actions.getTradingOptions(newAsset);
@@ -23,7 +23,7 @@ export default class WatchlistTable extends Component {
 	}
 
 	render() {
-		const { actions, watchlistView } = this.props;
+		const { watchlistView } = this.props;
 
 		return (
 			<table className="watchlist-table">
@@ -32,7 +32,6 @@ export default class WatchlistTable extends Component {
 					{watchlistView.map(x =>
 						<WatchlistRow
 							key={x.get('symbol')}
-							actions={actions}
 							item={x}
 							onSelect={this.onSelect}
 						/>

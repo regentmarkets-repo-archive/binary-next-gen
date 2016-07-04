@@ -8,6 +8,7 @@ import askPriceFromProposal from 'binary-utils/lib/askPriceFromProposal';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import Modal from '../containers/Modal';
 import PurchaseFailed from 'binary-components/lib/PurchaseFailed';
+import { actions } from '../_store';
 import BarrierCard from '../barrier-picker/BarrierCard';
 // import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
 import DigitBarrierCard from '../barrier-picker/DigitBarrierCard';
@@ -65,7 +66,6 @@ export default class TradeParams extends Component {
     };
 
     static propTypes = {
-        actions: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,
         contract: PropTypes.object,
         compact: PropTypes.bool,
@@ -150,7 +150,7 @@ export default class TradeParams extends Component {
     }
 
     onDurationError = err => {
-        const { actions, index } = this.props;
+        const { index } = this.props;
         actions.updateTradeError(index, 'durationError', err);
     }
 
@@ -167,7 +167,7 @@ export default class TradeParams extends Component {
     }
 
     onBarrierError = err => {
-        const { actions, index } = this.props;
+        const { index } = this.props;
         actions.updateTradeError(index, 'barrierError', err);
     }
 
@@ -197,7 +197,7 @@ export default class TradeParams extends Component {
     }
 
     onCloseModal = () => {
-        const { actions, index } = this.props;
+        const { index } = this.props;
         actions.updateTradeError(index, 'purchaseError', undefined);
     }
 
@@ -214,19 +214,19 @@ export default class TradeParams extends Component {
     }
 
     onPurchase = () => {
-        const { actions, index, onPurchaseHook } = this.props;
+        const { index, onPurchaseHook } = this.props;
         actions.purchaseByTradeId(index).then(onPurchaseHook);
     }
 
     updateTradeParams = params => {
-        const { actions, index } = this.props;
+        const { index } = this.props;
         actions.updateMultipleTradeParams(index, params);
         actions.updatePriceProposalSubscription(index);
     }
 
     // TODO: create an action that update all at once
     clearTradeError = () => {
-        const { actions, index } = this.props;
+        const { index } = this.props;
         actions.updateTradeError(index, 'barrierError', undefined);
         actions.updateTradeError(index, 'durationError', undefined);
         actions.updateTradeError(index, 'proposalError', undefined);

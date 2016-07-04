@@ -1,12 +1,8 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
 import TabList from 'binary-components/lib/TabList';
 import Tab from 'binary-components/lib/Tab';
 
 export default class JpTradeTypesPicker extends Component {
-
-    static propTypes = {
-        actions: PropTypes.object.isRequired,
-    };
 
     render() {
         return (

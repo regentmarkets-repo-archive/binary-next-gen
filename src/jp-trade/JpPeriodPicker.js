@@ -1,10 +1,6 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
 
 export default class JpPeriodPicker extends Component {
-
-    static propTypes = {
-        actions: PropTypes.object.isRequired,
-    };
 
     render() {
         return (

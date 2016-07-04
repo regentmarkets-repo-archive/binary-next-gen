@@ -3,13 +3,13 @@ import dateToDateString from 'binary-utils/lib/dateToDateString';
 import todayLocaleString from 'binary-utils/lib/todayLocaleString';
 import oneYearAfterStr from 'binary-utils/lib/oneYearAfterStr';
 import InputGroup from 'binary-components/lib/InputGroup';
+import { actions } from '../_store';
 import MarketSubmarketPickerContainer from '../asset-picker/MarketSubmarketPickerContainer';
 import TradingTimesTable from './TradingTimesTable';
 
 export default class TradingTimesCard extends Component {
 
 	static propTypes = {
-		actions: PropTypes.object.isRequired,
 		assets: PropTypes.array.isRequired,
 		tradingTimes: PropTypes.array.isRequired,
 		tradingTimesFilter: PropTypes.object.isRequired,
@@ -23,7 +23,7 @@ export default class TradingTimesCard extends Component {
 	}
 
 	render() {
-		const { actions, tradingTimes, tradingTimesFilter } = this.props;
+		const { tradingTimes, tradingTimesFilter } = this.props;
 		const filter = tradingTimesFilter.filter;
 		const tradingTimesDate = tradingTimesFilter.date;
 

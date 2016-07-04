@@ -1,16 +1,16 @@
 import React, { PropTypes, Component } from 'react';
 import Tab from 'binary-components/lib/Tab';
 import TabList from 'binary-components/lib/TabList';
+import { actions } from '../_store';
 
 export default class StatementFilter extends Component {
 
 	static propTypes = {
-		actions: PropTypes.object.isRequired,
 		transactionsFilter: PropTypes.number.isRequired,
 	};
 
 	onFilterChange = idx =>
-		this.props.actions.updateTransactionsFilter(idx);
+		actions.updateTransactionsFilter(idx);
 
 	render() {
 		const { transactionsFilter } = this.props;

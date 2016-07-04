@@ -2,11 +2,11 @@ import React, { PropTypes, Component } from 'react';
 import { FormattedTime } from 'react-intl';
 import NumberPlain from 'binary-components/lib/NumberPlain';
 import NumberColored from 'binary-components/lib/NumberColored';
+import { actions } from '../_store';
 
 export default class StatementRow extends Component {
 
     static propTypes = {
-        actions: PropTypes.object.isRequired,
         compact: PropTypes.bool,
         contractId: PropTypes.string.isRequired,
         refN: PropTypes.string.isRequired,
@@ -21,7 +21,7 @@ export default class StatementRow extends Component {
     };
 
     viewContract = () => {
-        const { actions, compact, contractId } = this.props;
+        const { compact, contractId } = this.props;
         const { router } = this.context;
 
         actions.detailsForContract(contractId).then(() => {

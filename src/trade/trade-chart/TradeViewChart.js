@@ -1,5 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { BinaryChart } from 'binary-charts';
+import { actions } from '../../_store';
 import {
     internalTradeModelToServerTradeModel,
     serverContractModelToChartContractModel,
@@ -12,10 +13,12 @@ const zoomToLatest = chart => {
         chart.xAxis[0].setExtremes(dataMax - frameSize + 500, dataMax);
     }
 };
+
 const chartToDataType = {
     area: 'ticks',
     candlestick: 'candles',
 };
+
 export default class TradeViewChart extends Component {
 
     static contextTypes = {
@@ -23,7 +26,6 @@ export default class TradeViewChart extends Component {
     };
 
     static propTypes = {
-        actions: PropTypes.object.isRequired,
         contractForChart: PropTypes.object,
         ticks: PropTypes.array.isRequired,
         ohlc: PropTypes.array.isRequired,
@@ -56,13 +58,13 @@ export default class TradeViewChart extends Component {
     }
 
     rangeChange = () => {
-        const { actions, tradeForChart } = this.props;
+        const { tradeForChart } = this.props;
         const { dataType } = this.state;
         return (count, type) => actions.getDataForSymbol(tradeForChart.symbol, count, type, dataType);
     };
 
     changeChartType = type => {
-        const { actions, tradeForChart } = this.props;
+        const { tradeForChart } = this.props;
         const { chartType } = this.state;
 
         if (chartType === type) {

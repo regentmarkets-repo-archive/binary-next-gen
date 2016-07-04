@@ -1,14 +1,10 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import FullScreenSwitcher from './FullScreenSwitcher';
 import ClockContainer from './ClockContainer';
 import LanguagePicker from './LanguagePicker';
 
 export default class Footer extends Component {
-
-	static propTypes = {
-		actions: PropTypes.object.isRequired,
-	};
 
 	constructor(props) {
 		super(props);

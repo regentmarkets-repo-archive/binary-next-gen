@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import M from 'binary-components/lib/M';
 import Button from 'binary-components/lib/Button';
+import { actions } from '../_store';
 import * as LiveData from '../_data/LiveData';
 import VirtualTopUpConfirmation from './VirtualTopUpConfirmation';
 import Modal from '../containers/Modal';
@@ -8,7 +9,6 @@ import Modal from '../containers/Modal';
 export default class SettingsGeneral extends Component {
 
 	static propTypes = {
-		actions: PropTypes.object.isRequired,
 		loginid: PropTypes.string.isRequired,
 		boot: PropTypes.object.isRequired,
 		balance: PropTypes.string.isRequired,
@@ -16,10 +16,9 @@ export default class SettingsGeneral extends Component {
 	};
 
 	onThemeChange = e =>
-		this.props.actions.updateBoot('theme', e.target.value);
+		actions.updateBoot('theme', e.target.value);
 
 	async onTopup() {
-        const { actions } = this.props;
         try {
             const response = await LiveData.api.topUpVirtualAccount();
             actions.updateSettingFields({ topup_virtual: { topup_virtual: response.topup_virtual } });
@@ -29,7 +28,7 @@ export default class SettingsGeneral extends Component {
 	}
 
 	hideTopup = () =>
-		this.props.actions.updateSettingFields({ topup_virtual: null }, false);
+		actions.updateSettingFields({ topup_virtual: null }, false);
 
 	render() {
 		const { theme } = this.props.boot;

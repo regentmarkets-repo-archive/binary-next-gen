@@ -6,14 +6,13 @@ export default class SettingsCashier extends Component {
 
     static propTypes = {
 		cashier_password: PropTypes.number.isRequired,
-		actions: PropTypes.object.isRequired,
 	};
 
 	render() {
-		const { actions, cashier_password } = this.props;
+		const { cashier_password } = this.props;
 
         return cashier_password ?
-            <SettingsCashierLocked actions={actions} /> :
-            <SettingsCashierUnlocked actions={actions} />;
+            <SettingsCashierLocked /> :
+            <SettingsCashierUnlocked />;
 	}
 }

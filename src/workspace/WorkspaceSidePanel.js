@@ -29,7 +29,6 @@ const components = [
 export default class WorkspaceSidePanel extends Component {
 
 	static propTypes = {
-		actions: PropTypes.object.isRequired,
 		sideActiveTab: PropTypes.number.isRequired,
 		sidePanelSize: PropTypes.number.isRequired,
 	};
@@ -37,7 +36,7 @@ export default class WorkspaceSidePanel extends Component {
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
-		const { actions, sideActiveTab, sidePanelSize } = this.props;
+		const { sideActiveTab, sidePanelSize } = this.props;
 
 		const ActiveComponent = components[sideActiveTab];
 
@@ -46,7 +45,7 @@ export default class WorkspaceSidePanel extends Component {
 				className="workspace-panel"
 				style={{ width: sidePanelSize }}
 			>
-				<ActiveComponent actions={actions} />
+				<ActiveComponent />
 			</div>
 		);
 	}

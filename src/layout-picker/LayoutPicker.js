@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import { actions } from '../_store';
 import styles from '../layouts/layouts.css';
 import DropDown from '../containers/DropDown';
 import LayoutButtonPanel from './LayoutButtonPanel';
@@ -7,7 +8,6 @@ import LayoutButton from './LayoutButton';
 export default class LayoutPicker extends Component {
 
     static propTypes = {
-        actions: PropTypes.object.isRequired,
         tradesCount: PropTypes.number.isRequired,
         layoutN: PropTypes.number.isRequired,
     };
@@ -20,7 +20,6 @@ export default class LayoutPicker extends Component {
     }
 
     onLayoutChange = (...params) => {
-        const { actions } = this.props;
         actions.changeActiveLayout(...params);
         this.setState({ dropdownShown: false });
     }

@@ -1,16 +1,15 @@
 import React, { PropTypes, Component } from 'react';
 import Tab from 'binary-components/lib/Tab';
 import TabList from 'binary-components/lib/TabList';
+import { actions } from '../_store';
 
 export default class WorkspaceCard extends Component {
 
 	static propTypes = {
-		actions: PropTypes.object.isRequired,
 		activeTab: PropTypes.number.isRequired,
 	};
 
 	onTabChange = idx => {
-		const { actions } = this.props;
 		actions.changeActiveWorkspaceTab('side', idx);
 	}
 

@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
+import { actions } from '../_store';
 import TradeViewChart from './trade-chart/TradeViewChart';
 import TradeParams from '../trade-params/TradeParams';
 import ContractReceipt from '../contract-details/ContractReceipt';
@@ -8,7 +9,6 @@ import ContractReceipt from '../contract-details/ContractReceipt';
 export default class TradeXCard extends Component {
 
     static propTypes = {
-        actions: PropTypes.object.isRequired,
         compact: PropTypes.bool,
         contractReceiptProps: PropTypes.object,
         chartProps: PropTypes.object.isRequired,
@@ -19,7 +19,7 @@ export default class TradeXCard extends Component {
     shouldComponentUpdate = shouldPureComponentUpdate;
 
     tradeAgain = () => {
-        const { actions, index } = this.props;
+        const { index } = this.props;
         actions.closeContractReceipt(index);
     }
 
@@ -31,22 +31,20 @@ export default class TradeXCard extends Component {
     }
 
     render() {
-        const { actions, chartProps, contractReceiptProps, compact, paramsProps } = this.props;
+        const { chartProps, contractReceiptProps, compact, paramsProps } = this.props;
         return (
             <div className="trade-panel">
                 <div className="trade-chart-container">
-                    <TradeViewChart actions={actions} {...immutableChildrenToJS(chartProps)} />
+                    <TradeViewChart {...immutableChildrenToJS(chartProps)} />
                 </div>
                 {contractReceiptProps &&
                     <ContractReceipt
-                        actions={actions}
                         contract={contractReceiptProps.toJS()}
                         showLongcode
                         onTradeAgainClicked={this.tradeAgain}
                     />
                 }
                 <TradeParams
-                    actions={actions}
                     {...immutableChildrenToJS(paramsProps)}
                     compact={compact}
                     onPurchaseHook={this.zoomWhenPurchase}

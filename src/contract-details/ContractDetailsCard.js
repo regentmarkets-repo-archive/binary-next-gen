@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import { BinaryChart } from 'binary-charts';
+import { actions } from '../_store';
 import ContractReceipt from './ContractReceipt';
 
 const chartToDataType = {
@@ -11,7 +12,6 @@ export default class ContractDetailsCard extends Component {
 
 	static propTypes = {
 		contract: PropTypes.object.isRequired,
-		actions: PropTypes.object,
 		pipSize: PropTypes.number,
 		theme: PropTypes.string,
 		chartData: PropTypes.shape({
@@ -29,7 +29,7 @@ export default class ContractDetailsCard extends Component {
 	}
 
 	changeChartType = type => {
-		const { actions, contract } = this.props;
+		const { contract } = this.props;
 		const { chartType } = this.state;
 
 		if (chartType === type) {
@@ -43,7 +43,7 @@ export default class ContractDetailsCard extends Component {
 	}
 
 	render() {
-		const { contract, chartData, actions, pipSize, theme } = this.props;
+		const { contract, chartData, pipSize, theme } = this.props;
 		const { chartType, dataType } = this.state;
 		const { ticks, candles } = chartData;
 
@@ -68,7 +68,7 @@ export default class ContractDetailsCard extends Component {
 						typeChange={allowCandle && this.changeChartType}
 						pipSize={pipSize}
 					/>
-					<ContractReceipt actions={actions} contract={contract} />
+					<ContractReceipt contract={contract} />
 				</div>
 			</div>
 		);

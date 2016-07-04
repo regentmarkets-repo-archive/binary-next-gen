@@ -10,7 +10,6 @@ import StatementRow from './StatementRow';
 export default class StatementTable extends Component {
 
 	static propTypes = {
-		actions: PropTypes.object.isRequired,
 		compact: PropTypes.bool,
 		transactions: PropTypes.array.isRequired,
 		currency: PropTypes.string.isRequired,
@@ -18,7 +17,7 @@ export default class StatementTable extends Component {
 	};
 
 	render() {
-		const { actions, compact, currency, transactions, transactionsTotal } = this.props;
+		const { compact, currency, transactions, transactionsTotal } = this.props;
 
 		if (transactions.length === 0) {
 			return <P className="notice-msg" text="No transactions for the selected period" />;
@@ -40,7 +39,6 @@ export default class StatementTable extends Component {
 				<tbody>
 					{transactions.map((transaction, idx) =>
 						<StatementRow
-							actions={actions}
 							key={idx}
 							compact={compact}
 							{...transaction}

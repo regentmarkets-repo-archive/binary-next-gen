@@ -5,7 +5,6 @@ import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
 
 export default class TradeParamsContainer extends Component {
     static propTypes = {
-        actions: PropTypes.object.isRequired,
         compact: PropTypes.bool,
         paramsProps: PropTypes.object.isRequired,
     };
@@ -13,10 +12,9 @@ export default class TradeParamsContainer extends Component {
     shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
-        const { actions, compact, paramsProps } = this.props;
+        const { compact, paramsProps } = this.props;
         return (
-            <TradeParams actions={actions} compact={compact} {...(immutableChildrenToJS(paramsProps))} />
+            <TradeParams compact={compact} {...immutableChildrenToJS(paramsProps)} />
         );
     }
 }
-

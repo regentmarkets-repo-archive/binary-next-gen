@@ -4,6 +4,7 @@ import Button from 'binary-components/lib/Button';
 import States from '../settings/States';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import Countries from 'binary-components/lib/Countries';
+import { actions } from '../_store';
 
 export default class UpgradeStep2 extends Component {
 
@@ -14,7 +15,6 @@ export default class UpgradeStep2 extends Component {
 		addressLine1: PropTypes.string.isRequired,
 		addressLine2: PropTypes.string,
 		phone: PropTypes.string.isRequired,
-		actions: PropTypes.object.isRequired,
 		residence: PropTypes.string.isRequired,
 	};
 
@@ -23,36 +23,34 @@ export default class UpgradeStep2 extends Component {
 		this.state = { showErr: false };
 	}
 
-	onCountryChange = e => {
-		this.props.actions.upgradeFieldUpdate('residence', e.target.value);
-	}
+	onCountryChange = e =>
+		actions.upgradeFieldUpdate('residence', e.target.value);
 
-	onStateChange = e => {
-		this.props.actions.upgradeFieldUpdate('addressState', e.target.value);
-	}
+	onStateChange = e =>
+		actions.upgradeFieldUpdate('addressState', e.target.value);
 
 	onCityChange = e => {
 		this.setState({ showErr: true });
-		this.props.actions.upgradeFieldUpdate('addressCity', e.target.value);
+		actions.upgradeFieldUpdate('addressCity', e.target.value);
 	}
 
 	onPostcodeChange = e => {
-		this.props.actions.upgradeFieldUpdate('addressPostcode', e.target.value);
+		actions.upgradeFieldUpdate('addressPostcode', e.target.value);
 	}
 
 	onAddress1Change = e => {
 		this.setState({ showErr: true });
-		this.props.actions.upgradeFieldUpdate('addressLine1', e.target.value);
+		actions.upgradeFieldUpdate('addressLine1', e.target.value);
 	}
 
 	onAddress2Change(e) {
 		this.setState({ showErr: true });
-		this.props.actions.upgradeFieldUpdate('addressLine2', e.target.value);
+		actions.upgradeFieldUpdate('addressLine2', e.target.value);
 	}
 
 	onPhoneChange(e) {
 		this.setState({ showErr: true });
-		this.props.actions.upgradeFieldUpdate('phone', e.target.value);
+		actions.upgradeFieldUpdate('phone', e.target.value);
 	}
 
 	cityValid = city =>
@@ -69,7 +67,7 @@ export default class UpgradeStep2 extends Component {
 
 	previousStep = e => {
 		e.preventDefault();
-		this.props.actions.upgradeFieldUpdate('activeStep', 0);
+		actions.upgradeFieldUpdate('activeStep', 0);
 	}
 
 	nextStep = e => {
@@ -85,7 +83,7 @@ export default class UpgradeStep2 extends Component {
 			address1Valid &&
 			phoneValid &&
 			residence) {
-			this.props.actions.upgradeFieldUpdate('activeStep', 2);
+			actions.upgradeFieldUpdate('activeStep', 2);
 		}
 	}
 

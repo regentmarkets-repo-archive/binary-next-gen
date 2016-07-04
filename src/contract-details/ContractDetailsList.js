@@ -16,7 +16,6 @@ export default class ContractDetailsList extends Component {
 		contract: PropTypes.object.isRequired,
 		nowEpoch: PropTypes.number,
 		transactionId: PropTypes.number,
-		actions: PropTypes.object,
 	};
 
 	render() {

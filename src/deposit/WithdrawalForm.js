@@ -5,6 +5,7 @@ import Button from 'binary-components/lib/Button';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import InputGroup from 'binary-components/lib/InputGroup';
 import SelectGroup from 'binary-components/lib/SelectGroup';
+import { actions } from '../_store';
 import Modal from '../containers/Modal';
 import currencies from '../_constants/currencies';
 import * as LiveData from '../_data/LiveData';
@@ -14,7 +15,6 @@ export default class WithdrawForm extends Component {
     static propTypes = {
         paymentAgent: PropTypes.object.isRequired,
         currency: PropTypes.oneOf(currencies).isRequired,
-        actions: PropTypes.object,
         email: PropTypes.string,
     };
 
@@ -23,40 +23,30 @@ export default class WithdrawForm extends Component {
         await LiveData.api.sendVerificationEmail(email);
     }
 
-    onAmountChange = event => {
-        const { actions } = this.props;
+    onAmountChange = event =>
         actions.updatePaymentAgentField('withdrawAmount', event.target.value);
-    }
 
-    onVerificationCodeChange = event => {
-        const { actions } = this.props;
+    onVerificationCodeChange = event =>
         actions.updatePaymentAgentField('verificationCode', event.target.value);
-    }
 
-    selectPaymentAgent = event => {
-        const { actions } = this.props;
+    selectPaymentAgent = event =>
         actions.updatePaymentAgentField('selectedPaymentAgent', event.target.value);
-    }
 
-    withdraw = () => {
-        const { actions } = this.props;
+    withdraw = () =>
         actions.updatePaymentAgentField('withdrawClicked', false);
-    }
 
-    confirm = () => {
-        const { actions } = this.props;
+    confirm = () =>
         actions.updatePaymentAgentField('confirmClicked', false);
-    }
 
     tryWithdraw() {
-        const { currency, paymentAgent, actions } = this.props;
+        const { currency, paymentAgent } = this.props;
         const { selectedPaymentAgent, withdrawAmount, verificationCode } = paymentAgent;
         actions.updatePaymentAgentField('withdrawClicked', true);
         actions.withdrawToPaymentAgentDryRun(selectedPaymentAgent, currency, withdrawAmount, verificationCode);
     }
 
     confirmWithdraw = () => {
-        const { currency, actions, paymentAgent } = this.props;
+        const { currency, paymentAgent } = this.props;
         const { selectedPaymentAgent, withdrawAmount, verificationCode } = paymentAgent;
         actions.updatePaymentAgentField('withdrawClicked', false);
         actions.updatePaymentAgentField('confirmClicked', true);

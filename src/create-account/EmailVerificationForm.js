@@ -3,12 +3,12 @@ import M from 'binary-components/lib/M';
 import Button from 'binary-components/lib/Button';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import InputGroup from 'binary-components/lib/InputGroup';
+import { actions } from '../_store';
 import * as LiveData from '../_data/LiveData';
 
 export default class EmailVerificationForm extends Component {
 
     static propTypes = {
-        actions: PropTypes.object.isRequired,
         error: PropTypes.object,
         email: PropTypes.string.isRequired,
         password: PropTypes.string.isRequired,
@@ -21,7 +21,6 @@ export default class EmailVerificationForm extends Component {
     };
 
     async onVerificationCodeEntered(event) {
-        const { actions } = this.props;
         try {
             await actions.createAccountFieldUpdate('verificationCode', event.target.value);
             await actions.createAccountFieldUpdate('error', null);
@@ -31,7 +30,7 @@ export default class EmailVerificationForm extends Component {
     }
 
     async onVerify() {
-        const { actions, password, residence, verificationCode } = this.props;
+        const { password, residence, verificationCode } = this.props;
         const { router } = this.context;
 
         actions.createAccountFieldUpdate('progress', true);
@@ -50,7 +49,6 @@ export default class EmailVerificationForm extends Component {
     }
 
     async goBack() {
-        const { actions } = this.props;
         await actions.createAccountFieldUpdate('error', null);
         actions.createAccountFieldUpdate('step', 0);
     }

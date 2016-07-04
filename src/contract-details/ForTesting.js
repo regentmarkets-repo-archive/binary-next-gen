@@ -1,10 +1,10 @@
 import React, { PropTypes, Component } from 'react';
+import { actions } from '../_store';
 import ContractDetailsContainer from './ContractDetailsContainer';
 
 export default class ForTesting extends Component {
 
     static propTypes = {
-        actions: PropTypes.object.isRequired,
         params: PropTypes.object.isRequired,
     };
 
@@ -16,15 +16,14 @@ export default class ForTesting extends Component {
     }
 
     componentDidMount() {
-        const { actions, params } = this.props;
+        const { params } = this.props;
         actions.detailsForContract(params.id).then(() => this.setState({ done: true }));
     }
 
     render() {
-        const { actions } = this.props;
         const { done } = this.state;
         return (
-            done ? <ContractDetailsContainer actions={actions} /> : null
+            done ? <ContractDetailsContainer /> : null
         );
     }
 }

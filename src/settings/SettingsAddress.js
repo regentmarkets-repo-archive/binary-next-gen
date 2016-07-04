@@ -3,13 +3,13 @@ import M from 'binary-components/lib/M';
 import Button from 'binary-components/lib/Button';
 import InputGroup from 'binary-components/lib/InputGroup';
 import showError from 'binary-utils/lib/showError';
+import { actions } from '../_store';
 import States from './States';
 import * as LiveData from '../_data/LiveData';
 
 export default class SettingsAddress extends Component {
 
 	static propTypes = {
-		actions: PropTypes.object.isRequired,
 		address_line_1: PropTypes.string.isRequired,
 		address_line_2: PropTypes.string.isRequired,
 		address_city: PropTypes.string.isRequired,
@@ -34,7 +34,7 @@ export default class SettingsAddress extends Component {
 	}
 
     componentWillMount() {
-        const { actions, country_code } = this.props;
+        const { country_code } = this.props;
         actions.getStatesForCountry(country_code);
     }
 
@@ -43,7 +43,7 @@ export default class SettingsAddress extends Component {
 
 	tryUpdate = () => {
 		LiveData.api.setAccountSettings(this.state).then(() => {
-				this.props.actions.updateSettingFields(this.state);
+				actions.updateSettingFields(this.state);
 			}).catch(response => {
 				showError(response.error.message);
 			}
@@ -51,7 +51,7 @@ export default class SettingsAddress extends Component {
 	}
 
 	render() {
-		const { actions, states } = this.props;
+		const { states } = this.props;
 		const { address_line_1, address_line_2, address_city, address_state,
 			address_postcode, country_code, phone } = this.state;
 
@@ -83,7 +83,6 @@ export default class SettingsAddress extends Component {
 				/>
 				<States
 					id="address_state"
-					actions={actions}
 					country={country_code}
 					states={states}
 					onChange={this.onEntryChange}

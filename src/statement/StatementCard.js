@@ -5,7 +5,6 @@ import StatementTable from './StatementTable';
 export default class StatementCard extends Component {
 
 	static propTypes = {
-		actions: PropTypes.object.isRequired,
 		currency: PropTypes.string.isRequired,
 		compact: PropTypes.bool,
 		transactionsFilter: PropTypes.number.isRequired,

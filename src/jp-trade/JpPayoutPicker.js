@@ -1,12 +1,8 @@
-import React, { PropTypes, Component } from 'react';
+import React, { Component } from 'react';
 import Button from 'binary-components/lib/Button';
 import Th from 'binary-components/lib/Th';
 
 export default class JpTradeCard extends Component {
-
-    static propTypes = {
-        actions: PropTypes.object.isRequired,
-    };
 
     render() {
         return (

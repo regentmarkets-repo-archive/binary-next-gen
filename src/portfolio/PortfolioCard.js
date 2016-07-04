@@ -1,5 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 import P from 'binary-components/lib/P';
+import { actions } from '../_store';
 import PortfolioList from './PortfolioList';
 
 export default class PortfolioCard extends Component {
@@ -12,7 +13,6 @@ export default class PortfolioCard extends Component {
 		indicativeTotal: PropTypes.number,
 		history: PropTypes.object,
 		onViewDetails: PropTypes.func,
-		actions: PropTypes.object,
 	};
 
 	static contextTypes = {
@@ -20,7 +20,7 @@ export default class PortfolioCard extends Component {
 	};
 
 	onViewDetails = contract => {
-		const { actions, compact } = this.props;
+		const { compact } = this.props;
 		const { router } = this.context;
 
 		actions

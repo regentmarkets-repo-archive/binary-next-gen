@@ -5,19 +5,19 @@ import CloseButton from 'binary-components/lib/CloseButton';
 import NumberPlain from 'binary-components/lib/NumberPlain';
 import NumberColored from 'binary-components/lib/NumberColored';
 import OpenCloseNotice from 'binary-components/lib/OpenCloseNotice';
+import { actions } from '../_store';
 import WatchlistSparkline from './WatchlistSparkline';
 
 export default class WatchlistRow extends Component {
 
 	static propTypes = {
-		actions: PropTypes.object.isRequired,
 		item: PropTypes.any.isRequired,
 	};
 
 	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	onRemove = () => {
-		const { actions, item } = this.props;
+		const { item } = this.props;
 		actions.watchlistToggleAsset(item.get('symbol'), false);
 	}
 

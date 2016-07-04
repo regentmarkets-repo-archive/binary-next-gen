@@ -3,11 +3,11 @@ import M from 'binary-components/lib/M';
 import Button from 'binary-components/lib/Button';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import DateOfBirth from 'binary-components/lib/DateOfBirth';
+import { actions } from '../_store';
 
 export default class UpgradeStep1 extends Component {
 
 	static propTypes = {
-		actions: PropTypes.object.isRequired,
 		firstName: PropTypes.string.isRequired,
 		lastName: PropTypes.string.isRequired,
 		dateOfBirth: PropTypes.instanceOf(Date).isRequired,
@@ -19,17 +19,17 @@ export default class UpgradeStep1 extends Component {
 	}
 
 	onSalutationChange = e => {
-		this.props.actions.upgradeFieldUpdate('salutation', e.target.value);
+		actions.upgradeFieldUpdate('salutation', e.target.value);
 	}
 
 	onFirstNameChange = e => {
 		this.setState({ showErr: true });
-		this.props.actions.upgradeFieldUpdate('firstName', e.target.value);
+		actions.upgradeFieldUpdate('firstName', e.target.value);
 	}
 
 	onLastNameChange = e => {
 		this.setState({ showErr: true });
-		this.props.actions.upgradeFieldUpdate('lastName', e.target.value);
+		actions.upgradeFieldUpdate('lastName', e.target.value);
 	}
 
 	onFirstNameValid = firstName =>
@@ -38,24 +38,21 @@ export default class UpgradeStep1 extends Component {
 	onLastNameValid = lastName =>
 		/^[a-zA-Z\s'.-]{2,30}$/.test(lastName);
 
-	onDayChange = e => {
-		this.props.actions.upgradeDOBUpdate('day', e.target.value);
-	}
+	onDayChange = e =>
+		actions.upgradeDOBUpdate('day', e.target.value);
 
-	onMonthChange = e => {
-		this.props.actions.upgradeDOBUpdate('month', e.target.value);
-	}
+	onMonthChange = e =>
+		actions.upgradeDOBUpdate('month', e.target.value);
 
-	onYearChange = e => {
-		this.props.actions.upgradeDOBUpdate('year', e.target.value);
-	}
+	onYearChange = e =>
+		actions.upgradeDOBUpdate('year', e.target.value);
 
 	nextStep = e => {
 		e.preventDefault();
 		this.setState({ showErr: true });
 		const { firstName, lastName } = this.props;
 		if (this.fNameValid(firstName) && this.lNameValid(lastName)) {
-			this.props.actions.upgradeFieldUpdate('activeStep', 1);
+			actions.upgradeFieldUpdate('activeStep', 1);
 		}
 	}
 
@@ -63,6 +60,7 @@ export default class UpgradeStep1 extends Component {
 		const { firstName, lastName, dateOfBirth } = this.props;
 		const fnameValid = this.fNameValid(firstName);
 		const lnameValid = this.lNameValid(lastName);
+
 		return (
 			<div>
 				<p>

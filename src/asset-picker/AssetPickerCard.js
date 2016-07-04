@@ -1,4 +1,5 @@
 import React, { PropTypes, Component } from 'react';
+import { actions } from '../_store';
 import AssetPickerFilter from './AssetPickerFilter';
 import AssetPickerList from './AssetPickerList';
 import M from 'binary-components/lib/M';
@@ -6,7 +7,6 @@ import M from 'binary-components/lib/M';
 export default class AssetPickerCard extends Component {
 
 	static propTypes = {
-		actions: PropTypes.object.isRequired,
 		index: PropTypes.number,
 		compact: PropTypes.bool,
 		history: PropTypes.object,
@@ -16,7 +16,7 @@ export default class AssetPickerCard extends Component {
 	};
 
 	onSelect = newAsset => {
-		const { index, actions } = this.props;
+		const { index } = this.props;
 
 		actions.changeSelectedAsset(newAsset);
 		actions.updateTradeUIState(index, 'disabled', true);
@@ -28,16 +28,15 @@ export default class AssetPickerCard extends Component {
 	}
 
 	onToggleWatchlistItem = asset => {
-		const { actions } = this.props;
 		actions.watchlistToggleAsset(asset.symbol, !asset.isInWatchlist);
 	}
 
 	render() {
-		const { actions, assetPickerItems, selectedAsset, filter, compact } = this.props;
+		const { assetPickerItems, selectedAsset, filter, compact } = this.props;
 
 		return (
 			<div className="asset-picker-container">
-				<AssetPickerFilter actions={actions} compact={compact} filter={filter} />
+				<AssetPickerFilter compact={compact} filter={filter} />
 				<AssetPickerList
 					{...this.props}
 					assets={assetPickerItems}

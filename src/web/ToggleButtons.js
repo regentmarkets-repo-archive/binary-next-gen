@@ -1,20 +1,20 @@
 import React, { PropTypes, Component } from 'react';
 import classNames from 'classnames';
+import { actions } from '../_store';
 
 export default class ToggleButtons extends Component {
 
 	static propTypes = {
-		actions: PropTypes.object.isRequired,
 		leftPanelVisible: PropTypes.bool.isRequired,
 		sidePanelVisible: PropTypes.bool.isRequired,
 		tradeMode: PropTypes.string.isRequired,
 	};
 
 	switchToTabs = () =>
-		this.props.actions.changeTradeMode('tabs');
+		actions.changeTradeMode('tabs');
 
 	switchToGrid = () =>
-		this.props.actions.changeTradeMode('grid');
+		actions.changeTradeMode('grid');
 
 	render() {
 		const { tradeMode } = this.props;

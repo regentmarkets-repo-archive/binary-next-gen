@@ -2,16 +2,13 @@ import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
+import { actions } from '../_store';
 import MobilePage from '../containers/MobilePage';
 import TradeTypePicker from './TradeTypePicker';
 import { mobileTradeTypePickerSelector } from '../trade/mobile/singleTradeSelectors';
 
 @connect(mobileTradeTypePickerSelector)
 export default class TradeTypePickerMobile extends Component {
-
-	static propTypes = {
-		actions: PropTypes.object.isRequired,
-	};
 
 	static contextTypes = {
 		router: PropTypes.object,
@@ -25,13 +22,11 @@ export default class TradeTypePickerMobile extends Component {
 	}
 
 	updateParamsForMobile = params => {
-		const { actions } = this.props;
 		actions.updateMultipleTradeParams(0, params);
 		actions.updatePriceProposalSubscription(0);
 	}
 
 	clearTradeError = () => {
-		const { actions } = this.props;
 		actions.updateTradeError(0, 'barrierError', undefined);
 		actions.updateTradeError(0, 'durationError', undefined);
 		actions.updateTradeError(0, 'proposalError', undefined);
@@ -39,12 +34,13 @@ export default class TradeTypePickerMobile extends Component {
 	}
 
 	render() {
-		const { actions, contract, params } = immutableChildrenToJS(this.props);
+		const { contract, params } = immutableChildrenToJS(this.props);
+
 		if (!contract) return null;
+
 		return (
 			<MobilePage toolbarShown={false} backBtnBarTitle="Trade Type">
 				<TradeTypePicker
-					actions={actions}
 					contract={contract}
 					tradeParams={params}
 					onSelect={this.onSelectForMobile}

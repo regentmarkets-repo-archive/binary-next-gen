@@ -18,7 +18,6 @@ const components = [
 export default class SettingsCard extends Component {
 
     static propTypes = {
-		actions: PropTypes.object.isRequired,
         settings: PropTypes.object.isRequired,
 		loginid: PropTypes.string.isRequired,
 		boot: PropTypes.object.isRequired,
@@ -32,7 +31,7 @@ export default class SettingsCard extends Component {
 	onTabChange = idx => this.setState({ activeTab: idx });
 
 	render() {
-		const { actions, loginid, settings } = this.props;
+		const { loginid, settings } = this.props;
 		const { activeTab } = this.state;
 		const isVirtual = loginid.startsWith('VRTC');
 		const ActiveComponent = components[activeTab];
@@ -49,7 +48,7 @@ export default class SettingsCard extends Component {
 					{!isVirtual && <Tab text="Self Exclusion" />}
 					{!isVirtual && <Tab text="Limits" />}
 				</TabList>
-				<ActiveComponent actions={actions} {...this.props} {...settings} />
+				<ActiveComponent {...this.props} {...settings} />
 			</div>
 		);
 	}

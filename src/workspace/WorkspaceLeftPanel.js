@@ -10,12 +10,11 @@ const components = [
 export default class WorkspaceLeftPanel extends Component {
 
 	static propTypes = {
-		actions: PropTypes.object.isRequired,
 		workspace: PropTypes.object.isRequired,
 	};
 
 	render() {
-		const { actions, workspace } = this.props;
+		const { workspace } = this.props;
 
 		const ActiveComponent = components[workspace.leftActiveTab];
 
@@ -24,7 +23,7 @@ export default class WorkspaceLeftPanel extends Component {
 				className="workspace-panel"
 				style={{ width: workspace.leftPanelSize }}
 			>
-				<ActiveComponent actions={actions} />
+				<ActiveComponent />
 			</div>
 		);
 	}

@@ -18,7 +18,6 @@ import { changeCategory, changeType } from '../trade-params/TradeParamsCascading
 export default class TradeTypePicker extends Component {
 
     static propTypes = {
-        actions: PropTypes.object.isRequired,
         contract: PropTypes.object.isRequired,
         onSelect: PropTypes.func,
         tradeParams: PropTypes.object.isRequired,

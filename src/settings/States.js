@@ -3,7 +3,6 @@ import React, { Component, PropTypes } from 'react';
 export default class States extends Component {
 
     static propTypes = {
-        actions: PropTypes.object.isRequired,
         onChange: PropTypes.func.isRequired,
         states: PropTypes.array.isRequired,
         selected: PropTypes.string,

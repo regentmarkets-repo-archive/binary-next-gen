@@ -1,18 +1,18 @@
 import React, { Component, PropTypes } from 'react';
 import DigitStatsChart from 'binary-components/lib/DigitStatsChart';
+import { actions } from '../_store';
 import DigitStatsFilter from './DigitStatsFilter';
 
 export default class DigitStatsCard extends Component {
 
     static propTypes = {
-        actions: PropTypes.object.isRequired,
         symbol: PropTypes.string.isRequired,
         filter: PropTypes.number,
         stats: PropTypes.array,
     };
 
     componentDidMount() {
-        const { actions, symbol, filter, stats } = this.props;
+        const { symbol, filter, stats } = this.props;
 
         if (stats && stats.length > 0 && stats.length < filter) {
             actions.getTicksByCount(symbol, filter);
@@ -21,7 +21,7 @@ export default class DigitStatsCard extends Component {
 
     updateFilter = e => {
         const newFilter = e.target.value;
-        const { actions, symbol } = this.props;
+        const { symbol } = this.props;
         actions.updateDigitStatFilter(+newFilter);
         actions.getTicksByCount(symbol, +newFilter);
     }

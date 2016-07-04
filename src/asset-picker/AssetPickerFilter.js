@@ -1,12 +1,12 @@
 import React, { PropTypes, Component } from 'react';
 import { findDOMNode } from 'react-dom';
 import InputGroup from 'binary-components/lib/InputGroup';
+import { actions } from '../_store';
 import MarketSubmarketPickerContainer from './MarketSubmarketPickerContainer';
 
 export default class AssetPickerFilter extends Component {
 
 	static propTypes = {
-		actions: PropTypes.object.isRequired,
 		compact: PropTypes.bool,
 		filter: PropTypes.object.isRequired,
 	};
@@ -20,12 +20,10 @@ export default class AssetPickerFilter extends Component {
 	}
 
 	onSearchQueryChange = e => {
-		const { actions } = this.props;
 		actions.updateAssetPickerSearchQuery(e.target.value);
 	}
 
 	onFilterChange = e => {
-		const { actions } = this.props;
 		actions.updateAssetPickerFilter(e);
 	}
 

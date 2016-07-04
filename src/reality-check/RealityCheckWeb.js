@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import nowAsEpoch from 'binary-utils/lib/nowAsEpoch';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
+import { actions } from '../_store';
 import Modal from '../containers/Modal';
 import RealityCheckInitialCard from './RealityCheckInitialCard';
 import RealityCheckSummaryCard from './RealityCheckSummaryCard';
@@ -10,7 +11,6 @@ export const timeLeftToNextRealityCheck = (loginTime, interval) =>
 
 export default class RealityCheckWeb extends Component {
     static propTypes = {
-        actions: PropTypes.object.isRequired,
         interval: PropTypes.number.isRequired,           // in seconds
         showInitial: PropTypes.bool,
         showSummary: PropTypes.bool,
@@ -25,7 +25,7 @@ export default class RealityCheckWeb extends Component {
     }
 
     confirmIntervalUpdate = () => {
-        const { actions, interval, summary } = this.props;
+        const { interval, summary } = this.props;
         const { rcError } = this.state;
 
         if (rcError) {
@@ -42,7 +42,6 @@ export default class RealityCheckWeb extends Component {
     }
 
     updateInterval = (interval) => {
-        const { actions } = this.props;
         if (+interval > 120 || + interval < 10) {
             this.setState({ rcError: true });
         } else {

@@ -1,1 +1,1 @@
-export { actions, store } from './persistentStore/';
+export { actions, store } from './persistentStore';

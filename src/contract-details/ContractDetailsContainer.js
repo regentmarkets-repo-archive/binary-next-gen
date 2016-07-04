@@ -2,6 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
+import { actions } from '../_store';
 import contractDetailsSelectors from './ContractDetailsSelectors';
 import ContractDetailsCard from './ContractDetailsCard';
 
@@ -18,11 +19,10 @@ export default class ContractDetailsContainer extends Component {
 			ticks: PropTypes.array,
 			candles: PropTypes.array,
 		}),
-		actions: PropTypes.object.isRequired,
 	};
 
 	componentWillMount() {
-		const { actions, chartData, contract } = this.props;
+		const { chartData, contract } = this.props;
 		const { ticks } = chartData;
 
 		if (!ticks) {

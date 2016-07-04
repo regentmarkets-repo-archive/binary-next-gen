@@ -42,7 +42,7 @@ export default class Root extends Component {
         if (!Object.keys(props.routeParams).length) {
             props.routeParams = emptyObject;
         }
-        return <Element {...props} actions={actions} />;
+        return <Element {...props} />;
     }
 
     render() {

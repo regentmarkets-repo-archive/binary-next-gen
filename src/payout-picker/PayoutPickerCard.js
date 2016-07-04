@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import RadioGroup from 'binary-components/lib/RadioGroup';
 import InputGroup from 'binary-components/lib/InputGroup';
+import { actions } from '../_store';
 
 const basisTypes = [
 	{ value: 'payout', text: 'Payout' },
@@ -14,7 +15,6 @@ const minAmount = 1;
 export default class PayoutPickerCard extends Component {
 
 	static propTypes = {
-		actions: PropTypes.object.isRequired,
 		location: PropTypes.object.isRequired,
 		params: PropTypes.object.isRequired,
 		trades: PropTypes.array.isRequired,
@@ -27,7 +27,6 @@ export default class PayoutPickerCard extends Component {
 		this.updateValue('amount', e.target.value);
 
 	updateValue(name, value) {
-		const { actions } = this.props;
 		const { id } = this.props.params;
 
 		if (name === 'amount') {
