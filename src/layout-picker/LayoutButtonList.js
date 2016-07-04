@@ -22,10 +22,10 @@ export default class LayoutButtonList extends Component {
                 {layoutNumbers().map(x =>
                     <LayoutButton
                         key={`${x.trade}-${x.layout}`}
+                        actions={actions}
                         isActive={tradesCount === x.trade && layoutN === x.layout}
                         tradesCount={x.trade}
                         layoutN={x.layout}
-                        onClick={() => actions.changeActiveLayout(x.trade, x.layout)}
                     />
                 )}
             </div>

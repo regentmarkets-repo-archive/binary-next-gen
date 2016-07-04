@@ -8,16 +8,21 @@ import styles from '../layouts/layouts.css';
 export default class LayoutButton extends Component {
 
     static propTypes = {
+        actions: PropTypes.object.isRequired,
         isActive: PropTypes.bool,
         tradesCount: PropTypes.number.isRequired,
         layoutN: PropTypes.number.isRequired,
-        onClick: PropTypes.func.isRequired,
     };
 
     shouldComponentUpdate = shouldPureComponentUpdate;
 
+    onClick = () => {
+        const { actions, tradesCount, layoutN } = this.props;
+        actions.changeActiveLayout(tradesCount, layoutN);
+    }
+
     render() {
-        const { isActive, tradesCount, layoutN, onClick } = this.props;
+        const { isActive, tradesCount, layoutN } = this.props;
         const classes = classNames({
             [styles.layoutBtn]: true,
             [styles[`layout-${tradesCount}-${layoutN}`]]: true,
@@ -28,6 +33,6 @@ export default class LayoutButton extends Component {
             <div className={styles.layoutMini} key={idx} />
         );
 
-        return layout(miniLayouts, classes, onClick);
+        return layout(miniLayouts, classes, this.onClick);
     }
 }
