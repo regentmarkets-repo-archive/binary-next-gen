@@ -35,8 +35,11 @@ export const requireAuthOnEnter = (nextState, replace, callback) => {
     const authorized = store.getState().appState.get('authorized');
     if (!authorized) {
         const oAuthUrl = `https://oauth.binary.com/oauth2/authorize?app_id=${window.BinaryBoot.appId}`;
-        window.open(oAuthUrl);
-        // window.location = oAuthUrl;
+        if (window.cordova) {
+            window.open(oAuthUrl);
+        } else {
+            window.location = oAuthUrl;
+        }
     }
     //     replace({ pathname: '/signin', state: nextState });
     callback();
