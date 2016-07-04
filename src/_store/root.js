@@ -1,15 +1,13 @@
-import React, { Component, PropTypes } from 'react';
+import React, { Component } from 'react';
 import { addLocaleData } from 'react-intl';
 import { Provider } from 'react-redux';
-import { bindActionCreators } from 'redux';
-import { store, rehydratedStorePromise } from './persistentStore';
+import { store, rehydratedStorePromise, actions } from './persistentStore';
 import { Router } from 'react-router';
 import { trackRoute } from 'binary-utils/lib/Analytics';
 import routes from '../_routes';
 import history from '../_routes/hashHistory';
 import { tryAuth } from '../_data/Auth';
 import * as LiveData from '../_data/LiveData';
-import * as allActions from '../_actions';
 import AppStateProvider from './AppStateProvider';
 import BootProvider from './BootProvider';
 
@@ -23,15 +21,6 @@ addLocaleData({
 const emptyObject = {};
 
 export default class Root extends Component {
-    static childContextTypes = {
-        theme: PropTypes.string,
-    };
-
-    getChildContext() {
-        return {
-            theme: 'light',
-        };
-    }
 
     async componentWillMount() {
         const reyhdratedStore = await rehydratedStorePromise;
@@ -40,14 +29,12 @@ export default class Root extends Component {
         await LiveData.connect(reyhdratedStore);
         const token = state.account.get('token');
 
-        this.actions = bindActionCreators(allActions, store.dispatch);
-
         try {
-            await tryAuth(this.actions, token);
+            await tryAuth(actions, token);
         } catch (e) {
-            this.actions.updateAppState('authorized', false);
+            actions.updateAppState('authorized', false);
         } finally {
-            this.actions.updateAppState('connected', true);
+            actions.updateAppState('connected', true);
         }
     }
 
@@ -55,7 +42,7 @@ export default class Root extends Component {
         if (!Object.keys(props.routeParams).length) {
             props.routeParams = emptyObject;
         }
-        return <Element {...props} actions={this.actions} />;
+        return <Element {...props} actions={actions} />;
     }
 
     render() {

@@ -1,4 +1,4 @@
-import { createStore, applyMiddleware, compose } from 'redux';
+import { createStore, applyMiddleware, compose, bindActionCreators } from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import storage from 'redux-storage';
 import { enableDevTools } from './DevTools';
@@ -22,3 +22,6 @@ const finalCreateStore = compose(
 
 export const store = finalCreateStore(storageReducer);
 export const rehydratedStorePromise = storageLoader(store).then(() => store);
+
+import * as allActions from '../_actions';
+export const actions = bindActionCreators(allActions, store.dispatch);

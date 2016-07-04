@@ -29,6 +29,16 @@ export default class BootProvider extends Component {
         theme: PropTypes.string.isRequired,
     };
 
+    static childContextTypes = {
+        theme: PropTypes.string,
+    };
+
+    getChildContext() {
+        return {
+            theme: this.props.theme,
+        };
+    }
+
     componentWillReceiveProps(nextProps) {
         const { language } = nextProps;
         addLocaleData(localeData(locale(language)));
