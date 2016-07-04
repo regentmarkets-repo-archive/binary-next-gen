@@ -98,7 +98,7 @@ export default class TradeViewChart extends Component {
                 theme={theme}
                 type={contractForChart ? 'area' : chartType}
                 trade={internalTradeModelToServerTradeModel(tradeForChart)}
-                typeChange={feedLicense !== 'chartonly' && this.changeChartType}
+                typeChange={feedLicense !== 'chartonly' && !contractForChart && this.changeChartType}
                 tradingTime={tradingTime}
             />
         );

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import windowResizeEvent from 'binary-utils/lib/windowResizeEvent';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { actions } from '../../_store';
-import TradeXCardContainer from '../TradeXCardContainer';
+import TradeCardContainer from '../TradeCardContainer';
 import * as layouts from '../../layouts';
 import styles from '../../layouts/layouts.css';
 
@@ -41,7 +41,7 @@ export default class TradesLayouts extends Component {
         if (!layout) return null;
 
         const tradeComponents = (new Array(tradesCount).fill(0))
-            .map((zero, idx) => <TradeXCardContainer index={idx} />);
+            .map((zero, idx) => <TradeCardContainer index={idx} />);
 
         return layout(tradeComponents, `${styles.trades} ${layoutClass}`);
     }

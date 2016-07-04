@@ -3,7 +3,7 @@ import CreateAccountMobile from '../create-account/CreateAccountMobile';
 import TradeMobile from '../trade/mobile/TradeMobile';
 import PayoutPickerMobile from '../payout-picker/PayoutPickerMobile';
 import PortfolioMobile from '../portfolio/PortfolioMobile';
-import ContractDetailsMobile from '../contract-details/ContractDetailsMobile';
+import ContractDetailsMobile from '../contract-details/mobile/ContractDetailsMobile';
 import StatementMobile from '../statement/StatementMobile';
 import WatchlistMobile from '../watchlist/WatchlistMobile';
 import AssetPickerMobile from '../asset-picker/AssetPickerMobile';

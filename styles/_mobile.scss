@@ -52,6 +52,13 @@
     .buy-again-btn {
         width: 100%;
     }
+
+    .sell-at-market-btn {
+        + .buy-again-btn {
+            margin-top: 0.5rem;
+        }
+    }
+
     .forward-starting-picker {
         display: flex;
         flex-direction: row;

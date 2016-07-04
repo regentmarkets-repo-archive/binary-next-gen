@@ -1,6 +1,6 @@
 import React from 'react';
 import WebPage from '../../containers/WebPage';
-import TradeCardContainer from '../TradeXCardContainer';
+import TradeCardContainer from '../TradeCardContainer';
 
 export default (props) => (
 	<WebPage>

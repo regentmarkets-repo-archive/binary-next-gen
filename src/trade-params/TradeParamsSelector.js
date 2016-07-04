@@ -89,7 +89,7 @@ const marketIsOpenPerTrade = createSelector(
     [assetsIsOpenSelector, paramPerTrade],
     (assetsIsOpen, param) => {
         const symbol = param.get('symbol');
-        return assetsIsOpen[symbol].isOpen;
+        return assetsIsOpen[symbol] && assetsIsOpen[symbol].isOpen;
     }
 );
 
