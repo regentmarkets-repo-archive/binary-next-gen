@@ -34,7 +34,7 @@ export const signIn = () => {
     const oAuthUrl = `https://oauth.binary.com/oauth2/authorize?app_id=${window.BinaryBoot.appId}`;
 
     if (window.cordova) {
-        const winAuth = window.open(oAuthUrl, '_blank', 'location=no');
+        const winAuth = window.cordova.InAppBrowser.open(oAuthUrl, '_blank', 'location=no');
         winAuth.addEventListener('loadstop', (e) => {
             if (e.url.indexOf('acct1') > -1) {
                 window.parseUrlAndStoreAccountInfo(e.url);
