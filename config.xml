@@ -1,6 +1,6 @@
 <?xml version='1.0' encoding='utf-8'?>
 <widget id="app.binary.com" version="1.0.2" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-    <name>Binary Options Trading</name>
+    <name>Binary.com</name>
     <description>
         Trade Binary Options with Binary.com
     </description>
@@ -23,7 +23,6 @@
     <allow-intent href="geo:*" />
     <preference name="BackgroundColor" value="#2a3052" />
     <preference name="KeyboardShrinksView" value="true" />
-    <preference name="orientation" value="portrait" />
     <preference name="SplashScreen" value="screen" />
     <preference name="SplashScreenBackgroundColor" value="#2a3052" />
     <preference name="AutoHideSplashScreen" value="true" />
