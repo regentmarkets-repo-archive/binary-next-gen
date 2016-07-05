@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router';
 import M from 'binary-components/lib/M';
+import { requestLogin } from '../_data/Auth';
 import LogoSpinner from 'binary-components/lib/LogoSpinner';
 import LanguagePicker from '../web/LanguagePicker';
 
@@ -15,7 +16,7 @@ export default class HelloCard extends Component {
 				</p>
 				<LanguagePicker />
 				<fieldset>
-					<Link to="/" className="btn-secondary">
+					<Link to="/signin" className="btn-secondary" onClick={requestLogin} >
 						<M m="Signin" />
 					</Link>
 				</fieldset>

@@ -1,5 +1,4 @@
 import SigninMobile from '../signin/SigninMobile';
-import HelloMobile from '../hello/HelloMobile';
 import CreateAccountMobile from '../create-account/CreateAccountMobile';
 import TradeMobile from '../trade/mobile/TradeMobile';
 import PayoutPickerMobile from '../payout-picker/PayoutPickerMobile';
@@ -18,7 +17,6 @@ import { requireAuthOnEnter, signout } from '../_data/Auth';
 
 export default [
     { path: 'signin', component: SigninMobile },
-    { path: 'hello', component: HelloMobile },
     { path: 'signup', component: CreateAccountMobile },
     { path: 'signout', component: SigninMobile, onEnter: signout },
     { path: 'mobile', component: TradeMobile, onEnter: requireAuthOnEnter },

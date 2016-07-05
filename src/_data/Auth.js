@@ -30,24 +30,28 @@ export const signout = () => {
     store.dispatch(updateToken(''));
 };
 
+export const requestLogin = () => {
+    const oAuthUrl = `https://oauth.binary.com/oauth2/authorize?app_id=${window.BinaryBoot.appId}`;
+
+    if (window.cordova) {
+        const winAuth = window.open(oAuthUrl, '_blank', 'location=no');
+        winAuth.addEventListener('loadstop', (e) => {
+            if (e.url.indexOf('acct1') > -1) {
+                window.parseUrlAndStoreAccountInfo(e.url);
+                winAuth.close();
+                window.location.reload();
+            }
+        });
+    } else {
+        window.location = oAuthUrl;
+    }
+};
+
 export const requireAuthOnEnter = (nextState, replace, callback) => {
     const authorized = store.getState().appState.get('authorized');
-    if (!authorized) {
-        const oAuthUrl = `https://oauth.binary.com/oauth2/authorize?app_id=${window.BinaryBoot.appId}`;
-
-        if (window.cordova) {
-            const winAuth = window.open(oAuthUrl, '_blank', 'location=no');
-            winAuth.addEventListener('loadstop', (e) => {
-                if (e.url.indexOf('acct1') > -1) {
-                    window.parseUrlAndStoreAccountInfo(e.url);
-                    winAuth.close();
-                    window.location.reload();
-                }
-            });
-        } else {
-            window.location = oAuthUrl;
-        }
+    const { location } = nextState;
+    if (!authorized && location.pathname !== '/') {
+        replace({ pathname: '/', state: nextState });
     }
-    //     replace({ pathname: '/signin', state: nextState });
     callback();
 };

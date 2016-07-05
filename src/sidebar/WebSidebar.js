@@ -1,6 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import AccountMenuItem from './AccountMenuItem';
-import SidebarBtn from './SidebarBtn';
+import M from 'binary-components/lib/M';
+import { signout } from '../_data/Auth';
 
 export default class WebSidebar extends Component {
 
@@ -12,7 +13,10 @@ export default class WebSidebar extends Component {
 			token: PropTypes.string.isRequired,
 		})),
 	};
-
+	onSignOut(e) {
+		e.stopPropagation();
+		signout();
+	}
 	render() {
 		const { loginid, email, accounts } = this.props;
 
@@ -27,7 +31,10 @@ export default class WebSidebar extends Component {
 					.map(x => <AccountMenuItem key={x.token} account={x.account} token={x.token} />)
 				}
 				{/* <SidebarBtn to="/deposit" img="img/profit.svg" text="Deposit" /> */}
-				<SidebarBtn to="/signout" img="img/signout.svg" text="Sign Out" />
+				<label htmlFor="Sign-Out" onClick={this.onSignOut} className="sidebar-btn">
+					<img src="img/signout.svg" role="presentation" />
+					<M m="Sign Out" />
+				</label>
 			</nav>
 		);
 	}
