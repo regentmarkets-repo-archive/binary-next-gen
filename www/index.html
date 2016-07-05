@@ -34,7 +34,7 @@
 </div>
 
 <script>
-    if (window.cordova) {
+    if (document.location.protocol === 'file:') {
         document.writeln('<script src="cordova.js"><\/script>');
         var app = {
             initialize: function() {
