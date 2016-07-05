@@ -36,20 +36,20 @@
 <script>
     if (window.cordova) {
         document.writeln('<script src="cordova.js"><\/script>');
+        var app = {
+            initialize: function() {
+                document.addEventListener('deviceready', this.onDeviceReady, false);
+                // document.addEventListener('resume', this.onDeviceResume, false);
+            },
+            onDeviceReady: function() {
+                codePush.sync();
+            },
+            // onDeviceResume: function () {
+            //     codePush.sync();
+            // },
+        };
+        app.initialize();
     }
-    var app = {
-        initialize: function() {
-            document.addEventListener('deviceready', this.onDeviceReady, false);
-            document.addEventListener('resume', this.onDeviceResume, false);
-        },
-        onDeviceReady: function() {
-            // codePush.sync();
-        },
-        onDeviceResume: function () {
-            // codePush.sync();
-        },
-    };
-    // app.initialize();
 </script>
 
 <script src="boot.js"></script>
