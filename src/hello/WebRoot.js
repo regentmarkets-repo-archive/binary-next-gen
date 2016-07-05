@@ -1,6 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import HelloWeb from './HelloWeb';
+import HelloMobile from './HelloMobile';
 import WebCard from '../web/WebCard';
 import { appStateSelector } from '../_selectors/AppStateSelectors';
 
@@ -15,7 +15,7 @@ export default class WebRoot extends Component {
         return (
             authorized ?
                 <WebCard /> :
-                <HelloWeb />
+                <HelloMobile />
         );
     }
 }
