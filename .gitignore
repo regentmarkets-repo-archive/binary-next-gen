@@ -7,8 +7,10 @@ coverage/
 npm-debug.log
 .idea/
 .publish/
-plugins
+plugins/
 platforms/
 
+www/app.js
+www/app.js.map
 www/styles.css
 www/styles.css.map
