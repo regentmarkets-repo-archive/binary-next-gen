@@ -7,7 +7,7 @@
     <author email="support@binary.com" href="https://binary.com">
         Binary Ltd.
     </author>
-    <content src="home.html" />
+    <content src="index.html" />
     <plugin name="cordova-plugin-whitelist" spec="1" />
     <plugin name="cordova-plugin-code-push" version="1.8.2-beta" />
     <plugin name="cordova-plugin-splashscreen" version="3.2.2" />
@@ -28,7 +28,7 @@
     <preference name="SplashScreenBackgroundColor" value="#2a3052" />
     <preference name="AutoHideSplashScreen" value="true" />
     <preference name="ShowSplashScreenSpinner" value="true" />
-    <preference name="SplashScreenDelay" value="10000" />
+    <preference name="SplashScreenDelay" value="1000" />
     <preference name="SplashMaintainAspectRatio" value="true" />
     <preference name="FadeSplashScreenDuration" value="250" />
     <feature name="SplashScreen">

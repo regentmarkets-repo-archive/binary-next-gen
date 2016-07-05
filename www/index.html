@@ -32,6 +32,25 @@
     </div>
 </div>
 
+<script>
+    if (window.cordova) {
+        document.writeln('<script src="cordova.js"><\/script>');
+    }
+    var app = {
+        initialize: function() {
+            document.addEventListener('deviceready', this.onDeviceReady, false);
+            document.addEventListener('resume', this.onDeviceResume, false);
+        },
+        onDeviceReady: function() {
+            // codePush.sync();
+        },
+        onDeviceResume: function () {
+            // codePush.sync();
+        },
+    };
+    // app.initialize();
+</script>
+
 <script src="boot.js"></script>
 <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,Promise,Array.from,Array.prototype.find,Array.prototype.includes,String.prototype.startsWith,String.prototype.includes,Math.sign,Intl.~locale.en,Intl.~locale.id,Intl.~locale.ru,Intl.~locale.fr&unknown=polyfill"></script>
 <script async src="app.js"></script>
