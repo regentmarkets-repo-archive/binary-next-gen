@@ -48,9 +48,9 @@
         }
     }
 
-    function parseUrl() {
-        if (~window.location.href.indexOf('acct1')) {
-            var accounts = parseOAuthResponse(window.location.href);
+    function parseUrlAndStoreAccountInfo(url) {
+        if (~url.indexOf('acct1')) {
+            var accounts = parseOAuthResponse(url);
             window.BinaryBoot.accounts = accounts;
             try {
                 localStorage.setItem('boot', JSON.stringify(window.BinaryBoot));
@@ -58,18 +58,14 @@
             } catch (e) {
                 window.console.log('Error while saving boot config', e);
             }
-
-            if (window.opener) {
-                window.opener.location.reload();
-                window.close();
-            }
         }
     }
 
     var apiUrl = 'wss://ws.binaryws.com/websockets/v3';
 
     readConfig();
-    parseUrl();
+    parseUrlAndStoreAccountInfo(window.location.href);
+    window.BinaryBoot.parseUrl = parseUrlAndStoreAccountInfo;
     window.BinaryBoot.appId = window.cordova ? 1006 : 1001;
     var lang = window.BinaryBoot.language;
     var oauthUrl = 'https://oauth.binary.com/oauth2/authorize?app_id=' + window.BinaryBoot.appId + '&l=' + lang;

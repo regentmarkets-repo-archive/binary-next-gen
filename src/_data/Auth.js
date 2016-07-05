@@ -28,15 +28,26 @@ export const signout = (nextState, replace) => {
     store.dispatch(signinFieldUpdate('validatedOnce', false));
     store.dispatch(updateAppState('authorized', false));
     store.dispatch(updateToken(''));
-    replace({ pathname: '/signin', state: nextState });
+    replace({ pathname: '/hello', state: nextState });
 };
 
 export const requireAuthOnEnter = (nextState, replace, callback) => {
     const authorized = store.getState().appState.get('authorized');
     if (!authorized) {
         const oAuthUrl = `https://oauth.binary.com/oauth2/authorize?app_id=${window.BinaryBoot.appId}`;
-        window.open(oAuthUrl);
-        // window.location = oAuthUrl;
+
+        if (window.cordova) {
+            const winAuth = window.open(oAuthUrl, '_blank', 'location=no');
+            winAuth.addEventListener('loadstop', (e) => {
+                if (e.url.indexOf('acct1') > -1) {
+                    window.parseUrlAndStoreAccountInfo(e.url);
+                    winAuth.close();
+                    window.location.reload();
+                }
+            });
+        } else {
+            window.location = oAuthUrl;
+        }
     }
     //     replace({ pathname: '/signin', state: nextState });
     callback();
