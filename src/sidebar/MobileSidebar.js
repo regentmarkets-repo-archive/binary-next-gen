@@ -2,7 +2,7 @@ import React, { PropTypes, Component } from 'react';
 import BalanceContainer from '../balance/BalanceContainer';
 import AccountMenuItem from './AccountMenuItem';
 import SidebarBtn from './SidebarBtn';
-import { signout } from '../_data/Auth';
+import { signOut } from '../_data/Auth';
 import M from 'binary-components/lib/M';
 
 export default class MobileSidebar extends Component {
@@ -17,7 +17,7 @@ export default class MobileSidebar extends Component {
 	};
 	onSignOut(e) {
 		e.stopPropagation();
-		signout();
+		signOut();
 	}
 	render() {
 		const { loginid, email, accounts } = this.props;
