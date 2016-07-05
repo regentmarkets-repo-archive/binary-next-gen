@@ -1,7 +1,7 @@
 import React, { PropTypes, Component } from 'react';
 import AccountMenuItem from './AccountMenuItem';
 import M from 'binary-components/lib/M';
-import { signout } from '../_data/Auth';
+import { signOut } from '../_data/Auth';
 
 export default class WebSidebar extends Component {
 
@@ -15,7 +15,7 @@ export default class WebSidebar extends Component {
 	};
 	onSignOut(e) {
 		e.stopPropagation();
-		signout();
+		signOut();
 	}
 	render() {
 		const { loginid, email, accounts } = this.props;

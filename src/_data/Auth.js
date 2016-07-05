@@ -23,14 +23,14 @@ export const tryAuth = async (actions, token) => {
     }
 };
 
-export const signout = () => {
+export const signOut = () => {
     store.dispatch(removePersonalData());
     store.dispatch(signinFieldUpdate('validatedOnce', false));
     store.dispatch(updateAppState('authorized', false));
     store.dispatch(updateToken(''));
 };
 
-export const requestLogin = () => {
+export const signIn = () => {
     const oAuthUrl = `https://oauth.binary.com/oauth2/authorize?app_id=${window.BinaryBoot.appId}`;
 
     if (window.cordova) {

@@ -13,12 +13,12 @@ import NewsMobile from '../mobile/NewsMobile';
 import ArticleMobile from '../news/ArticleMobile';
 import ResourcesMobile from '../mobile/ResourcesMobile';
 import DepositMobile from '../deposit/DepositMobile';
-import { requireAuthOnEnter, signout } from '../_data/Auth';
+import { requireAuthOnEnter, signOut } from '../_data/Auth';
 
 export default [
     { path: 'signin', component: SigninMobile },
     { path: 'signup', component: CreateAccountMobile },
-    { path: 'signout', component: SigninMobile, onEnter: signout },
+    { path: 'signout', component: SigninMobile, onEnter: signOut },
     { path: 'mobile', component: TradeMobile, onEnter: requireAuthOnEnter },
     { path: 'payout/:id', component: PayoutPickerMobile, onEnter: requireAuthOnEnter },
     { path: 'portfolio', component: PortfolioMobile, onEnter: requireAuthOnEnter },
