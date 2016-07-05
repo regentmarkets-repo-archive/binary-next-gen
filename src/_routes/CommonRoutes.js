@@ -1,9 +1,9 @@
-import TradeMobile from '../trade/mobile/TradeMobile';
-import WebCard from '../web/WebCard';
+import MobileRoot from '../hello/MobileRoot';
+import WebRoot from '../hello/WebRoot';
 import { requireAuthOnEnter } from '../_data/Auth';
 import isMobile from 'binary-utils/lib/isMobile';
 
-const rootComponent = isMobile() ? TradeMobile : WebCard;
+const rootComponent = isMobile() ? MobileRoot : WebRoot;
 
 export default [
     { path: '/', component: rootComponent, onEnter: requireAuthOnEnter },

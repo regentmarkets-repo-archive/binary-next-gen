@@ -8,16 +8,6 @@
         accounts: []
     };
 
-    // window.addEventListener('message', function (event) {
-    //     console.log(event);
-    //     var origin = event.origin || event.originalEvent.origin;
-    //     if (isMobile && origin === 'http://localhost') {
-    //     // if (true) {
-    //         window.BinaryBoot.accounts = event.data;
-    //         window.location.reload();
-    //     }
-    // });
-
     function parseOAuthResponse(responseUrl) {
         var matcher = /acct\d=(\w+)&token\d=([\w-]+)/g;
         var urlParts = responseUrl.split('?');

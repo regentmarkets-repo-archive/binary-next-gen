@@ -23,12 +23,11 @@ export const tryAuth = async (actions, token) => {
     }
 };
 
-export const signout = (nextState, replace) => {
+export const signout = () => {
     store.dispatch(removePersonalData());
     store.dispatch(signinFieldUpdate('validatedOnce', false));
     store.dispatch(updateAppState('authorized', false));
     store.dispatch(updateToken(''));
-    replace({ pathname: '/hello', state: nextState });
 };
 
 export const requireAuthOnEnter = (nextState, replace, callback) => {
