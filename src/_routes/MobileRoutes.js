@@ -1,5 +1,3 @@
-import SigninMobile from '../signin/SigninMobile';
-import CreateAccountMobile from '../create-account/CreateAccountMobile';
 import TradeMobile from '../trade/mobile/TradeMobile';
 import PayoutPickerMobile from '../payout-picker/PayoutPickerMobile';
 import PortfolioMobile from '../portfolio/PortfolioMobile';
@@ -13,12 +11,9 @@ import NewsMobile from '../mobile/NewsMobile';
 import ArticleMobile from '../news/ArticleMobile';
 import ResourcesMobile from '../mobile/ResourcesMobile';
 import DepositMobile from '../deposit/DepositMobile';
-import { requireAuthOnEnter, signOut } from '../_data/Auth';
+import { requireAuthOnEnter } from '../_data/Auth';
 
 export default [
-    { path: 'signin', component: SigninMobile },
-    { path: 'signup', component: CreateAccountMobile },
-    { path: 'signout', component: SigninMobile, onEnter: signOut },
     { path: 'mobile', component: TradeMobile, onEnter: requireAuthOnEnter },
     { path: 'payout/:id', component: PayoutPickerMobile, onEnter: requireAuthOnEnter },
     { path: 'portfolio', component: PortfolioMobile, onEnter: requireAuthOnEnter },

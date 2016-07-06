@@ -8,8 +8,8 @@ import UpgradeStep3 from './UpgradeStep3';
 export default class UpgradeCard extends Component {
 
 	static propTypes = {
-		upgrade: PropTypes.object.isRequired,
-		history: PropTypes.object.isRequired,
+		activeStep: PropTypes.number.isRequired,
+		progress: PropTypes.bool.isRequired,
 	};
 
 	static contextTypes = {
@@ -24,44 +24,12 @@ export default class UpgradeCard extends Component {
 	}
 
 	render() {
-		const {
-			activeStep,
-			progress,
-			firstName,
-			lastName,
-			dateOfBirth,
-			addressCity,
-			addressPostcode,
-			addressLine1,
-			addressLine2,
-			phone,
-			residence,
-			secretQuestion,
-			secretAnswer,
-			addressState,
-			error,
-			} = this.props.upgrade.toJS();
+		const { activeStep, progress } = this.props;
 
 		const steps = [
-			<UpgradeStep1
-				firstName={firstName}
-				lastName={lastName}
-				dateOfBirth={dateOfBirth}
-			/>,
-			<UpgradeStep2
-				addressCity={addressCity}
-				addressPostcode={addressPostcode}
-				addressLine1={addressLine1}
-				addressLine2={addressLine2}
-				phone={phone}
-				residence={residence}
-				addressState={addressState}
-			/>,
-			<UpgradeStep3
-				secretQuestion={secretQuestion}
-				secretAnswer={secretAnswer}
-				error={error}
-			/>,
+			<UpgradeStep1 {...this.props} />,
+			<UpgradeStep2 {...this.props} />,
+			<UpgradeStep3 {...this.props} />,
 		];
 
 		return (
