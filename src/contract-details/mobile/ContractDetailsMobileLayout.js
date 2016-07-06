@@ -25,7 +25,7 @@ export default class ContractDetailsMobileLayout extends Component {
                     onChange={this.changeView}
                 >
                     <Tab text="Chart" />
-                    <Tab text="Table" />
+                    <Tab text="Details" />
                 </TabList>
                 {activeIndex === 0 && chartComponent}
                 {activeIndex === 1 && detailsComponent}

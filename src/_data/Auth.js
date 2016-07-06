@@ -37,8 +37,8 @@ export const signIn = () => {
         const winAuth = window.cordova.InAppBrowser.open(oAuthUrl, '_blank', 'location=no');
         winAuth.addEventListener('loadstop', (e) => {
             if (e.url.indexOf('acct1') > -1) {
-                window.parseUrlAndStoreAccountInfo(e.url);
                 winAuth.close();
+                window.BinaryBoot.parseUrl(e.url);
                 window.location.reload();
             }
         });

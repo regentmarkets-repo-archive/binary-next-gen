@@ -24,7 +24,7 @@ export default class MobileToolbarBack extends Component {
 					className="mobile-back-btn"
 					onClick={this.onClickBack}
 				>
-					<img className="back-btn" src="/img/arrow-back.svg" alt="Back" />
+					<img className="back-btn" src="img/arrow-back.svg" alt="Back" />
 					<M m={backBtnBarTitle} />
 				</Link>
 			</div>

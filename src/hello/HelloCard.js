@@ -16,7 +16,7 @@ export default class HelloCard extends Component {
 				</p>
 				<LanguagePicker />
 				<fieldset>
-					<Link to="/signin" className="btn-primary" onClick={signIn}>
+					<Link to="/" className="btn-secondary" onClick={signIn}>
 						<M m="Signin" />
 					</Link>
 				</fieldset>
