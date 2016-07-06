@@ -56,7 +56,7 @@ export default (state = initialState, action) => {
             if (!state.get(action.index)) {
                 return state;
             }
-            return state.mergeIn([action.index], action.params);
+            return state.updateIn([action.index], v => v.merge(action.params));
         }
         case RESET_TRADES: {
             return initialState;

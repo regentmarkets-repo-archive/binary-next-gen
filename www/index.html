@@ -36,12 +36,32 @@
 <script>
     if (document.location.protocol === 'file:') {
         document.writeln('<script src="cordova.js"><\/script>');
+        function onBackPressed(e) {
+            function onConfirm(buttonIndex) {
+                if (buttonIndex === 1) {
+                    navigator.app.exitApp();
+                }
+            }
+            if (window.location.hash === '#/') {
+                e.preventDefault();
+                navigator.notification.confirm(
+                        'You are about to exit the app!',
+                        onConfirm,
+                        'binary.com',
+                        ['Exit', 'Continue']
+                );
+            } else {
+                navigator.app.backHistory();
+            }
+        }
+
         var app = {
             initialize: function() {
                 document.addEventListener('deviceready', this.onDeviceReady, false);
                 // document.addEventListener('resume', this.onDeviceResume, false);
             },
             onDeviceReady: function() {
+                document.addEventListener("backbutton", onBackPressed, false);
                 codePush.sync();
             },
             // onDeviceResume: function () {

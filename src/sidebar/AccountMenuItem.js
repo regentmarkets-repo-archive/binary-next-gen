@@ -1,6 +1,6 @@
 import React, { PropTypes, Component } from 'react';
 
-export default class WebSidebar extends Component {
+export default class AccountMenuItem extends Component {
 
 	static propTypes = {
 		account: PropTypes.string.isRequired,
@@ -10,7 +10,7 @@ export default class WebSidebar extends Component {
 	switchToAccount = () => {
 		const { token } = this.props;
 		localStorage.setItem('account', JSON.stringify({ token }));
-		window.location = '/';
+		window.location.reload();
 	};
 
 	render() {
