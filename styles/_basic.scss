@@ -260,17 +260,11 @@ select {
     margin: auto;
     flex-direction: column;
     align-content: space-between;
-    input {
-        width: 100%;
-    }
-    .button {
-        width: 100%;
-    }
+    &,
+    form,
+    form > *,
+    input,
     select {
-        width: 100%;
-    }
-    .btn-primary,
-    .btn-secondary {
         width: 100%;
     }
 }
