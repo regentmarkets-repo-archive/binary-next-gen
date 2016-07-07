@@ -26,17 +26,17 @@ export default class CrateAccountCard extends Component {
         };
     }
 
-    onVerificationCodeChange = event =>
-        this.setState({ verificationCode: event.target.value });
+    onVerificationCodeChange = e =>
+        this.setState({ verificationCode: e.target.value });
 
-    onPasswordChange = event =>
-        this.setState({ password: event.target.value });
+    onPasswordChange = e =>
+        this.setState({ password: e.target.value });
 
-    onConfirmPasswordChange = event =>
-        this.setState({ confirmPassword: event.target.value });
+    onConfirmPasswordChange = e =>
+        this.setState({ confirmPassword: e.target.value });
 
-    onResidenceChange = event =>
-        this.setState({ residence: event.target.value });
+    onResidenceChange = e =>
+        this.setState({ residence: e.target.value });
 
     onFormSubmit = e => {
         e.preventDefault();

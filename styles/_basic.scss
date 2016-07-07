@@ -36,10 +36,6 @@ table {
     margin-bottom: 0;
 }
 
-.wide-form {
-    max-width: 420px;
-}
-
 .logo-text {
     padding: 1rem;
 }
@@ -251,22 +247,6 @@ select {
     background: $COLOR_BRAND_BLUE;
     cursor: ns-resize;
     height: 0.25rem;
-}
-
-.startup-content {
-    display: flex;
-    flex: 1;
-    max-width: 360px;
-    margin: auto;
-    flex-direction: column;
-    align-content: space-between;
-    &,
-    form,
-    form > *,
-    input,
-    select {
-        width: 100%;
-    }
 }
 
 #theme-wrapper {

@@ -55,7 +55,7 @@ export default class UpgradeStep3 extends Component {
 		const { showErr, checked } = this.state;
 
 		return (
-			<div>
+			<form onSubmit={this.openAccount}>
 				<p>
 					<label>
 						<M m="Security" />
@@ -121,16 +121,10 @@ export default class UpgradeStep3 extends Component {
 					text="Please make sure you agree on our Terms and Condition"
 				/>
 				<p>
-					<Button
-						text="Back"
-						onClick={this.previousStep}
-					/>
-					<Button
-						text="Open Account"
-						onClick={this.openAccount}
-					/>
+					<Button text="Back" onClick={this.previousStep} />
+					<Button text="Open Account" />
 				</p>
-			</div>
+			</form>
 		);
 	}
 }

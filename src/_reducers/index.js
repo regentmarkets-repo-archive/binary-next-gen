@@ -6,7 +6,6 @@ import account from './AccountReducer';
 import assets from './AssetsReducer';
 import assetIndex from './AssetIndexReducer';
 import assetPicker from './AssetPickerReducer';
-import createAccount from './CreateAccountReducer';
 import digitStats from './DigitStatsReducer';
 import dailyPrices from './DailyPricesReducer';
 import feedLicenses from './FeedLicensesReducer';
@@ -49,7 +48,6 @@ export default combineReducers({
     assetPicker,
     boot,
     boughtContracts,
-    createAccount,
     chartData,
     dailyPrices,
     digitStats,

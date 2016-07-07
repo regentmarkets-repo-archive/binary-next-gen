@@ -96,7 +96,7 @@ export default class UpgradeStep2 extends Component {
 		const { showErr } = this.state;
 
 		return (
-			<div>
+			<form onSubmit={this.nextStep}>
 				<p>
 					<label><M m="Home Address" /></label>
 				</p>
@@ -173,16 +173,10 @@ export default class UpgradeStep2 extends Component {
 					text="Phone number must within 6-35 digits"
 				/>
 				<p>
-					<Button
-						text="Back"
-						onClick={this.previousStep}
-					/>
-					<Button
-						text="Next"
-						onClick={this.nextStep}
-					/>
+					<Button text="Back" onClick={this.previousStep} />
+					<Button text="Next"	/>
 				</p>
-			</div>
+			</form>
 		);
 	}
 }

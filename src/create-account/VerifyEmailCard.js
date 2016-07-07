@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import LogoSpinner from 'binary-components/lib/LogoSpinner';
-import InputGroup from 'binary-components/lib/InputGroup';
 import Button from 'binary-components/lib/Button';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import isValidEmail from 'binary-utils/lib/isValidEmail';
