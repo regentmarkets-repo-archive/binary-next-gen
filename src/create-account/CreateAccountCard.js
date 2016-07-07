@@ -1,29 +1,120 @@
-import React, { Component, PropTypes } from 'react';
-import LogoSpinner from 'binary-components/lib/LogoSpinner';
-import EmailVerificationForm from './EmailVerificationForm';
-import AccountInfoForm from './AccountInfoForm';
+import React, { Component } from 'react';
+import P from 'binary-components/lib/P';
+import Button from 'binary-components/lib/Button';
+import Countries from 'binary-components/lib/Countries';
+import ErrorMsg from 'binary-components/lib/ErrorMsg';
+import InputGroup from 'binary-components/lib/InputGroup';
+import { actions } from '../_store';
+import * as LiveData from '../_data/LiveData';
+import config from '../config';
 
-export default class CreateAccountCard extends Component {
+export default class CrateAccountCard extends Component {
 
-	static propTypes = {
-		createAccount: PropTypes.object.isRequired,
-	};
+    constructor(props) {
+        super(props);
+        this.state = {
+            email: '',
+            verificationCode: '',
+            password: '',
+            confirmPassword: '',
+            residence: '',
+        };
+    }
 
-	render() {
-		const { createAccount } = this.props;
-		const { progress, step } = createAccount;
+    onVerificationCodeChange = event =>
+        this.setState({ verificationCode: event.target.value });
 
-		return (
-			<div>
-				<p className="media">
-					<LogoSpinner spinning={progress} />
-					<img className="logo-text" src="img/binary-type-logo.svg" alt="Logo" />
-				</p>
-				{step === 1 ?
-					<EmailVerificationForm {...createAccount} /> :
-					<AccountInfoForm {...createAccount} />
-				}
-			</div>
-		);
-	}
+    onPasswordChange = event =>
+        this.setState({ password: event.target.value });
+
+    onConfirmPasswordChange = event =>
+        this.setState({ confirmPassword: event.target.value });
+
+    onResidenceChange = event =>
+        this.setState({ residence: event.target.value });
+
+    onCreateClick = () => {
+        this.setState({
+            validatedOnce: true,
+        });
+        if (this.allValid) {
+            this.performCreateAccount();
+        }
+    }
+
+    performCreateAccount() {
+        const { email, password, verificationCode, residence } = this.state;
+        actions.createAccountStart({
+            email,
+            verification_code: verificationCode,
+            client_password: password,
+            residence,
+            affiliate_token: config.affiliateToken,
+        });
+    }
+
+    verifyEmail = async () => {
+        const { email } = this.state;
+
+        try {
+            this.setState({
+                step: 1,
+                progress: true,
+                error: false,
+            });
+            await LiveData.api.verifyEmail(email, 'account_opening');
+        } catch (error) {
+            this.setState({ error });
+        } finally {
+            this.setState({
+                progress: false,
+            });
+        }
+    }
+
+    render() {
+        const { verificationCode, password, confirmPassword, residence, validatedOnce } = this.state;
+        const residenceIsValid = !!residence;
+        const verificationCodeIsValid = verificationCode.length >= 15;
+        const passwordIsValid = password.length >= 6;
+        const passwordsMatch = password === confirmPassword;
+        this.allValid = residenceIsValid && verificationCodeIsValid && passwordIsValid && passwordsMatch;
+
+        return (
+            <div className="startup-content">
+                <P className="notice-msg" text="Thank you for signing up! Please check your email to retrieve the verification token." />
+                <InputGroup
+                    type="text"
+                    placeholder="Verification Token"
+                    onChange={this.onVerificationCodeChange}
+                />
+                {validatedOnce && !verificationCodeIsValid &&
+                    <ErrorMsg text="Please enter a valid verification code" />
+                }
+                <fieldset>
+                    <Countries onChange={this.onResidenceChange} />
+                </fieldset>
+                {validatedOnce && !residenceIsValid &&
+                    <ErrorMsg text="Please select a country" />
+                }
+                <InputGroup
+                    type="password"
+                    placeholder="Password"
+                    onChange={this.onPasswordChange}
+                />
+                {validatedOnce && !passwordIsValid &&
+                    <ErrorMsg text="Password should have lower and uppercase letters with numbers between 6-25 characters." />
+                }
+                <InputGroup
+                    type="password"
+                    placeholder="Confirm Password"
+                    onChange={this.onConfirmPasswordChange}
+                />
+                {validatedOnce && !passwordsMatch &&
+                    <ErrorMsg text="Passwords do not match" />
+                }
+                <Button disabled={validatedOnce && !this.allValid} text="Continue" onClick={this.onCreateClick} />
+            </div>
+        );
+    }
 }
