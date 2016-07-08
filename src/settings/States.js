@@ -7,15 +7,15 @@ export default class States extends Component {
         states: PropTypes.array.isRequired,
         selected: PropTypes.string,
         id: PropTypes.string,
+        noLabel: PropTypes.bool,
     };
 
-
     render() {
-        const { states, onChange, id, selected } = this.props;
+        const { states, onChange, id, selected, noLabel } = this.props;
 
         return (
             <fieldset>
-                <label forHtml={id}>State/Province</label>
+                {noLabel ? null : <label forHtml={id}>State/Province</label>}
                 <select id={id} onChange={onChange} value={selected}>
                     {states.map((x, i) => (
                         <option key={i} value={x.value}>{x.text}</option>

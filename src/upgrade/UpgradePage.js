@@ -3,7 +3,7 @@ import MobilePage from '../containers/MobilePage';
 import UpgradeContainer from './UpgradeContainer';
 
 export default (props) => (
-	<MobilePage toolbarShown={false}>
+	<MobilePage toolbarShown={false} inverse>
 		<UpgradeContainer {...props} />
 	</MobilePage>
 );
