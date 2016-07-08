@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import Label from 'binary-components/lib/Label';
+import Legend from 'binary-components/lib/Legend';
 import Button from 'binary-components/lib/Button';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import DateOfBirth from 'binary-components/lib/DateOfBirth';
-import { actions } from '../_store';
 
 export default class UpgradeStep1 extends Component {
 
@@ -62,6 +62,7 @@ export default class UpgradeStep1 extends Component {
 
 		return (
 			<form onSubmit={this.nextStep}>
+				<Legend text="Personal Information" />
 				<p>
 					<select id="mrms" name="mrms" onChange={this.onSalutationChange}>
 						<option value="Mr">Mr</option>
@@ -75,7 +76,6 @@ export default class UpgradeStep1 extends Component {
 						name="fname"
 						placeholder="First name"
 						type="text"
-						value={firstName}
 						onChange={this.onFirstNameChange}
 						maxLength="30"
 					/>
@@ -83,18 +83,13 @@ export default class UpgradeStep1 extends Component {
 						name="lname"
 						placeholder="Family name"
 						type="text"
-						value={lastName}
 						onChange={this.onLastNameChange}
 						maxLength="30"
 					/>
+					{false && <ErrorMsg text="2-30 characters, letters, spaces and - . ' are allowed" />}
 				</p>
-				<ErrorMsg
-					text="2-30 characters, letters, spaces and - . ' are allowed"
-				/>
 				<p>
 					<Label htmlFor="dobdd" text="Date of birth" />
-				</p>
-				<p>
 					<DateOfBirth
 						date={dateOfBirth}
 						onDayChange={this.onDayChange}

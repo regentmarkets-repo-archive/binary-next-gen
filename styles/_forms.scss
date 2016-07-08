@@ -14,49 +14,31 @@
     }
 }
 
-.thin-form,
 .wide-form {
     display: flex;
     flex-direction: column;
     flex: 1;
-}
-
-.wide-form p,
-.thin-form p {
-    display: flex;
-    flex-direction: row;
-    margin: 0;
-    text-align: center;
-}
-
-.wide-form p > *,
-.thin-form p > * {
-    flex: 1;
-}
-
-.wide-form p > * {
-    margin: 0 0.5em 0.5em 0;
-}
-
-.thin-form p > * {
-    margin: 0 0 0.5em;
-}
-
-.wide-form p > label {
-    margin: 0;
-}
-
-.wide-form p > button,
-.thin-form p > button {
-    margin-top: 1rem;
-    margin-bottom: 0;
-}
-
-.wide-form h3,
-.thin-form h3 {
-    margin-bottom: 1em;
-}
-
-.wide-form p > :last-child {
-    margin-right: 0;
+    margin: auto;
+    max-width: 420px;
+    h3 {
+        margin-bottom: 1em;
+    }
+    p {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        > * {
+            flex: 1;
+            margin: 0 0.5em 0.5em 0;
+        }
+        > label {
+            margin: 0;
+        }
+        > button {
+            flex: 1;
+        }
+        > :last-child {
+            margin-right: 0;
+        }
+    }
 }

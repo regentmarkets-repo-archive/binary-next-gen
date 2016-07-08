@@ -1,10 +1,9 @@
 import React, { Component, PropTypes } from 'react';
-import M from 'binary-components/lib/M';
+import Label from 'binary-components/lib/Label';
 import Button from 'binary-components/lib/Button';
 import States from '../settings/States';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import Countries from 'binary-components/lib/Countries';
-import { actions } from '../_store';
 
 export default class UpgradeStep2 extends Component {
 
@@ -24,34 +23,25 @@ export default class UpgradeStep2 extends Component {
 	}
 
 	onCountryChange = e =>
-		actions.upgradeFieldUpdate('residence', e.target.value);
+		this.setState({ residence: e.target.value });
 
 	onStateChange = e =>
-		actions.upgradeFieldUpdate('addressState', e.target.value);
+		this.setState({ addressState: e.target.value });
 
-	onCityChange = e => {
-		this.setState({ showErr: true });
-		actions.upgradeFieldUpdate('addressCity', e.target.value);
-	}
+	onCityChange = e =>
+		this.setState({ addressCity: e.target.value });
 
-	onPostcodeChange = e => {
-		actions.upgradeFieldUpdate('addressPostcode', e.target.value);
-	}
+	onPostcodeChange = e =>
+		this.setState({ addressPostcode: e.target.value });
 
-	onAddress1Change = e => {
-		this.setState({ showErr: true });
-		actions.upgradeFieldUpdate('addressLine1', e.target.value);
-	}
+	onAddress1Change = e =>
+		this.setState({ addressLine1: e.target.value });
 
-	onAddress2Change(e) {
-		this.setState({ showErr: true });
-		actions.upgradeFieldUpdate('addressLine2', e.target.value);
-	}
+	onAddress2Change = e =>
+		this.setState({ addressLine2: e.target.value });
 
-	onPhoneChange(e) {
-		this.setState({ showErr: true });
-		actions.upgradeFieldUpdate('phone', e.target.value);
-	}
+	onPhoneChange = e =>
+		this.setState({ phone: e.target.value });
 
 	cityValid = city =>
 		city.length > 0;
@@ -67,7 +57,7 @@ export default class UpgradeStep2 extends Component {
 
 	previousStep = e => {
 		e.preventDefault();
-		actions.upgradeFieldUpdate('activeStep', 0);
+		// actions.upgradeFieldUpdate('activeStep', 0);
 	}
 
 	nextStep = e => {
@@ -83,7 +73,7 @@ export default class UpgradeStep2 extends Component {
 			address1Valid &&
 			phoneValid &&
 			residence) {
-			actions.upgradeFieldUpdate('activeStep', 2);
+			// actions.upgradeFieldUpdate('activeStep', 2);
 		}
 	}
 
@@ -93,21 +83,17 @@ export default class UpgradeStep2 extends Component {
 		const postcodeValid = this.postcodeValid(addressPostcode);
 		const address1Valid = this.address1Valid(addressLine1);
 		const phoneValid = this.phoneValid(phone);
-		const { showErr } = this.state;
 
 		return (
 			<form onSubmit={this.nextStep}>
-				<p>
-					<label><M m="Home Address" /></label>
-				</p>
+				<Label text="Home Address" />
 				<p>
 					<Countries onChange={this.onCountryChange} value={residence} />
-					<States country={residence} onChange={this.onStateChange} value={addressState} />
+					<States states={[]} country={residence} onChange={this.onStateChange} value={addressState} />
 				</p>
-				<ErrorMsg
-					shown={showErr && !residence}
-					text="Please choose your country"
-				/>
+				{false &&
+					<ErrorMsg text="Please choose your country" />
+				}
 				<p>
 					<input
 						name="AddressTown"
@@ -126,14 +112,12 @@ export default class UpgradeStep2 extends Component {
 						onChange={this.onPostcodeChange}
 					/>
 				</p>
-				<ErrorMsg
-					shown={showErr && !cityValid}
-					text="City must not be empty"
-				/>
-				<ErrorMsg
-					shown={showErr && !postcodeValid}
-					text="Postcode must not contain +"
-				/>
+				{false &&
+					<ErrorMsg text="City must not be empty" />
+				}
+				{false &&
+					<ErrorMsg text="Postcode must not contain +" />
+				}
 				<p>
 					<input
 						name="Address1"
@@ -144,10 +128,9 @@ export default class UpgradeStep2 extends Component {
 						onChange={this.onAddress1Change}
 					/>
 				</p>
-				<ErrorMsg
-					shown={showErr && !address1Valid}
-					text="Address must not be empty"
-				/>
+				{false &&
+					<ErrorMsg text="Address must not be empty" />
+				}
 				<p>
 					<input
 						name="Address2"
@@ -168,12 +151,11 @@ export default class UpgradeStep2 extends Component {
 						onChange={this.onPhoneChange}
 					/>
 				</p>
-				<ErrorMsg
-					shown={showErr && !phoneValid}
-					text="Phone number must within 6-35 digits"
-				/>
+				{false &&
+					<ErrorMsg text="Phone number must within 6-35 digits" />
+				}
 				<p>
-					<Button text="Back" onClick={this.previousStep} />
+					<Button className="btn-secondary" text="Back" onClick={this.previousStep} />
 					<Button text="Next"	/>
 				</p>
 			</form>

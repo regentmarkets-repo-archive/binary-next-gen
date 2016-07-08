@@ -1,9 +1,9 @@
 import React, { Component, PropTypes } from 'react';
 import M from 'binary-components/lib/M';
+import Legend from 'binary-components/lib/Legend';
 import Button from 'binary-components/lib/Button';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
-import { actions } from '../_store';
-import Modal from '../containers/Modal';
+import SecretQuestion from './SecretQuestion';
 
 export default class UpgradeStep3 extends Component {
 
@@ -15,18 +15,21 @@ export default class UpgradeStep3 extends Component {
 
 	constructor(props) {
 		super(props);
-		this.state = { showErr: false, checked: false };
+		this.state = { validatedOnce: false };
 	}
 
 	onSecretQuestionChange = e =>
-		actions.upgradeFieldUpdate('secretQuestion', e.target.value);
+		this.setState({ secretQuestion: e.target.value });
 
 	onSecretAnswerChange = e =>
-		actions.upgradeFieldUpdate('secretAnswer', e.target.value);
+		this.setState({ secretAnswer: e.target.value });
+
+	onTermsAndConditionsChanged = e =>
+		this.setState({ termsAndConditions: e.target.value });
 
 	previousStep = e => {
 		e.preventDefault();
-		actions.upgradeFieldUpdate('activeStep', 1);
+		// actions.upgradeFieldUpdate('activeStep', 1);
 	}
 
 	openAccount = e => {
@@ -35,93 +38,56 @@ export default class UpgradeStep3 extends Component {
 		const { secretAnswer } = this.props;
 		const { checked } = this.state;
 		if (this.secretAnsValid(secretAnswer) && checked) {
-			actions.upgradeFieldUpdate('progress', true);
-			actions.upgradeConfirm();
+			// actions.upgradeFieldUpdate('progress', true);
+			// actions.upgradeConfirm();
 		}
 	}
 
 	secretAnswerValid = answer =>
 		answer.length >= 4;
 
-	checkBoxClicked = () => {
-		const isChecked = this.state.checked;
-		this.setState({ checked: !isChecked });
-	}
-
-	closeErrorModal = () => actions.upgradeFieldUpdate('error', null);
-
 	render() {
-		const { secretAnswer, secretQuestion, error } = this.props;
+		const { secretAnswer, secretQuestion } = this.props;
 		const { showErr, checked } = this.state;
 
 		return (
 			<form onSubmit={this.openAccount}>
+				<Legend text="Security" />
+				<input name="chooseapassword" placeholder="Password" type="password" />
 				<p>
-					<label>
-						<M m="Security" />
-					</label>
-				</p>
-				<p>
-					<input name="chooseapassword" placeholder="Password" type="password" />
-				</p>
-				<Modal
-					shown={!!error}
-					onClose={this.closeErrorModal}
-					children={
-						<div>
-							<h3>Upgrade Failed</h3>
-							<p>{error}</p>
-						</div>
-					}
-				/>
-				<p>
-					<select name="secretquestion" onChange={this.onSecretQuestionChange} value={secretQuestion}>
-						<option value="">Secret question</option>
-						<option value="Mother's maiden name">Mother's maiden name</option>
-						<option value="Name of your pet">Name of your pet</option>
-						<option value="Name of first love">Name of first love</option>
-						<option value="Memorable town/city">Memorable town/city</option>
-						<option value="Memorable date">Memorable date</option>
-						<option value="Favourite dish">Favourite dish</option>
-						<option value="Brand of first car">Brand of first car</option>
-						<option value="Favourite artist">Favourite artist</option>
-					</select>
+					<SecretQuestion />
 					<input
 						name="secretanswer"
-						value={secretAnswer}
 						placeholder="Answer to secret question"
 						type="text"
 						maxLength="50"
 						onChange={this.onSecretAnswerChange}
 					/>
+					{false &&
+						<ErrorMsg text="Please select a secret question" />
+					}
+					{false &&
+						<ErrorMsg text="Secret answer must be at least 4 characters" />
+					}
 				</p>
-				<ErrorMsg
-					shown={showErr && !secretQuestion}
-					text="Please select a secret question"
-				/>
-				<ErrorMsg
-					shown={showErr && !this.secretAnswerValid(secretAnswer)}
-					text="Secret answer must be at least 4 characters"
-				/>
 				<p>
 					<label>
 						<input
 							name="tnc"
 							type="checkbox"
-							checked={this.state.checked}
-							onClick={this.checkBoxClicked}
+							onClick={this.onTermsAndConditionsChanged}
 						/>
-						<span>I have read and agree to the </span>
-						<a href="https://binary.com/terms-and-conditions" target="_blank">terms and conditions</a>
-						<span> of the site.</span>
+						<M m="I have read and agree to the" />&nbsp;
+						<a href="https://binary.com/terms-and-conditions" target="_blank">
+							<M m="terms and conditions" />
+						</a>
 					</label>
+					{false &&
+						<ErrorMsg text="You need to agree to our Terms and Conditions" />
+					}
 				</p>
-				<ErrorMsg
-					shown={showErr && !checked}
-					text="Please make sure you agree on our Terms and Condition"
-				/>
 				<p>
-					<Button text="Back" onClick={this.previousStep} />
+					<Button className="btn-secondary" text="Back" onClick={this.previousStep} />
 					<Button text="Open Account" />
 				</p>
 			</form>
