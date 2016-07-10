@@ -61,8 +61,10 @@ export default class VerifyEmailCard extends Component {
 
 		return (
 			<div className="startup-content">
-				<LogoSpinner spinning={progress} />
-				<img className="logo-text" src="img/binary-type-logo.svg" alt="Logo" />
+                <div className="full-logo">
+                    <LogoSpinner spinning={progress} />
+                    <img className="logo-text" src="img/binary-type-logo.svg" alt="Logo" />
+                </div>
 				{serverError &&
 					<ErrorMsg text={serverError} />
 				}

@@ -9,7 +9,6 @@ import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import DateOfBirth from 'binary-components/lib/DateOfBirth';
 import Countries from 'binary-components/lib/Countries';
 import { api } from '../_data/LiveData';
-import States from '../settings/States';
 import SecretQuestion from './SecretQuestion';
 
 export default class UpgradeCard extends Component {
@@ -163,15 +162,16 @@ export default class UpgradeCard extends Component {
 
 		return (
 			<div className="upgrade-card" >
-				<p className="media">
+				<div className="full-logo">
 					<LogoSpinner spinning={progress} />
-				</p>
+					<img className="logo-text" src="img/binary-type-logo.svg" alt="Logo" />
+				</div>
 				{serverError &&
 					<ErrorMsg text={serverError} />
 				}
 				<form onSubmit={this.onFormSubmit}>
 					<Legend text="Personal Information" />
-					<p>
+					<div className="input-row">
 						<select id="mrms" name="mrms" onChange={this.onSalutationChange}>
 							<Option value="Mr" text="Mr" />
 							<Option value="Mrs" text="Mrs" />
@@ -192,27 +192,31 @@ export default class UpgradeCard extends Component {
 							onChange={this.onLastNameChange}
 							maxLength="30"
 						/>
-					</p>
+					</div>
 					{validatedOnce && !(firstNameIsValid && lastNameIsValid) &&
 						<ErrorMsg text="Please enter your first and last name" />
 					}
-					<p>
+					<div className="input-row">
 						{/* <Label htmlFor="dobdd" text="Date of birth" /> */}
 						<DateOfBirth
 							onDayChange={this.onDayChange}
 							onMonthChange={this.onMonthChange}
 							onYearChange={this.onYearChange}
 						/>
-					</p>
+					</div>
 					<Legend text="Home Address" />
-					<p>
+					<div className="input-row">
 						<Countries onChange={this.onCountryChange} />
-						<States states={[]} country={residence} noLabel onChange={this.onStateChange} />
-					</p>
+						<select onChange={this.onStateChange}>
+							{[].map(x => (
+								<option key={x.value} value={x.value}>{x.text}</option>
+							))}
+						</select>
+					</div>
 					{validatedOnce && !residenceIsValid &&
 						<ErrorMsg text="Please choose your country" />
 					}
-					<p>
+					<div className="input-row">
 						<input
 							name="AddressTown"
 							placeholder="Town/City"
@@ -227,11 +231,11 @@ export default class UpgradeCard extends Component {
 							maxLength="20"
 							onChange={this.onPostcodeChange}
 						/>
-					</p>
+					</div>
 					{validatedOnce && !addressCityIsValid &&
 						<ErrorMsg text="City must not be empty" />
 					}
-					<p>
+					<div className="input-row">
 						<input
 							name="Address1"
 							placeholder="Address First Line"
@@ -239,8 +243,8 @@ export default class UpgradeCard extends Component {
 							maxLength="70"
 							onChange={this.onAddressLine1Change}
 						/>
-					</p>
-					<p>
+					</div>
+					<div className="input-row">
 						<input
 							name="Address2"
 							placeholder="Address Second Line"
@@ -248,11 +252,11 @@ export default class UpgradeCard extends Component {
 							maxLength="70"
 							onChange={this.onAddressLine2Change}
 						/>
-					</p>
+					</div>
 					{validatedOnce && !addressLine1IsValid &&
 						<ErrorMsg text="Address must not be empty" />
 					}
-					<p>
+					<div className="input-row">
 						<input
 							name="Tel"
 							placeholder="Telephone"
@@ -260,12 +264,12 @@ export default class UpgradeCard extends Component {
 							maxLength="35"
 							onChange={this.onPhoneChange}
 						/>
-					</p>
+					</div>
 					{validatedOnce && !phoneIsValid &&
 						<ErrorMsg text="Phone number must within 6-35 digits" />
 					}
 					<Legend text="Security" />
-					<p>
+					<div className="input-row">
 						<SecretQuestion onChange={this.onSecretQuestionChange} />
 						<input
 							name="secretanswer"
@@ -274,32 +278,30 @@ export default class UpgradeCard extends Component {
 							maxLength="50"
 							onChange={this.onSecretAnswerChange}
 						/>
-					</p>
+					</div>
 					{validatedOnce && !secretQuestionIsValid &&
 						<ErrorMsg text="Please select a secret question" />
 					}
 					{validatedOnce && !secretAnswerIsValid &&
 						<ErrorMsg text="Secret answer must be at least 4 characters" />
 					}
-					<p>
+					<div className="input-row">
 						<label>
 							<input
 								name="tnc"
 								type="checkbox"
 								onClick={this.onTermsAndConditionsChanged}
 							/>
-							<M m="I have read and agree to the" />&nbsp;
+							<M m="I agree to the" />&nbsp;
 							<a href="https://binary.com/terms-and-conditions" target="_blank">
 								<M m="terms and conditions" />
 							</a>
 						</label>
-					</p>
+					</div>
 					{validatedOnce && !termsAndConditions &&
 						<ErrorMsg text="You need to agree to our Terms and Conditions" />
 					}
-					<p>
-						<Button text="Open Account" />
-					</p>
+					<Button disabled={progress || validatedOnce && !this.allValid} text="Open Account" />
 				</form>
 			</div>
 		);

@@ -6,25 +6,21 @@ import LogoSpinner from 'binary-components/lib/LogoSpinner';
 import LanguagePicker from '../web/LanguagePicker';
 
 export default class HelloCard extends Component {
-
 	render() {
 		return (
 			<div className="startup-content">
-				<p className="media">
+				<div className="full-logo">
 					<LogoSpinner />
 					<img className="logo-text" src="img/binary-type-logo.svg" alt="Logo" />
-				</p>
+				</div>
 				<LanguagePicker />
-				<fieldset>
-					<Link to="/" className="btn-secondary" onClick={signIn}>
-						<M m="Sign in" />
-					</Link>
-				</fieldset>
-				<fieldset>
-					<Link to="/signup" className="btn-secondary">
-						<M m="Create Account" />
-					</Link>
-				</fieldset>
+				<Link to="/signup" className="create-account-button btn-secondary">
+					<M m="Create Account" />
+				</Link>
+				<M className="have-account" m="Already have an account?" />
+				<Link to="/" className="signin-button btn-primary" onClick={signIn}>
+					<M m="Sign in" />
+				</Link>
 			</div>
 		);
 	}
