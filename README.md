@@ -111,7 +111,7 @@ electron
 * _store - Init for routes and Redux
 
 ## Translations
-Please see [Weblate](https://hosted.weblate.org/projects/binary-app/next-gen-app/)
+[Weblate](https://hosted.weblate.org/projects/binary-app/next-gen-app/)
 
 ## Useful Learning Resources
 [Egghead](https://egghead.io/)

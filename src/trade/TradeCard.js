@@ -48,7 +48,7 @@ export default class TradeCard extends Component {
         const { chartProps, contractReceiptProps, compact, paramsProps } = this.props;
         const contractReceiptInJS = contractReceiptProps && contractReceiptProps.toJS();
         if (contractReceiptInJS && Object.keys(contractReceiptInJS).length === 0) {
-            return <P text="Asset are not available now, please choose a different asset." />;
+            return <P text="Asset not available" />;
         }
 
         const chartComponent = (
@@ -80,18 +80,18 @@ export default class TradeCard extends Component {
                     <ContractDetailsMobileLayout
                         contract={contractReceiptInJS}
                         chartComponent={
-                                    <div>
-                                        {chartComponent}
-                                        <ContractWinLose contract={contractReceiptInJS} />
-                                        <SellAtMarketButton contract={contractReceiptInJS} />
-                                        <ContractValidationError contract={contractReceiptInJS} />
-                                        <Button
-                                            className="buy-again-btn"
-                                            text="Trade Again"
-                                            onClick={this.tradeAgain}
-                                        />
-                                    </div>
-                                }
+                            <div>
+                                {chartComponent}
+                                <ContractWinLose contract={contractReceiptInJS} />
+                                <SellAtMarketButton contract={contractReceiptInJS} />
+                                <ContractValidationError contract={contractReceiptInJS} />
+                                <Button
+                                    className="buy-again-btn"
+                                    text="Trade Again"
+                                    onClick={this.tradeAgain}
+                                />
+                            </div>
+                        }
                         detailsComponent={detailsComponent}
                         onTradeAgainClicked={this.tradeAgain}
                     />
@@ -108,6 +108,7 @@ export default class TradeCard extends Component {
                 {tradeParamsComponent}
             </div>
         );
+
         return compact ? mobileTrade : desktopTrade;
     }
 }

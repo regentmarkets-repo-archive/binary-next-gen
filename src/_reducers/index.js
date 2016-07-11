@@ -33,7 +33,6 @@ import transactions from './TransactionsReducer';
 import ticks from './TickReducer';
 import ohlc from './OHLCReducer';
 import tickTrade from './TickTradeReducer';
-import upgrade from './UpgradeReducer';
 import video from './VideoReducer';
 import views from './ViewsReducer';
 import workspace from './WorkspaceReducer';
@@ -73,7 +72,6 @@ export default combineReducers({
     tradesUIStates,
     tradesError,
     tradingOptions,
-    upgrade,
     video,
     workspace,
     watchlist,

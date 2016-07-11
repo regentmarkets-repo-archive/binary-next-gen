@@ -78,7 +78,7 @@ export default class VerifyEmailCard extends Component {
 						/>
 					</fieldset>
 					{validatedOnce && !this.emailIsValid &&
-						<ErrorMsg text="Please enter a valid email" />
+						<ErrorMsg text="Enter a valid email" />
 					}
 					<Button disabled={progress} text="Create Free Account" />
 				</form>

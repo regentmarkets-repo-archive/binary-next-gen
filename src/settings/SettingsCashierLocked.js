@@ -38,7 +38,7 @@ export default class SettingsCashierLocked extends Component {
 			<div className="settings-cashier-lock">
                 <P
                     className="notice-msg"
-                    text="Your cashier is locked as per your request - to unlock it, please enter the password."
+                    text="Cashier is locked per your request. To unlock it, enter your password."
                 />
 				<InputGroup
 					id="password1"

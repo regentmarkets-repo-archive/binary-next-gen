@@ -1,7 +1,7 @@
 .startup-content {
     display: flex;
     flex: 1;
-    max-width: 360px;
+    max-width: 300px;
     margin: auto;
     flex-direction: column;
     align-content: space-between;
@@ -38,6 +38,12 @@
     }
     button {
         width: 100%;
+    }
+    .names-row input {
+        min-width: 8rem;
+    }
+    .names-row select {
+        flex: inherit;
     }
     .input-row {
         display: flex;

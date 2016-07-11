@@ -1,7 +1,6 @@
 import React, { Component, PropTypes } from 'react';
 import M from 'binary-components/lib/M';
 import LogoSpinner from 'binary-components/lib/LogoSpinner';
-// import Label from 'binary-components/lib/Label';
 import Legend from 'binary-components/lib/Legend';
 import Button from 'binary-components/lib/Button';
 import Option from 'binary-components/lib/Option';
@@ -171,30 +170,28 @@ export default class UpgradeCard extends Component {
 				}
 				<form onSubmit={this.onFormSubmit}>
 					<Legend text="Personal Information" />
-					<div className="input-row">
-						<select id="mrms" name="mrms" onChange={this.onSalutationChange}>
+					<div className="input-row names-row">
+						<select onChange={this.onSalutationChange}>
 							<Option value="Mr" text="Mr" />
 							<Option value="Mrs" text="Mrs" />
 							<Option value="Ms" text="Ms" />
 							<Option value="Miss" text="Miss" />
 						</select>
 						<input
-							name="fname"
-							placeholder="First name"
+							placeholder="First Name"
 							type="text"
 							onChange={this.onFirstNameChange}
 							maxLength="30"
 						/>
 						<input
-							name="lname"
-							placeholder="Family name"
+							placeholder="Last Name"
 							type="text"
 							onChange={this.onLastNameChange}
 							maxLength="30"
 						/>
 					</div>
 					{validatedOnce && !(firstNameIsValid && lastNameIsValid) &&
-						<ErrorMsg text="Please enter your first and last name" />
+						<ErrorMsg text="Enter your first and last name" />
 					}
 					<div className="input-row">
 						{/* <Label htmlFor="dobdd" text="Date of birth" /> */}
@@ -214,7 +211,7 @@ export default class UpgradeCard extends Component {
 						</select>
 					</div>
 					{validatedOnce && !residenceIsValid &&
-						<ErrorMsg text="Please choose your country" />
+						<ErrorMsg text="Choose your country" />
 					}
 					<div className="input-row">
 						<input
@@ -244,6 +241,9 @@ export default class UpgradeCard extends Component {
 							onChange={this.onAddressLine1Change}
 						/>
 					</div>
+					{validatedOnce && !addressLine1IsValid &&
+						<ErrorMsg text="Address must not be empty" />
+					}
 					<div className="input-row">
 						<input
 							name="Address2"
@@ -253,9 +253,6 @@ export default class UpgradeCard extends Component {
 							onChange={this.onAddressLine2Change}
 						/>
 					</div>
-					{validatedOnce && !addressLine1IsValid &&
-						<ErrorMsg text="Address must not be empty" />
-					}
 					<div className="input-row">
 						<input
 							name="Tel"
@@ -266,7 +263,7 @@ export default class UpgradeCard extends Component {
 						/>
 					</div>
 					{validatedOnce && !phoneIsValid &&
-						<ErrorMsg text="Phone number must within 6-35 digits" />
+						<ErrorMsg text="Enter a valid phone number" />
 					}
 					<Legend text="Security" />
 					<div className="input-row">
@@ -280,7 +277,7 @@ export default class UpgradeCard extends Component {
 						/>
 					</div>
 					{validatedOnce && !secretQuestionIsValid &&
-						<ErrorMsg text="Please select a secret question" />
+						<ErrorMsg text="Select a secret question" />
 					}
 					{validatedOnce && !secretAnswerIsValid &&
 						<ErrorMsg text="Secret answer must be at least 4 characters" />

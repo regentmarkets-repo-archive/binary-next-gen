@@ -26,7 +26,7 @@ export default class RealityCheckInitialCard extends Component {
                         To avoid the danger of such an addiction, we provide a reality-check that gives you a summary of
                         your trades and accounts on a regular basis."
                 />
-                <P text="Please specify your preferred reality-check interval in minutes" />
+                <P text="Specify your reality-check interval in minutes" />
                 <input
                     type="number"
                     value={Math.round(interval / 60)}

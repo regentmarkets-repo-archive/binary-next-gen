@@ -86,7 +86,7 @@ export default class CrateAccountCard extends Component {
             <div className="startup-content">
                 <LogoSpinner spinning={progress} />
                 <img className="logo-text" src="img/binary-type-logo.svg" alt="Logo" />
-                <P className="notice-msg" text="Thank you for signing up! Please check your email to retrieve the verification token." />
+                <P className="notice-msg" text="Thank you for signing up! Check your email to get the verification token." />
                 {serverError &&
                     <ErrorMsg text={serverError} />
                 }
@@ -97,13 +97,13 @@ export default class CrateAccountCard extends Component {
                         onChange={this.onVerificationCodeChange}
                     />
                     {validatedOnce && !verificationCodeIsValid &&
-                        <ErrorMsg text="Please enter a valid verification code" />
+                        <ErrorMsg text="Enter a valid verification code" />
                     }
                     <fieldset>
                         <Countries onChange={this.onResidenceChange} />
                     </fieldset>
                     {validatedOnce && !residenceIsValid &&
-                        <ErrorMsg text="Please select a country" />
+                        <ErrorMsg text="Choose your country" />
                     }
                     <InputGroup
                         type="password"
