@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-07-11 04:27+0000\n"
+"PO-Revision-Date: 2016-07-11 04:35+0000\n"
 "Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/binary-"
 "app/next-gen-app/zh_TW/>\n"
@@ -45,24 +45,20 @@ msgstr "目前現價時間"
 msgid "End Time"
 msgstr "結束時間"
 
-#, fuzzy
 msgid "Entry Spot"
 msgstr "入市現價"
 
 msgid "Current Spot"
 msgstr "目前現價"
 
-#, fuzzy
 msgid "Exit Spot"
 msgstr "退出現價"
 
-#, fuzzy
 msgid "Indicative Price"
-msgstr "指示性"
+msgstr "指示價格"
 
-#, fuzzy
 msgid "Final Price"
-msgstr "賣出價格"
+msgstr "最後價格"
 
 msgid "Description"
 msgstr "說明"
@@ -70,7 +66,6 @@ msgstr "說明"
 msgid "Proceed"
 msgstr "繼續"
 
-#, fuzzy
 msgid "Sign in"
 msgstr "登入"
 
@@ -80,7 +75,6 @@ msgstr "請輸入電子郵件驗證代碼"
 msgid "Verify"
 msgstr "驗證"
 
-#, fuzzy
 msgid "Close"
 msgstr "收盤"
 
@@ -93,24 +87,20 @@ msgstr "對不起，以下地區我們沒有支付代理:"
 msgid "Deposit commision: "
 msgstr "存款佣金收費: "
 
-#, fuzzy
 msgid "Withdrawal commision: "
-msgstr "取款限額"
+msgstr "取款佣金費用: "
 
-#, fuzzy
 msgid "Withdrawal Failed"
-msgstr "取款限額"
+msgstr "取款失敗"
 
-#, fuzzy
 msgid "Confirmation"
 msgstr "交易確認"
 
 msgid "Are you sure you want to withdraw"
 msgstr "確定要提款嗎"
 
-#, fuzzy
 msgid "Withdraw"
-msgstr "取款限額"
+msgstr "取款"
 
 msgid "View"
 msgstr "檢視"
@@ -193,9 +183,8 @@ msgstr "比例"
 msgid "Ticks"
 msgstr "跳動點"
 
-#, fuzzy
 msgid "Purchase for "
-msgstr "買入"
+msgstr "買入 "
 
 msgid "{asset} will {type} over next {duration}"
 msgstr "{資產}將在{類型}期內{時段}"
