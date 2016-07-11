@@ -4,7 +4,6 @@ const del = require('del');
 const file = require('gulp-file');
 const shell = require('gulp-shell');
 const ghPages = require('gulp-gh-pages');
-const sass = require('gulp-sass');
 const electron = require('gulp-atom-electron');
 const zip = require('gulp-vinyl-zip');
 const po2json = require('gulp-po2json');
