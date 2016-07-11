@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-03-05 01:59+0000\n"
-"Last-Translator: Xiaojing <cai.cxj@gmail.com>\n"
+"PO-Revision-Date: 2016-07-11 04:27+0000\n"
+"Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/binary-"
 "app/next-gen-app/zh_TW/>\n"
 "Language: zh_tw\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 msgid "Purchase Price"
 msgstr "買入價格"
@@ -37,20 +37,20 @@ msgid "Value"
 msgstr "價值"
 
 msgid "Start Time"
-msgstr ""
+msgstr "開始時間"
 
 msgid "Current Spot Time"
-msgstr ""
+msgstr "目前現價時間"
 
 msgid "End Time"
-msgstr ""
+msgstr "結束時間"
 
 #, fuzzy
 msgid "Entry Spot"
 msgstr "入市現價"
 
 msgid "Current Spot"
-msgstr ""
+msgstr "目前現價"
 
 #, fuzzy
 msgid "Exit Spot"
@@ -65,20 +65,20 @@ msgid "Final Price"
 msgstr "賣出價格"
 
 msgid "Description"
-msgstr ""
+msgstr "說明"
 
 msgid "Proceed"
-msgstr ""
+msgstr "繼續"
 
 #, fuzzy
 msgid "Sign in"
 msgstr "登入"
 
 msgid "Please enter your email verification code"
-msgstr ""
+msgstr "請輸入電子郵件驗證代碼"
 
 msgid "Verify"
-msgstr ""
+msgstr "驗證"
 
 #, fuzzy
 msgid "Close"
@@ -88,10 +88,10 @@ msgid "Purchase"
 msgstr "買入"
 
 msgid "Sorry, we have no payment agents in"
-msgstr ""
+msgstr "對不起，以下地區我們沒有支付代理:"
 
 msgid "Deposit commision: "
-msgstr ""
+msgstr "存款佣金收費: "
 
 #, fuzzy
 msgid "Withdrawal commision: "
@@ -106,7 +106,7 @@ msgid "Confirmation"
 msgstr "交易確認"
 
 msgid "Are you sure you want to withdraw"
-msgstr ""
+msgstr "確定要提款嗎"
 
 #, fuzzy
 msgid "Withdraw"
@@ -188,7 +188,7 @@ msgid "Credit/Debit"
 msgstr "借記/貸記"
 
 msgid "Scale"
-msgstr ""
+msgstr "比例"
 
 msgid "Ticks"
 msgstr "跳動點"
