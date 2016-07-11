@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-06-23 04:59+0000\n"
-"Last-Translator: Fumio Miyama <miyama@regentmarkets.com>\n"
+"PO-Revision-Date: 2016-07-11 07:59+0000\n"
+"Last-Translator: Haruna Sekiya <hrnmyrn@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/ja/>\n"
 "Language: ja\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.7-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 msgid "All"
 msgstr "全て"
@@ -210,7 +210,7 @@ msgid "Rise"
 msgstr "アップ"
 
 msgid "Stake"
-msgstr "Stake"
+msgstr "購入価格"
 
 msgid "Payout"
 msgstr "ペイアウト"
@@ -351,273 +351,247 @@ msgid "Search For Assets"
 msgstr "資産検索"
 
 msgid "Start times"
-msgstr ""
+msgstr "開始時刻"
 
-#, fuzzy
 msgid "Durations"
-msgstr "お取引"
+msgstr "取引期間"
 
-#, fuzzy
 msgid "Payout/Stake"
-msgstr "ペイアウト"
+msgstr "ペイアウト/購入金額"
 
-#, fuzzy
 msgid "Purchase for"
 msgstr "XXXを購入する"
 
-#, fuzzy
 msgid "payout"
 msgstr "ペイアウト"
 
-#, fuzzy
 msgid "stake"
-msgstr "Stake"
+msgstr "購入金額"
 
 msgid "Self Exclusion"
-msgstr ""
+msgstr "取引制限"
 
 msgid "Cashier Lock"
-msgstr ""
+msgstr "入出金ロック"
 
 msgid "Change Password"
-msgstr ""
+msgstr "パスワード変更"
 
 msgid "Password"
-msgstr ""
+msgstr "パスワード"
 
-#, fuzzy
 msgid "Tick Trade"
-msgstr "トレード"
+msgstr "Tickトレード"
 
-#, fuzzy
 msgid "Full Trade"
-msgstr "トレード"
+msgstr "フルトレード"
 
-#, fuzzy
 msgid "Address"
-msgstr "自宅の住所"
+msgstr "現住所"
 
 msgid "Town/City"
-msgstr ""
+msgstr "市区町村"
 
 msgid "State/Province"
-msgstr ""
+msgstr "都道府県"
 
 msgid "Telephone"
-msgstr ""
+msgstr "電話番号"
 
 msgid "Postal Code / ZIP"
-msgstr ""
+msgstr "郵便番号"
 
 msgid "Cashier password"
-msgstr ""
+msgstr "入出金パスワード"
 
 msgid "Re-enter your password"
-msgstr ""
+msgstr "パスワード再入力"
 
 msgid "Current password"
-msgstr ""
+msgstr "現在のパスワード"
 
 msgid "New password"
-msgstr ""
+msgstr "新パスワード"
 
 msgid "Verify new password"
-msgstr ""
+msgstr "新パスワード（確認用）"
 
-#, fuzzy
 msgid "Daily turnover limit"
-msgstr "１日あたりのトレード購入可能金額"
+msgstr "1日の取引数量限度額"
 
 msgid "Once this limit is reached, you may no longer deposit."
-msgstr ""
+msgstr "上限額に達した場合、入金頂くことができません。"
 
 msgid "Maximum aggregate contract purchases per day."
-msgstr ""
+msgstr "1日あたりの最大取引数量 (半角)"
 
 msgid "Daily limit on losses"
-msgstr ""
+msgstr "損失限度額（1日）"
 
-#, fuzzy
 msgid "Maximum aggregate loss per day."
-msgstr "オープン中ポジションに対する払い戻し金額の最高総額"
+msgstr "1日あたりの最大損失 (半角)"
 
 msgid "7-day turnover limit"
-msgstr ""
+msgstr "7日の取引数量限度額"
 
 msgid "Maximum aggregate contract purchases over a 7-day period."
-msgstr ""
+msgstr "7日間の最大取引数量 (半角)"
 
 msgid "7-day limit on losses"
-msgstr ""
+msgstr "7日間の損失制限"
 
-#, fuzzy
 msgid "Maximum aggregate loss over a 7-day period."
-msgstr "オープン中ポジションに対する払い戻し金額の最高総額"
+msgstr "7日間の最大損失 (半角)"
 
 msgid "30-day turnover limit"
-msgstr ""
+msgstr "30日の取引数量限度額"
 
 msgid "Maximum aggregate contract purchases over a 30-day period."
-msgstr ""
+msgstr "30日の最大取引数量 (半角)"
 
 msgid "30-day limit on losses"
-msgstr ""
+msgstr "30日間の損失制限"
 
-#, fuzzy
 msgid "Maximum aggregate loss over a 30-day period."
-msgstr "オープン中ポジションに対する払い戻し金額の最高総額"
+msgstr "30日間最大損失 (半角)"
 
 msgid "Session duration limit, in minutes"
-msgstr ""
+msgstr "取引継続時間の制限(分単位)"
 
 msgid "You will be automatically logged out after such time."
-msgstr ""
+msgstr "設定時間を過ぎると自動的にログアウトします。（例）　10分の場合、10と記入して下さい。(半角)"
 
 msgid "Exclude me from the website until"
-msgstr ""
+msgstr "特定日まで利用禁止（日時単位）"
 
-#, fuzzy
 msgid "Limits"
-msgstr "トレードの上限について"
+msgstr "制限"
 
 msgid "Please enter date in the format YYYY-MM-DD."
-msgstr ""
+msgstr "ご希望の日付を選択して下さい。"
 
-#, fuzzy
 msgid "New Trade"
-msgstr "トレード"
+msgstr "新しいトレード"
 
-#, fuzzy
 msgid "Trade Type"
-msgstr "トレード"
+msgstr "トレードタイプ"
 
 msgid "Random 100 Index"
-msgstr ""
+msgstr "ランダムインデックス 100"
 
 msgid "Article"
-msgstr ""
+msgstr "項目"
 
 msgid "Start Later"
-msgstr ""
+msgstr "後で開始する"
 
-#, fuzzy
 msgid "Buy Price"
-msgstr "価格"
+msgstr "購入価格"
 
 msgid "Earning (%)"
-msgstr ""
+msgstr "利益 (%)"
 
-#, fuzzy
 msgid "Profit"
-msgstr "損益"
+msgstr "利益"
 
-#, fuzzy
 msgid "Entry Price"
-msgstr "価格"
+msgstr "取引時レート"
 
-#, fuzzy
 msgid "Exit Price"
-msgstr "価格"
+msgstr "判定レート"
 
-#, fuzzy
 msgid "Indicative Price"
-msgstr "予想評価"
+msgstr "気配値"
 
 msgid "Potential Profit"
-msgstr ""
+msgstr "期待利益"
 
 msgid "Sell at Market"
-msgstr ""
+msgstr "売却"
 
 msgid "Go back"
-msgstr ""
+msgstr "戻る"
 
 msgid "You lost "
-msgstr ""
+msgstr "xxxを失いました "
 
-#, fuzzy
 msgid "Close"
 msgstr "クローズ"
 
 msgid "Low"
-msgstr ""
+msgstr "Low"
 
 msgid "High"
-msgstr ""
+msgstr "High"
 
-#, fuzzy
 msgid "Open"
 msgstr "オープン"
 
-#, fuzzy
 msgid "Date"
-msgstr "決済日時"
+msgstr "日付"
 
 msgid "Upcoming Events"
-msgstr ""
+msgstr "今後のイベント"
 
 msgid "Win"
-msgstr ""
+msgstr "条件が満たされました"
 
 msgid "Loss"
-msgstr ""
+msgstr "損失"
 
 msgid "Full Screen"
-msgstr ""
+msgstr "フルスクリーン"
 
 msgid "Start Now"
-msgstr ""
+msgstr "今すぐ始める"
 
-#, fuzzy
 msgid "Daily Prices"
-msgstr "決済価格"
+msgstr "日足価格"
 
 msgid "Spreads"
-msgstr ""
+msgstr "スプレッド"
 
 msgid "Confirm new password"
-msgstr ""
+msgstr "新しいパスワード（確認用）"
 
 msgid "TICK"
-msgstr ""
+msgstr "TICK"
 
 msgid "Minutes"
-msgstr ""
+msgstr "分"
 
 msgid "Seconds"
-msgstr ""
+msgstr "秒"
 
 msgid "Hours"
-msgstr ""
+msgstr "時間"
 
 msgid "Days"
-msgstr ""
+msgstr "日"
 
 msgid "N/A"
-msgstr ""
+msgstr "なし"
 
-#, fuzzy
 msgid "Duration"
-msgstr "場所"
+msgstr "取引期間"
 
 msgid "Start Time"
-msgstr ""
+msgstr "開始時刻"
 
 msgid "Now"
-msgstr ""
+msgstr "Now"
 
 msgid "Later"
-msgstr ""
+msgstr "後で"
 
 msgid "return"
-msgstr ""
+msgstr "リターン"
 
 msgid "Portfolio"
-msgstr ""
+msgstr "ポジション一覧"
 
 msgid "Video"
-msgstr ""
+msgstr "動画"
 
-#, fuzzy
 msgid "Digit Stats"
-msgstr "数字マッチ"
+msgstr "数字ステータス"
