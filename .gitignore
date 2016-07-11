@@ -10,6 +10,7 @@ npm-debug.log
 .cordova/
 plugins/
 platforms/
+*.keystore
 
 www/app.js
 www/app.js.map
