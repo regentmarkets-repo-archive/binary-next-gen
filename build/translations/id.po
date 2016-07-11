@@ -9,8 +9,8 @@ msgstr ""
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2016-02-10 07:19+0000\n"
 "Last-Translator: Putri Kumala <putri@regentmarkets.com>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-app/"
-"next-gen-app/id/>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-app"
+"/next-gen-app/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,17 +18,8 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.5-dev\n"
 
-msgid "Purchase Price"
-msgstr "Harga Beli"
-
-msgid "Purchase Time"
-msgstr "Waktu Beli"
-
-msgid "Balance"
-msgstr "Saldo"
-
-msgid "Back"
-msgstr "Kembali"
+msgid "All"
+msgstr "Semua"
 
 msgid "Property"
 msgstr "Milik"
@@ -36,81 +27,29 @@ msgstr "Milik"
 msgid "Value"
 msgstr "Nilai"
 
-msgid "Start Time"
-msgstr ""
+msgid "Balance"
+msgstr "Saldo"
 
-msgid "Current Spot Time"
-msgstr ""
+msgid "Trade"
+msgstr "Trade"
 
-msgid "End Time"
-msgstr ""
+msgid "Watchlist"
+msgstr "Daftar pantauan"
 
-#, fuzzy
-msgid "Entry Spot"
-msgstr "Spot awal"
+msgid "Open Positions"
+msgstr "Kontrak Berjalan"
 
-msgid "Current Spot"
-msgstr ""
+msgid "Profit Table"
+msgstr "Tabel Laba Rugi"
 
-#, fuzzy
-msgid "Exit Spot"
-msgstr "Spot akhir"
+msgid "Statement"
+msgstr "Pernyataan"
 
-#, fuzzy
-msgid "Indicative Price"
-msgstr "Indikatif"
+msgid "Settings"
+msgstr "Pengaturan"
 
-#, fuzzy
-msgid "Final Price"
-msgstr "Harga Jual"
-
-msgid "Description"
-msgstr ""
-
-msgid "Proceed"
-msgstr ""
-
-#, fuzzy
-msgid "Sign in"
-msgstr "Masuk"
-
-msgid "Please enter your email verification code"
-msgstr ""
-
-msgid "Verify"
-msgstr ""
-
-#, fuzzy
-msgid "Close"
-msgstr "Tutup"
-
-msgid "Purchase"
-msgstr "Beli"
-
-msgid "Sorry, we have no payment agents in"
-msgstr ""
-
-msgid "Deposit commision: "
-msgstr ""
-
-#, fuzzy
-msgid "Withdrawal commision: "
-msgstr "Batas penarikan"
-
-#, fuzzy
-msgid "Withdrawal Failed"
-msgstr "Batas penarikan"
-
-#, fuzzy
-msgid "Confirmation"
-msgstr "Konfirmasi Trading"
-
-msgid "Are you sure you want to withdraw"
-msgstr ""
-
-#, fuzzy
-msgid "Withdraw"
-msgstr "Batas penarikan"
+msgid "Sign Out"
+msgstr "Keluar"
 
 msgid "View"
 msgstr "Lihat"
@@ -118,8 +57,29 @@ msgstr "Lihat"
 msgid "Ref."
 msgstr "Ref."
 
+msgid "Purchase"
+msgstr "Beli"
+
 msgid "Indicative"
 msgstr "Indikatif"
+
+msgid "Purchase Date"
+msgstr "Tanggal Beli"
+
+msgid "Purchase Price"
+msgstr "Harga Beli"
+
+msgid "Sale Date"
+msgstr "Tanggal Jual"
+
+msgid "Sale Price"
+msgstr "Harga Jual"
+
+msgid "Profit/Loss"
+msgstr "Untung/Rugi"
+
+msgid "Total"
+msgstr "Total"
 
 msgid "Location"
 msgstr "Lokasi"
@@ -129,12 +89,6 @@ msgstr "Memperbarui"
 
 msgid "Details"
 msgstr "Rincian"
-
-msgid "Language"
-msgstr "Bahasa"
-
-msgid "Color Theme"
-msgstr "Warna Tema"
 
 msgid "Trading Limits"
 msgstr "Batasan Trading"
@@ -173,14 +127,11 @@ msgstr "Kata sandi tambahan dapat digunakan untuk membatasi akses ke kasir."
 msgid "Sign In"
 msgstr "Masuk"
 
+msgid "Get your API token"
+msgstr "Dapatkan token API Anda"
+
 msgid "Create Account"
 msgstr "Daftar Akun"
-
-msgid "There are no transactions for selected period"
-msgstr "Tidak ditemukan transaksi bagi periode yang dipilih"
-
-msgid "Purchase Date"
-msgstr "Tanggal Beli"
 
 msgid "Action"
 msgstr "Aksi"
@@ -188,15 +139,14 @@ msgstr "Aksi"
 msgid "Credit/Debit"
 msgstr "Kredit/Debit"
 
-msgid "Scale"
-msgstr ""
+msgid "Purchase Time"
+msgstr "Waktu Beli"
 
-msgid "Ticks"
-msgstr "Hasil Tik"
+msgid "Back"
+msgstr "Kembali"
 
-#, fuzzy
-msgid "Purchase for "
-msgstr "Untuk Pembelian"
+msgid "Place Order"
+msgstr "Beli Kontrak"
 
 msgid "{asset} will {type} over next {duration}"
 msgstr "{asset} akan {type} pada {duration} berikutnya"
@@ -210,6 +160,9 @@ msgstr "Aset"
 msgid "Type"
 msgstr "Tipe"
 
+msgid "Ticks"
+msgstr "Hasil Tik"
+
 msgid "Amount"
 msgstr "Jumlah"
 
@@ -222,23 +175,23 @@ msgstr "Spot awal"
 msgid "Exit spot"
 msgstr "Spot akhir"
 
+msgid "Next"
+msgstr "Lanjutkan"
+
+msgid "Open Account"
+msgstr "Daftar Akun"
+
 msgid "Upgrade to Real Money Account"
 msgstr "Tingkatkan ke Akun Uang Riil"
 
 msgid "Date of birth"
 msgstr "Tanggal lahir"
 
-msgid "Next"
-msgstr "Lanjutkan"
-
 msgid "Home Address"
 msgstr "Alamat Rumah"
 
 msgid "Security"
 msgstr "Keamanan"
-
-msgid "Open Account"
-msgstr "Daftar Akun"
 
 msgid "Spot"
 msgstr "Posisi"
@@ -249,173 +202,149 @@ msgstr "Perubahan"
 msgid "Chart"
 msgstr "Grafik"
 
-#~ msgid "All"
-#~ msgstr "Semua"
+msgid "Purchase For"
+msgstr "Untuk Pembelian"
 
-#~ msgid "Trade"
-#~ msgstr "Trade"
+msgid "Rise"
+msgstr "Rise"
 
-#~ msgid "Watchlist"
-#~ msgstr "Daftar pantauan"
+msgid "Stake"
+msgstr "Modal"
 
-#~ msgid "Open Positions"
-#~ msgstr "Kontrak Berjalan"
+msgid "Payout"
+msgstr "Hasil"
 
-#~ msgid "Profit Table"
-#~ msgstr "Tabel Laba Rugi"
+msgid "Deposit"
+msgstr "Deposit"
 
-#~ msgid "Statement"
-#~ msgstr "Pernyataan"
+msgid "Transactions"
+msgstr "Transaksi"
 
-#~ msgid "Settings"
-#~ msgstr "Pengaturan"
+msgid "Opens"
+msgstr "Buka"
 
-#~ msgid "Sign Out"
-#~ msgstr "Keluar"
+msgid "Closes"
+msgstr "Tutup"
 
-#~ msgid "Sale Date"
-#~ msgstr "Tanggal Jual"
+msgid "Personal"
+msgstr "Pribadi"
 
-#~ msgid "Profit/Loss"
-#~ msgstr "Untung/Rugi"
+msgid "General"
+msgstr "Umum"
 
-#~ msgid "Total"
-#~ msgstr "Total"
+msgid "Trading Times"
+msgstr "Waktu Trading"
 
-#~ msgid "Get your API token"
-#~ msgstr "Dapatkan token API Anda"
+msgid "Asset Index"
+msgstr "Indeks Aset"
 
-#~ msgid "Place Order"
-#~ msgstr "Beli Kontrak"
+msgid "Today"
+msgstr "Hari ini"
 
-#~ msgid "Rise"
-#~ msgstr "Rise"
+msgid "Yesterday"
+msgstr "Kemarin"
 
-#~ msgid "Stake"
-#~ msgstr "Modal"
+msgid "Tomorrow"
+msgstr "Besok"
 
-#~ msgid "Payout"
-#~ msgstr "Hasil"
+msgid "Takeout"
+msgstr "Mengambil"
 
-#~ msgid "Deposit"
-#~ msgstr "Deposit"
+msgid "News"
+msgstr "Berita"
 
-#~ msgid "Transactions"
-#~ msgstr "Transaksi"
+msgid "Resources"
+msgstr "Sumber"
 
-#~ msgid "Opens"
-#~ msgstr "Buka"
+msgid "Last 7 Days"
+msgstr "7 Hari Terakhir"
 
-#~ msgid "Personal"
-#~ msgstr "Pribadi"
+msgid "Last 30 Days"
+msgstr "30 Hari Terakhir"
 
-#~ msgid "General"
-#~ msgstr "Umum"
+msgid "Daily Report"
+msgstr "Laporan Harian"
 
-#~ msgid "Trading Times"
-#~ msgstr "Waktu Trading"
+msgid "Up/Down"
+msgstr "Up/Down"
 
-#~ msgid "Asset Index"
-#~ msgstr "Indeks Aset"
+msgid "Touch/No Touch"
+msgstr "Touch/No Touch"
 
-#~ msgid "Today"
-#~ msgstr "Hari ini"
+msgid "Ends In/Out"
+msgstr "Ends In/Out"
 
-#~ msgid "Yesterday"
-#~ msgstr "Kemarin"
+msgid "Stays In/Goes Out"
+msgstr "Stays In/Goes Out"
 
-#~ msgid "Tomorrow"
-#~ msgstr "Besok"
+msgid "Settles"
+msgstr "Diselesaikan"
 
-#~ msgid "Takeout"
-#~ msgstr "Mengambil"
+msgid "Language"
+msgstr "Bahasa"
 
-#~ msgid "News"
-#~ msgstr "Berita"
+msgid "Color Theme"
+msgstr "Warna Tema"
 
-#~ msgid "Resources"
-#~ msgstr "Sumber"
+msgid "Light"
+msgstr "Terang"
 
-#~ msgid "Last 7 Days"
-#~ msgstr "7 Hari Terakhir"
+msgid "Dark"
+msgstr "Gelap"
 
-#~ msgid "Last 30 Days"
-#~ msgstr "30 Hari Terakhir"
+msgid "Name"
+msgstr "Nama"
 
-#~ msgid "Daily Report"
-#~ msgstr "Laporan Harian"
+msgid "Date Of Birth"
+msgstr "Tanggal Lahir"
 
-#~ msgid "Up/Down"
-#~ msgstr "Up/Down"
+msgid "Country Of Residence"
+msgstr "Negara Domisili"
 
-#~ msgid "Touch/No Touch"
-#~ msgstr "Touch/No Touch"
+msgid "Email"
+msgstr "Email"
 
-#~ msgid "Ends In/Out"
-#~ msgstr "Ends In/Out"
+msgid "There are no transactions for selected period"
+msgstr "Tidak ditemukan transaksi bagi periode yang dipilih"
 
-#~ msgid "Stays In/Goes Out"
-#~ msgstr "Stays In/Goes Out"
+msgid "Sell"
+msgstr "Jual"
 
-#~ msgid "Settles"
-#~ msgstr "Diselesaikan"
+msgid "Buy"
+msgstr "Beli"
 
-#~ msgid "Light"
-#~ msgstr "Terang"
+msgid "Digit Even"
+msgstr "Digit Even"
 
-#~ msgid "Dark"
-#~ msgstr "Gelap"
+msgid "Touches"
+msgstr "Touches"
 
-#~ msgid "Name"
-#~ msgstr "Nama"
+msgid "Digit Over"
+msgstr "Digit Over"
 
-#~ msgid "Date Of Birth"
-#~ msgstr "Tanggal Lahir"
+msgid "Digit Match"
+msgstr "Digit Match"
 
-#~ msgid "Country Of Residence"
-#~ msgstr "Negara Domisili"
+msgid "Digit Under"
+msgstr "Digit Under"
 
-#~ msgid "Email"
-#~ msgstr "Email"
+msgid "Digit Odd"
+msgstr "Digit Odd"
 
-#~ msgid "Sell"
-#~ msgstr "Jual"
+msgid "Digit Differs"
+msgstr "Digit Differs"
 
-#~ msgid "Buy"
-#~ msgstr "Beli"
+msgid "No Touch"
+msgstr "No Touch"
 
-#~ msgid "Digit Even"
-#~ msgstr "Digit Even"
+msgid "Fall"
+msgstr "Fall"
 
-#~ msgid "Touches"
-#~ msgstr "Touches"
+msgid "Asian Down"
+msgstr "Asian Down"
 
-#~ msgid "Digit Over"
-#~ msgstr "Digit Over"
+msgid "Asian Up"
+msgstr "Asian Up"
 
-#~ msgid "Digit Match"
-#~ msgstr "Digit Match"
-
-#~ msgid "Digit Under"
-#~ msgstr "Digit Under"
-
-#~ msgid "Digit Odd"
-#~ msgstr "Digit Odd"
-
-#~ msgid "Digit Differs"
-#~ msgstr "Digit Differs"
-
-#~ msgid "No Touch"
-#~ msgstr "No Touch"
-
-#~ msgid "Fall"
-#~ msgstr "Fall"
-
-#~ msgid "Asian Down"
-#~ msgstr "Asian Down"
-
-#~ msgid "Asian Up"
-#~ msgstr "Asian Up"
-
-#~ msgid "Search For Assets"
-#~ msgstr "Pencarian Aset"
+msgid "Search For Assets"
+msgstr "Pencarian Aset"

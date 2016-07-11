@@ -9,8 +9,8 @@ msgstr ""
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2016-03-03 09:06+0000\n"
 "Last-Translator: Sittie Hadjirah Sevilla <sittiebaser@gmail.com>\n"
-"Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-app/"
-"next-gen-app/vi/>\n"
+"Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-app"
+"/next-gen-app/vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -18,17 +18,8 @@ msgstr ""
 "Plural-Forms: nplurals=1; plural=0;\n"
 "X-Generator: Weblate 2.5-dev\n"
 
-msgid "Purchase Price"
-msgstr "Giá Mua"
-
-msgid "Purchase Time"
-msgstr "Thời Gian mua"
-
-msgid "Balance"
-msgstr "Số dư tài khoản"
-
-msgid "Back"
-msgstr "Quay lại"
+msgid "All"
+msgstr "Tất cả"
 
 msgid "Property"
 msgstr "Tài sản"
@@ -36,81 +27,29 @@ msgstr "Tài sản"
 msgid "Value"
 msgstr "Giá trị"
 
-msgid "Start Time"
-msgstr ""
+msgid "Balance"
+msgstr "Số dư tài khoản"
 
-msgid "Current Spot Time"
-msgstr ""
+msgid "Trade"
+msgstr "Giao dịch"
 
-msgid "End Time"
-msgstr ""
+msgid "Watchlist"
+msgstr "Danh sách theo dõi"
 
-#, fuzzy
-msgid "Entry Spot"
-msgstr "Giá tại thời điểm bắt đầu giao dịch"
+msgid "Open Positions"
+msgstr "Vị thế mở"
 
-msgid "Current Spot"
-msgstr ""
+msgid "Profit Table"
+msgstr "Bảng lợi nhuận"
 
-#, fuzzy
-msgid "Exit Spot"
-msgstr "Giá tại thời điểm kết thúc giao dịch"
+msgid "Statement"
+msgstr "Báo cáo"
 
-#, fuzzy
-msgid "Indicative Price"
-msgstr "Chỉ thị"
+msgid "Settings"
+msgstr "Cài đặt"
 
-#, fuzzy
-msgid "Final Price"
-msgstr "Giá bán"
-
-msgid "Description"
-msgstr ""
-
-msgid "Proceed"
-msgstr ""
-
-#, fuzzy
-msgid "Sign in"
-msgstr "Đăng nhập"
-
-msgid "Please enter your email verification code"
-msgstr ""
-
-msgid "Verify"
-msgstr ""
-
-#, fuzzy
-msgid "Close"
-msgstr "Kết thúc"
-
-msgid "Purchase"
-msgstr "Mua"
-
-msgid "Sorry, we have no payment agents in"
-msgstr ""
-
-msgid "Deposit commision: "
-msgstr ""
-
-#, fuzzy
-msgid "Withdrawal commision: "
-msgstr "Giới hạn rút tiền"
-
-#, fuzzy
-msgid "Withdrawal Failed"
-msgstr "Giới hạn rút tiền"
-
-#, fuzzy
-msgid "Confirmation"
-msgstr "Xác nhận Giao dịch"
-
-msgid "Are you sure you want to withdraw"
-msgstr ""
-
-#, fuzzy
-msgid "Withdraw"
-msgstr "Giới hạn rút tiền"
+msgid "Sign Out"
+msgstr "Đăng xuất"
 
 msgid "View"
 msgstr "Xem"
@@ -118,8 +57,29 @@ msgstr "Xem"
 msgid "Ref."
 msgstr "Tham khảo."
 
+msgid "Purchase"
+msgstr "Mua"
+
 msgid "Indicative"
 msgstr "Chỉ thị"
+
+msgid "Purchase Date"
+msgstr "Ngày Mua"
+
+msgid "Purchase Price"
+msgstr "Giá Mua"
+
+msgid "Sale Date"
+msgstr "Ngày Bán hàng"
+
+msgid "Sale Price"
+msgstr "Giá bán"
+
+msgid "Profit/Loss"
+msgstr "Lợi nhuận/Thua lỗ"
+
+msgid "Total"
+msgstr "Tổng"
 
 msgid "Location"
 msgstr "Vị trí"
@@ -129,12 +89,6 @@ msgstr "Cập nhật"
 
 msgid "Details"
 msgstr "Chi tiết"
-
-msgid "Language"
-msgstr "Ngôn ngữ"
-
-msgid "Color Theme"
-msgstr "Màu sắc giao diện"
 
 msgid "Trading Limits"
 msgstr "Giới hạn Giao dịch"
@@ -172,14 +126,11 @@ msgstr "Mật khẩu phụ có thể dùng để hạn chế truy cập vào k
 msgid "Sign In"
 msgstr "Đăng nhập"
 
+msgid "Get your API token"
+msgstr "Nhận mã API của bạn"
+
 msgid "Create Account"
 msgstr "Đăng kí tài khoản"
-
-msgid "There are no transactions for selected period"
-msgstr "Không có giao dịch nào trong khoảng thời gian này"
-
-msgid "Purchase Date"
-msgstr "Ngày Mua"
 
 msgid "Action"
 msgstr "Hành động"
@@ -187,15 +138,14 @@ msgstr "Hành động"
 msgid "Credit/Debit"
 msgstr "Tín dụng/Ghi nợ"
 
-msgid "Scale"
-msgstr ""
+msgid "Purchase Time"
+msgstr "Thời Gian mua"
 
-msgid "Ticks"
-msgstr "Giây"
+msgid "Back"
+msgstr "Quay lại"
 
-#, fuzzy
-msgid "Purchase for "
-msgstr "Mua"
+msgid "Place Order"
+msgstr "Đặt lệnh"
 
 msgid "{asset} will {type} over next {duration}"
 msgstr "{asset} sẽ {type} qua tiếp theo {duration}"
@@ -209,6 +159,9 @@ msgstr "Tài sản"
 msgid "Type"
 msgstr "Loại"
 
+msgid "Ticks"
+msgstr "Giây"
+
 msgid "Amount"
 msgstr "Số tiền"
 
@@ -221,23 +174,23 @@ msgstr "Giá tại thời điểm bắt đầu giao dịch"
 msgid "Exit spot"
 msgstr "Giá tại thời điểm kết thúc giao dịch"
 
+msgid "Next"
+msgstr "Tiếp theo"
+
+msgid "Open Account"
+msgstr "Mở Tài khoản"
+
 msgid "Upgrade to Real Money Account"
 msgstr "Nâng cấp lên Tài Khoản Tiền Thực"
 
 msgid "Date of birth"
 msgstr "Ngày sinh"
 
-msgid "Next"
-msgstr "Tiếp theo"
-
 msgid "Home Address"
 msgstr "Địa chỉ nhà"
 
 msgid "Security"
 msgstr "Bảo mật"
-
-msgid "Open Account"
-msgstr "Mở Tài khoản"
 
 msgid "Spot"
 msgstr "Giá giao ngay"
@@ -248,173 +201,149 @@ msgstr "Thay đổi"
 msgid "Chart"
 msgstr "BIểu đồ"
 
-#~ msgid "All"
-#~ msgstr "Tất cả"
+msgid "Purchase For"
+msgstr "Mua"
 
-#~ msgid "Trade"
-#~ msgstr "Giao dịch"
+msgid "Rise"
+msgstr "Tăng"
 
-#~ msgid "Watchlist"
-#~ msgstr "Danh sách theo dõi"
+msgid "Stake"
+msgstr "Cá cược"
 
-#~ msgid "Open Positions"
-#~ msgstr "Vị thế mở"
+msgid "Payout"
+msgstr "Tiền thưởng"
 
-#~ msgid "Profit Table"
-#~ msgstr "Bảng lợi nhuận"
+msgid "Deposit"
+msgstr "Gửi tiền"
 
-#~ msgid "Statement"
-#~ msgstr "Báo cáo"
+msgid "Transactions"
+msgstr "Giao dịch"
 
-#~ msgid "Settings"
-#~ msgstr "Cài đặt"
+msgid "Opens"
+msgstr "Bắt đầu"
 
-#~ msgid "Sign Out"
-#~ msgstr "Đăng xuất"
+msgid "Closes"
+msgstr "Kết thúc"
 
-#~ msgid "Sale Date"
-#~ msgstr "Ngày Bán hàng"
+msgid "Personal"
+msgstr "Cá nhân"
 
-#~ msgid "Profit/Loss"
-#~ msgstr "Lợi nhuận/Thua lỗ"
+msgid "General"
+msgstr "Tổng quan"
 
-#~ msgid "Total"
-#~ msgstr "Tổng"
+msgid "Trading Times"
+msgstr "Thời Gian Giao Dịch"
 
-#~ msgid "Get your API token"
-#~ msgstr "Nhận mã API của bạn"
+msgid "Asset Index"
+msgstr "Chỉ số Tài sản"
 
-#~ msgid "Place Order"
-#~ msgstr "Đặt lệnh"
+msgid "Today"
+msgstr "Hôm nay"
 
-#~ msgid "Rise"
-#~ msgstr "Tăng"
+msgid "Yesterday"
+msgstr "Ngày hôm qua"
 
-#~ msgid "Stake"
-#~ msgstr "Cá cược"
+msgid "Tomorrow"
+msgstr "Ngày mai"
 
-#~ msgid "Payout"
-#~ msgstr "Tiền thưởng"
+msgid "Takeout"
+msgstr "Đưa ra"
 
-#~ msgid "Deposit"
-#~ msgstr "Gửi tiền"
+msgid "News"
+msgstr "Tin tức"
 
-#~ msgid "Transactions"
-#~ msgstr "Giao dịch"
+msgid "Resources"
+msgstr "Nguồn thông tin"
 
-#~ msgid "Opens"
-#~ msgstr "Bắt đầu"
+msgid "Last 7 Days"
+msgstr "7 ngày trước"
 
-#~ msgid "Personal"
-#~ msgstr "Cá nhân"
+msgid "Last 30 Days"
+msgstr "30 ngày trước"
 
-#~ msgid "General"
-#~ msgstr "Tổng quan"
+msgid "Daily Report"
+msgstr "Báo Cáo Hàng Ngày"
 
-#~ msgid "Trading Times"
-#~ msgstr "Thời Gian Giao Dịch"
+msgid "Up/Down"
+msgstr "Lên/Xuống"
 
-#~ msgid "Asset Index"
-#~ msgstr "Chỉ số Tài sản"
+msgid "Touch/No Touch"
+msgstr "Chạm/Không chạm"
 
-#~ msgid "Today"
-#~ msgstr "Hôm nay"
+msgid "Ends In/Out"
+msgstr "Kết thúc Trong/Ngoài"
 
-#~ msgid "Yesterday"
-#~ msgstr "Ngày hôm qua"
+msgid "Stays In/Goes Out"
+msgstr "Ở trong/Ra ngoài"
 
-#~ msgid "Tomorrow"
-#~ msgstr "Ngày mai"
+msgid "Settles"
+msgstr "Cài đặt"
 
-#~ msgid "Takeout"
-#~ msgstr "Đưa ra"
+msgid "Language"
+msgstr "Ngôn ngữ"
 
-#~ msgid "News"
-#~ msgstr "Tin tức"
+msgid "Color Theme"
+msgstr "Màu sắc giao diện"
 
-#~ msgid "Resources"
-#~ msgstr "Nguồn thông tin"
+msgid "Light"
+msgstr "Màu nhạt"
 
-#~ msgid "Last 7 Days"
-#~ msgstr "7 ngày trước"
+msgid "Dark"
+msgstr "Màu đậm"
 
-#~ msgid "Last 30 Days"
-#~ msgstr "30 ngày trước"
+msgid "Name"
+msgstr "Tên"
 
-#~ msgid "Daily Report"
-#~ msgstr "Báo Cáo Hàng Ngày"
+msgid "Date Of Birth"
+msgstr "Ngày sinh"
 
-#~ msgid "Up/Down"
-#~ msgstr "Lên/Xuống"
+msgid "Country Of Residence"
+msgstr "Quốc gia cư trú"
 
-#~ msgid "Touch/No Touch"
-#~ msgstr "Chạm/Không chạm"
+msgid "Email"
+msgstr "Email"
 
-#~ msgid "Ends In/Out"
-#~ msgstr "Kết thúc Trong/Ngoài"
+msgid "There are no transactions for selected period"
+msgstr "Không có giao dịch nào trong khoảng thời gian này"
 
-#~ msgid "Stays In/Goes Out"
-#~ msgstr "Ở trong/Ra ngoài"
+msgid "Sell"
+msgstr "Bán"
 
-#~ msgid "Settles"
-#~ msgstr "Cài đặt"
+msgid "Buy"
+msgstr "Mua"
 
-#~ msgid "Light"
-#~ msgstr "Màu nhạt"
+msgid "Digit Even"
+msgstr "Số chẵn"
 
-#~ msgid "Dark"
-#~ msgstr "Màu đậm"
+msgid "Touches"
+msgstr "Chạm"
 
-#~ msgid "Name"
-#~ msgstr "Tên"
+msgid "Digit Over"
+msgstr "Số vượt quá"
 
-#~ msgid "Date Of Birth"
-#~ msgstr "Ngày sinh"
+msgid "Digit Match"
+msgstr "Số phù hợp"
 
-#~ msgid "Country Of Residence"
-#~ msgstr "Quốc gia cư trú"
+msgid "Digit Under"
+msgstr "Số dưới"
 
-#~ msgid "Email"
-#~ msgstr "Email"
+msgid "Digit Odd"
+msgstr "Số lẻ"
 
-#~ msgid "Sell"
-#~ msgstr "Bán"
+msgid "Digit Differs"
+msgstr "Số khác"
 
-#~ msgid "Buy"
-#~ msgstr "Mua"
+msgid "No Touch"
+msgstr "Không chạm"
 
-#~ msgid "Digit Even"
-#~ msgstr "Số chẵn"
+msgid "Fall"
+msgstr "Xuống"
 
-#~ msgid "Touches"
-#~ msgstr "Chạm"
+msgid "Asian Down"
+msgstr "Người châu Á xuống"
 
-#~ msgid "Digit Over"
-#~ msgstr "Số vượt quá"
+msgid "Asian Up"
+msgstr "Người châu Á lên"
 
-#~ msgid "Digit Match"
-#~ msgstr "Số phù hợp"
-
-#~ msgid "Digit Under"
-#~ msgstr "Số dưới"
-
-#~ msgid "Digit Odd"
-#~ msgstr "Số lẻ"
-
-#~ msgid "Digit Differs"
-#~ msgstr "Số khác"
-
-#~ msgid "No Touch"
-#~ msgstr "Không chạm"
-
-#~ msgid "Fall"
-#~ msgstr "Xuống"
-
-#~ msgid "Asian Down"
-#~ msgstr "Người châu Á xuống"
-
-#~ msgid "Asian Up"
-#~ msgstr "Người châu Á lên"
-
-#~ msgid "Search For Assets"
-#~ msgstr "Tìm Kiếm Tài Sản"
+msgid "Search For Assets"
+msgstr "Tìm Kiếm Tài Sản"

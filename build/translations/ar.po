@@ -20,17 +20,8 @@ msgstr ""
 "X-Generator: Weblate 2.5-dev\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
-msgid "Purchase Price"
-msgstr "سعر الشراء"
-
-msgid "Purchase Time"
-msgstr "وقت الشراء"
-
-msgid "Balance"
-msgstr "رصيد"
-
-msgid "Back"
-msgstr "للخلف"
+msgid "All"
+msgstr "الجميع"
 
 msgid "Property"
 msgstr "الصفة المميزة"
@@ -38,81 +29,29 @@ msgstr "الصفة المميزة"
 msgid "Value"
 msgstr "القيمة"
 
-msgid "Start Time"
-msgstr ""
+msgid "Balance"
+msgstr "رصيد"
 
-msgid "Current Spot Time"
-msgstr ""
+msgid "Trade"
+msgstr "التداول"
 
-msgid "End Time"
-msgstr ""
+msgid "Watchlist"
+msgstr "قائمة المراقبة"
 
-#, fuzzy
-msgid "Entry Spot"
-msgstr "سعر البدء"
+msgid "Open Positions"
+msgstr "المراكز المفتوحة"
 
-msgid "Current Spot"
-msgstr ""
+msgid "Profit Table"
+msgstr "جدول الأرباح"
 
-#, fuzzy
-msgid "Exit Spot"
-msgstr "سعر النهاية"
+msgid "Statement"
+msgstr "كشف الحساب"
 
-#, fuzzy
-msgid "Indicative Price"
-msgstr "ارشادي"
+msgid "Settings"
+msgstr "الإعدادات"
 
-#, fuzzy
-msgid "Final Price"
-msgstr "سعر البيع"
-
-msgid "Description"
-msgstr ""
-
-msgid "Proceed"
-msgstr ""
-
-#, fuzzy
-msgid "Sign in"
-msgstr "تسجيل الدخول"
-
-msgid "Please enter your email verification code"
-msgstr ""
-
-msgid "Verify"
-msgstr ""
-
-#, fuzzy
-msgid "Close"
-msgstr "إغلاق"
-
-msgid "Purchase"
-msgstr "شراء"
-
-msgid "Sorry, we have no payment agents in"
-msgstr ""
-
-msgid "Deposit commision: "
-msgstr ""
-
-#, fuzzy
-msgid "Withdrawal commision: "
-msgstr "حدود السحب"
-
-#, fuzzy
-msgid "Withdrawal Failed"
-msgstr "حدود السحب"
-
-#, fuzzy
-msgid "Confirmation"
-msgstr "تأكيد التداول"
-
-msgid "Are you sure you want to withdraw"
-msgstr ""
-
-#, fuzzy
-msgid "Withdraw"
-msgstr "حدود السحب"
+msgid "Sign Out"
+msgstr "تسجيل الخروج"
 
 msgid "View"
 msgstr "شاهد"
@@ -120,8 +59,29 @@ msgstr "شاهد"
 msgid "Ref."
 msgstr "مرجع"
 
+msgid "Purchase"
+msgstr "شراء"
+
 msgid "Indicative"
 msgstr "ارشادي"
+
+msgid "Purchase Date"
+msgstr "تاريخ الشراء"
+
+msgid "Purchase Price"
+msgstr "سعر الشراء"
+
+msgid "Sale Date"
+msgstr "تاريخ البيع"
+
+msgid "Sale Price"
+msgstr "سعر البيع"
+
+msgid "Profit/Loss"
+msgstr "الربح/الخسارة"
+
+msgid "Total"
+msgstr "الإجمالي"
 
 msgid "Location"
 msgstr "الموقع"
@@ -131,12 +91,6 @@ msgstr "حدث"
 
 msgid "Details"
 msgstr "التفاصيل"
-
-msgid "Language"
-msgstr "اللغة"
-
-msgid "Color Theme"
-msgstr "لون النمط"
 
 msgid "Trading Limits"
 msgstr "حدود التداول"
@@ -174,14 +128,11 @@ msgstr "يمكن استخدام كلمة مرور إضافية لحظر الوص
 msgid "Sign In"
 msgstr "تسجيل الدخول"
 
+msgid "Get your API token"
+msgstr "احصل على الرمز المميز الخاص بك API"
+
 msgid "Create Account"
 msgstr "إنشاء حساب"
-
-msgid "There are no transactions for selected period"
-msgstr "لا توجد عمليات للفترة المحددة"
-
-msgid "Purchase Date"
-msgstr "تاريخ الشراء"
 
 msgid "Action"
 msgstr "عمل"
@@ -189,15 +140,14 @@ msgstr "عمل"
 msgid "Credit/Debit"
 msgstr "ائتمان/خصم"
 
-msgid "Scale"
-msgstr ""
+msgid "Purchase Time"
+msgstr "وقت الشراء"
 
-msgid "Ticks"
-msgstr "الحركات"
+msgid "Back"
+msgstr "للخلف"
 
-#, fuzzy
-msgid "Purchase for "
-msgstr "شراء لأجل"
+msgid "Place Order"
+msgstr "وضع الأمر"
 
 msgid "{asset} will {type} over next {duration}"
 msgstr "{asset} سوف {type} على مدى {duration}"
@@ -211,6 +161,9 @@ msgstr "أصول"
 msgid "Type"
 msgstr "نوع"
 
+msgid "Ticks"
+msgstr "الحركات"
+
 msgid "Amount"
 msgstr "مبلغ"
 
@@ -223,23 +176,23 @@ msgstr "سعر البدء"
 msgid "Exit spot"
 msgstr "سعر النهاية"
 
+msgid "Next"
+msgstr "التالي"
+
+msgid "Open Account"
+msgstr "يفتح حساب"
+
 msgid "Upgrade to Real Money Account"
 msgstr "الترقية لحساب حقيقي"
 
 msgid "Date of birth"
 msgstr "تاريخ الميلاد"
 
-msgid "Next"
-msgstr "التالي"
-
 msgid "Home Address"
 msgstr "عنوان المنزل"
 
 msgid "Security"
 msgstr "الأمان"
-
-msgid "Open Account"
-msgstr "يفتح حساب"
 
 msgid "Spot"
 msgstr "السعر"
@@ -250,173 +203,149 @@ msgstr "تغير"
 msgid "Chart"
 msgstr "رسم بياني"
 
-#~ msgid "All"
-#~ msgstr "الجميع"
+msgid "Purchase For"
+msgstr "شراء لأجل"
 
-#~ msgid "Trade"
-#~ msgstr "التداول"
+msgid "Rise"
+msgstr "صعود"
 
-#~ msgid "Watchlist"
-#~ msgstr "قائمة المراقبة"
+msgid "Stake"
+msgstr "الحصة"
 
-#~ msgid "Open Positions"
-#~ msgstr "المراكز المفتوحة"
+msgid "Payout"
+msgstr "العائد"
 
-#~ msgid "Profit Table"
-#~ msgstr "جدول الأرباح"
+msgid "Deposit"
+msgstr "إيداع"
 
-#~ msgid "Statement"
-#~ msgstr "كشف الحساب"
+msgid "Transactions"
+msgstr "المعاملات"
 
-#~ msgid "Settings"
-#~ msgstr "الإعدادات"
+msgid "Opens"
+msgstr "افتتاح"
 
-#~ msgid "Sign Out"
-#~ msgstr "تسجيل الخروج"
+msgid "Closes"
+msgstr "إغلاق"
 
-#~ msgid "Sale Date"
-#~ msgstr "تاريخ البيع"
+msgid "Personal"
+msgstr "شخصية"
 
-#~ msgid "Profit/Loss"
-#~ msgstr "الربح/الخسارة"
+msgid "General"
+msgstr "عام"
 
-#~ msgid "Total"
-#~ msgstr "الإجمالي"
+msgid "Trading Times"
+msgstr "أوقات التداول"
 
-#~ msgid "Get your API token"
-#~ msgstr "احصل على الرمز المميز الخاص بك API"
+msgid "Asset Index"
+msgstr "مؤشر الأصول"
 
-#~ msgid "Place Order"
-#~ msgstr "وضع الأمر"
+msgid "Today"
+msgstr "اليوم"
 
-#~ msgid "Rise"
-#~ msgstr "صعود"
+msgid "Yesterday"
+msgstr "أمس"
 
-#~ msgid "Stake"
-#~ msgstr "الحصة"
+msgid "Tomorrow"
+msgstr "غدا"
 
-#~ msgid "Payout"
-#~ msgstr "العائد"
+msgid "Takeout"
+msgstr "خروج"
 
-#~ msgid "Deposit"
-#~ msgstr "إيداع"
+msgid "News"
+msgstr "أخبار"
 
-#~ msgid "Transactions"
-#~ msgstr "المعاملات"
+msgid "Resources"
+msgstr "الموارد"
 
-#~ msgid "Opens"
-#~ msgstr "افتتاح"
+msgid "Last 7 Days"
+msgstr "آخر 7 أيام"
 
-#~ msgid "Personal"
-#~ msgstr "شخصية"
+msgid "Last 30 Days"
+msgstr "آخر 30 يوما"
 
-#~ msgid "General"
-#~ msgstr "عام"
+msgid "Daily Report"
+msgstr "التقرير اليومي"
 
-#~ msgid "Trading Times"
-#~ msgstr "أوقات التداول"
+msgid "Up/Down"
+msgstr "فوق/تحت"
 
-#~ msgid "Asset Index"
-#~ msgstr "مؤشر الأصول"
+msgid "Touch/No Touch"
+msgstr "الوصول/عدم الوصول"
 
-#~ msgid "Today"
-#~ msgstr "اليوم"
+msgid "Ends In/Out"
+msgstr "ينتهي بين/خارج"
 
-#~ msgid "Yesterday"
-#~ msgstr "أمس"
+msgid "Stays In/Goes Out"
+msgstr "يبقى بين/يخرج عن"
 
-#~ msgid "Tomorrow"
-#~ msgstr "غدا"
+msgid "Settles"
+msgstr "يستقر"
 
-#~ msgid "Takeout"
-#~ msgstr "خروج"
+msgid "Language"
+msgstr "اللغة"
 
-#~ msgid "News"
-#~ msgstr "أخبار"
+msgid "Color Theme"
+msgstr "لون النمط"
 
-#~ msgid "Resources"
-#~ msgstr "الموارد"
+msgid "Light"
+msgstr "ضوء"
 
-#~ msgid "Last 7 Days"
-#~ msgstr "آخر 7 أيام"
+msgid "Dark"
+msgstr "ظلام"
 
-#~ msgid "Last 30 Days"
-#~ msgstr "آخر 30 يوما"
+msgid "Name"
+msgstr "الاسم"
 
-#~ msgid "Daily Report"
-#~ msgstr "التقرير اليومي"
+msgid "Date Of Birth"
+msgstr "تاريخ الميلاد"
 
-#~ msgid "Up/Down"
-#~ msgstr "فوق/تحت"
+msgid "Country Of Residence"
+msgstr "بلد الإقامة"
 
-#~ msgid "Touch/No Touch"
-#~ msgstr "الوصول/عدم الوصول"
+msgid "Email"
+msgstr "البريد الإلكتروني"
 
-#~ msgid "Ends In/Out"
-#~ msgstr "ينتهي بين/خارج"
+msgid "There are no transactions for selected period"
+msgstr "لا توجد عمليات للفترة المحددة"
 
-#~ msgid "Stays In/Goes Out"
-#~ msgstr "يبقى بين/يخرج عن"
+msgid "Sell"
+msgstr "بيع"
 
-#~ msgid "Settles"
-#~ msgstr "يستقر"
+msgid "Buy"
+msgstr "شراء"
 
-#~ msgid "Light"
-#~ msgstr "ضوء"
+msgid "Digit Even"
+msgstr "حتى الأرقام"
 
-#~ msgid "Dark"
-#~ msgstr "ظلام"
+msgid "Touches"
+msgstr "الوصول"
 
-#~ msgid "Name"
-#~ msgstr "الاسم"
+msgid "Digit Over"
+msgstr "فوق الأرقام"
 
-#~ msgid "Date Of Birth"
-#~ msgstr "تاريخ الميلاد"
+msgid "Digit Match"
+msgstr "مطابقة الأرقام"
 
-#~ msgid "Country Of Residence"
-#~ msgstr "بلد الإقامة"
+msgid "Digit Under"
+msgstr "تحت الأرقام"
 
-#~ msgid "Email"
-#~ msgstr "البريد الإلكتروني"
+msgid "Digit Odd"
+msgstr "أرقام فردية"
 
-#~ msgid "Sell"
-#~ msgstr "بيع"
+msgid "Digit Differs"
+msgstr "اختلاف الأرقام"
 
-#~ msgid "Buy"
-#~ msgstr "شراء"
+msgid "No Touch"
+msgstr "عدم الوصول"
 
-#~ msgid "Digit Even"
-#~ msgstr "حتى الأرقام"
+msgid "Fall"
+msgstr "الهبوط"
 
-#~ msgid "Touches"
-#~ msgstr "الوصول"
+msgid "Asian Down"
+msgstr "الآسيوية إلى أسفل"
 
-#~ msgid "Digit Over"
-#~ msgstr "فوق الأرقام"
+msgid "Asian Up"
+msgstr "الآسيوية إلى أعلى"
 
-#~ msgid "Digit Match"
-#~ msgstr "مطابقة الأرقام"
-
-#~ msgid "Digit Under"
-#~ msgstr "تحت الأرقام"
-
-#~ msgid "Digit Odd"
-#~ msgstr "أرقام فردية"
-
-#~ msgid "Digit Differs"
-#~ msgstr "اختلاف الأرقام"
-
-#~ msgid "No Touch"
-#~ msgstr "عدم الوصول"
-
-#~ msgid "Fall"
-#~ msgstr "الهبوط"
-
-#~ msgid "Asian Down"
-#~ msgstr "الآسيوية إلى أسفل"
-
-#~ msgid "Asian Up"
-#~ msgstr "الآسيوية إلى أعلى"
-
-#~ msgid "Search For Assets"
-#~ msgstr "البحث عن الأصول"
+msgid "Search For Assets"
+msgstr "البحث عن الأصول"
