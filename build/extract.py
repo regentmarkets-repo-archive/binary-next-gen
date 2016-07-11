@@ -22,7 +22,7 @@ toFile = './translations/messages.pot'
 #
 #
 # findStringAndExtract(fromDir, tempFile)
-subprocess.run(['mkdir ref'], stdout=subprocess.PIPE)
+subprocess.run(['mkdir', 'ref'], stdout=subprocess.PIPE)
 subprocess.run(['cp', toFile, tempFile], stdout=subprocess.PIPE)
 subprocess.run(['msguniq', '--output-file=' + toFile, tempFile], stdout=subprocess.PIPE);
 os.remove(tempFile);
