@@ -15,12 +15,21 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.5-dev\n"
 
-msgid "All"
-msgstr "Все"
+msgid "Purchase Price"
+msgstr "Цена покупки"
+
+msgid "Purchase Time"
+msgstr "Время покупки"
+
+msgid "Balance"
+msgstr "Баланс"
+
+msgid "Back"
+msgstr "назад"
 
 msgid "Property"
 msgstr "Собственность"
@@ -28,29 +37,81 @@ msgstr "Собственность"
 msgid "Value"
 msgstr "Цена"
 
-msgid "Balance"
-msgstr "Баланс"
+msgid "Start Time"
+msgstr ""
 
-msgid "Trade"
-msgstr "Начать работу"
+msgid "Current Spot Time"
+msgstr ""
 
-msgid "Watchlist"
-msgstr "Список"
+msgid "End Time"
+msgstr ""
 
-msgid "Open Positions"
-msgstr "Открытые позиции"
+#, fuzzy
+msgid "Entry Spot"
+msgstr "Входная котировка"
 
-msgid "Profit Table"
-msgstr "Анализ счета"
+msgid "Current Spot"
+msgstr ""
 
-msgid "Statement"
-msgstr "История счета"
+#, fuzzy
+msgid "Exit Spot"
+msgstr "Выходная котировка"
 
-msgid "Settings"
-msgstr "Настройки"
+#, fuzzy
+msgid "Indicative Price"
+msgstr "Временная цена"
 
-msgid "Sign Out"
-msgstr "Выход"
+#, fuzzy
+msgid "Final Price"
+msgstr "Цена прод."
+
+msgid "Description"
+msgstr ""
+
+msgid "Proceed"
+msgstr ""
+
+#, fuzzy
+msgid "Sign in"
+msgstr "Войти"
+
+msgid "Please enter your email verification code"
+msgstr ""
+
+msgid "Verify"
+msgstr ""
+
+#, fuzzy
+msgid "Close"
+msgstr "Закрытие"
+
+msgid "Purchase"
+msgstr "Покупка"
+
+msgid "Sorry, we have no payment agents in"
+msgstr ""
+
+msgid "Deposit commision: "
+msgstr ""
+
+#, fuzzy
+msgid "Withdrawal commision: "
+msgstr "Лимиты на вывод"
+
+#, fuzzy
+msgid "Withdrawal Failed"
+msgstr "Лимиты на вывод"
+
+#, fuzzy
+msgid "Confirmation"
+msgstr "Подтверждение контракта"
+
+msgid "Are you sure you want to withdraw"
+msgstr ""
+
+#, fuzzy
+msgid "Withdraw"
+msgstr "Лимиты на вывод"
 
 msgid "View"
 msgstr "Просмотр"
@@ -58,29 +119,8 @@ msgstr "Просмотр"
 msgid "Ref."
 msgstr "Номер"
 
-msgid "Purchase"
-msgstr "Покупка"
-
 msgid "Indicative"
 msgstr "Временная цена"
-
-msgid "Purchase Date"
-msgstr "Дата покупки"
-
-msgid "Purchase Price"
-msgstr "Цена покупки"
-
-msgid "Sale Date"
-msgstr "Дата продажи"
-
-msgid "Sale Price"
-msgstr "Цена прод."
-
-msgid "Profit/Loss"
-msgstr "Плюс/Минус"
-
-msgid "Total"
-msgstr "Всего"
 
 msgid "Location"
 msgstr "Местоположение"
@@ -90,6 +130,12 @@ msgstr "Обновить"
 
 msgid "Details"
 msgstr "Подробности"
+
+msgid "Language"
+msgstr "Язык"
+
+msgid "Color Theme"
+msgstr "Цветовая схема"
 
 msgid "Trading Limits"
 msgstr "Торговые лимиты"
@@ -128,11 +174,14 @@ msgstr ""
 msgid "Sign In"
 msgstr "Войти"
 
-msgid "Get your API token"
-msgstr "Получить токен API"
-
 msgid "Create Account"
 msgstr "Открыть счёт"
+
+msgid "There are no transactions for selected period"
+msgstr "Сделки за выбранный период отсутствуют"
+
+msgid "Purchase Date"
+msgstr "Дата покупки"
 
 msgid "Action"
 msgstr "Акт"
@@ -140,14 +189,15 @@ msgstr "Акт"
 msgid "Credit/Debit"
 msgstr "Кредит/Дебет"
 
-msgid "Purchase Time"
-msgstr "Время покупки"
+msgid "Scale"
+msgstr ""
 
-msgid "Back"
-msgstr "назад"
+msgid "Ticks"
+msgstr "Тики"
 
-msgid "Place Order"
-msgstr "Разместить ордер"
+#, fuzzy
+msgid "Purchase for "
+msgstr "Купить для"
 
 msgid "{asset} will {type} over next {duration}"
 msgstr "{asset} {type} в следующие {duration}"
@@ -161,9 +211,6 @@ msgstr "Актив"
 msgid "Type"
 msgstr "Тип"
 
-msgid "Ticks"
-msgstr "Тики"
-
 msgid "Amount"
 msgstr "Количество"
 
@@ -176,23 +223,23 @@ msgstr "Входная котировка"
 msgid "Exit spot"
 msgstr "Выходная котировка"
 
-msgid "Next"
-msgstr "Далее"
-
-msgid "Open Account"
-msgstr "Открыть счет"
-
 msgid "Upgrade to Real Money Account"
 msgstr "Перейти на Реальный счёт"
 
 msgid "Date of birth"
 msgstr "Дата рождения"
 
+msgid "Next"
+msgstr "Далее"
+
 msgid "Home Address"
 msgstr "Адрес"
 
 msgid "Security"
 msgstr "Безопасность"
+
+msgid "Open Account"
+msgstr "Открыть счет"
 
 msgid "Spot"
 msgstr "Спот-котировка"
@@ -203,149 +250,173 @@ msgstr "Изменение"
 msgid "Chart"
 msgstr "График"
 
-msgid "Purchase For"
-msgstr "Купить для"
+#~ msgid "All"
+#~ msgstr "Все"
 
-msgid "Rise"
-msgstr "Рост"
+#~ msgid "Trade"
+#~ msgstr "Начать работу"
 
-msgid "Stake"
-msgstr "Ставка"
+#~ msgid "Watchlist"
+#~ msgstr "Список"
 
-msgid "Payout"
-msgstr "Выплата"
+#~ msgid "Open Positions"
+#~ msgstr "Открытые позиции"
 
-msgid "Deposit"
-msgstr "Пополнение"
+#~ msgid "Profit Table"
+#~ msgstr "Анализ счета"
 
-msgid "Transactions"
-msgstr "Сделки"
+#~ msgid "Statement"
+#~ msgstr "История счета"
 
-msgid "Opens"
-msgstr "Открытие"
+#~ msgid "Settings"
+#~ msgstr "Настройки"
 
-msgid "Closes"
-msgstr "Закрытие"
+#~ msgid "Sign Out"
+#~ msgstr "Выход"
 
-msgid "Personal"
-msgstr "Личные данные"
+#~ msgid "Sale Date"
+#~ msgstr "Дата продажи"
 
-msgid "General"
-msgstr "Общее"
+#~ msgid "Profit/Loss"
+#~ msgstr "Плюс/Минус"
 
-msgid "Trading Times"
-msgstr "Время торговли"
+#~ msgid "Total"
+#~ msgstr "Всего"
 
-msgid "Asset Index"
-msgstr "Индекс активов"
+#~ msgid "Get your API token"
+#~ msgstr "Получить токен API"
 
-msgid "Today"
-msgstr "Сегодня"
+#~ msgid "Place Order"
+#~ msgstr "Разместить ордер"
 
-msgid "Yesterday"
-msgstr "Вчера"
+#~ msgid "Rise"
+#~ msgstr "Рост"
 
-msgid "Tomorrow"
-msgstr "Завтра"
+#~ msgid "Stake"
+#~ msgstr "Ставка"
 
-msgid "Takeout"
-msgstr "Выкуп"
+#~ msgid "Payout"
+#~ msgstr "Выплата"
 
-msgid "News"
-msgstr "Новости"
+#~ msgid "Deposit"
+#~ msgstr "Пополнение"
 
-msgid "Resources"
-msgstr "Ресурсы"
+#~ msgid "Transactions"
+#~ msgstr "Сделки"
 
-msgid "Last 7 Days"
-msgstr "Последние 7 дней"
+#~ msgid "Opens"
+#~ msgstr "Открытие"
 
-msgid "Last 30 Days"
-msgstr "Последние 30 дней"
+#~ msgid "Personal"
+#~ msgstr "Личные данные"
 
-msgid "Daily Report"
-msgstr "Анализ рынка"
+#~ msgid "General"
+#~ msgstr "Общее"
 
-msgid "Up/Down"
-msgstr "Вверх/Вниз"
+#~ msgid "Trading Times"
+#~ msgstr "Время торговли"
 
-msgid "Touch/No Touch"
-msgstr "Касание/Нет касания"
+#~ msgid "Asset Index"
+#~ msgstr "Индекс активов"
 
-msgid "Ends In/Out"
-msgstr "Закончится внутри/вне"
+#~ msgid "Today"
+#~ msgstr "Сегодня"
 
-msgid "Stays In/Goes Out"
-msgstr "Останется Внутри/Выйдет за пределы"
+#~ msgid "Yesterday"
+#~ msgstr "Вчера"
 
-msgid "Settles"
-msgstr "Заканчивается"
+#~ msgid "Tomorrow"
+#~ msgstr "Завтра"
 
-msgid "Language"
-msgstr "Язык"
+#~ msgid "Takeout"
+#~ msgstr "Выкуп"
 
-msgid "Color Theme"
-msgstr "Цветовая схема"
+#~ msgid "News"
+#~ msgstr "Новости"
 
-msgid "Light"
-msgstr "Светлый"
+#~ msgid "Resources"
+#~ msgstr "Ресурсы"
 
-msgid "Dark"
-msgstr "Тёмный"
+#~ msgid "Last 7 Days"
+#~ msgstr "Последние 7 дней"
 
-msgid "Name"
-msgstr "Имя"
+#~ msgid "Last 30 Days"
+#~ msgstr "Последние 30 дней"
 
-msgid "Date Of Birth"
-msgstr "Дата рождения"
+#~ msgid "Daily Report"
+#~ msgstr "Анализ рынка"
 
-msgid "Country Of Residence"
-msgstr "Страна проживания"
+#~ msgid "Up/Down"
+#~ msgstr "Вверх/Вниз"
 
-msgid "Email"
-msgstr "Email"
+#~ msgid "Touch/No Touch"
+#~ msgstr "Касание/Нет касания"
 
-msgid "There are no transactions for selected period"
-msgstr "Сделки за выбранный период отсутствуют"
+#~ msgid "Ends In/Out"
+#~ msgstr "Закончится внутри/вне"
 
-msgid "Sell"
-msgstr "Продать"
+#~ msgid "Stays In/Goes Out"
+#~ msgstr "Останется Внутри/Выйдет за пределы"
 
-msgid "Buy"
-msgstr "Купить"
+#~ msgid "Settles"
+#~ msgstr "Заканчивается"
 
-msgid "Digit Even"
-msgstr "Чётная цифра"
+#~ msgid "Light"
+#~ msgstr "Светлый"
 
-msgid "Touches"
-msgstr "Коснется"
+#~ msgid "Dark"
+#~ msgstr "Тёмный"
 
-msgid "Digit Over"
-msgstr "Цифра выше"
+#~ msgid "Name"
+#~ msgstr "Имя"
 
-msgid "Digit Match"
-msgstr "Совпадение цифр"
+#~ msgid "Date Of Birth"
+#~ msgstr "Дата рождения"
 
-msgid "Digit Under"
-msgstr "Цифра ниже"
+#~ msgid "Country Of Residence"
+#~ msgstr "Страна проживания"
 
-msgid "Digit Odd"
-msgstr "Нечётная цифра"
+#~ msgid "Email"
+#~ msgstr "Email"
 
-msgid "Digit Differs"
-msgstr "Несовпадение цифр"
+#~ msgid "Sell"
+#~ msgstr "Продать"
 
-msgid "No Touch"
-msgstr "Нет касания"
+#~ msgid "Buy"
+#~ msgstr "Купить"
 
-msgid "Fall"
-msgstr "Падение"
+#~ msgid "Digit Even"
+#~ msgstr "Чётная цифра"
 
-msgid "Asian Down"
-msgstr "Азиатские вниз"
+#~ msgid "Touches"
+#~ msgstr "Коснется"
 
-msgid "Asian Up"
-msgstr "Азиатские вверх"
+#~ msgid "Digit Over"
+#~ msgstr "Цифра выше"
 
-msgid "Search For Assets"
-msgstr "Поиск активов"
+#~ msgid "Digit Match"
+#~ msgstr "Совпадение цифр"
+
+#~ msgid "Digit Under"
+#~ msgstr "Цифра ниже"
+
+#~ msgid "Digit Odd"
+#~ msgstr "Нечётная цифра"
+
+#~ msgid "Digit Differs"
+#~ msgstr "Несовпадение цифр"
+
+#~ msgid "No Touch"
+#~ msgstr "Нет касания"
+
+#~ msgid "Fall"
+#~ msgstr "Падение"
+
+#~ msgid "Asian Down"
+#~ msgstr "Азиатские вниз"
+
+#~ msgid "Asian Up"
+#~ msgstr "Азиатские вверх"
+
+#~ msgid "Search For Assets"
+#~ msgstr "Поиск активов"

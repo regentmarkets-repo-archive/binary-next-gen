@@ -19,8 +19,17 @@ msgstr ""
 "X-Generator: Weblate 2.5-dev\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-msgid "All"
-msgstr "所有"
+msgid "Purchase Price"
+msgstr "买入价格"
+
+msgid "Purchase Time"
+msgstr "买入时间"
+
+msgid "Balance"
+msgstr "余额"
+
+msgid "Back"
+msgstr "返回"
 
 msgid "Property"
 msgstr "财产"
@@ -28,29 +37,81 @@ msgstr "财产"
 msgid "Value"
 msgstr "价值"
 
-msgid "Balance"
-msgstr "余额"
+msgid "Start Time"
+msgstr ""
 
-msgid "Trade"
-msgstr "交易"
+msgid "Current Spot Time"
+msgstr ""
 
-msgid "Watchlist"
-msgstr "关注列表"
+msgid "End Time"
+msgstr ""
 
-msgid "Open Positions"
-msgstr "未平仓头寸"
+#, fuzzy
+msgid "Entry Spot"
+msgstr "入市现价"
 
-msgid "Profit Table"
-msgstr "利润表"
+msgid "Current Spot"
+msgstr ""
 
-msgid "Statement"
-msgstr "账单"
+#, fuzzy
+msgid "Exit Spot"
+msgstr "退出现价"
 
-msgid "Settings"
-msgstr "设置"
+#, fuzzy
+msgid "Indicative Price"
+msgstr "指示性"
 
-msgid "Sign Out"
-msgstr "注销"
+#, fuzzy
+msgid "Final Price"
+msgstr "卖出价格"
+
+msgid "Description"
+msgstr ""
+
+msgid "Proceed"
+msgstr ""
+
+#, fuzzy
+msgid "Sign in"
+msgstr "登录"
+
+msgid "Please enter your email verification code"
+msgstr ""
+
+msgid "Verify"
+msgstr ""
+
+#, fuzzy
+msgid "Close"
+msgstr "收盘"
+
+msgid "Purchase"
+msgstr "买入"
+
+msgid "Sorry, we have no payment agents in"
+msgstr ""
+
+msgid "Deposit commision: "
+msgstr ""
+
+#, fuzzy
+msgid "Withdrawal commision: "
+msgstr "取款限额"
+
+#, fuzzy
+msgid "Withdrawal Failed"
+msgstr "取款限额"
+
+#, fuzzy
+msgid "Confirmation"
+msgstr "交易确认"
+
+msgid "Are you sure you want to withdraw"
+msgstr ""
+
+#, fuzzy
+msgid "Withdraw"
+msgstr "取款限额"
 
 msgid "View"
 msgstr "查看"
@@ -58,29 +119,8 @@ msgstr "查看"
 msgid "Ref."
 msgstr "参考"
 
-msgid "Purchase"
-msgstr "买入"
-
 msgid "Indicative"
 msgstr "指示性"
-
-msgid "Purchase Date"
-msgstr "买入日期"
-
-msgid "Purchase Price"
-msgstr "买入价格"
-
-msgid "Sale Date"
-msgstr "卖出日期"
-
-msgid "Sale Price"
-msgstr "卖出价格"
-
-msgid "Profit/Loss"
-msgstr "利润/亏损"
-
-msgid "Total"
-msgstr "总计"
 
 msgid "Location"
 msgstr "位置"
@@ -90,6 +130,12 @@ msgstr "更新"
 
 msgid "Details"
 msgstr "详情"
+
+msgid "Language"
+msgstr "语言"
+
+msgid "Color Theme"
+msgstr "颜色主题"
 
 msgid "Trading Limits"
 msgstr "交易限制"
@@ -127,11 +173,14 @@ msgstr "可使用额外密码来限制对收银台的访问。"
 msgid "Sign In"
 msgstr "登录"
 
-msgid "Get your API token"
-msgstr "领取API令牌"
-
 msgid "Create Account"
 msgstr "创立账户"
+
+msgid "There are no transactions for selected period"
+msgstr "选定时间段中无任何交易"
+
+msgid "Purchase Date"
+msgstr "买入日期"
 
 msgid "Action"
 msgstr "操作"
@@ -139,14 +188,15 @@ msgstr "操作"
 msgid "Credit/Debit"
 msgstr "借方/贷方"
 
-msgid "Purchase Time"
-msgstr "买入时间"
+msgid "Scale"
+msgstr ""
 
-msgid "Back"
-msgstr "返回"
+msgid "Ticks"
+msgstr "跳动点"
 
-msgid "Place Order"
-msgstr "下订单"
+#, fuzzy
+msgid "Purchase for "
+msgstr "买入"
 
 msgid "{asset} will {type} over next {duration}"
 msgstr "{资产} 将在 {类型}期内{时段}"
@@ -160,9 +210,6 @@ msgstr "资产"
 msgid "Type"
 msgstr "类型"
 
-msgid "Ticks"
-msgstr "跳动点"
-
 msgid "Amount"
 msgstr "金额"
 
@@ -175,23 +222,23 @@ msgstr "入市现价"
 msgid "Exit spot"
 msgstr "退出现价"
 
-msgid "Next"
-msgstr "下一页"
-
-msgid "Open Account"
-msgstr "开户"
-
 msgid "Upgrade to Real Money Account"
 msgstr "升级为真实金钱账户"
 
 msgid "Date of birth"
 msgstr "出生日期"
 
+msgid "Next"
+msgstr "下一页"
+
 msgid "Home Address"
 msgstr "家庭住址"
 
 msgid "Security"
 msgstr "安全"
+
+msgid "Open Account"
+msgstr "开户"
 
 msgid "Spot"
 msgstr "现价"
@@ -202,149 +249,173 @@ msgstr "变动"
 msgid "Chart"
 msgstr "图表"
 
-msgid "Purchase For"
-msgstr "买入"
+#~ msgid "All"
+#~ msgstr "所有"
 
-msgid "Rise"
-msgstr "上涨"
+#~ msgid "Trade"
+#~ msgstr "交易"
 
-msgid "Stake"
-msgstr "投注金额"
+#~ msgid "Watchlist"
+#~ msgstr "关注列表"
 
-msgid "Payout"
-msgstr "赔付额"
+#~ msgid "Open Positions"
+#~ msgstr "未平仓头寸"
 
-msgid "Deposit"
-msgstr "存款"
+#~ msgid "Profit Table"
+#~ msgstr "利润表"
 
-msgid "Transactions"
-msgstr "交易"
+#~ msgid "Statement"
+#~ msgstr "账单"
 
-msgid "Opens"
-msgstr "开盘"
+#~ msgid "Settings"
+#~ msgstr "设置"
 
-msgid "Closes"
-msgstr "收盘"
+#~ msgid "Sign Out"
+#~ msgstr "注销"
 
-msgid "Personal"
-msgstr "个人"
+#~ msgid "Sale Date"
+#~ msgstr "卖出日期"
 
-msgid "General"
-msgstr "一般条款"
+#~ msgid "Profit/Loss"
+#~ msgstr "利润/亏损"
 
-msgid "Trading Times"
-msgstr "交易时间"
+#~ msgid "Total"
+#~ msgstr "总计"
 
-msgid "Asset Index"
-msgstr "资产指数"
+#~ msgid "Get your API token"
+#~ msgstr "领取API令牌"
 
-msgid "Today"
-msgstr "今日"
+#~ msgid "Place Order"
+#~ msgstr "下订单"
 
-msgid "Yesterday"
-msgstr "昨日"
+#~ msgid "Rise"
+#~ msgstr "上涨"
 
-msgid "Tomorrow"
-msgstr "明日"
+#~ msgid "Stake"
+#~ msgstr "投注金额"
 
-msgid "Takeout"
-msgstr "取得"
+#~ msgid "Payout"
+#~ msgstr "赔付额"
 
-msgid "News"
-msgstr "新闻"
+#~ msgid "Deposit"
+#~ msgstr "存款"
 
-msgid "Resources"
-msgstr "资源"
+#~ msgid "Transactions"
+#~ msgstr "交易"
 
-msgid "Last 7 Days"
-msgstr "过去7天"
+#~ msgid "Opens"
+#~ msgstr "开盘"
 
-msgid "Last 30 Days"
-msgstr "过去30天"
+#~ msgid "Personal"
+#~ msgstr "个人"
 
-msgid "Daily Report"
-msgstr "日报"
+#~ msgid "General"
+#~ msgstr "一般条款"
 
-msgid "Up/Down"
-msgstr "上/下"
+#~ msgid "Trading Times"
+#~ msgstr "交易时间"
 
-msgid "Touch/No Touch"
-msgstr "触及/未触及"
+#~ msgid "Asset Index"
+#~ msgstr "资产指数"
 
-msgid "Ends In/Out"
-msgstr "到期时价格处于某个范围之内/之外"
+#~ msgid "Today"
+#~ msgstr "今日"
 
-msgid "Stays In/Goes Out"
-msgstr "保持在某个范围之内/之外"
+#~ msgid "Yesterday"
+#~ msgstr "昨日"
 
-msgid "Settles"
-msgstr "结算"
+#~ msgid "Tomorrow"
+#~ msgstr "明日"
 
-msgid "Language"
-msgstr "语言"
+#~ msgid "Takeout"
+#~ msgstr "取得"
 
-msgid "Color Theme"
-msgstr "颜色主题"
+#~ msgid "News"
+#~ msgstr "新闻"
 
-msgid "Light"
-msgstr "浅色"
+#~ msgid "Resources"
+#~ msgstr "资源"
 
-msgid "Dark"
-msgstr "深色"
+#~ msgid "Last 7 Days"
+#~ msgstr "过去7天"
 
-msgid "Name"
-msgstr "姓名"
+#~ msgid "Last 30 Days"
+#~ msgstr "过去30天"
 
-msgid "Date Of Birth"
-msgstr "出生日期"
+#~ msgid "Daily Report"
+#~ msgstr "日报"
 
-msgid "Country Of Residence"
-msgstr "居住国"
+#~ msgid "Up/Down"
+#~ msgstr "上/下"
 
-msgid "Email"
-msgstr "电子邮件"
+#~ msgid "Touch/No Touch"
+#~ msgstr "触及/未触及"
 
-msgid "There are no transactions for selected period"
-msgstr "选定时间段中无任何交易"
+#~ msgid "Ends In/Out"
+#~ msgstr "到期时价格处于某个范围之内/之外"
 
-msgid "Sell"
-msgstr "售出"
+#~ msgid "Stays In/Goes Out"
+#~ msgstr "保持在某个范围之内/之外"
 
-msgid "Buy"
-msgstr "买入"
+#~ msgid "Settles"
+#~ msgstr "结算"
 
-msgid "Digit Even"
-msgstr "数字为偶数"
+#~ msgid "Light"
+#~ msgstr "浅色"
 
-msgid "Touches"
-msgstr "触及"
+#~ msgid "Dark"
+#~ msgstr "深色"
 
-msgid "Digit Over"
-msgstr "数字超过限额"
+#~ msgid "Name"
+#~ msgstr "姓名"
 
-msgid "Digit Match"
-msgstr "数字匹配"
+#~ msgid "Date Of Birth"
+#~ msgstr "出生日期"
 
-msgid "Digit Under"
-msgstr "数字低于限额"
+#~ msgid "Country Of Residence"
+#~ msgstr "居住国"
 
-msgid "Digit Odd"
-msgstr "数字为奇数"
+#~ msgid "Email"
+#~ msgstr "电子邮件"
 
-msgid "Digit Differs"
-msgstr "数字差异"
+#~ msgid "Sell"
+#~ msgstr "售出"
 
-msgid "No Touch"
-msgstr "未触及"
+#~ msgid "Buy"
+#~ msgstr "买入"
 
-msgid "Fall"
-msgstr "下降"
+#~ msgid "Digit Even"
+#~ msgstr "数字为偶数"
 
-msgid "Asian Down"
-msgstr "亚洲下跌期权"
+#~ msgid "Touches"
+#~ msgstr "触及"
 
-msgid "Asian Up"
-msgstr "亚洲上涨期权"
+#~ msgid "Digit Over"
+#~ msgstr "数字超过限额"
 
-msgid "Search For Assets"
-msgstr "搜索资产"
+#~ msgid "Digit Match"
+#~ msgstr "数字匹配"
+
+#~ msgid "Digit Under"
+#~ msgstr "数字低于限额"
+
+#~ msgid "Digit Odd"
+#~ msgstr "数字为奇数"
+
+#~ msgid "Digit Differs"
+#~ msgstr "数字差异"
+
+#~ msgid "No Touch"
+#~ msgstr "未触及"
+
+#~ msgid "Fall"
+#~ msgstr "下降"
+
+#~ msgid "Asian Down"
+#~ msgstr "亚洲下跌期权"
+
+#~ msgid "Asian Up"
+#~ msgstr "亚洲上涨期权"
+
+#~ msgid "Search For Assets"
+#~ msgstr "搜索资产"
