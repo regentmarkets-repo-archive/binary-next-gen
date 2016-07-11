@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: BOM\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-02-04 15:26+0000\n"
+"PO-Revision-Date: 2016-07-11 21:12+0000\n"
 "Last-Translator: Alcino Jorge <alcino@binary.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/binary-app/"
-"next-gen-app/pt/>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/binary-app"
+"/next-gen-app/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 msgid "All"
 msgstr "Tudo"
@@ -349,193 +349,175 @@ msgid "Search For Assets"
 msgstr "Procurar ativos"
 
 msgid "Start times"
-msgstr ""
+msgstr "Horas de início"
 
-#, fuzzy
 msgid "Durations"
-msgstr "Transações"
+msgstr "Durações"
 
-#, fuzzy
 msgid "Payout/Stake"
-msgstr "Prêmio"
+msgstr "Prêmio/Aposta"
 
-#, fuzzy
 msgid "Purchase for"
 msgstr "Comprar por"
 
-#, fuzzy
 msgid "payout"
-msgstr "Prêmio"
+msgstr "prêmio"
 
-#, fuzzy
 msgid "stake"
-msgstr "Aposta"
+msgstr "aposta"
 
 msgid "Self Exclusion"
-msgstr ""
+msgstr "Auto-exclusão"
 
 msgid "Cashier Lock"
-msgstr ""
+msgstr "Bloqueio do caixa"
 
 msgid "Change Password"
-msgstr ""
+msgstr "Alterar senha"
 
 msgid "Password"
-msgstr ""
+msgstr "Senha"
 
-#, fuzzy
 msgid "Tick Trade"
-msgstr "Negociar"
+msgstr "Negociação tique-taque"
 
-#, fuzzy
 msgid "Full Trade"
-msgstr "Negociar"
+msgstr "Negociação completa"
 
-#, fuzzy
 msgid "Address"
-msgstr "Endereço residencial"
+msgstr "Endereço"
 
 msgid "Town/City"
-msgstr ""
+msgstr "Cidade"
 
 msgid "State/Province"
-msgstr ""
+msgstr "Estado/Província"
 
 msgid "Telephone"
-msgstr ""
+msgstr "Telefone"
 
 msgid "Postal Code / ZIP"
-msgstr ""
+msgstr "Código postal / CEP"
 
 msgid "Cashier password"
-msgstr ""
+msgstr "Senha do caixa"
 
 msgid "Re-enter your password"
-msgstr ""
+msgstr "Insira novamente a senha"
 
 msgid "Current password"
-msgstr ""
+msgstr "Senha atual"
 
 msgid "New password"
-msgstr ""
+msgstr "Nova senha"
 
 msgid "Verify new password"
-msgstr ""
+msgstr "Verificar nova senha"
 
-#, fuzzy
 msgid "Daily turnover limit"
-msgstr "Máximo volume de negócios diário"
+msgstr "Limite diário de volume de negócios"
 
 msgid "Once this limit is reached, you may no longer deposit."
 msgstr ""
+"Depois de alcançar este limite, não será possível efetuar mais depósitos."
 
 msgid "Maximum aggregate contract purchases per day."
-msgstr ""
+msgstr "Máximo de aquisições agregadas de contratos por dia."
 
 msgid "Daily limit on losses"
-msgstr ""
+msgstr "Limite diário de perdas"
 
-#, fuzzy
 msgid "Maximum aggregate loss per day."
-msgstr "Pagamentos máximos de agregados sobre posições em aberto"
+msgstr "Máximo de perdas agregadas por dia."
 
 msgid "7-day turnover limit"
-msgstr ""
+msgstr "Limite de volume de negócios de 7 dias"
 
 msgid "Maximum aggregate contract purchases over a 7-day period."
 msgstr ""
+"Máximo de aquisições agregadas de contratos durante um período de 7 dias."
 
 msgid "7-day limit on losses"
-msgstr ""
+msgstr "Limite de perdas de 7 dias"
 
-#, fuzzy
 msgid "Maximum aggregate loss over a 7-day period."
-msgstr "Pagamentos máximos de agregados sobre posições em aberto"
+msgstr "Máximo de perdas agregadas durante um período de 7 dias."
 
 msgid "30-day turnover limit"
-msgstr ""
+msgstr "Limite de volume de negócio de 30 dias"
 
 msgid "Maximum aggregate contract purchases over a 30-day period."
 msgstr ""
+"Máximo de aquisições agregadas de contratos durante um período de 30 dias."
 
 msgid "30-day limit on losses"
-msgstr ""
+msgstr "Limite de perdas de 30 dias"
 
-#, fuzzy
 msgid "Maximum aggregate loss over a 30-day period."
-msgstr "Pagamentos máximos de agregados sobre posições em aberto"
+msgstr "Máximo de perdas agregadas durante um período de 30 dias."
 
 msgid "Session duration limit, in minutes"
-msgstr ""
+msgstr "Limite de duração de sessão, em minutos"
 
 msgid "You will be automatically logged out after such time."
-msgstr ""
+msgstr "Você será automaticamente desconectado após essa hora."
 
 msgid "Exclude me from the website until"
-msgstr ""
+msgstr "Exclua-me do site até"
 
-#, fuzzy
 msgid "Limits"
-msgstr "Limites de Negociação"
+msgstr "Limites"
 
 msgid "Please enter date in the format YYYY-MM-DD."
-msgstr ""
+msgstr "Insira a data no formato AAAA-MM-DD."
 
-#, fuzzy
 msgid "New Trade"
-msgstr "Negociar"
+msgstr "Nova negociação"
 
-#, fuzzy
 msgid "Trade Type"
-msgstr "Negociar"
+msgstr "Tipo de negociação"
 
 msgid "Random 100 Index"
-msgstr ""
+msgstr "Índice Random 100"
 
 msgid "Article"
-msgstr ""
+msgstr "Artigo"
 
 msgid "Start Later"
-msgstr ""
+msgstr "Começar mais tarde"
 
-#, fuzzy
 msgid "Buy Price"
-msgstr "Preço"
+msgstr "Preço de compra"
 
 msgid "Earning (%)"
-msgstr ""
+msgstr "Ganhando (%)"
 
-#, fuzzy
 msgid "Profit"
-msgstr "Lucro/Perda"
+msgstr "Lucro"
 
-#, fuzzy
 msgid "Entry Price"
-msgstr "Preço"
+msgstr "Preço de entrada"
 
-#, fuzzy
 msgid "Exit Price"
-msgstr "Preço"
+msgstr "Preço de saída"
 
-#, fuzzy
 msgid "Indicative Price"
-msgstr "Indicativo"
+msgstr "Preço indicativo"
 
 msgid "Potential Profit"
-msgstr ""
+msgstr "Lucro potencial"
 
 msgid "Sell at Market"
-msgstr ""
+msgstr "Vender no mercado"
 
 msgid "Go back"
-msgstr ""
+msgstr "Voltar"
 
 msgid "You lost "
-msgstr ""
+msgstr "Você perdeu "
 
-#, fuzzy
 msgid "Close"
-msgstr "Fecha"
+msgstr "Fecho"
 
 msgid "Low"
 msgstr ""
@@ -547,74 +529,71 @@ msgstr ""
 msgid "Open"
 msgstr "Abre"
 
-#, fuzzy
 msgid "Date"
-msgstr "Data de Venda"
+msgstr "Data"
 
 msgid "Upcoming Events"
-msgstr ""
+msgstr "Próximos eventos"
 
 msgid "Win"
-msgstr ""
+msgstr "Ganhar"
 
 msgid "Loss"
-msgstr ""
+msgstr "Perda"
 
 msgid "Full Screen"
-msgstr ""
+msgstr "Tela inteira"
 
 msgid "Start Now"
-msgstr ""
+msgstr "Começar agora"
 
-#, fuzzy
 msgid "Daily Prices"
-msgstr "Preço de venda"
+msgstr "Preços diários"
 
 msgid "Spreads"
 msgstr ""
 
 msgid "Confirm new password"
-msgstr ""
+msgstr "Confirmar nova senha"
 
 msgid "TICK"
-msgstr ""
+msgstr "TIQUE-TAQUE"
 
 msgid "Minutes"
-msgstr ""
+msgstr "Minutos"
 
 msgid "Seconds"
-msgstr ""
+msgstr "Segundos"
 
 msgid "Hours"
-msgstr ""
+msgstr "Horas"
 
 msgid "Days"
-msgstr ""
+msgstr "Dias"
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
-#, fuzzy
 msgid "Duration"
-msgstr "Localização"
+msgstr "Duração"
 
 msgid "Start Time"
-msgstr ""
+msgstr "Hora de início"
 
 msgid "Now"
-msgstr ""
+msgstr "Agora"
 
 msgid "Later"
-msgstr ""
+msgstr "Mais tarde"
 
 msgid "return"
-msgstr ""
+msgstr "voltar"
 
 msgid "Portfolio"
-msgstr ""
+msgstr "Portfólio"
 
 msgid "Video"
-msgstr ""
+msgstr "Vídeo"
 
 #, fuzzy
 msgid "Digit Stats"
