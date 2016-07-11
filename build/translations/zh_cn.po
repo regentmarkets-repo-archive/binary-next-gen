@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: 1228\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-07-11 04:31+0000\n"
+"PO-Revision-Date: 2016-07-11 07:20+0000\n"
 "Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
 "Language-Team: Chinese (China) <https://hosted.weblate.org/projects/binary-"
 "app/next-gen-app/zh_CN/>\n"
@@ -419,262 +419,238 @@ msgid "Search For Assets"
 msgstr "搜索资产"
 
 msgid "Start times"
-msgstr ""
+msgstr "开始时间"
 
-#, fuzzy
 msgid "Durations"
-msgstr "交易"
+msgstr "期限"
 
-#, fuzzy
 msgid "Payout/Stake"
-msgstr "赔付额"
+msgstr "赔付/投注额"
 
-#, fuzzy
 msgid "Purchase for"
 msgstr "买入"
 
-#, fuzzy
 msgid "payout"
 msgstr "赔付额"
 
-#, fuzzy
 msgid "stake"
 msgstr "投注金额"
 
 msgid "Self Exclusion"
-msgstr ""
+msgstr "自我限制"
 
 msgid "Cashier Lock"
-msgstr ""
+msgstr "收银台锁定"
 
 msgid "Change Password"
-msgstr ""
+msgstr "更换密码"
 
 msgid "Password"
-msgstr ""
+msgstr "密码"
 
-#, fuzzy
 msgid "Tick Trade"
-msgstr "交易"
+msgstr "跳动点交易"
 
-#, fuzzy
 msgid "Full Trade"
-msgstr "交易"
+msgstr "完全自由交易"
 
-#, fuzzy
 msgid "Address"
-msgstr "家庭住址"
+msgstr "地址"
 
 msgid "Town/City"
-msgstr ""
+msgstr "城镇/城市"
 
 msgid "State/Province"
-msgstr ""
+msgstr "州/省"
 
 msgid "Telephone"
-msgstr ""
+msgstr "电话"
 
 msgid "Postal Code / ZIP"
-msgstr ""
+msgstr "邮政编码"
 
 msgid "Cashier password"
-msgstr ""
+msgstr "收银台密码"
 
 msgid "Re-enter your password"
-msgstr ""
+msgstr "重新输入密码"
 
 msgid "Current password"
-msgstr ""
+msgstr "当前密码"
 
 msgid "New password"
-msgstr ""
+msgstr "新密码"
 
 msgid "Verify new password"
-msgstr ""
+msgstr "验证新密码"
 
-#, fuzzy
 msgid "Daily turnover limit"
 msgstr "最大日成交量"
 
 msgid "Once this limit is reached, you may no longer deposit."
-msgstr ""
+msgstr "一旦达到此限额，您不可再存入款项。"
 
 msgid "Maximum aggregate contract purchases per day."
-msgstr ""
+msgstr "每日最大累计合约购入额。"
 
 msgid "Daily limit on losses"
-msgstr ""
+msgstr "每日亏损限额"
 
-#, fuzzy
 msgid "Maximum aggregate loss per day."
-msgstr "未平仓头寸的最大赔付总额"
+msgstr "每日最大累计亏损额。"
 
 msgid "7-day turnover limit"
-msgstr ""
+msgstr "7天期最大交易限额"
 
 msgid "Maximum aggregate contract purchases over a 7-day period."
-msgstr ""
+msgstr "7天期最大累计合约购入额。"
 
 msgid "7-day limit on losses"
-msgstr ""
+msgstr "7天期亏损限额"
 
-#, fuzzy
 msgid "Maximum aggregate loss over a 7-day period."
-msgstr "未平仓头寸的最大赔付总额"
+msgstr "7天期最大累计亏损额。"
 
 msgid "30-day turnover limit"
-msgstr ""
+msgstr "30天期交易限额"
 
 msgid "Maximum aggregate contract purchases over a 30-day period."
-msgstr ""
+msgstr "30天期最大累计合约购入额。"
 
 msgid "30-day limit on losses"
-msgstr ""
+msgstr "30天期亏损限额"
 
-#, fuzzy
 msgid "Maximum aggregate loss over a 30-day period."
-msgstr "未平仓头寸的最大赔付总额"
+msgstr "30天期最大累计亏损额。"
 
 msgid "Session duration limit, in minutes"
-msgstr ""
+msgstr "交易期持续时间限制，以分钟为单位"
 
 msgid "You will be automatically logged out after such time."
-msgstr ""
+msgstr "在该时间后您将自动退出登录。"
 
 msgid "Exclude me from the website until"
-msgstr ""
+msgstr "禁止我访问本网站直到"
 
-#, fuzzy
 msgid "Limits"
 msgstr "交易限制"
 
 msgid "Please enter date in the format YYYY-MM-DD."
-msgstr ""
+msgstr "请输入日期，格式为年-月-日。"
 
-#, fuzzy
 msgid "New Trade"
-msgstr "交易"
+msgstr "新交易"
 
-#, fuzzy
 msgid "Trade Type"
-msgstr "交易"
+msgstr "交易类型"
 
 msgid "Random 100 Index"
-msgstr ""
+msgstr "随机100指标"
 
 msgid "Article"
-msgstr ""
+msgstr "项目"
 
 msgid "Start Later"
-msgstr ""
+msgstr "稍后开始"
 
-#, fuzzy
 msgid "Buy Price"
-msgstr "价格"
+msgstr "购入价格"
 
 msgid "Earning (%)"
-msgstr ""
+msgstr "收入（%）"
 
-#, fuzzy
 msgid "Profit"
-msgstr "利润/亏损"
+msgstr "利润"
 
-#, fuzzy
 msgid "Entry Price"
-msgstr "价格"
+msgstr "入市价格"
 
-#, fuzzy
 msgid "Exit Price"
-msgstr "价格"
+msgstr "平仓价格"
 
 msgid "Potential Profit"
-msgstr ""
+msgstr "潜在利润"
 
 msgid "Sell at Market"
-msgstr ""
+msgstr "按市价卖出"
 
 msgid "Go back"
-msgstr ""
+msgstr "返回"
 
 msgid "You lost "
-msgstr ""
+msgstr "您输了 "
 
 msgid "Low"
-msgstr ""
+msgstr "低"
 
 msgid "High"
-msgstr ""
+msgstr "高"
 
-#, fuzzy
 msgid "Open"
 msgstr "开盘"
 
-#, fuzzy
 msgid "Date"
-msgstr "卖出日期"
+msgstr "日期"
 
 msgid "Upcoming Events"
-msgstr ""
+msgstr "未来事件"
 
 msgid "Win"
-msgstr ""
+msgstr "赢"
 
 msgid "Loss"
-msgstr ""
+msgstr "输"
 
 msgid "Full Screen"
-msgstr ""
+msgstr "全屏"
 
 msgid "Start Now"
-msgstr ""
+msgstr "现在开始"
 
-#, fuzzy
 msgid "Daily Prices"
-msgstr "卖出价格"
+msgstr "每日价格"
 
 msgid "Spreads"
-msgstr ""
+msgstr "价差"
 
 msgid "Confirm new password"
-msgstr ""
+msgstr "确认新密码"
 
 msgid "TICK"
-msgstr ""
+msgstr "跳动点"
 
 msgid "Minutes"
-msgstr ""
+msgstr "分钟"
 
 msgid "Seconds"
-msgstr ""
+msgstr "秒"
 
 msgid "Hours"
-msgstr ""
+msgstr "小时"
 
 msgid "Days"
-msgstr ""
+msgstr "日"
 
 msgid "N/A"
-msgstr ""
+msgstr "不可用"
 
-#, fuzzy
 msgid "Duration"
-msgstr "位置"
+msgstr "期限"
 
 msgid "Now"
-msgstr ""
+msgstr "现在"
 
 msgid "Later"
-msgstr ""
+msgstr "稍后"
 
 msgid "return"
-msgstr ""
+msgstr "回报"
 
 msgid "Portfolio"
-msgstr ""
+msgstr "投资组合"
 
 msgid "Video"
-msgstr ""
+msgstr "视频"
 
-#, fuzzy
 msgid "Digit Stats"
-msgstr "数字匹配"
+msgstr "数字统计"
