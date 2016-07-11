@@ -555,3 +555,52 @@ msgstr ""
 
 msgid "N/A"
 msgstr ""
+
+msgid "Duration"
+msgstr ""
+
+msgid "Start Time"
+msgstr ""
+
+msgid "Now"
+msgstr ""
+
+msgid "Later"
+msgstr ""
+
+msgid "return"
+msgstr ""
+
+msgid "Portfolio"
+msgstr ""
+
+msgid "Statement"
+msgstr ""
+
+msgid "Watchlist"
+msgstr ""
+
+msgid "Trading Times"
+msgstr ""
+
+msgid "Asset Index"
+msgstr ""
+
+msgid "Video"
+msgstr ""
+
+msgid "News"
+msgstr ""
+
+msgid "Daily Prices"
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Digit Stats"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
