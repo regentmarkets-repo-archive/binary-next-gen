@@ -14,16 +14,12 @@ export default class HelloCard extends Component {
 					<img className="logo-text" src="img/binary-type-logo.svg" alt="Logo" />
 				</div>
 				<LanguagePicker />
-				<fieldset>
-					<Link to="/" className="btn-secondary" onClick={signIn} >
-						<M m="Signin" />
-					</Link>
-				</fieldset>
-				<fieldset>
-					<Link to="/create-account" className="btn-secondary">
-						<M m="Create Account" />
-					</Link>
-				</fieldset>
+				<Link to="/" className="btn-secondary" onClick={signIn} >
+					<M m="Signin" />
+				</Link>
+				<Link to="/create-account" className="btn-secondary">
+					<M m="Create Account" />
+				</Link>
 			</div>
 		);
 	}
