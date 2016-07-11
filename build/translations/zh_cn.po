@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: 1228\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-03-05 01:57+0000\n"
-"Last-Translator: Xiaojing <cai.cxj@gmail.com>\n"
+"PO-Revision-Date: 2016-07-11 04:31+0000\n"
+"Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
 "Language-Team: Chinese (China) <https://hosted.weblate.org/projects/binary-"
 "app/next-gen-app/zh_CN/>\n"
 "Language: zh_cn\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
 msgid "All"
@@ -58,6 +58,48 @@ msgstr "查看"
 msgid "Ref."
 msgstr "参考"
 
+msgid "Start Time"
+msgstr "开始时间"
+
+msgid "Current Spot Time"
+msgstr "当前现价时间"
+
+msgid "End Time"
+msgstr "结束时间"
+
+msgid "Entry Spot"
+msgstr "入市现价"
+
+msgid "Current Spot"
+msgstr "当前现价"
+
+msgid "Exit Spot"
+msgstr "退出现价"
+
+msgid "Indicative Price"
+msgstr "指示性价格"
+
+msgid "Final Price"
+msgstr "最终价格"
+
+msgid "Description"
+msgstr "说明"
+
+msgid "Proceed"
+msgstr "继续"
+
+msgid "Sign in"
+msgstr "登录"
+
+msgid "Please enter your email verification code"
+msgstr "请输入电子邮件验证代码"
+
+msgid "Verify"
+msgstr "验证"
+
+msgid "Close"
+msgstr "收盘"
+
 msgid "Purchase"
 msgstr "买入"
 
@@ -72,6 +114,27 @@ msgstr "买入价格"
 
 msgid "Sale Date"
 msgstr "卖出日期"
+
+msgid "Sorry, we have no payment agents in"
+msgstr "对不起，以下地区我们没有支付代理："
+
+msgid "Deposit commision: "
+msgstr "存款佣金收费： "
+
+msgid "Withdrawal commision: "
+msgstr "取款佣金费用： "
+
+msgid "Withdrawal Failed"
+msgstr "取款失败"
+
+msgid "Confirmation"
+msgstr "交易确认"
+
+msgid "Are you sure you want to withdraw"
+msgstr "确定要提款吗"
+
+msgid "Withdraw"
+msgstr "取款"
 
 msgid "Sale Price"
 msgstr "卖出价格"
@@ -142,11 +205,17 @@ msgstr "借方/贷方"
 msgid "Purchase Time"
 msgstr "买入时间"
 
+msgid "Scale"
+msgstr "比例"
+
 msgid "Back"
 msgstr "返回"
 
 msgid "Place Order"
 msgstr "下订单"
+
+msgid "Purchase for "
+msgstr "买入 "
 
 msgid "{asset} will {type} over next {duration}"
 msgstr "{资产} 将在 {类型}期内{时段}"
@@ -518,10 +587,6 @@ msgstr "价格"
 msgid "Exit Price"
 msgstr "价格"
 
-#, fuzzy
-msgid "Indicative Price"
-msgstr "指示性"
-
 msgid "Potential Profit"
 msgstr ""
 
@@ -533,10 +598,6 @@ msgstr ""
 
 msgid "You lost "
 msgstr ""
-
-#, fuzzy
-msgid "Close"
-msgstr "收盘"
 
 msgid "Low"
 msgstr ""
@@ -598,9 +659,6 @@ msgstr ""
 #, fuzzy
 msgid "Duration"
 msgstr "位置"
-
-msgid "Start Time"
-msgstr ""
 
 msgid "Now"
 msgstr ""
