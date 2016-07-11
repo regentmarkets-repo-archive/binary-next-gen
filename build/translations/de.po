@@ -22,17 +22,8 @@ msgstr ""
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Generator: Weblate 2.6-dev\n"
 
-msgid "Purchase Price"
-msgstr "Kaufpreis"
-
-msgid "Purchase Time"
-msgstr "Kaufuhrzeit"
-
-msgid "Balance"
-msgstr "Guthaben"
-
-msgid "Back"
-msgstr "Zurück"
+msgid "All"
+msgstr "Alle"
 
 msgid "Property"
 msgstr "Eigentum"
@@ -40,81 +31,29 @@ msgstr "Eigentum"
 msgid "Value"
 msgstr "Wert"
 
-msgid "Start Time"
-msgstr ""
+msgid "Balance"
+msgstr "Guthaben"
 
-msgid "Current Spot Time"
-msgstr ""
+msgid "Trade"
+msgstr "Handel"
 
-msgid "End Time"
-msgstr ""
+msgid "Watchlist"
+msgstr "Beobachtungsliste"
 
-#, fuzzy
-msgid "Entry Spot"
-msgstr "Startkurs"
+msgid "Open Positions"
+msgstr "Offene Positionen"
 
-msgid "Current Spot"
-msgstr ""
+msgid "Profit Table"
+msgstr "Gewinntabelle"
 
-#, fuzzy
-msgid "Exit Spot"
-msgstr "Schlusskurs"
+msgid "Statement"
+msgstr "Abrechnung"
 
-#, fuzzy
-msgid "Indicative Price"
-msgstr "Indikativ"
+msgid "Settings"
+msgstr "Einstellungen"
 
-#, fuzzy
-msgid "Final Price"
-msgstr "Verkaufskurs"
-
-msgid "Description"
-msgstr ""
-
-msgid "Proceed"
-msgstr ""
-
-#, fuzzy
-msgid "Sign in"
-msgstr "Anmelden"
-
-msgid "Please enter your email verification code"
-msgstr ""
-
-msgid "Verify"
-msgstr ""
-
-#, fuzzy
-msgid "Close"
-msgstr "Schließt"
-
-msgid "Purchase"
-msgstr "Kauf"
-
-msgid "Sorry, we have no payment agents in"
-msgstr ""
-
-msgid "Deposit commision: "
-msgstr ""
-
-#, fuzzy
-msgid "Withdrawal commision: "
-msgstr "Auszahlungslimits"
-
-#, fuzzy
-msgid "Withdrawal Failed"
-msgstr "Auszahlungslimits"
-
-#, fuzzy
-msgid "Confirmation"
-msgstr "Handelsbestätigung"
-
-msgid "Are you sure you want to withdraw"
-msgstr ""
-
-#, fuzzy
-msgid "Withdraw"
-msgstr "Auszahlungslimits"
+msgid "Sign Out"
+msgstr "Abmelden"
 
 msgid "View"
 msgstr "Ansehen"
@@ -122,8 +61,29 @@ msgstr "Ansehen"
 msgid "Ref."
 msgstr "Ref."
 
+msgid "Purchase"
+msgstr "Kauf"
+
 msgid "Indicative"
 msgstr "Indikativ"
+
+msgid "Purchase Date"
+msgstr "Kaufdatum"
+
+msgid "Purchase Price"
+msgstr "Kaufpreis"
+
+msgid "Sale Date"
+msgstr "Verkaufsdatum"
+
+msgid "Sale Price"
+msgstr "Verkaufskurs"
+
+msgid "Profit/Loss"
+msgstr "Gewinn/Verlust"
+
+msgid "Total"
+msgstr "Gesamt"
 
 msgid "Location"
 msgstr "Ort"
@@ -133,12 +93,6 @@ msgstr "Aktualisieren"
 
 msgid "Details"
 msgstr "Angaben"
-
-msgid "Language"
-msgstr "Sprache"
-
-msgid "Color Theme"
-msgstr "Farbthema"
 
 msgid "Trading Limits"
 msgstr "Handelslimits"
@@ -179,14 +133,11 @@ msgstr ""
 msgid "Sign In"
 msgstr "Anmelden"
 
+msgid "Get your API token"
+msgstr "Holen Sie sich Ihren API-Token"
+
 msgid "Create Account"
 msgstr "Konto einrichten"
-
-msgid "There are no transactions for selected period"
-msgstr "Für den ausgewählten Zeitraum liegen keine Transaktionen vor."
-
-msgid "Purchase Date"
-msgstr "Kaufdatum"
 
 msgid "Action"
 msgstr "Handlung"
@@ -194,15 +145,14 @@ msgstr "Handlung"
 msgid "Credit/Debit"
 msgstr "Gutschrift/Lastschrift"
 
-msgid "Scale"
-msgstr ""
+msgid "Purchase Time"
+msgstr "Kaufuhrzeit"
 
-msgid "Ticks"
-msgstr "Ticks"
+msgid "Back"
+msgstr "Zurück"
 
-#, fuzzy
-msgid "Purchase for "
-msgstr "Kauf für"
+msgid "Place Order"
+msgstr "Order aufgeben"
 
 msgid "{asset} will {type} over next {duration}"
 msgstr "{asset} wird {type} in den nächsten {duration}"
@@ -216,6 +166,9 @@ msgstr "Kapital"
 msgid "Type"
 msgstr "Typ"
 
+msgid "Ticks"
+msgstr "Ticks"
+
 msgid "Amount"
 msgstr "Betrag"
 
@@ -228,23 +181,23 @@ msgstr "Startkurs"
 msgid "Exit spot"
 msgstr "Schlusskurs"
 
+msgid "Next"
+msgstr "Weiter"
+
+msgid "Open Account"
+msgstr "Konto eröffnen"
+
 msgid "Upgrade to Real Money Account"
 msgstr "Auf Echtgeldkonto wechseln"
 
 msgid "Date of birth"
 msgstr "Geburtsdatum"
 
-msgid "Next"
-msgstr "Weiter"
-
 msgid "Home Address"
 msgstr "Wohnanschrift"
 
 msgid "Security"
 msgstr "Sicherheit"
-
-msgid "Open Account"
-msgstr "Konto eröffnen"
 
 msgid "Spot"
 msgstr "Kassakurs"
@@ -255,173 +208,421 @@ msgstr "Veränderung"
 msgid "Chart"
 msgstr "Diagramm"
 
-#~ msgid "All"
-#~ msgstr "Alle"
+msgid "Purchase For"
+msgstr "Kauf für"
 
-#~ msgid "Trade"
-#~ msgstr "Handel"
+msgid "Rise"
+msgstr "Steigt"
 
-#~ msgid "Watchlist"
-#~ msgstr "Beobachtungsliste"
+msgid "Stake"
+msgstr "Einsatz"
 
-#~ msgid "Open Positions"
-#~ msgstr "Offene Positionen"
+msgid "Payout"
+msgstr "Auszahlung"
 
-#~ msgid "Profit Table"
-#~ msgstr "Gewinntabelle"
+msgid "Deposit"
+msgstr "Einzahlung"
 
-#~ msgid "Statement"
-#~ msgstr "Abrechnung"
+msgid "Transactions"
+msgstr "Transaktionen"
 
-#~ msgid "Settings"
-#~ msgstr "Einstellungen"
+msgid "Opens"
+msgstr "Öffnet"
 
-#~ msgid "Sign Out"
-#~ msgstr "Abmelden"
+msgid "Closes"
+msgstr "Schließt"
 
-#~ msgid "Sale Date"
-#~ msgstr "Verkaufsdatum"
+msgid "Personal"
+msgstr "Persönlich"
 
-#~ msgid "Profit/Loss"
-#~ msgstr "Gewinn/Verlust"
+msgid "General"
+msgstr "Allgemein"
 
-#~ msgid "Total"
-#~ msgstr "Gesamt"
+msgid "Trading Times"
+msgstr "Börsenzeiten"
 
-#~ msgid "Get your API token"
-#~ msgstr "Holen Sie sich Ihren API-Token"
+msgid "Asset Index"
+msgstr "Kapital Index"
 
-#~ msgid "Place Order"
-#~ msgstr "Order aufgeben"
+msgid "Today"
+msgstr "Heute"
 
-#~ msgid "Rise"
-#~ msgstr "Steigt"
+msgid "Yesterday"
+msgstr "Gestern"
 
-#~ msgid "Stake"
-#~ msgstr "Einsatz"
+msgid "Tomorrow"
+msgstr "Morgen"
 
-#~ msgid "Payout"
-#~ msgstr "Auszahlung"
+msgid "Takeout"
+msgstr "Mitnehmen"
 
-#~ msgid "Deposit"
-#~ msgstr "Einzahlung"
+msgid "News"
+msgstr "Nachrichten"
 
-#~ msgid "Transactions"
-#~ msgstr "Transaktionen"
+msgid "Resources"
+msgstr "Quellen"
 
-#~ msgid "Opens"
-#~ msgstr "Öffnet"
+msgid "Last 7 Days"
+msgstr "Letzte 7 Tage"
 
-#~ msgid "Personal"
-#~ msgstr "Persönlich"
+msgid "Last 30 Days"
+msgstr "Letzte 30 Tage"
 
-#~ msgid "General"
-#~ msgstr "Allgemein"
+msgid "Daily Report"
+msgstr "Tagesbericht"
 
-#~ msgid "Trading Times"
-#~ msgstr "Börsenzeiten"
+msgid "Up/Down"
+msgstr "Hoch/Tief"
 
-#~ msgid "Asset Index"
-#~ msgstr "Kapital Index"
+msgid "Touch/No Touch"
+msgstr "Berührt/Berührt nicht"
 
-#~ msgid "Today"
-#~ msgstr "Heute"
+msgid "Ends In/Out"
+msgstr "Endet In/Außerhalb"
 
-#~ msgid "Yesterday"
-#~ msgstr "Gestern"
+msgid "Stays In/Goes Out"
+msgstr "Bleibt innerhalb/geht außerhalb"
 
-#~ msgid "Tomorrow"
-#~ msgstr "Morgen"
+msgid "Settles"
+msgstr "Bleibt"
 
-#~ msgid "Takeout"
-#~ msgstr "Mitnehmen"
+msgid "Language"
+msgstr "Sprache"
 
-#~ msgid "News"
-#~ msgstr "Nachrichten"
+msgid "Color Theme"
+msgstr "Farbthema"
 
-#~ msgid "Resources"
-#~ msgstr "Quellen"
+msgid "Light"
+msgstr "Hell"
 
-#~ msgid "Last 7 Days"
-#~ msgstr "Letzte 7 Tage"
+msgid "Dark"
+msgstr "Dunkel"
 
-#~ msgid "Last 30 Days"
-#~ msgstr "Letzte 30 Tage"
+msgid "Name"
+msgstr "Name"
 
-#~ msgid "Daily Report"
-#~ msgstr "Tagesbericht"
+msgid "Date Of Birth"
+msgstr "Geburtsdatum"
 
-#~ msgid "Up/Down"
-#~ msgstr "Hoch/Tief"
+msgid "Country Of Residence"
+msgstr "Wohnsitzland"
 
-#~ msgid "Touch/No Touch"
-#~ msgstr "Berührt/Berührt nicht"
+msgid "Email"
+msgstr "E-Mail"
 
-#~ msgid "Ends In/Out"
-#~ msgstr "Endet In/Außerhalb"
+msgid "There are no transactions for selected period"
+msgstr "Für den ausgewählten Zeitraum liegen keine Transaktionen vor."
 
-#~ msgid "Stays In/Goes Out"
-#~ msgstr "Bleibt innerhalb/geht außerhalb"
+msgid "Sell"
+msgstr "Verkaufen"
 
-#~ msgid "Settles"
-#~ msgstr "Bleibt"
+msgid "Buy"
+msgstr "Kaufen"
 
-#~ msgid "Light"
-#~ msgstr "Hell"
+msgid "Digit Even"
+msgstr "Kommastelle gleich"
 
-#~ msgid "Dark"
-#~ msgstr "Dunkel"
+msgid "Touches"
+msgstr "Berührt"
 
-#~ msgid "Name"
-#~ msgstr "Name"
+msgid "Digit Over"
+msgstr "Kommastelle über"
 
-#~ msgid "Date Of Birth"
-#~ msgstr "Geburtsdatum"
+msgid "Digit Match"
+msgstr "Kommastellen stimmen überein"
 
-#~ msgid "Country Of Residence"
-#~ msgstr "Wohnsitzland"
+msgid "Digit Under"
+msgstr "Kommastelle unter"
 
-#~ msgid "Email"
-#~ msgstr "E-Mail"
+msgid "Digit Odd"
+msgstr "Kommastelle Chance"
 
-#~ msgid "Sell"
-#~ msgstr "Verkaufen"
+msgid "Digit Differs"
+msgstr "Kommastelle unterschiedlich"
 
-#~ msgid "Buy"
-#~ msgstr "Kaufen"
+msgid "No Touch"
+msgstr "Berührt nicht"
 
-#~ msgid "Digit Even"
-#~ msgstr "Kommastelle gleich"
+msgid "Fall"
+msgstr "Fällt"
 
-#~ msgid "Touches"
-#~ msgstr "Berührt"
+msgid "Asian Down"
+msgstr "Asiatisch runter"
 
-#~ msgid "Digit Over"
-#~ msgstr "Kommastelle über"
+msgid "Asian Up"
+msgstr "Asiatisch hoch"
 
-#~ msgid "Digit Match"
-#~ msgstr "Kommastellen stimmen überein"
+msgid "Search For Assets"
+msgstr "Suche nach Anlagen"
 
-#~ msgid "Digit Under"
-#~ msgstr "Kommastelle unter"
+msgid "Start times"
+msgstr ""
 
-#~ msgid "Digit Odd"
-#~ msgstr "Kommastelle Chance"
+#, fuzzy
+msgid "Durations"
+msgstr "Transaktionen"
 
-#~ msgid "Digit Differs"
-#~ msgstr "Kommastelle unterschiedlich"
+#, fuzzy
+msgid "Payout/Stake"
+msgstr "Auszahlung"
 
-#~ msgid "No Touch"
-#~ msgstr "Berührt nicht"
+#, fuzzy
+msgid "Purchase for"
+msgstr "Kauf für"
 
-#~ msgid "Fall"
-#~ msgstr "Fällt"
+#, fuzzy
+msgid "payout"
+msgstr "Auszahlung"
 
-#~ msgid "Asian Down"
-#~ msgstr "Asiatisch runter"
+#, fuzzy
+msgid "stake"
+msgstr "Einsatz"
 
-#~ msgid "Asian Up"
-#~ msgstr "Asiatisch hoch"
+msgid "Self Exclusion"
+msgstr ""
 
-#~ msgid "Search For Assets"
-#~ msgstr "Suche nach Anlagen"
+msgid "Cashier Lock"
+msgstr ""
+
+msgid "Change Password"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+#, fuzzy
+msgid "Tick Trade"
+msgstr "Handel"
+
+#, fuzzy
+msgid "Full Trade"
+msgstr "Handel"
+
+#, fuzzy
+msgid "Address"
+msgstr "Wohnanschrift"
+
+msgid "Town/City"
+msgstr ""
+
+msgid "State/Province"
+msgstr ""
+
+msgid "Telephone"
+msgstr ""
+
+msgid "Postal Code / ZIP"
+msgstr ""
+
+msgid "Cashier password"
+msgstr ""
+
+msgid "Re-enter your password"
+msgstr ""
+
+msgid "Current password"
+msgstr ""
+
+msgid "New password"
+msgstr ""
+
+msgid "Verify new password"
+msgstr ""
+
+#, fuzzy
+msgid "Daily turnover limit"
+msgstr "Maximaler Tagesumsatz"
+
+msgid "Once this limit is reached, you may no longer deposit."
+msgstr ""
+
+msgid "Maximum aggregate contract purchases per day."
+msgstr ""
+
+msgid "Daily limit on losses"
+msgstr ""
+
+#, fuzzy
+msgid "Maximum aggregate loss per day."
+msgstr "Maximale Gesamtauszahlungen auf offene Positionen"
+
+msgid "7-day turnover limit"
+msgstr ""
+
+msgid "Maximum aggregate contract purchases over a 7-day period."
+msgstr ""
+
+msgid "7-day limit on losses"
+msgstr ""
+
+#, fuzzy
+msgid "Maximum aggregate loss over a 7-day period."
+msgstr "Maximale Gesamtauszahlungen auf offene Positionen"
+
+msgid "30-day turnover limit"
+msgstr ""
+
+msgid "Maximum aggregate contract purchases over a 30-day period."
+msgstr ""
+
+msgid "30-day limit on losses"
+msgstr ""
+
+#, fuzzy
+msgid "Maximum aggregate loss over a 30-day period."
+msgstr "Maximale Gesamtauszahlungen auf offene Positionen"
+
+msgid "Session duration limit, in minutes"
+msgstr ""
+
+msgid "You will be automatically logged out after such time."
+msgstr ""
+
+msgid "Exclude me from the website until"
+msgstr ""
+
+#, fuzzy
+msgid "Limits"
+msgstr "Handelslimits"
+
+msgid "Please enter date in the format YYYY-MM-DD."
+msgstr ""
+
+#, fuzzy
+msgid "New Trade"
+msgstr "Handel"
+
+#, fuzzy
+msgid "Trade Type"
+msgstr "Handel"
+
+msgid "Random 100 Index"
+msgstr ""
+
+msgid "Article"
+msgstr ""
+
+msgid "Start Later"
+msgstr ""
+
+#, fuzzy
+msgid "Buy Price"
+msgstr "Kurs"
+
+msgid "Earning (%)"
+msgstr ""
+
+#, fuzzy
+msgid "Profit"
+msgstr "Gewinn/Verlust"
+
+#, fuzzy
+msgid "Entry Price"
+msgstr "Kurs"
+
+#, fuzzy
+msgid "Exit Price"
+msgstr "Kurs"
+
+#, fuzzy
+msgid "Indicative Price"
+msgstr "Indikativ"
+
+msgid "Potential Profit"
+msgstr ""
+
+msgid "Sell at Market"
+msgstr ""
+
+msgid "Go back"
+msgstr ""
+
+msgid "You lost "
+msgstr ""
+
+#, fuzzy
+msgid "Close"
+msgstr "Schließt"
+
+msgid "Low"
+msgstr ""
+
+msgid "High"
+msgstr ""
+
+#, fuzzy
+msgid "Open"
+msgstr "Öffnet"
+
+#, fuzzy
+msgid "Date"
+msgstr "Verkaufsdatum"
+
+msgid "Upcoming Events"
+msgstr ""
+
+msgid "Win"
+msgstr ""
+
+msgid "Loss"
+msgstr ""
+
+msgid "Full Screen"
+msgstr ""
+
+msgid "Start Now"
+msgstr ""
+
+#, fuzzy
+msgid "Daily Prices"
+msgstr "Verkaufskurs"
+
+msgid "Spreads"
+msgstr ""
+
+msgid "Confirm new password"
+msgstr ""
+
+msgid "TICK"
+msgstr ""
+
+msgid "Minutes"
+msgstr ""
+
+msgid "Seconds"
+msgstr ""
+
+msgid "Hours"
+msgstr ""
+
+msgid "Days"
+msgstr ""
+
+msgid "N/A"
+msgstr ""
+
+#, fuzzy
+msgid "Duration"
+msgstr "Ort"
+
+msgid "Start Time"
+msgstr ""
+
+msgid "Now"
+msgstr ""
+
+msgid "Later"
+msgstr ""
+
+msgid "return"
+msgstr ""
+
+msgid "Portfolio"
+msgstr ""
+
+msgid "Video"
+msgstr ""
+
+#, fuzzy
+msgid "Digit Stats"
+msgstr "Kommastellen stimmen überein"
