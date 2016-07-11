@@ -14,11 +14,12 @@ export default class HelloCard extends Component {
 					<img className="logo-text" src="img/binary-type-logo.svg" alt="Logo" />
 				</div>
 				<LanguagePicker />
-				<Link to="/" className="btn-secondary" onClick={signIn} >
-					<M m="Signin" />
-				</Link>
-				<Link to="/create-account" className="btn-secondary">
+				<Link to="/signup" className="create-account-button btn-secondary">
 					<M m="Create Account" />
+				</Link>
+				<M className="have-account" m="Already have an account?" />
+				<Link to="/" className="signin-button btn-primary" onClick={signIn}>
+					<M m="Sign in" />
 				</Link>
 			</div>
 		);
