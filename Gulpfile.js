@@ -61,3 +61,23 @@ gulp.task('deploy', ['build'], () =>
         .pipe(file('CNAME', 'app.binary.com'))
         .pipe(ghPages())
 );
+
+const cordovaCreate = require('gulp-cordova-create');
+const cordovaPlugin = require('gulp-cordova-plugin');
+const cordovaBuildAndroid = require('gulp-cordova-build-android');
+const cordovaBuildIos = require('gulp-cordova-build-ios');
+
+gulp.task('android', () =>
+    gulp.src('dist')
+        .pipe(cordovaCreate())
+        .pipe(cordovaPlugin('org.apache.cordova.dialogs'))
+        .pipe(cordovaBuildAndroid({ release: true, storeFile: '/Path/to/key.keystore', keyAlias: 'my_alias' }))
+        .pipe(gulp.dest('apk'))
+);
+
+gulp.task('ios', () =>
+    gulp.src('dist')
+        .pipe(cordovaCreate())
+        .pipe(cordovaPlugin('org.apache.cordova.dialogs'))
+        .pipe(cordovaBuildIos())
+);
