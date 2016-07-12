@@ -17,7 +17,9 @@ const defaultParams = {
     basis: 'stake',
     amount: 50,
     type: 'CALL',
-    barrierType: 'relative',
+    barrierType: undefined,
+    barrier: undefined,
+    barrier2: undefined,
 };
 
 const initialState = fromJS([defaultParams]);
