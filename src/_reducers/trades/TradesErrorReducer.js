@@ -14,6 +14,7 @@ const defaultError = new OrderedMap({
     stakeError: undefined,
     proposalError: undefined,
     contractForError: undefined,
+    purchaseError: undefined,
 });
 
 const initialState = fromJS([defaultError]);
