@@ -28,18 +28,20 @@ export const signOut = () => {
     store.dispatch(signinFieldUpdate('validatedOnce', false));
     store.dispatch(updateAppState('authorized', false));
     store.dispatch(updateToken(''));
+    window.location.hash = '#/';
 };
 
 export const signIn = () => {
     const oAuthUrl = `https://oauth.binary.com/oauth2/authorize?app_id=${window.BinaryBoot.appId}`;
 
     if (window.cordova) {
-        const winAuth = window.cordova.InAppBrowser.open(encodeURIComponent(oAuthUrl), '_blank', 'location=no');
-        winAuth.addEventListener('loadstop', (e) => {
+        const link = (window.device.platform.toLowerCase() === 'ios' ? encodeURIComponent(oAuthUrl) : oAuthUrl);
+        const winAuth = window.cordova.InAppBrowser.open(link, '_blank', 'location=no');
+        winAuth.addEventListener('loadstart', (e) => {
             if (e.url.indexOf('acct1') > -1) {
-                winAuth.close();
                 window.BinaryBoot.parseUrl(e.url);
                 window.location.reload();
+                winAuth.close();
             }
         });
     } else {
