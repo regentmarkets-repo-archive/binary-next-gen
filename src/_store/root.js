@@ -23,7 +23,7 @@ const emptyObject = {};
 export default class Root extends Component {
 
     async componentWillMount() {
-        const reyhdratedStore = await rehydratedStorePromise;
+        const reyhdratedStore = await rehydratedStorePromise();
         const state = reyhdratedStore.getState();
 
         await LiveData.connect(reyhdratedStore);
