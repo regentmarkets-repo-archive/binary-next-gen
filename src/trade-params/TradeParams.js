@@ -93,7 +93,12 @@ export default class TradeParams extends Component {
         this.onAssetChange();
     }
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
+    shouldComponentUpdate(nextProps, nextState) {
+        if (nextProps.disabled && this.props.disabled) {
+            return false;
+        }
+        return shouldPureComponentUpdate.apply(this, nextProps, nextState);
+    }
 
     /**
      * componentDidUpdate is used instead of componentWillReceiveProps because the onAssetChange depends on updated
