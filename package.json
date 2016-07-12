@@ -97,7 +97,7 @@
   },
   "dependencies": {
     "binary-charts": "*",
-    "binary-components": "^1.6.2",
+    "binary-components": "*",
     "binary-live-api": "*",
     "binary-utils": "^3.8.2",
     "classnames": "^2.2.5",

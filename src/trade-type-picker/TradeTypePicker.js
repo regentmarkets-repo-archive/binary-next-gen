@@ -91,13 +91,13 @@ export default class TradeTypePicker extends Component {
                                 text={x[0].text}
                                 imgSrc={`img/trade-${x[0].value.toLowerCase()}.svg`}
                                 selected={internalSelectedType === x[0].value}
-                                onSelect={() => this.changeType(x[0].value)}
+                                onClick={() => this.changeType(x[0].value)}
                             />
                             <Tab
                                 text={x[1].text}
                                 imgSrc={`img/trade-${x[1].value.toLowerCase()}.svg`}
                                 selected={internalSelectedType === x[1].value}
-                                onSelect={() => this.changeType(x[1].value)}
+                                onClick={() => this.changeType(x[1].value)}
                             />
                         </div>
                     )}
