@@ -12,8 +12,16 @@ import {
 import { createSelector } from 'reselect';
 import pipsToDigits from 'binary-utils/lib/pipsToDigits';
 
+import { createDebugSelector } from '../debugSelector';
+import immutableSelector from '../createSelectorForImmutable';
+
+const tempParams = immutableSelector(
+    [(state, props) => tradeParamsSelector(state).get(props.index)],
+    a => a
+);
+
 export const paramPerTrade = createSelector(
-    [(state, props) => tradeParamsSelector(state).get(props.index), assetsSelector],
+    [tempParams, assetsSelector],
     (param, assets) => {
         const symbol = param.get('symbol');
         const symbolDetails = assets.find(a => a.get('symbol') === symbol);
@@ -30,7 +38,7 @@ const chartDataPerTrade = createSelector(
     }
 );
 
-const tradingTimePerTrade = createSelector(
+const tradingTimePerTrade = immutableSelector(
     [paramPerTrade, tradingTimesSelector],
     (param, times) => {
         const symbol = param.get('symbol');
@@ -82,7 +90,7 @@ export const contractReceiptPerTrade = createSelector(
     }
 );
 
-export const tradeViewChartPerTrade = createSelector(
+export const tradeViewChartPerTrade = createDebugSelector(
     [
         chartDataPerTrade,
         contractReceiptPerTrade,

@@ -1,64 +1,53 @@
-export const accountSelector = state => state.account;
-export const bootSelector = state => state.boot;
-export const assetIndexSelector = state => state.assetIndex;
-export const assetsSelector = state => state.assets;
-export const createAccountSelector = state => state.createAccount;
-export const chartDataSelector = state => state.chartData;
-export const digitStatsSelector = state => state.digitStats;
-export const paymentAgentSelector = state => state.paymentAgent;
-export const settingsSelector = state => state.settings;
-export const ticksSelector = state => state.ticks;
-export const tradingTimesSelector = state => state.tradingTimes;
-export const transactionsSelector = state => state.transactions;
-export const watchlistSelector = state => state.watchlist;
-export const workspaceSelector = state => state.workspace;
-export const viewsSelector = state => state.views;
-export const dailyPricesSelector = state => state.dailyPrices;
-export const boughtContractsSelector = state => state.boughtContracts;
-export const portfolioSelector = state => state.portfolio;
-export const feedLicensesSelector = state => state.feedLicenses;
-export const ohlcSelector = state => state.ohlc;
-export const tradingOptionsSelector = state => state.tradingOptions;
-export const statesSelector = state => state.states;
+export function accountSelector(state) { return state.account; }
+export function bootSelector(state) { return state.boot; }
+export function assetIndexSelector(state) { return state.assetIndex; }
+export function assetsSelector(state) { return state.assets; }
+export function createAccountSelector(state) { return state.createAccount; }
+export function chartDataSelector(state) { return state.chartData; }
+export function digitStatsSelector(state) { return state.digitStats; }
+export function paymentAgentSelector(state) { return state.paymentAgent; }
+export function settingsSelector(state) { return state.settings; }
+export function ticksSelector(state) { return state.ticks; }
+export function tradingTimesSelector(state) { return state.tradingTimes; }
+export function transactionsSelector(state) { return state.transactions; }
+export function watchlistSelector(state) { return state.watchlist; }
+export function workspaceSelector(state) { return state.workspace; }
+export function viewsSelector(state) { return state.views; }
+export function dailyPricesSelector(state) { return state.dailyPrices; }
+export function boughtContractsSelector(state) { return state.boughtContracts; }
+export function portfolioSelector(state) { return state.portfolio; }
+export function feedLicensesSelector(state) { return state.feedLicenses; }
+export function ohlcSelector(state) { return state.ohlc; }
+export function tradingOptionsSelector(state) { return state.tradingOptions; }
+export function statesSelector(state) { return state.states; }
 
-export const tradeParamsSelector = state => state.tradesParams;
-export const tradeProposalSelector = state => state.tradesProposalInfo;
-export const tradePurchaseInfoSelector = state => state.tradesPurchaseInfo;
-export const tradesUIStatesSelector = state => state.tradesUIStates;
-export const tradesErrorSelector = state => state.tradesError;
+export function tradeParamsSelector(state) { return state.tradesParams; }
+export function tradeProposalSelector(state) { return state.tradesProposalInfo; }
+export function tradePurchaseInfoSelector(state) { return state.tradesPurchaseInfo; }
+export function tradesUIStatesSelector(state) { return state.tradesUIStates; }
+export function tradesErrorSelector(state) { return state.tradesError; }
 
-export const themeSelector = state =>
-    state.boot.get('theme');
+export function themeSelector(state) { return state.boot.get('theme'); }
 
-export const loginidSelector = state =>
-    state.account.get('loginid');
+export function loginidSelector(state) { return state.account.get('loginid'); }
 
-export const balanceSelector = state =>
-    state.account.get('balance');
+export function balanceSelector(state) { return state.account.get('balance'); }
 
-export const serverTimeDiffSelector = state =>
-    state.server.get('timeDiff');
+export function serverTimeDiffSelector(state) { return state.server.get('timeDiff'); }
 
-export const currencySelector = state =>
-    state.account.get('currency');
+export function currencySelector(state) { return state.account.get('currency'); }
 
-export const transactionsFilterSelector = state =>
-    state.views.get('transactionsFilter');
+export function transactionsFilterSelector(state) { return state.views.get('transactionsFilter'); }
 
-export const assetIndexSubmarketSelector = state =>
-    state.views.getIn(['assetIndex', 'submarketId']);
+export function assetIndexSubmarketSelector(state) { return state.views.getIn(['assetIndex', 'submarketId']); }
 
-export const assetIndexFilterSelector = state =>
-    state.views.getIn(['assetIndex', 'filter']);
+export function assetIndexFilterSelector(state) { return state.views.getIn(['assetIndex', 'filter']); }
 
-export const tradingTimesFilterSelector = state =>
-    state.views.get('tradingTimes');
+export function tradingTimesFilterSelector(state) { return state.views.get('tradingTimes'); }
 
-export const selectedAssetSelector = state =>
-    state.workspace.get('selectedAsset');
+export function selectedAssetSelector(state) { return state.workspace.get('selectedAsset'); }
 
-export const activeTradeIndexSelector = state =>
-    state.workspace.get('activeTradeIndex');
+export function activeTradeIndexSelector(state) { return state.workspace.get('activeTradeIndex'); }
 
 export const tradesCountSelector =
     state => state.workspace.get('tradesCount');

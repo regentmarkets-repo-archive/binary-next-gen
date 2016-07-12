@@ -18,6 +18,9 @@ import filterObjectBy from 'binary-utils/lib/filterObjectBy';
 import { paramPerTrade, pipSizePerTrade } from '../trade/trade-chart/TradeViewChartSelector';
 import { mockedContract } from '../_constants/MockContract';
 
+import { createDebugSelector } from '../trade/debugSelector';
+import immutableSelector from '../trade/createSelectorForImmutable';
+
 const aggregateContracts = (contracts, type) => ({
     barriers: extractBarrier(contracts, type),
     durations: extractDuration(contracts, type),
