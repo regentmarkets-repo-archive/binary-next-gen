@@ -8,7 +8,9 @@ import {
     UPDATE_TRADE_UI_STATE,
 } from '../../_constants/ActionTypes';
 
-const defaultUIState = {};
+const defaultUIState = {
+    disabled: false,
+};
 
 const initialState = fromJS([defaultUIState]);
 

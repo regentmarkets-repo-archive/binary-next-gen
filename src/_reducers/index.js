@@ -32,7 +32,6 @@ import tradingTimes from './TradingTimesReducer';
 import transactions from './TransactionsReducer';
 import ticks from './TickReducer';
 import ohlc from './OHLCReducer';
-import tickTrade from './TickTradeReducer';
 import video from './VideoReducer';
 import views from './ViewsReducer';
 import workspace from './WorkspaceReducer';
@@ -63,7 +62,6 @@ export default combineReducers({
     signin,
     states,
     ticks,
-    tickTrade,
     tradingTimes,
     transactions,
     tradesParams,
