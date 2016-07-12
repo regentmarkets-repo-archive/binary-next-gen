@@ -27,8 +27,12 @@ export default class ContractDetailsMobileLayout extends Component {
                     <Tab text="Chart" />
                     <Tab text="Details" />
                 </TabList>
-                {activeIndex === 0 && chartComponent}
-                {activeIndex === 1 && detailsComponent}
+                <div style={activeIndex === 0 ? {} : { display: 'none' }}>
+                    {chartComponent}
+                </div>
+                <div style={activeIndex === 1 ? {} : { display: 'none' }}>
+                    {detailsComponent}
+                </div>
             </div>
         );
     }
