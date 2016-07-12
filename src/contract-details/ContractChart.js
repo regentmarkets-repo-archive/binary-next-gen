@@ -56,6 +56,7 @@ export default class ContractChart extends Component {
             <BinaryChart
                 className="contract-chart"
                 defaultRange={6}
+                showAllRangeSelector={false}
                 contract={contract}
                 ticks={data}
                 type={chartType}
