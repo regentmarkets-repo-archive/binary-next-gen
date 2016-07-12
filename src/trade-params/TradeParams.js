@@ -92,7 +92,7 @@ export default class TradeParams extends Component {
     componentWillMount() {
         this.onAssetChange();
     }
-    
+
     shouldComponentUpdate = shouldPureComponentUpdate;
 
     /**

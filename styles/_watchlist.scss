@@ -1,0 +1,11 @@
+.watchlist-table tr:not(:hover) .close-btn {
+    visibility: hidden;
+}
+
+.watchlist-remove-cell {
+    padding: 0 0.5rem 0 0;
+}
+
+.watchlist-card {
+    width: 100%;
+}

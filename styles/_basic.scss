@@ -112,8 +112,8 @@ input[type=range] {
 .sidebar-btn {
     padding: 0;
     > img {
-        width: 3.5rem;
-        padding: 1rem;
+        width: 3rem;
+        padding: 0.75rem;
     }
 }
 
@@ -392,16 +392,8 @@ nav.sidebar {
     padding: 0.5rem;
 }
 
-.watchlist-table tr:not(:hover) .close-btn {
-    visibility: hidden;
-}
-
 .close-btn svg {
     vertical-align: middle;
-}
-
-.watchlist-remove-cell {
-    padding: 0 0.5rem 0 0;
 }
 
 .full-logo {

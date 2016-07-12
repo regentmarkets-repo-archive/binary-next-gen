@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
 import { connect } from 'react-redux';
-import WatchlistTable from './WatchlistTable';
+import WatchlistCard from './WatchlistCard';
 import watchlistSelectors from './watchlistSelectors';
 
 @connect(watchlistSelectors)
@@ -11,7 +11,7 @@ export default class WatchlistContainer extends Component {
 
 	render() {
 		return (
-			<WatchlistTable {...this.props} />
+			<WatchlistCard {...this.props} />
 		);
 	}
 }

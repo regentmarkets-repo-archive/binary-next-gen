@@ -19,7 +19,7 @@ export default class HelloCard extends Component {
 				</Link>
 				<M className="have-account" m="Already have an account?" />
 				<Link to="/" className="signin-button btn-primary" onClick={signIn}>
-					<M m="Sign in" />
+					<M m="Sign In" />
 				</Link>
 			</div>
 		);
