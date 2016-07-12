@@ -21,7 +21,7 @@ const finalCreateStore = compose(
 )(createStore);
 
 export const store = finalCreateStore(storageReducer);
-export const rehydratedStorePromise = storageLoader(store).then(() => store);
+export const rehydratedStorePromise = () => storageLoader(store).then(() => store);
 
 import * as allActions from '../_actions';
 export const actions = bindActionCreators(allActions, store.dispatch);
