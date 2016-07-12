@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: I 18N\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-02-10 07:19+0000\n"
+"PO-Revision-Date: 2016-07-12 08:53+0000\n"
 "Last-Translator: Putri Kumala <putri@regentmarkets.com>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-app/"
-"next-gen-app/id/>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-app"
+"/next-gen-app/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 msgid "All"
 msgstr "Semua"
@@ -350,273 +350,247 @@ msgid "Search For Assets"
 msgstr "Pencarian Aset"
 
 msgid "Start times"
-msgstr ""
+msgstr "Waktu mulai"
 
-#, fuzzy
 msgid "Durations"
-msgstr "Transaksi"
+msgstr "Durasi"
 
-#, fuzzy
 msgid "Payout/Stake"
-msgstr "Hasil"
+msgstr "Hasil/Modal"
 
-#, fuzzy
 msgid "Purchase for"
-msgstr "Untuk Pembelian"
+msgstr "Pembelian untuk"
 
-#, fuzzy
 msgid "payout"
-msgstr "Hasil"
+msgstr "hasil"
 
-#, fuzzy
 msgid "stake"
-msgstr "Modal"
+msgstr "modal"
 
 msgid "Self Exclusion"
-msgstr ""
+msgstr "Pengecualian Diri"
 
 msgid "Cashier Lock"
-msgstr ""
+msgstr "Penguncian Kasir"
 
 msgid "Change Password"
-msgstr ""
+msgstr "Mengganti Kata sandi"
 
 msgid "Password"
-msgstr ""
+msgstr "Kata sandi"
 
-#, fuzzy
 msgid "Tick Trade"
-msgstr "Trade"
+msgstr "Trading Tik"
 
-#, fuzzy
 msgid "Full Trade"
-msgstr "Trade"
+msgstr "Trading Penuh"
 
-#, fuzzy
 msgid "Address"
-msgstr "Alamat Rumah"
+msgstr "Alamat"
 
 msgid "Town/City"
-msgstr ""
+msgstr "Kota"
 
 msgid "State/Province"
-msgstr ""
+msgstr "Daerah/Provinsi"
 
 msgid "Telephone"
-msgstr ""
+msgstr "Telepon"
 
 msgid "Postal Code / ZIP"
-msgstr ""
+msgstr "Kode Pos"
 
 msgid "Cashier password"
-msgstr ""
+msgstr "Kata sandi kasir"
 
 msgid "Re-enter your password"
-msgstr ""
+msgstr "Isi ulang kata sandi"
 
 msgid "Current password"
-msgstr ""
+msgstr "Kata sandi saat ini"
 
 msgid "New password"
-msgstr ""
+msgstr "Kata sandi baru"
 
 msgid "Verify new password"
-msgstr ""
+msgstr "Memeriksa kata sandi baru"
 
-#, fuzzy
 msgid "Daily turnover limit"
-msgstr "Maksimum turnover harian"
+msgstr "Batas beli harian"
 
 msgid "Once this limit is reached, you may no longer deposit."
-msgstr ""
+msgstr "Setelah batas ini tercapai, Anda tidak dapat mendeposit."
 
 msgid "Maximum aggregate contract purchases per day."
-msgstr ""
+msgstr "Maksimum total pembelian kontrak per hari."
 
 msgid "Daily limit on losses"
-msgstr ""
+msgstr "Batas rugi harian"
 
-#, fuzzy
 msgid "Maximum aggregate loss per day."
-msgstr "Jumlah maksimal hasil rata-rata pada posisi terbuka"
+msgstr "Maksimum total rugi per hari."
 
 msgid "7-day turnover limit"
-msgstr ""
+msgstr "batas beli 7 hari"
 
 msgid "Maximum aggregate contract purchases over a 7-day period."
-msgstr ""
+msgstr "Maksimum total beli kontrak dalam periode 7 hari."
 
 msgid "7-day limit on losses"
-msgstr ""
+msgstr "batas rugi 7 hari"
 
-#, fuzzy
 msgid "Maximum aggregate loss over a 7-day period."
-msgstr "Jumlah maksimal hasil rata-rata pada posisi terbuka"
+msgstr "Maksimum total rugi dalam periode 7 hari."
 
 msgid "30-day turnover limit"
-msgstr ""
+msgstr "batas beli 30 hari"
 
 msgid "Maximum aggregate contract purchases over a 30-day period."
-msgstr ""
+msgstr "Maksimum total beli kontrak selama periode 30 hari."
 
 msgid "30-day limit on losses"
-msgstr ""
+msgstr "Batas rugi 30 hari"
 
-#, fuzzy
 msgid "Maximum aggregate loss over a 30-day period."
-msgstr "Jumlah maksimal hasil rata-rata pada posisi terbuka"
+msgstr "Maksimum total rugi selama periode 30 hari."
 
 msgid "Session duration limit, in minutes"
-msgstr ""
+msgstr "Batas sesi durasi, dalam menit"
 
 msgid "You will be automatically logged out after such time."
-msgstr ""
+msgstr "Anda akan secara otomatis keluar setelah waktu tersebut."
 
 msgid "Exclude me from the website until"
-msgstr ""
+msgstr "Kecualikan saya dari website hingga"
 
-#, fuzzy
 msgid "Limits"
-msgstr "Batasan Trading"
+msgstr "Batasan"
 
 msgid "Please enter date in the format YYYY-MM-DD."
-msgstr ""
+msgstr "Silahkan masukkan tanggal dalam format YYYY-MM-DD."
 
-#, fuzzy
 msgid "New Trade"
-msgstr "Trade"
+msgstr "Trading Baru"
 
-#, fuzzy
 msgid "Trade Type"
-msgstr "Trade"
+msgstr "Jenis Trading"
 
 msgid "Random 100 Index"
-msgstr ""
+msgstr "Random 100 Index"
 
 msgid "Article"
-msgstr ""
+msgstr "Artikel"
 
 msgid "Start Later"
-msgstr ""
+msgstr "Mulai Nanti"
 
-#, fuzzy
 msgid "Buy Price"
-msgstr "Harga"
+msgstr "Harga Beli"
 
 msgid "Earning (%)"
-msgstr ""
+msgstr "Pendapatan (%)"
 
-#, fuzzy
 msgid "Profit"
-msgstr "Untung/Rugi"
+msgstr "Untung"
 
-#, fuzzy
 msgid "Entry Price"
-msgstr "Harga"
+msgstr "Harga Awal"
 
-#, fuzzy
 msgid "Exit Price"
-msgstr "Harga"
+msgstr "Harga Akhir"
 
-#, fuzzy
 msgid "Indicative Price"
-msgstr "Indikatif"
+msgstr "Harga Indikatif"
 
 msgid "Potential Profit"
-msgstr ""
+msgstr "Potensi Untung"
 
 msgid "Sell at Market"
-msgstr ""
+msgstr "Jual pada Pasar"
 
 msgid "Go back"
-msgstr ""
+msgstr "Kembali"
 
 msgid "You lost "
-msgstr ""
+msgstr "Anda rugi "
 
-#, fuzzy
 msgid "Close"
 msgstr "Tutup"
 
 msgid "Low"
-msgstr ""
+msgstr "Rendah"
 
 msgid "High"
-msgstr ""
+msgstr "Tinggi"
 
-#, fuzzy
 msgid "Open"
 msgstr "Buka"
 
-#, fuzzy
 msgid "Date"
-msgstr "Tanggal Jual"
+msgstr "Tanggal"
 
 msgid "Upcoming Events"
-msgstr ""
+msgstr "Acara Mendatang"
 
 msgid "Win"
-msgstr ""
+msgstr "Untung"
 
 msgid "Loss"
-msgstr ""
+msgstr "Rugi"
 
 msgid "Full Screen"
-msgstr ""
+msgstr "Layar Penuh"
 
 msgid "Start Now"
-msgstr ""
+msgstr "Mulai Sekarang"
 
-#, fuzzy
 msgid "Daily Prices"
-msgstr "Harga Jual"
+msgstr "Harga Harian"
 
 msgid "Spreads"
-msgstr ""
+msgstr "Spreads"
 
 msgid "Confirm new password"
-msgstr ""
+msgstr "Konfirmasi kata sandi baru"
 
 msgid "TICK"
-msgstr ""
+msgstr "TIK"
 
 msgid "Minutes"
-msgstr ""
+msgstr "Menit"
 
 msgid "Seconds"
-msgstr ""
+msgstr "Detik"
 
 msgid "Hours"
-msgstr ""
+msgstr "Jam"
 
 msgid "Days"
-msgstr ""
+msgstr "Hari"
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
-#, fuzzy
 msgid "Duration"
-msgstr "Lokasi"
+msgstr "Durasi"
 
 msgid "Start Time"
-msgstr ""
+msgstr "Waktu Mulai"
 
 msgid "Now"
-msgstr ""
+msgstr "Sekarang"
 
 msgid "Later"
-msgstr ""
+msgstr "Kemudian"
 
 msgid "return"
-msgstr ""
+msgstr "laba"
 
 msgid "Portfolio"
-msgstr ""
+msgstr "Portopolio"
 
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
-#, fuzzy
 msgid "Digit Stats"
-msgstr "Digit Match"
+msgstr "Digit Stats"
