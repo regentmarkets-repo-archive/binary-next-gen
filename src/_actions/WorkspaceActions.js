@@ -29,7 +29,6 @@ export const changeActiveLayout = (tradesCount, layoutN) =>
 
         const selectedSymbols = currentState.tradesParams.map(v => v.get('symbol'));
         const firstTradeSymbol = selectedSymbols.get(0);
-        // const firstTradeSymbol = currentState.tradesParams.getIn([0, 'symbol']);
         const firstTradeMarket = currentState.assets
             .find(v => v.get('symbol') === firstTradeSymbol)
             .get('market');
