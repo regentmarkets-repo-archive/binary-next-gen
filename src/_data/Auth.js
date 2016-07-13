@@ -36,7 +36,7 @@ export const signIn = () => {
 
     if (window.cordova) {
         const winAuth = window.cordova.InAppBrowser.open(oAuthUrl, '_blank', 'location=no');
-        winAuth.addEventListener('loadstart', (e) => {
+        winAuth.addEventListener('loadstart', e => {
             if (e.url.indexOf('acct1') > -1) {
                 window.BinaryBoot.parseUrl(e.url);
                 window.location.reload();

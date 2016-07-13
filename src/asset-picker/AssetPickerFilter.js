@@ -30,8 +30,6 @@ export default class AssetPickerFilter extends Component {
 	render() {
 		const { filter } = this.props;
 
-		const showOnlyTickTradable = false;
-
 		return (
 			<div className="asset-picker-filter">
 				<InputGroup
@@ -45,7 +43,6 @@ export default class AssetPickerFilter extends Component {
 				<MarketSubmarketPickerContainer
 					onChange={this.onFilterChange}
 					allOptionShown
-					showMarkets={showOnlyTickTradable ? ['Forex', 'Randoms'] : null}
 					value={filter.filter}
 				/>
 			</div>

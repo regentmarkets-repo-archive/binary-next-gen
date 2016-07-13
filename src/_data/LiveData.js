@@ -73,8 +73,8 @@ const initAuthorized = async (authData, store) => {
                     const timeToWait = timeLeftToNextRealityCheck(loginTime, interval) * 1000;
                     store
                         .dispatch(actions.updateRealityCheckSummary())
-                        .then(() => setTimeout(
-                            () => store.dispatch(actions.showRealityCheckPopUp()),
+                        .then(() => setTimeout(() =>
+                            store.dispatch(actions.showRealityCheckPopUp()),
                             timeToWait
                         ));
                 }
