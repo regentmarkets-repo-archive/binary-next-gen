@@ -33,6 +33,15 @@ export const changeActiveLayout = (tradesCount, layoutN) =>
         const otherAssetInSameMarket = currentState.assets
             .filter(v => v.get('symbol') !== firstTradeSymbol && v.get('market') === firstTradeMarket)
             .map(v => v.get('symbol'));
+
+        if (otherAssetInSameMarket.size < additionTradeNeeded) {
+            // get assets not found in otherAssetInSameMarket
+            const randomAdditionalSymbols = currentState.assets
+                .filter(v => otherAssetInSameMarket.find(a => a !== v.get('symbol')))
+                .take(additionTradeNeeded - otherAssetInSameMarket.size);
+            const combinedAssetChoices = otherAssetInSameMarket.concat(randomAdditionalSymbols);
+            return dispatch(updateActiveLayout(tradesCount, layoutN, combinedAssetChoices.toJS()));
+        }
         return dispatch(updateActiveLayout(tradesCount, layoutN, otherAssetInSameMarket.toJS()));
     };
 
