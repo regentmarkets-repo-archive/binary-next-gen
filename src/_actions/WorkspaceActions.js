@@ -27,12 +27,18 @@ export const changeActiveLayout = (tradesCount, layoutN) =>
             return dispatch(updateActiveLayout(tradesCount, layoutN));
         }
 
-        const firstTradeSymbol = currentState.tradesParams.getIn([0, 'symbol']);
+        const selectedSymbols = currentState.tradesParams.map(v => v.get('symbol'));
+        const firstTradeSymbol = selectedSymbols.get(0);
+        // const firstTradeSymbol = currentState.tradesParams.getIn([0, 'symbol']);
         const firstTradeMarket = currentState.assets
             .find(v => v.get('symbol') === firstTradeSymbol)
             .get('market');
         const otherAssetInSameMarket = currentState.assets
-            .filter(v => v.get('symbol') !== firstTradeSymbol && v.get('market') === firstTradeMarket)
+            .filter(v => {
+                const symbolNotSelected = !selectedSymbols.includes(v.get('symbol'));
+                const sameMarketWithFirst = v.get('market') === firstTradeMarket;
+                return symbolNotSelected && sameMarketWithFirst;
+            })
             .map(v => v.get('symbol'));
 
         if (otherAssetInSameMarket.size < additionTradeNeeded) {
