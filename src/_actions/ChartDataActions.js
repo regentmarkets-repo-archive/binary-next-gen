@@ -11,13 +11,14 @@ export const getDataForContract = (contractID, durationCount, durationType, styl
             style,
             subscribe
         ).then(r => {
-                const { ticks, candles, symbol } = r;
+                const { ticks, candles, symbol, isSold } = r;
                 return dispatch({
                     type: UPDATE_CHART_DATA_BY_CONTRACT,
                     contractID,
                     data: ticks || candles,
                     dataType: style,
                     symbol,
+                    isSold,
                 });
         });
 
