@@ -2,15 +2,15 @@ export default {
     "": {
         "project-id-version": "1.0",
         "pot-creation-date": "",
-        "po-revision-date": "2016-02-29 14:03+0000",
-        "last-translator": "Sittie Hadjirah Sevilla <sittiebaser@gmail.com>",
+        "po-revision-date": "2016-07-11 11:59+0000",
+        "last-translator": "Ewelina Bruździak <e.bruzdziak@gmail.com>",
         "language-team": "Polish <https://hosted.weblate.org/projects/binary-app/next-gen-app/pl/>",
         "language": "pl",
         "mime-version": "1.0",
         "content-type": "text/plain; charset=UTF-8",
         "content-transfer-encoding": "8bit",
         "plural-forms": "nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;",
-        "x-generator": "Weblate 2.5-dev",
+        "x-generator": "Weblate 2.8-dev",
         "x-poedit-sourcecharset": "UTF-8"
     },
     "All": [
@@ -455,11 +455,31 @@ export default {
     ],
     "Start times": [
         null,
-        ""
+        "Czas rozpoczęcia"
+    ],
+    "Durations": [
+        null,
+        "Czas trwania"
+    ],
+    "Payout/Stake": [
+        null,
+        "Wypłata/Stawka"
+    ],
+    "Purchase for": [
+        null,
+        "Kup za"
+    ],
+    "payout": [
+        null,
+        "wypłata"
+    ],
+    "stake": [
+        null,
+        "stawka"
     ],
     "Self Exclusion": [
         null,
-        ""
+        "Samodzielne wyłączenie"
     ],
     "Cashier Lock": [
         null,
@@ -467,131 +487,195 @@ export default {
     ],
     "Change Password": [
         null,
-        ""
+        "Zmień hasło"
     ],
     "Password": [
         null,
-        ""
+        "Hasło"
+    ],
+    "Tick Trade": [
+        null,
+        "Zakład oparty na najmniejszej zmianie ceny"
+    ],
+    "Full Trade": [
+        null,
+        "Pełny zakład"
+    ],
+    "Address": [
+        null,
+        "Adres"
     ],
     "Town/City": [
         null,
-        ""
+        "Miasto"
     ],
     "State/Province": [
         null,
-        ""
+        "Region/Województwo"
     ],
     "Telephone": [
         null,
-        ""
+        "Telefon"
     ],
     "Postal Code / ZIP": [
         null,
-        ""
+        "Kod pocztowy"
     ],
     "Cashier password": [
         null,
-        ""
+        "Hasło do sekcji Kasjer"
     ],
     "Re-enter your password": [
         null,
-        ""
+        "Powtórz hasło"
     ],
     "Current password": [
         null,
-        ""
+        "Obecne hasło"
     ],
     "New password": [
         null,
-        ""
+        "Nowe hasło"
     ],
     "Verify new password": [
         null,
-        ""
+        "Zweryfikuj nowe hasło"
+    ],
+    "Daily turnover limit": [
+        null,
+        "Maksymalny dzienny limit obrotów"
     ],
     "Once this limit is reached, you may no longer deposit.": [
         null,
-        ""
+        "Po osiągnięciu tego limitu nie można dokonywać dalszych wpłat."
     ],
     "Maximum aggregate contract purchases per day.": [
         null,
-        ""
+        "Maksymalne dzienne łączne zakupy kontraktów."
     ],
     "Daily limit on losses": [
         null,
-        ""
+        "Dzienny limit strat"
+    ],
+    "Maximum aggregate loss per day.": [
+        null,
+        "Maksymalna łączna strata dzienna."
     ],
     "7-day turnover limit": [
         null,
-        ""
+        "7-dniowy limit obrotów"
     ],
     "Maximum aggregate contract purchases over a 7-day period.": [
         null,
-        ""
+        "Maksymalne łączne 7-dniowe zakupy kontraktów."
     ],
     "7-day limit on losses": [
         null,
-        ""
+        "7-dniowy limit strat"
+    ],
+    "Maximum aggregate loss over a 7-day period.": [
+        null,
+        "Maksymalna łączna strata w okresie 7-dniowym."
     ],
     "30-day turnover limit": [
         null,
-        ""
+        "30-dniowy limit obrotów"
     ],
     "Maximum aggregate contract purchases over a 30-day period.": [
         null,
-        ""
+        "Maksymalne łączne zakupy kontraktów w okresie 30 dni."
     ],
     "30-day limit on losses": [
         null,
-        ""
+        "30-dniowy limit strat"
+    ],
+    "Maximum aggregate loss over a 30-day period.": [
+        null,
+        "Maksymalna łączna strata w okresie 30-dni."
     ],
     "Session duration limit, in minutes": [
         null,
-        ""
+        "Limit czasu sesji, w minutach"
     ],
     "You will be automatically logged out after such time.": [
         null,
-        ""
+        "Zostaniesz automatycznie wylogowany po tym czasie."
     ],
     "Exclude me from the website until": [
         null,
-        ""
+        "Wyłącz mnie z portalu do dnia"
+    ],
+    "Limits": [
+        null,
+        "Limity"
     ],
     "Please enter date in the format YYYY-MM-DD.": [
         null,
-        ""
+        "Wpisz datę w formacie RRRR-MM-DD."
+    ],
+    "New Trade": [
+        null,
+        "Nowy zakład"
+    ],
+    "Trade Type": [
+        null,
+        "Rodzaj zakładu"
     ],
     "Random 100 Index": [
         null,
-        ""
+        "Indeks losowy 100"
     ],
     "Article": [
         null,
-        ""
+        "Artykuł"
     ],
     "Start Later": [
         null,
-        ""
+        "Rozpocznij później"
+    ],
+    "Buy Price": [
+        null,
+        "Cena zakupu"
     ],
     "Earning (%)": [
         null,
-        ""
+        "Dochód (%)"
+    ],
+    "Profit": [
+        null,
+        "Zysk"
+    ],
+    "Entry Price": [
+        null,
+        "Cena wejściowa"
+    ],
+    "Exit Price": [
+        null,
+        "Cena wyjściowa"
+    ],
+    "Indicative Price": [
+        null,
+        "Cena orientacyjna"
     ],
     "Potential Profit": [
         null,
-        ""
+        "Potencjalny zysk"
     ],
     "Sell at Market": [
         null,
-        ""
+        "Sprzedaj na rynku"
     ],
     "Go back": [
         null,
-        ""
+        "Wróć"
     ],
     "You lost ": [
         null,
-        ""
+        "Poniesiono stratę "
+    ],
+    "Close": [
+        null,
+        "Zamknij"
     ],
     "Low": [
         null,
@@ -601,80 +685,96 @@ export default {
         null,
         ""
     ],
+    "Date": [
+        null,
+        "Data"
+    ],
     "Upcoming Events": [
         null,
-        ""
+        "Nadchodzące wydarzenia"
     ],
     "Win": [
         null,
-        ""
+        "Wygrana"
     ],
     "Loss": [
         null,
-        ""
+        "Strata"
     ],
     "Full Screen": [
         null,
-        ""
+        "Pełny ekran"
     ],
     "Start Now": [
         null,
-        ""
+        "Rozpocznij teraz"
+    ],
+    "Daily Prices": [
+        null,
+        "Ceny dzienne"
     ],
     "Spreads": [
         null,
-        ""
+        "Spready"
     ],
     "Confirm new password": [
         null,
-        ""
+        "Potwierdź nowe hasło"
     ],
     "TICK": [
         null,
-        ""
+        "NAJMNIEJSZA ZMIANA CENY"
     ],
     "Minutes": [
         null,
-        ""
+        "Minuty"
     ],
     "Seconds": [
         null,
-        ""
+        "Sekundy"
     ],
     "Hours": [
         null,
-        ""
+        "Godziny"
     ],
     "Days": [
         null,
-        ""
+        "Dni"
     ],
     "N/A": [
         null,
-        ""
+        "Nie dotyczy"
+    ],
+    "Duration": [
+        null,
+        "Czas trwania"
     ],
     "Start Time": [
         null,
-        ""
+        "Godzina rozpoczęcia"
     ],
     "Now": [
         null,
-        ""
+        "Teraz"
     ],
     "Later": [
         null,
-        ""
+        "Później"
     ],
     "return": [
         null,
-        ""
+        "zwrot"
     ],
     "Portfolio": [
         null,
-        ""
+        "Portfolio"
     ],
     "Video": [
         null,
-        ""
+        "Nagranie"
+    ],
+    "Digit Stats": [
+        null,
+        "Statystyki cyfry"
     ]
 }

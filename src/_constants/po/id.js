@@ -3,7 +3,7 @@ export default {
         "project-id-version": "I 18N",
         "report-msgid-bugs-to": "",
         "pot-creation-date": "",
-        "po-revision-date": "2016-02-10 07:19+0000",
+        "po-revision-date": "2016-07-12 08:53+0000",
         "last-translator": "Putri Kumala <putri@regentmarkets.com>",
         "language-team": "Indonesian <https://hosted.weblate.org/projects/binary-app/next-gen-app/id/>",
         "language": "id",
@@ -11,7 +11,7 @@ export default {
         "content-type": "text/plain; charset=UTF-8",
         "content-transfer-encoding": "8bit",
         "plural-forms": "nplurals=1; plural=0;",
-        "x-generator": "Weblate 2.5-dev"
+        "x-generator": "Weblate 2.8-dev"
     },
     "All": [
         null,
@@ -455,226 +455,330 @@ export default {
     ],
     "Start times": [
         null,
-        ""
+        "Waktu mulai"
+    ],
+    "Durations": [
+        null,
+        "Durasi"
+    ],
+    "Payout/Stake": [
+        null,
+        "Hasil/Modal"
+    ],
+    "Purchase for": [
+        null,
+        "Pembelian untuk"
+    ],
+    "payout": [
+        null,
+        "hasil"
+    ],
+    "stake": [
+        null,
+        "modal"
     ],
     "Self Exclusion": [
         null,
-        ""
+        "Pengecualian Diri"
     ],
     "Cashier Lock": [
         null,
-        ""
+        "Penguncian Kasir"
     ],
     "Change Password": [
         null,
-        ""
+        "Mengganti Kata sandi"
     ],
     "Password": [
         null,
-        ""
+        "Kata sandi"
+    ],
+    "Tick Trade": [
+        null,
+        "Trading Tik"
+    ],
+    "Full Trade": [
+        null,
+        "Trading Penuh"
+    ],
+    "Address": [
+        null,
+        "Alamat"
     ],
     "Town/City": [
         null,
-        ""
+        "Kota"
     ],
     "State/Province": [
         null,
-        ""
+        "Daerah/Provinsi"
     ],
     "Telephone": [
         null,
-        ""
+        "Telepon"
     ],
     "Postal Code / ZIP": [
         null,
-        ""
+        "Kode Pos"
     ],
     "Cashier password": [
         null,
-        ""
+        "Kata sandi kasir"
     ],
     "Re-enter your password": [
         null,
-        ""
+        "Isi ulang kata sandi"
     ],
     "Current password": [
         null,
-        ""
+        "Kata sandi saat ini"
     ],
     "New password": [
         null,
-        ""
+        "Kata sandi baru"
     ],
     "Verify new password": [
         null,
-        ""
+        "Memeriksa kata sandi baru"
+    ],
+    "Daily turnover limit": [
+        null,
+        "Batas beli harian"
     ],
     "Once this limit is reached, you may no longer deposit.": [
         null,
-        ""
+        "Setelah batas ini tercapai, Anda tidak dapat mendeposit."
     ],
     "Maximum aggregate contract purchases per day.": [
         null,
-        ""
+        "Maksimum total pembelian kontrak per hari."
     ],
     "Daily limit on losses": [
         null,
-        ""
+        "Batas rugi harian"
+    ],
+    "Maximum aggregate loss per day.": [
+        null,
+        "Maksimum total rugi per hari."
     ],
     "7-day turnover limit": [
         null,
-        ""
+        "batas beli 7 hari"
     ],
     "Maximum aggregate contract purchases over a 7-day period.": [
         null,
-        ""
+        "Maksimum total beli kontrak dalam periode 7 hari."
     ],
     "7-day limit on losses": [
         null,
-        ""
+        "batas rugi 7 hari"
+    ],
+    "Maximum aggregate loss over a 7-day period.": [
+        null,
+        "Maksimum total rugi dalam periode 7 hari."
     ],
     "30-day turnover limit": [
         null,
-        ""
+        "batas beli 30 hari"
     ],
     "Maximum aggregate contract purchases over a 30-day period.": [
         null,
-        ""
+        "Maksimum total beli kontrak selama periode 30 hari."
     ],
     "30-day limit on losses": [
         null,
-        ""
+        "Batas rugi 30 hari"
+    ],
+    "Maximum aggregate loss over a 30-day period.": [
+        null,
+        "Maksimum total rugi selama periode 30 hari."
     ],
     "Session duration limit, in minutes": [
         null,
-        ""
+        "Batas sesi durasi, dalam menit"
     ],
     "You will be automatically logged out after such time.": [
         null,
-        ""
+        "Anda akan secara otomatis keluar setelah waktu tersebut."
     ],
     "Exclude me from the website until": [
         null,
-        ""
+        "Kecualikan saya dari website hingga"
+    ],
+    "Limits": [
+        null,
+        "Batasan"
     ],
     "Please enter date in the format YYYY-MM-DD.": [
         null,
-        ""
+        "Silahkan masukkan tanggal dalam format YYYY-MM-DD."
+    ],
+    "New Trade": [
+        null,
+        "Trading Baru"
+    ],
+    "Trade Type": [
+        null,
+        "Jenis Trading"
     ],
     "Random 100 Index": [
         null,
-        ""
+        "Random 100 Index"
     ],
     "Article": [
         null,
-        ""
+        "Artikel"
     ],
     "Start Later": [
         null,
-        ""
+        "Mulai Nanti"
+    ],
+    "Buy Price": [
+        null,
+        "Harga Beli"
     ],
     "Earning (%)": [
         null,
-        ""
+        "Pendapatan (%)"
+    ],
+    "Profit": [
+        null,
+        "Untung"
+    ],
+    "Entry Price": [
+        null,
+        "Harga Awal"
+    ],
+    "Exit Price": [
+        null,
+        "Harga Akhir"
+    ],
+    "Indicative Price": [
+        null,
+        "Harga Indikatif"
     ],
     "Potential Profit": [
         null,
-        ""
+        "Potensi Untung"
     ],
     "Sell at Market": [
         null,
-        ""
+        "Jual pada Pasar"
     ],
     "Go back": [
         null,
-        ""
+        "Kembali"
     ],
     "You lost ": [
         null,
-        ""
+        "Anda rugi "
+    ],
+    "Close": [
+        null,
+        "Tutup"
     ],
     "Low": [
         null,
-        ""
+        "Rendah"
     ],
     "High": [
         null,
-        ""
+        "Tinggi"
+    ],
+    "Open": [
+        null,
+        "Buka"
+    ],
+    "Date": [
+        null,
+        "Tanggal"
     ],
     "Upcoming Events": [
         null,
-        ""
+        "Acara Mendatang"
     ],
     "Win": [
         null,
-        ""
+        "Untung"
     ],
     "Loss": [
         null,
-        ""
+        "Rugi"
     ],
     "Full Screen": [
         null,
-        ""
+        "Layar Penuh"
     ],
     "Start Now": [
         null,
-        ""
+        "Mulai Sekarang"
+    ],
+    "Daily Prices": [
+        null,
+        "Harga Harian"
     ],
     "Spreads": [
         null,
-        ""
+        "Spreads"
     ],
     "Confirm new password": [
         null,
-        ""
+        "Konfirmasi kata sandi baru"
     ],
     "TICK": [
         null,
-        ""
+        "TIK"
     ],
     "Minutes": [
         null,
-        ""
+        "Menit"
     ],
     "Seconds": [
         null,
-        ""
+        "Detik"
     ],
     "Hours": [
         null,
-        ""
+        "Jam"
     ],
     "Days": [
         null,
-        ""
+        "Hari"
     ],
     "N/A": [
         null,
-        ""
+        "N/A"
+    ],
+    "Duration": [
+        null,
+        "Durasi"
     ],
     "Start Time": [
         null,
-        ""
+        "Waktu Mulai"
     ],
     "Now": [
         null,
-        ""
+        "Sekarang"
     ],
     "Later": [
         null,
-        ""
+        "Kemudian"
     ],
     "return": [
         null,
-        ""
+        "laba"
     ],
     "Portfolio": [
         null,
-        ""
+        "Portopolio"
     ],
     "Video": [
         null,
-        ""
+        "Video"
+    ],
+    "Digit Stats": [
+        null,
+        "Digit Stats"
     ]
 }
