@@ -13,12 +13,6 @@ describe('ProposalInfoReducer', () => {
     const defaultProposalInfo = {};
     const initialState = fromJS([defaultProposalInfo]);
 
-    it('should create default set of params when CREATE_TRADE received', () => {
-        const action = { type: types.CREATE_TRADE, symbol: 'test' };
-        const actual = reducer(initialState, action);
-        expect(actual.toJS()).to.have.lengthOf(2);
-    });
-
     it('should remove if existing trade is more than active layout when CHANGE_ACTIVE_LAYOUT received', () => {
         const action = changeActiveLayout(3, 1);
         const actual = reducer(initialState, action);

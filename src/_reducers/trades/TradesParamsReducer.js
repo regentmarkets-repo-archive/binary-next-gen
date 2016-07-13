@@ -5,7 +5,6 @@ import {
     UPDATE_MULTIPLE_TRADE_PARAMS,
     RESET_TRADES,
     REMOVE_TRADE,
-    CREATE_TRADE,
     REMOVE_PERSONAL_DATA,
 } from '../../_constants/ActionTypes';
 
@@ -26,12 +25,6 @@ const initialState = fromJS([defaultParams]);
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case CREATE_TRADE: {
-            const newSymbol = action.symbol || defaultParams.symbol;
-            const newTrade = fromJS(defaultParams).set('symbol', newSymbol);
-
-            return state.push(newTrade);
-        }
         case CHANGE_ACTIVE_LAYOUT: {
             const oldTradesCount = state.size;
             const newTradesCount = action.tradesCount;
