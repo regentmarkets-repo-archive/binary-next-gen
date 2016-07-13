@@ -11,11 +11,30 @@ export const changeActiveTab = (panel, index) => ({
     index,
 });
 
-export const changeActiveLayout = (tradesCount, layoutN) => ({
+export const updateActiveLayout = (tradesCount, layoutN, assetChoices) => ({
     type: types.CHANGE_ACTIVE_LAYOUT,
     tradesCount,
     layoutN,
+    assetChoices,
 });
+
+export const changeActiveLayout = (tradesCount, layoutN) =>
+    (dispatch, getState) => {
+        const currentState = getState();
+        const additionTradeNeeded = tradesCount - currentState.tradesParams.size;
+        if (additionTradeNeeded < 1) {
+            return dispatch(updateActiveLayout(tradesCount, layoutN));
+        }
+
+        const firstTradeSymbol = currentState.tradesParams.getIn([0, 'symbol']);
+        const firstTradeMarket = currentState.assets
+            .find(v => v.get('symbol') === firstTradeSymbol)
+            .get('market');
+        const otherAssetInSameMarket = currentState.assets
+            .filter(v => v.get('symbol') !== firstTradeSymbol && v.get('market') === firstTradeMarket)
+            .map(v => v.get('symbol'));
+        return dispatch(updateActiveLayout(tradesCount, layoutN, otherAssetInSameMarket.toJS()));
+    };
 
 export const changeActiveWorkspaceTab = (panel, index) => ({
     type: types.CHANGE_ACTIVE_WORKSPACE_TAB,

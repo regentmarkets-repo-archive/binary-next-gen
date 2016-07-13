@@ -2,7 +2,7 @@ import { fromJS } from 'immutable';
 import { expect } from 'chai';
 
 import {
-    changeActiveLayout,
+    updateActiveLayout,
     updateTradeParams,
     updateMultipleTradeParams,
     removeTrade,
@@ -25,9 +25,21 @@ describe('TradesParamsReducer', () => {
     const initialState = fromJS([defaultParams]);
 
     it('should remove if existing trade is more than active layout when CHANGE_ACTIVE_LAYOUT received', () => {
-        const action = changeActiveLayout(3, 1);
+        const action = updateActiveLayout(3, 1);
         const actual = TradesParamsReducer(initialState, action);
         expect(actual.toJS()).to.have.lengthOf(3);
+    });
+
+    it('should create new trade when received CHANGE_ACTIVE_LAYOUT based on assetChoices', () => {
+        const action = updateActiveLayout(3, 1, ['R_25', 'R_50']);
+        const actual = TradesParamsReducer(initialState, action);
+        expect(actual.toJS().some(v => v.symbol === 'R_25')).to.be.true;
+        expect(actual.toJS().some(v => v.symbol === 'R_50')).to.be.true;
+    });
+
+    it('should throw is assetChoices provided is less than number of new trade to be created', () => {
+        const action = updateActiveLayout(3, 1, ['R_25']);
+        expect(() => TradesParamsReducer(initialState, action)).to.throw();
     });
 
     it('should update specified trade params when UPDATE_TRADE_PARAMS received', () => {

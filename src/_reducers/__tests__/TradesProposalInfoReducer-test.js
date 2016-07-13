@@ -2,7 +2,7 @@ import { fromJS } from 'immutable';
 import { expect } from 'chai';
 
 import {
-    changeActiveLayout,
+    updateActiveLayout,
     updateTradeProposal,
     serverDataProposal,
 } from '../../_actions';
@@ -14,7 +14,7 @@ describe('ProposalInfoReducer', () => {
     const initialState = fromJS([defaultProposalInfo]);
 
     it('should remove if existing trade is more than active layout when CHANGE_ACTIVE_LAYOUT received', () => {
-        const action = changeActiveLayout(3, 1);
+        const action = updateActiveLayout(3, 1);
         const actual = reducer(initialState, action);
         expect(actual.toJS()).to.have.lengthOf(3);
     });

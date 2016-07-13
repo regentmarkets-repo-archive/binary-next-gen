@@ -31,7 +31,17 @@ export default (state = initialState, action) => {
             const countDiff = newTradesCount - oldTradesCount;
 
             if (countDiff > 0) {
-                const additionalTradeParams = Repeat(fromJS(defaultParams), countDiff);   // eslint-disable-line new-cap
+                const { assetChoices } = action;
+                if (assetChoices && assetChoices.length < countDiff) {
+                    throw new Error('Not enough asset choices to create more trade');
+                }
+                const additionalTradeParams = Repeat(fromJS(defaultParams), countDiff);  // eslint-disable-line new-cap
+
+                if (assetChoices) {
+                    return state
+                        .concat(additionalTradeParams.map((v, i) => v.set('symbol', assetChoices[i])));
+                }
+
                 return state.concat(additionalTradeParams);
             }
 
