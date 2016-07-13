@@ -16,6 +16,10 @@
         top: 3.5rem !important;
         left: inherit;
     }
+    .balance {
+        font-size: 1.25rem;
+        line-height: 2 !important;
+    }
 }
 
 #hamburger-opener {
@@ -66,9 +70,4 @@
             height: 1.75rem;
         }
     }
-}
-
-.balance {
-    font-size: 1.25rem;
-    line-height: 2 !important;
 }

@@ -15,8 +15,8 @@ export default class AccountMenu extends Component {
 		return (
 			<nav className="sidebar">
 				<div className="account-info">
-					{account.loginid}<br/>
-					{account.email}<br/>
+					{account.loginid}<br />
+					{account.email}<br />
 					<NumberPlain currency={account.currency} value={account.balance} />
 				</div>
 				<SidebarBtn to="/settings" img="img/settings.svg" text="Settings" />
