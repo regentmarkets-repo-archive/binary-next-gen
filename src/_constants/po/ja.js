@@ -2,7 +2,7 @@ export default {
     "": {
         "project-id-version": "PACKAGE VERSION",
         "pot-creation-date": "",
-        "po-revision-date": "2016-01-28 08:06+0000",
+        "po-revision-date": "2016-07-11 07:59+0000",
         "last-translator": "Haruna Sekiya <hrnmyrn@gmail.com>",
         "language-team": "Japanese <https://hosted.weblate.org/projects/binary-app/next-gen-app/ja/>",
         "language": "ja",
@@ -10,7 +10,7 @@ export default {
         "content-type": "text/plain; charset=UTF-8",
         "content-transfer-encoding": "8bit",
         "plural-forms": "nplurals=1; plural=0;",
-        "x-generator": "Weblate 2.5-dev"
+        "x-generator": "Weblate 2.8-dev"
     },
     "All": [
         null,
@@ -42,11 +42,11 @@ export default {
     ],
     "Profit Table": [
         null,
-        "取引詳細"
+        "取引履歴"
     ],
     "Statement": [
         null,
-        "取引履歴"
+        "口座残高"
     ],
     "Settings": [
         null,
@@ -90,7 +90,7 @@ export default {
     ],
     "Profit/Loss": [
         null,
-        "利益/損益"
+        "損益"
     ],
     "Total": [
         null,
@@ -168,7 +168,7 @@ export default {
         null,
         "売買"
     ],
-    "Credit / Debit": [
+    "Credit/Debit": [
         null,
         "クレジット/デビット"
     ],
@@ -266,7 +266,7 @@ export default {
     ],
     "Stake": [
         null,
-        "Stake"
+        "購入価格"
     ],
     "Payout": [
         null,
@@ -392,7 +392,7 @@ export default {
         null,
         "Eメール"
     ],
-    "There are no transactions for the selected period": [
+    "There are no transactions for selected period": [
         null,
         "選択された期間のお取引はありません。"
     ],
@@ -451,5 +451,333 @@ export default {
     "Search For Assets": [
         null,
         "資産検索"
+    ],
+    "Start times": [
+        null,
+        "開始時刻"
+    ],
+    "Durations": [
+        null,
+        "取引期間"
+    ],
+    "Payout/Stake": [
+        null,
+        "ペイアウト/購入金額"
+    ],
+    "Purchase for": [
+        null,
+        "XXXを購入する"
+    ],
+    "payout": [
+        null,
+        "ペイアウト"
+    ],
+    "stake": [
+        null,
+        "購入金額"
+    ],
+    "Self Exclusion": [
+        null,
+        "取引制限"
+    ],
+    "Cashier Lock": [
+        null,
+        "入出金ロック"
+    ],
+    "Change Password": [
+        null,
+        "パスワード変更"
+    ],
+    "Password": [
+        null,
+        "パスワード"
+    ],
+    "Tick Trade": [
+        null,
+        "Tickトレード"
+    ],
+    "Full Trade": [
+        null,
+        "フルトレード"
+    ],
+    "Address": [
+        null,
+        "現住所"
+    ],
+    "Town/City": [
+        null,
+        "市区町村"
+    ],
+    "State/Province": [
+        null,
+        "都道府県"
+    ],
+    "Telephone": [
+        null,
+        "電話番号"
+    ],
+    "Postal Code / ZIP": [
+        null,
+        "郵便番号"
+    ],
+    "Cashier password": [
+        null,
+        "入出金パスワード"
+    ],
+    "Re-enter your password": [
+        null,
+        "パスワード再入力"
+    ],
+    "Current password": [
+        null,
+        "現在のパスワード"
+    ],
+    "New password": [
+        null,
+        "新パスワード"
+    ],
+    "Verify new password": [
+        null,
+        "新パスワード（確認用）"
+    ],
+    "Daily turnover limit": [
+        null,
+        "1日の取引数量限度額"
+    ],
+    "Once this limit is reached, you may no longer deposit.": [
+        null,
+        "上限額に達した場合、入金頂くことができません。"
+    ],
+    "Maximum aggregate contract purchases per day.": [
+        null,
+        "1日あたりの最大取引数量 (半角)"
+    ],
+    "Daily limit on losses": [
+        null,
+        "損失限度額（1日）"
+    ],
+    "Maximum aggregate loss per day.": [
+        null,
+        "1日あたりの最大損失 (半角)"
+    ],
+    "7-day turnover limit": [
+        null,
+        "7日の取引数量限度額"
+    ],
+    "Maximum aggregate contract purchases over a 7-day period.": [
+        null,
+        "7日間の最大取引数量 (半角)"
+    ],
+    "7-day limit on losses": [
+        null,
+        "7日間の損失制限"
+    ],
+    "Maximum aggregate loss over a 7-day period.": [
+        null,
+        "7日間の最大損失 (半角)"
+    ],
+    "30-day turnover limit": [
+        null,
+        "30日の取引数量限度額"
+    ],
+    "Maximum aggregate contract purchases over a 30-day period.": [
+        null,
+        "30日の最大取引数量 (半角)"
+    ],
+    "30-day limit on losses": [
+        null,
+        "30日間の損失制限"
+    ],
+    "Maximum aggregate loss over a 30-day period.": [
+        null,
+        "30日間最大損失 (半角)"
+    ],
+    "Session duration limit, in minutes": [
+        null,
+        "取引継続時間の制限(分単位)"
+    ],
+    "You will be automatically logged out after such time.": [
+        null,
+        "設定時間を過ぎると自動的にログアウトします。（例）　10分の場合、10と記入して下さい。(半角)"
+    ],
+    "Exclude me from the website until": [
+        null,
+        "特定日まで利用禁止（日時単位）"
+    ],
+    "Limits": [
+        null,
+        "制限"
+    ],
+    "Please enter date in the format YYYY-MM-DD.": [
+        null,
+        "ご希望の日付を選択して下さい。"
+    ],
+    "New Trade": [
+        null,
+        "新しいトレード"
+    ],
+    "Trade Type": [
+        null,
+        "トレードタイプ"
+    ],
+    "Random 100 Index": [
+        null,
+        "ランダムインデックス 100"
+    ],
+    "Article": [
+        null,
+        "項目"
+    ],
+    "Start Later": [
+        null,
+        "後で開始する"
+    ],
+    "Buy Price": [
+        null,
+        "購入価格"
+    ],
+    "Earning (%)": [
+        null,
+        "利益 (%)"
+    ],
+    "Profit": [
+        null,
+        "利益"
+    ],
+    "Entry Price": [
+        null,
+        "取引時レート"
+    ],
+    "Exit Price": [
+        null,
+        "判定レート"
+    ],
+    "Indicative Price": [
+        null,
+        "気配値"
+    ],
+    "Potential Profit": [
+        null,
+        "期待利益"
+    ],
+    "Sell at Market": [
+        null,
+        "売却"
+    ],
+    "Go back": [
+        null,
+        "戻る"
+    ],
+    "You lost ": [
+        null,
+        "xxxを失いました "
+    ],
+    "Close": [
+        null,
+        "クローズ"
+    ],
+    "Low": [
+        null,
+        "Low"
+    ],
+    "High": [
+        null,
+        "High"
+    ],
+    "Open": [
+        null,
+        "オープン"
+    ],
+    "Date": [
+        null,
+        "日付"
+    ],
+    "Upcoming Events": [
+        null,
+        "今後のイベント"
+    ],
+    "Win": [
+        null,
+        "条件が満たされました"
+    ],
+    "Loss": [
+        null,
+        "損失"
+    ],
+    "Full Screen": [
+        null,
+        "フルスクリーン"
+    ],
+    "Start Now": [
+        null,
+        "今すぐ始める"
+    ],
+    "Daily Prices": [
+        null,
+        "日足価格"
+    ],
+    "Spreads": [
+        null,
+        "スプレッド"
+    ],
+    "Confirm new password": [
+        null,
+        "新しいパスワード（確認用）"
+    ],
+    "TICK": [
+        null,
+        "TICK"
+    ],
+    "Minutes": [
+        null,
+        "分"
+    ],
+    "Seconds": [
+        null,
+        "秒"
+    ],
+    "Hours": [
+        null,
+        "時間"
+    ],
+    "Days": [
+        null,
+        "日"
+    ],
+    "N/A": [
+        null,
+        "なし"
+    ],
+    "Duration": [
+        null,
+        "取引期間"
+    ],
+    "Start Time": [
+        null,
+        "開始時刻"
+    ],
+    "Now": [
+        null,
+        "Now"
+    ],
+    "Later": [
+        null,
+        "後で"
+    ],
+    "return": [
+        null,
+        "リターン"
+    ],
+    "Portfolio": [
+        null,
+        "ポジション一覧"
+    ],
+    "Video": [
+        null,
+        "動画"
+    ],
+    "Digit Stats": [
+        null,
+        "数字ステータス"
     ]
 }

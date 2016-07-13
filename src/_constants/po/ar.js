@@ -2,7 +2,7 @@ export default {
     "": {
         "project-id-version": "1.0",
         "pot-creation-date": "",
-        "po-revision-date": "2016-01-29 07:42+0000",
+        "po-revision-date": "2016-02-08 20:40+0000",
         "last-translator": "Ehab Gubil <egubil@gmail.com>",
         "language-team": "Arabic <https://hosted.weblate.org/projects/binary-app/next-gen-app/ar/>",
         "language": "ar",
@@ -169,7 +169,7 @@ export default {
         null,
         "عمل"
     ],
-    "Credit / Debit": [
+    "Credit/Debit": [
         null,
         "ائتمان/خصم"
     ],
@@ -393,7 +393,7 @@ export default {
         null,
         "البريد الإلكتروني"
     ],
-    "There are no transactions for the selected period": [
+    "There are no transactions for selected period": [
         null,
         "لا توجد عمليات للفترة المحددة"
     ],
@@ -452,5 +452,229 @@ export default {
     "Search For Assets": [
         null,
         "البحث عن الأصول"
+    ],
+    "Start times": [
+        null,
+        ""
+    ],
+    "Self Exclusion": [
+        null,
+        ""
+    ],
+    "Cashier Lock": [
+        null,
+        ""
+    ],
+    "Change Password": [
+        null,
+        ""
+    ],
+    "Password": [
+        null,
+        ""
+    ],
+    "Town/City": [
+        null,
+        ""
+    ],
+    "State/Province": [
+        null,
+        ""
+    ],
+    "Telephone": [
+        null,
+        ""
+    ],
+    "Postal Code / ZIP": [
+        null,
+        ""
+    ],
+    "Cashier password": [
+        null,
+        ""
+    ],
+    "Re-enter your password": [
+        null,
+        ""
+    ],
+    "Current password": [
+        null,
+        ""
+    ],
+    "New password": [
+        null,
+        ""
+    ],
+    "Verify new password": [
+        null,
+        ""
+    ],
+    "Once this limit is reached, you may no longer deposit.": [
+        null,
+        ""
+    ],
+    "Maximum aggregate contract purchases per day.": [
+        null,
+        ""
+    ],
+    "Daily limit on losses": [
+        null,
+        ""
+    ],
+    "7-day turnover limit": [
+        null,
+        ""
+    ],
+    "Maximum aggregate contract purchases over a 7-day period.": [
+        null,
+        ""
+    ],
+    "7-day limit on losses": [
+        null,
+        ""
+    ],
+    "30-day turnover limit": [
+        null,
+        ""
+    ],
+    "Maximum aggregate contract purchases over a 30-day period.": [
+        null,
+        ""
+    ],
+    "30-day limit on losses": [
+        null,
+        ""
+    ],
+    "Session duration limit, in minutes": [
+        null,
+        ""
+    ],
+    "You will be automatically logged out after such time.": [
+        null,
+        ""
+    ],
+    "Exclude me from the website until": [
+        null,
+        ""
+    ],
+    "Please enter date in the format YYYY-MM-DD.": [
+        null,
+        ""
+    ],
+    "Random 100 Index": [
+        null,
+        ""
+    ],
+    "Article": [
+        null,
+        ""
+    ],
+    "Start Later": [
+        null,
+        ""
+    ],
+    "Earning (%)": [
+        null,
+        ""
+    ],
+    "Potential Profit": [
+        null,
+        ""
+    ],
+    "Sell at Market": [
+        null,
+        ""
+    ],
+    "Go back": [
+        null,
+        ""
+    ],
+    "You lost ": [
+        null,
+        ""
+    ],
+    "Low": [
+        null,
+        ""
+    ],
+    "High": [
+        null,
+        ""
+    ],
+    "Upcoming Events": [
+        null,
+        ""
+    ],
+    "Win": [
+        null,
+        ""
+    ],
+    "Loss": [
+        null,
+        ""
+    ],
+    "Full Screen": [
+        null,
+        ""
+    ],
+    "Start Now": [
+        null,
+        ""
+    ],
+    "Spreads": [
+        null,
+        ""
+    ],
+    "Confirm new password": [
+        null,
+        ""
+    ],
+    "TICK": [
+        null,
+        ""
+    ],
+    "Minutes": [
+        null,
+        ""
+    ],
+    "Seconds": [
+        null,
+        ""
+    ],
+    "Hours": [
+        null,
+        ""
+    ],
+    "Days": [
+        null,
+        ""
+    ],
+    "N/A": [
+        null,
+        ""
+    ],
+    "Start Time": [
+        null,
+        ""
+    ],
+    "Now": [
+        null,
+        ""
+    ],
+    "Later": [
+        null,
+        ""
+    ],
+    "return": [
+        null,
+        ""
+    ],
+    "Portfolio": [
+        null,
+        ""
+    ],
+    "Video": [
+        null,
+        ""
     ]
 }
