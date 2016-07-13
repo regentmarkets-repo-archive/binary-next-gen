@@ -1,11 +1,8 @@
 import * as types from '../_constants/ActionTypes';
 import * as LiveData from '../_data/LiveData';
-import { changeActiveTrade } from './WorkspaceActions';
 import { trackEvent } from 'binary-utils/lib/Analytics';
 import numberToSignedString from 'binary-utils/lib/numberToSignedString';
 import { updateOpenContractField } from './PortfolioActions';
-import { getTicksBySymbol } from './TickActions';
-import { getTradingOptions } from './TradingOptionsActions';
 import { getDataForContract } from './ChartDataActions';
 
 // Handle server proposal stream
