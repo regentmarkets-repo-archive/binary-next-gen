@@ -1,4 +1,5 @@
 import * as types from '../_constants/ActionTypes';
+import { selectAsset } from './TradeActions';
 
 export const changeSelectedAsset = symbol => ({
     type: types.CHANGE_SELECTED_ASSET,
@@ -40,8 +41,10 @@ export const changeActiveLayout = (tradesCount, layoutN) =>
                 .filter(v => otherAssetInSameMarket.find(a => a !== v.get('symbol')))
                 .take(additionTradeNeeded - otherAssetInSameMarket.size);
             const combinedAssetChoices = otherAssetInSameMarket.concat(randomAdditionalSymbols);
+            combinedAssetChoices.forEach(asset => dispatch(selectAsset(asset)));
             return dispatch(updateActiveLayout(tradesCount, layoutN, combinedAssetChoices.toJS()));
         }
+        otherAssetInSameMarket.forEach(asset => dispatch(selectAsset(asset)));
         return dispatch(updateActiveLayout(tradesCount, layoutN, otherAssetInSameMarket.toJS()));
     };
 

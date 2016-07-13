@@ -4,6 +4,8 @@ import { trackEvent } from 'binary-utils/lib/Analytics';
 import numberToSignedString from 'binary-utils/lib/numberToSignedString';
 import { updateOpenContractField } from './PortfolioActions';
 import { getDataForContract } from './ChartDataActions';
+import { getTradingOptions } from './TradingOptionsActions';
+import { getTicksBySymbol } from './TickActions';
 
 // Handle server proposal stream
 export const serverDataProposal = serverResponse => ({
@@ -220,3 +222,7 @@ export const sellContract = (id, price) =>
             dispatch(updateOpenContractField({ id, validation_error: error }));
         }
     };
+
+export const selectAsset = asset =>
+    dispatch => dispatch(getTradingOptions(asset))
+        .then(() => dispatch(getTicksBySymbol(asset)));
