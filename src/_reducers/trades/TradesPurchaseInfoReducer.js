@@ -4,7 +4,6 @@ import {
     CLOSE_CONTRACT_RECEPIT,
     RESET_TRADES,
     REMOVE_TRADE,
-    CREATE_TRADE,
     REMOVE_PERSONAL_DATA,
     UPDATE_TRADE_PURCHASE_INFO,
 } from '../../_constants/ActionTypes';
@@ -15,9 +14,6 @@ const initialState = fromJS([defaultPurchaseInfo]);
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case CREATE_TRADE: {
-            return state.push(defaultPurchaseInfo);
-        }
         case CHANGE_ACTIVE_LAYOUT: {
             const oldTradesCount = state.size;
             const newTradesCount = action.tradesCount;

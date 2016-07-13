@@ -3,7 +3,6 @@ import {
     CHANGE_ACTIVE_LAYOUT,
     RESET_TRADES,
     REMOVE_TRADE,
-    CREATE_TRADE,
     SERVER_DATA_PROPOSAL,
     REMOVE_PERSONAL_DATA,
     UPDATE_TRADE_PROPOSAL,
@@ -15,9 +14,6 @@ const initialState = fromJS([defaultProposalInfo]);
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case CREATE_TRADE: {
-            return state.push(defaultProposalInfo);
-        }
         case CHANGE_ACTIVE_LAYOUT: {
             const oldTradesCount = state.size;
             const newTradesCount = action.tradesCount;

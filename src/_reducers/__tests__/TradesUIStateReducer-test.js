@@ -2,7 +2,7 @@ import { fromJS } from 'immutable';
 import { expect } from 'chai';
 
 import {
-    changeActiveLayout,
+    updateActiveLayout,
     updateTradeUIState,
     serverDataProposal,
 } from '../../_actions';
@@ -13,14 +13,8 @@ describe('UIStateReducer', () => {
     const defaultUIState = {};
     const initialState = fromJS([defaultUIState]);
 
-    it('should create default set of uiState when CREATE_TRADE received', () => {
-        const action = { type: types.CREATE_TRADE, symbol: 'test' };
-        const actual = reducer(initialState, action);
-        expect(actual.toJS()).to.have.lengthOf(2);
-    });
-
     it('should remove if existing bject is more than active layout when CHANGE_ACTIVE_LAYOUT received', () => {
-        const action = changeActiveLayout(3, 1);
+        const action = updateActiveLayout(3, 1);
         const actual = reducer(initialState, action);
         expect(actual.toJS()).to.have.lengthOf(3);
     });

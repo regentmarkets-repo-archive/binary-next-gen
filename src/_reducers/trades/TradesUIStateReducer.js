@@ -3,7 +3,6 @@ import {
     CHANGE_ACTIVE_LAYOUT,
     RESET_TRADES,
     REMOVE_TRADE,
-    CREATE_TRADE,
     REMOVE_PERSONAL_DATA,
     UPDATE_TRADE_UI_STATE,
 } from '../../_constants/ActionTypes';
@@ -16,9 +15,6 @@ const initialState = fromJS([defaultUIState]);
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case CREATE_TRADE: {
-            return state.push(defaultUIState);
-        }
         case CHANGE_ACTIVE_LAYOUT: {
             const oldTradesCount = state.size;
             const newTradesCount = action.tradesCount;

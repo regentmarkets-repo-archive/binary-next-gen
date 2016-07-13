@@ -1,12 +1,11 @@
 import * as types from '../_constants/ActionTypes';
 import * as LiveData from '../_data/LiveData';
-import { changeActiveTrade } from './WorkspaceActions';
 import { trackEvent } from 'binary-utils/lib/Analytics';
 import numberToSignedString from 'binary-utils/lib/numberToSignedString';
 import { updateOpenContractField } from './PortfolioActions';
-import { getTicksBySymbol } from './TickActions';
-import { getTradingOptions } from './TradingOptionsActions';
 import { getDataForContract } from './ChartDataActions';
+import { getTradingOptions } from './TradingOptionsActions';
+import { getTicksBySymbol } from './TickActions';
 
 // Handle server proposal stream
 export const serverDataProposal = serverResponse => ({
@@ -15,24 +14,6 @@ export const serverDataProposal = serverResponse => ({
 });
 
 // Trade object life cycle
-export const createTrade = symbol =>
-    (dispatch, getState) => {
-        const contractExist = getState().tradingOptions.get(symbol);
-        const ticksExist = getState().ticks.get(symbol);
-        const tradesLen = getState().tradesParams.size;
-
-        const contractP = !!contractExist ? Promise.resolve() : dispatch(getTradingOptions(symbol));
-        const ticksP = !!ticksExist ? Promise.resolve() : dispatch(getTicksBySymbol(symbol));
-
-        Promise.all([contractP, ticksP])
-            .then(
-                () => {
-                    dispatch({ type: types.CREATE_TRADE, symbol });
-                    dispatch(changeActiveTrade(tradesLen));
-                }
-            );
-    };
-
 export const removeTrade = index =>
     (dispatch, getState) => {
         const proposalInfoList = getState().tradesProposalInfo.toJS();
@@ -241,3 +222,7 @@ export const sellContract = (id, price) =>
             dispatch(updateOpenContractField({ id, validation_error: error }));
         }
     };
+
+export const selectAsset = asset =>
+    dispatch => dispatch(getTradingOptions(asset))
+        .then(() => dispatch(getTicksBySymbol(asset)));

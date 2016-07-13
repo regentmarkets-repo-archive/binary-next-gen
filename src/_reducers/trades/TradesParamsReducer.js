@@ -5,7 +5,6 @@ import {
     UPDATE_MULTIPLE_TRADE_PARAMS,
     RESET_TRADES,
     REMOVE_TRADE,
-    CREATE_TRADE,
     REMOVE_PERSONAL_DATA,
 } from '../../_constants/ActionTypes';
 
@@ -26,19 +25,23 @@ const initialState = fromJS([defaultParams]);
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case CREATE_TRADE: {
-            const newSymbol = action.symbol || defaultParams.symbol;
-            const newTrade = fromJS(defaultParams).set('symbol', newSymbol);
-
-            return state.push(newTrade);
-        }
         case CHANGE_ACTIVE_LAYOUT: {
             const oldTradesCount = state.size;
             const newTradesCount = action.tradesCount;
             const countDiff = newTradesCount - oldTradesCount;
 
             if (countDiff > 0) {
-                const additionalTradeParams = Repeat(fromJS(defaultParams), countDiff);   // eslint-disable-line new-cap
+                const { assetChoices } = action;
+                if (assetChoices && assetChoices.length < countDiff) {
+                    throw new Error('Not enough asset choices to create more trade');
+                }
+                const additionalTradeParams = Repeat(fromJS(defaultParams), countDiff);  // eslint-disable-line new-cap
+
+                if (assetChoices) {
+                    return state
+                        .concat(additionalTradeParams.map((v, i) => v.set('symbol', assetChoices[i])));
+                }
+
                 return state.concat(additionalTradeParams);
             }
 
