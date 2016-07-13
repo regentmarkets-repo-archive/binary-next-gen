@@ -3,8 +3,8 @@ export default {
         "project-id-version": "BOM",
         "report-msgid-bugs-to": "",
         "pot-creation-date": "",
-        "po-revision-date": "2016-01-29 13:52+0000",
-        "last-translator": "Alina Demidova <alinademidova1@gmail.com>",
+        "po-revision-date": "2016-02-06 19:43+0000",
+        "last-translator": "Sittie Hadjirah Sevilla <sittiebaser@gmail.com>",
         "language-team": "Russian <https://hosted.weblate.org/projects/binary-app/next-gen-app/ru/>",
         "language": "ru",
         "mime-version": "1.0",
@@ -169,7 +169,7 @@ export default {
         null,
         "Акт"
     ],
-    "Credit / Debit": [
+    "Credit/Debit": [
         null,
         "Кредит/Дебет"
     ],
@@ -277,159 +277,403 @@ export default {
         null,
         "Пополнение"
     ],
+    "Transactions": [
+        null,
+        "Сделки"
+    ],
     "Opens": [
         null,
-        ""
+        "Открытие"
     ],
     "Closes": [
         null,
-        ""
+        "Закрытие"
     ],
     "Personal": [
         null,
-        ""
+        "Личные данные"
     ],
     "General": [
         null,
-        ""
+        "Общее"
+    ],
+    "Trading Times": [
+        null,
+        "Время торговли"
+    ],
+    "Asset Index": [
+        null,
+        "Индекс активов"
     ],
     "Today": [
         null,
-        ""
+        "Сегодня"
     ],
     "Yesterday": [
         null,
-        ""
+        "Вчера"
     ],
     "Tomorrow": [
         null,
-        ""
+        "Завтра"
     ],
     "Takeout": [
         null,
-        ""
+        "Выкуп"
     ],
     "News": [
         null,
-        ""
+        "Новости"
     ],
     "Resources": [
         null,
-        ""
+        "Ресурсы"
     ],
     "Last 7 Days": [
         null,
-        ""
+        "Последние 7 дней"
     ],
     "Last 30 Days": [
         null,
-        ""
+        "Последние 30 дней"
     ],
     "Daily Report": [
         null,
-        ""
+        "Анализ рынка"
     ],
     "Up/Down": [
         null,
-        ""
+        "Вверх/Вниз"
     ],
     "Touch/No Touch": [
         null,
-        ""
+        "Касание/Нет касания"
     ],
     "Ends In/Out": [
         null,
-        ""
+        "Закончится внутри/вне"
     ],
     "Stays In/Goes Out": [
         null,
-        ""
+        "Останется Внутри/Выйдет за пределы"
+    ],
+    "Settles": [
+        null,
+        "Заканчивается"
     ],
     "Language": [
         null,
-        ""
+        "Язык"
     ],
     "Color Theme": [
         null,
-        ""
+        "Цветовая схема"
     ],
     "Light": [
         null,
-        ""
+        "Светлый"
     ],
     "Dark": [
         null,
-        ""
+        "Тёмный"
     ],
     "Name": [
         null,
-        ""
+        "Имя"
+    ],
+    "Date Of Birth": [
+        null,
+        "Дата рождения"
     ],
     "Country Of Residence": [
         null,
-        ""
+        "Страна проживания"
     ],
     "Email": [
         null,
-        ""
+        "Email"
     ],
-    "There are no transactions for the selected period": [
+    "There are no transactions for selected period": [
         null,
-        ""
+        "Сделки за выбранный период отсутствуют"
     ],
     "Sell": [
         null,
-        ""
+        "Продать"
     ],
     "Buy": [
         null,
-        ""
+        "Купить"
     ],
     "Digit Even": [
         null,
-        ""
+        "Чётная цифра"
     ],
     "Touches": [
         null,
-        ""
+        "Коснется"
     ],
     "Digit Over": [
         null,
-        ""
+        "Цифра выше"
     ],
     "Digit Match": [
         null,
-        ""
+        "Совпадение цифр"
     ],
     "Digit Under": [
         null,
-        ""
+        "Цифра ниже"
     ],
     "Digit Odd": [
         null,
-        ""
+        "Нечётная цифра"
     ],
     "Digit Differs": [
         null,
-        ""
+        "Несовпадение цифр"
     ],
     "No Touch": [
         null,
-        ""
+        "Нет касания"
     ],
     "Fall": [
         null,
-        ""
+        "Падение"
     ],
     "Asian Down": [
         null,
-        ""
+        "Азиатские вниз"
     ],
     "Asian Up": [
         null,
-        ""
+        "Азиатские вверх"
     ],
     "Search For Assets": [
+        null,
+        "Поиск активов"
+    ],
+    "Start times": [
+        null,
+        ""
+    ],
+    "Self Exclusion": [
+        null,
+        ""
+    ],
+    "Cashier Lock": [
+        null,
+        ""
+    ],
+    "Change Password": [
+        null,
+        ""
+    ],
+    "Password": [
+        null,
+        ""
+    ],
+    "Town/City": [
+        null,
+        ""
+    ],
+    "State/Province": [
+        null,
+        ""
+    ],
+    "Telephone": [
+        null,
+        ""
+    ],
+    "Postal Code / ZIP": [
+        null,
+        ""
+    ],
+    "Cashier password": [
+        null,
+        ""
+    ],
+    "Re-enter your password": [
+        null,
+        ""
+    ],
+    "Current password": [
+        null,
+        ""
+    ],
+    "New password": [
+        null,
+        ""
+    ],
+    "Verify new password": [
+        null,
+        ""
+    ],
+    "Once this limit is reached, you may no longer deposit.": [
+        null,
+        ""
+    ],
+    "Maximum aggregate contract purchases per day.": [
+        null,
+        ""
+    ],
+    "Daily limit on losses": [
+        null,
+        ""
+    ],
+    "7-day turnover limit": [
+        null,
+        ""
+    ],
+    "Maximum aggregate contract purchases over a 7-day period.": [
+        null,
+        ""
+    ],
+    "7-day limit on losses": [
+        null,
+        ""
+    ],
+    "30-day turnover limit": [
+        null,
+        ""
+    ],
+    "Maximum aggregate contract purchases over a 30-day period.": [
+        null,
+        ""
+    ],
+    "30-day limit on losses": [
+        null,
+        ""
+    ],
+    "Session duration limit, in minutes": [
+        null,
+        ""
+    ],
+    "You will be automatically logged out after such time.": [
+        null,
+        ""
+    ],
+    "Exclude me from the website until": [
+        null,
+        ""
+    ],
+    "Please enter date in the format YYYY-MM-DD.": [
+        null,
+        ""
+    ],
+    "Random 100 Index": [
+        null,
+        ""
+    ],
+    "Article": [
+        null,
+        ""
+    ],
+    "Start Later": [
+        null,
+        ""
+    ],
+    "Earning (%)": [
+        null,
+        ""
+    ],
+    "Potential Profit": [
+        null,
+        ""
+    ],
+    "Sell at Market": [
+        null,
+        ""
+    ],
+    "Go back": [
+        null,
+        ""
+    ],
+    "You lost ": [
+        null,
+        ""
+    ],
+    "Low": [
+        null,
+        ""
+    ],
+    "High": [
+        null,
+        ""
+    ],
+    "Upcoming Events": [
+        null,
+        ""
+    ],
+    "Win": [
+        null,
+        ""
+    ],
+    "Loss": [
+        null,
+        ""
+    ],
+    "Full Screen": [
+        null,
+        ""
+    ],
+    "Start Now": [
+        null,
+        ""
+    ],
+    "Spreads": [
+        null,
+        ""
+    ],
+    "Confirm new password": [
+        null,
+        ""
+    ],
+    "TICK": [
+        null,
+        ""
+    ],
+    "Minutes": [
+        null,
+        ""
+    ],
+    "Seconds": [
+        null,
+        ""
+    ],
+    "Hours": [
+        null,
+        ""
+    ],
+    "Days": [
+        null,
+        ""
+    ],
+    "N/A": [
+        null,
+        ""
+    ],
+    "Start Time": [
+        null,
+        ""
+    ],
+    "Now": [
+        null,
+        ""
+    ],
+    "Later": [
+        null,
+        ""
+    ],
+    "return": [
+        null,
+        ""
+    ],
+    "Portfolio": [
+        null,
+        ""
+    ],
+    "Video": [
         null,
         ""
     ]

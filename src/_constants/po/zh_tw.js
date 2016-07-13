@@ -2,7 +2,7 @@ export default {
     "": {
         "project-id-version": "PACKAGE VERSION",
         "pot-creation-date": "",
-        "po-revision-date": "2016-01-28 07:51+0000",
+        "po-revision-date": "2016-07-11 07:20+0000",
         "last-translator": "Freddy Hew <hewfreddy@gmail.com>",
         "language-team": "Chinese (Taiwan) <https://hosted.weblate.org/projects/binary-app/next-gen-app/zh_TW/>",
         "language": "zh_tw",
@@ -10,7 +10,7 @@ export default {
         "content-type": "text/plain; charset=UTF-8",
         "content-transfer-encoding": "8bit",
         "plural-forms": "nplurals=1; plural=0;",
-        "x-generator": "Weblate 2.5-dev"
+        "x-generator": "Weblate 2.8-dev"
     },
     "All": [
         null,
@@ -64,6 +64,62 @@ export default {
         null,
         "參考"
     ],
+    "Start Time": [
+        null,
+        "開始時間"
+    ],
+    "Current Spot Time": [
+        null,
+        "目前現價時間"
+    ],
+    "End Time": [
+        null,
+        "結束時間"
+    ],
+    "Entry Spot": [
+        null,
+        "入市現價"
+    ],
+    "Current Spot": [
+        null,
+        "目前現價"
+    ],
+    "Exit Spot": [
+        null,
+        "退出現價"
+    ],
+    "Indicative Price": [
+        null,
+        "指示價格"
+    ],
+    "Final Price": [
+        null,
+        "最後價格"
+    ],
+    "Description": [
+        null,
+        "說明"
+    ],
+    "Proceed": [
+        null,
+        "繼續"
+    ],
+    "Sign in": [
+        null,
+        "登入"
+    ],
+    "Please enter your email verification code": [
+        null,
+        "請輸入電子郵件驗證代碼"
+    ],
+    "Verify": [
+        null,
+        "驗證"
+    ],
+    "Close": [
+        null,
+        "收盤"
+    ],
     "Purchase": [
         null,
         "買入"
@@ -83,6 +139,34 @@ export default {
     "Sale Date": [
         null,
         "賣出日期"
+    ],
+    "Sorry, we have no payment agents in": [
+        null,
+        "對不起，以下地區我們沒有支付代理:"
+    ],
+    "Deposit commision: ": [
+        null,
+        "存款佣金收費: "
+    ],
+    "Withdrawal commision: ": [
+        null,
+        "取款佣金費用: "
+    ],
+    "Withdrawal Failed": [
+        null,
+        "取款失敗"
+    ],
+    "Confirmation": [
+        null,
+        "交易確認"
+    ],
+    "Are you sure you want to withdraw": [
+        null,
+        "確定要提款嗎"
+    ],
+    "Withdraw": [
+        null,
+        "取款"
     ],
     "Sale Price": [
         null,
@@ -142,11 +226,11 @@ export default {
     ],
     "Your withdrawal limit is {limit} (or equivalent in other currency).": [
         null,
-        "您的提款上限是 {限值} (或其他貨幣的等值)。"
+        "您的提款上限是 {限值} (或等值的其他貨幣)。"
     ],
     "You have already withdrawn the equivalent of EUR {drawn}.": [
         null,
-        "您已提款相等於歐元 {提款值}。"
+        "您的提款數額相當於歐元 {提款值}。"
     ],
     "An additional password can be used to restrict access to the cashier.": [
         null,
@@ -168,13 +252,17 @@ export default {
         null,
         "動作"
     ],
-    "Credit / Debit": [
+    "Credit/Debit": [
         null,
         "借記/貸記"
     ],
     "Purchase Time": [
         null,
         "買入時間"
+    ],
+    "Scale": [
+        null,
+        "比例"
     ],
     "Back": [
         null,
@@ -184,9 +272,13 @@ export default {
         null,
         "下訂單"
     ],
+    "Purchase for ": [
+        null,
+        "買入 "
+    ],
     "{asset} will {type} over next {duration}": [
         null,
-        "{資產}將在{時段}期內{類型}"
+        "{資產}將在{類型}期內{時段}"
     ],
     "Price": [
         null,
@@ -238,7 +330,7 @@ export default {
     ],
     "Home Address": [
         null,
-        "住家地址"
+        "家庭住址"
     ],
     "Security": [
         null,
@@ -392,9 +484,9 @@ export default {
         null,
         "電子郵件"
     ],
-    "There are no transactions for the selected period": [
+    "There are no transactions for selected period": [
         null,
-        "選定期間無任何交易"
+        "選定時間段內無任何交易"
     ],
     "Sell": [
         null,
@@ -418,7 +510,7 @@ export default {
     ],
     "Digit Match": [
         null,
-        "數字相符"
+        "數字匹配"
     ],
     "Digit Under": [
         null,
@@ -430,7 +522,7 @@ export default {
     ],
     "Digit Differs": [
         null,
-        "數字不相符"
+        "數字不匹配"
     ],
     "No Touch": [
         null,
@@ -451,5 +543,321 @@ export default {
     "Search For Assets": [
         null,
         "搜尋資產"
+    ],
+    "Start times": [
+        null,
+        "開始時間"
+    ],
+    "Durations": [
+        null,
+        "期現"
+    ],
+    "Payout/Stake": [
+        null,
+        "賠付/投注額"
+    ],
+    "Purchase for": [
+        null,
+        "買入"
+    ],
+    "payout": [
+        null,
+        "賠付額"
+    ],
+    "stake": [
+        null,
+        "投注金額"
+    ],
+    "Self Exclusion": [
+        null,
+        "自我限制"
+    ],
+    "Cashier Lock": [
+        null,
+        "收銀台鎖定"
+    ],
+    "Change Password": [
+        null,
+        "更換密碼"
+    ],
+    "Password": [
+        null,
+        "密碼"
+    ],
+    "Tick Trade": [
+        null,
+        "跳動點交易"
+    ],
+    "Full Trade": [
+        null,
+        "完全自由交易"
+    ],
+    "Address": [
+        null,
+        "地址"
+    ],
+    "Town/City": [
+        null,
+        "城鎮/城市"
+    ],
+    "State/Province": [
+        null,
+        "州/省"
+    ],
+    "Telephone": [
+        null,
+        "電話"
+    ],
+    "Postal Code / ZIP": [
+        null,
+        "郵遞區號"
+    ],
+    "Cashier password": [
+        null,
+        "收銀台密碼"
+    ],
+    "Re-enter your password": [
+        null,
+        "重新輸入密碼"
+    ],
+    "Current password": [
+        null,
+        "目前密碼"
+    ],
+    "New password": [
+        null,
+        "新密碼"
+    ],
+    "Verify new password": [
+        null,
+        "驗證新密碼"
+    ],
+    "Daily turnover limit": [
+        null,
+        "最大日成交量"
+    ],
+    "Once this limit is reached, you may no longer deposit.": [
+        null,
+        "一旦達到此限額，您不可再存入款項。"
+    ],
+    "Maximum aggregate contract purchases per day.": [
+        null,
+        "每日最大累計合約購入額。"
+    ],
+    "Daily limit on losses": [
+        null,
+        "每日虧損限額"
+    ],
+    "Maximum aggregate loss per day.": [
+        null,
+        "每日最大累計虧損額。"
+    ],
+    "7-day turnover limit": [
+        null,
+        "7天期最大交易限額"
+    ],
+    "Maximum aggregate contract purchases over a 7-day period.": [
+        null,
+        "7天期最大累計合約購入額。"
+    ],
+    "7-day limit on losses": [
+        null,
+        "7天期虧損限額"
+    ],
+    "Maximum aggregate loss over a 7-day period.": [
+        null,
+        "7天期最大累計虧損額。"
+    ],
+    "30-day turnover limit": [
+        null,
+        "30天期交易限額"
+    ],
+    "Maximum aggregate contract purchases over a 30-day period.": [
+        null,
+        "30天期最大累計合約購入額。"
+    ],
+    "30-day limit on losses": [
+        null,
+        "30天期虧損限額"
+    ],
+    "Maximum aggregate loss over a 30-day period.": [
+        null,
+        "30天期最大累計虧損額。"
+    ],
+    "Session duration limit, in minutes": [
+        null,
+        "交易期持續時間限制，以分鐘作單位"
+    ],
+    "You will be automatically logged out after such time.": [
+        null,
+        "在該時間後您將自動退出登入。"
+    ],
+    "Exclude me from the website until": [
+        null,
+        "禁止我訪問本網站直到"
+    ],
+    "Limits": [
+        null,
+        "交易限制"
+    ],
+    "Please enter date in the format YYYY-MM-DD.": [
+        null,
+        "請輸入日期，格式為年-月-日。"
+    ],
+    "New Trade": [
+        null,
+        "新交易"
+    ],
+    "Trade Type": [
+        null,
+        "交易類型"
+    ],
+    "Random 100 Index": [
+        null,
+        "隨機100指標"
+    ],
+    "Article": [
+        null,
+        "項目"
+    ],
+    "Start Later": [
+        null,
+        "稍後開始"
+    ],
+    "Buy Price": [
+        null,
+        "購入價格"
+    ],
+    "Earning (%)": [
+        null,
+        "收入(%)"
+    ],
+    "Profit": [
+        null,
+        "利潤"
+    ],
+    "Entry Price": [
+        null,
+        "入市價格"
+    ],
+    "Exit Price": [
+        null,
+        "平倉價格"
+    ],
+    "Potential Profit": [
+        null,
+        "潛在利潤"
+    ],
+    "Sell at Market": [
+        null,
+        "按市價賣出"
+    ],
+    "Go back": [
+        null,
+        "返回"
+    ],
+    "You lost ": [
+        null,
+        "您輸了 "
+    ],
+    "Low": [
+        null,
+        "低"
+    ],
+    "High": [
+        null,
+        "高"
+    ],
+    "Open": [
+        null,
+        "開盤"
+    ],
+    "Date": [
+        null,
+        "日期"
+    ],
+    "Upcoming Events": [
+        null,
+        "未來事件"
+    ],
+    "Win": [
+        null,
+        "贏"
+    ],
+    "Loss": [
+        null,
+        "輸"
+    ],
+    "Full Screen": [
+        null,
+        "全屏"
+    ],
+    "Start Now": [
+        null,
+        "現在開始"
+    ],
+    "Daily Prices": [
+        null,
+        "每日價格"
+    ],
+    "Spreads": [
+        null,
+        "價差"
+    ],
+    "Confirm new password": [
+        null,
+        "確認新密碼"
+    ],
+    "TICK": [
+        null,
+        "跳動點"
+    ],
+    "Minutes": [
+        null,
+        "分鐘"
+    ],
+    "Seconds": [
+        null,
+        "秒"
+    ],
+    "Hours": [
+        null,
+        "小時"
+    ],
+    "Days": [
+        null,
+        "日"
+    ],
+    "N/A": [
+        null,
+        "不可用"
+    ],
+    "Duration": [
+        null,
+        "期限"
+    ],
+    "Now": [
+        null,
+        "現在"
+    ],
+    "Later": [
+        null,
+        "稍後"
+    ],
+    "return": [
+        null,
+        "回報"
+    ],
+    "Portfolio": [
+        null,
+        "投資組合"
+    ],
+    "Video": [
+        null,
+        "視訊"
+    ],
+    "Digit Stats": [
+        null,
+        "數字統計"
     ]
 }

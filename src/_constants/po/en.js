@@ -2,8 +2,8 @@ export default {
     "": {
         "project-id-version": "",
         "pot-creation-date": "",
-        "po-revision-date": "2016-01-29 02:01+0000",
-        "last-translator": "Lim Qing Wei <qingwei@regentmarkets.com>",
+        "po-revision-date": "2016-03-01 08:47+0000",
+        "last-translator": "Sittie Hadjirah Sevilla <sittiebaser@gmail.com>",
         "language-team": "English <https://hosted.weblate.org/projects/binary-app/next-gen-app/en/>",
         "language": "en",
         "mime-version": "1.0",
@@ -168,7 +168,7 @@ export default {
         null,
         ""
     ],
-    "Credit / Debit": [
+    "Credit/Debit": [
         null,
         ""
     ],
@@ -392,7 +392,7 @@ export default {
         null,
         ""
     ],
-    "There are no transactions for the selected period": [
+    "There are no transactions for selected period": [
         null,
         ""
     ],
@@ -449,6 +449,334 @@ export default {
         ""
     ],
     "Search For Assets": [
+        null,
+        ""
+    ],
+    "Start times": [
+        null,
+        ""
+    ],
+    "Durations": [
+        null,
+        ""
+    ],
+    "Payout/Stake": [
+        null,
+        ""
+    ],
+    "Purchase for": [
+        null,
+        ""
+    ],
+    "payout": [
+        null,
+        ""
+    ],
+    "stake": [
+        null,
+        ""
+    ],
+    "Self Exclusion": [
+        null,
+        ""
+    ],
+    "Cashier Lock": [
+        null,
+        ""
+    ],
+    "Change Password": [
+        null,
+        ""
+    ],
+    "Password": [
+        null,
+        ""
+    ],
+    "Tick Trade": [
+        null,
+        ""
+    ],
+    "Full Trade": [
+        null,
+        ""
+    ],
+    "Address": [
+        null,
+        ""
+    ],
+    "Town/City": [
+        null,
+        ""
+    ],
+    "State/Province": [
+        null,
+        ""
+    ],
+    "Telephone": [
+        null,
+        ""
+    ],
+    "Postal Code / ZIP": [
+        null,
+        ""
+    ],
+    "Cashier password": [
+        null,
+        ""
+    ],
+    "Re-enter your password": [
+        null,
+        ""
+    ],
+    "Current password": [
+        null,
+        ""
+    ],
+    "New password": [
+        null,
+        ""
+    ],
+    "Verify new password": [
+        null,
+        ""
+    ],
+    "Daily turnover limit": [
+        null,
+        ""
+    ],
+    "Once this limit is reached, you may no longer deposit.": [
+        null,
+        ""
+    ],
+    "Maximum aggregate contract purchases per day.": [
+        null,
+        ""
+    ],
+    "Daily limit on losses": [
+        null,
+        ""
+    ],
+    "Maximum aggregate loss per day.": [
+        null,
+        ""
+    ],
+    "7-day turnover limit": [
+        null,
+        ""
+    ],
+    "Maximum aggregate contract purchases over a 7-day period.": [
+        null,
+        ""
+    ],
+    "7-day limit on losses": [
+        null,
+        ""
+    ],
+    "Maximum aggregate loss over a 7-day period.": [
+        null,
+        ""
+    ],
+    "30-day turnover limit": [
+        null,
+        ""
+    ],
+    "Maximum aggregate contract purchases over a 30-day period.": [
+        null,
+        ""
+    ],
+    "30-day limit on losses": [
+        null,
+        ""
+    ],
+    "Maximum aggregate loss over a 30-day period.": [
+        null,
+        ""
+    ],
+    "Session duration limit, in minutes": [
+        null,
+        ""
+    ],
+    "You will be automatically logged out after such time.": [
+        null,
+        ""
+    ],
+    "Exclude me from the website until": [
+        null,
+        ""
+    ],
+    "Limits": [
+        null,
+        ""
+    ],
+    "Please enter date in the format YYYY-MM-DD.": [
+        null,
+        ""
+    ],
+    "New Trade": [
+        null,
+        ""
+    ],
+    "Trade Type": [
+        null,
+        ""
+    ],
+    "Random 100 Index": [
+        null,
+        ""
+    ],
+    "Article": [
+        null,
+        ""
+    ],
+    "Start Later": [
+        null,
+        ""
+    ],
+    "Buy Price": [
+        null,
+        ""
+    ],
+    "Earning (%)": [
+        null,
+        ""
+    ],
+    "Profit": [
+        null,
+        ""
+    ],
+    "Entry Price": [
+        null,
+        ""
+    ],
+    "Exit Price": [
+        null,
+        ""
+    ],
+    "Indicative Price": [
+        null,
+        ""
+    ],
+    "Potential Profit": [
+        null,
+        ""
+    ],
+    "Sell at Market": [
+        null,
+        ""
+    ],
+    "Go back": [
+        null,
+        ""
+    ],
+    "You lost ": [
+        null,
+        ""
+    ],
+    "Close": [
+        null,
+        ""
+    ],
+    "Low": [
+        null,
+        ""
+    ],
+    "High": [
+        null,
+        ""
+    ],
+    "Open": [
+        null,
+        ""
+    ],
+    "Date": [
+        null,
+        ""
+    ],
+    "Upcoming Events": [
+        null,
+        ""
+    ],
+    "Win": [
+        null,
+        ""
+    ],
+    "Loss": [
+        null,
+        ""
+    ],
+    "Full Screen": [
+        null,
+        ""
+    ],
+    "Start Now": [
+        null,
+        ""
+    ],
+    "Daily Prices": [
+        null,
+        ""
+    ],
+    "Spreads": [
+        null,
+        ""
+    ],
+    "Confirm new password": [
+        null,
+        ""
+    ],
+    "TICK": [
+        null,
+        ""
+    ],
+    "Minutes": [
+        null,
+        ""
+    ],
+    "Seconds": [
+        null,
+        ""
+    ],
+    "Hours": [
+        null,
+        ""
+    ],
+    "Days": [
+        null,
+        ""
+    ],
+    "N/A": [
+        null,
+        ""
+    ],
+    "Duration": [
+        null,
+        ""
+    ],
+    "Start Time": [
+        null,
+        ""
+    ],
+    "Now": [
+        null,
+        ""
+    ],
+    "Later": [
+        null,
+        ""
+    ],
+    "return": [
+        null,
+        ""
+    ],
+    "Portfolio": [
+        null,
+        ""
+    ],
+    "Video": [
+        null,
+        ""
+    ],
+    "Digit Stats": [
         null,
         ""
     ]
