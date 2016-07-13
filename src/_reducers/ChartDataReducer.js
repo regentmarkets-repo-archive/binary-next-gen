@@ -11,7 +11,7 @@ const initialState = fromJS({});
 export default (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_CHART_DATA_BY_CONTRACT: {
-            const { contractID, data, dataType, symbol } = action;
+            const { contractID, data, dataType, symbol, isSold } = action;
             const existing = state.hasIn([contractID, dataType]) ? state.getIn([contractID, dataType]).toJS() : [];
             const merged = mergeTicks(existing, data);
 
@@ -20,7 +20,8 @@ export default (state = initialState, action) => {
             }
             return state
                 .setIn([contractID, dataType], fromJS(merged))
-                .setIn([contractID, 'symbol'], symbol);
+                .setIn([contractID, 'symbol'], symbol)
+                .setIn([contractID, 'isSold'], isSold);
         }
         case SERVER_DATA_OHLC_STREAM: {
             const { ohlc } = action.serverResponse;
@@ -33,7 +34,7 @@ export default (state = initialState, action) => {
                 close: +ohlc.close,
             };
             return state.map(v => {
-                if (v.get('symbol') === symbol) {
+                if (v.get('symbol') === symbol && !v.get('isSold')) {
                     const existingCandles = v.get('candles', fromJS([]));
                     const updatedCandles = existingCandles.takeLast(1000).push(newOHLC);
                     return v.set('candles', updatedCandles);
@@ -47,14 +48,19 @@ export default (state = initialState, action) => {
                 return state;
             }
 
-            if (state.has(openContract.contract_id)) {
-                if (!openContract.sell_time && openContract.current_spot && openContract.current_spot_time) {
+            const { contract_id, sell_time, current_spot, current_spot_time } = openContract;
+            if (state.has(contract_id)) {
+                if (!sell_time && current_spot && current_spot_time) {
                     const latestData = state
-                        .getIn([openContract.contract_id, 'ticks'])
+                        .getIn([contract_id, 'ticks'])
                         .slice(0)
-                        .push({ epoch: +(openContract.current_spot_time), quote: +(openContract.current_spot) });
-                    return state.setIn([openContract.contract_id, 'ticks'], fromJS(latestData));
+                        .push({ epoch: +(current_spot_time), quote: +(current_spot) });
+                    return state.setIn([contract_id, 'ticks'], fromJS(latestData));
                 }
+                if (sell_time) {
+                  return state.setIn([contract_id, 'isSold'], true);
+                }
+                return state;
             }
             return state;
         }
