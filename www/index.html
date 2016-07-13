@@ -62,9 +62,6 @@
             },
             onDeviceReady: function() {
                 document.addEventListener("backbutton", onBackPressed, false);
-                if (cordova.platformId.toLowerCase() === 'ios') {
-                    StatusBar.hide();
-                }
                 codePush.sync();
             },
             // onDeviceResume: function () {
