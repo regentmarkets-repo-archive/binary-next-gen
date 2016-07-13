@@ -25,26 +25,20 @@ export default class WatchlistItem extends Component {
 		const { item } = this.props;
 
 		return (
-			<div>
-				<div className="centered">
-					{item.get('isOpen') ?
-						<WatchlistSparkline history={item.get('history')} /> :
-						<OpenCloseNotice isOpen={false} />
-					}
-				</div>
+			<div className="watchlist-item">
 				<div className="watchlist-details">
-					<div>
 					{item.get('assetName')}
-					</div>
+					<NumberPlain value={item.get('quote')} />&nbsp;
 					<div>
-						<NumberPlain value={item.get('quote')} />&nbsp;
 						<Direction diff={item.get('diff')} />&nbsp;
 						<NumberColored value={item.get('diff')} />
 					</div>
-					<div className="watchlist-remove-cell">
-						<CloseButton onClick={this.onRemove} />
-					</div>
+					<CloseButton onClick={this.onRemove} />
 				</div>
+				{item.get('isOpen') ?
+					<WatchlistSparkline history={item.get('history')} /> :
+					<OpenCloseNotice isOpen={false} />
+				}
 			</div>
 		);
 	}

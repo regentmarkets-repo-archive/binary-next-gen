@@ -8,4 +8,21 @@
 
 .watchlist-card {
     width: 100%;
+    padding: 0.25rem;
+}
+
+.watchlist-details {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.watchlist-item {
+    &:hover {
+        box-shadow: 0 0 0 0.25rem rgba($COLOR_BRAND_BLUE, 0.25);
+    }
+}
+
+.watchlist-item + .watchlist-item {
+    margin-bottom: 1rem;
 }

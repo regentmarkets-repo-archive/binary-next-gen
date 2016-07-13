@@ -17,8 +17,8 @@ export default class WatchlistSparkline extends Component {
 			<Sparklines
 				data={history.map(x => x.quote)}
 				limit={30}
-				width={60}
-				height={20}
+				width={200}
+				height={40}
 			>
 				<SparklinesLine />
 				<SparklinesSpots />
