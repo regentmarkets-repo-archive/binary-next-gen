@@ -1,0 +1,96 @@
+header {
+    background: $COLOR_BRAND_BLUE;
+    border-bottom: 4px solid $COLOR_BRAND_ORANGE;
+    display: flex;
+    justify-content: center;
+}
+.header-content {
+    display: flex;
+    width: 100%;
+    max-width: $CONTENT_WIDTH;
+    margin: 0 0.5em;
+}
+nav {
+    flex: 1;
+    justify-content: center;
+    display: flex;
+}
+nav div {
+    padding: 0 1rem;
+    line-height: 2;
+    text-align: center;
+}
+nav a {
+    text-decoration: none;
+    font-weight: normal;
+    color: white !important;
+    &:hover {
+        text-decoration: none;
+    }
+}
+.login-btn {
+    font-size: $FONT_SIZE_S;
+    margin: 0.7rem 0;
+}
+.nav-languages {
+    padding: 0;
+}
+.nav-languages a {
+    display: block;
+    width: 20px;
+    height: 15px;
+    margin: 1rem;
+    background-position: 0 0;
+    background: url("https://binary.com/images/common/flags.png");
+    background-size: 20px;
+    background-repeat: no-repeat;
+}
+.submenu {
+    border-left: 1px solid transparent;
+    border-right: 1px solid transparent;
+}
+.submenu:hover {
+    box-shadow: inset 0 3px 0 0 $COLOR_BRAND_ORANGE;
+    background-color: $COLOR_NAV_ACTIVE;
+    border-left: 1px solid $COLOR_NAV_BORDER;
+    border-right: 1px solid $COLOR_NAV_BORDER;
+}
+.submenu img {
+    width: 100%;
+    display: none;
+}
+.nav2nd {
+    margin-left: -1px;
+    background-color: $COLOR_NAV_ACTIVE;
+    border-left: 1px solid $COLOR_NAV_BORDER;
+    border-right: 1px solid $COLOR_NAV_BORDER;
+    border-bottom: 1px solid $COLOR_NAV_BORDER;
+}
+.nav-trade a,
+.nav-cashier a {
+    display: block;
+}
+.nav2nd li:hover a {
+    color: white;
+    background: $COLOR_BRAND_ORANGE !important;
+}
+.nav2nd li a.selected {
+    background: $COLOR_BRAND_BLUE;
+}
+.nav-trade,
+.nav-cashier,
+.nav-resources,
+.nav-help,
+.nav-account {
+    cursor: pointer;
+    background-repeat: no-repeat;
+    background-size: auto 70%;
+    background-position: center center;
+}
+/* Logo and top bar */
+#topbar {
+    text-align: center;
+    color: white;
+    background: $COLOR_NAV_ACTIVE;
+    padding: .5rem;
+}

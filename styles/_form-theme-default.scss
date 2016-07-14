@@ -1,0 +1,23 @@
+select,
+textarea,
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=number],
+input[type=date],
+input[type=time],
+input[type=datepicker],
+.dob,
+.inputlike {
+    border: 1px solid rgba($COLOR_BRAND_BLUE, .25);
+
+    &:hover {
+        border-color: rgba($COLOR_BRAND_BLUE, .5) !important;
+    }
+
+    &:focus {
+        border-color: $COLOR_BRAND_BLUE !important;
+    }
+}

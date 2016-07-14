@@ -1,0 +1,61 @@
+*,
+*:after,
+*:before {
+    transition: opacity .2s, color .2s, background .2s;
+}
+@keyframes spinning {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+@-webkit-keyframes spinning {
+    from {transform: rotate(0deg);}
+    to {transform: rotate(360deg);}
+}
+.spinner {
+    -webkit-animation: spinning .2s * 5 infinite linear;
+    animation: spinning .2s * 5 infinite linear;
+}
+
+@keyframes pulsing {
+    0% {opacity: 1;}
+    50% {opacity: .5;}
+    100% {opacity: 1;}
+}
+@-webkit-keyframes pulsing {
+    0% {opacity: 1;}
+    50% {opacity: .5;}
+    100% {opacity: 1;}
+}
+.pulser {
+    -webkit-animation: pulsing 3s infinite ease;
+    animation: pulsing 3s infinite ease;
+}
+
+.full-screen-overlay {
+    opacity: 1;
+    transition: opacity .2s, height 0;
+}
+
+.full-screen-overlay.hidden {
+    opacity: 0;
+    transition: opacity .2s, height 0 .2s;
+    height: 0;
+}
+
+.full-screen-overlay > * {
+    transition: transform .2s, height 0;
+    transform: scale(1);
+}
+
+.full-screen-overlay.hidden > * {
+    transition: transform .2s, height 0 .2s;
+    transform: scale(.9);
+}
+
+.progress {
+    @extend .spinner;
+    background-image: url('https://binary.com/images/pages/binary-symbol-logo.svg');
+    background-size: contain;
+    width: 2rem;
+    height: 2rem;
+}

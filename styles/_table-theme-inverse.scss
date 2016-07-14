@@ -1,0 +1,28 @@
+.inverse {
+    thead,
+    tbody {
+        border-bottom: 2px solid rgba($COLOR_INVERSE_TEXT, 0.1);
+    }
+
+    th, td {
+        color: $COLOR_INVERSE_TEXT;
+    }
+
+    th {
+        font-weight: bold;
+        background: rgba($COLOR_BRAND_BLUE, .25);
+    }
+
+    tr {
+        border-bottom: 1px solid rgba($COLOR_INVERSE_TEXT, 0.1);
+    }
+
+    tr:focus, tr.selected {
+        background-color: rgba($COLOR_INVERSE_TEXT, 0.2);
+    }
+
+    tbody > tr:hover {
+        background-color: rgba($COLOR_INVERSE_TEXT, 0.1);
+    }
+
+}

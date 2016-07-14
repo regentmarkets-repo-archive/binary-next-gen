@@ -1,0 +1,28 @@
+.inverse {
+    select,
+    textarea,
+    input[type=text],
+    input[type=email],
+    input[type=password],
+    input[type=search],
+    input[type=tel],
+    input[type=number],
+    input[type=date],
+    input[type=time],
+    input[type=datepicker],
+    .dob,
+    .inputlike {
+        color: $COLOR_INVERSE_TEXT;
+        background-color: lighten($COLOR_INVERSE_BG, 10%);
+
+        border: 1px solid rgba($COLOR_INVERSE_TEXT, .25);
+
+        &:hover {
+            border-color: rgba($COLOR_INVERSE_TEXT, 0.5) !important;
+        }
+
+        &:focus {
+            border-color: $COLOR_INVERSE_TEXT !important;
+        }
+    }
+}

@@ -1,0 +1,171 @@
+form {
+    margin-bottom: 1rem;
+}
+
+input,
+button,
+textarea,
+select,
+optgroup,
+option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+}
+
+input {
+    background-color: inherit;
+}
+
+textarea {
+    padding: .5rem;
+    height: 8rem;
+    width: 25rem;
+}
+
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=number],
+input[type=time],
+input[type=date] {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+select,
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=number],
+input[type=date],
+input[type=time],
+input[type=datepicker],
+.picker__input,
+.inputlike {
+    padding: 0 .25rem;
+    height: 2rem;
+}
+
+input[type=number] {
+    padding-right: 0;
+}
+
+textarea {
+    height: 8em;
+    width: 25em;
+}
+
+select,
+.picker__input,
+.date-picker,
+.arrow-expand-collapse,
+.down-arrow-1 {
+    background-color: inherit;
+    background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB2ZXJzaW9uPSIxLjEiIGlkPSJMYXllcl8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjEwMHB4IiBoZWlnaHQ9IjEwMHB4IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgZW5hYmxlLWJhY2tncm91bmQ9Im5ldyAwIDAgMTAwIDEwMCIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+DQo8cGF0aCBmaWxsPSIjY2NjIiBkPSJNNTAuMTExIDcyLjY1OWMtMS4wNjEgMC0yLjA3OC0wLjQyMi0yLjgyOS0xLjE3MkwxNy4yNzUgNDEuNDc0Yy0xLjU2Mi0xLjU2Mi0xLjU2Mi00LjA5NSAwLjAwMS01LjY1NyBjMS41NjMtMS41NjIgNC4wOTYtMS41NjIgNS43IDBsMjcuMTc4IDI3LjE4NWwyNy4xNzgtMjcuMTg1YzEuNTYyLTEuNTYyIDQuMDk1LTEuNTYyIDUuNyAwIGMxLjU2MiAxLjYgMS42IDQuMSAwIDUuNjU3TDUyLjk0IDcxLjQ4N0M1Mi4xODkgNzIuMiA1MS4yIDcyLjcgNTAuMSA3Mi42NTl6Ii8+DQo8L3N2Zz4NCg==);
+}
+
+select::-ms-expand {
+    display: none;
+}
+
+select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+}
+
+select,
+.date-picker,
+.down-arrow {
+    background-position: right center;
+    background-repeat: no-repeat;
+    background-size: 1.25rem;
+    padding-right: 1.25rem;
+    cursor: pointer;
+}
+
+label {
+    line-height: 2;
+}
+
+.dob {
+    display: flex;
+}
+
+.dob select {
+    border: none;
+    flex: 1;
+}
+
+legend {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    border-bottom: 1px solid rgba($COLOR_BRAND_BLUE, 0.5);
+    width: 100%;
+}
+
+fieldset .error-msg {
+    width: 100%;
+    text-align: center;
+}
+
+#dobdd {
+    border-radius: $BORDER_RADIUS 0 0 $BORDER_RADIUS;
+}
+
+#dobmm {
+    border-radius: 0;
+}
+
+#dobyy {
+    border-radius: 0 $BORDER_RADIUS $BORDER_RADIUS 0;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+    width: 15rem;
+    height: .2rem;
+    background: $COLOR_BRAND_BLUE;
+    cursor: pointer;
+}
+
+input[type=range]:focus {
+    outline: none;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 1rem;
+    height: 1rem;
+    border-radius: 100%;
+    background: $COLOR_BRAND_BLUE;
+    box-shadow: 0 0 0 .5rem rgba($COLOR_BRAND_BLUE, .1);
+    cursor: pointer;
+}
+
+select,
+textarea,
+input[type=text],
+input[type=email],
+input[type=password],
+input[type=search],
+input[type=tel],
+input[type=number],
+input[type=date],
+input[type=time],
+input[type=datepicker],
+.dob,
+.inputlike {
+    vertical-align: bottom;
+    border-radius: $BORDER_RADIUS;
+
+    &:focus {
+        outline: none;
+    }
+}

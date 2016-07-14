@@ -1,10 +1,40 @@
-$COLOR_BRAND_BLUE: rgb(42, 48, 82);
-$COLOR_BRAND_ORANGE: rgb(233, 128, 36);
+// Brand colors and derivatives
 
-$COLOR_TEXT: rgb(64, 68, 72);
+$COLOR_BRAND_BLUE: #2a3052;
+$COLOR_BRAND_ORANGE: #e98024;
 
-$COLOR_INVERSE_BG: rgb(29, 29, 36);
-$COLOR_INVERSE_TEXT: rgb(221, 221, 221);
+$COLOR_TEXT: #404448;
+$COLOR_CONTROL_BORDER: #dadada;
+$COLOR_ACTIVE: #ff992a;
 
-$COLOR_GREEN: rgb(46, 136, 54);
-$COLOR_RED: rgb(204, 0, 51);
+$COLOR_INVERSE_BG: #1d1d24;
+$COLOR_INVERSE_TEXT: #ddd;
+
+$COLOR_NAV_ACTIVE: #3c4872;
+$COLOR_NAV_BORDER: #2a3052;
+
+
+// Colors used for secondary purposes. To be used sparingly
+
+$COLOR_RED           : #c03;
+$COLOR_YELLOW        : #fef1cf;
+$COLOR_LIGHT_GRAY    : #F2F2F2;
+$COLOR_GRAY          : #DEDEDE;
+$COLOR_DARK_GRAY     : #44484C;
+$COLOR_GREEN         : #2E8836;
+
+.brand-blue {
+    color: $COLOR_BRAND_BLUE;
+}
+
+.brand-blue-bg {
+    background-color: $COLOR_BRAND_BLUE;
+}
+
+.brand-orange {
+    color: $COLOR_BRAND_ORANGE;
+}
+
+.brand-orange-bg {
+    background-color: $COLOR_BRAND_ORANGE;
+}

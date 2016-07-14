@@ -1,0 +1,49 @@
+#tooltip
+{
+    font-size: 14px;
+    line-height: 1.5;
+    background: #FFF1CF;
+    border-radius: $BORDER_RADIUS;
+    border: 1px solid $COLOR_GRAY;
+    position: absolute;
+    z-index: 100;
+    padding: 15px;
+}
+#tooltip:after
+{
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 10px solid $COLOR_GRAY;
+    border-top-color: #FFF1CF;
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -10px;
+    margin-left: -10px;
+}
+#tooltip.top:after
+{
+    border-top-color: transparent;
+    border-bottom: 10px solid $COLOR_GRAY;
+    border-bottom-color: $COLOR_GRAY;
+    top: -20px;
+    bottom: auto;
+}
+#tooltip.left:after
+{
+    left: 10px;
+    margin: 0;
+}
+#tooltip.right:after
+{
+    right: 10px;
+    left: auto;
+    margin: 0;
+}
+
+//Required to display a dotted line at the bottom of abbr.
+abbr {
+  border-bottom: 1px dotted black;
+}

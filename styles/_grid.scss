@@ -1,0 +1,27 @@
+.row {
+    display: flex;
+    margin: 0 -.5rem;
+    flex-wrap: wrap;
+}
+.row > * {
+    flex: 1;
+    margin: 0 .5rem;
+}
+.col.s{
+	flex: .2;
+}
+.col.q {
+    flex: .33333333;
+}
+.col.t {
+    flex: .5;
+}
+.col.f2 {
+    flex: 2;
+}
+.col.f3 {
+    flex: 3;
+}
+.col.f7{
+    flex:7;
+}

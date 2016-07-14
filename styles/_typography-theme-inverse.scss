@@ -1,0 +1,20 @@
+.inverse {
+    background: $COLOR_INVERSE_BG; // #243036; // $COLOR_BRAND_BLUE;
+    color: $COLOR_INVERSE_TEXT;
+}
+
+.inferse ol li:before {
+   color: $COLOR_INVERSE_TEXT;
+}
+
+.inverse {
+    a:not([class]),
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        color: #eee;
+    }
+}

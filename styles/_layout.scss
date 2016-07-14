@@ -1,0 +1,170 @@
+*,
+*:after,
+*:before {
+    box-sizing: border-box;
+}
+html, body {
+    min-height: 100vh;
+}
+body, .msgbar, .sitemap,
+.msgbar-wrapper, .content-wrapper, .sitemap-wrapper, .footer-wrapper {
+    display: flex;
+}
+
+body {
+    flex-direction: column;
+}
+
+header {
+    position: fixed;
+    z-index: 50;
+    width: 100%;
+}
+
+#page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    padding-top: 3rem;
+}
+#content-holder {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+#content-holder > div {
+    flex: 1;
+    padding: 2rem .5rem 4rem;
+}
+#content {
+    margin: 0 auto;
+    max-width: $CONTENT_WIDTH;
+    flex-direction: column;
+}
+#content > h1, .get-started-content > h1 {
+    margin-top: 0;
+}
+
+.nav2nd {
+    z-index: 100;
+}
+
+.nav2nd li {
+    line-height: 2.5;
+    text-align: left;
+}
+
+.nav1st {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    margin: 0;
+}
+
+.nav1st li div {
+    line-height: $HEADER_HEIGHT;
+}
+
+.nav2nd {
+    opacity: 0;
+    visibility: hidden;
+    position: absolute;
+    flex-direction: column;
+    min-width: 200px;
+    transform: translateY(100px);
+}
+
+.nav2nd a {
+    padding: 0 1rem;
+    display: block;
+}
+
+.nav1st li:hover > ul {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.nav-spacer {
+    flex: 1;
+}
+
+#loginid-switch-form {
+    display: flex;
+    padding: .5rem 1rem;
+    margin: 0;
+}
+
+.login-button {
+    margin: .5em 0;
+    line-height: 0;
+}
+
+.logo {
+    margin-left: -.5em;
+    padding: .5em;
+    width: 3em;
+}
+
+.logo-text {
+    padding: .5em 0;
+}
+
+.sitemap h4 {
+    margin-bottom: .4rem;
+}
+
+.sitemap li {
+    flex: 1;
+}
+
+.sitemap li > * {
+    display: flex;
+    flex-direction: row;
+    margin-bottom: .25em;
+}
+
+.footer {
+    display: flex;
+    flex-direction: column;
+}
+
+.licenses {
+    flex: 1;
+    display: flex;
+    margin: 1rem 0;
+}
+
+.licenses img {
+    height: 3rem;
+    margin-right: 1rem;
+}
+
+.regulatory {
+    flex: 4;
+}
+
+.social a {
+    width: 20%;
+}
+
+.open-real-money-account {
+    display: flex;
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+
+.vcentered {
+    height: 100vh;
+    justify-content: center;
+    display: flex;
+    padding: 1rem;
+}
+
+.account-container {
+    position: relative;
+    .nav2nd {
+        right: -1px;
+    }
+}
