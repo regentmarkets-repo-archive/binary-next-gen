@@ -103,6 +103,7 @@
     "binary-utils": "^3.8.2",
     "classnames": "^2.2.5",
     "immutable": "^3.8.1",
+    "lodash.throttle": "^4.0.1",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "react-intl": "^2.1.3",
