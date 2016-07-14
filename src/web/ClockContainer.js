@@ -1,15 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
-
-import shouldPureComponentUpdate from 'react-pure-render/function';
 import Clock from 'binary-components/lib/Clock';
 import timeSelector from './timeSelector';
 
 @connect(timeSelector)
-export default class ClockContainer extends Component {
-
-    shouldPureComponentUpdate = shouldPureComponentUpdate;
+export default class ClockContainer extends PureComponent {
 
     render() {
         return (

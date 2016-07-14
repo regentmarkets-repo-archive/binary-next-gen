@@ -1,19 +1,16 @@
-import React, { PropTypes, Component } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
+import React, { PropTypes, PureComponent } from 'react';
 import Label from 'binary-components/lib/Label';
 import NumericInput from 'binary-components/lib/NumericInput';
 
 const payouts = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000];
 
-export default class StakeCard extends Component {
+export default class StakeCard extends PureComponent {
 
     static propTypes = {
         amount: PropTypes.number.isRequired,
         isVirtual: PropTypes.bool.isRequired,
         onAmountChange: PropTypes.func.isRequired,
     };
-
-    shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
         const { amount, isVirtual, onAmountChange } = this.props;

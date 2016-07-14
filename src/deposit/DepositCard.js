@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import M from 'binary-components/lib/M';
 import Tab from 'binary-components/lib/Tab';
 import TabList from 'binary-components/lib/TabList';
@@ -11,7 +11,7 @@ const components = [
 	WithdrawalForm,
 ];
 
-export default class DepositCard extends Component {
+export default class DepositCard extends PureComponent {
     static propTypes = {
         paymentAgent: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,

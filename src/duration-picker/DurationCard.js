@@ -1,10 +1,9 @@
-import React, { Component, PropTypes } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
+import React, { PureComponent, PropTypes } from 'react';
 import durationText from 'binary-utils/lib/durationText';
 import Label from 'binary-components/lib/Label';
 import DurationUnitPicker from './DurationUnitPicker';
 
-export default class DurationCard extends Component {
+export default class DurationCard extends PureComponent {
 
     static propTypes = {
         dateStart: PropTypes.number,
@@ -16,8 +15,6 @@ export default class DurationCard extends Component {
         onDurationChange: PropTypes.func,
         onError: PropTypes.func,
     };
-
-    shouldComponentUpdate = shouldPureComponentUpdate;
 
     // return error msg or undefined is no error
     validateDuration(duration, durationUnit) {

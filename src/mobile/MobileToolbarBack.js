@@ -1,8 +1,8 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import { Link } from 'react-router';
 import M from 'binary-components/lib/M';
 
-export default class MobileToolbarBack extends Component {
+export default class MobileToolbarBack extends PureComponent {
 
 	static propTypes = {
 		backBtnBarTitle: PropTypes.string,

@@ -1,7 +1,6 @@
-import React, { Children, Component, PropTypes } from 'react';
+import React, { Children, PureComponent, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { IntlProvider, addLocaleData } from 'react-intl';
-import shouldPureComponentUpdate from 'react-pure-render/function';
 import allTexts from '../_constants/texts';
 import locale from '../_constants/languageLocaleMap';
 import { bootSelector } from '../_selectors/BootSelectors';
@@ -21,7 +20,7 @@ const timeFormats = {
 };
 
 @connect(bootSelector)
-export default class BootProvider extends Component {
+export default class BootProvider extends PureComponent {
 
     static propTypes = {
         children: PropTypes.object.isRequired,
@@ -43,8 +42,6 @@ export default class BootProvider extends Component {
         const { language } = nextProps;
         addLocaleData(localeData(locale(language)));
     }
-
-    shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
         const { children, language, theme } = this.props;

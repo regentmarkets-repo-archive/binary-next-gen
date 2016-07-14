@@ -1,13 +1,12 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import { connect } from 'react-redux';
-import shouldPureComponentUpdate from 'react-pure-render/function';
 import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
 import { actions } from '../_store';
 import contractDetailsSelectors from './ContractDetailsSelectors';
 import ContractDetailsCard from './ContractDetailsCard';
 
 @connect(contractDetailsSelectors)
-export default class ContractDetailsContainer extends Component {
+export default class ContractDetailsContainer extends PureComponent {
 
 	static defaultProps = {
 		chartData: {},
@@ -29,8 +28,6 @@ export default class ContractDetailsContainer extends Component {
 			actions.getDataForContract(contract.get('contract_id'), 1, 'all', 'ticks');
 		}
 	}
-
-	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		return (

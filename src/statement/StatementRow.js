@@ -1,10 +1,10 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import { FormattedTime } from 'react-intl';
 import NumberPlain from 'binary-components/lib/NumberPlain';
 import NumberColored from 'binary-components/lib/NumberColored';
 import { actions } from '../_store';
 
-export default class StatementRow extends Component {
+export default class StatementRow extends PureComponent {
 
     static propTypes = {
         compact: PropTypes.bool,

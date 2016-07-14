@@ -1,8 +1,8 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import SettingsCashierLocked from './SettingsCashierLocked';
 import SettingsCashierUnlocked from './SettingsCashierUnlocked';
 
-export default class SettingsCashier extends Component {
+export default class SettingsCashier extends PureComponent {
 
     static propTypes = {
 		cashier_password: PropTypes.number.isRequired,

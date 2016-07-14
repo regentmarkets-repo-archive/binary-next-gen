@@ -1,9 +1,8 @@
-import React, { PropTypes, Component } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
+import React, { PropTypes, PureComponent } from 'react';
 import Label from 'binary-components/lib/Label';
 import RadioGroup from '../trade/workaround/CustomRadioGroup';
 
-export default class DigitBarrierCard extends Component {
+export default class DigitBarrierCard extends PureComponent {
 
     static propTypes = {
         barrier: PropTypes.oneOfType([
@@ -14,8 +13,6 @@ export default class DigitBarrierCard extends Component {
         index: PropTypes.number,
         onBarrierChange: PropTypes.func,
     };
-
-    shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
         const { barrier, barrierInfo, index, onBarrierChange } = this.props;

@@ -1,8 +1,7 @@
-import React, { PropTypes, Component } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
+import React, { PropTypes, PureComponent } from 'react';
 import CloseButton from 'binary-components/lib/CloseButton';
 
-export default class Modal extends Component {
+export default class Modal extends PureComponent {
 
 	static propTypes = {
 		shown: PropTypes.bool,
@@ -13,8 +12,6 @@ export default class Modal extends Component {
 	componentDidMount() {
 		document.addEventListener('keydown', this.closeOnEscape, false);
 	}
-
-	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	componentWillUnmount() {
 		document.removeEventListener('keydown', this.closeOnEscape, false);

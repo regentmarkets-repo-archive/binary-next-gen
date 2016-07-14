@@ -1,9 +1,9 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import { actions } from '../_store';
 import MarketSubmarketPickerContainer from '../asset-picker/MarketSubmarketPickerContainer';
 import AssetIndexTable from './AssetIndexTable';
 
-export default class AssetIndexCard extends Component {
+export default class AssetIndexCard extends PureComponent {
 
 	static propTypes = {
 		assetIndexRows: PropTypes.array.isRequired,

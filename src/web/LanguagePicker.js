@@ -1,11 +1,10 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import { connect } from 'react-redux';
-import shouldPureComponentUpdate from 'react-pure-render/function';
 import SelectGroup from 'binary-components/lib/SelectGroup';
 import languages from '../_constants/languages';
 
 @connect(state => ({ selected: state.boot.get('language') }))
-export default class LanguagePicker extends Component {
+export default class LanguagePicker extends PureComponent {
 
     static propTypes = {
         selected: PropTypes.oneOf(languages.map(ln => ln.value)),
@@ -15,8 +14,6 @@ export default class LanguagePicker extends Component {
     static defaultProps = {
         selected: 'EN',
     };
-
-    shouldComponentUpdate = shouldPureComponentUpdate;
 
     changeLanguage = event => {
         window.BinaryBoot.language = event.target.value;

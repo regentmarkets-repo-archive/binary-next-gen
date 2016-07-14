@@ -1,11 +1,8 @@
-import React, { Component } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
+import React, { PureComponent } from 'react';
 import MobileSidebarContainer from '../sidebar/MobileSidebarContainer';
 import MobileToolbarBtn from './MobileToolbarBtn';
 
-export default class MobileToolbarFull extends Component {
-
-	shouldComponentUpdate = shouldPureComponentUpdate;
+export default class MobileToolbarFull extends PureComponent {
 
 	render() {
 		return (

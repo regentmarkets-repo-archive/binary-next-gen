@@ -1,7 +1,7 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import VideoThumbnail from './VideoThumbnail';
 
-export default class VideoList extends Component {
+export default class VideoList extends PureComponent {
 
     static propTypes = {
         videos: PropTypes.array,

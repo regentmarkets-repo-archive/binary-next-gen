@@ -1,6 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 
-export default class DurationUnitPicker extends Component {
+export default class DurationUnitPicker extends PureComponent {
 
     static propTypes = {
         durationUnit: PropTypes.string.isRequired,

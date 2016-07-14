@@ -1,10 +1,10 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import { actions } from '../_store';
 import AssetPickerFilter from './AssetPickerFilter';
 import AssetPickerList from './AssetPickerList';
 import M from 'binary-components/lib/M';
 
-export default class AssetPickerCard extends Component {
+export default class AssetPickerCard extends PureComponent {
 
 	static propTypes = {
 		index: PropTypes.number,

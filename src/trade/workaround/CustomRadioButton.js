@@ -1,6 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 
-export default class CustomRadioButton extends Component {
+export default class CustomRadioButton extends PureComponent {
 
     static propTypes = {
         onClick: PropTypes.func,

@@ -1,6 +1,6 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 
-export default class AccountMenuItem extends Component {
+export default class AccountMenuItem extends PureComponent {
 
 	static propTypes = {
 		account: PropTypes.string.isRequired,

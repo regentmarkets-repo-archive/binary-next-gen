@@ -1,6 +1,5 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import shouldPureComponentUpdate from 'react-pure-render/function';
 import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
 import { actions } from '../_store';
 import MobilePage from '../containers/MobilePage';
@@ -8,13 +7,11 @@ import TradeTypePicker from './TradeTypePicker';
 import { mobileTradeTypePickerSelector } from '../trade/mobile/singleTradeSelectors';
 
 @connect(mobileTradeTypePickerSelector)
-export default class TradeTypePickerMobile extends Component {
+export default class TradeTypePickerMobile extends PureComponent {
 
 	static contextTypes = {
 		router: PropTypes.object,
 	};
-
-	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	onSelectForMobile = () => {
 		const { router } = this.context;

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import styles from '../layouts/layouts.css';
 import { layoutNames } from './layouts';
 
-export default class LayoutButtons extends Component {
+export default class LayoutButtons extends PureComponent {
 
     render() {
         return (

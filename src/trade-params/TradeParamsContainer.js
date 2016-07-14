@@ -1,15 +1,12 @@
-import React, { Component, PropTypes } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
+import React, { PureComponent, PropTypes } from 'react';
 import TradeParams from './TradeParams';
 import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
 
-export default class TradeParamsContainer extends Component {
+export default class TradeParamsContainer extends PureComponent {
     static propTypes = {
         compact: PropTypes.bool,
         paramsProps: PropTypes.object.isRequired,
     };
-
-    shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
         const { compact, paramsProps } = this.props;

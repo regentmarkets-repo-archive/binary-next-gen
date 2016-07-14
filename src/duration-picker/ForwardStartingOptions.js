@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import epochToUTCTimeString from 'binary-utils/lib/epochToUTCTimeString';
 import dateToEpoch from 'binary-utils/lib/dateToEpoch';
 import timeStringToSeconds from 'binary-utils/lib/timeStringToSeconds';
@@ -11,7 +11,7 @@ import Label from 'binary-components/lib/Label';
  * assumption: for each type of contract, there will only have 1 forward starting options contract
  */
 
-export default class ForwardStartingOptions extends Component {
+export default class ForwardStartingOptions extends PureComponent {
 
     static propTypes = {
         dateStart: PropTypes.number,

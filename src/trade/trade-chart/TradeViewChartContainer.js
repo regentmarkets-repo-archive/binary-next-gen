@@ -1,15 +1,12 @@
-import React, { Component, PropTypes } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
+import React, { PureComponent, PropTypes } from 'react';
 import TradeViewChart from './TradeViewChart';
 import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
 
-export default class TradeViewChartContainer extends Component {
+export default class TradeViewChartContainer extends PureComponent {
 
     static propTypes = {
         chartProps: PropTypes.object.isRequired,
     };
-
-    shouldComponentUpdate = shouldPureComponentUpdate;
 
     render() {
         return (

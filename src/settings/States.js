@@ -1,6 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 
-export default class States extends Component {
+export default class States extends PureComponent {
 
     static propTypes = {
         onChange: PropTypes.func.isRequired,

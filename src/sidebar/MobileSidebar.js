@@ -1,11 +1,11 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import BalanceContainer from '../balance/BalanceContainer';
 import AccountMenuItem from './AccountMenuItem';
 import SidebarBtn from './SidebarBtn';
 import { signOut } from '../_data/Auth';
 import M from 'binary-components/lib/M';
 
-export default class MobileSidebar extends Component {
+export default class MobileSidebar extends PureComponent {
 
 	static propTypes = {
 		email: PropTypes.string.isRequired,

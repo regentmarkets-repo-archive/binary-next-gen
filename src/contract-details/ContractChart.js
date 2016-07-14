@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import { BinaryChart } from 'binary-charts';
 import { actions } from '../_store';
 
@@ -7,7 +7,7 @@ const chartToDataType = {
     candlestick: 'candles',
 };
 
-export default class ContractChart extends Component {
+export default class ContractChart extends PureComponent {
     static contextTypes = {
         theme: PropTypes.string.isRequired,
     };

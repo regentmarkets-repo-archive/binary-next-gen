@@ -1,6 +1,6 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 
-export default class Article extends Component {
+export default class Article extends PureComponent {
 
     static propTypes = {
         articles: PropTypes.array.isRequired,

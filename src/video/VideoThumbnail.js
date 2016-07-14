@@ -1,6 +1,6 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 
-export default class VideoThumbnail extends Component {
+export default class VideoThumbnail extends PureComponent {
 
     static propTypes = {
 		imgSrc: PropTypes.string.isRequired,

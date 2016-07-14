@@ -1,4 +1,4 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import dateToDateString from 'binary-utils/lib/dateToDateString';
 import todayLocaleString from 'binary-utils/lib/todayLocaleString';
 import oneYearAfterStr from 'binary-utils/lib/oneYearAfterStr';
@@ -7,7 +7,7 @@ import { actions } from '../_store';
 import MarketSubmarketPickerContainer from '../asset-picker/MarketSubmarketPickerContainer';
 import TradingTimesTable from './TradingTimesTable';
 
-export default class TradingTimesCard extends Component {
+export default class TradingTimesCard extends PureComponent {
 
 	static propTypes = {
 		assets: PropTypes.array.isRequired,

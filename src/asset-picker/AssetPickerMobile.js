@@ -1,13 +1,12 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import shouldPureComponentUpdate from 'react-pure-render/function';
 import { actions } from '../_store';
 import MobilePage from '../containers/MobilePage';
 import AssetPickerContainer from './AssetPickerContainer';
 import { assetPickerMobileSelector } from './AssetPickerSelectors';
 
 @connect(assetPickerMobileSelector)
-export default class AssetPickerMobile extends Component {
+export default class AssetPickerMobile extends PureComponent {
 
 	static contextTypes = {
 		router: PropTypes.object,
@@ -16,8 +15,6 @@ export default class AssetPickerMobile extends Component {
 	componentWillMount() {
 		actions.resetAssetPickerFilter();
 	}
-
-	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	onClose = () => {
 		const { router } = this.context;

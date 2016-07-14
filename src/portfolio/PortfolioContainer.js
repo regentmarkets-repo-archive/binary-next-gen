@@ -1,14 +1,11 @@
-import React, { Component } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
 import PortfolioCard from './PortfolioCard';
 import PortfolioSelectors from './PortfolioSelectors';
 
 @connect(PortfolioSelectors)
-export default class PortfolioContainer extends Component {
-
-	shouldComponentUpdate = shouldPureComponentUpdate;
+export default class PortfolioContainer extends PureComponent {
 
 	render() {
 		return (

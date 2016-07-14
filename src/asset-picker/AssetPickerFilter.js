@@ -1,10 +1,10 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import { findDOMNode } from 'react-dom';
 import InputGroup from 'binary-components/lib/InputGroup';
 import { actions } from '../_store';
 import MarketSubmarketPickerContainer from './MarketSubmarketPickerContainer';
 
-export default class AssetPickerFilter extends Component {
+export default class AssetPickerFilter extends PureComponent {
 
 	static propTypes = {
 		compact: PropTypes.bool,

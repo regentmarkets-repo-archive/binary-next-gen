@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
+import React, { PureComponent } from 'react';
 import FullScreenSwitcher from './FullScreenSwitcher';
 import ClockContainer from './ClockContainer';
 import LanguagePicker from './LanguagePicker';
 
-export default class Footer extends Component {
+export default class Footer extends PureComponent {
 
 	constructor(props) {
 		super(props);
@@ -12,8 +11,6 @@ export default class Footer extends Component {
 			fullScreen: false,
 		};
 	}
-
-	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		return (

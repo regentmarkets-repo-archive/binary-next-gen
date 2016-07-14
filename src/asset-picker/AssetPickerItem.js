@@ -1,10 +1,9 @@
-import React, { PropTypes, Component } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
+import React, { PropTypes, PureComponent } from 'react';
 import classnames from 'classnames';
 import OpenCloseNotice from 'binary-components/lib/OpenCloseNotice';
 import Star from 'binary-components/lib/Star';
 
-export default class AssetPickerItem extends Component {
+export default class AssetPickerItem extends PureComponent {
 
 	static propTypes = {
 		asset: PropTypes.object,
@@ -18,8 +17,6 @@ export default class AssetPickerItem extends Component {
 		asset: {},
 		selected: false,
 	};
-
-	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	onRowClicked = e => {
 		const { asset, onClose, onSelect } = this.props;

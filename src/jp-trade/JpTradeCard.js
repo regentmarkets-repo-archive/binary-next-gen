@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import JpPayoutPicker from './JpPayoutPicker';
 import JpPeriodPicker from './JpPeriodPicker';
 import JpTradeTypesPicker from './JpTradeTypesPicker';
 
-export default class JpTradeCard extends Component {
+export default class JpTradeCard extends PureComponent {
 
     render() {
         return (

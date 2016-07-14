@@ -1,12 +1,11 @@
-import React, { PropTypes, Component } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
+import React, { PropTypes, PureComponent } from 'react';
 import Label from 'binary-components/lib/Label';
 import DownArrow from 'binary-components/lib/DownArrow';
 import DropDown from '../containers/DropDown';
 import { actions } from '../_store';
 import AssetPickerContainer from './AssetPickerContainer';
 
-export default class AssetPickerDropDown extends Component {
+export default class AssetPickerDropDown extends PureComponent {
 
     static propTypes = {
         compact: PropTypes.bool,
@@ -25,8 +24,6 @@ export default class AssetPickerDropDown extends Component {
             dropdownShown: false,
         };
     }
-
-    shouldComponentUpdate = shouldPureComponentUpdate;
 
     onClose = () => {
         actions.resetAssetPickerFilter();

@@ -1,8 +1,8 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Button from 'binary-components/lib/Button';
 import Th from 'binary-components/lib/Th';
 
-export default class JpTradeCard extends Component {
+export default class JpTradeCard extends PureComponent {
 
     render() {
         return (

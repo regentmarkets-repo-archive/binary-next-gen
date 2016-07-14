@@ -1,7 +1,7 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import Option from 'binary-components/lib/Option';
 
-export default class MarketSubmarketPicker extends Component {
+export default class MarketSubmarketPicker extends PureComponent {
 
 	static propTypes = {
 		marketTree: PropTypes.object.isRequired,

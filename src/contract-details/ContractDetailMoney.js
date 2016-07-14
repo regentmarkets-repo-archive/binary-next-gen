@@ -1,9 +1,9 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import contractCodeToText from 'binary-utils/lib/contractCodeToText';
 import M from 'binary-components/lib/M';
 import NumberPlain from 'binary-components/lib/NumberPlain';
 
-export default class ContractDetailMoney extends Component {
+export default class ContractDetailMoney extends PureComponent {
 
 	static propTypes = {
 		contract: PropTypes.object.isRequired,

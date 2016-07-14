@@ -1,8 +1,8 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import classNames from 'classnames';
 import { actions } from '../_store';
 
-export default class ToggleButtons extends Component {
+export default class ToggleButtons extends PureComponent {
 
 	static propTypes = {
 		leftPanelVisible: PropTypes.bool.isRequired,

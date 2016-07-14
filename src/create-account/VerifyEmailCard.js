@@ -1,4 +1,4 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import ReactDOM from 'react-dom';
 import LogoSpinner from 'binary-components/lib/LogoSpinner';
 import Button from 'binary-components/lib/Button';
@@ -6,7 +6,7 @@ import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import isValidEmail from 'binary-utils/lib/isValidEmail';
 import { api } from '../_data/LiveData';
 
-export default class VerifyEmailCard extends Component {
+export default class VerifyEmailCard extends PureComponent {
 
     static contextTypes = {
         router: PropTypes.object.isRequired,

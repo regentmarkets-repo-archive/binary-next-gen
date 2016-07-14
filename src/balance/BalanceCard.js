@@ -1,7 +1,7 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import NumberPlain from 'binary-components/lib/NumberPlain';
 
-export default class BalanceCard extends Component {
+export default class BalanceCard extends PureComponent {
 
 	static propTypes = {
 		currency: PropTypes.string.isRequired,

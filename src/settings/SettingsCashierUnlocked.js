@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import showError from 'binary-utils/lib/showError';
 import P from 'binary-components/lib/P';
 import Button from 'binary-components/lib/Button';
@@ -6,7 +6,7 @@ import InputGroup from 'binary-components/lib/InputGroup';
 import * as LiveData from '../_data/LiveData';
 import isValidPassword from 'binary-utils/lib/isValidPassword';
 
-export default class SettingsCashierUnlocked extends Component {
+export default class SettingsCashierUnlocked extends PureComponent {
 
     constructor(props) {
         super(props);

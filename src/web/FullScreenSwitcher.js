@@ -1,13 +1,12 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import Button from 'binary-components/lib/Button';
-import shouldPureComponentUpdate from 'react-pure-render/function';
 import requestFullScreen from 'binary-utils/lib/requestFullscreen';
 import exitFullScreen from 'binary-utils/lib/exitFullScreen';
 import addFullScreenEventListener from 'binary-utils/lib/addFullscreenEventListener';
 import removeFullScreenEventListener from 'binary-utils/lib/removeFullscreenEventListener';
 import { trackEvent } from 'binary-utils/lib/Analytics';
 
-export default class FullScreenSwitcher extends Component {
+export default class FullScreenSwitcher extends PureComponent {
 
 	constructor(props) {
 		super(props);
@@ -21,8 +20,6 @@ export default class FullScreenSwitcher extends Component {
 			this.setState({ isFullScreen: e })
 		);
 	}
-
-	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	componentWillUnmount() {
 		removeFullScreenEventListener();

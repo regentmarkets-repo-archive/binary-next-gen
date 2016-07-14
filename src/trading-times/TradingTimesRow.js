@@ -1,6 +1,6 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 
-export default class TradingTimesRow extends Component {
+export default class TradingTimesRow extends PureComponent {
 
     static propTypes = {
         assetName: PropTypes.string,

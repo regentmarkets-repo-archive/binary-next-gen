@@ -1,6 +1,6 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 
-export default class AssetPickerHeader extends Component {
+export default class AssetPickerHeader extends PureComponent {
 
 	static propTypes = {
 		market: PropTypes.string,

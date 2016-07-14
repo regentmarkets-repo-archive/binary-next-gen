@@ -1,5 +1,4 @@
-import React, { Component, PropTypes } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
+import React, { PureComponent, PropTypes } from 'react';
 import throttle from 'lodash.throttle';
 import isMobile from 'binary-utils/lib/isMobile';
 import windowResizeEvent from 'binary-utils/lib/windowResizeEvent';
@@ -60,7 +59,7 @@ const errorToShow = errorObj => {
     return undefined;
 };
 
-export default class TradeParams extends Component {
+export default class TradeParams extends PureComponent {
 
     static defaultProps = {
         type: 'full',
@@ -93,8 +92,6 @@ export default class TradeParams extends Component {
     componentWillMount() {
         this.onAssetChange();
     }
-
-    shouldComponentUpdate = shouldPureComponentUpdate;
 
     /**
      * componentDidUpdate is used instead of componentWillReceiveProps because the onAssetChange depends on updated

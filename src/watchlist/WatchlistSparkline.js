@@ -1,14 +1,11 @@
-import React, { PropTypes, Component } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
+import React, { PropTypes, PureComponent } from 'react';
 import { Sparklines, SparklinesLine, SparklinesSpots } from 'react-sparklines';
 
-export default class WatchlistSparkline extends Component {
+export default class WatchlistSparkline extends PureComponent {
 
 	static propTypes = {
 		history: PropTypes.object,
 	};
-
-	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		const history = this.props.history.toJS();

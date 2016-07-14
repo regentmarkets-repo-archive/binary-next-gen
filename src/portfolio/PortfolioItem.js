@@ -1,8 +1,8 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import NumberPlain from 'binary-components/lib/NumberPlain';
 import NumberColored from 'binary-components/lib/NumberColored';
 
-export default class PortfolioItem extends Component {
+export default class PortfolioItem extends PureComponent {
 
     static propTypes = {
         contract: PropTypes.object.isRequired,

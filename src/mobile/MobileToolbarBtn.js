@@ -1,15 +1,12 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import { Link } from 'react-router';
-import shouldPureComponentUpdate from 'react-pure-render/function';
 
-export default class MobileToolbarBtn extends Component {
+export default class MobileToolbarBtn extends PureComponent {
 
 	static propTypes = {
 		to: PropTypes.string.isRequired,
 		img: PropTypes.string.isRequired,
 	};
-
-	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		const { to, img } = this.props;

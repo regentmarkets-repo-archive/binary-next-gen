@@ -1,9 +1,8 @@
-import React, { PropTypes, Component } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
+import React, { PropTypes, PureComponent } from 'react';
 import Label from 'binary-components/lib/Label';
 import NumericInput from 'binary-components/lib/NumericInput';
 
-export default class BarrierCard extends Component {
+export default class BarrierCard extends PureComponent {
 
     static propTypes = {
         barrier: PropTypes.oneOfType([
@@ -23,8 +22,6 @@ export default class BarrierCard extends Component {
         pipSize: PropTypes.number,
         spot: PropTypes.number,
     };
-
-    shouldComponentUpdate = shouldPureComponentUpdate;
 
     validateBarrier = barrier => {
         const { pipSize } = this.props;

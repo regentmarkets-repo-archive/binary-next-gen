@@ -1,8 +1,8 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import Tab from 'binary-components/lib/Tab';
 import TabList from 'binary-components/lib/TabList';
 
-export default class ContractDetailsMobileLayout extends Component {
+export default class ContractDetailsMobileLayout extends PureComponent {
     static propTypes = {
         chartComponent: PropTypes.object.isRequired,
         detailsComponent: PropTypes.object.isRequired,

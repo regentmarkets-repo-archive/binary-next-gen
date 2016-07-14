@@ -1,10 +1,10 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import { connect } from 'react-redux';
 import NumberPlain from 'binary-components/lib/NumberPlain';
 import SidebarBtn from './SidebarBtn';
 
 @connect(state => ({ account: state.account }))
-export default class AccountMenu extends Component {
+export default class AccountMenu extends PureComponent {
 
 	static propTypes = {
 		account: PropTypes.object.isRequired,
