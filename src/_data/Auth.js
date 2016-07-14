@@ -5,23 +5,10 @@ import { signinFieldUpdate, updateAppState, removePersonalData, updateToken, upd
 import { trackUserId } from 'binary-utils/lib/Analytics';
 // import showError from 'binary-utils/lib/showError';
 
-export const tryAuth = async (actions, token) => {
-    if (!token) {
-        actions.signinFieldUpdate('progress', false);
-        actions.signinFieldUpdate('tokenNotEntered', true);
-    }
-
-    actions.updateAppState('authorized', false);
-
-    try {
-        const response = await LiveData.api.authorize(token);
-        actions.signinFieldUpdate('credentialsInvalid', false);
-        trackUserId(response.authorize.loginid);
-    } catch (e) {
-        actions.signinFieldUpdate('credentialsInvalid', true);
-    } finally {
-        actions.signinFieldUpdate('progress', false);
-    }
+export const tryAuth = async token => {
+    store.dispatch(updateAppState('authorized', false));
+    const response = await LiveData.api.authorize(token);
+    trackUserId(response.authorize.loginid);
 };
 
 export const signOut = () => {
@@ -42,7 +29,8 @@ export const signIn = () => {
                 const accounts = window.BinaryBoot.parseUrl(e.url);
                 store.dispatch(updateBoot('accounts', accounts));
                 store.dispatch(updateToken(accounts[0].token));
-                hashHistory.push('/');
+                tryAuth(accounts[0].token);
+                winAuth.close();
             }
         });
     } else {
