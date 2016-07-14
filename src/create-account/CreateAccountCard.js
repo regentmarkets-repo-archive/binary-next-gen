@@ -64,7 +64,10 @@ export default class CrateAccountCard extends Component {
                 affiliate_token: config.affiliateToken,
             });
             localStorage.setItem('account', JSON.stringify({ token: response.new_account_virtual.oauth_token }));
-            window.location = '/';
+
+            // use react router because we want hash history in mobile
+            this.context.router.push('/');
+            window.location.reload();
         } catch (error) {
             this.setState({ serverError: error.message });
         } finally {
