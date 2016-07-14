@@ -151,10 +151,7 @@ export const updatePriceProposalSubscription = (tradeID, trade) => {
     };
 
     thunk.meta = {
-        debounce: {
-            time: 300,
-            key: `PROPOSAL_REQUESTED${tradeID}`,
-        },
+        throttle: 300,
     };
 
     return thunk;

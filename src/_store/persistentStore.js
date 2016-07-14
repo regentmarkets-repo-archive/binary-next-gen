@@ -7,16 +7,16 @@ import actionsToCache from './actionsToCache';
 import storageEngine from './storageEngine';
 import removeNullMiddleware from './removeNullMiddleware';
 import immutableMerger from 'redux-storage-merger-immutablejs';
-import createDebounce from 'redux-debounced';
+import createThrottle from 'redux-throttle';
 
 const storageMiddleware = storage.createMiddleware(storageEngine, [], actionsToCache);
 const storageReducer = storage.reducer(rootReducer, immutableMerger);
 const storageLoader = storage.createLoader(storageEngine);
 
-const debounceMiddleware = createDebounce();
+const throttleMiddleware = createThrottle(300);
 
 const finalCreateStore = compose(
-    applyMiddleware(removeNullMiddleware, debounceMiddleware, thunkMiddleware, storageMiddleware),
+    applyMiddleware(removeNullMiddleware, throttleMiddleware, thunkMiddleware, storageMiddleware),
     enableDevTools()
 )(createStore);
 
