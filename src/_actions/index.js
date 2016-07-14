@@ -11,7 +11,6 @@ export * from './NewsActions';
 export * from './TickActions';
 export * from './TradeActions';
 export * from './SettingsActions';
-export * from './SigninActions';
 export * from './StatementActions';
 export * from './WatchlistActions';
 export * from './WorkspaceActions';

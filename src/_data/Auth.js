@@ -1,34 +1,21 @@
+import { hashHistory } from 'react-router';
 import { store } from '../_store/persistentStore';
 import * as LiveData from './LiveData';
-import { signinFieldUpdate, updateAppState, removePersonalData, updateToken } from '../_actions';
+import { updateAppState, removePersonalData, updateToken, updateBoot } from '../_actions';
 import { trackUserId } from 'binary-utils/lib/Analytics';
 // import showError from 'binary-utils/lib/showError';
 
-export const tryAuth = async (actions, token) => {
-    if (!token) {
-        actions.signinFieldUpdate('progress', false);
-        actions.signinFieldUpdate('tokenNotEntered', true);
-    }
-
-    actions.updateAppState('authorized', false);
-
-    try {
-        const response = await LiveData.api.authorize(token);
-        actions.signinFieldUpdate('credentialsInvalid', false);
-        trackUserId(response.authorize.loginid);
-    } catch (e) {
-        actions.signinFieldUpdate('credentialsInvalid', true);
-    } finally {
-        actions.signinFieldUpdate('progress', false);
-    }
+export const tryAuth = async token => {
+    store.dispatch(updateAppState('authorized', false));
+    const response = await LiveData.api.authorize(token);
+    trackUserId(response.authorize.loginid);
 };
 
 export const signOut = () => {
     store.dispatch(removePersonalData());
-    store.dispatch(signinFieldUpdate('validatedOnce', false));
     store.dispatch(updateAppState('authorized', false));
     store.dispatch(updateToken(''));
-    window.location.hash = '#/';
+    hashHistory.push('/');
 };
 
 export const signIn = () => {
@@ -38,8 +25,10 @@ export const signIn = () => {
         const winAuth = window.cordova.InAppBrowser.open(oAuthUrl, '_blank', 'location=no');
         winAuth.addEventListener('loadstart', e => {
             if (e.url.indexOf('acct1') > -1) {
-                window.BinaryBoot.parseUrl(e.url);
-                window.location.reload();
+                const accounts = window.BinaryBoot.parseUrl(e.url);
+                store.dispatch(updateBoot('accounts', accounts));
+                store.dispatch(updateToken(accounts[0].token));
+                tryAuth(accounts[0].token);
                 winAuth.close();
             }
         });

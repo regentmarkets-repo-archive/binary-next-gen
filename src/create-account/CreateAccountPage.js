@@ -1,5 +1,5 @@
 import React from 'react';
-import SigninHero from '../signin/SigninHero';
+import SigninHero from './SigninHero';
 import SignupMobile from './SignupMobile';
 
 export default () => (

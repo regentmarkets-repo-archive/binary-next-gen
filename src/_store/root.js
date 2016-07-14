@@ -30,7 +30,7 @@ export default class Root extends Component {
         const token = state.account.get('token');
 
         try {
-            await tryAuth(actions, token);
+            await tryAuth(token);
         } catch (e) {
             actions.updateAppState('authorized', false);
         } finally {

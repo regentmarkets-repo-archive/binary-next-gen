@@ -51,18 +51,15 @@
         }
     }
 
+
+
     var apiUrl = 'wss://ws.binaryws.com/websockets/v3';
 
     readConfig();
     parseUrlAndStoreAccountInfo(window.location.href);
-    window.BinaryBoot.parseUrl = parseUrlAndStoreAccountInfo;
+    window.BinaryBoot.parseUrl = parseOAuthResponse;
     window.BinaryBoot.appId = window.cordova ? 1006 : 1001;
     var lang = window.BinaryBoot.language;
-    var oauthUrl = 'https://oauth.binary.com/oauth2/authorize?app_id=' + window.BinaryBoot.appId + '&l=' + lang;
-
-    // if (!window.BinaryBoot.accounts || window.BinaryBoot.accounts.length === 0) {
-    //     window.location = oauthUrl;
-    // }
 
     var redirectIndex = window.location.href.indexOf('?');
     if (~redirectIndex) {
