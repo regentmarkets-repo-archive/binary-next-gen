@@ -22,6 +22,7 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <preference name="loadUrlTimeoutValue" value="700000" />
+    <preference name="Fullscreen" value="true"/>
     <preference name="BackgroundColor" value="#2a3052" />
     <preference name="EnableViewportScale" value="false"/>
     <preference name="SplashScreen" value="screen" />
