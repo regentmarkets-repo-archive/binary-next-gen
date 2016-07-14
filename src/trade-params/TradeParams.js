@@ -1,6 +1,7 @@
 import React, { Component, PropTypes } from 'react';
 import shouldPureComponentUpdate from 'react-pure-render/function';
-
+import throttle from 'lodash.throttle';
+import isMobile from 'binary-utils/lib/isMobile';
 import windowResizeEvent from 'binary-utils/lib/windowResizeEvent';
 import isIntraday from 'binary-utils/lib/isIntraday';
 import askPriceFromProposal from 'binary-utils/lib/askPriceFromProposal';
@@ -218,11 +219,11 @@ export default class TradeParams extends Component {
         actions.purchaseByTradeId(index).then(onPurchaseHook);
     }
 
-    updateTradeParams = params => {
+    updateTradeParams = throttle(params => {
         const { index } = this.props;
         actions.updateMultipleTradeParams(index, params);
         actions.updatePriceProposalSubscription(index);
-    }
+    }, isMobile ? 500 : 300)
 
     // TODO: create an action that update all at once
     clearTradeError = () => {
