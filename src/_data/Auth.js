@@ -1,7 +1,7 @@
 import { hashHistory } from 'react-router';
 import { store } from '../_store/persistentStore';
 import * as LiveData from './LiveData';
-import { signinFieldUpdate, updateAppState, removePersonalData, updateToken, updateBoot } from '../_actions';
+import { updateAppState, removePersonalData, updateToken, updateBoot } from '../_actions';
 import { trackUserId } from 'binary-utils/lib/Analytics';
 // import showError from 'binary-utils/lib/showError';
 
@@ -13,7 +13,6 @@ export const tryAuth = async token => {
 
 export const signOut = () => {
     store.dispatch(removePersonalData());
-    store.dispatch(signinFieldUpdate('validatedOnce', false));
     store.dispatch(updateAppState('authorized', false));
     store.dispatch(updateToken(''));
     hashHistory.push('/');
