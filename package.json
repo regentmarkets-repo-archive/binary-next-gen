@@ -76,6 +76,7 @@
   "author": "Boris, Qing Wei, Nuru @ Binary",
   "license": "MIT",
   "babel": {
+    "compact": true,
     "presets": [
       "react",
       "es2015",
