@@ -4,6 +4,7 @@ import InputGroup from 'binary-components/lib/InputGroup';
 import showError from 'binary-utils/lib/showError';
 import showInfo from 'binary-utils/lib/showInfo';
 import * as LiveData from '../_data/LiveData';
+import monthsAfterStr from 'binary-utils/lib/monthsAfterStr';
 
 export default class SettingsSelfExclusion extends Component {
 
@@ -143,6 +144,7 @@ export default class SettingsSelfExclusion extends Component {
 					type="date"
 					hintttt=""
 					defaultValue={exclude_until}
+					min={monthsAfterStr(6)}
 					onChange={this.onEntryChange}
 				/>
 				<Button
