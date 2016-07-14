@@ -25,6 +25,7 @@ module.exports = {
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         new WebpackNotifierPlugin({ title: 'Next-gen Build' }),
+        // new webpack.PrefetchPlugin('redux-storage/build/index.js'),
     ],
     module: {
         preLoaders: [

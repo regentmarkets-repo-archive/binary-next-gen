@@ -16,6 +16,7 @@
     "start": "node server.js",
     "clean": "rimraf dist",
     "build": "npm run clean && npm run build:webpack",
+    "build:dev": "webpack --config webpack.config.js",
     "build:webpack": "NODE_ENV=production webpack --config webpack.config.js",
     "lint": "eslint src",
     "electron": "electron ./www",
