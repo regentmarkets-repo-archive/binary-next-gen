@@ -24,6 +24,7 @@ body {
 .panels {
     flex: 1;
     display: flex;
+    max-height: calc(100% - 5rem);
 }
 
 .workspace-panel {
