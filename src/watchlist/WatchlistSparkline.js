@@ -8,12 +8,13 @@ export default class WatchlistSparkline extends PureComponent {
 	};
 
 	render() {
-		const history = this.props.history.toJS();
+		const { history } = this.props;
+		const quotes = history.takeLast(40).map(x => x.get('quote')).toJS();
 
 		return (
 			<Sparklines
-				data={history.map(x => x.quote)}
-				limit={30}
+				data={quotes}
+				limit={40}
 				width={250}
 				height={40}
 			>
