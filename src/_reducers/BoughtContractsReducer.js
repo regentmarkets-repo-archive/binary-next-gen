@@ -12,13 +12,6 @@ const initialState = fromJS({});
 const convertOpenContract = openContract => {
     const cloned = Object.assign({}, openContract);
 
-    if (cloned.sell_spot && cloned.sell_spot_time) {
-        cloned.exit_tick = cloned.sell_spot;
-        cloned.exit_tick_time = cloned.sell_spot_time;
-    } else if (cloned.sell_time) {
-        cloned.exit_tick_time = cloned.sell_time;
-    }
-
     // remove these two keys. we do not need them
     delete cloned.current_spot;
     delete cloned.current_spot_time;
