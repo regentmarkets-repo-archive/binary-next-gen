@@ -214,11 +214,14 @@ export default class TradeParams extends PureComponent {
         actions.purchaseByTradeId(index).then(onPurchaseHook);
     }
 
-    updateTradeParams = throttle(params => {
+    throttledProposalSubscription =
+        throttle(index => actions.updatePriceProposalSubscription(index), isMobile ? 500 : 300);
+
+    updateTradeParams = params => {
         const { index } = this.props;
         actions.updateMultipleTradeParams(index, params);
-        actions.updatePriceProposalSubscription(index);
-    }, isMobile ? 500 : 300)
+        this.throttledProposalSubscription(index);
+    }
 
     // TODO: create an action that update all at once
     clearTradeError = () => {
