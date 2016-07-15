@@ -27,16 +27,8 @@ export default class ForwardStartingOptions extends PureComponent {
     }
 
     onDayChange = e => {
-        const { dateStart, forwardStartingDuration } = this.props;
-        const ranges = forwardStartingDuration.range;
-
-        const minDate = dateToDateString(ranges[0].date);
-        const maxDate = dateToDateString(ranges[2].date);
+        const { dateStart } = this.props;
         const inputValue = e.target.value;
-        if (inputValue > maxDate || inputValue < minDate) {
-            return;
-        }
-
         const newDayEpoch = dateToEpoch(new Date(inputValue));
         const secondsPerDay = 60 * 60 * 24;
         const intraDayEpoch = dateStart % secondsPerDay;

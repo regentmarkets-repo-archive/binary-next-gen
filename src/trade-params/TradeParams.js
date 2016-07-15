@@ -54,9 +54,7 @@ const errorToShow = errorObj => {
     if (barrierError) return barrierError;
     if (durationError) return durationError;
     if (proposalError) return proposalError;
-    if (purchaseError) return purchaseError;
-
-    return undefined;
+    return purchaseError;
 };
 
 export default class TradeParams extends PureComponent {
