@@ -8,7 +8,6 @@ import * as LiveData from '../_data/LiveData';
 export default class SettingsSelfExclusion extends PureComponent {
 
 	static propTypes = {
-		actions: PropTypes.object.isRequired,
 		max_balance: PropTypes.number,
 		max_turnover: PropTypes.number,
 		max_losses: PropTypes.number,
