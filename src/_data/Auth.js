@@ -1,13 +1,13 @@
 import { hashHistory } from 'react-router';
 import { store } from '../_store/persistentStore';
-import * as LiveData from './LiveData';
+import { api } from './LiveData';
 import { updateAppState, removePersonalData, updateToken, updateBoot } from '../_actions';
 import { trackUserId } from 'binary-utils/lib/Analytics';
 // import showError from 'binary-utils/lib/showError';
 
 export const tryAuth = async token => {
     store.dispatch(updateAppState('authorized', false));
-    const response = await LiveData.api.authorize(token);
+    const response = await api.authorize(token);
     trackUserId(response.authorize.loginid);
 };
 

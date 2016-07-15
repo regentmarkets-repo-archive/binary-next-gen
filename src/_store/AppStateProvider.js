@@ -16,14 +16,14 @@ export default class AppStateProvider extends PureComponent {
     };
 
     componentWillMount() {
-        this.timer = setTimeout(this.showMessageForSlowConnection.bind(this), 4000);
+        this.timer = setTimeout(this.showMessageForSlowConnection, 5000);
     }
 
     componentWillUnmount() {
         clearTimeout(this.timer);
     }
 
-    showMessageForSlowConnection() {
+    showMessageForSlowConnection = () => {
         this.setState({ showMessage: true });
     }
 
