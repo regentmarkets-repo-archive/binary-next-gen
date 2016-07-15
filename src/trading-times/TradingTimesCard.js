@@ -22,6 +22,13 @@ export default class TradingTimesCard extends PureComponent {
 		return returnObj;
 	}
 
+	updateTradingTimes = e => {
+		const inputVal = e.target.value;
+		if (/\d{4}-\d{1,2}-\d{1,2}/.test(inputVal) && inputVal.slice(0, 4) >= 1000) {
+			actions.updateTradingTimesDate(inputVal);
+		}
+	}
+
 	render() {
 		const { tradingTimes, tradingTimesFilter } = this.props;
 		const filter = tradingTimesFilter.filter;
@@ -41,7 +48,7 @@ export default class TradingTimesCard extends PureComponent {
 						min={todayLocaleString()}
 						max={oneYearAfterStr()}
 						className="trading-times-date-picker"
-						onChange={x => actions.updateTradingTimesDate(x.target.value)}
+						onChange={this.updateTradingTimes}
 					/>
 				</div>
 				<TradingTimesTable
