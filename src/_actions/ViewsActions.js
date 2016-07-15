@@ -4,7 +4,7 @@ import * as LiveData from '../_data/LiveData';
 export const updateTradingTimesDate = dateVal =>
     dispatch => {
         const date = new Date(dateVal);
-        if (isNaN(date.getTime())) {
+        if (isNaN(date.getTime()) || date.getFullYear() < 1000) {
             return;
         }
         LiveData.api.getTradingTimes(date);
