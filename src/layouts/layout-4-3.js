@@ -5,7 +5,7 @@ export default (components, className, onClick) => (
         <div className="vertical">
             {components[0]}
         </div>
-        <div className="horizontal">
+        <div className="vertical">
             {components[1]}
             {components[2]}
             {components[3]}

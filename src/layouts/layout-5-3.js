@@ -2,7 +2,7 @@ import React from 'react';
 
 export default (components, className, onClick) => (
     <div className={className} onClick={onClick}>
-        <div className="horizontal">
+        <div className="vertical">
             {components[0]}
         </div>
         <div className="vertical">
