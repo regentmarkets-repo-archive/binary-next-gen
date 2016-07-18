@@ -2,7 +2,6 @@ import * as types from '../_constants/ActionTypes';
 import * as LiveData from '../_data/LiveData';
 import nowAsEpoch from 'binary-utils/lib/nowAsEpoch';
 import { sellExpiredContract } from './TradeActions';
-import showError from 'binary-utils/lib/showError';
 
 export const serverDataPortfolio = serverResponse => ({
     type: types.SERVER_DATA_PORTFOLIO,
@@ -44,8 +43,7 @@ export const detailsForContract = (contractShown) => {
     return dispatch => {
         const openContract = dispatch(subscribeToOpenContract(contractShown));
         return openContract
-            .then(() => dispatch({ type: types.DETAILS_FOR_CONTRACT, contractShown }))
-            .catch(e => showError(e));
+            .then(() => dispatch({ type: types.DETAILS_FOR_CONTRACT, contractShown }));
     };
 };
 

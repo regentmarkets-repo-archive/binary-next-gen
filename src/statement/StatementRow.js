@@ -3,6 +3,7 @@ import { FormattedTime } from 'react-intl';
 import NumberPlain from 'binary-components/lib/NumberPlain';
 import NumberColored from 'binary-components/lib/NumberColored';
 import { actions } from '../_store';
+import showError from 'binary-utils/lib/showError';
 
 export default class StatementRow extends PureComponent {
 
@@ -24,11 +25,13 @@ export default class StatementRow extends PureComponent {
         const { compact, contractId } = this.props;
         const { router } = this.context;
 
-        actions.detailsForContract(contractId).then(() => {
-            if (compact) {
-                router.push(`/contract/${contractId}`);
-            }
-        });
+        actions.detailsForContract(contractId)
+            .then(() => {
+                if (compact) {
+                    router.push(`/contract/${contractId}`);
+                }
+            })
+            .catch(e => showError(e));
     }
 
     render() {
