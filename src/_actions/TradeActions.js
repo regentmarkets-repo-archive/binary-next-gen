@@ -36,7 +36,7 @@ export const resetTrades = () => ({
 
 // Update trade's params
 export const updateTradeParams = (index, fieldName, fieldValue) => {
-    trackEvent('update-trade-paremeters', { fieldName, fieldValue });
+    trackEvent('Trade', 'Parameter', fieldName + ' = ' + fieldValue);
     return {
         type: types.UPDATE_TRADE_PARAMS,
         index,
@@ -46,7 +46,7 @@ export const updateTradeParams = (index, fieldName, fieldValue) => {
 };
 
 export const updateMultipleTradeParams = (index, params) => {
-    trackEvent('update-trade-paremeters', params);
+    trackEvent('Trade', 'Multiple Params', JSON.stringify(params));
     return {
         type: types.UPDATE_MULTIPLE_TRADE_PARAMS,
         index,
@@ -175,7 +175,7 @@ export const purchaseByTradeId = (tradeID, trade) =>
     (dispatch, getState) => {
         dispatch(updateTradeUIState(tradeID, 'disabled', true));
         const proposalSelected = trade || getState().tradesProposalInfo.get(tradeID).toJS();
-        trackEvent('buy-contract', proposalSelected);
+        trackEvent('Trade', 'Buy', JSON.stringify(proposalSelected));
         const proposalID = proposalSelected.proposal.id;
         const price = proposalSelected.proposal.ask_price;
 
@@ -214,7 +214,7 @@ export const sellContract = (id, price) =>
             dispatch(updateOpenContractField({ id, selling: true }));
             await LiveData.api.sellContract(id, price);
             dispatch(updateOpenContractField({ id, selling: false }));
-            await trackEvent('sell-contract', { id, price });
+            await trackEvent('Trade', 'Sell', price);
         } catch (error) {
             dispatch(updateOpenContractField({ id, validation_error: error }));
         }

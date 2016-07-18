@@ -32,7 +32,7 @@ export default class FullScreenSwitcher extends PureComponent {
 			exitFullScreen();
 		} else {
 			requestFullScreen(document.getElementById('root'));
-			trackEvent('switch-fullscreen');
+			trackEvent('Workspace', 'FullScreen', isFullScreen);
 		}
 	}
 
