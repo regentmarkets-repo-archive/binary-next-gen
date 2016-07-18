@@ -135,8 +135,12 @@ export const tradeParamsPerTrade = createSelector(
         } else if (!marketIsOpen) {
             contractToUse = getStartLaterOnlyContract(contract);
         }
-
-        const disabled = !contract || contractToUse.error || uiState.get('disabled');
+        const hasError = errors.valueSeq().filter(v => !!v).size > 0;
+        const disabled =
+            !contract ||
+            contractToUse.error ||
+            uiState.get('disabled') ||
+            hasError;
         return {
             currency,
             contract: contractToUse,
