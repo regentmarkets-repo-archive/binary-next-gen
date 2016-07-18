@@ -1,14 +1,19 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 
-export class TransparentDiv extends PureComponent {
+export default class TransparentDiv extends PureComponent {
     render() {
         return (
-            <div style={{
-                height: '100%',
-                width: '100%',
-                zIndex: '100',
-                opacity: 0.3,
-            }}></div>
+            <div
+                style={{
+                    height: '100vh',
+                    width: '100vw',
+                    zIndex: '100',
+                    backgroundColor: 'rgba(102, 102, 153, 0.1)',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                }}
+            />
         );
     }
 }
