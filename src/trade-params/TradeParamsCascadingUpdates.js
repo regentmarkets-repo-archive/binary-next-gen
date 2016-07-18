@@ -137,6 +137,25 @@ export function changeCategory(newCategory, contract, oldTrade) {
 
 export function changeType(newType, newCategory, oldTrade, contract) {
     const category = newCategory || oldTrade.tradeCategory;
+
+    if (category === 'spreads') {
+        const spread = contract[newCategory][newType].spread;
+
+        return {
+            tradeCategory: newCategory,
+            type: newType,
+            duration: undefined,
+            durationUnit: undefined,
+            dateStart: undefined,
+            barrier: undefined,
+            barrier2: undefined,
+            amountPerPoint: spread.amountPerPoint.toFixed(2),
+            stopType: spread.stopType,
+            stopLoss: 30, // hardcode default as backend return wrong info
+            stopProfit: spread.stopProfit,
+        };
+    }
+
     if (allTimeRelatedFieldValid(
             oldTrade.dateStart,
             oldTrade.duration,
@@ -144,7 +163,6 @@ export function changeType(newType, newCategory, oldTrade, contract) {
             contract[category][newType]
         )) {
         const { dateStart, duration, durationUnit } = oldTrade;
-
         let newBarrier;
         if (category === oldTrade.tradeCategory) {
             newBarrier = [oldTrade.barrier, oldTrade.barrier2];
