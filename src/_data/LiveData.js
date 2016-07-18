@@ -5,6 +5,8 @@ import isUserVirtual from 'binary-utils/lib/isUserVirtual';
 import * as actions from '../_actions';
 import { timeLeftToNextRealityCheck } from '../reality-check/RealityCheckWeb';
 
+import showError from 'binary-utils/lib/showError';
+
 const handlers = {
     active_symbols: 'serverDataActiveSymbols',
     asset_index: 'serverDataAssetIndex',
@@ -58,6 +60,12 @@ export const changeLanguage = langCode => {
 };
 
 const initAuthorized = async (authData, store) => {
+    if (/japan/.test(authData.authorize.landing_company_name)) {
+        showError('Sorry, for japan user please login through www.binary.com ');
+        store.dispatch(actions.updateAppState('authorized', false));
+        store.dispatch(actions.updateToken(''));
+        return;
+    }
     api.getLandingCompanyDetails(authData.authorize.landing_company_name)
         .then(r => {
             const details = r.landing_company_details;
