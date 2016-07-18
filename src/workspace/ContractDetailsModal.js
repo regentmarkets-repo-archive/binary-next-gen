@@ -13,7 +13,7 @@ export default class ContractDetailsModal extends PureComponent {
     };
 
     hideDetails = () =>
-        actions.detailsForContract();
+        actions.detailsForContract(undefined);
 
     render() {
         const { contractShown } = this.props;

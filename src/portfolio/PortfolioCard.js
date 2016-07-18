@@ -2,6 +2,7 @@ import React, { PropTypes, PureComponent } from 'react';
 import P from 'binary-components/lib/P';
 import { actions } from '../_store';
 import PortfolioList from './PortfolioList';
+import showError from 'binary-utils/lib/showError';
 
 export default class PortfolioCard extends PureComponent {
 
@@ -29,7 +30,8 @@ export default class PortfolioCard extends PureComponent {
 				if (compact) {
 					router.push(`/contract/${contract.contract_id}`);
 				}
-			});
+			})
+			.catch(e => showError(e));
 	}
 
 	render() {

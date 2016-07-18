@@ -5,7 +5,6 @@ import {
     updateActiveLayout,
     updateTradeParams,
     updateMultipleTradeParams,
-    removeTrade,
 } from '../../_actions';
 import * as types from '../../_constants/ActionTypes';
 import TradesParamsReducer from '../trades/TradesParamsReducer';
