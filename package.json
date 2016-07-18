@@ -17,6 +17,7 @@
     "clean": "rimraf dist",
     "build": "npm run clean && npm run build:webpack",
     "build:dev": "webpack --config webpack.config.js",
+    "build:apk": "npm run build:dev && cordova build --release android && jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore tick-trade-key.keystore ./platforms/android/build/outputs/apk/android-release-unsigned.apk TickTrade && ~/Library/Android/sdk/build-tools/24.0.0/zipalign -v 4 ./platforms/android/build/outputs/apk/android-release-unsigned.apk ./platforms/android/build/outputs/apk/android-release-aligned.apk",
     "build:webpack": "NODE_ENV=production webpack --config webpack.config.js",
     "lint": "eslint src",
     "electron": "electron ./www",
@@ -29,7 +30,9 @@
     "prerelease:win64": "rm -rf ./release/win64 && mkdirp release/win64",
     "release:win64": "cp -v ./dist/win/{RELEASES,*.nupkg,*.exe} release/win64",
     "release": "npm run release:osx && npm run release:win32 && npm run release:win64",
-    "all": "npm run dist && npm run release"
+    "all": "npm run dist && npm run release",
+    "deploy:android": "npm run build:dev && code-push release-cordova binary-next-gen-android android",
+    "deploy:ios": "npm run build:dev && code-push release-cordova binary-next-gen-ios ios"
   },
   "build": {
     "appId": "app.binary.com",
