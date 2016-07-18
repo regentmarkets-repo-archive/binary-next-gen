@@ -32,7 +32,7 @@ export const createDefaultDuration = (contracts, category, type) => {
 
 export const createDefaultBarriers = (contracts, category, type, duration, durationUnit) => {
     if (category === 'spreads') {
-        return [];
+        return [undefined, undefined];
     }
 
     let expiryType;

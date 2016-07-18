@@ -103,6 +103,7 @@ const getStartLaterOnlyContract = contract => {
         filterObjectBy(contract, child =>
             findDeep(child, descendent => descendent && !!descendent.forwardStartingDuration));
 
+    // side effect to remove durations property, to indicate it's only start later
     Object.keys(startLaterCategories).forEach(category => {
         Object.keys(startLaterCategories[category]).forEach(type => {
             if (startLaterCategories[category][type].durations) {
