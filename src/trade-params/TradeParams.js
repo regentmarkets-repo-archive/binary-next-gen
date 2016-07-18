@@ -23,6 +23,7 @@ import BuyButton from './BuyButton';
 import * as LiveData from '../_data/LiveData';
 import { changeAsset, changeBarrier1, changeBarrier2, changeCategory, changeStartDate,
     changeDurationUnit, changeAmount, changeAmountPerPoint } from './TradeParamsCascadingUpdates';
+import debounce from 'lodash.debounce';
 
 /**
  * This UI is coded with a few assumptions, which should always be true, this comments serves as a future reference
@@ -48,11 +49,12 @@ import { changeAsset, changeBarrier1, changeBarrier2, changeCategory, changeStar
  */
 
 const errorToShow = errorObj => {
-    const { barrierError, contractError, durationError, proposalError, purchaseError } = errorObj;
+    const { barrierError, contractError, durationError, proposalError, purchaseError, stakeError } = errorObj;
 
     if (contractError) return contractError;
     if (barrierError) return barrierError;
     if (durationError) return durationError;
+    if (stakeError) return stakeError;
     if (proposalError) return proposalError;
     return purchaseError;
 };
@@ -171,19 +173,21 @@ export default class TradeParams extends PureComponent {
         this.updateTradeParams({ basis: e.target.value });
     }
 
-    onAmountChange = e => {
+    debouncedUpdateAmount = debounce(e => {
         const inputValue = e.target.value;
-        if (inputValue < 0) {
-            const updatedAmount = changeAmount(1);
-            this.updateTradeParams(updatedAmount);
-        } else if (inputValue > 500) {                  // TODO: temporary to control stake amount
-            if (this.props.tradeParams.amount === 500) return;
-            const updatedAmount = changeAmount(500);
-            this.updateTradeParams(updatedAmount);
-        } else {
-            const updatedAmount = changeAmount(inputValue);
-            this.updateTradeParams(updatedAmount);
+        const { index } = this.props;
+        if (inputValue > 500) {                  // TODO: temporary to control stake amount
+            actions.updateTradeError(index, 'stakeError', 'Stake cannot be more than 500');
+            return;
         }
+        actions.updateTradeError(index, 'stakeError', undefined);
+        const updatedAmount = changeAmount(inputValue);
+        this.updateTradeParams(updatedAmount);
+    }, isMobile ? 300 : 150, { leading: true, trailing: true })
+
+    onAmountChange = e => {
+        actions.updateTradeUIState(this.props.index, 'disabled', true);
+        this.debouncedUpdateAmount(e);
     }
 
     onAmountPerPointChange = e => {
@@ -229,6 +233,7 @@ export default class TradeParams extends PureComponent {
         actions.updateTradeError(index, 'barrierError', undefined);
         actions.updateTradeError(index, 'durationError', undefined);
         actions.updateTradeError(index, 'proposalError', undefined);
+        actions.updateTradeError(index, 'stakeError', undefined);
         actions.updateTradeError(index, 'purchaseError', undefined);
     }
 
@@ -277,7 +282,7 @@ export default class TradeParams extends PureComponent {
         const errorText = errorToShow(errors);
 
         return (
-            <div className="trade-params" disabled={disabled} key={this.state.dynamicKey} style={style}>
+            <div className="trade-params" key={this.state.dynamicKey} style={style}>
                 <Modal shown={!!errors.purchaseError} onClose={this.onCloseModal}>
                     <PurchaseFailed failure={errors.purchaseError} />
                 </Modal>
