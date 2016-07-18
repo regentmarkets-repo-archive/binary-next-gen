@@ -1,7 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react';
 import M from 'binary-components/lib/M';
 
-export default class LoadingView extends PureComponent {
+export default class InitAppLoadingView extends PureComponent {
 
     static propTypes = {
         showMessage: PropTypes.bool,
