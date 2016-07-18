@@ -4,7 +4,8 @@
     font-size: 1rem;
 }
 
-.news-list-card {
+.news-list-card,
+.video-list {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
 }
