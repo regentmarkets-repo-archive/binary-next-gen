@@ -19,6 +19,7 @@ import PayoutCard from '../payout-picker/PayoutCard';
 import TradeTypeDropDown from '../trade-type-picker/TradeTypeDropDown';
 import AssetPickerDropDown from '../asset-picker/AssetPickerDropDown';
 import BuyButton from './BuyButton';
+import TransparentDiv from '../loading-view/TransparentDiv';
 
 import * as LiveData from '../_data/LiveData';
 import { changeAsset, changeBarrier1, changeBarrier2, changeCategory, changeStartDate,
@@ -86,6 +87,7 @@ export default class TradeParams extends PureComponent {
 
         this.state = {
             dynamicKey: 0,
+            disableAllInput: false,
         };
     }
 
@@ -214,8 +216,12 @@ export default class TradeParams extends PureComponent {
     }
 
     onPurchase = () => {
+        this.setState({ disableAllInput: true });
         const { index, onPurchaseHook } = this.props;
-        actions.purchaseByTradeId(index).then(onPurchaseHook);
+        actions.purchaseByTradeId(index).then(r => {
+            onPurchaseHook(r);
+            this.setState({ disableAllInput: false });
+        });
     }
 
     throttledProposalSubscription =
@@ -255,6 +261,8 @@ export default class TradeParams extends PureComponent {
             tradeParams,
         } = this.props;
 
+        const { dynamicKey, disableAllInput } = this.state;
+
         /**
          * Race condition happen when contract is updated before tradeCategory (async)
          * thus we need to check if the tradeCategory is valid, if not valid simply use the 1st valid category
@@ -282,7 +290,8 @@ export default class TradeParams extends PureComponent {
         const errorText = errorToShow(errors);
 
         return (
-            <div className="trade-params" key={this.state.dynamicKey} style={style}>
+            <div className="trade-params" key={dynamicKey} style={style}>
+                {disableAllInput && <TransparentDiv />}
                 <Modal shown={!!errors.purchaseError} onClose={this.onCloseModal}>
                     <PurchaseFailed failure={errors.purchaseError} />
                 </Modal>
