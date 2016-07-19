@@ -11,6 +11,7 @@ export default class AssetPickerCard extends PureComponent {
 		compact: PropTypes.bool,
 		history: PropTypes.object,
 		filter: PropTypes.object,
+		onClose: PropTypes.func,
 		assetPickerItems: PropTypes.object.isRequired,
 		selectedAsset: PropTypes.string.isRequired,
 	};
