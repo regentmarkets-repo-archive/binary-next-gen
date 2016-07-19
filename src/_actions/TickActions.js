@@ -19,10 +19,8 @@ export const getTicksBySymbol = symbol =>
             const syncTicksAndHistory = () => {
                 const tickHistoryPromise =
                     LiveData.api.getTickHistory(symbol, { end: 'latest', count: 60, adjust_start_time: 1 });
-                const tickStreamPromise =
-                    LiveData.api.subscribeToTick(symbol);
-
-                return Promise.all([tickHistoryPromise, tickStreamPromise]);
+                LiveData.api.subscribeToTick(symbol);
+                return tickHistoryPromise;
             };
             const historyOnly =
                 () => LiveData.api.getTickHistory(symbol, { end: 'latest', count: 60, adjust_start_time: 1 });
