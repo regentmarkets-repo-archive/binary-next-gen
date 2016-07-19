@@ -20,11 +20,11 @@ export default class AssetPickerCard extends PureComponent {
 		const { index } = this.props;
 
 		actions.changeSelectedAsset(newAsset);
-		actions.updateTradeUIState(index, 'disabled', true);
+		actions.updateTradeUIState(index, 'userInputDisabled', true);
 		actions.selectAsset(newAsset)
 			.then(() => {
 				actions.updateTradeParams(index, 'symbol', newAsset);
-				actions.updateTradeUIState(index, 'disabled', false);
+				actions.updateTradeUIState(index, 'userInputDisabled', false);
 			});
 		// actions.getTradingOptions(newAsset).then(() => {
 		// 	actions.updateTradeParams(index, 'symbol', newAsset);

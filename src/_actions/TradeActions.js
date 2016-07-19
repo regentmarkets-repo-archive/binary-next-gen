@@ -82,9 +82,9 @@ export const updateTradeError = (index, errorID, error) => ({
     error,
 });
 
-export const updatePriceProposalSubscription = (tradeID, trade) => {
-    const thunk = (dispatch, getState) => {
-        dispatch(updateTradeUIState(tradeID, 'disabled', true));
+export const updatePriceProposalSubscription = (tradeID, trade) =>
+    (dispatch, getState) => {
+        dispatch(updateTradeUIState(tradeID, 'purchaseDisabled', true));
         if (!getState().tradesParams.get(tradeID)) {
             return;
         }
@@ -147,15 +147,8 @@ export const updatePriceProposalSubscription = (tradeID, trade) => {
                 dispatch(updateTradeError(tradeID, 'proposalError', err.message));
                 dispatch(updateTradeProposal(tradeID, 'proposal', undefined));
             }
-        ).then(() => dispatch(updateTradeUIState(tradeID, 'disabled', false)));
+        ).then(() => dispatch(updateTradeUIState(tradeID, 'purchaseDisabled', false)));
     };
-
-    thunk.meta = {
-        throttle: 300,
-    };
-
-    return thunk;
-};
 
 export const resubscribeAllPriceProposal = () =>
     (dispatch, getState) => {
@@ -173,7 +166,7 @@ export const updatePurchaseInfo = (index, fieldName, fieldValue) => ({
 
 export const purchaseByTradeId = (tradeID, trade) =>
     (dispatch, getState) => {
-        dispatch(updateTradeUIState(tradeID, 'disabled', true));
+        dispatch(updateTradeUIState(tradeID, 'userInputDisabled', true));
         const proposalSelected = trade || getState().tradesProposalInfo.get(tradeID).toJS();
         trackEvent('Trade', 'Buy', JSON.stringify(proposalSelected));
         const proposalID = proposalSelected.proposal.id;
@@ -191,7 +184,7 @@ export const purchaseByTradeId = (tradeID, trade) =>
                 err => dispatch(updateTradeError(tradeID, 'purchaseError', err.message))
             )
             .then(() => {
-                dispatch(updateTradeUIState(tradeID, 'disabled', false));
+                dispatch(updateTradeUIState(tradeID, 'userInputDisabled', false));
                 return dispatch(updatePriceProposalSubscription(tradeID));
             });
     };
