@@ -9,7 +9,7 @@ const sass = require('gulp-sass');
 // const zip = require('gulp-vinyl-zip');
 
 const files = {
-    dist: './dist',
+    dist: './www',
     js: './src',
     static: ['./www/**/*', './config.xml', './electron.js', '!./www/**/*.scss'],
     sass: './styles/*.scss',
