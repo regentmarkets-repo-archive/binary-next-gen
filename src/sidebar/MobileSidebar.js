@@ -15,10 +15,12 @@ export default class MobileSidebar extends PureComponent {
 			token: PropTypes.string.isRequired,
 		})),
 	};
+
 	onSignOut(e) {
 		e.stopPropagation();
 		signOut();
 	}
+
 	render() {
 		const { loginid, email, accounts } = this.props;
 

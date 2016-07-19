@@ -39,7 +39,7 @@ export default class SettingsDetails extends PureComponent {
 				/>
 				<LabeledText
 					id="residence"
-					label="Country of residence"
+					label="Country Of Residence"
 					value={country}
 				/>
 				<p className="notice-msg">
