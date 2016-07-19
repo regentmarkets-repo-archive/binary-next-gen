@@ -19,7 +19,6 @@ import PayoutCard from '../payout-picker/PayoutCard';
 import TradeTypeDropDown from '../trade-type-picker/TradeTypeDropDown';
 import AssetPickerDropDown from '../asset-picker/AssetPickerDropDown';
 import BuyButton from './BuyButton';
-import TransparentDiv from '../loading-view/TransparentDiv';
 
 import * as LiveData from '../_data/LiveData';
 import { changeAsset, changeBarrier1, changeBarrier2, changeCategory, changeStartDate,
@@ -70,7 +69,7 @@ export default class TradeParams extends PureComponent {
         currency: PropTypes.string.isRequired,
         contract: PropTypes.object,
         compact: PropTypes.bool,
-        disabled: PropTypes.bool,
+        purchaseDisabled: PropTypes.bool,
         errors: PropTypes.object,
         index: PropTypes.number.isRequired,
         onPurchaseHook: PropTypes.func,
@@ -87,7 +86,6 @@ export default class TradeParams extends PureComponent {
 
         this.state = {
             dynamicKey: 0,
-            disableAllInput: false,
         };
     }
 
@@ -188,7 +186,7 @@ export default class TradeParams extends PureComponent {
     }, isMobile ? 300 : 150, { leading: true, trailing: true })
 
     onAmountChange = e => {
-        actions.updateTradeUIState(this.props.index, 'disabled', true);
+        actions.updateTradeUIState(this.props.index, 'purchaseDisabled', true);
         this.debouncedUpdateAmount(e);
     }
 
@@ -216,11 +214,11 @@ export default class TradeParams extends PureComponent {
     }
 
     onPurchase = () => {
-        this.setState({ disableAllInput: true });
         const { index, onPurchaseHook } = this.props;
+        actions.updateTradeUIState(index, 'userInputDisabled', true);
         actions.purchaseByTradeId(index).then(r => {
             onPurchaseHook(r);
-            this.setState({ disableAllInput: false });
+            actions.updateTradeUIState(index, 'userInputDisabled', false);
         });
     }
 
@@ -252,7 +250,7 @@ export default class TradeParams extends PureComponent {
         const {
             contract,
             currency,
-            disabled,
+            purchaseDisabled,
             errors,
             index,
             pipSize,
@@ -261,7 +259,7 @@ export default class TradeParams extends PureComponent {
             tradeParams,
         } = this.props;
 
-        const { dynamicKey, disableAllInput } = this.state;
+        const { dynamicKey } = this.state;
 
         /**
          * Race condition happen when contract is updated before tradeCategory (async)
@@ -291,7 +289,6 @@ export default class TradeParams extends PureComponent {
 
         return (
             <div className="trade-params" key={dynamicKey} style={style}>
-                {disableAllInput && <TransparentDiv />}
                 <Modal shown={!!errors.purchaseError} onClose={this.onCloseModal}>
                     <PurchaseFailed failure={errors.purchaseError} />
                 </Modal>
@@ -381,7 +378,7 @@ export default class TradeParams extends PureComponent {
                 <BuyButton
                     askPrice={askPrice}
                     currency={currency}
-                    disabled={disabled}
+                    disabled={purchaseDisabled}
                     longcode={proposal && proposal.longcode}
                     onClick={this.onPurchase}
                 />

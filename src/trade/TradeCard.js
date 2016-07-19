@@ -2,6 +2,7 @@ import React, { PureComponent, PropTypes } from 'react';
 import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
 import { actions } from '../_store';
 import TradeViewChart from './trade-chart/TradeViewChart';
+import TransparentDiv from '../loading-view/TransparentDiv';
 import TradeParams from '../trade-params/TradeParams';
 import ContractReceipt from '../contract-details/ContractReceipt';
 import ContractDetailsMobileLayout from '../contract-details/mobile/ContractDetailsMobileLayout';
@@ -22,6 +23,7 @@ export default class TradeCard extends PureComponent {
         chartProps: PropTypes.object.isRequired,
         index: PropTypes.number.isRequired,
         paramsProps: PropTypes.object.isRequired,
+        userInputDisabled: PropTypes.bool,
     };
 
     tradeAgain = () => {
@@ -42,7 +44,7 @@ export default class TradeCard extends PureComponent {
     }
 
     render() {
-        const { chartProps, contractReceiptProps, compact, paramsProps } = this.props;
+        const { chartProps, contractReceiptProps, compact, paramsProps, userInputDisabled } = this.props;
         const contractReceiptInJS = contractReceiptProps && contractReceiptProps.toJS();
         if (contractReceiptInJS && Object.keys(contractReceiptInJS).length === 0) {
             return <P text="Asset not available" />;
@@ -73,6 +75,7 @@ export default class TradeCard extends PureComponent {
 
         const mobileTrade = compact && (
             <div className="trade-panel">
+                {userInputDisabled && <TransparentDiv />}
                 {contractReceiptInJS &&
                     <ContractDetailsMobileLayout
                         contract={contractReceiptInJS}
@@ -100,6 +103,7 @@ export default class TradeCard extends PureComponent {
 
         const desktopTrade = !compact && (
             <div className="trade-panel">
+                {userInputDisabled && <TransparentDiv />}
                 {chartComponent}
                 {detailsComponent}
                 {tradeParamsComponent}
