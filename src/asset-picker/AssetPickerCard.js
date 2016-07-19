@@ -26,11 +26,6 @@ export default class AssetPickerCard extends PureComponent {
 				actions.updateTradeParams(index, 'symbol', newAsset);
 				actions.updateTradeUIState(index, 'userInputDisabled', false);
 			});
-		// actions.getTradingOptions(newAsset).then(() => {
-		// 	actions.updateTradeParams(index, 'symbol', newAsset);
-		// 	actions.updateTradeUIState(index, 'disabled', false);
-		// 	actions.getTicksBySymbol(newAsset);
-		// });
 	}
 
 	onToggleWatchlistItem = asset => {
