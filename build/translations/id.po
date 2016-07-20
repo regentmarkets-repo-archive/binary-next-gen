@@ -9,8 +9,8 @@ msgstr ""
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2016-07-12 08:53+0000\n"
 "Last-Translator: Putri Kumala <putri@regentmarkets.com>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-app"
-"/next-gen-app/id/>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-app/"
+"next-gen-app/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -594,3 +594,143 @@ msgstr "Video"
 
 msgid "Digit Stats"
 msgstr "Digit Stats"
+
+msgid "Favorites"
+msgstr ""
+
+msgid "Open For Trading"
+msgstr ""
+
+#, fuzzy
+msgid "Closed"
+msgstr "Tutup"
+
+msgid "Contract ID"
+msgstr ""
+
+msgid "Reference ID"
+msgstr ""
+
+#, fuzzy
+msgid "Entry Spot"
+msgstr "Spot awal"
+
+#, fuzzy
+msgid "Entry Spot Time"
+msgstr "Spot awal"
+
+#, fuzzy
+msgid "Potential Payout"
+msgstr "Potensi Untung"
+
+#, fuzzy
+msgid "Exit Spot"
+msgstr "Spot akhir"
+
+#, fuzzy
+msgid "Exit Spot Time"
+msgstr "Spot akhir"
+
+#, fuzzy
+msgid "Sell Price"
+msgstr "Harga Jual"
+
+#, fuzzy
+msgid "Sell Time"
+msgstr "Waktu Mulai"
+
+#, fuzzy
+msgid "Trade Again"
+msgstr "Trade"
+
+msgid "Barrier"
+msgstr ""
+
+#, fuzzy
+msgid "You Won"
+msgstr "Anda rugi "
+
+#, fuzzy
+msgid "You Lost"
+msgstr "Anda rugi "
+
+msgid ""
+"To change your name, date of birth, country of residence, or email, contact "
+"Customer Support."
+msgstr ""
+
+msgid "Cashier is locked per your request. To unlock it, enter your password."
+msgstr ""
+
+msgid "Unlock Cashier"
+msgstr ""
+
+msgid "Time out until"
+msgstr ""
+
+#, fuzzy
+msgid "No transactions for the selected period"
+msgstr "Tidak ditemukan transaksi bagi periode yang dipilih"
+
+msgid "You have no open contracts"
+msgstr ""
+
+msgid "You have no assets in watchlist"
+msgstr ""
+
+msgid "Basic"
+msgstr ""
+
+#, fuzzy
+msgid "Digits"
+msgstr "Digit Stats"
+
+msgid "Advanced"
+msgstr ""
+
+#, fuzzy
+msgid "Higher"
+msgstr "Tinggi"
+
+msgid "Lower"
+msgstr ""
+
+#, fuzzy
+msgid "Ends Outside"
+msgstr "Ends In/Out"
+
+msgid "Ends Between"
+msgstr ""
+
+msgid "Stays Between"
+msgstr ""
+
+msgid "Goes Outside"
+msgstr ""
+
+#, fuzzy
+msgid "Does Not Touch"
+msgstr "No Touch"
+
+#, fuzzy
+msgid "Credit / Debit"
+msgstr "Kredit/Debit"
+
+msgid "Last 25 Ticks"
+msgstr ""
+
+#, fuzzy
+msgid "Last 50 Trades"
+msgstr "30 Hari Terakhir"
+
+#, fuzzy
+msgid "Last 100 Trades"
+msgstr "30 Hari Terakhir"
+
+#, fuzzy
+msgid "Last 500 Trades"
+msgstr "30 Hari Terakhir"
+
+#, fuzzy
+msgid "Last 1000 Trades"
+msgstr "30 Hari Terakhir"

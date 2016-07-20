@@ -9,8 +9,8 @@ msgstr ""
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2016-07-11 21:12+0000\n"
 "Last-Translator: Alcino Jorge <alcino@binary.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/binary-app"
-"/next-gen-app/pt/>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/binary-app/"
+"next-gen-app/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -598,3 +598,142 @@ msgstr "Vídeo"
 #, fuzzy
 msgid "Digit Stats"
 msgstr "Dígito correspondente"
+
+msgid "Favorites"
+msgstr ""
+
+msgid "Open For Trading"
+msgstr ""
+
+#, fuzzy
+msgid "Closed"
+msgstr "Fecho"
+
+msgid "Contract ID"
+msgstr ""
+
+msgid "Reference ID"
+msgstr ""
+
+#, fuzzy
+msgid "Entry Spot"
+msgstr "Preço de entrada"
+
+#, fuzzy
+msgid "Entry Spot Time"
+msgstr "Preço de entrada"
+
+#, fuzzy
+msgid "Potential Payout"
+msgstr "Lucro potencial"
+
+#, fuzzy
+msgid "Exit Spot"
+msgstr "Preço de saída"
+
+#, fuzzy
+msgid "Exit Spot Time"
+msgstr "Preço de saída"
+
+#, fuzzy
+msgid "Sell Price"
+msgstr "Preço de venda"
+
+#, fuzzy
+msgid "Sell Time"
+msgstr "Hora de início"
+
+#, fuzzy
+msgid "Trade Again"
+msgstr "Negociar"
+
+msgid "Barrier"
+msgstr ""
+
+#, fuzzy
+msgid "You Won"
+msgstr "Você perdeu "
+
+#, fuzzy
+msgid "You Lost"
+msgstr "Você perdeu "
+
+msgid ""
+"To change your name, date of birth, country of residence, or email, contact "
+"Customer Support."
+msgstr ""
+
+msgid "Cashier is locked per your request. To unlock it, enter your password."
+msgstr ""
+
+msgid "Unlock Cashier"
+msgstr ""
+
+msgid "Time out until"
+msgstr ""
+
+#, fuzzy
+msgid "No transactions for the selected period"
+msgstr "Não existem transações para o período selecionado"
+
+msgid "You have no open contracts"
+msgstr ""
+
+msgid "You have no assets in watchlist"
+msgstr ""
+
+msgid "Basic"
+msgstr ""
+
+#, fuzzy
+msgid "Digits"
+msgstr "Dígito correspondente"
+
+msgid "Advanced"
+msgstr ""
+
+msgid "Higher"
+msgstr ""
+
+msgid "Lower"
+msgstr ""
+
+#, fuzzy
+msgid "Ends Outside"
+msgstr "Termina Dentro/Fora"
+
+msgid "Ends Between"
+msgstr ""
+
+msgid "Stays Between"
+msgstr ""
+
+msgid "Goes Outside"
+msgstr ""
+
+#, fuzzy
+msgid "Does Not Touch"
+msgstr "Não toca"
+
+#, fuzzy
+msgid "Credit / Debit"
+msgstr "Crédito/Débito"
+
+msgid "Last 25 Ticks"
+msgstr ""
+
+#, fuzzy
+msgid "Last 50 Trades"
+msgstr "Últimos 30 dias"
+
+#, fuzzy
+msgid "Last 100 Trades"
+msgstr "Últimos 30 dias"
+
+#, fuzzy
+msgid "Last 500 Trades"
+msgstr "Últimos 30 dias"
+
+#, fuzzy
+msgid "Last 1000 Trades"
+msgstr "Últimos 30 dias"

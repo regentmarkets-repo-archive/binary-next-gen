@@ -599,3 +599,142 @@ msgstr "Nagranie"
 
 msgid "Digit Stats"
 msgstr "Statystyki cyfry"
+
+msgid "Favorites"
+msgstr ""
+
+msgid "Open For Trading"
+msgstr ""
+
+#, fuzzy
+msgid "Closed"
+msgstr "Zamknij"
+
+msgid "Contract ID"
+msgstr ""
+
+msgid "Reference ID"
+msgstr ""
+
+#, fuzzy
+msgid "Entry Spot"
+msgstr "Pozycja wejściowa"
+
+#, fuzzy
+msgid "Entry Spot Time"
+msgstr "Pozycja wejściowa"
+
+#, fuzzy
+msgid "Potential Payout"
+msgstr "Potencjalny zysk"
+
+#, fuzzy
+msgid "Exit Spot"
+msgstr "Punkt wyjściowy"
+
+#, fuzzy
+msgid "Exit Spot Time"
+msgstr "Punkt wyjściowy"
+
+#, fuzzy
+msgid "Sell Price"
+msgstr "Cena sprzedaży"
+
+#, fuzzy
+msgid "Sell Time"
+msgstr "Godzina rozpoczęcia"
+
+#, fuzzy
+msgid "Trade Again"
+msgstr "Zakład"
+
+msgid "Barrier"
+msgstr ""
+
+#, fuzzy
+msgid "You Won"
+msgstr "Poniesiono stratę "
+
+#, fuzzy
+msgid "You Lost"
+msgstr "Poniesiono stratę "
+
+msgid ""
+"To change your name, date of birth, country of residence, or email, contact "
+"Customer Support."
+msgstr ""
+
+msgid "Cashier is locked per your request. To unlock it, enter your password."
+msgstr ""
+
+msgid "Unlock Cashier"
+msgstr ""
+
+msgid "Time out until"
+msgstr ""
+
+#, fuzzy
+msgid "No transactions for the selected period"
+msgstr "Brak transakcji w wybranym okresie"
+
+msgid "You have no open contracts"
+msgstr ""
+
+msgid "You have no assets in watchlist"
+msgstr ""
+
+msgid "Basic"
+msgstr ""
+
+#, fuzzy
+msgid "Digits"
+msgstr "Statystyki cyfry"
+
+msgid "Advanced"
+msgstr ""
+
+msgid "Higher"
+msgstr ""
+
+msgid "Lower"
+msgstr ""
+
+#, fuzzy
+msgid "Ends Outside"
+msgstr "Zakończy się w/poza"
+
+msgid "Ends Between"
+msgstr ""
+
+msgid "Stays Between"
+msgstr ""
+
+msgid "Goes Outside"
+msgstr ""
+
+#, fuzzy
+msgid "Does Not Touch"
+msgstr "Nie osiągnie"
+
+#, fuzzy
+msgid "Credit / Debit"
+msgstr "Winien/Ma"
+
+msgid "Last 25 Ticks"
+msgstr ""
+
+#, fuzzy
+msgid "Last 50 Trades"
+msgstr "Ostatnie 30 dni"
+
+#, fuzzy
+msgid "Last 100 Trades"
+msgstr "Ostatnie 30 dni"
+
+#, fuzzy
+msgid "Last 500 Trades"
+msgstr "Ostatnie 30 dni"
+
+#, fuzzy
+msgid "Last 1000 Trades"
+msgstr "Ostatnie 30 dni"

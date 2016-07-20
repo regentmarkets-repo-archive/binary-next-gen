@@ -621,3 +621,139 @@ msgstr ""
 #, fuzzy
 msgid "Digit Stats"
 msgstr "مطابقة الأرقام"
+
+msgid "Favorites"
+msgstr ""
+
+msgid "Open For Trading"
+msgstr ""
+
+#, fuzzy
+msgid "Closed"
+msgstr "إغلاق"
+
+msgid "Contract ID"
+msgstr ""
+
+msgid "Reference ID"
+msgstr ""
+
+#, fuzzy
+msgid "Entry Spot"
+msgstr "سعر البدء"
+
+#, fuzzy
+msgid "Entry Spot Time"
+msgstr "سعر البدء"
+
+msgid "Potential Payout"
+msgstr ""
+
+#, fuzzy
+msgid "Exit Spot"
+msgstr "سعر النهاية"
+
+#, fuzzy
+msgid "Exit Spot Time"
+msgstr "سعر النهاية"
+
+#, fuzzy
+msgid "Sell Price"
+msgstr "سعر البيع"
+
+#, fuzzy
+msgid "Sell Time"
+msgstr "بيع"
+
+#, fuzzy
+msgid "Trade Again"
+msgstr "التداول"
+
+msgid "Barrier"
+msgstr ""
+
+msgid "You Won"
+msgstr ""
+
+msgid "You Lost"
+msgstr ""
+
+msgid ""
+"To change your name, date of birth, country of residence, or email, contact "
+"Customer Support."
+msgstr ""
+
+msgid "Cashier is locked per your request. To unlock it, enter your password."
+msgstr ""
+
+msgid "Unlock Cashier"
+msgstr ""
+
+msgid "Time out until"
+msgstr ""
+
+#, fuzzy
+msgid "No transactions for the selected period"
+msgstr "لا توجد عمليات للفترة المحددة"
+
+msgid "You have no open contracts"
+msgstr ""
+
+msgid "You have no assets in watchlist"
+msgstr ""
+
+msgid "Basic"
+msgstr ""
+
+#, fuzzy
+msgid "Digits"
+msgstr "مطابقة الأرقام"
+
+msgid "Advanced"
+msgstr ""
+
+msgid "Higher"
+msgstr ""
+
+msgid "Lower"
+msgstr ""
+
+#, fuzzy
+msgid "Ends Outside"
+msgstr "ينتهي بين/خارج"
+
+msgid "Ends Between"
+msgstr ""
+
+msgid "Stays Between"
+msgstr ""
+
+msgid "Goes Outside"
+msgstr ""
+
+#, fuzzy
+msgid "Does Not Touch"
+msgstr "عدم الوصول"
+
+#, fuzzy
+msgid "Credit / Debit"
+msgstr "ائتمان/خصم"
+
+msgid "Last 25 Ticks"
+msgstr ""
+
+#, fuzzy
+msgid "Last 50 Trades"
+msgstr "آخر 30 يوما"
+
+#, fuzzy
+msgid "Last 100 Trades"
+msgstr "آخر 30 يوما"
+
+#, fuzzy
+msgid "Last 500 Trades"
+msgstr "آخر 30 يوما"
+
+#, fuzzy
+msgid "Last 1000 Trades"
+msgstr "آخر 30 يوما"

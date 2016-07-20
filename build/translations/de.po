@@ -626,3 +626,139 @@ msgstr ""
 #, fuzzy
 msgid "Digit Stats"
 msgstr "Kommastellen stimmen überein"
+
+msgid "Favorites"
+msgstr ""
+
+msgid "Open For Trading"
+msgstr ""
+
+#, fuzzy
+msgid "Closed"
+msgstr "Schließt"
+
+msgid "Contract ID"
+msgstr ""
+
+msgid "Reference ID"
+msgstr ""
+
+#, fuzzy
+msgid "Entry Spot"
+msgstr "Startkurs"
+
+#, fuzzy
+msgid "Entry Spot Time"
+msgstr "Startkurs"
+
+msgid "Potential Payout"
+msgstr ""
+
+#, fuzzy
+msgid "Exit Spot"
+msgstr "Schlusskurs"
+
+#, fuzzy
+msgid "Exit Spot Time"
+msgstr "Schlusskurs"
+
+#, fuzzy
+msgid "Sell Price"
+msgstr "Verkaufskurs"
+
+#, fuzzy
+msgid "Sell Time"
+msgstr "Verkaufen"
+
+#, fuzzy
+msgid "Trade Again"
+msgstr "Handel"
+
+msgid "Barrier"
+msgstr ""
+
+msgid "You Won"
+msgstr ""
+
+msgid "You Lost"
+msgstr ""
+
+msgid ""
+"To change your name, date of birth, country of residence, or email, contact "
+"Customer Support."
+msgstr ""
+
+msgid "Cashier is locked per your request. To unlock it, enter your password."
+msgstr ""
+
+msgid "Unlock Cashier"
+msgstr ""
+
+msgid "Time out until"
+msgstr ""
+
+#, fuzzy
+msgid "No transactions for the selected period"
+msgstr "Für den ausgewählten Zeitraum liegen keine Transaktionen vor."
+
+msgid "You have no open contracts"
+msgstr ""
+
+msgid "You have no assets in watchlist"
+msgstr ""
+
+msgid "Basic"
+msgstr ""
+
+#, fuzzy
+msgid "Digits"
+msgstr "Kommastellen stimmen überein"
+
+msgid "Advanced"
+msgstr ""
+
+msgid "Higher"
+msgstr ""
+
+msgid "Lower"
+msgstr ""
+
+#, fuzzy
+msgid "Ends Outside"
+msgstr "Endet In/Außerhalb"
+
+msgid "Ends Between"
+msgstr ""
+
+msgid "Stays Between"
+msgstr ""
+
+msgid "Goes Outside"
+msgstr ""
+
+#, fuzzy
+msgid "Does Not Touch"
+msgstr "Berührt nicht"
+
+#, fuzzy
+msgid "Credit / Debit"
+msgstr "Gutschrift/Lastschrift"
+
+msgid "Last 25 Ticks"
+msgstr ""
+
+#, fuzzy
+msgid "Last 50 Trades"
+msgstr "Letzte 30 Tage"
+
+#, fuzzy
+msgid "Last 100 Trades"
+msgstr "Letzte 30 Tage"
+
+#, fuzzy
+msgid "Last 500 Trades"
+msgstr "Letzte 30 Tage"
+
+#, fuzzy
+msgid "Last 1000 Trades"
+msgstr "Letzte 30 Tage"

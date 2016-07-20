@@ -588,3 +588,122 @@ msgstr ""
 
 msgid "Digit Stats"
 msgstr ""
+
+msgid "Favorites"
+msgstr ""
+
+msgid "Open For Trading"
+msgstr ""
+
+msgid "Closed"
+msgstr ""
+
+msgid "Contract ID"
+msgstr ""
+
+msgid "Reference ID"
+msgstr ""
+
+msgid "Entry Spot"
+msgstr ""
+
+msgid "Entry Spot Time"
+msgstr ""
+
+msgid "Potential Payout"
+msgstr ""
+
+msgid "Exit Spot"
+msgstr ""
+
+msgid "Exit Spot Time"
+msgstr ""
+
+msgid "Sell Price"
+msgstr ""
+
+msgid "Sell Time"
+msgstr ""
+
+msgid "Trade Again"
+msgstr ""
+
+msgid "Barrier"
+msgstr ""
+
+msgid "You Won"
+msgstr ""
+
+msgid "You Lost"
+msgstr ""
+
+msgid ""
+"To change your name, date of birth, country of residence, or email, contact "
+"Customer Support."
+msgstr ""
+
+msgid "Cashier is locked per your request. To unlock it, enter your password."
+msgstr ""
+
+msgid "Unlock Cashier"
+msgstr ""
+
+msgid "Time out until"
+msgstr ""
+
+msgid "No transactions for the selected period"
+msgstr ""
+
+msgid "You have no open contracts"
+msgstr ""
+
+msgid "You have no assets in watchlist"
+msgstr ""
+
+msgid "Basic"
+msgstr ""
+
+msgid "Digits"
+msgstr ""
+
+msgid "Advanced"
+msgstr ""
+
+msgid "Higher"
+msgstr ""
+
+msgid "Lower"
+msgstr ""
+
+msgid "Ends Outside"
+msgstr ""
+
+msgid "Ends Between"
+msgstr ""
+
+msgid "Stays Between"
+msgstr ""
+
+msgid "Goes Outside"
+msgstr ""
+
+msgid "Does Not Touch"
+msgstr ""
+
+msgid "Credit / Debit"
+msgstr ""
+
+msgid "Last 25 Ticks"
+msgstr ""
+
+msgid "Last 50 Trades"
+msgstr ""
+
+msgid "Last 100 Trades"
+msgstr ""
+
+msgid "Last 500 Trades"
+msgstr ""
+
+msgid "Last 1000 Trades"
+msgstr ""

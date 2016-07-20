@@ -622,3 +622,139 @@ msgstr ""
 #, fuzzy
 msgid "Digit Stats"
 msgstr "Cifra uguale"
+
+msgid "Favorites"
+msgstr ""
+
+msgid "Open For Trading"
+msgstr ""
+
+#, fuzzy
+msgid "Closed"
+msgstr "Chiude"
+
+msgid "Contract ID"
+msgstr ""
+
+msgid "Reference ID"
+msgstr ""
+
+#, fuzzy
+msgid "Entry Spot"
+msgstr "Punto d'ingresso"
+
+#, fuzzy
+msgid "Entry Spot Time"
+msgstr "Punto d'ingresso"
+
+msgid "Potential Payout"
+msgstr ""
+
+#, fuzzy
+msgid "Exit Spot"
+msgstr "Prezzo di uscita"
+
+#, fuzzy
+msgid "Exit Spot Time"
+msgstr "Prezzo di uscita"
+
+#, fuzzy
+msgid "Sell Price"
+msgstr "Prezzo di vendita"
+
+#, fuzzy
+msgid "Sell Time"
+msgstr "Vendi"
+
+#, fuzzy
+msgid "Trade Again"
+msgstr "Trade"
+
+msgid "Barrier"
+msgstr ""
+
+msgid "You Won"
+msgstr ""
+
+msgid "You Lost"
+msgstr ""
+
+msgid ""
+"To change your name, date of birth, country of residence, or email, contact "
+"Customer Support."
+msgstr ""
+
+msgid "Cashier is locked per your request. To unlock it, enter your password."
+msgstr ""
+
+msgid "Unlock Cashier"
+msgstr ""
+
+msgid "Time out until"
+msgstr ""
+
+#, fuzzy
+msgid "No transactions for the selected period"
+msgstr "Non ci sono transazioni per il periodo selezionato"
+
+msgid "You have no open contracts"
+msgstr ""
+
+msgid "You have no assets in watchlist"
+msgstr ""
+
+msgid "Basic"
+msgstr ""
+
+#, fuzzy
+msgid "Digits"
+msgstr "Cifra uguale"
+
+msgid "Advanced"
+msgstr ""
+
+msgid "Higher"
+msgstr ""
+
+msgid "Lower"
+msgstr ""
+
+#, fuzzy
+msgid "Ends Outside"
+msgstr "Ends In/Out"
+
+msgid "Ends Between"
+msgstr ""
+
+msgid "Stays Between"
+msgstr ""
+
+msgid "Goes Outside"
+msgstr ""
+
+#, fuzzy
+msgid "Does Not Touch"
+msgstr "No Touch"
+
+#, fuzzy
+msgid "Credit / Debit"
+msgstr "Credito/Debito"
+
+msgid "Last 25 Ticks"
+msgstr ""
+
+#, fuzzy
+msgid "Last 50 Trades"
+msgstr "Ultimi 30 giorni"
+
+#, fuzzy
+msgid "Last 100 Trades"
+msgstr "Ultimi 30 giorni"
+
+#, fuzzy
+msgid "Last 500 Trades"
+msgstr "Ultimi 30 giorni"
+
+#, fuzzy
+msgid "Last 1000 Trades"
+msgstr "Ultimi 30 giorni"
