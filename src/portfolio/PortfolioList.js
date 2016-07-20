@@ -1,9 +1,9 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import Th from 'binary-components/lib/Th';
 import NumberPlain from 'binary-components/lib/NumberPlain';
 import PortfolioItem from './PortfolioItem';
 
-export default class PortfolioList extends PureComponent {
+export default class PortfolioList extends Component {
 
 	static propTypes = {
 		compact: PropTypes.bool,

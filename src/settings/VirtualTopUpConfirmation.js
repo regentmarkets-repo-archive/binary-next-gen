@@ -1,9 +1,9 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import M from 'binary-components/lib/M';
 import Button from 'binary-components/lib/Button';
 import NumberPlain from 'binary-components/lib/NumberPlain';
 
-export default class VirtualTopUpConfirmation extends PureComponent {
+export default class VirtualTopUpConfirmation extends Component {
 
     static propTypes = {
         response: PropTypes.object.isRequired,

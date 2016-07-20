@@ -1,7 +1,7 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import CloseButton from 'binary-components/lib/CloseButton';
 
-export default class Modal extends PureComponent {
+export default class Modal extends Component {
 
 	static propTypes = {
 		shown: PropTypes.bool,

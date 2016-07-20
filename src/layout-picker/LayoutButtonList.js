@@ -1,9 +1,9 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import styles from '../layouts/layouts.css';
 import LayoutButton from './LayoutButton';
 import { layoutNumbers } from './layouts';
 
-export default class LayoutButtonList extends PureComponent {
+export default class LayoutButtonList extends Component {
 
     static propTypes = {
         tradesCount: PropTypes.number.isRequired,

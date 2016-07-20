@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import { actions } from '../_store';
 import Modal from '../containers/Modal';
@@ -6,7 +6,7 @@ import ContractDetailsContainer from '../contract-details/ContractDetailsContain
 import ContractDetailsModalSelector from './ContractDetailsModalSelector';
 
 @connect(ContractDetailsModalSelector)
-export default class ContractDetailsModal extends PureComponent {
+export default class ContractDetailsModal extends Component {
 
     static propTypes = {
         contractShown: PropTypes.string,

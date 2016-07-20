@@ -1,9 +1,9 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import Tab from 'binary-components/lib/Tab';
 import TabList from 'binary-components/lib/TabList';
 import { actions } from '../_store';
 
-export default class WorkspaceCard extends PureComponent {
+export default class WorkspaceCard extends Component {
 
 	static propTypes = {
 		activeTab: PropTypes.number.isRequired,

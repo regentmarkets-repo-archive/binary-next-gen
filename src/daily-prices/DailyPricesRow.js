@@ -1,8 +1,8 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { FormattedDate } from 'react-intl';
 import NumberPlain from 'binary-components/lib/NumberPlain';
 
-export default class DailyPricesRow extends PureComponent {
+export default class DailyPricesRow extends Component {
 
     static propTypes = {
         date: PropTypes.instanceOf(Date).isRequired,

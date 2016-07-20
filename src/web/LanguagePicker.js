@@ -1,10 +1,10 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import SelectGroup from 'binary-components/lib/SelectGroup';
 import languages from '../_constants/languages';
 
 @connect(state => ({ selected: state.boot.get('language') }))
-export default class LanguagePicker extends PureComponent {
+export default class LanguagePicker extends Component {
 
     static propTypes = {
         selected: PropTypes.oneOf(languages.map(ln => ln.value)),

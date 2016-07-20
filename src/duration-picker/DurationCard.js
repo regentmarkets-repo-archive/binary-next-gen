@@ -1,9 +1,9 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import durationText from 'binary-utils/lib/durationText';
 import Label from 'binary-components/lib/Label';
 import DurationUnitPicker from './DurationUnitPicker';
 
-export default class DurationCard extends PureComponent {
+export default class DurationCard extends Component {
 
     static propTypes = {
         dateStart: PropTypes.number,

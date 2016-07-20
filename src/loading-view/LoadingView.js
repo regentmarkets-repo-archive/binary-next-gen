@@ -1,7 +1,7 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import M from 'binary-components/lib/M';
 
-export default class LoadingView extends PureComponent {
+export default class LoadingView extends Component {
 
     static propTypes = {
         showMessage: PropTypes.bool,

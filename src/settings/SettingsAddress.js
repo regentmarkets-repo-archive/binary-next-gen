@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import M from 'binary-components/lib/M';
 import Button from 'binary-components/lib/Button';
 import InputGroup from 'binary-components/lib/InputGroup';
@@ -7,7 +7,7 @@ import { actions } from '../_store';
 import States from './States';
 import * as LiveData from '../_data/LiveData';
 
-export default class SettingsAddress extends PureComponent {
+export default class SettingsAddress extends Component {
 
 	static propTypes = {
 		address_line_1: PropTypes.string.isRequired,

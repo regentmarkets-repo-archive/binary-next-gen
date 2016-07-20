@@ -1,9 +1,9 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { actions } from '../_store';
 import WatchlistTableHeader from './WatchlistTableHeader';
 import WatchlistRow from './WatchlistRow';
 
-export default class WatchlistTable extends PureComponent {
+export default class WatchlistTable extends Component {
 
 	static propTypes = {
 		activeTradeIdx: PropTypes.number.isRequired,

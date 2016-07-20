@@ -1,10 +1,10 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import Logo from 'binary-components/lib/Logo';
 import WebSidebarContainer from '../sidebar/WebSidebarContainer';
 import Balance from '../balance/BalanceContainer';
 import LayoutPickerContainer from '../layout-picker/LayoutPickerContainer';
 
-export default class WebHeader extends PureComponent {
+export default class WebHeader extends Component {
 
 	render() {
 		return (

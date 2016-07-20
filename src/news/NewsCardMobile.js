@@ -1,7 +1,7 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import ArticlePreview from './ArticlePreview';
 
-export default class NewsCardMobile extends PureComponent {
+export default class NewsCardMobile extends Component {
 
     static propTypes = {
         articles: PropTypes.array.isRequired,

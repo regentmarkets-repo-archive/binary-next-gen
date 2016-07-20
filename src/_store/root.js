@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { addLocaleData } from 'react-intl';
 import { Provider } from 'react-redux';
 import { store, rehydratedStorePromise, actions } from './persistentStore';
@@ -20,7 +20,7 @@ addLocaleData({
 
 const emptyObject = {};
 
-export default class Root extends PureComponent {
+export default class Root extends Component {
 
     async componentWillMount() {
         const reyhdratedStore = await rehydratedStorePromise();

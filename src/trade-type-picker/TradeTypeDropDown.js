@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import tradeToFriendlyType from 'binary-utils/lib/tradeToFriendlyType';
 import Label from 'binary-components/lib/Label';
 import Info from 'binary-components/lib/Info';
@@ -20,7 +20,7 @@ const getInternalTradeType = tradeParams => {
     return tradeParams.type;
 };
 
-export default class TradeTypeDropDown extends PureComponent {
+export default class TradeTypeDropDown extends Component {
 
     static propTypes = {
         compact: PropTypes.bool,

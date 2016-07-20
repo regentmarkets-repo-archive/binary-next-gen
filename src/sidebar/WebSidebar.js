@@ -1,9 +1,9 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import AccountMenuItem from './AccountMenuItem';
 import M from 'binary-components/lib/M';
 import { signOut } from '../_data/Auth';
 
-export default class WebSidebar extends PureComponent {
+export default class WebSidebar extends Component {
 
 	static propTypes = {
 		email: PropTypes.string.isRequired,

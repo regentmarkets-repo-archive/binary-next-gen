@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
 import LayoutButtonList from './LayoutButtonList';
@@ -6,7 +6,7 @@ import LayoutButtonList from './LayoutButtonList';
 import layoutSelector from './layoutSelector';
 
 @connect(layoutSelector)
-export default class LayoutPickerContainer extends PureComponent {
+export default class LayoutPickerContainer extends Component {
 
     render() {
         return (

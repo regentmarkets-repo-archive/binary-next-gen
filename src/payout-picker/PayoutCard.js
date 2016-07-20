@@ -1,9 +1,9 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import NumberColored from 'binary-components/lib/NumberColored';
 import M from 'binary-components/lib/M';
 import Label from 'binary-components/lib/Label';
 
-export default class PayoutCard extends PureComponent {
+export default class PayoutCard extends Component {
 
     static propTypes = {
         currency: PropTypes.string.isRequired,

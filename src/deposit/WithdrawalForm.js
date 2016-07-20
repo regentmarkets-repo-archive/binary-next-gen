@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import M from 'binary-components/lib/M';
 import P from 'binary-components/lib/P';
 import Button from 'binary-components/lib/Button';
@@ -10,7 +10,7 @@ import Modal from '../containers/Modal';
 import currencies from '../_constants/currencies';
 import * as LiveData from '../_data/LiveData';
 
-export default class WithdrawForm extends PureComponent {
+export default class WithdrawForm extends Component {
 
     static propTypes = {
         paymentAgent: PropTypes.object.isRequired,

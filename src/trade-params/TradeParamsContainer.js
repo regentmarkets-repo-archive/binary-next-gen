@@ -1,8 +1,8 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import TradeParams from './TradeParams';
 import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
 
-export default class TradeParamsContainer extends PureComponent {
+export default class TradeParamsContainer extends Component {
     static propTypes = {
         compact: PropTypes.bool,
         paramsProps: PropTypes.object.isRequired,

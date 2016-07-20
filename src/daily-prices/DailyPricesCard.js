@@ -1,7 +1,7 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import DailyPricesTable from './DailyPricesTable';
 
-export default class DailyPricesCard extends PureComponent {
+export default class DailyPricesCard extends Component {
 
     static propTypes = {
         dailyPrices: PropTypes.array.isRequired,

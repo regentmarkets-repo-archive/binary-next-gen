@@ -1,11 +1,11 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
 import WebSidebar from './WebSidebar';
 import sidebarSelectors from './sidebarSelectors';
 
 @connect(sidebarSelectors)
-export default class WebSidebarContainer extends PureComponent {
+export default class WebSidebarContainer extends Component {
 
 	static propTypes = {
 		loginid: PropTypes.string.isRequired,

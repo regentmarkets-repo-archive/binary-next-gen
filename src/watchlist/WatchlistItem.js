@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import Direction from 'binary-components/lib/Direction';
 import CloseButton from 'binary-components/lib/CloseButton';
 import NumberPlain from 'binary-components/lib/NumberPlain';
@@ -7,7 +7,7 @@ import OpenCloseNotice from 'binary-components/lib/OpenCloseNotice';
 import { actions } from '../_store';
 import WatchlistSparkline from './WatchlistSparkline';
 
-export default class WatchlistItem extends PureComponent {
+export default class WatchlistItem extends Component {
 
 	static propTypes = {
 		item: PropTypes.any.isRequired,

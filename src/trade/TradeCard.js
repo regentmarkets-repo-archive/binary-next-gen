@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
 import { actions } from '../_store';
 import TradeViewChart from './trade-chart/TradeViewChart';
@@ -11,7 +11,7 @@ import ContractWinLose from '../contract-details/ContractWinLose';
 import Button from 'binary-components/lib/Button';
 import P from 'binary-components/lib/P';
 
-export default class TradeCard extends PureComponent {
+export default class TradeCard extends Component {
     static contextTypes = {
         router: PropTypes.object.isRequired,
     };

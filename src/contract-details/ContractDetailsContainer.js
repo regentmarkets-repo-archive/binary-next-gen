@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
 import { actions } from '../_store';
@@ -6,7 +6,7 @@ import contractDetailsSelectors from './ContractDetailsSelectors';
 import ContractDetailsCard from './ContractDetailsCard';
 
 @connect(contractDetailsSelectors)
-export default class ContractDetailsContainer extends PureComponent {
+export default class ContractDetailsContainer extends Component {
 
 	static defaultProps = {
 		chartData: {},

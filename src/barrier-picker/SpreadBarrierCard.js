@@ -1,10 +1,10 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import RadioGroup from 'binary-components/lib/RadioGroup';
 import InputGroup from 'binary-components/lib/InputGroup';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import noOfDecimals from 'binary-utils/lib/noOfDecimals';
 
-export default class SpreadBarrierCard extends PureComponent {
+export default class SpreadBarrierCard extends Component {
 
     static propTypes = {
         amountPerPoint: PropTypes.string,

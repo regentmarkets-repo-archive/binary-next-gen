@@ -1,8 +1,8 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import MobileSidebarContainer from '../sidebar/MobileSidebarContainer';
 import MobileToolbarBtn from './MobileToolbarBtn';
 
-export default class MobileToolbarFull extends PureComponent {
+export default class MobileToolbarFull extends Component {
 
 	render() {
 		return (

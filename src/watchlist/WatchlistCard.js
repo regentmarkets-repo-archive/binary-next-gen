@@ -1,8 +1,8 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import P from 'binary-components/lib/P';
 import WatchlistItem from './WatchlistItem';
 
-export default class WatchlistCard extends PureComponent {
+export default class WatchlistCard extends Component {
 
 	static propTypes = {
 		watchlistView: PropTypes.object.isRequired,

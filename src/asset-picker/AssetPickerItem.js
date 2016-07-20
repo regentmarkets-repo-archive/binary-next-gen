@@ -1,9 +1,9 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import classnames from 'classnames';
 import OpenCloseNotice from 'binary-components/lib/OpenCloseNotice';
 import Star from 'binary-components/lib/Star';
 
-export default class AssetPickerItem extends PureComponent {
+export default class AssetPickerItem extends Component {
 
 	static propTypes = {
 		asset: PropTypes.object,

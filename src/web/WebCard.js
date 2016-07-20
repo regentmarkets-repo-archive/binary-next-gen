@@ -1,10 +1,10 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import WebHeader from './WebHeader';
 import Footer from './Footer';
 import WorkspaceContainer from '../workspace/WorkspaceContainer';
 import RealityCheckContainer from '../reality-check/RealityCheckContainer';
 
-export default class WebCard extends PureComponent {
+export default class WebCard extends Component {
 
 	render() {
 		return (

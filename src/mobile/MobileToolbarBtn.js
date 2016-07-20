@@ -1,7 +1,7 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { Link } from 'react-router';
 
-export default class MobileToolbarBtn extends PureComponent {
+export default class MobileToolbarBtn extends Component {
 
 	static propTypes = {
 		to: PropTypes.string.isRequired,

@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import { BinaryChart } from 'binary-charts';
 import { actions } from '../../_store';
 import {
@@ -19,7 +19,7 @@ const chartToDataType = {
     candlestick: 'candles',
 };
 
-export default class TradeViewChart extends PureComponent {
+export default class TradeViewChart extends Component {
 
     static contextTypes = {
         theme: PropTypes.string,

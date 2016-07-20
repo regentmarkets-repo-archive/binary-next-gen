@@ -1,7 +1,7 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Option from 'binary-components/lib/Option';
 
-export default class SecretQuestion extends PureComponent {
+export default class SecretQuestion extends Component {
 
 	static propTypes = {
 		onChange: PropTypes.func,

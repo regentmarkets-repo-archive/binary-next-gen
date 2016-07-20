@@ -1,11 +1,11 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import Button from 'binary-components/lib/Button';
 import InputGroup from 'binary-components/lib/InputGroup';
 import showError from 'binary-utils/lib/showError';
 import showInfo from 'binary-utils/lib/showInfo';
 import * as LiveData from '../_data/LiveData';
 
-export default class SettingsSelfExclusion extends PureComponent {
+export default class SettingsSelfExclusion extends Component {
 
 	static propTypes = {
 		max_balance: PropTypes.number,

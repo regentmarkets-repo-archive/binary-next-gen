@@ -1,7 +1,7 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { Sparklines, SparklinesLine, SparklinesSpots } from 'react-sparklines';
 
-export default class WatchlistSparkline extends PureComponent {
+export default class WatchlistSparkline extends Component {
 
 	static propTypes = {
 		history: PropTypes.object,

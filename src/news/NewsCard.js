@@ -1,10 +1,10 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import ArticlePreview from './ArticlePreview';
 import Article from './Article';
 import { Link } from 'react-router';
 import M from 'binary-components/lib/M';
 
-export default class NewsCard extends PureComponent {
+export default class NewsCard extends Component {
 
     static propTypes = {
         articles: PropTypes.array.isRequired,
