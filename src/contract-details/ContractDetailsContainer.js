@@ -22,18 +22,15 @@ export default class ContractDetailsContainer extends PureComponent {
 
 	componentWillMount() {
 		const { chartData, contract } = this.props;
-		const { ticks } = chartData;
 
-		if (!ticks) {
+		if (!chartData.ticks) {
 			actions.getDataForContract(contract.get('contract_id'), 1, 'all', 'ticks');
 		}
 	}
 
 	render() {
 		return (
-			<ContractDetailsCard
-				{...immutableChildrenToJS(this.props)}
-			/>
+			<ContractDetailsCard {...immutableChildrenToJS(this.props)} />
 		);
 	}
 }

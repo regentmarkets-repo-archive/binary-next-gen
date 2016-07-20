@@ -19,15 +19,8 @@ export default class ContractDetailsCard extends PureComponent {
 
 	render() {
 		const { compact, contract, chartData, pipSize } = this.props;
-		const chartComponent = (
-			<ContractChart
-				contract={contract}
-				chartData={chartData}
-				pipSize={pipSize}
-			/>
-		);
 
-		const detailsComponent = <ContractReceipt contract={contract} />;
+		if (!contract) return null;
 
 		return (
 			<div className="contract-details-card">
@@ -37,17 +30,25 @@ export default class ContractDetailsCard extends PureComponent {
 						contract={contract}
 						chartComponent={
 							<div>
-								{chartComponent}
+								<ContractChart
+									contract={contract}
+									chartData={chartData}
+									pipSize={pipSize}
+								/>
 								<ContractWinLose contract={contract} />
 								<SellAtMarketButton contract={contract} />
 								<ContractValidationError contract={contract} />
 							</div>
 						}
-						detailsComponent={detailsComponent}
+						detailsComponent={<ContractReceipt contract={contract} />}
 					/> :
 					<div className="contract-details">
-						{chartComponent}
-						{detailsComponent}
+						<ContractChart
+							contract={contract}
+							chartData={chartData}
+							pipSize={pipSize}
+						/>
+						<ContractReceipt contract={contract} />
 					</div>
 				}
 			</div>

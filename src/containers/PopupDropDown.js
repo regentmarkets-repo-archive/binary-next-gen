@@ -1,4 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 export default class PopupDropDown extends PureComponent {
 
@@ -28,18 +29,16 @@ export default class PopupDropDown extends PureComponent {
 	render() {
 		const { shown, onClose, children } = this.props;
 
-		if (!shown) return null;
-
 		return (
-			<div>
-				<div
+			<ReactCSSTransitionGroup transitionName="popup" transitionEnterTimeout={200} transitionLeaveTimeout={200}>
+				{!shown ? null : <div
 					className="drop-down"
 					onClick={this.onClickWithin}
 				>
 					{React.cloneElement(children, { onClose })}
-				</div>
-				<div className="full-screen-overlay" onClick={onClose} />
-			</div>
+				</div>}
+				{!shown ? null : <div className="full-screen-overlay" onClick={onClose} />}
+			</ReactCSSTransitionGroup>
 		);
 	}
 }

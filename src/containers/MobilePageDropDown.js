@@ -1,5 +1,7 @@
 import React, { PropTypes, PureComponent } from 'react';
+import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 import MobileToolbarBack from '../mobile/MobileToolbarBack';
+
 
 export default class MobilePageDropDown extends PureComponent {
 
@@ -13,16 +15,17 @@ export default class MobilePageDropDown extends PureComponent {
 	render() {
 		const { shown, onClose, title, children } = this.props;
 		const inverse = false;
-
-		if (!shown) return null;
+		const className = inverse ? 'mobile-page mobile-drop-down inverse' : 'mobile-page mobile-drop-down';
 
 		return (
-			<div className={inverse ? 'mobile-page mobile-drop-down inverse' : 'mobile-page mobile-drop-down'}>
-				<MobileToolbarBack backBtnBarTitle={title} onClick={onClose} />
-				<div className="mobile-content">
-					{React.cloneElement(children, { onClose })}
-				</div>
-			</div>
+			<ReactCSSTransitionGroup transitionName="popup" transitionEnterTimeout={200} transitionLeaveTimeout={200}>
+				{!shown ? null : <div className={className}>
+					<MobileToolbarBack backBtnBarTitle={title} onClick={onClose} />
+					<div className="mobile-content">
+						{React.cloneElement(children, { onClose })}
+					</div>
+				</div>}
+			</ReactCSSTransitionGroup>
 		);
 	}
 }
