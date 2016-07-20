@@ -18,9 +18,9 @@ export default class DropDown extends PureComponent {
 
 	onClickWithin = e => e.stopPropagation();
 
-	closeOnEscape = (evt) => {
+	closeOnEscape = e => {
 		const { onClose } = this.props;
-		if (evt.keyCode === 27 && onClose) {
+		if (e.keyCode === 27 && onClose) {
 			onClose();
 		}
 	}

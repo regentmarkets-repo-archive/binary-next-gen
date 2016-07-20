@@ -17,9 +17,9 @@ export default class Modal extends PureComponent {
 		document.removeEventListener('keydown', this.closeOnEscape, false);
 	}
 
-	closeOnEscape = (evt) => {
+	closeOnEscape = e => {
 		const { onClose } = this.props;
-		if (evt.keyCode === 27 && onClose) {
+		if (e.keyCode === 27 && onClose) {
 			onClose();
 		}
 	}
