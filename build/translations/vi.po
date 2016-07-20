@@ -619,3 +619,139 @@ msgstr ""
 #, fuzzy
 msgid "Digit Stats"
 msgstr "Số phù hợp"
+
+msgid "Favorites"
+msgstr ""
+
+msgid "Open For Trading"
+msgstr ""
+
+#, fuzzy
+msgid "Closed"
+msgstr "Kết thúc"
+
+msgid "Contract ID"
+msgstr ""
+
+msgid "Reference ID"
+msgstr ""
+
+#, fuzzy
+msgid "Entry Spot"
+msgstr "Giá tại thời điểm bắt đầu giao dịch"
+
+#, fuzzy
+msgid "Entry Spot Time"
+msgstr "Giá tại thời điểm bắt đầu giao dịch"
+
+msgid "Potential Payout"
+msgstr ""
+
+#, fuzzy
+msgid "Exit Spot"
+msgstr "Giá tại thời điểm kết thúc giao dịch"
+
+#, fuzzy
+msgid "Exit Spot Time"
+msgstr "Giá tại thời điểm kết thúc giao dịch"
+
+#, fuzzy
+msgid "Sell Price"
+msgstr "Giá bán"
+
+#, fuzzy
+msgid "Sell Time"
+msgstr "Bán"
+
+#, fuzzy
+msgid "Trade Again"
+msgstr "Giao dịch"
+
+msgid "Barrier"
+msgstr ""
+
+msgid "You Won"
+msgstr ""
+
+msgid "You Lost"
+msgstr ""
+
+msgid ""
+"To change your name, date of birth, country of residence, or email, contact "
+"Customer Support."
+msgstr ""
+
+msgid "Cashier is locked per your request. To unlock it, enter your password."
+msgstr ""
+
+msgid "Unlock Cashier"
+msgstr ""
+
+msgid "Time out until"
+msgstr ""
+
+#, fuzzy
+msgid "No transactions for the selected period"
+msgstr "Không có giao dịch nào trong khoảng thời gian này"
+
+msgid "You have no open contracts"
+msgstr ""
+
+msgid "You have no assets in watchlist"
+msgstr ""
+
+msgid "Basic"
+msgstr ""
+
+#, fuzzy
+msgid "Digits"
+msgstr "Số phù hợp"
+
+msgid "Advanced"
+msgstr ""
+
+msgid "Higher"
+msgstr ""
+
+msgid "Lower"
+msgstr ""
+
+#, fuzzy
+msgid "Ends Outside"
+msgstr "Kết thúc Trong/Ngoài"
+
+msgid "Ends Between"
+msgstr ""
+
+msgid "Stays Between"
+msgstr ""
+
+msgid "Goes Outside"
+msgstr ""
+
+#, fuzzy
+msgid "Does Not Touch"
+msgstr "Không chạm"
+
+#, fuzzy
+msgid "Credit / Debit"
+msgstr "Tín dụng/Ghi nợ"
+
+msgid "Last 25 Ticks"
+msgstr ""
+
+#, fuzzy
+msgid "Last 50 Trades"
+msgstr "30 ngày trước"
+
+#, fuzzy
+msgid "Last 100 Trades"
+msgstr "30 ngày trước"
+
+#, fuzzy
+msgid "Last 500 Trades"
+msgstr "30 ngày trước"
+
+#, fuzzy
+msgid "Last 1000 Trades"
+msgstr "30 ngày trước"

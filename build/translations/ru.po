@@ -621,3 +621,139 @@ msgstr ""
 #, fuzzy
 msgid "Digit Stats"
 msgstr "Совпадение цифр"
+
+msgid "Favorites"
+msgstr ""
+
+msgid "Open For Trading"
+msgstr ""
+
+#, fuzzy
+msgid "Closed"
+msgstr "Закрытие"
+
+msgid "Contract ID"
+msgstr ""
+
+msgid "Reference ID"
+msgstr ""
+
+#, fuzzy
+msgid "Entry Spot"
+msgstr "Входная котировка"
+
+#, fuzzy
+msgid "Entry Spot Time"
+msgstr "Входная котировка"
+
+msgid "Potential Payout"
+msgstr ""
+
+#, fuzzy
+msgid "Exit Spot"
+msgstr "Выходная котировка"
+
+#, fuzzy
+msgid "Exit Spot Time"
+msgstr "Выходная котировка"
+
+#, fuzzy
+msgid "Sell Price"
+msgstr "Цена прод."
+
+#, fuzzy
+msgid "Sell Time"
+msgstr "Продать"
+
+#, fuzzy
+msgid "Trade Again"
+msgstr "Начать работу"
+
+msgid "Barrier"
+msgstr ""
+
+msgid "You Won"
+msgstr ""
+
+msgid "You Lost"
+msgstr ""
+
+msgid ""
+"To change your name, date of birth, country of residence, or email, contact "
+"Customer Support."
+msgstr ""
+
+msgid "Cashier is locked per your request. To unlock it, enter your password."
+msgstr ""
+
+msgid "Unlock Cashier"
+msgstr ""
+
+msgid "Time out until"
+msgstr ""
+
+#, fuzzy
+msgid "No transactions for the selected period"
+msgstr "Сделки за выбранный период отсутствуют"
+
+msgid "You have no open contracts"
+msgstr ""
+
+msgid "You have no assets in watchlist"
+msgstr ""
+
+msgid "Basic"
+msgstr ""
+
+#, fuzzy
+msgid "Digits"
+msgstr "Совпадение цифр"
+
+msgid "Advanced"
+msgstr ""
+
+msgid "Higher"
+msgstr ""
+
+msgid "Lower"
+msgstr ""
+
+#, fuzzy
+msgid "Ends Outside"
+msgstr "Закончится внутри/вне"
+
+msgid "Ends Between"
+msgstr ""
+
+msgid "Stays Between"
+msgstr ""
+
+msgid "Goes Outside"
+msgstr ""
+
+#, fuzzy
+msgid "Does Not Touch"
+msgstr "Нет касания"
+
+#, fuzzy
+msgid "Credit / Debit"
+msgstr "Кредит/Дебет"
+
+msgid "Last 25 Ticks"
+msgstr ""
+
+#, fuzzy
+msgid "Last 50 Trades"
+msgstr "Последние 30 дней"
+
+#, fuzzy
+msgid "Last 100 Trades"
+msgstr "Последние 30 дней"
+
+#, fuzzy
+msgid "Last 500 Trades"
+msgstr "Последние 30 дней"
+
+#, fuzzy
+msgid "Last 1000 Trades"
+msgstr "Последние 30 дней"

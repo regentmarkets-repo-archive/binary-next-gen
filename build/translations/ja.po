@@ -459,7 +459,9 @@ msgid "Session duration limit, in minutes"
 msgstr "取引継続時間の制限(分単位)"
 
 msgid "You will be automatically logged out after such time."
-msgstr "設定時間を過ぎると自動的にログアウトします。（例）　10分の場合、10と記入して下さい。(半角)"
+msgstr ""
+"設定時間を過ぎると自動的にログアウトします。（例）　10分の場合、10と記入して"
+"下さい。(半角)"
 
 msgid "Exclude me from the website until"
 msgstr "特定日まで利用禁止（日時単位）"
@@ -595,3 +597,143 @@ msgstr "動画"
 
 msgid "Digit Stats"
 msgstr "数字ステータス"
+
+msgid "Favorites"
+msgstr ""
+
+msgid "Open For Trading"
+msgstr ""
+
+#, fuzzy
+msgid "Closed"
+msgstr "クローズ"
+
+msgid "Contract ID"
+msgstr ""
+
+msgid "Reference ID"
+msgstr ""
+
+#, fuzzy
+msgid "Entry Spot"
+msgstr "エントリー価格"
+
+#, fuzzy
+msgid "Entry Spot Time"
+msgstr "エントリー価格"
+
+#, fuzzy
+msgid "Potential Payout"
+msgstr "期待利益"
+
+#, fuzzy
+msgid "Exit Spot"
+msgstr "終値"
+
+#, fuzzy
+msgid "Exit Spot Time"
+msgstr "終値"
+
+#, fuzzy
+msgid "Sell Price"
+msgstr "決済価格"
+
+#, fuzzy
+msgid "Sell Time"
+msgstr "開始時刻"
+
+#, fuzzy
+msgid "Trade Again"
+msgstr "トレード"
+
+msgid "Barrier"
+msgstr ""
+
+#, fuzzy
+msgid "You Won"
+msgstr "xxxを失いました "
+
+#, fuzzy
+msgid "You Lost"
+msgstr "xxxを失いました "
+
+msgid ""
+"To change your name, date of birth, country of residence, or email, contact "
+"Customer Support."
+msgstr ""
+
+msgid "Cashier is locked per your request. To unlock it, enter your password."
+msgstr ""
+
+msgid "Unlock Cashier"
+msgstr ""
+
+msgid "Time out until"
+msgstr ""
+
+#, fuzzy
+msgid "No transactions for the selected period"
+msgstr "選択された期間のお取引はありません。"
+
+msgid "You have no open contracts"
+msgstr ""
+
+msgid "You have no assets in watchlist"
+msgstr ""
+
+msgid "Basic"
+msgstr ""
+
+#, fuzzy
+msgid "Digits"
+msgstr "数字ステータス"
+
+msgid "Advanced"
+msgstr ""
+
+#, fuzzy
+msgid "Higher"
+msgstr "High"
+
+msgid "Lower"
+msgstr ""
+
+#, fuzzy
+msgid "Ends Outside"
+msgstr "レンジ内/レンジ外"
+
+msgid "Ends Between"
+msgstr ""
+
+msgid "Stays Between"
+msgstr ""
+
+msgid "Goes Outside"
+msgstr ""
+
+#, fuzzy
+msgid "Does Not Touch"
+msgstr "ノータッチ"
+
+#, fuzzy
+msgid "Credit / Debit"
+msgstr "支払/受取"
+
+msgid "Last 25 Ticks"
+msgstr ""
+
+#, fuzzy
+msgid "Last 50 Trades"
+msgstr "直近30日間"
+
+#, fuzzy
+msgid "Last 100 Trades"
+msgstr "直近30日間"
+
+#, fuzzy
+msgid "Last 500 Trades"
+msgstr "直近30日間"
+
+#, fuzzy
+msgid "Last 1000 Trades"
+msgstr "直近30日間"

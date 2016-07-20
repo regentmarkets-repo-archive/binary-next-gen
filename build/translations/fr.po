@@ -731,3 +731,139 @@ msgstr ""
 #, fuzzy
 msgid "Digit Stats"
 msgstr "Chiffre égal"
+
+msgid "Favorites"
+msgstr ""
+
+msgid "Open For Trading"
+msgstr ""
+
+#, fuzzy
+msgid "Closed"
+msgstr "Fermeture"
+
+msgid "Contract ID"
+msgstr ""
+
+msgid "Reference ID"
+msgstr ""
+
+#, fuzzy
+msgid "Entry Spot"
+msgstr "Point d'entrée"
+
+#, fuzzy
+msgid "Entry Spot Time"
+msgstr "Point d'entrée"
+
+msgid "Potential Payout"
+msgstr ""
+
+#, fuzzy
+msgid "Exit Spot"
+msgstr "Point de sortie"
+
+#, fuzzy
+msgid "Exit Spot Time"
+msgstr "Point de sortie"
+
+#, fuzzy
+msgid "Sell Price"
+msgstr "Prix de vente"
+
+#, fuzzy
+msgid "Sell Time"
+msgstr "Vendre"
+
+#, fuzzy
+msgid "Trade Again"
+msgstr "Commerce"
+
+msgid "Barrier"
+msgstr ""
+
+msgid "You Won"
+msgstr ""
+
+msgid "You Lost"
+msgstr ""
+
+msgid ""
+"To change your name, date of birth, country of residence, or email, contact "
+"Customer Support."
+msgstr ""
+
+msgid "Cashier is locked per your request. To unlock it, enter your password."
+msgstr ""
+
+msgid "Unlock Cashier"
+msgstr ""
+
+msgid "Time out until"
+msgstr ""
+
+#, fuzzy
+msgid "No transactions for the selected period"
+msgstr "Il n'y a aucune transaction pour la période sélectionnée"
+
+msgid "You have no open contracts"
+msgstr ""
+
+msgid "You have no assets in watchlist"
+msgstr ""
+
+msgid "Basic"
+msgstr ""
+
+#, fuzzy
+msgid "Digits"
+msgstr "Chiffre égal"
+
+msgid "Advanced"
+msgstr ""
+
+msgid "Higher"
+msgstr ""
+
+msgid "Lower"
+msgstr ""
+
+#, fuzzy
+msgid "Ends Outside"
+msgstr "In/Out"
+
+msgid "Ends Between"
+msgstr ""
+
+msgid "Stays Between"
+msgstr ""
+
+msgid "Goes Outside"
+msgstr ""
+
+#, fuzzy
+msgid "Does Not Touch"
+msgstr "Ne touche pas"
+
+#, fuzzy
+msgid "Credit / Debit"
+msgstr "Crédit/ Débit"
+
+msgid "Last 25 Ticks"
+msgstr ""
+
+#, fuzzy
+msgid "Last 50 Trades"
+msgstr "Les 30 derniers jours"
+
+#, fuzzy
+msgid "Last 100 Trades"
+msgstr "Les 30 derniers jours"
+
+#, fuzzy
+msgid "Last 500 Trades"
+msgstr "Les 30 derniers jours"
+
+#, fuzzy
+msgid "Last 1000 Trades"
+msgstr "Les 30 derniers jours"

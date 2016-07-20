@@ -58,48 +58,6 @@ msgstr "查看"
 msgid "Ref."
 msgstr "参考"
 
-msgid "Start Time"
-msgstr "开始时间"
-
-msgid "Current Spot Time"
-msgstr "当前现价时间"
-
-msgid "End Time"
-msgstr "结束时间"
-
-msgid "Entry Spot"
-msgstr "入市现价"
-
-msgid "Current Spot"
-msgstr "当前现价"
-
-msgid "Exit Spot"
-msgstr "退出现价"
-
-msgid "Indicative Price"
-msgstr "指示性价格"
-
-msgid "Final Price"
-msgstr "最终价格"
-
-msgid "Description"
-msgstr "说明"
-
-msgid "Proceed"
-msgstr "继续"
-
-msgid "Sign in"
-msgstr "登录"
-
-msgid "Please enter your email verification code"
-msgstr "请输入电子邮件验证代码"
-
-msgid "Verify"
-msgstr "验证"
-
-msgid "Close"
-msgstr "收盘"
-
 msgid "Purchase"
 msgstr "买入"
 
@@ -114,27 +72,6 @@ msgstr "买入价格"
 
 msgid "Sale Date"
 msgstr "卖出日期"
-
-msgid "Sorry, we have no payment agents in"
-msgstr "对不起，以下地区我们没有支付代理："
-
-msgid "Deposit commision: "
-msgstr "存款佣金收费： "
-
-msgid "Withdrawal commision: "
-msgstr "取款佣金费用： "
-
-msgid "Withdrawal Failed"
-msgstr "取款失败"
-
-msgid "Confirmation"
-msgstr "交易确认"
-
-msgid "Are you sure you want to withdraw"
-msgstr "确定要提款吗"
-
-msgid "Withdraw"
-msgstr "取款"
 
 msgid "Sale Price"
 msgstr "卖出价格"
@@ -205,17 +142,11 @@ msgstr "借方/贷方"
 msgid "Purchase Time"
 msgstr "买入时间"
 
-msgid "Scale"
-msgstr "比例"
-
 msgid "Back"
 msgstr "返回"
 
 msgid "Place Order"
 msgstr "下订单"
-
-msgid "Purchase for "
-msgstr "买入 "
 
 msgid "{asset} will {type} over next {duration}"
 msgstr "{资产} 将在 {类型}期内{时段}"
@@ -568,6 +499,9 @@ msgstr "入市价格"
 msgid "Exit Price"
 msgstr "平仓价格"
 
+msgid "Indicative Price"
+msgstr "指示性价格"
+
 msgid "Potential Profit"
 msgstr "潜在利润"
 
@@ -579,6 +513,9 @@ msgstr "返回"
 
 msgid "You lost "
 msgstr "您输了 "
+
+msgid "Close"
+msgstr "收盘"
 
 msgid "Low"
 msgstr "低"
@@ -637,6 +574,9 @@ msgstr "不可用"
 msgid "Duration"
 msgstr "期限"
 
+msgid "Start Time"
+msgstr "开始时间"
+
 msgid "Now"
 msgstr "现在"
 
@@ -654,3 +594,195 @@ msgstr "视频"
 
 msgid "Digit Stats"
 msgstr "数字统计"
+
+msgid "Favorites"
+msgstr ""
+
+msgid "Open For Trading"
+msgstr ""
+
+#, fuzzy
+msgid "Closed"
+msgstr "收盘"
+
+msgid "Contract ID"
+msgstr ""
+
+msgid "Reference ID"
+msgstr ""
+
+msgid "Entry Spot"
+msgstr "入市现价"
+
+#, fuzzy
+msgid "Entry Spot Time"
+msgstr "入市现价"
+
+#, fuzzy
+msgid "Potential Payout"
+msgstr "潜在利润"
+
+msgid "Exit Spot"
+msgstr "退出现价"
+
+#, fuzzy
+msgid "Exit Spot Time"
+msgstr "退出现价"
+
+#, fuzzy
+msgid "Sell Price"
+msgstr "卖出价格"
+
+#, fuzzy
+msgid "Sell Time"
+msgstr "开始时间"
+
+#, fuzzy
+msgid "Trade Again"
+msgstr "交易"
+
+msgid "Barrier"
+msgstr ""
+
+#, fuzzy
+msgid "You Won"
+msgstr "您输了 "
+
+#, fuzzy
+msgid "You Lost"
+msgstr "您输了 "
+
+msgid ""
+"To change your name, date of birth, country of residence, or email, contact "
+"Customer Support."
+msgstr ""
+
+msgid "Cashier is locked per your request. To unlock it, enter your password."
+msgstr ""
+
+msgid "Unlock Cashier"
+msgstr ""
+
+msgid "Time out until"
+msgstr ""
+
+#, fuzzy
+msgid "No transactions for the selected period"
+msgstr "选定时间段中无任何交易"
+
+msgid "You have no open contracts"
+msgstr ""
+
+msgid "You have no assets in watchlist"
+msgstr ""
+
+msgid "Basic"
+msgstr ""
+
+#, fuzzy
+msgid "Digits"
+msgstr "数字统计"
+
+msgid "Advanced"
+msgstr ""
+
+#, fuzzy
+msgid "Higher"
+msgstr "高"
+
+msgid "Lower"
+msgstr ""
+
+#, fuzzy
+msgid "Ends Outside"
+msgstr "到期时价格处于某个范围之内/之外"
+
+msgid "Ends Between"
+msgstr ""
+
+msgid "Stays Between"
+msgstr ""
+
+msgid "Goes Outside"
+msgstr ""
+
+#, fuzzy
+msgid "Does Not Touch"
+msgstr "未触及"
+
+#, fuzzy
+msgid "Credit / Debit"
+msgstr "借方/贷方"
+
+msgid "Last 25 Ticks"
+msgstr ""
+
+#, fuzzy
+msgid "Last 50 Trades"
+msgstr "过去30天"
+
+#, fuzzy
+msgid "Last 100 Trades"
+msgstr "过去30天"
+
+#, fuzzy
+msgid "Last 500 Trades"
+msgstr "过去30天"
+
+#, fuzzy
+msgid "Last 1000 Trades"
+msgstr "过去30天"
+
+#~ msgid "Current Spot Time"
+#~ msgstr "当前现价时间"
+
+#~ msgid "End Time"
+#~ msgstr "结束时间"
+
+#~ msgid "Current Spot"
+#~ msgstr "当前现价"
+
+#~ msgid "Final Price"
+#~ msgstr "最终价格"
+
+#~ msgid "Description"
+#~ msgstr "说明"
+
+#~ msgid "Proceed"
+#~ msgstr "继续"
+
+#~ msgid "Sign in"
+#~ msgstr "登录"
+
+#~ msgid "Please enter your email verification code"
+#~ msgstr "请输入电子邮件验证代码"
+
+#~ msgid "Verify"
+#~ msgstr "验证"
+
+#~ msgid "Sorry, we have no payment agents in"
+#~ msgstr "对不起，以下地区我们没有支付代理："
+
+#~ msgid "Deposit commision: "
+#~ msgstr "存款佣金收费： "
+
+#~ msgid "Withdrawal commision: "
+#~ msgstr "取款佣金费用： "
+
+#~ msgid "Withdrawal Failed"
+#~ msgstr "取款失败"
+
+#~ msgid "Confirmation"
+#~ msgstr "交易确认"
+
+#~ msgid "Are you sure you want to withdraw"
+#~ msgstr "确定要提款吗"
+
+#~ msgid "Withdraw"
+#~ msgstr "取款"
+
+#~ msgid "Scale"
+#~ msgstr "比例"
+
+#~ msgid "Purchase for "
+#~ msgstr "买入 "
