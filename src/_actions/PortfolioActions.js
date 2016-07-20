@@ -14,7 +14,7 @@ export const subscribeToOpenContract = contractId =>
         if (!boughtContracts.get(contractId)) {
             return LiveData.api.subscribeToOpenContract(contractId)
                 .then(response => {
-                    if (Object.keys(response.proposal_open_contract) > 0) {
+                    if (Object.keys(response.proposal_open_contract).length > 0) {
                         return response.proposal_open_contract;
                     }
                     return Promise.reject('Contract does not exist');
