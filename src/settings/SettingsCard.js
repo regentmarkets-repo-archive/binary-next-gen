@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import Tab from 'binary-components/lib/Tab';
 import TabList from 'binary-components/lib/TabList';
 import SettingsPersonalDetails from './SettingsPersonalDetails';
@@ -15,7 +15,7 @@ const components = [
 	SettingsLimits,
 ];
 
-export default class SettingsCard extends PureComponent {
+export default class SettingsCard extends Component {
 
     static propTypes = {
         settings: PropTypes.object.isRequired,

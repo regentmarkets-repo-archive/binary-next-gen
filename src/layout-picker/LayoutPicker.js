@@ -1,11 +1,11 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { actions } from '../_store';
 import styles from '../layouts/layouts.css';
 import DropDown from '../containers/DropDown';
 import LayoutButtonPanel from './LayoutButtonPanel';
 import LayoutButton from './LayoutButton';
 
-export default class LayoutPicker extends PureComponent {
+export default class LayoutPicker extends Component {
 
     static propTypes = {
         tradesCount: PropTypes.number.isRequired,

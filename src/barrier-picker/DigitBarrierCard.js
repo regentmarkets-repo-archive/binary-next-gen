@@ -1,8 +1,8 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import Label from 'binary-components/lib/Label';
 import RadioGroup from '../trade/workaround/CustomRadioGroup';
 
-export default class DigitBarrierCard extends PureComponent {
+export default class DigitBarrierCard extends Component {
 
     static propTypes = {
         barrier: PropTypes.oneOfType([

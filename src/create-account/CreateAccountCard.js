@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import P from 'binary-components/lib/P';
 import Button from 'binary-components/lib/Button';
 import Countries from 'binary-components/lib/Countries';
@@ -8,7 +8,7 @@ import LogoSpinner from 'binary-components/lib/LogoSpinner';
 import { api } from '../_data/LiveData';
 import config from '../config';
 
-export default class CrateAccountCard extends PureComponent {
+export default class CrateAccountCard extends Component {
 
     static contextTypes = {
         router: PropTypes.object.isRequired,

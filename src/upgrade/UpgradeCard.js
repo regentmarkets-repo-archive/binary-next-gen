@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import M from 'binary-components/lib/M';
 import LogoSpinner from 'binary-components/lib/LogoSpinner';
 import Legend from 'binary-components/lib/Legend';
@@ -10,7 +10,7 @@ import Countries from 'binary-components/lib/Countries';
 import { api } from '../_data/LiveData';
 import SecretQuestion from './SecretQuestion';
 
-export default class UpgradeCard extends PureComponent {
+export default class UpgradeCard extends Component {
 
 	static propTypes = {
 		activeStep: PropTypes.number.isRequired,

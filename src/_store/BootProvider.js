@@ -1,4 +1,4 @@
-import React, { Children, PureComponent, PropTypes } from 'react';
+import React, { Children, Component, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import { IntlProvider, addLocaleData } from 'react-intl';
 import allTexts from '../_constants/texts';
@@ -20,7 +20,7 @@ const timeFormats = {
 };
 
 @connect(bootSelector)
-export default class BootProvider extends PureComponent {
+export default class BootProvider extends Component {
 
     static propTypes = {
         children: PropTypes.object.isRequired,

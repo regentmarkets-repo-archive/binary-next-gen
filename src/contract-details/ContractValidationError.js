@@ -1,6 +1,6 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 
-export default class ContractValidationError extends PureComponent {
+export default class ContractValidationError extends Component {
 
 	static propTypes = {
 		contract: PropTypes.object.isRequired,

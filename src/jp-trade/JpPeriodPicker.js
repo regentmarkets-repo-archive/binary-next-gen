@@ -1,6 +1,6 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 
-export default class JpPeriodPicker extends PureComponent {
+export default class JpPeriodPicker extends Component {
 
     render() {
         return (

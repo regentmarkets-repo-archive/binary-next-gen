@@ -1,7 +1,7 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import Th from 'binary-components/lib/Th';
 
-export default class WatchlistTableHeader extends PureComponent {
+export default class WatchlistTableHeader extends Component {
 	render() {
 		return (
 			<thead>

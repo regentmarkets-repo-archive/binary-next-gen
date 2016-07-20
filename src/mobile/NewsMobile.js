@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import Tab from 'binary-components/lib/Tab';
 import TabList from 'binary-components/lib/TabList';
 import MobilePage from '../containers/MobilePage';
@@ -10,7 +10,7 @@ const components = [
 	VideoListContainer,
 ];
 
-export default class NewsMobile extends PureComponent {
+export default class NewsMobile extends Component {
 
     constructor(props) {
         super(props);

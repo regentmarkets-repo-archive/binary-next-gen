@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import WatchlistContainer from '../watchlist/WatchlistContainer';
 import TradingTimesContainer from '../trading-times/TradingTimesContainer';
 import AssetIndexContainer from '../asset-index/AssetIndexContainer';
@@ -25,7 +25,7 @@ const components = [
 	SettingsContainer,
 ];
 
-export default class WorkspaceSidePanel extends PureComponent {
+export default class WorkspaceSidePanel extends Component {
 
 	static propTypes = {
 		sideActiveTab: PropTypes.number.isRequired,

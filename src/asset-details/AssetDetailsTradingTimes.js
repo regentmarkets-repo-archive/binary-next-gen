@@ -1,8 +1,8 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import Th from 'binary-components/lib/Th';
 import TradingTimesRow from '../trading-times/TradingTimesRow';
 
-export default class AssetDetailsTradingTimes extends PureComponent {
+export default class AssetDetailsTradingTimes extends Component {
 
 	static propTypes = {
 		times: PropTypes.object,

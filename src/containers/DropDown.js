@@ -1,6 +1,6 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 
-export default class DropDown extends PureComponent {
+export default class DropDown extends Component {
 
 	static propTypes = {
 		shown: PropTypes.bool,

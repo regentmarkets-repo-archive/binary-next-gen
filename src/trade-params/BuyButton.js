@@ -1,7 +1,7 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import Button from 'binary-components/lib/Button';
 
-export default class BuyButton extends PureComponent {
+export default class BuyButton extends Component {
 
     static propTypes = {
         id: PropTypes.string,

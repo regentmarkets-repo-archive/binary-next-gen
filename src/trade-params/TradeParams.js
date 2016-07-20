@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import throttle from 'lodash.throttle';
 import isMobile from 'binary-utils/lib/isMobile';
 import windowResizeEvent from 'binary-utils/lib/windowResizeEvent';
@@ -22,7 +22,7 @@ import BuyButton from './BuyButton';
 
 import * as LiveData from '../_data/LiveData';
 import { changeAsset, changeBarrier1, changeBarrier2, changeCategory, changeStartDate,
-    changeDurationUnit, changeAmount, changeAmountPerPoint } from './TradeParamsCascadingUpdates';
+    changeDurationUnit, changeAmount } from './TradeParamsCascadingUpdates';
 import debounce from 'lodash.debounce';
 
 /**
@@ -59,7 +59,7 @@ const errorToShow = errorObj => {
     return purchaseError;
 };
 
-export default class TradeParams extends PureComponent {
+export default class TradeParams extends Component {
 
     static defaultProps = {
         type: 'full',
@@ -173,6 +173,21 @@ export default class TradeParams extends PureComponent {
         this.updateTradeParams({ basis: e.target.value });
     }
 
+    onPurchase = () => {
+        const { index, onPurchaseHook } = this.props;
+        actions.purchaseByTradeId(index).then(onPurchaseHook);
+    }
+
+    onAmountChange = e => {
+        actions.updateTradeUIState(this.props.index, 'disabled', true);
+        this.debouncedUpdateAmount(e);
+    }
+
+    onCloseModal = () => {
+        const { index } = this.props;
+        actions.updateTradeError(index, 'purchaseError', undefined);
+    }
+
     debouncedUpdateAmount = debounce(e => {
         const inputValue = e.target.value;
         const { index } = this.props;
@@ -184,39 +199,6 @@ export default class TradeParams extends PureComponent {
         const updatedAmount = changeAmount(inputValue);
         this.updateTradeParams(updatedAmount);
     }, isMobile ? 300 : 150, { leading: true, trailing: true })
-
-    onAmountChange = e => {
-        actions.updateTradeUIState(this.props.index, 'disabled', true);
-        this.debouncedUpdateAmount(e);
-    }
-
-    onAmountPerPointChange = e => {
-        const inputValue = e.target.value;
-        const updatedAmountPerPoint = changeAmountPerPoint(inputValue);
-        this.updateTradeParams(updatedAmountPerPoint);
-    }
-
-    onCloseModal = () => {
-        const { index } = this.props;
-        actions.updateTradeError(index, 'purchaseError', undefined);
-    }
-
-    onStopTypeChange = e => {
-        this.updateTradeParams({ stopType: e.target.value });
-    }
-
-    onStopLossChange = e => {
-        this.updateTradeParams({ stopLoss: e.target.value });
-    }
-
-    onStopProfitChange = e => {
-        this.updateTradeParams({ stopProfit: e.target.value });
-    }
-
-    onPurchase = () => {
-        const { index, onPurchaseHook } = this.props;
-        actions.purchaseByTradeId(index).then(onPurchaseHook);
-    }
 
     throttledProposalSubscription =
         throttle(index => actions.updatePriceProposalSubscription(index), isMobile ? 500 : 300);
@@ -241,6 +223,24 @@ export default class TradeParams extends PureComponent {
         const { dynamicKey } = this.state;
         this.setState({ dynamicKey: dynamicKey + 1 });
     }
+
+    /* onAmountPerPointChange = e => {
+        const inputValue = e.target.value;
+        const updatedAmountPerPoint = changeAmountPerPoint(inputValue);
+        this.updateTradeParams(updatedAmountPerPoint);
+    }
+
+    onStopTypeChange = e => {
+        this.updateTradeParams({ stopType: e.target.value });
+    }
+
+    onStopLossChange = e => {
+        this.updateTradeParams({ stopLoss: e.target.value });
+    }
+
+    onStopProfitChange = e => {
+        this.updateTradeParams({ stopProfit: e.target.value });
+    } */
 
     render() {
         const {

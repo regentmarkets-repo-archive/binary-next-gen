@@ -1,8 +1,8 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import Th from 'binary-components/lib/Th';
 import DailyPricesRow from './DailyPricesRow';
 
-export default class DailyPricesTable extends PureComponent {
+export default class DailyPricesTable extends Component {
 
     static propTypes = {
         dailyPrices: PropTypes.array.isRequired,

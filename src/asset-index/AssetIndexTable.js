@@ -1,7 +1,7 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import AssetIndexRow from './AssetIndexRow';
 
-export default class AssetIndexTable extends PureComponent {
+export default class AssetIndexTable extends Component {
 
     static propTypes = {
         headers: PropTypes.array.isRequired,

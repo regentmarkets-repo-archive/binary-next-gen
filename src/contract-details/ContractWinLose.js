@@ -1,9 +1,9 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import toMoney from 'binary-utils/lib/toMoney';
 import M from 'binary-components/lib/M';
 import NumberColored from 'binary-components/lib/NumberColored';
 
-export default class ContractWinLose extends PureComponent {
+export default class ContractWinLose extends Component {
 
 	static propTypes = {
 		contract: PropTypes.object.isRequired,

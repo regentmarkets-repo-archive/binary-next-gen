@@ -1,11 +1,11 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import classNames from 'classnames';
 import sequence from 'binary-utils/lib/sequence';
 import { actions } from '../_store';
 import * as layouts from '../layouts';
 import styles from '../layouts/layouts.css';
 
-export default class LayoutButton extends PureComponent {
+export default class LayoutButton extends Component {
 
     static propTypes = {
         isActive: PropTypes.bool,

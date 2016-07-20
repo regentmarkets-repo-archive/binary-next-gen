@@ -1,8 +1,8 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import Label from 'binary-components/lib/Label';
 import NumericInput from 'binary-components/lib/NumericInput';
 
-export default class BarrierCard extends PureComponent {
+export default class BarrierCard extends Component {
 
     static propTypes = {
         barrier: PropTypes.oneOfType([

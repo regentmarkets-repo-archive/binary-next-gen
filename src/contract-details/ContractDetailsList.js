@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import ContractDetailString from './ContractDetailString';
 import ContractDetailTime from './ContractDetailTime';
 import ContractDetailMoney from './ContractDetailMoney';
@@ -10,7 +10,7 @@ const transactionIdsToString = ({ buy, sell }) =>
 const isDigitTrade = contract =>
 	contract.contract_type && contract.contract_type.includes('DIGIT');
 
-export default class ContractDetailsList extends PureComponent {
+export default class ContractDetailsList extends Component {
 
 	static propTypes = {
 		contract: PropTypes.object.isRequired,

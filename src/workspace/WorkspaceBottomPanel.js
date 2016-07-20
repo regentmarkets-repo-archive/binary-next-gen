@@ -1,6 +1,6 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 
-export default class WorkspaceBottomPanel extends PureComponent {
+export default class WorkspaceBottomPanel extends Component {
 
 	static propTypes = {
 		workspace: PropTypes.object.isRequired,

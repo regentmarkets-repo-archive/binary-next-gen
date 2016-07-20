@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import M from 'binary-components/lib/M';
 import Button from 'binary-components/lib/Button';
 import { actions } from '../_store';
@@ -6,7 +6,7 @@ import * as LiveData from '../_data/LiveData';
 import VirtualTopUpConfirmation from './VirtualTopUpConfirmation';
 import Modal from '../containers/Modal';
 
-export default class SettingsGeneral extends PureComponent {
+export default class SettingsGeneral extends Component {
 
 	static propTypes = {
 		loginid: PropTypes.string.isRequired,

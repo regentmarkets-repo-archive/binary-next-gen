@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import M from 'binary-components/lib/M';
 import Td from 'binary-components/lib/Td';
 import P from 'binary-components/lib/P';
@@ -6,7 +6,7 @@ import Button from 'binary-components/lib/Button';
 import secsToTimeString from 'binary-utils/lib/secondsToTimeString';
 import TradingStatsCard from './TradingStatsCard';
 
-export default class RealityCheckSummaryCard extends PureComponent {
+export default class RealityCheckSummaryCard extends Component {
 
     static propTypes = {
         confirmIntervalUpdate: PropTypes.func.isRequired,

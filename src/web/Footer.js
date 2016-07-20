@@ -1,9 +1,9 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import FullScreenSwitcher from './FullScreenSwitcher';
 import ClockContainer from './ClockContainer';
 import LanguagePicker from './LanguagePicker';
 
-export default class Footer extends PureComponent {
+export default class Footer extends Component {
 
 	constructor(props) {
 		super(props);

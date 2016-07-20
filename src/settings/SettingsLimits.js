@@ -1,10 +1,10 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import M from 'binary-components/lib/M';
 import P from 'binary-components/lib/P';
 import Td from 'binary-components/lib/Td';
 import NumberPlain from 'binary-components/lib/NumberPlain';
 
-export default class SettingsLimits extends PureComponent {
+export default class SettingsLimits extends Component {
 
 	static propTypes = {
 		account_balance: PropTypes.number.isRequired,

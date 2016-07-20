@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import { connect } from 'react-redux';
 import windowResizeEvent from 'binary-utils/lib/windowResizeEvent';
 import { actions } from '../../_store';
@@ -9,7 +9,7 @@ import styles from '../../layouts/layouts.css';
 import { layoutSelector } from './LayoutSelector';
 
 @connect(layoutSelector)
-export default class TradesLayouts extends PureComponent {
+export default class TradesLayouts extends Component {
 
     static propTypes = {
         layoutN: PropTypes.number.isRequired,

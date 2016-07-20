@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import InputGroup from 'binary-components/lib/InputGroup';
 
 const AssetSearch = ({ onChange }) => (

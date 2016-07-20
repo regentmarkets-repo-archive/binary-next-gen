@@ -1,8 +1,8 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import M from 'binary-components/lib/M';
 import LabeledText from 'binary-components/lib/LabeledText';
 
-export default class ContractStatsCard extends PureComponent {
+export default class ContractStatsCard extends Component {
 
     static propTypes = {
         proposal: PropTypes.object,

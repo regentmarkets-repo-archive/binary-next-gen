@@ -1,7 +1,7 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import M from 'binary-components/lib/M';
 
-export default class ContractDetailCustom extends PureComponent {
+export default class ContractDetailCustom extends Component {
 
 	static propTypes = {
 		label: PropTypes.string.isRequired,

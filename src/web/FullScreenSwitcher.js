@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import Button from 'binary-components/lib/Button';
 import requestFullScreen from 'binary-utils/lib/requestFullscreen';
 import exitFullScreen from 'binary-utils/lib/exitFullScreen';
@@ -6,7 +6,7 @@ import addFullScreenEventListener from 'binary-utils/lib/addFullscreenEventListe
 import removeFullScreenEventListener from 'binary-utils/lib/removeFullscreenEventListener';
 import { trackEvent } from 'binary-utils/lib/Analytics';
 
-export default class FullScreenSwitcher extends PureComponent {
+export default class FullScreenSwitcher extends Component {
 
 	constructor(props) {
 		super(props);

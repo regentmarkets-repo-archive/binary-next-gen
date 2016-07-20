@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import TabList from 'binary-components/lib/TabList';
 import Tab from 'binary-components/lib/Tab';
 import contractCategoryToText from 'binary-utils/lib/contractCategoryToText';
@@ -15,7 +15,7 @@ import {
 } from './TradeTypePickerUtils';
 import { changeCategory, changeType } from '../trade-params/TradeParamsCascadingUpdates';
 
-export default class TradeTypePicker extends PureComponent {
+export default class TradeTypePicker extends Component {
 
     static propTypes = {
         contract: PropTypes.object.isRequired,

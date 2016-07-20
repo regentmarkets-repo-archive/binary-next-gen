@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { Component, PropTypes } from 'react';
 import CustomRadioButton from './CustomRadioButton';
 import classnames from 'classnames';
 
@@ -7,7 +7,7 @@ import classnames from 'classnames';
  * The issue is open here
  * https://github.com/facebook/react/issues/5897
  */
-export default class CustomRadioGroup extends PureComponent {
+export default class CustomRadioGroup extends Component {
     static propTypes = {
         className: PropTypes.string,
         options: PropTypes.array,

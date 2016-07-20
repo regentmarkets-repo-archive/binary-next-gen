@@ -1,8 +1,8 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import SettingsDetails from './SettingsDetails';
 import SettingsAddress from './SettingsAddress';
 
-export default class SettingsPersonalDetails extends PureComponent {
+export default class SettingsPersonalDetails extends Component {
 
 	static propTypes = {
 		loginid: PropTypes.string.isRequired,

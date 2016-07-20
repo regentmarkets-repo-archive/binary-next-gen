@@ -1,11 +1,11 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import Label from 'binary-components/lib/Label';
 import DownArrow from 'binary-components/lib/DownArrow';
 import DropDown from '../containers/DropDown';
 import { actions } from '../_store';
 import AssetPickerContainer from './AssetPickerContainer';
 
-export default class AssetPickerDropDown extends PureComponent {
+export default class AssetPickerDropDown extends Component {
 
     static propTypes = {
         compact: PropTypes.bool,

@@ -1,8 +1,8 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import StatementFilter from './StatementFilter';
 import StatementTable from './StatementTable';
 
-export default class StatementCard extends PureComponent {
+export default class StatementCard extends Component {
 
 	static propTypes = {
 		currency: PropTypes.string.isRequired,

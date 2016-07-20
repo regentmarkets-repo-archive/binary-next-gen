@@ -1,7 +1,7 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import AssetsPerSubmarket from './AssetsPerSubmarket';
 
-export default class AssetPickerList extends PureComponent {
+export default class AssetPickerList extends Component {
 
 	static propTypes = {
 		assets: PropTypes.object.isRequired,

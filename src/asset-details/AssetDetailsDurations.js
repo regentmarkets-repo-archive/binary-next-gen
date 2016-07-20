@@ -1,7 +1,7 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import Th from 'binary-components/lib/Th';
 
-export default class AssetDetailsDurations extends PureComponent {
+export default class AssetDetailsDurations extends Component {
 
 	static propTypes = {
 		durations: PropTypes.array,

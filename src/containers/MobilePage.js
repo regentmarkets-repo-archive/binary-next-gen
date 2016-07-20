@@ -1,8 +1,8 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import MobileToolbarFull from '../mobile/MobileToolbarFull';
 import MobileToolbarBack from '../mobile/MobileToolbarBack';
 
-export default class MobilePage extends PureComponent {
+export default class MobilePage extends Component {
 
 	static propTypes = {
 		backBtnBarTitle: PropTypes.string,

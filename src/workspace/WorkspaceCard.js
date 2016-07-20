@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import Resizer from 'binary-components/lib/Resizer';
 import { actions } from '../_store';
 import TradesLayout from '../trade/browser/TradesLayout';
@@ -6,7 +6,7 @@ import WorkspaceSidePanel from './WorkspaceSidePanel';
 import WorkspaceTabs from './WorkspaceTabs';
 import ContractDetailsModal from './ContractDetailsModal';
 
-export default class WorkspaceCard extends PureComponent {
+export default class WorkspaceCard extends Component {
 
 	static propTypes = {
 		workspace: PropTypes.object.isRequired,

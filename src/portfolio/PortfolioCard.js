@@ -1,10 +1,10 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PropTypes, Component } from 'react';
 import P from 'binary-components/lib/P';
 import { actions } from '../_store';
 import PortfolioList from './PortfolioList';
 import showError from 'binary-utils/lib/showError';
 
-export default class PortfolioCard extends PureComponent {
+export default class PortfolioCard extends Component {
 
 	static propTypes = {
 		compact: PropTypes.bool,
