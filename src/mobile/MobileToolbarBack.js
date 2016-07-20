@@ -1,11 +1,11 @@
 import React, { PropTypes, PureComponent } from 'react';
-import { Link } from 'react-router';
 import M from 'binary-components/lib/M';
 
 export default class MobileToolbarBack extends PureComponent {
 
 	static propTypes = {
 		backBtnBarTitle: PropTypes.string,
+		onClick: PropTypes.func,
 	};
 
 	onClickBack = e => {
@@ -14,19 +14,17 @@ export default class MobileToolbarBack extends PureComponent {
 	};
 
 	render() {
-		const { backBtnBarTitle } = this.props;
+		const { backBtnBarTitle, onClick } = this.props;
 
 		return (
 			<div className="mobile-toolbar">
-				<Link
-					to={'/'}
-					activeClassName="active"
+				<div
 					className="mobile-back-btn"
-					onClick={this.onClickBack}
+					onClick={onClick || this.onClickBack}
 				>
 					<img className="back-btn" src="img/arrow-back.svg" alt="Back" />
 					<M m={backBtnBarTitle} />
-				</Link>
+				</div>
 			</div>
 		);
 	}

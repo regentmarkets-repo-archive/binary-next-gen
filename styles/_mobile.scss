@@ -12,6 +12,13 @@
     flex-direction: column;
 }
 
+.mobile-drop-down {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: white;
+}
+
 .mobile-content {
     min-width: 320px;
     flex: 1;
