@@ -16,7 +16,8 @@ export default class PortfolioItem extends PureComponent {
 
     render() {
         const { contract } = this.props;
-
+        const backendFailure = contract.validation_error && Object.keys(contract).length < 3;
+        if (backendFailure) return null;
         return (
             <tr className="portfolio-row" onClick={this.onViewDetailsClicked}>
                 <td>{contract.transaction_ids && contract.transaction_ids.buy}</td>
