@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-07-14 14:30+0000\n"
+"PO-Revision-Date: 2016-07-21 10:04+0000\n"
 "Last-Translator: Haruna Sekiya <hrnmyrn@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/ja/>\n"
@@ -599,141 +599,120 @@ msgid "Digit Stats"
 msgstr "数字ステータス"
 
 msgid "Favorites"
-msgstr ""
+msgstr "お気に入り"
 
 msgid "Open For Trading"
 msgstr ""
 
-#, fuzzy
 msgid "Closed"
-msgstr "クローズ"
+msgstr "終了"
 
 msgid "Contract ID"
-msgstr ""
+msgstr "トレード ID"
 
 msgid "Reference ID"
-msgstr ""
+msgstr "約定 ID"
 
-#, fuzzy
 msgid "Entry Spot"
 msgstr "エントリー価格"
 
-#, fuzzy
 msgid "Entry Spot Time"
 msgstr "エントリー価格"
 
-#, fuzzy
 msgid "Potential Payout"
-msgstr "期待利益"
+msgstr "ペイアウト"
 
-#, fuzzy
 msgid "Exit Spot"
 msgstr "終値"
 
-#, fuzzy
 msgid "Exit Spot Time"
-msgstr "終値"
+msgstr "判定レート時間"
 
-#, fuzzy
 msgid "Sell Price"
-msgstr "決済価格"
+msgstr "売却"
 
-#, fuzzy
 msgid "Sell Time"
-msgstr "開始時刻"
+msgstr "売却時間"
 
-#, fuzzy
 msgid "Trade Again"
 msgstr "トレード"
 
 msgid "Barrier"
-msgstr ""
+msgstr "バリア"
 
-#, fuzzy
 msgid "You Won"
-msgstr "xxxを失いました "
+msgstr "条件が満たされました"
 
-#, fuzzy
 msgid "You Lost"
-msgstr "xxxを失いました "
+msgstr "条件が満たされませんでした"
 
 msgid ""
 "To change your name, date of birth, country of residence, or email, contact "
 "Customer Support."
-msgstr ""
+msgstr "氏名、生年月日、居住国、メールアドレスの変更は、カスタマーサポートまでご連絡ください。"
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
-msgstr ""
+msgstr "リクエストに従い、入出金をロックしました。解除するにはパスワードをご入力ください。"
 
 msgid "Unlock Cashier"
-msgstr ""
+msgstr "入出金ロック解除"
 
 msgid "Time out until"
-msgstr ""
+msgstr "xxxまで利用禁止"
 
-#, fuzzy
 msgid "No transactions for the selected period"
-msgstr "選択された期間のお取引はありません。"
+msgstr "選択された期間のお取引はありません"
 
 msgid "You have no open contracts"
-msgstr ""
+msgstr "オープン中のトレードはありません"
 
 msgid "You have no assets in watchlist"
-msgstr ""
+msgstr "ウォッチリストに資産がありません"
 
 msgid "Basic"
-msgstr ""
+msgstr "初級"
 
-#, fuzzy
 msgid "Digits"
 msgstr "数字ステータス"
 
 msgid "Advanced"
-msgstr ""
+msgstr "上級"
 
-#, fuzzy
 msgid "Higher"
 msgstr "High"
 
 msgid "Lower"
-msgstr ""
+msgstr "LOW"
 
-#, fuzzy
 msgid "Ends Outside"
-msgstr "レンジ内/レンジ外"
+msgstr "END-OUT"
 
 msgid "Ends Between"
-msgstr ""
+msgstr "END-IN"
 
 msgid "Stays Between"
-msgstr ""
+msgstr "STAY-IN"
 
 msgid "Goes Outside"
-msgstr ""
+msgstr "BREAK-OUT"
 
-#, fuzzy
 msgid "Does Not Touch"
-msgstr "ノータッチ"
+msgstr "NO-TOUCH"
 
-#, fuzzy
 msgid "Credit / Debit"
 msgstr "支払/受取"
 
 msgid "Last 25 Ticks"
-msgstr ""
+msgstr "直近 25 Tick"
 
-#, fuzzy
 msgid "Last 50 Trades"
-msgstr "直近30日間"
+msgstr "直近 50トレード"
 
-#, fuzzy
 msgid "Last 100 Trades"
-msgstr "直近30日間"
+msgstr "直近 100トレード"
 
-#, fuzzy
 msgid "Last 500 Trades"
-msgstr "直近30日間"
+msgstr "直近 500トレード"
 
-#, fuzzy
 msgid "Last 1000 Trades"
-msgstr "直近30日間"
+msgstr "直近 1000トレード"
