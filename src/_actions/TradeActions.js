@@ -82,8 +82,8 @@ export const updateTradeError = (index, errorID, error) => ({
     error,
 });
 
-export const updatePriceProposalSubscription = (tradeID, trade) => {
-    const thunk = (dispatch, getState) => {
+export const updatePriceProposalSubscription = (tradeID, trade) =>
+    (dispatch, getState) => {
         dispatch(updateTradeUIState(tradeID, 'disabled', true));
         if (!getState().tradesParams.get(tradeID)) {
             return;
@@ -149,13 +149,6 @@ export const updatePriceProposalSubscription = (tradeID, trade) => {
             }
         ).then(() => dispatch(updateTradeUIState(tradeID, 'disabled', false)));
     };
-
-    thunk.meta = {
-        throttle: 300,
-    };
-
-    return thunk;
-};
 
 export const resubscribeAllPriceProposal = () =>
     (dispatch, getState) => {
