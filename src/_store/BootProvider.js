@@ -1,5 +1,6 @@
 import React, { Children, PureComponent, PropTypes } from 'react';
 import { connect } from 'react-redux';
+import Intl from 'intl';
 import { IntlProvider, addLocaleData } from 'react-intl';
 import allTexts from '../_constants/texts';
 import locale from '../_constants/languageLocaleMap';
