@@ -21,9 +21,7 @@ import AssetPickerDropDown from '../asset-picker/AssetPickerDropDown';
 import BuyButton from './BuyButton';
 
 import * as LiveData from '../_data/LiveData';
-import { changeAsset, changeBarrier1, changeBarrier2, changeCategory, changeStartDate,
-    changeDurationUnit, changeAmount, changeAmountPerPoint } from './TradeParamsCascadingUpdates';
-import debounce from 'lodash.debounce';
+import { changeAsset, changeCategory } from './TradeParamsCascadingUpdates';
 
 /**
  * This UI is coded with a few assumptions, which should always be true, this comments serves as a future reference
@@ -130,87 +128,9 @@ export default class TradeParams extends PureComponent {
         this.clearTradeError();
     }
 
-    onStartDateChange = epoch => {
-        const { contract, tradeParams } = this.props;
-        const updatedStartDate = changeStartDate(epoch, contract, tradeParams);
-        this.updateTradeParams(updatedStartDate);
-    }
-
-    onDurationChange = e => {
-        this.updateTradeParams({ duration: e.target.value });
-    }
-
-    onDurationUnitChange = e => {
-        const newUnit = e.target.value;
-        const { contract, tradeParams } = this.props;
-        const updatedDurationUnit = changeDurationUnit(newUnit, contract, tradeParams);
-        this.updateTradeParams(updatedDurationUnit);
-    }
-
-    onDurationError = err => {
-        const { index } = this.props;
-        actions.updateTradeError(index, 'durationError', err);
-    }
-
-    onBarrier1Change = e => {
-        const inputValue = e.target.value;
-        const updatedBarrier1 = changeBarrier1(inputValue);
-        this.updateTradeParams(updatedBarrier1);
-    }
-
-    onBarrier2Change = e => {
-        const inputValue = e.target.value;
-        const updatedBarrier2 = changeBarrier2(inputValue);
-        this.updateTradeParams(updatedBarrier2);
-    }
-
-    onBarrierError = err => {
-        const { index } = this.props;
-        actions.updateTradeError(index, 'barrierError', err);
-    }
-
-    onBasisChange = e => {
-        this.updateTradeParams({ basis: e.target.value });
-    }
-
-    debouncedUpdateAmount = debounce(e => {
-        const inputValue = e.target.value;
-        const { index } = this.props;
-        if (inputValue > 500) {                  // TODO: temporary to control stake amount
-            actions.updateTradeError(index, 'stakeError', 'Stake cannot be more than 500');
-            return;
-        }
-        actions.updateTradeError(index, 'stakeError', undefined);
-        const updatedAmount = changeAmount(inputValue);
-        this.updateTradeParams(updatedAmount);
-    }, isMobile ? 300 : 150, { leading: true, trailing: true })
-
-    onAmountChange = e => {
-        actions.updateTradeUIState(this.props.index, 'disabled', true);
-        this.debouncedUpdateAmount(e);
-    }
-
-    onAmountPerPointChange = e => {
-        const inputValue = e.target.value;
-        const updatedAmountPerPoint = changeAmountPerPoint(inputValue);
-        this.updateTradeParams(updatedAmountPerPoint);
-    }
-
     onCloseModal = () => {
         const { index } = this.props;
         actions.updateTradeError(index, 'purchaseError', undefined);
-    }
-
-    onStopTypeChange = e => {
-        this.updateTradeParams({ stopType: e.target.value });
-    }
-
-    onStopLossChange = e => {
-        this.updateTradeParams({ stopLoss: e.target.value });
-    }
-
-    onStopProfitChange = e => {
-        this.updateTradeParams({ stopProfit: e.target.value });
     }
 
     onPurchase = () => {
@@ -302,7 +222,7 @@ export default class TradeParams extends PureComponent {
                         barrier={+tradeParams.barrier}
                         barrierInfo={barriers && barriers.tick[0]}
                         index={index}
-                        onBarrierChange={this.onBarrier1Change}
+                        onUpdateTradeParams={this.updateTradeParams}
                     />
                 }
                 {/* showSpreadBarrier &&
@@ -311,13 +231,10 @@ export default class TradeParams extends PureComponent {
                         stopLoss={tradeParams.stopLoss}
                         stopProfit={tradeParams.stopProfit}
                         stopType={tradeParams.stopType}
-                        amountPerPointChange={this.onAmountPerPointChange}
                         currency={currency}
                         index={index}
                         spreadInfo={contractForType.spread}
-                        stopTypeChange={this.onStopTypeChange}
-                        stopLossChange={this.onStopLossChange}
-                        stopProfitChange={this.onStopProfitChange}
+                        onUpdateTradeParams={this.updateTradeParams}
                     />
                 */}
                 {showBarrier &&
@@ -328,10 +245,8 @@ export default class TradeParams extends PureComponent {
                         barrierType={tradeParams.barrierType}
                         isIntraDay={isIntraDay}
                         pipSize={pipSize}
-                        onBarrier1Change={this.onBarrier1Change}
-                        onBarrier2Change={this.onBarrier2Change}
                         spot={proposal && +proposal.spot}
-                        onError={this.onBarrierError}
+                        onUpdateTradeParams={this.updateTradeParams}
                     />
                 }
                 {showDuration && !showSpreadBarrier &&
@@ -341,27 +256,29 @@ export default class TradeParams extends PureComponent {
                         durationUnit={tradeParams.durationUnit}
                         forwardStartingDuration={contractForType.forwardStartingDuration}
                         options={contractForType.durations}
-                        onDurationChange={this.onDurationChange}
-                        onUnitChange={this.onDurationUnitChange}
-                        onError={this.onDurationError}
                         index={index}
+                        onUpdateTradeParams={this.updateTradeParams}
+                        contract={contract}
+                        tradeParams={tradeParams}
                     />
                 }
                 {showDuration && !showSpreadBarrier && contractForType.forwardStartingDuration &&
                     <ForwardStartingOptions
                         dateStart={tradeParams.dateStart}
                         forwardStartingDuration={contractForType.forwardStartingDuration}
-                        onStartDateChange={this.onStartDateChange}
                         options={contractForType.durations}
                         index={index}
+                        contract={contract}
+                        tradeParams={tradeParams}
+                        onUpdateTradeParams={this.updateTradeParams}
                     />
                 }
                 {!showSpreadBarrier &&
                     <StakeCard
                         amount={+tradeParams.amount}
                         isVirtual={false}
-                        onAmountChange={this.onAmountChange}
-                        onBasisChange={this.onBasisChange}
+                        onUpdateTradeParams={this.updateTradeParams}
+                        index={index}
                     />
                 }
                 <PayoutCard

@@ -3,34 +3,45 @@ import RadioGroup from 'binary-components/lib/RadioGroup';
 import InputGroup from 'binary-components/lib/InputGroup';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import noOfDecimals from 'binary-utils/lib/noOfDecimals';
+import { changeAmountPerPoint } from '../trade-params/TradeParamsCascadingUpdates';
 
 export default class SpreadBarrierCard extends PureComponent {
 
     static propTypes = {
         amountPerPoint: PropTypes.string,
-        amountPerPointChange: PropTypes.func,
         currency: PropTypes.string,
         index: PropTypes.number,
         stopLoss: PropTypes.number,
-        stopLossChange: PropTypes.func,
         stopProfit: PropTypes.number,
-        stopProfitChange: PropTypes.func,
         stopType: PropTypes.string,
-        stopTypeChange: PropTypes.func,
         spreadInfo: PropTypes.object,
+        onUpdateTradeParams: PropTypes.func,
     };
 
+    onStopTypeChange = e => {
+        this.updateTradeParams({ stopType: e.target.value });
+    }
+
+    onStopLossChange = e => {
+        this.updateTradeParams({ stopLoss: e.target.value });
+    }
+
+    onStopProfitChange = e => {
+        this.updateTradeParams({ stopProfit: e.target.value });
+    }
+    onAmountPerPointChange = e => {
+        const { onUpdateTradeParams } = this.props;
+        const inputValue = e.target.value;
+        const updatedAmountPerPoint = changeAmountPerPoint(inputValue);
+        onUpdateTradeParams(updatedAmountPerPoint);
+    }
     render() {
         const {
             amountPerPoint,
-            amountPerPointChange,
             currency,
             index,
             stopProfit,
-            stopProfitChange,
             stopLoss,
-            stopLossChange,
-            stopTypeChange,
             spreadInfo,
             stopType,
             } = this.props;
@@ -46,7 +57,7 @@ export default class SpreadBarrierCard extends PureComponent {
                     type="number"
                     label={`Amount per point (${currency})`}
                     value={amountPerPoint}
-                    onChange={amountPerPointChange}
+                    onChange={this.onAmountPerPointChange}
                     step="0.01"
                 />
                 <ErrorMsg
@@ -57,19 +68,19 @@ export default class SpreadBarrierCard extends PureComponent {
                     name={'spread-param' + index}
                     options={stopTypeOptions}
                     value={stopType}
-                    onChange={stopTypeChange}
+                    onChange={this.onStopTypeChange}
                 />
                 <InputGroup
                     type="number"
                     label="Stop loss"
                     value={stopLoss}      // TODO: hardcode default as backend return wrong data
-                    onChange={stopLossChange}
+                    onChange={this.onStopLossChange}
                 />
                 <InputGroup
                     type="number"
                     label="Stop profit"
                     value={stopProfit}
-                    onChange={stopProfitChange}
+                    onChange={this.onStopProfitChange}
                 />
             </div>
         );
