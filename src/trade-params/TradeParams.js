@@ -59,6 +59,8 @@ const errorToShow = errorObj => {
     return purchaseError;
 };
 
+const debounceForMobileAndWeb = func => debounce(func, isMobile ? 300 : 150, { leading: true, trailing: true });
+
 export default class TradeParams extends PureComponent {
 
     static defaultProps = {
@@ -152,17 +154,17 @@ export default class TradeParams extends PureComponent {
         actions.updateTradeError(index, 'durationError', err);
     }
 
-    onBarrier1Change = e => {
+    onBarrier1Change = debounceForMobileAndWeb(e => {
         const inputValue = e.target.value;
         const updatedBarrier1 = changeBarrier1(inputValue);
         this.updateTradeParams(updatedBarrier1);
-    }
+    })
 
-    onBarrier2Change = e => {
+    onBarrier2Change = debounceForMobileAndWeb(e => {
         const inputValue = e.target.value;
         const updatedBarrier2 = changeBarrier2(inputValue);
         this.updateTradeParams(updatedBarrier2);
-    }
+    })
 
     onBarrierError = err => {
         const { index } = this.props;
@@ -173,7 +175,7 @@ export default class TradeParams extends PureComponent {
         this.updateTradeParams({ basis: e.target.value });
     }
 
-    debouncedUpdateAmount = debounce(e => {
+    debouncedUpdateAmount = debounceForMobileAndWeb(e => {
         const inputValue = e.target.value;
         const { index } = this.props;
         if (inputValue > 500) {                  // TODO: temporary to control stake amount
@@ -183,7 +185,7 @@ export default class TradeParams extends PureComponent {
         actions.updateTradeError(index, 'stakeError', undefined);
         const updatedAmount = changeAmount(inputValue);
         this.updateTradeParams(updatedAmount);
-    }, isMobile ? 300 : 150, { leading: true, trailing: true })
+    })
 
     onAmountChange = e => {
         actions.updateTradeUIState(this.props.index, 'disabled', true);

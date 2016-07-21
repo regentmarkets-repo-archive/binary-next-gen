@@ -15,12 +15,23 @@ export default class CustomRadioGroup extends PureComponent {
         value: PropTypes.any,
     };
 
+    constructor(props) {
+        super(props);
+        this.state = {};
+    }
+
+    onClick = e => {
+        this.setState({ value: e.target.value });
+        this.props.onChange(e);
+    }
+
     render() {
-        const { className, options, onChange, value } = this.props;
+        const { className, options } = this.props;
+        const { value } = this.state;
         return (
             <div className={classnames('radio-selector', className)}>
                 {options.map((opt, k) => (
-                    <CustomRadioButton key={k} {...opt} onClick={onChange} selected={value === opt.value} />
+                    <CustomRadioButton key={k} {...opt} onClick={this.onClick} selected={value === opt.value} />
                 ))}
             </div>
         );

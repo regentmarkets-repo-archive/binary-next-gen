@@ -164,7 +164,7 @@ export function changeType(newType, newCategory, oldTrade, contract) {
         )) {
         const { dateStart, duration, durationUnit } = oldTrade;
         let newBarrier;
-        if (category === oldTrade.tradeCategory) {
+        if (category === oldTrade.tradeCategory && category !== 'digits') {
             newBarrier = [oldTrade.barrier, oldTrade.barrier2];
         } else {
             newBarrier = createDefaultBarriers(contract, category, newType, duration, durationUnit);
