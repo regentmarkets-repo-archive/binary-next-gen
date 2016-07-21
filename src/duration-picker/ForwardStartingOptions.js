@@ -15,7 +15,7 @@ export default class ForwardStartingOptions extends PureComponent {
 
     static propTypes = {
         dateStart: PropTypes.number,
-        forwardStartingDuration: PropTypes.object,       // treated as special case
+        forwardStartingDuration: PropTypes.object.isRequired,       // treated as special case
         index: PropTypes.number.isRequired,
         options: PropTypes.array,
         onStartDateChange: PropTypes.func,
@@ -23,51 +23,54 @@ export default class ForwardStartingOptions extends PureComponent {
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            showStartLater: !!props.dateStart,
+            defaultDateStart: createDefaultStartLaterEpoch(props.forwardStartingDuration),
+        };
     }
 
     onDayChange = e => {
-        const { dateStart } = this.props;
+        const { dateStart, onStartDateChange } = this.props;
         const inputValue = e.target.value;
         const newDayEpoch = dateToEpoch(new Date(inputValue));
         const secondsPerDay = 60 * 60 * 24;
         const intraDayEpoch = dateStart % secondsPerDay;
-        this.props.onStartDateChange(newDayEpoch + intraDayEpoch);
+        onStartDateChange(newDayEpoch + intraDayEpoch);
     }
 
     onTimeChange = e => {
-        const { dateStart } = this.props;
+        const { dateStart, onStartDateChange } = this.props;
         const inputValue = e.target.value;
         const secondsPerDay = 60 * 60 * 24;
         const intraDayEpoch = dateStart % secondsPerDay;
         const dayEpoch = dateStart - intraDayEpoch;
         const selectedEpoch = dayEpoch + timeStringToSeconds(inputValue);
-        this.props.onStartDateChange(selectedEpoch);
+        onStartDateChange(selectedEpoch);
     }
 
     startNow = () => {
+        this.setState({ showStartLater: false });
         const { onStartDateChange } = this.props;
         onStartDateChange();
     }
 
     startLater = () => {
-        const { dateStart, onStartDateChange, forwardStartingDuration } = this.props;
+        this.setState({ showStartLater: true });
+        const { dateStart, onStartDateChange } = this.props;
         if (!dateStart) {
-            const nextDayOpening = createDefaultStartLaterEpoch(forwardStartingDuration);
-            onStartDateChange(nextDayOpening);
+            onStartDateChange(this.state.defaultDateStart);
         }
     }
 
     render() {
         const { dateStart, forwardStartingDuration, index, options } = this.props;
+        const { showStartLater, defaultDateStart } = this.state;
         const ranges = forwardStartingDuration.range;
         const allowStartLater = !!forwardStartingDuration;
         const onlyStartLater = allowStartLater && !options;
 
-        const selectedDay = dateStart && new Date(dateStart * 1000);
-
-        const timeString = dateStart ? epochToUTCTimeString(dateStart) : '';
-        const showForwardStartingInput = allowStartLater && dateStart;
+        const defaultDate = new Date(defaultDateStart * 1000);
+        const defaultTime = epochToUTCTimeString(defaultDateStart);
 
         return (
             <div className="param-row forward-starting-picker">
@@ -97,24 +100,21 @@ export default class ForwardStartingOptions extends PureComponent {
                             </label>
                         </div>
                     }
-                    {showForwardStartingInput &&
-                        <div className="forward-starting-input">
-                            <input
-                                type="date"
-                                min={dateToDateString(ranges[0].date)}
-                                max={dateToDateString(ranges[2].date)}
-                                onChange={this.onDayChange}
-                                value={selectedDay && dateToDateString(selectedDay)}
-                            />
-                            {selectedDay &&
-                                <input
-                                    type="time"
-                                    onChange={this.onTimeChange}
-                                    defaultValue={timeString}
-                                />
-                            }
-                        </div>
-                    }
+                    {allowStartLater &&
+                    <div className="forward-starting-input" style={showStartLater ? {} : { display: 'none' }}>
+                        <input
+                            type="date"
+                            min={dateToDateString(ranges[0].date)}
+                            max={dateToDateString(ranges[2].date)}
+                            onChange={this.onDayChange}
+                            defaultValue={dateToDateString(defaultDate)}
+                        />
+                        <input
+                            type="time"
+                            onChange={this.onTimeChange}
+                            defaultValue={defaultTime}
+                        />
+                    </div>}
                 </div>
             </div>
         );
