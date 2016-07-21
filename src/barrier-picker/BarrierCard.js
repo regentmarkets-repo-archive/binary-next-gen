@@ -2,6 +2,7 @@ import React, { PropTypes, PureComponent } from 'react';
 import Label from 'binary-components/lib/Label';
 import NumericInput from 'binary-components/lib/NumericInput';
 import { changeBarrier1, changeBarrier2 } from '../trade-params/TradeParamsCascadingUpdates';
+import { actions } from '../_store';
 
 export default class BarrierCard extends PureComponent {
 
@@ -19,7 +20,6 @@ export default class BarrierCard extends PureComponent {
         isIntraDay: PropTypes.bool,
         pipSize: PropTypes.number,
         spot: PropTypes.number,
-        actions: PropTypes.object,
         onUpdateTradeParams: PropTypes.func,
     };
 
@@ -49,7 +49,7 @@ export default class BarrierCard extends PureComponent {
     }
 
     onBarrierError = err => {
-        const { index, actions } = this.props;
+        const { index } = this.props;
         actions.updateTradeError(index, 'barrierError', err);
     }
 

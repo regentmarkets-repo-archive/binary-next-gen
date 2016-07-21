@@ -246,7 +246,6 @@ export default class TradeParams extends PureComponent {
                         isIntraDay={isIntraDay}
                         pipSize={pipSize}
                         spot={proposal && +proposal.spot}
-                        actions={actions}
                         onUpdateTradeParams={this.updateTradeParams}
                     />
                 }
@@ -258,7 +257,6 @@ export default class TradeParams extends PureComponent {
                         forwardStartingDuration={contractForType.forwardStartingDuration}
                         options={contractForType.durations}
                         index={index}
-                        actions={actions}
                         onUpdateTradeParams={this.updateTradeParams}
                         contract={contract}
                         tradeParams={tradeParams}
@@ -279,8 +277,8 @@ export default class TradeParams extends PureComponent {
                     <StakeCard
                         amount={+tradeParams.amount}
                         isVirtual={false}
-                        actions={actions}
                         onUpdateTradeParams={this.updateTradeParams}
+                        index={index}
                     />
                 }
                 <PayoutCard

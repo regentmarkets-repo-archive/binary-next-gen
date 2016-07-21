@@ -3,6 +3,7 @@ import durationText from 'binary-utils/lib/durationText';
 import Label from 'binary-components/lib/Label';
 import DurationUnitPicker from './DurationUnitPicker';
 import { changeDurationUnit } from '../trade-params/TradeParamsCascadingUpdates';
+import { actions } from '../_store';
 
 export default class DurationCard extends PureComponent {
 
@@ -13,7 +14,6 @@ export default class DurationCard extends PureComponent {
         forwardStartingDuration: PropTypes.object,       // treated as special case
         options: PropTypes.array,
         index: PropTypes.number,
-        actions: PropTypes.object,
         onUpdateTradeParams: PropTypes.func,
         contract: PropTypes.object,
         tradeParams: PropTypes.object.isRequired,
@@ -53,7 +53,7 @@ export default class DurationCard extends PureComponent {
         return undefined;
     }
     onDurationError = err => {
-        const { index, actions } = this.props;
+        const { index } = this.props;
         actions.updateTradeError(index, 'durationError', err);
     }
     updateDuration = e => {
