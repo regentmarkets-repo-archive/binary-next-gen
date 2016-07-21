@@ -22,7 +22,7 @@
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
     <preference name="android-minSdkVersion" value="19"/>
-    <preference name="Fullscreen" value="true"/>
+    <preference name="Fullscreen" value="false"/>
     <preference name="BackgroundColor" value="#2a3052" />
     <preference name="EnableViewportScale" value="false"/>
     <preference name="SplashScreen" value="screen" />

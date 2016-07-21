@@ -17,15 +17,15 @@ export default class ContractDetailsModal extends PureComponent {
 
     render() {
         const { contractShown } = this.props;
+
         return (
             <Modal
                 shown={!!contractShown}
                 onClose={this.hideDetails}
             >
-                {contractShown &&
                 <ContractDetailsContainer
                     params={{ id: contractShown }}
-                />}
+                />
             </Modal>
         );
     }

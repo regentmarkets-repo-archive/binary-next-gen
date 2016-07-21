@@ -24,7 +24,7 @@ export default class AssetPickerMobile extends PureComponent {
 	render() {
 		return (
 			<MobilePage toolbarShown={false} backBtnBarTitle="Asset">
-				<AssetPickerContainer {...this.props} compact onClose={this.onClose} />
+				<AssetPickerContainer {...this.props} onClose={this.onClose} />
 			</MobilePage>
 		);
 	}

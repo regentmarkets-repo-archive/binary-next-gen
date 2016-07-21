@@ -42,6 +42,7 @@ export default class LayoutPicker extends PureComponent {
                 <DropDown
                     shown={dropdownShown}
                     onClose={this.close}
+                    title="Layout"
                 >
                     <LayoutButtonPanel
                         tradesCount={tradesCount}

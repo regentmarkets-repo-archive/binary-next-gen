@@ -1,8 +1,7 @@
 import React, { PropTypes, PureComponent } from 'react';
-import CloseButton from 'binary-components/lib/CloseButton';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
-export default class Modal extends PureComponent {
+export default class PopupDropDown extends PureComponent {
 
 	static propTypes = {
 		shown: PropTypes.bool,
@@ -18,6 +17,8 @@ export default class Modal extends PureComponent {
 		document.removeEventListener('keydown', this.closeOnEscape, false);
 	}
 
+	onClickWithin = e => e.stopPropagation();
+
 	closeOnEscape = e => {
 		const { onClose } = this.props;
 		if (e.keyCode === 27 && onClose) {
@@ -30,12 +31,13 @@ export default class Modal extends PureComponent {
 
 		return (
 			<ReactCSSTransitionGroup transitionName="popup" transitionEnterTimeout={200} transitionLeaveTimeout={200}>
-				{!shown ? null : <div className="full-screen-overlay">
-					<div className="modal">
-						{onClose && <CloseButton onClick={onClose} />}
-						{children}
-					</div>
+				{!shown ? null : <div
+					className="drop-down"
+					onClick={this.onClickWithin}
+				>
+					{React.cloneElement(children, { onClose })}
 				</div>}
+				{!shown ? null : <div className="full-screen-overlay" onClick={onClose} />}
 			</ReactCSSTransitionGroup>
 		);
 	}

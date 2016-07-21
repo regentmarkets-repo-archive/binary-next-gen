@@ -23,12 +23,7 @@ const getInternalTradeType = tradeParams => {
 export default class TradeTypeDropDown extends PureComponent {
 
     static propTypes = {
-        compact: PropTypes.bool,
         tradeParams: PropTypes.object.isRequired,
-    };
-
-    static contextTypes = {
-        router: PropTypes.object,
     };
 
     constructor(props) {
@@ -38,38 +33,34 @@ export default class TradeTypeDropDown extends PureComponent {
         };
     }
 
-    openTradeTypePicker = () => {
-        const { compact } = this.props;
-        const { router } = this.context;
-        if (compact) {
-            router.push('trade-type');
-        } else {
-            this.setState({ dropdownShown: true });
-        }
-    }
+    openPicker = () =>
+        this.setState({ dropdownShown: true });
 
-    close = () => this.setState({ dropdownShown: false });
+    onClose = () =>
+        this.setState({ dropdownShown: false });
 
     render() {
         const { tradeParams } = this.props;
-        const selectedType = getInternalTradeType(tradeParams);
         const { dropdownShown } = this.state;
+        const selectedType = getInternalTradeType(tradeParams);
+
         return (
             <div className="param-row">
                 <DropDown
                     shown={dropdownShown}
-                    onClose={this.close}
+                    title="Trade Type"
+                    onClose={this.onClose}
                 >
                     <TradeTypePicker
                         {...this.props}
-                        onSelect={this.close}
+                        onSelect={this.onClose}
                     />
                 </DropDown>
                 <Label text="Trade Type" />
                 <Info tooltip={helpText[selectedType]} role="presentation" />
                 <div
                     className="picker-label param-field"
-                    onMouseDown={this.openTradeTypePicker}
+                    onMouseDown={this.openPicker}
                 >
                     <img
                         src={`img/trade-${selectedType.toLowerCase()}.svg`}
