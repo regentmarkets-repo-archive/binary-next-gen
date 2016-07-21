@@ -136,15 +136,15 @@ export const tradeParamsPerTrade = createSelector(
             contractToUse = getStartLaterOnlyContract(contract);
         }
         const hasError = errors.valueSeq().filter(v => !!v).size > 0;
-        const disabled =
+        const purchaseDisabled =
             !contract ||
             contractToUse.error ||
-            uiState.get('disabled') ||
+            uiState.get('purchaseDisabled') ||
             hasError;
         return {
             currency,
             contract: contractToUse,
-            disabled,
+            purchaseDisabled,
             errors,
             index,
             pipSize,

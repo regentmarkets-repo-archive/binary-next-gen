@@ -69,7 +69,7 @@ export default class TradeParams extends PureComponent {
         currency: PropTypes.string.isRequired,
         contract: PropTypes.object,
         compact: PropTypes.bool,
-        disabled: PropTypes.bool,
+        purchaseDisabled: PropTypes.bool,
         errors: PropTypes.object,
         index: PropTypes.number.isRequired,
         onPurchaseHook: PropTypes.func,
@@ -186,7 +186,7 @@ export default class TradeParams extends PureComponent {
     }, isMobile ? 300 : 150, { leading: true, trailing: true })
 
     onAmountChange = e => {
-        actions.updateTradeUIState(this.props.index, 'disabled', true);
+        actions.updateTradeUIState(this.props.index, 'purchaseDisabled', true);
         this.debouncedUpdateAmount(e);
     }
 
@@ -215,7 +215,11 @@ export default class TradeParams extends PureComponent {
 
     onPurchase = () => {
         const { index, onPurchaseHook } = this.props;
-        actions.purchaseByTradeId(index).then(onPurchaseHook);
+        actions.updateTradeUIState(index, 'userInputDisabled', true);
+        actions.purchaseByTradeId(index).then(r => {
+            onPurchaseHook(r);
+            actions.updateTradeUIState(index, 'userInputDisabled', false);
+        });
     }
 
     throttledProposalSubscription =
@@ -246,7 +250,7 @@ export default class TradeParams extends PureComponent {
         const {
             contract,
             currency,
-            disabled,
+            purchaseDisabled,
             errors,
             index,
             pipSize,
@@ -254,6 +258,8 @@ export default class TradeParams extends PureComponent {
             style,
             tradeParams,
         } = this.props;
+
+        const { dynamicKey } = this.state;
 
         /**
          * Race condition happen when contract is updated before tradeCategory (async)
@@ -282,7 +288,7 @@ export default class TradeParams extends PureComponent {
         const errorText = errorToShow(errors);
 
         return (
-            <div className="trade-params" key={this.state.dynamicKey} style={style}>
+            <div className="trade-params" key={dynamicKey} style={style}>
                 <Modal shown={!!errors.purchaseError} onClose={this.onCloseModal}>
                     <PurchaseFailed failure={errors.purchaseError} />
                 </Modal>
@@ -372,7 +378,7 @@ export default class TradeParams extends PureComponent {
                 <BuyButton
                     askPrice={askPrice}
                     currency={currency}
-                    disabled={disabled}
+                    disabled={purchaseDisabled}
                     longcode={proposal && proposal.longcode}
                     onClick={this.onPurchase}
                 />

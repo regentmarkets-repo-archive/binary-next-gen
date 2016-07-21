@@ -9,6 +9,8 @@ import {
 
 const defaultUIState = {
     disabled: false,
+    purchaseDisabled: false,
+    userInputDisabled: false,
 };
 
 const initialState = fromJS([defaultUIState]);

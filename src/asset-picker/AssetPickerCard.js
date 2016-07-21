@@ -11,6 +11,7 @@ export default class AssetPickerCard extends PureComponent {
 		compact: PropTypes.bool,
 		history: PropTypes.object,
 		filter: PropTypes.object,
+		onClose: PropTypes.func,
 		assetPickerItems: PropTypes.object.isRequired,
 		selectedAsset: PropTypes.string.isRequired,
 	};
@@ -19,11 +20,12 @@ export default class AssetPickerCard extends PureComponent {
 		const { index } = this.props;
 
 		actions.changeSelectedAsset(newAsset);
-		actions.updateTradeUIState(index, 'disabled', true);
-		actions.selectAsset(newAsset).then(() => {
-			actions.updateTradeParams(index, 'symbol', newAsset);
-			actions.updateTradeUIState(index, 'disabled', false);
-		});
+		actions.updateTradeUIState(index, 'userInputDisabled', true);
+		actions.selectAsset(newAsset)
+			.then(() => {
+				actions.updateTradeParams(index, 'symbol', newAsset);
+				actions.updateTradeUIState(index, 'userInputDisabled', false);
+			});
 	}
 
 	onToggleWatchlistItem = asset => {

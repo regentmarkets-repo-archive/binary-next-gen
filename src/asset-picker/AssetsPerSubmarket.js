@@ -6,6 +6,7 @@ export default class AssetsPerSubmarket extends PureComponent {
     static propTypes = {
         assetsInSubmarket: PropTypes.array.isRequired,
         selectedAsset: PropTypes.string.isRequired,
+        onClose: PropTypes.func,
     };
 
     render() {
