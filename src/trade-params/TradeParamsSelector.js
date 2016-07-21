@@ -12,8 +12,6 @@ import { pipSizePerTrade } from '../trade/trade-chart/TradeViewChartSelector';
 import { mockedContract } from '../_constants/MockContract';
 import { paramPerTrade, errorPerTrade, proposalPerTrade, purchasePerTrade, uiStatePerTrade } from '../trade/TradeSelectors';
 
-import { createDebugSelector } from 'reselect-debug';
-
 const aggregateContracts = (contracts, type) => ({
     barriers: extractBarrier(contracts, type),
     durations: extractDuration(contracts, type),
@@ -106,7 +104,7 @@ const getStartLaterOnlyContract = contract => {
     return startLaterCategories;
 };
 
-export const tradeParamsPerTrade = createDebugSelector(
+export const tradeParamsPerTrade = createSelector(
     [
         currencySelector,
         contractPerTrade,
