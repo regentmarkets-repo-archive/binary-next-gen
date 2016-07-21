@@ -16,7 +16,7 @@ export default class DurationCard extends PureComponent {
         onError: PropTypes.func,
     };
 
-    // return error msg or undefined is no error
+    // return error msg or undefined if no error
     validateDuration(duration, durationUnit) {
         const {
             dateStart,
@@ -71,7 +71,6 @@ export default class DurationCard extends PureComponent {
             forwardStartingDuration,
             options,
         } = this.props;
-
         const allowStartLater = !!forwardStartingDuration;
         const onlyStartLater = allowStartLater && !options;
         const forwardOptions = forwardStartingDuration && forwardStartingDuration.options;
@@ -100,7 +99,7 @@ export default class DurationCard extends PureComponent {
                 <div className="duration-input param-field">
                     <input
                         type="number"
-                        value={duration}
+                        defaultValue={duration}
                         min={min}
                         max={max}
                         onChange={this.updateDuration}
