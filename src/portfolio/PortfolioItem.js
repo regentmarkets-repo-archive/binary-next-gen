@@ -1,6 +1,7 @@
 import React, { PropTypes, PureComponent } from 'react';
 import NumberPlain from 'binary-components/lib/NumberPlain';
 import NumberColored from 'binary-components/lib/NumberColored';
+import { openContractSubscriptionFailed } from '../_utils/utils';
 
 export default class PortfolioItem extends PureComponent {
 
@@ -16,7 +17,8 @@ export default class PortfolioItem extends PureComponent {
 
     render() {
         const { contract } = this.props;
-
+        const backendFailure = openContractSubscriptionFailed(contract);
+        if (backendFailure) return null;
         return (
             <tr className="portfolio-row" onClick={this.onViewDetailsClicked}>
                 <td>{contract.transaction_ids && contract.transaction_ids.buy}</td>
