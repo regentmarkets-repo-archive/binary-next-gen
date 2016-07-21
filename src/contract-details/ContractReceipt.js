@@ -15,23 +15,30 @@ export default class ContractReceipt extends PureComponent {
 
 	render() {
 		const { contract, showLongcode, onTradeAgainClicked } = this.props;
+		const backendFailure = contract.validation_error && Object.keys(contract).length < 3;
 
-		return (
+		return (backendFailure ?
+			<div className="contract-receipt">
+				<ContractValidationError contract={contract} />
+				{onTradeAgainClicked &&
+				<Button
+					className="buy-again-btn"
+					text="Trade Again"
+					onClick={onTradeAgainClicked}
+				/>}
+			</div> :
 			<div className="contract-receipt">
 				{showLongcode && <h5>{contract.longcode}</h5>}
 				<ContractDetailsList contract={contract} />
 				<ContractWinLose contract={contract} />
-				<SellAtMarketButton
-					contract={contract}
-				/>
+				<SellAtMarketButton contract={contract} />
 				<ContractValidationError contract={contract} />
 				{onTradeAgainClicked &&
 					<Button
 						className="buy-again-btn"
 						text="Trade Again"
 						onClick={onTradeAgainClicked}
-					/>
-				}
+					/>}
 			</div>
 		);
 	}
