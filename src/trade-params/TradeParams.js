@@ -154,17 +154,27 @@ export default class TradeParams extends PureComponent {
         actions.updateTradeError(index, 'durationError', err);
     }
 
-    onBarrier1Change = debounceForMobileAndWeb(e => {
+    debouncedBarrier1Change = debounceForMobileAndWeb(e => {
         const inputValue = e.target.value;
         const updatedBarrier1 = changeBarrier1(inputValue);
         this.updateTradeParams(updatedBarrier1);
     })
 
-    onBarrier2Change = debounceForMobileAndWeb(e => {
+    debouncedBarrier2Change = debounceForMobileAndWeb(e => {
         const inputValue = e.target.value;
         const updatedBarrier2 = changeBarrier2(inputValue);
         this.updateTradeParams(updatedBarrier2);
     })
+
+    onBarrier1Change = e => {
+        actions.updateTradeUIState(this.props.index, 'disabled', true);
+        this.debouncedBarrier1Change(e);
+    }
+
+    onBarrier2Change = e => {
+        actions.updateTradeUIState(this.props.index, 'disabled', true);
+        this.debouncedBarrier2Change(e);
+    }
 
     onBarrierError = err => {
         const { index } = this.props;
