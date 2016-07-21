@@ -13,7 +13,7 @@ export default class StakeCard extends PureComponent {
         amount: PropTypes.number.isRequired,
         isVirtual: PropTypes.bool.isRequired,
         onUpdateTradeParams: PropTypes.func,
-        index: PropTypes.number.isRequire,
+        index: PropTypes.number.isRequired,
     };
     debouncedUpdateAmount = debounce(e => {
         const inputValue = e.target.value;
