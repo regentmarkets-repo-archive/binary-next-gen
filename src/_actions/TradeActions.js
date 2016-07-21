@@ -171,6 +171,17 @@ export const updatePurchaseInfo = (index, fieldName, fieldValue) => ({
     fieldValue,
 });
 
+// TODO: this is arbritary, need discuss how we should handle it
+const trySubscribeUntilSuccess = c =>
+    LiveData.api
+        .subscribeToOpenContract(c)
+        .then(response => {
+            const contract = response.proposal_open_contract;
+            if (contract.validation_error && Object.keys(contract).length < 3) {
+                setTimeout(() => trySubscribeUntilSuccess(c), 300);
+            }
+        });
+
 export const purchaseByTradeId = (tradeID, trade) =>
     (dispatch, getState) => {
         dispatch(updateTradeUIState(tradeID, 'disabled', true));
@@ -184,8 +195,7 @@ export const purchaseByTradeId = (tradeID, trade) =>
                 response => {
                     dispatch(updatePurchaseInfo(tradeID, 'receipt', response.buy));
                     dispatch(updatePurchaseInfo(tradeID, 'mostRecentContractId', response.buy.contract_id));
-                    return LiveData.api
-                        .subscribeToOpenContract(response.buy.contract_id)
+                    return trySubscribeUntilSuccess(response.buy.contract_id)
                         .then(() => dispatch(getDataForContract(response.buy.contract_id, 1, 'all', 'ticks')));
                 },
                 err => dispatch(updateTradeError(tradeID, 'purchaseError', err.message))
