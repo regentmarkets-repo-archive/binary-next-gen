@@ -4,6 +4,7 @@ import ContractDetailsList from './ContractDetailsList';
 import ContractWinLose from './ContractWinLose';
 import SellAtMarketButton from './SellAtMarketButton';
 import ContractValidationError from './ContractValidationError';
+import { openContractSubscriptionFailed } from '../_utils/utils';
 
 export default class ContractReceipt extends PureComponent {
 
@@ -15,7 +16,7 @@ export default class ContractReceipt extends PureComponent {
 
 	render() {
 		const { contract, showLongcode, onTradeAgainClicked } = this.props;
-		const backendFailure = contract.validation_error && Object.keys(contract).length < 3;
+		const backendFailure = openContractSubscriptionFailed(contract);
 
 		return (backendFailure ?
 			<div className="contract-receipt">
