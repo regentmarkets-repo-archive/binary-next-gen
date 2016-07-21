@@ -1,6 +1,8 @@
 import React, { PropTypes, PureComponent } from 'react';
 import Label from 'binary-components/lib/Label';
 import NumericInput from 'binary-components/lib/NumericInput';
+import { changeBarrier1, changeBarrier2 } from '../trade-params/TradeParamsCascadingUpdates';
+import { actions } from '../_store';
 
 export default class BarrierCard extends PureComponent {
 
@@ -16,11 +18,9 @@ export default class BarrierCard extends PureComponent {
         barrierInfo: PropTypes.object,
         barrierType: PropTypes.oneOf(['relative', 'absolute']),
         isIntraDay: PropTypes.bool,
-        onBarrier1Change: PropTypes.func,
-        onBarrier2Change: PropTypes.func,
-        onError: PropTypes.func,
         pipSize: PropTypes.number,
         spot: PropTypes.number,
+        onUpdateTradeParams: PropTypes.func,
     };
 
     validateBarrier = barrier => {
@@ -35,19 +35,35 @@ export default class BarrierCard extends PureComponent {
     }
 
     updateBarrier1 = e => {
-        const { onError, onBarrier1Change } = this.props;
         const newBarrier1 = e.target.value;
         const error = this.validateBarrier(newBarrier1);
-        onError(error);
-        onBarrier1Change(e);
+        this.onBarrierError(error);
+        this.onBarrier1Change(e);
     }
 
     updateBarrier2 = e => {
-        const { onError, onBarrier2Change } = this.props;
         const newBarrier2 = e.target.value;
         const error = this.validateBarrier(newBarrier2);
-        onError(error);
-        onBarrier2Change(e);
+        this.onBarrierError(error);
+        this.onBarrier2Change(e);
+    }
+
+    onBarrierError = err => {
+        const { index } = this.props;
+        actions.updateTradeError(index, 'barrierError', err);
+    }
+
+    onBarrier1Change = e => {
+        const { onUpdateTradeParams } = this.props;
+        const inputValue = e.target.value;
+        const updatedBarrier1 = changeBarrier1(inputValue);
+        onUpdateTradeParams(updatedBarrier1);
+    }
+    onBarrier2Change = e => {
+        const { onUpdateTradeParams } = this.props;
+        const inputValue = e.target.value;
+        const updatedBarrier2 = changeBarrier2(inputValue);
+        onUpdateTradeParams(updatedBarrier2);
     }
 
     render() {

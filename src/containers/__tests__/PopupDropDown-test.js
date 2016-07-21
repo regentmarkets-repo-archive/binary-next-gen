@@ -1,11 +1,11 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import DropDown from '../DropDown';
+import PopupDropDown from '../PopupDropDown';
 
-describe('<DropDown />', () => {
+describe('<PopupDropDown />', () => {
     it('renders a drop down', () => {
-        const wrapper = shallow(<DropDown />);
-        expect(wrapper.find('ReactCSSTransitionGroup')).to.have.length(1);
+        const wrapper = shallow(<PopupDropDown><div /></PopupDropDown>);
+        expect(wrapper.find('AnimatedPopup')).to.have.length(1);
     });
 });

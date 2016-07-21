@@ -8,7 +8,6 @@ export default class AssetPickerCard extends PureComponent {
 
 	static propTypes = {
 		index: PropTypes.number,
-		compact: PropTypes.bool,
 		history: PropTypes.object,
 		filter: PropTypes.object,
 		onClose: PropTypes.func,
@@ -32,11 +31,11 @@ export default class AssetPickerCard extends PureComponent {
 	}
 
 	render() {
-		const { assetPickerItems, selectedAsset, filter, compact } = this.props;
+		const { assetPickerItems, selectedAsset, filter } = this.props;
 
 		return (
 			<div className="asset-picker-container">
-				<AssetPickerFilter compact={compact} filter={filter} />
+				<AssetPickerFilter filter={filter} />
 				<AssetPickerList
 					{...this.props}
 					assets={assetPickerItems}

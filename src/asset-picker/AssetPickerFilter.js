@@ -1,20 +1,19 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { findDOMNode } from 'react-dom';
 import InputGroup from 'binary-components/lib/InputGroup';
+import isMobile from 'binary-utils/lib/isMobile';
 import { actions } from '../_store';
 import MarketSubmarketPickerContainer from './MarketSubmarketPickerContainer';
 
 export default class AssetPickerFilter extends PureComponent {
 
 	static propTypes = {
-		compact: PropTypes.bool,
 		filter: PropTypes.object.isRequired,
 	};
 
 	componentDidMount() {
-		const { compact } = this.props;
 		const assetSearchNode = findDOMNode(this.refs.assetSearch);
-		if (!compact) {
+		if (!isMobile()) {
 			setTimeout(() => assetSearchNode.firstChild.focus(), 300);
 		}
 	}

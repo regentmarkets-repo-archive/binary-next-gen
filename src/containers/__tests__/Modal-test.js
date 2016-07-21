@@ -6,6 +6,6 @@ import Modal from '../Modal';
 describe('<Modal />', () => {
     it('renders a modal', () => {
         const wrapper = shallow(<Modal shown />);
-        expect(wrapper.find('ReactCSSTransitionGroup')).to.have.length(1);
+        expect(wrapper.find('AnimatedPopup')).to.have.length(1);
     });
 });

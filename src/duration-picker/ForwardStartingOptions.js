@@ -6,6 +6,7 @@ import dateToDateString from 'binary-utils/lib/dateToDateString';
 import { createDefaultStartLaterEpoch } from '../trade-params/DefaultTradeParams';
 import M from 'binary-components/lib/M';
 import Label from 'binary-components/lib/Label';
+import { changeStartDate } from '../trade-params/TradeParamsCascadingUpdates';
 
 /**
  * assumption: for each type of contract, there will only have 1 forward starting options contract
@@ -18,7 +19,9 @@ export default class ForwardStartingOptions extends PureComponent {
         forwardStartingDuration: PropTypes.object.isRequired,       // treated as special case
         index: PropTypes.number.isRequired,
         options: PropTypes.array,
-        onStartDateChange: PropTypes.func,
+        contract: PropTypes.object,
+        tradeParams: PropTypes.object.isRequired,
+        onUpdateTradeParams: PropTypes.func,
     };
 
     constructor(props) {
@@ -35,7 +38,7 @@ export default class ForwardStartingOptions extends PureComponent {
         const newDayEpoch = dateToEpoch(new Date(inputValue));
         const secondsPerDay = 60 * 60 * 24;
         const intraDayEpoch = dateStart % secondsPerDay;
-        onStartDateChange(newDayEpoch + intraDayEpoch);
+        this.onStartDateChange(newDayEpoch + intraDayEpoch);
     }
 
     onTimeChange = e => {
@@ -45,21 +48,27 @@ export default class ForwardStartingOptions extends PureComponent {
         const intraDayEpoch = dateStart % secondsPerDay;
         const dayEpoch = dateStart - intraDayEpoch;
         const selectedEpoch = dayEpoch + timeStringToSeconds(inputValue);
-        onStartDateChange(selectedEpoch);
+        this.onStartDateChange(selectedEpoch);
     }
 
     startNow = () => {
         this.setState({ showStartLater: false });
-        const { onStartDateChange } = this.props;
-        onStartDateChange();
+        this.onStartDateChange();
     }
 
     startLater = () => {
         this.setState({ showStartLater: true });
-        const { dateStart, onStartDateChange } = this.props;
+        const { dateStart, forwardStartingDuration } = this.props;
         if (!dateStart) {
-            onStartDateChange(this.state.defaultDateStart);
+            const nextDayOpening = createDefaultStartLaterEpoch(forwardStartingDuration);
+            this.onStartDateChange(nextDayOpening);
         }
+    }
+
+    onStartDateChange = epoch => {
+        const { contract, tradeParams, onUpdateTradeParams } = this.props;
+        const updatedStartDate = changeStartDate(epoch, contract, tradeParams);
+        onUpdateTradeParams(updatedStartDate);
     }
 
     render() {

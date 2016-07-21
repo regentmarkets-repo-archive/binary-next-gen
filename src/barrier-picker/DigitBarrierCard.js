@@ -1,7 +1,7 @@
 import React, { PropTypes, PureComponent } from 'react';
 import Label from 'binary-components/lib/Label';
 import RadioGroup from '../trade/workaround/CustomRadioGroup';
-
+import { changeBarrier1 } from '../trade-params/TradeParamsCascadingUpdates';
 export default class DigitBarrierCard extends PureComponent {
 
     static propTypes = {
@@ -11,11 +11,18 @@ export default class DigitBarrierCard extends PureComponent {
         ]),
         barrierInfo: PropTypes.object,
         index: PropTypes.number,
-        onBarrierChange: PropTypes.func,
+        onUpdateTradeParams: PropTypes.func,
     };
 
+    onBarrier1Change = e => {
+        const { onUpdateTradeParams } = this.props;
+        const inputValue = e.target.value;
+        const updatedBarrier1 = changeBarrier1(inputValue);
+        onUpdateTradeParams(updatedBarrier1);
+    }
+
     render() {
-        const { barrier, barrierInfo, index, onBarrierChange } = this.props;
+        const { barrier, barrierInfo, index } = this.props;
 
         if (!barrierInfo) return null;
 
@@ -29,7 +36,7 @@ export default class DigitBarrierCard extends PureComponent {
                     name={'digit-selections' + index}
                     options={options}
                     value={barrier}
-                    onChange={onBarrierChange}
+                    onChange={this.onBarrier1Change}
                 />
             </div>
         );
