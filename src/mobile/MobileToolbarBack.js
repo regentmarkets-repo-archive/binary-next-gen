@@ -4,7 +4,7 @@ import M from 'binary-components/lib/M';
 export default class MobileToolbarBack extends PureComponent {
 
 	static propTypes = {
-		backBtnBarTitle: PropTypes.string,
+		backBtnBarTitle: PropTypes.string.isRequired,
 		onClick: PropTypes.func,
 	};
 
