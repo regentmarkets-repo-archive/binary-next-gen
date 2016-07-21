@@ -46,12 +46,13 @@ export const changeActiveLayout = (tradesCount, layoutN) =>
                 .filter(v => otherAssetInSameMarket.find(a => a !== v.get('symbol')))
                 .take(additionTradeNeeded - otherAssetInSameMarket.size);
             const combinedAssetChoices = otherAssetInSameMarket.concat(randomAdditionalSymbols);
-            combinedAssetChoices.forEach(asset => dispatch(selectAsset(asset)));
-            return dispatch(updateActiveLayout(tradesCount, layoutN, combinedAssetChoices.toJS()));
+            const assetToBeUsedForNewTrades = combinedAssetChoices.take(additionTradeNeeded);
+            assetToBeUsedForNewTrades.forEach(asset => dispatch(selectAsset(asset)));
+            return dispatch(updateActiveLayout(tradesCount, layoutN, assetToBeUsedForNewTrades.toJS()));
         }
-        const additionAsset = otherAssetInSameMarket.take(additionTradeNeeded);
-        additionAsset.forEach(asset => dispatch(selectAsset(asset)));
-        return dispatch(updateActiveLayout(tradesCount, layoutN, additionAsset.toJS()));
+        const assetToBeUsedForNewTrades = otherAssetInSameMarket.take(additionTradeNeeded);
+        assetToBeUsedForNewTrades.forEach(asset => dispatch(selectAsset(asset)));
+        return dispatch(updateActiveLayout(tradesCount, layoutN, assetToBeUsedForNewTrades.toJS()));
     };
 
 export const changeActiveWorkspaceTab = (panel, index) => ({
