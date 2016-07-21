@@ -2,6 +2,7 @@ import React, { PureComponent, PropTypes } from 'react';
 import durationText from 'binary-utils/lib/durationText';
 import Label from 'binary-components/lib/Label';
 import DurationUnitPicker from './DurationUnitPicker';
+import { changeDurationUnit } from '../trade-params/TradeParamsCascadingUpdates';
 
 export default class DurationCard extends PureComponent {
 
@@ -11,9 +12,11 @@ export default class DurationCard extends PureComponent {
         durationUnit: PropTypes.string,
         forwardStartingDuration: PropTypes.object,       // treated as special case
         options: PropTypes.array,
-        onUnitChange: PropTypes.func,
-        onDurationChange: PropTypes.func,
-        onError: PropTypes.func,
+        index: PropTypes.number,
+        actions: PropTypes.object,
+        onUpdateTradeParams: PropTypes.func,
+        contract: PropTypes.object,
+        tradeParams: PropTypes.object.isRequired,
     };
 
     // return error msg or undefined is no error
@@ -49,18 +52,27 @@ export default class DurationCard extends PureComponent {
         }
         return undefined;
     }
-
+    onDurationError = err => {
+        const { index, actions } = this.props;
+        actions.updateTradeError(index, 'durationError', err);
+    }
     updateDuration = e => {
-        const { onDurationChange, onError, durationUnit } = this.props;
+        const { durationUnit } = this.props;
         const newDuration = e.target.value;
         const err = this.validateDuration(newDuration, durationUnit);
-        onError(err);
-        onDurationChange(e);
+        this.onDurationError(err);
+        this.onDurationChange(e);
     }
-
-    updateDurationUnit = e => {
-        const { onUnitChange } = this.props;
-        onUnitChange(e);
+    onDurationChange = e => {
+        const { onUpdateTradeParams } = this.props;
+        onUpdateTradeParams({ duration: e.target.value });
+    }
+    onDurationUnitChange = e => {
+        const { onUpdateTradeParams } = this.props;
+        const newUnit = e.target.value;
+        const { contract, tradeParams } = this.props;
+        const updatedDurationUnit = changeDurationUnit(newUnit, contract, tradeParams);
+        onUpdateTradeParams(updatedDurationUnit);
     }
 
     render() {
@@ -108,7 +120,7 @@ export default class DurationCard extends PureComponent {
                     <DurationUnitPicker
                         durationUnit={durationUnit}
                         unitOptions={unitOptions}
-                        onChange={this.updateDurationUnit}
+                        onChange={this.onDurationUnitChange}
                     />
                 </div>
             </div>
