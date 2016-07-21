@@ -49,8 +49,9 @@ export const changeActiveLayout = (tradesCount, layoutN) =>
             combinedAssetChoices.forEach(asset => dispatch(selectAsset(asset)));
             return dispatch(updateActiveLayout(tradesCount, layoutN, combinedAssetChoices.toJS()));
         }
-        otherAssetInSameMarket.forEach(asset => dispatch(selectAsset(asset)));
-        return dispatch(updateActiveLayout(tradesCount, layoutN, otherAssetInSameMarket.toJS()));
+        const additionAsset = otherAssetInSameMarket.take(additionTradeNeeded);
+        additionAsset.forEach(asset => dispatch(selectAsset(asset)));
+        return dispatch(updateActiveLayout(tradesCount, layoutN, additionAsset.toJS()));
     };
 
 export const changeActiveWorkspaceTab = (panel, index) => ({
