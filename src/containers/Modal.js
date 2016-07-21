@@ -1,6 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import CloseButton from 'binary-components/lib/CloseButton';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import AnimatedPopup from './AnimatedPopup';
 
 export default class Modal extends PureComponent {
 
@@ -29,14 +29,14 @@ export default class Modal extends PureComponent {
 		const { shown, onClose, children } = this.props;
 
 		return (
-			<ReactCSSTransitionGroup transitionName="popup" transitionEnterTimeout={200} transitionLeaveTimeout={200}>
-				{!shown ? null : <div className="full-screen-overlay">
+			<AnimatedPopup shown={shown}>
+				<div className="full-screen-overlay">
 					<div className="modal">
 						{onClose && <CloseButton onClick={onClose} />}
 						{children}
 					</div>
-				</div>}
-			</ReactCSSTransitionGroup>
+				</div>
+			</AnimatedPopup>
 		);
 	}
 }

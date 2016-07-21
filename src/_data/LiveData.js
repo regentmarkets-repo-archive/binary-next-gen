@@ -1,4 +1,5 @@
 import { LiveApi } from 'binary-live-api';
+import showError from 'binary-utils/lib/showError';
 import { readNewsFeed } from './NewsData';
 import { getVideosFromPlayList } from './VideoData';
 import isUserVirtual from 'binary-utils/lib/isUserVirtual';
@@ -59,7 +60,7 @@ export const changeLanguage = langCode => {
 
 const initAuthorized = async (authData, store) => {
     if (/japan/.test(authData.authorize.landing_company_name)) {
-        alert('Sorry, for japan user please login through www.binary.com '); // TODO: use showError without breaking test
+        showError('Sorry, for japan user please login through www.binary.com '); // TODO: use showError without breaking test
         store.dispatch(actions.updateAppState('authorized', false));
         store.dispatch(actions.updateToken(''));
         return;
