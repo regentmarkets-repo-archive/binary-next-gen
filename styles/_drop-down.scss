@@ -14,6 +14,7 @@
     border-radius: 2px;
     + .full-screen-overlay {
         background: transparent;
+        -webkit-backdrop-filter: none;
     }
 }
 

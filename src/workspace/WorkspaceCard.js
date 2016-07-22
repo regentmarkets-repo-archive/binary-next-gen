@@ -18,7 +18,7 @@ export default class WorkspaceCard extends PureComponent {
 
 	render() {
 		const { workspace } = this.props;
-		const { sideActiveTab, sidePanelVisible } = workspace;
+		const { sideActiveTab } = workspace;
 
 		return (
 			<div className="panels">
@@ -28,7 +28,7 @@ export default class WorkspaceCard extends PureComponent {
 					className="resizer-vertical"
 					onResize={this.onResize}
 				/>
-				{sidePanelVisible && <WorkspaceSidePanel {...workspace} />}
+				<WorkspaceSidePanel {...workspace} />
 				<WorkspaceTabs activeTab={sideActiveTab} />
 			</div>
 		);

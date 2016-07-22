@@ -11,11 +11,13 @@ export default class LayoutButton extends PureComponent {
         isActive: PropTypes.bool,
         tradesCount: PropTypes.number.isRequired,
         layoutN: PropTypes.number.isRequired,
+        onClick: PropTypes.func,
     };
 
     onClick = () => {
-        const { tradesCount, layoutN } = this.props;
+        const { tradesCount, layoutN, onClick } = this.props;
         actions.changeActiveLayout(tradesCount, layoutN);
+        if (onClick) onClick(tradesCount, layoutN);
     }
 
     render() {

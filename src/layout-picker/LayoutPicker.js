@@ -1,4 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
+import M from 'binary-components/lib/M';
 import { actions } from '../_store';
 import styles from '../layouts/layouts.css';
 import DropDown from '../containers/DropDown';
@@ -28,17 +29,22 @@ export default class LayoutPicker extends PureComponent {
 
     close = () => this.setState({ dropdownShown: false });
 
+    onSingleTradeClick = () =>
+        actions.changeActiveLayout(1, 1);
+
     render() {
         const { tradesCount, layoutN } = this.props;
         const { dropdownShown } = this.state;
 
         return (
             <div className={styles.layoutPicker}>
-                <LayoutButton
-                    tradesCount={tradesCount}
-                    layoutN={layoutN}
-                    onClick={this.open}
-                />
+                <button className="btn-secondary layout-switch-btn" onClick={this.onSingleTradeClick}>
+                    <LayoutButton
+                        tradesCount={1}
+                        layoutN={1}
+                    />
+                    <M m="Single Trade" />
+                </button>
                 <DropDown
                     shown={dropdownShown}
                     onClose={this.close}
@@ -50,6 +56,15 @@ export default class LayoutPicker extends PureComponent {
                         onLayoutChange={this.onLayoutChange}
                     />
                 </DropDown>
+                <button className="btn-secondary layout-switch-btn" onClick={this.open}>
+                    <LayoutButton
+                        tradesCount={tradesCount}
+                        layoutN={layoutN}
+                        onClick={this.close}
+                    />
+                    <M m="Multi Trade" />
+                </button>
+
             </div>
         );
     }

@@ -65,6 +65,10 @@
     height: 2rem;
 }
 
+.workspace-panel.popup-enter {
+    transform: translateX(10rem);
+}
+
 .popup-enter {
     opacity: 0.01;
     > .modal,
@@ -79,8 +83,9 @@
 
 .popup-enter.popup-enter-active {
     opacity: 1;
-
-    transition: opacity 200ms ease-in-out;
+    > .workspace-panel {
+        transform: scale(1);
+    }
     > .modal,
     > .mobile-content,
     > .drop-down,
@@ -91,6 +96,9 @@
 
 .popup-leave {
     opacity: 1;
+    > .workspace-panel {
+        transform: scale(1);
+    }
     > .modal,
     > .mobile-content,
     > .drop-down,
@@ -101,7 +109,9 @@
 
 .popup-leave.popup-leave-active {
     opacity: 0.01;
-    transition: opacity 200ms ease-in-out;
+    > .workspace-panel {
+        transform: scale(0.75);
+    }
     > .modal,
     > .mobile-content,
     > .article {

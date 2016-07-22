@@ -1,5 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import TransitionGroup from 'react-addons-css-transition-group';
 
 export default class AnimatedPopup extends PureComponent {
 
@@ -12,9 +12,9 @@ export default class AnimatedPopup extends PureComponent {
 		const { shown, children } = this.props;
 
 		return (
-			<ReactCSSTransitionGroup transitionName="popup" transitionEnterTimeout={200} transitionLeaveTimeout={200}>
+			<TransitionGroup transitionName="popup" transitionEnterTimeout={200} transitionLeaveTimeout={200}>
 				{shown ? children : null}
-			</ReactCSSTransitionGroup>
+			</TransitionGroup>
 		);
 	}
 }
