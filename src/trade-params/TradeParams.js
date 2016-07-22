@@ -218,6 +218,7 @@ export default class TradeParams extends PureComponent {
                 <TradeTypeDropDown
                     {...this.props}
                     updateParams={this.updateTradeParams}
+                    forceTradeCardUpdate={this.repaintSelf}
                     clearTradeError={this.clearTradeError}
                 />
                 {showDigitBarrier &&
@@ -261,6 +262,7 @@ export default class TradeParams extends PureComponent {
                         options={contractForType.durations}
                         index={index}
                         onUpdateTradeParams={this.updateTradeParams}
+                        forceTradeCardUpdate={this.repaintSelf}
                         contract={contract}
                         tradeParams={tradeParams}
                     />

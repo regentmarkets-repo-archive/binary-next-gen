@@ -22,6 +22,7 @@ export default class TradeTypePicker extends PureComponent {
         onSelect: PropTypes.func,
         tradeParams: PropTypes.object.isRequired,
         updateParams: PropTypes.func.isRequired,
+        forceTradeCardUpdate: PropTypes.func.isRequired,
         clearTradeError: PropTypes.func.isRequired,
     };
 
@@ -57,7 +58,7 @@ export default class TradeTypePicker extends PureComponent {
     }
 
     changeType(type) {
-        const { contract, onSelect, tradeParams, updateParams, clearTradeError } = this.props;
+        const { contract, forceTradeCardUpdate, onSelect, tradeParams, updateParams, clearTradeError } = this.props;
         const selectedCategory = findCategoryForType(contract, type);
         const updatedType = changeType(internalToServerTradeType(type), selectedCategory, tradeParams, contract);
         clearTradeError();
@@ -65,6 +66,7 @@ export default class TradeTypePicker extends PureComponent {
         if (onSelect) {
             onSelect(updatedType);
         }
+        forceTradeCardUpdate();
     }
 
     render() {

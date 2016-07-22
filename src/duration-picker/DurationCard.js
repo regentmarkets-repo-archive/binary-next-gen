@@ -12,6 +12,7 @@ export default class DurationCard extends PureComponent {
         duration: PropTypes.number,
         durationUnit: PropTypes.string,
         forwardStartingDuration: PropTypes.object,       // treated as special case
+        forceTradeCardUpdate: PropTypes.func.isRequired,
         options: PropTypes.array,
         index: PropTypes.number,
         onUpdateTradeParams: PropTypes.func,
@@ -68,11 +69,12 @@ export default class DurationCard extends PureComponent {
         onUpdateTradeParams({ duration: e.target.value });
     }
     onDurationUnitChange = e => {
-        const { onUpdateTradeParams } = this.props;
+        const { onUpdateTradeParams, forceTradeCardUpdate } = this.props;
         const newUnit = e.target.value;
         const { contract, tradeParams } = this.props;
         const updatedDurationUnit = changeDurationUnit(newUnit, contract, tradeParams);
         onUpdateTradeParams(updatedDurationUnit);
+        forceTradeCardUpdate();
     }
 
     render() {
