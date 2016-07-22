@@ -9,7 +9,7 @@ import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import Modal from '../containers/Modal';
 import PurchaseFailed from 'binary-components/lib/PurchaseFailed';
 import { actions } from '../_store';
-import BarrierCard from '../barrier-picker/BarrierCard';
+import { BarrierCard } from '../barrier-picker/BarrierCard';
 // import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
 import DigitBarrierCard from '../barrier-picker/DigitBarrierCard';
 import DurationCard from '../duration-picker/DurationCard';
