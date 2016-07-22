@@ -7,12 +7,16 @@
     max-height: 90vh;
     max-width: 90vw;
     overflow: auto;
-    background: white;
     position: absolute;
     z-index: 10000;
+    background: white;
     box-shadow: 0 0 1rem 0 rgba(black, 0.5);
     border-radius: 2px;
     + .full-screen-overlay {
         background: transparent;
     }
+}
+
+.inverse .drop-down {
+    background-color: $COLOR_INVERSE_BG !important;
 }

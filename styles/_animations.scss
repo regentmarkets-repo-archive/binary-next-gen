@@ -67,11 +67,13 @@
 
 .popup-enter {
     opacity: 0.01;
-    > .modal {
-        transform: scale(0.9);
-    }
-    > .mobile-content {
+    > .modal,
+    > .mobile-content,
+    > .article {
         transform: scale(0.9) translateY(4rem);
+    }
+    > .drop-down {
+        transform: scale(0.75) translateY(-4rem);
     }
 }
 
@@ -79,20 +81,20 @@
     opacity: 1;
 
     transition: opacity 200ms ease-in-out;
-    > .modal {
-        transform: scale(1);
-    }
-    > .mobile-content {
+    > .modal,
+    > .mobile-content,
+    > .drop-down,
+    > .article {
         transform: scale(1) translateY(0);
     }
 }
 
 .popup-leave {
     opacity: 1;
-    > .modal {
-        transform: scale(1);
-    }
-    > .mobile-content {
+    > .modal,
+    > .mobile-content,
+    > .drop-down,
+    > .article {
         transform: scale(1) translateY(0);
     }
 }
@@ -100,10 +102,12 @@
 .popup-leave.popup-leave-active {
     opacity: 0.01;
     transition: opacity 200ms ease-in-out;
-    > .modal {
-        transform: scale(0.75);
-    }
-    > .mobile-content {
+    > .modal,
+    > .mobile-content,
+    > .article {
         transform: scale(0.75) translateY(8rem);
+    }
+    > .drop-down {
+        transform: scale(0.75) translateY(-6rem);
     }
 }
