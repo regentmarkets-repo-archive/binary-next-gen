@@ -1,11 +1,4 @@
-import {
-    assetsSelector,
-    currencySelector,
-    tradeProposalSelector,
-    tradePurchaseInfoSelector,
-    tradesErrorSelector,
-    tradesUIStatesSelector,
-} from '../_store/directSelectors';
+import { assetsSelector, currencySelector } from '../_store/directSelectors';
 import { createSelector } from 'reselect';
 import extractBarrier from 'binary-utils/lib/extractBarrier';
 import extractDuration from 'binary-utils/lib/extractDuration';
@@ -15,8 +8,9 @@ import normalizedContractFor from 'binary-utils/lib/normalizedContractFor';
 import groupByKey from 'binary-utils/lib/groupByKey';
 import findDeep from 'binary-utils/lib/findDeep';
 import filterObjectBy from 'binary-utils/lib/filterObjectBy';
-import { paramPerTrade, pipSizePerTrade } from '../trade/trade-chart/TradeViewChartSelector';
+import { pipSizePerTrade } from '../trade/trade-chart/TradeViewChartSelector';
 import { mockedContract } from '../_constants/MockContract';
+import { paramPerTrade, errorPerTrade, proposalPerTrade, purchasePerTrade, uiStatePerTrade } from '../trade/TradeSelectors';
 
 const aggregateContracts = (contracts, type) => ({
     barriers: extractBarrier(contracts, type),
@@ -92,11 +86,6 @@ const marketIsOpenPerTrade = createSelector(
         return assetsIsOpen[symbol] && assetsIsOpen[symbol].isOpen;
     }
 );
-
-const errorPerTrade = (state, props) => tradesErrorSelector(state).get(props.index);
-const proposalPerTrade = (state, props) => tradeProposalSelector(state).get(props.index);
-const uiStatePerTrade = (state, props) => tradesUIStatesSelector(state).get(props.index);
-const purchasePerTrade = (state, props) => tradePurchaseInfoSelector(state).get(props.index);
 
 const getStartLaterOnlyContract = contract => {
     const startLaterCategories =

@@ -3,7 +3,6 @@ import {
     boughtContractsSelector,
     chartDataSelector,
     feedLicensesSelector,
-    tradeParamsSelector,
     tradePurchaseInfoSelector,
     tradingTimesSelector,
     ticksSelector,
@@ -11,16 +10,7 @@ import {
 } from '../../_store/directSelectors';
 import { createSelector } from 'reselect';
 import pipsToDigits from 'binary-utils/lib/pipsToDigits';
-
-export const paramPerTrade = createSelector(
-    [(state, props) => tradeParamsSelector(state).get(props.index), assetsSelector],
-    (param, assets) => {
-        const symbol = param.get('symbol');
-        const symbolDetails = assets.find(a => a.get('symbol') === symbol);
-        const symbolName = symbolDetails && symbolDetails.get('display_name');
-        return param.set('symbolName', symbolName);
-    }
-);
+import { purchasePerTrade, paramPerTrade } from '../TradeSelectors';
 
 const chartDataPerTrade = createSelector(
     [tradePurchaseInfoSelector, chartDataSelector, (state, props) => props.index],
@@ -70,8 +60,6 @@ export const feedLicensePerTrade = createSelector(
         return licenses.get(symbol);
     }
 );
-
-const purchasePerTrade = (state, props) => tradePurchaseInfoSelector(state).get(props.index);
 
 export const contractReceiptPerTrade = createSelector(
     [purchasePerTrade, boughtContractsSelector],
