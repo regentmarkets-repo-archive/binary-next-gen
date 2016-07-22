@@ -58,7 +58,7 @@ const errorToShow = errorObj => {
     return purchaseError;
 };
 
-export const debounceForMobileAndWeb = func => debounce(func, isMobile ? 300 : 150, { leading: true, trailing: true });
+export const debounceForMobileAndWeb = func => debounce(func, 300, { leading: true, trailing: true });
 
 export default class TradeParams extends PureComponent {
 
@@ -142,7 +142,7 @@ export default class TradeParams extends PureComponent {
     }
 
     throttledProposalSubscription =
-        throttle(index => actions.updatePriceProposalSubscription(index), 500);
+        throttle(index => actions.updatePriceProposalSubscription(index), isMobile ? 500 : 300);
 
     updateTradeParams = params => {
         const { index } = this.props;
