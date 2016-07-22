@@ -1,4 +1,3 @@
-import durationToSecs from 'binary-utils/lib/durationToSecs';
 import isIntraday from 'binary-utils/lib/isIntraday';
 import dateToEpoch from 'binary-utils/lib/dateToEpoch';
 
@@ -42,11 +41,6 @@ export const createDefaultBarriers = (contracts, category, type, duration, durat
         expiryType = 'intraday';
     } else {
         expiryType = 'daily';
-    }
-
-    // this is an observation, might not always true
-    if (durationToSecs(duration, durationUnit) < 120) {
-        return [undefined, undefined];
     }
 
     const barriers = contracts[category][type].barriers;

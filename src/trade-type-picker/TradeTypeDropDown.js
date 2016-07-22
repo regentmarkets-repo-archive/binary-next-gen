@@ -23,6 +23,7 @@ const getInternalTradeType = tradeParams => {
 export default class TradeTypeDropDown extends PureComponent {
 
     static propTypes = {
+        forceTradeCardUpdate: PropTypes.func.isRequired,
         tradeParams: PropTypes.object.isRequired,
     };
 

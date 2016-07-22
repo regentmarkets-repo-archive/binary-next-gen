@@ -1,6 +1,7 @@
 import React, { PropTypes, PureComponent } from 'react';
 import Label from 'binary-components/lib/Label';
 import NumericInput from 'binary-components/lib/NumericInput';
+import { debounceForMobileAndWeb } from '../trade-params/TradeParams';
 import { changeBarrier1, changeBarrier2 } from '../trade-params/TradeParamsCascadingUpdates';
 import { actions } from '../_store';
 
@@ -42,6 +43,7 @@ export default class BarrierCard extends PureComponent {
             this.setState({ barrier2: nextProps.barrier2 });
         }
     }
+
     validateBarrier = barrier => {
         const { pipSize } = this.props;
         const barrierDecimals = barrier.toString().split('.')[1];
@@ -53,37 +55,52 @@ export default class BarrierCard extends PureComponent {
         return undefined;
     }
 
+    debouncedBarrier1Change = debounceForMobileAndWeb(e => {
+        const { onUpdateTradeParams } = this.props;
+        const inputValue = e.target.value;
+        const updatedBarrier1 = changeBarrier1(inputValue);
+        onUpdateTradeParams(updatedBarrier1);
+        this.setState({ barrier: inputValue });
+    })
+
+    debouncedBarrier2Change = debounceForMobileAndWeb(e => {
+        const { onUpdateTradeParams } = this.props;
+        const inputValue = e.target.value;
+        const updatedBarrier2 = changeBarrier2(inputValue);
+        onUpdateTradeParams(updatedBarrier2);
+        this.setState({ barrier2: inputValue });
+    })
+
+    updateBarrier1 = e => {
+        const { barrier, pipSize } = this.props;
+        const inputValue = e.target.value.toString().split('.')
+                            .map(v => isNaN(parseInt(v, pipSize)) ? '' : parseInt(v, pipSize))
+                            .join('.');
+        if (barrier !== inputValue && barrier !== inputValue.toString()) {
+            actions.updateTradeUIState(this.props.index, 'disabled', true);
+            const error = this.validateBarrier(inputValue);
+            this.onBarrierError(error);
+            this.debouncedBarrier1Change(e);
+        }
+    }
+
+    updateBarrier2 = e => {
+        const { barrier2, pipSize } = this.props;
+        const inputValue = e.target.value.toString().split('.')
+                            .map(v => isNaN(parseInt(v, pipSize)) ? '' : parseInt(v, pipSize))
+                            .join('.');
+        if (barrier2 !== inputValue && barrier2 !== inputValue.toString()) {
+            actions.updateTradeUIState(this.props.index, 'disabled', true);
+            const newBarrier2 = e.target.value;
+            const error = this.validateBarrier(newBarrier2);
+            this.onBarrierError(error);
+            this.debouncedBarrier2Change(e);
+        }
+    }
+
     onBarrierError = err => {
         const { index } = this.props;
         actions.updateTradeError(index, 'barrierError', err);
-    }
-
-    onBarrier1Change = e => {
-        const { onUpdateTradeParams, barrier } = this.props;
-        const inputValue = e.target.value.toString().split('.')
-                            .map(v => isNaN(parseInt(v, 10)) ? '' : parseInt(v, 10))
-                            .join('.');
-        if (barrier !== inputValue && barrier !== inputValue.toString()) {
-            const error = this.validateBarrier(inputValue);
-            this.onBarrierError(error);
-            const updatedBarrier1 = changeBarrier1(inputValue);
-            onUpdateTradeParams(updatedBarrier1);
-            this.setState({ barrier: inputValue });
-        }
-    }
-
-    onBarrier2Change = e => {
-        const { onUpdateTradeParams, barrier2 } = this.props;
-        const inputValue = e.target.value.toString().split('.')
-                            .map(v => isNaN(parseInt(v, 10)) ? '' : parseInt(v, 10))
-                            .join('.');
-        if (barrier2 !== inputValue && barrier2 !== inputValue.toString()) {
-            const error = this.validateBarrier(inputValue);
-            this.onBarrierError(error);
-            const updatedBarrier2 = changeBarrier2(inputValue);
-            onUpdateTradeParams(updatedBarrier2);
-            this.setState({ barrier2: inputValue });
-        }
     }
 
     render() {
@@ -91,6 +108,7 @@ export default class BarrierCard extends PureComponent {
             barrierInfo,
             barrierType,
             isIntraDay,
+            pipSize,
             spot,
         } = this.props;
 
@@ -118,8 +136,9 @@ export default class BarrierCard extends PureComponent {
                     <Label text={barrier1Info.name} />
                     <NumericInput
                         className="numeric-input param-field"
-                        onChange={this.onBarrier1Change}
+                        onChange={this.updateBarrier1}
                         value={barrierVal}
+                        decimal={pipSize}
                         step={1}
                     />
                 </div>
@@ -128,9 +147,10 @@ export default class BarrierCard extends PureComponent {
                         <Label text={barrier2Info.name} />
                         <NumericInput
                             className="numeric-input param-field"
-                            onChange={this.onBarrier2Change}
+                            onChange={this.updateBarrier2}
                             value={barrier2Val}
                             step={1}
+                            decimal={pipSize}
                         />
                     </div>
                 }
