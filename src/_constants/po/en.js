@@ -779,5 +779,161 @@ export default {
     "Digit Stats": [
         null,
         ""
+    ],
+    "Favorites": [
+        null,
+        ""
+    ],
+    "Open For Trading": [
+        null,
+        ""
+    ],
+    "Closed": [
+        null,
+        ""
+    ],
+    "Contract ID": [
+        null,
+        ""
+    ],
+    "Reference ID": [
+        null,
+        ""
+    ],
+    "Entry Spot": [
+        null,
+        ""
+    ],
+    "Entry Spot Time": [
+        null,
+        ""
+    ],
+    "Potential Payout": [
+        null,
+        ""
+    ],
+    "Exit Spot": [
+        null,
+        ""
+    ],
+    "Exit Spot Time": [
+        null,
+        ""
+    ],
+    "Sell Price": [
+        null,
+        ""
+    ],
+    "Sell Time": [
+        null,
+        ""
+    ],
+    "Trade Again": [
+        null,
+        ""
+    ],
+    "Barrier": [
+        null,
+        ""
+    ],
+    "You Won": [
+        null,
+        ""
+    ],
+    "You Lost": [
+        null,
+        ""
+    ],
+    "To change your name, date of birth, country of residence, or email, contact Customer Support.": [
+        null,
+        ""
+    ],
+    "Cashier is locked per your request. To unlock it, enter your password.": [
+        null,
+        ""
+    ],
+    "Unlock Cashier": [
+        null,
+        ""
+    ],
+    "Time out until": [
+        null,
+        ""
+    ],
+    "No transactions for the selected period": [
+        null,
+        ""
+    ],
+    "You have no open contracts": [
+        null,
+        ""
+    ],
+    "You have no assets in watchlist": [
+        null,
+        ""
+    ],
+    "Basic": [
+        null,
+        ""
+    ],
+    "Digits": [
+        null,
+        ""
+    ],
+    "Advanced": [
+        null,
+        ""
+    ],
+    "Higher": [
+        null,
+        ""
+    ],
+    "Lower": [
+        null,
+        ""
+    ],
+    "Ends Outside": [
+        null,
+        ""
+    ],
+    "Ends Between": [
+        null,
+        ""
+    ],
+    "Stays Between": [
+        null,
+        ""
+    ],
+    "Goes Outside": [
+        null,
+        ""
+    ],
+    "Does Not Touch": [
+        null,
+        ""
+    ],
+    "Credit / Debit": [
+        null,
+        ""
+    ],
+    "Last 25 Ticks": [
+        null,
+        ""
+    ],
+    "Last 50 Trades": [
+        null,
+        ""
+    ],
+    "Last 100 Trades": [
+        null,
+        ""
+    ],
+    "Last 500 Trades": [
+        null,
+        ""
+    ],
+    "Last 1000 Trades": [
+        null,
+        ""
     ]
 }
