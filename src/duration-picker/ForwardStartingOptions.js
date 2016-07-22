@@ -7,6 +7,8 @@ import { createDefaultStartLaterEpoch } from '../trade-params/DefaultTradeParams
 import M from 'binary-components/lib/M';
 import Label from 'binary-components/lib/Label';
 import { changeStartDate } from '../trade-params/TradeParamsCascadingUpdates';
+import { debounceForMobileAndWeb } from '../trade-params/TradeParams';
+import { actions } from '../_store';
 
 /**
  * assumption: for each type of contract, there will only have 1 forward starting options contract
@@ -33,7 +35,7 @@ export default class ForwardStartingOptions extends PureComponent {
     }
 
     onDayChange = e => {
-        const { dateStart, onStartDateChange } = this.props;
+        const { dateStart } = this.props;
         const inputValue = e.target.value;
         const newDayEpoch = dateToEpoch(new Date(inputValue));
         const secondsPerDay = 60 * 60 * 24;
@@ -42,7 +44,7 @@ export default class ForwardStartingOptions extends PureComponent {
     }
 
     onTimeChange = e => {
-        const { dateStart, onStartDateChange } = this.props;
+        const { dateStart } = this.props;
         const inputValue = e.target.value;
         const secondsPerDay = 60 * 60 * 24;
         const intraDayEpoch = dateStart % secondsPerDay;
@@ -65,10 +67,15 @@ export default class ForwardStartingOptions extends PureComponent {
         }
     }
 
-    onStartDateChange = epoch => {
+    debouncedStartDateChange = debounceForMobileAndWeb(epoch => {
         const { contract, tradeParams, onUpdateTradeParams } = this.props;
         const updatedStartDate = changeStartDate(epoch, contract, tradeParams);
         onUpdateTradeParams(updatedStartDate);
+    })
+
+    onStartDateChange = epoch => {
+        actions.updateTradeUIState(this.props.index, 'disabled', true);
+        this.debouncedStartDateChange(epoch);
     }
 
     render() {

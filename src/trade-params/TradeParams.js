@@ -1,5 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import throttle from 'lodash.throttle';
+import debounce from 'lodash.debounce';
 import isMobile from 'binary-utils/lib/isMobile';
 import windowResizeEvent from 'binary-utils/lib/windowResizeEvent';
 import isIntraday from 'binary-utils/lib/isIntraday';
@@ -57,7 +58,7 @@ const errorToShow = errorObj => {
     return purchaseError;
 };
 
-const debounceForMobileAndWeb = func => debounce(func, isMobile ? 300 : 150, { leading: true, trailing: true });
+export const debounceForMobileAndWeb = func => debounce(func, isMobile ? 300 : 150, { leading: true, trailing: true });
 
 export default class TradeParams extends PureComponent {
 
@@ -128,29 +129,6 @@ export default class TradeParams extends PureComponent {
         this.updateTradeParams(updatedAsset);
         this.repaintSelf();
         this.clearTradeError();
-    }
-
-
-    debouncedBarrier1Change = debounceForMobileAndWeb(e => {
-        const inputValue = e.target.value;
-        const updatedBarrier1 = changeBarrier1(inputValue);
-        this.updateTradeParams(updatedBarrier1);
-    })
-
-    debouncedBarrier2Change = debounceForMobileAndWeb(e => {
-        const inputValue = e.target.value;
-        const updatedBarrier2 = changeBarrier2(inputValue);
-        this.updateTradeParams(updatedBarrier2);
-    })
-
-    onBarrier1Change = e => {
-        actions.updateTradeUIState(this.props.index, 'disabled', true);
-        this.debouncedBarrier1Change(e);
-    }
-
-    onBarrier2Change = e => {
-        actions.updateTradeUIState(this.props.index, 'disabled', true);
-        this.debouncedBarrier2Change(e);
     }
 
     onCloseModal = () => {
