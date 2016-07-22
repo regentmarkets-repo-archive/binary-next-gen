@@ -2,8 +2,8 @@ export default {
     "": {
         "project-id-version": "PACKAGE VERSION",
         "pot-creation-date": "",
-        "po-revision-date": "2016-07-11 07:59+0000",
-        "last-translator": "Haruna Sekiya <hrnmyrn@gmail.com>",
+        "po-revision-date": "2016-07-21 10:13+0000",
+        "last-translator": "naofum <naofum@gmail.com>",
         "language-team": "Japanese <https://hosted.weblate.org/projects/binary-app/next-gen-app/ja/>",
         "language": "ja",
         "mime-version": "1.0",
@@ -170,7 +170,7 @@ export default {
     ],
     "Credit/Debit": [
         null,
-        "クレジット/デビット"
+        "支払/受取"
     ],
     "Purchase Time": [
         null,
@@ -779,5 +779,161 @@ export default {
     "Digit Stats": [
         null,
         "数字ステータス"
+    ],
+    "Favorites": [
+        null,
+        "お気に入り"
+    ],
+    "Open For Trading": [
+        null,
+        "トレードを開く"
+    ],
+    "Closed": [
+        null,
+        "終了"
+    ],
+    "Contract ID": [
+        null,
+        "トレード ID"
+    ],
+    "Reference ID": [
+        null,
+        "約定 ID"
+    ],
+    "Entry Spot": [
+        null,
+        "エントリー価格"
+    ],
+    "Entry Spot Time": [
+        null,
+        "エントリー価格"
+    ],
+    "Potential Payout": [
+        null,
+        "ペイアウト"
+    ],
+    "Exit Spot": [
+        null,
+        "終値"
+    ],
+    "Exit Spot Time": [
+        null,
+        "判定レート時間"
+    ],
+    "Sell Price": [
+        null,
+        "売却"
+    ],
+    "Sell Time": [
+        null,
+        "売却時間"
+    ],
+    "Trade Again": [
+        null,
+        "トレード"
+    ],
+    "Barrier": [
+        null,
+        "バリア"
+    ],
+    "You Won": [
+        null,
+        "条件が満たされました"
+    ],
+    "You Lost": [
+        null,
+        "条件が満たされませんでした"
+    ],
+    "To change your name, date of birth, country of residence, or email, contact Customer Support.": [
+        null,
+        "氏名、生年月日、居住国、メールアドレスの変更は、カスタマーサポートまでご連絡ください。"
+    ],
+    "Cashier is locked per your request. To unlock it, enter your password.": [
+        null,
+        "リクエストに従い、入出金をロックしました。解除するにはパスワードをご入力ください。"
+    ],
+    "Unlock Cashier": [
+        null,
+        "入出金ロック解除"
+    ],
+    "Time out until": [
+        null,
+        "xxxまで利用禁止"
+    ],
+    "No transactions for the selected period": [
+        null,
+        "選択された期間のお取引はありません"
+    ],
+    "You have no open contracts": [
+        null,
+        "オープン中のトレードはありません"
+    ],
+    "You have no assets in watchlist": [
+        null,
+        "ウォッチリストに資産がありません"
+    ],
+    "Basic": [
+        null,
+        "初級"
+    ],
+    "Digits": [
+        null,
+        "数字ステータス"
+    ],
+    "Advanced": [
+        null,
+        "上級"
+    ],
+    "Higher": [
+        null,
+        "High"
+    ],
+    "Lower": [
+        null,
+        "LOW"
+    ],
+    "Ends Outside": [
+        null,
+        "END-OUT"
+    ],
+    "Ends Between": [
+        null,
+        "END-IN"
+    ],
+    "Stays Between": [
+        null,
+        "STAY-IN"
+    ],
+    "Goes Outside": [
+        null,
+        "BREAK-OUT"
+    ],
+    "Does Not Touch": [
+        null,
+        "NO-TOUCH"
+    ],
+    "Credit / Debit": [
+        null,
+        "支払/受取"
+    ],
+    "Last 25 Ticks": [
+        null,
+        "直近 25 Tick"
+    ],
+    "Last 50 Trades": [
+        null,
+        "直近 50トレード"
+    ],
+    "Last 100 Trades": [
+        null,
+        "直近 100トレード"
+    ],
+    "Last 500 Trades": [
+        null,
+        "直近 500トレード"
+    ],
+    "Last 1000 Trades": [
+        null,
+        "直近 1000トレード"
     ]
 }
