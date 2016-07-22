@@ -82,83 +82,74 @@ export const updateTradeError = (index, errorID, error) => ({
     error,
 });
 
-const subscriptionQueue = [
-    Promise.resolve(),
-    Promise.resolve(),
-    Promise.resolve(),
-    Promise.resolve(),
-    Promise.resolve(),
-];
-
 export const updatePriceProposalSubscription = (tradeID, trade) =>
     (dispatch, getState) => {
-        subscriptionQueue[tradeID].then(() => {
-            dispatch(updateTradeUIState(tradeID, 'disabled', true));
-            if (!getState().tradesParams.get(tradeID)) {
-                return;
-            }
-            const tradeParam = trade || getState().tradesParams.get(tradeID).toJS();
-            const { proposal } = getState().tradesProposalInfo.get(tradeID).toJS();
-            const currency = getState().account.get('currency');
-            const {
-                amount,
-                basis,
-                type,
-                dateStart,
-                duration,
-                durationUnit,
-                symbol,
-                barrier,
-                barrier2,
-                amountPerPoint,
-                stopType,
-                stopProfit,
-                stopLoss,
-                barrierType,
-            } = tradeParam;
+        dispatch(updateTradeUIState(tradeID, 'disabled', true));
+        if (!getState().tradesParams.get(tradeID)) {
+            return;
+        }
+        const tradeParam = trade || getState().tradesParams.get(tradeID).toJS();
+        const { proposal } = getState().tradesProposalInfo.get(tradeID).toJS();
+        const currency = getState().account.get('currency');
+        const {
+            amount,
+            basis,
+            type,
+            dateStart,
+            duration,
+            durationUnit,
+            symbol,
+            barrier,
+            barrier2,
+            amountPerPoint,
+            stopType,
+            stopProfit,
+            stopLoss,
+            barrierType,
+        } = tradeParam;
 
-            if (!(amount && basis && type && symbol)) {
-                return;
-            }
+        if (!(amount && basis && type && symbol)) {
+            return;
+        }
 
-            const b1 = barrier && (barrierType === 'relative' ? numberToSignedString(barrier) : barrier);
-            const b2 = barrier2 && (barrierType === 'relative' ? numberToSignedString(barrier2) : barrier2);
+        const b1 = barrier && (barrierType === 'relative' ? numberToSignedString(barrier) : barrier);
+        const b2 = barrier2 && (barrierType === 'relative' ? numberToSignedString(barrier2) : barrier2);
 
-            if (proposal) {
-                LiveData.api.unsubscribeByID(proposal.id);
-            }
+        const preSubscribe = proposal ? LiveData.api.unsubscribeByID(proposal.id) : Promise.resolve();
 
-            subscriptionQueue[tradeID] = LiveData.api.subscribeToPriceForContractProposal({
-                amount,
-                basis,
-                contract_type: type,
-                duration,
-                date_start: dateStart,
-                currency,
-                duration_unit: durationUnit,
-                symbol,
-                barrier: b1,
-                barrier2: b2,
-                amount_per_point: amountPerPoint,
-                stop_type: stopType,
-                stop_profit: stopProfit,
-                stop_loss: stopLoss,
-            })
-                .then(
-                    response => {
-                        if (getState().tradesParams.get(tradeID)) {
-                            dispatch(updateTradeError(tradeID, 'proposalError', undefined));
-                            dispatch(updateTradeProposal(tradeID, 'proposal', response.proposal));
-                        } else {
-                            LiveData.api.unsubscribeByID(response.proposal.id);
-                        }
-                    },
-                    err => {
-                        dispatch(updateTradeError(tradeID, 'proposalError', err.message));
-                        dispatch(updateTradeProposal(tradeID, 'proposal', undefined));
-                    })
-                .then(() => dispatch(updateTradeUIState(tradeID, 'disabled', false)));
-            });
+        preSubscribe
+            .then(() =>
+                LiveData.api.subscribeToPriceForContractProposal({
+                    amount,
+                    basis,
+                    contract_type: type,
+                    duration,
+                    date_start: dateStart,
+                    currency,
+                    duration_unit: durationUnit,
+                    symbol,
+                    barrier: b1,
+                    barrier2: b2,
+                    amount_per_point: amountPerPoint,
+                    stop_type: stopType,
+                    stop_profit: stopProfit,
+                    stop_loss: stopLoss,
+                })
+                    .then(
+                        response => {
+                            if (getState().tradesParams.get(tradeID)) {
+                                dispatch(updateTradeError(tradeID, 'proposalError', undefined));
+                                dispatch(updateTradeProposal(tradeID, 'proposal', response.proposal));
+                            } else {
+                                LiveData.api.unsubscribeByID(response.proposal.id);
+                            }
+                        },
+                        err => {
+                            dispatch(updateTradeError(tradeID, 'proposalError', err.message));
+                            dispatch(updateTradeProposal(tradeID, 'proposal', undefined));
+                        })
+                    .then(() => dispatch(updateTradeUIState(tradeID, 'disabled', false)))
+            );
     };
 
 export const resubscribeAllPriceProposal = () =>
