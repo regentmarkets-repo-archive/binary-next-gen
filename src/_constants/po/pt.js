@@ -772,5 +772,81 @@ export default {
     "Video": [
         null,
         "Vídeo"
+    ],
+    "Favorites": [
+        null,
+        ""
+    ],
+    "Open For Trading": [
+        null,
+        ""
+    ],
+    "Contract ID": [
+        null,
+        ""
+    ],
+    "Reference ID": [
+        null,
+        ""
+    ],
+    "Barrier": [
+        null,
+        ""
+    ],
+    "To change your name, date of birth, country of residence, or email, contact Customer Support.": [
+        null,
+        ""
+    ],
+    "Cashier is locked per your request. To unlock it, enter your password.": [
+        null,
+        ""
+    ],
+    "Unlock Cashier": [
+        null,
+        ""
+    ],
+    "Time out until": [
+        null,
+        ""
+    ],
+    "You have no open contracts": [
+        null,
+        ""
+    ],
+    "You have no assets in watchlist": [
+        null,
+        ""
+    ],
+    "Basic": [
+        null,
+        ""
+    ],
+    "Advanced": [
+        null,
+        ""
+    ],
+    "Higher": [
+        null,
+        ""
+    ],
+    "Lower": [
+        null,
+        ""
+    ],
+    "Ends Between": [
+        null,
+        ""
+    ],
+    "Stays Between": [
+        null,
+        ""
+    ],
+    "Goes Outside": [
+        null,
+        ""
+    ],
+    "Last 25 Ticks": [
+        null,
+        ""
     ]
 }

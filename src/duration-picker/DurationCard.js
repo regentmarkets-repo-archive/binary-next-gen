@@ -12,6 +12,7 @@ export default class DurationCard extends PureComponent {
         duration: PropTypes.number,
         durationUnit: PropTypes.string,
         forwardStartingDuration: PropTypes.object,       // treated as special case
+        forceTradeCardUpdate: PropTypes.func.isRequired,
         options: PropTypes.array,
         index: PropTypes.number,
         onUpdateTradeParams: PropTypes.func,
@@ -19,7 +20,7 @@ export default class DurationCard extends PureComponent {
         tradeParams: PropTypes.object.isRequired,
     };
 
-    // return error msg or undefined is no error
+    // return error msg or undefined if no error
     validateDuration(duration, durationUnit) {
         const {
             dateStart,
@@ -68,11 +69,12 @@ export default class DurationCard extends PureComponent {
         onUpdateTradeParams({ duration: e.target.value });
     }
     onDurationUnitChange = e => {
-        const { onUpdateTradeParams } = this.props;
+        const { onUpdateTradeParams, forceTradeCardUpdate } = this.props;
         const newUnit = e.target.value;
         const { contract, tradeParams } = this.props;
         const updatedDurationUnit = changeDurationUnit(newUnit, contract, tradeParams);
         onUpdateTradeParams(updatedDurationUnit);
+        forceTradeCardUpdate();
     }
 
     render() {
@@ -83,7 +85,6 @@ export default class DurationCard extends PureComponent {
             forwardStartingDuration,
             options,
         } = this.props;
-
         const allowStartLater = !!forwardStartingDuration;
         const onlyStartLater = allowStartLater && !options;
         const forwardOptions = forwardStartingDuration && forwardStartingDuration.options;
@@ -112,7 +113,7 @@ export default class DurationCard extends PureComponent {
                 <div className="duration-input param-field">
                     <input
                         type="number"
-                        value={duration}
+                        defaultValue={duration}
                         min={min}
                         max={max}
                         onChange={this.updateDuration}

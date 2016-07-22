@@ -5,7 +5,7 @@ export default class AssetPickerList extends PureComponent {
 
 	static propTypes = {
 		assets: PropTypes.object.isRequired,
-		compact: PropTypes.bool,
+		onClose: PropTypes.func,
 		selectedAsset: PropTypes.string,
 	};
 

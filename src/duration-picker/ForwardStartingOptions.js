@@ -7,6 +7,8 @@ import { createDefaultStartLaterEpoch } from '../trade-params/DefaultTradeParams
 import M from 'binary-components/lib/M';
 import Label from 'binary-components/lib/Label';
 import { changeStartDate } from '../trade-params/TradeParamsCascadingUpdates';
+import { debounceForMobileAndWeb } from '../trade-params/TradeParams';
+import { actions } from '../_store';
 
 /**
  * assumption: for each type of contract, there will only have 1 forward starting options contract
@@ -16,7 +18,7 @@ export default class ForwardStartingOptions extends PureComponent {
 
     static propTypes = {
         dateStart: PropTypes.number,
-        forwardStartingDuration: PropTypes.object,       // treated as special case
+        forwardStartingDuration: PropTypes.object.isRequired,       // treated as special case
         index: PropTypes.number.isRequired,
         options: PropTypes.array,
         contract: PropTypes.object,
@@ -26,7 +28,10 @@ export default class ForwardStartingOptions extends PureComponent {
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = {
+            showStartLater: !!props.dateStart,
+            defaultDateStart: createDefaultStartLaterEpoch(props.forwardStartingDuration),
+        };
     }
 
     onDayChange = e => {
@@ -49,10 +54,12 @@ export default class ForwardStartingOptions extends PureComponent {
     }
 
     startNow = () => {
+        this.setState({ showStartLater: false });
         this.onStartDateChange();
     }
 
     startLater = () => {
+        this.setState({ showStartLater: true });
         const { dateStart, forwardStartingDuration } = this.props;
         if (!dateStart) {
             const nextDayOpening = createDefaultStartLaterEpoch(forwardStartingDuration);
@@ -60,22 +67,26 @@ export default class ForwardStartingOptions extends PureComponent {
         }
     }
 
-    onStartDateChange = epoch => {
+    debouncedStartDateChange = debounceForMobileAndWeb(epoch => {
         const { contract, tradeParams, onUpdateTradeParams } = this.props;
         const updatedStartDate = changeStartDate(epoch, contract, tradeParams);
         onUpdateTradeParams(updatedStartDate);
+    })
+
+    onStartDateChange = epoch => {
+        actions.updateTradeUIState(this.props.index, 'disabled', true);
+        this.debouncedStartDateChange(epoch);
     }
 
     render() {
         const { dateStart, forwardStartingDuration, index, options } = this.props;
+        const { showStartLater, defaultDateStart } = this.state;
         const ranges = forwardStartingDuration.range;
         const allowStartLater = !!forwardStartingDuration;
         const onlyStartLater = allowStartLater && !options;
 
-        const selectedDay = dateStart && new Date(dateStart * 1000);
-
-        const timeString = dateStart ? epochToUTCTimeString(dateStart) : '';
-        const showForwardStartingInput = allowStartLater && dateStart;
+        const defaultDate = new Date(defaultDateStart * 1000);
+        const defaultTime = epochToUTCTimeString(defaultDateStart);
 
         return (
             <div className="param-row forward-starting-picker">
@@ -105,24 +116,21 @@ export default class ForwardStartingOptions extends PureComponent {
                             </label>
                         </div>
                     }
-                    {showForwardStartingInput &&
-                        <div className="forward-starting-input">
-                            <input
-                                type="date"
-                                min={dateToDateString(ranges[0].date)}
-                                max={dateToDateString(ranges[2].date)}
-                                onChange={this.onDayChange}
-                                value={selectedDay && dateToDateString(selectedDay)}
-                            />
-                            {selectedDay &&
-                                <input
-                                    type="time"
-                                    onChange={this.onTimeChange}
-                                    defaultValue={timeString}
-                                />
-                            }
-                        </div>
-                    }
+                    {allowStartLater &&
+                    <div className="forward-starting-input" style={showStartLater ? {} : { display: 'none' }}>
+                        <input
+                            type="date"
+                            min={dateToDateString(ranges[0].date)}
+                            max={dateToDateString(ranges[2].date)}
+                            onChange={this.onDayChange}
+                            defaultValue={dateToDateString(defaultDate)}
+                        />
+                        <input
+                            type="time"
+                            onChange={this.onTimeChange}
+                            defaultValue={defaultTime}
+                        />
+                    </div>}
                 </div>
             </div>
         );

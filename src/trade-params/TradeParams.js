@@ -1,5 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import throttle from 'lodash.throttle';
+import debounce from 'lodash.debounce';
 import isMobile from 'binary-utils/lib/isMobile';
 import windowResizeEvent from 'binary-utils/lib/windowResizeEvent';
 import isIntraday from 'binary-utils/lib/isIntraday';
@@ -56,6 +57,8 @@ const errorToShow = errorObj => {
     if (proposalError) return proposalError;
     return purchaseError;
 };
+
+export const debounceForMobileAndWeb = func => debounce(func, 300, { leading: true, trailing: true });
 
 export default class TradeParams extends PureComponent {
 
@@ -215,6 +218,7 @@ export default class TradeParams extends PureComponent {
                 <TradeTypeDropDown
                     {...this.props}
                     updateParams={this.updateTradeParams}
+                    forceTradeCardUpdate={this.repaintSelf}
                     clearTradeError={this.clearTradeError}
                 />
                 {showDigitBarrier &&
@@ -258,6 +262,7 @@ export default class TradeParams extends PureComponent {
                         options={contractForType.durations}
                         index={index}
                         onUpdateTradeParams={this.updateTradeParams}
+                        forceTradeCardUpdate={this.repaintSelf}
                         contract={contract}
                         tradeParams={tradeParams}
                     />

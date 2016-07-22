@@ -3,7 +3,7 @@ export default {
         "project-id-version": "1228",
         "report-msgid-bugs-to": "",
         "pot-creation-date": "",
-        "po-revision-date": "2016-07-11 07:20+0000",
+        "po-revision-date": "2016-07-22 06:56+0000",
         "last-translator": "Freddy Hew <hewfreddy@gmail.com>",
         "language-team": "Chinese (China) <https://hosted.weblate.org/projects/binary-app/next-gen-app/zh_CN/>",
         "language": "zh_cn",
@@ -66,62 +66,6 @@ export default {
         null,
         "参考"
     ],
-    "Start Time": [
-        null,
-        "开始时间"
-    ],
-    "Current Spot Time": [
-        null,
-        "当前现价时间"
-    ],
-    "End Time": [
-        null,
-        "结束时间"
-    ],
-    "Entry Spot": [
-        null,
-        "入市现价"
-    ],
-    "Current Spot": [
-        null,
-        "当前现价"
-    ],
-    "Exit Spot": [
-        null,
-        "退出现价"
-    ],
-    "Indicative Price": [
-        null,
-        "指示性价格"
-    ],
-    "Final Price": [
-        null,
-        "最终价格"
-    ],
-    "Description": [
-        null,
-        "说明"
-    ],
-    "Proceed": [
-        null,
-        "继续"
-    ],
-    "Sign in": [
-        null,
-        "登录"
-    ],
-    "Please enter your email verification code": [
-        null,
-        "请输入电子邮件验证代码"
-    ],
-    "Verify": [
-        null,
-        "验证"
-    ],
-    "Close": [
-        null,
-        "收盘"
-    ],
     "Purchase": [
         null,
         "买入"
@@ -141,34 +85,6 @@ export default {
     "Sale Date": [
         null,
         "卖出日期"
-    ],
-    "Sorry, we have no payment agents in": [
-        null,
-        "对不起，以下地区我们没有支付代理："
-    ],
-    "Deposit commision: ": [
-        null,
-        "存款佣金收费： "
-    ],
-    "Withdrawal commision: ": [
-        null,
-        "取款佣金费用： "
-    ],
-    "Withdrawal Failed": [
-        null,
-        "取款失败"
-    ],
-    "Confirmation": [
-        null,
-        "交易确认"
-    ],
-    "Are you sure you want to withdraw": [
-        null,
-        "确定要提款吗"
-    ],
-    "Withdraw": [
-        null,
-        "取款"
     ],
     "Sale Price": [
         null,
@@ -262,10 +178,6 @@ export default {
         null,
         "买入时间"
     ],
-    "Scale": [
-        null,
-        "比例"
-    ],
     "Back": [
         null,
         "返回"
@@ -273,10 +185,6 @@ export default {
     "Place Order": [
         null,
         "下订单"
-    ],
-    "Purchase for ": [
-        null,
-        "买入 "
     ],
     "{asset} will {type} over next {duration}": [
         null,
@@ -746,6 +654,10 @@ export default {
         null,
         "平仓价格"
     ],
+    "Indicative Price": [
+        null,
+        "指示性价格"
+    ],
     "Potential Profit": [
         null,
         "潜在利润"
@@ -761,6 +673,10 @@ export default {
     "You lost ": [
         null,
         "您输了 "
+    ],
+    "Close": [
+        null,
+        "收盘"
     ],
     "Low": [
         null,
@@ -838,6 +754,10 @@ export default {
         null,
         "期限"
     ],
+    "Start Time": [
+        null,
+        "开始时间"
+    ],
     "Now": [
         null,
         "现在"
@@ -861,5 +781,161 @@ export default {
     "Digit Stats": [
         null,
         "数字统计"
+    ],
+    "Favorites": [
+        null,
+        "收藏夹"
+    ],
+    "Open For Trading": [
+        null,
+        "开放交易"
+    ],
+    "Closed": [
+        null,
+        "已收盘"
+    ],
+    "Contract ID": [
+        null,
+        "合约ID"
+    ],
+    "Reference ID": [
+        null,
+        "参考ID"
+    ],
+    "Entry Spot": [
+        null,
+        "入市现价"
+    ],
+    "Entry Spot Time": [
+        null,
+        "入市现价时间"
+    ],
+    "Potential Payout": [
+        null,
+        "潜在利润"
+    ],
+    "Exit Spot": [
+        null,
+        "退出现价"
+    ],
+    "Exit Spot Time": [
+        null,
+        "退出现价时间"
+    ],
+    "Sell Price": [
+        null,
+        "卖出价格"
+    ],
+    "Sell Time": [
+        null,
+        "卖出时间"
+    ],
+    "Trade Again": [
+        null,
+        "再次交易"
+    ],
+    "Barrier": [
+        null,
+        "障碍"
+    ],
+    "You Won": [
+        null,
+        "您赢了"
+    ],
+    "You Lost": [
+        null,
+        "您输了"
+    ],
+    "To change your name, date of birth, country of residence, or email, contact Customer Support.": [
+        null,
+        "如需更改姓名、生日、居住国或电子邮件，请与客服人员联系。"
+    ],
+    "Cashier is locked per your request. To unlock it, enter your password.": [
+        null,
+        "根据您的请求，您的收银台已被锁定。如需解除锁定，请输入密码。"
+    ],
+    "Unlock Cashier": [
+        null,
+        "解锁收银台"
+    ],
+    "Time out until": [
+        null,
+        "时间已过。下次开启时间为"
+    ],
+    "No transactions for the selected period": [
+        null,
+        "选定时间段中无任何交易"
+    ],
+    "You have no open contracts": [
+        null,
+        "您没有未平仓合约"
+    ],
+    "You have no assets in watchlist": [
+        null,
+        "您的关注列表没有资产"
+    ],
+    "Basic": [
+        null,
+        "基础"
+    ],
+    "Digits": [
+        null,
+        "数字"
+    ],
+    "Advanced": [
+        null,
+        "高级"
+    ],
+    "Higher": [
+        null,
+        "高于"
+    ],
+    "Lower": [
+        null,
+        "低于"
+    ],
+    "Ends Outside": [
+        null,
+        "收于范围之外"
+    ],
+    "Ends Between": [
+        null,
+        "收于范围之内"
+    ],
+    "Stays Between": [
+        null,
+        "保持在范围内"
+    ],
+    "Goes Outside": [
+        null,
+        "超出范围之外"
+    ],
+    "Does Not Touch": [
+        null,
+        "未触及"
+    ],
+    "Credit / Debit": [
+        null,
+        "借方/贷方"
+    ],
+    "Last 25 Ticks": [
+        null,
+        "最近25次跳动"
+    ],
+    "Last 50 Trades": [
+        null,
+        "过去50次交易"
+    ],
+    "Last 100 Trades": [
+        null,
+        "过去100次交易"
+    ],
+    "Last 500 Trades": [
+        null,
+        "过去500次交易"
+    ],
+    "Last 1000 Trades": [
+        null,
+        "过去1000次交易"
     ]
 }
