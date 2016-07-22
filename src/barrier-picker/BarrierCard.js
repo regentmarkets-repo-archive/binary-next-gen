@@ -78,6 +78,7 @@ export default class BarrierCard extends PureComponent {
             barrierInfo,
             barrierType,
             isIntraDay,
+            pipSize,
             spot,
             } = this.props;
         const expiryType = isIntraDay ? 'intraday' : 'daily';
@@ -104,6 +105,7 @@ export default class BarrierCard extends PureComponent {
                         className="numeric-input param-field"
                         onChange={this.updateBarrier1}
                         value={+barrierVal}
+                        decimal={pipSize}
                         step={1}
                     />
                 </div>
@@ -115,6 +117,7 @@ export default class BarrierCard extends PureComponent {
                             onChange={this.updateBarrier2}
                             value={+barrier2Val}
                             step={1}
+                            decimal={pipSize}
                         />
                     </div>
                 }

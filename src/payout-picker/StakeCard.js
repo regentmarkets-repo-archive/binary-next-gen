@@ -49,6 +49,7 @@ export default class StakeCard extends PureComponent {
                     value={amount}
                     min={min}
                     max={100000}
+                    decimal={2}
                     valueList={payouts}
                     onChange={this.onAmountChange}
                 />
