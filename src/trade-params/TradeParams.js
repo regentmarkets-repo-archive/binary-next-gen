@@ -142,7 +142,7 @@ export default class TradeParams extends PureComponent {
     }
 
     throttledProposalSubscription =
-        throttle(index => actions.updatePriceProposalSubscription(index), 500);
+        throttle(index => actions.updatePriceProposalSubscription(index), isMobile ? 500 : 300);
 
     updateTradeParams = params => {
         const { index } = this.props;
