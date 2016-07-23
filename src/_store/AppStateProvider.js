@@ -1,4 +1,4 @@
-import React, { Children, PureComponent, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import LoadingView from '../loading-view/LoadingView';
 import { appStateSelector } from '../_selectors/AppStateSelectors';
@@ -32,6 +32,6 @@ export default class AppStateProvider extends PureComponent {
         const showMessage = this.state && this.state.showMessage;
         const loadingView = <LoadingView showMessage={showMessage} />;
 
-        return Children.only(connected ? children : loadingView);
+        return connected ? children : loadingView;
     }
 }

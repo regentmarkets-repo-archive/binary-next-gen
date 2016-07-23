@@ -114,7 +114,7 @@ export default class CrateAccountCard extends PureComponent {
                         onChange={this.onPasswordChange}
                     />
                     {validatedOnce && !passwordIsValid &&
-                        <ErrorMsg text="Password should have lower and uppercase letters with numbers between 6-25 characters." />
+                        <ErrorMsg text="Password should have lower and uppercase letters and 6 characters or more" />
                     }
                     <InputGroup
                         type="password"

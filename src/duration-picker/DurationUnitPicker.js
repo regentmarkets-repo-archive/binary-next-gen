@@ -1,4 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
+import M from 'binary-components/lib/M';
+import Option from 'binary-components/lib/Option';
 
 export default class DurationUnitPicker extends PureComponent {
 
@@ -14,7 +16,7 @@ export default class DurationUnitPicker extends PureComponent {
         if (unitOptions.length === 1) {
             return (
                 <div className="duration-text">
-                    {unitOptions[0].text}
+                    <M m={unitOptions[0].text} />
                 </div>
             );
         }
@@ -22,7 +24,7 @@ export default class DurationUnitPicker extends PureComponent {
         return (
             <select value={durationUnit} onChange={onChange}>
                 {unitOptions.map(o =>
-                    <option key={o.value} value={o.value}>{o.text}</option>
+                    <Option key={o.value} value={o.value} text={o.text} />
                 )}
             </select>
         );

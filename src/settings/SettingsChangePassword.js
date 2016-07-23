@@ -75,7 +75,7 @@ export default class SettingsChangePassword extends PureComponent {
                     onChange={this.onEntryChange}
                 />
                 {validatedOnce && passwordNotValid &&
-                    <ErrorMsg text="Password should have lower and uppercase letters with numbers, at least 6 characters." />}
+                    <ErrorMsg text="Password should have lower and uppercase letters and 6 characters or more" />}
                 <InputGroup
                     id="confirmPassword"
                     placeholder="Confirm new password"

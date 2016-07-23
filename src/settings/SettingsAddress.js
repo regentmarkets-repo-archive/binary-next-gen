@@ -63,14 +63,14 @@ export default class SettingsAddress extends PureComponent {
 				<InputGroup
 					id="address_line_1"
 					type="text"
-					label="Address1"
+					label="Address"
 					value={address_line_1}
 					onChange={this.onEntryChange}
 				/>
 				<InputGroup
 					id="address_line_2"
 					type="text"
-					label="Address2"
+					label=" "
 					value={address_line_2}
 					onChange={this.onEntryChange}
 				/>

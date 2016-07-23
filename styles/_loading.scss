@@ -1,0 +1,61 @@
+.loading-page {
+    color: white;
+    background-color: $COLOR_BRAND_BLUE;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 1;
+    flex-direction: column;
+}
+
+.logo-full {
+    img + img {
+        margin-left: 10px;
+    }
+}
+
+.barspinner {
+    margin: 100px auto;
+    width: 60px;
+    height: 20px;
+    text-align: center;
+    font-size: 10px;
+}
+
+.barspinner > div {
+    margin: 2px;
+    background-color: white;
+    border-radius: 20px;
+    height: 100%;
+    width: 6px;
+    display: inline-block;
+    animation: sk-stretchdelay 1.2s infinite ease-in-out;
+}
+
+.barspinner .rect2 {
+    animation-delay: -1.1s;
+}
+
+.barspinner .rect3 {
+    animation-delay: -1s;
+}
+
+.barspinner .rect4 {
+    animation-delay: -0.9s;
+}
+
+.barspinner .rect5 {
+    animation-delay: -0.8s;
+}
+
+@keyframes sk-stretchdelay {
+    0%,
+    40%,
+    100% {
+        transform: scaleY(1);
+    }
+    20% {
+        transform: scaleY(2);
+    }
+}
