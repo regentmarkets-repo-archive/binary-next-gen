@@ -692,3 +692,105 @@ msgstr ""
 
 msgid "Last 1000 Trades"
 msgstr ""
+
+msgid "Maximum Daily Turnover"
+msgstr ""
+
+msgid "Commodities"
+msgstr ""
+
+msgid "Major Pairs"
+msgstr ""
+
+msgid "Minor Pairs"
+msgstr ""
+
+msgid "Smart FX"
+msgstr ""
+
+msgid "Volatility Indices"
+msgstr ""
+
+msgid "Indices"
+msgstr ""
+
+msgid "OTC Stocks"
+msgstr ""
+
+msgid "Stated limits are subject to change without prior notice"
+msgstr ""
+
+msgid "Withdrawal Limits"
+msgstr ""
+
+msgid "Withdrawal limit"
+msgstr ""
+
+msgid "Already withdrawn"
+msgstr ""
+
+msgid "Current immediate maximum withdrawal"
+msgstr ""
+
+msgid "Create Free Account"
+msgstr ""
+
+msgid "Verification Code"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Confirm Password"
+msgstr ""
+
+msgid "Already have an account?"
+msgstr ""
+
+msgid "Enter a valid verification code"
+msgstr ""
+
+msgid "Choose your country"
+msgstr ""
+
+msgid "Password should have lower and uppercase letters and 6 characters or more"
+msgstr ""
+
+msgid "Passwords do not match"
+msgstr ""
+
+msgid "Enter a valid email"
+msgstr ""
+
+msgid "Number should between 10 to 120"
+msgstr ""
+
+msgid "Enter your first and last name"
+msgstr ""
+
+msgid "Choose your country"
+msgstr ""
+
+msgid "City must not be empty"
+msgstr ""
+
+msgid "Address must not be empty"
+msgstr ""
+
+msgid "Enter a valid phone number"
+msgstr ""
+
+msgid "Select a secret question"
+msgstr ""
+
+msgid "Secret answer must be at least 4 characters"
+msgstr ""
+
+msgid "You need to agree to our Terms and Conditions"
+msgstr ""
+
+msgid "I agree to the"
+msgstr ""
+
+msgid "terms and conditions"
+msgstr ""
