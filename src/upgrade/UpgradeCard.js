@@ -1,5 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import M from 'binary-components/lib/M';
+import InputGroup from 'binary-components/lib/InputGroup';
 import LogoSpinner from 'binary-components/lib/LogoSpinner';
 import Legend from 'binary-components/lib/Legend';
 import Button from 'binary-components/lib/Button';
@@ -12,11 +13,6 @@ import SecretQuestion from './SecretQuestion';
 
 export default class UpgradeCard extends PureComponent {
 
-	static propTypes = {
-		activeStep: PropTypes.number.isRequired,
-		progress: PropTypes.bool.isRequired,
-	};
-
 	static contextTypes = {
 		router: PropTypes.object.isRequired,
 	};
@@ -24,6 +20,7 @@ export default class UpgradeCard extends PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
+			progress: false,
 			validatedOnce: '',
 			salutation: 'Mr',
 			firstName: '',
@@ -177,13 +174,13 @@ export default class UpgradeCard extends PureComponent {
 							<Option value="Ms" text="Ms" />
 							<Option value="Miss" text="Miss" />
 						</select>
-						<input
+						<InputGroup
 							placeholder="First Name"
 							type="text"
 							onChange={this.onFirstNameChange}
 							maxLength="30"
 						/>
-						<input
+						<InputGroup
 							placeholder="Last Name"
 							type="text"
 							onChange={this.onLastNameChange}
@@ -214,14 +211,14 @@ export default class UpgradeCard extends PureComponent {
 						<ErrorMsg text="Choose your country" />
 					}
 					<div className="input-row">
-						<input
+						<InputGroup
 							name="AddressTown"
 							placeholder="Town/City"
 							type="text"
 							maxLength="35"
 							onChange={this.onCityChange}
 						/>
-						<input
+						<InputGroup
 							name="AddressPostcode"
 							placeholder="Postal Code / ZIP"
 							type="text"
@@ -233,7 +230,7 @@ export default class UpgradeCard extends PureComponent {
 						<ErrorMsg text="City must not be empty" />
 					}
 					<div className="input-row">
-						<input
+						<InputGroup
 							name="Address1"
 							placeholder="Address First Line"
 							type="text"
@@ -245,7 +242,7 @@ export default class UpgradeCard extends PureComponent {
 						<ErrorMsg text="Address must not be empty" />
 					}
 					<div className="input-row">
-						<input
+						<InputGroup
 							name="Address2"
 							placeholder="Address Second Line"
 							type="text"
@@ -254,7 +251,7 @@ export default class UpgradeCard extends PureComponent {
 						/>
 					</div>
 					<div className="input-row">
-						<input
+						<InputGroup
 							name="Tel"
 							placeholder="Phone"
 							type="tel"
@@ -268,9 +265,9 @@ export default class UpgradeCard extends PureComponent {
 					<Legend text="Security" />
 					<div className="input-row">
 						<SecretQuestion onChange={this.onSecretQuestionChange} />
-						<input
+						<InputGroup
 							name="secretanswer"
-							placeholder="Answer to secret question"
+							placeholder="Answer To Secret Question"
 							type="text"
 							maxLength="50"
 							onChange={this.onSecretAnswerChange}

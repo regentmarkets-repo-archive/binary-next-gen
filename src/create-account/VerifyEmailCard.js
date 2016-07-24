@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import LogoSpinner from 'binary-components/lib/LogoSpinner';
 import Button from 'binary-components/lib/Button';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
+import InputGroup from 'binary-components/lib/InputGroup';
 import isValidEmail from 'binary-utils/lib/isValidEmail';
 import { api } from '../_data/LiveData';
 
@@ -69,14 +70,12 @@ export default class VerifyEmailCard extends PureComponent {
 					<ErrorMsg text={serverError} />
 				}
 				<form onSubmit={this.onFormSubmit}>
-					<fieldset>
-						<input
-							type="email"
-							placeholder="Email"
-							ref="emailInput"
-							onChange={this.onEmailChange}
-						/>
-					</fieldset>
+					<InputGroup
+						type="email"
+						placeholder="Email"
+						ref="emailInput"
+						onChange={this.onEmailChange}
+					/>
 					{validatedOnce && !this.emailIsValid &&
 						<ErrorMsg text="Enter a valid email" />
 					}

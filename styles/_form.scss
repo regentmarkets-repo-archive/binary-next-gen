@@ -95,11 +95,11 @@ label {
 
 .dob {
     display: flex;
-}
-
-.dob select {
-    border: none;
-    flex: 1;
+    select {
+        border: none !important;
+        text-align-last: center;
+        flex: 1;
+    }
 }
 
 legend {

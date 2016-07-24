@@ -1,4 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
+import M from 'binary-components/lib/M';
 
 export default class AccountMenuItem extends PureComponent {
 
@@ -23,7 +24,9 @@ export default class AccountMenuItem extends PureComponent {
 				onClick={this.switchToAccount}
 			>
 				<img src="img/icon.png" alt="" />
-				<span>Switch to {account}</span>
+				<M m="Switch to" />
+				&nbsp;
+				{account}
 			</a>
 		);
 	}
