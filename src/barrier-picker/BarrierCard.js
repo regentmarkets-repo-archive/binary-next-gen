@@ -74,9 +74,9 @@ export default class BarrierCard extends PureComponent {
     updateBarrier1 = e => {
         const { barrier, pipSize } = this.props;
         const inputValue = e.target.value.toString().split('.')
-                            .map(v => isNaN(parseInt(v, pipSize)) ? '' : parseInt(v, pipSize))
+                            .map(v => isNaN(parseFloat(v, pipSize)) ? '' : parseFloat(v, pipSize))
                             .join('.');
-        if (barrier !== inputValue && barrier !== inputValue.toString()) {
+        if (barrier.toString() !== inputValue) {
             actions.updateTradeUIState(this.props.index, 'disabled', true);
             const error = this.validateBarrier(inputValue);
             this.onBarrierError(error);
@@ -87,9 +87,9 @@ export default class BarrierCard extends PureComponent {
     updateBarrier2 = e => {
         const { barrier2, pipSize } = this.props;
         const inputValue = e.target.value.toString().split('.')
-                            .map(v => isNaN(parseInt(v, pipSize)) ? '' : parseInt(v, pipSize))
+                            .map(v => isNaN(parseFloat(v, pipSize)) ? '' : parseFloat(v, pipSize))
                             .join('.');
-        if (barrier2 !== inputValue && barrier2 !== inputValue.toString()) {
+        if (barrier2.toString() !== inputValue) {
             actions.updateTradeUIState(this.props.index, 'disabled', true);
             const newBarrier2 = e.target.value;
             const error = this.validateBarrier(newBarrier2);
