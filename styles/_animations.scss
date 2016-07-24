@@ -73,6 +73,7 @@
     opacity: 0.01;
     > .modal,
     > .mobile-content,
+    > .screen,
     > .article {
         transform: scale(0.9) translateY(4rem);
     }
@@ -89,6 +90,7 @@
     > .modal,
     > .mobile-content,
     > .drop-down,
+    > .screen,
     > .article {
         transform: scale(1) translateY(0);
     }
@@ -101,6 +103,7 @@
     }
     > .modal,
     > .mobile-content,
+    > .screen,
     > .drop-down,
     > .article {
         transform: scale(1) translateY(0);
@@ -120,4 +123,24 @@
     > .drop-down {
         transform: scale(0.75) translateY(-6rem);
     }
+}
+
+.zoom-enter {
+    transform: scale(1);
+    opacity: 0;
+}
+
+.zoom-enter.zoom-enter-active {
+    transform: scale(1);
+    opacity: 1;
+}
+
+.zoom-leave {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.zoom-leave.zoom-leave-active {
+    transform: scale(1.5);
+    opacity: 0;
 }

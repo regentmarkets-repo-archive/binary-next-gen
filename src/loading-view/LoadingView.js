@@ -1,15 +1,15 @@
 import React, { PureComponent, PropTypes } from 'react';
-import M from 'binary-components/lib/M';
+import P from 'binary-components/lib/P';
 
 export default class LoadingView extends PureComponent {
 
     static propTypes = {
         showMessage: PropTypes.bool,
-        text: PropTypes.string,
     };
 
     render() {
         const { showMessage } = this.props;
+
         return (
             <div className="loading-page">
                 <div className="logo-full">
@@ -23,9 +23,8 @@ export default class LoadingView extends PureComponent {
                     <div className="rect5" />
                 </div>
                 {showMessage &&
-                    <p>
-                        <M m="Taking too long to load, check connection." />
-                    </p>}
+                    <P text="Taking too long to load, check connection." />
+                }
             </div>
         );
     }

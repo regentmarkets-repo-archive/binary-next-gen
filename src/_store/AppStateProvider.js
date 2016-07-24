@@ -1,7 +1,8 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { Children, PureComponent, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import LoadingView from '../loading-view/LoadingView';
+import TransitionGroup from 'react-addons-css-transition-group';
 import { appStateSelector } from '../_selectors/AppStateSelectors';
+import LoadingView from '../loading-view/LoadingView';
 
 /**
  * Note: The loading view is tightly coupled with the auto-signin flow of apps,
@@ -14,6 +15,13 @@ export default class AppStateProvider extends PureComponent {
         children: PropTypes.object.isRequired,
         connected: PropTypes.bool.isRequired,
     };
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            showMessage: false,
+        };
+    }
 
     componentWillMount() {
         this.timer = setTimeout(this.showMessageForSlowConnection, 5000);
@@ -29,9 +37,12 @@ export default class AppStateProvider extends PureComponent {
 
     render() {
         const { connected, children } = this.props;
-        const showMessage = this.state && this.state.showMessage;
-        const loadingView = <LoadingView showMessage={showMessage} />;
+        const { showMessage } = this.state;
 
-        return connected ? children : loadingView;
+        return (
+            <TransitionGroup transitionName="zoom" transitionEnterTimeout={20000} transitionLeaveTimeout={20000}>
+                {Children.only(connected ? children : <LoadingView key={123} showMessage={showMessage} />)}
+            </TransitionGroup>
+        );
     }
 }
