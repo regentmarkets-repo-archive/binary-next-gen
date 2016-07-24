@@ -794,3 +794,42 @@ msgstr ""
 
 msgid "terms and conditions"
 msgstr ""
+
+msgid "Search for assets"
+msgstr ""
+
+msgid "Verification Code"
+msgstr ""
+
+msgid "Choose a Payment Agent"
+msgstr ""
+
+msgid "Confirm New Password"
+msgstr ""
+
+msgid "First Name"
+msgstr ""
+
+msgid "Last Name"
+msgstr ""
+
+msgid "Town/City"
+msgstr ""
+
+msgid "Postal Code / ZIP"
+msgstr ""
+
+msgid "Address First Line"
+msgstr ""
+
+msgid "Address Second Line"
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "Answer To Secret Question"
+msgstr ""
+
+msgid "Switch to"
+msgstr ""
