@@ -1,7 +1,7 @@
 *,
 *::after,
 *::before {
-    transition: opacity 0.2s, color 0.2s, background 0.2s, transform 0.2s;
+    transition: opacity 250ms, color 250ms, background 250ms, transform 250ms;
 }
 
 @keyframes spinning {
@@ -125,22 +125,14 @@
     }
 }
 
-.zoom-enter {
-    transform: scale(1);
-    opacity: 0;
-}
-
-.zoom-enter.zoom-enter-active {
-    transform: scale(1);
-    opacity: 1;
-}
-
 .zoom-leave {
+    transition: transform 1s;
     opacity: 1;
     transform: scale(1);
 }
 
 .zoom-leave.zoom-leave-active {
-    transform: scale(1.5);
+    transition: opacity 500ms, transform 500ms;
+    transform: scale(2);
     opacity: 0;
 }

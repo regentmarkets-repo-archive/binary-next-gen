@@ -12,7 +12,7 @@ export default class AnimatedPopup extends PureComponent {
 		const { shown, children } = this.props;
 
 		return (
-			<TransitionGroup transitionName="popup" transitionEnterTimeout={200} transitionLeaveTimeout={200}>
+			<TransitionGroup transitionName="popup" transitionEnterTimeout={250} transitionLeaveTimeout={250}>
 				{shown ? children : null}
 			</TransitionGroup>
 		);

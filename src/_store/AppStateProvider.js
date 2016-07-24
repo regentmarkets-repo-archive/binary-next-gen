@@ -40,7 +40,7 @@ export default class AppStateProvider extends PureComponent {
         const { showMessage } = this.state;
 
         return (
-            <TransitionGroup transitionName="zoom" transitionEnterTimeout={200} transitionLeaveTimeout={200}>
+            <TransitionGroup transitionName="zoom" transitionEnterTimeout={0} transitionLeaveTimeout={500}>
                 {Children.only(connected ? children : <LoadingView key={123} showMessage={showMessage} />)}
             </TransitionGroup>
         );

@@ -38,13 +38,13 @@ export default class LayoutPicker extends PureComponent {
 
         return (
             <div className={styles.layoutPicker}>
-                <button className="btn-secondary layout-switch-btn" onClick={this.onSingleTradeClick}>
+                <a className="btn-secondary layout-switch-btn" onClick={this.onSingleTradeClick}>
                     <LayoutButton
                         tradesCount={1}
                         layoutN={1}
                     />
                     <M m="Single Trade" />
-                </button>
+                </a>
                 <DropDown
                     shown={dropdownShown}
                     onClose={this.close}
@@ -56,15 +56,14 @@ export default class LayoutPicker extends PureComponent {
                         onLayoutChange={this.onLayoutChange}
                     />
                 </DropDown>
-                <button className="btn-secondary layout-switch-btn" onClick={this.open}>
+                <a className="btn-secondary layout-switch-btn" onClick={this.open}>
                     <LayoutButton
                         tradesCount={tradesCount}
                         layoutN={layoutN}
                         onClick={this.close}
                     />
                     <M m="Multi Trade" />
-                </button>
-
+                </a>
             </div>
         );
     }
