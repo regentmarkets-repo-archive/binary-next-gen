@@ -19,7 +19,7 @@ input {
 }
 
 textarea {
-    padding: .5rem;
+    padding: 0.5rem;
     height: 8rem;
     width: 25rem;
 }
@@ -48,7 +48,7 @@ input[type=time],
 input[type=datepicker],
 .picker__input,
 .inputlike {
-    padding: 0 .25rem;
+    padding: 0 0.25rem;
     height: 2rem;
 }
 
@@ -130,7 +130,7 @@ fieldset .error-msg {
 input[type=range] {
     -webkit-appearance: none;
     width: 15rem;
-    height: .2rem;
+    height: 0.2rem;
     background: $COLOR_BRAND_BLUE;
     cursor: pointer;
 }
@@ -145,7 +145,7 @@ input[type=range]::-webkit-slider-thumb {
     height: 1rem;
     border-radius: 100%;
     background: $COLOR_BRAND_BLUE;
-    box-shadow: 0 0 0 .5rem rgba($COLOR_BRAND_BLUE, .1);
+    box-shadow: 0 0 0 0.5rem rgba($COLOR_BRAND_BLUE, 0.1);
     cursor: pointer;
 }
 

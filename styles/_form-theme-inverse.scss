@@ -15,7 +15,7 @@
         color: $COLOR_INVERSE_TEXT;
         background-color: lighten($COLOR_INVERSE_BG, 10%);
 
-        border: 1px solid rgba($COLOR_INVERSE_TEXT, .25);
+        border: 1px solid rgba($COLOR_INVERSE_TEXT, 0.25);
 
         &:hover {
             border-color: rgba($COLOR_INVERSE_TEXT, 0.5) !important;

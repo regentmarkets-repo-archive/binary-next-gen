@@ -3,8 +3,8 @@
     color: $COLOR_INVERSE_TEXT;
 }
 
-.inferse ol li:before {
-   color: $COLOR_INVERSE_TEXT;
+.inferse ol li::before {
+    color: $COLOR_INVERSE_TEXT;
 }
 
 .inverse {

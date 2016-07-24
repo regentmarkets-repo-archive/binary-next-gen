@@ -2,13 +2,17 @@
     html {
         font-size: $FONT_SIZE_N / 2 + $FONT_SIZE_S / 2; // halfway between N and S
     }
-    .sitemap, .extra-award, .adcopy, .sidebar  {
+    .sitemap,
+    .extra-award,
+    .adcopy,
+    .sidebar {
         display: none;
     }
     .regulatory-logos img {
         height: 2rem !important;
     }
 }
+
 @media all and (max-width: 479px) {
     html {
         font-size: $FONT_SIZE_S;
@@ -39,7 +43,7 @@
         padding-top: 0;
     }
     nav div {
-        padding: 0 .5rem;
+        padding: 0 0.5rem;
     }
     .nav-trade,
     .nav-cashier,
@@ -48,7 +52,7 @@
     .nav-account {
         width: $HEADER_HEIGHT_MOBILE;
         height: $HEADER_HEIGHT_MOBILE;
-        padding: .5rem;
+        padding: 0.5rem;
     }
     .nav1st li div {
         line-height: 0;
@@ -68,20 +72,22 @@
     .submenu img {
         display: block;
         height: 2.5rem;
-        margin: .25rem 0 .75rem 0;
+        margin: 0.25rem 0 0.75rem;
     }
     .nav2nd li {
         font-size: 1.5rem;
     }
     .overlay .dialog {
-        padding-left: .5em;
-        padding-right: .5em;
+        padding-left: 0.5em;
+        padding-right: 0.5em;
     }
-    ul[role=tabs], ul[role=segmented] {
+    ul[role=tabs],
+    ul[role=segmented] {
         flex-direction: column;
     }
     .home-content {
-        .hero hgroup, .trade-desc {
+        .hero hgroup,
+        .trade-desc {
             text-align: center;
         }
     }
