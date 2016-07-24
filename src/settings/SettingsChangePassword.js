@@ -64,13 +64,13 @@ export default class SettingsChangePassword extends PureComponent {
             <div className="settings-change-password">
                 <InputGroup
                     id="currentPassword"
-                    placeholder="Current password"
+                    placeholder="Current Password"
                     type="password"
                     onChange={this.onEntryChange}
                 />
                 <InputGroup
                     id="newPassword"
-                    placeholder="New password"
+                    placeholder="New Password"
                     type="password"
                     onChange={this.onEntryChange}
                 />
@@ -78,7 +78,7 @@ export default class SettingsChangePassword extends PureComponent {
                     <ErrorMsg text="Password should have lower and uppercase letters and 6 characters or more" />}
                 <InputGroup
                     id="confirmPassword"
-                    placeholder="Confirm new password"
+                    placeholder="Confirm New Password"
                     type="password"
                     onChange={this.onEntryChange}
                 />

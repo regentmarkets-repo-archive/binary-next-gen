@@ -56,7 +56,7 @@ export default class SettingsCashierUnlocked extends PureComponent {
 				/>
 				<InputGroup
 					id="password2"
-                    placeholder="Confirm password"
+                    placeholder="Confirm Password"
 					type="password"
                     value={password2}
                     onChange={this.onPassword2Change}

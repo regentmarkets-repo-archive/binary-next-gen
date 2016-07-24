@@ -113,7 +113,7 @@ export default class WithdrawForm extends PureComponent {
                 <SelectGroup
                     label="Payment agent"
                     options={paymentAgentOptions}
-                    placeholder="Choose a payment agent"
+                    placeholder="Choose a Payment Agent"
                     value={selectedPaymentAgent}
                     onChange={this.selectPaymentAgent}
                 />

@@ -256,7 +256,7 @@ export default class UpgradeCard extends PureComponent {
 					<div className="input-row">
 						<input
 							name="Tel"
-							placeholder="Telephone"
+							placeholder="Phone"
 							type="tel"
 							maxLength="35"
 							onChange={this.onPhoneChange}
