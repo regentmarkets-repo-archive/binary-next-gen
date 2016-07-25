@@ -4,6 +4,7 @@ import Button from 'binary-components/lib/Button';
 import Countries from 'binary-components/lib/Countries';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import InputGroup from 'binary-components/lib/InputGroup';
+import isValidPassword from 'binary-utils/lib/isValidPassword';
 import LogoSpinner from 'binary-components/lib/LogoSpinner';
 import { api } from '../_data/LiveData';
 import config from '../config';
@@ -81,7 +82,7 @@ export default class CrateAccountCard extends PureComponent {
         const { verificationCode, password, confirmPassword, residence, validatedOnce, progress, serverError } = this.state;
         const residenceIsValid = !!residence;
         const verificationCodeIsValid = verificationCode.length >= 15;
-        const passwordIsValid = password.length >= 6;
+        const passwordIsValid = isValidPassword(password);
         const passwordsMatch = password === confirmPassword;
         this.allValid = residenceIsValid && verificationCodeIsValid && passwordIsValid && passwordsMatch;
 

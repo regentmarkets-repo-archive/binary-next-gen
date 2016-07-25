@@ -41,14 +41,8 @@ export default class UpgradeCard extends PureComponent {
 		}
 	}
 
-	onSalutationChange = e =>
-		this.setState({ salutation: e.target.value });
-
-	onFirstNameChange = e =>
-		this.setState({ firstName: e.target.value });
-
-	onLastNameChange = e =>
-		this.setState({ lastName: e.target.value });
+	onEntryChange = e =>
+        this.setState({ [e.target.id]: e.target.value });
 
 	onFirstNameValid = firstName =>
 		/^[a-zA-Z\s'.-]{2,30}$/.test(firstName);
@@ -168,22 +162,24 @@ export default class UpgradeCard extends PureComponent {
 				<form onSubmit={this.onFormSubmit}>
 					<Legend text="Personal Information" />
 					<div className="input-row names-row">
-						<select onChange={this.onSalutationChange}>
+						<select id="salutation" onChange={this.onEntryChange}>
 							<Option value="Mr" text="Mr" />
 							<Option value="Mrs" text="Mrs" />
 							<Option value="Ms" text="Ms" />
 							<Option value="Miss" text="Miss" />
 						</select>
 						<InputGroup
+							id="firstName"
 							placeholder="First Name"
 							type="text"
-							onChange={this.onFirstNameChange}
+							onChange={this.onEntryChange}
 							maxLength="30"
 						/>
 						<InputGroup
+							id="lastName"
 							placeholder="Last Name"
 							type="text"
-							onChange={this.onLastNameChange}
+							onChange={this.onEntryChange}
 							maxLength="30"
 						/>
 					</div>

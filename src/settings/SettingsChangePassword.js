@@ -3,7 +3,7 @@ import Button from 'binary-components/lib/Button';
 import InputGroup from 'binary-components/lib/InputGroup';
 import isValidPassword from 'binary-utils/lib/isValidPassword';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
-import P from 'binary-components/lib/P';
+// import P from 'binary-components/lib/P';
 import * as LiveData from '../_data/LiveData';
 
 export default class SettingsChangePassword extends PureComponent {
@@ -14,34 +14,26 @@ export default class SettingsChangePassword extends PureComponent {
             currentPassword: '',
             newPassword: '',
             confirmPassword: '',
+            progress: false,
             validatedOnce: false,
-            passwordsDontMatch: false,
-            passwordNotValid: false,
-            successMessage: '',
-            errorMessage: '',
+            serverError: false,
         };
     }
 
     onEntryChange = e =>
         this.setState({ [e.target.id]: e.target.value });
 
-    changePassword = () => {
+    onFormSubmit = e => {
+        e.preventDefault();
         this.setState({
             validatedOnce: true,
-            errorMessage: '',
-            successMessage: '',
-            passwordNotValid: false,
-            passwordsDontMatch: false,
         });
-        const { currentPassword, newPassword, confirmPassword } = this.state;
-        if (isValidPassword(newPassword, confirmPassword)) {
-            this.sendRequest(currentPassword, newPassword);
-        } else {
-            this.setState({ passwordsDontMatch: true });
+        if (this.allValid) {
+            this.performChangePassword();
         }
     }
 
-    async sendRequest(currentPassword, newPassword) {
+    async performChangePassword(currentPassword, newPassword) {
         try {
             const response = await LiveData.api.changePassword({
                 old_password: currentPassword,
@@ -58,41 +50,51 @@ export default class SettingsChangePassword extends PureComponent {
     }
 
     render() {
-        const { validatedOnce, passwordNotValid, passwordsDontMatch, successMessage, errorMessage } = this.state;
+        const { validatedOnce, serverError, currentPassword, newPassword, confirmPassword } = this.state;
+        const currentPasswordIsValid = isValidPassword(currentPassword);
+        const newPasswordIsValid = isValidPassword(newPassword);
+        const passwordsMatch = newPassword === confirmPassword;
 
         return (
-            <div className="settings-change-password">
+            <form className="settings-change-password" onSubmit={this.onFormSubmit}>
+                {serverError &&
+                    <ErrorMsg text={serverError} />
+                }
+                {/* {validatedOnce && successMessage &&
+                    <P className="notice-msg" text="Password changed successfully." />
+                }*/}
                 <InputGroup
                     id="currentPassword"
                     placeholder="Current Password"
                     type="password"
                     onChange={this.onEntryChange}
                 />
+                {validatedOnce && !currentPasswordIsValid &&
+                    <ErrorMsg text="Password should have lower and uppercase letters and 6 characters or more" />
+                }
                 <InputGroup
                     id="newPassword"
                     placeholder="New Password"
                     type="password"
                     onChange={this.onEntryChange}
                 />
-                {validatedOnce && passwordNotValid &&
-                    <ErrorMsg text="Password should have lower and uppercase letters and 6 characters or more" />}
+                {validatedOnce && !newPasswordIsValid &&
+                    <ErrorMsg text="Password should have lower and uppercase letters and 6 characters or more" />
+                }
                 <InputGroup
                     id="confirmPassword"
                     placeholder="Confirm New Password"
                     type="password"
                     onChange={this.onEntryChange}
                 />
-                {validatedOnce && passwordsDontMatch &&
-                    <ErrorMsg text="Passwords do not match" />}
+                {validatedOnce && !passwordsMatch &&
+                    <ErrorMsg text="Passwords do not match" />
+                }
                 <Button
                     text="Change Password"
                     onClick={this.changePassword}
                 />
-                {validatedOnce && errorMessage &&
-                    <ErrorMsg text={errorMessage} />}
-                {validatedOnce && successMessage &&
-                    <P className="successMessage" text="Password changed successfully." />}
-            </div>
+            </form>
         );
     }
 }
