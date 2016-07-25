@@ -22,6 +22,7 @@
     "lint": "eslint src",
     "electron": "electron ./www",
     "translate": "bash fetch-translation.sh",
+    "deploy-test": "gulp deploy-test",
     "dist": "build -owl --ia32 --x64",
     "prerelease:osx": "rm -rf ./release/osx && mkdirp release/osx",
     "release:osx": "cp -rv ./dist/osx/*.{dmg,zip} ./release/osx && PACKAGE_VERSION=$(cat app/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && echo $PACKAGE_VERSION >> ./release/osx/VERSION",
