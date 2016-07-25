@@ -649,10 +649,14 @@ msgstr "条件が満たされませんでした"
 msgid ""
 "To change your name, date of birth, country of residence, or email, contact "
 "Customer Support."
-msgstr "氏名、生年月日、居住国、メールアドレスの変更は、カスタマーサポートまでご連絡ください。"
+msgstr ""
+"氏名、生年月日、居住国、メールアドレスの変更は、カスタマーサポートまでご連絡"
+"ください。"
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
-msgstr "リクエストに従い、入出金をロックしました。解除するにはパスワードをご入力ください。"
+msgstr ""
+"リクエストに従い、入出金をロックしました。解除するにはパスワードをご入力くだ"
+"さい。"
 
 msgid "Unlock Cashier"
 msgstr "入出金ロック解除"
@@ -716,3 +720,140 @@ msgstr "直近 500トレード"
 
 msgid "Last 1000 Trades"
 msgstr "直近 1000トレード"
+
+#, fuzzy
+msgid "Maximum Daily Turnover"
+msgstr "１日あたりのトレード購入可能金額"
+
+msgid "Commodities"
+msgstr ""
+
+msgid "Major Pairs"
+msgstr ""
+
+msgid "Minor Pairs"
+msgstr ""
+
+msgid "Smart FX"
+msgstr ""
+
+#, fuzzy
+msgid "Volatility Indices"
+msgstr "日足価格"
+
+#, fuzzy
+msgid "Indices"
+msgstr "予想評価"
+
+msgid "OTC Stocks"
+msgstr ""
+
+msgid "Stated limits are subject to change without prior notice"
+msgstr ""
+
+#, fuzzy
+msgid "Withdrawal Limits"
+msgstr "ご出金限度額"
+
+#, fuzzy
+msgid "Withdrawal limit"
+msgstr "ご出金限度額"
+
+msgid "Already withdrawn"
+msgstr ""
+
+msgid "Current immediate maximum withdrawal"
+msgstr ""
+
+#, fuzzy
+msgid "Create Free Account"
+msgstr "口座を作成"
+
+msgid "Verification Code"
+msgstr ""
+
+#, fuzzy
+msgid "Confirm Password"
+msgstr "新しいパスワード（確認用）"
+
+msgid "Already have an account?"
+msgstr ""
+
+msgid "Enter a valid verification code"
+msgstr ""
+
+msgid "Choose your country"
+msgstr ""
+
+msgid ""
+"Password should have lower and uppercase letters and 6 characters or more"
+msgstr ""
+
+msgid "Passwords do not match"
+msgstr ""
+
+msgid "Enter a valid email"
+msgstr ""
+
+msgid "Number should between 10 to 120"
+msgstr ""
+
+msgid "Enter your first and last name"
+msgstr ""
+
+msgid "City must not be empty"
+msgstr ""
+
+msgid "Address must not be empty"
+msgstr ""
+
+msgid "Enter a valid phone number"
+msgstr ""
+
+msgid "Select a secret question"
+msgstr ""
+
+msgid "Secret answer must be at least 4 characters"
+msgstr ""
+
+msgid "You need to agree to our Terms and Conditions"
+msgstr ""
+
+msgid "I agree to the"
+msgstr ""
+
+msgid "terms and conditions"
+msgstr ""
+
+#, fuzzy
+msgid "Search for assets"
+msgstr "資産検索"
+
+msgid "Choose a Payment Agent"
+msgstr ""
+
+#, fuzzy
+msgid "Confirm New Password"
+msgstr "新しいパスワード（確認用）"
+
+msgid "First Name"
+msgstr ""
+
+#, fuzzy
+msgid "Last Name"
+msgstr "名前"
+
+msgid "Address First Line"
+msgstr ""
+
+msgid "Address Second Line"
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "Answer To Secret Question"
+msgstr ""
+
+msgid "Switch to"
+msgstr ""

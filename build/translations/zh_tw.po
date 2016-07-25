@@ -713,6 +713,144 @@ msgstr "過去500次交易"
 msgid "Last 1000 Trades"
 msgstr "過去1000次交易"
 
+#, fuzzy
+msgid "Maximum Daily Turnover"
+msgstr "最大日成交量"
+
+msgid "Commodities"
+msgstr ""
+
+msgid "Major Pairs"
+msgstr ""
+
+msgid "Minor Pairs"
+msgstr ""
+
+msgid "Smart FX"
+msgstr ""
+
+#, fuzzy
+msgid "Volatility Indices"
+msgstr "每日價格"
+
+#, fuzzy
+msgid "Indices"
+msgstr "指示性"
+
+msgid "OTC Stocks"
+msgstr ""
+
+msgid "Stated limits are subject to change without prior notice"
+msgstr ""
+
+#, fuzzy
+msgid "Withdrawal Limits"
+msgstr "取款限額"
+
+#, fuzzy
+msgid "Withdrawal limit"
+msgstr "取款限額"
+
+msgid "Already withdrawn"
+msgstr ""
+
+msgid "Current immediate maximum withdrawal"
+msgstr ""
+
+#, fuzzy
+msgid "Create Free Account"
+msgstr "新增帳戶"
+
+msgid "Verification Code"
+msgstr ""
+
+#, fuzzy
+msgid "Confirm Password"
+msgstr "確認新密碼"
+
+msgid "Already have an account?"
+msgstr ""
+
+#, fuzzy
+msgid "Enter a valid verification code"
+msgstr "請輸入電子郵件驗證代碼"
+
+msgid "Choose your country"
+msgstr ""
+
+msgid ""
+"Password should have lower and uppercase letters and 6 characters or more"
+msgstr ""
+
+msgid "Passwords do not match"
+msgstr ""
+
+msgid "Enter a valid email"
+msgstr ""
+
+msgid "Number should between 10 to 120"
+msgstr ""
+
+msgid "Enter your first and last name"
+msgstr ""
+
+msgid "City must not be empty"
+msgstr ""
+
+msgid "Address must not be empty"
+msgstr ""
+
+msgid "Enter a valid phone number"
+msgstr ""
+
+msgid "Select a secret question"
+msgstr ""
+
+msgid "Secret answer must be at least 4 characters"
+msgstr ""
+
+msgid "You need to agree to our Terms and Conditions"
+msgstr ""
+
+msgid "I agree to the"
+msgstr ""
+
+msgid "terms and conditions"
+msgstr ""
+
+#, fuzzy
+msgid "Search for assets"
+msgstr "搜尋資產"
+
+msgid "Choose a Payment Agent"
+msgstr ""
+
+#, fuzzy
+msgid "Confirm New Password"
+msgstr "確認新密碼"
+
+msgid "First Name"
+msgstr ""
+
+#, fuzzy
+msgid "Last Name"
+msgstr "姓名"
+
+msgid "Address First Line"
+msgstr ""
+
+msgid "Address Second Line"
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "Answer To Secret Question"
+msgstr ""
+
+msgid "Switch to"
+msgstr ""
+
 #~ msgid "Current Spot Time"
 #~ msgstr "目前現價時間"
 
@@ -733,9 +871,6 @@ msgstr "過去1000次交易"
 
 #~ msgid "Sign in"
 #~ msgstr "登入"
-
-#~ msgid "Please enter your email verification code"
-#~ msgstr "請輸入電子郵件驗證代碼"
 
 #~ msgid "Verify"
 #~ msgstr "驗證"

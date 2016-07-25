@@ -9,8 +9,8 @@ msgstr ""
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2016-07-22 21:15+0000\n"
 "Last-Translator: Alcino Jorge <alcino@binary.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/binary-app"
-"/next-gen-app/pt/>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/binary-app/"
+"next-gen-app/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -718,3 +718,140 @@ msgstr "500 últimas negociações"
 
 msgid "Last 1000 Trades"
 msgstr "1000 últimas negociações"
+
+#, fuzzy
+msgid "Maximum Daily Turnover"
+msgstr "Máximo volume de negócios diário"
+
+msgid "Commodities"
+msgstr ""
+
+msgid "Major Pairs"
+msgstr ""
+
+msgid "Minor Pairs"
+msgstr ""
+
+msgid "Smart FX"
+msgstr ""
+
+#, fuzzy
+msgid "Volatility Indices"
+msgstr "Preços diários"
+
+#, fuzzy
+msgid "Indices"
+msgstr "Indicativo"
+
+msgid "OTC Stocks"
+msgstr ""
+
+msgid "Stated limits are subject to change without prior notice"
+msgstr ""
+
+#, fuzzy
+msgid "Withdrawal Limits"
+msgstr "Limites de retirada"
+
+#, fuzzy
+msgid "Withdrawal limit"
+msgstr "Limites de retirada"
+
+msgid "Already withdrawn"
+msgstr ""
+
+msgid "Current immediate maximum withdrawal"
+msgstr ""
+
+#, fuzzy
+msgid "Create Free Account"
+msgstr "Criar conta"
+
+msgid "Verification Code"
+msgstr ""
+
+#, fuzzy
+msgid "Confirm Password"
+msgstr "Confirmar nova senha"
+
+msgid "Already have an account?"
+msgstr ""
+
+msgid "Enter a valid verification code"
+msgstr ""
+
+msgid "Choose your country"
+msgstr ""
+
+msgid ""
+"Password should have lower and uppercase letters and 6 characters or more"
+msgstr ""
+
+msgid "Passwords do not match"
+msgstr ""
+
+msgid "Enter a valid email"
+msgstr ""
+
+msgid "Number should between 10 to 120"
+msgstr ""
+
+msgid "Enter your first and last name"
+msgstr ""
+
+msgid "City must not be empty"
+msgstr ""
+
+msgid "Address must not be empty"
+msgstr ""
+
+msgid "Enter a valid phone number"
+msgstr ""
+
+msgid "Select a secret question"
+msgstr ""
+
+msgid "Secret answer must be at least 4 characters"
+msgstr ""
+
+msgid "You need to agree to our Terms and Conditions"
+msgstr ""
+
+msgid "I agree to the"
+msgstr ""
+
+msgid "terms and conditions"
+msgstr ""
+
+#, fuzzy
+msgid "Search for assets"
+msgstr "Procurar ativos"
+
+msgid "Choose a Payment Agent"
+msgstr ""
+
+#, fuzzy
+msgid "Confirm New Password"
+msgstr "Confirmar nova senha"
+
+msgid "First Name"
+msgstr ""
+
+#, fuzzy
+msgid "Last Name"
+msgstr "Nome"
+
+msgid "Address First Line"
+msgstr ""
+
+msgid "Address Second Line"
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "Answer To Secret Question"
+msgstr ""
+
+msgid "Switch to"
+msgstr ""

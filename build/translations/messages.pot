@@ -738,9 +738,6 @@ msgstr ""
 msgid "Verification Code"
 msgstr ""
 
-msgid "Password"
-msgstr ""
-
 msgid "Confirm Password"
 msgstr ""
 
@@ -753,7 +750,8 @@ msgstr ""
 msgid "Choose your country"
 msgstr ""
 
-msgid "Password should have lower and uppercase letters and 6 characters or more"
+msgid ""
+"Password should have lower and uppercase letters and 6 characters or more"
 msgstr ""
 
 msgid "Passwords do not match"
@@ -766,9 +764,6 @@ msgid "Number should between 10 to 120"
 msgstr ""
 
 msgid "Enter your first and last name"
-msgstr ""
-
-msgid "Choose your country"
 msgstr ""
 
 msgid "City must not be empty"
@@ -798,9 +793,6 @@ msgstr ""
 msgid "Search for assets"
 msgstr ""
 
-msgid "Verification Code"
-msgstr ""
-
 msgid "Choose a Payment Agent"
 msgstr ""
 
@@ -811,12 +803,6 @@ msgid "First Name"
 msgstr ""
 
 msgid "Last Name"
-msgstr ""
-
-msgid "Town/City"
-msgstr ""
-
-msgid "Postal Code / ZIP"
 msgstr ""
 
 msgid "Address First Line"
