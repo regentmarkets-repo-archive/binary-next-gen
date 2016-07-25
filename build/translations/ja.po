@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-07-24 08:00+0000\n"
+"PO-Revision-Date: 2016-07-25 08:11+0000\n"
 "Last-Translator: Haruna Sekiya <hrnmyrn@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/ja/>\n"
@@ -721,139 +721,129 @@ msgstr "直近 500トレード"
 msgid "Last 1000 Trades"
 msgstr "直近 1000トレード"
 
-#, fuzzy
 msgid "Maximum Daily Turnover"
-msgstr "１日あたりのトレード購入可能金額"
+msgstr "１日の取引数量限度額"
 
 msgid "Commodities"
-msgstr ""
+msgstr "コモディティ"
 
 msgid "Major Pairs"
-msgstr ""
+msgstr "主要ペア"
 
 msgid "Minor Pairs"
-msgstr ""
+msgstr "マイナーペア"
 
 msgid "Smart FX"
-msgstr ""
+msgstr "スマートFX"
 
-#, fuzzy
 msgid "Volatility Indices"
-msgstr "日足価格"
+msgstr "ボラティリティ インデックス"
 
-#, fuzzy
 msgid "Indices"
-msgstr "予想評価"
+msgstr "インデックス"
 
 msgid "OTC Stocks"
-msgstr ""
+msgstr "店頭株"
 
 msgid "Stated limits are subject to change without prior notice"
-msgstr ""
+msgstr "上記の1日取引数量限度額に変更する場合、当社のホームページ上でお知らせいたします。"
 
-#, fuzzy
 msgid "Withdrawal Limits"
-msgstr "ご出金限度額"
+msgstr "出金限度額"
 
-#, fuzzy
 msgid "Withdrawal limit"
-msgstr "ご出金限度額"
+msgstr "出金限度額"
 
 msgid "Already withdrawn"
-msgstr ""
+msgstr "既に出金されています"
 
 msgid "Current immediate maximum withdrawal"
-msgstr ""
+msgstr "現在の出金限度額"
 
-#, fuzzy
 msgid "Create Free Account"
-msgstr "口座を作成"
+msgstr "無料口座を作成"
 
 msgid "Verification Code"
-msgstr ""
+msgstr "認証コード"
 
-#, fuzzy
 msgid "Confirm Password"
-msgstr "新しいパスワード（確認用）"
+msgstr "確認用パスワード"
 
 msgid "Already have an account?"
-msgstr ""
+msgstr "既に口座をお持ちですか？"
 
 msgid "Enter a valid verification code"
-msgstr ""
+msgstr "有効な認証コードをご入力ください"
 
 msgid "Choose your country"
-msgstr ""
+msgstr "居住国を選択してください"
 
 msgid ""
 "Password should have lower and uppercase letters and 6 characters or more"
-msgstr ""
+msgstr "パスワードは大文字と小文字を含む6文字以上でご入力ください"
 
 msgid "Passwords do not match"
-msgstr ""
+msgstr "パスワードが一致しません"
 
 msgid "Enter a valid email"
-msgstr ""
+msgstr "有効なメールアドレスをご入力ください"
 
 msgid "Number should between 10 to 120"
-msgstr ""
+msgstr "数字は10から120の間です"
 
 msgid "Enter your first and last name"
-msgstr ""
+msgstr "氏名をご入力ください"
 
 msgid "City must not be empty"
-msgstr ""
+msgstr "市区町村の入力は必須です"
 
 msgid "Address must not be empty"
-msgstr ""
+msgstr "番地の入力は必須です"
 
 msgid "Enter a valid phone number"
-msgstr ""
+msgstr "有効な電話番号をご入力ください"
 
 msgid "Select a secret question"
-msgstr ""
+msgstr "秘密の質問をご選択ください"
 
 msgid "Secret answer must be at least 4 characters"
-msgstr ""
+msgstr "秘密の質問の答えは4文字以上でなければいけません"
 
 msgid "You need to agree to our Terms and Conditions"
-msgstr ""
+msgstr "利用規約に同意いただく必要があります"
 
 msgid "I agree to the"
-msgstr ""
+msgstr "同意する"
 
 msgid "terms and conditions"
-msgstr ""
+msgstr "利用規約"
 
-#, fuzzy
 msgid "Search for assets"
-msgstr "資産検索"
+msgstr "資産の検索"
 
 msgid "Choose a Payment Agent"
-msgstr ""
+msgstr "決済サービスをご選択ください"
 
-#, fuzzy
 msgid "Confirm New Password"
 msgstr "新しいパスワード（確認用）"
 
 msgid "First Name"
-msgstr ""
+msgstr "氏名（名）"
 
-#, fuzzy
 msgid "Last Name"
-msgstr "名前"
+msgstr "氏名（姓）"
 
 msgid "Address First Line"
-msgstr ""
+msgstr "番地"
 
 msgid "Address Second Line"
-msgstr ""
+msgstr "マンション（建物）名"
 
 msgid "Phone"
-msgstr ""
+msgstr "電話番号"
 
 msgid "Answer To Secret Question"
-msgstr ""
+msgstr "秘密の質問の答え"
 
 msgid "Switch to"
-msgstr ""
+msgstr "切り替え"
