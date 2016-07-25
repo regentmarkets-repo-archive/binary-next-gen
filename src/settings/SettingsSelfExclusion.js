@@ -4,6 +4,9 @@ import InputGroup from 'binary-components/lib/InputGroup';
 import showError from 'binary-utils/lib/showError';
 import showInfo from 'binary-utils/lib/showInfo';
 import * as LiveData from '../_data/LiveData';
+import xMonthsAfter from 'binary-utils/lib/xMonthsAfter';
+import dateToDateString from 'binary-utils/lib/dateToDateString';
+import dateToEpoch from 'binary-utils/lib/dateToEpoch';
 
 export default class SettingsSelfExclusion extends PureComponent {
 
@@ -33,7 +36,8 @@ export default class SettingsSelfExclusion extends PureComponent {
 			max_30day_losses: props.max_30day_losses,
 			max_open_bets: props.max_open_bets,
 			session_duration_limit: props.session_duration_limit,
-			timeout_until: props.timeout_until,
+			timeout_until_time: props.timeout_until,
+			timeout_until_date: props.timeout_until,
 			exclude_until: props.exclude_until,
 		};
 	}
@@ -42,7 +46,24 @@ export default class SettingsSelfExclusion extends PureComponent {
 		this.setState({ [e.target.id]: e.target.value });
 
 	tryUpdate = () => {
-		LiveData.api.setSelfExclusion(this.state).then(() => {
+		const { max_balance, max_turnover, max_losses, max_7day_turnover, max_7day_losses, 
+			max_30day_turnover, max_30day_losses, max_open_bets, session_duration_limit, 
+			timeout_until_time, timeout_until_date, exclude_until } = this.state;
+		const timeout_until = dateToEpoch(new Date(timeout_until_date + ' ' + timeout_until_time));
+		const newState = {
+			max_balance,
+			max_turnover,
+			max_losses,
+			max_7day_turnover,
+			max_7day_losses,
+			max_30day_turnover,
+			max_30day_losses,
+			max_open_bets,
+			session_duration_limit,
+			exclude_until,
+			timeout_until,
+		};
+		LiveData.api.setSelfExclusion(newState).then(() => {
 			showInfo('Updated');
 		}).catch(response => {
 			showError(response.error.message);
@@ -128,9 +149,17 @@ export default class SettingsSelfExclusion extends PureComponent {
 					onChange={this.onEntryChange}
 				/>
 				<InputGroup
-					id="timeout_until"
-					label="Time out until"
+					id="timeout_until_date"
+					label="Time out until date"
 					type="date"
+					defaultValue={session_duration_limit}
+					onChange={this.onEntryChange}
+				/>
+				<InputGroup
+					id="timeout_until_time"
+					label="Time out until time"
+					type="time"
+					hintttt=""
 					defaultValue={session_duration_limit}
 					onChange={this.onEntryChange}
 				/>
@@ -139,6 +168,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					label="Exclude me from the website until"
 					type="date"
 					defaultValue={exclude_until}
+					min={dateToDateString(xMonthsAfter(6))}
 					onChange={this.onEntryChange}
 				/>
 				<Button
