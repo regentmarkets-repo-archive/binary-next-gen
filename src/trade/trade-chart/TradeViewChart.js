@@ -64,8 +64,13 @@ export default class TradeViewChart extends PureComponent {
     };
 
     changeChartType = type => {
-        const { tradeForChart } = this.props;
+        const { tradeForChart, contractForChart, feedLicense } = this.props;
         const { chartType } = this.state;
+
+        // do nothing if there' no license for chart data or it's showing a contract
+        if (feedLicense === 'chartonly' || contractForChart) {
+            return {};
+        }
 
         if (chartType === type) {
             return {};
@@ -94,11 +99,11 @@ export default class TradeViewChart extends PureComponent {
                 pipSize={pipSize}
                 rangeChange={contractForChart ? undefined : this.rangeChange()}
                 symbol={tradeForChart.symbolName}
-                ticks={dataType === 'ticks' ? ticks : ohlc}
+                ticks={(dataType === 'ticks' || contractForChart) ? ticks : ohlc}
                 theme={theme}
                 type={contractForChart ? 'area' : chartType}
                 trade={internalTradeModelToServerTradeModel(tradeForChart)}
-                typeChange={feedLicense !== 'chartonly' && !contractForChart && this.changeChartType}
+                typeChange={this.changeChartType}
                 tradingTime={tradingTime}
             />
         );
