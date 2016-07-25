@@ -62,6 +62,11 @@ gulp.task('deploy', ['build'], () =>
         .pipe(ghPages())
 );
 
+gulp.task('deploy-test', ['build'], () =>
+    gulp.src(files.dist + '/**/*')
+        .pipe(ghPages())
+);
+
 const cordovaCreate = require('gulp-cordova-create');
 const cordovaPlugin = require('gulp-cordova-plugin');
 const cordovaBuildAndroid = require('gulp-cordova-build-android');
