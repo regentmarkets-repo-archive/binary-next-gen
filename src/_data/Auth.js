@@ -19,7 +19,7 @@ export const signOut = () => {
 };
 
 export const signIn = () => {
-    const oAuthUrl = `https://oauth.binary.com/oauth2/authorize?app_id=${window.BinaryBoot.appId}`;
+    const oAuthUrl = `https://oauth.binary.com/oauth2/authorize?app_id=${window.BinaryBoot.appId}&l=${window.BinaryBoot.language}`;
 
     if (window.cordova) {
         const winAuth = window.cordova.InAppBrowser.open(oAuthUrl, '_blank', 'location=no');
