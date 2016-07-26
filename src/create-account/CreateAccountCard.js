@@ -52,7 +52,7 @@ export default class CrateAccountCard extends PureComponent {
 
     performCreateAccount = async () => {
         const { password, verificationCode, residence } = this.state;
-
+        actions.removePersonalData();
         try {
             this.setState({
                 progress: true,
@@ -66,7 +66,6 @@ export default class CrateAccountCard extends PureComponent {
                 affiliate_token: config.affiliateToken,
             });
             localStorage.setItem('account', JSON.stringify({ token: response.new_account_virtual.oauth_token }));
-            actions.removePersonalData();
             // use react router because we want hash history in mobile
             this.context.router.push('/');
             window.location.reload();
