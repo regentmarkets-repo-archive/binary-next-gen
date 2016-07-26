@@ -1,5 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import toMoney from 'binary-utils/lib/toMoney';
+import { toMoney } from 'binary-utils';
 import M from 'binary-components/lib/M';
 import NumberColored from 'binary-components/lib/NumberColored';
 

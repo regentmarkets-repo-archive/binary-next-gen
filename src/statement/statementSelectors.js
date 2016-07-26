@@ -1,11 +1,8 @@
 import { Record } from 'immutable';
 import { createSelector, createStructuredSelector } from 'reselect';
-import epochToDate from 'binary-utils/lib/epochToDate';
-import {
-    currencySelector,
-    transactionsSelector,
-    transactionsFilterSelector,
-} from '../_store/directSelectors';
+import { epochToDate } from 'binary-utils';
+import { currencySelector, transactionsSelector,
+    transactionsFilterSelector } from '../_store/directSelectors';
 import transactionsFilterFuncs from './transactionsFilters';
 
 const StatementRecord = new Record({

@@ -4,7 +4,7 @@ import LogoSpinner from 'binary-components/lib/LogoSpinner';
 import Button from 'binary-components/lib/Button';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import InputGroup from 'binary-components/lib/InputGroup';
-import isValidEmail from 'binary-utils/lib/isValidEmail';
+import { isValidEmail } from 'binary-utils';
 import { api } from '../_data/LiveData';
 
 export default class VerifyEmailCard extends PureComponent {

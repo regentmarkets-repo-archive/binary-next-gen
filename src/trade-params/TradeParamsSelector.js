@@ -1,13 +1,8 @@
-import { assetsSelector, currencySelector } from '../_store/directSelectors';
 import { createSelector } from 'reselect';
-import extractBarrier from 'binary-utils/lib/extractBarrier';
-import extractDuration from 'binary-utils/lib/extractDuration';
-import extractForwardStartingDuration from 'binary-utils/lib/extractForwardStartingDuration';
-import extractSpreadInfo from 'binary-utils/lib/extractSpreadInfo';
-import normalizedContractFor from 'binary-utils/lib/normalizedContractFor';
-import groupByKey from 'binary-utils/lib/groupByKey';
-import findDeep from 'binary-utils/lib/findDeep';
-import filterObjectBy from 'binary-utils/lib/filterObjectBy';
+import { extractBarrier, extractDuration, extractForwardStartingDuration,
+    extractSpreadInfo, normalizedContractFor, groupByKey,
+    findDeep, filterObjectBy } from 'binary-utils';
+import { assetsSelector, currencySelector } from '../_store/directSelectors';
 import { pipSizePerTrade } from '../trade/trade-chart/TradeViewChartSelector';
 import { mockedContract } from '../_constants/MockContract';
 import { paramPerTrade, errorPerTrade, proposalPerTrade, purchasePerTrade, uiStatePerTrade } from '../trade/TradeSelectors';

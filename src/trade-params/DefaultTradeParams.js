@@ -1,5 +1,4 @@
-import isIntraday from 'binary-utils/lib/isIntraday';
-import dateToEpoch from 'binary-utils/lib/dateToEpoch';
+import { isIntraday, dateToEpoch } from 'binary-utils';
 
 export const createDefaultCategory = contracts => Object.keys(contracts)[0];
 

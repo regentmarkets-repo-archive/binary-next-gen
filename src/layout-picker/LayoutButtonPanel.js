@@ -1,6 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import M from 'binary-components/lib/M';
-import sequence from 'binary-utils/lib/sequence';
+import { sequence } from 'binary-utils';
 import styles from '../layouts/layouts.css';
 import LayoutButton from './LayoutButton';
 

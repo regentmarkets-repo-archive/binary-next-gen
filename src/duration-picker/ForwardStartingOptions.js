@@ -1,11 +1,9 @@
 import React, { PureComponent, PropTypes } from 'react';
-import epochToUTCTimeString from 'binary-utils/lib/epochToUTCTimeString';
-import dateToEpoch from 'binary-utils/lib/dateToEpoch';
-import timeStringToSeconds from 'binary-utils/lib/timeStringToSeconds';
-import dateToDateString from 'binary-utils/lib/dateToDateString';
-import { createDefaultStartLaterEpoch } from '../trade-params/DefaultTradeParams';
+import { epochToUTCTimeString, dateToEpoch,
+    timeStringToSeconds, dateToDateString } from 'binary-utils';
 import M from 'binary-components/lib/M';
 import Label from 'binary-components/lib/Label';
+import { createDefaultStartLaterEpoch } from '../trade-params/DefaultTradeParams';
 import { changeStartDate } from '../trade-params/TradeParamsCascadingUpdates';
 import { debounceForMobileAndWeb } from '../trade-params/TradeParams';
 import { actions } from '../_store';

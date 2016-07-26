@@ -1,9 +1,7 @@
 import React, { PureComponent } from 'react';
 import Button from 'binary-components/lib/Button';
-import requestFullScreen from 'binary-utils/lib/requestFullscreen';
-import exitFullScreen from 'binary-utils/lib/exitFullScreen';
-import addFullScreenEventListener from 'binary-utils/lib/addFullscreenEventListener';
-import removeFullScreenEventListener from 'binary-utils/lib/removeFullscreenEventListener';
+import { requestFullScreen, exitFullScreen,
+	addFullScreenEventListener, removeFullScreenEventListener } from 'binary-utils';
 import { trackEvent } from 'binary-utils/lib/Analytics';
 
 export default class FullScreenSwitcher extends PureComponent {

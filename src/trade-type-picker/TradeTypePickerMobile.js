@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { connect } from 'react-redux';
-import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
+import { immutableChildrenToJS } from 'binary-utils';
 import { actions } from '../_store';
 import MobilePage from '../containers/MobilePage';
 import TradeTypePicker from './TradeTypePicker';

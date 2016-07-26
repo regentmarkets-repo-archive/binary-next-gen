@@ -1,12 +1,8 @@
 import React, { PropTypes, PureComponent } from 'react';
 import Button from 'binary-components/lib/Button';
 import InputGroup from 'binary-components/lib/InputGroup';
-import showError from 'binary-utils/lib/showError';
-import showInfo from 'binary-utils/lib/showInfo';
+import { showError, showInfo, xMonthsAfter, dateToDateString, dateToEpoch } from 'binary-utils';
 import * as LiveData from '../_data/LiveData';
-import xMonthsAfter from 'binary-utils/lib/xMonthsAfter';
-import dateToDateString from 'binary-utils/lib/dateToDateString';
-import dateToEpoch from 'binary-utils/lib/dateToEpoch';
 
 export default class SettingsSelfExclusion extends PureComponent {
 

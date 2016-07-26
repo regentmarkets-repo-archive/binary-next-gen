@@ -1,15 +1,9 @@
-import {
-    assetsSelector,
-    boughtContractsSelector,
-    chartDataSelector,
-    feedLicensesSelector,
-    tradePurchaseInfoSelector,
-    tradingTimesSelector,
-    ticksSelector,
-    ohlcSelector,
-} from '../../_store/directSelectors';
 import { createSelector } from 'reselect';
-import pipsToDigits from 'binary-utils/lib/pipsToDigits';
+import { pipsToDigits } from 'binary-utils';
+import {
+    assetsSelector, boughtContractsSelector, chartDataSelector, feedLicensesSelector,
+    tradePurchaseInfoSelector, tradingTimesSelector, ticksSelector, ohlcSelector,
+} from '../../_store/directSelectors';
 import { purchasePerTrade, paramPerTrade } from '../TradeSelectors';
 
 const chartDataPerTrade = createSelector(

@@ -1,5 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
-import durationText from 'binary-utils/lib/durationText';
+import { durationText } from 'binary-utils';
 import Label from 'binary-components/lib/Label';
 import DurationUnitPicker from './DurationUnitPicker';
 import { changeDurationUnit } from '../trade-params/TradeParamsCascadingUpdates';

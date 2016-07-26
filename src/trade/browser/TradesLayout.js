@@ -1,6 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { connect } from 'react-redux';
-import windowResizeEvent from 'binary-utils/lib/windowResizeEvent';
+import { windowResizeEvent } from 'binary-utils';
 import { actions } from '../../_store';
 import TradeCardContainer from '../TradeCardContainer';
 import * as layouts from '../../layouts';

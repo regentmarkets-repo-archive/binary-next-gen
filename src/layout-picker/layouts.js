@@ -1,4 +1,4 @@
-import sequence from 'binary-utils/lib/sequence';
+import { sequence } from 'binary-utils';
 
 const layoutCounts = [1, 2, 6, 6, 6];
 

@@ -1,6 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import classNames from 'classnames';
-import sequence from 'binary-utils/lib/sequence';
+import { sequence } from 'binary-utils';
 import { actions } from '../_store';
 import * as layouts from '../layouts';
 import styles from '../layouts/layouts.css';

@@ -1,7 +1,7 @@
 import * as types from '../_constants/ActionTypes';
 import * as LiveData from '../_data/LiveData';
 import { trackEvent } from 'binary-utils/lib/Analytics';
-import numberToSignedString from 'binary-utils/lib/numberToSignedString';
+import { numberToSignedString } from 'binary-utils';
 import { updateOpenContractField } from './PortfolioActions';
 import { getDataForContract } from './ChartDataActions';
 import { getTradingOptions } from './TradingOptionsActions';

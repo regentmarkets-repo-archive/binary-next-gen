@@ -1,8 +1,8 @@
 import React, { PropTypes, PureComponent } from 'react';
 import P from 'binary-components/lib/P';
+import { showError } from 'binary-utils';
 import { actions } from '../_store';
 import PortfolioList from './PortfolioList';
-import showError from 'binary-utils/lib/showError';
 
 export default class PortfolioCard extends PureComponent {
 

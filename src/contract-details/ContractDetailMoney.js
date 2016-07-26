@@ -1,5 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import contractCodeToText from 'binary-utils/lib/contractCodeToText';
+import { contractCodeToText } from 'binary-utils';
 import M from 'binary-components/lib/M';
 import NumberPlain from 'binary-components/lib/NumberPlain';
 

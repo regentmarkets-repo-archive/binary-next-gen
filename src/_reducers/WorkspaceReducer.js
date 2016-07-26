@@ -1,5 +1,5 @@
 import { Map } from 'immutable';
-import windowResizeEvent from 'binary-utils/lib/windowResizeEvent';
+import { windowResizeEvent } from 'binary-utils';
 
 import {
     CHANGE_SELECTED_ASSET,

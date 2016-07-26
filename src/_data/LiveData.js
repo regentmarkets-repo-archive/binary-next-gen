@@ -1,8 +1,7 @@
 import { LiveApi } from 'binary-live-api';
-import showError from 'binary-utils/lib/showError';
+import { showError, isUserVirtual } from 'binary-utils';
 import { readNewsFeed } from './NewsData';
 import { getVideosFromPlayList } from './VideoData';
-import isUserVirtual from 'binary-utils/lib/isUserVirtual';
 import * as actions from '../_actions';
 import { timeLeftToNextRealityCheck } from '../reality-check/RealityCheckWeb';
 

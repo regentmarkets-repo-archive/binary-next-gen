@@ -1,5 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
-import nowAsEpoch from 'binary-utils/lib/nowAsEpoch';
+import { nowAsEpoch } from 'binary-utils';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import { actions } from '../_store';
 import Modal from '../containers/Modal';

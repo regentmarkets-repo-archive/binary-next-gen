@@ -1,6 +1,6 @@
 import { List, Record } from 'immutable';
 import { createSelector, createStructuredSelector } from 'reselect';
-import pipsToDigits from 'binary-utils/lib/pipsToDigits';
+import { pipsToDigits } from 'binary-utils';
 import {
 	ticksSelector,
 	watchlistSelector,

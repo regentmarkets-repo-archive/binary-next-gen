@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import showError from 'binary-utils/lib/showError';
+import { showError } from 'binary-utils';
 import P from 'binary-components/lib/P';
 import Button from 'binary-components/lib/Button';
 import InputGroup from 'binary-components/lib/InputGroup';

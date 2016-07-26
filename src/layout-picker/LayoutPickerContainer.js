@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
+import { immutableChildrenToJS } from 'binary-utils';
 import LayoutPicker from './LayoutPicker';
 import layoutSelector from './layoutSelector';
 

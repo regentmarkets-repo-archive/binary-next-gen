@@ -1,4 +1,4 @@
-import isMobile from 'binary-utils/lib/isMobile';
+import { isMobile } from 'binary-utils';
 import MobileRoot from '../hello/MobileRoot';
 import WebRoot from '../hello/WebRoot';
 import { requireAuthOnEnter, signOut } from '../_data/Auth';

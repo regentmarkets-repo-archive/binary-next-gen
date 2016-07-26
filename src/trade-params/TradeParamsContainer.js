@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import TradeParams from './TradeParams';
-import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
+import { immutableChildrenToJS } from 'binary-utils';
 
 export default class TradeParamsContainer extends PureComponent {
     static propTypes = {

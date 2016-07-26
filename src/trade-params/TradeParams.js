@@ -1,14 +1,10 @@
 import React, { PureComponent, PropTypes } from 'react';
 import throttle from 'lodash.throttle';
 import debounce from 'lodash.debounce';
-import isMobile from 'binary-utils/lib/isMobile';
-import windowResizeEvent from 'binary-utils/lib/windowResizeEvent';
-import isIntraday from 'binary-utils/lib/isIntraday';
-import askPriceFromProposal from 'binary-utils/lib/askPriceFromProposal';
-
+import { isMobile, isIntraday, askPriceFromProposal, windowResizeEvent } from 'binary-utils';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
-import Modal from '../containers/Modal';
 import PurchaseFailed from 'binary-components/lib/PurchaseFailed';
+import Modal from '../containers/Modal';
 import { actions } from '../_store';
 import BarrierCard from '../barrier-picker/BarrierCard';
 // import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';

@@ -2,7 +2,7 @@ import React, { PropTypes, PureComponent } from 'react';
 import M from 'binary-components/lib/M';
 import Button from 'binary-components/lib/Button';
 import InputGroup from 'binary-components/lib/InputGroup';
-import showError from 'binary-utils/lib/showError';
+import { showError } from 'binary-utils';
 import { actions } from '../_store';
 import States from './States';
 import * as LiveData from '../_data/LiveData';

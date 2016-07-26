@@ -1,5 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
-import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
+import { immutableChildrenToJS } from 'binary-utils';
 import { actions } from '../_store';
 import TradeViewChart from './trade-chart/TradeViewChart';
 import TradeParams from '../trade-params/TradeParams';

@@ -1,5 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
-import tradeToFriendlyType from 'binary-utils/lib/tradeToFriendlyType';
+import { tradeToFriendlyType } from 'binary-utils';
 import Label from 'binary-components/lib/Label';
 import Info from 'binary-components/lib/Info';
 import DownArrow from 'binary-components/lib/DownArrow';

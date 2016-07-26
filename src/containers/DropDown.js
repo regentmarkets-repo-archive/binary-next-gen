@@ -1,4 +1,4 @@
-import isMobile from 'binary-utils/lib/isMobile';
+import { isMobile } from 'binary-utils';
 import PopupDropDown from './PopupDropDown';
 import MobilePageDropDown from './MobilePageDropDown';
 

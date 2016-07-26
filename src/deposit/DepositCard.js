@@ -4,7 +4,7 @@ import Tab from 'binary-components/lib/Tab';
 import TabList from 'binary-components/lib/TabList';
 import PaymentAgentsList from './PaymentAgentsList';
 import WithdrawalForm from './WithdrawalForm';
-import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
+import { immutableChildrenToJS } from 'binary-utils';
 
 const components = [
 	PaymentAgentsList,

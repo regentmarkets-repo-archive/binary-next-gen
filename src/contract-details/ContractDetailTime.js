@@ -1,8 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import M from 'binary-components/lib/M';
-import epochToDate from 'binary-utils/lib/epochToDate';
-import dateToGMTString from 'binary-utils/lib/dateToGMTString';
-import contractCodeToText from 'binary-utils/lib/contractCodeToText';
+import { epochToDate, dateToGMTString, contractCodeToText } from 'binary-utils';
 
 const epochToGMTString = epoch => dateToGMTString(epochToDate(epoch));
 

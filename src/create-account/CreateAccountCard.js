@@ -4,7 +4,7 @@ import Button from 'binary-components/lib/Button';
 import Countries from 'binary-components/lib/Countries';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import InputGroup from 'binary-components/lib/InputGroup';
-import isValidPassword from 'binary-utils/lib/isValidPassword';
+import { isValidPassword } from 'binary-utils';
 import LogoSpinner from 'binary-components/lib/LogoSpinner';
 import { api } from '../_data/LiveData';
 import { actions } from '../_store';

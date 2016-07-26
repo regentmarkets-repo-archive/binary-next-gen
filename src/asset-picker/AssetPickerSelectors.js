@@ -1,9 +1,6 @@
 import { createSelector, createStructuredSelector } from 'reselect';
-import groupByKey from 'binary-utils/lib/groupByKey';
-import {
-    assetsSelector,
-    watchlistSelector,
-} from '../_store/directSelectors';
+import { groupByKey } from 'binary-utils';
+import { assetsSelector, watchlistSelector } from '../_store/directSelectors';
 
 export const symbolIdsSelector = createSelector(
      assetsSelector,

@@ -1,11 +1,6 @@
-import noOfDecimals from 'binary-utils/lib/noOfDecimals';
-import isDurationWithinRange from 'binary-utils/lib/isDurationWithinRange';
-import {
-    createDefaultType,
-    createDefaultDuration,
-    createDefaultBarriers,
-    createDefaultBarrierType,
-} from './DefaultTradeParams';
+import { noOfDecimals, isDurationWithinRange } from 'binary-utils';
+import { createDefaultType, createDefaultDuration,
+    createDefaultBarriers, createDefaultBarrierType } from './DefaultTradeParams';
 import { categoryValid, allTimeRelatedFieldValid } from './TradeParamsValidation';
 
 export function changeAsset(oldTrade, contract, changeCat) {

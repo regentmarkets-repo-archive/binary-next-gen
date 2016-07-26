@@ -2,8 +2,8 @@ import React, { PropTypes, PureComponent } from 'react';
 import { FormattedTime } from 'react-intl';
 import NumberPlain from 'binary-components/lib/NumberPlain';
 import NumberColored from 'binary-components/lib/NumberColored';
+import { showError } from 'binary-utils';
 import { actions } from '../_store';
-import showError from 'binary-utils/lib/showError';
 
 export default class StatementRow extends PureComponent {
 

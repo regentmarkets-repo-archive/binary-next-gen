@@ -1,6 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { connect } from 'react-redux';
-import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
+import { immutableChildrenToJS } from 'binary-utils';
 import { actions } from '../_store';
 import contractDetailsSelectors from './ContractDetailsSelectors';
 import ContractDetailsCard from './ContractDetailsCard';

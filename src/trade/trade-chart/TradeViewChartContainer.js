@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import TradeViewChart from './TradeViewChart';
-import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
+import { immutableChildrenToJS } from 'binary-utils';
 
 export default class TradeViewChartContainer extends PureComponent {
 
