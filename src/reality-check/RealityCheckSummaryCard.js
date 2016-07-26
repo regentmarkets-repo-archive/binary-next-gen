@@ -52,7 +52,8 @@ export default class RealityCheckSummaryCard extends PureComponent {
                     </tbody>
                 </table>
                 <p>
-                    <M m="Your trading statistic since " /> {loginDate.toUTCString()} />
+                    <M m="Your trading statistic since " />
+                    {loginDate.toUTCString()}
                 </p>
                 <TradingStatsCard {...this.props} />
                 <P text="Specify your reality-check interval in minutes" />
