@@ -12,45 +12,25 @@ header {
     margin: 0 0.5em;
 }
 
-nav {
+.nav {
     flex: 1;
     justify-content: center;
     display: flex;
 }
 
-nav div {
+.nav div {
     padding: 0 1rem;
     line-height: 2;
     text-align: center;
 }
 
-nav a {
+.nav a {
     text-decoration: none;
     font-weight: normal;
     color: white !important;
     &:hover {
         text-decoration: none;
     }
-}
-
-.login-btn {
-    font-size: $FONT_SIZE_S;
-    margin: 0.7rem 0;
-}
-
-.nav-languages {
-    padding: 0;
-}
-
-.nav-languages a {
-    display: block;
-    width: 20px;
-    height: 15px;
-    margin: 1rem;
-    background-position: 0 0;
-    background: url("https://binary.com/images/common/flags.png");
-    background-size: 20px;
-    background-repeat: no-repeat;
 }
 
 .submenu {

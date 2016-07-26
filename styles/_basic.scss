@@ -101,26 +101,6 @@ input[type=range] {
     width: 100%;
 }
 
-.sidebar-btn {
-    padding: 0;
-    > img {
-        width: 3rem;
-        padding: 0.75rem;
-    }
-}
-
-.toolbar-btn {
-    line-height: 3.5;
-    padding: 0 1rem;
-    > img {
-        width: 1.5rem;
-        height: 100%;
-    }
-    &:hover > .toolbar-hint {
-        visibility: visible;
-    }
-}
-
 .buy-btn {
     font-size: 1.25em;
     padding: 0.5rem;

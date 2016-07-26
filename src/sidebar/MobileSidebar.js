@@ -1,6 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import BalanceContainer from '../balance/BalanceContainer';
-import AccountMenuItem from './AccountMenuItem';
+import AccountItemsList from './AccountItemsList';
 import SidebarBtn from './SidebarBtn';
 import { signOut } from '../_data/Auth';
 import M from 'binary-components/lib/M';
@@ -31,10 +31,7 @@ export default class MobileSidebar extends PureComponent {
 					{email}<br />
 					<BalanceContainer />
 				</div>
-				{accounts
-					.filter(x => x.account !== loginid)
-					.map(x => <AccountMenuItem key={x.token} account={x.account} token={x.token} />)
-				}
+				<AccountItemsList loginid={loginid} accounts={accounts} />
 				<SidebarBtn to="/" img="img/trade.svg" text="Trade" />
 				<SidebarBtn to="/watchlist" img="img/watchlist.svg" text="Watchlist" />
 				<SidebarBtn to="/portfolio" img="img/portfolio.svg" text="Portfolio" />
