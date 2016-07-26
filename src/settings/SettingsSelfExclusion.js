@@ -46,8 +46,8 @@ export default class SettingsSelfExclusion extends PureComponent {
 		this.setState({ [e.target.id]: e.target.value });
 
 	tryUpdate = () => {
-		const { max_balance, max_turnover, max_losses, max_7day_turnover, max_7day_losses, 
-			max_30day_turnover, max_30day_losses, max_open_bets, session_duration_limit, 
+		const { max_balance, max_turnover, max_losses, max_7day_turnover, max_7day_losses,
+			max_30day_turnover, max_30day_losses, max_open_bets, session_duration_limit,
 			timeout_until_time, timeout_until_date, exclude_until } = this.state;
 		const timeout_until = dateToEpoch(new Date(timeout_until_date + ' ' + timeout_until_time));
 		const newState = {
