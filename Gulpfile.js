@@ -5,6 +5,7 @@ const file = require('gulp-file');
 const shell = require('gulp-shell');
 const ghPages = require('gulp-gh-pages');
 const sass = require('gulp-sass');
+const rev = require('gulp-rev');
 // const electron = require('gulp-atom-electron');
 // const zip = require('gulp-vinyl-zip');
 
@@ -29,6 +30,7 @@ gulp.task('static', () =>
 gulp.task('styles', () =>
     gulp.src(files.sass)
         .pipe(sass().on('error', sass.logError))
+        .pipe(rev())
         .pipe(gulp.dest(files.dist))
 );
 
@@ -39,6 +41,7 @@ gulp.task('styles:watch', () =>
 gulp.task('js', () =>
     gulp.src(files.js)
         .pipe(shell('webpack --config ./webpack.config.js'))
+        .pipe(rev())
         .pipe(gulp.dest(files.dist))
 );
 

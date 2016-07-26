@@ -170,6 +170,7 @@
     "gulp-file": "^0.3.0",
     "gulp-gh-pages": "^0.5.4",
     "gulp-minify-css": "^1.2.4",
+    "gulp-rev": "^7.1.0",
     "gulp-sass": "^2.3.2",
     "gulp-shell": "^0.5.2",
     "gulp-util": "^3.0.7",
