@@ -25,10 +25,12 @@ export default class WatchlistItem extends PureComponent {
 			<div className="watchlist-item">
 				<div className="watchlist-details">
 					{item.get('assetName')}
-					<NumberPlain value={item.get('quote')} />&nbsp;
+					<NumberPlain value={item.get('quote')} digits={item.get('digits')} />
+					&nbsp;
 					<div>
-						<Direction diff={item.get('diff')} />&nbsp;
-						<NumberColored value={item.get('diff')} />
+						<Direction diff={item.get('diff')} />
+						&nbsp;
+						<NumberColored value={item.get('diff')} digits={item.get('digits')} />
 					</div>
 					<CloseButton onClick={this.onRemove} />
 				</div>
