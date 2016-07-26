@@ -7,6 +7,7 @@ import InputGroup from 'binary-components/lib/InputGroup';
 import isValidPassword from 'binary-utils/lib/isValidPassword';
 import LogoSpinner from 'binary-components/lib/LogoSpinner';
 import { api } from '../_data/LiveData';
+import { actions } from '../_store';
 import config from '../config';
 
 export default class CrateAccountCard extends PureComponent {
@@ -51,7 +52,7 @@ export default class CrateAccountCard extends PureComponent {
 
     performCreateAccount = async () => {
         const { password, verificationCode, residence } = this.state;
-
+        actions.removePersonalData();
         try {
             this.setState({
                 progress: true,
@@ -65,7 +66,6 @@ export default class CrateAccountCard extends PureComponent {
                 affiliate_token: config.affiliateToken,
             });
             localStorage.setItem('account', JSON.stringify({ token: response.new_account_virtual.oauth_token }));
-
             // use react router because we want hash history in mobile
             this.context.router.push('/');
             window.location.reload();
