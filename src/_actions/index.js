@@ -23,3 +23,14 @@ export * from './StatesActions';
 export * from './ServerTimeActions';
 export * from './TradingOptionsActions';
 export * from './RealityCheckActions';
+export {
+    reqSymbolChange,
+    reqBarrierChange,
+    reqCatChange,
+    reqDurationChange,
+    reqStartDateChange,
+    reqPurchase,
+    reqStakeChange,
+    reqTypeChange,
+    createTrade,
+} from '../trade-params/TradeParamSaga';

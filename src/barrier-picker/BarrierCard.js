@@ -20,7 +20,6 @@ export default class BarrierCard extends PureComponent {
         isIntraDay: PropTypes.bool,
         pipSize: PropTypes.number,
         spot: PropTypes.number,
-        onUpdateTradeParams: PropTypes.func,
     };
 
     validateBarrier = barrier => {
@@ -34,40 +33,14 @@ export default class BarrierCard extends PureComponent {
         return undefined;
     }
 
-
-    debouncedBarrier1Change = debounceForMobileAndWeb(e => {
-        const { onUpdateTradeParams } = this.props;
-        const inputValue = e.target.value;
-        const updatedBarrier1 = changeBarrier1(inputValue);
-        onUpdateTradeParams(updatedBarrier1);
-    })
-
-    debouncedBarrier2Change = debounceForMobileAndWeb(e => {
-        const { onUpdateTradeParams } = this.props;
-        const inputValue = e.target.value;
-        const updatedBarrier2 = changeBarrier2(inputValue);
-        onUpdateTradeParams(updatedBarrier2);
-    })
-
     updateBarrier1 = e => {
-        actions.updateTradeUIState(this.props.index, 'disabled', true);
         const newBarrier1 = e.target.value;
-        const error = this.validateBarrier(newBarrier1);
-        this.onBarrierError(error);
-        this.debouncedBarrier1Change(e);
+        actions.reqBarrierChange([newBarrier1, this.props.barrier2]);
     }
 
     updateBarrier2 = e => {
-        actions.updateTradeUIState(this.props.index, 'disabled', true);
         const newBarrier2 = e.target.value;
-        const error = this.validateBarrier(newBarrier2);
-        this.onBarrierError(error);
-        this.debouncedBarrier2Change(e);
-    }
-
-    onBarrierError = err => {
-        const { index } = this.props;
-        actions.updateTradeError(index, 'barrierError', err);
+        actions.reqBarrierChange([this.props.barrier, newBarrier2]);
     }
 
     render() {

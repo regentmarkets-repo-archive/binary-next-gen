@@ -17,10 +17,7 @@ export default class ForwardStartingOptions extends PureComponent {
         dateStart: PropTypes.number,
         forwardStartingDuration: PropTypes.object.isRequired,       // treated as special case
         index: PropTypes.number.isRequired,
-        options: PropTypes.array,
-        contract: PropTypes.object,
-        tradeParams: PropTypes.object.isRequired,
-        onUpdateTradeParams: PropTypes.func,
+        startLaterOnly: PropTypes.bool,
     };
 
     constructor(props) {
@@ -32,64 +29,50 @@ export default class ForwardStartingOptions extends PureComponent {
     }
 
     onDayChange = e => {
-        const { dateStart } = this.props;
+        const { dateStart, index } = this.props;
         const inputValue = e.target.value;
         const newDayEpoch = dateToEpoch(new Date(inputValue));
         const secondsPerDay = 60 * 60 * 24;
         const intraDayEpoch = dateStart % secondsPerDay;
-        this.onStartDateChange(newDayEpoch + intraDayEpoch);
+        actions.reqStartDateChange(index, newDayEpoch + intraDayEpoch);
     }
 
     onTimeChange = e => {
-        const { dateStart } = this.props;
+        const { dateStart, index } = this.props;
         const inputValue = e.target.value;
         const secondsPerDay = 60 * 60 * 24;
         const intraDayEpoch = dateStart % secondsPerDay;
         const dayEpoch = dateStart - intraDayEpoch;
         const selectedEpoch = dayEpoch + timeStringToSeconds(inputValue);
-        this.onStartDateChange(selectedEpoch);
+        actions.reqStartDateChange(index, selectedEpoch);
     }
 
     startNow = () => {
         this.setState({ showStartLater: false });
-        this.onStartDateChange();
+        actions.reqStartDateChange(this.props.index);
     }
 
     startLater = () => {
         this.setState({ showStartLater: true });
-        const { dateStart, forwardStartingDuration } = this.props;
+        const { dateStart } = this.props;
         if (!dateStart) {
-            const nextDayOpening = createDefaultStartLaterEpoch(forwardStartingDuration);
-            this.onStartDateChange(nextDayOpening);
+            actions.reqStartDateChange(this.props.index, this.state.defaultDateStart);
         }
     }
 
-    debouncedStartDateChange = debounceForMobileAndWeb(epoch => {
-        const { contract, tradeParams, onUpdateTradeParams } = this.props;
-        const updatedStartDate = changeStartDate(epoch, contract, tradeParams);
-        onUpdateTradeParams(updatedStartDate);
-    })
-
-    onStartDateChange = epoch => {
-        actions.updateTradeUIState(this.props.index, 'disabled', true);
-        this.debouncedStartDateChange(epoch);
-    }
-
     render() {
-        const { dateStart, forwardStartingDuration, index, options } = this.props;
+        const { dateStart, forwardStartingDuration, index, startLaterOnly } = this.props;
         const { showStartLater, defaultDateStart } = this.state;
         const ranges = forwardStartingDuration.range;
-        const allowStartLater = !!forwardStartingDuration;
-        const onlyStartLater = allowStartLater && !options;
 
         const defaultDate = new Date(defaultDateStart * 1000);
         const defaultTime = epochToUTCTimeString(defaultDateStart);
 
         return (
             <div className="param-row forward-starting-picker">
-                {allowStartLater && <Label text={'Start Time'} />}
+                {<Label text={'Start Time'} />}
                 <div className="param-field">
-                    {allowStartLater && !onlyStartLater &&
+                    {!startLaterOnly &&
                         <div className="start-time-selector">
                             <label>
                                 <input
@@ -97,7 +80,7 @@ export default class ForwardStartingOptions extends PureComponent {
                                     name={`start-time${index}`}
                                     onChange={this.startNow}
                                     checked={!dateStart}
-                                    disabled={onlyStartLater}
+                                    disabled={startLaterOnly}
                                 />
                                 <M m="Now" />
                             </label>
@@ -107,7 +90,6 @@ export default class ForwardStartingOptions extends PureComponent {
                                     name={`start-time${index}`}
                                     onChange={this.startLater}
                                     checked={!!dateStart}
-                                    disabled={!allowStartLater}
                                 />
                                 <M m="Later" />
                             </label>
