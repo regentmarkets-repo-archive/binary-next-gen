@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Button } from 'binary-components';
-import wuut, { requestFullScreen, exitFullScreen,
-	addFullScreenEventListener, removeFullScreenEventListener } from 'binary-utils';
+import { requestFullscreen, exitFullScreen,
+	addFullscreenEventListener, removeFullscreenEventListener } from 'binary-utils';
 import { trackEvent } from 'binary-utils/lib/Analytics';
 
 console.log(requestFullScreen, addFullScreenEventListener);
@@ -18,13 +18,13 @@ export default class FullScreenSwitcher extends PureComponent {
 	}
 
 	componentWillMount() {
-		addFullScreenEventListener(e =>
+		addFullscreenEventListener(e =>
 			this.setState({ isFullScreen: e })
 		);
 	}
 
 	componentWillUnmount() {
-		removeFullScreenEventListener();
+		removeFullscreenEventListener();
 	}
 
 	toggleFullScreenState = () => {
@@ -33,7 +33,7 @@ export default class FullScreenSwitcher extends PureComponent {
 		if (isFullScreen) {
 			exitFullScreen();
 		} else {
-			requestFullScreen(document.getElementById('root'));
+			requestFullscreen(document.getElementById('root'));
 			trackEvent('Workspace', 'FullScreen', isFullScreen);
 		}
 	}
