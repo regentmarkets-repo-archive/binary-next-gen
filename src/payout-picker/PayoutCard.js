@@ -1,7 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import NumberColored from 'binary-components/lib/NumberColored';
-import M from 'binary-components/lib/M';
-import Label from 'binary-components/lib/Label';
+import { NumberColored, M, Label } from 'binary-components';
 
 export default class PayoutCard extends PureComponent {
 

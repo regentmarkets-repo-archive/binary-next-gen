@@ -1,6 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import PaymentAgentsItem from './PaymentAgentsItem';
-import Th from 'binary-components/lib/Th';
+import { Th } from 'binary-components';
 
 export default class PaymentAgentsList extends PureComponent {
     static propTypes = {

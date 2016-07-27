@@ -1,8 +1,6 @@
 import React, { PureComponent } from 'react';
 import { showError, isValidPassword } from 'binary-utils';
-import P from 'binary-components/lib/P';
-import Button from 'binary-components/lib/Button';
-import InputGroup from 'binary-components/lib/InputGroup';
+import { P, Button, InputGroup } from 'binary-components';
 import * as LiveData from '../_data/LiveData';
 
 export default class SettingsCashierUnlocked extends PureComponent {

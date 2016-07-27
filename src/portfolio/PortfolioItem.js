@@ -1,7 +1,8 @@
 import React, { PropTypes, PureComponent } from 'react';
-import NumberPlain from 'binary-components/lib/NumberPlain';
-import NumberColored from 'binary-components/lib/NumberColored';
-import { openContractSubscriptionFailed } from '../_utils/utils';
+import { NumberPlain, NumberColored } from 'binary-components';
+
+const openContractSubscriptionFailed = contract =>
+	contract.validation_error && Object.keys(contract).length < 3;
 
 export default class PortfolioItem extends PureComponent {
 

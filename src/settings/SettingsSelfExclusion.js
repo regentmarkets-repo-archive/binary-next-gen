@@ -1,6 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import Button from 'binary-components/lib/Button';
-import InputGroup from 'binary-components/lib/InputGroup';
+import { Button, InputGroup } from 'binary-components';
 import { showError, showInfo, xMonthsAfter, dateToDateString, dateToEpoch } from 'binary-utils';
 import * as LiveData from '../_data/LiveData';
 

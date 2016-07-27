@@ -1,5 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { immutableChildrenToJS } from 'binary-utils';
+import { Button, P } from 'binary-components';
 import { actions } from '../_store';
 import TradeViewChart from './trade-chart/TradeViewChart';
 import TradeParams from '../trade-params/TradeParams';
@@ -8,8 +9,6 @@ import ContractDetailsMobileLayout from '../contract-details/mobile/ContractDeta
 import SellAtMarketButton from '../contract-details/SellAtMarketButton';
 import ContractValidationError from '../contract-details/ContractValidationError';
 import ContractWinLose from '../contract-details/ContractWinLose';
-import Button from 'binary-components/lib/Button';
-import P from 'binary-components/lib/P';
 
 export default class TradeCard extends PureComponent {
     static contextTypes = {

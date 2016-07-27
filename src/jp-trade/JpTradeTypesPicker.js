@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
-import TabList from 'binary-components/lib/TabList';
-import Tab from 'binary-components/lib/Tab';
+import { Tab, TabList } from 'binary-components';
 
 export default class JpTradeTypesPicker extends PureComponent {
 

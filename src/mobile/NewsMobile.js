@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
-import Tab from 'binary-components/lib/Tab';
-import TabList from 'binary-components/lib/TabList';
+import { Tab, TabList } from 'binary-components';
 import MobilePage from '../containers/MobilePage';
 import NewsContainerMobile from '../news/NewsContainerMobile';
 import VideoListContainer from '../video/VideoListContainer';

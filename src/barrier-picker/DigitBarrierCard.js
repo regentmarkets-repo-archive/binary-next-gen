@@ -1,7 +1,8 @@
 import React, { PropTypes, PureComponent } from 'react';
-import Label from 'binary-components/lib/Label';
+import { Label } from 'binary-components';
 import RadioGroup from '../trade/workaround/CustomRadioGroup';
 import { changeBarrier1 } from '../trade-params/TradeParamsCascadingUpdates';
+
 export default class DigitBarrierCard extends PureComponent {
 
     static propTypes = {

@@ -1,6 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { connect } from 'react-redux';
-import SelectGroup from 'binary-components/lib/SelectGroup';
+import { SelectGroup } from 'binary-components';
 import languages from '../_constants/languages';
 
 @connect(state => ({ selected: state.boot.get('language') }))

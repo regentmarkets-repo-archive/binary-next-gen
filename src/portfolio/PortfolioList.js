@@ -1,6 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import Th from 'binary-components/lib/Th';
-import NumberPlain from 'binary-components/lib/NumberPlain';
+import { Th, NumberPlain } from 'binary-components';
 import PortfolioItem from './PortfolioItem';
 
 export default class PortfolioList extends PureComponent {

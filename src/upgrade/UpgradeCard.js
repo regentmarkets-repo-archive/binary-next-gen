@@ -1,13 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
-import M from 'binary-components/lib/M';
-import InputGroup from 'binary-components/lib/InputGroup';
-import LogoSpinner from 'binary-components/lib/LogoSpinner';
-import Legend from 'binary-components/lib/Legend';
-import Button from 'binary-components/lib/Button';
-import Option from 'binary-components/lib/Option';
-import ErrorMsg from 'binary-components/lib/ErrorMsg';
-import DateOfBirth from 'binary-components/lib/DateOfBirth';
-import Countries from 'binary-components/lib/Countries';
+import { M, InputGroup, LogoSpinner, Legend, Button, Option,
+	ErrorMsg, DateOfBirth, Countries } from 'binary-components';
 import { api } from '../_data/LiveData';
 import SecretQuestion from './SecretQuestion';
 

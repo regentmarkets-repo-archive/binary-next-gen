@@ -1,6 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { connect } from 'react-redux';
-import LoadingView from 'binary-components/lib/LoadingView';
+import { LoadingView } from 'binary-components';
 
 @connect(state => ({ isAuthorized: state.appState.get('authorized') }))
 export default class WebPage extends PureComponent {

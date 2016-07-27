@@ -1,5 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import M from 'binary-components/lib/M';
+import { M } from 'binary-components';
 import { actions } from '../_store';
 import styles from '../layouts/layouts.css';
 import DropDown from '../containers/DropDown';

@@ -1,5 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import P from 'binary-components/lib/P';
+import { P } from 'binary-components';
 import WatchlistItem from './WatchlistItem';
 import AnimatedPopup from '../containers/AnimatedPopup';
 

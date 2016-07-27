@@ -1,7 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { toMoney } from 'binary-utils';
-import M from 'binary-components/lib/M';
-import NumberColored from 'binary-components/lib/NumberColored';
+import { M, NumberColored } from 'binary-components';
 
 export default class ContractWinLose extends PureComponent {
 

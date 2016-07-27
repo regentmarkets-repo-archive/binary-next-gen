@@ -1,7 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import M from 'binary-components/lib/M';
-import Th from 'binary-components/lib/Th';
-import NumberColored from 'binary-components/lib/NumberColored';
+import { M, Th, NumberColored } from 'binary-components';
 
 const profitInPercentage = (buy, sell) => (sell - buy) / buy * 100;
 

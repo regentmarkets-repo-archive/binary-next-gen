@@ -1,8 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { epochToUTCTimeString, dateToEpoch,
     timeStringToSeconds, dateToDateString } from 'binary-utils';
-import M from 'binary-components/lib/M';
-import Label from 'binary-components/lib/Label';
+import { M, Label } from 'binary-components';
 import { createDefaultStartLaterEpoch } from '../trade-params/DefaultTradeParams';
 import { changeStartDate } from '../trade-params/TradeParamsCascadingUpdates';
 import { debounceForMobileAndWeb } from '../trade-params/TradeParams';

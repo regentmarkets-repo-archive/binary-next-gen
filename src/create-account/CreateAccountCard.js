@@ -1,11 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
-import P from 'binary-components/lib/P';
-import Button from 'binary-components/lib/Button';
-import Countries from 'binary-components/lib/Countries';
-import ErrorMsg from 'binary-components/lib/ErrorMsg';
-import InputGroup from 'binary-components/lib/InputGroup';
+import { P, Button, Countries, ErrorMsg, InputGroup, LogoSpinner } from 'binary-components';
 import { isValidPassword } from 'binary-utils';
-import LogoSpinner from 'binary-components/lib/LogoSpinner';
 import { api } from '../_data/LiveData';
 import { actions } from '../_store';
 import config from '../config';

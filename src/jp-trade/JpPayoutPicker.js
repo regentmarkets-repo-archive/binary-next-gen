@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
-import Button from 'binary-components/lib/Button';
-import Th from 'binary-components/lib/Th';
+import { Button, Th } from 'binary-components';
 
 export default class JpTradeCard extends PureComponent {
 

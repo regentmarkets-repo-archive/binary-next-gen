@@ -1,9 +1,6 @@
 import React, { PureComponent } from 'react';
-import Button from 'binary-components/lib/Button';
-import InputGroup from 'binary-components/lib/InputGroup';
-import ErrorMsg from 'binary-components/lib/ErrorMsg';
+import { Button, InputGroup, ErrorMsg } from 'binary-components';
 import { isValidPassword } from 'binary-utils';
-// import P from 'binary-components/lib/P';
 import * as LiveData from '../_data/LiveData';
 
 export default class SettingsChangePassword extends PureComponent {

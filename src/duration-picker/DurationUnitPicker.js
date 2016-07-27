@@ -1,6 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
-import M from 'binary-components/lib/M';
-import Option from 'binary-components/lib/Option';
+import { M, Option } from 'binary-components';
 
 export default class DurationUnitPicker extends PureComponent {
 

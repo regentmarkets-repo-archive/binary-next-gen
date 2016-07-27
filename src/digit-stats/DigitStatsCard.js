@@ -1,5 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
-import DigitStatsChart from 'binary-components/lib/DigitStatsChart';
+import { DigitStatsChart } from 'binary-components';
 import { actions } from '../_store';
 import DigitStatsFilter from './DigitStatsFilter';
 

@@ -1,6 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { findDOMNode } from 'react-dom';
-import InputGroup from 'binary-components/lib/InputGroup';
+import { InputGroup } from 'binary-components';
 import { isMobile } from 'binary-utils';
 import { actions } from '../_store';
 import MarketSubmarketPickerContainer from './MarketSubmarketPickerContainer';

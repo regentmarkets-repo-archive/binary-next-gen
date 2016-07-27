@@ -1,6 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import M from 'binary-components/lib/M';
-import Button from 'binary-components/lib/Button';
+import { M, Button } from 'binary-components';
 import { actions } from '../_store';
 import * as LiveData from '../_data/LiveData';
 import VirtualTopUpConfirmation from './VirtualTopUpConfirmation';

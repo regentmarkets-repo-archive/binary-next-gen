@@ -1,5 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import M from 'binary-components/lib/M';
+import { M } from 'binary-components';
 
 export default class ContractDetailCustom extends PureComponent {
 

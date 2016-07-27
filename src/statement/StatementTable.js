@@ -1,10 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
-import M from 'binary-components/lib/M';
-import P from 'binary-components/lib/P';
-import Th from 'binary-components/lib/Th';
-import NumberPlain from 'binary-components/lib/NumberPlain';
-import NumberColored from 'binary-components/lib/NumberColored';
 import { FormattedDate } from 'react-intl';
+import { M, P, Th, NumberPlain, NumberColored } from 'binary-components';
 import StatementRow from './StatementRow';
 
 export default class StatementTable extends PureComponent {

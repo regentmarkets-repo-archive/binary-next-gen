@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { nowAsEpoch } from 'binary-utils';
-import ErrorMsg from 'binary-components/lib/ErrorMsg';
+import { ErrorMsg } from 'binary-components';
 import { actions } from '../_store';
 import Modal from '../containers/Modal';
 import RealityCheckInitialCard from './RealityCheckInitialCard';

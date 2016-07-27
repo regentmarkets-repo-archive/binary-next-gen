@@ -1,6 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import RadioGroup from 'binary-components/lib/RadioGroup';
-import InputGroup from 'binary-components/lib/InputGroup';
+import { RadioGroup, InputGroup } from 'binary-components';
 import { actions } from '../_store';
 
 const basisTypes = [

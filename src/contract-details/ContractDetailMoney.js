@@ -1,7 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { contractCodeToText } from 'binary-utils';
-import M from 'binary-components/lib/M';
-import NumberPlain from 'binary-components/lib/NumberPlain';
+import { M, NumberPlain } from 'binary-components';
 
 export default class ContractDetailMoney extends PureComponent {
 

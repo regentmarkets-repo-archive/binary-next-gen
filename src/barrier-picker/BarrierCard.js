@@ -1,6 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import Label from 'binary-components/lib/Label';
-import NumericInput from 'binary-components/lib/NumericInput';
+import { Label, NumericInput } from 'binary-components';
 import { debounceForMobileAndWeb } from '../trade-params/TradeParams';
 import { changeBarrier1, changeBarrier2 } from '../trade-params/TradeParamsCascadingUpdates';
 import { actions } from '../_store';

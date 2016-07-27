@@ -1,10 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import M from 'binary-components/lib/M';
-import P from 'binary-components/lib/P';
-import Button from 'binary-components/lib/Button';
-import ErrorMsg from 'binary-components/lib/ErrorMsg';
-import InputGroup from 'binary-components/lib/InputGroup';
-import SelectGroup from 'binary-components/lib/SelectGroup';
+import { M, P, Button, ErrorMsg, InputGroup, SelectGroup } from 'binary-components';
 import { actions } from '../_store';
 import Modal from '../containers/Modal';
 import currencies from '../_constants/currencies';

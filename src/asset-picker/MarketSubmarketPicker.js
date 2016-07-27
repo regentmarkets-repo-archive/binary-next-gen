@@ -1,5 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import Option from 'binary-components/lib/Option';
+import { Option } from 'binary-components';
 
 export default class MarketSubmarketPicker extends PureComponent {
 

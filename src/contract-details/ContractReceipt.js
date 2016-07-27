@@ -1,10 +1,12 @@
 import React, { PropTypes, PureComponent } from 'react';
-import Button from 'binary-components/lib/Button';
+import { Button } from 'binary-components';
 import ContractDetailsList from './ContractDetailsList';
 import ContractWinLose from './ContractWinLose';
 import SellAtMarketButton from './SellAtMarketButton';
 import ContractValidationError from './ContractValidationError';
-import { openContractSubscriptionFailed } from '../_utils/utils';
+
+const openContractSubscriptionFailed = contract =>
+	contract.validation_error && Object.keys(contract).length < 3;
 
 export default class ContractReceipt extends PureComponent {
 

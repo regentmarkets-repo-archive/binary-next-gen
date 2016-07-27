@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { FormattedDate } from 'react-intl';
-import NumberPlain from 'binary-components/lib/NumberPlain';
+import { NumberPlain } from 'binary-components';
 
 export default class DailyPricesRow extends PureComponent {
 
