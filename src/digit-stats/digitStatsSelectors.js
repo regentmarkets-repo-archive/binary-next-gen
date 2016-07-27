@@ -1,5 +1,5 @@
 import { createSelector, createStructuredSelector } from 'reselect';
-import { digitsToPips, calculateLastDigitStats } from 'binary-utils';
+import { pipsToDigits, calculateLastDigitStats } from 'binary-utils';
 import { ticksSelector, workspaceSelector, digitStatsSelector,
     tradingOptionsSelector, assetsSelector } from '../_store/directSelectors';
 
@@ -13,11 +13,11 @@ export const selectSymbolDigitStat = createSelector(
          const selectAssetTicks = assetSupportDigit && ticks.get(selectedAsset);
          if (!selectAssetTicks) return [];
 
-          const pipSize = digitsToPips(assets.find(a => a.get('symbol') === selectedAsset).get('pip'));
+          const pipSize = assets.find(a => a.get('symbol') === selectedAsset).get('pip');
           const size = digitStats.get('filter');
           const lastTicks = selectAssetTicks.takeLast(size).toJS();
 
-          return calculateLastDigitStats(lastTicks, pipSize);
+          return calculateLastDigitStats(lastTicks, pipsToDigits(pipSize));
     }
 );
 
