@@ -12,7 +12,7 @@ export const createDefaultStartLaterEpoch = forwardStartingDuration => {
 
 export const createDefaultDuration = (contracts, category, type) => {
     if (category === 'spreads') {
-        return [undefined, undefined];
+        return undefined;
     }
     const d = contracts[category][type].durations;
 
@@ -93,4 +93,24 @@ export const createDefaultBarrierType = (duration, durationUnit) => {
     }
 
     return barrierType;         // did not use return directly as ESLint complain about it
+};
+
+export const createDefaultTradeParams = contracts => {
+    const cat = createDefaultCategory(contracts);
+    const type = createDefaultType(contracts, cat);
+    const { duration, durationUnit } = createDefaultDuration(contracts, cat, type);
+    const barriers = createDefaultBarriers(contracts, cat, type, duration, durationUnit);
+    const barrierType = createDefaultBarrierType(duration, durationUnit);
+
+    return {
+        tradeCategory: cat,
+        duration,
+        durationUnit,
+        basis: 'stake',
+        amount: 50,
+        type,
+        barrierType,
+        barrier: barriers[0],
+        barrier2: barriers[1],
+    };
 };

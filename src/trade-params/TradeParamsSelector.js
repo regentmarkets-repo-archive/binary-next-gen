@@ -14,9 +14,10 @@ const aggregateContracts = (contracts, type) => ({
     spread: (type.indexOf('SPREAD') > -1) ? extractSpreadInfo(contracts) : null,
 });
 
-const contractsPerSymbol = createSelector(
+export const contractsPerSymbol = createSelector(
     contracts => contracts,
     contracts => {
+        if (contracts.error) return contracts;      // do not process error
         const normalized = normalizedContractFor(contracts);
         Object.keys(normalized).forEach(category => {
             const categoryObj = normalized[category];
@@ -49,10 +50,6 @@ export const availableContractsSelector = createSelector(
     (tradingOptions, assetsIsOpen) =>
         tradingOptions
             .map((contract, symbol) => {
-                if (contract.error) {
-                    return contract;            // do not process error
-                }
-
                 // each immediate child refer to a type, eg Rise/Fall
                 const contractTree = contractsPerSymbol(contract);
 
