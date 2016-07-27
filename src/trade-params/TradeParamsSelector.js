@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import { extractBarrier, extractDuration, extractForwardStartingDuration,
     extractSpreadInfo, normalizedContractFor, groupByKey,
-    findDeep, filterObjectBy } from 'binary-utils';
+    findDeep, filterDeep } from 'binary-utils';
 import { assetsSelector, currencySelector } from '../_store/directSelectors';
 import { pipSizePerTrade } from '../trade/trade-chart/TradeViewChartSelector';
 import { mockedContract } from '../_constants/MockContract';
@@ -59,7 +59,7 @@ export const availableContractsSelector = createSelector(
                 // remove trade type without start later if market is closed
                 return assetsIsOpen[symbol] && assetsIsOpen[symbol].isOpen ?
                     contractTree :
-                    filterObjectBy(contractTree, obj =>
+                    filterDeep(contractTree, obj =>
                         findDeep(obj, descendent => descendent && !!descendent.forwardStartingDuration)
                     );
             })
@@ -84,7 +84,7 @@ const marketIsOpenPerTrade = createSelector(
 
 const getStartLaterOnlyContract = contract => {
     const startLaterCategories =
-        filterObjectBy(contract, child =>
+        filterDeep(contract, child =>
             findDeep(child, descendent => descendent && !!descendent.forwardStartingDuration));
 
     // side effect to remove durations property, to indicate it's only start later
