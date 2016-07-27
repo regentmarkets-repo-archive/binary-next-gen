@@ -1,9 +1,9 @@
 import React from 'react';
 import MobilePage from '../containers/MobilePage';
-import CreateAccountCard from './CreateAccountCard';
+import CreateAccountContainer from './CreateAccountContainer';
 
 export default (props) => (
 	<MobilePage toolbarShown={false} inverse>
-		<CreateAccountCard {...props} />
+		<CreateAccountContainer {...props} />
 	</MobilePage>
 );

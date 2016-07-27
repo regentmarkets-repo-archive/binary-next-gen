@@ -26,6 +26,7 @@ export const tradeProposalSelector = state => state.tradesProposalInfo;
 export const tradePurchaseInfoSelector = state => state.tradesPurchaseInfo;
 export const tradesUIStatesSelector = state => state.tradesUIStates;
 export const tradesErrorSelector = state => state.tradesError;
+export const residenceListSelector = state => state.residenceList;
 
 export const themeSelector = state =>
     state.boot.get('theme');
