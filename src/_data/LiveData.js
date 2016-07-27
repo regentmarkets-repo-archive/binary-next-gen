@@ -1,5 +1,5 @@
 import { LiveApi } from 'binary-live-api';
-import { showError, isUserVirtual } from 'binary-utils';
+import { showError } from 'binary-utils';
 import { readNewsFeed } from './NewsData';
 import { getVideosFromPlayList } from './VideoData';
 import * as actions from '../_actions';
@@ -109,7 +109,7 @@ const initAuthorized = async (authData, store) => {
     subscribeToWatchlist(store);
     subscribeToSelectedSymbol(store);
 
-    if (!isUserVirtual(authData.authorize)) {
+    if (authData.authorize.is_virtual !== 1) {
         api.getAccountLimits();
         api.getSelfExclusion();
         api.getCashierLockStatus();
