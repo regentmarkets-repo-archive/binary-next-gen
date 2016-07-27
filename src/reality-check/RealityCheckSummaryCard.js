@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { M, Td, P, Button } from 'binary-components';
-import { secsToTimeString } from 'binary-utils';
+import { secondsToTimeString } from 'binary-utils';
 import TradingStatsCard from './TradingStatsCard';
 
 export default class RealityCheckSummaryCard extends PureComponent {
@@ -26,7 +26,7 @@ export default class RealityCheckSummaryCard extends PureComponent {
 
         const currentTime = new Date();
         const loginDate = new Date(loginTime * 1000);
-        const durationString = secsToTimeString(sessionDuration);
+        const durationString = secondsToTimeString(sessionDuration);
         return (
             <div>
                 <h3>
