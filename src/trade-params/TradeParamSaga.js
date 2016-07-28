@@ -1,11 +1,14 @@
 import { takeEvery, takeLatest } from 'redux-saga';
-import { put, call, select } from 'redux-saga/effects';
+import { put, call, select, fork } from 'redux-saga/effects';
 
 import { updateMultipleTradeParams, updateTradingOptions,
-    updateFeedLicense, updateTradingOptionsErr } from '../_actions';
+    updateFeedLicense, updateTradingOptionsErr, updateTradeProposal } from '../_actions';
+import { currencySelector } from '../_store/directSelectors';
 import { createDefaultTradeParams } from './DefaultTradeParams';
 import { availableContractsSelector } from './TradeParamsSelector';
+import { internalTradeModelToServerTradeModel } from '../trade/adapters/TradeObjectAdapter';
 import { api } from '../_data/LiveData';
+import debounce from 'lodash.debounce';
 
 const CREATE_TRADE = 'CREATE_TRADE';
 export const createTrade = (index, symbol) => ({
@@ -78,6 +81,10 @@ export const removeTrade = index => ({
 
 /* SAGAs */
 
+const debounceSubscribe = debounce(params => api.subscribeToPriceForContractProposal(params), 300);
+
+const getProposalId = index => state => state.tradesProposalInfo.getIn([0, 'proposal', 'id']);
+
 function* tradeCreation(action) {
     const { index, symbol } = action;
     const allTradingOptions = yield select(availableContractsSelector);
@@ -85,7 +92,13 @@ function* tradeCreation(action) {
 
     if (contractNeeded) {
         const defaultParams = createDefaultTradeParams(contractNeeded);
-        const o = yield put(updateMultipleTradeParams(index, defaultParams));
+        const currency = yield select(currencySelector);
+        const subscribeParams = internalTradeModelToServerTradeModel(defaultParams);
+        subscribeParams.currency = currency;
+        subscribeParams.symbol = symbol;
+        yield put(updateMultipleTradeParams(index, defaultParams));
+        const subscription = yield api.subscribeToPriceForContractProposal(subscribeParams);
+        yield put(updateTradeProposal(index, 'proposal', subscription.proposal));
     } else {
         yield put(updateMultipleTradeParams(index, { symbol }));
         try {
@@ -101,17 +114,19 @@ function* tradeCreation(action) {
     }
 }
 
-// function* handleSymbolChange(action) {
-//
-// }
+function* handleSymbolChange(action) {
+    const { index, symbol } = action;
+
+    yield put(updateMultipleTradeParams(index, { symbol }));
+}
+
 // function* handleTypeChange(action) {}
 // function* handleDurationChange(action) {}
 // function* handleBarrierChange(action) {}
 // function* handleStakeChange(action) {}
 
 function* logger(action) {
-    console.log(action.type + ' is called');
-    console.log(action);
+    console.log('action', action);
 }
 
 function* paramChangeLogger() {
@@ -123,9 +138,14 @@ function* watchTradeCreation() {
     yield takeEvery(CREATE_TRADE, tradeCreation);
 }
 
+function* watchSymbolChange() {
+    yield takeLatest(CHANGE_SYMBOL, handleSymbolChange);
+}
+
 export default function* root() {
     yield [
         watchTradeCreation(),
         paramChangeLogger(),
+        watchSymbolChange(),
     ];
 }

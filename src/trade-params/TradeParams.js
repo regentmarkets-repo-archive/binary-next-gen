@@ -50,7 +50,8 @@ const errorToShow = errorObj => {
     if (durationError) return durationError;
     if (stakeError) return stakeError;
     if (proposalError) return proposalError;
-    return purchaseError;
+    if (purchaseError) return purchaseError;
+    return errorObj.other;
 };
 
 export const debounceForMobileAndWeb = func => debounce(func, 300, { leading: true, trailing: true });

@@ -33,7 +33,6 @@ export const internalTradeModelToServerTradeModel = tradeObj => {
         symbol,
         barrier: b1,
         barrier2: b2,
-        barrierType: type.includes('DIGIT') ? 'digit' : barrierType,
         pipSize,
         stop_type: stopType,
         stop_profit: stopProfit,
