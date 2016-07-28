@@ -6,12 +6,12 @@ import {
     SERVER_DATA_BUY,
     UPDATE_TOKEN,
     REMOVE_PERSONAL_DATA,
+    SET_DEFAULT_CURRENCY,
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
     loginid: '',
     fullname: '',
-    currency: 'USD',
     balance: 0,
     token: '',
     currencies: ['USD'],
@@ -22,9 +22,16 @@ export default (state = initialState, action) => {
         case SERVER_DATA_AUTHORIZE: {
             const authorize = fromJS(action.serverResponse.authorize);
             if (!authorize.currency) {
-                return state.merge(authorize).set('currency', 'USD');
+                return state.merge(authorize);
             }
             return state.merge(authorize);
+        }
+        case SET_DEFAULT_CURRENCY: {
+            const currency = state.get('currency');
+            if (!currency || currency === '') {
+                return state.set('currency', action.currency);
+            }
+            return state;
         }
         case SERVER_DATA_BALANCE: {
             return state.set('balance', action.serverResponse.balance.balance);
