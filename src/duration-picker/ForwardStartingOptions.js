@@ -42,7 +42,9 @@ export default class ForwardStartingOptions extends PureComponent {
 
     onTimeChange = e => {
         const { dateStart } = this.props;
-        const inputValue = e.target.value;
+        const inputValue = e.target.value.split(':')
+                         .map((obj) => obj.length < 2 ? '0' + obj : obj)
+                         .join(':');
         const secondsPerDay = 60 * 60 * 24;
         const intraDayEpoch = dateStart % secondsPerDay;
         const dayEpoch = dateStart - intraDayEpoch;
