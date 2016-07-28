@@ -89,7 +89,15 @@ const initAuthorized = async (authData, store) => {
             }
         });
 
-    api.getActiveSymbolsFull();
+    api.getActiveSymbolsFull()
+        .then(r => {
+            const first = r.active_symbols[0].symbol;
+            store.dispatch(actions.selectAsset(first))
+                .then(() => {
+                    store.dispatch(actions.updateTradeParams(0, 'symbol', first));
+                    store.dispatch(actions.updateAppState('connected', true));
+                });
+        });
     api.getTradingTimes(new Date());
     api.getAssetIndex();
     api.getServerTime();
