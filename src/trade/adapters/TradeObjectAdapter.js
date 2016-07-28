@@ -1,6 +1,6 @@
 import { numberToSignedString } from 'binary-utils';
 
-export const internalTradeModelToServerTradeModel = tradeObj => {
+export const internalTradeModelToChartTradeModel = tradeObj => {
     const {
         amount,
         basis,
@@ -26,6 +26,7 @@ export const internalTradeModelToServerTradeModel = tradeObj => {
         amount,
         amount_per_point: amountPerPoint,
         basis,
+        barrierType,
         contract_type: type,
         duration,
         date_start: dateStart,
@@ -51,4 +52,12 @@ export const serverContractModelToChartContractModel = boughtContract => {
     delete cloned.transaction_ids;
     cloned.barrierType = 'absolute';
     return cloned;
+};
+
+export const internalTradeModelToProposalModel = (tradeObject, symbol, currency) => {
+    const temp = internalTradeModelToChartTradeModel(tradeObject);
+    delete temp.barrierType;
+    temp.symbol = symbol;
+    temp.currency = currency;
+    return temp;
 };

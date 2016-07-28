@@ -2,7 +2,7 @@ import React, { PureComponent, PropTypes } from 'react';
 import { BinaryChart } from 'binary-charts';
 import { actions } from '../../_store';
 import {
-    internalTradeModelToServerTradeModel,
+    internalTradeModelToChartTradeModel,
     serverContractModelToChartContractModel,
 } from '../adapters/TradeObjectAdapter';
 
@@ -102,7 +102,7 @@ export default class TradeViewChart extends PureComponent {
                 ticks={(dataType === 'ticks' || contractForChart) ? ticks : ohlc}
                 theme={theme}
                 type={contractForChart ? 'area' : chartType}
-                trade={internalTradeModelToServerTradeModel(tradeForChart)}
+                trade={internalTradeModelToChartTradeModel(tradeForChart)}
                 typeChange={!contractForChart && feedLicense !== 'chartonly' ? this.changeChartType : undefined}
                 tradingTime={tradingTime}
             />

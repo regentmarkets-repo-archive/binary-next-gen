@@ -12,7 +12,6 @@ export default class DurationCard extends PureComponent {
         duration: PropTypes.number,
         durationUnit: PropTypes.string,
         forwardStartingDuration: PropTypes.object,       // treated as special case
-        forceTradeCardUpdate: PropTypes.func.isRequired,
         options: PropTypes.array,
         index: PropTypes.number,
     };

@@ -6,9 +6,11 @@ import { updateMultipleTradeParams, updateTradingOptions,
 import { currencySelector } from '../_store/directSelectors';
 import { createDefaultTradeParams } from './DefaultTradeParams';
 import { availableContractsSelector } from './TradeParamsSelector';
-import { internalTradeModelToServerTradeModel } from '../trade/adapters/TradeObjectAdapter';
+import { internalTradeModelToProposalModel } from '../trade/adapters/TradeObjectAdapter';
 import { api } from '../_data/LiveData';
 import debounce from 'lodash.debounce';
+import * as paramUpdate from './TradeParamsCascadingUpdates';
+
 
 const CREATE_TRADE = 'CREATE_TRADE';
 export const createTrade = (index, symbol) => ({
@@ -83,24 +85,31 @@ export const removeTrade = index => ({
 
 const debounceSubscribe = debounce(params => api.subscribeToPriceForContractProposal(params), 300);
 
-const getProposalId = index => state => state.tradesProposalInfo.getIn([0, 'proposal', 'id']);
+const getProposalId = index => state => state.tradesProposalInfo.getIn([index, 'proposal'], {}).id;
+
+const contractOfSymbol = symbol => state => availableContractsSelector(state).get(symbol);
+
+const existingParams = index => state => {
+    const params = state.tradesParams.get(index);
+    return params && params.toJS();
+};
 
 function* tradeCreation(action) {
     const { index, symbol } = action;
-    const allTradingOptions = yield select(availableContractsSelector);
-    const contractNeeded = allTradingOptions.get(symbol);
-
+    const contractNeeded = yield select(contractOfSymbol(symbol));
     if (contractNeeded) {
-        const defaultParams = createDefaultTradeParams(contractNeeded);
+        const params = yield select(existingParams(index));
         const currency = yield select(currencySelector);
-        const subscribeParams = internalTradeModelToServerTradeModel(defaultParams);
-        subscribeParams.currency = currency;
-        subscribeParams.symbol = symbol;
-        yield put(updateMultipleTradeParams(index, defaultParams));
+        const updatedParams = paramUpdate.changeSymbol(params, contractNeeded, symbol);
+        const subscribeParams = internalTradeModelToProposalModel(updatedParams, symbol, currency);
+        yield put(updateMultipleTradeParams(index, updatedParams));
+        const oldProposalId = yield select(getProposalId(index));
+        if (oldProposalId) {
+            yield api.unsubscribeByID(oldProposalId);
+        }
         const subscription = yield api.subscribeToPriceForContractProposal(subscribeParams);
         yield put(updateTradeProposal(index, 'proposal', subscription.proposal));
     } else {
-        yield put(updateMultipleTradeParams(index, { symbol }));
         try {
             const { contracts_for } = yield call(api.getContractsForSymbol, symbol);
 
@@ -114,13 +123,11 @@ function* tradeCreation(action) {
     }
 }
 
-function* handleSymbolChange(action) {
-    const { index, symbol } = action;
-
-    yield put(updateMultipleTradeParams(index, { symbol }));
+function* handleTypeChange(action) {
+    const { index, tradeType } = action;
+    const params = yield select(existingParams(index));
+    // const updated = paramUpdate.changeType(tradeType, )
 }
-
-// function* handleTypeChange(action) {}
 // function* handleDurationChange(action) {}
 // function* handleBarrierChange(action) {}
 // function* handleStakeChange(action) {}
@@ -139,7 +146,7 @@ function* watchTradeCreation() {
 }
 
 function* watchSymbolChange() {
-    yield takeLatest(CHANGE_SYMBOL, handleSymbolChange);
+    yield takeLatest(CHANGE_SYMBOL, tradeCreation);
 }
 
 export default function* root() {

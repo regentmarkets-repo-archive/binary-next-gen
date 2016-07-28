@@ -1,12 +1,102 @@
 import { noOfDecimals, isDurationWithinRange } from 'binary-utils';
 import { createDefaultType, createDefaultDuration,
-    createDefaultBarriers, createDefaultBarrierType } from './DefaultTradeParams';
+    createDefaultBarriers, createDefaultBarrierType, createDefaultTradeParams } from './DefaultTradeParams';
 import { categoryValid, allTimeRelatedFieldValid } from './TradeParamsValidation';
 
-export function changeAsset(oldTrade, contract, changeCat) {
+
+// TODO: let all change methods return whole trade obj, easier to reason and debug
+
+export function changeCategory(newCategory, contract, oldTrade) {
+    const defaultType = createDefaultType(contract, newCategory);
+    const oldTradeCopy = Object.assign({}, oldTrade);
+    // spreads is special case
+    if (newCategory === 'spreads') {
+        const spread = contract[newCategory][defaultType].spread;
+
+        return Object.assign(oldTradeCopy, {
+            tradeCategory: newCategory,
+            type: defaultType,
+            duration: undefined,
+            durationUnit: undefined,
+            dateStart: undefined,
+            barrier: undefined,
+            barrier2: undefined,
+            amountPerPoint: spread.amountPerPoint.toFixed(2),
+            stopType: spread.stopType,
+            stopLoss: 30, // hardcode default as backend return wrong info
+            stopProfit: spread.stopProfit,
+        });
+    }
+
+    if (allTimeRelatedFieldValid(
+            oldTrade.dateStart,
+            oldTrade.duration,
+            oldTrade.durationUnit,
+            contract[newCategory][defaultType]
+        )) {
+        const { dateStart, duration, durationUnit } = oldTrade;
+        const newBarrier = createDefaultBarriers(
+            contract,
+            newCategory,
+            defaultType,
+            duration,
+            durationUnit,
+        );
+        const newBarrierType = createDefaultBarrierType(duration, durationUnit);
+        return Object.assign(oldTradeCopy, {
+            tradeCategory: newCategory,
+            type: defaultType,
+            duration,
+            durationUnit,
+            dateStart,
+            barrier: newBarrier[0],
+            barrier2: newBarrier[1],
+            amountPerPoint: undefined,
+            stopType: undefined,
+            stopLoss: undefined,
+            stopProfit: undefined,
+            barrierType: newBarrierType,
+        });
+    }
+
+    const newDuration = createDefaultDuration(contract, newCategory, defaultType);
+    const { dateStart, duration, durationUnit } = newDuration;
+    const newBarrier = createDefaultBarriers(
+        contract,
+        newCategory,
+        defaultType,
+        duration,
+        durationUnit,
+    );
+    const newBarrierType = createDefaultBarrierType(duration, durationUnit);
+
+    return Object.assign(oldTradeCopy, {
+        tradeCategory: newCategory,
+        type: defaultType,
+        duration,
+        durationUnit,
+        dateStart,
+        barrier: newBarrier[0],
+        barrier2: newBarrier[1],
+        amountPerPoint: undefined,
+        stopType: undefined,
+        stopLoss: undefined,
+        stopProfit: undefined,
+        barrierType: newBarrierType,
+    });
+}
+
+export function changeSymbol(oldTrade, contract, symbol, changeCat = changeCategory) {
+    if (!oldTrade) {
+        return createDefaultTradeParams(contract);
+    }
+
+    const oldTradeCopy = Object.assign({}, oldTrade);
+    oldTradeCopy.symbol = symbol;
+
     const selectedCategory = oldTrade.tradeCategory;
     if (!categoryValid(selectedCategory, contract)) {
-        return changeCat(Object.keys(contract)[0], contract, oldTrade);
+        return changeCat(Object.keys(contract)[0], contract, oldTradeCopy);
     }
 
     const selectedType = oldTrade.type;
@@ -26,7 +116,7 @@ export function changeAsset(oldTrade, contract, changeCat) {
         const newBarrier = createDefaultBarriers(contract, category, selectedType, duration, durationUnit);
         const newBarrierType = createDefaultBarrierType(duration, durationUnit);
 
-        return {
+        return Object.assign(oldTradeCopy, {
             type: selectedType,
             duration,
             durationUnit,
@@ -34,7 +124,7 @@ export function changeAsset(oldTrade, contract, changeCat) {
             barrier: newBarrier[0],
             barrier2: newBarrier[1],
             barrierType: newBarrierType,
-        };
+        });
     }
     const newBarrier = createDefaultBarriers(
         contract,
@@ -43,91 +133,11 @@ export function changeAsset(oldTrade, contract, changeCat) {
         selectedDuration, selectedDurationUnit
     );
     const newBarrierType = createDefaultBarrierType(selectedDuration, selectedDurationUnit);
-    return {
+    return Object.assign(oldTradeCopy, {
         barrier: newBarrier[0],
         barrier2: newBarrier[1],
         barrierType: newBarrierType,
-    };
-}
-
-export function changeCategory(newCategory, contract, oldTrade) {
-    const defaultType = createDefaultType(contract, newCategory);
-
-    // spreads is special case
-    if (newCategory === 'spreads') {
-        const spread = contract[newCategory][defaultType].spread;
-
-        return {
-            tradeCategory: newCategory,
-            type: defaultType,
-            duration: undefined,
-            durationUnit: undefined,
-            dateStart: undefined,
-            barrier: undefined,
-            barrier2: undefined,
-            amountPerPoint: spread.amountPerPoint.toFixed(2),
-            stopType: spread.stopType,
-            stopLoss: 30, // hardcode default as backend return wrong info
-            stopProfit: spread.stopProfit,
-        };
-    }
-
-    if (allTimeRelatedFieldValid(
-            oldTrade.dateStart,
-            oldTrade.duration,
-            oldTrade.durationUnit,
-            contract[newCategory][defaultType]
-        )) {
-        const { dateStart, duration, durationUnit } = oldTrade;
-        const newBarrier = createDefaultBarriers(
-            contract,
-            newCategory,
-            defaultType,
-            duration,
-            durationUnit,
-        );
-        const newBarrierType = createDefaultBarrierType(duration, durationUnit);
-        return {
-            tradeCategory: newCategory,
-            type: defaultType,
-            duration,
-            durationUnit,
-            dateStart,
-            barrier: newBarrier[0],
-            barrier2: newBarrier[1],
-            amountPerPoint: undefined,
-            stopType: undefined,
-            stopLoss: undefined,
-            stopProfit: undefined,
-            barrierType: newBarrierType,
-        };
-    }
-
-    const newDuration = createDefaultDuration(contract, newCategory, defaultType);
-    const { dateStart, duration, durationUnit } = newDuration;
-    const newBarrier = createDefaultBarriers(
-        contract,
-        newCategory,
-        defaultType,
-        duration,
-        durationUnit,
-    );
-    const newBarrierType = createDefaultBarrierType(duration, durationUnit);
-
-    return {
-        tradeCategory: newCategory,
-        type: defaultType,
-        duration,
-        durationUnit,
-        dateStart,
-        barrier: newBarrier[0],
-        barrier2: newBarrier[1],
-        amountPerPoint: undefined,
-        stopType: undefined,
-        stopLoss: undefined,
-        stopProfit: undefined,
-        barrierType: newBarrierType,
-    };
+    });
 }
 
 export function changeType(newType, newCategory, oldTrade, contract) {

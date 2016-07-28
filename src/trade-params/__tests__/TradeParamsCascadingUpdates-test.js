@@ -141,7 +141,7 @@ describe('Update helpers', () => {
 
     describe('changeAsset', () => {
         it('should retain old params if new asset allows', () => {
-            const updatedAsset = updateHelpers.changeAsset(mockTickTrade, mockedContract, updateHelpers.changeCategory);
+            const updatedAsset = updateHelpers.changeSymbol(mockTickTrade, mockedContract, updateHelpers.changeCategory);
             const mergedWithUpdatedAsset = Object.assign({}, mockTickTrade, updatedAsset);
             // containSubset is used because changeAsset will set undefined to barriers
             expect(mergedWithUpdatedAsset).to.containSubset(mockTickTrade);

@@ -17,7 +17,7 @@ import AssetPickerDropDown from '../asset-picker/AssetPickerDropDown';
 import BuyButton from './BuyButton';
 
 import * as LiveData from '../_data/LiveData';
-import { changeAsset, changeCategory } from './TradeParamsCascadingUpdates';
+import { changeSymbol, changeCategory } from './TradeParamsCascadingUpdates';
 
 /**
  * This UI is coded with a few assumptions, which should always be true, this comments serves as a future reference
