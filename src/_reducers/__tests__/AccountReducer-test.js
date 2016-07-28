@@ -20,7 +20,7 @@ describe('accountReducer', () => {
         };
         const beforeState = fromJS({});
         const stateExpected = fromJS({
-            currency: 'USD',
+            currency: '',
             fullname: 'Mr abc dfk',
             loginid: 'MF2203',
         });
