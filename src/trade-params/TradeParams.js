@@ -96,9 +96,9 @@ export default class TradeParams extends PureComponent {
      * TODO: redesign so that side effect are handle elsewhere
      */
     componentDidUpdate(prevProps) {
-        const { tradeParams } = this.props;
+        const { tradeParams, currency } = this.props;
 
-        if (tradeParams.symbol !== prevProps.tradeParams.symbol) {
+        if (tradeParams.symbol !== prevProps.tradeParams.symbol || currency !== prevProps.currency) {
             const { proposal } = prevProps;
             if (proposal) {
                 LiveData.api.unsubscribeByID(proposal.id);
