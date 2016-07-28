@@ -30,19 +30,19 @@ export const reqSymbolChange = (index, symbol) => ({
 });
 
 export const reqCatChange = (index, category) => ({
-    type: CHANGE_SYMBOL,
+    type: CHANGE_CATEGORY,
     index,
     category,
 });
 
 export const reqTypeChange = (index, tradeType) => ({
-    type: CHANGE_SYMBOL,
+    type: CHANGE_TYPE,
     index,
     tradeType,
 });
 
 export const reqDurationChange = (index, duration) => ({
-    type: CHANGE_SYMBOL,
+    type: CHANGE_DURATION,
     index,
     ...duration,
 });
@@ -53,19 +53,19 @@ export const reqStartDateChange = (index, dateStart) => ({
 });
 
 export const reqBarrierChange = (index, barrier) => ({
-    type: CHANGE_SYMBOL,
+    type: CHANGE_BARRIER,
     index,
     barrier,
 });
 
 export const reqStakeChange = (index, stake) => ({
-    type: CHANGE_SYMBOL,
+    type: CHANGE_STAKE,
     index,
     stake,
 });
 
 export const reqPurchase = (index, params) => ({
-    type: CHANGE_SYMBOL,
+    type: PURCHASE,
     index,
     params,
 });
@@ -75,6 +75,8 @@ export const removeTrade = index => ({
     type: REMOVE_TRADE,
     index,
 });
+
+/* SAGAs */
 
 function* tradeCreation(action) {
     const { index, symbol } = action;
@@ -98,6 +100,12 @@ function* tradeCreation(action) {
     }
 }
 
+function* handleSymbolChange(action) {}
+function* handleTypeChange(action) {}
+function* handleDurationChange(action) {}
+function* handleBarrierChange(action) {}
+function* handleStakeChange(action) {}
+
 function* logger(action) {
     console.log(action.type + 'is called');
 }
@@ -114,5 +122,6 @@ function* watchTradeCreation() {
 export default function* root() {
     yield [
         watchTradeCreation(),
+        paramChangeLogger(),
     ];
 }

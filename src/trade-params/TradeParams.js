@@ -171,7 +171,6 @@ export default class TradeParams extends PureComponent {
         const hasBarriers = tradeParams.barrier;
         const selectedTypeTradingOptions = contract[selectedCategory][selectedType];
         const barrierInfo = selectedTypeTradingOptions && selectedTypeTradingOptions.barriers;  // TODO: rename, this sucks
-        const digitOptions = barrierInfo && barrierInfo.tick[0].value;
 
         const isIntraDay = isIntraday(tradeParams.duration, tradeParams.durationUnit);
         const showBarrier = selectedCategory !== 'spreads' &&
@@ -182,8 +181,11 @@ export default class TradeParams extends PureComponent {
         const payout = proposal && proposal.payout;
 
         const showDuration = !!tradeParams.duration;
-        const showDigitBarrier = selectedCategory === 'digits';
+        const isDigitType = selectedCategory === 'digits';
         const showSpreadBarrier = selectedCategory === 'spreads';
+
+        const digitOptions = (isDigitType && barrierInfo) && barrierInfo.tick[0].value;
+
         const askPrice = askPriceFromProposal(proposal);
 
         const errorText = errorToShow(errors);
@@ -204,7 +206,7 @@ export default class TradeParams extends PureComponent {
                     contract={contract}
                     tradeParams={tradeParams}
                 />
-                {showDigitBarrier &&
+                {isDigitType &&
                     <DigitBarrierCard
                         barrier={+tradeParams.barrier}
                         digitOptions={digitOptions}
