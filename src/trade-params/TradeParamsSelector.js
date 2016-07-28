@@ -4,7 +4,6 @@ import { extractBarrier, extractDuration, extractForwardStartingDuration,
     findDeep, filterDeep } from 'binary-utils';
 import { assetsSelector, currencySelector } from '../_store/directSelectors';
 import { pipSizePerTrade } from '../trade/trade-chart/TradeViewChartSelector';
-import { mockedContract } from '../_constants/MockContract';
 import { paramPerTrade, errorPerTrade, proposalPerTrade, purchasePerTrade, uiStatePerTrade } from '../trade/TradeSelectors';
 
 const aggregateContracts = (contracts, type) => ({
@@ -114,9 +113,7 @@ export const tradeParamsPerTrade = createSelector(
     ],
     (currency, contract, params, errors, pipSize, purchaseInfo, proposalInfo, uiState, marketIsOpen, index) => {
         let contractToUse = contract;
-        if (!contract) {
-            contractToUse = mockedContract;
-        } else if (!marketIsOpen) {
+        if (!marketIsOpen && contract) {
             contractToUse = getStartLaterOnlyContract(contract);
         }
         const hasError = errors.valueSeq().filter(v => !!v).size > 0;
