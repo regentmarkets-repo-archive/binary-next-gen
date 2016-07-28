@@ -57,6 +57,9 @@ export const changeLanguage = langCode => {
     api.getTradingTimes(new Date());
 };
 
+const createFirstTrade = (symbol, store) =>
+    store.dispatch(actions.createTrade(0, symbol));
+
 const initAuthorized = async (authData, store) => {
     if (/japan/.test(authData.authorize.landing_company_name)) {
         showError('Sorry, for japan user please login through www.binary.com '); // TODO: use showError without breaking test
@@ -89,7 +92,10 @@ const initAuthorized = async (authData, store) => {
             }
         });
 
-    api.getActiveSymbolsFull();
+    api.getActiveSymbolsFull().then(r => {
+        const first = r.active_symbols[0];
+        // createFirstTrade(first, store);
+    });
     api.getTradingTimes(new Date());
     api.getAssetIndex();
     api.getServerTime();
@@ -107,7 +113,7 @@ const initAuthorized = async (authData, store) => {
     api.subscribeToAllOpenContracts();
     api.subscribeToTransactions();
     subscribeToWatchlist(store);
-    subscribeToSelectedSymbol(store);
+    // subscribeToSelectedSymbol(store);
 
     if (authData.authorize.is_virtual !== 1) {
         api.getAccountLimits();

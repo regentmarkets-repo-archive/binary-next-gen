@@ -7,6 +7,7 @@ export * from './CandleStickActions';
 export * from './DigitStatsActions';
 export * from './AssetPickerActions';
 export * from './PortfolioActions';
+export * from './FeedLicenseActions';
 export * from './NewsActions';
 export * from './TickActions';
 export * from './TradeActions';

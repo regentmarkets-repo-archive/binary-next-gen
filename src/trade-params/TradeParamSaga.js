@@ -80,34 +80,38 @@ export const removeTrade = index => ({
 
 function* tradeCreation(action) {
     const { index, symbol } = action;
-
     const allTradingOptions = yield select(availableContractsSelector);
     const contractNeeded = allTradingOptions.get(symbol);
 
     if (contractNeeded) {
         const defaultParams = createDefaultTradeParams(contractNeeded);
-        yield put(updateMultipleTradeParams(index, defaultParams));
+        const o = yield put(updateMultipleTradeParams(index, defaultParams));
     } else {
         yield put(updateMultipleTradeParams(index, { symbol }));
         try {
             const { contracts_for } = yield call(api.getContractsForSymbol, symbol);
+
             yield put(updateFeedLicense(symbol, contracts_for.feed_license));
             yield put(updateTradingOptions(symbol, contracts_for.available));
-            tradeCreation(action);      // TODO!!: might be a bad idea
+            yield put(createTrade(index, symbol));
         } catch (err) {
+            console.log('error ', err);
             yield (updateTradingOptionsErr(symbol, err));
         }
     }
 }
 
-function* handleSymbolChange(action) {}
-function* handleTypeChange(action) {}
-function* handleDurationChange(action) {}
-function* handleBarrierChange(action) {}
-function* handleStakeChange(action) {}
+// function* handleSymbolChange(action) {
+//
+// }
+// function* handleTypeChange(action) {}
+// function* handleDurationChange(action) {}
+// function* handleBarrierChange(action) {}
+// function* handleStakeChange(action) {}
 
 function* logger(action) {
-    console.log(action.type + 'is called');
+    console.log(action.type + ' is called');
+    console.log(action);
 }
 
 function* paramChangeLogger() {

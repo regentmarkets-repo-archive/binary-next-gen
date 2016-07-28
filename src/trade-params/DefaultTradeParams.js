@@ -102,10 +102,13 @@ export const createDefaultTradeParams = contracts => {
     const barriers = createDefaultBarriers(contracts, cat, type, duration, durationUnit);
     const barrierType = createDefaultBarrierType(duration, durationUnit);
 
+    const startLaterOpts = contracts[cat][type].forwardStartingDuration;
+    const dateStart = startLaterOpts ? createDefaultStartLaterEpoch(startLaterOpts) : undefined;
     return {
         tradeCategory: cat,
         duration,
         durationUnit,
+        dateStart,
         basis: 'stake',
         amount: 50,
         type,

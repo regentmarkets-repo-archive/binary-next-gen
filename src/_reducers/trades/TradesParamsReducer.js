@@ -21,7 +21,7 @@ const defaultParams = {
     barrier2: undefined,
 };
 
-const initialState = fromJS([defaultParams]);
+const initialState = fromJS([]);
 
 export default (state = initialState, action) => {
     switch (action.type) {
