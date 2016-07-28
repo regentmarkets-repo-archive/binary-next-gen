@@ -21,9 +21,10 @@ const finalCreateStore = compose(
     enableDevTools()
 )(createStore);
 
+export const store = finalCreateStore(storageReducer);
+
 sagaMiddleware.run(tradeParamsSaga);
 
-export const store = finalCreateStore(storageReducer);
 export const rehydratedStorePromise = () => storageLoader(store).then(() => store);
 
 import * as allActions from '../_actions';

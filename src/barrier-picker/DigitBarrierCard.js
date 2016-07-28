@@ -28,7 +28,7 @@ export default class DigitBarrierCard extends PureComponent {
 
         return (
             <div className="param-row">
-                <Label text={barrierInfo.name} />
+                <Label text="Digit" />
                 <RadioGroup
                     className="param-field"
                     name={'digit-selections' + index}

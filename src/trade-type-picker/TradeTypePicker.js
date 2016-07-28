@@ -29,7 +29,7 @@ export default class TradeTypePicker extends PureComponent {
     }
 
     onGroupChange(group) {
-        const { contract, tradeParams } = this.props;
+        const { contract, tradeParams, index } = this.props;
         const selectedCategory = tradeParams.tradeCategory;
         const groupCategories = Object
             .keys(contract)

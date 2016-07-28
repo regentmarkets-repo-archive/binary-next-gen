@@ -95,7 +95,6 @@ export default class ForwardStartingOptions extends PureComponent {
                             </label>
                         </div>
                     }
-                    {allowStartLater &&
                     <div className="forward-starting-input" style={showStartLater ? {} : { display: 'none' }}>
                         <input
                             type="date"
@@ -109,7 +108,7 @@ export default class ForwardStartingOptions extends PureComponent {
                             onChange={this.onTimeChange}
                             defaultValue={defaultTime}
                         />
-                    </div>}
+                    </div>
                 </div>
             </div>
         );
