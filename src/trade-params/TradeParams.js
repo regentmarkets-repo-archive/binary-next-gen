@@ -2,7 +2,7 @@ import React, { PureComponent, PropTypes } from 'react';
 import throttle from 'lodash.throttle';
 import debounce from 'lodash.debounce';
 import { isMobile, isIntraday, askPriceFromProposal, windowResizeEvent } from 'binary-utils';
-import { ErrorMsg, PurchaseFailed } from 'binary-components';
+import { ErrorMsg } from 'binary-components';
 import Modal from '../containers/Modal';
 import { actions } from '../_store';
 import BarrierCard from '../barrier-picker/BarrierCard';
@@ -202,7 +202,7 @@ export default class TradeParams extends PureComponent {
         return (
             <div className="trade-params" key={this.state.dynamicKey} style={style}>
                 <Modal shown={!!errors.purchaseError} onClose={this.onCloseModal}>
-                    <PurchaseFailed failure={errors.purchaseError} />
+                    {errors.purchaseError}
                 </Modal>
                 <ErrorMsg text={contract.error || errorText} />
                 <AssetPickerDropDown
