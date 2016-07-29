@@ -10,3 +10,5 @@ export const getParams = index => state => {
 };
 
 export const getForceRenderCount = index => state => state.tradesUIStates.getIn([index, 'forceRenderCount']);
+
+export const getTicksOfSymbol = symbol => state => state.ticks.get(symbol);

@@ -1,10 +1,10 @@
 import { takeLatest } from 'redux-saga';
-import { put, select } from 'redux-saga/effects';
+import { put, select, fork } from 'redux-saga/effects';
 import { updateMultipleTradeParams, updateTradingOptions, updateTradeUIState,
     updateFeedLicense, updateTradingOptionsErr } from '../../_actions';
 import { api } from '../../_data/LiveData';
 import * as paramUpdate from '../TradeParamsCascadingUpdates';
-import { getForceRenderCount, getParams, contractOfSymbol } from './SagaSelectors';
+import { getForceRenderCount, getParams, contractOfSymbol, getTicksOfSymbol } from './SagaSelectors';
 import { createTrade } from './TradeParamSaga';
 import { subscribeProposal, unsubscribeProposal } from './ProposalSubscriptionSaga';
 
@@ -35,8 +35,30 @@ export function* tradeCreation(action) {
     } else {
         try {
             const { contracts_for } = yield api.getContractsForSymbol(symbol);
-
-            yield put(updateFeedLicense(symbol, contracts_for.feed_license));
+            const ticks = yield select(getTicksOfSymbol(symbol));
+            const license = contracts_for.feed_license;
+            if (!ticks) {
+                switch (license) {
+                    case 'chartonly': break;
+                    case 'realtime':
+                        yield fork(
+                            api.getTickHistory,
+                            symbol,
+                            { end: 'latest', count: 60, adjust_start_time: 1, subscribe: 1 }
+                            );
+                        break;
+                    case 'delayed':
+                    case 'daily':
+                        yield fork(
+                            api.getTickHistory,
+                            symbol,
+                            { end: 'latest', count: 60, adjust_start_time: 1 }
+                        );
+                        break;
+                    default:console.warn(`Unknown license type: ${license}`);   // eslint-disable-line no-console
+                }
+            }
+            yield put(updateFeedLicense(symbol, license));
             yield put(updateTradingOptions(symbol, contracts_for.available));
             yield put(createTrade(index, symbol));
         } catch (err) {
