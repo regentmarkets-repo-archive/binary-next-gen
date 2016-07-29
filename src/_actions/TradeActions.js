@@ -82,6 +82,11 @@ export const updateTradeError = (index, errorID, error) => ({
     error,
 });
 
+export const clearTradeError = index => ({
+    type: types.CLEAR_TRADE_ERROR,
+    index,
+});
+
 export const updatePriceProposalSubscription = (tradeID, trade) =>
     (dispatch, getState) => {
         dispatch(updateTradeUIState(tradeID, 'disabled', true));

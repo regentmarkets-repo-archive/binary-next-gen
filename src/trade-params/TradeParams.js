@@ -80,10 +80,6 @@ export default class TradeParams extends PureComponent {
         };
     }
 
-    // componentWillMount() {
-    //     this.onAssetChange();
-    // }
-
     /**
      * componentDidUpdate is used instead of componentWillReceiveProps because the onAssetChange depends on updated
      * props, which only accessible after component update
@@ -99,14 +95,6 @@ export default class TradeParams extends PureComponent {
         // fire action to saga
     }
 
-    // onAssetChange = () => {
-    //     const { contract, tradeParams } = this.props;
-    //     const updatedAsset = changeAsset(tradeParams, contract, changeCategory);
-    //     this.updateTradeParams(updatedAsset);
-    //     this.repaintSelf();
-    //     this.clearTradeError();
-    // }
-
     onCloseModal = () => {
         const { index } = this.props;
         actions.updateTradeError(index, 'purchaseError', undefined);
@@ -117,22 +105,11 @@ export default class TradeParams extends PureComponent {
         actions.purchaseByTradeId(index).then(onPurchaseHook);
     }
 
-    // throttledProposalSubscription =
-    //     throttle(index => actions.updatePriceProposalSubscription(index), isMobile ? 500 : 300);
-
-    // updateTradeParams = params => {
-    //     const { index } = this.props;
-    //     actions.changeParams(index, params);
-    // }
 
     // TODO: create an action that update all at once
     clearTradeError = () => {
         const { index } = this.props;
-        actions.updateTradeError(index, 'barrierError', undefined);
-        actions.updateTradeError(index, 'durationError', undefined);
-        actions.updateTradeError(index, 'proposalError', undefined);
-        actions.updateTradeError(index, 'stakeError', undefined);
-        actions.updateTradeError(index, 'purchaseError', undefined);
+        actions.clearTradeError(index);
     }
 
     repaintSelf = () => {

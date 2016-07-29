@@ -1,3 +1,13 @@
+import { takeLatest } from 'redux-saga';
+import { put, call, select } from 'redux-saga/effects';
+import { updateMultipleTradeParams, updateTradingOptions, updateTradeUIState,
+    updateFeedLicense, updateTradingOptionsErr, updateTradeProposal } from '../../_actions';
+import { api } from '../../_data/LiveData';
+import * as paramUpdate from '../TradeParamsCascadingUpdates';
+import { getProposalId, getForceRenderCount, existingParams, contractOfSymbol } from './SagaSelectors';
+import { internalTradeModelToProposalModel } from '../../trade/adapters/TradeObjectAdapter';
+import { currencySelector } from '../../_store/directSelectors';
+
 const CREATE_TRADE = 'CREATE_TRADE';
 export const createTrade = (index, symbol) => ({
     type: CREATE_TRADE,
@@ -11,7 +21,6 @@ export const reqSymbolChange = (index, symbol) => ({
     index,
     symbol,
 });
-
 
 function* tradeCreation(action) {
     const { index, symbol } = action;
@@ -39,8 +48,12 @@ function* tradeCreation(action) {
         const renderCount = yield select(getForceRenderCount(index));
         yield put(updateTradeUIState(index, 'forceRenderCount', renderCount + 1));
 
-        const subscription = yield api.subscribeToPriceForContractProposal(subscribeParams);
-        yield put(updateTradeProposal(index, 'proposal', subscription.proposal));
+        try {
+            const subscription = yield api.subscribeToPriceForContractProposal(subscribeParams);
+            yield put(updateTradeProposal(index, 'proposal', subscription.proposal));
+        } catch (err) {
+            yield put(updateTradeProposal(index, 'error', err));
+        }
     } else {
         try {
             const { contracts_for } = yield call(api.getContractsForSymbol, symbol);
@@ -55,3 +68,6 @@ function* tradeCreation(action) {
     }
 }
 
+export default function* watchSymbol() {
+    yield takeLatest([CREATE_TRADE, CHANGE_SYMBOL], tradeCreation);
+}

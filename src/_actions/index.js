@@ -37,4 +37,4 @@ export {
     reqStakeChange,
     reqTypeChange,
     createTrade,
-} from '../trade-params/saga/TradeParamSaga';
+} from '../trade-params/saga/SagaActions';
