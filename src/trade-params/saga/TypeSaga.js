@@ -1,6 +1,6 @@
 import { takeLatest } from 'redux-saga';
 import { select, put } from 'redux-saga/effects';
-import { getForceRenderCount, existingParams, contractOfSymbol } from './SagaSelectors';
+import { getForceRenderCount, getParams, contractOfSymbol } from './SagaSelectors';
 import { updateMultipleTradeParams, updateTradeUIState } from '../../_actions';
 import * as paramUpdate from '../TradeParamsCascadingUpdates';
 
@@ -14,7 +14,7 @@ export const reqCatChange = (index, category) => ({
 
 function* handleCatChange(action) {
     const { index, category } = action;
-    const params = yield select(existingParams(index));
+    const params = yield select(getParams(index));
     const contractNeeded = yield select(contractOfSymbol(params.symbol));
     const updated = paramUpdate.changeCategory(category, contractNeeded, params);
     const renderCount = yield select(getForceRenderCount(index));
@@ -34,7 +34,7 @@ export const reqTypeChange = (index, tradeType) => ({
 
 function* handleTypeChange(action) {
     const { index, tradeType } = action;
-    const params = yield select(existingParams(index));
+    const params = yield select(getParams(index));
     const contractNeeded = yield select(contractOfSymbol(params.symbol));
     const updated = paramUpdate.changeType(tradeType, params.tradeCategory, contractNeeded, params);
     const renderCount = yield select(getForceRenderCount(index));

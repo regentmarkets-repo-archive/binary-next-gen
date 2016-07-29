@@ -5,6 +5,7 @@ import DurationSaga from './DurationSaga';
 import PurchaseSaga from './PurchaseSaga';
 import SymbolSaga, { tradeCreation } from './SymbolSaga';
 import TypeSaga from './TypeSaga';
+import ProposalSubscriptionSaga from './ProposalSubscriptionSaga';
 
 function* logger(action) {
     console.log('action', action);
@@ -24,6 +25,7 @@ function* watchCreate() {
 export default function* root() {
     yield [
         takeEvery(CREATE_TRADE, logger),
+        call(ProposalSubscriptionSaga),
         call(watchCreate),
         call(BarrierSaga),
         call(DurationSaga),

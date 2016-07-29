@@ -3,7 +3,7 @@ import { put, select } from 'redux-saga/effects';
 import { updateMultipleTradeParams, updateTradeUIState, updateTradeError } from '../../_actions';
 import { allTimeRelatedFieldValid } from '../TradeParamsValidation';
 import * as paramUpdate from '../TradeParamsCascadingUpdates';
-import { existingParams, contractOfSymbol, getForceRenderCount } from './SagaSelectors';
+import { getParams, contractOfSymbol, getForceRenderCount } from './SagaSelectors';
 import { dateToEpoch, timeStringToSeconds } from 'binary-utils';
 
 const CHANGE_DURATION = 'CHANGE_DURATION';
@@ -16,7 +16,7 @@ export const reqDurationChange = (index, duration) => ({
 
 function* handleDurationChange(action) {
     const { index, duration } = action;
-    const params = yield select(existingParams(index));
+    const params = yield select(getParams(index));
     const { symbol, tradeCategory, type, durationUnit, dateStart } = params;
     const contractNeeded = yield select(contractOfSymbol(symbol));
     const contractPerType = contractNeeded[tradeCategory][type];
@@ -42,7 +42,7 @@ export const reqDurationUnitChange = (index, durationUnit) => ({
 
 function* handleDurationUnitChange(action) {
     const { index, durationUnit } = action;
-    const params = yield select(existingParams(index));
+    const params = yield select(getParams(index));
     const contractNeeded = yield select(contractOfSymbol(params.symbol));
     const updated = paramUpdate.changeDurationUnit(durationUnit, contractNeeded, params);
     const renderCount = yield select(getForceRenderCount(index));
@@ -62,7 +62,7 @@ export const reqStartEpochChange = (index, epoch) => ({
 
 function* handleStartEpochChange(action) {
     const { index, epoch } = action;
-    const params = yield select(existingParams(index));
+    const params = yield select(getParams(index));
     const { symbol, tradeCategory, type, durationUnit, duration } = params;
     const contractNeeded = yield select(contractOfSymbol(symbol));
     const contractPerType = contractNeeded[tradeCategory][type];
@@ -87,7 +87,7 @@ export const reqStartDateChange = (index, date) => ({
 
 function* handleStartDateChange(action) {
     const { index, date } = action;
-    const params = yield select(existingParams(index));
+    const params = yield select(getParams(index));
     const { symbol, tradeCategory, type, durationUnit, dateStart, duration } = params;
 
     const newDayEpoch = dateToEpoch(new Date(date));
@@ -123,7 +123,7 @@ export const reqStartTimeChange = (index, time) => ({
 
 function* handleStartTimeChange(action) {
     const { index, time } = action;
-    const params = yield select(existingParams(index));
+    const params = yield select(getParams(index));
     const { symbol, tradeCategory, type, durationUnit, dateStart, duration } = params;
 
     const secondsPerDay = 60 * 60 * 24;

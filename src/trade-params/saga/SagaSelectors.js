@@ -4,7 +4,7 @@ export const getProposalId = index => state => state.tradesProposalInfo.getIn([i
 
 export const contractOfSymbol = symbol => state => availableContractsSelector(state).get(symbol);
 
-export const existingParams = index => state => {
+export const getParams = index => state => {
     const params = state.tradesParams.get(index);
     return params && params.toJS();
 };
