@@ -9,7 +9,7 @@ import removeNullMiddleware from './removeNullMiddleware';
 import immutableMerger from 'redux-storage-merger-immutablejs';
 import createSagaMiddleware from 'redux-saga';
 
-import tradeParamsSaga from '../trade-params/TradeParamSaga';
+import tradeParamsSaga from '../trade-params/saga/TradeParamSaga';
 
 const storageMiddleware = storage.createMiddleware(storageEngine, [], actionsToCache);
 const storageReducer = storage.reducer(rootReducer, immutableMerger);

@@ -1,12 +1,8 @@
-const epochWithinRange = (epoch, range) => {
-    const millis = epoch * 1000;
-    const startMillis = range.open[0].getTime();
-    const endMillis = (range.close[1] || range.close[0]).getTime();
-    return (millis >= startMillis && millis <= endMillis);
-};
+import { nowAsEpoch } from 'binary-utils';
 
-export const forwardStartTimeValid = (dateStart, forwardStartingDuration) =>
-    !!forwardStartingDuration.range.find(r => epochWithinRange(dateStart, r));
+export const forwardStartTimeValid = dateStart =>
+    (dateStart - nowAsEpoch()) > (5 * 60);    // arbritarily chosen buffer
+
 
 export const durationValid = (duration, durationUnit, options) =>
     !!options.find(opt => durationUnit === opt.unit && duration <= opt.max && duration >= opt.min);
@@ -24,7 +20,7 @@ export const allTimeRelatedFieldValid = (dateStart, duration, durationUnit, cont
         if (!dateStart) {
             return false;
         }
-        const dateStartValid = forwardStartTimeValid(dateStart, forwardStartingDuration);
+        const dateStartValid = forwardStartTimeValid(dateStart);
         const durationIsValid = durationValid(duration, durationUnit, forwardStartingDuration.options);
         return dateStartValid && durationIsValid;
     }

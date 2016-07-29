@@ -241,8 +241,8 @@ export function changeStartDate(newStartDate, contract, oldTrade) {
     });
 }
 
-export function changeDuration(duration, newUnit, contract, oldTrade) {
-    const { tradeCategory, type, dateStart } = oldTrade;
+export function changeDurationUnit(newUnit, contract, oldTrade) {
+    const { tradeCategory, type, dateStart, duration } = oldTrade;
     const contractPerType = contract[tradeCategory][type];
 
     let newDuration = duration;

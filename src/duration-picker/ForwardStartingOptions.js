@@ -1,10 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react';
-import { epochToUTCTimeString, dateToEpoch,
-    timeStringToSeconds, dateToDateString } from 'binary-utils';
+import { epochToUTCTimeString, dateToDateString } from 'binary-utils';
 import { M, Label } from 'binary-components';
 import { createDefaultStartLaterEpoch } from '../trade-params/DefaultTradeParams';
-import { changeStartDate } from '../trade-params/TradeParamsCascadingUpdates';
-import { debounceForMobileAndWeb } from '../trade-params/TradeParams';
 import { actions } from '../_store';
 
 /**
@@ -29,34 +26,27 @@ export default class ForwardStartingOptions extends PureComponent {
     }
 
     onDayChange = e => {
-        const { dateStart, index } = this.props;
+        const { index } = this.props;
         const inputValue = e.target.value;
-        const newDayEpoch = dateToEpoch(new Date(inputValue));
-        const secondsPerDay = 60 * 60 * 24;
-        const intraDayEpoch = dateStart % secondsPerDay;
-        actions.reqStartDateChange(index, newDayEpoch + intraDayEpoch);
+        actions.reqStartDateChange(index, inputValue);
     }
 
     onTimeChange = e => {
-        const { dateStart, index } = this.props;
+        const { index } = this.props;
         const inputValue = e.target.value;
-        const secondsPerDay = 60 * 60 * 24;
-        const intraDayEpoch = dateStart % secondsPerDay;
-        const dayEpoch = dateStart - intraDayEpoch;
-        const selectedEpoch = dayEpoch + timeStringToSeconds(inputValue);
-        actions.reqStartDateChange(index, selectedEpoch);
+        actions.reqStartTimeChange(index, inputValue);
     }
 
     startNow = () => {
         this.setState({ showStartLater: false });
-        actions.reqStartDateChange(this.props.index);
+        actions.reqStartEpochChange(this.props.index);
     }
 
     startLater = () => {
         this.setState({ showStartLater: true });
         const { index, dateStart } = this.props;
         if (!dateStart) {
-            actions.reqStartDateChange(index, this.state.defaultDateStart);
+            actions.reqStartEpochChange(index, this.state.defaultDateStart);
         }
     }
 
@@ -69,7 +59,7 @@ export default class ForwardStartingOptions extends PureComponent {
         const defaultTime = epochToUTCTimeString(defaultDateStart);
         return (
             <div className="param-row forward-starting-picker">
-                {<Label text={'Start Time'} />}
+                {<Label text="Start Time" />}
                 <div className="param-field">
                     {!startLaterOnly &&
                         <div className="start-time-selector">

@@ -1,9 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
-import debounce from 'lodash.debounce';
 import { NumericInput, Label } from 'binary-components';
-import { isMobile } from 'binary-utils';
 import { actions } from '../_store';
-import { changeAmount } from '../trade-params/TradeParamsCascadingUpdates';
 
 const payouts = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000];
 
@@ -17,7 +14,7 @@ export default class StakeCard extends PureComponent {
 
     onAmountChange = e => {
         const { index } = this.props;
-        actions.reqStakeChange(index, e);
+        actions.reqStakeChange(index, e.target.value);
     }
 
     render() {

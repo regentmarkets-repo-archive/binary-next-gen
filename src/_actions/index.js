@@ -29,9 +29,12 @@ export {
     reqBarrierChange,
     reqCatChange,
     reqDurationChange,
+    reqDurationUnitChange,
     reqStartDateChange,
+    reqStartTimeChange,
+    reqStartEpochChange,
     reqPurchase,
     reqStakeChange,
     reqTypeChange,
     createTrade,
-} from '../trade-params/TradeParamSaga';
+} from '../trade-params/saga/TradeParamSaga';

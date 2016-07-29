@@ -16,15 +16,15 @@ export default class DurationCard extends PureComponent {
     };
 
     updateDuration = e => {
-        const { index, durationUnit } = this.props;
+        const { index } = this.props;
         const duration = e.target.value;
-        actions.reqDurationChange(index, { duration, durationUnit });
+        actions.reqDurationChange(index, duration);
     }
 
     updateDurationUnit = e => {
-        const { index, duration } = this.props;
+        const { index } = this.props;
         const durationUnit = e.target.value;
-        actions.reqDurationChange(index, { duration, durationUnit });
+        actions.reqDurationUnitChange(index, durationUnit);
     }
 
     render() {

@@ -1,5 +1,5 @@
 import * as types from '../_constants/ActionTypes';
-import { createTrade } from '../trade-params/TradeParamSaga';
+import { createTrade } from '../trade-params/saga/TradeParamSaga';
 
 export const changeSelectedAsset = symbol => ({
     type: types.CHANGE_SELECTED_ASSET,

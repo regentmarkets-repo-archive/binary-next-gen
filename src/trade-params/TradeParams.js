@@ -1,8 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
-import throttle from 'lodash.throttle';
-import debounce from 'lodash.debounce';
-import { isMobile, isIntraday, askPriceFromProposal, windowResizeEvent } from 'binary-utils';
-import { ErrorMsg, PurchaseFailed } from 'binary-components';
+import { isIntraday, askPriceFromProposal, windowResizeEvent } from 'binary-utils';
+import { ErrorMsg } from 'binary-components';
 import Modal from '../containers/Modal';
 import { actions } from '../_store';
 import BarrierCard from '../barrier-picker/BarrierCard';
@@ -15,9 +13,6 @@ import PayoutCard from '../payout-picker/PayoutCard';
 import TradeTypeDropDown from '../trade-type-picker/TradeTypeDropDown';
 import AssetPickerDropDown from '../asset-picker/AssetPickerDropDown';
 import BuyButton from './BuyButton';
-
-import * as LiveData from '../_data/LiveData';
-import { changeSymbol, changeCategory } from './TradeParamsCascadingUpdates';
 
 /**
  * This UI is coded with a few assumptions, which should always be true, this comments serves as a future reference
@@ -53,8 +48,6 @@ const errorToShow = errorObj => {
     if (purchaseError) return purchaseError;
     return errorObj.other;
 };
-
-export const debounceForMobileAndWeb = func => debounce(func, 300, { leading: true, trailing: true });
 
 export default class TradeParams extends PureComponent {
 
@@ -191,7 +184,7 @@ export default class TradeParams extends PureComponent {
         return (
             <div className="trade-params" key={this.state.dynamicKey} style={style}>
                 <Modal shown={!!errors.purchaseError} onClose={this.onCloseModal}>
-                    <PurchaseFailed failure={errors.purchaseError} />
+                    <ErrorMsg text={errors.purchaseError} />
                 </Modal>
                 <ErrorMsg text={contract.error || errorText} />
                 <AssetPickerDropDown

@@ -43,22 +43,12 @@ const subscribeToWatchlist = store => {
     api.subscribeToTicks(state.watchlist.toJS());
 };
 
-const subscribeToSelectedSymbol = store => {
-    const defaultSymbol = 'R_100'; // TODO: Rework on cache previous settings
-
-    store.dispatch(actions.getTradingOptions(defaultSymbol))
-        .then(() => store.dispatch(actions.getTicksBySymbol(defaultSymbol)));
-};
-
 export const changeLanguage = langCode => {
     api.changeLanguage(langCode);
     api.getActiveSymbolsFull();
     api.getAssetIndex();
     api.getTradingTimes(new Date());
 };
-
-const createFirstTrade = (symbol, store) =>
-    store.dispatch(actions.createTrade(0, symbol));
 
 const initAuthorized = async (authData, store) => {
     if (/japan/.test(authData.authorize.landing_company_name)) {
@@ -92,10 +82,7 @@ const initAuthorized = async (authData, store) => {
             }
         });
 
-    api.getActiveSymbolsFull().then(r => {
-        const first = r.active_symbols[0];
-        // createFirstTrade(first, store);
-    });
+    api.getActiveSymbolsFull();
     api.getTradingTimes(new Date());
     api.getAssetIndex();
     api.getServerTime();

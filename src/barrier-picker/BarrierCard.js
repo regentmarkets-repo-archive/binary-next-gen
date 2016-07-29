@@ -1,6 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { Label, NumericInput } from 'binary-components';
-import { debounceForMobileAndWeb } from '../trade-params/TradeParams';
 import { actions } from '../_store';
 
 export default class BarrierCard extends PureComponent {

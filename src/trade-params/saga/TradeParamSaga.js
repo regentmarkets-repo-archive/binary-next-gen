@@ -2,15 +2,15 @@ import { takeEvery, takeLatest } from 'redux-saga';
 import { put, call, select, fork } from 'redux-saga/effects';
 
 import { updateMultipleTradeParams, updateTradingOptions, updateTradeUIState,
-    updateFeedLicense, updateTradingOptionsErr, updateTradeProposal } from '../_actions';
-import { currencySelector } from '../_store/directSelectors';
-import { createDefaultTradeParams } from './DefaultTradeParams';
-import { availableContractsSelector } from './TradeParamsSelector';
-import { internalTradeModelToProposalModel } from '../trade/adapters/TradeObjectAdapter';
-import { api } from '../_data/LiveData';
+    updateFeedLicense, updateTradingOptionsErr, updateTradeProposal, updateTradeError } from '../../_actions';
+import { currencySelector } from '../../_store/directSelectors';
+import { allTimeRelatedFieldValid } from '../TradeParamsValidation';
+import { availableContractsSelector } from '../TradeParamsSelector';
+import { internalTradeModelToProposalModel } from '../../trade/adapters/TradeObjectAdapter';
+import { api } from '../../_data/LiveData';
 import debounce from 'lodash.debounce';
-import * as paramUpdate from './TradeParamsCascadingUpdates';
-
+import * as paramUpdate from '../TradeParamsCascadingUpdates';
+import { dateToEpoch, timeStringToSeconds } from 'binary-utils';
 
 const CREATE_TRADE = 'CREATE_TRADE';
 export const createTrade = (index, symbol) => ({
@@ -23,7 +23,10 @@ const CHANGE_SYMBOL = 'CHANGE_SYMBOL';
 const CHANGE_CATEGORY = 'CHANGE_CATEGORY';
 const CHANGE_TYPE = 'CHANGE_TYPE';
 const CHANGE_DURATION = 'CHANGE_DURATION';
-const CHANGE_STARTDATE = 'CHANGE_STARTDATE';
+const CHANGE_DURATION_UNIT = 'CHANGE_DURATION_UNIT';
+const CHANGE_START_DATE_EPOCH = 'CHANGE_START_DATE_EPOCH';
+const CHANGE_START_DATE_STRING = 'CHANGE_START_DATE_STRING';
+const CHANGE_START_TIME_STRING = 'CHANGE_START_TIME_STRING';
 const CHANGE_BARRIER = 'CHANGE_BARRIER';
 const CHANGE_STAKE = 'CHANGE_STAKE';
 const PURCHASE = 'PURCHASE';
@@ -49,13 +52,31 @@ export const reqTypeChange = (index, tradeType) => ({
 export const reqDurationChange = (index, duration) => ({
     type: CHANGE_DURATION,
     index,
-    ...duration,
+    duration,
 });
 
-export const reqStartDateChange = (index, dateStart) => ({
-    type: CHANGE_STARTDATE,
+export const reqDurationUnitChange = (index, durationUnit) => ({
+    type: CHANGE_DURATION_UNIT,
     index,
-    dateStart,
+    durationUnit,
+});
+
+export const reqStartEpochChange = (index, epoch) => ({
+    type: CHANGE_START_DATE_EPOCH,
+    index,
+    epoch,
+});
+
+export const reqStartDateChange = (index, date) => ({
+    type: CHANGE_START_DATE_STRING,
+    index,
+    date,
+});
+
+export const reqStartTimeChange = (index, time) => ({
+    type: CHANGE_START_TIME_STRING,
+    index,
+    time,
 });
 
 export const reqBarrierChange = (index, barrier) => ({
@@ -164,23 +185,100 @@ function* handleTypeChange(action) {
 }
 
 function* handleDurationChange(action) {
-    const { index, duration, durationUnit } = action;
+    const { index, duration } = action;
+    const params = yield select(existingParams(index));
+    const { symbol, tradeCategory, type, durationUnit, dateStart } = params;
+    const contractNeeded = yield select(contractOfSymbol(symbol));
+    const contractPerType = contractNeeded[tradeCategory][type];
+    const durationAllowed = allTimeRelatedFieldValid(dateStart, duration, durationUnit, contractPerType);
+    if (durationAllowed) {
+        yield [
+            put(updateMultipleTradeParams(index, Object.assign(params, { duration }))),
+            put(updateTradeError(index, 'durationError')),
+            ];
+    } else {
+        yield put(updateTradeError(index, 'durationError', 'Duration is out of range.'));
+    }
+}
+
+function* handleDurationUnitChange(action) {
+    const { index, durationUnit } = action;
     const params = yield select(existingParams(index));
     const contractNeeded = yield select(contractOfSymbol(params.symbol));
-    const updated = paramUpdate.changeDuration(duration, durationUnit, contractNeeded, params);
-    yield put(updateMultipleTradeParams(index, updated));
+    const updated = paramUpdate.changeDurationUnit(durationUnit, contractNeeded, params);
+    const renderCount = yield select(getForceRenderCount(index));
+    yield [
+        put(updateMultipleTradeParams(index, updated)),
+        put(updateTradeUIState(index, 'forceRenderCount', renderCount + 1)),
+    ];
+}
+
+function* handleStartDateEpoch(action) {
+    const { index, epoch } = action;
+    const params = yield select(existingParams(index));
+    const { symbol, tradeCategory, type, durationUnit, duration } = params;
+    const contractNeeded = yield select(contractOfSymbol(symbol));
+    const contractPerType = contractNeeded[tradeCategory][type];
+    const durationAllowed = allTimeRelatedFieldValid(epoch, duration, durationUnit, contractPerType);
+    if (durationAllowed) {
+        yield [
+            put(updateMultipleTradeParams(index, Object.assign(params, { dateStart: epoch }))),
+            put(updateTradeError(index, 'durationError')),
+        ];
+    } else {
+        yield put(updateTradeError(index, 'durationError', 'Start date invalid, it needs to be five minutes or more in the future.'));
+    }
 }
 
 function* handleStartDateChange(action) {
-    const { index, dateStart } = action;
-    console.log(action);
+    const { index, date } = action;
     const params = yield select(existingParams(index));
-    try {
-    const contractNeeded = yield select(contractOfSymbol(params.symbol));
-        const updated = paramUpdate.changeStartDate(dateStart, contractNeeded, params);
-        yield put(updateMultipleTradeParams(index, updated));
-    } catch (err) {
-        console.log(err);
+    const { symbol, tradeCategory, type, durationUnit, dateStart, duration } = params;
+
+    const newDayEpoch = dateToEpoch(new Date(date));
+    if (!newDayEpoch) {
+        yield put(updateTradeError(index, 'durationError', 'Start date invalid, it needs to be five minutes or more in the future.'));
+        return;
+    }
+
+    const secondsPerDay = 60 * 60 * 24;
+    const intraDayEpoch = dateStart % secondsPerDay;
+    const newDateStart = newDayEpoch + intraDayEpoch;
+
+    const contractNeeded = yield select(contractOfSymbol(symbol));
+    const contractPerType = contractNeeded[tradeCategory][type];
+    const durationAllowed = allTimeRelatedFieldValid(newDateStart, duration, durationUnit, contractPerType);
+    if (durationAllowed) {
+        yield [
+            put(updateMultipleTradeParams(index, Object.assign(params, { dateStart: newDateStart }))),
+            put(updateTradeError(index, 'durationError')),
+        ];
+    } else {
+        yield put(updateTradeError(index, 'durationError', 'Start date invalid, it needs to be five minutes or more in the future.'));
+    }
+}
+
+function* handleStartTimeChange(action) {
+    const { index, time } = action;
+    const params = yield select(existingParams(index));
+    const { symbol, tradeCategory, type, durationUnit, dateStart, duration } = params;
+
+    const secondsPerDay = 60 * 60 * 24;
+    const intraDayEpoch = dateStart % secondsPerDay;
+    const dayEpoch = dateStart - intraDayEpoch;
+    const newDateStart = dayEpoch + timeStringToSeconds(time);
+
+    const contractNeeded = yield select(contractOfSymbol(symbol));
+    const contractPerType = contractNeeded[tradeCategory][type];
+    const durationAllowed = allTimeRelatedFieldValid(newDateStart, duration, durationUnit, contractPerType);
+
+    if (durationAllowed) {
+        yield [
+            put(updateMultipleTradeParams(index, Object.assign(params, { dateStart: newDateStart }))),
+            put(updateTradeError(index, 'durationError')),
+        ];
+    } else {
+        yield put(updateTradeError(index, 'durationError', 'Start date invalid, it needs to be five minutes or more in the future.'));
     }
 }
 
@@ -207,8 +305,8 @@ export default function* root() {
         takeEvery(CREATE_TRADE, tradeCreation),
         takeEvery(
             [
-                CHANGE_BARRIER, CHANGE_CATEGORY, CHANGE_DURATION, CHANGE_STAKE,
-                CHANGE_SYMBOL, CHANGE_TYPE, CREATE_TRADE, REMOVE_TRADE,
+                CHANGE_BARRIER, CHANGE_CATEGORY, CHANGE_DURATION, CHANGE_DURATION_UNIT, CHANGE_START_DATE_STRING,
+                CHANGE_STAKE, CHANGE_SYMBOL, CHANGE_TYPE, CREATE_TRADE, REMOVE_TRADE,
             ],
             logger,
         ),
@@ -216,7 +314,10 @@ export default function* root() {
         takeLatest(CHANGE_CATEGORY, handleCatChange),
         takeLatest(CHANGE_TYPE, handleTypeChange),
         takeLatest(CHANGE_DURATION, handleDurationChange),
-        takeLatest(CHANGE_STARTDATE, handleStartDateChange),
+        takeLatest(CHANGE_DURATION_UNIT, handleDurationUnitChange),
+        takeLatest(CHANGE_START_DATE_EPOCH, handleStartDateEpoch),
+        takeLatest(CHANGE_START_DATE_STRING, handleStartDateChange),
+        takeLatest(CHANGE_START_TIME_STRING, handleStartTimeChange),
         takeLatest(CHANGE_BARRIER, handleBarrierChange),
         takeLatest(CHANGE_STAKE, handleStakeChange),
     ];
