@@ -14,6 +14,7 @@ const initialState = fromJS({
     fullname: '',
     balance: 0,
     token: '',
+    currency: 'USD',
     currencies: ['USD'],
 });
 
