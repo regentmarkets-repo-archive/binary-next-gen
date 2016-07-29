@@ -7,5 +7,6 @@ export {
     reqStartTimeChange,
 } from './DurationSaga';
 export { reqPurchase, reqStakeChange } from './PurchaseSaga';
-export { createTrade, reqSymbolChange } from './SymbolSaga';
+export { reqSymbolChange } from './SymbolSaga';
 export { reqCatChange, reqTypeChange } from './TypeSaga';
+export { createTrade } from './TradeParamSaga';

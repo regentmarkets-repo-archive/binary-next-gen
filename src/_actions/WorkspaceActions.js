@@ -1,5 +1,5 @@
 import * as types from '../_constants/ActionTypes';
-import { createTrade } from '../trade-params/saga/SymbolSaga';
+import { createTrade } from '../trade-params/saga/TradeParamSaga';
 
 export const changeSelectedAsset = symbol => ({
     type: types.CHANGE_SELECTED_ASSET,
@@ -22,7 +22,8 @@ export const updateActiveLayout = (tradesCount, layoutN, assetChoices) => ({
 export const changeActiveLayout = (tradesCount, layoutN) =>
     (dispatch, getState) => {
         const { assets, tradesParams } = getState();
-        const additionTradeNeeded = tradesCount - tradesParams.size;
+        const currentTradeCount = tradesParams.size;
+        const additionTradeNeeded = tradesCount - currentTradeCount;
         if (additionTradeNeeded < 1) {
             return dispatch(updateActiveLayout(tradesCount, layoutN));
         }
@@ -49,11 +50,11 @@ export const changeActiveLayout = (tradesCount, layoutN) =>
             const combinedAssetChoices = otherAssetInSameMarket.concat(randomAdditionalSymbols);
             const assetToBeUsedForNewTrades = combinedAssetChoices.take(additionTradeNeeded);
 
-            assetToBeUsedForNewTrades.forEach((asset, idx) => dispatch(createTrade(idx + additionTradeNeeded - 1, asset)));
+            assetToBeUsedForNewTrades.forEach((asset, idx) => dispatch(createTrade(idx + currentTradeCount, asset)));
             return dispatch(updateActiveLayout(tradesCount, layoutN, assetToBeUsedForNewTrades.toJS()));
         }
         const assetToBeUsedForNewTrades = otherAssetInSameMarket.take(additionTradeNeeded);
-        assetToBeUsedForNewTrades.forEach((asset, idx) => dispatch(createTrade(idx + additionTradeNeeded - 1, asset)));
+        assetToBeUsedForNewTrades.forEach((asset, idx) => dispatch(createTrade(idx + currentTradeCount, asset)));
         return dispatch(updateActiveLayout(tradesCount, layoutN, assetToBeUsedForNewTrades.toJS()));
     };
 

@@ -188,6 +188,7 @@ export default class TradeParams extends PureComponent {
                         barrierInfo={barrierInfo}
                         barrierType={tradeParams.barrierType}
                         isIntraDay={isIntraDay}
+                        index={index}
                         pipSize={pipSize}
                         spot={proposal && +proposal.spot}
                     />

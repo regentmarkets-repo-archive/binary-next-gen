@@ -3,6 +3,9 @@ import { durationText } from 'binary-utils';
 import { Label } from 'binary-components';
 import DurationUnitPicker from './DurationUnitPicker';
 import { actions } from '../_store';
+import debounce from 'lodash.debounce';
+
+const debounceReqDurationChange = debounce(actions.reqDurationChange, 400);
 
 export default class DurationCard extends PureComponent {
 
@@ -18,7 +21,7 @@ export default class DurationCard extends PureComponent {
     updateDuration = e => {
         const { index } = this.props;
         const duration = e.target.value;
-        actions.reqDurationChange(index, duration);
+        debounceReqDurationChange(index, duration);
     }
 
     updateDurationUnit = e => {

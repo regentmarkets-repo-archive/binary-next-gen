@@ -1,19 +1,13 @@
 import { takeLatest } from 'redux-saga';
-import { put, call, select } from 'redux-saga/effects';
-import { updateMultipleTradeParams, updateTradingOptions, updateTradeUIState,
+import { put, select } from 'redux-saga/effects';
+import { updateMultipleTradeParams, updateTradingOptions, updateTradeUIState, updateTradeError,
     updateFeedLicense, updateTradingOptionsErr, updateTradeProposal } from '../../_actions';
 import { api } from '../../_data/LiveData';
 import * as paramUpdate from '../TradeParamsCascadingUpdates';
 import { getProposalId, getForceRenderCount, existingParams, contractOfSymbol } from './SagaSelectors';
 import { internalTradeModelToProposalModel } from '../../trade/adapters/TradeObjectAdapter';
 import { currencySelector } from '../../_store/directSelectors';
-
-const CREATE_TRADE = 'CREATE_TRADE';
-export const createTrade = (index, symbol) => ({
-    type: CREATE_TRADE,
-    index,
-    symbol,
-});
+import { createTrade } from './TradeParamSaga';
 
 const CHANGE_SYMBOL = 'CHANGE_SYMBOL';
 export const reqSymbolChange = (index, symbol) => ({
@@ -22,7 +16,7 @@ export const reqSymbolChange = (index, symbol) => ({
     symbol,
 });
 
-function* tradeCreation(action) {
+export function* tradeCreation(action) {
     const { index, symbol } = action;
 
     // unsubscribe and remove existing proposal
@@ -49,25 +43,24 @@ function* tradeCreation(action) {
         yield put(updateTradeUIState(index, 'forceRenderCount', renderCount + 1));
 
         try {
-            const subscription = yield api.subscribeToPriceForContractProposal(subscribeParams);
-            yield put(updateTradeProposal(index, 'proposal', subscription.proposal));
+            const { proposal } = yield api.subscribeToPriceForContractProposal(subscribeParams);
+            yield put(updateTradeProposal(index, 'proposal', proposal));
         } catch (err) {
-            yield put(updateTradeProposal(index, 'error', err));
+            yield put(updateTradeError(index, 'proposalError', err.message));
         }
     } else {
         try {
-            const { contracts_for } = yield call(api.getContractsForSymbol, symbol);
+            const { contracts_for } = yield api.getContractsForSymbol(symbol);
 
             yield put(updateFeedLicense(symbol, contracts_for.feed_license));
             yield put(updateTradingOptions(symbol, contracts_for.available));
             yield put(createTrade(index, symbol));
         } catch (err) {
-            console.log('error ', err);
             yield (updateTradingOptionsErr(symbol, err));
         }
     }
 }
 
 export default function* watchSymbol() {
-    yield takeLatest([CREATE_TRADE, CHANGE_SYMBOL], tradeCreation);
+    yield takeLatest(CHANGE_SYMBOL, tradeCreation);
 }

@@ -1,6 +1,9 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { Label, NumericInput } from 'binary-components';
 import { actions } from '../_store';
+import debounce from 'lodash.debounce';
+
+const debouncedReqBarrierChange = debounce(actions.reqBarrierChange, 400);
 
 export default class BarrierCard extends PureComponent {
 
@@ -16,6 +19,7 @@ export default class BarrierCard extends PureComponent {
         barrierInfo: PropTypes.object,
         barrierType: PropTypes.oneOf(['relative', 'absolute']),
         isIntraDay: PropTypes.bool,
+        index: PropTypes.number.isRequired,
         pipSize: PropTypes.number,
         spot: PropTypes.number,
     };
@@ -32,13 +36,15 @@ export default class BarrierCard extends PureComponent {
     }
 
     updateBarrier1 = e => {
+        const { index } = this.props;
         const newBarrier1 = e.target.value;
-        actions.reqBarrierChange([newBarrier1, this.props.barrier2]);
+        debouncedReqBarrierChange(index, [newBarrier1, this.props.barrier2]);
     }
 
     updateBarrier2 = e => {
+        const { index } = this.props;
         const newBarrier2 = e.target.value;
-        actions.reqBarrierChange([this.props.barrier, newBarrier2]);
+        debouncedReqBarrierChange(index, [this.props.barrier, newBarrier2]);
     }
 
     render() {

@@ -3,10 +3,12 @@ import { epochToUTCTimeString, dateToDateString } from 'binary-utils';
 import { M, Label } from 'binary-components';
 import { createDefaultStartLaterEpoch } from '../trade-params/DefaultTradeParams';
 import { actions } from '../_store';
+import debounce from 'lodash.debounce';
 
-/**
- * assumption: for each type of contract, there will only have 1 forward starting options contract
- */
+const debounceReq = reqFn => debounce(reqFn, 400);
+const debounceStartDateChange = debounceReq(actions.reqStartDateChange);
+const debounceStartTimeChange = debounceReq(actions.reqStartTimeChange);
+const debounceEpochChange = debounceReq(actions.reqStartEpochChange);
 
 export default class ForwardStartingOptions extends PureComponent {
 
@@ -28,25 +30,25 @@ export default class ForwardStartingOptions extends PureComponent {
     onDayChange = e => {
         const { index } = this.props;
         const inputValue = e.target.value;
-        actions.reqStartDateChange(index, inputValue);
+        debounceStartDateChange(index, inputValue);
     }
 
     onTimeChange = e => {
         const { index } = this.props;
         const inputValue = e.target.value;
-        actions.reqStartTimeChange(index, inputValue);
+        debounceStartTimeChange(index, inputValue);
     }
 
     startNow = () => {
         this.setState({ showStartLater: false });
-        actions.reqStartEpochChange(this.props.index);
+        debounceEpochChange(this.props.index);
     }
 
     startLater = () => {
         this.setState({ showStartLater: true });
         const { index, dateStart } = this.props;
         if (!dateStart) {
-            actions.reqStartEpochChange(index, this.state.defaultDateStart);
+            debounceEpochChange(index, this.state.defaultDateStart);
         }
     }
 
