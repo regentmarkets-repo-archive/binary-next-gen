@@ -54,9 +54,9 @@ export default class ForwardStartingOptions extends PureComponent {
 
     startLater = () => {
         this.setState({ showStartLater: true });
-        const { dateStart } = this.props;
+        const { index, dateStart } = this.props;
         if (!dateStart) {
-            actions.reqStartDateChange(this.props.index, this.state.defaultDateStart);
+            actions.reqStartDateChange(index, this.state.defaultDateStart);
         }
     }
 

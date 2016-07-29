@@ -68,6 +68,7 @@ export default class TradeParams extends PureComponent {
         compact: PropTypes.bool,
         disabled: PropTypes.bool,
         errors: PropTypes.object,
+        forceRenderCount: PropTypes.number.isRequired,
         index: PropTypes.number.isRequired,
         onPurchaseHook: PropTypes.func,
         pipSize: PropTypes.number.isRequired,
@@ -82,7 +83,7 @@ export default class TradeParams extends PureComponent {
         super(props);
 
         this.state = {
-            dynamicKey: 0,
+            dynamicKey: props.forceRenderCount,
         };
     }
 
@@ -96,12 +97,8 @@ export default class TradeParams extends PureComponent {
      * it's a mistake here that method to be reuse are coupled with component states
      * TODO: redesign so that side effect are handle elsewhere
      */
-    componentDidUpdate(prevProps) {
-        const { tradeParams } = this.props;
-
-        if (tradeParams.symbol !== prevProps.tradeParams.symbol) {
-            this.repaintSelf();
-        }
+    componentWillReceiveProps(newProps) {
+        this.setState({ dynamicKey: newProps.forceRenderCount });
         windowResizeEvent();
     }
 

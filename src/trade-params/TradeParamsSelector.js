@@ -131,6 +131,7 @@ export const tradeParamsPerTrade = createSelector(
             pipSize,
             proposal: proposalInfo.get('proposal'),
             tradeParams: params,
+            forceRenderCount: uiState.get('forceRenderCount'),
         };
     }
 );

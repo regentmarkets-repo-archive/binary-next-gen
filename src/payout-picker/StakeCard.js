@@ -29,7 +29,7 @@ export default class StakeCard extends PureComponent {
                 <Label text="Stake" />
                 <NumericInput
                     className="numeric-input param-field"
-                    value={amount}
+                    defaultValue={amount}
                     min={min}
                     max={100000}
                     decimal={2}

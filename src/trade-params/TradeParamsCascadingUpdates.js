@@ -3,17 +3,19 @@ import { createDefaultType, createDefaultDuration,
     createDefaultBarriers, createDefaultBarrierType, createDefaultTradeParams } from './DefaultTradeParams';
 import { categoryValid, allTimeRelatedFieldValid } from './TradeParamsValidation';
 
-
+function safeMerge(a, b) {
+    const aClone = Object.assign({}, a);
+    return Object.assign(aClone, b);
+}
 // TODO: let all change methods return whole trade obj, easier to reason and debug
 
 export function changeCategory(newCategory, contract, oldTrade) {
     const defaultType = createDefaultType(contract, newCategory);
-    const oldTradeCopy = Object.assign({}, oldTrade);
     // spreads is special case
     if (newCategory === 'spreads') {
         const spread = contract[newCategory][defaultType].spread;
 
-        return Object.assign(oldTradeCopy, {
+        return safeMerge(oldTrade, {
             tradeCategory: newCategory,
             type: defaultType,
             duration: undefined,
@@ -43,7 +45,7 @@ export function changeCategory(newCategory, contract, oldTrade) {
             durationUnit,
         );
         const newBarrierType = createDefaultBarrierType(duration, durationUnit);
-        return Object.assign(oldTradeCopy, {
+        return safeMerge(oldTrade, {
             tradeCategory: newCategory,
             type: defaultType,
             duration,
@@ -70,7 +72,7 @@ export function changeCategory(newCategory, contract, oldTrade) {
     );
     const newBarrierType = createDefaultBarrierType(duration, durationUnit);
 
-    return Object.assign(oldTradeCopy, {
+    return safeMerge(oldTrade, {
         tradeCategory: newCategory,
         type: defaultType,
         duration,
@@ -86,17 +88,14 @@ export function changeCategory(newCategory, contract, oldTrade) {
     });
 }
 
-export function changeSymbol(oldTrade, contract, symbol, changeCat = changeCategory) {
+export function changeSymbol(symbol, contract, oldTrade, changeCat = changeCategory) {
     if (!oldTrade) {
-        return createDefaultTradeParams(contract);
+        return createDefaultTradeParams(contract, symbol);
     }
-
-    const oldTradeCopy = Object.assign({}, oldTrade);
-    oldTradeCopy.symbol = symbol;
 
     const selectedCategory = oldTrade.tradeCategory;
     if (!categoryValid(selectedCategory, contract)) {
-        return changeCat(Object.keys(contract)[0], contract, oldTradeCopy);
+        return changeCat(Object.keys(contract)[0], contract, safeMerge(oldTrade, { symbol }));
     }
 
     const selectedType = oldTrade.type;
@@ -116,7 +115,8 @@ export function changeSymbol(oldTrade, contract, symbol, changeCat = changeCateg
         const newBarrier = createDefaultBarriers(contract, category, selectedType, duration, durationUnit);
         const newBarrierType = createDefaultBarrierType(duration, durationUnit);
 
-        return Object.assign(oldTradeCopy, {
+        return safeMerge(oldTrade, {
+            symbol,
             type: selectedType,
             duration,
             durationUnit,
@@ -133,20 +133,21 @@ export function changeSymbol(oldTrade, contract, symbol, changeCat = changeCateg
         selectedDuration, selectedDurationUnit
     );
     const newBarrierType = createDefaultBarrierType(selectedDuration, selectedDurationUnit);
-    return Object.assign(oldTradeCopy, {
+    return safeMerge(oldTrade, {
+        symbol,
         barrier: newBarrier[0],
         barrier2: newBarrier[1],
         barrierType: newBarrierType,
     });
 }
 
-export function changeType(newType, newCategory, oldTrade, contract) {
+export function changeType(newType, newCategory, contract, oldTrade) {
     const category = newCategory || oldTrade.tradeCategory;
 
     if (category === 'spreads') {
         const spread = contract[newCategory][newType].spread;
 
-        return {
+        return safeMerge(oldTrade, {
             tradeCategory: newCategory,
             type: newType,
             duration: undefined,
@@ -158,7 +159,7 @@ export function changeType(newType, newCategory, oldTrade, contract) {
             stopType: spread.stopType,
             stopLoss: 30, // hardcode default as backend return wrong info
             stopProfit: spread.stopProfit,
-        };
+        });
     }
 
     if (allTimeRelatedFieldValid(
@@ -176,7 +177,7 @@ export function changeType(newType, newCategory, oldTrade, contract) {
         }
 
         const newBarrierType = createDefaultBarrierType(duration, durationUnit);
-        return {
+        return safeMerge(oldTrade, {
             tradeCategory: newCategory,
             type: newType,
             duration,
@@ -185,14 +186,14 @@ export function changeType(newType, newCategory, oldTrade, contract) {
             barrier: newBarrier[0],
             barrier2: newBarrier[1],
             barrierType: newBarrierType,
-        };
+        });
     }
 
     const newDuration = createDefaultDuration(contract, category, newType);
     const { dateStart, duration, durationUnit } = newDuration;
     const newBarrier = createDefaultBarriers(contract, category, newType, duration, durationUnit);
     const newBarrierType = createDefaultBarrierType(duration, durationUnit);
-    return {
+    return safeMerge(oldTrade, {
         tradeCategory: newCategory,
         type: newType,
         duration,
@@ -201,7 +202,7 @@ export function changeType(newType, newCategory, oldTrade, contract) {
         barrier: newBarrier[0],
         barrier2: newBarrier[1],
         barrierType: newBarrierType,
-    };
+    });
 }
 
 export function changeStartDate(newStartDate, contract, oldTrade) {
@@ -220,63 +221,67 @@ export function changeStartDate(newStartDate, contract, oldTrade) {
                 newDuration.durationUnit
             );
 
-        return {
+        return safeMerge(oldTrade, {
             dateStart: newStartDate,
             duration: newDuration.duration,
             durationUnit: newDuration.durationUnit,
             barrier: newBarrier[0],
             barrier2: newBarrier[1],
-        };
+        });
     } else if (isDurationWithinRange(duration, durationUnit, newDurations)) {
-        return { dateStart: newStartDate };
+        return safeMerge(oldTrade, { dateStart: newStartDate });
     }
 
-    return {
+    return safeMerge(oldTrade, {
         dateStart: newStartDate,
         duration: newDurations[0].min,
         durationUnit: newDurations[0].unit,
         barrier: undefined,
         barrier2: undefined,
-    };
+    });
 }
 
-export function changeDurationUnit(newUnit, contract, oldTrade) {
-    const { tradeCategory, type, dateStart, duration } = oldTrade;
+export function changeDuration(duration, newUnit, contract, oldTrade) {
+    const { tradeCategory, type, dateStart } = oldTrade;
     const contractPerType = contract[tradeCategory][type];
 
     let newDuration = duration;
-    if (!allTimeRelatedFieldValid(dateStart, duration, newUnit, contractPerType)) {
-        newDuration = contractPerType.durations.find(d => d.unit === newUnit).min;
+    if (!allTimeRelatedFieldValid(dateStart, newDuration, newUnit, contractPerType)) {
+        // only start later
+        if (!contractPerType.durations && contractPerType.forwardStartingDuration) {
+            newDuration = contractPerType.forwardStartingDuration.options.find(d => d.unit === newUnit).min;
+        } else {
+            newDuration = contractPerType.durations.find(d => d.unit === newUnit).min;
+        }
     }
 
     // if it's forward starting type, do not update barrier as not applicable
     if (dateStart) {
-        return { durationUnit: newUnit, duration: newDuration };
+        return safeMerge(oldTrade, { durationUnit: newUnit, duration: newDuration });
     }
 
     const newBarrier = createDefaultBarriers(contract, tradeCategory, type, newDuration, newUnit);
     const newBarrierType = createDefaultBarrierType(newDuration, newUnit);
-    return {
+    return safeMerge(oldTrade, {
         duration: newDuration,
         durationUnit: newUnit,
         barrier: newBarrier[0],
         barrier2: newBarrier[1],
         barrierType: newBarrierType,
-    };
+    });
 }
 
-export function changeBarrier1(newBarrier) {
-    return { barrier: newBarrier };
+export function changeBarrier(newBarrier, oldTrade) {
+    return safeMerge(oldTrade, {
+        barrier: newBarrier[0],
+        barrier2: newBarrier[1],
+    });
 }
 
-export function changeBarrier2(newBarrier) {
-    return { barrier2: newBarrier };
-}
-
-export function changeAmount(newAmount) {
+export function changeAmount(newAmount, oldTrade) {
     const inputDecimalPlaces = noOfDecimals(newAmount);
     const decimalPlaces = inputDecimalPlaces > 2 ? 2 : inputDecimalPlaces;
-    return { amount: (+newAmount).toFixed(decimalPlaces) };
+    return safeMerge(oldTrade, { amount: (+newAmount).toFixed(decimalPlaces) });
 }
 
 export function changeAmountPerPoint(newAmountPerPoint) {

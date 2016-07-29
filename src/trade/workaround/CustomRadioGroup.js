@@ -12,12 +12,12 @@ export default class CustomRadioGroup extends PureComponent {
         className: PropTypes.string,
         options: PropTypes.array,
         onChange: PropTypes.func,
-        value: PropTypes.any,
+        defaultValue: PropTypes.any,
     };
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = { value: props.defaultValue };
     }
 
     onClick = e => {

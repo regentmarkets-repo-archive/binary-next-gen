@@ -95,7 +95,7 @@ export const createDefaultBarrierType = (duration, durationUnit) => {
     return barrierType;         // did not use return directly as ESLint complain about it
 };
 
-export const createDefaultTradeParams = contracts => {
+export const createDefaultTradeParams = (contracts, symbol) => {
     const cat = createDefaultCategory(contracts);
     const type = createDefaultType(contracts, cat);
     const { duration, durationUnit } = createDefaultDuration(contracts, cat, type);
@@ -105,6 +105,7 @@ export const createDefaultTradeParams = contracts => {
     const startLaterOpts = contracts[cat][type].forwardStartingDuration;
     const dateStart = startLaterOpts ? createDefaultStartLaterEpoch(startLaterOpts) : undefined;
     return {
+        symbol,
         tradeCategory: cat,
         duration,
         durationUnit,

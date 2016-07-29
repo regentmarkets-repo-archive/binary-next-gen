@@ -33,7 +33,7 @@ export default class DigitBarrierCard extends PureComponent {
                     className="param-field"
                     name={'digit-selections' + index}
                     options={options}
-                    value={barrier}
+                    defaultValue={barrier}
                     onChange={this.onBarrier1Change}
                 />
             </div>

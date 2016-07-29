@@ -2,7 +2,6 @@ import React, { PureComponent, PropTypes } from 'react';
 import { durationText } from 'binary-utils';
 import { Label } from 'binary-components';
 import DurationUnitPicker from './DurationUnitPicker';
-import { changeDurationUnit } from '../trade-params/TradeParamsCascadingUpdates';
 import { actions } from '../_store';
 
 export default class DurationCard extends PureComponent {

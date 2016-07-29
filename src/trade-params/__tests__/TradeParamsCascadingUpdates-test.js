@@ -88,12 +88,12 @@ describe('Update helpers', () => {
 
     describe('changeDurationUnit', () => {
         it('should update durationUnit ', () => {
-            const updateDurationUnit = updateHelpers.changeDurationUnit('m', mockedContract, mockTickTrade);
+            const updateDurationUnit = updateHelpers.changeDuration('m', mockedContract, mockTickTrade);
             expect(updateDurationUnit.durationUnit).to.be.equal('m');
         });
 
         it('should update barrier for trade with barrier(s)', () => {
-            const updateDurationUnit = updateHelpers.changeDurationUnit('m', mockedContract, mockEndsInTrade);
+            const updateDurationUnit = updateHelpers.changeDuration('m', mockedContract, mockEndsInTrade);
             expect(updateDurationUnit.barrier).to.not.equal(mockEndsInTrade.barrier);
         });
     });

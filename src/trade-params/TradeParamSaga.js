@@ -1,7 +1,7 @@
 import { takeEvery, takeLatest } from 'redux-saga';
 import { put, call, select, fork } from 'redux-saga/effects';
 
-import { updateMultipleTradeParams, updateTradingOptions,
+import { updateMultipleTradeParams, updateTradingOptions, updateTradeUIState,
     updateFeedLicense, updateTradingOptionsErr, updateTradeProposal } from '../_actions';
 import { currencySelector } from '../_store/directSelectors';
 import { createDefaultTradeParams } from './DefaultTradeParams';
@@ -54,6 +54,7 @@ export const reqDurationChange = (index, duration) => ({
 
 export const reqStartDateChange = (index, dateStart) => ({
     type: CHANGE_STARTDATE,
+    index,
     dateStart,
 });
 
@@ -94,19 +95,34 @@ const existingParams = index => state => {
     return params && params.toJS();
 };
 
+const getForceRenderCount = index => state => state.tradesUIStates.getIn([index, 'forceRenderCount']);
+
 function* tradeCreation(action) {
     const { index, symbol } = action;
+
+    // unsubscribe and remove existing proposal
+    const oldProposalId = yield select(getProposalId(index));
+    if (oldProposalId) {
+        yield [
+            api.unsubscribeByID(oldProposalId),
+            put(updateTradeProposal(index, 'proposal')),
+            ];
+    }
+
     const contractNeeded = yield select(contractOfSymbol(symbol));
     if (contractNeeded) {
-        const params = yield select(existingParams(index));
-        const currency = yield select(currencySelector);
-        const updatedParams = paramUpdate.changeSymbol(params, contractNeeded, symbol);
+        const [params, currency] = yield [
+            select(existingParams(index)),
+            select(currencySelector),
+            ];
+
+        const updatedParams = paramUpdate.changeSymbol(symbol, contractNeeded, params);
         const subscribeParams = internalTradeModelToProposalModel(updatedParams, symbol, currency);
         yield put(updateMultipleTradeParams(index, updatedParams));
-        const oldProposalId = yield select(getProposalId(index));
-        if (oldProposalId) {
-            yield api.unsubscribeByID(oldProposalId);
-        }
+
+        const renderCount = yield select(getForceRenderCount(index));
+        yield put(updateTradeUIState(index, 'forceRenderCount', renderCount + 1));
+
         const subscription = yield api.subscribeToPriceForContractProposal(subscribeParams);
         yield put(updateTradeProposal(index, 'proposal', subscription.proposal));
     } else {
@@ -123,36 +139,85 @@ function* tradeCreation(action) {
     }
 }
 
+function* handleCatChange(action) {
+    const { index, category } = action;
+    const params = yield select(existingParams(index));
+    const contractNeeded = yield select(contractOfSymbol(params.symbol));
+    const updated = paramUpdate.changeCategory(category, contractNeeded, params);
+    const renderCount = yield select(getForceRenderCount(index));
+    yield [
+        put(updateMultipleTradeParams(index, updated)),
+        put(updateTradeUIState(index, 'forceRenderCount', renderCount + 1)),
+        ];
+}
+
 function* handleTypeChange(action) {
     const { index, tradeType } = action;
     const params = yield select(existingParams(index));
-    // const updated = paramUpdate.changeType(tradeType, )
+    const contractNeeded = yield select(contractOfSymbol(params.symbol));
+    const updated = paramUpdate.changeType(tradeType, params.tradeCategory, contractNeeded, params);
+    const renderCount = yield select(getForceRenderCount(index));
+    yield [
+        put(updateMultipleTradeParams(index, updated)),
+        put(updateTradeUIState(index, 'forceRenderCount', renderCount + 1)),
+    ];
 }
-// function* handleDurationChange(action) {}
-// function* handleBarrierChange(action) {}
-// function* handleStakeChange(action) {}
+
+function* handleDurationChange(action) {
+    const { index, duration, durationUnit } = action;
+    const params = yield select(existingParams(index));
+    const contractNeeded = yield select(contractOfSymbol(params.symbol));
+    const updated = paramUpdate.changeDuration(duration, durationUnit, contractNeeded, params);
+    yield put(updateMultipleTradeParams(index, updated));
+}
+
+function* handleStartDateChange(action) {
+    const { index, dateStart } = action;
+    console.log(action);
+    const params = yield select(existingParams(index));
+    try {
+    const contractNeeded = yield select(contractOfSymbol(params.symbol));
+        const updated = paramUpdate.changeStartDate(dateStart, contractNeeded, params);
+        yield put(updateMultipleTradeParams(index, updated));
+    } catch (err) {
+        console.log(err);
+    }
+}
+
+function* handleBarrierChange(action) {
+    const { index, barrier } = action;
+    const params = yield select(existingParams(index));
+    const updated = paramUpdate.changeBarrier(barrier, params);
+    yield put(updateMultipleTradeParams(index, updated));
+}
+
+function* handleStakeChange(action) {
+    const { index, stake } = action;
+    const params = yield select(existingParams(index));
+    const updated = paramUpdate.changeAmount(stake, params);
+    yield put(updateMultipleTradeParams(index, updated));
+}
 
 function* logger(action) {
     console.log('action', action);
 }
 
-function* paramChangeLogger() {
-    yield takeEvery([CHANGE_BARRIER, CHANGE_CATEGORY, CHANGE_DURATION, CHANGE_STAKE,
-        CHANGE_SYMBOL, CHANGE_TYPE, CREATE_TRADE, REMOVE_TRADE], logger);
-}
-
-function* watchTradeCreation() {
-    yield takeEvery(CREATE_TRADE, tradeCreation);
-}
-
-function* watchSymbolChange() {
-    yield takeLatest(CHANGE_SYMBOL, tradeCreation);
-}
-
 export default function* root() {
     yield [
-        watchTradeCreation(),
-        paramChangeLogger(),
-        watchSymbolChange(),
+        takeEvery(CREATE_TRADE, tradeCreation),
+        takeEvery(
+            [
+                CHANGE_BARRIER, CHANGE_CATEGORY, CHANGE_DURATION, CHANGE_STAKE,
+                CHANGE_SYMBOL, CHANGE_TYPE, CREATE_TRADE, REMOVE_TRADE,
+            ],
+            logger,
+        ),
+        takeLatest(CHANGE_SYMBOL, tradeCreation),
+        takeLatest(CHANGE_CATEGORY, handleCatChange),
+        takeLatest(CHANGE_TYPE, handleTypeChange),
+        takeLatest(CHANGE_DURATION, handleDurationChange),
+        takeLatest(CHANGE_STARTDATE, handleStartDateChange),
+        takeLatest(CHANGE_BARRIER, handleBarrierChange),
+        takeLatest(CHANGE_STAKE, handleStakeChange),
     ];
 }

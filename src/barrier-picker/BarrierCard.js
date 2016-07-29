@@ -1,7 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { Label, NumericInput } from 'binary-components';
 import { debounceForMobileAndWeb } from '../trade-params/TradeParams';
-import { changeBarrier1, changeBarrier2 } from '../trade-params/TradeParamsCascadingUpdates';
 import { actions } from '../_store';
 
 export default class BarrierCard extends PureComponent {
@@ -76,7 +75,7 @@ export default class BarrierCard extends PureComponent {
                     <NumericInput
                         className="numeric-input param-field"
                         onChange={this.updateBarrier1}
-                        value={+barrierVal}
+                        defaultValue={+barrierVal}
                         decimal={pipSize}
                         step={1}
                     />
@@ -87,7 +86,7 @@ export default class BarrierCard extends PureComponent {
                         <NumericInput
                             className="numeric-input param-field"
                             onChange={this.updateBarrier2}
-                            value={+barrier2Val}
+                            defaultValue={+barrier2Val}
                             step={1}
                             decimal={pipSize}
                         />
