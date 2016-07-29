@@ -103,7 +103,7 @@ export default class BarrierCard extends PureComponent {
                     <NumericInput
                         className="numeric-input param-field"
                         onChange={this.updateBarrier1}
-                        value={+barrierVal}
+                        defaultValue={+barrierVal}
                         decimal={pipSize}
                         step={1}
                     />
@@ -114,7 +114,7 @@ export default class BarrierCard extends PureComponent {
                         <NumericInput
                             className="numeric-input param-field"
                             onChange={this.updateBarrier2}
-                            value={+barrier2Val}
+                            defaultValue={+barrier2Val}
                             step={1}
                             decimal={pipSize}
                         />
