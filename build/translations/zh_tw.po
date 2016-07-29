@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-07-22 07:00+0000\n"
+"PO-Revision-Date: 2016-07-29 14:11+0000\n"
 "Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/binary-"
 "app/next-gen-app/zh_TW/>\n"
@@ -713,143 +713,132 @@ msgstr "過去500次交易"
 msgid "Last 1000 Trades"
 msgstr "過去1000次交易"
 
-#, fuzzy
 msgid "Maximum Daily Turnover"
 msgstr "最大日成交量"
 
 msgid "Commodities"
-msgstr ""
+msgstr "大宗商品"
 
 msgid "Major Pairs"
-msgstr ""
+msgstr "主要貨幣對"
 
 msgid "Minor Pairs"
-msgstr ""
+msgstr "次要貨幣對"
 
 msgid "Smart FX"
-msgstr ""
+msgstr "智慧外匯交易"
 
-#, fuzzy
 msgid "Volatility Indices"
-msgstr "每日價格"
+msgstr "波動率指數"
 
-#, fuzzy
 msgid "Indices"
-msgstr "指示性"
+msgstr "指數"
 
 msgid "OTC Stocks"
-msgstr ""
+msgstr "場外交易股票"
 
 msgid "Stated limits are subject to change without prior notice"
-msgstr ""
+msgstr "我們保留隨時在沒有預先通知的情況下更改所述限制的權利"
 
-#, fuzzy
 msgid "Withdrawal Limits"
 msgstr "取款限額"
 
-#, fuzzy
 msgid "Withdrawal limit"
 msgstr "取款限額"
 
 msgid "Already withdrawn"
-msgstr ""
+msgstr "已提取"
 
 msgid "Current immediate maximum withdrawal"
-msgstr ""
+msgstr "目前的即時最高取款額"
 
-#, fuzzy
 msgid "Create Free Account"
-msgstr "新增帳戶"
+msgstr "新增免費帳戶"
 
 msgid "Verification Code"
-msgstr ""
+msgstr "驗證碼"
 
-#, fuzzy
 msgid "Confirm Password"
-msgstr "確認新密碼"
+msgstr "確認密碼"
 
 msgid "Already have an account?"
-msgstr ""
+msgstr "已經有帳戶？"
 
-#, fuzzy
 msgid "Enter a valid verification code"
-msgstr "請輸入電子郵件驗證代碼"
+msgstr "請輸入有效的驗證代碼"
 
 msgid "Choose your country"
-msgstr ""
+msgstr "選擇您的國家"
 
 msgid ""
 "Password should have lower and uppercase letters and 6 characters or more"
-msgstr ""
+msgstr "密碼須包含大小寫字母與至少6個字符"
 
 msgid "Passwords do not match"
-msgstr ""
+msgstr "密碼不相符"
 
 msgid "Enter a valid email"
-msgstr ""
+msgstr "輸入有效的電子郵件"
 
 msgid "Number should between 10 to 120"
-msgstr ""
+msgstr "必須是10至120之間的數字"
 
 msgid "Enter your first and last name"
-msgstr ""
+msgstr "輸入姓名"
 
 msgid "City must not be empty"
-msgstr ""
+msgstr "城市不可為空"
 
 msgid "Address must not be empty"
-msgstr ""
+msgstr "地址不可為空"
 
 msgid "Enter a valid phone number"
-msgstr ""
+msgstr "輸入有效的電話號"
 
 msgid "Select a secret question"
-msgstr ""
+msgstr "選擇安全提示問題"
 
 msgid "Secret answer must be at least 4 characters"
-msgstr ""
+msgstr "安全提示答案必須至少4個字符"
 
 msgid "You need to agree to our Terms and Conditions"
-msgstr ""
+msgstr "您必須同意我們的條款和條件"
 
 msgid "I agree to the"
-msgstr ""
+msgstr "本人同意"
 
 msgid "terms and conditions"
-msgstr ""
+msgstr "條款和條件"
 
-#, fuzzy
 msgid "Search for assets"
 msgstr "搜尋資產"
 
 msgid "Choose a Payment Agent"
-msgstr ""
+msgstr "選擇支付代理"
 
-#, fuzzy
 msgid "Confirm New Password"
 msgstr "確認新密碼"
 
 msgid "First Name"
-msgstr ""
+msgstr "名字"
 
-#, fuzzy
 msgid "Last Name"
-msgstr "姓名"
+msgstr "姓氏"
 
 msgid "Address First Line"
-msgstr ""
+msgstr "地址第一行"
 
 msgid "Address Second Line"
-msgstr ""
+msgstr "地址第二行"
 
 msgid "Phone"
-msgstr ""
+msgstr "電話"
 
 msgid "Answer To Secret Question"
-msgstr ""
+msgstr "安全提示問題的答案"
 
 msgid "Switch to"
-msgstr ""
+msgstr "切換成"
 
 #~ msgid "Current Spot Time"
 #~ msgstr "目前現價時間"
