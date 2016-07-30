@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: BOM\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-07-30 20:15+0000\n"
-"Last-Translator: Alina Demidova <alinademidova1@gmail.com>\n"
+"PO-Revision-Date: 2016-07-30 20:16+0000\n"
+"Last-Translator: Ruslan <ruslan.mukhametdinov.90@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/ru/>\n"
 "Language: ru\n"
@@ -429,6 +429,7 @@ msgstr "Как только будет достигнут данный лими�
 msgid "Maximum aggregate contract purchases per day."
 msgstr "Максимальное совокупное число контрактов, приобретённых за день."
 
+#, fuzzy
 msgid "Daily limit on losses"
 msgstr ""
 
