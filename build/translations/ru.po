@@ -7,17 +7,17 @@ msgstr ""
 "Project-Id-Version: BOM\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-02-06 19:43+0000\n"
-"Last-Translator: Sittie Hadjirah Sevilla <sittiebaser@gmail.com>\n"
+"PO-Revision-Date: 2016-07-30 20:15+0000\n"
+"Last-Translator: Alina Demidova <alinademidova1@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/ru/>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 msgid "All"
 msgstr "Все"
@@ -59,7 +59,7 @@ msgid "Ref."
 msgstr "Номер"
 
 msgid "Purchase"
-msgstr "Покупка"
+msgstr "Купить"
 
 msgid "Indicative"
 msgstr "Временная цена"
@@ -89,7 +89,7 @@ msgid "Update"
 msgstr "Обновить"
 
 msgid "Details"
-msgstr "Подробности"
+msgstr "Детали"
 
 msgid "Trading Limits"
 msgstr "Торговые лимиты"
@@ -207,7 +207,7 @@ msgid "Purchase For"
 msgstr "Купить для"
 
 msgid "Rise"
-msgstr "Рост"
+msgstr "Повышение"
 
 msgid "Stake"
 msgstr "Ставка"
@@ -258,10 +258,10 @@ msgid "Resources"
 msgstr "Ресурсы"
 
 msgid "Last 7 Days"
-msgstr "Последние 7 дней"
+msgstr "Последние 7 дн."
 
 msgid "Last 30 Days"
-msgstr "Последние 30 дней"
+msgstr "Последние 30 дн."
 
 msgid "Daily Report"
 msgstr "Анализ рынка"
@@ -351,15 +351,13 @@ msgid "Search For Assets"
 msgstr "Поиск активов"
 
 msgid "Start times"
-msgstr ""
+msgstr "Время начала"
 
-#, fuzzy
 msgid "Durations"
-msgstr "Сделки"
+msgstr "Продолжительн."
 
-#, fuzzy
 msgid "Payout/Stake"
-msgstr "Выплата"
+msgstr "Выплата/ставка"
 
 #, fuzzy
 msgid "Purchase for"
@@ -374,65 +372,62 @@ msgid "stake"
 msgstr "Ставка"
 
 msgid "Self Exclusion"
-msgstr ""
+msgstr "Самоисключение"
 
 msgid "Cashier Lock"
-msgstr ""
+msgstr "Доступ к кассе"
 
 msgid "Change Password"
-msgstr ""
+msgstr "Изменить пароль"
 
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
-#, fuzzy
 msgid "Tick Trade"
-msgstr "Начать работу"
+msgstr "Tick Trade"
 
-#, fuzzy
 msgid "Full Trade"
-msgstr "Начать работу"
+msgstr "Полноценная торговля"
 
 #, fuzzy
 msgid "Address"
 msgstr "Адрес"
 
 msgid "Town/City"
-msgstr ""
+msgstr "Город"
 
 msgid "State/Province"
-msgstr ""
+msgstr "Регион/область"
 
 msgid "Telephone"
-msgstr ""
+msgstr "Телефон"
 
 msgid "Postal Code / ZIP"
-msgstr ""
+msgstr "Почтовый код/индекс"
 
 msgid "Cashier password"
-msgstr ""
+msgstr "Пароль для кассы"
 
 msgid "Re-enter your password"
-msgstr ""
+msgstr "Повторите пароль"
 
 msgid "Current password"
-msgstr ""
+msgstr "Текущий пароль"
 
 msgid "New password"
-msgstr ""
+msgstr "Новый пароль"
 
 msgid "Verify new password"
-msgstr ""
+msgstr "Подтвердите новый пароль"
 
-#, fuzzy
 msgid "Daily turnover limit"
-msgstr "Максимальный дневной оборот"
+msgstr "Дневной лимит на объём покупок"
 
 msgid "Once this limit is reached, you may no longer deposit."
-msgstr ""
+msgstr "Как только будет достигнут данный лимит, Вы не сможете пополнить счёт."
 
 msgid "Maximum aggregate contract purchases per day."
-msgstr ""
+msgstr "Максимальное совокупное число контрактов, приобретённых за день."
 
 msgid "Daily limit on losses"
 msgstr ""
