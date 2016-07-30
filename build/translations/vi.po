@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: I 18N\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-03-03 09:06+0000\n"
-"Last-Translator: Sittie Hadjirah Sevilla <sittiebaser@gmail.com>\n"
-"Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-app/"
-"next-gen-app/vi/>\n"
+"PO-Revision-Date: 2016-07-30 10:55+0000\n"
+"Last-Translator: Pham Minh Hieu <hphamv7@gmail.com>\n"
+"Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-app"
+"/next-gen-app/vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 msgid "All"
 msgstr "Tất cả"
@@ -349,544 +349,500 @@ msgid "Search For Assets"
 msgstr "Tìm Kiếm Tài Sản"
 
 msgid "Start times"
-msgstr ""
+msgstr "Thời gian bắt đầu"
 
-#, fuzzy
 msgid "Durations"
-msgstr "Giao dịch"
+msgstr "Thời lượng"
 
-#, fuzzy
 msgid "Payout/Stake"
-msgstr "Tiền thưởng"
+msgstr "Thanh toán/cổ phần"
 
-#, fuzzy
 msgid "Purchase for"
-msgstr "Mua"
+msgstr "Mua cho"
 
-#, fuzzy
 msgid "payout"
-msgstr "Tiền thưởng"
+msgstr "thanh toán"
 
-#, fuzzy
 msgid "stake"
-msgstr "Cá cược"
+msgstr "cổ phần"
 
 msgid "Self Exclusion"
-msgstr ""
+msgstr "Tự Loại Trừ"
 
 msgid "Cashier Lock"
-msgstr ""
+msgstr "Khóa quầy thu ngân"
 
 msgid "Change Password"
-msgstr ""
+msgstr "Thay đổi mật khẩu"
 
 msgid "Password"
-msgstr ""
+msgstr "Mật khẩu"
 
-#, fuzzy
 msgid "Tick Trade"
-msgstr "Giao dịch"
+msgstr "Đánh dấu giao dịch"
 
-#, fuzzy
 msgid "Full Trade"
-msgstr "Giao dịch"
+msgstr "Toàn bộ giao dịch"
 
-#, fuzzy
 msgid "Address"
-msgstr "Địa chỉ nhà"
+msgstr "Địa chỉ"
 
 msgid "Town/City"
-msgstr ""
+msgstr "Thị trấn/thành phố"
 
 msgid "State/Province"
-msgstr ""
+msgstr "Bang/Tỉnh"
 
 msgid "Telephone"
-msgstr ""
+msgstr "Điện thoại"
 
 msgid "Postal Code / ZIP"
-msgstr ""
+msgstr "Mã bưu điện / ZIP"
 
 msgid "Cashier password"
-msgstr ""
+msgstr "Mật khẩu nhân viên thu ngân"
 
 msgid "Re-enter your password"
-msgstr ""
+msgstr "Nhập lại mật khẩu của bạn"
 
 msgid "Current password"
-msgstr ""
+msgstr "Mật khẩu hiện thời"
 
 msgid "New password"
-msgstr ""
+msgstr "Mật khẩu mới"
 
 msgid "Verify new password"
-msgstr ""
+msgstr "Xác nhận mật khẩu mới"
 
-#, fuzzy
 msgid "Daily turnover limit"
-msgstr "Thu nhập hàng ngày tối đa"
+msgstr "Giới hạn doanh số hàng ngày"
 
 msgid "Once this limit is reached, you may no longer deposit."
-msgstr ""
+msgstr "Một khi đã đạt đến giới hạn này, bạn sẽ không thể gửi tiền."
 
 msgid "Maximum aggregate contract purchases per day."
-msgstr ""
+msgstr "Tổng tối đa hợp đồng mua cho một ngày."
 
 msgid "Daily limit on losses"
-msgstr ""
+msgstr "Giới hạn thua hàng ngày"
 
-#, fuzzy
 msgid "Maximum aggregate loss per day."
-msgstr "Tổng tiền thưởng tối đa trên các vị trí mở"
+msgstr "Tổng tối đa thua mỗi ngày."
 
 msgid "7-day turnover limit"
-msgstr ""
+msgstr "giới hạn doanh số 7 ngày"
 
 msgid "Maximum aggregate contract purchases over a 7-day period."
-msgstr ""
+msgstr "Tổng tối đa hợp đồng mua trong khoảng thời gian 7 ngày."
 
 msgid "7-day limit on losses"
-msgstr ""
+msgstr "7 ngày giới hạn cho thua"
 
-#, fuzzy
 msgid "Maximum aggregate loss over a 7-day period."
-msgstr "Tổng tiền thưởng tối đa trên các vị trí mở"
+msgstr "Tổng tối đa thua trong khoảng thời gian 7 ngày."
 
 msgid "30-day turnover limit"
-msgstr ""
+msgstr "giới hạn doanh số 30 ngày"
 
 msgid "Maximum aggregate contract purchases over a 30-day period."
-msgstr ""
+msgstr "Tổng tối đa hợp đồng mua trong khoảng thời gian 30 ngày."
 
 msgid "30-day limit on losses"
-msgstr ""
+msgstr "30 ngày giới hạn cho thua"
 
-#, fuzzy
 msgid "Maximum aggregate loss over a 30-day period."
-msgstr "Tổng tiền thưởng tối đa trên các vị trí mở"
+msgstr "Tổng tối đa thiệt hại trong khoảng thời gian 30 ngày."
 
 msgid "Session duration limit, in minutes"
-msgstr ""
+msgstr "Giới hạn thời lượng phiên, bằng phút"
 
 msgid "You will be automatically logged out after such time."
-msgstr ""
+msgstr "Bạn sẽ bị tự động đăng thoát sau khoảng thời gian này."
 
 msgid "Exclude me from the website until"
-msgstr ""
+msgstr "Loại trừ tôi khỏi trang web cho đến khi"
 
-#, fuzzy
 msgid "Limits"
-msgstr "Giới hạn Giao dịch"
+msgstr "Các giới hạn"
 
 msgid "Please enter date in the format YYYY-MM-DD."
-msgstr ""
+msgstr "Vui lòng nhập ngày theo định dạng YYYY-MM-DD."
 
-#, fuzzy
 msgid "New Trade"
-msgstr "Giao dịch"
+msgstr "Giao dịch mới"
 
-#, fuzzy
 msgid "Trade Type"
-msgstr "Giao dịch"
+msgstr "Loại giao dịch"
 
 msgid "Random 100 Index"
-msgstr ""
+msgstr "Ngẫu nhiên 100 chỉ số"
 
 msgid "Article"
-msgstr ""
+msgstr "Mục"
 
 msgid "Start Later"
-msgstr ""
+msgstr "Bắt đầu sau đó"
 
-#, fuzzy
 msgid "Buy Price"
-msgstr "Giá"
+msgstr "Giá mua"
 
 msgid "Earning (%)"
-msgstr ""
+msgstr "Thu nhập (%)"
 
-#, fuzzy
 msgid "Profit"
-msgstr "Lợi nhuận/Thua lỗ"
+msgstr "Lợi nhuận"
 
-#, fuzzy
 msgid "Entry Price"
-msgstr "Giá"
+msgstr "Giá khởi điểm"
 
-#, fuzzy
 msgid "Exit Price"
-msgstr "Giá"
+msgstr "Giá chốt"
 
-#, fuzzy
 msgid "Indicative Price"
-msgstr "Chỉ thị"
+msgstr "Giá chỉ thị"
 
 msgid "Potential Profit"
-msgstr ""
+msgstr "Lợi nhuận tiềm năng"
 
 msgid "Sell at Market"
-msgstr ""
+msgstr "Bán tại thị trường"
 
 msgid "Go back"
-msgstr ""
+msgstr "Quay lại"
 
 msgid "You lost "
-msgstr ""
+msgstr "Bạn đã thua "
 
-#, fuzzy
 msgid "Close"
-msgstr "Kết thúc"
+msgstr "Đóng"
 
 msgid "Low"
-msgstr ""
+msgstr "Thấp"
 
 msgid "High"
-msgstr ""
+msgstr "Cao"
 
-#, fuzzy
 msgid "Open"
-msgstr "Bắt đầu"
+msgstr "Mở"
 
-#, fuzzy
 msgid "Date"
-msgstr "Ngày Bán hàng"
+msgstr "Ngày"
 
 msgid "Upcoming Events"
-msgstr ""
+msgstr "Sự kiện sắp tới"
 
 msgid "Win"
-msgstr ""
+msgstr "Thắng"
 
 msgid "Loss"
-msgstr ""
+msgstr "Thua"
 
 msgid "Full Screen"
-msgstr ""
+msgstr "Toàn màn hình"
 
 msgid "Start Now"
-msgstr ""
+msgstr "Bắt đầu bây giờ"
 
-#, fuzzy
 msgid "Daily Prices"
-msgstr "Giá bán"
+msgstr "Giá hàng ngày"
 
 msgid "Spreads"
-msgstr ""
+msgstr "Lan tỏa"
 
 msgid "Confirm new password"
-msgstr ""
+msgstr "Xác nhận mật khẩu mới"
 
 msgid "TICK"
-msgstr ""
+msgstr "ĐÁNH DẤU"
 
 msgid "Minutes"
-msgstr ""
+msgstr "Phút"
 
 msgid "Seconds"
-msgstr ""
+msgstr "Giây"
 
 msgid "Hours"
-msgstr ""
+msgstr "Giờ"
 
 msgid "Days"
-msgstr ""
+msgstr "Ngày"
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
-#, fuzzy
 msgid "Duration"
-msgstr "Vị trí"
+msgstr "Thời lượng"
 
 msgid "Start Time"
-msgstr ""
+msgstr "Thời gian bắt đầu"
 
 msgid "Now"
-msgstr ""
+msgstr "Bây giờ"
 
 msgid "Later"
-msgstr ""
+msgstr "Lát sau"
 
 msgid "return"
-msgstr ""
+msgstr "quay trở lại"
 
 msgid "Portfolio"
-msgstr ""
+msgstr "Danh mục đầu tư"
 
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 #, fuzzy
 msgid "Digit Stats"
-msgstr "Số phù hợp"
+msgstr "Số liệu thống kê"
 
 msgid "Favorites"
-msgstr ""
+msgstr "Yêu thích"
 
 msgid "Open For Trading"
-msgstr ""
+msgstr "Mở cho phép giao dịch"
 
-#, fuzzy
 msgid "Closed"
-msgstr "Kết thúc"
+msgstr "Đã đóng"
 
 msgid "Contract ID"
-msgstr ""
+msgstr "ID hợp đồng"
 
 msgid "Reference ID"
-msgstr ""
+msgstr "ID tham khảo"
 
-#, fuzzy
 msgid "Entry Spot"
-msgstr "Giá tại thời điểm bắt đầu giao dịch"
+msgstr "Điểm khởi đầu"
 
-#, fuzzy
 msgid "Entry Spot Time"
-msgstr "Giá tại thời điểm bắt đầu giao dịch"
+msgstr "Thời gian điểm khởi đầu"
 
 msgid "Potential Payout"
-msgstr ""
+msgstr "Khả năng thanh toán"
 
-#, fuzzy
 msgid "Exit Spot"
-msgstr "Giá tại thời điểm kết thúc giao dịch"
+msgstr "Điểm chốt"
 
-#, fuzzy
 msgid "Exit Spot Time"
-msgstr "Giá tại thời điểm kết thúc giao dịch"
+msgstr "Thời gian điểm chốt"
 
-#, fuzzy
 msgid "Sell Price"
 msgstr "Giá bán"
 
-#, fuzzy
 msgid "Sell Time"
-msgstr "Bán"
+msgstr "Thời gian bán"
 
-#, fuzzy
 msgid "Trade Again"
-msgstr "Giao dịch"
+msgstr "Giao dịch lại"
 
 msgid "Barrier"
-msgstr ""
+msgstr "Barie"
 
 msgid "You Won"
-msgstr ""
+msgstr "Bạn đã thắng"
 
 msgid "You Lost"
-msgstr ""
+msgstr "Bạn đã thua"
 
 msgid ""
 "To change your name, date of birth, country of residence, or email, contact "
 "Customer Support."
 msgstr ""
+"Để thay đổi tên của bạn, ngày sinh, quốc gia cư trú, hoặc email, hãy liên hệ "
+"với bộ phận Hỗ Trợ Khách Hàng."
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
 msgstr ""
+"Ngăn thu ngân bị khóa theo như yêu cầu của bạn. Để mở khóa, hãy nhập mật "
+"khẩu của bạn."
 
 msgid "Unlock Cashier"
-msgstr ""
+msgstr "Mở khóa ngăn thu ngân"
 
 msgid "Time out until"
-msgstr ""
+msgstr "Hết thời gian cho đến khi"
 
-#, fuzzy
 msgid "No transactions for the selected period"
-msgstr "Không có giao dịch nào trong khoảng thời gian này"
+msgstr "Không có giao dịch trong khoảng thời gian đã chọn"
 
 msgid "You have no open contracts"
-msgstr ""
+msgstr "Bạn không có hợp đồng ngỏ nào"
 
 msgid "You have no assets in watchlist"
-msgstr ""
+msgstr "Bạn không có tài sản nào trong watchlist"
 
 msgid "Basic"
-msgstr ""
+msgstr "Cơ bản"
 
 #, fuzzy
 msgid "Digits"
-msgstr "Số phù hợp"
+msgstr "Chữ số"
 
 msgid "Advanced"
-msgstr ""
+msgstr "Nâng cao"
 
 msgid "Higher"
-msgstr ""
+msgstr "Cao hơn"
 
 msgid "Lower"
-msgstr ""
+msgstr "Thấp hơn"
 
 #, fuzzy
 msgid "Ends Outside"
-msgstr "Kết thúc Trong/Ngoài"
+msgstr "Kết thúc bên ngoài"
 
 msgid "Ends Between"
-msgstr ""
+msgstr "Kết thúc giữa"
 
 msgid "Stays Between"
-msgstr ""
+msgstr "Nằm ở giữa"
 
 msgid "Goes Outside"
-msgstr ""
+msgstr "Đi ra ngoài"
 
-#, fuzzy
 msgid "Does Not Touch"
-msgstr "Không chạm"
+msgstr "Không chạm vào"
 
-#, fuzzy
 msgid "Credit / Debit"
-msgstr "Tín dụng/Ghi nợ"
+msgstr "Tín dụng / Ghi nợ"
 
 msgid "Last 25 Ticks"
-msgstr ""
+msgstr "25 đánh dấu cuối"
 
-#, fuzzy
 msgid "Last 50 Trades"
-msgstr "30 ngày trước"
+msgstr "50 giao dịch cuối"
 
-#, fuzzy
 msgid "Last 100 Trades"
-msgstr "30 ngày trước"
+msgstr "100 giao dịch cuối"
 
-#, fuzzy
 msgid "Last 500 Trades"
-msgstr "30 ngày trước"
+msgstr "500 giao dịch cuối"
 
-#, fuzzy
 msgid "Last 1000 Trades"
-msgstr "30 ngày trước"
+msgstr "1000 giao dịch cuối"
 
-#, fuzzy
 msgid "Maximum Daily Turnover"
-msgstr "Thu nhập hàng ngày tối đa"
+msgstr "Doanh số tối đa hàng ngày"
 
 msgid "Commodities"
-msgstr ""
+msgstr "Hàng hóa"
 
 msgid "Major Pairs"
-msgstr ""
+msgstr "Cặp trưởng"
 
 msgid "Minor Pairs"
-msgstr ""
+msgstr "Cặp thứ"
 
 msgid "Smart FX"
-msgstr ""
+msgstr "FX Thông Minh"
 
-#, fuzzy
 msgid "Volatility Indices"
-msgstr "Giá bán"
+msgstr "Chỉ số biến động"
 
-#, fuzzy
 msgid "Indices"
-msgstr "Chỉ thị"
+msgstr "Chỉ số"
 
 msgid "OTC Stocks"
-msgstr ""
+msgstr "Cổ phiếu OTC"
 
 msgid "Stated limits are subject to change without prior notice"
-msgstr ""
+msgstr "Quy định giới hạn có thể thay đổi mà không báo trước"
 
-#, fuzzy
 msgid "Withdrawal Limits"
 msgstr "Giới hạn rút tiền"
 
-#, fuzzy
 msgid "Withdrawal limit"
 msgstr "Giới hạn rút tiền"
 
 msgid "Already withdrawn"
-msgstr ""
+msgstr "Đã được rút"
 
 msgid "Current immediate maximum withdrawal"
-msgstr ""
+msgstr "Khoản rút tối đa ngay hiện tại"
 
-#, fuzzy
 msgid "Create Free Account"
-msgstr "Đăng kí tài khoản"
+msgstr "Tạo tài khoản miễn phí"
 
 msgid "Verification Code"
-msgstr ""
+msgstr "Mã xác minh"
 
 msgid "Confirm Password"
-msgstr ""
+msgstr "Xác nhận mật khẩu"
 
 msgid "Already have an account?"
-msgstr ""
+msgstr "Đã có tài khoản?"
 
 msgid "Enter a valid verification code"
-msgstr ""
+msgstr "Nhập một mã xác minh hợp lệ"
 
 msgid "Choose your country"
-msgstr ""
+msgstr "Chọn quốc gia của bạn"
 
 msgid ""
 "Password should have lower and uppercase letters and 6 characters or more"
-msgstr ""
+msgstr "Mật khẩu phải bao gồm chữ thường và chữ hoa và có 6 ký tự trở lên"
 
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Mật khẩu không khớp"
 
 msgid "Enter a valid email"
-msgstr ""
+msgstr "Nhập một địa chỉ email hợp lệ"
 
 msgid "Number should between 10 to 120"
-msgstr ""
+msgstr "Số phải giữa 10-120"
 
 msgid "Enter your first and last name"
-msgstr ""
+msgstr "Nhập họ và tên của bạn"
 
 msgid "City must not be empty"
-msgstr ""
+msgstr "Thành phố không được để trống"
 
 msgid "Address must not be empty"
-msgstr ""
+msgstr "Địa chỉ không được để trống"
 
 msgid "Enter a valid phone number"
-msgstr ""
+msgstr "Nhập một số điện thoại hợp lệ"
 
 msgid "Select a secret question"
-msgstr ""
+msgstr "Chọn một câu hỏi bí mật"
 
 msgid "Secret answer must be at least 4 characters"
-msgstr ""
+msgstr "Câu trả lời bí mật phải có ít nhất 4 ký tự"
 
 msgid "You need to agree to our Terms and Conditions"
-msgstr ""
+msgstr "Bạn cần phải đồng ý với các Điều Khoản và Điều Kiện của chúng tôi"
 
 msgid "I agree to the"
-msgstr ""
+msgstr "Tôi đồng ý với"
 
 msgid "terms and conditions"
-msgstr ""
+msgstr "Điều Khoản và Điều Kiện"
 
-#, fuzzy
 msgid "Search for assets"
 msgstr "Tìm Kiếm Tài Sản"
 
 msgid "Choose a Payment Agent"
-msgstr ""
+msgstr "Chọn một Đại Diện Thanh Toán"
 
 msgid "Confirm New Password"
-msgstr ""
+msgstr "Xác nhận mật khẩu mới"
 
 msgid "First Name"
-msgstr ""
+msgstr "Họ"
 
-#, fuzzy
 msgid "Last Name"
 msgstr "Tên"
 
 msgid "Address First Line"
-msgstr ""
+msgstr "Địa chỉ thứ nhất"
 
 msgid "Address Second Line"
-msgstr ""
+msgstr "Địa chỉ thứ hai"
 
 msgid "Phone"
-msgstr ""
+msgstr "Điện thoại"
 
 msgid "Answer To Secret Question"
-msgstr ""
+msgstr "Câu trả lời cho câu hỏi bí mật"
 
 msgid "Switch to"
-msgstr ""
+msgstr "Chuyển sang"
