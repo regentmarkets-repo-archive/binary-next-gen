@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: BOM\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-07-31 09:41+0000\n"
-"Last-Translator: Alina Demidova <alinademidova1@gmail.com>\n"
+"PO-Revision-Date: 2016-07-31 09:42+0000\n"
+"Last-Translator: Ruslan <ruslan.mukhametdinov.90@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/ru/>\n"
 "Language: ru\n"
@@ -822,6 +822,7 @@ msgstr "Вы забыли указать город"
 msgid "Address must not be empty"
 msgstr "Вы забыли указать адрес"
 
+#, fuzzy
 msgid "Enter a valid phone number"
 msgstr ""
 
