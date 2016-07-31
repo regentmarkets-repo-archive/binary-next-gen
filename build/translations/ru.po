@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: BOM\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-07-31 09:42+0000\n"
-"Last-Translator: Ruslan <ruslan.mukhametdinov.90@gmail.com>\n"
+"PO-Revision-Date: 2016-07-31 09:46+0000\n"
+"Last-Translator: Alina Demidova <alinademidova1@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/ru/>\n"
 "Language: ru\n"
@@ -827,48 +827,47 @@ msgid "Enter a valid phone number"
 msgstr ""
 
 msgid "Select a secret question"
-msgstr ""
+msgstr "Выберите секретный вопрос"
 
 msgid "Secret answer must be at least 4 characters"
-msgstr ""
+msgstr "Секретный ответ должен составлять минимум 4 знака"
 
 msgid "You need to agree to our Terms and Conditions"
-msgstr ""
+msgstr "Вы должны принять наши Правила и условия"
 
 msgid "I agree to the"
-msgstr ""
+msgstr "Я соглашаюсь с"
 
 msgid "terms and conditions"
-msgstr ""
+msgstr "Правилами и условиями"
 
 #, fuzzy
 msgid "Search for assets"
 msgstr "Поиск активов"
 
 msgid "Choose a Payment Agent"
-msgstr ""
+msgstr "Выберите Платёжного агента"
 
 msgid "Confirm New Password"
-msgstr ""
+msgstr "Подтвердите новый пароль"
 
 msgid "First Name"
-msgstr ""
-
-#, fuzzy
-msgid "Last Name"
 msgstr "Имя"
 
+msgid "Last Name"
+msgstr "Фамилия"
+
 msgid "Address First Line"
-msgstr ""
+msgstr "Первая строка адреса"
 
 msgid "Address Second Line"
-msgstr ""
+msgstr "Вторая строка адреса"
 
 msgid "Phone"
-msgstr ""
+msgstr "Телефон"
 
 msgid "Answer To Secret Question"
-msgstr ""
+msgstr "Ответ на секретный вопрос"
 
 msgid "Switch to"
-msgstr ""
+msgstr "Перейти к"
