@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: BOM\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-07-30 20:24+0000\n"
-"Last-Translator: Ruslan <ruslan.mukhametdinov.90@gmail.com>\n"
+"PO-Revision-Date: 2016-07-31 09:38+0000\n"
+"Last-Translator: Alina Demidova <alinademidova1@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/ru/>\n"
 "Language: ru\n"
@@ -470,172 +470,160 @@ msgid "Maximum aggregate loss over a 30-day period."
 msgstr "Максимальная совокупная выплата по открытым позициям"
 
 msgid "Session duration limit, in minutes"
-msgstr ""
+msgstr "Предел продолжительности сессии, в минутах"
 
 msgid "You will be automatically logged out after such time."
-msgstr ""
+msgstr "Вы автоматически выйдете с сайта по истечении данного периода."
 
 msgid "Exclude me from the website until"
-msgstr ""
+msgstr "Закройте мне доступ к сайту до"
 
-#, fuzzy
 msgid "Limits"
-msgstr "Торговые лимиты"
+msgstr "Лимиты"
 
 msgid "Please enter date in the format YYYY-MM-DD."
-msgstr ""
+msgstr "Пожалуйста, введите дату в следующем формате: ГГГГ-ММ-ДД."
 
-#, fuzzy
 msgid "New Trade"
-msgstr "Начать работу"
+msgstr "Новый контракт"
 
-#, fuzzy
 msgid "Trade Type"
-msgstr "Начать работу"
+msgstr "Тип контракта"
 
 msgid "Random 100 Index"
-msgstr ""
+msgstr "Random 100 индекс"
 
 msgid "Article"
 msgstr ""
 
 msgid "Start Later"
-msgstr ""
+msgstr "Начать позже"
 
-#, fuzzy
 msgid "Buy Price"
-msgstr "Цена"
+msgstr "Цена покупки"
 
 msgid "Earning (%)"
-msgstr ""
+msgstr "Доход (%)"
 
-#, fuzzy
 msgid "Profit"
-msgstr "Плюс/Минус"
+msgstr "Прибыль"
 
-#, fuzzy
 msgid "Entry Price"
-msgstr "Цена"
+msgstr "Входная цена"
 
-#, fuzzy
 msgid "Exit Price"
-msgstr "Цена"
+msgstr "Выходная цена"
 
-#, fuzzy
 msgid "Indicative Price"
-msgstr "Временная цена"
+msgstr "Ориентировочная цена"
 
 msgid "Potential Profit"
-msgstr ""
+msgstr "Потенциальная прибыль"
 
 msgid "Sell at Market"
-msgstr ""
+msgstr "Продать по текущей цене"
 
 msgid "Go back"
-msgstr ""
+msgstr "Назад"
 
 msgid "You lost "
-msgstr ""
+msgstr "Вы потеряли "
 
 #, fuzzy
 msgid "Close"
 msgstr "Закрытие"
 
 msgid "Low"
-msgstr ""
+msgstr "Низ."
 
 msgid "High"
-msgstr ""
+msgstr "Верх."
 
 #, fuzzy
 msgid "Open"
 msgstr "Открытие"
 
-#, fuzzy
 msgid "Date"
-msgstr "Дата продажи"
+msgstr "Дата"
 
 msgid "Upcoming Events"
-msgstr ""
+msgstr "Ближайшие события"
 
 msgid "Win"
-msgstr ""
+msgstr "Выигрыш"
 
 msgid "Loss"
-msgstr ""
+msgstr "Проигрыш"
 
 msgid "Full Screen"
-msgstr ""
+msgstr "На весь экран"
 
 msgid "Start Now"
-msgstr ""
+msgstr "Начать сейчас"
 
-#, fuzzy
 msgid "Daily Prices"
-msgstr "Цена прод."
+msgstr "Дневные цены"
 
 msgid "Spreads"
-msgstr ""
+msgstr "Спреды"
 
 msgid "Confirm new password"
-msgstr ""
+msgstr "Подтвердите новый пароль"
 
 msgid "TICK"
 msgstr ""
 
 msgid "Minutes"
-msgstr ""
+msgstr "Минуты"
 
 msgid "Seconds"
-msgstr ""
+msgstr "Секунды"
 
 msgid "Hours"
-msgstr ""
+msgstr "Часы"
 
 msgid "Days"
-msgstr ""
+msgstr "Дни"
 
 msgid "N/A"
-msgstr ""
+msgstr "Н/Д"
 
-#, fuzzy
 msgid "Duration"
-msgstr "Местоположение"
+msgstr "Продолжит."
 
 msgid "Start Time"
-msgstr ""
+msgstr "Время начала"
 
 msgid "Now"
-msgstr ""
+msgstr "Сейчас"
 
 msgid "Later"
-msgstr ""
+msgstr "Позже"
 
 msgid "return"
 msgstr ""
 
 msgid "Portfolio"
-msgstr ""
+msgstr "Портфель"
 
 msgid "Video"
-msgstr ""
+msgstr "Видео"
 
 #, fuzzy
 msgid "Digit Stats"
 msgstr "Совпадение цифр"
 
 msgid "Favorites"
-msgstr ""
+msgstr "Избранное"
 
 msgid "Open For Trading"
-msgstr ""
+msgstr "Открыто для торговли"
 
-#, fuzzy
 msgid "Closed"
-msgstr "Закрытие"
+msgstr "Закрыто"
 
 msgid "Contract ID"
-msgstr ""
+msgstr "Номер контракта"
 
 msgid "Reference ID"
 msgstr ""
@@ -644,38 +632,34 @@ msgstr ""
 msgid "Entry Spot"
 msgstr "Входная котировка"
 
-#, fuzzy
 msgid "Entry Spot Time"
-msgstr "Входная котировка"
+msgstr "Время входн. котировки"
 
 msgid "Potential Payout"
-msgstr ""
+msgstr "Потенциальная выплата"
 
 #, fuzzy
 msgid "Exit Spot"
 msgstr "Выходная котировка"
 
-#, fuzzy
 msgid "Exit Spot Time"
-msgstr "Выходная котировка"
+msgstr "Время выходн. котировки"
 
 #, fuzzy
 msgid "Sell Price"
 msgstr "Цена прод."
 
-#, fuzzy
 msgid "Sell Time"
-msgstr "Продать"
+msgstr "Время продажи"
 
-#, fuzzy
 msgid "Trade Again"
-msgstr "Начать работу"
+msgstr "Продолжить"
 
 msgid "Barrier"
-msgstr ""
+msgstr "Барьер"
 
 msgid "You Won"
-msgstr ""
+msgstr "Вы выиграли"
 
 msgid "You Lost"
 msgstr ""
@@ -684,138 +668,128 @@ msgid ""
 "To change your name, date of birth, country of residence, or email, contact "
 "Customer Support."
 msgstr ""
+"Чтобы изменить Ваше имя, дату рождения, страну проживания или эл. адрес, "
+"свяжитесь со службой поддержки."
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
-msgstr ""
+msgstr "Касса закрыта по Вашей просьбе. Чтобы открыть кассу, введите пароль."
 
 msgid "Unlock Cashier"
-msgstr ""
+msgstr "Открыть кассу"
 
 msgid "Time out until"
-msgstr ""
+msgstr "Ограничение доступа до"
 
 #, fuzzy
 msgid "No transactions for the selected period"
 msgstr "Сделки за выбранный период отсутствуют"
 
 msgid "You have no open contracts"
-msgstr ""
+msgstr "У Вас нет открытых контрактов"
 
 msgid "You have no assets in watchlist"
-msgstr ""
+msgstr "В Вашем списке нет активов"
 
 msgid "Basic"
-msgstr ""
+msgstr "Основные"
 
-#, fuzzy
 msgid "Digits"
-msgstr "Совпадение цифр"
+msgstr "Цифровые"
 
 msgid "Advanced"
-msgstr ""
+msgstr "Расширенные"
 
 msgid "Higher"
-msgstr ""
+msgstr "Выше"
 
 msgid "Lower"
-msgstr ""
+msgstr "Ниже"
 
-#, fuzzy
 msgid "Ends Outside"
-msgstr "Закончится внутри/вне"
+msgstr "Закончится вне"
 
 msgid "Ends Between"
-msgstr ""
+msgstr "Закончится между"
 
 msgid "Stays Between"
-msgstr ""
+msgstr "Останется между"
 
 msgid "Goes Outside"
-msgstr ""
+msgstr "Выйдет за пределы"
 
-#, fuzzy
 msgid "Does Not Touch"
-msgstr "Нет касания"
+msgstr "Не коснётся"
 
 #, fuzzy
 msgid "Credit / Debit"
 msgstr "Кредит/Дебет"
 
 msgid "Last 25 Ticks"
-msgstr ""
+msgstr "Последн. 25 тиков"
 
-#, fuzzy
 msgid "Last 50 Trades"
-msgstr "Последние 30 дней"
+msgstr "Последн. 50 сделок"
 
-#, fuzzy
 msgid "Last 100 Trades"
-msgstr "Последние 30 дней"
+msgstr "Последн. 100 сделок"
 
-#, fuzzy
 msgid "Last 500 Trades"
-msgstr "Последние 30 дней"
+msgstr "Последн. 500 сделок"
 
-#, fuzzy
 msgid "Last 1000 Trades"
-msgstr "Последние 30 дней"
+msgstr "Последн. 1000 сделок"
 
-#, fuzzy
 msgid "Maximum Daily Turnover"
-msgstr "Максимальный дневной оборот"
+msgstr "Макс. дневной объём покупок"
 
 msgid "Commodities"
-msgstr ""
+msgstr "Сырьевые товары"
 
 msgid "Major Pairs"
-msgstr ""
+msgstr "Основные пары"
 
 msgid "Minor Pairs"
-msgstr ""
+msgstr "Вторичные пары"
 
 msgid "Smart FX"
-msgstr ""
+msgstr "Smart FX"
 
-#, fuzzy
 msgid "Volatility Indices"
-msgstr "Цена прод."
+msgstr "Индексы волатильности"
 
-#, fuzzy
 msgid "Indices"
-msgstr "Временная цена"
+msgstr "Индексы"
 
 msgid "OTC Stocks"
-msgstr ""
+msgstr "Внебиржевые акции"
 
 msgid "Stated limits are subject to change without prior notice"
-msgstr ""
+msgstr "Указанные лимиты могут быть изменены без предварительного уведомления"
 
 #, fuzzy
 msgid "Withdrawal Limits"
 msgstr "Лимиты на вывод"
 
-#, fuzzy
 msgid "Withdrawal limit"
-msgstr "Лимиты на вывод"
+msgstr "Лимит на вывод"
 
 msgid "Already withdrawn"
-msgstr ""
+msgstr "Снято со счёта"
 
 msgid "Current immediate maximum withdrawal"
-msgstr ""
+msgstr "Текущая максимальная сумма мгновенного вывода"
 
-#, fuzzy
 msgid "Create Free Account"
-msgstr "Открыть счёт"
+msgstr "Открыть бесплатный счёт"
 
 msgid "Verification Code"
-msgstr ""
+msgstr "Код проверки"
 
 msgid "Confirm Password"
-msgstr ""
+msgstr "Подтвердить пароль"
 
 msgid "Already have an account?"
-msgstr ""
+msgstr "Уже зарегистрированы?"
 
 msgid "Enter a valid verification code"
 msgstr ""
