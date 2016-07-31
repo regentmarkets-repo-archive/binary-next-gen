@@ -21,10 +21,9 @@ const initialState = fromJS({
 export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_AUTHORIZE: {
-            const authorize = fromJS(action.serverResponse.authorize);
-            if (authorize.get('currency') === '') {                 // do not merge empty currency
-                const removeCurrency = authorize.delete('currency');
-                return state.merge(removeCurrency);
+            const { authorize } = action.serverResponse;
+            if (authorize.currency === '') {
+                return state.merge(authorize).set('currency', 'USD');
             }
             return state.merge(authorize);
         }
