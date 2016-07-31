@@ -4,6 +4,6 @@ instrumentation:
   verbose: true
   excludes:
     - electron.js
-    - **/__tests__/*.js
+    - "**/__tests__/*"
 reporting:
   dir: "coverage"
