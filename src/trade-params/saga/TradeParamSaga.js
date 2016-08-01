@@ -7,10 +7,6 @@ import SymbolSaga, { tradeCreation } from './SymbolSaga';
 import TypeSaga from './TypeSaga';
 import ProposalSubscriptionSaga from './ProposalSubscriptionSaga';
 
-function* logger(action) {
-    console.log('action', action);
-}
-
 const CREATE_TRADE = 'CREATE_TRADE';
 export const createTrade = (index, symbol) => ({
     type: CREATE_TRADE,
