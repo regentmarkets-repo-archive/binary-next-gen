@@ -18,8 +18,10 @@ function* handleBarrierChange(action) {
     yield put(unsubscribeProposal(index));
     const params = yield select(getParams(index));
     const updated = paramUpdate.changeBarrier(barrier, params);
-    yield put(subscribeProposal(index, updated));
-    yield put(updateMultipleTradeParams(index, updated));
+    yield [
+        put(subscribeProposal(index, updated)),
+        put(updateMultipleTradeParams(index, updated)),
+        ];
 }
 
 export default function* watchBarrierChange() {

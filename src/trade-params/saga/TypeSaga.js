@@ -3,6 +3,7 @@ import { select, put } from 'redux-saga/effects';
 import { getForceRenderCount, getParams, contractOfSymbol } from './SagaSelectors';
 import { updateMultipleTradeParams, updateTradeUIState } from '../../_actions';
 import * as paramUpdate from '../TradeParamsCascadingUpdates';
+import { subscribeProposal, unsubscribeProposal } from './ProposalSubscriptionSaga';
 
 const CHANGE_CATEGORY = 'CHANGE_CATEGORY';
 
@@ -14,11 +15,13 @@ export const reqCatChange = (index, category) => ({
 
 function* handleCatChange(action) {
     const { index, category } = action;
+    yield put(unsubscribeProposal(index));
     const params = yield select(getParams(index));
     const contractNeeded = yield select(contractOfSymbol(params.symbol));
     const updated = paramUpdate.changeCategory(category, contractNeeded, params);
     const renderCount = yield select(getForceRenderCount(index));
     yield [
+        put(subscribeProposal(index, updated)),
         put(updateMultipleTradeParams(index, updated)),
         put(updateTradeUIState(index, 'forceRenderCount', renderCount + 1)),
     ];
@@ -34,11 +37,13 @@ export const reqTypeChange = (index, tradeType) => ({
 
 function* handleTypeChange(action) {
     const { index, tradeType } = action;
+    yield put(unsubscribeProposal(index));
     const params = yield select(getParams(index));
     const contractNeeded = yield select(contractOfSymbol(params.symbol));
     const updated = paramUpdate.changeType(tradeType, params.tradeCategory, contractNeeded, params);
     const renderCount = yield select(getForceRenderCount(index));
     yield [
+        put(subscribeProposal(index, updated)),
         put(updateMultipleTradeParams(index, updated)),
         put(updateTradeUIState(index, 'forceRenderCount', renderCount + 1)),
     ];
