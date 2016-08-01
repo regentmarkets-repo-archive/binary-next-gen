@@ -1,9 +1,8 @@
 import React, { PropTypes, PureComponent } from 'react';
-import { M, Button, InputGroup } from 'binary-components';
+import { M, Button, InputGroup, ErrorMsg } from 'binary-components';
 import { showError } from 'binary-utils';
 import { actions } from '../_store';
 import States from './States';
-import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import showInfo from 'binary-utils/lib/showInfo';
 import * as LiveData from '../_data/LiveData';
 
