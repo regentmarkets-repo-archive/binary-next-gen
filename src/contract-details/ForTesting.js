@@ -1,8 +1,8 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import { actions } from '../_store';
 import ContractDetailsContainer from './ContractDetailsContainer';
 
-export default class ForTesting extends Component {
+export default class ForTesting extends PureComponent {
 
     static propTypes = {
         params: PropTypes.object.isRequired,

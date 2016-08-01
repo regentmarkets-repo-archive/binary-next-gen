@@ -12,6 +12,15 @@
     flex-direction: column;
 }
 
+.mobile-drop-down {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: white;
+    z-index: 100;
+}
+
 .mobile-content {
     min-width: 320px;
     flex: 1;
@@ -114,6 +123,7 @@
 }
 
 .mobile-back-btn {
+    cursor: pointer;
     text-align: left !important;
     font-weight: normal;
     color: white !important;

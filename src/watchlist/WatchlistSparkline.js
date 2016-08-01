@@ -1,23 +1,21 @@
-import React, { PropTypes, Component } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
+import React, { PropTypes, PureComponent } from 'react';
 import { Sparklines, SparklinesLine, SparklinesSpots } from 'react-sparklines';
 
-export default class WatchlistSparkline extends Component {
+export default class WatchlistSparkline extends PureComponent {
 
 	static propTypes = {
 		history: PropTypes.object,
 	};
 
-	shouldComponentUpdate = shouldPureComponentUpdate;
-
 	render() {
-		const history = this.props.history.toJS();
+		const { history } = this.props;
+		const quotes = history.takeLast(40).map(x => x.get('quote')).toJS();
 
 		return (
 			<Sparklines
-				data={history.map(x => x.quote)}
-				limit={30}
-				width={200}
+				data={quotes}
+				limit={40}
+				width={250}
 				height={40}
 			>
 				<SparklinesLine />

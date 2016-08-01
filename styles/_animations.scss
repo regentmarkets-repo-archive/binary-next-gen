@@ -1,0 +1,139 @@
+*,
+*::after,
+*::before {
+    transition: opacity 250ms, color 250ms, background 250ms, transform 250ms;
+}
+
+@keyframes spinning {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@-webkit-keyframes spinning {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+.spinner {
+    -webkit-animation: spinning 0.2s * 5 infinite linear;
+    animation: spinning 0.2s * 5 infinite linear;
+}
+
+@keyframes pulsing {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+@-webkit-keyframes pulsing {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.pulser {
+    -webkit-animation: pulsing 3s infinite ease;
+    animation: pulsing 3s infinite ease;
+}
+
+.full-screen-overlay {
+    opacity: 1;
+    transition: opacity 0.2s, height 0;
+}
+
+.full-screen-overlay.hidden {
+    opacity: 0;
+    transition: opacity 0.2s, height 0 0.2s;
+    height: 0;
+}
+
+.full-screen-overlay > * {
+    transition: transform 0.2s, height 0;
+    transform: scale(1);
+}
+
+.full-screen-overlay.hidden > * {
+    transition: transform 0.2s, height 0 0.2s;
+    transform: scale(0.9);
+}
+
+.progress {
+    @extend .spinner;
+    background-image: url('https://binary.com/images/pages/binary-symbol-logo.svg');
+    background-size: contain;
+    width: 2rem;
+    height: 2rem;
+}
+
+.workspace-panel.popup-enter {
+    transform: translateX(10rem);
+}
+
+.popup-enter {
+    opacity: 0.01;
+    > .modal,
+    > .mobile-content,
+    > .screen,
+    > .article {
+        transform: scale(0.9) translateY(4rem);
+    }
+    > .drop-down {
+        transform: scale(0.75) translateY(-4rem);
+    }
+}
+
+.popup-enter.popup-enter-active {
+    opacity: 1;
+    > .workspace-panel {
+        transform: scale(1);
+    }
+    > .modal,
+    > .mobile-content,
+    > .drop-down,
+    > .screen,
+    > .article {
+        transform: scale(1) translateY(0);
+    }
+}
+
+.popup-leave {
+    opacity: 1;
+    > .workspace-panel {
+        transform: scale(1);
+    }
+    > .modal,
+    > .mobile-content,
+    > .screen,
+    > .drop-down,
+    > .article {
+        transform: scale(1) translateY(0);
+    }
+}
+
+.popup-leave.popup-leave-active {
+    opacity: 0.01;
+    > .workspace-panel {
+        transform: scale(0.75);
+    }
+    > .modal,
+    > .mobile-content,
+    > .article {
+        transform: scale(0.75) translateY(8rem);
+    }
+    > .drop-down {
+        transform: scale(0.75) translateY(-6rem);
+    }
+}
+
+.zoom-leave {
+    opacity: 1;
+    transform: scale(1);
+}
+
+.zoom-leave.zoom-leave-active {
+    opacity: 0;
+    transform: scale(4) translateY(4rem);
+    transition:
+        opacity 500ms cubic-bezier(0.6, 0.04, 0.98, 0.335),
+        transform 500ms cubic-bezier(0.6, 0.04, 0.98, 0.335);
+}

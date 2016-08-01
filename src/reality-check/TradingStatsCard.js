@@ -1,7 +1,7 @@
-import React, { Component, PropTypes } from 'react';
-import Th from 'binary-components/lib/Th';
+import React, { PureComponent, PropTypes } from 'react';
+import { Th } from 'binary-components';
 
-export default class TradingStatsCard extends Component {
+export default class TradingStatsCard extends PureComponent {
 
     static propTypes = {
         loginID: PropTypes.string.isRequired,

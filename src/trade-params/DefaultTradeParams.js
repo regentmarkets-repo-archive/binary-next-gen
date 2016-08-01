@@ -1,6 +1,4 @@
-import durationToSecs from 'binary-utils/lib/durationToSecs';
-import isIntraday from 'binary-utils/lib/isIntraday';
-import dateToEpoch from 'binary-utils/lib/dateToEpoch';
+import { isIntraday, dateToEpoch } from 'binary-utils';
 
 export const createDefaultCategory = contracts => Object.keys(contracts)[0];
 
@@ -32,7 +30,7 @@ export const createDefaultDuration = (contracts, category, type) => {
 
 export const createDefaultBarriers = (contracts, category, type, duration, durationUnit) => {
     if (category === 'spreads') {
-        return [];
+        return [undefined, undefined];
     }
 
     let expiryType;
@@ -42,11 +40,6 @@ export const createDefaultBarriers = (contracts, category, type, duration, durat
         expiryType = 'intraday';
     } else {
         expiryType = 'daily';
-    }
-
-    // this is an observation, might not always true
-    if (durationToSecs(duration, durationUnit) < 120) {
-        return [undefined, undefined];
     }
 
     const barriers = contracts[category][type].barriers;

@@ -1,13 +1,10 @@
-import React, { Component } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
-import Logo from 'binary-components/lib/Logo';
+import React, { PureComponent } from 'react';
+import { Logo } from 'binary-components';
 import WebSidebarContainer from '../sidebar/WebSidebarContainer';
 import Balance from '../balance/BalanceContainer';
 import LayoutPickerContainer from '../layout-picker/LayoutPickerContainer';
 
-export default class WebHeader extends Component {
-
-	shouldComponentUpdate = shouldPureComponentUpdate;
+export default class WebHeader extends PureComponent {
 
 	render() {
 		return (

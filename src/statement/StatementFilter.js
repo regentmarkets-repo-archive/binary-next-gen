@@ -1,9 +1,8 @@
-import React, { PropTypes, Component } from 'react';
-import Tab from 'binary-components/lib/Tab';
-import TabList from 'binary-components/lib/TabList';
+import React, { PropTypes, PureComponent } from 'react';
+import { Tab, TabList } from 'binary-components';
 import { actions } from '../_store';
 
-export default class StatementFilter extends Component {
+export default class StatementFilter extends PureComponent {
 
 	static propTypes = {
 		transactionsFilter: PropTypes.number.isRequired,

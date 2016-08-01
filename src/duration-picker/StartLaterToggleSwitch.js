@@ -1,6 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 
-export default class StartLaterToggleSwitch extends Component {
+export default class StartLaterToggleSwitch extends PureComponent {
 
     static propTypes = {
         checked: PropTypes.bool,

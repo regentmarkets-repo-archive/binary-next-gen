@@ -1,16 +1,16 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
+import { M } from 'binary-components';
 import { actions } from '../_store';
 import AssetPickerFilter from './AssetPickerFilter';
 import AssetPickerList from './AssetPickerList';
-import M from 'binary-components/lib/M';
 
-export default class AssetPickerCard extends Component {
+export default class AssetPickerCard extends PureComponent {
 
 	static propTypes = {
 		index: PropTypes.number,
-		compact: PropTypes.bool,
 		history: PropTypes.object,
 		filter: PropTypes.object,
+		onClose: PropTypes.func,
 		assetPickerItems: PropTypes.object.isRequired,
 		selectedAsset: PropTypes.string.isRequired,
 	};
@@ -20,16 +20,10 @@ export default class AssetPickerCard extends Component {
 
 		actions.changeSelectedAsset(newAsset);
 		actions.updateTradeUIState(index, 'disabled', true);
-		actions.selectAsset(newAsset)
-			.then(() => {
-				actions.updateTradeParams(index, 'symbol', newAsset);
-				actions.updateTradeUIState(index, 'disabled', false);
-			});
-		// actions.getTradingOptions(newAsset).then(() => {
-		// 	actions.updateTradeParams(index, 'symbol', newAsset);
-		// 	actions.updateTradeUIState(index, 'disabled', false);
-		// 	actions.getTicksBySymbol(newAsset);
-		// });
+		actions.selectAsset(newAsset).then(() => {
+			actions.updateTradeParams(index, 'symbol', newAsset);
+			actions.updateTradeUIState(index, 'disabled', false);
+		});
 	}
 
 	onToggleWatchlistItem = asset => {
@@ -37,11 +31,11 @@ export default class AssetPickerCard extends Component {
 	}
 
 	render() {
-		const { assetPickerItems, selectedAsset, filter, compact } = this.props;
+		const { assetPickerItems, selectedAsset, filter } = this.props;
 
 		return (
 			<div className="asset-picker-container">
-				<AssetPickerFilter compact={compact} filter={filter} />
+				<AssetPickerFilter filter={filter} />
 				<AssetPickerList
 					{...this.props}
 					assets={assetPickerItems}

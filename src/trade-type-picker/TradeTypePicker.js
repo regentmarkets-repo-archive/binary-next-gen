@@ -1,27 +1,19 @@
-import React, { Component, PropTypes } from 'react';
-import TabList from 'binary-components/lib/TabList';
-import Tab from 'binary-components/lib/Tab';
-import contractCategoryToText from 'binary-utils/lib/contractCategoryToText';
-import tradeTypeCodeToText from 'binary-utils/lib/tradeTypeCodeToText';
+import React, { PureComponent, PropTypes } from 'react';
+import { Tab, TabList } from 'binary-components';
+import { contractCategoryToText, tradeTypeCodeToText } from 'binary-utils';
 import { serverToInternalTradeType, internalToServerTradeType } from './TradeTypeAdapter';
-import {
-    tradeGrouping,
-    typesForCategories,
-    hasAdvanced,
-    hasBasic,
-    hasDigits,
-    findCategoryForType,
-    pairUpTypes,
-} from './TradeTypePickerUtils';
+import { tradeGrouping, typesForCategories, hasAdvanced, hasBasic,
+    hasDigits, findCategoryForType, pairUpTypes } from './TradeTypePickerUtils';
 import { changeCategory, changeType } from '../trade-params/TradeParamsCascadingUpdates';
 
-export default class TradeTypePicker extends Component {
+export default class TradeTypePicker extends PureComponent {
 
     static propTypes = {
         contract: PropTypes.object.isRequired,
         onSelect: PropTypes.func,
         tradeParams: PropTypes.object.isRequired,
         updateParams: PropTypes.func.isRequired,
+        forceTradeCardUpdate: PropTypes.func.isRequired,
         clearTradeError: PropTypes.func.isRequired,
     };
 
@@ -57,7 +49,7 @@ export default class TradeTypePicker extends Component {
     }
 
     changeType(type) {
-        const { contract, onSelect, tradeParams, updateParams, clearTradeError } = this.props;
+        const { contract, forceTradeCardUpdate, onSelect, tradeParams, updateParams, clearTradeError } = this.props;
         const selectedCategory = findCategoryForType(contract, type);
         const updatedType = changeType(internalToServerTradeType(type), selectedCategory, tradeParams, contract);
         clearTradeError();
@@ -65,6 +57,7 @@ export default class TradeTypePicker extends Component {
         if (onSelect) {
             onSelect(updatedType);
         }
+        forceTradeCardUpdate();
     }
 
     render() {

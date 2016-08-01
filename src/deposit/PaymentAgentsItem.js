@@ -1,8 +1,7 @@
-import React, { PropTypes, Component } from 'react';
-import M from 'binary-components/lib/M';
-import NumberPlain from 'binary-components/lib/NumberPlain';
+import React, { PropTypes, PureComponent } from 'react';
+import { M, NumberPlain } from 'binary-components';
 
-export default class PaymentAgentsItem extends Component {
+export default class PaymentAgentsItem extends PureComponent {
 
     static propTypes = {
         paymentAgent: PropTypes.object.isRequired,

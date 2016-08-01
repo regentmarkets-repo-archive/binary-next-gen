@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget id="app.binary.com" version="1.0.4" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
+<widget id="app.binary.com" version="1.0.5" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Binary.com</name>
     <description>
         Trade Binary Options with Binary.com
@@ -21,8 +21,8 @@
     <allow-intent href="sms:*" />
     <allow-intent href="mailto:*" />
     <allow-intent href="geo:*" />
-    <preference name="loadUrlTimeoutValue" value="700000" />
-    <preference name="Fullscreen" value="true"/>
+    <preference name="android-minSdkVersion" value="19"/>
+    <preference name="Fullscreen" value="false"/>
     <preference name="BackgroundColor" value="#2a3052" />
     <preference name="EnableViewportScale" value="false"/>
     <preference name="SplashScreen" value="screen" />

@@ -2,8 +2,8 @@ export default {
     "": {
         "project-id-version": "PACKAGE VERSION",
         "pot-creation-date": "",
-        "po-revision-date": "2016-07-11 07:59+0000",
-        "last-translator": "Haruna Sekiya <hrnmyrn@gmail.com>",
+        "po-revision-date": "2016-07-28 04:25+0000",
+        "last-translator": "Fumio Miyama <miyama@regentmarkets.com>",
         "language-team": "Japanese <https://hosted.weblate.org/projects/binary-app/next-gen-app/ja/>",
         "language": "ja",
         "mime-version": "1.0",
@@ -78,7 +78,7 @@ export default {
     ],
     "Purchase Price": [
         null,
-        "購入価格"
+        "購入金額"
     ],
     "Sale Date": [
         null,
@@ -170,7 +170,7 @@ export default {
     ],
     "Credit/Debit": [
         null,
-        "クレジット/デビット"
+        "支払/受取"
     ],
     "Purchase Time": [
         null,
@@ -262,7 +262,7 @@ export default {
     ],
     "Rise": [
         null,
-        "アップ"
+        "RISE"
     ],
     "Stake": [
         null,
@@ -274,7 +274,7 @@ export default {
     ],
     "Deposit": [
         null,
-        "ご入金"
+        "入金"
     ],
     "Transactions": [
         null,
@@ -326,7 +326,7 @@ export default {
     ],
     "Resources": [
         null,
-        "リソース"
+        "取引参考情報"
     ],
     "Last 7 Days": [
         null,
@@ -779,5 +779,329 @@ export default {
     "Digit Stats": [
         null,
         "数字ステータス"
+    ],
+    "Favorites": [
+        null,
+        "お気に入り"
+    ],
+    "Open For Trading": [
+        null,
+        "トレードを開く"
+    ],
+    "Closed": [
+        null,
+        "終了"
+    ],
+    "Contract ID": [
+        null,
+        "トレード ID"
+    ],
+    "Reference ID": [
+        null,
+        "約定 ID"
+    ],
+    "Entry Spot": [
+        null,
+        "エントリー価格"
+    ],
+    "Entry Spot Time": [
+        null,
+        "エントリー価格"
+    ],
+    "Potential Payout": [
+        null,
+        "ペイアウト"
+    ],
+    "Exit Spot": [
+        null,
+        "終値"
+    ],
+    "Exit Spot Time": [
+        null,
+        "判定レート時間"
+    ],
+    "Sell Price": [
+        null,
+        "売却"
+    ],
+    "Sell Time": [
+        null,
+        "売却時間"
+    ],
+    "Trade Again": [
+        null,
+        "トレード"
+    ],
+    "Barrier": [
+        null,
+        "バリア"
+    ],
+    "You Won": [
+        null,
+        "条件が満たされました"
+    ],
+    "You Lost": [
+        null,
+        "条件が満たされませんでした"
+    ],
+    "To change your name, date of birth, country of residence, or email, contact Customer Support.": [
+        null,
+        "氏名、生年月日、居住国、メールアドレスの変更は、カスタマーサポートまでご連絡ください。"
+    ],
+    "Cashier is locked per your request. To unlock it, enter your password.": [
+        null,
+        "リクエストに従い、入出金をロックしました。解除するにはパスワードをご入力ください。"
+    ],
+    "Unlock Cashier": [
+        null,
+        "入出金ロック解除"
+    ],
+    "Time out until": [
+        null,
+        "xxxまで利用禁止"
+    ],
+    "No transactions for the selected period": [
+        null,
+        "選択された期間のお取引はありません"
+    ],
+    "You have no open contracts": [
+        null,
+        "オープン中のトレードはありません"
+    ],
+    "You have no assets in watchlist": [
+        null,
+        "ウォッチリストに資産がありません"
+    ],
+    "Basic": [
+        null,
+        "初級"
+    ],
+    "Digits": [
+        null,
+        "数字ステータス"
+    ],
+    "Advanced": [
+        null,
+        "上級"
+    ],
+    "Higher": [
+        null,
+        "High"
+    ],
+    "Lower": [
+        null,
+        "LOW"
+    ],
+    "Ends Outside": [
+        null,
+        "END-OUT"
+    ],
+    "Ends Between": [
+        null,
+        "END-IN"
+    ],
+    "Stays Between": [
+        null,
+        "STAY-IN"
+    ],
+    "Goes Outside": [
+        null,
+        "BREAK-OUT"
+    ],
+    "Does Not Touch": [
+        null,
+        "NO-TOUCH"
+    ],
+    "Credit / Debit": [
+        null,
+        "支払/受取"
+    ],
+    "Last 25 Ticks": [
+        null,
+        "直近 25 Tick"
+    ],
+    "Last 50 Trades": [
+        null,
+        "直近 50トレード"
+    ],
+    "Last 100 Trades": [
+        null,
+        "直近 100トレード"
+    ],
+    "Last 500 Trades": [
+        null,
+        "直近 500トレード"
+    ],
+    "Last 1000 Trades": [
+        null,
+        "直近 1000トレード"
+    ],
+    "Maximum Daily Turnover": [
+        null,
+        "１日の取引数量限度額"
+    ],
+    "Commodities": [
+        null,
+        "コモディティ"
+    ],
+    "Major Pairs": [
+        null,
+        "主要ペア"
+    ],
+    "Minor Pairs": [
+        null,
+        "マイナーペア"
+    ],
+    "Smart FX": [
+        null,
+        "スマートFX"
+    ],
+    "Volatility Indices": [
+        null,
+        "ボラティリティ インデックス"
+    ],
+    "Indices": [
+        null,
+        "インデックス"
+    ],
+    "OTC Stocks": [
+        null,
+        "店頭株"
+    ],
+    "Stated limits are subject to change without prior notice": [
+        null,
+        "上記の1日取引数量限度額に変更する場合、当社のホームページ上でお知らせいたします。"
+    ],
+    "Withdrawal Limits": [
+        null,
+        "出金限度額"
+    ],
+    "Withdrawal limit": [
+        null,
+        "出金限度額"
+    ],
+    "Already withdrawn": [
+        null,
+        "既に出金されています"
+    ],
+    "Current immediate maximum withdrawal": [
+        null,
+        "現在の出金限度額"
+    ],
+    "Create Free Account": [
+        null,
+        "無料口座を作成"
+    ],
+    "Verification Code": [
+        null,
+        "認証コード"
+    ],
+    "Confirm Password": [
+        null,
+        "確認用パスワード"
+    ],
+    "Already have an account?": [
+        null,
+        "既に口座をお持ちですか？"
+    ],
+    "Enter a valid verification code": [
+        null,
+        "有効な認証コードをご入力ください"
+    ],
+    "Choose your country": [
+        null,
+        "居住国を選択してください"
+    ],
+    "Password should have lower and uppercase letters and 6 characters or more": [
+        null,
+        "パスワードは大文字と小文字を含む6文字以上でご入力ください"
+    ],
+    "Passwords do not match": [
+        null,
+        "パスワードが一致しません"
+    ],
+    "Enter a valid email": [
+        null,
+        "有効なメールアドレスをご入力ください"
+    ],
+    "Number should between 10 to 120": [
+        null,
+        "数字は10から120の間です"
+    ],
+    "Enter your first and last name": [
+        null,
+        "氏名をご入力ください"
+    ],
+    "City must not be empty": [
+        null,
+        "市区町村の入力は必須です"
+    ],
+    "Address must not be empty": [
+        null,
+        "番地の入力は必須です"
+    ],
+    "Enter a valid phone number": [
+        null,
+        "有効な電話番号をご入力ください"
+    ],
+    "Select a secret question": [
+        null,
+        "秘密の質問をご選択ください"
+    ],
+    "Secret answer must be at least 4 characters": [
+        null,
+        "秘密の質問の答えは4文字以上でなければいけません"
+    ],
+    "You need to agree to our Terms and Conditions": [
+        null,
+        "利用規約に同意いただく必要があります"
+    ],
+    "I agree to the": [
+        null,
+        "同意する"
+    ],
+    "terms and conditions": [
+        null,
+        "利用規約"
+    ],
+    "Search for assets": [
+        null,
+        "資産の検索"
+    ],
+    "Choose a Payment Agent": [
+        null,
+        "決済サービスをご選択ください"
+    ],
+    "Confirm New Password": [
+        null,
+        "新しいパスワード（確認用）"
+    ],
+    "First Name": [
+        null,
+        "氏名（名）"
+    ],
+    "Last Name": [
+        null,
+        "氏名（姓）"
+    ],
+    "Address First Line": [
+        null,
+        "番地"
+    ],
+    "Address Second Line": [
+        null,
+        "マンション（建物）名"
+    ],
+    "Phone": [
+        null,
+        "電話番号"
+    ],
+    "Answer To Secret Question": [
+        null,
+        "秘密の質問の答え"
+    ],
+    "Switch to": [
+        null,
+        "切り替え"
     ]
 }

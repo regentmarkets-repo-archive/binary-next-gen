@@ -1,14 +1,11 @@
-import React, { PropTypes, Component } from 'react';
-import Button from 'binary-components/lib/Button';
-import InputGroup from 'binary-components/lib/InputGroup';
-import showError from 'binary-utils/lib/showError';
-import showInfo from 'binary-utils/lib/showInfo';
+import React, { PropTypes, PureComponent } from 'react';
+import { Button, InputGroup } from 'binary-components';
+import { showError, showInfo, xMonthsAfter, dateToDateString, dateToEpoch } from 'binary-utils';
 import * as LiveData from '../_data/LiveData';
 
-export default class SettingsSelfExclusion extends Component {
+export default class SettingsSelfExclusion extends PureComponent {
 
 	static propTypes = {
-		actions: PropTypes.object.isRequired,
 		max_balance: PropTypes.number,
 		max_turnover: PropTypes.number,
 		max_losses: PropTypes.number,
@@ -34,7 +31,8 @@ export default class SettingsSelfExclusion extends Component {
 			max_30day_losses: props.max_30day_losses,
 			max_open_bets: props.max_open_bets,
 			session_duration_limit: props.session_duration_limit,
-			timeout_until: props.timeout_until,
+			timeout_until_time: props.timeout_until,
+			timeout_until_date: props.timeout_until,
 			exclude_until: props.exclude_until,
 		};
 	}
@@ -43,7 +41,24 @@ export default class SettingsSelfExclusion extends Component {
 		this.setState({ [e.target.id]: e.target.value });
 
 	tryUpdate = () => {
-		LiveData.api.setSelfExclusion(this.state).then(() => {
+		const { max_balance, max_turnover, max_losses, max_7day_turnover, max_7day_losses,
+			max_30day_turnover, max_30day_losses, max_open_bets, session_duration_limit,
+			timeout_until_time, timeout_until_date, exclude_until } = this.state;
+		const timeout_until = dateToEpoch(new Date(timeout_until_date + ' ' + timeout_until_time));
+		const newState = {
+			max_balance,
+			max_turnover,
+			max_losses,
+			max_7day_turnover,
+			max_7day_losses,
+			max_30day_turnover,
+			max_30day_losses,
+			max_open_bets,
+			session_duration_limit,
+			exclude_until,
+			timeout_until,
+		};
+		LiveData.api.setSelfExclusion(newState).then(() => {
 			showInfo('Updated');
 		}).catch(response => {
 			showError(response.error.message);
@@ -61,7 +76,7 @@ export default class SettingsSelfExclusion extends Component {
 					id="max_balance"
 					label="Maximum account cash balance"
 					type="number"
-					hintttt="Once this limit is reached, you may no longer deposit."
+					// hint="Once this limit is reached, you may no longer deposit."
 					defaultValue={max_balance}
 					onChange={this.onEntryChange}
 				/>
@@ -69,7 +84,7 @@ export default class SettingsSelfExclusion extends Component {
 					id="max_turnover"
 					label="Daily turnover limit"
 					type="number"
-					hintttt="Maximum aggregate contract purchases per day."
+					// hint="Maximum aggregate contract purchases per day."
 					defaultValue={max_turnover}
 					onChange={this.onEntryChange}
 				/>
@@ -77,7 +92,7 @@ export default class SettingsSelfExclusion extends Component {
 					id="max_losses"
 					label="Daily limit on losses"
 					type="number"
-					hintttt="Maximum aggregate loss per day."
+					// hint="Maximum aggregate loss per day."
 					defaultValue={max_losses}
 					onChange={this.onEntryChange}
 				/>
@@ -85,7 +100,7 @@ export default class SettingsSelfExclusion extends Component {
 					id="max_7day_turnover"
 					label="7-day turnover limit"
 					type="number"
-					hintttt="Maximum aggregate contract purchases over a 7-day period."
+					// hint="Maximum aggregate contract purchases over a 7-day period."
 					defaultValue={max_7day_turnover}
 					onChange={this.onEntryChange}
 				/>
@@ -93,7 +108,7 @@ export default class SettingsSelfExclusion extends Component {
 					id="max_7day_losses"
 					label="7-day limit on losses"
 					type="number"
-					hintttt="Maximum aggregate loss over a 7-day period."
+					// hint="Maximum aggregate loss over a 7-day period."
 					defaultValue={max_7day_losses}
 					onChange={this.onEntryChange}
 				/>
@@ -101,7 +116,7 @@ export default class SettingsSelfExclusion extends Component {
 					id="max_30day_turnover"
 					label="30-day turnover limit"
 					type="number"
-					hintttt="Maximum aggregate contract purchases over a 30-day period."
+					// hint="Maximum aggregate contract purchases over a 30-day period."
 					defaultValue={max_30day_turnover}
 					onChange={this.onEntryChange}
 				/>
@@ -109,7 +124,7 @@ export default class SettingsSelfExclusion extends Component {
 					id="max_30day_losses"
 					label="30-day limit on losses"
 					type="number"
-					hintttt="Maximum aggregate loss over a 30-day period."
+					// hint="Maximum aggregate loss over a 30-day period."
 					defaultValue={max_30day_losses}
 					onChange={this.onEntryChange}
 				/>
@@ -117,7 +132,6 @@ export default class SettingsSelfExclusion extends Component {
 					id="max_open_bets"
 					label="Maximum number of open positions"
 					type="number"
-					hintttt=""
 					defaultValue={max_open_bets}
 					onChange={this.onEntryChange}
 				/>
@@ -125,14 +139,21 @@ export default class SettingsSelfExclusion extends Component {
 					id="session_duration_limit"
 					label="Session duration limit, in minutes"
 					type="number"
-					hintttt="You will be automatically logged out after such time."
+					// hint="You will be automatically logged out after such time."
 					defaultValue={session_duration_limit}
 					onChange={this.onEntryChange}
 				/>
 				<InputGroup
-					id="timeout_until"
-					label="Time out until"
+					id="timeout_until_date"
+					label="Time out until date"
 					type="date"
+					defaultValue={session_duration_limit}
+					onChange={this.onEntryChange}
+				/>
+				<InputGroup
+					id="timeout_until_time"
+					label="Time out until time"
+					type="time"
 					hintttt=""
 					defaultValue={session_duration_limit}
 					onChange={this.onEntryChange}
@@ -141,8 +162,8 @@ export default class SettingsSelfExclusion extends Component {
 					id="exclude_until"
 					label="Exclude me from the website until"
 					type="date"
-					hintttt=""
 					defaultValue={exclude_until}
+					min={dateToDateString(xMonthsAfter(6))}
 					onChange={this.onEntryChange}
 				/>
 				<Button

@@ -1,5 +1,6 @@
 import { List, Record } from 'immutable';
 import { createSelector, createStructuredSelector } from 'reselect';
+import { pipsToDigits } from 'binary-utils';
 import {
 	ticksSelector,
 	watchlistSelector,
@@ -13,6 +14,7 @@ export const WatchlistRecord = new Record({
 	history: [],
 	diff: 0,
 	quote: 0,
+	digits: 2,
 	symbol: '',
 	isOpen: false,
 });
@@ -34,6 +36,7 @@ export const watchlistViewSelector = createSelector(
 
 			return new WatchlistRecord({
 				assetName: asset && asset.get('display_name'),
+				digits: asset && pipsToDigits(+asset.get('pip')),
 				isOpen: asset && !!asset.get('exchange_is_open'),
 				history,
 				diff: historyDiff(history),

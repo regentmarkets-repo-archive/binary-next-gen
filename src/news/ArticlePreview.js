@@ -1,7 +1,7 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import { Link } from 'react-router';
 
-export default class ArticlePreview extends Component {
+export default class ArticlePreview extends PureComponent {
 
     static propTypes = {
         title: PropTypes.string,

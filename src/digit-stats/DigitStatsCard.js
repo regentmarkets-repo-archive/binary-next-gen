@@ -1,9 +1,9 @@
-import React, { Component, PropTypes } from 'react';
-import DigitStatsChart from 'binary-components/lib/DigitStatsChart';
+import React, { PureComponent, PropTypes } from 'react';
+import { DigitStatsChart } from 'binary-components';
 import { actions } from '../_store';
 import DigitStatsFilter from './DigitStatsFilter';
 
-export default class DigitStatsCard extends Component {
+export default class DigitStatsCard extends PureComponent {
 
     static propTypes = {
         symbol: PropTypes.string.isRequired,

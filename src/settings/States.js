@@ -1,6 +1,6 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 
-export default class States extends Component {
+export default class States extends PureComponent {
 
     static propTypes = {
         onChange: PropTypes.func.isRequired,
@@ -15,7 +15,7 @@ export default class States extends Component {
 
         return (
             <fieldset>
-                {noLabel ? null : <label forHtml={id}>State/Province</label>}
+                {noLabel ? null : <label htmlFor={id}>State/Province</label>}
                 <select id={id} onChange={onChange} value={selected}>
                     {states.map((x, i) => (
                         <option key={i} value={x.value}>{x.text}</option>

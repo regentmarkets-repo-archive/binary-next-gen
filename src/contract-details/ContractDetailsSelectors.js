@@ -1,11 +1,11 @@
+import { createSelector, createStructuredSelector } from 'reselect';
+import { pipsToDigits } from 'binary-utils';
 import {
     boughtContractsSelector,
     portfolioSelector,
     assetsSelector,
     themeSelector,
 } from '../_store/directSelectors';
-import { createSelector, createStructuredSelector } from 'reselect';
-import pipsToDigits from 'binary-utils/lib/pipsToDigits';
 
 export const contractToShow = createSelector(
     [state => portfolioSelector(state).get('contractShown'), boughtContractsSelector],

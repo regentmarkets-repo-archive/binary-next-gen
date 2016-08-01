@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import shouldPureComponentUpdate from 'react-pure-render/function';
-import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
+import { immutableChildrenToJS } from 'binary-utils';
 
 import AssetIndexCard from './AssetIndexCard';
 import assetIndexSelectors from './assetIndexSelectors';
 
 @connect(assetIndexSelectors)
-export default class AssetIndexContainer extends Component {
-
-	shouldComponentUpdate = shouldPureComponentUpdate;
+export default class AssetIndexContainer extends PureComponent {
 
 	render() {
 		return (

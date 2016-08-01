@@ -1,4 +1,4 @@
-import numberToSignedString from 'binary-utils/lib/numberToSignedString';
+import { numberToSignedString } from 'binary-utils';
 
 export const internalTradeModelToServerTradeModel = tradeObj => {
     const {

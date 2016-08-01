@@ -1,14 +1,11 @@
-import React, { Component, PropTypes } from 'react';
-import P from 'binary-components/lib/P';
-import Button from 'binary-components/lib/Button';
-import Countries from 'binary-components/lib/Countries';
-import ErrorMsg from 'binary-components/lib/ErrorMsg';
-import InputGroup from 'binary-components/lib/InputGroup';
-import LogoSpinner from 'binary-components/lib/LogoSpinner';
+import React, { PureComponent, PropTypes } from 'react';
+import { P, Button, Countries, ErrorMsg, InputGroup, LogoSpinner } from 'binary-components';
+import { isValidPassword } from 'binary-utils';
 import { api } from '../_data/LiveData';
+import { actions } from '../_store';
 import config from '../config';
 
-export default class CrateAccountCard extends Component {
+export default class CrateAccountCard extends PureComponent {
 
     static contextTypes = {
         router: PropTypes.object.isRequired,
@@ -50,7 +47,7 @@ export default class CrateAccountCard extends Component {
 
     performCreateAccount = async () => {
         const { password, verificationCode, residence } = this.state;
-
+        actions.removePersonalData();
         try {
             this.setState({
                 progress: true,
@@ -64,7 +61,6 @@ export default class CrateAccountCard extends Component {
                 affiliate_token: config.affiliateToken,
             });
             localStorage.setItem('account', JSON.stringify({ token: response.new_account_virtual.oauth_token }));
-
             // use react router because we want hash history in mobile
             this.context.router.push('/');
             window.location.reload();
@@ -81,7 +77,7 @@ export default class CrateAccountCard extends Component {
         const { verificationCode, password, confirmPassword, residence, validatedOnce, progress, serverError } = this.state;
         const residenceIsValid = !!residence;
         const verificationCodeIsValid = verificationCode.length >= 15;
-        const passwordIsValid = password.length >= 6;
+        const passwordIsValid = isValidPassword(password);
         const passwordsMatch = password === confirmPassword;
         this.allValid = residenceIsValid && verificationCodeIsValid && passwordIsValid && passwordsMatch;
 
@@ -114,7 +110,7 @@ export default class CrateAccountCard extends Component {
                         onChange={this.onPasswordChange}
                     />
                     {validatedOnce && !passwordIsValid &&
-                        <ErrorMsg text="Password should have lower and uppercase letters with numbers between 6-25 characters." />
+                        <ErrorMsg text="Password should have lower and uppercase letters and 6 characters or more" />
                     }
                     <InputGroup
                         type="password"

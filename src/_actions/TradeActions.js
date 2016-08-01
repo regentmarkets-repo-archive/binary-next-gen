@@ -1,7 +1,7 @@
 import * as types from '../_constants/ActionTypes';
 import * as LiveData from '../_data/LiveData';
 import { trackEvent } from 'binary-utils/lib/Analytics';
-import numberToSignedString from 'binary-utils/lib/numberToSignedString';
+import { numberToSignedString } from 'binary-utils';
 import { updateOpenContractField } from './PortfolioActions';
 import { getDataForContract } from './ChartDataActions';
 import { getTradingOptions } from './TradingOptionsActions';
@@ -36,7 +36,7 @@ export const resetTrades = () => ({
 
 // Update trade's params
 export const updateTradeParams = (index, fieldName, fieldValue) => {
-    trackEvent('update-trade-paremeters', { fieldName, fieldValue });
+    trackEvent('Trade', 'Parameter', fieldName + ' = ' + fieldValue);
     return {
         type: types.UPDATE_TRADE_PARAMS,
         index,
@@ -46,7 +46,7 @@ export const updateTradeParams = (index, fieldName, fieldValue) => {
 };
 
 export const updateMultipleTradeParams = (index, params) => {
-    trackEvent('update-trade-paremeters', params);
+    trackEvent('Trade', 'Multiple Params', JSON.stringify(params));
     return {
         type: types.UPDATE_MULTIPLE_TRADE_PARAMS,
         index,
@@ -82,8 +82,8 @@ export const updateTradeError = (index, errorID, error) => ({
     error,
 });
 
-export const updatePriceProposalSubscription = (tradeID, trade) => {
-    const thunk = (dispatch, getState) => {
+export const updatePriceProposalSubscription = (tradeID, trade) =>
+    (dispatch, getState) => {
         dispatch(updateTradeUIState(tradeID, 'disabled', true));
         if (!getState().tradesParams.get(tradeID)) {
             return;
@@ -115,47 +115,42 @@ export const updatePriceProposalSubscription = (tradeID, trade) => {
         const b1 = barrier && (barrierType === 'relative' ? numberToSignedString(barrier) : barrier);
         const b2 = barrier2 && (barrierType === 'relative' ? numberToSignedString(barrier2) : barrier2);
 
-        if (proposal) {
-            const proposalID = proposal.id;
-            LiveData.api.unsubscribeByID(proposalID);
-        }
-        LiveData.api.subscribeToPriceForContractProposal({
-            amount,
-            basis,
-            contract_type: type,
-            duration,
-            date_start: dateStart,
-            currency,
-            duration_unit: durationUnit,
-            symbol,
-            barrier: b1,
-            barrier2: b2,
-            amount_per_point: amountPerPoint,
-            stop_type: stopType,
-            stop_profit: stopProfit,
-            stop_loss: stopLoss,
-        }).then(
-            response => {
-                if (getState().tradesParams.get(tradeID)) {
-                    dispatch(updateTradeError(tradeID, 'proposalError', undefined));
-                    dispatch(updateTradeProposal(tradeID, 'proposal', response.proposal));
-                } else {
-                    LiveData.api.unsubscribeByID(response.proposal.id);
-                }
-            },
-            err => {
-                dispatch(updateTradeError(tradeID, 'proposalError', err.message));
-                dispatch(updateTradeProposal(tradeID, 'proposal', undefined));
-            }
-        ).then(() => dispatch(updateTradeUIState(tradeID, 'disabled', false)));
-    };
+        const preSubscribe = proposal ? LiveData.api.unsubscribeByID(proposal.id) : Promise.resolve();
 
-    thunk.meta = {
-        throttle: 300,
+        preSubscribe
+            .then(() =>
+                LiveData.api.subscribeToPriceForContractProposal({
+                    amount,
+                    basis,
+                    contract_type: type,
+                    duration,
+                    date_start: dateStart,
+                    currency,
+                    duration_unit: durationUnit,
+                    symbol,
+                    barrier: b1,
+                    barrier2: b2,
+                    amount_per_point: amountPerPoint,
+                    stop_type: stopType,
+                    stop_profit: stopProfit,
+                    stop_loss: stopLoss,
+                })
+                    .then(
+                        response => {
+                            if (getState().tradesParams.get(tradeID)) {
+                                dispatch(updateTradeError(tradeID, 'proposalError', undefined));
+                                dispatch(updateTradeProposal(tradeID, 'proposal', response.proposal));
+                            } else {
+                                LiveData.api.unsubscribeByID(response.proposal.id);
+                            }
+                        },
+                        err => {
+                            dispatch(updateTradeError(tradeID, 'proposalError', err.message));
+                            dispatch(updateTradeProposal(tradeID, 'proposal', undefined));
+                        })
+                    .then(() => dispatch(updateTradeUIState(tradeID, 'disabled', false)))
+            );
     };
-
-    return thunk;
-};
 
 export const resubscribeAllPriceProposal = () =>
     (dispatch, getState) => {
@@ -175,7 +170,7 @@ export const purchaseByTradeId = (tradeID, trade) =>
     (dispatch, getState) => {
         dispatch(updateTradeUIState(tradeID, 'disabled', true));
         const proposalSelected = trade || getState().tradesProposalInfo.get(tradeID).toJS();
-        trackEvent('buy-contract', proposalSelected);
+        trackEvent('Trade', 'Buy', JSON.stringify(proposalSelected));
         const proposalID = proposalSelected.proposal.id;
         const price = proposalSelected.proposal.ask_price;
 
@@ -214,7 +209,7 @@ export const sellContract = (id, price) =>
             dispatch(updateOpenContractField({ id, selling: true }));
             await LiveData.api.sellContract(id, price);
             dispatch(updateOpenContractField({ id, selling: false }));
-            await trackEvent('sell-contract', { id, price });
+            await trackEvent('Trade', 'Sell', price);
         } catch (error) {
             dispatch(updateOpenContractField({ id, validation_error: error }));
         }

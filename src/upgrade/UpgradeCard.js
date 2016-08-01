@@ -1,21 +1,10 @@
-import React, { Component, PropTypes } from 'react';
-import M from 'binary-components/lib/M';
-import LogoSpinner from 'binary-components/lib/LogoSpinner';
-import Legend from 'binary-components/lib/Legend';
-import Button from 'binary-components/lib/Button';
-import Option from 'binary-components/lib/Option';
-import ErrorMsg from 'binary-components/lib/ErrorMsg';
-import DateOfBirth from 'binary-components/lib/DateOfBirth';
-import Countries from 'binary-components/lib/Countries';
+import React, { PureComponent, PropTypes } from 'react';
+import { M, InputGroup, LogoSpinner, Legend, Button, Option,
+	ErrorMsg, DateOfBirth, Countries } from 'binary-components';
 import { api } from '../_data/LiveData';
 import SecretQuestion from './SecretQuestion';
 
-export default class UpgradeCard extends Component {
-
-	static propTypes = {
-		activeStep: PropTypes.number.isRequired,
-		progress: PropTypes.bool.isRequired,
-	};
+export default class UpgradeCard extends PureComponent {
 
 	static contextTypes = {
 		router: PropTypes.object.isRequired,
@@ -24,6 +13,7 @@ export default class UpgradeCard extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
+			progress: false,
 			validatedOnce: '',
 			salutation: 'Mr',
 			firstName: '',
@@ -44,14 +34,8 @@ export default class UpgradeCard extends Component {
 		}
 	}
 
-	onSalutationChange = e =>
-		this.setState({ salutation: e.target.value });
-
-	onFirstNameChange = e =>
-		this.setState({ firstName: e.target.value });
-
-	onLastNameChange = e =>
-		this.setState({ lastName: e.target.value });
+	onEntryChange = e =>
+        this.setState({ [e.target.id]: e.target.value });
 
 	onFirstNameValid = firstName =>
 		/^[a-zA-Z\s'.-]{2,30}$/.test(firstName);
@@ -171,22 +155,24 @@ export default class UpgradeCard extends Component {
 				<form onSubmit={this.onFormSubmit}>
 					<Legend text="Personal Information" />
 					<div className="input-row names-row">
-						<select onChange={this.onSalutationChange}>
+						<select id="salutation" onChange={this.onEntryChange}>
 							<Option value="Mr" text="Mr" />
 							<Option value="Mrs" text="Mrs" />
 							<Option value="Ms" text="Ms" />
 							<Option value="Miss" text="Miss" />
 						</select>
-						<input
+						<InputGroup
+							id="firstName"
 							placeholder="First Name"
 							type="text"
-							onChange={this.onFirstNameChange}
+							onChange={this.onEntryChange}
 							maxLength="30"
 						/>
-						<input
+						<InputGroup
+							id="lastName"
 							placeholder="Last Name"
 							type="text"
-							onChange={this.onLastNameChange}
+							onChange={this.onEntryChange}
 							maxLength="30"
 						/>
 					</div>
@@ -214,14 +200,14 @@ export default class UpgradeCard extends Component {
 						<ErrorMsg text="Choose your country" />
 					}
 					<div className="input-row">
-						<input
+						<InputGroup
 							name="AddressTown"
 							placeholder="Town/City"
 							type="text"
 							maxLength="35"
 							onChange={this.onCityChange}
 						/>
-						<input
+						<InputGroup
 							name="AddressPostcode"
 							placeholder="Postal Code / ZIP"
 							type="text"
@@ -233,7 +219,7 @@ export default class UpgradeCard extends Component {
 						<ErrorMsg text="City must not be empty" />
 					}
 					<div className="input-row">
-						<input
+						<InputGroup
 							name="Address1"
 							placeholder="Address First Line"
 							type="text"
@@ -245,7 +231,7 @@ export default class UpgradeCard extends Component {
 						<ErrorMsg text="Address must not be empty" />
 					}
 					<div className="input-row">
-						<input
+						<InputGroup
 							name="Address2"
 							placeholder="Address Second Line"
 							type="text"
@@ -254,9 +240,9 @@ export default class UpgradeCard extends Component {
 						/>
 					</div>
 					<div className="input-row">
-						<input
+						<InputGroup
 							name="Tel"
-							placeholder="Telephone"
+							placeholder="Phone"
 							type="tel"
 							maxLength="35"
 							onChange={this.onPhoneChange}
@@ -268,9 +254,9 @@ export default class UpgradeCard extends Component {
 					<Legend text="Security" />
 					<div className="input-row">
 						<SecretQuestion onChange={this.onSecretQuestionChange} />
-						<input
+						<InputGroup
 							name="secretanswer"
-							placeholder="Answer to secret question"
+							placeholder="Answer To Secret Question"
 							type="text"
 							maxLength="50"
 							onChange={this.onSecretAnswerChange}

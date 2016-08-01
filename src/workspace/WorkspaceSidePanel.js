@@ -1,5 +1,4 @@
-import React, { PropTypes, Component } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
+import React, { PropTypes, PureComponent } from 'react';
 import WatchlistContainer from '../watchlist/WatchlistContainer';
 import TradingTimesContainer from '../trading-times/TradingTimesContainer';
 import AssetIndexContainer from '../asset-index/AssetIndexContainer';
@@ -26,26 +25,27 @@ const components = [
 	SettingsContainer,
 ];
 
-export default class WorkspaceSidePanel extends Component {
+export default class WorkspaceSidePanel extends PureComponent {
 
 	static propTypes = {
 		sideActiveTab: PropTypes.number.isRequired,
 		sidePanelSize: PropTypes.number.isRequired,
+		sidePanelVisible: PropTypes.bool.isRequired,
 	};
 
-	shouldComponentUpdate = shouldPureComponentUpdate;
-
 	render() {
-		const { sideActiveTab, sidePanelSize } = this.props;
+		const { sideActiveTab, sidePanelSize, sidePanelVisible } = this.props;
 
 		const ActiveComponent = components[sideActiveTab];
+
+		if (!sidePanelVisible) return null;
 
 		return (
 			<div
 				className="workspace-panel"
 				style={{ width: sidePanelSize }}
 			>
-				<ActiveComponent />
+				<ActiveComponent key={sideActiveTab} />
 			</div>
 		);
 	}

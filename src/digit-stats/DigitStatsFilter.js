@@ -1,7 +1,7 @@
-import React, { Component, PropTypes } from 'react';
-import Option from 'binary-components/lib/Option';
+import React, { PureComponent, PropTypes } from 'react';
+import { Option } from 'binary-components';
 
-export default class DigitStatsFilter extends Component {
+export default class DigitStatsFilter extends PureComponent {
 
     static propTypes = {
         value: PropTypes.number,

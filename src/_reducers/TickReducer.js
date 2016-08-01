@@ -1,6 +1,5 @@
 import { fromJS, List, Map } from 'immutable';
-import mergeSortedArrays from 'binary-utils/lib/mergeSortedArrays';
-import getLastTick from 'binary-utils/lib/getLastTick';
+import { mergeSortedArrays, getLastTick } from 'binary-utils';
 
 import {
     SERVER_DATA_TICK_STREAM,

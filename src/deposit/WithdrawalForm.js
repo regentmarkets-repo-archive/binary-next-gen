@@ -1,16 +1,11 @@
-import React, { PropTypes, Component } from 'react';
-import M from 'binary-components/lib/M';
-import P from 'binary-components/lib/P';
-import Button from 'binary-components/lib/Button';
-import ErrorMsg from 'binary-components/lib/ErrorMsg';
-import InputGroup from 'binary-components/lib/InputGroup';
-import SelectGroup from 'binary-components/lib/SelectGroup';
+import React, { PropTypes, PureComponent } from 'react';
+import { M, P, Button, ErrorMsg, InputGroup, SelectGroup } from 'binary-components';
 import { actions } from '../_store';
 import Modal from '../containers/Modal';
 import currencies from '../_constants/currencies';
 import * as LiveData from '../_data/LiveData';
 
-export default class WithdrawForm extends Component {
+export default class WithdrawForm extends PureComponent {
 
     static propTypes = {
         paymentAgent: PropTypes.object.isRequired,
@@ -113,7 +108,7 @@ export default class WithdrawForm extends Component {
                 <SelectGroup
                     label="Payment agent"
                     options={paymentAgentOptions}
-                    placeholder="Choose a payment agent"
+                    placeholder="Choose a Payment Agent"
                     value={selectedPaymentAgent}
                     onChange={this.selectPaymentAgent}
                 />

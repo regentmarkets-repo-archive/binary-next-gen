@@ -1,0 +1,28 @@
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+}
+
+th,
+td {
+    padding: 0.25rem;
+    vertical-align: middle;
+}
+
+tr:focus {
+    outline: none;
+}
+
+table ul {
+    padding-left: 0;
+    list-style: none;
+}
+
+.asset-index-content th {
+    min-width: 6rem;
+}
+
+table.borderless tr {
+    border: none !important;
+}

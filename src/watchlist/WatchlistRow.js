@@ -1,20 +1,13 @@
-import React, { PropTypes, Component } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
-import Direction from 'binary-components/lib/Direction';
-import CloseButton from 'binary-components/lib/CloseButton';
-import NumberPlain from 'binary-components/lib/NumberPlain';
-import NumberColored from 'binary-components/lib/NumberColored';
-import OpenCloseNotice from 'binary-components/lib/OpenCloseNotice';
+import React, { PropTypes, PureComponent } from 'react';
+import { Direction, CloseButton, NumberPlain, NumberColored, OpenCloseNotice } from 'binary-components';
 import { actions } from '../_store';
 import WatchlistSparkline from './WatchlistSparkline';
 
-export default class WatchlistRow extends Component {
+export default class WatchlistRow extends PureComponent {
 
 	static propTypes = {
 		item: PropTypes.any.isRequired,
 	};
-
-	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	onRemove = () => {
 		const { item } = this.props;

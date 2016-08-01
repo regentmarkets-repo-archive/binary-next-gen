@@ -1,6 +1,6 @@
-import React, { Component, PropTypes } from 'react';
-import nowAsEpoch from 'binary-utils/lib/nowAsEpoch';
-import ErrorMsg from 'binary-components/lib/ErrorMsg';
+import React, { PureComponent, PropTypes } from 'react';
+import { nowAsEpoch } from 'binary-utils';
+import { ErrorMsg } from 'binary-components';
 import { actions } from '../_store';
 import Modal from '../containers/Modal';
 import RealityCheckInitialCard from './RealityCheckInitialCard';
@@ -9,7 +9,7 @@ import RealityCheckSummaryCard from './RealityCheckSummaryCard';
 export const timeLeftToNextRealityCheck = (loginTime, interval) =>
     interval - ((nowAsEpoch() - loginTime) % interval);
 
-export default class RealityCheckWeb extends Component {
+export default class RealityCheckWeb extends PureComponent {
     static propTypes = {
         interval: PropTypes.number.isRequired,           // in seconds
         showInitial: PropTypes.bool,

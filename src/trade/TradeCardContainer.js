@@ -1,12 +1,10 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import shouldPureComponentUpdate from 'react-pure-render/function';
 import TradeCard from './TradeCard';
 import singleTradeSelector from './SingleTradeSelector';
 
 @connect(singleTradeSelector())
-export default class TradeCardContainer extends Component {
-    shouldComponentUpdate = shouldPureComponentUpdate;
+export default class TradeCardContainer extends PureComponent {
 
     render() {
         return (

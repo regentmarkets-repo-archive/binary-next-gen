@@ -17,7 +17,6 @@ import proposals from './ProposalsReducer';
 import quickTrade from './QuickTradeReducer';
 import realityCheck from './RealityCheckReducer';
 import settings from './SettingsReducer';
-import signin from './SigninReducer';
 import states from './StatesReducer';
 import server from './ServerReducer';
 
@@ -59,7 +58,6 @@ export default combineReducers({
     realityCheck,
     server,
     settings,
-    signin,
     states,
     ticks,
     tradingTimes,

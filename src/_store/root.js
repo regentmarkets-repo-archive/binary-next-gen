@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { addLocaleData } from 'react-intl';
 import { Provider } from 'react-redux';
 import { store, rehydratedStorePromise, actions } from './persistentStore';
@@ -20,7 +20,7 @@ addLocaleData({
 
 const emptyObject = {};
 
-export default class Root extends Component {
+export default class Root extends PureComponent {
 
     async componentWillMount() {
         const reyhdratedStore = await rehydratedStorePromise();
@@ -30,7 +30,7 @@ export default class Root extends Component {
         const token = state.account.get('token');
 
         try {
-            await tryAuth(actions, token);
+            await tryAuth(token);
         } catch (e) {
             actions.updateAppState('authorized', false);
         } finally {
@@ -39,8 +39,8 @@ export default class Root extends Component {
     }
 
     createElementWithActions = (Element, props) => {
-        if (!Object.keys(props.routeParams).length) {
-            props.routeParams = emptyObject;
+        if (!Object.keys(props.routeParams).length) { // eslint-disable-line react/prop-types
+            props.routeParams = emptyObject; // eslint-disable-line react/prop-types
         }
         return <Element {...props} />;
     }

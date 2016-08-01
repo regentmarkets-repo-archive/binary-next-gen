@@ -1,9 +1,10 @@
 import { LiveApi } from 'binary-live-api';
+import { showError } from 'binary-utils';
 import { readNewsFeed } from './NewsData';
 import { getVideosFromPlayList } from './VideoData';
-import isUserVirtual from 'binary-utils/lib/isUserVirtual';
 import * as actions from '../_actions';
 import { timeLeftToNextRealityCheck } from '../reality-check/RealityCheckWeb';
+import { SET_DEFAULT_CURRENCY } from '../_constants/ActionTypes';
 
 const handlers = {
     active_symbols: 'serverDataActiveSymbols',
@@ -58,9 +59,21 @@ export const changeLanguage = langCode => {
 };
 
 const initAuthorized = async (authData, store) => {
+    if (/japan/.test(authData.authorize.landing_company_name)) {
+        showError('Sorry, for japan user please login through www.binary.com '); // TODO: use showError without breaking test
+        store.dispatch(actions.updateAppState('authorized', false));
+        store.dispatch(actions.updateToken(''));
+        return;
+    }
     api.getLandingCompanyDetails(authData.authorize.landing_company_name)
         .then(r => {
             const details = r.landing_company_details;
+
+            store.dispatch({
+                type: SET_DEFAULT_CURRENCY,
+                currency: details.legal_default_currency,
+            });
+
             const acknowledged = store.getState().realityCheck.get('acknowledged');
             if (details && details.has_reality_check) {
                 if (!acknowledged) {
@@ -103,7 +116,7 @@ const initAuthorized = async (authData, store) => {
     subscribeToWatchlist(store);
     subscribeToSelectedSymbol(store);
 
-    if (!isUserVirtual(authData.authorize)) {
+    if (authData.authorize.is_virtual !== 1) {
         api.getAccountLimits();
         api.getSelfExclusion();
         api.getCashierLockStatus();

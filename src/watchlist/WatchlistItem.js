@@ -1,20 +1,13 @@
-import React, { PropTypes, Component } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
-import Direction from 'binary-components/lib/Direction';
-import CloseButton from 'binary-components/lib/CloseButton';
-import NumberPlain from 'binary-components/lib/NumberPlain';
-import NumberColored from 'binary-components/lib/NumberColored';
-import OpenCloseNotice from 'binary-components/lib/OpenCloseNotice';
+import React, { PropTypes, PureComponent } from 'react';
+import { Direction, CloseButton, NumberPlain, NumberColored, OpenCloseNotice } from 'binary-components';
 import { actions } from '../_store';
 import WatchlistSparkline from './WatchlistSparkline';
 
-export default class WatchlistItem extends Component {
+export default class WatchlistItem extends PureComponent {
 
 	static propTypes = {
 		item: PropTypes.any.isRequired,
 	};
-
-	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	onRemove = () => {
 		const { item } = this.props;
@@ -28,10 +21,12 @@ export default class WatchlistItem extends Component {
 			<div className="watchlist-item">
 				<div className="watchlist-details">
 					{item.get('assetName')}
-					<NumberPlain value={item.get('quote')} />&nbsp;
+					<NumberPlain value={item.get('quote')} digits={item.get('digits')} />
+					&nbsp;
 					<div>
-						<Direction diff={item.get('diff')} />&nbsp;
-						<NumberColored value={item.get('diff')} />
+						<Direction diff={item.get('diff')} />
+						&nbsp;
+						<NumberColored value={item.get('diff')} digits={item.get('digits')} />
 					</div>
 					<CloseButton onClick={this.onRemove} />
 				</div>

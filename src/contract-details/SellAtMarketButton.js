@@ -1,9 +1,8 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import { actions } from '../_store';
-import M from 'binary-components/lib/M';
-import NumberPlain from 'binary-components/lib/NumberPlain';
+import { M, NumberPlain } from 'binary-components';
 
-export default class SellAtMarketButton extends Component {
+export default class SellAtMarketButton extends PureComponent {
 
 	static propTypes = {
 		contract: PropTypes.object.isRequired,

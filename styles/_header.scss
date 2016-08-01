@@ -71,3 +71,13 @@
         }
     }
 }
+
+.layout-switch-btn {
+    display: flex;
+    align-items: center;
+    padding: 0 4px 0 0;
+}
+
+.layout-switch-btn + span + .layout-switch-btn {
+    margin-left: 0.5rem;
+}

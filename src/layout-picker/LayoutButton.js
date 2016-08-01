@@ -1,24 +1,23 @@
-import React, { PropTypes, Component } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
+import React, { PropTypes, PureComponent } from 'react';
 import classNames from 'classnames';
-import sequence from 'binary-utils/lib/sequence';
+import { sequence } from 'binary-utils';
 import { actions } from '../_store';
 import * as layouts from '../layouts';
 import styles from '../layouts/layouts.css';
 
-export default class LayoutButton extends Component {
+export default class LayoutButton extends PureComponent {
 
     static propTypes = {
         isActive: PropTypes.bool,
         tradesCount: PropTypes.number.isRequired,
         layoutN: PropTypes.number.isRequired,
+        onClick: PropTypes.func,
     };
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
     onClick = () => {
-        const { tradesCount, layoutN } = this.props;
+        const { tradesCount, layoutN, onClick } = this.props;
         actions.changeActiveLayout(tradesCount, layoutN);
+        if (onClick) onClick(tradesCount, layoutN);
     }
 
     render() {

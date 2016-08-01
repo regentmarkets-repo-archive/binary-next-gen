@@ -1,7 +1,6 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
 import { connect } from 'react-redux';
-import windowResizeEvent from 'binary-utils/lib/windowResizeEvent';
-import shouldPureComponentUpdate from 'react-pure-render/function';
+import { windowResizeEvent } from 'binary-utils';
 import { actions } from '../../_store';
 import TradeCardContainer from '../TradeCardContainer';
 import * as layouts from '../../layouts';
@@ -10,7 +9,7 @@ import styles from '../../layouts/layouts.css';
 import { layoutSelector } from './LayoutSelector';
 
 @connect(layoutSelector)
-export default class TradesLayouts extends Component {
+export default class TradesLayouts extends PureComponent {
 
     static propTypes = {
         layoutN: PropTypes.number.isRequired,
@@ -25,8 +24,6 @@ export default class TradesLayouts extends Component {
         const { layoutN, tradesCount } = this.props;
         actions.changeActiveLayout(tradesCount, layoutN);
     }
-
-    shouldComponentUpdate = shouldPureComponentUpdate;
 
     componentDidUpdate() {
         windowResizeEvent();

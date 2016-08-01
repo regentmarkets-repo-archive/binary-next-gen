@@ -1,15 +1,13 @@
-import React, { PropTypes, Component } from 'react';
-import M from 'binary-components/lib/M';
-import Button from 'binary-components/lib/Button';
-import InputGroup from 'binary-components/lib/InputGroup';
-import showError from 'binary-utils/lib/showError';
+import React, { PropTypes, PureComponent } from 'react';
+import { M, Button, InputGroup } from 'binary-components';
+import { showError } from 'binary-utils';
 import { actions } from '../_store';
 import States from './States';
 import ErrorMsg from 'binary-components/lib/ErrorMsg';
 import showInfo from 'binary-utils/lib/showInfo';
 import * as LiveData from '../_data/LiveData';
 
-export default class SettingsAddress extends Component {
+export default class SettingsAddress extends PureComponent {
 
 	static propTypes = {
 		address_line_1: PropTypes.string.isRequired,
@@ -83,7 +81,7 @@ export default class SettingsAddress extends Component {
 				<InputGroup
 					id="address_line_1"
 					type="text"
-					label="Address1"
+					label="Address"
 					value={address_line_1}
 					onChange={this.onEntryChange}
 				/>
@@ -91,7 +89,7 @@ export default class SettingsAddress extends Component {
 				<InputGroup
 					id="address_line_2"
 					type="text"
-					label="Address2"
+					label=" "
 					value={address_line_2}
 					onChange={this.onEntryChange}
 				/>

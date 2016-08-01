@@ -8,7 +8,7 @@ export const watchlistToggleAsset = (symbol, isSubscribed) =>
             LiveData.api.subscribeToTick(symbol);
         } else {
             LiveData.api.unsubscribeFromTick(symbol);
-            trackEvent('favor-asset', { symbol });
+            trackEvent('Watchlist', 'Toggle', symbol);
         }
         dispatch({ type: WATCHLIST_TOGGLE_ASSET, symbol, isSubscribed });
     };

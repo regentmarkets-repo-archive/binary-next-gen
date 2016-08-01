@@ -779,5 +779,329 @@ export default {
     "Digit Stats": [
         null,
         ""
+    ],
+    "Favorites": [
+        null,
+        ""
+    ],
+    "Open For Trading": [
+        null,
+        ""
+    ],
+    "Closed": [
+        null,
+        ""
+    ],
+    "Contract ID": [
+        null,
+        ""
+    ],
+    "Reference ID": [
+        null,
+        ""
+    ],
+    "Entry Spot": [
+        null,
+        ""
+    ],
+    "Entry Spot Time": [
+        null,
+        ""
+    ],
+    "Potential Payout": [
+        null,
+        ""
+    ],
+    "Exit Spot": [
+        null,
+        ""
+    ],
+    "Exit Spot Time": [
+        null,
+        ""
+    ],
+    "Sell Price": [
+        null,
+        ""
+    ],
+    "Sell Time": [
+        null,
+        ""
+    ],
+    "Trade Again": [
+        null,
+        ""
+    ],
+    "Barrier": [
+        null,
+        ""
+    ],
+    "You Won": [
+        null,
+        ""
+    ],
+    "You Lost": [
+        null,
+        ""
+    ],
+    "To change your name, date of birth, country of residence, or email, contact Customer Support.": [
+        null,
+        ""
+    ],
+    "Cashier is locked per your request. To unlock it, enter your password.": [
+        null,
+        ""
+    ],
+    "Unlock Cashier": [
+        null,
+        ""
+    ],
+    "Time out until": [
+        null,
+        ""
+    ],
+    "No transactions for the selected period": [
+        null,
+        ""
+    ],
+    "You have no open contracts": [
+        null,
+        ""
+    ],
+    "You have no assets in watchlist": [
+        null,
+        ""
+    ],
+    "Basic": [
+        null,
+        ""
+    ],
+    "Digits": [
+        null,
+        ""
+    ],
+    "Advanced": [
+        null,
+        ""
+    ],
+    "Higher": [
+        null,
+        ""
+    ],
+    "Lower": [
+        null,
+        ""
+    ],
+    "Ends Outside": [
+        null,
+        ""
+    ],
+    "Ends Between": [
+        null,
+        ""
+    ],
+    "Stays Between": [
+        null,
+        ""
+    ],
+    "Goes Outside": [
+        null,
+        ""
+    ],
+    "Does Not Touch": [
+        null,
+        ""
+    ],
+    "Credit / Debit": [
+        null,
+        ""
+    ],
+    "Last 25 Ticks": [
+        null,
+        ""
+    ],
+    "Last 50 Trades": [
+        null,
+        ""
+    ],
+    "Last 100 Trades": [
+        null,
+        ""
+    ],
+    "Last 500 Trades": [
+        null,
+        ""
+    ],
+    "Last 1000 Trades": [
+        null,
+        ""
+    ],
+    "Maximum Daily Turnover": [
+        null,
+        ""
+    ],
+    "Commodities": [
+        null,
+        ""
+    ],
+    "Major Pairs": [
+        null,
+        ""
+    ],
+    "Minor Pairs": [
+        null,
+        ""
+    ],
+    "Smart FX": [
+        null,
+        ""
+    ],
+    "Volatility Indices": [
+        null,
+        ""
+    ],
+    "Indices": [
+        null,
+        ""
+    ],
+    "OTC Stocks": [
+        null,
+        ""
+    ],
+    "Stated limits are subject to change without prior notice": [
+        null,
+        ""
+    ],
+    "Withdrawal Limits": [
+        null,
+        ""
+    ],
+    "Withdrawal limit": [
+        null,
+        ""
+    ],
+    "Already withdrawn": [
+        null,
+        ""
+    ],
+    "Current immediate maximum withdrawal": [
+        null,
+        ""
+    ],
+    "Create Free Account": [
+        null,
+        ""
+    ],
+    "Verification Code": [
+        null,
+        ""
+    ],
+    "Confirm Password": [
+        null,
+        ""
+    ],
+    "Already have an account?": [
+        null,
+        ""
+    ],
+    "Enter a valid verification code": [
+        null,
+        ""
+    ],
+    "Choose your country": [
+        null,
+        ""
+    ],
+    "Password should have lower and uppercase letters and 6 characters or more": [
+        null,
+        ""
+    ],
+    "Passwords do not match": [
+        null,
+        ""
+    ],
+    "Enter a valid email": [
+        null,
+        ""
+    ],
+    "Number should between 10 to 120": [
+        null,
+        ""
+    ],
+    "Enter your first and last name": [
+        null,
+        ""
+    ],
+    "City must not be empty": [
+        null,
+        ""
+    ],
+    "Address must not be empty": [
+        null,
+        ""
+    ],
+    "Enter a valid phone number": [
+        null,
+        ""
+    ],
+    "Select a secret question": [
+        null,
+        ""
+    ],
+    "Secret answer must be at least 4 characters": [
+        null,
+        ""
+    ],
+    "You need to agree to our Terms and Conditions": [
+        null,
+        ""
+    ],
+    "I agree to the": [
+        null,
+        ""
+    ],
+    "terms and conditions": [
+        null,
+        ""
+    ],
+    "Search for assets": [
+        null,
+        ""
+    ],
+    "Choose a Payment Agent": [
+        null,
+        ""
+    ],
+    "Confirm New Password": [
+        null,
+        ""
+    ],
+    "First Name": [
+        null,
+        ""
+    ],
+    "Last Name": [
+        null,
+        ""
+    ],
+    "Address First Line": [
+        null,
+        ""
+    ],
+    "Address Second Line": [
+        null,
+        ""
+    ],
+    "Phone": [
+        null,
+        ""
+    ],
+    "Answer To Secret Question": [
+        null,
+        ""
+    ],
+    "Switch to": [
+        null,
+        ""
     ]
 }

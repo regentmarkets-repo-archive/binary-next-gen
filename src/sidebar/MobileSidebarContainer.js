@@ -1,14 +1,11 @@
-import React, { Component } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import shouldPureComponentUpdate from 'react-pure-render/function';
-import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
+import { immutableChildrenToJS } from 'binary-utils';
 import MobileSidebar from './MobileSidebar';
 import sidebarSelectors from './sidebarSelectors';
 
 @connect(sidebarSelectors)
-export default class WebSidebarContainer extends Component {
-
-	shouldComponentUpdate = shouldPureComponentUpdate;
+export default class WebSidebarContainer extends PureComponent {
 
 	render() {
 		return (

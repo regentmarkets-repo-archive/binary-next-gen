@@ -1,11 +1,10 @@
-import React, { PropTypes, Component } from 'react';
-import M from 'binary-components/lib/M';
-import OpenCloseNotice from 'binary-components/lib/OpenCloseNotice';
+import React, { PropTypes, PureComponent } from 'react';
+import { M, OpenCloseNotice } from 'binary-components';
 import AssetDetailsDurations from './AssetDetailsDurations';
 import AssetDetailsTradingTimes from './AssetDetailsTradingTimes';
 import AssetDetailsTradingEvents from './AssetDetailsTradingEvents';
 
-export default class AssetDetailsCard extends Component {
+export default class AssetDetailsCard extends PureComponent {
 
 	static propTypes = {
 		activeAsset: PropTypes.object.isRequired,

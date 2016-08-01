@@ -1,0 +1,15 @@
+.app {
+    * {
+        -moz-user-drag: none;
+        -webkit-user-drag: none;
+        -ms-user-drag: none;
+        user-drag: none;
+    }
+
+    *:not(input) {
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+    }
+}

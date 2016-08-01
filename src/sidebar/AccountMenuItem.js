@@ -1,6 +1,7 @@
-import React, { PropTypes, Component } from 'react';
+import React, { PropTypes, PureComponent } from 'react';
+import { M } from 'binary-components';
 
-export default class AccountMenuItem extends Component {
+export default class AccountMenuItem extends PureComponent {
 
 	static propTypes = {
 		account: PropTypes.string.isRequired,
@@ -23,7 +24,9 @@ export default class AccountMenuItem extends Component {
 				onClick={this.switchToAccount}
 			>
 				<img src="img/icon.png" alt="" />
-				<span>Switch to {account}</span>
+				<M m="Switch to" />
+				&nbsp;
+				{account}
 			</a>
 		);
 	}

@@ -1,5 +1,5 @@
 import { Map } from 'immutable';
-import windowResizeEvent from 'binary-utils/lib/windowResizeEvent';
+import { windowResizeEvent } from 'binary-utils';
 
 import {
     CHANGE_SELECTED_ASSET,
@@ -66,8 +66,8 @@ export default (state = initialState, action) => {
         case CHANGE_WORKSPACE_PANEL_SIZE: {
             windowResizeEvent();
             return state
-                .set(action.panel + 'PanelSize', action.size > 100 ? action.size : 100)
-                .set(action.panel + 'PanelVisible', action.size > 100);
+                .set(action.panel + 'PanelSize', action.size > 150 ? action.size : 150)
+                .set(action.panel + 'PanelVisible', action.size > 150);
         }
         case TOGGLE_TRADE_MODE: {
             const tradeModes = ['tabs', 'grid', 'jp'];

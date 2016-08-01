@@ -1,9 +1,8 @@
-import React, { PropTypes, Component } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
+import React, { PropTypes, PureComponent } from 'react';
 import MobileToolbarFull from '../mobile/MobileToolbarFull';
 import MobileToolbarBack from '../mobile/MobileToolbarBack';
 
-export default class MobilePage extends Component {
+export default class MobilePage extends PureComponent {
 
 	static propTypes = {
 		backBtnBarTitle: PropTypes.string,
@@ -16,8 +15,6 @@ export default class MobilePage extends Component {
 	static defaultProps = {
 		toolbarShown: true,
 	};
-
-	shouldComponentUpdate = shouldPureComponentUpdate;
 
 	render() {
 		const { backBtnBarTitle, children, toolbarShown, inverse, backTo } = this.props;

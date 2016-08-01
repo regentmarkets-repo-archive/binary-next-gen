@@ -1,6 +1,5 @@
-import React, { PropTypes, Component } from 'react';
-import RadioGroup from 'binary-components/lib/RadioGroup';
-import InputGroup from 'binary-components/lib/InputGroup';
+import React, { PropTypes, PureComponent } from 'react';
+import { RadioGroup, InputGroup } from 'binary-components';
 import { actions } from '../_store';
 
 const basisTypes = [
@@ -12,7 +11,7 @@ const payoutAmounts = [1, 2, 5, 10, 20, 50, 100, 500, 1000].map(x => ({ value: x
 const maxAmount = 100000;
 const minAmount = 1;
 
-export default class PayoutPickerCard extends Component {
+export default class PayoutPickerCard extends PureComponent {
 
 	static propTypes = {
 		location: PropTypes.object.isRequired,

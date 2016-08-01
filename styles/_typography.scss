@@ -1,0 +1,95 @@
+a:not([class]),
+a:not([class]):visited {
+    color: $COLOR_BRAND_BLUE;
+    font-weight: bold;
+}
+
+p,
+code,
+fieldset {
+    margin-bottom: 1rem;
+}
+
+code {
+    display: block;
+    background: rgba($COLOR_BRAND_BLUE, 0.1);
+    padding: 1rem;
+    overflow: auto;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: 300;
+    line-height: 1.1;
+    margin: 2rem 0 1rem;
+}
+
+h5,
+h6 {
+    font-weight: bold;
+}
+
+h1,
+.font-size-xxl {
+    font-size: $FONT_SIZE_XXL;
+}
+
+h2,
+.font-size-xl {
+    font-size: $FONT_SIZE_XL;
+}
+
+h3,
+.font-size-l {
+    font-size: $FONT_SIZE_L;
+}
+
+h4,
+.font-size-m {
+    font-size: $FONT_SIZE_M;
+}
+
+h5,
+.font-size-n {
+    font-size: $FONT_SIZE_N;
+}
+
+.font-size-s {
+    font-size: $FONT_SIZE_S;
+}
+
+.font-size-xs {
+    font-size: $FONT_SIZE_XS;
+}
+
+input,
+button,
+textarea,
+select,
+optgroup,
+option {
+    font-family: inherit;
+    font-size: inherit;
+    font-style: inherit;
+    font-weight: inherit;
+}
+
+input,
+textarea {
+    vertical-align: middle;
+}
+
+ol li {
+    list-style-type: decimal;
+    list-style-image: none;
+}
+
+ul {
+    margin: 0 0 1rem;
+}
+
+ol {
+    margin: 0 0 1rem 1.5rem;
+}

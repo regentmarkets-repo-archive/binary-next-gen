@@ -1,0 +1,18 @@
+.row {
+    display: flex;
+    margin: 0 -0.5rem;
+    flex-wrap: wrap;
+}
+
+.row > * {
+    flex: 1;
+    margin: 0 0.5rem;
+}
+
+.col.q {
+    flex: 0.33333333;
+}
+
+.col.t {
+    flex: 0.5;
+}

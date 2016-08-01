@@ -1,10 +1,9 @@
-import React, { Component } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
-import FullScreenSwitcher from './FullScreenSwitcher';
+import React, { PureComponent } from 'react';
+import FullscreenSwitcher from './FullscreenSwitcher';
 import ClockContainer from './ClockContainer';
 import LanguagePicker from './LanguagePicker';
 
-export default class Footer extends Component {
+export default class Footer extends PureComponent {
 
 	constructor(props) {
 		super(props);
@@ -13,12 +12,10 @@ export default class Footer extends Component {
 		};
 	}
 
-	shouldComponentUpdate = shouldPureComponentUpdate;
-
 	render() {
 		return (
 			<div id="footer" className="inverse">
-				<FullScreenSwitcher />
+				<FullscreenSwitcher />
 				<div id="clock" >
 					<ClockContainer />
 				</div>

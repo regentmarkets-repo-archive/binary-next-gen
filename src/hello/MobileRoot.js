@@ -1,11 +1,11 @@
-import React, { Component, PropTypes } from 'react';
+import React, { PureComponent, PropTypes } from 'react';
 import { connect } from 'react-redux';
 import HelloMobile from './HelloMobile';
 import TradeMobile from '../trade/mobile/TradeMobile';
 import { appStateSelector } from '../_selectors/AppStateSelectors';
 
 @connect(appStateSelector)
-export default class MobileRoot extends Component {
+export default class MobileRoot extends PureComponent {
     static propTypes = {
         authorized: PropTypes.bool,
     };

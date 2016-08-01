@@ -1,22 +1,11 @@
-import {
-    assetsSelector,
-    currencySelector,
-    tradeProposalSelector,
-    tradePurchaseInfoSelector,
-    tradesErrorSelector,
-    tradesUIStatesSelector,
-} from '../_store/directSelectors';
 import { createSelector } from 'reselect';
-import extractBarrier from 'binary-utils/lib/extractBarrier';
-import extractDuration from 'binary-utils/lib/extractDuration';
-import extractForwardStartingDuration from 'binary-utils/lib/extractForwardStartingDuration';
-import extractSpreadInfo from 'binary-utils/lib/extractSpreadInfo';
-import normalizedContractFor from 'binary-utils/lib/normalizedContractFor';
-import groupByKey from 'binary-utils/lib/groupByKey';
-import findDeep from 'binary-utils/lib/findDeep';
-import filterObjectBy from 'binary-utils/lib/filterObjectBy';
-import { paramPerTrade, pipSizePerTrade } from '../trade/trade-chart/TradeViewChartSelector';
+import { extractBarrier, extractDuration, extractForwardStartingDuration,
+    extractSpreadInfo, normalizedContractFor, groupByKey,
+    findDeep, filterDeep } from 'binary-utils';
+import { assetsSelector, currencySelector } from '../_store/directSelectors';
+import { pipSizePerTrade } from '../trade/trade-chart/TradeViewChartSelector';
 import { mockedContract } from '../_constants/MockContract';
+import { paramPerTrade, errorPerTrade, proposalPerTrade, purchasePerTrade, uiStatePerTrade } from '../trade/TradeSelectors';
 
 const aggregateContracts = (contracts, type) => ({
     barriers: extractBarrier(contracts, type),
@@ -70,7 +59,7 @@ export const availableContractsSelector = createSelector(
                 // remove trade type without start later if market is closed
                 return assetsIsOpen[symbol] && assetsIsOpen[symbol].isOpen ?
                     contractTree :
-                    filterObjectBy(contractTree, obj =>
+                    filterDeep(contractTree, obj =>
                         findDeep(obj, descendent => descendent && !!descendent.forwardStartingDuration)
                     );
             })
@@ -93,16 +82,12 @@ const marketIsOpenPerTrade = createSelector(
     }
 );
 
-const errorPerTrade = (state, props) => tradesErrorSelector(state).get(props.index);
-const proposalPerTrade = (state, props) => tradeProposalSelector(state).get(props.index);
-const uiStatePerTrade = (state, props) => tradesUIStatesSelector(state).get(props.index);
-const purchasePerTrade = (state, props) => tradePurchaseInfoSelector(state).get(props.index);
-
 const getStartLaterOnlyContract = contract => {
     const startLaterCategories =
-        filterObjectBy(contract, child =>
+        filterDeep(contract, child =>
             findDeep(child, descendent => descendent && !!descendent.forwardStartingDuration));
 
+    // side effect to remove durations property, to indicate it's only start later
     Object.keys(startLaterCategories).forEach(category => {
         Object.keys(startLaterCategories[category]).forEach(type => {
             if (startLaterCategories[category][type].durations) {
@@ -134,8 +119,12 @@ export const tradeParamsPerTrade = createSelector(
         } else if (!marketIsOpen) {
             contractToUse = getStartLaterOnlyContract(contract);
         }
-
-        const disabled = !contract || contractToUse.error || uiState.get('disabled');
+        const hasError = errors.valueSeq().filter(v => !!v).size > 0;
+        const disabled =
+            !contract ||
+            contractToUse.error ||
+            uiState.get('disabled') ||
+            hasError;
         return {
             currency,
             contract: contractToUse,

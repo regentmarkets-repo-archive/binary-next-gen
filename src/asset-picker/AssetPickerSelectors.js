@@ -1,9 +1,6 @@
 import { createSelector, createStructuredSelector } from 'reselect';
-import groupByKey from 'binary-utils/lib/groupByKey';
-import {
-    assetsSelector,
-    watchlistSelector,
-} from '../_store/directSelectors';
+import { groupByKey } from 'binary-utils';
+import { assetsSelector, watchlistSelector } from '../_store/directSelectors';
 
 export const symbolIdsSelector = createSelector(
      assetsSelector,
@@ -36,7 +33,7 @@ const availableAssetsSelector = assetsSelector;
 export const assetFilterSelector = state => state.assetPicker;
 
 export const shownAssetsSelector = createSelector(
-    [availableAssetsSelector, assetFilterSelector, watchlistSelector], // todo: availableAssetsSelector
+    [availableAssetsSelector, assetFilterSelector, watchlistSelector],
     (availableAssets, filter, watchlist) =>
         availableAssets
             .filter(asset => doesMatchQueryAndFilter(asset, filter, watchlist))
@@ -66,17 +63,15 @@ export const sortedByMarketShownAssetsSelector = createSelector(
 
 export const assetPickerItemsSelector = createSelector(
     [sortedByMarketShownAssetsSelector, watchlistSelector],
-    (shownAssets, watchlist) => {
-        const groupedAsset = groupByKey(shownAssets.map(asset => ({
+    (shownAssets, watchlist) =>
+        groupByKey(shownAssets.map(asset => ({
             symbol: asset.get('symbol'),
             name: asset.get('display_name'),
             isInWatchlist: watchlist.has(asset.get('symbol')),
             market: asset.get('market_display_name'),
             submarket: asset.get('submarket_display_name'),
             isOpen: !!asset.get('exchange_is_open'),
-        })), 'submarket');
-        return groupedAsset;
-    }
+        })), 'submarket')
 );
 
 export const assetPickerMobileSelector = createStructuredSelector({
@@ -85,7 +80,6 @@ export const assetPickerMobileSelector = createStructuredSelector({
 });
 
 export default createStructuredSelector({
-    availableAssets: availableAssetsSelector,
     assetPickerItems: assetPickerItemsSelector,
 	filter: assetFilterSelector,
 });

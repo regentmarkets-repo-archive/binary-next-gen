@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import VideoList from './VideoList';
-import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
+import { immutableChildrenToJS } from 'binary-utils';
 
 import videoSelectors from './VideoSelectors';
 
 @connect(videoSelectors)
-export default class VideoListContainer extends Component {
-
-    shouldComponentUpdate = shouldPureComponentUpdate;
+export default class VideoListContainer extends PureComponent {
 
     render() {
         return (

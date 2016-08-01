@@ -8,13 +8,17 @@
 
 .watchlist-card {
     width: 100%;
+    height: auto;
     padding: 0.25rem;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
 }
 
 .watchlist-details {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-size: 1rem;
 }
 
 .watchlist-item {

@@ -1,0 +1,34 @@
+header {
+    background: $COLOR_BRAND_BLUE;
+    border-bottom: 4px solid $COLOR_BRAND_ORANGE;
+    display: flex;
+    justify-content: center;
+}
+
+.header-content {
+    display: flex;
+    width: 100%;
+    max-width: $CONTENT_WIDTH;
+    margin: 0 0.5em;
+}
+
+.nav {
+    flex: 1;
+    justify-content: center;
+    display: flex;
+}
+
+.nav div {
+    padding: 0 1rem;
+    line-height: 2;
+    text-align: center;
+}
+
+.nav a {
+    text-decoration: none;
+    font-weight: normal;
+    color: white !important;
+    &:hover {
+        text-decoration: none;
+    }
+}

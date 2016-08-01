@@ -1,17 +1,15 @@
-import React, { PropTypes, Component } from 'react';
-import M from 'binary-components/lib/M';
-import Tab from 'binary-components/lib/Tab';
-import TabList from 'binary-components/lib/TabList';
+import React, { PropTypes, PureComponent } from 'react';
+import { M, Tab, TabList } from 'binary-components';
 import PaymentAgentsList from './PaymentAgentsList';
 import WithdrawalForm from './WithdrawalForm';
-import immutableChildrenToJS from 'binary-utils/lib/immutableChildrenToJS';
+import { immutableChildrenToJS } from 'binary-utils';
 
 const components = [
 	PaymentAgentsList,
 	WithdrawalForm,
 ];
 
-export default class DepositCard extends Component {
+export default class DepositCard extends PureComponent {
     static propTypes = {
         paymentAgent: PropTypes.object.isRequired,
         currency: PropTypes.string.isRequired,

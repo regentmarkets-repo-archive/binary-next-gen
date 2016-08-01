@@ -1,12 +1,12 @@
-import React, { PropTypes, Component } from 'react';
-import Resizer from 'binary-components/lib/Resizer';
+import React, { PropTypes, PureComponent } from 'react';
+import { Resizer } from 'binary-components';
 import { actions } from '../_store';
 import TradesLayout from '../trade/browser/TradesLayout';
 import WorkspaceSidePanel from './WorkspaceSidePanel';
 import WorkspaceTabs from './WorkspaceTabs';
 import ContractDetailsModal from './ContractDetailsModal';
 
-export default class WorkspaceCard extends Component {
+export default class WorkspaceCard extends PureComponent {
 
 	static propTypes = {
 		workspace: PropTypes.object.isRequired,
@@ -18,7 +18,7 @@ export default class WorkspaceCard extends Component {
 
 	render() {
 		const { workspace } = this.props;
-		const { sideActiveTab, sidePanelVisible } = workspace;
+		const { sideActiveTab } = workspace;
 
 		return (
 			<div className="panels">
@@ -28,7 +28,7 @@ export default class WorkspaceCard extends Component {
 					className="resizer-vertical"
 					onResize={this.onResize}
 				/>
-				{sidePanelVisible && <WorkspaceSidePanel {...workspace} />}
+				<WorkspaceSidePanel {...workspace} />
 				<WorkspaceTabs activeTab={sideActiveTab} />
 			</div>
 		);

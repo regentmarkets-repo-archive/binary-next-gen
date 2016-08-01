@@ -1,9 +1,9 @@
-import React, { PropTypes, Component } from 'react';
-import AccountMenuItem from './AccountMenuItem';
-import M from 'binary-components/lib/M';
+import React, { PropTypes, PureComponent } from 'react';
+import AccountItemsList from './AccountItemsList';
+import { M } from 'binary-components';
 import { signOut } from '../_data/Auth';
 
-export default class WebSidebar extends Component {
+export default class WebSidebar extends PureComponent {
 
 	static propTypes = {
 		email: PropTypes.string.isRequired,
@@ -26,15 +26,12 @@ export default class WebSidebar extends Component {
 					{loginid}<br />
 					{email}<br />
 				</div>
-				{accounts
-					.filter(x => x.account !== loginid)
-					.map(x => <AccountMenuItem key={x.token} account={x.account} token={x.token} />)
-				}
+				<AccountItemsList loginid={loginid} accounts={accounts} />
 				{/* <SidebarBtn to="/deposit" img="img/profit.svg" text="Deposit" /> */}
-				<label htmlFor="Sign-Out" onClick={this.onSignOut} className="sidebar-btn">
+				<a className="sidebar-btn" onClick={this.onSignOut} >
 					<img src="img/signout.svg" role="presentation" />
 					<M m="Sign Out" />
-				</label>
+				</a>
 			</nav>
 		);
 	}

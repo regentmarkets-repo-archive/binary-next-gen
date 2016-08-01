@@ -1,25 +1,26 @@
-import React, { Component, PropTypes } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
-import durationText from 'binary-utils/lib/durationText';
-import Label from 'binary-components/lib/Label';
+import React, { PureComponent, PropTypes } from 'react';
+import { durationText } from 'binary-utils';
+import { Label } from 'binary-components';
 import DurationUnitPicker from './DurationUnitPicker';
+import { changeDurationUnit } from '../trade-params/TradeParamsCascadingUpdates';
+import { actions } from '../_store';
 
-export default class DurationCard extends Component {
+export default class DurationCard extends PureComponent {
 
     static propTypes = {
         dateStart: PropTypes.number,
         duration: PropTypes.number,
         durationUnit: PropTypes.string,
         forwardStartingDuration: PropTypes.object,       // treated as special case
+        forceTradeCardUpdate: PropTypes.func.isRequired,
         options: PropTypes.array,
-        onUnitChange: PropTypes.func,
-        onDurationChange: PropTypes.func,
-        onError: PropTypes.func,
+        index: PropTypes.number,
+        onUpdateTradeParams: PropTypes.func,
+        contract: PropTypes.object,
+        tradeParams: PropTypes.object.isRequired,
     };
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
-    // return error msg or undefined is no error
+    // return error msg or undefined if no error
     validateDuration(duration, durationUnit) {
         const {
             dateStart,
@@ -52,18 +53,28 @@ export default class DurationCard extends Component {
         }
         return undefined;
     }
-
+    onDurationError = err => {
+        const { index } = this.props;
+        actions.updateTradeError(index, 'durationError', err);
+    }
     updateDuration = e => {
-        const { onDurationChange, onError, durationUnit } = this.props;
+        const { durationUnit } = this.props;
         const newDuration = e.target.value;
         const err = this.validateDuration(newDuration, durationUnit);
-        onError(err);
-        onDurationChange(e);
+        this.onDurationError(err);
+        this.onDurationChange(e);
     }
-
-    updateDurationUnit = e => {
-        const { onUnitChange } = this.props;
-        onUnitChange(e);
+    onDurationChange = e => {
+        const { onUpdateTradeParams } = this.props;
+        onUpdateTradeParams({ duration: e.target.value });
+    }
+    onDurationUnitChange = e => {
+        const { onUpdateTradeParams, forceTradeCardUpdate } = this.props;
+        const newUnit = e.target.value;
+        const { contract, tradeParams } = this.props;
+        const updatedDurationUnit = changeDurationUnit(newUnit, contract, tradeParams);
+        onUpdateTradeParams(updatedDurationUnit);
+        forceTradeCardUpdate();
     }
 
     render() {
@@ -74,7 +85,6 @@ export default class DurationCard extends Component {
             forwardStartingDuration,
             options,
         } = this.props;
-
         const allowStartLater = !!forwardStartingDuration;
         const onlyStartLater = allowStartLater && !options;
         const forwardOptions = forwardStartingDuration && forwardStartingDuration.options;
@@ -103,7 +113,7 @@ export default class DurationCard extends Component {
                 <div className="duration-input param-field">
                     <input
                         type="number"
-                        value={duration}
+                        defaultValue={duration}
                         min={min}
                         max={max}
                         onChange={this.updateDuration}
@@ -111,7 +121,7 @@ export default class DurationCard extends Component {
                     <DurationUnitPicker
                         durationUnit={durationUnit}
                         unitOptions={unitOptions}
-                        onChange={this.updateDurationUnit}
+                        onChange={this.onDurationUnitChange}
                     />
                 </div>
             </div>

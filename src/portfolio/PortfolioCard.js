@@ -1,9 +1,10 @@
-import React, { PropTypes, Component } from 'react';
-import P from 'binary-components/lib/P';
+import React, { PropTypes, PureComponent } from 'react';
+import { P } from 'binary-components';
+import { showError } from 'binary-utils';
 import { actions } from '../_store';
 import PortfolioList from './PortfolioList';
 
-export default class PortfolioCard extends Component {
+export default class PortfolioCard extends PureComponent {
 
 	static propTypes = {
 		compact: PropTypes.bool,
@@ -29,7 +30,8 @@ export default class PortfolioCard extends Component {
 				if (compact) {
 					router.push(`/contract/${contract.contract_id}`);
 				}
-			});
+			})
+			.catch(e => showError(e));
 	}
 
 	render() {

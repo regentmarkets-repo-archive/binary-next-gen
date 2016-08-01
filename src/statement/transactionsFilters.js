@@ -1,8 +1,5 @@
-import todayUTCString from 'binary-utils/lib/todayUTCString';
-import epochToUTCDateString from 'binary-utils/lib/epochToUTCDateString';
-import yesterdayUTCString from 'binary-utils/lib/yesterdayUTCString';
-import getLastXMonthEpoch from 'binary-utils/lib/getLastXMonthEpoch';
-import last7DaysEpoch from 'binary-utils/lib/last7DaysEpoch';
+import { todayUTCString, epochToUTCDateString, yesterdayUTCString,
+    getLastXMonthEpoch, last7DaysEpoch } from 'binary-utils';
 
 export const transactionsTodayFilterFunc = tx =>
     todayUTCString() === epochToUTCDateString(tx.get('transaction_time'));

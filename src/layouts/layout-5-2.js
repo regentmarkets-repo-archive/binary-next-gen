@@ -8,7 +8,7 @@ export default (components, className, onClick) => (
             {components[2]}
             {components[3]}
         </div>
-        <div className="horizontal">
+        <div className="vertical">
             {components[4]}
         </div>
     </div>

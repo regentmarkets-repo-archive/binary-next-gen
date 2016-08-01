@@ -1,14 +1,9 @@
-import React, { Component, PropTypes } from 'react';
-import shouldPureComponentUpdate from 'react-pure-render/function';
+import React, { PureComponent, PropTypes } from 'react';
 import throttle from 'lodash.throttle';
-import isMobile from 'binary-utils/lib/isMobile';
-import windowResizeEvent from 'binary-utils/lib/windowResizeEvent';
-import isIntraday from 'binary-utils/lib/isIntraday';
-import askPriceFromProposal from 'binary-utils/lib/askPriceFromProposal';
-
-import ErrorMsg from 'binary-components/lib/ErrorMsg';
+import debounce from 'lodash.debounce';
+import { isMobile, isIntraday, askPriceFromProposal, windowResizeEvent } from 'binary-utils';
+import { ErrorMsg } from 'binary-components';
 import Modal from '../containers/Modal';
-import PurchaseFailed from 'binary-components/lib/PurchaseFailed';
 import { actions } from '../_store';
 import BarrierCard from '../barrier-picker/BarrierCard';
 // import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
@@ -22,8 +17,7 @@ import AssetPickerDropDown from '../asset-picker/AssetPickerDropDown';
 import BuyButton from './BuyButton';
 
 import * as LiveData from '../_data/LiveData';
-import { changeAsset, changeBarrier1, changeBarrier2, changeCategory, changeStartDate,
-    changeDurationUnit, changeAmount, changeAmountPerPoint } from './TradeParamsCascadingUpdates';
+import { changeAsset, changeCategory } from './TradeParamsCascadingUpdates';
 
 /**
  * This UI is coded with a few assumptions, which should always be true, this comments serves as a future reference
@@ -49,18 +43,19 @@ import { changeAsset, changeBarrier1, changeBarrier2, changeCategory, changeStar
  */
 
 const errorToShow = errorObj => {
-    const { barrierError, contractError, durationError, proposalError, purchaseError } = errorObj;
+    const { barrierError, contractError, durationError, proposalError, purchaseError, stakeError } = errorObj;
 
     if (contractError) return contractError;
     if (barrierError) return barrierError;
     if (durationError) return durationError;
+    if (stakeError) return stakeError;
     if (proposalError) return proposalError;
-    if (purchaseError) return purchaseError;
-
-    return undefined;
+    return purchaseError;
 };
 
-export default class TradeParams extends Component {
+export const debounceForMobileAndWeb = func => debounce(func, 300, { leading: true, trailing: true });
+
+export default class TradeParams extends PureComponent {
 
     static defaultProps = {
         type: 'full',
@@ -94,8 +89,6 @@ export default class TradeParams extends Component {
         this.onAssetChange();
     }
 
-    shouldComponentUpdate = shouldPureComponentUpdate;
-
     /**
      * componentDidUpdate is used instead of componentWillReceiveProps because the onAssetChange depends on updated
      * props, which only accessible after component update
@@ -103,9 +96,9 @@ export default class TradeParams extends Component {
      * TODO: redesign so that side effect are handle elsewhere
      */
     componentDidUpdate(prevProps) {
-        const { tradeParams } = this.props;
+        const { tradeParams, currency } = this.props;
 
-        if (tradeParams.symbol !== prevProps.tradeParams.symbol) {
+        if (tradeParams.symbol !== prevProps.tradeParams.symbol || currency !== prevProps.currency) {
             const { proposal } = prevProps;
             if (proposal) {
                 LiveData.api.unsubscribeByID(proposal.id);
@@ -133,85 +126,9 @@ export default class TradeParams extends Component {
         this.clearTradeError();
     }
 
-    onStartDateChange = epoch => {
-        const { contract, tradeParams } = this.props;
-        const updatedStartDate = changeStartDate(epoch, contract, tradeParams);
-        this.updateTradeParams(updatedStartDate);
-    }
-
-    onDurationChange = e => {
-        this.updateTradeParams({ duration: e.target.value });
-    }
-
-    onDurationUnitChange = e => {
-        const newUnit = e.target.value;
-        const { contract, tradeParams } = this.props;
-        const updatedDurationUnit = changeDurationUnit(newUnit, contract, tradeParams);
-        this.updateTradeParams(updatedDurationUnit);
-    }
-
-    onDurationError = err => {
-        const { index } = this.props;
-        actions.updateTradeError(index, 'durationError', err);
-    }
-
-    onBarrier1Change = e => {
-        const inputValue = e.target.value;
-        const updatedBarrier1 = changeBarrier1(inputValue);
-        this.updateTradeParams(updatedBarrier1);
-    }
-
-    onBarrier2Change = e => {
-        const inputValue = e.target.value;
-        const updatedBarrier2 = changeBarrier2(inputValue);
-        this.updateTradeParams(updatedBarrier2);
-    }
-
-    onBarrierError = err => {
-        const { index } = this.props;
-        actions.updateTradeError(index, 'barrierError', err);
-    }
-
-    onBasisChange = e => {
-        this.updateTradeParams({ basis: e.target.value });
-    }
-
-    onAmountChange = e => {
-        const inputValue = e.target.value;
-        if (inputValue < 0) {
-            const updatedAmount = changeAmount(1);
-            this.updateTradeParams(updatedAmount);
-        } else if (inputValue > 500) {                  // TODO: temporary to control stake amount
-            if (this.props.tradeParams.amount === 500) return;
-            const updatedAmount = changeAmount(500);
-            this.updateTradeParams(updatedAmount);
-        } else {
-            const updatedAmount = changeAmount(inputValue);
-            this.updateTradeParams(updatedAmount);
-        }
-    }
-
-    onAmountPerPointChange = e => {
-        const inputValue = e.target.value;
-        const updatedAmountPerPoint = changeAmountPerPoint(inputValue);
-        this.updateTradeParams(updatedAmountPerPoint);
-    }
-
     onCloseModal = () => {
         const { index } = this.props;
         actions.updateTradeError(index, 'purchaseError', undefined);
-    }
-
-    onStopTypeChange = e => {
-        this.updateTradeParams({ stopType: e.target.value });
-    }
-
-    onStopLossChange = e => {
-        this.updateTradeParams({ stopLoss: e.target.value });
-    }
-
-    onStopProfitChange = e => {
-        this.updateTradeParams({ stopProfit: e.target.value });
     }
 
     onPurchase = () => {
@@ -219,11 +136,14 @@ export default class TradeParams extends Component {
         actions.purchaseByTradeId(index).then(onPurchaseHook);
     }
 
-    updateTradeParams = throttle(params => {
+    throttledProposalSubscription =
+        throttle(index => actions.updatePriceProposalSubscription(index), isMobile ? 500 : 300);
+
+    updateTradeParams = params => {
         const { index } = this.props;
         actions.updateMultipleTradeParams(index, params);
-        actions.updatePriceProposalSubscription(index);
-    }, isMobile ? 500 : 300)
+        this.throttledProposalSubscription(index);
+    }
 
     // TODO: create an action that update all at once
     clearTradeError = () => {
@@ -231,6 +151,7 @@ export default class TradeParams extends Component {
         actions.updateTradeError(index, 'barrierError', undefined);
         actions.updateTradeError(index, 'durationError', undefined);
         actions.updateTradeError(index, 'proposalError', undefined);
+        actions.updateTradeError(index, 'stakeError', undefined);
         actions.updateTradeError(index, 'purchaseError', undefined);
     }
 
@@ -279,9 +200,9 @@ export default class TradeParams extends Component {
         const errorText = errorToShow(errors);
 
         return (
-            <div className="trade-params" disabled={disabled} key={this.state.dynamicKey} style={style}>
+            <div className="trade-params" key={this.state.dynamicKey} style={style}>
                 <Modal shown={!!errors.purchaseError} onClose={this.onCloseModal}>
-                    <PurchaseFailed failure={errors.purchaseError} />
+                    {errors.purchaseError}
                 </Modal>
                 <ErrorMsg text={contract.error || errorText} />
                 <AssetPickerDropDown
@@ -292,6 +213,7 @@ export default class TradeParams extends Component {
                 <TradeTypeDropDown
                     {...this.props}
                     updateParams={this.updateTradeParams}
+                    forceTradeCardUpdate={this.repaintSelf}
                     clearTradeError={this.clearTradeError}
                 />
                 {showDigitBarrier &&
@@ -299,7 +221,7 @@ export default class TradeParams extends Component {
                         barrier={+tradeParams.barrier}
                         barrierInfo={barriers && barriers.tick[0]}
                         index={index}
-                        onBarrierChange={this.onBarrier1Change}
+                        onUpdateTradeParams={this.updateTradeParams}
                     />
                 }
                 {/* showSpreadBarrier &&
@@ -308,13 +230,10 @@ export default class TradeParams extends Component {
                         stopLoss={tradeParams.stopLoss}
                         stopProfit={tradeParams.stopProfit}
                         stopType={tradeParams.stopType}
-                        amountPerPointChange={this.onAmountPerPointChange}
                         currency={currency}
                         index={index}
                         spreadInfo={contractForType.spread}
-                        stopTypeChange={this.onStopTypeChange}
-                        stopLossChange={this.onStopLossChange}
-                        stopProfitChange={this.onStopProfitChange}
+                        onUpdateTradeParams={this.updateTradeParams}
                     />
                 */}
                 {showBarrier &&
@@ -325,10 +244,8 @@ export default class TradeParams extends Component {
                         barrierType={tradeParams.barrierType}
                         isIntraDay={isIntraDay}
                         pipSize={pipSize}
-                        onBarrier1Change={this.onBarrier1Change}
-                        onBarrier2Change={this.onBarrier2Change}
                         spot={proposal && +proposal.spot}
-                        onError={this.onBarrierError}
+                        onUpdateTradeParams={this.updateTradeParams}
                     />
                 }
                 {showDuration && !showSpreadBarrier &&
@@ -338,27 +255,30 @@ export default class TradeParams extends Component {
                         durationUnit={tradeParams.durationUnit}
                         forwardStartingDuration={contractForType.forwardStartingDuration}
                         options={contractForType.durations}
-                        onDurationChange={this.onDurationChange}
-                        onUnitChange={this.onDurationUnitChange}
-                        onError={this.onDurationError}
                         index={index}
+                        onUpdateTradeParams={this.updateTradeParams}
+                        forceTradeCardUpdate={this.repaintSelf}
+                        contract={contract}
+                        tradeParams={tradeParams}
                     />
                 }
                 {showDuration && !showSpreadBarrier && contractForType.forwardStartingDuration &&
                     <ForwardStartingOptions
                         dateStart={tradeParams.dateStart}
                         forwardStartingDuration={contractForType.forwardStartingDuration}
-                        onStartDateChange={this.onStartDateChange}
                         options={contractForType.durations}
                         index={index}
+                        contract={contract}
+                        tradeParams={tradeParams}
+                        onUpdateTradeParams={this.updateTradeParams}
                     />
                 }
                 {!showSpreadBarrier &&
                     <StakeCard
                         amount={+tradeParams.amount}
                         isVirtual={false}
-                        onAmountChange={this.onAmountChange}
-                        onBasisChange={this.onBasisChange}
+                        onUpdateTradeParams={this.updateTradeParams}
+                        index={index}
                     />
                 }
                 <PayoutCard

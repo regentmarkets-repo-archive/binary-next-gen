@@ -1,0 +1,141 @@
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+    font-size: $FONT_SIZE_N;
+    text-rendering: geometricPrecision;
+}
+
+body {
+    background: #fff;
+    color: $COLOR_TEXT;
+    font-family: roboto, sans-serif;
+}
+
+body,
+th,
+td {
+    line-height: $LINE_HEIGHT;
+}
+
+img {
+    vertical-align: middle;
+    border: 0;
+    max-width: 100%;
+}
+
+img.h10 {
+    height: 10rem;
+}
+
+acronym,
+abbr {
+    cursor: help;
+}
+
+form {
+    margin: 0;
+    padding: 0;
+}
+
+.row.focus input,
+.row.focus textarea {
+    background-color: $COLOR_YELLOW;
+}
+
+.errorrow,
+.errorfield,
+.error-msg {
+    color: white;
+    background: $COLOR_RED;
+    border-radius: $BORDER_RADIUS;
+    padding: 0.25rem .5rem;
+}
+
+.notice-msg {
+    color: $COLOR_TEXT;
+    border-radius: $BORDER_RADIUS;
+    padding: 0.25rem .5rem;
+    background-color: $COLOR_YELLOW;
+}
+
+.text-only {
+    color: $COLOR_TEXT;
+}
+
+/* global styles */
+#popup {
+    width: 95%;
+    margin: 0 auto;
+}
+
+.hidden {
+    display: none;
+}
+
+.required_asterisk {
+    color: $COLOR_BRAND_ORANGE;
+}
+
+.center {
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+ul.bullet li,
+.checkmark {
+    background: url("data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4NCjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHdpZHRoPSIxOHB4IiBoZWlnaHQ9IjE4cHgiIHZpZXdCb3g9IjAgMCAyNCAyMCI+DQo8cG9seWdvbiBmaWxsPSIjRTk4MDI1IiBwb2ludHM9IjguNjIzLDE5LjU1NyAwLDEwLjkzNiAzLjczNiw3LjE5OCA4LjYyMywxMi4wODIgMjAuMjYyLDAuNDQzIDI0LDQuMTggOC42MjMsMTkuNTU3Ii8+DQo8L3N2Zz4NCg==") no-repeat;
+}
+
+.checkmark {
+    background-position: center;
+}
+
+ul.bullet li {
+    background-position: 0 0.2rem;
+    padding-left: 1.25em;
+    margin-bottom: 0.25rem;
+    background-size: 1rem;
+}
+
+a.close {
+    display: inline-block;
+    position: relative;
+    margin-top: 0;
+    margin-right: 0;
+    padding: 10px 8px;
+    cursor: pointer;
+    color: white;
+    background: $COLOR_BRAND_ORANGE;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 0.5;
+    z-index: 1001;
+    top: -10px;
+    right: -10px;
+    float: right;
+    border-radius: 0 0 0 $BORDER_RADIUS;
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+i {
+    color: $COLOR_BRAND_ORANGE;
+}
+
+p.media,
+div.media {
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+strong {
+    font-weight: bold;
+}

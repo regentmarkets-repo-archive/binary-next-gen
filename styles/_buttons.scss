@@ -1,0 +1,73 @@
+@mixin button-border($color) {
+    box-shadow:
+        inset 0 -3px 0 0 $color,
+        inset 0 0 0 1px $color;
+}
+
+@mixin button-outline($color) {
+    box-shadow: inset 0 0 0 1px $color;
+}
+
+button,
+input[type=submit],
+input[type=button],
+.btn-primary,
+.btn-secondary {
+    border-radius: $BORDER_RADIUS_FOR_INSET;
+    cursor: pointer;
+    padding: 0.5em 1em;
+}
+
+button,
+input[type=submit],
+input[type=button],
+.btn-primary {
+    border: 0;
+    color: white;
+    background: $COLOR_GREEN;
+    &:focus {
+        outline: none;
+    }
+    &:not(:disabled):hover {
+        background: darken($COLOR_GREEN, 10%);
+    }
+}
+
+.btn-primary,
+.btn-secondary {
+    color: white;
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+    vertical-align: middle;
+}
+
+button:disabled {
+    opacity: 0.75;
+    color: darken($COLOR_GRAY, 20%);
+    background: $COLOR_GRAY;
+}
+
+button::-moz-focus-inner,
+input::-moz-focus-outer {
+    border: 0;
+}
+
+.btn-secondary {
+    color: $COLOR_BRAND_BLUE;
+    background: transparent;
+    box-shadow: inset 0 0 0 1.5px rgba($COLOR_BRAND_BLUE, 0.75);
+
+    &:not(:disabled):hover {
+        box-shadow: inset 0 0 0 1.5px $COLOR_BRAND_BLUE;
+    }
+}
+
+.inverse .btn-secondary {
+    color: white !important;
+    box-shadow: inset 0 0 0 1.5px rgba(white, 0.75);
+
+    &:not(:disabled):hover {
+        box-shadow: inset 0 0 0 1.5px white;
+    }
+}

@@ -1,9 +1,8 @@
-import React, { PropTypes, Component } from 'react';
-import epochToDateString from 'binary-utils/lib/epochToDateString';
-import M from 'binary-components/lib/M';
-import LabeledText from 'binary-components/lib/LabeledText';
+import React, { PropTypes, PureComponent } from 'react';
+import { epochToDateString } from 'binary-utils';
+import { M, LabeledText } from 'binary-components';
 
-export default class SettingsDetails extends Component {
+export default class SettingsDetails extends PureComponent {
 
 	static propTypes = {
 		email: PropTypes.string.isRequired,
@@ -39,7 +38,7 @@ export default class SettingsDetails extends Component {
 				/>
 				<LabeledText
 					id="residence"
-					label="Country of residence"
+					label="Country Of Residence"
 					value={country}
 				/>
 				<p className="notice-msg">

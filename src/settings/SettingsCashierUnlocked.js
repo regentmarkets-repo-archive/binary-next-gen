@@ -1,12 +1,9 @@
-import React, { Component } from 'react';
-import showError from 'binary-utils/lib/showError';
-import P from 'binary-components/lib/P';
-import Button from 'binary-components/lib/Button';
-import InputGroup from 'binary-components/lib/InputGroup';
+import React, { PureComponent } from 'react';
+import { showError, isValidPassword } from 'binary-utils';
+import { P, Button, InputGroup } from 'binary-components';
 import * as LiveData from '../_data/LiveData';
-import isValidPassword from 'binary-utils/lib/isValidPassword';
 
-export default class SettingsCashierUnlocked extends Component {
+export default class SettingsCashierUnlocked extends PureComponent {
 
     constructor(props) {
         super(props);
@@ -56,7 +53,7 @@ export default class SettingsCashierUnlocked extends Component {
 				/>
 				<InputGroup
 					id="password2"
-                    placeholder="Confirm password"
+                    placeholder="Confirm Password"
 					type="password"
                     value={password2}
                     onChange={this.onPassword2Change}

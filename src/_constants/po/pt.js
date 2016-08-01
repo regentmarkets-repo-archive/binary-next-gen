@@ -3,7 +3,7 @@ export default {
         "project-id-version": "BOM",
         "report-msgid-bugs-to": "",
         "pot-creation-date": "",
-        "po-revision-date": "2016-07-11 21:12+0000",
+        "po-revision-date": "2016-07-22 21:15+0000",
         "last-translator": "Alcino Jorge <alcino@binary.com>",
         "language-team": "Portuguese <https://hosted.weblate.org/projects/binary-app/next-gen-app/pt/>",
         "language": "pt",
@@ -772,5 +772,285 @@ export default {
     "Video": [
         null,
         "Vídeo"
+    ],
+    "Favorites": [
+        null,
+        ""
+    ],
+    "Open For Trading": [
+        null,
+        ""
+    ],
+    "Contract ID": [
+        null,
+        ""
+    ],
+    "Reference ID": [
+        null,
+        ""
+    ],
+    "Entry Spot": [
+        null,
+        "Preço de entrada"
+    ],
+    "Entry Spot Time": [
+        null,
+        "Hora do preço de entrada"
+    ],
+    "Potential Payout": [
+        null,
+        "Prêmio potencial"
+    ],
+    "Exit Spot": [
+        null,
+        "Preço de saída"
+    ],
+    "Exit Spot Time": [
+        null,
+        "Hora do preço de saída"
+    ],
+    "Sell Price": [
+        null,
+        "Preço de venda"
+    ],
+    "Sell Time": [
+        null,
+        "Hora de venda"
+    ],
+    "Trade Again": [
+        null,
+        "Negociar novamente"
+    ],
+    "Barrier": [
+        null,
+        ""
+    ],
+    "You Won": [
+        null,
+        "Você ganhou"
+    ],
+    "You Lost": [
+        null,
+        "Você perdeu"
+    ],
+    "To change your name, date of birth, country of residence, or email, contact Customer Support.": [
+        null,
+        ""
+    ],
+    "Cashier is locked per your request. To unlock it, enter your password.": [
+        null,
+        ""
+    ],
+    "Unlock Cashier": [
+        null,
+        ""
+    ],
+    "Time out until": [
+        null,
+        ""
+    ],
+    "No transactions for the selected period": [
+        null,
+        "Não existem transações para o período selecionado"
+    ],
+    "You have no open contracts": [
+        null,
+        ""
+    ],
+    "You have no assets in watchlist": [
+        null,
+        ""
+    ],
+    "Basic": [
+        null,
+        ""
+    ],
+    "Digits": [
+        null,
+        "Dígitos"
+    ],
+    "Advanced": [
+        null,
+        ""
+    ],
+    "Higher": [
+        null,
+        ""
+    ],
+    "Lower": [
+        null,
+        ""
+    ],
+    "Ends Outside": [
+        null,
+        "Termina Fora"
+    ],
+    "Ends Between": [
+        null,
+        ""
+    ],
+    "Stays Between": [
+        null,
+        ""
+    ],
+    "Goes Outside": [
+        null,
+        ""
+    ],
+    "Does Not Touch": [
+        null,
+        "Não toca"
+    ],
+    "Credit / Debit": [
+        null,
+        "Crédito / Débito"
+    ],
+    "Last 25 Ticks": [
+        null,
+        ""
+    ],
+    "Last 50 Trades": [
+        null,
+        "50 últimas negociações"
+    ],
+    "Last 100 Trades": [
+        null,
+        "100 últimas negociações"
+    ],
+    "Last 500 Trades": [
+        null,
+        "500 últimas negociações"
+    ],
+    "Last 1000 Trades": [
+        null,
+        "1000 últimas negociações"
+    ],
+    "Commodities": [
+        null,
+        ""
+    ],
+    "Major Pairs": [
+        null,
+        ""
+    ],
+    "Minor Pairs": [
+        null,
+        ""
+    ],
+    "Smart FX": [
+        null,
+        ""
+    ],
+    "OTC Stocks": [
+        null,
+        ""
+    ],
+    "Stated limits are subject to change without prior notice": [
+        null,
+        ""
+    ],
+    "Already withdrawn": [
+        null,
+        ""
+    ],
+    "Current immediate maximum withdrawal": [
+        null,
+        ""
+    ],
+    "Verification Code": [
+        null,
+        ""
+    ],
+    "Already have an account?": [
+        null,
+        ""
+    ],
+    "Enter a valid verification code": [
+        null,
+        ""
+    ],
+    "Choose your country": [
+        null,
+        ""
+    ],
+    "Password should have lower and uppercase letters and 6 characters or more": [
+        null,
+        ""
+    ],
+    "Passwords do not match": [
+        null,
+        ""
+    ],
+    "Enter a valid email": [
+        null,
+        ""
+    ],
+    "Number should between 10 to 120": [
+        null,
+        ""
+    ],
+    "Enter your first and last name": [
+        null,
+        ""
+    ],
+    "City must not be empty": [
+        null,
+        ""
+    ],
+    "Address must not be empty": [
+        null,
+        ""
+    ],
+    "Enter a valid phone number": [
+        null,
+        ""
+    ],
+    "Select a secret question": [
+        null,
+        ""
+    ],
+    "Secret answer must be at least 4 characters": [
+        null,
+        ""
+    ],
+    "You need to agree to our Terms and Conditions": [
+        null,
+        ""
+    ],
+    "I agree to the": [
+        null,
+        ""
+    ],
+    "terms and conditions": [
+        null,
+        ""
+    ],
+    "Choose a Payment Agent": [
+        null,
+        ""
+    ],
+    "First Name": [
+        null,
+        ""
+    ],
+    "Address First Line": [
+        null,
+        ""
+    ],
+    "Address Second Line": [
+        null,
+        ""
+    ],
+    "Phone": [
+        null,
+        ""
+    ],
+    "Answer To Secret Question": [
+        null,
+        ""
+    ],
+    "Switch to": [
+        null,
+        ""
     ]
 }

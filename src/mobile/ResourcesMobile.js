@@ -1,6 +1,5 @@
-import React, { Component } from 'react';
-import Tab from 'binary-components/lib/Tab';
-import TabList from 'binary-components/lib/TabList';
+import React, { PureComponent } from 'react';
+import { Tab, TabList } from 'binary-components';
 import MobilePage from '../containers/MobilePage';
 import AssetIndexContainer from '../asset-index/AssetIndexContainer';
 import TradingTimesContainer from '../trading-times/TradingTimesContainer';
@@ -10,7 +9,7 @@ const components = [
 	TradingTimesContainer,
 ];
 
-export default class ResourcesMobile extends Component {
+export default class ResourcesMobile extends PureComponent {
 
     constructor(props) {
         super(props);
