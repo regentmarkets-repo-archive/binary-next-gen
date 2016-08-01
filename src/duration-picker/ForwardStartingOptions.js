@@ -54,7 +54,7 @@ export default class ForwardStartingOptions extends PureComponent {
 
     render() {
         const { dateStart, forwardStartingDuration, index, startLaterOnly } = this.props;
-        const { defaultDateStart } = this.state;
+        const { defaultDateStart, showStartLater } = this.state;
         const ranges = forwardStartingDuration.range;
 
         const defaultDate = new Date(defaultDateStart * 1000);
@@ -70,7 +70,7 @@ export default class ForwardStartingOptions extends PureComponent {
                                     type="radio"
                                     name={`start-time${index}`}
                                     onChange={this.startNow}
-                                    checked={!dateStart}
+                                    defaultChecked={!dateStart}
                                     disabled={startLaterOnly}
                                 />
                                 <M m="Now" />
@@ -80,13 +80,13 @@ export default class ForwardStartingOptions extends PureComponent {
                                     type="radio"
                                     name={`start-time${index}`}
                                     onChange={this.startLater}
-                                    checked={!!dateStart}
+                                    defaultChecked={!!dateStart}
                                 />
                                 <M m="Later" />
                             </label>
                         </div>
                     }
-                    <div className="forward-starting-input" style={dateStart ? {} : { display: 'none' }}>
+                    <div className="forward-starting-input" style={showStartLater ? {} : { display: 'none' }}>
                         <input
                             type="date"
                             min={dateToDateString(ranges[0].date)}

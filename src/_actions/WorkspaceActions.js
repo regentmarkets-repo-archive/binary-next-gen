@@ -29,7 +29,7 @@ export const changeActiveLayout = (tradesCount, layoutN) =>
         }
 
         const selectedSymbols = tradesParams.map(v => v.get('symbol'));
-        const firstTradeSymbol = selectedSymbols.get(0) || assets.getIn([0, 'symbol']);     // TODO: decide to do here or livedata
+        const firstTradeSymbol = selectedSymbols.get(0) || assets.find(a => a.get('exchange_is_open') === 1).get('symbol');
 
         const firstTradeMarket = assets
             .find(v => v.get('symbol') === firstTradeSymbol)

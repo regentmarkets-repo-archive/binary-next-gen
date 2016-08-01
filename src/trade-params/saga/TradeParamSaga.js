@@ -24,7 +24,6 @@ function* watchCreate() {
 
 export default function* root() {
     yield [
-        takeEvery(CREATE_TRADE, logger),
         call(ProposalSubscriptionSaga),
         call(watchCreate),
         call(BarrierSaga),
