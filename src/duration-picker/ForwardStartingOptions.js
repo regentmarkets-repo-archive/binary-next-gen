@@ -1,5 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
-import { epochToUTCTimeString, dateToDateString } from 'binary-utils';
+import { epochToUTCTimeString, dateToDateString, returnValidDate, returnValidTime } from 'binary-utils';
 import { M, Label } from 'binary-components';
 import { createDefaultStartLaterEpoch } from '../trade-params/DefaultTradeParams';
 import { actions } from '../_store';
@@ -30,13 +30,13 @@ export default class ForwardStartingOptions extends PureComponent {
     onDayChange = e => {
         const { index } = this.props;
         const inputValue = e.target.value;
-        debounceStartDateChange(index, inputValue);
+        debounceStartDateChange(index, returnValidDate(inputValue));
     }
 
     onTimeChange = e => {
         const { index } = this.props;
         const inputValue = e.target.value;
-        debounceStartTimeChange(index, inputValue);
+        debounceStartTimeChange(index, returnValidTime(inputValue));
     }
 
     startNow = () => {
