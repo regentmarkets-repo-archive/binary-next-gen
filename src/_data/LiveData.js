@@ -4,6 +4,7 @@ import { readNewsFeed } from './NewsData';
 import { getVideosFromPlayList } from './VideoData';
 import * as actions from '../_actions';
 import { timeLeftToNextRealityCheck } from '../reality-check/RealityCheckWeb';
+import { SET_DEFAULT_CURRENCY } from '../_constants/ActionTypes';
 
 const handlers = {
     active_symbols: 'serverDataActiveSymbols',
@@ -60,6 +61,12 @@ const initAuthorized = async (authData, store) => {
     api.getLandingCompanyDetails(authData.authorize.landing_company_name)
         .then(r => {
             const details = r.landing_company_details;
+
+            store.dispatch({
+                type: SET_DEFAULT_CURRENCY,
+                currency: details.legal_default_currency,
+            });
+
             const acknowledged = store.getState().realityCheck.get('acknowledged');
             if (details && details.has_reality_check) {
                 if (!acknowledged) {
