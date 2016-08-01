@@ -935,5 +935,173 @@ export default {
     "Last 1000 Trades": [
         null,
         ""
+    ],
+    "Maximum Daily Turnover": [
+        null,
+        ""
+    ],
+    "Commodities": [
+        null,
+        ""
+    ],
+    "Major Pairs": [
+        null,
+        ""
+    ],
+    "Minor Pairs": [
+        null,
+        ""
+    ],
+    "Smart FX": [
+        null,
+        ""
+    ],
+    "Volatility Indices": [
+        null,
+        ""
+    ],
+    "Indices": [
+        null,
+        ""
+    ],
+    "OTC Stocks": [
+        null,
+        ""
+    ],
+    "Stated limits are subject to change without prior notice": [
+        null,
+        ""
+    ],
+    "Withdrawal Limits": [
+        null,
+        ""
+    ],
+    "Withdrawal limit": [
+        null,
+        ""
+    ],
+    "Already withdrawn": [
+        null,
+        ""
+    ],
+    "Current immediate maximum withdrawal": [
+        null,
+        ""
+    ],
+    "Create Free Account": [
+        null,
+        ""
+    ],
+    "Verification Code": [
+        null,
+        ""
+    ],
+    "Confirm Password": [
+        null,
+        ""
+    ],
+    "Already have an account?": [
+        null,
+        ""
+    ],
+    "Enter a valid verification code": [
+        null,
+        ""
+    ],
+    "Choose your country": [
+        null,
+        ""
+    ],
+    "Password should have lower and uppercase letters and 6 characters or more": [
+        null,
+        ""
+    ],
+    "Passwords do not match": [
+        null,
+        ""
+    ],
+    "Enter a valid email": [
+        null,
+        ""
+    ],
+    "Number should between 10 to 120": [
+        null,
+        ""
+    ],
+    "Enter your first and last name": [
+        null,
+        ""
+    ],
+    "City must not be empty": [
+        null,
+        ""
+    ],
+    "Address must not be empty": [
+        null,
+        ""
+    ],
+    "Enter a valid phone number": [
+        null,
+        ""
+    ],
+    "Select a secret question": [
+        null,
+        ""
+    ],
+    "Secret answer must be at least 4 characters": [
+        null,
+        ""
+    ],
+    "You need to agree to our Terms and Conditions": [
+        null,
+        ""
+    ],
+    "I agree to the": [
+        null,
+        ""
+    ],
+    "terms and conditions": [
+        null,
+        ""
+    ],
+    "Search for assets": [
+        null,
+        ""
+    ],
+    "Choose a Payment Agent": [
+        null,
+        ""
+    ],
+    "Confirm New Password": [
+        null,
+        ""
+    ],
+    "First Name": [
+        null,
+        ""
+    ],
+    "Last Name": [
+        null,
+        ""
+    ],
+    "Address First Line": [
+        null,
+        ""
+    ],
+    "Address Second Line": [
+        null,
+        ""
+    ],
+    "Phone": [
+        null,
+        ""
+    ],
+    "Answer To Secret Question": [
+        null,
+        ""
+    ],
+    "Switch to": [
+        null,
+        ""
     ]
 }
