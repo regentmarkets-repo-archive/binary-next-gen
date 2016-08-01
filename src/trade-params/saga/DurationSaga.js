@@ -5,6 +5,7 @@ import { allTimeRelatedFieldValid } from '../TradeParamsValidation';
 import * as paramUpdate from '../TradeParamsCascadingUpdates';
 import { getParams, contractOfSymbol, getForceRenderCount } from './SagaSelectors';
 import { dateToEpoch, timeStringToSeconds } from 'binary-utils';
+import { subscribeProposal, unsubscribeProposal } from './ProposalSubscriptionSaga';
 
 const CHANGE_DURATION = 'CHANGE_DURATION';
 
@@ -16,14 +17,17 @@ export const reqDurationChange = (index, duration) => ({
 
 function* handleDurationChange(action) {
     const { index, duration } = action;
+    yield put(unsubscribeProposal(index));
     const params = yield select(getParams(index));
     const { symbol, tradeCategory, type, durationUnit, dateStart } = params;
     const contractNeeded = yield select(contractOfSymbol(symbol));
     const contractPerType = contractNeeded[tradeCategory][type];
-    const durationAllowed = allTimeRelatedFieldValid(dateStart, duration, durationUnit, contractPerType);
-    if (durationAllowed) {
+    const isDurationAllowed = allTimeRelatedFieldValid(dateStart, duration, durationUnit, contractPerType);
+    if (isDurationAllowed) {
+        const updated = Object.assign(params, { duration });
         yield [
-            put(updateMultipleTradeParams(index, Object.assign(params, { duration }))),
+            put(subscribeProposal(index, updated)),
+            put(updateMultipleTradeParams(index, updated)),
             put(updateTradeError(index, 'durationError')),
         ];
     } else {
@@ -42,11 +46,13 @@ export const reqDurationUnitChange = (index, durationUnit) => ({
 
 function* handleDurationUnitChange(action) {
     const { index, durationUnit } = action;
+    yield put(unsubscribeProposal(index));
     const params = yield select(getParams(index));
     const contractNeeded = yield select(contractOfSymbol(params.symbol));
     const updated = paramUpdate.changeDurationUnit(durationUnit, contractNeeded, params);
     const renderCount = yield select(getForceRenderCount(index));
     yield [
+        put(subscribeProposal(index, updated)),
         put(updateMultipleTradeParams(index, updated)),
         put(updateTradeUIState(index, 'forceRenderCount', renderCount + 1)),
     ];
@@ -62,14 +68,17 @@ export const reqStartEpochChange = (index, epoch) => ({
 
 function* handleStartEpochChange(action) {
     const { index, epoch } = action;
+    yield put(unsubscribeProposal(index));
     const params = yield select(getParams(index));
     const { symbol, tradeCategory, type, durationUnit, duration } = params;
     const contractNeeded = yield select(contractOfSymbol(symbol));
     const contractPerType = contractNeeded[tradeCategory][type];
     const durationAllowed = allTimeRelatedFieldValid(epoch, duration, durationUnit, contractPerType);
     if (durationAllowed) {
+        const updated = Object.assign(params, { dateStart: epoch });
         yield [
-            put(updateMultipleTradeParams(index, Object.assign(params, { dateStart: epoch }))),
+            put(subscribeProposal(index, updated)),
+            put(updateMultipleTradeParams(index, updated)),
             put(updateTradeError(index, 'durationError')),
         ];
     } else {
@@ -87,6 +96,7 @@ export const reqStartDateChange = (index, date) => ({
 
 function* handleStartDateChange(action) {
     const { index, date } = action;
+    yield put(unsubscribeProposal(index));
     const params = yield select(getParams(index));
     const { symbol, tradeCategory, type, durationUnit, dateStart, duration } = params;
 
@@ -104,8 +114,10 @@ function* handleStartDateChange(action) {
     const contractPerType = contractNeeded[tradeCategory][type];
     const durationAllowed = allTimeRelatedFieldValid(newDateStart, duration, durationUnit, contractPerType);
     if (durationAllowed) {
+        const updated = Object.assign(params, { dateStart: newDateStart });
         yield [
-            put(updateMultipleTradeParams(index, Object.assign(params, { dateStart: newDateStart }))),
+            put(subscribeProposal(index, updated)),
+            put(updateMultipleTradeParams(index, updated)),
             put(updateTradeError(index, 'durationError')),
         ];
     } else {
@@ -123,6 +135,7 @@ export const reqStartTimeChange = (index, time) => ({
 
 function* handleStartTimeChange(action) {
     const { index, time } = action;
+    yield put(unsubscribeProposal(index));
     const params = yield select(getParams(index));
     const { symbol, tradeCategory, type, durationUnit, dateStart, duration } = params;
 
@@ -136,8 +149,10 @@ function* handleStartTimeChange(action) {
     const durationAllowed = allTimeRelatedFieldValid(newDateStart, duration, durationUnit, contractPerType);
 
     if (durationAllowed) {
+        const updated = Object.assign(params, { dateStart: newDateStart });
         yield [
-            put(updateMultipleTradeParams(index, Object.assign(params, { dateStart: newDateStart }))),
+            put(subscribeProposal(index, updated)),
+            put(updateMultipleTradeParams(index, updated)),
             put(updateTradeError(index, 'durationError')),
         ];
     } else {
