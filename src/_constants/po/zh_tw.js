@@ -2,7 +2,7 @@ export default {
     "": {
         "project-id-version": "PACKAGE VERSION",
         "pot-creation-date": "",
-        "po-revision-date": "2016-07-22 07:00+0000",
+        "po-revision-date": "2016-07-29 14:11+0000",
         "last-translator": "Freddy Hew <hewfreddy@gmail.com>",
         "language-team": "Chinese (Taiwan) <https://hosted.weblate.org/projects/binary-app/next-gen-app/zh_TW/>",
         "language": "zh_tw",
@@ -935,5 +935,173 @@ export default {
     "Last 1000 Trades": [
         null,
         "過去1000次交易"
+    ],
+    "Maximum Daily Turnover": [
+        null,
+        "最大日成交量"
+    ],
+    "Commodities": [
+        null,
+        "大宗商品"
+    ],
+    "Major Pairs": [
+        null,
+        "主要貨幣對"
+    ],
+    "Minor Pairs": [
+        null,
+        "次要貨幣對"
+    ],
+    "Smart FX": [
+        null,
+        "智慧外匯交易"
+    ],
+    "Volatility Indices": [
+        null,
+        "波動率指數"
+    ],
+    "Indices": [
+        null,
+        "指數"
+    ],
+    "OTC Stocks": [
+        null,
+        "場外交易股票"
+    ],
+    "Stated limits are subject to change without prior notice": [
+        null,
+        "我們保留隨時在沒有預先通知的情況下更改所述限制的權利"
+    ],
+    "Withdrawal Limits": [
+        null,
+        "取款限額"
+    ],
+    "Withdrawal limit": [
+        null,
+        "取款限額"
+    ],
+    "Already withdrawn": [
+        null,
+        "已提取"
+    ],
+    "Current immediate maximum withdrawal": [
+        null,
+        "目前的即時最高取款額"
+    ],
+    "Create Free Account": [
+        null,
+        "新增免費帳戶"
+    ],
+    "Verification Code": [
+        null,
+        "驗證碼"
+    ],
+    "Confirm Password": [
+        null,
+        "確認密碼"
+    ],
+    "Already have an account?": [
+        null,
+        "已經有帳戶？"
+    ],
+    "Enter a valid verification code": [
+        null,
+        "請輸入有效的驗證代碼"
+    ],
+    "Choose your country": [
+        null,
+        "選擇您的國家"
+    ],
+    "Password should have lower and uppercase letters and 6 characters or more": [
+        null,
+        "密碼須包含大小寫字母與至少6個字符"
+    ],
+    "Passwords do not match": [
+        null,
+        "密碼不相符"
+    ],
+    "Enter a valid email": [
+        null,
+        "輸入有效的電子郵件"
+    ],
+    "Number should between 10 to 120": [
+        null,
+        "必須是10至120之間的數字"
+    ],
+    "Enter your first and last name": [
+        null,
+        "輸入姓名"
+    ],
+    "City must not be empty": [
+        null,
+        "城市不可為空"
+    ],
+    "Address must not be empty": [
+        null,
+        "地址不可為空"
+    ],
+    "Enter a valid phone number": [
+        null,
+        "輸入有效的電話號"
+    ],
+    "Select a secret question": [
+        null,
+        "選擇安全提示問題"
+    ],
+    "Secret answer must be at least 4 characters": [
+        null,
+        "安全提示答案必須至少4個字符"
+    ],
+    "You need to agree to our Terms and Conditions": [
+        null,
+        "您必須同意我們的條款和條件"
+    ],
+    "I agree to the": [
+        null,
+        "本人同意"
+    ],
+    "terms and conditions": [
+        null,
+        "條款和條件"
+    ],
+    "Search for assets": [
+        null,
+        "搜尋資產"
+    ],
+    "Choose a Payment Agent": [
+        null,
+        "選擇支付代理"
+    ],
+    "Confirm New Password": [
+        null,
+        "確認新密碼"
+    ],
+    "First Name": [
+        null,
+        "名字"
+    ],
+    "Last Name": [
+        null,
+        "姓氏"
+    ],
+    "Address First Line": [
+        null,
+        "地址第一行"
+    ],
+    "Address Second Line": [
+        null,
+        "地址第二行"
+    ],
+    "Phone": [
+        null,
+        "電話"
+    ],
+    "Answer To Secret Question": [
+        null,
+        "安全提示問題的答案"
+    ],
+    "Switch to": [
+        null,
+        "切換成"
     ]
 }
