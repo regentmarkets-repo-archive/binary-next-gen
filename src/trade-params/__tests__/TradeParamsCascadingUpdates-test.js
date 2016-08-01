@@ -78,11 +78,9 @@ describe('Update helpers', () => {
             const pipSize3 = 3;
             const pipSize7 = 7;
 
-            const updatedBarrier1 = updateHelpers.changeBarrier1(newVal, pipSize3);
-            expect(updatedBarrier1.barrier).to.equal(0.99999);
-
-            const updatedBarrier2 = updateHelpers.changeBarrier2(newVal, pipSize7);
-            expect(updatedBarrier2.barrier2).to.equal(0.99999);
+            const updatedBarrier = updateHelpers.changeBarrier([newVal, newVal], {});
+            expect(updatedBarrier.barrier).to.equal(0.99999);
+            expect(updatedBarrier.barrier2).to.equal(0.99999);
         });
     });
 
@@ -113,12 +111,12 @@ describe('Update helpers', () => {
 
     describe('changeType', () => {
         it('should change type', () => {
-            const updatedType = updateHelpers.changeType('SPREADU', 'spreads', mockTickTrade, mockedContract);
+            const updatedType = updateHelpers.changeType('SPREADU', 'spreads', mockedContract, mockTickTrade);
             expect(updatedType.type).to.be.equal('SPREADU');
         });
 
         it('should update barrier(s) if target type have barrier(s)', () => {
-            const updatedType = updateHelpers.changeType('CALL', 'higherlower', mockTickTrade, mockedContract);
+            const updatedType = updateHelpers.changeType('CALL', 'higherlower', mockedContract, mockTickTrade);
             expect(updatedType.type).to.be.equal('CALL');
 
             // barrier are added as higherlower need it
@@ -141,7 +139,7 @@ describe('Update helpers', () => {
 
     describe('changeAsset', () => {
         it('should retain old params if new asset allows', () => {
-            const updatedAsset = updateHelpers.changeSymbol(mockTickTrade, mockedContract, updateHelpers.changeCategory);
+            const updatedAsset = updateHelpers.changeSymbol('R_100', mockedContract, mockTickTrade);
             const mergedWithUpdatedAsset = Object.assign({}, mockTickTrade, updatedAsset);
             // containSubset is used because changeAsset will set undefined to barriers
             expect(mergedWithUpdatedAsset).to.containSubset(mockTickTrade);

@@ -29,10 +29,11 @@ describe('PurchaseInfoReducer', () => {
         expect(actual.toJS()[0]).to.be.empty;
     });
 
-    it('should update purchase info when UPDATE_TRADE_PURCHASE_INFO received', () => {
-        const action = updatePurchasedContract(0, 'hello', 'world');
+    it('should update purchase info when PURCHASED_CONTRACT received', () => {
+        const receipt = { contract_id: 10101 };
+        const action = updatePurchasedContract(0, receipt);
         const actual = reducer(initialState, action);
-        expect(actual.toJS()[0]).to.be.deep.equal({ hello: 'world' });
+        expect(actual.toJS()[0]).to.have.keys(['receipt', 'mostRecentContractId']);
     });
 
     it('should remove specified object when REMOVE_TRADE received', () => {
