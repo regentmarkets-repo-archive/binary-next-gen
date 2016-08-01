@@ -845,7 +845,6 @@ msgid "Answer To Secret Question"
 msgstr "Câu trả lời cho câu hỏi bí mật"
 
 msgid "Switch to"
-<<<<<<< HEAD
 msgstr ""
 
 #, fuzzy

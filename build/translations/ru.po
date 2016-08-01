@@ -864,7 +864,6 @@ msgid "Answer To Secret Question"
 msgstr "Ответ на секретный вопрос"
 
 msgid "Switch to"
-<<<<<<< HEAD
 msgstr ""
 
 #, fuzzy
