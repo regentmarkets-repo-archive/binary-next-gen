@@ -55,7 +55,7 @@ export default (state = initialState, action) => {
         }
         case CLEAR_TRADE_ERROR: {
             const { index } = action;
-            return state.delete(index);
+            return state.set(index, fromJS({}));
         }
         default: return state;
     }

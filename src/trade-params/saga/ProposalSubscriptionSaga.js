@@ -5,6 +5,7 @@ import { api } from '../../_data/LiveData';
 import { updateTradeProposal, updateTradeError } from '../../_actions';
 import { currencySelector } from '../../_store/directSelectors';
 import { internalTradeModelToProposalModel } from '../../trade/adapters/TradeObjectAdapter';
+import { clearTradeError } from '../../_actions/TradeActions';
 
 const UNSUBSCRIBE_PROPOSAL = 'UNSUBSCRIBE_PROPOSAL';
 export const unsubscribeProposal = index => ({
@@ -14,7 +15,8 @@ export const unsubscribeProposal = index => ({
 
 function* handleUnsubscribe(action) {
     const { index } = action;
-    const oldProposalId = select(getProposalId(index));
+    const oldProposalId = yield select(getProposalId(index));
+    yield put(clearTradeError(index));
     if (oldProposalId) {
         yield [
             api.unsubscribeByID(oldProposalId),
