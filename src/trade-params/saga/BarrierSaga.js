@@ -13,7 +13,7 @@ export const reqBarrierChange = (index, barrier) => ({
     barrier,
 });
 
-function* handleBarrierChange(action) {
+export function* handleBarrierChange(action) {
     const { index, barrier } = action;
     yield put(unsubscribeProposal(index));
     const params = yield select(getParams(index));
