@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
-"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
+"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.8-dev\n"
 
 msgid "All"
@@ -430,7 +430,6 @@ msgstr "Как только будет достигнут данный лими�
 msgid "Maximum aggregate contract purchases per day."
 msgstr "Максимальное совокупное число контрактов, приобретённых за день."
 
-#, fuzzy
 msgid "Daily limit on losses"
 msgstr ""
 
@@ -446,7 +445,6 @@ msgid "Maximum aggregate contract purchases over a 7-day period."
 msgstr ""
 "Максимальное совокупное число контрактов, купленных за 7-дневный период."
 
-#, fuzzy
 msgid "7-day limit on losses"
 msgstr ""
 
@@ -457,11 +455,9 @@ msgstr "Максимальная совокупная выплата по отк
 msgid "30-day turnover limit"
 msgstr "30-дневный лимит на объём покупок"
 
-#, fuzzy
 msgid "Maximum aggregate contract purchases over a 30-day period."
 msgstr ""
 
-#, fuzzy
 msgid "30-day limit on losses"
 msgstr ""
 
@@ -806,7 +802,6 @@ msgstr ""
 msgid "Passwords do not match"
 msgstr "Пароли не совпадают"
 
-#, fuzzy
 msgid "Enter a valid email"
 msgstr ""
 
@@ -822,7 +817,6 @@ msgstr "Вы забыли указать город"
 msgid "Address must not be empty"
 msgstr "Вы забыли указать адрес"
 
-#, fuzzy
 msgid "Enter a valid phone number"
 msgstr ""
 
@@ -871,3 +865,39 @@ msgstr "Ответ на секретный вопрос"
 
 msgid "Switch to"
 msgstr "Перейти к"
+
+#, fuzzy
+msgid "Single Trade"
+msgstr "Новый контракт"
+
+#, fuzzy
+msgid "Multi Trade"
+msgstr "Полноценная торговля"
+
+#, fuzzy
+msgid "Current Password"
+msgstr "Текущий пароль"
+
+#, fuzzy
+msgid "New Password"
+msgstr "Новый пароль"
+
+#, fuzzy
+msgid "Last 50 Ticks"
+msgstr "Последн. 25 тиков"
+
+#, fuzzy
+msgid "Last 100 Ticks"
+msgstr "Последн. 25 тиков"
+
+#, fuzzy
+msgid "Last 500 Ticks"
+msgstr "Последн. 25 тиков"
+
+#, fuzzy
+msgid "Last 1000 Ticks"
+msgstr "Последн. 25 тиков"
+
+#, fuzzy
+msgid "Exit Full Screen"
+msgstr ""

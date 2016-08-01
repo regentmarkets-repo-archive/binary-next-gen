@@ -892,3 +892,36 @@ msgstr ""
 
 msgid "Switch to"
 msgstr ""
+
+#, fuzzy
+msgid "Single Trade"
+msgstr "التداول"
+
+#, fuzzy
+msgid "Multi Trade"
+msgstr "التداول"
+
+msgid "Current Password"
+msgstr ""
+
+msgid "New Password"
+msgstr ""
+
+#, fuzzy
+msgid "Last 50 Ticks"
+msgstr "آخر 30 يوما"
+
+#, fuzzy
+msgid "Last 100 Ticks"
+msgstr "آخر 30 يوما"
+
+#, fuzzy
+msgid "Last 500 Ticks"
+msgstr "آخر 30 يوما"
+
+#, fuzzy
+msgid "Last 1000 Ticks"
+msgstr "آخر 30 يوما"
+
+msgid "Exit Full Screen"
+msgstr ""

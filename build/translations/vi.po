@@ -846,3 +846,36 @@ msgstr "Câu trả lời cho câu hỏi bí mật"
 
 msgid "Switch to"
 msgstr "Chuyển sang"
+
+#, fuzzy
+msgid "Single Trade"
+msgstr "Giao dịch"
+
+#, fuzzy
+msgid "Multi Trade"
+msgstr "Giao dịch"
+
+msgid "Current Password"
+msgstr ""
+
+msgid "New Password"
+msgstr ""
+
+#, fuzzy
+msgid "Last 50 Ticks"
+msgstr "30 ngày trước"
+
+#, fuzzy
+msgid "Last 100 Ticks"
+msgstr "30 ngày trước"
+
+#, fuzzy
+msgid "Last 500 Ticks"
+msgstr "30 ngày trước"
+
+#, fuzzy
+msgid "Last 1000 Ticks"
+msgstr "30 ngày trước"
+
+msgid "Exit Full Screen"
+msgstr ""

@@ -1002,3 +1002,36 @@ msgstr ""
 
 msgid "Switch to"
 msgstr ""
+
+#, fuzzy
+msgid "Single Trade"
+msgstr "Commerce"
+
+#, fuzzy
+msgid "Multi Trade"
+msgstr "Commerce"
+
+msgid "Current Password"
+msgstr ""
+
+msgid "New Password"
+msgstr ""
+
+#, fuzzy
+msgid "Last 50 Ticks"
+msgstr "Les 30 derniers jours"
+
+#, fuzzy
+msgid "Last 100 Ticks"
+msgstr "Les 30 derniers jours"
+
+#, fuzzy
+msgid "Last 500 Ticks"
+msgstr "Les 30 derniers jours"
+
+#, fuzzy
+msgid "Last 1000 Ticks"
+msgstr "Les 30 derniers jours"
+
+msgid "Exit Full Screen"
+msgstr ""

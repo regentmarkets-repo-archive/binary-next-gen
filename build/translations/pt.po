@@ -855,3 +855,39 @@ msgstr ""
 
 msgid "Switch to"
 msgstr ""
+
+#, fuzzy
+msgid "Single Trade"
+msgstr "Nova negociação"
+
+#, fuzzy
+msgid "Multi Trade"
+msgstr "Negociação completa"
+
+#, fuzzy
+msgid "Current Password"
+msgstr "Senha atual"
+
+#, fuzzy
+msgid "New Password"
+msgstr "Nova senha"
+
+#, fuzzy
+msgid "Last 50 Ticks"
+msgstr "50 últimas negociações"
+
+#, fuzzy
+msgid "Last 100 Ticks"
+msgstr "100 últimas negociações"
+
+#, fuzzy
+msgid "Last 500 Ticks"
+msgstr "500 últimas negociações"
+
+#, fuzzy
+msgid "Last 1000 Ticks"
+msgstr "1000 últimas negociações"
+
+#, fuzzy
+msgid "Exit Full Screen"
+msgstr "Tela inteira"
