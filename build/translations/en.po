@@ -834,3 +834,30 @@ msgstr ""
 
 msgid "Switch to"
 msgstr ""
+
+msgid "Single Trade"
+msgstr ""
+
+msgid "Multi Trade"
+msgstr ""
+
+msgid "Current Password"
+msgstr ""
+
+msgid "New Password"
+msgstr ""
+
+msgid "Last 50 Ticks"
+msgstr ""
+
+msgid "Last 100 Ticks"
+msgstr ""
+
+msgid "Last 500 Ticks"
+msgstr ""
+
+msgid "Last 1000 Ticks"
+msgstr ""
+
+msgid "Exit Full Screen"
+msgstr ""

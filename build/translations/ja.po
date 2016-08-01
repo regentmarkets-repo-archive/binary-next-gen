@@ -746,7 +746,9 @@ msgid "OTC Stocks"
 msgstr "店頭株"
 
 msgid "Stated limits are subject to change without prior notice"
-msgstr "上記の1日取引数量限度額に変更する場合、当社のホームページ上でお知らせいたします。"
+msgstr ""
+"上記の1日取引数量限度額に変更する場合、当社のホームページ上でお知らせいたしま"
+"す。"
 
 msgid "Withdrawal Limits"
 msgstr "出金限度額"
@@ -847,3 +849,39 @@ msgstr "秘密の質問の答え"
 
 msgid "Switch to"
 msgstr "切り替え"
+
+#, fuzzy
+msgid "Single Trade"
+msgstr "新しいトレード"
+
+#, fuzzy
+msgid "Multi Trade"
+msgstr "フルトレード"
+
+#, fuzzy
+msgid "Current Password"
+msgstr "現在のパスワード"
+
+#, fuzzy
+msgid "New Password"
+msgstr "新パスワード"
+
+#, fuzzy
+msgid "Last 50 Ticks"
+msgstr "直近 25 Tick"
+
+#, fuzzy
+msgid "Last 100 Ticks"
+msgstr "直近 25 Tick"
+
+#, fuzzy
+msgid "Last 500 Ticks"
+msgstr "直近 25 Tick"
+
+#, fuzzy
+msgid "Last 1000 Ticks"
+msgstr "直近 25 Tick"
+
+#, fuzzy
+msgid "Exit Full Screen"
+msgstr "フルスクリーン"

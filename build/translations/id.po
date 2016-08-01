@@ -871,3 +871,39 @@ msgstr ""
 
 msgid "Switch to"
 msgstr ""
+
+#, fuzzy
+msgid "Single Trade"
+msgstr "Trading Baru"
+
+#, fuzzy
+msgid "Multi Trade"
+msgstr "Trading Penuh"
+
+#, fuzzy
+msgid "Current Password"
+msgstr "Kata sandi saat ini"
+
+#, fuzzy
+msgid "New Password"
+msgstr "Kata sandi baru"
+
+#, fuzzy
+msgid "Last 50 Ticks"
+msgstr "30 Hari Terakhir"
+
+#, fuzzy
+msgid "Last 100 Ticks"
+msgstr "30 Hari Terakhir"
+
+#, fuzzy
+msgid "Last 500 Ticks"
+msgstr "30 Hari Terakhir"
+
+#, fuzzy
+msgid "Last 1000 Ticks"
+msgstr "30 Hari Terakhir"
+
+#, fuzzy
+msgid "Exit Full Screen"
+msgstr "Layar Penuh"
