@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { epochToUTCTimeString, dateToEpoch,
-    timeStringToSeconds, dateToDateString } from 'binary-utils';
+    timeStringToSeconds, dateToDateString, returnValidDate, returnValidTime } from 'binary-utils';
 import { M, Label } from 'binary-components';
 import { createDefaultStartLaterEpoch } from '../trade-params/DefaultTradeParams';
 import { changeStartDate } from '../trade-params/TradeParamsCascadingUpdates';
@@ -33,7 +33,7 @@ export default class ForwardStartingOptions extends PureComponent {
 
     onDayChange = e => {
         const { dateStart } = this.props;
-        const inputValue = e.target.value;
+        const inputValue = returnValidDate(e.target.value, '-');
         const newDayEpoch = dateToEpoch(new Date(inputValue));
         const secondsPerDay = 60 * 60 * 24;
         const intraDayEpoch = dateStart % secondsPerDay;
@@ -42,7 +42,7 @@ export default class ForwardStartingOptions extends PureComponent {
 
     onTimeChange = e => {
         const { dateStart } = this.props;
-        const inputValue = e.target.value;
+        const inputValue = returnValidTime(e.target.value, ':');
         const secondsPerDay = 60 * 60 * 24;
         const intraDayEpoch = dateStart % secondsPerDay;
         const dayEpoch = dateStart - intraDayEpoch;
