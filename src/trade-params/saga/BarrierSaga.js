@@ -1,4 +1,4 @@
-import { takeLatest } from 'redux-saga';
+import { takeEvery } from 'redux-saga';
 import { put, select } from 'redux-saga/effects';
 import { getParams } from './SagaSelectors';
 import { updateMultipleTradeParams } from '../../_actions';
@@ -25,5 +25,5 @@ function* handleBarrierChange(action) {
 }
 
 export default function* watchBarrierChange() {
-    yield takeLatest(CHANGE_BARRIER, handleBarrierChange);
+    yield takeEvery(CHANGE_BARRIER, handleBarrierChange);
 }

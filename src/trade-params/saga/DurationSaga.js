@@ -1,4 +1,4 @@
-import { takeLatest } from 'redux-saga';
+import { takeEvery } from 'redux-saga';
 import { put, select } from 'redux-saga/effects';
 import { updateMultipleTradeParams, updateTradeUIState, updateTradeError } from '../../_actions';
 import { allTimeRelatedFieldValid } from '../TradeParamsValidation';
@@ -162,10 +162,10 @@ function* handleStartTimeChange(action) {
 
 export default function* watchDurationChange() {
     yield [
-        takeLatest(CHANGE_DURATION, handleDurationChange),
-        takeLatest(CHANGE_DURATION_UNIT, handleDurationUnitChange),
-        takeLatest(CHANGE_START_DATE_STRING, handleStartDateChange),
-        takeLatest(CHANGE_START_TIME_STRING, handleStartTimeChange),
-        takeLatest(CHANGE_START_DATE_EPOCH, handleStartEpochChange),
+        takeEvery(CHANGE_DURATION, handleDurationChange),
+        takeEvery(CHANGE_DURATION_UNIT, handleDurationUnitChange),
+        takeEvery(CHANGE_START_DATE_STRING, handleStartDateChange),
+        takeEvery(CHANGE_START_TIME_STRING, handleStartTimeChange),
+        takeEvery(CHANGE_START_DATE_EPOCH, handleStartEpochChange),
     ];
 }

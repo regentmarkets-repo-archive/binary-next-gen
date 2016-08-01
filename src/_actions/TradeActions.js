@@ -164,11 +164,10 @@ export const resubscribeAllPriceProposal = () =>
     };
 
 // Handle trade's purchase related operation
-export const updatePurchaseInfo = (index, fieldName, fieldValue) => ({
-    type: types.UPDATE_TRADE_PURCHASE_INFO,
+export const updatePurchasedContract = (index, receipt) => ({
+    type: types.PURCHASED_CONTRACT,
     index,
-    fieldName,
-    fieldValue,
+    receipt,
 });
 
 export const purchaseByTradeId = (tradeID, trade) =>
@@ -182,8 +181,7 @@ export const purchaseByTradeId = (tradeID, trade) =>
         return LiveData.api.buyContract(proposalID, price)
             .then(
                 response => {
-                    dispatch(updatePurchaseInfo(tradeID, 'receipt', response.buy));
-                    dispatch(updatePurchaseInfo(tradeID, 'mostRecentContractId', response.buy.contract_id));
+                    dispatch(updatePurchasedContract(tradeID, response.buy));
                     return LiveData.api
                         .subscribeToOpenContract(response.buy.contract_id)
                         .then(() => dispatch(getDataForContract(response.buy.contract_id, 1, 'all', 'ticks')));

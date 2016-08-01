@@ -4,7 +4,7 @@ import { expect } from 'chai';
 import {
     updateActiveLayout,
     closeContractReceipt,
-    updatePurchaseInfo,
+    updatePurchasedContract,
 } from '../../_actions';
 import * as types from '../../_constants/ActionTypes';
 import reducer from '../trades/TradesPurchaseInfoReducer';
@@ -30,7 +30,7 @@ describe('PurchaseInfoReducer', () => {
     });
 
     it('should update purchase info when UPDATE_TRADE_PURCHASE_INFO received', () => {
-        const action = updatePurchaseInfo(0, 'hello', 'world');
+        const action = updatePurchasedContract(0, 'hello', 'world');
         const actual = reducer(initialState, action);
         expect(actual.toJS()[0]).to.be.deep.equal({ hello: 'world' });
     });

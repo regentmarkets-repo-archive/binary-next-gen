@@ -1,4 +1,4 @@
-import { takeLatest } from 'redux-saga';
+import { takeEvery } from 'redux-saga';
 import { select, put } from 'redux-saga/effects';
 import { getForceRenderCount, getParams, contractOfSymbol } from './SagaSelectors';
 import { updateMultipleTradeParams, updateTradeUIState } from '../../_actions';
@@ -51,7 +51,7 @@ function* handleTypeChange(action) {
 
 export default function* watchTypeChange() {
     yield [
-        takeLatest(CHANGE_CATEGORY, handleCatChange),
-        takeLatest(CHANGE_TYPE, handleTypeChange),
+        takeEvery(CHANGE_CATEGORY, handleCatChange),
+        takeEvery(CHANGE_TYPE, handleTypeChange),
     ];
 }

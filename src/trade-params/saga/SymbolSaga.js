@@ -1,4 +1,4 @@
-import { takeLatest } from 'redux-saga';
+import { takeEvery } from 'redux-saga';
 import { put, select, fork } from 'redux-saga/effects';
 import { updateMultipleTradeParams, updateTradingOptions, updateTradeUIState,
     updateFeedLicense, updateTradingOptionsErr } from '../../_actions';
@@ -68,5 +68,5 @@ export function* tradeCreation(action) {
 }
 
 export default function* watchSymbol() {
-    yield takeLatest(CHANGE_SYMBOL, tradeCreation);
+    yield takeEvery(CHANGE_SYMBOL, tradeCreation);
 }
