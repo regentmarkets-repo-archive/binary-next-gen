@@ -53,7 +53,7 @@ export const changeLanguage = langCode => {
 
 const initAuthorized = async (authData, store) => {
     if (/japan/.test(authData.authorize.landing_company_name)) {
-        showError('Sorry, for japan user please login through www.binary.com '); // TODO: use showError without breaking test
+        showError('Sorry, for japan user please login through www.binary.com ');
         store.dispatch(actions.updateAppState('authorized', false));
         store.dispatch(actions.updateToken(''));
         return;
