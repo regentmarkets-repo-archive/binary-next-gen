@@ -29,6 +29,7 @@ export default class SettingsAddress extends PureComponent {
 			address_state: props.address_state,
 			address_postcode: props.address_postcode,
 			phone: props.phone,
+			is_an_update: false,
 		};
 	}
 
@@ -37,12 +38,15 @@ export default class SettingsAddress extends PureComponent {
         actions.getStatesForCountry(country_code);
     }
 
-	onEntryChange = e =>
-		this.setState({ [e.target.id]: e.target.value });
+	onEntryChange = e => {
+		const value = this.state[e.target.id];
+		const isUpdate = this.state.is_an_update;
+		this.setState({ [e.target.id]: e.target.value, is_an_update: isUpdate ? true : (value !== e.target.value.trim()) });
+	}
 
 	tryUpdate = () => {
 		const { address_line_1, address_line_2, address_city, address_state,
-			address_postcode, phone } = this.state;
+			address_postcode, phone, is_an_update } = this.state;
 		const updateData = {
 			address_line_1,
 			address_line_2,
@@ -51,16 +55,19 @@ export default class SettingsAddress extends PureComponent {
 			address_postcode,
 			phone,
 		};
+		if (!is_an_update) {
+			return;
+		}
 
 		if (phone.length < 6) {
 			this.setState({ phoneError: 'You should enter between 6-35 characters.' });
 		} else if (phone.match(/[a-z]/i)) {
 			this.setState({ phoneError: 'Only numbers, space, - are allowed.' });
 		} else if (address_line_1) {
-			this.setState({ phoneError: '' });
 			LiveData.api.setAccountSettings(updateData).then(() => {
 					actions.updateSettingFields(this.state);
 					showInfo('Settings updated');
+					this.setState({ phoneError: '', is_an_update: false });
 				}).catch(response => {
 					showError(response.error.message);
 				}
