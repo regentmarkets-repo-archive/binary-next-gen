@@ -845,7 +845,7 @@ msgid "Answer To Secret Question"
 msgstr "Câu trả lời cho câu hỏi bí mật"
 
 msgid "Switch to"
-msgstr ""
+msgstr "Chuyển sang"
 
 #, fuzzy
 msgid "Single Trade"
@@ -878,4 +878,4 @@ msgid "Last 1000 Ticks"
 msgstr "30 ngày trước"
 
 msgid "Exit Full Screen"
-msgstr "Chuyển sang"
+msgstr ""

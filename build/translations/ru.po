@@ -864,7 +864,7 @@ msgid "Answer To Secret Question"
 msgstr "Ответ на секретный вопрос"
 
 msgid "Switch to"
-msgstr ""
+msgstr "Перейти к"
 
 #, fuzzy
 msgid "Single Trade"
@@ -900,4 +900,4 @@ msgstr "Последн. 25 тиков"
 
 #, fuzzy
 msgid "Exit Full Screen"
-msgstr "Перейти к"
+msgstr ""
