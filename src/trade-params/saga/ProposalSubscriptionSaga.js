@@ -20,7 +20,7 @@ function* handleUnsubscribe(action) {
     if (oldProposalId) {
         yield [
             api.unsubscribeByID(oldProposalId),
-            put(updateTradeProposal(index, 'proposal')),
+            put(updateTradeProposal(index, 'proposal', {})),
         ];
     }
 }
