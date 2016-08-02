@@ -8,8 +8,14 @@ function safeMerge(a, b) {
     return Object.assign(aClone, b);
 }
 
-export function changeCategory(newCategory, contract, oldTrade, isOpen = true) {
+export function changeCategory(category, contract, oldTrade, isOpen = true) {
+    let newCategory = category;
+
+    if (!contract[newCategory]) {
+        newCategory = Object.keys(contract)[0];
+    }
     const defaultType = createDefaultType(contract, newCategory);
+
     // spreads is special case
     if (newCategory === 'spreads') {
         const spread = contract[newCategory][defaultType].spread;
@@ -206,9 +212,11 @@ export function changeType(newType, newCategory, contract, oldTrade) {
 
 export function changeStartDate(newStartDate, contract, oldTrade) {
     const { duration, durationUnit, tradeCategory, type } = oldTrade;
-    const newDurations = contract[tradeCategory][type].forwardStartingDuration.options;
+    const startLaterObj = contract[tradeCategory][type].forwardStartingDuration;
 
-    // do not reset duration unless the old one is not valid
+    // ignore if start later not allowed
+    if (!startLaterObj) return oldTrade;
+
     if (!newStartDate) {
         const newDuration = createDefaultDuration(contract, tradeCategory, type);
         const newBarrier =
@@ -227,35 +235,45 @@ export function changeStartDate(newStartDate, contract, oldTrade) {
             barrier: newBarrier[0],
             barrier2: newBarrier[1],
         });
-    } else if (isDurationWithinRange(duration, durationUnit, newDurations)) {
+    }
+
+    // do not reset duration unless the old one is not valid
+    const startLaterOptions = startLaterObj.options;
+    if (isDurationWithinRange(duration, durationUnit, startLaterOptions)) {
         return safeMerge(oldTrade, { dateStart: newStartDate });
     }
 
     return safeMerge(oldTrade, {
         dateStart: newStartDate,
-        duration: newDurations[0].min,
-        durationUnit: newDurations[0].unit,
+        duration: startLaterOptions[0].min,
+        durationUnit: startLaterOptions[0].unit,
         barrier: undefined,
         barrier2: undefined,
     });
 }
 
-export function changeDurationUnit(newUnit, contract, oldTrade) {
+export function changeDurationUnit(unit, contract, oldTrade) {
     const { tradeCategory, type, dateStart, duration } = oldTrade;
     const contractPerType = contract[tradeCategory][type];
+
+    let newUnit = unit;
+
+    // TODO: consider factor this out
+    if (['t', 's', 'm', 'h', 'd'].indexOf(newUnit) < 0) {
+        newUnit = 't';
+    }
 
     let newDuration = duration;
     if (!allTimeRelatedFieldValid(dateStart, newDuration, newUnit, contractPerType)) {
         // only start later
-        if (!contractPerType.durations && contractPerType.forwardStartingDuration) {
-            const optionToUse = contractPerType.forwardStartingDuration.options.find(d => d.unit === newUnit);
-            if (!optionToUse) throw new Error('Invalid duration unit');
-            newDuration = optionToUse.min;
-        } else {
-            const optionToUse = contractPerType.durations.find(d => d.unit === newUnit);
-            if (!optionToUse) throw new Error('Invalid duration unit');
-            newDuration = optionToUse.min;
-        }
+        const durationsObj = contractPerType.durations;
+        const forwardStartingDurationObj = contractPerType.forwardStartingDuration;
+        const allowStartLaterOnly = !durationsObj && forwardStartingDurationObj;
+        const optionToUse = allowStartLaterOnly ?
+            forwardStartingDurationObj.options.find(d => d.unit === newUnit) :
+            durationsObj.find(d => d.unit === newUnit);
+
+        newDuration = optionToUse.min;
     }
 
     // if it's forward starting type, do not update barrier as not applicable
