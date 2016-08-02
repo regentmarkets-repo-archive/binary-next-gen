@@ -87,7 +87,6 @@ export default class TradeViewChart extends PureComponent {
             feedLicense, pipSize, tradeForChart, tradingTime } = this.props;
         const { theme } = this.context;
         const { chartType, dataType } = this.state;
-
         return (
             <BinaryChart
                 id={`trade-chart${index}`}

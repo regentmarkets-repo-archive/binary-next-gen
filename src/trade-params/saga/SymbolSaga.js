@@ -4,7 +4,7 @@ import { updateMultipleTradeParams, updateTradingOptions, updateTradeUIState,
     updateFeedLicense, updateTradingOptionsErr } from '../../_actions';
 import { api } from '../../_data/LiveData';
 import * as paramUpdate from '../TradeParamsCascadingUpdates';
-import { getForceRenderCount, getParams, contractOfSymbol, getTicksOfSymbol } from './SagaSelectors';
+import { getForceRenderCount, getParams, contractOfSymbol, getTicksOfSymbol, isSymbolOpen } from './SagaSelectors';
 import { createTrade } from './TradeParamSaga';
 import { subscribeProposal, unsubscribeProposal } from './ProposalSubscriptionSaga';
 
@@ -24,7 +24,8 @@ export function* tradeCreation(action) {
     const contractNeeded = yield select(contractOfSymbol(symbol));
     if (contractNeeded) {
         const params = yield select(getParams(index));
-        const updatedParams = paramUpdate.changeSymbol(symbol, contractNeeded, params);
+        const isOpen = yield select(isSymbolOpen);
+        const updatedParams = paramUpdate.changeSymbol(symbol, contractNeeded, params, isOpen);
         yield put(updateMultipleTradeParams(index, updatedParams));
 
         const renderCount = yield select(getForceRenderCount(index));

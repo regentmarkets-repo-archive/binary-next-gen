@@ -17,10 +17,11 @@ export const reqStakeChange = (index, stake) => ({
     stake,
 });
 
-export const reqPurchase = (index, price) => ({
+export const reqPurchase = (index, price, purchaseHook) => ({
     type: PURCHASE,
     index,
     price,
+    purchaseHook,
 });
 
 function* handleStakeChange(action) {
@@ -35,11 +36,11 @@ function* handleStakeChange(action) {
 }
 
 function* handlePurchase(action) {
-    const { index, price } = action;
+    const { index, price, purchaseHook } = action;
     const params = yield select(getParams(index));
     const pid = yield select(getProposalId(index));
     try {
-        const { buy } = yield api.buyContract(pid, price);
+        const { buy } = yield api.buyContract(pid, price).then(purchaseHook);
         yield [
             put(updatePurchasedContract(index, buy)),
             api.subscribeToOpenContract(buy.contract_id),           // TODO: do I need to call getDataForContract?

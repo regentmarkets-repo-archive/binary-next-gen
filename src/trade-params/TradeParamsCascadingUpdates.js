@@ -7,9 +7,8 @@ function safeMerge(a, b) {
     const aClone = Object.assign({}, a);
     return Object.assign(aClone, b);
 }
-// TODO: let all change methods return whole trade obj, easier to reason and debug
 
-export function changeCategory(newCategory, contract, oldTrade) {
+export function changeCategory(newCategory, contract, oldTrade, isOpen = true) {
     const defaultType = createDefaultType(contract, newCategory);
     // spreads is special case
     if (newCategory === 'spreads') {
@@ -34,7 +33,8 @@ export function changeCategory(newCategory, contract, oldTrade) {
             oldTrade.dateStart,
             oldTrade.duration,
             oldTrade.durationUnit,
-            contract[newCategory][defaultType]
+            contract[newCategory][defaultType],
+            isOpen,
         )) {
         const { dateStart, duration, durationUnit } = oldTrade;
         const newBarrier = createDefaultBarriers(
@@ -61,7 +61,7 @@ export function changeCategory(newCategory, contract, oldTrade) {
         });
     }
 
-    const newDuration = createDefaultDuration(contract, newCategory, defaultType);
+    const newDuration = createDefaultDuration(contract, newCategory, defaultType, isOpen);
     const { dateStart, duration, durationUnit } = newDuration;
     const newBarrier = createDefaultBarriers(
         contract,
@@ -88,14 +88,14 @@ export function changeCategory(newCategory, contract, oldTrade) {
     });
 }
 
-export function changeSymbol(symbol, contract, oldTrade, changeCat = changeCategory) {
+export function changeSymbol(symbol, contract, oldTrade, isOpen = true) {
     if (!oldTrade) {
-        return createDefaultTradeParams(contract, symbol);
+        return createDefaultTradeParams(contract, symbol, isOpen);
     }
 
     const selectedCategory = oldTrade.tradeCategory;
     if (!categoryValid(selectedCategory, contract)) {
-        return changeCat(Object.keys(contract)[0], contract, safeMerge(oldTrade, { symbol }));
+        return changeCategory(Object.keys(contract)[0], contract, safeMerge(oldTrade, { symbol }));
     }
 
     const selectedType = oldTrade.type;

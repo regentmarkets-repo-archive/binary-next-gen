@@ -10,17 +10,20 @@ export const createDefaultStartLaterEpoch = forwardStartingDuration => {
     return nextDayOpening + (60 * 15);                      // 15 minutes * 60 secs
 };
 
-export const createDefaultDuration = (contracts, category, type) => {
+export const createDefaultDuration = (contracts, category, type, isOpen) => {
     if (category === 'spreads') {
         return undefined;
     }
     const d = contracts[category][type].durations;
 
-    if (!!d) {
-        return { duration: d[0].min, durationUnit: d[0].unit };
+    if (!!d && isOpen) {
+        return {
+            duration: d[0].min,
+            durationUnit: d[0].unit,
+        };
     }
-
     const forwardD = contracts[category][type].forwardStartingDuration;
+
     return {
         dateStart: createDefaultStartLaterEpoch(forwardD),
         duration: forwardD.options[0].min,
@@ -95,7 +98,7 @@ export const createDefaultBarrierType = (duration, durationUnit) => {
     return barrierType;         // did not use return directly as ESLint complain about it
 };
 
-export const createDefaultTradeParams = (contracts, symbol) => {
+export const createDefaultTradeParams = (contracts, symbol, isOpen) => {
     const cat = createDefaultCategory(contracts);
     const type = createDefaultType(contracts, cat);
     const { duration, durationUnit } = createDefaultDuration(contracts, cat, type);
@@ -103,7 +106,7 @@ export const createDefaultTradeParams = (contracts, symbol) => {
     const barrierType = createDefaultBarrierType(duration, durationUnit);
 
     const startLaterOpts = contracts[cat][type].forwardStartingDuration;
-    const dateStart = startLaterOpts ? createDefaultStartLaterEpoch(startLaterOpts) : undefined;
+    const dateStart = isOpen ? undefined : startLaterOpts && createDefaultStartLaterEpoch(startLaterOpts);
     return {
         symbol,
         tradeCategory: cat,

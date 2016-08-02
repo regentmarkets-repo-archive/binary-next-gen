@@ -27,6 +27,12 @@ export default class ForwardStartingOptions extends PureComponent {
         };
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (!!nextProps.dateStart) {
+            this.setState({ showStartLater: true });
+        }
+    }
+
     onDayChange = e => {
         const { index } = this.props;
         const inputValue = e.target.value;

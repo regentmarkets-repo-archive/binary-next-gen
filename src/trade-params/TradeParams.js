@@ -101,8 +101,8 @@ export default class TradeParams extends PureComponent {
     }
 
     onPurchase = () => {
-        const { index, onPurchaseHook } = this.props;
-        actions.purchaseByTradeId(index).then(onPurchaseHook);
+        const { index, onPurchaseHook, proposal } = this.props;
+        actions.reqPurchase(index, proposal.ask_price, onPurchaseHook);
     }
 
 
