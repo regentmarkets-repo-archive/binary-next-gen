@@ -35,16 +35,14 @@ export default class BarrierCard extends PureComponent {
     }
 
 
-    debouncedBarrier1Change = debounceForMobileAndWeb(e => {
+    debouncedBarrier1Change = debounceForMobileAndWeb(inputValue => {
         const { onUpdateTradeParams } = this.props;
-        const inputValue = e.target.value;
         const updatedBarrier1 = changeBarrier1(inputValue);
         onUpdateTradeParams(updatedBarrier1);
     })
 
-    debouncedBarrier2Change = debounceForMobileAndWeb(e => {
+    debouncedBarrier2Change = debounceForMobileAndWeb(inputValue => {
         const { onUpdateTradeParams } = this.props;
-        const inputValue = e.target.value;
         const updatedBarrier2 = changeBarrier2(inputValue);
         onUpdateTradeParams(updatedBarrier2);
     })
@@ -54,7 +52,7 @@ export default class BarrierCard extends PureComponent {
         const newBarrier1 = e.target.value;
         const error = this.validateBarrier(newBarrier1);
         this.onBarrierError(error);
-        this.debouncedBarrier1Change(e);
+        this.debouncedBarrier1Change(e.target.value);
     }
 
     updateBarrier2 = e => {
@@ -62,7 +60,7 @@ export default class BarrierCard extends PureComponent {
         const newBarrier2 = e.target.value;
         const error = this.validateBarrier(newBarrier2);
         this.onBarrierError(error);
-        this.debouncedBarrier2Change(e);
+        this.debouncedBarrier2Change(e.target.value);
     }
 
     onBarrierError = err => {
