@@ -33,8 +33,6 @@ export default class Root extends PureComponent {
             await tryAuth(token);
         } catch (e) {
             actions.updateAppState('authorized', false);
-        } finally {
-            actions.updateAppState('connected', true);
         }
     }
 

@@ -36,6 +36,7 @@ export function changeAsset(oldTrade, contract, changeCat) {
             barrierType: newBarrierType,
         };
     }
+
     const newBarrier = createDefaultBarriers(
         contract,
         selectedCategory,
