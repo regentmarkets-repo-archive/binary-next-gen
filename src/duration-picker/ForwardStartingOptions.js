@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { epochToUTCTimeString, dateToEpoch,
-    timeStringToSeconds, dateToDateString, returnValidDate, returnValidTime } from 'binary-utils';
+    timeStringToSeconds, dateToDateString, returnValidDate, returnValidTime, isValidTime, showError } from 'binary-utils';
 import { M, Label } from 'binary-components';
 import { createDefaultStartLaterEpoch } from '../trade-params/DefaultTradeParams';
 import { changeStartDate } from '../trade-params/TradeParamsCascadingUpdates';
@@ -43,6 +43,9 @@ export default class ForwardStartingOptions extends PureComponent {
     onTimeChange = e => {
         const { dateStart } = this.props;
         const inputValue = returnValidTime(e.target.value, ':');
+        if (isValidTime(inputValue)) {
+             showError('Time format is wrong!');
+        }
         const secondsPerDay = 60 * 60 * 24;
         const intraDayEpoch = dateStart % secondsPerDay;
         const dayEpoch = dateStart - intraDayEpoch;
