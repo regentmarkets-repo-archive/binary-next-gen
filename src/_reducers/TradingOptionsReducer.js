@@ -11,18 +11,18 @@ const splitRiseFallAndHighLow = options =>
             const cloned = Object.assign({}, opt);
             switch (opt.barriers) {
                 case 0: {
-                    const enrichedOpt = Object.assign(cloned, {
+                    const addedRiseFall = Object.assign(cloned, {
                         contract_category_display: 'Rise/Fall',
                         contract_category: 'risefall',
                     });
-                    return enrichedOpt;
+                    return addedRiseFall;
                 }
                 case 1: {
-                    const enrichedOpt = Object.assign(cloned, {
+                    const addedHighLow = Object.assign(cloned, {
                         contract_category_display: 'Higher/Lower',
                         contract_category: 'higherlower',
                     });
-                    return enrichedOpt;
+                    return addedHighLow;
                 }
                 default: {
                     // console.error('Callput with barrier more than 1.');

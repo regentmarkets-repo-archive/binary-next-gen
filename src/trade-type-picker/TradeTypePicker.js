@@ -1,9 +1,9 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { Tab, TabList } from 'binary-components';
 import { contractCategoryToText, tradeTypeCodeToText } from 'binary-utils';
-import { serverToInternalTradeType } from './TradeTypeAdapter';
+import { serverToInternalTradeType, internalToServerTradeType } from './TradeTypeAdapter';
 import { tradeGrouping, typesForCategories, hasAdvanced, hasBasic,
-    hasDigits, pairUpTypes } from './TradeTypePickerUtils';
+    hasDigits, pairUpTypes, findCategoryForType } from './TradeTypePickerUtils';
 import { actions } from '../_store';
 
 export default class TradeTypePicker extends PureComponent {
@@ -46,8 +46,9 @@ export default class TradeTypePicker extends PureComponent {
     }
 
     changeType(type) {
-        const { onSelect, index } = this.props;
-        actions.reqTypeChange(index, type);
+        const { onSelect, index, contract } = this.props;
+        const category = findCategoryForType(contract, type);
+        actions.reqTypeChange(index, category, internalToServerTradeType(type));
         if (onSelect) {
             onSelect(type);
         }

@@ -25,7 +25,6 @@ export function* tradeCreation(action) {
     if (contractNeeded) {
         const params = yield select(getParams(index));
         const updatedParams = paramUpdate.changeSymbol(symbol, contractNeeded, params);
-        console.log('creatett', updatedParams);
         yield put(updateMultipleTradeParams(index, updatedParams));
 
         const renderCount = yield select(getForceRenderCount(index));

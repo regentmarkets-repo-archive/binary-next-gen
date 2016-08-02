@@ -161,7 +161,6 @@ export function changeType(newType, newCategory, contract, oldTrade) {
             stopProfit: spread.stopProfit,
         });
     }
-
     if (allTimeRelatedFieldValid(
             oldTrade.dateStart,
             oldTrade.duration,

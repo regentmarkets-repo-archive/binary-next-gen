@@ -29,18 +29,19 @@ function* handleCatChange(action) {
 
 const CHANGE_TYPE = 'CHANGE_TYPE';
 
-export const reqTypeChange = (index, tradeType) => ({
+export const reqTypeChange = (index, category, tradeType) => ({
     type: CHANGE_TYPE,
     index,
+    category,
     tradeType,
 });
 
 function* handleTypeChange(action) {
-    const { index, tradeType } = action;
+    const { index, category, tradeType } = action;
     yield put(unsubscribeProposal(index));
     const params = yield select(getParams(index));
     const contractNeeded = yield select(contractOfSymbol(params.symbol));
-    const updated = paramUpdate.changeType(tradeType, params.tradeCategory, contractNeeded, params);
+    const updated = paramUpdate.changeType(tradeType, category, contractNeeded, params);
     const renderCount = yield select(getForceRenderCount(index));
     yield [
         put(subscribeProposal(index, updated)),
