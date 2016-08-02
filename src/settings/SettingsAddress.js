@@ -60,9 +60,9 @@ export default class SettingsAddress extends PureComponent {
 		}
 
 		if (phone.length < 6) {
-			this.setState({ phoneError: 'You should enter between 6-35 characters.' });
+			this.setState({ phoneError: 'length' });
 		} else if (phone.match(/[a-z]/i)) {
-			this.setState({ phoneError: 'Only numbers, space, - are allowed.' });
+			this.setState({ phoneError: 'allowed' });
 		} else if (address_line_1) {
 			LiveData.api.setAccountSettings(updateData).then(() => {
 					actions.updateSettingFields(this.state);
@@ -79,6 +79,7 @@ export default class SettingsAddress extends PureComponent {
 		const { states } = this.props;
 		const { address_line_1, address_line_2, address_city, address_state,
 			address_postcode, country_code, phone, phoneError } = this.state;
+
 		return (
 			<div className="settings-address">
 				<legend>
@@ -127,7 +128,8 @@ export default class SettingsAddress extends PureComponent {
 					defaultValue={phone}
 					onChange={this.onEntryChange}
 				/>
-				{phoneError && <ErrorMsg text={phoneError} />}
+				{phoneError === 'length' && <ErrorMsg text="You should enter between 6-35 characters." />}
+				{phoneError === 'allowed' && <ErrorMsg text="Only numbers, space, - are allowed." />}
 				<Button
 					text="Update"
 					onClick={this.tryUpdate}
