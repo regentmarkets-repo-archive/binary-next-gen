@@ -18,16 +18,8 @@ export default class TradeTypePickerMobile extends PureComponent {
 		router.goBack();
 	}
 
-	updateParamsForMobile = params => {
-		actions.updateMultipleTradeParams(0, params);
-		actions.updatePriceProposalSubscription(0);
-	}
-
 	clearTradeError = () => {
-		actions.updateTradeError(0, 'barrierError', undefined);
-		actions.updateTradeError(0, 'durationError', undefined);
-		actions.updateTradeError(0, 'proposalError', undefined);
-		actions.updateTradeError(0, 'purchaseError', undefined);
+		actions.clearTradeError(0);
 	}
 
 	render() {
@@ -38,11 +30,10 @@ export default class TradeTypePickerMobile extends PureComponent {
 		return (
 			<MobilePage toolbarShown={false} backBtnBarTitle="Trade Type">
 				<TradeTypePicker
+					index={0}
 					contract={contract}
 					tradeParams={params}
 					onSelect={this.onSelectForMobile}
-					updateParams={this.updateParamsForMobile}
-					clearTradeError={this.clearTradeError}
 				/>
 			</MobilePage>
 		);

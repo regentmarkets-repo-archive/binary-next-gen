@@ -7,17 +7,24 @@ import actionsToCache from './actionsToCache';
 import storageEngine from './storageEngine';
 import removeNullMiddleware from './removeNullMiddleware';
 import immutableMerger from 'redux-storage-merger-immutablejs';
+import createSagaMiddleware from 'redux-saga';
+
+import tradeParamsSaga from '../trade-params/saga/TradeParamSaga';
 
 const storageMiddleware = storage.createMiddleware(storageEngine, [], actionsToCache);
 const storageReducer = storage.reducer(rootReducer, immutableMerger);
 const storageLoader = storage.createLoader(storageEngine);
 
+const sagaMiddleware = createSagaMiddleware();
 const finalCreateStore = compose(
-    applyMiddleware(removeNullMiddleware, thunkMiddleware, storageMiddleware),
+    applyMiddleware(removeNullMiddleware, thunkMiddleware, storageMiddleware, sagaMiddleware),
     enableDevTools()
 )(createStore);
 
 export const store = finalCreateStore(storageReducer);
+
+sagaMiddleware.run(tradeParamsSaga);
+
 export const rehydratedStorePromise = () => storageLoader(store).then(() => store);
 
 import * as allActions from '../_actions';

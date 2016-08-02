@@ -5,7 +5,7 @@ import {
     RESET_TRADES,
     REMOVE_TRADE,
     REMOVE_PERSONAL_DATA,
-    UPDATE_TRADE_PURCHASE_INFO,
+    PURCHASED_CONTRACT,
 } from '../../_constants/ActionTypes';
 
 const defaultPurchaseInfo = {};
@@ -36,12 +36,14 @@ export default (state = initialState, action) => {
                 .deleteIn([action.index, 'mostRecentContractId'])
                 .deleteIn([action.index, 'lastBoughtContract']);
         }
-        case UPDATE_TRADE_PURCHASE_INFO: {
+        case PURCHASED_CONTRACT: {
             if (!state.get(action.index)) {
                 return state;
             }
-            const { index, fieldName, fieldValue } = action;
-            return state.setIn([index, fieldName], fieldValue);
+            const { index, receipt } = action;
+            return state
+                .setIn([index, 'receipt'], receipt)
+                .setIn([index, 'mostRecentContractId'], receipt.contract_id);
         }
         case RESET_TRADES: {
             return initialState;

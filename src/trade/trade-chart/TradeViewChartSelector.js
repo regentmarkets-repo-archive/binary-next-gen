@@ -17,6 +17,7 @@ const chartDataPerTrade = createSelector(
 const tradingTimePerTrade = createSelector(
     [paramPerTrade, tradingTimesSelector],
     (param, times) => {
+        if (!param) return undefined;
         const symbol = param.get('symbol');
         return times.find(a => a.get('symbol') === symbol);
     }
@@ -25,6 +26,7 @@ const tradingTimePerTrade = createSelector(
 const ticksPerTrade = createSelector(
     [paramPerTrade, ticksSelector],
     (param, ticks) => {
+        if (!param) return undefined;
         const symbol = param.get('symbol');
         return ticks.get(symbol);
     }
@@ -33,6 +35,7 @@ const ticksPerTrade = createSelector(
 const ohlcPerTrade = createSelector(
     [paramPerTrade, ohlcSelector],
     (param, ticks) => {
+        if (!param) return undefined;
         const symbol = param.get('symbol');
         return ticks.get(symbol);
     }
@@ -41,15 +44,17 @@ const ohlcPerTrade = createSelector(
 export const pipSizePerTrade = createSelector(
     [paramPerTrade, assetsSelector],
     (param, assets) => {
+        if (!param) return undefined;
         const symbol = param.get('symbol');
         const symbolDetails = assets.find(a => a.get('symbol') === symbol);
         return symbolDetails && pipsToDigits(symbolDetails.get('pip'));
     }
 );
 
-export const feedLicensePerTrade = createSelector(
+const feedLicensePerTrade = createSelector(
     [feedLicensesSelector, paramPerTrade],
     (licenses, param) => {
+        if (!param) return undefined;
         const symbol = param.get('symbol');
         return licenses.get(symbol);
     }

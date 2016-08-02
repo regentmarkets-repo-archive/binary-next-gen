@@ -44,13 +44,6 @@ const subscribeToWatchlist = store => {
     api.subscribeToTicks(state.watchlist.toJS());
 };
 
-const subscribeToSelectedSymbol = store => {
-    const defaultSymbol = 'R_100'; // TODO: Rework on cache previous settings
-
-    store.dispatch(actions.getTradingOptions(defaultSymbol))
-        .then(() => store.dispatch(actions.getTicksBySymbol(defaultSymbol)));
-};
-
 export const changeLanguage = langCode => {
     api.changeLanguage(langCode);
     api.getActiveSymbolsFull();
@@ -96,7 +89,14 @@ const initAuthorized = async (authData, store) => {
             }
         });
 
-    api.getActiveSymbolsFull();
+    api.getActiveSymbolsFull()
+        .then(r => {
+            const firstOpenSymbol = r.active_symbols.find(a => a.exchange_is_open === 1).symbol;
+            const tradesCount = store.getState().tradesParams.size;
+            if (tradesCount === 0) {
+                store.dispatch(actions.createTrade(0, firstOpenSymbol));
+            }
+        });
     api.getTradingTimes(new Date());
     api.getAssetIndex();
     api.getServerTime();
@@ -114,7 +114,7 @@ const initAuthorized = async (authData, store) => {
     api.subscribeToAllOpenContracts();
     api.subscribeToTransactions();
     subscribeToWatchlist(store);
-    subscribeToSelectedSymbol(store);
+    // subscribeToSelectedSymbol(store);
 
     if (authData.authorize.is_virtual !== 1) {
         api.getAccountLimits();
