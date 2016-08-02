@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: BOM\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-08-02 05:35+0000\n"
+"PO-Revision-Date: 2016-08-02 09:21+0000\n"
 "Last-Translator: Ruslan <ruslan.mukhametdinov.90@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/ru/>\n"
@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.8-dev\n"
 
 msgid "All"
@@ -430,11 +430,10 @@ msgid "Maximum aggregate contract purchases per day."
 msgstr "Максимальная совокупная стоимость контрактов, приобретенных за день."
 
 msgid "Daily limit on losses"
-msgstr ""
+msgstr "Дневной лимит на убытки"
 
-#, fuzzy
 msgid "Maximum aggregate loss per day."
-msgstr "Максимальная совокупная выплата по открытым позициям"
+msgstr "Максимальный совокупный убыток за день."
 
 msgid "7-day turnover limit"
 msgstr "7-дневный лимит на объём покупок"
@@ -445,11 +444,10 @@ msgstr ""
 "период."
 
 msgid "7-day limit on losses"
-msgstr ""
+msgstr "7-дневный лимит на убытки"
 
-#, fuzzy
 msgid "Maximum aggregate loss over a 7-day period."
-msgstr "Максимальная совокупная выплата по открытым позициям"
+msgstr "Максимальный совокупный убыток за 7-дневный период."
 
 msgid "30-day turnover limit"
 msgstr "30-дневный лимит на объём покупок"
@@ -460,11 +458,10 @@ msgstr ""
 "период."
 
 msgid "30-day limit on losses"
-msgstr ""
+msgstr "30-дневный лимит на убытки"
 
-#, fuzzy
 msgid "Maximum aggregate loss over a 30-day period."
-msgstr "Максимальная совокупная выплата по открытым позициям"
+msgstr "Максимальный совокупный убыток за 30-дневный период."
 
 msgid "Session duration limit, in minutes"
 msgstr "Предел продолжительности сессии, в минутах"
