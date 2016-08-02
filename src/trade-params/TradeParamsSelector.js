@@ -66,6 +66,7 @@ export const availableContractsSelector = createSelector(
 const contractPerTrade = createSelector(
     [availableContractsSelector, paramPerTrade],
     (contracts, param) => {
+        if (!param) return undefined;
         const symbol = param.get('symbol');
         return contracts.get(symbol);
     }
@@ -74,6 +75,7 @@ const contractPerTrade = createSelector(
 const marketIsOpenPerTrade = createSelector(
     [assetsIsOpenSelector, paramPerTrade],
     (assetsIsOpen, param) => {
+        if (!param) return undefined;
         const symbol = param.get('symbol');
         return assetsIsOpen[symbol] && assetsIsOpen[symbol].isOpen;
     }
