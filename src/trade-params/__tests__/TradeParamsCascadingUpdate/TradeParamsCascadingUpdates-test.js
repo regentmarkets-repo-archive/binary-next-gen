@@ -1,5 +1,5 @@
-import * as updateHelpers from '../TradeParamsCascadingUpdates';
-import { mockedContract } from '../../_constants/MockContract';
+import * as updateHelpers from '../../TradeParamsCascadingUpdates';
+import { mockedContract } from '../../../_constants/MockContract';
 import chai, { expect } from 'chai';
 import chaiSubset from 'chai-subset';
 
