@@ -15,8 +15,7 @@ export default class StakeCard extends PureComponent {
         onUpdateTradeParams: PropTypes.func,
         index: PropTypes.number.isRequired,
     };
-    debouncedUpdateAmount = debounce(e => {
-        const inputValue = e.target.value;
+    debouncedUpdateAmount = debounce(inputValue => {
         const { index, onUpdateTradeParams } = this.props;
         if (inputValue > 500) {                  // TODO: temporary to control stake amount
             actions.updateTradeError(index, 'stakeError', 'Stake cannot be more than 500');
@@ -30,7 +29,8 @@ export default class StakeCard extends PureComponent {
     onAmountChange = e => {
         const { index } = this.props;
         actions.updateTradeUIState(index, 'disabled', true);
-        this.debouncedUpdateAmount(e);
+        const amountInput = e.target.value;
+        this.debouncedUpdateAmount(amountInput);
     }
     onBasisChange = e => {
         const { onUpdateTradeParams } = this.props;
