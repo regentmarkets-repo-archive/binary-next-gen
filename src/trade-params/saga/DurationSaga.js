@@ -15,7 +15,7 @@ export const reqDurationChange = (index, duration) => ({
     duration,
 });
 
-function* handleDurationChange(action) {
+export function* handleDurationChange(action) {
     const { index, duration } = action;
     yield put(unsubscribeProposal(index));
     const params = yield select(getParams(index));
@@ -44,7 +44,7 @@ export const reqDurationUnitChange = (index, durationUnit) => ({
     durationUnit,
 });
 
-function* handleDurationUnitChange(action) {
+export function* handleDurationUnitChange(action) {
     const { index, durationUnit } = action;
     yield put(unsubscribeProposal(index));
     const params = yield select(getParams(index));
@@ -66,7 +66,7 @@ export const reqStartEpochChange = (index, epoch) => ({
     epoch,
 });
 
-function* handleStartEpochChange(action) {
+export function* handleStartEpochChange(action) {
     const { index, epoch } = action;
     yield put(unsubscribeProposal(index));
     const params = yield select(getParams(index));
@@ -94,7 +94,7 @@ export const reqStartDateChange = (index, date) => ({
     date,
 });
 
-function* handleStartDateChange(action) {
+export function* handleStartDateChange(action) {
     const { index, date } = action;
     yield put(unsubscribeProposal(index));
     const params = yield select(getParams(index));
@@ -133,7 +133,7 @@ export const reqStartTimeChange = (index, time) => ({
     time,
 });
 
-function* handleStartTimeChange(action) {
+export function* handleStartTimeChange(action) {
     const { index, time } = action;
     yield put(unsubscribeProposal(index));
     const params = yield select(getParams(index));
