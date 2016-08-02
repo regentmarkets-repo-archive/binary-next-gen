@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: BOM\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-07-31 09:46+0000\n"
-"Last-Translator: Alina Demidova <alinademidova1@gmail.com>\n"
+"PO-Revision-Date: 2016-08-02 05:31+0000\n"
+"Last-Translator: Ruslan <ruslan.mukhametdinov.90@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/ru/>\n"
 "Language: ru\n"
@@ -426,9 +426,8 @@ msgstr "Дневной лимит на объём покупок"
 msgid "Once this limit is reached, you may no longer deposit."
 msgstr "Как только будет достигнут данный лимит, Вы не сможете пополнить счёт."
 
-#, fuzzy
 msgid "Maximum aggregate contract purchases per day."
-msgstr "Максимальное совокупное число контрактов, приобретённых за день."
+msgstr "Максимальная совокупная стоимость контрактов, приобретенных за день"
 
 #, fuzzy
 msgid "Daily limit on losses"
