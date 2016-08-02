@@ -61,7 +61,7 @@ export default class TradeCard extends PureComponent {
             />
         );
 
-        const tradeParamsComponent = (
+        const tradeParamsComponent = paramsProps.tradeParams && (
             <TradeParams
                 {...immutableChildrenToJS(paramsProps)}
                 compact={compact}

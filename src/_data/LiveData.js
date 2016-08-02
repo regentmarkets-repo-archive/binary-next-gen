@@ -92,8 +92,10 @@ const initAuthorized = async (authData, store) => {
     api.getActiveSymbolsFull()
         .then(r => {
             const firstOpenSymbol = r.active_symbols.find(a => a.exchange_is_open === 1).symbol;
-            console.log(firstOpenSymbol);
-            store.dispatch(actions.createTrade(0, firstOpenSymbol));
+            const tradesCount = store.getState().tradesParams.size;
+            if (tradesCount === 0) {
+                store.dispatch(actions.createTrade(0, firstOpenSymbol));
+            }
         });
     api.getTradingTimes(new Date());
     api.getAssetIndex();

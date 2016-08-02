@@ -30,6 +30,7 @@ export const purchasePerTrade = (state, props) => tradePurchaseInfoSelector(stat
 export const paramPerTrade = createImmutableSelector(
     [(state, props) => tradeParamsSelector(state).get(props.index), assetsSelector],
     (param, assets) => {
+        console.log('???');
         if (!param) return undefined;
         const symbol = param.get('symbol');
         const symbolDetails = assets.find(a => a.get('symbol') === symbol);
