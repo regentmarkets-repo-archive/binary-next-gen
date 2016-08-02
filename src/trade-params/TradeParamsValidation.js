@@ -28,5 +28,9 @@ export const allTimeRelatedFieldValid = (dateStart, duration, durationUnit, cont
         const durationIsValid = durationValid(duration, durationUnit, forwardStartingDuration.options);
         return dateStartValid && durationIsValid;
     }
-    return durationValid(duration, durationUnit, contractPerType.durations);
+
+    if (!dateStart) {
+        return durationValid(duration, durationUnit, contractPerType.durations);
+    }
+    return durationValid(duration, durationUnit, forwardStartingDuration.options);
 };

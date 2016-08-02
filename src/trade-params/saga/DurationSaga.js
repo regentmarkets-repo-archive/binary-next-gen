@@ -70,20 +70,14 @@ export function* handleStartEpochChange(action) {
     const { index, epoch } = action;
     yield put(unsubscribeProposal(index));
     const params = yield select(getParams(index));
-    const { symbol, tradeCategory, type, durationUnit, duration } = params;
+    const { symbol } = params;
     const contractNeeded = yield select(contractOfSymbol(symbol));
-    const contractPerType = contractNeeded[tradeCategory][type];
-    const durationAllowed = allTimeRelatedFieldValid(epoch, duration, durationUnit, contractPerType);
-    if (durationAllowed) {
-        const updated = Object.assign(params, { dateStart: epoch });
-        yield [
-            put(subscribeProposal(index, updated)),
-            put(updateMultipleTradeParams(index, updated)),
-            put(updateTradeError(index, 'durationError')),
-        ];
-    } else {
-        yield put(updateTradeError(index, 'durationError', 'Start date invalid, it needs to be five minutes or more in the future.'));
-    }
+    const updated = paramUpdate.changeStartDate(epoch, contractNeeded, params);
+    yield [
+        put(subscribeProposal(index, updated)),
+        put(updateMultipleTradeParams(index, updated)),
+        put(updateTradeError(index, 'durationError')),
+    ];
 }
 
 const CHANGE_START_DATE_STRING = 'CHANGE_START_DATE_STRING';
@@ -114,7 +108,7 @@ export function* handleStartDateChange(action) {
     const contractPerType = contractNeeded[tradeCategory][type];
     const durationAllowed = allTimeRelatedFieldValid(newDateStart, duration, durationUnit, contractPerType);
     if (durationAllowed) {
-        const updated = Object.assign(params, { dateStart: newDateStart });
+        const updated = paramUpdate.changeStartDate(newDateStart, contractNeeded, params);
         yield [
             put(subscribeProposal(index, updated)),
             put(updateMultipleTradeParams(index, updated)),
@@ -149,7 +143,7 @@ export function* handleStartTimeChange(action) {
     const durationAllowed = allTimeRelatedFieldValid(newDateStart, duration, durationUnit, contractPerType);
 
     if (durationAllowed) {
-        const updated = Object.assign(params, { dateStart: newDateStart });
+        const updated = paramUpdate.changeStartDate(newDateStart, contractNeeded, params);
         yield [
             put(subscribeProposal(index, updated)),
             put(updateMultipleTradeParams(index, updated)),
