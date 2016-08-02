@@ -24,7 +24,7 @@ export function* tradeCreation(action) {
     const contractNeeded = yield select(contractOfSymbol(symbol));
     if (contractNeeded) {
         const params = yield select(getParams(index));
-        const isOpen = yield select(isSymbolOpen);
+        const isOpen = yield select(isSymbolOpen(symbol));
         const updatedParams = paramUpdate.changeSymbol(symbol, contractNeeded, params, isOpen);
         yield put(updateMultipleTradeParams(index, updatedParams));
 

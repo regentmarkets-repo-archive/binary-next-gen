@@ -10,7 +10,7 @@ export const createDefaultStartLaterEpoch = forwardStartingDuration => {
     return nextDayOpening + (60 * 15);                      // 15 minutes * 60 secs
 };
 
-export const createDefaultDuration = (contracts, category, type, isOpen) => {
+export const createDefaultDuration = (contracts, category, type, isOpen = true) => {
     if (category === 'spreads') {
         return undefined;
     }
