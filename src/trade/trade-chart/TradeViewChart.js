@@ -32,8 +32,8 @@ export default class TradeViewChart extends PureComponent {
         index: PropTypes.number.isRequired,
         events: PropTypes.array.isRequired,
         feedLicense: PropTypes.string.isRequired,
-        pipSize: PropTypes.number.isRequired,
-        tradeForChart: PropTypes.object.isRequired,
+        pipSize: PropTypes.number,
+        tradeForChart: PropTypes.object,
         tradingTime: PropTypes.object.isRequired,
     };
 

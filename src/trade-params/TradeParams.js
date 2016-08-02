@@ -64,7 +64,7 @@ export default class TradeParams extends PureComponent {
         forceRenderCount: PropTypes.number.isRequired,
         index: PropTypes.number.isRequired,
         onPurchaseHook: PropTypes.func,
-        pipSize: PropTypes.number.isRequired,
+        pipSize: PropTypes.number,
         proposal: PropTypes.object,
         purchaseError: PropTypes.string,
         style: PropTypes.object,

@@ -24,7 +24,7 @@ export default class BarrierCard extends PureComponent {
         spot: PropTypes.number,
     };
 
-    validateBarrier = barrier => {
+    barrierTooLong = barrier => {
         const { pipSize } = this.props;
         const barrierDecimals = barrier.toString().split('.')[1];
         const barrierExceedPipSize = barrierDecimals && (barrierDecimals.length > pipSize);
@@ -36,15 +36,15 @@ export default class BarrierCard extends PureComponent {
     }
 
     updateBarrier1 = e => {
-        const { index } = this.props;
+        const { index, barrier2 } = this.props;
         const newBarrier1 = e.target.value;
-        debouncedReqBarrierChange(index, [newBarrier1, this.props.barrier2]);
+        debouncedReqBarrierChange(index, [newBarrier1, barrier2]);
     }
 
     updateBarrier2 = e => {
-        const { index } = this.props;
+        const { barrier, index } = this.props;
         const newBarrier2 = e.target.value;
-        debouncedReqBarrierChange(index, [this.props.barrier, newBarrier2]);
+        debouncedReqBarrierChange(index, [barrier, newBarrier2]);
     }
 
     render() {

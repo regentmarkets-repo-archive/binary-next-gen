@@ -8,8 +8,8 @@ export default class AssetPickerDropDown extends PureComponent {
 
     static propTypes = {
         index: PropTypes.number.isRequired,
-        selectedSymbol: PropTypes.string.isRequired,
-        selectedSymbolName: PropTypes.string.isRequired,
+        selectedSymbol: PropTypes.string,
+        selectedSymbolName: PropTypes.string,
     };
 
     static contextTypes = {
