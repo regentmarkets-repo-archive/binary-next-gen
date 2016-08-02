@@ -13,17 +13,16 @@ export const reqCatChange = (index, category) => ({
     category,
 });
 
+// Category change does not trigger re-render, as we want the dropdown to be there
 function* handleCatChange(action) {
     const { index, category } = action;
     yield put(unsubscribeProposal(index));
     const params = yield select(getParams(index));
     const contractNeeded = yield select(contractOfSymbol(params.symbol));
     const updated = paramUpdate.changeCategory(category, contractNeeded, params);
-    const renderCount = yield select(getForceRenderCount(index));
     yield [
         put(subscribeProposal(index, updated)),
         put(updateMultipleTradeParams(index, updated)),
-        put(updateTradeUIState(index, 'forceRenderCount', renderCount + 1)),
     ];
 }
 

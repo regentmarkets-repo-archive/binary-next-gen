@@ -150,10 +150,10 @@ export default class TradeParams extends PureComponent {
 
         const showDuration = !!tradeParams.duration;
         const isDigitType = selectedCategory === 'digits';
+
         const showSpreadBarrier = selectedCategory === 'spreads';
 
-        const digitOptions = (isDigitType && barrierInfo) && barrierInfo.tick[0].value;
-
+        const digitOptions = (isDigitType && barrierInfo) && barrierInfo.tick[0].values;
         const askPrice = askPriceFromProposal(proposal);
 
         const errorText = errorToShow(errors);
