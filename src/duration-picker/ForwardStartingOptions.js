@@ -1,7 +1,7 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { epochToUTCTimeString, dateToEpoch,
-    timeStringToSeconds, dateToDateString, returnValidDate, returnValidTime, isValidTime, showError } from 'binary-utils';
-import { M, Label } from 'binary-components';
+    timeStringToSeconds, dateToDateString, returnValidDate, returnValidTime, isValidTime } from 'binary-utils';
+import { M, Label, ErrorMsg } from 'binary-components';
 import { createDefaultStartLaterEpoch } from '../trade-params/DefaultTradeParams';
 import { changeStartDate } from '../trade-params/TradeParamsCascadingUpdates';
 import { debounceForMobileAndWeb } from '../trade-params/TradeParams';
@@ -28,6 +28,7 @@ export default class ForwardStartingOptions extends PureComponent {
         this.state = {
             showStartLater: !!props.dateStart,
             defaultDateStart: createDefaultStartLaterEpoch(props.forwardStartingDuration),
+            isInValidTime: false,
         };
     }
 
@@ -43,9 +44,7 @@ export default class ForwardStartingOptions extends PureComponent {
     onTimeChange = e => {
         const { dateStart } = this.props;
         const inputValue = returnValidTime(e.target.value, ':');
-        if (isValidTime(inputValue)) {
-             showError('Time format is wrong!');
-        }
+        this.setState({ isInValidTime: isValidTime(inputValue) });
         const secondsPerDay = 60 * 60 * 24;
         const intraDayEpoch = dateStart % secondsPerDay;
         const dayEpoch = dateStart - intraDayEpoch;
@@ -80,7 +79,7 @@ export default class ForwardStartingOptions extends PureComponent {
 
     render() {
         const { dateStart, forwardStartingDuration, index, options } = this.props;
-        const { showStartLater, defaultDateStart } = this.state;
+        const { showStartLater, defaultDateStart, isInValidTime } = this.state;
         const ranges = forwardStartingDuration.range;
         const allowStartLater = !!forwardStartingDuration;
         const onlyStartLater = allowStartLater && !options;
@@ -131,6 +130,9 @@ export default class ForwardStartingOptions extends PureComponent {
                             defaultValue={defaultTime}
                         />
                     </div>}
+                    {allowStartLater && isInValidTime &&
+                        <ErrorMsg text="Time format is wrong!" />
+                    }
                 </div>
             </div>
         );
