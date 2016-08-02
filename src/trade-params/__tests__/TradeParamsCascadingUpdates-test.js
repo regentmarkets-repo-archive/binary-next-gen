@@ -94,6 +94,21 @@ describe('Update helpers', () => {
             const updateDurationUnit = updateHelpers.changeDurationUnit('m', mockedContract, mockEndsInTrade);
             expect(updateDurationUnit.barrier).to.not.equal(mockEndsInTrade.barrier);
         });
+
+        it('should throw when duration unit is not allowed', () => {
+            const fn = () => updateHelpers.changeDurationUnit('ss', mockedContract, mockTickTrade);
+            expect(fn).to.throw('Invalid duration unit');
+        });
+
+        it('should keep old duration if it is allowed', () => {
+            const updated = updateHelpers.changeDurationUnit('m', mockedContract, mockTickTrade);
+            expect(updated.duration).to.be.equal(mockTickTrade.duration);
+        });
+
+        it('should change duration if old one is not allowed', () => {
+            const updated = updateHelpers.changeDurationUnit('s', mockedContract, mockTickTrade);
+            expect(updated.duration).to.not.be.equal(mockTickTrade.duration);
+        });
     });
 
     describe('changeStartDate', () => {

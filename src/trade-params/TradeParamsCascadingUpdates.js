@@ -248,9 +248,13 @@ export function changeDurationUnit(newUnit, contract, oldTrade) {
     if (!allTimeRelatedFieldValid(dateStart, newDuration, newUnit, contractPerType)) {
         // only start later
         if (!contractPerType.durations && contractPerType.forwardStartingDuration) {
-            newDuration = contractPerType.forwardStartingDuration.options.find(d => d.unit === newUnit).min;
+            const optionToUse = contractPerType.forwardStartingDuration.options.find(d => d.unit === newUnit);
+            if (!optionToUse) throw new Error('Invalid duration unit');
+            newDuration = optionToUse.min;
         } else {
-            newDuration = contractPerType.durations.find(d => d.unit === newUnit).min;
+            const optionToUse = contractPerType.durations.find(d => d.unit === newUnit);
+            if (!optionToUse) throw new Error('Invalid duration unit');
+            newDuration = optionToUse.min;
         }
     }
 
