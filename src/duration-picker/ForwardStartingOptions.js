@@ -8,7 +8,7 @@ import debounce from 'lodash.debounce';
 const debounceReq = reqFn => debounce(reqFn, 400);
 const debounceStartDateChange = debounceReq(actions.reqStartDateChange);
 const debounceStartTimeChange = debounceReq(actions.reqStartTimeChange);
-const debounceEpochChange = debounceReq(actions.reqStartEpochChange);
+const debounceEpochChange = actions.reqStartEpochChange;        // TODO: allow delay or complicate the code to increase responsiveness?
 
 export default class ForwardStartingOptions extends PureComponent {
 
