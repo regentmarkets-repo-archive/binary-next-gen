@@ -1,5 +1,5 @@
-import { portfolioSelector } from '../_store/directSelectors';
 import { createStructuredSelector, createSelector } from 'reselect';
+import { portfolioSelector } from '../_store/directSelectors';
 
 const contractToShow = createSelector(
     portfolioSelector,

@@ -1,9 +1,9 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { durationText } from 'binary-utils';
 import { Label } from 'binary-components';
+import debounce from 'lodash.debounce';
 import DurationUnitPicker from './DurationUnitPicker';
 import { actions } from '../_store';
-import debounce from 'lodash.debounce';
 
 const debounceReqDurationChange = debounce(actions.reqDurationChange, 400);
 
@@ -49,7 +49,7 @@ export default class DurationCard extends PureComponent {
         } else if (!allowStartLater) {
             optionsToUse = options;
         } else {
-            optionsToUse = !!dateStart ? forwardOptions : options;
+            optionsToUse = dateStart ? forwardOptions : options;
         }
 
         const unitOptions = optionsToUse.map(opt => ({ value: opt.unit, text: durationText(opt.unit) }));

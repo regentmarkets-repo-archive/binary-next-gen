@@ -1,8 +1,8 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { M, Tab, TabList } from 'binary-components';
+import { immutableChildrenToJS } from 'binary-utils';
 import PaymentAgentsList from './PaymentAgentsList';
 import WithdrawalForm from './WithdrawalForm';
-import { immutableChildrenToJS } from 'binary-utils';
 
 const components = [
 	PaymentAgentsList,

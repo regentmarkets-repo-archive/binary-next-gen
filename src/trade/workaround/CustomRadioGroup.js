@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
-import CustomRadioButton from './CustomRadioButton';
 import classnames from 'classnames';
+import CustomRadioButton from './CustomRadioButton';
 
 /**
  * This component is a workaround for problematic binding with input[type=radio]

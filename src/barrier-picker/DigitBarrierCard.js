@@ -2,6 +2,7 @@ import React, { PropTypes, PureComponent } from 'react';
 import { Label } from 'binary-components';
 import RadioGroup from '../trade/workaround/CustomRadioGroup';
 import { actions } from '../_store';
+
 export default class DigitBarrierCard extends PureComponent {
 
     static propTypes = {

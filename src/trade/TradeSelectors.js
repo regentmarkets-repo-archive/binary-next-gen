@@ -1,5 +1,5 @@
 import { defaultMemoize, createSelectorCreator } from 'reselect';
-
+import { is } from 'immutable';
 import {
     assetsSelector,
     tradeProposalSelector,
@@ -8,7 +8,6 @@ import {
     tradesUIStatesSelector,
     tradeParamsSelector,
 } from '../_store/directSelectors';
-import { is } from 'immutable';
 
 const immutableEq = (a, b) => {
     if (a === b) return true;

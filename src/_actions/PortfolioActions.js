@@ -1,6 +1,6 @@
+import { nowAsEpoch } from 'binary-utils';
 import * as types from '../_constants/ActionTypes';
 import * as LiveData from '../_data/LiveData';
-import { nowAsEpoch } from 'binary-utils';
 import { sellExpiredContract } from './TradeActions';
 
 export const serverDataPortfolio = serverResponse => ({
@@ -48,7 +48,7 @@ export const detailsForContract = (contractShown) => {
 };
 
 export const serverDataProposalOpenContract = serverResponse => {
-    if (!!serverResponse.proposal_open_contract.is_expired) {
+    if (serverResponse.proposal_open_contract.is_expired) {
         sellExpiredContract();
     }
     return { type: types.SERVER_DATA_PROPOSAL_OPEN_CONTRACT, serverResponse };

@@ -42,7 +42,7 @@ export default class RealityCheckWeb extends PureComponent {
     }
 
     updateInterval = (interval) => {
-        if (+interval > 120 || + interval < 10) {
+        if (+interval > 120 || +interval < 10) {
             this.setState({ rcError: true });
         } else {
             this.setState({ rcError: false });

@@ -1,7 +1,7 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { Label, NumericInput } from 'binary-components';
-import { actions } from '../_store';
 import debounce from 'lodash.debounce';
+import { actions } from '../_store';
 
 const debouncedReqBarrierChange = debounce(actions.reqBarrierChange, 400);
 

@@ -12,7 +12,7 @@ export default class AssetPickerFilter extends PureComponent {
 	};
 
 	componentDidMount() {
-		const assetSearchNode = findDOMNode(this.refs.assetSearch);
+		const assetSearchNode = findDOMNode(this);
 		if (!isMobile()) {
 			setTimeout(() => assetSearchNode.firstChild.focus(), 300);
 		}
@@ -32,7 +32,6 @@ export default class AssetPickerFilter extends PureComponent {
 		return (
 			<div className="asset-picker-filter">
 				<InputGroup
-					ref="assetSearch"
 					className="asset-search"
 					defaultValue={filter.query}
 					type="search"

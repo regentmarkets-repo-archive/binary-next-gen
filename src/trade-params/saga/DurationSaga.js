@@ -1,10 +1,10 @@
 import { takeEvery } from 'redux-saga';
 import { put, select } from 'redux-saga/effects';
+import { dateToEpoch, timeStringToSeconds } from 'binary-utils';
 import { updateMultipleTradeParams, updateTradeUIState, updateTradeError } from '../../_actions';
 import { allTimeRelatedFieldValid } from '../TradeParamsValidation';
 import * as paramUpdate from '../TradeParamsCascadingUpdates';
 import { getParams, contractOfSymbol, getForceRenderCount } from './SagaSelectors';
-import { dateToEpoch, timeStringToSeconds } from 'binary-utils';
 import { subscribeProposal, unsubscribeProposal } from './ProposalSubscriptionSaga';
 
 const CHANGE_DURATION = 'CHANGE_DURATION';

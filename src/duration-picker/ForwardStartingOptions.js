@@ -1,9 +1,9 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { epochToUTCTimeString, dateToDateString, returnValidDate, returnValidTime } from 'binary-utils';
 import { M, Label } from 'binary-components';
+import debounce from 'lodash.debounce';
 import { createDefaultStartLaterEpoch } from '../trade-params/DefaultTradeParams';
 import { actions } from '../_store';
-import debounce from 'lodash.debounce';
 
 const debounceReq = reqFn => debounce(reqFn, 400);
 const debounceStartDateChange = debounceReq(actions.reqStartDateChange);
@@ -28,7 +28,7 @@ export default class ForwardStartingOptions extends PureComponent {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (!!nextProps.dateStart) {
+        if (nextProps.dateStart) {
             this.setState({ showStartLater: true });
         }
     }
@@ -71,8 +71,9 @@ export default class ForwardStartingOptions extends PureComponent {
                 <div className="param-field">
                     {!startLaterOnly &&
                         <div className="start-time-selector">
-                            <label>
+                            <label htmlFor="start-now">
                                 <input
+                                    id="start-now"
                                     type="radio"
                                     name={`start-time${index}`}
                                     onChange={this.startNow}
@@ -81,8 +82,9 @@ export default class ForwardStartingOptions extends PureComponent {
                                 />
                                 <M m="Now" />
                             </label>
-                            <label>
+                            <label htmlFor="start-later">
                                 <input
+                                    id="start-later"
                                     type="radio"
                                     name={`start-time${index}`}
                                     onChange={this.startLater}

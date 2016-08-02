@@ -1,7 +1,7 @@
 import React, { PropTypes, PureComponent } from 'react';
+import debounce from 'lodash.debounce';
 import { NumericInput, Label } from 'binary-components';
 import { actions } from '../_store';
-import debounce from 'lodash.debounce';
 
 const payouts = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000];
 const debounceStakeChange = debounce(actions.reqStakeChange, 400);

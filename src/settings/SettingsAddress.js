@@ -1,9 +1,7 @@
 import React, { PropTypes, PureComponent } from 'react';
-import { M, Button, InputGroup, ErrorMsg } from 'binary-components';
-import { showError } from 'binary-utils';
+import { Legend, Button, InputGroup, ErrorMsg } from 'binary-components';
 import { actions } from '../_store';
 import States from './States';
-import showInfo from 'binary-utils/lib/showInfo';
 import * as LiveData from '../_data/LiveData';
 
 export default class SettingsAddress extends PureComponent {
@@ -29,7 +27,6 @@ export default class SettingsAddress extends PureComponent {
 			address_state: props.address_state,
 			address_postcode: props.address_postcode,
 			phone: props.phone,
-			is_an_update: false,
 		};
 	}
 
@@ -38,53 +35,48 @@ export default class SettingsAddress extends PureComponent {
         actions.getStatesForCountry(country_code);
     }
 
-	onEntryChange = e => {
-		const value = this.state[e.target.id];
-		const isUpdate = this.state.is_an_update;
-		this.setState({ [e.target.id]: e.target.value, is_an_update: isUpdate ? true : (value !== e.target.value.trim()) });
+	onEntryChange = e =>
+		this.setState({ [e.target.id]: e.target.value });
+
+	performUpdateSettings = async () => {
+		const { address_line_1, address_line_2, address_city, address_state,
+			address_postcode, phone } = this.state;
+
+		try {
+			await LiveData.api.setAccountSettings({
+				address_line_1,
+				address_line_2,
+				address_city,
+				address_state,
+				address_postcode,
+				phone,
+			});
+		} catch (e) {
+			this.setState({ errorMessage: e.message });
+		}
 	}
 
-	tryUpdate = () => {
-		const { address_line_1, address_line_2, address_city, address_state,
-			address_postcode, phone, is_an_update } = this.state;
-		const updateData = {
-			address_line_1,
-			address_line_2,
-			address_city,
-			address_state,
-			address_postcode,
-			phone,
-		};
-		if (!is_an_update) {
-			return;
-		}
-
-		if (phone.length < 6) {
-			this.setState({ phoneError: 'length' });
-		} else if (phone.match(/[a-z]/i)) {
-			this.setState({ phoneError: 'allowed' });
-		} else if (address_line_1) {
-			LiveData.api.setAccountSettings(updateData).then(() => {
-					actions.updateSettingFields(this.state);
-					showInfo('Settings updated');
-					this.setState({ phoneError: '', is_an_update: false });
-				}).catch(response => {
-					showError(response.error.message);
-				}
-			);
+	onFormSubmit = e => {
+		e.preventDefault();
+		this.setState({
+			validatedOnce: true,
+		});
+		if (this.allValid) {
+			this.performUpdateSettings();
 		}
 	}
 
 	render() {
 		const { states } = this.props;
 		const { address_line_1, address_line_2, address_city, address_state,
-			address_postcode, country_code, phone, phoneError } = this.state;
+			address_postcode, country_code, phone, phoneError, serverError } = this.state;
 
 		return (
 			<div className="settings-address">
-				<legend>
-					<M m="Address" />
-				</legend>
+				{serverError &&
+					<ErrorMsg text={serverError} />
+				}
+				<Legend text="Address" />
 				<InputGroup
 					id="address_line_1"
 					type="text"

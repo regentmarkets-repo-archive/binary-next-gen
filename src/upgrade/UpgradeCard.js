@@ -269,14 +269,15 @@ export default class UpgradeCard extends PureComponent {
 						<ErrorMsg text="Secret answer must be at least 4 characters" />
 					}
 					<div className="input-row">
-						<label>
+						<label htmlFor="tnc">
 							<input
+								id="tnc"
 								name="tnc"
 								type="checkbox"
 								onClick={this.onTermsAndConditionsChanged}
 							/>
 							<M m="I agree to the" />&nbsp;
-							<a href="https://binary.com/terms-and-conditions" target="_blank">
+							<a href="https://binary.com/terms-and-conditions" target="_blank" rel="noopener noreferrer">
 								<M m="terms and conditions" />
 							</a>
 						</label>
