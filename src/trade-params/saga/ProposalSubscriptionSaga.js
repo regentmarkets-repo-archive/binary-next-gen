@@ -40,7 +40,7 @@ function* handleSubscription(action) {
         const { proposal } = yield api.subscribeToPriceForContractProposal(paramForSubscription);
         yield put(updateTradeProposal(index, 'proposal', proposal));
     } catch (err) {
-        yield put(updateTradeError(index, 'proposalError', err.message));
+        yield put(updateTradeError(index, 'proposalError', err.error.error.message));
     }
 }
 

@@ -62,7 +62,7 @@ export function* tradeCreation(action) {
             yield put(updateTradingOptions(symbol, contracts_for.available));
             yield put(createTrade(index, symbol));
         } catch (err) {
-            yield (updateTradingOptionsErr(symbol, err));
+            yield (updateTradingOptionsErr(symbol, err.error.error.message));
         }
     }
 }

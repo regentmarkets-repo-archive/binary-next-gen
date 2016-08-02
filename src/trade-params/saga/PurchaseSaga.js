@@ -49,7 +49,7 @@ function* handlePurchase(action) {
             api.subscribeToOpenContract(buy.contract_id),           // TODO: do I need to call getDataForContract?
             ];
     } catch (err) {
-        yield put(updateTradeError(index, 'purchaseError', err));
+        yield put(updateTradeError(index, 'purchaseError', err.error.error.message));
     } finally {
         yield put(subscribeProposal(index, params));
     }
