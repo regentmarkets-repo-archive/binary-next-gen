@@ -40,7 +40,10 @@ function* handlePurchase(action) {
     const params = yield select(getParams(index));
     const pid = yield select(getProposalId(index));
     try {
-        const { buy } = yield api.buyContract(pid, price).then(purchaseHook);
+        const { buy } = yield api.buyContract(pid, price).then(r => {
+            purchaseHook(r);
+            return r;
+        });
         yield [
             put(updatePurchasedContract(index, buy)),
             api.subscribeToOpenContract(buy.contract_id),           // TODO: do I need to call getDataForContract?
