@@ -7,8 +7,8 @@ msgstr ""
 "Project-Id-Version: BOM\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-08-02 09:21+0000\n"
-"Last-Translator: Ruslan <ruslan.mukhametdinov.90@gmail.com>\n"
+"PO-Revision-Date: 2016-08-02 15:46+0000\n"
+"Last-Translator: Alina Demidova <alinademidova1@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/ru/>\n"
 "Language: ru\n"
@@ -359,17 +359,14 @@ msgstr "Продолжительн."
 msgid "Payout/Stake"
 msgstr "Выплата/ставка"
 
-#, fuzzy
 msgid "Purchase for"
 msgstr "Купить для"
 
-#, fuzzy
 msgid "payout"
-msgstr "Выплата"
+msgstr "выплата"
 
-#, fuzzy
 msgid "stake"
-msgstr "Ставка"
+msgstr "ставка"
 
 msgid "Self Exclusion"
 msgstr "Самоисключение"
@@ -389,7 +386,6 @@ msgstr "Tick Trade"
 msgid "Full Trade"
 msgstr "Полноценная торговля"
 
-#, fuzzy
 msgid "Address"
 msgstr "Адрес"
 
@@ -488,7 +484,7 @@ msgid "Random 100 Index"
 msgstr "Random 100 индекс"
 
 msgid "Article"
-msgstr ""
+msgstr "Статья"
 
 msgid "Start Later"
 msgstr "Начать позже"
@@ -523,7 +519,6 @@ msgstr "Назад"
 msgid "You lost "
 msgstr "Вы потеряли "
 
-#, fuzzy
 msgid "Close"
 msgstr "Закрытие"
 
@@ -533,7 +528,6 @@ msgstr "Низ."
 msgid "High"
 msgstr "Верх."
 
-#, fuzzy
 msgid "Open"
 msgstr "Открытие"
 
@@ -565,7 +559,7 @@ msgid "Confirm new password"
 msgstr "Подтвердите новый пароль"
 
 msgid "TICK"
-msgstr ""
+msgstr "ТИКИ"
 
 msgid "Minutes"
 msgstr "Минуты"
@@ -595,7 +589,7 @@ msgid "Later"
 msgstr "Позже"
 
 msgid "return"
-msgstr ""
+msgstr "прибыли"
 
 msgid "Portfolio"
 msgstr "Портфель"
@@ -620,9 +614,8 @@ msgid "Contract ID"
 msgstr "Номер контракта"
 
 msgid "Reference ID"
-msgstr ""
+msgstr "Номер"
 
-#, fuzzy
 msgid "Entry Spot"
 msgstr "Входная котировка"
 
@@ -632,14 +625,12 @@ msgstr "Время входн. котировки"
 msgid "Potential Payout"
 msgstr "Потенциальная выплата"
 
-#, fuzzy
 msgid "Exit Spot"
 msgstr "Выходная котировка"
 
 msgid "Exit Spot Time"
 msgstr "Время выходн. котировки"
 
-#, fuzzy
 msgid "Sell Price"
 msgstr "Цена прод."
 
@@ -674,7 +665,6 @@ msgstr "Открыть кассу"
 msgid "Time out until"
 msgstr "Ограничение доступа до"
 
-#, fuzzy
 msgid "No transactions for the selected period"
 msgstr "Сделки за выбранный период отсутствуют"
 
@@ -714,7 +704,6 @@ msgstr "Выйдет за пределы"
 msgid "Does Not Touch"
 msgstr "Не коснётся"
 
-#, fuzzy
 msgid "Credit / Debit"
 msgstr "Кредит/Дебет"
 
@@ -760,7 +749,6 @@ msgstr "Внебиржевые акции"
 msgid "Stated limits are subject to change without prior notice"
 msgstr "Указанные лимиты могут быть изменены без предварительного уведомления"
 
-#, fuzzy
 msgid "Withdrawal Limits"
 msgstr "Лимиты на вывод"
 
@@ -833,7 +821,6 @@ msgstr "Я соглашаюсь с"
 msgid "terms and conditions"
 msgstr "Правилами и условиями"
 
-#, fuzzy
 msgid "Search for assets"
 msgstr "Поиск активов"
 
@@ -864,38 +851,29 @@ msgstr "Ответ на секретный вопрос"
 msgid "Switch to"
 msgstr "Перейти к"
 
-#, fuzzy
 msgid "Single Trade"
 msgstr "Новый контракт"
 
-#, fuzzy
 msgid "Multi Trade"
-msgstr "Полноценная торговля"
+msgstr "Одновременная торговля"
 
-#, fuzzy
 msgid "Current Password"
 msgstr "Текущий пароль"
 
-#, fuzzy
 msgid "New Password"
 msgstr "Новый пароль"
 
-#, fuzzy
 msgid "Last 50 Ticks"
-msgstr "Последн. 25 тиков"
+msgstr "Последн. 50 тиков"
 
-#, fuzzy
 msgid "Last 100 Ticks"
-msgstr "Последн. 25 тиков"
+msgstr "Последн. 100 тиков"
 
-#, fuzzy
 msgid "Last 500 Ticks"
-msgstr "Последн. 25 тиков"
+msgstr "Последн. 500 тиков"
 
-#, fuzzy
 msgid "Last 1000 Ticks"
-msgstr "Последн. 25 тиков"
+msgstr "Последн. 1000 тиков"
 
-#, fuzzy
 msgid "Exit Full Screen"
-msgstr ""
+msgstr "Закрыть полноэкранный режим"
