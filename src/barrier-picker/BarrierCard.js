@@ -3,8 +3,6 @@ import { Label, NumericInput } from 'binary-components';
 import debounce from 'lodash.debounce';
 import { actions } from '../_store';
 
-const debouncedReqBarrierChange = debounce(actions.reqBarrierChange, 400);
-
 export default class BarrierCard extends PureComponent {
 
     static propTypes = {
@@ -24,6 +22,8 @@ export default class BarrierCard extends PureComponent {
         spot: PropTypes.number,
     };
 
+    debouncedReqBarrierChange = debounce(actions.reqBarrierChange, 400);
+
     barrierTooLong = barrier => {
         const { pipSize } = this.props;
         const barrierDecimals = barrier.toString().split('.')[1];
@@ -38,13 +38,13 @@ export default class BarrierCard extends PureComponent {
     updateBarrier1 = e => {
         const { index, barrier2 } = this.props;
         const newBarrier1 = e.target.value;
-        debouncedReqBarrierChange(index, [newBarrier1, barrier2]);
+        this.debouncedReqBarrierChange(index, [newBarrier1, barrier2]);
     }
 
     updateBarrier2 = e => {
         const { barrier, index } = this.props;
         const newBarrier2 = e.target.value;
-        debouncedReqBarrierChange(index, [barrier, newBarrier2]);
+        this.debouncedReqBarrierChange(index, [barrier, newBarrier2]);
     }
 
     render() {
