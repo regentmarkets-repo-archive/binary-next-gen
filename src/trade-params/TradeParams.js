@@ -136,7 +136,7 @@ export default class TradeParams extends PureComponent {
          */
         const selectedCategory = tradeParams.tradeCategory;
         const selectedType = tradeParams.type;
-        const hasBarriers = tradeParams.barrier;
+        const hasBarriers = tradeParams.barrier || tradeParams.barrier === 0;       // handle case of barrier = 0
         const selectedTypeTradingOptions = contract[selectedCategory][selectedType];
         const barrierInfo = selectedTypeTradingOptions && selectedTypeTradingOptions.barriers;  // TODO: rename, this sucks
 

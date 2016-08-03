@@ -54,6 +54,7 @@ export function* handleDurationUnitChange(action) {
     yield [
         put(subscribeProposal(index, updated)),
         put(updateMultipleTradeParams(index, updated)),
+        put(updateTradeError(index, 'durationError')),
         put(updateTradeUIState(index, 'forceRenderCount', renderCount + 1)),
     ];
 }
@@ -73,10 +74,12 @@ export function* handleStartEpochChange(action) {
     const { symbol } = params;
     const contractNeeded = yield select(contractOfSymbol(symbol));
     const updated = paramUpdate.changeStartDate(epoch, contractNeeded, params);
+    const renderCount = yield select(getForceRenderCount(index));
     yield [
         put(subscribeProposal(index, updated)),
         put(updateMultipleTradeParams(index, updated)),
         put(updateTradeError(index, 'durationError')),
+        put(updateTradeUIState(index, 'forceRenderCount', renderCount + 1)),
     ];
 }
 
