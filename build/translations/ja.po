@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-07-28 04:25+0000\n"
-"Last-Translator: Fumio Miyama <miyama@regentmarkets.com>\n"
+"PO-Revision-Date: 2016-08-03 14:51+0000\n"
+"Last-Translator: naofum <naofum@gmail.com>\n"
 "Language-Team: Japanese <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/ja/>\n"
 "Language: ja\n"
@@ -850,38 +850,29 @@ msgstr "秘密の質問の答え"
 msgid "Switch to"
 msgstr "切り替え"
 
-#, fuzzy
 msgid "Single Trade"
-msgstr "新しいトレード"
+msgstr "シングルトレード"
 
-#, fuzzy
 msgid "Multi Trade"
-msgstr "フルトレード"
+msgstr "マルチトレード"
 
-#, fuzzy
 msgid "Current Password"
 msgstr "現在のパスワード"
 
-#, fuzzy
 msgid "New Password"
-msgstr "新パスワード"
+msgstr "新しいパスワード"
 
-#, fuzzy
 msgid "Last 50 Ticks"
-msgstr "直近 25 Tick"
+msgstr "直近 50 Tick"
 
-#, fuzzy
 msgid "Last 100 Ticks"
-msgstr "直近 25 Tick"
+msgstr "直近 100 Tick"
 
-#, fuzzy
 msgid "Last 500 Ticks"
-msgstr "直近 25 Tick"
+msgstr "直近 500 Tick"
 
-#, fuzzy
 msgid "Last 1000 Ticks"
-msgstr "直近 25 Tick"
+msgstr "直近 1000 Tick"
 
-#, fuzzy
 msgid "Exit Full Screen"
-msgstr "フルスクリーン"
+msgstr "フルスクリーンを終了"
