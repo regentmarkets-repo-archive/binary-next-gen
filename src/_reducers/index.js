@@ -36,6 +36,7 @@ import views from './ViewsReducer';
 import workspace from './WorkspaceReducer';
 import watchlist from './WatchlistReducer';
 import chartData from './ChartDataReducer';
+import residenceList from './CountryListReducer';
 
 export default combineReducers({
     appState,
@@ -72,4 +73,5 @@ export default combineReducers({
     workspace,
     watchlist,
     views,
+    residenceList,
 });

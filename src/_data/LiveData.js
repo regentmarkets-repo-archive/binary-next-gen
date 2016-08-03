@@ -31,6 +31,7 @@ const handlers = {
     trading_times: 'serverDataTradingTimes',
     transaction: 'serverTransactionStream',
     videos: 'updateVideoList',
+    residence_list: 'serverCountryList',
 };
 
 const bootConfig = typeof window !== 'undefined' ? window.BinaryBoot : {};
@@ -140,6 +141,6 @@ export const connect = async store => {
         api.events.on(key, data => store.dispatch(action(data)));
         api.events.on(key, () => window.console.warn);
     });
-
+    api.getResidences();
     api.events.on('authorize', response => response.error ? null : initAuthorized(response, store));
 };

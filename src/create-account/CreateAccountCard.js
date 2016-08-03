@@ -80,6 +80,7 @@ export default class CrateAccountCard extends PureComponent {
         const passwordIsValid = isValidPassword(password);
         const passwordsMatch = password === confirmPassword;
         this.allValid = residenceIsValid && verificationCodeIsValid && passwordIsValid && passwordsMatch;
+        const { residenceList } = this.props;
 
         return (
             <div className="startup-content">
@@ -99,7 +100,7 @@ export default class CrateAccountCard extends PureComponent {
                         <ErrorMsg text="Enter a valid verification code" />
                     }
                     <fieldset>
-                        <Countries onChange={this.onResidenceChange} />
+                        <Countries onChange={this.onResidenceChange} residenceList={residenceList} />
                     </fieldset>
                     {validatedOnce && !residenceIsValid &&
                         <ErrorMsg text="Choose your country" />
