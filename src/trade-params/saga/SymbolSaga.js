@@ -1,7 +1,7 @@
 import { takeEvery } from 'redux-saga';
-import { put, select, fork } from 'redux-saga/effects';
+import { put, select } from 'redux-saga/effects';
 import { updateMultipleTradeParams, updateTradingOptions, updateTradeUIState,
-    updateFeedLicense, updateTradingOptionsErr } from '../../_actions';
+    updateFeedLicense, updateTradingOptionsErr, updateTradeError } from '../../_actions';
 import { api } from '../../_data/LiveData';
 import * as paramUpdate from '../TradeParamsCascadingUpdates';
 import { getForceRenderCount, getParams, contractOfSymbol, getTicksOfSymbol, isSymbolOpen } from './SagaSelectors';
@@ -27,42 +27,50 @@ export function* tradeCreation(action) {
         const isOpen = yield select(isSymbolOpen(symbol));
         const updatedParams = paramUpdate.changeSymbol(symbol, contractNeeded, params, isOpen);
         yield put(updateMultipleTradeParams(index, updatedParams));
-
         const renderCount = yield select(getForceRenderCount(index));
-        yield put(updateTradeUIState(index, 'forceRenderCount', renderCount + 1));
-
-        yield put(subscribeProposal(index, updatedParams));
+        yield [
+            put(updateTradeUIState(index, 'forceRenderCount', renderCount + 1)),
+            put(subscribeProposal(index, updatedParams)),
+        ];
     } else {
         try {
             const { contracts_for } = yield api.getContractsForSymbol(symbol);
             const ticks = yield select(getTicksOfSymbol(symbol));
             const license = contracts_for.feed_license;
             if (!ticks) {
+                let tickHistoryParam;
                 switch (license) {
                     case 'chartonly': break;
                     case 'realtime':
-                        yield fork(
-                            api.getTickHistory,
-                            symbol,
-                            { end: 'latest', count: 60, adjust_start_time: 1, subscribe: 1 }
-                            );
+                        tickHistoryParam = { end: 'latest', count: 60, adjust_start_time: 1, subscribe: 1 };
                         break;
                     case 'delayed':
                     case 'daily':
-                        yield fork(
-                            api.getTickHistory,
-                            symbol,
-                            { end: 'latest', count: 60, adjust_start_time: 1 }
-                        );
+                        tickHistoryParam = { end: 'latest', count: 60, adjust_start_time: 1 };
                         break;
                     default:console.warn(`Unknown license type: ${license}`);   // eslint-disable-line no-console
                 }
+
+                if (tickHistoryParam) {
+                    try {
+                        yield api.getTickHistory(symbol, tickHistoryParam);
+                    } catch (err) {
+                        if (err.error.error.code === 'MarketIsClosed') {
+                            delete tickHistoryParam.subscribe;
+                            api.getTickHistory(symbol, tickHistoryParam);
+                        } else {
+                            yield put(updateTradeError(index, 'other', err.error.error.message));
+                        }
+                    }
+                }
             }
-            yield put(updateFeedLicense(symbol, license));
-            yield put(updateTradingOptions(symbol, contracts_for.available));
-            yield put(createTrade(index, symbol));
+            yield [
+                put(updateFeedLicense(symbol, license)),
+                put(updateTradingOptions(symbol, contracts_for.available)),
+                put(createTrade(index, symbol)),
+                ];
         } catch (err) {
-            yield (updateTradingOptionsErr(symbol, err.error.error.message));
+            yield put(updateTradingOptionsErr(symbol, err.error.error.message));
         }
     }
 }
