@@ -1,6 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { Button, InputGroup } from 'binary-components';
-import { showError, showInfo, xMonthsAfter, dateToDateString, dateToEpoch } from 'binary-utils';
+import { showError, showInfo, xMonthsAfter, dateToDateString, dateToEpoch, isValidTime } from 'binary-utils';
 import * as LiveData from '../_data/LiveData';
 
 export default class SettingsSelfExclusion extends PureComponent {
@@ -68,8 +68,9 @@ export default class SettingsSelfExclusion extends PureComponent {
 	render() {
 		const { max_balance, max_turnover, max_losses, max_7day_turnover,
 			max_7day_losses, max_30day_turnover, max_30day_losses, max_open_bets,
-			session_duration_limit, exclude_until } = this.state;
-
+			session_duration_limit, exclude_until, timeout_until_date, timeout_until_time } = this.state;
+			const wrongExcludeUntillTime = isValidTime(timeout_until_time);
+			console.log('its a valid number', wrongExcludeUntillTime);
 		return (
 			<div className="settings-self-exclusion">
 				<InputGroup
@@ -147,22 +148,25 @@ export default class SettingsSelfExclusion extends PureComponent {
 					id="timeout_until_date"
 					label="Time out until date"
 					type="date"
-					defaultValue={session_duration_limit}
+					maxLength="10"
+					defaultValue={timeout_until_date || 'yyyy-mm-dd'}
 					onChange={this.onEntryChange}
 				/>
 				<InputGroup
 					id="timeout_until_time"
 					label="Time out until time"
 					type="time"
+					maxLength="8"
 					hintttt=""
-					defaultValue={session_duration_limit}
+					defaultValue={timeout_until_time || '--:--:--'}
 					onChange={this.onEntryChange}
 				/>
 				<InputGroup
 					id="exclude_until"
 					label="Exclude me from the website until"
 					type="date"
-					defaultValue={exclude_until}
+					maxLength="10"
+					defaultValue={exclude_until || 'yyyy-mm-dd'}
 					min={dateToDateString(xMonthsAfter(6))}
 					onChange={this.onEntryChange}
 				/>
