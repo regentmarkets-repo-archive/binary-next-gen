@@ -101,11 +101,13 @@ export default class ForwardStartingOptions extends PureComponent {
                             max={dateToDateString(ranges[2].date)}
                             onChange={this.onDayChange}
                             defaultValue={dateToDateString(defaultDate)}
+                            maxLength="10"
                         />
                         <input
                             type="time"
                             onChange={this.onTimeChange}
                             defaultValue={defaultTime}
+                            maxLength="8"
                         />
                     </div>
                 </div>
