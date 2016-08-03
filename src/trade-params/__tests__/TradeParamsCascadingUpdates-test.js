@@ -178,7 +178,7 @@ describe('Update helpers', () => {
             expect(updated.dateStart).not.equal.undefined;
         });
 
-        it('should not return start later trade if market is close', () => {
+        it('should NOT return start later trade if market is close', () => {
             const updated = updateHelpers.changeCategory('risefall', mockedContract, mockTickTrade, true);
             expect(updated.dateStart).equal.undefined;
         });

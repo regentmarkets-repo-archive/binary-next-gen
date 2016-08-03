@@ -13,12 +13,14 @@ import {
     handleStartTimeChange,
 } from '../saga/DurationSaga';
 import { unsubscribeProposal } from '../saga/ProposalSubscriptionSaga';
+import { computedStates } from 'binary-test-data/states';
 
 describe("DurationSaga", () => {
+    const mockStore = computedStates[0].state;
     describe('handleDurationChange', () => {
+        const act = reqDurationChange(0, 9);
+        const gen = handleDurationChange(act);
         it('should unsubscribe before anything else', () => {
-            const act = reqDurationChange(0, 9);
-            const gen = handleDurationChange(act);
             expect(gen.next().value).to.deep.equal(put(unsubscribeProposal(0)));
         });
     });
