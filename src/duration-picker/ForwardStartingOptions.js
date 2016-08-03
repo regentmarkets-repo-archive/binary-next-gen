@@ -71,9 +71,9 @@ export default class ForwardStartingOptions extends PureComponent {
                 <div className="param-field">
                     {!startLaterOnly &&
                         <div className="start-time-selector">
-                            <label htmlFor="start-now">
+                            <label htmlFor={`start-now${index}`}>
                                 <input
-                                    id="start-now"
+                                    id={`start-now${index}`}
                                     type="radio"
                                     name={`start-time${index}`}
                                     onChange={this.startNow}
@@ -82,9 +82,9 @@ export default class ForwardStartingOptions extends PureComponent {
                                 />
                                 <M m="Now" />
                             </label>
-                            <label htmlFor="start-later">
+                            <label htmlFor={`start-later${index}`}>
                                 <input
-                                    id="start-later"
+                                    id={`start-later${index}`}
                                     type="radio"
                                     name={`start-time${index}`}
                                     onChange={this.startLater}
