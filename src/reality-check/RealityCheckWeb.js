@@ -1,13 +1,10 @@
 import React, { PureComponent, PropTypes } from 'react';
-import { nowAsEpoch } from 'binary-utils';
-import { ErrorMsg } from 'binary-components';
+import { Error } from 'binary-components';
+import { timeLeftToNextRealityCheck } from 'binary-utils';
 import { actions } from '../_store';
 import Modal from '../containers/Modal';
 import RealityCheckInitialCard from './RealityCheckInitialCard';
 import RealityCheckSummaryCard from './RealityCheckSummaryCard';
-
-export const timeLeftToNextRealityCheck = (loginTime, interval) =>
-    interval - ((nowAsEpoch() - loginTime) % interval);
 
 export default class RealityCheckWeb extends PureComponent {
     static propTypes = {
@@ -69,7 +66,7 @@ export default class RealityCheckWeb extends PureComponent {
                     updateInterval={this.updateInterval}
                     confirmIntervalUpdate={this.confirmIntervalUpdate}
                 />}
-                {rcError && <ErrorMsg text="Number should between 10 to 120" />}
+                {rcError && <Error text="Number should between 10 to 120" />}
             </Modal>
         );
     }

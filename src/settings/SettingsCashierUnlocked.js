@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { showError, isValidPassword } from 'binary-utils';
-import { P, Button, InputGroup } from 'binary-components';
+import { Notice, Button, InputGroup } from 'binary-components';
 import * as LiveData from '../_data/LiveData';
 
 export default class SettingsCashierUnlocked extends PureComponent {
@@ -43,7 +43,7 @@ export default class SettingsCashierUnlocked extends PureComponent {
         const { password1, password2 } = this.state;
 		return (
 			<div className="settings-cashier-lock">
-				<P className="notice-msg" text="An additional password can be used to restrict access to the cashier." />
+				<Notice text="An additional password can be used to restrict access to the cashier." />
 				<InputGroup
 					id="password1"
                     placeholder="New Password"

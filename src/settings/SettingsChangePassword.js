@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Button, InputGroup, ErrorMsg } from 'binary-components';
+import { Button, InputGroup, Error, Notice } from 'binary-components';
 import { isValidPassword } from 'binary-utils';
 import * as LiveData from '../_data/LiveData';
 
@@ -35,7 +35,6 @@ export default class SettingsChangePassword extends PureComponent {
             await LiveData.api.changePassword(currentPassword, newPassword);
             this.setState({ success: true });
         } catch (e) {
-            console.log(e);
             this.setState({ serverError: e.message });
         }
     }
@@ -45,14 +44,17 @@ export default class SettingsChangePassword extends PureComponent {
         const currentPasswordIsValid = isValidPassword(currentPassword);
         const newPasswordIsValid = isValidPassword(newPassword);
         const passwordsMatch = newPassword === confirmPassword;
+        this.allValid = currentPasswordIsValid && newPasswordIsValid && passwordsMatch;
 
         return (
             <form className="settings-change-password" onSubmit={this.onFormSubmit}>
+                <Notice text={'successfully updated'} />
+
                 {serverError &&
-                    <ErrorMsg text={serverError} />
+                    <Error text={serverError} />
                 }
                 {/* {validatedOnce && successMessage &&
-                    <P className="notice-msg" text="Password changed successfully." />
+                    <Notice text="Password changed successfully." />
                 }*/}
                 <InputGroup
                     id="currentPassword"
@@ -61,7 +63,7 @@ export default class SettingsChangePassword extends PureComponent {
                     onChange={this.onEntryChange}
                 />
                 {validatedOnce && !currentPasswordIsValid &&
-                    <ErrorMsg text="Password should have lower and uppercase letters and 6 characters or more" />
+                    <Error text="Password should have lower and uppercase letters and 6 characters or more" />
                 }
                 <InputGroup
                     id="newPassword"
@@ -70,7 +72,7 @@ export default class SettingsChangePassword extends PureComponent {
                     onChange={this.onEntryChange}
                 />
                 {validatedOnce && !newPasswordIsValid &&
-                    <ErrorMsg text="Password should have lower and uppercase letters and 6 characters or more" />
+                    <Error text="Password should have lower and uppercase letters and 6 characters or more" />
                 }
                 <InputGroup
                     id="confirmPassword"
@@ -79,7 +81,7 @@ export default class SettingsChangePassword extends PureComponent {
                     onChange={this.onEntryChange}
                 />
                 {validatedOnce && !passwordsMatch &&
-                    <ErrorMsg text="Passwords do not match" />
+                    <Error text="Passwords do not match" />
                 }
                 <Button
                     text="Change Password"

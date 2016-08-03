@@ -69,8 +69,8 @@ export default class SettingsSelfExclusion extends PureComponent {
 		const { max_balance, max_turnover, max_losses, max_7day_turnover,
 			max_7day_losses, max_30day_turnover, max_30day_losses, max_open_bets,
 			session_duration_limit, exclude_until, timeout_until_date, timeout_until_time } = this.state;
-			const wrongExcludeUntillTime = isValidTime(timeout_until_time);
-			console.log('its a valid number', wrongExcludeUntillTime);
+		// const wrongExcludeUntillTime = isValidTime(timeout_until_time);
+
 		return (
 			<div className="settings-self-exclusion">
 				<InputGroup
@@ -157,7 +157,6 @@ export default class SettingsSelfExclusion extends PureComponent {
 					label="Time out until time"
 					type="time"
 					maxLength="8"
-					hintttt=""
 					defaultValue={timeout_until_time || '--:--:--'}
 					onChange={this.onEntryChange}
 				/>

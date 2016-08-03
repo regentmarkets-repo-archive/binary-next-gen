@@ -1,5 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import { M, P, Td, NumberPlain } from 'binary-components';
+import { M, Notice, Td, NumberPlain } from 'binary-components';
 
 export default class SettingsLimits extends PureComponent {
 
@@ -58,7 +58,7 @@ export default class SettingsLimits extends PureComponent {
 						)}
 					</tbody>
 				</table>
-				<P className="notice-msg" text="Stated limits are subject to change without prior notice" />
+				<Notice text="Stated limits are subject to change without prior notice" />
 				<h5><M m="Withdrawal Limits" /></h5>
 				<table>
 					<thead><tr /></thead>

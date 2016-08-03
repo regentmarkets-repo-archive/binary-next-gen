@@ -68,7 +68,7 @@ export function* tradeCreation(action) {
                 put(updateFeedLicense(symbol, license)),
                 put(updateTradingOptions(symbol, contracts_for.available)),
                 put(createTrade(index, symbol)),
-                ];
+            ];
         } catch (err) {
             yield put(updateTradingOptionsErr(symbol, err.error.error.message));
         }

@@ -1,5 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import { Legend, Button, InputGroup, ErrorMsg } from 'binary-components';
+import { Legend, Button, InputGroup, Error } from 'binary-components';
 import { actions } from '../_store';
 import States from './States';
 import * as LiveData from '../_data/LiveData';
@@ -74,7 +74,7 @@ export default class SettingsAddress extends PureComponent {
 		return (
 			<div className="settings-address">
 				{serverError &&
-					<ErrorMsg text={serverError} />
+					<Error text={serverError} />
 				}
 				<Legend text="Address" />
 				<InputGroup
@@ -84,7 +84,7 @@ export default class SettingsAddress extends PureComponent {
 					value={address_line_1}
 					onChange={this.onEntryChange}
 				/>
-				{!address_line_1 && <ErrorMsg text="This field is required." />}
+				{!address_line_1 && <Error text="This field is required." />}
 				<InputGroup
 					id="address_line_2"
 					type="text"
@@ -120,8 +120,8 @@ export default class SettingsAddress extends PureComponent {
 					defaultValue={phone}
 					onChange={this.onEntryChange}
 				/>
-				{phoneError === 'length' && <ErrorMsg text="You should enter between 6-35 characters." />}
-				{phoneError === 'allowed' && <ErrorMsg text="Only numbers, space, - are allowed." />}
+				{phoneError === 'length' && <Error text="You should enter between 6-35 characters." />}
+				{phoneError === 'allowed' && <Error text="Only numbers, space, - are allowed." />}
 				<Button
 					text="Update"
 					onClick={this.tryUpdate}

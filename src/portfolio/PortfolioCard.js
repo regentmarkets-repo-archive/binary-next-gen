@@ -1,5 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import { P } from 'binary-components';
+import { Notice } from 'binary-components';
 import { showError } from 'binary-utils';
 import { actions } from '../_store';
 import PortfolioList from './PortfolioList';
@@ -40,7 +40,7 @@ export default class PortfolioCard extends PureComponent {
 		return (
 			<div className="portfolio-card">
 				{Object.keys(contracts).length === 0 ?
-					<P className="notice-msg" text="You have no open contracts" /> :
+					<Notice text="You have no open contracts" /> :
 					<PortfolioList
 						compact={compact}
 						contracts={contracts}

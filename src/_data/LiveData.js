@@ -1,9 +1,8 @@
 import { LiveApi } from 'binary-live-api';
-import { showError } from 'binary-utils';
+import { showError, timeLeftToNextRealityCheck } from 'binary-utils';
 import { readNewsFeed } from './NewsData';
 import { getVideosFromPlayList } from './VideoData';
 import * as actions from '../_actions';
-import { timeLeftToNextRealityCheck } from '../reality-check/RealityCheckWeb';
 import { SET_DEFAULT_CURRENCY } from '../_constants/ActionTypes';
 
 const handlers = {

@@ -1,5 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import { RadioGroup, InputGroup, ErrorMsg } from 'binary-components';
+import { RadioGroup, InputGroup, Error } from 'binary-components';
 import { noOfDecimals } from 'binary-utils';
 import { changeAmountPerPoint } from '../trade-params/TradeParamsCascadingUpdates';
 
@@ -58,7 +58,7 @@ export default class SpreadBarrierCard extends PureComponent {
                     onChange={this.onAmountPerPointChange}
                     step="0.01"
                 />
-                <ErrorMsg
+                <Error
                     shown={decimals > 2}
                     text="Too many decimals, maximum 2 decimals allowed."
                 />

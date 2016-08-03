@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { showError } from 'binary-utils';
-import { P, Button, InputGroup } from 'binary-components';
+import { Notice, Button, InputGroup } from 'binary-components';
 import * as LiveData from '../_data/LiveData';
 
 export default class SettingsCashierLocked extends PureComponent {
@@ -34,10 +34,7 @@ export default class SettingsCashierLocked extends PureComponent {
 
 		return (
 			<div className="settings-cashier-lock">
-                <P
-                    className="notice-msg"
-                    text="Cashier is locked per your request. To unlock it, enter your password."
-                />
+                <Notice text="Cashier is locked per your request. To unlock it, enter your password." />
 				<InputGroup
 					id="password1"
                     placeholder="New Password"

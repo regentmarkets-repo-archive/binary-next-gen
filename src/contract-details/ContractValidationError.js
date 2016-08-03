@@ -1,4 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
+import { Notice } from 'binary-components';
 
 export default class ContractValidationError extends PureComponent {
 
@@ -17,7 +18,7 @@ export default class ContractValidationError extends PureComponent {
 			validationError;
 
 		return (
-			<div className="notice-msg">{message}</div>
+			<Notice text={message} />
 		);
 	}
 }

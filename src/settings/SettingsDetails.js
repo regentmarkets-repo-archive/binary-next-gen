@@ -1,6 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { epochToDateString } from 'binary-utils';
-import { M, LabeledText } from 'binary-components';
+import { Legend, LabeledText, Notice } from 'binary-components';
 
 export default class SettingsDetails extends PureComponent {
 
@@ -18,9 +18,7 @@ export default class SettingsDetails extends PureComponent {
 
 		return (
 			<div className="settings-details">
-				<legend>
-					<M m="Details" />
-				</legend>
+				<Legend text="Details" />
 				<LabeledText
 					id="email"
 					label="Email"
@@ -41,9 +39,7 @@ export default class SettingsDetails extends PureComponent {
 					label="Country Of Residence"
 					value={country}
 				/>
-				<p className="notice-msg">
-					<M m="To change your name, date of birth, country of residence, or email, contact Customer Support." />
-				</p>
+				<Notice text="To change your name, date of birth, country of residence, or email, contact Customer Support." />
 			</div>
 		);
 	}

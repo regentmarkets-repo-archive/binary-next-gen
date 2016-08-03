@@ -1,5 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import { P } from 'binary-components';
+import { Notice } from 'binary-components';
 import WatchlistItem from './WatchlistItem';
 import AnimatedPopup from '../containers/AnimatedPopup';
 
@@ -16,7 +16,7 @@ export default class WatchlistCard extends PureComponent {
 			<div className="watchlist-card">
 				<AnimatedPopup shown>
 					{watchlistView.size === 0 ?
-						<P className="notice-msg" text="You have no assets in watchlist" /> :
+						<Notice text="You have no assets in watchlist" /> :
 						watchlistView.map(x =>
 						<WatchlistItem
 							key={x.get('symbol')}
