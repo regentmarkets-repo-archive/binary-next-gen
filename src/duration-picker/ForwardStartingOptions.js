@@ -6,6 +6,9 @@ import { createDefaultStartLaterEpoch } from '../trade-params/DefaultTradeParams
 import { actions } from '../_store';
 
 const debounceReq = reqFn => debounce(reqFn, 400);
+const debounceStartDateChange = debounceReq(actions.reqStartDateChange);
+const debounceStartTimeChange = debounceReq(actions.reqStartTimeChange);
+const debounceEpochChange = actions.reqStartEpochChange;        // TODO: allow delay or complicate the code to increase responsiveness?
 
 export default class ForwardStartingOptions extends PureComponent {
 
@@ -30,32 +33,28 @@ export default class ForwardStartingOptions extends PureComponent {
         }
     }
 
-    debounceStartDateChange = debounceReq(actions.reqStartDateChange);
-    debounceStartTimeChange = debounceReq(actions.reqStartTimeChange);
-    debounceEpochChange = actions.reqStartEpochChange;        // TODO: allow delay or complicate the code to increase responsiveness?
-
     onDayChange = e => {
         const { index } = this.props;
         const inputValue = e.target.value;
-        this.debounceStartDateChange(index, returnValidDate(inputValue));
+        debounceStartDateChange(index, returnValidDate(inputValue));
     }
 
     onTimeChange = e => {
         const { index } = this.props;
         const inputValue = e.target.value;
-        this.debounceStartTimeChange(index, returnValidTime(inputValue));
+        debounceStartTimeChange(index, returnValidTime(inputValue));
     }
 
     startNow = () => {
         this.setState({ showStartLater: false });
-        this.debounceEpochChange(this.props.index);
+        debounceEpochChange(this.props.index);
     }
 
     startLater = () => {
         this.setState({ showStartLater: true });
         const { index, dateStart } = this.props;
         if (!dateStart) {
-            this.debounceEpochChange(index, this.state.defaultDateStart);
+            debounceEpochChange(index, this.state.defaultDateStart);
         }
     }
 

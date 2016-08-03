@@ -18,6 +18,13 @@ export default class AssetPickerCard extends PureComponent {
 		const { index } = this.props;
 
 		actions.reqSymbolChange(index, newAsset);
+
+		// actions.changeSelectedAsset(newAsset);
+		// actions.updateTradeUIState(index, 'disabled', true);
+		// actions.selectAsset(newAsset).then(() => {
+		// 	actions.updateTradeParams(index, 'symbol', newAsset);
+		// 	actions.updateTradeUIState(index, 'disabled', false);
+		// });
 	}
 
 	onToggleWatchlistItem = asset => {

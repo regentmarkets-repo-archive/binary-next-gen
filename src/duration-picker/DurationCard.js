@@ -5,6 +5,8 @@ import debounce from 'lodash.debounce';
 import DurationUnitPicker from './DurationUnitPicker';
 import { actions } from '../_store';
 
+const debounceReqDurationChange = debounce(actions.reqDurationChange, 400);
+
 export default class DurationCard extends PureComponent {
 
     static propTypes = {
@@ -15,12 +17,11 @@ export default class DurationCard extends PureComponent {
         options: PropTypes.array,
         index: PropTypes.number,
     };
-    debounceReqDurationChange = debounce(actions.reqDurationChange, 400);
 
     updateDuration = e => {
         const { index } = this.props;
         const duration = e.target.value;
-        this.debounceReqDurationChange(index, duration);
+        debounceReqDurationChange(index, duration);
     }
 
     updateDurationUnit = e => {
