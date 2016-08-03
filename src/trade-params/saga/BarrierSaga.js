@@ -1,7 +1,7 @@
 import { takeEvery } from 'redux-saga';
 import { put, select } from 'redux-saga/effects';
 import { getParams } from './SagaSelectors';
-import { updateMultipleTradeParams } from '../../_actions';
+import { updateMultipleTradeParams, updateTradeError } from '../../_actions';
 import * as paramUpdate from '../TradeParamsCascadingUpdates';
 import { subscribeProposal, unsubscribeProposal } from './ProposalSubscriptionSaga';
 
@@ -21,6 +21,7 @@ export function* handleBarrierChange(action) {
     yield [
         put(subscribeProposal(index, updated)),
         put(updateMultipleTradeParams(index, updated)),
+        put(updateTradeError(index, 'barrierError')),
         ];
 }
 
