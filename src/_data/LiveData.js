@@ -1,9 +1,10 @@
 import { LiveApi } from 'binary-live-api';
-import { showError, isUserVirtual } from 'binary-utils';
+import { showError } from 'binary-utils';
 import { readNewsFeed } from './NewsData';
 import { getVideosFromPlayList } from './VideoData';
 import * as actions from '../_actions';
 import { timeLeftToNextRealityCheck } from '../reality-check/RealityCheckWeb';
+import { SET_DEFAULT_CURRENCY } from '../_constants/ActionTypes';
 
 const handlers = {
     active_symbols: 'serverDataActiveSymbols',
@@ -44,13 +45,6 @@ const subscribeToWatchlist = store => {
     api.subscribeToTicks(state.watchlist.toJS());
 };
 
-const subscribeToSelectedSymbol = store => {
-    const defaultSymbol = 'R_100'; // TODO: Rework on cache previous settings
-
-    store.dispatch(actions.getTradingOptions(defaultSymbol))
-        .then(() => store.dispatch(actions.getTicksBySymbol(defaultSymbol)));
-};
-
 export const changeLanguage = langCode => {
     api.changeLanguage(langCode);
     api.getActiveSymbolsFull();
@@ -60,7 +54,7 @@ export const changeLanguage = langCode => {
 
 const initAuthorized = async (authData, store) => {
     if (/japan/.test(authData.authorize.landing_company_name)) {
-        showError('Sorry, for japan user please login through www.binary.com '); // TODO: use showError without breaking test
+        showError('Sorry, for japan user please login through www.binary.com ');
         store.dispatch(actions.updateAppState('authorized', false));
         store.dispatch(actions.updateToken(''));
         return;
@@ -68,6 +62,12 @@ const initAuthorized = async (authData, store) => {
     api.getLandingCompanyDetails(authData.authorize.landing_company_name)
         .then(r => {
             const details = r.landing_company_details;
+
+            store.dispatch({
+                type: SET_DEFAULT_CURRENCY,
+                currency: details.legal_default_currency,
+            });
+
             const acknowledged = store.getState().realityCheck.get('acknowledged');
             if (details && details.has_reality_check) {
                 if (!acknowledged) {
@@ -90,7 +90,14 @@ const initAuthorized = async (authData, store) => {
             }
         });
 
-    api.getActiveSymbolsFull();
+    api.getActiveSymbolsFull()
+        .then(r => {
+            const firstOpenSymbol = r.active_symbols.find(a => a.exchange_is_open === 1).symbol;
+            const tradesCount = store.getState().tradesParams.size;
+            if (tradesCount === 0) {
+                store.dispatch(actions.createTrade(0, firstOpenSymbol));
+            }
+        });
     api.getTradingTimes(new Date());
     api.getAssetIndex();
     api.getServerTime();
@@ -108,9 +115,9 @@ const initAuthorized = async (authData, store) => {
     api.subscribeToAllOpenContracts();
     api.subscribeToTransactions();
     subscribeToWatchlist(store);
-    subscribeToSelectedSymbol(store);
+    // subscribeToSelectedSymbol(store);
 
-    if (!isUserVirtual(authData.authorize)) {
+    if (authData.authorize.is_virtual !== 1) {
         api.getAccountLimits();
         api.getSelfExclusion();
         api.getCashierLockStatus();

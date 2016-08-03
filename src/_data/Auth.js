@@ -1,8 +1,8 @@
 import { hashHistory } from 'react-router';
+import { trackUserId } from 'binary-utils/lib/Analytics';
 import { store } from '../_store/persistentStore';
 import { api } from './LiveData';
 import { updateAppState, removePersonalData, updateToken, updateBoot } from '../_actions';
-import { trackUserId } from 'binary-utils/lib/Analytics';
 
 export const tryAuth = async token => {
     store.dispatch(updateAppState('authorized', false));

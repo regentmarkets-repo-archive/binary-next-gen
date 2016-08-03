@@ -1,14 +1,13 @@
 import React, { PropTypes, PureComponent } from 'react';
+import { M } from 'binary-components';
 import { actions } from '../_store';
 import AssetPickerFilter from './AssetPickerFilter';
 import AssetPickerList from './AssetPickerList';
-import M from 'binary-components/lib/M';
 
 export default class AssetPickerCard extends PureComponent {
 
 	static propTypes = {
 		index: PropTypes.number,
-		history: PropTypes.object,
 		filter: PropTypes.object,
 		onClose: PropTypes.func,
 		assetPickerItems: PropTypes.object.isRequired,
@@ -18,12 +17,14 @@ export default class AssetPickerCard extends PureComponent {
 	onSelect = newAsset => {
 		const { index } = this.props;
 
-		actions.changeSelectedAsset(newAsset);
-		actions.updateTradeUIState(index, 'disabled', true);
-		actions.selectAsset(newAsset).then(() => {
-			actions.updateTradeParams(index, 'symbol', newAsset);
-			actions.updateTradeUIState(index, 'disabled', false);
-		});
+		actions.reqSymbolChange(index, newAsset);
+
+		// actions.changeSelectedAsset(newAsset);
+		// actions.updateTradeUIState(index, 'disabled', true);
+		// actions.selectAsset(newAsset).then(() => {
+		// 	actions.updateTradeParams(index, 'symbol', newAsset);
+		// 	actions.updateTradeUIState(index, 'disabled', false);
+		// });
 	}
 
 	onToggleWatchlistItem = asset => {

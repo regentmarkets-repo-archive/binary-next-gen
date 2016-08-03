@@ -1,7 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import M from 'binary-components/lib/M';
-import Button from 'binary-components/lib/Button';
-import NumberPlain from 'binary-components/lib/NumberPlain';
+import { M, Button, NumberPlain } from 'binary-components';
 
 export default class VirtualTopUpConfirmation extends PureComponent {
 

@@ -1,21 +1,18 @@
 import React, { PureComponent, PropTypes } from 'react';
-import TabList from 'binary-components/lib/TabList';
-import Tab from 'binary-components/lib/Tab';
+import { Tab, TabList } from 'binary-components';
 import { contractCategoryToText, tradeTypeCodeToText } from 'binary-utils';
 import { serverToInternalTradeType, internalToServerTradeType } from './TradeTypeAdapter';
 import { tradeGrouping, typesForCategories, hasAdvanced, hasBasic,
-    hasDigits, findCategoryForType, pairUpTypes } from './TradeTypePickerUtils';
-import { changeCategory, changeType } from '../trade-params/TradeParamsCascadingUpdates';
+    hasDigits, pairUpTypes, findCategoryForType } from './TradeTypePickerUtils';
+import { actions } from '../_store';
 
 export default class TradeTypePicker extends PureComponent {
 
     static propTypes = {
         contract: PropTypes.object.isRequired,
+        index: PropTypes.number.isRequired,
         onSelect: PropTypes.func,
         tradeParams: PropTypes.object.isRequired,
-        updateParams: PropTypes.func.isRequired,
-        forceTradeCardUpdate: PropTypes.func.isRequired,
-        clearTradeError: PropTypes.func.isRequired,
     };
 
     constructor(props) {
@@ -31,7 +28,7 @@ export default class TradeTypePicker extends PureComponent {
     }
 
     onGroupChange(group) {
-        const { contract, tradeParams, updateParams } = this.props;
+        const { contract, tradeParams, index } = this.props;
         const selectedCategory = tradeParams.tradeCategory;
         const groupCategories = Object
             .keys(contract)
@@ -39,8 +36,7 @@ export default class TradeTypePicker extends PureComponent {
             .filter(c => tradeGrouping[group].includes(c.value));
 
         if (!groupCategories.find(c => c.value === selectedCategory)) {
-            const updatedCategory = changeCategory(groupCategories[0].value, contract, tradeParams);
-            updateParams(updatedCategory);
+            actions.reqCatChange(index, groupCategories[0].value);
         }
     }
 
@@ -50,15 +46,12 @@ export default class TradeTypePicker extends PureComponent {
     }
 
     changeType(type) {
-        const { contract, forceTradeCardUpdate, onSelect, tradeParams, updateParams, clearTradeError } = this.props;
-        const selectedCategory = findCategoryForType(contract, type);
-        const updatedType = changeType(internalToServerTradeType(type), selectedCategory, tradeParams, contract);
-        clearTradeError();
-        updateParams(updatedType);
+        const { onSelect, index, contract } = this.props;
+        const category = findCategoryForType(contract, type);
+        actions.reqTypeChange(index, category, internalToServerTradeType(type));
         if (onSelect) {
-            onSelect(updatedType);
+            onSelect(type);
         }
-        forceTradeCardUpdate();
     }
 
     render() {

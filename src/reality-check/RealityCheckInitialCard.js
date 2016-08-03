@@ -1,7 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
-import M from 'binary-components/lib/M';
-import P from 'binary-components/lib/P';
-import Button from 'binary-components/lib/Button';
+import { M, P, Button } from 'binary-components';
 
 export default class RealityCheckInitialCard extends PureComponent {
 

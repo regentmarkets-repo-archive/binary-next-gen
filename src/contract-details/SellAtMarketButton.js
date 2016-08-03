@@ -1,7 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
+import { M, NumberPlain } from 'binary-components';
 import { actions } from '../_store';
-import M from 'binary-components/lib/M';
-import NumberPlain from 'binary-components/lib/NumberPlain';
 
 export default class SellAtMarketButton extends PureComponent {
 

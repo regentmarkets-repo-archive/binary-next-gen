@@ -1,7 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import NumberColored from 'binary-components/lib/NumberColored';
-import M from 'binary-components/lib/M';
-import Label from 'binary-components/lib/Label';
+import { NumberColored, M, Label } from 'binary-components';
 
 export default class PayoutCard extends PureComponent {
 
@@ -14,7 +12,7 @@ export default class PayoutCard extends PureComponent {
     render() {
         const { currency, stake, payout } = this.props;
 
-        const potentialProfitPercentage = ((payout - stake) * 100 / stake).toFixed(2);
+        const potentialProfitPercentage = (((payout - stake) * 100) / stake).toFixed(2);
 
         return (
             <div className="param-row payout-display">

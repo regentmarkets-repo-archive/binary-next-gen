@@ -1,5 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import Th from 'binary-components/lib/Th';
+import { Th } from 'binary-components';
 import TradingTimesRow from './TradingTimesRow';
 
 export default class TradingTimesTable extends PureComponent {

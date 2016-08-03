@@ -58,46 +58,6 @@ header {
     margin-top: 0;
 }
 
-.nav2nd {
-    z-index: 100;
-}
-
-.nav2nd li {
-    line-height: 2.5;
-    text-align: left;
-}
-
-.nav1st {
-    display: flex;
-    flex: 1;
-    justify-content: center;
-    margin: 0;
-}
-
-.nav1st li div {
-    line-height: $HEADER_HEIGHT;
-}
-
-.nav2nd {
-    opacity: 0;
-    visibility: hidden;
-    position: absolute;
-    flex-direction: column;
-    min-width: 200px;
-    transform: translateY(100px);
-}
-
-.nav2nd a {
-    padding: 0 1rem;
-    display: block;
-}
-
-.nav1st li:hover > ul {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
 .nav-spacer {
     flex: 1;
 }
@@ -165,18 +125,4 @@ header {
     display: flex;
     margin: 0 auto;
     max-width: 800px;
-}
-
-.vcentered {
-    height: 100vh;
-    justify-content: center;
-    display: flex;
-    padding: 1rem;
-}
-
-.account-container {
-    position: relative;
-    .nav2nd {
-        right: -1px;
-    }
 }

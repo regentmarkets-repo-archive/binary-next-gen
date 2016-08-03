@@ -1,5 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
-import Option from 'binary-components/lib/Option';
+import { Option } from 'binary-components';
 
 export default class DigitStatsFilter extends PureComponent {
 

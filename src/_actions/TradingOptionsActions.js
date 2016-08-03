@@ -28,5 +28,5 @@ export const getTradingOptions = symbol =>
                 });
         }
 
-        return Promise.resolve();
+        return Promise.resolve(tradingOptions.get(symbol));
     };

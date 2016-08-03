@@ -3,7 +3,7 @@ export default {
         "project-id-version": "1228",
         "report-msgid-bugs-to": "",
         "pot-creation-date": "",
-        "po-revision-date": "2016-07-22 06:56+0000",
+        "po-revision-date": "2016-07-29 14:10+0000",
         "last-translator": "Freddy Hew <hewfreddy@gmail.com>",
         "language-team": "Chinese (China) <https://hosted.weblate.org/projects/binary-app/next-gen-app/zh_CN/>",
         "language": "zh_cn",
@@ -937,5 +937,173 @@ export default {
     "Last 1000 Trades": [
         null,
         "过去1000次交易"
+    ],
+    "Maximum Daily Turnover": [
+        null,
+        "最大日成交量"
+    ],
+    "Commodities": [
+        null,
+        "大宗商品"
+    ],
+    "Major Pairs": [
+        null,
+        "主要货币对"
+    ],
+    "Minor Pairs": [
+        null,
+        "次要货币对"
+    ],
+    "Smart FX": [
+        null,
+        "智能外汇交易"
+    ],
+    "Volatility Indices": [
+        null,
+        "波动率指数"
+    ],
+    "Indices": [
+        null,
+        "指数"
+    ],
+    "OTC Stocks": [
+        null,
+        "场外交易股票"
+    ],
+    "Stated limits are subject to change without prior notice": [
+        null,
+        "我们保留随时在没有预先通知的情况下更改所述限制的权利"
+    ],
+    "Withdrawal Limits": [
+        null,
+        "取款限额"
+    ],
+    "Withdrawal limit": [
+        null,
+        "取款限额"
+    ],
+    "Already withdrawn": [
+        null,
+        "已提取"
+    ],
+    "Current immediate maximum withdrawal": [
+        null,
+        "当前的即时最高取款额"
+    ],
+    "Create Free Account": [
+        null,
+        "创立免费账户"
+    ],
+    "Verification Code": [
+        null,
+        "验证码"
+    ],
+    "Confirm Password": [
+        null,
+        "确认密码"
+    ],
+    "Already have an account?": [
+        null,
+        "已经有账户？"
+    ],
+    "Enter a valid verification code": [
+        null,
+        "请输入有效的验证代码"
+    ],
+    "Choose your country": [
+        null,
+        "选择您的国家"
+    ],
+    "Password should have lower and uppercase letters and 6 characters or more": [
+        null,
+        "密码须包含大小写字母与至少6个字元"
+    ],
+    "Passwords do not match": [
+        null,
+        "密码不相符"
+    ],
+    "Enter a valid email": [
+        null,
+        "输入有效的电子邮件"
+    ],
+    "Number should between 10 to 120": [
+        null,
+        "必须是10至120之间的数字"
+    ],
+    "Enter your first and last name": [
+        null,
+        "输入姓名"
+    ],
+    "City must not be empty": [
+        null,
+        "城市不可为空"
+    ],
+    "Address must not be empty": [
+        null,
+        "地址不可为空"
+    ],
+    "Enter a valid phone number": [
+        null,
+        "输入有效的电话号"
+    ],
+    "Select a secret question": [
+        null,
+        "选择安全提示问题"
+    ],
+    "Secret answer must be at least 4 characters": [
+        null,
+        "安全提示答案必须至少4个字元"
+    ],
+    "You need to agree to our Terms and Conditions": [
+        null,
+        "您必须同意我们的条款和条件"
+    ],
+    "I agree to the": [
+        null,
+        "本人同意"
+    ],
+    "terms and conditions": [
+        null,
+        "条款和条件"
+    ],
+    "Search for assets": [
+        null,
+        "搜索资产"
+    ],
+    "Choose a Payment Agent": [
+        null,
+        "选择支付代理"
+    ],
+    "Confirm New Password": [
+        null,
+        "确认新密码"
+    ],
+    "First Name": [
+        null,
+        "名字"
+    ],
+    "Last Name": [
+        null,
+        "姓氏"
+    ],
+    "Address First Line": [
+        null,
+        "地址第一行"
+    ],
+    "Address Second Line": [
+        null,
+        "地址第二行"
+    ],
+    "Phone": [
+        null,
+        "电话"
+    ],
+    "Answer To Secret Question": [
+        null,
+        "安全提示问题的答案"
+    ],
+    "Switch to": [
+        null,
+        "切换成"
     ]
 }

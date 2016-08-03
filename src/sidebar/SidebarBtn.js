@@ -1,6 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { Link } from 'react-router';
-import M from 'binary-components/lib/M';
+import { M } from 'binary-components';
 
 export default class SideBarBtn extends PureComponent {
 

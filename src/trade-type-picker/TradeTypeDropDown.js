@@ -1,8 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { tradeToFriendlyType } from 'binary-utils';
-import Label from 'binary-components/lib/Label';
-import Info from 'binary-components/lib/Info';
-import DownArrow from 'binary-components/lib/DownArrow';
+import { Label, Info, DownArrow } from 'binary-components';
 import DropDown from '../containers/DropDown';
 import TradeTypePicker from './TradeTypePicker';
 import helpText from './helpText';
@@ -23,7 +21,8 @@ const getInternalTradeType = tradeParams => {
 export default class TradeTypeDropDown extends PureComponent {
 
     static propTypes = {
-        forceTradeCardUpdate: PropTypes.func.isRequired,
+        index: PropTypes.number.isRequired,
+        contract: PropTypes.object.isRequired,
         tradeParams: PropTypes.object.isRequired,
     };
 
@@ -41,7 +40,7 @@ export default class TradeTypeDropDown extends PureComponent {
         this.setState({ dropdownShown: false });
 
     render() {
-        const { tradeParams } = this.props;
+        const { tradeParams, index, contract } = this.props;
         const { dropdownShown } = this.state;
         const selectedType = getInternalTradeType(tradeParams);
 
@@ -53,7 +52,9 @@ export default class TradeTypeDropDown extends PureComponent {
                     onClose={this.onClose}
                 >
                     <TradeTypePicker
-                        {...this.props}
+                        index={index}
+                        contract={contract}
+                        tradeParams={tradeParams}
                         onSelect={this.onClose}
                     />
                 </DropDown>

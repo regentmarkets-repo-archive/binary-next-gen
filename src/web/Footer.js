@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import FullScreenSwitcher from './FullScreenSwitcher';
+import FullscreenSwitcher from './FullscreenSwitcher';
 import ClockContainer from './ClockContainer';
 import LanguagePicker from './LanguagePicker';
 
@@ -15,7 +15,7 @@ export default class Footer extends PureComponent {
 	render() {
 		return (
 			<div id="footer" className="inverse">
-				<FullScreenSwitcher />
+				<FullscreenSwitcher />
 				<div id="clock" >
 					<ClockContainer />
 				</div>

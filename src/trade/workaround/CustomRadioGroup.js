@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
-import CustomRadioButton from './CustomRadioButton';
 import classnames from 'classnames';
+import CustomRadioButton from './CustomRadioButton';
 
 /**
  * This component is a workaround for problematic binding with input[type=radio]
@@ -12,12 +12,12 @@ export default class CustomRadioGroup extends PureComponent {
         className: PropTypes.string,
         options: PropTypes.array,
         onChange: PropTypes.func,
-        value: PropTypes.any,
+        defaultValue: PropTypes.any,
     };
 
     constructor(props) {
         super(props);
-        this.state = {};
+        this.state = { value: props.defaultValue };
     }
 
     onClick = e => {

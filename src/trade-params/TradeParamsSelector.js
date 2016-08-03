@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 import { extractBarrier, extractDuration, extractForwardStartingDuration,
     extractSpreadInfo, normalizedContractFor, groupByKey,
-    findDeep, filterObjectBy } from 'binary-utils';
+    findDeep, filterDeep } from 'binary-utils';
 import { assetsSelector, currencySelector } from '../_store/directSelectors';
 import { pipSizePerTrade } from '../trade/trade-chart/TradeViewChartSelector';
 import { mockedContract } from '../_constants/MockContract';
@@ -14,9 +14,10 @@ const aggregateContracts = (contracts, type) => ({
     spread: (type.indexOf('SPREAD') > -1) ? extractSpreadInfo(contracts) : null,
 });
 
-const contractsPerSymbol = createSelector(
+export const contractsPerSymbol = createSelector(
     contracts => contracts,
     contracts => {
+        if (contracts.error) return contracts;      // do not process error
         const normalized = normalizedContractFor(contracts);
         Object.keys(normalized).forEach(category => {
             const categoryObj = normalized[category];
@@ -49,17 +50,13 @@ export const availableContractsSelector = createSelector(
     (tradingOptions, assetsIsOpen) =>
         tradingOptions
             .map((contract, symbol) => {
-                if (contract.error) {
-                    return contract;            // do not process error
-                }
-
                 // each immediate child refer to a type, eg Rise/Fall
                 const contractTree = contractsPerSymbol(contract);
 
                 // remove trade type without start later if market is closed
                 return assetsIsOpen[symbol] && assetsIsOpen[symbol].isOpen ?
                     contractTree :
-                    filterObjectBy(contractTree, obj =>
+                    filterDeep(contractTree, obj =>
                         findDeep(obj, descendent => descendent && !!descendent.forwardStartingDuration)
                     );
             })
@@ -69,6 +66,7 @@ export const availableContractsSelector = createSelector(
 const contractPerTrade = createSelector(
     [availableContractsSelector, paramPerTrade],
     (contracts, param) => {
+        if (!param) return undefined;
         const symbol = param.get('symbol');
         return contracts.get(symbol);
     }
@@ -77,6 +75,7 @@ const contractPerTrade = createSelector(
 const marketIsOpenPerTrade = createSelector(
     [assetsIsOpenSelector, paramPerTrade],
     (assetsIsOpen, param) => {
+        if (!param) return undefined;
         const symbol = param.get('symbol');
         return assetsIsOpen[symbol] && assetsIsOpen[symbol].isOpen;
     }
@@ -84,7 +83,7 @@ const marketIsOpenPerTrade = createSelector(
 
 const getStartLaterOnlyContract = contract => {
     const startLaterCategories =
-        filterObjectBy(contract, child =>
+        filterDeep(contract, child =>
             findDeep(child, descendent => descendent && !!descendent.forwardStartingDuration));
 
     // side effect to remove durations property, to indicate it's only start later
@@ -134,6 +133,7 @@ export const tradeParamsPerTrade = createSelector(
             pipSize,
             proposal: proposalInfo.get('proposal'),
             tradeParams: params,
+            forceRenderCount: uiState.get('forceRenderCount'),
         };
     }
 );

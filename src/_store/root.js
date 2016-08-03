@@ -1,9 +1,9 @@
 import React, { PureComponent } from 'react';
 import { addLocaleData } from 'react-intl';
 import { Provider } from 'react-redux';
-import { store, rehydratedStorePromise, actions } from './persistentStore';
 import { Router } from 'react-router';
 import { trackRoute } from 'binary-utils/lib/Analytics';
+import { store, rehydratedStorePromise, actions } from './persistentStore';
 import routes from '../_routes';
 import history from '../_routes/hashHistory';
 import { tryAuth } from '../_data/Auth';

@@ -1,9 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import Direction from 'binary-components/lib/Direction';
-import CloseButton from 'binary-components/lib/CloseButton';
-import NumberPlain from 'binary-components/lib/NumberPlain';
-import NumberColored from 'binary-components/lib/NumberColored';
-import OpenCloseNotice from 'binary-components/lib/OpenCloseNotice';
+import { Direction, CloseButton, NumberPlain, NumberColored, OpenCloseNotice } from 'binary-components';
 import { actions } from '../_store';
 import WatchlistSparkline from './WatchlistSparkline';
 

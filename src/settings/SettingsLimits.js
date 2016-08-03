@@ -1,8 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import M from 'binary-components/lib/M';
-import P from 'binary-components/lib/P';
-import Td from 'binary-components/lib/Td';
-import NumberPlain from 'binary-components/lib/NumberPlain';
+import { M, P, Td, NumberPlain } from 'binary-components';
 
 export default class SettingsLimits extends PureComponent {
 

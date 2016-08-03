@@ -1,9 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
-import throttle from 'lodash.throttle';
-import debounce from 'lodash.debounce';
-import { isMobile, isIntraday, askPriceFromProposal, windowResizeEvent } from 'binary-utils';
-import ErrorMsg from 'binary-components/lib/ErrorMsg';
-import PurchaseFailed from 'binary-components/lib/PurchaseFailed';
+import { isIntraday, askPriceFromProposal, windowResizeEvent } from 'binary-utils';
+import { ErrorMsg } from 'binary-components';
 import Modal from '../containers/Modal';
 import { actions } from '../_store';
 import BarrierCard from '../barrier-picker/BarrierCard';
@@ -16,9 +13,6 @@ import PayoutCard from '../payout-picker/PayoutCard';
 import TradeTypeDropDown from '../trade-type-picker/TradeTypeDropDown';
 import AssetPickerDropDown from '../asset-picker/AssetPickerDropDown';
 import BuyButton from './BuyButton';
-
-import * as LiveData from '../_data/LiveData';
-import { changeAsset, changeCategory } from './TradeParamsCascadingUpdates';
 
 /**
  * This UI is coded with a few assumptions, which should always be true, this comments serves as a future reference
@@ -51,10 +45,9 @@ const errorToShow = errorObj => {
     if (durationError) return durationError;
     if (stakeError) return stakeError;
     if (proposalError) return proposalError;
-    return purchaseError;
+    if (purchaseError) return purchaseError;
+    return errorObj.other;
 };
-
-export const debounceForMobileAndWeb = func => debounce(func, 300, { leading: true, trailing: true });
 
 export default class TradeParams extends PureComponent {
 
@@ -68,13 +61,14 @@ export default class TradeParams extends PureComponent {
         compact: PropTypes.bool,
         disabled: PropTypes.bool,
         errors: PropTypes.object,
+        forceRenderCount: PropTypes.number.isRequired,
         index: PropTypes.number.isRequired,
         onPurchaseHook: PropTypes.func,
-        pipSize: PropTypes.number.isRequired,
+        pipSize: PropTypes.number,
         proposal: PropTypes.object,
         purchaseError: PropTypes.string,
         style: PropTypes.object,
-        tradeParams: PropTypes.object.isRequired,
+        tradeParams: PropTypes.object,
         type: PropTypes.oneOf(['tick', 'full']).isRequired,
     };
 
@@ -82,12 +76,8 @@ export default class TradeParams extends PureComponent {
         super(props);
 
         this.state = {
-            dynamicKey: 0,
+            dynamicKey: props.forceRenderCount,
         };
-    }
-
-    componentWillMount() {
-        this.onAssetChange();
     }
 
     /**
@@ -96,35 +86,13 @@ export default class TradeParams extends PureComponent {
      * it's a mistake here that method to be reuse are coupled with component states
      * TODO: redesign so that side effect are handle elsewhere
      */
-    componentDidUpdate(prevProps) {
-        const { tradeParams } = this.props;
-
-        if (tradeParams.symbol !== prevProps.tradeParams.symbol) {
-            const { proposal } = prevProps;
-            if (proposal) {
-                LiveData.api.unsubscribeByID(proposal.id);
-            }
-            this.onAssetChange();
-        }
+    componentWillReceiveProps(newProps) {
+        this.setState({ dynamicKey: newProps.forceRenderCount });
         windowResizeEvent();
     }
 
     componentWillUnmount() {
-        const { proposal, errors } = this.props;
-        if (errors.proposalError) {
-            return;
-        }
-        if (proposal) {
-            LiveData.api.unsubscribeByID(proposal.id);
-        }
-    }
-
-    onAssetChange = () => {
-        const { contract, tradeParams } = this.props;
-        const updatedAsset = changeAsset(tradeParams, contract, changeCategory);
-        this.updateTradeParams(updatedAsset);
-        this.repaintSelf();
-        this.clearTradeError();
+        // fire action to saga
     }
 
     onCloseModal = () => {
@@ -133,27 +101,15 @@ export default class TradeParams extends PureComponent {
     }
 
     onPurchase = () => {
-        const { index, onPurchaseHook } = this.props;
-        actions.purchaseByTradeId(index).then(onPurchaseHook);
+        const { index, onPurchaseHook, proposal } = this.props;
+        actions.reqPurchase(index, proposal.ask_price, onPurchaseHook);
     }
 
-    throttledProposalSubscription =
-        throttle(index => actions.updatePriceProposalSubscription(index), isMobile ? 500 : 300);
-
-    updateTradeParams = params => {
-        const { index } = this.props;
-        actions.updateMultipleTradeParams(index, params);
-        this.throttledProposalSubscription(index);
-    }
 
     // TODO: create an action that update all at once
     clearTradeError = () => {
         const { index } = this.props;
-        actions.updateTradeError(index, 'barrierError', undefined);
-        actions.updateTradeError(index, 'durationError', undefined);
-        actions.updateTradeError(index, 'proposalError', undefined);
-        actions.updateTradeError(index, 'stakeError', undefined);
-        actions.updateTradeError(index, 'purchaseError', undefined);
+        actions.clearTradeError(index);
     }
 
     repaintSelf = () => {
@@ -179,23 +135,25 @@ export default class TradeParams extends PureComponent {
          * thus we need to check if the tradeCategory is valid, if not valid simply use the 1st valid category
          */
         const selectedCategory = tradeParams.tradeCategory;
-        const categoryToUse = !!contract[selectedCategory] ? selectedCategory : Object.keys(contract)[0];
-
         const selectedType = tradeParams.type;
-        const contractForCategory = contract[categoryToUse];
-        const contractForType = contractForCategory && contractForCategory[selectedType];
-        const barriers = contractForType && contractForType.barriers;
+        const hasBarriers = tradeParams.barrier;
+        const selectedTypeTradingOptions = contract[selectedCategory][selectedType];
+        const barrierInfo = selectedTypeTradingOptions && selectedTypeTradingOptions.barriers;  // TODO: rename, this sucks
+
         const isIntraDay = isIntraday(tradeParams.duration, tradeParams.durationUnit);
-        const showBarrier = categoryToUse !== 'spreads' &&
-            categoryToUse !== 'digits' &&
+        const showBarrier = selectedCategory !== 'spreads' &&
+            selectedCategory !== 'digits' &&
             !tradeParams.dateStart &&
-            !!barriers;
+            !!hasBarriers;
 
         const payout = proposal && proposal.payout;
 
-        const showDuration = !!contractForType;
-        const showDigitBarrier = categoryToUse === 'digits';
-        const showSpreadBarrier = categoryToUse === 'spreads';
+        const showDuration = !!tradeParams.duration;
+        const isDigitType = selectedCategory === 'digits';
+
+        const showSpreadBarrier = selectedCategory === 'spreads';
+
+        const digitOptions = (isDigitType && barrierInfo) && barrierInfo.tick[0].values;
         const askPrice = askPriceFromProposal(proposal);
 
         const errorText = errorToShow(errors);
@@ -203,50 +161,36 @@ export default class TradeParams extends PureComponent {
         return (
             <div className="trade-params" key={this.state.dynamicKey} style={style}>
                 <Modal shown={!!errors.purchaseError} onClose={this.onCloseModal}>
-                    <PurchaseFailed failure={errors.purchaseError} />
+                    <ErrorMsg text={errors.purchaseError} />
                 </Modal>
                 <ErrorMsg text={contract.error || errorText} />
                 <AssetPickerDropDown
-                    {...this.props}
+                    index={index}
                     selectedSymbol={tradeParams.symbol}
                     selectedSymbolName={tradeParams.symbolName}
                 />
                 <TradeTypeDropDown
-                    {...this.props}
-                    updateParams={this.updateTradeParams}
-                    forceTradeCardUpdate={this.repaintSelf}
-                    clearTradeError={this.clearTradeError}
+                    index={index}
+                    contract={contract}
+                    tradeParams={tradeParams}
                 />
-                {showDigitBarrier &&
+                {isDigitType &&
                     <DigitBarrierCard
                         barrier={+tradeParams.barrier}
-                        barrierInfo={barriers && barriers.tick[0]}
+                        digitOptions={digitOptions}
                         index={index}
-                        onUpdateTradeParams={this.updateTradeParams}
                     />
                 }
-                {/* showSpreadBarrier &&
-                    <SpreadBarrierCard
-                        amountPerPoint={tradeParams.amountPerPoint}
-                        stopLoss={tradeParams.stopLoss}
-                        stopProfit={tradeParams.stopProfit}
-                        stopType={tradeParams.stopType}
-                        currency={currency}
-                        index={index}
-                        spreadInfo={contractForType.spread}
-                        onUpdateTradeParams={this.updateTradeParams}
-                    />
-                */}
                 {showBarrier &&
                     <BarrierCard
                         barrier={tradeParams.barrier}
                         barrier2={tradeParams.barrier2}
-                        barrierInfo={barriers}
+                        barrierInfo={barrierInfo}
                         barrierType={tradeParams.barrierType}
                         isIntraDay={isIntraDay}
+                        index={index}
                         pipSize={pipSize}
                         spot={proposal && +proposal.spot}
-                        onUpdateTradeParams={this.updateTradeParams}
                     />
                 }
                 {showDuration && !showSpreadBarrier &&
@@ -254,31 +198,23 @@ export default class TradeParams extends PureComponent {
                         dateStart={tradeParams.dateStart}
                         duration={+tradeParams.duration}
                         durationUnit={tradeParams.durationUnit}
-                        forwardStartingDuration={contractForType.forwardStartingDuration}
-                        options={contractForType.durations}
+                        forwardStartingDuration={selectedTypeTradingOptions.forwardStartingDuration}
+                        options={selectedTypeTradingOptions.durations}
                         index={index}
-                        onUpdateTradeParams={this.updateTradeParams}
-                        forceTradeCardUpdate={this.repaintSelf}
-                        contract={contract}
-                        tradeParams={tradeParams}
                     />
                 }
-                {showDuration && !showSpreadBarrier && contractForType.forwardStartingDuration &&
+                {showDuration && !showSpreadBarrier && selectedTypeTradingOptions.forwardStartingDuration &&
                     <ForwardStartingOptions
                         dateStart={tradeParams.dateStart}
-                        forwardStartingDuration={contractForType.forwardStartingDuration}
-                        options={contractForType.durations}
+                        forwardStartingDuration={selectedTypeTradingOptions.forwardStartingDuration}
+                        startLaterOnly={!selectedTypeTradingOptions.durations}
                         index={index}
-                        contract={contract}
-                        tradeParams={tradeParams}
-                        onUpdateTradeParams={this.updateTradeParams}
                     />
                 }
                 {!showSpreadBarrier &&
                     <StakeCard
                         amount={+tradeParams.amount}
                         isVirtual={false}
-                        onUpdateTradeParams={this.updateTradeParams}
                         index={index}
                     />
                 }

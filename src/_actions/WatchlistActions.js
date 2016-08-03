@@ -1,6 +1,6 @@
+import { trackEvent } from 'binary-utils/lib/Analytics';
 import { WATCHLIST_TOGGLE_ASSET } from '../_constants/ActionTypes';
 import * as LiveData from '../_data/LiveData';
-import { trackEvent } from 'binary-utils/lib/Analytics';
 
 export const watchlistToggleAsset = (symbol, isSubscribed) =>
     dispatch => {

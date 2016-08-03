@@ -1,6 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import Label from 'binary-components/lib/Label';
-import DownArrow from 'binary-components/lib/DownArrow';
+import { Label, DownArrow } from 'binary-components';
 import DropDown from '../containers/DropDown';
 import { actions } from '../_store';
 import AssetPickerContainer from './AssetPickerContainer';
@@ -9,8 +8,8 @@ export default class AssetPickerDropDown extends PureComponent {
 
     static propTypes = {
         index: PropTypes.number.isRequired,
-        selectedSymbol: PropTypes.string.isRequired,
-        selectedSymbolName: PropTypes.string.isRequired,
+        selectedSymbol: PropTypes.string,
+        selectedSymbolName: PropTypes.string,
     };
 
     static contextTypes = {

@@ -1,6 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import M from 'binary-components/lib/M';
-import LabeledText from 'binary-components/lib/LabeledText';
+import { M, LabeledText } from 'binary-components';
 
 export default class ContractStatsCard extends PureComponent {
 

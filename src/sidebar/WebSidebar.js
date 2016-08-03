@@ -1,6 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
+import { M } from 'binary-components';
 import AccountItemsList from './AccountItemsList';
-import M from 'binary-components/lib/M';
 import { signOut } from '../_data/Auth';
 
 export default class WebSidebar extends PureComponent {

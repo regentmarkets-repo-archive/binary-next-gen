@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import Logo from 'binary-components/lib/Logo';
+import { Logo } from 'binary-components';
 import WebSidebarContainer from '../sidebar/WebSidebarContainer';
 import Balance from '../balance/BalanceContainer';
 import LayoutPickerContainer from '../layout-picker/LayoutPickerContainer';

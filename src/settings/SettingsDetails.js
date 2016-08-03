@@ -1,7 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { epochToDateString } from 'binary-utils';
-import M from 'binary-components/lib/M';
-import LabeledText from 'binary-components/lib/LabeledText';
+import { M, LabeledText } from 'binary-components';
 
 export default class SettingsDetails extends PureComponent {
 

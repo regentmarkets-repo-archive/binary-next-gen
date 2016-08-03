@@ -1,9 +1,11 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { durationText } from 'binary-utils';
-import Label from 'binary-components/lib/Label';
+import { Label } from 'binary-components';
+import debounce from 'lodash.debounce';
 import DurationUnitPicker from './DurationUnitPicker';
-import { changeDurationUnit } from '../trade-params/TradeParamsCascadingUpdates';
 import { actions } from '../_store';
+
+const debounceReqDurationChange = debounce(actions.reqDurationChange, 400);
 
 export default class DurationCard extends PureComponent {
 
@@ -12,69 +14,20 @@ export default class DurationCard extends PureComponent {
         duration: PropTypes.number,
         durationUnit: PropTypes.string,
         forwardStartingDuration: PropTypes.object,       // treated as special case
-        forceTradeCardUpdate: PropTypes.func.isRequired,
         options: PropTypes.array,
         index: PropTypes.number,
-        onUpdateTradeParams: PropTypes.func,
-        contract: PropTypes.object,
-        tradeParams: PropTypes.object.isRequired,
     };
 
-    // return error msg or undefined if no error
-    validateDuration(duration, durationUnit) {
-        const {
-            dateStart,
-            forwardStartingDuration,
-            options,
-        } = this.props;
-
-        const allowStartLater = !!forwardStartingDuration;
-        const onlyStartLater = allowStartLater && !options;
-        const forwardOptions = forwardStartingDuration && forwardStartingDuration.options;
-
-        let optionsToUse;
-
-        if (onlyStartLater) {
-            optionsToUse = forwardOptions;
-        } else if (!allowStartLater) {
-            optionsToUse = options;
-        } else {
-            optionsToUse = !!dateStart ? forwardOptions : options;
-        }
-        const currentUnitBlock = optionsToUse.find(opt => opt.unit === durationUnit);
-        const min = currentUnitBlock && currentUnitBlock.min;
-        const max = currentUnitBlock && currentUnitBlock.max;
-        const showError = duration > max || duration < min;
-        if (showError) {
-            return (duration > max ?
-                `Maximum duration is ${max} ` :
-                `Minimum duration is ${min} `
-            ) + durationText(durationUnit);
-        }
-        return undefined;
-    }
-    onDurationError = err => {
-        const { index } = this.props;
-        actions.updateTradeError(index, 'durationError', err);
-    }
     updateDuration = e => {
-        const { durationUnit } = this.props;
-        const newDuration = e.target.value;
-        const err = this.validateDuration(newDuration, durationUnit);
-        this.onDurationError(err);
-        this.onDurationChange(e);
+        const { index } = this.props;
+        const duration = e.target.value;
+        debounceReqDurationChange(index, duration);
     }
-    onDurationChange = e => {
-        const { onUpdateTradeParams } = this.props;
-        onUpdateTradeParams({ duration: e.target.value });
-    }
-    onDurationUnitChange = e => {
-        const { onUpdateTradeParams, forceTradeCardUpdate } = this.props;
-        const newUnit = e.target.value;
-        const { contract, tradeParams } = this.props;
-        const updatedDurationUnit = changeDurationUnit(newUnit, contract, tradeParams);
-        onUpdateTradeParams(updatedDurationUnit);
-        forceTradeCardUpdate();
+
+    updateDurationUnit = e => {
+        const { index } = this.props;
+        const durationUnit = e.target.value;
+        actions.reqDurationUnitChange(index, durationUnit);
     }
 
     render() {
@@ -96,7 +49,7 @@ export default class DurationCard extends PureComponent {
         } else if (!allowStartLater) {
             optionsToUse = options;
         } else {
-            optionsToUse = !!dateStart ? forwardOptions : options;
+            optionsToUse = dateStart ? forwardOptions : options;
         }
 
         const unitOptions = optionsToUse.map(opt => ({ value: opt.unit, text: durationText(opt.unit) }));
@@ -121,7 +74,7 @@ export default class DurationCard extends PureComponent {
                     <DurationUnitPicker
                         durationUnit={durationUnit}
                         unitOptions={unitOptions}
-                        onChange={this.onDurationUnitChange}
+                        onChange={this.updateDurationUnit}
                     />
                 </div>
             </div>

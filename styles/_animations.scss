@@ -126,13 +126,14 @@
 }
 
 .zoom-leave {
-    transition: transform 1s;
     opacity: 1;
     transform: scale(1);
 }
 
 .zoom-leave.zoom-leave-active {
-    transition: opacity 500ms, transform 500ms;
-    transform: scale(2);
     opacity: 0;
+    transform: scale(4) translateY(4rem);
+    transition:
+        opacity 500ms cubic-bezier(0.6, 0.04, 0.98, 0.335),
+        transform 500ms cubic-bezier(0.6, 0.04, 0.98, 0.335);
 }

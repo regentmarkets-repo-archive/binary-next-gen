@@ -1,5 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import CloseButton from 'binary-components/lib/CloseButton';
+import { CloseButton } from 'binary-components';
 import AnimatedPopup from './AnimatedPopup';
 
 export default class Modal extends PureComponent {

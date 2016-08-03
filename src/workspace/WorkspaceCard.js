@@ -1,5 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import Resizer from 'binary-components/lib/Resizer';
+import { Resizer } from 'binary-components';
 import { actions } from '../_store';
 import TradesLayout from '../trade/browser/TradesLayout';
 import WorkspaceSidePanel from './WorkspaceSidePanel';

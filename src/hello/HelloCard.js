@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Link } from 'react-router';
-import M from 'binary-components/lib/M';
+import { M, LogoSpinner } from 'binary-components';
 import { signIn } from '../_data/Auth';
-import LogoSpinner from 'binary-components/lib/LogoSpinner';
 import LanguagePicker from '../web/LanguagePicker';
 
 export default class HelloCard extends PureComponent {

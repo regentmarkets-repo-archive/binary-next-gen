@@ -1,9 +1,9 @@
 import React, { PropTypes, PureComponent } from 'react';
-import Label from 'binary-components/lib/Label';
-import NumericInput from 'binary-components/lib/NumericInput';
-import { debounceForMobileAndWeb } from '../trade-params/TradeParams';
-import { changeBarrier1, changeBarrier2 } from '../trade-params/TradeParamsCascadingUpdates';
+import { Label, NumericInput } from 'binary-components';
+import debounce from 'lodash.debounce';
 import { actions } from '../_store';
+
+const debouncedReqBarrierChange = debounce(actions.reqBarrierChange, 400);
 
 export default class BarrierCard extends PureComponent {
 
@@ -19,12 +19,12 @@ export default class BarrierCard extends PureComponent {
         barrierInfo: PropTypes.object,
         barrierType: PropTypes.oneOf(['relative', 'absolute']),
         isIntraDay: PropTypes.bool,
+        index: PropTypes.number.isRequired,
         pipSize: PropTypes.number,
         spot: PropTypes.number,
-        onUpdateTradeParams: PropTypes.func,
     };
 
-    validateBarrier = barrier => {
+    barrierTooLong = barrier => {
         const { pipSize } = this.props;
         const barrierDecimals = barrier.toString().split('.')[1];
         const barrierExceedPipSize = barrierDecimals && (barrierDecimals.length > pipSize);
@@ -35,40 +35,16 @@ export default class BarrierCard extends PureComponent {
         return undefined;
     }
 
-
-    debouncedBarrier1Change = debounceForMobileAndWeb(e => {
-        const { onUpdateTradeParams } = this.props;
-        const inputValue = e.target.value;
-        const updatedBarrier1 = changeBarrier1(inputValue);
-        onUpdateTradeParams(updatedBarrier1);
-    })
-
-    debouncedBarrier2Change = debounceForMobileAndWeb(e => {
-        const { onUpdateTradeParams } = this.props;
-        const inputValue = e.target.value;
-        const updatedBarrier2 = changeBarrier2(inputValue);
-        onUpdateTradeParams(updatedBarrier2);
-    })
-
     updateBarrier1 = e => {
-        actions.updateTradeUIState(this.props.index, 'disabled', true);
+        const { index, barrier2 } = this.props;
         const newBarrier1 = e.target.value;
-        const error = this.validateBarrier(newBarrier1);
-        this.onBarrierError(error);
-        this.debouncedBarrier1Change(e);
+        debouncedReqBarrierChange(index, [newBarrier1, barrier2]);
     }
 
     updateBarrier2 = e => {
-        actions.updateTradeUIState(this.props.index, 'disabled', true);
+        const { barrier, index } = this.props;
         const newBarrier2 = e.target.value;
-        const error = this.validateBarrier(newBarrier2);
-        this.onBarrierError(error);
-        this.debouncedBarrier2Change(e);
-    }
-
-    onBarrierError = err => {
-        const { index } = this.props;
-        actions.updateTradeError(index, 'barrierError', err);
+        debouncedReqBarrierChange(index, [barrier, newBarrier2]);
     }
 
     render() {
@@ -104,7 +80,7 @@ export default class BarrierCard extends PureComponent {
                     <NumericInput
                         className="numeric-input param-field"
                         onChange={this.updateBarrier1}
-                        value={+barrierVal}
+                        defaultValue={+barrierVal}
                         decimal={pipSize}
                         step={1}
                     />
@@ -115,7 +91,7 @@ export default class BarrierCard extends PureComponent {
                         <NumericInput
                             className="numeric-input param-field"
                             onChange={this.updateBarrier2}
-                            value={+barrier2Val}
+                            defaultValue={+barrier2Val}
                             step={1}
                             decimal={pipSize}
                         />

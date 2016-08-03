@@ -1,5 +1,5 @@
-import { boughtContractsSelector } from '../_store/directSelectors';
 import { createSelector, createStructuredSelector } from 'reselect';
+import { boughtContractsSelector } from '../_store/directSelectors';
 
 const activeOpenContractSelector = createSelector(
     boughtContractsSelector,

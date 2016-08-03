@@ -1,5 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
-import P from 'binary-components/lib/P';
+import { P } from 'binary-components';
 
 export default class LoadingView extends PureComponent {
 

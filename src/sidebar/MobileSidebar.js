@@ -1,9 +1,9 @@
 import React, { PropTypes, PureComponent } from 'react';
+import { M } from 'binary-components';
 import BalanceContainer from '../balance/BalanceContainer';
 import AccountItemsList from './AccountItemsList';
 import SidebarBtn from './SidebarBtn';
 import { signOut } from '../_data/Auth';
-import M from 'binary-components/lib/M';
 
 export default class MobileSidebar extends PureComponent {
 

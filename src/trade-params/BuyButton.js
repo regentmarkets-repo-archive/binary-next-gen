@@ -1,5 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import Button from 'binary-components/lib/Button';
+import { Button } from 'binary-components';
 
 export default class BuyButton extends PureComponent {
 

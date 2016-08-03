@@ -1,5 +1,5 @@
 import * as types from '../_constants/ActionTypes';
-import { selectAsset } from './TradeActions';
+import { createTrade } from '../trade-params/saga/TradeParamSaga';
 
 export const changeSelectedAsset = symbol => ({
     type: types.CHANGE_SELECTED_ASSET,
@@ -21,37 +21,45 @@ export const updateActiveLayout = (tradesCount, layoutN, assetChoices) => ({
 
 export const changeActiveLayout = (tradesCount, layoutN) =>
     (dispatch, getState) => {
-        const currentState = getState();
-        const additionTradeNeeded = tradesCount - currentState.tradesParams.size;
+        const { assets, tradesParams } = getState();
+        const currentTradeCount = tradesParams.size;
+        const additionTradeNeeded = tradesCount - currentTradeCount;
         if (additionTradeNeeded < 1) {
             return dispatch(updateActiveLayout(tradesCount, layoutN));
         }
 
-        const selectedSymbols = currentState.tradesParams.map(v => v.get('symbol'));
-        const firstTradeSymbol = selectedSymbols.get(0);
-        const firstTradeMarket = currentState.assets
+        const selectedSymbols = tradesParams.map(v => v.get('symbol'));
+        const assetNotSync = assets.find(a => a.get('exchange_is_open') === 1) === undefined;
+        if (assetNotSync) {
+            return undefined;       // Active symbol call will create trade for us
+        }
+        const firstTradeSymbol = selectedSymbols.get(0) || assets.find(a => a.get('exchange_is_open') === 1).get('symbol');
+
+        const firstTradeMarket = assets
             .find(v => v.get('symbol') === firstTradeSymbol)
             .get('market');
-        const otherAssetInSameMarket = currentState.assets
+        const otherAssetInSameMarket = assets
             .filter(v => {
                 const symbolNotSelected = !selectedSymbols.includes(v.get('symbol'));
                 const sameMarketWithFirst = v.get('market') === firstTradeMarket;
                 return symbolNotSelected && sameMarketWithFirst;
             })
+            .sort((a, b) => b.get('exchange_is_open') - a.get('exchange_is_open'))
             .map(v => v.get('symbol'));
 
         if (otherAssetInSameMarket.size < additionTradeNeeded) {
             // get assets not found in otherAssetInSameMarket
-            const randomAdditionalSymbols = currentState.assets
+            const randomAdditionalSymbols = assets
                 .filter(v => otherAssetInSameMarket.find(a => a !== v.get('symbol')))
                 .take(additionTradeNeeded - otherAssetInSameMarket.size);
             const combinedAssetChoices = otherAssetInSameMarket.concat(randomAdditionalSymbols);
             const assetToBeUsedForNewTrades = combinedAssetChoices.take(additionTradeNeeded);
-            assetToBeUsedForNewTrades.forEach(asset => dispatch(selectAsset(asset)));
+
+            assetToBeUsedForNewTrades.forEach((asset, idx) => dispatch(createTrade(idx + currentTradeCount, asset)));
             return dispatch(updateActiveLayout(tradesCount, layoutN, assetToBeUsedForNewTrades.toJS()));
         }
         const assetToBeUsedForNewTrades = otherAssetInSameMarket.take(additionTradeNeeded);
-        assetToBeUsedForNewTrades.forEach(asset => dispatch(selectAsset(asset)));
+        assetToBeUsedForNewTrades.forEach((asset, idx) => dispatch(createTrade(idx + currentTradeCount, asset)));
         return dispatch(updateActiveLayout(tradesCount, layoutN, assetToBeUsedForNewTrades.toJS()));
     };
 
