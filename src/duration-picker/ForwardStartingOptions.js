@@ -24,7 +24,6 @@ export default class ForwardStartingOptions extends PureComponent {
         this.state = {
             showStartLater: !!props.dateStart,
             defaultDateStart: createDefaultStartLaterEpoch(props.forwardStartingDuration),
-            isInValidTime: false,
         };
     }
 
