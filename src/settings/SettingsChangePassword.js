@@ -32,14 +32,11 @@ export default class SettingsChangePassword extends PureComponent {
 
     async performChangePassword(currentPassword, newPassword) {
         try {
-            const response = await LiveData.api.changePassword(currentPassword, newPassword);
-            if ('error' in response) {
-               this.setState({ passwordNotValid: true });
-            } else {
-                this.setState({ successMessage: 'Password changed successfully.' });
-            }
+            await LiveData.api.changePassword(currentPassword, newPassword);
+            this.setState({ success: true });
         } catch (e) {
-            this.setState({ errorMessage: e.message });
+            console.log(e);
+            this.setState({ serverError: e.message });
         }
     }
 

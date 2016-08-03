@@ -9,7 +9,7 @@ import ContractWinLose from './ContractWinLose';
 export default class ContractDetailsCard extends PureComponent {
 	static propTypes = {
 		compact: PropTypes.bool,
-		contract: PropTypes.object.isRequired,
+		contract: PropTypes.object,
 		pipSize: PropTypes.number,
 		chartData: PropTypes.shape({
 			ticks: PropTypes.array,

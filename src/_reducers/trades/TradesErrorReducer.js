@@ -5,6 +5,7 @@ import {
     REMOVE_TRADE,
     REMOVE_PERSONAL_DATA,
     UPDATE_TRADE_ERROR,
+    CLEAR_TRADE_ERROR,
 } from '../../_constants/ActionTypes';
 
 const defaultError = new OrderedMap({
@@ -51,6 +52,10 @@ export default (state = initialState, action) => {
         case UPDATE_TRADE_ERROR: {
             const { index, errorID, error } = action;
             return state.setIn([index, errorID], error);
+        }
+        case CLEAR_TRADE_ERROR: {
+            const { index } = action;
+            return state.set(index, fromJS({}));
         }
         default: return state;
     }

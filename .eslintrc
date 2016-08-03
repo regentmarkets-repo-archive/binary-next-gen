@@ -6,6 +6,7 @@
     "plugin:import/warnings"
   ],
   "env": {
+    "browser": true,
     "es6": true,
     "mocha": true
   },
@@ -15,6 +16,8 @@
   "rules": {
     "indent": [0, 4],
     "camelcase": 0,
+    "no-mixed-operators": 0,
+    "object-property-newline": 0,
     "max-len": [1, 150, 4],
     "prefer-template": 0,
     "no-confusing-arrow": 0,
@@ -22,11 +25,13 @@
     "react/jsx-indent": [0, "tab"],
     "react/prefer-stateless-function": 0,
     "react/jsx-indent-props": [0, "tab"],
+    "react/jsx-filename-extension": 0,
     "no-unused-vars": 1,
     "no-trailing-spaces": 1,
     "import/named": 0,
     "import/default": 0,
     "import/namespace": 0,
+    "import/prefer-default-export": 0,
   },
   "settings": {
     "import/ignore": \.(scss|less|css)$,

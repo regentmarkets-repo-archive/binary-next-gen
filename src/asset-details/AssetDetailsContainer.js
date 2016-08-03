@@ -1,8 +1,8 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { immutableChildrenToJS } from 'binary-utils';
 import AssetDetailsCard from './AssetDetailsCard';
 import assetDetailsSelectors from './assetDetailsSelectors';
-import { immutableChildrenToJS } from 'binary-utils';
 
 
 @connect(assetDetailsSelectors)

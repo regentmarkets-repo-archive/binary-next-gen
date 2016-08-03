@@ -2,7 +2,7 @@ import React, { PureComponent, PropTypes } from 'react';
 import { BinaryChart } from 'binary-charts';
 import { actions } from '../../_store';
 import {
-    internalTradeModelToServerTradeModel,
+    internalTradeModelToChartTradeModel,
     serverContractModelToChartContractModel,
 } from '../adapters/TradeObjectAdapter';
 
@@ -32,8 +32,8 @@ export default class TradeViewChart extends PureComponent {
         index: PropTypes.number.isRequired,
         events: PropTypes.array.isRequired,
         feedLicense: PropTypes.string.isRequired,
-        pipSize: PropTypes.number.isRequired,
-        tradeForChart: PropTypes.object.isRequired,
+        pipSize: PropTypes.number,
+        tradeForChart: PropTypes.object,
         tradingTime: PropTypes.object.isRequired,
     };
 
@@ -87,7 +87,6 @@ export default class TradeViewChart extends PureComponent {
             feedLicense, pipSize, tradeForChart, tradingTime } = this.props;
         const { theme } = this.context;
         const { chartType, dataType } = this.state;
-
         return (
             <BinaryChart
                 id={`trade-chart${index}`}
@@ -98,11 +97,11 @@ export default class TradeViewChart extends PureComponent {
                 noData={feedLicense === 'chartonly'}
                 pipSize={pipSize}
                 rangeChange={contractForChart ? undefined : this.rangeChange()}
-                symbol={tradeForChart.symbolName}
+                symbol={tradeForChart && tradeForChart.symbolName}
                 ticks={(dataType === 'ticks' || contractForChart) ? ticks : ohlc}
                 theme={theme}
                 type={contractForChart ? 'area' : chartType}
-                trade={internalTradeModelToServerTradeModel(tradeForChart)}
+                trade={tradeForChart && internalTradeModelToChartTradeModel(tradeForChart)}
                 typeChange={!contractForChart && feedLicense !== 'chartonly' ? this.changeChartType : undefined}
                 tradingTime={tradingTime}
             />

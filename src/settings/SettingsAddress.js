@@ -1,6 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import { M, Button, InputGroup } from 'binary-components';
-import { showError } from 'binary-utils';
+import { Legend, Button, InputGroup, ErrorMsg } from 'binary-components';
 import { actions } from '../_store';
 import States from './States';
 import * as LiveData from '../_data/LiveData';
@@ -39,25 +38,45 @@ export default class SettingsAddress extends PureComponent {
 	onEntryChange = e =>
 		this.setState({ [e.target.id]: e.target.value });
 
-	tryUpdate = () => {
-		LiveData.api.setAccountSettings(this.state).then(() => {
-				actions.updateSettingFields(this.state);
-			}).catch(response => {
-				showError(response.error.message);
-			}
-		);
+	performUpdateSettings = async () => {
+		const { address_line_1, address_line_2, address_city, address_state,
+			address_postcode, phone } = this.state;
+
+		try {
+			await LiveData.api.setAccountSettings({
+				address_line_1,
+				address_line_2,
+				address_city,
+				address_state,
+				address_postcode,
+				phone,
+			});
+		} catch (e) {
+			this.setState({ errorMessage: e.message });
+		}
+	}
+
+	onFormSubmit = e => {
+		e.preventDefault();
+		this.setState({
+			validatedOnce: true,
+		});
+		if (this.allValid) {
+			this.performUpdateSettings();
+		}
 	}
 
 	render() {
 		const { states } = this.props;
 		const { address_line_1, address_line_2, address_city, address_state,
-			address_postcode, country_code, phone } = this.state;
+			address_postcode, country_code, phone, phoneError, serverError } = this.state;
 
 		return (
 			<div className="settings-address">
-				<legend>
-					<M m="Address" />
-				</legend>
+				{serverError &&
+					<ErrorMsg text={serverError} />
+				}
+				<Legend text="Address" />
 				<InputGroup
 					id="address_line_1"
 					type="text"
@@ -65,6 +84,7 @@ export default class SettingsAddress extends PureComponent {
 					value={address_line_1}
 					onChange={this.onEntryChange}
 				/>
+				{!address_line_1 && <ErrorMsg text="This field is required." />}
 				<InputGroup
 					id="address_line_2"
 					type="text"
@@ -100,6 +120,8 @@ export default class SettingsAddress extends PureComponent {
 					defaultValue={phone}
 					onChange={this.onEntryChange}
 				/>
+				{phoneError === 'length' && <ErrorMsg text="You should enter between 6-35 characters." />}
+				{phoneError === 'allowed' && <ErrorMsg text="Only numbers, space, - are allowed." />}
 				<Button
 					text="Update"
 					onClick={this.tryUpdate}

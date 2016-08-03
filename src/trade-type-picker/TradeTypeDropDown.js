@@ -21,7 +21,8 @@ const getInternalTradeType = tradeParams => {
 export default class TradeTypeDropDown extends PureComponent {
 
     static propTypes = {
-        forceTradeCardUpdate: PropTypes.func.isRequired,
+        index: PropTypes.number.isRequired,
+        contract: PropTypes.object.isRequired,
         tradeParams: PropTypes.object.isRequired,
     };
 
@@ -39,7 +40,7 @@ export default class TradeTypeDropDown extends PureComponent {
         this.setState({ dropdownShown: false });
 
     render() {
-        const { tradeParams } = this.props;
+        const { tradeParams, index, contract } = this.props;
         const { dropdownShown } = this.state;
         const selectedType = getInternalTradeType(tradeParams);
 
@@ -51,7 +52,9 @@ export default class TradeTypeDropDown extends PureComponent {
                     onClose={this.onClose}
                 >
                     <TradeTypePicker
-                        {...this.props}
+                        index={index}
+                        contract={contract}
+                        tradeParams={tradeParams}
                         onSelect={this.onClose}
                     />
                 </DropDown>

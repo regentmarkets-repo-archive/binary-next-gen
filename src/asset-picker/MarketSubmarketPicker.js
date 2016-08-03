@@ -32,7 +32,7 @@ export default class MarketSubmarketPicker extends PureComponent {
 			return submarketOptArr;
 		});
 
-		const flattenSubmarkets = [].concat.apply([], submarkets);
+		const flattenSubmarkets = [].concat(...submarkets);
 
 		return (
 			<select

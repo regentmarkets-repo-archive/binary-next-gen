@@ -1,40 +1,21 @@
 import React, { PropTypes, PureComponent } from 'react';
 import debounce from 'lodash.debounce';
 import { NumericInput, Label } from 'binary-components';
-import { isMobile } from 'binary-utils';
 import { actions } from '../_store';
-import { changeAmount } from '../trade-params/TradeParamsCascadingUpdates';
 
 const payouts = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000];
+const debounceStakeChange = debounce(actions.reqStakeChange, 400);
 
 export default class StakeCard extends PureComponent {
 
     static propTypes = {
         amount: PropTypes.number.isRequired,
         isVirtual: PropTypes.bool.isRequired,
-        onUpdateTradeParams: PropTypes.func,
         index: PropTypes.number.isRequired,
     };
-    debouncedUpdateAmount = debounce(e => {
-        const inputValue = e.target.value;
-        const { index, onUpdateTradeParams } = this.props;
-        if (inputValue > 500) {                  // TODO: temporary to control stake amount
-            actions.updateTradeError(index, 'stakeError', 'Stake cannot be more than 500');
-            return;
-        }
-        actions.updateTradeError(index, 'stakeError', undefined);
-        const updatedAmount = changeAmount(inputValue);
-        onUpdateTradeParams(updatedAmount);
-    }, isMobile ? 300 : 150, { leading: true, trailing: true })
-
     onAmountChange = e => {
         const { index } = this.props;
-        actions.updateTradeUIState(index, 'disabled', true);
-        this.debouncedUpdateAmount(e);
-    }
-    onBasisChange = e => {
-        const { onUpdateTradeParams } = this.props;
-        onUpdateTradeParams({ basis: e.target.value });
+        debounceStakeChange(index, e.target.value);
     }
 
     render() {

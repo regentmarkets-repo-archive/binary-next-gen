@@ -1,5 +1,5 @@
 import { defaultMemoize, createSelectorCreator } from 'reselect';
-
+import { is } from 'immutable';
 import {
     assetsSelector,
     tradeProposalSelector,
@@ -8,7 +8,6 @@ import {
     tradesUIStatesSelector,
     tradeParamsSelector,
 } from '../_store/directSelectors';
-import { is } from 'immutable';
 
 const immutableEq = (a, b) => {
     if (a === b) return true;
@@ -30,6 +29,7 @@ export const purchasePerTrade = (state, props) => tradePurchaseInfoSelector(stat
 export const paramPerTrade = createImmutableSelector(
     [(state, props) => tradeParamsSelector(state).get(props.index), assetsSelector],
     (param, assets) => {
+        if (!param) return undefined;
         const symbol = param.get('symbol');
         const symbolDetails = assets.find(a => a.get('symbol') === symbol);
         const symbolName = symbolDetails && symbolDetails.get('display_name');

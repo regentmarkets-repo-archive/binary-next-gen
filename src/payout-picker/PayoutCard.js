@@ -12,7 +12,7 @@ export default class PayoutCard extends PureComponent {
     render() {
         const { currency, stake, payout } = this.props;
 
-        const potentialProfitPercentage = ((payout - stake) * 100 / stake).toFixed(2);
+        const potentialProfitPercentage = (((payout - stake) * 100) / stake).toFixed(2);
 
         return (
             <div className="param-row payout-display">

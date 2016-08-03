@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
-import VideoList from './VideoList';
 import { immutableChildrenToJS } from 'binary-utils';
-
+import VideoList from './VideoList';
 import videoSelectors from './VideoSelectors';
 
 @connect(videoSelectors)

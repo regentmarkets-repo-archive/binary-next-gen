@@ -1,5 +1,4 @@
 import React, { PureComponent, PropTypes } from 'react';
-import ReactDOM from 'react-dom';
 import { LogoSpinner, Button, ErrorMsg, InputGroup } from 'binary-components';
 import { isValidEmail } from 'binary-utils';
 import { api } from '../_data/LiveData';
@@ -16,10 +15,6 @@ export default class VerifyEmailCard extends PureComponent {
 			progress: false,
 			email: '',
 		};
-	}
-
-	componentDidMount() {
-		ReactDOM.findDOMNode(this.refs.emailInput).focus();
 	}
 
 	onEmailChange = event =>
@@ -69,8 +64,8 @@ export default class VerifyEmailCard extends PureComponent {
 				<form onSubmit={this.onFormSubmit}>
 					<InputGroup
 						type="email"
+                        autofocus
 						placeholder="Email"
-						ref="emailInput"
 						onChange={this.onEmailChange}
 					/>
 					{validatedOnce && !this.emailIsValid &&

@@ -21,7 +21,7 @@ const defaultParams = {
     barrier2: undefined,
 };
 
-const initialState = fromJS([defaultParams]);
+const initialState = fromJS([]);
 
 export default (state = initialState, action) => {
     switch (action.type) {
@@ -58,10 +58,11 @@ export default (state = initialState, action) => {
             return state.setIn([action.index, action.fieldName], action.fieldValue);
         }
         case UPDATE_MULTIPLE_TRADE_PARAMS: {
-            if (!state.get(action.index)) {
-                return state;
+            const { index, params } = action;
+            if (state.has(index)) {
+                return state.update(action.index, v => v.merge(action.params));
             }
-            return state.updateIn([action.index], v => v.merge(action.params));
+            return state.set(index, fromJS(params));
         }
         case RESET_TRADES: {
             return initialState;

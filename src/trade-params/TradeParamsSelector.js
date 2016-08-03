@@ -14,9 +14,10 @@ const aggregateContracts = (contracts, type) => ({
     spread: (type.indexOf('SPREAD') > -1) ? extractSpreadInfo(contracts) : null,
 });
 
-const contractsPerSymbol = createSelector(
+export const contractsPerSymbol = createSelector(
     contracts => contracts,
     contracts => {
+        if (contracts.error) return contracts;      // do not process error
         const normalized = normalizedContractFor(contracts);
         Object.keys(normalized).forEach(category => {
             const categoryObj = normalized[category];
@@ -49,10 +50,6 @@ export const availableContractsSelector = createSelector(
     (tradingOptions, assetsIsOpen) =>
         tradingOptions
             .map((contract, symbol) => {
-                if (contract.error) {
-                    return contract;            // do not process error
-                }
-
                 // each immediate child refer to a type, eg Rise/Fall
                 const contractTree = contractsPerSymbol(contract);
 
@@ -69,6 +66,7 @@ export const availableContractsSelector = createSelector(
 const contractPerTrade = createSelector(
     [availableContractsSelector, paramPerTrade],
     (contracts, param) => {
+        if (!param) return undefined;
         const symbol = param.get('symbol');
         return contracts.get(symbol);
     }
@@ -77,6 +75,7 @@ const contractPerTrade = createSelector(
 const marketIsOpenPerTrade = createSelector(
     [assetsIsOpenSelector, paramPerTrade],
     (assetsIsOpen, param) => {
+        if (!param) return undefined;
         const symbol = param.get('symbol');
         return assetsIsOpen[symbol] && assetsIsOpen[symbol].isOpen;
     }
@@ -134,6 +133,7 @@ export const tradeParamsPerTrade = createSelector(
             pipSize,
             proposal: proposalInfo.get('proposal'),
             tradeParams: params,
+            forceRenderCount: uiState.get('forceRenderCount'),
         };
     }
 );
