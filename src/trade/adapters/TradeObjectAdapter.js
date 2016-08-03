@@ -19,8 +19,8 @@ export const internalTradeModelToChartTradeModel = tradeObj => {
         pipSize,
     } = tradeObj;
 
-    const b1 = barrier && (barrierType === 'relative' ? numberToSignedString(barrier) : barrier);
-    const b2 = barrier2 && (barrierType === 'relative' ? numberToSignedString(barrier2) : barrier2);
+    const b1 = barrier && (barrierType === 'relative' ? numberToSignedString(barrier) : +barrier);
+    const b2 = barrier2 && (barrierType === 'relative' ? numberToSignedString(barrier2) : +barrier2);
 
     const serverModel = {
         amount,
