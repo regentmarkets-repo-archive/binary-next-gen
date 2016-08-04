@@ -18,33 +18,22 @@ export default class BarrierCard extends PureComponent {
         ]),
         barrierInfo: PropTypes.object,
         barrierType: PropTypes.oneOf(['relative', 'absolute']),
-        isIntraDay: PropTypes.bool,
+        expiryType: PropTypes.string,
         index: PropTypes.number.isRequired,
         pipSize: PropTypes.number,
         spot: PropTypes.number,
     };
 
-    barrierTooLong = barrier => {
-        const { pipSize } = this.props;
-        const barrierDecimals = barrier.toString().split('.')[1];
-        const barrierExceedPipSize = barrierDecimals && (barrierDecimals.length > pipSize);
-
-        if (barrierExceedPipSize) {
-            return `Barriers input only allows ${pipSize} decimals, exceeded decimals will be ignored.`;
-        }
-        return undefined;
-    }
-
     updateBarrier1 = e => {
-        const { index, barrier2 } = this.props;
-        const newBarrier1 = e.target.value || 0;
-        debouncedReqBarrierChange(index, [newBarrier1, barrier2]);
+        const { index, barrier2, pipSize, expiryType } = this.props;
+        const newBarrier1 = e.target.value;
+        debouncedReqBarrierChange(index, [newBarrier1, barrier2], pipSize, expiryType);
     }
 
     updateBarrier2 = e => {
-        const { barrier, index } = this.props;
-        const newBarrier2 = e.target.value || 0;
-        debouncedReqBarrierChange(index, [barrier, newBarrier2]);
+        const { barrier, index, pipSize, expiryType } = this.props;
+        const newBarrier2 = e.target.value;
+        debouncedReqBarrierChange(index, [barrier, newBarrier2], pipSize, expiryType);
     }
 
     render() {
@@ -53,11 +42,10 @@ export default class BarrierCard extends PureComponent {
             barrier2,
             barrierInfo,
             barrierType,
-            isIntraDay,
+            expiryType,
             pipSize,
             spot,
             } = this.props;
-        const expiryType = isIntraDay ? 'intraday' : 'daily';
         const barrier1Info = barrierInfo[expiryType] && barrierInfo[expiryType][0];
         const barrier2Info = barrierInfo[expiryType] && barrierInfo[expiryType][1];
 
