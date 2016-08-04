@@ -1,5 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
-import { isIntraday, askPriceFromProposal, windowResizeEvent } from 'binary-utils';
+import { askPriceFromProposal, windowResizeEvent } from 'binary-utils';
 import { Error } from 'binary-components';
 import Modal from '../containers/Modal';
 import { actions } from '../_store';
@@ -136,15 +136,31 @@ export default class TradeParams extends PureComponent {
          */
         const selectedCategory = tradeParams.tradeCategory;
         const selectedType = tradeParams.type;
-        const hasBarriers = tradeParams.barrier || tradeParams.barrier === 0;       // handle case of barrier = 0
         const selectedTypeTradingOptions = contract[selectedCategory][selectedType];
         const barrierInfo = selectedTypeTradingOptions && selectedTypeTradingOptions.barriers;  // TODO: rename, this sucks
 
-        const isIntraDay = isIntraday(tradeParams.duration, tradeParams.durationUnit);
+        let expiryType;
+        switch (tradeParams.durationUnit) {
+            case 't':
+                expiryType = 'tick';
+                break;
+            case 's':
+            case 'm':
+            case 'h':
+                expiryType = 'intraday';
+                break;
+            case 'd':
+                expiryType = 'daily';
+                break;
+            default: throw new Error(`Invalid duration unit: ${tradeParams.durationUnit}`);
+        }
+
         const showBarrier = selectedCategory !== 'spreads' &&
+            selectedCategory !== 'risefall' &&
             selectedCategory !== 'digits' &&
-            !tradeParams.dateStart &&
-            !!hasBarriers;
+            selectedCategory !== 'asian' &&
+            !tradeParams.dateStart;
+
 
         const payout = proposal && proposal.payout;
 
@@ -186,7 +202,7 @@ export default class TradeParams extends PureComponent {
                         barrier2={tradeParams.barrier2}
                         barrierInfo={barrierInfo}
                         barrierType={tradeParams.barrierType}
-                        isIntraDay={isIntraDay}
+                        expiryType={expiryType}
                         index={index}
                         pipSize={pipSize}
                         spot={proposal && +proposal.spot}

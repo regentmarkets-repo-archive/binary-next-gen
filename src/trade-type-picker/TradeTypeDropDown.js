@@ -6,8 +6,8 @@ import TradeTypePicker from './TradeTypePicker';
 import helpText from './helpText';
 
 const getInternalTradeType = tradeParams => {
-    const { type, barrier } = tradeParams;
-    if (barrier) {
+    const { type, tradeCategory } = tradeParams;
+    if (tradeCategory === 'higherlower') {
         if (type === 'CALL') {
             return 'HIGHER';
         }
