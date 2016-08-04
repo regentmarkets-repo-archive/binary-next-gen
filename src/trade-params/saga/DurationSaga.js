@@ -130,6 +130,12 @@ export const reqStartTimeChange = (index, time) => ({
 export function* handleStartTimeChange(action) {
     const { index, time } = action;
     yield put(unsubscribeProposal(index));
+
+    if (isValidTime(time)) {
+        yield put(updateTradeError(index, 'durationError', 'Time format is wrong!'));
+        return;
+    }
+
     const params = yield select(getParams(index));
     const { symbol, tradeCategory, type, durationUnit, dateStart, duration } = params;
 
@@ -142,9 +148,7 @@ export function* handleStartTimeChange(action) {
     const contractPerType = contractNeeded[tradeCategory][type];
     const durationAllowed = allTimeRelatedFieldValid(newDateStart, duration, durationUnit, contractPerType);
 
-     if (isValidTime(time)) {
-        yield put(updateTradeError(index, 'durationError', 'Time format is wrong!'));
-    } else if (durationAllowed) {
+    if (durationAllowed) {
         const updated = paramUpdate.changeStartDate(newDateStart, contractNeeded, params);
         yield [
             put(subscribeProposal(index, updated)),
