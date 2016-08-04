@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: I 18N\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-07-30 10:55+0000\n"
+"PO-Revision-Date: 2016-08-04 06:06+0000\n"
 "Last-Translator: Pham Minh Hieu <hphamv7@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-app"
 "/next-gen-app/vi/>\n"
@@ -856,10 +856,10 @@ msgid "Multi Trade"
 msgstr "Giao dịch"
 
 msgid "Current Password"
-msgstr ""
+msgstr "Mật khẩu hiện tại"
 
 msgid "New Password"
-msgstr ""
+msgstr "Mật khẩu mới"
 
 #, fuzzy
 msgid "Last 50 Ticks"
@@ -878,4 +878,4 @@ msgid "Last 1000 Ticks"
 msgstr "30 ngày trước"
 
 msgid "Exit Full Screen"
-msgstr ""
+msgstr "Thoát toàn màn hình"
