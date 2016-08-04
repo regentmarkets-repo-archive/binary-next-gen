@@ -43,7 +43,6 @@ export default class TradeTypeDropDown extends PureComponent {
         const { tradeParams, index, contract } = this.props;
         const { dropdownShown } = this.state;
         const selectedType = getInternalTradeType(tradeParams);
-
         return (
             <div className="param-row">
                 <DropDown

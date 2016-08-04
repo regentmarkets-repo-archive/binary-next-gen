@@ -8,7 +8,7 @@ function safeMerge(a, b) {
     return Object.assign(aClone, b);
 }
 
-export function changeCategory(category, contract, oldTrade, isOpen = true) {
+export function changeCategory(category, contract, oldTrade = {}, isOpen = true) {
     let newCategory = category;
 
     if (!contract[newCategory]) {

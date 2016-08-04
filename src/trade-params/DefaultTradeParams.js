@@ -62,10 +62,8 @@ export const createDefaultBarriers = (contracts, category, type, duration, durat
 
     if (barrierByExpiry.length === 1) {
         switch (expiryType) {
-            case 'tick': {
-                return [undefined, undefined];
-            }
-            case 'intraday': return [+barrierByExpiry[0].defaultValue];
+            case 'tick':
+            case 'intraday':
             case 'daily': return [+barrierByExpiry[0].defaultValue];
             default: throw new Error('unknown expiry');
         }
@@ -73,10 +71,8 @@ export const createDefaultBarriers = (contracts, category, type, duration, durat
 
     if (barrierByExpiry.length === 2) {
         switch (expiryType) {
-            case 'tick': {
-                return [undefined, undefined];
-            }
-            case 'intraday': return [+barrierByExpiry[0].defaultValue, +barrierByExpiry[1].defaultValue];
+            case 'tick':
+            case 'intraday':
             case 'daily': return [+barrierByExpiry[0].defaultValue, +barrierByExpiry[1].defaultValue];
             default: throw new Error('unknown expiry');
         }
@@ -86,16 +82,10 @@ export const createDefaultBarriers = (contracts, category, type, duration, durat
 };
 
 export const createDefaultBarrierType = (duration, durationUnit) => {
-    let barrierType;
-    if (durationUnit === 't') {
-        return undefined;
-    } else if (isIntraday(duration, durationUnit)) {
-        barrierType = 'relative';
-    } else {
-        barrierType = 'absolute';
+    if (durationUnit === 't' || isIntraday(duration, durationUnit)) {
+        return 'relative';
     }
-
-    return barrierType;         // did not use return directly as ESLint complain about it
+    return 'absolute';         // did not use return directly as ESLint complain about it
 };
 
 export const createDefaultTradeParams = (contracts, symbol, isOpen) => {
