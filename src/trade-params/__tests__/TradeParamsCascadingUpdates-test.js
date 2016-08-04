@@ -54,7 +54,6 @@ describe('Update helpers', () => {
         basis: 'stake',
     };
     const mockedContract = contractsPerSymbol(rawContract);
-    console.log(mockedContract);
 
     describe('changeAmountPerPoint', () => {
         it('should never return value more than 2 decimal places', () => {
