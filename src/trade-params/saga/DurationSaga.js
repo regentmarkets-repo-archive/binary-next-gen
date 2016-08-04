@@ -1,6 +1,6 @@
 import { takeEvery } from 'redux-saga';
 import { put, select } from 'redux-saga/effects';
-import { dateToEpoch, timeStringToSeconds } from 'binary-utils';
+import { dateToEpoch, timeStringToSeconds, isValidTime } from 'binary-utils';
 import { updateMultipleTradeParams, updateTradeUIState, updateTradeError } from '../../_actions';
 import { allTimeRelatedFieldValid } from '../TradeParamsValidation';
 import * as paramUpdate from '../TradeParamsCascadingUpdates';
@@ -134,6 +134,12 @@ export const reqStartTimeChange = (index, time) => ({
 export function* handleStartTimeChange(action) {
     const { index, time } = action;
     yield put(unsubscribeProposal(index));
+
+    if (isValidTime(time)) {
+        yield put(updateTradeError(index, 'durationError', 'Time format is wrong!'));
+        return;
+    }
+
     const params = yield select(getParams(index));
     const { symbol, tradeCategory, type, durationUnit, dateStart, duration } = params;
 
