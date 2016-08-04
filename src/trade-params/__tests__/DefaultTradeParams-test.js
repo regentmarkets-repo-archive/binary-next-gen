@@ -17,5 +17,27 @@ describe('DefaultTradeParams', () => {
         });
     });
 
-    // TODO: finish all the tests
+    describe('createDefaultStartLater', () => {
+
+    });
+
+    describe('createDefaultDuration', () => {
+
+    });
+
+    describe('createDefaultBarrier', () => {
+        it('should support tick barrier');
+        it('should support intraday barrier');
+        it('should support daily barrier');
+    });
+
+    describe('createDefaultBarrierType', () => {
+        it('should support tick barrier');
+        it('should support intraday barrier');
+        it('should support daily barrier');
+    });
+
+    describe('createDefaultTradeParams', () => {
+
+    });
 });

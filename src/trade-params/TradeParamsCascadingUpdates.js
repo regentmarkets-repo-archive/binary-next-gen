@@ -50,7 +50,7 @@ export function changeCategory(category, contract, oldTrade = {}, isOpen = true)
             duration,
             durationUnit,
         );
-        const newBarrierType = createDefaultBarrierType(duration, durationUnit);
+        const newBarrierType = createDefaultBarrierType(duration, durationUnit, newCategory);
         return safeMerge(oldTrade, {
             tradeCategory: newCategory,
             type: defaultType,
@@ -76,7 +76,7 @@ export function changeCategory(category, contract, oldTrade = {}, isOpen = true)
         duration,
         durationUnit,
     );
-    const newBarrierType = createDefaultBarrierType(duration, durationUnit);
+    const newBarrierType = createDefaultBarrierType(duration, durationUnit, newCategory);
 
     return safeMerge(oldTrade, {
         tradeCategory: newCategory,
@@ -119,7 +119,7 @@ export function changeSymbol(symbol, contract, oldTrade, isOpen = true) {
         const newDuration = createDefaultDuration(contract, category, selectedType);
         const { dateStart, duration, durationUnit } = newDuration;
         const newBarrier = createDefaultBarriers(contract, category, selectedType, duration, durationUnit);
-        const newBarrierType = createDefaultBarrierType(duration, durationUnit);
+        const newBarrierType = createDefaultBarrierType(duration, durationUnit, category);
 
         return safeMerge(oldTrade, {
             symbol,
@@ -138,7 +138,7 @@ export function changeSymbol(symbol, contract, oldTrade, isOpen = true) {
         selectedType,
         selectedDuration, selectedDurationUnit
     );
-    const newBarrierType = createDefaultBarrierType(selectedDuration, selectedDurationUnit);
+    const newBarrierType = createDefaultBarrierType(selectedDuration, selectedDurationUnit, selectedCategory);
     return safeMerge(oldTrade, {
         symbol,
         barrier: newBarrier[0],
@@ -181,9 +181,9 @@ export function changeType(newType, newCategory, contract, oldTrade) {
             newBarrier = createDefaultBarriers(contract, category, newType, duration, durationUnit);
         }
 
-        const newBarrierType = createDefaultBarrierType(duration, durationUnit);
+        const newBarrierType = createDefaultBarrierType(duration, durationUnit, category);
         return safeMerge(oldTrade, {
-            tradeCategory: newCategory,
+            tradeCategory: category,
             type: newType,
             duration,
             durationUnit,
@@ -197,9 +197,9 @@ export function changeType(newType, newCategory, contract, oldTrade) {
     const newDuration = createDefaultDuration(contract, category, newType);
     const { dateStart, duration, durationUnit } = newDuration;
     const newBarrier = createDefaultBarriers(contract, category, newType, duration, durationUnit);
-    const newBarrierType = createDefaultBarrierType(duration, durationUnit);
+    const newBarrierType = createDefaultBarrierType(duration, durationUnit, category);
     return safeMerge(oldTrade, {
-        tradeCategory: newCategory,
+        tradeCategory: category,
         type: newType,
         duration,
         durationUnit,
@@ -282,7 +282,7 @@ export function changeDurationUnit(unit, contract, oldTrade) {
     }
 
     const newBarrier = createDefaultBarriers(contract, tradeCategory, type, newDuration, newUnit);
-    const newBarrierType = createDefaultBarrierType(newDuration, newUnit);
+    const newBarrierType = createDefaultBarrierType(newDuration, newUnit, tradeCategory);
     return safeMerge(oldTrade, {
         duration: newDuration,
         durationUnit: newUnit,

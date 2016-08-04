@@ -81,7 +81,10 @@ export const createDefaultBarriers = (contracts, category, type, duration, durat
     throw new Error('default barrier creation failed');
 };
 
-export const createDefaultBarrierType = (duration, durationUnit) => {
+export const createDefaultBarrierType = (duration, durationUnit, cat) => {
+    if (cat === 'digits') {
+        return undefined;
+    }
     if (durationUnit === 't' || isIntraday(duration, durationUnit)) {
         return 'relative';
     }
@@ -93,7 +96,7 @@ export const createDefaultTradeParams = (contracts, symbol, isOpen) => {
     const type = createDefaultType(contracts, cat);
     const { duration, durationUnit } = createDefaultDuration(contracts, cat, type);
     const barriers = createDefaultBarriers(contracts, cat, type, duration, durationUnit);
-    const barrierType = createDefaultBarrierType(duration, durationUnit);
+    const barrierType = createDefaultBarrierType(duration, durationUnit, cat);
 
     const startLaterOpts = contracts[cat][type].forwardStartingDuration;
     const dateStart = isOpen ? undefined : startLaterOpts && createDefaultStartLaterEpoch(startLaterOpts);
