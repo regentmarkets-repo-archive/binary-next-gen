@@ -94,7 +94,7 @@ export const createDefaultBarrierType = (duration, durationUnit, cat) => {
 export const createDefaultTradeParams = (contracts, symbol, isOpen) => {
     const cat = createDefaultCategory(contracts);
     const type = createDefaultType(contracts, cat);
-    const { duration, durationUnit } = createDefaultDuration(contracts, cat, type);
+    const { duration, durationUnit } = createDefaultDuration(contracts, cat, type, isOpen);
     const barriers = createDefaultBarriers(contracts, cat, type, duration, durationUnit);
     const barrierType = createDefaultBarrierType(duration, durationUnit, cat);
 

@@ -38,6 +38,8 @@ describe('DefaultTradeParams', () => {
     });
 
     describe('createDefaultTradeParams', () => {
+        it('should give correct params for closed market', () => {
 
+        });
     });
 });

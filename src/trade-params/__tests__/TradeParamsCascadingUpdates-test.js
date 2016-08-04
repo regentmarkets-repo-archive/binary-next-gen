@@ -210,11 +210,6 @@ describe('Update helpers', () => {
     });
 
     describe('changeAsset', () => {
-        it('should retain old params if new asset allows', () => {
-            const updatedAsset = updateHelpers.changeSymbol('R_100', mockedContract, mockTickTrade);
-            const mergedWithUpdatedAsset = Object.assign({}, mockTickTrade, updatedAsset);
-            // containSubset is used because changeAsset will set undefined to barriers
-            expect(mergedWithUpdatedAsset).to.containSubset(mockTickTrade);
-        });
+
     });
 });

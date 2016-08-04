@@ -110,6 +110,7 @@ export function* handleStartDateChange(action) {
     const contractNeeded = yield select(contractOfSymbol(symbol));
     const contractPerType = contractNeeded[tradeCategory][type];
     const durationAllowed = allTimeRelatedFieldValid(newDateStart, duration, durationUnit, contractPerType);
+
     if (durationAllowed) {
         const updated = paramUpdate.changeStartDate(newDateStart, contractNeeded, params);
         yield [

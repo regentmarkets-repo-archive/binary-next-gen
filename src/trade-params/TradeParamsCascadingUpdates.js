@@ -1,7 +1,7 @@
 import { noOfDecimals, isDurationWithinRange } from 'binary-utils';
 import { createDefaultType, createDefaultDuration,
     createDefaultBarriers, createDefaultBarrierType, createDefaultTradeParams } from './DefaultTradeParams';
-import { categoryValid, allTimeRelatedFieldValid } from './TradeParamsValidation';
+import { allTimeRelatedFieldValid } from './TradeParamsValidation';
 
 function safeMerge(a, b) {
     const aClone = Object.assign({}, a);
@@ -94,57 +94,8 @@ export function changeCategory(category, contract, oldTrade = {}, isOpen = true)
     });
 }
 
-export function changeSymbol(symbol, contract, oldTrade, isOpen = true) {
-    if (!oldTrade) {
-        return createDefaultTradeParams(contract, symbol, isOpen);
-    }
-
-    const selectedCategory = oldTrade.tradeCategory;
-    if (!categoryValid(selectedCategory, contract)) {
-        return changeCategory(Object.keys(contract)[0], contract, safeMerge(oldTrade, { symbol }));
-    }
-
-    const selectedType = oldTrade.type;
-    const selectedDateStart = oldTrade.dateStart;
-    const selectedDuration = oldTrade.duration;
-    const selectedDurationUnit = oldTrade.durationUnit;
-
-    if (!allTimeRelatedFieldValid(
-            selectedDateStart,
-            selectedDuration,
-            selectedDurationUnit,
-            contract[selectedCategory][selectedType]
-        )) {
-        const category = oldTrade.tradeCategory;
-        const newDuration = createDefaultDuration(contract, category, selectedType);
-        const { dateStart, duration, durationUnit } = newDuration;
-        const newBarrier = createDefaultBarriers(contract, category, selectedType, duration, durationUnit);
-        const newBarrierType = createDefaultBarrierType(duration, durationUnit, category);
-
-        return safeMerge(oldTrade, {
-            symbol,
-            type: selectedType,
-            duration,
-            durationUnit,
-            dateStart,
-            barrier: newBarrier[0],
-            barrier2: newBarrier[1],
-            barrierType: newBarrierType,
-        });
-    }
-    const newBarrier = createDefaultBarriers(
-        contract,
-        selectedCategory,
-        selectedType,
-        selectedDuration, selectedDurationUnit
-    );
-    const newBarrierType = createDefaultBarrierType(selectedDuration, selectedDurationUnit, selectedCategory);
-    return safeMerge(oldTrade, {
-        symbol,
-        barrier: newBarrier[0],
-        barrier2: newBarrier[1],
-        barrierType: newBarrierType,
-    });
+export function changeSymbol(symbol, contract, isOpen = true) {
+    return createDefaultTradeParams(contract, symbol, isOpen);
 }
 
 export function changeType(newType, newCategory, contract, oldTrade) {
