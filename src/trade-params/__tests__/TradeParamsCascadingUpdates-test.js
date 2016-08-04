@@ -1,6 +1,7 @@
 import * as updateHelpers from '../TradeParamsCascadingUpdates';
 import { allTimeRelatedFieldValid } from '../TradeParamsValidation';
-import { mockedContract } from '../../_constants/MockContract';
+import rawContract from 'binary-test-data/contractsForR50';
+import { contractsPerSymbol } from '../TradeParamsSelector';
 import chai, { expect } from 'chai';
 import chaiSubset from 'chai-subset';
 
@@ -36,7 +37,7 @@ describe('Update helpers', () => {
         disabled: false,
         basis: 'stake',
     };
-    const mockRiseTrade = {
+    const mockHighTrade = {
         showAssetPicker: false,
         tradeCategory: 'risefall',
         symbolName: 'Volatility 100 Index',
@@ -52,6 +53,7 @@ describe('Update helpers', () => {
         disabled: false,
         basis: 'stake',
     };
+    const mockedContract = contractsPerSymbol(rawContract);
 
     describe('changeAmountPerPoint', () => {
         it('should never return value more than 2 decimal places', () => {
@@ -117,9 +119,9 @@ describe('Update helpers', () => {
         });
 
         it('should not change duration if original duration allow start later', () => {
-            const updated = updateHelpers.changeStartDate(1462433402, mockedContract, mockRiseTrade);
-            expect(updated.durationUnit).to.be.equal(mockRiseTrade.durationUnit);
-            expect(updated.duration).to.be.equal(mockRiseTrade.duration);
+            const updated = updateHelpers.changeStartDate(1462433402, mockedContract, mockHighTrade);
+            expect(updated.durationUnit).to.be.equal(mockHighTrade.durationUnit);
+            expect(updated.duration).to.be.equal(mockHighTrade.duration);
         });
 
         it('should change duration if original duration does not allow start later', () => {
@@ -136,8 +138,8 @@ describe('Update helpers', () => {
 
     describe('changeType', () => {
         it('should change type', () => {
-            const updatedType = updateHelpers.changeType('SPREADU', 'spreads', mockedContract, mockTickTrade);
-            expect(updatedType.type).to.be.equal('SPREADU');
+            const updatedType = updateHelpers.changeType('CALL', 'risefall', mockedContract, mockTickTrade);
+            expect(updatedType.type).to.be.equal('CALL');
         });
 
         it('should update barrier(s) if target type have barrier(s)', () => {
@@ -156,6 +158,21 @@ describe('Update helpers', () => {
             expect(allTimeRelatedFieldValid(dateStart, duration, durationUnit, mockedContract.higherlower.CALL)).to.equal(true);
         });
 
+        it('should understand diff between higherlower and risefall', () => {
+            const highTrade = updateHelpers.changeType('CALL', 'higherlower', mockedContract, mockTickTrade);
+            expect(highTrade.barrier).to.ok;
+
+            const rise = updateHelpers.changeType('CALL', 'risefall', mockedContract, mockTickTrade);
+            expect(rise.barrier).to.equal.undefined;
+        });
+
+        it('broken test', () => {
+            const input = {"tradeCategory":"risefall","duration":5,"amount":50,"durationUnit":"t","symbol":"R_100","type":"CALL","basis":"stake"};
+            const output = updateHelpers.changeType('CALL', 'higherlower', mockedContract, input);
+            expect(output.barrier).to.be.ok;
+            expect(output.durationUnit).to.equal('t');
+        })
+
         it.skip('should return start later trade if market is close', () => {
             // we are not handling this yet
             expect(false).to.equal(true);
@@ -164,8 +181,8 @@ describe('Update helpers', () => {
 
     describe('changeCategory', () => {
         it('should change category', () => {
-            const updatedCategory = updateHelpers.changeCategory('spreads', mockedContract);
-            expect(updatedCategory.tradeCategory).to.equal('spreads');
+            const updatedCategory = updateHelpers.changeCategory('risefall', mockedContract);
+            expect(updatedCategory.tradeCategory).to.equal('risefall');
         });
 
         it('should setup params for new category if needed', () => {
@@ -192,11 +209,6 @@ describe('Update helpers', () => {
     });
 
     describe('changeAsset', () => {
-        it('should retain old params if new asset allows', () => {
-            const updatedAsset = updateHelpers.changeSymbol('R_100', mockedContract, mockTickTrade);
-            const mergedWithUpdatedAsset = Object.assign({}, mockTickTrade, updatedAsset);
-            // containSubset is used because changeAsset will set undefined to barriers
-            expect(mergedWithUpdatedAsset).to.containSubset(mockTickTrade);
-        });
+
     });
 });

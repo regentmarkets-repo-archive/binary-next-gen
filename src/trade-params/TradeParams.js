@@ -157,13 +157,12 @@ export default class TradeParams extends PureComponent {
         const askPrice = askPriceFromProposal(proposal);
 
         const errorText = errorToShow(errors);
-
         return (
             <div className="trade-params" key={this.state.dynamicKey} style={style}>
                 <Modal shown={!!errors.purchaseError} onClose={this.onCloseModal}>
                     <Error text={errors.purchaseError} />
                 </Modal>
-                <Error text={contract.error || errorText} />
+                <Error text={errorText} />
                 <AssetPickerDropDown
                     index={index}
                     selectedSymbol={tradeParams.symbol}

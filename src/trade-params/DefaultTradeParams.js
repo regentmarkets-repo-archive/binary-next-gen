@@ -62,10 +62,8 @@ export const createDefaultBarriers = (contracts, category, type, duration, durat
 
     if (barrierByExpiry.length === 1) {
         switch (expiryType) {
-            case 'tick': {
-                return [undefined, undefined];
-            }
-            case 'intraday': return [+barrierByExpiry[0].defaultValue];
+            case 'tick':
+            case 'intraday':
             case 'daily': return [+barrierByExpiry[0].defaultValue];
             default: throw new Error('unknown expiry');
         }
@@ -73,10 +71,8 @@ export const createDefaultBarriers = (contracts, category, type, duration, durat
 
     if (barrierByExpiry.length === 2) {
         switch (expiryType) {
-            case 'tick': {
-                return [undefined, undefined];
-            }
-            case 'intraday': return [+barrierByExpiry[0].defaultValue, +barrierByExpiry[1].defaultValue];
+            case 'tick':
+            case 'intraday':
             case 'daily': return [+barrierByExpiry[0].defaultValue, +barrierByExpiry[1].defaultValue];
             default: throw new Error('unknown expiry');
         }
@@ -85,25 +81,22 @@ export const createDefaultBarriers = (contracts, category, type, duration, durat
     throw new Error('default barrier creation failed');
 };
 
-export const createDefaultBarrierType = (duration, durationUnit) => {
-    let barrierType;
-    if (durationUnit === 't') {
+export const createDefaultBarrierType = (duration, durationUnit, cat) => {
+    if (cat === 'digits') {
         return undefined;
-    } else if (isIntraday(duration, durationUnit)) {
-        barrierType = 'relative';
-    } else {
-        barrierType = 'absolute';
     }
-
-    return barrierType;         // did not use return directly as ESLint complain about it
+    if (durationUnit === 't' || isIntraday(duration, durationUnit)) {
+        return 'relative';
+    }
+    return 'absolute';         // did not use return directly as ESLint complain about it
 };
 
 export const createDefaultTradeParams = (contracts, symbol, isOpen) => {
     const cat = createDefaultCategory(contracts);
     const type = createDefaultType(contracts, cat);
-    const { duration, durationUnit } = createDefaultDuration(contracts, cat, type);
+    const { duration, durationUnit } = createDefaultDuration(contracts, cat, type, isOpen);
     const barriers = createDefaultBarriers(contracts, cat, type, duration, durationUnit);
-    const barrierType = createDefaultBarrierType(duration, durationUnit);
+    const barrierType = createDefaultBarrierType(duration, durationUnit, cat);
 
     const startLaterOpts = contracts[cat][type].forwardStartingDuration;
     const dateStart = isOpen ? undefined : startLaterOpts && createDefaultStartLaterEpoch(startLaterOpts);
