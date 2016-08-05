@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: BOM\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-07-22 21:15+0000\n"
+"PO-Revision-Date: 2016-08-05 16:23+0000\n"
 "Last-Translator: Alcino Jorge <alcino@binary.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/binary-app/"
-"next-gen-app/pt/>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/binary-app"
+"/next-gen-app/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -600,26 +600,26 @@ msgid "Digit Stats"
 msgstr "Dígito correspondente"
 
 msgid "Favorites"
-msgstr ""
+msgstr "Favoritos"
 
 msgid "Open For Trading"
-msgstr ""
+msgstr "Aberto para negociação"
 
 #, fuzzy
 msgid "Closed"
 msgstr "Fecho"
 
 msgid "Contract ID"
-msgstr ""
+msgstr "ID de contrato"
 
 msgid "Reference ID"
-msgstr ""
+msgstr "ID de referência"
 
 msgid "Entry Spot"
 msgstr "Preço de entrada"
 
 msgid "Entry Spot Time"
-msgstr "Hora do preço de entrada"
+msgstr "Preço de entrada"
 
 msgid "Potential Payout"
 msgstr "Prêmio potencial"
@@ -640,7 +640,7 @@ msgid "Trade Again"
 msgstr "Negociar novamente"
 
 msgid "Barrier"
-msgstr ""
+msgstr "Barreira"
 
 msgid "You Won"
 msgstr "Você ganhou"
@@ -652,24 +652,28 @@ msgid ""
 "To change your name, date of birth, country of residence, or email, contact "
 "Customer Support."
 msgstr ""
+"Para alterar o seu nome, data de nascimento, país de residência ou endereço "
+"de email, contate o Apoio ao Cliente."
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
 msgstr ""
+"O caixa está bloqueado conforme solicitado. Para desbloqueá-lo, insira a sua "
+"senha."
 
 msgid "Unlock Cashier"
-msgstr ""
+msgstr "Desbloquear o caixa"
 
 msgid "Time out until"
-msgstr ""
+msgstr "Bloqueio até"
 
 msgid "No transactions for the selected period"
 msgstr "Não existem transações para o período selecionado"
 
 msgid "You have no open contracts"
-msgstr ""
+msgstr "Você não tem contratos abertos"
 
 msgid "You have no assets in watchlist"
-msgstr ""
+msgstr "Você não tem nenhum ativo nos seus favoritos"
 
 msgid "Basic"
 msgstr ""
@@ -690,13 +694,13 @@ msgid "Ends Outside"
 msgstr "Termina Fora"
 
 msgid "Ends Between"
-msgstr ""
+msgstr "Termina entre"
 
 msgid "Stays Between"
-msgstr ""
+msgstr "Fica entre"
 
 msgid "Goes Outside"
-msgstr ""
+msgstr "Sai fora"
 
 msgid "Does Not Touch"
 msgstr "Não toca"
@@ -705,7 +709,7 @@ msgid "Credit / Debit"
 msgstr "Crédito / Débito"
 
 msgid "Last 25 Ticks"
-msgstr ""
+msgstr "25 últimos tique-taques"
 
 msgid "Last 50 Trades"
 msgstr "50 últimas negociações"
@@ -719,41 +723,36 @@ msgstr "500 últimas negociações"
 msgid "Last 1000 Trades"
 msgstr "1000 últimas negociações"
 
-#, fuzzy
 msgid "Maximum Daily Turnover"
-msgstr "Máximo volume de negócios diário"
+msgstr "Volume de negócios máximo diário"
 
 msgid "Commodities"
-msgstr ""
+msgstr "Matérias-primas"
 
 msgid "Major Pairs"
-msgstr ""
+msgstr "Pares principais"
 
 msgid "Minor Pairs"
-msgstr ""
+msgstr "Pares secundários"
 
 msgid "Smart FX"
-msgstr ""
+msgstr "Smart FX"
 
-#, fuzzy
 msgid "Volatility Indices"
-msgstr "Preços diários"
+msgstr "Índices Volatility"
 
-#, fuzzy
 msgid "Indices"
-msgstr "Indicativo"
+msgstr "Índices"
 
 msgid "OTC Stocks"
-msgstr ""
+msgstr "Ações OTC"
 
 msgid "Stated limits are subject to change without prior notice"
-msgstr ""
+msgstr "Os limites mencionados estão sujeitos a alterações sem aviso prévio"
 
-#, fuzzy
 msgid "Withdrawal Limits"
 msgstr "Limites de retirada"
 
-#, fuzzy
 msgid "Withdrawal limit"
 msgstr "Limites de retirada"
 
@@ -761,133 +760,120 @@ msgid "Already withdrawn"
 msgstr ""
 
 msgid "Current immediate maximum withdrawal"
-msgstr ""
+msgstr "Retirada imediata máxima atual"
 
-#, fuzzy
 msgid "Create Free Account"
-msgstr "Criar conta"
+msgstr "Criar conta gratuita"
 
 msgid "Verification Code"
-msgstr ""
+msgstr "Código de verificação"
 
-#, fuzzy
 msgid "Confirm Password"
-msgstr "Confirmar nova senha"
+msgstr "Confirmar senha"
 
 msgid "Already have an account?"
-msgstr ""
+msgstr "Já tem uma conta?"
 
 msgid "Enter a valid verification code"
-msgstr ""
+msgstr "Digite um código de verificação válido"
 
 msgid "Choose your country"
-msgstr ""
+msgstr "Escolha o seu país"
 
 msgid ""
 "Password should have lower and uppercase letters and 6 characters or more"
 msgstr ""
+"A senha deve conter letras maiúsculas e minúsculas e 6 caracteres ou mais"
 
 msgid "Passwords do not match"
-msgstr ""
+msgstr "As senhas não correspondem"
 
 msgid "Enter a valid email"
-msgstr ""
+msgstr "Digite um e-mail válido"
 
 msgid "Number should between 10 to 120"
-msgstr ""
+msgstr "O número deve ser entre 10 e 120"
 
 msgid "Enter your first and last name"
-msgstr ""
+msgstr "Insira o seu primeiro nome e o seu sobrenome"
 
 msgid "City must not be empty"
-msgstr ""
+msgstr "Cidade não deve estar vazio"
 
 msgid "Address must not be empty"
-msgstr ""
+msgstr "Endereço não deve estar vazio"
 
 msgid "Enter a valid phone number"
-msgstr ""
+msgstr "Insira um número de telefone válido"
 
 msgid "Select a secret question"
-msgstr ""
+msgstr "Selecione uma pergunta secreta"
 
 msgid "Secret answer must be at least 4 characters"
-msgstr ""
+msgstr "A resposta secreta deve conter pelo menos 4 caracteres"
 
 msgid "You need to agree to our Terms and Conditions"
-msgstr ""
+msgstr "Você aceita os nosso termos e condições"
 
 msgid "I agree to the"
 msgstr ""
 
 msgid "terms and conditions"
-msgstr ""
+msgstr "termos e condições"
 
-#, fuzzy
 msgid "Search for assets"
 msgstr "Procurar ativos"
 
 msgid "Choose a Payment Agent"
-msgstr ""
+msgstr "Escolha um agente de pagamentos"
 
-#, fuzzy
 msgid "Confirm New Password"
 msgstr "Confirmar nova senha"
 
 msgid "First Name"
-msgstr ""
+msgstr "Primeiro nome"
 
-#, fuzzy
 msgid "Last Name"
-msgstr "Nome"
+msgstr "Sobrenome"
 
 msgid "Address First Line"
-msgstr ""
+msgstr "Primeira linha do endereço"
 
 msgid "Address Second Line"
-msgstr ""
+msgstr "Segunda linha do endereço"
 
 msgid "Phone"
-msgstr ""
+msgstr "Telefone"
 
 msgid "Answer To Secret Question"
-msgstr ""
+msgstr "Resposta à pergunta secreta"
 
 msgid "Switch to"
-msgstr ""
+msgstr "Mudar para"
 
-#, fuzzy
 msgid "Single Trade"
-msgstr "Nova negociação"
+msgstr "Negociação única"
 
-#, fuzzy
 msgid "Multi Trade"
-msgstr "Negociação completa"
+msgstr "Negociação múltipla"
 
-#, fuzzy
 msgid "Current Password"
 msgstr "Senha atual"
 
-#, fuzzy
 msgid "New Password"
 msgstr "Nova senha"
 
-#, fuzzy
 msgid "Last 50 Ticks"
-msgstr "50 últimas negociações"
+msgstr "50 últimos tique-taques"
 
-#, fuzzy
 msgid "Last 100 Ticks"
-msgstr "100 últimas negociações"
+msgstr "100 últimos tique-taques"
 
-#, fuzzy
 msgid "Last 500 Ticks"
-msgstr "500 últimas negociações"
+msgstr "500 últimos tique-taques"
 
-#, fuzzy
 msgid "Last 1000 Ticks"
-msgstr "1000 últimas negociações"
+msgstr "1000 últimos tique-taques"
 
-#, fuzzy
 msgid "Exit Full Screen"
-msgstr "Tela inteira"
+msgstr "Sair da tela inteira"
