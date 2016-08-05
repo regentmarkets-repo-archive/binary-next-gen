@@ -7,10 +7,10 @@ msgstr ""
 "Project-Id-Version: I 18N\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-07-12 08:53+0000\n"
+"PO-Revision-Date: 2016-08-05 03:59+0000\n"
 "Last-Translator: Putri Kumala <putri@regentmarkets.com>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-app/"
-"next-gen-app/id/>\n"
+"Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-app"
+"/next-gen-app/id/>\n"
 "Language: id\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -596,314 +596,279 @@ msgid "Digit Stats"
 msgstr "Digit Stats"
 
 msgid "Favorites"
-msgstr ""
+msgstr "Favorit"
 
 msgid "Open For Trading"
-msgstr ""
+msgstr "Tersedia Untuk Trading"
 
-#, fuzzy
 msgid "Closed"
 msgstr "Tutup"
 
 msgid "Contract ID"
-msgstr ""
+msgstr "ID Kontrak"
 
 msgid "Reference ID"
-msgstr ""
+msgstr "ID Referensi"
 
-#, fuzzy
 msgid "Entry Spot"
-msgstr "Spot awal"
+msgstr "Spot Awal"
 
-#, fuzzy
 msgid "Entry Spot Time"
-msgstr "Spot awal"
+msgstr "Waktu Spot Awal"
 
-#, fuzzy
 msgid "Potential Payout"
-msgstr "Potensi Untung"
+msgstr "Potensi Hasil"
 
-#, fuzzy
 msgid "Exit Spot"
-msgstr "Spot akhir"
+msgstr "Spot Akhir"
 
-#, fuzzy
 msgid "Exit Spot Time"
-msgstr "Spot akhir"
+msgstr "Waktu Spot Akhir"
 
-#, fuzzy
 msgid "Sell Price"
 msgstr "Harga Jual"
 
-#, fuzzy
 msgid "Sell Time"
-msgstr "Waktu Mulai"
+msgstr "Waktu Jual"
 
-#, fuzzy
 msgid "Trade Again"
-msgstr "Trade"
+msgstr "Trading Lagi"
 
 msgid "Barrier"
-msgstr ""
+msgstr "Batasan"
 
-#, fuzzy
 msgid "You Won"
-msgstr "Anda rugi "
+msgstr "Anda Untung"
 
-#, fuzzy
 msgid "You Lost"
-msgstr "Anda rugi "
+msgstr "Anda Rugi"
 
 msgid ""
 "To change your name, date of birth, country of residence, or email, contact "
 "Customer Support."
 msgstr ""
+"Untuk merubah nama, tanggal lahir, negara domisili atau email, hubungi "
+"Customer Support."
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
 msgstr ""
+"Bagian kasir telah dikunci sesuai dengan permintaan Anda. Untuk membuka, "
+"masukkan kata sandi."
 
 msgid "Unlock Cashier"
-msgstr ""
+msgstr "Membuka Kasir"
 
 msgid "Time out until"
-msgstr ""
+msgstr "Berhenti hingga"
 
-#, fuzzy
 msgid "No transactions for the selected period"
-msgstr "Tidak ditemukan transaksi bagi periode yang dipilih"
+msgstr "Tidak ditemukan transaksi pada periode yang dipilih"
 
 msgid "You have no open contracts"
-msgstr ""
+msgstr "Anda tidak memiliki kontrak berjalan"
 
 msgid "You have no assets in watchlist"
-msgstr ""
+msgstr "Anda tidak memiliki aset pada daftar pantauan"
 
 msgid "Basic"
-msgstr ""
+msgstr "Dasar"
 
-#, fuzzy
 msgid "Digits"
-msgstr "Digit Stats"
+msgstr "Digit"
 
 msgid "Advanced"
-msgstr ""
+msgstr "Lanjutan"
 
-#, fuzzy
 msgid "Higher"
-msgstr "Tinggi"
+msgstr "Higher"
 
 msgid "Lower"
-msgstr ""
+msgstr "Lower"
 
-#, fuzzy
 msgid "Ends Outside"
-msgstr "Ends In/Out"
+msgstr "Ends Outside"
 
 msgid "Ends Between"
-msgstr ""
+msgstr "Ends Between"
 
 msgid "Stays Between"
-msgstr ""
+msgstr "Stays Between"
 
 msgid "Goes Outside"
-msgstr ""
+msgstr "Goes Outside"
 
-#, fuzzy
 msgid "Does Not Touch"
-msgstr "No Touch"
+msgstr "Does Not Touch"
 
-#, fuzzy
 msgid "Credit / Debit"
-msgstr "Kredit/Debit"
+msgstr "Kredit / Debit"
 
 msgid "Last 25 Ticks"
-msgstr ""
+msgstr "25 Tik Terakhir"
 
-#, fuzzy
 msgid "Last 50 Trades"
-msgstr "30 Hari Terakhir"
+msgstr "50 Tik Terakhir"
 
-#, fuzzy
 msgid "Last 100 Trades"
-msgstr "30 Hari Terakhir"
+msgstr "100 Trading Terakhir"
 
-#, fuzzy
 msgid "Last 500 Trades"
-msgstr "30 Hari Terakhir"
+msgstr "500 Trading Terakhir"
 
-#, fuzzy
 msgid "Last 1000 Trades"
-msgstr "30 Hari Terakhir"
+msgstr "1000 Trading Terakhir"
 
-#, fuzzy
 msgid "Maximum Daily Turnover"
-msgstr "Maksimum turnover harian"
+msgstr "Maksimum Turnover Harian"
 
 msgid "Commodities"
-msgstr ""
+msgstr "Komoditas"
 
 msgid "Major Pairs"
-msgstr ""
+msgstr "Pasangan Utama"
 
 msgid "Minor Pairs"
-msgstr ""
+msgstr "Pasangan Tambahan"
 
 msgid "Smart FX"
-msgstr ""
+msgstr "Smart FX"
 
-#, fuzzy
 msgid "Volatility Indices"
-msgstr "Harga Harian"
+msgstr "Indeks Volatilitas"
 
-#, fuzzy
 msgid "Indices"
-msgstr "Indikatif"
+msgstr "Indeks"
 
 msgid "OTC Stocks"
-msgstr ""
+msgstr "Saham OTC"
 
 msgid "Stated limits are subject to change without prior notice"
-msgstr ""
+msgstr "Batas dapat berubah tanpa pemberitahuan terlebih dahulu"
 
-#, fuzzy
 msgid "Withdrawal Limits"
-msgstr "Batas penarikan"
+msgstr "Batas Penarikan"
 
-#, fuzzy
 msgid "Withdrawal limit"
-msgstr "Batas penarikan"
+msgstr "Batas Penarikan"
 
 msgid "Already withdrawn"
-msgstr ""
+msgstr "Sudah ditarik"
 
 msgid "Current immediate maximum withdrawal"
-msgstr ""
+msgstr "Jumlah maksimal penarikan saat ini"
 
-#, fuzzy
 msgid "Create Free Account"
-msgstr "Daftar Akun"
+msgstr "Daftar Akun Gratis"
 
 msgid "Verification Code"
-msgstr ""
+msgstr "Kode Verifikasi"
 
-#, fuzzy
 msgid "Confirm Password"
-msgstr "Konfirmasi kata sandi baru"
+msgstr "Konfirmasi Kata Sandi"
 
 msgid "Already have an account?"
-msgstr ""
+msgstr "Sudah memiliki akun?"
 
 msgid "Enter a valid verification code"
-msgstr ""
+msgstr "Masukkan kode verifikasi yang berlaku"
 
 msgid "Choose your country"
-msgstr ""
+msgstr "Pilih negara Anda"
 
 msgid ""
 "Password should have lower and uppercase letters and 6 characters or more"
 msgstr ""
+"Kata sandi harus memiliki huruf kecil, huruf besar dan 6 karakter atau lebih"
 
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Kata sandi tidak cocok"
 
 msgid "Enter a valid email"
-msgstr ""
+msgstr "Masukkan email yang benar"
 
 msgid "Number should between 10 to 120"
-msgstr ""
+msgstr "Nomor harus antara 10-120"
 
 msgid "Enter your first and last name"
-msgstr ""
+msgstr "Masukkan nama depan dan belakang Anda"
 
 msgid "City must not be empty"
-msgstr ""
+msgstr "Kota tidak boleh kosong"
 
 msgid "Address must not be empty"
-msgstr ""
+msgstr "Alamat tidak boleh kosong"
 
 msgid "Enter a valid phone number"
-msgstr ""
+msgstr "Masukkan nomor telepon yang benar"
 
 msgid "Select a secret question"
-msgstr ""
+msgstr "Pilih pertanyaan rahasia"
 
 msgid "Secret answer must be at least 4 characters"
-msgstr ""
+msgstr "Jawaban rahasia harus minimal 4 karakter"
 
 msgid "You need to agree to our Terms and Conditions"
-msgstr ""
+msgstr "Anda perlu menyetujui Syarat dan Ketentuan kami"
 
 msgid "I agree to the"
-msgstr ""
+msgstr "Saya setuju dengan"
 
 msgid "terms and conditions"
-msgstr ""
+msgstr "syarat dan ketentuan"
 
-#, fuzzy
 msgid "Search for assets"
-msgstr "Pencarian Aset"
+msgstr "Pencarian aset"
 
 msgid "Choose a Payment Agent"
-msgstr ""
+msgstr "Pilih Agen Pembayaran"
 
-#, fuzzy
 msgid "Confirm New Password"
-msgstr "Konfirmasi kata sandi baru"
+msgstr "Konfirmasi Kata Sandi Baru"
 
 msgid "First Name"
-msgstr ""
+msgstr "Nama Depan"
 
-#, fuzzy
 msgid "Last Name"
-msgstr "Nama"
+msgstr "Nama Belakang"
 
 msgid "Address First Line"
-msgstr ""
+msgstr "Baris Pertama Alamat"
 
 msgid "Address Second Line"
-msgstr ""
+msgstr "Baris Kedua Alamat"
 
 msgid "Phone"
-msgstr ""
+msgstr "Telepon"
 
 msgid "Answer To Secret Question"
-msgstr ""
+msgstr "Jawaban Untuk Pertanyaan Rahasia"
 
 msgid "Switch to"
-msgstr ""
+msgstr "Beralih ke"
 
-#, fuzzy
 msgid "Single Trade"
-msgstr "Trading Baru"
+msgstr "Trading Tunggal"
 
-#, fuzzy
 msgid "Multi Trade"
-msgstr "Trading Penuh"
+msgstr "Multi Trading"
 
-#, fuzzy
 msgid "Current Password"
-msgstr "Kata sandi saat ini"
+msgstr "Kata Sandi Saat Ini"
 
-#, fuzzy
 msgid "New Password"
-msgstr "Kata sandi baru"
+msgstr "Kata Sandi Baru"
 
-#, fuzzy
 msgid "Last 50 Ticks"
-msgstr "30 Hari Terakhir"
+msgstr "50 Tik Terakhir"
 
-#, fuzzy
 msgid "Last 100 Ticks"
-msgstr "30 Hari Terakhir"
+msgstr "100 Tik Terakhir"
 
-#, fuzzy
 msgid "Last 500 Ticks"
-msgstr "30 Hari Terakhir"
+msgstr "500 Tik Terakhir"
 
-#, fuzzy
 msgid "Last 1000 Ticks"
-msgstr "30 Hari Terakhir"
+msgstr "1000 Tik Terakhir"
 
-#, fuzzy
 msgid "Exit Full Screen"
-msgstr "Layar Penuh"
+msgstr "Keluar Dari Layar Penuh"
