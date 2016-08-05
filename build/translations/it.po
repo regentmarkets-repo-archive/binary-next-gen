@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-02-21 23:46+0000\n"
-"Last-Translator: Mauro Piccillo <mauro.piccillo@gmail.com>\n"
+"PO-Revision-Date: 2016-08-05 05:23+0000\n"
+"Last-Translator: Annalisa <ligiu@me.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/it/>\n"
 "Language: it\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.5-dev\n"
+"X-Generator: Weblate 2.8-dev\n"
 
 msgid "All"
 msgstr "Tutto"
@@ -366,13 +366,11 @@ msgstr "Payout"
 msgid "Purchase for"
 msgstr "Acquisto per"
 
-#, fuzzy
 msgid "payout"
-msgstr "Payout"
+msgstr "payout"
 
-#, fuzzy
 msgid "stake"
-msgstr "Puntata"
+msgstr "puntata"
 
 msgid "Self Exclusion"
 msgstr ""
@@ -693,7 +691,6 @@ msgstr ""
 msgid "Time out until"
 msgstr ""
 
-#, fuzzy
 msgid "No transactions for the selected period"
 msgstr "Non ci sono transazioni per il periodo selezionato"
 
@@ -759,7 +756,6 @@ msgstr "Ultimi 30 giorni"
 msgid "Last 1000 Trades"
 msgstr "Ultimi 30 giorni"
 
-#, fuzzy
 msgid "Maximum Daily Turnover"
 msgstr "Turnover massimo giornaliero"
 
@@ -789,7 +785,6 @@ msgstr ""
 msgid "Stated limits are subject to change without prior notice"
 msgstr ""
 
-#, fuzzy
 msgid "Withdrawal Limits"
 msgstr "Limiti per i prelievi"
 
@@ -862,7 +857,6 @@ msgstr ""
 msgid "terms and conditions"
 msgstr ""
 
-#, fuzzy
 msgid "Search for assets"
 msgstr "Ricerca di asset"
 
