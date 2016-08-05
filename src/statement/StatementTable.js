@@ -1,6 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { FormattedDate } from 'react-intl';
-import { M, Notice, Th, NumberPlain, NumberColored } from 'binary-components';
+import { M, Th, NumberPlain, NumberColored } from 'binary-components';
 import StatementRow from './StatementRow';
 
 export default class StatementTable extends PureComponent {
@@ -14,10 +14,6 @@ export default class StatementTable extends PureComponent {
 
 	render() {
 		const { compact, currency, transactions, transactionsTotal } = this.props;
-
-		if (transactions.length === 0) {
-			return <Notice text="No transactions for the selected period" />;
-		}
 
 		return (
 			<table>

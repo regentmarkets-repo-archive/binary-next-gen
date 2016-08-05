@@ -33,6 +33,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+
     > div {
         position: relative;
         top: 0;
@@ -51,6 +52,7 @@ table {
 .close-btn {
     cursor: pointer;
     box-shadow: none !important;
+
     &:hover {
         box-shadow: none !important;
     }
@@ -93,6 +95,7 @@ header {
 [role=tablist] {
     margin-bottom: 0.5rem;
     flex-shrink: 0;
+
     &.vertical {
         margin-bottom: 0;
     }
@@ -141,21 +144,25 @@ fieldset {
 
 .radio-item {
     flex: 1;
+
     label {
         cursor: pointer;
         line-height: 2;
         display: block;
         text-align: center;
     }
+
     img {
         margin-right: 0.5rem;
         width: 1.5rem;
         background-color: white;
         box-shadow: 0 0 0 1px white;
     }
+
     input {
         display: none;
     }
+
     input[type=radio]:checked + label {
         background: $COLOR_BRAND_BLUE;
         border-radius: 2px;
@@ -189,9 +196,11 @@ fieldset {
 
 .name-val-pair {
     display: flex;
+
     * {
         flex: 0 1 180px;
     }
+
     > .name {
         font-weight: 700;
     }
@@ -207,6 +216,7 @@ select {
     width: 6px;
     display: flex;
     align-items: center;
+
     .resizer-handle {
         width: 4px;
         margin: 3px 0;
@@ -250,18 +260,22 @@ div[role=tabpanel] {
 td,
 th {
     padding: 0.2rem 0.4rem;
+
     &.centered {
         text-align: center;
     }
+
     &.left,
     &.textual {
         text-align: left;
     }
+
     &.right,
     &.numeric,
     &.date {
         text-align: right;
     }
+
     &.row-id {
         font-weight: bold;
     }
@@ -325,6 +339,7 @@ th {
     width: 2rem;
     background: rgba($COLOR_BRAND_BLUE, 0.1);
     box-shadow: none;
+
     &:hover {
         background: rgba($COLOR_BRAND_BLUE, 0.1) !important;
     }
@@ -373,4 +388,20 @@ nav.sidebar {
 .full-logo {
     text-align: center;
     margin-bottom: 1rem;
+}
+
+.empty-slate {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 1.5em;
+    background: rgba($COLOR_BRAND_BLUE, 0.25);
+
+    img {
+        width: 3rem;
+        margin-bottom: 0.5rem;
+    }
 }

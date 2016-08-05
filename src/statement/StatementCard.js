@@ -1,4 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
+import EmptySlate from '../containers/EmptySlate';
 import StatementFilter from './StatementFilter';
 import StatementTable from './StatementTable';
 
@@ -13,12 +14,20 @@ export default class StatementCard extends PureComponent {
 	};
 
 	render() {
+		const { transactions } = this.props;
+
 		return (
 			<div className="statement-card">
 				<StatementFilter {...this.props} />
-				<div className="statement-list">
-					<StatementTable {...this.props} />
-				</div>
+				{transactions.length === 0 ?
+					<EmptySlate
+						img="img/statement.svg"
+						text="No transactions for the selected period"
+					/> :
+					<div className="statement-list">
+						<StatementTable {...this.props} />
+					</div>
+				}
 			</div>
 		);
 	}
