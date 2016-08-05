@@ -1,17 +1,16 @@
 import React, { PureComponent } from 'react';
 import { addLocaleData } from 'react-intl';
 import { Provider } from 'react-redux';
-import { Router } from 'react-router';
+import { Router, browserHistory } from 'react-router';
 import { trackRoute } from 'binary-utils/lib/Analytics';
 import { store, rehydratedStorePromise, actions } from './persistentStore';
 import routes from '../_routes';
-import history from '../_routes/hashHistory';
 import { tryAuth } from '../_data/Auth';
 import * as LiveData from '../_data/LiveData';
 import AppStateProvider from './AppStateProvider';
 import BootProvider from './BootProvider';
 
-history.listen(location => trackRoute(location.pathname));
+browserHistory.listen(location => trackRoute(location.pathname));
 
 addLocaleData({
     locale: 'bg-bg',
@@ -51,7 +50,7 @@ export default class Root extends PureComponent {
                 <BootProvider>
                     <AppStateProvider>
                         <Router
-                            history={history}
+                            history={browserHistory}
                             children={routes}
                             createElement={this.createElementWithActions}
                         />
