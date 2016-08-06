@@ -16,7 +16,7 @@ export default class ContractWinLose extends PureComponent {
 		if (!sold) return null;
 
 		return (
-			<div className="profit-loss-label">
+			<div className="profit-loss-label notice-msg">
 				{profit >= 0 ? <M m="You won " /> : <M m="You lost " />}
 				{profit >= 0 ?
 					<NumberColored

@@ -32,8 +32,8 @@ export default class ContractReceipt extends PureComponent {
 			</div> :
 			<div className="contract-receipt">
 				{showLongcode && <h5>{contract.longcode}</h5>}
-				<ContractDetailsList contract={contract} />
 				<ContractWinLose contract={contract} />
+				<ContractDetailsList contract={contract} />
 				<SellAtMarketButton contract={contract} />
 				<ContractValidationError contract={contract} />
 				{onTradeAgainClicked &&
