@@ -17,11 +17,13 @@ import Root from './_store/root';
 // 	}, 10000);
 // };
 
-// console.log(localStorage.getItem('account'), (JSON.parse(localStorage.getItem('account')) || {}).loginid);
+const appName = window.location.hostname === 'app.binary.com' && 'binary-next-gen' ||
+    window.cordova && 'next-gen-mobile' ||
+    '???';
 window._trackJs = { // eslint-disable-line no-underscore-dangle
     token: '346262e7ffef497d85874322fff3bbf8',
-    application: 'binary-next-gen',
-    enabled: window.location.hostname !== 'localhost',
+    application: appName,
+    enabled: appName !== '???',
 	userId: (JSON.parse(localStorage.getItem('account')) || {}).loginid,
 };
 require('trackjs');
