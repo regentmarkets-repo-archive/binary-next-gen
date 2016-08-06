@@ -1,6 +1,9 @@
 import { noOfDecimals, isDurationWithinRange } from 'binary-utils';
-import { createDefaultType, createDefaultDuration,
-    createDefaultBarriers, createDefaultBarrierType, createDefaultTradeParams } from './DefaultTradeParams';
+import createDefaultType from './defaults/createDefaultType';
+import createDefaultDuration from './defaults/createDefaultDuration';
+import createDefaultBarriers from './defaults/createDefaultBarriers';
+import createDefaultBarrierType from './defaults/createDefaultBarrierType';
+import createDefaultTradeParams from './defaults/createDefaultTradeParams';
 import { allTimeRelatedFieldValid } from './TradeParamsValidation';
 
 function safeMerge(a, b) {

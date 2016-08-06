@@ -2,7 +2,7 @@ import React, { PureComponent, PropTypes } from 'react';
 import { epochToUTCTimeString, dateToDateString, returnValidDate, returnValidTime } from 'binary-utils';
 import { M, Label } from 'binary-components';
 import debounce from 'lodash.debounce';
-import { createDefaultStartLaterEpoch } from '../trade-params/DefaultTradeParams';
+import createDefaultStartLaterEpoch from '../trade-params/defaults/createDefaultStartLaterEpoch';
 import { actions } from '../_store';
 
 const debounceReq = reqFn => debounce(reqFn, 400);
