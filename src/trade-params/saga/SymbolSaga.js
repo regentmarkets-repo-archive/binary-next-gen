@@ -3,7 +3,7 @@ import { put, select } from 'redux-saga/effects';
 import { updateMultipleTradeParams, updateTradingOptions, updateTradeUIState,
     updateFeedLicense, updateTradingOptionsErr, updateTradeError } from '../../_actions';
 import { api } from '../../_data/LiveData';
-import * as paramUpdate from '../TradeParamsCascadingUpdates';
+import changeSymbol from '../updates/changeSymbol';
 import { getForceRenderCount, contractOfSymbol, getTicksOfSymbol, isSymbolOpen } from './SagaSelectors';
 import { createTrade } from './TradeParamSaga';
 import { subscribeProposal, unsubscribeProposal } from './ProposalSubscriptionSaga';
@@ -24,7 +24,7 @@ export function* tradeCreation(action) {
     const contractNeeded = yield select(contractOfSymbol(symbol));
     if (contractNeeded) {
         const isOpen = yield select(isSymbolOpen(symbol));
-        const updatedParams = paramUpdate.changeSymbol(symbol, contractNeeded, isOpen);
+        const updatedParams = changeSymbol(symbol, contractNeeded, isOpen);
         yield put(updateMultipleTradeParams(index, updatedParams));
         const renderCount = yield select(getForceRenderCount(index));
         yield [

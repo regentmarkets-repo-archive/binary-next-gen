@@ -5,7 +5,7 @@ import { mockedContract } from '../../../_constants/MockContract';
 describe('createDefaultBarriers', () => {
     it('spreads have no barriers', () => {
         const barriers = createDefaultBarriers({ category: 'spreads' });
-        expect(barriers).to.deep.equal([undefined], [undefined]);
+        expect(barriers).to.deep.equal([undefined, undefined]);
     });
 
     it('should support tick barrier');

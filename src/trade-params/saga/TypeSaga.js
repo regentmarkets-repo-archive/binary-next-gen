@@ -2,7 +2,8 @@ import { takeEvery } from 'redux-saga';
 import { select, put } from 'redux-saga/effects';
 import { getForceRenderCount, getParams, contractOfSymbol } from './SagaSelectors';
 import { updateMultipleTradeParams, updateTradeUIState } from '../../_actions';
-import * as paramUpdate from '../TradeParamsCascadingUpdates';
+import changeCategory from '../updates/changeCategory';
+import changeType from '../updates/changeType';
 import { subscribeProposal, unsubscribeProposal } from './ProposalSubscriptionSaga';
 
 const CHANGE_CATEGORY = 'CHANGE_CATEGORY';
@@ -19,7 +20,7 @@ function* handleCatChange(action) {
     yield put(unsubscribeProposal(index));
     const params = yield select(getParams(index));
     const contractNeeded = yield select(contractOfSymbol(params.symbol));
-    const updated = paramUpdate.changeCategory(category, contractNeeded, params);
+    const updated = changeCategory(category, contractNeeded, params);
     yield [
         put(subscribeProposal(index, updated)),
         put(updateMultipleTradeParams(index, updated)),
@@ -40,7 +41,7 @@ function* handleTypeChange(action) {
     yield put(unsubscribeProposal(index));
     const params = yield select(getParams(index));
     const contractNeeded = yield select(contractOfSymbol(params.symbol));
-    const updated = paramUpdate.changeType(tradeType, category, contractNeeded, params);
+    const updated = changeType(tradeType, category, contractNeeded, params);
     const renderCount = yield select(getForceRenderCount(index));
     yield [
         put(subscribeProposal(index, updated)),

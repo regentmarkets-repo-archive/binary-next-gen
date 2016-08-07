@@ -3,7 +3,8 @@ import { put, select } from 'redux-saga/effects';
 import { dateToEpoch, timeStringToSeconds, isValidTime } from 'binary-utils';
 import { updateMultipleTradeParams, updateTradeUIState, updateTradeError } from '../../_actions';
 import { allTimeRelatedFieldValid } from '../TradeParamsValidation';
-import * as paramUpdate from '../TradeParamsCascadingUpdates';
+import changeDurationUnit from '../updates/changeDurationUnit';
+import changeStartDate from '../updates/changeStartDate';
 import { getParams, contractOfSymbol, getForceRenderCount } from './SagaSelectors';
 import { subscribeProposal, unsubscribeProposal } from './ProposalSubscriptionSaga';
 
@@ -49,7 +50,7 @@ export function* handleDurationUnitChange(action) {
     yield put(unsubscribeProposal(index));
     const params = yield select(getParams(index));
     const contractNeeded = yield select(contractOfSymbol(params.symbol));
-    const updated = paramUpdate.changeDurationUnit(durationUnit, contractNeeded, params);
+    const updated = changeDurationUnit(durationUnit, contractNeeded, params);
     const renderCount = yield select(getForceRenderCount(index));
     yield [
         put(subscribeProposal(index, updated)),
@@ -73,7 +74,7 @@ export function* handleStartEpochChange(action) {
     const params = yield select(getParams(index));
     const { symbol } = params;
     const contractNeeded = yield select(contractOfSymbol(symbol));
-    const updated = paramUpdate.changeStartDate(epoch, contractNeeded, params);
+    const updated = changeStartDate(epoch, contractNeeded, params);
     const renderCount = yield select(getForceRenderCount(index));
     yield [
         put(subscribeProposal(index, updated)),
@@ -112,7 +113,7 @@ export function* handleStartDateChange(action) {
     const durationAllowed = allTimeRelatedFieldValid(newDateStart, duration, durationUnit, contractPerType);
 
     if (durationAllowed) {
-        const updated = paramUpdate.changeStartDate(newDateStart, contractNeeded, params);
+        const updated = changeStartDate(newDateStart, contractNeeded, params);
         yield [
             put(subscribeProposal(index, updated)),
             put(updateMultipleTradeParams(index, updated)),
@@ -153,7 +154,7 @@ export function* handleStartTimeChange(action) {
     const durationAllowed = allTimeRelatedFieldValid(newDateStart, duration, durationUnit, contractPerType);
 
     if (durationAllowed) {
-        const updated = paramUpdate.changeStartDate(newDateStart, contractNeeded, params);
+        const updated = changeStartDate(newDateStart, contractNeeded, params);
         yield [
             put(subscribeProposal(index, updated)),
             put(updateMultipleTradeParams(index, updated)),

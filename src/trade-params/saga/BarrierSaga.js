@@ -2,7 +2,7 @@ import { takeEvery } from 'redux-saga';
 import { put, select } from 'redux-saga/effects';
 import { getParams, contractOfSymbol } from './SagaSelectors';
 import { updateMultipleTradeParams, updateTradeError } from '../../_actions';
-import * as paramUpdate from '../TradeParamsCascadingUpdates';
+import changeBarrier from '../updates/changeBarrier';
 import { subscribeProposal, unsubscribeProposal } from './ProposalSubscriptionSaga';
 import { noOfBarrierCorrect, barrierTooLong } from '../TradeParamsValidation';
 
@@ -28,7 +28,7 @@ export function* handleBarrierChange(action) {
         return;
     }
 
-    const updated = paramUpdate.changeBarrier(barrier, params);
+    const updated = changeBarrier(barrier, params);
     yield [
         put(subscribeProposal(index, updated)),
         put(updateMultipleTradeParams(index, updated)),

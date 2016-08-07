@@ -1,7 +1,7 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { RadioGroup, InputGroup, Error } from 'binary-components';
 import { noOfDecimals } from 'binary-utils';
-import { changeAmountPerPoint } from '../trade-params/TradeParamsCascadingUpdates';
+import changeAmountPerPoint from '../trade-params/updates/changeAmountPerPoint';
 
 export default class SpreadBarrierCard extends PureComponent {
 
