@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import rawContract from 'binary-test-data/contractsForR50';
 import changeType from '../changeType';
-import { contractsPerSymbol } from '../../TradeParamsSelector';
+import { contractsPerSymbol } from '../../../trade-params/TradeParamsSelector';
 import { allTimeRelatedFieldValid } from '../../TradeParamsValidation';
 
 const mockTickTrade = {

@@ -1,5 +1,6 @@
 import { expect } from 'chai';
 import { put } from 'redux-saga/effects';
+import { computedStates } from 'binary-test-data/states';
 import {
     reqDurationChange,
     reqDurationUnitChange,
@@ -11,11 +12,10 @@ import {
     handleStartDateChange,
     handleStartEpochChange,
     handleStartTimeChange,
-} from '../saga/DurationSaga';
-import { unsubscribeProposal } from '../saga/ProposalSubscriptionSaga';
-import { computedStates } from 'binary-test-data/states';
+} from '../DurationSaga';
+import { unsubscribeProposal } from '../ProposalSubscriptionSaga';
 
-describe("DurationSaga", () => {
+describe('DurationSaga', () => {
     const mockStore = computedStates[0].state;
     describe('handleDurationChange', () => {
         const act = reqDurationChange(0, 9);
@@ -31,7 +31,6 @@ describe("DurationSaga", () => {
             const gen = handleDurationUnitChange(act);
             expect(gen.next().value).to.deep.equal(put(unsubscribeProposal(0)));
         });
-
     });
 
     describe('handleStartDateChange', () => {
@@ -58,4 +57,3 @@ describe("DurationSaga", () => {
         });
     });
 });
-

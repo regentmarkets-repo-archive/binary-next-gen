@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import rawContract from 'binary-test-data/contractsForR50';
 import changeStartDate from '../changeStartDate';
-import { contractsPerSymbol } from '../../TradeParamsSelector';
+import { contractsPerSymbol } from '../../../trade-params/TradeParamsSelector';
 
 const mockTickTrade = {
     showAssetPicker: false,

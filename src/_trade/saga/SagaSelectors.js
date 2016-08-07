@@ -1,4 +1,4 @@
-import { availableContractsSelector, assetsIsOpenSelector } from '../TradeParamsSelector';
+import { availableContractsSelector, assetsIsOpenSelector } from '../../trade-params/TradeParamsSelector';
 
 export const getProposalId = index => state =>
     state.tradesProposalInfo.getIn([index, 'proposal'], {}).id;

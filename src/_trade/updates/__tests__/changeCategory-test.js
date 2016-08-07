@@ -2,7 +2,7 @@ import chai, { expect } from 'chai';
 import chaiSubset from 'chai-subset';
 import rawContract from 'binary-test-data/contractsForR50';
 import changeCategory from '../changeCategory';
-import { contractsPerSymbol } from '../../TradeParamsSelector';
+import { contractsPerSymbol } from '../../../trade-params/TradeParamsSelector';
 import { allTimeRelatedFieldValid } from '../../TradeParamsValidation';
 
 chai.use(chaiSubset);

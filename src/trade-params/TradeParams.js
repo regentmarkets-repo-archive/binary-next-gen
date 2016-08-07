@@ -26,6 +26,20 @@ const errorToShow = errorObj => {
     return errorObj.other;
 };
 
+const expirtyTypeFromDurationUnit = durationUnit => ({
+    t: 'tick',
+    s: 'intraday',
+    m: 'intraday',
+    h: 'intraday',
+    d: 'daily',
+}[durationUnit]);
+
+const categoryHasBarrier = category =>
+    category !== 'spreads' &&
+    category !== 'risefall' &&
+    category !== 'digits' &&
+    category !== 'asian';
+
 export default class TradeParams extends PureComponent {
 
     static defaultProps = {
@@ -95,17 +109,8 @@ export default class TradeParams extends PureComponent {
     }
 
     render() {
-        const {
-            contract,
-            currency,
-            disabled,
-            errors,
-            index,
-            pipSize,
-            proposal,
-            style,
-            tradeParams,
-        } = this.props;
+        const { contract, currency, disabled, errors, index,
+            pipSize, proposal, style, tradeParams } = this.props;
 
         /**
          * Race condition happen when contract is updated before tradeCategory (async)
@@ -115,29 +120,8 @@ export default class TradeParams extends PureComponent {
         const selectedType = tradeParams.type;
         const selectedTypeTradingOptions = contract[selectedCategory][selectedType];
         const barrierInfo = selectedTypeTradingOptions && selectedTypeTradingOptions.barriers;  // TODO: rename, this sucks
-
-        let expiryType;
-        switch (tradeParams.durationUnit) {
-            case 't':
-                expiryType = 'tick';
-                break;
-            case 's':
-            case 'm':
-            case 'h':
-                expiryType = 'intraday';
-                break;
-            case 'd':
-                expiryType = 'daily';
-                break;
-            default: throw new Error(`Invalid duration unit: ${tradeParams.durationUnit}`);
-        }
-
-        const showBarrier = selectedCategory !== 'spreads' &&
-            selectedCategory !== 'risefall' &&
-            selectedCategory !== 'digits' &&
-            selectedCategory !== 'asian' &&
-            !tradeParams.dateStart;
-
+        const expiryType = expirtyTypeFromDurationUnit(tradeParams.durationUnit);
+        const showBarrier = categoryHasBarrier(selectedCategory) && !tradeParams.dateStart;
 
         const payout = proposal && proposal.payout;
 
@@ -148,8 +132,9 @@ export default class TradeParams extends PureComponent {
 
         const digitOptions = (isDigitType && barrierInfo) && barrierInfo.tick[0].values;
         const askPrice = askPriceFromProposal(proposal);
-
+        const longcode = proposal && proposal.longcode;
         const errorText = errorToShow(errors);
+
         return (
             <div className="trade-params" key={this.state.dynamicKey} style={style}>
                 <Modal shown={!!errors.purchaseError} onClose={this.onCloseModal}>
@@ -219,7 +204,7 @@ export default class TradeParams extends PureComponent {
                     askPrice={askPrice}
                     currency={currency}
                     disabled={disabled}
-                    longcode={proposal && proposal.longcode}
+                    longcode={longcode}
                     onClick={this.onPurchase}
                 />
             </div>

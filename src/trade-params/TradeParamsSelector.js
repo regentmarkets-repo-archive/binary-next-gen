@@ -48,20 +48,18 @@ export const assetsIsOpenSelector = createSelector(
 export const availableContractsSelector = createSelector(
     [state => state.tradingOptions, assetsIsOpenSelector],
     (tradingOptions, assetsIsOpen) =>
-        tradingOptions
-            .map((contract, symbol) => {
-                // each immediate child refer to a type, eg Rise/Fall
-                const contractTree = contractsPerSymbol(contract);
+        tradingOptions.map((contract, symbol) => {
+            // each immediate child refer to a type, eg Rise/Fall
+            const contractTree = contractsPerSymbol(contract);
 
-                // remove trade type without start later if market is closed
-                return assetsIsOpen[symbol] && assetsIsOpen[symbol].isOpen ?
-                    contractTree :
-                    filterDeep(contractTree, obj =>
-                        findDeep(obj, descendent => descendent && !!descendent.forwardStartingDuration)
-                    );
-            })
+            // remove trade type without start later if market is closed
+            return assetsIsOpen[symbol] && assetsIsOpen[symbol].isOpen ?
+                contractTree :
+                filterDeep(contractTree, obj =>
+                    findDeep(obj, descendent => descendent && !!descendent.forwardStartingDuration)
+                );
+        })
 );
-
 
 const contractPerTrade = createSelector(
     [availableContractsSelector, paramPerTrade],

@@ -3,7 +3,6 @@ import { nowAsEpoch } from 'binary-utils';
 export const forwardStartTimeValid = dateStart =>
     (dateStart - nowAsEpoch()) > (5 * 60);    // arbritarily chosen buffer
 
-
 export const durationValid = (duration, durationUnit, options) =>
     !!options.find(opt => durationUnit === opt.unit && duration <= opt.max && duration >= opt.min);
 

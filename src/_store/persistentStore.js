@@ -9,7 +9,7 @@ import actionsToCache from './actionsToCache';
 import storageEngine from './storageEngine';
 import removeNullMiddleware from './removeNullMiddleware';
 
-import tradeParamsSaga from '../trade-params/saga/TradeParamSaga';
+import tradeParamsSaga from '../_trade/saga/TradeParamSaga';
 import * as allActions from '../_actions';
 
 const storageMiddleware = storage.createMiddleware(storageEngine, [], actionsToCache);
