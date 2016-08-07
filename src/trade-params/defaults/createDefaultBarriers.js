@@ -1,6 +1,6 @@
 import { isIntraday } from 'binary-utils';
 
-export default (contracts, category, type, duration, durationUnit) => {
+export default ({ contracts, category, type, duration, durationUnit }) => {
     if (category === 'spreads') {
         return [undefined, undefined];
     }

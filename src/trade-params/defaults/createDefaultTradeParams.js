@@ -9,7 +9,7 @@ export default (contracts, symbol, isOpen) => {
     const category = createDefaultCategory(contracts);
     const type = createDefaultType(contracts, category);
     const { duration, durationUnit } = createDefaultDuration(contracts, category, type, isOpen);
-    const barriers = createDefaultBarriers(contracts, category, type, duration, durationUnit);
+    const barriers = createDefaultBarriers({ contracts, category, type, duration, durationUnit });
     const barrierType = createDefaultBarrierType(duration, durationUnit, category);
 
     const startLaterOpts = contracts[category][type].forwardStartingDuration;

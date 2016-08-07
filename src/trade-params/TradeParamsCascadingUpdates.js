@@ -46,13 +46,13 @@ export function changeCategory(category, contract, oldTrade = {}, isOpen = true)
             isOpen,
         )) {
         const { dateStart, duration, durationUnit } = oldTrade;
-        const newBarrier = createDefaultBarriers(
-            contract,
-            newCategory,
-            defaultType,
+        const newBarrier = createDefaultBarriers({
+            contracts: contract,
+            category: newCategory,
+            type: defaultType,
             duration,
             durationUnit,
-        );
+        });
         const newBarrierType = createDefaultBarrierType(duration, durationUnit, newCategory);
         return safeMerge(oldTrade, {
             tradeCategory: newCategory,
@@ -72,13 +72,13 @@ export function changeCategory(category, contract, oldTrade = {}, isOpen = true)
 
     const newDuration = createDefaultDuration(contract, newCategory, defaultType, isOpen);
     const { dateStart, duration, durationUnit } = newDuration;
-    const newBarrier = createDefaultBarriers(
-        contract,
-        newCategory,
-        defaultType,
+    const newBarrier = createDefaultBarriers({
+        contracts: contract,
+        category: newCategory,
+        type: defaultType,
         duration,
         durationUnit,
-    );
+    });
     const newBarrierType = createDefaultBarrierType(duration, durationUnit, newCategory);
 
     return safeMerge(oldTrade, {
@@ -132,7 +132,13 @@ export function changeType(newType, newCategory, contract, oldTrade) {
         if (category === oldTrade.tradeCategory && category !== 'digits') {
             newBarrier = [oldTrade.barrier, oldTrade.barrier2];
         } else {
-            newBarrier = createDefaultBarriers(contract, category, newType, duration, durationUnit);
+            newBarrier = createDefaultBarriers({
+                contracts: contract,
+                category,
+                type: newType,
+                duration,
+                durationUnit,
+            });
         }
 
         const newBarrierType = createDefaultBarrierType(duration, durationUnit, category);
@@ -150,7 +156,13 @@ export function changeType(newType, newCategory, contract, oldTrade) {
 
     const newDuration = createDefaultDuration(contract, category, newType);
     const { dateStart, duration, durationUnit } = newDuration;
-    const newBarrier = createDefaultBarriers(contract, category, newType, duration, durationUnit);
+    const newBarrier = createDefaultBarriers({
+        contracts: contract,
+        category,
+        type: newType,
+        duration,
+        durationUnit,
+    });
     const newBarrierType = createDefaultBarrierType(duration, durationUnit, category);
     return safeMerge(oldTrade, {
         tradeCategory: category,
@@ -174,13 +186,13 @@ export function changeStartDate(newStartDate, contract, oldTrade) {
     if (!newStartDate) {
         const newDuration = createDefaultDuration(contract, tradeCategory, type);
         const newBarrier =
-            createDefaultBarriers(
-                contract,
-                tradeCategory,
+            createDefaultBarriers({
+                contracts: contract,
+                category: tradeCategory,
                 type,
-                newDuration.duration,
-                newDuration.durationUnit
-            );
+                duration: newDuration.duration,
+                durationUnit: newDuration.durationUnit,
+            });
 
         return safeMerge(oldTrade, {
             dateStart: newStartDate,
@@ -235,13 +247,21 @@ export function changeDurationUnit(unit, contract, oldTrade) {
         return safeMerge(oldTrade, { durationUnit: newUnit, duration: newDuration });
     }
 
-    const newBarrier = createDefaultBarriers(contract, tradeCategory, type, newDuration, newUnit);
+    const newBarriers = createDefaultBarriers({
+        contracts: contract,
+        category: tradeCategory,
+        type,
+        duration: newDuration,
+        durationUnit: newUnit,
+    });
+
     const newBarrierType = createDefaultBarrierType(newDuration, newUnit, tradeCategory);
+
     return safeMerge(oldTrade, {
         duration: newDuration,
         durationUnit: newUnit,
-        barrier: newBarrier[0],
-        barrier2: newBarrier[1],
+        barrier: newBarriers[0],
+        barrier2: newBarriers[1],
         barrierType: newBarrierType,
     });
 }

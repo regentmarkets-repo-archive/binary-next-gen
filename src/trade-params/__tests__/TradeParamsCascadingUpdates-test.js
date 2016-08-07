@@ -1,9 +1,9 @@
-import * as updateHelpers from '../TradeParamsCascadingUpdates';
-import { allTimeRelatedFieldValid } from '../TradeParamsValidation';
-import rawContract from 'binary-test-data/contractsForR50';
-import { contractsPerSymbol } from '../TradeParamsSelector';
 import chai, { expect } from 'chai';
 import chaiSubset from 'chai-subset';
+import rawContract from 'binary-test-data/contractsForR50';
+import * as updateHelpers from '../TradeParamsCascadingUpdates';
+import { contractsPerSymbol } from '../TradeParamsSelector';
+import { allTimeRelatedFieldValid } from '../TradeParamsValidation';
 
 chai.use(chaiSubset);
 
@@ -158,7 +158,7 @@ describe('Update helpers', () => {
             expect(allTimeRelatedFieldValid(dateStart, duration, durationUnit, mockedContract.higherlower.CALL)).to.equal(true);
         });
 
-        it('should understand diff between higherlower and risefall', () => {
+        it('should differentiate between higherlower and risefall', () => {
             const highTrade = updateHelpers.changeType('CALL', 'higherlower', mockedContract, mockTickTrade);
             expect(highTrade.barrier).to.ok;
 
@@ -167,11 +167,11 @@ describe('Update helpers', () => {
         });
 
         it('broken test', () => {
-            const input = {"tradeCategory":"risefall","duration":5,"amount":50,"durationUnit":"t","symbol":"R_100","type":"CALL","basis":"stake"};
+            const input = { "tradeCategory":"risefall", "duration":5, "amount":50, "durationUnit":"t" ,"symbol":"R_100", "type":"CALL", "basis":"stake"};
             const output = updateHelpers.changeType('CALL', 'higherlower', mockedContract, input);
             expect(output.barrier).to.be.ok;
             expect(output.durationUnit).to.equal('t');
-        })
+        });
 
         it.skip('should return start later trade if market is close', () => {
             // we are not handling this yet
