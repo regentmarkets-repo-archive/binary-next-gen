@@ -1,6 +1,4 @@
 import { expect } from 'chai';
-import createDefaultBarrierType from '../createDefaultBarrierType';
-import { mockedContract } from '../../../_constants/MockContract';
 
 describe('createDefaultBarrierType', () => {
     it('should support tick barrier');

@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import rawContract from 'binary-test-data/contractsForR50';
 import changeDurationUnit from '../changeDurationUnit';
 import { contractsPerSymbol } from '../../../trade-params/TradeParamsSelector';
-import { allTimeRelatedFieldValid } from '../../TradeParamsValidation';
+import areAllTimeFieldsValid from '../../validation/areAllTimeFieldsValid';
 
 const mockTickTrade = {
     showAssetPicker: false,
@@ -50,7 +50,7 @@ describe('changeDurationUnit', () => {
         const { duration, durationUnit, dateStart, tradeCategory, type } =
             changeDurationUnit('ss', mockedContract, mockTickTrade);
         expect(durationUnit).to.not.equal('ss');
-        expect(allTimeRelatedFieldValid(dateStart, duration, durationUnit, mockedContract[tradeCategory][type])).to.be.true;
+        expect(areAllTimeFieldsValid(dateStart, duration, durationUnit, mockedContract[tradeCategory][type])).to.be.true;
     });
 
     it('should keep old duration if it is allowed', () => {

@@ -1,6 +1,5 @@
 import { expect } from 'chai';
 import createDefaultBarriers from '../createDefaultBarriers';
-import { mockedContract } from '../../../_constants/MockContract';
 
 describe('createDefaultBarriers', () => {
     it('spreads have no barriers', () => {

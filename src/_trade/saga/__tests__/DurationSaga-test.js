@@ -1,6 +1,5 @@
 import { expect } from 'chai';
 import { put } from 'redux-saga/effects';
-import { computedStates } from 'binary-test-data/states';
 import {
     reqDurationChange,
     reqDurationUnitChange,
@@ -16,7 +15,6 @@ import {
 import { unsubscribeProposal } from '../ProposalSubscriptionSaga';
 
 describe('DurationSaga', () => {
-    const mockStore = computedStates[0].state;
     describe('handleDurationChange', () => {
         const act = reqDurationChange(0, 9);
         const gen = handleDurationChange(act);

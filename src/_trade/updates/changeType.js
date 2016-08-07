@@ -2,7 +2,7 @@ import safeMerge from './safeMerge';
 import createDefaultDuration from '../defaults/createDefaultDuration';
 import createDefaultBarriers from '../defaults/createDefaultBarriers';
 import createDefaultBarrierType from '../defaults/createDefaultBarrierType';
-import { allTimeRelatedFieldValid } from '../TradeParamsValidation';
+import areAllTimeFieldsValid from '../validation/areAllTimeFieldsValid';
 
 export default (newType, newCategory, contract, oldTrade) => {
     const category = newCategory || oldTrade.tradeCategory;
@@ -24,7 +24,7 @@ export default (newType, newCategory, contract, oldTrade) => {
             stopProfit: spread.stopProfit,
         });
     }
-    if (allTimeRelatedFieldValid(
+    if (areAllTimeFieldsValid(
             oldTrade.dateStart,
             oldTrade.duration,
             oldTrade.durationUnit,

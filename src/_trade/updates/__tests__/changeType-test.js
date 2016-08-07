@@ -2,7 +2,7 @@ import { expect } from 'chai';
 import rawContract from 'binary-test-data/contractsForR50';
 import changeType from '../changeType';
 import { contractsPerSymbol } from '../../../trade-params/TradeParamsSelector';
-import { allTimeRelatedFieldValid } from '../../TradeParamsValidation';
+import areAllTimeFieldsValid from '../../validation/areAllTimeFieldsValid';
 
 const mockTickTrade = {
     showAssetPicker: false,
@@ -39,19 +39,27 @@ describe('changeType', () => {
         const { dateStart, duration, durationUnit } =
             changeType('CALL', 'higherlower', mockedContract, mockTickTrade);
 
-        expect(allTimeRelatedFieldValid(dateStart, duration, durationUnit, mockedContract.higherlower.CALL)).to.equal(true);
+        expect(areAllTimeFieldsValid(dateStart, duration, durationUnit, mockedContract.higherlower.CALL)).to.equal(true);
     });
 
     it('should differentiate between higherlower and risefall', () => {
         const highTrade = changeType('CALL', 'higherlower', mockedContract, mockTickTrade);
-        expect(highTrade.barrier).to.ok;
+        expect(highTrade.barrier).to.be.ok;
 
         const rise = changeType('CALL', 'risefall', mockedContract, mockTickTrade);
-        expect(rise.barrier).to.equal.undefined;
+        expect(rise.barrier).to.be.undefined;
     });
 
     it('broken test', () => {
-        const input = { "tradeCategory":"risefall", "duration":5, "amount":50, "durationUnit":"t" ,"symbol":"R_100", "type":"CALL", "basis":"stake"};
+        const input = {
+            tradeCategory: 'risefall',
+            duration: 5,
+            amount: 50,
+            durationUnit: 't',
+            symbol: 'R_100',
+            type: 'CALL',
+            basis: 'stake',
+        };
         const output = changeType('CALL', 'higherlower', mockedContract, input);
         expect(output.barrier).to.be.ok;
         expect(output.durationUnit).to.equal('t');

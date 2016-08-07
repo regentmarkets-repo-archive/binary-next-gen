@@ -4,7 +4,8 @@ import { getParams, contractOfSymbol } from './SagaSelectors';
 import { updateMultipleTradeParams, updateTradeError } from '../../_actions';
 import changeBarrier from '../updates/changeBarrier';
 import { subscribeProposal, unsubscribeProposal } from './ProposalSubscriptionSaga';
-import { noOfBarrierCorrect, barrierTooLong } from '../TradeParamsValidation';
+import isBarrierTooLong from '../validation/isBarrierTooLong';
+import isBarrierCountValid from '../validation/isBarrierCountValid';
 
 const CHANGE_BARRIER = 'CHANGE_BARRIER';
 
@@ -23,7 +24,7 @@ export function* handleBarrierChange(action) {
     const { symbol, tradeCategory, type } = params;
     const contract = yield select(contractOfSymbol(symbol));
 
-    if (!noOfBarrierCorrect(barrier, expiryType, contract[tradeCategory][type])) {
+    if (!isBarrierCountValid(barrier, expiryType, contract[tradeCategory][type])) {
         yield put(updateTradeError(index, 'barrierError', 'Barrier must not be empty.'));
         return;
     }
@@ -35,7 +36,7 @@ export function* handleBarrierChange(action) {
         put(updateTradeError(index, 'barrierError')),
         ];
 
-    if (barrierTooLong(barrier, pipSize)) {
+    if (isBarrierTooLong(barrier, pipSize)) {
         yield put(updateTradeError(index, 'barrierError', `Barrier decimal too long, only allow ${pipSize} decimals`));
     }
 }

@@ -3,7 +3,7 @@ import createDefaultType from '../defaults/createDefaultType';
 import createDefaultDuration from '../defaults/createDefaultDuration';
 import createDefaultBarriers from '../defaults/createDefaultBarriers';
 import createDefaultBarrierType from '../defaults/createDefaultBarrierType';
-import { allTimeRelatedFieldValid } from '../TradeParamsValidation';
+import areAllTimeFieldsValid from '../validation/areAllTimeFieldsValid';
 
 export default (category, contract, oldTrade = {}, isOpen = true) => {
     let newCategory = category;
@@ -32,7 +32,7 @@ export default (category, contract, oldTrade = {}, isOpen = true) => {
         });
     }
 
-    if (allTimeRelatedFieldValid(
+    if (areAllTimeFieldsValid(
             oldTrade.dateStart,
             oldTrade.duration,
             oldTrade.durationUnit,

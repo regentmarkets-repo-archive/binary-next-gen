@@ -3,7 +3,7 @@ import chaiSubset from 'chai-subset';
 import rawContract from 'binary-test-data/contractsForR50';
 import changeCategory from '../changeCategory';
 import { contractsPerSymbol } from '../../../trade-params/TradeParamsSelector';
-import { allTimeRelatedFieldValid } from '../../TradeParamsValidation';
+import areAllTimeFieldsValid from '../../validation/areAllTimeFieldsValid';
 
 chai.use(chaiSubset);
 
@@ -36,18 +36,18 @@ describe('Update helpers', () => {
 
         it('should return start later trade if market is close', () => {
             const updated = changeCategory('risefall', mockedContract, mockTickTrade, false);
-            expect(updated.dateStart).not.equal.undefined;
+            expect(updated.dateStart).to.not.be.undefined;
         });
 
         it('should NOT return start later trade if market is close', () => {
             const updated = changeCategory('risefall', mockedContract, mockTickTrade, true);
-            expect(updated.dateStart).equal.undefined;
+            expect(updated.dateStart).to.be.undefined;
         });
 
         it('should return a sane params if invalid category is passed into it', () => {
             const { duration, durationUnit, dateStart, tradeCategory, type } =
                 changeCategory('super', mockedContract, mockTickTrade);
-            const isValid = allTimeRelatedFieldValid(dateStart, duration, durationUnit, mockedContract[tradeCategory][type]);
+            const isValid = areAllTimeFieldsValid(dateStart, duration, durationUnit, mockedContract[tradeCategory][type]);
             expect(isValid).to.equal(true);
         });
     });

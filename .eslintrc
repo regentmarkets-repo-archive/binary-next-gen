@@ -28,6 +28,7 @@
     "react/jsx-filename-extension": 0,
     "no-unused-vars": 1,
     "no-trailing-spaces": 1,
+    "no-unused-expressions": 0,
     "import/named": 0,
     "import/default": 0,
     "import/namespace": 0,

@@ -1,7 +1,7 @@
 import safeMerge from './safeMerge';
 import createDefaultBarriers from '../defaults/createDefaultBarriers';
 import createDefaultBarrierType from '../defaults/createDefaultBarrierType';
-import { allTimeRelatedFieldValid } from '../TradeParamsValidation';
+import areAllTimeFieldsValid from '../validation/areAllTimeFieldsValid';
 
 export default (unit, contract, oldTrade) => {
     const { tradeCategory, type, dateStart, duration } = oldTrade;
@@ -15,7 +15,7 @@ export default (unit, contract, oldTrade) => {
     }
 
     let newDuration = duration;
-    if (!allTimeRelatedFieldValid(dateStart, newDuration, newUnit, contractPerType)) {
+    if (!areAllTimeFieldsValid(dateStart, newDuration, newUnit, contractPerType)) {
         // only start later
         const durationsObj = contractPerType.durations;
         const forwardStartingDurationObj = contractPerType.forwardStartingDuration;

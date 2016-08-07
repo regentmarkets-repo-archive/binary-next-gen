@@ -2,7 +2,7 @@ import { takeEvery } from 'redux-saga';
 import { put, select } from 'redux-saga/effects';
 import { dateToEpoch, timeStringToSeconds, isValidTime } from 'binary-utils';
 import { updateMultipleTradeParams, updateTradeUIState, updateTradeError } from '../../_actions';
-import { allTimeRelatedFieldValid } from '../TradeParamsValidation';
+import areAllTimeFieldsValid from '../validation/areAllTimeFieldsValid';
 import changeDurationUnit from '../updates/changeDurationUnit';
 import changeStartDate from '../updates/changeStartDate';
 import { getParams, contractOfSymbol, getForceRenderCount } from './SagaSelectors';
@@ -23,7 +23,7 @@ export function* handleDurationChange(action) {
     const { symbol, tradeCategory, type, durationUnit, dateStart } = params;
     const contractNeeded = yield select(contractOfSymbol(symbol));
     const contractPerType = contractNeeded[tradeCategory][type];
-    const isDurationAllowed = allTimeRelatedFieldValid(dateStart, duration, durationUnit, contractPerType);
+    const isDurationAllowed = areAllTimeFieldsValid(dateStart, duration, durationUnit, contractPerType);
     if (isDurationAllowed) {
         const updated = Object.assign(params, { duration });
         yield [
@@ -110,7 +110,7 @@ export function* handleStartDateChange(action) {
 
     const contractNeeded = yield select(contractOfSymbol(symbol));
     const contractPerType = contractNeeded[tradeCategory][type];
-    const durationAllowed = allTimeRelatedFieldValid(newDateStart, duration, durationUnit, contractPerType);
+    const durationAllowed = areAllTimeFieldsValid(newDateStart, duration, durationUnit, contractPerType);
 
     if (durationAllowed) {
         const updated = changeStartDate(newDateStart, contractNeeded, params);
@@ -151,7 +151,7 @@ export function* handleStartTimeChange(action) {
 
     const contractNeeded = yield select(contractOfSymbol(symbol));
     const contractPerType = contractNeeded[tradeCategory][type];
-    const durationAllowed = allTimeRelatedFieldValid(newDateStart, duration, durationUnit, contractPerType);
+    const durationAllowed = areAllTimeFieldsValid(newDateStart, duration, durationUnit, contractPerType);
 
     if (durationAllowed) {
         const updated = changeStartDate(newDateStart, contractNeeded, params);
