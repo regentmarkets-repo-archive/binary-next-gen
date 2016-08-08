@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: 1228\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-07-29 14:10+0000\n"
+"PO-Revision-Date: 2016-08-08 02:58+0000\n"
 "Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
 "Language-Team: Chinese (China) <https://hosted.weblate.org/projects/binary-"
 "app/next-gen-app/zh_CN/>\n"
@@ -841,41 +841,32 @@ msgstr "安全提示问题的答案"
 msgid "Switch to"
 msgstr "切换成"
 
-#, fuzzy
 msgid "Single Trade"
-msgstr "新交易"
+msgstr "单次交易"
 
-#, fuzzy
 msgid "Multi Trade"
-msgstr "完全自由交易"
+msgstr "多次交易"
 
-#, fuzzy
 msgid "Current Password"
 msgstr "当前密码"
 
-#, fuzzy
 msgid "New Password"
 msgstr "新密码"
 
-#, fuzzy
 msgid "Last 50 Ticks"
-msgstr "最近25次跳动"
+msgstr "最近50次跳动"
 
-#, fuzzy
 msgid "Last 100 Ticks"
-msgstr "最近25次跳动"
+msgstr "最近100次跳动"
 
-#, fuzzy
 msgid "Last 500 Ticks"
-msgstr "最近25次跳动"
+msgstr "最近500次跳动"
 
-#, fuzzy
 msgid "Last 1000 Ticks"
-msgstr "最近25次跳动"
+msgstr "最近1000次跳动"
 
-#, fuzzy
 msgid "Exit Full Screen"
-msgstr "全屏"
+msgstr "退出全屏"
 
 #~ msgid "Current Spot Time"
 #~ msgstr "当前现价时间"
