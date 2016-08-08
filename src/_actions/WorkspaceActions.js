@@ -1,8 +1,8 @@
 import * as types from '../_constants/ActionTypes';
 import { createTrade } from '../_trade/saga/TradeParamSaga';
 
-export const changeSelectedAsset = symbol => ({
-    type: types.CHANGE_SELECTED_ASSET,
+export const changeInfoForAsset = symbol => ({
+    type: types.CHANGE_INFO_FOR_ASSET,
     symbol,
 });
 

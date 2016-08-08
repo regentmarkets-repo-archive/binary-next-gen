@@ -1,8 +1,10 @@
 .settings-card {
     width: 100%;
+
     .notice-msg {
         margin-top: 0.5rem;
     }
+
     button {
         width: 100%;
     }
@@ -21,6 +23,7 @@
         display: inline-block;
         width: 50%;
     }
+
     input,
     select {
         width: 50%;
@@ -30,9 +33,9 @@
 .settings-self-exclusion {
     label {
         display: inline-block;
-
         width: 60%;
     }
+
     input {
         width: 40%;
     }

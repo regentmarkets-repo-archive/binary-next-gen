@@ -14,7 +14,6 @@ export default class WatchlistTable extends PureComponent {
 	onSelect = newAsset => {
 		const { activeTradeIdx } = this.props;
 
-		actions.changeSelectedAsset(newAsset);
 		actions.getTradingOptions(newAsset);
 		actions.updateTradeParams(activeTradeIdx, 'symbol', newAsset);
 	}

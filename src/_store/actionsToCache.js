@@ -12,7 +12,7 @@ export default [
     ActionTypes.WATCHLIST_TOGGLE_ASSET,
     ActionTypes.SERVER_DATA_STATEMENT,
     ActionTypes.CHANGE_ACTIVE_TAB,
-    ActionTypes.CHANGE_SELECTED_ASSET,
+    ActionTypes.CHANGE_INFO_FOR_ASSET,
     ActionTypes.CHANGE_ACTIVE_LAYOUT,
     ActionTypes.CHANGE_ACTIVE_WORKSPACE_TAB,
     ActionTypes.CHANGE_WORKSPACE_PANEL_SIZE,

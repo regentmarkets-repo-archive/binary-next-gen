@@ -363,8 +363,12 @@ nav.sidebar {
     color: white;
 }
 
-#right-tab-list > div[role=tab][aria-selected=true] {
-    box-shadow: inset -2px 0 0 0 $COLOR_BRAND_ORANGE;
+#right-tab-list {
+    overflow: auto;
+
+    > div[role=tab][aria-selected=true] {
+        box-shadow: inset -2px 0 0 0 $COLOR_BRAND_ORANGE;
+    }
 }
 
 .close-svg path {

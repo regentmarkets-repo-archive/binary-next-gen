@@ -5,7 +5,7 @@ import { selectSymbolDigitStat } from '../digitStatsSelectors';
 describe('digitstatsSelector', () => {
     it('should return empty array when tradingOptions not available', () => {
         const state = {
-            workspace: fromJS({ selectedAsset: 'R_100' }),
+            workspace: fromJS({ infoForAsset: 'R_100' }),
             tradingOptions: fromJS({}),
         };
 
@@ -15,7 +15,7 @@ describe('digitstatsSelector', () => {
 
     it('should return empty array when ticks not available', () => {
         const state = {
-            workspace: fromJS({ selectedAsset: 'R_100' }),
+            workspace: fromJS({ infoForAsset: 'R_100' }),
             tradingOptions: fromJS({ R_100: [{ contract_category: 'digits' }] }),
             ticks: fromJS({}),
         };
@@ -26,7 +26,7 @@ describe('digitstatsSelector', () => {
 
     it('should return array of length 10 when data is in place', () => {
         const state = {
-            workspace: fromJS({ selectedAsset: 'R_100' }),
+            workspace: fromJS({ infoForAsset: 'R_100' }),
             tradingOptions: fromJS({ R_100: [] }).setIn(['R_100', 0], { contract_category: 'digits' }),
             ticks: fromJS({ R_100: [{ epoch: 0, quote: 1000.00 }] }),
             digitStats: fromJS({ filter: 100 }),
@@ -39,7 +39,7 @@ describe('digitstatsSelector', () => {
 
     it('should return stats of ticks', () => {
         const state = {
-            workspace: fromJS({ selectedAsset: 'R_100' }),
+            workspace: fromJS({ infoForAsset: 'R_100' }),
             tradingOptions: fromJS({ R_100: [] }).setIn(['R_100', 0], { contract_category: 'digits' }),
             ticks: fromJS({ R_100: [
                 { epoch: 0, quote: 1000.00 },

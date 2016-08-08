@@ -2,7 +2,7 @@ import { Map } from 'immutable';
 import { windowResizeEvent } from 'binary-utils';
 
 import {
-    CHANGE_SELECTED_ASSET,
+    CHANGE_INFO_FOR_ASSET,
     CHANGE_ACTIVE_TRADE,
     WORKSPACE_FAVOR_ASSET,
     WORKSPACE_UNFAVOR_ASSET,
@@ -25,7 +25,7 @@ const initialState = new Map({
     sideActiveTab: 0,
     tradeMode: 'tabs',
     activeTradeIndex: 0,
-    selectedAsset: 'R_100',
+    infoForAsset: 'R_100',
 });
 
 export default (state = initialState, action) => {
@@ -33,19 +33,17 @@ export default (state = initialState, action) => {
         case CHANGE_ACTIVE_TAB: {
             return state.set(action.panel + 'ActiveTab', action.index);
         }
-        case CHANGE_SELECTED_ASSET: {
-            return state.set('selectedAsset', action.symbol);
+        case CHANGE_INFO_FOR_ASSET: {
+            return state.set('infoForAsset', action.symbol);
         }
         case CHANGE_ACTIVE_TRADE: {
             return state.set('activeTradeIndex', action.activeTradeIndex);
         }
         case WORKSPACE_FAVOR_ASSET: {
-            const newState = state.update('favoriteAssets', x => x.add(action.symbol));
-            return newState;
+            return state.update('favoriteAssets', x => x.add(action.symbol));
         }
         case WORKSPACE_UNFAVOR_ASSET: {
-            const newState = state.update('favoriteAssets', x => x.delete(action.symbol));
-            return newState;
+            return state.update('favoriteAssets', x => x.delete(action.symbol));
         }
         case UPDATE_WORKSPACE_FIELD: {
             return state.set(action.fieldName, action.fieldValue);

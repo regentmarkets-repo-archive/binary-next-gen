@@ -38,6 +38,7 @@ export default class MobileSidebar extends PureComponent {
 				<SidebarBtn to="/statement" img="img/statement.svg" text="Statement" />
 				<SidebarBtn to="/news" img="img/news.svg" text="News" />
 				<SidebarBtn to="/resources" img="img/resources.svg" text="Resources" />
+				<SidebarBtn to="/info" img="img/info.svg" text="Asset Info" />
 				<SidebarBtn to="/settings" img="img/settings.svg" text="Settings" />
 				<label htmlFor="Sign-Out" onClick={this.onSignOut} className="sidebar-btn">
 					<img src="img/signout.svg" role="presentation" />

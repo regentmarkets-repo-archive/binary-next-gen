@@ -14,7 +14,7 @@ export default class VideoThumbnail extends PureComponent {
 
         return (
             <a className="video-thumbnail" target="_new" href={'https://www.youtube.com/watch?v=' + videoId}>
-                <img src={imgSrc} role="presentation" />
+                <div className="video-img" style={{ backgroundImage: `url(${imgSrc})` }} />
                 <h5>{title}</h5>
             </a>
         );

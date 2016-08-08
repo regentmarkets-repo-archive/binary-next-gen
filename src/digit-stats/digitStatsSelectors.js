@@ -6,7 +6,7 @@ import { ticksSelector, workspaceSelector, digitStatsSelector,
 export const selectSymbolDigitStat = createSelector(
     [ticksSelector, workspaceSelector, tradingOptionsSelector, digitStatsSelector, assetsSelector],
     (ticks, workspace, tradingOptions, digitStats, assets) => {
-         const selectedAsset = workspace.get('selectedAsset');
+         const selectedAsset = workspace.get('infoForAsset');
          const assetSupportsDigit = selectedAsset &&
              tradingOptions.get(selectedAsset) &&
              tradingOptions.get(selectedAsset).some(opt => opt.contract_category === 'digits');

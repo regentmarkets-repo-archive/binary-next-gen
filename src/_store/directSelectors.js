@@ -20,7 +20,6 @@ export const feedLicensesSelector = state => state.feedLicenses;
 export const ohlcSelector = state => state.ohlc;
 export const tradingOptionsSelector = state => state.tradingOptions;
 export const statesSelector = state => state.states;
-
 export const tradeParamsSelector = state => state.tradesParams;
 export const tradeProposalSelector = state => state.tradesProposalInfo;
 export const tradePurchaseInfoSelector = state => state.tradesPurchaseInfo;
@@ -56,7 +55,7 @@ export const tradingTimesFilterSelector = state =>
     state.views.get('tradingTimes');
 
 export const selectedAssetSelector = state =>
-    state.workspace.get('selectedAsset');
+    state.workspace.get('infoForAsset');
 
 export const activeTradeIndexSelector = state =>
     state.workspace.get('activeTradeIndex');

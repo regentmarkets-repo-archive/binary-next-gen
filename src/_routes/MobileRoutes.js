@@ -1,3 +1,4 @@
+import { requireAuthOnEnter } from '../_data/Auth';
 import TradeMobile from '../trade/mobile/TradeMobile';
 import PayoutPickerMobile from '../payout-picker/PayoutPickerMobile';
 import PortfolioMobile from '../portfolio/PortfolioMobile';
@@ -11,7 +12,7 @@ import NewsMobile from '../mobile/NewsMobile';
 import ArticleMobile from '../news/ArticleMobile';
 import ResourcesMobile from '../mobile/ResourcesMobile';
 import DepositMobile from '../deposit/DepositMobile';
-import { requireAuthOnEnter } from '../_data/Auth';
+import AssetInfoMobile from '../asset-info/AssetInfoMobile';
 
 export default [
     { path: 'mobile', component: TradeMobile, onEnter: requireAuthOnEnter },
@@ -27,4 +28,5 @@ export default [
     { path: 'article/:index', component: ArticleMobile },
     { path: 'resources', component: ResourcesMobile },
     { path: 'deposit', component: DepositMobile, onEnter: requireAuthOnEnter },
+    { path: 'info', component: AssetInfoMobile, onEnter: requireAuthOnEnter },
 ];

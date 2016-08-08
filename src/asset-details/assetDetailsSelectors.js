@@ -10,25 +10,25 @@ const AssetDetailsRecord = new Record({
 export const activeAssetSelector = createSelector(
 	[assetsSelector, workspaceSelector],
 	(assets, workspace) => {
-		const asset = assets.find(x => x.get('symbol') === workspace.get('selectedAsset'));
+		const asset = assets.find(x => x.get('symbol') === workspace.get('infoForAsset'));
 
-		return asset ? new AssetDetailsRecord({
+		return new AssetDetailsRecord(asset ? {
 			name: asset.get('display_name'),
 			isOpen: !!asset.get('exchange_is_open'),
-		}) : new AssetDetailsRecord({});
+		} : {});
 	}
 );
 
 export const activeAssetTradingTimesSelector = createSelector(
 	[tradingTimesSelector, workspaceSelector],
 	(tradingTimes, workspace) =>
-		tradingTimes.find(x => x.get('symbol') === workspace.get('selectedAsset'))
+		tradingTimes.find(x => x.get('symbol') === workspace.get('infoForAsset'))
 );
 
 export const activeAssetDurationsSelector = createSelector(
 	[assetIndexSelector, workspaceSelector],
 	(assetIndex, workspace) =>
-		assetIndex.find(x => x.get(0) === workspace.get('selectedAsset'))
+		assetIndex.find(x => x.get(0) === workspace.get('infoForAsset'))
 );
 
 export default createStructuredSelector({

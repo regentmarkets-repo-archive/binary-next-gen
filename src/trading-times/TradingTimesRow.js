@@ -4,13 +4,21 @@ export default class TradingTimesRow extends PureComponent {
 
     static propTypes = {
         assetName: PropTypes.string,
+        compact: PropTypes.bool,
         times: PropTypes.object.isRequired,
         events: PropTypes.array,
-        compact: PropTypes.bool,
+    };
+
+    static defaultProps = {
+        times: {
+            open: [],
+            close: [],
+        },
+        events: [],
     };
 
     render() {
-        const { assetName, times, events, compact } = this.props;
+        const { assetName, compact, times, events } = this.props;
 
         return (
             <tr>

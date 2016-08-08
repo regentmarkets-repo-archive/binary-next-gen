@@ -1,4 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
+import { isMobile } from 'binary-utils';
 import { Th } from 'binary-components';
 import TradingTimesRow from './TradingTimesRow';
 
@@ -6,11 +7,11 @@ export default class TradingTimesTable extends PureComponent {
 
 	static propTypes = {
 		times: PropTypes.array.isRequired,
-		compact: PropTypes.bool,
 	};
 
 	render() {
-		const { times, compact } = this.props;
+		const { times } = this.props;
+		const compact = isMobile();
 
 		return (
 			<table>

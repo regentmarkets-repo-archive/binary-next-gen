@@ -1,5 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import { M, OpenCloseNotice } from 'binary-components';
+import { M } from 'binary-components';
 import AssetDetailsDurations from './AssetDetailsDurations';
 import AssetDetailsTradingTimes from './AssetDetailsTradingTimes';
 import AssetDetailsTradingEvents from './AssetDetailsTradingEvents';
@@ -12,19 +12,26 @@ export default class AssetDetailsCard extends PureComponent {
 		tradingTimes: PropTypes.object,
 	};
 
+	static defaultProps = {
+		durations: [undefined, undefined, []],
+		tradingTimes: {
+			times: {
+				open: [],
+				close: [],
+			},
+			events: [],
+		},
+	};
+
 	render() {
-		const { activeAsset, durations, tradingTimes } = this.props;
+		const { durations, tradingTimes } = this.props;
 
 		return (
 			<div className="asset-details">
-				<h4>
-					{activeAsset.name}&nbsp;
-					<OpenCloseNotice isOpen={activeAsset.isOpen} />
-				</h4>
 				<h5><M m="Trading Times" /></h5>
-				{tradingTimes && <AssetDetailsTradingTimes times={tradingTimes.times} />}
+				<AssetDetailsTradingTimes times={tradingTimes.times} />
 				<br />
-				{tradingTimes && tradingTimes.events.length > 0 &&
+				{tradingTimes.events.length > 0 &&
 					<div>
 						<h5><M m="Trading Events" /></h5>
 						<AssetDetailsTradingEvents events={tradingTimes.events} />

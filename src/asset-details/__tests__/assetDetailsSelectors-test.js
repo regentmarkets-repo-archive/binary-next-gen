@@ -10,7 +10,7 @@ describe('assetDetailsSelectors', () => {
         assetIndex: fromJS([]),
         tradingTimes: fromJS([]),
         workspace: fromJS({
-            selectedAsset: '1',
+            infoForAsset: '1',
         }),
     });
 
