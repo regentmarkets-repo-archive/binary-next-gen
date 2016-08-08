@@ -78,7 +78,15 @@ export default class TradeViewChart extends PureComponent {
 
         const newDataType = chartToDataType[type];
         this.setState({ chartType: type, dataType: newDataType });
-        const dataResult = actions.getDataForSymbol(tradeForChart.symbol, 1, 'hour', newDataType, true);
+        const dataResult = actions
+            .getDataForSymbol(tradeForChart.symbol, 1, 'hour', newDataType, true)
+            .catch(err => {
+                if (err.error.error.code === 'NoRealtimeQuotes') {
+                    return actions.getDataForSymbol(tradeForChart.symbol, 1, 'hour', newDataType, false);
+                }
+
+                throw new Error(`Fetch data failed: ${err.error.error.message}`);
+            });
         return dataResult;
     }
 

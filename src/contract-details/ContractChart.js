@@ -34,13 +34,21 @@ export default class ContractChart extends PureComponent {
         const { chartType } = this.state;
 
         if (chartType === type) {
-            return;
+            return undefined;
         }
 
         const newDataType = chartToDataType[type];
         const toStream = !contract.sell_time;
-        actions.getDataForContract(contract.contract_id, 1, 'all', newDataType, toStream);
         this.setState({ chartType: type, dataType: newDataType });
+
+        return actions
+            .getDataForContract(contract.contract_id, 1, 'all', newDataType, toStream)
+            .catch(err => {
+                if (err.error.error.code === 'NoRealtimeQuotes') {
+                    return actions.getDataForContract(contract.contract_id, 1, 'all', newDataType, false);
+                }
+                throw new Error(err.error.error.message);
+            });
     }
 
     render() {
