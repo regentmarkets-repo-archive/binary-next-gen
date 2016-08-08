@@ -49,19 +49,33 @@ export default (state = initialState, action) => {
             }
 
             const { contract_id, sell_time, current_spot, current_spot_time } = openContract;
+
             if (state.has(contract_id)) {
                 if (!sell_time && current_spot && current_spot_time) {
+                    const currentLastTickEpoch = state
+                        .getIn([contract_id, 'ticks'])
+                        .takeLast(1)
+                        .getIn([0, 'epoch']);
+
+                    if (currentLastTickEpoch > current_spot_time) {
+                        return state;
+                    }
+
                     const latestData = state
                         .getIn([contract_id, 'ticks'])
                         .slice(0)
                         .push({ epoch: +(current_spot_time), quote: +(current_spot) });
+
                     return state.setIn([contract_id, 'ticks'], fromJS(latestData));
                 }
+
                 if (sell_time) {
                   return state.setIn([contract_id, 'isSold'], true);
                 }
+
                 return state;
             }
+
             return state;
         }
         default: return state;

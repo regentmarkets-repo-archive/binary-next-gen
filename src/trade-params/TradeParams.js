@@ -96,16 +96,9 @@ export default class TradeParams extends PureComponent {
         actions.reqPurchase(index, proposal.ask_price, onPurchaseHook);
     }
 
-
-    // TODO: create an action that update all at once
     clearTradeError = () => {
         const { index } = this.props;
         actions.clearTradeError(index);
-    }
-
-    repaintSelf = () => {
-        const { dynamicKey } = this.state;
-        this.setState({ dynamicKey: dynamicKey + 1 });
     }
 
     render() {
