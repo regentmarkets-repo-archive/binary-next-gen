@@ -81,11 +81,11 @@ export default class TradeViewChart extends PureComponent {
         const dataResult = actions
             .getDataForSymbol(tradeForChart.symbol, 1, 'hour', newDataType, true)
             .catch(err => {
-                if (err.error.error.code === 'NoRealtimeQuotes') {
+                const serverError = err.error.error;
+                if (serverError.code === 'NoRealtimeQuotes' || serverError.code === 'MarketIsClosed') {
                     return actions.getDataForSymbol(tradeForChart.symbol, 1, 'hour', newDataType, false);
                 }
-
-                throw new Error(`Fetch data failed: ${err.error.error.message}`);
+                throw new Error(`Fetch data failed: ${serverError.message}`);
             });
         return dataResult;
     }

@@ -44,10 +44,11 @@ export default class ContractChart extends PureComponent {
         return actions
             .getDataForContract(contract.contract_id, 1, 'all', newDataType, toStream)
             .catch(err => {
-                if (err.error.error.code === 'NoRealtimeQuotes') {
+                const serverError = err.error.error;
+                if (serverError.code === 'NoRealtimeQuotes' || serverError.code === 'MarketIsClosed') {
                     return actions.getDataForContract(contract.contract_id, 1, 'all', newDataType, false);
                 }
-                throw new Error(err.error.error.message);
+                throw new Error(serverError.message);
             });
     }
 
