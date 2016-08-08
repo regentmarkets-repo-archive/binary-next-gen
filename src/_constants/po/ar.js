@@ -900,5 +900,17 @@ export default {
     "Switch to": [
         null,
         ""
+    ],
+    "Current Password": [
+        null,
+        ""
+    ],
+    "New Password": [
+        null,
+        ""
+    ],
+    "Exit Full Screen": [
+        null,
+        ""
     ]
 }

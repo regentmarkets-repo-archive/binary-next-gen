@@ -1103,5 +1103,41 @@ export default {
     "Switch to": [
         null,
         ""
+    ],
+    "Single Trade": [
+        null,
+        ""
+    ],
+    "Multi Trade": [
+        null,
+        ""
+    ],
+    "Current Password": [
+        null,
+        ""
+    ],
+    "New Password": [
+        null,
+        ""
+    ],
+    "Last 50 Ticks": [
+        null,
+        ""
+    ],
+    "Last 100 Ticks": [
+        null,
+        ""
+    ],
+    "Last 500 Ticks": [
+        null,
+        ""
+    ],
+    "Last 1000 Ticks": [
+        null,
+        ""
+    ],
+    "Exit Full Screen": [
+        null,
+        ""
     ]
 }

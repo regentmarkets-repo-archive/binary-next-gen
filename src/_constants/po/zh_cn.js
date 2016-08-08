@@ -3,7 +3,7 @@ export default {
         "project-id-version": "1228",
         "report-msgid-bugs-to": "",
         "pot-creation-date": "",
-        "po-revision-date": "2016-07-29 14:10+0000",
+        "po-revision-date": "2016-08-08 02:58+0000",
         "last-translator": "Freddy Hew <hewfreddy@gmail.com>",
         "language-team": "Chinese (China) <https://hosted.weblate.org/projects/binary-app/next-gen-app/zh_CN/>",
         "language": "zh_cn",
@@ -1105,5 +1105,41 @@ export default {
     "Switch to": [
         null,
         "切换成"
+    ],
+    "Single Trade": [
+        null,
+        "单次交易"
+    ],
+    "Multi Trade": [
+        null,
+        "多次交易"
+    ],
+    "Current Password": [
+        null,
+        "当前密码"
+    ],
+    "New Password": [
+        null,
+        "新密码"
+    ],
+    "Last 50 Ticks": [
+        null,
+        "最近50次跳动"
+    ],
+    "Last 100 Ticks": [
+        null,
+        "最近100次跳动"
+    ],
+    "Last 500 Ticks": [
+        null,
+        "最近500次跳动"
+    ],
+    "Last 1000 Ticks": [
+        null,
+        "最近1000次跳动"
+    ],
+    "Exit Full Screen": [
+        null,
+        "退出全屏"
     ]
 }

@@ -2,15 +2,15 @@ export default {
     "": {
         "project-id-version": "PACKAGE VERSION",
         "pot-creation-date": "",
-        "po-revision-date": "2016-02-21 23:46+0000",
-        "last-translator": "Mauro Piccillo <mauro.piccillo@gmail.com>",
+        "po-revision-date": "2016-08-05 05:23+0000",
+        "last-translator": "Annalisa <ligiu@me.com>",
         "language-team": "Italian <https://hosted.weblate.org/projects/binary-app/next-gen-app/it/>",
         "language": "it",
         "mime-version": "1.0",
         "content-type": "text/plain; charset=UTF-8",
         "content-transfer-encoding": "8bit",
         "plural-forms": "nplurals=2; plural=n != 1;",
-        "x-generator": "Weblate 2.5-dev"
+        "x-generator": "Weblate 2.8-dev"
     },
     "All": [
         null,
@@ -456,6 +456,14 @@ export default {
         null,
         ""
     ],
+    "payout": [
+        null,
+        "payout"
+    ],
+    "stake": [
+        null,
+        "puntata"
+    ],
     "Self Exclusion": [
         null,
         ""
@@ -724,6 +732,10 @@ export default {
         null,
         ""
     ],
+    "No transactions for the selected period": [
+        null,
+        "Non ci sono transazioni per il periodo selezionato"
+    ],
     "You have no open contracts": [
         null,
         ""
@@ -764,6 +776,10 @@ export default {
         null,
         ""
     ],
+    "Maximum Daily Turnover": [
+        null,
+        "Turnover massimo giornaliero"
+    ],
     "Commodities": [
         null,
         ""
@@ -787,6 +803,10 @@ export default {
     "Stated limits are subject to change without prior notice": [
         null,
         ""
+    ],
+    "Withdrawal Limits": [
+        null,
+        "Limiti per i prelievi"
     ],
     "Already withdrawn": [
         null,
@@ -868,6 +888,10 @@ export default {
         null,
         ""
     ],
+    "Search for assets": [
+        null,
+        "Ricerca di asset"
+    ],
     "Choose a Payment Agent": [
         null,
         ""
@@ -897,6 +921,18 @@ export default {
         ""
     ],
     "Switch to": [
+        null,
+        ""
+    ],
+    "Current Password": [
+        null,
+        ""
+    ],
+    "New Password": [
+        null,
+        ""
+    ],
+    "Exit Full Screen": [
         null,
         ""
     ]
