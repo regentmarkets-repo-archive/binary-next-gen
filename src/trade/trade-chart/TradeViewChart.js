@@ -57,6 +57,15 @@ export default class TradeViewChart extends PureComponent {
         };
     }
 
+    componentWillReceiveProps(nextProps) {
+        if (this.props.tradeForChart.symbol !== nextProps.tradeForChart.symbol) {
+            this.setState({
+                dataType: 'ticks',
+                chartType: 'area',
+            });
+        }
+    }
+
     rangeChange = () => {
         const { tradeForChart } = this.props;
         const { dataType } = this.state;
@@ -110,7 +119,7 @@ export default class TradeViewChart extends PureComponent {
                 theme={theme}
                 type={contractForChart ? 'area' : chartType}
                 trade={tradeForChart && internalTradeModelToChartTradeModel(tradeForChart)}
-                typeChange={!contractForChart && feedLicense !== 'chartonly' ? this.changeChartType : undefined}
+                typeChange={this.changeChartType}
                 tradingTime={tradingTime}
             />
         );
