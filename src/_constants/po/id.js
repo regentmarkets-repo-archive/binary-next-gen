@@ -3,7 +3,7 @@ export default {
         "project-id-version": "I 18N",
         "report-msgid-bugs-to": "",
         "pot-creation-date": "",
-        "po-revision-date": "2016-07-12 08:53+0000",
+        "po-revision-date": "2016-08-05 03:59+0000",
         "last-translator": "Putri Kumala <putri@regentmarkets.com>",
         "language-team": "Indonesian <https://hosted.weblate.org/projects/binary-app/next-gen-app/id/>",
         "language": "id",
@@ -783,202 +783,362 @@ export default {
     ],
     "Favorites": [
         null,
-        ""
+        "Favorit"
     ],
     "Open For Trading": [
         null,
-        ""
+        "Tersedia Untuk Trading"
+    ],
+    "Closed": [
+        null,
+        "Tutup"
     ],
     "Contract ID": [
         null,
-        ""
+        "ID Kontrak"
     ],
     "Reference ID": [
         null,
-        ""
+        "ID Referensi"
+    ],
+    "Entry Spot": [
+        null,
+        "Spot Awal"
+    ],
+    "Entry Spot Time": [
+        null,
+        "Waktu Spot Awal"
+    ],
+    "Potential Payout": [
+        null,
+        "Potensi Hasil"
+    ],
+    "Exit Spot": [
+        null,
+        "Spot Akhir"
+    ],
+    "Exit Spot Time": [
+        null,
+        "Waktu Spot Akhir"
+    ],
+    "Sell Price": [
+        null,
+        "Harga Jual"
+    ],
+    "Sell Time": [
+        null,
+        "Waktu Jual"
+    ],
+    "Trade Again": [
+        null,
+        "Trading Lagi"
     ],
     "Barrier": [
         null,
-        ""
+        "Batasan"
+    ],
+    "You Won": [
+        null,
+        "Anda Untung"
+    ],
+    "You Lost": [
+        null,
+        "Anda Rugi"
     ],
     "To change your name, date of birth, country of residence, or email, contact Customer Support.": [
         null,
-        ""
+        "Untuk merubah nama, tanggal lahir, negara domisili atau email, hubungi Customer Support."
     ],
     "Cashier is locked per your request. To unlock it, enter your password.": [
         null,
-        ""
+        "Bagian kasir telah dikunci sesuai dengan permintaan Anda. Untuk membuka, masukkan kata sandi."
     ],
     "Unlock Cashier": [
         null,
-        ""
+        "Membuka Kasir"
     ],
     "Time out until": [
         null,
-        ""
+        "Berhenti hingga"
+    ],
+    "No transactions for the selected period": [
+        null,
+        "Tidak ditemukan transaksi pada periode yang dipilih"
     ],
     "You have no open contracts": [
         null,
-        ""
+        "Anda tidak memiliki kontrak berjalan"
     ],
     "You have no assets in watchlist": [
         null,
-        ""
+        "Anda tidak memiliki aset pada daftar pantauan"
     ],
     "Basic": [
         null,
-        ""
+        "Dasar"
+    ],
+    "Digits": [
+        null,
+        "Digit"
     ],
     "Advanced": [
         null,
-        ""
+        "Lanjutan"
+    ],
+    "Higher": [
+        null,
+        "Higher"
     ],
     "Lower": [
         null,
-        ""
+        "Lower"
+    ],
+    "Ends Outside": [
+        null,
+        "Ends Outside"
     ],
     "Ends Between": [
         null,
-        ""
+        "Ends Between"
     ],
     "Stays Between": [
         null,
-        ""
+        "Stays Between"
     ],
     "Goes Outside": [
         null,
-        ""
+        "Goes Outside"
+    ],
+    "Does Not Touch": [
+        null,
+        "Does Not Touch"
+    ],
+    "Credit / Debit": [
+        null,
+        "Kredit / Debit"
     ],
     "Last 25 Ticks": [
         null,
-        ""
+        "25 Tik Terakhir"
+    ],
+    "Last 50 Trades": [
+        null,
+        "50 Tik Terakhir"
+    ],
+    "Last 100 Trades": [
+        null,
+        "100 Trading Terakhir"
+    ],
+    "Last 500 Trades": [
+        null,
+        "500 Trading Terakhir"
+    ],
+    "Last 1000 Trades": [
+        null,
+        "1000 Trading Terakhir"
+    ],
+    "Maximum Daily Turnover": [
+        null,
+        "Maksimum Turnover Harian"
     ],
     "Commodities": [
         null,
-        ""
+        "Komoditas"
     ],
     "Major Pairs": [
         null,
-        ""
+        "Pasangan Utama"
     ],
     "Minor Pairs": [
         null,
-        ""
+        "Pasangan Tambahan"
     ],
     "Smart FX": [
         null,
-        ""
+        "Smart FX"
+    ],
+    "Volatility Indices": [
+        null,
+        "Indeks Volatilitas"
+    ],
+    "Indices": [
+        null,
+        "Indeks"
     ],
     "OTC Stocks": [
         null,
-        ""
+        "Saham OTC"
     ],
     "Stated limits are subject to change without prior notice": [
         null,
-        ""
+        "Batas dapat berubah tanpa pemberitahuan terlebih dahulu"
+    ],
+    "Withdrawal Limits": [
+        null,
+        "Batas Penarikan"
+    ],
+    "Withdrawal limit": [
+        null,
+        "Batas Penarikan"
     ],
     "Already withdrawn": [
         null,
-        ""
+        "Sudah ditarik"
     ],
     "Current immediate maximum withdrawal": [
         null,
-        ""
+        "Jumlah maksimal penarikan saat ini"
+    ],
+    "Create Free Account": [
+        null,
+        "Daftar Akun Gratis"
     ],
     "Verification Code": [
         null,
-        ""
+        "Kode Verifikasi"
+    ],
+    "Confirm Password": [
+        null,
+        "Konfirmasi Kata Sandi"
     ],
     "Already have an account?": [
         null,
-        ""
+        "Sudah memiliki akun?"
     ],
     "Enter a valid verification code": [
         null,
-        ""
+        "Masukkan kode verifikasi yang berlaku"
     ],
     "Choose your country": [
         null,
-        ""
+        "Pilih negara Anda"
     ],
     "Password should have lower and uppercase letters and 6 characters or more": [
         null,
-        ""
+        "Kata sandi harus memiliki huruf kecil, huruf besar dan 6 karakter atau lebih"
     ],
     "Passwords do not match": [
         null,
-        ""
+        "Kata sandi tidak cocok"
     ],
     "Enter a valid email": [
         null,
-        ""
+        "Masukkan email yang benar"
     ],
     "Number should between 10 to 120": [
         null,
-        ""
+        "Nomor harus antara 10-120"
     ],
     "Enter your first and last name": [
         null,
-        ""
+        "Masukkan nama depan dan belakang Anda"
     ],
     "City must not be empty": [
         null,
-        ""
+        "Kota tidak boleh kosong"
     ],
     "Address must not be empty": [
         null,
-        ""
+        "Alamat tidak boleh kosong"
     ],
     "Enter a valid phone number": [
         null,
-        ""
+        "Masukkan nomor telepon yang benar"
     ],
     "Select a secret question": [
         null,
-        ""
+        "Pilih pertanyaan rahasia"
     ],
     "Secret answer must be at least 4 characters": [
         null,
-        ""
+        "Jawaban rahasia harus minimal 4 karakter"
     ],
     "You need to agree to our Terms and Conditions": [
         null,
-        ""
+        "Anda perlu menyetujui Syarat dan Ketentuan kami"
     ],
     "I agree to the": [
         null,
-        ""
+        "Saya setuju dengan"
     ],
     "terms and conditions": [
         null,
-        ""
+        "syarat dan ketentuan"
+    ],
+    "Search for assets": [
+        null,
+        "Pencarian aset"
     ],
     "Choose a Payment Agent": [
         null,
-        ""
+        "Pilih Agen Pembayaran"
+    ],
+    "Confirm New Password": [
+        null,
+        "Konfirmasi Kata Sandi Baru"
     ],
     "First Name": [
         null,
-        ""
+        "Nama Depan"
+    ],
+    "Last Name": [
+        null,
+        "Nama Belakang"
     ],
     "Address First Line": [
         null,
-        ""
+        "Baris Pertama Alamat"
     ],
     "Address Second Line": [
         null,
-        ""
+        "Baris Kedua Alamat"
     ],
     "Phone": [
         null,
-        ""
+        "Telepon"
     ],
     "Answer To Secret Question": [
         null,
-        ""
+        "Jawaban Untuk Pertanyaan Rahasia"
     ],
     "Switch to": [
         null,
-        ""
+        "Beralih ke"
+    ],
+    "Single Trade": [
+        null,
+        "Trading Tunggal"
+    ],
+    "Multi Trade": [
+        null,
+        "Multi Trading"
+    ],
+    "Current Password": [
+        null,
+        "Kata Sandi Saat Ini"
+    ],
+    "New Password": [
+        null,
+        "Kata Sandi Baru"
+    ],
+    "Last 50 Ticks": [
+        null,
+        "50 Tik Terakhir"
+    ],
+    "Last 100 Ticks": [
+        null,
+        "100 Tik Terakhir"
+    ],
+    "Last 500 Ticks": [
+        null,
+        "500 Tik Terakhir"
+    ],
+    "Last 1000 Ticks": [
+        null,
+        "1000 Tik Terakhir"
+    ],
+    "Exit Full Screen": [
+        null,
+        "Keluar Dari Layar Penuh"
     ]
 }

@@ -3,8 +3,8 @@ export default {
         "project-id-version": "BOM",
         "report-msgid-bugs-to": "",
         "pot-creation-date": "",
-        "po-revision-date": "2016-07-31 09:42+0000",
-        "last-translator": "Ruslan <ruslan.mukhametdinov.90@gmail.com>",
+        "po-revision-date": "2016-08-02 15:46+0000",
+        "last-translator": "Alina Demidova <alinademidova1@gmail.com>",
         "language-team": "Russian <https://hosted.weblate.org/projects/binary-app/next-gen-app/ru/>",
         "language": "ru",
         "mime-version": "1.0",
@@ -465,6 +465,18 @@ export default {
         null,
         "Выплата/ставка"
     ],
+    "Purchase for": [
+        null,
+        "Купить для"
+    ],
+    "payout": [
+        null,
+        "выплата"
+    ],
+    "stake": [
+        null,
+        "ставка"
+    ],
     "Self Exclusion": [
         null,
         "Самоисключение"
@@ -488,6 +500,10 @@ export default {
     "Full Trade": [
         null,
         "Полноценная торговля"
+    ],
+    "Address": [
+        null,
+        "Адрес"
     ],
     "Town/City": [
         null,
@@ -533,13 +549,49 @@ export default {
         null,
         "Как только будет достигнут данный лимит, Вы не сможете пополнить счёт."
     ],
+    "Maximum aggregate contract purchases per day.": [
+        null,
+        "Максимальная совокупная стоимость контрактов, приобретенных за день."
+    ],
+    "Daily limit on losses": [
+        null,
+        "Дневной лимит на убытки"
+    ],
+    "Maximum aggregate loss per day.": [
+        null,
+        "Максимальный совокупный убыток за день."
+    ],
     "7-day turnover limit": [
         null,
         "7-дневный лимит на объём покупок"
     ],
+    "Maximum aggregate contract purchases over a 7-day period.": [
+        null,
+        "Максимальная совокупная стоимость контрактов, приобретенных за за 7-дневный период."
+    ],
+    "7-day limit on losses": [
+        null,
+        "7-дневный лимит на убытки"
+    ],
+    "Maximum aggregate loss over a 7-day period.": [
+        null,
+        "Максимальный совокупный убыток за 7-дневный период."
+    ],
     "30-day turnover limit": [
         null,
         "30-дневный лимит на объём покупок"
+    ],
+    "Maximum aggregate contract purchases over a 30-day period.": [
+        null,
+        "Максимальная совокупная стоимость контрактов, приобретенных за 30-дневный период."
+    ],
+    "30-day limit on losses": [
+        null,
+        "30-дневный лимит на убытки"
+    ],
+    "Maximum aggregate loss over a 30-day period.": [
+        null,
+        "Максимальный совокупный убыток за 30-дневный период."
     ],
     "Session duration limit, in minutes": [
         null,
@@ -575,7 +627,7 @@ export default {
     ],
     "Article": [
         null,
-        ""
+        "Статья"
     ],
     "Start Later": [
         null,
@@ -621,6 +673,10 @@ export default {
         null,
         "Вы потеряли "
     ],
+    "Close": [
+        null,
+        "Закрытие"
+    ],
     "Low": [
         null,
         "Низ."
@@ -628,6 +684,10 @@ export default {
     "High": [
         null,
         "Верх."
+    ],
+    "Open": [
+        null,
+        "Открытие"
     ],
     "Date": [
         null,
@@ -667,7 +727,7 @@ export default {
     ],
     "TICK": [
         null,
-        ""
+        "ТИКИ"
     ],
     "Minutes": [
         null,
@@ -707,7 +767,7 @@ export default {
     ],
     "return": [
         null,
-        ""
+        "прибыли"
     ],
     "Portfolio": [
         null,
@@ -735,7 +795,11 @@ export default {
     ],
     "Reference ID": [
         null,
-        ""
+        "Номер"
+    ],
+    "Entry Spot": [
+        null,
+        "Входная котировка"
     ],
     "Entry Spot Time": [
         null,
@@ -745,9 +809,17 @@ export default {
         null,
         "Потенциальная выплата"
     ],
+    "Exit Spot": [
+        null,
+        "Выходная котировка"
+    ],
     "Exit Spot Time": [
         null,
         "Время выходн. котировки"
+    ],
+    "Sell Price": [
+        null,
+        "Цена прод."
     ],
     "Sell Time": [
         null,
@@ -784,6 +856,10 @@ export default {
     "Time out until": [
         null,
         "Ограничение доступа до"
+    ],
+    "No transactions for the selected period": [
+        null,
+        "Сделки за выбранный период отсутствуют"
     ],
     "You have no open contracts": [
         null,
@@ -832,6 +908,10 @@ export default {
     "Does Not Touch": [
         null,
         "Не коснётся"
+    ],
+    "Credit / Debit": [
+        null,
+        "Кредит/Дебет"
     ],
     "Last 25 Ticks": [
         null,
@@ -889,6 +969,10 @@ export default {
         null,
         "Указанные лимиты могут быть изменены без предварительного уведомления"
     ],
+    "Withdrawal Limits": [
+        null,
+        "Лимиты на вывод"
+    ],
     "Withdrawal limit": [
         null,
         "Лимит на вывод"
@@ -933,6 +1017,10 @@ export default {
         null,
         "Пароли не совпадают"
     ],
+    "Enter a valid email": [
+        null,
+        "Введите действующий эл. адрес"
+    ],
     "Number should between 10 to 120": [
         null,
         "Число должно быть от 10 до 120"
@@ -949,56 +1037,104 @@ export default {
         null,
         "Вы забыли указать адрес"
     ],
+    "Enter a valid phone number": [
+        null,
+        "Введите действующий номер телефона"
+    ],
     "Select a secret question": [
         null,
-        ""
+        "Выберите секретный вопрос"
     ],
     "Secret answer must be at least 4 characters": [
         null,
-        ""
+        "Секретный ответ должен составлять минимум 4 знака"
     ],
     "You need to agree to our Terms and Conditions": [
         null,
-        ""
+        "Вы должны принять наши Правила и условия"
     ],
     "I agree to the": [
         null,
-        ""
+        "Я соглашаюсь с"
     ],
     "terms and conditions": [
         null,
-        ""
+        "Правилами и условиями"
+    ],
+    "Search for assets": [
+        null,
+        "Поиск активов"
     ],
     "Choose a Payment Agent": [
         null,
-        ""
+        "Выберите Платёжного агента"
     ],
     "Confirm New Password": [
         null,
-        ""
+        "Подтвердите новый пароль"
     ],
     "First Name": [
         null,
-        ""
+        "Имя"
+    ],
+    "Last Name": [
+        null,
+        "Фамилия"
     ],
     "Address First Line": [
         null,
-        ""
+        "Первая строка адреса"
     ],
     "Address Second Line": [
         null,
-        ""
+        "Вторая строка адреса"
     ],
     "Phone": [
         null,
-        ""
+        "Телефон"
     ],
     "Answer To Secret Question": [
         null,
-        ""
+        "Ответ на секретный вопрос"
     ],
     "Switch to": [
         null,
-        ""
+        "Перейти к"
+    ],
+    "Single Trade": [
+        null,
+        "Новый контракт"
+    ],
+    "Multi Trade": [
+        null,
+        "Одновременная торговля"
+    ],
+    "Current Password": [
+        null,
+        "Текущий пароль"
+    ],
+    "New Password": [
+        null,
+        "Новый пароль"
+    ],
+    "Last 50 Ticks": [
+        null,
+        "Последн. 50 тиков"
+    ],
+    "Last 100 Ticks": [
+        null,
+        "Последн. 100 тиков"
+    ],
+    "Last 500 Ticks": [
+        null,
+        "Последн. 500 тиков"
+    ],
+    "Last 1000 Ticks": [
+        null,
+        "Последн. 1000 тиков"
+    ],
+    "Exit Full Screen": [
+        null,
+        "Закрыть полноэкранный режим"
     ]
 }

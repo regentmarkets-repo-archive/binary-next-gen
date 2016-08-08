@@ -3,7 +3,7 @@ export default {
         "project-id-version": "BOM",
         "report-msgid-bugs-to": "",
         "pot-creation-date": "",
-        "po-revision-date": "2016-07-22 21:15+0000",
+        "po-revision-date": "2016-08-05 16:23+0000",
         "last-translator": "Alcino Jorge <alcino@binary.com>",
         "language-team": "Portuguese <https://hosted.weblate.org/projects/binary-app/next-gen-app/pt/>",
         "language": "pt",
@@ -775,19 +775,19 @@ export default {
     ],
     "Favorites": [
         null,
-        ""
+        "Favoritos"
     ],
     "Open For Trading": [
         null,
-        ""
+        "Aberto para negociação"
     ],
     "Contract ID": [
         null,
-        ""
+        "ID de contrato"
     ],
     "Reference ID": [
         null,
-        ""
+        "ID de referência"
     ],
     "Entry Spot": [
         null,
@@ -795,7 +795,7 @@ export default {
     ],
     "Entry Spot Time": [
         null,
-        "Hora do preço de entrada"
+        "Preço de entrada"
     ],
     "Potential Payout": [
         null,
@@ -823,7 +823,7 @@ export default {
     ],
     "Barrier": [
         null,
-        ""
+        "Barreira"
     ],
     "You Won": [
         null,
@@ -835,19 +835,19 @@ export default {
     ],
     "To change your name, date of birth, country of residence, or email, contact Customer Support.": [
         null,
-        ""
+        "Para alterar o seu nome, data de nascimento, país de residência ou endereço de email, contate o Apoio ao Cliente."
     ],
     "Cashier is locked per your request. To unlock it, enter your password.": [
         null,
-        ""
+        "O caixa está bloqueado conforme solicitado. Para desbloqueá-lo, insira a sua senha."
     ],
     "Unlock Cashier": [
         null,
-        ""
+        "Desbloquear o caixa"
     ],
     "Time out until": [
         null,
-        ""
+        "Bloqueio até"
     ],
     "No transactions for the selected period": [
         null,
@@ -855,11 +855,11 @@ export default {
     ],
     "You have no open contracts": [
         null,
-        ""
+        "Você não tem contratos abertos"
     ],
     "You have no assets in watchlist": [
         null,
-        ""
+        "Você não tem nenhum ativo nos seus favoritos"
     ],
     "Basic": [
         null,
@@ -887,15 +887,15 @@ export default {
     ],
     "Ends Between": [
         null,
-        ""
+        "Termina entre"
     ],
     "Stays Between": [
         null,
-        ""
+        "Fica entre"
     ],
     "Goes Outside": [
         null,
-        ""
+        "Sai fora"
     ],
     "Does Not Touch": [
         null,
@@ -907,7 +907,7 @@ export default {
     ],
     "Last 25 Ticks": [
         null,
-        ""
+        "25 últimos tique-taques"
     ],
     "Last 50 Trades": [
         null,
@@ -925,29 +925,49 @@ export default {
         null,
         "1000 últimas negociações"
     ],
+    "Maximum Daily Turnover": [
+        null,
+        "Volume de negócios máximo diário"
+    ],
     "Commodities": [
         null,
-        ""
+        "Matérias-primas"
     ],
     "Major Pairs": [
         null,
-        ""
+        "Pares principais"
     ],
     "Minor Pairs": [
         null,
-        ""
+        "Pares secundários"
     ],
     "Smart FX": [
         null,
-        ""
+        "Smart FX"
+    ],
+    "Volatility Indices": [
+        null,
+        "Índices Volatility"
+    ],
+    "Indices": [
+        null,
+        "Índices"
     ],
     "OTC Stocks": [
         null,
-        ""
+        "Ações OTC"
     ],
     "Stated limits are subject to change without prior notice": [
         null,
-        ""
+        "Os limites mencionados estão sujeitos a alterações sem aviso prévio"
+    ],
+    "Withdrawal Limits": [
+        null,
+        "Limites de retirada"
+    ],
+    "Withdrawal limit": [
+        null,
+        "Limites de retirada"
     ],
     "Already withdrawn": [
         null,
@@ -955,67 +975,75 @@ export default {
     ],
     "Current immediate maximum withdrawal": [
         null,
-        ""
+        "Retirada imediata máxima atual"
+    ],
+    "Create Free Account": [
+        null,
+        "Criar conta gratuita"
     ],
     "Verification Code": [
         null,
-        ""
+        "Código de verificação"
+    ],
+    "Confirm Password": [
+        null,
+        "Confirmar senha"
     ],
     "Already have an account?": [
         null,
-        ""
+        "Já tem uma conta?"
     ],
     "Enter a valid verification code": [
         null,
-        ""
+        "Digite um código de verificação válido"
     ],
     "Choose your country": [
         null,
-        ""
+        "Escolha o seu país"
     ],
     "Password should have lower and uppercase letters and 6 characters or more": [
         null,
-        ""
+        "A senha deve conter letras maiúsculas e minúsculas e 6 caracteres ou mais"
     ],
     "Passwords do not match": [
         null,
-        ""
+        "As senhas não correspondem"
     ],
     "Enter a valid email": [
         null,
-        ""
+        "Digite um e-mail válido"
     ],
     "Number should between 10 to 120": [
         null,
-        ""
+        "O número deve ser entre 10 e 120"
     ],
     "Enter your first and last name": [
         null,
-        ""
+        "Insira o seu primeiro nome e o seu sobrenome"
     ],
     "City must not be empty": [
         null,
-        ""
+        "Cidade não deve estar vazio"
     ],
     "Address must not be empty": [
         null,
-        ""
+        "Endereço não deve estar vazio"
     ],
     "Enter a valid phone number": [
         null,
-        ""
+        "Insira um número de telefone válido"
     ],
     "Select a secret question": [
         null,
-        ""
+        "Selecione uma pergunta secreta"
     ],
     "Secret answer must be at least 4 characters": [
         null,
-        ""
+        "A resposta secreta deve conter pelo menos 4 caracteres"
     ],
     "You need to agree to our Terms and Conditions": [
         null,
-        ""
+        "Você aceita os nosso termos e condições"
     ],
     "I agree to the": [
         null,
@@ -1023,34 +1051,82 @@ export default {
     ],
     "terms and conditions": [
         null,
-        ""
+        "termos e condições"
+    ],
+    "Search for assets": [
+        null,
+        "Procurar ativos"
     ],
     "Choose a Payment Agent": [
         null,
-        ""
+        "Escolha um agente de pagamentos"
+    ],
+    "Confirm New Password": [
+        null,
+        "Confirmar nova senha"
     ],
     "First Name": [
         null,
-        ""
+        "Primeiro nome"
+    ],
+    "Last Name": [
+        null,
+        "Sobrenome"
     ],
     "Address First Line": [
         null,
-        ""
+        "Primeira linha do endereço"
     ],
     "Address Second Line": [
         null,
-        ""
+        "Segunda linha do endereço"
     ],
     "Phone": [
         null,
-        ""
+        "Telefone"
     ],
     "Answer To Secret Question": [
         null,
-        ""
+        "Resposta à pergunta secreta"
     ],
     "Switch to": [
         null,
-        ""
+        "Mudar para"
+    ],
+    "Single Trade": [
+        null,
+        "Negociação única"
+    ],
+    "Multi Trade": [
+        null,
+        "Negociação múltipla"
+    ],
+    "Current Password": [
+        null,
+        "Senha atual"
+    ],
+    "New Password": [
+        null,
+        "Nova senha"
+    ],
+    "Last 50 Ticks": [
+        null,
+        "50 últimos tique-taques"
+    ],
+    "Last 100 Ticks": [
+        null,
+        "100 últimos tique-taques"
+    ],
+    "Last 500 Ticks": [
+        null,
+        "500 últimos tique-taques"
+    ],
+    "Last 1000 Ticks": [
+        null,
+        "1000 últimos tique-taques"
+    ],
+    "Exit Full Screen": [
+        null,
+        "Sair da tela inteira"
     ]
 }
