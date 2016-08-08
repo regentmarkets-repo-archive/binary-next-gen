@@ -2,8 +2,8 @@ export default {
     "": {
         "project-id-version": "PACKAGE VERSION",
         "pot-creation-date": "",
-        "po-revision-date": "2016-07-28 04:25+0000",
-        "last-translator": "Fumio Miyama <miyama@regentmarkets.com>",
+        "po-revision-date": "2016-08-03 14:51+0000",
+        "last-translator": "naofum <naofum@gmail.com>",
         "language-team": "Japanese <https://hosted.weblate.org/projects/binary-app/next-gen-app/ja/>",
         "language": "ja",
         "mime-version": "1.0",
@@ -1103,5 +1103,41 @@ export default {
     "Switch to": [
         null,
         "切り替え"
+    ],
+    "Single Trade": [
+        null,
+        "シングルトレード"
+    ],
+    "Multi Trade": [
+        null,
+        "マルチトレード"
+    ],
+    "Current Password": [
+        null,
+        "現在のパスワード"
+    ],
+    "New Password": [
+        null,
+        "新しいパスワード"
+    ],
+    "Last 50 Ticks": [
+        null,
+        "直近 50 Tick"
+    ],
+    "Last 100 Ticks": [
+        null,
+        "直近 100 Tick"
+    ],
+    "Last 500 Ticks": [
+        null,
+        "直近 500 Tick"
+    ],
+    "Last 1000 Ticks": [
+        null,
+        "直近 1000 Tick"
+    ],
+    "Exit Full Screen": [
+        null,
+        "フルスクリーンを終了"
     ]
 }
