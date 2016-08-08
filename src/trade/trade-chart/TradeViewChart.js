@@ -58,7 +58,10 @@ export default class TradeViewChart extends PureComponent {
     }
 
     componentWillReceiveProps(nextProps) {
-        if (this.props.tradeForChart.symbol !== nextProps.tradeForChart.symbol) {
+        if (
+            (this.props.tradeForChart && nextProps.tradeForChart) &&
+            (this.props.tradeForChart.symbol !== nextProps.tradeForChart.symbol)
+        ) {
             this.setState({
                 dataType: 'ticks',
                 chartType: 'area',
