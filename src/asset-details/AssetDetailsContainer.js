@@ -4,7 +4,6 @@ import { immutableChildrenToJS } from 'binary-utils';
 import AssetDetailsCard from './AssetDetailsCard';
 import assetDetailsSelectors from './assetDetailsSelectors';
 
-
 @connect(assetDetailsSelectors)
 export default class AssetDetailsContainer extends PureComponent {
 

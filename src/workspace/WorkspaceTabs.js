@@ -31,9 +31,7 @@ export default class WorkspaceCard extends PureComponent {
 				<Tab imgSrc="img/resources.svg" text="Asset Index" />
 				<Tab imgSrc="img/video.svg" text="Video" />
 				<Tab imgSrc="img/news.svg" text="News" />
-				<Tab imgSrc="img/ohlc.svg" text="Daily Prices" />
 				<Tab imgSrc="img/info.svg" text="Details" />
-				<Tab imgSrc="img/barchart.svg" text="Digit Stats" />
 				<Tab imgSrc="img/settings.svg" text="Settings" />
 			</TabList>
 		);

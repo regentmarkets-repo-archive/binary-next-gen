@@ -6,9 +6,7 @@ import NewsContainer from '../news/NewsContainer';
 import VideoListContainer from '../video/VideoListContainer';
 import PortfolioContainer from '../portfolio/PortfolioContainer';
 import StatementContainer from '../statement/StatementContainer';
-import DailyPricesContainer from '../daily-prices/DailyPricesContainer';
-import AssetDetailsContainer from '../asset-details/AssetDetailsContainer';
-import DigitStatsContainer from '../digit-stats/DigitStatsContainer';
+import AssetInfoContainer from '../asset-info/AssetInfoContainer';
 import SettingsContainer from '../settings/SettingsContainer';
 
 const components = [
@@ -19,9 +17,7 @@ const components = [
 	AssetIndexContainer,
 	VideoListContainer,
 	NewsContainer,
-	DailyPricesContainer,
-	AssetDetailsContainer,
-	DigitStatsContainer,
+	AssetInfoContainer,
 	SettingsContainer,
 ];
 
