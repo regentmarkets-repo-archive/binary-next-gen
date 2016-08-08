@@ -11,6 +11,7 @@ import ContractValidationError from '../contract-details/ContractValidationError
 import ContractWinLose from '../contract-details/ContractWinLose';
 
 export default class TradeCard extends PureComponent {
+
     static contextTypes = {
         router: PropTypes.object.isRequired,
     };
