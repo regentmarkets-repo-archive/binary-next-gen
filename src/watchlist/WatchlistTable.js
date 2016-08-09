@@ -8,7 +8,6 @@ export default class WatchlistTable extends PureComponent {
 	static propTypes = {
 		activeTradeIdx: PropTypes.number.isRequired,
 		watchlistView: PropTypes.object.isRequired,
-		selectedAsset: PropTypes.string.isRequired,
 	};
 
 	onSelect = newAsset => {

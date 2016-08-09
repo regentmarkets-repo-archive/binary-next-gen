@@ -54,7 +54,7 @@ export const assetIndexFilterSelector = state =>
 export const tradingTimesFilterSelector = state =>
     state.views.get('tradingTimes');
 
-export const selectedAssetSelector = state =>
+export const infoForAssetSelector = state =>
     state.workspace.get('infoForAsset');
 
 export const activeTradeIndexSelector = state =>

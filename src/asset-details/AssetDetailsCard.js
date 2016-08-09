@@ -30,14 +30,12 @@ export default class AssetDetailsCard extends PureComponent {
 			<div className="asset-details">
 				<h5><M m="Trading Times" /></h5>
 				<AssetDetailsTradingTimes times={tradingTimes.times} />
-				<br />
 				{tradingTimes.events.length > 0 &&
 					<div>
 						<h5><M m="Trading Events" /></h5>
 						<AssetDetailsTradingEvents events={tradingTimes.events} />
 					</div>
 				}
-				<br />
 				<h5><M m="Durations" /></h5>
 				<AssetDetailsDurations durations={durations} />
 			</div>

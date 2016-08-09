@@ -9,22 +9,17 @@ export default class AssetPickerCard extends PureComponent {
 	static propTypes = {
 		index: PropTypes.number,
 		filter: PropTypes.object,
-		onClose: PropTypes.func,
+		onSelecg: PropTypes.func,
 		assetPickerItems: PropTypes.object.isRequired,
 		selectedAsset: PropTypes.string.isRequired,
 	};
-
-	onSelect = newAsset => {
-		const { index } = this.props;
-		actions.reqSymbolChange(index, newAsset);
-	}
 
 	onToggleWatchlistItem = asset => {
 		actions.watchlistToggleAsset(asset.symbol, !asset.isInWatchlist);
 	}
 
 	render() {
-		const { assetPickerItems, selectedAsset, filter } = this.props;
+		const { assetPickerItems, selectedAsset, filter, onSelect } = this.props;
 
 		return (
 			<div className="asset-picker-container">
@@ -33,7 +28,7 @@ export default class AssetPickerCard extends PureComponent {
 					{...this.props}
 					assets={assetPickerItems}
 					selectedAsset={selectedAsset}
-					onSelect={this.onSelect}
+					onSelect={onSelect}
 					onToggleWatchlistItem={this.onToggleWatchlistItem}
 				/>
 				{Object.keys(assetPickerItems).length > 0 ? null :

@@ -31,6 +31,11 @@ export default class AssetPickerDropDown extends PureComponent {
     openPicker = () =>
         this.setState({ dropdownShown: true });
 
+    onSelect = newAsset => {
+		const { index } = this.props;
+		actions.reqSymbolChange(index, newAsset);
+	}
+
     render() {
         const { index, selectedSymbol, selectedSymbolName } = this.props;
         const { dropdownShown } = this.state;
@@ -45,6 +50,7 @@ export default class AssetPickerDropDown extends PureComponent {
                     <AssetPickerContainer
                         index={index}
                         selectedAsset={selectedSymbol}
+                        onSelect={this.onSelect}
                     />
                 </DropDown>
                 <Label text="Asset" />

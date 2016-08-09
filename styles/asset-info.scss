@@ -1,7 +1,23 @@
 .asset-info-card {
     width: 100%;
+    display: flex;
+    flex-direction: column;
 
-    > h4 {
-        margin: 0.5rem;
+    .asset-info-picker {
+        margin: 0.5rem 0.25rem 0;
+        line-height: 1.5;
+
+        h4,
+        span {
+            margin: 0.5rem;
+        }
+
+        h4 {
+            flex: 1;
+        }
+    }
+
+    .daily-prices-card {
+        overflow: auto;
     }
 }

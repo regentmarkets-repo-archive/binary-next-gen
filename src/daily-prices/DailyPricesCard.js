@@ -11,7 +11,9 @@ export default class DailyPricesCard extends PureComponent {
         const { dailyPrices } = this.props;
 
         return (
-            <DailyPricesTable dailyPrices={dailyPrices} />
+            <div className="daily-prices-card">
+                <DailyPricesTable dailyPrices={dailyPrices} />
+            </div>
         );
     }
 }

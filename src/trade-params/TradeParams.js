@@ -1,7 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { askPriceFromProposal, windowResizeEvent } from 'binary-utils';
 import { Error } from 'binary-components';
-import Modal from '../containers/Modal';
 import { actions } from '../_store';
 import BarrierCard from '../barrier-picker/BarrierCard';
 // import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
@@ -130,9 +129,6 @@ export default class TradeParams extends PureComponent {
 
         return (
             <div className="trade-params" key={this.state.dynamicKey} style={style}>
-                <Modal shown={!!errors.purchaseError} onClose={this.onCloseModal}>
-                    <Error text={errors.purchaseError} />
-                </Modal>
                 <Error text={errorText} />
                 <AssetPickerDropDown
                     index={index}
