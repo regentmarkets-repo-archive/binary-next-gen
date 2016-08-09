@@ -52,7 +52,7 @@ export default class SettingsAddress extends PureComponent {
 				phone,
 			});
 		} catch (e) {
-			this.setState({ errorMessage: e.message });
+			this.setState({ serverError: e.message });
 		}
 	}
 
@@ -68,11 +68,13 @@ export default class SettingsAddress extends PureComponent {
 
 	render() {
 		const { states } = this.props;
-		const { address_line_1, address_line_2, address_city, address_state,
+		const { validatedOnce, address_line_1, address_line_2, address_city, address_state,
 			address_postcode, country_code, phone, phoneError, serverError } = this.state;
 
+		this.allValid = address_line_1 && address_city;
+
 		return (
-			<div className="settings-address">
+			<form className="settings-address" onSubmit={this.onFormSubmit}>
 				{serverError &&
 					<Error text={serverError} />
 				}
@@ -84,7 +86,9 @@ export default class SettingsAddress extends PureComponent {
 					value={address_line_1}
 					onChange={this.onEntryChange}
 				/>
-				{!address_line_1 && <Error text="This field is required." />}
+				{validatedOnce && !address_line_1 &&
+					<Error text="This field is required." />
+				}
 				<InputGroup
 					id="address_line_2"
 					type="text"
@@ -126,7 +130,7 @@ export default class SettingsAddress extends PureComponent {
 					text="Update"
 					onClick={this.tryUpdate}
 				/>
-			</div>
+			</form>
 		);
 	}
 }
