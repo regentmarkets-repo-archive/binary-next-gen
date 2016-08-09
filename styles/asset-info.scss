@@ -7,12 +7,13 @@
         margin: 0.5rem;
         line-height: 1.5;
 
-        h4,
         span {
             margin: 0.25rem;
+            line-height: 2;
         }
 
         h4 {
+            margin: 0.25rem;
             font-size: $FONT_SIZE_N;
             line-height: 1.5;
             flex: 1;
