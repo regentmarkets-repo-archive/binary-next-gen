@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2016-08-09 20:27+0000\n"
-"Last-Translator: Mauro Piccillo <mauro.piccillo@gmail.com>\n"
+"Last-Translator: Annalisa <ligiu@me.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/it/>\n"
 "Language: it\n"
@@ -525,7 +525,6 @@ msgstr "Low"
 msgid "High"
 msgstr "High"
 
-#, fuzzy
 msgid "Open"
 msgstr "Apre"
 
@@ -622,14 +621,12 @@ msgstr "Orario del prezzo d'ingresso"
 msgid "Potential Payout"
 msgstr "Payout potenziale"
 
-#, fuzzy
 msgid "Exit Spot"
 msgstr "Prezzo di uscita"
 
 msgid "Exit Spot Time"
 msgstr "Orario del prezzo di uscita"
 
-#, fuzzy
 msgid "Sell Price"
 msgstr "Prezzo di vendita"
 
@@ -702,9 +699,8 @@ msgstr "Rimane fra"
 msgid "Goes Outside"
 msgstr "Esce da"
 
-#, fuzzy
 msgid "Does Not Touch"
-msgstr "No Touch"
+msgstr "Non tocca"
 
 msgid "Credit / Debit"
 msgstr "Credito / Debito"
