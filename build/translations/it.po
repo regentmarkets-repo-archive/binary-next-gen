@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-08-05 05:23+0000\n"
+"PO-Revision-Date: 2016-08-09 14:57+0000\n"
 "Last-Translator: Annalisa <ligiu@me.com>\n"
 "Language-Team: Italian <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/it/>\n"
@@ -352,19 +352,16 @@ msgid "Search For Assets"
 msgstr "Ricerca di asset"
 
 msgid "Start times"
-msgstr ""
+msgstr "Orari di inizio"
 
-#, fuzzy
 msgid "Durations"
-msgstr "Transazioni"
+msgstr "Durate"
 
-#, fuzzy
 msgid "Payout/Stake"
-msgstr "Payout"
+msgstr "Payout/Puntata"
 
-#, fuzzy
 msgid "Purchase for"
-msgstr "Acquisto per"
+msgstr "Acquista per"
 
 msgid "payout"
 msgstr "payout"
@@ -373,550 +370,511 @@ msgid "stake"
 msgstr "puntata"
 
 msgid "Self Exclusion"
-msgstr ""
+msgstr "Auto esclusione"
 
 msgid "Cashier Lock"
-msgstr ""
+msgstr "Blocco della cassa"
 
 msgid "Change Password"
-msgstr ""
+msgstr "Modifica password"
 
 msgid "Password"
-msgstr ""
+msgstr "Password"
 
-#, fuzzy
 msgid "Tick Trade"
-msgstr "Trade"
+msgstr "Tick Trade"
 
-#, fuzzy
 msgid "Full Trade"
-msgstr "Trade"
+msgstr "Full Trade"
 
-#, fuzzy
 msgid "Address"
-msgstr "Indirizzo di residenza"
+msgstr "Indirizzo"
 
 msgid "Town/City"
-msgstr ""
+msgstr "Città"
 
 msgid "State/Province"
-msgstr ""
+msgstr "Stato/Provincia"
 
 msgid "Telephone"
-msgstr ""
+msgstr "Telefono"
 
 msgid "Postal Code / ZIP"
-msgstr ""
+msgstr "Codice postale/CAP"
 
 msgid "Cashier password"
-msgstr ""
+msgstr "Password della cassa"
 
 msgid "Re-enter your password"
-msgstr ""
+msgstr "Reinserisci la tua password"
 
 msgid "Current password"
-msgstr ""
+msgstr "Password attuale"
 
 msgid "New password"
-msgstr ""
+msgstr "Nuova password"
 
 msgid "Verify new password"
-msgstr ""
+msgstr "Verifica la nuova password"
 
-#, fuzzy
 msgid "Daily turnover limit"
-msgstr "Turnover massimo giornaliero"
+msgstr "Limite di turnover giornaliero"
 
 msgid "Once this limit is reached, you may no longer deposit."
-msgstr ""
+msgstr "Una volta raggiunto questo limite, non potrai più depositare."
 
 msgid "Maximum aggregate contract purchases per day."
-msgstr ""
+msgstr "Contratti d'acquisto aggregati massimi giornalieri."
 
 msgid "Daily limit on losses"
-msgstr ""
+msgstr "Limite giornaliero sulle perdite"
 
-#, fuzzy
 msgid "Maximum aggregate loss per day."
-msgstr "Payout totali massimi su posizioni aperte"
+msgstr "Perdita aggregata massima giornaliera."
 
 msgid "7-day turnover limit"
-msgstr ""
+msgstr "Limite di turnover su 7 giorni"
 
 msgid "Maximum aggregate contract purchases over a 7-day period."
-msgstr ""
+msgstr "Acquisti di contratti aggregati massimi in un periodo di 7 giorni."
 
 msgid "7-day limit on losses"
-msgstr ""
+msgstr "Limite di 7 giorni sulle perdite"
 
-#, fuzzy
 msgid "Maximum aggregate loss over a 7-day period."
-msgstr "Payout totali massimi su posizioni aperte"
+msgstr "Perdita aggregata massima su un periodo di 7 giorni."
 
 msgid "30-day turnover limit"
-msgstr ""
+msgstr "Limite di turnover di 30 giorni"
 
 msgid "Maximum aggregate contract purchases over a 30-day period."
-msgstr ""
+msgstr "Acquisti massimi di contratti aggregati su un periodo di 30 giorni."
 
 msgid "30-day limit on losses"
-msgstr ""
+msgstr "Limite di 30 giorni sulle perdite"
 
-#, fuzzy
 msgid "Maximum aggregate loss over a 30-day period."
-msgstr "Payout totali massimi su posizioni aperte"
+msgstr "Perdita aggregata massima su un periodo di 30 giorni."
 
 msgid "Session duration limit, in minutes"
-msgstr ""
+msgstr "Limite di durata della sessione, in minuti"
 
 msgid "You will be automatically logged out after such time."
-msgstr ""
+msgstr "Dopo tale orario, verrai automaticamente loggato."
 
 msgid "Exclude me from the website until"
-msgstr ""
+msgstr "Escludimi dal sito internet fino"
 
-#, fuzzy
 msgid "Limits"
-msgstr "Limiti del trading"
+msgstr "Limiti"
 
 msgid "Please enter date in the format YYYY-MM-DD."
-msgstr ""
+msgstr "Si prega di inserire la data nel formato AAAA-MM-GG."
 
-#, fuzzy
 msgid "New Trade"
-msgstr "Trade"
+msgstr "Nuovo trade"
 
-#, fuzzy
 msgid "Trade Type"
-msgstr "Trade"
+msgstr "Tipologia di trade"
 
 msgid "Random 100 Index"
-msgstr ""
+msgstr "Indice Random 100"
 
 msgid "Article"
-msgstr ""
+msgstr "Articolo"
 
 msgid "Start Later"
-msgstr ""
+msgstr "Inizia più tardi"
 
-#, fuzzy
 msgid "Buy Price"
-msgstr "Prezzo"
+msgstr "Prezzo d'acquisto"
 
 msgid "Earning (%)"
-msgstr ""
+msgstr "Guadagno (%)"
 
-#, fuzzy
 msgid "Profit"
-msgstr "Profitto/Perdita"
+msgstr "Profitto"
 
-#, fuzzy
 msgid "Entry Price"
-msgstr "Prezzo"
+msgstr "Prezzo d'ingresso"
 
-#, fuzzy
 msgid "Exit Price"
-msgstr "Prezzo"
+msgstr "Prezzo d'uscita"
 
-#, fuzzy
 msgid "Indicative Price"
-msgstr "Indicativo"
+msgstr "Prezzo indicativo"
 
 msgid "Potential Profit"
-msgstr ""
+msgstr "Profitto potenziale"
 
 msgid "Sell at Market"
-msgstr ""
+msgstr "Vendi sul mercato"
 
 msgid "Go back"
-msgstr ""
+msgstr "Torna indietro"
 
 msgid "You lost "
-msgstr ""
+msgstr "Hai perso"
 
-#, fuzzy
 msgid "Close"
-msgstr "Chiude"
+msgstr "Chiuso"
 
 msgid "Low"
-msgstr ""
+msgstr "Low"
 
 msgid "High"
-msgstr ""
+msgstr "High"
 
 #, fuzzy
 msgid "Open"
 msgstr "Apre"
 
-#, fuzzy
 msgid "Date"
-msgstr "Data della vendita"
+msgstr "Data"
 
 msgid "Upcoming Events"
-msgstr ""
+msgstr "Prossimi eventi"
 
 msgid "Win"
-msgstr ""
+msgstr "Vincita"
 
 msgid "Loss"
-msgstr ""
+msgstr "Perdita"
 
 msgid "Full Screen"
-msgstr ""
+msgstr "Schermo intero"
 
 msgid "Start Now"
-msgstr ""
+msgstr "Inizia ora"
 
-#, fuzzy
 msgid "Daily Prices"
-msgstr "Prezzo di vendita"
+msgstr "Prezzi giornalieri"
 
 msgid "Spreads"
-msgstr ""
+msgstr "Spread"
 
 msgid "Confirm new password"
-msgstr ""
+msgstr "Conferma la nuova password"
 
 msgid "TICK"
-msgstr ""
+msgstr "TICK"
 
 msgid "Minutes"
-msgstr ""
+msgstr "Minuti"
 
 msgid "Seconds"
-msgstr ""
+msgstr "Secondi"
 
 msgid "Hours"
-msgstr ""
+msgstr "Ore"
 
 msgid "Days"
-msgstr ""
+msgstr "Giorni"
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
-#, fuzzy
 msgid "Duration"
-msgstr "Posizione"
+msgstr "Durata"
 
 msgid "Start Time"
-msgstr ""
+msgstr "Orario d'inizio"
 
 msgid "Now"
-msgstr ""
+msgstr "Ora"
 
 msgid "Later"
-msgstr ""
+msgstr "Dopo"
 
 msgid "return"
-msgstr ""
+msgstr "rendimento"
 
 msgid "Portfolio"
-msgstr ""
+msgstr "Portfolio"
 
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
-#, fuzzy
 msgid "Digit Stats"
-msgstr "Cifra uguale"
+msgstr "Statistiche per una cifra"
 
 msgid "Favorites"
-msgstr ""
+msgstr "Preferiti"
 
 msgid "Open For Trading"
-msgstr ""
+msgstr "Aperto al trading"
 
-#, fuzzy
 msgid "Closed"
-msgstr "Chiude"
+msgstr "Chiuso"
 
 msgid "Contract ID"
-msgstr ""
+msgstr "ID del contratto"
 
 msgid "Reference ID"
-msgstr ""
+msgstr "ID di riferimento"
 
-#, fuzzy
 msgid "Entry Spot"
-msgstr "Punto d'ingresso"
+msgstr "Prezzo d'ingresso"
 
-#, fuzzy
 msgid "Entry Spot Time"
-msgstr "Punto d'ingresso"
+msgstr "Orario del prezzo d'ingresso"
 
 msgid "Potential Payout"
-msgstr ""
+msgstr "Payout potenziale"
 
 #, fuzzy
 msgid "Exit Spot"
 msgstr "Prezzo di uscita"
 
-#, fuzzy
 msgid "Exit Spot Time"
-msgstr "Prezzo di uscita"
+msgstr "Orario del prezzo di uscita"
 
 #, fuzzy
 msgid "Sell Price"
 msgstr "Prezzo di vendita"
 
-#, fuzzy
 msgid "Sell Time"
-msgstr "Vendi"
+msgstr "Orario di vendita"
 
-#, fuzzy
 msgid "Trade Again"
-msgstr "Trade"
+msgstr "Negozia di nuovo"
 
 msgid "Barrier"
-msgstr ""
+msgstr "Barriera"
 
 msgid "You Won"
-msgstr ""
+msgstr "Hai vinto"
 
 msgid "You Lost"
-msgstr ""
+msgstr "Hai perso"
 
 msgid ""
 "To change your name, date of birth, country of residence, or email, contact "
 "Customer Support."
 msgstr ""
+"Per modificare il tuo nome, data di nascita, paese di residenza o email, "
+"contatta l'Assistenza Clienti."
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
 msgstr ""
+"Come da tua richiesta, la cassa è bloccata. Per sbloccarla, inserisci la "
+"password."
 
 msgid "Unlock Cashier"
-msgstr ""
+msgstr "Sblocca la cassa"
 
 msgid "Time out until"
-msgstr ""
+msgstr "Tempo scaduto fino a"
 
 msgid "No transactions for the selected period"
 msgstr "Non ci sono transazioni per il periodo selezionato"
 
 msgid "You have no open contracts"
-msgstr ""
+msgstr "Non hai alcun contratto aperto"
 
 msgid "You have no assets in watchlist"
-msgstr ""
+msgstr "Non hai asset nell'elenco"
 
 msgid "Basic"
-msgstr ""
+msgstr "Base"
 
-#, fuzzy
 msgid "Digits"
-msgstr "Cifra uguale"
+msgstr "Cifre"
 
 msgid "Advanced"
-msgstr ""
+msgstr "Avanzato"
 
 msgid "Higher"
-msgstr ""
+msgstr "Superiore"
 
 msgid "Lower"
-msgstr ""
+msgstr "Inferiore"
 
-#, fuzzy
 msgid "Ends Outside"
-msgstr "Ends In/Out"
+msgstr "Termina fuori"
 
 msgid "Ends Between"
-msgstr ""
+msgstr "Termina fra"
 
 msgid "Stays Between"
-msgstr ""
+msgstr "Rimane fra"
 
 msgid "Goes Outside"
-msgstr ""
+msgstr "Goes Outside"
 
 #, fuzzy
 msgid "Does Not Touch"
 msgstr "No Touch"
 
-#, fuzzy
 msgid "Credit / Debit"
-msgstr "Credito/Debito"
+msgstr "Credito / Debito"
 
 msgid "Last 25 Ticks"
-msgstr ""
+msgstr "Ultimi 25 tick"
 
-#, fuzzy
 msgid "Last 50 Trades"
-msgstr "Ultimi 30 giorni"
+msgstr "Ultimi 50 trade"
 
-#, fuzzy
 msgid "Last 100 Trades"
-msgstr "Ultimi 30 giorni"
+msgstr "Ultimi 100 trade"
 
-#, fuzzy
 msgid "Last 500 Trades"
-msgstr "Ultimi 30 giorni"
+msgstr "Ultimi 500 trade"
 
-#, fuzzy
 msgid "Last 1000 Trades"
-msgstr "Ultimi 30 giorni"
+msgstr "Ultimi 1000 trade"
 
 msgid "Maximum Daily Turnover"
 msgstr "Turnover massimo giornaliero"
 
 msgid "Commodities"
-msgstr ""
+msgstr "Materie prime"
 
 msgid "Major Pairs"
-msgstr ""
+msgstr "Coppie principali"
 
 msgid "Minor Pairs"
-msgstr ""
+msgstr "Coppie minori"
 
 msgid "Smart FX"
-msgstr ""
+msgstr "Smart FX"
 
-#, fuzzy
 msgid "Volatility Indices"
-msgstr "Prezzo di vendita"
+msgstr "Indici di volatilità"
 
-#, fuzzy
 msgid "Indices"
-msgstr "Indicativo"
+msgstr "Indici"
 
 msgid "OTC Stocks"
-msgstr ""
+msgstr "Azioni OTC"
 
 msgid "Stated limits are subject to change without prior notice"
-msgstr ""
+msgstr "I limiti stabiliti possono essere modificati senza preavviso"
 
 msgid "Withdrawal Limits"
 msgstr "Limiti per i prelievi"
 
-#, fuzzy
 msgid "Withdrawal limit"
-msgstr "Limiti per i prelievi"
+msgstr "Limite per i prelievi"
 
 msgid "Already withdrawn"
-msgstr ""
+msgstr "Già prelevato"
 
 msgid "Current immediate maximum withdrawal"
-msgstr ""
+msgstr "Attuale prelievo massimo immediato"
 
-#, fuzzy
 msgid "Create Free Account"
-msgstr "Crea un account"
+msgstr "Crea un account gratis"
 
 msgid "Verification Code"
-msgstr ""
+msgstr "Codice di verifica"
 
 msgid "Confirm Password"
-msgstr ""
+msgstr "Conferma la password"
 
 msgid "Already have an account?"
-msgstr ""
+msgstr "Hai già un account?"
 
 msgid "Enter a valid verification code"
-msgstr ""
+msgstr "Inserisci un codice di verifica valido"
 
 msgid "Choose your country"
-msgstr ""
+msgstr "Scegli il tuo paese"
 
 msgid ""
 "Password should have lower and uppercase letters and 6 characters or more"
 msgstr ""
+"La password deve contenere lettere minuscole e maiuscole e almeno 6 caratteri"
 
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Le password non corrispondono"
 
 msgid "Enter a valid email"
-msgstr ""
+msgstr "Inserisci un indirizzo email valido"
 
 msgid "Number should between 10 to 120"
-msgstr ""
+msgstr "Il numero deve essere tra 10 e 120"
 
 msgid "Enter your first and last name"
-msgstr ""
+msgstr "Inserisci il tuo nome e cognome"
 
 msgid "City must not be empty"
-msgstr ""
+msgstr "La città non deve essere vuota"
 
 msgid "Address must not be empty"
-msgstr ""
+msgstr "L'indirizzo non deve essere vuoto"
 
 msgid "Enter a valid phone number"
-msgstr ""
+msgstr "Inserisci un numero di telefono valido"
 
 msgid "Select a secret question"
-msgstr ""
+msgstr "Seleziona una domanda segreta"
 
 msgid "Secret answer must be at least 4 characters"
-msgstr ""
+msgstr "La risposta segreta deve contenere almeno 4 caratteri"
 
 msgid "You need to agree to our Terms and Conditions"
-msgstr ""
+msgstr "Devi accettare i nostri Termini e condizioni"
 
 msgid "I agree to the"
-msgstr ""
+msgstr "Accetto i"
 
 msgid "terms and conditions"
-msgstr ""
+msgstr "termini e condizioni"
 
 msgid "Search for assets"
 msgstr "Ricerca di asset"
 
 msgid "Choose a Payment Agent"
-msgstr ""
+msgstr "Scegli un agente di pagamento"
 
 msgid "Confirm New Password"
-msgstr ""
+msgstr "Conferma la nuova password"
 
 msgid "First Name"
-msgstr ""
-
-#, fuzzy
-msgid "Last Name"
 msgstr "Nome"
 
+msgid "Last Name"
+msgstr "Cognome"
+
 msgid "Address First Line"
-msgstr ""
+msgstr "Prima riga dell'indirizzo"
 
 msgid "Address Second Line"
-msgstr ""
+msgstr "Seconda linea dell'indirizzo"
 
 msgid "Phone"
-msgstr ""
+msgstr "Telefono"
 
 msgid "Answer To Secret Question"
-msgstr ""
+msgstr "Rispondi alla domanda segreta"
 
 msgid "Switch to"
-msgstr ""
+msgstr "Passa a"
 
-#, fuzzy
 msgid "Single Trade"
-msgstr "Trade"
+msgstr "Trade singolo"
 
-#, fuzzy
 msgid "Multi Trade"
-msgstr "Trade"
+msgstr "Più trade"
 
 msgid "Current Password"
-msgstr ""
+msgstr "Password attuale"
 
 msgid "New Password"
-msgstr ""
+msgstr "Password nuova"
 
-#, fuzzy
 msgid "Last 50 Ticks"
-msgstr "Ultimi 30 giorni"
+msgstr "Ultimi 30 tick"
 
-#, fuzzy
 msgid "Last 100 Ticks"
-msgstr "Ultimi 30 giorni"
+msgstr "Ultimi 100 tick"
 
-#, fuzzy
 msgid "Last 500 Ticks"
-msgstr "Ultimi 30 giorni"
+msgstr "Ultimi 500 tick"
 
-#, fuzzy
 msgid "Last 1000 Ticks"
-msgstr "Ultimi 30 giorni"
+msgstr "Ultimi 1000 tick"
 
 msgid "Exit Full Screen"
-msgstr ""
+msgstr "Esci dallo schermo intero"
