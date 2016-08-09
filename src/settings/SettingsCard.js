@@ -1,15 +1,13 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { Tab, TabList } from 'binary-components';
 import SettingsPersonalDetails from './SettingsPersonalDetails';
-import SettingsCashier from './SettingsCashier';
 import SettingsSelfExclusion from './SettingsSelfExclusion';
 import SettingsLimits from './SettingsLimits';
-import SettingsChangePassword from './SettingsChangePassword';
+import SettingsPasswords from './SettingsPasswords';
 
 const components = [
 	SettingsPersonalDetails,
-	SettingsChangePassword,
-	SettingsCashier,
+	SettingsPasswords,
 	SettingsSelfExclusion,
 	SettingsLimits,
 ];
@@ -42,8 +40,7 @@ export default class SettingsCard extends PureComponent {
 					onChange={this.onTabChange}
 				>
 					<Tab text="Personal" />
-					<Tab text="Password" />
-					{!isVirtual && <Tab text="Cashier Lock" />}
+					<Tab text="Passwords" />
 					{!isVirtual && <Tab text="Self Exclusion" />}
 					{!isVirtual && <Tab text="Limits" />}
 				</TabList>

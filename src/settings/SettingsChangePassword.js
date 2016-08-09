@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Button, InputGroup, Error, Notice } from 'binary-components';
+import { Button, Legend, InputGroup, Error, Notice } from 'binary-components';
 import { isValidPassword } from 'binary-utils';
 import * as LiveData from '../_data/LiveData';
 
@@ -48,8 +48,8 @@ export default class SettingsChangePassword extends PureComponent {
 
         return (
             <form className="settings-change-password" onSubmit={this.onFormSubmit}>
-                <Notice text={'successfully updated'} />
-
+                <Legend text="Change Password" />
+                {/* <Notice text={'successfully updated'} /> */}
                 {serverError &&
                     <Error text={serverError} />
                 }
