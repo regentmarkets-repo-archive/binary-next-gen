@@ -12,7 +12,6 @@ export const selectSymbolDigitStat = createSelector(
              tradingOptions.get(selectedAsset).some(opt => opt.contract_category === 'digits');
 
          const selectAssetTicks = assetSupportsDigit && ticks.get(selectedAsset);
-         console.log(selectedAsset, tradingOptions, ticks.get(selectedAsset).toJS(), assetSupportsDigit);
          if (!selectAssetTicks) return [];
 
          const pipSize = assets.find(a => a.get('symbol') === selectedAsset).get('pip');

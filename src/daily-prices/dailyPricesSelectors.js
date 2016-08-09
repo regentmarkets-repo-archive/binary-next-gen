@@ -1,11 +1,11 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 import { epochToDate } from 'binary-utils';
-import { dailyPricesSelector } from '../_store/directSelectors';
+import { dailyPricesSelector, workspaceSelector } from '../_store/directSelectors';
 
 const currentAssetDailyPrices = createSelector(
-    dailyPricesSelector,
-    dailyPrices =>
-        (dailyPrices.get('R_100') || []).map(x => ({
+    [dailyPricesSelector, workspaceSelector],
+    (dailyPrices, workspace) =>
+        (dailyPrices.get(workspace.get('infoForAsset')) || []).map(x => ({
             date: epochToDate(x.get('epoch')),
             open: +x.get('open'),
             high: +x.get('high'),
