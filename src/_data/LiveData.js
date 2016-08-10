@@ -101,6 +101,7 @@ const initAuthorized = async (authData, store) => {
     api.getAssetIndex();
     api.getServerTime();
     api.getCandlesForLastNDays('R_100', 30);
+    store.dispatch(actions.getTradingOptions('R_100'));
     store.dispatch(actions.getTicksByCount('R_100', 100));
 
     api.getPortfolio();
