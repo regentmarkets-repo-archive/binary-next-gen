@@ -7,8 +7,9 @@ import RealityCheckInitialCard from './RealityCheckInitialCard';
 import RealityCheckSummaryCard from './RealityCheckSummaryCard';
 
 export default class RealityCheckWeb extends PureComponent {
+
     static propTypes = {
-        interval: PropTypes.number.isRequired,           // in seconds
+        interval: PropTypes.number.isRequired, // in seconds
         showInitial: PropTypes.bool,
         showSummary: PropTypes.bool,
         summary: PropTypes.object,

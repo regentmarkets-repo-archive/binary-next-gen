@@ -34,7 +34,7 @@ export default class DigitStatsCard extends PureComponent {
             return (
                 <EmptySlate
 					img="img/barchart.svg"
-					text="No Digit Trades For Asset"
+					text="No Digit Trades For This Asset"
                 />
             );
         }
