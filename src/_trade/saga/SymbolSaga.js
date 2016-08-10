@@ -5,7 +5,7 @@ import { updateMultipleTradeParams, updateTradingOptions, updateTradeUIState,
 import { api } from '../../_data/LiveData';
 import changeSymbol from '../updates/changeSymbol';
 import { getForceRenderCount, contractOfSymbol, getTicksOfSymbol, isSymbolOpen } from './SagaSelectors';
-import { createTrade } from './TradeParamSaga';
+import { createTrade } from './index';
 import { subscribeProposal, unsubscribeProposal } from './ProposalSubscriptionSaga';
 
 const CHANGE_SYMBOL = 'CHANGE_SYMBOL';
