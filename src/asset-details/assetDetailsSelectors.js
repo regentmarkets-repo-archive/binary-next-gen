@@ -7,7 +7,7 @@ const AssetDetailsRecord = new Record({
     isOpen: false,
 });
 
-export const activeAssetSelector = createSelector(
+const activeAssetSelector = createSelector(
 	[assetsSelector, workspaceSelector],
 	(assets, workspace) => {
 		const asset = assets.find(x => x.get('symbol') === workspace.get('infoForAsset'));
@@ -19,13 +19,13 @@ export const activeAssetSelector = createSelector(
 	}
 );
 
-export const activeAssetTradingTimesSelector = createSelector(
+const activeAssetTradingTimesSelector = createSelector(
 	[tradingTimesSelector, workspaceSelector],
 	(tradingTimes, workspace) =>
 		tradingTimes.find(x => x.get('symbol') === workspace.get('infoForAsset'))
 );
 
-export const activeAssetDurationsSelector = createSelector(
+const activeAssetDurationsSelector = createSelector(
 	[assetIndexSelector, workspaceSelector],
 	(assetIndex, workspace) =>
 		assetIndex.find(x => x.get(0) === workspace.get('infoForAsset'))
