@@ -9,4 +9,4 @@ export {
 export { reqPurchase, reqStakeChange } from './PurchaseSaga';
 export { reqSymbolChange } from './SymbolSaga';
 export { reqCatChange, reqTypeChange } from './TypeSaga';
-export { createTrade } from './index';
+export { createTrade, destroyTrade } from './LifeCycleSaga';

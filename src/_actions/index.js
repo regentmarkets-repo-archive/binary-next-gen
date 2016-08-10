@@ -38,4 +38,5 @@ export {
     reqStakeChange,
     reqTypeChange,
     createTrade,
+    destroyTrade,
 } from '../_trade/saga/SagaActions';

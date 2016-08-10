@@ -1,5 +1,5 @@
 import * as types from '../_constants/ActionTypes';
-import { createTrade } from '../_trade/saga';
+import { createTrade, destroyTrade } from '../_trade/saga/LifeCycleSaga';
 import { getTradingOptions } from './TradingOptionsActions';
 import { getTicksByCount } from './TickActions';
 import { api } from '../_data/LiveData';
@@ -40,7 +40,15 @@ export const changeActiveLayout = (tradesCount, layoutN) =>
         const { assets, tradesParams } = getState();
         const currentTradeCount = tradesParams.size;
         const additionTradeNeeded = tradesCount - currentTradeCount;
-        if (additionTradeNeeded < 1) {
+
+        if (additionTradeNeeded < 0) {
+            for (let i = 0; i < currentTradeCount - tradesCount; i++) {
+                dispatch(destroyTrade(i + tradesCount));
+            }
+            return dispatch(updateActiveLayout(tradesCount, layoutN));
+        }
+
+        if (additionTradeNeeded === 0) {
             return dispatch(updateActiveLayout(tradesCount, layoutN));
         }
 
