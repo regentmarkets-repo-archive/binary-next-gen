@@ -11,24 +11,23 @@ export default class WatchlistCard extends PureComponent {
 
 	render() {
 		const { watchlistView } = this.props;
-
 		return (
-			<div className="watchlist-card">
-				<AnimatedPopup shown>
-					{watchlistView.size === 0 ?
-						<EmptySlate
-							img="img/watchlist.svg"
-							text="You have no assets in watchlist"
-						/> :
-						watchlistView.map(x =>
-						<WatchlistItem
-							key={x.get('symbol')}
-							item={x}
-							onSelect={this.onSelect}
-						/>
-					)}
-				</AnimatedPopup>
-			</div>
+			watchlistView.size === 0 ?
+				<EmptySlate
+					img="img/watchlist.svg"
+					text="You have no assets in watchlist"
+				/> :
+				<div className="watchlist-card">
+					<AnimatedPopup shown>
+						{watchlistView.map(x =>
+							<WatchlistItem
+								key={x.get('symbol')}
+								item={x}
+								onSelect={this.onSelect}
+							/>
+						)}
+					</AnimatedPopup>
+				</div>
 		);
 	}
 }

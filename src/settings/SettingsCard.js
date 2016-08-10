@@ -3,11 +3,11 @@ import { Tab, TabList } from 'binary-components';
 import SettingsPersonalDetails from './SettingsPersonalDetails';
 import SettingsSelfExclusion from './SettingsSelfExclusion';
 import SettingsLimits from './SettingsLimits';
-import SettingsPasswords from './SettingsPasswords';
+import SettingsSecurity from './SettingsSecurity';
 
 const components = [
 	SettingsPersonalDetails,
-	SettingsPasswords,
+	SettingsSecurity,
 	SettingsSelfExclusion,
 	SettingsLimits,
 ];
@@ -25,7 +25,8 @@ export default class SettingsCard extends PureComponent {
 		this.state = { activeTab: 0 };
 	}
 
-	onTabChange = idx => this.setState({ activeTab: idx });
+	onTabChange = idx =>
+		this.setState({ activeTab: idx });
 
 	render() {
 		const { loginid, settings } = this.props;
@@ -40,7 +41,7 @@ export default class SettingsCard extends PureComponent {
 					onChange={this.onTabChange}
 				>
 					<Tab text="Personal" />
-					<Tab text="Passwords" />
+					<Tab text="Security" />
 					{!isVirtual && <Tab text="Self Exclusion" />}
 					{!isVirtual && <Tab text="Limits" />}
 				</TabList>
