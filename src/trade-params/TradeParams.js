@@ -13,17 +13,18 @@ import TradeTypeDropDown from '../trade-type-picker/TradeTypeDropDown';
 import AssetPickerDropDown from '../asset-picker/AssetPickerDropDown';
 import BuyButton from './BuyButton';
 
-const errorToShow = errorObj => {
-    const { barrierError, contractError, durationError, proposalError, purchaseError, stakeError } = errorObj;
+const errorKeys = [
+    'contractError',
+    'barrierError',
+    'durationError',
+    'stakeError',
+    'proposalError',
+    'purchaseError',
+    'other',
+];
 
-    if (contractError) return contractError;
-    if (barrierError) return barrierError;
-    if (durationError) return durationError;
-    if (stakeError) return stakeError;
-    if (proposalError) return proposalError;
-    if (purchaseError) return purchaseError;
-    return errorObj.other;
-};
+const errorToShow = errorObj =>
+    errorObj[errorKeys.find(x => errorObj[x])];
 
 const expirtyTypeFromDurationUnit = durationUnit => ({
     t: 'tick',
