@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { askPriceFromProposal, windowResizeEvent } from 'binary-utils';
-import { Error } from 'binary-components';
+import { ServerError } from 'binary-components';
 import { actions } from '../_store';
 import BarrierCard from '../barrier-picker/BarrierCard';
 // import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
@@ -126,7 +126,7 @@ export default class TradeParams extends PureComponent {
 
         return (
             <div className="trade-params" key={this.state.dynamicKey} style={style}>
-                <Error text={errorText} />
+                <ServerError text={errorText} />
                 <AssetPickerDropDown
                     index={index}
                     selectedSymbol={tradeParams.symbol}
