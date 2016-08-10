@@ -8,12 +8,6 @@ import AssetDetailsCard from '../asset-details/AssetDetailsCard';
 import DailyPricesCard from '../daily-prices/DailyPricesCard';
 import DigitStatsCard from '../digit-stats/DigitStatsCard';
 
-const components = [
-	AssetDetailsCard,
-	DigitStatsCard,
-	DailyPricesCard,
-];
-
 @connect(AssetInfoSelector)
 export default class AssetInfoCard extends PureComponent {
 	static propTypes = {
@@ -42,21 +36,6 @@ export default class AssetInfoCard extends PureComponent {
 	render() {
 		const { activeTab } = this.state;
 		const { details, digitStats, dailyPrices } = this.props;
-		const ActiveComponent = components[activeTab];
-
-		let activeInstance;
-		switch (activeTab) {
-			case 0:
-				activeInstance = <ActiveComponent {...immutableChildrenToJS(details)} />;
-				break;
-			case 1:
-				activeInstance = <ActiveComponent {...immutableChildrenToJS(digitStats)} />;
-				break;
-			case 2:
-				activeInstance = <ActiveComponent {...immutableChildrenToJS(dailyPrices)} />;
-				break;
-			default:
-		}
 
 		return (
 			<div className="asset-info-card">
@@ -66,10 +45,12 @@ export default class AssetInfoCard extends PureComponent {
 					onChange={this.onTabChange}
 				>
 					<Tab text="Details" />
-					{digitStats && <Tab text="Digit Stats" />}
+					<Tab text="Digit Stats" />
 					<Tab text="Daily Prices" />
 				</TabList>
-				{activeInstance}
+				{activeTab === 0 && <AssetDetailsCard {...immutableChildrenToJS(details)} />}
+				{activeTab === 1 && <DigitStatsCard {...immutableChildrenToJS(digitStats)} />}
+				{activeTab === 2 && <DailyPricesCard {...immutableChildrenToJS(dailyPrices)} />}
 			</div>
 		);
 	}

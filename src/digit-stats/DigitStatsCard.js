@@ -1,12 +1,13 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { DigitStatsChart } from 'binary-components';
+import EmptySlate from '../containers/EmptySlate';
 import { actions } from '../_store';
 import DigitStatsFilter from './DigitStatsFilter';
 
 export default class DigitStatsCard extends PureComponent {
 
     static propTypes = {
-        symbol: PropTypes.string.isRequired,
+        symbol: PropTypes.string,
         filter: PropTypes.number,
         stats: PropTypes.array,
     };
@@ -29,7 +30,14 @@ export default class DigitStatsCard extends PureComponent {
     render() {
         const { filter, stats } = this.props;
 
-        if (stats.length === 0) return null;
+        if (!stats) {
+            return (
+                <EmptySlate
+					img="img/barchart.svg"
+					text="No Digit Trades For Asset"
+                />
+            );
+        }
 
         return (
             <div className="digit-stats-card">
