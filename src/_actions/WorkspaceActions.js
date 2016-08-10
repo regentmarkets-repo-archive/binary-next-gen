@@ -1,10 +1,26 @@
 import * as types from '../_constants/ActionTypes';
-import { createTrade } from '../_trade/saga/index';
+import { createTrade } from '../_trade/saga';
+import { getTradingOptions } from './TradingOptionsActions';
+import { getTicksByCount } from './TickActions';
+import { api } from '../_data/LiveData';
 
-export const changeInfoForAsset = symbol => ({
-    type: types.CHANGE_INFO_FOR_ASSET,
-    symbol,
-});
+const getDailyPrices = symbol =>
+    (dispatch, getState) => {
+        const { dailyPrices } = getState();
+        if (!dailyPrices.get(symbol)) {
+            return api.getCandlesForLastNDays(symbol, 30);
+        }
+        return Promise.resolve();
+    };
+
+export const changeInfoForAsset = symbol =>
+    dispatch => {
+        const tradingOptions = dispatch(getTradingOptions(symbol));
+        const dailyPrices = dispatch(getDailyPrices(symbol));
+        const digitStats = dispatch(getTicksByCount(symbol, 100));
+        Promise.all([tradingOptions, dailyPrices, digitStats])
+            .then(() => dispatch({ type: types.CHANGE_INFO_FOR_ASSET, symbol }));
+    };
 
 export const changeActiveTab = (panel, index) => ({
     type: types.CHANGE_ACTIVE_TAB,

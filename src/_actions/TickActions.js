@@ -44,7 +44,21 @@ export const getTicksBySymbol = symbol =>
 export const getTicksByCount = (symbol, count) =>
     (dispatch, getState) => {
         const { ticks } = getState();
-        if (ticks.get(symbol) && ticks.get(symbol).size < count) {
+        if (!ticks.get(symbol)) {
+            return LiveData.api
+                .getTickHistory(symbol, { end: 'latest', count, adjust_start_time: 1, subscribe: 1 })
+                .catch(err => {
+                    const errCode = err.error.code;
+                    if (errCode === 'MarketIsClosed' || errCode === 'NoRealtimeQuotes') {
+                        return LiveData.api
+                            .getTickHistory(symbol, { end: 'latest', count, adjust_start_time: 1 });
+                    }
+                    return Promise.reject(err);
+                });
+        }
+
+        // having ticks implies already subscribe if possible
+        if (ticks.get(symbol).size < count) {
             return LiveData.api.getTickHistory(symbol, { end: 'latest', count, adjust_start_time: 1 });
         }
         return Promise.resolve();
