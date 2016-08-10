@@ -1,10 +1,26 @@
 import * as types from '../_constants/ActionTypes';
-import { createTrade } from '../_trade/saga/TradeParamSaga';
+import { createTrade, destroyTrade } from '../_trade/saga/LifeCycleSaga';
+import { getTradingOptions } from './TradingOptionsActions';
+import { getTicksByCount } from './TickActions';
+import { api } from '../_data/LiveData';
 
-export const changeInfoForAsset = symbol => ({
-    type: types.CHANGE_INFO_FOR_ASSET,
-    symbol,
-});
+const getDailyPrices = symbol =>
+    (dispatch, getState) => {
+        const { dailyPrices } = getState();
+        if (!dailyPrices.get(symbol)) {
+            return api.getCandlesForLastNDays(symbol, 30);
+        }
+        return Promise.resolve();
+    };
+
+export const changeInfoForAsset = symbol =>
+    dispatch => {
+        const tradingOptions = dispatch(getTradingOptions(symbol));
+        const dailyPrices = dispatch(getDailyPrices(symbol));
+        const digitStats = dispatch(getTicksByCount(symbol, 100));
+        Promise.all([tradingOptions, dailyPrices, digitStats])
+            .then(() => dispatch({ type: types.CHANGE_INFO_FOR_ASSET, symbol }));
+    };
 
 export const changeActiveTab = (panel, index) => ({
     type: types.CHANGE_ACTIVE_TAB,
@@ -24,7 +40,15 @@ export const changeActiveLayout = (tradesCount, layoutN) =>
         const { assets, tradesParams } = getState();
         const currentTradeCount = tradesParams.size;
         const additionTradeNeeded = tradesCount - currentTradeCount;
-        if (additionTradeNeeded < 1) {
+
+        if (additionTradeNeeded < 0) {
+            for (let i = 0; i < currentTradeCount - tradesCount; i++) {
+                dispatch(destroyTrade(i + tradesCount));
+            }
+            return dispatch(updateActiveLayout(tradesCount, layoutN));
+        }
+
+        if (additionTradeNeeded === 0) {
             return dispatch(updateActiveLayout(tradesCount, layoutN));
         }
 

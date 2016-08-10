@@ -81,10 +81,6 @@ export default class TradeParams extends PureComponent {
         windowResizeEvent();
     }
 
-    componentWillUnmount() {
-        // TODO: fire action to saga
-    }
-
     onCloseModal = () => {
         const { index } = this.props;
         actions.updateTradeError(index, 'purchaseError', undefined);
