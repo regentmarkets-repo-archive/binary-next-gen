@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Button, Legend, InputGroup, Error, Notice } from 'binary-components';
+import { Button, Legend, InputGroup, Error } from 'binary-components';
 import { isValidPassword } from 'binary-utils';
 import * as LiveData from '../_data/LiveData';
 
