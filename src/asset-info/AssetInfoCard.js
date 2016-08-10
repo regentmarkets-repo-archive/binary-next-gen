@@ -1,5 +1,8 @@
 import React, { PropTypes, PureComponent } from 'react';
+import { connect } from 'react-redux';
+import { immutableChildrenToJS } from 'binary-utils';
 import { Tab, TabList } from 'binary-components';
+import AssetInfoSelector from './AssetInfoSelector';
 import AssetInfoFilter from './AssetInfoFilter';
 import AssetDetailsCard from '../asset-details/AssetDetailsCard';
 import DailyPricesCard from '../daily-prices/DailyPricesCard';
@@ -16,6 +19,7 @@ const withoutDigits = [
 	DailyPricesCard,
 ];
 
+@connect(AssetInfoSelector)
 export default class AssetInfoCard extends PureComponent {
 	static propTypes = {
 		details: PropTypes.object.isRequired,
@@ -48,13 +52,13 @@ export default class AssetInfoCard extends PureComponent {
 		let activeInstance;
 		switch (activeTab) {
 			case 0:
-				activeInstance = <ActiveComponent {...details} />;
+				activeInstance = <ActiveComponent {...immutableChildrenToJS(details)} />;
 				break;
 			case 1:
-				activeInstance = <ActiveComponent {...digitStats} />;
+				activeInstance = <ActiveComponent {...immutableChildrenToJS(digitStats)} />;
 				break;
 			case 2:
-				activeInstance = <ActiveComponent {...dailyPrices} />;
+				activeInstance = <ActiveComponent {...immutableChildrenToJS(dailyPrices)} />;
 				break;
 			default:
 		}
