@@ -8,23 +8,18 @@ import AssetDetailsCard from '../asset-details/AssetDetailsCard';
 import DailyPricesCard from '../daily-prices/DailyPricesCard';
 import DigitStatsCard from '../digit-stats/DigitStatsCard';
 
-const withDigits = [
+const components = [
 	AssetDetailsCard,
 	DigitStatsCard,
-	DailyPricesCard,
-];
-
-const withoutDigits = [
-	AssetDetailsCard,
 	DailyPricesCard,
 ];
 
 @connect(AssetInfoSelector)
 export default class AssetInfoCard extends PureComponent {
 	static propTypes = {
-		details: PropTypes.object.isRequired,
+		details: PropTypes.object,
 		digitStats: PropTypes.object,
-		dailyPrices: PropTypes.object.isRequired,
+		dailyPrices: PropTypes.object,
 	};
 
 	constructor(props) {
@@ -47,7 +42,7 @@ export default class AssetInfoCard extends PureComponent {
 	render() {
 		const { activeTab } = this.state;
 		const { details, digitStats, dailyPrices } = this.props;
-		const ActiveComponent = digitStats ? withDigits[activeTab] : withoutDigits[activeTab];
+		const ActiveComponent = components[activeTab];
 
 		let activeInstance;
 		switch (activeTab) {
