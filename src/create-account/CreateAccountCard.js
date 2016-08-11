@@ -10,6 +10,7 @@ export default class CrateAccountCard extends PureComponent {
 
     static contextTypes = {
         router: PropTypes.object.isRequired,
+        residenceList: PropTypes.array,
     };
 
     constructor(props) {

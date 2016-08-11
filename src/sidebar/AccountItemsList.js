@@ -14,7 +14,7 @@ export default class AccountItemsList extends PureComponent {
 
 	render() {
 		const { loginid, accounts } = this.props;
-		const shouldShowUpgrade = accounts.length === 1;
+		const shouldShowUpgrade = accounts.length < 2;
 
 		return (
 			<div className="account-items-list">

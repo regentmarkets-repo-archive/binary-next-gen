@@ -9,6 +9,7 @@ export default class UpgradeCard extends PureComponent {
 
 	static contextTypes = {
 		router: PropTypes.object.isRequired,
+        residenceList: PropTypes.array,
 	};
 
 	constructor(props) {
@@ -26,13 +27,6 @@ export default class UpgradeCard extends PureComponent {
 			secretQuestion: '',
 			secretAnswer: '',
 		};
-	}
-
-	componentWillReceiveProps(nextProps) {
-		const { router } = this.context;
-		if (nextProps.upgrade.get('success')) {
-			router.push('/');
-		}
 	}
 
 	onEntryChange = e =>
@@ -132,6 +126,7 @@ export default class UpgradeCard extends PureComponent {
 	render() {
 		const { firstName, lastName, residence, addressLine1, addressCity, secretQuestion, secretAnswer,
 			phone, termsAndConditions, progress, serverError, validatedOnce } = this.state;
+		const { residenceList } = this.props;
 
 		const firstNameIsValid = firstName.length >= 2;
 		const lastNameIsValid = lastName.length >= 2;
@@ -190,7 +185,7 @@ export default class UpgradeCard extends PureComponent {
 					</div>
 					<Legend text="Home Address" />
 					<div className="input-row">
-						<Countries onChange={this.onCountryChange} />
+						<Countries onChange={this.onCountryChange} residenceList={residenceList} />
 						<select onChange={this.onStateChange}>
 							{[].map(x => (
 								<option key={x.value} value={x.value}>{x.text}</option>

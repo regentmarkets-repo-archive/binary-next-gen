@@ -1,6 +1,6 @@
 import WebHeader from '../web/WebHeader';
 import CreateAccountPage from '../create-account/CreateAccountPage';
-import UpgradePage from '../upgrade/UpgradePage';
+import UpgradeContainer from '../upgrade/UpgradeContainer';
 import WatchlistPage from '../watchlist/WatchlistPage';
 import AssetDetailsPage from '../asset-details/AssetDetailsPage';
 import AssetIndexPage from '../asset-index/AssetIndexPage';
@@ -38,7 +38,7 @@ export default [
     { path: 'portfolio-only', component: PortfolioPage, onEnter: requireAuthOnEnter },
     { path: 'statement-only', component: StatementPage, onEnter: requireAuthOnEnter },
     { path: 'signup-only', component: CreateAccountPage },
-    { path: 'upgrade-only', component: UpgradePage },
+    { path: 'upgrade-only', component: UpgradeContainer },
     { path: 'watchlist-only', component: WatchlistPage, onEnter: requireAuthOnEnter },
     { path: 'asset-details-only', component: AssetDetailsPage },
     { path: 'asset-index', component: AssetIndexPage, onEnter: requireAuthOnEnter, childRoutes: [
