@@ -1,6 +1,6 @@
 import { Record } from 'immutable';
 import { createSelector, createStructuredSelector } from 'reselect';
-import { assetIndexSelector, assetsSelector, tradingTimesSelector, workspaceSelector } from '../_store/directSelectors';
+import { assetIndexSelector, assetsSelector, tradingTimesSelector } from '../_store/directSelectors';
 
 const AssetDetailsRecord = new Record({
 	name: '',
@@ -8,9 +8,9 @@ const AssetDetailsRecord = new Record({
 });
 
 const activeAssetSelector = createSelector(
-	[assetsSelector, workspaceSelector],
-	(assets, workspace) => {
-		const asset = assets.find(x => x.get('symbol') === workspace.get('infoForAsset'));
+	[assetsSelector],
+	(assets) => {
+		const asset = assets.find(a => a.get('exchange_is_open') === 1);
 
 		return new AssetDetailsRecord(asset ? {
 			name: asset.get('display_name'),
@@ -20,15 +20,19 @@ const activeAssetSelector = createSelector(
 );
 
 const activeAssetTradingTimesSelector = createSelector(
-	[tradingTimesSelector, workspaceSelector],
-	(tradingTimes, workspace) =>
-		tradingTimes.find(x => x.get('symbol') === workspace.get('infoForAsset'))
+	[tradingTimesSelector, assetsSelector],
+	(tradingTimes, assets) => {
+		const selectedAsset = assets.find(a => a.get('exchange_is_open') === 1).get('symbol');
+		return tradingTimes.find(x => x.get('symbol') === selectedAsset);
+	}
 );
 
 const activeAssetDurationsSelector = createSelector(
-	[assetIndexSelector, workspaceSelector],
-	(assetIndex, workspace) =>
-		assetIndex.find(x => x.get(0) === workspace.get('infoForAsset'))
+	[assetIndexSelector, assetsSelector],
+	(assetIndex, assets) => {
+		const selectedAsset = assets.find(a => a.get('exchange_is_open') === 1).get('symbol');
+		return assetIndex.find(x => x.get(0) === selectedAsset);
+	}
 );
 
 export default createStructuredSelector({
