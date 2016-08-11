@@ -1,3 +1,5 @@
+/* @flow */
+
 import { trackEvent } from 'binary-utils/lib/Analytics';
 import * as types from '../_constants/ActionTypes';
 import * as LiveData from '../_data/LiveData';

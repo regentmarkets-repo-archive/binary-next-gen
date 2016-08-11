@@ -64,8 +64,8 @@ export default class CrateAccountCard extends PureComponent {
             // use react router because we want hash history in mobile
             this.context.router.push('/');
             window.location.reload();
-        } catch (error) {
-            this.setState({ serverError: error.message });
+        } catch (e) {
+            this.setState({ serverError: e.error.error.message });
         } finally {
             this.setState({
                 progress: false,

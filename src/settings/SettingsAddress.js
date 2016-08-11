@@ -52,7 +52,7 @@ export default class SettingsAddress extends PureComponent {
 				phone,
 			});
 		} catch (e) {
-			this.setState({ serverError: e.message });
+			this.setState({ serverError: e.error.error.message });
 		}
 	}
 

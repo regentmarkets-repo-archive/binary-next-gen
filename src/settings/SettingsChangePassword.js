@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Button, Legend, InputGroup, Error } from 'binary-components';
+import { Button, Legend, InputGroup, ServerError } from 'binary-components';
 import { isValidPassword } from 'binary-utils';
 import * as LiveData from '../_data/LiveData';
 
@@ -35,7 +35,7 @@ export default class SettingsChangePassword extends PureComponent {
             await LiveData.api.changePassword(currentPassword, newPassword);
             this.setState({ success: true });
         } catch (e) {
-            this.setState({ serverError: e.message });
+            this.setState({ serverError: e.error.error.message });
         }
     }
 
@@ -51,7 +51,7 @@ export default class SettingsChangePassword extends PureComponent {
                 <Legend text="Change Password" />
                 {/* <Notice text={'successfully updated'} /> */}
                 {serverError &&
-                    <Error text={serverError} />
+                    <ServerError text={serverError} />
                 }
                 {/* {validatedOnce && successMessage &&
                     <Notice text="Password changed successfully." />

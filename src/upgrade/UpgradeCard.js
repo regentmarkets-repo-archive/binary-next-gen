@@ -119,8 +119,8 @@ export default class UpgradeCard extends PureComponent {
             });
 			localStorage.setItem('account', JSON.stringify({ token: response.new_account_real.oauth_token }));
             window.location = '/';
-        } catch (error) {
-            this.setState({ serverError: error.message });
+        } catch (e) {
+            this.setState({ serverError: e.error.error.message });
         } finally {
             this.setState({
                 progress: false,
