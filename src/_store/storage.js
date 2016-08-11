@@ -1,0 +1,1 @@
+export { localStorage as default };

@@ -1,5 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { M } from 'binary-components';
+import storage from '../_store/storage';
 
 export default class AccountMenuItem extends PureComponent {
 
@@ -10,7 +11,7 @@ export default class AccountMenuItem extends PureComponent {
 
 	switchToAccount = () => {
 		const { token } = this.props;
-		localStorage.setItem('account', JSON.stringify({ token }));
+		storage.setItem('account', JSON.stringify({ token }));
 		window.location.reload();
 	};
 

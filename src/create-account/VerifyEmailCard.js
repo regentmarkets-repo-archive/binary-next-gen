@@ -64,7 +64,6 @@ export default class VerifyEmailCard extends PureComponent {
 				<form onSubmit={this.onFormSubmit}>
 					<InputGroup
 						type="email"
-                        autofocus
 						placeholder="Email"
 						onChange={this.onEmailChange}
 					/>

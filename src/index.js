@@ -3,6 +3,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 // import Perf from 'react-addons-perf';
 import Root from './_store/root';
+import storage from './_store/storage';
 
 // import { whyDidYouUpdate } from 'why-did-you-update';
 // whyDidYouUpdate(React, { exclude: [/^Connect/, /IntlProvider/, /BootProvider/] });
@@ -24,7 +25,7 @@ window._trackJs = { // eslint-disable-line no-underscore-dangle
     token: '346262e7ffef497d85874322fff3bbf8',
     application: appName,
     enabled: appName !== '???',
-	userId: (JSON.parse(localStorage.getItem('account')) || {}).loginid,
+	userId: (JSON.parse(storage.getItem('account')) || {}).loginid,
 };
 require('trackjs');
 

@@ -1,6 +1,7 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { SelectGroup } from 'binary-components';
+import storage from '../_store/storage';
 import languages from '../_constants/languages';
 
 @connect(state => ({ selected: state.boot.get('language') }))
@@ -17,7 +18,7 @@ export default class LanguagePicker extends PureComponent {
 
     changeLanguage = event => {
         window.BinaryBoot.language = event.target.value;
-        localStorage.setItem('boot', JSON.stringify(window.BinaryBoot));
+        storage.setItem('boot', JSON.stringify(window.BinaryBoot));
         window.location.reload();
     }
 

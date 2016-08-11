@@ -52,7 +52,6 @@
     }
 
 
-
     var apiUrl = 'wss://ws.binaryws.com/websockets/v3';
 
     readConfig();

@@ -2,6 +2,7 @@ import React, { PureComponent, PropTypes } from 'react';
 import { M, InputGroup, LogoSpinner, Legend, Button, Option,
 	Error, DateOfBirth, Countries } from 'binary-components';
 import { api } from '../_data/LiveData';
+import storage from '../_store/storage';
 import SecretQuestion from './SecretQuestion';
 
 export default class UpgradeCard extends PureComponent {
@@ -117,7 +118,7 @@ export default class UpgradeCard extends PureComponent {
 				secret_question: secretQuestion,
 				secret_answer: secretAnswer,
             });
-			localStorage.setItem('account', JSON.stringify({ token: response.new_account_real.oauth_token }));
+			storage.setItem('account', JSON.stringify({ token: response.new_account_real.oauth_token }));
             window.location = '/';
         } catch (e) {
             this.setState({ serverError: e.error.error.message });

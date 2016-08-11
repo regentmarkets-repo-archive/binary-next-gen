@@ -2,6 +2,7 @@ import React, { PureComponent, PropTypes } from 'react';
 import { Notice, Button, Countries, Error, InputGroup, LogoSpinner } from 'binary-components';
 import { isValidPassword } from 'binary-utils';
 import { api } from '../_data/LiveData';
+import storage from '../_store/storage';
 import { actions } from '../_store';
 import config from '../config';
 
@@ -46,7 +47,7 @@ export default class CrateAccountCard extends PureComponent {
     }
 
     performCreateAccount = async () => {
-        const { password, verificationCode, residence } = this.state;
+        const { password, verificationCode, residence/* , utm_source, utm_medium, utm_campaign */ } = this.state;
         actions.removePersonalData();
         try {
             this.setState({
@@ -54,13 +55,15 @@ export default class CrateAccountCard extends PureComponent {
                 serverError: false,
             });
             const response = await api.createVirtualAccount({
-                // email,
                 verification_code: verificationCode,
                 client_password: password,
                 residence,
                 affiliate_token: config.affiliateToken,
+                // utm_source,
+                // utm_medium,
+                // utm_campaign,
             });
-            localStorage.setItem('account', JSON.stringify({ token: response.new_account_virtual.oauth_token }));
+            storage.setItem('account', JSON.stringify({ token: response.new_account_virtual.oauth_token }));
             // use react router because we want hash history in mobile
             this.context.router.push('/');
             window.location.reload();
