@@ -13,10 +13,10 @@ const components = [
 	PortfolioContainer,
 	StatementContainer,
 	WatchlistContainer,
-	TradingTimesContainer,
-	AssetIndexContainer,
 	VideoListContainer,
 	NewsContainer,
+	TradingTimesContainer,
+	AssetIndexContainer,
 	AssetInfoCard,
 	SettingsContainer,
 ];

@@ -6,7 +6,7 @@
 .layoutBtnContainer {
     width: 18rem;
     padding: 1rem;
-    background: #2a3052;
+    background: $COLOR_BRAND_BLUE;
     color: white;
 }
 
