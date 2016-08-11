@@ -3,19 +3,23 @@
     background: $COLOR_BRAND_BLUE;
     color: white;
     justify-content: space-between;
+
     #hamburger-btn {
         line-height: 3;
         display: block;
+
         > .sidebar {
             top: -300px !important;
             left: inherit;
             right: 0;
         }
     }
+
     #hamburger-opener:checked + #hamburger-btn > .sidebar {
         top: 3.5rem !important;
         left: inherit;
     }
+
     .balance {
         font-size: 1.25rem;
         line-height: 2 !important;
@@ -24,6 +28,7 @@
 
 #hamburger-opener {
     display: none;
+
     &:checked + #hamburger-btn > .sidebar {
         left: 0.5rem;
         transition: 0.3s;
@@ -32,6 +37,7 @@
 
 #hamburger-btn {
     cursor: pointer;
+
     > .sidebar {
         position: absolute;
         left: -300px;
@@ -54,6 +60,7 @@
 
 #hamburger-closer {
     display: none;
+
     &:checked + #hamburger-overlay {
         visibility: hidden;
         opacity: 0;
@@ -63,8 +70,10 @@
 
 #logo {
     margin: 0.25rem;
+
     img {
         height: 2rem;
+
         &:nth-child(2) {
             margin-left: 0.25rem;
             height: 1.75rem;

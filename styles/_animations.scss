@@ -59,6 +59,7 @@
 
 .progress {
     @extend .spinner;
+
     background-image: url('https://binary.com/images/pages/binary-symbol-logo.svg');
     background-size: contain;
     width: 2rem;
@@ -71,12 +72,14 @@
 
 .popup-enter {
     opacity: 0.01;
+
     > .modal,
     > .mobile-content,
     > .screen,
     > .article {
         transform: scale(0.9) translateY(4rem);
     }
+
     > .drop-down {
         transform: scale(0.75) translateY(-4rem);
     }
@@ -84,9 +87,11 @@
 
 .popup-enter.popup-enter-active {
     opacity: 1;
+
     > .workspace-panel {
         transform: scale(1);
     }
+
     > .modal,
     > .mobile-content,
     > .drop-down,
@@ -98,9 +103,11 @@
 
 .popup-leave {
     opacity: 1;
+
     > .workspace-panel {
         transform: scale(1);
     }
+
     > .modal,
     > .mobile-content,
     > .screen,
@@ -112,14 +119,17 @@
 
 .popup-leave.popup-leave-active {
     opacity: 0.01;
+
     > .workspace-panel {
         transform: scale(0.75);
     }
+
     > .modal,
     > .mobile-content,
     > .article {
         transform: scale(0.75) translateY(8rem);
     }
+
     > .drop-down {
         transform: scale(0.75) translateY(-6rem);
     }

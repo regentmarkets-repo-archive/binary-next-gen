@@ -20,9 +20,11 @@
     display: inline-block;
     text-decoration: none;
     color: $COLOR_TEXT;
+
     p {
         margin: 0;
     }
+
     &:hover {
         box-shadow: 0 0 0 0.25rem rgba($COLOR_BRAND_BLUE, 0.25);
     }

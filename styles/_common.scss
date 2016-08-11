@@ -54,13 +54,13 @@ form {
     color: white;
     background: $COLOR_RED;
     border-radius: $BORDER_RADIUS;
-    padding: 0.25rem .5rem;
+    padding: 0.25rem 0.5rem;
 }
 
 .notice-msg {
     color: $COLOR_TEXT;
     border-radius: $BORDER_RADIUS;
-    padding: 0.25rem .5rem;
+    padding: 0.25rem 0.5rem;
     background-color: $COLOR_YELLOW;
 }
 
@@ -121,6 +121,7 @@ a.close {
     right: -10px;
     float: right;
     border-radius: 0 0 0 $BORDER_RADIUS;
+
     &:hover {
         text-decoration: none;
     }

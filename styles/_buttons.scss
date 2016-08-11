@@ -25,9 +25,11 @@ input[type=button],
     border: 0;
     color: white;
     background: $COLOR_GREEN;
+
     &:focus {
         outline: none;
     }
+
     &:not(:disabled):hover {
         background: darken($COLOR_GREEN, 10%);
     }

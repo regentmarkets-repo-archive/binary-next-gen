@@ -136,8 +136,9 @@ export default class UpgradeCard extends PureComponent {
 		const phoneIsValid = phone.length >= 6;
 		const secretQuestionIsValid = secretQuestion.length > 0;
 		const secretAnswerIsValid = secretAnswer.length > 0;
-		this.allValid = firstNameIsValid && lastNameIsValid && residenceIsValid && addressCityIsValid &&
-			addressLine1IsValid && phoneIsValid && secretQuestionIsValid && secretAnswerIsValid && termsAndConditions;
+		this.allValid = firstNameIsValid && lastNameIsValid && residenceIsValid &&
+			addressCityIsValid && addressLine1IsValid && phoneIsValid &&
+			secretQuestionIsValid && secretAnswerIsValid && termsAndConditions;
 
 		return (
 			<div className="upgrade-card" >
@@ -176,7 +177,6 @@ export default class UpgradeCard extends PureComponent {
 						<Error text="Enter your first and last name" />
 					}
 					<div className="input-row">
-						{/* <Label htmlFor="dobdd" text="Date of birth" /> */}
 						<DateOfBirth
 							onDayChange={this.onDayChange}
 							onMonthChange={this.onMonthChange}

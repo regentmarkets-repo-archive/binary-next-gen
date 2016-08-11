@@ -3,25 +3,30 @@
     .trade-panel {
         background: $COLOR_INVERSE_BG;
     }
+
     .picker-label,
     select,
     .start-time-selector > label,
     .btn-flat {
         background-color: $COLOR_BRAND_BLUE !important;
     }
+
     .btn-flat,
     .article-preview {
         color: $COLOR_INVERSE_TEXT;
     }
+
     .asset-list tbody tr.selected {
         background-color: rgba($COLOR_BRAND_BLUE, 0.25);
     }
+
     .btn-flat:hover,
     .start-time-selector label:hover,
     .picker-label:hover,
     .duration-input select:hover {
         box-shadow: inset 0 0 0 1px rgba(white, 0.5);
     }
+
     input {
         border: none !important;
     }

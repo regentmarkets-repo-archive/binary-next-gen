@@ -12,13 +12,15 @@
         -ms-user-select: none;
         user-select: none;
     }
+
     ::-webkit-scrollbar {
         -webkit-appearance: none;
-        width: .5em;
+        width: 0.5em;
     }
+
     ::-webkit-scrollbar-thumb {
-        border-radius: .3em;
-        background-color: rgba(0,0,0,.5);
-        box-shadow: 0 0 1px rgba(255,255,255,.5);
+        border-radius: 0.3em;
+        background-color: rgba(0, 0, 0, 0.5);
+        box-shadow: 0 0 1px rgba(255, 255, 255, 0.5);
     }
 }

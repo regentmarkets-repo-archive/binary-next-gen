@@ -13,9 +13,11 @@
 .asset-list {
     overflow: auto;
     -webkit-overflow-scrolling: touch;
+
     tr {
         cursor: pointer;
     }
+
     tbody tr.selected {
         background-color: rgba($COLOR_BRAND_BLUE, 0.25);
     }
@@ -23,6 +25,7 @@
 
 .asset-search {
     width: 100%;
+
     > input {
         width: 100%;
     }

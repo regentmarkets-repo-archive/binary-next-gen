@@ -2,9 +2,11 @@
     display: flex;
     margin: 0.125rem;
     border-radius: 2px;
+
     > span {
         flex: 1;
     }
+
     > *:first-child {
         opacity: 0.5;
         text-transform: uppercase;
@@ -28,16 +30,20 @@
         width: 100%;
         padding: 0.125rem;
     }
+
     .contract-details-list {
         max-width: 16rem;
     }
+
     .contract-details {
         display: flex;
     }
+
     .contract-receipt {
         max-width: 25rem;
         padding-left: 0.5rem;
     }
+
     .contract-chart {
         flex: 1;
         min-width: 25rem;

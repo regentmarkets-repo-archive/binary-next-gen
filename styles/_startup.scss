@@ -6,13 +6,16 @@
     flex-direction: column;
     align-content: space-between;
     padding: 0.5rem;
+
     .create-account-button {
         margin: 2rem 0;
     }
+
     .have-account {
         text-align: center;
         margin-bottom: 0.5rem;
     }
+
     &,
     form,
     form > *,

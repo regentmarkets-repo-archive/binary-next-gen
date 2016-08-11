@@ -4,14 +4,15 @@
 
 .drop-down {
     display: flex;
-    max-height: 90vh;
-    max-width: 90vw;
+    max-height: 80vh;
+    max-width: 80vw;
     overflow: auto;
     position: absolute;
     z-index: 10000;
     background: white;
     box-shadow: 0 0 1rem 0 rgba(black, 0.5);
     border-radius: 2px;
+
     + .full-screen-overlay {
         background: transparent;
         -webkit-backdrop-filter: none;
