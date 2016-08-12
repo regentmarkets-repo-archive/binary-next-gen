@@ -7,6 +7,7 @@ describe('digitstatsSelector', () => {
         const state = {
             workspace: fromJS({ infoForAsset: 'R_100' }),
             tradingOptions: fromJS({}),
+            assets: fromJS([{ symbol: 'R_100' }]),
         };
 
         const expected = digitStatsSelector(state);
@@ -18,6 +19,7 @@ describe('digitstatsSelector', () => {
             workspace: fromJS({ infoForAsset: 'R_100' }),
             tradingOptions: fromJS({ R_100: [{ contract_category: 'digits' }] }),
             ticks: fromJS({}),
+            assets: fromJS([{ symbol: 'R_100' }]),
         };
 
         const expected = digitStatsSelector(state);
