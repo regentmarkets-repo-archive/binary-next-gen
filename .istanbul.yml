@@ -5,6 +5,7 @@ instrumentation:
   excludes:
     - electron.js
     - index.js
-    - "**/__tests__/*"
+    - **/__tests__/*
+    - _constants/po/
 reporting:
   dir: "coverage"

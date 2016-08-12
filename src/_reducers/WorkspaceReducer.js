@@ -25,7 +25,7 @@ const initialState = new Map({
     sideActiveTab: 0,
     tradeMode: 'tabs',
     activeTradeIndex: 0,
-    infoForAsset: 'R_100',
+    examinedAsset: 'R_100',
 });
 
 export default (state = initialState, action) => {
@@ -34,7 +34,7 @@ export default (state = initialState, action) => {
             return state.set(action.panel + 'ActiveTab', action.index);
         }
         case CHANGE_INFO_FOR_ASSET: {
-            return state.set('infoForAsset', action.symbol);
+            return state.set('examinedAsset', action.symbol);
         }
         case CHANGE_ACTIVE_TRADE: {
             return state.set('activeTradeIndex', action.activeTradeIndex);

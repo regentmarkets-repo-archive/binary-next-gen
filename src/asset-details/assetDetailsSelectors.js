@@ -1,6 +1,7 @@
 import { Record } from 'immutable';
 import { createSelector, createStructuredSelector } from 'reselect';
-import { assetIndexSelector, assetsSelector, tradingTimesSelector, workspaceSelector } from '../_store/directSelectors';
+import { assetIndexSelector, tradingTimesSelector } from '../_store/directSelectors';
+import { examinedAssetSelector } from '../_store/commonSelectors';
 
 const AssetDetailsRecord = new Record({
 	name: '',
@@ -8,38 +9,24 @@ const AssetDetailsRecord = new Record({
 });
 
 const activeAssetSelector = createSelector(
-	[assetsSelector, workspaceSelector],
-	(assets, workspace) => {
-		const assetExist = assets.find(x => x.get('symbol') === workspace.get('infoForAsset'));
-		const asset = assetExist || assets.find(a => a.get('exchange_is_open') === 1);
-
-		return new AssetDetailsRecord(asset ? {
-			name: asset.get('display_name'),
-			isOpen: !!asset.get('exchange_is_open'),
-		} : {});
-	}
+	[examinedAssetSelector],
+	examinedAsset =>
+		new AssetDetailsRecord(examinedAsset ? {
+			name: examinedAsset.get('display_name'),
+			isOpen: !!examinedAsset.get('exchange_is_open'),
+		} : {})
 );
 
 const activeAssetTradingTimesSelector = createSelector(
-	[tradingTimesSelector, assetsSelector, workspaceSelector],
-	(tradingTimes, assets, workspace) => {
-		const assetExist = assets.find(x => x.get('symbol') === workspace.get('infoForAsset'));
-		const selectedAsset = assetExist ?
-									assetExist.get('symbol') :
-								assets.find(a => a.get('exchange_is_open') === 1).get('symbol');
-		return tradingTimes.find(x => x.get('symbol') === selectedAsset);
-	}
+	[examinedAssetSelector, tradingTimesSelector],
+	(examinedAsset, tradingTimes) =>
+		tradingTimes.find(x => x.get('symbol') === examinedAsset.get('symbol'))
 );
 
 const activeAssetDurationsSelector = createSelector(
-	[assetIndexSelector, assetsSelector, workspaceSelector],
-	(assetIndex, assets, workspace) => {
-		const assetExist = assets.find(x => x.get('symbol') === workspace.get('infoForAsset'));
-		const selectedAsset = assetExist ?
-								assetExist.get('symbol') :
-								assets.find(a => a.get('exchange_is_open') === 1).get('symbol');
-		return assetIndex.find(x => x.get(0) === selectedAsset);
-	}
+	[examinedAssetSelector, assetIndexSelector],
+	(examinedAsset, assetIndex) =>
+		assetIndex.find(x => x.get(0) === examinedAsset.get('symbol'))
 );
 
 export default createStructuredSelector({

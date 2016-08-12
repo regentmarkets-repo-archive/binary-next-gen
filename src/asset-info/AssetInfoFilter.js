@@ -4,9 +4,9 @@ import { OpenCloseNotice, DownArrow } from 'binary-components';
 import { actions } from '../_store';
 import DropDown from '../containers/DropDown';
 import AssetPickerContainer from '../asset-picker/AssetPickerContainer';
-import infoForAssetSelector from './infoForAssetSelector';
+import examinedAssetSelectors from './examinedAssetSelectors';
 
-@connect(infoForAssetSelector)
+@connect(examinedAssetSelectors)
 export default class AssetInfoFilter extends PureComponent {
 
 	static propTypes = {
@@ -25,7 +25,7 @@ export default class AssetInfoFilter extends PureComponent {
 		this.setState({ dropdownShown: false });
 
 	onChangeAsset = newAsset => {
-		actions.changeInfoForAsset(newAsset);
+		actions.changeexaminedAsset(newAsset);
 	}
 
 	render() {

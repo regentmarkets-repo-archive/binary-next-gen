@@ -1,22 +1,18 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 import { epochToDate } from 'binary-utils';
-import { dailyPricesSelector, assetsSelector, workspaceSelector } from '../_store/directSelectors';
+import { dailyPricesSelector } from '../_store/directSelectors';
+import { examinedAssetSelector } from '../_store/commonSelectors';
 
 const currentAssetDailyPrices = createSelector(
-    [dailyPricesSelector, assetsSelector, workspaceSelector],
-    (dailyPrices, assets, workspace) => {
-        const assetExist = assets.find(x => x.get('symbol') === workspace.get('infoForAsset'));
-        const selectedAsset = assetExist ?
-                                assetExist.get('symbol') :
-                                assets.find(a => a.get('exchange_is_open') === 1).get('symbol');
-        return (dailyPrices.get(selectedAsset) || []).map(x => ({
+    [examinedAssetSelector, dailyPricesSelector],
+    (examinedAsset, dailyPrices) =>
+        (dailyPrices.get(examinedAsset.get('symbol')) || []).map(x => ({
                 date: epochToDate(x.get('epoch')),
                 open: +x.get('open'),
                 high: +x.get('high'),
                 low: +x.get('low'),
                 close: +x.get('close'),
-            }));
-    }
+            }))
 );
 
 export default createStructuredSelector({

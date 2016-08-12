@@ -1,7 +1,5 @@
 import chai, { expect } from 'chai';
 import chaiImmutable from 'chai-immutable';
-chai.use(chaiImmutable);
-
 import { fromJS } from 'immutable';
 import openContractProposalReducer from '../BoughtContractsReducer';
 import {
@@ -9,6 +7,8 @@ import {
     SERVER_DATA_PORTFOLIO,
     REMOVE_PERSONAL_DATA,
 } from '../../_constants/ActionTypes';
+
+chai.use(chaiImmutable);
 
 describe('openContractProposalsReducer', () => {
     describe('SERVER_DATA_PROPOSAL_OPEN_CONTRACT', () => {
