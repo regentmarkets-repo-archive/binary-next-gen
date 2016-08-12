@@ -6,7 +6,7 @@ import NewsContainer from '../news/NewsContainer';
 import VideoListContainer from '../video/VideoListContainer';
 import PortfolioContainer from '../portfolio/PortfolioContainer';
 import StatementContainer from '../statement/StatementContainer';
-import AssetInfoCard from '../asset-info/AssetInfoCard';
+import ExamineAssetCard from '../examine-asset/ExamineAssetCard';
 import SettingsContainer from '../settings/SettingsContainer';
 
 const components = [
@@ -17,7 +17,7 @@ const components = [
 	NewsContainer,
 	TradingTimesContainer,
 	AssetIndexContainer,
-	AssetInfoCard,
+	ExamineAssetCard,
 	SettingsContainer,
 ];
 

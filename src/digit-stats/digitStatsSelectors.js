@@ -22,7 +22,7 @@ export default createSelector(
         return {
             filter: size,
             stats: calculateLastDigitStats(lastTicks, pipsToDigits(pipSize)),
-            symbol: examinedAsset,
+            symbol,
         };
     }
 );

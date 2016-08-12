@@ -1,5 +1,8 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 import { examinedAssetSelector } from '../_store/commonSelectors';
+import assetDetails from '../asset-details/assetDetailsSelectors';
+import digitStats from '../digit-stats/digitStatsSelectors';
+import dailyPrices from '../daily-prices/dailyPricesSelectors';
 
 export const activeAssetSelector = createSelector(
 	[examinedAssetSelector],
@@ -13,4 +16,7 @@ export const activeAssetSelector = createSelector(
 
 export default createStructuredSelector({
     asset: activeAssetSelector,
+    details: assetDetails,
+    digitStats,
+    dailyPrices,
 });

@@ -12,7 +12,7 @@ import NewsMobile from '../mobile/NewsMobile';
 import ArticleMobile from '../news/ArticleMobile';
 import ResourcesMobile from '../mobile/ResourcesMobile';
 import DepositMobile from '../deposit/DepositMobile';
-import AssetInfoMobile from '../asset-info/AssetInfoMobile';
+import ExamineAssetMobile from '../examine-asset/ExamineAssetMobile';
 
 export default [
     { path: 'mobile', component: TradeMobile, onEnter: requireAuthOnEnter },
@@ -28,5 +28,5 @@ export default [
     { path: 'article/:index', component: ArticleMobile },
     { path: 'resources', component: ResourcesMobile },
     { path: 'deposit', component: DepositMobile, onEnter: requireAuthOnEnter },
-    { path: 'info', component: AssetInfoMobile, onEnter: requireAuthOnEnter },
+    { path: 'info', component: ExamineAssetMobile, onEnter: requireAuthOnEnter },
 ];

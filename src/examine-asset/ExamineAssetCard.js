@@ -2,14 +2,15 @@ import React, { PropTypes, PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { immutableChildrenToJS } from 'binary-utils';
 import { Tab, TabList } from 'binary-components';
-import AssetInfoSelector from './AssetInfoSelector';
-import AssetInfoFilter from './AssetInfoFilter';
+import examineAssetSelectors from './examineAssetSelectors';
+import ExamineAssetFilter from './ExamineAssetFilter';
 import AssetDetailsCard from '../asset-details/AssetDetailsCard';
 import DailyPricesCard from '../daily-prices/DailyPricesCard';
 import DigitStatsCard from '../digit-stats/DigitStatsCard';
 
-@connect(AssetInfoSelector)
-export default class AssetInfoCard extends PureComponent {
+@connect(examineAssetSelectors)
+export default class ExamineAssetCard extends PureComponent {
+
 	static propTypes = {
 		details: PropTypes.object,
 		digitStats: PropTypes.object,
@@ -19,12 +20,6 @@ export default class AssetInfoCard extends PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = { activeTab: 0 };
-	}
-
-	componentWillReceiveProps(nextProps) {
-		if (!nextProps.digitStats && this.state.activeTab === 1) {
-			this.onTabChange(0);
-		}
 	}
 
 	openPicker = () =>
@@ -38,8 +33,8 @@ export default class AssetInfoCard extends PureComponent {
 		const { details, digitStats, dailyPrices } = this.props;
 
 		return (
-			<div className="asset-info-card">
-				<AssetInfoFilter />
+			<div className="examine-asset-card">
+				<ExamineAssetFilter />
 				<TabList
 					activeIndex={activeTab}
 					onChange={this.onTabChange}

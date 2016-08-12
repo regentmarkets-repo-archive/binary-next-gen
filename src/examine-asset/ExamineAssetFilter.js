@@ -4,10 +4,10 @@ import { OpenCloseNotice, DownArrow } from 'binary-components';
 import { actions } from '../_store';
 import DropDown from '../containers/DropDown';
 import AssetPickerContainer from '../asset-picker/AssetPickerContainer';
-import examinedAssetSelectors from './examinedAssetSelectors';
+import examineAssetSelectors from './examineAssetSelectors';
 
-@connect(examinedAssetSelectors)
-export default class AssetInfoFilter extends PureComponent {
+@connect(examineAssetSelectors)
+export default class ExamineAssetFilter extends PureComponent {
 
 	static propTypes = {
 		asset: PropTypes.object.isRequired,
@@ -34,7 +34,7 @@ export default class AssetInfoFilter extends PureComponent {
 
 		return (
 			<div>
-				<div className="asset-info-picker picker-label" onMouseDown={this.openPicker}>
+				<div className="examine-asset-picker picker-label" onMouseDown={this.openPicker}>
 					<h4>{asset.name}</h4>
 					<DownArrow />
 					<OpenCloseNotice isOpen={asset.isOpen} />
