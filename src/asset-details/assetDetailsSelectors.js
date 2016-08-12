@@ -10,7 +10,8 @@ const AssetDetailsRecord = new Record({
 const activeAssetSelector = createSelector(
 	[assetsSelector, workspaceSelector],
 	(assets, workspace) => {
-		const asset = assets.find(x => x.get('symbol') === workspace.get('infoForAsset'));
+		const assetExist = assets.find(x => x.get('symbol') === workspace.get('infoForAsset'));
+		const asset = assetExist || assets.find(a => a.get('exchange_is_open') === 1);
 
 		return new AssetDetailsRecord(asset ? {
 			name: asset.get('display_name'),
@@ -20,15 +21,25 @@ const activeAssetSelector = createSelector(
 );
 
 const activeAssetTradingTimesSelector = createSelector(
-	[tradingTimesSelector, workspaceSelector],
-	(tradingTimes, workspace) =>
-		tradingTimes.find(x => x.get('symbol') === workspace.get('infoForAsset'))
+	[tradingTimesSelector, assetsSelector, workspaceSelector],
+	(tradingTimes, assets, workspace) => {
+		const assetExist = assets.find(x => x.get('symbol') === workspace.get('infoForAsset'));
+		const selectedAsset = assetExist ?
+									assetExist.get('symbol') :
+								assets.find(a => a.get('exchange_is_open') === 1).get('symbol');
+		return tradingTimes.find(x => x.get('symbol') === selectedAsset);
+	}
 );
 
 const activeAssetDurationsSelector = createSelector(
-	[assetIndexSelector, workspaceSelector],
-	(assetIndex, workspace) =>
-		assetIndex.find(x => x.get(0) === workspace.get('infoForAsset'))
+	[assetIndexSelector, assetsSelector, workspaceSelector],
+	(assetIndex, assets, workspace) => {
+		const assetExist = assets.find(x => x.get('symbol') === workspace.get('infoForAsset'));
+		const selectedAsset = assetExist ?
+								assetExist.get('symbol') :
+								assets.find(a => a.get('exchange_is_open') === 1).get('symbol');
+		return assetIndex.find(x => x.get(0) === selectedAsset);
+	}
 );
 
 export default createStructuredSelector({

@@ -4,9 +4,12 @@ import { ticksSelector, workspaceSelector, digitStatsSelector,
     tradingOptionsSelector, assetsSelector } from '../_store/directSelectors';
 
 export default createSelector(
-    [ticksSelector, workspaceSelector, tradingOptionsSelector, digitStatsSelector, assetsSelector],
-    (ticks, workspace, tradingOptions, digitStats, assets) => {
-        const selectedAsset = workspace.get('infoForAsset');
+    [ticksSelector, tradingOptionsSelector, digitStatsSelector, assetsSelector, workspaceSelector],
+    (ticks, tradingOptions, digitStats, assets, workspace) => {
+        const assetExist = assets.find(x => x.get('symbol') === workspace.get('infoForAsset'));
+        const selectedAsset = assetExist ?
+                                assetExist.get('symbol') :
+                                assets.find(a => a.get('exchange_is_open') === 1).get('symbol');
         const assetSupportsDigit = selectedAsset &&
             tradingOptions.get(selectedAsset) &&
             tradingOptions.get(selectedAsset).some(opt => opt.contract_category === 'digits');

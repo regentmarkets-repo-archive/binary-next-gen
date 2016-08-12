@@ -4,7 +4,8 @@ import { assetsSelector, workspaceSelector } from '../_store/directSelectors';
 export const activeAssetSelector = createSelector(
 	[assetsSelector, workspaceSelector],
 	(assets, workspace) => {
-		const asset = assets.find(x => x.get('symbol') === workspace.get('infoForAsset'));
+		const assetExist = assets.find(x => x.get('symbol') === workspace.get('infoForAsset'));
+		const asset = assetExist || assets.find(a => a.get('exchange_is_open') === 1);
 
 		return asset ? {
 			symbol: asset.get('symbol'),
