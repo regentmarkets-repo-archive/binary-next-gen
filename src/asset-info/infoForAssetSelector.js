@@ -1,10 +1,11 @@
 import { createSelector, createStructuredSelector } from 'reselect';
-import { assetsSelector } from '../_store/directSelectors';
+import { assetsSelector, workspaceSelector } from '../_store/directSelectors';
 
 export const activeAssetSelector = createSelector(
-	[assetsSelector],
-	(assets) => {
-		const asset = assets.find(a => a.get('exchange_is_open') === 1);
+	[assetsSelector, workspaceSelector],
+	(assets, workspace) => {
+		const assetExist = assets.find(x => x.get('symbol') === workspace.get('infoForAsset'));
+		const asset = assetExist || assets.find(a => a.get('exchange_is_open') === 1);
 
 		return asset ? {
 			symbol: asset.get('symbol'),
