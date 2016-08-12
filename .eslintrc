@@ -15,6 +15,7 @@
   ],
   "rules": {
     "indent": [0, 4],
+    "linebreak-style": 0,
     "camelcase": 0,
     "no-mixed-operators": 0,
     "object-property-newline": 0,

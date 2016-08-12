@@ -38,7 +38,7 @@ export default class FullscreenSwitcher extends PureComponent {
 		const { isFullscreen } = this.state;
 		return (
 			<Button
-				className="full-screen-button btn-secondary"
+				className="btn-secondary"
 				onClick={this.toggleFullscreenState}
 				text={isFullscreen ? 'Exit Full Screen' : 'Full Screen'}
 			/>
