@@ -8,7 +8,7 @@ export default class StatementRow extends PureComponent {
 
     static propTypes = {
         compact: PropTypes.bool,
-        contractId: PropTypes.string.isRequired,
+        contractId: PropTypes.string,
         refN: PropTypes.string.isRequired,
         date: PropTypes.object.isRequired,
         actionType: PropTypes.string.isRequired,
@@ -24,13 +24,13 @@ export default class StatementRow extends PureComponent {
         const { compact, contractId } = this.props;
         const { router } = this.context;
 
+        // if deposit or withdraw
+        if (!contractId) return;
+
         actions.detailsForContract(contractId)
             .then(() => {
                 if (compact) {
-                    router.push({
-						pathname: '/contract',
-						query: { id: contractId },
-					});
+                    router.push('/contract');
                 }
             })
             .catch(e => showError(e));
