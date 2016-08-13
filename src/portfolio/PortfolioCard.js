@@ -28,7 +28,10 @@ export default class PortfolioCard extends PureComponent {
 			.detailsForContract(contract.contract_id)
 			.then(() => {
 				if (compact) {
-					router.push(`/contract/${contract.contract_id}`);
+					router.push({
+						pathname: '/contract',
+						query: { id: contract.contract_id },
+					});
 				}
 			})
 			.catch(e => showError(e));

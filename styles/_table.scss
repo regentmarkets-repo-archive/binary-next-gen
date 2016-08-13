@@ -6,8 +6,27 @@ table {
 
 th,
 td {
-    padding: 0.25rem;
+    padding: 0.5em 0.25em;
     vertical-align: middle;
+
+    &.centered {
+        text-align: center;
+    }
+
+    &.left,
+    &.textual {
+        text-align: left;
+    }
+
+    &.right,
+    &.numeric,
+    &.date {
+        text-align: right;
+    }
+
+    &.row-id {
+        font-weight: bold;
+    }
 }
 
 tr:focus {

@@ -27,7 +27,10 @@ export default class StatementRow extends PureComponent {
         actions.detailsForContract(contractId)
             .then(() => {
                 if (compact) {
-                    router.push(`/contract/${contractId}`);
+                    router.push({
+						pathname: '/contract',
+						query: { id: contractId },
+					});
                 }
             })
             .catch(e => showError(e));

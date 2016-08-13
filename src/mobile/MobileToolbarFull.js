@@ -13,7 +13,7 @@ export default class MobileToolbarFull extends PureComponent {
 				<MobileToolbarBtn to={'/statement'} img="img/statement.svg" />
 				<MobileToolbarBtn to={'/news'} img="img/news.svg" />
 				<MobileToolbarBtn to={'/resources'} img="img/resources.svg" />
-				<MobileToolbarBtn to={'/info'} img="img/info.svg" />
+				<MobileToolbarBtn to={'/examine'} img="img/info.svg" />
 			</div>
 		);
 	}

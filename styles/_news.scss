@@ -1,7 +1,10 @@
 .news-list-card,
 .article {
-    padding: 0.5em;
     font-size: 1rem;
+}
+
+.article {
+    padding: 0.5em;
 }
 
 .news-list-card,
@@ -20,16 +23,14 @@
     display: inline-block;
     text-decoration: none;
     color: $COLOR_TEXT;
+    cursor: pointer;
+    padding: 0.5em;
 
     p {
         margin: 0;
     }
 
     &:hover {
-        box-shadow: 0 0 0 0.25rem rgba($COLOR_BRAND_BLUE, 0.25);
+        background: rgba($COLOR_BRAND_BLUE, 0.1);
     }
-}
-
-.article-preview + .article-preview {
-    margin-top: 1rem;
 }

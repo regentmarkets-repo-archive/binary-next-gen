@@ -1,7 +1,7 @@
 import React, { PropTypes, PureComponent } from 'react';
 import MobileToolbarBack from '../mobile/MobileToolbarBack';
 import AnimatedPopup from '../containers/AnimatedPopup';
-import ArticlePreview from './ArticlePreview';
+import NewsList from './NewsList';
 import Article from './Article';
 
 export default class NewsCard extends PureComponent {
@@ -22,6 +22,9 @@ export default class NewsCard extends PureComponent {
         };
     }
 
+    onClickPreview = idx =>
+        this.setState({ showArticle: true, params: { index: idx } });
+
     onClickBack = () =>
         this.setState({ showArticle: false, params: { index: 0 } });
 
@@ -38,14 +41,9 @@ export default class NewsCard extends PureComponent {
                         params={params}
                     />
                 </AnimatedPopup>
-                {!showArticle && articles.map((article, idx) =>
-                    <ArticlePreview
-                        key={'article' + idx}
-                        {...article}
-                        onClick={() => this.setState({ showArticle: true, params: { index: idx } })}
-                        link="/"
-                    />
-                )}
+                {!showArticle &&
+                    <NewsList articles={articles} onClickPreview={this.onClickPreview} />
+                }
             </div>
         );
     }

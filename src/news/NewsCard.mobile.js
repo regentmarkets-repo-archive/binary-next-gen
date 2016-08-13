@@ -1,7 +1,7 @@
 import React, { PropTypes, PureComponent } from 'react';
 import ArticlePreview from './ArticlePreview';
 
-export default class NewsCardMobile extends PureComponent {
+export default class NewsCard extends PureComponent {
 
     static propTypes = {
         articles: PropTypes.array.isRequired,
@@ -21,8 +21,7 @@ export default class NewsCardMobile extends PureComponent {
                     <ArticlePreview
                         key={'article' + idx}
                         {...article}
-                        onClick={() => router.push(`/article/${idx}`)}
-                        link={'/article/' + idx}
+                        onClick={() => router.push(`/article?id=${idx}`)}
                     />
                 )}
             </div>

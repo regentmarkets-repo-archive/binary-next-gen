@@ -258,30 +258,6 @@ div[role=tabpanel] {
     margin: 0.5rem;
 }
 
-td,
-th {
-    padding: 0.25em;
-
-    &.centered {
-        text-align: center;
-    }
-
-    &.left,
-    &.textual {
-        text-align: left;
-    }
-
-    &.right,
-    &.numeric,
-    &.date {
-        text-align: right;
-    }
-
-    &.row-id {
-        font-weight: bold;
-    }
-}
-
 .open-notice,
 .closed-notice {
     padding: 0.2em 0.4em;
