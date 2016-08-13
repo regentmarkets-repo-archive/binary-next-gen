@@ -1,9 +1,9 @@
 import React from 'react';
 import MobilePage from '../containers/MobilePage';
-import ExamineAssetCard from './ExamineAssetCard';
+import ExamineAssetContainer from './ExamineAssetContainer';
 
 export default (props) => (
 	<MobilePage>
-		<ExamineAssetCard {...props} />
+		<ExamineAssetContainer {...props} />
 	</MobilePage>
 );

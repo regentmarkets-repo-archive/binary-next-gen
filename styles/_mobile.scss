@@ -119,6 +119,10 @@
     }
 }
 
+.inverse .mobile-page {
+    background: $COLOR_INVERSE_BG;
+}
+
 .mobile-nav-btn {
     text-align: center;
     flex: 1;

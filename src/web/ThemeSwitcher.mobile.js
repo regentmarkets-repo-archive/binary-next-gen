@@ -1,9 +1,8 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { connect } from 'react-redux';
-import { Button } from 'binary-components';
+import { M } from 'binary-components';
 import { trackEvent } from 'binary-utils/lib/Analytics';
 import storage from '../_store/storage';
-import { actions } from '../_store';
 
 @connect(state => ({ theme: state.boot.get('theme') }))
 export default class ThemeSwitcher extends PureComponent {
@@ -22,12 +21,16 @@ export default class ThemeSwitcher extends PureComponent {
 
 	render() {
 		const { theme } = this.props;
+		const themeText = theme === 'light' ? 'Dark Theme' : 'Light Theme';
+
 		return (
-			<Button
-				className="btn-secondary"
+			<a
+				className="sidebar-btn"
 				onClick={this.toggleTheme}
-				text={theme === 'light' ? 'Dark Theme' : 'Light Theme'}
-			/>
+			>
+				<img src="img/icon.png" alt="" />
+				<M m={themeText} />
+			</a>
 		);
 	}
 }

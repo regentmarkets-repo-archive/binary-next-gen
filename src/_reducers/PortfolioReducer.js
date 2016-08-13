@@ -15,8 +15,7 @@ const initialState = fromJS({
 export default (state = initialState, action) => {
     switch (action.type) {
         case DETAILS_FOR_CONTRACT: {
-            return state
-                .set('contractShown', action.contractShown);
+            return state.set('contractShown', action.contractShown);
         }
         case UPDATE_NOW: {
             return state.set('now', action.now);

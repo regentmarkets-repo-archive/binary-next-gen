@@ -1,14 +1,11 @@
 import React, { PropTypes, PureComponent } from 'react';
-import { connect } from 'react-redux';
-import { immutableChildrenToJS } from 'binary-utils';
 import { Tab, TabList } from 'binary-components';
-import examineAssetSelectors from './examineAssetSelectors';
+import { immutableChildrenToJS } from 'binary-utils';
 import ExamineAssetFilter from './ExamineAssetFilter';
 import AssetDetailsCard from '../asset-details/AssetDetailsCard';
 import DailyPricesCard from '../daily-prices/DailyPricesCard';
 import DigitStatsCard from '../digit-stats/DigitStatsCard';
 
-@connect(examineAssetSelectors)
 export default class ExamineAssetCard extends PureComponent {
 
 	static propTypes = {

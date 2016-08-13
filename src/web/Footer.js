@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import FullscreenSwitcher from './FullscreenSwitcher';
-import ThemeSwitcher from './ThemeSwitcher';
+import ThemeSwitcher from './ThemeSwitcher.web';
 import ClockContainer from './ClockContainer';
 import LanguagePicker from './LanguagePicker';
 
