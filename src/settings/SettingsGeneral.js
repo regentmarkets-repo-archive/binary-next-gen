@@ -1,7 +1,7 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { M, Button } from 'binary-components';
 import { actions } from '../_store';
-import * as LiveData from '../_data/LiveData';
+import { api } from '../_data/LiveData';
 import VirtualTopUpConfirmation from './VirtualTopUpConfirmation';
 import Modal from '../containers/Modal';
 
@@ -19,7 +19,7 @@ export default class SettingsGeneral extends PureComponent {
 
 	async onTopup() {
         try {
-            const response = await LiveData.api.topUpVirtualAccount();
+            const response = await api.topUpVirtualAccount();
             actions.updateSettingFields({ topup_virtual: { topup_virtual: response.topup_virtual } });
         } catch (e) {
             actions.updateSettingFields({ topup_virtual: { error: e.message } });

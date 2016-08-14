@@ -2,7 +2,7 @@ import {
     SERVER_DATA_PAYMENT_AGENTS,
     UPDATE_PAYMENT_AGENT_FIELD,
 } from '../_constants/ActionTypes';
-import * as LiveData from '../_data/LiveData';
+import { api } from '../_data/LiveData';
 
 export const updatePaymentAgentField = (fieldName, fieldValue) => ({
     type: UPDATE_PAYMENT_AGENT_FIELD,
@@ -17,7 +17,7 @@ export const serverDataPaymentAgents = serverResponse => ({
 
 const withdrawToPaymentAgentHelper = (opts, success, failure, dispatch) => {
     dispatch(updatePaymentAgentField('inProgress', true));
-    LiveData.api
+    api
         .withdrawToPaymentAgent(opts)
         .then(success, failure)
         .then(() => dispatch(updatePaymentAgentField('inProgress', false)));

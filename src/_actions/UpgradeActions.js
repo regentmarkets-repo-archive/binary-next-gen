@@ -1,5 +1,5 @@
 import { UPGRADE_FIELD_UPDATE, UPGRADE_DOB_UPDATE, UPGRADE_FIELD_CLEAR } from '../_constants/ActionTypes';
-import * as LiveData from '../_data/LiveData';
+import { api } from '../_data/LiveData';
 import config from '../config';
 
 export const upgradeFieldUpdate = (fieldName, fieldValue) => ({
@@ -51,7 +51,7 @@ export const upgradeConfirm = async () =>
         };
 
         try {
-            await LiveData.api.createRealAccount(opts);
+            await api.createRealAccount(opts);
             dispatch({ type: UPGRADE_FIELD_CLEAR });
             dispatch(upgradeFieldUpdate('success', true));
         } catch (e) {

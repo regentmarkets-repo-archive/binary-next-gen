@@ -3,7 +3,7 @@ import { M, P, Button, Error, InputGroup, SelectGroup } from 'binary-components'
 import { actions } from '../_store';
 import Modal from '../containers/Modal';
 import currencies from '../_constants/currencies';
-import * as LiveData from '../_data/LiveData';
+import { api } from '../_data/LiveData';
 
 export default class WithdrawForm extends PureComponent {
 
@@ -15,7 +15,7 @@ export default class WithdrawForm extends PureComponent {
 
     async componentDidMount() {
         const { email } = this.props;
-        await LiveData.api.sendVerificationEmail(email);
+        await api.sendVerificationEmail(email);
     }
 
     onAmountChange = event =>

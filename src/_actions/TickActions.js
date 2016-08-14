@@ -1,5 +1,5 @@
 import * as types from '../_constants/ActionTypes';
-import * as LiveData from '../_data/LiveData';
+import { api } from '../_data/LiveData';
 
 export const serverDataTickStream = serverResponse => ({
     type: types.SERVER_DATA_TICK_STREAM,
@@ -18,12 +18,12 @@ export const getTicksBySymbol = symbol =>
         if (!ticks.get(symbol)) {
             const syncTicksAndHistory = () => {
                 const tickHistoryPromise =
-                    LiveData.api.getTickHistory(symbol, { end: 'latest', count: 60, adjust_start_time: 1 });
-                LiveData.api.subscribeToTick(symbol);
+                    api.getTickHistory(symbol, { end: 'latest', count: 60, adjust_start_time: 1 });
+                api.subscribeToTick(symbol);
                 return tickHistoryPromise;
             };
             const historyOnly =
-                () => LiveData.api.getTickHistory(symbol, { end: 'latest', count: 60, adjust_start_time: 1 });
+                () => api.getTickHistory(symbol, { end: 'latest', count: 60, adjust_start_time: 1 });
 
             if (!license) {
                 return syncTicksAndHistory();
@@ -45,12 +45,12 @@ export const getTicksByCount = (symbol, count) =>
     (dispatch, getState) => {
         const { ticks } = getState();
         if (!ticks.get(symbol)) {
-            return LiveData.api
+            return api
                 .getTickHistory(symbol, { end: 'latest', count, adjust_start_time: 1, subscribe: 1 })
                 .catch(err => {
                     const errCode = err.error.error.code;
                     if (errCode === 'MarketIsClosed' || errCode === 'NoRealtimeQuotes') {
-                        return LiveData.api
+                        return api
                             .getTickHistory(symbol, { end: 'latest', count, adjust_start_time: 1 });
                     }
                     return Promise.reject(err);
@@ -59,7 +59,7 @@ export const getTicksByCount = (symbol, count) =>
 
         // having ticks implies already subscribe if possible
         if (ticks.get(symbol).size < count) {
-            return LiveData.api.getTickHistory(symbol, { end: 'latest', count, adjust_start_time: 1 });
+            return api.getTickHistory(symbol, { end: 'latest', count, adjust_start_time: 1 });
         }
         return Promise.resolve();
     };

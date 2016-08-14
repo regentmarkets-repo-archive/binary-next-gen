@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { showError } from 'binary-utils';
 import { Legend, Notice, Button, InputGroup } from 'binary-components';
-import * as LiveData from '../_data/LiveData';
+import { api } from '../_data/LiveData';
 
 export default class SettingsCashierLocked extends PureComponent {
 
@@ -22,7 +22,7 @@ export default class SettingsCashierLocked extends PureComponent {
 
     async sendRequest(req) {
         try {
-            await LiveData.api.setCashierLock(req);
+            await api.setCashierLock(req);
             this.setState({ password1: '' });
         } catch (e) {
             showError(e.message);

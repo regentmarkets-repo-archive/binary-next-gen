@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { M, InputGroup, LogoSpinner, Legend, Button, Option,
-	Error, DateOfBirth, Countries } from 'binary-components';
+	Error, ServerError, DateOfBirth, Countries } from 'binary-components';
 import { api } from '../_data/LiveData';
 import storage from '../_store/storage';
 import SecretQuestion from './SecretQuestion';
@@ -149,9 +149,7 @@ export default class UpgradeCard extends PureComponent {
 					<LogoSpinner spinning={progress} />
 					<img className="logo-text" src="img/binary-type-logo.svg" alt="Logo" />
 				</div>
-				{serverError &&
-					<Error text={serverError} />
-				}
+				{serverError && <ServerError text={serverError} />}
 				<form onSubmit={this.onFormSubmit}>
 					<Legend text="Personal Information" />
 					<div className="input-row names-row">

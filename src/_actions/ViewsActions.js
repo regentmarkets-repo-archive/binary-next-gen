@@ -1,5 +1,5 @@
 import * as types from '../_constants/ActionTypes';
-import * as LiveData from '../_data/LiveData';
+import { api } from '../_data/LiveData';
 
 export const updateTradingTimesDate = dateVal =>
     dispatch => {
@@ -7,7 +7,7 @@ export const updateTradingTimesDate = dateVal =>
         if (isNaN(date.getTime()) || date.getFullYear() < 1000) {
             return;
         }
-        LiveData.api.getTradingTimes(date);
+        api.getTradingTimes(date);
         dispatch({
             type: types.UPDATE_TRADING_TIMES_DATE,
             date,

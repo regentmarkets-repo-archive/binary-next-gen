@@ -2,7 +2,7 @@
 
 import { trackEvent } from 'binary-utils/lib/Analytics';
 import * as types from '../_constants/ActionTypes';
-import * as LiveData from '../_data/LiveData';
+import { api } from '../_data/LiveData';
 import { updateOpenContractField } from './PortfolioActions';
 import { getTradingOptions } from './TradingOptionsActions';
 import { getTicksBySymbol } from './TickActions';
@@ -78,7 +78,7 @@ export const updatePurchasedContract = (index, receipt) => ({
 });
 
 export const sellExpiredContract = onDone => {
-    LiveData.api.sellExpiredContracts().then(response => {
+    api.sellExpiredContracts().then(response => {
         if (onDone) {
             onDone(response.sell_expired);
         }
@@ -93,7 +93,7 @@ export const sellContract = (id, price) =>
         }
         try {
             dispatch(updateOpenContractField({ id, selling: true }));
-            await LiveData.api.sellContract(id, price);
+            await api.sellContract(id, price);
             dispatch(updateOpenContractField({ id, selling: false }));
             await trackEvent('Trade', 'Sell', price);
         } catch (error) {

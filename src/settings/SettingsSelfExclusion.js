@@ -1,7 +1,8 @@
 import React, { PropTypes, PureComponent } from 'react';
-import { Button, InputGroup } from 'binary-components';
-import { showError, showInfo, xMonthsAfter, dateToDateString, dateToEpoch } from 'binary-utils';
-import * as LiveData from '../_data/LiveData';
+import { Button, InputGroup, ServerError } from 'binary-components';
+import { xMonthsAfter, dateToDateString, dateToEpoch } from 'binary-utils';
+import UpdateNotice from '../containers/UpdateNotice';
+import { api } from '../_data/LiveData';
 
 export default class SettingsSelfExclusion extends PureComponent {
 
@@ -40,12 +41,21 @@ export default class SettingsSelfExclusion extends PureComponent {
 	onEntryChange = e =>
 		this.setState({ [e.target.id]: e.target.value });
 
-	tryUpdate = () => {
+
+    onFormSubmit = e => {
+        e.preventDefault();
+        this.setState({
+            validatedOnce: true,
+        });
+        this.updateSelfExclusion();
+    }
+
+	updateSelfExclusion = async () => {
 		const { max_balance, max_turnover, max_losses, max_7day_turnover, max_7day_losses,
 			max_30day_turnover, max_30day_losses, max_open_bets, session_duration_limit,
 			timeout_until_time, timeout_until_date, exclude_until } = this.state;
 		const timeout_until = dateToEpoch(new Date(timeout_until_date + ' ' + timeout_until_time));
-		const newState = {
+		const newSelfExclusionSettings = {
 			max_balance,
 			max_turnover,
 			max_losses,
@@ -58,21 +68,28 @@ export default class SettingsSelfExclusion extends PureComponent {
 			exclude_until,
 			timeout_until,
 		};
-		LiveData.api.setSelfExclusion(newState).then(() => {
-			showInfo('Updated');
-		}).catch(response => {
-			showError(response.error.message);
-		});
+		try {
+			await api.setSelfExclusion(newSelfExclusionSettings);
+			this.setState({
+				success: true,
+				serverError: false,
+			});
+			setTimeout(() => this.setState({ success: false }), 3000);
+		} catch (e) {
+			this.setState({ serverError: e.error.error.message });
+		}
 	}
 
 	render() {
-		const { max_balance, max_turnover, max_losses, max_7day_turnover,
-			max_7day_losses, max_30day_turnover, max_30day_losses, max_open_bets,
-			session_duration_limit, exclude_until, timeout_until_date, timeout_until_time } = this.state;
+		const { max_balance, max_turnover, max_losses, max_7day_turnover, max_7day_losses,
+			max_30day_turnover, max_30day_losses, max_open_bets, session_duration_limit,
+			exclude_until, timeout_until_date, timeout_until_time, success, serverError } = this.state;
 		// const wrongExcludeUntillTime = isValidTime(timeout_until_time);
 
 		return (
-			<div className="settings-self-exclusion">
+			<form className="settings-self-exclusion" onSubmit={this.onFormSubmit}>
+			{serverError && <ServerError text={serverError} />}
+				<UpdateNotice text="Settings updated" show={success} />
 				<InputGroup
 					id="max_balance"
 					label="Maximum account cash balance"
@@ -169,11 +186,8 @@ export default class SettingsSelfExclusion extends PureComponent {
 					min={dateToDateString(xMonthsAfter(6))}
 					onChange={this.onEntryChange}
 				/>
-				<Button
-					text="Update"
-					onClick={this.tryUpdate}
-				/>
-			</div>
+				<Button text="Update" />
+			</form>
 		);
 	}
 }

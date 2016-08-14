@@ -1,13 +1,13 @@
 import { trackEvent } from 'binary-utils/lib/Analytics';
 import { WATCHLIST_TOGGLE_ASSET } from '../_constants/ActionTypes';
-import * as LiveData from '../_data/LiveData';
+import { api } from '../_data/LiveData';
 
 export const watchlistToggleAsset = (symbol, isSubscribed) =>
     dispatch => {
         if (isSubscribed) {
-            LiveData.api.subscribeToTick(symbol);
+            api.subscribeToTick(symbol);
         } else {
-            LiveData.api.unsubscribeFromTick(symbol);
+            api.unsubscribeFromTick(symbol);
             trackEvent('Watchlist', 'Toggle', symbol);
         }
         dispatch({ type: WATCHLIST_TOGGLE_ASSET, symbol, isSubscribed });

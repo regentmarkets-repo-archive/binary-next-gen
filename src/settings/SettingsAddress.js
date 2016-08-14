@@ -1,5 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import { Legend, Button, InputGroup, Error } from 'binary-components';
+import { Legend, Button, InputGroup, Error, ServerError } from 'binary-components';
 import { actions } from '../_store';
 import States from './States';
 import UpdateNotice from '../containers/UpdateNotice';
@@ -78,9 +78,7 @@ export default class SettingsAddress extends PureComponent {
 
 		return (
 			<form className="settings-address" onSubmit={this.onFormSubmit}>
-				{serverError &&
-					<Error text={serverError} />
-				}
+				{serverError && <ServerError text={serverError} />}
 				<UpdateNotice text="Address updated" show={success} />
 				<Legend text="Address" />
 				<InputGroup

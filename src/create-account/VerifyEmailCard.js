@@ -1,5 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
-import { LogoSpinner, Button, Error, InputGroup } from 'binary-components';
+import { LogoSpinner, Button, Error, ServerError, InputGroup } from 'binary-components';
 import { isValidEmail } from 'binary-utils';
 import { api } from '../_data/LiveData';
 
@@ -58,9 +58,7 @@ export default class VerifyEmailCard extends PureComponent {
                     <LogoSpinner spinning={progress} />
                     <img className="logo-text" src="img/binary-type-logo.svg" alt="Logo" />
                 </div>
-				{serverError &&
-					<Error text={serverError} />
-				}
+				{serverError && <ServerError text={serverError} />}
 				<form onSubmit={this.onFormSubmit}>
 					<InputGroup
 						type="email"

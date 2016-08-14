@@ -1,6 +1,6 @@
 import { nowAsEpoch } from 'binary-utils';
 import * as types from '../_constants/ActionTypes';
-import * as LiveData from '../_data/LiveData';
+import { api } from '../_data/LiveData';
 import { sellExpiredContract } from './TradeActions';
 
 export const serverDataPortfolio = serverResponse => ({
@@ -12,7 +12,7 @@ export const subscribeToOpenContract = contractId =>
     (dispatch, getState) => {
         const boughtContracts = getState().boughtContracts;
         if (!boughtContracts.get(contractId)) {
-            return LiveData.api.subscribeToOpenContract(contractId)
+            return api.subscribeToOpenContract(contractId)
                 .then(response => {
                     if (Object.keys(response.proposal_open_contract).length > 0) {
                         return response.proposal_open_contract;
@@ -27,7 +27,7 @@ export const getOpenContract = contractId =>
     (dispatch, getState) => {
         const boughtContracts = getState().boughtContracts;
         if (!boughtContracts.get(contractId)) {
-            return LiveData.api.getContractInfo(contractId)
+            return api.getContractInfo(contractId)
                 .then(response => response.proposal_open_contract);
         }
         return Promise.resolve(boughtContracts.get(contractId).toJS());

@@ -1,5 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
-import { Notice, Button, Countries, Error, InputGroup, LogoSpinner } from 'binary-components';
+import { Notice, Button, Countries, Error, ServerError, InputGroup, LogoSpinner } from 'binary-components';
 import { isValidPassword } from 'binary-utils';
 import { api } from '../_data/LiveData';
 import storage from '../_store/storage';
@@ -94,9 +94,7 @@ export default class CrateAccountCard extends PureComponent {
                 <LogoSpinner spinning={progress} />
                 <img className="logo-text" src="img/binary-type-logo.svg" alt="Logo" />
                 <Notice text="Thank you for signing up! Check your email to get the verification token." />
-                {serverError &&
-                    <Error text={serverError} />
-                }
+                {serverError && <ServerError text={serverError} />}
                 <form onSubmit={this.onFormSubmit}>
                     <InputGroup
                         type="text"
