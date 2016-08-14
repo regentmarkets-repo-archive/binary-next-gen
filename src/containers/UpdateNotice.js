@@ -1,5 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { M, P } from 'binary-components';
+import AnimatedPopup from './AnimatedPopup';
 
 export default class UpdateNotice extends PureComponent {
 
@@ -10,34 +11,17 @@ export default class UpdateNotice extends PureComponent {
 		show: PropTypes.bool,
 	};
 
-	constructor(props) {
-		super(props);
-		this.state = {
-			shown: false,
-		};
-	}
-
-	componentWillReceiveProps(nextProps) {
-		const { shown } = this.state;
-		if (nextProps.show && !shown) this.showNotice();
-	}
-
-	showNotice = () => {
-		this.setState({ show: true });
-		setTimeout(() => this.setState({ show: false }), 2000);
-	}
-
 	render() {
-		const { img, title, text } = this.props;
-
-		if (!this.state.show) return null;
+		const { img, title, text, show } = this.props;
 
 		return (
-			<div className="update-notice notice-msg">
-				<img src={img} alt={title} />
-				{title && <h5><M m={title} /></h5>}
-				<P text={text} />
-			</div>
+			<AnimatedPopup shown={show}>
+				<div className="update-notice notice-msg">
+					<img src={img} alt={title} />
+					{title && <h5><M m={title} /></h5>}
+					<P text={text} />
+				</div>
+			</AnimatedPopup>
 		);
 	}
 }

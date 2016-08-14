@@ -42,6 +42,7 @@ export default class SettingsChangePassword extends PureComponent {
                 success: true,
                 ...initialState,
             });
+            setTimeout(() => this.setState({ success: false }), 3000);
         } catch (e) {
             this.setState({ serverError: e.error.error.message });
         }
