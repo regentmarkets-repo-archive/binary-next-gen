@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import { addLocaleData } from 'react-intl';
 import { Provider } from 'react-redux';
 import { Router, browserHistory, hashHistory } from 'react-router';
+import { syncHistoryWithStore } from 'react-router-redux';
 import { trackRoute } from 'binary-utils/lib/Analytics';
 import { store, rehydratedStorePromise, actions } from './persistentStore';
 import routes from '../_routes';
@@ -10,7 +11,8 @@ import * as LiveData from '../_data/LiveData';
 import AppStateProvider from './AppStateProvider';
 import BootProvider from './BootProvider';
 
-const history = window.cordova ? hashHistory : browserHistory;
+const routerHistory = window.cordova ? hashHistory : browserHistory;
+const history = syncHistoryWithStore(routerHistory, store);
 
 history.listen(location => trackRoute(location.pathname));
 

@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { routerReducer } from 'react-router-redux';
 
 import boot from './BootReducer';
 import appState from './AppStateReducer';
@@ -57,6 +58,7 @@ export default combineReducers({
     proposals,
     quickTrade,
     realityCheck,
+    residenceList,
     server,
     settings,
     states,
@@ -73,5 +75,5 @@ export default combineReducers({
     workspace,
     watchlist,
     views,
-    residenceList,
+    routing: routerReducer,
 });

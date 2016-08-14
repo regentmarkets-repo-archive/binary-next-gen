@@ -1,4 +1,3 @@
-import { browserHistory } from 'react-router';
 import { trackUserId } from 'binary-utils/lib/Analytics';
 import { store } from '../_store/persistentStore';
 import { api } from './LiveData';
@@ -14,7 +13,7 @@ export const signOut = () => {
     store.dispatch(removePersonalData());
     store.dispatch(updateAppState('authorized', false));
     store.dispatch(updateToken(''));
-    browserHistory.push('/');
+    window.location = '/';
 };
 
 export const signIn = () => {
