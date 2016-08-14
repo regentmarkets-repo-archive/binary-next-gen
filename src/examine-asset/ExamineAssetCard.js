@@ -19,11 +19,11 @@ export default class ExamineAssetCard extends PureComponent {
 		this.state = { activeTab: 0 };
 	}
 
-	openPicker = () =>
-        this.setState({ dropdownShown: true });
-
 	onTabChange = idx =>
 		this.setState({ activeTab: idx });
+
+	openPicker = () =>
+        this.setState({ dropdownShown: true });
 
 	render() {
 		const { activeTab } = this.state;

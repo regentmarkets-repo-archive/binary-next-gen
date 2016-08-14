@@ -25,12 +25,15 @@ export default class LayoutPicker extends PureComponent {
         this.setState({ dropdownShown: false });
     }
 
-    open = () => this.setState({ dropdownShown: true });
-
-    close = () => this.setState({ dropdownShown: false });
-
     onSingleTradeClick = () =>
         actions.changeActiveLayout(1, 1);
+
+    openPicker = () =>
+        this.setState({ dropdownShown: true });
+
+    closePicker = () =>
+        this.setState({ dropdownShown: false });
+
 
     render() {
         const { tradesCount, layoutN } = this.props;
@@ -47,7 +50,7 @@ export default class LayoutPicker extends PureComponent {
                 </a>
                 <DropDown
                     shown={dropdownShown}
-                    onClose={this.close}
+                    onClose={this.closePicker}
                     title="Layout"
                 >
                     <LayoutButtonPanel
@@ -56,11 +59,11 @@ export default class LayoutPicker extends PureComponent {
                         onLayoutChange={this.onLayoutChange}
                     />
                 </DropDown>
-                <a className="btn-secondary layout-switch-btn" onClick={this.open}>
+                <a className="btn-secondary layout-switch-btn" onClick={this.openPicker}>
                     <LayoutButton
                         tradesCount={tradesCount}
                         layoutN={layoutN}
-                        onClick={this.close}
+                        onClick={this.closePicker}
                     />
                     <M m="Multi Trade" />
                 </a>

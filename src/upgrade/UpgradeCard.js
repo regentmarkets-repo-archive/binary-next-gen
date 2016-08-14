@@ -9,6 +9,9 @@ export default class UpgradeCard extends PureComponent {
 
 	static contextTypes = {
 		router: PropTypes.object.isRequired,
+	}
+
+	static propTypes = {
         residenceList: PropTypes.array,
 	};
 

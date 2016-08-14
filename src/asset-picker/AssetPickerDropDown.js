@@ -28,13 +28,13 @@ export default class AssetPickerDropDown extends PureComponent {
         this.setState({ dropdownShown: false });
     }
 
-    openPicker = () =>
-        this.setState({ dropdownShown: true });
-
     onSelect = newAsset => {
 		const { index } = this.props;
 		actions.reqSymbolChange(index, newAsset);
 	}
+
+    openPicker = () =>
+        this.setState({ dropdownShown: true });
 
     render() {
         const { index, selectedSymbol, selectedSymbolName } = this.props;

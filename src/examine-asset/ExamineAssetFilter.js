@@ -18,15 +18,15 @@ export default class ExamineAssetFilter extends PureComponent {
 		this.state = { activeTab: 0 };
 	}
 
-	openPicker = () =>
-        this.setState({ dropdownShown: true });
-
 	onClose = () =>
 		this.setState({ dropdownShown: false });
 
 	onChangeAsset = newAsset => {
 		actions.changeExaminedAsset(newAsset);
 	}
+
+	openPicker = () =>
+        this.setState({ dropdownShown: true });
 
 	render() {
 		const { dropdownShown } = this.state;

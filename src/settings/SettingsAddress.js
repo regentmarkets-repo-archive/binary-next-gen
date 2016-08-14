@@ -38,6 +38,16 @@ export default class SettingsAddress extends PureComponent {
 	onEntryChange = e =>
 		this.setState({ [e.target.id]: e.target.value });
 
+	onFormSubmit = e => {
+		e.preventDefault();
+		this.setState({
+			validatedOnce: true,
+		});
+		if (this.allValid) {
+			this.performUpdateSettings();
+		}
+	}
+
 	performUpdateSettings = async () => {
 		const { address_line_1, address_line_2, address_city, address_state,
 			address_postcode, phone } = this.state;
@@ -53,16 +63,6 @@ export default class SettingsAddress extends PureComponent {
 			});
 		} catch (e) {
 			this.setState({ serverError: e.error.error.message });
-		}
-	}
-
-	onFormSubmit = e => {
-		e.preventDefault();
-		this.setState({
-			validatedOnce: true,
-		});
-		if (this.allValid) {
-			this.performUpdateSettings();
 		}
 	}
 

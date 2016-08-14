@@ -33,11 +33,11 @@ export default class TradeTypeDropDown extends PureComponent {
         };
     }
 
-    openPicker = () =>
-        this.setState({ dropdownShown: true });
-
     onClose = () =>
         this.setState({ dropdownShown: false });
+
+    openPicker = () =>
+        this.setState({ dropdownShown: true });
 
     render() {
         const { tradeParams, index, contract } = this.props;

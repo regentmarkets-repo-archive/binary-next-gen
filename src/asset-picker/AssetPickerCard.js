@@ -12,6 +12,7 @@ export default class AssetPickerCard extends PureComponent {
 		onSelecg: PropTypes.func,
 		assetPickerItems: PropTypes.object.isRequired,
 		selectedAsset: PropTypes.string.isRequired,
+		onSelect: PropTypes.func.isRequired,
 	};
 
 	onToggleWatchlistItem = asset => {

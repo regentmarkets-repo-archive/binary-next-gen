@@ -10,9 +10,9 @@ export default class ArticlePreview extends PureComponent {
     };
 
     render() {
-        const { description, title, link, onClick } = this.props;
+        const { description, title, onClick } = this.props;
         return (
-            <div className="article-preview" to={link} onClick={onClick}>
+            <div className="article-preview" onClick={onClick}>
                 <h2>{title}</h2>
                 <p dangerouslySetInnerHTML={{ __html: description }} />
             </div>
