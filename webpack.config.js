@@ -1,6 +1,7 @@
 const path = require('path');
 const webpack = require('webpack');
 const WebpackNotifierPlugin = require('webpack-notifier');
+const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 const env = process.env.NODE_ENV;
 
@@ -12,6 +13,7 @@ module.exports = {
         filename: 'app.js',
     },
     plugins: env === 'production' ? [
+        new ProgressBarPlugin({ width: 100 }),
         new webpack.DefinePlugin({
             'process.env': {
                 NODE_ENV: JSON.stringify('production'),
@@ -22,6 +24,7 @@ module.exports = {
             sourceMap: true,
         })
     ] : [
+        new ProgressBarPlugin({ width: 100 }),
         new webpack.HotModuleReplacementPlugin(),
         new webpack.NoErrorsPlugin(),
         new WebpackNotifierPlugin({ title: 'Next-gen Build' }),
