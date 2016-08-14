@@ -11,7 +11,8 @@
     "mocha": true
   },
   "plugins": [
-    "react"
+    "react",
+    "flowtype"
   ],
   "rules": {
     "indent": [0, 4],
@@ -42,6 +43,9 @@
       "webpack": {
         "config": "webpack.config.js"
       }
+    },
+    "flowtype": {
+      "onlyFilesWithFlowAnnotation": false
     }
   }
 }
