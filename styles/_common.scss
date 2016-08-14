@@ -50,7 +50,9 @@ form {
 
 .errorrow,
 .errorfield,
-.error-msg {
+.error-msg,
+.notice-msg,
+.update-notice {
     color: white;
     background: $COLOR_RED;
     border-radius: $BORDER_RADIUS;
@@ -59,9 +61,12 @@ form {
 
 .notice-msg {
     color: $COLOR_TEXT;
-    border-radius: $BORDER_RADIUS;
-    padding: 0.25rem 0.5rem;
     background-color: $COLOR_YELLOW;
+}
+
+.update-notice {
+    color: white;
+    background-color: $COLOR_BRAND_ORANGE;
 }
 
 .text-only {

@@ -40,6 +40,7 @@ export default class SettingsChangePassword extends PureComponent {
             await api.changePassword(currentPassword, newPassword);
             this.setState({
                 success: true,
+                serverError: false,
                 ...initialState,
             });
             setTimeout(() => this.setState({ success: false }), 3000);

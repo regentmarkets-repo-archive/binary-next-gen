@@ -2,6 +2,7 @@ import React, { PropTypes, PureComponent } from 'react';
 import { Legend, Button, InputGroup, Error } from 'binary-components';
 import { actions } from '../_store';
 import States from './States';
+import UpdateNotice from '../containers/UpdateNotice';
 import * as LiveData from '../_data/LiveData';
 
 export default class SettingsAddress extends PureComponent {
@@ -61,6 +62,8 @@ export default class SettingsAddress extends PureComponent {
 				address_postcode,
 				phone,
 			});
+			this.setState({ success: true });
+			setTimeout(() => this.setState({ success: false }), 3000);
 		} catch (e) {
 			this.setState({ serverError: e.error.error.message });
 		}
@@ -69,7 +72,7 @@ export default class SettingsAddress extends PureComponent {
 	render() {
 		const { states } = this.props;
 		const { validatedOnce, address_line_1, address_line_2, address_city, address_state,
-			address_postcode, country_code, phone, phoneError, serverError } = this.state;
+			address_postcode, country_code, phone, phoneError, serverError, success } = this.state;
 
 		this.allValid = address_line_1 && address_city;
 
@@ -78,6 +81,7 @@ export default class SettingsAddress extends PureComponent {
 				{serverError &&
 					<Error text={serverError} />
 				}
+				<UpdateNotice text="Address updated" show={success} />
 				<Legend text="Address" />
 				<InputGroup
 					id="address_line_1"

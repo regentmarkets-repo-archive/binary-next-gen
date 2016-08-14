@@ -5,7 +5,7 @@ import SettingsCashierUnlocked from './SettingsCashierUnlocked';
 export default class SettingsCashier extends PureComponent {
 
     static propTypes = {
-		cashier_password: PropTypes.number.isRequired,
+		cashier_password: PropTypes.number,
 	};
 
 	render() {
