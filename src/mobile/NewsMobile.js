@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { Tab, TabList } from 'binary-components';
 import MobilePage from '../containers/MobilePage';
-import NewsContainer from '../news/NewsContainer.mobile';
+import NewsContainer from '../news/NewsContainer';
 import VideoListContainer from '../video/VideoListContainer';
 
 const components = [

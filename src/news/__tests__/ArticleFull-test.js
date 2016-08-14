@@ -1,9 +1,9 @@
 import React from 'react';
 import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import Article from '../Article';
+import ArticleFull from '../ArticleFull';
 
-describe('<Article />', () => {
+describe('<ArticleFull />', () => {
     it('should render the component properly', () => {
         const props = {
             articles: [{ title: 'Article 1', pubDate: '2001-11-02', description: 'Desc' },
@@ -11,7 +11,7 @@ describe('<Article />', () => {
             params: { index: 1 },
         };
 
-        const wrapper = shallow(<Article {...(props)} />);
+        const wrapper = shallow(<ArticleFull {...(props)} />);
         expect(wrapper.render().text()).to.contain('Article Title');
     });
 });

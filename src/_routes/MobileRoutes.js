@@ -8,7 +8,6 @@ import AssetPickerMobile from '../asset-picker/AssetPickerMobile';
 import TradeTypePickerMobile from '../trade-type-picker/TradeTypePickerMobile';
 import SettingsMobile from '../settings/SettingsMobile';
 import NewsMobile from '../mobile/NewsMobile';
-import ArticleMobile from '../news/ArticleMobile';
 import ResourcesMobile from '../mobile/ResourcesMobile';
 import DepositMobile from '../deposit/DepositMobile';
 import ExamineAssetMobile from '../examine-asset/ExamineAssetMobile';
@@ -23,7 +22,6 @@ export default [
     { path: 'trade-type', component: TradeTypePickerMobile, onEnter: requireAuthOnEnter },
     { path: 'settings', component: SettingsMobile, onEnter: requireAuthOnEnter },
     { path: 'news', component: NewsMobile },
-    { path: 'article', component: ArticleMobile },
     { path: 'resources', component: ResourcesMobile },
     { path: 'deposit', component: DepositMobile, onEnter: requireAuthOnEnter },
     { path: 'examine', component: ExamineAssetMobile, onEnter: requireAuthOnEnter },

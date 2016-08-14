@@ -5,18 +5,21 @@
     flex-direction: column;
 
     .examine-asset-picker {
-        margin: 0.5rem;
+        margin: 0.5em;
         line-height: 1.5;
 
-        span {
+        span,
+        h4 {
             margin: 0.25rem;
-            line-height: 2;
+            line-height: 1.5;
+        }
+
+        span {
+            font-size: 1em;
         }
 
         h4 {
-            margin: 0.25rem;
-            font-size: $FONT_SIZE_N;
-            line-height: 1.5;
+            font-size: 1.2em;
             flex: 1;
         }
     }

@@ -2,7 +2,7 @@ import React, { PropTypes, PureComponent } from 'react';
 import MobileToolbarBack from '../mobile/MobileToolbarBack';
 import AnimatedPopup from '../containers/AnimatedPopup';
 import NewsList from './NewsList';
-import Article from './Article';
+import ArticleFull from './ArticleFull';
 
 export default class NewsCard extends PureComponent {
 
@@ -36,7 +36,7 @@ export default class NewsCard extends PureComponent {
             <div className="news-list-card">
                 <AnimatedPopup shown={showArticle}>
                     <MobileToolbarBack onClick={this.onClickBack} backBtnBarTitle="Back" />
-                    <Article
+                    <ArticleFull
                         articles={articles}
                         params={params}
                     />

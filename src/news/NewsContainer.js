@@ -1,8 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { immutableChildrenToJS } from 'binary-utils';
-
-import NewsCard from './NewsCard';
+import NewsCard from './NewsCard.web';
 import newsSelectors from './newsSelectors';
 
 @connect(newsSelectors)

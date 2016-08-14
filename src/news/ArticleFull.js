@@ -8,9 +8,7 @@ export default class Article extends PureComponent {
     };
 
     render() {
-        const { articles } = this.props;
-        const { index } = this.props.params;
-        const { content, pubDate, title } = articles[index];
+        const { content, pubDate, title } = this.props;
 
         return (
             <div className="article">
