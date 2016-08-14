@@ -18,7 +18,6 @@ app.use(require('node-sass-middleware')({
 }));
 
 app.use(require('webpack-dev-middleware')(compiler, {
-    quiet: true,
     noInfo: true,
     publicPath: config.output.publicPath,
 }));
