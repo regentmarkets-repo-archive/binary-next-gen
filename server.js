@@ -3,9 +3,14 @@ const express = require('express');
 const webpack = require('webpack');
 const config = require('./webpack.config');
 const gutil = require('gulp-util');
+const Dashboard = require('webpack-dashboard');
+const DashboardPlugin = require('webpack-dashboard/plugin');
 
 const app = express();
 const compiler = webpack(config);
+
+const dashboard = new Dashboard();
+compiler.apply(new DashboardPlugin(dashboard.setData));
 
 app.use(require('node-sass-middleware')({
     src: path.join(__dirname, 'styles'),
@@ -13,6 +18,7 @@ app.use(require('node-sass-middleware')({
 }));
 
 app.use(require('webpack-dev-middleware')(compiler, {
+    quiet: true,
     noInfo: true,
     publicPath: config.output.publicPath,
 }));
