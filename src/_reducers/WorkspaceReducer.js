@@ -25,7 +25,6 @@ const initialState = new Map({
     sideActiveTab: 0,
     tradeMode: 'tabs',
     activeTradeIndex: 0,
-    examinedAsset: 'R_100',
 });
 
 export default (state = initialState, action) => {

@@ -13,7 +13,7 @@ const getDailyPrices = symbol =>
         return Promise.resolve();
     };
 
-export const changeexaminedAsset = symbol =>
+export const changeExaminedAsset = symbol =>
     dispatch => {
         const tradingOptions = dispatch(getTradingOptions(symbol));
         const dailyPrices = dispatch(getDailyPrices(symbol));

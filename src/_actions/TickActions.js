@@ -48,7 +48,7 @@ export const getTicksByCount = (symbol, count) =>
             return LiveData.api
                 .getTickHistory(symbol, { end: 'latest', count, adjust_start_time: 1, subscribe: 1 })
                 .catch(err => {
-                    const errCode = err.error.code;
+                    const errCode = err.error.error.code;
                     if (errCode === 'MarketIsClosed' || errCode === 'NoRealtimeQuotes') {
                         return LiveData.api
                             .getTickHistory(symbol, { end: 'latest', count, adjust_start_time: 1 });

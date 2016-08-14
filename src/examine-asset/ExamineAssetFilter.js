@@ -25,7 +25,7 @@ export default class ExamineAssetFilter extends PureComponent {
 		this.setState({ dropdownShown: false });
 
 	onChangeAsset = newAsset => {
-		actions.changeexaminedAsset(newAsset);
+		actions.changeExaminedAsset(newAsset);
 	}
 
 	render() {

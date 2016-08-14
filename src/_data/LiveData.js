@@ -91,18 +91,17 @@ const initAuthorized = async (authData, store) => {
 
     api.getActiveSymbolsFull()
         .then(r => {
-            const firstOpenSymbol = r.active_symbols.find(a => a.exchange_is_open === 1).symbol;
+            const firstOpenActiveSymbol = r.active_symbols.find(a => a.exchange_is_open === 1);
+            const symbolToUse = firstOpenActiveSymbol ? firstOpenActiveSymbol.symbol : r.active_symbols[0].symbol;
             const tradesCount = store.getState().tradesParams.size;
             if (tradesCount === 0) {
-                store.dispatch(actions.createTrade(0, firstOpenSymbol));
+                store.dispatch(actions.createTrade(0, symbolToUse));
             }
+            store.dispatch(actions.changeExaminedAsset(symbolToUse));
         });
     api.getTradingTimes(new Date());
     api.getAssetIndex();
     api.getServerTime();
-    api.getCandlesForLastNDays('R_100', 30);
-    store.dispatch(actions.getTradingOptions('R_100'));
-    store.dispatch(actions.getTicksByCount('R_100', 100));
 
     api.getPortfolio();
     api.getStatement({ description: 1, limit: 20 });
