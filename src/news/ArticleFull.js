@@ -1,10 +1,11 @@
 import React, { PropTypes, PureComponent } from 'react';
 
-export default class Article extends PureComponent {
+export default class ArticleFull extends PureComponent {
 
     static propTypes = {
-        articles: PropTypes.array.isRequired,
-        params: PropTypes.object.isRequired,
+        title: PropTypes.string.isRequired,
+        pubDate: PropTypes.string.isRequired,
+        content: PropTypes.string.isRequired,
     };
 
     render() {

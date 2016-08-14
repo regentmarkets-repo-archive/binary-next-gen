@@ -9,20 +9,20 @@ import {
 
 export const contractToShow = createSelector(
     [state => portfolioSelector(state).get('contractShown'), boughtContractsSelector],
-    (contractID, contracts) => {
-        const contract = contracts.find(x => x.get('contract_id') === contractID);
-        return contract;
-    }
+    (contractID, contracts) =>
+        contracts.find(x => x.get('contract_id') === contractID)
 );
 
 const contractWithBarrierType = createSelector(
     contractToShow,
-    contract => contract && contract.set('barrierType', 'absolute')
+    contract =>
+        contract && contract.set('barrierType', 'absolute')
 );
 
 export const dataToShow = createSelector(
     [state => portfolioSelector(state).get('contractShown'), state => state.chartData],
-    (contractID, chartData) => chartData.find((v, k) => k === contractID)
+    (contractID, chartData) =>
+        chartData.find((v, k) => k === contractID)
 );
 
 export const pipSizeSelector = createSelector(

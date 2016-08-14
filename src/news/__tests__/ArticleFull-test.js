@@ -6,12 +6,11 @@ import ArticleFull from '../ArticleFull';
 describe('<ArticleFull />', () => {
     it('should render the component properly', () => {
         const props = {
-            articles: [{ title: 'Article 1', pubDate: '2001-11-02', description: 'Desc' },
-                { title: 'Article Title', pubDate: '2001-11-02', description: 'Desc' }],
-            params: { index: 1 },
+            title: 'Article Title',
+            pubDate: '2001-11-02',
+            content: 'Desc',
         };
-
-        const wrapper = shallow(<ArticleFull {...(props)} />);
+        const wrapper = shallow(<ArticleFull {...props} />);
         expect(wrapper.render().text()).to.contain('Article Title');
     });
 });
