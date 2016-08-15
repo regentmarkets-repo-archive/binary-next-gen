@@ -2,7 +2,7 @@ export default {
     "": {
         "project-id-version": "1.0",
         "pot-creation-date": "",
-        "po-revision-date": "2016-07-11 11:59+0000",
+        "po-revision-date": "2016-08-11 18:44+0000",
         "last-translator": "Ewelina Bruździak <e.bruzdziak@gmail.com>",
         "language-team": "Polish <https://hosted.weblate.org/projects/binary-app/next-gen-app/pl/>",
         "language": "pl",
@@ -483,7 +483,7 @@ export default {
     ],
     "Cashier Lock": [
         null,
-        ""
+        "Blokowanie sekcji Kasjer"
     ],
     "Change Password": [
         null,
@@ -679,11 +679,15 @@ export default {
     ],
     "Low": [
         null,
-        ""
+        "Niski"
     ],
     "High": [
         null,
-        ""
+        "Wysoki"
+    ],
+    "Open": [
+        null,
+        "Otwarte"
     ],
     "Date": [
         null,
@@ -779,206 +783,362 @@ export default {
     ],
     "Favorites": [
         null,
-        ""
+        "Ulubione"
     ],
     "Open For Trading": [
         null,
-        ""
+        "Otwarte do handlowania"
+    ],
+    "Closed": [
+        null,
+        "Zamknięte"
     ],
     "Contract ID": [
         null,
-        ""
+        "ID kontraktu"
     ],
     "Reference ID": [
         null,
-        ""
+        "ID referencyjne"
+    ],
+    "Entry Spot": [
+        null,
+        "Pozycja wejściowa"
+    ],
+    "Entry Spot Time": [
+        null,
+        "Czas pozycji wejściowej"
+    ],
+    "Potential Payout": [
+        null,
+        "Potencjalna wypłata"
+    ],
+    "Exit Spot": [
+        null,
+        "Pozycja wyjściowa"
+    ],
+    "Exit Spot Time": [
+        null,
+        "Czas pozycji wyjściowej"
+    ],
+    "Sell Price": [
+        null,
+        "Cena sprzedaży"
+    ],
+    "Sell Time": [
+        null,
+        "Czas sprzedaży"
+    ],
+    "Trade Again": [
+        null,
+        "Handluj ponownie"
     ],
     "Barrier": [
         null,
-        ""
+        "Limit"
+    ],
+    "You Won": [
+        null,
+        "Wygrana"
+    ],
+    "You Lost": [
+        null,
+        "Przegrana"
     ],
     "To change your name, date of birth, country of residence, or email, contact Customer Support.": [
         null,
-        ""
+        "Aby zmienić imię lub nazwisko, datę urodzenia, miejsce zamieszkania lub adres e-mail, skontaktuj się z działem obsługi klienta."
     ],
     "Cashier is locked per your request. To unlock it, enter your password.": [
         null,
-        ""
+        "Sekcja Kasjer została zablokowana na Twoją prośbę. Aby ją odblokować, wpisz hasło."
     ],
     "Unlock Cashier": [
         null,
-        ""
+        "Odblokowywanie sekcji Kasjer"
     ],
     "Time out until": [
         null,
-        ""
+        "Przekroczono limit czasu do"
+    ],
+    "No transactions for the selected period": [
+        null,
+        "Brak transakcji w wybranym okresie"
     ],
     "You have no open contracts": [
         null,
-        ""
+        "Nie masz żadnych otwartych kontraktów"
     ],
     "You have no assets in watchlist": [
         null,
-        ""
+        "Nie masz żadnych aktywów na liście do obserwowania"
     ],
     "Basic": [
         null,
-        ""
+        "Podstawowe"
+    ],
+    "Digits": [
+        null,
+        "Cyfry"
     ],
     "Advanced": [
         null,
-        ""
+        "Zaawansowane"
     ],
     "Higher": [
         null,
-        ""
+        "Wyższy"
     ],
     "Lower": [
         null,
-        ""
+        "Niższy"
+    ],
+    "Ends Outside": [
+        null,
+        "Zakończy się poza"
     ],
     "Ends Between": [
         null,
-        ""
+        "Zakończy się pomiędzy"
     ],
     "Stays Between": [
         null,
-        ""
+        "Pozostanie pomiędzy"
     ],
     "Goes Outside": [
         null,
-        ""
+        "Przekroczy"
+    ],
+    "Does Not Touch": [
+        null,
+        "Nie osiągnie"
+    ],
+    "Credit / Debit": [
+        null,
+        "Winien/Ma"
     ],
     "Last 25 Ticks": [
         null,
-        ""
+        "Ostatnich 25 zmian cen"
+    ],
+    "Last 50 Trades": [
+        null,
+        "Ostatnie 50 zakładów"
+    ],
+    "Last 100 Trades": [
+        null,
+        "Ostatnie 100 zakładów"
+    ],
+    "Last 500 Trades": [
+        null,
+        "Ostatnie 500 zakładów"
+    ],
+    "Last 1000 Trades": [
+        null,
+        "Ostatnie 1000 zakładów"
+    ],
+    "Maximum Daily Turnover": [
+        null,
+        "Maksymalny dzienny obrót"
     ],
     "Commodities": [
         null,
-        ""
+        "Towary"
     ],
     "Major Pairs": [
         null,
-        ""
+        "Główne pary"
     ],
     "Minor Pairs": [
         null,
-        ""
+        "Drugorzędne pary"
     ],
     "Smart FX": [
         null,
-        ""
+        "Inteligentne rynki forex"
+    ],
+    "Volatility Indices": [
+        null,
+        "Wskaźniki zmienności"
+    ],
+    "Indices": [
+        null,
+        "Wskaźniki"
     ],
     "OTC Stocks": [
         null,
-        ""
+        "Akcje OTC"
     ],
     "Stated limits are subject to change without prior notice": [
         null,
-        ""
+        "Określone limity mogą zostać zmienione bez wcześniejszego powiadomienia"
+    ],
+    "Withdrawal Limits": [
+        null,
+        "Limity wypłat"
+    ],
+    "Withdrawal limit": [
+        null,
+        "Limit wypłat"
     ],
     "Already withdrawn": [
         null,
-        ""
+        "Już wypłacono"
     ],
     "Current immediate maximum withdrawal": [
         null,
-        ""
+        "Obecna maksymalna natychmiastowa wypłata"
+    ],
+    "Create Free Account": [
+        null,
+        "Utwórz darmowe konto"
     ],
     "Verification Code": [
         null,
-        ""
+        "Kod weryfikacyjny"
+    ],
+    "Confirm Password": [
+        null,
+        "Potwierdź hasło"
     ],
     "Already have an account?": [
         null,
-        ""
+        "Masz już konto?"
     ],
     "Enter a valid verification code": [
         null,
-        ""
+        "Podaj prawidłowy kod weryfikacyjny"
     ],
     "Choose your country": [
         null,
-        ""
+        "Wybierz swój kraj"
     ],
     "Password should have lower and uppercase letters and 6 characters or more": [
         null,
-        ""
+        "Hasło powinno składać się z co najmniej 6 znaków i zawierać małe i wielkie litery"
     ],
     "Passwords do not match": [
         null,
-        ""
+        "Hasła nie są zgodne"
     ],
     "Enter a valid email": [
         null,
-        ""
+        "Podaj prawidłowy adres e-mail"
     ],
     "Number should between 10 to 120": [
         null,
-        ""
+        "Liczba powinna być z przedziału od 10 do 120"
     ],
     "Enter your first and last name": [
         null,
-        ""
+        "Podaj swoje imię i nazwisko"
     ],
     "City must not be empty": [
         null,
-        ""
+        "Pole „miasto” nie może być puste"
     ],
     "Address must not be empty": [
         null,
-        ""
+        "Pole „adres” nie może być puste"
     ],
     "Enter a valid phone number": [
         null,
-        ""
+        "Podaj aktualny numer telefonu"
     ],
     "Select a secret question": [
         null,
-        ""
+        "Wybierz sekretne pytanie"
     ],
     "Secret answer must be at least 4 characters": [
         null,
-        ""
+        "Odpowiedź na sekretne pytanie musi składać się z co najmniej 4 znaków"
     ],
     "You need to agree to our Terms and Conditions": [
         null,
-        ""
+        "Musisz zaakceptować nasz Regulamin"
     ],
     "I agree to the": [
         null,
-        ""
+        "Akceptuję"
     ],
     "terms and conditions": [
         null,
-        ""
+        "regulamin"
+    ],
+    "Search for assets": [
+        null,
+        "Szukaj aktywów"
     ],
     "Choose a Payment Agent": [
         null,
-        ""
+        "Wybierz pośrednika płatności"
+    ],
+    "Confirm New Password": [
+        null,
+        "Potwierdź nowe hasło"
     ],
     "First Name": [
         null,
-        ""
+        "Imię"
+    ],
+    "Last Name": [
+        null,
+        "Nazwisko"
     ],
     "Address First Line": [
         null,
-        ""
+        "Adres - część pierwsza"
     ],
     "Address Second Line": [
         null,
-        ""
+        "Adres - część druga"
     ],
     "Phone": [
         null,
-        ""
+        "Telefon"
     ],
     "Answer To Secret Question": [
         null,
-        ""
+        "Odpowiedź na sekretne pytanie"
     ],
     "Switch to": [
         null,
-        ""
+        "Zmień na"
+    ],
+    "Single Trade": [
+        null,
+        "Pojedynczy zakład"
+    ],
+    "Multi Trade": [
+        null,
+        "Multi zakład"
+    ],
+    "Current Password": [
+        null,
+        "Obecne hasło"
+    ],
+    "New Password": [
+        null,
+        "Nowe hasło"
+    ],
+    "Last 50 Ticks": [
+        null,
+        "Ostatnich 50 zmian cen"
+    ],
+    "Last 100 Ticks": [
+        null,
+        "Ostatnich 100 zmian cen"
+    ],
+    "Last 500 Ticks": [
+        null,
+        "Ostatnich 500 zmian cen"
+    ],
+    "Last 1000 Ticks": [
+        null,
+        "Ostatnich 1000 zmian cen"
+    ],
+    "Exit Full Screen": [
+        null,
+        "Zamknij pełny ekran"
     ]
 }

@@ -3,8 +3,8 @@ export default {
         "project-id-version": "BOM",
         "report-msgid-bugs-to": "",
         "pot-creation-date": "",
-        "po-revision-date": "2016-08-02 15:46+0000",
-        "last-translator": "Alina Demidova <alinademidova1@gmail.com>",
+        "po-revision-date": "2016-08-10 10:40+0000",
+        "last-translator": "Ruslan <ruslan.mukhametdinov.90@gmail.com>",
         "language-team": "Russian <https://hosted.weblate.org/projects/binary-app/next-gen-app/ru/>",
         "language": "ru",
         "mime-version": "1.0",
@@ -777,6 +777,10 @@ export default {
         null,
         "Видео"
     ],
+    "Digit Stats": [
+        null,
+        "Статистика"
+    ],
     "Favorites": [
         null,
         "Избранное"
@@ -839,7 +843,7 @@ export default {
     ],
     "You Lost": [
         null,
-        ""
+        "Вы проиграли"
     ],
     "To change your name, date of birth, country of residence, or email, contact Customer Support.": [
         null,
