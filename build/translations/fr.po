@@ -1035,3 +1035,46 @@ msgstr "Les 30 derniers jours"
 
 msgid "Exit Full Screen"
 msgstr ""
+
+msgid "No digit trades for this asset"
+msgstr ""
+
+msgid "Lock Cashier"
+msgstr ""
+
+msgid "Time out until date"
+msgstr ""
+
+msgid "Time out until time"
+msgstr ""
+
+#, fuzzy
+msgid "Light Theme"
+msgstr "Vif"
+
+#, fuzzy
+msgid "Dark Theme"
+msgstr "Thème de couleur"
+
+msgid "Password changed successfully"
+msgstr ""
+
+#, fuzzy
+msgid "Settings updated"
+msgstr "Paramètres"
+
+#, fuzzy
+msgid "Address updated"
+msgstr "Adresse du domicile"
+
+msgid "Barrier must not be empty"
+msgstr ""
+
+msgid "Duration is out of range"
+msgstr ""
+
+msgid "Start date invalid, it needs to be five minutes or more in the future"
+msgstr ""
+
+msgid "Time format is wrong"
+msgstr ""

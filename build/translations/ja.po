@@ -876,3 +876,50 @@ msgstr "直近 1000 Tick"
 
 msgid "Exit Full Screen"
 msgstr "フルスクリーンを終了"
+
+msgid "No digit trades for this asset"
+msgstr ""
+
+#, fuzzy
+msgid "Lock Cashier"
+msgstr "入出金ロック解除"
+
+#, fuzzy
+msgid "Time out until date"
+msgstr "xxxまで利用禁止"
+
+#, fuzzy
+msgid "Time out until time"
+msgstr "xxxまで利用禁止"
+
+#, fuzzy
+msgid "Light Theme"
+msgstr "ライト"
+
+#, fuzzy
+msgid "Dark Theme"
+msgstr "テーマカラー"
+
+msgid "Password changed successfully"
+msgstr ""
+
+#, fuzzy
+msgid "Settings updated"
+msgstr "各種設定"
+
+#, fuzzy
+msgid "Address updated"
+msgstr "現住所"
+
+#, fuzzy
+msgid "Barrier must not be empty"
+msgstr "市区町村の入力は必須です"
+
+msgid "Duration is out of range"
+msgstr ""
+
+msgid "Start date invalid, it needs to be five minutes or more in the future"
+msgstr ""
+
+msgid "Time format is wrong"
+msgstr ""
