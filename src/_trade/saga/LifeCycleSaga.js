@@ -58,7 +58,7 @@ export function* tradeCreation(action) {
                             delete tickHistoryParam.subscribe;
                             api.getTickHistory(symbol, tickHistoryParam);
                         } else {
-                            yield put(updateTradeError(index, 'other', err.error.error.message));
+                            yield put(updateTradeError(index, 'serverError', err.error.error.message));
                         }
                     }
                 }
