@@ -30,6 +30,7 @@ window._trackJs = { // eslint-disable-line no-underscore-dangle
 	userId: (JSON.parse(storage.getItem('account')) || {}).loginid,
     onError: payload => {
         if (payload.message.indexOf('ServerError') >= 0) return false;
+        if (payload.message.indexOf('echo_req') >= 0) return false;
         return true;
     },
 };
