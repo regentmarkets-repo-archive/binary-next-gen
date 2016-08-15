@@ -5,6 +5,7 @@ import { updateMultipleTradeParams } from '../../_actions';
 import { getParams, getProposalId } from './SagaSelectors';
 import { api } from '../../_data/LiveData';
 import { updatePurchasedContract, updateTradeError } from '../../_actions/TradeActions';
+import { updateChartDataByContract } from '../../_actions/ChartDataActions';
 import { unsubscribeProposal, subscribeProposal } from './ProposalSubscriptionSaga';
 
 const CHANGE_STAKE = 'CHANGE_STAKE';
@@ -44,9 +45,15 @@ function* handlePurchase(action) {
             purchaseHook(params);
             return r;
         });
+
+        const { ticks, candles, symbol, isSold } =
+            yield api.getDataForContract(
+                () => api.subscribeToOpenContract(buy.contract_id).then(r => r.proposal_open_contract),
+                1, 'all', 'ticks', false);
+
         yield [
             put(updatePurchasedContract(index, buy)),
-            api.subscribeToOpenContract(buy.contract_id),
+            put(updateChartDataByContract(buy.contract_id, ticks || candles, 'ticks', symbol, isSold)),
         ];
     } catch (err) {
         yield put(updateTradeError(index, 'purchaseError', err.error.error.message));

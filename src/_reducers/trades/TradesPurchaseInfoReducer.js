@@ -32,9 +32,7 @@ export default (state = initialState, action) => {
             return state;
         }
         case CLOSE_CONTRACT_RECEPIT: {
-            return state
-                .deleteIn([action.index, 'mostRecentContractId'])
-                .deleteIn([action.index, 'lastBoughtContract']);
+            return state.deleteIn([action.index, 'mostRecentContractId']);
         }
         case PURCHASED_CONTRACT: {
             if (!state.get(action.index)) {
