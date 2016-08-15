@@ -914,6 +914,26 @@ msgstr ""
 msgid "Time format is wrong"
 msgstr ""
 
+#, fuzzy
+msgid "Lower than"
+msgstr "低於"
+
+#, fuzzy
+msgid "Higher than"
+msgstr "高於"
+
+#, fuzzy
+msgid "High barrier"
+msgstr "高於"
+
+#, fuzzy
+msgid "Low barrier"
+msgstr "障礙"
+
+#, fuzzy
+msgid "Touch spot"
+msgstr "觸及"
+
 #~ msgid "Current Spot Time"
 #~ msgstr "目前現價時間"
 

@@ -923,3 +923,23 @@ msgstr ""
 
 msgid "Time format is wrong"
 msgstr ""
+
+#, fuzzy
+msgid "Lower than"
+msgstr "Ниже"
+
+#, fuzzy
+msgid "Higher than"
+msgstr "Выше"
+
+#, fuzzy
+msgid "High barrier"
+msgstr "Выше"
+
+#, fuzzy
+msgid "Low barrier"
+msgstr "Барьер"
+
+#, fuzzy
+msgid "Touch spot"
+msgstr "Коснется"

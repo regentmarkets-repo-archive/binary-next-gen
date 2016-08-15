@@ -1078,3 +1078,19 @@ msgstr ""
 
 msgid "Time format is wrong"
 msgstr ""
+
+msgid "Lower than"
+msgstr ""
+
+msgid "Higher than"
+msgstr ""
+
+msgid "High barrier"
+msgstr ""
+
+msgid "Low barrier"
+msgstr ""
+
+#, fuzzy
+msgid "Touch spot"
+msgstr "Touche"

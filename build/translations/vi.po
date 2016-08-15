@@ -926,3 +926,23 @@ msgstr ""
 
 msgid "Time format is wrong"
 msgstr ""
+
+#, fuzzy
+msgid "Lower than"
+msgstr "Thấp hơn"
+
+#, fuzzy
+msgid "Higher than"
+msgstr "Cao hơn"
+
+#, fuzzy
+msgid "High barrier"
+msgstr "Cao hơn"
+
+#, fuzzy
+msgid "Low barrier"
+msgstr "Barie"
+
+#, fuzzy
+msgid "Touch spot"
+msgstr "Chạm"

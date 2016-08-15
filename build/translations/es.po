@@ -921,3 +921,23 @@ msgstr ""
 
 msgid "Time format is wrong"
 msgstr ""
+
+#, fuzzy
+msgid "Lower than"
+msgstr "Menor"
+
+#, fuzzy
+msgid "Higher than"
+msgstr "Mayor"
+
+#, fuzzy
+msgid "High barrier"
+msgstr "Mayor"
+
+#, fuzzy
+msgid "Low barrier"
+msgstr "Barrera"
+
+#, fuzzy
+msgid "Touch spot"
+msgstr "Toca"

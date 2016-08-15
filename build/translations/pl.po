@@ -925,3 +925,23 @@ msgstr ""
 
 msgid "Time format is wrong"
 msgstr ""
+
+#, fuzzy
+msgid "Lower than"
+msgstr "Niższy"
+
+#, fuzzy
+msgid "Higher than"
+msgstr "Wyższy"
+
+#, fuzzy
+msgid "High barrier"
+msgstr "Wyższy"
+
+#, fuzzy
+msgid "Low barrier"
+msgstr "Limit"
+
+#, fuzzy
+msgid "Touch spot"
+msgstr "Osiągnie"

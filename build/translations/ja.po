@@ -923,3 +923,23 @@ msgstr ""
 
 msgid "Time format is wrong"
 msgstr ""
+
+#, fuzzy
+msgid "Lower than"
+msgstr "LOW"
+
+#, fuzzy
+msgid "Higher than"
+msgstr "High"
+
+#, fuzzy
+msgid "High barrier"
+msgstr "High"
+
+#, fuzzy
+msgid "Low barrier"
+msgstr "バリア"
+
+#, fuzzy
+msgid "Touch spot"
+msgstr "タッチ"

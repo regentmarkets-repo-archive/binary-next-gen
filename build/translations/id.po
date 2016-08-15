@@ -919,3 +919,23 @@ msgstr ""
 
 msgid "Time format is wrong"
 msgstr ""
+
+#, fuzzy
+msgid "Lower than"
+msgstr "Lower"
+
+#, fuzzy
+msgid "Higher than"
+msgstr "Higher"
+
+#, fuzzy
+msgid "High barrier"
+msgstr "Higher"
+
+#, fuzzy
+msgid "Low barrier"
+msgstr "Batasan"
+
+#, fuzzy
+msgid "Touch spot"
+msgstr "Touches"
