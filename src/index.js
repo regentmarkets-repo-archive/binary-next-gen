@@ -2,6 +2,7 @@ import 'babel-polyfill';
 import React from 'react';
 import ReactDOM from 'react-dom';
 // import Perf from 'react-addons-perf';
+import config from './config';
 import Root from './_store/root';
 import storage from './_store/storage';
 
@@ -25,6 +26,7 @@ window._trackJs = { // eslint-disable-line no-underscore-dangle
     token: '346262e7ffef497d85874322fff3bbf8',
     application: appName,
     enabled: appName !== '???',
+    version: config.version,
 	userId: (JSON.parse(storage.getItem('account')) || {}).loginid,
 };
 require('trackjs');
