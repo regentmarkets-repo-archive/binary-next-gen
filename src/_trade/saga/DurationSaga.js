@@ -32,7 +32,7 @@ export function* handleDurationChange(action) {
             put(updateTradeError(index, 'durationError')),
         ];
     } else {
-        yield put(updateTradeError(index, 'durationError', 'Duration is out of range.'));
+        yield put(updateTradeError(index, 'durationError', 'Duration is out of range'));
     }
 }
 
@@ -100,7 +100,7 @@ export function* handleStartDateChange(action) {
 
     const newDayEpoch = dateToEpoch(new Date(date));
     if (!newDayEpoch) {
-        yield put(updateTradeError(index, 'durationError', 'Start date invalid, it needs to be five minutes or more in the future.'));
+        yield put(updateTradeError(index, 'durationError', 'Start date invalid, it needs to be five minutes or more in the future'));
         return;
     }
 
@@ -120,7 +120,7 @@ export function* handleStartDateChange(action) {
             put(updateTradeError(index, 'durationError')),
         ];
     } else {
-        yield put(updateTradeError(index, 'durationError', 'Start date invalid, it needs to be five minutes or more in the future.'));
+        yield put(updateTradeError(index, 'durationError', 'Start date invalid, it needs to be five minutes or more in the future'));
     }
 }
 
@@ -137,7 +137,7 @@ export function* handleStartTimeChange(action) {
     yield put(unsubscribeProposal(index));
 
     if (isValidTime(time)) {
-        yield put(updateTradeError(index, 'durationError', 'Time format is wrong!'));
+        yield put(updateTradeError(index, 'durationError', 'Time format invalid'));
         return;
     }
 
@@ -161,7 +161,7 @@ export function* handleStartTimeChange(action) {
             put(updateTradeError(index, 'durationError')),
         ];
     } else {
-        yield put(updateTradeError(index, 'durationError', 'Start date invalid, it needs to be five minutes or more in the future.'));
+        yield put(updateTradeError(index, 'durationError', 'Start date invalid, it needs to be five minutes or more in the future'));
     }
 }
 

@@ -62,7 +62,7 @@ export default class SettingsChangePassword extends PureComponent {
 
         return (
             <form className="settings-change-password" onSubmit={this.onFormSubmit}>
-                <UpdateNotice text="Password changed successfully." show={success} />
+                <UpdateNotice text="Password changed successfully" show={success} />
                 <Legend text="Change Password" />
                 {serverError && <ServerError text={serverError} />}
                 <InputGroup

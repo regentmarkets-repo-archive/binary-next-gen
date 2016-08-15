@@ -25,7 +25,7 @@ export function* handleBarrierChange(action) {
     const contract = yield select(contractOfSymbol(symbol));
 
     if (!isBarrierCountValid(barrier, expiryType, contract[tradeCategory][type])) {
-        yield put(updateTradeError(index, 'barrierError', 'Barrier must not be empty.'));
+        yield put(updateTradeError(index, 'barrierError', 'Barrier must not be empty'));
         return;
     }
 
