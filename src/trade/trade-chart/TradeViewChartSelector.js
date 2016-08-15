@@ -9,7 +9,7 @@ import { purchasePerTrade, paramPerTrade } from '../TradeSelectors';
 const chartDataPerTrade = createSelector(
     [tradePurchaseInfoSelector, chartDataSelector, (state, props) => props.index],
     (purchaseInfo, chartData, index) => {
-        const contractID = purchaseInfo.getIn([index, 'lastBoughtContract', 'contract_id']);
+        const contractID = purchaseInfo.getIn([index, 'mostRecentContractId']);
         return chartData.get(contractID);
     }
 );

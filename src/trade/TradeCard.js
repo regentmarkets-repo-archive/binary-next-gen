@@ -29,10 +29,11 @@ export default class TradeCard extends PureComponent {
         actions.closeContractReceipt(index);
     }
 
-    zoomWhenPurchase = () => {
+    zoomWhenPurchase = tradeParams => {
         const { index } = this.props;
+        const { duration, durationUnit } = tradeParams;
         const domID = `trade-chart${index}`;
-        const zoomToLatestEv = new Event('zoom-to-latest');
+        const zoomToLatestEv = new CustomEvent('zoom-to-latest', { detail: { duration, unit: durationUnit } });
         document.getElementById(domID).dispatchEvent(zoomToLatestEv);
     }
 
