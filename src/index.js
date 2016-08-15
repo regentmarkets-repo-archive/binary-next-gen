@@ -28,6 +28,10 @@ window._trackJs = { // eslint-disable-line no-underscore-dangle
     enabled: appName !== '???',
     version: config.version,
 	userId: (JSON.parse(storage.getItem('account')) || {}).loginid,
+    onError: payload => {
+        if (payload.message.indexOf('ServerError') >= 0) return false;
+        return true;
+    },
 };
 require('trackjs');
 
