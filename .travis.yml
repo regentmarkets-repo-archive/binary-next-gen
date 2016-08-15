@@ -5,3 +5,5 @@ notifications:
     email: false
 before_install: npm install
 install: npm run test:full
+after_success: npm run test:coveralls
+
