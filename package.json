@@ -125,7 +125,6 @@
     "redux": "^3.5.2",
     "redux-saga": "^0.11.0",
     "redux-storage": "^4.1.0",
-    "redux-storage-decorator-debounce": "^1.0.1",
     "redux-storage-decorator-filter": "^1.1.5",
     "redux-storage-merger-immutablejs": "^1.0.2",
     "redux-thunk": "^2.1.0",
