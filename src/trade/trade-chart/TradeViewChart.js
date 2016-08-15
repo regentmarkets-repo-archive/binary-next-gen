@@ -1,17 +1,18 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { BinaryChart } from 'binary-charts';
+import { durationToSecs } from 'binary-utils';
 import { actions } from '../../_store';
 import {
     internalTradeModelToChartTradeModel,
     serverContractModelToChartContractModel,
 } from '../adapters/TradeObjectAdapter';
 
-const zoomToLatest = chart => {
-    const { min, max, dataMax } = chart.xAxis[0].getExtremes();
-    if (min && max) {
-        const frameSize = max - min;
-        chart.xAxis[0].setExtremes(dataMax - frameSize + 500, dataMax);
-    }
+const zoomToLatest = (ev, chart) => {
+    const { dataMax } = chart.xAxis[0].getExtremes();
+    const { duration, unit } = ev.detail;
+    const rangeInSecs = unit === 't' ? duration * 2 : durationToSecs(duration, unit);
+    const rangeInMillis = rangeInSecs * 1000;
+    chart.xAxis[0].setExtremes(dataMax - (rangeInMillis * 1.1), dataMax);
 };
 
 const chartToDataType = {
