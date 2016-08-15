@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { tradeToFriendlyType } from 'binary-utils';
-import { Label, Info, DownArrow } from 'binary-components';
+import { Label, Info, DownArrow, M } from 'binary-components';
 import DropDown from '../containers/DropDown';
 import TradeTypePicker from './TradeTypePicker';
 import helpText from './helpText';
@@ -67,7 +67,7 @@ export default class TradeTypeDropDown extends PureComponent {
                         src={`img/trade-${selectedType.toLowerCase()}.svg`}
                         alt={selectedType}
                     />
-                    {tradeToFriendlyType(selectedType, tradeParams.barrier)}
+                    <M m={tradeToFriendlyType(selectedType, tradeParams.barrier)} />
                     <DownArrow />
                 </div>
             </div>
