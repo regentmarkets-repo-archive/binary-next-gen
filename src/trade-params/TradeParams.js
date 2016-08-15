@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { askPriceFromProposal, windowResizeEvent } from 'binary-utils';
-import { ServerError } from 'binary-components';
+import { ServerError, Error } from 'binary-components';
 import { actions } from '../_store';
 import BarrierCard from '../barrier-picker/BarrierCard';
 // import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
@@ -122,11 +122,12 @@ export default class TradeParams extends PureComponent {
         const digitOptions = (isDigitType && barrierInfo) && barrierInfo.tick[0].values;
         const askPrice = askPriceFromProposal(proposal);
         const longcode = proposal && proposal.longcode;
-        const errorText = errorToShow(errors);
+        const serverError = errors.serverError;
+        const nonServerError = errorToShow(errors);
 
         return (
             <div className="trade-params" key={this.state.dynamicKey} style={style}>
-                <ServerError text={errorText} />
+                {serverError ? <ServerError text={serverError} /> : <Error text={nonServerError} />}
                 <AssetPickerDropDown
                     index={index}
                     selectedSymbol={tradeParams.symbol}

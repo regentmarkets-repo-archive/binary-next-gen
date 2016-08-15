@@ -49,7 +49,7 @@ function* handlePurchase(action) {
             api.subscribeToOpenContract(buy.contract_id),
         ];
     } catch (err) {
-        yield put(updateTradeError(index, 'purchaseError', err.error.error.message));
+        yield put(updateTradeError(index, 'serverError', err.error.error.message));
     } finally {
         yield put(subscribeProposal(index, params));
     }
