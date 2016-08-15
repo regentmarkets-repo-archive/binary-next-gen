@@ -9,8 +9,8 @@ msgstr ""
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2016-08-05 16:23+0000\n"
 "Last-Translator: Alcino Jorge <alcino@binary.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/binary-app"
-"/next-gen-app/pt/>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/binary-app/"
+"next-gen-app/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -877,3 +877,68 @@ msgstr "1000 últimos tique-taques"
 
 msgid "Exit Full Screen"
 msgstr "Sair da tela inteira"
+
+msgid "No digit trades for this asset"
+msgstr ""
+
+#, fuzzy
+msgid "Lock Cashier"
+msgstr "Desbloquear o caixa"
+
+#, fuzzy
+msgid "Time out until date"
+msgstr "Bloqueio até"
+
+#, fuzzy
+msgid "Time out until time"
+msgstr "Bloqueio até"
+
+#, fuzzy
+msgid "Light Theme"
+msgstr "Claro"
+
+#, fuzzy
+msgid "Dark Theme"
+msgstr "Tema de cor"
+
+msgid "Password changed successfully"
+msgstr ""
+
+#, fuzzy
+msgid "Settings updated"
+msgstr "Definições"
+
+#, fuzzy
+msgid "Address updated"
+msgstr "Endereço"
+
+#, fuzzy
+msgid "Barrier must not be empty"
+msgstr "Cidade não deve estar vazio"
+
+msgid "Duration is out of range"
+msgstr ""
+
+msgid "Start date invalid, it needs to be five minutes or more in the future"
+msgstr ""
+
+msgid "Time format is wrong"
+msgstr ""
+
+msgid "Lower than"
+msgstr ""
+
+msgid "Higher than"
+msgstr ""
+
+#, fuzzy
+msgid "High barrier"
+msgstr "Barreira"
+
+#, fuzzy
+msgid "Low barrier"
+msgstr "Barreira"
+
+#, fuzzy
+msgid "Touch spot"
+msgstr "Toca"

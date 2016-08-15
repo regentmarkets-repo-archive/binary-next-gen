@@ -879,3 +879,70 @@ msgstr "Letzten 1000 Ticks"
 
 msgid "Exit Full Screen"
 msgstr "Vollbildmodus beenden"
+
+msgid "No digit trades for this asset"
+msgstr ""
+
+#, fuzzy
+msgid "Lock Cashier"
+msgstr "Kassenabschnitt entsperren"
+
+#, fuzzy
+msgid "Time out until date"
+msgstr "Timeout bis"
+
+#, fuzzy
+msgid "Time out until time"
+msgstr "Timeout bis"
+
+#, fuzzy
+msgid "Light Theme"
+msgstr "Hell"
+
+#, fuzzy
+msgid "Dark Theme"
+msgstr "Farbthema"
+
+msgid "Password changed successfully"
+msgstr ""
+
+#, fuzzy
+msgid "Settings updated"
+msgstr "Einstellungen"
+
+#, fuzzy
+msgid "Address updated"
+msgstr "Adresse"
+
+#, fuzzy
+msgid "Barrier must not be empty"
+msgstr "Stadt darf nicht leer bleiben"
+
+msgid "Duration is out of range"
+msgstr ""
+
+msgid "Start date invalid, it needs to be five minutes or more in the future"
+msgstr ""
+
+msgid "Time format is wrong"
+msgstr ""
+
+#, fuzzy
+msgid "Lower than"
+msgstr "Niedriger"
+
+#, fuzzy
+msgid "Higher than"
+msgstr "Höher"
+
+#, fuzzy
+msgid "High barrier"
+msgstr "Höher"
+
+#, fuzzy
+msgid "Low barrier"
+msgstr "Schwelle"
+
+#, fuzzy
+msgid "Touch spot"
+msgstr "Berührt"

@@ -925,3 +925,62 @@ msgstr "آخر 30 يوما"
 
 msgid "Exit Full Screen"
 msgstr ""
+
+msgid "No digit trades for this asset"
+msgstr ""
+
+msgid "Lock Cashier"
+msgstr ""
+
+msgid "Time out until date"
+msgstr ""
+
+msgid "Time out until time"
+msgstr ""
+
+#, fuzzy
+msgid "Light Theme"
+msgstr "ضوء"
+
+#, fuzzy
+msgid "Dark Theme"
+msgstr "لون النمط"
+
+msgid "Password changed successfully"
+msgstr ""
+
+#, fuzzy
+msgid "Settings updated"
+msgstr "الإعدادات"
+
+#, fuzzy
+msgid "Address updated"
+msgstr "عنوان المنزل"
+
+msgid "Barrier must not be empty"
+msgstr ""
+
+msgid "Duration is out of range"
+msgstr ""
+
+msgid "Start date invalid, it needs to be five minutes or more in the future"
+msgstr ""
+
+msgid "Time format is wrong"
+msgstr ""
+
+msgid "Lower than"
+msgstr ""
+
+msgid "Higher than"
+msgstr ""
+
+msgid "High barrier"
+msgstr ""
+
+msgid "Low barrier"
+msgstr ""
+
+#, fuzzy
+msgid "Touch spot"
+msgstr "الوصول"

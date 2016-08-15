@@ -861,3 +861,57 @@ msgstr ""
 
 msgid "Exit Full Screen"
 msgstr ""
+
+msgid "No digit trades for this asset"
+msgstr ""
+
+msgid "Lock Cashier"
+msgstr ""
+
+msgid "Time out until date"
+msgstr ""
+
+msgid "Time out until time"
+msgstr ""
+
+msgid "Light Theme"
+msgstr ""
+
+msgid "Dark Theme"
+msgstr ""
+
+msgid "Password changed successfully"
+msgstr ""
+
+msgid "Settings updated"
+msgstr ""
+
+msgid "Address updated"
+msgstr ""
+
+msgid "Barrier must not be empty"
+msgstr ""
+
+msgid "Duration is out of range"
+msgstr ""
+
+msgid "Start date invalid, it needs to be five minutes or more in the future"
+msgstr ""
+
+msgid "Time format is wrong"
+msgstr ""
+
+msgid "Lower than"
+msgstr ""
+
+msgid "Higher than"
+msgstr ""
+
+msgid "High barrier"
+msgstr ""
+
+msgid "Low barrier"
+msgstr ""
+
+msgid "Touch spot"
+msgstr ""

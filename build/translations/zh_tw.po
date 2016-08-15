@@ -867,6 +867,73 @@ msgstr "最近1000次跳動"
 msgid "Exit Full Screen"
 msgstr "退出全屏"
 
+msgid "No digit trades for this asset"
+msgstr ""
+
+#, fuzzy
+msgid "Lock Cashier"
+msgstr "解鎖收銀台"
+
+#, fuzzy
+msgid "Time out until date"
+msgstr "時間已過。下次開啟時間為"
+
+#, fuzzy
+msgid "Time out until time"
+msgstr "時間已過。下次開啟時間為"
+
+#, fuzzy
+msgid "Light Theme"
+msgstr "淺色"
+
+#, fuzzy
+msgid "Dark Theme"
+msgstr "顏色主題"
+
+msgid "Password changed successfully"
+msgstr ""
+
+#, fuzzy
+msgid "Settings updated"
+msgstr "設定"
+
+#, fuzzy
+msgid "Address updated"
+msgstr "地址"
+
+#, fuzzy
+msgid "Barrier must not be empty"
+msgstr "城市不可為空"
+
+msgid "Duration is out of range"
+msgstr ""
+
+msgid "Start date invalid, it needs to be five minutes or more in the future"
+msgstr ""
+
+msgid "Time format is wrong"
+msgstr ""
+
+#, fuzzy
+msgid "Lower than"
+msgstr "低於"
+
+#, fuzzy
+msgid "Higher than"
+msgstr "高於"
+
+#, fuzzy
+msgid "High barrier"
+msgstr "高於"
+
+#, fuzzy
+msgid "Low barrier"
+msgstr "障礙"
+
+#, fuzzy
+msgid "Touch spot"
+msgstr "觸及"
+
 #~ msgid "Current Spot Time"
 #~ msgstr "目前現價時間"
 

@@ -874,3 +874,70 @@ msgstr "Últimos 1000 Ticks"
 
 msgid "Exit Full Screen"
 msgstr "Salir de Pantalla Completa"
+
+msgid "No digit trades for this asset"
+msgstr ""
+
+#, fuzzy
+msgid "Lock Cashier"
+msgstr "Desbloquear Cajero"
+
+#, fuzzy
+msgid "Time out until date"
+msgstr "Pausa hasta"
+
+#, fuzzy
+msgid "Time out until time"
+msgstr "Pausa hasta"
+
+#, fuzzy
+msgid "Light Theme"
+msgstr "Claro"
+
+#, fuzzy
+msgid "Dark Theme"
+msgstr "Gama de colores"
+
+msgid "Password changed successfully"
+msgstr ""
+
+#, fuzzy
+msgid "Settings updated"
+msgstr "Configuración"
+
+#, fuzzy
+msgid "Address updated"
+msgstr "Dirección"
+
+#, fuzzy
+msgid "Barrier must not be empty"
+msgstr "El campo ciudad no debe estar vacío"
+
+msgid "Duration is out of range"
+msgstr ""
+
+msgid "Start date invalid, it needs to be five minutes or more in the future"
+msgstr ""
+
+msgid "Time format is wrong"
+msgstr ""
+
+#, fuzzy
+msgid "Lower than"
+msgstr "Menor"
+
+#, fuzzy
+msgid "Higher than"
+msgstr "Mayor"
+
+#, fuzzy
+msgid "High barrier"
+msgstr "Mayor"
+
+#, fuzzy
+msgid "Low barrier"
+msgstr "Barrera"
+
+#, fuzzy
+msgid "Touch spot"
+msgstr "Toca"

@@ -9,8 +9,8 @@ msgstr ""
 "POT-Creation-Date: \n"
 "PO-Revision-Date: 2016-08-04 06:06+0000\n"
 "Last-Translator: Pham Minh Hieu <hphamv7@gmail.com>\n"
-"Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-app"
-"/next-gen-app/vi/>\n"
+"Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-app/"
+"next-gen-app/vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -879,3 +879,70 @@ msgstr "30 ngày trước"
 
 msgid "Exit Full Screen"
 msgstr "Thoát toàn màn hình"
+
+msgid "No digit trades for this asset"
+msgstr ""
+
+#, fuzzy
+msgid "Lock Cashier"
+msgstr "Mở khóa ngăn thu ngân"
+
+#, fuzzy
+msgid "Time out until date"
+msgstr "Hết thời gian cho đến khi"
+
+#, fuzzy
+msgid "Time out until time"
+msgstr "Hết thời gian cho đến khi"
+
+#, fuzzy
+msgid "Light Theme"
+msgstr "Màu nhạt"
+
+#, fuzzy
+msgid "Dark Theme"
+msgstr "Màu sắc giao diện"
+
+msgid "Password changed successfully"
+msgstr ""
+
+#, fuzzy
+msgid "Settings updated"
+msgstr "Cài đặt"
+
+#, fuzzy
+msgid "Address updated"
+msgstr "Địa chỉ"
+
+#, fuzzy
+msgid "Barrier must not be empty"
+msgstr "Thành phố không được để trống"
+
+msgid "Duration is out of range"
+msgstr ""
+
+msgid "Start date invalid, it needs to be five minutes or more in the future"
+msgstr ""
+
+msgid "Time format is wrong"
+msgstr ""
+
+#, fuzzy
+msgid "Lower than"
+msgstr "Thấp hơn"
+
+#, fuzzy
+msgid "Higher than"
+msgstr "Cao hơn"
+
+#, fuzzy
+msgid "High barrier"
+msgstr "Cao hơn"
+
+#, fuzzy
+msgid "Low barrier"
+msgstr "Barie"
+
+#, fuzzy
+msgid "Touch spot"
+msgstr "Chạm"
