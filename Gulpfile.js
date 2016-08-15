@@ -8,6 +8,8 @@ const sass = require('gulp-sass');
 const args = require('yargs').argv;
 const replace = require('gulp-replace');
 const gulpIf = require('gulp-if');
+const hash = require('gulp-hash-src');
+
 // const electron = require('gulp-atom-electron');
 // const zip = require('gulp-vinyl-zip');
 
@@ -45,8 +47,21 @@ gulp.task('js', () =>
         .pipe(gulp.dest(files.dist))
 );
 
+
+gulp.task('hash', () =>
+    gulp.src(files.dist + '/index.html')
+        .pipe(hash({
+            build_dir: files.dist,
+            src_path: files.dist,
+            query_name: '',
+            hash_len: 10,
+        }))
+        .pipe(gulp.dest(files.dist))
+);
+
+
 gulp.task('build', callback =>
-    runSequence('cleanup', 'js', ['styles', 'static'], callback)
+    runSequence('cleanup', 'js', ['styles', 'static'], 'hash', callback)
 );
 
 // gulp.task('download-electron', () =>
