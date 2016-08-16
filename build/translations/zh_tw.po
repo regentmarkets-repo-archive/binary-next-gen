@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-08-08 03:01+0000\n"
+"PO-Revision-Date: 2016-08-16 07:47+0000\n"
 "Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
 "Language-Team: Chinese (Taiwan) <https://hosted.weblate.org/projects/binary-"
 "app/next-gen-app/zh_TW/>\n"
@@ -868,71 +868,58 @@ msgid "Exit Full Screen"
 msgstr "退出全屏"
 
 msgid "No digit trades for this asset"
-msgstr ""
+msgstr "此資產無數字交易"
 
-#, fuzzy
 msgid "Lock Cashier"
 msgstr "解鎖收銀台"
 
-#, fuzzy
 msgid "Time out until date"
 msgstr "時間已過。下次開啟時間為"
 
-#, fuzzy
 msgid "Time out until time"
 msgstr "時間已過。下次開啟時間為"
 
-#, fuzzy
 msgid "Light Theme"
-msgstr "淺色"
+msgstr "淺色主題"
 
-#, fuzzy
 msgid "Dark Theme"
-msgstr "顏色主題"
+msgstr "深色主題"
 
 msgid "Password changed successfully"
-msgstr ""
+msgstr "已成功更改密碼"
 
-#, fuzzy
 msgid "Settings updated"
-msgstr "設定"
+msgstr "設定更新"
 
-#, fuzzy
 msgid "Address updated"
-msgstr "地址"
+msgstr "地址更新"
 
-#, fuzzy
 msgid "Barrier must not be empty"
-msgstr "城市不可為空"
+msgstr "障礙不可為空"
 
 msgid "Duration is out of range"
-msgstr ""
+msgstr "交易期限超出限定範圍"
 
 msgid "Start date invalid, it needs to be five minutes or more in the future"
-msgstr ""
+msgstr "開始日期無效，必須是未來的五分鐘或更長時間"
 
 msgid "Time format is wrong"
-msgstr ""
+msgstr "時間格式錯誤"
 
-#, fuzzy
 msgid "Lower than"
 msgstr "低於"
 
-#, fuzzy
 msgid "Higher than"
 msgstr "高於"
 
-#, fuzzy
 msgid "High barrier"
-msgstr "高於"
+msgstr "高障礙"
 
-#, fuzzy
 msgid "Low barrier"
-msgstr "障礙"
+msgstr "低障礙"
 
-#, fuzzy
 msgid "Touch spot"
-msgstr "觸及"
+msgstr "觸及現貨價格"
 
 #~ msgid "Current Spot Time"
 #~ msgstr "目前現價時間"
