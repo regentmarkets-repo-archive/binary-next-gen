@@ -9,7 +9,8 @@ import {
 
 const zoomToLatest = (ev, chart) => {
     const { dataMax } = chart.xAxis[0].getExtremes();
-    const { duration, unit } = ev.detail;
+    const { isFuture, duration, unit } = ev.detail;
+    if (isFuture) return;
     const rangeInSecs = unit === 't' ? duration * 2 : durationToSecs(duration, unit);
     const rangeInMillis = rangeInSecs * 1000;
     chart.xAxis[0].setExtremes(dataMax - (rangeInMillis * 1.1), dataMax);

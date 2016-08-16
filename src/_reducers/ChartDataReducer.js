@@ -64,7 +64,7 @@ export default (state = initialState, action) => {
                     const newData = state
                         .getIn([contract_id, 'ticks'])
                         .push(fromJS({ epoch: +(current_spot_time), quote: +(current_spot) }));
-                    
+
                     return state.setIn([contract_id, 'ticks'], newData);
                 }
 
