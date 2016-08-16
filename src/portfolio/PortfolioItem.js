@@ -26,6 +26,12 @@ export default class PortfolioItem extends PureComponent {
                 <td className="numeric">
                     <NumberPlain
                         currency={contract.currency}
+                        value={contract.payout}
+                    />
+                </td>
+                <td className="numeric">
+                    <NumberPlain
+                        currency={contract.currency}
                         value={contract.buy_price}
                     />
                 </td>

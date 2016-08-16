@@ -16,6 +16,7 @@ const activeOpenContractSelector = createSelector(
             .map(c => c
                 .filter((v, k) =>
                     k === 'contract_id' ||
+                        k === 'payout' ||
                         k === 'transaction_ids' ||
                         k === 'currency' ||
                         k === 'buy_price' ||
@@ -40,8 +41,17 @@ export const purchaseTotalSelector = createSelector(
             .reduce((x, y) => x + y, 0)
 );
 
+export const payoutTotalSelector = createSelector(
+    activeOpenContractSelector,
+    contracts =>
+        contracts
+            .map(x => +x.get('payout'))
+            .reduce((x, y) => x + y, 0)
+);
+
 export default createStructuredSelector({
     contracts: activeOpenContractSelector,
     purchaseTotal: purchaseTotalSelector,
     indicativeTotal: indicativeTotalSelector,
+    payoutTotal: payoutTotalSelector,
 });

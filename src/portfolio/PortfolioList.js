@@ -7,19 +7,21 @@ export default class PortfolioList extends PureComponent {
 	static propTypes = {
 		compact: PropTypes.bool,
 		contracts: PropTypes.object.isRequired,
+		payoutTotal: PropTypes.number.isRequired,
 		purchaseTotal: PropTypes.number.isRequired,
 		indicativeTotal: PropTypes.number.isRequired,
 		onViewDetails: PropTypes.func.isRequired,
 	};
 
 	render() {
-		const { compact, contracts, onViewDetails, purchaseTotal, indicativeTotal } = this.props;
+		const { compact, contracts, onViewDetails, payoutTotal, purchaseTotal, indicativeTotal } = this.props;
 
 		return (
 			<table>
 				<thead>
 					<tr>
 						<Th className="textual" text="Ref." />
+						<Th className="numeric" text="Potential Payout" />
 						<Th className="numeric" text="Purchase" />
 						<Th className="numeric" text="Indicative" />
 					</tr>
@@ -38,6 +40,9 @@ export default class PortfolioList extends PureComponent {
 				<tfoot>
 					<tr>
 						<th />
+						<th className="numeric">
+							<NumberPlain currency="USD" value={payoutTotal} />
+						</th>
 						<th className="numeric">
 							<NumberPlain currency="USD" value={purchaseTotal} />
 						</th>

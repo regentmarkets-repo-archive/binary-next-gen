@@ -53,6 +53,8 @@ function* handlePurchase(action) {
 
         yield [
             put(updatePurchasedContract(index, buy)),
+
+            // update chart data so that chart will use ticks related to contract only
             put(updateChartDataByContract(buy.contract_id, ticks || candles, 'ticks', symbol, isSold)),
         ];
     } catch (err) {
