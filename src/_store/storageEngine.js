@@ -6,10 +6,12 @@ const engine = createEngine('binary');
 const filteredEngine = filter(engine, [
     ['boot'],
     ['account'],
-    ['settings'],
     ['realityCheck'],
     ['watchlist'],
     ['workspace'],
-], ['assets']);
+], [
+    ['assets'],
+    ['workspace', 'examinedAsset'],
+]);
 
 export default filteredEngine;
