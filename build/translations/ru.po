@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: BOM\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-08-10 10:40+0000\n"
+"PO-Revision-Date: 2016-08-17 09:34+0000\n"
 "Last-Translator: Ruslan <ruslan.mukhametdinov.90@gmail.com>\n"
 "Language-Team: Russian <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/ru/>\n"
@@ -15,8 +15,8 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n"
-"%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
+"Plural-Forms: nplurals=3; plural=n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<="
+"4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Generator: Weblate 2.8-dev\n"
 
 msgid "All"
@@ -878,68 +878,57 @@ msgid "Exit Full Screen"
 msgstr "Закрыть полноэкранный режим"
 
 msgid "No digit trades for this asset"
-msgstr ""
+msgstr "Цифровые контракты недоступны на этом активе"
 
-#, fuzzy
 msgid "Lock Cashier"
-msgstr "Открыть кассу"
+msgstr "Заблокировать Кассу"
 
-#, fuzzy
 msgid "Time out until date"
 msgstr "Ограничение доступа до"
 
-#, fuzzy
 msgid "Time out until time"
 msgstr "Ограничение доступа до"
 
-#, fuzzy
 msgid "Light Theme"
-msgstr "Светлый"
+msgstr "Светлая Тема"
 
-#, fuzzy
 msgid "Dark Theme"
-msgstr "Цветовая схема"
+msgstr "Темная Тема"
 
 msgid "Password changed successfully"
-msgstr ""
+msgstr "Пароль успешно изменен"
 
-#, fuzzy
 msgid "Settings updated"
-msgstr "Настройки"
+msgstr "Настройки изменены"
 
-#, fuzzy
 msgid "Address updated"
-msgstr "Адрес"
+msgstr "Адрес изменен"
 
-#, fuzzy
 msgid "Barrier must not be empty"
-msgstr "Вы забыли указать город"
+msgstr "Поле \"Барьер\" не должно быть пустым"
 
 msgid "Duration is out of range"
-msgstr ""
+msgstr "Продолжительность вне допустимых границ"
 
 msgid "Start date invalid, it needs to be five minutes or more in the future"
 msgstr ""
+"Неверное время начала. Время начала должно быть не менее чем через пять "
+"минут в будущем"
 
 msgid "Time format is wrong"
-msgstr ""
+msgstr "Неправильный формат времени"
 
-#, fuzzy
 msgid "Lower than"
-msgstr "Ниже"
+msgstr "Ниже чем"
 
-#, fuzzy
 msgid "Higher than"
-msgstr "Выше"
+msgstr "Выше чем"
 
-#, fuzzy
 msgid "High barrier"
-msgstr "Выше"
+msgstr "Верхний барьер"
 
-#, fuzzy
 msgid "Low barrier"
-msgstr "Барьер"
+msgstr "Нижний барьер"
 
-#, fuzzy
 msgid "Touch spot"
-msgstr "Коснется"
+msgstr "Точка касания"
