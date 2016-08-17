@@ -17,7 +17,7 @@ export default class DigitBarrierCard extends PureComponent {
     onBarrier1Change = e => {
         const { index } = this.props;
         const inputValue = e.target.value;
-        actions.reqBarrierChange(index, [inputValue]);
+        actions.reqBarrierChange(index, [inputValue], 0, 'tick');          // only ticks available for digit
     }
 
     render() {
