@@ -35,7 +35,6 @@ export default class ContractReceipt extends PureComponent {
 				<ContractWinLose contract={contract} />
 				<ContractDetailsList contract={contract} />
 				<SellAtMarketButton contract={contract} />
-				<ContractValidationError contract={contract} />
 				{onTradeAgainClicked &&
 					<Button
 						className="buy-again-btn"
