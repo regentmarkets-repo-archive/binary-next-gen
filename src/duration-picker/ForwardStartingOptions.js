@@ -97,7 +97,6 @@ export default class ForwardStartingOptions extends PureComponent {
                     <div className="forward-starting-input" style={showStartLater ? {} : { display: 'none' }}>
                         <WorkaroundDateTimeInput
                             type="date"
-                            id={`start-date-${index}`}
                             min={dateToDateString(ranges[0].date)}
                             onChange={this.onDayChange}
                             defaultValue={dateToDateString(defaultDate)}
@@ -105,7 +104,6 @@ export default class ForwardStartingOptions extends PureComponent {
                         />
                         <WorkaroundDateTimeInput
                             type="time"
-                            id={`start-time-${index}`}
                             onChange={this.onTimeChange}
                             defaultValue={defaultTime}
                             maxLength="8"

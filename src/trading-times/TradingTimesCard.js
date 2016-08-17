@@ -42,7 +42,6 @@ export default class TradingTimesCard extends PureComponent {
 					/>
 					<WorkaroundDateTimeInput
 						type="date"
-						id="trading-times"
 						defaultValue={dateToDateString(tradingTimesDate)}
 						min={todayLocaleString()}
 						max={oneYearAfterStr()}
