@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { epochToUTCTimeString, dateToDateString, returnValidDate, returnValidTime } from 'binary-utils';
-import { M, Label } from 'binary-components';
+import { M, Label, WorkaroundDateTimeInput } from 'binary-components';
 import debounce from 'lodash.debounce';
 import createDefaultStartLaterEpoch from '../_trade/defaults/createDefaultStartLaterEpoch';
 import { actions } from '../_store';
@@ -95,16 +95,17 @@ export default class ForwardStartingOptions extends PureComponent {
                         </div>
                     }
                     <div className="forward-starting-input" style={showStartLater ? {} : { display: 'none' }}>
-                        <input
+                        <WorkaroundDateTimeInput
                             type="date"
+                            id={`start-date-${index}`}
                             min={dateToDateString(ranges[0].date)}
-                            max={dateToDateString(ranges[2].date)}
                             onChange={this.onDayChange}
                             defaultValue={dateToDateString(defaultDate)}
                             maxLength="10"
                         />
-                        <input
+                        <WorkaroundDateTimeInput
                             type="time"
+                            id={`start-time-${index}`}
                             onChange={this.onTimeChange}
                             defaultValue={defaultTime}
                             maxLength="8"
