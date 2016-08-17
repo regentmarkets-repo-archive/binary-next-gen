@@ -5,11 +5,11 @@ export default (barrier, expiryType, contractPerType) => {
     let b1 = true;
     let b2 = true;
     if (barrierOptions[0]) {
-        b1 = barrier[0];
+        b1 = barrier[0] || barrier[0] === 0;
     }
 
     if (barrierOptions[1]) {
-        b2 = barrier[1];
+        b2 = barrier[1] || barrier[1] === 1;
     }
 
     return b1 && b2;

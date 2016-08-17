@@ -20,16 +20,15 @@ export default class StakeCard extends PureComponent {
 
     render() {
         const { amount, isVirtual } = this.props;
-        const min = isVirtual ? 0 : 500; // TODO: temporary, remove soon
-
+        const max = isVirtual ? 10000 : 500;                // TODO: temp restriction
         return (
             <div className="param-row payout-picker">
                 <Label text="Stake" />
                 <NumericInput
                     className="numeric-input param-field"
                     defaultValue={amount}
-                    min={min}
-                    max={100000}
+                    min={0}
+                    max={max}
                     decimal={2}
                     valueList={payouts}
                     onChange={this.onAmountChange}
