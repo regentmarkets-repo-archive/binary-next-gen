@@ -36,7 +36,7 @@ export default class MarketSubmarketPicker extends PureComponent {
 
 		return (
 			<select
-				defaultValue={value}
+				value={value}
 				className="market-submarket-picker"
 				onChange={this.onMarketChange}
 			>
