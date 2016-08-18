@@ -21,7 +21,7 @@ export default class PortfolioList extends PureComponent {
 				<thead>
 					<tr>
 						<Th className="textual" text="Ref." />
-						<Th className="numeric" text="Potential Payout" />
+						<Th className="numeric" text="Payout" />
 						<Th className="numeric" text="Purchase" />
 						<Th className="numeric" text="Indicative" />
 					</tr>
