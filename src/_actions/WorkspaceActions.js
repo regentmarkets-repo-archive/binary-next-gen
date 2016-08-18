@@ -57,7 +57,11 @@ export const changeActiveLayout = (tradesCount, layoutN) =>
         if (assetNotSync) {
             return undefined;       // Active symbol call will create trade for us
         }
-        const firstTradeSymbol = selectedSymbols.get(0) || assets.find(a => a.get('exchange_is_open') === 1).get('symbol');
+
+        const firstOpenSymbol = assets.find(a => a.get('exchange_is_open') === 1);
+        const firstTradeSymbol =
+            selectedSymbols.get(0) ||
+            (firstOpenSymbol ? firstOpenSymbol.get('symbol') : assets.getIn([0, 'symbol']));
 
         const firstTradeMarket = assets
             .find(v => v.get('symbol') === firstTradeSymbol)
