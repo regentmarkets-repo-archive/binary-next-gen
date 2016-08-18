@@ -2,6 +2,10 @@
 'use strict';
 
 (function init() {
+    // clean stale data in local storage
+    localStorage.removeItem('assets');
+    localStorage.removeItem('settings');
+
     var defaultConfig = {
         language: 'EN',
         theme: 'light',
