@@ -1,11 +1,13 @@
 import { trackUserId } from 'binary-utils/lib/Analytics';
 import { store } from '../_store/persistentStore';
+import { history } from '../_store/root.js';
 import { api } from './LiveData';
 import { updateAppState, removePersonalData, updateToken, updateBoot } from '../_actions';
 
 export const tryAuth = async token => {
     store.dispatch(updateAppState('authorized', false));
     const response = await api.authorize(token);
+    store.dispatch(updateAppState('authorized', true));
     trackUserId(response.authorize.loginid);
 };
 
@@ -13,7 +15,7 @@ export const signOut = () => {
     store.dispatch(removePersonalData());
     store.dispatch(updateAppState('authorized', false));
     store.dispatch(updateToken(''));
-    window.location = '/';
+    history.push('/');
 };
 
 export const signIn = () => {
