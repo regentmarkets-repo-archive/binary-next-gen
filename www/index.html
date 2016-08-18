@@ -64,7 +64,7 @@
                     navigator.app.exitApp();
                 }
             }
-            if (window.location.hash === '#/') {
+            if (window.location.hash.startsWith('#/?_')) {
                 e.preventDefault();
                 navigator.notification.confirm(
                     'You are about to exit the app!',
