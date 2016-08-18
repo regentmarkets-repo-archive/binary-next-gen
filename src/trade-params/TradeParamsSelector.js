@@ -22,6 +22,7 @@ export const contractsPerSymbol = createSelector(
         Object.keys(normalized).forEach(category => {
             const categoryObj = normalized[category];
             Object.keys(categoryObj).forEach(type => {
+                if (!type) return;
                 const contractsPerType = aggregateContracts(categoryObj[type], type);
                 categoryObj[type] = contractsPerType;
             });
