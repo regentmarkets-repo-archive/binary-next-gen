@@ -1,4 +1,4 @@
-import { isMobile } from 'binary-utils';
+// import { isMobile } from 'binary-utils';         // TODO: refactor binary-utils so it depends on protocol instead of user agent
 import MobileRoot from '../hello/MobileRoot';
 import WebRoot from '../hello/WebRoot';
 import { requireAuthOnEnter, signOut } from '../_data/Auth';
@@ -6,7 +6,7 @@ import SignupMobile from '../create-account/SignupMobile';
 import Signup2Mobile from '../create-account/Signup2Mobile';
 import UpgradeContainer from '../upgrade/UpgradeContainer';
 
-const rootComponent = isMobile() ? MobileRoot : WebRoot;
+const rootComponent = window.cordova ? MobileRoot : WebRoot;
 
 export default [
     { path: '/', component: rootComponent, onEnter: requireAuthOnEnter },
