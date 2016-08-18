@@ -14,7 +14,11 @@ export default class AssetPickerFilter extends PureComponent {
 	componentDidMount() {
 		const assetSearchNode = findDOMNode(this);
 		if (!isMobile()) {
-			setTimeout(() => assetSearchNode.firstChild.focus(), 300);
+			setTimeout(() =>
+				assetSearchNode.firstChild &&
+				assetSearchNode.firstChild.firstChild &&
+				assetSearchNode.firstChild.firstChild.focus(),
+			100);
 		}
 	}
 
