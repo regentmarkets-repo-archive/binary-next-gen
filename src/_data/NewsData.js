@@ -27,6 +27,7 @@ const xmlToNewsItem = xmlItem => ({
     title: xmlItem.getElementsByTagName('title').item(0).textContent.replace(/regentmarkets\d.*$/, ''),
     pubDate: xmlItem.getElementsByTagName('pubDate').item(0).textContent.replace(/\+0000$/, 'GMT'),
     description: xmlItem.getElementsByTagName('description').item(0).textContent,
+    url: xmlItem.getElementsByTagName('guid').item(0).textContent,
     content: getContent(xmlItem),
 });
 

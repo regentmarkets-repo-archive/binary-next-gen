@@ -16,6 +16,7 @@ export default class NewsList extends PureComponent {
                 {articles.map((article, idx) =>
                     <ArticlePreview
                         key={'article' + idx}
+                        index={idx}
                         {...article}
                         onClick={onClick}
                     />
