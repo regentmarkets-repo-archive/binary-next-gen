@@ -56,6 +56,11 @@
 </div>
 
 <script>
+    if (localStorage) {
+        localStorage.removeItem('assets');
+        localStorage.removeItem('settings');
+    }
+
     if (document.location.protocol === 'file:') {
         document.writeln('<script src="cordova.js"><\/script>');
         function onBackPressed(e) {
