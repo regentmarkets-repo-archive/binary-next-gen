@@ -32,7 +32,7 @@ export default class WorkspaceSidePanel extends PureComponent {
 	render() {
 		const { sideActiveTab, sidePanelSize, sidePanelVisible } = this.props;
 
-		const ActiveComponent = components[sideActiveTab];
+		const ActiveComponent = components[sideActiveTab] || components[0];
 
 		if (!sidePanelVisible) return null;
 
