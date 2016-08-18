@@ -47,7 +47,7 @@ export default class TradingTimesCard extends PureComponent {
 						max={oneYearAfterStr()}
 						className="trading-times-date-picker"
 						onChange={this.updateTradingTimes}
-						maxLength="10"
+						maxLength={10}
 					/>
 				</div>
 				<TradingTimesTable
