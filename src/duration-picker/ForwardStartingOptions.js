@@ -100,13 +100,13 @@ export default class ForwardStartingOptions extends PureComponent {
                             min={dateToDateString(ranges[0].date)}
                             onChange={this.onDayChange}
                             defaultValue={dateToDateString(defaultDate)}
-                            maxLength="10"
+                            maxLength={10}
                         />
                         <WorkaroundDateTimeInput
                             type="time"
                             onChange={this.onTimeChange}
                             defaultValue={defaultTime}
-                            maxLength="8"
+                            maxLength={8}
                         />
                     </div>
                 </div>
