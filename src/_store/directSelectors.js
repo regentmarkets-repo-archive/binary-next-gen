@@ -57,9 +57,6 @@ export const tradingTimesFilterSelector = state =>
 export const examinedAssetSelector = state =>
     state.workspace.get('examinedAsset');
 
-export const activeTradeIndexSelector = state =>
-    state.workspace.get('activeTradeIndex');
-
 export const tradesCountSelector =
     state => state.workspace.get('tradesCount');
 

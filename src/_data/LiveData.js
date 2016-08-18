@@ -36,14 +36,6 @@ const handlers = {
 const bootConfig = typeof window !== 'undefined' ? window.BinaryBoot : {};
 export const api = new LiveApi(bootConfig);
 
-const subscribeToWatchlist = store => {
-    const state = store.getState();
-    if (!state.watchlist) {
-        return;
-    }
-    api.subscribeToTicks(state.watchlist.toJS());
-};
-
 export const changeLanguage = langCode => {
     api.changeLanguage(langCode);
     api.getActiveSymbolsFull();
@@ -58,6 +50,9 @@ const initAuthorized = async (authData, store) => {
         store.dispatch(actions.updateToken(''));
         return;
     }
+
+    const state = store.getState();
+
     api.getLandingCompanyDetails(authData.authorize.landing_company_name)
         .then(r => {
             const details = r.landing_company_details;
@@ -67,15 +62,15 @@ const initAuthorized = async (authData, store) => {
                 currency: details.legal_default_currency,
             });
 
-            const acknowledged = store.getState().realityCheck.get('acknowledged');
+            const acknowledged = state.realityCheck.get('acknowledged');
             if (details && details.has_reality_check) {
                 if (!acknowledged) {
                     store
                         .dispatch(actions.updateRealityCheckSummary())
                         .then(() => store.dispatch(actions.initRealityCheck()));
                 } else {
-                    const interval = store.getState().realityCheck.get('interval');
-                    const loginTime = store.getState().realityCheck.getIn(['summary', 'loginTime']);
+                    const interval = state.realityCheck.get('interval');
+                    const loginTime = state.realityCheck.getIn(['summary', 'loginTime']);
                     const timeToWait = timeLeftToNextRealityCheck(loginTime, interval) * 1000;
                     store
                         .dispatch(actions.updateRealityCheckSummary())
@@ -89,16 +84,27 @@ const initAuthorized = async (authData, store) => {
             }
         });
 
-    api.getActiveSymbolsFull()
-        .then(r => {
-            const firstOpenActiveSymbol = r.active_symbols.find(a => a.exchange_is_open === 1);
-            const symbolToUse = firstOpenActiveSymbol ? firstOpenActiveSymbol.symbol : r.active_symbols[0].symbol;
-            const tradesCount = store.getState().tradesParams.size;
-            if (tradesCount === 0) {
-                store.dispatch(actions.createTrade(0, symbolToUse));
-            }
-            store.dispatch(actions.changeExaminedAsset(symbolToUse));
-        });
+
+    const subscribeToWatchlist = assets => {
+        if (!state.watchlist) {
+            return;
+        }
+        const existingWatchlist = state.watchlist.filter(w => assets.find(x => x.symbol === w));
+        api.subscribeToTicks(existingWatchlist.toJS());
+    };
+
+    api.getActiveSymbolsFull().then(r => {
+        const firstOpenActiveSymbol = r.active_symbols.find(a => a.exchange_is_open === 1);
+        const symbolToUse = firstOpenActiveSymbol ? firstOpenActiveSymbol.symbol : r.active_symbols[0].symbol;
+        const tradesCount = state.tradesParams.size;
+        if (tradesCount === 0) {
+            store.dispatch(actions.createTrade(0, symbolToUse));
+        }
+        store.dispatch(actions.changeExaminedAsset(symbolToUse));
+
+        subscribeToWatchlist(r.active_symbols);
+    });
+
     api.getTradingTimes(new Date());
     api.getAssetIndex();
     api.getServerTime();
@@ -114,7 +120,6 @@ const initAuthorized = async (authData, store) => {
     api.subscribeToBalance();           // some call might fail due to backend overload
     api.subscribeToAllOpenContracts();
     api.subscribeToTransactions();
-    subscribeToWatchlist(store);
     // subscribeToSelectedSymbol(store);
 
     if (authData.authorize.is_virtual !== 1) {
