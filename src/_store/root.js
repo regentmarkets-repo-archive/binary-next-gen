@@ -42,6 +42,7 @@ export default class Root extends PureComponent {
                 const newToken = account[0].token;
                 await tryAuth(newToken);
                 await actions.updateToken(newToken);
+                await localStorage.setItem('account', JSON.stringify({ token: newToken }));
             }
         } finally {
             actions.updateAppState('connected', true);
