@@ -117,7 +117,7 @@ export const tradeParamsPerTrade = createSelector(
         } else if (!marketIsOpen) {
             contractToUse = getStartLaterOnlyContract(contract);
         }
-        const hasError = errors.valueSeq().filter(v => !!v).size > 0;
+        const hasError = errors && errors.valueSeq().filter(v => !!v).size > 0;
         const disabled =
             !contract ||
             contractToUse.error ||
@@ -130,9 +130,9 @@ export const tradeParamsPerTrade = createSelector(
             errors,
             index,
             pipSize,
-            proposal: proposalInfo.get('proposal'),
+            proposal: proposalInfo && proposalInfo.get('proposal'),
             tradeParams: params,
-            forceRenderCount: uiState.get('forceRenderCount'),
+            forceRenderCount: uiState && uiState.get('forceRenderCount'),
         };
     }
 );

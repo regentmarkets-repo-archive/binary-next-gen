@@ -98,7 +98,7 @@ const initAuthorized = async (authData, store) => {
         const symbolToUse = firstOpenActiveSymbol ? firstOpenActiveSymbol.symbol : r.active_symbols[0].symbol;
         const tradesCount = state.tradesParams.size;
         if (tradesCount === 0) {
-            store.dispatch(actions.createTrade(0, symbolToUse));
+            store.dispatch(actions.changeActiveLayout(1, 1));
         }
         store.dispatch(actions.changeExaminedAsset(symbolToUse));
 

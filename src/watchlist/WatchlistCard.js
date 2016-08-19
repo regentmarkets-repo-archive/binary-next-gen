@@ -12,7 +12,7 @@ export default class WatchlistCard extends PureComponent {
 	render() {
 		const { watchlistView } = this.props;
 		return (
-			watchlistView.size === 0 ?
+			watchlistView.count() === 0 ?
 				<EmptySlate
 					img="img/watchlist.svg"
 					text="You have no assets in watchlist"
