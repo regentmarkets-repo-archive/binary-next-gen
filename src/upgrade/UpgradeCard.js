@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { M, InputGroup, LogoSpinner, Legend, Button, Option,
-	Error, ServerError, DateOfBirth, Countries } from 'binary-components';
+	ErrorMsg, ServerErrorMsg, DateOfBirth, Countries } from 'binary-components';
 import { api } from '../_data/LiveData';
 import storage from '../_store/storage';
 import SecretQuestion from './SecretQuestion';
@@ -149,7 +149,7 @@ export default class UpgradeCard extends PureComponent {
 					<LogoSpinner spinning={progress} />
 					<img className="logo-text" src="img/binary-type-logo.svg" alt="Logo" />
 				</div>
-				{serverError && <ServerError text={serverError} />}
+				{serverError && <ServerErrorMsg text={serverError} />}
 				<form onSubmit={this.onFormSubmit}>
 					<Legend text="Personal Information" />
 					<div className="input-row names-row">
@@ -175,7 +175,7 @@ export default class UpgradeCard extends PureComponent {
 						/>
 					</div>
 					{validatedOnce && !(firstNameIsValid && lastNameIsValid) &&
-						<Error text="Enter your first and last name" />
+						<ErrorMsg text="Enter your first and last name" />
 					}
 					<div className="input-row">
 						<DateOfBirth
@@ -194,7 +194,7 @@ export default class UpgradeCard extends PureComponent {
 						</select>
 					</div>
 					{validatedOnce && !residenceIsValid &&
-						<Error text="Choose your country" />
+						<ErrorMsg text="Choose your country" />
 					}
 					<div className="input-row">
 						<InputGroup
@@ -213,7 +213,7 @@ export default class UpgradeCard extends PureComponent {
 						/>
 					</div>
 					{validatedOnce && !addressCityIsValid &&
-						<Error text="City must not be empty" />
+						<ErrorMsg text="City must not be empty" />
 					}
 					<div className="input-row">
 						<InputGroup
@@ -225,7 +225,7 @@ export default class UpgradeCard extends PureComponent {
 						/>
 					</div>
 					{validatedOnce && !addressLine1IsValid &&
-						<Error text="Address must not be empty" />
+						<ErrorMsg text="Address must not be empty" />
 					}
 					<div className="input-row">
 						<InputGroup
@@ -246,7 +246,7 @@ export default class UpgradeCard extends PureComponent {
 						/>
 					</div>
 					{validatedOnce && !phoneIsValid &&
-						<Error text="Enter a valid phone number" />
+						<ErrorMsg text="Enter a valid phone number" />
 					}
 					<Legend text="Security" />
 					<div className="input-row">
@@ -260,10 +260,10 @@ export default class UpgradeCard extends PureComponent {
 						/>
 					</div>
 					{validatedOnce && !secretQuestionIsValid &&
-						<Error text="Select a secret question" />
+						<ErrorMsg text="Select a secret question" />
 					}
 					{validatedOnce && !secretAnswerIsValid &&
-						<Error text="Secret answer must be at least 4 characters" />
+						<ErrorMsg text="Secret answer must be at least 4 characters" />
 					}
 					<div className="input-row">
 						<label htmlFor="tnc">
@@ -280,7 +280,7 @@ export default class UpgradeCard extends PureComponent {
 						</label>
 					</div>
 					{validatedOnce && !termsAndConditions &&
-						<Error text="You need to agree to our Terms and Conditions" />
+						<ErrorMsg text="You need to agree to our Terms and Conditions" />
 					}
 					<Button disabled={progress || validatedOnce && !this.allValid} text="Open Account" />
 				</form>

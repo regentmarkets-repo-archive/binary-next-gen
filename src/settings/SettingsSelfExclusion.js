@@ -1,5 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import { Button, InputGroup, ServerError } from 'binary-components';
+import { Button, InputGroup, ServerErrorMsg } from 'binary-components';
 import { xMonthsAfter, dateToDateString, dateToEpoch } from 'binary-utils';
 import UpdateNotice from '../containers/UpdateNotice';
 import { api } from '../_data/LiveData';
@@ -88,7 +88,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 
 		return (
 			<form className="settings-self-exclusion" onSubmit={this.onFormSubmit}>
-			{serverError && <ServerError text={serverError} />}
+			{serverError && <ServerErrorMsg text={serverError} />}
 				<UpdateNotice text="Settings updated" show={success} />
 				<InputGroup
 					id="max_balance"

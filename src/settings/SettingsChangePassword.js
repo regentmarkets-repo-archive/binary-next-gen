@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Button, Legend, InputGroup, ServerError, Error } from 'binary-components';
+import { Button, Legend, InputGroup, ServerErrorMsg, ErrorMsg } from 'binary-components';
 import { isValidPassword } from 'binary-utils';
 import UpdateNotice from '../containers/UpdateNotice';
 import { api } from '../_data/LiveData';
@@ -64,7 +64,7 @@ export default class SettingsChangePassword extends PureComponent {
             <form className="settings-change-password" onSubmit={this.onFormSubmit}>
                 <UpdateNotice text="Password changed successfully" show={success} />
                 <Legend text="Change Password" />
-                {serverError && <ServerError text={serverError} />}
+                {serverError && <ServerErrorMsg text={serverError} />}
                 <InputGroup
                     id="currentPassword"
                     placeholder="Current Password"
@@ -73,7 +73,7 @@ export default class SettingsChangePassword extends PureComponent {
                     onChange={this.onEntryChange}
                 />
                 {validatedOnce && !currentPasswordIsValid &&
-                    <Error text="Password should have lower and uppercase letters and 6 characters or more" />
+                    <ErrorMsg text="Password should have lower and uppercase letters and 6 characters or more" />
                 }
                 <InputGroup
                     id="newPassword"
@@ -83,7 +83,7 @@ export default class SettingsChangePassword extends PureComponent {
                     onChange={this.onEntryChange}
                 />
                 {validatedOnce && !newPasswordIsValid &&
-                    <Error text="Password should have lower and uppercase letters and 6 characters or more" />
+                    <ErrorMsg text="Password should have lower and uppercase letters and 6 characters or more" />
                 }
                 <InputGroup
                     id="confirmPassword"
@@ -93,7 +93,7 @@ export default class SettingsChangePassword extends PureComponent {
                     onChange={this.onEntryChange}
                 />
                 {validatedOnce && !passwordsMatch &&
-                    <Error text="Passwords do not match" />
+                    <ErrorMsg text="Passwords do not match" />
                 }
                 <Button text="Change Password" />
             </form>

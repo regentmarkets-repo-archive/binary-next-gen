@@ -1,5 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
-import { Error } from 'binary-components';
+import { ErrorMsg } from 'binary-components';
 import { timeLeftToNextRealityCheck } from 'binary-utils';
 import { actions } from '../_store';
 import Modal from '../containers/Modal';
@@ -67,7 +67,7 @@ export default class RealityCheckWeb extends PureComponent {
                     updateInterval={this.updateInterval}
                     confirmIntervalUpdate={this.confirmIntervalUpdate}
                 />}
-                {rcError && <Error text="Number should between 10 to 120" />}
+                {rcError && <ErrorMsg text="Number should between 10 to 120" />}
             </Modal>
         );
     }

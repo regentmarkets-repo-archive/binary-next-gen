@@ -1,5 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
-import { Notice, Button, Countries, Error, ServerError, InputGroup, LogoSpinner } from 'binary-components';
+import { Notice, Button, Countries, ErrorMsg, ServerErrorMsg, InputGroup, LogoSpinner } from 'binary-components';
 import { isValidPassword } from 'binary-utils';
 import { api } from '../_data/LiveData';
 import storage from '../_store/storage';
@@ -94,7 +94,7 @@ export default class CrateAccountCard extends PureComponent {
                 <LogoSpinner spinning={progress} />
                 <img className="logo-text" src="img/binary-type-logo.svg" alt="Logo" />
                 <Notice text="Thank you for signing up! Check your email to get the verification token." />
-                {serverError && <ServerError text={serverError} />}
+                {serverError && <ServerErrorMsg text={serverError} />}
                 <form onSubmit={this.onFormSubmit}>
                     <InputGroup
                         type="text"
@@ -102,13 +102,13 @@ export default class CrateAccountCard extends PureComponent {
                         onChange={this.onVerificationCodeChange}
                     />
                     {validatedOnce && !verificationCodeIsValid &&
-                        <Error text="Enter a valid verification code" />
+                        <ErrorMsg text="Enter a valid verification code" />
                     }
                     <fieldset>
                         <Countries onChange={this.onResidenceChange} residenceList={residenceList} />
                     </fieldset>
                     {validatedOnce && !residenceIsValid &&
-                        <Error text="Choose your country" />
+                        <ErrorMsg text="Choose your country" />
                     }
                     <InputGroup
                         type="password"
@@ -116,7 +116,7 @@ export default class CrateAccountCard extends PureComponent {
                         onChange={this.onPasswordChange}
                     />
                     {validatedOnce && !passwordIsValid &&
-                        <Error text="Password should have lower and uppercase letters and 6 characters or more" />
+                        <ErrorMsg text="Password should have lower and uppercase letters and 6 characters or more" />
                     }
                     <InputGroup
                         type="password"
@@ -124,7 +124,7 @@ export default class CrateAccountCard extends PureComponent {
                         onChange={this.onConfirmPasswordChange}
                     />
                     {validatedOnce && !passwordsMatch &&
-                        <Error text="Passwords do not match" />
+                        <ErrorMsg text="Passwords do not match" />
                     }
                     <Button disabled={progress || validatedOnce && !this.allValid} text="Continue" />
                 </form>
