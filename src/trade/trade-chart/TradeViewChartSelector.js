@@ -63,6 +63,7 @@ const feedLicensePerTrade = createSelector(
 export const contractReceiptPerTrade = createSelector(
     [purchasePerTrade, boughtContractsSelector],
     (purchaseInfo, contracts) => {
+        if (!purchaseInfo) return undefined;
         const contractID = purchaseInfo.get('mostRecentContractId');
         if (!contractID) return undefined;
         return contracts.get(contractID);
