@@ -1,7 +1,21 @@
 [ignore]
+.*/Gulpfile.js
+.*/wallaby.conf.js
+.*/node_modules/*
+.*/coverage
+.*/dist
+.*/lib
+.*/index.js
+.*/__tests__
+.*/platform
+.*/plugins
+.*/.publish
+.*/.cordova
 
 [include]
 
 [libs]
 
 [options]
+esproposal.class_static_fields=enable
+esproposal.class_instance_fields=enable
