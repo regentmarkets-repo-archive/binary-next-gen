@@ -5,12 +5,12 @@ import { Legend, LabeledText, Notice } from 'binary-components';
 export default class SettingsDetails extends PureComponent {
 
 	static propTypes = {
-		email: PropTypes.string.isRequired,
+		email: PropTypes.string,
 		salutation: PropTypes.string,
 		first_name: PropTypes.string,
 		last_name: PropTypes.string,
 		date_of_birth: PropTypes.number,
-		country: PropTypes.string.isRequired,
+		country: PropTypes.string,
 	};
 
 	render() {

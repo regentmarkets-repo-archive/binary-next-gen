@@ -1,5 +1,13 @@
 .settings-card {
     width: 100%;
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+
+    > div:nth-child(2) {
+        flex: 1;
+    }
 
     .notice-msg {
         margin-top: 0.5rem;
@@ -46,4 +54,9 @@
     input {
         width: 100%;
     }
+}
+
+.version-info {
+    background: rgba($COLOR_BRAND_BLUE, 0.1);
+    text-align: center;
 }
