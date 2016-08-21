@@ -160,7 +160,8 @@
     flex: 1;
 }
 
-@media (orientation: landscape) {
+@media screen and (min-aspect-ratio: 13/9) { /* landscape styles here
+/* @media (orientation: landscape) { */
     .mobile-content {
         .trade-panel {
             flex-direction: row !important;
@@ -171,3 +172,5 @@
         }
     }
 }
+
+// @media screen and (max-aspect-ratio: 13/9) { /* portrait styles here */}
