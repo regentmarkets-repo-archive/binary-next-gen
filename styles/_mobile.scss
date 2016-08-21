@@ -89,6 +89,12 @@
 
     .payout-display {
         flex-direction: row;
+
+        .param-field {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
     }
 
     .param-row {

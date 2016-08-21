@@ -53,6 +53,11 @@
     .digit-stats-col {
         flex-direction: row-reverse;
     }
+
+    .payout-display .param-field {
+        display: flex;
+        flex-direction: column;
+    }
 }
 
 .horizontal {
@@ -182,7 +187,8 @@
 }
 
 .payout-value {
-    font-size: 1.2em;
+    font-weight: bold;
+    font-size: 2em;
 }
 
 .duration-input {
