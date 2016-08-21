@@ -25,8 +25,10 @@ export default class ExamineAssetFilter extends PureComponent {
 		actions.changeExaminedAsset(newAsset);
 	}
 
-	openPicker = () =>
+	openPicker = () => {
+		actions.resetAssetPickerFilter();
         this.setState({ dropdownShown: true });
+	}
 
 	render() {
 		const { dropdownShown } = this.state;

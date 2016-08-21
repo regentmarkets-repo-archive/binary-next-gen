@@ -1,5 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
-import { LogoSpinner, Button, Error, ServerError, InputGroup } from 'binary-components';
+import { LogoSpinner, Button, ErrorMsg, ServerErrorMsg, InputGroup } from 'binary-components';
 import { isValidEmail } from 'binary-utils';
 import { api } from '../_data/LiveData';
 
@@ -58,7 +58,7 @@ export default class VerifyEmailCard extends PureComponent {
                     <LogoSpinner spinning={progress} />
                     <img className="logo-text" src="img/binary-type-logo.svg" alt="Logo" />
                 </div>
-				{serverError && <ServerError text={serverError} />}
+				{serverError && <ServerErrorMsg text={serverError} />}
 				<form onSubmit={this.onFormSubmit}>
 					<InputGroup
 						type="email"
@@ -66,7 +66,7 @@ export default class VerifyEmailCard extends PureComponent {
 						onChange={this.onEmailChange}
 					/>
 					{validatedOnce && !this.emailIsValid &&
-						<Error text="Enter a valid email" />
+						<ErrorMsg text="Enter a valid email" />
 					}
 					<Button disabled={progress} text="Create Free Account" />
 				</form>

@@ -7,7 +7,6 @@ describe('watchlistSelectors', () => {
         assets: fromJS([]),
         ticks: fromJS({}),
         watchlist: fromJS([]),
-        workspace: fromJS({}),
     });
 
     it('should work with empty state', () => {
@@ -41,7 +40,6 @@ describe('watchlistSelectors', () => {
             watchlist: new Set([
                 'R_100',
             ]),
-            workspace: fromJS({}),
         };
 
         const watchlistView = watchlistSelectors(state).watchlistView.toJS();
@@ -51,5 +49,25 @@ describe('watchlistSelectors', () => {
         expect(watchlistView[0].assetName).to.equal('Random 100 Index');
         expect(watchlistView[0].quote).to.equal(123);
         expect(watchlistView[0].diff).to.equal(23);
+    });
+
+    it('should not return assets not currently active', () => {
+        const state = {
+            assets: fromJS([{
+                symbol: 'R_100',
+            }]),
+            ticks: fromJS({
+                R_100: [{ quote: 100 }, { quote: 123 }],
+            }),
+            watchlist: new Set([
+                'R_100',
+                'NON EXISTING',
+            ]),
+        };
+
+        const watchlistView = watchlistSelectors(state).watchlistView.toJS();
+
+        expect(watchlistView).to.have.lengthOf(1);
+        expect(watchlistView[0].symbol).to.equal('R_100');
     });
 });

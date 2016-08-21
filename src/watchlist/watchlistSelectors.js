@@ -1,7 +1,7 @@
 import { List, Record } from 'immutable';
 import { createSelector, createStructuredSelector } from 'reselect';
 import { pipsToDigits } from 'binary-utils';
-import { ticksSelector, watchlistSelector, activeTradeIndexSelector } from '../_store/directSelectors';
+import { ticksSelector, watchlistSelector } from '../_store/directSelectors';
 import { assetsBySymbolSelector } from '../_store/keySelectors';
 
 export const WatchlistRecord = new Record({
@@ -25,7 +25,7 @@ const historyQuote = history =>
 export const watchlistViewSelector = createSelector(
     [ticksSelector, assetsBySymbolSelector, watchlistSelector],
     (ticks, assets, watchlist) =>
-        watchlist.toSeq().map(symbol => {
+        watchlist.toSeq().filter(symbol => assets.has(symbol)).map(symbol => {
 			const history = ticks.get(symbol) || new List([]);
 			const asset = assets.get(symbol);
 
@@ -42,6 +42,5 @@ export const watchlistViewSelector = createSelector(
 );
 
 export default createStructuredSelector({
-	activeTradeIdx: activeTradeIndexSelector,
     watchlistView: watchlistViewSelector,
 });

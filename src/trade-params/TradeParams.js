@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { askPriceFromProposal, windowResizeEvent } from 'binary-utils';
-import { ServerError, Error } from 'binary-components';
+import { ServerErrorMsg, ErrorMsg } from 'binary-components';
 import { actions } from '../_store';
 import BarrierCard from '../barrier-picker/BarrierCard';
 // import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
@@ -127,7 +127,7 @@ export default class TradeParams extends PureComponent {
 
         return (
             <div className="trade-params" key={this.state.dynamicKey} style={style}>
-                {serverError ? <ServerError text={serverError} /> : <Error text={nonServerError} />}
+                {serverError ? <ServerErrorMsg text={serverError} /> : <ErrorMsg text={nonServerError} />}
                 <AssetPickerDropDown
                     index={index}
                     selectedSymbol={tradeParams.symbol}

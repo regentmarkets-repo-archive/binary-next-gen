@@ -133,10 +133,19 @@ fieldset {
 
 .radio-selector {
     display: flex;
-    flex-wrap: wrap;
     margin-bottom: 0.5rem;
     border-radius: 2px;
     background-color: rgba($COLOR_BRAND_BLUE, 0.1);
+
+    .radio-button {
+        padding: 0.5rem 0;
+        flex: 1;
+        background-color: rgba($COLOR_BRAND_BLUE, 0.25);
+
+        &:hover {
+            background-color: rgba($COLOR_BRAND_BLUE, 0.8);
+        }
+    }
 
     .selected-radio {
         background-color: rgba($COLOR_BRAND_BLUE, 0.8);
@@ -373,6 +382,7 @@ nav.sidebar {
 
 .empty-slate {
     height: 100%;
+    flex: 1;
     display: flex;
     flex-direction: column;
     align-items: center;

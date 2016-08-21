@@ -24,15 +24,13 @@ export default class BarrierCard extends PureComponent {
         spot: PropTypes.number,
     };
 
-    updateBarrier1 = e => {
+    updateBarrier1 = (newBarrier1: number) => {
         const { index, barrier2, pipSize, expiryType } = this.props;
-        const newBarrier1 = e.target.value;
         debouncedReqBarrierChange(index, [newBarrier1, barrier2], pipSize, expiryType);
     }
 
-    updateBarrier2 = e => {
+    updateBarrier2 = (newBarrier2: number) => {
         const { barrier, index, pipSize, expiryType } = this.props;
-        const newBarrier2 = e.target.value;
         debouncedReqBarrierChange(index, [barrier, newBarrier2], pipSize, expiryType);
     }
 

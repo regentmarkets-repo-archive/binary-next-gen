@@ -1,5 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import { M, P, Button, Error, InputGroup, SelectGroup } from 'binary-components';
+import { M, P, Button, ErrorMsg, InputGroup, SelectGroup } from 'binary-components';
 import { actions } from '../_store';
 import Modal from '../containers/Modal';
 import currencies from '../_constants/currencies';
@@ -126,7 +126,7 @@ export default class WithdrawForm extends PureComponent {
                     type="text"
                     onChange={this.onVerificationCodeChange}
                 />
-                <Error
+                <ErrorMsg
                     shown={false}
                     text=""
                 />

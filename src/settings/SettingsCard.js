@@ -1,5 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { Tab, TabList } from 'binary-components';
+import config from '../config';
 import SettingsPersonalDetails from './SettingsPersonalDetails';
 import SettingsSelfExclusion from './SettingsSelfExclusion';
 import SettingsLimits from './SettingsLimits';
@@ -33,6 +34,7 @@ export default class SettingsCard extends PureComponent {
 		const { activeTab } = this.state;
 		const isVirtual = loginid.startsWith('VRTC');
 		const ActiveComponent = components[activeTab];
+		const { version } = config;
 
 		return (
 			<div className="settings-card">
@@ -46,6 +48,7 @@ export default class SettingsCard extends PureComponent {
 					{!isVirtual && <Tab text="Limits" />}
 				</TabList>
 				<ActiveComponent {...this.props} {...settings} />
+				<div className="version-info">Version: {version}</div>
 			</div>
 		);
 	}

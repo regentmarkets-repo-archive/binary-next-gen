@@ -12,7 +12,7 @@ import AppStateProvider from './AppStateProvider';
 import BootProvider from './BootProvider';
 
 const routerHistory = window.cordova ? hashHistory : browserHistory;
-const history = syncHistoryWithStore(routerHistory, store);
+export const history = syncHistoryWithStore(routerHistory, store);
 
 history.listen(location => trackRoute(location.pathname));
 

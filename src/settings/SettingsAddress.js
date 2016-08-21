@@ -1,5 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import { Legend, Button, InputGroup, Error, ServerError } from 'binary-components';
+import { Legend, Button, InputGroup, ErrorMsg, ServerErrorMsg } from 'binary-components';
 import { actions } from '../_store';
 import States from './States';
 import UpdateNotice from '../containers/UpdateNotice';
@@ -78,7 +78,7 @@ export default class SettingsAddress extends PureComponent {
 
 		return (
 			<form className="settings-address" onSubmit={this.onFormSubmit}>
-				{serverError && <ServerError text={serverError} />}
+				{serverError && <ServerErrorMsg text={serverError} />}
 				<UpdateNotice text="Address updated" show={success} />
 				<Legend text="Address" />
 				<InputGroup
@@ -89,7 +89,7 @@ export default class SettingsAddress extends PureComponent {
 					onChange={this.onEntryChange}
 				/>
 				{validatedOnce && !address_line_1 &&
-					<Error text="This field is required." />
+					<ErrorMsg text="This field is required." />
 				}
 				<InputGroup
 					id="address_line_2"
@@ -126,8 +126,8 @@ export default class SettingsAddress extends PureComponent {
 					defaultValue={phone}
 					onChange={this.onEntryChange}
 				/>
-				{phoneError === 'length' && <Error text="You should enter between 6-35 characters." />}
-				{phoneError === 'allowed' && <Error text="Only numbers, space, - are allowed." />}
+				{phoneError === 'length' && <ErrorMsg text="You should enter between 6-35 characters." />}
+				{phoneError === 'allowed' && <ErrorMsg text="Only numbers, space, - are allowed." />}
 				<Button
 					text="Update"
 					onClick={this.tryUpdate}
