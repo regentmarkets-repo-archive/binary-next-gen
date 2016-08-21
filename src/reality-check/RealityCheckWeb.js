@@ -36,7 +36,8 @@ export default class RealityCheckWeb extends PureComponent {
         setTimeout(() =>
             actions.updateRealityCheckSummary().then(() =>
                 actions.showRealityCheckPopUp()
-            ), toWait);
+            )
+        , toWait);
     }
 
     updateInterval = (interval) => {

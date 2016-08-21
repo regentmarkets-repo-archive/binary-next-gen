@@ -20,8 +20,8 @@ export const getDataForContract = (contractID, durationCount, durationType, styl
             style,
             subscribe
         ).then(r => {
-                const { ticks, candles, symbol, isSold } = r;
-                return dispatch(updateChartDataByContract(contractID, ticks || candles, style, symbol, isSold));
+            const { ticks, candles, symbol, isSold } = r;
+            return dispatch(updateChartDataByContract(contractID, ticks || candles, style, symbol, isSold));
         });
 
 export const getDataForSymbol = (symbol, durationCount, durationType, style, subscribe) =>

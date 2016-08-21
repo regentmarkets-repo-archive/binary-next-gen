@@ -35,7 +35,7 @@ export default class ExamineAssetFilter extends PureComponent {
 		const { asset } = this.props;
 
 		return (
-			<div>
+			<div className="examine-asset-picker-container">
 				<div className="examine-asset-picker picker-label" onMouseDown={this.openPicker}>
 					<h4>{asset.name}</h4>
 					<DownArrow />

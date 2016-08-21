@@ -5,6 +5,10 @@
     flex-direction: column;
     flex: 1;
 
+    .examine-asset-picker-container {
+        margin-bottom: -0.5em;
+    }
+
     .examine-asset-picker {
         margin: 0.5em;
         line-height: 1.5;
@@ -28,5 +32,6 @@
     .daily-prices-card {
         overflow: auto;
         -webkit-overflow-scrolling: touch;
+        flex: 1;
     }
 }
