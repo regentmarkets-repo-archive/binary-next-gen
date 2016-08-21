@@ -29,6 +29,7 @@ export default class UpgradeCard extends PureComponent {
 			phone: '',
 			secretQuestion: '',
 			secretAnswer: '',
+			statesList: [],
 		};
 	}
 
@@ -50,11 +51,16 @@ export default class UpgradeCard extends PureComponent {
 	onYearChange = e =>
 		this.setState({ year: e.target.value });
 
-	onCountryChange = e =>
+	onCountryChange = e => {
 		this.setState({ residence: e.target.value });
+		api.getStatesForCountry(e.target.value).then(response =>
+			this.setState({ statesList: response.states_list })
+		);
+	}
 
-	onStateChange = e =>
+	onStateChange = e => {
 		this.setState({ addressState: e.target.value });
+	}
 
 	onCityChange = e =>
 		this.setState({ addressCity: e.target.value });
@@ -128,7 +134,7 @@ export default class UpgradeCard extends PureComponent {
 
 	render() {
 		const { firstName, lastName, residence, addressLine1, addressCity, secretQuestion, secretAnswer,
-			phone, termsAndConditions, progress, serverError, validatedOnce } = this.state;
+			phone, termsAndConditions, progress, serverError, validatedOnce, statesList } = this.state;
 		const { residenceList } = this.props;
 
 		const firstNameIsValid = firstName.length >= 2;
@@ -188,7 +194,7 @@ export default class UpgradeCard extends PureComponent {
 					<div className="input-row">
 						<Countries onChange={this.onCountryChange} residenceList={residenceList} />
 						<select onChange={this.onStateChange}>
-							{[].map(x => (
+							{statesList.map(x => (
 								<option key={x.value} value={x.value}>{x.text}</option>
 							))}
 						</select>
