@@ -5,8 +5,17 @@ import { updateAppState, removePersonalData, updateToken, updateBoot } from '../
 
 export const tryAuth = async token => {
     store.dispatch(updateAppState('authorized', false));
-    const response = await api.authorize(token);
-    trackUserId(response.authorize.loginid);
+    let response = await api.authorize(token);
+    if (response.error && response.error.code === 'SelfExclusion') {
+          const account = window.BinaryBoot.accounts.filter(x => x.account.startsWith('VRTC'));
+          const newToken = account[0].token;
+          response = await api.authorize(newToken);
+          trackUserId(response.authorize.loginid);
+          store.dispatch(updateToken(newToken));
+          localStorage.setItem('account', JSON.stringify({ token: newToken }));
+    } else {
+        trackUserId(response.authorize.loginid);
+    }
 };
 
 export const signOut = () => {

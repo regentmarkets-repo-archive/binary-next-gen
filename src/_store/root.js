@@ -35,15 +35,7 @@ export default class Root extends PureComponent {
         try {
             await tryAuth(token);
         } catch (e) {
-            await actions.updateAppState('authorized', false);
-            const errorMsg = e.message;
-            if (errorMsg.indexOf('you have excluded yourself until') > -1) {
-                const account = window.BinaryBoot.accounts.filter(x => x.account.startsWith('VRTC'));
-                const newToken = account[0].token;
-                await tryAuth(newToken);
-                await actions.updateToken(newToken);
-                await localStorage.setItem('account', JSON.stringify({ token: newToken }));
-            }
+            actions.updateAppState('authorized', false);
         } finally {
             actions.updateAppState('connected', true);
         }
