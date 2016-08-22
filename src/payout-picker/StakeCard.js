@@ -13,10 +13,9 @@ export default class StakeCard extends PureComponent {
         isVirtual: PropTypes.bool.isRequired,
         index: PropTypes.number.isRequired,
     };
-
-    onAmountChange = (newAmount: number) => {
+    onAmountChange = value => {
         const { index } = this.props;
-        debounceStakeChange(index, newAmount);
+        debounceStakeChange(index, value);
     }
 
     render() {
