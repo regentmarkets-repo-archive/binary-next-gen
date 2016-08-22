@@ -1,6 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { dateToDateString, todayLocaleString, oneYearAfterStr } from 'binary-utils';
-import { WorkaroundDateTimeInput } from 'binary-components';
 import { actions } from '../_store';
 import MarketSubmarketPickerContainer from '../asset-picker/MarketSubmarketPickerContainer';
 import TradingTimesTable from './TradingTimesTable';
@@ -40,7 +39,7 @@ export default class TradingTimesCard extends PureComponent {
 						allOptionShown={false}
 						value={filter}
 					/>
-					<WorkaroundDateTimeInput
+					<input
 						type="date"
 						defaultValue={dateToDateString(tradingTimesDate)}
 						min={todayLocaleString()}
