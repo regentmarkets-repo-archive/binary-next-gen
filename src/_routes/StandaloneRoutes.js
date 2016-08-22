@@ -23,6 +23,7 @@ import JpTradePage from '../jp-trade/JpTradePage';
 import WorkspaceContainer from '../workspace/WorkspaceContainer';
 import LayoutButtonPanel from '../layout-picker/LayoutButtonPanel';
 import DigitStatsCard from '../digit-stats/DigitStatsCard';
+import LoadingView from '../loading-view/LoadingView';
 
 import { requireAuthOnEnter } from '../_data/Auth';
 
@@ -62,4 +63,5 @@ export default [
     { path: 'deposit', component: DepositModal },
     { path: 'layout', component: LayoutButtonPanel },
     { path: 'stats', component: DigitStatsCard },
+    { path: 'loading', component: LoadingView },
 ];
