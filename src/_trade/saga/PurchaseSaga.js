@@ -27,7 +27,14 @@ export const reqPurchase = (index, price, purchaseHook) => ({
 
 function* handleStakeChange(action) {
     const { index, stake } = action;
+
     yield put(unsubscribeProposal(index));
+
+    if (+stake <= 0 || stake === '') {
+        yield put(updateTradeError(index, 'stakeError', 'Stake must be more than 0'));
+        return;
+    }
+
     const params = yield select(getParams(index));
     const updated = changeAmount(stake, params);
     yield [
