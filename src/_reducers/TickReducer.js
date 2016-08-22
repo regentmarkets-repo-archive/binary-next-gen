@@ -34,6 +34,13 @@ export default (state = initialState, action) => {
         case SERVER_DATA_TICK_STREAM: {
             const symbol = action.serverResponse.tick.symbol;
             const { tick } = action.serverResponse;
+
+            // Do not take old tick
+            const latestExistingTickEpoch = state.get(symbol).takeLast(1).getIn([0, 'epoch']);
+            if (latestExistingTickEpoch && latestExistingTickEpoch > +tick.epoch) {
+                return state;
+            }
+
             const newTick = {
                 epoch: +tick.epoch,
                 quote: +tick.quote,
@@ -41,14 +48,17 @@ export default (state = initialState, action) => {
             return state.update(symbol, List.of(), v => v.takeLast(1000).push(fromJS(newTick)));
         }
         case SERVER_DATA_TICK_HISTORY: {
+            const { times, prices } = action.serverResponse.history;
+
             const symbol = action.serverResponse.echo_req.ticks_history;
-            const history = action.serverResponse.history.times.map((t, idx) => {
-                const quote = action.serverResponse.history.prices[idx];
+
+            const formattedHistory = times.map((t, idx) => {
+                const quote = prices[idx];
                 return { epoch: +t, quote: +quote };
             });
 
             const liveTicks = state.get(symbol) ? state.get(symbol).toJS() : [];
-            const merged = mergeTicks(liveTicks, history);
+            const merged = mergeTicks(liveTicks, formattedHistory);
             if (merged.length === liveTicks.length) {
                 return state;
             }
