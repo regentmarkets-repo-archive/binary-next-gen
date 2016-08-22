@@ -17,13 +17,19 @@ export const mergeTicks = (existingTicks, newTicks) => {
 
     const lastNewTicksEpoch = getLastTick(newTicks).epoch;
     const oldestExistingTickEpoch = existingTicks[0].epoch;
+    const lastExistingTickEpoch = getLastTick(existingTicks).epoch;
     const epochDiff = oldestExistingTickEpoch - lastNewTicksEpoch;
-    // Do not merge if ticks are very old to prevent gap
+
+    // if new ticks are very old compared to existing ticks, ignore them
     if (epochDiff > 300) {          // 5 minutes
         return existingTicks;
     }
 
-    if (newTicks[0].epoch > existingTicks[0].epoch) {
+    // if existing ticks contains new ticks, ignore new ticks
+    if (
+        newTicks[0].epoch > existingTicks[0].epoch &&
+            lastNewTicksEpoch < lastExistingTickEpoch
+    ) {
         return existingTicks;
     }
     return mergeSortedArrays(existingTicks, newTicks, x => x.epoch, x => x.epoch);
