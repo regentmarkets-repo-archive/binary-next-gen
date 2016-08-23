@@ -34,6 +34,10 @@
         flex-direction: column;
     }
 
+    .trade-chart-container {
+        margin: -0.25em 0;
+    }
+
     .modal {
         max-width: 360px;
     }
@@ -100,6 +104,7 @@
     .param-row {
         display: flex;
         flex-direction: row;
+        margin-bottom: 0.25rem;
 
         > label {
             flex: 1;
