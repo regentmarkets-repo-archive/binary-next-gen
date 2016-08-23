@@ -84,13 +84,19 @@ const initAuthorized = async (authData, store) => {
             }
         });
 
-
+    const susbcribeWatchlist = async (symbol) => {
+        try {
+            await api.getTickHistory(symbol, { end: 'latest', count: 10, subscribe: 1 });
+        } catch (err) {
+            await api.getTickHistory(symbol, { end: 'latest', count: 10 });
+        }
+    };
     const subscribeToWatchlist = assets => {
         if (!state.watchlist) {
             return;
         }
         const existingWatchlist = state.watchlist.filter(w => assets.find(x => x.symbol === w));
-        api.subscribeToTicks(existingWatchlist.toJS());
+        existingWatchlist.forEach(susbcribeWatchlist);
     };
 
     api.getActiveSymbolsFull().then(r => {
