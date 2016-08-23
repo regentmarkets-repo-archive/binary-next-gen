@@ -134,6 +134,7 @@
   },
   "devDependencies": {
     "asar": "^0.12.1",
+    "autoprefixer": "^6.4.0",
     "babel-cli": "^6.11.4",
     "babel-core": "^6.13.2",
     "babel-eslint": "^6.1.2",
@@ -187,6 +188,8 @@
     "node-sass": "^3.8.0",
     "node-sass-middleware": "^0.9.8",
     "postcss-loader": "^0.10.1",
+    "postcss-modules": "^0.5.2",
+    "precss": "^1.4.0",
     "progress-bar-webpack-plugin": "^1.9.0",
     "react-addons-perf": "^15.3.1",
     "react-addons-test-utils": "^15.3.1",
