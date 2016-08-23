@@ -42,8 +42,7 @@ export default (state = initialState, action) => {
             const { tick } = action.serverResponse;
 
             // Do not take old tick
-            const selectedSymbol = state.get('symbol');
-            const latestExistingTickEpoch = selectedSymbol && selectedSymbol.takeLast(1).getIn([0, 'epoch']);
+            const latestExistingTickEpoch = state.get(symbol).takeLast(1).getIn([0, 'epoch']);
             if (latestExistingTickEpoch && latestExistingTickEpoch > +tick.epoch) {
                 return state;
             }
