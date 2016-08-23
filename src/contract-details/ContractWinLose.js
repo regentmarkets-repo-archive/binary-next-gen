@@ -1,6 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
-import { toMoney } from 'binary-utils';
-import { M, NumberColored } from 'binary-components';
+import { toMoney, directionClassName } from 'binary-utils';
+import { M, NumberPlain } from 'binary-components';
 
 export default class ContractWinLose extends PureComponent {
 
@@ -14,22 +14,15 @@ export default class ContractWinLose extends PureComponent {
 		const profit = sold && toMoney(contract.sell_price - contract.buy_price);
 
 		if (!sold) return null;
-
+		const className = directionClassName(profit);
 		return (
 			<div className="profit-loss-label notice-msg">
 				{profit >= 0 ? <M m="You Won " /> : <M m="You Lost " />}
-				{profit >= 0 ?
-					<NumberColored
-						value={profit}
-						currency={contract.currency}
-						isProfit={v => v}
-					/> :
-					<NumberColored
-						value={-profit}
-						currency={contract.currency}
-						isProfit={v => -v}
-					/>
-				}
+				<NumberPlain
+					className={className}
+					value={Math.abs(profit)}
+					currency={contract.currency}
+				/>
 			</div>
 		);
 	}
