@@ -52,6 +52,11 @@ input[type=datepicker],
     height: 2rem;
 }
 
+input[type=date],
+input[type=time] {
+    padding-right: 0;
+}
+
 input[type=number] {
     padding-right: 0;
 }
