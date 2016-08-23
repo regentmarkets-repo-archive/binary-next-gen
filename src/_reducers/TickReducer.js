@@ -1,5 +1,5 @@
 import { fromJS, List, Map } from 'immutable';
-import { mergeSortedArrays, getLastTick } from 'binary-utils';
+import { mergeSortedArrays, getLast } from 'binary-utils';
 
 import {
     SERVER_DATA_TICK_STREAM,
@@ -15,7 +15,7 @@ export const mergeTicks = (existingTicks, newTicks) => {
         return newTicks;
     }
 
-    const lastNewTicksEpoch = getLastTick(newTicks).epoch;
+    const lastNewTicksEpoch = getLast(newTicks).epoch;
     const oldestExistingTickEpoch = existingTicks[0].epoch;
     const epochDiff = oldestExistingTickEpoch - lastNewTicksEpoch;
     // Do not merge if ticks are very old to prevent gap
