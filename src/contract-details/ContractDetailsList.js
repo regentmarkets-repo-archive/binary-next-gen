@@ -20,6 +20,15 @@ export default class ContractDetailsList extends PureComponent {
 
 	render() {
 		const { contract } = this.props;
+
+		// exit_tick_time is not return for contract that exit earlier
+		// eg. TOUCH and EndsINOut
+		// instead sell_time and sell_spot is return and means the time where contract ends
+		const contractHandleExitEarlier = Object.assign({}, contract);
+		if (contract.sell_time && !contract.exit_tick_time) {
+			contractHandleExitEarlier.exit_tick_time = contract.sell_time;
+			contractHandleExitEarlier.exit_tick = contract.sell_spot;
+		}
 		const idsStr = transactionIdsToString(contract.transaction_ids);
 
 		return (
@@ -34,8 +43,8 @@ export default class ContractDetailsList extends PureComponent {
 				<ContractDetailCustom label={'High Barrier'} value={contract.high_barrier} />
 				<ContractDetailMoney contract={contract} code={'payout'} />
 				<ContractDetailMoney contract={contract} code={'buy_price'} />
-				<ContractDetailString contract={contract} code={'exit_tick'} />
-				<ContractDetailTime contract={contract} code={'exit_tick_time'} />
+				<ContractDetailString contract={contractHandleExitEarlier} code={'exit_tick'} />
+				<ContractDetailTime contract={contractHandleExitEarlier} code={'exit_tick_time'} />
 				{!!contract.is_forward_starting && <ContractDetailMoney contract={contract} code="bid_price" />}
 				<ContractDetailMoney contract={contract} code={'sell_price'} />
 				<ContractDetailTime contract={contract} code={'sell_time'} />
