@@ -1103,5 +1103,25 @@ export default {
     "Exit Full Screen": [
         null,
         "Thoát toàn màn hình"
+    ],
+    "No digit trades for this asset": [
+        null,
+        ""
+    ],
+    "Password changed successfully": [
+        null,
+        ""
+    ],
+    "Duration is out of range": [
+        null,
+        ""
+    ],
+    "Start date invalid, it needs to be five minutes or more in the future": [
+        null,
+        ""
+    ],
+    "Time format is wrong": [
+        null,
+        ""
     ]
 }

@@ -2,7 +2,7 @@ export default {
     "": {
         "project-id-version": "PACKAGE VERSION",
         "pot-creation-date": "",
-        "po-revision-date": "2016-08-03 14:51+0000",
+        "po-revision-date": "2016-08-17 14:22+0000",
         "last-translator": "naofum <naofum@gmail.com>",
         "language-team": "Japanese <https://hosted.weblate.org/projects/binary-app/next-gen-app/ja/>",
         "language": "ja",
@@ -1139,5 +1139,77 @@ export default {
     "Exit Full Screen": [
         null,
         "フルスクリーンを終了"
+    ],
+    "No digit trades for this asset": [
+        null,
+        "この資産の取引の数字はありません"
+    ],
+    "Lock Cashier": [
+        null,
+        "入出金ロック"
+    ],
+    "Time out until date": [
+        null,
+        "xxx日まで利用禁止"
+    ],
+    "Time out until time": [
+        null,
+        "xxxまで利用禁止"
+    ],
+    "Light Theme": [
+        null,
+        "ライトテーマ"
+    ],
+    "Dark Theme": [
+        null,
+        "ダークテーマ"
+    ],
+    "Password changed successfully": [
+        null,
+        "パスワードの変更が完了しました"
+    ],
+    "Settings updated": [
+        null,
+        "設定が更新されました"
+    ],
+    "Address updated": [
+        null,
+        "住所が更新されました"
+    ],
+    "Barrier must not be empty": [
+        null,
+        "バリア値の入力は必須です"
+    ],
+    "Duration is out of range": [
+        null,
+        "期間が範囲外です"
+    ],
+    "Start date invalid, it needs to be five minutes or more in the future": [
+        null,
+        "開始日が無効です。5分以降の時間に設定いただいく必要があります。"
+    ],
+    "Time format is wrong": [
+        null,
+        "時間の形式に誤りがあります"
+    ],
+    "Lower than": [
+        null,
+        "xxxよりも低い"
+    ],
+    "Higher than": [
+        null,
+        "xxxよりも高い"
+    ],
+    "High barrier": [
+        null,
+        "上限バリア"
+    ],
+    "Low barrier": [
+        null,
+        "下限バリア"
+    ],
+    "Touch spot": [
+        null,
+        "タッチレート"
     ]
 }

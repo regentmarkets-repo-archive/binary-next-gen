@@ -3,7 +3,7 @@ export default {
         "project-id-version": "1228",
         "report-msgid-bugs-to": "",
         "pot-creation-date": "",
-        "po-revision-date": "2016-08-08 02:58+0000",
+        "po-revision-date": "2016-08-16 07:47+0000",
         "last-translator": "Freddy Hew <hewfreddy@gmail.com>",
         "language-team": "Chinese (China) <https://hosted.weblate.org/projects/binary-app/next-gen-app/zh_CN/>",
         "language": "zh_cn",
@@ -1141,5 +1141,77 @@ export default {
     "Exit Full Screen": [
         null,
         "退出全屏"
+    ],
+    "No digit trades for this asset": [
+        null,
+        "此资产无数字交易"
+    ],
+    "Lock Cashier": [
+        null,
+        "解锁收银台"
+    ],
+    "Time out until date": [
+        null,
+        "时间已过。下次开启时间为"
+    ],
+    "Time out until time": [
+        null,
+        "时间已过。下次开启时间为"
+    ],
+    "Light Theme": [
+        null,
+        "浅色主题"
+    ],
+    "Dark Theme": [
+        null,
+        "深色主题"
+    ],
+    "Password changed successfully": [
+        null,
+        "已成功更改密码"
+    ],
+    "Settings updated": [
+        null,
+        "设置更新"
+    ],
+    "Address updated": [
+        null,
+        "地址更新"
+    ],
+    "Barrier must not be empty": [
+        null,
+        "障碍不可为空"
+    ],
+    "Duration is out of range": [
+        null,
+        "交易期限超出限定范围"
+    ],
+    "Start date invalid, it needs to be five minutes or more in the future": [
+        null,
+        "开始日期无效，必须是未来的五分钟或更长时间"
+    ],
+    "Time format is wrong": [
+        null,
+        "时间格式错误"
+    ],
+    "Lower than": [
+        null,
+        "低于"
+    ],
+    "Higher than": [
+        null,
+        "高于"
+    ],
+    "High barrier": [
+        null,
+        "高障碍"
+    ],
+    "Low barrier": [
+        null,
+        "低障碍"
+    ],
+    "Touch spot": [
+        null,
+        "触及现货价格"
     ]
 }

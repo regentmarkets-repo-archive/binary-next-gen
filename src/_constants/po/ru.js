@@ -3,7 +3,7 @@ export default {
         "project-id-version": "BOM",
         "report-msgid-bugs-to": "",
         "pot-creation-date": "",
-        "po-revision-date": "2016-08-10 10:40+0000",
+        "po-revision-date": "2016-08-17 09:34+0000",
         "last-translator": "Ruslan <ruslan.mukhametdinov.90@gmail.com>",
         "language-team": "Russian <https://hosted.weblate.org/projects/binary-app/next-gen-app/ru/>",
         "language": "ru",
@@ -1140,5 +1140,77 @@ export default {
     "Exit Full Screen": [
         null,
         "Закрыть полноэкранный режим"
+    ],
+    "No digit trades for this asset": [
+        null,
+        "Цифровые контракты недоступны на этом активе"
+    ],
+    "Lock Cashier": [
+        null,
+        "Заблокировать Кассу"
+    ],
+    "Time out until date": [
+        null,
+        "Ограничение доступа до"
+    ],
+    "Time out until time": [
+        null,
+        "Ограничение доступа до"
+    ],
+    "Light Theme": [
+        null,
+        "Светлая Тема"
+    ],
+    "Dark Theme": [
+        null,
+        "Темная Тема"
+    ],
+    "Password changed successfully": [
+        null,
+        "Пароль успешно изменен"
+    ],
+    "Settings updated": [
+        null,
+        "Настройки изменены"
+    ],
+    "Address updated": [
+        null,
+        "Адрес изменен"
+    ],
+    "Barrier must not be empty": [
+        null,
+        "Поле \"Барьер\" не должно быть пустым"
+    ],
+    "Duration is out of range": [
+        null,
+        "Продолжительность вне допустимых границ"
+    ],
+    "Start date invalid, it needs to be five minutes or more in the future": [
+        null,
+        "Неверное время начала. Время начала должно быть не менее чем через пять минут в будущем"
+    ],
+    "Time format is wrong": [
+        null,
+        "Неправильный формат времени"
+    ],
+    "Lower than": [
+        null,
+        "Ниже чем"
+    ],
+    "Higher than": [
+        null,
+        "Выше чем"
+    ],
+    "High barrier": [
+        null,
+        "Верхний барьер"
+    ],
+    "Low barrier": [
+        null,
+        "Нижний барьер"
+    ],
+    "Touch spot": [
+        null,
+        "Точка касания"
     ]
 }
