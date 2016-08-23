@@ -15,6 +15,8 @@ export default class SettingsDetails extends PureComponent {
 
 	render() {
 		const { email, salutation, first_name, last_name, date_of_birth, country } = this.props;
+		const fullName = first_name ? salutation + ' ' + first_name + ' ' + last_name : 'N/A';
+		const dob = date_of_birth ? epochToDateString(date_of_birth) : 'N/A';
 
 		return (
 			<div className="settings-details">
@@ -27,12 +29,12 @@ export default class SettingsDetails extends PureComponent {
 				<LabeledText
 					id="name"
 					label="Name"
-					value={salutation + ' ' + first_name + ' ' + last_name}
+					value={fullName}
 				/>
 				<LabeledText
 					id="dob"
 					label="Date of birth"
-					value={epochToDateString(date_of_birth)}
+					value={dob}
 				/>
 				<LabeledText
 					id="residence"

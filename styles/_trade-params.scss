@@ -273,7 +273,12 @@
     img {
         height: 1.5rem;
         margin: 0.25rem 0;
+        padding: 1px 0;
     }
+}
+
+.inverse .picker-label img {
+    background: white;
 }
 
 .payout-picker button {

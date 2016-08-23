@@ -57,7 +57,7 @@ export default class TradeTypeDropDown extends PureComponent {
                         onSelect={this.onClose}
                     />
                 </DropDown>
-                <Label text="Trade Type" />
+                <Label text="Trade" />
                 <Info tooltip={helpText[selectedType]} role="presentation" />
                 <div
                     className="picker-label param-field"
