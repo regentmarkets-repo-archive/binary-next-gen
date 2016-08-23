@@ -17,7 +17,7 @@ export const mergeTicks = (existingTicks, newTicks) => {
 
     const lastNewTicksEpoch = getLast(newTicks).epoch;
     const oldestExistingTickEpoch = existingTicks[0].epoch;
-    const lastExistingTickEpoch = getLastTick(existingTicks).epoch;
+    const lastExistingTickEpoch = getLast(existingTicks).epoch;
     const epochDiff = oldestExistingTickEpoch - lastNewTicksEpoch;
 
     // if new ticks are very old compared to existing ticks, ignore them
@@ -42,7 +42,8 @@ export default (state = initialState, action) => {
             const { tick } = action.serverResponse;
 
             // Do not take old tick
-            const latestExistingTickEpoch = state.get(symbol).takeLast(1).getIn([0, 'epoch']);
+            const selectedSymbol = state.get('symbol');
+            const latestExistingTickEpoch = selectedSymbol && selectedSymbol.takeLast(1).getIn([0, 'epoch']);
             if (latestExistingTickEpoch && latestExistingTickEpoch > +tick.epoch) {
                 return state;
             }
