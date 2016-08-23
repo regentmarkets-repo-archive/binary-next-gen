@@ -2,15 +2,15 @@ export default {
     "": {
         "project-id-version": "1.0",
         "pot-creation-date": "",
-        "po-revision-date": "2016-02-08 20:40+0000",
-        "last-translator": "Ehab Gubil <egubil@gmail.com>",
+        "po-revision-date": "2016-08-19 00:32+0000",
+        "last-translator": "Ahmed Kotb <ahmedmohamedkotp@gmail.com>",
         "language-team": "Arabic <https://hosted.weblate.org/projects/binary-app/next-gen-app/ar/>",
         "language": "ar",
         "mime-version": "1.0",
         "content-type": "text/plain; charset=UTF-8",
         "content-transfer-encoding": "8bit",
         "plural-forms": "nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;",
-        "x-generator": "Weblate 2.5-dev",
+        "x-generator": "Weblate 2.8-dev",
         "x-poedit-sourcecharset": "UTF-8"
     },
     "All": [
@@ -455,462 +455,762 @@ export default {
     ],
     "Start times": [
         null,
-        ""
+        "أوقات البداية"
+    ],
+    "Durations": [
+        null,
+        "المدد"
+    ],
+    "Payout/Stake": [
+        null,
+        "العائد/الحصة"
+    ],
+    "Purchase for": [
+        null,
+        "شراء ل"
+    ],
+    "payout": [
+        null,
+        "العائد"
+    ],
+    "stake": [
+        null,
+        "الحصة"
     ],
     "Self Exclusion": [
         null,
-        ""
+        "الإستبعاد الذاتي"
     ],
     "Cashier Lock": [
         null,
-        ""
+        "قفل الصراف"
     ],
     "Change Password": [
         null,
-        ""
+        "تغيير كلمة المرور"
     ],
     "Password": [
         null,
-        ""
+        "كلمة المرور"
+    ],
+    "Tick Trade": [
+        null,
+        "علامة تداول"
+    ],
+    "Full Trade": [
+        null,
+        "تداول كامل"
+    ],
+    "Address": [
+        null,
+        "العنوان"
     ],
     "Town/City": [
         null,
-        ""
+        "بلدة/مدينة"
     ],
     "State/Province": [
         null,
-        ""
+        "دولة/مقاطعة"
     ],
     "Telephone": [
         null,
-        ""
+        "هاتف"
     ],
     "Postal Code / ZIP": [
         null,
-        ""
+        "الرمز البريدي/الرمز البريدي"
     ],
     "Cashier password": [
         null,
-        ""
+        "كلمة مرور الصراف"
     ],
     "Re-enter your password": [
         null,
-        ""
+        "أعادة إدخال كلمة المرور الخاصة بك"
     ],
     "Current password": [
         null,
-        ""
+        "كلمة المرور الحالية"
     ],
     "New password": [
         null,
-        ""
+        "كلمة المرور الجديدة"
     ],
     "Verify new password": [
         null,
-        ""
+        "التحقق من كلمة المرور الجديدة"
+    ],
+    "Daily turnover limit": [
+        null,
+        "حد الدوران اليومي"
     ],
     "Once this limit is reached, you may no longer deposit.": [
         null,
-        ""
+        "بمجرد الوصول لهذا الحد, قد لا يكون بإمكانك إيداع مبالغ أخرى."
     ],
     "Maximum aggregate contract purchases per day.": [
         null,
-        ""
+        "الحد الأقصى لإجمالي مشتريات العقود يومياً."
     ],
     "Daily limit on losses": [
         null,
-        ""
+        "الحد اليومي على الخسائر"
+    ],
+    "Maximum aggregate loss per day.": [
+        null,
+        "الحد الأقصى لإجمالي الخسارة في اليوم."
     ],
     "7-day turnover limit": [
         null,
-        ""
+        "حد الدوران لسبعة أيام"
     ],
     "Maximum aggregate contract purchases over a 7-day period.": [
         null,
-        ""
+        "الحد الأقصى لإجمالي مشتريات العقود خلال فترة 7 أيام."
     ],
     "7-day limit on losses": [
         null,
-        ""
+        "الحد على الخسائر في سبعة أيام"
+    ],
+    "Maximum aggregate loss over a 7-day period.": [
+        null,
+        "الحد الأقصى لإجمالي الخسارة خلال فترة 7 أيام."
     ],
     "30-day turnover limit": [
         null,
-        ""
+        "حد الدوران في 30 يوم"
     ],
     "Maximum aggregate contract purchases over a 30-day period.": [
         null,
-        ""
+        "الحد الأقصى لإجمالي العقود المشتراه خلال مدة 30 يوم."
     ],
     "30-day limit on losses": [
         null,
-        ""
+        "الحد على الخسائر في 30 يوم"
+    ],
+    "Maximum aggregate loss over a 30-day period.": [
+        null,
+        "الحد الأقصى لإجمالي الخسارة خلال فترة 30 يوم."
     ],
     "Session duration limit, in minutes": [
         null,
-        ""
+        "حد مدة الجلسة, بالدقائق"
     ],
     "You will be automatically logged out after such time.": [
         null,
-        ""
+        "سيتم تسجيل الخروج لك تلقائياً بعد هذا الوقت."
     ],
     "Exclude me from the website until": [
         null,
-        ""
+        "استبعادي من الموقع الإلكتروني حتى"
+    ],
+    "Limits": [
+        null,
+        "الحدود"
     ],
     "Please enter date in the format YYYY-MM-DD.": [
         null,
-        ""
+        "برجاء إدخال التاريخ في الشكل يوم - شهر - سنة."
+    ],
+    "New Trade": [
+        null,
+        "تداول جديد"
+    ],
+    "Trade Type": [
+        null,
+        "نوع التداول"
     ],
     "Random 100 Index": [
         null,
-        ""
+        "المؤشر العشوائي 100"
     ],
     "Article": [
         null,
-        ""
+        "مقالة"
     ],
     "Start Later": [
         null,
-        ""
+        "البدء في وقت لاحق"
+    ],
+    "Buy Price": [
+        null,
+        "سعر الشراء"
     ],
     "Earning (%)": [
         null,
-        ""
+        "الربح (%)"
+    ],
+    "Profit": [
+        null,
+        "الربح"
+    ],
+    "Entry Price": [
+        null,
+        "سعر الدخول"
+    ],
+    "Exit Price": [
+        null,
+        "سعر الخروج"
+    ],
+    "Indicative Price": [
+        null,
+        "سعر دلالي"
     ],
     "Potential Profit": [
         null,
-        ""
+        "الربح المحتمل"
     ],
     "Sell at Market": [
         null,
-        ""
+        "البيع في السوق"
     ],
     "Go back": [
         null,
-        ""
+        "العودة للخلف"
     ],
     "You lost ": [
         null,
-        ""
+        "لقد خسرت "
+    ],
+    "Close": [
+        null,
+        "إغلاق"
     ],
     "Low": [
         null,
-        ""
+        "منخفض"
     ],
     "High": [
         null,
-        ""
+        "عالي"
+    ],
+    "Open": [
+        null,
+        "فتح"
+    ],
+    "Date": [
+        null,
+        "التاريخ"
     ],
     "Upcoming Events": [
         null,
-        ""
+        "الأحداث القادمة"
     ],
     "Win": [
         null,
-        ""
+        "فوز"
     ],
     "Loss": [
         null,
-        ""
+        "خسارة"
     ],
     "Full Screen": [
         null,
-        ""
+        "تكبير الشاشة"
     ],
     "Start Now": [
         null,
-        ""
+        "ابدأ الآن"
+    ],
+    "Daily Prices": [
+        null,
+        "الأسعار اليومية"
     ],
     "Spreads": [
         null,
-        ""
+        "الفروقات بين أسعار البيع والشراء"
     ],
     "Confirm new password": [
         null,
-        ""
+        "تأكيد كلمة المرور الجديدة"
     ],
     "TICK": [
         null,
-        ""
+        "علامة"
     ],
     "Minutes": [
         null,
-        ""
+        "دقائق"
     ],
     "Seconds": [
         null,
-        ""
+        "ثواني"
     ],
     "Hours": [
         null,
-        ""
+        "ساعات"
     ],
     "Days": [
         null,
-        ""
+        "أيام"
     ],
     "N/A": [
         null,
-        ""
+        "غير متوفرة"
+    ],
+    "Duration": [
+        null,
+        "المدة"
     ],
     "Start Time": [
         null,
-        ""
+        "وقت البداية"
     ],
     "Now": [
         null,
-        ""
+        "الآن"
     ],
     "Later": [
         null,
-        ""
+        "لاحقاً"
     ],
     "return": [
         null,
-        ""
+        "عودة"
     ],
     "Portfolio": [
         null,
-        ""
+        "محفظة"
     ],
     "Video": [
         null,
-        ""
+        "فيديو"
+    ],
+    "Digit Stats": [
+        null,
+        "إحصائيات الأرقام"
     ],
     "Favorites": [
         null,
-        ""
+        "المفضلات"
     ],
     "Open For Trading": [
         null,
-        ""
+        "مفتوح للتداول"
+    ],
+    "Closed": [
+        null,
+        "مغلق"
     ],
     "Contract ID": [
         null,
-        ""
+        "هوية العقد"
     ],
     "Reference ID": [
         null,
-        ""
+        "هوية المرجع"
+    ],
+    "Entry Spot": [
+        null,
+        "نقطة دخول"
+    ],
+    "Entry Spot Time": [
+        null,
+        "وقت نقطة الدخول"
     ],
     "Potential Payout": [
         null,
-        ""
+        "العوائد المحتملة"
+    ],
+    "Exit Spot": [
+        null,
+        "نقطة خروج"
+    ],
+    "Exit Spot Time": [
+        null,
+        "وقت نقطة خروج"
+    ],
+    "Sell Price": [
+        null,
+        "سعر البيع"
+    ],
+    "Sell Time": [
+        null,
+        "وقت البيع"
+    ],
+    "Trade Again": [
+        null,
+        "تداول مرة أخرى"
     ],
     "Barrier": [
         null,
-        ""
+        "حاجز"
     ],
     "You Won": [
         null,
-        ""
+        "لقد ربحت"
     ],
     "You Lost": [
         null,
-        ""
+        "لقد خسرت"
     ],
     "To change your name, date of birth, country of residence, or email, contact Customer Support.": [
         null,
-        ""
+        "لتغيير أسمك, تاريخ الميلاد, بلد الإقامة, أو البريد الإلكتروني, اتصل بخدمة العملاء."
     ],
     "Cashier is locked per your request. To unlock it, enter your password.": [
         null,
-        ""
+        "تم إغلاق الصراف بناءاً على طلبك. لفتحه, أدخل كلمة السر الخاصة بك."
     ],
     "Unlock Cashier": [
         null,
-        ""
+        "فتح الصراف"
     ],
     "Time out until": [
         null,
-        ""
+        "مهلة حتى"
+    ],
+    "No transactions for the selected period": [
+        null,
+        "لا توجد صفقات للفترة المحددة"
     ],
     "You have no open contracts": [
         null,
-        ""
+        "لا يوجد لديك عقود مفتوحة"
     ],
     "You have no assets in watchlist": [
         null,
-        ""
+        "لا يوجد لديك أصول في قائمة المراقبة"
     ],
     "Basic": [
         null,
-        ""
+        "أساسي"
+    ],
+    "Digits": [
+        null,
+        "أرقام"
     ],
     "Advanced": [
         null,
-        ""
+        "متقدم"
     ],
     "Higher": [
         null,
-        ""
+        "أعلى"
     ],
     "Lower": [
         null,
-        ""
+        "أدنى"
+    ],
+    "Ends Outside": [
+        null,
+        "ينتهي خارج"
     ],
     "Ends Between": [
         null,
-        ""
+        "ينتهي بين"
     ],
     "Stays Between": [
         null,
-        ""
+        "يبقى بين"
     ],
     "Goes Outside": [
         null,
-        ""
+        "يذهب خارج"
+    ],
+    "Does Not Touch": [
+        null,
+        "لم تلمس"
+    ],
+    "Credit / Debit": [
+        null,
+        "ائتمان/مدين"
     ],
     "Last 25 Ticks": [
         null,
-        ""
+        "آخر 25 علامة"
+    ],
+    "Last 50 Trades": [
+        null,
+        "آخر 50 صفقة"
+    ],
+    "Last 100 Trades": [
+        null,
+        "آخر 100 صفقة"
+    ],
+    "Last 500 Trades": [
+        null,
+        "آخر 500 صفقة"
+    ],
+    "Last 1000 Trades": [
+        null,
+        "آخر 1000 صفقة"
+    ],
+    "Maximum Daily Turnover": [
+        null,
+        "الحد الأقصى للدوران اليومي"
     ],
     "Commodities": [
         null,
-        ""
+        "السلع"
     ],
     "Major Pairs": [
         null,
-        ""
+        "الأزواج الرئيسية"
     ],
     "Minor Pairs": [
         null,
-        ""
+        "الأزواج الثانوية"
     ],
     "Smart FX": [
         null,
-        ""
+        "أف أكس الذكية"
+    ],
+    "Volatility Indices": [
+        null,
+        "مؤشرات التذبذب"
+    ],
+    "Indices": [
+        null,
+        "المؤشرات"
     ],
     "OTC Stocks": [
         null,
-        ""
+        "الأسهم اللامركزية"
     ],
     "Stated limits are subject to change without prior notice": [
         null,
-        ""
+        "الحدود المعلنة تخضع للتغيير دون إشعار مسبق"
+    ],
+    "Withdrawal Limits": [
+        null,
+        "حدود السحب"
+    ],
+    "Withdrawal limit": [
+        null,
+        "حد السحب"
     ],
     "Already withdrawn": [
         null,
-        ""
+        "سحبت بالفعل"
     ],
     "Current immediate maximum withdrawal": [
         null,
-        ""
+        "الحد الأقصى الحالي للسحب الفوري"
+    ],
+    "Create Free Account": [
+        null,
+        "إنشىء حساب مجاني"
     ],
     "Verification Code": [
         null,
-        ""
+        "رمز التحقق"
     ],
     "Confirm Password": [
         null,
-        ""
+        "تأكيد كلمة المرور"
     ],
     "Already have an account?": [
         null,
-        ""
+        "هل لديك حساب بالفعل؟"
     ],
     "Enter a valid verification code": [
         null,
-        ""
+        "أدخل رمز تحقق صالح"
     ],
     "Choose your country": [
         null,
-        ""
+        "اختر بلدك"
     ],
     "Password should have lower and uppercase letters and 6 characters or more": [
         null,
-        ""
+        "يجب ان تتضمن كلمة المرور  حروف كبيرة وصغيرة  وستة حروف أو أكثر"
     ],
     "Passwords do not match": [
         null,
-        ""
+        "كلمات المرور غير متطابقة"
     ],
     "Enter a valid email": [
         null,
-        ""
+        "أدخل بريد إلكتروني صحيح"
     ],
     "Number should between 10 to 120": [
         null,
-        ""
+        "ينبغي أن يكون الرقم بين 10 إلى 120"
     ],
     "Enter your first and last name": [
         null,
-        ""
+        "أدخل أسمك الأول والأخير"
     ],
     "City must not be empty": [
         null,
-        ""
+        "لا يجب أن تكون المدينة فارغة"
     ],
     "Address must not be empty": [
         null,
-        ""
+        "لا يجب أن يكون العنوان فارغاً"
     ],
     "Enter a valid phone number": [
         null,
-        ""
+        "أدخل رقم هاتف صحيح"
     ],
     "Select a secret question": [
         null,
-        ""
+        "اختر سؤال سري"
     ],
     "Secret answer must be at least 4 characters": [
         null,
-        ""
+        "الإجابة السرية يجب أن تتكون من أربعة حروف على الأقل"
     ],
     "You need to agree to our Terms and Conditions": [
         null,
-        ""
+        "أنت بحاجة إلى الموافقة على الشروط والأحكام"
     ],
     "I agree to the": [
         null,
-        ""
+        "أنا أوافق على"
     ],
     "terms and conditions": [
         null,
-        ""
+        "الشروط والأحكام"
+    ],
+    "Search for assets": [
+        null,
+        "البحث عن الأصول"
     ],
     "Choose a Payment Agent": [
         null,
-        ""
+        "اختر وكيل دفع"
     ],
     "Confirm New Password": [
         null,
-        ""
+        "تاكيد كلمة المرور الجديدة"
     ],
     "First Name": [
         null,
-        ""
+        "الأسم الأول"
+    ],
+    "Last Name": [
+        null,
+        "الأسم الأخير"
     ],
     "Address First Line": [
         null,
-        ""
+        "خط العنوان الأول"
     ],
     "Address Second Line": [
         null,
-        ""
+        "خط العنوان الثاني"
     ],
     "Phone": [
         null,
-        ""
+        "هاتف"
     ],
     "Answer To Secret Question": [
         null,
-        ""
+        "الإجابة على السؤال السري"
     ],
     "Switch to": [
         null,
-        ""
+        "التحويل إلى"
+    ],
+    "Single Trade": [
+        null,
+        "تداول مفرد"
+    ],
+    "Multi Trade": [
+        null,
+        "تداول متعدد"
     ],
     "Current Password": [
         null,
-        ""
+        "كلمة المرور الحالية"
     ],
     "New Password": [
         null,
-        ""
+        "كلمة المرور الجديدة"
+    ],
+    "Last 50 Ticks": [
+        null,
+        "آخر 50 علامة"
+    ],
+    "Last 100 Ticks": [
+        null,
+        "آخر 100 علامة"
+    ],
+    "Last 500 Ticks": [
+        null,
+        "آخر 500 علامة"
+    ],
+    "Last 1000 Ticks": [
+        null,
+        "آخر 1000 علامة"
     ],
     "Exit Full Screen": [
         null,
-        ""
+        "الخروج من وضع الشاشة الكاملة"
+    ],
+    "No digit trades for this asset": [
+        null,
+        "لا توجد أرقام صفقات لهذا الأصل"
+    ],
+    "Lock Cashier": [
+        null,
+        "قفل الصراف"
+    ],
+    "Time out until date": [
+        null,
+        "مهلة حتى تاريخ"
+    ],
+    "Time out until time": [
+        null,
+        "مهلة حتى وقت"
+    ],
+    "Light Theme": [
+        null,
+        "موضوع خفيف"
+    ],
+    "Dark Theme": [
+        null,
+        "موضوع داكن"
+    ],
+    "Password changed successfully": [
+        null,
+        "تم تغيير كلمة المرور بنجاح"
+    ],
+    "Settings updated": [
+        null,
+        "تم تحديث الإعدادات"
+    ],
+    "Address updated": [
+        null,
+        "تم تحديث العنوان"
+    ],
+    "Barrier must not be empty": [
+        null,
+        "لا يجب أن يكون الحاجز فارغاً"
+    ],
+    "Duration is out of range": [
+        null,
+        "المدة خارج النطاق"
+    ],
+    "Start date invalid, it needs to be five minutes or more in the future": [
+        null,
+        "تاريخ البدء غير صالح, يجب أن يكون من خمس دقائق فأكثر في المستقبل"
+    ],
+    "Time format is wrong": [
+        null,
+        "تنسيق الوقت غير صحيح"
+    ],
+    "Lower than": [
+        null,
+        "أقل من"
+    ],
+    "Higher than": [
+        null,
+        "أعلى من"
+    ],
+    "High barrier": [
+        null,
+        "حاجز عالي"
+    ],
+    "Low barrier": [
+        null,
+        "حاجز منخفض"
+    ],
+    "Touch spot": [
+        null,
+        "نقطة التلامس"
     ]
 }
