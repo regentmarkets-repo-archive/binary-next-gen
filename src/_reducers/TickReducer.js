@@ -17,13 +17,19 @@ export const mergeTicks = (existingTicks, newTicks) => {
 
     const lastNewTicksEpoch = getLast(newTicks).epoch;
     const oldestExistingTickEpoch = existingTicks[0].epoch;
+    const lastExistingTickEpoch = getLastTick(existingTicks).epoch;
     const epochDiff = oldestExistingTickEpoch - lastNewTicksEpoch;
-    // Do not merge if ticks are very old to prevent gap
+
+    // if new ticks are very old compared to existing ticks, ignore them
     if (epochDiff > 300) {          // 5 minutes
         return existingTicks;
     }
 
-    if (newTicks[0].epoch > existingTicks[0].epoch) {
+    // if existing ticks contains new ticks, ignore new ticks
+    if (
+        newTicks[0].epoch > existingTicks[0].epoch &&
+            lastNewTicksEpoch < lastExistingTickEpoch
+    ) {
         return existingTicks;
     }
     return mergeSortedArrays(existingTicks, newTicks, x => x.epoch, x => x.epoch);
@@ -34,6 +40,13 @@ export default (state = initialState, action) => {
         case SERVER_DATA_TICK_STREAM: {
             const symbol = action.serverResponse.tick.symbol;
             const { tick } = action.serverResponse;
+
+            // Do not take old tick
+            const latestExistingTickEpoch = state.get(symbol).takeLast(1).getIn([0, 'epoch']);
+            if (latestExistingTickEpoch && latestExistingTickEpoch > +tick.epoch) {
+                return state;
+            }
+
             const newTick = {
                 epoch: +tick.epoch,
                 quote: +tick.quote,
@@ -41,14 +54,17 @@ export default (state = initialState, action) => {
             return state.update(symbol, List.of(), v => v.takeLast(1000).push(fromJS(newTick)));
         }
         case SERVER_DATA_TICK_HISTORY: {
+            const { times, prices } = action.serverResponse.history;
+
             const symbol = action.serverResponse.echo_req.ticks_history;
-            const history = action.serverResponse.history.times.map((t, idx) => {
-                const quote = action.serverResponse.history.prices[idx];
+
+            const formattedHistory = times.map((t, idx) => {
+                const quote = prices[idx];
                 return { epoch: +t, quote: +quote };
             });
 
             const liveTicks = state.get(symbol) ? state.get(symbol).toJS() : [];
-            const merged = mergeTicks(liveTicks, history);
+            const merged = mergeTicks(liveTicks, formattedHistory);
             if (merged.length === liveTicks.length) {
                 return state;
             }

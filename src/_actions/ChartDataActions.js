@@ -24,15 +24,17 @@ export const getDataForContract = (contractID, durationCount, durationType, styl
             return dispatch(updateChartDataByContract(contractID, ticks || candles, style, symbol, isSold));
         });
 
+export const updateChartDataBySymbol = (symbol, data, dataType) => ({
+    type: UPDATE_CHART_DATA_BY_SYMBOL,
+    symbol,
+    data,
+    dataType,
+});
+
 export const getDataForSymbol = (symbol, durationCount, durationType, style, subscribe) =>
     dispatch =>
         api.getDataForSymbol(symbol, durationCount, durationType, style, subscribe)
             .then(r => {
                 const { ticks, candles } = r;
-                return dispatch({
-                    type: UPDATE_CHART_DATA_BY_SYMBOL,
-                    symbol,
-                    data: ticks || candles,
-                    dataType: style,
-                });
+                return dispatch(updateChartDataBySymbol(symbol, ticks || candles, style));
             });
