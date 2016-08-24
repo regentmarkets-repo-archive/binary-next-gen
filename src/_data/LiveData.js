@@ -43,6 +43,13 @@ export const changeLanguage = langCode => {
     api.getTradingTimes(new Date());
 };
 
+export const getTickHistory = async (symbol) => {
+    try {
+        await api.getTickHistory(symbol, { end: 'latest', count: 10, subscribe: 1, adjust_start_time: 1 });
+    } catch (err) {
+        await api.getTickHistory(symbol, { end: 'latest', count: 10 });
+    }
+};
 const initAuthorized = async (authData, store) => {
     if (/japan/.test(authData.authorize.landing_company_name)) {
         showError('Sorry, for japan user please login through www.binary.com ');
@@ -84,13 +91,12 @@ const initAuthorized = async (authData, store) => {
             }
         });
 
-
     const subscribeToWatchlist = assets => {
         if (!state.watchlist) {
             return;
         }
         const existingWatchlist = state.watchlist.filter(w => assets.find(x => x.symbol === w));
-        api.subscribeToTicks(existingWatchlist.toJS());
+        existingWatchlist.forEach(getTickHistory);
     };
 
     api.getActiveSymbolsFull().then(r => {
