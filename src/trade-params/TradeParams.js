@@ -54,7 +54,6 @@ export default class TradeParams extends PureComponent {
         errors: PropTypes.object,
         forceRenderCount: PropTypes.number.isRequired,
         index: PropTypes.number.isRequired,
-        onPurchaseHook: PropTypes.func,
         pipSize: PropTypes.number,
         proposal: PropTypes.object,
         purchaseError: PropTypes.string,
@@ -88,8 +87,8 @@ export default class TradeParams extends PureComponent {
     }
 
     onPurchase = () => {
-        const { index, onPurchaseHook, proposal } = this.props;
-        actions.reqPurchase(index, proposal.ask_price, onPurchaseHook);
+        const { index, proposal } = this.props;
+        actions.reqPurchase(index, proposal.ask_price);
     }
 
     clearTradeError = () => {

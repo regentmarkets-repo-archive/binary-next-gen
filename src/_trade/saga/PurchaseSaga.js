@@ -44,7 +44,7 @@ function* handleStakeChange(action) {
 }
 
 function* handlePurchase(action) {
-    const { index, price, purchaseHook } = action;
+    const { index, price } = action;
     const params = yield select(getParams(index));
     const pid = yield select(getProposalId(index));
     try {
@@ -61,7 +61,6 @@ function* handlePurchase(action) {
             // update chart data so that chart will use ticks related to contract only
             put(updateChartDataByContract(buy.contract_id, ticks || candles, 'ticks', symbol, isSold)),
         ];
-        purchaseHook(params);
     } catch (err) {
         yield put(updateTradeError(index, 'serverError', err.error.error.message));
     } finally {
