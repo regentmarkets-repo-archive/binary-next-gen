@@ -10,6 +10,8 @@ const replace = require('gulp-replace');
 const gulpIf = require('gulp-if');
 const hash = require('gulp-hash-src');
 const bump = require('gulp-bump');
+const path = require('path');
+const run = require('gulp-run');
 
 // const electron = require('gulp-atom-electron');
 // const zip = require('gulp-vinyl-zip');
@@ -19,6 +21,11 @@ const files = {
     js: './src',
     static: ['./www/**/*', './config.xml', './electron.js', '!./www/**/*.scss'],
     sass: './styles/*.scss',
+    androidApk: './platforms/android/build/outputs/apk',
+    unalignedApk: './platforms/android/build/outputs/apk/android-release-unaligned.apk',
+    alignedApk: './platforms/android/build/outputs/apk/android-release-aligned.apk',
+    zipAligned: '/Users/nuru/Library/Android/sdk/build-tools/23.0.3/zipalign', // Note the path to the zipalign on your pc
+    keyPassword: 'regentmarkets', // make sure you don't push the correct password here to github. Edit password before running task 
 };
 
 process.env.NODE_ENV = 'production';
@@ -102,11 +109,20 @@ const cordovaBuildAndroid = require('gulp-cordova-build-android');
 const cordovaBuildIos = require('gulp-cordova-build-ios');
 
 gulp.task('android', () =>
-    gulp.src('dist')
+    gulp.src(path.resolve(__dirname) + 'www')
         .pipe(cordovaCreate())
         .pipe(cordovaPlugin('org.apache.cordova.dialogs'))
-        .pipe(cordovaBuildAndroid({ release: true, storeFile: '/Path/to/key.keystore', keyAlias: 'my_alias' }))
-        .pipe(gulp.dest('apk'))
+        .pipe(cordovaBuildAndroid({
+            release: true,
+            storeFile: path.resolve(__dirname) + '/tick-trade-key.keystore', // make sure you have this file in your home folder
+            storePassword: files.keyPassword,
+            keyPassword: files.keyPassword,
+            keyAlias: 'TickTrade' }))
+        .pipe(gulp.dest(files.androidApk))
+);
+
+gulp.task('androidAligned', ['android'], () =>
+    run(files.zipAligned + ' -v 4 ' + files.unalignedApk + ' ' + files.alignedApk).exec()
 );
 
 gulp.task('ios', () =>
