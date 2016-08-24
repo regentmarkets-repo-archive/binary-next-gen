@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import 'react-fastclick';
 import { addLocaleData } from 'react-intl';
 import { Provider } from 'react-redux';
 import { Router, browserHistory, hashHistory } from 'react-router';
