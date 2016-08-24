@@ -25,7 +25,7 @@ const files = {
     unalignedApk: './platforms/android/build/outputs/apk/android-release-unaligned.apk',
     alignedApk: './platforms/android/build/outputs/apk/android-release-aligned.apk',
     zipAligned: '/Users/nuru/Library/Android/sdk/build-tools/23.0.3/zipalign', // Note the path to the zipalign on your pc
-    keyPassword: 'regentmarkets', // make sure you don't push the correct password here to github. Edit password before running task 
+    keyPassword: '****', // make sure you don't push the correct password here to github. Edit password before running task 
 };
 
 process.env.NODE_ENV = 'production';
