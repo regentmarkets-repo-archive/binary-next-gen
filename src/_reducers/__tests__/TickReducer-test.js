@@ -4,6 +4,7 @@ chai.use(chaiImmutable);
 
 import { fromJS } from 'immutable';
 import TickReducer from '../TickReducer';
+import { SERVER_DATA_TICK_STREAM } from '../../_constants/ActionTypes';
 import { serverDataTickHistory, serverDataTickStream, updateChartDataBySymbol } from '../../_actions';
 
 describe('TickReducer', () => {
@@ -17,7 +18,17 @@ describe('TickReducer', () => {
             expect(actual.get('x').toJS()).to.have.lengthOf(1);
         });
     });
-
+    describe('should not throw', () => {
+        it('when symbol does not exist, is empty or undefined', () => {
+            const action = {
+                serverResponse: {
+                     tick: { symbol: 'x', epoch: 10, quote: 21 },
+                },
+                type: SERVER_DATA_TICK_STREAM,
+            };
+            expect(TickReducer(initState, action)).to.not.throw;
+        });
+    });
     describe('should ensure result data is sorted', () => {
 
         it('when SERVER_DATA_TICK_HISTORY', () => {
