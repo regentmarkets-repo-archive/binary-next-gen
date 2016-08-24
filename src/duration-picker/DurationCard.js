@@ -1,6 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { durationText } from 'binary-utils';
-import { Label } from 'binary-components';
+import { Label, NumericInput } from 'binary-components';
 import debounce from 'lodash.debounce';
 import DurationUnitPicker from './DurationUnitPicker';
 import { actions } from '../_store';
@@ -18,9 +18,8 @@ export default class DurationCard extends PureComponent {
         index: PropTypes.number,
     };
 
-    updateDuration = e => {
+    updateDuration = (duration: number) => {
         const { index } = this.props;
-        const duration = e.target.value;
         debounceReqDurationChange(index, duration);
     }
 
@@ -64,8 +63,9 @@ export default class DurationCard extends PureComponent {
             <div className="param-row duration-picker">
                 <Label text="Duration" />
                 <div className="duration-input param-field">
-                    <input
-                        type="number"
+                    <NumericInput
+                        className="numeric-input"
+                        integer
                         defaultValue={duration}
                         min={min}
                         max={max}
