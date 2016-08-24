@@ -24,18 +24,29 @@ export default class TradeCard extends PureComponent {
         paramsProps: PropTypes.object.isRequired,
     };
 
+    constructor(props) {
+        super(props);
+        this.toFireZoomEvent = false;
+    }
+
+    componentDidUpdate(prevProps) {
+        // ugly hack to ensure event is fire after chart is back to trade view
+        if (prevProps.contractReceiptProps && !this.props.contractReceiptProps && this.toFireZoomEvent) {
+            this.fireZoomEvent();
+            this.toFireZoomEvent = false;
+        }
+    }
+
     tradeAgain = () => {
         const { index } = this.props;
         actions.closeContractReceipt(index);
+        this.toFireZoomEvent = true;
     }
 
-    zoomWhenPurchase = tradeParams => {
+    fireZoomEvent = () => {
         const { index } = this.props;
-        const { duration, durationUnit, dateStart } = tradeParams;
         const domID = `trade-chart${index}`;
-        const zoomToLatestEv = new CustomEvent('zoom-to-latest', {
-            detail: { duration, unit: durationUnit, isFuture: !!dateStart },
-        });
+        const zoomToLatestEv = new CustomEvent('zoom-to-latest');
         document.getElementById(domID).dispatchEvent(zoomToLatestEv);
     }
 
@@ -69,7 +80,6 @@ export default class TradeCard extends PureComponent {
             <TradeParams
                 {...immutableChildrenToJS(paramsProps)}
                 compact={compact}
-                onPurchaseHook={this.zoomWhenPurchase}
                 style={contractReceiptInJS ? { display: 'none' } : undefined}
             />
         );

@@ -1,6 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { BinaryChart } from 'binary-charts';
-import { durationToSecs } from 'binary-utils';
 import { actions } from '../../_store';
 import {
     internalTradeModelToChartTradeModel,
@@ -8,12 +7,9 @@ import {
 } from '../adapters/TradeObjectAdapter';
 
 const zoomToLatest = (ev, chart) => {
-    const { dataMax } = chart.xAxis[0].getExtremes();
-    const { isFuture, duration, unit } = ev.detail;
-    if (isFuture) return;
-    const rangeInSecs = unit === 't' ? duration * 2 : durationToSecs(duration, unit);
-    const rangeInMillis = rangeInSecs * 1000;
-    chart.xAxis[0].setExtremes(dataMax - (rangeInMillis * 1.1), dataMax);
+    const { dataMax, dataMin } = chart.xAxis[0].getExtremes();
+    const half = (dataMax - dataMin) * 0.5 + dataMin;
+    chart.xAxis[0].setExtremes(half, dataMax);
 };
 
 const chartToDataType = {
@@ -114,7 +110,7 @@ export default class TradeViewChart extends PureComponent {
                 id={`trade-chart${index}`}
                 className="trade-chart"
                 contract={contractForChart && serverContractModelToChartContractModel(contractForChart)}
-                defaultRange={1}
+                defaultRange={1}                      // TODO: figure out how to set this dynamically so it looks good despite of data size
                 events={events}
                 noData={feedLicense === 'chartonly'}
                 pipSize={pipSize}
