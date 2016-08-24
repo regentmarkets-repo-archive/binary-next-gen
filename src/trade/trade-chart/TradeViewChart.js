@@ -110,7 +110,7 @@ export default class TradeViewChart extends PureComponent {
                 id={`trade-chart${index}`}
                 className="trade-chart"
                 contract={contractForChart && serverContractModelToChartContractModel(contractForChart)}
-                defaultRange={0}
+                defaultRange={1}                      // TODO: figure out how to set this dynamically so it looks good despite of data size
                 events={events}
                 noData={feedLicense === 'chartonly'}
                 pipSize={pipSize}
