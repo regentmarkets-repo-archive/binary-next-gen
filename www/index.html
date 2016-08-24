@@ -54,8 +54,10 @@
         </div>
     </div>
 </div>
-
+<script src="fastclick.js"></script>
 <script>
+    Origami.fastclick(document.body);   // disable mobile 300ms delay
+
     if (document.location.protocol === 'file:') {
         document.writeln('<script src="cordova.js"><\/script>');
         function onBackPressed(e) {
