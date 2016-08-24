@@ -12,6 +12,7 @@ const hash = require('gulp-hash-src');
 const bump = require('gulp-bump');
 const path = require('path');
 const run = require('gulp-run');
+const ks = require('./keystore');
 
 // const electron = require('gulp-atom-electron');
 // const zip = require('gulp-vinyl-zip');
@@ -24,8 +25,8 @@ const files = {
     androidApk: './platforms/android/build/outputs/apk',
     unalignedApk: './platforms/android/build/outputs/apk/android-release-unaligned.apk',
     alignedApk: './platforms/android/build/outputs/apk/android-release-aligned.apk',
-    zipAligned: '/Users/nuru/Library/Android/sdk/build-tools/23.0.3/zipalign', // Note the path to the zipalign on your pc
-    keyPassword: '****', // make sure you don't push the correct password here to github. Edit password before running task 
+    zipAlign: path.join(process.env.ANDROID_HOME, '/build-tools/23.0.3/zipalign'), // Note the path to the zipalign on your pc
+    keyPassword: ks.password,
 };
 
 process.env.NODE_ENV = 'production';
@@ -122,7 +123,7 @@ gulp.task('android', () =>
 );
 
 gulp.task('androidAligned', ['android'], () =>
-    run(files.zipAligned + ' -v 4 ' + files.unalignedApk + ' ' + files.alignedApk).exec()
+    run(files.zipAlign + ' -v 4 ' + files.unalignedApk + ' ' + files.alignedApk).exec()
 );
 
 gulp.task('ios', () =>
