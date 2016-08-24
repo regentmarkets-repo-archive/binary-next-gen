@@ -31,7 +31,6 @@
     .contract-receipt-container {
         overflow: auto;
         width: 12rem;
-        padding-right: 0.25rem;
         margin-right: 0.25rem;
     }
 
@@ -47,7 +46,7 @@
     .contract-receipt {
         overflow: auto;
         max-width: 15rem;
-        margin-right: 0.5rem;
+        margin-right: 0.25rem;
     }
 
     .digit-stats-col {
@@ -102,7 +101,7 @@
 
 .buy-btn,
 .buy-again-btn {
-    font-size: 1.25em;
+    font-size: 1.25rem;
     width: 100%;
 }
 
@@ -188,7 +187,7 @@
 
 .payout-value {
     font-weight: bold;
-    font-size: 2em;
+    font-size: 1.6em;
 }
 
 .duration-input {
@@ -212,7 +211,7 @@
 }
 
 .start-time-selector + .forward-starting-input {
-    margin-top: 0.5rem;
+    margin-top: 0.25rem;
 }
 
 .forward-starting-input {
@@ -273,7 +272,12 @@
     img {
         height: 1.5rem;
         margin: 0.25rem 0;
+        padding: 1px 0;
     }
+}
+
+.inverse .picker-label img {
+    background: white;
 }
 
 .payout-picker button {

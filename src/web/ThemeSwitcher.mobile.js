@@ -28,7 +28,7 @@ export default class ThemeSwitcher extends PureComponent {
 				className="sidebar-btn"
 				onClick={this.toggleTheme}
 			>
-				<img src="img/icon.png" alt="" />
+				<img src="img/palette.svg" alt="" />
 				<M m={themeText} />
 			</a>
 		);

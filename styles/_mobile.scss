@@ -4,7 +4,7 @@
 
 .mobile-page {
     height: 100%;
-    font-size: 15px;
+    font-size: 14px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -32,6 +32,10 @@
 
     .trade-panel {
         flex-direction: column;
+    }
+
+    .trade-chart-container {
+        margin: -0.25em 0;
     }
 
     .modal {
@@ -100,6 +104,7 @@
     .param-row {
         display: flex;
         flex-direction: row;
+        margin-bottom: 0.25rem;
 
         > label {
             flex: 1;
