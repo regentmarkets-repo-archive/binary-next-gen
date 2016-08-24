@@ -15,6 +15,10 @@ export const mergeTicks = (existingTicks, newTicks) => {
         return newTicks;
     }
 
+    if (!newTicks || newTicks.length === 0) {
+        return existingTicks;
+    }
+
     const lastNewTicksEpoch = getLast(newTicks).epoch;
     const oldestExistingTickEpoch = existingTicks[0].epoch;
     const lastExistingTickEpoch = getLast(existingTicks).epoch;
