@@ -11,7 +11,7 @@ npm-debug.log
 plugins/
 platforms/
 *.keystore
-
+keystore.json
 www/app.js
 www/app.js.map
 www/styles.css
