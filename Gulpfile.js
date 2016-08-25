@@ -12,7 +12,7 @@ const hash = require('gulp-hash-src');
 const bump = require('gulp-bump');
 const path = require('path');
 const run = require('gulp-run');
-const ks = require('./keystore');
+// const keyStorePassword = require('./keystore').password;
 
 // const electron = require('gulp-atom-electron');
 // const zip = require('gulp-vinyl-zip');
@@ -26,7 +26,6 @@ const files = {
     unalignedApk: './platforms/android/build/outputs/apk/android-release-unaligned.apk',
     alignedApk: './platforms/android/build/outputs/apk/android-release-aligned.apk',
     zipAlign: path.join(process.env.ANDROID_HOME, '/build-tools/23.0.3/zipalign'), // Note the path to the zipalign on your pc
-    keyPassword: ks.password,
 };
 
 process.env.NODE_ENV = 'production';
@@ -116,8 +115,8 @@ gulp.task('android', () =>
         .pipe(cordovaBuildAndroid({
             release: true,
             storeFile: path.resolve(__dirname) + '/tick-trade-key.keystore', // make sure you have this file in your home folder
-            storePassword: files.keyPassword,
-            keyPassword: files.keyPassword,
+            storePassword: keyStorePassword,
+            keyPassword: keyStorePassword,
             keyAlias: 'TickTrade' }))
         .pipe(gulp.dest(files.androidApk))
 );
