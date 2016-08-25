@@ -8,9 +8,9 @@ export default class ArticlePreview extends PureComponent {
         url: PropTypes.string.isRequired,
         onClick: PropTypes.func,
     };
-    click(e) {
+    click = e => {
         const { url } = this.props;
-        window.open(url, '_blank', 'location=yes');
+        window.open(url, '_blank');
         e.preventDefault();
     }
     render() {
