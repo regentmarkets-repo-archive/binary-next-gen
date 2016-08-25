@@ -8,12 +8,15 @@ export default class ArticlePreview extends PureComponent {
         url: PropTypes.string.isRequired,
         onClick: PropTypes.func,
     };
-
+    openArticle = () => {
+        const { url } = this.props;
+        window.open(url, '_blank');
+    }
     render() {
-        const { description, title, url } = this.props;
+        const { description, title } = this.props;
 
         return (
-            <a className="article-preview" target="_new" href={url}>
+            <a className="article-preview" onClick={this.openArticle}>
                 <h2>{title}</h2>
                 <p dangerouslySetInnerHTML={{ __html: description }} />
             </a>
