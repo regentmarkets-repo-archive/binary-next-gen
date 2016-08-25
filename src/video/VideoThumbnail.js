@@ -8,12 +8,15 @@ export default class VideoThumbnail extends PureComponent {
 		videoId: PropTypes.string.isRequired,
 		onSelect: PropTypes.func,
 	};
-
+    openVideo = () => {
+        const { videoId } = this.props;
+        window.open('https://www.youtube.com/watch?v=' + videoId, '_blank');
+    }
     render() {
-        const { imgSrc, title, videoId } = this.props;
+        const { imgSrc, title } = this.props;
 
         return (
-            <a className="video-thumbnail" target="_new" href={'https://www.youtube.com/watch?v=' + videoId}>
+            <a className="video-thumbnail" onClick={this.openVideo}>
                 <div className="video-img" style={{ backgroundImage: `url(${imgSrc})` }} />
                 <h5>{title}</h5>
             </a>

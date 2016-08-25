@@ -16,7 +16,7 @@ export default class ArticlePreview extends PureComponent {
         const { description, title } = this.props;
 
         return (
-            <a className="article-preview" onClick={this.click}>
+            <a className="article-preview" onClick={this.openArticle}>
                 <h2>{title}</h2>
                 <p dangerouslySetInnerHTML={{ __html: description }} />
             </a>
