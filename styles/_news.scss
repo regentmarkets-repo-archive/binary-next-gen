@@ -1,6 +1,6 @@
 .news-list-card,
 .article {
-    font-size: 1rem;
+    font-size: $FONT_SIZE_L;
 }
 
 .article {
@@ -15,8 +15,8 @@
 
 .article h1,
 .article-preview h2 {
-    font-size: 1.5rem;
-    margin: 0 0 0.5rem;
+    font-size: $FONT_SIZE_XL;
+    margin: 0 0 0.25em;
 }
 
 .article-preview {

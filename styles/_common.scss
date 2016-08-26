@@ -30,7 +30,7 @@ img {
 }
 
 img.h10 {
-    height: 10rem;
+    height: 10em;
 }
 
 acronym,
@@ -56,7 +56,7 @@ form {
     color: white;
     background: $COLOR_RED;
     border-radius: $BORDER_RADIUS;
-    padding: 0.25rem 0.5rem;
+    padding: 0.25em 0.5em;
 }
 
 .notice-msg {
@@ -103,43 +103,16 @@ ul.bullet li,
 }
 
 ul.bullet li {
-    background-position: 0 0.2rem;
+    background-position: 0 0.2em;
     padding-left: 1.25em;
-    margin-bottom: 0.25rem;
-    background-size: 1rem;
-}
-
-a.close {
-    display: inline-block;
-    position: relative;
-    margin-top: 0;
-    margin-right: 0;
-    padding: 10px 8px;
-    cursor: pointer;
-    color: white;
-    background: $COLOR_BRAND_ORANGE;
-    font-size: 24px;
-    font-weight: bold;
-    line-height: 0.5;
-    z-index: 1001;
-    top: -10px;
-    right: -10px;
-    float: right;
-    border-radius: 0 0 0 $BORDER_RADIUS;
-
-    &:hover {
-        text-decoration: none;
-    }
-}
-
-i {
-    color: $COLOR_BRAND_ORANGE;
+    margin-bottom: 0.25em;
+    background-size: 1em;
 }
 
 p.media,
 div.media {
     text-align: center;
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
 }
 
 strong {

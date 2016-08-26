@@ -1,15 +1,15 @@
 .vertical {
     .errorfield {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.5em;
     }
 
     > [role=tab] {
-        padding: 0.1rem;
-        margin-bottom: 0.5rem;
+        padding: 0.1em;
+        margin-bottom: 1em;
 
         > span {
             line-height: 1;
-            margin-top: 0.5rem;
+            margin-top: 0.5em;
         }
 
         > img {
@@ -19,7 +19,7 @@
 
     .sell-at-market-btn,
     .buy-again-btn {
-        margin-top: 0.5rem;
+        margin-top: 0.5em;
         width: 100%;
     }
 
@@ -30,8 +30,8 @@
     .trade-params,
     .contract-receipt-container {
         overflow: auto;
-        width: 12rem;
-        margin-right: 0.25rem;
+        width: 15em;
+        margin-right: 0.25em;
     }
 
     .trade-panel {
@@ -40,13 +40,13 @@
 
     .contract-detail {
         width: 100%;
-        padding: 0.125rem 0;
+        padding: 0.125em 0;
     }
 
     .contract-receipt {
         overflow: auto;
-        max-width: 15rem;
-        margin-right: 0.25rem;
+        max-width: 15em;
+        margin-right: 0.25em;
     }
 
     .digit-stats-col {
@@ -65,7 +65,7 @@
     }
 
     .errorfield {
-        margin: 0.5rem 0;
+        margin: 0.5em 0;
     }
 
     .trade-params {
@@ -85,7 +85,7 @@
 
     .contract-detail {
         flex-direction: column;
-        width: 8rem;
+        width: 8em;
         background-color: rgba($COLOR_BRAND_BLUE, 0.1);
         text-align: center;
     }
@@ -101,7 +101,7 @@
 
 .buy-btn,
 .buy-again-btn {
-    font-size: 1.25rem;
+    font-size: 1.25em;
     width: 100%;
 }
 
@@ -110,7 +110,7 @@
 
     input {
         text-align: center;
-        width: calc(100% - 4rem);
+        width: calc(100% - 4em);
     }
 }
 
@@ -122,8 +122,8 @@
 }
 
 .trade-type-picker {
-    width: 20rem;
-    height: 17rem;
+    width: 20em;
+    height: 17em;
 }
 
 .type-pairs-list {
@@ -140,17 +140,17 @@
     }
 
     div[role=tab] {
-        margin: 0 0.5rem;
+        margin: 0 0.5em;
     }
 
     div[role=tab][aria-selected=true] {
         color: $COLOR_BRAND_ORANGE;
-        box-shadow: inset 0 -3px 0 0 $COLOR_BRAND_ORANGE;
+        box-shadow: inset 0 -0.2em 0 0 $COLOR_BRAND_ORANGE;
     }
 
     img {
-        height: 1.5rem;
-        margin: 0.5rem;
+        height: 1.5em;
+        margin: 0.5em;
         background: white;
         box-shadow: 0 0 0 1px white;
     }
@@ -161,7 +161,7 @@
     flex: 1;
     flex-direction: row;
     margin: 2px;
-    padding: 0.25rem;
+    padding: 0.25em;
     background: white;
     border-radius: 2px;
 }
@@ -211,7 +211,7 @@
 }
 
 .start-time-selector + .forward-starting-input {
-    margin-top: 0.25rem;
+    margin-top: 0.25em;
 }
 
 .forward-starting-input {
@@ -231,7 +231,7 @@
 }
 
 .param-row {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5em;
 }
 
 .start-time-selector {
@@ -240,7 +240,7 @@
     > label {
         flex: 1;
         cursor: pointer;
-        line-height: 2rem !important;
+        line-height: 2 !important;
         background: rgba($COLOR_BRAND_BLUE, 0.1);
         border-radius: 2px;
     }
@@ -250,19 +250,19 @@
     }
 
     > label > input {
-        margin: 0 0.25rem;
+        margin: 0 0.25em;
     }
 }
 
 .duration-text {
     line-height: 2;
-    margin-left: 0.5rem;
+    margin-left: 0.5em;
 }
 
 .picker-label {
     cursor: pointer;
-    padding-left: 0.25rem;
-    line-height: 2rem;
+    padding-left: 0.25em;
+    line-height: 2;
     display: flex;
     justify-content: space-between;
     align-items: stretch;
@@ -270,8 +270,8 @@
     border-radius: 2px;
 
     img {
-        height: 1.5rem;
-        margin: 0.25rem 0;
+        height: 1.5em;
+        margin: 0.25em 0;
         padding: 1px 0;
     }
 }
@@ -281,8 +281,8 @@
 }
 
 .payout-picker button {
-    width: 2rem;
-    height: 2rem;
+    width: 2em;
+    height: 2em;
 }
 
 .forward-starting-picker > * {
@@ -297,13 +297,13 @@
 .trade-header {
     display: flex;
     cursor: pointer;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5em;
     color: $COLOR_BRAND_BLUE;
     background: rgba($COLOR_BRAND_BLUE, 0.1);
 
     > span {
         flex: 1;
         line-height: 2;
-        margin-left: 0.5rem;
+        margin-left: 0.5em;
     }
 }
