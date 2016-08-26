@@ -11,7 +11,7 @@ export default class DailyPricesCard extends PureComponent {
         const { dailyPrices } = this.props;
 
         return (
-            <div className="daily-prices-card">
+            <div className="daily-prices-card scrollable">
                 <DailyPricesTable dailyPrices={dailyPrices} />
             </div>
         );

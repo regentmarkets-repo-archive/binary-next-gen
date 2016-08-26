@@ -122,8 +122,9 @@
 }
 
 .trade-type-picker {
-    width: 20em;
-    height: 17em;
+    width: 22em;
+    height: 10em;
+    overflow: hidden;
 }
 
 .type-pairs-list {
@@ -140,7 +141,7 @@
     }
 
     div[role=tab] {
-        margin: 0 0.5em;
+        margin: 0.5em;
     }
 
     div[role=tab][aria-selected=true] {

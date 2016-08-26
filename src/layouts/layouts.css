@@ -1,17 +1,17 @@
 .layoutPicker {
     display: flex;
-    margin: 0.25rem;
+    margin: 0.5em;
 }
 
 .layoutBtnContainer {
-    width: 18rem;
-    padding: 1rem;
+    width: 22em;
+    padding: 1em;
     background: $COLOR_BRAND_BLUE;
     color: white;
 }
 
 .layoutBtnList {
-    padding: 0.25rem;
+    padding: 0.5em;
     display: flex;
 }
 
@@ -27,8 +27,8 @@
 }
 
 .layoutRowLabel {
-    width: 4rem;
-    line-height: 2;
+    width: 5em;
+    line-height: 2.5;
 }
 
 .layoutBtnRow {
@@ -38,10 +38,10 @@
 
 .layoutBtn {
     cursor: pointer;
-    padding: 0.25rem;
-    min-width: 2rem;
-    max-width: 2rem;
-    min-height: 2rem;
+    padding: 0.25em;
+    min-width: 2.5em;
+    max-width: 2.5em;
+    min-height: 2.5em;
     opacity: 0.5;
 }
 

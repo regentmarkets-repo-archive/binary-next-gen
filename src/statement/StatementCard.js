@@ -24,7 +24,7 @@ export default class StatementCard extends PureComponent {
 						img="img/statement.svg"
 						text="No transactions for the selected period"
 					/> :
-					<div className="statement-list">
+					<div className="statement-list scrollable">
 						<StatementTable {...this.props} />
 					</div>
 				}

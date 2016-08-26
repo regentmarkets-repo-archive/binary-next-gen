@@ -24,10 +24,12 @@ export default class AssetIndexCard extends PureComponent {
 					allOptionShown={false}
 					value={submarket}
 				/>
-				<AssetIndexTable
-					headers={headers}
-					durations={assetIndexRows}
-				/>
+				<div className="scrollable">
+					<AssetIndexTable
+						headers={headers}
+						durations={assetIndexRows}
+					/>
+				</div>
 			</div>
 		);
 	}

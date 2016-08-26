@@ -49,11 +49,13 @@ export default class TradingTimesCard extends PureComponent {
 						maxLength={10}
 					/>
 				</div>
-				<TradingTimesTable
-					{...this.props}
-					key={filter}
-					times={tradingTimes.filter(a => this.assetMatchFilter(a.symbol, filter))}
-				/>
+				<div className="scrollable">
+					<TradingTimesTable
+						{...this.props}
+						key={filter}
+						times={tradingTimes.filter(a => this.assetMatchFilter(a.symbol, filter))}
+					/>
+				</div>
 			</div>
 		);
 	}

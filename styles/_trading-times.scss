@@ -1,7 +1,7 @@
 .trading-times-card {
     width: 100%;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
+    display: flex;
+    flex-direction: column;
 }
 
 .trading-times-filter {

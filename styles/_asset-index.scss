@@ -1,5 +1,6 @@
 .asset-index-card {
     width: 100%;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
 }
