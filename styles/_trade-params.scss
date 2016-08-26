@@ -110,7 +110,7 @@
 
     input {
         text-align: center;
-        width: calc(100% - 4em);
+        width: calc(100% - 5em);
     }
 }
 
@@ -194,10 +194,6 @@
     display: flex;
     flex-direction: row;
 
-    input {
-        max-width: 50%;
-    }
-
     select {
         max-width: 50%;
         background-color: rgba($COLOR_BRAND_BLUE, 0.1);
@@ -240,7 +236,7 @@
     > label {
         flex: 1;
         cursor: pointer;
-        line-height: 2 !important;
+        line-height: 2.5;
         background: rgba($COLOR_BRAND_BLUE, 0.1);
         border-radius: 2px;
     }
@@ -261,8 +257,8 @@
 
 .picker-label {
     cursor: pointer;
-    padding-left: 0.25em;
-    line-height: 2;
+    padding-left: 0.5em;
+    line-height: 2.5;
     display: flex;
     justify-content: space-between;
     align-items: stretch;
@@ -270,9 +266,13 @@
     border-radius: 2px;
 
     img {
-        height: 1.5em;
-        margin: 0.25em 0;
+        height: 2em;
         padding: 1px 0;
+    }
+
+    img,
+    svg {
+        margin: 0.25em 0;
     }
 }
 
@@ -281,8 +281,8 @@
 }
 
 .payout-picker button {
-    width: 2em;
-    height: 2em;
+    width: 2.5em;
+    height: 2.5em;
 }
 
 .forward-starting-picker > * {

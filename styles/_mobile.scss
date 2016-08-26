@@ -67,7 +67,7 @@
         margin-top: 0.5em;
         flex-direction: column;
         flex-wrap: nowrap;
-        min-height: 200px;
+        min-height: 16em;
     }
 
     .sell-at-market-btn,
@@ -171,8 +171,7 @@
     flex: 1;
 }
 
-@media screen and (min-aspect-ratio: 13/9) { /* landscape styles here
-/* @media (orientation: landscape) { */
+@media screen and (min-aspect-ratio: 13/9) { // landscape styles here
     .mobile-content {
         .trade-panel {
             flex-direction: row !important;
@@ -184,4 +183,34 @@
     }
 }
 
-// @media screen and (max-aspect-ratio: 13/9) { /* portrait styles here */}
+@media screen and (max-aspect-ratio: 13/9) { // portrait styles here
+    @media screen and (max-height: 700px) {
+        .mobile-page {
+            font-size: $FONT_SIZE_MOBILE + 2;
+        }
+    }
+
+    @media screen and (max-height: 620px) {
+        .mobile-page {
+            font-size: $FONT_SIZE_MOBILE + 1;
+        }
+    }
+
+    @media screen and (max-height: 560px) {
+        .mobile-page {
+            font-size: $FONT_SIZE_MOBILE - 1;
+        }
+    }
+
+    @media screen and (max-height: 520px) {
+        .mobile-page {
+            font-size: $FONT_SIZE_MOBILE - 2;
+        }
+    }
+
+    @media screen and (max-height: 480px) {
+        .mobile-page {
+            font-size: $FONT_SIZE_MOBILE - 3;
+        }
+    }
+}
