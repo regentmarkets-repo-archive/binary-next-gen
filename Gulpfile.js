@@ -25,7 +25,7 @@ const files = {
     androidApk: './platforms/android/build/outputs/apk',
     unalignedApk: './platforms/android/build/outputs/apk/android-release-unaligned.apk',
     alignedApk: './platforms/android/build/outputs/apk/android-release-aligned.apk',
-    zipAlign: path.join(process.env.ANDROID_HOME, '/build-tools/23.0.3/zipalign'), // Note the path to the zipalign on your pc
+    zipAlign: path.join(process.env.ANDROID_HOME || '/Applications/ADT/sdk', '/build-tools/23.0.3/zipalign'), // Note the path to the zipalign on your pc
 };
 
 process.env.NODE_ENV = 'production';

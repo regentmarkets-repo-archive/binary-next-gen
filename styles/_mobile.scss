@@ -171,6 +171,22 @@
     flex: 1;
 }
 
+.ios-padder {
+    height: 59px;
+    font-size: $FONT_SIZE_XL;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: black;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 10px;
+
+    svg {
+        margin: 0 6px 3px 0;
+    }
+}
+
 @media screen and (min-aspect-ratio: 13/9) { // landscape styles here
     .mobile-content {
         .trade-panel {
@@ -184,13 +200,7 @@
 }
 
 @media screen and (max-aspect-ratio: 13/9) { // portrait styles here
-    @media screen and (max-height: 700px) {
-        .mobile-page {
-            font-size: $FONT_SIZE_MOBILE + 2;
-        }
-    }
-
-    @media screen and (max-height: 620px) {
+    @media screen and (min-height: 660px) {
         .mobile-page {
             font-size: $FONT_SIZE_MOBILE + 1;
         }
