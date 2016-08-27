@@ -11,9 +11,6 @@
 }
 
 .asset-list {
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-
     tr {
         cursor: pointer;
     }
@@ -33,4 +30,5 @@
 
 .asset-picker-item td {
     text-align: left;
+    padding: 0;
 }

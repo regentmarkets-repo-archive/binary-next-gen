@@ -4,6 +4,7 @@ import { InputGroup } from 'binary-components';
 import { isMobile } from 'binary-utils';
 import { actions } from '../_store';
 import MarketSubmarketPickerContainer from './MarketSubmarketPickerContainer';
+import AssetPickerCategoryFilter from './AssetPickerCategoryFilter';
 
 export default class AssetPickerFilter extends PureComponent {
 
@@ -42,6 +43,10 @@ export default class AssetPickerFilter extends PureComponent {
 					placeholder="Search for assets"
 					onChange={this.onSearchQueryChange}
 				/>
+				{/* <AssetPickerCategoryFilter
+					onChange={this.onFilterChange}
+					value={filter.filter}
+				/> */}
 				<MarketSubmarketPickerContainer
 					onChange={this.onFilterChange}
 					allOptionShown
