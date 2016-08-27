@@ -16,12 +16,12 @@
     }
 
     #hamburger-opener:checked + #hamburger-btn > .sidebar {
-        top: 3.5rem !important;
+        top: 3.5em !important;
         left: inherit;
     }
 
     .balance {
-        font-size: 1.25rem;
+        font-size: $FONT_SIZE_L;
         line-height: 2 !important;
     }
 }
@@ -30,7 +30,7 @@
     display: none;
 
     &:checked + #hamburger-btn > .sidebar {
-        left: 0.5rem;
+        left: 0.5em;
         transition: 0.3s;
     }
 }
