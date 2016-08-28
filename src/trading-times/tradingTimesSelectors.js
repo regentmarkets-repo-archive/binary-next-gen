@@ -9,10 +9,9 @@ const defaultTradingTimesSelector = createSelector(
             return undefined;
         }
         const defaultFilter = new Map({
-                        submarket: assets.getIn([0, 'submarket']),
-                        filter: assets.getIn([0, 'submarket']),
-                        date: new Date(),
-                    });
+            filter: assets.getIn([0, 'market']),
+            date: new Date(),
+        });
         const filter = tradingTimesFilter && tradingTimesFilter.get('filter');
 
         return filter ? tradingTimesFilter : defaultFilter;

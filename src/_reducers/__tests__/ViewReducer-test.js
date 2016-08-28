@@ -19,7 +19,7 @@ describe('viewReducer', () => {
         };
 
         const actualState = viewReducer(beforeState, action);
-        const expectedState = fromJS({ tradingTimes: {}, assetIndex: { filter: 'indices' } });
+        const expectedState = fromJS({ tradingTimes: {}, assetIndex: 'indices' });
         expect(expectedState).to.equal(actualState);
     });
 
