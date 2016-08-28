@@ -13,7 +13,7 @@ export default class AssetPickerList extends PureComponent {
 		const { assets } = this.props;
 
 		return (
-			<div className="asset-list">
+			<div className="asset-list scrollable">
 				{Object.keys(assets)
 					.map(submarketName =>
 						<AssetsPerSubmarket

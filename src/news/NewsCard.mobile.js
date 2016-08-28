@@ -16,7 +16,7 @@ export default class NewsCard extends PureComponent {
         const { router } = this.context;
 
         return (
-            <div className="news-list-card">
+            <div className="news-list-card scrollable">
                 {articles.map((article, idx) =>
                     <ArticlePreview
                         key={'article' + idx}

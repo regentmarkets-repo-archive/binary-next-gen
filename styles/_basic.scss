@@ -390,3 +390,12 @@ nav.sidebar {
         text-align: center;
     }
 }
+
+.about-card {
+    max-width: 20em;
+    margin: 0 auto;
+
+    .version-info {
+        padding: 1em;
+    }
+}

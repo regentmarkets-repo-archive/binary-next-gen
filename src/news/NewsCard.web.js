@@ -33,7 +33,7 @@ export default class NewsCard extends PureComponent {
         // const { showArticle } = this.state;
 
         return (
-            <div className="news-list-card">
+            <div className="news-list-card scrollable">
                 {/* <AnimatedPopup shown={showArticle}>
                     <MobileToolbarBack onClick={this.onClickBack} backBtnBarTitle="Back" />
                     <ArticleFull

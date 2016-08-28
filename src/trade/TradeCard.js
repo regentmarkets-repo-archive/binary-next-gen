@@ -7,10 +7,20 @@ import TradeParams from '../trade-params/TradeParams';
 import ContractReceipt from '../contract-details/ContractReceipt';
 import ContractDetailsMobileLayout from '../contract-details/mobile/ContractDetailsMobileLayout';
 import SellAtMarketButton from '../contract-details/SellAtMarketButton';
-import ContractValidationError from '../contract-details/ContractValidationError';
 import ContractWinLose from '../contract-details/ContractWinLose';
 
+type Props = {
+    compact: boolean,
+    contractReceiptProps: Object,
+    chartProps: Object,
+    index: number,
+    paramsProps: Object,
+};
+
+
 export default class TradeCard extends PureComponent {
+
+    props: Props;
 
     static contextTypes = {
         router: PropTypes.object.isRequired,
@@ -24,7 +34,7 @@ export default class TradeCard extends PureComponent {
         paramsProps: PropTypes.object.isRequired,
     };
 
-    constructor(props) {
+    constructor(props: Props) {
         super(props);
         this.toFireZoomEvent = false;
     }
@@ -94,7 +104,6 @@ export default class TradeCard extends PureComponent {
                                 {chartComponent}
                                 <ContractWinLose contract={contractReceiptInJS} />
                                 <SellAtMarketButton contract={contractReceiptInJS} />
-                                <ContractValidationError contract={contractReceiptInJS} />
                                 <Button
                                     className="buy-again-btn"
                                     text="Trade Again"

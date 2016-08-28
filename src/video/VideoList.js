@@ -12,7 +12,7 @@ export default class VideoList extends PureComponent {
         const { videos, onSelect } = this.props;
 
         return (
-            <div className="video-list">
+            <div className="video-list scrollable">
                 {videos.map(video =>
                     <VideoThumbnail
                         key={video.videoId}
