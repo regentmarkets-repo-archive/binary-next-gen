@@ -172,18 +172,26 @@
 }
 
 .ios-padder {
-    font-size: $FONT_SIZE_XL;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: white;
-    background: black;
-    padding: 5px;
-    margin: 5px;
-    border-radius: 10px;
+    width: 100%;
 
-    svg {
-        margin: 0 6px 3px 0;
+    a {
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: black;
+        border-radius: 10px;
+        margin: 5px;
+
+        svg {
+            margin: 0 6px 3px 0;
+        }
+    }
+
+    span {
+        color: white;
+        font-size: $FONT_SIZE_XL;
+        font-weight: normal;
     }
 }
 

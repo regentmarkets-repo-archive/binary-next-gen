@@ -1,6 +1,7 @@
 import React, { PropTypes, PureComponent } from 'react';
 import MobileToolbarFull from '../mobile/MobileToolbarFull';
 import MobileToolbarBack from '../mobile/MobileToolbarBack';
+import IosPadder from './IosPadder';
 
 export default class MobilePage extends PureComponent {
 
@@ -26,6 +27,7 @@ export default class MobilePage extends PureComponent {
 				<div className="mobile-content">
 					{children}
 				</div>
+				<IosPadder />
 			</div>
 		);
 	}
