@@ -2,6 +2,7 @@
     display: flex;
     background: $COLOR_BRAND_BLUE;
     color: white;
+    align-items: center;
     justify-content: space-between;
 
     #hamburger-btn {
@@ -21,8 +22,7 @@
     }
 
     .balance {
-        font-size: $FONT_SIZE_L;
-        line-height: 2 !important;
+        font-size: $FONT_SIZE_XL;
     }
 }
 
@@ -69,7 +69,7 @@
 }
 
 #logo {
-    margin: 0.5em;
+    margin: 0.25em;
 
     img {
         height: 2.5em;
