@@ -67,7 +67,7 @@ export default class TradeTypeDropDown extends PureComponent {
                         src={`img/trade-${selectedType.toLowerCase()}.svg`}
                         alt={selectedType}
                     />
-                    <M m={tradeToFriendlyType(selectedType, tradeParams.barrier)} />
+                    <M className="picker-value" m={tradeToFriendlyType(selectedType, tradeParams.barrier)} />
                     <DownArrow />
                 </div>
             </div>

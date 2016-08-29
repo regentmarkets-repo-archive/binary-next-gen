@@ -265,6 +265,14 @@
     background: rgba($COLOR_BRAND_BLUE, 0.1);
     border-radius: 2px;
 
+    .picker-value {
+        flex: 1;
+    }
+
+    img + .picker-value {
+        text-align: center;
+    }
+
     img {
         height: 2em;
         padding: 1px 0;
