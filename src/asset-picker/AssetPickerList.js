@@ -13,11 +13,11 @@ export default class AssetPickerList extends PureComponent {
 		const { assets } = this.props;
 		const sorted = Object.keys(assets)		// prioritize Volatile assets
 			.sort(a => {
-				if (a === 'Daily Reset Indices') {
+				if (a === 'random_daily') {
 					return -1;
 				}
 
-				if (a === 'Continuous Indices') {
+				if (a === 'random_index') {
 					return -2;
 				}
 
@@ -26,12 +26,12 @@ export default class AssetPickerList extends PureComponent {
 		return (
 			<div className="asset-list scrollable">
 				{sorted
-					.map(submarketName =>
+					.map(submarket =>
 						<AssetsPerSubmarket
 							{...this.props}
-							key={submarketName}
-							assetsInSubmarket={assets[submarketName]}
-							ref={submarketName}
+							key={submarket}
+							assetsInSubmarket={assets[submarket]}
+							ref={submarket}
 						/>
 					)
 				}
