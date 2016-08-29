@@ -70,15 +70,19 @@ export default class TradeParams extends PureComponent {
         };
     }
 
-    /**
-     * componentDidUpdate is used instead of componentWillReceiveProps because the onAssetChange depends on updated
-     * props, which only accessible after component update
-     * it's a mistake here that method to be reuse are coupled with component states
-     * TODO: redesign so that side effect are handle elsewhere
-     */
     componentWillReceiveProps(newProps) {
         this.setState({ dynamicKey: newProps.forceRenderCount });
         windowResizeEvent();
+    }
+
+    shouldComponentUpdate(nextProps) {
+        const hasNotEq = Object.keys(this.props).some(k => {
+            if (JSON.stringify(this.props[k]) !== JSON.stringify(nextProps[k])) {
+                return true;
+            }
+            return false;
+        });
+        return hasNotEq;
     }
 
     onCloseModal = () => {

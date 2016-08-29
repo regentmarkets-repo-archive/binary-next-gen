@@ -67,6 +67,16 @@ export default class TradeViewChart extends PureComponent {
         }
     }
 
+    shouldComponentUpdate(nextProps) {
+        const hasNotEq = Object.keys(this.props).some(k => {
+            if (JSON.stringify(this.props[k]) !== JSON.stringify(nextProps[k])) {
+                return true;
+            }
+            return false;
+        });
+        return hasNotEq;
+    }
+
     rangeChange = () => {
         const { tradeForChart } = this.props;
         const { dataType } = this.state;
