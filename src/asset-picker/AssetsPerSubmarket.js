@@ -11,13 +11,13 @@ export default class AssetsPerSubmarket extends PureComponent {
 
     render() {
         const { assetsInSubmarket, selectedAsset } = this.props;
-        const { submarket, market } = assetsInSubmarket[0];
+        const { submarketName, marketName } = assetsInSubmarket[0];
         return (
             <table>
                 <AssetPickerHeader
-                    key={submarket}
-                    market={market}
-                    submarket={submarket}
+                    key={submarketName}
+                    market={marketName}
+                    submarket={submarketName}
                 />
                 <tbody>
                     {assetsInSubmarket.map(a =>

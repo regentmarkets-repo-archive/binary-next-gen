@@ -100,10 +100,6 @@ export default class TradeParams extends PureComponent {
         const { contract, currency, disabled, errors, index,
             pipSize, proposal, style, tradeParams } = this.props;
 
-        /**
-         * Race condition happen when contract is updated before tradeCategory (async)
-         * thus we need to check if the tradeCategory is valid, if not valid simply use the 1st valid category
-         */
         const selectedCategory = tradeParams.tradeCategory;
         const selectedType = tradeParams.type;
         const selectedTypeTradingOptions = contract[selectedCategory][selectedType];
