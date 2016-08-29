@@ -42,7 +42,7 @@ export default function shallowEqual(objA: mixed, objB: mixed): boolean {
   if (typeof objA !== 'object' || objA === null ||
       typeof objB !== 'object' || objB === null) {
     window.console.log('objects differ' + objA);
-    // return false;
+    // return true;
   }
 
   const keysA = Object.keys(objA);
@@ -59,7 +59,8 @@ export default function shallowEqual(objA: mixed, objB: mixed): boolean {
       !hasOwnProperty.call(objB, keysA[i]) ||
       !is(objA[keysA[i]], objB[keysA[i]])
     ) {
-      window.console.log('Values differ ' + keysA[i]);
+      window.console.log('differ at key' + keysA[i]);
+      window.console.log(objA[keysA[i]], 'vs', objB[keysA[i]]);
       // return false;
     }
   }
