@@ -2,6 +2,7 @@
 .*/Gulpfile.js
 .*/wallaby.conf.js
 .*/node_modules/*
+.*/www
 .*/coverage
 .*/dist
 .*/lib
@@ -11,10 +12,17 @@
 .*/plugins
 .*/.publish
 .*/.cordova
+.*/webpack.config.js
+.*/server.js
 
 [include]
 
 [libs]
+./node_modules/binary-utils/flow-typed/binary.js.flow
+./node_modules/binary-utils/flow-typed/binary-utils.js.flow
+./node_modules/binary-components/flow-typed/binary-components.js.flow
+./node_modules/binary-live-api/flow-typed/binary-api.js.flow
+./node_modules/binary-live-api/flow-typed/binary-live-api.js.flow
 
 [options]
 esproposal.class_static_fields=enable

@@ -8,7 +8,7 @@ export default class WorkspaceTabs extends PureComponent {
 		activeTab: PropTypes.number.isRequired,
 	};
 
-	onTabChange = idx => {
+	onTabChange = (idx: number) => {
 		actions.changeActiveWorkspaceTab('side', idx);
 	}
 
