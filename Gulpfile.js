@@ -12,6 +12,7 @@ const hash = require('gulp-hash-src');
 const bump = require('gulp-bump');
 const path = require('path');
 const run = require('gulp-run');
+
 // const keyStorePassword = require('./keystore').password;
 
 // const electron = require('gulp-atom-electron');
@@ -125,9 +126,34 @@ gulp.task('androidAligned', ['android'], () =>
     run(files.zipAlign + ' -v 4 ' + files.unalignedApk + ' ' + files.alignedApk).exec()
 );
 
-gulp.task('ios', () =>
-    gulp.src('dist')
+gulp.task('androidRelease', (done) => {
+    runSequence('android', 'androidAligned', () => {
+        console.log('Building android release');
+        done();
+    });
+});
+
+gulp.task('xcodeCleanProject', () =>
+    run('xcodebuild clean -project ./platforms/ios/Binary.com.xcodeproj -configuration Release -alltargets').exec()
+);
+gulp.task('xcodeProjectArchive', () =>
+    run('xcodebuild archive -project ./platforms/ios/Binary.com.xcodeproj -scheme Binary.com -archivePath ./platforms/ios/build/Binary.com.xcarchive').exec()
+);
+gulp.task('xcodeExportIpa', () =>
+    run('xcodebuild -exportArchive -exportFormat ipa -archivePath ./platforms/ios/build/Binary.com.xcarchive -exportPath ./platforms/ios/build/Binary.com.ipa -exportProvisioningProfile app.binary.com').exec()
+);
+
+gulp.task('iosRelease', (done) => {
+    runSequence('cordovaIosBuild', 'xcodeCleanProject', 'xcodeProjectArchive', 'xcodeExportIpa', () => {
+        console.log('Run something else');
+        done();
+    });
+});
+
+gulp.task('cordovaIosBuild', () =>
+    gulp.src(path.resolve(__dirname) + 'www')
         .pipe(cordovaCreate())
         .pipe(cordovaPlugin('org.apache.cordova.dialogs'))
         .pipe(cordovaBuildIos())
+        .pipe(gulp.dest('./platform/ios/www'))
 );
