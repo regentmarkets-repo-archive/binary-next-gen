@@ -4,7 +4,6 @@ import { InputGroup } from 'binary-components';
 import { isMobile } from 'binary-utils';
 import { actions } from '../_store';
 import MarketSubmarketPickerContainer from './MarketSubmarketPickerContainer';
-import AssetPickerCategoryFilter from './AssetPickerCategoryFilter';
 
 export default class AssetPickerFilter extends PureComponent {
 

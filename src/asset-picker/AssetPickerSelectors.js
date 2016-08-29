@@ -68,8 +68,10 @@ export const assetPickerItemsSelector = createSelector(
             symbol: asset.get('symbol'),
             name: asset.get('display_name'),
             isInWatchlist: watchlist.has(asset.get('symbol')),
-            market: asset.get('market_display_name'),
-            submarket: asset.get('submarket_display_name'),
+            market: asset.get('market'),
+            submarket: asset.get('submarket'),
+            marketName: asset.get('market_display_name'),
+            submarketName: asset.get('submarket_display_name'),
             isOpen: !!asset.get('exchange_is_open'),
         })), 'submarket')
 );
