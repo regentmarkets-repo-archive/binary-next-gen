@@ -24,6 +24,25 @@ addLocaleData({
 
 const emptyObject = {};
 
+
+export const accountExclusion = async (token, accts = []) => {
+    const account = window.BinaryBoot.accounts.find(x => x.account.startsWith('VRTC'));
+    accts.push(token);
+    if (account) {
+        const newToken = account.token;
+        await tryAuth(newToken);
+    } else {
+        const accounts = window.BinaryBoot.accounts.filter(x => !accts.includes(x.token));
+        try {
+            await tryAuth(accounts[0].token);
+        } catch (ex) {
+            if (ex.error && ex.error.error.code === 'SelfExclusion') {
+                accountExclusion(accounts[0].token, accts);
+            }
+        }
+    }
+};
+
 export default class Root extends PureComponent {
 
     async componentWillMount() {
