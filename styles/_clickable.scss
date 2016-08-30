@@ -4,7 +4,9 @@
 .close-btn,
 select,
 [role=tab],
-.ios-padder
+.ios-padder,
+.article-preview,
+.video-thumbnail,
 .start-time-selector label {
     &:active {
         color: white !important;
@@ -25,6 +27,8 @@ select,
     .btn-flat,
     .picker-label,
     .close-btn,
+    .article-preview,
+    .video-thumbnail,
     select,
     [role=tab],
     .start-time-selector label {
