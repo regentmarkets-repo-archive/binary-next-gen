@@ -2,7 +2,6 @@ const gulp = require('gulp');
 const runSequence = require('run-sequence');
 const del = require('del');
 const file = require('gulp-file');
-const shell = require('gulp-shell');
 const ghPages = require('gulp-gh-pages');
 const sass = require('gulp-sass');
 const args = require('yargs').argv;
@@ -13,20 +12,23 @@ const bump = require('gulp-bump');
 const path = require('path');
 const run = require('gulp-run');
 
-// const keyStorePassword = require('./keystore').password;
+const keyStorePassword = require('./keystore.json').password;
 
 // const electron = require('gulp-atom-electron');
 // const zip = require('gulp-vinyl-zip');
 
 const files = {
-    dist: './dist',
-    js: './src',
-    static: ['./www/**/*', './config.xml', './electron.js', '!./www/**/*.scss'],
-    sass: './styles/*.scss',
+    dist: '../dist',
+    js: '../src',
+    static: ['../www/**/*', '../config.xml', '../electron.js', '!../www/**/*.scss'],
+    sass: '../styles/*.scss',
+};
+
+const tools = {
     androidApk: './platforms/android/build/outputs/apk',
     unalignedApk: './platforms/android/build/outputs/apk/android-release-unaligned.apk',
     alignedApk: './platforms/android/build/outputs/apk/android-release-aligned.apk',
-    zipAlign: path.join(process.env.ANDROID_HOME || '/Applications/ADT/sdk', '/build-tools/23.0.3/zipalign'), // Note the path to the zipalign on your pc
+    zipAlign: path.join(process.env.ANDROID_HOME || '/Applications/ADT/sdk', '/build-tools/23.0.3/zipalign'),
 };
 
 process.env.NODE_ENV = 'production';
@@ -52,7 +54,7 @@ gulp.task('styles:watch', () =>
 
 gulp.task('js', () =>
     gulp.src(files.js)
-        .pipe(shell('webpack --config ./webpack.config.js'))
+        .pipe(run('webpack --config ../webpack.config.js'))
         .pipe(gulp.dest(files.dist))
 );
 
@@ -93,7 +95,7 @@ gulp.task('deploy', ['build'], () =>
         .pipe(ghPages())
 );
 
-gulp.task('deploy-test', ['build'], () =>
+gulp.task('deploy:test', ['build'], () =>
     gulp.src(files.dist + '/**/*')
         .pipe(gulpIf(args.appId, replace(
             /window\.BinaryBoot\.appId = window\.cordova \? 1006 : 1001;/,
@@ -122,35 +124,30 @@ gulp.task('android', () =>
         .pipe(gulp.dest(files.androidApk))
 );
 
-gulp.task('androidAligned', ['android'], () =>
-    run(files.zipAlign + ' -v 4 ' + files.unalignedApk + ' ' + files.alignedApk).exec()
+gulp.task('android:release', ['android'], () =>
+    run(tools.zipAlign + ' -v 4 ' + tools.unalignedApk + ' ' + tools.alignedApk).exec()
 );
 
-gulp.task('androidRelease', (done) => {
-    runSequence('android', 'androidAligned', () => {
-        console.log('Building android release');
-        done();
-    });
-});
-
-gulp.task('xcodeCleanProject', () =>
+gulp.task('xcode:clean', () =>
     run('xcodebuild clean -project ./platforms/ios/Binary.com.xcodeproj -configuration Release -alltargets').exec()
 );
-gulp.task('xcodeProjectArchive', () =>
+
+gulp.task('xcode:archive', () =>
     run('xcodebuild archive -project ./platforms/ios/Binary.com.xcodeproj -scheme Binary.com -archivePath ./platforms/ios/build/Binary.com.xcarchive').exec()
 );
-gulp.task('xcodeExportIpa', () =>
+
+gulp.task('xcode:ipa', () =>
     run('xcodebuild -exportArchive -exportFormat ipa -archivePath ./platforms/ios/build/Binary.com.xcarchive -exportPath ./platforms/ios/build/Binary.com.ipa -exportProvisioningProfile app.binary.com').exec()
 );
 
-gulp.task('iosRelease', (done) => {
-    runSequence('cordovaIosBuild', 'xcodeCleanProject', 'xcodeProjectArchive', 'xcodeExportIpa', () => {
+gulp.task('ios:release', (done) => {
+    runSequence('ios', 'xcode:clean', 'xcode:archive', 'xcode:ipa', () => {
         console.log('Run something else');
         done();
     });
 });
 
-gulp.task('cordovaIosBuild', () =>
+gulp.task('ios', () =>
     gulp.src(path.resolve(__dirname) + 'www')
         .pipe(cordovaCreate())
         .pipe(cordovaPlugin('org.apache.cordova.dialogs'))

@@ -1,0 +1,31 @@
+{
+  "name": "build",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Gulpfile.js",
+  "scripts": {
+    "deploy-test": "gulp deploy-test",
+    "android:apk": "gulp android",
+    "android:release": "gulp androidAligned"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "gulp-bump": "^2.4.0",
+    "gulp-concat": "^2.6.0",
+    "gulp-cordova-build-android": "^1.5.1",
+    "gulp-cordova-build-ios": "^2.0.1",
+    "gulp-cordova-create": "^1.3.1",
+    "gulp-cordova-plugin": "^1.5.0",
+    "gulp-file": "^0.3.0",
+    "gulp-gh-pages": "^0.5.4",
+    "gulp-hash-src": "^0.1.6",
+    "gulp-if": "^2.0.1",
+    "gulp-minify-css": "^1.2.4",
+    "gulp-replace": "^0.5.4",
+    "gulp-run": "^1.7.1",
+    "gulp-sass": "^2.3.2",
+    "gulp-util": "^3.0.7",
+    "run-sequence": "^1.2.2"
+  }
+}

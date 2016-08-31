@@ -9,7 +9,6 @@ const env = process.env.NODE_ENV;
 
 module.exports = {
     devtool: env === 'production' ? 'source-map' : 'eval',
-    entry: './src',
     output: {
         path: path.join(__dirname, 'www'),
         filename: 'app.js',
