@@ -62,10 +62,10 @@ function* handlePurchase(action) {
             put(updateChartDataByContract(buy.contract_id, ticks || candles, 'ticks', symbol, isSold)),
         ];
     } catch (err) {
-        if (err.error && err.error.error) {
-            yield put(updateTradeError(index, 'serverError', err.error.error.message));
+        if (!err.error || !err.error.error) {
+            throw err;                  // rethrow error that we do not expect
         }
-        throw err;
+        yield put(updateTradeError(index, 'serverError', err.error.error.message));
     } finally {
         yield put(subscribeProposal(index, params));
     }

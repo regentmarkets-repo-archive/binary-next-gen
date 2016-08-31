@@ -69,6 +69,9 @@ export function* tradeCreation(action) {
                 put(createTrade(index, symbol)),
             ];
         } catch (err) {
+            if (!err.error || !err.error.error) {
+                throw err;                  // rethrow error that we do not expect
+            }
             yield put(updateTradingOptionsErr(symbol, err.error.error.message));
         }
     }
