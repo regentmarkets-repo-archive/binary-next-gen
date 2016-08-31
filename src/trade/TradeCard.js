@@ -1,13 +1,10 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { immutableChildrenToJS } from 'binary-utils';
-import { Button, P } from 'binary-components';
+import { P } from 'binary-components';
 import { actions } from '../_store';
 import TradeViewChart from './trade-chart/TradeViewChart';
 import TradeParams from '../trade-params/TradeParams';
 import ContractReceipt from '../contract-details/ContractReceipt';
-import ContractDetailsMobileLayout from '../contract-details/mobile/ContractDetailsMobileLayout';
-import SellAtMarketButton from '../contract-details/SellAtMarketButton';
-import ContractWinLose from '../contract-details/ContractWinLose';
 
 type Props = {
     compact: boolean,
@@ -94,40 +91,12 @@ export default class TradeCard extends PureComponent {
             />
         );
 
-        const mobileTrade = compact && (
-            <div className="trade-panel">
-                {contractReceiptInJS &&
-                    <ContractDetailsMobileLayout
-                        contract={contractReceiptInJS}
-                        chartComponent={
-                            <div>
-                                {chartComponent}
-                                <ContractWinLose contract={contractReceiptInJS} />
-                                <SellAtMarketButton contract={contractReceiptInJS} />
-                                <Button
-                                    className="buy-again-btn"
-                                    text="Trade Again"
-                                    onClick={this.tradeAgain}
-                                />
-                            </div>
-                        }
-                        detailsComponent={detailsComponent}
-                        onTradeAgainClicked={this.tradeAgain}
-                    />
-                }
-                {!contractReceiptInJS && chartComponent}
-                {tradeParamsComponent}
-            </div>
-        );
-
-        const desktopTrade = !compact && (
+        return (
             <div className="trade-panel">
                 {chartComponent}
                 {detailsComponent}
                 {tradeParamsComponent}
             </div>
         );
-
-        return compact ? mobileTrade : desktopTrade;
     }
 }
