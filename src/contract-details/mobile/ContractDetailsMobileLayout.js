@@ -2,6 +2,7 @@ import React, { PropTypes, PureComponent } from 'react';
 import { Tab, TabList } from 'binary-components';
 
 export default class ContractDetailsMobileLayout extends PureComponent {
+
     static propTypes = {
         chartComponent: PropTypes.object.isRequired,
         detailsComponent: PropTypes.object.isRequired,
@@ -26,12 +27,8 @@ export default class ContractDetailsMobileLayout extends PureComponent {
                     <Tab text="Chart" />
                     <Tab text="Details" />
                 </TabList>
-                <div style={activeIndex === 0 ? {} : { display: 'none' }}>
-                    {chartComponent}
-                </div>
-                <div style={activeIndex === 1 ? {} : { display: 'none' }}>
-                    {detailsComponent}
-                </div>
+                {activeIndex === 0 && chartComponent}
+                {activeIndex === 1 && detailsComponent}
             </div>
         );
     }

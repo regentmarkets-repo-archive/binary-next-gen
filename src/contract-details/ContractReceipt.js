@@ -24,11 +24,12 @@ export default class ContractReceipt extends PureComponent {
 			<div className="contract-receipt">
 				<ContractValidationError contract={contract} />
 				{onTradeAgainClicked &&
-				<Button
-					className="buy-again-btn"
-					text="Trade Again"
-					onClick={onTradeAgainClicked}
-				/>}
+					<Button
+						className="buy-again-btn"
+						text="Trade Again"
+						onClick={onTradeAgainClicked}
+					/>
+				}
 			</div> :
 			<div className="contract-receipt">
 				{showLongcode && <h5>{contract.longcode}</h5>}

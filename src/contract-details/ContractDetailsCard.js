@@ -6,6 +6,7 @@ import SellAtMarketButton from './SellAtMarketButton';
 import ContractWinLose from './ContractWinLose';
 
 export default class ContractDetailsCard extends PureComponent {
+
 	static propTypes = {
 		compact: PropTypes.bool,
 		contract: PropTypes.object,

@@ -14,40 +14,32 @@ type Props = {
     paramsProps: Object,
 };
 
-
 export default class TradeCard extends PureComponent {
 
     props: Props;
+    shouldFireZoomEvent: boolean;
 
     static contextTypes = {
         router: PropTypes.object.isRequired,
     };
 
-    static propTypes = {
-        compact: PropTypes.bool,
-        contractReceiptProps: PropTypes.object,
-        chartProps: PropTypes.object.isRequired,
-        index: PropTypes.number.isRequired,
-        paramsProps: PropTypes.object.isRequired,
-    };
-
     constructor(props: Props) {
         super(props);
-        this.toFireZoomEvent = false;
+        this.shouldFireZoomEvent = false;
     }
 
     componentDidUpdate(prevProps) {
-        // ugly hack to ensure event is fire after chart is back to trade view
-        if (prevProps.contractReceiptProps && !this.props.contractReceiptProps && this.toFireZoomEvent) {
+        // ugly hack to ensure event is fired after chart is back to trade view
+        if (prevProps.contractReceiptProps && !this.props.contractReceiptProps && this.shouldFireZoomEvent) {
             this.fireZoomEvent();
-            this.toFireZoomEvent = false;
+            this.shouldFireZoomEvent = false;
         }
     }
 
     tradeAgain = () => {
         const { index } = this.props;
         actions.closeContractReceipt(index);
-        this.toFireZoomEvent = true;
+        this.shouldFireZoomEvent = true;
     }
 
     fireZoomEvent = () => {
@@ -69,33 +61,25 @@ export default class TradeCard extends PureComponent {
             return <P text="Asset not available" />;
         }
 
-        const chartComponent = (
-            <div className="trade-chart-container">
-                <TradeViewChart {...immutableChildrenToJS(chartProps)} />
-            </div>
-        );
-
-        const detailsComponent = contractReceiptInJS && (
-            <ContractReceipt
-                contract={contractReceiptInJS}
-                showLongcode
-                onTradeAgainClicked={this.tradeAgain}
-            />
-        );
-
-        const tradeParamsComponent = paramsProps.tradeParams && (
-            <TradeParams
-                {...immutableChildrenToJS(paramsProps)}
-                compact={compact}
-                style={contractReceiptInJS ? { display: 'none' } : undefined}
-            />
-        );
-
         return (
             <div className="trade-panel">
-                {chartComponent}
-                {detailsComponent}
-                {tradeParamsComponent}
+                <div className="trade-chart-container">
+                    <TradeViewChart {...immutableChildrenToJS(chartProps)} />
+                </div>
+                {contractReceiptInJS &&
+                    <ContractReceipt
+                        contract={contractReceiptInJS}
+                        showLongcode
+                        onTradeAgainClicked={this.tradeAgain}
+                    />
+                }
+                {paramsProps.tradeParams &&
+                    <TradeParams
+                        {...immutableChildrenToJS(paramsProps)}
+                        compact={compact}
+                        style={contractReceiptInJS ? { display: 'none' } : undefined}
+                    />
+                }
             </div>
         );
     }
