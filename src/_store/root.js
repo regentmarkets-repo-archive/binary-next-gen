@@ -25,19 +25,19 @@ addLocaleData({
 const emptyObject = {};
 
 
-export const accountExclusion = async (token, accts = []) => {
-    const account = window.BinaryBoot.accounts.find(x => x.account.startsWith('VRTC'));
-    accts.push(token);
-    if (account) {
-        const newToken = account.token;
+export const accountExclusion = async (token, excludedAccounts = []) => {
+    const vrtAccount = window.BinaryBoot.accounts.find(x => x.account.startsWith('VRTC'));
+    excludedAccounts.push(token);
+    if (vrtAccount) {
+        const newToken = vrtAccount.token;
         await tryAuth(newToken);
     } else {
-        const accounts = window.BinaryBoot.accounts.filter(x => !accts.includes(x.token));
+        const remAccounts = window.BinaryBoot.accounts.filter(x => !excludedAccounts.includes(x.token));
         try {
-            await tryAuth(accounts[0].token);
+            await tryAuth(remAccounts[0].token);
         } catch (ex) {
             if (ex.error && ex.error.error.code === 'SelfExclusion') {
-                accountExclusion(accounts[0].token, accts);
+                accountExclusion(remAccounts[0].token, excludedAccounts);
             }
         }
     }
