@@ -12,7 +12,7 @@ const bump = require('gulp-bump');
 const path = require('path');
 const run = require('gulp-run');
 
-const keyStorePassword = require('../keystore.json').password;
+const keyStorePassword = require('./keystore.json').password;
 
 // const electron = require('gulp-atom-electron');
 // const zip = require('gulp-vinyl-zip');
@@ -25,9 +25,9 @@ const files = {
 };
 
 const tools = {
-    androidApk: './platforms/android/build/outputs/apk',
-    unalignedApk: './platforms/android/build/outputs/apk/android-release-unaligned.apk',
-    alignedApk: './platforms/android/build/outputs/apk/android-release-aligned.apk',
+    androidApk: '../platforms/android/build/outputs/apk',
+    unalignedApk: '../platforms/android/build/outputs/apk/android-release-unaligned.apk',
+    alignedApk: '../platforms/android/build/outputs/apk/android-release-aligned.apk',
     zipAlign: path.join(process.env.ANDROID_HOME || '/Applications/ADT/sdk', '/build-tools/23.0.3/zipalign'),
 };
 
@@ -49,12 +49,19 @@ gulp.task('styles', () =>
 );
 
 gulp.task('styles:watch', () =>
-    gulp.watch('./www/**/*.scss', ['styles'])
+    gulp.watch('../www/**/*.scss', ['styles'])
 );
+
+// Handle general error
+function errorHandler (error) {
+  console.log(error.toString());
+  this.emit('end');
+}
 
 gulp.task('js', () =>
     gulp.src(files.js)
-        .pipe(run('webpack --config ../webpack.config.js'))
+        .pipe(run('(cd ../ && webpack --config ./webpack.config.js)'))
+            .on('error', errorHandler)
         .pipe(gulp.dest(files.dist))
 );
 
