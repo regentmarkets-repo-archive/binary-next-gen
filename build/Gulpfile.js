@@ -14,8 +14,8 @@ const run = require('gulp-run');
 
 const keyStorePassword = require('./keystore.json').password;
 
-// const electron = require('gulp-atom-electron');
-// const zip = require('gulp-vinyl-zip');
+const electron = require('gulp-atom-electron');
+const zip = require('gulp-vinyl-zip');
 
 const files = {
     dist: '../dist',
@@ -110,7 +110,7 @@ gulp.task('codepush:android')
 gulp.task('codepush:ios')
     gulp.src(path.resolve(__dirname) + './www/**')
         .pipe(run('cordova build ios'))
-        .pipe(run('code-push release-cordova binary-next-gen-ios ios'))        
+        .pipe(run('code-push release-cordova binary-next-gen-ios ios'))
 
 gulp.task('deploy&codepush', (done) => {
     runSequence('deploy', ['codepush:ios', 'codepush:android'], () => {
@@ -153,15 +153,18 @@ gulp.task('android:release', ['android'], () =>
 
 
 gulp.task('xcode:clean', () =>
-    run('xcodebuild clean -project ./platforms/ios/Binary.com.xcodeproj -configuration Release -alltargets').exec()
+    run('xcodebuild clean -project ../platforms/ios/Binary.com.xcodeproj -configuration Release -alltargets')
+        .exec().pipe(gulp.dest('output'))
 );
 
 gulp.task('xcode:archive', () =>
-    run('xcodebuild archive -project ./platforms/ios/Binary.com.xcodeproj -scheme Binary.com -archivePath ./platforms/ios/build/Binary.com.xcarchive').exec()
+    run('xcodebuild archive -project ../platforms/ios/Binary.com.xcodeproj -scheme Binary.com -archivePath ./platforms/ios/build/Binary.com.xcarchive')
+        .exec().pipe(gulp.dest('output'))
 );
 
 gulp.task('xcode:ipa', () =>
-    run('xcodebuild -exportArchive -exportFormat ipa -archivePath ./platforms/ios/build/Binary.com.xcarchive -exportPath ./platforms/ios/build/Binary.com.ipa -exportProvisioningProfile app.binary.com').exec()
+    run('xcodebuild -exportArchive -exportFormat ipa -archivePath ../platforms/ios/build/Binary.com.xcarchive -exportPath ./platforms/ios/build/Binary.com.ipa -exportProvisioningProfile app.binary.com')
+        .exec().pipe(gulp.dest('output'))
 );
 
 gulp.task('ios:release', (done) => {
@@ -185,4 +188,3 @@ gulp.task('mobile:release', (done) => {
         done();
     });
 });
-

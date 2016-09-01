@@ -27,5 +27,8 @@
     "gulp-sass": "^2.3.2",
     "gulp-util": "^3.0.7",
     "run-sequence": "^1.2.2"
+  },
+  "devDependencies": {
+    "gulp-atom-electron": "^1.9.0"
   }
 }

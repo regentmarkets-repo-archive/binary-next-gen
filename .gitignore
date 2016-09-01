@@ -4,6 +4,7 @@ dist/
 cache/
 release/
 coverage/
+output/
 npm-debug.log
 .idea/
 .publish/
