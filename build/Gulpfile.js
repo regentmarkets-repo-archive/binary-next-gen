@@ -12,7 +12,7 @@ const bump = require('gulp-bump');
 const path = require('path');
 const run = require('gulp-run');
 
-const keyStorePassword = require('./keystore.json').password;
+const keyStorePassword = require('../keystore.json').password;
 
 // const electron = require('gulp-atom-electron');
 // const zip = require('gulp-vinyl-zip');
@@ -95,6 +95,22 @@ gulp.task('deploy', ['build'], () =>
         .pipe(ghPages())
 );
 
+gulp.task('codepush:android')
+    gulp.src(path.resolve(__dirname) + './www/**')
+        .pipe(run('cordova build android'))
+        .pipe(run('code-push release-cordova binary-next-gen-android android'))
+
+gulp.task('codepush:ios')
+    gulp.src(path.resolve(__dirname) + './www/**')
+        .pipe(run('cordova build ios'))
+        .pipe(run('code-push release-cordova binary-next-gen-ios ios'))        
+
+gulp.task('deploy&codepush', (done) => {
+    runSequence('deploy', ['codepush:ios', 'codepush:android'], () => {
+        console.log('Deploying....')
+    })
+});
+
 gulp.task('deploy:test', ['build'], () =>
     gulp.src(files.dist + '/**/*')
         .pipe(gulpIf(args.appId, replace(
@@ -128,6 +144,7 @@ gulp.task('android:release', ['android'], () =>
     run(tools.zipAlign + ' -v 4 ' + tools.unalignedApk + ' ' + tools.alignedApk).exec()
 );
 
+
 gulp.task('xcode:clean', () =>
     run('xcodebuild clean -project ./platforms/ios/Binary.com.xcodeproj -configuration Release -alltargets').exec()
 );
@@ -154,3 +171,11 @@ gulp.task('ios', () =>
         .pipe(cordovaBuildIos())
         .pipe(gulp.dest('./platform/ios/www'))
 );
+
+gulp.task('mobile:release', (done) => {
+    runSequence('android:release', 'ios:release', () => {
+        onsole.log('Run something else');
+        done();
+    });
+});
+
