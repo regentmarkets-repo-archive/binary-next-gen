@@ -151,7 +151,6 @@ gulp.task('android:release', ['android'], () =>
     run(tools.zipAlign + ' -v 4 ' + tools.unalignedApk + ' ' + tools.alignedApk).exec()
 );
 
-
 gulp.task('xcode:clean', () =>
     run('xcodebuild clean -project ../platforms/ios/Binary.com.xcodeproj -configuration Release -alltargets')
         .exec().pipe(gulp.dest('output'))
