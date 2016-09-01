@@ -25,9 +25,9 @@ const files = {
 };
 
 const tools = {
-    androidApk: './platforms/android/build/outputs/apk',
-    unalignedApk: './platforms/android/build/outputs/apk/android-release-unaligned.apk',
-    alignedApk: './platforms/android/build/outputs/apk/android-release-aligned.apk',
+    androidApk: '../platforms/android/build/outputs/apk',
+    unalignedApk: '../platforms/android/build/outputs/apk/android-release-unaligned.apk',
+    alignedApk: '../platforms/android/build/outputs/apk/android-release-aligned.apk',
     zipAlign: path.join(process.env.ANDROID_HOME || '/Applications/ADT/sdk', '/build-tools/23.0.3/zipalign'),
 };
 
@@ -49,12 +49,19 @@ gulp.task('styles', () =>
 );
 
 gulp.task('styles:watch', () =>
-    gulp.watch('./www/**/*.scss', ['styles'])
+    gulp.watch('../www/**/*.scss', ['styles'])
 );
+
+// Handle general error
+function errorHandler (error) {
+  console.log(error.toString());
+  this.emit('end');
+}
 
 gulp.task('js', () =>
     gulp.src(files.js)
-        .pipe(run('webpack --config ../webpack.config.js'))
+        .pipe(run('(cd ../ && webpack --config ./webpack.config.js)'))
+            .on('error', errorHandler)
         .pipe(gulp.dest(files.dist))
 );
 
@@ -95,6 +102,22 @@ gulp.task('deploy', ['build'], () =>
         .pipe(ghPages())
 );
 
+gulp.task('codepush:android')
+    gulp.src(path.resolve(__dirname) + './www/**')
+        .pipe(run('cordova build android'))
+        .pipe(run('code-push release-cordova binary-next-gen-android android'))
+
+gulp.task('codepush:ios')
+    gulp.src(path.resolve(__dirname) + './www/**')
+        .pipe(run('cordova build ios'))
+        .pipe(run('code-push release-cordova binary-next-gen-ios ios'))        
+
+gulp.task('deploy&codepush', (done) => {
+    runSequence('deploy', ['codepush:ios', 'codepush:android'], () => {
+        console.log('Deploying....')
+    })
+});
+
 gulp.task('deploy:test', ['build'], () =>
     gulp.src(files.dist + '/**/*')
         .pipe(gulpIf(args.appId, replace(
@@ -128,6 +151,7 @@ gulp.task('android:release', ['android'], () =>
     run(tools.zipAlign + ' -v 4 ' + tools.unalignedApk + ' ' + tools.alignedApk).exec()
 );
 
+
 gulp.task('xcode:clean', () =>
     run('xcodebuild clean -project ./platforms/ios/Binary.com.xcodeproj -configuration Release -alltargets').exec()
 );
@@ -154,3 +178,11 @@ gulp.task('ios', () =>
         .pipe(cordovaBuildIos())
         .pipe(gulp.dest('./platform/ios/www'))
 );
+
+gulp.task('mobile:release', (done) => {
+    runSequence('android:release', 'ios:release', () => {
+        onsole.log('Run something else');
+        done();
+    });
+});
+
