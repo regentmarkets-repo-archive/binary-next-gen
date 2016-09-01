@@ -22,6 +22,10 @@
 .watchlist-item {
     border-radius: 2px;
 
+    svg {
+        max-height: 100%;
+    }
+
     &:hover {
         background: rgba($COLOR_BRAND_BLUE, 0.05);
     }
