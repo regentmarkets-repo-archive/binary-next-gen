@@ -13,11 +13,11 @@ const getDailyPrices = symbol =>
         return Promise.resolve();
     };
 
-export const changeExaminedAsset = symbol =>
+export const changeExaminedAsset = (symbol, subscribe = true) =>
     dispatch => {
-        const tradingOptions = dispatch(getTradingOptions(symbol));
+        const tradingOptions = dispatch(getTradingOptions(symbol));     // needed to determine if digit is allowed
         const dailyPrices = dispatch(getDailyPrices(symbol));
-        const digitStats = dispatch(getTicksByCount(symbol, 100));
+        const digitStats = dispatch(getTicksByCount(symbol, 100, subscribe));
         Promise.all([tradingOptions, dailyPrices, digitStats])
             .then(() => dispatch({ type: types.CHANGE_INFO_FOR_ASSET, symbol }));
     };

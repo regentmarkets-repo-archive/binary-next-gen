@@ -106,7 +106,7 @@ const initAuthorized = async (authData, store) => {
         if (tradesCount === 0) {
             store.dispatch(actions.changeActiveLayout(1, 1));
         }
-        store.dispatch(actions.changeExaminedAsset(symbolToUse));
+        store.dispatch(actions.changeExaminedAsset(symbolToUse, false));    // do not subscribe tickhistory on app load
 
         subscribeToWatchlist(r.active_symbols);
     });
