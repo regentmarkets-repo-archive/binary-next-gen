@@ -31,7 +31,7 @@
     "prerelease:win64": "rm -rf ./release/win64 && mkdirp release/win64",
     "release:win64": "cp -v ./dist/win/{RELEASES,*.nupkg,*.exe} release/win64",
     "release": "npm run release:osx && npm run release:win32 && npm run release:win64",
-    "all": "npm run dist && npm run release",
+    "all": "npm run dist && npm run release && gulp mobile:release",
     "deploy:android": "npm run build:dev && code-push release-cordova binary-next-gen-android android",
     "deploy:ios": "npm run build:dev && code-push release-cordova binary-next-gen-ios ios"
   },
