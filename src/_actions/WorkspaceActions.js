@@ -4,7 +4,7 @@ import { getTradingOptions } from './TradingOptionsActions';
 import { getTicksByCount } from './TickActions';
 import { api } from '../_data/LiveData';
 
-const getDailyPrices = symbol =>
+export const getDailyPrices = symbol =>
     (dispatch, getState) => {
         const { dailyPrices } = getState();
         if (!dailyPrices.get(symbol)) {
@@ -13,11 +13,11 @@ const getDailyPrices = symbol =>
         return Promise.resolve();
     };
 
-export const changeExaminedAsset = (symbol, subscribe = true) =>
+export const changeExaminedAsset = symbol =>
     dispatch => {
         const tradingOptions = dispatch(getTradingOptions(symbol));     // needed to determine if digit is allowed
         const dailyPrices = dispatch(getDailyPrices(symbol));
-        const digitStats = dispatch(getTicksByCount(symbol, 100, subscribe));
+        const digitStats = dispatch(getTicksByCount(symbol, 100));
         Promise.all([tradingOptions, dailyPrices, digitStats])
             .then(() => dispatch({ type: types.CHANGE_INFO_FOR_ASSET, symbol }));
     };
