@@ -8,8 +8,12 @@
     [role=tablist] {
         margin-bottom: 0;
     }
-}
 
-.statement-row {
-    cursor: pointer;
+    .statement-list {
+        padding: 0.25em;
+    }
+
+    .statement-row {
+        cursor: pointer;
+    }
 }

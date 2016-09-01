@@ -2,17 +2,21 @@
     width: 100%;
     display: flex;
     flex-direction: column;
-}
 
-.trading-times-filter {
-    display: flex;
-    min-height: 2.5em;
+    .trading-times-filter {
+        display: flex;
+        min-height: 2.5em;
 
-    > * {
-        width: 50%;
+        > * {
+            width: 50%;
+        }
     }
-}
 
-.trading-times-date-picker > input {
-    width: 100%;
+    .trading-times-date-picker > input {
+        width: 100%;
+    }
+
+    .trading-times-data {
+        padding: 0.25em;
+    }
 }

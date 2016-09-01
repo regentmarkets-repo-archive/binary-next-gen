@@ -24,7 +24,7 @@ export default class AssetIndexCard extends PureComponent {
 					allOptionShown={false}
 					value={submarket}
 				/>
-				<div className="scrollable">
+				<div className="asset-index-data scrollable">
 					<AssetIndexTable
 						headers={headers}
 						durations={assetIndexRows}

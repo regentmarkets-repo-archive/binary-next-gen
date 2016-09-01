@@ -49,7 +49,7 @@ export default class TradingTimesCard extends PureComponent {
 						maxLength={10}
 					/>
 				</div>
-				<div className="scrollable">
+				<div className="trading-times-data scrollable">
 					<TradingTimesTable
 						{...this.props}
 						key={filter}
