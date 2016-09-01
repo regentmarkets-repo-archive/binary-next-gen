@@ -3,7 +3,7 @@ import { showError, timeLeftToNextRealityCheck } from 'binary-utils';
 import { readNewsFeed } from './NewsData';
 import { getVideosFromPlayList } from './VideoData';
 import * as actions from '../_actions';
-import { SET_DEFAULT_CURRENCY } from '../_constants/ActionTypes';
+import { CHANGE_INFO_FOR_ASSET, SET_DEFAULT_CURRENCY } from '../_constants/ActionTypes';
 
 const handlers = {
     active_symbols: 'serverDataActiveSymbols',
@@ -106,7 +106,10 @@ const initAuthorized = async (authData, store) => {
         if (tradesCount === 0) {
             store.dispatch(actions.changeActiveLayout(1, 1));
         }
-        store.dispatch(actions.changeExaminedAsset(symbolToUse));
+
+        store.dispatch(actions.getDailyPrices(symbolToUse));
+        store.dispatch(actions.getTicksByCount(symbolToUse, 100, false));
+        store.dispatch({ type: CHANGE_INFO_FOR_ASSET, symbol: symbolToUse });
 
         subscribeToWatchlist(r.active_symbols);
     });

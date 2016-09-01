@@ -41,10 +41,10 @@ export const getTicksBySymbol = symbol =>
         return Promise.resolve();
     };
 
-export const getTicksByCount = (symbol, count) =>
+export const getTicksByCount = (symbol, count, subscribe = true) =>
     (dispatch, getState) => {
         const { ticks } = getState();
-        if (!ticks.get(symbol)) {
+        if (subscribe && !ticks.get(symbol)) {
             return api
                 .getTickHistory(symbol, { end: 'latest', count, adjust_start_time: 1, subscribe: 1 })
                 .catch(err => {
@@ -57,8 +57,8 @@ export const getTicksByCount = (symbol, count) =>
                 });
         }
 
-        // having ticks implies already subscribe if possible
-        if (ticks.get(symbol).size < count) {
+        // having ticks implies already subscribe if subscribe is allowed
+        if (ticks.get(symbol) && ticks.get(symbol).size < count) {
             return api.getTickHistory(symbol, { end: 'latest', count, adjust_start_time: 1 });
         }
         return Promise.resolve();
