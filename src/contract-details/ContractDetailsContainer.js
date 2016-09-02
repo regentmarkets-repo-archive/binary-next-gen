@@ -24,7 +24,15 @@ export default class ContractDetailsContainer extends PureComponent {
 		const { chartData, contract } = this.props;
 
 		if (!chartData.ticks) {
-			actions.getDataForContract(contract.get('contract_id'), 1, 'all', 'ticks');
+			actions
+				.getDataForContract(contract.get('contract_id'), 1, 'all', 'ticks')
+				.catch(e => {
+					if (e.name === 'ContractEndsBeforeStart') {
+						// do nothing
+					} else {
+						throw e;
+					}
+				});
 		}
 	}
 

@@ -13,7 +13,7 @@ export default class ContractChart extends PureComponent {
     };
 
     static propTypes = {
-        contract: PropTypes.object,
+        contract: PropTypes.object.isRequired,
         chartData: PropTypes.shape({
             ticks: PropTypes.array,
             candles: PropTypes.array,
@@ -55,12 +55,13 @@ export default class ContractChart extends PureComponent {
     render() {
         const { contract, chartData, pipSize } = this.props;
         const { theme } = this.context;
+        const { date_start, exit_tick_time } = contract;
         const { chartType, dataType } = this.state;
         const data = chartData[dataType];
         const allowCandle = !contract.tick_count;
-        const rangeChange = (count, durationType) =>
-            actions.getDataForContract(contract.contract_id, count, durationType, dataType);
 
+        // handle edge case where contract ends before it starts, show No data available message on chart
+        const hasNoData = (+date_start > +exit_tick_time);
         return (
             <BinaryChart
                 className="contract-chart"
@@ -70,8 +71,8 @@ export default class ContractChart extends PureComponent {
                 ticks={data}
                 type={chartType}
                 theme={theme}
-                rangeChange={contract ? undefined : rangeChange}
-                typeChange={allowCandle && this.changeChartType}
+                noData={hasNoData}
+                typeChange={(allowCandle && !hasNoData) && this.changeChartType}
                 pipSize={pipSize}
             />
         );
