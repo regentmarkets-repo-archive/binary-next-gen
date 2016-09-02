@@ -17,7 +17,7 @@ type Props = {
 export default class TradeCard extends PureComponent {
 
     props: Props;
-    shouldFireZoomEvent: boolean;
+    shouldZoomLatest: boolean;
 
     static contextTypes = {
         router: PropTypes.object.isRequired,
@@ -25,24 +25,24 @@ export default class TradeCard extends PureComponent {
 
     constructor(props: Props) {
         super(props);
-        this.shouldFireZoomEvent = false;
+        this.shouldZoomLatest = false;
     }
 
     componentDidUpdate(prevProps) {
         // ugly hack to ensure event is fired after chart is back to trade view
-        if (prevProps.contractReceiptProps && !this.props.contractReceiptProps && this.shouldFireZoomEvent) {
-            this.fireZoomEvent();
-            this.shouldFireZoomEvent = false;
+        if (prevProps.contractReceiptProps && !this.props.contractReceiptProps && this.shouldZoomLatest) {
+            this.fireZoomToLatest();
+            this.shouldZoomLatest = false;
         }
     }
 
     tradeAgain = () => {
         const { index } = this.props;
         actions.closeContractReceipt(index);
-        this.shouldFireZoomEvent = true;
+        this.shouldZoomLatest = true;
     }
 
-    fireZoomEvent = () => {
+    fireZoomToLatest = () => {
         const { index } = this.props;
         const domID = `trade-chart${index}`;
         const zoomToLatestEv = new CustomEvent('zoom-to-latest');

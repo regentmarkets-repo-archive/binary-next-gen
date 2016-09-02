@@ -18,11 +18,10 @@ export const reqStakeChange = (index, stake) => ({
     stake,
 });
 
-export const reqPurchase = (index, price, purchaseHook) => ({
+export const reqPurchase = (index, price) => ({
     type: PURCHASE,
     index,
     price,
-    purchaseHook,
 });
 
 function* handleStakeChange(action) {
