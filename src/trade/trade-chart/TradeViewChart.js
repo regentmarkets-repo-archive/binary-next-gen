@@ -123,7 +123,7 @@ export default class TradeViewChart extends PureComponent {
                 type={contractForChart ? 'area' : chartType}
                 trade={tradeForChart && internalTradeModelToChartTradeModel(tradeForChart)}
                 typeChange={contractForChart ? undefined : this.changeChartType}   // do not allow change type when there's contract
-                tradingTime={tradingTime}
+                tradingTimes={tradingTime.times}
             />
         );
     }
