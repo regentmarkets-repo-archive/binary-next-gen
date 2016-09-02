@@ -11,8 +11,8 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-08-12 05:39+0000\n"
-"Last-Translator: Karin Graf <karin_graf@hotmail.com>\n"
+"PO-Revision-Date: 2016-09-02 07:07+0000\n"
+"Last-Translator: Robert Grundler <grundlertex@gmail.com>\n"
 "Language-Team: German <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/de/>\n"
 "Language: de\n"
@@ -20,7 +20,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.8-dev\n"
+"X-Generator: Weblate 2.8\n"
 
 msgid "All"
 msgstr "Alle"
@@ -881,68 +881,56 @@ msgid "Exit Full Screen"
 msgstr "Vollbildmodus beenden"
 
 msgid "No digit trades for this asset"
-msgstr ""
+msgstr "Keine Kommastellen Trades für diesen Wert"
 
-#, fuzzy
 msgid "Lock Cashier"
-msgstr "Kassenabschnitt entsperren"
+msgstr "Kassenabschnitt sperren"
 
-#, fuzzy
 msgid "Time out until date"
-msgstr "Timeout bis"
+msgstr "Timeout bis Datum"
 
-#, fuzzy
 msgid "Time out until time"
-msgstr "Timeout bis"
+msgstr "Timeout bis Uhrzeit"
 
-#, fuzzy
 msgid "Light Theme"
-msgstr "Hell"
+msgstr "Helles Thema"
 
-#, fuzzy
 msgid "Dark Theme"
-msgstr "Farbthema"
+msgstr "Dunkles Thema"
 
 msgid "Password changed successfully"
-msgstr ""
+msgstr "Passwort erfolgreich geändert"
 
-#, fuzzy
 msgid "Settings updated"
-msgstr "Einstellungen"
+msgstr "Einstellungen aktualisiert"
 
-#, fuzzy
 msgid "Address updated"
-msgstr "Adresse"
+msgstr "Adresse aktualisiert"
 
-#, fuzzy
 msgid "Barrier must not be empty"
-msgstr "Stadt darf nicht leer bleiben"
+msgstr "Schwelle darf nicht leer sein"
 
 msgid "Duration is out of range"
-msgstr ""
+msgstr "Laufzeit außerhalb des Wertebereichs"
 
 msgid "Start date invalid, it needs to be five minutes or more in the future"
 msgstr ""
+"Beginndatum ungültig, es muss fünf Minuten oder länger in der Zukunft liegen"
 
 msgid "Time format is wrong"
-msgstr ""
+msgstr "Zeitformat ist falsch"
 
-#, fuzzy
 msgid "Lower than"
-msgstr "Niedriger"
+msgstr "Niedriger als"
 
-#, fuzzy
 msgid "Higher than"
-msgstr "Höher"
+msgstr "Höher als"
 
-#, fuzzy
 msgid "High barrier"
-msgstr "Höher"
+msgstr "Hohe Schwelle"
 
-#, fuzzy
 msgid "Low barrier"
-msgstr "Schwelle"
+msgstr "Tiefe Schwelle"
 
-#, fuzzy
 msgid "Touch spot"
-msgstr "Berührt"
+msgstr "Berührungspunkt"
