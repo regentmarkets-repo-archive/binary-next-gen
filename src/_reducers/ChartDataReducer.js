@@ -58,8 +58,8 @@ export default (state = initialState, action) => {
                         epoch: +tick.epoch,
                         quote: +tick.quote,
                     };
-                    const extraTicksToShow = Math.max(3, existingTicks.size * 0.1);
-                    return ticksAfterSold.size < extraTicksToShow ? v.set('ticks', existingTicks.push(newTick)) : v;
+                    const noOfExtraTicksToShow = Math.max(3, existingTicks.size * 0.1);
+                    return ticksAfterSold.size < noOfExtraTicksToShow ? v.set('ticks', existingTicks.push(newTick)) : v;
                 }
                 return v;
             });
