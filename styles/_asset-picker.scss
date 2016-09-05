@@ -36,7 +36,18 @@
     }
 }
 
-.asset-picker-item td {
-    text-align: left;
-    padding: 0.25em;
+.asset-picker-item {
+    td {
+        text-align: left;
+        padding: 0.25em;
+    }
+
+    td:first-child {
+        width: 2em;
+    }
+
+    th {
+        text-align: left !important;
+        padding-left: 3em !important;
+    }
 }

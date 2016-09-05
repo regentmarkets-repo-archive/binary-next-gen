@@ -31,7 +31,7 @@
     .contract-receipt-container {
         overflow: auto;
         width: 15em;
-        margin-right: 0.25em;
+        margin-right: 0.5em;
     }
 
     .trade-panel {
@@ -108,7 +108,16 @@
 .numeric-input {
     display: flex;
 
+    .step-down {
+        border-radius: 3px 0 0 3px;
+    }
+
+    .step-up {
+        border-radius: 0 3px 3px 0;
+    }
+
     input {
+        border-radius: 0;
         text-align: center;
         width: calc(100% - 5em);
     }
@@ -161,7 +170,7 @@
     flex: 1;
     flex-direction: row;
     margin: 2px;
-    padding: 0.25em;
+    padding: 0.5em;
     background: white;
     border-radius: $BORDER_RADIUS;
 }
