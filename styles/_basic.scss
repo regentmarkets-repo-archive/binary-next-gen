@@ -40,7 +40,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    border-radius: 3px;
+    border-radius: $BORDER_RADIUS;
     margin: 1px;
     box-shadow: 0 0 0 3px $COLOR_BRAND_BLUE;
 
@@ -125,7 +125,7 @@ fieldset {
 .radio-selector {
     display: flex;
     margin-bottom: 0.5em;
-    border-radius: 2px;
+    border-radius: $BORDER_RADIUS;
     background-color: rgba($COLOR_BRAND_BLUE, 0.1);
 
     .radio-button {
@@ -166,7 +166,7 @@ fieldset {
 
     input[type=radio]:checked + label {
         background: $COLOR_BRAND_BLUE;
-        border-radius: 2px;
+        border-radius: $BORDER_RADIUS;
         color: white;
     }
 }
@@ -186,7 +186,7 @@ fieldset {
     margin-top: -0.75em;
     margin-left: 1em;
     width: 10em;
-    border-radius: 2px;
+    border-radius: $BORDER_RADIUS;
     background: $COLOR_BRAND_BLUE;
     visibility: hidden;
 }
@@ -266,7 +266,7 @@ div[role=tabpanel] {
     font-weight: bold;
     text-transform: uppercase;
     color: white;
-    border-radius: 2px;
+    border-radius: $BORDER_RADIUS;
 }
 
 .open-notice {
@@ -302,7 +302,7 @@ div[role=tabpanel] {
     color: $COLOR_BRAND_BLUE;
     font-weight: bold;
     padding: 0.25em 0.5em;
-    border-radius: 2px;
+    border-radius: $BORDER_RADIUS;
     position: absolute;
     display: none;
 }

@@ -11,7 +11,7 @@
     z-index: 10000;
     background: white;
     box-shadow: 0 0 1em 0 rgba(black, 0.5);
-    border-radius: 2px;
+    border-radius: $BORDER_RADIUS;
 
     + .full-screen-overlay {
         background: transparent;

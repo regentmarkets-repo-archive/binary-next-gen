@@ -163,7 +163,7 @@
     margin: 2px;
     padding: 0.25em;
     background: white;
-    border-radius: 2px;
+    border-radius: $BORDER_RADIUS;
 }
 
 .trade-chart-container {
@@ -243,7 +243,7 @@
         cursor: pointer;
         line-height: 2.5;
         background: rgba($COLOR_BRAND_BLUE, 0.1);
-        border-radius: 2px;
+        border-radius: $BORDER_RADIUS;
     }
 
     > label + label {
@@ -267,7 +267,7 @@
     justify-content: space-between;
     align-items: stretch;
     background: rgba($COLOR_BRAND_BLUE, 0.1);
-    border-radius: 2px;
+    border-radius: $BORDER_RADIUS;
 
     > *:first-child {
         margin-left: 0.5em;

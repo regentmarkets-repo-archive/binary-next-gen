@@ -1,6 +1,10 @@
 .asset-picker-filter {
     min-height: 7em;
 
+    [role=tablist] {
+        border-radius: $BORDER_RADIUS;
+    }
+
     [role=tab] {
         padding: 1em 0.25em;
     }
