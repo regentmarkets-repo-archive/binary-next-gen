@@ -24,4 +24,5 @@ export default [
     ActionTypes.TOGGLE_PANEL,
     ActionTypes.UPDATE_REALITY_CHECK,
     ActionTypes.UPDATE_REALITY_CHECK_SUMMARY,
+    ActionTypes.REMOVE_PERSONAL_DATA,
 ];
