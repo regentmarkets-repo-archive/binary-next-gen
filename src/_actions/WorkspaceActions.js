@@ -8,7 +8,15 @@ export const getDailyPrices = symbol =>
     (dispatch, getState) => {
         const { dailyPrices } = getState();
         if (!dailyPrices.get(symbol)) {
-            return api.getCandlesForLastNDays(symbol, 30);
+            return api
+                .getCandlesForLastNDays(symbol, 30)
+                .catch(err => {
+                    const errCode = err.error.error.code;
+                    if (errCode === 'StreamingNotAllowed') {
+                        return undefined;               // swallow error, as nothing we can do
+                    }
+                    return Promise.reject(err);
+                });
         }
         return Promise.resolve();
     };
@@ -53,7 +61,7 @@ export const changeActiveLayout = (tradesCount, layoutN) =>
         }
 
         const selectedSymbols = tradesParams.map(v => v.get('symbol'));
-        const assetNotSync = assets.find(a => a.get('exchange_is_open') === 1) === undefined;
+        const assetNotSync = assets.size === 0;
         if (assetNotSync) {
             return undefined;       // Active symbol call will create trade for us
         }

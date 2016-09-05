@@ -7,6 +7,7 @@ const filteredEngine = filter(engine, [
     ['boot'],
     ['account'],
     ['realityCheck'],
+    ['tradesParams'],
     ['watchlist'],
     ['workspace'],
 ], [
