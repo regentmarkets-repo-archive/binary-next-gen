@@ -55,20 +55,22 @@ export default class ContractChart extends PureComponent {
     render() {
         const { contract, chartData, pipSize } = this.props;
         const { theme } = this.context;
-        const { date_start, exit_tick_time } = contract;
+        const { date_start, exit_tick_time, sell_spot_time } = contract;
         const { chartType, dataType } = this.state;
         const data = chartData[dataType];
         const allowCandle = !contract.tick_count;
+        const endTime = exit_tick_time || sell_spot_time;
 
         // handle edge case where contract ends before it starts, show No data available message on chart
-        const hasNoData = (+date_start > +exit_tick_time);
+        const hasNoData = (+date_start > +endTime);
+
         return (
             <BinaryChart
                 className="contract-chart"
                 defaultRange={6}
                 showAllRangeSelector={false}
                 contract={contract}
-                ticks={data}
+                ticks={hasNoData ? undefined : data}
                 type={chartType}
                 theme={theme}
                 noData={hasNoData}
