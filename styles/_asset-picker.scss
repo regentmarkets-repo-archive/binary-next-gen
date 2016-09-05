@@ -1,5 +1,9 @@
 .asset-picker-filter {
-    min-height: 6em;
+    min-height: 7em;
+
+    [role=tab] {
+        padding: 1em 0.25em;
+    }
 }
 
 .asset-picker-container {
