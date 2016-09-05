@@ -175,6 +175,11 @@
 
 .trade-chart {
     width: 100%;
+    height: 100%;
+
+    & > div {
+        height: 100%;
+    }
 }
 
 .highcharts-container {
@@ -257,13 +262,16 @@
 
 .picker-label {
     cursor: pointer;
-    padding-left: 0.5em;
     line-height: 2.5;
     display: flex;
     justify-content: space-between;
     align-items: stretch;
     background: rgba($COLOR_BRAND_BLUE, 0.1);
     border-radius: 2px;
+
+    > *:first-child {
+        margin-left: 0.5em;
+    }
 
     .picker-value {
         flex: 1;
