@@ -13,7 +13,7 @@ export const getDailyPrices = symbol =>
                 .catch(err => {
                     const errCode = err.error.error.code;
                     if (errCode === 'StreamingNotAllowed') {
-                        return undefined;
+                        return undefined;               // swallow error, as nothing we can do
                     }
                     return Promise.reject(err);
                 });
