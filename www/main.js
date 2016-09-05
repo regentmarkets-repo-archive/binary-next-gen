@@ -12,7 +12,6 @@ let forceQuit = false;
 const name = app.getName();
 let updateFeed = 'http://localhost:3000/updates/latest';
 const isDevelopment = process.env.NODE_ENV === 'development';
-let feedURL = '';
 
 const logger = require('winston');
 
@@ -35,7 +34,7 @@ if (!isDevelopment) {
         }
     });
     autoUpdater.addListener('update-downloaded', function (event, releaseNotes, releaseName, releaseDate, updateURL) {
-        logger.log('A new update is ready to install', `Version ${releaseName} is downloaded and will be automatically installed on Quit`);
+        logger.log('A new update is ready to install', `Version ${releaseName} is downloaded from ${updateURL} and will be automatically installed on Quit`);
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'update-downloaded');
         }
@@ -206,7 +205,7 @@ app.on('ready', function() {
     });
 
      // Uncomment to use Chrome developer tools
-    mainWindow.webContents.openDevTools({detach:true});
+    // mainWindow.webContents.openDevTools({ detach: true });
 
     mainWindow.on('close', function (e) {
         if (!forceQuit) {
