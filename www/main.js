@@ -13,6 +13,10 @@ const name = app.getName();
 var updateFeed = 'http://localhost:3000/updates/latest';
 var isDevelopment = process.env.NODE_ENV === 'development';
 var feedURL = '';
+const logger = require('winston');
+logger.level = 'debug';
+global.logger = logger;
+const path = require('path');
 
 // Don't use auto-updater if we are in development 
 if (!isDevelopment) {
@@ -23,31 +27,31 @@ if (!isDevelopment) {
     }
 
     autoUpdater.addListener('update-available', function(event) {
-        console.log('A new update is available');
+        logger.log('A new update is available');
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'update-available');
         }
     });
-    autoUpdater.addListener("update-downloaded", function(event, releaseNotes, releaseName, releaseDate, updateURL) {
-        console.log('A new update is ready to install', `Version ${releaseName} is downloaded and will be automatically installed on Quit`)
+    autoUpdater.addListener('update-downloaded', function (event, releaseNotes, releaseName, releaseDate, updateURL) {
+        logger.log('A new update is ready to install', `Version ${releaseName} is downloaded and will be automatically installed on Quit`)
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'update-downloaded');
         }
     });
     autoUpdater.addListener('error', function (error) {
-        console.log(error);
+        logger.log(error);
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'update-error');
         }
     });
     autoUpdater.addListener('checking-for-update', function (event) {
-        console.log('checking-for-update');
+        logger.log('checking-for-update');
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'checking-for-update');
         }
     });
     autoUpdater.addListener("update-not-available", function () {
-        console.log('update-not-available');
+        logger.log('update-not-available');
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'update-not-available');
         }
@@ -181,13 +185,17 @@ app.on('ready', function() {
 
     const menu = Menu.buildFromTemplate(template);
 
+    logger.debug('Starting application');
+
     Menu.setApplicationMenu(menu);
     mainWindow = new BrowserWindow({
+        name: 'Binary.com',
         width: 1024,
         height: 680,
+        toolbar: false,
     });
 
-    mainWindow.loadURL('file://' + __dirname + '/index.html');
+    mainWindow.loadURL(path.join('file://', __dirname, '/index.html'));
 
     mainWindow.on('closed', function () {
         console.log('closed');
@@ -195,10 +203,15 @@ app.on('ready', function() {
         app.quit();
     });
 
+     // Uncomment to use Chrome developer tools
+    mainWindow.webContents.openDevTools({detach:true});
+
     mainWindow.on('close', function (e) {
         if (!forceQuit) {
             e.preventDefault();
             mainWindow.hide();
+        } else {
+          app.quit();
         }
     });
     app.on('activate', function () {
@@ -206,12 +219,11 @@ app.on('ready', function() {
     });
 
     mainWindow.on('show', function (e) {
-        console.log('the window is showing');
         mainWindow.show();
     });
 
     mainWindow.on('hide', function (e) {
-        console.log('the main window is hiding');
+      mainWindow.hide();
     });
 });
 
