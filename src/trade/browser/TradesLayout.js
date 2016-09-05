@@ -1,7 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { windowResizeEvent } from 'binary-utils';
-import { actions } from '../../_store';
 import TradeCardContainer from '../TradeCardContainer';
 import * as layouts from '../../layouts';
 import styles from '../../layouts/layouts.css';
@@ -19,11 +18,6 @@ export default class TradesLayouts extends PureComponent {
     static contextTypes = {
         theme: PropTypes.string,
     };
-
-    componentWillMount() {
-        const { layoutN, tradesCount } = this.props;
-        actions.changeActiveLayout(tradesCount, layoutN);
-    }
 
     componentDidUpdate() {
         windowResizeEvent();

@@ -49,9 +49,18 @@ export const getTicksByCount = (symbol, count, subscribe = true) =>
                 .getTickHistory(symbol, { end: 'latest', count, adjust_start_time: 1, subscribe: 1 })
                 .catch(err => {
                     const errCode = err.error.error.code;
+                    if (errCode === 'StreamingNotAllowed') {
+                        return undefined;             // swallow error, as nothing we can do
+                    }
                     if (errCode === 'MarketIsClosed' || errCode === 'NoRealtimeQuotes') {
                         return api
-                            .getTickHistory(symbol, { end: 'latest', count, adjust_start_time: 1 });
+                            .getTickHistory(symbol, { end: 'latest', count, adjust_start_time: 1 })
+                            .catch(err2 => {
+                                if (err2.error.error.code === 'StreamingNotAllowed') {
+                                    return undefined;             // swallow error, as nothing we can do
+                                }
+                                return Promise.reject(err);
+                            });
                     }
                     return Promise.reject(err);
                 });

@@ -100,10 +100,28 @@ const initAuthorized = async (authData, store) => {
     };
 
     api.getActiveSymbolsFull().then(r => {
+        const cachedParams = state.tradesParams.toJS();
         const firstOpenActiveSymbol = r.active_symbols.find(a => a.exchange_is_open === 1);
-        const symbolToUse = firstOpenActiveSymbol ? firstOpenActiveSymbol.symbol : r.active_symbols[0].symbol;
-        const tradesCount = state.tradesParams.size;
-        if (tradesCount === 0) {
+        let symbolToUse = firstOpenActiveSymbol ? firstOpenActiveSymbol.symbol : r.active_symbols[0].symbol;
+
+        const layout = state.workspace.get('layoutN');
+
+        if (cachedParams.length > 0) {
+            const allowedSymbols = cachedParams
+                .filter(c => r.active_symbols.some(a => a.symbol === c.symbol)).map(a => a.symbol);
+
+            const needToAdd = cachedParams.length - allowedSymbols.length;
+
+            const newSymbols = r.active_symbols.filter(a => a.exchange_is_open === 1).slice(0, needToAdd).map(a => a.symbol);
+
+            const symbols = allowedSymbols.concat(newSymbols);
+
+            symbolToUse = symbols[0];
+
+            symbols.forEach((s, idx) => store.dispatch(actions.createTrade(idx, s)));
+            store.dispatch(actions.updateActiveLayout(cachedParams.length, layout, symbols));
+        } else {
+            store.dispatch(actions.resetTrades());
             store.dispatch(actions.changeActiveLayout(1, 1));
         }
 
@@ -126,7 +144,7 @@ const initAuthorized = async (authData, store) => {
         }
     });
     api.getPayoutCurrencies();
-    api.subscribeToBalance();           // some call might fail due to backend overload
+    api.subscribeToBalance();
     api.subscribeToAllOpenContracts();
     api.subscribeToTransactions();
     // subscribeToSelectedSymbol(store);
