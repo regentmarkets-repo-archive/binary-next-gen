@@ -20,11 +20,6 @@ export default class TradesLayouts extends PureComponent {
         theme: PropTypes.string,
     };
 
-    componentWillMount() {
-        const { layoutN, tradesCount } = this.props;
-        actions.changeActiveLayout(tradesCount, layoutN);
-    }
-
     componentDidUpdate() {
         windowResizeEvent();
     }
