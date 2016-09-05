@@ -55,12 +55,12 @@ export const getTicksByCount = (symbol, count, subscribe = true) =>
                     if (errCode === 'MarketIsClosed' || errCode === 'NoRealtimeQuotes') {
                         return api
                             .getTickHistory(symbol, { end: 'latest', count, adjust_start_time: 1 })
-                            .catch(err => {
-                                if (errCode === 'StreamingNotAllowed') {
+                            .catch(err2 => {
+                                if (err2.error.error.code === 'StreamingNotAllowed') {
                                     return undefined;             // swallow error, as nothing we can do
                                 }
                                 return Promise.reject(err);
-                            })
+                            });
                     }
                     return Promise.reject(err);
                 });
