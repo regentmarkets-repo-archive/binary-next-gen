@@ -6,14 +6,16 @@ const { app } = electron;
 const { BrowserWindow } = electron;
 const { autoUpdater } = electron;
 const os = require('os');
-var mainWindow = null;
-var { Menu } = electron;
-var forceQuit = false;
+let mainWindow = null;
+const { Menu } = electron;
+let forceQuit = false;
 const name = app.getName();
-var updateFeed = 'http://localhost:3000/updates/latest';
-var isDevelopment = process.env.NODE_ENV === 'development';
-var feedURL = '';
+let updateFeed = 'http://localhost:3000/updates/latest';
+const isDevelopment = process.env.NODE_ENV === 'development';
+let feedURL = '';
+
 const logger = require('winston');
+
 logger.level = 'debug';
 global.logger = logger;
 const path = require('path');
@@ -33,7 +35,7 @@ if (!isDevelopment) {
         }
     });
     autoUpdater.addListener('update-downloaded', function (event, releaseNotes, releaseName, releaseDate, updateURL) {
-        logger.log('A new update is ready to install', `Version ${releaseName} is downloaded and will be automatically installed on Quit`)
+        logger.log('A new update is ready to install', `Version ${releaseName} is downloaded and will be automatically installed on Quit`);
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'update-downloaded');
         }
