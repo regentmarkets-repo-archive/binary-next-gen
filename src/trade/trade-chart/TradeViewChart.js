@@ -69,13 +69,17 @@ export default class TradeViewChart extends PureComponent {
         }
     }
 
-    rangeChange = () => {
-        const { tradeForChart } = this.props;
-        const { dataType } = this.state;
-        return (count, type) => actions.getDataForSymbol(tradeForChart.symbol, count, type, dataType);
-    };
+    onRangeChange = () =>
+        (count, type) =>
+            actions.getDataForSymbol(
+                this.props.tradeForChart.symbol,
+                count,
+                type,
+                this.state.dataType,
+            );
 
-    changeChartType = type => {
+
+    changeChartType = (type: ChartType) => {
         const { tradeForChart, contractForChart, feedLicense } = this.props;
         const { chartType } = this.state;
 
@@ -114,19 +118,19 @@ export default class TradeViewChart extends PureComponent {
                 id={`trade-chart${index}`}
                 className="trade-chart"
                 contract={contractForChart && serverContractModelToChartContractModel(contractForChart)}
-                defaultRange={1}                      // TODO: figure out how to set this dynamically so it looks good despite of data size
+                defaultRange={1} // TODO: figure out how to set this dynamically so it looks good despite of data size
                 events={events}
                 noData={feedLicense === 'chartonly'}
                 pipSize={pipSize}
-                onRangeChange={contractForChart ? undefined : this.rangeChange()}
                 shiftMode={contractForChart ? 'dynamic' : 'fixed'}
                 symbol={tradeForChart && tradeForChart.symbolName}
                 ticks={(dataType === 'ticks' || contractForChart) ? ticks : ohlc}
                 theme={theme}
                 type={contractForChart ? 'area' : chartType}
                 trade={tradeForChart && internalTradeModelToChartTradeModel(tradeForChart)}
-                onTypeChange={contractForChart ? undefined : this.changeChartType}   // do not allow change type when there's contract
                 tradingTimes={tradingTime.times}
+                onRangeChange={contractForChart ? undefined : this.onRangeChange()}
+                onTypeChange={contractForChart ? undefined : this.changeChartType}   // do not allow change type when there's contract
             />
         );
     }

@@ -10,6 +10,7 @@ const chartToDataType = {
 };
 
 export default class ContractChart extends PureComponent {
+
     static contextTypes = {
         theme: PropTypes.string.isRequired,
     };
@@ -31,7 +32,7 @@ export default class ContractChart extends PureComponent {
         };
     }
 
-    changeChartType = type => {
+    changeChartType = (type: ChartType) => {
         const { contract } = this.props;
         const { chartType } = this.state;
 
@@ -88,8 +89,8 @@ export default class ContractChart extends PureComponent {
                 type={chartType}
                 theme={theme}
                 noData={hasNoData}
-                onTypeChange={(allowCandle && !hasNoData) && this.changeChartType}
                 pipSize={pipSize}
+                onTypeChange={(allowCandle && !hasNoData) && this.changeChartType}
             />
         );
     }
