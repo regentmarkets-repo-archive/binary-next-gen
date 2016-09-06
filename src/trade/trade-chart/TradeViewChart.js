@@ -1,5 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
-import { BinaryChart } from 'binary-charts';
+import { BinaryChart, chartTypeToDataType } from 'binary-charts';
 import { actions } from '../../_store';
 import {
     internalTradeModelToChartTradeModel,
@@ -14,7 +14,9 @@ const zoomToLatest = (ev, chart) => {
 
 const chartToDataType = {
     area: 'ticks',
+    line: 'ticks',
     candlestick: 'candles',
+    ohlc: 'candles',
 };
 
 export default class TradeViewChart extends PureComponent {
