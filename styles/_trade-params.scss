@@ -185,6 +185,8 @@
 .trade-chart {
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
 
     #trade-chart0,
     #trade-chart1,

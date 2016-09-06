@@ -49,7 +49,14 @@ export default class ContractChart extends PureComponent {
             .catch(err => {
                 const serverError = err.error.error;
                 if (serverError.code === 'NoRealtimeQuotes' || serverError.code === 'MarketIsClosed') {
-                    return actions.getDataForContract(contract.contract_id, 1, 'all', newDataType, false);
+                    return actions
+                        .getDataForContract(contract.contract_id, 1, 'all', newDataType, false)
+                        .catch(err2 => {
+                            if (err2.error.error.code === 'StreamingNotAllowed') {
+                                return undefined;
+                            }
+                            return Promise.reject(err2);
+                        });
                 }
                 throw new Error(serverError.message);
             });
