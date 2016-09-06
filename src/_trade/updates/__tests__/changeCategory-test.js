@@ -2,7 +2,7 @@ import chai, { expect } from 'chai';
 import chaiSubset from 'chai-subset';
 import rawContract from 'binary-test-data/contractsForR50';
 import changeCategory from '../changeCategory';
-import { contractsPerSymbol } from '../../../trade-params/TradeParamsSelector';
+import { tradingOptionsForOneSymbol } from '../../../trade-params/TradeParamsSelector';
 import areAllTimeFieldsValid from '../../validation/areAllTimeFieldsValid';
 
 chai.use(chaiSubset);
@@ -21,7 +21,7 @@ describe('Update helpers', () => {
         disabled: false,
         basis: 'stake',
     };
-    const mockedContract = contractsPerSymbol(rawContract);
+    const mockedContract = tradingOptionsForOneSymbol(rawContract);
 
     describe('changeCategory', () => {
         it('should change category', () => {

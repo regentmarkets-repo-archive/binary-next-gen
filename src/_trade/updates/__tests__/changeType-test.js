@@ -1,7 +1,7 @@
 import { expect } from 'chai';
 import rawContract from 'binary-test-data/contractsForR50';
 import changeType from '../changeType';
-import { contractsPerSymbol } from '../../../trade-params/TradeParamsSelector';
+import { tradingOptionsForOneSymbol } from '../../../trade-params/TradeParamsSelector';
 import areAllTimeFieldsValid from '../../validation/areAllTimeFieldsValid';
 
 const mockTickTrade = {
@@ -18,7 +18,7 @@ const mockTickTrade = {
     basis: 'stake',
 };
 
-const mockedContract = contractsPerSymbol(rawContract);
+const mockedContract = tradingOptionsForOneSymbol(rawContract);
 
 describe('changeType', () => {
     it('should change type', () => {
