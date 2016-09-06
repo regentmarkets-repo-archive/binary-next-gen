@@ -15,8 +15,8 @@ const zoomToLatest = (ev, chart) => {
 const chartToDataType = {
     area: 'ticks',
     line: 'ticks',
-    ohlc: 'candles',
     candlestick: 'candles',
+    ohlc: 'candles',
 };
 
 export default class TradeViewChart extends PureComponent {
@@ -84,15 +84,16 @@ export default class TradeViewChart extends PureComponent {
         const { chartType } = this.state;
 
         // do nothing if there' no license for chart data or it's showing a contract
-        if (feedLicense === 'chartonly' || contractForChart) {
-            return {};
-        }
-
-        if (chartType === type) {
-            return {};
+        if (feedLicense === 'chartonly' || contractForChart || chartType === type) {
+            return undefined;
         }
 
         const newDataType = chartToDataType[type];
+        if (newDataType === this.state.dataType) {
+            this.setState({ chartType: type });
+            return undefined;
+        }
+
         this.setState({ chartType: type, dataType: newDataType });
         const dataResult = actions
             .getDataForSymbol(tradeForChart.symbol, 1, 'hour', newDataType, true)

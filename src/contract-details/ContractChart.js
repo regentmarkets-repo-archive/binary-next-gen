@@ -5,8 +5,8 @@ import { actions } from '../_store';
 const chartToDataType = {
     area: 'ticks',
     line: 'ticks',
-    ohlc: 'candles',
     candlestick: 'candles',
+    ohlc: 'candles',
 };
 
 export default class ContractChart extends PureComponent {
@@ -41,6 +41,11 @@ export default class ContractChart extends PureComponent {
         }
 
         const newDataType = chartToDataType[type];
+        if (newDataType === this.state.dataType) {
+            this.setState({ chartType: type });
+            return undefined;
+        }
+
         const toStream = !contract.sell_time;
         this.setState({ chartType: type, dataType: newDataType });
 
