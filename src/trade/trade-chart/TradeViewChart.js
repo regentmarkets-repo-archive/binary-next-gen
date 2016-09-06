@@ -115,14 +115,14 @@ export default class TradeViewChart extends PureComponent {
                 events={events}
                 noData={feedLicense === 'chartonly'}
                 pipSize={pipSize}
-                rangeChange={contractForChart ? undefined : this.rangeChange()}
+                onRangeChange={contractForChart ? undefined : this.rangeChange()}
                 shiftMode={contractForChart ? 'dynamic' : 'fixed'}
                 symbol={tradeForChart && tradeForChart.symbolName}
                 ticks={(dataType === 'ticks' || contractForChart) ? ticks : ohlc}
                 theme={theme}
                 type={contractForChart ? 'area' : chartType}
                 trade={tradeForChart && internalTradeModelToChartTradeModel(tradeForChart)}
-                typeChange={contractForChart ? undefined : this.changeChartType}   // do not allow change type when there's contract
+                onTypeChange={contractForChart ? undefined : this.changeChartType}   // do not allow change type when there's contract
                 tradingTimes={tradingTime.times}
             />
         );
