@@ -4,10 +4,13 @@ import { actions } from '../_store';
 
 const chartToDataType = {
     area: 'ticks',
+    line: 'ticks',
+    ohlc: 'candles',
     candlestick: 'candles',
 };
 
 export default class ContractChart extends PureComponent {
+
     static contextTypes = {
         theme: PropTypes.string.isRequired,
     };
@@ -29,7 +32,7 @@ export default class ContractChart extends PureComponent {
         };
     }
 
-    changeChartType = type => {
+    changeChartType = (type: ChartType) => {
         const { contract } = this.props;
         const { chartType } = this.state;
 
@@ -74,8 +77,8 @@ export default class ContractChart extends PureComponent {
                 type={chartType}
                 theme={theme}
                 noData={hasNoData}
-                typeChange={(allowCandle && !hasNoData) && this.changeChartType}
                 pipSize={pipSize}
+                onTypeChange={(allowCandle && !hasNoData) && this.changeChartType}
             />
         );
     }

@@ -1,4 +1,5 @@
 import { trackUserId } from 'binary-utils/lib/Analytics';
+import { showError } from 'binary-utils';
 import { store } from '../_store/persistentStore';
 import { history, accountExclusion } from '../_store/root.js';
 import { api } from './LiveData';
@@ -15,7 +16,7 @@ export const tryAuth = async token => {
             const exlcudedAcct = window.BinaryBoot.accounts.find(x => x.token === token).account;
             await accountExclusion(token);
             store.dispatch(updateToken(token));
-            alert('You have exlcluded yourself from account ' + exlcudedAcct);
+            showError('You have exlcluded yourself from account ' + exlcudedAcct);
         }
     }
 };
