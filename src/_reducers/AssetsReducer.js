@@ -11,7 +11,7 @@ const sortByPriority = symbols =>
         const aPriority = priority.indexOf(a.market);
         const bPriority = priority.indexOf(b.market);
         if (aPriority === bPriority) {
-            return a.submarket - b.submarket;
+            return a.submarket.localeCompare(b.submarket);
         }
 
         return aPriority - bPriority;

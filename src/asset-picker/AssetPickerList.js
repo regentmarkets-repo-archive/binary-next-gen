@@ -4,23 +4,21 @@ import AssetsPerSubmarket from './AssetsPerSubmarket';
 export default class AssetPickerList extends PureComponent {
 
 	static propTypes = {
-		assets: PropTypes.object.isRequired,
+		assets: PropTypes.array.isRequired,
 		onClose: PropTypes.func,
 		selectedAsset: PropTypes.string,
 	};
 
 	render() {
 		const { assets } = this.props;
-		console.log(assets);
 		return (
 			<div className="asset-list scrollable">
-				{Object.keys(assets)
-					.map(submarket =>
+				{assets
+					.map(grouped =>
 						<AssetsPerSubmarket
 							{...this.props}
-							key={submarket}
-							assetsInSubmarket={assets[submarket]}
-							ref={submarket}
+							key={grouped[0].submarket}
+							assetsInSubmarket={grouped}
 						/>
 					)
 				}
