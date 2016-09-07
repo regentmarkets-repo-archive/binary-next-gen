@@ -1,6 +1,7 @@
 import { fromJS } from 'immutable';
 import {
     UPDATE_CHART_DATA_BY_CONTRACT,
+    RESET_CHART_DATA_BY_CONTRACT,
     SERVER_DATA_PROPOSAL_OPEN_CONTRACT,
     SERVER_DATA_OHLC_STREAM,
     SERVER_DATA_TICK_STREAM,
@@ -97,6 +98,17 @@ export default (state = initialState, action) => {
             }
 
             return state;
+        }
+        case RESET_CHART_DATA_BY_CONTRACT: {
+            const { contractID, data } = action;
+            const forceType = data.map(ohlc => ({
+                epoch: +ohlc.epoch,
+                open: +ohlc.open,
+                high: +ohlc.high,
+                low: +ohlc.low,
+                close: +ohlc.close,
+            }));
+            return state.setIn([contractID, 'candles'], fromJS(forceType));
         }
         default: return state;
     }
