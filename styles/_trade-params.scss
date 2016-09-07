@@ -188,6 +188,16 @@
     display: flex;
     flex-direction: column;
 
+    .binary-chart-zoom-controls {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    &:hover .binary-chart-zoom-controls {
+        visibility: visible;
+        opacity: 1;
+    }
+
     #trade-chart0,
     #trade-chart1,
     #trade-chart2,
