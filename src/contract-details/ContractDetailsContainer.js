@@ -25,7 +25,7 @@ export default class ContractDetailsContainer extends PureComponent {
 
 		if (!chartData.ticks) {
 			actions
-				.getDataForContract(contract.get('contract_id'), 1, 'all', 'ticks')
+				.getDataForContract(contract.get('contract_id'), undefined, 'ticks')
 				.catch(e => {
 					if (e.name === 'ContractEndsBeforeStart') {
 						// do nothing

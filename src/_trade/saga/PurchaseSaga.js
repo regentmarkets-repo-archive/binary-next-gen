@@ -52,7 +52,10 @@ function* handlePurchase(action) {
         const { ticks, candles, symbol, isSold } =
             yield api.getDataForContract(
                 () => api.subscribeToOpenContract(buy.contract_id).then(r => r.proposal_open_contract),
-                1, 'all', 'ticks', false);
+                undefined,
+                'ticks',
+                false
+            );
 
         yield [
             put(updatePurchasedContract(index, buy)),
