@@ -10,7 +10,7 @@ export default class AssetPickerCard extends PureComponent {
 		index: PropTypes.number,
 		filter: PropTypes.object,
 		onSelecg: PropTypes.func,
-		assetPickerItems: PropTypes.object.isRequired,
+		assetPickerItems: PropTypes.array.isRequired,
 		selectedAsset: PropTypes.string.isRequired,
 		onSelect: PropTypes.func.isRequired,
 	};

@@ -26,7 +26,7 @@ describe('assetsIsOpenSelector', () => {
 });
 
 describe('availableContractsSelector', () => {
-    const availableContracts = TradeSelectors.availableContractsSelector({
+    const availableContracts = TradeSelectors.availableTradingOptionsSelector({
         assets: fromJS(assetsFromServer),
         tradingOptions: new Map({ R_50: contractsForR50, GDAXI: contractsForGDAXI }),
     });

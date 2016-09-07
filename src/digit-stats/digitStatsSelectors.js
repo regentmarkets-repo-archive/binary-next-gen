@@ -1,11 +1,11 @@
 import { createSelector } from 'reselect';
 import { pipsToDigits, calculateLastDigitStats } from 'binary-utils';
-import { ticksSelector, workspaceSelector, digitStatsSelector,
+import { ticksSelector, digitStatsSelector,
     tradingOptionsSelector, assetsSelector } from '../_store/directSelectors';
 import { examinedAssetSelector } from '../_store/commonSelectors';
 
 export default createSelector(
-    [examinedAssetSelector, ticksSelector, tradingOptionsSelector, digitStatsSelector, assetsSelector, workspaceSelector],
+    [examinedAssetSelector, ticksSelector, tradingOptionsSelector, digitStatsSelector, assetsSelector],
     (examinedAsset, ticks, tradingOptions, digitStats, assets) => {
         const symbol = examinedAsset.get('symbol');
         const assetSupportsDigit = examinedAsset &&
