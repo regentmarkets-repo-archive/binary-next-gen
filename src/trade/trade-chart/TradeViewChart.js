@@ -1,10 +1,12 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { BinaryChart } from 'binary-charts';
+import { nowAsEpoch } from 'binary-utils';
 import { actions } from '../../_store';
 import {
     internalTradeModelToChartTradeModel,
     serverContractModelToChartContractModel,
 } from '../adapters/TradeObjectAdapter';
+import { api } from '../../_data/LiveData';
 
 const zoomToLatest = (ev, chart) => {
     const { dataMax, dataMin } = chart.xAxis[0].getExtremes();
@@ -70,11 +72,10 @@ export default class TradeViewChart extends PureComponent {
     }
 
     onRangeChange = () =>
-        (count, type) =>
+        (duration) =>
             actions.getDataForSymbol(
                 this.props.tradeForChart.symbol,
-                count,
-                type,
+                duration,
                 this.state.dataType,
             );
 
@@ -100,11 +101,25 @@ export default class TradeViewChart extends PureComponent {
             .catch(err => {
                 const serverError = err.error.error;
                 if (serverError.code === 'NoRealtimeQuotes' || serverError.code === 'MarketIsClosed') {
-                    return actions.getDataForSymbol(tradeForChart.symbol, 1, 'hour', newDataType, false);
+                    return actions.getDataForSymbol(tradeForChart.symbol, 60 * 60, newDataType, false);
                 }
                 throw new Error(`Fetch data failed: ${serverError.message}`);
             });
         return dataResult;
+    }
+
+    changeChartInterval = (interval: number, duration: number) => {
+        const { symbol } = this.props.tradeForChart;
+        const nowEpoch = nowAsEpoch();
+        return api.getTickHistory(symbol, {
+            end: nowEpoch,
+            start: nowEpoch - duration,
+            granularity: interval,
+            style: 'candles',
+        }).then(r => {
+            this.setState({ chartType: 'candlestick', dataType: 'candles' });
+            return actions.resetChartDataForSymbol(symbol, r.candles);
+        });
     }
 
     render() {
@@ -129,6 +144,7 @@ export default class TradeViewChart extends PureComponent {
                 type={contractForChart ? 'area' : chartType}
                 trade={tradeForChart && internalTradeModelToChartTradeModel(tradeForChart)}
                 tradingTimes={tradingTime.times}
+                onIntervalChange={this.changeChartInterval}
                 onRangeChange={contractForChart ? undefined : this.onRangeChange()}
                 onTypeChange={contractForChart ? undefined : this.changeChartType}   // do not allow change type when there's contract
             />
