@@ -1,5 +1,6 @@
 import { api } from '../_data/LiveData';
-import { UPDATE_CHART_DATA_BY_CONTRACT, UPDATE_CHART_DATA_BY_SYMBOL } from '../_constants/ActionTypes';
+import { UPDATE_CHART_DATA_BY_CONTRACT, UPDATE_CHART_DATA_BY_SYMBOL,
+    RESET_CHART_DATA_BY_CONTRACT, RESET_CHART_DATA_BY_SYMBOL } from '../_constants/ActionTypes';
 import { getOpenContract } from './PortfolioActions';
 
 export const updateChartDataByContract = (contractID, data, dataType, symbol, isSold) => ({
@@ -37,3 +38,15 @@ export const getDataForSymbol = (symbol, duration, style, subscribe) =>
                 const { ticks, candles } = r;
                 return dispatch(updateChartDataBySymbol(symbol, ticks || candles, style));
             });
+
+export const resetChartDataForSymbol = (symbol, data) => ({
+    type: RESET_CHART_DATA_BY_SYMBOL,
+    symbol,
+    data,
+});
+
+export const resetChartDataForContract = (contractID, data) => ({
+    type: RESET_CHART_DATA_BY_CONTRACT,
+    contractID,
+    data,
+});
