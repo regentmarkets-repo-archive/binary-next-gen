@@ -96,7 +96,7 @@ export default class TradeViewChart extends PureComponent {
 
         this.setState({ chartType: type, dataType: newDataType });
         const dataResult = actions
-            .getDataForSymbol(tradeForChart.symbol, 1, 'hour', newDataType, true)
+            .getDataForSymbol(tradeForChart.symbol, 60 * 60, newDataType, true)
             .catch(err => {
                 const serverError = err.error.error;
                 if (serverError.code === 'NoRealtimeQuotes' || serverError.code === 'MarketIsClosed') {

@@ -11,12 +11,11 @@ export const updateChartDataByContract = (contractID, data, dataType, symbol, is
     isSold,
 });
 
-export const getDataForContract = (contractID, durationCount, durationType, style, subscribe) =>
+export const getDataForContract = (contractID, duration, style, subscribe) =>
     dispatch =>
         api.getDataForContract(
             () => dispatch(getOpenContract(contractID)),
-            durationCount,
-            durationType,
+            duration,
             style,
             subscribe
         ).then(r => {
@@ -31,9 +30,9 @@ export const updateChartDataBySymbol = (symbol, data, dataType) => ({
     dataType,
 });
 
-export const getDataForSymbol = (symbol, durationCount, durationType, style, subscribe) =>
+export const getDataForSymbol = (symbol, duration, style, subscribe) =>
     dispatch =>
-        api.getDataForSymbol(symbol, durationCount, durationType, style, subscribe)
+        api.getDataForSymbol(symbol, duration, style, subscribe)
             .then(r => {
                 const { ticks, candles } = r;
                 return dispatch(updateChartDataBySymbol(symbol, ticks || candles, style));

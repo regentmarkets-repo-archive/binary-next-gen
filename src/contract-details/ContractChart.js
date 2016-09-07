@@ -50,12 +50,12 @@ export default class ContractChart extends PureComponent {
         this.setState({ chartType: type, dataType: newDataType });
 
         return actions
-            .getDataForContract(contract.contract_id, 1, 'all', newDataType, toStream)
+            .getDataForContract(contract.contract_id, undefined, newDataType, toStream)
             .catch(err => {
                 const serverError = err.error.error;
                 if (serverError.code === 'NoRealtimeQuotes' || serverError.code === 'MarketIsClosed') {
                     return actions
-                        .getDataForContract(contract.contract_id, 1, 'all', newDataType, false)
+                        .getDataForContract(contract.contract_id, undefined, newDataType, false)
                         .catch(err2 => {
                             if (err2.error.error.code === 'StreamingNotAllowed') {
                                 return undefined;
