@@ -72,10 +72,11 @@ export default class TradeViewChart extends PureComponent {
     }
 
     onRangeChange = () =>
-        (duration) =>
-            actions.getDataForSymbol(
+        (start, end) =>
+            api.autoAdjustGetData(
                 this.props.tradeForChart.symbol,
-                duration,
+                Math.round(start / 1000),
+                Math.round(end / 1000),
                 this.state.dataType,
             );
 
@@ -145,7 +146,7 @@ export default class TradeViewChart extends PureComponent {
                 trade={tradeForChart && internalTradeModelToChartTradeModel(tradeForChart)}
                 tradingTimes={tradingTime.times}
                 onIntervalChange={this.changeChartInterval}
-                onRangeChange={contractForChart ? undefined : this.onRangeChange()}
+                getData={contractForChart ? undefined : this.onRangeChange()}
                 onTypeChange={contractForChart ? undefined : this.changeChartType}   // do not allow change type when there's contract
             />
         );
