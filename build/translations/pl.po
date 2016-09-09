@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: 1.0\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-08-11 18:44+0000\n"
+"PO-Revision-Date: 2016-09-09 15:08+0000\n"
 "Last-Translator: Ewelina Bruździak <e.bruzdziak@gmail.com>\n"
 "Language-Team: Polish <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/pl/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
 "|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.8-dev\n"
+"X-Generator: Weblate 2.8\n"
 "X-Poedit-SourceCharset: UTF-8\n"
 
 msgid "All"
@@ -880,68 +880,57 @@ msgid "Exit Full Screen"
 msgstr "Zamknij pełny ekran"
 
 msgid "No digit trades for this asset"
-msgstr ""
+msgstr "Brak zakładów opartych na cyfrach dla tego aktywa"
 
-#, fuzzy
 msgid "Lock Cashier"
-msgstr "Odblokowywanie sekcji Kasjer"
+msgstr "Zablokowywanie sekcji Kasjer"
 
-#, fuzzy
 msgid "Time out until date"
-msgstr "Przekroczono limit czasu do"
+msgstr "Przekroczono limit czasu do (data)"
 
-#, fuzzy
 msgid "Time out until time"
-msgstr "Przekroczono limit czasu do"
+msgstr "Przekroczono limit czasu do (godzina)"
 
-#, fuzzy
 msgid "Light Theme"
-msgstr "Jasny"
+msgstr "Jasny motyw"
 
-#, fuzzy
 msgid "Dark Theme"
-msgstr "Motyw kolorystyczny"
+msgstr "Ciemny motyw"
 
 msgid "Password changed successfully"
-msgstr ""
+msgstr "Hasło zostało zmienione"
 
-#, fuzzy
 msgid "Settings updated"
-msgstr "Ustawienia"
+msgstr "Zaktualizowano ustawienia"
 
-#, fuzzy
 msgid "Address updated"
-msgstr "Adres"
+msgstr "Zaktualizowano adres"
 
-#, fuzzy
 msgid "Barrier must not be empty"
-msgstr "Pole „miasto” nie może być puste"
+msgstr "Pole „limit” nie może być puste"
 
 msgid "Duration is out of range"
-msgstr ""
+msgstr "Czas trwania przekracza dozwolony przedział"
 
 msgid "Start date invalid, it needs to be five minutes or more in the future"
 msgstr ""
+"Data rozpoczęcia jest nieprawidłowa, należy wybrać co najmniej 5 minut w "
+"przyszłości"
 
 msgid "Time format is wrong"
-msgstr ""
+msgstr "Błędny format czasu"
 
-#, fuzzy
 msgid "Lower than"
-msgstr "Niższy"
+msgstr "Niższy niż"
 
-#, fuzzy
 msgid "Higher than"
-msgstr "Wyższy"
+msgstr "Wyższy niż"
 
-#, fuzzy
 msgid "High barrier"
-msgstr "Wyższy"
+msgstr "Górny limit"
 
-#, fuzzy
 msgid "Low barrier"
-msgstr "Limit"
+msgstr "Dolny limit"
 
-#, fuzzy
 msgid "Touch spot"
-msgstr "Osiągnie"
+msgstr "Punkt osiągnięcia"
