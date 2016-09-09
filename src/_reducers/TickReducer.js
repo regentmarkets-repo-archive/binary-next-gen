@@ -21,7 +21,7 @@ export const mergeTicks = (existingTicks, newTicks) => {
 
     const lastNewTicksEpoch = getLast(newTicks).epoch;
     const lastExistingTickEpoch = getLast(existingTicks).epoch;
-    
+
     // if existing ticks contains new ticks, ignore new ticks
     if (
         newTicks[0].epoch > existingTicks[0].epoch &&

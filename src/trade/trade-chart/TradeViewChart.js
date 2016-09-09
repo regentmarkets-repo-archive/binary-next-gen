@@ -21,6 +21,26 @@ const chartToDataType = {
     ohlc: 'candles',
 };
 
+const fetch1000Ticks = (symbol, end, count = 3000) =>
+    api.getTickHistory(symbol, {
+        count,
+        end,
+    }).then(r => {
+        const { times, prices } = r.history;
+        return times.map((t, idx) => {
+            const quote = prices[idx];
+            return { epoch: +t, quote: +quote };
+        });
+    });
+
+const fetch1000Candles = (symbol, end, interval, count = 1000) =>
+    api.getTickHistory(symbol, {
+        count,
+        end,
+        style: 'candles',
+        granularity: interval,
+    }).then(r => r.candles);
+
 export default class TradeViewChart extends PureComponent {
 
     static contextTypes = {
@@ -71,14 +91,27 @@ export default class TradeViewChart extends PureComponent {
         }
     }
 
-    onRangeChange = () =>
-        (start, end) =>
-            api.autoAdjustGetData(
-                this.props.tradeForChart.symbol,
-                Math.round(start / 1000),
-                Math.round(end / 1000),
-                this.state.dataType,
-            );
+    onRangeChange = () => {
+        const { symbol } = this.props.tradeForChart;
+        const fetchInBatches = (start, end, type, interval) => {
+            const result = type === 'ticks' ? fetch1000Ticks(symbol, end) : fetch1000Candles(symbol, end, interval);
+            return result.then(data => {
+                if (+data[0].epoch > +start) {
+                    return fetchInBatches(start, +data[0].epoch, type);
+                }
+                return data;
+            });
+        };
+
+        return fetchInBatches;
+    }
+
+            // api.autoAdjustGetData(
+            //     this.props.tradeForChart.symbol,
+            //     Math.round(start / 1000),
+            //     Math.round(end / 1000),
+            //     this.state.dataType,
+            // );
 
 
     changeChartType = (type: ChartType) => {
@@ -119,7 +152,7 @@ export default class TradeViewChart extends PureComponent {
             style: 'candles',
         }).then(r => {
             this.setState({ chartType: 'candlestick', dataType: 'candles' });
-            return actions.resetChartDataForSymbol(symbol, r.candles);
+            return r;
         });
     }
 
