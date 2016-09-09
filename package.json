@@ -37,7 +37,7 @@
   },
   "build": {
     "appId": "app.binary.com",
-    "app-category-type": "public.app-category.trading",
+    "category": "Binary Trading",
     "productName": "Binary.com",
     "osx": {
       "title": "Binary.com",
@@ -62,13 +62,18 @@
     },
     "win": {
       "iconUrl": "https://www.binary.com/images/favicons/favicon-192x192.png",
-      "target": "zip",
+      "target": "squirrel",
+      "title": "Binary.com",
+      "icon": "build/icon.icns",
       "loadingGif": "",
       "msi": true
     },
     "linux": {
       "description": "Sharp Prices. Smart Trading",
-      "target": "zip"
+      "title": "Binary.com",
+      "icon": "build/icon.icns",
+      "target": "AppImage",
+      "vendor": "Binary (IOM) Ltd"
     }
   },
   "keywords": [
