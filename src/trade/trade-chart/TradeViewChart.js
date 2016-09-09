@@ -21,6 +21,26 @@ const chartToDataType = {
     ohlc: 'candles',
 };
 
+const fetch1000Ticks = (symbol, end, count = 3000) =>
+    api.getTickHistory(symbol, {
+        count,
+        end,
+    }).then(r => {
+        const { times, prices } = r.history;
+        return times.map((t, idx) => {
+            const quote = prices[idx];
+            return { epoch: +t, quote: +quote };
+        });
+    });
+
+const fetch1000Candles = (symbol, end, interval, count = 1000) =>
+    api.getTickHistory(symbol, {
+        count,
+        end,
+        style: 'candles',
+        granularity: interval,
+    }).then(r => r.candles);
+
 export default class TradeViewChart extends PureComponent {
 
     static contextTypes = {
@@ -71,56 +91,49 @@ export default class TradeViewChart extends PureComponent {
         }
     }
 
-    onRangeChange = () =>
-        (start, end) =>
-            api.autoAdjustGetData(
-                this.props.tradeForChart.symbol,
-                Math.round(start / 1000),
-                Math.round(end / 1000),
-                this.state.dataType,
-            );
+    fetchInBatches = (start, end, type, interval) => {
+        const { tradeForChart } = this.props;
+        const { symbol } = tradeForChart;
 
+        const result = type === 'ticks' ? fetch1000Ticks(symbol, end) : fetch1000Candles(symbol, end, interval);
+        return result.then(data => {
+            if (+data[0].epoch > +start) {
+                return this.fetchInBatches(start, +data[0].epoch, type);
+            }
+            return data;
+        });
+    }
 
     changeChartType = (type: ChartType) => {
-        const { tradeForChart, contractForChart, feedLicense } = this.props;
+        const { contractForChart, feedLicense } = this.props;
         const { chartType } = this.state;
 
-        // do nothing if there' no license for chart data or it's showing a contract
+        // TODO: provide a switch to disable type change control
         if (feedLicense === 'chartonly' || contractForChart || chartType === type) {
-            return undefined;
+            return;
         }
 
         const newDataType = chartToDataType[type];
         if (newDataType === this.state.dataType) {
             this.setState({ chartType: type });
-            return undefined;
+            return;
         }
 
         this.setState({ chartType: type, dataType: newDataType });
-        const dataResult = actions
-            .getDataForSymbol(tradeForChart.symbol, 60 * 60, newDataType, true)
-            .catch(err => {
-                const serverError = err.error.error;
-                if (serverError.code === 'NoRealtimeQuotes' || serverError.code === 'MarketIsClosed') {
-                    return actions.getDataForSymbol(tradeForChart.symbol, 60 * 60, newDataType, false);
-                }
-                throw new Error(`Fetch data failed: ${serverError.message}`);
-            });
-        return dataResult;
     }
 
-    changeChartInterval = (interval: number, duration: number) => {
-        const { symbol } = this.props.tradeForChart;
-        const nowEpoch = nowAsEpoch();
-        return api.getTickHistory(symbol, {
-            end: nowEpoch,
-            start: nowEpoch - duration,
-            granularity: interval,
-            style: 'candles',
-        }).then(r => {
-            this.setState({ chartType: 'candlestick', dataType: 'candles' });
-            return actions.resetChartDataForSymbol(symbol, r.candles);
-        });
+    changeChartInterval = (interval: number) => {
+        // const { symbol } = this.props.tradeForChart;
+        // const nowEpoch = nowAsEpoch();
+        // return api.getTickHistory(symbol, {
+        //     end: nowEpoch,
+        //     start: nowEpoch - duration,
+        //     granularity: interval,
+        //     style: 'candles',
+        // }).then(r => {
+        //     this.setState({ chartType: 'candlestick', dataType: 'candles' });
+        //     return r;
+        // });
     }
 
     render() {
@@ -146,7 +159,7 @@ export default class TradeViewChart extends PureComponent {
                 trade={tradeForChart && internalTradeModelToChartTradeModel(tradeForChart)}
                 tradingTimes={tradingTime.times}
                 onIntervalChange={this.changeChartInterval}
-                getData={contractForChart ? undefined : this.onRangeChange()}
+                getData={contractForChart ? undefined : this.fetchInBatches}
                 onTypeChange={contractForChart ? undefined : this.changeChartType}   // do not allow change type when there's contract
             />
         );

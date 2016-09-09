@@ -20,14 +20,7 @@ export const mergeTicks = (existingTicks, newTicks) => {
     }
 
     const lastNewTicksEpoch = getLast(newTicks).epoch;
-    const oldestExistingTickEpoch = existingTicks[0].epoch;
     const lastExistingTickEpoch = getLast(existingTicks).epoch;
-    const epochDiff = oldestExistingTickEpoch - lastNewTicksEpoch;
-
-    // if new ticks are very old compared to existing ticks, ignore them
-    if (epochDiff > 300) {          // 5 minutes
-        return existingTicks;
-    }
 
     // if existing ticks contains new ticks, ignore new ticks
     if (
@@ -56,7 +49,7 @@ export default (state = initialState, action) => {
                 epoch: +tick.epoch,
                 quote: +tick.quote,
             };
-            return state.update(symbol, List.of(), v => v.takeLast(1000).push(fromJS(newTick)));
+            return state.update(symbol, List.of(), v => v.takeLast(10000).push(fromJS(newTick)));
         }
         case SERVER_DATA_TICK_HISTORY: {
             const { times, prices } = action.serverResponse.history;
