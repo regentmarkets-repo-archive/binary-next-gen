@@ -60,6 +60,11 @@ const initAuthorized = async (authData, store) => {
 
     const state = store.getState();
 
+    api.unsubscribeFromAllTicks();
+    api.unsubscribeFromAllProposals();
+    api.unsubscribeFromAllPortfolios();
+    api.unsubscribeFromAllProposalsOpenContract();
+
     api.getLandingCompanyDetails(authData.authorize.landing_company_name)
         .then(r => {
             const details = r.landing_company_details;
