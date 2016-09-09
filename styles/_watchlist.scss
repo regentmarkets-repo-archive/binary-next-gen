@@ -20,7 +20,7 @@
 }
 
 .watchlist-item {
-    border-radius: 2px;
+    border-radius: $BORDER_RADIUS;
 
     svg {
         max-height: 100%;

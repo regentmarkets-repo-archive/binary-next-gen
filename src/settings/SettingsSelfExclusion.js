@@ -74,7 +74,12 @@ export default class SettingsSelfExclusion extends PureComponent {
 				success: true,
 				serverError: false,
 			});
-			setTimeout(() => this.setState({ success: false }), 3000);
+			setTimeout(() => {
+				this.setState({ success: false });
+				if (exclude_until) {
+					window.location.reload();
+				}
+			}, 3000);
 		} catch (e) {
 			this.setState({ serverError: e.error.error.message });
 		}

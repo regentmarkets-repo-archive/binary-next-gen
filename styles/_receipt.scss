@@ -7,7 +7,7 @@
 .contract-detail {
     display: flex;
     margin: 0.125em;
-    border-radius: 2px;
+    border-radius: $BORDER_RADIUS;
 
     > span {
         flex: 1;

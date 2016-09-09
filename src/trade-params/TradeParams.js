@@ -44,6 +44,7 @@ export default class TradeParams extends PureComponent {
 
     static defaultProps = {
         type: 'full',
+        forceRenderCount: -1,
     };
 
     static propTypes = {
@@ -117,8 +118,8 @@ export default class TradeParams extends PureComponent {
         const digitOptions = (isDigitType && barrierInfo) && barrierInfo.tick[0].values;
         const askPrice = askPriceFromProposal(proposal);
         const longcode = proposal && proposal.longcode;
-        const serverError = errors.serverError;
-        const nonServerError = errorToShow(errors);
+        const serverError = errors && errors.serverError;
+        const nonServerError = errors && errorToShow(errors);
 
         return (
             <div className="trade-params" key={this.state.dynamicKey} style={style}>

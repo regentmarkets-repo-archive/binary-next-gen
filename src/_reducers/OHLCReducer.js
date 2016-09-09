@@ -5,6 +5,7 @@ import {
     SERVER_DATA_OHLC_STREAM,
     SERVER_DATA_CANDLES,
     UPDATE_CHART_DATA_BY_SYMBOL,
+    RESET_CHART_DATA_BY_SYMBOL,
 } from '../_constants/ActionTypes';
 
 const initialState = new Map();
@@ -55,6 +56,17 @@ export default (state = initialState, action) => {
                 return state;
             }
             return state.set(symbol, fromJS(merged));
+        }
+        case RESET_CHART_DATA_BY_SYMBOL: {
+            const { symbol, data } = action;
+            const forceType = data.map(ohlc => ({
+                epoch: +ohlc.epoch,
+                open: +ohlc.open,
+                high: +ohlc.high,
+                low: +ohlc.low,
+                close: +ohlc.close,
+            }));
+            return state.set(symbol, fromJS(forceType));
         }
         default:
             return state;

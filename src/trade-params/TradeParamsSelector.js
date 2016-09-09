@@ -7,14 +7,14 @@ import { pipSizePerTrade } from '../trade/trade-chart/TradeViewChartSelector';
 import { mockedContract } from '../_constants/MockContract';
 import { paramPerTrade, errorPerTrade, proposalPerTrade, purchasePerTrade, uiStatePerTrade } from '../trade/TradeSelectors';
 
-const aggregateContracts = (contracts, type) => ({
+const extractTradingOptions = (contracts, type) => ({
     barriers: extractBarrier(contracts, type),
     durations: extractDuration(contracts, type),
     forwardStartingDuration: extractForwardStartingDuration(contracts, type),
     spread: (type.indexOf('SPREAD') > -1) ? extractSpreadInfo(contracts) : null,
 });
 
-export const contractsPerSymbol = createSelector(
+export const tradingOptionsForOneSymbol = createSelector(
     contracts => contracts,
     contracts => {
         if (contracts.error) return contracts;      // do not process error
@@ -23,8 +23,7 @@ export const contractsPerSymbol = createSelector(
             const categoryObj = normalized[category];
             Object.keys(categoryObj).forEach(type => {
                 if (!type) return;
-                const contractsPerType = aggregateContracts(categoryObj[type], type);
-                categoryObj[type] = contractsPerType;
+                categoryObj[type] = extractTradingOptions(categoryObj[type], type);
             });
             normalized[category] = categoryObj;
         });
@@ -46,12 +45,12 @@ export const assetsIsOpenSelector = createSelector(
     }
 );
 
-export const availableContractsSelector = createSelector(
+export const availableTradingOptionsSelector = createSelector(
     [state => state.tradingOptions, assetsIsOpenSelector],
     (tradingOptions, assetsIsOpen) =>
         tradingOptions.map((contract, symbol) => {
             // each immediate child refer to a type, eg Rise/Fall
-            const contractTree = contractsPerSymbol(contract);
+            const contractTree = tradingOptionsForOneSymbol(contract);
 
             // remove trade type without start later if market is closed
             return assetsIsOpen[symbol] && assetsIsOpen[symbol].isOpen ?
@@ -62,12 +61,12 @@ export const availableContractsSelector = createSelector(
         })
 );
 
-const contractPerTrade = createSelector(
-    [availableContractsSelector, paramPerTrade],
-    (contracts, param) => {
+const tradingOptionPerTrade = createSelector(
+    [availableTradingOptionsSelector, paramPerTrade],
+    (options, param) => {
         if (!param) return undefined;
         const symbol = param.get('symbol');
-        return contracts.get(symbol);
+        return options.get(symbol);
     }
 );
 
@@ -100,7 +99,7 @@ const getStartLaterOnlyContract = contract => {
 export const tradeParamsPerTrade = createSelector(
     [
         currencySelector,
-        contractPerTrade,
+        tradingOptionPerTrade,
         paramPerTrade,
         errorPerTrade,
         pipSizePerTrade,

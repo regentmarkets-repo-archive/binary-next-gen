@@ -1,22 +1,38 @@
 import React, { PureComponent } from 'react';
 import { TabList, Tab } from 'binary-components';
 
+const values = [
+	'all',
+	'favorites',
+	'open',
+	'volidx',
+	'forex',
+	'indices',
+	'commodities',
+	'stocks',
+];
+
 export default class AssetPickerCategoryFilter extends PureComponent {
 
+	props: {
+		onChange: PropTypes.func.isRequired,
+		value: string,
+	};
+
 	onChange = num =>
-		console.log(num);
+		this.props.onChange(values[num]);
 
 	render() {
 		return (
 			<TabList onChange={this.onChange}>
-				<Tab imgSrc="img/all.svg" hint="All" />
+				<Tab imgSrc="img/barchart.svg" hint="All" />
 				<Tab imgSrc="img/favorites.svg" hint="Favorites" />
-				<Tab imgSrc="img/open.svg" hint="Favorites" />
-				<Tab imgSrc="img/volatility.svg" hint="Volatility" />
-				<Tab imgSrc="img/indices.svg" hint="Indices" />
-				<Tab imgSrc="img/stocks.svg" hint="OTC Stocks" />
-				<Tab imgSrc="img/forex.svg" hint="Forex" />
-				<Tab imgSrc="img/commodity.svg" hint="Commodities" />
+				<Tab imgSrc="img/barchart.svg" hint="Open" />
+				<Tab imgSrc="img/ohlc.svg" hint="Volatility" />
+				<Tab imgSrc="img/ohlc.svg" hint="Indices" />
+				<Tab imgSrc="img/ohlc.svg" hint="OTC Stocks" />
+				<Tab imgSrc="img/ohlc.svg" hint="Forex" />
+				<Tab imgSrc="img/ohlc.svg" hint="Commodities" />
 			</TabList>
 		);
 	}

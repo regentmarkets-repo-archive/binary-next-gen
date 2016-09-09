@@ -1,10 +1,12 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { BinaryChart } from 'binary-charts';
+import { nowAsEpoch } from 'binary-utils';
 import { actions } from '../../_store';
 import {
     internalTradeModelToChartTradeModel,
     serverContractModelToChartContractModel,
 } from '../adapters/TradeObjectAdapter';
+import { api } from '../../_data/LiveData';
 
 const zoomToLatest = (ev, chart) => {
     const { dataMax, dataMin } = chart.xAxis[0].getExtremes();
@@ -14,7 +16,9 @@ const zoomToLatest = (ev, chart) => {
 
 const chartToDataType = {
     area: 'ticks',
+    line: 'ticks',
     candlestick: 'candles',
+    ohlc: 'candles',
 };
 
 export default class TradeViewChart extends PureComponent {
@@ -67,37 +71,56 @@ export default class TradeViewChart extends PureComponent {
         }
     }
 
-    rangeChange = () => {
-        const { tradeForChart } = this.props;
-        const { dataType } = this.state;
-        return (count, type) => actions.getDataForSymbol(tradeForChart.symbol, count, type, dataType);
-    };
+    onRangeChange = () =>
+        (start, end) =>
+            api.autoAdjustGetData(
+                this.props.tradeForChart.symbol,
+                Math.round(start / 1000),
+                Math.round(end / 1000),
+                this.state.dataType,
+            );
 
-    changeChartType = type => {
+
+    changeChartType = (type: ChartType) => {
         const { tradeForChart, contractForChart, feedLicense } = this.props;
         const { chartType } = this.state;
 
         // do nothing if there' no license for chart data or it's showing a contract
-        if (feedLicense === 'chartonly' || contractForChart) {
-            return {};
-        }
-
-        if (chartType === type) {
-            return {};
+        if (feedLicense === 'chartonly' || contractForChart || chartType === type) {
+            return undefined;
         }
 
         const newDataType = chartToDataType[type];
+        if (newDataType === this.state.dataType) {
+            this.setState({ chartType: type });
+            return undefined;
+        }
+
         this.setState({ chartType: type, dataType: newDataType });
         const dataResult = actions
-            .getDataForSymbol(tradeForChart.symbol, 1, 'hour', newDataType, true)
+            .getDataForSymbol(tradeForChart.symbol, 60 * 60, newDataType, true)
             .catch(err => {
                 const serverError = err.error.error;
                 if (serverError.code === 'NoRealtimeQuotes' || serverError.code === 'MarketIsClosed') {
-                    return actions.getDataForSymbol(tradeForChart.symbol, 1, 'hour', newDataType, false);
+                    return actions.getDataForSymbol(tradeForChart.symbol, 60 * 60, newDataType, false);
                 }
                 throw new Error(`Fetch data failed: ${serverError.message}`);
             });
         return dataResult;
+    }
+
+    changeChartInterval = (interval: number, duration: number) => {
+        const { symbol } = this.props.tradeForChart;
+        const nowEpoch = nowAsEpoch();
+        return api.getTickHistory(symbol, {
+            end: nowEpoch,
+            start: nowEpoch - duration,
+            granularity: interval,
+            style: 'candles',
+        }).then(r => {
+            this.setState({ chartType: 'candlestick', dataType: 'candles' });
+            return actions.resetChartDataForSymbol(symbol, r.candles);
+        });
     }
 
     render() {
@@ -111,19 +134,20 @@ export default class TradeViewChart extends PureComponent {
                 id={`trade-chart${index}`}
                 className="trade-chart"
                 contract={contractForChart && serverContractModelToChartContractModel(contractForChart)}
-                defaultRange={1}                      // TODO: figure out how to set this dynamically so it looks good despite of data size
+                defaultRange={1} // TODO: figure out how to set this dynamically so it looks good despite of data size
                 events={events}
                 noData={feedLicense === 'chartonly'}
                 pipSize={pipSize}
-                rangeChange={contractForChart ? undefined : this.rangeChange()}
                 shiftMode={contractForChart ? 'dynamic' : 'fixed'}
                 symbol={tradeForChart && tradeForChart.symbolName}
                 ticks={(dataType === 'ticks' || contractForChart) ? ticks : ohlc}
                 theme={theme}
                 type={contractForChart ? 'area' : chartType}
                 trade={tradeForChart && internalTradeModelToChartTradeModel(tradeForChart)}
-                typeChange={contractForChart ? undefined : this.changeChartType}   // do not allow change type when there's contract
                 tradingTimes={tradingTime.times}
+                onIntervalChange={this.changeChartInterval}
+                getData={contractForChart ? undefined : this.onRangeChange()}
+                onTypeChange={contractForChart ? undefined : this.changeChartType}   // do not allow change type when there's contract
             />
         );
     }

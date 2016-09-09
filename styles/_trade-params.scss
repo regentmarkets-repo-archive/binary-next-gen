@@ -31,7 +31,7 @@
     .contract-receipt-container {
         overflow: auto;
         width: 15em;
-        margin-right: 0.25em;
+        margin-right: 0.5em;
     }
 
     .trade-panel {
@@ -108,7 +108,16 @@
 .numeric-input {
     display: flex;
 
+    .step-down {
+        border-radius: 3px 0 0 3px;
+    }
+
+    .step-up {
+        border-radius: 0 3px 3px 0;
+    }
+
     input {
+        border-radius: 0;
         text-align: center;
         width: calc(100% - 5em);
     }
@@ -161,9 +170,9 @@
     flex: 1;
     flex-direction: row;
     margin: 2px;
-    padding: 0.25em;
+    padding: 0.5em;
     background: white;
-    border-radius: 2px;
+    border-radius: $BORDER_RADIUS;
 }
 
 .trade-chart-container {
@@ -175,6 +184,27 @@
 
 .trade-chart {
     width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    .binary-chart-zoom-controls {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    &:hover .binary-chart-zoom-controls {
+        visibility: visible;
+        opacity: 1;
+    }
+
+    #trade-chart0,
+    #trade-chart1,
+    #trade-chart2,
+    #trade-chart3,
+    #trade-chart4 {
+        height: calc(100% - 2.5em);
+    }
 }
 
 .highcharts-container {
@@ -238,7 +268,7 @@
         cursor: pointer;
         line-height: 2.5;
         background: rgba($COLOR_BRAND_BLUE, 0.1);
-        border-radius: 2px;
+        border-radius: $BORDER_RADIUS;
     }
 
     > label + label {
@@ -257,13 +287,16 @@
 
 .picker-label {
     cursor: pointer;
-    padding-left: 0.5em;
     line-height: 2.5;
     display: flex;
     justify-content: space-between;
     align-items: stretch;
     background: rgba($COLOR_BRAND_BLUE, 0.1);
-    border-radius: 2px;
+    border-radius: $BORDER_RADIUS;
+
+    > *:first-child {
+        margin-left: 0.5em;
+    }
 
     .picker-value {
         flex: 1;
