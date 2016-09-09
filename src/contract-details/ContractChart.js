@@ -32,30 +32,16 @@ export default class ContractChart extends PureComponent {
         };
     }
 
-    changeChartType = (type: ChartType) => {
+    fetchData = (start, end, type, interval) => {
         const { contract } = this.props;
-        const { chartType } = this.state;
-
-        if (chartType === type) {
-            return undefined;
-        }
-
-        const newDataType = chartToDataType[type];
-        if (newDataType === this.state.dataType) {
-            this.setState({ chartType: type });
-            return undefined;
-        }
-
         const toStream = !contract.sell_time;
-        this.setState({ chartType: type, dataType: newDataType });
-
         return actions
-            .getDataForContract(contract.contract_id, undefined, newDataType, toStream)
+            .getDataForContract(contract.contract_id, type, toStream)
             .catch(err => {
                 const serverError = err.error.error;
                 if (serverError.code === 'NoRealtimeQuotes' || serverError.code === 'MarketIsClosed') {
                     return actions
-                        .getDataForContract(contract.contract_id, undefined, newDataType, false)
+                        .getDataForContract(contract.contract_id, type, false)
                         .catch(err2 => {
                             if (err2.error.error.code === 'StreamingNotAllowed') {
                                 return undefined;
@@ -67,13 +53,31 @@ export default class ContractChart extends PureComponent {
             });
     }
 
+    changeChartType = (type: ChartType) => {
+
+        const { chartType } = this.state;
+
+        const allowCandle = !contract.tick_count;
+        const newDataType = chartToDataType[type];
+
+        if ((!allowCandle && newDataType === 'candles') || chartType === type) {
+            return undefined;
+        }
+
+        if (newDataType === this.state.dataType) {
+            this.setState({ chartType: type });
+            return undefined;
+        }
+
+        this.setState({ chartType: type, dataType: newDataType });
+    }
+
     render() {
         const { contract, chartData, pipSize } = this.props;
         const { theme } = this.context;
         const { date_start, exit_tick_time, sell_spot_time } = contract;
         const { chartType, dataType } = this.state;
         const data = chartData[dataType];
-        const allowCandle = !contract.tick_count;
         const endTime = exit_tick_time || sell_spot_time;
 
         // handle edge case where contract ends before it starts, show No data available message on chart
@@ -90,7 +94,7 @@ export default class ContractChart extends PureComponent {
                 theme={theme}
                 noData={hasNoData}
                 pipSize={pipSize}
-                onTypeChange={(allowCandle && !hasNoData) && this.changeChartType}
+                onTypeChange={!hasNoData ? this.changeChartType : undefined}
             />
         );
     }
