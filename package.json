@@ -21,7 +21,7 @@
     "build:apk": "npm run build:dev && cordova build --release android && jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore tick-trade-key.keystore ./platforms/android/build/outputs/apk/android-release-unsigned.apk TickTrade && ~/Library/Android/sdk/build-tools/24.0.0/zipalign -v 4 ./platforms/android/build/outputs/apk/android-release-unsigned.apk ./platforms/android/build/outputs/apk/android-release-aligned.apk",
     "build:webpack": "NODE_ENV=production webpack --config webpack.config.js",
     "lint": "eslint src",
-    "electron": "electron ./www",
+    "electron": "NODE_ENV=developement electron ./www/main.js",
     "translate": "bash fetch-translation.sh",
     "dist": "build -owl --ia32 --x64",
     "prerelease:osx": "rm -rf ./release/osx && mkdirp release/osx",

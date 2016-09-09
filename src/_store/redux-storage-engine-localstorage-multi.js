@@ -1,7 +1,7 @@
 export default () => ({
     load() {
         return Promise.resolve(Object.keys(localStorage).reduce((acc, key) => {
-            if (localStorage.getItem(key) !== 'undefined') {
+            if (key && localStorage.getItem(key) !== 'undefined') {
                 acc[key] = JSON.parse(localStorage.getItem(key));
             }
             return acc;

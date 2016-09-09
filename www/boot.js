@@ -61,7 +61,8 @@
     readConfig();
     parseUrlAndStoreAccountInfo(window.location.href);
     window.BinaryBoot.parseUrl = parseOAuthResponse;
-    window.BinaryBoot.appId = window.cordova ? 1006 : 1001;
+    window.BinaryBoot.appId = window.cordova || window.electron ? 1006 : 1001;
+    console.log('the jatau is ', window.BinaryBoot.appId);
     var lang = window.BinaryBoot.language;
 
     var redirectIndex = window.location.href.indexOf('?');

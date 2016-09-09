@@ -187,13 +187,16 @@ app.on('ready', function() {
         height: 680,
     });
 
-    mainWindow.loadURL('file://' + __dirname + '/index.html');
+    mainWindow.loadURL(path.join('file://', __dirname, '/main.html'));
 
     mainWindow.on('closed', function () {
         console.log('closed');
         mainWindow = null;
         app.quit();
     });
+
+    // Uncomment to use Chrome developer tools
+    // mainWindow.webContents.openDevTools({ detach: true });
 
     mainWindow.on('close', function (e) {
         if (!forceQuit) {

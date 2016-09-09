@@ -4,6 +4,9 @@ import { history } from '../_store/root.js';
 import { api } from './LiveData';
 import { updateAppState, removePersonalData, updateToken, updateBoot } from '../_actions';
 
+let authWindow = null;
+const electron = window.electron;
+
 export const tryAuth = async token => {
     store.dispatch(updateAppState('authorized', false));
     const response = await api.authorize(token);
@@ -20,8 +23,31 @@ export const signOut = () => {
 
 export const signIn = () => {
     const oAuthUrl = `https://oauth.binary.com/oauth2/authorize?app_id=${window.BinaryBoot.appId}&l=${window.BinaryBoot.language}`;
-
-    if (window.cordova) {
+    if (electron) {
+        const { BrowserWindow } = electron.remote;
+        authWindow = new BrowserWindow({
+            name: 'Binary.com',
+            title: 'Login',
+            width: 1024,
+            height: 680,
+            show: false,
+        });
+        authWindow.loadURL(oAuthUrl);
+        authWindow.once('ready-to-show', () => {
+            authWindow.show();
+        });
+        authWindow.setResizable(false);
+        authWindow.on('close', () => {
+            authWindow = null;
+        }, false);
+        authWindow.webContents.on('did-get-redirect-request', (e, oldUrl, newUrl) => {
+            const accounts = window.BinaryBoot.parseUrl(newUrl);
+            store.dispatch(updateBoot('accounts', accounts));
+            store.dispatch(updateToken(accounts[0].token));
+            tryAuth(accounts[0].token);
+            authWindow.close();
+        });
+    } else if (window.cordova) {
         const winAuth = window.cordova.InAppBrowser.open(oAuthUrl, '_blank', 'location=no');
         winAuth.addEventListener('loadstart', e => {
             if (e.url.indexOf('acct1') > -1) {
