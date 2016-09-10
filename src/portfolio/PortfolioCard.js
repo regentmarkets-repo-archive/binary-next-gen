@@ -6,15 +6,13 @@ import PortfolioList from './PortfolioList';
 
 export default class PortfolioCard extends PureComponent {
 
-	static propTypes = {
-		compact: PropTypes.bool,
-		contracts: PropTypes.object,
-		proposals: PropTypes.object,
-		purchaseTotal: PropTypes.number,
-		payoutTotal: PropTypes.number,
-		indicativeTotal: PropTypes.number,
-		history: PropTypes.object,
-		onViewDetails: PropTypes.func,
+	props: {
+		compact: boolean,
+		contracts: Object,
+		purchaseTotal: number,
+		payoutTotal: number,
+		indicativeTotal: number,
+		onViewDetails: (contract: Contract) => void,
 	};
 
 	static contextTypes = {

@@ -1,7 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { BinaryChart } from 'binary-charts';
-import { nowAsEpoch } from 'binary-utils';
-import { actions } from '../../_store';
 import {
     internalTradeModelToChartTradeModel,
     serverContractModelToChartContractModel,

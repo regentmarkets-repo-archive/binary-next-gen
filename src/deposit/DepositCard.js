@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { M, Tab, TabList } from 'binary-components';
 import { immutableChildrenToJS } from 'binary-utils';
 import PaymentAgentsList from './PaymentAgentsList';
@@ -9,14 +9,16 @@ const components = [
 	WithdrawalForm,
 ];
 
-export default class DepositCard extends PureComponent {
-    static propTypes = {
-        paymentAgent: PropTypes.object.isRequired,
-        currency: PropTypes.string.isRequired,
-        country: PropTypes.string.isRequired,
-    };
+type Props = {
+	paymentAgent: Object,
+	country: string,
+};
 
-    constructor(props) {
+export default class DepositCard extends PureComponent {
+
+	props: Props;
+
+    constructor(props: Props) {
         super(props);
         this.state = { activeTab: 0 };
     }

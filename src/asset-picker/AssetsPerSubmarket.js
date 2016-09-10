@@ -3,10 +3,10 @@ import AssetPickerItem from './AssetPickerItem';
 import AssetPickerHeader from './AssetPickerHeader';
 
 export default class AssetsPerSubmarket extends PureComponent {
+
     static propTypes = {
         assetsInSubmarket: PropTypes.array.isRequired,
         selectedAsset: PropTypes.string.isRequired,
-        onClose: PropTypes.func,
     };
 
     render() {

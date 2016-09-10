@@ -1,16 +1,12 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import EmptySlate from '../containers/EmptySlate';
 import StatementFilter from './StatementFilter';
 import StatementTable from './StatementTable';
 
 export default class StatementCard extends PureComponent {
 
-	static propTypes = {
-		currency: PropTypes.string.isRequired,
-		compact: PropTypes.bool,
-		transactionsFilter: PropTypes.number.isRequired,
-		transactions: PropTypes.array.isRequired,
-		transactionsTotal: PropTypes.number.isRequired,
+	props: {
+		transactions: Object[],
 	};
 
 	render() {
