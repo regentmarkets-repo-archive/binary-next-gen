@@ -120,19 +120,19 @@ export default class TradeViewChart extends PureComponent {
         this.setState({ chartType: type, dataType: newDataType });
     }
 
-    changeChartInterval = (interval: number) => {
-        // const { symbol } = this.props.tradeForChart;
-        // const nowEpoch = nowAsEpoch();
-        // return api.getTickHistory(symbol, {
-        //     end: nowEpoch,
-        //     start: nowEpoch - duration,
-        //     granularity: interval,
-        //     style: 'candles',
-        // }).then(r => {
-        //     this.setState({ chartType: 'candlestick', dataType: 'candles' });
-        //     return r;
-        // });
-    }
+    // changeChartInterval = (interval: number) => {
+    //     const { symbol } = this.props.tradeForChart;
+    //     const nowEpoch = nowAsEpoch();
+    //     return api.getTickHistory(symbol, {
+    //         end: nowEpoch,
+    //         start: nowEpoch - duration,
+    //         granularity: interval,
+    //         style: 'candles',
+    //     }).then(r => {
+    //         this.setState({ chartType: 'candlestick', dataType: 'candles' });
+    //         return r;
+    //     });
+    // }
 
     render() {
         const { contractForChart, index, ticks, ohlc, events,
@@ -156,7 +156,7 @@ export default class TradeViewChart extends PureComponent {
                 type={contractForChart ? 'area' : chartType}
                 trade={tradeForChart && internalTradeModelToChartTradeModel(tradeForChart)}
                 tradingTimes={tradingTime.times}
-                onIntervalChange={this.changeChartInterval}
+//                onIntervalChange={this.changeChartInterval}
                 getData={contractForChart ? undefined : this.fetchInBatches}
                 onTypeChange={contractForChart ? undefined : this.changeChartType}   // do not allow change type when there's contract
             />

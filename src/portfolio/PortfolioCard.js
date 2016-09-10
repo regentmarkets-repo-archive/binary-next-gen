@@ -39,22 +39,25 @@ export default class PortfolioCard extends PureComponent {
 	render() {
 		const { compact, contracts, payoutTotal, purchaseTotal, indicativeTotal } = this.props;
 
+		if (Object.keys(contracts).length === 0) {
+			return (
+				<EmptySlate
+					img="img/portfolio.svg"
+					text="You have no open contracts"
+				/>
+			);
+		}
+
 		return (
 			<div className="portfolio-card">
-				{Object.keys(contracts).length === 0 ?
-					<EmptySlate
-						img="img/portfolio.svg"
-						text="You have no open contracts"
-					/> :
-					<PortfolioList
-						compact={compact}
-						contracts={contracts}
-						payoutTotal={payoutTotal}
-						purchaseTotal={purchaseTotal}
-						indicativeTotal={indicativeTotal}
-						onViewDetails={this.onViewDetails}
-					/>
-				}
+				<PortfolioList
+					compact={compact}
+					contracts={contracts}
+					payoutTotal={payoutTotal}
+					purchaseTotal={purchaseTotal}
+					indicativeTotal={indicativeTotal}
+					onViewDetails={this.onViewDetails}
+				/>
 			</div>
 		);
 	}

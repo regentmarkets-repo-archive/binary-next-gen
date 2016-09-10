@@ -1,0 +1,47 @@
+.binary-chart-zoom-button {
+    opacity: 0.75;
+    background: rgba($COLOR_BRAND_BLUE, 0.25) !important;
+
+    &:hover {
+        opacity: 1;
+    }
+}
+
+.inverse {
+    .binary-chart-zoom-button {
+        opacity: 0.75;
+        background: rgba($COLOR_INVERSE_TEXT, 0.25) !important;
+
+        &:hover {
+            opacity: 1;
+        }
+    }
+}
+
+.binary-chart-time-frame-picker {
+    button {
+        color: $COLOR_BRAND_BLUE;
+
+        &:hover {
+            background: rgba($COLOR_BRAND_BLUE, 0.25);
+        }
+    }
+
+    button + button {
+        border-left: 1px solid rgba($COLOR_BRAND_BLUE, 0.5);
+    }
+}
+
+.inverse {
+    button {
+        color: $COLOR_INVERSE_TEXT;
+
+        &:hover {
+            background: rgba($COLOR_INVERSE_TEXT, 0.25);
+        }
+    }
+
+    button + button {
+        border-left: 1px solid rgba($COLOR_INVERSE_TEXT, 0.5);
+    }
+}
