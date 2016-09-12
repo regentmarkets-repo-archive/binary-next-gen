@@ -29,8 +29,6 @@ export default class TradeViewChart extends PureComponent {
 
     static propTypes = {
         contractForChart: PropTypes.object,
-        // ticks: PropTypes.array.isRequired,
-        // ohlc: PropTypes.array.isRequired,
         index: PropTypes.number.isRequired,
         events: PropTypes.array.isRequired,
         feedLicense: PropTypes.string.isRequired,
@@ -55,7 +53,7 @@ export default class TradeViewChart extends PureComponent {
             dataType: 'ticks',
             chartType: 'area',
             ticks: [],
-            ohlc: [],
+            candles: [],
         };
 
         this.api = chartApi[props.index];
@@ -78,8 +76,8 @@ export default class TradeViewChart extends PureComponent {
                 low: +ohlc.low,
                 close: +ohlc.close,
             };
-            const old = this.state.ohlc;
-            this.setState({ ohlc: old.concat([newOHLC]) });
+            const old = this.state.candles;
+            this.setState({ candles: old.concat([newOHLC]) });
         });
     }
 
@@ -113,9 +111,9 @@ export default class TradeViewChart extends PureComponent {
             return ticks;
         }
 
-        const ohlc = mergeCandles(this.state.ohlc, data.candles);
-        this.setState({ ohlc });
-        return ohlc;
+        const candles = mergeCandles(this.state.candles, data.candles);
+        this.setState({ candles });
+        return candles;
     }
 
     fetchInBatches = (start, end, type, interval) => {
@@ -181,25 +179,23 @@ export default class TradeViewChart extends PureComponent {
         const { contractForChart, index, events,
             feedLicense, pipSize, tradeForChart, tradingTime } = this.props;
         const { theme } = this.context;
-        const { chartType, ticks, ohlc, dataType } = this.state;
+        const { chartType, ticks, dataType } = this.state;
 
         return (
             <BinaryChart
                 id={`trade-chart${index}`}
                 className="trade-chart"
                 contract={contractForChart && serverContractModelToChartContractModel(contractForChart)}
-                defaultRange={1} // TODO: figure out how to set this dynamically so it looks good despite of data size
                 events={events}
                 noData={feedLicense === 'chartonly'}
                 pipSize={pipSize}
                 shiftMode={contractForChart ? 'dynamic' : 'fixed'}
                 symbol={tradeForChart && tradeForChart.symbolName}
-                ticks={(dataType === 'ticks' || contractForChart) ? ticks : ohlc}
+                ticks={contractForChart ? ticks : this.state[dataType]}
                 theme={theme}
                 type={contractForChart ? 'area' : chartType}
                 trade={tradeForChart && internalTradeModelToChartTradeModel(tradeForChart)}
                 tradingTimes={tradingTime.times}
-//                onIntervalChange={this.changeChartInterval}
                 getData={contractForChart ? undefined : this.fetchInBatches}
                 onTypeChange={contractForChart ? undefined : this.changeChartType}   // do not allow change type when there's contract
             />

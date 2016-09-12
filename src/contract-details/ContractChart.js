@@ -12,10 +12,6 @@ const chartToDataType = {
 
 type Props = {
     contract: Contract,
-    chartData: {
-        ticks: Tick[],
-        candles: Candle[],
-    },
     pipSize: number,
 };
 
