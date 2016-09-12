@@ -162,6 +162,9 @@ export default class ContractChart extends PureComponent {
         return (
             <BinaryChart
                 className="contract-chart"
+                compactToolbar
+                hiddenTimeFrame
+                hiddenZoomControls
                 defaultRange={6}
                 showAllTimeFrame={false}
                 contract={contract}
