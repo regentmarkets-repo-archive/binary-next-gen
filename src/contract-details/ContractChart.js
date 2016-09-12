@@ -40,6 +40,7 @@ export default class ContractChart extends PureComponent {
                 quote: +data.tick.quote,
             };
             this.setState({ ticks: old.concat([newTick]) });
+            this.ticksId = data.tick.id;
         });
 
         this.api.events.on('ohlc', data => {
@@ -53,12 +54,22 @@ export default class ContractChart extends PureComponent {
             };
             const old = this.state.candles;
             this.setState({ candles: old.concat([newOHLC]) });
+            this.ohlcId = data.ohlc.id;
         });
     }
 
     componentWillMount() {
         this.getOHLCData();
         this.getTicksData();
+    }
+
+    componentWillUnmount() {
+        this.unsubscribe();
+    }
+
+    unsubscribe = () => {
+        if (this.ticksId) this.api.unsubscribeByID(this.ticksId);
+        if (this.ohlcId) this.api.unsubscribeByID(this.ohlcId);
     }
 
     updateData = (data, type) => {

@@ -21,8 +21,14 @@ const chartToDataType = {
     ohlc: 'candles',
 };
 
-export default class TradeViewChart extends PureComponent {
+const defaultState = {
+    dataType: 'ticks',
+    chartType: 'area',
+    ticks: [],
+    candles: [],
+};
 
+export default class TradeViewChart extends PureComponent {
     static contextTypes = {
         theme: PropTypes.string,
     };
@@ -49,12 +55,7 @@ export default class TradeViewChart extends PureComponent {
 
     constructor(props) {
         super(props);
-        this.state = {
-            dataType: 'ticks',
-            chartType: 'area',
-            ticks: [],
-            candles: [],
-        };
+        this.state = defaultState;
 
         this.api = chartApi[props.index];
 
@@ -65,6 +66,7 @@ export default class TradeViewChart extends PureComponent {
                 quote: +data.tick.quote,
             };
             this.setState({ ticks: old.concat([newTick]) });
+            this.ticksId = data.tick.id;
         });
 
         this.api.events.on('ohlc', data => {
@@ -78,12 +80,15 @@ export default class TradeViewChart extends PureComponent {
             };
             const old = this.state.candles;
             this.setState({ candles: old.concat([newOHLC]) });
+            this.ohlcId = data.ohlc.id;
         });
     }
 
     componentWillMount() {
-        this.subscribeToTicks();
-        this.subscribeToOHLC();
+        const { tradeForChart } = this.props;
+        const { symbol } = tradeForChart;
+        this.subscribeToTicks(symbol);
+        this.subscribeToOHLC(symbol);
     }
 
     componentWillReceiveProps(nextProps) {
@@ -91,11 +96,21 @@ export default class TradeViewChart extends PureComponent {
             (this.props.tradeForChart && nextProps.tradeForChart) &&
             (this.props.tradeForChart.symbol !== nextProps.tradeForChart.symbol)
         ) {
-            this.setState({
-                dataType: 'ticks',
-                chartType: 'area',
-            });
+            this.setState(defaultState);
+
+            this.unsubscribe();
+            this.subscribeToTicks(nextProps.tradeForChart.symbol);
+            this.subscribeToOHLC(nextProps.tradeForChart.symbol);
         }
+    }
+
+    componentWillUnmount() {
+        this.unsubscribe();
+    }
+
+    unsubscribe = () => {
+        if (this.ticksId) this.api.unsubscribeByID(this.ticksId);
+        if (this.ohlcId) this.api.unsubscribeByID(this.ohlcId);
     }
 
     updateData = (data, type) => {
@@ -127,21 +142,15 @@ export default class TradeViewChart extends PureComponent {
         return result;
     }
 
-    subscribeToTicks = (count = 2000) => {
-        const { tradeForChart } = this.props;
-        const { symbol } = tradeForChart;
-        return this.api
+    subscribeToTicks = (symbol, count = 2000) =>
+        this.api
             .getTickHistory(symbol, { count, end: 'latest', subscribe: 1 })
             .then(r => this.updateData(r, 'ticks'));
-    }
 
-    subscribeToOHLC = (count = 500, interval = 60) => {
-        const { tradeForChart } = this.props;
-        const { symbol } = tradeForChart;
-        return this.api
+    subscribeToOHLC = (symbol, count = 500, interval = 60) =>
+        this.api
             .getTickHistory(symbol, { count, end: 'latest', subscribe: 1, style: 'candles', granularity: interval })
             .then(r => this.updateData(r, 'candles'));
-    }
 
     changeChartType = (type: ChartType) => {
         const { contractForChart, feedLicense } = this.props;
