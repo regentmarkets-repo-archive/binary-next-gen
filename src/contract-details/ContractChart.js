@@ -126,6 +126,8 @@ export default class ContractChart extends PureComponent {
                 defaultRange={6}
                 showAllTimeFrame={false}
                 contract={contract}
+                symbol={contract.underlying}
+                symbolName={contract.symbolName}
                 ticks={hasNoData ? undefined : data}
                 type={chartType}
                 theme={theme}

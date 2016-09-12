@@ -176,7 +176,8 @@ export default class TradeViewChart extends PureComponent {
                 noData={feedLicense === 'chartonly'}
                 pipSize={pipSize}
                 shiftMode={contractForChart ? 'dynamic' : 'fixed'}
-                symbol={tradeForChart && tradeForChart.symbolName}
+                symbol={tradeForChart && tradeForChart.symbol}
+                symbolName={tradeForChart && tradeForChart.symbolName}
                 ticks={contractForChart ? ticks : this.state[dataType]}
                 theme={theme}
                 type={contractForChart ? 'area' : chartType}
