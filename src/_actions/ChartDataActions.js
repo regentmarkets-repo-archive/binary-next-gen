@@ -12,11 +12,11 @@ export const updateChartDataByContract = (contractID, data, dataType, symbol, is
     isSold,
 });
 
-export const getDataForContract = (contractID, duration, style, subscribe) =>
+export const getDataForContract = (contractID, style, subscribe) =>
     dispatch =>
         api.getDataForContract(
             () => dispatch(getOpenContract(contractID)),
-            duration,
+            undefined,
             style,
             subscribe
         ).then(r => {

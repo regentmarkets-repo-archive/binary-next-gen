@@ -11,14 +11,10 @@ export default class ContractDetailsCard extends PureComponent {
 		compact: boolean,
 		contract: Contract,
 		pipSize: number,
-		chartData: {
-			ticks: Tick[],
-			candles: Candle[],
-		},
 	};
 
 	render() {
-		const { compact, contract, chartData, pipSize } = this.props;
+		const { compact, contract, pipSize } = this.props;
 
 		if (!contract) return null;
 
@@ -32,7 +28,6 @@ export default class ContractDetailsCard extends PureComponent {
 							<div>
 								<ContractChart
 									contract={contract}
-									chartData={chartData}
 									pipSize={pipSize}
 								/>
 								<ContractWinLose contract={contract} />
@@ -44,7 +39,6 @@ export default class ContractDetailsCard extends PureComponent {
 					<div className="contract-details">
 						<ContractChart
 							contract={contract}
-							chartData={chartData}
 							pipSize={pipSize}
 						/>
 						<ContractReceipt contract={contract} />
