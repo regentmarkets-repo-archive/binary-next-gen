@@ -1,6 +1,8 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { BinaryChart } from 'binary-charts';
+import { helpers } from 'binary-live-api';
 import { actions } from '../_store';
+import { fetch1000Candles, fetch1000Ticks } from '../_data/utils';
 
 const chartToDataType = {
     area: 'ticks',
@@ -32,41 +34,34 @@ export default class ContractChart extends PureComponent {
         };
     }
 
-    fetchData = (start, end, type, interval) => {
+    fetchData = (s, e, type, interval) => {
         const { contract } = this.props;
         const toStream = !contract.sell_time;
-        return actions
-            .getDataForContract(contract.contract_id, type, toStream)
-            .catch(err => {
-                const serverError = err.error.error;
-                if (serverError.code === 'NoRealtimeQuotes' || serverError.code === 'MarketIsClosed') {
-                    return actions
-                        .getDataForContract(contract.contract_id, type, false)
-                        .catch(err2 => {
-                            if (err2.error.error.code === 'StreamingNotAllowed') {
-                                return undefined;
-                            }
-                            return Promise.reject(err2);
-                        });
-                }
-                throw new Error(serverError.message);
-            });
+
+        const { start, end } = helpers.computeStartEndForContract(contract);
+
+        const result = type === 'ticks' ? fetch1000Ticks(symbol, end) : fetch1000Candles(symbol, end, interval);
+        return result.then(data => {
+            if (+data[0].epoch > +start) {
+                return this.fetchInBatches(start, +data[0].epoch, type);
+            }
+            return data;
+        });
     }
 
     changeChartType = (type: ChartType) => {
-
         const { chartType } = this.state;
 
         const allowCandle = !contract.tick_count;
         const newDataType = chartToDataType[type];
 
         if ((!allowCandle && newDataType === 'candles') || chartType === type) {
-            return undefined;
+            return;
         }
 
         if (newDataType === this.state.dataType) {
             this.setState({ chartType: type });
-            return undefined;
+            return;
         }
 
         this.setState({ chartType: type, dataType: newDataType });

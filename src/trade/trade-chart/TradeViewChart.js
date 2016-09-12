@@ -1,12 +1,13 @@
 import React, { PureComponent, PropTypes } from 'react';
-import { BinaryChart } from 'binary-charts';
 import { nowAsEpoch } from 'binary-utils';
-import { actions } from '../../_store';
+import { BinaryChart } from 'binary-charts';
 import {
     internalTradeModelToChartTradeModel,
     serverContractModelToChartContractModel,
 } from '../adapters/TradeObjectAdapter';
-import { api } from '../../_data/LiveData';
+import { chartApi } from '../../_data/LiveData';
+import { mergeTicks } from '../../_reducers/TickReducer';
+import { mergeCandles } from '../../_reducers/OHLCReducer';
 
 const zoomToLatest = (ev, chart) => {
     const { dataMax, dataMin } = chart.xAxis[0].getExtremes();
@@ -21,26 +22,6 @@ const chartToDataType = {
     ohlc: 'candles',
 };
 
-const fetch1000Ticks = (symbol, end, count = 3000) =>
-    api.getTickHistory(symbol, {
-        count,
-        end,
-    }).then(r => {
-        const { times, prices } = r.history;
-        return times.map((t, idx) => {
-            const quote = prices[idx];
-            return { epoch: +t, quote: +quote };
-        });
-    });
-
-const fetch1000Candles = (symbol, end, interval, count = 1000) =>
-    api.getTickHistory(symbol, {
-        count,
-        end,
-        style: 'candles',
-        granularity: interval,
-    }).then(r => r.candles);
-
 export default class TradeViewChart extends PureComponent {
 
     static contextTypes = {
@@ -49,8 +30,8 @@ export default class TradeViewChart extends PureComponent {
 
     static propTypes = {
         contractForChart: PropTypes.object,
-        ticks: PropTypes.array.isRequired,
-        ohlc: PropTypes.array.isRequired,
+        // ticks: PropTypes.array.isRequired,
+        // ohlc: PropTypes.array.isRequired,
         index: PropTypes.number.isRequired,
         events: PropTypes.array.isRequired,
         feedLicense: PropTypes.string.isRequired,
@@ -66,8 +47,6 @@ export default class TradeViewChart extends PureComponent {
             type: 'zoom-to-latest',
             handler: zoomToLatest,
         }],
-        ticks: [],
-        ohlc: [],
         tradingTime: {},
     };
 
@@ -76,7 +55,37 @@ export default class TradeViewChart extends PureComponent {
         this.state = {
             dataType: 'ticks',
             chartType: 'area',
+            ticks: [],
+            ohlc: [],
         };
+
+        this.api = chartApi[props.index];
+
+        this.api.events.on('tick', data => {
+            const old = this.state.ticks;
+            const newTick = {
+                epoch: +data.tick.epoch,
+                quote: +data.tick.quote,
+            };
+            this.setState({ ticks: old.concat([newTick]) });
+        });
+
+        this.api.events.on('ohlc', data => {
+            const ohlc = data.ohlc;
+            const newOHLC = {
+                epoch: +(ohlc.open_time || ohlc.epoch),
+                open: +ohlc.open,
+                high: +ohlc.high,
+                low: +ohlc.low,
+                close: +ohlc.close,
+            };
+            const old = this.state.ohlc;
+            this.setState({ ohlc: old.concat([newOHLC]) });
+        });
+    }
+
+    componentWillMount() {
+        this.subscribeToTicks();
     }
 
     componentWillReceiveProps(nextProps) {
@@ -91,17 +100,49 @@ export default class TradeViewChart extends PureComponent {
         }
     }
 
+    updateData = (data, type) => {
+        if (type === 'ticks') {
+            const { times, prices } = data.history;
+            const newTicks = times.map((t, idx) => {
+                const quote = prices[idx];
+                return { epoch: +t, quote: +quote };
+            });
+
+            const ticks = mergeTicks(this.state.ticks, newTicks);
+            this.setState({ ticks });
+            return ticks;
+        }
+
+        const ohlc = mergeCandles(this.state.ohlc, data.candles);
+        this.setState({ ohlc });
+        return ohlc;
+    }
+
     fetchInBatches = (start, end, type, interval) => {
         const { tradeForChart } = this.props;
         const { symbol } = tradeForChart;
 
-        const result = type === 'ticks' ? fetch1000Ticks(symbol, end) : fetch1000Candles(symbol, end, interval);
-        return result.then(data => {
-            if (+data[0].epoch > +start) {
-                return this.fetchInBatches(start, +data[0].epoch, type);
-            }
-            return data;
-        });
+        const result = this.api
+            .getTickHistory(symbol, { count: 5000, end, style: type, granularity: interval })
+            .then(r => this.updateData(r, type));
+
+        return result;
+    }
+
+    subscribeToTicks = (count = 5000) => {
+        const { tradeForChart } = this.props;
+        const { symbol } = tradeForChart;
+        return this.api
+            .getTickHistory(symbol, { count, end: 'latest', subscribe: 1 })
+            .then(r => this.updateData(r, 'ticks'));
+    }
+
+    subscribeToOHLC = (count = 5000, interval = 60) => {
+        const { tradeForChart } = this.props;
+        const { symbol } = tradeForChart;
+        return this.api
+            .getTickHistory(symbol, { count, end: 'latest', subscribe: 1, style: 'candles', granularity: interval })
+            .then(r => this.updateData(r, 'candles'));
     }
 
     changeChartType = (type: ChartType) => {
@@ -137,10 +178,10 @@ export default class TradeViewChart extends PureComponent {
     }
 
     render() {
-        const { contractForChart, index, ticks, ohlc, events,
+        const { contractForChart, index, events,
             feedLicense, pipSize, tradeForChart, tradingTime } = this.props;
         const { theme } = this.context;
-        const { chartType, dataType } = this.state;
+        const { chartType, ticks, ohlc, dataType } = this.state;
 
         return (
             <BinaryChart
