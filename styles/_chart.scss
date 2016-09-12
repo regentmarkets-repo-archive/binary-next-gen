@@ -23,14 +23,10 @@
             background: rgba($COLOR_INVERSE_TEXT, 0.1) !important;
         }
     }
-
-    button {
-        padding: 0 5px;
-    }
 }
 
 .binary-chart-time-frame-picker {
-    height: 2em;
+    height: 30px;
 }
 
 .binary-chart-time-frame-picker button {
@@ -84,10 +80,6 @@
     }
 }
 
-.binary-chart-toolbar {
-    margin-bottom: 4px;
-}
-
 .binary-chart-toolbar > * {
     margin-right: 2px;
 }
@@ -95,4 +87,9 @@
 .binary-chart-button {
     background: rgba($COLOR_BRAND_BLUE, 0.1);
     border-radius: $BORDER_RADIUS;
+}
+
+.binary-chart-button,
+.binary-chart-time-frame-picker > button {
+    padding: 5px;
 }

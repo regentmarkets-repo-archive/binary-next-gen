@@ -165,7 +165,6 @@ export default class ContractChart extends PureComponent {
                 compactToolbar
                 hiddenTimeFrame
                 hiddenZoomControls
-                defaultRange={6}
                 showAllTimeFrame={false}
                 contract={contract}
                 symbol={contract.underlying}
