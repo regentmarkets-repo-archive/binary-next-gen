@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { immutableChildrenToJS } from 'binary-utils';
 import { actions } from '../_store';
@@ -12,12 +12,12 @@ export default class ContractDetailsContainer extends PureComponent {
 		chartData: {},
 	};
 
-	static propTypes = {
-		contract: PropTypes.object.isRequired,
-		chartData: PropTypes.shape({
-			ticks: PropTypes.array,
-			candles: PropTypes.array,
-		}),
+	props: {
+		contract: Contract,
+		chartData: {
+			ticks: Tick[],
+			candles: Candle[],
+		},
 	};
 
 	componentWillMount() {

@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { askPriceFromProposal, windowResizeEvent } from 'binary-utils';
 import { ServerErrorMsg, ErrorMsg } from 'binary-components';
 import { actions } from '../_store';
@@ -40,30 +40,28 @@ const categoryHasBarrier = category =>
     category !== 'digits' &&
     category !== 'asian';
 
+type Props = {
+    currency: string,
+    contract: Contract,
+    disabled: boolean,
+    errors: Object,
+    forceRenderCount: number,
+    index: number,
+    pipSize: number,
+    proposal: Object,
+    style: Object,
+    tradeParams: Object,
+}
+
 export default class TradeParams extends PureComponent {
 
     static defaultProps = {
-        type: 'full',
         forceRenderCount: -1,
     };
 
-    static propTypes = {
-        currency: PropTypes.string.isRequired,
-        contract: PropTypes.object,
-        compact: PropTypes.bool,
-        disabled: PropTypes.bool,
-        errors: PropTypes.object,
-        forceRenderCount: PropTypes.number.isRequired,
-        index: PropTypes.number.isRequired,
-        pipSize: PropTypes.number,
-        proposal: PropTypes.object,
-        purchaseError: PropTypes.string,
-        style: PropTypes.object,
-        tradeParams: PropTypes.object,
-        type: PropTypes.oneOf(['tick', 'full']).isRequired,
-    };
+    props: Props;
 
-    constructor(props) {
+    constructor(props: Props) {
         super(props);
 
         this.state = {

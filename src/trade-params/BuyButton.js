@@ -1,16 +1,17 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { Button } from 'binary-components';
+
+type Props = {
+    id: string,
+    askPrice: number,
+    longcode: string,
+    disabled: boolean,
+    onClick: (e: SyntheticEvent) => void,
+}
 
 export default class BuyButton extends PureComponent {
 
-    static propTypes = {
-        id: PropTypes.string,
-        currency: PropTypes.string,
-        askPrice: PropTypes.number,
-        longcode: PropTypes.string,
-        disabled: PropTypes.bool,
-        onClick: PropTypes.func,
-    };
+    props: Props;
 
     render() {
         const { id, askPrice, disabled, longcode, onClick } = this.props;

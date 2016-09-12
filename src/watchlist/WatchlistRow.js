@@ -1,5 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
-import { Direction, CloseButton, NumberPlain, NumberColored, OpenCloseNotice } from 'binary-components';
+import Clear from 'react-material-design-icons/icons/Clear';
+import { Direction, NumberPlain, NumberColored, OpenCloseNotice } from 'binary-components';
 import { actions } from '../_store';
 import WatchlistSparkline from './WatchlistSparkline';
 
@@ -35,7 +36,7 @@ export default class WatchlistRow extends PureComponent {
 					}
 				</td>
 				<td className="watchlist-remove-cell">
-					<CloseButton onClick={this.onRemove} />
+					<Clear onClick={this.onRemove} />
 				</td>
 			</tr>
 		);

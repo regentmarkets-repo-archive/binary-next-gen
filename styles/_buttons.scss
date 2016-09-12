@@ -23,7 +23,8 @@ input[type=submit],
 input[type=button],
 .btn-primary {
     border: 0;
-    color: white;
+    color: $COLOR_INVERSE_TEXT;
+    fill: $COLOR_INVERSE_TEXT;
     background: $COLOR_GREEN;
 
     &:focus {
@@ -66,10 +67,23 @@ input::-moz-focus-outer {
 }
 
 .inverse .btn-secondary {
-    color: white !important;
-    box-shadow: inset 0 0 0 1.5px rgba(white, 0.75);
+    color: $COLOR_INVERSE_TEXT !important;
+    box-shadow: inset 0 0 0 1.5px rgba($COLOR_INVERSE_TEXT, 0.75);
 
     &:not(:disabled):hover {
-        box-shadow: inset 0 0 0 1.5px white;
+        box-shadow: inset 0 0 0 1.5px $COLOR_INVERSE_TEXT;
+    }
+}
+
+.btn-flat {
+    color: $COLOR_BRAND_BLUE;
+    padding: 0;
+    height: 2.5em;
+    width: 2.5em;
+    background: rgba($COLOR_BRAND_BLUE, 0.1);
+    box-shadow: none;
+
+    &:hover {
+        background: rgba($COLOR_BRAND_BLUE, 0.1) !important;
     }
 }

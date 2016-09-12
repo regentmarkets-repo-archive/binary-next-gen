@@ -1,5 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
-import { CloseButton } from 'binary-components';
+import Clear from 'react-material-design-icons/icons/Clear';
 import AnimatedPopup from './AnimatedPopup';
 
 export default class Modal extends PureComponent {
@@ -32,7 +32,7 @@ export default class Modal extends PureComponent {
 			<AnimatedPopup shown={shown}>
 				<div className="full-screen-overlay">
 					<div className="modal">
-						{onClose && <CloseButton onClick={onClose} />}
+						{onClose && <Clear className="close-btn" onClick={onClose} />}
 						{children}
 					</div>
 				</div>

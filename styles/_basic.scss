@@ -113,7 +113,9 @@ fieldset {
 }
 
 .back-btn {
-    width: 3.5em;
+    fill: $COLOR_TEXT;
+    width: 3em !important;
+    height: 3em !important;
     padding: 0.75em;
 }
 
@@ -307,22 +309,9 @@ div[role=tabpanel] {
     display: none;
 }
 
-.btn-flat {
-    color: $COLOR_BRAND_BLUE;
-    padding: 0;
-    height: 2.5em;
-    width: 2.5em;
-    background: rgba($COLOR_BRAND_BLUE, 0.1);
-    box-shadow: none;
-
-    &:hover {
-        background: rgba($COLOR_BRAND_BLUE, 0.1) !important;
-    }
-}
-
 div[role=tab] .close-btn {
     background: $COLOR_BRAND_BLUE;
-    fill: white;
+    fill: $COLOR_TEXT;
 }
 
 nav.sidebar {
@@ -345,10 +334,6 @@ nav.sidebar {
     > div[role=tab][aria-selected=true] {
         box-shadow: inset -2px 0 0 0 $COLOR_BRAND_ORANGE;
     }
-}
-
-.close-svg path {
-    fill: $COLOR_BRAND_BLUE;
 }
 
 *:hover + .tooltip {

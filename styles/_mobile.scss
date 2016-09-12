@@ -159,11 +159,8 @@
     color: white !important;
     text-decoration: none;
     flex: 1;
-
-    span {
-        height: 3.5em;
-        vertical-align: middle;
-    }
+    display: flex;
+    align-items: center;
 }
 
 .mobile-form {

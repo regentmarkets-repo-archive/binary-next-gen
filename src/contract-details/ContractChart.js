@@ -11,22 +11,24 @@ const chartToDataType = {
     ohlc: 'candles',
 };
 
+type Props = {
+    contract: Contract,
+    chartData: {
+        ticks: Tick[],
+        candles: Candle[],
+    },
+    pipSize: number,
+};
+
 export default class ContractChart extends PureComponent {
 
     static contextTypes = {
         theme: PropTypes.string.isRequired,
     };
 
-    static propTypes = {
-        contract: PropTypes.object.isRequired,
-        chartData: PropTypes.shape({
-            ticks: PropTypes.array,
-            candles: PropTypes.array,
-        }),
-        pipSize: PropTypes.number,
-    };
+    props: Props;
 
-    constructor(props) {
+    constructor(props: Props) {
         super(props);
         this.state = {
             chartType: 'area',
