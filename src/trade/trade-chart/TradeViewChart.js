@@ -1,5 +1,4 @@
 import React, { PureComponent, PropTypes } from 'react';
-import { nowAsEpoch } from 'binary-utils';
 import { BinaryChart } from 'binary-charts';
 import {
     internalTradeModelToChartTradeModel,
@@ -86,6 +85,7 @@ export default class TradeViewChart extends PureComponent {
 
     componentWillMount() {
         this.subscribeToTicks();
+        this.subscribeToOHLC();
     }
 
     componentWillReceiveProps(nextProps) {
@@ -121,15 +121,15 @@ export default class TradeViewChart extends PureComponent {
     fetchInBatches = (start, end, type, interval) => {
         const { tradeForChart } = this.props;
         const { symbol } = tradeForChart;
-
+        const count = type === 'ticks' ? 1000 : 500;
         const result = this.api
-            .getTickHistory(symbol, { count: 5000, end, style: type, granularity: interval })
+            .getTickHistory(symbol, { count, end, style: type, granularity: interval })
             .then(r => this.updateData(r, type));
 
         return result;
     }
 
-    subscribeToTicks = (count = 5000) => {
+    subscribeToTicks = (count = 2000) => {
         const { tradeForChart } = this.props;
         const { symbol } = tradeForChart;
         return this.api
@@ -137,7 +137,7 @@ export default class TradeViewChart extends PureComponent {
             .then(r => this.updateData(r, 'ticks'));
     }
 
-    subscribeToOHLC = (count = 5000, interval = 60) => {
+    subscribeToOHLC = (count = 500, interval = 60) => {
         const { tradeForChart } = this.props;
         const { symbol } = tradeForChart;
         return this.api
