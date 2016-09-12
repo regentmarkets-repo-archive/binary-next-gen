@@ -116,7 +116,7 @@ export default class TradeViewChart extends PureComponent {
         return candles;
     }
 
-    fetchInBatches = (start, end, type, interval) => {
+    fetchData = (start, end, type, interval) => {
         const { tradeForChart } = this.props;
         const { symbol } = tradeForChart;
         const count = type === 'ticks' ? 1000 : 500;
@@ -161,20 +161,6 @@ export default class TradeViewChart extends PureComponent {
         this.setState({ chartType: type, dataType: newDataType });
     }
 
-    // changeChartInterval = (interval: number) => {
-    //     const { symbol } = this.props.tradeForChart;
-    //     const nowEpoch = nowAsEpoch();
-    //     return api.getTickHistory(symbol, {
-    //         end: nowEpoch,
-    //         start: nowEpoch - duration,
-    //         granularity: interval,
-    //         style: 'candles',
-    //     }).then(r => {
-    //         this.setState({ chartType: 'candlestick', dataType: 'candles' });
-    //         return r;
-    //     });
-    // }
-
     render() {
         const { contractForChart, index, events,
             feedLicense, pipSize, tradeForChart, tradingTime } = this.props;
@@ -196,7 +182,7 @@ export default class TradeViewChart extends PureComponent {
                 type={contractForChart ? 'area' : chartType}
                 trade={tradeForChart && internalTradeModelToChartTradeModel(tradeForChart)}
                 tradingTimes={tradingTime.times}
-                getData={contractForChart ? undefined : this.fetchInBatches}
+                getData={contractForChart ? undefined : this.fetchData}
                 onTypeChange={contractForChart ? undefined : this.changeChartType}   // do not allow change type when there's contract
             />
         );
