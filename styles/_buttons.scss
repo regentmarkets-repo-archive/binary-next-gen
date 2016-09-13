@@ -23,8 +23,8 @@ input[type=submit],
 input[type=button],
 .btn-primary {
     border: 0;
-    color: $COLOR_INVERSE_TEXT;
-    fill: $COLOR_INVERSE_TEXT;
+    color: white;
+    fill: white;
     background: $COLOR_GREEN;
 
     &:focus {
