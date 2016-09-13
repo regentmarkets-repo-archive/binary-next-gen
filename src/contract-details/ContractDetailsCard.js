@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import ContractReceipt from './ContractReceipt';
 import ContractChart from './ContractChart';
 import ContractDetailsMobileLayout from './mobile/ContractDetailsMobileLayout';
@@ -7,18 +7,14 @@ import ContractWinLose from './ContractWinLose';
 
 export default class ContractDetailsCard extends PureComponent {
 
-	static propTypes = {
-		compact: PropTypes.bool,
-		contract: PropTypes.object,
-		pipSize: PropTypes.number,
-		chartData: PropTypes.shape({
-			ticks: PropTypes.array,
-			candles: PropTypes.array,
-		}),
+	props: {
+		compact: boolean,
+		contract: Contract,
+		pipSize: number,
 	};
 
 	render() {
-		const { compact, contract, chartData, pipSize } = this.props;
+		const { compact, contract, pipSize } = this.props;
 
 		if (!contract) return null;
 
@@ -32,7 +28,6 @@ export default class ContractDetailsCard extends PureComponent {
 							<div>
 								<ContractChart
 									contract={contract}
-									chartData={chartData}
 									pipSize={pipSize}
 								/>
 								<ContractWinLose contract={contract} />
@@ -44,7 +39,6 @@ export default class ContractDetailsCard extends PureComponent {
 					<div className="contract-details">
 						<ContractChart
 							contract={contract}
-							chartData={chartData}
 							pipSize={pipSize}
 						/>
 						<ContractReceipt contract={contract} />

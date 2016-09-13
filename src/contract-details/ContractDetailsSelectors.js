@@ -14,9 +14,14 @@ export const contractToShow = createSelector(
 );
 
 const contractWithBarrierType = createSelector(
-    contractToShow,
-    contract =>
-        contract && contract.set('barrierType', 'absolute')
+    [contractToShow, assetsSelector],
+    (contract, assets) => {
+        const symbol = contract && contract.get('underlying');
+        const symbolDetails = assets.find(a => a.get('symbol') === symbol);
+        const symbolName = symbolDetails && symbolDetails.get('display_name');
+        const contractWithSymbolName = contract && contract.set('symbolName', symbolName);
+        return contractWithSymbolName && contractWithSymbolName.set('barrierType', 'absolute');
+    }
 );
 
 export const dataToShow = createSelector(
@@ -36,7 +41,6 @@ export const pipSizeSelector = createSelector(
 
 export default createStructuredSelector({
     theme: themeSelector,
-    chartData: dataToShow,
     contract: contractWithBarrierType,
     pipSize: pipSizeSelector,
 });

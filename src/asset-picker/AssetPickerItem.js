@@ -1,6 +1,8 @@
 import React, { PropTypes, PureComponent } from 'react';
 import classnames from 'classnames';
-import { OpenCloseNotice, Star } from 'binary-components';
+import Star from 'react-material-design-icons/icons/Star';
+import StarBorder from 'react-material-design-icons/icons/StarBorder';
+import { OpenCloseNotice } from 'binary-components';
 
 export default class AssetPickerItem extends PureComponent {
 
@@ -43,7 +45,7 @@ export default class AssetPickerItem extends PureComponent {
 				<td
 					onClick={this.onStarClicked}
 				>
-					<Star on={isInWatchlist} />
+					{isInWatchlist ? <Star /> : <StarBorder />}
 				</td>
 				<td>
 					{asset.name}

@@ -15,8 +15,7 @@ const values = [
 export default class AssetPickerCategoryFilter extends PureComponent {
 
 	props: {
-		onChange: PropTypes.func.isRequired,
-		value: string,
+		onChange: (newIndex: number) => void,
 	};
 
 	onChange = num =>

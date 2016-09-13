@@ -36,6 +36,17 @@ const handlers = {
 const bootConfig = typeof window !== 'undefined' ? window.BinaryBoot : {};
 export const api = new LiveApi(bootConfig);
 
+const configForChart = Object.assign({}, bootConfig);
+delete configForChart.connection;
+export const chartApi = [
+    new LiveApi(configForChart),
+    new LiveApi(configForChart),
+    new LiveApi(configForChart),
+    new LiveApi(configForChart),
+    new LiveApi(configForChart),
+    new LiveApi(configForChart),            // 6th is for contract chart
+];
+
 export const changeLanguage = langCode => {
     api.changeLanguage(langCode);
     api.getActiveSymbolsFull();
@@ -59,6 +70,13 @@ const initAuthorized = async (authData, store) => {
     }
 
     const state = store.getState();
+
+    chartApi.forEach(a => a.authorize(state.account.get('token')));
+
+    api.unsubscribeFromAllTicks();
+    api.unsubscribeFromAllProposals();
+    api.unsubscribeFromAllPortfolios();
+    api.unsubscribeFromAllProposalsOpenContract();
 
     api.getLandingCompanyDetails(authData.authorize.landing_company_name)
         .then(r => {

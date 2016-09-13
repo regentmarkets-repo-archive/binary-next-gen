@@ -1,4 +1,5 @@
 import React, { PropTypes, PureComponent } from 'react';
+import ArrowBack from 'react-material-design-icons/icons/ArrowBack';
 import { M } from 'binary-components';
 
 export default class MobileToolbarBack extends PureComponent {
@@ -22,7 +23,7 @@ export default class MobileToolbarBack extends PureComponent {
 					className="mobile-back-btn"
 					onClick={onClick || this.onClickBack}
 				>
-					<img className="back-btn" src="img/arrow-back.svg" alt="Back" />
+					<ArrowBack className="back-btn" width="3.5em" height="3.5em" />
 					<M m={backBtnBarTitle} />
 				</div>
 			</div>

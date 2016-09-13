@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { Tab, TabList } from 'binary-components';
 import config from '../config';
 import SettingsPersonalDetails from './SettingsPersonalDetails';
@@ -13,15 +13,16 @@ const components = [
 	SettingsLimits,
 ];
 
+type Props = {
+	settings: object,
+	loginid: string,
+};
+
 export default class SettingsCard extends PureComponent {
 
-    static propTypes = {
-        settings: PropTypes.object.isRequired,
-		loginid: PropTypes.string.isRequired,
-		boot: PropTypes.object.isRequired,
-    };
+	props: Props;
 
-	constructor(props) {
+	constructor(props: Props) {
 		super(props);
 		this.state = { activeTab: 0 };
 	}

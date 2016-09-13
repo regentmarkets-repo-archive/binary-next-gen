@@ -14,8 +14,6 @@ export default class ContractDetailsList extends PureComponent {
 
 	static propTypes = {
 		contract: PropTypes.object.isRequired,
-		nowEpoch: PropTypes.number,
-		transactionId: PropTypes.number,
 	};
 
 	render() {

@@ -4,6 +4,6 @@ import WatchlistContainer from './WatchlistContainer';
 
 export default (props) => (
 	<MobilePage>
-		<WatchlistContainer compact {...props} />
+		<WatchlistContainer {...props} />
 	</MobilePage>
 );

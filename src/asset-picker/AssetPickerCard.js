@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { M } from 'binary-components';
 import { actions } from '../_store';
 import AssetPickerFilter from './AssetPickerFilter';
@@ -6,13 +6,11 @@ import AssetPickerList from './AssetPickerList';
 
 export default class AssetPickerCard extends PureComponent {
 
-	static propTypes = {
-		index: PropTypes.number,
-		filter: PropTypes.object,
-		onSelecg: PropTypes.func,
-		assetPickerItems: PropTypes.array.isRequired,
-		selectedAsset: PropTypes.string.isRequired,
-		onSelect: PropTypes.func.isRequired,
+	props: {
+		filter: Object,
+		assetPickerItems: Object[],
+		selectedAsset: string,
+		onSelect: () => void,
 	};
 
 	onToggleWatchlistItem = asset => {

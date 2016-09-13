@@ -84,8 +84,6 @@ export const tradeViewChartPerTrade = createSelector(
     ],
     (chartData, lastBoughtContract, tradingTime, pipSize, license, param, ticks, ohlc, index) => ({
         index,
-        ticks: chartData ? chartData.get('ticks') : ticks,
-        ohlc: chartData ? chartData.get('ohlc') : ohlc,
         contractForChart: lastBoughtContract,
         tradeForChart: param,
         feedLicense: license,

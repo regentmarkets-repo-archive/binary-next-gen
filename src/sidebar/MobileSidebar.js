@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { M } from 'binary-components';
 import ThemeSwitcher from '../web/ThemeSwitcher.mobile';
 import BalanceContainer from '../balance/BalanceContainer';
@@ -6,18 +6,20 @@ import AccountItemsList from './AccountItemsList';
 import SidebarBtn from './SidebarBtn';
 import { signOut } from '../_data/Auth';
 
+type Account = {
+	account: string,
+	token: string,
+};
+
 export default class MobileSidebar extends PureComponent {
 
-	static propTypes = {
-		email: PropTypes.string.isRequired,
-		loginid: PropTypes.string.isRequired,
-		accounts: PropTypes.arrayOf(PropTypes.shape({
-			account: PropTypes.string.isRequired,
-			token: PropTypes.string.isRequired,
-		})),
+	props: {
+		email: string,
+		loginid: string,
+		accounts: Account[],
 	};
 
-	onSignOut(e) {
+	onSignOut(e: SyntheticEvent) {
 		e.stopPropagation();
 		signOut();
 	}
@@ -33,13 +35,7 @@ export default class MobileSidebar extends PureComponent {
 					<BalanceContainer />
 				</div>
 				<AccountItemsList loginid={loginid} accounts={accounts} />
-				{/* <SidebarBtn to="/" img="img/trade.svg" text="Trade" /> */}
 				<SidebarBtn to="/watchlist" img="img/watchlist.svg" text="Watchlist" />
-				{/* <SidebarBtn to="/portfolio" img="img/portfolio.svg" text="Portfolio" /> */}
-				{/* <SidebarBtn to="/statement" img="img/statement.svg" text="Statement" /> */}
-				{/* <SidebarBtn to="/news" img="img/news.svg" text="News" /> */}
-				{/* <SidebarBtn to="/resources" img="img/resources.svg" text="Resources" /> */}
-				{/* <SidebarBtn to="/info" img="img/info.svg" text="Asset Info" /> */}
 				<ThemeSwitcher />
 				<SidebarBtn to="/settings" img="img/settings.svg" text="Settings" />
 				<label htmlFor="Sign-Out" onClick={this.onSignOut} className="sidebar-btn">

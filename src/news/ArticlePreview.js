@@ -6,12 +6,13 @@ export default class ArticlePreview extends PureComponent {
         title: PropTypes.string.isRequired,
         description: PropTypes.string.isRequired,
         url: PropTypes.string.isRequired,
-        onClick: PropTypes.func,
     };
+
     openArticle = () => {
         const { url } = this.props;
         window.open(url, '_blank');
     }
+
     render() {
         const { description, title } = this.props;
 
