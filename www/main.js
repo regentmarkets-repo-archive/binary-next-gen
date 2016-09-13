@@ -27,7 +27,7 @@ const path = require('path');
 
 if (!isDevelopment) {
     if (os.platform() === 'darwin') {
-        updateFeed = 'http://eatodo.s3.amazonaws.com/updates/latest/win';
+        updateFeed = 'http://binary.herokuapp.com/updates/latest';
     } else if (os.platform() === 'win32') {
         updateFeed = 'http://app-binary.s3.amazonaws.com/updates/latest/win' + (os.arch() === 'x64' ? '64' : '32');
     }
