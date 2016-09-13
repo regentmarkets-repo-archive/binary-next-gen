@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no" />
+    <meta name="theme-color" content="#2a3052" />
+    <meta name="msapplication-navbutton-color" content="#2a3052">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="#2a3052">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta http-equiv="Content-Security-Policy"
+          content="default-src https://codepush.azurewebsites.net http://github.com https://*.googleapis.com:* https://*.polyfill.io:* https://*.google-analytics.com:* wss://*.binaryws.com:* https://*.github.io:* https://*.binary.com:* https://binary.com:* https://*.gstatic.com:* https://*.cloudflare.com:* https://*.wordpress.com:* https://*.youtube.com:* https://*.trackjs.com:* 'self' data: gap: https://ssl.gstatic.com 'unsafe-inline' 'unsafe-eval' 'self'; media-src *; img-src * data:;">
+    <link rel="icon" href="https://binary.com/images/favicons/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57" />
+    <link rel="stylesheet" href="fonts.css" />
+    <link rel="stylesheet" href="styles.css" />
+    <title>Binary.com - nextGen</title>
+    <style id="antiClickjack">body{display:none !important;}</style>
+    <script>
+        if (self === top) {
+            var antiClickjack = document.getElementById('antiClickjack');
+            antiClickjack.parentNode.removeChild(antiClickjack);
+        } else {
+            top.location = self.location;
+        }
+
+        (function(l) {
+        if (l.search) {
+          var q = {};
+          l.search.slice(1).split('&').forEach(function(v) {
+            var a = v.split('=');
+            q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
+          });
+          if (q.p !== undefined) {
+            window.history.replaceState(null, null,
+              (q.p || '') +
+              (q.q ? ('?' + q.q) : '') +
+              l.hash
+            );
+          }
+        }
+      }(window.location))
+    </script>
+</head>
+
+<body>
+
+<div id="root" class="root app">
+    <div class="loading-page">
+        <div class="logo-full">
+            <img src="img/binary-symbol-logo.svg" alt="Logo" /><img src="img/binary-type-logo.svg" alt="Binary.com" />
+        </div>
+        <div class="barspinner">
+            <div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div>
+        </div>
+    </div>
+</div>
+<script>
+     window.electron = require('electron');
+</script>
+
+<script src="boot.js"></script>
+<script async src="app.js"></script>
+
+<script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+    ga('create', 'UA-40877026-8', 'auto');
+    ga('send', 'pageview');
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</body>
+</html>

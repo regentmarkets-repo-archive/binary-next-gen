@@ -21,9 +21,9 @@
     "build:apk": "npm run build:dev && cordova build --release android && jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore tick-trade-key.keystore ./platforms/android/build/outputs/apk/android-release-unsigned.apk TickTrade && ~/Library/Android/sdk/build-tools/24.0.0/zipalign -v 4 ./platforms/android/build/outputs/apk/android-release-unsigned.apk ./platforms/android/build/outputs/apk/android-release-aligned.apk",
     "build:webpack": "NODE_ENV=production webpack --config webpack.config.js",
     "lint": "eslint src",
-    "electron": "NODE_ENV=developement electron ./www",
+    "electron": "NODE_ENV=production electron ./www/main.js",
     "translate": "bash fetch-translation.sh",
-    "dist": "NODE_ENV=developement build -owl --ia32 --x64",
+    "dist": "build -owl --ia32 --x64",
     "prerelease:osx": "rm -rf ./release/osx && mkdirp release/osx",
     "release:osx": "cp -rv ./dist/osx/*.{dmg,zip} ./release/osx && PACKAGE_VERSION=$(cat app/package.json | grep version | head -1 | awk -F: '{ print $2 }' | sed 's/[\",]//g' | tr -d '[[:space:]]') && echo $PACKAGE_VERSION >> ./release/osx/VERSION",
     "prerelease:win32": "rm -rf ./release/win32 && mkdirp release/win32",
@@ -37,7 +37,7 @@
   },
   "build": {
     "appId": "app.binary.com",
-    "app-category-type": "public.app-category.trading",
+    "category": "Binary Trading",
     "productName": "Binary.com",
     "osx": {
       "title": "Binary.com",
@@ -62,13 +62,18 @@
     },
     "win": {
       "iconUrl": "https://www.binary.com/images/favicons/favicon-192x192.png",
-      "target": "zip",
+      "target": "squirrel",
+      "title": "Binary.com",
+      "icon": "build/icon.ico",
       "loadingGif": "",
       "msi": true
     },
     "linux": {
       "description": "Sharp Prices. Smart Trading",
-      "target": "zip"
+      "title": "Binary.com",
+      "icon": "build/icon.ico",
+      "target": "AppImage",
+      "vendor": "Binary (IOM) Ltd"
     }
   },
   "keywords": [

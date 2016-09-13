@@ -1,6 +1,10 @@
 // Handle Squirrel events for Windows immediately on start
 if (require('electron-squirrel-startup')) { return; }
 
+const pack = require('./package.json');
+
+const appVersion = pack.version;
+
 const electron = require('electron');
 const { app } = electron;
 const { BrowserWindow } = electron;
@@ -8,58 +12,58 @@ const { autoUpdater } = electron;
 const os = require('os');
 let mainWindow = null;
 const { Menu } = electron;
-let forceQuit = false;
-const name = app.getName();
+let feedLink = '';
+
+app.setName(pack.productName);
+
 let updateFeed = 'http://localhost:3000/updates/latest';
 const isDevelopment = process.env.NODE_ENV === 'development';
 
 const logger = require('winston');
-
 logger.level = 'debug';
 global.logger = logger;
+
 const path = require('path');
 
-// Don't use auto-updater if we are in development 
 if (!isDevelopment) {
     if (os.platform() === 'darwin') {
-        updateFeed = 'http://app-binary.herokuapp.com/updates/latest'; 
+        updateFeed = 'http://binary.herokuapp.com/updates/latest';
     } else if (os.platform() === 'win32') {
         updateFeed = 'http://app-binary.s3.amazonaws.com/updates/latest/win' + (os.arch() === 'x64' ? '64' : '32');
     }
 
-    autoUpdater.addListener('update-available', function(event) {
-        logger.log('A new update is available');
+    autoUpdater.addListener('update-available', function (event) {
+        logger.debug('A new update is available');
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'update-available');
         }
     });
     autoUpdater.addListener('update-downloaded', function (event, releaseNotes, releaseName, releaseDate, updateURL) {
-        logger.log('A new update is ready to install', `Version ${releaseName} is downloaded from ${updateURL} and will be automatically installed on Quit`);
+        logger.debug('A new update is ready to install', `Version ${releaseName} is downloaded from ${updateURL} and will be automatically installed on Quit`);
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'update-downloaded');
         }
     });
     autoUpdater.addListener('error', function (error) {
-        logger.log(error);
+        logger.debug(`error is ${error}`);
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'update-error');
         }
     });
     autoUpdater.addListener('checking-for-update', function (event) {
-        logger.log('checking-for-update');
+        logger.debug('checking-for-update');
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'checking-for-update');
         }
     });
-    autoUpdater.addListener("update-not-available", function () {
-        logger.log('update-not-available');
+    autoUpdater.addListener('update-not-available', function () {
+        logger.debug('update-not-available');
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'update-not-available');
         }
     });
 
-    const appVersion = require('./package.json').version;
-    const feedLink = updateFeed + '?v=' + appVersion;
+    feedLink = updateFeed + '?v=' + appVersion;
     autoUpdater.setFeedURL(feedLink);
 }
 
@@ -70,11 +74,12 @@ electron.crashReporter.start({
   autoSubmit: true,
 });
 
-app.on('window-all-closed', function() {
-  if (process.platform !== 'darwin') {
+app.on('window-all-closed', function () {
     app.quit();
-  }
 });
+
+const name = app.getName();
+
 const template = [
   {
     label: 'View',
@@ -99,7 +104,7 @@ const template = [
         label: 'Toggle Developer Tools',
         accelerator: process.platform === 'darwin' ? 'Alt+Command+I' : 'Ctrl+Shift+I',
         click(item, focusedWindow) {
-          if (focusedWindow && isDevelopment) {
+          if (focusedWindow) {
             focusedWindow.webContents.toggleDevTools();
           }
         },
@@ -122,7 +127,6 @@ const template = [
         label: 'Quit',
         accelerator: 'Command+Q',
         click() {
-            forceQuit = true;
             app.quit();
         },
       },
@@ -142,7 +146,7 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click() { require('electron').shell.openExternal('http://app.binary.com'); },
+        click() { electron.shell.openExternal('http://app.binary.com'); },
       },
     ],
   },
@@ -174,7 +178,6 @@ if (process.platform === 'darwin') {
         label: 'Quit',
         accelerator: 'Command+Q',
         click() {
-            forceQuit = true;
             app.quit();
         },
       },
@@ -196,42 +199,18 @@ app.on('ready', function() {
         toolbar: false,
     });
 
-    mainWindow.loadURL(path.join('file://', __dirname, '/index.html'));
+
+    mainWindow.loadURL(path.join('file://', __dirname, '/main.html'));
 
     mainWindow.on('closed', function () {
-        console.log('closed');
         mainWindow = null;
-        app.quit();
     });
 
-     // Uncomment to use Chrome developer tools
-    // mainWindow.webContents.openDevTools({ detach: true });
-
-    mainWindow.on('close', function (e) {
-        if (!forceQuit) {
-            e.preventDefault();
-            mainWindow.hide();
-        } else {
-          app.quit();
-        }
-    });
-    app.on('activate', function () {
-       mainWindow.show();
-    });
-
-    mainWindow.on('show', function (e) {
-        mainWindow.show();
-    });
-
-    mainWindow.on('hide', function (e) {
-      mainWindow.hide();
-    });
-});
-
-app.on('activate', function (e) {
-  mainWindow.show();
-});
-app.on('before-quit', function (e) {
-  forceQuit = true;
+    if (!isDevelopment) {
+        mainWindow.webContents.on('did-frame-finish-load', function() {
+            logger.debug('Checking for updates: ' + feedLink);
+            autoUpdater.checkForUpdates();
+        });
+    }
 });
 
