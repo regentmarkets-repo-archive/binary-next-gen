@@ -1,6 +1,10 @@
 // Handle Squirrel events for Windows immediately on start
 if (require('electron-squirrel-startup')) { return; }
 
+const pack = require('./package.json');
+
+const appVersion = pack.version;
+
 const electron = require('electron');
 const { app } = electron;
 const { BrowserWindow } = electron;
@@ -8,8 +12,9 @@ const { autoUpdater } = electron;
 const os = require('os');
 let mainWindow = null;
 const { Menu } = electron;
+let feedLink = '';
 
-app.setName(require('./package.json').productName);
+app.setName(pack.productName);
 
 let updateFeed = 'http://localhost:3000/updates/latest';
 const isDevelopment = process.env.NODE_ENV === 'development';
@@ -59,8 +64,7 @@ if (!isDevelopment) {
         }
     });
 
-    const appVersion = require('./package.json').version;
-    const feedLink = updateFeed + '?v=' + appVersion;
+    feedLink = updateFeed + '?v=' + appVersion;
     autoUpdater.setFeedURL(feedLink);
 }
 
@@ -143,7 +147,7 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click() { require('electron').shell.openExternal('http://app.binary.com'); },
+        click() { electron.shell.openExternal('http://app.binary.com'); },
       },
     ],
   },
@@ -202,5 +206,12 @@ app.on('ready', function() {
     mainWindow.on('closed', function () {
         mainWindow = null;
     });
+
+    if (!isDevelopment) {
+        mainWindow.webContents.on('did-frame-finish-load', function() {
+            logger.debug('Checking for updates: ' + feedLink);
+            autoUpdater.checkForUpdates();
+        });
+    }
 });
 
