@@ -8,8 +8,9 @@ const { autoUpdater } = electron;
 const os = require('os');
 let mainWindow = null;
 const { Menu } = electron;
-let forceQuit = false;
-const name = app.getName();
+
+app.setName(require('./package.json').productName);
+
 let updateFeed = 'http://localhost:3000/updates/latest';
 const isDevelopment = process.env.NODE_ENV === 'development';
 
@@ -27,7 +28,7 @@ if (!isDevelopment) {
         updateFeed = 'http://app-binary.s3.amazonaws.com/updates/latest/win' + (os.arch() === 'x64' ? '64' : '32');
     }
 
-    autoUpdater.addListener('update-available', function(event) {
+    autoUpdater.addListener('update-available', function (event) {
         logger.log('A new update is available');
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'update-available');
@@ -71,10 +72,11 @@ electron.crashReporter.start({
 });
 
 app.on('window-all-closed', function() {
-  if (process.platform !== 'darwin') {
     app.quit();
-  }
 });
+
+const name = app.getName();
+
 const template = [
   {
     label: 'View',
@@ -99,7 +101,7 @@ const template = [
         label: 'Toggle Developer Tools',
         accelerator: process.platform === 'darwin' ? 'Alt+Command+I' : 'Ctrl+Shift+I',
         click(item, focusedWindow) {
-          if (focusedWindow && isDevelopment) {
+          if (focusedWindow) {
             focusedWindow.webContents.toggleDevTools();
           }
         },
@@ -122,7 +124,6 @@ const template = [
         label: 'Quit',
         accelerator: 'Command+Q',
         click() {
-            forceQuit = true;
             app.quit();
         },
       },
@@ -174,7 +175,6 @@ if (process.platform === 'darwin') {
         label: 'Quit',
         accelerator: 'Command+Q',
         click() {
-            forceQuit = true;
             app.quit();
         },
       },
@@ -200,39 +200,7 @@ app.on('ready', function() {
     mainWindow.loadURL(path.join('file://', __dirname, '/main.html'));
 
     mainWindow.on('closed', function () {
-        console.log('closed');
         mainWindow = null;
-        app.quit();
     });
-
-     // Uncomment to use Chrome developer tools
-    // mainWindow.webContents.openDevTools({ detach: true });
-
-    mainWindow.on('close', function (e) {
-        if (!forceQuit) {
-            e.preventDefault();
-            mainWindow.hide();
-        } else {
-          app.quit();
-        }
-    });
-    app.on('activate', function () {
-       mainWindow.show();
-    });
-
-    mainWindow.on('show', function (e) {
-        mainWindow.show();
-    });
-
-    mainWindow.on('hide', function (e) {
-      mainWindow.hide();
-    });
-});
-
-app.on('activate', function (e) {
-  mainWindow.show();
-});
-app.on('before-quit', function (e) {
-  forceQuit = true;
 });
 

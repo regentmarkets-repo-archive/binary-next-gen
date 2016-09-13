@@ -21,7 +21,7 @@
     "build:apk": "npm run build:dev && cordova build --release android && jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore tick-trade-key.keystore ./platforms/android/build/outputs/apk/android-release-unsigned.apk TickTrade && ~/Library/Android/sdk/build-tools/24.0.0/zipalign -v 4 ./platforms/android/build/outputs/apk/android-release-unsigned.apk ./platforms/android/build/outputs/apk/android-release-aligned.apk",
     "build:webpack": "NODE_ENV=production webpack --config webpack.config.js",
     "lint": "eslint src",
-    "electron": "NODE_ENV=developement electron ./www/main.js",
+    "electron": "NODE_ENV=development electron ./www/main.js",
     "translate": "bash fetch-translation.sh",
     "dist": "build -owl --ia32 --x64",
     "prerelease:osx": "rm -rf ./release/osx && mkdirp release/osx",
@@ -64,14 +64,14 @@
       "iconUrl": "https://www.binary.com/images/favicons/favicon-192x192.png",
       "target": "squirrel",
       "title": "Binary.com",
-      "icon": "build/icon.icns",
+      "icon": "build/icon.ico",
       "loadingGif": "",
       "msi": true
     },
     "linux": {
       "description": "Sharp Prices. Smart Trading",
       "title": "Binary.com",
-      "icon": "build/icon.icns",
+      "icon": "build/icon.ico",
       "target": "AppImage",
       "vendor": "Binary (IOM) Ltd"
     }
@@ -115,6 +115,7 @@
     "binary-live-api": "*",
     "binary-utils": "^4.14.0",
     "classnames": "^2.2.5",
+    "electron-osx-sign": "^0.4.0-beta4",
     "history": "~3.2.1",
     "immutable": "^3.8.1",
     "lodash.debounce": "^4.0.8",
