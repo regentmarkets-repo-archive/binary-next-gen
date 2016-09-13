@@ -20,45 +20,44 @@ let updateFeed = 'http://localhost:3000/updates/latest';
 const isDevelopment = process.env.NODE_ENV === 'development';
 
 const logger = require('winston');
-
 logger.level = 'debug';
 global.logger = logger;
+
 const path = require('path');
 
-// Don't use auto-updater if we are in development 
 if (!isDevelopment) {
     if (os.platform() === 'darwin') {
-        updateFeed = 'http://app-binary.herokuapp.com/updates/latest'; 
+        updateFeed = 'http://eatodo.s3.amazonaws.com/updates/latest/win';
     } else if (os.platform() === 'win32') {
         updateFeed = 'http://app-binary.s3.amazonaws.com/updates/latest/win' + (os.arch() === 'x64' ? '64' : '32');
     }
 
     autoUpdater.addListener('update-available', function (event) {
-        logger.log('A new update is available');
+        logger.debug('A new update is available');
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'update-available');
         }
     });
     autoUpdater.addListener('update-downloaded', function (event, releaseNotes, releaseName, releaseDate, updateURL) {
-        logger.log('A new update is ready to install', `Version ${releaseName} is downloaded from ${updateURL} and will be automatically installed on Quit`);
+        logger.debug('A new update is ready to install', `Version ${releaseName} is downloaded from ${updateURL} and will be automatically installed on Quit`);
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'update-downloaded');
         }
     });
     autoUpdater.addListener('error', function (error) {
-        logger.log(error);
+        logger.debug(`error is ${error}`);
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'update-error');
         }
     });
     autoUpdater.addListener('checking-for-update', function (event) {
-        logger.log('checking-for-update');
+        logger.debug('checking-for-update');
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'checking-for-update');
         }
     });
-    autoUpdater.addListener("update-not-available", function () {
-        logger.log('update-not-available');
+    autoUpdater.addListener('update-not-available', function () {
+        logger.debug('update-not-available');
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'update-not-available');
         }
@@ -75,7 +74,7 @@ electron.crashReporter.start({
   autoSubmit: true,
 });
 
-app.on('window-all-closed', function() {
+app.on('window-all-closed', function () {
     app.quit();
 });
 
