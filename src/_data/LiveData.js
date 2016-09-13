@@ -119,18 +119,25 @@ const initAuthorized = async (authData, store) => {
 
     api.getActiveSymbolsFull().then(r => {
         const cachedParams = state.tradesParams.toJS();
-        const firstOpenActiveSymbol = r.active_symbols.find(a => a.exchange_is_open === 1);
-        let symbolToUse = firstOpenActiveSymbol ? firstOpenActiveSymbol.symbol : r.active_symbols[0].symbol;
+        const tradableSymbols = r.active_symbols.filter(a => {
+            const isOpen = a.exchange_is_open === 1;
+            const allowStartLater = a.allow_forward_starting === 1;
+            const suspended = a.is_trading_suspended === 1;
+            return (!suspended && (isOpen || allowStartLater));
+        });
+
+        const firstOpenActiveSymbol = tradableSymbols.find(a => a.exchange_is_open === 1);
+        let symbolToUse = firstOpenActiveSymbol ? firstOpenActiveSymbol.symbol : tradableSymbols[0].symbol;
 
         const layout = state.workspace.get('layoutN');
 
         if (cachedParams.length > 0) {
             const allowedSymbols = cachedParams
-                .filter(c => r.active_symbols.some(a => a.symbol === c.symbol)).map(a => a.symbol);
+                .filter(c => tradableSymbols.some(a => a.symbol === c.symbol)).map(a => a.symbol);
 
             const needToAdd = cachedParams.length - allowedSymbols.length;
 
-            const newSymbols = r.active_symbols.filter(a => a.exchange_is_open === 1).slice(0, needToAdd).map(a => a.symbol);
+            const newSymbols = tradableSymbols.filter(a => a.exchange_is_open === 1).slice(0, needToAdd).map(a => a.symbol);
 
             const symbols = allowedSymbols.concat(newSymbols);
 
@@ -147,7 +154,7 @@ const initAuthorized = async (authData, store) => {
         store.dispatch(actions.getTicksByCount(symbolToUse, 100, false));
         store.dispatch({ type: CHANGE_INFO_FOR_ASSET, symbol: symbolToUse });
 
-        subscribeToWatchlist(r.active_symbols);
+        subscribeToWatchlist(tradableSymbols);
     });
 
     api.getTradingTimes(new Date());
