@@ -172,7 +172,7 @@ export default class TradeViewChart extends PureComponent {
 
     render() {
         const { contractForChart, index, events,
-            feedLicense, pipSize, tradeForChart, tradingTime } = this.props;
+            feedLicense, pipSize, tradeForChart } = this.props;
         const { theme } = this.context;
         const { chartType, ticks, dataType } = this.state;
 
@@ -191,7 +191,7 @@ export default class TradeViewChart extends PureComponent {
                 theme={theme}
                 type={contractForChart ? 'area' : chartType}
                 trade={tradeForChart && internalTradeModelToChartTradeModel(tradeForChart)}
-                tradingTimes={tradingTime.times}
+                // tradingTimes={tradingTime.times}
                 getData={contractForChart ? undefined : this.fetchData}
                 onTypeChange={contractForChart ? undefined : this.changeChartType}   // do not allow change type when there's contract
             />
