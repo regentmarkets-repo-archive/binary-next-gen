@@ -1,5 +1,5 @@
 import { createSelector, createStructuredSelector } from 'reselect';
-import { groupArrToNestedArr } from 'binary-utils';
+import { groupArrayToNestedArray } from 'binary-utils';
 import { assetsSelector, watchlistSelector } from '../_store/directSelectors';
 
 
@@ -38,7 +38,7 @@ export const shownAssetsSelector = createSelector(
 export const assetPickerItemsSelector = createSelector(
     [shownAssetsSelector, watchlistSelector],
     (shownAssets, watchlist) =>
-        groupArrToNestedArr(shownAssets.map(asset => ({
+        groupArrayToNestedArray(shownAssets.map(asset => ({
             symbol: asset.get('symbol'),
             name: asset.get('display_name'),
             isInWatchlist: watchlist.has(asset.get('symbol')),
