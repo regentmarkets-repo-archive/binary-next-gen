@@ -44,9 +44,11 @@ export default class TradeCard extends PureComponent {
 
     fireZoomToLatest = () => {
         const { index } = this.props;
-        const domID = `trade-chart${index}`;
         const zoomToLatestEv = new CustomEvent('zoom-to-latest');
-        document.getElementById(domID).dispatchEvent(zoomToLatestEv);
+        const chartNode = document.getElementById(`trade-chart${index}`);
+        if (chartNode) {
+            chartNode.dispatchEvent(zoomToLatestEv);
+        }
     }
 
     sellAtMarket = () => {
