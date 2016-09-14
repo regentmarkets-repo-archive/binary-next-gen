@@ -145,11 +145,25 @@ export default class TradeViewChart extends PureComponent {
     subscribeToTicks = (symbol, count = 2000) =>
         this.api
             .getTickHistory(symbol, { count, end: 'latest', subscribe: 1 })
+            .catch(err => {
+                const errCode = err.error.error.code;
+                if (errCode === 'MarketIsClosed' || errCode === 'NoRealTimeQuotes') {
+                    return this.api.getTickHistory(symbol, { count, end: 'latest' });
+                }
+                throw err;
+            })
             .then(r => this.updateData(r, 'ticks'));
 
     subscribeToOHLC = (symbol, count = 500, interval = 60) =>
         this.api
             .getTickHistory(symbol, { count, end: 'latest', subscribe: 1, style: 'candles', granularity: interval })
+            .catch(err => {
+                const errCode = err.error.error.code;
+                if (errCode === 'MarketIsClosed' || errCode === 'NoRealTimeQuotes') {
+                    return this.api.getTickHistory(symbol, { count, end: 'latest', style: 'candles', granularity: interval });
+                }
+                throw err;
+            })
             .then(r => this.updateData(r, 'candles'));
 
     changeChartType = (type: ChartType) => {
