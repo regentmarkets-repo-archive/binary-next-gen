@@ -79,7 +79,19 @@ export default class TradeViewChart extends PureComponent {
                 close: +ohlc.close,
             };
             const old = this.state.candles;
-            this.setState({ candles: old.concat([newOHLC]) });
+            const last1 = old[old.length - 1];
+            const last2 = old[old.length - 2];
+            const last3 = old[old.length - 3];
+            const interval = last2.epoch - last3.epoch;
+            const diff = newOHLC.epoch - last1.epoch;
+
+            if (diff < interval) {
+                const newOHLCArr = old.slice(0, -1);
+                newOHLCArr.push(newOHLC);
+                this.setState({ candles: newOHLCArr });
+            } else {
+                this.setState({ candles: old.concat([newOHLC]) });
+            }
             this.ohlcId = data.ohlc.id;
         });
     }
