@@ -200,7 +200,7 @@ export default class TradeViewChart extends PureComponent {
                 pipSize={pipSize}
                 shiftMode={contractForChart ? 'dynamic' : 'fixed'}
                 symbol={tradeForChart && tradeForChart.symbol}
-                symbolName={tradeForChart && tradeForChart.symbolName}
+                assetName={tradeForChart && tradeForChart.symbolName}
                 ticks={contractForChart ? ticks : this.state[dataType]}
                 theme={theme}
                 type={contractForChart ? 'area' : chartType}
