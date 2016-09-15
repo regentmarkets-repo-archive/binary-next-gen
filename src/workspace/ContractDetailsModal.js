@@ -9,7 +9,7 @@ import ContractDetailsModalSelector from './ContractDetailsModalSelector';
 export default class ContractDetailsModal extends PureComponent {
 
     static propTypes = {
-        contractShown: PropTypes.string,
+        contractShown: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
     };
 
     hideDetails = () =>

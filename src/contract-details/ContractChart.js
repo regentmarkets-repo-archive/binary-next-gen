@@ -32,22 +32,27 @@ export default class ContractChart extends PureComponent {
             candles: [],
         };
         this.api = chartApi[5];
+        this.hasTick = true;
     }
 
     componentWillMount() {
         this.api.events.on('tick', data => {
+            if (!this.hasTick) throw new Error('Not supposed to have tick stream!');
+
+            this.ticksId = data.tick.id;            // problematic, sometimes it will both be ohlc stream, and screw u !!
+
             const old = this.state.ticks;
             const newTick = {
                 epoch: +data.tick.epoch,
                 quote: +data.tick.quote,
             };
             this.setState({ ticks: old.concat([newTick]) });
-            this.ticksId = data.tick.id;
         });
 
         this.api.events.on('ohlc', data => {
-            const old = this.state.candles;
+            this.ohlcId = data.ohlc.id;
 
+            const old = this.state.candles;
             // list of candles might be received later than candles stream due to size
             // do not process single candle that arrived before list of candles
             if (old.length < 3) {
@@ -73,15 +78,26 @@ export default class ContractChart extends PureComponent {
             if (diff < interval) {
                 const newOHLCArr = old.slice(0, -1);
                 newOHLCArr.push(newOHLC);
-                this.setState({ candles: newOHLCArr });
+
+                if (!this.hasTick) {
+                    const newTicks = newOHLCArr.map(c => ({ epoch: +c.epoch, quote: +c.close }));
+                    this.setState({ ticks: newTicks, candles: newOHLCArr });
+                } else {
+                    this.setState({ candles: newOHLCArr });
+                }
             } else {
-                this.setState({ candles: old.concat([newOHLC]) });
+                const newCandles = old.concat([newOHLC]);
+
+                if (!this.hasTick) {
+                    const newTicks = newCandles.map(c => ({ epoch: +c.epoch, quote: +c.close }));
+                    this.setState({ ticks: newTicks, candles: newCandles });
+                } else {
+                    this.setState({ candles: newCandles });
+                }
             }
-            this.ohlcId = data.ohlc.id;
         });
 
-        this.getOHLCData();
-        this.getTicksData();
+        this.prepareDataForChart();
     }
 
     componentWillUnmount() {
@@ -94,32 +110,54 @@ export default class ContractChart extends PureComponent {
     }
 
     updateData = (data, type) => {
-        const newData = data[type];
         if (type === 'ticks') {
-            this.setState({ ticks: newData });
+            this.setState({ ticks: data });
         } else {
-            this.setState({ candles: newData });
+            this.setState({ candles: data });
         }
 
-        return newData;
+        return data;
     }
 
-    getTicksData = () => {
+    prepareDataForChart = () => {
         const { contract } = this.props;
         const toStream = !contract.sell_time;
 
         const { start, end } = helpers.computeStartEndForContract(contract);
-        return this.api.autoAdjustGetData(contract.underlying, start, end, 'ticks', toStream)
-            .then(r => this.updateData(r, 'ticks'));
-    }
+        const durationInSecs = end - start;
 
-    getOHLCData = () => {
-        const { contract } = this.props;
-        const toStream = !contract.sell_time;
+        // 1.5 hour = 90 minutes * 60 secs
+        if (durationInSecs < 90 * 60) {
+            this.hasTick = true;
+            this.api
+                .getTickHistory(contract.underlying, {
+                    start,
+                    end,
+                    count: 4999,
+                    adjust_start_time: 1,
+                    subscribe: toStream ? 1 : undefined,
+                })
+                .then(r => {
+                    const ticks = r.history.times.map((t, idx) => {
+                        const quote = r.history.prices[idx];
+                        return { epoch: +t, quote: +quote };
+                    });
+                    this.updateData(ticks, 'ticks');
+                });
+        } else {
+            this.hasTick = false;
+        }
 
-        const { start, end } = helpers.computeStartEndForContract(contract);
-        return this.api.autoAdjustGetData(contract.underlying, start, end, 'candles', toStream)
-            .then(r => this.updateData(r, 'candles'));
+        this.api
+            .autoAdjustGetData(contract.underlying, start, end, 'candles', toStream)
+            .then(r => {
+                this.updateData(r.candles, 'candles');
+
+                if (!this.hasTick) {
+                    const ticksDerivedFromOHLC = r.candles.map(c => ({ epoch: +c.epoch, quote: +c.close }));
+                    this.updateData(ticksDerivedFromOHLC, 'ticks');
+                }
+            });
     }
 
     fetchData = (s, e, type, interval) => {
@@ -193,7 +231,6 @@ export default class ContractChart extends PureComponent {
                 ticks={hasNoData ? undefined : data}
                 type={chartType}
                 theme={theme}
-                getData={this.fetchData}
                 noData={hasNoData}
                 pipSize={pipSize}
                 onTypeChange={!hasNoData ? this.changeChartType : undefined}
