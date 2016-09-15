@@ -102,6 +102,8 @@ export default class ContractChart extends PureComponent {
 
     componentWillUnmount() {
         this.unsubscribe();
+        this.api.events.ignoreAll('tick');
+        this.api.events.ignoreAll('ohlc');
     }
 
     unsubscribe = () => {
@@ -158,34 +160,6 @@ export default class ContractChart extends PureComponent {
                     this.updateData(ticksDerivedFromOHLC, 'ticks');
                 }
             });
-    }
-
-    fetchData = (s, e, type, interval) => {
-        const { contract } = this.props;
-        const symbol = contract.underlying;
-        const count = 4999;
-
-        const contractStart = helpers.computeStartEndForContract(contract).start;
-
-        const fetchInBatches = (start, end) =>
-            this.api
-                .getTickHistory(symbol, { count, start, end, style: type, granularity: interval })
-                .then((r) => {
-                    const firstData = r[type][0];
-                    if (!firstData) {
-                        return [];           // no data with specific range
-                    }
-
-                    const smallestEpoch = firstData.epoch;
-                    if (smallestEpoch > start) {
-                        this.updateData(r, type);
-                        return fetchInBatches(start, smallestEpoch);
-                    }
-
-                    return this.updateData(r, type);       // duplication for clarity, so that sequence dont matter
-                });
-
-        return fetchInBatches(Math.max(s, contractStart), e);
     }
 
     changeChartType = (type: ChartType) => {
