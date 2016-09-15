@@ -2,14 +2,14 @@
 if (require('electron-squirrel-startup')) { return; }
 
 const pack = require('./package.json');
+const electron = require('electron');
+const os = require('os');
+const logger = require('winston');
 
 const appVersion = pack.version;
-
-const electron = require('electron');
 const { app } = electron;
 const { BrowserWindow } = electron;
 const { autoUpdater } = electron;
-const os = require('os');
 let mainWindow = null;
 const { Menu } = electron;
 let feedLink = '';
@@ -19,7 +19,6 @@ app.setName(pack.productName);
 let updateFeed = 'http://localhost:3000/updates/latest';
 const isDevelopment = process.env.NODE_ENV === 'development';
 
-const logger = require('winston');
 logger.level = 'debug';
 global.logger = logger;
 
@@ -27,36 +26,38 @@ const path = require('path');
 
 if (!isDevelopment) {
     if (os.platform() === 'darwin') {
-        updateFeed = 'http://binary.herokuapp.com/updates/latest';
+        updateFeed = 'http://app-binary.s3.amazonaws.com/updates/latest';
     } else if (os.platform() === 'win32') {
         updateFeed = 'http://app-binary.s3.amazonaws.com/updates/latest/win' + (os.arch() === 'x64' ? '64' : '32');
     }
 
-    autoUpdater.addListener('update-available', function (event) {
+    autoUpdater.addListener('update-available', (e) => {
         logger.debug('A new update is available');
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'update-available');
         }
     });
-    autoUpdater.addListener('update-downloaded', function (event, releaseNotes, releaseName, releaseDate, updateURL) {
+    autoUpdater.addListener('update-downloaded', (event, releaseNotes, releaseName, releaseDate, updateURL) => {
         logger.debug('A new update is ready to install', `Version ${releaseName} is downloaded from ${updateURL} and will be automatically installed on Quit`);
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'update-downloaded');
+            autoUpdater.quitAndInstall();
         }
     });
-    autoUpdater.addListener('error', function (error) {
+    autoUpdater.addListener('error', (error) => {
+        logger.debug('it fails to update ' + error);
         logger.debug(`error is ${error}`);
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'update-error');
         }
     });
-    autoUpdater.addListener('checking-for-update', function (event) {
+    autoUpdater.addListener('checking-for-update', (e) => {
         logger.debug('checking-for-update');
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'checking-for-update');
         }
     });
-    autoUpdater.addListener('update-not-available', function () {
+    autoUpdater.addListener('update-not-available', () => {
         logger.debug('update-not-available');
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'update-not-available');
@@ -74,7 +75,7 @@ electron.crashReporter.start({
   autoSubmit: true,
 });
 
-app.on('window-all-closed', function () {
+app.on('window-all-closed', () => {
     app.quit();
 });
 
@@ -185,8 +186,7 @@ if (process.platform === 'darwin') {
   });
 }
 
-app.on('ready', function() {
-
+app.on('ready', () => {
     const menu = Menu.buildFromTemplate(template);
 
     logger.debug('Starting application');
@@ -202,12 +202,12 @@ app.on('ready', function() {
 
     mainWindow.loadURL(path.join('file://', __dirname, '/main.html'));
 
-    mainWindow.on('closed', function () {
+    mainWindow.on('closed', () => {
         mainWindow = null;
     });
 
     if (!isDevelopment) {
-        mainWindow.webContents.on('did-frame-finish-load', function() {
+        mainWindow.webContents.on('did-frame-finish-load', () => {
             logger.debug('Checking for updates: ' + feedLink);
             autoUpdater.checkForUpdates();
         });
