@@ -8,10 +8,10 @@ import { chartApi } from '../../_data/LiveData';
 import { mergeTicks } from '../../_reducers/TickReducer';
 import { mergeCandles } from '../../_reducers/OHLCReducer';
 
-const zoomToLatest = (ev, chart) => {
+const zoomInTo = (ratio) => (ev, chart) => {
     const { dataMax, dataMin } = chart.xAxis[0].getExtremes();
-    const half = (dataMax - dataMin) * 0.5 + dataMin;
-    chart.xAxis[0].setExtremes(half, dataMax);
+    const range = (dataMax - dataMin) * ratio;
+    chart.xAxis[0].setExtremes(dataMax - range, dataMax);
 };
 
 const chartToDataType = {
@@ -46,10 +46,12 @@ export default class TradeViewChart extends PureComponent {
     static defaultProps = {
         type: 'full',
         feedLicense: '',
-        events: [{
-            type: 'zoom-to-latest',
-            handler: zoomToLatest,
-        }],
+        events: [
+            {
+                type: 'zoom-in-to',
+                handler: zoomInTo(1 / 16),
+            },
+        ],
         tradingTime: {},
     };
 
@@ -103,9 +105,13 @@ export default class TradeViewChart extends PureComponent {
             this.ohlcId = data.ohlc.id;
         });
 
-        const { tradeForChart } = this.props;
+        const { tradeForChart, index } = this.props;
         const { symbol } = tradeForChart;
-        this.subscribeToTicks(symbol);
+
+        this.subscribeToTicks(symbol).then(() => {
+            const chartDiv = document.getElementById(`trade-chart${index}`);
+            chartDiv.dispatchEvent(new Event('zoom-in-to'));
+        });
         this.subscribeToOHLC(symbol);
     }
 
