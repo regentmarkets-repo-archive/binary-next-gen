@@ -35,9 +35,8 @@ export default class ContractChart extends PureComponent {
     }
 
     componentWillMount() {
-        const { ticks, candles } = this.state;
         this.api.events.on('tick', data => {
-            const old = ticks;
+            const old = this.state.ticks;
             const newTick = {
                 epoch: +data.tick.epoch,
                 quote: +data.tick.quote,
@@ -47,7 +46,7 @@ export default class ContractChart extends PureComponent {
         });
 
         this.api.events.on('ohlc', data => {
-            const old = candles;
+            const old = this.state.candles;
 
             // list of candles might be received later than candles stream due to size
             // do not process single candle that arrived before list of candles
