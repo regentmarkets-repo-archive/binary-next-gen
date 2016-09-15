@@ -78,19 +78,21 @@ export default class ContractChart extends PureComponent {
             if (diff < interval) {
                 const newOHLCArr = old.slice(0, -1);
                 newOHLCArr.push(newOHLC);
-                this.setState({ candles: newOHLCArr });
 
                 if (!this.hasTick) {
                     const newTicks = newOHLCArr.map(c => ({ epoch: +c.epoch, quote: +c.close }));
-                    this.setState({ ticks: newTicks });
+                    this.setState({ ticks: newTicks, candles: newOHLCArr });
+                } else {
+                    this.setState({ candles: newOHLCArr });
                 }
             } else {
                 const newCandles = old.concat([newOHLC]);
-                this.setState({ candles: newCandles });
 
                 if (!this.hasTick) {
                     const newTicks = newCandles.map(c => ({ epoch: +c.epoch, quote: +c.close }));
-                    this.setState({ ticks: newTicks });
+                    this.setState({ ticks: newTicks, candles: newCandles });
+                } else {
+                    this.setState({ candles: newCandles });
                 }
             }
         });
@@ -229,7 +231,6 @@ export default class ContractChart extends PureComponent {
                 ticks={hasNoData ? undefined : data}
                 type={chartType}
                 theme={theme}
-                getData={this.fetchData}
                 noData={hasNoData}
                 pipSize={pipSize}
                 onTypeChange={!hasNoData ? this.changeChartType : undefined}
