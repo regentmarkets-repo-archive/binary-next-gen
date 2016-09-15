@@ -58,7 +58,9 @@ export default class TradeViewChart extends PureComponent {
         this.state = defaultState;
 
         this.api = chartApi[props.index];
+    }
 
+    componentWillMount() {
         this.api.events.on('tick', data => {
             const old = this.state.ticks;
             const newTick = {
@@ -68,8 +70,15 @@ export default class TradeViewChart extends PureComponent {
             this.setState({ ticks: old.concat([newTick]) });
             this.ticksId = data.tick.id;
         });
-
         this.api.events.on('ohlc', data => {
+            const old = this.state.candles;
+
+            // list of candles might be received later than candles stream due to size
+            // do not process single candle that arrived before list of candles
+            if (old.length < 3) {
+                return;
+            }
+
             const ohlc = data.ohlc;
             const newOHLC = {
                 epoch: +(ohlc.open_time || ohlc.epoch),
@@ -78,7 +87,6 @@ export default class TradeViewChart extends PureComponent {
                 low: +ohlc.low,
                 close: +ohlc.close,
             };
-            const old = this.state.candles;
             const last1 = old[old.length - 1];
             const last2 = old[old.length - 2];
             const last3 = old[old.length - 3];
@@ -94,9 +102,7 @@ export default class TradeViewChart extends PureComponent {
             }
             this.ohlcId = data.ohlc.id;
         });
-    }
 
-    componentWillMount() {
         const { tradeForChart } = this.props;
         const { symbol } = tradeForChart;
         this.subscribeToTicks(symbol);
