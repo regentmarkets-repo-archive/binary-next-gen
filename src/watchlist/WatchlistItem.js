@@ -29,7 +29,7 @@ export default class WatchlistItem extends PureComponent {
 						&nbsp;
 						<NumberColored value={item.get('diff')} digits={item.get('digits')} />
 					</div>
-					<Clear onClick={this.onRemove} />
+					<Clear className="close-btn" onClick={this.onRemove} />
 				</div>
 				{item.get('isOpen') ?
 					<WatchlistSparkline history={item.get('history')} /> :

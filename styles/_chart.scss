@@ -51,7 +51,13 @@
 
 .binary-chart-picker-item {
     text-align: left;
-    padding: 10px;
+    padding: 8px;
+    display: flex;
+    align-items: center;
+
+    svg {
+        margin-right: 8px;
+    }
 }
 
 .pressed {
@@ -80,6 +86,10 @@
     }
 }
 
+.binary-chart-toolbar {
+    height: 28px;
+}
+
 .binary-chart-toolbar > * {
     margin-right: 2px;
 }
@@ -87,9 +97,10 @@
 .binary-chart-button {
     background: rgba($COLOR_BRAND_BLUE, 0.1);
     border-radius: $BORDER_RADIUS;
+    min-width: 28px;
 }
 
 .binary-chart-button,
 .binary-chart-time-frame-picker > button {
-    padding: 3px;
+    padding: 5px;
 }
