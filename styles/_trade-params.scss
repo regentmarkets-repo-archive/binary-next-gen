@@ -36,6 +36,7 @@
 
     .trade-panel {
         flex-direction: row-reverse;
+        align-items: stretch;
     }
 
     .contract-detail {
@@ -204,15 +205,7 @@
     #trade-chart2,
     #trade-chart3,
     #trade-chart4 {
-        height: calc(100% - 2.5em);
-    }
-}
-
-.highcharts-container {
-    width: 100% !important;
-
-    svg {
-        width: 100% !important;
+        height: calc(100% - 56px);
     }
 }
 

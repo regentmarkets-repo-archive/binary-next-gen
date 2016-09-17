@@ -65,9 +65,7 @@ export default class TradeCard extends PureComponent {
 
         return (
             <div className="trade-panel">
-                <div className="trade-chart-container">
-                    <TradeViewChart {...immutableChildrenToJS(chartProps)} />
-                </div>
+                <TradeViewChart {...immutableChildrenToJS(chartProps)} />
                 {contractReceiptInJS &&
                     <ContractReceipt
                         contract={contractReceiptInJS}

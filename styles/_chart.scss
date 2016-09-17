@@ -1,5 +1,17 @@
 @import 'colors';
 
+.highcharts-container {
+    width: 100% !important;
+
+    svg {
+        width: 100% !important;
+    }
+}
+
+.highcharts-tracker {
+    stroke-opacity: 0;
+}
+
 .inverse .trade-chart {
     color: $COLOR_INVERSE_TEXT;
 }
@@ -26,7 +38,7 @@
 }
 
 .binary-chart-time-frame-picker {
-    height: 30px;
+    height: 24px;
 }
 
 .binary-chart-time-frame-picker button {
@@ -37,6 +49,7 @@
 .binary-chart-submenu {
     border-radius: $BORDER_RADIUS;
     background: $COLOR_BG;
+    box-shadow: 0 0 1em 0 rgba(black, 0.5);
 }
 
 .inverse .binary-chart-submenu {
@@ -98,6 +111,9 @@
     background: rgba($COLOR_BRAND_BLUE, 0.1);
     border-radius: $BORDER_RADIUS;
     min-width: 28px;
+}
+
+.inverse .binary-chart-button {
 }
 
 .binary-chart-button,
