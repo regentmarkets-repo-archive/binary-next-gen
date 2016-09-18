@@ -44,6 +44,7 @@
 .binary-chart-time-frame-picker button {
     background: rgba($COLOR_INVERSE_TEXT, 0.25) !important;
     margin-right: 2px;
+    padding: 0;
 }
 
 .binary-chart-submenu {
@@ -113,10 +114,6 @@
     min-width: 28px;
 }
 
-.inverse .binary-chart-button {
-}
-
-.binary-chart-button,
-.binary-chart-time-frame-picker > button {
+.binary-chart-button {
     padding: 5px;
 }
