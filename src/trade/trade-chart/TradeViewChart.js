@@ -135,7 +135,10 @@ export default class TradeViewChart extends PureComponent {
             this.setState(defaultState);
             this.unsubscribe();
 
-            this.subscribeToTicks(nextProps.tradeForChart.symbol);
+            this.subscribeToTicks(nextProps.tradeForChart.symbol).then(() => {
+                const chartDiv = document.getElementById(`trade-chart${nextProps.index}`);
+                chartDiv.dispatchEvent(new Event('zoom-in-to'));
+            });
             this.subscribeToOHLC(nextProps.tradeForChart.symbol);
         }
     }
