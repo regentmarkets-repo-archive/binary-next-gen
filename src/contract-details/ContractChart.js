@@ -33,6 +33,7 @@ export default class ContractChart extends PureComponent {
         };
         this.api = chartApi[5];
         this.hasTick = true;
+        this.contractEnd = undefined;       // used to know when to unsubscribe
     }
 
     componentWillMount() {
@@ -47,6 +48,11 @@ export default class ContractChart extends PureComponent {
                 quote: +data.tick.quote,
             };
             this.setState({ ticks: old.concat([newTick]) });
+
+            // unsubscribe after contract ends
+            if (this.contractEnd && newTick.epoch > this.contractEnd) {
+                this.api.unsubscribeByID(data.tick.id);
+            }
         });
 
         this.api.events.on('ohlc', data => {
@@ -95,9 +101,26 @@ export default class ContractChart extends PureComponent {
                     this.setState({ candles: newCandles });
                 }
             }
+
+            // unsubscribe after contract ends
+            if (this.contractEnd && newOHLC.epoch > this.contractEnd) {
+                this.api.unsubscribeByID(data.ohlc.id);
+            }
         });
 
         this.prepareDataForChart();
+    }
+
+    componentWillReceiveProps(nextProps) {
+        const { contract } = nextProps;
+        const { date_expiry, exit_tick_time } = contract;
+
+        // for contract that was not ended when component mount
+        // compute end time when it ended
+        if (!this.contractEnd && (date_expiry || exit_tick_time)) {
+            const { end } = helpers.computeStartEndForContract(contract);
+            this.contractEnd = end;
+        }
     }
 
     componentWillUnmount() {
@@ -127,6 +150,11 @@ export default class ContractChart extends PureComponent {
 
         const { start, end } = helpers.computeStartEndForContract(contract);
         const durationInSecs = end - start;
+
+        if (contract.sell_time) {
+            this.contractEnd = end;
+        }
+
 
         // 1.5 hour = 90 minutes * 60 secs
         if (durationInSecs < 90 * 60) {
@@ -160,6 +188,10 @@ export default class ContractChart extends PureComponent {
                     this.updateData(ticksDerivedFromOHLC, 'ticks');
                 }
             });
+
+        if (toStream) {
+            this.api.subscribeToOpenContract(contract.contract_id);
+        }
     }
 
     changeChartType = (type: ChartType) => {
