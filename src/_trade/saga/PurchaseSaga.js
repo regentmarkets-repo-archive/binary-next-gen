@@ -5,7 +5,6 @@ import { updateMultipleTradeParams } from '../../_actions';
 import { getParams, getProposalId } from './SagaSelectors';
 import { api } from '../../_data/LiveData';
 import { updatePurchasedContract, updateTradeError } from '../../_actions/TradeActions';
-import { updateChartDataByContract } from '../../_actions/ChartDataActions';
 import { unsubscribeProposal, subscribeProposal } from './ProposalSubscriptionSaga';
 
 const CHANGE_STAKE = 'CHANGE_STAKE';
@@ -18,10 +17,11 @@ export const reqStakeChange = (index, stake) => ({
     stake,
 });
 
-export const reqPurchase = (index, price) => ({
+export const reqPurchase = (index, price, onPurchaseDone) => ({
     type: PURCHASE,
     index,
     price,
+    onPurchaseDone,
 });
 
 function* handleStakeChange(action) {
@@ -43,26 +43,15 @@ function* handleStakeChange(action) {
 }
 
 function* handlePurchase(action) {
-    const { index, price } = action;
+    const { index, price, onPurchaseDone } = action;
     const params = yield select(getParams(index));
     const pid = yield select(getProposalId(index));
     try {
         const { buy } = yield api.buyContract(pid, price);
+        api.subscribeToOpenContract(buy.contract_id);
+        onPurchaseDone();
 
-        const { ticks, candles, symbol, isSold } =
-            yield api.getDataForContract(
-                () => api.subscribeToOpenContract(buy.contract_id).then(r => r.proposal_open_contract),
-                undefined,
-                'ticks',
-                false
-            );
-
-        yield [
-            put(updatePurchasedContract(index, buy)),
-
-            // update chart data so that chart will use ticks related to contract only
-            put(updateChartDataByContract(buy.contract_id, ticks || candles, 'ticks', symbol, isSold)),
-        ];
+        yield put(updatePurchasedContract(index, buy));
     } catch (err) {
         if (!err.error || !err.error.error) {
             throw err;                  // rethrow error that we do not expect

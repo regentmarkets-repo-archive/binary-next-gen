@@ -14,6 +14,12 @@ const zoomInTo = (ratio) => (ev, chart) => {
     chart.xAxis[0].setExtremes(dataMax - range, dataMax);
 };
 
+const zoomInMax = (ev, chart) => {
+    const { dataMax } = chart.xAxis[0].getExtremes();
+    const { minRange } = chart.xAxis[0].options;
+    chart.xAxis[0].setExtremes(dataMax - minRange, dataMax);
+};
+
 const chartToDataType = {
     area: 'ticks',
     line: 'ticks',
@@ -50,6 +56,10 @@ export default class TradeViewChart extends PureComponent {
             {
                 type: 'zoom-in-to',
                 handler: zoomInTo(1 / 16),
+            },
+            {
+                type: 'zoom-in-max',
+                handler: zoomInMax,
             },
         ],
         tradingTime: {},
