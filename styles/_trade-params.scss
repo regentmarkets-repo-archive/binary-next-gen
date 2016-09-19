@@ -185,11 +185,9 @@
 }
 
 .trade-chart {
-    width: 100%;
-    height: 100%;
     display: flex;
     flex-direction: column;
-
+    flex: 1;
     .binary-chart-zoom-controls {
         visibility: hidden;
         opacity: 0;
