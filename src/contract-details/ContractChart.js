@@ -237,6 +237,7 @@ export default class ContractChart extends PureComponent {
                 ticks={hasNoData ? undefined : data}
                 type={chartType}
                 theme={theme}
+                shiftMode="dynamic"
                 noData={hasNoData}
                 pipSize={pipSize}
                 onTypeChange={!hasNoData ? this.changeChartType : undefined}
