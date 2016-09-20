@@ -77,7 +77,7 @@ export default class TradeViewChart extends PureComponent {
             const { tradeForChart } = this.props;
 
             // ignored delayed tick from previous subscription
-            if (data.tick.symbol !== tradeForChart.symbol) return;
+            if (tradeForChart && data.tick.symbol !== tradeForChart.symbol) return;
 
             const old = this.state.ticks;
             const newTick = {

@@ -40,6 +40,7 @@ module.exports = {
             { test: /\.js$/, exclude: /node_modules/, loader: 'babel', query: { compact: true }},
             { test: /\.js$/, exclude: /node_modules/, loader: 'eslint' },
             { test: /\.css$/, exclude: /node_modules/, loader: 'style!css?modules&importLoaders=1&localIdentName=[local]_[hash:base64:5]' },
+            { test: /\.svg$/, loader: 'babel?presets[]=es2015,presets[]=react!svg-react' },
             // { test: /\.css$/, exclude: /node_modules/, loader: 'style!css!postcss?modules&importLoaders=1&localIdentName=[local]_[hash:base64:5]' },
             // { test: /\.scss$/, loader: ExtractTextPlugin.extract( 'css-loader?modules' + '&importLoaders=1&localIdentName=[name]__[local]___[hash:base64:5]' + '!postcss-loader' + '!sass' ), },
         ],
