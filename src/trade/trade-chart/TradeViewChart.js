@@ -7,6 +7,7 @@ import {
 import { chartApi } from '../../_data/LiveData';
 import { mergeTicks } from '../../_reducers/TickReducer';
 import { mergeCandles } from '../../_reducers/OHLCReducer';
+import { chartToDataType, getDataWithErrorHandling } from '../../_chart-utils/Utils';
 
 const zoomInTo = (ratio) => (ev, chart) => {
     const { dataMax, dataMin } = chart.xAxis[0].getExtremes();
@@ -20,31 +21,12 @@ const zoomInMax = (ev, chart) => {
     chart.xAxis[0].setExtremes(dataMax - minRange, dataMax);
 };
 
-const chartToDataType = {
-    area: 'ticks',
-    line: 'ticks',
-    candlestick: 'candles',
-    ohlc: 'candles',
-};
-
 const defaultState = {
     dataType: 'ticks',
     chartType: 'area',
     ticks: [],
     candles: [],
 };
-
-function getDataCallWithErrorHandling(getDataCall) {
-    return getDataCall().catch(err => {
-        const errCode = err.error.error.code;
-
-        if (errCode === 'MarketIsClosed' || errCode === 'NoRealtimeQuotes') {
-            return getDataCall(errCode);
-        }
-
-        throw err;
-    });
-}
 
 export default class TradeViewChart extends PureComponent {
     static contextTypes = {
@@ -221,7 +203,7 @@ export default class TradeViewChart extends PureComponent {
                 subscribe: err ? undefined : 1,
             });
 
-        return getDataCallWithErrorHandling(callDependOnErr).then(r => this.updateData(r, 'ticks'));
+        return getDataWithErrorHandling(callDependOnErr).then(r => this.updateData(r, 'ticks'));
     }
 
     subscribeToOHLC = (symbol, count = 500, interval = 60): Promise => {
@@ -239,7 +221,7 @@ export default class TradeViewChart extends PureComponent {
                     granularity: interval,
                 });
 
-        return getDataCallWithErrorHandling(callDependOnErr).then(r => this.updateData(r, 'candles'));
+        return getDataWithErrorHandling(callDependOnErr).then(r => this.updateData(r, 'candles'));
     }
 
     changeChartType = (type: ChartType) => {
