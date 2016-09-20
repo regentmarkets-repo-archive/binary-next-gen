@@ -91,12 +91,13 @@ export const changeActiveLayout = (tradesCount, layoutN) =>
             const combinedAssetChoices = otherAssetInSameMarket.concat(randomAdditionalSymbols);
             const assetToBeUsedForNewTrades = combinedAssetChoices.take(additionTradeNeeded);
 
-            assetToBeUsedForNewTrades.forEach((asset, idx) => dispatch(createTrade(idx + currentTradeCount, asset)));
-            return dispatch(updateActiveLayout(tradesCount, layoutN, assetToBeUsedForNewTrades.toJS()));
+            dispatch(updateActiveLayout(tradesCount, layoutN, assetToBeUsedForNewTrades.toJS()));
+            return assetToBeUsedForNewTrades.forEach((asset, idx) => dispatch(createTrade(idx + currentTradeCount, asset)));
         }
         const assetToBeUsedForNewTrades = otherAssetInSameMarket.take(additionTradeNeeded);
-        assetToBeUsedForNewTrades.forEach((asset, idx) => dispatch(createTrade(idx + currentTradeCount, asset)));
-        return dispatch(updateActiveLayout(tradesCount, layoutN, assetToBeUsedForNewTrades.toJS()));
+
+        dispatch(updateActiveLayout(tradesCount, layoutN, assetToBeUsedForNewTrades.toJS()));
+        return assetToBeUsedForNewTrades.forEach((asset, idx) => dispatch(createTrade(idx + currentTradeCount, asset)));
     };
 
 export const changeActiveWorkspaceTab = (panel, index) => ({

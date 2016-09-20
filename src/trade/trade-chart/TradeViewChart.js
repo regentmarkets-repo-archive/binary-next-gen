@@ -14,6 +14,12 @@ const zoomInTo = (ratio) => (ev, chart) => {
     chart.xAxis[0].setExtremes(dataMax - range, dataMax);
 };
 
+const zoomInMax = (ev, chart) => {
+    const { dataMax } = chart.xAxis[0].getExtremes();
+    const { minRange } = chart.xAxis[0].options;
+    chart.xAxis[0].setExtremes(dataMax - minRange, dataMax);
+};
+
 const chartToDataType = {
     area: 'ticks',
     line: 'ticks',
@@ -51,6 +57,10 @@ export default class TradeViewChart extends PureComponent {
                 type: 'zoom-in-to',
                 handler: zoomInTo(1 / 16),
             },
+            {
+                type: 'zoom-in-max',
+                handler: zoomInMax,
+            },
         ],
         tradingTime: {},
     };
@@ -64,6 +74,11 @@ export default class TradeViewChart extends PureComponent {
 
     componentWillMount() {
         this.api.events.on('tick', data => {
+            const { tradeForChart } = this.props;
+
+            // ignored delayed tick from previous subscription
+            if (data.tick.symbol !== tradeForChart.symbol) return;
+
             const old = this.state.ticks;
             const newTick = {
                 epoch: +data.tick.epoch,
@@ -73,6 +88,11 @@ export default class TradeViewChart extends PureComponent {
             this.ticksId = data.tick.id;
         });
         this.api.events.on('ohlc', data => {
+            const { tradeForChart } = this.props;
+
+            // ignore delayed tick from previous subscription
+            if (data.ohlc.symbol !== tradeForChart.symbol) return;
+
             const old = this.state.candles;
 
             // list of candles might be received later than candles stream due to size
@@ -104,7 +124,9 @@ export default class TradeViewChart extends PureComponent {
             }
             this.ohlcId = data.ohlc.id;
         });
+    }
 
+    componentDidMount() {
         const { tradeForChart, index } = this.props;
         const { symbol } = tradeForChart;
 
@@ -121,15 +143,20 @@ export default class TradeViewChart extends PureComponent {
             (this.props.tradeForChart.symbol !== nextProps.tradeForChart.symbol)
         ) {
             this.setState(defaultState);
-
             this.unsubscribe();
-            this.subscribeToTicks(nextProps.tradeForChart.symbol);
+
+            this.subscribeToTicks(nextProps.tradeForChart.symbol).then(() => {
+                const chartDiv = document.getElementById(`trade-chart${nextProps.index}`);
+                chartDiv.dispatchEvent(new Event('zoom-in-to'));
+            });
             this.subscribeToOHLC(nextProps.tradeForChart.symbol);
         }
     }
 
     componentWillUnmount() {
         this.unsubscribe();
+        this.api.events.ignoreAll('tick');
+        this.api.events.ignoreAll('ohlc');
     }
 
     unsubscribe = () => {
