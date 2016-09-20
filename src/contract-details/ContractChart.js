@@ -1,14 +1,9 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { BinaryChart } from 'binary-charts';
+import { nowAsEpoch } from 'binary-utils';
 import { helpers } from 'binary-live-api';
-import { chartApi } from '../_data/LiveData';
-
-const chartToDataType = {
-    area: 'ticks',
-    line: 'ticks',
-    candlestick: 'candles',
-    ohlc: 'candles',
-};
+import { chartApi, api as CoreApi } from '../_data/LiveData';
+import { chartToDataType, getDataWithErrorHandling } from '../_chart-utils/Utils';
 
 type Props = {
     contract: Contract,
@@ -30,6 +25,7 @@ export default class ContractChart extends PureComponent {
             dataType: 'ticks',
             ticks: [],
             candles: [],
+            noData: false,
         };
         this.api = chartApi[5];
         this.hasTick = true;
@@ -148,50 +144,77 @@ export default class ContractChart extends PureComponent {
         const { contract } = this.props;
         const toStream = !contract.sell_time;
 
+        if (toStream) {
+            CoreApi.subscribeToOpenContract(contract.contract_id);
+        }
+
         const { start, end } = helpers.computeStartEndForContract(contract);
-        const durationInSecs = end - start;
+
+        // escape earlier if contract not started
+        if (start > nowAsEpoch()) {
+            this.setState({ noData: true });
+            return;
+        }
 
         if (contract.sell_time) {
             this.contractEnd = end;
         }
 
 
+        const durationInSecs = end - start;
+
         // 1.5 hour = 90 minutes * 60 secs
         if (durationInSecs < 90 * 60) {
             this.hasTick = true;
-            this.api
-                .getTickHistory(contract.underlying, {
-                    start,
-                    end,
-                    count: 4999,
-                    adjust_start_time: 1,
-                    subscribe: toStream ? 1 : undefined,
-                })
-                .then(r => {
-                    const ticks = r.history.times.map((t, idx) => {
-                        const quote = r.history.prices[idx];
-                        return { epoch: +t, quote: +quote };
+
+            const getDataCall = (errCode) => {
+                if (errCode === 'StreamingNotAllowed') {
+                    this.setState({ noData: true });
+                    return Promise.resolve();
+                }
+
+                return this.api
+                    .getTickHistory(contract.underlying, {
+                        start,
+                        end,
+                        count: 4999,
+                        adjust_start_time: 1,
+                        subscribe: toStream && !errCode ? 1 : undefined,
                     });
-                    this.updateData(ticks, 'ticks');
+            };
+
+            getDataWithErrorHandling(getDataCall).then(r => {
+                if (!r) return;
+
+                const ticks = r.history.times.map((t, idx) => {
+                    const quote = r.history.prices[idx];
+                    return { epoch: +t, quote: +quote };
                 });
+                this.updateData(ticks, 'ticks');
+            });
         } else {
             this.hasTick = false;
         }
 
-        this.api
-            .autoAdjustGetData(contract.underlying, start, end, 'candles', toStream)
-            .then(r => {
-                this.updateData(r.candles, 'candles');
+        const getDataCall = (errCode) => {
+            if (errCode === 'StreamingNotAllowed') {
+                this.setState({ noData: true });
+                return Promise.resolve();
+            }
 
-                if (!this.hasTick) {
-                    const ticksDerivedFromOHLC = r.candles.map(c => ({ epoch: +c.epoch, quote: +c.close }));
-                    this.updateData(ticksDerivedFromOHLC, 'ticks');
-                }
-            });
+            return this.api.autoAdjustGetData(contract.underlying, start, end, 'candles', toStream && !errCode);
+        };
 
-        if (toStream) {
-            this.api.subscribeToOpenContract(contract.contract_id);
-        }
+        getDataWithErrorHandling(getDataCall).then(r => {
+            if (!r) return;
+
+            this.updateData(r.candles, 'candles');
+
+            if (!this.hasTick) {
+                const ticksDerivedFromOHLC = r.candles.map(c => ({ epoch: +c.epoch, quote: +c.close }));
+                this.updateData(ticksDerivedFromOHLC, 'ticks');
+            }
+        });
     }
 
     changeChartType = (type: ChartType) => {
@@ -217,12 +240,12 @@ export default class ContractChart extends PureComponent {
         const { contract, pipSize } = this.props;
         const { theme } = this.context;
         const { date_start, exit_tick_time, sell_spot_time } = contract;
-        const { chartType, dataType } = this.state;
+        const { chartType, dataType, noData } = this.state;
         const data = this.state[dataType];
         const endTime = exit_tick_time || sell_spot_time;
 
         // handle edge case where contract ends before it starts, show No data available message on chart
-        const hasNoData = (+date_start > +endTime);
+        const hasNoData = (+date_start > +endTime) || noData;
 
         return (
             <BinaryChart
