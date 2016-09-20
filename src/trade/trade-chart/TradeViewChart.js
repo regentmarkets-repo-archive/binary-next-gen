@@ -198,7 +198,7 @@ export default class TradeViewChart extends PureComponent {
             .getTickHistory(symbol, { count, end: 'latest', subscribe: 1 })
             .catch(err => {
                 const errCode = err.error.error.code;
-                if (errCode === 'MarketIsClosed' || errCode === 'NoRealTimeQuotes') {
+                if (errCode === 'MarketIsClosed' || errCode === 'NoRealtimeQuotes') {
                     return this.api.getTickHistory(symbol, { count, end: 'latest' });
                 }
                 throw err;
@@ -210,7 +210,7 @@ export default class TradeViewChart extends PureComponent {
             .getTickHistory(symbol, { count, end: 'latest', subscribe: 1, style: 'candles', granularity: interval })
             .catch(err => {
                 const errCode = err.error.error.code;
-                if (errCode === 'MarketIsClosed' || errCode === 'NoRealTimeQuotes') {
+                if (errCode === 'MarketIsClosed' || errCode === 'NoRealtimeQuotes') {
                     return this.api.getTickHistory(symbol, { count, end: 'latest', style: 'candles', granularity: interval });
                 }
                 throw err;
