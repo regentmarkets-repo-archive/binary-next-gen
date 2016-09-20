@@ -34,6 +34,18 @@ const defaultState = {
     candles: [],
 };
 
+function getDataCallWithErrorHandling(getDataCall) {
+    return getDataCall().catch(err => {
+        const errCode = err.error.error.code;
+
+        if (errCode === 'MarketIsClosed' || errCode === 'NoRealtimeQuotes') {
+            return getDataCall(errCode);
+        }
+
+        throw err;
+    });
+}
+
 export default class TradeViewChart extends PureComponent {
     static contextTypes = {
         theme: PropTypes.string,
@@ -182,40 +194,53 @@ export default class TradeViewChart extends PureComponent {
         return candles;
     }
 
-    fetchData = (start, end, type, interval) => {
-        const { tradeForChart } = this.props;
+    fetchData = (start: number, end: number, type: ChartType, interval: number): Promise => {
+        const { tradeForChart, feedLicense } = this.props;
+
+        if (feedLicense === 'chartonly') return Promise.resolve();
+
         const { symbol } = tradeForChart;
         const count = type === 'ticks' ? 1000 : 500;
-        const result = this.api
-            .getTickHistory(symbol, { count, end, style: type, granularity: interval })
-            .then(r => this.updateData(r, type));
 
-        return result;
+        // no need to handle error as not calling with subscribe
+        return this.api
+            .getTickHistory(symbol, { count, end, style: type, granularity: interval, adjust_start_time: 1 })
+            .then(r => this.updateData(r, type));
     }
 
-    subscribeToTicks = (symbol, count = 2000) =>
-        this.api
-            .getTickHistory(symbol, { count, end: 'latest', subscribe: 1 })
-            .catch(err => {
-                const errCode = err.error.error.code;
-                if (errCode === 'MarketIsClosed' || errCode === 'NoRealtimeQuotes') {
-                    return this.api.getTickHistory(symbol, { count, end: 'latest' });
-                }
-                throw err;
-            })
-            .then(r => this.updateData(r, 'ticks'));
+    subscribeToTicks = (symbol, count = 2000): Promise => {
+        const { feedLicense } = this.props;
+        if (feedLicense === 'chartonly') {
+            return Promise.resolve();
+        }
 
-    subscribeToOHLC = (symbol, count = 500, interval = 60) =>
-        this.api
-            .getTickHistory(symbol, { count, end: 'latest', subscribe: 1, style: 'candles', granularity: interval })
-            .catch(err => {
-                const errCode = err.error.error.code;
-                if (errCode === 'MarketIsClosed' || errCode === 'NoRealtimeQuotes') {
-                    return this.api.getTickHistory(symbol, { count, end: 'latest', style: 'candles', granularity: interval });
-                }
-                throw err;
-            })
-            .then(r => this.updateData(r, 'candles'));
+        const callDependOnErr = (err) =>
+            this.api.getTickHistory(symbol, {
+                count,
+                end: 'latest',
+                subscribe: err ? undefined : 1,
+            });
+
+        return getDataCallWithErrorHandling(callDependOnErr).then(r => this.updateData(r, 'ticks'));
+    }
+
+    subscribeToOHLC = (symbol, count = 500, interval = 60): Promise => {
+        const { feedLicense } = this.props;
+        if (feedLicense === 'chartonly') {
+            return Promise.resolve();
+        }
+
+        const callDependOnErr = (err) =>
+            this.api.getTickHistory(symbol, {
+                    count,
+                    end: 'latest',
+                    subscribe: err ? undefined : 1,
+                    style: 'candles',
+                    granularity: interval,
+                });
+
+        return getDataCallWithErrorHandling(callDependOnErr).then(r => this.updateData(r, 'candles'));
+    }
 
     changeChartType = (type: ChartType) => {
         const { contractForChart, feedLicense } = this.props;
@@ -241,13 +266,15 @@ export default class TradeViewChart extends PureComponent {
         const { theme } = this.context;
         const { chartType, ticks, dataType } = this.state;
 
+        const noData = feedLicense === 'chartonly';
+
         return (
             <BinaryChart
                 id={`trade-chart${index}`}
                 className="trade-chart"
                 contract={contractForChart && serverContractModelToChartContractModel(contractForChart)}
                 events={events}
-                noData={feedLicense === 'chartonly'}
+                noData={noData}
                 pipSize={pipSize}
                 shiftMode={contractForChart ? 'dynamic' : 'fixed'}
                 symbol={tradeForChart && tradeForChart.symbol}
@@ -257,8 +284,8 @@ export default class TradeViewChart extends PureComponent {
                 type={contractForChart ? 'area' : chartType}
                 trade={tradeForChart && internalTradeModelToChartTradeModel(tradeForChart)}
                 // tradingTimes={tradingTime.times}
-                getData={contractForChart ? undefined : this.fetchData}
-                onTypeChange={contractForChart ? undefined : this.changeChartType}   // do not allow change type when there's contract
+                getData={contractForChart || noData ? undefined : this.fetchData}
+                onTypeChange={contractForChart || noData ? undefined : this.changeChartType}   // do not allow change type when there's contract
             />
         );
     }
