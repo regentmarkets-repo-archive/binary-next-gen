@@ -75,8 +75,8 @@
 }
 
 .layout-2-1 > div {
-    flex: 1;
-    max-height: 50%;
+    flex: 1 1 50%;
+    min-height: 0;
 }
 
 /* 2-2 */
@@ -86,8 +86,8 @@
 }
 
 .layout-2-2 > div {
-    flex: 1;
-    max-width: 50%;
+    flex: 1 1 50%;
+    min-width: 0;
 }
 
 /* 3-1 */
@@ -97,8 +97,8 @@
 }
 
 .layout-3-1 > div {
-    flex: 1;
-    max-height: 50%;
+    flex: 1 1 50%;
+    min-height: 0;
 }
 
 .layout-3-1 > div:nth-child(2) {
@@ -112,8 +112,8 @@
 }
 
 .layout-3-2 > div {
-    flex: 1;
-    max-height: 50%;
+    flex: 1 1 50%;
+    min-height: 0;
 }
 
 .layout-3-2 > div:nth-child(1) {
@@ -136,7 +136,8 @@
 }
 
 .layout-3-3 > div:nth-child(1) > div {
-    max-height: 50%;
+    flex: 1 1 50%;
+    min-height: 0;
 }
 
 /* 3-4 */
@@ -155,7 +156,8 @@
 }
 
 .layout-3-4 > div:nth-child(2) > div {
-    max-height: 50%;
+    flex: 1 1 50%;
+    min-height: 0;
 }
 
 /* 3-5 */
@@ -165,8 +167,8 @@
 }
 
 .layout-3-5 > div {
-    flex: 1;
-    max-height: 33.33%;
+    flex: 1 1 33.33%;
+    min-height: 0;
 }
 
 /* 3-6 */
@@ -176,8 +178,8 @@
 }
 
 .layout-3-6 > div {
-    flex: 1;
-    max-width: 33.33%;
+    flex: 1 1 33.33%;
+    min-width: 0;
 }
 
 /* 4-1 */
@@ -188,8 +190,8 @@
 
 .layout-4-1 > div {
     display: flex;
-    flex: 1;
-    max-height: 50%;
+    flex: 1 1 50%;
+    min-height: 0;
 }
 
 .layout-4-1 {
@@ -203,8 +205,8 @@
 }
 
 .layout-4-2 > div {
-    flex: 1;
-    max-height: 50%;
+    flex: 1 1 50%;
+    min-height: 0;
 }
 
 .layout-4-2 > div:nth-child(1) {
@@ -212,7 +214,8 @@
 }
 
 .layout-4-2 > div:nth-child(1) > div {
-    flex: 1;
+    flex: 1 1 33.33%;
+    min-width: 0;
 }
 
 /* 4-3 */
@@ -222,8 +225,8 @@
 }
 
 .layout-4-3 > div {
-    flex: 1;
-    max-height: 50%;
+    flex: 1 1 50%;
+    min-height: 0;
 }
 
 .layout-4-3 > div:nth-child(2) {
@@ -231,7 +234,8 @@
 }
 
 .layout-4-3 > div:nth-child(2) > div {
-    flex: 1;
+    flex: 1 1 33.33%;
+    min-width: 0;
 }
 
 /* 4-4 */
@@ -250,8 +254,8 @@
 }
 
 .layout-4-4 > div:nth-child(2) > div {
-    flex: 1;
-    max-height: 33.33%;
+    flex: 1 1 33.33%;
+    min-height: 0;
 }
 
 /* 4-5 */
@@ -270,8 +274,8 @@
 }
 
 .layout-4-5 > div:nth-child(1) > div {
-    flex: 1;
-    max-height: 33.33%;
+    flex: 1 1 33.33%;
+    min-height: 0;
 }
 
 /* 4-6 */
@@ -281,8 +285,8 @@
 }
 
 .layout-4-6 > div {
-    flex: 1;
-    max-width: 25%;
+    flex: 1 1 25%;
+    min-width: 0;
 }
 
 /* 5-1 */
@@ -292,8 +296,8 @@
 }
 
 .layout-5-1 > div {
-    flex: 1;
-    max-height: 50%;
+    flex: 1 1 50%;
+    min-height: 0;
 }
 
 .layout-5-1 > div:nth-child(2) {
@@ -301,7 +305,8 @@
 }
 
 .layout-5-1 > div:nth-child(2) > div {
-    flex: 1;
+    flex: 1 1 25%;
+    min-width: 0;
 }
 
 /* 5-2 */
@@ -320,8 +325,8 @@
 }
 
 .layout-5-2 > div:nth-child(1) > div {
-    flex: 1;
-    max-height: 25%;
+    flex: 1 1 25%;
+    min-height: 0;
 }
 
 /* 5-3 */
@@ -340,8 +345,8 @@
 }
 
 .layout-5-3 > div:nth-child(2) > div {
-    flex: 1;
-    max-height: 25%;
+    flex: 1 1 25%;
+    min-height: 0;
 }
 
 /* 5-4 */
@@ -351,13 +356,14 @@
 }
 
 .layout-5-4 > div {
-    flex: 1;
+    flex: 1 1 50%;
     display: flex;
-    max-height: 50%;
+    min-height: 0;
 }
 
 .layout-5-4 > div > div {
-    flex: 1;
+    flex: 1 1 33.33%;
+    min-width: 0;
 }
 
 /* 5-5 */
@@ -367,13 +373,14 @@
 }
 
 .layout-5-5 > div {
-    flex: 1;
+    flex: 1 1 50%;
     display: flex;
-    max-height: 50%;
+    min-height: 0;
 }
 
 .layout-5-5 > div > div {
-    flex: 1;
+    flex: 1 1 33.33%;
+    min-width: 0;
 }
 
 /* 5-6 */
@@ -383,6 +390,6 @@
 }
 
 .layout-5-6 > div {
-    flex: 1;
-    max-width: 25%;
+    flex: 1 1 25%;
+    min-width: 0;
 }
