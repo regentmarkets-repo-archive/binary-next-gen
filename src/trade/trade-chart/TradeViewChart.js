@@ -85,7 +85,7 @@ export default class TradeViewChart extends PureComponent {
             const { tradeForChart } = this.props;
 
             // ignore delayed tick from previous subscription
-            if (data.ohlc.symbol !== tradeForChart.symbol) return;
+            if (tradeForChart && data.ohlc.symbol !== tradeForChart.symbol) return;
 
             const old = this.state.candles;
 
@@ -122,6 +122,9 @@ export default class TradeViewChart extends PureComponent {
 
     componentDidMount() {
         const { tradeForChart, index } = this.props;
+
+        if (!tradeForChart) return;
+
         const { symbol } = tradeForChart;
 
         this.subscribeToTicks(symbol).then(() => {
