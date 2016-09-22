@@ -27,7 +27,7 @@ export default class ContractChart extends PureComponent {
             candles: [],
             noData: false,
         };
-        this.api = chartApi[5];
+        this.api = chartApi(0);
         this.hasTick = true;
         this.contractEnd = undefined;       // used to know when to unsubscribe
     }
