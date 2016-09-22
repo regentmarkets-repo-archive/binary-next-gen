@@ -71,8 +71,6 @@ const initAuthorized = async (authData, store) => {
 
     const state = store.getState();
 
-    chartApi.forEach(a => a.authorize(state.account.get('token')));
-
     api.unsubscribeFromAllTicks();
     api.unsubscribeFromAllProposals();
     api.unsubscribeFromAllPortfolios();

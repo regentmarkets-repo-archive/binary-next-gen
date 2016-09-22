@@ -308,6 +308,7 @@ div[role=tabpanel] {
     border-radius: $BORDER_RADIUS;
     position: absolute;
     display: none;
+    z-index: 99;
 }
 
 div[role=tab] .close-btn {

@@ -59,14 +59,15 @@
     border-radius: 0;
 }
 
-.binary-chart-picker-item {
+.binary-chart-picker-item,
+.binary-chart-button {
     text-align: left;
     padding: 8px;
     display: flex;
     align-items: center;
 
-    svg {
-        margin-right: 8px;
+    svg + span {
+        margin-left: 8px;
     }
 }
 
@@ -82,8 +83,14 @@
     opacity: 0.75;
     background: rgba($COLOR_BRAND_BLUE, 0.25) !important;
 
+    svg {
+        fill: $COLOR_BRAND_BLUE;
+        margin-bottom: 4px;
+    }
+
     &:hover {
         opacity: 1;
+        box-shadow: 0 0 0 1px $COLOR_BRAND_BLUE;
     }
 }
 
@@ -91,8 +98,13 @@
     opacity: 0.75;
     background: rgba($COLOR_INVERSE_TEXT, 0.25) !important;
 
+    svg {
+        fill: $COLOR_INVERSE_TEXT;
+    }
+
     &:hover {
         opacity: 1;
+        box-shadow: 0 0 0 1px $COLOR_INVERSE_TEXT;
     }
 }
 
@@ -108,8 +120,20 @@
     background: rgba($COLOR_BRAND_BLUE, 0.1);
     border-radius: $BORDER_RADIUS;
     min-width: 28px;
+    padding: 5px;
+    flex: 1;
+    align-items: center;
 }
 
-.binary-chart-button {
-    padding: 5px;
+.binary-chart-button,
+.binary-chart-picker-item {
+    svg {
+        width: 16px;
+        height: 16px;
+        fill: $COLOR_INVERSE_BG;
+    }
+
+    .inverse & svg {
+        fill: $COLOR_BG;
+    }
 }
