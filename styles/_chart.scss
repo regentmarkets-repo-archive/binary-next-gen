@@ -20,7 +20,7 @@
         color: $COLOR_TEXT;
 
         &:hover {
-            background: rgba($COLOR_BRAND_BLUE, 0.1) !important;
+            background: rgba($COLOR_BRAND_BLUE, 0.1);
         }
     }
 
@@ -28,7 +28,7 @@
         color: $COLOR_INVERSE_TEXT;
 
         &:hover {
-            background: rgba($COLOR_INVERSE_TEXT, 0.1) !important;
+            background: rgba($COLOR_INVERSE_TEXT, 0.1);
         }
     }
 }
@@ -37,10 +37,10 @@
     height: 24px;
 }
 
-.binary-chart-time-frame-picker button {
+.binary-chart-time-frame-button {
     background: rgba($COLOR_INVERSE_TEXT, 0.25) !important;
     margin-right: 2px;
-    padding: 0;
+    padding: 0 !important;
 }
 
 .binary-chart-submenu {
@@ -68,6 +68,18 @@
 
     svg + span {
         margin-left: 8px;
+    }
+}
+
+.binary-chart-button,
+.binary-chart-picker-item,
+.binary-chart-time-frame-button {
+    &:hover {
+        box-shadow: 0 0 0 1px $COLOR_TEXT;
+    }
+
+    .inverse &:hover {
+        box-shadow: 0 0 0 1px $COLOR_INVERSE_TEXT;
     }
 }
 
