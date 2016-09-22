@@ -254,6 +254,7 @@ export default class ContractChart extends PureComponent {
                 hiddenTimeFrame
                 hiddenZoomControls
                 showTooltips={!isMobile()}
+                hideZoomControls={isMobile()}
                 showAllTimeFrame={false}
                 contract={contract}
                 symbol={contract.underlying}

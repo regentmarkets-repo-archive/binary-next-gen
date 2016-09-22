@@ -268,6 +268,7 @@ export default class TradeViewChart extends PureComponent {
                 ticks={contractForChart ? ticks : this.state[dataType]}
                 theme={theme}
                 showTooltips={!isMobile()}
+                hideZoomControls={isMobile()}
                 type={contractForChart ? 'area' : chartType}
                 trade={tradeForChart && internalTradeModelToChartTradeModel(tradeForChart)}
                 // tradingTimes={tradingTime.times}
