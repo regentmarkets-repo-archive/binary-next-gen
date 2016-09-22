@@ -1,6 +1,6 @@
 import React, { PropTypes, PureComponent } from 'react';
 import { BinaryChart } from 'binary-charts';
-import { nowAsEpoch } from 'binary-utils';
+import { isMobile, nowAsEpoch } from 'binary-utils';
 import { helpers } from 'binary-live-api';
 import { chartApi, api as CoreApi } from '../_data/LiveData';
 import { chartToDataType, getDataWithErrorHandling } from '../_chart-utils/Utils';
@@ -253,6 +253,7 @@ export default class ContractChart extends PureComponent {
                 compactToolbar
                 hiddenTimeFrame
                 hiddenZoomControls
+                showTooltips={!isMobile()}
                 showAllTimeFrame={false}
                 contract={contract}
                 symbol={contract.underlying}

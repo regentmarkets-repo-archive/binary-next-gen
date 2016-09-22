@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { TabList, Tab } from 'binary-components';
+import FavoritesIcon from '-!babel!svg-react!../../www/img/favorites.svg';
 
 const values = [
 	'all',
@@ -25,7 +26,7 @@ export default class AssetPickerCategoryFilter extends PureComponent {
 		return (
 			<TabList onChange={this.onChange}>
 				<Tab imgSrc="img/barchart.svg" hint="All" />
-				<Tab imgSrc="img/favorites.svg" hint="Favorites" />
+				<Tab img={<FavoritesIcon />} hint="Favorites" />
 				<Tab imgSrc="img/barchart.svg" hint="Open" />
 				<Tab imgSrc="img/ohlc.svg" hint="Volatility" />
 				<Tab imgSrc="img/ohlc.svg" hint="Indices" />

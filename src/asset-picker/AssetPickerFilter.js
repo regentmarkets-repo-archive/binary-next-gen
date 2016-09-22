@@ -3,7 +3,6 @@ import { findDOMNode } from 'react-dom';
 import { InputGroup } from 'binary-components';
 import { isMobile } from 'binary-utils';
 import { actions } from '../_store';
-// import MarketSubmarketPickerContainer from './MarketSubmarketPickerContainer';
 import AssetPickerCategoryFilter from './AssetPickerCategoryFilter';
 
 export default class AssetPickerFilter extends PureComponent {
@@ -47,11 +46,6 @@ export default class AssetPickerFilter extends PureComponent {
 					onChange={this.onFilterChange}
 					value={filter.filter}
 				/>
-				{/* <MarketSubmarketPickerContainer
-					onChange={this.onFilterChange}
-					allOptionShown
-					value={filter.filter}
-				/> */}
 			</div>
 		);
 	}

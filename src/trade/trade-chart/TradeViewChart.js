@@ -1,4 +1,5 @@
 import React, { PureComponent, PropTypes } from 'react';
+import { isMobile } from 'binary-utils';
 import { BinaryChart } from 'binary-charts';
 import {
     internalTradeModelToChartTradeModel,
@@ -266,7 +267,7 @@ export default class TradeViewChart extends PureComponent {
                 assetName={tradeForChart && tradeForChart.symbolName}
                 ticks={contractForChart ? ticks : this.state[dataType]}
                 theme={theme}
-                showTooltips
+                showTooltips={!isMobile()}
                 type={contractForChart ? 'area' : chartType}
                 trade={tradeForChart && internalTradeModelToChartTradeModel(tradeForChart)}
                 // tradingTimes={tradingTime.times}
