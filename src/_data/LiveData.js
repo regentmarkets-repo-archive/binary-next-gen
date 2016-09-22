@@ -45,7 +45,7 @@ const memoizedWebsocketConn = [
 ];
 
 export const chartApi = (n) => {
-    while (memoizedWebsocketConn.length < n + 1) {
+    while (!memoizedWebsocketConn[n]) {
         memoizedWebsocketConn.push(new LiveApi(configForChart));
     }
     return memoizedWebsocketConn[n];
