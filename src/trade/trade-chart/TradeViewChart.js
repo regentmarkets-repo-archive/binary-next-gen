@@ -63,7 +63,7 @@ export default class TradeViewChart extends PureComponent {
         super(props);
         this.state = defaultState;
 
-        this.api = chartApi[props.index];
+        this.api = chartApi(props.index + 1);
     }
 
     componentWillMount() {

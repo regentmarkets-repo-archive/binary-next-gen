@@ -36,16 +36,20 @@ const handlers = {
 const bootConfig = typeof window !== 'undefined' ? window.BinaryBoot : {};
 export const api = new LiveApi(bootConfig);
 
-const configForChart = Object.assign({}, bootConfig);
+const configForChart = Object.assign({ keepAlive: true }, bootConfig);
 delete configForChart.connection;
-export const chartApi = [
-    new LiveApi(configForChart),
-    new LiveApi(configForChart),
-    new LiveApi(configForChart),
-    new LiveApi(configForChart),
-    new LiveApi(configForChart),
-    new LiveApi(configForChart),            // 6th is for contract chart
+
+const memoizedWebsocketConn = [
+    new LiveApi(configForChart),        // for contract chart
+    new LiveApi(configForChart),        // for first trade
 ];
+
+export const chartApi = (n) => {
+    while (memoizedWebsocketConn.length < n + 1) {
+        memoizedWebsocketConn.push(new LiveApi(configForChart));
+    }
+    return memoizedWebsocketConn[n];
+};
 
 export const changeLanguage = langCode => {
     api.changeLanguage(langCode);
