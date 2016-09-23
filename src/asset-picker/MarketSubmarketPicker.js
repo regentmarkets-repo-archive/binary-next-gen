@@ -1,17 +1,18 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { Option } from 'binary-components';
 
 export default class MarketSubmarketPicker extends PureComponent {
 
-	static propTypes = {
-		marketTree: PropTypes.object.isRequired,
-		onChange: PropTypes.func.isRequired,
-		allOptionShown: PropTypes.bool.isRequired,
-		showMarkets: PropTypes.array,
-		value: PropTypes.string,
+	props: {
+		marketTree: object,
+		onChange: (e: SynthenticEvent) => void,
+		allOptionShown: boolean,
+		showMarkets: string[],
+		value: string,
 	};
 
-	onMarketChange = e => this.props.onChange(e.target.value);
+	onMarketChange = (e: SynthenticEvent) =>
+		this.props.onChange(e.target.value);
 
 	render() {
 		const { marketTree, allOptionShown, showMarkets, value } = this.props;

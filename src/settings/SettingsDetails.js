@@ -1,16 +1,16 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { epochToDateString } from 'binary-utils';
 import { Legend, LabeledText, Notice } from 'binary-components';
 
 export default class SettingsDetails extends PureComponent {
 
-	static propTypes = {
-		email: PropTypes.string,
-		salutation: PropTypes.string,
-		first_name: PropTypes.string,
-		last_name: PropTypes.string,
-		date_of_birth: PropTypes.number,
-		country: PropTypes.string,
+	props: {
+		email: string,
+		salutation: string,
+		first_name: string,
+		last_name: string,
+		date_of_birth: number,
+		country: string,
 	};
 
 	render() {

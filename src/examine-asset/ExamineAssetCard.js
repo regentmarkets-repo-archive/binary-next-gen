@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { Tab, TabList } from 'binary-components';
 import { immutableChildrenToJS } from 'binary-utils';
 import ExamineAssetFilter from './ExamineAssetFilter';
@@ -8,10 +8,10 @@ import DigitStatsCard from '../digit-stats/DigitStatsCard';
 
 export default class ExamineAssetCard extends PureComponent {
 
-	static propTypes = {
-		details: PropTypes.object,
-		digitStats: PropTypes.object,
-		dailyPrices: PropTypes.object,
+	props: {
+		details: object,
+		digitStats: object,
+		dailyPrices: object,
 	};
 
 	constructor(props) {

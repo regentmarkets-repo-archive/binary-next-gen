@@ -1,11 +1,11 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { M, LabeledText } from 'binary-components';
 
 export default class ContractStatsCard extends PureComponent {
 
-    static propTypes = {
-        proposal: PropTypes.object,
-        spread: PropTypes.bool,
+    props: {
+        proposal: object,
+        spread: boolean,
     };
 
     render() {

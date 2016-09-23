@@ -1,20 +1,17 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { Label } from 'binary-components';
 import RadioGroup from '../trade/workaround/CustomRadioGroup';
 import { actions } from '../_store';
 
 export default class DigitBarrierCard extends PureComponent {
 
-    static propTypes = {
-        barrier: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.number,
-        ]),
-        digitOptions: PropTypes.array,
-        index: PropTypes.number,
+    props: {
+        barrier: string | number,
+        digitOptions: string[],
+        index: number,
     };
 
-    onBarrier1Change = e => {
+    onBarrier1Change = (e: SyntheticEvent) => {
         const { index } = this.props;
         const inputValue = e.target.value;
         actions.reqBarrierChange(index, [inputValue], 0, 'tick');          // only ticks available for digit

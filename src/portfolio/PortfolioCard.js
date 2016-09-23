@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { showError } from 'binary-utils';
 import EmptySlate from '../containers/EmptySlate';
 import { actions } from '../_store';
@@ -16,7 +16,7 @@ export default class PortfolioCard extends PureComponent {
 	};
 
 	static contextTypes = {
-		router: PropTypes.object.isRequired,
+		router: () => undefined,
 	};
 
 	onViewDetails = contract => {

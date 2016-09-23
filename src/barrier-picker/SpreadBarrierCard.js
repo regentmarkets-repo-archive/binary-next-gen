@@ -1,38 +1,37 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { RadioGroup, InputGroup, ErrorMsg } from 'binary-components';
 import { noOfDecimals } from 'binary-utils';
 import changeAmountPerPoint from '../trade-params/updates/changeAmountPerPoint';
 
 export default class SpreadBarrierCard extends PureComponent {
 
-    static propTypes = {
-        amountPerPoint: PropTypes.string,
-        currency: PropTypes.string,
-        index: PropTypes.number,
-        stopLoss: PropTypes.number,
-        stopProfit: PropTypes.number,
-        stopType: PropTypes.string,
-        spreadInfo: PropTypes.object,
-        onUpdateTradeParams: PropTypes.func,
+    props: {
+        amountPerPoint: string,
+        currency: string,
+        index: number,
+        stopLoss: number,
+        stopProfit: number,
+        stopType: string,
+        spreadInfo: object,
+        onUpdateTradeParams: (amountPerPoint: object) => void,
     };
 
-    onStopTypeChange = e => {
+    onStopTypeChange = (e: SyntheticEvent) =>
         this.updateTradeParams({ stopType: e.target.value });
-    }
 
-    onStopLossChange = e => {
+    onStopLossChange = (e: SyntheticEvent) =>
         this.updateTradeParams({ stopLoss: e.target.value });
-    }
 
-    onStopProfitChange = e => {
+    onStopProfitChange = (e: SyntheticEvent) =>
         this.updateTradeParams({ stopProfit: e.target.value });
-    }
-    onAmountPerPointChange = e => {
+
+    onAmountPerPointChange = (e: SyntheticEvent) => {
         const { onUpdateTradeParams } = this.props;
         const inputValue = e.target.value;
         const updatedAmountPerPoint = changeAmountPerPoint(inputValue);
         onUpdateTradeParams(updatedAmountPerPoint);
     }
+
     render() {
         const {
             amountPerPoint,

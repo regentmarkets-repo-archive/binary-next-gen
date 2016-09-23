@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { dateToDateString, todayLocaleString, oneYearAfterStr } from 'binary-utils';
 import { actions } from '../_store';
 import MarketSubmarketPickerContainer from '../asset-picker/MarketSubmarketPickerContainer';
@@ -6,20 +6,21 @@ import TradingTimesTable from './TradingTimesTable';
 
 export default class TradingTimesCard extends PureComponent {
 
-	static propTypes = {
-		assets: PropTypes.array.isRequired,
-		tradingTimes: PropTypes.array.isRequired,
-		tradingTimesFilter: PropTypes.object.isRequired,
+	props: {
+		assets: Asset[],
+		tradingTimes: any[],
+		tradingTimesFilter: object,
 	};
 
 	assetMatchFilter = (symbolName, filter) => {
 		const { assets } = this.props;
 		const assetObj = assets.find(x => x.symbol === symbolName);
-		const returnObj = assetObj ? (assetObj.market === filter || assetObj.submarket === filter) : null;
-		return returnObj;
+		return assetObj ?
+			(assetObj.market === filter || assetObj.submarket === filter) :
+			null;
 	}
 
-	updateTradingTimes = e => {
+	updateTradingTimes = (e: SyntheticEvent) => {
 		const inputVal = e.target.value;
 		if (/\d{4}-\d{1,2}-\d{1,2}/.test(inputVal) && inputVal.slice(0, 4) >= 1000) {
 			actions.updateTradingTimesDate(inputVal);

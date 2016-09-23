@@ -1,15 +1,15 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { M, P, Button } from 'binary-components';
 
 export default class RealityCheckInitialCard extends PureComponent {
 
-    static propTypes = {
-        interval: PropTypes.number.isRequired,
-        updateInterval: PropTypes.func.isRequired,
-        confirmIntervalUpdate: PropTypes.func.isRequired,
+    props: {
+        interval: number,
+        updateInterval: (e: SyntheticEvent) => void,
+        confirmIntervalUpdate: (e: SyntheticEvent) => void,
     };
 
-    onIntervalChange = e =>
+    onIntervalChange = (e: SyntheticEvent) =>
         this.props.updateInterval(e.target.value);
 
     render() {

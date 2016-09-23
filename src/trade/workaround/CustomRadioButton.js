@@ -1,12 +1,12 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 
 export default class CustomRadioButton extends PureComponent {
 
-    static propTypes = {
-        onClick: PropTypes.func,
-        selected: PropTypes.bool,
-        text: PropTypes.any,
-        value: PropTypes.any,
+    props: {
+        onClick: (e: SyntheticEvent) => void,
+        selected: boolean,
+        text: any,
+        value: any,
     };
 
     onClicked = () => {

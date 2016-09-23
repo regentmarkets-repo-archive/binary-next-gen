@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { Resizer } from 'binary-components';
 import { actions } from '../_store';
 import TradesLayout from '../trade/browser/TradesLayout';
@@ -8,11 +8,11 @@ import ContractDetailsModal from './ContractDetailsModal';
 
 export default class WorkspaceCard extends PureComponent {
 
-	static propTypes = {
-		workspace: PropTypes.object.isRequired,
+	props: {
+		workspace: object,
 	};
 
-	onResize = e =>
+	onResize = (e: SyntheticEvent) =>
 		actions.changeWorkspacePanelSize('side', window.innerWidth - e.clientX - 92);
 
 	render() {

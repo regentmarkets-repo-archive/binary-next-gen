@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import ContractDetailString from './ContractDetailString';
 import ContractDetailTime from './ContractDetailTime';
 import ContractDetailMoney from './ContractDetailMoney';
@@ -12,8 +12,8 @@ const isDigitTrade = contract =>
 
 export default class ContractDetailsList extends PureComponent {
 
-	static propTypes = {
-		contract: PropTypes.object.isRequired,
+	props: {
+		contract: Contract,
 	};
 
 	render() {

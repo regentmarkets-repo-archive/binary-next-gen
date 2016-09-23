@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { tradeToFriendlyType } from 'binary-utils';
 import { Label, Info, DownArrow, M } from 'binary-components';
 import DropDown from '../containers/DropDown';
@@ -20,10 +20,10 @@ const getInternalTradeType = tradeParams => {
 
 export default class TradeTypeDropDown extends PureComponent {
 
-    static propTypes = {
-        index: PropTypes.number.isRequired,
-        contract: PropTypes.object.isRequired,
-        tradeParams: PropTypes.object.isRequired,
+    props: {
+        index: number,
+        contract: Contract,
+        tradeParams: object,
     };
 
     constructor(props) {

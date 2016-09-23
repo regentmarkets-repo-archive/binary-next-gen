@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import classnames from 'classnames';
 import Star from 'react-material-design-icons/icons/Star';
 import StarBorder from 'react-material-design-icons/icons/StarBorder';
@@ -6,12 +6,12 @@ import { OpenCloseNotice } from 'binary-components';
 
 export default class AssetPickerItem extends PureComponent {
 
-	static propTypes = {
-		asset: PropTypes.object,
-		selected: PropTypes.bool,
-		onSelect: PropTypes.func,
-		onClose: PropTypes.func,
-		onToggleWatchlistItem: PropTypes.func,
+	props: {
+		asset: object,
+		selected: boolean,
+		onSelect: (asset: string) => void,
+		onClose: () => void,
+		onToggleWatchlistItem: (asset: object) => void,
 	};
 
 	static defaultProps = {
@@ -19,14 +19,14 @@ export default class AssetPickerItem extends PureComponent {
 		selected: false,
 	};
 
-	onRowClicked = e => {
+	onRowClicked = (e: SyntheticEvent) => {
 		const { asset, onClose, onSelect } = this.props;
 		onSelect(asset.symbol);
 		onClose();
 		e.stopPropagation();
 	};
 
-	onStarClicked = e => {
+	onStarClicked = (e: SyntheticEvent) => {
 		const { asset, onToggleWatchlistItem } = this.props;
 		onToggleWatchlistItem(asset);
 		e.stopPropagation();

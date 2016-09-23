@@ -1,15 +1,12 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import AccountMenuItem from './AccountMenuItem';
 import SidebarBtn from './SidebarBtn';
 
 export default class AccountItemsList extends PureComponent {
 
-	static propTypes = {
-		loginid: PropTypes.string.isRequired,
-		accounts: PropTypes.arrayOf(PropTypes.shape({
-			account: PropTypes.string.isRequired,
-			token: PropTypes.string.isRequired,
-		})),
+	props: {
+		loginid: string,
+		accounts: Account[],
 	};
 
 	render() {

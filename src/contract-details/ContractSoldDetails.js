@@ -1,14 +1,14 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { M, Th, NumberColored } from 'binary-components';
 
 const profitInPercentage = (buy, sell) => (sell - buy) / buy * 100;
 
 export default class ContractSoldDetails extends PureComponent {
 
-    static propTypes = {
-        buyPrice: PropTypes.any,
-        soldPrice: PropTypes.number,
-        transId: PropTypes.string,
+    props: {
+        buyPrice: any,
+        soldPrice: number,
+        transId: string,
     };
 
     render() {

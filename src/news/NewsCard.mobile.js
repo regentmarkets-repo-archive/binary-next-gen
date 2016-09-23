@@ -1,14 +1,14 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import ArticlePreview from './ArticlePreview';
 
 export default class NewsCard extends PureComponent {
 
-    static propTypes = {
-        articles: PropTypes.array.isRequired,
+    props: {
+        articles: any[],
     };
 
     static contextTypes = {
-        router: PropTypes.object.isRequired,
+        router: any,
     };
 
     render() {

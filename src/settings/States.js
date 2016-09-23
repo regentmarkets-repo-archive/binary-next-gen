@@ -1,13 +1,13 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 
 export default class States extends PureComponent {
 
-    static propTypes = {
-        onChange: PropTypes.func.isRequired,
-        states: PropTypes.array.isRequired,
-        selected: PropTypes.string,
-        id: PropTypes.string,
-        noLabel: PropTypes.bool,
+    props: {
+        states: any[],
+        selected: string,
+        id: string,
+        noLabel: boolean,
+        onChange: (e: SyntheticEvent) => void,
     };
 
     render() {

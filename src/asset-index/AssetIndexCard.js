@@ -1,13 +1,13 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { actions } from '../_store';
 import MarketSubmarketPickerContainer from '../asset-picker/MarketSubmarketPickerContainer';
 import AssetIndexTable from './AssetIndexTable';
 
 export default class AssetIndexCard extends PureComponent {
 
-	static propTypes = {
-		assetIndexRows: PropTypes.array.isRequired,
-		submarket: PropTypes.string.isRequired,
+	props: {
+		assetIndexRows: any[],
+		submarket: string,
 	};
 
 	onChangeMarketSubmarket = x =>

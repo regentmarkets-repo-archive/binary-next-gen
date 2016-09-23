@@ -1,12 +1,12 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import EmptySlate from '../containers/EmptySlate';
 import WatchlistItem from './WatchlistItem';
 import AnimatedPopup from '../containers/AnimatedPopup';
 
 export default class WatchlistCard extends PureComponent {
 
-	static propTypes = {
-		watchlistView: PropTypes.object.isRequired,
+	props: {
+		watchlistView: any[],
 	};
 
 	render() {

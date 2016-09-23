@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import Clear from 'react-material-design-icons/icons/Clear';
 import { Direction, NumberPlain, NumberColored, OpenCloseNotice } from 'binary-components';
 import { actions } from '../_store';
@@ -6,8 +6,8 @@ import WatchlistSparkline from './WatchlistSparkline';
 
 export default class WatchlistItem extends PureComponent {
 
-	static propTypes = {
-		item: PropTypes.any.isRequired,
+	props: {
+		item: any,
 	};
 
 	onRemove = () => {

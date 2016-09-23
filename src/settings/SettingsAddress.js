@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { Legend, Button, InputGroup, ErrorMsg, ServerErrorMsg } from 'binary-components';
 import { actions } from '../_store';
 import States from './States';
@@ -7,15 +7,15 @@ import * as LiveData from '../_data/LiveData';
 
 export default class SettingsAddress extends PureComponent {
 
-	static propTypes = {
-		address_line_1: PropTypes.string.isRequired,
-		address_line_2: PropTypes.string.isRequired,
-		address_city: PropTypes.string.isRequired,
-		address_state: PropTypes.string.isRequired,
-		country_code: PropTypes.string.isRequired,
-		address_postcode: PropTypes.string.isRequired,
-		phone: PropTypes.string.isRequired,
-		states: PropTypes.array.isRequired,
+	props: {
+		address_line_1: string,
+		address_line_2: string,
+		address_city: string,
+		address_state: string,
+		country_code: string,
+		address_postcode: string,
+		phone: string,
+		states: any[],
 	};
 
 	constructor(props) {
@@ -36,10 +36,10 @@ export default class SettingsAddress extends PureComponent {
         actions.getStatesForCountry(country_code);
     }
 
-	onEntryChange = e =>
+	onEntryChange = (e: SyntheticEvent) =>
 		this.setState({ [e.target.id]: e.target.value });
 
-	onFormSubmit = e => {
+	onFormSubmit = (e: SyntheticEvent) => {
 		e.preventDefault();
 		this.setState({
 			validatedOnce: true,

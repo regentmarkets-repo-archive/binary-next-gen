@@ -1,16 +1,15 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { M, P, Button, ErrorMsg, InputGroup, SelectGroup } from 'binary-components';
 import { actions } from '../_store';
 import Modal from '../containers/Modal';
-import currencies from '../_constants/currencies';
 import { api } from '../_data/LiveData';
 
 export default class WithdrawForm extends PureComponent {
 
-    static propTypes = {
-        paymentAgent: PropTypes.object.isRequired,
-        currency: PropTypes.oneOf(currencies).isRequired,
-        email: PropTypes.string,
+    props: {
+        paymentAgent: object,
+        currency: string,
+        email: string,
     };
 
     async componentDidMount() {

@@ -1,11 +1,11 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import DailyPricesTable from './DailyPricesTable';
 import EmptySlate from '../containers/EmptySlate';
 
 export default class DailyPricesCard extends PureComponent {
 
-    static propTypes = {
-        dailyPrices: PropTypes.array.isRequired,
+    props: {
+        dailyPrices: any[],
     };
 
     render() {

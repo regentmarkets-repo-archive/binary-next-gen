@@ -1,15 +1,15 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { FormattedDate } from 'react-intl';
 import { M, Th, NumberPlain, NumberColored } from 'binary-components';
 import StatementRow from './StatementRow';
 
 export default class StatementTable extends PureComponent {
 
-	static propTypes = {
-		compact: PropTypes.bool,
-		transactions: PropTypes.array.isRequired,
-		currency: PropTypes.string.isRequired,
-		transactionsTotal: PropTypes.number.isRequired,
+	props: {
+		compact: boolean,
+		transactions: any[],
+		currency: string,
+		transactionsTotal: number,
 	};
 
 	render() {

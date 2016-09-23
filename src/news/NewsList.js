@@ -1,11 +1,11 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import ArticlePreview from './ArticlePreview';
 
 export default class NewsList extends PureComponent {
 
-    static propTypes = {
-        articles: PropTypes.array.isRequired,
-        onClick: PropTypes.func,
+    props: {
+        articles: any[],
+        onClick: (e: SyntheticEvent) => void,
     };
 
     render() {

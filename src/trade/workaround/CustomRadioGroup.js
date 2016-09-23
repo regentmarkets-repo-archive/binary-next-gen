@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import classnames from 'classnames';
 import CustomRadioButton from './CustomRadioButton';
 
@@ -8,11 +8,11 @@ import CustomRadioButton from './CustomRadioButton';
  * https://github.com/facebook/react/issues/5897
  */
 export default class CustomRadioGroup extends PureComponent {
-    static propTypes = {
-        className: PropTypes.string,
-        options: PropTypes.array,
-        onChange: PropTypes.func,
-        defaultValue: PropTypes.any,
+    props: {
+        className: string,
+        options: any[],
+        onChange: (e: SyntheticEvent) => void,
+        defaultValue: any,
     };
 
     constructor(props) {
@@ -20,7 +20,7 @@ export default class CustomRadioGroup extends PureComponent {
         this.state = { value: props.defaultValue };
     }
 
-    onClick = e => {
+    onClick = (e: SyntheticEvent) => {
         this.setState({ value: e.target.value });
         this.props.onChange(e);
     }

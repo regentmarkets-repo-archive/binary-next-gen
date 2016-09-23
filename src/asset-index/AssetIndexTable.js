@@ -1,11 +1,11 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import AssetIndexRow from './AssetIndexRow';
 
 export default class AssetIndexTable extends PureComponent {
 
-    static propTypes = {
-        headers: PropTypes.array.isRequired,
-        durations: PropTypes.array.isRequired,
+    props: {
+        headers: any[],
+        durations: any[],
     };
 
     render() {

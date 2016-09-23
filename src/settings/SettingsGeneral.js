@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { M, Button } from 'binary-components';
 import { actions } from '../_store';
 import { api } from '../_data/LiveData';
@@ -7,14 +7,14 @@ import Modal from '../containers/Modal';
 
 export default class SettingsGeneral extends PureComponent {
 
-	static propTypes = {
-		loginid: PropTypes.string.isRequired,
-		boot: PropTypes.object.isRequired,
-		balance: PropTypes.string.isRequired,
-        settings: PropTypes.object,
+	props: {
+		loginid: string,
+		boot: object,
+		balance: string,
+        settings: object,
 	};
 
-	onThemeChange = e =>
+	onThemeChange = (e: SyntheticEvent) =>
 		actions.updateBoot('theme', e.target.value);
 
 	async onTopup() {

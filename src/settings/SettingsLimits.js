@@ -1,15 +1,15 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { M, Notice, Td, NumberPlain } from 'binary-components';
 
 export default class SettingsLimits extends PureComponent {
 
-	static propTypes = {
-		account_balance: PropTypes.number.isRequired,
-		withdrawal_for_x_days_monetary: PropTypes.number.isRequired,
-		open_positions: PropTypes.number.isRequired,
-		lifetime_limit: PropTypes.number.isRequired,
-		market_specific: PropTypes.object.isRequired,
-		payout: PropTypes.number.isRequired,
+	props: {
+		account_balance: number,
+		withdrawal_for_x_days_monetary: number,
+		open_positions: number,
+		lifetime_limit: number,
+		market_specific: object,
+		payout: number,
 	};
 
 	render() {

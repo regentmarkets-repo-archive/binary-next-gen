@@ -1,11 +1,11 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { Tab, TabList } from 'binary-components';
 import { actions } from '../_store';
 
 export default class WorkspaceTabs extends PureComponent {
 
-	static propTypes = {
-		activeTab: PropTypes.number.isRequired,
+	props: {
+		activeTab: number,
 	};
 
 	onTabChange = (idx: number) => {

@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { epochToUTCTimeString, dateToDateString, returnValidDate, returnValidTime } from 'binary-utils';
 import { M, Label } from 'binary-components';
 import debounce from 'lodash.debounce';
@@ -12,11 +12,11 @@ const debounceEpochChange = actions.reqStartEpochChange;        // TODO: allow d
 
 export default class ForwardStartingOptions extends PureComponent {
 
-    static propTypes = {
-        dateStart: PropTypes.number,
-        forwardStartingDuration: PropTypes.object.isRequired,       // treated as special case
-        index: PropTypes.number.isRequired,
-        startLaterOnly: PropTypes.bool,
+    props: {
+        dateStart: number,
+        forwardStartingDuration: object,       // treated as special case
+        index: number,
+        startLaterOnly: boolean,
     };
 
     constructor(props) {
@@ -33,13 +33,13 @@ export default class ForwardStartingOptions extends PureComponent {
         }
     }
 
-    onDayChange = e => {
+    onDayChange = (e: SyntheticEvent) => {
         const { index } = this.props;
         const inputValue = e.target.value;
         debounceStartDateChange(index, returnValidDate(inputValue));
     }
 
-    onTimeChange = e => {
+    onTimeChange = (e: SyntheticEvent) => {
         const { index } = this.props;
         const inputValue = e.target.value;
         debounceStartTimeChange(index, returnValidTime(inputValue));

@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { Tab, TabList } from 'binary-components';
 import { contractCategoryToText, tradeTypeCodeToText } from 'binary-utils';
 import { serverToInternalTradeType, internalToServerTradeType } from './TradeTypeAdapter';
@@ -8,11 +8,11 @@ import { actions } from '../_store';
 
 export default class TradeTypePicker extends PureComponent {
 
-    static propTypes = {
-        contract: PropTypes.object.isRequired,
-        index: PropTypes.number.isRequired,
-        onSelect: PropTypes.func,
-        tradeParams: PropTypes.object.isRequired,
+    props: {
+        contract: Contract,
+        index: number,
+        onSelect: (e: SyntheticEvent) => void,
+        tradeParams: object,
     };
 
     constructor(props) {

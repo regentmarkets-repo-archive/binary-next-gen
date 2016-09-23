@@ -21,10 +21,10 @@ export default class SettingsChangePassword extends PureComponent {
         this.state = initialState;
     }
 
-    onEntryChange = e =>
+    onEntryChange = (e: SyntheticEvent) =>
         this.setState({ [e.target.id]: e.target.value });
 
-    onFormSubmit = e => {
+    onFormSubmit = (e: SyntheticEvent) => {
         e.preventDefault();
         this.setState({
             validatedOnce: true,

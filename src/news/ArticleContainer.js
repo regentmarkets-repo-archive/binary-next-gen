@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 
 import ArticleFull from './ArticleFull';
@@ -8,8 +8,13 @@ import newsSelectors from './newsSelectors';
 export default class ArticleContainer extends PureComponent {
 
     static contextTypes = {
-        router: PropTypes.object.isRequired,
+        router: () => undefined,
     };
+
+    props: {
+        articles: any[],
+        params: any,
+    }
 
     render() {
         const { articles, params } = this.props;

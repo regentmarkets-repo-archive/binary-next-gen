@@ -1,11 +1,11 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 
 export default class ArticlePreview extends PureComponent {
 
-    static propTypes = {
-        title: PropTypes.string.isRequired,
-        description: PropTypes.string.isRequired,
-        url: PropTypes.string.isRequired,
+    props: {
+        title: string,
+        description: string,
+        url: string,
     };
 
     openArticle = () => {

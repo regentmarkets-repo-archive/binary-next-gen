@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { windowResizeEvent } from 'binary-utils';
 import TradeCardContainer from '../TradeCardContainer';
@@ -10,13 +10,13 @@ import { layoutSelector } from './LayoutSelector';
 @connect(layoutSelector)
 export default class TradesLayouts extends PureComponent {
 
-    static propTypes = {
-        layoutN: PropTypes.number.isRequired,
-        tradesCount: PropTypes.number.isRequired,
+    props: {
+        layoutN: number,
+        tradesCount: number,
     };
 
     static contextTypes = {
-        theme: PropTypes.string,
+        theme: () => undefined,
     };
 
     componentDidUpdate() {

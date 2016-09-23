@@ -1,11 +1,11 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { Th } from 'binary-components';
 import TradingTimesRow from '../trading-times/TradingTimesRow';
 
 export default class AssetDetailsTradingTimes extends PureComponent {
 
-	static propTypes = {
-		times: PropTypes.object,
+	props: {
+		times: object,
 	};
 
 	render() {

@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import debounce from 'lodash.debounce';
 import { NumericInput, Label } from 'binary-components';
 import { actions } from '../_store';
@@ -8,10 +8,10 @@ const debounceStakeChange = debounce(actions.reqStakeChange, 400);
 
 export default class StakeCard extends PureComponent {
 
-    static propTypes = {
-        amount: PropTypes.number.isRequired,
-        isVirtual: PropTypes.bool.isRequired,
-        index: PropTypes.number.isRequired,
+    props: {
+        amount: number,
+        isVirtual: boolean,
+        index: number,
     };
     onAmountChange = value => {
         const { index } = this.props;

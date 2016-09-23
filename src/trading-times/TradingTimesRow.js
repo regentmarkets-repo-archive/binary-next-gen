@@ -1,12 +1,12 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 
 export default class TradingTimesRow extends PureComponent {
 
-    static propTypes = {
-        assetName: PropTypes.string,
-        compact: PropTypes.bool,
-        times: PropTypes.object.isRequired,
-        events: PropTypes.array,
+    props: {
+        assetName: string,
+        compact: boolean,
+        times: object,
+        events: any[],
     };
 
     static defaultProps = {

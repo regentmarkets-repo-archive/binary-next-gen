@@ -1,10 +1,10 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { Option } from 'binary-components';
 
 export default class SecretQuestion extends PureComponent {
 
-	static propTypes = {
-		onChange: PropTypes.func,
+	props: {
+		onChange: (e: SyntheticEvent) => void,
 	};
 
 	render() {

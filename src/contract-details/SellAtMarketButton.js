@@ -1,11 +1,11 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { M, NumberPlain } from 'binary-components';
 import { actions } from '../_store';
 
 export default class SellAtMarketButton extends PureComponent {
 
-	static propTypes = {
-		contract: PropTypes.object.isRequired,
+	props: {
+		contract: Contract,
 	};
 
 	sellAtMarket = () => {

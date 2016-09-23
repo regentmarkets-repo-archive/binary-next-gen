@@ -1,12 +1,12 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import AnimatedPopup from './AnimatedPopup';
 
 export default class PopupDropDown extends PureComponent {
 
-	static propTypes = {
-		shown: PropTypes.bool,
-		onClose: PropTypes.func,
-		children: PropTypes.any,
+	props: {
+		shown: boolean,
+		onClose: (e: SyntheticEvent) => void,
+		children: any,
 	};
 
 	componentDidMount() {
@@ -17,9 +17,9 @@ export default class PopupDropDown extends PureComponent {
 		document.removeEventListener('keydown', this.closeOnEscape, false);
 	}
 
-	onClickWithin = e => e.stopPropagation();
+	onClickWithin = (e: SyntheticEvent) => e.stopPropagation();
 
-	closeOnEscape = e => {
+	closeOnEscape = (e: SyntheticEvent) => {
 		const { onClose } = this.props;
 		if (e.keyCode === 27 && onClose) {
 			onClose();

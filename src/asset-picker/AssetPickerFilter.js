@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { findDOMNode } from 'react-dom';
 import { InputGroup } from 'binary-components';
 import { isMobile } from 'binary-utils';
@@ -7,8 +7,11 @@ import AssetPickerCategoryFilter from './AssetPickerCategoryFilter';
 
 export default class AssetPickerFilter extends PureComponent {
 
-	static propTypes = {
-		filter: PropTypes.object.isRequired,
+	props: {
+		filter: {
+			query: string,
+			filter: any,
+		}
 	};
 
 	componentDidMount() {
@@ -22,11 +25,11 @@ export default class AssetPickerFilter extends PureComponent {
 		}
 	}
 
-	onSearchQueryChange = e => {
+	onSearchQueryChange = (e: SyntheticEvent) => {
 		actions.updateAssetPickerSearchQuery(e.target.value);
 	}
 
-	onFilterChange = e => {
+	onFilterChange = (e: SyntheticEvent) => {
 		actions.updateAssetPickerFilter(e);
 	}
 

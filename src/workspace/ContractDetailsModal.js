@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { actions } from '../_store';
 import Modal from '../containers/Modal';
@@ -8,8 +8,8 @@ import ContractDetailsModalSelector from './ContractDetailsModalSelector';
 @connect(ContractDetailsModalSelector)
 export default class ContractDetailsModal extends PureComponent {
 
-    static propTypes = {
-        contractShown: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    props: {
+        contractShown: number | string,
     };
 
     hideDetails = () =>

@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { isMobile } from 'binary-utils';
 import { BinaryChart } from 'binary-charts';
 import {
@@ -30,18 +30,19 @@ const defaultState = {
 };
 
 export default class TradeViewChart extends PureComponent {
+
     static contextTypes = {
-        theme: PropTypes.string,
+        theme: () => undefined,
     };
 
-    static propTypes = {
-        contractForChart: PropTypes.object,
-        index: PropTypes.number.isRequired,
-        events: PropTypes.array.isRequired,
-        feedLicense: PropTypes.string.isRequired,
-        pipSize: PropTypes.number,
-        tradeForChart: PropTypes.object,
-        tradingTime: PropTypes.object.isRequired,
+    props: {
+        contractForChart: object,
+        index: number,
+        events: any[],
+        feedLicense: string,
+        pipSize: number,
+        tradeForChart: object,
+        tradingTime: object,
     };
 
     static defaultProps = {

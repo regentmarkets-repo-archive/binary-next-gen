@@ -1,13 +1,13 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { actions } from '../_store';
 import WatchlistTableHeader from './WatchlistTableHeader';
 import WatchlistRow from './WatchlistRow';
 
 export default class WatchlistTable extends PureComponent {
 
-	static propTypes = {
-		activeTradeIdx: PropTypes.number.isRequired,
-		watchlistView: PropTypes.object.isRequired,
+	props: {
+		activeTradeIdx: number,
+		watchlistView: object,
 	};
 
 	onSelect = newAsset => {

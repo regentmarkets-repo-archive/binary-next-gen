@@ -1,12 +1,12 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import AssetPickerItem from './AssetPickerItem';
 import AssetPickerHeader from './AssetPickerHeader';
 
 export default class AssetsPerSubmarket extends PureComponent {
 
-    static propTypes = {
-        assetsInSubmarket: PropTypes.array.isRequired,
-        selectedAsset: PropTypes.string.isRequired,
+    props: {
+        assetsInSubmarket: any[],
+        selectedAsset: string,
     };
 
     render() {

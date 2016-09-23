@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import WatchlistContainer from '../watchlist/WatchlistContainer';
 import TradingTimesContainer from '../trading-times/TradingTimesContainer';
 import AssetIndexContainer from '../asset-index/AssetIndexContainer';
@@ -23,10 +23,10 @@ const components = [
 
 export default class WorkspaceSidePanel extends PureComponent {
 
-	static propTypes = {
-		sideActiveTab: PropTypes.number.isRequired,
-		sidePanelSize: PropTypes.number.isRequired,
-		sidePanelVisible: PropTypes.bool.isRequired,
+	props: {
+		sideActiveTab: number,
+		sidePanelSize: number,
+		sidePanelVisible: boolean,
 	};
 
 	render() {

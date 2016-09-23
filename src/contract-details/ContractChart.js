@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { BinaryChart } from 'binary-charts';
 import { isMobile, nowAsEpoch } from 'binary-utils';
 import { helpers } from 'binary-live-api';
@@ -13,7 +13,7 @@ type Props = {
 export default class ContractChart extends PureComponent {
 
     static contextTypes = {
-        theme: PropTypes.string.isRequired,
+        theme: true,
     };
 
     props: Props;

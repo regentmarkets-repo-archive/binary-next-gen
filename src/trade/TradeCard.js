@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { immutableChildrenToJS } from 'binary-utils';
 import { P } from 'binary-components';
 import { actions } from '../_store';
@@ -20,7 +20,7 @@ export default class TradeCard extends PureComponent {
     shouldZoomLatest: boolean;
 
     static contextTypes = {
-        router: PropTypes.object.isRequired,
+        router: () => undefined,
     };
 
     constructor(props: Props) {
