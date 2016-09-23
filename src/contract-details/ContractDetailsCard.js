@@ -2,8 +2,6 @@ import React, { PureComponent } from 'react';
 import ContractReceipt from './ContractReceipt';
 import ContractChart from './ContractChart';
 import ContractDetailsMobileLayout from './mobile/ContractDetailsMobileLayout';
-import SellAtMarketButton from './SellAtMarketButton';
-import ContractWinLose from './ContractWinLose';
 
 export default class ContractDetailsCard extends PureComponent {
 
@@ -25,14 +23,10 @@ export default class ContractDetailsCard extends PureComponent {
 					<ContractDetailsMobileLayout
 						contract={contract}
 						chartComponent={
-							<div>
-								<ContractChart
-									contract={contract}
-									pipSize={pipSize}
-								/>
-								<ContractWinLose contract={contract} />
-								<SellAtMarketButton contract={contract} />
-							</div>
+							<ContractChart
+								contract={contract}
+								pipSize={pipSize}
+							/>
 						}
 						detailsComponent={<ContractReceipt contract={contract} />}
 					/> :

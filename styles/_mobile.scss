@@ -61,6 +61,11 @@
 
     .contract-details-card {
         margin: 0.5em;
+        flex: 1;
+
+        h5 {
+            margin: 0.5em 0;
+        }
     }
 
     .trade-params {

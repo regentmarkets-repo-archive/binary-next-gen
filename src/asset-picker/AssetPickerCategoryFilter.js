@@ -25,14 +25,14 @@ export default class AssetPickerCategoryFilter extends PureComponent {
 	render() {
 		return (
 			<TabList onChange={this.onChange}>
-				<Tab imgSrc="img/barchart.svg" hint="All" />
-				<Tab img={<FavoritesIcon />} hint="Favorites" />
-				<Tab imgSrc="img/barchart.svg" hint="Open" />
-				<Tab imgSrc="img/ohlc.svg" hint="Volatility" />
-				<Tab imgSrc="img/ohlc.svg" hint="Indices" />
-				<Tab imgSrc="img/ohlc.svg" hint="OTC Stocks" />
-				<Tab imgSrc="img/ohlc.svg" hint="Forex" />
-				<Tab imgSrc="img/ohlc.svg" hint="Commodities" />
+				<Tab img={<FavoritesIcon className="asset-picker-filter-icon" />} tooltip="All" />
+				<Tab img={<FavoritesIcon className="asset-picker-filter-icon" />} tooltip="Favorites" />
+				<Tab img={<FavoritesIcon className="asset-picker-filter-icon" />} tooltip="Open" />
+				<Tab img={<FavoritesIcon className="asset-picker-filter-icon" />} tooltip="Volatility" />
+				<Tab img={<FavoritesIcon className="asset-picker-filter-icon" />} tooltip="Indices" />
+				<Tab img={<FavoritesIcon className="asset-picker-filter-icon" />} tooltip="OTC Stocks" />
+				<Tab img={<FavoritesIcon className="asset-picker-filter-icon" />} tooltip="Forex" />
+				<Tab img={<FavoritesIcon className="asset-picker-filter-icon" />} tooltip="Commodities" />
 			</TabList>
 		);
 	}

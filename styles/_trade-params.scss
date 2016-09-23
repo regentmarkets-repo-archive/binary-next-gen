@@ -220,7 +220,7 @@
     select {
         max-width: 50%;
         background-color: rgba($COLOR_BRAND_BLUE, 0.1);
-        margin-left: 3px;
+        margin-left: 0.25em;
         border: none;
     }
 
@@ -241,6 +241,10 @@
     > input {
         max-width: 50%;
         flex: 1;
+    }
+
+    > input + input {
+        margin-left: 0.25em;
     }
 }
 
@@ -265,7 +269,7 @@
     }
 
     > label + label {
-        margin-left: 3px;
+        margin-left: 0.25em;
     }
 
     > label > input {

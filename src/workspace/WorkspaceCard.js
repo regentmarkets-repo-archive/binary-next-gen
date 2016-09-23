@@ -12,9 +12,8 @@ export default class WorkspaceCard extends PureComponent {
 		workspace: PropTypes.object.isRequired,
 	};
 
-	onResize = e => {
+	onResize = e =>
 		actions.changeWorkspacePanelSize('side', window.innerWidth - e.clientX - 92);
-	}
 
 	render() {
 		const { workspace } = this.props;

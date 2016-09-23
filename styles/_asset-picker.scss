@@ -8,6 +8,14 @@
     [role=tab] {
         padding: 1em 0.25em;
     }
+
+    .tooltip {
+        margin-top: 1em;
+    }
+
+    [role=tab]:last-child .tooltip {
+        margin-left: -5em;
+    }
 }
 
 .asset-picker-container {
@@ -26,6 +34,11 @@
     tbody tr.selected {
         background-color: rgba($COLOR_BRAND_BLUE, 0.25);
     }
+}
+
+.asset-picker-filter-icon {
+    width: 20px;
+    height: 20px;
 }
 
 .asset-search {
