@@ -7,16 +7,16 @@ msgid ""
 msgstr ""
 "Project-Id-Version: I 18N\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-08-04 06:06+0000\n"
+"PO-Revision-Date: 2016-09-23 09:03+0000\n"
 "Last-Translator: Pham Minh Hieu <hphamv7@gmail.com>\n"
-"Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-app/"
-"next-gen-app/vi/>\n"
+"Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-app"
+"/next-gen-app/vi/>\n"
 "Language: vi\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.8-dev\n"
+"X-Generator: Weblate 2.9-dev\n"
 
 msgid "All"
 msgstr "Tất cả"
@@ -593,7 +593,7 @@ msgstr "Video"
 
 #, fuzzy
 msgid "Digit Stats"
-msgstr "Số liệu thống kê"
+msgstr "Thống kê ký tự"
 
 msgid "Favorites"
 msgstr "Yêu thích"
@@ -847,13 +847,11 @@ msgstr "Câu trả lời cho câu hỏi bí mật"
 msgid "Switch to"
 msgstr "Chuyển sang"
 
-#, fuzzy
 msgid "Single Trade"
-msgstr "Giao dịch"
+msgstr "Giao dịch một lần"
 
-#, fuzzy
 msgid "Multi Trade"
-msgstr "Giao dịch"
+msgstr "Giao dịch nhiều lần"
 
 msgid "Current Password"
 msgstr "Mật khẩu hiện tại"
@@ -861,88 +859,73 @@ msgstr "Mật khẩu hiện tại"
 msgid "New Password"
 msgstr "Mật khẩu mới"
 
-#, fuzzy
 msgid "Last 50 Ticks"
-msgstr "30 ngày trước"
+msgstr "50 lần giao động gần nhất"
 
-#, fuzzy
 msgid "Last 100 Ticks"
-msgstr "30 ngày trước"
+msgstr "100 lần giao động gần nhất"
 
-#, fuzzy
 msgid "Last 500 Ticks"
-msgstr "30 ngày trước"
+msgstr "500 lần giao động gần nhất"
 
-#, fuzzy
 msgid "Last 1000 Ticks"
-msgstr "30 ngày trước"
+msgstr "1000 lần giao động gần nhất"
 
 msgid "Exit Full Screen"
 msgstr "Thoát toàn màn hình"
 
 msgid "No digit trades for this asset"
-msgstr ""
+msgstr "Không có giao dịch số cho tài sản này"
 
-#, fuzzy
 msgid "Lock Cashier"
-msgstr "Mở khóa ngăn thu ngân"
+msgstr "Khóa quầy thu ngân"
 
-#, fuzzy
 msgid "Time out until date"
-msgstr "Hết thời gian cho đến khi"
+msgstr "Hết thời gian cho đến ngày"
 
-#, fuzzy
 msgid "Time out until time"
 msgstr "Hết thời gian cho đến khi"
 
-#, fuzzy
 msgid "Light Theme"
-msgstr "Màu nhạt"
+msgstr "Nền nhạt"
 
-#, fuzzy
 msgid "Dark Theme"
-msgstr "Màu sắc giao diện"
+msgstr "Nền tối"
 
 msgid "Password changed successfully"
-msgstr ""
+msgstr "Mật khẩu thay đổi thành công"
 
-#, fuzzy
 msgid "Settings updated"
-msgstr "Cài đặt"
+msgstr "Cài đặt đã được cập nhật"
 
-#, fuzzy
 msgid "Address updated"
-msgstr "Địa chỉ"
+msgstr "Địa chỉ đã được cập nhật"
 
-#, fuzzy
 msgid "Barrier must not be empty"
-msgstr "Thành phố không được để trống"
+msgstr "Barie không được để trống"
 
 msgid "Duration is out of range"
-msgstr ""
+msgstr "Thời hạn nằm ngoài phạm vi"
 
 msgid "Start date invalid, it needs to be five minutes or more in the future"
 msgstr ""
+"Ngày bắt đầu không hợp lệ, cần phải bằng 5 phút hoặc nhiều hơn trong tương "
+"lai"
 
 msgid "Time format is wrong"
-msgstr ""
+msgstr "Định dạng thời gian sai"
 
-#, fuzzy
 msgid "Lower than"
 msgstr "Thấp hơn"
 
-#, fuzzy
 msgid "Higher than"
 msgstr "Cao hơn"
 
-#, fuzzy
 msgid "High barrier"
-msgstr "Cao hơn"
+msgstr "Barie cao"
 
-#, fuzzy
 msgid "Low barrier"
-msgstr "Barie"
+msgstr "Barie thấp"
 
-#, fuzzy
 msgid "Touch spot"
-msgstr "Chạm"
+msgstr "Điểm chạm"
