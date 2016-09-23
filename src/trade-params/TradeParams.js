@@ -87,11 +87,12 @@ export default class TradeParams extends PureComponent {
 
     onPurchase = () => {
         const { index, proposal } = this.props;
-        const zoomChart = () => {
+        actions.reqPurchase(index, proposal.ask_price, () => {
             const chartDiv = document.getElementById(`trade-chart${index}`);
-            chartDiv.dispatchEvent(new Event('zoom-in-max'));
-        };
-        actions.reqPurchase(index, proposal.ask_price, zoomChart);
+            if (chartDiv) {
+                chartDiv.dispatchEvent(new Event('zoom-in-max'));
+            }
+        });
     }
 
     clearTradeError = () => {

@@ -130,7 +130,9 @@ export default class TradeViewChart extends PureComponent {
 
         this.subscribeToTicks(symbol).then(() => {
             const chartDiv = document.getElementById(`trade-chart${index}`);
-            chartDiv.dispatchEvent(new Event('zoom-in-to'));
+            if (chartDiv) {
+                chartDiv.dispatchEvent(new Event('zoom-in-to'));
+            }
         });
         this.subscribeToOHLC(symbol);
     }
@@ -145,7 +147,9 @@ export default class TradeViewChart extends PureComponent {
 
             this.subscribeToTicks(nextProps.tradeForChart.symbol).then(() => {
                 const chartDiv = document.getElementById(`trade-chart${nextProps.index}`);
-                chartDiv.dispatchEvent(new Event('zoom-in-to'));
+                if (chartDiv) {
+                    chartDiv.dispatchEvent(new Event('zoom-in-to'));
+                }
             });
             this.subscribeToOHLC(nextProps.tradeForChart.symbol);
         }
