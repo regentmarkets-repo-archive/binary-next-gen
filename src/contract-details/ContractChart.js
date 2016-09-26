@@ -34,7 +34,10 @@ export default class ContractChart extends PureComponent {
 
     componentWillMount() {
         this.api.events.on('tick', data => {
-            if (!this.hasTick) throw new Error('Not supposed to have tick stream!');
+            if (!this.hasTick) {
+                const { contract } = this.props;
+                throw new Error(`Not supposed to have tick stream! Contract: ${JSON.stringify(contract)}`);
+            }
 
             this.ticksId = data.tick.id;            // problematic, sometimes it will both be ohlc stream, and screw u !!
 
