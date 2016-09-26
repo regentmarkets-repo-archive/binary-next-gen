@@ -868,7 +868,7 @@ export default {
         null,
         "オープン中のトレードはありません"
     ],
-    "You have no assets in watchlist": [
+    "You have no assets in your watchlist": [
         null,
         "ウォッチリストに資産がありません"
     ],

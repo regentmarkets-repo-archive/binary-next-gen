@@ -869,7 +869,7 @@ export default {
         null,
         "لا يوجد لديك عقود مفتوحة"
     ],
-    "You have no assets in watchlist": [
+    "You have no assets in your watchlist": [
         null,
         "لا يوجد لديك أصول في قائمة المراقبة"
     ],

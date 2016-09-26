@@ -870,7 +870,7 @@ export default {
         null,
         "您没有未平仓合约"
     ],
-    "You have no assets in watchlist": [
+    "You have no assets in your watchlist": [
         null,
         "您的关注列表没有资产"
     ],

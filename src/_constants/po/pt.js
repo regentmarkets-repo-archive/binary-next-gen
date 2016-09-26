@@ -857,7 +857,7 @@ export default {
         null,
         "Você não tem contratos abertos"
     ],
-    "You have no assets in watchlist": [
+    "You have no assets in your watchlist": [
         null,
         "Você não tem nenhum ativo nos seus favoritos"
     ],

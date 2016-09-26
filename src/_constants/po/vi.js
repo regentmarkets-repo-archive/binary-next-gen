@@ -864,7 +864,7 @@ export default {
         null,
         "Bạn không có hợp đồng ngỏ nào"
     ],
-    "You have no assets in watchlist": [
+    "You have no assets in your watchlist": [
         null,
         "Bạn không có tài sản nào trong watchlist"
     ],

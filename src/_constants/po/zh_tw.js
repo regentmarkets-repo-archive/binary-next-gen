@@ -868,7 +868,7 @@ export default {
         null,
         "您沒有未平倉合約"
     ],
-    "You have no assets in watchlist": [
+    "You have no assets in your watchlist": [
         null,
         "您的關注清單沒有資產"
     ],

@@ -869,7 +869,7 @@ export default {
         null,
         "Sie haben keine offenen Kontrakte"
     ],
-    "You have no assets in watchlist": [
+    "You have no assets in your watchlist": [
         null,
         "Sie haben keine Anlagegegenstände in Ihrer Beobachtungsliste"
     ],

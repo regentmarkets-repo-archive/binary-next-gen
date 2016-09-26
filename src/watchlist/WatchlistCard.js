@@ -15,7 +15,7 @@ export default class WatchlistCard extends PureComponent {
 			watchlistView.count() === 0 ?
 				<EmptySlate
 					img="img/watchlist.svg"
-					text="You have no assets in watchlist"
+					text="You have no assets in your watchlist"
 				/> :
 				<div className="watchlist-card scrollable">
 					<AnimatedPopup shown>

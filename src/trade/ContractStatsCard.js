@@ -22,7 +22,7 @@ export default class ContractStatsCard extends PureComponent {
                 />
                 <LabeledText
                     label={spread ? 'Maximum winning' : 'Potential Winning'}
-                    value={spread ? winning.toString() : `${winning} (${winningPercent}%)` }
+                    value={spread ? winning.toString() : `${winning} (${winningPercent}%)`}
                 />
                 <M m={proposal.longcode} />
             </div>
