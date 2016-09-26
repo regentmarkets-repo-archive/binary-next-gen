@@ -1,12 +1,12 @@
 .asset-picker-filter {
-    min-height: 7em;
+    min-height: 6em;
 
     [role=tablist] {
         border-radius: $BORDER_RADIUS;
     }
 
     [role=tab] {
-        padding: 1em 0.25em;
+        padding: 0.5em 0.25em;
     }
 
     .tooltip {
