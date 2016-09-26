@@ -128,7 +128,6 @@ export default class TradeViewChart extends PureComponent {
         if (!tradeForChart) return;
 
         const { symbol } = tradeForChart;
-
         this.subscribeToTicks(symbol).then(() => {
             const chartDiv = document.getElementById(`trade-chart${index}`);
             if (chartDiv) {
@@ -145,7 +144,6 @@ export default class TradeViewChart extends PureComponent {
         ) {
             this.setState(defaultState);
             this.unsubscribe();
-
             this.subscribeToTicks(nextProps.tradeForChart.symbol).then(() => {
                 const chartDiv = document.getElementById(`trade-chart${nextProps.index}`);
                 if (chartDiv) {
@@ -153,6 +151,16 @@ export default class TradeViewChart extends PureComponent {
                 }
             });
             this.subscribeToOHLC(nextProps.tradeForChart.symbol);
+        }
+    }
+
+    componentDidUpdate(prevProps) {
+        if (!prevProps.contractForChart && this.props.contractForChart) {
+            const index = this.props.index;
+            const chartDiv = document.getElementById(`trade-chart${index}`);
+            if (chartDiv) {
+                chartDiv.dispatchEvent(new Event('zoom-in-max'));
+            }
         }
     }
 
