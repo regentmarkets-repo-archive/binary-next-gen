@@ -1,7 +1,7 @@
 import { trackUserId } from 'binary-utils/lib/Analytics';
 import { showError } from 'binary-utils';
 import { store } from '../_store/persistentStore';
-import { history, accountExclusion } from '../_store/root.js';
+import { history, accountExclusion } from '../_store/root';
 import { api } from './LiveData';
 import { updateAppState, removePersonalData, updateToken, updateBoot } from '../_actions';
 

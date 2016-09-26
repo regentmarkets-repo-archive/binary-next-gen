@@ -70,10 +70,8 @@ export default class WithdrawForm extends PureComponent {
             paymentAgentOptions[0].text;
         return (
             <div className="startup-content">
-                <Modal
-                    shown={!inProgress && withdrawClicked}
-                    children={
-                        dryRunFailed ?
+                <Modal shown={!inProgress && withdrawClicked} onClose={this.withdraw}>
+                    {dryRunFailed ?
                         <div>
                             <h3><M m="Withdrawal Failed" /></h3>
                             <p>{dryRunError}</p>
@@ -87,23 +85,14 @@ export default class WithdrawForm extends PureComponent {
                             <Button text="Confirm" onClick={this.confirmWithdraw} />
                         </div>
                     }
-                    onClose={this.withdraw}
-                />
+                </Modal>
                 <Modal
                     shown={!inProgress && confirmClicked}
                     onClose={this.confirm}
-                    children={
-                        withdrawFailed ?
-                        <div>
-                            <h3><M m="Withdrawal Failed" /></h3>
-                            <p>{withdrawError}</p>
-                        </div> :
-                        <div>
-                            <h3><M m="Congratulations" /></h3>
-                            <P text="Your withdrawal is success" />
-                        </div>
-                    }
-                />
+                >
+                      <h3>{withdrawFailed ? <M m="Withdrawal Failed" /> : <M m="Congratulations" />}</h3>
+                      {withdrawFailed ? <p>{withdrawError}</p> : <P text="Your withdrawal is success" />}
+                </Modal>
                 <SelectGroup
                     label="Payment agent"
                     options={paymentAgentOptions}

@@ -38,7 +38,7 @@ export default class PopupDropDown extends PureComponent {
 					>
 						{React.cloneElement(children, { onClose })}
 					</div>
-					<div className="full-screen-overlay" onClick={onClose} />}
+					<div className="full-screen-overlay" onClick={onClose} />
 				</div>
 			</AnimatedPopup>
 		);

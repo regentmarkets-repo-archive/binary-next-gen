@@ -75,9 +75,10 @@ export default class Root extends PureComponent {
                     <AppStateProvider>
                         <Router
                             history={history}
-                            children={routes}
                             createElement={this.createElementWithActions}
-                        />
+                        >
+                            {routes}
+                        </Router>
                     </AppStateProvider>
                 </BootProvider>
             </Provider>
