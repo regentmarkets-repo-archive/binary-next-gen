@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-08-08 04:14+0000\n"
+"PO-Revision-Date: 2016-09-26 13:49+0000\n"
 "Last-Translator: cameliagf <cameliagf@yahoo.com>\n"
 "Language-Team: Spanish <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/es/>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.8-dev\n"
+"X-Generator: Weblate 2.9-dev\n"
 
 msgid "All"
 msgstr "Todo"
@@ -876,68 +876,55 @@ msgid "Exit Full Screen"
 msgstr "Salir de Pantalla Completa"
 
 msgid "No digit trades for this asset"
-msgstr ""
+msgstr "No hay comercios de digitos para este activo"
 
-#, fuzzy
 msgid "Lock Cashier"
-msgstr "Desbloquear Cajero"
+msgstr "Bloquear Cajero"
 
-#, fuzzy
 msgid "Time out until date"
-msgstr "Pausa hasta"
+msgstr "Tiempo de espera hasta la fecha"
 
-#, fuzzy
 msgid "Time out until time"
-msgstr "Pausa hasta"
+msgstr "Tiempo de espera hasta"
 
-#, fuzzy
 msgid "Light Theme"
-msgstr "Claro"
+msgstr "Tema Claro"
 
-#, fuzzy
 msgid "Dark Theme"
-msgstr "Gama de colores"
+msgstr "Tema Oscuro"
 
 msgid "Password changed successfully"
-msgstr ""
+msgstr "Contraseña cambiada con éxito"
 
-#, fuzzy
 msgid "Settings updated"
-msgstr "Configuración"
+msgstr "Configuración actualizada"
 
-#, fuzzy
 msgid "Address updated"
-msgstr "Dirección"
+msgstr "Dirección actualizada"
 
-#, fuzzy
 msgid "Barrier must not be empty"
-msgstr "El campo ciudad no debe estar vacío"
+msgstr "El campo barrera no debe estar vacío"
 
 msgid "Duration is out of range"
-msgstr ""
+msgstr "La duración está fuera de rango"
 
 msgid "Start date invalid, it needs to be five minutes or more in the future"
-msgstr ""
+msgstr "Fecha de inicio no válida, debe ser cinco minutos o más en el futuro"
 
 msgid "Time format is wrong"
-msgstr ""
+msgstr "El formato de la hora es incorrecto"
 
-#, fuzzy
 msgid "Lower than"
-msgstr "Menor"
+msgstr "Inferior a"
 
-#, fuzzy
 msgid "Higher than"
-msgstr "Mayor"
+msgstr "Superior a"
 
-#, fuzzy
 msgid "High barrier"
-msgstr "Mayor"
+msgstr "Barrera superior"
 
-#, fuzzy
 msgid "Low barrier"
-msgstr "Barrera"
+msgstr "Barrera inferior"
 
-#, fuzzy
 msgid "Touch spot"
-msgstr "Toca"
+msgstr "Punto de toque"
