@@ -15,6 +15,7 @@ input[type=button],
 .btn-secondary {
     border-radius: $BORDER_RADIUS;
     cursor: pointer;
+    line-height: 1;
     padding: 0.75em 1em;
     margin: 0;
 }

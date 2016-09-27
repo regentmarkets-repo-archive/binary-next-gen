@@ -300,9 +300,13 @@ div[role=tabpanel] {
 }
 
 .tooltip {
-    background: rgba(white, 0.9);
+    color: $COLOR_INVERSE_TEXT;
+    background: $COLOR_INVERSE_BG;
+    .inverse & {
+        color: $COLOR_TEXT;
+        background: $COLOR_BG;
+    }
     border: 1px solid rgba($COLOR_BRAND_BLUE, 0.25);
-    color: $COLOR_BRAND_BLUE;
     font-weight: bold;
     padding: 0.25em 0.5em;
     border-radius: $BORDER_RADIUS;
@@ -371,6 +375,7 @@ nav.sidebar {
 
     img {
         width: 3em;
+        height: 3em;
         margin-bottom: 0.5em;
     }
 
