@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { isMobile } from 'binary-utils';
+import { isMobile, getLast } from 'binary-utils';
 import { BinaryChart } from 'binary-charts';
 import {
     internalTradeModelToChartTradeModel,
@@ -12,8 +12,9 @@ import { chartToDataType, getDataWithErrorHandling } from '../../_chart-utils/Ut
 
 const zoomInTo = (ratio) => (ev, chart) => {
     const { dataMax, dataMin } = chart.xAxis[0].getExtremes();
-    const range = (dataMax - dataMin) * ratio;
-    chart.xAxis[0].setExtremes(dataMax - range, dataMax);
+    const seriesMax = getLast(chart.series[0].options.data)[0];
+    const range = (seriesMax - dataMin) * ratio;
+    chart.xAxis[0].setExtremes(seriesMax - range, dataMax);
 };
 
 const zoomInMax = (ev, chart) => {
