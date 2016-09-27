@@ -7,6 +7,21 @@
         width: 100% !important;
     }
 }
+.highcharts-loading {
+    background: transparent !important;
+
+    > span {
+        padding: 0.5em 1em;
+        border-radius: $BORDER_RADIUS;
+        color: $COLOR_INVERSE_TEXT !important;
+        background: $COLOR_INVERSE_BG !important;
+
+        .inverse & {
+            color: $COLOR_INVERSE_BG !important;
+            background: $COLOR_INVERSE_TEXT !important;
+        }
+    }
+}
 
 .inverse .trade-chart {
     color: $COLOR_INVERSE_TEXT;
