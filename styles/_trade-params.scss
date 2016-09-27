@@ -37,6 +37,8 @@
     .trade-panel {
         flex-direction: row-reverse;
         align-items: stretch;
+        min-width: 0;
+        min-height: 0;
     }
 
     .contract-detail {
@@ -63,6 +65,8 @@
 .horizontal {
     .trade-panel {
         flex-direction: column;
+        min-width: 0;
+        min-height: 0;
     }
 
     .errorfield {
@@ -189,6 +193,7 @@
     flex-direction: column;
     flex: 1;
     min-width: 0;
+    min-height: 0;
     .binary-chart-zoom-controls {
         visibility: hidden;
         opacity: 0;
