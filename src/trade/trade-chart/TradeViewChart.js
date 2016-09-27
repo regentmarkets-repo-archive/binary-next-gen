@@ -12,7 +12,10 @@ import { chartToDataType, getDataWithErrorHandling } from '../../_chart-utils/Ut
 
 const zoomInTo = (ratio) => (ev, chart) => {
     const { dataMax, dataMin } = chart.xAxis[0].getExtremes();
-    const seriesMax = getLast(chart.series[0].options.data)[0];
+    const lastData = getLast(chart.series[0].options.data);
+    if (!lastData) return;
+    const seriesMax = lastData[0];
+    if (!seriesMax) return;
     const range = (seriesMax - dataMin) * ratio;
     chart.xAxis[0].setExtremes(seriesMax - range, dataMax);
 };
@@ -124,11 +127,16 @@ export default class TradeViewChart extends PureComponent {
     }
 
     componentDidMount() {
-        const { tradeForChart, index } = this.props;
+        const { tradeForChart, index, feedLicense } = this.props;
 
         if (!tradeForChart) return;
 
         const { symbol } = tradeForChart;
+
+        if (feedLicense === 'chartonly') {
+            return;
+        }
+
         this.subscribeToTicks(symbol).then(() => {
             const chartDiv = document.getElementById(`trade-chart${index}`);
             if (chartDiv) {
@@ -145,6 +153,12 @@ export default class TradeViewChart extends PureComponent {
         ) {
             this.setState(defaultState);
             this.unsubscribe();
+
+            const { feedLicense } = nextProps;
+            if (feedLicense === 'chartonly') {
+                return;
+            }
+
             this.subscribeToTicks(nextProps.tradeForChart.symbol).then(() => {
                 const chartDiv = document.getElementById(`trade-chart${nextProps.index}`);
                 if (chartDiv) {
@@ -209,11 +223,6 @@ export default class TradeViewChart extends PureComponent {
     }
 
     subscribeToTicks = (symbol, count = 2000): Promise => {
-        const { feedLicense } = this.props;
-        if (feedLicense === 'chartonly') {
-            return Promise.resolve();
-        }
-
         const callDependOnErr = (err) =>
             this.api.getTickHistory(symbol, {
                 count,
@@ -225,11 +234,6 @@ export default class TradeViewChart extends PureComponent {
     }
 
     subscribeToOHLC = (symbol, count = 500, interval = 60): Promise => {
-        const { feedLicense } = this.props;
-        if (feedLicense === 'chartonly') {
-            return Promise.resolve();
-        }
-
         const callDependOnErr = (err) =>
             this.api.getTickHistory(symbol, {
                     count,
