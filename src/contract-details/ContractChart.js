@@ -148,7 +148,7 @@ export default class ContractChart extends PureComponent {
         const { contract } = this.props;
         const toStream = !contract.sell_time;
 
-        if (toStream) {
+        if (toStream && !contract.id) {
             CoreApi.subscribeToOpenContract(contract.contract_id);
         }
 

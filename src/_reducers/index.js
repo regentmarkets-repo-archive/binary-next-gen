@@ -36,7 +36,7 @@ import video from './VideoReducer';
 import views from './ViewsReducer';
 import workspace from './WorkspaceReducer';
 import watchlist from './WatchlistReducer';
-import chartData from './ChartDataReducer';
+// import chartData from './ChartDataReducer';
 import residenceList from './CountryListReducer';
 
 export default combineReducers({
@@ -47,7 +47,7 @@ export default combineReducers({
     assetPicker,
     boot,
     boughtContracts,
-    chartData,
+    // chartData,
     dailyPrices,
     digitStats,
     feedLicenses,
