@@ -194,15 +194,6 @@
     flex: 1;
     min-width: 0;
     min-height: 0;
-    .binary-chart-zoom-controls {
-        visibility: hidden;
-        opacity: 0;
-    }
-
-    &:hover .binary-chart-zoom-controls {
-        visibility: visible;
-        opacity: 1;
-    }
 
     #trade-chart0,
     #trade-chart1,

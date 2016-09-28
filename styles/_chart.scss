@@ -7,6 +7,7 @@
         width: 100% !important;
     }
 }
+
 .highcharts-loading {
     background: transparent !important;
 
@@ -45,6 +46,35 @@
         &:hover {
             background: rgba($COLOR_INVERSE_TEXT, 0.1);
         }
+    }
+}
+
+.trade-chart,
+.contract-chart {
+    .binary-chart-zoom-controls {
+        visibility: hidden;
+        opacity: 0;
+    }
+
+    &:hover .binary-chart-zoom-controls {
+        visibility: visible;
+        opacity: 1;
+    }
+}
+
+.trade-chart {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    min-width: 0;
+    min-height: 0;
+
+    #trade-chart0,
+    #trade-chart1,
+    #trade-chart2,
+    #trade-chart3,
+    #trade-chart4 {
+        height: calc(100% - 56px);
     }
 }
 

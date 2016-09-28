@@ -256,7 +256,6 @@ export default class ContractChart extends PureComponent {
                 className="contract-chart"
                 compactToolbar
                 hideTimeFrame
-                hideZoomControls
                 showTooltips={!isMobile()}
                 showAllTimeFrame={false}
                 contract={contract}
