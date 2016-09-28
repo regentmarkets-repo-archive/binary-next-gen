@@ -15,6 +15,8 @@ const convertOpenContract = openContract => {
     // remove these two keys. we do not need them
     delete cloned.current_spot;
     delete cloned.current_spot_time;
+    cloned.date_expiry = +openContract.date_expiry;
+    cloned.date_start = +openContract.date_start;
 
     return cloned;
 };
