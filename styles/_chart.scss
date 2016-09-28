@@ -194,3 +194,20 @@
         fill: $COLOR_BG;
     }
 }
+
+.binary-chart-info-bar {
+    padding: 0 0.5em;
+    opacity: 0.9;
+    border-radius: $BORDER_RADIUS;
+    background: $COLOR_INVERSE_BG;
+    color: $COLOR_INVERSE_TEXT;
+
+    > div {
+        line-height: 1.5;
+    }
+
+    .inverse & {
+        background: $COLOR_BG;
+        color: $COLOR_TEXT;
+    }
+}

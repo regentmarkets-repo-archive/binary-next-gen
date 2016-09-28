@@ -188,22 +188,6 @@
     align-items: stretch;
 }
 
-.trade-chart {
-    display: flex;
-    flex-direction: column;
-    flex: 1;
-    min-width: 0;
-    min-height: 0;
-
-    #trade-chart0,
-    #trade-chart1,
-    #trade-chart2,
-    #trade-chart3,
-    #trade-chart4 {
-        height: calc(100% - 56px);
-    }
-}
-
 .payout-value {
     font-weight: bold;
     font-size: 1.6em;
