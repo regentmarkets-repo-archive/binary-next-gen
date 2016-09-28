@@ -129,7 +129,7 @@ export default class TradeViewChart extends PureComponent {
     componentDidMount() {
         const { tradeForChart, index, feedLicense } = this.props;
 
-        if (!tradeForChart) return;
+        if (!tradeForChart) throw new Error(`Trade no ${index} does not have trade param`);
 
         const { symbol } = tradeForChart;
 
