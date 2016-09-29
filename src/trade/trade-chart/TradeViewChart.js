@@ -70,6 +70,8 @@ export default class TradeViewChart extends PureComponent {
         this.state = defaultState;
 
         this.api = chartApi(props.index + 1);
+        this.ticksBuffer = [];
+        this.candlesBuffer = [];
     }
 
     componentWillMount() {
@@ -79,21 +81,27 @@ export default class TradeViewChart extends PureComponent {
             // ignored delayed tick from previous subscription
             if (tradeForChart && data.tick.symbol !== tradeForChart.get('symbol')) return;
 
-            const old = this.state.ticks;
             const newTick = {
                 epoch: +data.tick.epoch,
                 quote: +data.tick.quote,
             };
-            this.setState({ ticks: old.concat([newTick]) });
+
+            this.ticksBuffer = this.ticksBuffer.concat([newTick]);
+
+            if (this.state.dataType === 'ticks') {
+                this.setState({ ticks: this.ticksBuffer });
+            }
+
             this.ticksId = data.tick.id;
         });
+
         this.api.events.on('ohlc', data => {
             const { tradeForChart } = this.props;
 
             // ignore delayed tick from previous subscription
             if (tradeForChart && data.ohlc.symbol !== tradeForChart.get('symbol')) return;
 
-            const old = this.state.candles;
+            const old = this.candlesBuffer;
 
             // list of candles might be received later than candles stream due to size
             // do not process single candle that arrived before list of candles
@@ -118,10 +126,15 @@ export default class TradeViewChart extends PureComponent {
             if (diff < interval) {
                 const newOHLCArr = old.slice(0, -1);
                 newOHLCArr.push(newOHLC);
-                this.setState({ candles: newOHLCArr });
+                this.candlesBuffer = newOHLCArr;
             } else {
-                this.setState({ candles: old.concat([newOHLC]) });
+                this.candlesBuffer = this.candlesBuffer.concat([newOHLC]);
             }
+
+            if (this.state.dataType === 'candles') {
+                this.setState({ candles: this.candlesBuffer });
+            }
+
             this.ohlcId = data.ohlc.id;
         });
     }
@@ -200,12 +213,14 @@ export default class TradeViewChart extends PureComponent {
                 return { epoch: +t, quote: +quote };
             });
 
-            const ticks = mergeTicks(this.state.ticks, newTicks);
+            const ticks = mergeTicks(this.ticksBuffer, newTicks);
+            this.ticksBuffer = ticks;
             this.setState({ ticks });
             return ticks;
         }
 
-        const candles = mergeCandles(this.state.candles, data.candles);
+        const candles = mergeCandles(this.candlesBuffer, data.candles);
+        this.candlesBuffer = candles;
         this.setState({ candles });
         return candles;
     }
@@ -262,7 +277,7 @@ export default class TradeViewChart extends PureComponent {
             return;
         }
 
-        this.setState({ chartType: type, dataType: newDataType });
+        this.setState({ chartType: type, dataType: newDataType, ticks: this.ticksBuffer, candles: this.candlesBuffer });
     }
 
     render() {
