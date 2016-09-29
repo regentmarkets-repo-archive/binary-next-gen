@@ -3,7 +3,6 @@ export const bootSelector = state => state.boot;
 export const assetIndexSelector = state => state.assetIndex;
 export const assetsSelector = state => state.assets;
 export const createAccountSelector = state => state.createAccount;
-export const chartDataSelector = state => state.chartData;
 export const digitStatsSelector = state => state.digitStats;
 export const paymentAgentSelector = state => state.paymentAgent;
 export const settingsSelector = state => state.settings;
