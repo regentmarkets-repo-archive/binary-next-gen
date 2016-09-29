@@ -9,7 +9,7 @@ import {
     tradingTimesSelector,
 } from '../_store/directSelectors';
 
-export const contractReceipts = createSelector(
+export const contractReceiptsPerTradeSelector = createSelector(
     [tradePurchaseInfoSelector, boughtContractsSelector],
     (purchaseInfos, contracts) =>
         purchaseInfos.map(p => {
@@ -19,7 +19,7 @@ export const contractReceipts = createSelector(
         })
 );
 
-export const tradingTimes = createSelector(
+export const tradingTimesPerTradeSelector = createSelector(
     [tradeParamsSelector, tradingTimesSelector],
     (params, times) =>
         params.map(p => {
@@ -28,7 +28,7 @@ export const tradingTimes = createSelector(
         })
 );
 
-export const pipSizes = createSelector(
+export const pipSizesPerTradeSelector = createSelector(
     [tradeParamsSelector, assetsSelector],
     (params, assets) =>
         params.map(p => {
@@ -38,7 +38,7 @@ export const pipSizes = createSelector(
         })
 );
 
-export const feedLicenses = createSelector(
+export const feedLicensesPerTradeSelector = createSelector(
     [feedLicensesSelector, tradeParamsSelector],
     (licenses, params) =>
         params.map(p => {
@@ -47,7 +47,7 @@ export const feedLicenses = createSelector(
         })
 );
 
-export const params = createSelector(
+export const tradeParamsWithSymbolNameSelector = createSelector(
     [tradeParamsSelector, assetsSelector],
     (params, assets) =>
         params.map(p => {

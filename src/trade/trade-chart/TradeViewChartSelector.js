@@ -1,62 +1,21 @@
 import { createSelector } from 'reselect';
-import { pipsToDigits } from 'binary-utils';
-import { assetsSelector, boughtContractsSelector,
-    feedLicensesSelector, tradingTimesSelector } from '../../_store/directSelectors';
-import { purchasePerTrade, paramPerTrade } from '../TradeSelectors';
+import { contractReceiptsPerTradeSelector, pipSizesPerTradeSelector, tradingTimesPerTradeSelector, feedLicensesPerTradeSelector, tradeParamsWithSymbolNameSelector } from '../BasicTradeSelectors';
 
-const tradingTimePerTrade = createSelector(
-    [paramPerTrade, tradingTimesSelector],
-    (param, times) => {
-        if (!param) return undefined;
-        const symbol = param.get('symbol');
-        return times.find(a => a.get('symbol') === symbol);
-    }
-);
-
-export const pipSizePerTrade = createSelector(
-    [paramPerTrade, assetsSelector],
-    (param, assets) => {
-        if (!param) return undefined;
-        const symbol = param.get('symbol');
-        const symbolDetails = assets.find(a => a.get('symbol') === symbol);
-        return symbolDetails && pipsToDigits(symbolDetails.get('pip'));
-    }
-);
-
-const feedLicensePerTrade = createSelector(
-    [feedLicensesSelector, paramPerTrade],
-    (licenses, param) => {
-        if (!param) return undefined;
-        const symbol = param.get('symbol');
-        return licenses.get(symbol);
-    }
-);
-
-export const contractReceiptPerTrade = createSelector(
-    [purchasePerTrade, boughtContractsSelector],
-    (purchaseInfo, contracts) => {
-        if (!purchaseInfo) return undefined;
-        const contractID = purchaseInfo.get('mostRecentContractId');
-        if (!contractID) return undefined;
-        return contracts.get(contractID);
-    }
-);
-
-export const tradeViewChartPerTrade = createSelector(
+export const tradeViewChartSelector = createSelector(
     [
-        contractReceiptPerTrade,
-        tradingTimePerTrade,
-        pipSizePerTrade,
-        feedLicensePerTrade,
-        paramPerTrade,
-        (state, props) => props.index,
+        contractReceiptsPerTradeSelector,
+        tradingTimesPerTradeSelector,
+        pipSizesPerTradeSelector,
+        feedLicensesPerTradeSelector,
+        tradeParamsWithSymbolNameSelector,
     ],
-    (lastBoughtContract, tradingTime, pipSize, license, param, index) => ({
-        index,
-        contractForChart: lastBoughtContract,
-        tradeForChart: param,
-        feedLicense: license,
-        pipSize,
-        tradingTime,
-    })
+    (lastBoughtContracts, tradingTimes, pipSizes, licenses, params) =>
+        params.map((p, i) => ({
+            index: i,
+            contractForChart: lastBoughtContracts.get(i),
+            tradeForChart: p,
+            feedLicense: licenses.get(i),
+            pipSize: pipSizes.get(i),
+            tradingTime: tradingTimes.get(i),
+        }))
 );
