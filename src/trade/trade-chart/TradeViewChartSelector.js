@@ -1,9 +1,7 @@
 import { createSelector } from 'reselect';
 import { pipsToDigits } from 'binary-utils';
-import {
-    assetsSelector, boughtContractsSelector, feedLicensesSelector,
-    tradingTimesSelector, ticksSelector, ohlcSelector,
-} from '../../_store/directSelectors';
+import { assetsSelector, boughtContractsSelector,
+    feedLicensesSelector, tradingTimesSelector } from '../../_store/directSelectors';
 import { purchasePerTrade, paramPerTrade } from '../TradeSelectors';
 
 const tradingTimePerTrade = createSelector(
@@ -12,24 +10,6 @@ const tradingTimePerTrade = createSelector(
         if (!param) return undefined;
         const symbol = param.get('symbol');
         return times.find(a => a.get('symbol') === symbol);
-    }
-);
-
-const ticksPerTrade = createSelector(
-    [paramPerTrade, ticksSelector],
-    (param, ticks) => {
-        if (!param) return undefined;
-        const symbol = param.get('symbol');
-        return ticks.get(symbol);
-    }
-);
-
-const ohlcPerTrade = createSelector(
-    [paramPerTrade, ohlcSelector],
-    (param, ticks) => {
-        if (!param) return undefined;
-        const symbol = param.get('symbol');
-        return ticks.get(symbol);
     }
 );
 
@@ -69,11 +49,9 @@ export const tradeViewChartPerTrade = createSelector(
         pipSizePerTrade,
         feedLicensePerTrade,
         paramPerTrade,
-        ticksPerTrade,
-        ohlcPerTrade,
         (state, props) => props.index,
     ],
-    (lastBoughtContract, tradingTime, pipSize, license, param, ticks, ohlc, index) => ({
+    (lastBoughtContract, tradingTime, pipSize, license, param, index) => ({
         index,
         contractForChart: lastBoughtContract,
         tradeForChart: param,
