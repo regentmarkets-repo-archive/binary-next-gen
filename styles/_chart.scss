@@ -204,6 +204,11 @@
 
     > div {
         line-height: 1.5;
+        display: flex;
+
+        > span {
+            flex: 1;
+        }
     }
 
     .inverse & {

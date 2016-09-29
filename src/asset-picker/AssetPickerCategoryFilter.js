@@ -29,10 +29,10 @@ export default class AssetPickerCategoryFilter extends PureComponent {
 				<Tab img={<FavoritesIcon className="asset-picker-filter-icon" />} tooltip="Favorites" />
 				<Tab img={<FavoritesIcon className="asset-picker-filter-icon" />} tooltip="Open" />
 				<Tab img={<FavoritesIcon className="asset-picker-filter-icon" />} tooltip="Volatility" />
-				<Tab img={<FavoritesIcon className="asset-picker-filter-icon" />} tooltip="Indices" />
-				<Tab img={<FavoritesIcon className="asset-picker-filter-icon" />} tooltip="OTC Stocks" />
 				<Tab img={<FavoritesIcon className="asset-picker-filter-icon" />} tooltip="Forex" />
+				<Tab img={<FavoritesIcon className="asset-picker-filter-icon" />} tooltip="Indices" />
 				<Tab img={<FavoritesIcon className="asset-picker-filter-icon" />} tooltip="Commodities" />
+				<Tab img={<FavoritesIcon className="asset-picker-filter-icon" />} tooltip="OTC Stocks" />
 			</TabList>
 		);
 	}
