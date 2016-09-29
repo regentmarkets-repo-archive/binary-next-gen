@@ -1,11 +1,12 @@
 import { createSelector } from 'reselect';
 import { extractBarrier, extractDuration, extractForwardStartingDuration,
-    extractSpreadInfo, normalizedContractFor, groupByKey,
-    findDeep, filterDeep } from 'binary-utils';
-import { assetsSelector, currencySelector } from '../_store/directSelectors';
-import { pipSizePerTrade } from '../trade/trade-chart/TradeViewChartSelector';
+    extractSpreadInfo, normalizedContractFor, groupByKey, findDeep, filterDeep } from 'binary-utils';
+import {
+    assetsSelector, currencySelector, tradesErrorSelector, tradePurchaseInfoSelector,
+    tradeProposalSelector, tradesUIStatesSelector,
+} from '../_store/directSelectors';
 import { mockedContract } from '../_constants/MockContract';
-import { paramPerTrade, errorPerTrade, proposalPerTrade, purchasePerTrade, uiStatePerTrade } from '../trade/TradeSelectors';
+import { tradeParamsWithSymbolNameSelector, pipSizesPerTradeSelector } from '../trade/BasicTradeSelectors';
 
 const extractTradingOptions = (contracts, type) => ({
     barriers: extractBarrier(contracts, type),
@@ -13,6 +14,20 @@ const extractTradingOptions = (contracts, type) => ({
     forwardStartingDuration: extractForwardStartingDuration(contracts, type),
     spread: (type.indexOf('SPREAD') > -1) ? extractSpreadInfo(contracts) : null,
 });
+
+export const assetsIsOpenSelector = createSelector(
+    assetsSelector,
+    assets => {
+        const assetsIsOpen = assets.map(a => ({ symbol: a.get('symbol'), isOpen: !!a.get('exchange_is_open') }));
+        const assetsIsOpenObject = groupByKey(assetsIsOpen.toJS(), 'symbol');
+        Object.keys(assetsIsOpenObject).forEach(symbol => {
+            if (assetsIsOpenObject[symbol]) {
+                assetsIsOpenObject[symbol] = assetsIsOpenObject[symbol][0];
+            }
+        });
+        return assetsIsOpenObject;
+    }
+);
 
 export const tradingOptionsForOneSymbol = createSelector(
     contracts => contracts,
@@ -28,20 +43,6 @@ export const tradingOptionsForOneSymbol = createSelector(
             normalized[category] = categoryObj;
         });
         return normalized;
-    }
-);
-
-export const assetsIsOpenSelector = createSelector(
-    assetsSelector,
-    assets => {
-        const assetsIsOpen = assets.map(a => ({ symbol: a.get('symbol'), isOpen: !!a.get('exchange_is_open') }));
-        const assetsIsOpenObject = groupByKey(assetsIsOpen.toJS(), 'symbol');
-        Object.keys(assetsIsOpenObject).forEach(symbol => {
-            if (assetsIsOpenObject[symbol]) {
-                assetsIsOpenObject[symbol] = assetsIsOpenObject[symbol][0];
-            }
-        });
-        return assetsIsOpenObject;
     }
 );
 
@@ -61,22 +62,22 @@ export const availableTradingOptionsSelector = createSelector(
         })
 );
 
-const tradingOptionPerTrade = createSelector(
-    [availableTradingOptionsSelector, paramPerTrade],
-    (options, param) => {
-        if (!param) return undefined;
-        const symbol = param.get('symbol');
-        return options.get(symbol);
-    }
+const tradingOptionsSelector = createSelector(
+    [availableTradingOptionsSelector, tradeParamsWithSymbolNameSelector],
+    (options, params) =>
+        params.map(p => {
+            const symbol = p.get('symbol');
+            return options.get(symbol);
+        })
 );
 
-const marketIsOpenPerTrade = createSelector(
-    [assetsIsOpenSelector, paramPerTrade],
-    (assetsIsOpen, param) => {
-        if (!param) return undefined;
-        const symbol = param.get('symbol');
-        return assetsIsOpen[symbol] && assetsIsOpen[symbol].isOpen;
-    }
+const marketIsOpenSelector = createSelector(
+    [assetsIsOpenSelector, tradeParamsWithSymbolNameSelector],
+    (assetsIsOpen, params) =>
+        params.map(p => {
+            const symbol = p.get('symbol');
+            return assetsIsOpen[symbol] && assetsIsOpen[symbol].isOpen;
+        })
 );
 
 const getStartLaterOnlyContract = contract => {
@@ -96,42 +97,44 @@ const getStartLaterOnlyContract = contract => {
     return startLaterCategories;
 };
 
-export const tradeParamsPerTrade = createSelector(
+export default createSelector(
     [
         currencySelector,
-        tradingOptionPerTrade,
-        paramPerTrade,
-        errorPerTrade,
-        pipSizePerTrade,
-        purchasePerTrade,
-        proposalPerTrade,
-        uiStatePerTrade,
-        marketIsOpenPerTrade,
-        (state, props) => props.index,
+        tradingOptionsSelector,
+        tradeParamsWithSymbolNameSelector,
+        tradesErrorSelector,
+        pipSizesPerTradeSelector,
+        tradePurchaseInfoSelector,
+        tradeProposalSelector,
+        tradesUIStatesSelector,
+        marketIsOpenSelector,
     ],
-    (currency, contract, params, errors, pipSize, purchaseInfo, proposalInfo, uiState, marketIsOpen, index) => {
-        let contractToUse = contract;
-        if (!contract) {
-            contractToUse = mockedContract;
-        } else if (!marketIsOpen) {
-            contractToUse = getStartLaterOnlyContract(contract);
-        }
-        const hasError = errors && errors.valueSeq().filter(v => !!v).size > 0;
-        const disabled =
-            !contract ||
-            contractToUse.error ||
-            uiState.get('disabled') ||
-            hasError;
-        return {
-            currency,
-            contract: contractToUse,
-            disabled,
-            errors,
-            index,
-            pipSize,
-            proposal: proposalInfo && proposalInfo.get('proposal'),
-            tradeParams: params,
-            forceRenderCount: uiState && uiState.get('forceRenderCount'),
-        };
-    }
+    (currency, contracts, params, errors, pipSizes, purchaseInfo, proposalInfo, uiState, marketIsOpen) =>
+        params.map((p, i) => {
+            let contractToUse = contracts.get(i);
+            if (!contractToUse) {
+                contractToUse = mockedContract;
+            } else if (!marketIsOpen.get(i)) {
+                contractToUse = getStartLaterOnlyContract(contracts.get(i));
+            }
+            const error = errors.get(i);
+            const hasError = error && error.valueSeq().filter(v => !!v).size > 0;
+            const disabled =
+                !contracts.get(i) ||
+                contractToUse.error ||
+                uiState.getIn([i, 'disabled']) ||
+                hasError;
+            return {
+                currency,
+                contract: contractToUse,
+                disabled,
+                errors: error,
+                index: i,
+                pipSize: pipSizes.get(i),
+                proposal: proposalInfo.getIn([i, 'proposal']),
+                tradeParams: params.get(i),
+                forceRenderCount: uiState.getIn([i, 'forceRenderCount']),
+            };
+        })
 );
+
