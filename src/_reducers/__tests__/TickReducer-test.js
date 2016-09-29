@@ -3,7 +3,7 @@ import chaiImmutable from 'chai-immutable';
 import { fromJS } from 'immutable';
 import tickReducer from '../TickReducer';
 import { SERVER_DATA_TICK_STREAM } from '../../_constants/ActionTypes';
-import { serverDataTickHistory, serverDataTickStream, updateChartDataBySymbol } from '../../_actions';
+import { serverDataTickHistory, serverDataTickStream } from '../../_actions';
 
 chai.use(chaiImmutable);
 
@@ -39,13 +39,6 @@ describe('TickReducer', () => {
                     prices: [21],
                 },
             });
-            const actual = tickReducer(initState, act);
-            const expected = defaultData.concat([{ epoch: 10, quote: 21 }]).sort(x => x.epoch);
-            expect(actual.get('x').toJS()).to.deep.equal(expected);
-        });
-
-        it('when UPDATE_CHART_DATA_BY_SYMBOL', () => {
-            const act = updateChartDataBySymbol('x', [{ epoch: 10, quote: 21 }], 'ticks');
             const actual = tickReducer(initState, act);
             const expected = defaultData.concat([{ epoch: 10, quote: 21 }]).sort(x => x.epoch);
             expect(actual.get('x').toJS()).to.deep.equal(expected);
