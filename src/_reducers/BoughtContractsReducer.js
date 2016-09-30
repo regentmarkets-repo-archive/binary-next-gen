@@ -24,6 +24,10 @@ const convertOpenContract = openContract => {
         cloned.date_start = +openContract.date_start;
     }
 
+    if (openContract.date_settlement) {
+        cloned.date_settlement = +openContract.date_settlement;
+    }
+
     return cloned;
 };
 
