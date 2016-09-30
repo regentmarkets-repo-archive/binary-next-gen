@@ -84,7 +84,10 @@
         .barrier-picker {
             display: flex;
             flex-direction: row;
-            flex-wrap: wrap;
+
+            .param-row + .param-row {
+                margin-left: 0.25em;
+            }
         }
     }
 

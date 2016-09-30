@@ -32,6 +32,8 @@ export default class LayoutButton extends PureComponent {
             <div className={styles.layoutMini} key={idx} />
         );
 
+        if (!layout) return null;
+
         return layout(miniLayouts, classes, this.onClick);
     }
 }
