@@ -26,6 +26,15 @@ const zoomInMax = (ev, chart) => {
     chart.xAxis[0].setExtremes(dataMax - minRange, dataMax);
 };
 
+// ad-hoc way to stop chart from keep shifting
+const move2StepsBack = (ev, chart) => {
+    const data = chart.series[0].options.data;
+    const lastTwoData = data[data.length - 3];
+
+    const { min } = chart.xAxis[0].getExtremes();
+    chart.xAxis[0].setExtremes(min, lastTwoData[0]);
+};
+
 const defaultState = {
     dataType: 'ticks',
     chartType: 'area',
@@ -61,6 +70,10 @@ export default class TradeViewChart extends PureComponent {
                 type: 'zoom-in-max',
                 handler: zoomInMax,
             },
+            {
+                type: 'move-back',
+                handler: move2StepsBack,
+            },
         ],
         tradingTime: {},
     };
@@ -74,19 +87,37 @@ export default class TradeViewChart extends PureComponent {
 
     componentWillMount() {
         this.api.events.on('tick', data => {
-            const { tradeForChart } = this.props;
+            const { index, tradeForChart, contractForChart } = this.props;
 
             // ignored delayed tick from previous subscription
             if (tradeForChart && data.tick.symbol !== tradeForChart.get('symbol')) return;
 
             const old = this.state.ticks;
+            if (old.length === 0) {
+                return;
+            }
+
             const newTick = {
                 epoch: +data.tick.epoch,
                 quote: +data.tick.quote,
             };
             this.setState({ ticks: old.concat([newTick]) });
             this.ticksId = data.tick.id;
+
+            // stop the chart from moving 5 ticks after contract ends
+            const endTime = contractForChart && (contractForChart.get('date_expiry') || contractForChart.get('sell_spot_time'));
+            if (endTime) {
+                const last6Data = old[old.length - 7];
+                const last5Data = old[old.length - 6];
+                if (last5Data.epoch > +endTime && last6Data.epoch <= +endTime) {
+                    const chartDiv = document.getElementById(`trade-chart${index}`);
+                    if (chartDiv) {
+                        chartDiv.dispatchEvent(new Event('move-back'));
+                    }
+                }
+            }
         });
+
         this.api.events.on('ohlc', data => {
             const { tradeForChart } = this.props;
 
@@ -229,6 +260,7 @@ export default class TradeViewChart extends PureComponent {
             this.api.getTickHistory(symbol, {
                 count,
                 end: 'latest',
+                adjust_start_time: 1,
                 subscribe: err ? undefined : 1,
             });
 
@@ -242,6 +274,7 @@ export default class TradeViewChart extends PureComponent {
                     end: 'latest',
                     subscribe: err ? undefined : 1,
                     style: 'candles',
+                    adjust_start_time: 1,
                     granularity: interval,
                 });
 
