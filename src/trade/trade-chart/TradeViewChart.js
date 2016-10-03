@@ -282,10 +282,10 @@ export default class TradeViewChart extends PureComponent {
     }
 
     changeChartType = (type: ChartType) => {
-        const { contractForChart, feedLicense } = this.props;
+        const { feedLicense } = this.props;
         const { chartType } = this.state;
 
-        if (feedLicense === 'chartonly' || contractForChart || chartType === type) {
+        if (feedLicense === 'chartonly' || chartType === type) {
             return;
         }
 
@@ -302,7 +302,7 @@ export default class TradeViewChart extends PureComponent {
         const { contractForChart, index, events,
             feedLicense, pipSize, tradeForChart } = this.props;
         const { theme } = this.context;
-        const { chartType, ticks, dataType } = this.state;
+        const { chartType, dataType } = this.state;
 
         const noData = feedLicense === 'chartonly';
 
@@ -317,15 +317,15 @@ export default class TradeViewChart extends PureComponent {
                 shiftMode={contractForChart ? 'dynamic' : 'fixed'}
                 symbol={tradeForChart && tradeForChart.get('symbol')}
                 assetName={tradeForChart && tradeForChart.get('symbolName')}
-                ticks={contractForChart ? ticks : this.state[dataType]}
+                ticks={this.state[dataType]}
                 theme={theme}
                 showTooltips={!isMobile()}
                 hideZoomControls={isMobile()}
-                type={contractForChart ? 'area' : chartType}
+                type={chartType}
                 trade={tradeForChart && internalTradeModelToChartTradeModel(tradeForChart.toJS())}
                 // tradingTimes={tradingTime.times}
-                getData={contractForChart || noData ? undefined : this.fetchData}
-                onTypeChange={contractForChart || noData ? undefined : this.changeChartType}   // do not allow change type when there's contract
+                getData={noData ? undefined : this.fetchData}
+                onTypeChange={noData ? undefined : this.changeChartType}   // do not allow change type when there's contract
             />
         );
     }
