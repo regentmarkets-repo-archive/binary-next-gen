@@ -129,7 +129,7 @@
     "react-router-redux": "^4.0.6",
     "react-sparklines": "*",
     "redux": "^3.6.0",
-    "redux-saga": "^0.11.1",
+    "redux-saga": "^0.12.0",
     "redux-storage": "^4.1.1",
     "redux-storage-decorator-filter": "^1.1.6",
     "redux-storage-merger-immutablejs": "^1.0.3",
@@ -142,7 +142,7 @@
     "asar": "^0.12.3",
     "autoprefixer": "^6.5.0",
     "babel-cli": "^6.16.0",
-    "babel-core": "^6.16.0",
+    "babel-core": "^6.17.0",
     "babel-eslint": "^7.0.0",
     "babel-istanbul": "^0.11.0",
     "babel-loader": "^6.2.5",
@@ -164,7 +164,7 @@
     "coveralls": "^2.11.14",
     "css-loader": "^0.25.0",
     "enzyme": "^2.4.1",
-    "eslint": "^3.6.1",
+    "eslint": "^3.7.0",
     "eslint-config-airbnb": "^12.0.0",
     "eslint-import-resolver-webpack": "^0.6.0",
     "eslint-loader": "^1.5.0",
@@ -199,6 +199,6 @@
     "webpack-hot-middleware": "^2.12.2",
     "webpack-notifier": "^1.4.1",
     "why-did-you-update": "0.0.8",
-    "yargs": "^5.0.0"
+    "yargs": "^6.0.0"
   }
 }

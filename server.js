@@ -2,7 +2,6 @@ const path = require('path');
 const express = require('express');
 const webpack = require('webpack');
 const config = require('./webpack.config');
-const gutil = require('gulp-util');
 // const Dashboard = require('webpack-dashboard');
 // const DashboardPlugin = require('webpack-dashboard/plugin');
 
@@ -33,9 +32,9 @@ app.get('*', (req, res) =>
 
 app.listen(3000, 'localhost', err => {
     if (err) {
-        gutil.log(err);
+        console.log(err);
         return;
     }
 
-    gutil.log('Listening at http://localhost:3000');
+    console.log('Listening at http://localhost:3000');
 });
