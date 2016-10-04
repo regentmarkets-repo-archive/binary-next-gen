@@ -104,16 +104,16 @@ export default class TradeParams extends PureComponent {
         const { contract, currency, disabled, errors, index,
             pipSize, proposal, style, tradeParams } = this.props;
 
-        const selectedCategory = tradeParams.tradeCategory;
-        const selectedType = tradeParams.type;
+        const selectedCategory = tradeParams.get('tradeCategory');
+        const selectedType = tradeParams.get('type');
         const selectedTypeTradingOptions = contract[selectedCategory][selectedType];
         const barrierInfo = selectedTypeTradingOptions && selectedTypeTradingOptions.barriers;  // TODO: rename, this sucks
-        const expiryType = expirtyTypeFromDurationUnit(tradeParams.durationUnit);
-        const showBarrier = categoryHasBarrier(selectedCategory) && !tradeParams.dateStart;
+        const expiryType = expirtyTypeFromDurationUnit(tradeParams.get('durationUnit'));
+        const showBarrier = categoryHasBarrier(selectedCategory) && !tradeParams.get('dateStart');
 
         const payout = proposal && proposal.payout;
 
-        const showDuration = !!tradeParams.duration;
+        const showDuration = !!tradeParams.get('duration');
         const isDigitType = selectedCategory === 'digits';
 
         const showSpreadBarrier = selectedCategory === 'spreads';
@@ -121,35 +121,35 @@ export default class TradeParams extends PureComponent {
         const digitOptions = (isDigitType && barrierInfo) && barrierInfo.tick[0].values;
         const askPrice = askPriceFromProposal(proposal);
         const longcode = proposal && proposal.longcode;
-        const serverError = errors && errors.serverError;
-        const nonServerError = errors && errorToShow(errors);
+        const serverError = errors && errors.get('serverError');
+        const nonServerError = errors && errorToShow(errors.toJS());
 
         return (
             <div className="trade-params" key={this.state.dynamicKey} style={style}>
                 {serverError ? <ServerErrorMsg text={serverError} /> : <ErrorMsg text={nonServerError} />}
                 <AssetPickerDropDown
                     index={index}
-                    selectedSymbol={tradeParams.symbol}
-                    selectedSymbolName={tradeParams.symbolName}
+                    selectedSymbol={tradeParams.get('symbol')}
+                    selectedSymbolName={tradeParams.get('symbolName')}
                 />
                 <TradeTypeDropDown
                     index={index}
                     contract={contract}
-                    tradeParams={tradeParams}
+                    tradeParams={tradeParams.toJS()}
                 />
                 {isDigitType &&
                     <DigitBarrierCard
-                        barrier={+tradeParams.barrier}
+                        barrier={+tradeParams.get('barrier')}
                         digitOptions={digitOptions}
                         index={index}
                     />
                 }
                 {showBarrier &&
                     <BarrierCard
-                        barrier={tradeParams.barrier}
-                        barrier2={tradeParams.barrier2}
+                        barrier={tradeParams.get('barrier')}
+                        barrier2={tradeParams.get('barrier2')}
                         barrierInfo={barrierInfo}
-                        barrierType={tradeParams.barrierType}
+                        barrierType={tradeParams.get('barrierType')}
                         expiryType={expiryType}
                         index={index}
                         pipSize={pipSize}
@@ -158,9 +158,9 @@ export default class TradeParams extends PureComponent {
                 }
                 {showDuration && !showSpreadBarrier &&
                     <DurationCard
-                        dateStart={tradeParams.dateStart}
-                        duration={+tradeParams.duration}
-                        durationUnit={tradeParams.durationUnit}
+                        dateStart={tradeParams.get('dateStart')}
+                        duration={+tradeParams.get('duration')}
+                        durationUnit={tradeParams.get('durationUnit')}
                         forwardStartingDuration={selectedTypeTradingOptions.forwardStartingDuration}
                         options={selectedTypeTradingOptions.durations}
                         index={index}
@@ -168,7 +168,7 @@ export default class TradeParams extends PureComponent {
                 }
                 {showDuration && !showSpreadBarrier && selectedTypeTradingOptions.forwardStartingDuration &&
                     <ForwardStartingOptions
-                        dateStart={tradeParams.dateStart}
+                        dateStart={tradeParams.get('dateStart')}
                         forwardStartingDuration={selectedTypeTradingOptions.forwardStartingDuration}
                         startLaterOnly={!selectedTypeTradingOptions.durations}
                         index={index}
@@ -176,7 +176,7 @@ export default class TradeParams extends PureComponent {
                 }
                 {!showSpreadBarrier &&
                     <StakeCard
-                        amount={+tradeParams.amount}
+                        amount={+tradeParams.get('amount')}
                         isVirtual={false}
                         index={index}
                     />

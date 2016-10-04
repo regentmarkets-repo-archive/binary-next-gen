@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import { immutableChildrenToJS } from 'binary-utils';
 import { P } from 'binary-components';
 import { actions } from '../_store';
 import TradeViewChart from './trade-chart/TradeViewChart';
@@ -13,6 +12,9 @@ type Props = {
     index: number,
     paramsProps: Object,
 };
+
+// this is used so that object identity is maintained
+const hiddenStyle = { display: 'none' };
 
 export default class TradeCard extends PureComponent {
 
@@ -75,9 +77,9 @@ export default class TradeCard extends PureComponent {
                 }
                 {paramsProps.tradeParams &&
                     <TradeParams
-                        {...immutableChildrenToJS(paramsProps)}
+                        {...paramsProps}
                         compact={compact}
-                        style={contractReceiptInJS ? { display: 'none' } : undefined}
+                        style={contractReceiptInJS ? hiddenStyle : undefined}
                     />
                 }
             </div>
