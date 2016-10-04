@@ -17,9 +17,6 @@ export default [{
     value: 'VI',
     text: 'Vietnamese',
 }, {
-    value: 'AR',
-    text: 'Arabic',
-}, {
     value: 'PL',
     text: 'Polish',
 }, {
