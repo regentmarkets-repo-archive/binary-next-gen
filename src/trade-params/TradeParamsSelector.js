@@ -6,7 +6,7 @@ import {
     tradeProposalSelector, tradesUIStatesSelector,
 } from '../_store/directSelectors';
 import { mockedContract } from '../_constants/MockContract';
-import { tradeParamsWithSymbolNameSelector, pipSizesPerTradeSelector } from '../trade/BasicTradeSelectors';
+import { symbolOnlySelector, tradeParamsWithSymbolNameSelector, pipSizesPerTradeSelector } from '../trade/BasicTradeSelectors';
 
 const extractTradingOptions = (contracts, type) => ({
     barriers: extractBarrier(contracts, type),
@@ -63,21 +63,15 @@ export const availableTradingOptionsSelector = createSelector(
 );
 
 const tradingOptionsSelector = createSelector(
-    [availableTradingOptionsSelector, tradeParamsWithSymbolNameSelector],
-    (options, params) =>
-        params.map(p => {
-            const symbol = p.get('symbol');
-            return options.get(symbol);
-        })
+    [availableTradingOptionsSelector, symbolOnlySelector],
+    (options, symbols) =>
+        symbols.map(symbol => options.get(symbol))
 );
 
 const marketIsOpenSelector = createSelector(
-    [assetsIsOpenSelector, tradeParamsWithSymbolNameSelector],
-    (assetsIsOpen, params) =>
-        params.map(p => {
-            const symbol = p.get('symbol');
-            return assetsIsOpen[symbol] && assetsIsOpen[symbol].isOpen;
-        })
+    [assetsIsOpenSelector, symbolOnlySelector],
+    (assetsIsOpen, symbols) =>
+        symbols.map(symbol => assetsIsOpen[symbol] && assetsIsOpen[symbol].isOpen)
 );
 
 const getStartLaterOnlyContract = contract => {

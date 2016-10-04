@@ -20,7 +20,7 @@ export const contractReceiptsPerTradeSelector = createSelector(
         })
 );
 
-const symbolOnlySelector = createSelector(
+export const symbolOnlySelector = createSelector(
     tradeParamsSelector,
     params => params.map(p => p.get('symbol'))
 );
