@@ -209,6 +209,10 @@
         font-weight: bold;
     }
 
+    .ohlc-row {
+        text-transform: uppercase;
+    }
+
     > div {
         line-height: 1.5;
         display: flex;
