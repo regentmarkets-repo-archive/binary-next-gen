@@ -299,6 +299,7 @@ export default class TradeViewChart extends PureComponent {
     }
 
     render() {
+        console.log('r');
         const { contractForChart, index, events,
             feedLicense, pipSize, tradeForChart } = this.props;
         const { theme } = this.context;

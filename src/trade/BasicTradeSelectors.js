@@ -1,4 +1,5 @@
 import { createSelector } from 'reselect';
+import { createListSelector } from 'reselect-map';
 import { pipsToDigits } from 'binary-utils';
 import {
     assetsSelector,
@@ -19,41 +20,38 @@ export const contractReceiptsPerTradeSelector = createSelector(
         })
 );
 
+const symbolOnlySelector = createSelector(
+    tradeParamsSelector,
+    params => params.map(p => p.get('symbol'))
+);
+
 export const tradingTimesPerTradeSelector = createSelector(
-    [tradeParamsSelector, tradingTimesSelector],
-    (params, times) =>
-        params.map(p => {
-            const symbol = p.get('symbol');
-            return times.find(a => a.get('symbol') === symbol);
-        })
+    [symbolOnlySelector, tradingTimesSelector],
+    (symbols, times) =>
+        symbols.map(symbol => times.find(a => a.get('symbol') === symbol))
 );
 
 export const pipSizesPerTradeSelector = createSelector(
-    [tradeParamsSelector, assetsSelector],
-    (params, assets) =>
-        params.map(p => {
-            const symbol = p.get('symbol');
+    [symbolOnlySelector, assetsSelector],
+    (symbols, assets) =>
+        symbols.map(symbol => {
             const symbolDetails = assets.find(a => a.get('symbol') === symbol);
             return symbolDetails && pipsToDigits(symbolDetails.get('pip'));
         })
 );
 
 export const feedLicensesPerTradeSelector = createSelector(
-    [feedLicensesSelector, tradeParamsSelector],
-    (licenses, params) =>
-        params.map(p => {
-            const symbol = p.get('symbol');
-            return licenses.get(symbol);
-        })
+    [feedLicensesSelector, symbolOnlySelector],
+    (licenses, symbols) =>
+        symbols.map(symbol => licenses.get(symbol))
 );
 
-export const tradeParamsWithSymbolNameSelector = createSelector(
+export const tradeParamsWithSymbolNameSelector = createListSelector(
     [tradeParamsSelector, assetsSelector],
-    (params, assets) =>
-        params.map(p => {
-            const symbol = p.get('symbol');
-            const symbolDetails = assets.find(a => a.get('symbol') === symbol);
-            const symbolName = symbolDetails && symbolDetails.get('display_name');
-            return p.set('symbolName', symbolName);
-        })
+    (p, assets) => {
+        const symbol = p.get('symbol');
+        const symbolDetails = assets.find(a => a.get('symbol') === symbol);
+        const symbolName = symbolDetails && symbolDetails.get('display_name');
+        return p.set('symbolName', symbolName);
+    }
 );
