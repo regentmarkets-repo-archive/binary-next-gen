@@ -1,5 +1,6 @@
 .drop-down-wrapper {
     position: absolute;
+    z-index: 90000;
 }
 
 .drop-down {
@@ -8,7 +9,6 @@
     max-width: 80vw;
     overflow: auto;
     position: absolute;
-    z-index: 10000;
     background: $COLOR_BG;
     box-shadow: 0 0 1em 0 rgba(black, 0.5);
     border-radius: $BORDER_RADIUS;
