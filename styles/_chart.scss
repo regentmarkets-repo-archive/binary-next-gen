@@ -199,10 +199,10 @@
 }
 
 .binary-chart-info-bar {
-    padding: 0.5em 1em;
-    opacity: 0.9;
+    padding: 0.25em 0.5em;
     border-radius: $BORDER_RADIUS;
-    background: $COLOR_INVERSE_BG;
+    background: rgba($COLOR_INVERSE_BG, 0.75);
+    border: 1px solid $COLOR_INVERSE_BG;
     color: $COLOR_INVERSE_TEXT;
 
     .value-row {
@@ -223,7 +223,8 @@
     }
 
     .inverse & {
-        background: $COLOR_BG;
+        background: rgba($COLOR_BG, 0.75);
+        border: 1px solid $COLOR_BG;
         color: $COLOR_TEXT;
     }
 }
