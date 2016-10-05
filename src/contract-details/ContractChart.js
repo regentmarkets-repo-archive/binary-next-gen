@@ -261,8 +261,8 @@ export default class ContractChart extends PureComponent {
             <BinaryChart
                 allowOHLC={allowOHLC}
                 className="contract-chart"
-                compactToolbar
                 hideTimeFrame
+                hideIntervalPicker
                 showTooltips={!isMobile()}
                 showAllTimeFrame={false}
                 contract={contract}
