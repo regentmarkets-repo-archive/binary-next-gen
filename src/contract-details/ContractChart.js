@@ -214,6 +214,8 @@ export default class ContractChart extends PureComponent {
 
             this.updateData(r.candles, 'candles');
 
+            // for long contract, dont fetch ticks to avoid multiple huge network call
+            // use OHLC value to represent ticks data instead
             if (!this.hasTick) {
                 const ticksDerivedFromOHLC = r.candles.map(c => ({ epoch: +c.epoch, quote: +c.close }));
                 this.updateData(ticksDerivedFromOHLC, 'ticks');
@@ -225,7 +227,11 @@ export default class ContractChart extends PureComponent {
         const { chartType } = this.state;
         const { contract } = this.props;
 
-        const allowCandle = !contract.tick_count;
+        const { date_start, date_expiry } = contract;
+
+        // no candles for contract less than 5 minutes
+        // tick_count is checked too, because date_expiry is not available in tick trade contract
+        const allowCandle = !contract.tick_count && (date_expiry - date_start) > 300;
         const newDataType = chartToDataType[type];
 
         if ((!allowCandle && newDataType === 'candles') || chartType === type) {
@@ -243,16 +249,17 @@ export default class ContractChart extends PureComponent {
     render() {
         const { contract, pipSize } = this.props;
         const { theme } = this.context;
-        const { date_start, exit_tick_time, sell_spot_time } = contract;
+        const { date_start, date_expiry, exit_tick_time, sell_spot_time, tick_count } = contract;
         const { chartType, dataType, noData } = this.state;
         const data = this.state[dataType];
         const endTime = exit_tick_time || sell_spot_time;
 
         // handle edge case where contract ends before it starts, show No data available message on chart
         const hasNoData = (+date_start > +endTime) || noData;
-
+        const allowOHLC = !tick_count && (date_expiry - date_start) > 300;
         return (
             <BinaryChart
+                allowOHLC={allowOHLC}
                 className="contract-chart"
                 compactToolbar
                 hideTimeFrame
