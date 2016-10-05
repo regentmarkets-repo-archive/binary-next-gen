@@ -75,6 +75,7 @@
     #trade-chart3,
     #trade-chart4 {
         flex: 1;
+        max-height: calc(100% - 56px);
     }
 }
 
@@ -84,8 +85,11 @@
 
 .binary-chart-time-frame-button {
     background: rgba($COLOR_INVERSE_TEXT, 0.25) !important;
-    margin-right: 2px;
     padding: 0 !important;
+}
+
+.binary-chart-time-frame-button + .binary-chart-time-frame-button {
+    margin-left: 2px;
 }
 
 .binary-chart-submenu {
