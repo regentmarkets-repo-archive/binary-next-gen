@@ -23,7 +23,7 @@ export default class ContractDetailsMobileLayout extends PureComponent {
         const { activeIndex } = this.state;
 
         return (
-            <div>
+            <div className="contract-details-tabs">
                 <TabList
                     activeIndex={activeIndex}
                     onChange={this.changeView}

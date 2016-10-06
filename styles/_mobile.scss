@@ -27,7 +27,6 @@
     display: flex;
     align-content: stretch;
     flex-direction: column;
-    overflow: auto;
     width: 100%;
 
     .trade-panel {
@@ -37,6 +36,10 @@
 
     .trade-chart-container {
         margin: -0.25em 0;
+    }
+
+    .contract-chart {
+        flex: 1;
     }
 
     .modal {
@@ -60,12 +63,24 @@
     }
 
     .contract-details-card {
-        margin: 0.5em;
+        display: flex;
+        flex-direction: column;
+        margin: 0 0.5em 0.5em;
         flex: 1;
 
         h5 {
             margin: 0.5em 0;
         }
+
+        *[role=tablist] {
+            margin-bottom: 0.5em;
+        }
+    }
+
+    .contract-details-tabs {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
     }
 
     .trade-params {
@@ -123,6 +138,7 @@
     }
 
     .contract-receipt {
+        overflow: auto;
         margin: 0;
     }
 
