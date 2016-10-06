@@ -1,7 +1,6 @@
 import React, { PureComponent, PropTypes } from 'react';
 import { BinaryChart } from 'binary-charts';
-import { isMobile, nowAsEpoch } from 'binary-utils';
-import { helpers } from 'binary-live-api';
+import { isMobile, nowAsEpoch, computeStartEndForContract } from 'binary-utils';
 import { chartApi, api as CoreApi } from '../_data/LiveData';
 import { chartToDataType, getDataWithErrorHandling } from '../_chart-utils/Utils';
 
@@ -118,7 +117,7 @@ export default class ContractChart extends PureComponent {
         // for contract that was not ended when component mount
         // compute end time when it ended
         if (!this.contractEnd && (date_expiry || exit_tick_time)) {
-            const { end } = helpers.computeStartEndForContract(contract);
+            const { end } = computeStartEndForContract(contract);
             this.contractEnd = end;
         }
     }
@@ -152,10 +151,10 @@ export default class ContractChart extends PureComponent {
             CoreApi.subscribeToOpenContract(contract.contract_id);
         }
 
-        const { start, end } = helpers.computeStartEndForContract(contract);
-
+        const { start, end } = computeStartEndForContract(contract);
+        const nowEpoch = nowAsEpoch();
         // escape earlier if contract not started
-        if (start > nowAsEpoch()) {
+        if (start > nowEpoch) {
             this.setState({ noData: true });
             return;
         }
@@ -164,14 +163,13 @@ export default class ContractChart extends PureComponent {
             this.contractEnd = end;
         }
 
-
         const durationInSecs = end - start;
 
         // 1.5 hour = 90 minutes * 60 secs
         if (durationInSecs < 90 * 60) {
             this.hasTick = true;
 
-            const getDataCall = (errCode) => {
+            const getTicksDataCall = (errCode) => {
                 if (errCode === 'StreamingNotAllowed') {
                     this.setState({ noData: true });
                     return Promise.resolve();
@@ -187,7 +185,7 @@ export default class ContractChart extends PureComponent {
                     });
             };
 
-            getDataWithErrorHandling(getDataCall).then(r => {
+            getDataWithErrorHandling(getTicksDataCall).then(r => {
                 if (!r) return;
 
                 const ticks = r.history.times.map((t, idx) => {
@@ -206,7 +204,17 @@ export default class ContractChart extends PureComponent {
                 return Promise.resolve();
             }
 
-            return this.api.autoAdjustGetData(contract.underlying, start, end, 'candles', toStream && !errCode);
+            // if contract started less than 4 minutes ago, we need to further
+            // else there will only be 1 candles, which makes it impossible to know what interval to use
+            const lessThan4Minutes = (nowEpoch - start) < 4 * 60;
+
+            return this.api.autoAdjustGetData(
+                contract.underlying,
+                lessThan4Minutes ? nowEpoch - 240 : start,
+                end,
+                'candles',
+                toStream && !errCode
+            );
         };
 
         getDataWithErrorHandling(getDataCall).then(r => {
