@@ -154,8 +154,7 @@
 }
 
 .binary-chart-zoom-button {
-    opacity: 0.75;
-    background: rgba($COLOR_BRAND_BLUE, 0.25) !important;
+    background: rgba($COLOR_BRAND_BLUE, 0.1) !important;
 
     svg {
         fill: $COLOR_BRAND_BLUE;
@@ -163,21 +162,20 @@
     }
 
     &:hover {
-        opacity: 1;
+        background: rgba($COLOR_BRAND_BLUE, 0.2) !important;
         box-shadow: 0 0 0 1px $COLOR_BRAND_BLUE;
     }
 }
 
 .inverse .binary-chart-zoom-button {
-    opacity: 0.75;
-    background: rgba($COLOR_INVERSE_TEXT, 0.25) !important;
+    background: rgba($COLOR_INVERSE_TEXT, 0.1) !important;
 
     svg {
         fill: $COLOR_INVERSE_TEXT;
     }
 
     &:hover {
-        opacity: 1;
+        background: rgba($COLOR_INVERSE_TEXT, 0.2) !important;
         box-shadow: 0 0 0 1px $COLOR_INVERSE_TEXT;
     }
 }
