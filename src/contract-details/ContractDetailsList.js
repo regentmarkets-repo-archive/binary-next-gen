@@ -5,7 +5,7 @@ import ContractDetailMoney from './ContractDetailMoney';
 import ContractDetailCustom from './ContractDetailCustom';
 
 const transactionIdsToString = ({ buy, sell }) =>
-	buy + (sell ? '–' + sell : '');
+	buy + (sell ? ' – ' + sell : '');
 
 const isDigitTrade = contract =>
 	contract.contract_type && contract.contract_type.includes('DIGIT');
