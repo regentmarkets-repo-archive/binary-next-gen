@@ -47,16 +47,29 @@
     }
 }
 
+@keyframes fadeIn {
+    99% {
+        visibility: hidden;
+    }
+
+    100% {
+        visibility: visible;
+    }
+}
+
 .trade-chart,
 .contract-chart {
     .binary-chart-zoom-controls {
         visibility: hidden;
-        opacity: 0;
+        animation: 2s fadeIn !important;
+        animation-fill-mode: forwards;
+        transition: visibility 2s;
+        // opacity: 0;
     }
 
     &:hover .binary-chart-zoom-controls {
         visibility: visible;
-        opacity: 1;
+        // opacity: 1;
     }
 }
 
