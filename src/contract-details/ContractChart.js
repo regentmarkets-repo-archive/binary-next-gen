@@ -112,11 +112,11 @@ export default class ContractChart extends PureComponent {
 
     componentWillReceiveProps(nextProps) {
         const { contract } = nextProps;
-        const { date_expiry, exit_tick_time } = contract;
+        const { sell_time, exit_tick_time } = contract;
 
         // for contract that was not ended when component mount
         // compute end time when it ended
-        if (!this.contractEnd && (date_expiry || exit_tick_time)) {
+        if (!this.contractEnd && (sell_time || exit_tick_time)) {
             const { end } = computeStartEndForContract(contract);
             this.contractEnd = end;
         }
@@ -204,7 +204,7 @@ export default class ContractChart extends PureComponent {
                 return Promise.resolve();
             }
 
-            // if contract started less than 4 minutes ago, we need to further
+            // if contract started less than 4 minutes ago, we need to get more candles
             // else there will only be 1 candles, which makes it impossible to know what interval to use
             const lessThan4Minutes = (nowEpoch - start) < 4 * 60;
 
