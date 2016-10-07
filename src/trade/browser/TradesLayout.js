@@ -33,7 +33,7 @@ export default class TradesLayouts extends PureComponent {
         if (!layout) return null;
 
         const tradeComponents = (new Array(tradesCount).fill(0))
-            .map((zero, idx) => <TradeCardContainer index={idx} key={`tc${id}`} {...trades.get(idx)} />);
+            .map((zero, idx) => <TradeCardContainer index={idx} {...trades.get(idx)} />);
 
         return layout(tradeComponents, `${styles.trades} ${layoutClass}`);
     }
