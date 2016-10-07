@@ -48,7 +48,6 @@ function* handlePurchase(action) {
     const pid = yield select(getProposalId(index));
     try {
         const { buy } = yield api.buyContract(pid, price);
-        api.subscribeToOpenContract(buy.contract_id);
         onPurchaseDone();
 
         yield put(updatePurchasedContract(index, buy));
