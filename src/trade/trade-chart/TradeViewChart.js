@@ -258,7 +258,7 @@ export default class TradeViewChart extends PureComponent {
     subscribeToTicks = (symbol, count = 2000): Promise => {
         const callDependOnErr = (err) =>
             this.api.getTickHistory(symbol, {
-                count,
+                count: isMobile() ? 500 : count,
                 end: 'latest',
                 adjust_start_time: 1,
                 subscribe: err ? undefined : 1,
@@ -270,7 +270,7 @@ export default class TradeViewChart extends PureComponent {
     subscribeToOHLC = (symbol, count = 500, interval = 60): Promise => {
         const callDependOnErr = (err) =>
             this.api.getTickHistory(symbol, {
-                    count,
+                    count: isMobile() ? 200 : count,
                     end: 'latest',
                     subscribe: err ? undefined : 1,
                     style: 'candles',
