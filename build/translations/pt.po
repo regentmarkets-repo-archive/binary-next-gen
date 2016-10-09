@@ -7,16 +7,16 @@ msgstr ""
 "Project-Id-Version: BOM\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-08-05 16:23+0000\n"
+"PO-Revision-Date: 2016-10-09 23:53+0000\n"
 "Last-Translator: Alcino Jorge <alcino@binary.com>\n"
-"Language-Team: Portuguese <https://hosted.weblate.org/projects/binary-app/"
-"next-gen-app/pt/>\n"
+"Language-Team: Portuguese <https://hosted.weblate.org/projects/binary-app"
+"/next-gen-app/pt/>\n"
 "Language: pt\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.8-dev\n"
+"X-Generator: Weblate 2.9-dev\n"
 
 msgid "All"
 msgstr "Tudo"
@@ -879,7 +879,7 @@ msgid "Exit Full Screen"
 msgstr "Sair da tela inteira"
 
 msgid "No digit trades for this asset"
-msgstr ""
+msgstr "Não há negociações de dígitos para este ativo"
 
 #, fuzzy
 msgid "Lock Cashier"
@@ -902,7 +902,7 @@ msgid "Dark Theme"
 msgstr "Tema de cor"
 
 msgid "Password changed successfully"
-msgstr ""
+msgstr "Senha alterada com sucesso"
 
 #, fuzzy
 msgid "Settings updated"
@@ -917,13 +917,13 @@ msgid "Barrier must not be empty"
 msgstr "Cidade não deve estar vazio"
 
 msgid "Duration is out of range"
-msgstr ""
+msgstr "A duração está fora do intervalo"
 
 msgid "Start date invalid, it needs to be five minutes or more in the future"
-msgstr ""
+msgstr "A data de início é inválida, precisa ser 5 minutos ou mais no futuro"
 
 msgid "Time format is wrong"
-msgstr ""
+msgstr "O formato da hora está errado"
 
 msgid "Lower than"
 msgstr ""
