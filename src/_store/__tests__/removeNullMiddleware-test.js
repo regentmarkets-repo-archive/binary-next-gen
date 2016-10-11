@@ -1,5 +1,5 @@
-import removeNullMiddleware, { removeNullValueKey } from '../removeNullMiddleware';
 import { assert, expect } from 'chai';
+import removeNullMiddleware, { removeNullValueKey } from '../removeNullMiddleware';
 
 describe('nullValueRemover', () => {
     it('should remove null value of shallow object', () => {
