@@ -84,7 +84,9 @@ export default (state = initialState, action) => {
             const now = nowAsEpoch();
             return state.map(t => t.update('dateStart', v => {
                 if (v && v < now + 350) {
-                    return now + 350;
+                    const newDateInSecondsResolution = now + 350;
+                    const newDateInMinutesResolution = newDateInSecondsResolution - (newDateInSecondsResolution % 60);
+                    return newDateInMinutesResolution;
                 }
                 return v;
             }));
