@@ -1,5 +1,4 @@
 import { fromJS, Set } from 'immutable';
-import { expect } from 'chai';
 import watchlistSelectors from '../watchlistSelectors';
 
 describe('watchlistSelectors', () => {
@@ -14,7 +13,7 @@ describe('watchlistSelectors', () => {
 
         const actual = watchlistSelectors(state);
 
-        expect(actual).to.be.ok;
+        expect(actual).toBeDefined();
     });
 
     it('should return the same result for the same state', () => {
@@ -23,9 +22,9 @@ describe('watchlistSelectors', () => {
         const first = watchlistSelectors(state);
         const second = watchlistSelectors(state);
 
-        expect(first.watchlistView).to.equal(second.watchlistView);
+        expect(first.watchlistView).toEqual(second.watchlistView);
 
-        expect(first).to.equal(second);
+        expect(first).toEqual(second);
     });
 
     it('should asemble a view model from input selectors', () => {
@@ -44,11 +43,11 @@ describe('watchlistSelectors', () => {
 
         const watchlistView = watchlistSelectors(state).watchlistView.toJS();
 
-        expect(watchlistView).to.have.lengthOf(1);
-        expect(watchlistView[0].symbol).to.equal('R_100');
-        expect(watchlistView[0].assetName).to.equal('Random 100 Index');
-        expect(watchlistView[0].quote).to.equal(123);
-        expect(watchlistView[0].diff).to.equal(23);
+        expect(watchlistView.length).toEqual(1);
+        expect(watchlistView[0].symbol).toEqual('R_100');
+        expect(watchlistView[0].assetName).toEqual('Random 100 Index');
+        expect(watchlistView[0].quote).toEqual(123);
+        expect(watchlistView[0].diff).toEqual(23);
     });
 
     it('should not return assets not currently active', () => {
@@ -67,7 +66,7 @@ describe('watchlistSelectors', () => {
 
         const watchlistView = watchlistSelectors(state).watchlistView.toJS();
 
-        expect(watchlistView).to.have.lengthOf(1);
-        expect(watchlistView[0].symbol).to.equal('R_100');
+        expect(watchlistView.length).toEqual(1);
+        expect(watchlistView[0].symbol).toEqual('R_100');
     });
 });

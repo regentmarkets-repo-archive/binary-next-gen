@@ -1,5 +1,4 @@
 import { fromJS } from 'immutable';
-import { expect } from 'chai';
 import sidebarSelectors from '../sidebarSelectors';
 
 describe('sidebarSelectors', () => {
@@ -13,7 +12,7 @@ describe('sidebarSelectors', () => {
 
         const actual = sidebarSelectors(state);
 
-        expect(actual).to.be.ok;
+        expect(actual).toBeDefined();
     });
 
     it('should return the same result for the same state', () => {
@@ -22,8 +21,8 @@ describe('sidebarSelectors', () => {
         const first = sidebarSelectors(state);
         const second = sidebarSelectors(state);
 
-        expect(first.account).to.equal(second.account);
+        expect(first.account).toEqual(second.account);
 
-        expect(first).to.equal(second);
+        expect(first).toEqual(second);
     });
 });

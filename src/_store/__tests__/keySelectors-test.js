@@ -1,5 +1,4 @@
 import { fromJS } from 'immutable';
-import { expect } from 'chai';
 import { assetsBySymbolSelector } from '../keySelectors';
 
 describe('assetsBySybolSelector', () => {
@@ -8,7 +7,7 @@ describe('assetsBySybolSelector', () => {
             assets: fromJS([]),
         };
         const assetsBySymbol = assetsBySymbolSelector(state);
-        expect(assetsBySymbol).to.equal(fromJS({}));
+        expect(assetsBySymbol).toEqual(fromJS({}));
     });
 
     it('should be able to retrieve an asset property by symbol', () => {
@@ -18,7 +17,7 @@ describe('assetsBySybolSelector', () => {
             ]),
         };
         const assetsBySymbol = assetsBySymbolSelector(state);
-        expect(assetsBySymbol.getIn(['1', 'name'])).to.equal('Asset1');
+        expect(assetsBySymbol.getIn(['1', 'name'])).toEqual('Asset1');
     });
 
     it('should organize assets indexed by symbol', () => {
@@ -30,6 +29,6 @@ describe('assetsBySybolSelector', () => {
             ]),
         };
         const assetsBySymbol = assetsBySymbolSelector(state);
-        expect(assetsBySymbol.size).to.equal(3);
+        expect(assetsBySymbol.size).toEqual(3);
     });
 });

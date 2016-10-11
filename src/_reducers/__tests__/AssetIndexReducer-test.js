@@ -1,5 +1,4 @@
 import { fromJS } from 'immutable';
-import { expect } from 'chai';
 import assetIndexReducer from '../AssetIndexReducer';
 import {
     SERVER_DATA_ASSET_INDEX,
@@ -16,7 +15,7 @@ describe('assetIndexReducer', () => {
         const beforeState = fromJS([]);
         const stateExpectedAfter = fromJS([3]);
         const actual = assetIndexReducer(beforeState, action);
-        expect(actual).to.equal(stateExpectedAfter);
+        expect(actual).toEqual(stateExpectedAfter);
     });
 
     it('should return the same state when given wrong actiontype', () => {
@@ -27,6 +26,6 @@ describe('assetIndexReducer', () => {
         const beforeState = fromJS();
         const actualState = assetIndexReducer(beforeState, action);
 
-        expect(expected).to.equal(actualState);
+        expect(expected).toEqual(actualState);
     });
 });

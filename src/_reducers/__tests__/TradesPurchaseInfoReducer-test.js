@@ -1,6 +1,4 @@
 import { fromJS } from 'immutable';
-import { expect } from 'chai';
-
 import {
     updateActiveLayout,
     closeContractReceipt,
@@ -16,7 +14,7 @@ describe('PurchaseInfoReducer', () => {
     it('should remove if existing trade is more than active layout when CHANGE_ACTIVE_LAYOUT received', () => {
         const action = updateActiveLayout(3, 1);
         const actual = reducer(initialState, action);
-        expect(actual.toJS()).to.have.lengthOf(3);
+        expect(actual.toJS().length).toEqual(3);
     });
 
     it('should remove purchase info when CLOSE_CONTRACT_RECEPIT received', () => {
@@ -39,9 +37,6 @@ describe('PurchaseInfoReducer', () => {
     it('should remove specified object when REMOVE_TRADE received', () => {
         const action = { type: types.REMOVE_TRADE, index: 1 };
         const actual = reducer(fromJS([defaultPurchaseInfo, defaultPurchaseInfo]), action);
-        expect(actual.toJS()).to.have.lengthOf(1);
+        expect(actual.toJS().length).toEqual(1);
     });
 });
-
-
-

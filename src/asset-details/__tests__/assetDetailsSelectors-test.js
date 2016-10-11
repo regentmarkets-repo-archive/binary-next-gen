@@ -1,5 +1,4 @@
 import { fromJS } from 'immutable';
-import { expect } from 'chai';
 import assetDetailsSelectors from '../assetDetailsSelectors';
 
 describe('assetDetailsSelectors', () => {
@@ -23,7 +22,7 @@ describe('assetDetailsSelectors', () => {
         };
         const assetDetails = assetDetailsSelectors(state);
 
-        expect(assetDetails).to.be.ok;
+        expect(assetDetails).toBeDefined();
     });
 
     it('should return the same result for the same state', () => {
@@ -32,18 +31,18 @@ describe('assetDetailsSelectors', () => {
         const first = assetDetailsSelectors(state);
         const second = assetDetailsSelectors(state);
 
-        expect(first.activeAsset).to.equal(second.activeAsset);
-        expect(first.tradingTimes).to.equal(second.tradingTimes);
-        expect(first.durations).to.equal(second.durations);
+        expect(first.activeAsset).toEqual(second.activeAsset);
+        expect(first.tradingTimes).toEqual(second.tradingTimes);
+        expect(first.durations).toEqual(second.durations);
 
-        expect(first).to.equal(second);
+        expect(first).toEqual(second);
     });
 
     it('should be able to retrieve the active asset', () => {
         const state = testState();
         const assetDetails = assetDetailsSelectors(state);
-        const expected = fromJS({ name: 'Asset1', isOpen: true });
+        const expected = { name: 'Asset1', isOpen: true };
 
-        expect(assetDetails.activeAsset).to.deep.equal(expected);
+        expect(assetDetails.activeAsset.toJS()).toEqual(expected);
     });
 });

@@ -1,6 +1,5 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
-import { expect } from 'chai';
 import { fromJS } from 'immutable';
 import { shallow, render } from 'enzyme';
 import BootProvider from '../BootProvider';
@@ -18,7 +17,7 @@ describe('<BootProvider />', () => {
                 <ChildComponent />
             </BootProvider>);
 
-        expect(wrapper.render().text()).to.contain('World');
+        expect(wrapper.render().text()).toContain('World');
     });
 
     it('should render theme-wrapper', () => {
@@ -26,6 +25,6 @@ describe('<BootProvider />', () => {
             <BootProvider store={store}>
                 <ChildComponent />
             </BootProvider>);
-        expect(wrapper.find('#theme-wrapper').hasClass('inverse')).to.be.true;
+        expect(wrapper.find('#theme-wrapper').hasClass('inverse')).toBeTruthy();
     });
 });

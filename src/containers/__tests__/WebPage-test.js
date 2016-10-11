@@ -1,9 +1,8 @@
 import React from 'react';
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
-import WebPage from '../WebPage';
 import configureStore from 'redux-mock-store';
 import { fromJS } from 'immutable';
+import WebPage from '../WebPage';
 
 const middlewares = []; // add your middlewares like `redux-thunk`
 const mockStore = configureStore(middlewares);
@@ -17,6 +16,6 @@ describe('<WebPage />', () => {
                 <span>Hello</span>
             </WebPage>
         );
-        expect(wrapper.children().text()).to.contain('Hello');
+        expect(wrapper.children().text()).toContain('Hello');
     });
 });

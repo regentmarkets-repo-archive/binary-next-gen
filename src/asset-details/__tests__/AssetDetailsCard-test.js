@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import AssetDetailsCard from '../AssetDetailsCard';
 
@@ -7,13 +6,13 @@ describe('<AssetDetailsCard />', () => {
     it('should stil render if no asset is selected', () => {
         const wrapper = shallow(<AssetDetailsCard activeAsset={{}} />);
 
-        expect(wrapper.type()).to.not.be.null;
+        expect(wrapper.type()).toBeDefined();
     });
 
     it('should be able to render with only activeAsset property set', () => {
         const wrapper = shallow(<AssetDetailsCard activeAsset={{}} />);
 
-        expect(wrapper.type()).to.not.be.null;
+        expect(wrapper.type()).toBeDefined();
     });
 
     it('should show trading times information if provided via props', () => {
@@ -26,6 +25,6 @@ describe('<AssetDetailsCard />', () => {
         };
         const wrapper = shallow(<AssetDetailsCard activeAsset={{}} tradingTimes={tradingTimes} />);
 
-        expect(wrapper.find('AssetDetailsTradingTimes')).to.be.ok;
+        expect(wrapper.find('AssetDetailsTradingTimes')).toBeDefined();
     });
 });

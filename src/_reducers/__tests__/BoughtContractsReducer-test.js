@@ -1,5 +1,3 @@
-import chai, { expect } from 'chai';
-import chaiImmutable from 'chai-immutable';
 import { fromJS } from 'immutable';
 import openContractProposalReducer from '../BoughtContractsReducer';
 import {
@@ -7,8 +5,6 @@ import {
     SERVER_DATA_PORTFOLIO,
     REMOVE_PERSONAL_DATA,
 } from '../../_constants/ActionTypes';
-
-chai.use(chaiImmutable);
 
 describe('openContractProposalsReducer', () => {
     describe('SERVER_DATA_PROPOSAL_OPEN_CONTRACT', () => {
@@ -29,7 +25,7 @@ describe('openContractProposalsReducer', () => {
             });
             const actualState = openContractProposalReducer(beforeState, action);
 
-            expect(expectedState).to.equal(actualState);
+            expect(expectedState).toEqual(actualState);
         });
         it('adds contract if not yet existing', () => {
             const action = {
@@ -51,7 +47,7 @@ describe('openContractProposalsReducer', () => {
             });
             const actualState = openContractProposalReducer(beforeState, action);
 
-            expect(expectedState).to.equal(actualState);
+            expect(expectedState).toEqual(actualState);
         });
     });
 
@@ -75,7 +71,7 @@ describe('openContractProposalsReducer', () => {
         const beforeState = fromJS({});
         const actualState = openContractProposalReducer(beforeState, action);
 
-        expect(expectedState).to.equal(actualState);
+        expect(expectedState).toEqual(actualState);
     });
 
     it('should be able to remove personal data or discard contracts', () => {
@@ -84,6 +80,6 @@ describe('openContractProposalsReducer', () => {
         };
         const beforeState = fromJS({});
         const actualState = openContractProposalReducer(beforeState, action);
-        expect(actualState).to.equal(beforeState);
+        expect(actualState).toEqual(beforeState);
     });
 });

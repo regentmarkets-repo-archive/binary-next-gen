@@ -1,5 +1,4 @@
 import { fromJS } from 'immutable';
-import { expect } from 'chai';
 import assetIndexSelectors from '../assetIndexSelectors';
 
 describe('assetIndexSelectors', () => {
@@ -15,7 +14,7 @@ describe('assetIndexSelectors', () => {
 
         const actual = assetIndexSelectors(state);
 
-        expect(actual).to.be.ok;
+        expect(actual).toBeDefined();
     });
 
     it('should return the same result for the same state', () => {
@@ -24,9 +23,9 @@ describe('assetIndexSelectors', () => {
         const first = assetIndexSelectors(state);
         const second = assetIndexSelectors(state);
 
-        expect(first.submarket).to.equal(second.submarket);
-        expect(first.assetIndexRows).to.equal(second.assetIndexRows);
+        expect(first.submarket).toEqual(second.submarket);
+        expect(first.assetIndexRows).toEqual(second.assetIndexRows);
 
-        expect(first).to.equal(second);
+        expect(first).toEqual(second);
     });
 });

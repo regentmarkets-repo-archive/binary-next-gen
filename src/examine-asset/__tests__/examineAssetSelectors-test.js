@@ -1,5 +1,4 @@
 import { fromJS } from 'immutable';
-import { expect } from 'chai';
 import examineAssetSelectors from '../examineAssetSelectors';
 
 describe('examineAssetSelectors', () => {
@@ -14,6 +13,6 @@ describe('examineAssetSelectors', () => {
 
     it('can be run with minimal inintial state', () => {
         const state = emptyState();
-        expect(() => examineAssetSelectors(state)).to.not.throw();
+        expect(() => examineAssetSelectors(state)).not.toThrow();
     });
 });

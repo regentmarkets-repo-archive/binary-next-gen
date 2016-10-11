@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import { fromJS } from 'immutable';
 import paymentAgentReducer from '../PaymentAgentReducer';
 import {
@@ -23,7 +22,7 @@ describe('paymentAgentReducer', () => {
 
         const actualState = paymentAgentReducer(beforeState, action);
 
-        expect(expectedState).to.equal(actualState);
+        expect(expectedState).toEqual(actualState);
     });
 
     it('should should update payment agent field with the given value', () => {
@@ -35,6 +34,6 @@ describe('paymentAgentReducer', () => {
         };
         const expectedState = fromJS({ username: 'xxx' });
         const actualState = paymentAgentReducer(beforeState, action);
-        expect(expectedState).to.equal(actualState);
+        expect(expectedState).toEqual(actualState);
     });
 });

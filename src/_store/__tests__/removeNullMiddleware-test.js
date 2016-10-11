@@ -1,4 +1,3 @@
-import { assert, expect } from 'chai';
 import removeNullMiddleware, { removeNullValueKey } from '../removeNullMiddleware';
 
 describe('nullValueRemover', () => {
@@ -6,7 +5,7 @@ describe('nullValueRemover', () => {
         const shallowObj = { a: '1', b: '2', c: null };
         const result = removeNullValueKey(shallowObj);
 
-        expect(result).to.be.deep.equal({ a: '1', b: '2' });
+        expect(result).toEqual({ a: '1', b: '2' });
     });
 
     it('should remove null value of arbritarily deep object', () => {
@@ -22,7 +21,7 @@ describe('nullValueRemover', () => {
         };
         const result = removeNullValueKey(shallowObj);
 
-        expect(result).to.be.deep.equal(
+        expect(result).toEqual(
             {
                 a: '1',
                 b: '2',
@@ -39,7 +38,7 @@ describe('removeNullMiddleware', () => {
     const fakeStore = {};           // empty since not used
     const middleware = removeNullMiddleware(fakeStore);
     it('should return a function', () => {
-        assert.isFunction(middleware);
+        expect(typeof middleware).toEqual('function');
     });
 
     it('should remove null value in action', () => {
@@ -55,7 +54,7 @@ describe('removeNullMiddleware', () => {
         const nextDoNothing = act => act;
         const resultAction = middleware(nextDoNothing)(action);
 
-        expect(resultAction).to.be.deep.equal({
+        expect(resultAction).toEqual({
             type: 'TEST_ACTION',
             payload: {
                 notempty: 999,

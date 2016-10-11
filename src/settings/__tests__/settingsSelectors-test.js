@@ -1,5 +1,4 @@
 import { fromJS } from 'immutable';
-import { expect } from 'chai';
 import settingsSelectors from '../settingsSelectors';
 
 describe('settingsSelectors', () => {
@@ -12,7 +11,7 @@ describe('settingsSelectors', () => {
     it('should be able to be created', () => {
         const state = emptyState();
         const selectors = settingsSelectors(state);
-        expect(selectors).to.be.ok;
+        expect(selectors).toBeDefined();
     });
 
     it('should return same immutable value for the same input state', () => {
@@ -20,10 +19,10 @@ describe('settingsSelectors', () => {
         const first = settingsSelectors(state);
         const second = settingsSelectors(state);
 
-        expect(first.settings).to.equal(second.settings);
-        expect(first.loginid).to.equal(second.loginid);
-        expect(first.boot).to.equal(second.boot);
+        expect(first.settings).toEqual(second.settings);
+        expect(first.loginid).toEqual(second.loginid);
+        expect(first.boot).toEqual(second.boot);
 
-        expect(first).to.equal(second);
+        expect(first).toEqual(second);
     });
 });

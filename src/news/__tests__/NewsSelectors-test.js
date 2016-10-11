@@ -1,5 +1,4 @@
 import { fromJS } from 'immutable';
-import { expect } from 'chai';
 import newsSelectors from '../newsSelectors';
 
 describe('newsSelectors', () => {
@@ -10,7 +9,7 @@ describe('newsSelectors', () => {
     it('should be able to be instantiated', () => {
         const state = emptyState();
 
-        expect(() => newsSelectors(state)).to.not.throw();
+        expect(() => newsSelectors(state)).not.toThrow();
     });
 
     it('should return the same result from the same state', () => {
@@ -19,6 +18,6 @@ describe('newsSelectors', () => {
         const firstList = newsSelectors(state);
         const secondList = newsSelectors(state);
 
-        expect(firstList).to.equal(secondList);
+        expect(firstList).toEqual(secondList);
     });
 });

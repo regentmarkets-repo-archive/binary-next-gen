@@ -1,9 +1,6 @@
 // require('babel-polyfill');
 // require('babel-plugin-transform-regenerator');
 
-console.log(global);
-console.log(global.regeneratorRuntime);
-
 module.exports = wallaby => ({
     files: [{
         pattern: 'src/**/*.js*',
@@ -19,9 +16,9 @@ module.exports = wallaby => ({
     env: {
         type: 'node',
     },
-    testFramework: 'mocha',
+    testFramework: 'jest',
     bootstrap: () => {
-        global.regeneratorRuntime = global.regeneratorRuntime
+        global.regeneratorRuntime = global.regeneratorRuntime;
     },
     compilers: {
         '**/*.js': wallaby.compilers.babel({

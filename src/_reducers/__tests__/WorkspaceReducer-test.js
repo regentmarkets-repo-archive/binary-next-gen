@@ -1,7 +1,3 @@
-import chai, { expect } from 'chai';
-import chaiImmutable from 'chai-immutable';
-chai.use(chaiImmutable);
-
 import { fromJS } from 'immutable';
 import * as actions from '../../_actions/WorkspaceActions';
 import workspaceReducer from '../WorkspaceReducer';
@@ -9,7 +5,7 @@ import workspaceReducer from '../WorkspaceReducer';
 describe('workspaceReducer', () => {
     it('should be able to be created', () => {
         const state = workspaceReducer(undefined, {});
-        expect(state).to.be.ok;
+        expect(state).toBeDefined();
     });
 
     describe('toggleTradeMode', () => {
@@ -21,7 +17,7 @@ describe('workspaceReducer', () => {
             const expected = fromJS({
                 tradeMode: 'grid',
             });
-            expect(expected).to.equal(actual);
+            expect(expected).toEqual(actual);
         });
 
         it('should be able to toggle trade mode from grid to jp', () => {
@@ -32,7 +28,7 @@ describe('workspaceReducer', () => {
             const expected = fromJS({
                 tradeMode: 'jp',
             });
-            expect(expected).to.equal(actual);
+            expect(expected).toEqual(actual);
         });
 
         it('should be able to toggle trade mode from jp to tabs', () => {
@@ -43,7 +39,7 @@ describe('workspaceReducer', () => {
             const expected = fromJS({
                 tradeMode: 'tabs',
             });
-            expect(expected).to.equal(actual);
+            expect(expected).toEqual(actual);
         });
     });
 
@@ -56,7 +52,7 @@ describe('workspaceReducer', () => {
             const expected = fromJS({
                 leftPanelVisible: true,
             });
-            expect(expected).to.equal(actual);
+            expect(expected).toEqual(actual);
         });
     });
 });

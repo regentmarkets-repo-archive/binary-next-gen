@@ -1,5 +1,4 @@
 import { fromJS } from 'immutable';
-import { expect } from 'chai';
 import { contractToShow, dataToShow } from '../ContractDetailsSelectors';
 
 describe('ContractDetailsSelectors', () => {
@@ -18,7 +17,7 @@ describe('ContractDetailsSelectors', () => {
             };
 
             const actual = contractToShow(state);
-            expect(actual.toJS()).to.be.deep.equal({ contract_id: 1, test: 0 });
+            expect(actual.toJS()).toEqual({ contract_id: 1, test: 0 });
         });
     });
 
@@ -37,7 +36,7 @@ describe('ContractDetailsSelectors', () => {
             };
 
             const actual = dataToShow(state);
-            expect(actual.toJS()).to.be.deep.equal({ contract_id: 1, test: 0 });
+            expect(actual.toJS()).toEqual({ contract_id: 1, test: 0 });
         });
     });
 });

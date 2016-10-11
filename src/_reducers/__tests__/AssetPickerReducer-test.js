@@ -1,7 +1,3 @@
-import chai, { expect } from 'chai';
-import chaiImmutable from 'chai-immutable';
-chai.use(chaiImmutable);
-
 import { fromJS } from 'immutable';
 import * as actions from '../../_actions/AssetPickerActions';
 import assetPickerReducer from '../AssetPickerReducer';
@@ -25,7 +21,7 @@ describe('assetPickerReducer', () => {
             const actual = assetPickerReducer(stateBefore, actions.updateAssetPickerSearchQuery(''));
             const expected = fromJS(getInitialState());
 
-            expect(expected).to.equal(actual);
+            expect(expected).toEqual(actual);
         });
 
         it('when query is empty returns all assets', () => {
@@ -37,7 +33,7 @@ describe('assetPickerReducer', () => {
                 availableAssets: dummyAssetList(),
             }));
 
-            expect(actual).to.deep.equal(expected);
+            expect(actual).toEqual(expected);
         });
 
         it('query containing only spaces is treated as empty', () => {
@@ -48,7 +44,7 @@ describe('assetPickerReducer', () => {
             const expected = fromJS(getInitialState({
                 availableAssets: dummyAssetList(),
             }));
-            expect(actual.availableAssets).to.equal(expected.availableAssets);
+            expect(actual.availableAssets).toEqual(expected.availableAssets);
         });
     });
 });
