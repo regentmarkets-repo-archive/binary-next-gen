@@ -104,3 +104,7 @@ export const sellContract = (id, price) =>
 export const selectAsset = asset =>
     dispatch => dispatch(getTradingOptions(asset))
         .then(() => dispatch(getTicksBySymbol(asset)));
+
+export const updateOutdatedStartDate = () => ({
+    type: types.UPDATE_OUTDATED_START_DATE,
+});

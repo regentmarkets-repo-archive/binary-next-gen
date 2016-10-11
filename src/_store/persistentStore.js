@@ -26,7 +26,10 @@ export const store = finalCreateStore(storageReducer);
 
 sagaMiddleware.run(tradeParamsSaga);
 
-export const rehydratedStorePromise = () => storageLoader(store).then(() => store);
+export const rehydratedStorePromise = () => storageLoader(store).then(() => {
+    store.dispatch(allActions.updateOutdatedStartDate());
+    return store;
+});
 
 
 export const actions = bindActionCreators(allActions, store.dispatch);
