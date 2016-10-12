@@ -101,7 +101,9 @@ export default class TradeViewChart extends PureComponent {
                 epoch: +data.tick.epoch,
                 quote: +data.tick.quote,
             };
-            this.setState({ ticks: old.concat([newTick]) });
+            const dataCap = isMobile() ? 700 : 2500;
+
+            this.setState({ ticks: old.concat([newTick]).slice(-dataCap) });
             this.ticksId = data.tick.id;
 
             // stop the chart from moving 5 ticks after contract ends
@@ -151,7 +153,8 @@ export default class TradeViewChart extends PureComponent {
                 newOHLCArr.push(newOHLC);
                 this.setState({ candles: newOHLCArr });
             } else {
-                this.setState({ candles: old.concat([newOHLC]) });
+                const dataCap = isMobile() ? 500 : 1500;
+                this.setState({ candles: old.concat([newOHLC]).slice(-dataCap) });
             }
             this.ohlcId = data.ohlc.id;
         });
@@ -306,6 +309,8 @@ export default class TradeViewChart extends PureComponent {
 
         const noData = feedLicense === 'chartonly';
 
+        const mobile = isMobile();
+
         return (
             <BinaryChart
                 id={`trade-chart${index}`}
@@ -319,8 +324,8 @@ export default class TradeViewChart extends PureComponent {
                 assetName={tradeForChart && tradeForChart.get('symbolName')}
                 ticks={this.state[dataType]}
                 theme={theme}
-                showTooltips={!isMobile()}
-                hideZoomControls={isMobile()}
+                showTooltips={!mobile}
+                hideZoomControls={mobile}
                 type={chartType}
                 trade={tradeForChart && internalTradeModelToChartTradeModel(tradeForChart.toJS())}
                 // tradingTimes={tradingTime.times}
