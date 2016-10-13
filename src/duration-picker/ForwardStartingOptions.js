@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { epochToUTCTimeString, dateToDateString, returnValidDate, returnValidTime } from 'binary-utils';
+import { epochToUTCTimeString, dateToDateString, nowAsEpoch, returnValidDate, returnValidTime } from 'binary-utils';
 import { M, Label } from 'binary-components';
 import debounce from 'lodash.debounce';
 import createDefaultStartLaterEpoch from '../_trade/defaults/createDefaultStartLaterEpoch';
@@ -55,7 +55,18 @@ export default class ForwardStartingOptions extends PureComponent {
         this.setState({ showStartLater: true });
         const { index, dateStart } = this.props;
         if (!dateStart) {
-            debounceEpochChange(index, this.state.defaultDateStart);
+            const { defaultDateStart } = this.state;
+            const now = nowAsEpoch();
+
+            let startDateToUse = defaultDateStart;
+
+            // do not use defaultDateStart when it is less than 5 minutes away from current time
+            if (defaultDateStart < now + 350) {
+                const newDateInSecondsResolution = now + 350;
+                startDateToUse = newDateInSecondsResolution - (newDateInSecondsResolution % 60);
+            }
+
+            debounceEpochChange(index, startDateToUse);
         }
     }
 
