@@ -36,7 +36,7 @@ describe('TradesParamsReducer', () => {
 
     it('should throw is assetChoices provided is less than number of new trade to be created', () => {
         const action = updateActiveLayout(3, 1, ['R_25']);
-        expect(() => tradesParamsReducer(initialState, action)).to.throw();
+        expect(() => tradesParamsReducer(initialState, action)).toThrow();
     });
 
     it('should update specified trade params when UPDATE_TRADE_PARAMS received', () => {
