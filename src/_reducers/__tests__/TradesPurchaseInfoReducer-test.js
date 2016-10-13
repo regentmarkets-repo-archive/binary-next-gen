@@ -24,14 +24,17 @@ describe('PurchaseInfoReducer', () => {
             lastBoughtContract: {},
         }], action);
 
-        expect(actual.toJS()[0]).to.be.empty;
+        expect(actual.toJS()[0]).toEqual({});
     });
 
     it('should update purchase info when PURCHASED_CONTRACT received', () => {
         const receipt = { contract_id: 10101 };
         const action = updatePurchasedContract(0, receipt);
         const actual = reducer(initialState, action);
-        expect(actual.toJS()[0]).to.have.keys(['receipt', 'mostRecentContractId']);
+        const keys = Object.keys(actual.toJS()[0]);
+
+        expect(keys).toContain('receipt');
+        expect(keys).toContain('mostRecentContractId');
     });
 
     it('should remove specified object when REMOVE_TRADE received', () => {

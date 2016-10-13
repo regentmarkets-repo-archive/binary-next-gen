@@ -34,19 +34,20 @@ const handlers = {
 };
 
 const bootConfig = typeof window !== 'undefined' ? window.BinaryBoot : {};
-export const api = new LiveApi(bootConfig);
+const ApiConstructor = typeof WebSocket !== 'undefined' ? LiveApi : () => null;
+export const api = new ApiConstructor(bootConfig);
 
 const configForChart = Object.assign({ keepAlive: true }, bootConfig);
 delete configForChart.connection;
 
 const memoizedWebsocketConn = [
-    new LiveApi(configForChart),        // for contract chart
-    new LiveApi(configForChart),        // for first trade
+    new ApiConstructor(configForChart),        // for contract chart
+    new ApiConstructor(configForChart),        // for first trade
 ];
 
 export const chartApi = (n) => {
     while (!memoizedWebsocketConn[n]) {
-        memoizedWebsocketConn.push(new LiveApi(configForChart));
+        memoizedWebsocketConn.push(new ApiConstructor(configForChart));
     }
     return memoizedWebsocketConn[n];
 };
