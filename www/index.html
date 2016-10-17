@@ -100,8 +100,11 @@
 
 <script src="boot.js"></script>
 <script>
-    if(navigator.userAgent.indexOf('YaBrowser') === -1) {
-        document.writeln('<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,Promise,Array.from,Array.prototype.find,Array.prototype.includes,String.prototype.startsWith,String.prototype.includes,Math.sign,Intl.~locale.en,Intl.~locale.id,Intl.~locale.ru,Intl.~locale.fr&unknown=polyfill"><\/script>');
+    if (navigator.userAgent.indexOf('YaBrowser') === -1) {
+        var newScript = document.createElement('script');
+        newScript.src = 'https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,Promise,Array.from,Array.prototype.find,Array.prototype.includes,String.prototype.startsWith,String.prototype.includes,Math.sign,Intl.~locale.en,Intl.~locale.id,Intl.~locale.ru,Intl.~locale.fr&unknown=polyfill';
+        var s0 = document.getElementsByTagName('script')[0];
+        s0.parentNode.insertBefore(newScript, s0);
     }
 </script>
 <script async src="app.js"></script>
