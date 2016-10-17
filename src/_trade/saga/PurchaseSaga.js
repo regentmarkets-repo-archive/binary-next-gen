@@ -1,7 +1,7 @@
 import { takeEvery } from 'redux-saga';
 import { select, put } from 'redux-saga/effects';
 import changeAmount from '../updates/changeAmount';
-import { updateMultipleTradeParams } from '../../_actions';
+import { updateMultipleTradeParams, updateOpenContractField } from '../../_actions';
 import { getParams, getProposalId } from './SagaSelectors';
 import { api } from '../../_data/LiveData';
 import { updatePurchasedContract, updateTradeError } from '../../_actions/TradeActions';
@@ -47,9 +47,17 @@ function* handlePurchase(action) {
     const params = yield select(getParams(index));
     const pid = yield select(getProposalId(index));
     try {
+        // Note: we do not call subscribeToOpenContract here, as it will be triggered by transaction stream
+        // reason: we want it to be trigger from transaction stream so that when user buy from other device, we still get the update
+        // code: src/_actions/StatementActions
         const { buy } = yield api.buyContract(pid, price);
+        yield put(updateOpenContractField({
+            ...buy,
+            id: buy.contract_id,
+            date_start: buy.start_time,
+            transaction_ids: { buy: buy.transaction_id },
+        }));
         onPurchaseDone();
-
         yield put(updatePurchasedContract(index, buy));
     } catch (err) {
         if (!err.error || !err.error.error) {

@@ -33,6 +33,7 @@ const handlers = {
     residence_list: 'serverCountryList',
 };
 
+// window does not exist when running test
 const bootConfig = typeof window !== 'undefined' ? window.BinaryBoot : {};
 const ApiConstructor = typeof WebSocket !== 'undefined' ? LiveApi : () => null;
 export const api = new ApiConstructor(bootConfig);

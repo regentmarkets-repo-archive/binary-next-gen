@@ -69,12 +69,6 @@ export default class TradeParams extends PureComponent {
         };
     }
 
-    /**
-     * componentDidUpdate is used instead of componentWillReceiveProps because the onAssetChange depends on updated
-     * props, which only accessible after component update
-     * it's a mistake here that method to be reuse are coupled with component states
-     * TODO: redesign so that side effect are handle elsewhere
-     */
     componentWillReceiveProps(newProps) {
         this.setState({ dynamicKey: newProps.forceRenderCount });
         windowResizeEvent();
@@ -87,11 +81,11 @@ export default class TradeParams extends PureComponent {
 
     onPurchase = () => {
         const { index, proposal } = this.props;
+
+        document.getElementById(`trade-param${index}`).classList.add('greyout');
+
         actions.reqPurchase(index, proposal.ask_price, () => {
-            // const chartDiv = document.getElementById(`trade-chart${index}`);
-            // if (chartDiv) {
-            //     chartDiv.dispatchEvent(new Event('zoom-in-max'));
-            // }
+            document.getElementById(`trade-param${index}`).classList.remove('greyout');
         });
     }
 
@@ -125,7 +119,7 @@ export default class TradeParams extends PureComponent {
         const nonServerError = errors && errorToShow(errors.toJS());
 
         return (
-            <div className="trade-params" key={this.state.dynamicKey} style={style}>
+            <div id={`trade-param${index}`} className="trade-params" key={this.state.dynamicKey} style={style}>
                 {serverError ? <ServerErrorMsg text={serverError} /> : <ErrorMsg text={nonServerError} />}
                 <AssetPickerDropDown
                     index={index}

@@ -58,7 +58,11 @@ export const signIn = () => {
             authWindow.close();
         });
     } else if (window.cordova) {
+        // open another webview for login page
         const winAuth = window.cordova.InAppBrowser.open(oAuthUrl, '_blank', 'location=no');
+
+        // after login success
+        // get account info from redirect url and close webview
         winAuth.addEventListener('loadstart', e => {
             if (e.url.indexOf('acct1') > -1) {
                 const accounts = window.BinaryBoot.parseUrl(e.url);
