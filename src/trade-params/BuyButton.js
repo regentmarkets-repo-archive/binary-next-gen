@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { isMobile } from 'binary-utils';
 import { Button } from 'binary-components';
 
 type Props = {
@@ -25,7 +26,7 @@ export default class BuyButton extends PureComponent {
                     disabled={disabled || !askPrice}
                     text="Purchase"
                 />
-                {longcode && <div className="tooltip">{longcode}</div>}
+                {longcode && !isMobile() && <div className="tooltip">{longcode}</div>}
             </div>
         );
     }
