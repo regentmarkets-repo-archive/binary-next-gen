@@ -89,6 +89,18 @@
         flex-direction: column;
         flex-wrap: nowrap;
         min-height: 16em;
+
+        .duration-input {
+            .numeric-input {
+                .btn-flat {
+                    flex: 1 2 10%;
+                }
+
+                input {
+                    flex: 2 1;
+                }
+            }
+        }
     }
 
     .sell-at-market-btn,
