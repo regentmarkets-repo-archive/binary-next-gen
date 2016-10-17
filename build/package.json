@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "gulp": "^3.9.1",
     "gulp-bump": "^2.4.0",
     "gulp-concat": "^2.6.0",
     "gulp-cordova-build-android": "^1.5.1",
