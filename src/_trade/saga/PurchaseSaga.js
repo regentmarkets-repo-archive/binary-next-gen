@@ -43,7 +43,7 @@ function* handleStakeChange(action) {
 }
 
 function* handlePurchase(action) {
-    const { index, price } = action;
+    const { index, price, onPurchaseDone } = action;
     const params = yield select(getParams(index));
     const pid = yield select(getProposalId(index));
     try {
@@ -57,6 +57,7 @@ function* handlePurchase(action) {
             date_start: buy.start_time,
             transaction_ids: { buy: buy.transaction_id },
         }));
+        onPurchaseDone();
         yield put(updatePurchasedContract(index, buy));
     } catch (err) {
         if (!err.error || !err.error.error) {
