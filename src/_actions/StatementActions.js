@@ -7,15 +7,10 @@ export const serverDataStatement = serverResponse => ({
 });
 
 export const serverTransactionStream = serverResponse =>
-    (dispatch, getState) => {
-        const { boughtContracts } = getState();
-
+    (dispatch) => {
         const tx = serverResponse.transaction;
         if (tx && tx.action === 'buy') {
-            const contract = boughtContracts.get(tx.contract_id);
-            if (!contract) {
-                api.subscribeToOpenContract(tx.contract_id);
-            }
+            api.subscribeToOpenContract(tx.contract_id);
         }
 
         return dispatch({
