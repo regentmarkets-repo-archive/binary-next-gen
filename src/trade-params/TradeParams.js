@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import { askPriceFromProposal, windowResizeEvent } from 'binary-utils';
 import { ServerErrorMsg, ErrorMsg } from 'binary-components';
+import classnames from 'classnames';
 import { actions } from '../_store';
 import BarrierCard from '../barrier-picker/BarrierCard';
 // import SpreadBarrierCard from '../barrier-picker/SpreadBarrierCard';
@@ -82,10 +83,10 @@ export default class TradeParams extends PureComponent {
     onPurchase = () => {
         const { index, proposal } = this.props;
 
-        document.getElementById(`trade-param${index}`).classList.add('greyout');
+        this.setState({ purchasing: true });
 
         actions.reqPurchase(index, proposal.ask_price, () => {
-            document.getElementById(`trade-param${index}`).classList.remove('greyout');
+            this.setState({ purchasing: false });
         });
     }
 
@@ -118,8 +119,11 @@ export default class TradeParams extends PureComponent {
         const serverError = errors && errors.get('serverError');
         const nonServerError = errors && errorToShow(errors.toJS());
 
+        const { purchasing } = this.state;
+        const className = purchasing ? classnames('trade-params', 'greyout') : 'trade-params';
+
         return (
-            <div id={`trade-param${index}`} className="trade-params" key={this.state.dynamicKey} style={style}>
+            <div id={`trade-param${index}`} className={className} key={this.state.dynamicKey} style={style}>
                 {serverError ? <ServerErrorMsg text={serverError} /> : <ErrorMsg text={nonServerError} />}
                 <AssetPickerDropDown
                     index={index}
