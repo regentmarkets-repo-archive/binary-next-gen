@@ -307,10 +307,6 @@ div[role=tabpanel] {
 .tooltip {
     color: $COLOR_INVERSE_TEXT;
     background: $COLOR_INVERSE_BG;
-    .inverse & {
-        color: $COLOR_TEXT;
-        background: $COLOR_BG;
-    }
     border: 1px solid rgba($COLOR_BRAND_BLUE, 0.25);
     font-weight: bold;
     padding: 0.25em 0.5em;
@@ -318,6 +314,11 @@ div[role=tabpanel] {
     position: absolute;
     display: none;
     z-index: 99;
+
+    .inverse & {
+        color: $COLOR_TEXT;
+        background: $COLOR_BG;
+    }
 }
 
 div[role=tab] .close-btn {
@@ -355,7 +356,7 @@ nav.sidebar {
     background: $COLOR_BRAND_ORANGE;
     padding: 0.5em;
     line-height: 1.5;
-    word-wrap:break-word;
+    word-wrap: break-word;
 }
 
 .close-btn svg {
