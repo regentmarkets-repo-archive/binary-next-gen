@@ -6,6 +6,7 @@ import { chartToDataType, getDataWithErrorHandling } from '../_chart-utils/Utils
 
 type Props = {
     contract: Contract,
+    highContrast: boolean,
     pipSize: number,
 };
 
@@ -255,7 +256,7 @@ export default class ContractChart extends PureComponent {
     }
 
     render() {
-        const { contract, pipSize } = this.props;
+        const { contract, pipSize, highContrast } = this.props;
         const { theme } = this.context;
         const { date_start, date_expiry, exit_tick_time, sell_spot_time, tick_count } = contract;
         const { chartType, dataType, noData } = this.state;
@@ -273,6 +274,7 @@ export default class ContractChart extends PureComponent {
                 hideIntervalPicker
                 showTooltips={!isMobile()}
                 showAllTimeFrame={false}
+                highContrast={highContrast}
                 contract={contract}
                 symbol={contract.underlying}
                 assetName={contract.symbolName}

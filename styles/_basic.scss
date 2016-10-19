@@ -198,6 +198,11 @@ fieldset {
     display: inline;
 }
 
+.name-val-pair,
+legend {
+    line-height: 2;
+}
+
 .name-val-pair {
     display: flex;
 

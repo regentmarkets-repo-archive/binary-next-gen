@@ -54,6 +54,7 @@ export default class TradeViewChart extends PureComponent {
         events: any[],
         feedLicense: string,
         pipSize: number,
+        highContrast: boolean,
         tradeForChart: object,
         tradingTime: object,
     };
@@ -303,7 +304,7 @@ export default class TradeViewChart extends PureComponent {
 
     render() {
         const { contractForChart, index, events,
-            feedLicense, pipSize, tradeForChart } = this.props;
+            feedLicense, pipSize, tradeForChart, highContrast } = this.props;
         const { theme } = this.context;
         const { chartType, dataType } = this.state;
 
@@ -319,6 +320,7 @@ export default class TradeViewChart extends PureComponent {
                 events={events}
                 noData={noData}
                 pipSize={pipSize}
+                highContrast={highContrast}
                 shiftMode={contractForChart ? 'dynamic' : 'fixed'}
                 symbol={tradeForChart && tradeForChart.get('symbol')}
                 assetName={tradeForChart && tradeForChart.get('symbolName')}
