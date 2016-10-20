@@ -1,6 +1,15 @@
-.news-list-card,
 .article {
     font-size: $FONT_SIZE_L;
+}
+
+.news-list-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.article-picker {
+    width: 100%;
+    min-height: 2.5em;
 }
 
 .article {

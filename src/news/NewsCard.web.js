@@ -1,8 +1,5 @@
 import React, { PureComponent } from 'react';
-// import MobileToolbarBack from '../mobile/MobileToolbarBack';
-// import AnimatedPopup from '../containers/AnimatedPopup';
-import NewsList from './NewsList';
-// import ArticleFull from './ArticleFull';
+import ArticleFull from './ArticleFull';
 
 export default class NewsCard extends PureComponent {
 
@@ -17,33 +14,33 @@ export default class NewsCard extends PureComponent {
     constructor(props) {
         super(props);
         this.state = {
-            showArticle: false,
-            params: { index: 0 },
+            activeArticleIndex: 0,
         };
     }
 
-    // onClickPreview = idx =>
-    //     this.setState({ showArticle: true, params: { index: idx } });
-    //
+    handleChangeArticle = (e: SyntheticEvent) =>
+        this.setState({ activeArticleIndex: e.target.value });
+
     // onClickBack = () =>
     //     this.setState({ showArticle: false, params: { index: 0 } });
 
     render() {
         const { articles } = this.props;
-        // const { showArticle } = this.state;
+        const { activeArticleIndex } = this.state;
 
         return (
-            <div className="news-list-card scrollable">
-                {/* <AnimatedPopup shown={showArticle}>
-                    <MobileToolbarBack onClick={this.onClickBack} backBtnBarTitle="Back" />
+            <div className="news-list-card">
+                <select className="article-picker" onChange={this.handleChangeArticle}>
+                  {articles.map((x, idx) =>
+                    <option key={idx} value={idx}>{x.title}</option>
+                  )}
+                </select>
+                <div className="scrollable">
                     <ArticleFull
-                        articles={articles}
-                        params={params}
+                        index={activeArticleIndex}
+                        {...articles[activeArticleIndex]}
                     />
-                </AnimatedPopup> */}
-                {/* {!showArticle && */}
-                    <NewsList articles={articles} />
-                {/* } */}
+                </div>
             </div>
         );
     }
