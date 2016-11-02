@@ -1,12 +1,14 @@
 import React, { PureComponent } from 'react';
 import { Tab, TabList } from 'binary-components';
 import config from '../config';
+import SettingsUI from './SettingsUI';
 import SettingsPersonalDetails from './SettingsPersonalDetails';
 import SettingsSelfExclusion from './SettingsSelfExclusion';
 import SettingsLimits from './SettingsLimits';
 import SettingsSecurity from './SettingsSecurity';
 
 const components = [
+	SettingsUI,
 	SettingsPersonalDetails,
 	SettingsSecurity,
 	SettingsSelfExclusion,
@@ -43,6 +45,7 @@ export default class SettingsCard extends PureComponent {
 					activeIndex={activeTab}
 					onChange={this.onTabChange}
 				>
+					<Tab text="Interface" />
 					<Tab text="Personal" />
 					<Tab text="Security" />
 					{!isVirtual && <Tab text="Self Exclusion" />}
