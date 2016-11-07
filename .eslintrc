@@ -18,6 +18,7 @@
     "max-len": 0,
     "no-undef": 0,
     "indent": [0, 4],
+    "comma-dangle": 0,
     "linebreak-style": 0,
     "camelcase": 0,
     "no-tabs": 0,

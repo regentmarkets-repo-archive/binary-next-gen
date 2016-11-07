@@ -1,13 +1,13 @@
 import React, { PureComponent } from 'react';
 import { TabList, Tab } from 'binary-components';
-import AllIcon from '-!babel!svg-react!../../www/img/all.svg';
-import FavoritesIcon from '-!babel!svg-react!../../www/img/favorites.svg';
-import OpenIcon from '-!babel!svg-react!../../www/img/open.svg';
-import VolatilityIcon from '-!babel!svg-react!../../www/img/volatility.svg';
-import ForexIcon from '-!babel!svg-react!../../www/img/forex.svg';
-import IndicesIcon from '-!babel!svg-react!../../www/img/indices.svg';
-import CommoditiesIcon from '-!babel!svg-react!../../www/img/commodities.svg';
-import StocksIcon from '-!babel!svg-react!../../www/img/stocks.svg';
+import AllIcon from '../../www/img/all.svg';
+import FavoritesIcon from '../../www/img/favorites.svg';
+import OpenIcon from '../../www/img/open.svg';
+import VolatilityIcon from '../../www/img/volatility.svg';
+import ForexIcon from '../../www/img/forex.svg';
+import IndicesIcon from '../../www/img/indices.svg';
+import CommoditiesIcon from '../../www/img/commodities.svg';
+import StocksIcon from '../../www/img/stocks.svg';
 
 const values = [
 	'all',
