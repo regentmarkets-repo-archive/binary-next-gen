@@ -17,7 +17,7 @@ export default class SettingsUI extends PureComponent {
 
 		return (
 			<div className="settings-ui">
-				<Legend text="Loook" />
+			<Legend text="User Interface" />
 				<label htmlFor="theme">
 					<input
 						id="theme"
