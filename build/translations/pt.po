@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: BOM\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-10-09 23:53+0000\n"
+"PO-Revision-Date: 2017-01-20 04:16+0000\n"
 "Last-Translator: Alcino Jorge <alcino@binary.com>\n"
 "Language-Team: Portuguese <https://hosted.weblate.org/projects/binary-app"
 "/next-gen-app/pt/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.9-dev\n"
+"X-Generator: Weblate 2.11-dev\n"
 
 msgid "All"
 msgstr "Tudo"
@@ -520,14 +520,13 @@ msgid "Close"
 msgstr "Fecho"
 
 msgid "Low"
-msgstr ""
+msgstr "Baixo"
 
 msgid "High"
-msgstr ""
+msgstr "Alto"
 
-#, fuzzy
 msgid "Open"
-msgstr "Abre"
+msgstr "Abrir"
 
 msgid "Date"
 msgstr "Data"
@@ -551,7 +550,7 @@ msgid "Daily Prices"
 msgstr "Preços diários"
 
 msgid "Spreads"
-msgstr ""
+msgstr "Spreads"
 
 msgid "Confirm new password"
 msgstr "Confirmar nova senha"
@@ -595,9 +594,8 @@ msgstr "Portfólio"
 msgid "Video"
 msgstr "Vídeo"
 
-#, fuzzy
 msgid "Digit Stats"
-msgstr "Dígito correspondente"
+msgstr "Estatísticas do dígito"
 
 msgid "Favorites"
 msgstr "Favoritos"
@@ -605,9 +603,8 @@ msgstr "Favoritos"
 msgid "Open For Trading"
 msgstr "Aberto para negociação"
 
-#, fuzzy
 msgid "Closed"
-msgstr "Fecho"
+msgstr "Fechado"
 
 msgid "Contract ID"
 msgstr "ID de contrato"
@@ -676,19 +673,19 @@ msgid "You have no assets in watchlist"
 msgstr "Você não tem nenhum ativo nos seus favoritos"
 
 msgid "Basic"
-msgstr ""
+msgstr "Básico"
 
 msgid "Digits"
 msgstr "Dígitos"
 
 msgid "Advanced"
-msgstr ""
+msgstr "Avançado"
 
 msgid "Higher"
-msgstr ""
+msgstr "Superior"
 
 msgid "Lower"
-msgstr ""
+msgstr "Inferior"
 
 msgid "Ends Outside"
 msgstr "Termina Fora"
@@ -757,7 +754,7 @@ msgid "Withdrawal limit"
 msgstr "Limites de retirada"
 
 msgid "Already withdrawn"
-msgstr ""
+msgstr "já retirados"
 
 msgid "Current immediate maximum withdrawal"
 msgstr "Retirada imediata máxima atual"
@@ -816,7 +813,7 @@ msgid "You need to agree to our Terms and Conditions"
 msgstr "Você aceita os nosso termos e condições"
 
 msgid "I agree to the"
-msgstr ""
+msgstr "Eu aceito os"
 
 msgid "terms and conditions"
 msgstr "termos e condições"
@@ -881,40 +878,32 @@ msgstr "Sair da tela inteira"
 msgid "No digit trades for this asset"
 msgstr "Não há negociações de dígitos para este ativo"
 
-#, fuzzy
 msgid "Lock Cashier"
-msgstr "Desbloquear o caixa"
+msgstr "Bloquear o caixa"
 
-#, fuzzy
 msgid "Time out until date"
-msgstr "Bloqueio até"
+msgstr "Bloqueio até a data"
 
-#, fuzzy
 msgid "Time out until time"
-msgstr "Bloqueio até"
+msgstr "Bloqueio até a hora"
 
-#, fuzzy
 msgid "Light Theme"
-msgstr "Claro"
+msgstr "Tema claro"
 
-#, fuzzy
 msgid "Dark Theme"
-msgstr "Tema de cor"
+msgstr "Tema escuro"
 
 msgid "Password changed successfully"
 msgstr "Senha alterada com sucesso"
 
-#, fuzzy
 msgid "Settings updated"
-msgstr "Definições"
+msgstr "Configurações atualizadas"
 
-#, fuzzy
 msgid "Address updated"
-msgstr "Endereço"
+msgstr "Endereço atualizado"
 
-#, fuzzy
 msgid "Barrier must not be empty"
-msgstr "Cidade não deve estar vazio"
+msgstr "A barreira não deve estar vazia"
 
 msgid "Duration is out of range"
 msgstr "A duração está fora do intervalo"
@@ -926,19 +915,16 @@ msgid "Time format is wrong"
 msgstr "O formato da hora está errado"
 
 msgid "Lower than"
-msgstr ""
+msgstr "Mais baixo que"
 
 msgid "Higher than"
-msgstr ""
+msgstr "Mais alto que"
 
-#, fuzzy
 msgid "High barrier"
-msgstr "Barreira"
+msgstr "Barreira alta"
 
-#, fuzzy
 msgid "Low barrier"
-msgstr "Barreira"
+msgstr "Barreira baixa"
 
-#, fuzzy
 msgid "Touch spot"
-msgstr "Toca"
+msgstr "Preço do toque"
