@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: I 18N\n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-09-23 09:03+0000\n"
+"PO-Revision-Date: 2017-01-20 03:43+0000\n"
 "Last-Translator: Pham Minh Hieu <hphamv7@gmail.com>\n"
 "Language-Team: Vietnamese <https://hosted.weblate.org/projects/binary-app"
 "/next-gen-app/vi/>\n"
@@ -16,7 +16,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.9-dev\n"
+"X-Generator: Weblate 2.11-dev\n"
 
 msgid "All"
 msgstr "Tất cả"
@@ -591,7 +591,6 @@ msgstr "Danh mục đầu tư"
 msgid "Video"
 msgstr "Video"
 
-#, fuzzy
 msgid "Digit Stats"
 msgstr "Thống kê ký tự"
 
@@ -673,7 +672,6 @@ msgstr "Bạn không có tài sản nào trong watchlist"
 msgid "Basic"
 msgstr "Cơ bản"
 
-#, fuzzy
 msgid "Digits"
 msgstr "Chữ số"
 
@@ -686,7 +684,6 @@ msgstr "Cao hơn"
 msgid "Lower"
 msgstr "Thấp hơn"
 
-#, fuzzy
 msgid "Ends Outside"
 msgstr "Kết thúc bên ngoài"
 
