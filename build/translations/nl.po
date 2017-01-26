@@ -3,263 +3,267 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2017-01-26 12:16+0200\n"
-"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
-"Last-Translator: Automatically generated\n"
-"Language-Team: none\n"
+"PO-Revision-Date: 2017-01-26 11:31+0000\n"
+"Last-Translator: Heimen Stoffels <vistausss@outlook.com>\n"
+"Language-Team: Dutch <https://hosted.weblate.org/projects/binary-app/next-"
+"gen-app/nl/>\n"
 "Language: nl\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Translate Toolkit 2.0.0b6\n"
+"Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 2.11-dev\n"
 
 msgid "All"
-msgstr ""
+msgstr "Alles"
 
 msgid "Property"
-msgstr ""
+msgstr "Bezit"
 
 msgid "Value"
-msgstr ""
+msgstr "Waarde"
 
 msgid "Balance"
-msgstr ""
+msgstr "Balans"
 
 msgid "Trade"
-msgstr ""
+msgstr "Handel"
 
 msgid "Watchlist"
-msgstr ""
+msgstr "Bijhoudlijst"
 
 msgid "Open Positions"
-msgstr ""
+msgstr "Posities openen"
 
 msgid "Profit Table"
-msgstr ""
+msgstr "Winsttabel"
 
 msgid "Statement"
-msgstr ""
+msgstr "Verklaring"
 
 msgid "Settings"
-msgstr ""
+msgstr "Instellingen"
 
 msgid "Sign Out"
-msgstr ""
+msgstr "Uitloggen"
 
 msgid "View"
-msgstr ""
+msgstr "Weergeven"
 
 msgid "Ref."
-msgstr ""
+msgstr "Ref."
 
 msgid "Purchase"
-msgstr ""
+msgstr "Aankoop"
 
 msgid "Indicative"
-msgstr ""
+msgstr "Indicatief"
 
 msgid "Purchase Date"
-msgstr ""
+msgstr "Aankoopdatum"
 
 msgid "Purchase Price"
-msgstr ""
+msgstr "Aankoopprijs"
 
 msgid "Sale Date"
-msgstr ""
+msgstr "Verkoopdatum"
 
 msgid "Sale Price"
-msgstr ""
+msgstr "Verkoopprijs"
 
 msgid "Profit/Loss"
-msgstr ""
+msgstr "Wint/Verlies"
 
 msgid "Total"
-msgstr ""
+msgstr "Totaal"
 
 msgid "Location"
-msgstr ""
+msgstr "Locatie"
 
 msgid "Update"
-msgstr ""
+msgstr "Bijwerken"
 
 msgid "Details"
-msgstr ""
+msgstr "Details"
 
 msgid "Trading Limits"
-msgstr ""
+msgstr "Handellimieten"
 
 msgid "Item"
-msgstr ""
+msgstr "Item"
 
 msgid "Limit ({currency})"
-msgstr ""
+msgstr "Limiet ({valuta})"
 
 msgid "Maximum number of open positions"
-msgstr ""
+msgstr "Maximum aantal open posities"
 
 msgid "Maximum account cash balance"
-msgstr ""
+msgstr "Maximale accountgeldbalans"
 
 msgid "Maximum daily turnover"
-msgstr ""
+msgstr "Maximale dagelijkse omzet"
 
 msgid "Maximum aggregate payouts on open positions"
-msgstr ""
+msgstr "Maximaal aggregatie-uitbetalingen bij open posities"
 
 msgid "Withdrawal limits"
-msgstr ""
+msgstr "Opnamelimieten"
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
-msgstr ""
+msgstr "Uw opnamelimiet is {limit} (of equivalent in andere valuta)."
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
-msgstr ""
+msgstr "U heeft al een bedrag opgenomen dat equivalent is aan EUR {drawn}."
 
 msgid "An additional password can be used to restrict access to the cashier."
 msgstr ""
+"Er kan een extra wachtwoord worden gebruikt om de toegang door de kashouder "
+"te beperken."
 
 msgid "Sign In"
-msgstr ""
+msgstr "Inloggen"
 
 msgid "Get your API token"
-msgstr ""
+msgstr "Verkrijg uw API-sleutel"
 
 msgid "Create Account"
-msgstr ""
+msgstr "Account creëren"
 
 msgid "Action"
-msgstr ""
+msgstr "Actie"
 
 msgid "Credit/Debit"
-msgstr ""
+msgstr "Krediet/Debet"
 
 msgid "Purchase Time"
-msgstr ""
+msgstr "Aankooptijd"
 
 msgid "Back"
-msgstr ""
+msgstr "Terug"
 
 msgid "Place Order"
-msgstr ""
+msgstr "Order plaatsen"
 
 msgid "{asset} will {type} over next {duration}"
-msgstr ""
+msgstr "{asset} zal {type} in de volgende {duration}"
 
 msgid "Price"
-msgstr ""
+msgstr "Prijs"
 
 msgid "Asset"
-msgstr ""
+msgstr "Acquisitie"
 
 msgid "Type"
-msgstr ""
+msgstr "Type"
 
 msgid "Ticks"
-msgstr ""
+msgstr "Kredieten"
 
 msgid "Amount"
-msgstr ""
+msgstr "Hoeveelheid"
 
 msgid "Trade Confirmation"
-msgstr ""
+msgstr "Handelsbevestiging"
 
 msgid "Entry spot"
-msgstr ""
+msgstr "Binnenkomstplaats"
 
 msgid "Exit spot"
-msgstr ""
+msgstr "Eindplaats"
 
 msgid "Next"
-msgstr ""
+msgstr "Volgende"
 
 msgid "Open Account"
-msgstr ""
+msgstr "Account openen"
 
 msgid "Upgrade to Real Money Account"
-msgstr ""
+msgstr "Opwaarderen naar Echt Geld-account"
 
 msgid "Date of birth"
-msgstr ""
+msgstr "Geboortedatum"
 
 msgid "Home Address"
-msgstr ""
+msgstr "Woonadres"
 
 msgid "Security"
-msgstr ""
+msgstr "Beveiliging"
 
 msgid "Spot"
-msgstr ""
+msgstr "Plaats"
 
 msgid "Change"
-msgstr ""
+msgstr "Wijzigen"
 
 msgid "Chart"
-msgstr ""
+msgstr "Grafiek"
 
 msgid "Purchase For"
-msgstr ""
+msgstr "Aankopen voor"
 
 msgid "Rise"
-msgstr ""
+msgstr "Stijgen"
 
 msgid "Stake"
-msgstr ""
+msgstr "Inzet"
 
 msgid "Payout"
-msgstr ""
+msgstr "Uitbetaling"
 
 msgid "Deposit"
-msgstr ""
+msgstr "Storten"
 
 msgid "Transactions"
-msgstr ""
+msgstr "Transacties"
 
 msgid "Opens"
-msgstr ""
+msgstr "Opent op"
 
 msgid "Closes"
-msgstr ""
+msgstr "Sluit op"
 
 msgid "Personal"
-msgstr ""
+msgstr "Persoonlijk"
 
 msgid "General"
-msgstr ""
+msgstr "Algemeen"
 
 msgid "Trading Times"
-msgstr ""
+msgstr "Handelstijden"
 
 msgid "Asset Index"
-msgstr ""
+msgstr "Acquisitie-overzicht"
 
 msgid "Today"
-msgstr ""
+msgstr "Vandaag"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Gisteren"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "Morgen"
 
 msgid "Takeout"
-msgstr ""
+msgstr "Uitnemen"
 
 msgid "News"
-msgstr ""
+msgstr "Nieuws"
 
 msgid "Resources"
-msgstr ""
+msgstr "Bronnen"
 
 msgid "Last 7 Days"
-msgstr ""
+msgstr "Laatste 7 dagen"
 
 msgid "Last 30 Days"
-msgstr ""
+msgstr "Laatste 30 dagen"
 
 msgid "Daily Report"
-msgstr ""
+msgstr "Dagelijks verslag"
 
 msgid "Up/Down"
-msgstr ""
+msgstr "Omhoog/Omlaag"
 
 msgid "Touch/No Touch"
 msgstr ""
