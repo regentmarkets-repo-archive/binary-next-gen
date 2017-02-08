@@ -25,6 +25,7 @@ export const tryAuth = async token => {
 };
 
 export const signOut = () => {
+    api.logOut();
     store.dispatch(removePersonalData());
     store.dispatch(updateAppState('authorized', false));
     store.dispatch(updateToken(''));
