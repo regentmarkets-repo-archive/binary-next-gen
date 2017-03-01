@@ -12,8 +12,6 @@ const bump = require('gulp-bump');
 const path = require('path');
 const run = require('gulp-run');
 
-const keyStorePassword = require('./keystore.json').password;
-
 const electron = require('gulp-atom-electron');
 const zip = require('gulp-vinyl-zip');
 
@@ -134,8 +132,10 @@ const cordovaPlugin = require('gulp-cordova-plugin');
 const cordovaBuildAndroid = require('gulp-cordova-build-android');
 const cordovaBuildIos = require('gulp-cordova-build-ios');
 
-gulp.task('android', () =>
-    gulp.src(path.resolve(__dirname) + 'www')
+gulp.task('android', () => {
+    const keyStorePassword = require('./keystore.json').password;
+
+    return gulp.src(path.resolve(__dirname) + 'www')
         .pipe(cordovaCreate())
         .pipe(cordovaPlugin('org.apache.cordova.dialogs'))
         .pipe(cordovaBuildAndroid({
@@ -145,7 +145,7 @@ gulp.task('android', () =>
             keyPassword: keyStorePassword,
             keyAlias: 'TickTrade' }))
         .pipe(gulp.dest(files.androidApk))
-);
+});
 
 gulp.task('android:release', ['android'], () =>
     run(tools.zipAlign + ' -v 4 ' + tools.unalignedApk + ' ' + tools.alignedApk).exec()
