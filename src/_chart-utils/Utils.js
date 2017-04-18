@@ -21,7 +21,11 @@ export function getDataWithErrorHandling(tickHistoryCall) {
     return tickHistoryCall().catch(err => {
         const errCode = err.error && err.error.error.code;
 
-        if (errCode === 'MarketIsClosed' || errCode === 'NoRealtimeQuotes' || errCode === 'StreamingNotAllowed') {
+        if (
+            errCode === 'MarketIsClosed' ||
+            errCode === 'NoRealtimeQuotes' ||
+            errCode === 'StreamingNotAllowed'
+        ) {
             return tickHistoryCall(errCode);
         }
 

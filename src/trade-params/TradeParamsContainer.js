@@ -11,7 +11,10 @@ export default class TradeParamsContainer extends PureComponent {
     render() {
         const { compact, paramsProps } = this.props;
         return (
-            <TradeParams compact={compact} {...immutableChildrenToJS(paramsProps)} />
+            <TradeParams
+                compact={compact}
+                {...immutableChildrenToJS(paramsProps)}
+            />
         );
     }
 }

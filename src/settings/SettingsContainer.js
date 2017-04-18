@@ -6,10 +6,7 @@ import settingsSelectors from './settingsSelectors';
 
 @connect(settingsSelectors)
 export default class SettingsContainer extends PureComponent {
-
-	render() {
-		return (
-			<SettingsCard {...immutableChildrenToJS(this.props)} />
-		);
-	}
+    render() {
+        return <SettingsCard {...immutableChildrenToJS(this.props)} />;
+    }
 }

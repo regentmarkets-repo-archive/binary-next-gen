@@ -33,8 +33,10 @@ export default ({ contracts, category, type, duration, durationUnit }) => {
         switch (expiryType) {
             case 'tick':
             case 'intraday':
-            case 'daily': return [+barrierByExpiry[0].defaultValue];
-            default: throw new Error('unknown expiry');
+            case 'daily':
+                return [+barrierByExpiry[0].defaultValue];
+            default:
+                throw new Error('unknown expiry');
         }
     }
 
@@ -42,8 +44,13 @@ export default ({ contracts, category, type, duration, durationUnit }) => {
         switch (expiryType) {
             case 'tick':
             case 'intraday':
-            case 'daily': return [+barrierByExpiry[0].defaultValue, +barrierByExpiry[1].defaultValue];
-            default: throw new Error('unknown expiry');
+            case 'daily':
+                return [
+                    +barrierByExpiry[0].defaultValue,
+                    +barrierByExpiry[1].defaultValue,
+                ];
+            default:
+                throw new Error('unknown expiry');
         }
     }
 

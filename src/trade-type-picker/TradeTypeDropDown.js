@@ -19,7 +19,6 @@ const getInternalTradeType = tradeParams => {
 };
 
 export default class TradeTypeDropDown extends PureComponent {
-
     props: {
         index: number,
         contract: Contract,
@@ -33,11 +32,9 @@ export default class TradeTypeDropDown extends PureComponent {
         };
     }
 
-    onClose = () =>
-        this.setState({ dropdownShown: false });
+    onClose = () => this.setState({ dropdownShown: false });
 
-    openPicker = () =>
-        this.setState({ dropdownShown: true });
+    openPicker = () => this.setState({ dropdownShown: true });
 
     render() {
         const { tradeParams, index, contract } = this.props;
@@ -67,7 +64,13 @@ export default class TradeTypeDropDown extends PureComponent {
                         src={`img/trade-${selectedType.toLowerCase()}.svg`}
                         alt={selectedType}
                     />
-                    <M className="picker-value" m={tradeToFriendlyType(selectedType, tradeParams.barrier)} />
+                    <M
+                        className="picker-value"
+                        m={tradeToFriendlyType(
+                            selectedType,
+                            tradeParams.barrier,
+                        )}
+                    />
                     <DownArrow />
                 </div>
             </div>

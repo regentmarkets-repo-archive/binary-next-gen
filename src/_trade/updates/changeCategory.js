@@ -32,13 +32,15 @@ export default (category, contract, oldTrade = {}, isOpen = true) => {
         });
     }
 
-    if (areAllTimeFieldsValid(
+    if (
+        areAllTimeFieldsValid(
             oldTrade.dateStart,
             oldTrade.duration,
             oldTrade.durationUnit,
             contract[newCategory][defaultType],
             isOpen,
-        )) {
+        )
+    ) {
         const { dateStart, duration, durationUnit } = oldTrade;
         const newBarrier = createDefaultBarriers({
             contracts: contract,
@@ -47,7 +49,11 @@ export default (category, contract, oldTrade = {}, isOpen = true) => {
             duration,
             durationUnit,
         });
-        const newBarrierType = createDefaultBarrierType(duration, durationUnit, newCategory);
+        const newBarrierType = createDefaultBarrierType(
+            duration,
+            durationUnit,
+            newCategory,
+        );
         return safeMerge(oldTrade, {
             tradeCategory: newCategory,
             type: defaultType,
@@ -64,7 +70,12 @@ export default (category, contract, oldTrade = {}, isOpen = true) => {
         });
     }
 
-    const newDuration = createDefaultDuration(contract, newCategory, defaultType, isOpen);
+    const newDuration = createDefaultDuration(
+        contract,
+        newCategory,
+        defaultType,
+        isOpen,
+    );
     const { dateStart, duration, durationUnit } = newDuration;
     const newBarrier = createDefaultBarriers({
         contracts: contract,
@@ -73,7 +84,11 @@ export default (category, contract, oldTrade = {}, isOpen = true) => {
         duration,
         durationUnit,
     });
-    const newBarrierType = createDefaultBarrierType(duration, durationUnit, newCategory);
+    const newBarrierType = createDefaultBarrierType(
+        duration,
+        durationUnit,
+        newCategory,
+    );
 
     return safeMerge(oldTrade, {
         tradeCategory: newCategory,

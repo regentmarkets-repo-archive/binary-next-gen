@@ -26,7 +26,10 @@ export default (state = initialState, action) => {
             return state.merge(action.serverResponse.get_self_exclusion);
         }
         case SERVER_DATA_CASHIER_LOCK: {
-            return state.set('cashier_password', action.serverResponse.cashier_password);
+            return state.set(
+                'cashier_password',
+                action.serverResponse.cashier_password,
+            );
         }
         case SERVER_DATA_ACCOUNT_SETTINGS: {
             return state.merge(action.serverResponse.get_settings);
@@ -35,7 +38,10 @@ export default (state = initialState, action) => {
             return state.merge(action.settings);
         }
         case SERVER_DATA_CHANGE_PASSWORD: {
-            return state.set('change_password', action.serverResponse.change_password);
+            return state.set(
+                'change_password',
+                action.serverResponse.change_password,
+            );
         }
         case REMOVE_PERSONAL_DATA: {
             return initialState;

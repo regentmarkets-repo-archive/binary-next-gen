@@ -15,7 +15,8 @@ describe('<BootProvider />', () => {
         const wrapper = shallow(
             <BootProvider store={store}>
                 <ChildComponent />
-            </BootProvider>);
+            </BootProvider>,
+        );
 
         expect(wrapper.render().text()).toContain('World');
     });
@@ -24,7 +25,8 @@ describe('<BootProvider />', () => {
         const wrapper = render(
             <BootProvider store={store}>
                 <ChildComponent />
-            </BootProvider>);
+            </BootProvider>,
+        );
         expect(wrapper.find('#theme-wrapper').hasClass('inverse')).toBeTruthy();
     });
 });

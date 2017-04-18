@@ -3,7 +3,12 @@ import { showError } from 'binary-utils';
 import { store } from '../_store/persistentStore';
 import { history, accountExclusion } from '../_store/root';
 import { api } from './LiveData';
-import { updateAppState, removePersonalData, updateToken, updateBoot } from '../_actions';
+import {
+    updateAppState,
+    removePersonalData,
+    updateToken,
+    updateBoot,
+} from '../_actions';
 
 let authWindow = null;
 const electron = window.electron;
@@ -16,10 +21,14 @@ export const tryAuth = async token => {
         trackUserId(response.authorize.loginid);
     } catch (e) {
         if (e.error && e.error.error.code === 'SelfExclusion') {
-            const exlcudedAcct = window.BinaryBoot.accounts.find(x => x.token === token).account;
+            const exlcudedAcct = window.BinaryBoot.accounts.find(
+                x => x.token === token,
+            ).account;
             await accountExclusion(token);
             store.dispatch(updateToken(token));
-            showError('You have exlcluded yourself from account ' + exlcudedAcct);
+            showError(
+                'You have exlcluded yourself from account ' + exlcudedAcct,
+            );
         }
     }
 };
@@ -48,19 +57,30 @@ export const signIn = () => {
             authWindow.show();
         });
         authWindow.setResizable(false);
-        authWindow.on('close', () => {
-            authWindow = null;
-        }, false);
-        authWindow.webContents.on('did-get-redirect-request', (e, oldUrl, newUrl) => {
-            const accounts = window.BinaryBoot.parseUrl(newUrl);
-            store.dispatch(updateBoot('accounts', accounts));
-            store.dispatch(updateToken(accounts[0].token));
-            tryAuth(accounts[0].token);
-            authWindow.close();
-        });
+        authWindow.on(
+            'close',
+            () => {
+                authWindow = null;
+            },
+            false,
+        );
+        authWindow.webContents.on(
+            'did-get-redirect-request',
+            (e, oldUrl, newUrl) => {
+                const accounts = window.BinaryBoot.parseUrl(newUrl);
+                store.dispatch(updateBoot('accounts', accounts));
+                store.dispatch(updateToken(accounts[0].token));
+                tryAuth(accounts[0].token);
+                authWindow.close();
+            },
+        );
     } else if (window.cordova) {
         // open another webview for login page
-        const winAuth = window.cordova.InAppBrowser.open(oAuthUrl, '_blank', 'location=no');
+        const winAuth = window.cordova.InAppBrowser.open(
+            oAuthUrl,
+            '_blank',
+            'location=no',
+        );
 
         // after login success
         // get account info from redirect url and close webview

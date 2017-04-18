@@ -17,7 +17,9 @@ export const hasAdvanced = contract =>
 
 export const typesForCategory = (contract, category) => {
     if (contract[category]) {
-        return Object.keys(contract[category]).map(type => serverToInternalTradeType(category, type));
+        return Object.keys(contract[category]).map(type =>
+            serverToInternalTradeType(category, type),
+        );
     }
     return [];
 };
@@ -27,11 +29,18 @@ export const typesForCategories = (contract, categories) =>
 
 export const findCategoryForType = (contract, type) => {
     switch (type) {
-        case 'CALL': return 'risefall';
-        case 'PUT': return 'risefall';
-        case 'HIGHER': return 'higherlower';
-        case 'LOWER': return 'higherlower';
-        default: return Object.keys(contract).find(cat => Object.keys(contract[cat]).includes(type));
+        case 'CALL':
+            return 'risefall';
+        case 'PUT':
+            return 'risefall';
+        case 'HIGHER':
+            return 'higherlower';
+        case 'LOWER':
+            return 'higherlower';
+        default:
+            return Object.keys(contract).find(cat =>
+                Object.keys(contract[cat]).includes(type),
+            );
     }
 };
 

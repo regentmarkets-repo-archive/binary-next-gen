@@ -4,7 +4,6 @@ import { secondsToTimeString } from 'binary-utils';
 import TradingStatsCard from './TradingStatsCard';
 
 export default class RealityCheckSummaryCard extends PureComponent {
-
     props: {
         confirmIntervalUpdate: (e: SyntheticEvent) => void,
         interval: number,
@@ -59,7 +58,10 @@ export default class RealityCheckSummaryCard extends PureComponent {
                     value={Math.round(interval / 60)}
                     onChange={this.onIntervalChange}
                 />
-                <Button text="Continue Trading" onClick={confirmIntervalUpdate} />
+                <Button
+                    text="Continue Trading"
+                    onClick={confirmIntervalUpdate}
+                />
             </div>
         );
     }

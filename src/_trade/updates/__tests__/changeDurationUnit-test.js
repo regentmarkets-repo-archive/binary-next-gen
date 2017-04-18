@@ -1,6 +1,8 @@
 import rawContract from 'binary-test-data/contractsForR50';
 import changeDurationUnit from '../changeDurationUnit';
-import { tradingOptionsForOneSymbol } from '../../../trade-params/TradeParamsSelector';
+import {
+    tradingOptionsForOneSymbol,
+} from '../../../trade-params/TradeParamsSelector';
 import areAllTimeFieldsValid from '../../validation/areAllTimeFieldsValid';
 
 const mockTickTrade = {
@@ -36,20 +38,40 @@ const mockedContract = tradingOptionsForOneSymbol(rawContract);
 
 describe('changeDurationUnit', () => {
     it('should update durationUnit ', () => {
-        const updateDurationUnit = changeDurationUnit('m', mockedContract, mockTickTrade);
+        const updateDurationUnit = changeDurationUnit(
+            'm',
+            mockedContract,
+            mockTickTrade,
+        );
         expect(updateDurationUnit.durationUnit).toEqual('m');
     });
 
     it('should update barrier for trade with barrier(s)', () => {
-        const updateDurationUnit = changeDurationUnit('m', mockedContract, mockEndsInTrade);
+        const updateDurationUnit = changeDurationUnit(
+            'm',
+            mockedContract,
+            mockEndsInTrade,
+        );
         expect(updateDurationUnit.barrier).not.toEqual(mockEndsInTrade.barrier);
     });
 
     it('should pick a valid duration unit when passed duration unit is not allowed', () => {
-        const { duration, durationUnit, dateStart, tradeCategory, type } =
-            changeDurationUnit('ss', mockedContract, mockTickTrade);
+        const {
+            duration,
+            durationUnit,
+            dateStart,
+            tradeCategory,
+            type,
+        } = changeDurationUnit('ss', mockedContract, mockTickTrade);
         expect(durationUnit).not.toEqual('ss');
-        expect(areAllTimeFieldsValid(dateStart, duration, durationUnit, mockedContract[tradeCategory][type])).toBeTruthy();
+        expect(
+            areAllTimeFieldsValid(
+                dateStart,
+                duration,
+                durationUnit,
+                mockedContract[tradeCategory][type],
+            ),
+        ).toBeTruthy();
     });
 
     it('should keep old duration if it is allowed', () => {

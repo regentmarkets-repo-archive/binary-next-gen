@@ -6,10 +6,7 @@ import assetDetailsSelectors from './assetDetailsSelectors';
 
 @connect(assetDetailsSelectors)
 export default class AssetDetailsContainer extends PureComponent {
-
-	render() {
-		return (
-			<AssetDetailsCard {...immutableChildrenToJS(this.props)} />
-		);
-	}
+    render() {
+        return <AssetDetailsCard {...immutableChildrenToJS(this.props)} />;
+    }
 }

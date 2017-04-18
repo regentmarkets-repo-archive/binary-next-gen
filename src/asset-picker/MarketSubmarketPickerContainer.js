@@ -6,10 +6,7 @@ import MarketSubmarketPicker from './MarketSubmarketPicker';
 
 @connect(marketTreeSelectors)
 export default class MarketSubmarketPickerContainer extends PureComponent {
-
-	render() {
-		return (
-			<MarketSubmarketPicker {...immutableChildrenToJS(this.props)} />
-		);
-	}
+    render() {
+        return <MarketSubmarketPicker {...immutableChildrenToJS(this.props)} />;
+    }
 }

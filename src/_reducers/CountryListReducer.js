@@ -8,7 +8,7 @@ export default (state = initialState, action) => {
         case SERVER_COUNTRY_LIST: {
             return state.merge(action.countries.residence_list);
         }
-        default : {
+        default: {
             return state;
         }
     }

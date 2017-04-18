@@ -1,8 +1,5 @@
 import { fromJS } from 'immutable';
-import {
-    updateActiveLayout,
-    updateTradeUIState,
-} from '../../_actions';
+import { updateActiveLayout, updateTradeUIState } from '../../_actions';
 import * as types from '../../_constants/ActionTypes';
 import reducer from '../trades/TradesUIStateReducer';
 
@@ -24,7 +21,10 @@ describe('UIStateReducer', () => {
 
     it('should remove specified params object when REMOVE_TRADE received', () => {
         const action = { type: types.REMOVE_TRADE, index: 1 };
-        const actual = reducer(fromJS([defaultUIState, defaultUIState]), action);
+        const actual = reducer(
+            fromJS([defaultUIState, defaultUIState]),
+            action,
+        );
         expect(actual.toJS().length).toEqual(1);
     });
 });

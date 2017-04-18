@@ -31,24 +31,63 @@ import StatementTesting from '../contract-details/ForTesting';
 
 export default [
     { path: 'trades', component: TradesPage, onEnter: requireAuthOnEnter },
-    { path: 'statement-view/:id', component: StatementTesting, onEnter: requireAuthOnEnter },
+    {
+        path: 'statement-view/:id',
+        component: StatementTesting,
+        onEnter: requireAuthOnEnter,
+    },
     { path: 'trade', component: SingleTradePage, onEnter: requireAuthOnEnter },
     { path: 'jp-trade', component: JpTradePage, onEnter: requireAuthOnEnter },
     { path: 'header', component: WebHeader, onEnter: requireAuthOnEnter },
-    { path: 'workspace', component: WorkspaceContainer, onEnter: requireAuthOnEnter },
-    { path: 'portfolio-only', component: PortfolioPage, onEnter: requireAuthOnEnter },
-    { path: 'statement-only', component: StatementPage, onEnter: requireAuthOnEnter },
+    {
+        path: 'workspace',
+        component: WorkspaceContainer,
+        onEnter: requireAuthOnEnter,
+    },
+    {
+        path: 'portfolio-only',
+        component: PortfolioPage,
+        onEnter: requireAuthOnEnter,
+    },
+    {
+        path: 'statement-only',
+        component: StatementPage,
+        onEnter: requireAuthOnEnter,
+    },
     { path: 'signup-only', component: CreateAccountPage },
     { path: 'upgrade-only', component: UpgradeContainer },
-    { path: 'watchlist-only', component: WatchlistPage, onEnter: requireAuthOnEnter },
+    {
+        path: 'watchlist-only',
+        component: WatchlistPage,
+        onEnter: requireAuthOnEnter,
+    },
     { path: 'asset-details-only', component: AssetDetailsPage },
-    { path: 'asset-index', component: AssetIndexPage, onEnter: requireAuthOnEnter, childRoutes: [
-        { path: ':market', component: AssetIndexTable, onEnter: requireAuthOnEnter },
-    ] },
-    { path: 'trading-times', component: TradingTimesPage, onEnter: requireAuthOnEnter, childRoutes: [
-        { path: ':market', component: TradingTimesTable, onEnter: requireAuthOnEnter },
-    ] },
-    { path: 'settings-only',
+    {
+        path: 'asset-index',
+        component: AssetIndexPage,
+        onEnter: requireAuthOnEnter,
+        childRoutes: [
+            {
+                path: ':market',
+                component: AssetIndexTable,
+                onEnter: requireAuthOnEnter,
+            },
+        ],
+    },
+    {
+        path: 'trading-times',
+        component: TradingTimesPage,
+        onEnter: requireAuthOnEnter,
+        childRoutes: [
+            {
+                path: ':market',
+                component: TradingTimesTable,
+                onEnter: requireAuthOnEnter,
+            },
+        ],
+    },
+    {
+        path: 'settings-only',
         indexRoute: { component: SettingsPersonalDetails },
         onEnter: requireAuthOnEnter,
         component: SettingsPage,

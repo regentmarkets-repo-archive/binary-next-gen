@@ -10,7 +10,7 @@ describe('ContractDetailsList', () => {
             transaction_ids: {},
         };
         expect(() =>
-            shallow(<ContractDetailsList contract={simplestContract} />)
+            shallow(<ContractDetailsList contract={simplestContract} />),
         ).not.toThrow();
     });
 
@@ -23,7 +23,7 @@ describe('ContractDetailsList', () => {
         const wrapper = render(
             <IntlProvider locale="en">
                 <ContractDetailsList contract={contractWithBarrier} />
-            </IntlProvider>
+            </IntlProvider>,
         );
         expect(wrapper.text()).toContain('123');
     });
@@ -37,7 +37,7 @@ describe('ContractDetailsList', () => {
         const wrapper = render(
             <IntlProvider locale="en">
                 <ContractDetailsList contract={digitContract} />
-            </IntlProvider>
+            </IntlProvider>,
         );
         expect(wrapper.text()).not.toContain('123');
     });

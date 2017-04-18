@@ -29,16 +29,16 @@ describe('watchlistSelectors', () => {
 
     it('should asemble a view model from input selectors', () => {
         const state = {
-            assets: fromJS([{
-                symbol: 'R_100',
-                display_name: 'Random 100 Index',
-            }]),
+            assets: fromJS([
+                {
+                    symbol: 'R_100',
+                    display_name: 'Random 100 Index',
+                },
+            ]),
             ticks: fromJS({
                 R_100: [{ quote: 100 }, { quote: 123 }],
             }),
-            watchlist: new Set([
-                'R_100',
-            ]),
+            watchlist: new Set(['R_100']),
         };
 
         const watchlistView = watchlistSelectors(state).watchlistView.toJS();
@@ -52,16 +52,15 @@ describe('watchlistSelectors', () => {
 
     it('should not return assets not currently active', () => {
         const state = {
-            assets: fromJS([{
-                symbol: 'R_100',
-            }]),
+            assets: fromJS([
+                {
+                    symbol: 'R_100',
+                },
+            ]),
             ticks: fromJS({
                 R_100: [{ quote: 100 }, { quote: 123 }],
             }),
-            watchlist: new Set([
-                'R_100',
-                'NON EXISTING',
-            ]),
+            watchlist: new Set(['R_100', 'NON EXISTING']),
         };
 
         const watchlistView = watchlistSelectors(state).watchlistView.toJS();

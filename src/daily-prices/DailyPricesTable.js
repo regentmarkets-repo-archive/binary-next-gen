@@ -3,7 +3,6 @@ import { Th } from 'binary-components';
 import DailyPricesRow from './DailyPricesRow';
 
 export default class DailyPricesTable extends PureComponent {
-
     props: {
         dailyPrices: any[],
     };
@@ -23,9 +22,9 @@ export default class DailyPricesTable extends PureComponent {
                     </tr>
                 </thead>
                 <tbody>
-                    {dailyPrices.map(x =>
+                    {dailyPrices.map(x => (
                         <DailyPricesRow key={x.date} {...x} />
-                    )}
+                    ))}
                 </tbody>
             </table>
         );

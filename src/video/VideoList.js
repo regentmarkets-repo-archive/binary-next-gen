@@ -8,7 +8,6 @@ type Video = {
 };
 
 export default class VideoList extends PureComponent {
-
     props: {
         videos: Video[],
         onSelect: (e: SyntheticEvent) => void,
@@ -19,7 +18,7 @@ export default class VideoList extends PureComponent {
 
         return (
             <div className="video-list scrollable">
-                {videos.map(video =>
+                {videos.map(video => (
                     <VideoThumbnail
                         key={video.videoId}
                         title={video.title}
@@ -27,7 +26,7 @@ export default class VideoList extends PureComponent {
                         videoId={video.videoId}
                         onClick={onSelect}
                     />
-                )}
+                ))}
             </div>
         );
     }

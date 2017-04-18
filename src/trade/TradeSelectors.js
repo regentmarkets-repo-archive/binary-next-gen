@@ -10,5 +10,5 @@ export default createSelector(
             contractReceiptProps: receipts.get(i),
             chartProps: charts.get(i),
             paramsProps: p,
-        }))
+        })),
 );

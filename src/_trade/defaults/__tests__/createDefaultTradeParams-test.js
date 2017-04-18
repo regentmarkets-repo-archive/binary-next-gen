@@ -10,12 +10,8 @@ describe('createDefaultTradeParams', () => {
                             {},
                             {
                                 date: '2016-08-09T00:00:00.000Z',
-                                open: [
-                                    new Date('2016-08-09T07:15:00.000Z'),
-                                ],
-                                close: [
-                                    '2016-08-09T18:30:00.000Z',
-                                ],
+                                open: [new Date('2016-08-09T07:15:00.000Z')],
+                                close: ['2016-08-09T18:30:00.000Z'],
                             },
                         ],
                         options: [

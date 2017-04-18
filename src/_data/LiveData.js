@@ -3,7 +3,10 @@ import { showError, timeLeftToNextRealityCheck } from 'binary-utils';
 import { readNewsFeed } from './NewsData';
 import { getVideosFromPlayList } from './VideoData';
 import * as actions from '../_actions';
-import { CHANGE_INFO_FOR_ASSET, SET_DEFAULT_CURRENCY } from '../_constants/ActionTypes';
+import {
+    CHANGE_INFO_FOR_ASSET,
+    SET_DEFAULT_CURRENCY,
+} from '../_constants/ActionTypes';
 
 const handlers = {
     active_symbols: 'serverDataActiveSymbols',
@@ -42,11 +45,11 @@ const configForChart = Object.assign({ keepAlive: true }, bootConfig);
 delete configForChart.connection;
 
 const memoizedWebsocketConn = [
-    new ApiConstructor(configForChart),        // for contract chart
-    new ApiConstructor(configForChart),        // for first trade
+    new ApiConstructor(configForChart), // for contract chart
+    new ApiConstructor(configForChart), // for first trade
 ];
 
-export const chartApi = (n) => {
+export const chartApi = n => {
     while (!memoizedWebsocketConn[n]) {
         memoizedWebsocketConn.push(new ApiConstructor(configForChart));
     }
@@ -60,9 +63,14 @@ export const changeLanguage = langCode => {
     api.getTradingTimes(new Date());
 };
 
-export const getTickHistory = async (symbol) => {
+export const getTickHistory = async symbol => {
     try {
-        await api.getTickHistory(symbol, { end: 'latest', count: 10, subscribe: 1, adjust_start_time: 1 });
+        await api.getTickHistory(symbol, {
+            end: 'latest',
+            count: 10,
+            subscribe: 1,
+            adjust_start_time: 1,
+        });
     } catch (err) {
         await api.getTickHistory(symbol, { end: 'latest', count: 10 });
     }
@@ -82,7 +90,8 @@ const initAuthorized = async (authData, store) => {
     api.unsubscribeFromAllPortfolios();
     api.unsubscribeFromAllProposalsOpenContract();
 
-    api.getLandingCompanyDetails(authData.authorize.landing_company_name)
+    api
+        .getLandingCompanyDetails(authData.authorize.landing_company_name)
         .then(r => {
             const details = r.landing_company_details;
 
@@ -99,14 +108,23 @@ const initAuthorized = async (authData, store) => {
                         .then(() => store.dispatch(actions.initRealityCheck()));
                 } else {
                     const interval = state.realityCheck.get('interval');
-                    const loginTime = state.realityCheck.getIn(['summary', 'loginTime']);
-                    const timeToWait = timeLeftToNextRealityCheck(loginTime, interval) * 1000;
+                    const loginTime = state.realityCheck.getIn([
+                        'summary',
+                        'loginTime',
+                    ]);
+                    const timeToWait =
+                        timeLeftToNextRealityCheck(loginTime, interval) * 1000;
                     store
                         .dispatch(actions.updateRealityCheckSummary())
-                        .then(() => setTimeout(() =>
-                            store.dispatch(actions.showRealityCheckPopUp()),
-                            timeToWait
-                        ));
+                        .then(() =>
+                            setTimeout(
+                                () =>
+                                    store.dispatch(
+                                        actions.showRealityCheckPopUp(),
+                                    ),
+                                timeToWait,
+                            ),
+                        );
                 }
             } else {
                 store.dispatch(actions.disableRealityCheck());
@@ -117,7 +135,9 @@ const initAuthorized = async (authData, store) => {
         if (!state.watchlist) {
             return;
         }
-        const existingWatchlist = state.watchlist.filter(w => assets.find(x => x.symbol === w));
+        const existingWatchlist = state.watchlist.filter(w =>
+            assets.find(x => x.symbol === w),
+        );
         existingWatchlist.forEach(getTickHistory);
     };
 
@@ -127,28 +147,44 @@ const initAuthorized = async (authData, store) => {
             const isOpen = a.exchange_is_open === 1;
             const allowStartLater = a.allow_forward_starting === 1;
             const suspended = a.is_trading_suspended === 1;
-            return (!suspended && (isOpen || allowStartLater));
+            return !suspended && (isOpen || allowStartLater);
         });
 
-        const firstOpenActiveSymbol = tradableSymbols.find(a => a.exchange_is_open === 1);
-        let symbolToUse = firstOpenActiveSymbol ? firstOpenActiveSymbol.symbol : tradableSymbols[0].symbol;
+        const firstOpenActiveSymbol = tradableSymbols.find(
+            a => a.exchange_is_open === 1,
+        );
+        let symbolToUse = firstOpenActiveSymbol
+            ? firstOpenActiveSymbol.symbol
+            : tradableSymbols[0].symbol;
 
         const layout = state.workspace.get('layoutN');
 
         if (cachedParams.length > 0) {
             const allowedSymbols = cachedParams
-                .filter(c => tradableSymbols.some(a => a.symbol === c.symbol)).map(a => a.symbol);
+                .filter(c => tradableSymbols.some(a => a.symbol === c.symbol))
+                .map(a => a.symbol);
 
             const needToAdd = cachedParams.length - allowedSymbols.length;
 
-            const newSymbols = tradableSymbols.filter(a => a.exchange_is_open === 1).slice(0, needToAdd).map(a => a.symbol);
+            const newSymbols = tradableSymbols
+                .filter(a => a.exchange_is_open === 1)
+                .slice(0, needToAdd)
+                .map(a => a.symbol);
 
             const symbols = allowedSymbols.concat(newSymbols);
 
             symbolToUse = symbols[0];
 
-            symbols.forEach((s, idx) => store.dispatch(actions.createTrade(idx, s)));
-            store.dispatch(actions.updateActiveLayout(cachedParams.length, layout, symbols));
+            symbols.forEach((s, idx) =>
+                store.dispatch(actions.createTrade(idx, s)),
+            );
+            store.dispatch(
+                actions.updateActiveLayout(
+                    cachedParams.length,
+                    layout,
+                    symbols,
+                ),
+            );
         } else {
             store.dispatch(actions.resetTrades());
             store.dispatch(actions.changeActiveLayout(1, 1));
@@ -203,5 +239,8 @@ export const connect = async store => {
         api.events.on(key, () => window.console.warn);
     });
     api.getResidences();
-    api.events.on('authorize', response => response.error ? null : initAuthorized(response, store));
+    api.events.on(
+        'authorize',
+        response => (response.error ? null : initAuthorized(response, store)),
+    );
 };

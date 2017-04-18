@@ -19,8 +19,14 @@ export const internalTradeModelToChartTradeModel = tradeObj => {
         pipSize,
     } = tradeObj;
 
-    const b1 = barrier && (barrierType === 'relative' ? numberToSignedString(barrier) : +barrier);
-    const b2 = barrier2 && (barrierType === 'relative' ? numberToSignedString(barrier2) : +barrier2);
+    const b1 =
+        barrier &&
+        (barrierType === 'relative' ? numberToSignedString(barrier) : +barrier);
+    const b2 =
+        barrier2 &&
+        (barrierType === 'relative'
+            ? numberToSignedString(barrier2)
+            : +barrier2);
 
     const serverModel = {
         amount,
@@ -54,7 +60,11 @@ export const serverContractModelToChartContractModel = boughtContract => {
     return cloned;
 };
 
-export const internalTradeModelToProposalModel = (tradeObject, symbol, currency) => {
+export const internalTradeModelToProposalModel = (
+    tradeObject,
+    symbol,
+    currency,
+) => {
     const temp = internalTradeModelToChartTradeModel(tradeObject);
     delete temp.barrierType;
     temp.symbol = symbol;

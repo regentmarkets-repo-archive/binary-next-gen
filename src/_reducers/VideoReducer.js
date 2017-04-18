@@ -8,7 +8,7 @@ export default (state = initialState, action) => {
         case UPDATE_VIDEO_LIST: {
             return state.merge(action.videos);
         }
-        default : {
+        default: {
             return state;
         }
     }

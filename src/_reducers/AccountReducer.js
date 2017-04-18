@@ -38,10 +38,16 @@ export default (state = initialState, action) => {
             return state.set('balance', action.serverResponse.balance.balance);
         }
         case SERVER_DATA_BUY: {
-            return state.setIn(['account', 'balance'], action.serverResponse.balance_after);
+            return state.setIn(
+                ['account', 'balance'],
+                action.serverResponse.balance_after,
+            );
         }
         case SERVER_DATA_PAYOUT_CURRENCIES: {
-            return state.set('currencies', action.serverResponse.payout_currencies);
+            return state.set(
+                'currencies',
+                action.serverResponse.payout_currencies,
+            );
         }
         case UPDATE_TOKEN: {
             return state.set('token', action.token);

@@ -7,10 +7,6 @@ import RealityCheckSelector from './RealityCheckSelector';
 @connect(RealityCheckSelector)
 export default class RealityCheckContainer extends PureComponent {
     render() {
-        return (
-            <RealityCheckWeb
-                {...immutableChildrenToJS(this.props)}
-            />
-        );
+        return <RealityCheckWeb {...immutableChildrenToJS(this.props)} />;
     }
 }

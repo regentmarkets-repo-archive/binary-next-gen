@@ -4,7 +4,6 @@ import LayoutButton from './LayoutButton';
 import { layoutNumbers } from './layouts';
 
 export default class LayoutButtonList extends PureComponent {
-
     props: {
         tradesCount: number,
         layoutN: number,
@@ -15,14 +14,16 @@ export default class LayoutButtonList extends PureComponent {
 
         return (
             <div className={styles.layoutBtnList}>
-                {layoutNumbers().map(x =>
+                {layoutNumbers().map(x => (
                     <LayoutButton
                         key={`${x.trade}-${x.layout}`}
-                        isActive={tradesCount === x.trade && layoutN === x.layout}
+                        isActive={
+                            tradesCount === x.trade && layoutN === x.layout
+                        }
                         tradesCount={x.trade}
                         layoutN={x.layout}
                     />
-                )}
+                ))}
             </div>
         );
     }

@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 
 export default class JpPeriodPicker extends PureComponent {
-
     render() {
         return (
             <select id="period">

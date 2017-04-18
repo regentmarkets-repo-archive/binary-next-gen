@@ -8,17 +8,12 @@ type Props = {
     trade: Object,
 };
 
-
 @connect(state => ({ trade: trades(state).first() }))
 export default class MobileTradeContainer extends PureComponent {
-
     props: Props;
 
     render() {
         const { trade } = this.props;
-        return (
-            <TradeCard {...this.props} {...trade} />
-        );
+        return <TradeCard {...this.props} {...trade} />;
     }
 }
-

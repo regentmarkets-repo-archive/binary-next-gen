@@ -7,9 +7,24 @@ import createDefaultBarrierType from './createDefaultBarrierType';
 export default (contracts, symbol, isOpen) => {
     const category = createDefaultCategory(contracts);
     const type = createDefaultType(contracts, category);
-    const { duration, durationUnit, dateStart } = createDefaultDuration(contracts, category, type, isOpen);
-    const barriers = createDefaultBarriers({ contracts, category, type, duration, durationUnit });
-    const barrierType = createDefaultBarrierType(duration, durationUnit, category);
+    const { duration, durationUnit, dateStart } = createDefaultDuration(
+        contracts,
+        category,
+        type,
+        isOpen,
+    );
+    const barriers = createDefaultBarriers({
+        contracts,
+        category,
+        type,
+        duration,
+        durationUnit,
+    });
+    const barrierType = createDefaultBarrierType(
+        duration,
+        durationUnit,
+        category,
+    );
 
     return {
         symbol,

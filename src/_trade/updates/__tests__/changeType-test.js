@@ -1,6 +1,8 @@
 import rawContract from 'binary-test-data/contractsForR50';
 import changeType from '../changeType';
-import { tradingOptionsForOneSymbol } from '../../../trade-params/TradeParamsSelector';
+import {
+    tradingOptionsForOneSymbol,
+} from '../../../trade-params/TradeParamsSelector';
 import areAllTimeFieldsValid from '../../validation/areAllTimeFieldsValid';
 
 const mockTickTrade = {
@@ -21,12 +23,22 @@ const mockedContract = tradingOptionsForOneSymbol(rawContract);
 
 describe('changeType', () => {
     it('should change type', () => {
-        const updatedType = changeType('CALL', 'risefall', mockedContract, mockTickTrade);
+        const updatedType = changeType(
+            'CALL',
+            'risefall',
+            mockedContract,
+            mockTickTrade,
+        );
         expect(updatedType.type).toEqual('CALL');
     });
 
     it('should update barrier(s) if target type have barrier(s)', () => {
-        const updatedType = changeType('CALL', 'higherlower', mockedContract, mockTickTrade);
+        const updatedType = changeType(
+            'CALL',
+            'higherlower',
+            mockedContract,
+            mockTickTrade,
+        );
         expect(updatedType.type).toEqual('CALL');
 
         // barrier are added as higherlower need it
@@ -34,17 +46,38 @@ describe('changeType', () => {
     });
 
     it('should return correct time related params', () => {
-        const { dateStart, duration, durationUnit } =
-            changeType('CALL', 'higherlower', mockedContract, mockTickTrade);
+        const { dateStart, duration, durationUnit } = changeType(
+            'CALL',
+            'higherlower',
+            mockedContract,
+            mockTickTrade,
+        );
 
-        expect(areAllTimeFieldsValid(dateStart, duration, durationUnit, mockedContract.higherlower.CALL)).toEqual(true);
+        expect(
+            areAllTimeFieldsValid(
+                dateStart,
+                duration,
+                durationUnit,
+                mockedContract.higherlower.CALL,
+            ),
+        ).toEqual(true);
     });
 
     it('should differentiate between higherlower and risefall', () => {
-        const highTrade = changeType('CALL', 'higherlower', mockedContract, mockTickTrade);
+        const highTrade = changeType(
+            'CALL',
+            'higherlower',
+            mockedContract,
+            mockTickTrade,
+        );
         expect(highTrade.barrier).toBeDefined();
 
-        const rise = changeType('CALL', 'risefall', mockedContract, mockTickTrade);
+        const rise = changeType(
+            'CALL',
+            'risefall',
+            mockedContract,
+            mockTickTrade,
+        );
         expect(rise.barrier).toBeUndefined();
     });
 

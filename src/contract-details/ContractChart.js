@@ -2,7 +2,10 @@ import React, { PureComponent, PropTypes } from 'react';
 import { BinaryChart } from 'binary-charts';
 import { isMobile, nowAsEpoch, computeStartEndForContract } from 'binary-utils';
 import { chartApi, api as CoreApi } from '../_data/LiveData';
-import { chartToDataType, getDataWithErrorHandling } from '../_chart-utils/Utils';
+import {
+    chartToDataType,
+    getDataWithErrorHandling,
+} from '../_chart-utils/Utils';
 
 type Props = {
     contract: Contract,
@@ -11,7 +14,6 @@ type Props = {
 };
 
 export default class ContractChart extends PureComponent {
-
     static contextTypes = {
         theme: PropTypes.oneOf(['light', 'dark']),
     };
@@ -29,7 +31,7 @@ export default class ContractChart extends PureComponent {
         };
         this.api = chartApi(0);
         this.hasTick = true;
-        this.contractEnd = undefined;       // used to know when to unsubscribe
+        this.contractEnd = undefined; // used to know when to unsubscribe
     }
 
     componentWillMount() {
@@ -37,10 +39,12 @@ export default class ContractChart extends PureComponent {
             if (!this.hasTick) {
                 this.api.events.ignoreAll('tick');
                 const { contract } = this.props;
-                throw new Error(`Not supposed to have tick stream! Contract: ${JSON.stringify(contract)}`);
+                throw new Error(
+                    `Not supposed to have tick stream! Contract: ${JSON.stringify(contract)}`,
+                );
             }
 
-            this.ticksId = data.tick.id;            // problematic, sometimes it will both be ohlc stream, and screw u !!
+            this.ticksId = data.tick.id; // problematic, sometimes it will both be ohlc stream, and screw u !!
 
             const old = this.state.ticks;
             const newTick = {
@@ -86,7 +90,10 @@ export default class ContractChart extends PureComponent {
                 newOHLCArr.push(newOHLC);
 
                 if (!this.hasTick) {
-                    const newTicks = newOHLCArr.map(c => ({ epoch: +c.epoch, quote: +c.close }));
+                    const newTicks = newOHLCArr.map(c => ({
+                        epoch: +c.epoch,
+                        quote: +c.close,
+                    }));
                     this.setState({ ticks: newTicks, candles: newOHLCArr });
                 } else {
                     this.setState({ candles: newOHLCArr });
@@ -95,7 +102,10 @@ export default class ContractChart extends PureComponent {
                 const newCandles = old.concat([newOHLC]);
 
                 if (!this.hasTick) {
-                    const newTicks = newCandles.map(c => ({ epoch: +c.epoch, quote: +c.close }));
+                    const newTicks = newCandles.map(c => ({
+                        epoch: +c.epoch,
+                        quote: +c.close,
+                    }));
                     this.setState({ ticks: newTicks, candles: newCandles });
                 } else {
                     this.setState({ candles: newCandles });
@@ -132,7 +142,7 @@ export default class ContractChart extends PureComponent {
     unsubscribe = () => {
         if (this.ticksId) this.api.unsubscribeByID(this.ticksId);
         if (this.ohlcId) this.api.unsubscribeByID(this.ohlcId);
-    }
+    };
 
     updateData = (data, type) => {
         if (type === 'ticks') {
@@ -142,7 +152,7 @@ export default class ContractChart extends PureComponent {
         }
 
         return data;
-    }
+    };
 
     prepareDataForChart = () => {
         const { contract } = this.props;
@@ -170,20 +180,19 @@ export default class ContractChart extends PureComponent {
         if (durationInSecs < 90 * 60) {
             this.hasTick = true;
 
-            const getTicksDataCall = (errCode) => {
+            const getTicksDataCall = errCode => {
                 if (errCode === 'StreamingNotAllowed') {
                     this.setState({ noData: true });
                     return Promise.resolve();
                 }
 
-                return this.api
-                    .getTickHistory(contract.underlying, {
-                        start,
-                        end,
-                        count: 4999,
-                        adjust_start_time: 1,
-                        subscribe: toStream && !errCode ? 1 : undefined,
-                    });
+                return this.api.getTickHistory(contract.underlying, {
+                    start,
+                    end,
+                    count: 4999,
+                    adjust_start_time: 1,
+                    subscribe: toStream && !errCode ? 1 : undefined,
+                });
             };
 
             getDataWithErrorHandling(getTicksDataCall).then(r => {
@@ -199,7 +208,7 @@ export default class ContractChart extends PureComponent {
             this.hasTick = false;
         }
 
-        const getDataCall = (errCode) => {
+        const getDataCall = errCode => {
             if (errCode === 'StreamingNotAllowed') {
                 this.setState({ noData: true });
                 return Promise.resolve();
@@ -207,14 +216,14 @@ export default class ContractChart extends PureComponent {
 
             // if contract started less than 4 minutes ago, we need to get more candles
             // else there will only be 1 candles, which makes it impossible to know what interval to use
-            const lessThan4Minutes = (nowEpoch - start) < 4 * 60;
+            const lessThan4Minutes = nowEpoch - start < 4 * 60;
 
             return this.api.autoAdjustGetData(
                 contract.underlying,
                 lessThan4Minutes ? nowEpoch - 240 : start,
                 end,
                 'candles',
-                toStream && !errCode
+                toStream && !errCode,
             );
         };
 
@@ -226,11 +235,14 @@ export default class ContractChart extends PureComponent {
             // for long contract, dont fetch ticks to avoid multiple huge network call
             // use OHLC value to represent ticks data instead
             if (!this.hasTick) {
-                const ticksDerivedFromOHLC = r.candles.map(c => ({ epoch: +c.epoch, quote: +c.close }));
+                const ticksDerivedFromOHLC = r.candles.map(c => ({
+                    epoch: +c.epoch,
+                    quote: +c.close,
+                }));
                 this.updateData(ticksDerivedFromOHLC, 'ticks');
             }
         });
-    }
+    };
 
     changeChartType = (type: ChartType) => {
         const { chartType } = this.state;
@@ -240,7 +252,8 @@ export default class ContractChart extends PureComponent {
 
         // no candles for contract less than 5 minutes
         // tick_count is checked too, because date_expiry is not available in tick trade contract
-        const allowCandle = !contract.tick_count && (date_expiry - date_start) > 300;
+        const allowCandle =
+            !contract.tick_count && date_expiry - date_start > 300;
         const newDataType = chartToDataType[type];
 
         if ((!allowCandle && newDataType === 'candles') || chartType === type) {
@@ -253,19 +266,25 @@ export default class ContractChart extends PureComponent {
         }
 
         this.setState({ chartType: type, dataType: newDataType });
-    }
+    };
 
     render() {
         const { contract, pipSize, highContrast } = this.props;
         const { theme } = this.context;
-        const { date_start, date_expiry, exit_tick_time, sell_spot_time, tick_count } = contract;
+        const {
+            date_start,
+            date_expiry,
+            exit_tick_time,
+            sell_spot_time,
+            tick_count,
+        } = contract;
         const { chartType, dataType, noData } = this.state;
         const data = this.state[dataType];
         const endTime = exit_tick_time || sell_spot_time;
 
         // handle edge case where contract ends before it starts, show No data available message on chart
-        const hasNoData = (+date_start > +endTime) || noData;
-        const allowOHLC = !tick_count && (date_expiry - date_start) > 300;
+        const hasNoData = +date_start > +endTime || noData;
+        const allowOHLC = !tick_count && date_expiry - date_start > 300;
         return (
             <BinaryChart
                 allowOHLC={allowOHLC}

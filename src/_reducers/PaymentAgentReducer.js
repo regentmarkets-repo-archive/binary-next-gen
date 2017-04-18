@@ -19,7 +19,9 @@ const initialState = fromJS({
 export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_PAYMENT_AGENTS: {
-            return state.merge({ paymentAgents: action.serverResponse.paymentagent_list.list });
+            return state.merge({
+                paymentAgents: action.serverResponse.paymentagent_list.list,
+            });
         }
         case UPDATE_PAYMENT_AGENT_FIELD: {
             return state.set(action.fieldName, action.fieldValue);

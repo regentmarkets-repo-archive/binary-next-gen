@@ -12,11 +12,6 @@ export default class WebRoot extends PureComponent {
 
     render() {
         const { authorized } = this.props;
-        return (
-            authorized ?
-                <WebCard /> :
-                <HelloMobile />
-        );
+        return authorized ? <WebCard /> : <HelloMobile />;
     }
 }
-

@@ -1,4 +1,9 @@
-import { createStore, applyMiddleware, compose, bindActionCreators } from 'redux';
+import {
+    createStore,
+    applyMiddleware,
+    compose,
+    bindActionCreators,
+} from 'redux';
 import thunkMiddleware from 'redux-thunk';
 import storage from 'redux-storage';
 import immutableMerger from 'redux-storage-merger-immutablejs';
@@ -12,24 +17,33 @@ import removeNullMiddleware from './removeNullMiddleware';
 import tradeParamsSaga from '../_trade/saga';
 import * as allActions from '../_actions';
 
-const storageMiddleware = storage.createMiddleware(storageEngine, [], actionsToCache);
+const storageMiddleware = storage.createMiddleware(
+    storageEngine,
+    [],
+    actionsToCache,
+);
 const storageReducer = storage.reducer(rootReducer, immutableMerger);
 const storageLoader = storage.createLoader(storageEngine);
 
 const sagaMiddleware = createSagaMiddleware();
 const finalCreateStore = compose(
-    applyMiddleware(removeNullMiddleware, thunkMiddleware, storageMiddleware, sagaMiddleware),
-    enableDevTools()
+    applyMiddleware(
+        removeNullMiddleware,
+        thunkMiddleware,
+        storageMiddleware,
+        sagaMiddleware,
+    ),
+    enableDevTools(),
 )(createStore);
 
 export const store = finalCreateStore(storageReducer);
 
 sagaMiddleware.run(tradeParamsSaga);
 
-export const rehydratedStorePromise = () => storageLoader(store).then(() => {
-    store.dispatch(allActions.updateOutdatedStartDate());
-    return store;
-});
-
+export const rehydratedStorePromise = () =>
+    storageLoader(store).then(() => {
+        store.dispatch(allActions.updateOutdatedStartDate());
+        return store;
+    });
 
 export const actions = bindActionCreators(allActions, store.dispatch);

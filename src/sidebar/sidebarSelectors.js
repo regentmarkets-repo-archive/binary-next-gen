@@ -7,5 +7,5 @@ export default createSelector(
         loginid: currentAccount.get('loginid'),
         email: currentAccount.get('email'),
         accounts: boot.get('accounts'),
-    })
+    }),
 );

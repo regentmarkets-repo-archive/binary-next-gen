@@ -19,10 +19,15 @@ describe('PurchaseInfoReducer', () => {
 
     it('should remove purchase info when CLOSE_CONTRACT_RECEPIT received', () => {
         const action = closeContractReceipt(0);
-        const actual = reducer(fromJS[{
-            mostRecentContractId: 1234556,
-            lastBoughtContract: {},
-        }], action);
+        const actual = reducer(
+            fromJS[
+                {
+                    mostRecentContractId: 1234556,
+                    lastBoughtContract: {},
+                }
+            ],
+            action,
+        );
 
         expect(actual.toJS()[0]).toEqual({});
     });
@@ -39,7 +44,10 @@ describe('PurchaseInfoReducer', () => {
 
     it('should remove specified object when REMOVE_TRADE received', () => {
         const action = { type: types.REMOVE_TRADE, index: 1 };
-        const actual = reducer(fromJS([defaultPurchaseInfo, defaultPurchaseInfo]), action);
+        const actual = reducer(
+            fromJS([defaultPurchaseInfo, defaultPurchaseInfo]),
+            action,
+        );
         expect(actual.toJS().length).toEqual(1);
     });
 });

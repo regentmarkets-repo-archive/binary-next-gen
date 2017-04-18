@@ -35,13 +35,21 @@ export default (state = initialState, action) => {
             if (countDiff > 0) {
                 const { assetChoices } = action;
                 if (assetChoices && assetChoices.length < countDiff) {
-                    throw new Error('Not enough asset choices to create more trade');
+                    throw new Error(
+                        'Not enough asset choices to create more trade',
+                    );
                 }
-                const additionalTradeParams = Repeat(fromJS(defaultParams), countDiff);  // eslint-disable-line new-cap
+                const additionalTradeParams = Repeat(
+                    fromJS(defaultParams),
+                    countDiff,
+                ); // eslint-disable-line new-cap
 
                 if (assetChoices) {
-                    return state
-                        .concat(additionalTradeParams.map((v, i) => v.set('symbol', assetChoices[i])));
+                    return state.concat(
+                        additionalTradeParams.map((v, i) =>
+                            v.set('symbol', assetChoices[i]),
+                        ),
+                    );
                 }
 
                 return state.concat(additionalTradeParams);
@@ -57,7 +65,10 @@ export default (state = initialState, action) => {
             if (!state.get(action.index)) {
                 return state;
             }
-            return state.setIn([action.index, action.fieldName], action.fieldValue);
+            return state.setIn(
+                [action.index, action.fieldName],
+                action.fieldValue,
+            );
         }
         case UPDATE_MULTIPLE_TRADE_PARAMS: {
             const { index, params } = action;
@@ -78,20 +89,23 @@ export default (state = initialState, action) => {
         case REMOVE_PERSONAL_DATA: {
             return initialState;
         }
-
         // special handling code to modify cached start date that's not valid
         case UPDATE_OUTDATED_START_DATE: {
             const now = nowAsEpoch();
-            return state.map(t => t.update('dateStart', v => {
-                if (v && v < now + 350) {
-                    const newDateInSecondsResolution = now + 350;
-                    const newDateInMinutesResolution = newDateInSecondsResolution - (newDateInSecondsResolution % 60);
-                    return newDateInMinutesResolution;
-                }
-                return v;
-            }));
+            return state.map(t =>
+                t.update('dateStart', v => {
+                    if (v && v < now + 350) {
+                        const newDateInSecondsResolution = now + 350;
+                        const newDateInMinutesResolution =
+                            newDateInSecondsResolution -
+                            newDateInSecondsResolution % 60;
+                        return newDateInMinutesResolution;
+                    }
+                    return v;
+                }),
+            );
         }
-        default: return state;
+        default:
+            return state;
     }
 };
-

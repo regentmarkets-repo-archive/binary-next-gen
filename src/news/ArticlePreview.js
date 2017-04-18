@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 
 export default class ArticlePreview extends PureComponent {
-
     props: {
         title: string,
         description: string,
@@ -11,7 +10,7 @@ export default class ArticlePreview extends PureComponent {
     openArticle = () => {
         const { url } = this.props;
         window.open(url, '_blank');
-    }
+    };
 
     render() {
         const { description, title } = this.props;

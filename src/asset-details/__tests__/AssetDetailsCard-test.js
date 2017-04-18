@@ -23,7 +23,9 @@ describe('<AssetDetailsCard />', () => {
             },
             events: [],
         };
-        const wrapper = shallow(<AssetDetailsCard activeAsset={{}} tradingTimes={tradingTimes} />);
+        const wrapper = shallow(
+            <AssetDetailsCard activeAsset={{}} tradingTimes={tradingTimes} />,
+        );
 
         expect(wrapper.find('AssetDetailsTradingTimes')).toBeDefined();
     });

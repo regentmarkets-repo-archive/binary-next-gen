@@ -8,32 +8,30 @@ export const serverDataPortfolio = serverResponse => ({
     serverResponse,
 });
 
-export const subscribeToOpenContract = contractId =>
-    (dispatch, getState) => {
-        const boughtContracts = getState().boughtContracts;
-        if (!boughtContracts.get(contractId)) {
-            return api.subscribeToOpenContract(contractId)
-                .then(response => {
-                    if (Object.keys(response.proposal_open_contract).length > 0) {
-                        return response.proposal_open_contract;
-                    }
-                    return Promise.reject('Contract does not exist');
-                });
-        }
-        return Promise.resolve(boughtContracts.get(contractId).toJS());
-    };
+export const subscribeToOpenContract = contractId => (dispatch, getState) => {
+    const boughtContracts = getState().boughtContracts;
+    if (!boughtContracts.get(contractId)) {
+        return api.subscribeToOpenContract(contractId).then(response => {
+            if (Object.keys(response.proposal_open_contract).length > 0) {
+                return response.proposal_open_contract;
+            }
+            return Promise.reject('Contract does not exist');
+        });
+    }
+    return Promise.resolve(boughtContracts.get(contractId).toJS());
+};
 
-export const getOpenContract = contractId =>
-    (dispatch, getState) => {
-        const boughtContracts = getState().boughtContracts;
-        if (!boughtContracts.get(contractId)) {
-            return api.getContractInfo(contractId)
-                .then(response => response.proposal_open_contract);
-        }
-        return Promise.resolve(boughtContracts.get(contractId).toJS());
-    };
+export const getOpenContract = contractId => (dispatch, getState) => {
+    const boughtContracts = getState().boughtContracts;
+    if (!boughtContracts.get(contractId)) {
+        return api
+            .getContractInfo(contractId)
+            .then(response => response.proposal_open_contract);
+    }
+    return Promise.resolve(boughtContracts.get(contractId).toJS());
+};
 
-export const detailsForContract = (contractShown) => {
+export const detailsForContract = contractShown => {
     if (!contractShown) {
         return {
             type: types.DETAILS_FOR_CONTRACT,
@@ -42,8 +40,9 @@ export const detailsForContract = (contractShown) => {
     }
     return dispatch => {
         const openContract = dispatch(subscribeToOpenContract(contractShown));
-        return openContract
-            .then(() => dispatch({ type: types.DETAILS_FOR_CONTRACT, contractShown }));
+        return openContract.then(() =>
+            dispatch({ type: types.DETAILS_FOR_CONTRACT, contractShown }),
+        );
     };
 };
 

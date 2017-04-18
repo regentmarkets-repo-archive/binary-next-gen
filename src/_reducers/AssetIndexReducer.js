@@ -1,7 +1,5 @@
 import { fromJS } from 'immutable';
-import {
-    SERVER_DATA_ASSET_INDEX,
-} from '../_constants/ActionTypes';
+import { SERVER_DATA_ASSET_INDEX } from '../_constants/ActionTypes';
 
 const initialState = fromJS([]);
 

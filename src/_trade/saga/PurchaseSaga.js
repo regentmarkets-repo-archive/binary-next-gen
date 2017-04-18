@@ -1,15 +1,23 @@
 import { takeEvery } from 'redux-saga';
 import { select, put } from 'redux-saga/effects';
 import changeAmount from '../updates/changeAmount';
-import { updateMultipleTradeParams, updateOpenContractField } from '../../_actions';
+import {
+    updateMultipleTradeParams,
+    updateOpenContractField,
+} from '../../_actions';
 import { getParams, getProposalId } from './SagaSelectors';
 import { api } from '../../_data/LiveData';
-import { updatePurchasedContract, updateTradeError } from '../../_actions/TradeActions';
-import { unsubscribeProposal, subscribeProposal } from './ProposalSubscriptionSaga';
+import {
+    updatePurchasedContract,
+    updateTradeError,
+} from '../../_actions/TradeActions';
+import {
+    unsubscribeProposal,
+    subscribeProposal,
+} from './ProposalSubscriptionSaga';
 
 const CHANGE_STAKE = 'CHANGE_STAKE';
 const PURCHASE = 'PURCHASE';
-
 
 export const reqStakeChange = (index, stake) => ({
     type: CHANGE_STAKE,
@@ -30,7 +38,9 @@ function* handleStakeChange(action) {
     yield put(unsubscribeProposal(index));
 
     if (+stake <= 0 || stake === '') {
-        yield put(updateTradeError(index, 'stakeError', 'Stake must be more than 0'));
+        yield put(
+            updateTradeError(index, 'stakeError', 'Stake must be more than 0'),
+        );
         return;
     }
 
@@ -51,19 +61,23 @@ function* handlePurchase(action) {
         // reason: we want it to be trigger from transaction stream so that when user buy from other device, we still get the update
         // code: src/_actions/StatementActions
         const { buy } = yield api.buyContract(pid, price);
-        yield put(updateOpenContractField({
-            ...buy,
-            id: buy.contract_id,
-            date_start: buy.start_time,
-            transaction_ids: { buy: buy.transaction_id },
-        }));
+        yield put(
+            updateOpenContractField({
+                ...buy,
+                id: buy.contract_id,
+                date_start: buy.start_time,
+                transaction_ids: { buy: buy.transaction_id },
+            }),
+        );
         onPurchaseDone();
         yield put(updatePurchasedContract(index, buy));
     } catch (err) {
         if (!err.error || !err.error.error) {
-            throw err;                  // rethrow error that we do not expect
+            throw err; // rethrow error that we do not expect
         }
-        yield put(updateTradeError(index, 'serverError', err.error.error.message));
+        yield put(
+            updateTradeError(index, 'serverError', err.error.error.message),
+        );
     } finally {
         yield put(subscribeProposal(index, params));
     }

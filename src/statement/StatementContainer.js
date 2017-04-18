@@ -6,8 +6,7 @@ import statementSelectors from './statementSelectors';
 
 @connect(statementSelectors)
 export default class StatementContainer extends PureComponent {
-
-	render() {
-		return <StatementCard {...immutableChildrenToJS(this.props)} />;
-	}
+    render() {
+        return <StatementCard {...immutableChildrenToJS(this.props)} />;
+    }
 }

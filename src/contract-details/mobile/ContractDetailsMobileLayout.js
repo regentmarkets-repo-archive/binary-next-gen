@@ -7,7 +7,6 @@ type Props = {
 };
 
 export default class ContractDetailsMobileLayout extends PureComponent {
-
     props: Props;
 
     constructor(props: Props) {
@@ -15,8 +14,7 @@ export default class ContractDetailsMobileLayout extends PureComponent {
         this.state = { activeIndex: 0 };
     }
 
-    changeView = (newIndex: number) =>
-        this.setState({ activeIndex: newIndex });
+    changeView = (newIndex: number) => this.setState({ activeIndex: newIndex });
 
     render() {
         const { chartComponent, detailsComponent } = this.props;
@@ -24,10 +22,7 @@ export default class ContractDetailsMobileLayout extends PureComponent {
 
         return (
             <div className="contract-details-tabs">
-                <TabList
-                    activeIndex={activeIndex}
-                    onChange={this.changeView}
-                >
+                <TabList activeIndex={activeIndex} onChange={this.changeView}>
                     <Tab text="Chart" />
                     <Tab text="Details" />
                 </TabList>

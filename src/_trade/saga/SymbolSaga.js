@@ -8,7 +8,6 @@ export const reqSymbolChange = (index, symbol) => ({
     symbol,
 });
 
-
 export default function* watchSymbol() {
     yield takeEvery(CHANGE_SYMBOL, tradeCreation);
 }

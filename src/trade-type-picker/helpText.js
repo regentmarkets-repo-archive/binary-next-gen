@@ -1,4 +1,4 @@
-export default ({
+export default {
     CALL: 'Win if the exit spot is strictly higher than the entry spot.',
     PUT: 'Win if the exit spot is strictly lower than the entry spot.',
     CALL2: 'Win if the exit spot is strictly higher than the barrier.',
@@ -21,4 +21,4 @@ export default ({
     DIGITUNDER: 'Win if the last digit of the last tick is less than your prediction.',
     SPREADU: 'Spread contracts payout based on the movement of the index relative to the entry level of the contract.',
     SPREADD: 'Spread contracts payout based on the movement of the index relative to the entry level of the contract.',
-});
+};

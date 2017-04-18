@@ -6,15 +6,14 @@ export const serverDataStatement = serverResponse => ({
     serverResponse,
 });
 
-export const serverTransactionStream = serverResponse =>
-    (dispatch) => {
-        const tx = serverResponse.transaction;
-        if (tx && tx.action === 'buy') {
-            api.subscribeToOpenContract(tx.contract_id);
-        }
+export const serverTransactionStream = serverResponse => dispatch => {
+    const tx = serverResponse.transaction;
+    if (tx && tx.action === 'buy') {
+        api.subscribeToOpenContract(tx.contract_id);
+    }
 
-        return dispatch({
-            type: types.SERVER_DATA_TRANSACTION,
-            serverResponse,
-        });
-    };
+    return dispatch({
+        type: types.SERVER_DATA_TRANSACTION,
+        serverResponse,
+    });
+};

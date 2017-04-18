@@ -23,7 +23,7 @@ export default class CustomRadioGroup extends PureComponent {
     onClick = (e: SyntheticEvent) => {
         this.setState({ value: e.target.value });
         this.props.onChange(e);
-    }
+    };
 
     render() {
         const { className, options } = this.props;
@@ -31,7 +31,12 @@ export default class CustomRadioGroup extends PureComponent {
         return (
             <div className={classnames('radio-selector', className)}>
                 {options.map((opt, k) => (
-                    <CustomRadioButton key={k} {...opt} onClick={this.onClick} selected={value === opt.value} />
+                    <CustomRadioButton
+                        key={k}
+                        {...opt}
+                        onClick={this.onClick}
+                        selected={value === opt.value}
+                    />
                 ))}
             </div>
         );

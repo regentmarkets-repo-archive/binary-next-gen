@@ -25,11 +25,16 @@ export const mergeTicks = (existingTicks, newTicks) => {
     // if existing ticks contains new ticks, ignore new ticks
     if (
         newTicks[0].epoch > existingTicks[0].epoch &&
-            lastNewTicksEpoch < lastExistingTickEpoch
+        lastNewTicksEpoch < lastExistingTickEpoch
     ) {
         return existingTicks;
     }
-    return mergeSortedArrays(existingTicks, newTicks, x => x.epoch, x => x.epoch);
+    return mergeSortedArrays(
+        existingTicks,
+        newTicks,
+        x => x.epoch,
+        x => x.epoch,
+    );
 };
 
 export default (state = initialState, action) => {
@@ -40,8 +45,12 @@ export default (state = initialState, action) => {
 
             // Do not take old tick
             const selectedSymbol = state.get(symbol);
-            const latestExistingTickEpoch = selectedSymbol && selectedSymbol.takeLast(1).getIn([0, 'epoch']);
-            if (latestExistingTickEpoch && latestExistingTickEpoch > +tick.epoch) {
+            const latestExistingTickEpoch =
+                selectedSymbol &&
+                selectedSymbol.takeLast(1).getIn([0, 'epoch']);
+            if (
+                latestExistingTickEpoch && latestExistingTickEpoch > +tick.epoch
+            ) {
                 return state;
             }
 
@@ -49,7 +58,9 @@ export default (state = initialState, action) => {
                 epoch: +tick.epoch,
                 quote: +tick.quote,
             };
-            return state.update(symbol, List.of(), v => v.takeLast(10000).push(fromJS(newTick)));
+            return state.update(symbol, List.of(), v =>
+                v.takeLast(10000).push(fromJS(newTick)),
+            );
         }
         case SERVER_DATA_TICK_HISTORY: {
             const { times, prices } = action.serverResponse.history;

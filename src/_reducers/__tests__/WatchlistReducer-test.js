@@ -1,6 +1,9 @@
 import { Set } from 'immutable';
 import watchlistReducer from '../WatchlistReducer';
-import { WATCHLIST_TOGGLE_ASSET, REMOVE_PERSONAL_DATA } from '../../_constants/ActionTypes';
+import {
+    WATCHLIST_TOGGLE_ASSET,
+    REMOVE_PERSONAL_DATA,
+} from '../../_constants/ActionTypes';
 
 describe('watchlistReducer', () => {
     it('should be able to subsribe to watchlist', () => {

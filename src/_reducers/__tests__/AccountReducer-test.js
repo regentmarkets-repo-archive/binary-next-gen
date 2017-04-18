@@ -1,6 +1,10 @@
 import { fromJS } from 'immutable';
 import accountReducer from '../AccountReducer';
-import { SERVER_DATA_AUTHORIZE, SERVER_DATA_BALANCE, SERVER_DATA_BUY } from '../../_constants/ActionTypes';
+import {
+    SERVER_DATA_AUTHORIZE,
+    SERVER_DATA_BALANCE,
+    SERVER_DATA_BUY,
+} from '../../_constants/ActionTypes';
 
 describe('accountReducer', () => {
     it('updates data when authorize response is received', () => {

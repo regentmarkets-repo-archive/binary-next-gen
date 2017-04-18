@@ -14,7 +14,7 @@ describe('openContractProposalsReducer', () => {
                 serverResponse: {
                     proposal_open_contract: {
                         contract_id: '123',
-                     },
+                    },
                 },
             };
             const beforeState = fromJS({});
@@ -23,7 +23,10 @@ describe('openContractProposalsReducer', () => {
                     contract_id: '123',
                 },
             });
-            const actualState = openContractProposalReducer(beforeState, action);
+            const actualState = openContractProposalReducer(
+                beforeState,
+                action,
+            );
 
             expect(expectedState).toEqual(actualState);
         });
@@ -33,7 +36,7 @@ describe('openContractProposalsReducer', () => {
                 serverResponse: {
                     proposal_open_contract: {
                         contract_id: '456',
-                     },
+                    },
                 },
             };
             const beforeState = fromJS({
@@ -45,7 +48,10 @@ describe('openContractProposalsReducer', () => {
                 123: { contract_id: '123' },
                 456: { contract_id: '456' },
             });
-            const actualState = openContractProposalReducer(beforeState, action);
+            const actualState = openContractProposalReducer(
+                beforeState,
+                action,
+            );
 
             expect(expectedState).toEqual(actualState);
         });
@@ -56,13 +62,9 @@ describe('openContractProposalsReducer', () => {
             type: SERVER_DATA_PORTFOLIO,
             serverResponse: {
                 portfolio: {
-                    contracts: [
-                        { contract_id: '101' },
-                        { contract_id: '202' },
-                    ],
+                    contracts: [{ contract_id: '101' }, { contract_id: '202' }],
                 },
             },
-
         };
         const expectedState = fromJS({
             101: { contract_id: '101' },

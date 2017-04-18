@@ -8,10 +8,9 @@ type Props = {
     longcode: string,
     disabled: boolean,
     onClick: (e: SyntheticEvent) => void,
-}
+};
 
 export default class BuyButton extends PureComponent {
-
     props: Props;
 
     render() {
@@ -26,7 +25,9 @@ export default class BuyButton extends PureComponent {
                     disabled={disabled || !askPrice}
                     text="Purchase"
                 />
-                {longcode && !isMobile() && <div className="tooltip">{longcode}</div>}
+                {longcode &&
+                    !isMobile() &&
+                    <div className="tooltip">{longcode}</div>}
             </div>
         );
     }

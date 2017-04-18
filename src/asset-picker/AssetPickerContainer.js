@@ -7,10 +7,7 @@ import assetPickerSelectors from './AssetPickerSelectors';
 
 @connect(assetPickerSelectors)
 export default class AssetPickerContainer extends PureComponent {
-
-	render() {
-		return (
-			<AssetPickerCard {...immutableChildrenToJS(this.props)} />
-		);
-	}
+    render() {
+        return <AssetPickerCard {...immutableChildrenToJS(this.props)} />;
+    }
 }

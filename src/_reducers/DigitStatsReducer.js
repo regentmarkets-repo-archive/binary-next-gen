@@ -5,7 +5,9 @@ const initialState = fromJS({ filter: 100 });
 
 export default (state = initialState, action) => {
     switch (action.type) {
-        case UPDATE_DIGIT_STAT_FILTER: return state.set('filter', action.filter);
-        default: return state;
+        case UPDATE_DIGIT_STAT_FILTER:
+            return state.set('filter', action.filter);
+        default:
+            return state;
     }
 };

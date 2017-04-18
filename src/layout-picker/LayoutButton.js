@@ -6,7 +6,6 @@ import * as layouts from '../layouts';
 import styles from '../layouts/layouts.css';
 
 export default class LayoutButton extends PureComponent {
-
     props: {
         isActive: boolean,
         tradesCount: number,
@@ -18,7 +17,7 @@ export default class LayoutButton extends PureComponent {
         const { tradesCount, layoutN, onClick } = this.props;
         actions.changeActiveLayout(tradesCount, layoutN);
         if (onClick) onClick(tradesCount, layoutN);
-    }
+    };
 
     render() {
         const { isActive, tradesCount, layoutN } = this.props;
@@ -26,11 +25,11 @@ export default class LayoutButton extends PureComponent {
             [styles.layoutBtn]: true,
             [styles[`layout-${tradesCount}-${layoutN}`]]: true,
             [styles.active]: isActive,
-		});
+        });
         const layout = layouts[`Layout${tradesCount}${layoutN}`];
-        const miniLayouts = sequence(tradesCount).map(idx =>
+        const miniLayouts = sequence(tradesCount).map(idx => (
             <div className={styles.layoutMini} key={idx} />
-        );
+        ));
 
         if (!layout) return null;
 

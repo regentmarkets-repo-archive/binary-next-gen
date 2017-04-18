@@ -1,8 +1,6 @@
 import { fromJS } from 'immutable';
 
-import {
-    SERVER_DATA_CANDLES,
-} from '../_constants/ActionTypes';
+import { SERVER_DATA_CANDLES } from '../_constants/ActionTypes';
 
 const initialState = fromJS({});
 

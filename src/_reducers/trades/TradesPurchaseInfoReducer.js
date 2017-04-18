@@ -20,8 +20,10 @@ export default (state = initialState, action) => {
             const countDiff = newTradesCount - oldTradesCount;
 
             if (countDiff > 0) {
-                const additionalPurchaseInfo =
-                    Repeat(fromJS(defaultPurchaseInfo), countDiff);   // eslint-disable-line new-cap
+                const additionalPurchaseInfo = Repeat(
+                    fromJS(defaultPurchaseInfo),
+                    countDiff,
+                ); // eslint-disable-line new-cap
                 return state.concat(additionalPurchaseInfo);
             }
 
@@ -55,7 +57,7 @@ export default (state = initialState, action) => {
         case REMOVE_PERSONAL_DATA: {
             return initialState;
         }
-        default: return state;
+        default:
+            return state;
     }
 };
-

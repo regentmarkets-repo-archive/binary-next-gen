@@ -6,10 +6,7 @@ import examineAssetSelectors from './examineAssetSelectors';
 
 @connect(examineAssetSelectors)
 export default class ExamineAssetContainer extends PureComponent {
-
     render() {
-        return (
-            <ExamineAssetCard {...immutableChildrenToJS(this.props)} />
-        );
+        return <ExamineAssetCard {...immutableChildrenToJS(this.props)} />;
     }
 }

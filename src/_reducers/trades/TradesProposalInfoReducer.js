@@ -20,8 +20,10 @@ export default (state = initialState, action) => {
             const countDiff = newTradesCount - oldTradesCount;
 
             if (countDiff > 0) {
-                const additionalProposalInfo =
-                    Repeat(fromJS(defaultProposalInfo), countDiff);   // eslint-disable-line new-cap
+                const additionalProposalInfo = Repeat(
+                    fromJS(defaultProposalInfo),
+                    countDiff,
+                ); // eslint-disable-line new-cap
                 return state.concat(additionalProposalInfo);
             }
 
@@ -49,19 +51,24 @@ export default (state = initialState, action) => {
         }
         case SERVER_DATA_PROPOSAL: {
             const proposalId = action.serverResponse.proposal.id;
-            const entry = state.findEntry(v =>
-                v.get('proposal') ?
-                    v.get('proposal').id === proposalId :
-                    false);
+            const entry = state.findEntry(
+                v =>
+                    (v.get('proposal')
+                        ? v.get('proposal').id === proposalId
+                        : false),
+            );
             if (entry) {
-                return state.setIn([entry[0], 'proposal'], action.serverResponse.proposal);
+                return state.setIn(
+                    [entry[0], 'proposal'],
+                    action.serverResponse.proposal,
+                );
             }
             return state;
         }
         case REMOVE_PERSONAL_DATA: {
             return initialState;
         }
-        default: return state;
+        default:
+            return state;
     }
 };
-

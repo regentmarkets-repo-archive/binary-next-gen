@@ -18,12 +18,16 @@ describe('<AssetPickerItem />', () => {
     });
 
     it.skip('should show an off star if item is not in watch list', () => {
-        const wrapper = shallow(<AssetPickerItem asset={{ isInWatchlist: false }} />);
+        const wrapper = shallow(
+            <AssetPickerItem asset={{ isInWatchlist: false }} />,
+        );
         expect(wrapper.find('StarBorder').length).toEqual(1);
     });
 
     it.skip('should show an on star if item is in watch list', () => {
-        const wrapper = shallow(<AssetPickerItem asset={{ isInWatchlist: true }} />);
+        const wrapper = shallow(
+            <AssetPickerItem asset={{ isInWatchlist: true }} />,
+        );
         expect(wrapper.find('Star').length).toEqual(1);
     });
 

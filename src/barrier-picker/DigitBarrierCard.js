@@ -4,7 +4,6 @@ import RadioGroup from '../trade/workaround/CustomRadioGroup';
 import { actions } from '../_store';
 
 export default class DigitBarrierCard extends PureComponent {
-
     props: {
         barrier: string | number,
         digitOptions: string[],
@@ -14,8 +13,8 @@ export default class DigitBarrierCard extends PureComponent {
     onBarrier1Change = (e: SyntheticEvent) => {
         const { index } = this.props;
         const inputValue = e.target.value;
-        actions.reqBarrierChange(index, [inputValue], 0, 'tick');          // only ticks available for digit
-    }
+        actions.reqBarrierChange(index, [inputValue], 0, 'tick'); // only ticks available for digit
+    };
 
     render() {
         const { barrier, digitOptions, index } = this.props;

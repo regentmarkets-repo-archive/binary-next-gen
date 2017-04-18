@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import { P } from 'binary-components';
 
 export default class LoadingView extends PureComponent {
-
     props: {
         showMessage: boolean,
     };
@@ -13,7 +12,8 @@ export default class LoadingView extends PureComponent {
         return (
             <div className="loading-page">
                 <div className="logo-full">
-                    <img src="img/binary-symbol-logo.svg" alt="Logo" /><img src="img/binary-type-logo.svg" alt="Binary.com" />
+                    <img src="img/binary-symbol-logo.svg" alt="Logo" />
+                    <img src="img/binary-type-logo.svg" alt="Binary.com" />
                 </div>
                 <div className="barspinner">
                     <div className="rect1" />
@@ -23,8 +23,7 @@ export default class LoadingView extends PureComponent {
                     <div className="rect5" />
                 </div>
                 {showMessage &&
-                    <P text="Taking too long to load, check connection." />
-                }
+                    <P text="Taking too long to load, check connection." />}
             </div>
         );
     }

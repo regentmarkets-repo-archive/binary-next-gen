@@ -19,9 +19,9 @@ export default class PaymentAgentsList extends PureComponent {
                     </tr>
                 </thead>
                 <tbody>
-                    {paymentAgents.map(pa =>
+                    {paymentAgents.map(pa => (
                         <PaymentAgentsItem key={pa.name} paymentAgent={pa} />
-                    )}
+                    ))}
                 </tbody>
             </table>
         );

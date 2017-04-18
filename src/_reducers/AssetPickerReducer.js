@@ -15,19 +15,16 @@ const initialState = fromJS({
 export default (state = initialState, action) => {
     switch (action.type) {
         case UPDATE_ASSET_PICKER_SEARCH_QUERY: {
-            return state
-                .set('query', action.query);
+            return state.set('query', action.query);
         }
         case UPDATE_ASSET_PICKER_SUBMARKET: {
-            return state
-                .set('submarket', action.submarket);
+            return state.set('submarket', action.submarket);
         }
         case RESET_ASSET_PICKER_FILTER: {
             return initialState;
         }
         case UPDATE_ASSET_PICKER_MARKETS: {
-            return state
-                .set('markets', fromJS(action.markets));
+            return state.set('markets', fromJS(action.markets));
         }
         case UPDATE_ASSET_PICKER_FILTER: {
             return state.set('filter', action.filter);

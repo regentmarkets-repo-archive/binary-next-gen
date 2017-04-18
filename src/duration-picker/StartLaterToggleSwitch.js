@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 
 export default class StartLaterToggleSwitch extends PureComponent {
-
     props: {
         checked: boolean,
         id: any,
@@ -15,7 +14,9 @@ export default class StartLaterToggleSwitch extends PureComponent {
 
     render() {
         const { checked, id, onClick } = this.props;
-        const className = checked ? 'onoffswitch-checkbox checked' : 'onoffswitch-checkbox';
+        const className = checked
+            ? 'onoffswitch-checkbox checked'
+            : 'onoffswitch-checkbox';
         return (
             <div className="onoffswitch">
                 <button

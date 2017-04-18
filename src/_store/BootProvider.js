@@ -21,7 +21,6 @@ const timeFormats = {
 
 @connect(bootSelector)
 export default class BootProvider extends PureComponent {
-
     props: {
         children: object,
         language: string,
@@ -51,7 +50,10 @@ export default class BootProvider extends PureComponent {
                 messages={allTexts(language)}
                 formats={{ time: timeFormats }}
             >
-                <div id="theme-wrapper" className={(theme === 'dark') ? 'inverse' : ''}>
+                <div
+                    id="theme-wrapper"
+                    className={theme === 'dark' ? 'inverse' : ''}
+                >
                     {Children.only(children)}
                 </div>
             </IntlProvider>

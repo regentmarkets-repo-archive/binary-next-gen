@@ -7,7 +7,6 @@ import RealityCheckInitialCard from './RealityCheckInitialCard';
 import RealityCheckSummaryCard from './RealityCheckSummaryCard';
 
 export default class RealityCheckWeb extends PureComponent {
-
     props: {
         interval: number, // in seconds
         showInitial: boolean,
@@ -33,21 +32,23 @@ export default class RealityCheckWeb extends PureComponent {
         const { loginTime } = summary;
         actions.ackRealityCheck();
         const toWait = timeLeftToNextRealityCheck(loginTime, interval) * 1000;
-        setTimeout(() =>
-            actions.updateRealityCheckSummary().then(() =>
-                actions.showRealityCheckPopUp()
-            )
-        , toWait);
-    }
+        setTimeout(
+            () =>
+                actions
+                    .updateRealityCheckSummary()
+                    .then(() => actions.showRealityCheckPopUp()),
+            toWait,
+        );
+    };
 
-    updateInterval = (interval) => {
+    updateInterval = interval => {
         if (+interval > 120 || +interval < 10) {
             this.setState({ rcError: true });
         } else {
             this.setState({ rcError: false });
         }
         actions.updateRealityCheckInterval(+interval * 60);
-    }
+    };
 
     render() {
         const { interval, showInitial, showSummary, summary } = this.props;
@@ -56,18 +57,19 @@ export default class RealityCheckWeb extends PureComponent {
         return (
             <Modal shown>
                 {showInitial &&
-                <RealityCheckInitialCard
-                    interval={interval}
-                    updateInterval={this.updateInterval}
-                    confirmIntervalUpdate={this.confirmIntervalUpdate}
-                />}
-                {showSummary && summary &&
-                <RealityCheckSummaryCard
-                    {...summary}
-                    interval={interval}
-                    updateInterval={this.updateInterval}
-                    confirmIntervalUpdate={this.confirmIntervalUpdate}
-                />}
+                    <RealityCheckInitialCard
+                        interval={interval}
+                        updateInterval={this.updateInterval}
+                        confirmIntervalUpdate={this.confirmIntervalUpdate}
+                    />}
+                {showSummary &&
+                    summary &&
+                    <RealityCheckSummaryCard
+                        {...summary}
+                        interval={interval}
+                        updateInterval={this.updateInterval}
+                        confirmIntervalUpdate={this.confirmIntervalUpdate}
+                    />}
                 {rcError && <ErrorMsg text="Number should between 10 to 120" />}
             </Modal>
         );

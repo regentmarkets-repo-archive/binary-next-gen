@@ -24,12 +24,14 @@ export default (newType, newCategory, contract, oldTrade) => {
             stopProfit: spread.stopProfit,
         });
     }
-    if (areAllTimeFieldsValid(
+    if (
+        areAllTimeFieldsValid(
             oldTrade.dateStart,
             oldTrade.duration,
             oldTrade.durationUnit,
-            contract[category][newType]
-        )) {
+            contract[category][newType],
+        )
+    ) {
         const { dateStart, duration, durationUnit } = oldTrade;
         let newBarrier;
         if (category === oldTrade.tradeCategory && category !== 'digits') {
@@ -44,7 +46,11 @@ export default (newType, newCategory, contract, oldTrade) => {
             });
         }
 
-        const newBarrierType = createDefaultBarrierType(duration, durationUnit, category);
+        const newBarrierType = createDefaultBarrierType(
+            duration,
+            durationUnit,
+            category,
+        );
         return safeMerge(oldTrade, {
             tradeCategory: category,
             type: newType,
@@ -66,7 +72,11 @@ export default (newType, newCategory, contract, oldTrade) => {
         duration,
         durationUnit,
     });
-    const newBarrierType = createDefaultBarrierType(duration, durationUnit, category);
+    const newBarrierType = createDefaultBarrierType(
+        duration,
+        durationUnit,
+        category,
+    );
     return safeMerge(oldTrade, {
         tradeCategory: category,
         type: newType,

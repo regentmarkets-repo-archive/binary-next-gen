@@ -12,7 +12,9 @@ describe('assetsReducer', () => {
 
     describe('serverDataActiveSymbols', () => {
         it('should be empty on empty server response', () => {
-            const action = actions.serverDataActiveSymbols({ active_symbols: [] });
+            const action = actions.serverDataActiveSymbols({
+                active_symbols: [],
+            });
             const stateAfter = assetsReducer(undefined, action);
             const expected = fromJS([]);
             expect(expected).toEqual(stateAfter);

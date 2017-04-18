@@ -15,21 +15,27 @@ export default (unit, contract, oldTrade) => {
     }
 
     let newDuration = duration;
-    if (!areAllTimeFieldsValid(dateStart, newDuration, newUnit, contractPerType)) {
+    if (
+        !areAllTimeFieldsValid(dateStart, newDuration, newUnit, contractPerType)
+    ) {
         // only start later
         const durationsObj = contractPerType.durations;
-        const forwardStartingDurationObj = contractPerType.forwardStartingDuration;
+        const forwardStartingDurationObj =
+            contractPerType.forwardStartingDuration;
         const allowStartLaterOnly = !durationsObj && forwardStartingDurationObj;
-        const optionToUse = allowStartLaterOnly ?
-            forwardStartingDurationObj.options.find(d => d.unit === newUnit) :
-            durationsObj.find(d => d.unit === newUnit);
+        const optionToUse = allowStartLaterOnly
+            ? forwardStartingDurationObj.options.find(d => d.unit === newUnit)
+            : durationsObj.find(d => d.unit === newUnit);
 
         newDuration = optionToUse.min;
     }
 
     // if it's forward starting type, do not update barrier as not applicable
     if (dateStart) {
-        return safeMerge(oldTrade, { durationUnit: newUnit, duration: newDuration });
+        return safeMerge(oldTrade, {
+            durationUnit: newUnit,
+            duration: newDuration,
+        });
     }
 
     const newBarriers = createDefaultBarriers({
@@ -40,7 +46,11 @@ export default (unit, contract, oldTrade) => {
         durationUnit: newUnit,
     });
 
-    const newBarrierType = createDefaultBarrierType(newDuration, newUnit, tradeCategory);
+    const newBarrierType = createDefaultBarrierType(
+        newDuration,
+        newUnit,
+        tradeCategory,
+    );
 
     return safeMerge(oldTrade, {
         duration: newDuration,

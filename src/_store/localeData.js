@@ -14,13 +14,20 @@ import de from 'react-intl/locale-data/de';
 import ja from 'react-intl/locale-data/ja';
 
 const data = {
-	en, fr,
-	th, ar,
-	es, pt,
-	ru, pl,
-	vi, it,
-	zh, id,
-    de, ja,
+    en,
+    fr,
+    th,
+    ar,
+    es,
+    pt,
+    ru,
+    pl,
+    vi,
+    it,
+    zh,
+    id,
+    de,
+    ja,
 };
 
 export default ln => data[ln];

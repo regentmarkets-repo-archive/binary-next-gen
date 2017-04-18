@@ -11,15 +11,18 @@ export default (newStartDate, contract, oldTrade) => {
     if (!startLaterObj) return oldTrade;
 
     if (!newStartDate) {
-        const newDuration = createDefaultDuration(contract, tradeCategory, type);
-        const newBarrier =
-            createDefaultBarriers({
-                contracts: contract,
-                category: tradeCategory,
-                type,
-                duration: newDuration.duration,
-                durationUnit: newDuration.durationUnit,
-            });
+        const newDuration = createDefaultDuration(
+            contract,
+            tradeCategory,
+            type,
+        );
+        const newBarrier = createDefaultBarriers({
+            contracts: contract,
+            category: tradeCategory,
+            type,
+            duration: newDuration.duration,
+            durationUnit: newDuration.durationUnit,
+        });
 
         return safeMerge(oldTrade, {
             dateStart: newStartDate,

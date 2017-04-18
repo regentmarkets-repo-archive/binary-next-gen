@@ -21,9 +21,11 @@ export default ln => {
     const resultTexts = {};
     const relatedText = t[ln];
     for (var key in relatedText) {
-        if (relatedText.hasOwnProperty(key) && relatedText[key] instanceof Array) {
+        if (
+            relatedText.hasOwnProperty(key) && relatedText[key] instanceof Array
+        ) {
             resultTexts[key] = relatedText[key][1];
         }
     }
     return resultTexts;
-}
+};

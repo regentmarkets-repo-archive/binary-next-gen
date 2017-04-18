@@ -27,7 +27,7 @@ export default (state = initialState, action) => {
             const countDiff = newTradesCount - oldTradesCount;
 
             if (countDiff > 0) {
-                const additionalError = Repeat(fromJS(defaultError), countDiff);   // eslint-disable-line new-cap
+                const additionalError = Repeat(fromJS(defaultError), countDiff); // eslint-disable-line new-cap
                 return state.concat(additionalError);
             }
 
@@ -57,6 +57,7 @@ export default (state = initialState, action) => {
             const { index } = action;
             return state.set(index, fromJS({}));
         }
-        default: return state;
+        default:
+            return state;
     }
 };

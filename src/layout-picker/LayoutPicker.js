@@ -7,7 +7,6 @@ import LayoutButtonPanel from './LayoutButtonPanel';
 import LayoutButton from './LayoutButton';
 
 export default class LayoutPicker extends PureComponent {
-
     props: {
         tradesCount: number,
         layoutN: number,
@@ -23,17 +22,13 @@ export default class LayoutPicker extends PureComponent {
     onLayoutChange = (...params) => {
         actions.changeActiveLayout(...params);
         this.setState({ dropdownShown: false });
-    }
+    };
 
-    onSingleTradeClick = () =>
-        actions.changeActiveLayout(1, 1);
+    onSingleTradeClick = () => actions.changeActiveLayout(1, 1);
 
-    openPicker = () =>
-        this.setState({ dropdownShown: true });
+    openPicker = () => this.setState({ dropdownShown: true });
 
-    closePicker = () =>
-        this.setState({ dropdownShown: false });
-
+    closePicker = () => this.setState({ dropdownShown: false });
 
     render() {
         const { tradesCount, layoutN } = this.props;
@@ -41,11 +36,11 @@ export default class LayoutPicker extends PureComponent {
 
         return (
             <div className={styles.layoutPicker}>
-                <a className="btn-secondary layout-switch-btn" onClick={this.onSingleTradeClick}>
-                    <LayoutButton
-                        tradesCount={1}
-                        layoutN={1}
-                    />
+                <a
+                    className="btn-secondary layout-switch-btn"
+                    onClick={this.onSingleTradeClick}
+                >
+                    <LayoutButton tradesCount={1} layoutN={1} />
                     <M m="Single Trade" />
                 </a>
                 <DropDown
@@ -59,7 +54,10 @@ export default class LayoutPicker extends PureComponent {
                         onLayoutChange={this.onLayoutChange}
                     />
                 </DropDown>
-                <a className="btn-secondary layout-switch-btn" onClick={this.openPicker}>
+                <a
+                    className="btn-secondary layout-switch-btn"
+                    onClick={this.openPicker}
+                >
                     <LayoutButton
                         tradesCount={tradesCount}
                         layoutN={layoutN}

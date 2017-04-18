@@ -7,10 +7,7 @@ import dailyPricesSelectors from './dailyPricesSelectors';
 
 @connect(dailyPricesSelectors)
 export default class DailyPricesContainer extends PureComponent {
-
-	render() {
-		return (
-			<DailyPricesCard {...immutableChildrenToJS(this.props)} />
-		);
-	}
+    render() {
+        return <DailyPricesCard {...immutableChildrenToJS(this.props)} />;
+    }
 }

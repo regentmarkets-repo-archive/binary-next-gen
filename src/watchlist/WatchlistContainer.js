@@ -5,10 +5,7 @@ import watchlistSelectors from './watchlistSelectors';
 
 @connect(watchlistSelectors)
 export default class WatchlistContainer extends PureComponent {
-
-	render() {
-		return (
-			<WatchlistCard {...this.props} />
-		);
-	}
+    render() {
+        return <WatchlistCard {...this.props} />;
+    }
 }

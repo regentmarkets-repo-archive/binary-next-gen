@@ -7,7 +7,10 @@ export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_PROPOSAL: {
             const echo = action.serverResponse.echo_req;
-            return state.setIn([echo.symbol, echo.contract_type], action.serverResponse.proposal);
+            return state.setIn(
+                [echo.symbol, echo.contract_type],
+                action.serverResponse.proposal,
+            );
         }
         default: {
             return state;

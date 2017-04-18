@@ -55,21 +55,30 @@ export default (state = initialState, action) => {
         case CHANGE_ACTIVE_WORKSPACE_TAB: {
             windowResizeEvent();
             const panelVisible = state.get(action.panel + 'PanelVisible');
-            const sameTabSelected = state.get(action.panel + 'ActiveTab') === action.index;
+            const sameTabSelected =
+                state.get(action.panel + 'ActiveTab') === action.index;
             return state
                 .set(action.panel + 'ActiveTab', action.index)
-                .set(action.panel + 'PanelVisible', !(panelVisible && sameTabSelected));
+                .set(
+                    action.panel + 'PanelVisible',
+                    !(panelVisible && sameTabSelected),
+                );
         }
         case CHANGE_WORKSPACE_PANEL_SIZE: {
             windowResizeEvent();
             return state
-                .set(action.panel + 'PanelSize', action.size > 150 ? action.size : 150)
+                .set(
+                    action.panel + 'PanelSize',
+                    action.size > 150 ? action.size : 150,
+                )
                 .set(action.panel + 'PanelVisible', action.size > 150);
         }
         case TOGGLE_TRADE_MODE: {
             const tradeModes = ['tabs', 'grid', 'jp'];
             const currentMode = tradeModes.indexOf(state.get('tradeMode'));
-            const newTradeModeIdx = currentMode >= tradeModes.length - 1 ? 0 : currentMode + 1;
+            const newTradeModeIdx = currentMode >= tradeModes.length - 1
+                ? 0
+                : currentMode + 1;
             return state.set('tradeMode', tradeModes[newTradeModeIdx]);
         }
         case CHANGE_TRADE_MODE: {

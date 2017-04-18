@@ -1,6 +1,10 @@
 import { createStructuredSelector, createSelector } from 'reselect';
 import { Map } from 'immutable';
-import { assetsSelector, tradingTimesSelector, tradingTimesFilterSelector } from '../_store/directSelectors';
+import {
+    assetsSelector,
+    tradingTimesSelector,
+    tradingTimesFilterSelector,
+} from '../_store/directSelectors';
 
 const defaultTradingTimesSelector = createSelector(
     [assetsSelector, tradingTimesFilterSelector],
@@ -15,7 +19,7 @@ const defaultTradingTimesSelector = createSelector(
         const filter = tradingTimesFilter && tradingTimesFilter.get('filter');
 
         return filter ? tradingTimesFilter : defaultFilter;
-    }
+    },
 );
 
 export default createStructuredSelector({

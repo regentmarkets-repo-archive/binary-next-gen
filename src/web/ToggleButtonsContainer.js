@@ -7,10 +7,7 @@ import ToggleButtons from './ToggleButtons';
 
 @connect(toggleButtonsSelector)
 export default class ToggleButtonsContainer extends PureComponent {
-
-	render() {
-		return (
-			<ToggleButtons {...immutableChildrenToJS(this.props)} />
-		);
-	}
+    render() {
+        return <ToggleButtons {...immutableChildrenToJS(this.props)} />;
+    }
 }

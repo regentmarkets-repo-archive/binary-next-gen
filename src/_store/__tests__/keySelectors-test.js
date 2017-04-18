@@ -12,9 +12,7 @@ describe('assetsBySybolSelector', () => {
 
     it('should be able to retrieve an asset property by symbol', () => {
         const state = {
-            assets: fromJS([
-                { symbol: '1', name: 'Asset1' },
-            ]),
+            assets: fromJS([{ symbol: '1', name: 'Asset1' }]),
         };
         const assetsBySymbol = assetsBySymbolSelector(state);
         expect(assetsBySymbol.getIn(['1', 'name'])).toEqual('Asset1');

@@ -37,7 +37,14 @@ describe('ProposalInfoReducer', () => {
                 payout: 1000,
             },
         };
-        const updateProposal = reducer(initialState, updateTradeProposal(0, 'proposal', mockServerResponseProposal1.proposal));
+        const updateProposal = reducer(
+            initialState,
+            updateTradeProposal(
+                0,
+                'proposal',
+                mockServerResponseProposal1.proposal,
+            ),
+        );
 
         const action = serverDataProposal(mockServerResponseProposal2);
         const actual = reducer(updateProposal, action);
@@ -46,7 +53,10 @@ describe('ProposalInfoReducer', () => {
 
     it('should remove specified params object when REMOVE_TRADE received', () => {
         const action = { type: types.REMOVE_TRADE, index: 1 };
-        const actual = reducer(fromJS([defaultProposalInfo, defaultProposalInfo]), action);
+        const actual = reducer(
+            fromJS([defaultProposalInfo, defaultProposalInfo]),
+            action,
+        );
         expect(actual.toJS().length).toEqual(1);
     });
 });
