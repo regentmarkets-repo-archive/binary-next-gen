@@ -36,7 +36,7 @@ export default class AssetDetailsCard extends PureComponent {
 					</div>
 				}
 				<h5><M m="Durations" /></h5>
-				<AssetDetailsDurations durations={durations} />
+				{durations && <AssetDetailsDurations durations={durations} />}
 			</div>
 		);
 	}
