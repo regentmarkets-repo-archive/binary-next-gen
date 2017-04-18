@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 
 export default class CustomRadioButton extends PureComponent {
-
     props: {
         onClick: (e: SyntheticEvent) => void,
         selected: boolean,
@@ -12,7 +11,7 @@ export default class CustomRadioButton extends PureComponent {
     onClicked = () => {
         const { value, onClick } = this.props;
         onClick({ target: { value } });
-    }
+    };
 
     render() {
         const { text, selected } = this.props;

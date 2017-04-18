@@ -11,14 +11,18 @@ export const serverToInternalTradeType = (category, type) => {
             if (type === 'PUT') return 'LOWER';
             return type;
         }
-        default: return type;
+        default:
+            return type;
     }
 };
 
 export const internalToServerTradeType = type => {
     switch (type) {
-        case 'HIGHER': return 'CALL';
-        case 'LOWER': return 'PUT';
-        default: return type;
+        case 'HIGHER':
+            return 'CALL';
+        case 'LOWER':
+            return 'PUT';
+        default:
+            return type;
     }
 };

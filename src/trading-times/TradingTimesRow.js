@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 
 export default class TradingTimesRow extends PureComponent {
-
     props: {
         assetName: string,
         compact: boolean,
@@ -24,21 +23,26 @@ export default class TradingTimesRow extends PureComponent {
             <tr>
                 {assetName && <td className="textual row-id">{assetName}</td>}
                 <td className="date">
-                    {times.open.map(openTime => <div key={openTime}>{openTime}</div>)}
+                    {times.open.map(openTime => (
+                        <div key={openTime}>{openTime}</div>
+                    ))}
                 </td>
                 <td className="date">
-                    {times.close.map(closeTime => <div key={closeTime}>{closeTime}</div>)}
+                    {times.close.map(closeTime => (
+                        <div key={closeTime}>{closeTime}</div>
+                    ))}
                 </td>
                 <td className="date">
                     {times.settlement}
                 </td>
                 {!compact &&
-                    <td className="textual">{events.map((event, i) =>
-                        <div key={i}>
-                            {event.descrip}: {event.dates}
-                        </div>)}
-                    </td>
-                }
+                    <td className="textual">
+                        {events.map((event, i) => (
+                            <div key={i}>
+                                {event.descrip}: {event.dates}
+                            </div>
+                        ))}
+                    </td>}
             </tr>
         );
     }

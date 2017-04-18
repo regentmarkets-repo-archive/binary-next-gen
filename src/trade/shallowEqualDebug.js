@@ -20,13 +20,14 @@ const hasOwnProperty = Object.prototype.hasOwnProperty;
  * https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/is
  */
 function is(x: mixed, y: mixed): boolean {
-  // SameValue algorithm
-  if (x === y) { // Steps 1-5, 7-10
-    // Steps 6.b-6.e: +0 != -0
-    return x !== 0 || 1 / x === 1 / y;
-  }
-  // Step 6.a: NaN == NaN
-  return x !== x && y !== y;
+    // SameValue algorithm
+    if (x === y) {
+        // Steps 1-5, 7-10
+        // Steps 6.b-6.e: +0 != -0
+        return x !== 0 || 1 / x === 1 / y;
+    }
+    // Step 6.a: NaN == NaN
+    return x !== x && y !== y;
 }
 
 /**
@@ -35,34 +36,38 @@ function is(x: mixed, y: mixed): boolean {
  * Returns true when the values of all keys are strictly equal.
  */
 export default function shallowEqual(objA: mixed, objB: mixed): boolean {
-  if (is(objA, objB)) {
-    return true;
-  }
-  window.console.groupCollapsed();
-  if (typeof objA !== 'object' || objA === null ||
-      typeof objB !== 'object' || objB === null) {
-    window.console.log('objects differ' + objA);
-    // return false;
-  }
-
-  const keysA = Object.keys(objA);
-  const keysB = Object.keys(objB);
-
-  if (keysA.length !== keysB.length) {
-    window.console.log('Different keys length');
-    // return false;
-  }
-
-  // Test for A's keys different from B.
-  for (let i = 0; i < keysA.length; i++) {
-    if (
-      !hasOwnProperty.call(objB, keysA[i]) ||
-      !is(objA[keysA[i]], objB[keysA[i]])
-    ) {
-      window.console.log('Values differ ' + keysA[i]);
-      // return false;
+    if (is(objA, objB)) {
+        return true;
     }
-  }
-  window.console.groupEnd();
-  return true;
+    window.console.groupCollapsed();
+    if (
+        typeof objA !== 'object' ||
+        objA === null ||
+        typeof objB !== 'object' ||
+        objB === null
+    ) {
+        window.console.log('objects differ' + objA);
+        // return false;
+    }
+
+    const keysA = Object.keys(objA);
+    const keysB = Object.keys(objB);
+
+    if (keysA.length !== keysB.length) {
+        window.console.log('Different keys length');
+        // return false;
+    }
+
+    // Test for A's keys different from B.
+    for (let i = 0; i < keysA.length; i++) {
+        if (
+            !hasOwnProperty.call(objB, keysA[i]) ||
+            !is(objA[keysA[i]], objB[keysA[i]])
+        ) {
+            window.console.log('Values differ ' + keysA[i]);
+            // return false;
+        }
+    }
+    window.console.groupEnd();
+    return true;
 }

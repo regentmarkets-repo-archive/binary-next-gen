@@ -6,12 +6,7 @@ import tradingTimesSelectors from './tradingTimesSelectors';
 
 @connect(tradingTimesSelectors)
 export default class TradingTimesContainer extends PureComponent {
-
-	render() {
-		return (
-			<TradingTimesCard
-				{...immutableChildrenToJS(this.props)}
-			/>
-		);
-	}
+    render() {
+        return <TradingTimesCard {...immutableChildrenToJS(this.props)} />;
+    }
 }

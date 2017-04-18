@@ -8,51 +8,52 @@ import examineAssetSelectors from './examineAssetSelectors';
 
 @connect(examineAssetSelectors)
 export default class ExamineAssetFilter extends PureComponent {
+    props: {
+        asset: object,
+    };
 
-	props: {
-		asset: object,
-	};
+    constructor(props) {
+        super(props);
+        this.state = { activeTab: 0 };
+    }
 
-	constructor(props) {
-		super(props);
-		this.state = { activeTab: 0 };
-	}
+    onClose = () => this.setState({ dropdownShown: false });
 
-	onClose = () =>
-		this.setState({ dropdownShown: false });
+    onChangeAsset = newAsset => {
+        actions.changeExaminedAsset(newAsset);
+    };
 
-	onChangeAsset = newAsset => {
-		actions.changeExaminedAsset(newAsset);
-	}
-
-	openPicker = () => {
-		actions.resetAssetPickerFilter();
+    openPicker = () => {
+        actions.resetAssetPickerFilter();
         this.setState({ dropdownShown: true });
-	}
+    };
 
-	render() {
-		const { dropdownShown } = this.state;
-		const { asset } = this.props;
+    render() {
+        const { dropdownShown } = this.state;
+        const { asset } = this.props;
 
-		return (
-			<div className="examine-asset-picker-container">
-				<div className="examine-asset-picker picker-label" onMouseDown={this.openPicker}>
-					<h4>{asset.name}</h4>
-					<DownArrow />
-					<OpenCloseNotice isOpen={asset.isOpen} />
-				</div>
-				<DropDown
-					shown={dropdownShown}
-					title="Assets"
-					onClose={this.onClose}
-				>
-					<AssetPickerContainer
-						selectedAsset={asset.symbol}
-						onSelect={this.onChangeAsset}
-						onClose={this.onClose}
-					/>
-				</DropDown>
-			</div>
-		);
-	}
+        return (
+            <div className="examine-asset-picker-container">
+                <div
+                    className="examine-asset-picker picker-label"
+                    onMouseDown={this.openPicker}
+                >
+                    <h4>{asset.name}</h4>
+                    <DownArrow />
+                    <OpenCloseNotice isOpen={asset.isOpen} />
+                </div>
+                <DropDown
+                    shown={dropdownShown}
+                    title="Assets"
+                    onClose={this.onClose}
+                >
+                    <AssetPickerContainer
+                        selectedAsset={asset.symbol}
+                        onSelect={this.onChangeAsset}
+                        onClose={this.onClose}
+                    />
+                </DropDown>
+            </div>
+        );
+    }
 }

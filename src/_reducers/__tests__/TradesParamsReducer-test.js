@@ -53,7 +53,10 @@ describe('TradesParamsReducer', () => {
 
     it('should remove specified params object when REMOVE_TRADE received', () => {
         const action = { type: types.REMOVE_TRADE, index: 1 };
-        const actual = tradesParamsReducer(fromJS([defaultParams, defaultParams]), action);
+        const actual = tradesParamsReducer(
+            fromJS([defaultParams, defaultParams]),
+            action,
+        );
         expect(actual.toJS().length).toEqual(1);
     });
 });

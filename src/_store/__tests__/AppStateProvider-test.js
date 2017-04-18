@@ -29,7 +29,8 @@ describe('<AppStateProvider />', () => {
         const wrapper = shallow(
             <AppStateProvider store={store}>
                 <ChildComponent />
-            </AppStateProvider>);
+            </AppStateProvider>,
+        );
 
         expect(wrapper.render().text()).not.toContain('check connection');
     });

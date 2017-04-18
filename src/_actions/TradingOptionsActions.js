@@ -1,4 +1,7 @@
-import { UPDATE_TRADING_OPTIONS, TRADING_OPTIONS_ERROR } from '../_constants/ActionTypes';
+import {
+    UPDATE_TRADING_OPTIONS,
+    TRADING_OPTIONS_ERROR,
+} from '../_constants/ActionTypes';
 import { updateFeedLicense } from './FeedLicenseActions';
 import { api } from '../_data/LiveData';
 
@@ -14,19 +17,24 @@ export const updateTradingOptionsErr = (symbol, err) => ({
     err,
 });
 
-export const getTradingOptions = symbol =>
-    (dispatch, getState) => {
-        const { tradingOptions } = getState();
+export const getTradingOptions = symbol => (dispatch, getState) => {
+    const { tradingOptions } = getState();
 
-        if (!tradingOptions.get(symbol)) {
-            return api.getContractsForSymbol(symbol)
-                .then(res => {
-                    dispatch(updateFeedLicense(symbol, res.contracts_for.feed_license));
-                    dispatch(updateTradingOptions(symbol, res.contracts_for.available));
-                }, err => {
-                    dispatch(updateTradingOptionsErr(symbol, err));
-                });
-        }
+    if (!tradingOptions.get(symbol)) {
+        return api.getContractsForSymbol(symbol).then(
+            res => {
+                dispatch(
+                    updateFeedLicense(symbol, res.contracts_for.feed_license),
+                );
+                dispatch(
+                    updateTradingOptions(symbol, res.contracts_for.available),
+                );
+            },
+            err => {
+                dispatch(updateTradingOptionsErr(symbol, err));
+            },
+        );
+    }
 
-        return Promise.resolve(tradingOptions.get(symbol));
-    };
+    return Promise.resolve(tradingOptions.get(symbol));
+};

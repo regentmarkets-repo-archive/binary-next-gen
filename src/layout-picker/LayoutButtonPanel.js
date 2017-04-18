@@ -7,7 +7,6 @@ import LayoutButton from './LayoutButton';
 const layoutCounts = [2, 6, 6, 6];
 
 export default class LayoutButtonPanel extends PureComponent {
-
     props: {
         tradesCount: number,
         layoutN: number,
@@ -19,24 +18,26 @@ export default class LayoutButtonPanel extends PureComponent {
 
         return (
             <div className={styles.layoutBtnContainer}>
-                {layoutCounts.map((count, idx) =>
+                {layoutCounts.map((count, idx) => (
                     <div className={styles.layoutBtnRow} key={idx}>
                         <div className={styles.layoutRowLabel}>
                             {idx + 2}
                             &nbsp;
                             <M m="trades" />
                         </div>
-                        {sequence(layoutCounts[idx]).map(i =>
+                        {sequence(layoutCounts[idx]).map(i => (
                             <LayoutButton
                                 key={i}
-                                isActive={tradesCount === idx + 2 && layoutN === i + 1}
+                                isActive={
+                                    tradesCount === idx + 2 && layoutN === i + 1
+                                }
                                 tradesCount={idx + 2}
                                 layoutN={i + 1}
                                 onClick={() => onLayoutChange(idx + 2, i + 1)}
                             />
-                        )}
+                        ))}
                     </div>
-                )}
+                ))}
             </div>
         );
     }

@@ -1,11 +1,17 @@
 import React, { PureComponent } from 'react';
-import { M, P, Button, ErrorMsg, InputGroup, SelectGroup } from 'binary-components';
+import {
+    M,
+    P,
+    Button,
+    ErrorMsg,
+    InputGroup,
+    SelectGroup,
+} from 'binary-components';
 import { actions } from '../_store';
 import Modal from '../containers/Modal';
 import { api } from '../_data/LiveData';
 
 export default class WithdrawForm extends PureComponent {
-
     props: {
         paymentAgent: object,
         currency: string,
@@ -24,34 +30,50 @@ export default class WithdrawForm extends PureComponent {
         actions.updatePaymentAgentField('verificationCode', event.target.value);
 
     selectPaymentAgent = event =>
-        actions.updatePaymentAgentField('selectedPaymentAgent', event.target.value);
+        actions.updatePaymentAgentField(
+            'selectedPaymentAgent',
+            event.target.value,
+        );
 
-    withdraw = () =>
-        actions.updatePaymentAgentField('withdrawClicked', false);
+    withdraw = () => actions.updatePaymentAgentField('withdrawClicked', false);
 
-    confirm = () =>
-        actions.updatePaymentAgentField('confirmClicked', false);
+    confirm = () => actions.updatePaymentAgentField('confirmClicked', false);
 
     tryWithdraw() {
         const { currency, paymentAgent } = this.props;
-        const { selectedPaymentAgent, withdrawAmount, verificationCode } = paymentAgent;
+        const {
+            selectedPaymentAgent,
+            withdrawAmount,
+            verificationCode,
+        } = paymentAgent;
         actions.updatePaymentAgentField('withdrawClicked', true);
-        actions.withdrawToPaymentAgentDryRun(selectedPaymentAgent, currency, withdrawAmount, verificationCode);
+        actions.withdrawToPaymentAgentDryRun(
+            selectedPaymentAgent,
+            currency,
+            withdrawAmount,
+            verificationCode,
+        );
     }
 
     confirmWithdraw = () => {
         const { currency, paymentAgent } = this.props;
-        const { selectedPaymentAgent, withdrawAmount, verificationCode } = paymentAgent;
+        const {
+            selectedPaymentAgent,
+            withdrawAmount,
+            verificationCode,
+        } = paymentAgent;
         actions.updatePaymentAgentField('withdrawClicked', false);
         actions.updatePaymentAgentField('confirmClicked', true);
-        actions.withdrawToPaymentAgent(selectedPaymentAgent, currency, withdrawAmount, verificationCode);
-    }
+        actions.withdrawToPaymentAgent(
+            selectedPaymentAgent,
+            currency,
+            withdrawAmount,
+            verificationCode,
+        );
+    };
 
     render() {
-        const {
-            currency,
-            paymentAgent,
-        } = this.props;
+        const { currency, paymentAgent } = this.props;
         const {
             paymentAgents,
             withdrawError,
@@ -63,35 +85,62 @@ export default class WithdrawForm extends PureComponent {
             withdrawClicked,
             withdrawAmount,
             confirmClicked,
-         } = paymentAgent;
-        const paymentAgentOptions = paymentAgents.map(pa => ({ value: pa.paymentagent_loginid, text: pa.name }));
-        const selectedPaymentAgentName = selectedPaymentAgent ?
-            paymentAgentOptions.filter(pa => pa.value === selectedPaymentAgent)[0].text :
-            paymentAgentOptions[0].text;
+        } = paymentAgent;
+        const paymentAgentOptions = paymentAgents.map(pa => ({
+            value: pa.paymentagent_loginid,
+            text: pa.name,
+        }));
+        const selectedPaymentAgentName = selectedPaymentAgent
+            ? paymentAgentOptions.filter(
+                  pa => pa.value === selectedPaymentAgent,
+              )[0].text
+            : paymentAgentOptions[0].text;
         return (
             <div className="startup-content">
-                <Modal shown={!inProgress && withdrawClicked} onClose={this.withdraw}>
-                    {dryRunFailed ?
-                        <div>
-                            <h3><M m="Withdrawal Failed" /></h3>
-                            <p>{dryRunError}</p>
-                        </div> :
-                        <div>
-                            <h3><M m="Confirmation" /></h3>
-                            <p>
-                                <M m="Are you sure you want to withdraw" />
-                                <span> {currency} {withdrawAmount} to {selectedPaymentAgentName}? </span>
-                            </p>
-                            <Button text="Confirm" onClick={this.confirmWithdraw} />
-                        </div>
-                    }
+                <Modal
+                    shown={!inProgress && withdrawClicked}
+                    onClose={this.withdraw}
+                >
+                    {dryRunFailed
+                        ? <div>
+                              <h3><M m="Withdrawal Failed" /></h3>
+                              <p>{dryRunError}</p>
+                          </div>
+                        : <div>
+                              <h3><M m="Confirmation" /></h3>
+                              <p>
+                                  <M m="Are you sure you want to withdraw" />
+                                  <span>
+                                      {' '}
+                                      {currency}
+                                      {' '}
+                                      {withdrawAmount}
+                                      {' '}
+                                      to
+                                      {' '}
+                                      {selectedPaymentAgentName}
+                                      ?
+                                      {' '}
+                                  </span>
+                              </p>
+                              <Button
+                                  text="Confirm"
+                                  onClick={this.confirmWithdraw}
+                              />
+                          </div>}
                 </Modal>
                 <Modal
                     shown={!inProgress && confirmClicked}
                     onClose={this.confirm}
                 >
-                      <h3>{withdrawFailed ? <M m="Withdrawal Failed" /> : <M m="Congratulations" />}</h3>
-                      {withdrawFailed ? <p>{withdrawError}</p> : <P text="Your withdrawal is success" />}
+                    <h3>
+                        {withdrawFailed
+                            ? <M m="Withdrawal Failed" />
+                            : <M m="Congratulations" />}
+                    </h3>
+                    {withdrawFailed
+                        ? <p>{withdrawError}</p>
+                        : <P text="Your withdrawal is success" />}
                 </Modal>
                 <SelectGroup
                     label="Payment agent"
@@ -114,10 +163,7 @@ export default class WithdrawForm extends PureComponent {
                     type="text"
                     onChange={this.onVerificationCodeChange}
                 />
-                <ErrorMsg
-                    shown={false}
-                    text=""
-                />
+                <ErrorMsg shown={false} text="" />
                 <Button text="Withdraw" onClick={this.tryWithdraw} />
             </div>
         );

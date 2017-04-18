@@ -7,25 +7,24 @@ import { assetPickerMobileSelector } from './AssetPickerSelectors';
 
 @connect(assetPickerMobileSelector)
 export default class AssetPickerMobile extends PureComponent {
+    static contextTypes = {
+        router: () => undefined,
+    };
 
-	static contextTypes = {
-		router: () => undefined,
-	};
+    componentWillMount() {
+        actions.resetAssetPickerFilter();
+    }
 
-	componentWillMount() {
-		actions.resetAssetPickerFilter();
-	}
+    onClose = () => {
+        const { router } = this.context;
+        router.goBack();
+    };
 
-	onClose = () => {
-		const { router } = this.context;
-		router.goBack();
-	}
-
-	render() {
-		return (
-			<MobilePage toolbarShown={false} backBtnBarTitle="Asset">
-				<AssetPickerContainer {...this.props} onClose={this.onClose} />
-			</MobilePage>
-		);
-	}
+    render() {
+        return (
+            <MobilePage toolbarShown={false} backBtnBarTitle="Asset">
+                <AssetPickerContainer {...this.props} onClose={this.onClose} />
+            </MobilePage>
+        );
+    }
 }

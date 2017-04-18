@@ -1,5 +1,11 @@
 import { createSelector } from 'reselect';
-import { contractReceiptsPerTradeSelector, pipSizesPerTradeSelector, tradingTimesPerTradeSelector, feedLicensesPerTradeSelector, tradeParamsWithSymbolNameSelector } from '../BasicTradeSelectors';
+import {
+    contractReceiptsPerTradeSelector,
+    pipSizesPerTradeSelector,
+    tradingTimesPerTradeSelector,
+    feedLicensesPerTradeSelector,
+    tradeParamsWithSymbolNameSelector,
+} from '../BasicTradeSelectors';
 
 export const tradeViewChartSelector = createSelector(
     [
@@ -17,5 +23,5 @@ export const tradeViewChartSelector = createSelector(
             feedLicense: licenses.get(i),
             pipSize: pipSizes.get(i),
             tradingTime: tradingTimes.get(i),
-        }))
+        })),
 );

@@ -18,7 +18,10 @@ describe('viewReducer', () => {
         };
 
         const actualState = viewReducer(beforeState, action);
-        const expectedState = fromJS({ tradingTimes: {}, assetIndex: 'indices' });
+        const expectedState = fromJS({
+            tradingTimes: {},
+            assetIndex: 'indices',
+        });
         expect(expectedState).toEqual(actualState);
     });
 
@@ -29,7 +32,10 @@ describe('viewReducer', () => {
         };
 
         const actualState = viewReducer(beforeState, action);
-        const expectedState = { assetIndex: {}, tradingTimes: { filter: 'indices' } };
+        const expectedState = {
+            assetIndex: {},
+            tradingTimes: { filter: 'indices' },
+        };
         expect(expectedState).toEqual(actualState.toJS());
     });
 });

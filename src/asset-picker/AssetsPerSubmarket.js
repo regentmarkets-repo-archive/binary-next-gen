@@ -3,7 +3,6 @@ import AssetPickerItem from './AssetPickerItem';
 import AssetPickerHeader from './AssetPickerHeader';
 
 export default class AssetsPerSubmarket extends PureComponent {
-
     props: {
         assetsInSubmarket: any[],
         selectedAsset: string,
@@ -20,14 +19,14 @@ export default class AssetsPerSubmarket extends PureComponent {
                     submarket={submarketName}
                 />
                 <tbody>
-                    {assetsInSubmarket.map(a =>
+                    {assetsInSubmarket.map(a => (
                         <AssetPickerItem
                             {...this.props}
                             key={a.symbol}
                             asset={a}
                             selected={selectedAsset === a.symbol}
                         />
-                    )}
+                    ))}
                 </tbody>
             </table>
         );

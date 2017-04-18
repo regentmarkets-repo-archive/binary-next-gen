@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import { Option } from 'binary-components';
 
 export default class DigitStatsFilter extends PureComponent {
-
     props: {
         value: number,
         onChange: (e: SyntheticEvent) => void,

@@ -9,7 +9,7 @@ describe('<ArticlePreview />', () => {
                 description="Article Description"
                 title="Article title"
                 url=""
-            />
+            />,
         );
         expect(wrapper.render().text()).toContain('Article title');
     });

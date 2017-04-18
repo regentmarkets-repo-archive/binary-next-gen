@@ -7,10 +7,7 @@ import assetIndexSelectors from './assetIndexSelectors';
 
 @connect(assetIndexSelectors)
 export default class AssetIndexContainer extends PureComponent {
-
-	render() {
-		return (
-			<AssetIndexCard {...immutableChildrenToJS(this.props)} />
-		);
-	}
+    render() {
+        return <AssetIndexCard {...immutableChildrenToJS(this.props)} />;
+    }
 }

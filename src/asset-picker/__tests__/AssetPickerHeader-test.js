@@ -8,12 +8,16 @@ describe('<AssetPickerHeader />', () => {
     });
 
     it('should show submarket always', () => {
-        const wrapper = shallow(<AssetPickerHeader submarket="some-submarket" />);
+        const wrapper = shallow(
+            <AssetPickerHeader submarket="some-submarket" />,
+        );
         expect(wrapper.text()).toContain('some-submarket');
     });
 
     it('should show market if showMarket is true', () => {
-        const wrapper = shallow(<AssetPickerHeader market="some-market" showMarket />);
+        const wrapper = shallow(
+            <AssetPickerHeader market="some-market" showMarket />,
+        );
         expect(wrapper.text()).toContain('some-market');
     });
 });

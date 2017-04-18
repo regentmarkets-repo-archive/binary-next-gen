@@ -3,7 +3,6 @@ import { actions } from '../_store';
 import ContractDetailsContainer from './ContractDetailsContainer';
 
 export default class ForTesting extends PureComponent {
-
     props: {
         params: object,
     };
@@ -17,13 +16,13 @@ export default class ForTesting extends PureComponent {
 
     componentDidMount() {
         const { params } = this.props;
-        actions.detailsForContract(params.id).then(() => this.setState({ done: true }));
+        actions
+            .detailsForContract(params.id)
+            .then(() => this.setState({ done: true }));
     }
 
     render() {
         const { done } = this.state;
-        return (
-            done ? <ContractDetailsContainer /> : null
-        );
+        return done ? <ContractDetailsContainer /> : null;
     }
 }

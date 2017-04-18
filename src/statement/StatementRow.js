@@ -5,7 +5,6 @@ import { showError } from 'binary-utils';
 import { actions } from '../_store';
 
 export default class StatementRow extends PureComponent {
-
     props: {
         compact: boolean,
         contractId: string,
@@ -27,17 +26,25 @@ export default class StatementRow extends PureComponent {
         // if deposit or withdraw
         if (!contractId) return;
 
-        actions.detailsForContract(contractId)
+        actions
+            .detailsForContract(contractId)
             .then(() => {
                 if (compact) {
                     router.push('/contract');
                 }
             })
             .catch(e => showError(e));
-    }
+    };
 
     render() {
-        const { compact, refN, date, actionType, amount, balanceAfter } = this.props;
+        const {
+            compact,
+            refN,
+            date,
+            actionType,
+            amount,
+            balanceAfter,
+        } = this.props;
 
         return (
             <tr className="statement-row" onClick={this.viewContract}>
@@ -47,7 +54,9 @@ export default class StatementRow extends PureComponent {
                 {!compact && <td className="textual">{refN}</td>}
                 <td className="trade-action">{actionType}</td>
                 <td className="numeric"><NumberColored value={amount} /></td>
-                <td className="numeric"><NumberPlain value={balanceAfter} /></td>
+                <td className="numeric">
+                    <NumberPlain value={balanceAfter} />
+                </td>
             </tr>
         );
     }

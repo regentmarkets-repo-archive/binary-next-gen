@@ -6,7 +6,6 @@ import languages from '../_constants/languages';
 
 @connect(state => ({ selected: state.boot.get('language') }))
 export default class LanguagePicker extends PureComponent {
-
     props: {
         selected: string,
     };
@@ -19,7 +18,7 @@ export default class LanguagePicker extends PureComponent {
         window.BinaryBoot.language = event.target.value;
         storage.setItem('boot', JSON.stringify(window.BinaryBoot));
         window.location.reload();
-    }
+    };
 
     render() {
         const { selected } = this.props;

@@ -8,12 +8,11 @@ import { actions } from '../_store';
 const debounceReqDurationChange = debounce(actions.reqDurationChange, 400);
 
 export default class DurationCard extends PureComponent {
-
     props: {
         dateStart: number,
         duration: number,
         durationUnit: string,
-        forwardStartingDuration: object,       // treated as special case
+        forwardStartingDuration: object, // treated as special case
         options: any[],
         index: number,
     };
@@ -21,13 +20,13 @@ export default class DurationCard extends PureComponent {
     updateDuration = (duration: number) => {
         const { index } = this.props;
         debounceReqDurationChange(index, duration);
-    }
+    };
 
     updateDurationUnit = (e: SyntheticEvent) => {
         const { index } = this.props;
         const durationUnit = e.target.value;
         actions.reqDurationUnitChange(index, durationUnit);
-    }
+    };
 
     render() {
         const {
@@ -39,7 +38,8 @@ export default class DurationCard extends PureComponent {
         } = this.props;
         const allowStartLater = !!forwardStartingDuration;
         const onlyStartLater = allowStartLater && !options;
-        const forwardOptions = forwardStartingDuration && forwardStartingDuration.options;
+        const forwardOptions =
+            forwardStartingDuration && forwardStartingDuration.options;
 
         let optionsToUse;
 
@@ -51,8 +51,13 @@ export default class DurationCard extends PureComponent {
             optionsToUse = dateStart ? forwardOptions : options;
         }
 
-        const unitOptions = optionsToUse.map(opt => ({ value: opt.unit, text: durationText(opt.unit) }));
-        const currentUnitBlock = optionsToUse.find(opt => opt.unit === durationUnit);
+        const unitOptions = optionsToUse.map(opt => ({
+            value: opt.unit,
+            text: durationText(opt.unit),
+        }));
+        const currentUnitBlock = optionsToUse.find(
+            opt => opt.unit === durationUnit,
+        );
 
         const min = currentUnitBlock && currentUnitBlock.min;
         const max = currentUnitBlock && currentUnitBlock.max;

@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 
 export default class States extends PureComponent {
-
     props: {
         states: any[],
         selected: string,

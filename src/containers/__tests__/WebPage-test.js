@@ -14,7 +14,7 @@ describe('<WebPage />', () => {
         const wrapper = shallow(
             <WebPage store={store} isAuthorized="true">
                 <span>Hello</span>
-            </WebPage>
+            </WebPage>,
         );
         expect(wrapper.children().text()).toContain('Hello');
     });

@@ -6,10 +6,7 @@ import workspaceSelectors from './workspaceSelectors';
 
 @connect(workspaceSelectors)
 export default class WorkspaceContainer extends PureComponent {
-
-	render() {
-		return (
-			<WorkspaceCard {...immutableChildrenToJS(this.props)} />
-		);
-	}
+    render() {
+        return <WorkspaceCard {...immutableChildrenToJS(this.props)} />;
+    }
 }

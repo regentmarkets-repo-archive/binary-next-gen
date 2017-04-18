@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import ArticleFull from './ArticleFull';
 
 export default class NewsCard extends PureComponent {
-
     props: {
         articles: any[],
     };
@@ -30,10 +29,13 @@ export default class NewsCard extends PureComponent {
 
         return (
             <div className="news-list-card">
-                <select className="article-picker" onChange={this.handleChangeArticle}>
-                  {articles.map((x, idx) =>
-                    <option key={idx} value={idx}>{x.title}</option>
-                  )}
+                <select
+                    className="article-picker"
+                    onChange={this.handleChangeArticle}
+                >
+                    {articles.map((x, idx) => (
+                        <option key={idx} value={idx}>{x.title}</option>
+                    ))}
                 </select>
                 <div className="scrollable">
                     <ArticleFull

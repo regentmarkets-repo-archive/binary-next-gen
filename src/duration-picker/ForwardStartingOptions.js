@@ -1,27 +1,35 @@
 import React, { PureComponent } from 'react';
-import { epochToUTCTimeString, dateToDateString, nowAsEpoch, returnValidDate, returnValidTime } from 'binary-utils';
+import {
+    epochToUTCTimeString,
+    dateToDateString,
+    nowAsEpoch,
+    returnValidDate,
+    returnValidTime,
+} from 'binary-utils';
 import { M, Label } from 'binary-components';
 import debounce from 'lodash.debounce';
-import createDefaultStartLaterEpoch from '../_trade/defaults/createDefaultStartLaterEpoch';
+import createDefaultStartLaterEpoch
+    from '../_trade/defaults/createDefaultStartLaterEpoch';
 import { actions } from '../_store';
 
 const debounceReq = reqFn => debounce(reqFn, 400);
 const debounceStartDateChange = debounceReq(actions.reqStartDateChange);
 const debounceStartTimeChange = debounceReq(actions.reqStartTimeChange);
-const debounceEpochChange = actions.reqStartEpochChange;        // TODO: allow delay or complicate the code to increase responsiveness?
+const debounceEpochChange = actions.reqStartEpochChange; // TODO: allow delay or complicate the code to increase responsiveness?
 
 export default class ForwardStartingOptions extends PureComponent {
-
     props: {
         dateStart: number,
-        forwardStartingDuration: object,       // treated as special case
+        forwardStartingDuration: object, // treated as special case
         index: number,
         startLaterOnly: boolean,
     };
 
     constructor(props) {
         super(props);
-        const defaultEpoch = props.dateStart ? props.dateStart : createDefaultStartLaterEpoch(props.forwardStartingDuration);
+        const defaultEpoch = props.dateStart
+            ? props.dateStart
+            : createDefaultStartLaterEpoch(props.forwardStartingDuration);
         this.state = {
             showStartLater: !!props.dateStart,
             defaultDateStart: defaultEpoch,
@@ -38,18 +46,18 @@ export default class ForwardStartingOptions extends PureComponent {
         const { index } = this.props;
         const inputValue = e.target.value;
         debounceStartDateChange(index, returnValidDate(inputValue));
-    }
+    };
 
     onTimeChange = (e: SyntheticEvent) => {
         const { index } = this.props;
         const inputValue = e.target.value;
         debounceStartTimeChange(index, returnValidTime(inputValue));
-    }
+    };
 
     startNow = () => {
         this.setState({ showStartLater: false });
         debounceEpochChange(this.props.index);
-    }
+    };
 
     startLater = () => {
         this.setState({ showStartLater: true });
@@ -63,15 +71,22 @@ export default class ForwardStartingOptions extends PureComponent {
             // do not use defaultDateStart when it is less than 5 minutes away from current time
             if (defaultDateStart < now + 350) {
                 const newDateInSecondsResolution = now + 350;
-                startDateToUse = newDateInSecondsResolution - (newDateInSecondsResolution % 60);
+                startDateToUse =
+                    newDateInSecondsResolution -
+                    newDateInSecondsResolution % 60;
             }
 
             debounceEpochChange(index, startDateToUse);
         }
-    }
+    };
 
     render() {
-        const { dateStart, forwardStartingDuration, index, startLaterOnly } = this.props;
+        const {
+            dateStart,
+            forwardStartingDuration,
+            index,
+            startLaterOnly,
+        } = this.props;
         const { defaultDateStart, showStartLater } = this.state;
         const ranges = forwardStartingDuration.range;
 
@@ -104,9 +119,11 @@ export default class ForwardStartingOptions extends PureComponent {
                                 />
                                 <M m="Later" />
                             </label>
-                        </div>
-                    }
-                    <div className="forward-starting-input" style={showStartLater ? {} : { display: 'none' }}>
+                        </div>}
+                    <div
+                        className="forward-starting-input"
+                        style={showStartLater ? {} : { display: 'none' }}
+                    >
                         <input
                             type="date"
                             min={dateToDateString(ranges[0].date)}

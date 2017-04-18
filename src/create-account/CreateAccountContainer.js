@@ -7,11 +7,13 @@ import CreateAccountCard from './CreateAccountCard';
 
 @connect(countryListSelector)
 export default class CreateAccountContainer extends PureComponent {
-
-	render() {
-		const utm = JSON.parse(storage.getItem('utm'));
-		return (
-			<CreateAccountCard {...utm} {...immutableChildrenToJS(this.props)} />
-		);
-	}
+    render() {
+        const utm = JSON.parse(storage.getItem('utm'));
+        return (
+            <CreateAccountCard
+                {...utm}
+                {...immutableChildrenToJS(this.props)}
+            />
+        );
+    }
 }

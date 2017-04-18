@@ -4,7 +4,9 @@ import { getProposalId } from './SagaSelectors';
 import { api } from '../../_data/LiveData';
 import { updateTradeProposal, updateTradeError } from '../../_actions';
 import { currencySelector } from '../../_store/directSelectors';
-import { internalTradeModelToProposalModel } from '../../trade/adapters/TradeObjectAdapter';
+import {
+    internalTradeModelToProposalModel,
+} from '../../trade/adapters/TradeObjectAdapter';
 import { clearTradeError } from '../../_actions/TradeActions';
 
 const UNSUBSCRIBE_PROPOSAL = 'UNSUBSCRIBE_PROPOSAL';
@@ -35,12 +37,20 @@ export const subscribeProposal = (index, params) => ({
 function* handleSubscription(action) {
     const { index, params } = action;
     const currency = yield select(currencySelector);
-    const paramForSubscription = internalTradeModelToProposalModel(params, params.symbol, currency);
+    const paramForSubscription = internalTradeModelToProposalModel(
+        params,
+        params.symbol,
+        currency,
+    );
     try {
-        const { proposal } = yield api.subscribeToPriceForContractProposal(paramForSubscription);
+        const { proposal } = yield api.subscribeToPriceForContractProposal(
+            paramForSubscription,
+        );
         yield put(updateTradeProposal(index, 'proposal', proposal));
     } catch (err) {
-        yield put(updateTradeError(index, 'serverError', err.error.error.message));
+        yield put(
+            updateTradeError(index, 'serverError', err.error.error.message),
+        );
     }
 }
 

@@ -11,7 +11,6 @@ type Props = {
 };
 
 export default class AssetPickerDropDown extends PureComponent {
-
     props: Props;
 
     static contextTypes = {
@@ -25,18 +24,17 @@ export default class AssetPickerDropDown extends PureComponent {
         };
     }
 
-    onClose = () =>
-        this.setState({ dropdownShown: false });
+    onClose = () => this.setState({ dropdownShown: false });
 
     onSelect = newAsset => {
-		const { index } = this.props;
-		actions.reqSymbolChange(index, newAsset);
-	}
+        const { index } = this.props;
+        actions.reqSymbolChange(index, newAsset);
+    };
 
     openPicker = () => {
         actions.resetAssetPickerFilter();
         this.setState({ dropdownShown: true });
-    }
+    };
 
     render() {
         const { index, selectedSymbol, selectedSymbolName } = this.props;
@@ -56,7 +54,10 @@ export default class AssetPickerDropDown extends PureComponent {
                     />
                 </DropDown>
                 <Label text="Asset" />
-                <div className="picker-label param-field" onMouseDown={this.openPicker}>
+                <div
+                    className="picker-label param-field"
+                    onMouseDown={this.openPicker}
+                >
                     <div className="picker-value">{selectedSymbolName}</div>
                     <DownArrow />
                 </div>

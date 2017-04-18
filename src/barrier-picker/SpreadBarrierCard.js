@@ -4,7 +4,6 @@ import { noOfDecimals } from 'binary-utils';
 import changeAmountPerPoint from '../trade-params/updates/changeAmountPerPoint';
 
 export default class SpreadBarrierCard extends PureComponent {
-
     props: {
         amountPerPoint: string,
         currency: string,
@@ -30,7 +29,7 @@ export default class SpreadBarrierCard extends PureComponent {
         const inputValue = e.target.value;
         const updatedAmountPerPoint = changeAmountPerPoint(inputValue);
         onUpdateTradeParams(updatedAmountPerPoint);
-    }
+    };
 
     render() {
         const {
@@ -41,9 +40,12 @@ export default class SpreadBarrierCard extends PureComponent {
             stopLoss,
             spreadInfo,
             stopType,
-            } = this.props;
+        } = this.props;
 
-        const stopTypeOptions = [{ text: 'Points', value: 'point' }, { text: currency, value: 'dollar' }];
+        const stopTypeOptions = [
+            { text: 'Points', value: 'point' },
+            { text: currency, value: 'dollar' },
+        ];
         const decimals = noOfDecimals(amountPerPoint);
 
         if (!spreadInfo) return null;
@@ -70,7 +72,7 @@ export default class SpreadBarrierCard extends PureComponent {
                 <InputGroup
                     type="number"
                     label="Stop loss"
-                    value={stopLoss}      // TODO: hardcode default as backend return wrong data
+                    value={stopLoss} // TODO: hardcode default as backend return wrong data
                     onChange={this.onStopLossChange}
                 />
                 <InputGroup

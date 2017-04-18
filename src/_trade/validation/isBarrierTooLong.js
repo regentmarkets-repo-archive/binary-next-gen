@@ -3,7 +3,8 @@ export default (barriers, pipSize) => {
         const barrier = barriers[i];
         if (barrier) {
             const barrierDecimals = barrier.toString().split('.')[1];
-            const barrierExceedPipSize = barrierDecimals && (barrierDecimals.length > pipSize);
+            const barrierExceedPipSize =
+                barrierDecimals && barrierDecimals.length > pipSize;
             return barrierExceedPipSize;
         }
     }

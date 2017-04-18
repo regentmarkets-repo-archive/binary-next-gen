@@ -1,12 +1,23 @@
 import { takeEvery } from 'redux-saga';
 import { put, select } from 'redux-saga/effects';
 import { dateToEpoch, timeStringToSeconds, isValidTime } from 'binary-utils';
-import { updateMultipleTradeParams, updateTradeUIState, updateTradeError } from '../../_actions';
+import {
+    updateMultipleTradeParams,
+    updateTradeUIState,
+    updateTradeError,
+} from '../../_actions';
 import areAllTimeFieldsValid from '../validation/areAllTimeFieldsValid';
 import changeDurationUnit from '../updates/changeDurationUnit';
 import changeStartDate from '../updates/changeStartDate';
-import { getParams, contractOfSymbol, getForceRenderCount } from './SagaSelectors';
-import { subscribeProposal, unsubscribeProposal } from './ProposalSubscriptionSaga';
+import {
+    getParams,
+    contractOfSymbol,
+    getForceRenderCount,
+} from './SagaSelectors';
+import {
+    subscribeProposal,
+    unsubscribeProposal,
+} from './ProposalSubscriptionSaga';
 
 const CHANGE_DURATION = 'CHANGE_DURATION';
 
@@ -23,7 +34,12 @@ export function* handleDurationChange(action) {
     const { symbol, tradeCategory, type, durationUnit, dateStart } = params;
     const contractNeeded = yield select(contractOfSymbol(symbol));
     const contractPerType = contractNeeded[tradeCategory][type];
-    const isDurationAllowed = areAllTimeFieldsValid(dateStart, duration, durationUnit, contractPerType);
+    const isDurationAllowed = areAllTimeFieldsValid(
+        dateStart,
+        duration,
+        durationUnit,
+        contractPerType,
+    );
     if (isDurationAllowed) {
         const updated = Object.assign(params, { duration });
         yield [
@@ -32,10 +48,15 @@ export function* handleDurationChange(action) {
             put(updateTradeError(index, 'durationError')),
         ];
     } else {
-        yield put(updateTradeError(index, 'durationError', 'Duration is out of range'));
+        yield put(
+            updateTradeError(
+                index,
+                'durationError',
+                'Duration is out of range',
+            ),
+        );
     }
 }
-
 
 const CHANGE_DURATION_UNIT = 'CHANGE_DURATION_UNIT';
 
@@ -96,11 +117,24 @@ export function* handleStartDateChange(action) {
     const { index, date } = action;
     yield put(unsubscribeProposal(index));
     const params = yield select(getParams(index));
-    const { symbol, tradeCategory, type, durationUnit, dateStart, duration } = params;
+    const {
+        symbol,
+        tradeCategory,
+        type,
+        durationUnit,
+        dateStart,
+        duration,
+    } = params;
 
     const newDayEpoch = dateToEpoch(new Date(date));
     if (!newDayEpoch) {
-        yield put(updateTradeError(index, 'durationError', 'Start date invalid, it needs to be five minutes or more in the future'));
+        yield put(
+            updateTradeError(
+                index,
+                'durationError',
+                'Start date invalid, it needs to be five minutes or more in the future',
+            ),
+        );
         return;
     }
 
@@ -110,7 +144,12 @@ export function* handleStartDateChange(action) {
 
     const contractNeeded = yield select(contractOfSymbol(symbol));
     const contractPerType = contractNeeded[tradeCategory][type];
-    const durationAllowed = areAllTimeFieldsValid(newDateStart, duration, durationUnit, contractPerType);
+    const durationAllowed = areAllTimeFieldsValid(
+        newDateStart,
+        duration,
+        durationUnit,
+        contractPerType,
+    );
 
     if (durationAllowed) {
         const updated = changeStartDate(newDateStart, contractNeeded, params);
@@ -120,7 +159,13 @@ export function* handleStartDateChange(action) {
             put(updateTradeError(index, 'durationError')),
         ];
     } else {
-        yield put(updateTradeError(index, 'durationError', 'Start date invalid, it needs to be five minutes or more in the future'));
+        yield put(
+            updateTradeError(
+                index,
+                'durationError',
+                'Start date invalid, it needs to be five minutes or more in the future',
+            ),
+        );
     }
 }
 
@@ -137,12 +182,25 @@ export function* handleStartTimeChange(action) {
     yield put(unsubscribeProposal(index));
 
     if (!isValidTime(time)) {
-        yield put(updateTradeError(index, 'durationError', 'Time format invalid, it should be HH:mm'));
+        yield put(
+            updateTradeError(
+                index,
+                'durationError',
+                'Time format invalid, it should be HH:mm',
+            ),
+        );
         return;
     }
 
     const params = yield select(getParams(index));
-    const { symbol, tradeCategory, type, durationUnit, dateStart, duration } = params;
+    const {
+        symbol,
+        tradeCategory,
+        type,
+        durationUnit,
+        dateStart,
+        duration,
+    } = params;
 
     const secondsPerDay = 60 * 60 * 24;
     const intraDayEpoch = dateStart % secondsPerDay;
@@ -151,7 +209,12 @@ export function* handleStartTimeChange(action) {
 
     const contractNeeded = yield select(contractOfSymbol(symbol));
     const contractPerType = contractNeeded[tradeCategory][type];
-    const durationAllowed = areAllTimeFieldsValid(newDateStart, duration, durationUnit, contractPerType);
+    const durationAllowed = areAllTimeFieldsValid(
+        newDateStart,
+        duration,
+        durationUnit,
+        contractPerType,
+    );
 
     if (durationAllowed) {
         const updated = changeStartDate(newDateStart, contractNeeded, params);
@@ -161,7 +224,13 @@ export function* handleStartTimeChange(action) {
             put(updateTradeError(index, 'durationError')),
         ];
     } else {
-        yield put(updateTradeError(index, 'durationError', 'Start date invalid, it needs to be five minutes or more in the future'));
+        yield put(
+            updateTradeError(
+                index,
+                'durationError',
+                'Start date invalid, it needs to be five minutes or more in the future',
+            ),
+        );
     }
 }
 

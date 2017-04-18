@@ -17,18 +17,17 @@ export const contractReceiptsPerTradeSelector = createSelector(
             const contractID = p.get('mostRecentContractId');
             if (!contractID) return undefined;
             return contracts.get(contractID);
-        })
+        }),
 );
 
-export const symbolOnlySelector = createSelector(
-    tradeParamsSelector,
-    params => params.map(p => p.get('symbol'))
+export const symbolOnlySelector = createSelector(tradeParamsSelector, params =>
+    params.map(p => p.get('symbol')),
 );
 
 export const tradingTimesPerTradeSelector = createSelector(
     [symbolOnlySelector, tradingTimesSelector],
     (symbols, times) =>
-        symbols.map(symbol => times.find(a => a.get('symbol') === symbol))
+        symbols.map(symbol => times.find(a => a.get('symbol') === symbol)),
 );
 
 export const pipSizesPerTradeSelector = createSelector(
@@ -37,13 +36,12 @@ export const pipSizesPerTradeSelector = createSelector(
         symbols.map(symbol => {
             const symbolDetails = assets.find(a => a.get('symbol') === symbol);
             return symbolDetails && pipsToDigits(symbolDetails.get('pip'));
-        })
+        }),
 );
 
 export const feedLicensesPerTradeSelector = createSelector(
     [feedLicensesSelector, symbolOnlySelector],
-    (licenses, symbols) =>
-        symbols.map(symbol => licenses.get(symbol))
+    (licenses, symbols) => symbols.map(symbol => licenses.get(symbol)),
 );
 
 export const tradeParamsWithSymbolNameSelector = createListSelector(
@@ -53,5 +51,5 @@ export const tradeParamsWithSymbolNameSelector = createListSelector(
         const symbolDetails = assets.find(a => a.get('symbol') === symbol);
         const symbolName = symbolDetails && symbolDetails.get('display_name');
         return p.set('symbolName', symbolName);
-    }
+    },
 );

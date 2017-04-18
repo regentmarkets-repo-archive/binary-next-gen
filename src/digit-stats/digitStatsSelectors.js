@@ -1,16 +1,29 @@
 import { createSelector } from 'reselect';
 import { pipsToDigits, calculateLastDigitStats } from 'binary-utils';
-import { ticksSelector, digitStatsSelector,
-    tradingOptionsSelector, assetsSelector } from '../_store/directSelectors';
+import {
+    ticksSelector,
+    digitStatsSelector,
+    tradingOptionsSelector,
+    assetsSelector,
+} from '../_store/directSelectors';
 import { examinedAssetSelector } from '../_store/commonSelectors';
 
 export default createSelector(
-    [examinedAssetSelector, ticksSelector, tradingOptionsSelector, digitStatsSelector, assetsSelector],
+    [
+        examinedAssetSelector,
+        ticksSelector,
+        tradingOptionsSelector,
+        digitStatsSelector,
+        assetsSelector,
+    ],
     (examinedAsset, ticks, tradingOptions, digitStats, assets) => {
         const symbol = examinedAsset.get('symbol');
-        const assetSupportsDigit = examinedAsset &&
+        const assetSupportsDigit =
+            examinedAsset &&
             tradingOptions.get(symbol) &&
-            tradingOptions.get(symbol).some(opt => opt.contract_category === 'digits');
+            tradingOptions
+                .get(symbol)
+                .some(opt => opt.contract_category === 'digits');
 
         const selectAssetTicks = assetSupportsDigit && ticks.get(symbol);
         if (!selectAssetTicks) return undefined;
@@ -24,5 +37,5 @@ export default createSelector(
             stats: calculateLastDigitStats(lastTicks, pipsToDigits(pipSize)),
             symbol,
         };
-    }
+    },
 );

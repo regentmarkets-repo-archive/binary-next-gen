@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import { Th } from 'binary-components';
 
 export default class TradingStatsCard extends PureComponent {
-
     props: {
         loginID: string,
         currency: string,

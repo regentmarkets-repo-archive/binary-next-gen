@@ -93,8 +93,7 @@ describe('settingsReducer', () => {
     it('shoulbd be able to update account setting field', () => {
         const action = {
             type: UPDATE_SETTINGS_FIELD,
-            settings:
-            {
+            settings: {
                 field: 'Name',
                 value: 'My Name',
             },

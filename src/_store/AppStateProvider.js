@@ -15,7 +15,6 @@ type Props = {
  */
 @connect(appStateSelector)
 export default class AppStateProvider extends PureComponent {
-
     props: Props;
 
     constructor(props: Props) {
@@ -35,15 +34,23 @@ export default class AppStateProvider extends PureComponent {
 
     showMessageForSlowConnection = () => {
         this.setState({ showMessage: true });
-    }
+    };
 
     render() {
         const { connected, children } = this.props;
         const { showMessage } = this.state;
 
         return (
-            <TransitionGroup transitionName="zoom" transitionEnterTimeout={0} transitionLeaveTimeout={500}>
-                {Children.only(connected ? children : <LoadingView key={123} showMessage={showMessage} />)}
+            <TransitionGroup
+                transitionName="zoom"
+                transitionEnterTimeout={0}
+                transitionLeaveTimeout={500}
+            >
+                {Children.only(
+                    connected
+                        ? children
+                        : <LoadingView key={123} showMessage={showMessage} />,
+                )}
             </TransitionGroup>
         );
     }

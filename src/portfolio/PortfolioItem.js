@@ -2,10 +2,9 @@ import React, { PureComponent } from 'react';
 import { NumberPlain, NumberColored } from 'binary-components';
 
 const openContractSubscriptionFailed = contract =>
-	contract.validation_error && Object.keys(contract).length < 3;
+    contract.validation_error && Object.keys(contract).length < 3;
 
 export default class PortfolioItem extends PureComponent {
-
     props: {
         contract: Contract,
         onViewDetails: (contract: Contract) => void,
@@ -14,7 +13,7 @@ export default class PortfolioItem extends PureComponent {
     onViewDetailsClicked = () => {
         const { contract, onViewDetails } = this.props;
         onViewDetails(contract);
-    }
+    };
 
     render() {
         const { contract } = this.props;
@@ -24,7 +23,9 @@ export default class PortfolioItem extends PureComponent {
 
         return (
             <tr className="portfolio-row" onClick={this.onViewDetailsClicked}>
-                <td>{contract.transaction_ids && contract.transaction_ids.buy}</td>
+                <td>
+                    {contract.transaction_ids && contract.transaction_ids.buy}
+                </td>
                 <td className="numeric">
                     <NumberPlain
                         currency={contract.currency}

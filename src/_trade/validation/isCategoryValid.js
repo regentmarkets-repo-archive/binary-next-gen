@@ -1,2 +1,1 @@
-export default (category, contract) =>
-    !!contract[category];
+export default (category, contract) => !!contract[category];

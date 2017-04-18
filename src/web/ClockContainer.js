@@ -6,10 +6,7 @@ import timeSelector from './timeSelector';
 
 @connect(timeSelector)
 export default class ClockContainer extends PureComponent {
-
     render() {
-        return (
-            <Clock {...immutableChildrenToJS(this.props)} />
-        );
+        return <Clock {...immutableChildrenToJS(this.props)} />;
     }
 }

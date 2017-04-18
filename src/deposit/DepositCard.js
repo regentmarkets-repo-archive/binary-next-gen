@@ -4,26 +4,22 @@ import { immutableChildrenToJS } from 'binary-utils';
 import PaymentAgentsList from './PaymentAgentsList';
 import WithdrawalForm from './WithdrawalForm';
 
-const components = [
-	PaymentAgentsList,
-	WithdrawalForm,
-];
+const components = [PaymentAgentsList, WithdrawalForm];
 
 type Props = {
-	paymentAgent: Object,
-	country: string,
+    paymentAgent: Object,
+    country: string,
 };
 
 export default class DepositCard extends PureComponent {
-
-	props: Props;
+    props: Props;
 
     constructor(props: Props) {
         super(props);
         this.state = { activeTab: 0 };
     }
 
-	onTabChange = idx => this.setState({ activeTab: idx });
+    onTabChange = idx => this.setState({ activeTab: idx });
 
     render() {
         const { paymentAgent, country } = this.props;
@@ -41,10 +37,7 @@ export default class DepositCard extends PureComponent {
 
         return (
             <div>
-                <TabList
-                    activeIndex={activeTab}
-                    onChange={this.onTabChange}
-                >
+                <TabList activeIndex={activeTab} onChange={this.onTabChange}>
                     <Tab text="Asset Index" />
                     <Tab text="Trading Times" />
                 </TabList>

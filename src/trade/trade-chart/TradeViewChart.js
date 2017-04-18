@@ -8,9 +8,12 @@ import {
 import { chartApi } from '../../_data/LiveData';
 import { mergeTicks } from '../../_reducers/TickReducer';
 import { mergeCandles } from '../../_reducers/OHLCReducer';
-import { chartToDataType, getDataWithErrorHandling } from '../../_chart-utils/Utils';
+import {
+    chartToDataType,
+    getDataWithErrorHandling,
+} from '../../_chart-utils/Utils';
 
-const zoomInTo = (ratio) => (ev, chart) => {
+const zoomInTo = ratio => (ev, chart) => {
     const { dataMax, dataMin } = chart.xAxis[0].getExtremes();
     const lastData = getLast(chart.series[0].options.data);
     if (!lastData) return;
@@ -43,7 +46,6 @@ const defaultState = {
 };
 
 export default class TradeViewChart extends PureComponent {
-
     static contextTypes = {
         theme: () => undefined,
     };
@@ -91,7 +93,11 @@ export default class TradeViewChart extends PureComponent {
             const { index, tradeForChart, contractForChart } = this.props;
 
             // ignored delayed tick from previous subscription
-            if (tradeForChart && data.tick.symbol !== tradeForChart.get('symbol')) return;
+            if (
+                tradeForChart &&
+                data.tick.symbol !== tradeForChart.get('symbol')
+            )
+                return;
 
             const old = this.state.ticks;
             if (old.length === 0) {
@@ -108,12 +114,17 @@ export default class TradeViewChart extends PureComponent {
             this.ticksId = data.tick.id;
 
             // stop the chart from moving 5 ticks after contract ends
-            const endTime = contractForChart && (contractForChart.get('date_expiry') || contractForChart.get('sell_spot_time'));
+            const endTime =
+                contractForChart &&
+                (contractForChart.get('date_expiry') ||
+                    contractForChart.get('sell_spot_time'));
             if (endTime) {
                 const last6Data = old[old.length - 7];
                 const last5Data = old[old.length - 6];
                 if (last5Data.epoch > +endTime && last6Data.epoch <= +endTime) {
-                    const chartDiv = document.getElementById(`trade-chart${index}`);
+                    const chartDiv = document.getElementById(
+                        `trade-chart${index}`,
+                    );
                     if (chartDiv) {
                         chartDiv.dispatchEvent(new Event('move-back'));
                     }
@@ -125,7 +136,11 @@ export default class TradeViewChart extends PureComponent {
             const { tradeForChart } = this.props;
 
             // ignore delayed tick from previous subscription
-            if (tradeForChart && data.ohlc.symbol !== tradeForChart.get('symbol')) return;
+            if (
+                tradeForChart &&
+                data.ohlc.symbol !== tradeForChart.get('symbol')
+            )
+                return;
 
             const old = this.state.candles;
 
@@ -155,7 +170,9 @@ export default class TradeViewChart extends PureComponent {
                 this.setState({ candles: newOHLCArr });
             } else {
                 const dataCap = isMobile() ? 500 : 1500;
-                this.setState({ candles: old.concat([newOHLC]).slice(-dataCap) });
+                this.setState({
+                    candles: old.concat([newOHLC]).slice(-dataCap),
+                });
             }
             this.ohlcId = data.ohlc.id;
         });
@@ -164,7 +181,8 @@ export default class TradeViewChart extends PureComponent {
     componentDidMount() {
         const { tradeForChart, index, feedLicense } = this.props;
 
-        if (!tradeForChart) throw new Error(`Trade no ${index} does not have trade param`);
+        if (!tradeForChart)
+            throw new Error(`Trade no ${index} does not have trade param`);
 
         const symbol = tradeForChart.get('symbol');
 
@@ -185,8 +203,9 @@ export default class TradeViewChart extends PureComponent {
         const thisSymbol = this.props.tradeForChart.get('symbol');
         const nextSymbol = nextProps.tradeForChart.get('symbol');
         if (
-            (this.props.tradeForChart && nextProps.tradeForChart) &&
-            (thisSymbol !== nextSymbol)
+            this.props.tradeForChart &&
+            nextProps.tradeForChart &&
+            thisSymbol !== nextSymbol
         ) {
             this.setState(defaultState);
             this.unsubscribe();
@@ -197,7 +216,9 @@ export default class TradeViewChart extends PureComponent {
             }
 
             this.subscribeToTicks(nextSymbol).then(() => {
-                const chartDiv = document.getElementById(`trade-chart${nextProps.index}`);
+                const chartDiv = document.getElementById(
+                    `trade-chart${nextProps.index}`,
+                );
                 if (chartDiv) {
                     chartDiv.dispatchEvent(new Event('zoom-in-to'));
                 }
@@ -225,7 +246,7 @@ export default class TradeViewChart extends PureComponent {
     unsubscribe = () => {
         if (this.ticksId) this.api.unsubscribeByID(this.ticksId);
         if (this.ohlcId) this.api.unsubscribeByID(this.ohlcId);
-    }
+    };
 
     updateData = (data, type) => {
         if (type === 'ticks') {
@@ -243,9 +264,14 @@ export default class TradeViewChart extends PureComponent {
         const candles = mergeCandles(this.state.candles, data.candles);
         this.setState({ candles });
         return candles;
-    }
+    };
 
-    fetchData = (start: number, end: number, type: ChartType, interval: number): Promise => {
+    fetchData = (
+        start: number,
+        end: number,
+        type: ChartType,
+        interval: number,
+    ): Promise => {
         const { tradeForChart, feedLicense } = this.props;
 
         if (feedLicense === 'chartonly') return Promise.resolve();
@@ -255,12 +281,18 @@ export default class TradeViewChart extends PureComponent {
 
         // no need to handle error as not calling with subscribe
         return this.api
-            .getTickHistory(symbol, { count, end, style: type, granularity: interval, adjust_start_time: 1 })
+            .getTickHistory(symbol, {
+                count,
+                end,
+                style: type,
+                granularity: interval,
+                adjust_start_time: 1,
+            })
             .then(r => this.updateData(r, type));
-    }
+    };
 
     subscribeToTicks = (symbol, count = 2000): Promise => {
-        const callDependOnErr = (err) =>
+        const callDependOnErr = err =>
             this.api.getTickHistory(symbol, {
                 count: isMobile() ? 500 : count,
                 end: 'latest',
@@ -268,22 +300,26 @@ export default class TradeViewChart extends PureComponent {
                 subscribe: err ? undefined : 1,
             });
 
-        return getDataWithErrorHandling(callDependOnErr).then(r => this.updateData(r, 'ticks'));
-    }
+        return getDataWithErrorHandling(callDependOnErr).then(r =>
+            this.updateData(r, 'ticks'),
+        );
+    };
 
     subscribeToOHLC = (symbol, count = 500, interval = 60): Promise => {
-        const callDependOnErr = (err) =>
+        const callDependOnErr = err =>
             this.api.getTickHistory(symbol, {
-                    count: isMobile() ? 200 : count,
-                    end: 'latest',
-                    subscribe: err ? undefined : 1,
-                    style: 'candles',
-                    adjust_start_time: 1,
-                    granularity: interval,
-                });
+                count: isMobile() ? 200 : count,
+                end: 'latest',
+                subscribe: err ? undefined : 1,
+                style: 'candles',
+                adjust_start_time: 1,
+                granularity: interval,
+            });
 
-        return getDataWithErrorHandling(callDependOnErr).then(r => this.updateData(r, 'candles'));
-    }
+        return getDataWithErrorHandling(callDependOnErr).then(r =>
+            this.updateData(r, 'candles'),
+        );
+    };
 
     changeChartType = (type: ChartType) => {
         const { feedLicense } = this.props;
@@ -300,11 +336,18 @@ export default class TradeViewChart extends PureComponent {
         }
 
         this.setState({ chartType: type, dataType: newDataType });
-    }
+    };
 
     render() {
-        const { contractForChart, index, events,
-            feedLicense, pipSize, tradeForChart, highContrast } = this.props;
+        const {
+            contractForChart,
+            index,
+            events,
+            feedLicense,
+            pipSize,
+            tradeForChart,
+            highContrast,
+        } = this.props;
         const { theme } = this.context;
         const { chartType, dataType } = this.state;
 
@@ -316,7 +359,12 @@ export default class TradeViewChart extends PureComponent {
             <BinaryChart
                 id={`trade-chart${index}`}
                 className="trade-chart"
-                contract={contractForChart && serverContractModelToChartContractModel(contractForChart.toJS())}
+                contract={
+                    contractForChart &&
+                        serverContractModelToChartContractModel(
+                            contractForChart.toJS(),
+                        )
+                }
                 events={events}
                 noData={noData}
                 pipSize={pipSize}
@@ -329,10 +377,15 @@ export default class TradeViewChart extends PureComponent {
                 showTooltips={!mobile}
                 hideZoomControls={mobile}
                 type={chartType}
-                trade={tradeForChart && internalTradeModelToChartTradeModel(tradeForChart.toJS())}
+                trade={
+                    tradeForChart &&
+                        internalTradeModelToChartTradeModel(
+                            tradeForChart.toJS(),
+                        )
+                }
                 // tradingTimes={tradingTime.times}
                 getData={noData ? undefined : this.fetchData}
-                onTypeChange={noData ? undefined : this.changeChartType}   // do not allow change type when there's contract
+                onTypeChange={noData ? undefined : this.changeChartType} // do not allow change type when there's contract
             />
         );
     }

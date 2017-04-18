@@ -7,7 +7,6 @@ const payouts = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000];
 const debounceStakeChange = debounce(actions.reqStakeChange, 400);
 
 export default class StakeCard extends PureComponent {
-
     props: {
         amount: number,
         isVirtual: boolean,
@@ -16,11 +15,11 @@ export default class StakeCard extends PureComponent {
     onAmountChange = value => {
         const { index } = this.props;
         debounceStakeChange(index, value);
-    }
+    };
 
     render() {
         const { amount, isVirtual } = this.props;
-        const max = isVirtual ? 10000 : 500;                // TODO: temp restriction
+        const max = isVirtual ? 10000 : 500; // TODO: temp restriction
         return (
             <div className="param-row payout-picker">
                 <Label text="Stake" />

@@ -6,10 +6,7 @@ import digitStatsSelectors from './digitStatsSelectors';
 
 @connect(digitStatsSelectors)
 export default class DigitStatsContainer extends PureComponent {
-
     render() {
-        return (
-            <DigitStatsCard {...immutableChildrenToJS(this.props)} />
-        );
+        return <DigitStatsCard {...immutableChildrenToJS(this.props)} />;
     }
 }

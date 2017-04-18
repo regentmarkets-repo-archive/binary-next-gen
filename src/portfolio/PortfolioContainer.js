@@ -6,10 +6,7 @@ import PortfolioSelectors from './PortfolioSelectors';
 
 @connect(PortfolioSelectors)
 export default class PortfolioContainer extends PureComponent {
-
-	render() {
-		return (
-			<PortfolioCard {...immutableChildrenToJS(this.props)} />
-		);
-	}
+    render() {
+        return <PortfolioCard {...immutableChildrenToJS(this.props)} />;
+    }
 }

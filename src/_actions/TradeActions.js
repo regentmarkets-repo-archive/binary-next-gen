@@ -85,25 +85,25 @@ export const sellExpiredContract = onDone => {
     });
 };
 
-export const sellContract = (id, price) =>
-    async (dispatch, getState) => {
-        const contract = getState().boughtContracts.get(id);
-        if (!contract) {
-            return;
-        }
-        try {
-            dispatch(updateOpenContractField({ id, selling: true }));
-            await api.sellContract(id, price);
-            dispatch(updateOpenContractField({ id, selling: false }));
-            await trackEvent('Trade', 'Sell', price);
-        } catch (error) {
-            dispatch(updateOpenContractField({ id, validation_error: error }));
-        }
-    };
+export const sellContract = (id, price) => async (dispatch, getState) => {
+    const contract = getState().boughtContracts.get(id);
+    if (!contract) {
+        return;
+    }
+    try {
+        dispatch(updateOpenContractField({ id, selling: true }));
+        await api.sellContract(id, price);
+        dispatch(updateOpenContractField({ id, selling: false }));
+        await trackEvent('Trade', 'Sell', price);
+    } catch (error) {
+        dispatch(updateOpenContractField({ id, validation_error: error }));
+    }
+};
 
-export const selectAsset = asset =>
-    dispatch => dispatch(getTradingOptions(asset))
-        .then(() => dispatch(getTicksBySymbol(asset)));
+export const selectAsset = asset => dispatch =>
+    dispatch(getTradingOptions(asset)).then(() =>
+        dispatch(getTicksBySymbol(asset)),
+    );
 
 export const updateOutdatedStartDate = () => ({
     type: types.UPDATE_OUTDATED_START_DATE,

@@ -5,7 +5,6 @@ import { actions } from '../_store';
 import DigitStatsFilter from './DigitStatsFilter';
 
 export default class DigitStatsCard extends PureComponent {
-
     props: {
         symbol: string,
         filter: number,
@@ -25,7 +24,7 @@ export default class DigitStatsCard extends PureComponent {
         const { symbol } = this.props;
         actions.updateDigitStatFilter(+newFilter);
         actions.getTicksByCount(symbol, +newFilter);
-    }
+    };
 
     render() {
         const { filter, stats } = this.props;
@@ -33,8 +32,8 @@ export default class DigitStatsCard extends PureComponent {
         if (!stats) {
             return (
                 <EmptySlate
-					img="img/barchart.svg"
-					text="No digit trades for this asset"
+                    img="img/barchart.svg"
+                    text="No digit trades for this asset"
                 />
             );
         }

@@ -26,20 +26,15 @@ export const tradesUIStatesSelector = state => state.tradesUIStates;
 export const tradesErrorSelector = state => state.tradesError;
 export const residenceListSelector = state => state.residenceList;
 
-export const themeSelector = state =>
-    state.boot.get('theme');
+export const themeSelector = state => state.boot.get('theme');
 
-export const loginidSelector = state =>
-    state.account.get('loginid');
+export const loginidSelector = state => state.account.get('loginid');
 
-export const balanceSelector = state =>
-    state.account.get('balance');
+export const balanceSelector = state => state.account.get('balance');
 
-export const serverTimeDiffSelector = state =>
-    state.server.get('timeDiff');
+export const serverTimeDiffSelector = state => state.server.get('timeDiff');
 
-export const currencySelector = state =>
-    state.account.get('currency');
+export const currencySelector = state => state.account.get('currency');
 
 export const transactionsFilterSelector = state =>
     state.views.get('transactionsFilter');
@@ -47,8 +42,7 @@ export const transactionsFilterSelector = state =>
 export const assetIndexSubmarketSelector = state =>
     state.views.getIn(['assetIndex', 'submarketId']);
 
-export const assetIndexFilterSelector = state =>
-    state.views.get('assetIndex');
+export const assetIndexFilterSelector = state => state.views.get('assetIndex');
 
 export const tradingTimesFilterSelector = state =>
     state.views.get('tradingTimes');
@@ -56,8 +50,6 @@ export const tradingTimesFilterSelector = state =>
 export const examinedAssetSelector = state =>
     state.workspace.get('examinedAsset');
 
-export const tradesCountSelector =
-    state => state.workspace.get('tradesCount');
+export const tradesCountSelector = state => state.workspace.get('tradesCount');
 
-export const layoutNSelector =
-    state => state.workspace.get('layoutN');
+export const layoutNSelector = state => state.workspace.get('layoutN');

@@ -3,7 +3,6 @@ import { FormattedDate } from 'react-intl';
 import { NumberPlain } from 'binary-components';
 
 export default class DailyPricesRow extends PureComponent {
-
     props: {
         date: Date,
         open: number,

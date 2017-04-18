@@ -13,7 +13,10 @@ describe('workspaceReducer', () => {
             const stateBefore = fromJS({
                 tradeMode: 'tabs',
             });
-            const actual = workspaceReducer(stateBefore, actions.toggleTradeMode());
+            const actual = workspaceReducer(
+                stateBefore,
+                actions.toggleTradeMode(),
+            );
             const expected = fromJS({
                 tradeMode: 'grid',
             });
@@ -24,7 +27,10 @@ describe('workspaceReducer', () => {
             const stateBefore = fromJS({
                 tradeMode: 'grid',
             });
-            const actual = workspaceReducer(stateBefore, actions.toggleTradeMode());
+            const actual = workspaceReducer(
+                stateBefore,
+                actions.toggleTradeMode(),
+            );
             const expected = fromJS({
                 tradeMode: 'jp',
             });
@@ -35,7 +41,10 @@ describe('workspaceReducer', () => {
             const stateBefore = fromJS({
                 tradeMode: 'jp',
             });
-            const actual = workspaceReducer(stateBefore, actions.toggleTradeMode());
+            const actual = workspaceReducer(
+                stateBefore,
+                actions.toggleTradeMode(),
+            );
             const expected = fromJS({
                 tradeMode: 'tabs',
             });
@@ -48,7 +57,10 @@ describe('workspaceReducer', () => {
             const stateBefore = fromJS({
                 leftPanelVisible: false,
             });
-            const actual = workspaceReducer(stateBefore, actions.togglePanel('left'));
+            const actual = workspaceReducer(
+                stateBefore,
+                actions.togglePanel('left'),
+            );
             const expected = fromJS({
                 leftPanelVisible: true,
             });

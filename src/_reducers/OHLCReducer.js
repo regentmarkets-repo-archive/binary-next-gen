@@ -19,7 +19,8 @@ export const mergeCandles = (existingCandles, newCandles) => {
         return existingCandles;
     }
 
-    const existingGranularity = existingCandles[1].epoch - existingCandles[0].epoch;
+    const existingGranularity =
+        existingCandles[1].epoch - existingCandles[0].epoch;
     const newGranularity = newCandles[1].epoch - newCandles[0].epoch;
     const granularityDiff = Math.abs(existingGranularity - newGranularity);
 
@@ -37,7 +38,12 @@ export const mergeCandles = (existingCandles, newCandles) => {
     ) {
         return existingCandles;
     }
-    return mergeSortedArrays(existingCandles, newCandles, x => x.epoch, x => x.epoch);
+    return mergeSortedArrays(
+        existingCandles,
+        newCandles,
+        x => x.epoch,
+        x => x.epoch,
+    );
 };
 
 export default (state = initialState, action) => {
@@ -52,7 +58,9 @@ export default (state = initialState, action) => {
                 low: +ohlc.low,
                 close: +ohlc.close,
             };
-            return state.update(symbol, List.of(), v => v.takeLast(1000).push(newOHLC));
+            return state.update(symbol, List.of(), v =>
+                v.takeLast(1000).push(newOHLC),
+            );
         }
         case SERVER_DATA_CANDLES: {
             const symbol = action.serverResponse.echo_req.ticks_history;
@@ -64,7 +72,9 @@ export default (state = initialState, action) => {
                 close: +c.close,
             }));
 
-            const liveCandles = state.get(symbol) ? state.get(symbol).toJS() : [];
+            const liveCandles = state.get(symbol)
+                ? state.get(symbol).toJS()
+                : [];
             const merged = mergeCandles(liveCandles, candles);
             if (merged.length === liveCandles.length) {
                 return state;
@@ -98,4 +108,3 @@ export default (state = initialState, action) => {
             return state;
     }
 };
-

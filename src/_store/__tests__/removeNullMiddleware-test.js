@@ -1,4 +1,6 @@
-import removeNullMiddleware, { removeNullValueKey } from '../removeNullMiddleware';
+import removeNullMiddleware, {
+    removeNullValueKey,
+} from '../removeNullMiddleware';
 
 describe('nullValueRemover', () => {
     it('should remove null value of shallow object', () => {
@@ -21,21 +23,19 @@ describe('nullValueRemover', () => {
         };
         const result = removeNullValueKey(shallowObj);
 
-        expect(result).toEqual(
-            {
-                a: '1',
-                b: '2',
-                d: {
-                    e: 's',
-                    f: {},
-                },
+        expect(result).toEqual({
+            a: '1',
+            b: '2',
+            d: {
+                e: 's',
+                f: {},
             },
-        );
+        });
     });
 });
 
 describe('removeNullMiddleware', () => {
-    const fakeStore = {};           // empty since not used
+    const fakeStore = {}; // empty since not used
     const middleware = removeNullMiddleware(fakeStore);
     it('should return a function', () => {
         expect(typeof middleware).toEqual('function');

@@ -3,7 +3,10 @@ import { put, select } from 'redux-saga/effects';
 import { getParams, contractOfSymbol } from './SagaSelectors';
 import { updateMultipleTradeParams, updateTradeError } from '../../_actions';
 import changeBarrier from '../updates/changeBarrier';
-import { subscribeProposal, unsubscribeProposal } from './ProposalSubscriptionSaga';
+import {
+    subscribeProposal,
+    unsubscribeProposal,
+} from './ProposalSubscriptionSaga';
 import isBarrierTooLong from '../validation/isBarrierTooLong';
 import isBarrierCountValid from '../validation/isBarrierCountValid';
 
@@ -24,8 +27,16 @@ export function* handleBarrierChange(action) {
     const { symbol, tradeCategory, type } = params;
     const contract = yield select(contractOfSymbol(symbol));
 
-    if (!isBarrierCountValid(barrier, expiryType, contract[tradeCategory][type])) {
-        yield put(updateTradeError(index, 'barrierError', 'Barrier must not be empty'));
+    if (
+        !isBarrierCountValid(barrier, expiryType, contract[tradeCategory][type])
+    ) {
+        yield put(
+            updateTradeError(
+                index,
+                'barrierError',
+                'Barrier must not be empty',
+            ),
+        );
         return;
     }
 
@@ -37,7 +48,13 @@ export function* handleBarrierChange(action) {
     ];
 
     if (isBarrierTooLong(barrier, pipSize)) {
-        yield put(updateTradeError(index, 'barrierError', `Barrier decimal too long, only allow ${pipSize} decimals`));
+        yield put(
+            updateTradeError(
+                index,
+                'barrierError',
+                `Barrier decimal too long, only allow ${pipSize} decimals`,
+            ),
+        );
     }
 }
 

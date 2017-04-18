@@ -6,24 +6,37 @@ import sidebarSelectors from './sidebarSelectors';
 
 @connect(sidebarSelectors)
 export default class WebSidebarContainer extends PureComponent {
+    props: {
+        loginid: string,
+    };
 
-	props: {
-		loginid: string,
-	};
+    render() {
+        const { loginid } = this.props;
 
-	render() {
-		const { loginid } = this.props;
-
-		return (
-			<div>
-				<input id="hamburger-closer" type="radio" name="hamburger" defaultChecked />
-				<label id="hamburger-overlay" htmlFor="hamburger-closer" />
-				<input id="hamburger-opener" className="hamburger" type="radio" name="hamburger" />
-				<label id="hamburger-btn" htmlFor="hamburger-opener" className="toolbar-btn">
-					{loginid}
-					<WebSidebar {...immutableChildrenToJS(this.props)} />
-				</label>
-			</div>
-		);
-	}
+        return (
+            <div>
+                <input
+                    id="hamburger-closer"
+                    type="radio"
+                    name="hamburger"
+                    defaultChecked
+                />
+                <label id="hamburger-overlay" htmlFor="hamburger-closer" />
+                <input
+                    id="hamburger-opener"
+                    className="hamburger"
+                    type="radio"
+                    name="hamburger"
+                />
+                <label
+                    id="hamburger-btn"
+                    htmlFor="hamburger-opener"
+                    className="toolbar-btn"
+                >
+                    {loginid}
+                    <WebSidebar {...immutableChildrenToJS(this.props)} />
+                </label>
+            </div>
+        );
+    }
 }

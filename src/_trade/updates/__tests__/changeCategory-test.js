@@ -1,6 +1,8 @@
 import rawContract from 'binary-test-data/contractsForR50';
 import changeCategory from '../changeCategory';
-import { tradingOptionsForOneSymbol } from '../../../trade-params/TradeParamsSelector';
+import {
+    tradingOptionsForOneSymbol,
+} from '../../../trade-params/TradeParamsSelector';
 import areAllTimeFieldsValid from '../../validation/areAllTimeFieldsValid';
 
 describe('Update helpers', () => {
@@ -29,23 +31,45 @@ describe('Update helpers', () => {
             const updatedCategory = changeCategory('spreads', mockedContract);
             expect(updatedCategory.hasOwnProperty('stopLoss')).toBeTruthy();
             expect(updatedCategory.hasOwnProperty('stopProfit')).toBeTruthy();
-            expect(updatedCategory.hasOwnProperty('amountPerPoint')).toBeTruthy();
+            expect(
+                updatedCategory.hasOwnProperty('amountPerPoint'),
+            ).toBeTruthy();
         });
 
         it('should return start later trade if market is close', () => {
-            const updated = changeCategory('risefall', mockedContract, mockTickTrade, false);
+            const updated = changeCategory(
+                'risefall',
+                mockedContract,
+                mockTickTrade,
+                false,
+            );
             expect(updated.hasOwnProperty('dateStart')).toBeTruthy();
         });
 
         it('should NOT return start later trade if market is close', () => {
-            const updated = changeCategory('risefall', mockedContract, mockTickTrade, true);
+            const updated = changeCategory(
+                'risefall',
+                mockedContract,
+                mockTickTrade,
+                true,
+            );
             expect(updated.dateStart).toBeUndefined();
         });
 
         it('should return a sane params if invalid category is passed into it', () => {
-            const { duration, durationUnit, dateStart, tradeCategory, type } =
-                changeCategory('super', mockedContract, mockTickTrade);
-            const isValid = areAllTimeFieldsValid(dateStart, duration, durationUnit, mockedContract[tradeCategory][type]);
+            const {
+                duration,
+                durationUnit,
+                dateStart,
+                tradeCategory,
+                type,
+            } = changeCategory('super', mockedContract, mockTickTrade);
+            const isValid = areAllTimeFieldsValid(
+                dateStart,
+                duration,
+                durationUnit,
+                mockedContract[tradeCategory][type],
+            );
             expect(isValid).toEqual(true);
         });
     });

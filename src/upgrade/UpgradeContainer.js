@@ -7,12 +7,11 @@ import UpgradeCard from './UpgradeCard';
 
 @connect(countryListSelector)
 export default class UpgradeContainer extends PureComponent {
-
-	render() {
-		return (
-			<MobilePage toolbarShown={false} inverse>
-				<UpgradeCard {...immutableChildrenToJS(this.props)} />
-			</MobilePage>
-		);
-	}
+    render() {
+        return (
+            <MobilePage toolbarShown={false} inverse>
+                <UpgradeCard {...immutableChildrenToJS(this.props)} />
+            </MobilePage>
+        );
+    }
 }

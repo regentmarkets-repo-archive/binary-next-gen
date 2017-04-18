@@ -33,7 +33,8 @@
     "release": "npm run release:osx && npm run release:win32 && npm run release:win64",
     "all": "npm run dist && npm run release && gulp mobile:release",
     "deploy:android": "npm run build:dev && code-push release-cordova binary-next-gen-android android",
-    "deploy:ios": "npm run build:dev && code-push release-cordova binary-next-gen-ios ios"
+    "deploy:ios": "npm run build:dev && code-push release-cordova binary-next-gen-ios ios",
+    "precommit": "lint-staged"
   },
   "build": {
     "appId": "app.binary.com",
@@ -106,6 +107,12 @@
       }
     }
   },
+  "lint-staged": {
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
   "dependencies": {
     "babel-polyfill": "^6.16.0",
     "binary-charts": "*",
@@ -163,16 +170,20 @@
     "eslint-plugin-flowtype": "^2.25.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "~2.2.3",
+    "eslint-plugin-prettier": "^2.0.1",
     "eslint-plugin-react": "^6.7.1",
     "express": "^4.14.0",
+    "husky": "^0.13.3",
     "ignore-styles": "^5.0.1",
     "jest-cli": "^17.0.3",
     "json-loader": "^0.5.4",
+    "lint-staged": "^3.4.0",
     "node-sass": "^3.13.0",
     "node-sass-middleware": "^0.10.0",
     "postcss-loader": "^1.1.1",
     "postcss-modules": "^0.5.2",
     "precss": "^1.4.0",
+    "prettier": "^1.1.0",
     "progress-bar-webpack-plugin": "^1.9.0",
     "react-addons-perf": "^15.4.0",
     "react-addons-test-utils": "^15.4.0",

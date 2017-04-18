@@ -12,9 +12,7 @@ describe('transactionsTotal', () => {
 
     it('list of one item equals this item purchase price', () => {
         const state = {
-            transactions: fromJS([
-                { amount: 10 },
-            ]),
+            transactions: fromJS([{ amount: 10 }]),
             views: fromJS({ transactionsFilter: 4 }), // do not filter
         };
         const actual = transactionsTotalSelector(state);
@@ -23,11 +21,7 @@ describe('transactionsTotal', () => {
 
     it('list of multiple items results in sum of their prices', () => {
         const state = {
-            transactions: fromJS([
-                { amount: 1 },
-                { amount: 2 },
-                { amount: 3 },
-            ]),
+            transactions: fromJS([{ amount: 1 }, { amount: 2 }, { amount: 3 }]),
             views: fromJS({ transactionsFilter: 4 }), // do not filter
         };
         const actual = transactionsTotalSelector(state);

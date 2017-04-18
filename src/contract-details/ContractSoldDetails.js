@@ -4,7 +4,6 @@ import { M, Th, NumberColored } from 'binary-components';
 const profitInPercentage = (buy, sell) => (sell - buy) / buy * 100;
 
 export default class ContractSoldDetails extends PureComponent {
-
     props: {
         buyPrice: any,
         soldPrice: number,
@@ -35,7 +34,12 @@ export default class ContractSoldDetails extends PureComponent {
                         </tr>
                     </tbody>
                 </table>
-                <div><M m="Your transaction reference no is {transId}" values={{ transId }} /></div>
+                <div>
+                    <M
+                        m="Your transaction reference no is {transId}"
+                        values={{ transId }}
+                    />
+                </div>
             </div>
         );
     }

@@ -6,29 +6,28 @@ import storage from '../_store/storage';
 
 @connect(state => ({ theme: state.boot.get('theme') }))
 export default class ThemeSwitcher extends PureComponent {
-
-	props: {
+    props: {
         theme: string,
     };
 
-	toggleTheme = () => {
-		const { theme } = this.props;
-		window.BinaryBoot.theme = theme === 'light' ? 'dark' : 'light';
-		storage.setItem('boot', JSON.stringify(window.BinaryBoot));
-		trackEvent('Workspace', 'Theme', window.BinaryBoot.theme);
+    toggleTheme = () => {
+        const { theme } = this.props;
+        window.BinaryBoot.theme = theme === 'light' ? 'dark' : 'light';
+        storage.setItem('boot', JSON.stringify(window.BinaryBoot));
+        trackEvent('Workspace', 'Theme', window.BinaryBoot.theme);
         window.location.reload();
-	}
+    };
 
-	render() {
-		const { theme } = this.props;
-		const themeText = theme === 'light' ? 'Dark Theme' : 'Light Theme';
+    render() {
+        const { theme } = this.props;
+        const themeText = theme === 'light' ? 'Dark Theme' : 'Light Theme';
 
-		return (
-			<Button
-				className="btn-secondary"
-				onClick={this.toggleTheme}
-				text={themeText}
-			/>
-		);
-	}
+        return (
+            <Button
+                className="btn-secondary"
+                onClick={this.toggleTheme}
+                text={themeText}
+            />
+        );
+    }
 }

@@ -6,7 +6,6 @@ import newsSelectors from './newsSelectors';
 
 @connect(newsSelectors)
 export default class ArticleContainer extends PureComponent {
-
     static contextTypes = {
         router: () => undefined,
     };
@@ -14,13 +13,11 @@ export default class ArticleContainer extends PureComponent {
     props: {
         articles: any[],
         params: any,
-    }
+    };
 
     render() {
         const { articles, params } = this.props;
 
-        return (
-            <ArticleFull {...articles[params.id].toJS()} />
-        );
+        return <ArticleFull {...articles[params.id].toJS()} />;
     }
 }

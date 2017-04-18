@@ -6,18 +6,15 @@ import ContractDetailsCard from './ContractDetailsCard';
 
 @connect(contractDetailsSelectors)
 export default class ContractDetailsContainer extends PureComponent {
+    static defaultProps = {
+        chartData: {},
+    };
 
-	static defaultProps = {
-		chartData: {},
-	};
+    props: {
+        contract: Contract,
+    };
 
-	props: {
-		contract: Contract,
-	};
-
-	render() {
-		return (
-			<ContractDetailsCard {...immutableChildrenToJS(this.props)} />
-		);
-	}
+    render() {
+        return <ContractDetailsCard {...immutableChildrenToJS(this.props)} />;
+    }
 }

@@ -1,5 +1,13 @@
 import React, { PureComponent } from 'react';
-import { Notice, Button, Countries, ErrorMsg, ServerErrorMsg, InputGroup, LogoSpinner } from 'binary-components';
+import {
+    Notice,
+    Button,
+    Countries,
+    ErrorMsg,
+    ServerErrorMsg,
+    InputGroup,
+    LogoSpinner,
+} from 'binary-components';
 import { isValidPassword } from 'binary-utils';
 import { api } from '../_data/LiveData';
 import storage from '../_store/storage';
@@ -11,7 +19,6 @@ type Props = {
 };
 
 export default class CrateAccountCard extends PureComponent {
-
     static contextTypes = {
         router: () => undefined,
     };
@@ -50,10 +57,14 @@ export default class CrateAccountCard extends PureComponent {
         if (this.allValid) {
             this.performCreateAccount();
         }
-    }
+    };
 
     performCreateAccount = async () => {
-        const { password, verificationCode, residence/* , utm_source, utm_medium, utm_campaign */ } = this.state;
+        const {
+            password,
+            verificationCode,
+            residence /* , utm_source, utm_medium, utm_campaign */,
+        } = this.state;
         actions.removePersonalData();
         try {
             this.setState({
@@ -69,7 +80,12 @@ export default class CrateAccountCard extends PureComponent {
                 // utm_medium,
                 // utm_campaign,
             });
-            storage.setItem('account', JSON.stringify({ token: response.new_account_virtual.oauth_token }));
+            storage.setItem(
+                'account',
+                JSON.stringify({
+                    token: response.new_account_virtual.oauth_token,
+                }),
+            );
             // use react router because we want hash history in mobile
             this.context.router.push('/');
             window.location.reload();
@@ -80,21 +96,37 @@ export default class CrateAccountCard extends PureComponent {
                 progress: false,
             });
         }
-    }
+    };
 
     render() {
-        const { verificationCode, password, confirmPassword, residence, validatedOnce, progress, serverError } = this.state;
+        const {
+            verificationCode,
+            password,
+            confirmPassword,
+            residence,
+            validatedOnce,
+            progress,
+            serverError,
+        } = this.state;
         const residenceIsValid = !!residence;
         const verificationCodeIsValid = verificationCode.length >= 15;
         const passwordIsValid = isValidPassword(password);
         const passwordsMatch = password === confirmPassword;
-        this.allValid = residenceIsValid && verificationCodeIsValid && passwordIsValid && passwordsMatch;
+        this.allValid =
+            residenceIsValid &&
+            verificationCodeIsValid &&
+            passwordIsValid &&
+            passwordsMatch;
         const { residenceList } = this.props;
 
         return (
             <div className="startup-content">
                 <LogoSpinner spinning={progress} />
-                <img className="logo-text" src="img/binary-type-logo.svg" alt="Logo" />
+                <img
+                    className="logo-text"
+                    src="img/binary-type-logo.svg"
+                    alt="Logo"
+                />
                 <Notice text="Thank you for signing up! Check your email to get the verification token." />
                 {serverError && <ServerErrorMsg text={serverError} />}
                 <form onSubmit={this.onFormSubmit}>
@@ -103,32 +135,38 @@ export default class CrateAccountCard extends PureComponent {
                         placeholder="Verification Code"
                         onChange={this.onVerificationCodeChange}
                     />
-                    {validatedOnce && !verificationCodeIsValid &&
-                        <ErrorMsg text="Enter a valid verification code" />
-                    }
+                    {validatedOnce &&
+                        !verificationCodeIsValid &&
+                        <ErrorMsg text="Enter a valid verification code" />}
                     <fieldset>
-                        <Countries onChange={this.onResidenceChange} residenceList={residenceList} />
+                        <Countries
+                            onChange={this.onResidenceChange}
+                            residenceList={residenceList}
+                        />
                     </fieldset>
-                    {validatedOnce && !residenceIsValid &&
-                        <ErrorMsg text="Choose your country" />
-                    }
+                    {validatedOnce &&
+                        !residenceIsValid &&
+                        <ErrorMsg text="Choose your country" />}
                     <InputGroup
                         type="password"
                         placeholder="Password"
                         onChange={this.onPasswordChange}
                     />
-                    {validatedOnce && !passwordIsValid &&
-                        <ErrorMsg text="Password should have lower and uppercase letters and 6 characters or more" />
-                    }
+                    {validatedOnce &&
+                        !passwordIsValid &&
+                        <ErrorMsg text="Password should have lower and uppercase letters and 6 characters or more" />}
                     <InputGroup
                         type="password"
                         placeholder="Confirm Password"
                         onChange={this.onConfirmPasswordChange}
                     />
-                    {validatedOnce && !passwordsMatch &&
-                        <ErrorMsg text="Passwords do not match" />
-                    }
-                    <Button disabled={progress || validatedOnce && !this.allValid} text="Continue" />
+                    {validatedOnce &&
+                        !passwordsMatch &&
+                        <ErrorMsg text="Passwords do not match" />}
+                    <Button
+                        disabled={progress || (validatedOnce && !this.allValid)}
+                        text="Continue"
+                    />
                 </form>
             </div>
         );

@@ -1,7 +1,5 @@
 import { fromJS } from 'immutable';
-import {
-    SERVER_DATA_TRADING_TIMES,
-} from '../_constants/ActionTypes';
+import { SERVER_DATA_TRADING_TIMES } from '../_constants/ActionTypes';
 
 const initialState = fromJS([]);
 
@@ -13,7 +11,9 @@ const flattenTradingTimes = tradingTimes =>
 export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_TRADING_TIMES: {
-            const flatTimes = flattenTradingTimes(action.serverResponse.trading_times);
+            const flatTimes = flattenTradingTimes(
+                action.serverResponse.trading_times,
+            );
             return state.merge(flatTimes);
         }
         default:

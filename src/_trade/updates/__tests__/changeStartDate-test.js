@@ -1,6 +1,8 @@
 import rawContract from 'binary-test-data/contractsForR50';
 import changeStartDate from '../changeStartDate';
-import { tradingOptionsForOneSymbol } from '../../../trade-params/TradeParamsSelector';
+import {
+    tradingOptionsForOneSymbol,
+} from '../../../trade-params/TradeParamsSelector';
 
 const mockTickTrade = {
     showAssetPicker: false,
@@ -51,24 +53,40 @@ const mockedContract = tradingOptionsForOneSymbol(rawContract);
 
 describe('changeStartDate', () => {
     it('should change start date', () => {
-        const updatedStartDate = changeStartDate(1462433402, mockedContract, mockTickTrade);
+        const updatedStartDate = changeStartDate(
+            1462433402,
+            mockedContract,
+            mockTickTrade,
+        );
         expect(updatedStartDate.dateStart).toEqual(1462433402);
     });
 
     it('should not change duration if original duration allow start later', () => {
-        const updated = changeStartDate(1462433402, mockedContract, mockHighTrade);
+        const updated = changeStartDate(
+            1462433402,
+            mockedContract,
+            mockHighTrade,
+        );
         expect(updated.durationUnit).toEqual(mockHighTrade.durationUnit);
         expect(updated.duration).toEqual(mockHighTrade.duration);
     });
 
     it('should change duration if original duration does not allow start later', () => {
-        const updatedStartDate = changeStartDate(1462433402, mockedContract, mockTickTrade);
+        const updatedStartDate = changeStartDate(
+            1462433402,
+            mockedContract,
+            mockTickTrade,
+        );
         expect(updatedStartDate.durationUnit).toEqual('m');
         expect(updatedStartDate.duration).toEqual(2);
     });
 
     it('should not change anything if start later is not allowed for corresponding type', () => {
-        const updated = changeStartDate(1462433402, mockedContract, mockEndsInTrade);
+        const updated = changeStartDate(
+            1462433402,
+            mockedContract,
+            mockEndsInTrade,
+        );
         expect(updated).toEqual(mockEndsInTrade);
     });
 });

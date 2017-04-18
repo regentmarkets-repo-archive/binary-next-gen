@@ -1,5 +1,11 @@
 import React, { PureComponent } from 'react';
-import { Button, Legend, InputGroup, ServerErrorMsg, ErrorMsg } from 'binary-components';
+import {
+    Button,
+    Legend,
+    InputGroup,
+    ServerErrorMsg,
+    ErrorMsg,
+} from 'binary-components';
 import { isValidPassword } from 'binary-utils';
 import UpdateNotice from '../containers/UpdateNotice';
 import { api } from '../_data/LiveData';
@@ -14,7 +20,6 @@ const initialState = {
 };
 
 export default class SettingsChangePassword extends PureComponent {
-
     constructor(props) {
         super(props);
 
@@ -32,7 +37,7 @@ export default class SettingsChangePassword extends PureComponent {
         if (this.allValid) {
             this.performChangePassword();
         }
-    }
+    };
 
     async performChangePassword() {
         const { currentPassword, newPassword } = this.state;
@@ -51,18 +56,32 @@ export default class SettingsChangePassword extends PureComponent {
 
     dostuff = () => {
         this.setState({ success: true });
-    }
+    };
 
     render() {
-        const { validatedOnce, serverError, success, currentPassword, newPassword, confirmPassword } = this.state;
+        const {
+            validatedOnce,
+            serverError,
+            success,
+            currentPassword,
+            newPassword,
+            confirmPassword,
+        } = this.state;
         const currentPasswordIsValid = isValidPassword(currentPassword);
         const newPasswordIsValid = isValidPassword(newPassword);
         const passwordsMatch = newPassword === confirmPassword;
-        this.allValid = currentPasswordIsValid && newPasswordIsValid && passwordsMatch;
+        this.allValid =
+            currentPasswordIsValid && newPasswordIsValid && passwordsMatch;
 
         return (
-            <form className="settings-change-password" onSubmit={this.onFormSubmit}>
-                <UpdateNotice text="Password changed successfully" show={success} />
+            <form
+                className="settings-change-password"
+                onSubmit={this.onFormSubmit}
+            >
+                <UpdateNotice
+                    text="Password changed successfully"
+                    show={success}
+                />
                 <Legend text="Change Password" />
                 {serverError && <ServerErrorMsg text={serverError} />}
                 <InputGroup
@@ -72,9 +91,9 @@ export default class SettingsChangePassword extends PureComponent {
                     value={currentPassword}
                     onChange={this.onEntryChange}
                 />
-                {validatedOnce && !currentPasswordIsValid &&
-                    <ErrorMsg text="Password should have lower and uppercase letters and 6 characters or more" />
-                }
+                {validatedOnce &&
+                    !currentPasswordIsValid &&
+                    <ErrorMsg text="Password should have lower and uppercase letters and 6 characters or more" />}
                 <InputGroup
                     id="newPassword"
                     placeholder="New Password"
@@ -82,9 +101,9 @@ export default class SettingsChangePassword extends PureComponent {
                     value={newPassword}
                     onChange={this.onEntryChange}
                 />
-                {validatedOnce && !newPasswordIsValid &&
-                    <ErrorMsg text="Password should have lower and uppercase letters and 6 characters or more" />
-                }
+                {validatedOnce &&
+                    !newPasswordIsValid &&
+                    <ErrorMsg text="Password should have lower and uppercase letters and 6 characters or more" />}
                 <InputGroup
                     id="confirmPassword"
                     placeholder="Confirm New Password"
@@ -92,9 +111,9 @@ export default class SettingsChangePassword extends PureComponent {
                     value={confirmPassword}
                     onChange={this.onEntryChange}
                 />
-                {validatedOnce && !passwordsMatch &&
-                    <ErrorMsg text="Passwords do not match" />
-                }
+                {validatedOnce &&
+                    !passwordsMatch &&
+                    <ErrorMsg text="Passwords do not match" />}
                 <Button text="Change Password" />
             </form>
         );

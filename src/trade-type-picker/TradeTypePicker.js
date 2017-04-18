@@ -1,13 +1,22 @@
 import React, { PureComponent } from 'react';
 import { Tab, TabList } from 'binary-components';
 import { contractCategoryToText, tradeTypeCodeToText } from 'binary-utils';
-import { serverToInternalTradeType, internalToServerTradeType } from './TradeTypeAdapter';
-import { tradeGrouping, typesForCategories, hasAdvanced, hasBasic,
-    hasDigits, pairUpTypes, findCategoryForType } from './TradeTypePickerUtils';
+import {
+    serverToInternalTradeType,
+    internalToServerTradeType,
+} from './TradeTypeAdapter';
+import {
+    tradeGrouping,
+    typesForCategories,
+    hasAdvanced,
+    hasBasic,
+    hasDigits,
+    pairUpTypes,
+    findCategoryForType,
+} from './TradeTypePickerUtils';
 import { actions } from '../_store';
 
 export default class TradeTypePicker extends PureComponent {
-
     props: {
         contract: Contract,
         index: number,
@@ -23,15 +32,16 @@ export default class TradeTypePicker extends PureComponent {
     componentWillMount() {
         const { tradeParams } = this.props;
         const selectedCategory = tradeParams.tradeCategory;
-        const groupId = tradeGrouping.findIndex(categories => categories.includes(selectedCategory));
+        const groupId = tradeGrouping.findIndex(categories =>
+            categories.includes(selectedCategory),
+        );
         this.setState({ tradeGroup: groupId });
     }
 
     onGroupChange(group) {
         const { contract, tradeParams, index } = this.props;
         const selectedCategory = tradeParams.tradeCategory;
-        const groupCategories = Object
-            .keys(contract)
+        const groupCategories = Object.keys(contract)
             .map(c => ({ value: c, text: contractCategoryToText(c) }))
             .filter(c => tradeGrouping[group].includes(c.value));
 
@@ -43,7 +53,7 @@ export default class TradeTypePicker extends PureComponent {
     changeGroup = id => {
         this.onGroupChange(id);
         this.setState({ tradeGroup: id });
-    }
+    };
 
     changeType(type) {
         const { onSelect, index, contract } = this.props;
@@ -60,9 +70,14 @@ export default class TradeTypePicker extends PureComponent {
         const selectedType = tradeParams.type;
         const { tradeGroup } = this.state;
         // type come in pairs logically
-        const types = typesForCategories(contract, tradeGrouping[tradeGroup])
-            .map(type => ({ text: tradeTypeCodeToText(type), value: type }));
-        const internalSelectedType = serverToInternalTradeType(selectedCategory, selectedType);
+        const types = typesForCategories(
+            contract,
+            tradeGrouping[tradeGroup],
+        ).map(type => ({ text: tradeTypeCodeToText(type), value: type }));
+        const internalSelectedType = serverToInternalTradeType(
+            selectedCategory,
+            selectedType,
+        );
         const typePairs = pairUpTypes(types);
 
         return (
@@ -73,7 +88,7 @@ export default class TradeTypePicker extends PureComponent {
                     {hasAdvanced(contract) && <Tab text="Advanced" />}
                 </TabList>
                 <div className="type-pairs-list">
-                    {typePairs.map(x =>
+                    {typePairs.map(x => (
                         <div className="type-pair" key={x[0].value}>
                             <Tab
                                 text={x[0].text}
@@ -90,7 +105,7 @@ export default class TradeTypePicker extends PureComponent {
                                 onClick={() => this.changeType(x[1].value)}
                             />
                         </div>
-                    )}
+                    ))}
                 </div>
             </div>
         );

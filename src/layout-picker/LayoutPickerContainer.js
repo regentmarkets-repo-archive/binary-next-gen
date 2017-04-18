@@ -6,10 +6,7 @@ import layoutSelector from './layoutSelector';
 
 @connect(layoutSelector)
 export default class LayoutPickerContainer extends PureComponent {
-
     render() {
-        return (
-            <LayoutPicker {...immutableChildrenToJS(this.props)} />
-        );
+        return <LayoutPicker {...immutableChildrenToJS(this.props)} />;
     }
 }

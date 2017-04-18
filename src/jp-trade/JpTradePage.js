@@ -3,7 +3,7 @@ import WebPage from '../containers/WebPage';
 import JpTradeContainer from './JpTradeContainer';
 
 export default props => (
-	<WebPage>
-		<JpTradeContainer {...props} />
-	</WebPage>
+    <WebPage>
+        <JpTradeContainer {...props} />
+    </WebPage>
 );

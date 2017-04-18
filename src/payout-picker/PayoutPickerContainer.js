@@ -4,9 +4,7 @@ import PayoutPickerCard from './PayoutPickerCard';
 
 @connect(state => ({ trades: state.trades.toJS() }))
 export default class PayoutPickerContainer extends PureComponent {
-	render() {
-		return (
-			<PayoutPickerCard {...this.props} />
-		);
-	}
+    render() {
+        return <PayoutPickerCard {...this.props} />;
+    }
 }

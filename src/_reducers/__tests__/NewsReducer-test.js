@@ -1,17 +1,19 @@
 import { fromJS } from 'immutable';
 import newsReducer from '../NewsReducer';
-import {
-    UPDATE_NEWS_LIST,
-} from '../../_constants/ActionTypes';
+import { UPDATE_NEWS_LIST } from '../../_constants/ActionTypes';
 
 describe('newsReducer', () => {
     it('should update news list with the new list', () => {
         const stateBefore = fromJS([]);
         const action = {
             type: UPDATE_NEWS_LIST,
-            articles: [{ title: 'some title', description: 'some description' }],
+            articles: [
+                { title: 'some title', description: 'some description' },
+            ],
         };
-        const expectedState = fromJS([{ title: 'some title', description: 'some description' }]);
+        const expectedState = fromJS([
+            { title: 'some title', description: 'some description' },
+        ]);
         const actualState = newsReducer(stateBefore, action);
 
         expect(expectedState).toEqual(actualState);

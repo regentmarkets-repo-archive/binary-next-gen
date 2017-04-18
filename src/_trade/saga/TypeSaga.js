@@ -1,10 +1,17 @@
 import { takeEvery } from 'redux-saga';
 import { select, put } from 'redux-saga/effects';
-import { getForceRenderCount, getParams, contractOfSymbol } from './SagaSelectors';
+import {
+    getForceRenderCount,
+    getParams,
+    contractOfSymbol,
+} from './SagaSelectors';
 import { updateMultipleTradeParams, updateTradeUIState } from '../../_actions';
 import changeCategory from '../updates/changeCategory';
 import changeType from '../updates/changeType';
-import { subscribeProposal, unsubscribeProposal } from './ProposalSubscriptionSaga';
+import {
+    subscribeProposal,
+    unsubscribeProposal,
+} from './ProposalSubscriptionSaga';
 
 const CHANGE_CATEGORY = 'CHANGE_CATEGORY';
 

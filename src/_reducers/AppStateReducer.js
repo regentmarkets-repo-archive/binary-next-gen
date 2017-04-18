@@ -1,5 +1,8 @@
 import { fromJS } from 'immutable';
-import { UPDATE_APP_STATE, SERVER_DATA_AUTHORIZE } from '../_constants/ActionTypes';
+import {
+    UPDATE_APP_STATE,
+    SERVER_DATA_AUTHORIZE,
+} from '../_constants/ActionTypes';
 
 const initialState = fromJS({
     authorized: false,

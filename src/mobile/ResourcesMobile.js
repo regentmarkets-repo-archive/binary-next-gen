@@ -4,19 +4,15 @@ import MobilePage from '../containers/MobilePage';
 import AssetIndexContainer from '../asset-index/AssetIndexContainer';
 import TradingTimesContainer from '../trading-times/TradingTimesContainer';
 
-const components = [
-	AssetIndexContainer,
-	TradingTimesContainer,
-];
+const components = [AssetIndexContainer, TradingTimesContainer];
 
 export default class ResourcesMobile extends PureComponent {
-
     constructor(props) {
         super(props);
         this.state = { activeTab: 0 };
     }
 
-	onTabChange = idx => this.setState({ activeTab: idx });
+    onTabChange = idx => this.setState({ activeTab: idx });
 
     render() {
         const { activeTab } = this.state;
@@ -24,10 +20,7 @@ export default class ResourcesMobile extends PureComponent {
 
         return (
             <MobilePage>
-                <TabList
-                    activeIndex={activeTab}
-                    onChange={this.onTabChange}
-                >
+                <TabList activeIndex={activeTab} onChange={this.onTabChange}>
                     <Tab text="Asset Index" />
                     <Tab text="Trading Times" />
                 </TabList>

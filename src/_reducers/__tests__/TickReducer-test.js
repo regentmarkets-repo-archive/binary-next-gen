@@ -8,7 +8,9 @@ describe('TickReducer', () => {
     const initState = fromJS({ x: defaultData });
 
     it('should reject data that is older than existing data when SERVER_DATA_TICK_STREAM', () => {
-        const act = serverDataTickStream({ tick: { symbol: 'x', epoch: 10, quote: 21 } });
+        const act = serverDataTickStream({
+            tick: { symbol: 'x', epoch: 10, quote: 21 },
+        });
         const actual = tickReducer(initState, act);
         expect(actual.get('x').toJS().length).toEqual(1);
     });
@@ -16,7 +18,7 @@ describe('TickReducer', () => {
     it('should not throw when symbol does not exist, is empty or undefined', () => {
         const action = {
             serverResponse: {
-                 tick: { symbol: 'x', epoch: 10, quote: 21 },
+                tick: { symbol: 'x', epoch: 10, quote: 21 },
             },
             type: SERVER_DATA_TICK_STREAM,
         };
@@ -34,7 +36,9 @@ describe('TickReducer', () => {
             },
         });
         const actual = tickReducer(initState, act);
-        const expected = defaultData.concat([{ epoch: 10, quote: 21 }]).sort(x => x.epoch);
+        const expected = defaultData
+            .concat([{ epoch: 10, quote: 21 }])
+            .sort(x => x.epoch);
         expect(actual.get('x').toJS()).toEqual(expected);
     });
 });

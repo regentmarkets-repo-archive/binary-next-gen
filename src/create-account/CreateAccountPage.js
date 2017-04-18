@@ -3,8 +3,8 @@ import SigninHero from './SigninHero';
 import SignupMobile from './SignupMobile';
 
 export default () => (
-	<div>
-		<SigninHero />
-		<SignupMobile />
-	</div>
+    <div>
+        <SigninHero />
+        <SignupMobile />
+    </div>
 );

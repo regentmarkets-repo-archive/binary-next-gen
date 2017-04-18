@@ -7,5 +7,5 @@ export default (duration, durationUnit, cat) => {
     if (durationUnit === 't' || isIntraday(duration, durationUnit)) {
         return 'relative';
     }
-    return 'absolute';         // did not use return directly as ESLint complain about it
+    return 'absolute'; // did not use return directly as ESLint complain about it
 };

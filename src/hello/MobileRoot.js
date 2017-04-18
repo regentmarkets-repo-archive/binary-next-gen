@@ -12,10 +12,6 @@ export default class MobileRoot extends PureComponent {
 
     render() {
         const { authorized } = this.props;
-        return (
-            authorized ?
-                <TradeMobile /> :
-                <HelloMobile />
-        );
+        return authorized ? <TradeMobile /> : <HelloMobile />;
     }
 }

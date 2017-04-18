@@ -17,7 +17,6 @@ type Props = {
 const hiddenStyle = { display: 'none' };
 
 export default class TradeCard extends PureComponent {
-
     props: Props;
     shouldZoomLatest: boolean;
 
@@ -32,7 +31,11 @@ export default class TradeCard extends PureComponent {
 
     componentDidUpdate(prevProps) {
         // ugly hack to ensure event is fired after chart is back to trade view
-        if (prevProps.contractReceiptProps && !this.props.contractReceiptProps && this.shouldZoomLatest) {
+        if (
+            prevProps.contractReceiptProps &&
+            !this.props.contractReceiptProps &&
+            this.shouldZoomLatest
+        ) {
             this.fireZoomToLatest();
             this.shouldZoomLatest = false;
         }
@@ -42,7 +45,7 @@ export default class TradeCard extends PureComponent {
         const { index } = this.props;
         actions.closeContractReceipt(index);
         this.shouldZoomLatest = true;
-    }
+    };
 
     fireZoomToLatest = () => {
         const { index } = this.props;
@@ -51,17 +54,25 @@ export default class TradeCard extends PureComponent {
         if (chartNode) {
             chartNode.dispatchEvent(zoomToLatestEv);
         }
-    }
+    };
 
     sellAtMarket = () => {
         const { contractReceiptProps } = this.props;
         actions.sellContract(contractReceiptProps.toJS().contract_id, 0);
-    }
+    };
 
     render() {
-        const { chartProps, contractReceiptProps, compact, paramsProps } = this.props;
-        const contractReceiptInJS = contractReceiptProps && contractReceiptProps.toJS();
-        if (contractReceiptInJS && Object.keys(contractReceiptInJS).length === 0) {
+        const {
+            chartProps,
+            contractReceiptProps,
+            compact,
+            paramsProps,
+        } = this.props;
+        const contractReceiptInJS =
+            contractReceiptProps && contractReceiptProps.toJS();
+        if (
+            contractReceiptInJS && Object.keys(contractReceiptInJS).length === 0
+        ) {
             return <P text="Asset not available" />;
         }
 
@@ -73,15 +84,13 @@ export default class TradeCard extends PureComponent {
                         contract={contractReceiptInJS}
                         showLongcode
                         onTradeAgainClicked={this.tradeAgain}
-                    />
-                }
+                    />}
                 {paramsProps.tradeParams &&
                     <TradeParams
                         {...paramsProps}
                         compact={compact}
                         style={contractReceiptInJS ? hiddenStyle : undefined}
-                    />
-                }
+                    />}
             </div>
         );
     }

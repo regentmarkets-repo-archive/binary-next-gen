@@ -6,10 +6,7 @@ import balanceSelectors from './balanceSelectors';
 
 @connect(balanceSelectors)
 export default class Balance extends PureComponent {
-
-	render() {
-		return (
-			<BalanceCard {...immutableChildrenToJS(this.props)} />
-		);
-	}
+    render() {
+        return <BalanceCard {...immutableChildrenToJS(this.props)} />;
+    }
 }

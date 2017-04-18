@@ -12,9 +12,11 @@
   },
   "plugins": [
     "react",
-    "flowtype"
+    "flowtype",
+    "prettier",
   ],
   "rules": {
+    "prettier/prettier": ["error", {"trailingComma": "all", "singleQuote": true, "parser": "flow", "tabWidth": 4}],
     "max-len": 0,
     "no-undef": 0,
     "indent": [0, 4],

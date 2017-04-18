@@ -5,7 +5,9 @@ import contractsForGDAXI from 'binary-test-data/contractsForGDAXI';
 import * as TradeSelectors from '../../trade-params/TradeParamsSelector';
 
 describe('assetsIsOpenSelector', () => {
-    const assetsIsOpen = TradeSelectors.assetsIsOpenSelector({ assets: fromJS(assetsFromServer) });
+    const assetsIsOpen = TradeSelectors.assetsIsOpenSelector({
+        assets: fromJS(assetsFromServer),
+    });
 
     it('should create a tree with isOpen as key of each children', () => {
         for (const symbol in assetsIsOpen) {
@@ -27,7 +29,10 @@ describe('assetsIsOpenSelector', () => {
 describe('availableContractsSelector', () => {
     const availableContracts = TradeSelectors.availableTradingOptionsSelector({
         assets: fromJS(assetsFromServer),
-        tradingOptions: new Map({ R_50: contractsForR50, GDAXI: contractsForGDAXI }),
+        tradingOptions: new Map({
+            R_50: contractsForR50,
+            GDAXI: contractsForGDAXI,
+        }),
     });
 
     it('should return contract if symbol is opened', () => {
@@ -43,7 +48,9 @@ describe('availableContractsSelector', () => {
         for (const category in gdaxiContracts) {
             if (gdaxiContracts.hasOwnProperty(category)) {
                 for (const tradeType in gdaxiContracts[category]) {
-                    const forwardStarting = gdaxiContracts[category][tradeType].forwardStartingDuration;
+                    const forwardStarting =
+                        gdaxiContracts[category][tradeType]
+                            .forwardStartingDuration;
                     expect(forwardStarting).toBeDefined();
                 }
             }

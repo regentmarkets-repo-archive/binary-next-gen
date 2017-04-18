@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
 
 export default class ArticleFull extends PureComponent {
-
     props: {
         title: string,
         pubDate: string,

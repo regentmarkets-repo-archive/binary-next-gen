@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import ArticlePreview from './ArticlePreview';
 
 export default class NewsCard extends PureComponent {
-
     props: {
         articles: any[],
     };
@@ -17,13 +16,13 @@ export default class NewsCard extends PureComponent {
 
         return (
             <div className="news-list-card scrollable">
-                {articles.map((article, idx) =>
+                {articles.map((article, idx) => (
                     <ArticlePreview
                         key={'article' + idx}
                         {...article}
                         onClick={() => router.push(`/article?id=${idx}`)}
                     />
-                )}
+                ))}
             </div>
         );
     }
