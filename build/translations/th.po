@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-04-12 13:57+0200\n"
-"PO-Revision-Date: 2016-10-01 14:54+0000\n"
+"PO-Revision-Date: 2017-04-25 18:42+0000\n"
 "Last-Translator: Jutawan <bubbleblythe@gmail.com>\n"
 "Language-Team: Thai <https://hosted.weblate.org/projects/binary-app/next-gen-"
 "app/th/>\n"
@@ -12,7 +12,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.9-dev\n"
+"X-Generator: Weblate 2.14-dev\n"
 
 msgid "All"
 msgstr "ทั้งหมด"
@@ -96,7 +96,7 @@ msgid "Limit ({currency})"
 msgstr "วงเงิน ({currency})"
 
 msgid "Maximum number of open positions"
-msgstr "จำนวนสูงสุดของรายการซื้อขายที่เปิดอยู่"
+msgstr "จำนวนสูงสุดของโพซิชั่นที่เปิดอยู่"
 
 msgid "Maximum account cash balance"
 msgstr "บัญชีเงินสดคงเหลือสูงสุด"
@@ -414,22 +414,22 @@ msgid "Daily turnover limit"
 msgstr "วงเงินธุรกรรมรวมต่อวัน"
 
 msgid "Once this limit is reached, you may no longer deposit."
-msgstr "เมื่อวงเงินเต็ม ท่านไม่ต้องฝากเงินอีก"
+msgstr "เมื่อวงเงินเต็ม ท่านไม่สามารถฝากเงินได้"
 
 msgid "Maximum aggregate contract purchases per day."
-msgstr "สัญญารวมสูงสุดที่ซื้อต่อวัน"
+msgstr "มูลค่าสัญญารวมสูงสุดที่ซื้อต่อวัน"
 
 msgid "Daily limit on losses"
 msgstr "วงเงินขาดทุนต่อวัน"
 
 msgid "Maximum aggregate loss per day."
-msgstr "วงเงินขาดทุนรวมสูงสุดต่อวัน"
+msgstr "มูลค่ารวมที่ขาดทุนสูงสุดต่อวัน"
 
 msgid "7-day turnover limit"
 msgstr "วงเงินรวม 7 วัน"
 
 msgid "Maximum aggregate contract purchases over a 7-day period."
-msgstr "สัญญารวมสูงสุดที่ซื้อในช่วง 7 วัน"
+msgstr "มูลค่าสัญญารวมสูงสุดที่ซื้อในระยะเวลา 7 วัน"
 
 msgid "7-day limit on losses"
 msgstr "วงเงินขาดทุนในช่วง 7 วัน"
@@ -441,7 +441,7 @@ msgid "30-day turnover limit"
 msgstr "วงเงินรวม 30 วัน"
 
 msgid "Maximum aggregate contract purchases over a 30-day period."
-msgstr "สัญญารวมสูงสุดที่ซื้อในช่วง 30 วัน"
+msgstr "มูลค่าสัญญารวมสูงสุดที่ซื้อในระยะเวลา 30 วัน"
 
 msgid "30-day limit on losses"
 msgstr "วงเงินขาดทุนในช่วง 30 วัน"
@@ -450,7 +450,7 @@ msgid "Maximum aggregate loss over a 30-day period."
 msgstr "ขาดทุนรวมสูงสุดของรายการในช่วง 30 วัน"
 
 msgid "Session duration limit, in minutes"
-msgstr "ระยะเวลาที่อยู่ในระบบ หน่วยเป็นนาที"
+msgstr "รอบระยะเวลาการซื้อขาย ในหน่วยนาที"
 
 msgid "You will be automatically logged out after such time."
 msgstr "ท่านจะออกจากระบบโดยอัตโนมัติหลังจากนั้น"
