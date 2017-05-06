@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import ArticlePreview from '../ArticlePreview';
 
@@ -12,6 +11,6 @@ describe('<ArticlePreview />', () => {
                 url=""
             />
         );
-        expect(wrapper.render().text()).to.contain('Article title');
+        expect(wrapper.render().text()).toContain('Article title');
     });
 });

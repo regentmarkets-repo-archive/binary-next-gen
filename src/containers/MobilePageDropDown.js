@@ -1,14 +1,14 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import AnimatedPopup from './AnimatedPopup';
 import MobileToolbarBack from '../mobile/MobileToolbarBack';
 
 export default class MobilePageDropDown extends PureComponent {
 
-	static propTypes = {
-		shown: PropTypes.bool,
-		title: PropTypes.string,
-		onClose: PropTypes.func,
-		children: PropTypes.any,
+	props: {
+		shown: boolean,
+		title: string,
+		onClose: (e: SyntheticEvent) => void,
+		children: any,
 	};
 
 	render() {

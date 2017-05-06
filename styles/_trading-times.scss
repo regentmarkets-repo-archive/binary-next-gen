@@ -1,17 +1,22 @@
 .trading-times-card {
     width: 100%;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-}
-
-.trading-times-filter {
     display: flex;
-    margin-bottom: -0.5rem;
-    > * {
-        width: 50%;
-    }
-}
+    flex-direction: column;
 
-.trading-times-date-picker > input {
-    width: 100%;
+    .trading-times-filter {
+        display: flex;
+        min-height: 2.5em;
+
+        > * {
+            width: 50%;
+        }
+    }
+
+    .trading-times-date-picker > input {
+        width: 100%;
+    }
+
+    .trading-times-data {
+        padding: 0.5em;
+    }
 }

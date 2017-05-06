@@ -1,9 +1,5 @@
-import chai, { expect } from 'chai';
-import chaiImmutable from 'chai-immutable';
 import { fromJS } from 'immutable';
 import { examinedAssetSelector } from '../commonSelectors';
-
-chai.use(chaiImmutable);
 
 describe('examinedAssetSelector', () => {
     it('when no asset is available returns an empty immutable', () => {
@@ -11,7 +7,7 @@ describe('examinedAssetSelector', () => {
             assets: fromJS([]),
         });
         const expected = fromJS({});
-        expect(actual).to.deep.equal(expected);
+        expect(actual).toEqual(expected);
     });
 
     it('returns an asset if such exist in list', () => {
@@ -20,7 +16,7 @@ describe('examinedAssetSelector', () => {
             workspace: fromJS({ examinedAsset: 'abc' }),
         });
         const expected = fromJS({ symbol: 'abc' });
-        expect(actual).to.deep.equal(expected);
+        expect(actual).toEqual(expected);
     });
 
     it('returns first open asset if not found in list', () => {
@@ -33,6 +29,6 @@ describe('examinedAssetSelector', () => {
             workspace: fromJS({ examinedAsset: 'not there' }),
         });
         const expected = fromJS({ symbol: 'def', exchange_is_open: 1 });
-        expect(actual).to.equal(expected);
+        expect(actual).toEqual(expected);
     });
 });

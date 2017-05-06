@@ -1,11 +1,11 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { M, Button, NumberPlain } from 'binary-components';
 
 export default class VirtualTopUpConfirmation extends PureComponent {
 
-    static propTypes = {
-        response: PropTypes.object.isRequired,
-        onClose: PropTypes.func,
+    props: {
+        response: object,
+        onClose: (e: SyntheticEvent) => void,
     };
 
     render() {

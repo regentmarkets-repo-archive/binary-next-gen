@@ -24,7 +24,7 @@
     width: 60px;
     height: 20px;
     text-align: center;
-    font-size: 10px;
+    font-size: $FONT_SIZE_S;
 }
 
 .barspinner > div {
@@ -34,22 +34,32 @@
     height: 100%;
     width: 6px;
     display: inline-block;
+    -webkit-animation: sk-stretchdelay 1.2s infinite ease-in-out;
     animation: sk-stretchdelay 1.2s infinite ease-in-out;
 }
 
+.barspinner .rect1 {
+    -webkit-animation-delay: -1.2s;
+    animation-delay: -1.2s;
+}
+
 .barspinner .rect2 {
+    -webkit-animation-delay: -1.1s;
     animation-delay: -1.1s;
 }
 
 .barspinner .rect3 {
+    -webkit-animation-delay: -1s;
     animation-delay: -1s;
 }
 
 .barspinner .rect4 {
+    -webkit-animation-delay: -0.9s;
     animation-delay: -0.9s;
 }
 
 .barspinner .rect5 {
+    -webkit-animation-delay: -0.8s;
     animation-delay: -0.8s;
 }
 
@@ -57,10 +67,26 @@
     0%,
     40%,
     100% {
+        -webkit-transform: scaleY(1);
         transform: scaleY(1);
     }
 
     20% {
+        -webkit-transform: scaleY(2);
+        transform: scaleY(2);
+    }
+}
+
+@-webkit-keyframes sk-stretchdelay {
+    0%,
+    40%,
+    100% {
+        -webkit-transform: scaleY(1);
+        transform: scaleY(1);
+    }
+
+    20% {
+        -webkit-transform: scaleY(2);
         transform: scaleY(2);
     }
 }

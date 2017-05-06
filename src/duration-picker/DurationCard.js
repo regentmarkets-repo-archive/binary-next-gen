@@ -1,6 +1,6 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { durationText } from 'binary-utils';
-import { Label } from 'binary-components';
+import { Label, NumericInput } from 'binary-components';
 import debounce from 'lodash.debounce';
 import DurationUnitPicker from './DurationUnitPicker';
 import { actions } from '../_store';
@@ -9,22 +9,21 @@ const debounceReqDurationChange = debounce(actions.reqDurationChange, 400);
 
 export default class DurationCard extends PureComponent {
 
-    static propTypes = {
-        dateStart: PropTypes.number,
-        duration: PropTypes.number,
-        durationUnit: PropTypes.string,
-        forwardStartingDuration: PropTypes.object,       // treated as special case
-        options: PropTypes.array,
-        index: PropTypes.number,
+    props: {
+        dateStart: number,
+        duration: number,
+        durationUnit: string,
+        forwardStartingDuration: object,       // treated as special case
+        options: any[],
+        index: number,
     };
 
-    updateDuration = e => {
+    updateDuration = (duration: number) => {
         const { index } = this.props;
-        const duration = e.target.value;
         debounceReqDurationChange(index, duration);
     }
 
-    updateDurationUnit = e => {
+    updateDurationUnit = (e: SyntheticEvent) => {
         const { index } = this.props;
         const durationUnit = e.target.value;
         actions.reqDurationUnitChange(index, durationUnit);
@@ -64,8 +63,9 @@ export default class DurationCard extends PureComponent {
             <div className="param-row duration-picker">
                 <Label text="Duration" />
                 <div className="duration-input param-field">
-                    <input
-                        type="number"
+                    <NumericInput
+                        className="numeric-input"
+                        integer
                         defaultValue={duration}
                         min={min}
                         max={max}

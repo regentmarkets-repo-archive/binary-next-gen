@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import { shallow, render } from 'enzyme';
 import { IntlProvider } from 'react-intl';
 import ContractDetailsList from '../ContractDetailsList';
@@ -12,7 +11,7 @@ describe('ContractDetailsList', () => {
         };
         expect(() =>
             shallow(<ContractDetailsList contract={simplestContract} />)
-        ).to.not.throw();
+        ).not.toThrow();
     });
 
     it('Displays a barrier', () => {
@@ -26,7 +25,7 @@ describe('ContractDetailsList', () => {
                 <ContractDetailsList contract={contractWithBarrier} />
             </IntlProvider>
         );
-        expect(wrapper.text()).to.contain('123');
+        expect(wrapper.text()).toContain('123');
     });
 
     it('Does not display a barrier if DIGIT barrier', () => {
@@ -40,6 +39,6 @@ describe('ContractDetailsList', () => {
                 <ContractDetailsList contract={digitContract} />
             </IntlProvider>
         );
-        expect(wrapper.text()).to.not.contain('123');
+        expect(wrapper.text()).not.toContain('123');
     });
 });

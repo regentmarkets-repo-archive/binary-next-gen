@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { M } from 'binary-components';
 import { actions } from '../_store';
 import styles from '../layouts/layouts.css';
@@ -8,9 +8,9 @@ import LayoutButton from './LayoutButton';
 
 export default class LayoutPicker extends PureComponent {
 
-    static propTypes = {
-        tradesCount: PropTypes.number.isRequired,
-        layoutN: PropTypes.number.isRequired,
+    props: {
+        tradesCount: number,
+        layoutN: number,
     };
 
     constructor(props) {

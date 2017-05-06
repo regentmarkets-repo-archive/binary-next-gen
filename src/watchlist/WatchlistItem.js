@@ -1,12 +1,13 @@
-import React, { PropTypes, PureComponent } from 'react';
-import { Direction, CloseButton, NumberPlain, NumberColored, OpenCloseNotice } from 'binary-components';
+import React, { PureComponent } from 'react';
+import Clear from 'react-material-design-icons/icons/Clear';
+import { Direction, NumberPlain, NumberColored, OpenCloseNotice } from 'binary-components';
 import { actions } from '../_store';
 import WatchlistSparkline from './WatchlistSparkline';
 
 export default class WatchlistItem extends PureComponent {
 
-	static propTypes = {
-		item: PropTypes.any.isRequired,
+	props: {
+		item: any,
 	};
 
 	onRemove = () => {
@@ -28,7 +29,7 @@ export default class WatchlistItem extends PureComponent {
 						&nbsp;
 						<NumberColored value={item.get('diff')} digits={item.get('digits')} />
 					</div>
-					<CloseButton onClick={this.onRemove} />
+					<Clear className="close-btn" onClick={this.onRemove} />
 				</div>
 				{item.get('isOpen') ?
 					<WatchlistSparkline history={item.get('history')} /> :

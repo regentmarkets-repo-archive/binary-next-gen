@@ -8,13 +8,12 @@
     [role=tablist] {
         margin-bottom: 0;
     }
-}
 
-.statement-list {
-    overflow: initial;
-    -webkit-overflow-scrolling: touch;
-}
+    .statement-list {
+        padding: 0.5em;
+    }
 
-.statement-row {
-    cursor: pointer;
+    .statement-row {
+        cursor: pointer;
+    }
 }

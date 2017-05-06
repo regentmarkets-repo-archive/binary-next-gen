@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { RadioGroup, InputGroup } from 'binary-components';
 import { actions } from '../_store';
 
@@ -13,16 +13,16 @@ const minAmount = 1;
 
 export default class PayoutPickerCard extends PureComponent {
 
-	static propTypes = {
-		location: PropTypes.object.isRequired,
-		params: PropTypes.object.isRequired,
-		trades: PropTypes.array.isRequired,
+	props: {
+		location: object,
+		params: object,
+		trades: any[],
 	};
 
-	onBasisChange = e =>
+	onBasisChange = (e: SyntheticEvent) =>
 		this.updateValue('basis', e.target.value);
 
-	onAmountChange = e =>
+	onAmountChange = (e: SyntheticEvent) =>
 		this.updateValue('amount', e.target.value);
 
 	updateValue(name, value) {

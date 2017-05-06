@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { Notice, Button, Countries, ErrorMsg, ServerErrorMsg, InputGroup, LogoSpinner } from 'binary-components';
 import { isValidPassword } from 'binary-utils';
 import { api } from '../_data/LiveData';
@@ -6,17 +6,19 @@ import storage from '../_store/storage';
 import { actions } from '../_store';
 import config from '../config';
 
+type Props = {
+    residenceList: string[],
+};
+
 export default class CrateAccountCard extends PureComponent {
 
     static contextTypes = {
-        router: PropTypes.object.isRequired,
+        router: () => undefined,
     };
 
-    static propTypes = {
-        residenceList: PropTypes.array,
-    };
+    props: Props;
 
-    constructor(props) {
+    constructor(props: Props) {
         super(props);
         this.state = {
             progress: false,
@@ -28,19 +30,19 @@ export default class CrateAccountCard extends PureComponent {
         };
     }
 
-    onVerificationCodeChange = e =>
+    onVerificationCodeChange = (e: SyntheticEvent) =>
         this.setState({ verificationCode: e.target.value });
 
-    onPasswordChange = e =>
+    onPasswordChange = (e: SyntheticEvent) =>
         this.setState({ password: e.target.value });
 
-    onConfirmPasswordChange = e =>
+    onConfirmPasswordChange = (e: SyntheticEvent) =>
         this.setState({ confirmPassword: e.target.value });
 
-    onResidenceChange = e =>
+    onResidenceChange = (e: SyntheticEvent) =>
         this.setState({ residence: e.target.value });
 
-    onFormSubmit = e => {
+    onFormSubmit = (e: SyntheticEvent) => {
         e.preventDefault();
         this.setState({
             validatedOnce: true,

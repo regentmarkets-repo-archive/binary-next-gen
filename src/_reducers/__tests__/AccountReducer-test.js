@@ -1,6 +1,5 @@
 import { fromJS } from 'immutable';
 import accountReducer from '../AccountReducer';
-import { expect } from 'chai';
 import { SERVER_DATA_AUTHORIZE, SERVER_DATA_BALANCE, SERVER_DATA_BUY } from '../../_constants/ActionTypes';
 
 describe('accountReducer', () => {
@@ -23,7 +22,7 @@ describe('accountReducer', () => {
         });
 
         const actualState = accountReducer(beforeState, action);
-        expect(actualState).to.equal(stateExpected);
+        expect(actualState).toEqual(stateExpected);
     });
 
     it('when no currency is returned, defaults to USD', () => {
@@ -41,7 +40,7 @@ describe('accountReducer', () => {
         });
 
         const actualState = accountReducer(beforeState, action);
-        expect(actualState).to.equal(stateExpected);
+        expect(actualState).toEqual(stateExpected);
     });
 
     it('updates balance on server update', () => {
@@ -59,7 +58,7 @@ describe('accountReducer', () => {
         const expectedState = fromJS({
             balance: 10,
         });
-        expect(expectedState).to.equal(actualState);
+        expect(expectedState).toEqual(actualState);
     });
 
     it('updates balance after purchase', () => {
@@ -74,6 +73,6 @@ describe('accountReducer', () => {
         const expectedState = fromJS({
             account: { balance: 30 },
         });
-        expect(expectedState).to.equal(actualState);
+        expect(expectedState).toEqual(actualState);
     });
 });

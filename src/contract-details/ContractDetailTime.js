@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { M } from 'binary-components';
 import { epochToDate, dateToGMTString, contractCodeToText } from 'binary-utils';
 
@@ -6,9 +6,9 @@ const epochToGMTString = epoch => dateToGMTString(epochToDate(epoch));
 
 export default class ContractDetailTime extends PureComponent {
 
-	static propTypes = {
-		contract: PropTypes.object.isRequired,
-		code: PropTypes.string.isRequired,
+	props: {
+		contract: Contract,
+		code: string,
 	};
 
 	render() {

@@ -1,11 +1,11 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { Option } from 'binary-components';
 
 export default class DigitStatsFilter extends PureComponent {
 
-    static propTypes = {
-        value: PropTypes.number,
-        onChange: PropTypes.func,
+    props: {
+        value: number,
+        onChange: (e: SyntheticEvent) => void,
     };
 
     render() {

@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { actions } from '../_store';
 import MobilePage from '../containers/MobilePage';
@@ -9,7 +9,7 @@ import { assetPickerMobileSelector } from './AssetPickerSelectors';
 export default class AssetPickerMobile extends PureComponent {
 
 	static contextTypes = {
-		router: PropTypes.object,
+		router: () => undefined,
 	};
 
 	componentWillMount() {

@@ -7,13 +7,13 @@ a:not([class]):visited {
 p,
 code,
 fieldset {
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
 }
 
 code {
     display: block;
     background: rgba($COLOR_BRAND_BLUE, 0.1);
-    padding: 1rem;
+    padding: 1em;
     overflow: auto;
 }
 
@@ -23,7 +23,7 @@ h3,
 h4 {
     font-weight: 300;
     line-height: 1.1;
-    margin: 2rem 0 1rem;
+    margin: 2em 0 1em;
 }
 
 h5,
@@ -33,22 +33,22 @@ h6 {
 
 h1,
 .font-size-xxl {
-    font-size: $FONT_SIZE_XXL;
+    font-size: $FONT_SIZE_XXXL;
 }
 
 h2,
 .font-size-xl {
-    font-size: $FONT_SIZE_XL;
+    font-size: $FONT_SIZE_XXL;
 }
 
 h3,
 .font-size-l {
-    font-size: $FONT_SIZE_L;
+    font-size: $FONT_SIZE_XL;
 }
 
 h4,
 .font-size-m {
-    font-size: $FONT_SIZE_M;
+    font-size: $FONT_SIZE_L;
 }
 
 h5,
@@ -58,10 +58,6 @@ h5,
 
 .font-size-s {
     font-size: $FONT_SIZE_S;
-}
-
-.font-size-xs {
-    font-size: $FONT_SIZE_XS;
 }
 
 input,
@@ -87,9 +83,9 @@ ol li {
 }
 
 ul {
-    margin: 0 0 1rem;
+    margin: 0 0 1em;
 }
 
 ol {
-    margin: 0 0 1rem 1.5rem;
+    margin: 0 0 1em 1.5em;
 }

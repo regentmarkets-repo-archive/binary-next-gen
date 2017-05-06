@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import AssetPickerContainer from '../asset-picker/AssetPickerContainer';
 import WatchlistContainer from '../watchlist/WatchlistContainer';
 
@@ -9,8 +9,8 @@ const components = [
 
 export default class WorkspaceLeftPanel extends PureComponent {
 
-	static propTypes = {
-		workspace: PropTypes.object.isRequired,
+	props: {
+		workspace: object,
 	};
 
 	render() {

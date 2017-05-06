@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import { assetsSelector } from '../directSelectors';
 
 describe('assetsSelector', () => {
@@ -6,7 +5,7 @@ describe('assetsSelector', () => {
         const actual = assetsSelector({
             assets: [],
         });
-        expect(actual).to.deep.equal([]);
+        expect(actual).toEqual([]);
     });
 
     it('should equal the full assets list', () => {
@@ -18,6 +17,6 @@ describe('assetsSelector', () => {
         const actual = assetsSelector({
             assets: assetList,
         });
-        expect(actual).to.equal(assetList);
+        expect(actual).toEqual(assetList);
     });
 });

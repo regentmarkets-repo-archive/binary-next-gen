@@ -61,7 +61,13 @@
     readConfig();
     parseUrlAndStoreAccountInfo(window.location.href);
     window.BinaryBoot.parseUrl = parseOAuthResponse;
-    window.BinaryBoot.appId = window.cordova ? 1006 : 1001;
+    if(window.cordova) {
+        window.BinaryBoot.appId = 1006;
+    } else if(window.electron) {
+        window.BinaryBoot.appId = 1306;
+    } else {
+        window.BinaryBoot.appId = 1001;
+    }
     var lang = window.BinaryBoot.language;
 
     var redirectIndex = window.location.href.indexOf('?');

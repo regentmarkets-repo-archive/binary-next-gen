@@ -1,26 +1,22 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import AssetsPerSubmarket from './AssetsPerSubmarket';
 
 export default class AssetPickerList extends PureComponent {
 
-	static propTypes = {
-		assets: PropTypes.object.isRequired,
-		onClose: PropTypes.func,
-		selectedAsset: PropTypes.string,
+	props: {
+		assets: Asset[],
 	};
 
 	render() {
 		const { assets } = this.props;
-
 		return (
-			<div className="asset-list">
-				{Object.keys(assets)
-					.map(submarketName =>
+			<div className="asset-list scrollable">
+				{assets
+					.map(grouped =>
 						<AssetsPerSubmarket
 							{...this.props}
-							key={submarketName}
-							assetsInSubmarket={assets[submarketName]}
-							ref={submarketName}
+							key={grouped[0].submarket}
+							assetsInSubmarket={grouped}
 						/>
 					)
 				}

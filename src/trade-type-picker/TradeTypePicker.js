@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { Tab, TabList } from 'binary-components';
 import { contractCategoryToText, tradeTypeCodeToText } from 'binary-utils';
 import { serverToInternalTradeType, internalToServerTradeType } from './TradeTypeAdapter';
@@ -8,11 +8,11 @@ import { actions } from '../_store';
 
 export default class TradeTypePicker extends PureComponent {
 
-    static propTypes = {
-        contract: PropTypes.object.isRequired,
-        index: PropTypes.number.isRequired,
-        onSelect: PropTypes.func,
-        tradeParams: PropTypes.object.isRequired,
+    props: {
+        contract: Contract,
+        index: number,
+        onSelect: (e: SyntheticEvent) => void,
+        tradeParams: object,
     };
 
     constructor(props) {
@@ -64,6 +64,7 @@ export default class TradeTypePicker extends PureComponent {
             .map(type => ({ text: tradeTypeCodeToText(type), value: type }));
         const internalSelectedType = serverToInternalTradeType(selectedCategory, selectedType);
         const typePairs = pairUpTypes(types);
+
         return (
             <div className="trade-type-picker">
                 <TabList activeIndex={tradeGroup} onChange={this.changeGroup}>
@@ -76,12 +77,14 @@ export default class TradeTypePicker extends PureComponent {
                         <div className="type-pair" key={x[0].value}>
                             <Tab
                                 text={x[0].text}
+                                // img={React.createFactory(tradeTypeIcons[x[0].value.toLowerCase()])()}
                                 imgSrc={`img/trade-${x[0].value.toLowerCase()}.svg`}
                                 selected={internalSelectedType === x[0].value}
                                 onClick={() => this.changeType(x[0].value)}
                             />
                             <Tab
                                 text={x[1].text}
+                                // img={React.createFactory(tradeTypeIcons[x[1].value.toLowerCase()])()}
                                 imgSrc={`img/trade-${x[1].value.toLowerCase()}.svg`}
                                 selected={internalSelectedType === x[1].value}
                                 onClick={() => this.changeType(x[1].value)}

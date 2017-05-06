@@ -1,11 +1,11 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import SettingsChangePassword from './SettingsChangePassword';
 import SettingsCashier from './SettingsCashier';
 
 export default class SettingsSecurity extends PureComponent {
 
-    static propTypes = {
-		loginid: PropTypes.string.isRequired,
+    props: {
+		loginid: string,
 	};
 
 	render() {

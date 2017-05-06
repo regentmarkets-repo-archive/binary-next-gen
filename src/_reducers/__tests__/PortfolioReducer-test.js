@@ -1,4 +1,3 @@
-import { expect } from 'chai';
 import { fromJS } from 'immutable';
 import portfolio from '../PortfolioReducer';
 import {
@@ -18,7 +17,7 @@ describe('portfolioReducer', () => {
             contractShown: false,
         });
         const actualState = portfolio(beforeState, action);
-        expect(expectedState).to.equal(actualState);
+        expect(expectedState).toEqual(actualState);
     });
 
     it('should be able to set contract or proposal time', () => {
@@ -31,7 +30,7 @@ describe('portfolioReducer', () => {
             now: new Date('2001-02-02'),
         };
         const actualState = portfolio(beforeState, action);
-        expect(expectedState).to.equal(actualState);
+        expect(expectedState).toEqual(actualState);
     });
 
     it('should be able to remove personal portfolio data or clear proposals', () => {
@@ -40,6 +39,6 @@ describe('portfolioReducer', () => {
         };
         const beforeState = fromJS({});
         const actualState = portfolio(beforeState, action);
-        expect(actualState.get('proposals')).to.equal(beforeState);
+        expect(actualState.get('proposals')).toEqual(beforeState);
     });
 });

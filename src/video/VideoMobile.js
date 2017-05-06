@@ -4,6 +4,6 @@ import VideoListContainer from './VideoListContainer';
 
 export default (props) => (
 	<MobilePage>
-		<VideoListContainer compact {...props} />
+		<VideoListContainer {...props} />
 	</MobilePage>
 );

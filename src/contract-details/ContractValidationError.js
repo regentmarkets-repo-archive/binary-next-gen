@@ -1,10 +1,10 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { Notice } from 'binary-components';
 
 export default class ContractValidationError extends PureComponent {
 
-	static propTypes = {
-		contract: PropTypes.object.isRequired,
+	props: {
+		contract: Contract,
 	};
 
 	render() {

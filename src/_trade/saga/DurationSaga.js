@@ -136,8 +136,8 @@ export function* handleStartTimeChange(action) {
     const { index, time } = action;
     yield put(unsubscribeProposal(index));
 
-    if (isValidTime(time)) {
-        yield put(updateTradeError(index, 'durationError', 'Time format invalid'));
+    if (!isValidTime(time)) {
+        yield put(updateTradeError(index, 'durationError', 'Time format invalid, it should be HH:mm'));
         return;
     }
 

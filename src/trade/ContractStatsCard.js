@@ -1,11 +1,11 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { M, LabeledText } from 'binary-components';
 
 export default class ContractStatsCard extends PureComponent {
 
-    static propTypes = {
-        proposal: PropTypes.object,
-        spread: PropTypes.bool,
+    props: {
+        proposal: object,
+        spread: boolean,
     };
 
     render() {
@@ -22,7 +22,7 @@ export default class ContractStatsCard extends PureComponent {
                 />
                 <LabeledText
                     label={spread ? 'Maximum winning' : 'Potential Winning'}
-                    value={spread ? winning.toString() : `${winning} (${winningPercent}%)` }
+                    value={spread ? winning.toString() : `${winning} (${winningPercent}%)`}
                 />
                 <M m={proposal.longcode} />
             </div>

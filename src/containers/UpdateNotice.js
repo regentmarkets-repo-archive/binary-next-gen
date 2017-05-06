@@ -1,12 +1,12 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { P } from 'binary-components';
 import AnimatedPopup from './AnimatedPopup';
 
 export default class UpdateNotice extends PureComponent {
 
-	static propTypes = {
-		text: PropTypes.string.isRequired,
-		show: PropTypes.bool,
+	props: {
+		text: string,
+		show: boolean,
 	};
 
 	render() {

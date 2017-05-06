@@ -28,6 +28,12 @@ window._trackJs = { // eslint-disable-line no-underscore-dangle
     enabled: appName !== '???',
     version: config.version,
 	userId: (JSON.parse(storage.getItem('account')) || {}).loginid,
+    onError: function (payload) { // eslint-disable-line
+        if (payload.message.toLowerCase().indexOf('out of memory') !== -1) {
+            window.location.reload();
+        }
+        return false;
+    },
 };
 require('trackjs');
 

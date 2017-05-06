@@ -1,5 +1,4 @@
-import { expect } from 'chai';
-import { fromJS, Map } from 'immutable';
+import { Map } from 'immutable';
 import tradingOptionsReducer from '../TradingOptionsReducer';
 import { UPDATE_TRADING_OPTIONS } from '../../_constants/ActionTypes';
 
@@ -15,6 +14,6 @@ describe('tradingOptionsReducer', () => {
         const stateAfter = tradingOptionsReducer(stateBefore, action);
 
         const expectedState = new Map({ FX: ['FX', 'TX'] });
-        expect(expectedState.get('FX')).to.deep.equal(stateAfter.get('FX'));
+        expect(expectedState.get('FX')).toEqual(stateAfter.get('FX'));
     });
 });

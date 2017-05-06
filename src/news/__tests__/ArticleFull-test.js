@@ -1,5 +1,4 @@
 import React from 'react';
-import { expect } from 'chai';
 import { shallow } from 'enzyme';
 import ArticleFull from '../ArticleFull';
 
@@ -11,6 +10,6 @@ describe('<ArticleFull />', () => {
             content: 'Desc',
         };
         const wrapper = shallow(<ArticleFull {...props} />);
-        expect(wrapper.render().text()).to.contain('Article Title');
+        expect(wrapper.render().text()).toContain('Article Title');
     });
 });

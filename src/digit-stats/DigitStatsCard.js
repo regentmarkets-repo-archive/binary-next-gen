@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { DigitStatsChart } from 'binary-components';
 import EmptySlate from '../containers/EmptySlate';
 import { actions } from '../_store';
@@ -6,10 +6,10 @@ import DigitStatsFilter from './DigitStatsFilter';
 
 export default class DigitStatsCard extends PureComponent {
 
-    static propTypes = {
-        symbol: PropTypes.string,
-        filter: PropTypes.number,
-        stats: PropTypes.array,
+    props: {
+        symbol: string,
+        filter: number,
+        stats: any[],
     };
 
     componentDidMount() {
@@ -20,7 +20,7 @@ export default class DigitStatsCard extends PureComponent {
         }
     }
 
-    updateFilter = e => {
+    updateFilter = (e: SyntheticEvent) => {
         const newFilter = e.target.value;
         const { symbol } = this.props;
         actions.updateDigitStatFilter(+newFilter);

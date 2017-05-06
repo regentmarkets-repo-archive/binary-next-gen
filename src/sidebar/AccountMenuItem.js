@@ -1,12 +1,12 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { M } from 'binary-components';
 import storage from '../_store/storage';
 
 export default class AccountMenuItem extends PureComponent {
 
-	static propTypes = {
-		account: PropTypes.string.isRequired,
-		token: PropTypes.string.isRequired,
+	props: {
+		account: string,
+		token: string,
 	};
 
 	switchToAccount = () => {

@@ -1,5 +1,3 @@
-import { expect } from 'chai';
-
 describe('createDefaultBarrierType', () => {
     it('should support tick barrier');
     it('should support intraday barrier');

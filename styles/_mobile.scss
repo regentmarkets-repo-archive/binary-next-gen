@@ -4,7 +4,7 @@
 
 .mobile-page {
     height: 100%;
-    font-size: 15px;
+    font-size: $FONT_SIZE_MOBILE;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -27,11 +27,19 @@
     display: flex;
     align-content: stretch;
     flex-direction: column;
-    overflow: auto;
     width: 100%;
 
     .trade-panel {
+        margin: 0;
         flex-direction: column;
+    }
+
+    .trade-chart-container {
+        margin: -0.25em 0;
+    }
+
+    .contract-chart {
+        flex: 1;
     }
 
     .modal {
@@ -55,21 +63,50 @@
     }
 
     .contract-details-card {
-        margin: 0.5rem;
+        display: flex;
+        flex-direction: column;
+        margin: 0 0.5em 0.5em;
+        flex: 1;
+
+        h5 {
+            margin: 0.5em 0;
+        }
+
+        *[role=tablist] {
+            margin-bottom: 0.5em;
+        }
+    }
+
+    .contract-details-tabs {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
     }
 
     .trade-params {
         display: flex;
-        margin-top: 0.5rem;
+        margin-top: 0.5em;
         flex-direction: column;
         flex-wrap: nowrap;
-        min-height: 200px;
+        min-height: 16em;
+
+        .duration-input {
+            .numeric-input {
+                .btn-flat {
+                    flex: 1 2 10%;
+                }
+
+                input {
+                    flex: 2 1;
+                }
+            }
+        }
     }
 
     .sell-at-market-btn,
     .buy-again-btn {
         width: 100%;
-        margin-top: 0.5rem;
+        margin-top: 0.5em;
     }
 
     .forward-starting-picker {
@@ -100,6 +137,7 @@
     .param-row {
         display: flex;
         flex-direction: row;
+        margin-bottom: 0.25em;
 
         > label {
             flex: 1;
@@ -112,6 +150,7 @@
     }
 
     .contract-receipt {
+        overflow: auto;
         margin: 0;
     }
 
@@ -129,19 +168,19 @@
     flex: 1;
 
     img {
-        padding: 1rem 0.125rem;
-        height: 3.5rem;
+        padding: 1em 0.125em;
+        height: 3.5em;
     }
 
     &.active {
-        box-shadow: inset 0 -3px 0 0 $COLOR_BRAND_ORANGE;
+        box-shadow: inset 0 -0.2em 0 0 $COLOR_BRAND_ORANGE;
     }
 }
 
 .mobile-toolbar {
     color: white;
     background: $COLOR_BRAND_BLUE;
-    height: 3.5rem;
+    height: 3.5em;
     display: flex;
     width: 100%;
 }
@@ -153,11 +192,8 @@
     color: white !important;
     text-decoration: none;
     flex: 1;
-
-    span {
-        height: 3.5rem;
-        vertical-align: middle;
-    }
+    display: flex;
+    align-items: center;
 }
 
 .mobile-form {
@@ -166,17 +202,64 @@
     flex: 1;
 }
 
-@media screen and (min-aspect-ratio: 13/9) { /* landscape styles here
-/* @media (orientation: landscape) { */
+.ios-padder {
+    width: 100%;
+
+    a {
+        text-decoration: none;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: black;
+        border-radius: 10px;
+        margin: 5px;
+
+        svg {
+            margin: 0 6px 3px 0;
+        }
+    }
+
+    span {
+        color: white;
+        font-size: $FONT_SIZE_XL;
+        font-weight: normal;
+    }
+}
+
+@media screen and (min-aspect-ratio: 13/9) { // landscape styles here
     .mobile-content {
         .trade-panel {
             flex-direction: row !important;
         }
 
         .trade-params {
-            margin-left: 0.5rem;
+            margin-left: 0.5em;
         }
     }
 }
 
-// @media screen and (max-aspect-ratio: 13/9) { /* portrait styles here */}
+@media screen and (max-aspect-ratio: 13/9) { // portrait styles here
+    @media screen and (min-height: 660px) {
+        .mobile-page {
+            font-size: $FONT_SIZE_MOBILE + 1;
+        }
+    }
+
+    @media screen and (max-height: 560px) {
+        .mobile-page {
+            font-size: $FONT_SIZE_MOBILE - 1;
+        }
+    }
+
+    @media screen and (max-height: 520px) {
+        .mobile-page {
+            font-size: $FONT_SIZE_MOBILE - 2;
+        }
+    }
+
+    @media screen and (max-height: 480px) {
+        .mobile-page {
+            font-size: $FONT_SIZE_MOBILE - 3;
+        }
+    }
+}

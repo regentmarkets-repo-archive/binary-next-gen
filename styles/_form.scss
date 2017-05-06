@@ -1,5 +1,5 @@
 form {
-    margin-bottom: 1rem;
+    margin-bottom: 1em;
 }
 
 input,
@@ -19,9 +19,9 @@ input {
 }
 
 textarea {
-    padding: 0.5rem;
-    height: 8rem;
-    width: 25rem;
+    padding: 0.5em;
+    height: 8em;
+    width: 25em;
 }
 
 input[type=text],
@@ -48,8 +48,8 @@ input[type=time],
 input[type=datepicker],
 .picker__input,
 .inputlike {
-    padding: 0 0.25rem;
-    height: 2rem;
+    padding: 0 0.25em;
+    height: 2.5em;
 }
 
 input[type=date],
@@ -89,8 +89,8 @@ select,
 .down-arrow {
     background-position: right center;
     background-repeat: no-repeat;
-    background-size: 1.25rem;
-    padding-right: 1.25rem;
+    background-size: 2em;
+    padding-right: 1.25em;
     cursor: pointer;
 }
 
@@ -110,7 +110,7 @@ label {
 
 legend {
     font-weight: bold;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5em;
     text-transform: uppercase;
     border-bottom: 1px solid rgba($COLOR_BRAND_BLUE, 0.5);
     width: 100%;
@@ -135,8 +135,8 @@ fieldset .error-msg {
 
 input[type=range] {
     -webkit-appearance: none;
-    width: 15rem;
-    height: 0.2rem;
+    width: 15em;
+    height: 0.2em;
     background: $COLOR_BRAND_BLUE;
     cursor: pointer;
 }
@@ -147,11 +147,11 @@ input[type=range]:focus {
 
 input[type=range]::-webkit-slider-thumb {
     -webkit-appearance: none;
-    width: 1rem;
-    height: 1rem;
+    width: 1em;
+    height: 1em;
     border-radius: 100%;
     background: $COLOR_BRAND_BLUE;
-    box-shadow: 0 0 0 0.5rem rgba($COLOR_BRAND_BLUE, 0.1);
+    box-shadow: 0 0 0 0.5em rgba($COLOR_BRAND_BLUE, 0.1);
     cursor: pointer;
 }
 

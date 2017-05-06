@@ -1,10 +1,10 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { P } from 'binary-components';
 
 export default class LoadingView extends PureComponent {
 
-    static propTypes = {
-        showMessage: PropTypes.bool,
+    props: {
+        showMessage: boolean,
     };
 
     render() {

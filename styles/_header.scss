@@ -2,6 +2,7 @@
     display: flex;
     background: $COLOR_BRAND_BLUE;
     color: white;
+    align-items: center;
     justify-content: space-between;
 
     #hamburger-btn {
@@ -16,13 +17,12 @@
     }
 
     #hamburger-opener:checked + #hamburger-btn > .sidebar {
-        top: 3.5rem !important;
+        top: 3.5em !important;
         left: inherit;
     }
 
     .balance {
-        font-size: 1.25rem;
-        line-height: 2 !important;
+        font-size: $FONT_SIZE_XL;
     }
 }
 
@@ -30,7 +30,7 @@
     display: none;
 
     &:checked + #hamburger-btn > .sidebar {
-        left: 0.5rem;
+        left: 0.5em;
         transition: 0.3s;
     }
 }
@@ -43,6 +43,10 @@
         left: -300px;
         z-index: 995;
     }
+}
+
+.mobile-toolbar .sidebar {
+    height: 100%;
 }
 
 #hamburger-overlay {
@@ -69,14 +73,14 @@
 }
 
 #logo {
-    margin: 0.25rem;
+    margin: 0.25em;
 
     img {
-        height: 2rem;
+        height: 2.5em;
 
         &:nth-child(2) {
-            margin-left: 0.25rem;
-            height: 1.75rem;
+            margin-left: 0.25em;
+            height: 1.75em;
         }
     }
 }
@@ -85,6 +89,11 @@
     display: flex;
     align-items: center;
     padding: 0 4px 0 0;
+
+    span {
+        line-height: 1;
+        padding: 0.25em;
+    }
 }
 
 .layout-switch-btn + span + .layout-switch-btn {

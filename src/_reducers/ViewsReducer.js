@@ -1,4 +1,4 @@
-import { Map } from 'immutable';
+import { fromJS } from 'immutable';
 
 import {
     UPDATE_TRADING_TIMES_DATE,
@@ -7,16 +7,12 @@ import {
     UPDATE_ASSET_INDEX_FILTER,
 } from '../_constants/ActionTypes';
 
-const initialState = new Map({
-    tradingTimes: new Map({
-        submarket: '',
+const initialState = fromJS({
+    tradingTimes: {
         filter: '',
         date: new Date(),
-    }),
-    assetIndex: new Map({
-        submarketId: '',
-        filter: '',
-    }),
+    },
+    assetIndex: '',
     transactionsFilter: 0,
 });
 
@@ -29,7 +25,7 @@ export default (state = initialState, action) => {
             return state.update('tradingTimes', v => v.merge({ filter: action.filter }));
         }
         case UPDATE_ASSET_INDEX_FILTER: {
-            return state.update('assetIndex', v => v.merge({ filter: action.filter }));
+            return state.set('assetIndex', action.filter);
         }
         case UPDATE_TRANSACTIONS_FILTER: {
             return state.set('transactionsFilter', action.transactionsFilter);

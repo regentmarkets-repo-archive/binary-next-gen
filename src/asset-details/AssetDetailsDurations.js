@@ -1,10 +1,10 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { Th } from 'binary-components';
 
 export default class AssetDetailsDurations extends PureComponent {
 
-	static propTypes = {
-		durations: PropTypes.array,
+	props: {
+		durations: any[],
 	};
 
 	render() {

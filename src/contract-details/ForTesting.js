@@ -1,11 +1,11 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { actions } from '../_store';
 import ContractDetailsContainer from './ContractDetailsContainer';
 
 export default class ForTesting extends PureComponent {
 
-    static propTypes = {
-        params: PropTypes.object.isRequired,
+    props: {
+        params: object,
     };
 
     constructor(props) {

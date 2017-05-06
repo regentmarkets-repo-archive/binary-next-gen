@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import { sequence } from 'binary-utils';
 import { actions } from '../_store';
@@ -7,11 +7,11 @@ import styles from '../layouts/layouts.css';
 
 export default class LayoutButton extends PureComponent {
 
-    static propTypes = {
-        isActive: PropTypes.bool,
-        tradesCount: PropTypes.number.isRequired,
-        layoutN: PropTypes.number.isRequired,
-        onClick: PropTypes.func,
+    props: {
+        isActive: boolean,
+        tradesCount: number,
+        layoutN: number,
+        onClick: (e: SyntheticEvent) => void,
     };
 
     onClick = () => {
@@ -31,6 +31,8 @@ export default class LayoutButton extends PureComponent {
         const miniLayouts = sequence(tradesCount).map(idx =>
             <div className={styles.layoutMini} key={idx} />
         );
+
+        if (!layout) return null;
 
         return layout(miniLayouts, classes, this.onClick);
     }

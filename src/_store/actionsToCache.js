@@ -18,8 +18,11 @@ export default [
     ActionTypes.CHANGE_WORKSPACE_PANEL_SIZE,
     ActionTypes.CHANGE_TRADE_MODE,
     ActionTypes.UPDATE_ASSET_PICKER_SUBMARKET,
+    ActionTypes.UPDATE_TRADE_PARAMS,
+    ActionTypes.UPDATE_MULTIPLE_TRADE_PARAMS,
     ActionTypes.TOGGLE_TRADE_MODE,
     ActionTypes.TOGGLE_PANEL,
     ActionTypes.UPDATE_REALITY_CHECK,
     ActionTypes.UPDATE_REALITY_CHECK_SUMMARY,
+    ActionTypes.REMOVE_PERSONAL_DATA,
 ];

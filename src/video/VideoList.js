@@ -1,18 +1,24 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import VideoThumbnail from './VideoThumbnail';
+
+type Video = {
+    videoId: number,
+    title: string,
+    imgSrc: string,
+};
 
 export default class VideoList extends PureComponent {
 
-    static propTypes = {
-        videos: PropTypes.array,
-        onSelect: PropTypes.func,
+    props: {
+        videos: Video[],
+        onSelect: (e: SyntheticEvent) => void,
     };
 
     render() {
         const { videos, onSelect } = this.props;
 
         return (
-            <div className="video-list">
+            <div className="video-list scrollable">
                 {videos.map(video =>
                     <VideoThumbnail
                         key={video.videoId}

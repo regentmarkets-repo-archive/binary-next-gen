@@ -1,7 +1,6 @@
 import { fromJS } from 'immutable';
 import bootReducer from '../BootReducer';
 import { UPDATE_BOOT } from '../../_constants/ActionTypes';
-import { expect } from 'chai';
 
 describe('bootReducer', () => {
     it('should update boot state with the given field and value', () => {
@@ -14,7 +13,7 @@ describe('bootReducer', () => {
             language: 'FR',
         });
         const actualState = bootReducer(fromJS({}), action);
-        expect(expectedState).to.equal(actualState);
+        expect(expectedState).toEqual(actualState);
     });
 
     it('should return the same boot state when wrong state type is given', () => {
@@ -27,6 +26,6 @@ describe('bootReducer', () => {
             value: 'light',
         };
         const actualState = bootReducer(beforeState, action);
-        expect(actualState).to.equal(beforeState);
+        expect(actualState).toEqual(beforeState);
     });
 });

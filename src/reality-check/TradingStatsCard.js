@@ -1,17 +1,17 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { Th } from 'binary-components';
 
 export default class TradingStatsCard extends PureComponent {
 
-    static propTypes = {
-        loginID: PropTypes.string.isRequired,
-        currency: PropTypes.string,
-        turnover: PropTypes.number.isRequired,
-        profitLoss: PropTypes.number.isRequired,
-        contractBought: PropTypes.number.isRequired,
-        contractSold: PropTypes.number.isRequired,
-        openContract: PropTypes.number.isRequired,
-        potentialProfit: PropTypes.number.isRequired,
+    props: {
+        loginID: string,
+        currency: string,
+        turnover: number,
+        profitLoss: number,
+        contractBought: number,
+        contractSold: number,
+        openContract: number,
+        potentialProfit: number,
     };
 
     render() {

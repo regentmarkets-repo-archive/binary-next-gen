@@ -1,7 +1,3 @@
-import chai, { expect } from 'chai';
-import chaiImmutable from 'chai-immutable';
-chai.use(chaiImmutable);
-
 import { fromJS } from 'immutable';
 import newsReducer from '../NewsReducer';
 import {
@@ -18,7 +14,7 @@ describe('newsReducer', () => {
         const expectedState = fromJS([{ title: 'some title', description: 'some description' }]);
         const actualState = newsReducer(stateBefore, action);
 
-        expect(expectedState).to.deep.equal(actualState);
+        expect(expectedState).toEqual(actualState);
     });
 
     it('should return the same state when no news action type is given or news action type is wrong', () => {

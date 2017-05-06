@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { Button } from 'binary-components';
 import { trackEvent } from 'binary-utils/lib/Analytics';
@@ -7,8 +7,8 @@ import storage from '../_store/storage';
 @connect(state => ({ theme: state.boot.get('theme') }))
 export default class ThemeSwitcher extends PureComponent {
 
-	static propTypes = {
-        theme: PropTypes.string.isRequired,
+	props: {
+        theme: string,
     };
 
 	toggleTheme = () => {

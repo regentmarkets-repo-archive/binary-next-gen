@@ -15,7 +15,7 @@
 
         span,
         h4 {
-            margin: 0.25rem;
+            margin: 0.25em;
             line-height: 1.5;
         }
 
@@ -30,9 +30,8 @@
     }
 
     .daily-prices-card {
-        overflow: auto;
-        -webkit-overflow-scrolling: touch;
         flex: 1;
+        padding: 0.5em;
     }
 }
 

@@ -1,12 +1,12 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { NumberColored, M, Label } from 'binary-components';
 
 export default class PayoutCard extends PureComponent {
 
-    static propTypes = {
-        currency: PropTypes.string.isRequired,
-        stake: PropTypes.number,
-        payout: PropTypes.number,
+    props: {
+        currency: string,
+        stake: number,
+        payout: number,
     };
 
     render() {

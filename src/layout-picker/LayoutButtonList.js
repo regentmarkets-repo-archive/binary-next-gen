@@ -1,13 +1,13 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import styles from '../layouts/layouts.css';
 import LayoutButton from './LayoutButton';
 import { layoutNumbers } from './layouts';
 
 export default class LayoutButtonList extends PureComponent {
 
-    static propTypes = {
-        tradesCount: PropTypes.number.isRequired,
-        layoutN: PropTypes.number.isRequired,
+    props: {
+        tradesCount: number,
+        layoutN: number,
     };
 
     render() {

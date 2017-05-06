@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { FormattedTime } from 'react-intl';
 import { NumberPlain, NumberColored } from 'binary-components';
 import { showError } from 'binary-utils';
@@ -6,18 +6,18 @@ import { actions } from '../_store';
 
 export default class StatementRow extends PureComponent {
 
-    static propTypes = {
-        compact: PropTypes.bool,
-        contractId: PropTypes.string,
-        refN: PropTypes.string.isRequired,
-        date: PropTypes.object.isRequired,
-        actionType: PropTypes.string.isRequired,
-        amount: PropTypes.number.isRequired,
-        balanceAfter: PropTypes.number.isRequired,
+    props: {
+        compact: boolean,
+        contractId: string,
+        refN: string,
+        date: object,
+        actionType: string,
+        amount: number,
+        balanceAfter: number,
     };
 
     static contextTypes = {
-        router: PropTypes.object.isRequired,
+        router: () => undefined,
     };
 
     viewContract = () => {

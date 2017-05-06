@@ -1,14 +1,17 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { findDOMNode } from 'react-dom';
 import { InputGroup } from 'binary-components';
 import { isMobile } from 'binary-utils';
 import { actions } from '../_store';
-import MarketSubmarketPickerContainer from './MarketSubmarketPickerContainer';
+import AssetPickerCategoryFilter from './AssetPickerCategoryFilter';
 
 export default class AssetPickerFilter extends PureComponent {
 
-	static propTypes = {
-		filter: PropTypes.object.isRequired,
+	props: {
+		filter: {
+			query: string,
+			filter: any,
+		}
 	};
 
 	componentDidMount() {
@@ -22,11 +25,11 @@ export default class AssetPickerFilter extends PureComponent {
 		}
 	}
 
-	onSearchQueryChange = e => {
+	onSearchQueryChange = (e: SyntheticEvent) => {
 		actions.updateAssetPickerSearchQuery(e.target.value);
 	}
 
-	onFilterChange = e => {
+	onFilterChange = (e: SyntheticEvent) => {
 		actions.updateAssetPickerFilter(e);
 	}
 
@@ -42,9 +45,8 @@ export default class AssetPickerFilter extends PureComponent {
 					placeholder="Search for assets"
 					onChange={this.onSearchQueryChange}
 				/>
-				<MarketSubmarketPickerContainer
+				<AssetPickerCategoryFilter
 					onChange={this.onFilterChange}
-					allOptionShown
 					value={filter.filter}
 				/>
 			</div>

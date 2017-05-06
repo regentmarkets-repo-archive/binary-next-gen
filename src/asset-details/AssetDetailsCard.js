@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { M } from 'binary-components';
 import AssetDetailsDurations from './AssetDetailsDurations';
 import AssetDetailsTradingTimes from './AssetDetailsTradingTimes';
@@ -6,10 +6,9 @@ import AssetDetailsTradingEvents from './AssetDetailsTradingEvents';
 
 export default class AssetDetailsCard extends PureComponent {
 
-	static propTypes = {
-		activeAsset: PropTypes.object.isRequired,
-		durations: PropTypes.array,
-		tradingTimes: PropTypes.object,
+	props: {
+		durations: any[],
+		tradingTimes: object,
 	};
 
 	static defaultProps = {
@@ -27,7 +26,7 @@ export default class AssetDetailsCard extends PureComponent {
 		const { durations, tradingTimes } = this.props;
 
 		return (
-			<div className="asset-details">
+			<div className="asset-details scrollable">
 				<h5><M m="Trading Times" /></h5>
 				<AssetDetailsTradingTimes times={tradingTimes.times} />
 				{tradingTimes.events.length > 0 &&

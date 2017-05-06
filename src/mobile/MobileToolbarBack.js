@@ -1,14 +1,15 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
+import ArrowBack from 'react-material-design-icons/icons/ArrowBack';
 import { M } from 'binary-components';
 
 export default class MobileToolbarBack extends PureComponent {
 
-	static propTypes = {
-		backBtnBarTitle: PropTypes.string.isRequired,
-		onClick: PropTypes.func,
+	props: {
+		backBtnBarTitle: string,
+		onClick: (e: SyntheticEvent) => void,
 	};
 
-	onClickBack = e => {
+	onClickBack = (e: SyntheticEvent) => {
 		e.preventDefault();
 		history.back();
 	};
@@ -22,7 +23,7 @@ export default class MobileToolbarBack extends PureComponent {
 					className="mobile-back-btn"
 					onClick={onClick || this.onClickBack}
 				>
-					<img className="back-btn" src="img/arrow-back.svg" alt="Back" />
+					<ArrowBack className="back-btn" width="3.5em" height="3.5em" />
 					<M m={backBtnBarTitle} />
 				</div>
 			</div>

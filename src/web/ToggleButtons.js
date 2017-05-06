@@ -1,13 +1,13 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import classNames from 'classnames';
 import { actions } from '../_store';
 
 export default class ToggleButtons extends PureComponent {
 
-	static propTypes = {
-		leftPanelVisible: PropTypes.bool.isRequired,
-		sidePanelVisible: PropTypes.bool.isRequired,
-		tradeMode: PropTypes.string.isRequired,
+	props: {
+		leftPanelVisible: boolean,
+		sidePanelVisible: boolean,
+		tradeMode: string,
 	};
 
 	switchToTabs = () =>

@@ -1,5 +1,5 @@
 export default {
-    version: '1.0.15',
+    version: '1.1.5',
     apiUrl: 'wss://ws.binaryws.com/websockets/v3',
     brand: 'Binary',
     logo: '/img/binary-symbol-logo.svg',

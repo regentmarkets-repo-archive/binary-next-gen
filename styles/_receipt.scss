@@ -1,7 +1,13 @@
+.contract-receipt {
+    h5 {
+        margin: 0.5em 0;
+    }
+}
+
 .contract-detail {
     display: flex;
-    margin: 0.125rem;
-    border-radius: 2px;
+    margin: 0.125em;
+    border-radius: $BORDER_RADIUS;
 
     > span {
         flex: 1;
@@ -20,33 +26,38 @@
 }
 
 .profit-loss-label {
-    font-size: large;
+    font-size: $FONT_SIZE_XL;
     text-align: center;
-    margin: 0.5rem 0;
+    margin: 0.5em 0;
 }
 
 .modal {
+    .contract-details-card h5 {
+        margin-bottom: 0.5em;
+    }
+
     .contract-detail {
         width: 100%;
-        padding: 0.125rem;
+        padding: 0.125em;
     }
 
     .contract-details-list {
-        max-width: 16rem;
+        max-width: 20em;
     }
 
     .contract-details {
         display: flex;
+        height: 60vh;
     }
 
     .contract-receipt {
-        max-width: 25rem;
-        padding-left: 0.5rem;
+        max-width: 25em;
+        padding-left: 0.5em;
     }
 
     .contract-chart {
         flex: 1;
-        min-width: 25rem;
+        min-width: 25em;
     }
 }
 

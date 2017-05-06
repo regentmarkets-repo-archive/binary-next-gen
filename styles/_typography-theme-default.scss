@@ -10,3 +10,10 @@ h6 {
         color: $COLOR_BRAND_BLUE !important;
     }
 }
+
+.react-material-design-icon,
+.binary-icon,
+.asset-picker-filter-icon path {
+    fill: $COLOR_BRAND_BLUE;
+    // stroke: $COLOR_BRAND_BLUE;
+}

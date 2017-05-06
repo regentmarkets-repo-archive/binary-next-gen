@@ -1,10 +1,10 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 
 export default class AssetPickerHeader extends PureComponent {
 
-	static propTypes = {
-		market: PropTypes.string,
-		submarket: PropTypes.string,
+	props: {
+		market: string,
+		submarket: string,
 	};
 
 	render() {

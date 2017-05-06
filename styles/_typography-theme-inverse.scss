@@ -17,4 +17,11 @@
     h6 {
         color: #eee;
     }
+
+    .react-material-design-icon,
+    .binary-icon,
+    .asset-picker-filter-icon path {
+        fill: $COLOR_INVERSE_TEXT;
+        // stroke: $COLOR_INVERSE_TEXT;
+    }
 }

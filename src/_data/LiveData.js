@@ -3,7 +3,7 @@ import { showError, timeLeftToNextRealityCheck } from 'binary-utils';
 import { readNewsFeed } from './NewsData';
 import { getVideosFromPlayList } from './VideoData';
 import * as actions from '../_actions';
-import { SET_DEFAULT_CURRENCY } from '../_constants/ActionTypes';
+import { CHANGE_INFO_FOR_ASSET, SET_DEFAULT_CURRENCY } from '../_constants/ActionTypes';
 
 const handlers = {
     active_symbols: 'serverDataActiveSymbols',
@@ -33,8 +33,25 @@ const handlers = {
     residence_list: 'serverCountryList',
 };
 
+// window does not exist when running test
 const bootConfig = typeof window !== 'undefined' ? window.BinaryBoot : {};
-export const api = new LiveApi(bootConfig);
+const ApiConstructor = typeof WebSocket !== 'undefined' ? LiveApi : () => null;
+export const api = new ApiConstructor(bootConfig);
+
+const configForChart = Object.assign({ keepAlive: true }, bootConfig);
+delete configForChart.connection;
+
+const memoizedWebsocketConn = [
+    new ApiConstructor(configForChart),        // for contract chart
+    new ApiConstructor(configForChart),        // for first trade
+];
+
+export const chartApi = (n) => {
+    while (!memoizedWebsocketConn[n]) {
+        memoizedWebsocketConn.push(new ApiConstructor(configForChart));
+    }
+    return memoizedWebsocketConn[n];
+};
 
 export const changeLanguage = langCode => {
     api.changeLanguage(langCode);
@@ -43,6 +60,13 @@ export const changeLanguage = langCode => {
     api.getTradingTimes(new Date());
 };
 
+export const getTickHistory = async (symbol) => {
+    try {
+        await api.getTickHistory(symbol, { end: 'latest', count: 10, subscribe: 1, adjust_start_time: 1 });
+    } catch (err) {
+        await api.getTickHistory(symbol, { end: 'latest', count: 10 });
+    }
+};
 const initAuthorized = async (authData, store) => {
     if (/japan/.test(authData.authorize.landing_company_name)) {
         showError('Sorry, for japan user please login through www.binary.com ');
@@ -52,6 +76,11 @@ const initAuthorized = async (authData, store) => {
     }
 
     const state = store.getState();
+
+    api.unsubscribeFromAllTicks();
+    api.unsubscribeFromAllProposals();
+    api.unsubscribeFromAllPortfolios();
+    api.unsubscribeFromAllProposalsOpenContract();
 
     api.getLandingCompanyDetails(authData.authorize.landing_company_name)
         .then(r => {
@@ -84,25 +113,52 @@ const initAuthorized = async (authData, store) => {
             }
         });
 
-
     const subscribeToWatchlist = assets => {
         if (!state.watchlist) {
             return;
         }
         const existingWatchlist = state.watchlist.filter(w => assets.find(x => x.symbol === w));
-        api.subscribeToTicks(existingWatchlist.toJS());
+        existingWatchlist.forEach(getTickHistory);
     };
 
     api.getActiveSymbolsFull().then(r => {
-        const firstOpenActiveSymbol = r.active_symbols.find(a => a.exchange_is_open === 1);
-        const symbolToUse = firstOpenActiveSymbol ? firstOpenActiveSymbol.symbol : r.active_symbols[0].symbol;
-        const tradesCount = state.tradesParams.size;
-        if (tradesCount === 0) {
+        const cachedParams = state.tradesParams.toJS();
+        const tradableSymbols = r.active_symbols.filter(a => {
+            const isOpen = a.exchange_is_open === 1;
+            const allowStartLater = a.allow_forward_starting === 1;
+            const suspended = a.is_trading_suspended === 1;
+            return (!suspended && (isOpen || allowStartLater));
+        });
+
+        const firstOpenActiveSymbol = tradableSymbols.find(a => a.exchange_is_open === 1);
+        let symbolToUse = firstOpenActiveSymbol ? firstOpenActiveSymbol.symbol : tradableSymbols[0].symbol;
+
+        const layout = state.workspace.get('layoutN');
+
+        if (cachedParams.length > 0) {
+            const allowedSymbols = cachedParams
+                .filter(c => tradableSymbols.some(a => a.symbol === c.symbol)).map(a => a.symbol);
+
+            const needToAdd = cachedParams.length - allowedSymbols.length;
+
+            const newSymbols = tradableSymbols.filter(a => a.exchange_is_open === 1).slice(0, needToAdd).map(a => a.symbol);
+
+            const symbols = allowedSymbols.concat(newSymbols);
+
+            symbolToUse = symbols[0];
+
+            symbols.forEach((s, idx) => store.dispatch(actions.createTrade(idx, s)));
+            store.dispatch(actions.updateActiveLayout(cachedParams.length, layout, symbols));
+        } else {
+            store.dispatch(actions.resetTrades());
             store.dispatch(actions.changeActiveLayout(1, 1));
         }
-        store.dispatch(actions.changeExaminedAsset(symbolToUse));
 
-        subscribeToWatchlist(r.active_symbols);
+        store.dispatch(actions.getDailyPrices(symbolToUse));
+        store.dispatch(actions.getTicksByCount(symbolToUse, 100, false));
+        store.dispatch({ type: CHANGE_INFO_FOR_ASSET, symbol: symbolToUse });
+
+        subscribeToWatchlist(tradableSymbols);
     });
 
     api.getTradingTimes(new Date());
@@ -117,7 +173,7 @@ const initAuthorized = async (authData, store) => {
         }
     });
     api.getPayoutCurrencies();
-    api.subscribeToBalance();           // some call might fail due to backend overload
+    api.subscribeToBalance();
     api.subscribeToAllOpenContracts();
     api.subscribeToTransactions();
     // subscribeToSelectedSymbol(store);

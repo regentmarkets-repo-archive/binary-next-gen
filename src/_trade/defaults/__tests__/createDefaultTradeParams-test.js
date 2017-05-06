@@ -1,11 +1,6 @@
-import { expect } from 'chai';
 import createDefaultTradeParams from '../createDefaultTradeParams';
 
 describe('createDefaultTradeParams', () => {
-    it('should give correct params for closed market', () => {
-
-    });
-
     it('should return correct params for market that allow start later only', () => {
         const contract = {
             risefall: {
@@ -14,34 +9,34 @@ describe('createDefaultTradeParams', () => {
                         range: [
                             {},
                             {
-                                date: "2016-08-09T00:00:00.000Z",
+                                date: '2016-08-09T00:00:00.000Z',
                                 open: [
-                                    new Date("2016-08-09T07:15:00.000Z")
+                                    new Date('2016-08-09T07:15:00.000Z'),
                                 ],
                                 close: [
-                                    "2016-08-09T18:30:00.000Z"
-                                ]
+                                    '2016-08-09T18:30:00.000Z',
+                                ],
                             },
                         ],
                         options: [
                             {
-                                unit: "m",
+                                unit: 'm',
                                 min: 5,
-                                max: 1440
+                                max: 1440,
                             },
                             {
-                                unit: "h",
+                                unit: 'h',
                                 min: 1,
-                                max: 24
-                            }
-                        ]
+                                max: 24,
+                            },
+                        ],
                     },
                 },
-            }
+            },
         };
 
         const result = createDefaultTradeParams(contract, 'ANY', true);
 
-        expect(result.dateStart).to.not.be.NaN;
+        expect(result.dateStart).toBeTruthy();
     });
 });

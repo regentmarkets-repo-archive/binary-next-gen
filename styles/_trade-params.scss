@@ -1,15 +1,19 @@
+.trade-params.greyout {
+    opacity: 0.6;
+}
+
 .vertical {
     .errorfield {
-        margin-bottom: 0.5rem;
+        margin-bottom: 0.5em;
     }
 
     > [role=tab] {
-        padding: 0.1rem;
-        margin-bottom: 0.5rem;
+        padding: 0.1em;
+        margin-bottom: 1em;
 
         > span {
             line-height: 1;
-            margin-top: 0.5rem;
+            margin-top: 0.5em;
         }
 
         > img {
@@ -19,7 +23,7 @@
 
     .sell-at-market-btn,
     .buy-again-btn {
-        margin-top: 0.5rem;
+        margin-top: 0.5em;
         width: 100%;
     }
 
@@ -30,24 +34,27 @@
     .trade-params,
     .contract-receipt-container {
         overflow: auto;
-        width: 12rem;
-        padding-right: 0.25rem;
-        margin-right: 0.25rem;
+        width: 15em;
+        margin-right: 0.25em;
+        padding-right: 0.25em;
     }
 
     .trade-panel {
         flex-direction: row-reverse;
+        align-items: stretch;
+        min-width: 0;
+        min-height: 0;
     }
 
     .contract-detail {
         width: 100%;
-        padding: 0.125rem 0;
+        padding: 0.125em 0;
     }
 
     .contract-receipt {
         overflow: auto;
-        max-width: 15rem;
-        margin-right: 0.5rem;
+        max-width: 16em;
+        margin-right: 0.25em;
     }
 
     .digit-stats-col {
@@ -63,15 +70,18 @@
 .horizontal {
     .trade-panel {
         flex-direction: column;
+        min-width: 0;
+        min-height: 0;
     }
 
     .errorfield {
-        margin: 0.5rem 0;
+        margin: 0.5em 0;
     }
 
     .trade-params {
         display: flex;
         flex-direction: column;
+        margin-top: 0.5em;
 
         > * {
             flex: 1;
@@ -80,13 +90,16 @@
         .barrier-picker {
             display: flex;
             flex-direction: row;
-            flex-wrap: wrap;
+
+            .param-row + .param-row {
+                margin-left: 0.25em;
+            }
         }
     }
 
     .contract-detail {
         flex-direction: column;
-        width: 8rem;
+        width: 8em;
         background-color: rgba($COLOR_BRAND_BLUE, 0.1);
         text-align: center;
     }
@@ -109,22 +122,32 @@
 .numeric-input {
     display: flex;
 
+    .step-down {
+        border-radius: 3px 0 0 3px;
+    }
+
+    .step-up {
+        border-radius: 0 3px 3px 0;
+    }
+
     input {
+        border-radius: 0;
         text-align: center;
-        width: calc(100% - 4rem);
+        width: calc(100% - 5em);
     }
 }
 
 .btn-flat:hover,
 .start-time-selector label:hover,
 .picker-label:hover,
+.binary-chart-button:hover,
 .duration-input select:hover {
     box-shadow: inset 0 0 0 1px rgba($COLOR_BRAND_BLUE, 0.5);
 }
 
 .trade-type-picker {
-    width: 20rem;
-    height: 17rem;
+    width: 22em;
+    overflow: hidden;
 }
 
 .type-pairs-list {
@@ -141,17 +164,17 @@
     }
 
     div[role=tab] {
-        margin: 0 0.5rem;
+        margin: 0.5em;
     }
 
     div[role=tab][aria-selected=true] {
         color: $COLOR_BRAND_ORANGE;
-        box-shadow: inset 0 -3px 0 0 $COLOR_BRAND_ORANGE;
+        box-shadow: inset 0 -0.2em 0 0 $COLOR_BRAND_ORANGE;
     }
 
     img {
-        height: 1.5rem;
-        margin: 0.5rem;
+        height: 1.5em;
+        margin: 0.5em;
         background: white;
         box-shadow: 0 0 0 1px white;
     }
@@ -162,9 +185,9 @@
     flex: 1;
     flex-direction: row;
     margin: 2px;
-    padding: 0.25rem;
+    padding: 0.25em;
     background: white;
-    border-radius: 2px;
+    border-radius: $BORDER_RADIUS;
 }
 
 .trade-chart-container {
@@ -174,35 +197,19 @@
     align-items: stretch;
 }
 
-.trade-chart {
-    width: 100%;
-}
-
-.highcharts-container {
-    width: 100% !important;
-
-    svg {
-        width: 100% !important;
-    }
-}
-
 .payout-value {
     font-weight: bold;
-    font-size: 2em;
+    font-size: 1.6em;
 }
 
 .duration-input {
     display: flex;
     flex-direction: row;
 
-    input {
-        max-width: 50%;
-    }
-
     select {
         max-width: 50%;
         background-color: rgba($COLOR_BRAND_BLUE, 0.1);
-        margin-left: 3px;
+        margin-left: 0.25em;
         border: none;
     }
 
@@ -212,7 +219,7 @@
 }
 
 .start-time-selector + .forward-starting-input {
-    margin-top: 0.5rem;
+    margin-top: 0.25em;
 }
 
 .forward-starting-input {
@@ -224,6 +231,10 @@
         max-width: 50%;
         flex: 1;
     }
+
+    > input + input {
+        margin-left: 0.25em;
+    }
 }
 
 .barrier-input {
@@ -232,7 +243,7 @@
 }
 
 .param-row {
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5em;
 }
 
 .start-time-selector {
@@ -241,44 +252,64 @@
     > label {
         flex: 1;
         cursor: pointer;
-        line-height: 2rem !important;
+        line-height: 2.5;
         background: rgba($COLOR_BRAND_BLUE, 0.1);
-        border-radius: 2px;
+        border-radius: $BORDER_RADIUS;
     }
 
     > label + label {
-        margin-left: 3px;
+        margin-left: 0.25em;
     }
 
     > label > input {
-        margin: 0 0.25rem;
+        margin: 0 0.25em;
     }
 }
 
 .duration-text {
     line-height: 2;
-    margin-left: 0.5rem;
+    margin-left: 0.5em;
 }
 
 .picker-label {
     cursor: pointer;
-    padding-left: 0.25rem;
-    line-height: 2rem;
+    line-height: 2.5;
     display: flex;
     justify-content: space-between;
     align-items: stretch;
     background: rgba($COLOR_BRAND_BLUE, 0.1);
-    border-radius: 2px;
+    border-radius: $BORDER_RADIUS;
+
+    > *:first-child {
+        margin-left: 0.5em;
+    }
+
+    .picker-value {
+        flex: 1;
+    }
+
+    img + .picker-value {
+        text-align: center;
+    }
 
     img {
-        height: 1.5rem;
-        margin: 0.25rem 0;
+        height: 2em;
+        padding: 1px 0;
+    }
+
+    img,
+    svg {
+        margin: 0.25em 0;
     }
 }
 
+.inverse .picker-label img {
+    background: white;
+}
+
 .payout-picker button {
-    width: 2rem;
-    height: 2rem;
+    width: 2.5em;
+    height: 2.5em;
 }
 
 .forward-starting-picker > * {
@@ -293,13 +324,13 @@
 .trade-header {
     display: flex;
     cursor: pointer;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.5em;
     color: $COLOR_BRAND_BLUE;
     background: rgba($COLOR_BRAND_BLUE, 0.1);
 
     > span {
         flex: 1;
         line-height: 2;
-        margin-left: 0.5rem;
+        margin-left: 0.5em;
     }
 }

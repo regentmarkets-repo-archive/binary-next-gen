@@ -1,5 +1,4 @@
 import { fromJS } from 'immutable';
-import { expect } from 'chai';
 import digitStatsSelector from '../digitStatsSelectors';
 
 describe('digitstatsSelector', () => {
@@ -11,7 +10,7 @@ describe('digitstatsSelector', () => {
         };
 
         const expected = digitStatsSelector(state);
-        expect(expected).to.equal(undefined);
+        expect(expected).toBeUndefined();
     });
 
     it('should return undefined when ticks not available', () => {
@@ -23,7 +22,7 @@ describe('digitstatsSelector', () => {
         };
 
         const expected = digitStatsSelector(state);
-        expect(expected).to.equal(undefined);
+        expect(expected).toBeUndefined();
     });
 
     it('should return array of length 10 when data is in place on stats key', () => {
@@ -36,7 +35,7 @@ describe('digitstatsSelector', () => {
         };
 
         const { stats } = digitStatsSelector(state);
-        expect(stats).to.have.length(10);
+        expect(stats.length).toEqual(10);
     });
 
     it('should return stats of ticks', () => {
@@ -60,6 +59,6 @@ describe('digitstatsSelector', () => {
         };
 
         const { stats } = digitStatsSelector(state);
-        expect(stats).to.deep.equal([50, 40, 0, 0, 0, 10, 0, 0, 0, 0]);
+        expect(stats).toEqual([50, 40, 0, 0, 0, 10, 0, 0, 0, 0]);
     });
 });
