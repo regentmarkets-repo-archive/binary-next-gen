@@ -27,8 +27,6 @@ export default class WorkspaceTabs extends PureComponent {
 				<Tab imgSrc="img/portfolio.svg" text="Portfolio" />
 				<Tab imgSrc="img/statement.svg" text="Statement" />
 				<Tab imgSrc="img/watchlist.svg" text="Watchlist" />
-				<Tab imgSrc="img/video.svg" text="Video" />
-				<Tab imgSrc="img/news.svg" text="News" />
 				<Tab imgSrc="img/time.svg" text="Trading Times" />
 				<Tab imgSrc="img/resources.svg" text="Asset Index" />
 				<Tab imgSrc="img/info.svg" text="Details" />
