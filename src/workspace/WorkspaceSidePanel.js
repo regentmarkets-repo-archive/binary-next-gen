@@ -2,8 +2,6 @@ import React, { PureComponent } from 'react';
 import WatchlistContainer from '../watchlist/WatchlistContainer';
 import TradingTimesContainer from '../trading-times/TradingTimesContainer';
 import AssetIndexContainer from '../asset-index/AssetIndexContainer';
-import NewsContainer from '../news/NewsContainer';
-import VideoListContainer from '../video/VideoListContainer';
 import PortfolioContainer from '../portfolio/PortfolioContainer';
 import StatementContainer from '../statement/StatementContainer';
 import ExamineAssetContainer from '../examine-asset/ExamineAssetContainer';
@@ -13,8 +11,6 @@ const components = [
 	PortfolioContainer,
 	StatementContainer,
 	WatchlistContainer,
-	VideoListContainer,
-	NewsContainer,
 	TradingTimesContainer,
 	AssetIndexContainer,
 	ExamineAssetContainer,
