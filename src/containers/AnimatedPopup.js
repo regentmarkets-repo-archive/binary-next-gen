@@ -1,11 +1,11 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import TransitionGroup from 'react-addons-css-transition-group';
 
 export default class AnimatedPopup extends PureComponent {
 
-	static propTypes = {
-		shown: PropTypes.bool,
-		children: PropTypes.any,
+	props: {
+		shown: boolean,
+		children: any,
 	};
 
 	render() {

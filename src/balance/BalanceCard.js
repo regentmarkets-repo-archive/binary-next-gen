@@ -1,11 +1,11 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { NumberPlain } from 'binary-components';
 
 export default class BalanceCard extends PureComponent {
 
-	static propTypes = {
-		currency: PropTypes.string.isRequired,
-		balance: PropTypes.number.isRequired,
+	props: {
+		currency: string,
+		balance: number,
 	};
 
 	render() {

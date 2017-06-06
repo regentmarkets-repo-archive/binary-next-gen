@@ -1,10 +1,10 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { Sparklines, SparklinesLine, SparklinesSpots } from 'react-sparklines';
 
 export default class WatchlistSparkline extends PureComponent {
 
-	static propTypes = {
-		history: PropTypes.object,
+	props: {
+		history: object,
 	};
 
 	render() {

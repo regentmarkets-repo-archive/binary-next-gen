@@ -34,7 +34,7 @@ export function* handleBarrierChange(action) {
         put(subscribeProposal(index, updated)),
         put(updateMultipleTradeParams(index, updated)),
         put(updateTradeError(index, 'barrierError')),
-        ];
+    ];
 
     if (isBarrierTooLong(barrier, pipSize)) {
         yield put(updateTradeError(index, 'barrierError', `Barrier decimal too long, only allow ${pipSize} decimals`));

@@ -1,6 +1,6 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 import { tradeParamsSelector } from '../../_store/directSelectors';
-import { availableContractsSelector } from '../../trade-params/TradeParamsSelector';
+import { availableTradingOptionsSelector } from '../../trade-params/TradeParamsSelector';
 
 const firstTradeSymbol = createSelector(
     state => tradeParamsSelector(state).first(),
@@ -8,7 +8,7 @@ const firstTradeSymbol = createSelector(
 );
 
 export const singleContract = createSelector(
-  [availableContractsSelector, firstTradeSymbol],
+  [availableTradingOptionsSelector, firstTradeSymbol],
   (contracts, symbol) => contracts.get(symbol)
 );
 

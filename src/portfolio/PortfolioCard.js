@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { showError } from 'binary-utils';
 import EmptySlate from '../containers/EmptySlate';
 import { actions } from '../_store';
@@ -6,19 +6,17 @@ import PortfolioList from './PortfolioList';
 
 export default class PortfolioCard extends PureComponent {
 
-	static propTypes = {
-		compact: PropTypes.bool,
-		contracts: PropTypes.object,
-		proposals: PropTypes.object,
-		purchaseTotal: PropTypes.number,
-		payoutTotal: PropTypes.number,
-		indicativeTotal: PropTypes.number,
-		history: PropTypes.object,
-		onViewDetails: PropTypes.func,
+	props: {
+		compact: boolean,
+		contracts: Object,
+		purchaseTotal: number,
+		payoutTotal: number,
+		indicativeTotal: number,
+		onViewDetails: (contract: Contract) => void,
 	};
 
 	static contextTypes = {
-		router: PropTypes.object.isRequired,
+		router: () => undefined,
 	};
 
 	onViewDetails = contract => {
@@ -41,22 +39,25 @@ export default class PortfolioCard extends PureComponent {
 	render() {
 		const { compact, contracts, payoutTotal, purchaseTotal, indicativeTotal } = this.props;
 
+		if (Object.keys(contracts).length === 0) {
+			return (
+				<EmptySlate
+					img="img/portfolio.svg"
+					text="You have no open contracts"
+				/>
+			);
+		}
+
 		return (
 			<div className="portfolio-card">
-				{Object.keys(contracts).length === 0 ?
-					<EmptySlate
-						img="img/portfolio.svg"
-						text="You have no open contracts"
-					/> :
-					<PortfolioList
-						compact={compact}
-						contracts={contracts}
-						payoutTotal={payoutTotal}
-						purchaseTotal={purchaseTotal}
-						indicativeTotal={indicativeTotal}
-						onViewDetails={this.onViewDetails}
-					/>
-				}
+				<PortfolioList
+					compact={compact}
+					contracts={contracts}
+					payoutTotal={payoutTotal}
+					purchaseTotal={purchaseTotal}
+					indicativeTotal={indicativeTotal}
+					onViewDetails={this.onViewDetails}
+				/>
 			</div>
 		);
 	}

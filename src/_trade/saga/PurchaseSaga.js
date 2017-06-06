@@ -1,11 +1,10 @@
 import { takeEvery } from 'redux-saga';
 import { select, put } from 'redux-saga/effects';
 import changeAmount from '../updates/changeAmount';
-import { updateMultipleTradeParams } from '../../_actions';
+import { updateMultipleTradeParams, updateOpenContractField } from '../../_actions';
 import { getParams, getProposalId } from './SagaSelectors';
 import { api } from '../../_data/LiveData';
 import { updatePurchasedContract, updateTradeError } from '../../_actions/TradeActions';
-import { updateChartDataByContract } from '../../_actions/ChartDataActions';
 import { unsubscribeProposal, subscribeProposal } from './ProposalSubscriptionSaga';
 
 const CHANGE_STAKE = 'CHANGE_STAKE';
@@ -18,11 +17,11 @@ export const reqStakeChange = (index, stake) => ({
     stake,
 });
 
-export const reqPurchase = (index, price, purchaseHook) => ({
+export const reqPurchase = (index, price, onPurchaseDone) => ({
     type: PURCHASE,
     index,
     price,
-    purchaseHook,
+    onPurchaseDone,
 });
 
 function* handleStakeChange(action) {
@@ -44,25 +43,26 @@ function* handleStakeChange(action) {
 }
 
 function* handlePurchase(action) {
-    const { index, price, purchaseHook } = action;
+    const { index, price, onPurchaseDone } = action;
     const params = yield select(getParams(index));
     const pid = yield select(getProposalId(index));
     try {
+        // Note: we do not call subscribeToOpenContract here, as it will be triggered by transaction stream
+        // reason: we want it to be trigger from transaction stream so that when user buy from other device, we still get the update
+        // code: src/_actions/StatementActions
         const { buy } = yield api.buyContract(pid, price);
-
-        const { ticks, candles, symbol, isSold } =
-            yield api.getDataForContract(
-                () => api.subscribeToOpenContract(buy.contract_id).then(r => r.proposal_open_contract),
-                1, 'all', 'ticks', false);
-
-        yield [
-            put(updatePurchasedContract(index, buy)),
-
-            // update chart data so that chart will use ticks related to contract only
-            put(updateChartDataByContract(buy.contract_id, ticks || candles, 'ticks', symbol, isSold)),
-        ];
-        purchaseHook(params);
+        yield put(updateOpenContractField({
+            ...buy,
+            id: buy.contract_id,
+            date_start: buy.start_time,
+            transaction_ids: { buy: buy.transaction_id },
+        }));
+        onPurchaseDone();
+        yield put(updatePurchasedContract(index, buy));
     } catch (err) {
+        if (!err.error || !err.error.error) {
+            throw err;                  // rethrow error that we do not expect
+        }
         yield put(updateTradeError(index, 'serverError', err.error.error.message));
     } finally {
         yield put(subscribeProposal(index, params));

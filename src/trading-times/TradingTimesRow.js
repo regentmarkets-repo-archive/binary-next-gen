@@ -1,12 +1,12 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 
 export default class TradingTimesRow extends PureComponent {
 
-    static propTypes = {
-        assetName: PropTypes.string,
-        compact: PropTypes.bool,
-        times: PropTypes.object.isRequired,
-        events: PropTypes.array,
+    props: {
+        assetName: string,
+        compact: boolean,
+        times: object,
+        events: any[],
     };
 
     static defaultProps = {
@@ -22,7 +22,7 @@ export default class TradingTimesRow extends PureComponent {
 
         return (
             <tr>
-                {assetName && <td className="textual" className="row-id">{assetName}</td>}
+                {assetName && <td className="textual row-id">{assetName}</td>}
                 <td className="date">
                     {times.open.map(openTime => <div key={openTime}>{openTime}</div>)}
                 </td>

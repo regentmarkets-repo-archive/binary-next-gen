@@ -1,12 +1,12 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { M, Option } from 'binary-components';
 
 export default class DurationUnitPicker extends PureComponent {
 
-    static propTypes = {
-        durationUnit: PropTypes.string.isRequired,
-        unitOptions: PropTypes.array.isRequired,
-        onChange: PropTypes.func.isRequired,
+    props: {
+        durationUnit: string,
+        unitOptions: any[],
+        onChange: (e: SyntheticEvent) => void,
     };
 
     render() {

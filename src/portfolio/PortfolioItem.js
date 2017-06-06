@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { NumberPlain, NumberColored } from 'binary-components';
 
 const openContractSubscriptionFailed = contract =>
@@ -6,9 +6,9 @@ const openContractSubscriptionFailed = contract =>
 
 export default class PortfolioItem extends PureComponent {
 
-    static propTypes = {
-        contract: PropTypes.object.isRequired,
-        onViewDetails: PropTypes.func.isRequired,
+    props: {
+        contract: Contract,
+        onViewDetails: (contract: Contract) => void,
     };
 
     onViewDetailsClicked = () => {
@@ -19,7 +19,9 @@ export default class PortfolioItem extends PureComponent {
     render() {
         const { contract } = this.props;
         const backendFailure = openContractSubscriptionFailed(contract);
+
         if (backendFailure) return null;
+
         return (
             <tr className="portfolio-row" onClick={this.onViewDetailsClicked}>
                 <td>{contract.transaction_ids && contract.transaction_ids.buy}</td>

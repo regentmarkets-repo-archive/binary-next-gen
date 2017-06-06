@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { ErrorMsg } from 'binary-components';
 import { timeLeftToNextRealityCheck } from 'binary-utils';
 import { actions } from '../_store';
@@ -8,11 +8,11 @@ import RealityCheckSummaryCard from './RealityCheckSummaryCard';
 
 export default class RealityCheckWeb extends PureComponent {
 
-    static propTypes = {
-        interval: PropTypes.number.isRequired, // in seconds
-        showInitial: PropTypes.bool,
-        showSummary: PropTypes.bool,
-        summary: PropTypes.object,
+    props: {
+        interval: number, // in seconds
+        showInitial: boolean,
+        showSummary: boolean,
+        summary: object,
     };
 
     constructor(props) {

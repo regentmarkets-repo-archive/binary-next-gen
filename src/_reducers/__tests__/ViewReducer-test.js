@@ -4,7 +4,6 @@ import {
     UPDATE_ASSET_INDEX_FILTER,
 } from '../../_constants/ActionTypes';
 import viewReducer from '../ViewsReducer';
-import { expect } from 'chai';
 
 describe('viewReducer', () => {
     const beforeState = fromJS({
@@ -19,8 +18,8 @@ describe('viewReducer', () => {
         };
 
         const actualState = viewReducer(beforeState, action);
-        const expectedState = fromJS({ tradingTimes: {}, assetIndex: { filter: 'indices' } });
-        expect(expectedState).to.equal(actualState);
+        const expectedState = fromJS({ tradingTimes: {}, assetIndex: 'indices' });
+        expect(expectedState).toEqual(actualState);
     });
 
     it('should update trading time filter when receive UPDATE_TRADING_TIMES_FILTER', () => {
@@ -30,7 +29,7 @@ describe('viewReducer', () => {
         };
 
         const actualState = viewReducer(beforeState, action);
-        const expectedState = fromJS({ assetIndex: {}, tradingTimes: { filter: 'indices' } });
-        expect(expectedState).to.equal(actualState);
+        const expectedState = { assetIndex: {}, tradingTimes: { filter: 'indices' } };
+        expect(expectedState).toEqual(actualState.toJS());
     });
 });

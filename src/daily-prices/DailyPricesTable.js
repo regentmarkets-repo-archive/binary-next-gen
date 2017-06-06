@@ -1,11 +1,11 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { Th } from 'binary-components';
 import DailyPricesRow from './DailyPricesRow';
 
 export default class DailyPricesTable extends PureComponent {
 
-    static propTypes = {
-        dailyPrices: PropTypes.array.isRequired,
+    props: {
+        dailyPrices: any[],
     };
 
     render() {

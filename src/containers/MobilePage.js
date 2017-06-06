@@ -1,15 +1,16 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import MobileToolbarFull from '../mobile/MobileToolbarFull';
 import MobileToolbarBack from '../mobile/MobileToolbarBack';
+import IosPadder from './IosPadder';
 
 export default class MobilePage extends PureComponent {
 
-	static propTypes = {
-		backBtnBarTitle: PropTypes.string,
-		children: PropTypes.any,
-		toolbarShown: PropTypes.bool,
-		inverse: PropTypes.bool,
-		backTo: PropTypes.any,
+	props: {
+		backBtnBarTitle: string,
+		children: any,
+		toolbarShown: boolean,
+		inverse: boolean,
+		backTo: any,
 	};
 
 	static defaultProps = {
@@ -26,6 +27,7 @@ export default class MobilePage extends PureComponent {
 				<div className="mobile-content">
 					{children}
 				</div>
+				<IosPadder />
 			</div>
 		);
 	}

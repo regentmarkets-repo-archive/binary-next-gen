@@ -1,11 +1,11 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { Tab, TabList } from 'binary-components';
 import { actions } from '../_store';
 
 export default class StatementFilter extends PureComponent {
 
-	static propTypes = {
-		transactionsFilter: PropTypes.number.isRequired,
+	props: {
+		transactionsFilter: number,
 	};
 
 	onFilterChange = idx =>

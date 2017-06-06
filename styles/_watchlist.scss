@@ -8,21 +8,23 @@
 
 .watchlist-card {
     width: 100%;
-    height: 100%;
+    flex: 1;
     padding: 0.25rem;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
 }
 
 .watchlist-details {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 1rem;
+    font-size: $FONT_SIZE_L;
 }
 
 .watchlist-item {
-    border-radius: 2px;
+    border-radius: $BORDER_RADIUS;
+
+    svg {
+        max-height: 100%;
+    }
 
     &:hover {
         background: rgba($COLOR_BRAND_BLUE, 0.05);

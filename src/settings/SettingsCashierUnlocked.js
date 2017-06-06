@@ -13,10 +13,10 @@ export default class SettingsCashierUnlocked extends PureComponent {
         };
     }
 
-    onPassword1Change = e =>
+    onPassword1Change = (e: SyntheticEvent) =>
         this.setState({ password1: e.target.value });
 
-    onPassword2Change = e =>
+    onPassword2Change = (e: SyntheticEvent) =>
         this.setState({ password2: e.target.value });
 
     lockCashier = () => {

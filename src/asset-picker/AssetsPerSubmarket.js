@@ -1,23 +1,23 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import AssetPickerItem from './AssetPickerItem';
 import AssetPickerHeader from './AssetPickerHeader';
 
 export default class AssetsPerSubmarket extends PureComponent {
-    static propTypes = {
-        assetsInSubmarket: PropTypes.array.isRequired,
-        selectedAsset: PropTypes.string.isRequired,
-        onClose: PropTypes.func,
+
+    props: {
+        assetsInSubmarket: any[],
+        selectedAsset: string,
     };
 
     render() {
         const { assetsInSubmarket, selectedAsset } = this.props;
-        const { submarket, market } = assetsInSubmarket[0];
+        const { submarketName, marketName } = assetsInSubmarket[0];
         return (
             <table>
                 <AssetPickerHeader
-                    key={submarket}
-                    market={market}
-                    submarket={submarket}
+                    key={submarketName}
+                    market={marketName}
+                    submarket={submarketName}
                 />
                 <tbody>
                     {assetsInSubmarket.map(a =>

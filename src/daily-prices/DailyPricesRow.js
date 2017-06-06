@@ -1,15 +1,15 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { FormattedDate } from 'react-intl';
 import { NumberPlain } from 'binary-components';
 
 export default class DailyPricesRow extends PureComponent {
 
-    static propTypes = {
-        date: PropTypes.instanceOf(Date).isRequired,
-        open: PropTypes.number.isRequired,
-        high: PropTypes.number.isRequired,
-        low: PropTypes.number.isRequired,
-        close: PropTypes.number.isRequired,
+    props: {
+        date: Date,
+        open: number,
+        high: number,
+        low: number,
+        close: number,
     };
 
     render() {

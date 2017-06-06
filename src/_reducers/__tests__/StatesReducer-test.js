@@ -1,7 +1,3 @@
-import chai, { expect } from 'chai';
-import chaiImmutable from 'chai-immutable';
-chai.use(chaiImmutable);
-
 import { fromJS } from 'immutable';
 import { SERVER_DATA_STATES } from '../../_constants/ActionTypes';
 import stateReducer from '../StatesReducer';
@@ -18,7 +14,7 @@ describe('statesReducer', () => {
 
         const actualState = stateReducer(beforeState, action);
 
-        expect(expectedState.get('COUNTRY')).to.equal(actualState);
+        expect(expectedState.get('COUNTRY')).toEqual(actualState);
     });
 
     it('should return the default or initial state when action type is wrong or not given', () => {
@@ -27,6 +23,6 @@ describe('statesReducer', () => {
         };
         const beforeState = fromJS({});
         const actualState = stateReducer(beforeState, action);
-        expect(actualState).to.equal(beforeState);
+        expect(actualState).toEqual(beforeState);
     });
 });

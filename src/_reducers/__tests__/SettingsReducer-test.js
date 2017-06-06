@@ -1,7 +1,3 @@
-import chai, { expect } from 'chai';
-import chaiImmutable from 'chai-immutable';
-chai.use(chaiImmutable);
-
 import { fromJS } from 'immutable';
 import settingsReducer from '../SettingsReducer';
 import {
@@ -25,7 +21,7 @@ describe('settingsReducer', () => {
 
         const actualState = settingsReducer(stateBefore, action);
 
-        expect(expectedState).to.equal(actualState);
+        expect(expectedState).toEqual(actualState);
     });
 
     it('should be able to update account limits', () => {
@@ -42,7 +38,7 @@ describe('settingsReducer', () => {
 
         const actualState = settingsReducer(beforeState, action);
 
-        expect(expectedState).to.equal(actualState);
+        expect(expectedState).toEqual(actualState);
     });
 
     it('should be able to update self_exclusions', () => {
@@ -59,7 +55,7 @@ describe('settingsReducer', () => {
 
         const actualState = settingsReducer(beforeState, action);
 
-        expect(expectedState).to.equal(actualState);
+        expect(expectedState).toEqual(actualState);
     });
 
     it('should be able to set the cashier account lock status', () => {
@@ -74,7 +70,7 @@ describe('settingsReducer', () => {
 
         const actualState = settingsReducer(stateBefore, action);
 
-        expect(expectedState).to.equal(actualState);
+        expect(expectedState).toEqual(actualState);
     });
 
     it('should be able to update account settings', () => {
@@ -91,7 +87,7 @@ describe('settingsReducer', () => {
 
         const actualState = settingsReducer(beforeState, action);
 
-        expect(expectedState).to.equal(actualState);
+        expect(expectedState).toEqual(actualState);
     });
 
     it('shoulbd be able to update account setting field', () => {
@@ -108,7 +104,7 @@ describe('settingsReducer', () => {
 
         const actualState = settingsReducer(beforeState, action);
 
-        expect(expectedState).to.equal(actualState);
+        expect(expectedState).toEqual(actualState);
     });
 
     it('should be able to clear settings', () => {
@@ -117,7 +113,7 @@ describe('settingsReducer', () => {
         };
         const beforeState = fromJS({ activeTab: 0 });
         const actualState = settingsReducer(beforeState, action);
-        expect(actualState).to.equal(beforeState);
+        expect(actualState).toEqual(beforeState);
     });
 
     it('should return settings unchanged when no action type is provided', () => {
@@ -128,6 +124,6 @@ describe('settingsReducer', () => {
 
         const actualState = settingsReducer(beforeState, action);
 
-        expect(actualState).to.equal(beforeState);
+        expect(actualState).toEqual(beforeState);
     });
 });

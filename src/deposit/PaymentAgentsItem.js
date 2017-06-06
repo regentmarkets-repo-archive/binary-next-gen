@@ -1,10 +1,10 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { M, NumberPlain } from 'binary-components';
 
 export default class PaymentAgentsItem extends PureComponent {
 
-    static propTypes = {
-        paymentAgent: PropTypes.object.isRequired,
+    props: {
+        paymentAgent: object,
     };
 
     render() {

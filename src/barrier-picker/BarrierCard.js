@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { Label, NumericInput } from 'binary-components';
 import debounce from 'lodash.debounce';
 import { actions } from '../_store';
@@ -7,21 +7,15 @@ const debouncedReqBarrierChange = debounce(actions.reqBarrierChange, 400);
 
 export default class BarrierCard extends PureComponent {
 
-    static propTypes = {
-        barrier: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.number,
-        ]),
-        barrier2: PropTypes.oneOfType([
-            PropTypes.string,
-            PropTypes.number,
-        ]),
-        barrierInfo: PropTypes.object,
-        barrierType: PropTypes.oneOf(['relative', 'absolute']),
-        expiryType: PropTypes.string,
-        index: PropTypes.number.isRequired,
-        pipSize: PropTypes.number,
-        spot: PropTypes.number,
+    props: {
+        barrier: string | number,
+        barrier2: string | number,
+        barrierInfo: object,
+        barrierType: 'relative' | 'absolute',
+        expiryType: string,
+        index: number,
+        pipSize: number,
+        spot: number,
     };
 
     updateBarrier1 = (newBarrier1: number) => {

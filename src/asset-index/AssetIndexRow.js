@@ -1,10 +1,10 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 
 export default class AssetIndexRow extends PureComponent {
 
-    static propTypes = {
-        assetName: PropTypes.string.isRequired,
-        times: PropTypes.array.isRequired,
+    props: {
+        assetName: string,
+        times: any[],
     };
 
     render() {

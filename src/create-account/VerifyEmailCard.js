@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { LogoSpinner, Button, ErrorMsg, ServerErrorMsg, InputGroup } from 'binary-components';
 import { isValidEmail } from 'binary-utils';
 import { api } from '../_data/LiveData';
@@ -6,7 +6,7 @@ import { api } from '../_data/LiveData';
 export default class VerifyEmailCard extends PureComponent {
 
     static contextTypes = {
-        router: PropTypes.object.isRequired,
+        router: () => undefined,
     };
 
 	constructor(props) {
@@ -20,7 +20,7 @@ export default class VerifyEmailCard extends PureComponent {
 	onEmailChange = event =>
         this.setState({ email: event.target.value });
 
-    onFormSubmit = e => {
+    onFormSubmit = (e: SyntheticEvent) => {
 		e.preventDefault();
         this.setState({
             validatedOnce: true,

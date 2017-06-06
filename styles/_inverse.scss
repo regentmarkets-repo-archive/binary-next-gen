@@ -7,8 +7,9 @@
     .picker-label,
     select,
     .start-time-selector > label,
+    .binary-chart-button,
     .btn-flat {
-        background-color: $COLOR_BRAND_BLUE !important;
+        background-color: lighten($COLOR_INVERSE_BG, 10%) !important;
     }
 
     .btn-flat,

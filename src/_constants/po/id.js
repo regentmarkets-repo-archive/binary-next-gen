@@ -869,7 +869,7 @@ export default {
         null,
         "Anda tidak memiliki kontrak berjalan"
     ],
-    "You have no assets in watchlist": [
+    "You have no assets in your watchlist": [
         null,
         "Anda tidak memiliki aset pada daftar pantauan"
     ],

@@ -1,22 +1,24 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { Label, DownArrow } from 'binary-components';
 import DropDown from '../containers/DropDown';
 import { actions } from '../_store';
 import AssetPickerContainer from './AssetPickerContainer';
 
+type Props = {
+    index: number,
+    selectedSymbol: string,
+    selectedSymbolName: string,
+};
+
 export default class AssetPickerDropDown extends PureComponent {
 
-    static propTypes = {
-        index: PropTypes.number.isRequired,
-        selectedSymbol: PropTypes.string,
-        selectedSymbolName: PropTypes.string,
-    };
+    props: Props;
 
     static contextTypes = {
-        router: PropTypes.object,
+        router: () => undefined,
     };
 
-    constructor(props) {
+    constructor(props: Props) {
         super(props);
         this.state = {
             dropdownShown: false,
@@ -55,7 +57,7 @@ export default class AssetPickerDropDown extends PureComponent {
                 </DropDown>
                 <Label text="Asset" />
                 <div className="picker-label param-field" onMouseDown={this.openPicker}>
-                    {selectedSymbolName}
+                    <div className="picker-value">{selectedSymbolName}</div>
                     <DownArrow />
                 </div>
             </div>

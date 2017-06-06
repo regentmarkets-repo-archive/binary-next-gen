@@ -2,8 +2,12 @@ export default () => ({
     load() {
         return Promise.resolve(Object.keys(localStorage).reduce((acc, key) => {
             if (localStorage.getItem(key) !== 'undefined') {
-                acc[key] = JSON.parse(localStorage.getItem(key));
-            }
+                try {
+                    acc[key] = JSON.parse(localStorage.getItem(key));
+                } catch (e) {
+                    //  suppress any data parsing
+                }
+             }
             return acc;
         }, {}));
     },

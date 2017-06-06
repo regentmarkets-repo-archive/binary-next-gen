@@ -1,12 +1,12 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { M, P } from 'binary-components';
 
 export default class EmptySlate extends PureComponent {
 
-	static propTypes = {
-		img: PropTypes.string.isRequired,
-		title: PropTypes.string,
-		text: PropTypes.string.isRequired,
+	props: {
+		img: string,
+		title: string,
+		text: string,
 	};
 
 	render() {

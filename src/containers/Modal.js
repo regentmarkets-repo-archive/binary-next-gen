@@ -1,13 +1,13 @@
-import React, { PropTypes, PureComponent } from 'react';
-import { CloseButton } from 'binary-components';
+import React, { PureComponent } from 'react';
+import Clear from 'react-material-design-icons/icons/Clear';
 import AnimatedPopup from './AnimatedPopup';
 
 export default class Modal extends PureComponent {
 
-	static propTypes = {
-		shown: PropTypes.bool,
-		onClose: PropTypes.func,
-		children: PropTypes.any,
+	props: {
+		shown: boolean,
+		onClose: (e: SyntheticEvent) => void,
+		children: any,
 	};
 
 	componentDidMount() {
@@ -18,7 +18,7 @@ export default class Modal extends PureComponent {
 		document.removeEventListener('keydown', this.closeOnEscape, false);
 	}
 
-	closeOnEscape = e => {
+	closeOnEscape = (e: SyntheticEvent) => {
 		const { onClose } = this.props;
 		if (e.keyCode === 27 && onClose) {
 			onClose();
@@ -32,7 +32,7 @@ export default class Modal extends PureComponent {
 			<AnimatedPopup shown={shown}>
 				<div className="full-screen-overlay">
 					<div className="modal">
-						{onClose && <CloseButton onClick={onClose} />}
+						{onClose && <Clear className="close-btn" onClick={onClose} />}
 						{children}
 					</div>
 				</div>

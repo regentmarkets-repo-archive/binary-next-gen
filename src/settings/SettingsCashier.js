@@ -1,11 +1,11 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import SettingsCashierLocked from './SettingsCashierLocked';
 import SettingsCashierUnlocked from './SettingsCashierUnlocked';
 
 export default class SettingsCashier extends PureComponent {
 
-    static propTypes = {
-		cashier_password: PropTypes.number,
+    props: {
+		cashier_password: number,
 	};
 
 	render() {

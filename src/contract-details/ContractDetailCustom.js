@@ -1,11 +1,11 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { M } from 'binary-components';
 
 export default class ContractDetailCustom extends PureComponent {
 
-	static propTypes = {
-		label: PropTypes.string.isRequired,
-		value: PropTypes.string,
+	props: {
+		label: string,
+		value: string,
 	};
 
 	render() {

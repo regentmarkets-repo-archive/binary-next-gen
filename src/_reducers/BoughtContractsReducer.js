@@ -16,6 +16,18 @@ const convertOpenContract = openContract => {
     delete cloned.current_spot;
     delete cloned.current_spot_time;
 
+    if (openContract.date_expiry) {
+        cloned.date_expiry = +openContract.date_expiry;
+    }
+
+    if (openContract.date_start) {
+        cloned.date_start = +openContract.date_start;
+    }
+
+    if (openContract.date_settlement) {
+        cloned.date_settlement = +openContract.date_settlement;
+    }
+
     return cloned;
 };
 

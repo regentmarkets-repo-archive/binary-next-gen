@@ -1,11 +1,7 @@
 import { createSelector, createStructuredSelector } from 'reselect';
-import { groupByKey } from 'binary-utils';
+import { groupArrayToNestedArray } from 'binary-utils';
 import { assetsSelector, watchlistSelector } from '../_store/directSelectors';
 
-export const symbolIdsSelector = createSelector(
-     assetsSelector,
-     assets => assets.map(v => v.get('symbol'))
-);
 
 export const similarStr = (str1, str2) =>
     (str1 || '').toLowerCase().includes((str2 || '').toLowerCase());
@@ -39,37 +35,17 @@ export const shownAssetsSelector = createSelector(
             .filter(asset => doesMatchQueryAndFilter(asset, filter, watchlist))
 );
 
-export const sortedShownAssetsSelector = createSelector(
-    [shownAssetsSelector],
-    shownAssets =>
-        shownAssets
-            .sort((x1, x2) =>
-                 x1.get('display_name').localeCompare(x2.get('display_name'))
-            )
-);
-
-export const sortedByMarketShownAssetsSelector = createSelector(
-    [shownAssetsSelector],
-    shownAssets =>
-        shownAssets
-            .sort((x1, x2) => {
-                 const marketDiff = x1.get('market_display_name').localeCompare(x2.get('market_display_name'));
-                 if (marketDiff !== 0) return marketDiff;
-                 const submarketDiff = x1.get('submarket_display_name').localeCompare(x2.get('submarket_display_name'));
-                 if (submarketDiff !== 0) return submarketDiff;
-                 return x1.get('display_name').localeCompare(x2.get('display_name'));
-             })
-);
-
 export const assetPickerItemsSelector = createSelector(
-    [sortedByMarketShownAssetsSelector, watchlistSelector],
+    [shownAssetsSelector, watchlistSelector],
     (shownAssets, watchlist) =>
-        groupByKey(shownAssets.map(asset => ({
+        groupArrayToNestedArray(shownAssets.map(asset => ({
             symbol: asset.get('symbol'),
             name: asset.get('display_name'),
             isInWatchlist: watchlist.has(asset.get('symbol')),
-            market: asset.get('market_display_name'),
-            submarket: asset.get('submarket_display_name'),
+            market: asset.get('market'),
+            submarket: asset.get('submarket'),
+            marketName: asset.get('market_display_name'),
+            submarketName: asset.get('submarket_display_name'),
             isOpen: !!asset.get('exchange_is_open'),
         })), 'submarket')
 );

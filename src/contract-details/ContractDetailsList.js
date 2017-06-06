@@ -1,21 +1,19 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import ContractDetailString from './ContractDetailString';
 import ContractDetailTime from './ContractDetailTime';
 import ContractDetailMoney from './ContractDetailMoney';
 import ContractDetailCustom from './ContractDetailCustom';
 
 const transactionIdsToString = ({ buy, sell }) =>
-	buy + (sell ? '–' + sell : '');
+	buy + (sell ? ' – ' + sell : '');
 
 const isDigitTrade = contract =>
 	contract.contract_type && contract.contract_type.includes('DIGIT');
 
 export default class ContractDetailsList extends PureComponent {
 
-	static propTypes = {
-		contract: PropTypes.object.isRequired,
-		nowEpoch: PropTypes.number,
-		transactionId: PropTypes.number,
+	props: {
+		contract: Contract,
 	};
 
 	render() {

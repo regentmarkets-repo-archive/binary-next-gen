@@ -1,16 +1,15 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { M, P, Button, ErrorMsg, InputGroup, SelectGroup } from 'binary-components';
 import { actions } from '../_store';
 import Modal from '../containers/Modal';
-import currencies from '../_constants/currencies';
 import { api } from '../_data/LiveData';
 
 export default class WithdrawForm extends PureComponent {
 
-    static propTypes = {
-        paymentAgent: PropTypes.object.isRequired,
-        currency: PropTypes.oneOf(currencies).isRequired,
-        email: PropTypes.string,
+    props: {
+        paymentAgent: object,
+        currency: string,
+        email: string,
     };
 
     async componentDidMount() {
@@ -71,10 +70,8 @@ export default class WithdrawForm extends PureComponent {
             paymentAgentOptions[0].text;
         return (
             <div className="startup-content">
-                <Modal
-                    shown={!inProgress && withdrawClicked}
-                    children={
-                        dryRunFailed ?
+                <Modal shown={!inProgress && withdrawClicked} onClose={this.withdraw}>
+                    {dryRunFailed ?
                         <div>
                             <h3><M m="Withdrawal Failed" /></h3>
                             <p>{dryRunError}</p>
@@ -88,23 +85,14 @@ export default class WithdrawForm extends PureComponent {
                             <Button text="Confirm" onClick={this.confirmWithdraw} />
                         </div>
                     }
-                    onClose={this.withdraw}
-                />
+                </Modal>
                 <Modal
                     shown={!inProgress && confirmClicked}
                     onClose={this.confirm}
-                    children={
-                        withdrawFailed ?
-                        <div>
-                            <h3><M m="Withdrawal Failed" /></h3>
-                            <p>{withdrawError}</p>
-                        </div> :
-                        <div>
-                            <h3><M m="Congratulations" /></h3>
-                            <P text="Your withdrawal is success" />
-                        </div>
-                    }
-                />
+                >
+                      <h3>{withdrawFailed ? <M m="Withdrawal Failed" /> : <M m="Congratulations" />}</h3>
+                      {withdrawFailed ? <p>{withdrawError}</p> : <P text="Your withdrawal is success" />}
+                </Modal>
                 <SelectGroup
                     label="Payment agent"
                     options={paymentAgentOptions}

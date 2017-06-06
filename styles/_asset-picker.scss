@@ -1,19 +1,36 @@
 .asset-picker-filter {
-    min-height: 5rem;
+    min-height: 6em;
+
+    [role=tablist] {
+        border-radius: $BORDER_RADIUS;
+    }
+
+    [role=tab] {
+        padding: 0.5em 0.25em;
+    }
+
+    .tooltip {
+        margin-top: 1em;
+    }
+
+    [role=tab]:nth-child(7) .tooltip {
+        margin-left: -3em;
+    }
+
+    [role=tab]:nth-child(8) .tooltip {
+        margin-left: -5em;
+    }
 }
 
 .asset-picker-container {
     display: flex;
     flex-direction: column;
-    padding: 0.5rem;
-    width: 16rem;
-    min-width: 12rem;
+    padding: 0.5em;
+    width: 20em;
+    min-width: 15em;
 }
 
 .asset-list {
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-
     tr {
         cursor: pointer;
     }
@@ -21,6 +38,11 @@
     tbody tr.selected {
         background-color: rgba($COLOR_BRAND_BLUE, 0.25);
     }
+}
+
+.asset-picker-filter-icon {
+    width: 20px;
+    height: 20px;
 }
 
 .asset-search {
@@ -31,6 +53,23 @@
     }
 }
 
-.asset-picker-item td {
-    text-align: left;
+.asset-picker-item {
+    td {
+        text-align: left;
+        padding: 0.25em;
+    }
+
+    td:first-child {
+        width: 2em;
+    }
+
+    th {
+        text-align: left !important;
+        padding-left: 3em !important;
+    }
+
+    svg {
+        width: 24px;
+        height: 24px;
+    }
 }

@@ -1,5 +1,4 @@
 import { fromJS } from 'immutable';
-import { expect } from 'chai';
 import toggleButtonsSelector from '../toggleButtonsSelector';
 
 describe('toggleButtonsSelector', () => {
@@ -12,7 +11,7 @@ describe('toggleButtonsSelector', () => {
 
         const actual = toggleButtonsSelector(state);
 
-        expect(actual).to.be.ok;
+        expect(actual).toBeDefined();
     });
 
     it('should return the same result for the same state', () => {
@@ -21,6 +20,6 @@ describe('toggleButtonsSelector', () => {
         const first = toggleButtonsSelector(state);
         const second = toggleButtonsSelector(state);
 
-        expect(first).to.equal(second);
+        expect(first).toEqual(second);
     });
 });

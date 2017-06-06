@@ -1,5 +1,5 @@
-import React, { PureComponent, PropTypes } from 'react';
-import { epochToUTCTimeString, dateToDateString, returnValidDate, returnValidTime } from 'binary-utils';
+import React, { PureComponent } from 'react';
+import { epochToUTCTimeString, dateToDateString, nowAsEpoch, returnValidDate, returnValidTime } from 'binary-utils';
 import { M, Label } from 'binary-components';
 import debounce from 'lodash.debounce';
 import createDefaultStartLaterEpoch from '../_trade/defaults/createDefaultStartLaterEpoch';
@@ -12,18 +12,19 @@ const debounceEpochChange = actions.reqStartEpochChange;        // TODO: allow d
 
 export default class ForwardStartingOptions extends PureComponent {
 
-    static propTypes = {
-        dateStart: PropTypes.number,
-        forwardStartingDuration: PropTypes.object.isRequired,       // treated as special case
-        index: PropTypes.number.isRequired,
-        startLaterOnly: PropTypes.bool,
+    props: {
+        dateStart: number,
+        forwardStartingDuration: object,       // treated as special case
+        index: number,
+        startLaterOnly: boolean,
     };
 
     constructor(props) {
         super(props);
+        const defaultEpoch = props.dateStart ? props.dateStart : createDefaultStartLaterEpoch(props.forwardStartingDuration);
         this.state = {
             showStartLater: !!props.dateStart,
-            defaultDateStart: createDefaultStartLaterEpoch(props.forwardStartingDuration),
+            defaultDateStart: defaultEpoch,
         };
     }
 
@@ -33,13 +34,13 @@ export default class ForwardStartingOptions extends PureComponent {
         }
     }
 
-    onDayChange = e => {
+    onDayChange = (e: SyntheticEvent) => {
         const { index } = this.props;
         const inputValue = e.target.value;
         debounceStartDateChange(index, returnValidDate(inputValue));
     }
 
-    onTimeChange = e => {
+    onTimeChange = (e: SyntheticEvent) => {
         const { index } = this.props;
         const inputValue = e.target.value;
         debounceStartTimeChange(index, returnValidTime(inputValue));
@@ -54,7 +55,18 @@ export default class ForwardStartingOptions extends PureComponent {
         this.setState({ showStartLater: true });
         const { index, dateStart } = this.props;
         if (!dateStart) {
-            debounceEpochChange(index, this.state.defaultDateStart);
+            const { defaultDateStart } = this.state;
+            const now = nowAsEpoch();
+
+            let startDateToUse = defaultDateStart;
+
+            // do not use defaultDateStart when it is less than 5 minutes away from current time
+            if (defaultDateStart < now + 350) {
+                const newDateInSecondsResolution = now + 350;
+                startDateToUse = newDateInSecondsResolution - (newDateInSecondsResolution % 60);
+            }
+
+            debounceEpochChange(index, startDateToUse);
         }
     }
 

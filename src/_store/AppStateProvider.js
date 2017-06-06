@@ -1,8 +1,13 @@
-import React, { Children, PureComponent, PropTypes } from 'react';
+import React, { Children, PureComponent } from 'react';
 import { connect } from 'react-redux';
 import TransitionGroup from 'react-addons-css-transition-group';
 import { appStateSelector } from '../_selectors/AppStateSelectors';
 import LoadingView from '../loading-view/LoadingView';
+
+type Props = {
+    children: object,
+    connected: boolean,
+};
 
 /**
  * Note: The loading view is tightly coupled with the auto-signin flow of apps,
@@ -11,12 +16,9 @@ import LoadingView from '../loading-view/LoadingView';
 @connect(appStateSelector)
 export default class AppStateProvider extends PureComponent {
 
-    static propTypes = {
-        children: PropTypes.object.isRequired,
-        connected: PropTypes.bool.isRequired,
-    };
+    props: Props;
 
-    constructor(props) {
+    constructor(props: Props) {
         super(props);
         this.state = {
             showMessage: false,

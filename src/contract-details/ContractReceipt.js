@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { Button } from 'binary-components';
 import ContractDetailsList from './ContractDetailsList';
 import ContractWinLose from './ContractWinLose';
@@ -10,10 +10,10 @@ const openContractSubscriptionFailed = contract =>
 
 export default class ContractReceipt extends PureComponent {
 
-	static propTypes = {
-		contract: PropTypes.object.isRequired,
-		onTradeAgainClicked: PropTypes.func,
-		showLongcode: PropTypes.bool,
+	props: {
+		contract: Contract,
+		onTradeAgainClicked: (e: SyntheticEvent) => void,
+		showLongcode: boolean,
 	};
 
 	render() {
@@ -24,11 +24,12 @@ export default class ContractReceipt extends PureComponent {
 			<div className="contract-receipt">
 				<ContractValidationError contract={contract} />
 				{onTradeAgainClicked &&
-				<Button
-					className="buy-again-btn"
-					text="Trade Again"
-					onClick={onTradeAgainClicked}
-				/>}
+					<Button
+						className="buy-again-btn"
+						text="Trade Again"
+						onClick={onTradeAgainClicked}
+					/>
+				}
 			</div> :
 			<div className="contract-receipt">
 				{showLongcode && <h5>{contract.longcode}</h5>}

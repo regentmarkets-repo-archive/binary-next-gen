@@ -1,4 +1,3 @@
-export ar from './ar.js';
 export de from './de.js';
 export en from './en.js';
 export es from './es.js';

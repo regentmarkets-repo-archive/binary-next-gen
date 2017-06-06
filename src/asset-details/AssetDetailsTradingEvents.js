@@ -1,10 +1,10 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { Th } from 'binary-components';
 
 export default class AssetDetailsTradingEvents extends PureComponent {
 
-	static propTypes = {
-		events: PropTypes.array,
+	props: {
+		events: any[],
 	};
 
 	render() {

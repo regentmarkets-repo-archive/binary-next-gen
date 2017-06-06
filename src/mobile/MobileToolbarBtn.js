@@ -1,11 +1,11 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { Link } from 'react-router';
 
 export default class MobileToolbarBtn extends PureComponent {
 
-	static propTypes = {
-		to: PropTypes.string.isRequired,
-		img: PropTypes.string.isRequired,
+	props: {
+		to: string,
+		img: string,
 	};
 
 	render() {

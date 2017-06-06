@@ -2,7 +2,6 @@ export * from './AccountActions';
 export * from './BootActions';
 export * from './AppStateActions';
 export * from './AssetsActions';
-export * from './ChartDataActions';
 export * from './CandleStickActions';
 export * from './DigitStatsActions';
 export * from './AssetPickerActions';

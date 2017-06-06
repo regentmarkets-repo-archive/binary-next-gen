@@ -1,12 +1,12 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 
 export default class StartLaterToggleSwitch extends PureComponent {
 
-    static propTypes = {
-        checked: PropTypes.bool,
-        id: PropTypes.any.isRequired,
-        onClick: PropTypes.func,
-        text: PropTypes.string,
+    props: {
+        checked: boolean,
+        id: any,
+        onClick: (e: SyntheticEvent) => void,
+        text: string,
     };
 
     static defaultProps = {
@@ -25,8 +25,8 @@ export default class StartLaterToggleSwitch extends PureComponent {
                     onClick={onClick}
                 />
                 <label htmlFor={'toggle-' + id} className="onoffswitch-label">
-                    <span className="onoffswitch-inner"></span>
-                    <span className="onoffswitch-switch"></span>
+                    <span className="onoffswitch-inner" />
+                    <span className="onoffswitch-switch" />
                 </label>
             </div>
         );

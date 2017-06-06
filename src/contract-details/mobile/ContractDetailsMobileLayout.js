@@ -1,24 +1,29 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { Tab, TabList } from 'binary-components';
 
-export default class ContractDetailsMobileLayout extends PureComponent {
-    static propTypes = {
-        chartComponent: PropTypes.object.isRequired,
-        detailsComponent: PropTypes.object.isRequired,
-    };
+type Props = {
+    chartComponent: object,
+    detailsComponent: object,
+};
 
-    constructor(props) {
+export default class ContractDetailsMobileLayout extends PureComponent {
+
+    props: Props;
+
+    constructor(props: Props) {
         super(props);
         this.state = { activeIndex: 0 };
     }
 
-    changeView = newIndex => this.setState({ activeIndex: newIndex });
+    changeView = (newIndex: number) =>
+        this.setState({ activeIndex: newIndex });
 
     render() {
         const { chartComponent, detailsComponent } = this.props;
         const { activeIndex } = this.state;
+
         return (
-            <div>
+            <div className="contract-details-tabs">
                 <TabList
                     activeIndex={activeIndex}
                     onChange={this.changeView}

@@ -1,11 +1,10 @@
-import { expect } from 'chai';
 import store from '../basicStore';
 
 describe('store', () => {
     it('should work with a series of actions', () => {
         const actual = store.getState();
 
-        expect(actual).to.be.ok;
+        expect(actual).toBeDefined();
     });
 
     it('should work with a series of actions', () => {
@@ -16,6 +15,6 @@ describe('store', () => {
 
         const actual = store.getState();
 
-        expect(actual).to.be.ok;
+        expect(actual).toBeDefined();
     });
 });

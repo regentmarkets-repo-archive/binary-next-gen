@@ -1,11 +1,11 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { toMoney, directionClassName } from 'binary-utils';
 import { M, NumberPlain } from 'binary-components';
 
 export default class ContractWinLose extends PureComponent {
 
-	static propTypes = {
-		contract: PropTypes.object.isRequired,
+	props: {
+		contract: Contract,
 	};
 
 	render() {

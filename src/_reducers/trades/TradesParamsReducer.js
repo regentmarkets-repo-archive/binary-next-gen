@@ -1,4 +1,5 @@
 import { fromJS, Repeat } from 'immutable';
+import { nowAsEpoch } from 'binary-utils';
 import {
     CHANGE_ACTIVE_LAYOUT,
     UPDATE_TRADE_PARAMS,
@@ -6,6 +7,7 @@ import {
     RESET_TRADES,
     REMOVE_TRADE,
     REMOVE_PERSONAL_DATA,
+    UPDATE_OUTDATED_START_DATE,
 } from '../../_constants/ActionTypes';
 
 const defaultParams = {
@@ -21,7 +23,7 @@ const defaultParams = {
     barrier2: undefined,
 };
 
-const initialState = fromJS([]);
+const initialState = fromJS([defaultParams]);
 
 export default (state = initialState, action) => {
     switch (action.type) {
@@ -75,6 +77,19 @@ export default (state = initialState, action) => {
         }
         case REMOVE_PERSONAL_DATA: {
             return initialState;
+        }
+
+        // special handling code to modify cached start date that's not valid
+        case UPDATE_OUTDATED_START_DATE: {
+            const now = nowAsEpoch();
+            return state.map(t => t.update('dateStart', v => {
+                if (v && v < now + 350) {
+                    const newDateInSecondsResolution = now + 350;
+                    const newDateInMinutesResolution = newDateInSecondsResolution - (newDateInSecondsResolution % 60);
+                    return newDateInMinutesResolution;
+                }
+                return v;
+            }));
         }
         default: return state;
     }

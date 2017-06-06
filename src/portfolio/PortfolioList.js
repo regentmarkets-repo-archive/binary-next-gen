@@ -1,16 +1,16 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { Th, NumberPlain } from 'binary-components';
 import PortfolioItem from './PortfolioItem';
 
 export default class PortfolioList extends PureComponent {
 
-	static propTypes = {
-		compact: PropTypes.bool,
-		contracts: PropTypes.object.isRequired,
-		payoutTotal: PropTypes.number.isRequired,
-		purchaseTotal: PropTypes.number.isRequired,
-		indicativeTotal: PropTypes.number.isRequired,
-		onViewDetails: PropTypes.func.isRequired,
+	props: {
+		compact: boolean,
+		contracts: object,
+		payoutTotal: number,
+		purchaseTotal: number,
+		indicativeTotal: number,
+		onViewDetails: (e: SyntheticEvent) => void,
 	};
 
 	render() {

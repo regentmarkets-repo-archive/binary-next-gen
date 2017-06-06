@@ -1,4 +1,4 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { M, InputGroup, LogoSpinner, Legend, Button, Option,
 	ErrorMsg, ServerErrorMsg, DateOfBirth, Countries } from 'binary-components';
 import { api } from '../_data/LiveData';
@@ -8,11 +8,11 @@ import SecretQuestion from './SecretQuestion';
 export default class UpgradeCard extends PureComponent {
 
 	static contextTypes = {
-		router: PropTypes.object.isRequired,
+		router: () => undefined,
 	}
 
-	static propTypes = {
-        residenceList: PropTypes.array,
+	props: {
+        residenceList: any[],
 	};
 
 	constructor(props) {
@@ -33,7 +33,7 @@ export default class UpgradeCard extends PureComponent {
 		};
 	}
 
-	onEntryChange = e =>
+	onEntryChange = (e: SyntheticEvent) =>
         this.setState({ [e.target.id]: e.target.value });
 
 	onFirstNameValid = firstName =>
@@ -42,51 +42,51 @@ export default class UpgradeCard extends PureComponent {
 	onLastNameValid = lastName =>
 		/^[a-zA-Z\s'.-]{2,30}$/.test(lastName);
 
-	onDayChange = e =>
+	onDayChange = (e: SyntheticEvent) =>
 		this.setState({ day: e.target.value });
 
-	onMonthChange = e =>
+	onMonthChange = (e: SyntheticEvent) =>
 		this.setState({ month: e.target.value });
 
-	onYearChange = e =>
+	onYearChange = (e: SyntheticEvent) =>
 		this.setState({ year: e.target.value });
 
-	onCountryChange = e => {
+	onCountryChange = (e: SyntheticEvent) => {
 		this.setState({ residence: e.target.value });
 		api.getStatesForCountry(e.target.value).then(response =>
 			this.setState({ statesList: response.states_list })
 		);
 	}
 
-	onStateChange = e => {
+	onStateChange = (e: SyntheticEvent) => {
 		this.setState({ addressState: e.target.value });
 	}
 
-	onCityChange = e =>
+	onCityChange = (e: SyntheticEvent) =>
 		this.setState({ addressCity: e.target.value });
 
-	onPostcodeChange = e =>
+	onPostcodeChange = (e: SyntheticEvent) =>
 		this.setState({ addressPostcode: e.target.value });
 
-	onAddressLine1Change = e =>
+	onAddressLine1Change = (e: SyntheticEvent) =>
 		this.setState({ addressLine1: e.target.value });
 
-	onAddressLine2Change = e =>
+	onAddressLine2Change = (e: SyntheticEvent) =>
 		this.setState({ addressLine2: e.target.value });
 
-	onPhoneChange = e =>
+	onPhoneChange = (e: SyntheticEvent) =>
 		this.setState({ phone: e.target.value });
 
-	onSecretQuestionChange = e =>
+	onSecretQuestionChange = (e: SyntheticEvent) =>
 		this.setState({ secretQuestion: e.target.value });
 
-	onSecretAnswerChange = e =>
+	onSecretAnswerChange = (e: SyntheticEvent) =>
 		this.setState({ secretAnswer: e.target.value });
 
-	onTermsAndConditionsChanged = e =>
+	onTermsAndConditionsChanged = (e: SyntheticEvent) =>
 		this.setState({ termsAndConditions: e.target.value });
 
-    onFormSubmit = e => {
+    onFormSubmit = (e: SyntheticEvent) => {
         e.preventDefault();
         this.setState({
             validatedOnce: true,

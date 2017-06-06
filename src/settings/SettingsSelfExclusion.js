@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { Button, InputGroup, ServerErrorMsg } from 'binary-components';
 import { xMonthsAfter, dateToDateString, dateToEpoch } from 'binary-utils';
 import UpdateNotice from '../containers/UpdateNotice';
@@ -6,18 +6,18 @@ import { api } from '../_data/LiveData';
 
 export default class SettingsSelfExclusion extends PureComponent {
 
-	static propTypes = {
-		max_balance: PropTypes.number,
-		max_turnover: PropTypes.number,
-		max_losses: PropTypes.number,
-		max_7day_turnover: PropTypes.number,
-		max_7day_losses: PropTypes.number,
-		max_30day_turnover: PropTypes.number,
-		max_30day_losses: PropTypes.number,
-		max_open_bets: PropTypes.number,
-		session_duration_limit: PropTypes.number,
-		timeout_until: PropTypes.number,
-		exclude_until: PropTypes.string,
+	props: {
+		max_balance: number,
+		max_turnover: number,
+		max_losses: number,
+		max_7day_turnover: number,
+		max_7day_losses: number,
+		max_30day_turnover: number,
+		max_30day_losses: number,
+		max_open_bets: number,
+		session_duration_limit: number,
+		timeout_until: number,
+		exclude_until: string,
 	};
 
 	constructor(props) {
@@ -38,11 +38,11 @@ export default class SettingsSelfExclusion extends PureComponent {
 		};
 	}
 
-	onEntryChange = e =>
+	onEntryChange = (e: SyntheticEvent) =>
 		this.setState({ [e.target.id]: e.target.value });
 
 
-    onFormSubmit = e => {
+    onFormSubmit = (e: SyntheticEvent) => {
         e.preventDefault();
         this.setState({
             validatedOnce: true,
@@ -74,7 +74,12 @@ export default class SettingsSelfExclusion extends PureComponent {
 				success: true,
 				serverError: false,
 			});
-			setTimeout(() => this.setState({ success: false }), 3000);
+			setTimeout(() => {
+				this.setState({ success: false });
+				if (exclude_until) {
+					window.location.reload();
+				}
+			}, 3000);
 		} catch (e) {
 			this.setState({ serverError: e.error.error.message });
 		}

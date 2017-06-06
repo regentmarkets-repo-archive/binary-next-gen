@@ -3,7 +3,6 @@ import { List } from 'immutable';
 import {
     assetIndexSelector,
     assetsSelector,
-    assetIndexSubmarketSelector,
     assetIndexFilterSelector,
 } from '../_store/directSelectors';
 
@@ -53,6 +52,6 @@ export const assetIndexTableSelector = createSelector(
 );
 
 export default createStructuredSelector({
-    submarket: assetIndexSubmarketSelector,
+    submarket: assetIndexFilterSelector,
     assetIndexRows: assetIndexTableSelector,
 });

@@ -1,12 +1,12 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { M } from 'binary-components';
 import { contractCodeToText } from 'binary-utils';
 
 export default class ContractDetailString extends PureComponent {
 
-	static propTypes = {
-		contract: PropTypes.object.isRequired,
-		code: PropTypes.string.isRequired,
+	props: {
+		contract: Contract,
+		code: string,
 	};
 
 	render() {

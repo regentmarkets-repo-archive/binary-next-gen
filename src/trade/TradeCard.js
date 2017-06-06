@@ -1,42 +1,56 @@
-import React, { PureComponent, PropTypes } from 'react';
-import { immutableChildrenToJS } from 'binary-utils';
-import { Button, P } from 'binary-components';
+import React, { PureComponent } from 'react';
+import { P } from 'binary-components';
 import { actions } from '../_store';
 import TradeViewChart from './trade-chart/TradeViewChart';
 import TradeParams from '../trade-params/TradeParams';
 import ContractReceipt from '../contract-details/ContractReceipt';
-import ContractDetailsMobileLayout from '../contract-details/mobile/ContractDetailsMobileLayout';
-import SellAtMarketButton from '../contract-details/SellAtMarketButton';
-import ContractValidationError from '../contract-details/ContractValidationError';
-import ContractWinLose from '../contract-details/ContractWinLose';
+
+type Props = {
+    compact: boolean,
+    contractReceiptProps: Object,
+    chartProps: Object,
+    index: number,
+    paramsProps: Object,
+};
+
+// this is used so that object identity is maintained
+const hiddenStyle = { display: 'none' };
 
 export default class TradeCard extends PureComponent {
 
+    props: Props;
+    shouldZoomLatest: boolean;
+
     static contextTypes = {
-        router: PropTypes.object.isRequired,
+        router: () => undefined,
     };
 
-    static propTypes = {
-        compact: PropTypes.bool,
-        contractReceiptProps: PropTypes.object,
-        chartProps: PropTypes.object.isRequired,
-        index: PropTypes.number.isRequired,
-        paramsProps: PropTypes.object.isRequired,
-    };
+    constructor(props: Props) {
+        super(props);
+        this.shouldZoomLatest = false;
+    }
+
+    componentDidUpdate(prevProps) {
+        // ugly hack to ensure event is fired after chart is back to trade view
+        if (prevProps.contractReceiptProps && !this.props.contractReceiptProps && this.shouldZoomLatest) {
+            this.fireZoomToLatest();
+            this.shouldZoomLatest = false;
+        }
+    }
 
     tradeAgain = () => {
         const { index } = this.props;
         actions.closeContractReceipt(index);
+        this.shouldZoomLatest = true;
     }
 
-    zoomWhenPurchase = tradeParams => {
+    fireZoomToLatest = () => {
         const { index } = this.props;
-        const { duration, durationUnit, dateStart } = tradeParams;
-        const domID = `trade-chart${index}`;
-        const zoomToLatestEv = new CustomEvent('zoom-to-latest', {
-            detail: { duration, unit: durationUnit, isFuture: !!dateStart },
-        });
-        document.getElementById(domID).dispatchEvent(zoomToLatestEv);
+        const zoomToLatestEv = new CustomEvent('zoom-to-latest');
+        const chartNode = document.getElementById(`trade-chart${index}`);
+        if (chartNode) {
+            chartNode.dispatchEvent(zoomToLatestEv);
+        }
     }
 
     sellAtMarket = () => {
@@ -51,64 +65,24 @@ export default class TradeCard extends PureComponent {
             return <P text="Asset not available" />;
         }
 
-        const chartComponent = (
-            <div className="trade-chart-container">
-                <TradeViewChart {...immutableChildrenToJS(chartProps)} />
-            </div>
-        );
-
-        const detailsComponent = contractReceiptInJS && (
-            <ContractReceipt
-                contract={contractReceiptInJS}
-                showLongcode
-                onTradeAgainClicked={this.tradeAgain}
-            />
-        );
-
-        const tradeParamsComponent = paramsProps.tradeParams && (
-            <TradeParams
-                {...immutableChildrenToJS(paramsProps)}
-                compact={compact}
-                onPurchaseHook={this.zoomWhenPurchase}
-                style={contractReceiptInJS ? { display: 'none' } : undefined}
-            />
-        );
-
-        const mobileTrade = compact && (
+        return (
             <div className="trade-panel">
+                {chartProps && <TradeViewChart {...chartProps} />}
                 {contractReceiptInJS &&
-                    <ContractDetailsMobileLayout
+                    <ContractReceipt
                         contract={contractReceiptInJS}
-                        chartComponent={
-                            <div>
-                                {chartComponent}
-                                <ContractWinLose contract={contractReceiptInJS} />
-                                <SellAtMarketButton contract={contractReceiptInJS} />
-                                <ContractValidationError contract={contractReceiptInJS} />
-                                <Button
-                                    className="buy-again-btn"
-                                    text="Trade Again"
-                                    onClick={this.tradeAgain}
-                                />
-                            </div>
-                        }
-                        detailsComponent={detailsComponent}
+                        showLongcode
                         onTradeAgainClicked={this.tradeAgain}
                     />
                 }
-                {!contractReceiptInJS && chartComponent}
-                {tradeParamsComponent}
+                {paramsProps.tradeParams &&
+                    <TradeParams
+                        {...paramsProps}
+                        compact={compact}
+                        style={contractReceiptInJS ? hiddenStyle : undefined}
+                    />
+                }
             </div>
         );
-
-        const desktopTrade = !compact && (
-            <div className="trade-panel">
-                {chartComponent}
-                {detailsComponent}
-                {tradeParamsComponent}
-            </div>
-        );
-
-        return compact ? mobileTrade : desktopTrade;
     }
 }

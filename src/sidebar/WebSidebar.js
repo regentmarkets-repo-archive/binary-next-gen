@@ -1,22 +1,26 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { M } from 'binary-components';
 import AccountItemsList from './AccountItemsList';
 import { signOut } from '../_data/Auth';
 
+type Account = {
+	account: string,
+	token: string,
+};
+
 export default class WebSidebar extends PureComponent {
 
-	static propTypes = {
-		email: PropTypes.string.isRequired,
-		loginid: PropTypes.string.isRequired,
-		accounts: PropTypes.arrayOf(PropTypes.shape({
-			account: PropTypes.string.isRequired,
-			token: PropTypes.string.isRequired,
-		})),
+	props: {
+		email: string,
+		loginid: string,
+		accounts: Account[],
 	};
-	onSignOut(e) {
+
+	onSignOut(e: SyntheticEvent) {
 		e.stopPropagation();
 		signOut();
 	}
+
 	render() {
 		const { loginid, email, accounts } = this.props;
 

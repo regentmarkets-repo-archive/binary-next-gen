@@ -1,4 +1,4 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { OpenCloseNotice, DownArrow } from 'binary-components';
 import { actions } from '../_store';
@@ -9,8 +9,8 @@ import examineAssetSelectors from './examineAssetSelectors';
 @connect(examineAssetSelectors)
 export default class ExamineAssetFilter extends PureComponent {
 
-	static propTypes = {
-		asset: PropTypes.object.isRequired,
+	props: {
+		asset: object,
 	};
 
 	constructor(props) {

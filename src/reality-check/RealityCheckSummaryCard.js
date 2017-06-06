@@ -1,19 +1,19 @@
-import React, { PureComponent, PropTypes } from 'react';
+import React, { PureComponent } from 'react';
 import { M, Td, P, Button } from 'binary-components';
 import { secondsToTimeString } from 'binary-utils';
 import TradingStatsCard from './TradingStatsCard';
 
 export default class RealityCheckSummaryCard extends PureComponent {
 
-    static propTypes = {
-        confirmIntervalUpdate: PropTypes.func.isRequired,
-        interval: PropTypes.number.isRequired,
-        loginTime: PropTypes.number.isRequired,
-        sessionDuration: PropTypes.number.isRequired,
-        updateInterval: PropTypes.func.isRequired,
+    props: {
+        confirmIntervalUpdate: (e: SyntheticEvent) => void,
+        interval: number,
+        loginTime: number,
+        sessionDuration: number,
+        updateInterval: (e: SyntheticEvent) => void,
     };
 
-    onIntervalChange = e =>
+    onIntervalChange = (e: SyntheticEvent) =>
         this.props.updateInterval(e.target.value);
 
     render() {

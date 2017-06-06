@@ -1,11 +1,11 @@
-import React, { PropTypes, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import SettingsDetails from './SettingsDetails';
 import SettingsAddress from './SettingsAddress';
 
 export default class SettingsPersonalDetails extends PureComponent {
 
-	static propTypes = {
-		loginid: PropTypes.string.isRequired,
+	props: {
+		loginid: string,
 	};
 
 	render() {
