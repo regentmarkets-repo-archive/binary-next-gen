@@ -17,15 +17,16 @@ before_install: yarn
 install: yarn test:full
 after_success:
   - yarn test:coveralls
-  - yarn build
-#deploy:
-#  provider: pages
-#  skip_cleanup: true
-#  github_token: $GITHUB_TOKEN
-#  local_dir: './www'
-#  repo: ''
-#  on:
-#    branches:
-#      only:
-#      - master
-#      - dev
+before_deploy:
+  - if [ "$TRAVIS_BRANCH" = "master" ] ; then rm -fR www/*; fi
+  - if [ "$TRAVIS_BRANCH" = "dev" ] ; then rm -fR www/beta && mkdir www/beta && mv www/* www/beta/; fi
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: $GITHUB_TOKEN
+  local_dir: './www'
+  on:
+    branches:
+      only:
+      - master
+      - dev
