@@ -1,16 +1,20 @@
 {
-  "name": "binaryapp",
-  "productName": "binary trading app",
+  "name": "binary-next-gen",
+  "productName": "Binary.com",
   "version": "0.0.1",
   "description": "Sharp Prices. Smart Trading",
   "author": "binary.com <contact@binary.com>",
   "homepage": "app.binary.com",
   "moduleType": [],
   "private": true,
-  "files": ["**\/*", "!ignoreMe${www/node_modules/*}"],
+  "files": [
+    "**/*",
+    "!ignoreMe${www/node_modules/*}"
+  ],
   "main": "main.js",
   "license": "MIT",
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "winston": "^2.2.0"
   }
 }
