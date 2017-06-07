@@ -1,70 +1,60 @@
 // Handle Squirrel events for Windows immediately on start
 if (require('electron-squirrel-startup')) { return; }
 
-const pack = require('./package.json');
 const electron = require('electron');
-const os = require('os');
-const logger = require('winston');
-
-const appVersion = pack.version;
 const { app } = electron;
 const { BrowserWindow } = electron;
 const { autoUpdater } = electron;
-let mainWindow = null;
-const { Menu } = electron;
-let feedLink = '';
+const os = require('os');
+var mainWindow = null;
+var { Menu } = electron;
+var forceQuit = false;
+const name = app.getName();
+var updateFeed = 'http://localhost:3000/updates/latest';
+var isDevelopment = process.env.NODE_ENV === 'development';
+var feedURL = '';
 
-app.setName(pack.productName);
-
-let updateFeed = 'http://localhost:3000/updates/latest';
-const isDevelopment = process.env.NODE_ENV === 'development';
-
-logger.level = 'debug';
-global.logger = logger;
-
-const path = require('path');
-
+// Don't use auto-updater if we are in development 
 if (!isDevelopment) {
     if (os.platform() === 'darwin') {
-        updateFeed = 'http://app-binary.s3.amazonaws.com/updates/latest';
+        updateFeed = 'http://app-binary.herokuapp.com/updates/latest'; 
     } else if (os.platform() === 'win32') {
         updateFeed = 'http://app-binary.s3.amazonaws.com/updates/latest/win' + (os.arch() === 'x64' ? '64' : '32');
     }
 
-    autoUpdater.addListener('update-available', (e) => {
-        logger.debug('A new update is available');
+    autoUpdater.addListener('update-available', function(event) {
+        console.log('A new update is available');
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'update-available');
         }
     });
-    autoUpdater.addListener('update-downloaded', (event, releaseNotes, releaseName, releaseDate, updateURL) => {
-        logger.debug('A new update is ready to install', `Version ${releaseName} is downloaded from ${updateURL} and will be automatically installed on Quit`);
+    autoUpdater.addListener("update-downloaded", function(event, releaseNotes, releaseName, releaseDate, updateURL) {
+        console.log('A new update is ready to install', `Version ${releaseName} is downloaded and will be automatically installed on Quit`)
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'update-downloaded');
-            autoUpdater.quitAndInstall();
         }
     });
-    autoUpdater.addListener('error', (error) => {
-        logger.debug('it fails to update ' + error);
-        logger.debug(`error is ${error}`);
+    autoUpdater.addListener('error', function (error) {
+        console.log(error);
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'update-error');
         }
     });
-    autoUpdater.addListener('checking-for-update', (e) => {
-        logger.debug('checking-for-update');
+    autoUpdater.addListener('checking-for-update', function (event) {
+        console.log('checking-for-update');
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'checking-for-update');
         }
     });
-    autoUpdater.addListener('update-not-available', () => {
-        logger.debug('update-not-available');
+    autoUpdater.addListener("update-not-available", function () {
+        console.log('update-not-available');
         if (mainWindow) {
             mainWindow.webContents.send('update-message', 'update-not-available');
         }
     });
 
-    feedLink = updateFeed + '?v=' + appVersion;
+    const appVersion = require('./package.json').version;
+    const feedLink = updateFeed + '?v=' + appVersion;
     autoUpdater.setFeedURL(feedLink);
 }
 
@@ -75,12 +65,11 @@ electron.crashReporter.start({
   autoSubmit: true,
 });
 
-app.on('window-all-closed', () => {
+app.on('window-all-closed', function() {
+  if (process.platform !== 'darwin') {
     app.quit();
+  }
 });
-
-const name = app.getName();
-
 const template = [
   {
     label: 'View',
@@ -105,7 +94,7 @@ const template = [
         label: 'Toggle Developer Tools',
         accelerator: process.platform === 'darwin' ? 'Alt+Command+I' : 'Ctrl+Shift+I',
         click(item, focusedWindow) {
-          if (focusedWindow) {
+          if (focusedWindow && isDevelopment) {
             focusedWindow.webContents.toggleDevTools();
           }
         },
@@ -128,6 +117,7 @@ const template = [
         label: 'Quit',
         accelerator: 'Command+Q',
         click() {
+            forceQuit = true;
             app.quit();
         },
       },
@@ -147,7 +137,7 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click() { electron.shell.openExternal('http://app.binary.com'); },
+        click() { require('electron').shell.openExternal('http://app.binary.com'); },
       },
     ],
   },
@@ -179,6 +169,7 @@ if (process.platform === 'darwin') {
         label: 'Quit',
         accelerator: 'Command+Q',
         click() {
+            forceQuit = true;
             app.quit();
         },
       },
@@ -186,31 +177,48 @@ if (process.platform === 'darwin') {
   });
 }
 
-app.on('ready', () => {
-    const menu = Menu.buildFromTemplate(template);
+app.on('ready', function() {
 
-    logger.debug('Starting application');
+    const menu = Menu.buildFromTemplate(template);
 
     Menu.setApplicationMenu(menu);
     mainWindow = new BrowserWindow({
-        name: 'Binary.com',
         width: 1024,
         height: 680,
-        toolbar: false,
     });
 
+    mainWindow.loadURL('file://' + __dirname + '/index.html');
 
-    mainWindow.loadURL(path.join('file://', __dirname, '/main.html'));
-
-    mainWindow.on('closed', () => {
+    mainWindow.on('closed', function () {
+        console.log('closed');
         mainWindow = null;
+        app.quit();
     });
 
-    if (!isDevelopment) {
-        mainWindow.webContents.on('did-frame-finish-load', () => {
-            logger.debug('Checking for updates: ' + feedLink);
-            autoUpdater.checkForUpdates();
-        });
-    }
+    mainWindow.on('close', function (e) {
+        if (!forceQuit) {
+            e.preventDefault();
+            mainWindow.hide();
+        }
+    });
+    app.on('activate', function () {
+       mainWindow.show();
+    });
+
+    mainWindow.on('show', function (e) {
+        console.log('the window is showing');
+        mainWindow.show();
+    });
+
+    mainWindow.on('hide', function (e) {
+        console.log('the main window is hiding');
+    });
+});
+
+app.on('activate', function (e) {
+  mainWindow.show();
+});
+app.on('before-quit', function (e) {
+  forceQuit = true;
 });
 
