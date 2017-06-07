@@ -26,7 +26,7 @@ deploy:
   github_token: "$GIT_KEY"
   local_dir: "./www"
   on:
-      branches:
+      branch:
         - master
         - dev
 env:
