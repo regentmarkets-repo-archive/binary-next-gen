@@ -18,7 +18,6 @@ install: yarn test:full
 after_success:
   - yarn test:coveralls
 before_deploy:
-  - if [ "$TRAVIS_BRANCH" = "master" ] ; then rm -fR www/*; fi
   - if [ "$TRAVIS_BRANCH" = "dev" ] ; then rm -fR www/beta && mkdir beta && mv www/* beta/ && mv beta www/; fi
 deploy:
   provider: pages
