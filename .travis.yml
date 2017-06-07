@@ -1,11 +1,34 @@
+git:
+  depth: 1
+cache: yarn
 language: node_js
 matrix:
-    fast_finish: true
+  fast_finish: true
 node_js:
-    - 5.0
+  - 6.0
 notifications:
-    email: false
-before_install: npm install
-install: npm run test:full
-after_success: npm run test:coveralls
-
+  email:
+  - arnab@binary.com
+branches:
+  only:
+  - master
+  - dev
+before_install: yarn
+install: yarn test:full
+after_success:
+  - yarn test:coveralls
+before_deploy:
+  - if [ "$TRAVIS_BRANCH" = "master" ] ; then rm -fR www/*; fi
+  - if [ "$TRAVIS_BRANCH" = "dev" ] ; then rm -fR www/beta && mkdir beta && mv www/* beta/ && mv beta www/; fi
+deploy:
+  provider: pages
+  skip_cleanup: true
+  github_token: "$GIT_KEY"
+  local_dir: "./www"
+  on:
+      branch:
+        - master
+        - dev
+env:
+  global:
+    secure: TNtKNXrrpzNHvxffdoRKup1JjkRAkN79QhmHJ3s0MiU4QMyGM8Q/3MGhyWlbu1Uk/2BztsQhVy6qonS826QbjCquJkU4Rfs7cXvKnok8OOrQ8To3rSJazip4Bu4hPoW1QC60Jg/wZCzl7Htw6UP69akn5FLRT6REm6ScuzJRHrRfyyse5cztXO/3bokx5vULd+RhcmkUm+/o+4g6g0KtaPA84SC5EQZVGj0Z2Wckw/SsoGv++61sEFnmANFrvzJc6CsriRETSeU8eYxNqMQOPNJijXB22UUWdq+oDFzc52xi+cUpZNt/L+REv0r4XSunUY4OyaxZzciDril7hV4BuIrbuwoTZHaYv3FK2Oc36vbWVbT2Gkp+kUcuKI1QoTkMlXAMmfi39uwCizXVsU7e1fjDczIS+v8eu1gibKW93E2rMbcW/+n/T6d5VHPHPryNDjTW6cDOiZCugwhU5a9ovbcgsdK+3Uq76OXbQWKgaHm6Mj7DCoMwT7jf6BmCbwoaDUostueKrW9vxYNuaCYkiz8rrgBg24q4PO/XC+hExeIo7ZsD2J0PzEwMBqFgFGU19XQblioSLdy5jkMCYLjFX/BsLniHt4Lvm0bUdJw5ORRGRYfc3W2lwL/kf4jayNeP6rbIAKNEvU54ScBnMKHsiRRtVTgZUXDUasn8uM8dN+8=

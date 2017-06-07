@@ -65,15 +65,21 @@
         window.BinaryBoot.appId = 1006;
     } else if(window.electron) {
         window.BinaryBoot.appId = 1306;
+    } else if (/localhost:/g.test(window.location.href)) {
+        window.BinaryBoot.appId = 3588;
+    } else if (/arnabk.github.io:/g.test(window.location.href)) {
+        window.BinaryBoot.appId = 3604;
+    } else if (/beta/g.test(window.location.href)) {
+        window.BinaryBoot.appId = 4343; //This is for BETA release
     } else {
-        window.BinaryBoot.appId = 1001;
+        window.BinaryBoot.appId = 1001; //This is for PROD release
     }
     var lang = window.BinaryBoot.language;
 
-    var redirectIndex = window.location.href.indexOf('?');
-    if (~redirectIndex) {
-        location.replace(window.location.href.substr(0, redirectIndex - 1));
-    }
+    //var redirectIndex = window.location.href.indexOf('?');
+    //if (~redirectIndex) {
+    //    window.location.href = window.location.href.substr(0, redirectIndex - 1);
+    //}
 
     window.BinaryBoot.connection = new WebSocket(apiUrl + '?app_id=' + window.BinaryBoot.appId + '&l=' + lang);
 })();

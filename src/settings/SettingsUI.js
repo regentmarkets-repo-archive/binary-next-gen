@@ -6,14 +6,16 @@ export default class SettingsUI extends PureComponent {
 
 	props: {
 		theme: boolean,
-		highContrast: boolean,
+		// highContrast: boolean,
 	};
 
 	onThemeChange = (e: SyntheticEvent) =>
 		actions.updateBoot('theme', e.target.value);
 
 	render() {
-		const { theme, highContrast } = this.props;
+		const { theme,
+			// highContrast
+		} = this.props;
 
 		return (
 			<div className="settings-ui">

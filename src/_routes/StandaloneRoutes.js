@@ -14,8 +14,6 @@ import SettingsCashier from '../settings/SettingsCashier';
 import SettingsSelfExclusion from '../settings/SettingsSelfExclusion';
 import SettingsLimits from '../settings/SettingsLimits';
 import StatementPage from '../statement/StatementPage';
-import VideoListContainer from '../video/VideoListContainer';
-import NewsContainer from '../news/NewsContainer';
 import DepositModal from '../deposit/DepositModal';
 import TradesPage from '../trade/browser/TradesPage';
 import SingleTradePage from '../trade/browser/SingleTradePage';
@@ -58,8 +56,6 @@ export default [
             { path: 'limits', component: SettingsLimits },
         ],
     },
-    { path: 'video', component: VideoListContainer },
-    { path: 'news', component: NewsContainer },
     { path: 'deposit', component: DepositModal },
     { path: 'layout', component: LayoutButtonPanel },
     { path: 'stats', component: DigitStatsCard },
