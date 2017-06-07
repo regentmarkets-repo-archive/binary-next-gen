@@ -137,8 +137,8 @@ export default class UpgradeCard extends PureComponent {
 			phone, termsAndConditions, progress, serverError, validatedOnce, statesList } = this.state;
 		const { residenceList } = this.props;
 
-		const boot = storage.hasOwnProperty('boot') && storage.boot ? JSON.parse(storage.boot) : false;
-		const language = boot && boot.hasOwnProperty('language') && boot.language ? boot.language.toLowerCase() : 'en';
+    const boot = storage.boot ? JSON.parse(storage.boot) : '';
+    const language = boot.language ? boot.language.toLowerCase() : 'en';
     const linkToTermsAndConditions = `https://www.binary.com/${language}/terms-and-conditions.html`;
 
     const firstNameIsValid = firstName.length >= 2;
