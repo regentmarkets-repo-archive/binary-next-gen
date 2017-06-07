@@ -19,7 +19,7 @@ after_success:
   - yarn test:coveralls
 before_deploy:
   - if [ "$TRAVIS_BRANCH" = "master" ] ; then rm -fR www/*; fi
-  - if [ "$TRAVIS_BRANCH" = "dev" ] ; then rm -fR www/beta && mkdir www/beta && mv www/* www/beta/; fi
+  - if [ "$TRAVIS_BRANCH" = "dev" ] ; then rm -fR www/beta && mkdir beta && mv www/* beta/ && mv beta www/; fi
 deploy:
   provider: pages
   skip_cleanup: true
