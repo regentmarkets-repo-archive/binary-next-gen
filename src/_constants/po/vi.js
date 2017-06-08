@@ -776,6 +776,10 @@ export default {
         null,
         "Video"
     ],
+    "Digit Stats": [
+        null,
+        ""
+    ],
     "Favorites": [
         null,
         "Yêu thích"
@@ -872,6 +876,10 @@ export default {
         null,
         "Cơ bản"
     ],
+    "Digits": [
+        null,
+        ""
+    ],
     "Advanced": [
         null,
         "Nâng cao"
@@ -883,6 +891,10 @@ export default {
     "Lower": [
         null,
         "Thấp hơn"
+    ],
+    "Ends Outside": [
+        null,
+        ""
     ],
     "Ends Between": [
         null,
@@ -1092,6 +1104,14 @@ export default {
         null,
         "Chuyển sang"
     ],
+    "Single Trade": [
+        null,
+        ""
+    ],
+    "Multi Trade": [
+        null,
+        ""
+    ],
     "Current Password": [
         null,
         "Mật khẩu hiện tại"
@@ -1099,6 +1119,22 @@ export default {
     "New Password": [
         null,
         "Mật khẩu mới"
+    ],
+    "Last 50 Ticks": [
+        null,
+        ""
+    ],
+    "Last 100 Ticks": [
+        null,
+        ""
+    ],
+    "Last 500 Ticks": [
+        null,
+        ""
+    ],
+    "Last 1000 Ticks": [
+        null,
+        ""
     ],
     "Exit Full Screen": [
         null,
@@ -1108,7 +1144,39 @@ export default {
         null,
         ""
     ],
+    "Lock Cashier": [
+        null,
+        ""
+    ],
+    "Time out until date": [
+        null,
+        ""
+    ],
+    "Time out until time": [
+        null,
+        ""
+    ],
+    "Light Theme": [
+        null,
+        ""
+    ],
+    "Dark Theme": [
+        null,
+        ""
+    ],
     "Password changed successfully": [
+        null,
+        ""
+    ],
+    "Settings updated": [
+        null,
+        ""
+    ],
+    "Address updated": [
+        null,
+        ""
+    ],
+    "Barrier must not be empty": [
         null,
         ""
     ],
@@ -1121,6 +1189,26 @@ export default {
         ""
     ],
     "Time format is wrong": [
+        null,
+        ""
+    ],
+    "Lower than": [
+        null,
+        ""
+    ],
+    "Higher than": [
+        null,
+        ""
+    ],
+    "High barrier": [
+        null,
+        ""
+    ],
+    "Low barrier": [
+        null,
+        ""
+    ],
+    "Touch spot": [
         null,
         ""
     ]

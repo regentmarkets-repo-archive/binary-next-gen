@@ -13,6 +13,10 @@ export default {
         "plural-forms": "nplurals=2; plural=n > 1;",
         "x-generator": "Weblate 2.6-dev"
     },
+    "All": [
+        null,
+        ""
+    ],
     "Property": [
         null,
         "Propriété"
@@ -24,6 +28,10 @@ export default {
     "Balance": [
         null,
         "Solde"
+    ],
+    "Trade": [
+        null,
+        ""
     ],
     "Watchlist": [
         null,
@@ -57,6 +65,34 @@ export default {
         null,
         "Réf."
     ],
+    "Purchase": [
+        null,
+        ""
+    ],
+    "Indicative": [
+        null,
+        ""
+    ],
+    "Purchase Date": [
+        null,
+        ""
+    ],
+    "Purchase Price": [
+        null,
+        ""
+    ],
+    "Sale Date": [
+        null,
+        ""
+    ],
+    "Sale Price": [
+        null,
+        ""
+    ],
+    "Profit/Loss": [
+        null,
+        ""
+    ],
     "Total": [
         null,
         "Total"
@@ -65,13 +101,45 @@ export default {
         null,
         "Emplacement"
     ],
+    "Update": [
+        null,
+        ""
+    ],
     "Details": [
         null,
         "Détails"
     ],
+    "Trading Limits": [
+        null,
+        ""
+    ],
+    "Item": [
+        null,
+        ""
+    ],
     "Limit ({currency})": [
         null,
         "Limite ({currency})"
+    ],
+    "Maximum number of open positions": [
+        null,
+        ""
+    ],
+    "Maximum account cash balance": [
+        null,
+        ""
+    ],
+    "Maximum daily turnover": [
+        null,
+        ""
+    ],
+    "Maximum aggregate payouts on open positions": [
+        null,
+        ""
+    ],
+    "Withdrawal limits": [
+        null,
+        ""
     ],
     "Your withdrawal limit is {limit} (or equivalent in other currency).": [
         null,
@@ -80,6 +148,10 @@ export default {
     "You have already withdrawn the equivalent of EUR {drawn}.": [
         null,
         "Vous avez déjà retiré l'équivalent de {drawn} EUR."
+    ],
+    "An additional password can be used to restrict access to the cashier.": [
+        null,
+        ""
     ],
     "Sign In": [
         null,
@@ -93,6 +165,22 @@ export default {
         null,
         "Créer un compte"
     ],
+    "Action": [
+        null,
+        ""
+    ],
+    "Credit/Debit": [
+        null,
+        ""
+    ],
+    "Purchase Time": [
+        null,
+        ""
+    ],
+    "Back": [
+        null,
+        ""
+    ],
     "Place Order": [
         null,
         "Placer un ordre"
@@ -101,9 +189,53 @@ export default {
         null,
         "{asset} va {type} au cours des {duration} à venir"
     ],
+    "Price": [
+        null,
+        ""
+    ],
+    "Asset": [
+        null,
+        ""
+    ],
+    "Type": [
+        null,
+        ""
+    ],
+    "Ticks": [
+        null,
+        ""
+    ],
+    "Amount": [
+        null,
+        ""
+    ],
+    "Trade Confirmation": [
+        null,
+        ""
+    ],
+    "Entry spot": [
+        null,
+        ""
+    ],
+    "Exit spot": [
+        null,
+        ""
+    ],
+    "Next": [
+        null,
+        ""
+    ],
+    "Open Account": [
+        null,
+        ""
+    ],
     "Upgrade to Real Money Account": [
         null,
         "Passer à un compte réel"
+    ],
+    "Date of birth": [
+        null,
+        ""
     ],
     "Home Address": [
         null,
@@ -112,6 +244,14 @@ export default {
     "Security": [
         null,
         "Sécurité"
+    ],
+    "Spot": [
+        null,
+        ""
+    ],
+    "Change": [
+        null,
+        ""
     ],
     "Chart": [
         null,
@@ -217,6 +357,10 @@ export default {
         null,
         "Reste dans/Sort de la zone"
     ],
+    "Settles": [
+        null,
+        ""
+    ],
     "Language": [
         null,
         "Langue"
@@ -313,6 +457,26 @@ export default {
         null,
         ""
     ],
+    "Durations": [
+        null,
+        ""
+    ],
+    "Payout/Stake": [
+        null,
+        ""
+    ],
+    "Purchase for": [
+        null,
+        ""
+    ],
+    "payout": [
+        null,
+        ""
+    ],
+    "stake": [
+        null,
+        ""
+    ],
     "Self Exclusion": [
         null,
         ""
@@ -326,6 +490,18 @@ export default {
         ""
     ],
     "Password": [
+        null,
+        ""
+    ],
+    "Tick Trade": [
+        null,
+        ""
+    ],
+    "Full Trade": [
+        null,
+        ""
+    ],
+    "Address": [
         null,
         ""
     ],
@@ -365,6 +541,10 @@ export default {
         null,
         ""
     ],
+    "Daily turnover limit": [
+        null,
+        ""
+    ],
     "Once this limit is reached, you may no longer deposit.": [
         null,
         ""
@@ -374,6 +554,10 @@ export default {
         ""
     ],
     "Daily limit on losses": [
+        null,
+        ""
+    ],
+    "Maximum aggregate loss per day.": [
         null,
         ""
     ],
@@ -389,6 +573,10 @@ export default {
         null,
         ""
     ],
+    "Maximum aggregate loss over a 7-day period.": [
+        null,
+        ""
+    ],
     "30-day turnover limit": [
         null,
         ""
@@ -398,6 +586,10 @@ export default {
         ""
     ],
     "30-day limit on losses": [
+        null,
+        ""
+    ],
+    "Maximum aggregate loss over a 30-day period.": [
         null,
         ""
     ],
@@ -413,7 +605,19 @@ export default {
         null,
         ""
     ],
+    "Limits": [
+        null,
+        ""
+    ],
     "Please enter date in the format YYYY-MM-DD.": [
+        null,
+        ""
+    ],
+    "New Trade": [
+        null,
+        ""
+    ],
+    "Trade Type": [
         null,
         ""
     ],
@@ -429,7 +633,27 @@ export default {
         null,
         ""
     ],
+    "Buy Price": [
+        null,
+        ""
+    ],
     "Earning (%)": [
+        null,
+        ""
+    ],
+    "Profit": [
+        null,
+        ""
+    ],
+    "Entry Price": [
+        null,
+        ""
+    ],
+    "Exit Price": [
+        null,
+        ""
+    ],
+    "Indicative Price": [
         null,
         ""
     ],
@@ -449,11 +673,23 @@ export default {
         null,
         ""
     ],
+    "Close": [
+        null,
+        ""
+    ],
     "Low": [
         null,
         ""
     ],
     "High": [
+        null,
+        ""
+    ],
+    "Open": [
+        null,
+        ""
+    ],
+    "Date": [
         null,
         ""
     ],
@@ -474,6 +710,10 @@ export default {
         ""
     ],
     "Start Now": [
+        null,
+        ""
+    ],
+    "Daily Prices": [
         null,
         ""
     ],
@@ -509,6 +749,10 @@ export default {
         null,
         ""
     ],
+    "Duration": [
+        null,
+        ""
+    ],
     "Start Time": [
         null,
         ""
@@ -533,11 +777,19 @@ export default {
         null,
         ""
     ],
+    "Digit Stats": [
+        null,
+        ""
+    ],
     "Favorites": [
         null,
         ""
     ],
     "Open For Trading": [
+        null,
+        ""
+    ],
+    "Closed": [
         null,
         ""
     ],
@@ -549,7 +801,35 @@ export default {
         null,
         ""
     ],
+    "Entry Spot": [
+        null,
+        ""
+    ],
+    "Entry Spot Time": [
+        null,
+        ""
+    ],
     "Potential Payout": [
+        null,
+        ""
+    ],
+    "Exit Spot": [
+        null,
+        ""
+    ],
+    "Exit Spot Time": [
+        null,
+        ""
+    ],
+    "Sell Price": [
+        null,
+        ""
+    ],
+    "Sell Time": [
+        null,
+        ""
+    ],
+    "Trade Again": [
         null,
         ""
     ],
@@ -581,6 +861,10 @@ export default {
         null,
         ""
     ],
+    "No transactions for the selected period": [
+        null,
+        ""
+    ],
     "You have no open contracts": [
         null,
         ""
@@ -590,6 +874,10 @@ export default {
         ""
     ],
     "Basic": [
+        null,
+        ""
+    ],
+    "Digits": [
         null,
         ""
     ],
@@ -605,6 +893,10 @@ export default {
         null,
         ""
     ],
+    "Ends Outside": [
+        null,
+        ""
+    ],
     "Ends Between": [
         null,
         ""
@@ -617,7 +909,35 @@ export default {
         null,
         ""
     ],
+    "Does Not Touch": [
+        null,
+        ""
+    ],
+    "Credit / Debit": [
+        null,
+        ""
+    ],
     "Last 25 Ticks": [
+        null,
+        ""
+    ],
+    "Last 50 Trades": [
+        null,
+        ""
+    ],
+    "Last 100 Trades": [
+        null,
+        ""
+    ],
+    "Last 500 Trades": [
+        null,
+        ""
+    ],
+    "Last 1000 Trades": [
+        null,
+        ""
+    ],
+    "Maximum Daily Turnover": [
         null,
         ""
     ],
@@ -637,6 +957,14 @@ export default {
         null,
         ""
     ],
+    "Volatility Indices": [
+        null,
+        ""
+    ],
+    "Indices": [
+        null,
+        ""
+    ],
     "OTC Stocks": [
         null,
         ""
@@ -645,11 +973,23 @@ export default {
         null,
         ""
     ],
+    "Withdrawal Limits": [
+        null,
+        ""
+    ],
+    "Withdrawal limit": [
+        null,
+        ""
+    ],
     "Already withdrawn": [
         null,
         ""
     ],
     "Current immediate maximum withdrawal": [
+        null,
+        ""
+    ],
+    "Create Free Account": [
         null,
         ""
     ],
@@ -725,6 +1065,10 @@ export default {
         null,
         ""
     ],
+    "Search for assets": [
+        null,
+        ""
+    ],
     "Choose a Payment Agent": [
         null,
         ""
@@ -734,6 +1078,10 @@ export default {
         ""
     ],
     "First Name": [
+        null,
+        ""
+    ],
+    "Last Name": [
         null,
         ""
     ],
@@ -757,11 +1105,35 @@ export default {
         null,
         ""
     ],
+    "Single Trade": [
+        null,
+        ""
+    ],
+    "Multi Trade": [
+        null,
+        ""
+    ],
     "Current Password": [
         null,
         ""
     ],
     "New Password": [
+        null,
+        ""
+    ],
+    "Last 50 Ticks": [
+        null,
+        ""
+    ],
+    "Last 100 Ticks": [
+        null,
+        ""
+    ],
+    "Last 500 Ticks": [
+        null,
+        ""
+    ],
+    "Last 1000 Ticks": [
         null,
         ""
     ],
@@ -785,7 +1157,23 @@ export default {
         null,
         ""
     ],
+    "Light Theme": [
+        null,
+        ""
+    ],
+    "Dark Theme": [
+        null,
+        ""
+    ],
     "Password changed successfully": [
+        null,
+        ""
+    ],
+    "Settings updated": [
+        null,
+        ""
+    ],
+    "Address updated": [
         null,
         ""
     ],
@@ -818,6 +1206,10 @@ export default {
         ""
     ],
     "Low barrier": [
+        null,
+        ""
+    ],
+    "Touch spot": [
         null,
         ""
     ]
