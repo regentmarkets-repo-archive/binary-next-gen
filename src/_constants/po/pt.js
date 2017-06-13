@@ -685,6 +685,10 @@ export default {
         null,
         ""
     ],
+    "Open": [
+        null,
+        ""
+    ],
     "Date": [
         null,
         "Data"
@@ -773,6 +777,10 @@ export default {
         null,
         "Vídeo"
     ],
+    "Digit Stats": [
+        null,
+        ""
+    ],
     "Favorites": [
         null,
         "Favoritos"
@@ -780,6 +788,10 @@ export default {
     "Open For Trading": [
         null,
         "Aberto para negociação"
+    ],
+    "Closed": [
+        null,
+        ""
     ],
     "Contract ID": [
         null,
@@ -1133,7 +1145,39 @@ export default {
         null,
         ""
     ],
+    "Lock Cashier": [
+        null,
+        ""
+    ],
+    "Time out until date": [
+        null,
+        ""
+    ],
+    "Time out until time": [
+        null,
+        ""
+    ],
+    "Light Theme": [
+        null,
+        ""
+    ],
+    "Dark Theme": [
+        null,
+        ""
+    ],
     "Password changed successfully": [
+        null,
+        ""
+    ],
+    "Settings updated": [
+        null,
+        ""
+    ],
+    "Address updated": [
+        null,
+        ""
+    ],
+    "Barrier must not be empty": [
         null,
         ""
     ],
@@ -1154,6 +1198,18 @@ export default {
         ""
     ],
     "Higher than": [
+        null,
+        ""
+    ],
+    "High barrier": [
+        null,
+        ""
+    ],
+    "Low barrier": [
+        null,
+        ""
+    ],
+    "Touch spot": [
         null,
         ""
     ]

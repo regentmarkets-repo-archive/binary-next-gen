@@ -1145,7 +1145,39 @@ export default {
         null,
         ""
     ],
+    "Lock Cashier": [
+        null,
+        ""
+    ],
+    "Time out until date": [
+        null,
+        ""
+    ],
+    "Time out until time": [
+        null,
+        ""
+    ],
+    "Light Theme": [
+        null,
+        ""
+    ],
+    "Dark Theme": [
+        null,
+        ""
+    ],
     "Password changed successfully": [
+        null,
+        ""
+    ],
+    "Settings updated": [
+        null,
+        ""
+    ],
+    "Address updated": [
+        null,
+        ""
+    ],
+    "Barrier must not be empty": [
         null,
         ""
     ],
@@ -1158,6 +1190,26 @@ export default {
         ""
     ],
     "Time format is wrong": [
+        null,
+        ""
+    ],
+    "Lower than": [
+        null,
+        ""
+    ],
+    "Higher than": [
+        null,
+        ""
+    ],
+    "High barrier": [
+        null,
+        ""
+    ],
+    "Low barrier": [
+        null,
+        ""
+    ],
+    "Touch spot": [
         null,
         ""
     ]
