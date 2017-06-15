@@ -30,7 +30,7 @@ export default class SettingsUI extends PureComponent {
 						checked={theme === 'dark'}
 						onChange={this.onThemeChange}
 					/>
-					<M m="Dark theme" />&nbsp;
+					<M m="Dark Theme" />&nbsp;
 				</label>
 			</div>
     );
