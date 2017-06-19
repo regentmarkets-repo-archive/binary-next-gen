@@ -1,55 +1,9 @@
 import React, { PureComponent } from 'react';
 import moment from 'moment';
+import approve from 'approvejs';
 import { Button, InputGroup, ServerErrorMsg, ErrorMsg } from 'binary-components';
 import UpdateNotice from '../containers/UpdateNotice';
 import { api } from '../_data/LiveData';
-
-function validate(props, state, max_balance, max_turnover, max_losses, max_7day_turnover, max_7day_losses, max_30day_turnover, max_30day_losses, max_open_bets, session_duration_limit, timeout_until_date, timeout_until_time, exclude_until) {
-  const timeout_until = moment(timeout_until_date + ' ' + timeout_until_time).valueOf() / 1000;
-
-  return {
-    max_balance_required: state.touched.max_balance && !max_balance,
-    max_balance: state.touched.max_balance && !(/^\d{0,20}$/).test(max_balance),
-    max_balance_limit: state.touched.max_balance && max_balance > props.max_balance,
-    max_balance_limit_text: props.max_balance,
-    max_turnover_required: state.touched.max_turnover && !max_turnover,
-    max_turnover: state.touched.max_turnover && !(/^\d{0,20}$/).test(max_turnover),
-    max_turnover_limit: state.touched.max_turnover && max_turnover > props.max_turnover,
-    max_turnover_limit_text: props.max_turnover,
-    max_losses_required: state.touched.max_losses && !max_losses,
-    max_losses: state.touched.max_losses && !(/^\d{0,20}$/).test(max_losses),
-    max_losses_limit: state.touched.max_losses && max_losses > props.max_losses,
-    max_losses_limit_text: props.max_losses,
-    max_7day_turnover_required: state.touched.max_7day_turnover && !max_7day_turnover,
-    max_7day_turnover: state.touched.max_7day_turnover && !(/^\d{0,20}$/).test(max_7day_turnover),
-    max_7day_turnover_limit: state.touched.max_7day_turnover && max_7day_turnover > props.max_7day_turnover,
-    max_7day_turnover_limit_text: props.max_7day_turnover,
-    max_7day_losses_required: state.touched.max_7day_losses && !max_7day_losses,
-    max_7day_losses: state.touched.max_7day_losses && !(/^\d{0,20}$/).test(max_7day_losses),
-    max_7day_losses_limit: state.touched.max_7day_losses && max_7day_losses > props.max_7day_losses,
-    max_7day_losses_limit_text: props.max_7day_losses,
-    max_30day_turnover_required: state.touched.max_30day_turnover && !max_30day_turnover,
-    max_30day_turnover: state.touched.max_30day_turnover && !(/^\d{0,20}$/).test(max_30day_turnover),
-    max_30day_turnover_limit: state.touched.max_30day_turnover && max_30day_turnover > props.max_30day_turnover,
-    max_30day_turnover_limit_text: props.max_30day_turnover,
-    max_30day_losses_required: state.touched.max_30day_losses && !max_30day_losses,
-    max_30day_losses: state.touched.max_30day_losses && !(/^\d{0,20}$/).test(max_30day_losses),
-    max_30day_losses_limit: state.touched.max_30day_losses && max_30day_losses > props.max_30day_losses,
-    max_30day_losses_limit_text: props.max_30day_losses,
-    max_open_bets_required: state.touched.max_open_bets && !max_open_bets,
-    max_open_bets: state.touched.max_open_bets && !(/^\d{0,4}$/).test(max_open_bets),
-    max_open_bets_limit: state.touched.max_open_bets && max_open_bets > props.max_open_bets,
-    max_open_bets_limit_text: props.max_open_bets,
-    session_duration_limit_required: state.touched.session_duration_limit && !session_duration_limit,
-    session_duration_limit: state.touched.session_duration_limit && !(/^\d{0,5}$/).test(session_duration_limit),
-    session_duration_limit_limit: state.touched.session_duration_limit && session_duration_limit > props.session_duration_limit,
-    session_duration_limit_limit_text: props.session_duration_limit,
-    timeout_until_date_limit: state.touched.timeout_until_date && !(moment(timeout_until_date).isAfter(moment().subtract(1, 'days')) && moment(timeout_until_date).isBefore(moment().add(6, 'weeks'))),
-    timeout_until_time_required: !timeout_until_time,
-    timeout_until_time_limit: timeout_until < moment().valueOf() / 1000,
-    exclude_until_limit: state.touched.exclude_until && !(moment(exclude_until).isAfter(moment().add(6, 'months')) && moment(exclude_until).isBefore(moment().add(5, 'years'))),
-  };
-}
 
 export default class SettingsSelfExclusion extends PureComponent {
 
@@ -82,27 +36,185 @@ export default class SettingsSelfExclusion extends PureComponent {
       timeout_until_time: props.timeout_until,
       timeout_until_date: props.timeout_until,
       exclude_until: props.exclude_until,
-      touched: {
-        max_balance: false,
-        max_turnover: false,
-        max_losses: false,
-        max_7day_turnover: false,
-        max_7day_losses: false,
-        max_30day_turnover: false,
-        max_30day_losses: false,
-        max_open_bets: false,
-        session_duration_limit: false,
-        timeout_until_time: false,
-        timeout_until_date: false,
-        exclude_until: false,
+    };
+
+    this.result = {};
+
+    this.rules = {
+      max_balance: {
+        stop: true,
+        required: {
+          required: true,
+          message: 'This field is required',
+				},
+        numeric: {
+          numeric: true,
+          message: 'Should be a valid number',
+        },
+        valueRange: {
+          minValue: 0,
+          maxValue: props.max_balance,
+        },
+      },
+      max_turnover: {
+        stop: true,
+        required: {
+          required: true,
+          message: 'This field is required',
+        },
+        numeric: {
+          numeric: true,
+          message: 'Should be a valid number',
+        },
+        valueRange: {
+          minValue: 0,
+          maxValue: props.max_turnover,
+        },
+      },
+      max_losses: {
+        stop: true,
+        required: {
+          required: true,
+          message: 'This field is required',
+        },
+        numeric: {
+          numeric: true,
+          message: 'Should be a valid number',
+        },
+        valueRange: {
+          minValue: 0,
+          maxValue: props.max_losses,
+        },
+      },
+      max_7day_turnover: {
+        stop: true,
+        required: {
+          required: true,
+          message: 'This field is required',
+        },
+        numeric: {
+          numeric: true,
+          message: 'Should be a valid number',
+        },
+        valueRange: {
+          minValue: 0,
+          maxValue: props.max_7day_turnover,
+        },
+      },
+      max_7day_losses: {
+        stop: true,
+        required: {
+          required: true,
+          message: 'This field is required',
+        },
+        numeric: {
+          numeric: true,
+          message: 'Should be a valid number',
+        },
+        valueRange: {
+          minValue: 0,
+          maxValue: props.max_7day_losses,
+        },
+      },
+      max_30day_turnover: {
+        stop: true,
+        required: {
+          required: true,
+          message: 'This field is required',
+        },
+        numeric: {
+          numeric: true,
+          message: 'Should be a valid number',
+        },
+        valueRange: {
+          minValue: 0,
+          maxValue: props.max_30day_turnover,
+        },
+      },
+      max_30day_losses: {
+        stop: true,
+        required: {
+          required: true,
+          message: 'This field is required',
+        },
+        numeric: {
+          numeric: true,
+          message: 'Should be a valid number',
+        },
+        valueRange: {
+          minValue: 0,
+          maxValue: props.max_30day_losses,
+        },
+      },
+      max_open_bets: {
+        stop: true,
+        required: {
+          required: true,
+          message: 'This field is required',
+        },
+        numeric: {
+          numeric: true,
+          message: 'Should be a valid number',
+        },
+        valueRange: {
+          minValue: 0,
+          maxValue: props.max_open_bets,
+        },
+      },
+      session_duration_limit: {
+        stop: true,
+        required: {
+          required: true,
+          message: 'This field is required',
+        },
+        numeric: {
+          numeric: true,
+          message: 'Should be a valid number',
+        },
+        valueRange: {
+          minValue: 0,
+          maxValue: props.session_duration_limit,
+        },
+      },
+      timeout_until_date: {
+        stop: true,
+        beforeWeeks: {
+          n: 6,
+        }
+      },
+
+    };
+
+    this.valueRange = {
+      expects: [
+        'minValue',
+        'maxValue',
+      ],
+      message: 'Should be between {minValue} and {maxValue}',
+      validate(value, pars) {
+        return value <= pars.maxValue && value > pars.minValue;
       },
     };
+
+    this.beforeWeeks = {
+      expects: [
+        'n',
+      ],
+      message: 'Time out must be after today and cannot be more than {n} weeks.',
+      validate(value, pars) {
+        return !(moment(value).isAfter(moment().subtract(1, 'days')) && moment(value).isBefore(moment().add(6, 'weeks')));
+      },
+    };
+
+    approve.addTest(this.valueRange, 'valueRange');
+    approve.addTest(this.beforeWeeks, 'beforeWeeks');
   }
 
-  onEntryChange = (e: SyntheticEvent) =>
-    this.setState({ [e.target.id]: e.target.value,
-      touched: { ...this.state.touched, [e.target.id]: true },
-    });
+  onEntryChange = (e: SyntheticEvent) => {
+    this.setState({ [e.target.id]: e.target.value });
+    this.result[e.target.id] = approve.value(this.state[e.target.id], this.rules[e.target.id]);
+    console.log(this.result);
+	}
 
   onFormSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
@@ -154,7 +266,6 @@ export default class SettingsSelfExclusion extends PureComponent {
       max_30day_turnover, max_30day_losses, max_open_bets, session_duration_limit,
       exclude_until, timeout_until_date, timeout_until_time, success, serverError } = this.state;
     // const wrongExcludeUntillTime = isValidTime(timeout_until_time);
-    const errors = validate(this.props, this.state, this.state.max_balance, this.state.max_turnover, this.state.max_losses, this.state.max_7day_turnover, this.state.max_7day_losses, this.state.max_30day_turnover, this.state.max_30day_losses, this.state.max_open_bets, this.state.session_duration_limit, this.state.timeout_until_date, this.state.timeout_until_time, this.state.exclude_until);
 
     return (
 			<form className="settings-self-exclusion" onSubmit={this.onFormSubmit}>
@@ -170,9 +281,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={max_balance}
 					onChange={this.onEntryChange}
 				/>
-        {errors.max_balance_required && <ErrorMsg text="This field is required" />}
-        {errors.max_balance && <ErrorMsg text="Should be a valid number" />}
-        {errors.max_balance_limit && <ErrorMsg text={`Should be between 0 and ${errors.max_balance_limit_text}`} />}
+				{this.result && this.result.max_balance && this.result.max_balance.errors && <ErrorMsg text={this.result.max_balance.errors[0]} />}
 				<InputGroup
 					id="max_turnover"
 					label="Daily turnover limit"
@@ -183,9 +292,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={max_turnover}
 					onChange={this.onEntryChange}
 				/>
-        {errors.max_turnover_required && <ErrorMsg text="This field is required" />}
-        {errors.max_turnover && <ErrorMsg text="Should be a valid number" />}
-        {errors.max_turnover_limit && <ErrorMsg text={`Should be between 0 and ${errors.max_turnover_limit_text}`} />}
+        {this.result && this.result.max_turnover && this.result.max_turnover.errors && <ErrorMsg text={this.result.max_turnover.errors[0]} />}
 				<InputGroup
 					id="max_losses"
 					label="Daily limit on losses"
@@ -196,9 +303,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={max_losses}
 					onChange={this.onEntryChange}
 				/>
-        {errors.max_losses_required && <ErrorMsg text="This field is required" />}
-        {errors.max_losses && <ErrorMsg text="Should be a valid number" />}
-        {errors.max_losses_limit && <ErrorMsg text={`Should be between 0 and ${errors.max_losses_limit_text}`} />}
+        {this.result && this.result.max_losses && this.result.max_losses.errors && <ErrorMsg text={this.result.max_losses.errors[0]} />}
 				<InputGroup
 					id="max_7day_turnover"
 					label="7-day turnover limit"
@@ -209,9 +314,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={max_7day_turnover}
 					onChange={this.onEntryChange}
 				/>
-        {errors.max_7day_turnover_required && <ErrorMsg text="This field is required" />}
-        {errors.max_7day_turnover && <ErrorMsg text="Should be a valid number" />}
-        {errors.max_7day_turnover_limit && <ErrorMsg text={`Should be between 0 and ${errors.max_7day_turnover_limit_text}`} />}
+        {this.result && this.result.max_7day_turnover && this.result.max_7day_turnover.errors && <ErrorMsg text={this.result.max_7day_turnover.errors[0]} />}
 				<InputGroup
 					id="max_7day_losses"
 					label="7-day limit on losses"
@@ -222,9 +325,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={max_7day_losses}
 					onChange={this.onEntryChange}
 				/>
-        {errors.max_7day_losses_required && <ErrorMsg text="This field is required" />}
-        {errors.max_7day_losses && <ErrorMsg text="Should be a valid number" />}
-        {errors.max_7day_losses_limit && <ErrorMsg text={`Should be between 0 and ${errors.max_7day_losses_limit_text}`} />}
+        {this.result && this.result.max_7day_losses && this.result.max_7day_losses.errors && <ErrorMsg text={this.result.max_7day_losses.errors[0]} />}
 				<InputGroup
 					id="max_30day_turnover"
 					label="30-day turnover limit"
@@ -235,9 +336,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={max_30day_turnover}
 					onChange={this.onEntryChange}
 				/>
-        {errors.max_30day_turnover_required && <ErrorMsg text="This field is required" />}
-        {errors.max_30day_turnover && <ErrorMsg text="Should be a valid number" />}
-        {errors.max_30day_turnover_limit && <ErrorMsg text={`Should be between 0 and ${errors.max_30day_turnover_limit_text}`} />}
+        {this.result && this.result.max_30day_turnover && this.result.max_30day_turnover.errors && <ErrorMsg text={this.result.max_30day_turnover.errors[0]} />}
 				<InputGroup
 					id="max_30day_losses"
 					label="30-day limit on losses"
@@ -248,9 +347,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={max_30day_losses}
 					onChange={this.onEntryChange}
 				/>
-        {errors.max_30day_losses_required && <ErrorMsg text="This field is required" />}
-        {errors.max_30day_losses && <ErrorMsg text="Should be a valid number" />}
-        {errors.max_30day_losses_limit && <ErrorMsg text={`Should be between 0 and ${errors.max_30day_losses_limit_text}`} />}
+        {this.result && this.result.max_30day_losses && this.result.max_30day_losses.errors && <ErrorMsg text={this.result.max_30day_losses.errors[0]} />}
 				<InputGroup
 					id="max_open_bets"
 					label="Maximum number of open positions"
@@ -260,9 +357,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={max_open_bets}
 					onChange={this.onEntryChange}
 				/>
-        {errors.max_open_bets_required && <ErrorMsg text="This field is required" />}
-        {errors.max_open_bets && <ErrorMsg text="Should be a valid number" />}
-        {errors.max_open_bets_limit && <ErrorMsg text={`Should be between 0 and ${errors.max_open_bets_limit_text}`} />}
+        {this.result && this.result.max_open_bets && this.result.max_open_bets.errors && <ErrorMsg text={this.result.max_open_bets.errors[0]} />}
 				<InputGroup
 					id="session_duration_limit"
 					label="Session duration limit, in minutes"
@@ -273,9 +368,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={session_duration_limit}
 					onChange={this.onEntryChange}
 				/>
-        {errors.session_duration_limit_required && <ErrorMsg text="This field is required" />}
-        {errors.session_duration_limit && <ErrorMsg text="Should be a valid number" />}
-        {errors.session_duration_limit_limit && <ErrorMsg text={`Should be between 0 and ${errors.session_duration_limit_limit_text}`} />}
+        {this.result && this.result.session_duration_limit && this.result.session_duration_limit.errors && <ErrorMsg text={this.result.session_duration_limit.errors[0]} />}
 				<InputGroup
 					id="timeout_until_date"
 					label="Time out until date"
@@ -284,7 +377,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={timeout_until_date || 'yyyy-mm-dd'}
 					onChange={this.onEntryChange}
 				/>
-        {errors.timeout_until_date_limit && <ErrorMsg text="Time out must be after today and cannot be more than 6 weeks." />}
+        {this.result && this.result.timeout_until_date && this.result.timeout_until_date.errors && <ErrorMsg text={this.result.timeout_until_date.errors[0]} />}
 				<InputGroup
 					id="timeout_until_time"
 					label="Time out until time"
@@ -293,8 +386,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={timeout_until_time || '--:--:--'}
 					onChange={this.onEntryChange}
 				/>
-        {timeout_until_date && errors.timeout_until_time_required && <ErrorMsg text="This field is required" />}
-        {timeout_until_date && errors.timeout_until_time_limit && <ErrorMsg text="Time out cannot be in the past." />}
+        {this.result && this.result.timeout_until_time && this.result.timeout_until_time.errors && <ErrorMsg text={this.result.timeout_until_time.errors[0]} />}
 				<InputGroup
 					id="exclude_until"
 					label="Exclude me from the website until"
@@ -303,7 +395,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={exclude_until || 'yyyy-mm-dd'}
 					onChange={this.onEntryChange}
 				/>
-        {errors.exclude_until_limit && <ErrorMsg text="Exclude time cannot be less than 6 months and more than 5 years." />}
+        {this.result && this.result.exclude_until && this.result.exclude_until.errors && <ErrorMsg text={this.result.exclude_until.errors[0]} />}
 				<Button text="Update" />
 			</form>
     );
