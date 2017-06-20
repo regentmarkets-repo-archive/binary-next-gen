@@ -182,7 +182,17 @@ export default class SettingsSelfExclusion extends PureComponent {
           n: 6,
         }
       },
-
+      timeout_until_time: {
+        stop: true,
+        timeoutTimeValidation: true,
+      },
+      exclude_until: {
+        stop: true,
+        excludeUntilValidation: {
+          month: 6,
+          year: 5,
+        },
+      },
     };
 
     this.valueRange = {
@@ -202,18 +212,38 @@ export default class SettingsSelfExclusion extends PureComponent {
       ],
       message: 'Time out must be after today and cannot be more than {n} weeks.',
       validate(value, pars) {
-        return !(moment(value).isAfter(moment().subtract(1, 'days')) && moment(value).isBefore(moment().add(6, 'weeks')));
+        return moment(value).isAfter(moment().subtract(1, 'days'), 'day') && moment(value).isBefore(moment().add(pars.n, 'weeks'));
+      },
+    };
+
+    this.timeoutTimeValidation = {
+      message: 'Time out cannot be in the past.',
+      validate() {
+        const timeout_until = moment(timeout_until_date.value + ' ' + timeout_until_time.value).valueOf() / 1000;
+        return timeout_until > moment().valueOf() / 1000;
+      },
+    };
+
+    this.excludeUntilValidation = {
+      message: 'Exclude time cannot be less than 6 months and more than 5 years.',
+      expects: [
+        'month',
+        'year',
+      ],
+      validate(value, pars) {
+        return moment(value).isAfter(moment().add(pars.month, 'months')) && moment(value).isBefore(moment().add(pars.year, 'years'));
       },
     };
 
     approve.addTest(this.valueRange, 'valueRange');
     approve.addTest(this.beforeWeeks, 'beforeWeeks');
+    approve.addTest(this.timeoutTimeValidation, 'timeoutTimeValidation');
+    approve.addTest(this.excludeUntilValidation, 'excludeUntilValidation');
   }
 
   onEntryChange = (e: SyntheticEvent) => {
     this.setState({ [e.target.id]: e.target.value });
-    this.result[e.target.id] = approve.value(this.state[e.target.id], this.rules[e.target.id]);
-    console.log(this.result);
+    this.result[e.target.id] = approve.value(e.target.value, this.rules[e.target.id]);
 	}
 
   onFormSubmit = (e: SyntheticEvent) => {
@@ -387,6 +417,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					onChange={this.onEntryChange}
 				/>
         {this.result && this.result.timeout_until_time && this.result.timeout_until_time.errors && <ErrorMsg text={this.result.timeout_until_time.errors[0]} />}
+        {timeout_until_date && !timeout_until_time && <ErrorMsg text="This field is required" />}
 				<InputGroup
 					id="exclude_until"
 					label="Exclude me from the website until"
