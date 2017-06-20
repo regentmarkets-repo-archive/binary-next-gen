@@ -94,9 +94,15 @@ gulp.task('build', callback =>
 //         .pipe(zip.dest('./binary-app.zip'))
 // );
 
-gulp.task('deploy', ['build'], () =>
+gulp.task('deploy-prod', ['build'], () =>
     gulp.src(files.dist + '/**/*')
         .pipe(file('CNAME', 'app.binary.com'))
+        .pipe(ghPages())
+);
+
+gulp.task('deploy-beta', ['build'], () =>
+    gulp.src(files.dist + '/**/*')
+        .pipe(gulp.dest(files.dist + '/beta'))
         .pipe(ghPages())
 );
 
@@ -111,7 +117,7 @@ gulp.task('codepush:ios')
         .pipe(run('code-push release-cordova binary-next-gen-ios ios'))
 
 gulp.task('deploy&codepush', (done) => {
-    runSequence('deploy', ['codepush:ios', 'codepush:android'], () => {
+    runSequence('deploy-prod', ['codepush:ios', 'codepush:android'], () => {
         console.log('Deploying....')
     })
 });
