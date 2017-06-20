@@ -80,9 +80,13 @@ export const signIn = () => {
 
 export const requireAuthOnEnter = (nextState, replace, callback) => {
     const authorized = store.getState().appState.get('authorized');
+    const rootPaths = ['/', '/beta', '/index.html', '/beta/index.html'];
     const { location } = nextState;
-    if (!authorized && location.pathname !== '/') {
-        replace({ pathname: '/', state: nextState });
+    if (!authorized && (rootPaths.indexOf(location.pathname) === -1)) {
+        replace({
+            pathname: location.pathname.indexOf('/beta') !== -1 ? '/beta' : '/',
+            state: nextState,
+        });
     }
     callback();
 };
