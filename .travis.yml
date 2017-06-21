@@ -17,5 +17,8 @@ before_install: yarn
 install: yarn test:full
 after_success:
   - yarn test:coveralls
+  - git config --global user.email "arnab@binary.com"
+  - git config --global user.name "Arnab Karmakar"
+  - git config --global push.default simple
   - if [ "$TRAVIS_BRANCH" = "dev" ] ; then cd build && yarn && yarn deploy:web-beta; fi
   - if [ "$TRAVIS_BRANCH" = "master" ] ; then cd build && yarn && yarn deploy:web-prod; fi
