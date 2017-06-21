@@ -6,9 +6,7 @@
   "scripts": {
     "build": "gulp build",
     "android:apk": "gulp android",
-    "android:release": "gulp androidAligned",
-    "deploy:web-prod": "gulp deploy-prod",
-    "deploy:web-beta": "gulp deploy-beta"
+    "android:release": "gulp androidAligned"
   },
   "author": "",
   "license": "MIT",
@@ -30,9 +28,7 @@
     "gulp-run": "^1.7.1",
     "gulp-sass": "^2.3.2",
     "run-sequence": "^1.2.2",
-    "webpack": "^3.0.0"
-  },
-  "devDependencies": {
+    "webpack": "^3.0.0",
     "del": "^3.0.0"
   }
 }

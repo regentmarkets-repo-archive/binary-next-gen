@@ -94,26 +94,10 @@ gulp.task('build', callback =>
 //         .pipe(zip.dest('./binary-app.zip'))
 // );
 
-gulp.task('deploy-prod', ['build'], () =>
+gulp.task('deploy', ['build'], () =>
     gulp.src(files.dist + '/**/*')
         .pipe(file('CNAME', 'app.binary.com'))
-        .pipe(ghPages({
-            remoteUrl: 'https://' + process.env.GIT_KEY + '@github.com/binary-com/binary-next-gen'
-        }))
-);
-
-gulp.task('move-to-beta', ['build'], () =>
-    run('mkdir beta && ' +
-            'mv ' + files.dist + '/* beta && ' +
-            'mv beta ' + files.dist + '/')
-        .exec()
-        .on('error', errorHandler)
-);
-gulp.task('deploy-beta', ['move-to-beta'], () =>
-    gulp.src(files.dist + '/**')
-        .pipe(ghPages({
-            remoteUrl: 'https://' + process.env.GIT_KEY + '@github.com/binary-com/binary-next-gen'
-        }))
+        .pipe(ghPages())
 );
 
 gulp.task('codepush:android')
@@ -127,7 +111,7 @@ gulp.task('codepush:ios')
         .pipe(run('code-push release-cordova binary-next-gen-ios ios'))
 
 gulp.task('deploy&codepush', (done) => {
-    runSequence('deploy-prod', ['codepush:ios', 'codepush:android'], () => {
+    runSequence('deploy', ['codepush:ios', 'codepush:android'], () => {
         console.log('Deploying....')
     })
 });
