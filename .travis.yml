@@ -10,12 +10,12 @@ branches:
   - translations
 before_install:
   - sudo apt-get update
-  - sudo apt-get install python3.5
-  - sudo apt-get install python3.5-dev -y
-  - sudo apt-get install gettext -y
+  - sudo apt-get install python3
   - which python3
-  - which python3.5
   - which python
+  - sudo apt-get install python3-dev -y
+  - sudo apt-get install gettext -y
+  - which python3.5
 install:
   - yarn
   - cd build
