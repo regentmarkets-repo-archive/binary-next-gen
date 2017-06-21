@@ -58,8 +58,8 @@ function errorHandler (error) {
 
 gulp.task('js', () =>
     gulp.src(files.js)
-        .pipe(run('(cd ../ && webpack --config ./webpack.config.js)'))
-            .on('error', errorHandler)
+        .pipe(run('(cd ../ && node_modules/.bin/webpack --config ./webpack.config.js)'))
+        .on('error', errorHandler)
         .pipe(gulp.dest(files.dist))
 );
 
@@ -102,9 +102,15 @@ gulp.task('deploy-prod', ['build'], () =>
         }))
 );
 
-gulp.task('deploy-beta', ['build'], () =>
-    gulp.src(files.dist + '/**/*')
-        .pipe(gulp.dest(files.dist + '/beta'))
+gulp.task('move-to-beta', ['build'], () =>
+    run('mkdir beta && ' +
+            'mv ' + files.dist + '/* beta && ' +
+            'mv beta ' + files.dist + '/')
+        .exec()
+        .on('error', errorHandler)
+);
+gulp.task('deploy-beta', ['move-to-beta'], () =>
+    gulp.src(files.dist + '/**')
         .pipe(ghPages({
             remoteUrl: 'https://' + process.env.GIT_KEY + '@github.com/binary-com/binary-next-gen'
         }))
