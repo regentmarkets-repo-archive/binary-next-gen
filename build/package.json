@@ -14,6 +14,7 @@
   "license": "MIT",
   "dependencies": {
     "gulp": "^3.9.1",
+    "gulp-atom-electron": "^1.9.0",
     "gulp-bump": "^2.4.0",
     "gulp-concat": "^2.6.0",
     "gulp-cordova-build-android": "^1.5.1",
@@ -29,7 +30,9 @@
     "gulp-run": "^1.7.1",
     "gulp-sass": "^2.3.2",
     "run-sequence": "^1.2.2",
-    "gulp-atom-electron": "^1.9.0",
     "webpack": "^3.0.0"
+  },
+  "devDependencies": {
+    "del": "^3.0.0"
   }
 }

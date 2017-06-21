@@ -99,7 +99,7 @@ gulp.task('deploy-prod', ['build'], () =>
         .pipe(file('CNAME', 'app.binary.com'))
         .pipe(ghPages({
             origin: 'https://' + process.env.GIT_KEY + '@github.com/binary-com/binary-next-gen'
-        }));
+        }))
 );
 
 gulp.task('deploy-beta', ['build'], () =>
@@ -107,7 +107,7 @@ gulp.task('deploy-beta', ['build'], () =>
         .pipe(gulp.dest(files.dist + '/beta'))
         .pipe(ghPages({
             origin: 'https://' + process.env.GIT_KEY + '@github.com/binary-com/binary-next-gen'
-        }));
+        }))
 );
 
 gulp.task('codepush:android')
