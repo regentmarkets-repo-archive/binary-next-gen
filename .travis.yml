@@ -1,6 +1,9 @@
+sudo: required
 language: node_js
 node_js:
     - 6.0
+python:
+  - 3.5
 notifications:
   email:
   - arnab@binary.com
@@ -9,8 +12,8 @@ branches:
   - translations
 before_install:
   - sudo apt-get update
-  - sudo apt-get install python3.5
-  - sudo apt-get install gettext
+  - sudo apt-get install python-dev -y
+  - sudo apt-get install gettext -y
 install:
   - yarn
   - cd build
