@@ -915,3 +915,18 @@ msgstr ""
 
 msgid "Touch spot"
 msgstr ""
+
+msgid "This field is required"
+msgstr ""
+
+msgid "Should be a valid number"
+msgstr ""
+
+msgid "Should be between 0 and {number}"
+msgstr ""
+
+msgid "Time out must be after today and cannot be more than 6 weeks."
+msgstr ""
+
+msgid "Exclude time cannot be less than 6 months and more than 5 years."
+msgstr ""

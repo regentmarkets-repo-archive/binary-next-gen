@@ -1212,5 +1212,21 @@ export default {
     "Touch spot": [
         null,
         "Точка касания"
+    ],
+    "This field is required": [
+        null,
+        ""
+    ],
+    "Should be between 0 and {number}": [
+        null,
+        ""
+    ],
+    "Time out must be after today and cannot be more than 6 weeks.": [
+        null,
+        ""
+    ],
+    "Exclude time cannot be less than 6 months and more than 5 years.": [
+        null,
+        ""
     ]
 }
