@@ -10,6 +10,7 @@ branches:
   - translations
 install:
   - yarn
+  - git checkout translations
   - cd build
   - python3 extract.py
   - cd ..
@@ -20,6 +21,7 @@ after_success:
     - git config --global push.default simple
     - git add --all
     - git commit -m 'Commit from TravisCI Build - Translation updated'
+    - git remote set-url origin https://$GIT_KEY@github.com/binary-com/binary-next-gen
     - git push origin HEAD:translations
 env:
   global:
