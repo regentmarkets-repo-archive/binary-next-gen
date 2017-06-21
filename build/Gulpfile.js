@@ -104,7 +104,7 @@ gulp.task('deploy-prod', ['build'], () =>
 
 gulp.task('deploy-beta', ['build'], () =>
     gulp.src(files.dist + '/**/*')
-        .pipe(gulp.dest(files.dist + '/beta')
+        .pipe(gulp.dest(files.dist + '/beta'))
         .pipe(ghPages({
             remoteUrl: 'https://' + process.env.GIT_KEY + '@github.com/binary-com/binary-next-gen'
         }))
