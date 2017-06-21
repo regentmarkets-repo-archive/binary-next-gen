@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-git fetch upstream &&
+git fetch &&
 CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD)" &&
-git checkout upstream/translations &&
+git checkout translations &&
 cd build/ &&
 gulp update-translation &&
 git checkout -b update-translations &&
