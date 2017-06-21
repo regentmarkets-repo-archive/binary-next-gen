@@ -33,9 +33,7 @@
     "release": "npm run release:osx && npm run release:win32 && npm run release:win64",
     "all": "npm run dist && npm run release && gulp mobile:release",
     "deploy:android": "npm run build:dev && code-push release-cordova binary-next-gen-android android",
-    "deploy:ios": "npm run build:dev && code-push release-cordova binary-next-gen-ios ios",
-    "deploy:web-prod": "gulp deploy-prod",
-    "deploy:web-beta": "gulp deploy-beta"
+    "deploy:ios": "npm run build:dev && code-push release-cordova binary-next-gen-ios ios"
   },
   "build": {
     "appId": "app.binary.com",

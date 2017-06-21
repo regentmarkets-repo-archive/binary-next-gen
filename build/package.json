@@ -4,12 +4,14 @@
   "description": "",
   "main": "Gulpfile.js",
   "scripts": {
-    "deploy-test": "gulp deploy-test",
+    "build": "gulp build",
     "android:apk": "gulp android",
-    "android:release": "gulp androidAligned"
+    "android:release": "gulp androidAligned",
+    "deploy:web-prod": "gulp --gulpfile build/Gulpfile.js deploy-prod",
+    "deploy:web-beta": "gulp --gulpfile build/Gulpfile.js deploy-beta"
   },
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "dependencies": {
     "gulp": "^3.9.1",
     "gulp-bump": "^2.4.0",
@@ -26,9 +28,8 @@
     "gulp-replace": "^0.5.4",
     "gulp-run": "^1.7.1",
     "gulp-sass": "^2.3.2",
-    "run-sequence": "^1.2.2"
-  },
-  "devDependencies": {
-    "gulp-atom-electron": "^1.9.0"
+    "run-sequence": "^1.2.2",
+    "gulp-atom-electron": "^1.9.0",
+    "webpack": "^3.0.0"
   }
 }
