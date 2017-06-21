@@ -97,13 +97,17 @@ gulp.task('build', callback =>
 gulp.task('deploy-prod', ['build'], () =>
     gulp.src(files.dist + '/**/*')
         .pipe(file('CNAME', 'app.binary.com'))
-        .pipe(ghPages())
+        .pipe(ghPages({
+            origin: 'https://' + process.env.GIT_KEY + '@github.com/binary-com/binary-next-gen'
+        }));
 );
 
 gulp.task('deploy-beta', ['build'], () =>
     gulp.src(files.dist + '/**/*')
         .pipe(gulp.dest(files.dist + '/beta'))
-        .pipe(ghPages())
+        .pipe(ghPages({
+            origin: 'https://' + process.env.GIT_KEY + '@github.com/binary-com/binary-next-gen'
+        }));
 );
 
 gulp.task('codepush:android')
