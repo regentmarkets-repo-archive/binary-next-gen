@@ -1666,7 +1666,8 @@ nav.sidebar {
   background: #e98024;
   padding: 0.5em;
   line-height: 1.5;
-  word-wrap: break-word; }
+  word-wrap: break-word;
+  word-break: break-all; }
 
 .close-btn svg {
   vertical-align: middle; }
