@@ -928,3 +928,19 @@ msgstr "Barrera inferior"
 
 msgid "Touch spot"
 msgstr "Punto de toque"
+
+msgid "This field is required"
+msgstr ""
+
+#, fuzzy
+msgid "Should be a valid number"
+msgstr "Introduzca un número de teléfono válido"
+
+msgid "Should be between 0 and {number}"
+msgstr ""
+
+msgid "Time out must be after today and cannot be more than 6 weeks."
+msgstr ""
+
+msgid "Exclude time cannot be less than 6 months and more than 5 years."
+msgstr ""

@@ -921,6 +921,22 @@ msgstr "低障礙"
 msgid "Touch spot"
 msgstr "觸及現貨價格"
 
+msgid "This field is required"
+msgstr ""
+
+#, fuzzy
+msgid "Should be a valid number"
+msgstr "輸入有效的電話號"
+
+msgid "Should be between 0 and {number}"
+msgstr ""
+
+msgid "Time out must be after today and cannot be more than 6 weeks."
+msgstr ""
+
+msgid "Exclude time cannot be less than 6 months and more than 5 years."
+msgstr ""
+
 #~ msgid "Current Spot Time"
 #~ msgstr "目前現價時間"
 

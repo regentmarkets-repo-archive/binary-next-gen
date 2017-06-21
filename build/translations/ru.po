@@ -932,3 +932,19 @@ msgstr "Нижний барьер"
 
 msgid "Touch spot"
 msgstr "Точка касания"
+
+msgid "This field is required"
+msgstr ""
+
+#, fuzzy
+msgid "Should be a valid number"
+msgstr "Введите действующий номер телефона"
+
+msgid "Should be between 0 and {number}"
+msgstr ""
+
+msgid "Time out must be after today and cannot be more than 6 weeks."
+msgstr ""
+
+msgid "Exclude time cannot be less than 6 months and more than 5 years."
+msgstr ""
