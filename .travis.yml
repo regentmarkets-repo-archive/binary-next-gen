@@ -23,6 +23,7 @@ after_success:
   - yarn test:coveralls
   - cd build
   - yarn build
+  - cd ..
   - if [ "$TRAVIS_BRANCH" = "dev" ] ; then rm -fR beta && mkdir beta && mv www/* beta/ && mv beta www/; fi
   - mkdir gh-pages
   - cd gh-pages
