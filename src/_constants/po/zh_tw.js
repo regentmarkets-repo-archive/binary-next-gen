@@ -2,15 +2,15 @@ export default {
     "": {
         "project-id-version": "PACKAGE VERSION",
         "pot-creation-date": "",
-        "po-revision-date": "2016-03-05 01:59+0000",
-        "last-translator": "Xiaojing <cai.cxj@gmail.com>",
+        "po-revision-date": "2016-08-16 07:47+0000",
+        "last-translator": "Freddy Hew <hewfreddy@gmail.com>",
         "language-team": "Chinese (Taiwan) <https://hosted.weblate.org/projects/binary-app/next-gen-app/zh_TW/>",
         "language": "zh_tw",
         "mime-version": "1.0",
         "content-type": "text/plain; charset=UTF-8",
         "content-transfer-encoding": "8bit",
         "plural-forms": "nplurals=1; plural=0;",
-        "x-generator": "Weblate 2.5-dev"
+        "x-generator": "Weblate 2.8-dev"
     },
     "All": [
         null,
@@ -451,5 +451,765 @@ export default {
     "Search For Assets": [
         null,
         "搜尋資產"
+    ],
+    "Start times": [
+        null,
+        "開始時間"
+    ],
+    "Durations": [
+        null,
+        "期現"
+    ],
+    "Payout/Stake": [
+        null,
+        "賠付/投注額"
+    ],
+    "Purchase for": [
+        null,
+        "買入"
+    ],
+    "payout": [
+        null,
+        "賠付額"
+    ],
+    "stake": [
+        null,
+        "投注金額"
+    ],
+    "Self Exclusion": [
+        null,
+        "自我限制"
+    ],
+    "Cashier Lock": [
+        null,
+        "收銀台鎖定"
+    ],
+    "Change Password": [
+        null,
+        "更換密碼"
+    ],
+    "Password": [
+        null,
+        "密碼"
+    ],
+    "Tick Trade": [
+        null,
+        "跳動點交易"
+    ],
+    "Full Trade": [
+        null,
+        "完全自由交易"
+    ],
+    "Address": [
+        null,
+        "地址"
+    ],
+    "Town/City": [
+        null,
+        "城鎮/城市"
+    ],
+    "State/Province": [
+        null,
+        "州/省"
+    ],
+    "Telephone": [
+        null,
+        "電話"
+    ],
+    "Postal Code / ZIP": [
+        null,
+        "郵遞區號"
+    ],
+    "Cashier password": [
+        null,
+        "收銀台密碼"
+    ],
+    "Re-enter your password": [
+        null,
+        "重新輸入密碼"
+    ],
+    "Current password": [
+        null,
+        "目前密碼"
+    ],
+    "New password": [
+        null,
+        "新密碼"
+    ],
+    "Verify new password": [
+        null,
+        "驗證新密碼"
+    ],
+    "Daily turnover limit": [
+        null,
+        "最大日成交量"
+    ],
+    "Once this limit is reached, you may no longer deposit.": [
+        null,
+        "一旦達到此限額，您不可再存入款項。"
+    ],
+    "Maximum aggregate contract purchases per day.": [
+        null,
+        "每日最大累計合約購入額。"
+    ],
+    "Daily limit on losses": [
+        null,
+        "每日虧損限額"
+    ],
+    "Maximum aggregate loss per day.": [
+        null,
+        "每日最大累計虧損額。"
+    ],
+    "7-day turnover limit": [
+        null,
+        "7天期最大交易限額"
+    ],
+    "Maximum aggregate contract purchases over a 7-day period.": [
+        null,
+        "7天期最大累計合約購入額。"
+    ],
+    "7-day limit on losses": [
+        null,
+        "7天期虧損限額"
+    ],
+    "Maximum aggregate loss over a 7-day period.": [
+        null,
+        "7天期最大累計虧損額。"
+    ],
+    "30-day turnover limit": [
+        null,
+        "30天期交易限額"
+    ],
+    "Maximum aggregate contract purchases over a 30-day period.": [
+        null,
+        "30天期最大累計合約購入額。"
+    ],
+    "30-day limit on losses": [
+        null,
+        "30天期虧損限額"
+    ],
+    "Maximum aggregate loss over a 30-day period.": [
+        null,
+        "30天期最大累計虧損額。"
+    ],
+    "Session duration limit, in minutes": [
+        null,
+        "交易期持續時間限制，以分鐘作單位"
+    ],
+    "You will be automatically logged out after such time.": [
+        null,
+        "在該時間後您將自動退出登入。"
+    ],
+    "Exclude me from the website until": [
+        null,
+        "禁止我訪問本網站直到"
+    ],
+    "Limits": [
+        null,
+        "交易限制"
+    ],
+    "Please enter date in the format YYYY-MM-DD.": [
+        null,
+        "請輸入日期，格式為年-月-日。"
+    ],
+    "New Trade": [
+        null,
+        "新交易"
+    ],
+    "Trade Type": [
+        null,
+        "交易類型"
+    ],
+    "Random 100 Index": [
+        null,
+        "隨機100指標"
+    ],
+    "Article": [
+        null,
+        "項目"
+    ],
+    "Start Later": [
+        null,
+        "稍後開始"
+    ],
+    "Buy Price": [
+        null,
+        "購入價格"
+    ],
+    "Earning (%)": [
+        null,
+        "收入(%)"
+    ],
+    "Profit": [
+        null,
+        "利潤"
+    ],
+    "Entry Price": [
+        null,
+        "入市價格"
+    ],
+    "Exit Price": [
+        null,
+        "平倉價格"
+    ],
+    "Indicative Price": [
+        null,
+        "指示價格"
+    ],
+    "Potential Profit": [
+        null,
+        "潛在利潤"
+    ],
+    "Sell at Market": [
+        null,
+        "按市價賣出"
+    ],
+    "Go back": [
+        null,
+        "返回"
+    ],
+    "You lost ": [
+        null,
+        "您輸了 "
+    ],
+    "Close": [
+        null,
+        "收盤"
+    ],
+    "Low": [
+        null,
+        "低"
+    ],
+    "High": [
+        null,
+        "高"
+    ],
+    "Open": [
+        null,
+        "開盤"
+    ],
+    "Date": [
+        null,
+        "日期"
+    ],
+    "Upcoming Events": [
+        null,
+        "未來事件"
+    ],
+    "Win": [
+        null,
+        "贏"
+    ],
+    "Loss": [
+        null,
+        "輸"
+    ],
+    "Full Screen": [
+        null,
+        "全屏"
+    ],
+    "Start Now": [
+        null,
+        "現在開始"
+    ],
+    "Daily Prices": [
+        null,
+        "每日價格"
+    ],
+    "Spreads": [
+        null,
+        "價差"
+    ],
+    "Confirm new password": [
+        null,
+        "確認新密碼"
+    ],
+    "TICK": [
+        null,
+        "跳動點"
+    ],
+    "Minutes": [
+        null,
+        "分鐘"
+    ],
+    "Seconds": [
+        null,
+        "秒"
+    ],
+    "Hours": [
+        null,
+        "小時"
+    ],
+    "Days": [
+        null,
+        "日"
+    ],
+    "N/A": [
+        null,
+        "不可用"
+    ],
+    "Duration": [
+        null,
+        "期限"
+    ],
+    "Start Time": [
+        null,
+        "開始時間"
+    ],
+    "Now": [
+        null,
+        "現在"
+    ],
+    "Later": [
+        null,
+        "稍後"
+    ],
+    "return": [
+        null,
+        "回報"
+    ],
+    "Portfolio": [
+        null,
+        "投資組合"
+    ],
+    "Video": [
+        null,
+        "視訊"
+    ],
+    "Digit Stats": [
+        null,
+        "數字統計"
+    ],
+    "Favorites": [
+        null,
+        "我的最愛"
+    ],
+    "Open For Trading": [
+        null,
+        "開放交易"
+    ],
+    "Closed": [
+        null,
+        "已收盤"
+    ],
+    "Contract ID": [
+        null,
+        "合約ID"
+    ],
+    "Reference ID": [
+        null,
+        "參考ID"
+    ],
+    "Entry Spot": [
+        null,
+        "入市現價"
+    ],
+    "Entry Spot Time": [
+        null,
+        "入市現價時間"
+    ],
+    "Potential Payout": [
+        null,
+        "潛在利潤"
+    ],
+    "Exit Spot": [
+        null,
+        "退出現價"
+    ],
+    "Exit Spot Time": [
+        null,
+        "退出現價時間"
+    ],
+    "Sell Price": [
+        null,
+        "賣出價格"
+    ],
+    "Sell Time": [
+        null,
+        "賣出時間"
+    ],
+    "Trade Again": [
+        null,
+        "再次交易"
+    ],
+    "Barrier": [
+        null,
+        "障礙"
+    ],
+    "You Won": [
+        null,
+        "您贏了"
+    ],
+    "You Lost": [
+        null,
+        "您輸了"
+    ],
+    "To change your name, date of birth, country of residence, or email, contact Customer Support.": [
+        null,
+        "如需更改姓名、生日、居住國或電子郵件地址，請與客服人員聯繫。"
+    ],
+    "Cashier is locked per your request. To unlock it, enter your password.": [
+        null,
+        "根據您的請求，您的收銀台已被鎖定。如需解除鎖定，請輸入密碼。"
+    ],
+    "Unlock Cashier": [
+        null,
+        "解鎖收銀台"
+    ],
+    "Time out until": [
+        null,
+        "時間已過。下次開啟時間為"
+    ],
+    "No transactions for the selected period": [
+        null,
+        "選定時間段內無任何交易"
+    ],
+    "You have no open contracts": [
+        null,
+        "您沒有未平倉合約"
+    ],
+    "You have no assets in watchlist": [
+        null,
+        "您的關注清單沒有資產"
+    ],
+    "Basic": [
+        null,
+        "基礎"
+    ],
+    "Digits": [
+        null,
+        "數字"
+    ],
+    "Advanced": [
+        null,
+        "高級"
+    ],
+    "Higher": [
+        null,
+        "高於"
+    ],
+    "Lower": [
+        null,
+        "低於"
+    ],
+    "Ends Outside": [
+        null,
+        "處於範圍外"
+    ],
+    "Ends Between": [
+        null,
+        "收於範圍之內"
+    ],
+    "Stays Between": [
+        null,
+        "保持在範圍之內"
+    ],
+    "Goes Outside": [
+        null,
+        "超出範圍之外"
+    ],
+    "Does Not Touch": [
+        null,
+        "未觸及"
+    ],
+    "Credit / Debit": [
+        null,
+        "借記/貸記"
+    ],
+    "Last 25 Ticks": [
+        null,
+        "最近25次跳動"
+    ],
+    "Last 50 Trades": [
+        null,
+        "過去50次交易"
+    ],
+    "Last 100 Trades": [
+        null,
+        "過去100次交易"
+    ],
+    "Last 500 Trades": [
+        null,
+        "過去500次交易"
+    ],
+    "Last 1000 Trades": [
+        null,
+        "過去1000次交易"
+    ],
+    "Maximum Daily Turnover": [
+        null,
+        "最大日成交量"
+    ],
+    "Commodities": [
+        null,
+        "大宗商品"
+    ],
+    "Major Pairs": [
+        null,
+        "主要貨幣對"
+    ],
+    "Minor Pairs": [
+        null,
+        "次要貨幣對"
+    ],
+    "Smart FX": [
+        null,
+        "智慧外匯交易"
+    ],
+    "Volatility Indices": [
+        null,
+        "波動率指數"
+    ],
+    "Indices": [
+        null,
+        "指數"
+    ],
+    "OTC Stocks": [
+        null,
+        "場外交易股票"
+    ],
+    "Stated limits are subject to change without prior notice": [
+        null,
+        "我們保留隨時在沒有預先通知的情況下更改所述限制的權利"
+    ],
+    "Withdrawal Limits": [
+        null,
+        "取款限額"
+    ],
+    "Withdrawal limit": [
+        null,
+        "取款限額"
+    ],
+    "Already withdrawn": [
+        null,
+        "已提取"
+    ],
+    "Current immediate maximum withdrawal": [
+        null,
+        "目前的即時最高取款額"
+    ],
+    "Create Free Account": [
+        null,
+        "新增免費帳戶"
+    ],
+    "Verification Code": [
+        null,
+        "驗證碼"
+    ],
+    "Confirm Password": [
+        null,
+        "確認密碼"
+    ],
+    "Already have an account?": [
+        null,
+        "已經有帳戶？"
+    ],
+    "Enter a valid verification code": [
+        null,
+        "請輸入有效的驗證代碼"
+    ],
+    "Choose your country": [
+        null,
+        "選擇您的國家"
+    ],
+    "Password should have lower and uppercase letters and 6 characters or more": [
+        null,
+        "密碼須包含大小寫字母與至少6個字符"
+    ],
+    "Passwords do not match": [
+        null,
+        "密碼不相符"
+    ],
+    "Enter a valid email": [
+        null,
+        "輸入有效的電子郵件"
+    ],
+    "Number should between 10 to 120": [
+        null,
+        "必須是10至120之間的數字"
+    ],
+    "Enter your first and last name": [
+        null,
+        "輸入姓名"
+    ],
+    "City must not be empty": [
+        null,
+        "城市不可為空"
+    ],
+    "Address must not be empty": [
+        null,
+        "地址不可為空"
+    ],
+    "Enter a valid phone number": [
+        null,
+        "輸入有效的電話號"
+    ],
+    "Select a secret question": [
+        null,
+        "選擇安全提示問題"
+    ],
+    "Secret answer must be at least 4 characters": [
+        null,
+        "安全提示答案必須至少4個字符"
+    ],
+    "You need to agree to our Terms and Conditions": [
+        null,
+        "您必須同意我們的條款和條件"
+    ],
+    "I agree to the": [
+        null,
+        "本人同意"
+    ],
+    "terms and conditions": [
+        null,
+        "條款和條件"
+    ],
+    "Search for assets": [
+        null,
+        "搜尋資產"
+    ],
+    "Choose a Payment Agent": [
+        null,
+        "選擇支付代理"
+    ],
+    "Confirm New Password": [
+        null,
+        "確認新密碼"
+    ],
+    "First Name": [
+        null,
+        "名字"
+    ],
+    "Last Name": [
+        null,
+        "姓氏"
+    ],
+    "Address First Line": [
+        null,
+        "地址第一行"
+    ],
+    "Address Second Line": [
+        null,
+        "地址第二行"
+    ],
+    "Phone": [
+        null,
+        "電話"
+    ],
+    "Answer To Secret Question": [
+        null,
+        "安全提示問題的答案"
+    ],
+    "Switch to": [
+        null,
+        "切換成"
+    ],
+    "Single Trade": [
+        null,
+        "單次交易"
+    ],
+    "Multi Trade": [
+        null,
+        "多次交易"
+    ],
+    "Current Password": [
+        null,
+        "目前密碼"
+    ],
+    "New Password": [
+        null,
+        "新密碼"
+    ],
+    "Last 50 Ticks": [
+        null,
+        "最近50次跳動"
+    ],
+    "Last 100 Ticks": [
+        null,
+        "最近100次跳動"
+    ],
+    "Last 500 Ticks": [
+        null,
+        "最近500次跳動"
+    ],
+    "Last 1000 Ticks": [
+        null,
+        "最近1000次跳動"
+    ],
+    "Exit Full Screen": [
+        null,
+        "退出全屏"
+    ],
+    "No digit trades for this asset": [
+        null,
+        "此資產無數字交易"
+    ],
+    "Lock Cashier": [
+        null,
+        "解鎖收銀台"
+    ],
+    "Time out until date": [
+        null,
+        "時間已過。下次開啟時間為"
+    ],
+    "Time out until time": [
+        null,
+        "時間已過。下次開啟時間為"
+    ],
+    "Light Theme": [
+        null,
+        "淺色主題"
+    ],
+    "Dark Theme": [
+        null,
+        "深色主題"
+    ],
+    "Password changed successfully": [
+        null,
+        "已成功更改密碼"
+    ],
+    "Settings updated": [
+        null,
+        "設定更新"
+    ],
+    "Address updated": [
+        null,
+        "地址更新"
+    ],
+    "Barrier must not be empty": [
+        null,
+        "障礙不可為空"
+    ],
+    "Duration is out of range": [
+        null,
+        "交易期限超出限定範圍"
+    ],
+    "Start date invalid, it needs to be five minutes or more in the future": [
+        null,
+        "開始日期無效，必須是未來的五分鐘或更長時間"
+    ],
+    "Time format is wrong": [
+        null,
+        "時間格式錯誤"
+    ],
+    "Lower than": [
+        null,
+        "低於"
+    ],
+    "Higher than": [
+        null,
+        "高於"
+    ],
+    "High barrier": [
+        null,
+        "高障礙"
+    ],
+    "Low barrier": [
+        null,
+        "低障礙"
+    ],
+    "Touch spot": [
+        null,
+        "觸及現貨價格"
     ]
 }

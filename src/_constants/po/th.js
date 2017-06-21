@@ -3,7 +3,7 @@ export default {
         "project-id-version": "PACKAGE VERSION",
         "report-msgid-bugs-to": "",
         "pot-creation-date": "2016-04-12 13:57+0200",
-        "po-revision-date": "2016-04-15 11:52+0000",
+        "po-revision-date": "2017-04-25 18:42+0000",
         "last-translator": "Jutawan <bubbleblythe@gmail.com>",
         "language-team": "Thai <https://hosted.weblate.org/projects/binary-app/next-gen-app/th/>",
         "language": "th",
@@ -11,7 +11,7 @@ export default {
         "content-type": "text/plain; charset=UTF-8",
         "content-transfer-encoding": "8bit",
         "plural-forms": "nplurals=1; plural=0;",
-        "x-generator": "Weblate 2.6-dev"
+        "x-generator": "Weblate 2.14-dev"
     },
     "All": [
         null,
@@ -31,7 +31,7 @@ export default {
     ],
     "Trade": [
         null,
-        "เทรด"
+        "ซื้อ-ขาย"
     ],
     "Watchlist": [
         null,
@@ -43,7 +43,7 @@ export default {
     ],
     "Profit Table": [
         null,
-        "ตารางกำไร"
+        "ตารางผลกำไร"
     ],
     "Statement": [
         null,
@@ -123,7 +123,7 @@ export default {
     ],
     "Maximum number of open positions": [
         null,
-        "จำนวนสูงสุดของรายการซื้อขายที่เปิดอยู่"
+        "จำนวนสูงสุดของโพซิชั่นที่เปิดอยู่"
     ],
     "Maximum account cash balance": [
         null,
@@ -143,15 +143,15 @@ export default {
     ],
     "Your withdrawal limit is {limit} (or equivalent in other currency).": [
         null,
-        "วงเงินในการถอนของคุณคือ {limit} (หรือเทียบเท่าในสกุลเงินอื่น)."
+        "วงเงินในการถอนของท่าน คือ {limit} (หรือเทียบเท่าในสกุลเงินอื่น)"
     ],
     "You have already withdrawn the equivalent of EUR {drawn}.": [
         null,
-        "คุณได้ถอนจำนวน {drawn} ยูโร"
+        "ท่านได้ถอนจำนวน {drawn} ยูโร"
     ],
     "An additional password can be used to restrict access to the cashier.": [
         null,
-        "รหัสผ่านสามารถใช้เพื่อเข้าถึงแคชเชียร์"
+        "รหัสผ่านสามารถใช้เพื่อเข้าถึงการจัดการเงิน"
     ],
     "Sign In": [
         null,
@@ -159,7 +159,7 @@ export default {
     ],
     "Get your API token": [
         null,
-        "ขอส่วนเชื่อมต่อ (API) โทเคนของคุณ"
+        "ขอโทเค่น API ของท่าน"
     ],
     "Create Account": [
         null,
@@ -215,11 +215,11 @@ export default {
     ],
     "Entry spot": [
         null,
-        "จุดเริ่มต้น"
+        "สปอตเริ่มต้น"
     ],
     "Exit spot": [
         null,
-        "จุดสิ้นสุด"
+        "สปอตสิ้นสุด"
     ],
     "Next": [
         null,
@@ -243,7 +243,7 @@ export default {
     ],
     "Security": [
         null,
-        "หลักประกัน"
+        "หลักทรัพย์"
     ],
     "Spot": [
         null,
@@ -327,7 +327,7 @@ export default {
     ],
     "Resources": [
         null,
-        "ทรัพยากร"
+        "แหล่งข้อมูล"
     ],
     "Last 7 Days": [
         null,
@@ -387,7 +387,7 @@ export default {
     ],
     "Country Of Residence": [
         null,
-        "ประเทศ"
+        "ประเทศที่พำนัก"
     ],
     "Email": [
         null,
@@ -479,11 +479,11 @@ export default {
     ],
     "Self Exclusion": [
         null,
-        "ไม่รวมตัวเอง"
+        "พักวงเงิน"
     ],
     "Cashier Lock": [
         null,
-        "แคชเชียร์ล็อค"
+        "ล็อคการจ่ายเงิน"
     ],
     "Change Password": [
         null,
@@ -495,7 +495,7 @@ export default {
     ],
     "Tick Trade": [
         null,
-        "เทรดช่วง"
+        "เทรดช่วงราคา"
     ],
     "Full Trade": [
         null,
@@ -523,7 +523,7 @@ export default {
     ],
     "Cashier password": [
         null,
-        "รหัสผ่านแคชเชียร์"
+        "รหัสผ่านเพื่อจัดการเงิน"
     ],
     "Re-enter your password": [
         null,
@@ -547,19 +547,19 @@ export default {
     ],
     "Once this limit is reached, you may no longer deposit.": [
         null,
-        "เมื่อวงเงินเต็ม คุณไม่ต้องวางเงิน"
+        "เมื่อวงเงินเต็ม ท่านไม่สามารถฝากเงินได้"
     ],
     "Maximum aggregate contract purchases per day.": [
         null,
-        "สัญญารวมสูงสุดที่ซื้อต่อวัน"
+        "มูลค่าสัญญารวมสูงสุดที่ซื้อต่อวัน"
     ],
     "Daily limit on losses": [
         null,
-        "วงเงินต่อวัน (ขาดทุน)"
+        "วงเงินขาดทุนต่อวัน"
     ],
     "Maximum aggregate loss per day.": [
         null,
-        "วงเงินรวมสูงสุดต่อวัน (ขาดทุน)"
+        "มูลค่ารวมที่ขาดทุนสูงสุดต่อวัน"
     ],
     "7-day turnover limit": [
         null,
@@ -567,15 +567,15 @@ export default {
     ],
     "Maximum aggregate contract purchases over a 7-day period.": [
         null,
-        "สัญญารวมสูงสุดที่ซื้อในช่วง 7 วัน"
+        "มูลค่าสัญญารวมสูงสุดที่ซื้อในระยะเวลา 7 วัน"
     ],
     "7-day limit on losses": [
         null,
-        "วงเงินในช่วง 7 วัน (ขาดทุน)"
+        "วงเงินขาดทุนในช่วง 7 วัน"
     ],
     "Maximum aggregate loss over a 7-day period.": [
         null,
-        "ขาดทุนรวมสูงสุดของรายการในช่วง 7 วัน"
+        "มูลค่าขาดทุนรวมสูงสุดของรายการในช่วง 7 วัน"
     ],
     "30-day turnover limit": [
         null,
@@ -583,11 +583,11 @@ export default {
     ],
     "Maximum aggregate contract purchases over a 30-day period.": [
         null,
-        "สัญญารวมสูงสุดที่ซื้อในช่วง 30 วัน"
+        "มูลค่าสัญญารวมสูงสุดที่ซื้อในระยะเวลา 30 วัน"
     ],
     "30-day limit on losses": [
         null,
-        "วงเงินในช่วง 30 วัน (ขาดทุน)"
+        "วงเงินขาดทุนในช่วง 30 วัน"
     ],
     "Maximum aggregate loss over a 30-day period.": [
         null,
@@ -595,15 +595,15 @@ export default {
     ],
     "Session duration limit, in minutes": [
         null,
-        "ระยะเวลาที่อยู่ในระบบ หน่วยเป็นนาที"
+        "รอบระยะเวลาการซื้อขาย ในหน่วยนาที"
     ],
     "You will be automatically logged out after such time.": [
         null,
-        "คุณจะออกจากระบบโดยอัตโนมัติหลังจากนั้น"
+        "ท่านจะออกจากระบบโดยอัตโนมัติหลังจากนั้น"
     ],
     "Exclude me from the website until": [
         null,
-        "ยกเว้นฉันจากเว็บไซต์กระทั่ง"
+        "พักฉันจากเว็บไซต์กระทั่ง"
     ],
     "Limits": [
         null,
@@ -623,7 +623,7 @@ export default {
     ],
     "Random 100 Index": [
         null,
-        "สุ่ม 100 ดัชนี"
+        "ดัชนีสุ่ม 100"
     ],
     "Article": [
         null,

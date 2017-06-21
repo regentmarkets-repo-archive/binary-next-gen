@@ -494,7 +494,8 @@ msgid "Daily turnover limit"
 msgstr "Limite journalière du volume des transactions"
 
 msgid "Once this limit is reached, you may no longer deposit."
-msgstr "Une fois cette limite atteinte, vous ne pouvez plus effectuer de dépôt."
+msgstr ""
+"Une fois cette limite atteinte, vous ne pouvez plus effectuer de dépôt."
 
 msgid "Maximum aggregate contract purchases per day."
 msgstr "Maximum global des achats de contrat par jour."

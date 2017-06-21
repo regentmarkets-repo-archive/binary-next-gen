@@ -2,21 +2,11 @@
   "name": "binary-next-gen",
   "main": "src/index.js",
   "scripts": {
-    "test": "npm run test:eslint && npm run test:unit",
-    "test:eslint": "webpack --config webpack.config.dev.js",
-    "test:unit": "mocha --compilers js:babel-core/register ./src/**/__tests__/*.js",
-    "test:watch": "npm test -- --watch",
-    "test:coverage": "babel-node ./node_modules/istanbul/lib/cli cover ./node_modules/mocha/bin/_mocha ./src/_common/__tests__/*.js",
-    "start": "node server.js",
-    "build": "npm run clean && npm run build:webpack",
-    "translate": "bash fetch-translation.sh"
+    "update-translation": "gulp update-translation"
   },
   "keywords": [
     "binary.com",
-    "webpack",
-    "react",
-    "redux",
-    "websockets"
+    "translation"
   ],
   "author": "Boris @ Binary",
   "license": "MIT",
@@ -32,25 +22,6 @@
     ]
   },
   "dependencies": {
-    "binary-live-api": "*",
-    "echarts": "^3.0.1",
-    "history": "^1.17.0",
-    "immutable": "^3.7.5",
-    "react": "^0.14.6",
-    "react-dom": "^0.14.6",
-    "react-draggable": "^1.1.1",
-    "react-intl": "^2.0.0-beta-1",
-    "react-pure-render": "^1.0.2",
-    "react-redux": "4.0.6",
-    "react-router": "^1.0.3",
-    "react-sparklines": "*",
-    "react-youtube": "^5.0.0",
-    "redux": "^3.0.4",
-    "reselect": "^2.0.1",
-    "redux-storage": "^1.4.3",
-    "redux-thunk": "^1.0.3"
-  },
-  "devDependencies": {
     "babel-core": "^6.4.0",
     "babel-eslint": "^5.0.0-beta6",
     "babel-loader": "^6.2.1",
@@ -67,13 +38,15 @@
     "expect": "^1.13.4",
     "expect-jsx": "^2.2.2",
     "express": "^4.13.3",
+    "gulp": "^3.9.1",
+    "gulp-json-transform": "^0.4.2",
+    "gulp-po2json": "^0.4.0",
+    "gulp-rename": "^1.2.2",
     "istanbul": "^0.4.2",
     "json-loader": "^0.5.4",
     "mocha": "^2.3.4",
     "react-addons-perf": "^0.14.6",
     "react-addons-test-utils": "^0.14.6",
-    "webpack": "^1.12.11",
-    "webpack-dev-middleware": "^1.2.0",
-    "webpack-hot-middleware": "^2.6.0"
+    "run-sequence": "^1.2.2"
   }
 }

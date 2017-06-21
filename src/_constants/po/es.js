@@ -3,15 +3,15 @@ export default {
         "project-id-version": "PACKAGE VERSION",
         "report-msgid-bugs-to": "",
         "pot-creation-date": "",
-        "po-revision-date": "2016-02-27 15:47+0000",
-        "last-translator": "olga borg <olga@binary.com>",
+        "po-revision-date": "2016-09-26 13:49+0000",
+        "last-translator": "cameliagf <cameliagf@yahoo.com>",
         "language-team": "Spanish <https://hosted.weblate.org/projects/binary-app/next-gen-app/es/>",
         "language": "es",
         "mime-version": "1.0",
         "content-type": "text/plain; charset=UTF-8",
         "content-transfer-encoding": "8bit",
         "plural-forms": "nplurals=2; plural=n != 1;",
-        "x-generator": "Weblate 2.5-dev"
+        "x-generator": "Weblate 2.9-dev"
     },
     "All": [
         null,
@@ -452,5 +452,765 @@ export default {
     "Search For Assets": [
         null,
         "Busque activos"
+    ],
+    "Start times": [
+        null,
+        "Horas de inicio"
+    ],
+    "Durations": [
+        null,
+        "Duraciones"
+    ],
+    "Payout/Stake": [
+        null,
+        "Pago/Apuesta"
+    ],
+    "Purchase for": [
+        null,
+        "Comprar por"
+    ],
+    "payout": [
+        null,
+        "pago"
+    ],
+    "stake": [
+        null,
+        "apuesta"
+    ],
+    "Self Exclusion": [
+        null,
+        "Auto Exclusión"
+    ],
+    "Cashier Lock": [
+        null,
+        "Cerradura de caja"
+    ],
+    "Change Password": [
+        null,
+        "Cambiar Contraseña"
+    ],
+    "Password": [
+        null,
+        "Contraseña"
+    ],
+    "Tick Trade": [
+        null,
+        "Tick Trade"
+    ],
+    "Full Trade": [
+        null,
+        "Comercio completo"
+    ],
+    "Address": [
+        null,
+        "Dirección"
+    ],
+    "Town/City": [
+        null,
+        "Ciudad"
+    ],
+    "State/Province": [
+        null,
+        "Estado/Provincia"
+    ],
+    "Telephone": [
+        null,
+        "Teléfono"
+    ],
+    "Postal Code / ZIP": [
+        null,
+        "Código postal"
+    ],
+    "Cashier password": [
+        null,
+        "Contraseña del cajero"
+    ],
+    "Re-enter your password": [
+        null,
+        "Vuelva a introducir su contraseña"
+    ],
+    "Current password": [
+        null,
+        "Contraseña actual"
+    ],
+    "New password": [
+        null,
+        "Nueva contraseña"
+    ],
+    "Verify new password": [
+        null,
+        "Verificar nueva contraseña"
+    ],
+    "Daily turnover limit": [
+        null,
+        "Volumen de negocios diario máximo"
+    ],
+    "Once this limit is reached, you may no longer deposit.": [
+        null,
+        "Una vez que se alcanza este límite, ya no puede depositar."
+    ],
+    "Maximum aggregate contract purchases per day.": [
+        null,
+        "Compras de contrato agregado máximas por día."
+    ],
+    "Daily limit on losses": [
+        null,
+        "Límite diario de pérdidas"
+    ],
+    "Maximum aggregate loss per day.": [
+        null,
+        "Pérdida total máxima por día."
+    ],
+    "7-day turnover limit": [
+        null,
+        "Límite de volumen de negocios de 7 días"
+    ],
+    "Maximum aggregate contract purchases over a 7-day period.": [
+        null,
+        "Compras de contrato agregado máximo durante un período de 7 días."
+    ],
+    "7-day limit on losses": [
+        null,
+        "Límite de 7 días para pérdidas"
+    ],
+    "Maximum aggregate loss over a 7-day period.": [
+        null,
+        "Pérdida total máxima en un período de 7 días."
+    ],
+    "30-day turnover limit": [
+        null,
+        "Límite de ganancias de 30 días"
+    ],
+    "Maximum aggregate contract purchases over a 30-day period.": [
+        null,
+        "Compras de contrato agregado máximo durante un período de 30 días."
+    ],
+    "30-day limit on losses": [
+        null,
+        "límite de 30 días en pérdidas"
+    ],
+    "Maximum aggregate loss over a 30-day period.": [
+        null,
+        "Pérdida total máxima en un período de 30 días."
+    ],
+    "Session duration limit, in minutes": [
+        null,
+        "Límite de duración de la sesión, en minutos"
+    ],
+    "You will be automatically logged out after such time.": [
+        null,
+        "Su sesión se cerrará automáticamente después de esta hora."
+    ],
+    "Exclude me from the website until": [
+        null,
+        "Excluirme del sitio web hasta que"
+    ],
+    "Limits": [
+        null,
+        "Límites"
+    ],
+    "Please enter date in the format YYYY-MM-DD.": [
+        null,
+        "Por favor introduzca la fecha en el formato AAAA-MM-DD."
+    ],
+    "New Trade": [
+        null,
+        "Nuevo comercio"
+    ],
+    "Trade Type": [
+        null,
+        "Tipo de Comercio"
+    ],
+    "Random 100 Index": [
+        null,
+        "Índice 100 Random"
+    ],
+    "Article": [
+        null,
+        "Artículo"
+    ],
+    "Start Later": [
+        null,
+        "Empezar más tarde"
+    ],
+    "Buy Price": [
+        null,
+        "Precio de Compra"
+    ],
+    "Earning (%)": [
+        null,
+        "Ganancia (%)"
+    ],
+    "Profit": [
+        null,
+        "Beneficio"
+    ],
+    "Entry Price": [
+        null,
+        "Precio de entrada"
+    ],
+    "Exit Price": [
+        null,
+        "Precio de salida"
+    ],
+    "Indicative Price": [
+        null,
+        "Precio indicativo"
+    ],
+    "Potential Profit": [
+        null,
+        "Beneficio potencial"
+    ],
+    "Sell at Market": [
+        null,
+        "Vender en el mercado"
+    ],
+    "Go back": [
+        null,
+        "Volver"
+    ],
+    "You lost ": [
+        null,
+        "Ha perdido "
+    ],
+    "Close": [
+        null,
+        "Cierra"
+    ],
+    "Low": [
+        null,
+        "Bajo"
+    ],
+    "High": [
+        null,
+        "Alto"
+    ],
+    "Open": [
+        null,
+        "Abierto"
+    ],
+    "Date": [
+        null,
+        "Fecha"
+    ],
+    "Upcoming Events": [
+        null,
+        "Próximos eventos"
+    ],
+    "Win": [
+        null,
+        "Ganar"
+    ],
+    "Loss": [
+        null,
+        "Pérdida"
+    ],
+    "Full Screen": [
+        null,
+        "Pantalla completa"
+    ],
+    "Start Now": [
+        null,
+        "Empezar Ahora"
+    ],
+    "Daily Prices": [
+        null,
+        "Precios diarios"
+    ],
+    "Spreads": [
+        null,
+        "Spreads"
+    ],
+    "Confirm new password": [
+        null,
+        "Confirmar contraseña nueva"
+    ],
+    "TICK": [
+        null,
+        "TICK"
+    ],
+    "Minutes": [
+        null,
+        "Minutos"
+    ],
+    "Seconds": [
+        null,
+        "Segundos"
+    ],
+    "Hours": [
+        null,
+        "Horas"
+    ],
+    "Days": [
+        null,
+        "Días"
+    ],
+    "N/A": [
+        null,
+        "N/A"
+    ],
+    "Duration": [
+        null,
+        "Duración"
+    ],
+    "Start Time": [
+        null,
+        "Hora de inicio"
+    ],
+    "Now": [
+        null,
+        "Ahora"
+    ],
+    "Later": [
+        null,
+        "Más tarde"
+    ],
+    "return": [
+        null,
+        "volver"
+    ],
+    "Portfolio": [
+        null,
+        "Cartera"
+    ],
+    "Video": [
+        null,
+        "Video"
+    ],
+    "Digit Stats": [
+        null,
+        "Cifras Estadísticas"
+    ],
+    "Favorites": [
+        null,
+        "Favoritos"
+    ],
+    "Open For Trading": [
+        null,
+        "Abierto para el Comercio"
+    ],
+    "Closed": [
+        null,
+        "Cerrado"
+    ],
+    "Contract ID": [
+        null,
+        "ID del contrato"
+    ],
+    "Reference ID": [
+        null,
+        "ID de referencia"
+    ],
+    "Entry Spot": [
+        null,
+        "Punto de Entrada"
+    ],
+    "Entry Spot Time": [
+        null,
+        "Tiempo de punto de entrada"
+    ],
+    "Potential Payout": [
+        null,
+        "Ganancias Potenciales"
+    ],
+    "Exit Spot": [
+        null,
+        "Punto de salida"
+    ],
+    "Exit Spot Time": [
+        null,
+        "Tiempo de punto de salida"
+    ],
+    "Sell Price": [
+        null,
+        "Precio de venta"
+    ],
+    "Sell Time": [
+        null,
+        "Tiempo de venta"
+    ],
+    "Trade Again": [
+        null,
+        "Operar de Nuevo"
+    ],
+    "Barrier": [
+        null,
+        "Barrera"
+    ],
+    "You Won": [
+        null,
+        "Ha ganado"
+    ],
+    "You Lost": [
+        null,
+        "Ha perdido"
+    ],
+    "To change your name, date of birth, country of residence, or email, contact Customer Support.": [
+        null,
+        "Para cambiar su nombre, fecha de nacimiento, país de residencia, o correo electrónico, póngase en contacto con el servicio de atención al cliente."
+    ],
+    "Cashier is locked per your request. To unlock it, enter your password.": [
+        null,
+        "El cajero está bloqueado por petición suya. Para desbloquearlo, introduzca su contraseña."
+    ],
+    "Unlock Cashier": [
+        null,
+        "Desbloquear Cajero"
+    ],
+    "Time out until": [
+        null,
+        "Pausa hasta"
+    ],
+    "No transactions for the selected period": [
+        null,
+        "No hay transacciones para el período seleccionado"
+    ],
+    "You have no open contracts": [
+        null,
+        "No tienes contratos abiertos"
+    ],
+    "You have no assets in watchlist": [
+        null,
+        "No tienes activos en la lista"
+    ],
+    "Basic": [
+        null,
+        "Básico"
+    ],
+    "Digits": [
+        null,
+        "Dígitos"
+    ],
+    "Advanced": [
+        null,
+        "Avanzado"
+    ],
+    "Higher": [
+        null,
+        "Mayor"
+    ],
+    "Lower": [
+        null,
+        "Menor"
+    ],
+    "Ends Outside": [
+        null,
+        "Finaliza fuera"
+    ],
+    "Ends Between": [
+        null,
+        "Finaliza Entre"
+    ],
+    "Stays Between": [
+        null,
+        "Se queda entre"
+    ],
+    "Goes Outside": [
+        null,
+        "Sale fuera"
+    ],
+    "Does Not Touch": [
+        null,
+        "No toque"
+    ],
+    "Credit / Debit": [
+        null,
+        "Crédito/Débito"
+    ],
+    "Last 25 Ticks": [
+        null,
+        "Últimos 25 Ticks"
+    ],
+    "Last 50 Trades": [
+        null,
+        "Últimos 50 comercios"
+    ],
+    "Last 100 Trades": [
+        null,
+        "Últimos 100 comercios"
+    ],
+    "Last 500 Trades": [
+        null,
+        "Últimos 500 comercios"
+    ],
+    "Last 1000 Trades": [
+        null,
+        "Últimos 1000 comercios"
+    ],
+    "Maximum Daily Turnover": [
+        null,
+        "Volumen de ventas diario máximo"
+    ],
+    "Commodities": [
+        null,
+        "Materias primas"
+    ],
+    "Major Pairs": [
+        null,
+        "Principales pares"
+    ],
+    "Minor Pairs": [
+        null,
+        "Pares secundarios"
+    ],
+    "Smart FX": [
+        null,
+        "Smart FX"
+    ],
+    "Volatility Indices": [
+        null,
+        "Índices de volatilidad"
+    ],
+    "Indices": [
+        null,
+        "Índices"
+    ],
+    "OTC Stocks": [
+        null,
+        "Acciones OTC"
+    ],
+    "Stated limits are subject to change without prior notice": [
+        null,
+        "Los límites establecidos están sujetos a cambio sin previo aviso"
+    ],
+    "Withdrawal Limits": [
+        null,
+        "Límites de retirada"
+    ],
+    "Withdrawal limit": [
+        null,
+        "Límite de retirada"
+    ],
+    "Already withdrawn": [
+        null,
+        "Ya retirado"
+    ],
+    "Current immediate maximum withdrawal": [
+        null,
+        "Retirada máxima inmedia actual"
+    ],
+    "Create Free Account": [
+        null,
+        "Crear Cuenta Gratis"
+    ],
+    "Verification Code": [
+        null,
+        "Código de verificación"
+    ],
+    "Confirm Password": [
+        null,
+        "Confirmar contraseña"
+    ],
+    "Already have an account?": [
+        null,
+        "¿Ya tiene una cuenta?"
+    ],
+    "Enter a valid verification code": [
+        null,
+        "Introduzca un código de verificación válido"
+    ],
+    "Choose your country": [
+        null,
+        "Elija su país"
+    ],
+    "Password should have lower and uppercase letters and 6 characters or more": [
+        null,
+        "La contraseña debe tener letras minúsculas y mayúsculas y 6 caracteres o más"
+    ],
+    "Passwords do not match": [
+        null,
+        "Las contraseñas no coinciden"
+    ],
+    "Enter a valid email": [
+        null,
+        "Introduzca un correo válido"
+    ],
+    "Number should between 10 to 120": [
+        null,
+        "El número debe entre 10 y 120"
+    ],
+    "Enter your first and last name": [
+        null,
+        "Introduzca su nombre y apellido"
+    ],
+    "City must not be empty": [
+        null,
+        "El campo ciudad no debe estar vacío"
+    ],
+    "Address must not be empty": [
+        null,
+        "El campo dirección no debe estar vacío"
+    ],
+    "Enter a valid phone number": [
+        null,
+        "Introduzca un número de teléfono válido"
+    ],
+    "Select a secret question": [
+        null,
+        "Seleccione una pregunta secreta"
+    ],
+    "Secret answer must be at least 4 characters": [
+        null,
+        "La respuesta secreta debe tener al menos 4 caracteres"
+    ],
+    "You need to agree to our Terms and Conditions": [
+        null,
+        "Tiene que aceptar nuestros términos y condiciones"
+    ],
+    "I agree to the": [
+        null,
+        "Estoy de acuerdo con los"
+    ],
+    "terms and conditions": [
+        null,
+        "términos y condiciones"
+    ],
+    "Search for assets": [
+        null,
+        "Buscar activos"
+    ],
+    "Choose a Payment Agent": [
+        null,
+        "Elegir un agente de pago"
+    ],
+    "Confirm New Password": [
+        null,
+        "Confirmar nueva contraseña"
+    ],
+    "First Name": [
+        null,
+        "Nombre"
+    ],
+    "Last Name": [
+        null,
+        "Apellido"
+    ],
+    "Address First Line": [
+        null,
+        "Primera línea de la dirección"
+    ],
+    "Address Second Line": [
+        null,
+        "Segunda línea del la dirección"
+    ],
+    "Phone": [
+        null,
+        "Teléfono"
+    ],
+    "Answer To Secret Question": [
+        null,
+        "Respuesta a la pregunta secreta"
+    ],
+    "Switch to": [
+        null,
+        "Cambiar a"
+    ],
+    "Single Trade": [
+        null,
+        "Operación única"
+    ],
+    "Multi Trade": [
+        null,
+        "Multi operación"
+    ],
+    "Current Password": [
+        null,
+        "Contraseña actual"
+    ],
+    "New Password": [
+        null,
+        "Nueva contraseña"
+    ],
+    "Last 50 Ticks": [
+        null,
+        "Últimos 50 Ticks"
+    ],
+    "Last 100 Ticks": [
+        null,
+        "Últimos 100 Ticks"
+    ],
+    "Last 500 Ticks": [
+        null,
+        "Últimos 500 Ticks"
+    ],
+    "Last 1000 Ticks": [
+        null,
+        "Últimos 1000 Ticks"
+    ],
+    "Exit Full Screen": [
+        null,
+        "Salir de Pantalla Completa"
+    ],
+    "No digit trades for this asset": [
+        null,
+        "No hay comercios de digitos para este activo"
+    ],
+    "Lock Cashier": [
+        null,
+        "Bloquear Cajero"
+    ],
+    "Time out until date": [
+        null,
+        "Tiempo de espera hasta la fecha"
+    ],
+    "Time out until time": [
+        null,
+        "Tiempo de espera hasta"
+    ],
+    "Light Theme": [
+        null,
+        "Tema Claro"
+    ],
+    "Dark Theme": [
+        null,
+        "Tema Oscuro"
+    ],
+    "Password changed successfully": [
+        null,
+        "Contraseña cambiada con éxito"
+    ],
+    "Settings updated": [
+        null,
+        "Configuración actualizada"
+    ],
+    "Address updated": [
+        null,
+        "Dirección actualizada"
+    ],
+    "Barrier must not be empty": [
+        null,
+        "El campo barrera no debe estar vacío"
+    ],
+    "Duration is out of range": [
+        null,
+        "La duración está fuera de rango"
+    ],
+    "Start date invalid, it needs to be five minutes or more in the future": [
+        null,
+        "Fecha de inicio no válida, debe ser cinco minutos o más en el futuro"
+    ],
+    "Time format is wrong": [
+        null,
+        "El formato de la hora es incorrecto"
+    ],
+    "Lower than": [
+        null,
+        "Inferior a"
+    ],
+    "Higher than": [
+        null,
+        "Superior a"
+    ],
+    "High barrier": [
+        null,
+        "Barrera superior"
+    ],
+    "Low barrier": [
+        null,
+        "Barrera inferior"
+    ],
+    "Touch spot": [
+        null,
+        "Punto de toque"
     ]
 }
