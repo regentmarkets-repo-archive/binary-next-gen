@@ -7,8 +7,8 @@
     "build": "gulp build",
     "android:apk": "gulp android",
     "android:release": "gulp androidAligned",
-    "deploy:web-prod": "gulp --gulpfile build/Gulpfile.js deploy-prod",
-    "deploy:web-beta": "gulp --gulpfile build/Gulpfile.js deploy-beta"
+    "deploy:web-prod": "gulp deploy-prod",
+    "deploy:web-beta": "gulp deploy-beta"
   },
   "author": "",
   "license": "MIT",
