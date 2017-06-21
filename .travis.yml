@@ -17,7 +17,5 @@ before_install: yarn
 install: yarn test:full
 after_success:
   - yarn test:coveralls
-  - cd build
-  - yarn
-  - if [ "$TRAVIS_BRANCH" = "dev" ] ; then yarn deploy:web-beta; fi
-  - if [ "$TRAVIS_BRANCH" = "master" ] ; then yarn deploy:web-prod; fi
+  - if [ "$TRAVIS_BRANCH" = "dev" ] ; then cd build && yarn && yarn deploy:web-beta; fi
+  - if [ "$TRAVIS_BRANCH" = "master" ] ; then cd build && yarn && yarn deploy:web-prod; fi
