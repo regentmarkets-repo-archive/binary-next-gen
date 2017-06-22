@@ -2,15 +2,15 @@ export default {
     "": {
         "project-id-version": "PACKAGE VERSION",
         "pot-creation-date": "",
-        "po-revision-date": "2017-01-03 18:59+0000",
-        "last-translator": "Haruna Sekiya <hrnmyrn@gmail.com>",
+        "po-revision-date": "2017-06-22 13:21+0000",
+        "last-translator": "naofum <naofum@gmail.com>",
         "language-team": "Japanese <https://hosted.weblate.org/projects/binary-app/next-gen-app/ja/>",
         "language": "ja",
         "mime-version": "1.0",
         "content-type": "text/plain; charset=UTF-8",
         "content-transfer-encoding": "8bit",
         "plural-forms": "nplurals=1; plural=0;",
-        "x-generator": "Weblate 2.11-dev"
+        "x-generator": "Weblate 2.15-dev"
     },
     "All": [
         null,
@@ -1214,18 +1214,22 @@ export default {
     ],
     "This field is required": [
         null,
-        ""
+        "この項目は必須です"
+    ],
+    "Should be a valid number": [
+        null,
+        "正しい番号を入力してください"
     ],
     "Should be between 0 and {number}": [
         null,
-        ""
+        "0 から {number} の間にする必要があります"
     ],
     "Time out must be after today and cannot be more than 6 weeks.": [
         null,
-        ""
+        "タイムアウトは今日以降で、6 週間以上にすることはできません。"
     ],
     "Exclude time cannot be less than 6 months and more than 5 years.": [
         null,
-        ""
+        "除外期間は 6 ヶ月未満および 5 年より長くすることはできません。"
     ]
 }
