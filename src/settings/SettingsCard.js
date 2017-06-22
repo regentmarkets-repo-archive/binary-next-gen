@@ -7,8 +7,8 @@ import SettingsLimits from './SettingsLimits';
 import SettingsSecurity from './SettingsSecurity';
 
 const components = [
+  SettingsSecurity,
 	SettingsPersonalDetails,
-	SettingsSecurity,
 	SettingsSelfExclusion,
 	SettingsLimits,
 ];
@@ -43,8 +43,8 @@ export default class SettingsCard extends PureComponent {
 					activeIndex={activeTab}
 					onChange={this.onTabChange}
 				>
-					<Tab text="Personal" />
 					<Tab text="Security" />
+					<Tab text="Personal" />
 					{!isVirtual && <Tab text="Self Exclusion" />}
 					{!isVirtual && <Tab text="Limits" />}
 				</TabList>
