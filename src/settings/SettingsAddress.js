@@ -62,10 +62,6 @@ export default class SettingsAddress extends PureComponent {
 			},
       address_postcode: {
         stop: true,
-        required: {
-          required: true,
-          message: 'This field is required.',
-        },
         format: {
           regex: /^([a-zA-Z\d-\s])*$/,
 					message: 'Only letters, numbers, space, and hyphen are allowed.',
@@ -119,7 +115,7 @@ export default class SettingsAddress extends PureComponent {
 
   onFormSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    if (!Object.keys(this.result).some(key => !this.result[key].approved)) {
+    if (this.allRequiredDataFilled && !Object.keys(this.result).some(key => !this.result[key].approved)) {
       this.performUpdateSettings();
 		} else {
       this.setState({ hasError: true });
@@ -150,6 +146,8 @@ export default class SettingsAddress extends PureComponent {
     const { states } = this.props;
     const { address_line_1, address_line_2, address_city, address_state,
       address_postcode, country_code, phone, serverError, success, hasError } = this.state;
+
+    this.allRequiredDataFilled = address_line_1 && address_city && phone;
 
     return (
 			<form className="settings-address" onSubmit={this.onFormSubmit}>
