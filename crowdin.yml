@@ -1,1 +1,3 @@
-files: []
+files:
+  - source: /src/_constants/po/en.js
+    translation: /src/_constants/po/%two_letters_code%.js
