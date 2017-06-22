@@ -1,23 +1,3 @@
-# Indonesian translations for I package.
-# Copyright (C) 2011 THE I'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the I package.
-# root <id-trans@regentmarkets.com>, 2011.
-msgid ""
-msgstr ""
-"Project-Id-Version: I 18N\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2017-06-22 03:30+0000\n"
-"Last-Translator: Putri Kumala <putri@regentmarkets.com>\n"
-"Language-Team: Indonesian <https://hosted.weblate.org/projects/binary-app/"
-"next-gen-app/id/>\n"
-"Language: id\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.15-dev\n"
-
 msgid "All"
 msgstr "Semua"
 
@@ -31,7 +11,7 @@ msgid "Balance"
 msgstr "Saldo"
 
 msgid "Trade"
-msgstr "Trade"
+msgstr ""
 
 msgid "Watchlist"
 msgstr "Daftar pantauan"
@@ -55,7 +35,7 @@ msgid "View"
 msgstr "Lihat"
 
 msgid "Ref."
-msgstr "Ref."
+msgstr ""
 
 msgid "Purchase"
 msgstr "Beli"
@@ -79,7 +59,7 @@ msgid "Profit/Loss"
 msgstr "Untung/Rugi"
 
 msgid "Total"
-msgstr "Total"
+msgstr ""
 
 msgid "Location"
 msgstr "Lokasi"
@@ -115,8 +95,7 @@ msgid "Withdrawal limits"
 msgstr "Batas penarikan"
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
-msgstr ""
-"Batas penarikan Anda adalah {limit} (atau setara dengan mata uang lain)."
+msgstr "Batas penarikan Anda adalah {limit} (atau setara dengan mata uang lain)."
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
 msgstr "Anda telah menarik dana setara dengan EUR {drawn}."
@@ -215,7 +194,7 @@ msgid "Payout"
 msgstr "Hasil"
 
 msgid "Deposit"
-msgstr "Deposit"
+msgstr ""
 
 msgid "Transactions"
 msgstr "Transaksi"
@@ -266,16 +245,16 @@ msgid "Daily Report"
 msgstr "Laporan Harian"
 
 msgid "Up/Down"
-msgstr "Up/Down"
+msgstr ""
 
 msgid "Touch/No Touch"
-msgstr "Touch/No Touch"
+msgstr ""
 
 msgid "Ends In/Out"
-msgstr "Ends In/Out"
+msgstr ""
 
 msgid "Stays In/Goes Out"
-msgstr "Stays In/Goes Out"
+msgstr ""
 
 msgid "Settles"
 msgstr "Diselesaikan"
@@ -302,7 +281,7 @@ msgid "Country Of Residence"
 msgstr "Negara Domisili"
 
 msgid "Email"
-msgstr "Email"
+msgstr ""
 
 msgid "There are no transactions for selected period"
 msgstr "Tidak ditemukan transaksi bagi periode yang dipilih"
@@ -314,37 +293,37 @@ msgid "Buy"
 msgstr "Beli"
 
 msgid "Digit Even"
-msgstr "Digit Even"
+msgstr ""
 
 msgid "Touches"
-msgstr "Touches"
+msgstr ""
 
 msgid "Digit Over"
-msgstr "Digit Over"
+msgstr ""
 
 msgid "Digit Match"
-msgstr "Digit Match"
+msgstr ""
 
 msgid "Digit Under"
-msgstr "Digit Under"
+msgstr ""
 
 msgid "Digit Odd"
-msgstr "Digit Odd"
+msgstr ""
 
 msgid "Digit Differs"
-msgstr "Digit Differs"
+msgstr ""
 
 msgid "No Touch"
-msgstr "No Touch"
+msgstr ""
 
 msgid "Fall"
-msgstr "Fall"
+msgstr ""
 
 msgid "Asian Down"
-msgstr "Asian Down"
+msgstr ""
 
 msgid "Asian Up"
-msgstr "Asian Up"
+msgstr ""
 
 msgid "Search For Assets"
 msgstr "Pencarian Aset"
@@ -476,7 +455,7 @@ msgid "Trade Type"
 msgstr "Jenis Trading"
 
 msgid "Random 100 Index"
-msgstr "Random 100 Index"
+msgstr ""
 
 msgid "Article"
 msgstr "Artikel"
@@ -548,7 +527,7 @@ msgid "Daily Prices"
 msgstr "Harga Harian"
 
 msgid "Spreads"
-msgstr "Spreads"
+msgstr ""
 
 msgid "Confirm new password"
 msgstr "Konfirmasi kata sandi baru"
@@ -569,7 +548,7 @@ msgid "Days"
 msgstr "Hari"
 
 msgid "N/A"
-msgstr "N/A"
+msgstr ""
 
 msgid "Duration"
 msgstr "Durasi"
@@ -590,10 +569,10 @@ msgid "Portfolio"
 msgstr "Portopolio"
 
 msgid "Video"
-msgstr "Video"
+msgstr ""
 
 msgid "Digit Stats"
-msgstr "Digit Stats"
+msgstr ""
 
 msgid "Favorites"
 msgstr "Favorit"
@@ -643,17 +622,11 @@ msgstr "Anda Untung"
 msgid "You Lost"
 msgstr "Anda Rugi"
 
-msgid ""
-"To change your name, date of birth, country of residence, or email, contact "
-"Customer Support."
-msgstr ""
-"Untuk merubah nama, tanggal lahir, negara domisili atau email, hubungi "
-"Customer Support."
+msgid "To change your name, date of birth, country of residence, or email, contact Customer Support."
+msgstr "Untuk merubah nama, tanggal lahir, negara domisili atau email, hubungi Customer Support."
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
-msgstr ""
-"Bagian kasir telah dikunci sesuai dengan permintaan Anda. Untuk membuka, "
-"masukkan kata sandi."
+msgstr "Bagian kasir telah dikunci sesuai dengan permintaan Anda. Untuk membuka, masukkan kata sandi."
 
 msgid "Unlock Cashier"
 msgstr "Membuka Kasir"
@@ -680,25 +653,25 @@ msgid "Advanced"
 msgstr "Lanjutan"
 
 msgid "Higher"
-msgstr "Higher"
+msgstr ""
 
 msgid "Lower"
-msgstr "Lower"
+msgstr ""
 
 msgid "Ends Outside"
-msgstr "Ends Outside"
+msgstr ""
 
 msgid "Ends Between"
-msgstr "Ends Between"
+msgstr ""
 
 msgid "Stays Between"
-msgstr "Stays Between"
+msgstr ""
 
 msgid "Goes Outside"
-msgstr "Goes Outside"
+msgstr ""
 
 msgid "Does Not Touch"
-msgstr "Does Not Touch"
+msgstr ""
 
 msgid "Credit / Debit"
 msgstr "Kredit / Debit"
@@ -731,7 +704,7 @@ msgid "Minor Pairs"
 msgstr "Pasangan Tambahan"
 
 msgid "Smart FX"
-msgstr "Smart FX"
+msgstr ""
 
 msgid "Volatility Indices"
 msgstr "Indeks Volatilitas"
@@ -775,10 +748,8 @@ msgstr "Masukkan kode verifikasi yang berlaku"
 msgid "Choose your country"
 msgstr "Pilih negara Anda"
 
-msgid ""
-"Password should have lower and uppercase letters and 6 characters or more"
-msgstr ""
-"Kata sandi harus memiliki huruf kecil, huruf besar dan 6 karakter atau lebih"
+msgid "Password should have lower and uppercase letters and 6 characters or more"
+msgstr "Kata sandi harus memiliki huruf kecil, huruf besar dan 6 karakter atau lebih"
 
 msgid "Passwords do not match"
 msgstr "Kata sandi tidak cocok"
@@ -907,8 +878,7 @@ msgid "Duration is out of range"
 msgstr "Durasi berada di luar jangkauan"
 
 msgid "Start date invalid, it needs to be five minutes or more in the future"
-msgstr ""
-"Tanggal mulai salah, diperlukan minimal lima menit mendatang atau lebih"
+msgstr "Tanggal mulai salah, diperlukan minimal lima menit mendatang atau lebih"
 
 msgid "Time format is wrong"
 msgstr "Format waktu salah"
@@ -941,5 +911,4 @@ msgid "Time out must be after today and cannot be more than 6 weeks."
 msgstr "Time out harus setelah hari ini dan tidak boleh lebih dari 6 minggu."
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
-msgstr ""
-"Waktu pengecualian tidak boleh kurang dari 6 bulan dan lebih dari 5 tahun."
+msgstr "Waktu pengecualian tidak boleh kurang dari 6 bulan dan lebih dari 5 tahun."
