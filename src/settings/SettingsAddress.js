@@ -137,6 +137,7 @@ export default class SettingsAddress extends PureComponent {
       });
       this.setState({ success: true });
       setTimeout(() => this.setState({ success: false }), 3000);
+      LiveData.api.getAccountSettings();
     } catch (e) {
       this.setState({ serverError: e.error.error.message });
     }
