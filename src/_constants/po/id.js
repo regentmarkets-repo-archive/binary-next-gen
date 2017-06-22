@@ -3,7 +3,7 @@ export default {
         "project-id-version": "I 18N",
         "report-msgid-bugs-to": "",
         "pot-creation-date": "",
-        "po-revision-date": "2017-05-03 08:11+0000",
+        "po-revision-date": "2017-06-22 03:30+0000",
         "last-translator": "Putri Kumala <putri@regentmarkets.com>",
         "language-team": "Indonesian <https://hosted.weblate.org/projects/binary-app/next-gen-app/id/>",
         "language": "id",
@@ -11,7 +11,7 @@ export default {
         "content-type": "text/plain; charset=UTF-8",
         "content-transfer-encoding": "8bit",
         "plural-forms": "nplurals=1; plural=0;",
-        "x-generator": "Weblate 2.14-dev"
+        "x-generator": "Weblate 2.15-dev"
     },
     "All": [
         null,
@@ -1215,18 +1215,22 @@ export default {
     ],
     "This field is required": [
         null,
-        ""
+        "Bagian ini diperlukan"
+    ],
+    "Should be a valid number": [
+        null,
+        "Harus nomor yang valid"
     ],
     "Should be between 0 and {number}": [
         null,
-        ""
+        "Harus antara 0 dan {number}"
     ],
     "Time out must be after today and cannot be more than 6 weeks.": [
         null,
-        ""
+        "Time out harus setelah hari ini dan tidak boleh lebih dari 6 minggu."
     ],
     "Exclude time cannot be less than 6 months and more than 5 years.": [
         null,
-        ""
+        "Waktu pengecualian tidak boleh kurang dari 6 bulan dan lebih dari 5 tahun."
     ]
 }
