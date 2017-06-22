@@ -1,95 +1,3 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# Michael Borkovec <MBO>, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-# Vera Linhart, 2013.
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-12-20 18:29+0000\n"
-"Last-Translator: Chloe Chevreton <chloe-che@hotmail.fr>\n"
-"Language-Team: French <https://hosted.weblate.org/projects/binary-app/next-"
-"gen-app/fr/>\n"
-"Language: fr\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=2; plural=n > 1;\n"
-"X-Generator: Weblate 2.10\n"
-
 msgid "All"
 msgstr "Tout"
 
@@ -151,7 +59,7 @@ msgid "Profit/Loss"
 msgstr "Profits/Pertes"
 
 msgid "Total"
-msgstr "Total"
+msgstr ""
 
 msgid "Location"
 msgstr "Emplacement"
@@ -187,17 +95,13 @@ msgid "Withdrawal limits"
 msgstr "Limites de retrait"
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
-msgstr ""
-"Votre limite de retrait est de {limit} (ou l'équivalent dans une autre "
-"devise)."
+msgstr "Votre limite de retrait est de {limit} (ou l'équivalent dans une autre devise)."
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
 msgstr "Vous avez déjà retiré l'équivalent de {drawn} EUR."
 
 msgid "An additional password can be used to restrict access to the cashier."
-msgstr ""
-"Un mot de passe supplémentaire peut être utilisé afin de restreindre l'accès "
-"au service de caisse."
+msgstr "Un mot de passe supplémentaire peut être utilisé afin de restreindre l'accès au service de caisse."
 
 msgid "Sign In"
 msgstr "Connexion"
@@ -209,7 +113,7 @@ msgid "Create Account"
 msgstr "Créer un compte"
 
 msgid "Action"
-msgstr "Action"
+msgstr ""
 
 msgid "Credit/Debit"
 msgstr "Crédit/ Débit"
@@ -233,10 +137,10 @@ msgid "Asset"
 msgstr "Actif"
 
 msgid "Type"
-msgstr "Type"
+msgstr ""
 
 msgid "Ticks"
-msgstr "Ticks"
+msgstr ""
 
 msgid "Amount"
 msgstr "Montant"
@@ -269,7 +173,7 @@ msgid "Security"
 msgstr "Sécurité"
 
 msgid "Spot"
-msgstr "Spot"
+msgstr ""
 
 msgid "Change"
 msgstr "Modifier"
@@ -293,7 +197,7 @@ msgid "Deposit"
 msgstr "Dépôt"
 
 msgid "Transactions"
-msgstr "Transactions"
+msgstr ""
 
 msgid "Opens"
 msgstr "Ouverture"
@@ -416,10 +320,10 @@ msgid "Fall"
 msgstr "Baisse"
 
 msgid "Asian Down"
-msgstr "Asian Down"
+msgstr ""
 
 msgid "Asian Up"
-msgstr "Asian Up"
+msgstr ""
 
 msgid "Search For Assets"
 msgstr "Rechercher des actifs"
@@ -455,7 +359,7 @@ msgid "Password"
 msgstr "Mot de passe"
 
 msgid "Tick Trade"
-msgstr "Tick Trade"
+msgstr ""
 
 msgid "Full Trade"
 msgstr "Option classique"
@@ -494,8 +398,7 @@ msgid "Daily turnover limit"
 msgstr "Limite journalière du volume des transactions"
 
 msgid "Once this limit is reached, you may no longer deposit."
-msgstr ""
-"Une fois cette limite atteinte, vous ne pouvez plus effectuer de dépôt."
+msgstr "Une fois cette limite atteinte, vous ne pouvez plus effectuer de dépôt."
 
 msgid "Maximum aggregate contract purchases per day."
 msgstr "Maximum global des achats de contrat par jour."
@@ -555,7 +458,7 @@ msgid "Random 100 Index"
 msgstr "Indice Random 100"
 
 msgid "Article"
-msgstr "Article"
+msgstr ""
 
 msgid "Start Later"
 msgstr "Commencer plus tard"
@@ -567,7 +470,7 @@ msgid "Earning (%)"
 msgstr "Gain  (%)"
 
 msgid "Profit"
-msgstr "Profit"
+msgstr ""
 
 msgid "Entry Price"
 msgstr "Prix d'entrée"
@@ -603,7 +506,7 @@ msgid "Open"
 msgstr "Ouverture"
 
 msgid "Date"
-msgstr "Date"
+msgstr ""
 
 msgid "Upcoming Events"
 msgstr "Prochains événements"
@@ -624,16 +527,16 @@ msgid "Daily Prices"
 msgstr "Prix quotidiens"
 
 msgid "Spreads"
-msgstr "Spreads"
+msgstr ""
 
 msgid "Confirm new password"
 msgstr "Confirmer le nouveau mot de passe"
 
 msgid "TICK"
-msgstr "TICK"
+msgstr ""
 
 msgid "Minutes"
-msgstr "Minutes"
+msgstr ""
 
 msgid "Seconds"
 msgstr "Secondes"
@@ -645,7 +548,7 @@ msgid "Days"
 msgstr "Jours"
 
 msgid "N/A"
-msgstr "N/A"
+msgstr ""
 
 msgid "Duration"
 msgstr "Durée"
@@ -719,17 +622,11 @@ msgstr "Vous avez gagné"
 msgid "You Lost"
 msgstr "Vous avez perdu"
 
-msgid ""
-"To change your name, date of birth, country of residence, or email, contact "
-"Customer Support."
-msgstr ""
-"Pour modifier votre nom, votre date de naissance, votre pays de résidence ou "
-"votre adresse e-mail, veuillez contacter le Service Clientèle."
+msgid "To change your name, date of birth, country of residence, or email, contact Customer Support."
+msgstr "Pour modifier votre nom, votre date de naissance, votre pays de résidence ou votre adresse e-mail, veuillez contacter le Service Clientèle."
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
-msgstr ""
-"Votre service de caisse est verrouillé conformément à votre demande. Pour le "
-"déverrouiller, veuillez saisir votre mot de passe."
+msgstr "Votre service de caisse est verrouillé conformément à votre demande. Pour le déverrouiller, veuillez saisir votre mot de passe."
 
 msgid "Unlock Cashier"
 msgstr "Déverrouiller le service de caisse"
@@ -813,7 +710,7 @@ msgid "Volatility Indices"
 msgstr "Indices de volatilité"
 
 msgid "Indices"
-msgstr "Indices"
+msgstr ""
 
 msgid "OTC Stocks"
 msgstr "Actions OTC"
@@ -851,11 +748,8 @@ msgstr "Saisissez un code de vérification valide"
 msgid "Choose your country"
 msgstr "Sélectionnez votre pays"
 
-msgid ""
-"Password should have lower and uppercase letters and 6 characters or more"
-msgstr ""
-"Le mot de passe doit se composer de majuscules et de minuscules et contenir "
-"au moins 6 caractères"
+msgid "Password should have lower and uppercase letters and 6 characters or more"
+msgstr "Le mot de passe doit se composer de majuscules et de minuscules et contenir au moins 6 caractères"
 
 msgid "Passwords do not match"
 msgstr "Les mots de passe saisis ne correspondent pas"
@@ -984,9 +878,7 @@ msgid "Duration is out of range"
 msgstr "La durée dépasse la plage autorisée"
 
 msgid "Start date invalid, it needs to be five minutes or more in the future"
-msgstr ""
-"La date de début n'est pas valide, elle doit se situer à cinq minutes ou "
-"plus de l'heure actuelle"
+msgstr "La date de début n'est pas valide, elle doit se situer à cinq minutes ou plus de l'heure actuelle"
 
 msgid "Time format is wrong"
 msgstr "Le format d'heure est incorrect"
@@ -1003,16 +895,14 @@ msgstr "Barrière supérieure"
 msgid "Low barrier"
 msgstr "Barrière inférieure"
 
-#, fuzzy
 msgid "Touch spot"
-msgstr "Touche"
+msgstr ""
 
 msgid "This field is required"
 msgstr ""
 
-#, fuzzy
 msgid "Should be a valid number"
-msgstr "Saisissez un numéro de téléphone valide"
+msgstr ""
 
 msgid "Should be between 0 and {number}"
 msgstr ""
