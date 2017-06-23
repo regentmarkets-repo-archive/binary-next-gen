@@ -49,7 +49,7 @@ export default {
     ],
     "Ref.": [
         null,
-        ""
+        "Ref."
     ],
     "Purchase": [
         null,
@@ -105,7 +105,7 @@ export default {
     ],
     "Limit ({currency})": [
         null,
-        ""
+        "Grenzwert ({currency})"
     ],
     "Maximum number of open positions": [
         null,
@@ -189,7 +189,7 @@ export default {
     ],
     "Ticks": [
         null,
-        ""
+        "Ticks"
     ],
     "Amount": [
         null,
@@ -365,7 +365,7 @@ export default {
     ],
     "Name": [
         null,
-        ""
+        "Name"
     ],
     "Date Of Birth": [
         null,
@@ -481,7 +481,7 @@ export default {
     ],
     "Tick Trade": [
         null,
-        ""
+        "Tick Trade"
     ],
     "Full Trade": [
         null,
@@ -593,7 +593,7 @@ export default {
     ],
     "Limits": [
         null,
-        ""
+        "Limits"
     ],
     "Please enter date in the format YYYY-MM-DD.": [
         null,
@@ -609,7 +609,7 @@ export default {
     ],
     "Random 100 Index": [
         null,
-        ""
+        "Random 100 Index"
     ],
     "Article": [
         null,
@@ -705,7 +705,7 @@ export default {
     ],
     "Spreads": [
         null,
-        ""
+        "Spreads"
     ],
     "Confirm new password": [
         null,
@@ -713,7 +713,7 @@ export default {
     ],
     "TICK": [
         null,
-        ""
+        "TICK"
     ],
     "Minutes": [
         null,
@@ -757,11 +757,11 @@ export default {
     ],
     "Portfolio": [
         null,
-        ""
+        "Portfolio"
     ],
     "Video": [
         null,
-        ""
+        "Video"
     ],
     "Digit Stats": [
         null,
@@ -941,7 +941,7 @@ export default {
     ],
     "Smart FX": [
         null,
-        ""
+        "Smart FX"
     ],
     "Volatility Indices": [
         null,
@@ -1201,22 +1201,22 @@ export default {
     ],
     "This field is required": [
         null,
-        ""
+        "Dieses Feld ist erforderlich"
     ],
     "Should be a valid number": [
         null,
-        ""
+        "Sollte eine gltige Zahl sein"
     ],
     "Should be between 0 and {number}": [
         null,
-        ""
+        "Sollte zwischen 0 und {number} liegen"
     ],
     "Time out must be after today and cannot be more than 6 weeks.": [
         null,
-        ""
+        "Die Auszeit muss nach dem heutigen Tag sein und darf nicht lnger als 6 Wochen betragen."
     ],
     "Exclude time cannot be less than 6 months and more than 5 years.": [
         null,
-        ""
+        "Die Ausschluzeit darf nicht weniger als 6 Monate und nicht mehr als 5 Jahre dauern."
     ]
 }
