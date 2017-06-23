@@ -8,7 +8,7 @@ cd build/ &&
 gulp update-translation &&
 git checkout -b update-translations &&
 cd ../ &&
-git add . &&
+git add . --all &&
 git commit -m "Sync translations from weblate" &&
 git checkout $CURRENT_BRANCH &&
 git checkout update-translations -- src/_constants/po
