@@ -243,15 +243,17 @@ export default class SettingsSelfExclusion extends PureComponent {
 
   onEntryChange = (e: SyntheticEvent) => {
     this.setState({ [e.target.id]: e.target.value });
+    this.setState({ hasError: false });
     this.result[e.target.id] = approve.value(e.target.value, this.rules[e.target.id]);
 	}
 
   onFormSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    this.setState({
-      validatedOnce: true,
-    });
-    this.updateSelfExclusion();
+    if (this.allRequiredDataFilled && !Object.keys(this.result).some(key => !this.result[key].approved)) {
+      this.updateSelfExclusion();
+    } else {
+      this.setState({ hasError: true });
+    }
   }
 
   updateSelfExclusion = async () => {
@@ -294,111 +296,104 @@ export default class SettingsSelfExclusion extends PureComponent {
   render() {
     const { max_balance, max_turnover, max_losses, max_7day_turnover, max_7day_losses,
       max_30day_turnover, max_30day_losses, max_open_bets, session_duration_limit,
-      exclude_until, timeout_until_date, timeout_until_time, success, serverError } = this.state;
-    // const wrongExcludeUntillTime = isValidTime(timeout_until_time);
+      exclude_until, timeout_until_date, timeout_until_time, success, serverError, hasError } = this.state;
+
+    this.allRequiredDataFilled = max_balance && (timeout_until_date ? timeout_until_time : true);
 
     return (
 			<form className="settings-self-exclusion" onSubmit={this.onFormSubmit}>
         {serverError && <ServerErrorMsg text={serverError} />}
+        {hasError && <ErrorMsg text="Please fill the form with valid value" />}
 				<UpdateNotice text="Settings updated" show={success} />
 				<InputGroup
 					id="max_balance"
 					label="Maximum account cash balance"
-					// type="number"
 					// hint="Once this limit is reached, you may no longer deposit."
 					type="text"
 					maxLength="20"
 					defaultValue={max_balance}
 					onChange={this.onEntryChange}
 				/>
-				{this.result && this.result.max_balance && this.result.max_balance.errors && <ErrorMsg text={this.result.max_balance.errors[0]} />}
+				{this.result.max_balance && this.result.max_balance.errors && <ErrorMsg text={this.result.max_balance.errors[0]} />}
 				<InputGroup
 					id="max_turnover"
 					label="Daily turnover limit"
-					// type="number"
 					// hint="Maximum aggregate contract purchases per day."
 					type="text"
 					maxLength="20"
 					defaultValue={max_turnover}
 					onChange={this.onEntryChange}
 				/>
-        {this.result && this.result.max_turnover && this.result.max_turnover.errors && <ErrorMsg text={this.result.max_turnover.errors[0]} />}
+        {this.result.max_turnover && this.result.max_turnover.errors && <ErrorMsg text={this.result.max_turnover.errors[0]} />}
 				<InputGroup
 					id="max_losses"
 					label="Daily limit on losses"
-					// type="number"
 					// hint="Maximum aggregate loss per day."
 					type="text"
 					maxLength="20"
 					defaultValue={max_losses}
 					onChange={this.onEntryChange}
 				/>
-        {this.result && this.result.max_losses && this.result.max_losses.errors && <ErrorMsg text={this.result.max_losses.errors[0]} />}
+        {this.result.max_losses && this.result.max_losses.errors && <ErrorMsg text={this.result.max_losses.errors[0]} />}
 				<InputGroup
 					id="max_7day_turnover"
 					label="7-day turnover limit"
-					// type="number"
 					// hint="Maximum aggregate contract purchases over a 7-day period."
 					type="text"
 					maxLength="20"
 					defaultValue={max_7day_turnover}
 					onChange={this.onEntryChange}
 				/>
-        {this.result && this.result.max_7day_turnover && this.result.max_7day_turnover.errors && <ErrorMsg text={this.result.max_7day_turnover.errors[0]} />}
+        {this.result.max_7day_turnover && this.result.max_7day_turnover.errors && <ErrorMsg text={this.result.max_7day_turnover.errors[0]} />}
 				<InputGroup
 					id="max_7day_losses"
 					label="7-day limit on losses"
-					// type="number"
 					// hint="Maximum aggregate loss over a 7-day period."
 					type="text"
 					maxLength="20"
 					defaultValue={max_7day_losses}
 					onChange={this.onEntryChange}
 				/>
-        {this.result && this.result.max_7day_losses && this.result.max_7day_losses.errors && <ErrorMsg text={this.result.max_7day_losses.errors[0]} />}
+        {this.result.max_7day_losses && this.result.max_7day_losses.errors && <ErrorMsg text={this.result.max_7day_losses.errors[0]} />}
 				<InputGroup
 					id="max_30day_turnover"
 					label="30-day turnover limit"
-					// type="number"
 					// hint="Maximum aggregate contract purchases over a 30-day period."
 					type="text"
 					maxLength="20"
 					defaultValue={max_30day_turnover}
 					onChange={this.onEntryChange}
 				/>
-        {this.result && this.result.max_30day_turnover && this.result.max_30day_turnover.errors && <ErrorMsg text={this.result.max_30day_turnover.errors[0]} />}
+        {this.result.max_30day_turnover && this.result.max_30day_turnover.errors && <ErrorMsg text={this.result.max_30day_turnover.errors[0]} />}
 				<InputGroup
 					id="max_30day_losses"
 					label="30-day limit on losses"
-					// type="number"
 					// hint="Maximum aggregate loss over a 30-day period."
 					type="text"
 					maxLength="20"
 					defaultValue={max_30day_losses}
 					onChange={this.onEntryChange}
 				/>
-        {this.result && this.result.max_30day_losses && this.result.max_30day_losses.errors && <ErrorMsg text={this.result.max_30day_losses.errors[0]} />}
+        {this.result.max_30day_losses && this.result.max_30day_losses.errors && <ErrorMsg text={this.result.max_30day_losses.errors[0]} />}
 				<InputGroup
 					id="max_open_bets"
 					label="Maximum number of open positions"
-					// type="number"
 					type="text"
 					maxLength="4"
 					defaultValue={max_open_bets}
 					onChange={this.onEntryChange}
 				/>
-        {this.result && this.result.max_open_bets && this.result.max_open_bets.errors && <ErrorMsg text={this.result.max_open_bets.errors[0]} />}
+        {this.result.max_open_bets && this.result.max_open_bets.errors && <ErrorMsg text={this.result.max_open_bets.errors[0]} />}
 				<InputGroup
 					id="session_duration_limit"
 					label="Session duration limit, in minutes"
-					// type="number"
 					// hint="You will be automatically logged out after such time."
 					type="text"
 					maxLength="5"
 					defaultValue={session_duration_limit}
 					onChange={this.onEntryChange}
 				/>
-        {this.result && this.result.session_duration_limit && this.result.session_duration_limit.errors && <ErrorMsg text={this.result.session_duration_limit.errors[0]} />}
+        {this.result.session_duration_limit && this.result.session_duration_limit.errors && <ErrorMsg text={this.result.session_duration_limit.errors[0]} />}
 				<InputGroup
 					id="timeout_until_date"
 					label="Time out until date"
@@ -407,7 +402,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={timeout_until_date || 'yyyy-mm-dd'}
 					onChange={this.onEntryChange}
 				/>
-        {this.result && this.result.timeout_until_date && this.result.timeout_until_date.errors && <ErrorMsg text={this.result.timeout_until_date.errors[0]} />}
+        {this.result.timeout_until_date && this.result.timeout_until_date.errors && <ErrorMsg text={this.result.timeout_until_date.errors[0]} />}
 				<InputGroup
 					id="timeout_until_time"
 					label="Time out until time"
@@ -416,7 +411,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={timeout_until_time || '--:--:--'}
 					onChange={this.onEntryChange}
 				/>
-        {this.result && this.result.timeout_until_time && this.result.timeout_until_time.errors && <ErrorMsg text={this.result.timeout_until_time.errors[0]} />}
+        {this.result.timeout_until_time && this.result.timeout_until_time.errors && <ErrorMsg text={this.result.timeout_until_time.errors[0]} />}
         {timeout_until_date && !timeout_until_time && <ErrorMsg text="This field is required" />}
 				<InputGroup
 					id="exclude_until"
@@ -426,7 +421,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={exclude_until || 'yyyy-mm-dd'}
 					onChange={this.onEntryChange}
 				/>
-        {this.result && this.result.exclude_until && this.result.exclude_until.errors && <ErrorMsg text={this.result.exclude_until.errors[0]} />}
+        {this.result.exclude_until && this.result.exclude_until.errors && <ErrorMsg text={this.result.exclude_until.errors[0]} />}
 				<Button text="Update" />
 			</form>
     );
