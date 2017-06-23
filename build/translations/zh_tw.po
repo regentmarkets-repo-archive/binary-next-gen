@@ -1,914 +1,917 @@
 msgid "All"
-msgstr "所有"
+msgstr ""
 
 msgid "Property"
-msgstr "財產"
+msgstr ""
 
 msgid "Value"
-msgstr "價值"
+msgstr ""
 
 msgid "Balance"
-msgstr "餘額"
+msgstr ""
 
 msgid "Trade"
-msgstr "交易"
+msgstr ""
 
 msgid "Watchlist"
-msgstr "關注清單"
+msgstr ""
 
 msgid "Open Positions"
-msgstr "未平倉頭寸"
+msgstr ""
 
 msgid "Profit Table"
-msgstr "利潤表"
+msgstr ""
 
 msgid "Statement"
-msgstr "帳單"
+msgstr ""
 
 msgid "Settings"
-msgstr "設定"
+msgstr ""
 
 msgid "Sign Out"
-msgstr "登出"
+msgstr ""
 
 msgid "View"
-msgstr "檢視"
+msgstr ""
 
 msgid "Ref."
-msgstr "參考"
+msgstr ""
 
 msgid "Purchase"
-msgstr "買入"
+msgstr ""
 
 msgid "Indicative"
-msgstr "指示性"
+msgstr ""
 
 msgid "Purchase Date"
-msgstr "買入日期"
+msgstr ""
 
 msgid "Purchase Price"
-msgstr "買入價格"
+msgstr ""
 
 msgid "Sale Date"
-msgstr "賣出日期"
+msgstr ""
 
 msgid "Sale Price"
-msgstr "賣出價格"
+msgstr ""
 
 msgid "Profit/Loss"
-msgstr "利潤/虧損"
+msgstr "/"
 
 msgid "Total"
-msgstr "合計"
+msgstr ""
 
 msgid "Location"
-msgstr "位置"
+msgstr ""
 
 msgid "Update"
-msgstr "更新"
+msgstr ""
 
 msgid "Details"
-msgstr "詳細資料"
+msgstr ""
 
 msgid "Trading Limits"
-msgstr "交易限制"
+msgstr ""
 
 msgid "Item"
-msgstr "項目"
+msgstr ""
 
 msgid "Limit ({currency})"
-msgstr "限值 ({貨幣})"
+msgstr " ({})"
 
 msgid "Maximum number of open positions"
-msgstr "最大未平倉頭寸數目"
+msgstr ""
 
 msgid "Maximum account cash balance"
-msgstr "最大帳戶現金餘額"
+msgstr ""
 
 msgid "Maximum daily turnover"
-msgstr "最大日成交量"
+msgstr ""
 
 msgid "Maximum aggregate payouts on open positions"
-msgstr "未平倉頭寸的最大賠付總額"
+msgstr ""
 
 msgid "Withdrawal limits"
-msgstr "取款限額"
+msgstr ""
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
-msgstr "您的提款上限是 {限值} (或等值的其他貨幣)。"
+msgstr " {} ()"
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
-msgstr "您的提款數額相當於歐元 {提款值}。"
+msgstr " {}"
 
 msgid "An additional password can be used to restrict access to the cashier."
-msgstr "可使用額外密碼來限制對收銀台的存取。"
+msgstr ""
 
 msgid "Sign In"
-msgstr "登入"
+msgstr ""
 
 msgid "Get your API token"
-msgstr "領取API權杖"
+msgstr "API"
 
 msgid "Create Account"
-msgstr "新增帳戶"
+msgstr ""
 
 msgid "Action"
-msgstr "動作"
+msgstr ""
 
 msgid "Credit/Debit"
-msgstr "借記/貸記"
+msgstr "/"
 
 msgid "Purchase Time"
-msgstr "買入時間"
+msgstr ""
 
 msgid "Back"
-msgstr "返回"
+msgstr ""
 
 msgid "Place Order"
-msgstr "下訂單"
+msgstr ""
 
 msgid "{asset} will {type} over next {duration}"
-msgstr "{資產}將在{類型}期內{時段}"
+msgstr "{}{}{}"
 
 msgid "Price"
-msgstr "價格"
+msgstr ""
 
 msgid "Asset"
-msgstr "資產"
+msgstr ""
 
 msgid "Type"
-msgstr "類型"
+msgstr ""
 
 msgid "Ticks"
-msgstr "跳動點"
+msgstr ""
 
 msgid "Amount"
-msgstr "金額"
+msgstr ""
 
 msgid "Trade Confirmation"
-msgstr "交易確認"
+msgstr ""
 
 msgid "Entry spot"
-msgstr "入市現價"
+msgstr ""
 
 msgid "Exit spot"
-msgstr "退出現價"
+msgstr ""
 
 msgid "Next"
-msgstr "下一頁"
+msgstr ""
 
 msgid "Open Account"
-msgstr "開戶"
+msgstr ""
 
 msgid "Upgrade to Real Money Account"
-msgstr "升級為真實金錢帳戶"
+msgstr ""
 
 msgid "Date of birth"
-msgstr "出生日期"
+msgstr ""
 
 msgid "Home Address"
-msgstr "家庭住址"
+msgstr ""
 
 msgid "Security"
-msgstr "安全"
+msgstr ""
 
 msgid "Spot"
-msgstr "現價"
+msgstr ""
 
 msgid "Change"
-msgstr "變更"
+msgstr ""
 
 msgid "Chart"
-msgstr "圖表"
+msgstr ""
 
 msgid "Purchase For"
-msgstr "買入"
+msgstr ""
 
 msgid "Rise"
-msgstr "上漲"
+msgstr ""
 
 msgid "Stake"
-msgstr "投注金額"
+msgstr ""
 
 msgid "Payout"
-msgstr "賠付額"
+msgstr ""
 
 msgid "Deposit"
-msgstr "存款"
+msgstr ""
 
 msgid "Transactions"
-msgstr "交易"
+msgstr ""
 
 msgid "Opens"
-msgstr "開盤"
+msgstr ""
 
 msgid "Closes"
-msgstr "收盤"
+msgstr ""
 
 msgid "Personal"
-msgstr "個人"
+msgstr ""
 
 msgid "General"
-msgstr "一般條款"
+msgstr ""
 
 msgid "Trading Times"
-msgstr "交易時間"
+msgstr ""
 
 msgid "Asset Index"
-msgstr "資產指數"
+msgstr ""
 
 msgid "Today"
-msgstr "今日"
+msgstr ""
 
 msgid "Yesterday"
-msgstr "昨日"
+msgstr ""
 
 msgid "Tomorrow"
-msgstr "明日"
+msgstr ""
 
 msgid "Takeout"
-msgstr "取得"
+msgstr ""
 
 msgid "News"
-msgstr "新聞"
+msgstr ""
 
 msgid "Resources"
-msgstr "資源"
+msgstr ""
 
 msgid "Last 7 Days"
-msgstr "過去7天"
+msgstr "7"
 
 msgid "Last 30 Days"
-msgstr "過去30天"
+msgstr "30"
 
 msgid "Daily Report"
-msgstr "日報"
+msgstr ""
 
 msgid "Up/Down"
-msgstr "上/下"
+msgstr "/"
 
 msgid "Touch/No Touch"
-msgstr "觸及/未觸及"
+msgstr "/"
 
 msgid "Ends In/Out"
-msgstr "到期時價格處於某個範圍內/外"
+msgstr "/"
 
 msgid "Stays In/Goes Out"
-msgstr "保持在某個範圍內/外"
+msgstr "/"
 
 msgid "Settles"
-msgstr "結算"
+msgstr ""
 
 msgid "Language"
-msgstr "語言"
+msgstr ""
 
 msgid "Color Theme"
-msgstr "顏色主題"
+msgstr ""
 
 msgid "Light"
-msgstr "淺色"
+msgstr ""
 
 msgid "Dark"
-msgstr "深色"
+msgstr ""
 
 msgid "Name"
-msgstr "姓名"
+msgstr ""
 
 msgid "Date Of Birth"
-msgstr "出生日期"
+msgstr ""
 
 msgid "Country Of Residence"
-msgstr "居住國"
+msgstr ""
 
 msgid "Email"
-msgstr "電子郵件"
+msgstr ""
 
 msgid "There are no transactions for selected period"
-msgstr "選定時間段內無任何交易"
+msgstr ""
 
 msgid "Sell"
-msgstr "售出"
+msgstr ""
 
 msgid "Buy"
-msgstr "買入"
+msgstr ""
 
 msgid "Digit Even"
-msgstr "數字為偶數"
+msgstr ""
 
 msgid "Touches"
-msgstr "觸及"
+msgstr ""
 
 msgid "Digit Over"
-msgstr "數字超過限額"
+msgstr ""
 
 msgid "Digit Match"
-msgstr "數字匹配"
+msgstr ""
 
 msgid "Digit Under"
-msgstr "數字低於限額"
+msgstr ""
 
 msgid "Digit Odd"
-msgstr "數字為奇數"
+msgstr ""
 
 msgid "Digit Differs"
-msgstr "數字不匹配"
+msgstr ""
 
 msgid "No Touch"
-msgstr "未觸及"
+msgstr ""
 
 msgid "Fall"
-msgstr "下降"
+msgstr ""
 
 msgid "Asian Down"
-msgstr "亞洲下跌期權"
+msgstr ""
 
 msgid "Asian Up"
-msgstr "亞洲上漲期權"
+msgstr ""
 
 msgid "Search For Assets"
-msgstr "搜尋資產"
+msgstr ""
 
 msgid "Start times"
-msgstr "開始時間"
+msgstr ""
 
 msgid "Durations"
-msgstr "期現"
+msgstr ""
 
 msgid "Payout/Stake"
-msgstr "賠付/投注額"
+msgstr "/"
 
 msgid "Purchase for"
-msgstr "買入"
+msgstr ""
 
 msgid "payout"
-msgstr "賠付額"
+msgstr ""
 
 msgid "stake"
-msgstr "投注金額"
+msgstr ""
 
 msgid "Self Exclusion"
-msgstr "自我限制"
+msgstr ""
 
 msgid "Cashier Lock"
-msgstr "收銀台鎖定"
+msgstr ""
 
 msgid "Change Password"
-msgstr "更換密碼"
+msgstr ""
 
 msgid "Password"
-msgstr "密碼"
+msgstr ""
 
 msgid "Tick Trade"
-msgstr "跳動點交易"
+msgstr ""
 
 msgid "Full Trade"
-msgstr "完全自由交易"
+msgstr ""
 
 msgid "Address"
-msgstr "地址"
+msgstr ""
 
 msgid "Town/City"
-msgstr "城鎮/城市"
+msgstr "/"
 
 msgid "State/Province"
-msgstr "州/省"
+msgstr "/"
 
 msgid "Telephone"
-msgstr "電話"
+msgstr ""
 
 msgid "Postal Code / ZIP"
-msgstr "郵遞區號"
+msgstr ""
 
 msgid "Cashier password"
-msgstr "收銀台密碼"
+msgstr ""
 
 msgid "Re-enter your password"
-msgstr "重新輸入密碼"
+msgstr ""
 
 msgid "Current password"
-msgstr "目前密碼"
+msgstr ""
 
 msgid "New password"
-msgstr "新密碼"
+msgstr ""
 
 msgid "Verify new password"
-msgstr "驗證新密碼"
+msgstr ""
 
 msgid "Daily turnover limit"
-msgstr "最大日成交量"
+msgstr ""
 
 msgid "Once this limit is reached, you may no longer deposit."
-msgstr "一旦達到此限額，您不可再存入款項。"
+msgstr ""
 
 msgid "Maximum aggregate contract purchases per day."
-msgstr "每日最大累計合約購入額。"
+msgstr ""
 
 msgid "Daily limit on losses"
-msgstr "每日虧損限額"
+msgstr ""
 
 msgid "Maximum aggregate loss per day."
-msgstr "每日最大累計虧損額。"
+msgstr ""
 
 msgid "7-day turnover limit"
-msgstr "7天期最大交易限額"
+msgstr "7"
 
 msgid "Maximum aggregate contract purchases over a 7-day period."
-msgstr "7天期最大累計合約購入額。"
+msgstr "7"
 
 msgid "7-day limit on losses"
-msgstr "7天期虧損限額"
+msgstr "7"
 
 msgid "Maximum aggregate loss over a 7-day period."
-msgstr "7天期最大累計虧損額。"
+msgstr "7"
 
 msgid "30-day turnover limit"
-msgstr "30天期交易限額"
+msgstr "30"
 
 msgid "Maximum aggregate contract purchases over a 30-day period."
-msgstr "30天期最大累計合約購入額。"
+msgstr "30"
 
 msgid "30-day limit on losses"
-msgstr "30天期虧損限額"
+msgstr "30"
 
 msgid "Maximum aggregate loss over a 30-day period."
-msgstr "30天期最大累計虧損額。"
+msgstr "30"
 
 msgid "Session duration limit, in minutes"
-msgstr "交易期持續時間限制，以分鐘作單位"
+msgstr ""
 
 msgid "You will be automatically logged out after such time."
-msgstr "在該時間後您將自動退出登入。"
+msgstr ""
 
 msgid "Exclude me from the website until"
-msgstr "禁止我訪問本網站直到"
+msgstr ""
 
 msgid "Limits"
-msgstr "交易限制"
+msgstr ""
 
 msgid "Please enter date in the format YYYY-MM-DD."
-msgstr "請輸入日期，格式為年-月-日。"
+msgstr "--"
 
 msgid "New Trade"
-msgstr "新交易"
+msgstr ""
 
 msgid "Trade Type"
-msgstr "交易類型"
+msgstr ""
 
 msgid "Random 100 Index"
-msgstr "隨機100指標"
+msgstr "100"
 
 msgid "Article"
-msgstr "項目"
+msgstr ""
 
 msgid "Start Later"
-msgstr "稍後開始"
+msgstr ""
 
 msgid "Buy Price"
-msgstr "購入價格"
+msgstr ""
 
 msgid "Earning (%)"
-msgstr "收入(%)"
+msgstr "(%)"
 
 msgid "Profit"
-msgstr "利潤"
+msgstr ""
 
 msgid "Entry Price"
-msgstr "入市價格"
+msgstr ""
 
 msgid "Exit Price"
-msgstr "平倉價格"
+msgstr ""
 
 msgid "Indicative Price"
-msgstr "指示價格"
+msgstr ""
 
 msgid "Potential Profit"
-msgstr "潛在利潤"
+msgstr ""
 
 msgid "Sell at Market"
-msgstr "按市價賣出"
+msgstr ""
 
 msgid "Go back"
-msgstr "返回"
+msgstr ""
 
 msgid "You lost "
-msgstr "您輸了 "
+msgstr " "
 
 msgid "Close"
-msgstr "收盤"
+msgstr ""
 
 msgid "Low"
-msgstr "低"
+msgstr ""
 
 msgid "High"
-msgstr "高"
+msgstr ""
 
 msgid "Open"
-msgstr "開盤"
+msgstr ""
 
 msgid "Date"
-msgstr "日期"
+msgstr ""
 
 msgid "Upcoming Events"
-msgstr "未來事件"
+msgstr ""
 
 msgid "Win"
-msgstr "贏"
+msgstr ""
 
 msgid "Loss"
-msgstr "輸"
+msgstr ""
 
 msgid "Full Screen"
-msgstr "全屏"
+msgstr ""
 
 msgid "Start Now"
-msgstr "現在開始"
+msgstr ""
 
 msgid "Daily Prices"
-msgstr "每日價格"
+msgstr ""
 
 msgid "Spreads"
-msgstr "價差"
+msgstr ""
 
 msgid "Confirm new password"
-msgstr "確認新密碼"
+msgstr ""
 
 msgid "TICK"
-msgstr "跳動點"
+msgstr ""
 
 msgid "Minutes"
-msgstr "分鐘"
+msgstr ""
 
 msgid "Seconds"
-msgstr "秒"
+msgstr ""
 
 msgid "Hours"
-msgstr "小時"
+msgstr ""
 
 msgid "Days"
-msgstr "日"
+msgstr ""
 
 msgid "N/A"
-msgstr "不可用"
+msgstr ""
 
 msgid "Duration"
-msgstr "期限"
+msgstr ""
 
 msgid "Start Time"
-msgstr "開始時間"
+msgstr ""
 
 msgid "Now"
-msgstr "現在"
+msgstr ""
 
 msgid "Later"
-msgstr "稍後"
+msgstr ""
 
 msgid "return"
-msgstr "回報"
+msgstr ""
 
 msgid "Portfolio"
-msgstr "投資組合"
+msgstr ""
 
 msgid "Video"
-msgstr "視訊"
+msgstr ""
 
 msgid "Digit Stats"
-msgstr "數字統計"
+msgstr ""
 
 msgid "Favorites"
-msgstr "我的最愛"
+msgstr ""
 
 msgid "Open For Trading"
-msgstr "開放交易"
+msgstr ""
 
 msgid "Closed"
-msgstr "已收盤"
+msgstr ""
 
 msgid "Contract ID"
-msgstr "合約ID"
+msgstr "ID"
 
 msgid "Reference ID"
-msgstr "參考ID"
+msgstr "ID"
 
 msgid "Entry Spot"
-msgstr "入市現價"
+msgstr ""
 
 msgid "Entry Spot Time"
-msgstr "入市現價時間"
+msgstr ""
 
 msgid "Potential Payout"
-msgstr "潛在利潤"
+msgstr ""
 
 msgid "Exit Spot"
-msgstr "退出現價"
+msgstr ""
 
 msgid "Exit Spot Time"
-msgstr "退出現價時間"
+msgstr ""
 
 msgid "Sell Price"
-msgstr "賣出價格"
+msgstr ""
 
 msgid "Sell Time"
-msgstr "賣出時間"
+msgstr ""
 
 msgid "Trade Again"
-msgstr "再次交易"
+msgstr ""
 
 msgid "Barrier"
-msgstr "障礙"
+msgstr ""
 
 msgid "You Won"
-msgstr "您贏了"
+msgstr ""
 
 msgid "You Lost"
-msgstr "您輸了"
+msgstr ""
 
-msgid "To change your name, date of birth, country of residence, or email, contact Customer Support."
-msgstr "如需更改姓名、生日、居住國或電子郵件地址，請與客服人員聯繫。"
+msgid ""
+"To change your name, date of birth, country of residence, or email, contact "
+"Customer Support."
+msgstr ""
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
-msgstr "根據您的請求，您的收銀台已被鎖定。如需解除鎖定，請輸入密碼。"
+msgstr ""
 
 msgid "Unlock Cashier"
-msgstr "解鎖收銀台"
+msgstr ""
 
 msgid "Time out until"
-msgstr "時間已過。下次開啟時間為"
+msgstr ""
 
 msgid "No transactions for the selected period"
-msgstr "選定時間段內無任何交易"
+msgstr ""
 
 msgid "You have no open contracts"
-msgstr "您沒有未平倉合約"
+msgstr ""
 
 msgid "You have no assets in watchlist"
-msgstr "您的關注清單沒有資產"
+msgstr ""
 
 msgid "Basic"
-msgstr "基礎"
+msgstr ""
 
 msgid "Digits"
-msgstr "數字"
+msgstr ""
 
 msgid "Advanced"
-msgstr "高級"
+msgstr ""
 
 msgid "Higher"
-msgstr "高於"
+msgstr ""
 
 msgid "Lower"
-msgstr "低於"
+msgstr ""
 
 msgid "Ends Outside"
-msgstr "處於範圍外"
+msgstr ""
 
 msgid "Ends Between"
-msgstr "收於範圍之內"
+msgstr ""
 
 msgid "Stays Between"
-msgstr "保持在範圍之內"
+msgstr ""
 
 msgid "Goes Outside"
-msgstr "超出範圍之外"
+msgstr ""
 
 msgid "Does Not Touch"
-msgstr "未觸及"
+msgstr ""
 
 msgid "Credit / Debit"
-msgstr "借記/貸記"
+msgstr "/"
 
 msgid "Last 25 Ticks"
-msgstr "最近25次跳動"
+msgstr "25"
 
 msgid "Last 50 Trades"
-msgstr "過去50次交易"
+msgstr "50"
 
 msgid "Last 100 Trades"
-msgstr "過去100次交易"
+msgstr "100"
 
 msgid "Last 500 Trades"
-msgstr "過去500次交易"
+msgstr "500"
 
 msgid "Last 1000 Trades"
-msgstr "過去1000次交易"
+msgstr "1000"
 
 msgid "Maximum Daily Turnover"
-msgstr "最大日成交量"
+msgstr ""
 
 msgid "Commodities"
-msgstr "大宗商品"
+msgstr ""
 
 msgid "Major Pairs"
-msgstr "主要貨幣對"
+msgstr ""
 
 msgid "Minor Pairs"
-msgstr "次要貨幣對"
+msgstr ""
 
 msgid "Smart FX"
-msgstr "智慧外匯交易"
+msgstr ""
 
 msgid "Volatility Indices"
-msgstr "波動率指數"
+msgstr ""
 
 msgid "Indices"
-msgstr "指數"
+msgstr ""
 
 msgid "OTC Stocks"
-msgstr "場外交易股票"
+msgstr ""
 
 msgid "Stated limits are subject to change without prior notice"
-msgstr "我們保留隨時在沒有預先通知的情況下更改所述限制的權利"
+msgstr ""
 
 msgid "Withdrawal Limits"
-msgstr "取款限額"
+msgstr ""
 
 msgid "Withdrawal limit"
-msgstr "取款限額"
+msgstr ""
 
 msgid "Already withdrawn"
-msgstr "已提取"
+msgstr ""
 
 msgid "Current immediate maximum withdrawal"
-msgstr "目前的即時最高取款額"
+msgstr ""
 
 msgid "Create Free Account"
-msgstr "新增免費帳戶"
+msgstr ""
 
 msgid "Verification Code"
-msgstr "驗證碼"
+msgstr ""
 
 msgid "Confirm Password"
-msgstr "確認密碼"
+msgstr ""
 
 msgid "Already have an account?"
-msgstr "已經有帳戶？"
+msgstr ""
 
 msgid "Enter a valid verification code"
-msgstr "請輸入有效的驗證代碼"
+msgstr ""
 
 msgid "Choose your country"
-msgstr "選擇您的國家"
+msgstr ""
 
-msgid "Password should have lower and uppercase letters and 6 characters or more"
-msgstr "密碼須包含大小寫字母與至少6個字符"
+msgid ""
+"Password should have lower and uppercase letters and 6 characters or more"
+msgstr "6"
 
 msgid "Passwords do not match"
-msgstr "密碼不相符"
+msgstr ""
 
 msgid "Enter a valid email"
-msgstr "輸入有效的電子郵件"
+msgstr ""
 
 msgid "Number should between 10 to 120"
-msgstr "必須是10至120之間的數字"
+msgstr "10120"
 
 msgid "Enter your first and last name"
-msgstr "輸入姓名"
+msgstr ""
 
 msgid "City must not be empty"
-msgstr "城市不可為空"
+msgstr ""
 
 msgid "Address must not be empty"
-msgstr "地址不可為空"
+msgstr ""
 
 msgid "Enter a valid phone number"
-msgstr "輸入有效的電話號"
+msgstr ""
 
 msgid "Select a secret question"
-msgstr "選擇安全提示問題"
+msgstr ""
 
 msgid "Secret answer must be at least 4 characters"
-msgstr "安全提示答案必須至少4個字符"
+msgstr "4"
 
 msgid "You need to agree to our Terms and Conditions"
-msgstr "您必須同意我們的條款和條件"
+msgstr ""
 
 msgid "I agree to the"
-msgstr "本人同意"
+msgstr ""
 
 msgid "terms and conditions"
-msgstr "條款和條件"
+msgstr ""
 
 msgid "Search for assets"
-msgstr "搜尋資產"
+msgstr ""
 
 msgid "Choose a Payment Agent"
-msgstr "選擇支付代理"
+msgstr ""
 
 msgid "Confirm New Password"
-msgstr "確認新密碼"
+msgstr ""
 
 msgid "First Name"
-msgstr "名字"
+msgstr ""
 
 msgid "Last Name"
-msgstr "姓氏"
+msgstr ""
 
 msgid "Address First Line"
-msgstr "地址第一行"
+msgstr ""
 
 msgid "Address Second Line"
-msgstr "地址第二行"
+msgstr ""
 
 msgid "Phone"
-msgstr "電話"
+msgstr ""
 
 msgid "Answer To Secret Question"
-msgstr "安全提示問題的答案"
+msgstr ""
 
 msgid "Switch to"
-msgstr "切換成"
+msgstr ""
 
 msgid "Single Trade"
-msgstr "單次交易"
+msgstr ""
 
 msgid "Multi Trade"
-msgstr "多次交易"
+msgstr ""
 
 msgid "Current Password"
-msgstr "目前密碼"
+msgstr ""
 
 msgid "New Password"
-msgstr "新密碼"
+msgstr ""
 
 msgid "Last 50 Ticks"
-msgstr "最近50次跳動"
+msgstr "50"
 
 msgid "Last 100 Ticks"
-msgstr "最近100次跳動"
+msgstr "100"
 
 msgid "Last 500 Ticks"
-msgstr "最近500次跳動"
+msgstr "500"
 
 msgid "Last 1000 Ticks"
-msgstr "最近1000次跳動"
+msgstr "1000"
 
 msgid "Exit Full Screen"
-msgstr "退出全屏"
+msgstr ""
 
 msgid "No digit trades for this asset"
-msgstr "此資產無數字交易"
+msgstr ""
 
 msgid "Lock Cashier"
-msgstr "解鎖收銀台"
+msgstr ""
 
 msgid "Time out until date"
-msgstr "時間已過。下次開啟時間為"
+msgstr ""
 
 msgid "Time out until time"
-msgstr "時間已過。下次開啟時間為"
+msgstr ""
 
 msgid "Light Theme"
-msgstr "淺色主題"
+msgstr ""
 
 msgid "Dark Theme"
-msgstr "深色主題"
+msgstr ""
 
 msgid "Password changed successfully"
-msgstr "已成功更改密碼"
+msgstr ""
 
 msgid "Settings updated"
-msgstr "設定更新"
+msgstr ""
 
 msgid "Address updated"
-msgstr "地址更新"
+msgstr ""
 
 msgid "Barrier must not be empty"
-msgstr "障礙不可為空"
+msgstr ""
 
 msgid "Duration is out of range"
-msgstr "交易期限超出限定範圍"
+msgstr ""
 
 msgid "Start date invalid, it needs to be five minutes or more in the future"
-msgstr "開始日期無效，必須是未來的五分鐘或更長時間"
+msgstr ""
 
 msgid "Time format is wrong"
-msgstr "時間格式錯誤"
+msgstr ""
 
 msgid "Lower than"
-msgstr "低於"
+msgstr ""
 
 msgid "Higher than"
-msgstr "高於"
+msgstr ""
 
 msgid "High barrier"
-msgstr "高障礙"
+msgstr ""
 
 msgid "Low barrier"
-msgstr "低障礙"
+msgstr ""
 
 msgid "Touch spot"
-msgstr "觸及現貨價格"
+msgstr ""
 
 msgid "This field is required"
-msgstr "此為必填欄位"
+msgstr ""
 
 msgid "Should be a valid number"
-msgstr "必須是有效號碼"
+msgstr ""
 
 msgid "Should be between 0 and {number}"
-msgstr "必須介於 0 和 {number} 之間"
+msgstr " 0  {number} "
 
 msgid "Time out must be after today and cannot be more than 6 weeks."
-msgstr "超時時間必須在今天過後，且不能超過 6 周。"
+msgstr " 6 "
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
-msgstr "禁止存取時間不能少於 6 個月及超過 5 年。"
+msgstr " 6  5 "

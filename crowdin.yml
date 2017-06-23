@@ -1,1 +1,7 @@
-files: []
+files:
+  - source: /build/translations/messages.pot
+    translation: /build/translations/%two_letters_code%.po
+    languages_mapping:
+      two_letters_code:
+        zh-CN: zh_cn
+        zh-TW: zh_tw
