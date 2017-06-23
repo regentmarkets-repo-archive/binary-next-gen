@@ -162,7 +162,6 @@ export default class SettingsAddress extends PureComponent {
 					label="Address"
 					maxLength="70"
 					defaultValue={address_line_1}
-					value={address_line_1}
 					onChange={this.onEntryChange}
 				/>
         {this.result.address_line_1 && this.result.address_line_1.errors && <ErrorMsg text={this.result.address_line_1.errors[0]} />}
@@ -172,7 +171,6 @@ export default class SettingsAddress extends PureComponent {
 					label=" "
 					maxLength="70"
 					defaultValue={address_line_2}
-					value={address_line_2}
 					onChange={this.onEntryChange}
 				/>
         {this.result.address_line_2 && this.result.address_line_2.errors && <ErrorMsg text={this.result.address_line_2.errors[0]} />}
