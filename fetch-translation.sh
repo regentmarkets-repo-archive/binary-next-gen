@@ -3,6 +3,7 @@
 git fetch &&
 CURRENT_BRANCH="$(git rev-parse --abbrev-ref HEAD)" &&
 git checkout translations &&
+git pull &&
 cd build/ &&
 gulp update-translation &&
 git checkout -b update-translations &&
