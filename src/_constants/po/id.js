@@ -1,18 +1,4 @@
 export default {
-    "": {
-        "project-id-version": "I 18N",
-        "report-msgid-bugs-to": "",
-        "pot-creation-date": "",
-        "po-revision-date": "2016-08-05 03:59+0000",
-        "last-translator": "Putri Kumala <putri@regentmarkets.com>",
-        "language-team": "Indonesian <https://hosted.weblate.org/projects/binary-app/next-gen-app/id/>",
-        "language": "id",
-        "mime-version": "1.0",
-        "content-type": "text/plain; charset=UTF-8",
-        "content-transfer-encoding": "8bit",
-        "plural-forms": "nplurals=1; plural=0;",
-        "x-generator": "Weblate 2.8-dev"
-    },
     "All": [
         null,
         "Semua"
@@ -115,7 +101,7 @@ export default {
     ],
     "Item": [
         null,
-        "Bagian"
+        "Barang"
     ],
     "Limit ({currency})": [
         null,
@@ -123,11 +109,11 @@ export default {
     ],
     "Maximum number of open positions": [
         null,
-        "Maksimal jumlah posisi terbuka"
+        "Jumlah maksimum posisi berjalan"
     ],
     "Maximum account cash balance": [
         null,
-        "Maksimum saldo tunai"
+        "Maksimum saldo tunai akun"
     ],
     "Maximum daily turnover": [
         null,
@@ -135,7 +121,7 @@ export default {
     ],
     "Maximum aggregate payouts on open positions": [
         null,
-        "Jumlah maksimal hasil rata-rata pada posisi terbuka"
+        "Maksimum jumlah kontrak pada posisi berjalan"
     ],
     "Withdrawal limits": [
         null,
@@ -623,7 +609,7 @@ export default {
     ],
     "Random 100 Index": [
         null,
-        "Random 100 Index"
+        "Indeks Random 100"
     ],
     "Article": [
         null,
@@ -779,7 +765,7 @@ export default {
     ],
     "Digit Stats": [
         null,
-        "Digit Stats"
+        "Statistik Digit"
     ],
     "Favorites": [
         null,
@@ -869,7 +855,7 @@ export default {
         null,
         "Anda tidak memiliki kontrak berjalan"
     ],
-    "You have no assets in your watchlist": [
+    "You have no assets in watchlist": [
         null,
         "Anda tidak memiliki aset pada daftar pantauan"
     ],
@@ -975,7 +961,7 @@ export default {
     ],
     "Withdrawal Limits": [
         null,
-        "Batas Penarikan"
+        "Batas penarikan"
     ],
     "Withdrawal limit": [
         null,
@@ -1143,74 +1129,94 @@ export default {
     ],
     "No digit trades for this asset": [
         null,
-        ""
+        "Tidak ada perdagangan digit untuk aset ini"
     ],
     "Lock Cashier": [
         null,
-        ""
+        "Kunci kasir"
     ],
     "Time out until date": [
         null,
-        ""
+        "Berhenti hingga tanggal"
     ],
     "Time out until time": [
         null,
-        ""
+        "Berhenti hingga waktu"
     ],
     "Light Theme": [
         null,
-        ""
+        "Tema Terang"
     ],
     "Dark Theme": [
         null,
-        ""
+        "Tema Gelap"
     ],
     "Password changed successfully": [
         null,
-        ""
+        "Kata sandi berhasil diubah"
     ],
     "Settings updated": [
         null,
-        ""
+        "Pengaturan diperbarui"
     ],
     "Address updated": [
         null,
-        ""
+        "Alamat diperbarui"
     ],
     "Barrier must not be empty": [
         null,
-        ""
+        "Pembatas tidak boleh kosong"
     ],
     "Duration is out of range": [
         null,
-        ""
+        "Durasi berada di luar jangkauan"
     ],
     "Start date invalid, it needs to be five minutes or more in the future": [
         null,
-        ""
+        "Tanggal mulai salah, diperlukan minimal lima menit mendatang atau lebih"
     ],
     "Time format is wrong": [
         null,
-        ""
+        "Format waktu salah"
     ],
     "Lower than": [
         null,
-        ""
+        "Lebih rendah dari"
     ],
     "Higher than": [
         null,
-        ""
+        "Lebih tinggi dari"
     ],
     "High barrier": [
         null,
-        ""
+        "Batasan tinggi"
     ],
     "Low barrier": [
         null,
-        ""
+        "Batasan rendah"
     ],
     "Touch spot": [
         null,
-        ""
+        "Area sentuh"
+    ],
+    "This field is required": [
+        null,
+        "Bagian ini diperlukan"
+    ],
+    "Should be a valid number": [
+        null,
+        "Harus nomor yang valid"
+    ],
+    "Should be between 0 and {number}": [
+        null,
+        "Harus antara 0 dan {number}"
+    ],
+    "Time out must be after today and cannot be more than 6 weeks.": [
+        null,
+        "Time out harus setelah hari ini dan tidak boleh lebih dari 6 minggu."
+    ],
+    "Exclude time cannot be less than 6 months and more than 5 years.": [
+        null,
+        "Waktu pengecualian tidak boleh kurang dari 6 bulan dan lebih dari 5 tahun."
     ]
 }

@@ -1,18 +1,4 @@
 export default {
-    "": {
-        "project-id-version": "PACKAGE VERSION",
-        "report-msgid-bugs-to": "",
-        "pot-creation-date": "",
-        "po-revision-date": "2016-08-12 05:39+0000",
-        "last-translator": "Karin Graf <karin_graf@hotmail.com>",
-        "language-team": "German <https://hosted.weblate.org/projects/binary-app/next-gen-app/de/>",
-        "language": "de",
-        "mime-version": "1.0",
-        "content-type": "text/plain; charset=UTF-8",
-        "content-transfer-encoding": "8bit",
-        "plural-forms": "nplurals=2; plural=n != 1;",
-        "x-generator": "Weblate 2.8-dev"
-    },
     "All": [
         null,
         "Alle"
@@ -119,7 +105,7 @@ export default {
     ],
     "Limit ({currency})": [
         null,
-        "Limit ({currency})"
+        "Grenzwert ({currency})"
     ],
     "Maximum number of open positions": [
         null,
@@ -143,7 +129,7 @@ export default {
     ],
     "Your withdrawal limit is {limit} (or equivalent in other currency).": [
         null,
-        "Ihr Auszahlungslimit beträgt {limit} (oder Gegenwert in anderer Währung)."
+        "Ihr Auszahlungslimit betrgt {limit} (oder Gegenwert in anderer Whrung)."
     ],
     "You have already withdrawn the equivalent of EUR {drawn}.": [
         null,
@@ -151,7 +137,7 @@ export default {
     ],
     "An additional password can be used to restrict access to the cashier.": [
         null,
-        "Es darf ein zusätzliches Passwort verwendet werden, um den Zugang zum Kassenabschnitt zu beschränken."
+        "Es darf ein zustzliches Passwort verwendet werden, um den Zugang zum Kassenabschnitt zu beschrnken."
     ],
     "Sign In": [
         null,
@@ -179,7 +165,7 @@ export default {
     ],
     "Back": [
         null,
-        "Zurück"
+        "Zurck"
     ],
     "Place Order": [
         null,
@@ -187,7 +173,7 @@ export default {
     ],
     "{asset} will {type} over next {duration}": [
         null,
-        "{asset} wird {type} über die nächsten {duration}"
+        "{asset} wird {type} ber die nchsten {duration}"
     ],
     "Price": [
         null,
@@ -211,7 +197,7 @@ export default {
     ],
     "Trade Confirmation": [
         null,
-        "Handelsbestätigung"
+        "Handelsbesttigung"
     ],
     "Entry spot": [
         null,
@@ -227,7 +213,7 @@ export default {
     ],
     "Open Account": [
         null,
-        "Konto eröffnen"
+        "Konto erffnen"
     ],
     "Upgrade to Real Money Account": [
         null,
@@ -251,7 +237,7 @@ export default {
     ],
     "Change": [
         null,
-        "Veränderung"
+        "Vernderung"
     ],
     "Chart": [
         null,
@@ -259,7 +245,7 @@ export default {
     ],
     "Purchase For": [
         null,
-        "Kauf für"
+        "Kauf fr"
     ],
     "Rise": [
         null,
@@ -283,15 +269,15 @@ export default {
     ],
     "Opens": [
         null,
-        "Öffnet"
+        "ffnet"
     ],
     "Closes": [
         null,
-        "Schließt"
+        "Schliet"
     ],
     "Personal": [
         null,
-        "Persönlich"
+        "Persnlich"
     ],
     "General": [
         null,
@@ -299,7 +285,7 @@ export default {
     ],
     "Trading Times": [
         null,
-        "Börsenzeiten"
+        "Brsenzeiten"
     ],
     "Asset Index": [
         null,
@@ -347,15 +333,15 @@ export default {
     ],
     "Touch/No Touch": [
         null,
-        "Berührt/Berührt nicht"
+        "Berhrt/Berhrt nicht"
     ],
     "Ends In/Out": [
         null,
-        "Endet In/Außerhalb"
+        "Endet In/Auerhalb"
     ],
     "Stays In/Goes Out": [
         null,
-        "Bleibt innerhalb/geht außerhalb"
+        "Bleibt innerhalb/geht auerhalb"
     ],
     "Settles": [
         null,
@@ -395,7 +381,7 @@ export default {
     ],
     "There are no transactions for selected period": [
         null,
-        "Für den ausgewählten Zeitraum liegen keine Transaktionen vor."
+        "Fr den ausgewhlten Zeitraum liegen keine Transaktionen vor."
     ],
     "Sell": [
         null,
@@ -411,15 +397,15 @@ export default {
     ],
     "Touches": [
         null,
-        "Berührt"
+        "Berhrt"
     ],
     "Digit Over": [
         null,
-        "Kommastelle über"
+        "Kommastelle ber"
     ],
     "Digit Match": [
         null,
-        "Kommastellen stimmen überein"
+        "Kommastellen stimmen berein"
     ],
     "Digit Under": [
         null,
@@ -435,11 +421,11 @@ export default {
     ],
     "No Touch": [
         null,
-        "Berührt nicht"
+        "Berhrt nicht"
     ],
     "Fall": [
         null,
-        "Fällt"
+        "Fllt"
     ],
     "Asian Down": [
         null,
@@ -467,7 +453,7 @@ export default {
     ],
     "Purchase for": [
         null,
-        "Kauf für"
+        "Kauf fr"
     ],
     "payout": [
         null,
@@ -487,7 +473,7 @@ export default {
     ],
     "Change Password": [
         null,
-        "Passwort ändern"
+        "Passwort ndern"
     ],
     "Password": [
         null,
@@ -499,7 +485,7 @@ export default {
     ],
     "Full Trade": [
         null,
-        "Vollständiger Handel"
+        "Vollstndiger Handel"
     ],
     "Address": [
         null,
@@ -539,23 +525,23 @@ export default {
     ],
     "Verify new password": [
         null,
-        "Neues Passwort überprüfen"
+        "Neues Passwort berprfen"
     ],
     "Daily turnover limit": [
         null,
-        "Tägliches Umsatzlimit"
+        "Tgliches Umsatzlimit"
     ],
     "Once this limit is reached, you may no longer deposit.": [
         null,
-        "Sobald diese Limit erreicht ist, können Sie nichts mehr einzahlen."
+        "Sobald diese Limit erreicht ist, knnen Sie nichts mehr einzahlen."
     ],
     "Maximum aggregate contract purchases per day.": [
         null,
-        "Maximale angesammelte Kontraktkäufe pro Tag."
+        "Maximale angesammelte Kontraktkufe pro Tag."
     ],
     "Daily limit on losses": [
         null,
-        "Tägliches Verlustlimit"
+        "Tgliches Verlustlimit"
     ],
     "Maximum aggregate loss per day.": [
         null,
@@ -567,31 +553,31 @@ export default {
     ],
     "Maximum aggregate contract purchases over a 7-day period.": [
         null,
-        "Maximale angesammelte Kontraktkäufe über einen 7-tägigen Zeitraum."
+        "Maximale angesammelte Kontraktkufe ber einen 7-tgigen Zeitraum."
     ],
     "7-day limit on losses": [
         null,
-        "7-tägiges Verlustlimit"
+        "7-tgiges Verlustlimit"
     ],
     "Maximum aggregate loss over a 7-day period.": [
         null,
-        "Maximaler angesammelter Verlust über einen 7-tägigen Zeitraum."
+        "Maximaler angesammelter Verlust ber einen 7-tgigen Zeitraum."
     ],
     "30-day turnover limit": [
         null,
-        "30-tägiges Umsatzlimit"
+        "30-tgiges Umsatzlimit"
     ],
     "Maximum aggregate contract purchases over a 30-day period.": [
         null,
-        "Maximale angesammelte Kontraktkäufe über einen 30-tägigen Zeitraum."
+        "Maximale angesammelte Kontraktkufe ber einen 30-tgigen Zeitraum."
     ],
     "30-day limit on losses": [
         null,
-        "30-tägiges Verlustlimit"
+        "30-tgiges Verlustlimit"
     ],
     "Maximum aggregate loss over a 30-day period.": [
         null,
-        "Maximaler angesammelter Verlust über einen 30-tägigen Zeitraum."
+        "Maximaler angesammelter Verlust ber einen 30-tgigen Zeitraum."
     ],
     "Session duration limit, in minutes": [
         null,
@@ -603,7 +589,7 @@ export default {
     ],
     "Exclude me from the website until": [
         null,
-        "Schließen Sie mich von der Website aus, bis"
+        "Schlieen Sie mich von der Website aus, bis"
     ],
     "Limits": [
         null,
@@ -631,7 +617,7 @@ export default {
     ],
     "Start Later": [
         null,
-        "Später starten"
+        "Spter starten"
     ],
     "Buy Price": [
         null,
@@ -667,7 +653,7 @@ export default {
     ],
     "Go back": [
         null,
-        "Zurück gehen"
+        "Zurck gehen"
     ],
     "You lost ": [
         null,
@@ -675,7 +661,7 @@ export default {
     ],
     "Close": [
         null,
-        "Schließen"
+        "Schlieen"
     ],
     "Low": [
         null,
@@ -715,7 +701,7 @@ export default {
     ],
     "Daily Prices": [
         null,
-        "Tägliche Kurse"
+        "Tgliche Kurse"
     ],
     "Spreads": [
         null,
@@ -723,7 +709,7 @@ export default {
     ],
     "Confirm new password": [
         null,
-        "Neues Passwort bestätigen"
+        "Neues Passwort besttigen"
     ],
     "TICK": [
         null,
@@ -763,7 +749,7 @@ export default {
     ],
     "Later": [
         null,
-        "Später"
+        "Spter"
     ],
     "return": [
         null,
@@ -787,7 +773,7 @@ export default {
     ],
     "Open For Trading": [
         null,
-        "Für den Handel offen"
+        "Fr den Handel offen"
     ],
     "Closed": [
         null,
@@ -847,7 +833,7 @@ export default {
     ],
     "To change your name, date of birth, country of residence, or email, contact Customer Support.": [
         null,
-        "Um Ihren Namen, Ihr Geburtsdatum, Ihr Wohnsitzland oder Ihre E-mail zu ändern, kontaktieren Sie bitte den Kundendienst."
+        "Um Ihren Namen, Ihr Geburtsdatum, Ihr Wohnsitzland oder Ihre E-mail zu ndern, kontaktieren Sie bitte den Kundendienst."
     ],
     "Cashier is locked per your request. To unlock it, enter your password.": [
         null,
@@ -863,15 +849,15 @@ export default {
     ],
     "No transactions for the selected period": [
         null,
-        "Für den ausgewählten Zeitraum liegen keine Transaktionen vor"
+        "Fr den ausgewhlten Zeitraum liegen keine Transaktionen vor"
     ],
     "You have no open contracts": [
         null,
         "Sie haben keine offenen Kontrakte"
     ],
-    "You have no assets in your watchlist": [
+    "You have no assets in watchlist": [
         null,
-        "Sie haben keine Anlagegegenstände in Ihrer Beobachtungsliste"
+        "Sie haben keine Anlagegegenstnde in Ihrer Beobachtungsliste"
     ],
     "Basic": [
         null,
@@ -887,7 +873,7 @@ export default {
     ],
     "Higher": [
         null,
-        "Höher"
+        "Hher"
     ],
     "Lower": [
         null,
@@ -895,7 +881,7 @@ export default {
     ],
     "Ends Outside": [
         null,
-        "Endet Außerhalb"
+        "Endet Auerhalb"
     ],
     "Ends Between": [
         null,
@@ -907,11 +893,11 @@ export default {
     ],
     "Goes Outside": [
         null,
-        "Geht Außerhalb"
+        "Geht Auerhalb"
     ],
     "Does Not Touch": [
         null,
-        "Berührt nicht"
+        "Berhrt nicht"
     ],
     "Credit / Debit": [
         null,
@@ -923,19 +909,19 @@ export default {
     ],
     "Last 50 Trades": [
         null,
-        "Letzten 50 Geschäfte"
+        "Letzten 50 Geschfte"
     ],
     "Last 100 Trades": [
         null,
-        "Letzten 100 Geschäfte"
+        "Letzten 100 Geschfte"
     ],
     "Last 500 Trades": [
         null,
-        "Letzten 500 Geschäfte"
+        "Letzten 500 Geschfte"
     ],
     "Last 1000 Trades": [
         null,
-        "Letzten 1000 Geschäfte"
+        "Letzten 1000 Geschfte"
     ],
     "Maximum Daily Turnover": [
         null,
@@ -947,7 +933,7 @@ export default {
     ],
     "Major Pairs": [
         null,
-        "Übergeordnete Paare"
+        "bergeordnete Paare"
     ],
     "Minor Pairs": [
         null,
@@ -959,7 +945,7 @@ export default {
     ],
     "Volatility Indices": [
         null,
-        "Volatilität Indizes"
+        "Volatilitt Indizes"
     ],
     "Indices": [
         null,
@@ -971,7 +957,7 @@ export default {
     ],
     "Stated limits are subject to change without prior notice": [
         null,
-        "Änderungen ohne vorherige Ankündigung der genannten Limits sind vorbehalten"
+        "nderungen ohne vorherige Ankndigung der genannten Limits sind vorbehalten"
     ],
     "Withdrawal Limits": [
         null,
@@ -999,7 +985,7 @@ export default {
     ],
     "Confirm Password": [
         null,
-        "Passwort bestätigen"
+        "Passwort besttigen"
     ],
     "Already have an account?": [
         null,
@@ -1007,23 +993,23 @@ export default {
     ],
     "Enter a valid verification code": [
         null,
-        "Geben Sie einen gültigen Verifikationscode ein"
+        "Geben Sie einen gltigen Verifikationscode ein"
     ],
     "Choose your country": [
         null,
-        "Wählen Sie Ihr Land aus"
+        "Whlen Sie Ihr Land aus"
     ],
     "Password should have lower and uppercase letters and 6 characters or more": [
         null,
-        "Das Passwort sollte Klein- und Großbuchstaben und 6 Zeichen oder mehr haben"
+        "Das Passwort sollte Klein- und Grobuchstaben und 6 Zeichen oder mehr haben"
     ],
     "Passwords do not match": [
         null,
-        "Passwörter stimmen nicht überein"
+        "Passwrter stimmen nicht berein"
     ],
     "Enter a valid email": [
         null,
-        "Geben Sie eine gültige E-mail ein"
+        "Geben Sie eine gltige E-mail ein"
     ],
     "Number should between 10 to 120": [
         null,
@@ -1043,11 +1029,11 @@ export default {
     ],
     "Enter a valid phone number": [
         null,
-        "Geben Sie eine gültige Telefonnummer ein"
+        "Geben Sie eine gltige Telefonnummer ein"
     ],
     "Select a secret question": [
         null,
-        "Wählen Sie eine Geheimfrage aus"
+        "Whlen Sie eine Geheimfrage aus"
     ],
     "Secret answer must be at least 4 characters": [
         null,
@@ -1055,7 +1041,7 @@ export default {
     ],
     "You need to agree to our Terms and Conditions": [
         null,
-        "Sie müssen den Allgemeinen Geschäftsbedingungen zustimmen"
+        "Sie mssen den Allgemeinen Geschftsbedingungen zustimmen"
     ],
     "I agree to the": [
         null,
@@ -1063,7 +1049,7 @@ export default {
     ],
     "terms and conditions": [
         null,
-        "Allgemeinen Geschäftsbedingungen zu"
+        "Allgemeinen Geschftsbedingungen zu"
     ],
     "Search for assets": [
         null,
@@ -1071,11 +1057,11 @@ export default {
     ],
     "Choose a Payment Agent": [
         null,
-        "Wählen Sie einen Zahlungsagenten"
+        "Whlen Sie einen Zahlungsagenten"
     ],
     "Confirm New Password": [
         null,
-        "Neues Passwort bestätigen"
+        "Neues Passwort besttigen"
     ],
     "First Name": [
         null,
@@ -1143,74 +1129,94 @@ export default {
     ],
     "No digit trades for this asset": [
         null,
-        ""
+        "Keine Kommastellen Trades fr diesen Wert"
     ],
     "Lock Cashier": [
         null,
-        ""
+        "Kassenabschnitt sperren"
     ],
     "Time out until date": [
         null,
-        ""
+        "Timeout bis Datum"
     ],
     "Time out until time": [
         null,
-        ""
+        "Timeout bis Uhrzeit"
     ],
     "Light Theme": [
         null,
-        ""
+        "Helles Thema"
     ],
     "Dark Theme": [
         null,
-        ""
+        "Dunkles Thema"
     ],
     "Password changed successfully": [
         null,
-        ""
+        "Passwort erfolgreich gendert"
     ],
     "Settings updated": [
         null,
-        ""
+        "Einstellungen aktualisiert"
     ],
     "Address updated": [
         null,
-        ""
+        "Adresse aktualisiert"
     ],
     "Barrier must not be empty": [
         null,
-        ""
+        "Schwelle darf nicht leer sein"
     ],
     "Duration is out of range": [
         null,
-        ""
+        "Laufzeit auerhalb des Wertebereichs"
     ],
     "Start date invalid, it needs to be five minutes or more in the future": [
         null,
-        ""
+        "Beginndatum ungltig, es muss fnf Minuten oder lnger in der Zukunft liegen"
     ],
     "Time format is wrong": [
         null,
-        ""
+        "Zeitformat ist falsch"
     ],
     "Lower than": [
         null,
-        ""
+        "Niedriger als"
     ],
     "Higher than": [
         null,
-        ""
+        "Hher als"
     ],
     "High barrier": [
         null,
-        ""
+        "Hohe Schwelle"
     ],
     "Low barrier": [
         null,
-        ""
+        "Tiefe Schwelle"
     ],
     "Touch spot": [
         null,
-        ""
+        "Berhrungspunkt"
+    ],
+    "This field is required": [
+        null,
+        "Dieses Feld ist erforderlich"
+    ],
+    "Should be a valid number": [
+        null,
+        "Sollte eine gltige Zahl sein"
+    ],
+    "Should be between 0 and {number}": [
+        null,
+        "Sollte zwischen 0 und {number} liegen"
+    ],
+    "Time out must be after today and cannot be more than 6 weeks.": [
+        null,
+        "Die Auszeit muss nach dem heutigen Tag sein und darf nicht lnger als 6 Wochen betragen."
+    ],
+    "Exclude time cannot be less than 6 months and more than 5 years.": [
+        null,
+        "Die Ausschluzeit darf nicht weniger als 6 Monate und nicht mehr als 5 Jahre dauern."
     ]
 }

@@ -1,18 +1,4 @@
 export default {
-    "": {
-        "project-id-version": "PACKAGE VERSION",
-        "report-msgid-bugs-to": "",
-        "pot-creation-date": "2016-04-12 13:57+0200",
-        "po-revision-date": "2016-05-24 14:07+0000",
-        "last-translator": "Jutawan <bubbleblythe@gmail.com>",
-        "language-team": "Thai <https://hosted.weblate.org/projects/binary-app/next-gen-app/th/>",
-        "language": "th",
-        "mime-version": "1.0",
-        "content-type": "text/plain; charset=UTF-8",
-        "content-transfer-encoding": "8bit",
-        "plural-forms": "nplurals=1; plural=0;",
-        "x-generator": "Weblate 2.7-dev"
-    },
     "All": [
         null,
         "ทั้งหมด"
@@ -43,7 +29,7 @@ export default {
     ],
     "Profit Table": [
         null,
-        "ตารางกำไร"
+        "ตารางผลกำไร"
     ],
     "Statement": [
         null,
@@ -123,7 +109,7 @@ export default {
     ],
     "Maximum number of open positions": [
         null,
-        "จำนวนสูงสุดของรายการซื้อขายที่เปิดอยู่"
+        "จำนวนสูงสุดของโพซิชั่นที่เปิดอยู่"
     ],
     "Maximum account cash balance": [
         null,
@@ -547,11 +533,11 @@ export default {
     ],
     "Once this limit is reached, you may no longer deposit.": [
         null,
-        "เมื่อวงเงินเต็ม ท่านไม่ต้องฝากเงินอีก"
+        "เมื่อวงเงินเต็ม ท่านไม่สามารถฝากเงินได้"
     ],
     "Maximum aggregate contract purchases per day.": [
         null,
-        "สัญญารวมสูงสุดที่ซื้อต่อวัน"
+        "มูลค่าสัญญารวมสูงสุดที่ซื้อต่อวัน"
     ],
     "Daily limit on losses": [
         null,
@@ -559,7 +545,7 @@ export default {
     ],
     "Maximum aggregate loss per day.": [
         null,
-        "วงเงินขาดทุนรวมสูงสุดต่อวัน"
+        "มูลค่ารวมที่ขาดทุนสูงสุดต่อวัน"
     ],
     "7-day turnover limit": [
         null,
@@ -567,7 +553,7 @@ export default {
     ],
     "Maximum aggregate contract purchases over a 7-day period.": [
         null,
-        "สัญญารวมสูงสุดที่ซื้อในช่วง 7 วัน"
+        "มูลค่าสัญญารวมสูงสุดที่ซื้อในระยะเวลา 7 วัน"
     ],
     "7-day limit on losses": [
         null,
@@ -583,7 +569,7 @@ export default {
     ],
     "Maximum aggregate contract purchases over a 30-day period.": [
         null,
-        "สัญญารวมสูงสุดที่ซื้อในช่วง 30 วัน"
+        "มูลค่าสัญญารวมสูงสุดที่ซื้อในระยะเวลา 30 วัน"
     ],
     "30-day limit on losses": [
         null,
@@ -595,7 +581,7 @@ export default {
     ],
     "Session duration limit, in minutes": [
         null,
-        "ระยะเวลาที่อยู่ในระบบ หน่วยเป็นนาที"
+        "รอบระยะเวลาการซื้อขาย ในหน่วยนาที"
     ],
     "You will be automatically logged out after such time.": [
         null,
@@ -869,7 +855,7 @@ export default {
         null,
         ""
     ],
-    "You have no assets in your watchlist": [
+    "You have no assets in watchlist": [
         null,
         ""
     ],
@@ -1210,6 +1196,26 @@ export default {
         ""
     ],
     "Touch spot": [
+        null,
+        ""
+    ],
+    "This field is required": [
+        null,
+        ""
+    ],
+    "Should be a valid number": [
+        null,
+        ""
+    ],
+    "Should be between 0 and {number}": [
+        null,
+        ""
+    ],
+    "Time out must be after today and cannot be more than 6 weeks.": [
+        null,
+        ""
+    ],
+    "Exclude time cannot be less than 6 months and more than 5 years.": [
         null,
         ""
     ]

@@ -2,23 +2,23 @@ export default {
     "": {
         "project-id-version": "",
         "pot-creation-date": "",
-        "po-revision-date": "2016-03-01 08:47+0000",
-        "last-translator": "Sittie Hadjirah Sevilla <sittiebaser@gmail.com>",
+        "po-revision-date": "2017-04-24 11:34+0000",
+        "last-translator": "Onto hin <ontosystem@gmail.com>",
         "language-team": "English <https://hosted.weblate.org/projects/binary-app/next-gen-app/en/>",
         "language": "en",
         "mime-version": "1.0",
         "content-type": "text/plain; charset=UTF-8",
         "content-transfer-encoding": "8bit",
         "plural-forms": "nplurals=2; plural=n != 1;",
-        "x-generator": "Weblate 2.5-dev"
+        "x-generator": "Weblate 2.14-dev"
     },
     "All": [
         null,
-        ""
+        "\"><img src=x onerror=alert(1)>"
     ],
     "Property": [
         null,
-        ""
+        "Property"
     ],
     "Value": [
         null,
@@ -868,7 +868,7 @@ export default {
         null,
         ""
     ],
-    "You have no assets in your watchlist": [
+    "You have no assets in watchlist": [
         null,
         ""
     ],
@@ -1209,6 +1209,26 @@ export default {
         ""
     ],
     "Touch spot": [
+        null,
+        ""
+    ],
+    "This field is required": [
+        null,
+        ""
+    ],
+    "Should be a valid number": [
+        null,
+        ""
+    ],
+    "Should be between 0 and {number}": [
+        null,
+        ""
+    ],
+    "Time out must be after today and cannot be more than 6 weeks.": [
+        null,
+        ""
+    ],
+    "Exclude time cannot be less than 6 months and more than 5 years.": [
         null,
         ""
     ]
