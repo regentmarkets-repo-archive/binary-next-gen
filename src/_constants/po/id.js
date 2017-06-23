@@ -1,18 +1,4 @@
 export default {
-    "": {
-        "project-id-version": "I 18N",
-        "report-msgid-bugs-to": "",
-        "pot-creation-date": "",
-        "po-revision-date": "2017-06-22 03:30+0000",
-        "last-translator": "Putri Kumala <putri@regentmarkets.com>",
-        "language-team": "Indonesian <https://hosted.weblate.org/projects/binary-app/next-gen-app/id/>",
-        "language": "id",
-        "mime-version": "1.0",
-        "content-type": "text/plain; charset=UTF-8",
-        "content-transfer-encoding": "8bit",
-        "plural-forms": "nplurals=1; plural=0;",
-        "x-generator": "Weblate 2.15-dev"
-    },
     "All": [
         null,
         "Semua"
@@ -115,7 +101,7 @@ export default {
     ],
     "Item": [
         null,
-        "Bagian"
+        "Barang"
     ],
     "Limit ({currency})": [
         null,
@@ -123,11 +109,11 @@ export default {
     ],
     "Maximum number of open positions": [
         null,
-        "Maksimal jumlah posisi terbuka"
+        "Jumlah maksimum posisi berjalan"
     ],
     "Maximum account cash balance": [
         null,
-        "Maksimum saldo tunai"
+        "Maksimum saldo tunai akun"
     ],
     "Maximum daily turnover": [
         null,
@@ -135,7 +121,7 @@ export default {
     ],
     "Maximum aggregate payouts on open positions": [
         null,
-        "Jumlah maksimal hasil rata-rata pada posisi terbuka"
+        "Maksimum jumlah kontrak pada posisi berjalan"
     ],
     "Withdrawal limits": [
         null,
@@ -263,7 +249,7 @@ export default {
     ],
     "Rise": [
         null,
-        "Naik"
+        "Rise"
     ],
     "Stake": [
         null,
@@ -623,7 +609,7 @@ export default {
     ],
     "Random 100 Index": [
         null,
-        "Random 100 Index"
+        "Indeks Random 100"
     ],
     "Article": [
         null,
@@ -779,7 +765,7 @@ export default {
     ],
     "Digit Stats": [
         null,
-        "Digit Stats"
+        "Statistik Digit"
     ],
     "Favorites": [
         null,

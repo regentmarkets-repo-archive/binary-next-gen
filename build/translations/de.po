@@ -95,13 +95,16 @@ msgid "Withdrawal limits"
 msgstr "Auszahlungslimits"
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
-msgstr "Ihr Auszahlungslimit beträgt {limit} (oder Gegenwert in anderer Währung)."
+msgstr ""
+"Ihr Auszahlungslimit betrgt {limit} (oder Gegenwert in anderer Whrung)."
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
 msgstr "Sie haben schon den Gegenwert von EUR {drawn} abgehoben."
 
 msgid "An additional password can be used to restrict access to the cashier."
-msgstr "Es darf ein zusätzliches Passwort verwendet werden, um den Zugang zum Kassenabschnitt zu beschränken."
+msgstr ""
+"Es darf ein zustzliches Passwort verwendet werden, um den Zugang zum "
+"Kassenabschnitt zu beschrnken."
 
 msgid "Sign In"
 msgstr "Anmelden"
@@ -122,13 +125,13 @@ msgid "Purchase Time"
 msgstr "Kaufuhrzeit"
 
 msgid "Back"
-msgstr "Zurück"
+msgstr "Zurck"
 
 msgid "Place Order"
 msgstr "Order aufgeben"
 
 msgid "{asset} will {type} over next {duration}"
-msgstr "{asset} wird {type} über die nächsten {duration}"
+msgstr "{asset} wird {type} ber die nchsten {duration}"
 
 msgid "Price"
 msgstr "Kurs"
@@ -146,7 +149,7 @@ msgid "Amount"
 msgstr "Betrag"
 
 msgid "Trade Confirmation"
-msgstr "Handelsbestätigung"
+msgstr "Handelsbesttigung"
 
 msgid "Entry spot"
 msgstr "Startkurs"
@@ -158,7 +161,7 @@ msgid "Next"
 msgstr "Weiter"
 
 msgid "Open Account"
-msgstr "Konto eröffnen"
+msgstr "Konto erffnen"
 
 msgid "Upgrade to Real Money Account"
 msgstr "Auf Echtgeldkonto aufwerten"
@@ -176,13 +179,13 @@ msgid "Spot"
 msgstr "Kassakurs"
 
 msgid "Change"
-msgstr "Veränderung"
+msgstr "Vernderung"
 
 msgid "Chart"
 msgstr "Diagramm"
 
 msgid "Purchase For"
-msgstr "Kauf für"
+msgstr "Kauf fr"
 
 msgid "Rise"
 msgstr "Steigt"
@@ -200,19 +203,19 @@ msgid "Transactions"
 msgstr "Transaktionen"
 
 msgid "Opens"
-msgstr "Öffnet"
+msgstr "ffnet"
 
 msgid "Closes"
-msgstr "Schließt"
+msgstr "Schliet"
 
 msgid "Personal"
-msgstr "Persönlich"
+msgstr "Persnlich"
 
 msgid "General"
 msgstr "Allgemein"
 
 msgid "Trading Times"
-msgstr "Börsenzeiten"
+msgstr "Brsenzeiten"
 
 msgid "Asset Index"
 msgstr "Kapital Index"
@@ -248,13 +251,13 @@ msgid "Up/Down"
 msgstr "Hoch/Tief"
 
 msgid "Touch/No Touch"
-msgstr "Berührt/Berührt nicht"
+msgstr "Berhrt/Berhrt nicht"
 
 msgid "Ends In/Out"
-msgstr "Endet In/Außerhalb"
+msgstr "Endet In/Auerhalb"
 
 msgid "Stays In/Goes Out"
-msgstr "Bleibt innerhalb/geht außerhalb"
+msgstr "Bleibt innerhalb/geht auerhalb"
 
 msgid "Settles"
 msgstr "Bleibt"
@@ -284,7 +287,7 @@ msgid "Email"
 msgstr "E-Mail"
 
 msgid "There are no transactions for selected period"
-msgstr "Für den ausgewählten Zeitraum liegen keine Transaktionen vor."
+msgstr "Fr den ausgewhlten Zeitraum liegen keine Transaktionen vor."
 
 msgid "Sell"
 msgstr "Verkaufen"
@@ -296,13 +299,13 @@ msgid "Digit Even"
 msgstr "Kommastelle gleich"
 
 msgid "Touches"
-msgstr "Berührt"
+msgstr "Berhrt"
 
 msgid "Digit Over"
-msgstr "Kommastelle über"
+msgstr "Kommastelle ber"
 
 msgid "Digit Match"
-msgstr "Kommastellen stimmen überein"
+msgstr "Kommastellen stimmen berein"
 
 msgid "Digit Under"
 msgstr "Kommastelle unter"
@@ -314,10 +317,10 @@ msgid "Digit Differs"
 msgstr "Kommastelle unterschiedlich"
 
 msgid "No Touch"
-msgstr "Berührt nicht"
+msgstr "Berhrt nicht"
 
 msgid "Fall"
-msgstr "Fällt"
+msgstr "Fllt"
 
 msgid "Asian Down"
 msgstr "Asiatisch runter"
@@ -338,7 +341,7 @@ msgid "Payout/Stake"
 msgstr "Auszahlung/Einsatz"
 
 msgid "Purchase for"
-msgstr "Kauf für"
+msgstr "Kauf fr"
 
 msgid "payout"
 msgstr "Auszahlung"
@@ -353,7 +356,7 @@ msgid "Cashier Lock"
 msgstr "Kassenabschnitt Sperre"
 
 msgid "Change Password"
-msgstr "Passwort ändern"
+msgstr "Passwort ndern"
 
 msgid "Password"
 msgstr "Passwort"
@@ -362,7 +365,7 @@ msgid "Tick Trade"
 msgstr ""
 
 msgid "Full Trade"
-msgstr "Vollständiger Handel"
+msgstr "Vollstndiger Handel"
 
 msgid "Address"
 msgstr "Adresse"
@@ -392,19 +395,19 @@ msgid "New password"
 msgstr "Neues Passwort"
 
 msgid "Verify new password"
-msgstr "Neues Passwort überprüfen"
+msgstr "Neues Passwort berprfen"
 
 msgid "Daily turnover limit"
-msgstr "Tägliches Umsatzlimit"
+msgstr "Tgliches Umsatzlimit"
 
 msgid "Once this limit is reached, you may no longer deposit."
-msgstr "Sobald diese Limit erreicht ist, können Sie nichts mehr einzahlen."
+msgstr "Sobald diese Limit erreicht ist, knnen Sie nichts mehr einzahlen."
 
 msgid "Maximum aggregate contract purchases per day."
-msgstr "Maximale angesammelte Kontraktkäufe pro Tag."
+msgstr "Maximale angesammelte Kontraktkufe pro Tag."
 
 msgid "Daily limit on losses"
-msgstr "Tägliches Verlustlimit"
+msgstr "Tgliches Verlustlimit"
 
 msgid "Maximum aggregate loss per day."
 msgstr "Maximaler angesammelter Verlust pro Tag."
@@ -413,25 +416,25 @@ msgid "7-day turnover limit"
 msgstr "7-Tages Umsatzlimit"
 
 msgid "Maximum aggregate contract purchases over a 7-day period."
-msgstr "Maximale angesammelte Kontraktkäufe über einen 7-tägigen Zeitraum."
+msgstr "Maximale angesammelte Kontraktkufe ber einen 7-tgigen Zeitraum."
 
 msgid "7-day limit on losses"
-msgstr "7-tägiges Verlustlimit"
+msgstr "7-tgiges Verlustlimit"
 
 msgid "Maximum aggregate loss over a 7-day period."
-msgstr "Maximaler angesammelter Verlust über einen 7-tägigen Zeitraum."
+msgstr "Maximaler angesammelter Verlust ber einen 7-tgigen Zeitraum."
 
 msgid "30-day turnover limit"
-msgstr "30-tägiges Umsatzlimit"
+msgstr "30-tgiges Umsatzlimit"
 
 msgid "Maximum aggregate contract purchases over a 30-day period."
-msgstr "Maximale angesammelte Kontraktkäufe über einen 30-tägigen Zeitraum."
+msgstr "Maximale angesammelte Kontraktkufe ber einen 30-tgigen Zeitraum."
 
 msgid "30-day limit on losses"
-msgstr "30-tägiges Verlustlimit"
+msgstr "30-tgiges Verlustlimit"
 
 msgid "Maximum aggregate loss over a 30-day period."
-msgstr "Maximaler angesammelter Verlust über einen 30-tägigen Zeitraum."
+msgstr "Maximaler angesammelter Verlust ber einen 30-tgigen Zeitraum."
 
 msgid "Session duration limit, in minutes"
 msgstr "Limit der Sitzungsdauer, in Minuten"
@@ -440,7 +443,7 @@ msgid "You will be automatically logged out after such time."
 msgstr "Sie werden nach dieser Zeit automatisch abgemeldet."
 
 msgid "Exclude me from the website until"
-msgstr "Schließen Sie mich von der Website aus, bis"
+msgstr "Schlieen Sie mich von der Website aus, bis"
 
 msgid "Limits"
 msgstr ""
@@ -461,7 +464,7 @@ msgid "Article"
 msgstr "Artikel"
 
 msgid "Start Later"
-msgstr "Später starten"
+msgstr "Spter starten"
 
 msgid "Buy Price"
 msgstr "Kaufkurs"
@@ -488,13 +491,13 @@ msgid "Sell at Market"
 msgstr "Zum Markt verkaufen"
 
 msgid "Go back"
-msgstr "Zurück gehen"
+msgstr "Zurck gehen"
 
 msgid "You lost "
 msgstr "Sie haben verloren "
 
 msgid "Close"
-msgstr "Schließen"
+msgstr "Schlieen"
 
 msgid "Low"
 msgstr "Niedrig"
@@ -524,13 +527,13 @@ msgid "Start Now"
 msgstr "Jetzt starten"
 
 msgid "Daily Prices"
-msgstr "Tägliche Kurse"
+msgstr "Tgliche Kurse"
 
 msgid "Spreads"
 msgstr ""
 
 msgid "Confirm new password"
-msgstr "Neues Passwort bestätigen"
+msgstr "Neues Passwort besttigen"
 
 msgid "TICK"
 msgstr ""
@@ -560,7 +563,7 @@ msgid "Now"
 msgstr "Jetzt"
 
 msgid "Later"
-msgstr "Später"
+msgstr "Spter"
 
 msgid "return"
 msgstr "Rendite"
@@ -578,7 +581,7 @@ msgid "Favorites"
 msgstr "Bevorzugte"
 
 msgid "Open For Trading"
-msgstr "Für den Handel offen"
+msgstr "Fr den Handel offen"
 
 msgid "Closed"
 msgstr "Geschlossen"
@@ -622,11 +625,17 @@ msgstr "Sie haben gewonnen"
 msgid "You Lost"
 msgstr "Sie haben verloren"
 
-msgid "To change your name, date of birth, country of residence, or email, contact Customer Support."
-msgstr "Um Ihren Namen, Ihr Geburtsdatum, Ihr Wohnsitzland oder Ihre E-mail zu ändern, kontaktieren Sie bitte den Kundendienst."
+msgid ""
+"To change your name, date of birth, country of residence, or email, contact "
+"Customer Support."
+msgstr ""
+"Um Ihren Namen, Ihr Geburtsdatum, Ihr Wohnsitzland oder Ihre E-mail zu "
+"ndern, kontaktieren Sie bitte den Kundendienst."
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
-msgstr "Der Kassenabschnitt ist auf Ihre Bitte hin gesperrt. Um ihn zu entsperren, geben Sie bitte Ihr Passwort ein."
+msgstr ""
+"Der Kassenabschnitt ist auf Ihre Bitte hin gesperrt. Um ihn zu entsperren, "
+"geben Sie bitte Ihr Passwort ein."
 
 msgid "Unlock Cashier"
 msgstr "Kassenabschnitt entsperren"
@@ -635,13 +644,13 @@ msgid "Time out until"
 msgstr "Timeout bis"
 
 msgid "No transactions for the selected period"
-msgstr "Für den ausgewählten Zeitraum liegen keine Transaktionen vor"
+msgstr "Fr den ausgewhlten Zeitraum liegen keine Transaktionen vor"
 
 msgid "You have no open contracts"
 msgstr "Sie haben keine offenen Kontrakte"
 
 msgid "You have no assets in watchlist"
-msgstr "Sie haben keine Anlagegegenstände in Ihrer Beobachtungsliste"
+msgstr "Sie haben keine Anlagegegenstnde in Ihrer Beobachtungsliste"
 
 msgid "Basic"
 msgstr "Einfach"
@@ -653,13 +662,13 @@ msgid "Advanced"
 msgstr "Fortgeschritten"
 
 msgid "Higher"
-msgstr "Höher"
+msgstr "Hher"
 
 msgid "Lower"
 msgstr "Niedriger"
 
 msgid "Ends Outside"
-msgstr "Endet Außerhalb"
+msgstr "Endet Auerhalb"
 
 msgid "Ends Between"
 msgstr "Endet zwischen"
@@ -668,10 +677,10 @@ msgid "Stays Between"
 msgstr "Bleibt zwischen"
 
 msgid "Goes Outside"
-msgstr "Geht Außerhalb"
+msgstr "Geht Auerhalb"
 
 msgid "Does Not Touch"
-msgstr "Berührt nicht"
+msgstr "Berhrt nicht"
 
 msgid "Credit / Debit"
 msgstr "Gutschrift/Lastschrift"
@@ -680,16 +689,16 @@ msgid "Last 25 Ticks"
 msgstr "Letzten 25 Ticks"
 
 msgid "Last 50 Trades"
-msgstr "Letzten 50 Geschäfte"
+msgstr "Letzten 50 Geschfte"
 
 msgid "Last 100 Trades"
-msgstr "Letzten 100 Geschäfte"
+msgstr "Letzten 100 Geschfte"
 
 msgid "Last 500 Trades"
-msgstr "Letzten 500 Geschäfte"
+msgstr "Letzten 500 Geschfte"
 
 msgid "Last 1000 Trades"
-msgstr "Letzten 1000 Geschäfte"
+msgstr "Letzten 1000 Geschfte"
 
 msgid "Maximum Daily Turnover"
 msgstr "Maximaler Tagesumsatz"
@@ -698,7 +707,7 @@ msgid "Commodities"
 msgstr "Rohstoffe"
 
 msgid "Major Pairs"
-msgstr "Übergeordnete Paare"
+msgstr "bergeordnete Paare"
 
 msgid "Minor Pairs"
 msgstr "Untergeordnete Paare"
@@ -707,7 +716,7 @@ msgid "Smart FX"
 msgstr ""
 
 msgid "Volatility Indices"
-msgstr "Volatilität Indizes"
+msgstr "Volatilitt Indizes"
 
 msgid "Indices"
 msgstr "Indizes"
@@ -716,7 +725,8 @@ msgid "OTC Stocks"
 msgstr "OTC Aktien"
 
 msgid "Stated limits are subject to change without prior notice"
-msgstr "Änderungen ohne vorherige Ankündigung der genannten Limits sind vorbehalten"
+msgstr ""
+"nderungen ohne vorherige Ankndigung der genannten Limits sind vorbehalten"
 
 msgid "Withdrawal Limits"
 msgstr "Auszahlungslimits"
@@ -737,25 +747,27 @@ msgid "Verification Code"
 msgstr "Verifikationscode"
 
 msgid "Confirm Password"
-msgstr "Passwort bestätigen"
+msgstr "Passwort besttigen"
 
 msgid "Already have an account?"
 msgstr "Haben Sie schon ein Konto?"
 
 msgid "Enter a valid verification code"
-msgstr "Geben Sie einen gültigen Verifikationscode ein"
+msgstr "Geben Sie einen gltigen Verifikationscode ein"
 
 msgid "Choose your country"
-msgstr "Wählen Sie Ihr Land aus"
+msgstr "Whlen Sie Ihr Land aus"
 
-msgid "Password should have lower and uppercase letters and 6 characters or more"
-msgstr "Das Passwort sollte Klein- und Großbuchstaben und 6 Zeichen oder mehr haben"
+msgid ""
+"Password should have lower and uppercase letters and 6 characters or more"
+msgstr ""
+"Das Passwort sollte Klein- und Grobuchstaben und 6 Zeichen oder mehr haben"
 
 msgid "Passwords do not match"
-msgstr "Passwörter stimmen nicht überein"
+msgstr "Passwrter stimmen nicht berein"
 
 msgid "Enter a valid email"
-msgstr "Geben Sie eine gültige E-mail ein"
+msgstr "Geben Sie eine gltige E-mail ein"
 
 msgid "Number should between 10 to 120"
 msgstr "Die Zahl sollte zwischen 10 und 120 liegen"
@@ -770,31 +782,31 @@ msgid "Address must not be empty"
 msgstr "Adresse darf nicht leer bleiben"
 
 msgid "Enter a valid phone number"
-msgstr "Geben Sie eine gültige Telefonnummer ein"
+msgstr "Geben Sie eine gltige Telefonnummer ein"
 
 msgid "Select a secret question"
-msgstr "Wählen Sie eine Geheimfrage aus"
+msgstr "Whlen Sie eine Geheimfrage aus"
 
 msgid "Secret answer must be at least 4 characters"
 msgstr "Die Geheimantwort muss mindestens 4 Zeichen betragen"
 
 msgid "You need to agree to our Terms and Conditions"
-msgstr "Sie müssen den Allgemeinen Geschäftsbedingungen zustimmen"
+msgstr "Sie mssen den Allgemeinen Geschftsbedingungen zustimmen"
 
 msgid "I agree to the"
 msgstr "Ich stimme den"
 
 msgid "terms and conditions"
-msgstr "Allgemeinen Geschäftsbedingungen zu"
+msgstr "Allgemeinen Geschftsbedingungen zu"
 
 msgid "Search for assets"
 msgstr "Suche nach Anlagen"
 
 msgid "Choose a Payment Agent"
-msgstr "Wählen Sie einen Zahlungsagenten"
+msgstr "Whlen Sie einen Zahlungsagenten"
 
 msgid "Confirm New Password"
-msgstr "Neues Passwort bestätigen"
+msgstr "Neues Passwort besttigen"
 
 msgid "First Name"
 msgstr "Vorname"
@@ -845,7 +857,7 @@ msgid "Exit Full Screen"
 msgstr "Vollbildmodus beenden"
 
 msgid "No digit trades for this asset"
-msgstr "Keine Kommastellen Trades für diesen Wert"
+msgstr "Keine Kommastellen Trades fr diesen Wert"
 
 msgid "Lock Cashier"
 msgstr "Kassenabschnitt sperren"
@@ -863,7 +875,7 @@ msgid "Dark Theme"
 msgstr "Dunkles Thema"
 
 msgid "Password changed successfully"
-msgstr "Passwort erfolgreich geändert"
+msgstr "Passwort erfolgreich gendert"
 
 msgid "Settings updated"
 msgstr "Einstellungen aktualisiert"
@@ -875,10 +887,11 @@ msgid "Barrier must not be empty"
 msgstr "Schwelle darf nicht leer sein"
 
 msgid "Duration is out of range"
-msgstr "Laufzeit außerhalb des Wertebereichs"
+msgstr "Laufzeit auerhalb des Wertebereichs"
 
 msgid "Start date invalid, it needs to be five minutes or more in the future"
-msgstr "Beginndatum ungültig, es muss fünf Minuten oder länger in der Zukunft liegen"
+msgstr ""
+"Beginndatum ungltig, es muss fnf Minuten oder lnger in der Zukunft liegen"
 
 msgid "Time format is wrong"
 msgstr "Zeitformat ist falsch"
@@ -887,7 +900,7 @@ msgid "Lower than"
 msgstr "Niedriger als"
 
 msgid "Higher than"
-msgstr "Höher als"
+msgstr "Hher als"
 
 msgid "High barrier"
 msgstr "Hohe Schwelle"
@@ -896,7 +909,7 @@ msgid "Low barrier"
 msgstr "Tiefe Schwelle"
 
 msgid "Touch spot"
-msgstr "Berührungspunkt"
+msgstr "Berhrungspunkt"
 
 msgid "This field is required"
 msgstr ""
