@@ -74,22 +74,22 @@ msgid "Trading Limits"
 msgstr "Batasan Trading"
 
 msgid "Item"
-msgstr "Bagian"
+msgstr "Barang"
 
 msgid "Limit ({currency})"
 msgstr "Batas ({currency})"
 
 msgid "Maximum number of open positions"
-msgstr "Maksimal jumlah posisi terbuka"
+msgstr "Jumlah maksimum posisi berjalan"
 
 msgid "Maximum account cash balance"
-msgstr "Maksimum saldo tunai"
+msgstr "Maksimum saldo tunai akun"
 
 msgid "Maximum daily turnover"
 msgstr "Maksimum turnover harian"
 
 msgid "Maximum aggregate payouts on open positions"
-msgstr "Jumlah maksimal hasil rata-rata pada posisi terbuka"
+msgstr "Maksimum jumlah kontrak pada posisi berjalan"
 
 msgid "Withdrawal limits"
 msgstr "Batas penarikan"
@@ -185,7 +185,7 @@ msgid "Purchase For"
 msgstr "Untuk Pembelian"
 
 msgid "Rise"
-msgstr "Naik"
+msgstr "Rise"
 
 msgid "Stake"
 msgstr "Modal"
