@@ -38,7 +38,7 @@ export default class SettingsAddress extends PureComponent {
         stop: true,
         required: {
           required: true,
-          message: 'This field is required.',
+          message: 'This field is required',
         },
         validateAddress: true,
       },
@@ -50,14 +50,14 @@ export default class SettingsAddress extends PureComponent {
         stop: true,
         required: {
           required: true,
-          message: 'This field is required.',
+          message: 'This field is required',
         },
         validateGeneral: true,
 			},
       address_state: {
         required: {
           required: true,
-          message: 'This field is required.',
+          message: 'This field is required',
         },
 			},
       address_postcode: {
@@ -71,7 +71,7 @@ export default class SettingsAddress extends PureComponent {
         stop: true,
         required: {
           required: true,
-          message: 'This field is required.',
+          message: 'This field is required',
         },
         format: {
           regex: /^\+?[0-9\s]*$/,
