@@ -899,13 +899,13 @@ msgid "Touch spot"
 msgstr "触及现货价格"
 
 msgid "This field is required"
-msgstr ""
+msgstr "此为必填字段。"
 
 msgid "Should be a valid number"
-msgstr ""
+msgstr "必须是有效号码"
 
 msgid "Should be between 0 and {number}"
-msgstr ""
+msgstr "必须介于 0 和 {number} 之间"
 
 msgid "Time out must be after today and cannot be more than 6 weeks."
 msgstr ""
