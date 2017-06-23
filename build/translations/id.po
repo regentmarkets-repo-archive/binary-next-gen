@@ -11,7 +11,7 @@ msgid "Balance"
 msgstr "Saldo"
 
 msgid "Trade"
-msgstr ""
+msgstr "Trade"
 
 msgid "Watchlist"
 msgstr "Daftar pantauan"
@@ -35,7 +35,7 @@ msgid "View"
 msgstr "Lihat"
 
 msgid "Ref."
-msgstr ""
+msgstr "Ref."
 
 msgid "Purchase"
 msgstr "Beli"
@@ -59,7 +59,7 @@ msgid "Profit/Loss"
 msgstr "Untung/Rugi"
 
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 msgid "Location"
 msgstr "Lokasi"
@@ -194,7 +194,7 @@ msgid "Payout"
 msgstr "Hasil"
 
 msgid "Deposit"
-msgstr ""
+msgstr "Deposit"
 
 msgid "Transactions"
 msgstr "Transaksi"
@@ -245,16 +245,16 @@ msgid "Daily Report"
 msgstr "Laporan Harian"
 
 msgid "Up/Down"
-msgstr ""
+msgstr "Up/Down"
 
 msgid "Touch/No Touch"
-msgstr ""
+msgstr "Touch/No Touch"
 
 msgid "Ends In/Out"
-msgstr ""
+msgstr "Ends In/Out"
 
 msgid "Stays In/Goes Out"
-msgstr ""
+msgstr "Stays In/Goes Out"
 
 msgid "Settles"
 msgstr "Diselesaikan"
@@ -281,7 +281,7 @@ msgid "Country Of Residence"
 msgstr "Negara Domisili"
 
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 msgid "There are no transactions for selected period"
 msgstr "Tidak ditemukan transaksi bagi periode yang dipilih"
@@ -293,37 +293,37 @@ msgid "Buy"
 msgstr "Beli"
 
 msgid "Digit Even"
-msgstr ""
+msgstr "Digit Even"
 
 msgid "Touches"
-msgstr ""
+msgstr "Touches"
 
 msgid "Digit Over"
-msgstr ""
+msgstr "Digit Over"
 
 msgid "Digit Match"
-msgstr ""
+msgstr "Digit Match"
 
 msgid "Digit Under"
-msgstr ""
+msgstr "Digit Under"
 
 msgid "Digit Odd"
-msgstr ""
+msgstr "Digit Odd"
 
 msgid "Digit Differs"
-msgstr ""
+msgstr "Digit Differs"
 
 msgid "No Touch"
-msgstr ""
+msgstr "No Touch"
 
 msgid "Fall"
-msgstr ""
+msgstr "Fall"
 
 msgid "Asian Down"
-msgstr ""
+msgstr "Asian Down"
 
 msgid "Asian Up"
-msgstr ""
+msgstr "Asian Up"
 
 msgid "Search For Assets"
 msgstr "Pencarian Aset"
@@ -455,7 +455,7 @@ msgid "Trade Type"
 msgstr "Jenis Trading"
 
 msgid "Random 100 Index"
-msgstr ""
+msgstr "Indeks Random 100"
 
 msgid "Article"
 msgstr "Artikel"
@@ -527,7 +527,7 @@ msgid "Daily Prices"
 msgstr "Harga Harian"
 
 msgid "Spreads"
-msgstr ""
+msgstr "Spreads"
 
 msgid "Confirm new password"
 msgstr "Konfirmasi kata sandi baru"
@@ -548,7 +548,7 @@ msgid "Days"
 msgstr "Hari"
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 msgid "Duration"
 msgstr "Durasi"
@@ -569,10 +569,10 @@ msgid "Portfolio"
 msgstr "Portopolio"
 
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 msgid "Digit Stats"
-msgstr ""
+msgstr "Statistik Digit"
 
 msgid "Favorites"
 msgstr "Favorit"
@@ -653,25 +653,25 @@ msgid "Advanced"
 msgstr "Lanjutan"
 
 msgid "Higher"
-msgstr ""
+msgstr "Higher"
 
 msgid "Lower"
-msgstr ""
+msgstr "Lower"
 
 msgid "Ends Outside"
-msgstr ""
+msgstr "Ends Outside"
 
 msgid "Ends Between"
-msgstr ""
+msgstr "Ends Between"
 
 msgid "Stays Between"
-msgstr ""
+msgstr "Stays Between"
 
 msgid "Goes Outside"
-msgstr ""
+msgstr "Goes Outside"
 
 msgid "Does Not Touch"
-msgstr ""
+msgstr "Does Not Touch"
 
 msgid "Credit / Debit"
 msgstr "Kredit / Debit"
@@ -704,7 +704,7 @@ msgid "Minor Pairs"
 msgstr "Pasangan Tambahan"
 
 msgid "Smart FX"
-msgstr ""
+msgstr "Smart FX"
 
 msgid "Volatility Indices"
 msgstr "Indeks Volatilitas"
