@@ -1,25 +1,3 @@
-# Polish translation files.
-# Copyright (C) Binary.com Regentmarkets
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
-msgid ""
-msgstr ""
-"Project-Id-Version: 1.0\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-09-09 15:08+0000\n"
-"Last-Translator: Ewelina Bruździak <e.bruzdziak@gmail.com>\n"
-"Language-Team: Polish <https://hosted.weblate.org/projects/binary-app/next-"
-"gen-app/pl/>\n"
-"Language: pl\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=3; plural=n==1 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 "
-"|| n%100>=20) ? 1 : 2;\n"
-"X-Generator: Weblate 2.8\n"
-"X-Poedit-SourceCharset: UTF-8\n"
-
 msgid "All"
 msgstr "Wszystko"
 
@@ -57,7 +35,7 @@ msgid "View"
 msgstr "Widok"
 
 msgid "Ref."
-msgstr "Ref."
+msgstr ""
 
 msgid "Purchase"
 msgstr "Kup"
@@ -99,7 +77,7 @@ msgid "Item"
 msgstr "Element"
 
 msgid "Limit ({currency})"
-msgstr "Limit ({currency})"
+msgstr ""
 
 msgid "Maximum number of open positions"
 msgstr "Maksymalna liczba otwartych pozycji"
@@ -117,16 +95,13 @@ msgid "Withdrawal limits"
 msgstr "Limity wypłat"
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
-msgstr ""
-"Twój limit wypłat wynosi {limit} (lub jego ekwiwalent w innej walucie)."
+msgstr "Twój limit wypłat wynosi {limit} (lub jego ekwiwalent w innej walucie)."
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
 msgstr "Wypłacono już równowartość {drawn} EUR."
 
 msgid "An additional password can be used to restrict access to the cashier."
-msgstr ""
-"Możliwe jest użycie dodatkowego hasła, aby ograniczyć dostęp do sekcji "
-"Kasjer."
+msgstr "Możliwe jest użycie dodatkowego hasła, aby ograniczyć dostęp do sekcji Kasjer."
 
 msgid "Sign In"
 msgstr "Zaloguj"
@@ -591,7 +566,7 @@ msgid "return"
 msgstr "zwrot"
 
 msgid "Portfolio"
-msgstr "Portfolio"
+msgstr ""
 
 msgid "Video"
 msgstr "Nagranie"
@@ -647,17 +622,11 @@ msgstr "Wygrana"
 msgid "You Lost"
 msgstr "Przegrana"
 
-msgid ""
-"To change your name, date of birth, country of residence, or email, contact "
-"Customer Support."
-msgstr ""
-"Aby zmienić imię lub nazwisko, datę urodzenia, miejsce zamieszkania lub "
-"adres e-mail, skontaktuj się z działem obsługi klienta."
+msgid "To change your name, date of birth, country of residence, or email, contact Customer Support."
+msgstr "Aby zmienić imię lub nazwisko, datę urodzenia, miejsce zamieszkania lub adres e-mail, skontaktuj się z działem obsługi klienta."
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
-msgstr ""
-"Sekcja Kasjer została zablokowana na Twoją prośbę. Aby ją odblokować, wpisz "
-"hasło."
+msgstr "Sekcja Kasjer została zablokowana na Twoją prośbę. Aby ją odblokować, wpisz hasło."
 
 msgid "Unlock Cashier"
 msgstr "Odblokowywanie sekcji Kasjer"
@@ -747,8 +716,7 @@ msgid "OTC Stocks"
 msgstr "Akcje OTC"
 
 msgid "Stated limits are subject to change without prior notice"
-msgstr ""
-"Określone limity mogą zostać zmienione bez wcześniejszego powiadomienia"
+msgstr "Określone limity mogą zostać zmienione bez wcześniejszego powiadomienia"
 
 msgid "Withdrawal Limits"
 msgstr "Limity wypłat"
@@ -780,11 +748,8 @@ msgstr "Podaj prawidłowy kod weryfikacyjny"
 msgid "Choose your country"
 msgstr "Wybierz swój kraj"
 
-msgid ""
-"Password should have lower and uppercase letters and 6 characters or more"
-msgstr ""
-"Hasło powinno składać się z co najmniej 6 znaków i zawierać małe i wielkie "
-"litery"
+msgid "Password should have lower and uppercase letters and 6 characters or more"
+msgstr "Hasło powinno składać się z co najmniej 6 znaków i zawierać małe i wielkie litery"
 
 msgid "Passwords do not match"
 msgstr "Hasła nie są zgodne"
@@ -913,9 +878,7 @@ msgid "Duration is out of range"
 msgstr "Czas trwania przekracza dozwolony przedział"
 
 msgid "Start date invalid, it needs to be five minutes or more in the future"
-msgstr ""
-"Data rozpoczęcia jest nieprawidłowa, należy wybrać co najmniej 5 minut w "
-"przyszłości"
+msgstr "Data rozpoczęcia jest nieprawidłowa, należy wybrać co najmniej 5 minut w przyszłości"
 
 msgid "Time format is wrong"
 msgstr "Błędny format czasu"
@@ -938,9 +901,8 @@ msgstr "Punkt osiągnięcia"
 msgid "This field is required"
 msgstr ""
 
-#, fuzzy
 msgid "Should be a valid number"
-msgstr "Podaj aktualny numer telefonu"
+msgstr ""
 
 msgid "Should be between 0 and {number}"
 msgstr ""

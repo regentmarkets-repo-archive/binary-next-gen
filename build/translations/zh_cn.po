@@ -1,24 +1,3 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-msgid ""
-msgstr ""
-"Project-Id-Version: 1228\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2016-08-16 07:47+0000\n"
-"Last-Translator: Freddy Hew <hewfreddy@gmail.com>\n"
-"Language-Team: Chinese (China) <https://hosted.weblate.org/projects/binary-"
-"app/next-gen-app/zh_CN/>\n"
-"Language: zh_cn\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.8-dev\n"
-"X-Poedit-SourceCharset: utf-8\n"
-
 msgid "All"
 msgstr "所有"
 
@@ -643,9 +622,7 @@ msgstr "您赢了"
 msgid "You Lost"
 msgstr "您输了"
 
-msgid ""
-"To change your name, date of birth, country of residence, or email, contact "
-"Customer Support."
+msgid "To change your name, date of birth, country of residence, or email, contact Customer Support."
 msgstr "如需更改姓名、生日、居住国或电子邮件，请与客服人员联系。"
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
@@ -771,8 +748,7 @@ msgstr "请输入有效的验证代码"
 msgid "Choose your country"
 msgstr "选择您的国家"
 
-msgid ""
-"Password should have lower and uppercase letters and 6 characters or more"
+msgid "Password should have lower and uppercase letters and 6 characters or more"
 msgstr "密码须包含大小写字母与至少6个字元"
 
 msgid "Passwords do not match"
@@ -923,68 +899,16 @@ msgid "Touch spot"
 msgstr "触及现货价格"
 
 msgid "This field is required"
-msgstr ""
+msgstr "此为必填字段。"
 
-#, fuzzy
 msgid "Should be a valid number"
-msgstr "输入有效的电话号"
+msgstr "必须是有效号码"
 
 msgid "Should be between 0 and {number}"
-msgstr ""
+msgstr "必须介于 0 和 {number} 之间"
 
 msgid "Time out must be after today and cannot be more than 6 weeks."
-msgstr ""
+msgstr "超时时间必须在今天过后，且不能超过 6 周。"
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
-msgstr ""
-
-#~ msgid "Current Spot Time"
-#~ msgstr "当前现价时间"
-
-#~ msgid "End Time"
-#~ msgstr "结束时间"
-
-#~ msgid "Current Spot"
-#~ msgstr "当前现价"
-
-#~ msgid "Final Price"
-#~ msgstr "最终价格"
-
-#~ msgid "Description"
-#~ msgstr "说明"
-
-#~ msgid "Proceed"
-#~ msgstr "继续"
-
-#~ msgid "Sign in"
-#~ msgstr "登录"
-
-#~ msgid "Verify"
-#~ msgstr "验证"
-
-#~ msgid "Sorry, we have no payment agents in"
-#~ msgstr "对不起，以下地区我们没有支付代理："
-
-#~ msgid "Deposit commision: "
-#~ msgstr "存款佣金收费： "
-
-#~ msgid "Withdrawal commision: "
-#~ msgstr "取款佣金费用： "
-
-#~ msgid "Withdrawal Failed"
-#~ msgstr "取款失败"
-
-#~ msgid "Confirmation"
-#~ msgstr "交易确认"
-
-#~ msgid "Are you sure you want to withdraw"
-#~ msgstr "确定要提款吗"
-
-#~ msgid "Withdraw"
-#~ msgstr "取款"
-
-#~ msgid "Scale"
-#~ msgstr "比例"
-
-#~ msgid "Purchase for "
-#~ msgstr "买入 "
+msgstr "禁止访问时间不能少于 6 个月及超过 5 年。"
