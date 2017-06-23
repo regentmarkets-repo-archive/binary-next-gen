@@ -908,7 +908,7 @@ msgid "Should be between 0 and {number}"
 msgstr "Deve estar entre 0 e {number}"
 
 msgid "Time out must be after today and cannot be more than 6 weeks."
-msgstr ""
+msgstr "Tempo limite deve ser depois de hoje e não pode ser mais de 6 semanas."
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
 msgstr ""
