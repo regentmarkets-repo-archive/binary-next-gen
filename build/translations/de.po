@@ -915,13 +915,17 @@ msgid "This field is required"
 msgstr "Dieses Feld ist erforderlich"
 
 msgid "Should be a valid number"
-msgstr "Sollte eine gültige Zahl sein"
+msgstr "Sollte eine gltige Zahl sein"
 
 msgid "Should be between 0 and {number}"
 msgstr "Sollte zwischen 0 und {number} liegen"
 
 msgid "Time out must be after today and cannot be more than 6 weeks."
-msgstr "Die Auszeit muss nach dem heutigen Tag sein und darf nicht länger als 6 Wochen betragen."
+msgstr ""
+"Die Auszeit muss nach dem heutigen Tag sein und darf nicht lnger als 6 "
+"Wochen betragen."
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
-msgstr "Die Ausschlußzeit darf nicht weniger als 6 Monate und nicht mehr als 5 Jahre dauern."
+msgstr ""
+"Die Ausschluzeit darf nicht weniger als 6 Monate und nicht mehr als 5 Jahre "
+"dauern."
