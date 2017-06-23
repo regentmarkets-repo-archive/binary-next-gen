@@ -8,7 +8,6 @@ cd build/ &&
 gulp update-translation &&
 git checkout -b update-translations &&
 cd ../ &&
-echo $CURRENT_BRANCH &&
 echo git status
 git add . --all &&
 git commit -m "Sync translations from weblate" &&
