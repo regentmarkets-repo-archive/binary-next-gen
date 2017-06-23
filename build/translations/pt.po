@@ -35,7 +35,7 @@ msgid "View"
 msgstr "Ver"
 
 msgid "Ref."
-msgstr ""
+msgstr "Ref."
 
 msgid "Purchase"
 msgstr "Comprar"
@@ -59,7 +59,7 @@ msgid "Profit/Loss"
 msgstr "Lucro/Perda"
 
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 msgid "Location"
 msgstr "Localização"
@@ -527,7 +527,7 @@ msgid "Daily Prices"
 msgstr "Preços diários"
 
 msgid "Spreads"
-msgstr ""
+msgstr "Spreads"
 
 msgid "Confirm new password"
 msgstr "Confirmar nova senha"
@@ -548,7 +548,7 @@ msgid "Days"
 msgstr "Dias"
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 msgid "Duration"
 msgstr "Duração"
@@ -704,7 +704,7 @@ msgid "Minor Pairs"
 msgstr "Pares secundários"
 
 msgid "Smart FX"
-msgstr ""
+msgstr "FX Inteligente"
 
 msgid "Volatility Indices"
 msgstr "Índices Volatility"
@@ -899,13 +899,13 @@ msgid "Touch spot"
 msgstr "Preço do toque"
 
 msgid "This field is required"
-msgstr ""
+msgstr "Este campo é obrigatório"
 
 msgid "Should be a valid number"
-msgstr ""
+msgstr "Deve ser um número válido"
 
 msgid "Should be between 0 and {number}"
-msgstr ""
+msgstr "Deve estar entre 0 e {number}"
 
 msgid "Time out must be after today and cannot be more than 6 weeks."
 msgstr ""
