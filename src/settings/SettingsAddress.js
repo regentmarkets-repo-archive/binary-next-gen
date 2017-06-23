@@ -153,7 +153,7 @@ export default class SettingsAddress extends PureComponent {
     return (
 			<form className="settings-address" onSubmit={this.onFormSubmit}>
         {serverError && <ServerErrorMsg text={serverError} />}
-        {hasError && <ErrorMsg text="Please fill the form with valid value" />}
+        {hasError && <ErrorMsg text="Please fill the form with valid values" />}
 				<UpdateNotice text="Address updated" show={success} />
 				<Legend text="Address" />
 				<InputGroup
