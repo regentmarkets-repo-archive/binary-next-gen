@@ -35,7 +35,7 @@ msgid "View"
 msgstr "Ansehen"
 
 msgid "Ref."
-msgstr ""
+msgstr "Ref."
 
 msgid "Purchase"
 msgstr "Kauf"
@@ -77,7 +77,7 @@ msgid "Item"
 msgstr "Posten"
 
 msgid "Limit ({currency})"
-msgstr ""
+msgstr "Grenzwert ({currency})"
 
 msgid "Maximum number of open positions"
 msgstr "Maximale Anzahl offener Positionen"
@@ -143,7 +143,7 @@ msgid "Type"
 msgstr "Typ"
 
 msgid "Ticks"
-msgstr ""
+msgstr "Ticks"
 
 msgid "Amount"
 msgstr "Betrag"
@@ -275,7 +275,7 @@ msgid "Dark"
 msgstr "Dunkel"
 
 msgid "Name"
-msgstr ""
+msgstr "Name"
 
 msgid "Date Of Birth"
 msgstr "Geburtsdatum"
@@ -362,7 +362,7 @@ msgid "Password"
 msgstr "Passwort"
 
 msgid "Tick Trade"
-msgstr ""
+msgstr "Tick Trade"
 
 msgid "Full Trade"
 msgstr "Vollstndiger Handel"
@@ -446,7 +446,7 @@ msgid "Exclude me from the website until"
 msgstr "Schlieen Sie mich von der Website aus, bis"
 
 msgid "Limits"
-msgstr ""
+msgstr "Limits"
 
 msgid "Please enter date in the format YYYY-MM-DD."
 msgstr "Bitte geben Sie ein Datum im Format JJJJ-MM-TT ein."
@@ -458,7 +458,7 @@ msgid "Trade Type"
 msgstr "Handelsart"
 
 msgid "Random 100 Index"
-msgstr ""
+msgstr "Random 100 Index"
 
 msgid "Article"
 msgstr "Artikel"
@@ -530,13 +530,13 @@ msgid "Daily Prices"
 msgstr "Tgliche Kurse"
 
 msgid "Spreads"
-msgstr ""
+msgstr "Spreads"
 
 msgid "Confirm new password"
 msgstr "Neues Passwort besttigen"
 
 msgid "TICK"
-msgstr ""
+msgstr "TICK"
 
 msgid "Minutes"
 msgstr "Minuten"
@@ -569,10 +569,10 @@ msgid "return"
 msgstr "Rendite"
 
 msgid "Portfolio"
-msgstr ""
+msgstr "Portfolio"
 
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 msgid "Digit Stats"
 msgstr "Ziffernstatistik"
@@ -713,7 +713,7 @@ msgid "Minor Pairs"
 msgstr "Untergeordnete Paare"
 
 msgid "Smart FX"
-msgstr ""
+msgstr "Smart FX"
 
 msgid "Volatility Indices"
 msgstr "Volatilitt Indizes"
@@ -912,16 +912,16 @@ msgid "Touch spot"
 msgstr "Berhrungspunkt"
 
 msgid "This field is required"
-msgstr ""
+msgstr "Dieses Feld ist erforderlich"
 
 msgid "Should be a valid number"
-msgstr ""
+msgstr "Sollte eine gültige Zahl sein"
 
 msgid "Should be between 0 and {number}"
-msgstr ""
+msgstr "Sollte zwischen 0 und {number} liegen"
 
 msgid "Time out must be after today and cannot be more than 6 weeks."
-msgstr ""
+msgstr "Die Auszeit muss nach dem heutigen Tag sein und darf nicht länger als 6 Wochen betragen."
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
-msgstr ""
+msgstr "Die Ausschlußzeit darf nicht weniger als 6 Monate und nicht mehr als 5 Jahre dauern."
