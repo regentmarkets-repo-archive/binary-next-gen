@@ -85,7 +85,7 @@ export default class CrateAccountCard extends PureComponent {
     render() {
         const { verificationCode, password, confirmPassword, residence, validatedOnce, progress, serverError } = this.state;
         const residenceIsValid = !!residence;
-        const verificationCodeIsValid = verificationCode.length >= 15;
+        const verificationCodeIsValid = verificationCode.length >= 8 && verificationCode.length <= 128;
         const passwordIsValid = isValidPassword(password);
         const passwordsMatch = password === confirmPassword;
         this.allValid = residenceIsValid && verificationCodeIsValid && passwordIsValid && passwordsMatch;
