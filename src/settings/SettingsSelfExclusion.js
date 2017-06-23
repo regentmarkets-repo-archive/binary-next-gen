@@ -303,7 +303,7 @@ export default class SettingsSelfExclusion extends PureComponent {
     return (
 			<form className="settings-self-exclusion" onSubmit={this.onFormSubmit}>
         {serverError && <ServerErrorMsg text={serverError} />}
-        {hasError && <ErrorMsg text="Please fill the form with valid value" />}
+        {hasError && <ErrorMsg text="Please fill the form with valid values" />}
 				<UpdateNotice text="Settings updated" show={success} />
 				<InputGroup
 					id="max_balance"
