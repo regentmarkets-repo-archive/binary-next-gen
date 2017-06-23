@@ -76,6 +76,8 @@ export default class SettingsSelfExclusion extends PureComponent {
 			});
 			setTimeout(() => {
 				this.setState({ success: false });
+				api.getSelfExclusion();
+				api.getAccountLimits();
 				if (exclude_until) {
 					window.location.reload();
 				}
