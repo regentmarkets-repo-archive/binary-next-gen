@@ -3,7 +3,7 @@ import { showError, timeLeftToNextRealityCheck } from 'binary-utils';
 import { readNewsFeed } from './NewsData';
 import { getVideosFromPlayList } from './VideoData';
 import * as actions from '../_actions';
-import { CHANGE_INFO_FOR_ASSET, SET_DEFAULT_CURRENCY } from '../_constants/ActionTypes';
+import { CHANGE_INFO_FOR_ASSET } from '../_constants/ActionTypes';
 
 const handlers = {
     active_symbols: 'serverDataActiveSymbols',
@@ -85,11 +85,6 @@ const initAuthorized = async (authData, store) => {
     api.getLandingCompanyDetails(authData.authorize.landing_company_name)
         .then(r => {
             const details = r.landing_company_details;
-
-            store.dispatch({
-                type: SET_DEFAULT_CURRENCY,
-                currency: details.legal_default_currency,
-            });
 
             const acknowledged = state.realityCheck.get('acknowledged');
             if (details && details.has_reality_check) {

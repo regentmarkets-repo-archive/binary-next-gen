@@ -13,7 +13,7 @@
     };
 
     function parseOAuthResponse(responseUrl) {
-        var matcher = /acct\d=(\w+)&token\d=([\w-]+)/g;
+        var matcher = /acct\d=(\w+)&token\d=([\w-]+)&cur\d=(\w+)/ig;
         var urlParts = responseUrl.split('?');
         if (urlParts.length !== 2) {
             throw new Error('Not a valid url');
@@ -23,11 +23,10 @@
 
         var accounts = [];
 
-        for (var i = 1; i < params.length; i += 3) {
-            accounts.push({
-                account: params[i],
-                token: params[i + 1]
-            });
+        for (var i = 1; i < params.length; i += 4) {
+            var account = params[i], token = params[i + 1], currency = params[i + 2];
+            account && token && currency &&
+            accounts.push({ account: account, token: token, currency : currency,});
         }
 
         return accounts;
@@ -76,10 +75,14 @@
     }
     var lang = window.BinaryBoot.language;
 
-    //var redirectIndex = window.location.href.indexOf('?');
-    //if (~redirectIndex) {
-    //    window.location.href = window.location.href.substr(0, redirectIndex - 1);
-    //}
+    var redirectIndex = window.location.href.indexOf('?');
+    if (~redirectIndex) {
+        if (window.location.href.indexOf('/beta') === -1) {
+            window.location.href = '/';
+        } else {
+            window.location.href = '/beta';
+        }
+    }
 
     window.BinaryBoot.connection = new WebSocket(apiUrl + '?app_id=' + window.BinaryBoot.appId + '&l=' + lang);
 })();

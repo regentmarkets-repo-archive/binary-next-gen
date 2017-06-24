@@ -13,6 +13,8 @@ export const tryAuth = async token => {
     try {
         const response = await api.authorize(token);
         store.dispatch(updateAppState('authorized', true));
+        store.dispatch(updateBoot('currency', response.authorize.currency));
+        store.dispatch(updateBoot('balance', response.authorize.balance));
         trackUserId(response.authorize.loginid);
     } catch (e) {
         if (e.error && e.error.error.code === 'SelfExclusion') {
@@ -29,7 +31,7 @@ export const signOut = () => {
     store.dispatch(removePersonalData());
     store.dispatch(updateAppState('authorized', false));
     store.dispatch(updateToken(''));
-    history.push('/');
+    window.location.href.indexOf('/beta') === -1 ? history.push('/') : history.push('/beta');
 };
 
 export const signIn = () => {
