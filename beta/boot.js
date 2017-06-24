@@ -13,20 +13,26 @@
     };
 
     function parseOAuthResponse(responseUrl) {
-        var matcher = /acct\d=(\w+)&token\d=([\w-]+)&cur\d=(\w+)/ig;
         var urlParts = responseUrl.split('?');
         if (urlParts.length !== 2) {
             throw new Error('Not a valid url');
         }
 
-        var params = urlParts[1].split(matcher);
+        var objURL = {};
+        responseUrl.replace(
+            new RegExp( "([^?=&]+)(=([^&]*))?", "g" ),
+            function( $0, $1, $2, $3 ){
+                objURL[ $1 ] = $3;
+            }
+        );
 
         var accounts = [];
-
-        for (var i = 1; i < params.length; i += 4) {
-            var account = params[i], token = params[i + 1], currency = params[i + 2];
-            account && token && currency &&
-            accounts.push({ account: account, token: token, currency : currency,});
+        for(var i = 1;; i++) {
+            var account = objURL['acct' + i],
+                token = objURL['token' + i],
+                currency = objURL['cur' + i];
+            if (!account || !token || !currency) break;
+            accounts.push({ account: account, token: token, currency : currency, });
         }
 
         return accounts;
