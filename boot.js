@@ -13,21 +13,26 @@
     };
 
     function parseOAuthResponse(responseUrl) {
-        var matcher = /acct\d=(\w+)&token\d=([\w-]+)/g;
         var urlParts = responseUrl.split('?');
         if (urlParts.length !== 2) {
             throw new Error('Not a valid url');
         }
 
-        var params = urlParts[1].split(matcher);
+        var objURL = {};
+        responseUrl.replace(
+            new RegExp( "([^?=&]+)(=([^&]*))?", "g" ),
+            function( $0, $1, $2, $3 ){
+                objURL[ $1 ] = $3;
+            }
+        );
 
         var accounts = [];
-
-        for (var i = 1; i < params.length; i += 3) {
-            accounts.push({
-                account: params[i],
-                token: params[i + 1]
-            });
+        for(var i = 1;; i++) {
+            var account = objURL['acct' + i],
+                token = objURL['token' + i],
+                currency = objURL['cur' + i];
+            if (!account || !token || !currency) break;
+            accounts.push({ account: account, token: token, currency : currency, });
         }
 
         return accounts;
@@ -76,10 +81,14 @@
     }
     var lang = window.BinaryBoot.language;
 
-    //var redirectIndex = window.location.href.indexOf('?');
-    //if (~redirectIndex) {
-    //    window.location.href = window.location.href.substr(0, redirectIndex - 1);
-    //}
+    var redirectIndex = window.location.href.indexOf('?');
+    if (~redirectIndex) {
+        if (window.location.href.indexOf('/beta') === -1) {
+            window.location.href = '/';
+        } else {
+            window.location.href = '/beta';
+        }
+    }
 
     window.BinaryBoot.connection = new WebSocket(apiUrl + '?app_id=' + window.BinaryBoot.appId + '&l=' + lang);
 })();
