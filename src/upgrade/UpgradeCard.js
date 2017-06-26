@@ -137,7 +137,11 @@ export default class UpgradeCard extends PureComponent {
 			phone, termsAndConditions, progress, serverError, validatedOnce, statesList } = this.state;
 		const { residenceList } = this.props;
 
-		const firstNameIsValid = firstName.length >= 2;
+    const boot = storage.boot ? JSON.parse(storage.boot) : '';
+    const language = boot.language ? boot.language.toLowerCase() : 'en';
+    const linkToTermsAndConditions = `https://www.binary.com/${language}/terms-and-conditions.html`;
+
+    const firstNameIsValid = firstName.length >= 2;
 		const lastNameIsValid = lastName.length >= 2;
 		const residenceIsValid = residence.length > 0;
 		const addressCityIsValid = addressCity.length > 0;
@@ -280,7 +284,7 @@ export default class UpgradeCard extends PureComponent {
 								onClick={this.onTermsAndConditionsChanged}
 							/>
 							<M m="I agree to the" />&nbsp;
-							<a href="https://binary.com/terms-and-conditions" target="_blank" rel="noopener noreferrer">
+							<a href={linkToTermsAndConditions} target="_blank" rel="noopener noreferrer">
 								<M m="terms and conditions" />
 							</a>
 						</label>

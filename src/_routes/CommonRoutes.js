@@ -10,6 +10,7 @@ const rootComponent = isMobile() ? MobileRoot : WebRoot;
 
 export default [
     { path: '/', component: rootComponent, onEnter: requireAuthOnEnter },
+    { path: '/beta', component: rootComponent, onEnter: requireAuthOnEnter },
     { path: 'signup', component: SignupMobile },
     { path: 'signup2', component: Signup2Mobile },
     { path: 'upgrade', component: UpgradeContainer },

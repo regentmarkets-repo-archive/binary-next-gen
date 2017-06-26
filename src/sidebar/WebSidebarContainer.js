@@ -9,6 +9,7 @@ export default class WebSidebarContainer extends PureComponent {
 
 	props: {
 		loginid: string,
+		email: string,
 	};
 
 	render() {

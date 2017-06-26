@@ -1,18 +1,4 @@
 export default {
-    "": {
-        "project-id-version": "PACKAGE VERSION",
-        "report-msgid-bugs-to": "",
-        "pot-creation-date": "2016-04-12 13:57+0200",
-        "po-revision-date": "2016-05-24 14:07+0000",
-        "last-translator": "Jutawan <bubbleblythe@gmail.com>",
-        "language-team": "Thai <https://hosted.weblate.org/projects/binary-app/next-gen-app/th/>",
-        "language": "th",
-        "mime-version": "1.0",
-        "content-type": "text/plain; charset=UTF-8",
-        "content-transfer-encoding": "8bit",
-        "plural-forms": "nplurals=1; plural=0;",
-        "x-generator": "Weblate 2.7-dev"
-    },
     "All": [
         null,
         "ทั้งหมด"
@@ -43,7 +29,7 @@ export default {
     ],
     "Profit Table": [
         null,
-        "ตารางกำไร"
+        "ตารางผลกำไร"
     ],
     "Statement": [
         null,
@@ -123,7 +109,7 @@ export default {
     ],
     "Maximum number of open positions": [
         null,
-        "จำนวนสูงสุดของรายการซื้อขายที่เปิดอยู่"
+        "จำนวนสูงสุดของโพซิชั่นที่เปิดอยู่"
     ],
     "Maximum account cash balance": [
         null,
@@ -547,11 +533,11 @@ export default {
     ],
     "Once this limit is reached, you may no longer deposit.": [
         null,
-        "เมื่อวงเงินเต็ม ท่านไม่ต้องฝากเงินอีก"
+        "เมื่อวงเงินเต็ม ท่านไม่สามารถฝากเงินได้"
     ],
     "Maximum aggregate contract purchases per day.": [
         null,
-        "สัญญารวมสูงสุดที่ซื้อต่อวัน"
+        "มูลค่าสัญญารวมสูงสุดที่ซื้อต่อวัน"
     ],
     "Daily limit on losses": [
         null,
@@ -559,7 +545,7 @@ export default {
     ],
     "Maximum aggregate loss per day.": [
         null,
-        "วงเงินขาดทุนรวมสูงสุดต่อวัน"
+        "มูลค่ารวมที่ขาดทุนสูงสุดต่อวัน"
     ],
     "7-day turnover limit": [
         null,
@@ -567,7 +553,7 @@ export default {
     ],
     "Maximum aggregate contract purchases over a 7-day period.": [
         null,
-        "สัญญารวมสูงสุดที่ซื้อในช่วง 7 วัน"
+        "มูลค่าสัญญารวมสูงสุดที่ซื้อในระยะเวลา 7 วัน"
     ],
     "7-day limit on losses": [
         null,
@@ -583,7 +569,7 @@ export default {
     ],
     "Maximum aggregate contract purchases over a 30-day period.": [
         null,
-        "สัญญารวมสูงสุดที่ซื้อในช่วง 30 วัน"
+        "มูลค่าสัญญารวมสูงสุดที่ซื้อในระยะเวลา 30 วัน"
     ],
     "30-day limit on losses": [
         null,
@@ -595,7 +581,7 @@ export default {
     ],
     "Session duration limit, in minutes": [
         null,
-        "ระยะเวลาที่อยู่ในระบบ หน่วยเป็นนาที"
+        "รอบระยะเวลาการซื้อขาย ในหน่วยนาที"
     ],
     "You will be automatically logged out after such time.": [
         null,
@@ -628,5 +614,609 @@ export default {
     "Article": [
         null,
         "บทความ"
+    ],
+    "Start Later": [
+        null,
+        ""
+    ],
+    "Buy Price": [
+        null,
+        ""
+    ],
+    "Earning (%)": [
+        null,
+        ""
+    ],
+    "Profit": [
+        null,
+        ""
+    ],
+    "Entry Price": [
+        null,
+        ""
+    ],
+    "Exit Price": [
+        null,
+        ""
+    ],
+    "Indicative Price": [
+        null,
+        ""
+    ],
+    "Potential Profit": [
+        null,
+        ""
+    ],
+    "Sell at Market": [
+        null,
+        ""
+    ],
+    "Go back": [
+        null,
+        ""
+    ],
+    "You lost ": [
+        null,
+        ""
+    ],
+    "Close": [
+        null,
+        ""
+    ],
+    "Low": [
+        null,
+        ""
+    ],
+    "High": [
+        null,
+        ""
+    ],
+    "Open": [
+        null,
+        ""
+    ],
+    "Date": [
+        null,
+        ""
+    ],
+    "Upcoming Events": [
+        null,
+        ""
+    ],
+    "Win": [
+        null,
+        ""
+    ],
+    "Loss": [
+        null,
+        ""
+    ],
+    "Full Screen": [
+        null,
+        ""
+    ],
+    "Start Now": [
+        null,
+        ""
+    ],
+    "Daily Prices": [
+        null,
+        ""
+    ],
+    "Spreads": [
+        null,
+        ""
+    ],
+    "Confirm new password": [
+        null,
+        ""
+    ],
+    "TICK": [
+        null,
+        ""
+    ],
+    "Minutes": [
+        null,
+        ""
+    ],
+    "Seconds": [
+        null,
+        ""
+    ],
+    "Hours": [
+        null,
+        ""
+    ],
+    "Days": [
+        null,
+        ""
+    ],
+    "N/A": [
+        null,
+        ""
+    ],
+    "Duration": [
+        null,
+        ""
+    ],
+    "Start Time": [
+        null,
+        ""
+    ],
+    "Now": [
+        null,
+        ""
+    ],
+    "Later": [
+        null,
+        ""
+    ],
+    "return": [
+        null,
+        ""
+    ],
+    "Portfolio": [
+        null,
+        ""
+    ],
+    "Video": [
+        null,
+        ""
+    ],
+    "Digit Stats": [
+        null,
+        ""
+    ],
+    "Favorites": [
+        null,
+        ""
+    ],
+    "Open For Trading": [
+        null,
+        ""
+    ],
+    "Closed": [
+        null,
+        ""
+    ],
+    "Contract ID": [
+        null,
+        ""
+    ],
+    "Reference ID": [
+        null,
+        ""
+    ],
+    "Entry Spot": [
+        null,
+        ""
+    ],
+    "Entry Spot Time": [
+        null,
+        ""
+    ],
+    "Potential Payout": [
+        null,
+        ""
+    ],
+    "Exit Spot": [
+        null,
+        ""
+    ],
+    "Exit Spot Time": [
+        null,
+        ""
+    ],
+    "Sell Price": [
+        null,
+        ""
+    ],
+    "Sell Time": [
+        null,
+        ""
+    ],
+    "Trade Again": [
+        null,
+        ""
+    ],
+    "Barrier": [
+        null,
+        ""
+    ],
+    "You Won": [
+        null,
+        ""
+    ],
+    "You Lost": [
+        null,
+        ""
+    ],
+    "To change your name, date of birth, country of residence, or email, contact Customer Support.": [
+        null,
+        ""
+    ],
+    "Cashier is locked per your request. To unlock it, enter your password.": [
+        null,
+        ""
+    ],
+    "Unlock Cashier": [
+        null,
+        ""
+    ],
+    "Time out until": [
+        null,
+        ""
+    ],
+    "No transactions for the selected period": [
+        null,
+        ""
+    ],
+    "You have no open contracts": [
+        null,
+        ""
+    ],
+    "You have no assets in watchlist": [
+        null,
+        ""
+    ],
+    "Basic": [
+        null,
+        ""
+    ],
+    "Digits": [
+        null,
+        ""
+    ],
+    "Advanced": [
+        null,
+        ""
+    ],
+    "Higher": [
+        null,
+        ""
+    ],
+    "Lower": [
+        null,
+        ""
+    ],
+    "Ends Outside": [
+        null,
+        ""
+    ],
+    "Ends Between": [
+        null,
+        ""
+    ],
+    "Stays Between": [
+        null,
+        ""
+    ],
+    "Goes Outside": [
+        null,
+        ""
+    ],
+    "Does Not Touch": [
+        null,
+        ""
+    ],
+    "Credit / Debit": [
+        null,
+        ""
+    ],
+    "Last 25 Ticks": [
+        null,
+        ""
+    ],
+    "Last 50 Trades": [
+        null,
+        ""
+    ],
+    "Last 100 Trades": [
+        null,
+        ""
+    ],
+    "Last 500 Trades": [
+        null,
+        ""
+    ],
+    "Last 1000 Trades": [
+        null,
+        ""
+    ],
+    "Maximum Daily Turnover": [
+        null,
+        ""
+    ],
+    "Commodities": [
+        null,
+        ""
+    ],
+    "Major Pairs": [
+        null,
+        ""
+    ],
+    "Minor Pairs": [
+        null,
+        ""
+    ],
+    "Smart FX": [
+        null,
+        ""
+    ],
+    "Volatility Indices": [
+        null,
+        ""
+    ],
+    "Indices": [
+        null,
+        ""
+    ],
+    "OTC Stocks": [
+        null,
+        ""
+    ],
+    "Stated limits are subject to change without prior notice": [
+        null,
+        ""
+    ],
+    "Withdrawal Limits": [
+        null,
+        ""
+    ],
+    "Withdrawal limit": [
+        null,
+        ""
+    ],
+    "Already withdrawn": [
+        null,
+        ""
+    ],
+    "Current immediate maximum withdrawal": [
+        null,
+        ""
+    ],
+    "Create Free Account": [
+        null,
+        ""
+    ],
+    "Verification Code": [
+        null,
+        ""
+    ],
+    "Confirm Password": [
+        null,
+        ""
+    ],
+    "Already have an account?": [
+        null,
+        ""
+    ],
+    "Enter a valid verification code": [
+        null,
+        ""
+    ],
+    "Choose your country": [
+        null,
+        ""
+    ],
+    "Password should have lower and uppercase letters and 6 characters or more": [
+        null,
+        ""
+    ],
+    "Passwords do not match": [
+        null,
+        ""
+    ],
+    "Enter a valid email": [
+        null,
+        ""
+    ],
+    "Number should between 10 to 120": [
+        null,
+        ""
+    ],
+    "Enter your first and last name": [
+        null,
+        ""
+    ],
+    "City must not be empty": [
+        null,
+        ""
+    ],
+    "Address must not be empty": [
+        null,
+        ""
+    ],
+    "Enter a valid phone number": [
+        null,
+        ""
+    ],
+    "Select a secret question": [
+        null,
+        ""
+    ],
+    "Secret answer must be at least 4 characters": [
+        null,
+        ""
+    ],
+    "You need to agree to our Terms and Conditions": [
+        null,
+        ""
+    ],
+    "I agree to the": [
+        null,
+        ""
+    ],
+    "terms and conditions": [
+        null,
+        ""
+    ],
+    "Search for assets": [
+        null,
+        ""
+    ],
+    "Choose a Payment Agent": [
+        null,
+        ""
+    ],
+    "Confirm New Password": [
+        null,
+        ""
+    ],
+    "First Name": [
+        null,
+        ""
+    ],
+    "Last Name": [
+        null,
+        ""
+    ],
+    "Address First Line": [
+        null,
+        ""
+    ],
+    "Address Second Line": [
+        null,
+        ""
+    ],
+    "Phone": [
+        null,
+        ""
+    ],
+    "Answer To Secret Question": [
+        null,
+        ""
+    ],
+    "Switch to": [
+        null,
+        ""
+    ],
+    "Single Trade": [
+        null,
+        ""
+    ],
+    "Multi Trade": [
+        null,
+        ""
+    ],
+    "Current Password": [
+        null,
+        ""
+    ],
+    "New Password": [
+        null,
+        ""
+    ],
+    "Last 50 Ticks": [
+        null,
+        ""
+    ],
+    "Last 100 Ticks": [
+        null,
+        ""
+    ],
+    "Last 500 Ticks": [
+        null,
+        ""
+    ],
+    "Last 1000 Ticks": [
+        null,
+        ""
+    ],
+    "Exit Full Screen": [
+        null,
+        ""
+    ],
+    "No digit trades for this asset": [
+        null,
+        ""
+    ],
+    "Lock Cashier": [
+        null,
+        ""
+    ],
+    "Time out until date": [
+        null,
+        ""
+    ],
+    "Time out until time": [
+        null,
+        ""
+    ],
+    "Light Theme": [
+        null,
+        ""
+    ],
+    "Dark Theme": [
+        null,
+        ""
+    ],
+    "Password changed successfully": [
+        null,
+        ""
+    ],
+    "Settings updated": [
+        null,
+        ""
+    ],
+    "Address updated": [
+        null,
+        ""
+    ],
+    "Barrier must not be empty": [
+        null,
+        ""
+    ],
+    "Duration is out of range": [
+        null,
+        ""
+    ],
+    "Start date invalid, it needs to be five minutes or more in the future": [
+        null,
+        ""
+    ],
+    "Time format is wrong": [
+        null,
+        ""
+    ],
+    "Lower than": [
+        null,
+        ""
+    ],
+    "Higher than": [
+        null,
+        ""
+    ],
+    "High barrier": [
+        null,
+        ""
+    ],
+    "Low barrier": [
+        null,
+        ""
+    ],
+    "Touch spot": [
+        null,
+        ""
+    ],
+    "This field is required": [
+        null,
+        ""
+    ],
+    "Should be a valid number": [
+        null,
+        ""
+    ],
+    "Should be between 0 and {number}": [
+        null,
+        ""
+    ],
+    "Time out must be after today and cannot be more than 6 weeks.": [
+        null,
+        ""
+    ],
+    "Exclude time cannot be less than 6 months and more than 5 years.": [
+        null,
+        ""
     ]
 }
