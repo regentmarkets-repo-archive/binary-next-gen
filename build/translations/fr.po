@@ -248,10 +248,10 @@ msgid "Up/Down"
 msgstr "Haut/Bas"
 
 msgid "Touch/No Touch"
-msgstr "Touche"
+msgstr "Touche/Sans touche"
 
 msgid "Ends In/Out"
-msgstr "In/Out"
+msgstr "Termine dans/hors de la zone"
 
 msgid "Stays In/Goes Out"
 msgstr "Reste dans/Sort de la zone"
