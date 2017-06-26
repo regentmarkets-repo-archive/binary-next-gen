@@ -572,7 +572,7 @@ msgid "Video"
 msgstr "Vidéo"
 
 msgid "Digit Stats"
-msgstr "Statistiques du dernier chiffre"
+msgstr "Chiffres statistiques"
 
 msgid "Favorites"
 msgstr "Favoris"
@@ -779,7 +779,7 @@ msgid "Secret answer must be at least 4 characters"
 msgstr "La réponse secrète doit contenir au moins 4 caractères"
 
 msgid "You need to agree to our Terms and Conditions"
-msgstr "Vous devez accepter nos Conditions générales"
+msgstr "Vous devez accepter nos Conditions Générales"
 
 msgid "I agree to the"
 msgstr "J'accepte les"
@@ -794,7 +794,7 @@ msgid "Choose a Payment Agent"
 msgstr "Sélectionnez un Agent de paiement"
 
 msgid "Confirm New Password"
-msgstr "Confirmer le nouveau mot de passe"
+msgstr "Confirmez le nouveau mot de passe"
 
 msgid "First Name"
 msgstr "Prénom"
@@ -812,7 +812,7 @@ msgid "Phone"
 msgstr "Téléphone"
 
 msgid "Answer To Secret Question"
-msgstr "Réponse à la question secrète"
+msgstr "Réponse à la Question Secrète"
 
 msgid "Switch to"
 msgstr "Basculer vers"
@@ -896,7 +896,7 @@ msgid "Low barrier"
 msgstr "Barrière inférieure"
 
 msgid "Touch spot"
-msgstr "Spot touche"
+msgstr "Touche spot"
 
 msgid "This field is required"
 msgstr "Ce champ est requis"
