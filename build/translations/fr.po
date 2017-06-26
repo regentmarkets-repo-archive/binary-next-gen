@@ -302,7 +302,7 @@ msgid "Digit Over"
 msgstr "Chiffre supérieur"
 
 msgid "Digit Match"
-msgstr "Chiffre égal"
+msgstr "Chiffre correspondant"
 
 msgid "Digit Under"
 msgstr "Chiffre inférieur"
@@ -362,7 +362,7 @@ msgid "Tick Trade"
 msgstr "Tick Trade"
 
 msgid "Full Trade"
-msgstr "Option classique"
+msgstr "Trade complète"
 
 msgid "Address"
 msgstr "Adresse"
@@ -632,7 +632,7 @@ msgid "Unlock Cashier"
 msgstr "Déverrouiller le service de caisse"
 
 msgid "Time out until"
-msgstr "Interrompre jusqu'à"
+msgstr "Expiration jusqu'à"
 
 msgid "No transactions for the selected period"
 msgstr "Il n'y a aucune transaction pour la période sélectionnée"
