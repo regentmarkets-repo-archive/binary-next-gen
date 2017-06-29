@@ -898,7 +898,9 @@ msgid "Duration is out of range"
 msgstr "Thời hạn nằm ngoài phạm vi"
 
 msgid "Start date invalid, it needs to be five minutes or more in the future"
-msgstr "Ngày bắt đầu không hợp lệ, cần phải bằng 5 phút hoặc nhiều hơn trong tương lai"
+msgstr ""
+"Ngày bắt đầu không hợp lệ, cần phải bằng 5 phút hoặc nhiều hơn trong tương "
+"lai"
 
 msgid "Time format is wrong"
 msgstr "Định dạng thời gian sai"
