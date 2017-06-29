@@ -1,11 +1,22 @@
 export default {
+    "": {
+        "project-id-version": "PACKAGE VERSION",
+        "pot-creation-date": "",
+        "po-revision-date": "2017-06-22 13:21+0000",
+        "language": "it",
+        "mime-version": "1.0",
+        "content-type": "text/plain; charset=UTF-8",
+        "content-transfer-encoding": "8bit",
+        "plural-forms": "nplurals=1; plural=0;",
+        "x-generator": "Weblate 2.15-dev"
+    },
     "All": [
         null,
         "Tutto"
     ],
     "Property": [
         null,
-        "Propriet"
+        "Proprietà"
     ],
     "Value": [
         null,
@@ -129,15 +140,15 @@ export default {
     ],
     "Your withdrawal limit is {limit} (or equivalent in other currency).": [
         null,
-        "Il tuo limite di prelievo  di {limit} (o equivalente in altra valuta)."
+        "Il tuo limite di prelievo è di {limit} (o equivalente in altra valuta)."
     ],
     "You have already withdrawn the equivalent of EUR {drawn}.": [
         null,
-        "Hai gi prelevato l'equivalente di EUR {drawn}."
+        "Hai già prelevato l'equivalente di EUR {drawn}."
     ],
     "An additional password can be used to restrict access to the cashier.": [
         null,
-        "Pu essere utilizzata una password aggiuntiva per limitare l'accesso alla cassa."
+        "Può essere utilizzata una password aggiuntiva per limitare l'accesso alla cassa."
     ],
     "Sign In": [
         null,
@@ -173,7 +184,7 @@ export default {
     ],
     "{asset} will {type} over next {duration}": [
         null,
-        "{asset} sar {type} per i prossimi {duration}"
+        "{asset} sarà {type} per i prossimi {duration}"
     ],
     "Price": [
         null,
@@ -309,7 +320,7 @@ export default {
     ],
     "News": [
         null,
-        "Novit"
+        "Novità"
     ],
     "Resources": [
         null,
@@ -493,7 +504,7 @@ export default {
     ],
     "Town/City": [
         null,
-        "Citt"
+        "Città"
     ],
     "State/Province": [
         null,
@@ -533,7 +544,7 @@ export default {
     ],
     "Once this limit is reached, you may no longer deposit.": [
         null,
-        "Una volta raggiunto questo limite, non potrai pi depositare."
+        "Una volta raggiunto questo limite, non potrai più depositare."
     ],
     "Maximum aggregate contract purchases per day.": [
         null,
@@ -617,7 +628,7 @@ export default {
     ],
     "Start Later": [
         null,
-        "Inizia pi tardi"
+        "Inizia più tardi"
     ],
     "Buy Price": [
         null,
@@ -837,7 +848,7 @@ export default {
     ],
     "Cashier is locked per your request. To unlock it, enter your password.": [
         null,
-        "Come da tua richiesta, la cassa  bloccata. Per sbloccarla, inserisci la password."
+        "Come da tua richiesta, la cassa è bloccata. Per sbloccarla, inserisci la password."
     ],
     "Unlock Cashier": [
         null,
@@ -945,7 +956,7 @@ export default {
     ],
     "Volatility Indices": [
         null,
-        "Indici di volatilit"
+        "Indici di volatilità"
     ],
     "Indices": [
         null,
@@ -969,7 +980,7 @@ export default {
     ],
     "Already withdrawn": [
         null,
-        "Gi prelevato"
+        "Già prelevato"
     ],
     "Current immediate maximum withdrawal": [
         null,
@@ -989,7 +1000,7 @@ export default {
     ],
     "Already have an account?": [
         null,
-        "Hai gi un account?"
+        "Hai già un account?"
     ],
     "Enter a valid verification code": [
         null,
@@ -1021,7 +1032,7 @@ export default {
     ],
     "City must not be empty": [
         null,
-        "La citt non deve essere vuota"
+        "La città non deve essere vuota"
     ],
     "Address must not be empty": [
         null,
@@ -1097,7 +1108,7 @@ export default {
     ],
     "Multi Trade": [
         null,
-        "Pi trade"
+        "Più trade"
     ],
     "Current Password": [
         null,
@@ -1169,15 +1180,15 @@ export default {
     ],
     "Duration is out of range": [
         null,
-        "La durata  compresa nell'intervallo"
+        "La durata è compresa nell'intervallo"
     ],
     "Start date invalid, it needs to be five minutes or more in the future": [
         null,
-        "Data di inizio non valida, deve essere cinque minuti o pi nel futuro"
+        "Data di inizio non valida, deve essere cinque minuti o più nel futuro"
     ],
     "Time format is wrong": [
         null,
-        "Il formato dell'orario  errato"
+        "Il formato dell'orario è errato"
     ],
     "Lower than": [
         null,

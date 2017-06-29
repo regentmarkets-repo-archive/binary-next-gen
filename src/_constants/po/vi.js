@@ -1,47 +1,58 @@
 export default {
+    "": {
+        "project-id-version": "PACKAGE VERSION",
+        "pot-creation-date": "",
+        "po-revision-date": "2017-06-22 13:21+0000",
+        "language": "vi",
+        "mime-version": "1.0",
+        "content-type": "text/plain; charset=UTF-8",
+        "content-transfer-encoding": "8bit",
+        "plural-forms": "nplurals=1; plural=0;",
+        "x-generator": "Weblate 2.15-dev"
+    },
     "All": [
         null,
-        "Tt c"
+        "Tất cả"
     ],
     "Property": [
         null,
-        "Ti sn"
+        "Tài sản"
     ],
     "Value": [
         null,
-        "Gi tr"
+        "Giá trị"
     ],
     "Balance": [
         null,
-        "S d ti khon"
+        "Số dư tài khoản"
     ],
     "Trade": [
         null,
-        "Giao dich"
+        "Giao dịch"
     ],
     "Watchlist": [
         null,
-        "Danh sch theo di"
+        "Danh sách theo dõi"
     ],
     "Open Positions": [
         null,
-        "V th m"
+        "Vị thế mở"
     ],
     "Profit Table": [
         null,
-        "Bang li nhun"
+        "Bảng lợi nhuận"
     ],
     "Statement": [
         null,
-        "Bo co"
+        "Báo cáo"
     ],
     "Settings": [
         null,
-        "Ci t"
+        "Cài đặt"
     ],
     "Sign Out": [
         null,
-        "ng xut"
+        "Đăng xuất"
     ],
     "View": [
         null,
@@ -49,7 +60,7 @@ export default {
     ],
     "Ref.": [
         null,
-        "Tham khao."
+        "Tham khảo."
     ],
     "Purchase": [
         null,
@@ -57,191 +68,191 @@ export default {
     ],
     "Indicative": [
         null,
-        "Chi thi"
+        "Chỉ thị"
     ],
     "Purchase Date": [
         null,
-        "Ngay Mua"
+        "Ngày Mua"
     ],
     "Purchase Price": [
         null,
-        "Gia Mua"
+        "Giá Mua"
     ],
     "Sale Date": [
         null,
-        "Ngay Ban hang"
+        "Ngày Bán hàng"
     ],
     "Sale Price": [
         null,
-        "Gia ban"
+        "Giá bán"
     ],
     "Profit/Loss": [
         null,
-        "Li nhun/Thua l"
+        "Lợi nhuận/Thua lỗ"
     ],
     "Total": [
         null,
-        "Tng"
+        "Tổng"
     ],
     "Location": [
         null,
-        "V tr"
+        "Vị trí"
     ],
     "Update": [
         null,
-        "Cp nht"
+        "Cập nhật"
     ],
     "Details": [
         null,
-        "Chi tit"
+        "Chi tiết"
     ],
     "Trading Limits": [
         null,
-        "Gii han Giao dich"
+        "Giới hạn Giao dịch"
     ],
     "Item": [
         null,
-        "Hang muc"
+        "Hạng mục"
     ],
     "Limit ({currency})": [
         null,
-        "Gii hn ({currency})"
+        "Giới hạn ({currency})"
     ],
     "Maximum number of open positions": [
         null,
-        "S ti a cua vi th m"
+        "Số tối đa của vị thế mở"
     ],
     "Maximum account cash balance": [
         null,
-        "S d tai khoan tin mt ti a"
+        "Số dư tài khoản tiền mặt tối đa"
     ],
     "Maximum daily turnover": [
         null,
-        "Thu nhp hang ngay ti a"
+        "Thu nhập hàng ngày tối đa"
     ],
     "Maximum aggregate payouts on open positions": [
         null,
-        "Tng tin thng ti a trn cc vi tr m"
+        "Tổng tiền thưởng tối đa trên các vị trí mở"
     ],
     "Withdrawal limits": [
         null,
-        "Gii han rut tin"
+        "Giới hạn rút tiền"
     ],
     "Your withdrawal limit is {limit} (or equivalent in other currency).": [
         null,
-        "Gii hn rt tin ca bn l {limit} (hoc loi tin tng ng)."
+        "Giới hạn rút tiền của bạn là {limit} (hoặc loại tiền tương đương)."
     ],
     "You have already withdrawn the equivalent of EUR {drawn}.": [
         null,
-        "Bn  rt tin tng ng vi ng EUR {drawn}."
+        "Bạn đã rút tiền tương đương với đồng EUR {drawn}."
     ],
     "An additional password can be used to restrict access to the cashier.": [
         null,
-        "Mt khu ph c th dng  hn ch truy cp vao khu thu ngn."
+        "Mật khẩu phụ có thể dùng để hạn chế truy cập vào khu thu ngân."
     ],
     "Sign In": [
         null,
-        "ng nhp"
+        "Đăng nhập"
     ],
     "Get your API token": [
         null,
-        "Nhn m API ca bn"
+        "Nhận mã API của bạn"
     ],
     "Create Account": [
         null,
-        "ng k ti khon"
+        "Đăng kí tài khoản"
     ],
     "Action": [
         null,
-        "Hanh ng"
+        "Hành động"
     ],
     "Credit/Debit": [
         null,
-        "Tin dung/Ghi n"
+        "Tín dụng/Ghi nợ"
     ],
     "Purchase Time": [
         null,
-        "Thi Gian mua"
+        "Thời Gian mua"
     ],
     "Back": [
         null,
-        "Quay li"
+        "Quay lại"
     ],
     "Place Order": [
         null,
-        "t lnh"
+        "Đặt lệnh"
     ],
     "{asset} will {type} over next {duration}": [
         null,
-        "{asset} s {type} qua tip theo {duration}"
+        "{asset} sẽ {type} qua tiếp theo {duration}"
     ],
     "Price": [
         null,
-        "Gia"
+        "Giá"
     ],
     "Asset": [
         null,
-        "Ti sn"
+        "Tài sản"
     ],
     "Type": [
         null,
-        "Loi"
+        "Loại"
     ],
     "Ticks": [
         null,
-        "Giy"
+        "Giây"
     ],
     "Amount": [
         null,
-        "S tin"
+        "Số tiền"
     ],
     "Trade Confirmation": [
         null,
-        "Xac nhn Giao dich"
+        "Xác nhận Giao dịch"
     ],
     "Entry spot": [
         null,
-        "Gi ti thi im bt u giao dch"
+        "Giá tại thời điểm bắt đầu giao dịch"
     ],
     "Exit spot": [
         null,
-        "Gi ti thi im kt thc giao dch"
+        "Giá tại thời điểm kết thúc giao dịch"
     ],
     "Next": [
         null,
-        "Tip theo"
+        "Tiếp theo"
     ],
     "Open Account": [
         null,
-        "M Tai khoan"
+        "Mở Tài khoản"
     ],
     "Upgrade to Real Money Account": [
         null,
-        "Nng cp ln Ti Khon Tin Thc"
+        "Nâng cấp lên Tài Khoản Tiền Thực"
     ],
     "Date of birth": [
         null,
-        "Ngay sinh"
+        "Ngày sinh"
     ],
     "Home Address": [
         null,
-        "a ch nh"
+        "Địa chỉ nhà"
     ],
     "Security": [
         null,
-        "Bao mt"
+        "Bảo mật"
     ],
     "Spot": [
         null,
-        "Gi giao ngay"
+        "Giá giao ngay"
     ],
     "Change": [
         null,
-        "Thay i"
+        "Thay đổi"
     ],
     "Chart": [
         null,
-        "BIu "
+        "BIểu đồ"
     ],
     "Purchase For": [
         null,
@@ -249,131 +260,131 @@ export default {
     ],
     "Rise": [
         null,
-        "Tng"
+        "Tăng"
     ],
     "Stake": [
         null,
-        "C cc"
+        "Cá cược"
     ],
     "Payout": [
         null,
-        "Tin thng"
+        "Tiền thưởng"
     ],
     "Deposit": [
         null,
-        "Gi tin"
+        "Gửi tiền"
     ],
     "Transactions": [
         null,
-        "Giao dich"
+        "Giao dịch"
     ],
     "Opens": [
         null,
-        "Bt u"
+        "Bắt đầu"
     ],
     "Closes": [
         null,
-        "Kt thc"
+        "Kết thúc"
     ],
     "Personal": [
         null,
-        "C nhn"
+        "Cá nhân"
     ],
     "General": [
         null,
-        "Tng quan"
+        "Tổng quan"
     ],
     "Trading Times": [
         null,
-        "Thi Gian Giao Dch"
+        "Thời Gian Giao Dịch"
     ],
     "Asset Index": [
         null,
-        "Ch s Ti sn"
+        "Chỉ số Tài sản"
     ],
     "Today": [
         null,
-        "Hm nay"
+        "Hôm nay"
     ],
     "Yesterday": [
         null,
-        "Ngy hm qua"
+        "Ngày hôm qua"
     ],
     "Tomorrow": [
         null,
-        "Ngy mai"
+        "Ngày mai"
     ],
     "Takeout": [
         null,
-        "a ra"
+        "Đưa ra"
     ],
     "News": [
         null,
-        "Tin tc"
+        "Tin tức"
     ],
     "Resources": [
         null,
-        "Ngun thng tin"
+        "Nguồn thông tin"
     ],
     "Last 7 Days": [
         null,
-        "7 ngy trc"
+        "7 ngày trước"
     ],
     "Last 30 Days": [
         null,
-        "30 ngy trc"
+        "30 ngày trước"
     ],
     "Daily Report": [
         null,
-        "Bo Co Hng Ngy"
+        "Báo Cáo Hàng Ngày"
     ],
     "Up/Down": [
         null,
-        "Ln/Xung"
+        "Lên/Xuống"
     ],
     "Touch/No Touch": [
         null,
-        "Chm/Khng chm"
+        "Chạm/Không chạm"
     ],
     "Ends In/Out": [
         null,
-        "Kt thc Trong/Ngoi"
+        "Kết thúc Trong/Ngoài"
     ],
     "Stays In/Goes Out": [
         null,
-        " trong/Ra ngoi"
+        "Ở trong/Ra ngoài"
     ],
     "Settles": [
         null,
-        "Ci t"
+        "Cài đặt"
     ],
     "Language": [
         null,
-        "Ngn ng"
+        "Ngôn ngữ"
     ],
     "Color Theme": [
         null,
-        "Mu sc giao din"
+        "Màu sắc giao diện"
     ],
     "Light": [
         null,
-        "Mu nht"
+        "Màu nhạt"
     ],
     "Dark": [
         null,
-        "Mu m"
+        "Màu đậm"
     ],
     "Name": [
         null,
-        "Tn"
+        "Tên"
     ],
     "Date Of Birth": [
         null,
-        "Ngy sinh"
+        "Ngày sinh"
     ],
     "Country Of Residence": [
         null,
-        "Quc gia c tr"
+        "Quốc gia cư trú"
     ],
     "Email": [
         null,
@@ -381,11 +392,11 @@ export default {
     ],
     "There are no transactions for selected period": [
         null,
-        "Khng c giao dch no trong khong thi gian ny"
+        "Không có giao dịch nào trong khoảng thời gian này"
     ],
     "Sell": [
         null,
-        "Bn"
+        "Bán"
     ],
     "Buy": [
         null,
@@ -393,63 +404,63 @@ export default {
     ],
     "Digit Even": [
         null,
-        "S chn"
+        "Số chẵn"
     ],
     "Touches": [
         null,
-        "Chm"
+        "Chạm"
     ],
     "Digit Over": [
         null,
-        "S vt qu"
+        "Số vượt quá"
     ],
     "Digit Match": [
         null,
-        "S ph hp"
+        "Số phù hợp"
     ],
     "Digit Under": [
         null,
-        "S di"
+        "Số dưới"
     ],
     "Digit Odd": [
         null,
-        "S l"
+        "Số lẻ"
     ],
     "Digit Differs": [
         null,
-        "S khc"
+        "Số khác"
     ],
     "No Touch": [
         null,
-        "Khng chm"
+        "Không chạm"
     ],
     "Fall": [
         null,
-        "Xung"
+        "Xuống"
     ],
     "Asian Down": [
         null,
-        "Ngi chu  xung"
+        "Người châu Á xuống"
     ],
     "Asian Up": [
         null,
-        "Ngi chu  ln"
+        "Người châu Á lên"
     ],
     "Search For Assets": [
         null,
-        "Tm Kim Ti Sn"
+        "Tìm Kiếm Tài Sản"
     ],
     "Start times": [
         null,
-        "Thi gian bt u"
+        "Thời gian bắt đầu"
     ],
     "Durations": [
         null,
-        "Thi lng"
+        "Thời lượng"
     ],
     "Payout/Stake": [
         null,
-        "Thanh ton/c phn"
+        "Thanh toán/cổ phần"
     ],
     "Purchase for": [
         null,
@@ -457,215 +468,215 @@ export default {
     ],
     "payout": [
         null,
-        "thanh ton"
+        "thanh toán"
     ],
     "stake": [
         null,
-        "c phn"
+        "cổ phần"
     ],
     "Self Exclusion": [
         null,
-        "T Loi Tr"
+        "Tự Loại Trừ"
     ],
     "Cashier Lock": [
         null,
-        "Kha quy thu ngn"
+        "Khóa quầy thu ngân"
     ],
     "Change Password": [
         null,
-        "Thay i mt khu"
+        "Thay đổi mật khẩu"
     ],
     "Password": [
         null,
-        "Mt khu"
+        "Mật khẩu"
     ],
     "Tick Trade": [
         null,
-        "nh du giao dich"
+        "Đánh dấu giao dịch"
     ],
     "Full Trade": [
         null,
-        "Ton b giao dch"
+        "Toàn bộ giao dịch"
     ],
     "Address": [
         null,
-        "a ch"
+        "Địa chỉ"
     ],
     "Town/City": [
         null,
-        "Th trn/thnh ph"
+        "Thị trấn/thành phố"
     ],
     "State/Province": [
         null,
-        "Bang/Tnh"
+        "Bang/Tỉnh"
     ],
     "Telephone": [
         null,
-        "in thoi"
+        "Điện thoại"
     ],
     "Postal Code / ZIP": [
         null,
-        "M bu in / ZIP"
+        "Mã bưu điện / ZIP"
     ],
     "Cashier password": [
         null,
-        "Mt khu nhn vin thu ngn"
+        "Mật khẩu nhân viên thu ngân"
     ],
     "Re-enter your password": [
         null,
-        "Nhp li mt khu ca bn"
+        "Nhập lại mật khẩu của bạn"
     ],
     "Current password": [
         null,
-        "Mt khu hin thi"
+        "Mật khẩu hiện thời"
     ],
     "New password": [
         null,
-        "Mt khu mi"
+        "Mật khẩu mới"
     ],
     "Verify new password": [
         null,
-        "Xc nhn mt khu mi"
+        "Xác nhận mật khẩu mới"
     ],
     "Daily turnover limit": [
         null,
-        "Gii hn doanh s hng ngy"
+        "Giới hạn doanh số hàng ngày"
     ],
     "Once this limit is reached, you may no longer deposit.": [
         null,
-        "Mt khi  t n gii hn ny, bn s khng th gi tin."
+        "Một khi đã đạt đến giới hạn này, bạn sẽ không thể gửi tiền."
     ],
     "Maximum aggregate contract purchases per day.": [
         null,
-        "Tng ti a hp ng mua cho mt ngy."
+        "Tổng tối đa hợp đồng mua cho một ngày."
     ],
     "Daily limit on losses": [
         null,
-        "Gii hn thua hng ngy"
+        "Giới hạn thua hàng ngày"
     ],
     "Maximum aggregate loss per day.": [
         null,
-        "Tng ti a thua mi ngy."
+        "Tổng tối đa thua mỗi ngày."
     ],
     "7-day turnover limit": [
         null,
-        "gii hn doanh s 7 ngy"
+        "giới hạn doanh số 7 ngày"
     ],
     "Maximum aggregate contract purchases over a 7-day period.": [
         null,
-        "Tng ti a hp ng mua trong khong thi gian 7 ngy."
+        "Tổng tối đa hợp đồng mua trong khoảng thời gian 7 ngày."
     ],
     "7-day limit on losses": [
         null,
-        "7 ngy gii hn cho thua"
+        "7 ngày giới hạn cho thua"
     ],
     "Maximum aggregate loss over a 7-day period.": [
         null,
-        "Tng ti a thua trong khong thi gian 7 ngy."
+        "Tổng tối đa thua trong khoảng thời gian 7 ngày."
     ],
     "30-day turnover limit": [
         null,
-        "gii hn doanh s 30 ngy"
+        "giới hạn doanh số 30 ngày"
     ],
     "Maximum aggregate contract purchases over a 30-day period.": [
         null,
-        "Tng ti a hp ng mua trong khong thi gian 30 ngy."
+        "Tổng tối đa hợp đồng mua trong khoảng thời gian 30 ngày."
     ],
     "30-day limit on losses": [
         null,
-        "30 ngy gii hn cho thua"
+        "30 ngày giới hạn cho thua"
     ],
     "Maximum aggregate loss over a 30-day period.": [
         null,
-        "Tng ti a thit hi trong khong thi gian 30 ngy."
+        "Tổng tối đa thiệt hại trong khoảng thời gian 30 ngày."
     ],
     "Session duration limit, in minutes": [
         null,
-        "Gii hn thi lng phin, bng pht"
+        "Giới hạn thời lượng phiên, bằng phút"
     ],
     "You will be automatically logged out after such time.": [
         null,
-        "Ban se bi t ng ng thoat sau khoang thi gian nay."
+        "Bạn sẽ bị tự động đăng thoát sau khoảng thời gian này."
     ],
     "Exclude me from the website until": [
         null,
-        "Loi tr ti khi trang web cho n khi"
+        "Loại trừ tôi khỏi trang web cho đến khi"
     ],
     "Limits": [
         null,
-        "Cc gii hn"
+        "Các giới hạn"
     ],
     "Please enter date in the format YYYY-MM-DD.": [
         null,
-        "Vui lng nhp ngy theo nh dng YYYY-MM-DD."
+        "Vui lòng nhập ngày theo định dạng YYYY-MM-DD."
     ],
     "New Trade": [
         null,
-        "Giao dich mi"
+        "Giao dịch mới"
     ],
     "Trade Type": [
         null,
-        "Loi giao dich"
+        "Loại giao dịch"
     ],
     "Random 100 Index": [
         null,
-        "Ngu nhin 100 ch s"
+        "Ngẫu nhiên 100 chỉ số"
     ],
     "Article": [
         null,
-        "Mc"
+        "Mục"
     ],
     "Start Later": [
         null,
-        "Bt u sau "
+        "Bắt đầu sau đó"
     ],
     "Buy Price": [
         null,
-        "Gia mua"
+        "Giá mua"
     ],
     "Earning (%)": [
         null,
-        "Thu nhp (%)"
+        "Thu nhập (%)"
     ],
     "Profit": [
         null,
-        "Li nhun"
+        "Lợi nhuận"
     ],
     "Entry Price": [
         null,
-        "Gia khi im"
+        "Giá khởi điểm"
     ],
     "Exit Price": [
         null,
-        "Gia cht"
+        "Giá chốt"
     ],
     "Indicative Price": [
         null,
-        "Gi chi thi"
+        "Giá chỉ thị"
     ],
     "Potential Profit": [
         null,
-        "Li nhun tim nng"
+        "Lợi nhuận tiềm năng"
     ],
     "Sell at Market": [
         null,
-        "Bn ti th trng"
+        "Bán tại thị trường"
     ],
     "Go back": [
         null,
-        "Quay li"
+        "Quay lại"
     ],
     "You lost ": [
         null,
-        "Bn  thua "
+        "Bạn đã thua "
     ],
     "Close": [
         null,
-        "ng"
+        "Đóng"
     ],
     "Low": [
         null,
-        "Thp"
+        "Thấp"
     ],
     "High": [
         null,
@@ -673,19 +684,19 @@ export default {
     ],
     "Open": [
         null,
-        "M"
+        "Mở"
     ],
     "Date": [
         null,
-        "Ngay"
+        "Ngày"
     ],
     "Upcoming Events": [
         null,
-        "S kin sp ti"
+        "Sự kiện sắp tới"
     ],
     "Win": [
         null,
-        "Thng"
+        "Thắng"
     ],
     "Loss": [
         null,
@@ -693,43 +704,43 @@ export default {
     ],
     "Full Screen": [
         null,
-        "Ton mn hnh"
+        "Toàn màn hình"
     ],
     "Start Now": [
         null,
-        "Bt u by gi"
+        "Bắt đầu bây giờ"
     ],
     "Daily Prices": [
         null,
-        "Gia hng ngy"
+        "Giá hàng ngày"
     ],
     "Spreads": [
         null,
-        "Lan ta"
+        "Lan tỏa"
     ],
     "Confirm new password": [
         null,
-        "Xc nhn mt khu mi"
+        "Xác nhận mật khẩu mới"
     ],
     "TICK": [
         null,
-        "NH DU"
+        "ĐÁNH DẤU"
     ],
     "Minutes": [
         null,
-        "Pht"
+        "Phút"
     ],
     "Seconds": [
         null,
-        "Giy"
+        "Giây"
     ],
     "Hours": [
         null,
-        "Gi"
+        "Giờ"
     ],
     "Days": [
         null,
-        "Ngy"
+        "Ngày"
     ],
     "N/A": [
         null,
@@ -737,15 +748,15 @@ export default {
     ],
     "Duration": [
         null,
-        "Thi lng"
+        "Thời lượng"
     ],
     "Start Time": [
         null,
-        "Thi gian bt u"
+        "Thời gian bắt đầu"
     ],
     "Now": [
         null,
-        "By gi"
+        "Bây giờ"
     ],
     "Later": [
         null,
@@ -1117,75 +1128,75 @@ export default {
     ],
     "Last 500 Ticks": [
         null,
-        "500 ln giao ng gn nht"
+        "500 lần giao động gần nhất"
     ],
     "Last 1000 Ticks": [
         null,
-        "1000 ln giao ng gn nht"
+        "1000 lần giao động gần nhất"
     ],
     "Exit Full Screen": [
         null,
-        "Thot ton mn hnh"
+        "Thoát toàn màn hình"
     ],
     "No digit trades for this asset": [
         null,
-        "Khng c giao dch s cho ti sn ny"
+        "Không có giao dịch số cho tài sản này"
     ],
     "Lock Cashier": [
         null,
-        "Kha quy thu ngn"
+        "Khóa quầy thu ngân"
     ],
     "Time out until date": [
         null,
-        "Ht thi gian cho n ngy"
+        "Hết thời gian cho đến ngày"
     ],
     "Time out until time": [
         null,
-        "Ht thi gian cho n khi"
+        "Hết thời gian cho đến khi"
     ],
     "Light Theme": [
         null,
-        "Nn nht"
+        "Nền nhạt"
     ],
     "Dark Theme": [
         null,
-        "Nn ti"
+        "Nền tối"
     ],
     "Password changed successfully": [
         null,
-        "Mt khu thay i thnh cng"
+        "Mật khẩu thay đổi thành công"
     ],
     "Settings updated": [
         null,
-        "Ci t  c cp nht"
+        "Cài đặt đã được cập nhật"
     ],
     "Address updated": [
         null,
-        "a ch  c cp nht"
+        "Địa chỉ đã được cập nhật"
     ],
     "Barrier must not be empty": [
         null,
-        "Barie khng c  trng"
+        "Barie không được để trống"
     ],
     "Duration is out of range": [
         null,
-        "Thi hn nm ngoi phm vi"
+        "Thời hạn nằm ngoài phạm vi"
     ],
     "Start date invalid, it needs to be five minutes or more in the future": [
         null,
-        "Ngy bt u khng hp l, cn phi bng 5 pht hoc nhiu hn trong tng lai"
+        "Ngày bắt đầu không hợp lệ, cần phải bằng 5 phút hoặc nhiều hơn trong tương lai"
     ],
     "Time format is wrong": [
         null,
-        "nh dng thi gian sai"
+        "Định dạng thời gian sai"
     ],
     "Lower than": [
         null,
-        "Thp hn"
+        "Thấp hơn"
     ],
     "Higher than": [
         null,
-        "Cao hn"
+        "Cao hơn"
     ],
     "High barrier": [
         null,
@@ -1193,11 +1204,11 @@ export default {
     ],
     "Low barrier": [
         null,
-        "Barie thp"
+        "Barie thấp"
     ],
     "Touch spot": [
         null,
-        "im chm"
+        "Điểm chạm"
     ],
     "This field is required": [
         null,
