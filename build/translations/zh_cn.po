@@ -1,917 +1,932 @@
-msgid "All"
+# Copyright (C) 2013 Regent Markets Group
+# This file is distributed under the same license as the bom-web package.
+#
+msgid ""
 msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2017-06-22 13:21+0000\n"
+"Language: zh_cn\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.15-dev\n"
+
+msgid "All"
+msgstr "所有"
 
 msgid "Property"
-msgstr ""
+msgstr "财产"
 
 msgid "Value"
-msgstr ""
+msgstr "价值"
 
 msgid "Balance"
-msgstr ""
+msgstr "余额"
 
 msgid "Trade"
-msgstr ""
+msgstr "交易"
 
 msgid "Watchlist"
-msgstr ""
+msgstr "关注列表"
 
 msgid "Open Positions"
-msgstr ""
+msgstr "未平仓头寸"
 
 msgid "Profit Table"
-msgstr ""
+msgstr "利润表"
 
 msgid "Statement"
-msgstr ""
+msgstr "账单"
 
 msgid "Settings"
-msgstr ""
+msgstr "设置"
 
 msgid "Sign Out"
-msgstr ""
+msgstr "注销"
 
 msgid "View"
-msgstr ""
+msgstr "查看"
 
 msgid "Ref."
-msgstr ""
+msgstr "参考"
 
 msgid "Purchase"
-msgstr ""
+msgstr "买入"
 
 msgid "Indicative"
-msgstr ""
+msgstr "指示性"
 
 msgid "Purchase Date"
-msgstr ""
+msgstr "买入日期"
 
 msgid "Purchase Price"
-msgstr ""
+msgstr "买入价格"
 
 msgid "Sale Date"
-msgstr ""
+msgstr "卖出日期"
 
 msgid "Sale Price"
-msgstr ""
+msgstr "卖出价格"
 
 msgid "Profit/Loss"
-msgstr "/"
+msgstr "利润/亏损"
 
 msgid "Total"
-msgstr ""
+msgstr "总计"
 
 msgid "Location"
-msgstr ""
+msgstr "位置"
 
 msgid "Update"
-msgstr ""
+msgstr "更新"
 
 msgid "Details"
-msgstr ""
+msgstr "详情"
 
 msgid "Trading Limits"
-msgstr ""
+msgstr "交易限制"
 
 msgid "Item"
-msgstr ""
+msgstr "项目"
 
 msgid "Limit ({currency})"
-msgstr " ({})"
+msgstr "限值 ({货币})"
 
 msgid "Maximum number of open positions"
-msgstr ""
+msgstr "最大未平仓头寸数目"
 
 msgid "Maximum account cash balance"
-msgstr ""
+msgstr "最大账户现金余额"
 
 msgid "Maximum daily turnover"
-msgstr ""
+msgstr "最大日成交量"
 
 msgid "Maximum aggregate payouts on open positions"
-msgstr ""
+msgstr "未平仓头寸的最大赔付总额"
 
 msgid "Withdrawal limits"
-msgstr ""
+msgstr "取款限额"
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
-msgstr "{} ()"
+msgstr "您的提款上限是{限值} (或等值的其他货币)。"
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
-msgstr " {}"
+msgstr "您的提款数额相当于欧元 {提款值}。"
 
 msgid "An additional password can be used to restrict access to the cashier."
-msgstr ""
+msgstr "可使用额外密码来限制对收银台的访问。"
 
 msgid "Sign In"
-msgstr ""
+msgstr "登录"
 
 msgid "Get your API token"
-msgstr "API"
+msgstr "领取API令牌"
 
 msgid "Create Account"
-msgstr ""
+msgstr "创立账户"
 
 msgid "Action"
-msgstr ""
+msgstr "操作"
 
 msgid "Credit/Debit"
-msgstr "/"
+msgstr "借方/贷方"
 
 msgid "Purchase Time"
-msgstr ""
+msgstr "买入时间"
 
 msgid "Back"
-msgstr ""
+msgstr "返回"
 
 msgid "Place Order"
-msgstr ""
+msgstr "下订单"
 
 msgid "{asset} will {type} over next {duration}"
-msgstr "{}  {}{}"
+msgstr "{资产} 将在 {类型}期内{时段}"
 
 msgid "Price"
-msgstr ""
+msgstr "价格"
 
 msgid "Asset"
-msgstr ""
+msgstr "资产"
 
 msgid "Type"
-msgstr ""
+msgstr "类型"
 
 msgid "Ticks"
-msgstr ""
+msgstr "跳动点"
 
 msgid "Amount"
-msgstr ""
+msgstr "金额"
 
 msgid "Trade Confirmation"
-msgstr ""
+msgstr "交易确认"
 
 msgid "Entry spot"
-msgstr ""
+msgstr "入市现价"
 
 msgid "Exit spot"
-msgstr ""
+msgstr "退出现价"
 
 msgid "Next"
-msgstr ""
+msgstr "下一页"
 
 msgid "Open Account"
-msgstr ""
+msgstr "开户"
 
 msgid "Upgrade to Real Money Account"
-msgstr ""
+msgstr "升级为真实金钱账户"
 
 msgid "Date of birth"
-msgstr ""
+msgstr "出生日期"
 
 msgid "Home Address"
-msgstr ""
+msgstr "家庭住址"
 
 msgid "Security"
-msgstr ""
+msgstr "安全"
 
 msgid "Spot"
-msgstr ""
+msgstr "现价"
 
 msgid "Change"
-msgstr ""
+msgstr "变动"
 
 msgid "Chart"
-msgstr ""
+msgstr "图表"
 
 msgid "Purchase For"
-msgstr ""
+msgstr "买入"
 
 msgid "Rise"
-msgstr ""
+msgstr "上涨"
 
 msgid "Stake"
-msgstr ""
+msgstr "投注金额"
 
 msgid "Payout"
-msgstr ""
+msgstr "赔付额"
 
 msgid "Deposit"
-msgstr ""
+msgstr "存款"
 
 msgid "Transactions"
-msgstr ""
+msgstr "交易"
 
 msgid "Opens"
-msgstr ""
+msgstr "开盘"
 
 msgid "Closes"
-msgstr ""
+msgstr "收盘"
 
 msgid "Personal"
-msgstr ""
+msgstr "个人"
 
 msgid "General"
-msgstr ""
+msgstr "一般条款"
 
 msgid "Trading Times"
-msgstr ""
+msgstr "交易时间"
 
 msgid "Asset Index"
-msgstr ""
+msgstr "资产指数"
 
 msgid "Today"
-msgstr ""
+msgstr "今日"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "昨日"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "明日"
 
 msgid "Takeout"
-msgstr ""
+msgstr "取得"
 
 msgid "News"
-msgstr ""
+msgstr "新闻"
 
 msgid "Resources"
-msgstr ""
+msgstr "资源"
 
 msgid "Last 7 Days"
-msgstr "7"
+msgstr "过去7天"
 
 msgid "Last 30 Days"
-msgstr "30"
+msgstr "过去30天"
 
 msgid "Daily Report"
-msgstr ""
+msgstr "日报"
 
 msgid "Up/Down"
-msgstr "/"
+msgstr "上/下"
 
 msgid "Touch/No Touch"
-msgstr "/"
+msgstr "触及/未触及"
 
 msgid "Ends In/Out"
-msgstr "/"
+msgstr "到期时价格处于某个范围之内/之外"
 
 msgid "Stays In/Goes Out"
-msgstr "/"
+msgstr "保持在某个范围之内/之外"
 
 msgid "Settles"
-msgstr ""
+msgstr "结算"
 
 msgid "Language"
-msgstr ""
+msgstr "语言"
 
 msgid "Color Theme"
-msgstr ""
+msgstr "颜色主题"
 
 msgid "Light"
-msgstr ""
+msgstr "浅色"
 
 msgid "Dark"
-msgstr ""
+msgstr "深色"
 
 msgid "Name"
-msgstr ""
+msgstr "姓名"
 
 msgid "Date Of Birth"
-msgstr ""
+msgstr "出生日期"
 
 msgid "Country Of Residence"
-msgstr ""
+msgstr "居住国"
 
 msgid "Email"
-msgstr ""
+msgstr "电子邮件"
 
 msgid "There are no transactions for selected period"
-msgstr ""
+msgstr "选定时间段中无任何交易"
 
 msgid "Sell"
-msgstr ""
+msgstr "售出"
 
 msgid "Buy"
-msgstr ""
+msgstr "买入"
 
 msgid "Digit Even"
-msgstr ""
+msgstr "数字为偶数"
 
 msgid "Touches"
-msgstr ""
+msgstr "触及"
 
 msgid "Digit Over"
-msgstr ""
+msgstr "数字超过限额"
 
 msgid "Digit Match"
-msgstr ""
+msgstr "数字匹配"
 
 msgid "Digit Under"
-msgstr ""
+msgstr "数字低于限额"
 
 msgid "Digit Odd"
-msgstr ""
+msgstr "数字为奇数"
 
 msgid "Digit Differs"
-msgstr ""
+msgstr "数字差异"
 
 msgid "No Touch"
-msgstr ""
+msgstr "未触及"
 
 msgid "Fall"
-msgstr ""
+msgstr "下降"
 
 msgid "Asian Down"
-msgstr ""
+msgstr "亚洲下跌期权"
 
 msgid "Asian Up"
-msgstr ""
+msgstr "亚洲上涨期权"
 
 msgid "Search For Assets"
-msgstr ""
+msgstr "搜索资产"
 
 msgid "Start times"
-msgstr ""
+msgstr "开始时间"
 
 msgid "Durations"
-msgstr ""
+msgstr "期限"
 
 msgid "Payout/Stake"
-msgstr "/"
+msgstr "赔付/投注额"
 
 msgid "Purchase for"
-msgstr ""
+msgstr "买入"
 
 msgid "payout"
-msgstr ""
+msgstr "赔付额"
 
 msgid "stake"
-msgstr ""
+msgstr "投注金额"
 
 msgid "Self Exclusion"
-msgstr ""
+msgstr "自我限制"
 
 msgid "Cashier Lock"
-msgstr ""
+msgstr "收银台锁定"
 
 msgid "Change Password"
-msgstr ""
+msgstr "更换密码"
 
 msgid "Password"
-msgstr ""
+msgstr "密码"
 
 msgid "Tick Trade"
-msgstr ""
+msgstr "跳动点交易"
 
 msgid "Full Trade"
-msgstr ""
+msgstr "完全自由交易"
 
 msgid "Address"
-msgstr ""
+msgstr "地址"
 
 msgid "Town/City"
-msgstr "/"
+msgstr "城镇/城市"
 
 msgid "State/Province"
-msgstr "/"
+msgstr "州/省"
 
 msgid "Telephone"
-msgstr ""
+msgstr "电话"
 
 msgid "Postal Code / ZIP"
-msgstr ""
+msgstr "邮政编码"
 
 msgid "Cashier password"
-msgstr ""
+msgstr "收银台密码"
 
 msgid "Re-enter your password"
-msgstr ""
+msgstr "重新输入密码"
 
 msgid "Current password"
-msgstr ""
+msgstr "当前密码"
 
 msgid "New password"
-msgstr ""
+msgstr "新密码"
 
 msgid "Verify new password"
-msgstr ""
+msgstr "验证新密码"
 
 msgid "Daily turnover limit"
-msgstr ""
+msgstr "最大日成交量"
 
 msgid "Once this limit is reached, you may no longer deposit."
-msgstr ""
+msgstr "一旦达到此限额，您不可再存入款项。"
 
 msgid "Maximum aggregate contract purchases per day."
-msgstr ""
+msgstr "每日最大累计合约购入额。"
 
 msgid "Daily limit on losses"
-msgstr ""
+msgstr "每日亏损限额"
 
 msgid "Maximum aggregate loss per day."
-msgstr ""
+msgstr "每日最大累计亏损额。"
 
 msgid "7-day turnover limit"
-msgstr "7"
+msgstr "7天期最大交易限额"
 
 msgid "Maximum aggregate contract purchases over a 7-day period."
-msgstr "7"
+msgstr "7天期最大累计合约购入额。"
 
 msgid "7-day limit on losses"
-msgstr "7"
+msgstr "7天期亏损限额"
 
 msgid "Maximum aggregate loss over a 7-day period."
-msgstr "7"
+msgstr "7天期最大累计亏损额。"
 
 msgid "30-day turnover limit"
-msgstr "30"
+msgstr "30天期交易限额"
 
 msgid "Maximum aggregate contract purchases over a 30-day period."
-msgstr "30"
+msgstr "30天期最大累计合约购入额。"
 
 msgid "30-day limit on losses"
-msgstr "30"
+msgstr "30天期亏损限额"
 
 msgid "Maximum aggregate loss over a 30-day period."
-msgstr "30"
+msgstr "30天期最大累计亏损额。"
 
 msgid "Session duration limit, in minutes"
-msgstr ""
+msgstr "交易期持续时间限制，以分钟为单位"
 
 msgid "You will be automatically logged out after such time."
-msgstr ""
+msgstr "在该时间后您将自动退出登录。"
 
 msgid "Exclude me from the website until"
-msgstr ""
+msgstr "禁止我访问本网站直到"
 
 msgid "Limits"
-msgstr ""
+msgstr "交易限制"
 
 msgid "Please enter date in the format YYYY-MM-DD."
-msgstr "--"
+msgstr "请输入日期，格式为年-月-日。"
 
 msgid "New Trade"
-msgstr ""
+msgstr "新交易"
 
 msgid "Trade Type"
-msgstr ""
+msgstr "交易类型"
 
 msgid "Random 100 Index"
-msgstr "100"
+msgstr "随机100指标"
 
 msgid "Article"
-msgstr ""
+msgstr "项目"
 
 msgid "Start Later"
-msgstr ""
+msgstr "稍后开始"
 
 msgid "Buy Price"
-msgstr ""
+msgstr "购入价格"
 
 msgid "Earning (%)"
-msgstr "%"
+msgstr "收入（%）"
 
 msgid "Profit"
-msgstr ""
+msgstr "利润"
 
 msgid "Entry Price"
-msgstr ""
+msgstr "入市价格"
 
 msgid "Exit Price"
-msgstr ""
+msgstr "平仓价格"
 
 msgid "Indicative Price"
-msgstr ""
+msgstr "指示性价格"
 
 msgid "Potential Profit"
-msgstr ""
+msgstr "潜在利润"
 
 msgid "Sell at Market"
-msgstr ""
+msgstr "按市价卖出"
 
 msgid "Go back"
-msgstr ""
+msgstr "返回"
 
 msgid "You lost "
-msgstr " "
+msgstr "您输了 "
 
 msgid "Close"
-msgstr ""
+msgstr "收盘"
 
 msgid "Low"
-msgstr ""
+msgstr "低"
 
 msgid "High"
-msgstr ""
+msgstr "高"
 
 msgid "Open"
-msgstr ""
+msgstr "开盘"
 
 msgid "Date"
-msgstr ""
+msgstr "日期"
 
 msgid "Upcoming Events"
-msgstr ""
+msgstr "未来事件"
 
 msgid "Win"
-msgstr ""
+msgstr "赢"
 
 msgid "Loss"
-msgstr ""
+msgstr "输"
 
 msgid "Full Screen"
-msgstr ""
+msgstr "全屏"
 
 msgid "Start Now"
-msgstr ""
+msgstr "现在开始"
 
 msgid "Daily Prices"
-msgstr ""
+msgstr "每日价格"
 
 msgid "Spreads"
-msgstr ""
+msgstr "价差"
 
 msgid "Confirm new password"
-msgstr ""
+msgstr "确认新密码"
 
 msgid "TICK"
-msgstr ""
+msgstr "跳动点"
 
 msgid "Minutes"
-msgstr ""
+msgstr "分钟"
 
 msgid "Seconds"
-msgstr ""
+msgstr "秒"
 
 msgid "Hours"
-msgstr ""
+msgstr "小时"
 
 msgid "Days"
-msgstr ""
+msgstr "日"
 
 msgid "N/A"
-msgstr ""
+msgstr "不可用"
 
 msgid "Duration"
-msgstr ""
+msgstr "期限"
 
 msgid "Start Time"
-msgstr ""
+msgstr "开始时间"
 
 msgid "Now"
-msgstr ""
+msgstr "现在"
 
 msgid "Later"
-msgstr ""
+msgstr "稍后"
 
 msgid "return"
-msgstr ""
+msgstr "回报"
 
 msgid "Portfolio"
-msgstr ""
+msgstr "投资组合"
 
 msgid "Video"
-msgstr ""
+msgstr "视频"
 
 msgid "Digit Stats"
-msgstr ""
+msgstr "数字统计"
 
 msgid "Favorites"
-msgstr ""
+msgstr "收藏夹"
 
 msgid "Open For Trading"
-msgstr ""
+msgstr "开放交易"
 
 msgid "Closed"
-msgstr ""
+msgstr "已收盘"
 
 msgid "Contract ID"
-msgstr "ID"
+msgstr "合约ID"
 
 msgid "Reference ID"
-msgstr "ID"
+msgstr "参考ID"
 
 msgid "Entry Spot"
-msgstr ""
+msgstr "入市现价"
 
 msgid "Entry Spot Time"
-msgstr ""
+msgstr "入市现价时间"
 
 msgid "Potential Payout"
-msgstr ""
+msgstr "潜在利润"
 
 msgid "Exit Spot"
-msgstr ""
+msgstr "退出现价"
 
 msgid "Exit Spot Time"
-msgstr ""
+msgstr "退出现价时间"
 
 msgid "Sell Price"
-msgstr ""
+msgstr "卖出价格"
 
 msgid "Sell Time"
-msgstr ""
+msgstr "卖出时间"
 
 msgid "Trade Again"
-msgstr ""
+msgstr "再次交易"
 
 msgid "Barrier"
-msgstr ""
+msgstr "障碍"
 
 msgid "You Won"
-msgstr ""
+msgstr "您赢了"
 
 msgid "You Lost"
-msgstr ""
+msgstr "您输了"
 
 msgid ""
 "To change your name, date of birth, country of residence, or email, contact "
 "Customer Support."
-msgstr ""
+msgstr "如需更改姓名、生日、居住国或电子邮件，请与客服人员联系。"
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
-msgstr ""
+msgstr "根据您的请求，您的收银台已被锁定。如需解除锁定，请输入密码。"
 
 msgid "Unlock Cashier"
-msgstr ""
+msgstr "解锁收银台"
 
 msgid "Time out until"
-msgstr ""
+msgstr "时间已过。下次开启时间为"
 
 msgid "No transactions for the selected period"
-msgstr ""
+msgstr "选定时间段中无任何交易"
 
 msgid "You have no open contracts"
-msgstr ""
+msgstr "您没有未平仓合约"
 
 msgid "You have no assets in watchlist"
-msgstr ""
+msgstr "您的关注列表没有资产"
 
 msgid "Basic"
-msgstr ""
+msgstr "基础"
 
 msgid "Digits"
-msgstr ""
+msgstr "数字"
 
 msgid "Advanced"
-msgstr ""
+msgstr "高级"
 
 msgid "Higher"
-msgstr ""
+msgstr "高于"
 
 msgid "Lower"
-msgstr ""
+msgstr "低于"
 
 msgid "Ends Outside"
-msgstr ""
+msgstr "收于范围之外"
 
 msgid "Ends Between"
-msgstr ""
+msgstr "收于范围之内"
 
 msgid "Stays Between"
-msgstr ""
+msgstr "保持在范围内"
 
 msgid "Goes Outside"
-msgstr ""
+msgstr "超出范围之外"
 
 msgid "Does Not Touch"
-msgstr ""
+msgstr "未触及"
 
 msgid "Credit / Debit"
-msgstr "/"
+msgstr "借方/贷方"
 
 msgid "Last 25 Ticks"
-msgstr "25"
+msgstr "最近25次跳动"
 
 msgid "Last 50 Trades"
-msgstr "50"
+msgstr "过去50次交易"
 
 msgid "Last 100 Trades"
-msgstr "100"
+msgstr "过去100次交易"
 
 msgid "Last 500 Trades"
-msgstr "500"
+msgstr "过去500次交易"
 
 msgid "Last 1000 Trades"
-msgstr "1000"
+msgstr "过去1000次交易"
 
 msgid "Maximum Daily Turnover"
-msgstr ""
+msgstr "最大日成交量"
 
 msgid "Commodities"
-msgstr ""
+msgstr "大宗商品"
 
 msgid "Major Pairs"
-msgstr ""
+msgstr "主要货币对"
 
 msgid "Minor Pairs"
-msgstr ""
+msgstr "次要货币对"
 
 msgid "Smart FX"
-msgstr ""
+msgstr "智能外汇交易"
 
 msgid "Volatility Indices"
-msgstr ""
+msgstr "波动率指数"
 
 msgid "Indices"
-msgstr ""
+msgstr "指数"
 
 msgid "OTC Stocks"
-msgstr ""
+msgstr "场外交易股票"
 
 msgid "Stated limits are subject to change without prior notice"
-msgstr ""
+msgstr "我们保留随时在没有预先通知的情况下更改所述限制的权利"
 
 msgid "Withdrawal Limits"
-msgstr ""
+msgstr "取款限额"
 
 msgid "Withdrawal limit"
-msgstr ""
+msgstr "取款限额"
 
 msgid "Already withdrawn"
-msgstr ""
+msgstr "已提取"
 
 msgid "Current immediate maximum withdrawal"
-msgstr ""
+msgstr "当前的即时最高取款额"
 
 msgid "Create Free Account"
-msgstr ""
+msgstr "创立免费账户"
 
 msgid "Verification Code"
-msgstr ""
+msgstr "验证码"
 
 msgid "Confirm Password"
-msgstr ""
+msgstr "确认密码"
 
 msgid "Already have an account?"
-msgstr ""
+msgstr "已经有账户？"
 
 msgid "Enter a valid verification code"
-msgstr ""
+msgstr "请输入有效的验证代码"
 
 msgid "Choose your country"
-msgstr ""
+msgstr "选择您的国家"
 
 msgid ""
 "Password should have lower and uppercase letters and 6 characters or more"
-msgstr "6"
+msgstr "密码须包含大小写字母与至少6个字元"
 
 msgid "Passwords do not match"
-msgstr ""
+msgstr "密码不相符"
 
 msgid "Enter a valid email"
-msgstr ""
+msgstr "输入有效的电子邮件"
 
 msgid "Number should between 10 to 120"
-msgstr "10120"
+msgstr "必须是10至120之间的数字"
 
 msgid "Enter your first and last name"
-msgstr ""
+msgstr "输入姓名"
 
 msgid "City must not be empty"
-msgstr ""
+msgstr "城市不可为空"
 
 msgid "Address must not be empty"
-msgstr ""
+msgstr "地址不可为空"
 
 msgid "Enter a valid phone number"
-msgstr ""
+msgstr "输入有效的电话号"
 
 msgid "Select a secret question"
-msgstr ""
+msgstr "选择安全提示问题"
 
 msgid "Secret answer must be at least 4 characters"
-msgstr "4"
+msgstr "安全提示答案必须至少4个字元"
 
 msgid "You need to agree to our Terms and Conditions"
-msgstr ""
+msgstr "您必须同意我们的条款和条件"
 
 msgid "I agree to the"
-msgstr ""
+msgstr "本人同意"
 
 msgid "terms and conditions"
-msgstr ""
+msgstr "条款和条件"
 
 msgid "Search for assets"
-msgstr ""
+msgstr "搜索资产"
 
 msgid "Choose a Payment Agent"
-msgstr ""
+msgstr "选择支付代理"
 
 msgid "Confirm New Password"
-msgstr ""
+msgstr "确认新密码"
 
 msgid "First Name"
-msgstr ""
+msgstr "名字"
 
 msgid "Last Name"
-msgstr ""
+msgstr "姓氏"
 
 msgid "Address First Line"
-msgstr ""
+msgstr "地址第一行"
 
 msgid "Address Second Line"
-msgstr ""
+msgstr "地址第二行"
 
 msgid "Phone"
-msgstr ""
+msgstr "电话"
 
 msgid "Answer To Secret Question"
-msgstr ""
+msgstr "安全提示问题的答案"
 
 msgid "Switch to"
-msgstr ""
+msgstr "切换成"
 
 msgid "Single Trade"
-msgstr ""
+msgstr "单次交易"
 
 msgid "Multi Trade"
-msgstr ""
+msgstr "多次交易"
 
 msgid "Current Password"
-msgstr ""
+msgstr "当前密码"
 
 msgid "New Password"
-msgstr ""
+msgstr "新密码"
 
 msgid "Last 50 Ticks"
-msgstr "50"
+msgstr "最近50次跳动"
 
 msgid "Last 100 Ticks"
-msgstr "100"
+msgstr "最近100次跳动"
 
 msgid "Last 500 Ticks"
-msgstr "500"
+msgstr "最近500次跳动"
 
 msgid "Last 1000 Ticks"
-msgstr "1000"
+msgstr "最近1000次跳动"
 
 msgid "Exit Full Screen"
-msgstr ""
+msgstr "退出全屏"
 
 msgid "No digit trades for this asset"
-msgstr ""
+msgstr "此资产无数字交易"
 
 msgid "Lock Cashier"
-msgstr ""
+msgstr "解锁收银台"
 
 msgid "Time out until date"
-msgstr ""
+msgstr "时间已过。下次开启时间为"
 
 msgid "Time out until time"
-msgstr ""
+msgstr "时间已过。下次开启时间为"
 
 msgid "Light Theme"
-msgstr ""
+msgstr "浅色主题"
 
 msgid "Dark Theme"
-msgstr ""
+msgstr "深色主题"
 
 msgid "Password changed successfully"
-msgstr ""
+msgstr "已成功更改密码"
 
 msgid "Settings updated"
-msgstr ""
+msgstr "设置更新"
 
 msgid "Address updated"
-msgstr ""
+msgstr "地址更新"
 
 msgid "Barrier must not be empty"
-msgstr ""
+msgstr "障碍不可为空"
 
 msgid "Duration is out of range"
-msgstr ""
+msgstr "交易期限超出限定范围"
 
 msgid "Start date invalid, it needs to be five minutes or more in the future"
-msgstr ""
+msgstr "开始日期无效，必须是未来的五分钟或更长时间"
 
 msgid "Time format is wrong"
-msgstr ""
+msgstr "时间格式错误"
 
 msgid "Lower than"
-msgstr ""
+msgstr "低于"
 
 msgid "Higher than"
-msgstr ""
+msgstr "高于"
 
 msgid "High barrier"
-msgstr ""
+msgstr "高障碍"
 
 msgid "Low barrier"
-msgstr ""
+msgstr "低障碍"
 
 msgid "Touch spot"
-msgstr ""
+msgstr "触及现货价格"
 
 msgid "This field is required"
-msgstr ""
+msgstr "此为必填字段。"
 
 msgid "Should be a valid number"
-msgstr ""
+msgstr "必须是有效号码"
 
 msgid "Should be between 0 and {number}"
-msgstr " 0  {number} "
+msgstr "必须介于 0 和 {number} 之间"
 
 msgid "Time out must be after today and cannot be more than 6 weeks."
-msgstr " 6 "
+msgstr "超时时间必须在今天过后，且不能超过 6 周。"
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
-msgstr " 6  5 "
+msgstr "禁止访问时间不能少于 6 个月及超过 5 年。"

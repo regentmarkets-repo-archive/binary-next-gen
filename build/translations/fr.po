@@ -1,3 +1,18 @@
+# Copyright (C) 2013 Regent Markets Group
+# This file is distributed under the same license as the bom-web package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2017-06-22 13:21+0000\n"
+"Language: fr\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.15-dev\n"
+
 msgid "All"
 msgstr "Tout"
 
@@ -14,7 +29,7 @@ msgid "Trade"
 msgstr "Exécuter une opération"
 
 msgid "Watchlist"
-msgstr "Liste de surveillance"
+msgstr "Tableau de bord"
 
 msgid "Open Positions"
 msgstr "Positions ouvertes"
@@ -59,7 +74,7 @@ msgid "Profit/Loss"
 msgstr "Profits/Pertes"
 
 msgid "Total"
-msgstr "Total"
+msgstr ""
 
 msgid "Location"
 msgstr "Emplacement"
@@ -74,7 +89,7 @@ msgid "Trading Limits"
 msgstr "Limites de trading"
 
 msgid "Item"
-msgstr "Élément"
+msgstr "Elément"
 
 msgid "Limit ({currency})"
 msgstr "Limite ({currency})"
@@ -95,13 +110,17 @@ msgid "Withdrawal limits"
 msgstr "Limites de retrait"
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
-msgstr "Votre limite de retrait est de {limit} (ou l'équivalent dans une autre devise)."
+msgstr ""
+"Votre limite de retrait est de {limit} (ou l'équivalent dans une autre "
+"devise)."
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
 msgstr "Vous avez déjà retiré l'équivalent de {drawn} EUR."
 
 msgid "An additional password can be used to restrict access to the cashier."
-msgstr "Un mot de passe supplémentaire peut être utilisé afin de restreindre l'accès au service de caisse."
+msgstr ""
+"Un mot de passe supplémentaire peut être utilisé afin de restreindre l'accès "
+"au service de caisse."
 
 msgid "Sign In"
 msgstr "Connexion"
@@ -113,7 +132,7 @@ msgid "Create Account"
 msgstr "Créer un compte"
 
 msgid "Action"
-msgstr "Action"
+msgstr ""
 
 msgid "Credit/Debit"
 msgstr "Crédit/ Débit"
@@ -137,10 +156,10 @@ msgid "Asset"
 msgstr "Actif"
 
 msgid "Type"
-msgstr "Type"
+msgstr ""
 
 msgid "Ticks"
-msgstr "Ticks"
+msgstr ""
 
 msgid "Amount"
 msgstr "Montant"
@@ -173,7 +192,7 @@ msgid "Security"
 msgstr "Sécurité"
 
 msgid "Spot"
-msgstr "Spot"
+msgstr ""
 
 msgid "Change"
 msgstr "Modifier"
@@ -197,7 +216,7 @@ msgid "Deposit"
 msgstr "Dépôt"
 
 msgid "Transactions"
-msgstr "Transactions"
+msgstr ""
 
 msgid "Opens"
 msgstr "Ouverture"
@@ -248,10 +267,10 @@ msgid "Up/Down"
 msgstr "Haut/Bas"
 
 msgid "Touch/No Touch"
-msgstr "Touche/Sans touche"
+msgstr "Touche"
 
 msgid "Ends In/Out"
-msgstr "Termine dans/hors de la zone"
+msgstr "In/Out"
 
 msgid "Stays In/Goes Out"
 msgstr "Reste dans/Sort de la zone"
@@ -302,7 +321,7 @@ msgid "Digit Over"
 msgstr "Chiffre supérieur"
 
 msgid "Digit Match"
-msgstr "Chiffre correspondant"
+msgstr "Chiffre égal"
 
 msgid "Digit Under"
 msgstr "Chiffre inférieur"
@@ -320,10 +339,10 @@ msgid "Fall"
 msgstr "Baisse"
 
 msgid "Asian Down"
-msgstr "Asiatique/baisse"
+msgstr ""
 
 msgid "Asian Up"
-msgstr "Asiatique/hausse"
+msgstr ""
 
 msgid "Search For Assets"
 msgstr "Rechercher des actifs"
@@ -359,10 +378,10 @@ msgid "Password"
 msgstr "Mot de passe"
 
 msgid "Tick Trade"
-msgstr "Tick Trade"
+msgstr ""
 
 msgid "Full Trade"
-msgstr "Trade complète"
+msgstr "Option classique"
 
 msgid "Address"
 msgstr "Adresse"
@@ -398,7 +417,8 @@ msgid "Daily turnover limit"
 msgstr "Limite journalière du volume des transactions"
 
 msgid "Once this limit is reached, you may no longer deposit."
-msgstr "Une fois cette limite atteinte, vous ne pouvez plus effectuer de dépôt."
+msgstr ""
+"Une fois cette limite atteinte, vous ne pouvez plus effectuer de dépôt."
 
 msgid "Maximum aggregate contract purchases per day."
 msgstr "Maximum global des achats de contrat par jour."
@@ -458,7 +478,7 @@ msgid "Random 100 Index"
 msgstr "Indice Random 100"
 
 msgid "Article"
-msgstr "Article"
+msgstr ""
 
 msgid "Start Later"
 msgstr "Commencer plus tard"
@@ -470,7 +490,7 @@ msgid "Earning (%)"
 msgstr "Gain  (%)"
 
 msgid "Profit"
-msgstr "Profits"
+msgstr ""
 
 msgid "Entry Price"
 msgstr "Prix d'entrée"
@@ -497,16 +517,16 @@ msgid "Close"
 msgstr "Fermeture"
 
 msgid "Low"
-msgstr "Bas"
+msgstr ""
 
 msgid "High"
-msgstr "Haut"
+msgstr ""
 
 msgid "Open"
 msgstr "Ouverture"
 
 msgid "Date"
-msgstr "Date"
+msgstr ""
 
 msgid "Upcoming Events"
 msgstr "Prochains événements"
@@ -527,16 +547,16 @@ msgid "Daily Prices"
 msgstr "Prix quotidiens"
 
 msgid "Spreads"
-msgstr "Spreads"
+msgstr ""
 
 msgid "Confirm new password"
 msgstr "Confirmer le nouveau mot de passe"
 
 msgid "TICK"
-msgstr "TICK"
+msgstr ""
 
 msgid "Minutes"
-msgstr "Minutes"
+msgstr ""
 
 msgid "Seconds"
 msgstr "Secondes"
@@ -548,7 +568,7 @@ msgid "Days"
 msgstr "Jours"
 
 msgid "N/A"
-msgstr "N/A"
+msgstr ""
 
 msgid "Duration"
 msgstr "Durée"
@@ -572,13 +592,13 @@ msgid "Video"
 msgstr "Vidéo"
 
 msgid "Digit Stats"
-msgstr "Chiffres statistiques"
+msgstr "Statistiques du dernier chiffre"
 
 msgid "Favorites"
 msgstr "Favoris"
 
 msgid "Open For Trading"
-msgstr "Ouvert à la négociation"
+msgstr ""
 
 msgid "Closed"
 msgstr "Fermé"
@@ -622,17 +642,23 @@ msgstr "Vous avez gagné"
 msgid "You Lost"
 msgstr "Vous avez perdu"
 
-msgid "To change your name, date of birth, country of residence, or email, contact Customer Support."
-msgstr "Pour modifier votre nom, votre date de naissance, votre pays de résidence ou votre adresse e-mail, veuillez contacter le Service Clientèle."
+msgid ""
+"To change your name, date of birth, country of residence, or email, contact "
+"Customer Support."
+msgstr ""
+"Pour modifier votre nom, votre date de naissance, votre pays de résidence ou "
+"votre adresse e-mail, veuillez contacter le Service Clientèle."
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
-msgstr "Votre service de caisse est verrouillé conformément à votre demande. Pour le déverrouiller, veuillez saisir votre mot de passe."
+msgstr ""
+"Votre service de caisse est verrouillé conformément à votre demande. Pour le "
+"déverrouiller, veuillez saisir votre mot de passe."
 
 msgid "Unlock Cashier"
 msgstr "Déverrouiller le service de caisse"
 
 msgid "Time out until"
-msgstr "Expiration jusqu'à"
+msgstr "Interrompre jusqu'à"
 
 msgid "No transactions for the selected period"
 msgstr "Il n'y a aucune transaction pour la période sélectionnée"
@@ -710,7 +736,7 @@ msgid "Volatility Indices"
 msgstr "Indices de volatilité"
 
 msgid "Indices"
-msgstr "Indices"
+msgstr ""
 
 msgid "OTC Stocks"
 msgstr "Actions OTC"
@@ -748,8 +774,11 @@ msgstr "Saisissez un code de vérification valide"
 msgid "Choose your country"
 msgstr "Sélectionnez votre pays"
 
-msgid "Password should have lower and uppercase letters and 6 characters or more"
-msgstr "Le mot de passe doit se composer de majuscules et de minuscules et contenir au moins 6 caractères"
+msgid ""
+"Password should have lower and uppercase letters and 6 characters or more"
+msgstr ""
+"Le mot de passe doit se composer de majuscules et de minuscules et contenir "
+"au moins 6 caractères"
 
 msgid "Passwords do not match"
 msgstr "Les mots de passe saisis ne correspondent pas"
@@ -779,7 +808,7 @@ msgid "Secret answer must be at least 4 characters"
 msgstr "La réponse secrète doit contenir au moins 4 caractères"
 
 msgid "You need to agree to our Terms and Conditions"
-msgstr "Vous devez accepter nos Conditions Générales"
+msgstr "Vous devez accepter nos Conditions générales"
 
 msgid "I agree to the"
 msgstr "J'accepte les"
@@ -794,7 +823,7 @@ msgid "Choose a Payment Agent"
 msgstr "Sélectionnez un Agent de paiement"
 
 msgid "Confirm New Password"
-msgstr "Confirmez le nouveau mot de passe"
+msgstr "Confirmer le nouveau mot de passe"
 
 msgid "First Name"
 msgstr "Prénom"
@@ -812,7 +841,7 @@ msgid "Phone"
 msgstr "Téléphone"
 
 msgid "Answer To Secret Question"
-msgstr "Réponse à la Question Secrète"
+msgstr "Réponse à la question secrète"
 
 msgid "Switch to"
 msgstr "Basculer vers"
@@ -851,10 +880,10 @@ msgid "Lock Cashier"
 msgstr "Verrouiller le service de caisse"
 
 msgid "Time out until date"
-msgstr "Expiration jusqu'à date"
+msgstr ""
 
 msgid "Time out until time"
-msgstr "Expiration jusqu'à heure"
+msgstr ""
 
 msgid "Light Theme"
 msgstr "Thème clair"
@@ -878,7 +907,9 @@ msgid "Duration is out of range"
 msgstr "La durée dépasse la plage autorisée"
 
 msgid "Start date invalid, it needs to be five minutes or more in the future"
-msgstr "La date de début n'est pas valide, elle doit se situer à cinq minutes ou plus de l'heure actuelle"
+msgstr ""
+"La date de début n'est pas valide, elle doit se situer à cinq minutes ou "
+"plus de l'heure actuelle"
 
 msgid "Time format is wrong"
 msgstr "Le format d'heure est incorrect"
@@ -896,19 +927,19 @@ msgid "Low barrier"
 msgstr "Barrière inférieure"
 
 msgid "Touch spot"
-msgstr "Touche spot"
+msgstr ""
 
 msgid "This field is required"
-msgstr "Ce champ est requis"
+msgstr ""
 
 msgid "Should be a valid number"
-msgstr "La saisie doit être un nombre valide"
+msgstr ""
 
 msgid "Should be between 0 and {number}"
-msgstr "Doit être compris entre 0 et {number}"
+msgstr ""
 
 msgid "Time out must be after today and cannot be more than 6 weeks."
-msgstr "L'expiration doit être après aujourd'hui et ne peut pas être plus de 6 semaines."
+msgstr ""
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
-msgstr "Temps d’exclusion ne peut être inférieure à 6 mois et à plus de 5 ans."
+msgstr ""
