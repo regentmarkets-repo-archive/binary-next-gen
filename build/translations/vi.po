@@ -1,563 +1,578 @@
+# Copyright (C) 2013 Regent Markets Group
+# This file is distributed under the same license as the bom-web package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2017-06-22 13:21+0000\n"
+"Language: vi\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.15-dev\n"
+
 msgid "All"
-msgstr "Tt c"
+msgstr "Tất cả"
 
 msgid "Property"
-msgstr "Ti sn"
+msgstr "Tài sản"
 
 msgid "Value"
-msgstr "Gi tr"
+msgstr "Giá trị"
 
 msgid "Balance"
-msgstr "S d ti khon"
+msgstr "Số dư tài khoản"
 
 msgid "Trade"
-msgstr "Giao dich"
+msgstr "Giao dịch"
 
 msgid "Watchlist"
-msgstr "Danh sch theo di"
+msgstr "Danh sách theo dõi"
 
 msgid "Open Positions"
-msgstr "V th m"
+msgstr "Vị thế mở"
 
 msgid "Profit Table"
-msgstr "Bang li nhun"
+msgstr "Bảng lợi nhuận"
 
 msgid "Statement"
-msgstr "Bo co"
+msgstr "Báo cáo"
 
 msgid "Settings"
-msgstr "Ci t"
+msgstr "Cài đặt"
 
 msgid "Sign Out"
-msgstr "ng xut"
+msgstr "Đăng xuất"
 
 msgid "View"
 msgstr "Xem"
 
 msgid "Ref."
-msgstr "Tham khao."
+msgstr "Tham khảo."
 
 msgid "Purchase"
 msgstr "Mua"
 
 msgid "Indicative"
-msgstr "Chi thi"
+msgstr "Chỉ thị"
 
 msgid "Purchase Date"
-msgstr "Ngay Mua"
+msgstr "Ngày Mua"
 
 msgid "Purchase Price"
-msgstr "Gia Mua"
+msgstr "Giá Mua"
 
 msgid "Sale Date"
-msgstr "Ngay Ban hang"
+msgstr "Ngày Bán hàng"
 
 msgid "Sale Price"
-msgstr "Gia ban"
+msgstr "Giá bán"
 
 msgid "Profit/Loss"
-msgstr "Li nhun/Thua l"
+msgstr "Lợi nhuận/Thua lỗ"
 
 msgid "Total"
-msgstr "Tng"
+msgstr "Tổng"
 
 msgid "Location"
-msgstr "V tr"
+msgstr "Vị trí"
 
 msgid "Update"
-msgstr "Cp nht"
+msgstr "Cập nhật"
 
 msgid "Details"
-msgstr "Chi tit"
+msgstr "Chi tiết"
 
 msgid "Trading Limits"
-msgstr "Gii han Giao dich"
+msgstr "Giới hạn Giao dịch"
 
 msgid "Item"
-msgstr "Hang muc"
+msgstr "Hạng mục"
 
 msgid "Limit ({currency})"
-msgstr "Gii hn ({currency})"
+msgstr "Giới hạn ({currency})"
 
 msgid "Maximum number of open positions"
-msgstr "S ti a cua vi th m"
+msgstr "Số tối đa của vị thế mở"
 
 msgid "Maximum account cash balance"
-msgstr "S d tai khoan tin mt ti a"
+msgstr "Số dư tài khoản tiền mặt tối đa"
 
 msgid "Maximum daily turnover"
-msgstr "Thu nhp hang ngay ti a"
+msgstr "Thu nhập hàng ngày tối đa"
 
 msgid "Maximum aggregate payouts on open positions"
-msgstr "Tng tin thng ti a trn cc vi tr m"
+msgstr "Tổng tiền thưởng tối đa trên các vị trí mở"
 
 msgid "Withdrawal limits"
-msgstr "Gii han rut tin"
+msgstr "Giới hạn rút tiền"
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
-msgstr "Gii hn rt tin ca bn l {limit} (hoc loi tin tng ng)."
+msgstr "Giới hạn rút tiền của bạn là {limit} (hoặc loại tiền tương đương)."
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
-msgstr "Bn  rt tin tng ng vi ng EUR {drawn}."
+msgstr "Bạn đã rút tiền tương đương với đồng EUR {drawn}."
 
 msgid "An additional password can be used to restrict access to the cashier."
-msgstr "Mt khu ph c th dng  hn ch truy cp vao khu thu ngn."
+msgstr "Mật khẩu phụ có thể dùng để hạn chế truy cập vào khu thu ngân."
 
 msgid "Sign In"
-msgstr "ng nhp"
+msgstr "Đăng nhập"
 
 msgid "Get your API token"
-msgstr "Nhn m API ca bn"
+msgstr "Nhận mã API của bạn"
 
 msgid "Create Account"
-msgstr "ng k ti khon"
+msgstr "Đăng kí tài khoản"
 
 msgid "Action"
-msgstr "Hanh ng"
+msgstr "Hành động"
 
 msgid "Credit/Debit"
-msgstr "Tin dung/Ghi n"
+msgstr "Tín dụng/Ghi nợ"
 
 msgid "Purchase Time"
-msgstr "Thi Gian mua"
+msgstr "Thời Gian mua"
 
 msgid "Back"
-msgstr "Quay li"
+msgstr "Quay lại"
 
 msgid "Place Order"
-msgstr "t lnh"
+msgstr "Đặt lệnh"
 
 msgid "{asset} will {type} over next {duration}"
-msgstr "{asset} s {type} qua tip theo {duration}"
+msgstr "{asset} sẽ {type} qua tiếp theo {duration}"
 
 msgid "Price"
-msgstr "Gia"
+msgstr "Giá"
 
 msgid "Asset"
-msgstr "Ti sn"
+msgstr "Tài sản"
 
 msgid "Type"
-msgstr "Loi"
+msgstr "Loại"
 
 msgid "Ticks"
-msgstr "Giy"
+msgstr "Giây"
 
 msgid "Amount"
-msgstr "S tin"
+msgstr "Số tiền"
 
 msgid "Trade Confirmation"
-msgstr "Xac nhn Giao dich"
+msgstr "Xác nhận Giao dịch"
 
 msgid "Entry spot"
-msgstr "Gi ti thi im bt u giao dch"
+msgstr "Giá tại thời điểm bắt đầu giao dịch"
 
 msgid "Exit spot"
-msgstr "Gi ti thi im kt thc giao dch"
+msgstr "Giá tại thời điểm kết thúc giao dịch"
 
 msgid "Next"
-msgstr "Tip theo"
+msgstr "Tiếp theo"
 
 msgid "Open Account"
-msgstr "M Tai khoan"
+msgstr "Mở Tài khoản"
 
 msgid "Upgrade to Real Money Account"
-msgstr "Nng cp ln Ti Khon Tin Thc"
+msgstr "Nâng cấp lên Tài Khoản Tiền Thực"
 
 msgid "Date of birth"
-msgstr "Ngay sinh"
+msgstr "Ngày sinh"
 
 msgid "Home Address"
-msgstr "a ch nh"
+msgstr "Địa chỉ nhà"
 
 msgid "Security"
-msgstr "Bao mt"
+msgstr "Bảo mật"
 
 msgid "Spot"
-msgstr "Gi giao ngay"
+msgstr "Giá giao ngay"
 
 msgid "Change"
-msgstr "Thay i"
+msgstr "Thay đổi"
 
 msgid "Chart"
-msgstr "BIu "
+msgstr "BIểu đồ"
 
 msgid "Purchase For"
 msgstr "Mua"
 
 msgid "Rise"
-msgstr "Tng"
+msgstr "Tăng"
 
 msgid "Stake"
-msgstr "C cc"
+msgstr "Cá cược"
 
 msgid "Payout"
-msgstr "Tin thng"
+msgstr "Tiền thưởng"
 
 msgid "Deposit"
-msgstr "Gi tin"
+msgstr "Gửi tiền"
 
 msgid "Transactions"
-msgstr "Giao dich"
+msgstr "Giao dịch"
 
 msgid "Opens"
-msgstr "Bt u"
+msgstr "Bắt đầu"
 
 msgid "Closes"
-msgstr "Kt thc"
+msgstr "Kết thúc"
 
 msgid "Personal"
-msgstr "C nhn"
+msgstr "Cá nhân"
 
 msgid "General"
-msgstr "Tng quan"
+msgstr "Tổng quan"
 
 msgid "Trading Times"
-msgstr "Thi Gian Giao Dch"
+msgstr "Thời Gian Giao Dịch"
 
 msgid "Asset Index"
-msgstr "Ch s Ti sn"
+msgstr "Chỉ số Tài sản"
 
 msgid "Today"
-msgstr "Hm nay"
+msgstr "Hôm nay"
 
 msgid "Yesterday"
-msgstr "Ngy hm qua"
+msgstr "Ngày hôm qua"
 
 msgid "Tomorrow"
-msgstr "Ngy mai"
+msgstr "Ngày mai"
 
 msgid "Takeout"
-msgstr "a ra"
+msgstr "Đưa ra"
 
 msgid "News"
-msgstr "Tin tc"
+msgstr "Tin tức"
 
 msgid "Resources"
-msgstr "Ngun thng tin"
+msgstr "Nguồn thông tin"
 
 msgid "Last 7 Days"
-msgstr "7 ngy trc"
+msgstr "7 ngày trước"
 
 msgid "Last 30 Days"
-msgstr "30 ngy trc"
+msgstr "30 ngày trước"
 
 msgid "Daily Report"
-msgstr "Bo Co Hng Ngy"
+msgstr "Báo Cáo Hàng Ngày"
 
 msgid "Up/Down"
-msgstr "Ln/Xung"
+msgstr "Lên/Xuống"
 
 msgid "Touch/No Touch"
-msgstr "Chm/Khng chm"
+msgstr "Chạm/Không chạm"
 
 msgid "Ends In/Out"
-msgstr "Kt thc Trong/Ngoi"
+msgstr "Kết thúc Trong/Ngoài"
 
 msgid "Stays In/Goes Out"
-msgstr " trong/Ra ngoi"
+msgstr "Ở trong/Ra ngoài"
 
 msgid "Settles"
-msgstr "Ci t"
+msgstr "Cài đặt"
 
 msgid "Language"
-msgstr "Ngn ng"
+msgstr "Ngôn ngữ"
 
 msgid "Color Theme"
-msgstr "Mu sc giao din"
+msgstr "Màu sắc giao diện"
 
 msgid "Light"
-msgstr "Mu nht"
+msgstr "Màu nhạt"
 
 msgid "Dark"
-msgstr "Mu m"
+msgstr "Màu đậm"
 
 msgid "Name"
-msgstr "Tn"
+msgstr "Tên"
 
 msgid "Date Of Birth"
-msgstr "Ngy sinh"
+msgstr "Ngày sinh"
 
 msgid "Country Of Residence"
-msgstr "Quc gia c tr"
+msgstr "Quốc gia cư trú"
 
 msgid "Email"
 msgstr ""
 
 msgid "There are no transactions for selected period"
-msgstr "Khng c giao dch no trong khong thi gian ny"
+msgstr "Không có giao dịch nào trong khoảng thời gian này"
 
 msgid "Sell"
-msgstr "Bn"
+msgstr "Bán"
 
 msgid "Buy"
 msgstr "Mua"
 
 msgid "Digit Even"
-msgstr "S chn"
+msgstr "Số chẵn"
 
 msgid "Touches"
-msgstr "Chm"
+msgstr "Chạm"
 
 msgid "Digit Over"
-msgstr "S vt qu"
+msgstr "Số vượt quá"
 
 msgid "Digit Match"
-msgstr "S ph hp"
+msgstr "Số phù hợp"
 
 msgid "Digit Under"
-msgstr "S di"
+msgstr "Số dưới"
 
 msgid "Digit Odd"
-msgstr "S l"
+msgstr "Số lẻ"
 
 msgid "Digit Differs"
-msgstr "S khc"
+msgstr "Số khác"
 
 msgid "No Touch"
-msgstr "Khng chm"
+msgstr "Không chạm"
 
 msgid "Fall"
-msgstr "Xung"
+msgstr "Xuống"
 
 msgid "Asian Down"
-msgstr "Ngi chu  xung"
+msgstr "Người châu Á xuống"
 
 msgid "Asian Up"
-msgstr "Ngi chu  ln"
+msgstr "Người châu Á lên"
 
 msgid "Search For Assets"
-msgstr "Tm Kim Ti Sn"
+msgstr "Tìm Kiếm Tài Sản"
 
 msgid "Start times"
-msgstr "Thi gian bt u"
+msgstr "Thời gian bắt đầu"
 
 msgid "Durations"
-msgstr "Thi lng"
+msgstr "Thời lượng"
 
 msgid "Payout/Stake"
-msgstr "Thanh ton/c phn"
+msgstr "Thanh toán/cổ phần"
 
 msgid "Purchase for"
 msgstr "Mua cho"
 
 msgid "payout"
-msgstr "thanh ton"
+msgstr "thanh toán"
 
 msgid "stake"
-msgstr "c phn"
+msgstr "cổ phần"
 
 msgid "Self Exclusion"
-msgstr "T Loi Tr"
+msgstr "Tự Loại Trừ"
 
 msgid "Cashier Lock"
-msgstr "Kha quy thu ngn"
+msgstr "Khóa quầy thu ngân"
 
 msgid "Change Password"
-msgstr "Thay i mt khu"
+msgstr "Thay đổi mật khẩu"
 
 msgid "Password"
-msgstr "Mt khu"
+msgstr "Mật khẩu"
 
 msgid "Tick Trade"
-msgstr "nh du giao dich"
+msgstr "Đánh dấu giao dịch"
 
 msgid "Full Trade"
-msgstr "Ton b giao dch"
+msgstr "Toàn bộ giao dịch"
 
 msgid "Address"
-msgstr "a ch"
+msgstr "Địa chỉ"
 
 msgid "Town/City"
-msgstr "Th trn/thnh ph"
+msgstr "Thị trấn/thành phố"
 
 msgid "State/Province"
-msgstr "Bang/Tnh"
+msgstr "Bang/Tỉnh"
 
 msgid "Telephone"
-msgstr "in thoi"
+msgstr "Điện thoại"
 
 msgid "Postal Code / ZIP"
-msgstr "M bu in / ZIP"
+msgstr "Mã bưu điện / ZIP"
 
 msgid "Cashier password"
-msgstr "Mt khu nhn vin thu ngn"
+msgstr "Mật khẩu nhân viên thu ngân"
 
 msgid "Re-enter your password"
-msgstr "Nhp li mt khu ca bn"
+msgstr "Nhập lại mật khẩu của bạn"
 
 msgid "Current password"
-msgstr "Mt khu hin thi"
+msgstr "Mật khẩu hiện thời"
 
 msgid "New password"
-msgstr "Mt khu mi"
+msgstr "Mật khẩu mới"
 
 msgid "Verify new password"
-msgstr "Xc nhn mt khu mi"
+msgstr "Xác nhận mật khẩu mới"
 
 msgid "Daily turnover limit"
-msgstr "Gii hn doanh s hng ngy"
+msgstr "Giới hạn doanh số hàng ngày"
 
 msgid "Once this limit is reached, you may no longer deposit."
-msgstr "Mt khi  t n gii hn ny, bn s khng th gi tin."
+msgstr "Một khi đã đạt đến giới hạn này, bạn sẽ không thể gửi tiền."
 
 msgid "Maximum aggregate contract purchases per day."
-msgstr "Tng ti a hp ng mua cho mt ngy."
+msgstr "Tổng tối đa hợp đồng mua cho một ngày."
 
 msgid "Daily limit on losses"
-msgstr "Gii hn thua hng ngy"
+msgstr "Giới hạn thua hàng ngày"
 
 msgid "Maximum aggregate loss per day."
-msgstr "Tng ti a thua mi ngy."
+msgstr "Tổng tối đa thua mỗi ngày."
 
 msgid "7-day turnover limit"
-msgstr "gii hn doanh s 7 ngy"
+msgstr "giới hạn doanh số 7 ngày"
 
 msgid "Maximum aggregate contract purchases over a 7-day period."
-msgstr "Tng ti a hp ng mua trong khong thi gian 7 ngy."
+msgstr "Tổng tối đa hợp đồng mua trong khoảng thời gian 7 ngày."
 
 msgid "7-day limit on losses"
-msgstr "7 ngy gii hn cho thua"
+msgstr "7 ngày giới hạn cho thua"
 
 msgid "Maximum aggregate loss over a 7-day period."
-msgstr "Tng ti a thua trong khong thi gian 7 ngy."
+msgstr "Tổng tối đa thua trong khoảng thời gian 7 ngày."
 
 msgid "30-day turnover limit"
-msgstr "gii hn doanh s 30 ngy"
+msgstr "giới hạn doanh số 30 ngày"
 
 msgid "Maximum aggregate contract purchases over a 30-day period."
-msgstr "Tng ti a hp ng mua trong khong thi gian 30 ngy."
+msgstr "Tổng tối đa hợp đồng mua trong khoảng thời gian 30 ngày."
 
 msgid "30-day limit on losses"
-msgstr "30 ngy gii hn cho thua"
+msgstr "30 ngày giới hạn cho thua"
 
 msgid "Maximum aggregate loss over a 30-day period."
-msgstr "Tng ti a thit hi trong khong thi gian 30 ngy."
+msgstr "Tổng tối đa thiệt hại trong khoảng thời gian 30 ngày."
 
 msgid "Session duration limit, in minutes"
-msgstr "Gii hn thi lng phin, bng pht"
+msgstr "Giới hạn thời lượng phiên, bằng phút"
 
 msgid "You will be automatically logged out after such time."
-msgstr "Ban se bi t ng ng thoat sau khoang thi gian nay."
+msgstr "Bạn sẽ bị tự động đăng thoát sau khoảng thời gian này."
 
 msgid "Exclude me from the website until"
-msgstr "Loi tr ti khi trang web cho n khi"
+msgstr "Loại trừ tôi khỏi trang web cho đến khi"
 
 msgid "Limits"
-msgstr "Cc gii hn"
+msgstr "Các giới hạn"
 
 msgid "Please enter date in the format YYYY-MM-DD."
-msgstr "Vui lng nhp ngy theo nh dng YYYY-MM-DD."
+msgstr "Vui lòng nhập ngày theo định dạng YYYY-MM-DD."
 
 msgid "New Trade"
-msgstr "Giao dich mi"
+msgstr "Giao dịch mới"
 
 msgid "Trade Type"
-msgstr "Loi giao dich"
+msgstr "Loại giao dịch"
 
 msgid "Random 100 Index"
-msgstr "Ngu nhin 100 ch s"
+msgstr "Ngẫu nhiên 100 chỉ số"
 
 msgid "Article"
-msgstr "Mc"
+msgstr "Mục"
 
 msgid "Start Later"
-msgstr "Bt u sau "
+msgstr "Bắt đầu sau đó"
 
 msgid "Buy Price"
-msgstr "Gia mua"
+msgstr "Giá mua"
 
 msgid "Earning (%)"
-msgstr "Thu nhp (%)"
+msgstr "Thu nhập (%)"
 
 msgid "Profit"
-msgstr "Li nhun"
+msgstr "Lợi nhuận"
 
 msgid "Entry Price"
-msgstr "Gia khi im"
+msgstr "Giá khởi điểm"
 
 msgid "Exit Price"
-msgstr "Gia cht"
+msgstr "Giá chốt"
 
 msgid "Indicative Price"
-msgstr "Gi chi thi"
+msgstr "Giá chỉ thị"
 
 msgid "Potential Profit"
-msgstr "Li nhun tim nng"
+msgstr "Lợi nhuận tiềm năng"
 
 msgid "Sell at Market"
-msgstr "Bn ti th trng"
+msgstr "Bán tại thị trường"
 
 msgid "Go back"
-msgstr "Quay li"
+msgstr "Quay lại"
 
 msgid "You lost "
-msgstr "Bn  thua "
+msgstr "Bạn đã thua "
 
 msgid "Close"
-msgstr "ng"
+msgstr "Đóng"
 
 msgid "Low"
-msgstr "Thp"
+msgstr "Thấp"
 
 msgid "High"
 msgstr "Cao"
 
 msgid "Open"
-msgstr "M"
+msgstr "Mở"
 
 msgid "Date"
-msgstr "Ngay"
+msgstr "Ngày"
 
 msgid "Upcoming Events"
-msgstr "S kin sp ti"
+msgstr "Sự kiện sắp tới"
 
 msgid "Win"
-msgstr "Thng"
+msgstr "Thắng"
 
 msgid "Loss"
 msgstr "Thua"
 
 msgid "Full Screen"
-msgstr "Ton mn hnh"
+msgstr "Toàn màn hình"
 
 msgid "Start Now"
-msgstr "Bt u by gi"
+msgstr "Bắt đầu bây giờ"
 
 msgid "Daily Prices"
-msgstr "Gia hng ngy"
+msgstr "Giá hàng ngày"
 
 msgid "Spreads"
-msgstr "Lan ta"
+msgstr "Lan tỏa"
 
 msgid "Confirm new password"
-msgstr "Xc nhn mt khu mi"
+msgstr "Xác nhận mật khẩu mới"
 
 msgid "TICK"
-msgstr "NH DU"
+msgstr "ĐÁNH DẤU"
 
 msgid "Minutes"
-msgstr "Pht"
+msgstr "Phút"
 
 msgid "Seconds"
-msgstr "Giy"
+msgstr "Giây"
 
 msgid "Hours"
-msgstr "Gi"
+msgstr "Giờ"
 
 msgid "Days"
-msgstr "Ngy"
+msgstr "Ngày"
 
 msgid "N/A"
 msgstr ""
 
 msgid "Duration"
-msgstr "Thi lng"
+msgstr "Thời lượng"
 
 msgid "Start Time"
-msgstr "Thi gian bt u"
+msgstr "Thời gian bắt đầu"
 
 msgid "Now"
-msgstr "By gi"
+msgstr "Bây giờ"
 
 msgid "Later"
 msgstr "Lt sau"
@@ -841,67 +856,67 @@ msgid "Last 100 Ticks"
 msgstr "100 ln giao ng gn nht"
 
 msgid "Last 500 Ticks"
-msgstr "500 ln giao ng gn nht"
+msgstr "500 lần giao động gần nhất"
 
 msgid "Last 1000 Ticks"
-msgstr "1000 ln giao ng gn nht"
+msgstr "1000 lần giao động gần nhất"
 
 msgid "Exit Full Screen"
-msgstr "Thot ton mn hnh"
+msgstr "Thoát toàn màn hình"
 
 msgid "No digit trades for this asset"
-msgstr "Khng c giao dch s cho ti sn ny"
+msgstr "Không có giao dịch số cho tài sản này"
 
 msgid "Lock Cashier"
-msgstr "Kha quy thu ngn"
+msgstr "Khóa quầy thu ngân"
 
 msgid "Time out until date"
-msgstr "Ht thi gian cho n ngy"
+msgstr "Hết thời gian cho đến ngày"
 
 msgid "Time out until time"
-msgstr "Ht thi gian cho n khi"
+msgstr "Hết thời gian cho đến khi"
 
 msgid "Light Theme"
-msgstr "Nn nht"
+msgstr "Nền nhạt"
 
 msgid "Dark Theme"
-msgstr "Nn ti"
+msgstr "Nền tối"
 
 msgid "Password changed successfully"
-msgstr "Mt khu thay i thnh cng"
+msgstr "Mật khẩu thay đổi thành công"
 
 msgid "Settings updated"
-msgstr "Ci t  c cp nht"
+msgstr "Cài đặt đã được cập nhật"
 
 msgid "Address updated"
-msgstr "a ch  c cp nht"
+msgstr "Địa chỉ đã được cập nhật"
 
 msgid "Barrier must not be empty"
-msgstr "Barie khng c  trng"
+msgstr "Barie không được để trống"
 
 msgid "Duration is out of range"
-msgstr "Thi hn nm ngoi phm vi"
+msgstr "Thời hạn nằm ngoài phạm vi"
 
 msgid "Start date invalid, it needs to be five minutes or more in the future"
-msgstr "Ngy bt u khng hp l, cn phi bng 5 pht hoc nhiu hn trong tng lai"
+msgstr "Ngày bắt đầu không hợp lệ, cần phải bằng 5 phút hoặc nhiều hơn trong tương lai"
 
 msgid "Time format is wrong"
-msgstr "nh dng thi gian sai"
+msgstr "Định dạng thời gian sai"
 
 msgid "Lower than"
-msgstr "Thp hn"
+msgstr "Thấp hơn"
 
 msgid "Higher than"
-msgstr "Cao hn"
+msgstr "Cao hơn"
 
 msgid "High barrier"
 msgstr "Barie cao"
 
 msgid "Low barrier"
-msgstr "Barie thp"
+msgstr "Barie thấp"
 
 msgid "Touch spot"
-msgstr "im chm"
+msgstr "Điểm chạm"
 
 msgid "This field is required"
 msgstr ""

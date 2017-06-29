@@ -1,8 +1,23 @@
+# Copyright (C) 2013 Regent Markets Group
+# This file is distributed under the same license as the bom-web package.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"POT-Creation-Date: \n"
+"PO-Revision-Date: 2017-06-22 13:21+0000\n"
+"Language: it\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
+"X-Generator: Weblate 2.15-dev\n"
+
 msgid "All"
 msgstr "Tutto"
 
 msgid "Property"
-msgstr "Propriet"
+msgstr "Proprietà"
 
 msgid "Value"
 msgstr "Valore"
@@ -95,15 +110,13 @@ msgid "Withdrawal limits"
 msgstr "Limiti per i prelievi"
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
-msgstr "Il tuo limite di prelievo  di {limit} (o equivalente in altra valuta)."
+msgstr "Il tuo limite di prelievo è di {limit} (o equivalente in altra valuta)."
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
-msgstr "Hai gi prelevato l'equivalente di EUR {drawn}."
+msgstr "Hai già prelevato l'equivalente di EUR {drawn}."
 
 msgid "An additional password can be used to restrict access to the cashier."
-msgstr ""
-"Pu essere utilizzata una password aggiuntiva per limitare l'accesso alla "
-"cassa."
+msgstr "Può essere utilizzata una password aggiuntiva per limitare l'accesso alla cassa."
 
 msgid "Sign In"
 msgstr "Entra"
@@ -130,7 +143,7 @@ msgid "Place Order"
 msgstr "Effettua un ordine"
 
 msgid "{asset} will {type} over next {duration}"
-msgstr "{asset} sar {type} per i prossimi {duration}"
+msgstr "{asset} sarà {type} per i prossimi {duration}"
 
 msgid "Price"
 msgstr "Prezzo"
@@ -232,7 +245,7 @@ msgid "Takeout"
 msgstr ""
 
 msgid "News"
-msgstr "Novit"
+msgstr "Novità"
 
 msgid "Resources"
 msgstr "Risorse"
@@ -370,7 +383,7 @@ msgid "Address"
 msgstr "Indirizzo"
 
 msgid "Town/City"
-msgstr "Citt"
+msgstr "Città"
 
 msgid "State/Province"
 msgstr "Stato/Provincia"
@@ -400,7 +413,7 @@ msgid "Daily turnover limit"
 msgstr "Limite di turnover giornaliero"
 
 msgid "Once this limit is reached, you may no longer deposit."
-msgstr "Una volta raggiunto questo limite, non potrai pi depositare."
+msgstr "Una volta raggiunto questo limite, non potrai più depositare."
 
 msgid "Maximum aggregate contract purchases per day."
 msgstr "Contratti d'acquisto aggregati massimi giornalieri."
@@ -463,7 +476,7 @@ msgid "Article"
 msgstr "Articolo"
 
 msgid "Start Later"
-msgstr "Inizia pi tardi"
+msgstr "Inizia più tardi"
 
 msgid "Buy Price"
 msgstr "Prezzo d'acquisto"
@@ -624,17 +637,11 @@ msgstr "Hai vinto"
 msgid "You Lost"
 msgstr "Hai perso"
 
-msgid ""
-"To change your name, date of birth, country of residence, or email, contact "
-"Customer Support."
-msgstr ""
-"Per modificare il tuo nome, data di nascita, paese di residenza o email, "
-"contatta l'Assistenza Clienti."
+msgid "To change your name, date of birth, country of residence, or email, contact Customer Support."
+msgstr "Per modificare il tuo nome, data di nascita, paese di residenza o email, contatta l'Assistenza Clienti."
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
-msgstr ""
-"Come da tua richiesta, la cassa  bloccata. Per sbloccarla, inserisci la "
-"password."
+msgstr "Come da tua richiesta, la cassa è bloccata. Per sbloccarla, inserisci la password."
 
 msgid "Unlock Cashier"
 msgstr "Sblocca la cassa"
@@ -715,7 +722,7 @@ msgid "Smart FX"
 msgstr ""
 
 msgid "Volatility Indices"
-msgstr "Indici di volatilit"
+msgstr "Indici di volatilità"
 
 msgid "Indices"
 msgstr "Indici"
@@ -733,7 +740,7 @@ msgid "Withdrawal limit"
 msgstr "Limite per i prelievi"
 
 msgid "Already withdrawn"
-msgstr "Gi prelevato"
+msgstr "Già prelevato"
 
 msgid "Current immediate maximum withdrawal"
 msgstr "Attuale prelievo massimo immediato"
@@ -748,7 +755,7 @@ msgid "Confirm Password"
 msgstr "Conferma la password"
 
 msgid "Already have an account?"
-msgstr "Hai gi un account?"
+msgstr "Hai già un account?"
 
 msgid "Enter a valid verification code"
 msgstr "Inserisci un codice di verifica valido"
@@ -756,10 +763,8 @@ msgstr "Inserisci un codice di verifica valido"
 msgid "Choose your country"
 msgstr "Scegli il tuo paese"
 
-msgid ""
-"Password should have lower and uppercase letters and 6 characters or more"
-msgstr ""
-"La password deve contenere lettere minuscole e maiuscole e almeno 6 caratteri"
+msgid "Password should have lower and uppercase letters and 6 characters or more"
+msgstr "La password deve contenere lettere minuscole e maiuscole e almeno 6 caratteri"
 
 msgid "Passwords do not match"
 msgstr "Le password non corrispondono"
@@ -774,7 +779,7 @@ msgid "Enter your first and last name"
 msgstr "Inserisci il tuo nome e cognome"
 
 msgid "City must not be empty"
-msgstr "La citt non deve essere vuota"
+msgstr "La città non deve essere vuota"
 
 msgid "Address must not be empty"
 msgstr "L'indirizzo non deve essere vuoto"
@@ -831,7 +836,7 @@ msgid "Single Trade"
 msgstr "Trade singolo"
 
 msgid "Multi Trade"
-msgstr "Pi trade"
+msgstr "Più trade"
 
 msgid "Current Password"
 msgstr "Password attuale"
@@ -885,13 +890,13 @@ msgid "Barrier must not be empty"
 msgstr "La barriera non deve essere vuota"
 
 msgid "Duration is out of range"
-msgstr "La durata  compresa nell'intervallo"
+msgstr "La durata è compresa nell'intervallo"
 
 msgid "Start date invalid, it needs to be five minutes or more in the future"
-msgstr "Data di inizio non valida, deve essere cinque minuti o pi nel futuro"
+msgstr "Data di inizio non valida, deve essere cinque minuti o più nel futuro"
 
 msgid "Time format is wrong"
-msgstr "Il formato dell'orario  errato"
+msgstr "Il formato dell'orario è errato"
 
 msgid "Lower than"
 msgstr "Inferiore a"
