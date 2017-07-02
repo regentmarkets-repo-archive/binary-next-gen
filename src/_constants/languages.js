@@ -40,4 +40,4 @@ export default [{
 }, {
     value: 'ZH_TW',
     text: '繁體中文',
-}, ];
+}];
