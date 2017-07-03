@@ -1,7 +1,5 @@
 import { LiveApi } from 'binary-live-api';
 import { showError, timeLeftToNextRealityCheck } from 'binary-utils';
-import { readNewsFeed } from './NewsData';
-import { getVideosFromPlayList } from './VideoData';
 import * as actions from '../_actions';
 import { CHANGE_INFO_FOR_ASSET } from '../_constants/ActionTypes';
 
@@ -17,7 +15,6 @@ const handlers = {
     get_self_exclusion: 'serverDataAccountSelfExclusion',
     get_settings: 'serverDataAccountSettings',
     history: 'serverDataTickHistory',
-    news: 'updateNewsList',
     ohlc: 'serverDataOHLCStream',
     paymentagent_list: 'serverDataPaymentAgents',
     proposal_open_contract: 'serverDataProposalOpenContract',
@@ -29,7 +26,6 @@ const handlers = {
     tick: 'serverDataTickStream',
     trading_times: 'serverDataTradingTimes',
     transaction: 'serverTransactionStream',
-    videos: 'updateVideoList',
     residence_list: 'serverCountryList',
 };
 
@@ -178,11 +174,6 @@ const initAuthorized = async (authData, store) => {
         api.getSelfExclusion();
         api.getCashierLockStatus();
     }
-
-    const articles = await readNewsFeed('en');
-    api.events.emit('news', articles);
-    const videos = await getVideosFromPlayList();
-    api.events.emit('videos', videos);
 };
 
 export const trackSymbols = symbols => {
