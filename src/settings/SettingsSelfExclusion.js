@@ -280,6 +280,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					name="max_balance"
 					label="Maximum account cash balance"
 					type="text"
+					maxLength="20"
 					// hint="Once this limit is reached, you may no longer deposit."
 					defaultValue={max_balance}
 					onChange={this.onEntryChange}
@@ -290,6 +291,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					name="max_turnover"
 					label="Daily turnover limit"
 					type="text"
+					maxLength="20"
 					// hint="Maximum aggregate contract purchases per day."
 					defaultValue={max_turnover}
 					onChange={this.onEntryChange}
@@ -300,6 +302,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					name="max_losses"
 					label="Daily limit on losses"
 					type="text"
+					maxLength="20"
 					// hint="Maximum aggregate loss per day."
 					defaultValue={max_losses}
 					onChange={this.onEntryChange}
@@ -310,6 +313,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					name="max_7day_turnover"
 					label="7-day turnover limit"
 					type="text"
+					maxLength="20"
 					// hint="Maximum aggregate contract purchases over a 7-day period."
 					defaultValue={max_7day_turnover}
 					onChange={this.onEntryChange}
@@ -320,6 +324,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					name="max_7day_losses"
 					label="7-day limit on losses"
 					type="text"
+					maxLength="20"
 					// hint="Maximum aggregate loss over a 7-day period."
 					defaultValue={max_7day_losses}
 					onChange={this.onEntryChange}
@@ -330,6 +335,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					name="max_30day_turnover"
 					label="30-day turnover limit"
 					type="text"
+					maxLength="20"
 					// hint="Maximum aggregate contract purchases over a 30-day period."
 					defaultValue={max_30day_turnover}
 					onChange={this.onEntryChange}
@@ -340,6 +346,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					name="max_30day_losses"
 					label="30-day limit on losses"
 					type="text"
+					maxLength="20"
 					// hint="Maximum aggregate loss over a 30-day period."
 					defaultValue={max_30day_losses}
 					onChange={this.onEntryChange}
@@ -350,6 +357,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					name="max_open_bets"
 					label="Maximum number of open positions"
 					type="number"
+					maxLength="4"
 					defaultValue={max_open_bets}
 					onChange={this.onEntryChange}
 				/>
@@ -359,6 +367,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					name="session_duration_limit"
 					label="Session duration limit, in minutes"
 					type="number"
+					maxLength="5"
 					// hint="You will be automatically logged out after such time."
 					defaultValue={session_duration_limit}
 					onChange={this.onEntryChange}
@@ -368,7 +377,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					id="timeout_until_date"
 					name="timeout_until_date"
 					label="Time out until date"
-					type="text"
+					type="date"
 					maxLength="10"
 					defaultValue={timeout_until_date || 'yyyy-mm-dd'}
 					onChange={this.onEntryChange}
