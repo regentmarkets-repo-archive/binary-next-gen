@@ -51,8 +51,7 @@ export default class SettingsSelfExclusion extends PureComponent {
         exclude_until: false,
       },
 		};
-
-		/*eslint-disable */
+		/* eslint-disable consistent-return */
     validate.validators.timeoutUntilDateValidation = (value) => {
       if (!moment(value).isAfter(moment().subtract(1, 'days'), 'day') || !moment(value).isBefore(moment().add(6, 'weeks'))) {
         return 'Time out must be after today and cannot be more than 6 weeks.';
@@ -77,9 +76,9 @@ export default class SettingsSelfExclusion extends PureComponent {
         return 'Exclude time cannot be less than 6 months and more than 5 years.';
       }
     };
-		/*eslint-enable */
+		/* eslint-enable consistent-return */
 
-    this.constraints = {
+		this.constraints = {
       max_balance: {
         presence: {
           presence: true,
