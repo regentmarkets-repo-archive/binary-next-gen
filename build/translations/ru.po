@@ -1,18 +1,3 @@
-# Copyright (C) 2013 Regent Markets Group
-# This file is distributed under the same license as the bom-web package.
-#
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2017-06-22 13:21+0000\n"
-"Language: ru\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.15-dev\n"
-
 msgid "All"
 msgstr "Все"
 
@@ -116,8 +101,7 @@ msgid "You have already withdrawn the equivalent of EUR {drawn}."
 msgstr "Вы уже вывели сумму, эквивалентную EUR {drawn}."
 
 msgid "An additional password can be used to restrict access to the cashier."
-msgstr ""
-"Можно использовать дополнительный пароль для ограничения доступа к кассе."
+msgstr "Можно использовать дополнительный пароль для ограничения доступа к кассе."
 
 msgid "Sign In"
 msgstr "Войти"
@@ -297,7 +281,7 @@ msgid "Country Of Residence"
 msgstr "Страна проживания"
 
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 msgid "There are no transactions for selected period"
 msgstr "Сделки за выбранный период отсутствуют"
@@ -375,7 +359,7 @@ msgid "Password"
 msgstr "Пароль"
 
 msgid "Tick Trade"
-msgstr ""
+msgstr "Tick Trade"
 
 msgid "Full Trade"
 msgstr "Полноценная торговля"
@@ -429,9 +413,7 @@ msgid "7-day turnover limit"
 msgstr "7-дневный лимит на объём покупок"
 
 msgid "Maximum aggregate contract purchases over a 7-day period."
-msgstr ""
-"Максимальная совокупная стоимость контрактов, приобретенных за за 7-дневный "
-"период."
+msgstr "Максимальная совокупная стоимость контрактов, приобретенных за за 7-дневный период."
 
 msgid "7-day limit on losses"
 msgstr "7-дневный лимит на убытки"
@@ -443,9 +425,7 @@ msgid "30-day turnover limit"
 msgstr "30-дневный лимит на объём покупок"
 
 msgid "Maximum aggregate contract purchases over a 30-day period."
-msgstr ""
-"Максимальная совокупная стоимость контрактов, приобретенных за 30-дневный "
-"период."
+msgstr "Максимальная совокупная стоимость контрактов, приобретенных за 30-дневный период."
 
 msgid "30-day limit on losses"
 msgstr "30-дневный лимит на убытки"
@@ -642,12 +622,8 @@ msgstr "Вы выиграли"
 msgid "You Lost"
 msgstr "Вы проиграли"
 
-msgid ""
-"To change your name, date of birth, country of residence, or email, contact "
-"Customer Support."
-msgstr ""
-"Чтобы изменить Ваше имя, дату рождения, страну проживания или эл. адрес, "
-"свяжитесь со службой поддержки."
+msgid "To change your name, date of birth, country of residence, or email, contact Customer Support."
+msgstr "Чтобы изменить Ваше имя, дату рождения, страну проживания или эл. адрес, свяжитесь со службой поддержки."
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
 msgstr "Касса закрыта по Вашей просьбе. Чтобы открыть кассу, введите пароль."
@@ -728,7 +704,7 @@ msgid "Minor Pairs"
 msgstr "Вторичные пары"
 
 msgid "Smart FX"
-msgstr ""
+msgstr "Смарт FX"
 
 msgid "Volatility Indices"
 msgstr "Индексы волатильности"
@@ -772,11 +748,8 @@ msgstr "Введите правильный проверочный код"
 msgid "Choose your country"
 msgstr "Выберите страну"
 
-msgid ""
-"Password should have lower and uppercase letters and 6 characters or more"
-msgstr ""
-"Пароль должен составлять не менее 6 знаков и содержать заглавные и строчные "
-"буквы"
+msgid "Password should have lower and uppercase letters and 6 characters or more"
+msgstr "Пароль должен составлять не менее 6 знаков и содержать заглавные и строчные буквы"
 
 msgid "Passwords do not match"
 msgstr "Пароли не совпадают"
@@ -905,9 +878,7 @@ msgid "Duration is out of range"
 msgstr "Продолжительность вне допустимых границ"
 
 msgid "Start date invalid, it needs to be five minutes or more in the future"
-msgstr ""
-"Неверное время начала. Время начала должно быть не менее чем через пять "
-"минут в будущем"
+msgstr "Неверное время начала. Время начала должно быть не менее чем через пять минут в будущем"
 
 msgid "Time format is wrong"
 msgstr "Неправильный формат времени"
@@ -928,16 +899,16 @@ msgid "Touch spot"
 msgstr "Точка касания"
 
 msgid "This field is required"
-msgstr ""
+msgstr "Данное поле является обязательным"
 
 msgid "Should be a valid number"
-msgstr ""
+msgstr "Введите правильное число"
 
 msgid "Should be between 0 and {number}"
-msgstr ""
+msgstr "Введите число от 0 до {number}"
 
 msgid "Time out must be after today and cannot be more than 6 weeks."
-msgstr ""
+msgstr "Время окончания должно быть позднее сегодняшней даты, но не позже, чем через 6 недель."
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
-msgstr ""
+msgstr "Период исключения не должен быть менее 6 и более 5 лет."

@@ -1,18 +1,3 @@
-# Copyright (C) 2013 Regent Markets Group
-# This file is distributed under the same license as the bom-web package.
-#
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2017-06-22 13:21+0000\n"
-"Language: pl\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.15-dev\n"
-
 msgid "All"
 msgstr "Wszystko"
 
@@ -50,7 +35,7 @@ msgid "View"
 msgstr "Widok"
 
 msgid "Ref."
-msgstr ""
+msgstr "Ref."
 
 msgid "Purchase"
 msgstr "Kup"
@@ -92,7 +77,7 @@ msgid "Item"
 msgstr "Element"
 
 msgid "Limit ({currency})"
-msgstr ""
+msgstr "Limit ({currency})"
 
 msgid "Maximum number of open positions"
 msgstr "Maksymalna liczba otwartych pozycji"
@@ -110,16 +95,13 @@ msgid "Withdrawal limits"
 msgstr "Limity wypłat"
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
-msgstr ""
-"Twój limit wypłat wynosi {limit} (lub jego ekwiwalent w innej walucie)."
+msgstr "Twój limit wypłat wynosi {limit} (lub jego ekwiwalent w innej walucie)."
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
 msgstr "Wypłacono już równowartość {drawn} EUR."
 
 msgid "An additional password can be used to restrict access to the cashier."
-msgstr ""
-"Możliwe jest użycie dodatkowego hasła, aby ograniczyć dostęp do sekcji "
-"Kasjer."
+msgstr "Możliwe jest użycie dodatkowego hasła, aby ograniczyć dostęp do sekcji Kasjer."
 
 msgid "Sign In"
 msgstr "Zaloguj"
@@ -584,7 +566,7 @@ msgid "return"
 msgstr "zwrot"
 
 msgid "Portfolio"
-msgstr ""
+msgstr "Portfolio"
 
 msgid "Video"
 msgstr "Nagranie"
@@ -640,17 +622,11 @@ msgstr "Wygrana"
 msgid "You Lost"
 msgstr "Przegrana"
 
-msgid ""
-"To change your name, date of birth, country of residence, or email, contact "
-"Customer Support."
-msgstr ""
-"Aby zmienić imię lub nazwisko, datę urodzenia, miejsce zamieszkania lub "
-"adres e-mail, skontaktuj się z działem obsługi klienta."
+msgid "To change your name, date of birth, country of residence, or email, contact Customer Support."
+msgstr "Aby zmienić imię lub nazwisko, datę urodzenia, miejsce zamieszkania lub adres e-mail, skontaktuj się z działem obsługi klienta."
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
-msgstr ""
-"Sekcja Kasjer została zablokowana na Twoją prośbę. Aby ją odblokować, wpisz "
-"hasło."
+msgstr "Sekcja Kasjer została zablokowana na Twoją prośbę. Aby ją odblokować, wpisz hasło."
 
 msgid "Unlock Cashier"
 msgstr "Odblokowywanie sekcji Kasjer"
@@ -740,8 +716,7 @@ msgid "OTC Stocks"
 msgstr "Akcje OTC"
 
 msgid "Stated limits are subject to change without prior notice"
-msgstr ""
-"Określone limity mogą zostać zmienione bez wcześniejszego powiadomienia"
+msgstr "Określone limity mogą zostać zmienione bez wcześniejszego powiadomienia"
 
 msgid "Withdrawal Limits"
 msgstr "Limity wypłat"
@@ -773,11 +748,8 @@ msgstr "Podaj prawidłowy kod weryfikacyjny"
 msgid "Choose your country"
 msgstr "Wybierz swój kraj"
 
-msgid ""
-"Password should have lower and uppercase letters and 6 characters or more"
-msgstr ""
-"Hasło powinno składać się z co najmniej 6 znaków i zawierać małe i wielkie "
-"litery"
+msgid "Password should have lower and uppercase letters and 6 characters or more"
+msgstr "Hasło powinno składać się z co najmniej 6 znaków i zawierać małe i wielkie litery"
 
 msgid "Passwords do not match"
 msgstr "Hasła nie są zgodne"
@@ -906,9 +878,7 @@ msgid "Duration is out of range"
 msgstr "Czas trwania przekracza dozwolony przedział"
 
 msgid "Start date invalid, it needs to be five minutes or more in the future"
-msgstr ""
-"Data rozpoczęcia jest nieprawidłowa, należy wybrać co najmniej 5 minut w "
-"przyszłości"
+msgstr "Data rozpoczęcia jest nieprawidłowa, należy wybrać co najmniej 5 minut w przyszłości"
 
 msgid "Time format is wrong"
 msgstr "Błędny format czasu"
@@ -929,16 +899,16 @@ msgid "Touch spot"
 msgstr "Punkt osiągnięcia"
 
 msgid "This field is required"
-msgstr ""
+msgstr "To pole jest wymagane"
 
 msgid "Should be a valid number"
-msgstr ""
+msgstr "Powinien to być prawidłowy numer"
 
 msgid "Should be between 0 and {number}"
-msgstr ""
+msgstr "Wartość powinna mieścić się w przedziale od 0 do {number}"
 
 msgid "Time out must be after today and cannot be more than 6 weeks."
-msgstr ""
+msgstr "Czas wyłączenia musi się zaczynać po dniu dzisiejszym i nie może przekraczać 6 tygodni."
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
-msgstr ""
+msgstr "Czas wyłączenia nie może być krótszy niż 6 miesięcy, ani dłuższy niż 5 lat."
