@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 import moment from 'moment';
 import validate from 'validate.js';
 import { Button, InputGroup, ServerErrorMsg, ErrorMsg } from 'binary-components';
+import { getConstraints } from './selfexclusion.validation.config';
 import UpdateNotice from '../containers/UpdateNotice';
 import { api } from '../_data/LiveData';
 
@@ -22,20 +23,20 @@ export default class SettingsSelfExclusion extends PureComponent {
 	};
 
 	constructor(props) {
-		super(props);
-		this.state = {
-			max_balance: props.max_balance,
-			max_turnover: props.max_turnover,
-			max_losses: props.max_losses,
-			max_7day_turnover: props.max_7day_turnover,
-			max_7day_losses: props.max_7day_losses,
-			max_30day_turnover: props.max_30day_turnover,
-			max_30day_losses: props.max_30day_losses,
-			max_open_bets: props.max_open_bets,
-			session_duration_limit: props.session_duration_limit,
-			timeout_until_time: props.timeout_until,
-			timeout_until_date: props.timeout_until,
-			exclude_until: props.exclude_until,
+    super(props);
+    this.state = {
+      max_balance: props.max_balance,
+      max_turnover: props.max_turnover,
+      max_losses: props.max_losses,
+      max_7day_turnover: props.max_7day_turnover,
+      max_7day_losses: props.max_7day_losses,
+      max_30day_turnover: props.max_30day_turnover,
+      max_30day_losses: props.max_30day_losses,
+      max_open_bets: props.max_open_bets,
+      session_duration_limit: props.session_duration_limit,
+      timeout_until_time: props.timeout_until,
+      timeout_until_date: props.timeout_until,
+      exclude_until: props.exclude_until,
       touched: {
         max_balance: false,
         max_turnover: false,
@@ -50,164 +51,11 @@ export default class SettingsSelfExclusion extends PureComponent {
         timeout_until_date: false,
         exclude_until: false,
       },
-		};
-		/* eslint-disable consistent-return */
-    validate.validators.timeoutUntilDateValidation = (value) => {
-      if (!moment(value).isAfter(moment().subtract(1, 'days'), 'day') || !moment(value).isBefore(moment().add(6, 'weeks'))) {
-        return 'Time out must be after today and cannot be more than 6 weeks.';
-      }
     };
 
-    validate.validators.timeoutUntilTimeValidation = () => {
-      const timeout_until = moment(timeout_until_date.value + ' ' + timeout_until_time.value).valueOf() / 1000;
-      if (timeout_until <= moment().valueOf() / 1000) {
-        return 'Time out cannot be in the past.';
-      }
-    };
+    this.constraints = getConstraints(props);
+  }
 
-    validate.validators.timeoutUntilTimeRequired = () => {
-      if (timeout_until_date.value && !timeout_until_time.value) {
-        return 'This field is required.';
-      }
-    };
-
-    validate.validators.excludeUntilValidation = (value) => {
-      if (moment(value).isBefore(moment().add(6, 'months')) || moment(value).isAfter(moment().add(5, 'years'))) {
-        return 'Exclude time cannot be less than 6 months and more than 5 years.';
-      }
-    };
-		/* eslint-enable consistent-return */
-
-		this.constraints = {
-      max_balance: {
-        presence: {
-          presence: true,
-          message: 'This field is required.',
-        },
-        numericality: {
-          onlyInteger: true,
-          notInteger: 'Should be a valid number',
-          notValid: 'Should be a valid number',
-          lessThanOrEqualTo: props.max_balance,
-          notLessThanOrEqualTo: 'Should be between 0 and {props.max_balance}'
-        },
-      },
-			max_turnover: {
-        presence: {
-          presence: true,
-          message: 'This field is required.',
-        },
-        numericality: {
-          onlyInteger: true,
-          notInteger: 'Should be a valid number',
-          notValid: 'Should be a valid number',
-          lessThanOrEqualTo: props.max_turnover,
-          notLessThanOrEqualTo: 'Should be between 0 and {props.max_turnover}'
-        },
-			},
-      max_losses: {
-        presence: {
-          presence: true,
-          message: 'This field is required.',
-        },
-        numericality: {
-          onlyInteger: true,
-          notInteger: 'Should be a valid number',
-          notValid: 'Should be a valid number',
-          lessThanOrEqualTo: props.max_losses,
-          notLessThanOrEqualTo: 'Should be between 0 and {props.max_losses}'
-        },
-      },
-      max_7day_turnover: {
-        presence: {
-          presence: true,
-          message: 'This field is required.',
-        },
-        numericality: {
-          onlyInteger: true,
-          notInteger: 'Should be a valid number',
-          notValid: 'Should be a valid number',
-          lessThanOrEqualTo: props.max_7day_turnover,
-          notLessThanOrEqualTo: 'Should be between 0 and {props.max_7day_turnover}'
-        },
-      },
-      max_7day_losses: {
-        presence: {
-          presence: true,
-          message: 'This field is required.',
-        },
-        numericality: {
-          onlyInteger: true,
-          notInteger: 'Should be a valid number',
-          notValid: 'Should be a valid number',
-          lessThanOrEqualTo: props.max_7day_losses,
-          notLessThanOrEqualTo: 'Should be between 0 and {props.max_7day_losses}'
-        },
-      },
-      max_30day_turnover: {
-        presence: {
-          presence: true,
-          message: 'This field is required.',
-        },
-        numericality: {
-          onlyInteger: true,
-          notInteger: 'Should be a valid number',
-          notValid: 'Should be a valid number',
-          lessThanOrEqualTo: props.max_30day_turnover,
-          notLessThanOrEqualTo: 'Should be between 0 and {props.max_30day_turnover}'
-        },
-      },
-      max_30day_losses: {
-        presence: {
-          presence: true,
-          message: 'This field is required.',
-        },
-        numericality: {
-          onlyInteger: true,
-          notInteger: 'Should be a valid number',
-          notValid: 'Should be a valid number',
-          lessThanOrEqualTo: props.max_30day_losses,
-          notLessThanOrEqualTo: 'Should be between 0 and {props.max_30day_losses}'
-        },
-      },
-      max_open_bets: {
-        presence: {
-          presence: true,
-          message: 'This field is required.',
-        },
-        numericality: {
-          onlyInteger: true,
-          notInteger: 'Should be a valid number',
-          notValid: 'Should be a valid number',
-          lessThanOrEqualTo: props.max_open_bets,
-          notLessThanOrEqualTo: 'Should be between 0 and {props.max_open_bets}'
-        },
-      },
-      session_duration_limit: {
-        presence: {
-          presence: true,
-          message: 'This field is required.',
-        },
-        numericality: {
-          onlyInteger: true,
-          notInteger: 'Should be a valid number',
-          notValid: 'Should be a valid number',
-          lessThanOrEqualTo: props.session_duration_limit,
-          notLessThanOrEqualTo: 'Should be between 0 and {props.session_duration_limit}'
-        },
-      },
-			timeout_until_date: {
-        timeoutUntilDateValidation: true,
-			},
-			timeout_until_time: {
-        timeoutUntilTimeRequired: true,
-        timeoutUntilTimeValidation: true,
-			},
-			exclude_until: {
-        excludeUntilValidation: true,
-			},
-    };
-	}
 
   onEntryChange = (e: SyntheticEvent) => {
     this.setState({ [e.target.id]: e.target.value,
