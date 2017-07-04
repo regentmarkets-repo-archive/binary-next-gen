@@ -10,7 +10,6 @@ import assetPicker from './AssetPickerReducer';
 import digitStats from './DigitStatsReducer';
 import dailyPrices from './DailyPricesReducer';
 import feedLicenses from './FeedLicensesReducer';
-import news from './NewsReducer';
 import boughtContracts from './BoughtContractsReducer';
 import paymentAgent from './PaymentAgentReducer';
 import portfolio from './PortfolioReducer';
@@ -32,7 +31,6 @@ import tradingTimes from './TradingTimesReducer';
 import transactions from './TransactionsReducer';
 import ticks from './TickReducer';
 import ohlc from './OHLCReducer';
-import video from './VideoReducer';
 import views from './ViewsReducer';
 import workspace from './WorkspaceReducer';
 import watchlist from './WatchlistReducer';
@@ -51,7 +49,6 @@ export default combineReducers({
     dailyPrices,
     digitStats,
     feedLicenses,
-    news,
     ohlc,
     paymentAgent,
     portfolio,
@@ -71,7 +68,6 @@ export default combineReducers({
     tradesUIStates,
     tradesError,
     tradingOptions,
-    video,
     workspace,
     watchlist,
     views,
