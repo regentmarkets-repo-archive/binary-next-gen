@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import moment from 'moment';
 import validate from 'validate.js';
+import head from 'lodash.head';
 import { Button, InputGroup, ServerErrorMsg, ErrorMsg } from 'binary-components';
 import { getConstraints } from './selfexclusion.validation.config';
 import UpdateNotice from '../containers/UpdateNotice';
@@ -131,7 +132,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={max_balance}
 					onChange={this.onEntryChange}
 				/>
-				{touched.max_balance && errors && errors.max_balance && <ErrorMsg text={errors.max_balance[0]} />}
+				{touched.max_balance && <ErrorMsg text={head((errors || {}).max_balance)} />}
 				<InputGroup
 					id="max_turnover"
 					name="max_turnover"
@@ -142,7 +143,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={max_turnover}
 					onChange={this.onEntryChange}
 				/>
-        {touched.max_turnover && errors && errors.max_turnover && <ErrorMsg text={errors.max_turnover[0]} />}
+        {touched.max_turnover && <ErrorMsg text={head((errors || {}).max_turnover)} />}
 				<InputGroup
 					id="max_losses"
 					name="max_losses"
@@ -153,7 +154,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={max_losses}
 					onChange={this.onEntryChange}
 				/>
-        {touched.max_losses && errors && errors.max_losses && <ErrorMsg text={errors.max_losses[0]} />}
+        {touched.max_losses && <ErrorMsg text={head((errors || {}).max_losses)} />}
 				<InputGroup
 					id="max_7day_turnover"
 					name="max_7day_turnover"
@@ -164,7 +165,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={max_7day_turnover}
 					onChange={this.onEntryChange}
 				/>
-        {touched.max_7day_turnover && errors && errors.max_7day_turnover && <ErrorMsg text={errors.max_7day_turnover[0]} />}
+        {touched.max_7day_turnover && <ErrorMsg text={head((errors || {}).max_7day_turnover)} />}
 				<InputGroup
 					id="max_7day_losses"
 					name="max_7day_losses"
@@ -175,7 +176,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={max_7day_losses}
 					onChange={this.onEntryChange}
 				/>
-        {touched.max_7day_losses && errors && errors.max_7day_losses && <ErrorMsg text={errors.max_7day_losses[0]} />}
+        {touched.max_7day_losses && <ErrorMsg text={head((errors || {}).max_7day_losses)} />}
 				<InputGroup
 					id="max_30day_turnover"
 					name="max_30day_turnover"
@@ -186,7 +187,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={max_30day_turnover}
 					onChange={this.onEntryChange}
 				/>
-        {touched.max_30day_turnover && errors && errors.max_30day_turnover && <ErrorMsg text={errors.max_30day_turnover[0]} />}
+        {touched.max_30day_turnover && <ErrorMsg text={head((errors || {}).max_30day_turnover)} />}
 				<InputGroup
 					id="max_30day_losses"
 					name="max_30day_losses"
@@ -197,7 +198,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={max_30day_losses}
 					onChange={this.onEntryChange}
 				/>
-        {touched.max_30day_losses && errors && errors.max_30day_losses && <ErrorMsg text={errors.max_30day_losses[0]} />}
+        {touched.max_30day_losses && <ErrorMsg text={head((errors || {}).max_30day_losses)} />}
 				<InputGroup
 					id="max_open_bets"
 					name="max_open_bets"
@@ -207,7 +208,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={max_open_bets}
 					onChange={this.onEntryChange}
 				/>
-        {touched.max_open_bets && errors && errors.max_open_bets && <ErrorMsg text={errors.max_open_bets[0]} />}
+        {touched.max_open_bets && <ErrorMsg text={head((errors || {}).max_open_bets)} />}
 				<InputGroup
 					id="session_duration_limit"
 					name="session_duration_limit"
@@ -218,7 +219,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={session_duration_limit}
 					onChange={this.onEntryChange}
 				/>
-        {touched.session_duration_limit && errors && errors.session_duration_limit && <ErrorMsg text={errors.session_duration_limit[0]} />}
+        {touched.session_duration_limit && <ErrorMsg text={head((errors || {}).session_duration_limit)} />}
 				<InputGroup
 					id="timeout_until_date"
 					name="timeout_until_date"
@@ -228,7 +229,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={timeout_until_date || 'yyyy-mm-dd'}
 					onChange={this.onEntryChange}
 				/>
-        {touched.timeout_until_date && errors && errors.timeout_until_date && <ErrorMsg text={errors.timeout_until_date[0]} />}
+        {touched.timeout_until_date && <ErrorMsg text={head((errors || {}).timeout_until_date)} />}
 				<InputGroup
 					id="timeout_until_time"
 					name="timeout_until_time"
@@ -238,7 +239,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={timeout_until_time || '--:--:--'}
 					onChange={this.onEntryChange}
 				/>
-        {touched.timeout_until_time && errors && errors.timeout_until_time && <ErrorMsg text={errors.timeout_until_time[0]} />}
+        {touched.timeout_until_time && <ErrorMsg text={head((errors || {}).timeout_until_time)} />}
 				<InputGroup
 					id="exclude_until"
 					name="exclude_until"
@@ -248,7 +249,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					defaultValue={exclude_until || 'yyyy-mm-dd'}
 					onChange={this.onEntryChange}
 				/>
-        {touched.exclude_until && errors && errors.exclude_until && <ErrorMsg text={errors.exclude_until[0]} />}
+        {touched.exclude_until && <ErrorMsg text={head((errors || {}).exclude_until)} />}
 				<Button text="Update" />
 			</form>
 		);
