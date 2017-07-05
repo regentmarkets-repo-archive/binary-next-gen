@@ -61,7 +61,7 @@ export default class SettingsSelfExclusion extends PureComponent {
     this.setState({ [e.target.id]: e.target.value,
       touched: { ...this.state.touched, [e.target.id]: true },
       hasError: false,
-			errors: validate(this.form, this.constraints, { format: 'grouped', fullMessages: false, cleanAttributes: false }) || {},
+			errors: validate(settings_self_exclusion, this.constraints, { format: 'grouped', fullMessages: false, cleanAttributes: false }) || {},
     });
 	}
 
@@ -115,11 +115,9 @@ export default class SettingsSelfExclusion extends PureComponent {
 		const { max_balance, max_turnover, max_losses, max_7day_turnover, max_7day_losses,
 			max_30day_turnover, max_30day_losses, max_open_bets, session_duration_limit,
 			exclude_until, timeout_until_date, timeout_until_time, success, serverError, hasError, touched, errors } = this.state;
-    this.form = document.querySelector('form#settings-self-exclusion');
     // const wrongExcludeUntillTime = isValidTime(timeout_until_time);
-
     return (
-			<form className="settings-self-exclusion" id="settings-self-exclusion" onSubmit={this.onFormSubmit}>
+			<form className="settings-self-exclusion" id="settings_self_exclusion" onSubmit={this.onFormSubmit}>
 			{serverError && <ServerErrorMsg text={serverError} />}
 			{hasError && <ErrorMsg text="Please fill the form with valid values" />}
 				<UpdateNotice text="Settings updated" show={success} />
