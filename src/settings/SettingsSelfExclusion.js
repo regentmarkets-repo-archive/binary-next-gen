@@ -3,7 +3,7 @@ import moment from 'moment';
 import validate from 'validate.js';
 import head from 'lodash.head';
 import { Button, InputGroup, ServerErrorMsg, ErrorMsg } from 'binary-components';
-import { getConstraints } from './selfexclusion.validation.config';
+import { getConstraints } from './SettingsSelfExclusion.validation.config';
 import UpdateNotice from '../containers/UpdateNotice';
 import { api } from '../_data/LiveData';
 

@@ -7,14 +7,14 @@ validate.validators.timeoutUntilDateValidation = (value) => {
     return 'Time out must be after today and cannot be more than 6 weeks.';
   }
 };
-validate.validators.timeoutUntilTimeValidation = () => {
-  const timeout_until = moment(timeout_until_date.value + ' ' + timeout_until_time.value).valueOf() / 1000;
+validate.validators.timeoutUntilTimeValidation = (value, options) => {
+  const timeout_until = moment(options.timeout_until_date + ' ' + value).valueOf() / 1000;
   if (timeout_until <= moment().valueOf() / 1000) {
     return 'Time out cannot be in the past.';
   }
 };
-validate.validators.timeoutUntilTimeRequired = () => {
-  if (timeout_until_date.value && !timeout_until_time.value) {
+validate.validators.timeoutUntilTimeRequired = (value, options) => {
+  if (options.timeout_until_date && !value) {
     return 'This field is required.';
   }
 };
@@ -148,8 +148,12 @@ export const getConstraints = props => {
       timeoutUntilDateValidation: true,
     },
     timeout_until_time: {
-      timeoutUntilTimeRequired: true,
-      timeoutUntilTimeValidation: true,
+      timeoutUntilTimeRequired: {
+        timeout_until_date: props.timeout_until_date,
+      },
+      timeoutUntilTimeValidation: {
+        timeout_until_date: props.timeout_until_date,
+      },
     },
     exclude_until: {
       excludeUntilValidation: true,
