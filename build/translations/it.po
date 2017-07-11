@@ -1,18 +1,3 @@
-# Copyright (C) 2013 Regent Markets Group
-# This file is distributed under the same license as the bom-web package.
-#
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"POT-Creation-Date: \n"
-"PO-Revision-Date: 2017-06-22 13:21+0000\n"
-"Language: it\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.15-dev\n"
-
 msgid "All"
 msgstr "Tutto"
 
@@ -26,10 +11,10 @@ msgid "Balance"
 msgstr "Saldo"
 
 msgid "Trade"
-msgstr ""
+msgstr "Trade"
 
 msgid "Watchlist"
-msgstr ""
+msgstr "Elenco di sorveglianza"
 
 msgid "Open Positions"
 msgstr "Posizioni aperte"
@@ -110,16 +95,13 @@ msgid "Withdrawal limits"
 msgstr "Limiti per i prelievi"
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
-msgstr ""
-"Il tuo limite di prelievo è di {limit} (o equivalente in altra valuta)."
+msgstr "Il tuo limite di prelievo è di {limit} (o equivalente in altra valuta)."
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
 msgstr "Hai già prelevato l'equivalente di EUR {drawn}."
 
 msgid "An additional password can be used to restrict access to the cashier."
-msgstr ""
-"Può essere utilizzata una password aggiuntiva per limitare l'accesso alla "
-"cassa."
+msgstr "Può essere utilizzata una password aggiuntiva per limitare l'accesso alla cassa."
 
 msgid "Sign In"
 msgstr "Entra"
@@ -152,7 +134,7 @@ msgid "Price"
 msgstr "Prezzo"
 
 msgid "Asset"
-msgstr ""
+msgstr "Asset"
 
 msgid "Type"
 msgstr "Tipologia"
@@ -191,7 +173,7 @@ msgid "Security"
 msgstr "Sicurezza"
 
 msgid "Spot"
-msgstr ""
+msgstr "Spot"
 
 msgid "Change"
 msgstr "Cambio"
@@ -209,7 +191,7 @@ msgid "Stake"
 msgstr "Puntata"
 
 msgid "Payout"
-msgstr ""
+msgstr "Payout"
 
 msgid "Deposit"
 msgstr "Deposito"
@@ -263,13 +245,13 @@ msgid "Daily Report"
 msgstr "Report giornaliero"
 
 msgid "Up/Down"
-msgstr ""
+msgstr "Up/Down"
 
 msgid "Touch/No Touch"
-msgstr ""
+msgstr "Touch/No Touch"
 
 msgid "Ends In/Out"
-msgstr ""
+msgstr "Ends In/Out"
 
 msgid "Stays In/Goes Out"
 msgstr "Stays in/Goes Out"
@@ -299,7 +281,7 @@ msgid "Country Of Residence"
 msgstr "Paese di residenza"
 
 msgid "Email"
-msgstr ""
+msgstr "Email"
 
 msgid "There are no transactions for selected period"
 msgstr "Non ci sono transazioni per il periodo selezionato"
@@ -332,10 +314,10 @@ msgid "Digit Differs"
 msgstr "Cifra diversa"
 
 msgid "No Touch"
-msgstr ""
+msgstr "No Touch"
 
 msgid "Fall"
-msgstr ""
+msgstr "Ribasso"
 
 msgid "Asian Down"
 msgstr "Asiatiche Down"
@@ -359,7 +341,7 @@ msgid "Purchase for"
 msgstr "Acquista per"
 
 msgid "payout"
-msgstr ""
+msgstr "payout"
 
 msgid "stake"
 msgstr "puntata"
@@ -374,13 +356,13 @@ msgid "Change Password"
 msgstr "Modifica password"
 
 msgid "Password"
-msgstr ""
+msgstr "Password"
 
 msgid "Tick Trade"
-msgstr ""
+msgstr "Tick Trade"
 
 msgid "Full Trade"
-msgstr ""
+msgstr "Trade completo"
 
 msgid "Address"
 msgstr "Indirizzo"
@@ -515,10 +497,10 @@ msgid "Close"
 msgstr "Chiuso"
 
 msgid "Low"
-msgstr ""
+msgstr "Low"
 
 msgid "High"
-msgstr ""
+msgstr "High"
 
 msgid "Open"
 msgstr "Apre"
@@ -551,7 +533,7 @@ msgid "Confirm new password"
 msgstr "Conferma la nuova password"
 
 msgid "TICK"
-msgstr ""
+msgstr "TICK"
 
 msgid "Minutes"
 msgstr "Minuti"
@@ -566,7 +548,7 @@ msgid "Days"
 msgstr "Giorni"
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 msgid "Duration"
 msgstr "Durata"
@@ -584,10 +566,10 @@ msgid "return"
 msgstr "rendimento"
 
 msgid "Portfolio"
-msgstr ""
+msgstr "Portafoglio"
 
 msgid "Video"
-msgstr ""
+msgstr "Video"
 
 msgid "Digit Stats"
 msgstr "Statistiche per una cifra"
@@ -640,17 +622,11 @@ msgstr "Hai vinto"
 msgid "You Lost"
 msgstr "Hai perso"
 
-msgid ""
-"To change your name, date of birth, country of residence, or email, contact "
-"Customer Support."
-msgstr ""
-"Per modificare il tuo nome, data di nascita, paese di residenza o email, "
-"contatta l'Assistenza Clienti."
+msgid "To change your name, date of birth, country of residence, or email, contact Customer Support."
+msgstr "Per modificare il tuo nome, data di nascita, paese di residenza o email, contatta l'Assistenza Clienti."
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
-msgstr ""
-"Come da tua richiesta, la cassa è bloccata. Per sbloccarla, inserisci la "
-"password."
+msgstr "Come da tua richiesta, la cassa è bloccata. Per sbloccarla, inserisci la password."
 
 msgid "Unlock Cashier"
 msgstr "Sblocca la cassa"
@@ -728,7 +704,7 @@ msgid "Minor Pairs"
 msgstr "Coppie minori"
 
 msgid "Smart FX"
-msgstr ""
+msgstr "Smart FX"
 
 msgid "Volatility Indices"
 msgstr "Indici di volatilità"
@@ -772,10 +748,8 @@ msgstr "Inserisci un codice di verifica valido"
 msgid "Choose your country"
 msgstr "Scegli il tuo paese"
 
-msgid ""
-"Password should have lower and uppercase letters and 6 characters or more"
-msgstr ""
-"La password deve contenere lettere minuscole e maiuscole e almeno 6 caratteri"
+msgid "Password should have lower and uppercase letters and 6 characters or more"
+msgstr "La password deve contenere lettere minuscole e maiuscole e almeno 6 caratteri"
 
 msgid "Passwords do not match"
 msgstr "Le password non corrispondono"
@@ -880,7 +854,7 @@ msgid "Time out until date"
 msgstr "Tempo scaduto fino alla data"
 
 msgid "Time out until time"
-msgstr ""
+msgstr "Tempo scaduto fino all'ora"
 
 msgid "Light Theme"
 msgstr "Motivo chiaro"
@@ -925,16 +899,16 @@ msgid "Touch spot"
 msgstr "Spot Touch"
 
 msgid "This field is required"
-msgstr ""
+msgstr "Questo campo è obbligatorio"
 
 msgid "Should be a valid number"
-msgstr ""
+msgstr "Deve essere un numero valido"
 
 msgid "Should be between 0 and {number}"
-msgstr ""
+msgstr "Deve essere compreso tra 0 e {number}"
 
 msgid "Time out must be after today and cannot be more than 6 weeks."
-msgstr ""
+msgstr "La scadenza deve essere successiva a oggi e non può essere a più di 6 settimane."
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
-msgstr ""
+msgstr "Il tempo di esclusione non può essere inferiore a 6 mesi e più di 5 anni."
