@@ -23,9 +23,8 @@ validate.validators.excludeUntilValidation = (value) => {
     return 'Exclude time cannot be less than 6 months and more than 5 years.';
   }
 };
-/* eslint-enable consistent-return */
 
-export const getConstraints = props => {
+export const getConstraints = (props, state) => {
   const constraints = {
     max_balance: {
       presence: {
@@ -36,8 +35,8 @@ export const getConstraints = props => {
         onlyInteger: true,
         notInteger: 'Should be a valid number',
         notValid: 'Should be a valid number',
-        lessThanOrEqualTo: props.max_balance,
-        notLessThanOrEqualTo: 'Should be between 0 and {props.max_balance}'
+        lessThanOrEqualTo: Number(props.max_balance),
+        notLessThanOrEqualTo: `Should be between 0 and ${props.max_balance}`
       },
     },
     max_turnover: {
@@ -49,8 +48,8 @@ export const getConstraints = props => {
         onlyInteger: true,
         notInteger: 'Should be a valid number',
         notValid: 'Should be a valid number',
-        lessThanOrEqualTo: props.max_turnover,
-        notLessThanOrEqualTo: 'Should be between 0 and {props.max_turnover}'
+        lessThanOrEqualTo: Number(props.max_turnover),
+        notLessThanOrEqualTo: `Should be between 0 and ${props.max_turnover}`
       },
     },
     max_losses: {
@@ -62,8 +61,8 @@ export const getConstraints = props => {
         onlyInteger: true,
         notInteger: 'Should be a valid number',
         notValid: 'Should be a valid number',
-        lessThanOrEqualTo: props.max_losses,
-        notLessThanOrEqualTo: 'Should be between 0 and {props.max_losses}'
+        lessThanOrEqualTo: Number(props.max_losses),
+        notLessThanOrEqualTo: `Should be between 0 and ${props.max_losses}`
       },
     },
     max_7day_turnover: {
@@ -75,8 +74,8 @@ export const getConstraints = props => {
         onlyInteger: true,
         notInteger: 'Should be a valid number',
         notValid: 'Should be a valid number',
-        lessThanOrEqualTo: props.max_7day_turnover,
-        notLessThanOrEqualTo: 'Should be between 0 and {props.max_7day_turnover}'
+        lessThanOrEqualTo: Number(props.max_7day_turnover),
+        notLessThanOrEqualTo: `Should be between 0 and ${props.max_7day_turnover}`
       },
     },
     max_7day_losses: {
@@ -88,8 +87,8 @@ export const getConstraints = props => {
         onlyInteger: true,
         notInteger: 'Should be a valid number',
         notValid: 'Should be a valid number',
-        lessThanOrEqualTo: props.max_7day_losses,
-        notLessThanOrEqualTo: 'Should be between 0 and {props.max_7day_losses}'
+        lessThanOrEqualTo: Number(props.max_7day_losses),
+        notLessThanOrEqualTo: `Should be between 0 and ${props.max_7day_losses}`
       },
     },
     max_30day_turnover: {
@@ -101,8 +100,8 @@ export const getConstraints = props => {
         onlyInteger: true,
         notInteger: 'Should be a valid number',
         notValid: 'Should be a valid number',
-        lessThanOrEqualTo: props.max_30day_turnover,
-        notLessThanOrEqualTo: 'Should be between 0 and {props.max_30day_turnover}'
+        lessThanOrEqualTo: Number(props.max_30day_turnover),
+        notLessThanOrEqualTo: `Should be between 0 and ${props.max_30day_turnover}`
       },
     },
     max_30day_losses: {
@@ -114,8 +113,8 @@ export const getConstraints = props => {
         onlyInteger: true,
         notInteger: 'Should be a valid number',
         notValid: 'Should be a valid number',
-        lessThanOrEqualTo: props.max_30day_losses,
-        notLessThanOrEqualTo: 'Should be between 0 and {props.max_30day_losses}'
+        lessThanOrEqualTo: Number(props.max_30day_losses),
+        notLessThanOrEqualTo: `Should be between 0 and ${props.max_30day_losses}`
       },
     },
     max_open_bets: {
@@ -127,8 +126,8 @@ export const getConstraints = props => {
         onlyInteger: true,
         notInteger: 'Should be a valid number',
         notValid: 'Should be a valid number',
-        lessThanOrEqualTo: props.max_open_bets,
-        notLessThanOrEqualTo: 'Should be between 0 and {props.max_open_bets}'
+        lessThanOrEqualTo: Number(props.max_open_bets),
+        notLessThanOrEqualTo: `Should be between 0 and ${props.max_open_bets}`
       },
     },
     session_duration_limit: {
@@ -140,8 +139,8 @@ export const getConstraints = props => {
         onlyInteger: true,
         notInteger: 'Should be a valid number',
         notValid: 'Should be a valid number',
-        lessThanOrEqualTo: props.session_duration_limit,
-        notLessThanOrEqualTo: 'Should be between 0 and {props.session_duration_limit}'
+        lessThanOrEqualTo: Number(props.session_duration_limit),
+        notLessThanOrEqualTo: `Should be between 0 and ${props.session_duration_limit}`
       },
     },
     timeout_until_date: {
@@ -149,10 +148,10 @@ export const getConstraints = props => {
     },
     timeout_until_time: {
       timeoutUntilTimeRequired: {
-        timeout_until_date: props.timeout_until_date,
+        timeout_until_date: state.timeout_until_date,
       },
       timeoutUntilTimeValidation: {
-        timeout_until_date: props.timeout_until_date,
+        timeout_until_date: state.timeout_until_date,
       },
     },
     exclude_until: {

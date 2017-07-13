@@ -53,8 +53,6 @@ export default class SettingsSelfExclusion extends PureComponent {
         exclude_until: false,
       },
     };
-
-    this.constraints = getConstraints(props);
   }
 
 
@@ -62,9 +60,11 @@ export default class SettingsSelfExclusion extends PureComponent {
     this.setState({ [e.target.id]: e.target.value,
       touched: { ...this.state.touched, [e.target.id]: true },
       hasError: false,
-			errors: validate(settings_self_exclusion, this.constraints, { format: 'grouped', fullMessages: false, cleanAttributes: false }) || {},
     });
-	}
+    this.constraints = getConstraints(this.props, this.state);
+    this.setState({ errors: validate(settings_self_exclusion, this.constraints, { format: 'grouped', fullMessages: false, cleanAttributes: false }) || {},
+    });
+  }
 
     onFormSubmit = (e: SyntheticEvent) => {
         e.preventDefault();
@@ -118,7 +118,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 			exclude_until, timeout_until_date, timeout_until_time, success, serverError, hasError, touched, errors } = this.state;
     // const wrongExcludeUntillTime = isValidTime(timeout_until_time);
     return (
-			<form className="settings-self-exclusion" id="settings_self_exclusion" onSubmit={this.onFormSubmit}>
+			<form className="settings-self-exclusion" name="settings_self_exclusion" onSubmit={this.onFormSubmit}>
 			{serverError && <ServerErrorMsg text={serverError} />}
 			{hasError && <ErrorMsg text="Please fill the form with valid values" />}
 				<UpdateNotice text="Settings updated" show={success} />
