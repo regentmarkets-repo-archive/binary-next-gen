@@ -55,14 +55,20 @@ export default class SettingsSelfExclusion extends PureComponent {
     };
   }
 
-
   onEntryChange = (e: SyntheticEvent) => {
-    this.setState({ [e.target.id]: e.target.value,
+    this.setState({
+			[e.target.id]: e.target.value,
       touched: { ...this.state.touched, [e.target.id]: true },
       hasError: false,
-    });
+		}, () => {
+      this.validateTitle();
+		});
+  }
+
+  validateTitle = () => {
     this.constraints = getConstraints(this.props, this.state);
-    this.setState({ errors: validate(settings_self_exclusion, this.constraints, { format: 'grouped', fullMessages: false, cleanAttributes: false }) || {},
+    this.setState({
+      errors: validate(this.state, this.constraints, { format: 'grouped', fullMessages: false, cleanAttributes: false }) || {},
     });
   }
 
@@ -118,7 +124,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 			exclude_until, timeout_until_date, timeout_until_time, success, serverError, hasError, touched, errors } = this.state;
     // const wrongExcludeUntillTime = isValidTime(timeout_until_time);
     return (
-			<form className="settings-self-exclusion" name="settings_self_exclusion" onSubmit={this.onFormSubmit}>
+			<form className="settings-self-exclusion" onSubmit={this.onFormSubmit}>
 			{serverError && <ServerErrorMsg text={serverError} />}
 			{hasError && <ErrorMsg text="Please fill the form with valid values" />}
 				<UpdateNotice text="Settings updated" show={success} />
@@ -129,7 +135,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					type="text"
 					maxLength="20"
 					// hint="Once this limit is reached, you may no longer deposit."
-					defaultValue={max_balance}
+					value={max_balance}
 					onChange={this.onEntryChange}
 				/>
 				{touched.max_balance && <ErrorMsg text={head((errors || {}).max_balance)} />}
@@ -140,7 +146,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					type="text"
 					maxLength="20"
 					// hint="Maximum aggregate contract purchases per day."
-					defaultValue={max_turnover}
+					value={max_turnover}
 					onChange={this.onEntryChange}
 				/>
         {touched.max_turnover && <ErrorMsg text={head((errors || {}).max_turnover)} />}
@@ -151,7 +157,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					type="text"
 					maxLength="20"
 					// hint="Maximum aggregate loss per day."
-					defaultValue={max_losses}
+					value={max_losses}
 					onChange={this.onEntryChange}
 				/>
         {touched.max_losses && <ErrorMsg text={head((errors || {}).max_losses)} />}
@@ -162,7 +168,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					type="text"
 					maxLength="20"
 					// hint="Maximum aggregate contract purchases over a 7-day period."
-					defaultValue={max_7day_turnover}
+					value={max_7day_turnover}
 					onChange={this.onEntryChange}
 				/>
         {touched.max_7day_turnover && <ErrorMsg text={head((errors || {}).max_7day_turnover)} />}
@@ -173,7 +179,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					type="text"
 					maxLength="20"
 					// hint="Maximum aggregate loss over a 7-day period."
-					defaultValue={max_7day_losses}
+					value={max_7day_losses}
 					onChange={this.onEntryChange}
 				/>
         {touched.max_7day_losses && <ErrorMsg text={head((errors || {}).max_7day_losses)} />}
@@ -184,7 +190,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					type="text"
 					maxLength="20"
 					// hint="Maximum aggregate contract purchases over a 30-day period."
-					defaultValue={max_30day_turnover}
+					value={max_30day_turnover}
 					onChange={this.onEntryChange}
 				/>
         {touched.max_30day_turnover && <ErrorMsg text={head((errors || {}).max_30day_turnover)} />}
@@ -195,7 +201,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					type="text"
 					maxLength="20"
 					// hint="Maximum aggregate loss over a 30-day period."
-					defaultValue={max_30day_losses}
+					value={max_30day_losses}
 					onChange={this.onEntryChange}
 				/>
         {touched.max_30day_losses && <ErrorMsg text={head((errors || {}).max_30day_losses)} />}
@@ -205,7 +211,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					label="Maximum number of open positions"
 					type="number"
 					maxLength="4"
-					defaultValue={max_open_bets}
+					value={max_open_bets}
 					onChange={this.onEntryChange}
 				/>
         {touched.max_open_bets && <ErrorMsg text={head((errors || {}).max_open_bets)} />}
@@ -216,7 +222,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					type="number"
 					maxLength="5"
 					// hint="You will be automatically logged out after such time."
-					defaultValue={session_duration_limit}
+					value={session_duration_limit}
 					onChange={this.onEntryChange}
 				/>
         {touched.session_duration_limit && <ErrorMsg text={head((errors || {}).session_duration_limit)} />}
@@ -226,7 +232,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					label="Time out until date"
 					type="date"
 					maxLength="10"
-					defaultValue={timeout_until_date || 'yyyy-mm-dd'}
+					value={timeout_until_date || 'yyyy-mm-dd'}
 					onChange={this.onEntryChange}
 				/>
         {touched.timeout_until_date && <ErrorMsg text={head((errors || {}).timeout_until_date)} />}
@@ -236,7 +242,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					label="Time out until time"
 					type="time"
 					maxLength="8"
-					defaultValue={timeout_until_time || '--:--:--'}
+					value={timeout_until_time || '--:--:--'}
 					onChange={this.onEntryChange}
 				/>
         {touched.timeout_until_time && <ErrorMsg text={head((errors || {}).timeout_until_time)} />}
@@ -246,7 +252,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					label="Exclude me from the website until"
 					type="date"
 					maxLength="10"
-					defaultValue={exclude_until || 'yyyy-mm-dd'}
+					value={exclude_until || 'yyyy-mm-dd'}
 					onChange={this.onEntryChange}
 				/>
         {touched.exclude_until && <ErrorMsg text={head((errors || {}).exclude_until)} />}
