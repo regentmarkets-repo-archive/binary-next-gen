@@ -113,6 +113,7 @@
     "binary-live-api": "*",
     "binary-utils": "^4.21.0",
     "classnames": "^2.2.5",
+    "enzyme-react-intl": "^1.4.5",
     "history": "~4.4.0",
     "immutable": "^3.8.1",
     "lodash.debounce": "^4.0.8",
