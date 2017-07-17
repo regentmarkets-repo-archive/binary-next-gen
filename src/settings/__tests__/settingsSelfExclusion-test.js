@@ -123,4 +123,34 @@ describe('<SettingsSelfExclusion />', () => {
     expect(errors.timeout_until_time[0]).toEqual('This field is required.');
   });
 
+  it('Exclude time cannot be less than 6 months and more than 5 years.', () => {
+    const wrapper = mountWithIntl(<SettingsSelfExclusion />);
+    const excludeUntil = wrapper.find('#exclude_until');
+    excludeUntil.node.value = moment().add(6, 'months').add(1, 'days');
+    excludeUntil.simulate('change');
+    const errors = wrapper.state('errors');
+
+    expect(errors.exclude_until).toBeUndefined();
+  });
+
+  it('Exclude time cannot be less than 6 months and should have error.', () => {
+    const wrapper = mountWithIntl(<SettingsSelfExclusion />);
+    const excludeUntil = wrapper.find('#exclude_until');
+    excludeUntil.node.value = moment().add(6, 'months').subtract(1, 'days');
+    excludeUntil.simulate('change');
+    const errors = wrapper.state('errors');
+
+    expect(errors.exclude_until[0]).toEqual('Exclude time cannot be less than 6 months and more than 5 years.');
+  });
+
+  it('Exclude time cannot be more than 5 years and should have error.', () => {
+    const wrapper = mountWithIntl(<SettingsSelfExclusion />);
+    const excludeUntil = wrapper.find('#exclude_until');
+    excludeUntil.node.value = moment().add(5, 'years').add(1, 'days');
+    excludeUntil.simulate('change');
+    const errors = wrapper.state('errors');
+
+    expect(errors.exclude_until[0]).toEqual('Exclude time cannot be less than 6 months and more than 5 years.');
+  });
+
 });
