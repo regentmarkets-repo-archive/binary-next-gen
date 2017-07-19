@@ -61,11 +61,11 @@ export default class SettingsSelfExclusion extends PureComponent {
       touched: { ...this.state.touched, [e.target.id]: true },
       hasError: false,
 		}, () => {
-      this.validateTitle();
+      this.validateForm();
 		});
   }
 
-  validateTitle = () => {
+  validateForm = () => {
     this.constraints = getConstraints(this.props, this.state);
     this.setState({
       errors: validate(this.state, this.constraints, { format: 'grouped', fullMessages: false, cleanAttributes: false }) || {},
