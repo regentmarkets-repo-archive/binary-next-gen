@@ -911,4 +911,4 @@ msgid "Time out must be after today and cannot be more than 6 weeks."
 msgstr ""
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
-msgstr ""
+msgstr "El tiempo de exclusión no puede ser inferior a 6 meses ni mayor a 5 años."
