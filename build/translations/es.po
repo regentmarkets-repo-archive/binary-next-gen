@@ -611,7 +611,7 @@ msgid "Sell Time"
 msgstr "Tiempo de venta"
 
 msgid "Trade Again"
-msgstr "Operar de Nuevo"
+msgstr "Negocie nuevamente"
 
 msgid "Barrier"
 msgstr "Barrera"
