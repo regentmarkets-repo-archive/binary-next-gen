@@ -135,7 +135,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					type="text"
 					maxLength="20"
 					// hint="Once this limit is reached, you may no longer deposit."
-					value={max_balance}
+					defaultValue={max_balance}
 					onChange={this.onEntryChange}
 				/>
 				{touched.max_balance && <ErrorMsg text={head((errors || {}).max_balance)} />}
@@ -146,7 +146,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					type="text"
 					maxLength="20"
 					// hint="Maximum aggregate contract purchases per day."
-					value={max_turnover}
+					defaultValue={max_turnover}
 					onChange={this.onEntryChange}
 				/>
         {touched.max_turnover && <ErrorMsg text={head((errors || {}).max_turnover)} />}
@@ -157,7 +157,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					type="text"
 					maxLength="20"
 					// hint="Maximum aggregate loss per day."
-					value={max_losses}
+					defaultValue={max_losses}
 					onChange={this.onEntryChange}
 				/>
         {touched.max_losses && <ErrorMsg text={head((errors || {}).max_losses)} />}
@@ -168,7 +168,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					type="text"
 					maxLength="20"
 					// hint="Maximum aggregate contract purchases over a 7-day period."
-					value={max_7day_turnover}
+					defaultValue={max_7day_turnover}
 					onChange={this.onEntryChange}
 				/>
         {touched.max_7day_turnover && <ErrorMsg text={head((errors || {}).max_7day_turnover)} />}
@@ -179,7 +179,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					type="text"
 					maxLength="20"
 					// hint="Maximum aggregate loss over a 7-day period."
-					value={max_7day_losses}
+					defaultValue={max_7day_losses}
 					onChange={this.onEntryChange}
 				/>
         {touched.max_7day_losses && <ErrorMsg text={head((errors || {}).max_7day_losses)} />}
@@ -190,7 +190,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					type="text"
 					maxLength="20"
 					// hint="Maximum aggregate contract purchases over a 30-day period."
-					value={max_30day_turnover}
+					defaultValue={max_30day_turnover}
 					onChange={this.onEntryChange}
 				/>
         {touched.max_30day_turnover && <ErrorMsg text={head((errors || {}).max_30day_turnover)} />}
@@ -201,7 +201,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					type="text"
 					maxLength="20"
 					// hint="Maximum aggregate loss over a 30-day period."
-					value={max_30day_losses}
+					defaultValue={max_30day_losses}
 					onChange={this.onEntryChange}
 				/>
         {touched.max_30day_losses && <ErrorMsg text={head((errors || {}).max_30day_losses)} />}
@@ -211,7 +211,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					label="Maximum number of open positions"
 					type="number"
 					maxLength="4"
-					value={max_open_bets}
+					defaultValue={max_open_bets}
 					onChange={this.onEntryChange}
 				/>
         {touched.max_open_bets && <ErrorMsg text={head((errors || {}).max_open_bets)} />}
@@ -222,7 +222,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					type="number"
 					maxLength="5"
 					// hint="You will be automatically logged out after such time."
-					value={session_duration_limit}
+					defaultValue={session_duration_limit}
 					onChange={this.onEntryChange}
 				/>
         {touched.session_duration_limit && <ErrorMsg text={head((errors || {}).session_duration_limit)} />}
@@ -232,7 +232,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					label="Time out until date"
 					type="date"
 					maxLength="10"
-					value={timeout_until_date || 'yyyy-mm-dd'}
+					defaultValue={timeout_until_date || 'yyyy-mm-dd'}
 					onChange={this.onEntryChange}
 				/>
         {touched.timeout_until_date && <ErrorMsg text={head((errors || {}).timeout_until_date)} />}
@@ -242,7 +242,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					label="Time out until time"
 					type="time"
 					maxLength="8"
-					value={timeout_until_time || '--:--:--'}
+					defaultValue={timeout_until_time || '--:--:--'}
 					onChange={this.onEntryChange}
 				/>
         {touched.timeout_until_time && <ErrorMsg text={head((errors || {}).timeout_until_time)} />}
@@ -252,7 +252,7 @@ export default class SettingsSelfExclusion extends PureComponent {
 					label="Exclude me from the website until"
 					type="date"
 					maxLength="10"
-					value={exclude_until || 'yyyy-mm-dd'}
+					defaultValue={exclude_until || 'yyyy-mm-dd'}
 					onChange={this.onEntryChange}
 				/>
         {touched.exclude_until && <ErrorMsg text={head((errors || {}).exclude_until)} />}

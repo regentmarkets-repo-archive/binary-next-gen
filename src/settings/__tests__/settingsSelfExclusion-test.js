@@ -38,14 +38,25 @@ describe('<SettingsSelfExclusion />', () => {
     expect(errors.max_balance[0]).toEqual('Should be a valid number');
   });
 
-  it('Max balance should have required error when input is empty', () => {
+  it('Max balance should have required error when props is not empty and input is empty', () => {
     const wrapper = mountWithIntl(<SettingsSelfExclusion />);
     const maxBalance = wrapper.find('#max_balance');
-    maxBalance.node.value = '';
+    wrapper.setProps({ max_balance: 15000 });
+    maxBalance.node.value = null;
     maxBalance.simulate('change');
     const errors = wrapper.state('errors');
 
     expect(errors.max_balance[0]).toEqual('This field is required.');
+  });
+
+  it('Max balance should not have required error when props is empty and input is empty', () => {
+    const wrapper = mountWithIntl(<SettingsSelfExclusion />);
+    const maxBalance = wrapper.find('#max_balance');
+    maxBalance.node.value = null;
+    maxBalance.simulate('change');
+    const errors = wrapper.state('errors');
+
+    expect(errors.max_balance).toBeUndefined();
   });
 
   it('Max balance should have equal/less than error when input is greater than props.max_balance', () => {
