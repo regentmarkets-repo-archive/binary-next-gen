@@ -167,7 +167,7 @@ msgid "Date of birth"
 msgstr "Data urodzenia"
 
 msgid "Home Address"
-msgstr "Adres zamieszkania"
+msgstr "Adres domowy"
 
 msgid "Security"
 msgstr "Bezpieczeństwo"
@@ -257,7 +257,7 @@ msgid "Stays In/Goes Out"
 msgstr "Pozostanie w/poza"
 
 msgid "Settles"
-msgstr "Rozliczenia"
+msgstr "Rozliczenie"
 
 msgid "Language"
 msgstr "Język"
