@@ -629,10 +629,10 @@ msgid "Cashier is locked per your request. To unlock it, enter your password."
 msgstr "Sekcja Kasjer została zablokowana na Twoją prośbę. Aby ją odblokować, wpisz hasło."
 
 msgid "Unlock Cashier"
-msgstr "Odblokowywanie sekcji Kasjer"
+msgstr "Odblokuj sekcję Kasjer"
 
 msgid "Time out until"
-msgstr "Przekroczono limit czasu do"
+msgstr "Okres wyłączenia do"
 
 msgid "No transactions for the selected period"
 msgstr "Brak transakcji w wybranym okresie"
