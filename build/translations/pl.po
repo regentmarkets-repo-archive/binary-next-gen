@@ -578,7 +578,7 @@ msgid "Favorites"
 msgstr "Ulubione"
 
 msgid "Open For Trading"
-msgstr "Otwarte do handlowania"
+msgstr "Otwarte dla handlu"
 
 msgid "Closed"
 msgstr "Zamknięte"
