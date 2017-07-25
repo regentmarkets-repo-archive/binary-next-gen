@@ -257,7 +257,7 @@ msgid "Stays In/Goes Out"
 msgstr "Stays in/Goes Out"
 
 msgid "Settles"
-msgstr "Risolve"
+msgstr "Liquida"
 
 msgid "Language"
 msgstr "Lingua"
@@ -284,7 +284,7 @@ msgid "Email"
 msgstr "Email"
 
 msgid "There are no transactions for selected period"
-msgstr "Non ci sono transazioni per il periodo selezionato"
+msgstr "Non ci sono transazioni nel periodo selezionato"
 
 msgid "Sell"
 msgstr "Vendi"
@@ -764,10 +764,10 @@ msgid "Enter your first and last name"
 msgstr "Inserisci il tuo nome e cognome"
 
 msgid "City must not be empty"
-msgstr "La città non deve essere vuota"
+msgstr "La città non può essere vuota"
 
 msgid "Address must not be empty"
-msgstr "L'indirizzo non deve essere vuoto"
+msgstr "L'indirizzo non può essere vuoto"
 
 msgid "Enter a valid phone number"
 msgstr "Inserisci un numero di telefono valido"
@@ -812,7 +812,7 @@ msgid "Phone"
 msgstr "Telefono"
 
 msgid "Answer To Secret Question"
-msgstr "Rispondi alla domanda segreta"
+msgstr "Risposta alla domanda segreta"
 
 msgid "Switch to"
 msgstr "Passa a"
