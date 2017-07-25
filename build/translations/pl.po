@@ -503,7 +503,7 @@ msgid "High"
 msgstr "Wysoki"
 
 msgid "Open"
-msgstr "Otwarte"
+msgstr "Otwórz"
 
 msgid "Date"
 msgstr "Data"
