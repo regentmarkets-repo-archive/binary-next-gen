@@ -56,7 +56,7 @@ msgid "Sale Price"
 msgstr "Cena sprzedaży"
 
 msgid "Profit/Loss"
-msgstr "Zysk/Strata"
+msgstr "Zysk/strata"
 
 msgid "Total"
 msgstr "Całkowity"
