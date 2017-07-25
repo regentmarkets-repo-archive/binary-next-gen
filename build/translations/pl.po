@@ -437,7 +437,7 @@ msgid "Session duration limit, in minutes"
 msgstr "Limit czasu sesji, w minutach"
 
 msgid "You will be automatically logged out after such time."
-msgstr "Zostaniesz automatycznie wylogowany po tym czasie."
+msgstr "Po tym czasie nastąpi automatyczne wylogowanie."
 
 msgid "Exclude me from the website until"
 msgstr "Wyłącz mnie z portalu do dnia"
@@ -758,7 +758,7 @@ msgid "Enter a valid email"
 msgstr "Podaj prawidłowy adres e-mail"
 
 msgid "Number should between 10 to 120"
-msgstr "Liczba powinna być z przedziału od 10 do 120"
+msgstr "Liczba powinna mieścić się w przedziale od 10 do 120"
 
 msgid "Enter your first and last name"
 msgstr "Podaj swoje imię i nazwisko"
@@ -779,7 +779,7 @@ msgid "Secret answer must be at least 4 characters"
 msgstr "Odpowiedź na sekretne pytanie musi składać się z co najmniej 4 znaków"
 
 msgid "You need to agree to our Terms and Conditions"
-msgstr "Musisz zaakceptować nasz Regulamin"
+msgstr "Musisz zaakceptować nasz regulamin"
 
 msgid "I agree to the"
 msgstr "Akceptuję"
@@ -848,13 +848,13 @@ msgid "No digit trades for this asset"
 msgstr "Brak zakładów opartych na cyfrach dla tego aktywa"
 
 msgid "Lock Cashier"
-msgstr "Zablokowywanie sekcji Kasjer"
+msgstr "Zablokuj sekcję Kasjer"
 
 msgid "Time out until date"
-msgstr "Przekroczono limit czasu do (data)"
+msgstr "Okres wyłączenia do dnia"
 
 msgid "Time out until time"
-msgstr "Przekroczono limit czasu do (godzina)"
+msgstr "Okres wyłączenia do godziny"
 
 msgid "Light Theme"
 msgstr "Jasny motyw"
