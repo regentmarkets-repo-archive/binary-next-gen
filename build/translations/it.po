@@ -437,7 +437,7 @@ msgid "Session duration limit, in minutes"
 msgstr "Limite di durata della sessione, in minuti"
 
 msgid "You will be automatically logged out after such time."
-msgstr "Dopo tale orario, verrai automaticamente loggato."
+msgstr "Dopo tale periodo, verrà effettuato automaticamente il logout."
 
 msgid "Exclude me from the website until"
 msgstr "Escludimi dal sito internet fino"
@@ -731,7 +731,7 @@ msgid "Current immediate maximum withdrawal"
 msgstr "Attuale prelievo massimo immediato"
 
 msgid "Create Free Account"
-msgstr "Crea un account gratis"
+msgstr "Crea un Account gratuito"
 
 msgid "Verification Code"
 msgstr "Codice di verifica"
