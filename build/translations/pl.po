@@ -320,10 +320,10 @@ msgid "Fall"
 msgstr "Spadek"
 
 msgid "Asian Down"
-msgstr "Azjatycki – Spadek"
+msgstr "Azjatyckie – Spadek"
 
 msgid "Asian Up"
-msgstr "Azjatycki – Wzrost"
+msgstr "Azjatyckie – Wzrost"
 
 msgid "Search For Assets"
 msgstr "Szukaj aktywów"
