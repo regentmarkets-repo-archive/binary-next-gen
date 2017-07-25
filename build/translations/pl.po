@@ -878,7 +878,7 @@ msgid "Duration is out of range"
 msgstr "Czas trwania przekracza dozwolony przedział"
 
 msgid "Start date invalid, it needs to be five minutes or more in the future"
-msgstr "Data rozpoczęcia jest nieprawidłowa, należy wybrać co najmniej 5 minut w przyszłości"
+msgstr "Data rozpoczęcia jest nieprawidłowa, należy wybrać czas rozpoczęcia za co najmniej 5 minut"
 
 msgid "Time format is wrong"
 msgstr "Błędny format czasu"
