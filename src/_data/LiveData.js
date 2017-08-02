@@ -76,7 +76,7 @@ const initAuthorized = async (authData, store) => {
     api.unsubscribeFromAllTicks();
     api.unsubscribeFromAllProposals();
     api.unsubscribeFromAllPortfolios();
-    api.unsubscribeFromAllProposalsOpenContract();
+    api.unsubscribeFromAllOpenContracts();
 
     api.getLandingCompanyDetails(authData.authorize.landing_company_name)
         .then(r => {
