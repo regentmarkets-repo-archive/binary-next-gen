@@ -77,7 +77,7 @@ export default {
     ],
     "Profit/Loss": [
         null,
-        "Zysk/Strata"
+        "Zysk/strata"
     ],
     "Total": [
         null,
@@ -225,7 +225,7 @@ export default {
     ],
     "Home Address": [
         null,
-        "Adres zamieszkania"
+        "Adres domowy"
     ],
     "Security": [
         null,
@@ -345,7 +345,7 @@ export default {
     ],
     "Settles": [
         null,
-        "Rozliczenia"
+        "Rozliczenie"
     ],
     "Language": [
         null,
@@ -429,11 +429,11 @@ export default {
     ],
     "Asian Down": [
         null,
-        "Azjatycki  Spadek"
+        "Azjatyckie  Spadek"
     ],
     "Asian Up": [
         null,
-        "Azjatycki  Wzrost"
+        "Azjatyckie  Wzrost"
     ],
     "Search For Assets": [
         null,
@@ -585,7 +585,7 @@ export default {
     ],
     "You will be automatically logged out after such time.": [
         null,
-        "Zostaniesz automatycznie wylogowany po tym czasie."
+        "Po tym czasie nastpi automatyczne wylogowanie."
     ],
     "Exclude me from the website until": [
         null,
@@ -673,7 +673,7 @@ export default {
     ],
     "Open": [
         null,
-        "Otwarte"
+        "Otwrz"
     ],
     "Date": [
         null,
@@ -773,7 +773,7 @@ export default {
     ],
     "Open For Trading": [
         null,
-        "Otwarte do handlowania"
+        "Otwarte dla handlu"
     ],
     "Closed": [
         null,
@@ -841,11 +841,11 @@ export default {
     ],
     "Unlock Cashier": [
         null,
-        "Odblokowywanie sekcji Kasjer"
+        "Odblokuj sekcj Kasjer"
     ],
     "Time out until": [
         null,
-        "Przekroczono limit czasu do"
+        "Okres wyczenia do"
     ],
     "No transactions for the selected period": [
         null,
@@ -1013,7 +1013,7 @@ export default {
     ],
     "Number should between 10 to 120": [
         null,
-        "Liczba powinna by z przedziau od 10 do 120"
+        "Liczba powinna mieci si w przedziale od 10 do 120"
     ],
     "Enter your first and last name": [
         null,
@@ -1041,7 +1041,7 @@ export default {
     ],
     "You need to agree to our Terms and Conditions": [
         null,
-        "Musisz zaakceptowa nasz Regulamin"
+        "Musisz zaakceptowa nasz regulamin"
     ],
     "I agree to the": [
         null,
@@ -1133,15 +1133,15 @@ export default {
     ],
     "Lock Cashier": [
         null,
-        "Zablokowywanie sekcji Kasjer"
+        "Zablokuj sekcj Kasjer"
     ],
     "Time out until date": [
         null,
-        "Przekroczono limit czasu do (data)"
+        "Okres wyczenia do dnia"
     ],
     "Time out until time": [
         null,
-        "Przekroczono limit czasu do (godzina)"
+        "Okres wyczenia do godziny"
     ],
     "Light Theme": [
         null,
@@ -1173,7 +1173,7 @@ export default {
     ],
     "Start date invalid, it needs to be five minutes or more in the future": [
         null,
-        "Data rozpoczcia jest nieprawidowa, naley wybra co najmniej 5 minut w przyszoci"
+        "Data rozpoczcia jest nieprawidowa, naley wybra czas rozpoczcia za co najmniej 5 minut"
     ],
     "Time format is wrong": [
         null,
