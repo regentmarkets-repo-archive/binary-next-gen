@@ -345,7 +345,7 @@ export default {
     ],
     "Settles": [
         null,
-        "Risolve"
+        "Liquida"
     ],
     "Language": [
         null,
@@ -381,7 +381,7 @@ export default {
     ],
     "There are no transactions for selected period": [
         null,
-        "Non ci sono transazioni per il periodo selezionato"
+        "Non ci sono transazioni nel periodo selezionato"
     ],
     "Sell": [
         null,
@@ -585,7 +585,7 @@ export default {
     ],
     "You will be automatically logged out after such time.": [
         null,
-        "Dopo tale orario, verrai automaticamente loggato."
+        "Dopo tale periodo, verr effettuato automaticamente il logout."
     ],
     "Exclude me from the website until": [
         null,
@@ -977,7 +977,7 @@ export default {
     ],
     "Create Free Account": [
         null,
-        "Crea un account gratis"
+        "Crea un Account gratuito"
     ],
     "Verification Code": [
         null,
@@ -1021,11 +1021,11 @@ export default {
     ],
     "City must not be empty": [
         null,
-        "La citt non deve essere vuota"
+        "La citt non pu essere vuota"
     ],
     "Address must not be empty": [
         null,
-        "L'indirizzo non deve essere vuoto"
+        "L'indirizzo non pu essere vuoto"
     ],
     "Enter a valid phone number": [
         null,
@@ -1085,7 +1085,7 @@ export default {
     ],
     "Answer To Secret Question": [
         null,
-        "Rispondi alla domanda segreta"
+        "Risposta alla domanda segreta"
     ],
     "Switch to": [
         null,
