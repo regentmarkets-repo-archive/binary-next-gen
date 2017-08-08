@@ -41,7 +41,7 @@ export default class RealityCheckWeb extends PureComponent {
     }
 
     updateInterval = (interval) => {
-        if (+interval > 120 || +interval < 10) {
+        if (+interval > 60 || +interval < 10) {
             this.setState({ rcError: true });
         } else {
             this.setState({ rcError: false });
@@ -68,7 +68,7 @@ export default class RealityCheckWeb extends PureComponent {
                     updateInterval={this.updateInterval}
                     confirmIntervalUpdate={this.confirmIntervalUpdate}
                 />}
-                {rcError && <ErrorMsg text="Number should between 10 to 120" />}
+                {rcError && <ErrorMsg text="Number should between 10 to 60" />}
             </Modal>
         );
     }
