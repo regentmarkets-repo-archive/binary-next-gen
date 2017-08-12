@@ -10,7 +10,7 @@ export default class HelloCard extends PureComponent {
 			<div className="startup-content">
 				<div className="full-logo">
 					<LogoSpinner />
-					<img className="logo-text" src="img/binary-type-logo.svg" alt="Logo" />
+					<img className="logo-text" src="https://style.binary.com/images/logo/logotype_light.svg" alt="Logo" />
 				</div>
 				<LanguagePicker />
 				<Link to="/signup" className="create-account-button btn-secondary">
