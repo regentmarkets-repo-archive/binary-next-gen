@@ -7,11 +7,23 @@ export default class AccountItemsList extends PureComponent {
 	props: {
 		loginid: string,
 		accounts: Account[],
+    landingCompany: any[],
 	};
 
+  constructor(props) {
+    super(props);
+    this.state = {
+      loginid: props.loginid,
+      accounts: props.accounts,
+			landingCompany: props.landingCompany,
+    };
+  }
+
+
 	render() {
-		const { loginid, accounts } = this.props;
+		const { loginid, accounts, landingCompany } = this.state;
 		const shouldShowUpgrade = accounts.length < 2;
+		console.log(landingCompany);
 
 		return (
 			<div className="account-items-list">

@@ -1,4 +1,4 @@
-import { UPGRADE_FIELD_UPDATE, UPGRADE_DOB_UPDATE, UPGRADE_FIELD_CLEAR } from '../_constants/ActionTypes';
+import { UPGRADE_FIELD_UPDATE, UPGRADE_DOB_UPDATE, UPGRADE_FIELD_CLEAR, UPDATE_LANDING_COMPANY } from '../_constants/ActionTypes';
 import { api } from '../_data/LiveData';
 import config from '../config';
 
@@ -6,6 +6,11 @@ export const upgradeFieldUpdate = (fieldName, fieldValue) => ({
     type: UPGRADE_FIELD_UPDATE,
     fieldName,
     fieldValue,
+});
+
+export const updateLandingCompany = (landingCompany) => ({
+    type: UPDATE_LANDING_COMPANY,
+    landingCompany,
 });
 
 export const upgradeDOBUpdate = (dayMonthOrYear, val) => ({

@@ -36,6 +36,7 @@ import workspace from './WorkspaceReducer';
 import watchlist from './WatchlistReducer';
 // import chartData from './ChartDataReducer';
 import residenceList from './CountryListReducer';
+import upgrade from './UpgradeReducer';
 
 export default combineReducers({
     appState,
@@ -71,5 +72,6 @@ export default combineReducers({
     workspace,
     watchlist,
     views,
+    upgrade,
     routing: routerReducer,
 });

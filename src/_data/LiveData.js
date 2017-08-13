@@ -161,6 +161,11 @@ const initAuthorized = async (authData, store) => {
     api.getAccountSettings().then(msg => {
         if (msg.get_settings.country_code) {
             api.getPaymentAgentsForCountry(msg.get_settings.country_code);
+            if (msg.get_settings.country_code !== 'jp') {
+                api.getLandingCompany(msg.get_settings.country_code).then(message => {
+                    store.dispatch(actions.updateLandingCompany(message));
+                });
+            }
         }
     });
     api.getPayoutCurrencies();
