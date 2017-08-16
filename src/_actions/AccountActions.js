@@ -23,3 +23,4 @@ export const updateToken = (token: string) => ({
 export const removePersonalData = () => ({
     type: types.REMOVE_PERSONAL_DATA,
 });
+
