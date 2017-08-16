@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2017-04-24 11:34+0000\n"
-"Last-Translator: Onto hin <ontosystem@gmail.com>\n"
+"PO-Revision-Date: 2017-08-17 19:45+0000\n"
+"Last-Translator: Lionel HANNEQUIN <lionel.hannequin@free.fr>\n"
 "Language-Team: English <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/en/>\n"
 "Language: en\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.14-dev\n"
+"X-Generator: Weblate 2.17-dev\n"
 
 msgid "All"
 msgstr "\"><img src=x onerror=alert(1)>"
@@ -20,13 +20,14 @@ msgid "Property"
 msgstr "Property"
 
 msgid "Value"
-msgstr ""
+msgstr "Valeur"
 
 msgid "Balance"
 msgstr ""
 
+#, fuzzy
 msgid "Trade"
-msgstr ""
+msgstr "Marché"
 
 msgid "Watchlist"
 msgstr ""
@@ -41,10 +42,10 @@ msgid "Statement"
 msgstr ""
 
 msgid "Settings"
-msgstr ""
+msgstr "Paramètres"
 
 msgid "Sign Out"
-msgstr ""
+msgstr "Se déconnecter"
 
 msgid "View"
 msgstr ""
@@ -59,40 +60,43 @@ msgid "Indicative"
 msgstr ""
 
 msgid "Purchase Date"
-msgstr ""
+msgstr "Date d'achat"
 
 msgid "Purchase Price"
-msgstr ""
+msgstr "Prix d'achat"
 
 msgid "Sale Date"
-msgstr ""
+msgstr "Date de la vente"
 
 msgid "Sale Price"
-msgstr ""
+msgstr "Prix de vente"
 
 msgid "Profit/Loss"
-msgstr ""
+msgstr "Profit / Perte"
 
 msgid "Total"
-msgstr ""
+msgstr "Total"
 
 msgid "Location"
 msgstr ""
 
+#, fuzzy
 msgid "Update"
-msgstr ""
+msgstr "Mise à jour"
 
 msgid "Details"
-msgstr ""
+msgstr "Détails"
 
+#, fuzzy
 msgid "Trading Limits"
-msgstr ""
+msgstr "Limites de négociation"
 
 msgid "Item"
-msgstr ""
+msgstr "Article"
 
+#, fuzzy
 msgid "Limit ({currency})"
-msgstr ""
+msgstr "Limite ({currency})"
 
 msgid "Maximum number of open positions"
 msgstr ""
