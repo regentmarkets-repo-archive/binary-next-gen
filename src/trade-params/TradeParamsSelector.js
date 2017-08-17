@@ -112,7 +112,7 @@ export default createSelector(
                 contractToUse = getStartLaterOnlyContract(contracts.get(i));
             }
             const error = errors.get(i);
-            const hasError = error && error.valueSeq().filter(v => !!v).size > 0;
+            const hasError = error && error.size > 0;
             const disabled =
                 !contracts.get(i) ||
                 contractToUse.error ||
