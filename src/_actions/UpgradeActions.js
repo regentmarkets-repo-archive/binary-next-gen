@@ -1,6 +1,11 @@
-import { UPGRADE_FIELD_UPDATE, UPGRADE_DOB_UPDATE, UPGRADE_FIELD_CLEAR } from '../_constants/ActionTypes';
+import { UPDATE_SHOULD_SHOW_UPGRADE, UPGRADE_FIELD_UPDATE, UPGRADE_DOB_UPDATE, UPGRADE_FIELD_CLEAR } from '../_constants/ActionTypes';
 import { api } from '../_data/LiveData';
 import config from '../config';
+
+export const updateShouldShowUpgrade = (shouldShowUpgrade) => ({
+    type: UPDATE_SHOULD_SHOW_UPGRADE,
+    shouldShowUpgrade,
+});
 
 export const upgradeFieldUpdate = (fieldName, fieldValue) => ({
     type: UPGRADE_FIELD_UPDATE,

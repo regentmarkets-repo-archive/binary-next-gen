@@ -161,6 +161,45 @@ const initAuthorized = async (authData, store) => {
     api.getAccountSettings().then(msg => {
         if (msg.get_settings.country_code) {
             api.getPaymentAgentsForCountry(msg.get_settings.country_code);
+            api.getLandingCompany(msg.get_settings.country_code).then(message => {
+              const landingCompany = message.landing_company;
+              const accounts = state.boot.get('accounts').toJS();
+              const loginid = authData.authorize.loginid;
+              const allUserAccounts = accounts.map((val) => val.account);
+              const userHasMLT = allUserAccounts.some(value => value.startsWith('MLT'));
+              const userHasMX = allUserAccounts.some(value => value.startsWith('MX'));
+              const userHasCR = allUserAccounts.some(value => value.startsWith('CR'));
+              const userHasMF = allUserAccounts.some(value => value.startsWith('MF'));
+              const isVirtual = loginid.startsWith('VRTC');
+              const isMLT = loginid.startsWith('MLT');
+              /* eslint-disable */
+              const shouldShowUpgrade = (() => {
+                if (landingCompany.id !== 'jp') {
+                  if (landingCompany.hasOwnProperty('financial_company') && landingCompany.financial_company.shortcode === 'maltainvest') {
+                    if (landingCompany.hasOwnProperty('gaming_company')) {
+                      // can upgrade to real or maltainvest
+                      if (isVirtual && !userHasMLT && !userHasMX && !userHasCR) {
+                        return 'toReal';
+                        //	 to mlt
+                      } else if (isMLT && !userHasMF) {
+                        return 'toMaltainvest';
+                        //	to mf
+                      }
+                    } else if (isVirtual && !userHasMF) {
+                      //	upgrade to maltainvest
+                      return 'toMaltainvest';
+                    }
+                  } else if (landingCompany.hasOwnProperty('financial_company') && landingCompany.financial_company.shortcode !== 'maltainvest') {
+                    if (isVirtual && !userHasMLT && !userHasMX && !userHasCR) {
+                      // can upgrade to real
+                      return 'toReal';
+                    }
+                  }
+                }
+              })();
+              store.dispatch(actions.updateAppState('shouldShowUpgrade', shouldShowUpgrade));
+              /* eslint-enable */
+            });
         }
     });
     api.getPayoutCurrencies();
