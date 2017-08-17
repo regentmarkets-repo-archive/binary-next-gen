@@ -5,6 +5,7 @@ import { store } from '../_store/persistentStore';
 import countryListSelector from '../create-account/countryListSelector';
 import MobilePage from '../containers/MobilePage';
 import UpgradeCard from './UpgradeCard';
+import UpgradeToMaltainvestCard from './UpgradeToMaltainvestCard';
 
 @connect(countryListSelector)
 export default class UpgradeContainer extends PureComponent {
