@@ -1,9 +1,11 @@
 import React, { PureComponent } from 'react';
-import { M, InputGroup, LogoSpinner, Legend, Button, Option,
-  ErrorMsg, ServerErrorMsg, DateOfBirth, Countries } from 'binary-components';
+import { M, InputGroup, SelectGroup, LogoSpinner, Legend, Button,
+  ErrorMsg, ServerErrorMsg, DateOfBirth, Countries, P } from 'binary-components';
 import { api } from '../_data/LiveData';
+import { store } from '../_store/persistentStore';
 import storage from '../_store/storage';
 import SecretQuestion from './SecretQuestion';
+import { getOptions } from './UpgradeCard.options';
 
 export default class UpgradeToMaltainvestCard extends PureComponent {
 
@@ -12,58 +14,124 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   props: {
+    salutation: string,
+    firstName: string,
+    lastName: string,
+    dateOfBirth: string,
+    placeOfBirth: string,
+    residence: string,
+    addressCity: string,
+    addressLine1: string,
+    phone: string,
+    forexTradingExperience: string,
+    forexTradingFrequency: string,
+    indicesTradingExperience: string,
+    indicesTradingFrequency: string,
+    commoditiesTradingExperience: string,
+    commoditiesTradingFrequency: string,
+    stocksTradingExperience: string,
+    stocksTradingFrequency: string,
+    otherDerivativesTradingExperience: string,
+    otherDerivativesTradingFrequency: string,
+    otherInstrumentsTradingExperience: string,
+    otherInstrumentsTradingFrequency: string,
+    employmentIndustry: string,
+    occupation: string,
+    educationLevel: string,
+    incomeSource: string,
+    netIncome: string,
+    estimatedWorth: string,
+    acceptRisk: string,
+    accountTurnover: string,
+    accountOpeningReason: string,
+    secretQuestion: string,
+    secretAnswer: string,
     residenceList: any[],
   };
 
   constructor(props) {
     super(props);
     this.state = {
+      salutation: this.props.salutation,
+      firstName: this.props.firstName,
+      lastName: this.props.lastName,
+      dateOfBirth: this.props.dateOfBirth,
+      placeOfBirth: this.props.placeOfBirth,
+      residence: this.props.residence,
+      addressCity: this.props.addressCity,
+      addressLine1: this.props.addressLine1,
+      phone: this.props.phone,
+      forexTradingExperience: this.props.forexTradingExperience,
+      forexTradingFrequency: this.props.forexTradingFrequency,
+      indicesTradingExperience: this.props.indicesTradingExperience,
+      indicesTradingFrequency: this.props.indicesTradingFrequency,
+      commoditiesTradingExperience: this.props.commoditiesTradingExperience,
+      commoditiesTradingFrequency: this.props.commoditiesTradingFrequency,
+      stocksTradingExperience: this.props.stocksTradingExperience,
+      stocksTradingFrequency: this.props.stocksTradingFrequency,
+      otherDerivativesTradingExperience: this.props.otherDerivativesTradingExperience,
+      otherDerivativesTradingFrequency: this.props.otherDerivativesTradingFrequency,
+      otherInstrumentsTradingExperience: this.props.otherInstrumentsTradingExperience,
+      otherInstrumentsTradingFrequency: this.props.otherInstrumentsTradingFrequency,
+      employmentIndustry: this.props.employmentIndustry,
+      occupation: this.props.occupation,
+      educationLevel: this.props.educationLevel,
+      incomeSource: this.props.incomeSource,
+      netIncome: this.props.netIncome,
+      estimatedWorth: this.props.estimatedWorth,
+      acceptRisk: this.props.acceptRisk,
+      accountTurnover: this.props.accountTurnover,
+      accountOpeningReason: this.props.accountOpeningReason,
+      secretQuestion: this.props.secretQuestion,
+      secretAnswer: this.props.secretAnswer,
       progress: false,
-      validatedOnce: '',
-      salutation: 'Mr',
-      firstName: '',
-      lastName: '',
-      residence: '',
-      addressCity: '',
-      addressLine1: '',
-      phone: '',
-      forex_trading_experience: '',
-      forex_trading_frequency: '',
-      indices_trading_experience: '',
-      indices_trading_frequency: '',
-      commodities_trading_experience: '',
-      commodities_trading_frequency: '',
-      stocks_trading_experience: '',
-      stocks_trading_frequency: '',
-      other_derivatives_trading_experience: '',
-      other_derivatives_trading_frequency: '',
-      other_instruments_trading_experience: '',
-      other_instruments_trading_frequency: '',
-      employment_industry: '',
-      occupation: '',
-      education_level: '',
-      income_source: '',
-      net_income: '',
-      estimated_worth: '',
-      accept_risk: '',
-      tax_residence: '',
-      tax_identification_number: '',
-      account_turnover: '',
-      account_opening_reason: '',
-      secretQuestion: '',
-      secretAnswer: '',
       statesList: [],
+      touched: {
+        salutation: false,
+        firstName: false,
+        lastName: false,
+        dateOfBirth: false,
+        placeOfBirth: false,
+        residence: false,
+        addressCity: false,
+        addressLine1: false,
+        phone: false,
+        forexTradingExperience: false,
+        forexTradingFrequency: false,
+        indicesTradingExperience: false,
+        indicesTradingFrequency: false,
+        commoditiesTradingExperience: false,
+        commoditiesTradingFrequency: false,
+        stocksTradingExperience: false,
+        stocksTradingFrequency: false,
+        otherDerivativesTradingExperience: false,
+        otherDerivativesTradingFrequency: false,
+        otherInstrumentsTradingExperience: false,
+        otherInstrumentsTradingFrequency: false,
+        employmentIndustry: false,
+        occupation: false,
+        educationLevel: false,
+        incomeSource: false,
+        netIncome: false,
+        estimatedWorth: false,
+        acceptRisk: false,
+        accountTurnover: false,
+        accountOpeningReason: false,
+        secretQuestion: false,
+        secretAnswer: false,
+      },
     };
+  }
+
+  componentWillMount() {
+    const residence = store.getState().account.get('country');
+    api.getStatesForCountry(residence).then(response =>
+        this.setState({ residence, statesList: response.states_list })
+    );
   }
 
   onEntryChange = (e: SyntheticEvent) =>
     this.setState({ [e.target.id]: e.target.value });
-
-  onFirstNameValid = firstName =>
-    /^[a-zA-Z\s'.-]{2,30}$/.test(firstName);
-
-  onLastNameValid = lastName =>
-    /^[a-zA-Z\s'.-]{2,30}$/.test(lastName);
 
   onDayChange = (e: SyntheticEvent) =>
     this.setState({ day: e.target.value });
@@ -75,65 +143,33 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
     this.setState({ year: e.target.value });
 
   onCountryChange = (e: SyntheticEvent) => {
-    this.setState({ residence: e.target.value });
+    this.setState({ [e.target.id]: e.target.value });
     api.getStatesForCountry(e.target.value).then(response =>
       this.setState({ statesList: response.states_list })
     );
   }
 
-  onStateChange = (e: SyntheticEvent) => {
-    this.setState({ addressState: e.target.value });
+  onTermsAndConditionsChanged = (e: SyntheticEvent) => {
+    this.setState({ acceptRisk: e.target.checked });
   }
-
-  onCityChange = (e: SyntheticEvent) =>
-    this.setState({ addressCity: e.target.value });
-
-  onPostcodeChange = (e: SyntheticEvent) =>
-    this.setState({ addressPostcode: e.target.value });
-
-  onAddressLine1Change = (e: SyntheticEvent) =>
-    this.setState({ addressLine1: e.target.value });
-
-  onAddressLine2Change = (e: SyntheticEvent) =>
-    this.setState({ addressLine2: e.target.value });
-
-  onPhoneChange = (e: SyntheticEvent) =>
-    this.setState({ phone: e.target.value });
-
-  onSecretQuestionChange = (e: SyntheticEvent) =>
-    this.setState({ secretQuestion: e.target.value });
-
-  onSecretAnswerChange = (e: SyntheticEvent) =>
-    this.setState({ secretAnswer: e.target.value });
-
-  onTermsAndConditionsChanged = (e: SyntheticEvent) =>
-    this.setState({ termsAndConditions: e.target.value });
 
   onFormSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    this.setState({
-      validatedOnce: true,
-    });
-    if (this.allValid) {
-      this.performUpgrade();
-    }
+    this.performUpgrade();
   }
 
   performUpgrade = async () => {
-    const { salutation, firstName, lastName, residence,
+    const { salutation, firstName, lastName, dateOfBirth, placeOfBirth, residence,
       addressLine1, addressLine2, addressCity, addressState,
       addressPostcode, secretQuestion, secretAnswer, phone, forexTradingExperience, forexTradingFrequency, indicesTradingExperience, indicesTradingFrequency, commoditiesTradingExperience, commoditiesTradingFrequency, stocksTradingExperience, stocksTradingFrequency, otherDerivativesTradingExperience, otherDerivativesTradingFrequency, otherInstrumentsTradingExperience, otherInstrumentsTradingFrequency, employmentIndustry, occupation, educationLevel, incomeSource, netIncome, estimatedWorth, acceptRisk, taxResidence, taxIdentificationNumber, accountTurnover, accountOpeningReason } = this.state;
 
     try {
-      this.setState({
-        progress: true,
-        serverError: false,
-      });
       const response = await api.createRealAccountMaltaInvest({
         salutation,
         first_name: firstName,
         last_name: lastName,
-        date_of_birth: '1980-01-31',
+        date_of_birth: dateOfBirth,
+        place_of_birth: placeOfBirth,
         residence,
         address_line_1: addressLine1,
         address_line_2: addressLine2,
@@ -179,25 +215,12 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   render() {
-    const { firstName, lastName, residence, addressLine1, addressCity, secretQuestion, secretAnswer,
-      phone, termsAndConditions, progress, serverError, validatedOnce, statesList } = this.state;
+    const { progress, serverError, statesList, residence } = this.state;
     const { residenceList } = this.props;
-
+    const options = getOptions();
     const boot = storage.boot ? JSON.parse(storage.boot) : '';
     const language = boot.language ? boot.language.toLowerCase() : 'en';
     const linkToTermsAndConditions = `https://www.binary.com/${language}/terms-and-conditions.html`;
-
-    const firstNameIsValid = firstName.length >= 2;
-    const lastNameIsValid = lastName.length >= 2;
-    const residenceIsValid = residence.length > 0;
-    const addressCityIsValid = addressCity.length > 0;
-    const addressLine1IsValid = addressLine1.length > 0;
-    const phoneIsValid = phone.length >= 6;
-    const secretQuestionIsValid = secretQuestion.length > 0;
-    const secretAnswerIsValid = secretAnswer.length > 0;
-    this.allValid = firstNameIsValid && lastNameIsValid && residenceIsValid &&
-      addressCityIsValid && addressLine1IsValid && phoneIsValid &&
-      secretQuestionIsValid && secretAnswerIsValid && termsAndConditions;
 
     return (
       <div className="upgrade-card" >
@@ -209,12 +232,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
         <form onSubmit={this.onFormSubmit}>
           <Legend text="Personal Information" />
           <div className="input-row names-row">
-            <select id="salutation" onChange={this.onEntryChange}>
-              <Option value="Mr" text="Mr" />
-              <Option value="Mrs" text="Mrs" />
-              <Option value="Ms" text="Ms" />
-              <Option value="Miss" text="Miss" />
-            </select>
+            <SelectGroup id="salutation" options={options.salutationOptions} onChange={this.onEntryChange} />
             <InputGroup
               id="firstName"
               placeholder="First Name"
@@ -230,9 +248,6 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               maxLength="30"
             />
           </div>
-          {validatedOnce && !(firstNameIsValid && lastNameIsValid) &&
-          <ErrorMsg text="Enter your first and last name" />
-          }
           <div className="input-row">
             <DateOfBirth
               onDayChange={this.onDayChange}
@@ -240,94 +255,173 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               onYearChange={this.onYearChange}
             />
           </div>
+          <div className="input-row">
+            <SelectGroup id="placeOfBirth" label="Place Of Birth" options={residenceList} onChange={this.onEntryChange} />
+          </div>
+          <div className="input-row">
+            <SelectGroup label="Account opening reason" id="accountOpeningReason" options={options.accountOpeningReasonOptions} onChange={this.onEntryChange} />
+          </div>
+          <Legend text="Tax Information" />
+          <InputGroup
+            id="taxIdentificationNumber"
+            placeholder="Tax identification number"
+            type="text"
+            onChange={this.onEntryChange}
+          />
+
           <Legend text="Home Address" />
           <div className="input-row">
-            <Countries onChange={this.onCountryChange} residenceList={residenceList} />
-            <select onChange={this.onStateChange}>
+            { residence &&
+              <M id="residence" m={residenceList.find(element => element.value === residence).text} />
+            }
+            { !residence &&
+              <Countries id="residence" value={residence} onChange={this.onCountryChange} residenceList={residenceList} disable />
+            }
+
+            <select id="addressState" onChange={this.onEntryChange}>
               {statesList.map(x => (
                 <option key={x.value} value={x.value}>{x.text}</option>
               ))}
             </select>
           </div>
-          {validatedOnce && !residenceIsValid &&
-          <ErrorMsg text="Choose your country" />
-          }
           <div className="input-row">
             <InputGroup
-              name="AddressTown"
+              id="addressCity"
               placeholder="Town/City"
               type="text"
               maxLength="35"
-              onChange={this.onCityChange}
+              onChange={this.onEntryChange}
             />
             <InputGroup
-              name="AddressPostcode"
+              id="addressPostcode"
               placeholder="Postal Code / ZIP"
               type="text"
               maxLength="20"
-              onChange={this.onPostcodeChange}
+              onChange={this.onEntryChange}
             />
           </div>
-          {validatedOnce && !addressCityIsValid &&
-          <ErrorMsg text="City must not be empty" />
-          }
           <div className="input-row">
             <InputGroup
-              name="Address1"
+              id="addressLine1"
               placeholder="Address First Line"
               type="text"
               maxLength="70"
-              onChange={this.onAddressLine1Change}
+              onChange={this.onEntryChange}
             />
           </div>
-          {validatedOnce && !addressLine1IsValid &&
-          <ErrorMsg text="Address must not be empty" />
-          }
           <div className="input-row">
             <InputGroup
-              name="Address2"
+              id="addressLine2"
               placeholder="Address Second Line"
               type="text"
               maxLength="70"
-              onChange={this.onAddressLine2Change}
+              onChange={this.onEntryChange}
             />
           </div>
           <div className="input-row">
             <InputGroup
-              name="Tel"
+              id="phone"
               placeholder="Phone"
               type="tel"
               maxLength="35"
-              onChange={this.onPhoneChange}
+              onChange={this.onEntryChange}
             />
           </div>
-          {validatedOnce && !phoneIsValid &&
-          <ErrorMsg text="Enter a valid phone number" />
-          }
+          <Legend text="Financial Information" />
+          <div className="input-row">
+            <SelectGroup label="Forex trading experience" id="forexTradingExperience" options={options.experienceOptions} onChange={this.onEntryChange} />
+          </div>
+          <div className="input-row">
+            <SelectGroup label="Forex trading frequency" id="forexTradingFrequency" options={options.frequencyOptions} onChange={this.onEntryChange} />
+          </div>
+          <div className="input-row">
+            <SelectGroup label="Indices trading experience" id="indicesTradingExperience" options={options.experienceOptions} onChange={this.onEntryChange} />
+          </div>
+          <div className="input-row">
+            <SelectGroup label="Indices trading frequency" id="indicesTradingFrequency" options={options.frequencyOptions} onChange={this.onEntryChange} />
+          </div>
+          <div className="input-row">
+            <SelectGroup label="Commodities trading experience" id="commoditiesTradingExperience" options={options.experienceOptions} onChange={this.onEntryChange} />
+          </div>
+          <div className="input-row">
+            <SelectGroup label="Commodities trading frequency" id="commoditiesTradingFrequency" options={options.frequencyOptions} onChange={this.onEntryChange} />
+          </div>
+          <div className="input-row">
+            <SelectGroup label="Stocks trading experience" id="stocksTradingExperience" options={options.experienceOptions} onChange={this.onEntryChange} />
+          </div>
+          <div className="input-row">
+            <SelectGroup label="Stocks trading frequency" id="stocksTradingFrequency" options={options.frequencyOptions} onChange={this.onEntryChange} />
+          </div>
+          <div className="input-row">
+            <SelectGroup label="Binary options or other financial derivatives trading experience" id="otherDerivativesTradingExperience" options={options.experienceOptions} onChange={this.onEntryChange} />
+          </div>
+          <div className="input-row">
+            <SelectGroup label="Binary options or other financial derivatives trading frequency" id="otherDerivativesTradingFrequency" options={options.frequencyOptions} onChange={this.onEntryChange} />
+          </div>
+          <div className="input-row">
+            <SelectGroup label="Other financial instruments trading experience" id="otherInstrumentsTradingExperience" options={options.experienceOptions} onChange={this.onEntryChange} />
+          </div>
+          <div className="input-row">
+            <SelectGroup label="Other financial instruments trading frequency" id="otherInstrumentsTradingFrequency" options={options.frequencyOptions} onChange={this.onEntryChange} />
+          </div>
+          <div className="input-row">
+            <SelectGroup label="Income Source" id="incomeSource" options={options.incomeSourceOptions} onChange={this.onEntryChange} />
+          </div>
+          <div className="input-row">
+            <SelectGroup label="Employment Status" id="employmentStatus" options={options.employmentStatusOptions} onChange={this.onEntryChange} />
+          </div>
+          <div className="input-row">
+            <SelectGroup label="Industry of Employment" id="employmentIndustry" options={options.employmentIndustryOptions} onChange={this.onEntryChange} />
+          </div>
+          <div className="input-row">
+            <SelectGroup label="Occupation" id="occupation" options={options.occupationOptions} onChange={this.onEntryChange} />
+          </div>
+          <div className="input-row">
+            <SelectGroup label="Source of Wealth" id="sourceOfWealth" options={options.sourceOfWealthOptions} onChange={this.onEntryChange} />
+          </div>
+          <div className="input-row">
+            <SelectGroup label="Level of Education" id="educationLevel" options={options.educationLevelOptions} onChange={this.onEntryChange} />
+          </div>
+          <div className="input-row">
+            <SelectGroup label="Net Annual Income" id="netIncome" options={options.netIncomeOptions} onChange={this.onEntryChange} />
+          </div>
+          <div className="input-row">
+            <SelectGroup label="Estimated Net Worth" id="estimatedWorth" options={options.estimatedWorthOptions} onChange={this.onEntryChange} />
+          </div>
+          <div className="input-row">
+            <SelectGroup label="Anticipated Account Turnover" id="accountTurnover" options={options.accountTurnoverOptions} onChange={this.onEntryChange} />
+          </div>
+
           <Legend text="Security" />
           <div className="input-row">
-            <SecretQuestion onChange={this.onSecretQuestionChange} />
+            <SecretQuestion onChange={this.onEntryChange} />
             <InputGroup
-              name="secretanswer"
+              id="secretAnswer"
               placeholder="Answer To Secret Question"
               type="text"
               maxLength="50"
-              onChange={this.onSecretAnswerChange}
+              onChange={this.onEntryChange}
             />
           </div>
-          {validatedOnce && !secretQuestionIsValid &&
-          <ErrorMsg text="Select a secret question" />
-          }
-          {validatedOnce && !secretAnswerIsValid &&
-          <ErrorMsg text="Secret answer must be at least 4 characters" />
-          }
+          <Legend text="PEP Declaration" />
+            <M m="A PEP is an individual who is or has been entrusted with a prominent public function. This status extends to a PEP's relatives and close associates." />
           <div className="input-row">
-            <label htmlFor="tnc">
+            <label htmlFor="PEPDeclaration">
               <input
-                id="tnc"
-                name="tnc"
+                id="PEPDeclaration"
                 type="checkbox"
-                onClick={this.onTermsAndConditionsChanged}
+                onClick={this.onPEPDeclarationChanged}
+              />
+              <M m="I acknowledge that I am not a politically exposed person (PEP)." />&nbsp;
+            </label>
+          </div>
+          <M m="The financial trading services contained within this site are only suitable for customers who are able to bear the loss of all the money they invest and who understand and have experience of the risk involved in the acquistion of financial contracts. Transactions in financial contracts carry a high degree of risk. If purchased contracts expire worthless, you will suffer a total loss of your investment, which consists of the contract premium." />
+          <div className="input-row">
+            <label htmlFor="acceptRisk">
+              <input
+                id="acceptRisk"
+                type="checkbox"
+                onChange={this.onTermsAndConditionsChanged}
               />
               <M m="I agree to the" />&nbsp;
               <a href={linkToTermsAndConditions} target="_blank" rel="noopener noreferrer">
@@ -335,10 +429,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               </a>
             </label>
           </div>
-          {validatedOnce && !termsAndConditions &&
-          <ErrorMsg text="You need to agree to our Terms and Conditions" />
-          }
-          <Button disabled={progress || validatedOnce && !this.allValid} text="Open Account" />
+          <Button text="Open Account" />
         </form>
       </div>
     );

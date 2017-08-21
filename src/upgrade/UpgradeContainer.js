@@ -12,7 +12,6 @@ export default class UpgradeContainer extends PureComponent {
 
   render() {
     const shouldShowUpgrade = store.getState().appState.get('shouldShowUpgrade');
-    console.log(shouldShowUpgrade);
 
 		return (
 			<MobilePage toolbarShown={false} inverse>
