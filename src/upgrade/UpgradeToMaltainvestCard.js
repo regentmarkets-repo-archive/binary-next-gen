@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { M, InputGroup, SelectGroup, LogoSpinner, Legend, Button,
-  ErrorMsg, ServerErrorMsg, DateOfBirth, Countries, P } from 'binary-components';
+  ErrorMsg, ServerErrorMsg, DateOfBirth, Countries } from 'binary-components';
 import { api } from '../_data/LiveData';
 import { store } from '../_store/persistentStore';
 import storage from '../_store/storage';
@@ -15,37 +15,37 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
   props: {
     salutation: string,
-    firstName: string,
-    lastName: string,
-    dateOfBirth: string,
-    placeOfBirth: string,
+    first_name: string,
+    last_name: string,
+    date_of_birth: string,
+    place_of_birth: string,
     residence: string,
-    addressCity: string,
-    addressLine1: string,
+    address_city: string,
+    address_line_1: string,
     phone: string,
-    forexTradingExperience: string,
-    forexTradingFrequency: string,
-    indicesTradingExperience: string,
-    indicesTradingFrequency: string,
-    commoditiesTradingExperience: string,
-    commoditiesTradingFrequency: string,
-    stocksTradingExperience: string,
-    stocksTradingFrequency: string,
-    otherDerivativesTradingExperience: string,
-    otherDerivativesTradingFrequency: string,
-    otherInstrumentsTradingExperience: string,
-    otherInstrumentsTradingFrequency: string,
-    employmentIndustry: string,
+    forex_trading_experience: string,
+    forex_trading_frequency: string,
+    indices_trading_experience: string,
+    indices_trading_frequency: string,
+    commodities_trading_experience: string,
+    commodities_trading_frequency: string,
+    stocks_trading_experience: string,
+    stocks_trading_frequency: string,
+    other_derivatives_trading_experience: string,
+    other_derivatives_trading_frequency: string,
+    other_instruments_trading_experience: string,
+    other_instruments_trading_frequency: string,
+    employment_industry: string,
     occupation: string,
-    educationLevel: string,
-    incomeSource: string,
-    netIncome: string,
-    estimatedWorth: string,
-    acceptRisk: string,
-    accountTurnover: string,
-    accountOpeningReason: string,
-    secretQuestion: string,
-    secretAnswer: string,
+    education_level: string,
+    income_source: string,
+    net_income: string,
+    estimated_worth: string,
+    accept_risk: string,
+    account_turnover: string,
+    account_opening_reason: string,
+    secret_question: string,
+    secret_answer: string,
     residenceList: any[],
   };
 
@@ -53,81 +53,83 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
     super(props);
     this.state = {
       salutation: this.props.salutation,
-      firstName: this.props.firstName,
-      lastName: this.props.lastName,
-      dateOfBirth: this.props.dateOfBirth,
-      placeOfBirth: this.props.placeOfBirth,
+      first_name: this.props.first_name,
+      last_name: this.props.last_name,
+      date_of_birth: this.props.date_of_birth,
+      place_of_birth: this.props.place_of_birth,
       residence: this.props.residence,
-      addressCity: this.props.addressCity,
-      addressLine1: this.props.addressLine1,
+      address_city: this.props.address_city,
+      address_line_1: this.props.address_line_1,
       phone: this.props.phone,
-      forexTradingExperience: this.props.forexTradingExperience,
-      forexTradingFrequency: this.props.forexTradingFrequency,
-      indicesTradingExperience: this.props.indicesTradingExperience,
-      indicesTradingFrequency: this.props.indicesTradingFrequency,
-      commoditiesTradingExperience: this.props.commoditiesTradingExperience,
-      commoditiesTradingFrequency: this.props.commoditiesTradingFrequency,
-      stocksTradingExperience: this.props.stocksTradingExperience,
-      stocksTradingFrequency: this.props.stocksTradingFrequency,
-      otherDerivativesTradingExperience: this.props.otherDerivativesTradingExperience,
-      otherDerivativesTradingFrequency: this.props.otherDerivativesTradingFrequency,
-      otherInstrumentsTradingExperience: this.props.otherInstrumentsTradingExperience,
-      otherInstrumentsTradingFrequency: this.props.otherInstrumentsTradingFrequency,
-      employmentIndustry: this.props.employmentIndustry,
+      forex_trading_experience: this.props.forex_trading_experience,
+      forex_trading_frequency: this.props.forex_trading_frequency,
+      indices_trading_experience: this.props.indices_trading_experience,
+      indices_trading_frequency: this.props.indices_trading_frequency,
+      commodities_trading_experience: this.props.commodities_trading_experience,
+      commodities_trading_frequency: this.props.commodities_trading_frequency,
+      stocks_trading_experience: this.props.stocks_trading_experience,
+      stocks_trading_frequency: this.props.stocks_trading_frequency,
+      other_derivatives_trading_experience: this.props.other_derivatives_trading_experience,
+      other_derivatives_trading_frequency: this.props.other_derivatives_trading_frequency,
+      other_instruments_trading_experience: this.props.other_instruments_trading_experience,
+      other_instruments_trading_frequency: this.props.other_instruments_trading_frequency,
+      employment_industry: this.props.employment_industry,
       occupation: this.props.occupation,
-      educationLevel: this.props.educationLevel,
-      incomeSource: this.props.incomeSource,
-      netIncome: this.props.netIncome,
-      estimatedWorth: this.props.estimatedWorth,
-      acceptRisk: this.props.acceptRisk,
-      accountTurnover: this.props.accountTurnover,
-      accountOpeningReason: this.props.accountOpeningReason,
-      secretQuestion: this.props.secretQuestion,
-      secretAnswer: this.props.secretAnswer,
+      education_level: this.props.education_level,
+      income_source: this.props.income_source,
+      net_income: this.props.net_income,
+      estimated_worth: this.props.estimated_worth,
+      accept_risk: this.props.accept_risk,
+      account_turnover: this.props.account_turnover,
+      account_opening_reason: this.props.account_opening_reason,
+      secret_question: this.props.secret_question,
+      secret_answer: this.props.secret_answer,
       progress: false,
       statesList: [],
       touched: {
         salutation: false,
-        firstName: false,
-        lastName: false,
-        dateOfBirth: false,
-        placeOfBirth: false,
+        first_name: false,
+        last_name: false,
+        date_of_birth: false,
+        place_of_birth: false,
         residence: false,
-        addressCity: false,
-        addressLine1: false,
+        address_city: false,
+        address_line_1: false,
         phone: false,
-        forexTradingExperience: false,
-        forexTradingFrequency: false,
-        indicesTradingExperience: false,
-        indicesTradingFrequency: false,
-        commoditiesTradingExperience: false,
-        commoditiesTradingFrequency: false,
-        stocksTradingExperience: false,
-        stocksTradingFrequency: false,
-        otherDerivativesTradingExperience: false,
-        otherDerivativesTradingFrequency: false,
-        otherInstrumentsTradingExperience: false,
-        otherInstrumentsTradingFrequency: false,
-        employmentIndustry: false,
+        forex_trading_experience: false,
+        forex_trading_frequency: false,
+        indices_trading_experience: false,
+        indices_trading_frequency: false,
+        commodities_trading_experience: false,
+        commodities_trading_frequency: false,
+        stocks_trading_experience: false,
+        stocks_trading_frequency: false,
+        other_derivatives_trading_experience: false,
+        other_derivatives_trading_frequency: false,
+        other_instruments_trading_experience: false,
+        other_instruments_trading_frequency: false,
+        employment_industry: false,
         occupation: false,
-        educationLevel: false,
-        incomeSource: false,
-        netIncome: false,
-        estimatedWorth: false,
-        acceptRisk: false,
-        accountTurnover: false,
-        accountOpeningReason: false,
-        secretQuestion: false,
-        secretAnswer: false,
+        education_level: false,
+        income_source: false,
+        net_income: false,
+        estimated_worth: false,
+        accept_risk: false,
+        account_turnover: false,
+        account_opening_reason: false,
+        secret_question: false,
+        secret_answer: false,
       },
     };
   }
 
   componentWillMount() {
     const residence = store.getState().account.get('country');
-    api.getStatesForCountry(residence).then(response =>
+    if (residence) {
+      api.getStatesForCountry(residence).then(response =>
         this.setState({ residence, statesList: response.states_list })
-    );
+      );
+    }
   }
 
   onEntryChange = (e: SyntheticEvent) =>
@@ -150,7 +152,8 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   onTermsAndConditionsChanged = (e: SyntheticEvent) => {
-    this.setState({ acceptRisk: e.target.checked });
+    const accept_risk = e.target.checked ? '1' : '0';
+    this.setState({ accept_risk });
   }
 
   onFormSubmit = (e: SyntheticEvent) => {
@@ -159,49 +162,49 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   performUpgrade = async () => {
-    const { salutation, firstName, lastName, dateOfBirth, placeOfBirth, residence,
-      addressLine1, addressLine2, addressCity, addressState,
-      addressPostcode, secretQuestion, secretAnswer, phone, forexTradingExperience, forexTradingFrequency, indicesTradingExperience, indicesTradingFrequency, commoditiesTradingExperience, commoditiesTradingFrequency, stocksTradingExperience, stocksTradingFrequency, otherDerivativesTradingExperience, otherDerivativesTradingFrequency, otherInstrumentsTradingExperience, otherInstrumentsTradingFrequency, employmentIndustry, occupation, educationLevel, incomeSource, netIncome, estimatedWorth, acceptRisk, taxResidence, taxIdentificationNumber, accountTurnover, accountOpeningReason } = this.state;
+    const { salutation, first_name, last_name, place_of_birth, residence,
+      address_line_1, address_line_2, address_city, address_state, day, month, year,
+      address_postcode, secret_question, secret_answer, phone, forex_trading_experience, forex_trading_frequency, indices_trading_experience, indices_trading_frequency, commodities_trading_experience, commodities_trading_frequency, stocks_trading_experience, stocks_trading_frequency, other_derivatives_trading_experience, other_derivatives_trading_frequency, other_instruments_trading_experience, other_instruments_trading_frequency, employment_industry, occupation, education_level, income_source, net_income, estimated_worth, accept_risk, tax_residence, tax_identification_number, account_turnover, account_opening_reason } = this.state;
 
     try {
       const response = await api.createRealAccountMaltaInvest({
         salutation,
-        first_name: firstName,
-        last_name: lastName,
-        date_of_birth: dateOfBirth,
-        place_of_birth: placeOfBirth,
+        first_name,
+        last_name,
+        date_of_birth: year + '-' + month + '-' + day,
+        place_of_birth,
         residence,
-        address_line_1: addressLine1,
-        address_line_2: addressLine2,
-        address_city: addressCity,
-        address_state: addressState,
-        address_postcode: addressPostcode,
+        address_line_1,
+        address_line_2,
+        address_city,
+        address_state,
+        address_postcode,
         phone,
-        forex_trading_experience: forexTradingExperience,
-        forex_trading_frequency: forexTradingFrequency,
-        indices_trading_experience: indicesTradingExperience,
-        indices_trading_frequency: indicesTradingFrequency,
-        commodities_trading_experience: commoditiesTradingExperience,
-        commodities_trading_frequency: commoditiesTradingFrequency,
-        stocks_trading_experience: stocksTradingExperience,
-        stocks_trading_frequency: stocksTradingFrequency,
-        other_derivatives_trading_experience: otherDerivativesTradingExperience,
-        other_derivatives_trading_frequency: otherDerivativesTradingFrequency,
-        other_instruments_trading_experience: otherInstrumentsTradingExperience,
-        other_instruments_trading_frequency: otherInstrumentsTradingFrequency,
-        employment_industry: employmentIndustry,
+        forex_trading_experience,
+        forex_trading_frequency,
+        indices_trading_experience,
+        indices_trading_frequency,
+        commodities_trading_experience,
+        commodities_trading_frequency,
+        stocks_trading_experience,
+        stocks_trading_frequency,
+        other_derivatives_trading_experience,
+        other_derivatives_trading_frequency,
+        other_instruments_trading_experience,
+        other_instruments_trading_frequency,
+        employment_industry,
         occupation,
-        education_level: educationLevel,
-        income_source: incomeSource,
-        net_income: netIncome,
-        estimated_worth: estimatedWorth,
-        accept_risk: acceptRisk,
-        tax_residence: taxResidence,
-        tax_identification_number: taxIdentificationNumber,
-        account_turnover: accountTurnover,
-        account_opening_reason: accountOpeningReason,
-        secret_question: secretQuestion,
-        secret_answer: secretAnswer,
+        education_level,
+        income_source,
+        net_income,
+        estimated_worth,
+        accept_risk,
+        tax_residence,
+        tax_identification_number,
+        account_turnover,
+        account_opening_reason,
+        secret_question,
+        secret_answer,
       });
       storage.setItem('account', JSON.stringify({ token: response.new_account_real.oauth_token }));
       window.location = '/';
@@ -234,14 +237,14 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
           <div className="input-row names-row">
             <SelectGroup id="salutation" options={options.salutationOptions} onChange={this.onEntryChange} />
             <InputGroup
-              id="firstName"
+              id="first_name"
               placeholder="First Name"
               type="text"
               onChange={this.onEntryChange}
               maxLength="30"
             />
             <InputGroup
-              id="lastName"
+              id="last_name"
               placeholder="Last Name"
               type="text"
               onChange={this.onEntryChange}
@@ -256,14 +259,14 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
             />
           </div>
           <div className="input-row">
-            <SelectGroup id="placeOfBirth" label="Place Of Birth" options={residenceList} onChange={this.onEntryChange} />
+            <SelectGroup id="place_of_birth" label="Place Of Birth" options={residenceList} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
-            <SelectGroup label="Account opening reason" id="accountOpeningReason" options={options.accountOpeningReasonOptions} onChange={this.onEntryChange} />
+            <SelectGroup label="Account opening reason" id="account_opening_reason" options={options.accountOpeningReasonOptions} onChange={this.onEntryChange} />
           </div>
           <Legend text="Tax Information" />
           <InputGroup
-            id="taxIdentificationNumber"
+            id="tax_identification_number"
             placeholder="Tax identification number"
             type="text"
             onChange={this.onEntryChange}
@@ -286,14 +289,14 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
           </div>
           <div className="input-row">
             <InputGroup
-              id="addressCity"
+              id="address_city"
               placeholder="Town/City"
               type="text"
               maxLength="35"
               onChange={this.onEntryChange}
             />
             <InputGroup
-              id="addressPostcode"
+              id="address_postcode"
               placeholder="Postal Code / ZIP"
               type="text"
               maxLength="20"
@@ -302,7 +305,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
           </div>
           <div className="input-row">
             <InputGroup
-              id="addressLine1"
+              id="address_line_1"
               placeholder="Address First Line"
               type="text"
               maxLength="70"
@@ -311,7 +314,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
           </div>
           <div className="input-row">
             <InputGroup
-              id="addressLine2"
+              id="address_line_2"
               placeholder="Address Second Line"
               type="text"
               maxLength="70"
@@ -329,49 +332,49 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
           </div>
           <Legend text="Financial Information" />
           <div className="input-row">
-            <SelectGroup label="Forex trading experience" id="forexTradingExperience" options={options.experienceOptions} onChange={this.onEntryChange} />
+            <SelectGroup label="Forex trading experience" id="forex_trading_experience" options={options.experienceOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
-            <SelectGroup label="Forex trading frequency" id="forexTradingFrequency" options={options.frequencyOptions} onChange={this.onEntryChange} />
+            <SelectGroup label="Forex trading frequency" id="forex_trading_frequency" options={options.frequencyOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
-            <SelectGroup label="Indices trading experience" id="indicesTradingExperience" options={options.experienceOptions} onChange={this.onEntryChange} />
+            <SelectGroup label="Indices trading experience" id="indices_trading_experience" options={options.experienceOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
-            <SelectGroup label="Indices trading frequency" id="indicesTradingFrequency" options={options.frequencyOptions} onChange={this.onEntryChange} />
+            <SelectGroup label="Indices trading frequency" id="indices_trading_frequency" options={options.frequencyOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
-            <SelectGroup label="Commodities trading experience" id="commoditiesTradingExperience" options={options.experienceOptions} onChange={this.onEntryChange} />
+            <SelectGroup label="Commodities trading experience" id="commodities_trading_experience" options={options.experienceOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
-            <SelectGroup label="Commodities trading frequency" id="commoditiesTradingFrequency" options={options.frequencyOptions} onChange={this.onEntryChange} />
+            <SelectGroup label="Commodities trading frequency" id="commodities_trading_frequency" options={options.frequencyOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
-            <SelectGroup label="Stocks trading experience" id="stocksTradingExperience" options={options.experienceOptions} onChange={this.onEntryChange} />
+            <SelectGroup label="Stocks trading experience" id="stocks_trading_experience" options={options.experienceOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
-            <SelectGroup label="Stocks trading frequency" id="stocksTradingFrequency" options={options.frequencyOptions} onChange={this.onEntryChange} />
+            <SelectGroup label="Stocks trading frequency" id="stocks_trading_frequency" options={options.frequencyOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
-            <SelectGroup label="Binary options or other financial derivatives trading experience" id="otherDerivativesTradingExperience" options={options.experienceOptions} onChange={this.onEntryChange} />
+            <SelectGroup label="Binary options or other financial derivatives trading experience" id="other_derivatives_trading_experience" options={options.experienceOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
-            <SelectGroup label="Binary options or other financial derivatives trading frequency" id="otherDerivativesTradingFrequency" options={options.frequencyOptions} onChange={this.onEntryChange} />
+            <SelectGroup label="Binary options or other financial derivatives trading frequency" id="other_derivatives_trading_frequency" options={options.frequencyOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
-            <SelectGroup label="Other financial instruments trading experience" id="otherInstrumentsTradingExperience" options={options.experienceOptions} onChange={this.onEntryChange} />
+            <SelectGroup label="Other financial instruments trading experience" id="other_instruments_trading_experience" options={options.experienceOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
-            <SelectGroup label="Other financial instruments trading frequency" id="otherInstrumentsTradingFrequency" options={options.frequencyOptions} onChange={this.onEntryChange} />
+            <SelectGroup label="Other financial instruments trading frequency" id="other_instruments_trading_frequency" options={options.frequencyOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
-            <SelectGroup label="Income Source" id="incomeSource" options={options.incomeSourceOptions} onChange={this.onEntryChange} />
+            <SelectGroup label="Income Source" id="income_source" options={options.income_sourceOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
             <SelectGroup label="Employment Status" id="employmentStatus" options={options.employmentStatusOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
-            <SelectGroup label="Industry of Employment" id="employmentIndustry" options={options.employmentIndustryOptions} onChange={this.onEntryChange} />
+            <SelectGroup label="Industry of Employment" id="employment_industry" options={options.employment_industryOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
             <SelectGroup label="Occupation" id="occupation" options={options.occupationOptions} onChange={this.onEntryChange} />
@@ -380,23 +383,23 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
             <SelectGroup label="Source of Wealth" id="sourceOfWealth" options={options.sourceOfWealthOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
-            <SelectGroup label="Level of Education" id="educationLevel" options={options.educationLevelOptions} onChange={this.onEntryChange} />
+            <SelectGroup label="Level of Education" id="education_level" options={options.education_levelOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
-            <SelectGroup label="Net Annual Income" id="netIncome" options={options.netIncomeOptions} onChange={this.onEntryChange} />
+            <SelectGroup label="Net Annual Income" id="net_income" options={options.net_incomeOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
-            <SelectGroup label="Estimated Net Worth" id="estimatedWorth" options={options.estimatedWorthOptions} onChange={this.onEntryChange} />
+            <SelectGroup label="Estimated Net Worth" id="estimated_worth" options={options.estimated_worthOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
-            <SelectGroup label="Anticipated Account Turnover" id="accountTurnover" options={options.accountTurnoverOptions} onChange={this.onEntryChange} />
+            <SelectGroup label="Anticipated Account Turnover" id="account_turnover" options={options.account_turnoverOptions} onChange={this.onEntryChange} />
           </div>
 
           <Legend text="Security" />
           <div className="input-row">
             <SecretQuestion onChange={this.onEntryChange} />
             <InputGroup
-              id="secretAnswer"
+              id="secret_answer"
               placeholder="Answer To Secret Question"
               type="text"
               maxLength="50"
@@ -417,9 +420,9 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
           </div>
           <M m="The financial trading services contained within this site are only suitable for customers who are able to bear the loss of all the money they invest and who understand and have experience of the risk involved in the acquistion of financial contracts. Transactions in financial contracts carry a high degree of risk. If purchased contracts expire worthless, you will suffer a total loss of your investment, which consists of the contract premium." />
           <div className="input-row">
-            <label htmlFor="acceptRisk">
+            <label htmlFor="accept_risk">
               <input
-                id="acceptRisk"
+                id="accept_risk"
                 type="checkbox"
                 onChange={this.onTermsAndConditionsChanged}
               />
