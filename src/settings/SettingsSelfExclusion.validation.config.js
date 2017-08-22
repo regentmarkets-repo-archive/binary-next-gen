@@ -19,7 +19,9 @@ validate.validators.timeoutUntilTimeRequired = (value, options) => {
   }
 };
 validate.validators.excludeUntilValidation = (value) => {
-  if (!!value && (moment(value).isBefore(moment().add(6, 'months')) || moment(value).isAfter(moment().add(5, 'years')))) {
+  if (!!value && moment(value).isBefore(moment())) {
+    return 'Exclude time cannot be in the past.';
+  } else if (!!value && (moment(value).isBefore(moment().add(6, 'months')) || moment(value).isAfter(moment().add(5, 'years')))) {
     return 'Exclude time cannot be less than 6 months and more than 5 years.';
   }
 };
