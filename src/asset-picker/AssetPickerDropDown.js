@@ -56,7 +56,7 @@ export default class AssetPickerDropDown extends PureComponent {
                     />
                 </DropDown>
                 <Label text="Asset" />
-                <div className="picker-label param-field" onMouseDown={this.openPicker}>
+                <div className="picker-label param-field" onClick={this.openPicker}>
                     <div className="picker-value">{selectedSymbolName}</div>
                     <DownArrow />
                 </div>
