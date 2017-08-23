@@ -32,7 +32,7 @@ export default (state = initialState, action) => {
             return state.merge(action.serverResponse.get_settings);
         }
         case UPDATE_SETTINGS_FIELD: {
-            return state.merge(action.settings);
+            return state.set('settings', action.settings);
         }
         case SERVER_DATA_CHANGE_PASSWORD: {
             return state.set('change_password', action.serverResponse.change_password);

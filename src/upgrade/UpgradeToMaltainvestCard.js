@@ -14,112 +14,15 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   props: {
-    salutation: string,
-    first_name: string,
-    last_name: string,
-    date_of_birth: string,
-    place_of_birth: string,
-    residence: string,
-    address_city: string,
-    address_line_1: string,
-    phone: string,
-    forex_trading_experience: string,
-    forex_trading_frequency: string,
-    indices_trading_experience: string,
-    indices_trading_frequency: string,
-    commodities_trading_experience: string,
-    commodities_trading_frequency: string,
-    stocks_trading_experience: string,
-    stocks_trading_frequency: string,
-    other_derivatives_trading_experience: string,
-    other_derivatives_trading_frequency: string,
-    other_instruments_trading_experience: string,
-    other_instruments_trading_frequency: string,
-    employment_industry: string,
-    occupation: string,
-    education_level: string,
-    income_source: string,
-    net_income: string,
-    estimated_worth: string,
-    accept_risk: string,
-    account_turnover: string,
-    account_opening_reason: string,
-    secret_question: string,
-    secret_answer: string,
     residenceList: any[],
+    settings: any[],
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      salutation: this.props.salutation,
-      first_name: this.props.first_name,
-      last_name: this.props.last_name,
-      date_of_birth: this.props.date_of_birth,
-      place_of_birth: this.props.place_of_birth,
-      residence: this.props.residence,
-      address_city: this.props.address_city,
-      address_line_1: this.props.address_line_1,
-      phone: this.props.phone,
-      forex_trading_experience: this.props.forex_trading_experience,
-      forex_trading_frequency: this.props.forex_trading_frequency,
-      indices_trading_experience: this.props.indices_trading_experience,
-      indices_trading_frequency: this.props.indices_trading_frequency,
-      commodities_trading_experience: this.props.commodities_trading_experience,
-      commodities_trading_frequency: this.props.commodities_trading_frequency,
-      stocks_trading_experience: this.props.stocks_trading_experience,
-      stocks_trading_frequency: this.props.stocks_trading_frequency,
-      other_derivatives_trading_experience: this.props.other_derivatives_trading_experience,
-      other_derivatives_trading_frequency: this.props.other_derivatives_trading_frequency,
-      other_instruments_trading_experience: this.props.other_instruments_trading_experience,
-      other_instruments_trading_frequency: this.props.other_instruments_trading_frequency,
-      employment_industry: this.props.employment_industry,
-      occupation: this.props.occupation,
-      education_level: this.props.education_level,
-      income_source: this.props.income_source,
-      net_income: this.props.net_income,
-      estimated_worth: this.props.estimated_worth,
-      accept_risk: this.props.accept_risk,
-      account_turnover: this.props.account_turnover,
-      account_opening_reason: this.props.account_opening_reason,
-      secret_question: this.props.secret_question,
-      secret_answer: this.props.secret_answer,
       progress: false,
       statesList: [],
-      touched: {
-        salutation: false,
-        first_name: false,
-        last_name: false,
-        date_of_birth: false,
-        place_of_birth: false,
-        residence: false,
-        address_city: false,
-        address_line_1: false,
-        phone: false,
-        forex_trading_experience: false,
-        forex_trading_frequency: false,
-        indices_trading_experience: false,
-        indices_trading_frequency: false,
-        commodities_trading_experience: false,
-        commodities_trading_frequency: false,
-        stocks_trading_experience: false,
-        stocks_trading_frequency: false,
-        other_derivatives_trading_experience: false,
-        other_derivatives_trading_frequency: false,
-        other_instruments_trading_experience: false,
-        other_instruments_trading_frequency: false,
-        employment_industry: false,
-        occupation: false,
-        education_level: false,
-        income_source: false,
-        net_income: false,
-        estimated_worth: false,
-        accept_risk: false,
-        account_turnover: false,
-        account_opening_reason: false,
-        secret_question: false,
-        secret_answer: false,
-      },
     };
   }
 
@@ -219,7 +122,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
   render() {
     const { progress, serverError, statesList, residence } = this.state;
-    const { residenceList } = this.props;
+    const { residenceList, settings } = this.props;
     const options = getOptions();
     const boot = storage.boot ? JSON.parse(storage.boot) : '';
     const language = boot.language ? boot.language.toLowerCase() : 'en';
@@ -235,13 +138,20 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
         <form onSubmit={this.onFormSubmit}>
           <Legend text="Personal Information" />
           <div className="input-row names-row">
-            <SelectGroup id="salutation" options={options.salutationOptions} onChange={this.onEntryChange} />
+            { settings.salutation &&
+              <SelectGroup id="salutation" options={options.salutationOptions} value={settings.salutation} readOnly="true" />
+            }
+            { !settings.salutation &&
+              <SelectGroup id="salutation" options={options.salutationOptions} onChange={this.onEntryChange} />
+            }
             <InputGroup
               id="first_name"
               placeholder="First Name"
               type="text"
               onChange={this.onEntryChange}
               maxLength="30"
+              defaultValue={settings.first_name}
+              disabled={disabled}
             />
             <InputGroup
               id="last_name"
@@ -249,6 +159,8 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               type="text"
               onChange={this.onEntryChange}
               maxLength="30"
+              defaultValue={settings.last_name}
+              disabled={settings.last_name}
             />
           </div>
           <div className="input-row">
@@ -259,7 +171,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
             />
           </div>
           <div className="input-row">
-            <SelectGroup id="place_of_birth" label="Place Of Birth" options={residenceList} onChange={this.onEntryChange} />
+            <SelectGroup id="place_of_birth" label="Place Of Birth" options={residenceList} onChange={this.onEntryChange} defaultValue={settings.place_of_birth} />
           </div>
           <div className="input-row">
             <SelectGroup label="Account opening reason" id="account_opening_reason" options={options.accountOpeningReasonOptions} onChange={this.onEntryChange} />
@@ -270,6 +182,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
             placeholder="Tax identification number"
             type="text"
             onChange={this.onEntryChange}
+            defaultValue={settings.tax_identification_number}
           />
 
           <Legend text="Home Address" />
@@ -281,7 +194,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               <Countries id="residence" value={residence} onChange={this.onCountryChange} residenceList={residenceList} disable />
             }
 
-            <select id="addressState" onChange={this.onEntryChange}>
+            <select id="address_state" onChange={this.onEntryChange} defaultValue={settings.address_state}>
               {statesList.map(x => (
                 <option key={x.value} value={x.value}>{x.text}</option>
               ))}
@@ -293,6 +206,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               placeholder="Town/City"
               type="text"
               maxLength="35"
+              defaultValue={settings.address_city}
               onChange={this.onEntryChange}
             />
             <InputGroup
@@ -300,6 +214,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               placeholder="Postal Code / ZIP"
               type="text"
               maxLength="20"
+              defaultValue={settings.address_postcode}
               onChange={this.onEntryChange}
             />
           </div>
@@ -309,6 +224,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               placeholder="Address First Line"
               type="text"
               maxLength="70"
+              defaultValue={settings.address_line_1}
               onChange={this.onEntryChange}
             />
           </div>
@@ -318,6 +234,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               placeholder="Address Second Line"
               type="text"
               maxLength="70"
+              defaultValue={settings.address_line_2}
               onChange={this.onEntryChange}
             />
           </div>
@@ -327,6 +244,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               placeholder="Phone"
               type="tel"
               maxLength="35"
+              defaultValue={settings.phone}
               onChange={this.onEntryChange}
             />
           </div>

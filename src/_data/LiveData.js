@@ -1,7 +1,7 @@
 import { LiveApi } from 'binary-live-api';
 import { showError, timeLeftToNextRealityCheck } from 'binary-utils';
 import * as actions from '../_actions';
-import { CHANGE_INFO_FOR_ASSET } from '../_constants/ActionTypes';
+import { CHANGE_INFO_FOR_ASSET, UPDATE_SETTINGS_FIELD } from '../_constants/ActionTypes';
 
 const handlers = {
     active_symbols: 'serverDataActiveSymbols',
@@ -159,24 +159,25 @@ const initAuthorized = async (authData, store) => {
     api.getPortfolio();
     api.getStatement({ description: 1, limit: 20 });
     api.getAccountSettings().then(msg => {
-        if (msg.get_settings.country_code) {
+      store.dispatch({ type: UPDATE_SETTINGS_FIELD, settings: msg });
+      if (msg.get_settings.country_code) {
             api.getPaymentAgentsForCountry(msg.get_settings.country_code);
             api.getLandingCompany(msg.get_settings.country_code).then(message => {
               const landingCompany = message.landing_company;
-              const accounts = state.boot.get('accounts').toJS();
-              const loginid = authData.authorize.loginid;
-              const allUserAccounts = accounts.map((val) => val.account);
-              const userHasMLT = allUserAccounts.some(value => value.startsWith('MLT'));
-              const userHasMX = allUserAccounts.some(value => value.startsWith('MX'));
-              const userHasCR = allUserAccounts.some(value => value.startsWith('CR'));
-              const userHasMF = allUserAccounts.some(value => value.startsWith('MF'));
-              const isVirtual = loginid.startsWith('VRTC');
-              const isMLT = loginid.startsWith('MLT');
               /* eslint-disable */
               const shouldShowUpgrade = (() => {
                 if (landingCompany.id !== 'jp') {
+                  const accounts = state.boot.get('accounts').toJS();
+                  const loginid = authData.authorize.loginid;
+                  const allUserAccounts = accounts.map((val) => val.account);
+                  const userHasMLT = allUserAccounts.some(value => value.startsWith('MLT'));
+                  const userHasMX = allUserAccounts.some(value => value.startsWith('MX'));
+                  const userHasCR = allUserAccounts.some(value => value.startsWith('CR'));
+                  const userHasMF = allUserAccounts.some(value => value.startsWith('MF'));
+                  const isVirtual = loginid.startsWith('VRTC');
+                  const isMLT = loginid.startsWith('MLT');
                   if (landingCompany.hasOwnProperty('financial_company') && landingCompany.financial_company.shortcode === 'maltainvest') {
-                    if (landingCompany.hasOwnProperty('gaming_company')) {
+                    if (landingCompany.hasOwnProperty('gaming_company') && landingCompany.gaming_company.shortcode === 'malta') {
                       // can upgrade to real or maltainvest
                       if (isVirtual && !userHasMLT && !userHasMX && !userHasCR) {
                         return 'toReal';

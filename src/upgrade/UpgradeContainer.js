@@ -3,11 +3,13 @@ import { connect } from 'react-redux';
 import { immutableChildrenToJS } from 'binary-utils';
 import { store } from '../_store/persistentStore';
 import countryListSelector from '../create-account/countryListSelector';
+import settingsSelectors from './settingsSelector';
 import MobilePage from '../containers/MobilePage';
 import UpgradeCard from './UpgradeCard';
 import UpgradeToMaltainvestCard from './UpgradeToMaltainvestCard';
 
 @connect(countryListSelector)
+@connect(settingsSelectors)
 export default class UpgradeContainer extends PureComponent {
 
   render() {
