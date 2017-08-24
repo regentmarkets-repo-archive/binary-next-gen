@@ -227,7 +227,7 @@ msgid "Tomorrow"
 msgstr "Domani"
 
 msgid "Takeout"
-msgstr ""
+msgstr "Takeout"
 
 msgid "News"
 msgstr "Novità"
