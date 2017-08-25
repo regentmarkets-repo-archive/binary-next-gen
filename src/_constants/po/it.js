@@ -305,7 +305,7 @@ export default {
     ],
     "Takeout": [
         null,
-        ""
+        "Takeout"
     ],
     "News": [
         null,
