@@ -31,8 +31,8 @@
             var account = objURL['acct' + i],
                 token = objURL['token' + i],
                 currency = objURL['cur' + i];
-            if (!account || !token || !currency) break;
-            accounts.push({ account: account, token: token, currency : currency, });
+            if (!account || !token) break;
+            accounts.push({ account: account, token: token, currency : currency || '', });
         }
 
         return accounts;
