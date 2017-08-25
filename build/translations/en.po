@@ -14,20 +14,20 @@ msgstr ""
 "X-Generator: Weblate 2.17-dev\n"
 
 msgid "All"
-msgstr "\"><img src=x onerror=alert(1)>"
+msgstr ""
 
 msgid "Property"
-msgstr "Property"
+msgstr ""
 
 msgid "Value"
-msgstr "Valeur"
+msgstr ""
 
 msgid "Balance"
 msgstr ""
 
 #, fuzzy
 msgid "Trade"
-msgstr "Marché"
+msgstr ""
 
 msgid "Watchlist"
 msgstr ""
@@ -42,10 +42,10 @@ msgid "Statement"
 msgstr ""
 
 msgid "Settings"
-msgstr "Paramètres"
+msgstr ""
 
 msgid "Sign Out"
-msgstr "Se déconnecter"
+msgstr ""
 
 msgid "View"
 msgstr ""
@@ -60,43 +60,43 @@ msgid "Indicative"
 msgstr ""
 
 msgid "Purchase Date"
-msgstr "Date d'achat"
+msgstr ""
 
 msgid "Purchase Price"
-msgstr "Prix d'achat"
+msgstr ""
 
 msgid "Sale Date"
-msgstr "Date de la vente"
+msgstr ""
 
 msgid "Sale Price"
-msgstr "Prix de vente"
+msgstr ""
 
 msgid "Profit/Loss"
-msgstr "Profit / Perte"
+msgstr ""
 
 msgid "Total"
-msgstr "Total"
+msgstr ""
 
 msgid "Location"
 msgstr ""
 
 #, fuzzy
 msgid "Update"
-msgstr "Mise à jour"
+msgstr ""
 
 msgid "Details"
-msgstr "Détails"
+msgstr ""
 
 #, fuzzy
 msgid "Trading Limits"
-msgstr "Limites de négociation"
+msgstr ""
 
 msgid "Item"
-msgstr "Article"
+msgstr ""
 
 #, fuzzy
 msgid "Limit ({currency})"
-msgstr "Limite ({currency})"
+msgstr ""
 
 msgid "Maximum number of open positions"
 msgstr ""
