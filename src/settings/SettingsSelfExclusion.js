@@ -65,6 +65,22 @@ export default class SettingsSelfExclusion extends PureComponent {
     };
   }
 
+  componentWillReceiveProps = (newProps) => {
+    const newState = {};
+    if (newProps.max_balance !== this.state.max_balance) newState.max_balance = newProps.max_balance;
+    if (newProps.max_turnover !== this.state.max_turnover) newState.max_turnover = newProps.max_turnover;
+    if (newProps.max_losses !== this.state.max_losses) newState.max_losses = newProps.max_losses;
+    if (newProps.max_7day_turnover !== this.state.max_7day_turnover) newState.max_7day_turnover = newProps.max_7day_turnover;
+    if (newProps.max_7day_losses !== this.state.max_7day_losses) newState.max_7day_losses = newProps.max_7day_losses;
+    if (newProps.max_30day_turnover !== this.state.max_30day_turnover) newState.max_30day_turnover = newProps.max_30day_turnover;
+    if (newProps.max_open_bets !== this.state.max_open_bets) newState.max_open_bets = newProps.max_open_bets;
+    if (newProps.session_duration_limit !== this.state.session_duration_limit) newState.session_duration_limit = newProps.session_duration_limit;
+    if (newProps.timeout_until_time !== this.state.timeout_until_time) newState.timeout_until_time = newProps.timeout_until_time;
+    if (newProps.timeout_until_date !== this.state.timeout_until_date) newState.timeout_until_date = newProps.timeout_until_date;
+    if (newProps.exclude_until !== this.state.exclude_until) newState.exclude_until = newProps.exclude_until;
+    if (Object.keys(newState).length > 0) this.setState(newState);
+  }
+
   onEntryChange = (e:SyntheticEvent) => {
     this.setState({
       [e.target.id]: e.target.value,
@@ -117,7 +133,6 @@ export default class SettingsSelfExclusion extends PureComponent {
         serverError: false,
       });
       api.getSelfExclusion();
-      // Do we really have to call getAccountLimits() when we just updated self exclusion? TODO
       api.getAccountLimits();
       setTimeout(() => {
         this.setState({ success: false });
@@ -126,7 +141,6 @@ export default class SettingsSelfExclusion extends PureComponent {
         }
       }, 3000);
     } catch (e) {
-      // sanitize the error response from server. it is spitting out the variable names TODO
       this.setState({ serverError: e.error.error.message });
     }
   }
