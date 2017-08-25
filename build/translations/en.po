@@ -25,7 +25,6 @@ msgstr ""
 msgid "Balance"
 msgstr ""
 
-#, fuzzy
 msgid "Trade"
 msgstr ""
 
@@ -80,21 +79,18 @@ msgstr ""
 msgid "Location"
 msgstr ""
 
-#, fuzzy
 msgid "Update"
 msgstr ""
 
 msgid "Details"
 msgstr ""
 
-#, fuzzy
 msgid "Trading Limits"
 msgstr ""
 
 msgid "Item"
 msgstr ""
 
-#, fuzzy
 msgid "Limit ({currency})"
 msgstr ""
 
