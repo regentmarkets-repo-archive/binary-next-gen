@@ -54,6 +54,10 @@
 }
 
 .asset-picker-item {
+    &.closed {
+      cursor: default;
+      td:first-child { cursor: pointer; }
+    }
     td {
         text-align: left;
         padding: 0.25em;

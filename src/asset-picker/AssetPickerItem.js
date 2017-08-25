@@ -19,12 +19,14 @@ export default class AssetPickerItem extends PureComponent {
 		selected: false,
 	};
 
-	onRowClicked = (e: SyntheticEvent) => {
-		const { asset, onClose, onSelect } = this.props;
-		onSelect(asset.symbol);
-		onClose();
-		e.stopPropagation();
-	};
+  onRowClicked = (e: SyntheticEvent) => {
+    const { asset, onClose, onSelect } = this.props;
+    if (asset.isOpen) {
+      onSelect(asset.symbol);
+      onClose();
+    }
+    e.stopPropagation();
+  };
 
 	onStarClicked = (e: SyntheticEvent) => {
 		const { asset, onToggleWatchlistItem } = this.props;
@@ -35,7 +37,7 @@ export default class AssetPickerItem extends PureComponent {
 	render() {
 		const { asset, selected } = this.props;
 		const { isOpen, isInWatchlist } = asset;
-		const classes = classnames('asset-picker-item', selected);
+		const classes = classnames('asset-picker-item', { selected, closed: !isOpen });
 
 		return (
 			<tr
