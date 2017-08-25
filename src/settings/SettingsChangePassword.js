@@ -3,6 +3,7 @@ import { Button, Legend, InputGroup, ServerErrorMsg, ErrorMsg } from 'binary-com
 import { isValidPassword } from 'binary-utils';
 import UpdateNotice from '../containers/UpdateNotice';
 import { api } from '../_data/LiveData';
+import { signOut } from '../_data/Auth';
 
 const initialState = {
     currentPassword: '',
@@ -43,7 +44,10 @@ export default class SettingsChangePassword extends PureComponent {
                 serverError: false,
                 ...initialState,
             });
-            setTimeout(() => this.setState({ success: false }), 3000);
+            setTimeout(() => {
+              this.setState({ success: false });
+              signOut();
+            }, 1000);
         } catch (e) {
             this.setState({ serverError: e.error.error.message });
         }
