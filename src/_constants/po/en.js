@@ -14,15 +14,15 @@ export default {
     },
     "All": [
         null,
-        "\"><img src=x onerror=alert(1)>"
+        ""
     ],
     "Property": [
         null,
-        "Property"
+        ""
     ],
     "Value": [
         null,
-        "Valeur"
+        ""
     ],
     "Balance": [
         null,
@@ -46,11 +46,11 @@ export default {
     ],
     "Settings": [
         null,
-        "Paramètres"
+        ""
     ],
     "Sign Out": [
         null,
-        "Se déconnecter"
+        ""
     ],
     "View": [
         null,
@@ -70,27 +70,27 @@ export default {
     ],
     "Purchase Date": [
         null,
-        "Date d'achat"
+        ""
     ],
     "Purchase Price": [
         null,
-        "Prix d'achat"
+        ""
     ],
     "Sale Date": [
         null,
-        "Date de la vente"
+        ""
     ],
     "Sale Price": [
         null,
-        "Prix de vente"
+        ""
     ],
     "Profit/Loss": [
         null,
-        "Profit / Perte"
+        ""
     ],
     "Total": [
         null,
-        "Total"
+        ""
     ],
     "Location": [
         null,
@@ -98,11 +98,11 @@ export default {
     ],
     "Details": [
         null,
-        "Détails"
+        ""
     ],
     "Item": [
         null,
-        "Article"
+        ""
     ],
     "Maximum number of open positions": [
         null,
