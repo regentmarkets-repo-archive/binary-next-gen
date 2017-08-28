@@ -61,7 +61,7 @@ export default class TradeTypeDropDown extends PureComponent {
                 <Info tooltip={helpText[selectedType]} role="presentation" />
                 <div
                     className="picker-label param-field"
-                    onMouseDown={this.openPicker}
+                    onClick={this.openPicker}
                 >
                     <img
                         src={`img/trade-${selectedType.toLowerCase()}.svg`}
