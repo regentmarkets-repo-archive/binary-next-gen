@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import { M } from 'binary-components';
 import storage from '../_store/storage';
 
 export default class AccountMenuItem extends PureComponent {
@@ -7,6 +6,7 @@ export default class AccountMenuItem extends PureComponent {
 	props: {
 		account: string,
 		token: string,
+		currency: string
 	};
 
 	switchToAccount = () => {
@@ -20,7 +20,7 @@ export default class AccountMenuItem extends PureComponent {
 	};
 
 	render() {
-		const { account } = this.props;
+		const { account, currency } = this.props;
 
 		return (
 			<a
@@ -29,9 +29,9 @@ export default class AccountMenuItem extends PureComponent {
 				onClick={this.switchToAccount}
 			>
 				<img src="img/icon.png" alt="" />
-				<M m="Switch to" />
-				&nbsp;
 				{account}
+				&nbsp;
+				{currency && `(${currency})`}
 			</a>
 		);
 	}
