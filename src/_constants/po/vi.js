@@ -2,13 +2,15 @@ export default {
     "": {
         "project-id-version": "PACKAGE VERSION",
         "pot-creation-date": "",
-        "po-revision-date": "2017-06-22 13:21+0000",
+        "po-revision-date": "2017-08-29 18:19+0000",
+        "last-translator": "Pham Minh Hieu <hphamv7@gmail.com>",
+        "language-team": "Vietnamese <https://hosted.weblate.org/projects/binary-app/next-gen-app/vi/>",
         "language": "vi",
         "mime-version": "1.0",
         "content-type": "text/plain; charset=UTF-8",
         "content-transfer-encoding": "8bit",
         "plural-forms": "nplurals=1; plural=0;",
-        "x-generator": "Weblate 2.15-dev"
+        "x-generator": "Weblate 2.17-dev"
     },
     "All": [
         null,
@@ -388,7 +390,7 @@ export default {
     ],
     "Email": [
         null,
-        ""
+        "Email"
     ],
     "There are no transactions for selected period": [
         null,
@@ -744,7 +746,7 @@ export default {
     ],
     "N/A": [
         null,
-        ""
+        "Không khả dụng"
     ],
     "Duration": [
         null,
@@ -772,7 +774,7 @@ export default {
     ],
     "Video": [
         null,
-        ""
+        "Video"
     ],
     "Digit Stats": [
         null,
@@ -1212,22 +1214,22 @@ export default {
     ],
     "This field is required": [
         null,
-        ""
+        "Trường này là bắt buộc"
     ],
     "Should be a valid number": [
         null,
-        ""
+        "Nên là một số hợp lệ"
     ],
     "Should be between 0 and {number}": [
         null,
-        ""
+        "Nên nằm trong khoảng từ 0 và {con số}"
     ],
     "Time out must be after today and cannot be more than 6 weeks.": [
         null,
-        ""
+        "Giờ kết thúc phải là sau hôm nay và không thể hơn 6 tuần."
     ],
     "Exclude time cannot be less than 6 months and more than 5 years.": [
         null,
-        ""
+        "Thời gian loại trừ không thể ít hơn 6 tháng và nhiều hơn 5 năm."
     ]
 }
