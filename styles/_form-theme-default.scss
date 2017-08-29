@@ -21,3 +21,26 @@ input[type=datepicker],
         border-color: $COLOR_BRAND_BLUE !important;
     }
 }
+
+.Select-control {
+    color: $COLOR_TEXT;
+    background-color: lighten($COLOR_BRAND_BLUE, 10%);
+    border: 1px solid rgba($COLOR_BRAND_BLUE, 0.25);
+
+    &:hover {
+        border-color: rgba($COLOR_BRAND_BLUE, 0.5) !important;
+    }
+
+    &:focus {
+        border-color: $COLOR_BRAND_BLUE !important;
+    }
+}
+.Select-value {
+    color: $COLOR_TEXT;
+    border-color: $COLOR_TEXT;
+    span {
+        border-color: $COLOR_TEXT;
+    }
+}
+
+

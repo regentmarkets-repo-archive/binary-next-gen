@@ -6,6 +6,7 @@ import { store } from '../_store/persistentStore';
 import storage from '../_store/storage';
 import SecretQuestion from './SecretQuestion';
 import { getOptions } from './UpgradeCard.options';
+import MultiSelect from '../MultiSelect/MultiSelect';
 
 export default class UpgradeToMaltainvestCard extends PureComponent {
 
@@ -16,6 +17,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   props: {
     residenceList: any[],
     settings: any[],
+    tax_residence: string,
   };
 
   constructor(props) {
@@ -33,6 +35,11 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
         this.setState({ residence, statesList: response.states_list })
       );
     }
+    const taxResidenceList = this.props.residenceList.slice(0);
+    taxResidenceList.forEach((val) => {
+      delete val.disabled;
+    });
+    this.setState({ taxResidenceList });
   }
 
   onEntryChange = (e: SyntheticEvent) =>
@@ -52,6 +59,10 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
     api.getStatesForCountry(e.target.value).then(response =>
       this.setState({ statesList: response.states_list })
     );
+  }
+
+  onTaxResidenceChange = (val) => {
+    this.setState({ tax_residence: val });
   }
 
   onTermsAndConditionsChanged = (e: SyntheticEvent) => {
@@ -121,7 +132,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   render() {
-    const { progress, serverError, statesList, residence } = this.state;
+    const { progress, serverError, statesList, residence, taxResidenceList, tax_residence } = this.state;
     const { residenceList, settings } = this.props;
     const options = getOptions();
     const boot = storage.boot ? JSON.parse(storage.boot) : '';
@@ -151,7 +162,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               onChange={this.onEntryChange}
               maxLength="30"
               defaultValue={settings.first_name}
-              disabled={disabled}
+              disabled={settings.first_name}
             />
             <InputGroup
               id="last_name"
@@ -177,6 +188,9 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
             <SelectGroup label="Account opening reason" id="account_opening_reason" options={options.accountOpeningReasonOptions} onChange={this.onEntryChange} />
           </div>
           <Legend text="Tax Information" />
+          <div className="input-row">
+            <MultiSelect className="multi-select" name="tax-residence" value={tax_residence} onChange={this.onTaxResidenceChange} options={taxResidenceList} joinValues multi simpleValue searchable={false} labelKey="text" defaultValue={settings.tax_residence} />
+          </div>
           <InputGroup
             id="tax_identification_number"
             placeholder="Tax identification number"
@@ -286,13 +300,13 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
             <SelectGroup label="Other financial instruments trading frequency" id="other_instruments_trading_frequency" options={options.frequencyOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
-            <SelectGroup label="Income Source" id="income_source" options={options.income_sourceOptions} onChange={this.onEntryChange} />
+            <SelectGroup label="Income Source" id="income_source" options={options.incomeSourceOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
             <SelectGroup label="Employment Status" id="employmentStatus" options={options.employmentStatusOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
-            <SelectGroup label="Industry of Employment" id="employment_industry" options={options.employment_industryOptions} onChange={this.onEntryChange} />
+            <SelectGroup label="Industry of Employment" id="employment_industry" options={options.employmentIndustryOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
             <SelectGroup label="Occupation" id="occupation" options={options.occupationOptions} onChange={this.onEntryChange} />
@@ -301,16 +315,16 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
             <SelectGroup label="Source of Wealth" id="sourceOfWealth" options={options.sourceOfWealthOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
-            <SelectGroup label="Level of Education" id="education_level" options={options.education_levelOptions} onChange={this.onEntryChange} />
+            <SelectGroup label="Level of Education" id="education_level" options={options.educationLevelOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
-            <SelectGroup label="Net Annual Income" id="net_income" options={options.net_incomeOptions} onChange={this.onEntryChange} />
+            <SelectGroup label="Net Annual Income" id="net_income" options={options.netIncomeOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
-            <SelectGroup label="Estimated Net Worth" id="estimated_worth" options={options.estimated_worthOptions} onChange={this.onEntryChange} />
+            <SelectGroup label="Estimated Net Worth" id="estimated_worth" options={options.estimatedWorthOptions} onChange={this.onEntryChange} />
           </div>
           <div className="input-row">
-            <SelectGroup label="Anticipated Account Turnover" id="account_turnover" options={options.account_turnoverOptions} onChange={this.onEntryChange} />
+            <SelectGroup label="Anticipated Account Turnover" id="account_turnover" options={options.accountTurnoverOptions} onChange={this.onEntryChange} />
           </div>
 
           <Legend text="Security" />

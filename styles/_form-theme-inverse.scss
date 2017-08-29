@@ -24,4 +24,28 @@
             border-color: $COLOR_INVERSE_TEXT !important;
         }
     }
+    .multi-select {
+        .Select-control {
+            color: $COLOR_INVERSE_TEXT;
+            background-color: lighten($COLOR_INVERSE_BG, 10%);
+            border: 1px solid rgba($COLOR_INVERSE_TEXT, 0.25);
+
+            &:hover {
+                border-color: rgba($COLOR_INVERSE_TEXT, 0.5) !important;
+            }
+
+            &:focus {
+                border-color: $COLOR_INVERSE_TEXT !important;
+            }
+        }
+        .Select-value {
+            color: $COLOR_INVERSE_TEXT;
+            border-color: $COLOR_INVERSE_TEXT;
+            span {
+                border-color: $COLOR_INVERSE_TEXT;
+            }
+        }
+    }
 }
+
+
