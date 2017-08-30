@@ -22,7 +22,7 @@ install: yarn test:full
 after_success:
   - yarn test:coveralls
   - cd build
-  - gulp build
+  - yarn build
   - cd ..
   - if [ "$TRAVIS_BRANCH" = "dev" ] ; then rm -fR beta && mkdir beta && mv dist/* beta/ && mv beta dist/; fi
   - mkdir gh-pages
