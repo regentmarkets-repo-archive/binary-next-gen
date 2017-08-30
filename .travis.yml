@@ -24,12 +24,12 @@ after_success:
   - cd build
   - yarn build
   - cd ..
-  - if [ "$TRAVIS_BRANCH" = "dev" ] ; then rm -fR beta && mkdir beta && mv www/* beta/ && mv beta www/; fi
+  - if [ "$TRAVIS_BRANCH" = "dev" ] ; then rm -fR beta && mkdir beta && mv dist/* beta/ && mv beta dist/; fi
   - mkdir gh-pages
   - cd gh-pages
   - git clone --branch gh-pages https://$GIT_KEY@github.com/binary-com/binary-next-gen --depth 1
   - cd binary-next-gen
-  - cp -R ../../www/* .
+  - cp -R ../../dist/* .
   - git config --global user.email "arnab@binary.com"
   - git config --global user.name "Arnab Karmakar"
   - git config --global push.default simple
