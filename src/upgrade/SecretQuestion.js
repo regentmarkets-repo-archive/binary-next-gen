@@ -4,13 +4,14 @@ import { Option } from 'binary-components';
 export default class SecretQuestion extends PureComponent {
 
 	props: {
+		value: string,
 		onChange: (e: SyntheticEvent) => void,
 	};
 
 	render() {
-		const { onChange } = this.props;
+		const { onChange, value } = this.props;
 		return (
-			<select name="secretquestion" onChange={onChange}>
+			<select id="secret_question" name="secret_question" value={value} onChange={onChange}>
 				<Option value="" text="Secret question" />
 				<Option value="Mother's maiden name" text="Mother's maiden name" />
 				<Option value="Name of your pet" text="Name of your pet" />
