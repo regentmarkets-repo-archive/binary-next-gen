@@ -21,7 +21,7 @@ export const getOptions = () => {
     experienceOptions: [
       {
         value: '',
-        text: 'Please select'
+        text: 'Please select',
       },
       {
         value: '0-1 year',
@@ -39,7 +39,7 @@ export const getOptions = () => {
     frequencyOptions: [
       {
         value: '',
-        text: 'Please select'
+        text: 'Please select',
       },
       {
         value: '0-5 transactions in the past 12 months',
@@ -57,7 +57,7 @@ export const getOptions = () => {
     incomeSourceOptions: [
       {
         value: '',
-        text: 'Please select'
+        text: 'Please select',
       },
       {
         value: 'Salaried Employee',
@@ -83,7 +83,7 @@ export const getOptions = () => {
     employmentStatusOptions: [
       {
         value: '',
-        text: 'Please select'
+        text: 'Please select',
       },
       {
         value: 'Employed',
@@ -109,7 +109,7 @@ export const getOptions = () => {
     employmentIndustryOptions: [
       {
         value: '',
-        text: 'Please select'
+        text: 'Please select',
       },
       {
         value: 'Construction',
@@ -139,7 +139,7 @@ export const getOptions = () => {
     occupationOptions: [
       {
         value: '',
-        text: 'Please select'
+        text: 'Please select',
       },
       {
         value: 'Chief Executives, Senior Officials and Legislators',
@@ -197,7 +197,7 @@ export const getOptions = () => {
     sourceOfWealthOptions: [
       {
         value: '',
-        text: 'Please select'
+        text: 'Please select',
       },
       {
         value: 'Accumulation of Income/Savings',
@@ -235,7 +235,7 @@ export const getOptions = () => {
     educationLevelOptions: [
       {
         value: '',
-        text: 'Please select'
+        text: 'Please select',
       },
       {
         value: 'Primary',
@@ -253,7 +253,7 @@ export const getOptions = () => {
     netIncomeOptions: [
       {
         value: '',
-        text: 'Please select'
+        text: 'Please select',
       },
       {
         value: 'Less than $25,000',
@@ -279,7 +279,7 @@ export const getOptions = () => {
     estimatedWorthOptions: [
       {
         value: '',
-        text: 'Please select'
+        text: 'Please select',
       },
       {
         value: 'Less than $100,000',
@@ -305,7 +305,7 @@ export const getOptions = () => {
     accountTurnoverOptions: [
       {
         value: '',
-        text: 'Please select'
+        text: 'Please select',
       },
       {
         value: 'Less than $25,000',
@@ -331,7 +331,7 @@ export const getOptions = () => {
     accountOpeningReasonOptions: [
       {
         value: '',
-        text: 'Please select'
+        text: 'Please select',
       },
       {
         value: 'Speculative',
@@ -349,7 +349,7 @@ export const getOptions = () => {
     secretQuestionOptions: [
       {
         value: '',
-        text: 'Please select'
+        text: 'Please select',
       },
       {
         value: 'Mother\'s maiden name',

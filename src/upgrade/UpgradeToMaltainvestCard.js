@@ -27,19 +27,20 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
     this.state = {
       progress: false,
       statesList: [],
-      tax_residence: props.settings.tax_residence,
-      salutation: props.settings.salutation,
-      first_name: props.settings.first_name,
-      last_name: props.settings.last_name,
-      place_of_birth: props.settings.place_of_birth,
-      address_line_1: props.settings.address_line_1,
-      address_line_2: props.settings.address_line_2,
-      address_city: props.settings.address_city,
-      address_state: props.settings.address_state,
-      address_postcode: props.settings.address_postcode,
-      secret_question: props.settings.secret_question,
-      secret_answer: props.settings.secret_answer,
-      phone: props.settings.phone,
+      tax_residence: props.settings.tax_residence || '',
+      tax_identification_number: props.settings.tax_identification_number || '',
+      salutation: props.settings.salutation || '',
+      first_name: props.settings.first_name || '',
+      last_name: props.settings.last_name || '',
+      place_of_birth: props.settings.place_of_birth || '',
+      address_line_1: props.settings.address_line_1 || '',
+      address_line_2: props.settings.address_line_2 || '',
+      address_city: props.settings.address_city || '',
+      address_state: props.settings.address_state || '',
+      address_postcode: props.settings.address_postcode || '',
+      secret_question: props.settings.secret_question || '',
+      secret_answer: props.settings.secret_answer || '',
+      phone: props.settings.phone || '',
     };
   }
 
@@ -83,51 +84,22 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   performUpgrade = async () => {
-    const { salutation, first_name, last_name, place_of_birth, residence,
+    const loginid = this.props.loginid;
+    const { salutation, first_name, last_name, place_of_birth, date_of_birth, residence,
       address_line_1, address_line_2, address_city, address_state,
       address_postcode, secret_question, secret_answer, phone, forex_trading_experience, forex_trading_frequency, indices_trading_experience, indices_trading_frequency, commodities_trading_experience, commodities_trading_frequency, stocks_trading_experience, stocks_trading_frequency, other_derivatives_trading_experience, other_derivatives_trading_frequency, other_instruments_trading_experience, other_instruments_trading_frequency, employment_industry, occupation, education_level, income_source, net_income, estimated_worth, accept_risk, tax_residence, source_of_wealth, tax_identification_number, account_turnover, account_opening_reason } = this.state;
+    const createAccountParams = {
+      salutation, first_name, last_name, place_of_birth, date_of_birth, residence,
+      address_line_1, address_line_2, address_city, address_state,
+      address_postcode, phone, forex_trading_experience, forex_trading_frequency, indices_trading_experience, indices_trading_frequency, commodities_trading_experience, commodities_trading_frequency, stocks_trading_experience, stocks_trading_frequency, other_derivatives_trading_experience, other_derivatives_trading_frequency, other_instruments_trading_experience, other_instruments_trading_frequency, employment_industry, occupation, education_level, income_source, net_income, estimated_worth, accept_risk, tax_residence, source_of_wealth, tax_identification_number, account_turnover, account_opening_reason,
+    };
+    if (loginid.startsWith('VRTC')) {
+      createAccountParams.secret_question = secret_question;
+      createAccountParams.secret_answer = secret_answer;
+    }
 
     try {
-      const response = await api.createRealAccountMaltaInvest({
-        salutation,
-        first_name,
-        last_name,
-        date_of_birth,
-        place_of_birth,
-        residence,
-        address_line_1,
-        address_line_2,
-        address_city,
-        address_state,
-        address_postcode,
-        phone,
-        forex_trading_experience,
-        forex_trading_frequency,
-        indices_trading_experience,
-        indices_trading_frequency,
-        commodities_trading_experience,
-        commodities_trading_frequency,
-        stocks_trading_experience,
-        stocks_trading_frequency,
-        other_derivatives_trading_experience,
-        other_derivatives_trading_frequency,
-        other_instruments_trading_experience,
-        other_instruments_trading_frequency,
-        employment_industry,
-        occupation,
-        education_level,
-        income_source,
-        net_income,
-        estimated_worth,
-        accept_risk,
-        tax_residence,
-        tax_identification_number,
-        source_of_wealth,
-        account_turnover,
-        account_opening_reason,
-        secret_question,
-        secret_answer,
-      });
+      const response = await api.createRealAccountMaltaInvest(createAccountParams);
       storage.setItem('account', JSON.stringify({ token: response.new_account_real.oauth_token }));
       window.location = '/';
     } catch (e) {
@@ -186,7 +158,6 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
           <div className="input-row">
             <InputGroup
               id="date_of_birth"
-              name="date_of_birth"
               disabled={date_of_birth}
               label="Date of Birth"
               type="date"
