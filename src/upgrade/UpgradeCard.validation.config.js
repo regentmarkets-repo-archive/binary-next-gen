@@ -16,14 +16,20 @@ validate.validators.validateGeneral = (value) => {
 
 export const getConstraints = () => {
   const constraints = {
-    firstName: {
+    salutation: {
+      presence: {
+        presence: true,
+        message: 'This field is required.',
+      },
+    },
+    first_name: {
       presence: {
         presence: true,
         message: 'This field is required.',
       },
       validateGeneral: true,
     },
-    lastName: {
+    last_name: {
       presence: {
         presence: true,
         message: 'This field is required.',
@@ -36,30 +42,42 @@ export const getConstraints = () => {
         message: 'This field is required.',
       },
     },
-    addressLine1: {
+    address_line_1: {
       presence: {
         presence: true,
         message: 'This field is required.',
       },
       validateAddress: true,
     },
-    addressLine2: {
+    address_line_2: {
       validateAddress: true,
     },
-    addressCity: {
+    address_city: {
       presence: {
         presence: true,
         message: 'This field is required.',
       },
       validateGeneral: true,
     },
-    addressState: {
+    address_state: {
       presence: {
         presence: true,
         message: 'This field is required.',
       },
     },
-    addressPostcode: {
+    place_of_birth: {
+      presence: {
+        presence: true,
+        message: 'This field is required.',
+      },
+    },
+    date_of_birth: {
+      presence: {
+        presence: true,
+        message: 'This field is required.',
+      },
+    },
+    address_postcode: {
       format: {
         /*eslint-disable */
         pattern: /^([a-zA-Z\d-\s])*$/,
@@ -79,79 +97,79 @@ export const getConstraints = () => {
         message: 'Only numbers and spaces are allowed.',
       },
     },
-    forexTradingExperience: {
+    forex_trading_experience: {
       presence: {
         presence: true,
         message: 'This field is required.',
       },
     },
-    forexTradingFrequency: {
+    forex_trading_frequency: {
       presence: {
         presence: true,
         message: 'This field is required.',
       },
     },
-    indicesTradingExperience: {
+    indices_trading_experience: {
       presence: {
         presence: true,
         message: 'This field is required.',
       },
     },
-    indicesTradingFrequency: {
+    indices_trading_frequency: {
       presence: {
         presence: true,
         message: 'This field is required.',
       },
     },
-    commoditiesTradingExperience: {
+    commodities_trading_experience: {
       presence: {
         presence: true,
         message: 'This field is required.',
       },
     },
-    commoditiesTradingFrequency: {
+    commodities_trading_frequency: {
       presence: {
         presence: true,
         message: 'This field is required.',
       },
     },
-    stocksTradingExperience: {
+    stocks_trading_experience: {
       presence: {
         presence: true,
         message: 'This field is required.',
       },
     },
-    stocksTradingFrequency: {
+    stocks_trading_frequency: {
       presence: {
         presence: true,
         message: 'This field is required.',
       },
     },
-    otherDerivativesTradingExperience: {
+    other_derivatives_trading_experience: {
       presence: {
         presence: true,
         message: 'This field is required.',
       },
     },
-    otherDerivativesTradingFrequency: {
+    other_derivatives_trading_frequency: {
       presence: {
         presence: true,
         message: 'This field is required.',
       },
     },
-    otherInstrumentsTradingExperience: {
+    other_instruments_trading_experience: {
       presence: {
         presence: true,
         message: 'This field is required.',
       },
     },
-    otherInstrumentsTradingFrequency: {
+    other_instruments_trading_frequency: {
       presence: {
         presence: true,
         message: 'This field is required.',
       },
     },
-    employmentIndustry: {
+    employment_industry: {
       presence: {
         presence: true,
         message: 'This field is required.',
@@ -163,58 +181,88 @@ export const getConstraints = () => {
         message: 'This field is required.',
       },
     },
-    educationLevel: {
+    education_level: {
       presence: {
         presence: true,
         message: 'This field is required.',
       },
     },
-    incomeSource: {
+    income_source: {
       presence: {
         presence: true,
         message: 'This field is required.',
       },
     },
-    netIncome: {
+    net_income: {
       presence: {
         presence: true,
         message: 'This field is required.',
       },
     },
-    estimatedWorth: {
+    estimated_worth: {
       presence: {
         presence: true,
         message: 'This field is required.',
       },
     },
-    acceptRisk: {
+    accept_risk: {
       presence: {
         presence: true,
         message: 'This field is required.',
       },
     },
-    taxResidence: {
+    tax_residence: {
       presence: {
         presence: true,
         message: 'This field is required.',
       },
     },
-    taxIdentificationNumber: {
+    tax_identification_number: {
+      presence: {
+        presence: true,
+        message: 'This field is required.',
+      },
+      format: {
+        /*eslint-disable */
+        pattern: /^[\w-]{0,20}$/,
+        /*eslint-enable */
+        message: 'Only letters, numbers, space, and hyphen are allowed.',
+      },
+    },
+    account_turnover: {
       presence: {
         presence: true,
         message: 'This field is required.',
       },
     },
-    accountTurnover: {
+    account_opening_reason: {
       presence: {
         presence: true,
         message: 'This field is required.',
       },
     },
-    accountOpeningReason: {
+    source_of_wealth: {
       presence: {
         presence: true,
         message: 'This field is required.',
+      },
+    },
+    secret_question: {
+      presence: {
+        presence: true,
+        message: 'This field is required.',
+      },
+    },
+    secret_answer: {
+      presence: {
+        presence: true,
+        message: 'This field is required.',
+      },
+      format: {
+        /*eslint-disable */
+        pattern: /^[\w\-\,\.\' ]+/,
+        /*eslint-enable */
+        message: 'Only letters, numbers, space, hyphen, period, and apostrophe are allowed.',
       },
     },
   };

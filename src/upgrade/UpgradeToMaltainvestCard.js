@@ -1,13 +1,16 @@
 import React, { PureComponent } from 'react';
 import moment from 'moment';
+import head from 'lodash.head';
+import validate from 'validate.js';
 import { M, InputGroup, SelectGroup, LogoSpinner, Legend, Button,
   ErrorMsg, ServerErrorMsg, Countries } from 'binary-components';
 import { api } from '../_data/LiveData';
 import { store } from '../_store/persistentStore';
 import storage from '../_store/storage';
 import SecretQuestion from './SecretQuestion';
-import { getOptions } from './UpgradeCard.options';
 import MultiSelect from '../MultiSelect/MultiSelect';
+import { getOptions } from './UpgradeCard.options';
+import { getConstraints } from './UpgradeCard.validation.config';
 
 export default class UpgradeToMaltainvestCard extends PureComponent {
 
@@ -41,6 +44,46 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
       secret_question: props.settings.secret_question || '',
       secret_answer: props.settings.secret_answer || '',
       phone: props.settings.phone || '',
+      touched: {
+        salutation: false,
+        first_name: false,
+        last_name: false,
+        place_of_birth: false,
+        date_of_birth: false,
+        residence: false,
+        address_line_1: false,
+        address_line_2: false,
+        address_city: false,
+        address_state: false,
+        address_postcode: false,
+        secret_question: false,
+        secret_answer: false,
+        phone: false,
+        forex_trading_experience: false,
+        forex_trading_frequency: false,
+        indices_trading_experience: false,
+        indices_trading_frequency: false,
+        commodities_trading_experience: false,
+        commodities_trading_frequency: false,
+        stocks_trading_experience: false,
+        stocks_trading_frequency: false,
+        other_derivatives_trading_experience: false,
+        other_derivatives_trading_frequency: false,
+        other_instruments_trading_experience: false,
+        other_instruments_trading_frequency: false,
+        employment_industry: false,
+        occupation: false,
+        education_level: false,
+        income_source: false,
+        net_income: false,
+        estimated_worth: false,
+        accept_risk: false,
+        tax_residence: false,
+        source_of_wealth: false,
+        tax_identification_number: false,
+        account_turnover: false,
+        account_opening_reason: false,
+      },
     };
   }
 
@@ -55,12 +98,26 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
     taxResidenceList.forEach((val) => {
       delete val.disabled;
     });
-    this.setState({ taxResidenceList });
-    this.setState({ date_of_birth: moment.unix(this.props.settings.date_of_birth).format('YYYY-MM-DD') || '1980-01-01' });
+    this.setState({ taxResidenceList, date_of_birth: moment.unix(this.props.settings.date_of_birth).format('YYYY-MM-DD') || '1980-01-01' });
+    this.validateForm();
   }
 
-  onEntryChange = (e: SyntheticEvent) =>
-    this.setState({ [e.target.id]: e.target.value });
+  validateForm = () => {
+    this.constraints = getConstraints(this.props, this.state);
+    this.setState({
+      errors: validate(this.state, this.constraints, { format: 'grouped', fullMessages: false, cleanAttributes: false }) || {},
+    });
+  }
+
+  onEntryChange = (e: SyntheticEvent) => {
+    this.setState({
+      [e.target.id]: e.target.value,
+      touched: { ...this.state.touched, [e.target.id]: true },
+      hasError: false,
+    }, () => {
+      this.validateForm();
+    });
+  }
 
   onCountryChange = (e: SyntheticEvent) => {
     this.setState({ [e.target.id]: e.target.value });
@@ -69,9 +126,13 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
     );
   }
 
-  onTaxResidenceChange = (val) => {
-    this.setState({ tax_residence: val });
-  }
+  onTaxResidenceChange = (val) => this.setState({ tax_residence: val,
+    /*eslint-disable */
+    touched: { ...this.state.touched, 'tax_residence': true },
+    /*eslint-enable */
+    }, () => {
+    this.validateForm();
+  });
 
   onTermsAndConditionsChanged = (e: SyntheticEvent) => {
     const accept_risk = e.target.checked ? '1' : '0';
@@ -80,7 +141,11 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
   onFormSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    this.performUpgrade();
+    if (Object.keys(this.state.errors).length > 0) {
+      this.setState({ hasError: true });
+    } else {
+      this.performUpgrade();
+    }
   }
 
   performUpgrade = async () => {
@@ -113,7 +178,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
   render() {
     const { progress, serverError, statesList, residence, taxResidenceList, tax_residence, salutation, first_name, last_name, place_of_birth, date_of_birth, address_line_1, address_line_2, address_city, address_state,
-      address_postcode, secret_question, secret_answer, phone, forex_trading_experience, forex_trading_frequency, indices_trading_experience, indices_trading_frequency, commodities_trading_experience, commodities_trading_frequency, stocks_trading_experience, stocks_trading_frequency, other_derivatives_trading_experience, other_derivatives_trading_frequency, other_instruments_trading_experience, other_instruments_trading_frequency, employment_industry, occupation, education_level, income_source, net_income, estimated_worth, source_of_wealth, tax_identification_number, account_turnover, account_opening_reason, employment_status } = this.state;
+      address_postcode, secret_question, secret_answer, phone, forex_trading_experience, forex_trading_frequency, indices_trading_experience, indices_trading_frequency, commodities_trading_experience, commodities_trading_frequency, stocks_trading_experience, stocks_trading_frequency, other_derivatives_trading_experience, other_derivatives_trading_frequency, other_instruments_trading_experience, other_instruments_trading_frequency, employment_industry, occupation, education_level, income_source, net_income, estimated_worth, source_of_wealth, tax_identification_number, account_turnover, account_opening_reason, employment_status, hasError, errors, touched } = this.state;
     const { residenceList, loginid } = this.props;
     const options = getOptions();
     const boot = storage.boot ? JSON.parse(storage.boot) : '';
@@ -127,35 +192,48 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
           <img className="logo-text" src="https://style.binary.com/images/logo/logotype_light.svg" alt="Logo" />
         </div>
         {serverError && <ServerErrorMsg text={serverError} />}
+        {hasError && <ErrorMsg text="Please fill the form with valid values" />}
         <form onSubmit={this.onFormSubmit}>
           <Legend text="Personal Information" />
-          <div className="input-row names-row">
+          <div className="input-row">
             { salutation &&
               <SelectGroup id="salutation" options={options.salutationOptions} value={salutation} readOnly="true" />
             }
             { !salutation &&
               <SelectGroup id="salutation" value={salutation} options={options.salutationOptions} onChange={this.onEntryChange} />
             }
+          </div>
+          { touched.salutation && <ErrorMsg text={head((errors || {}).salutation)} /> }
+
+          <div className="input-row">
             <InputGroup
               id="first_name"
               placeholder="First Name"
               type="text"
               onChange={this.onEntryChange}
+              minLength="2"
               maxLength="30"
               value={first_name}
               disabled={first_name}
             />
+          </div>
+          { touched.first_name && <ErrorMsg text={head((errors || {}).first_name)} /> }
+
+          <div className="input-row">
             <InputGroup
               id="last_name"
               placeholder="Last Name"
               type="text"
               onChange={this.onEntryChange}
+              minLength="2"
               maxLength="30"
               value={last_name}
               disabled={last_name}
             />
           </div>
-          <div className="input-row">
+          { touched.last_name && <ErrorMsg text={head((errors || {}).last_name)} /> }
+
+          <div className="input-row date-of-birth">
             <InputGroup
               id="date_of_birth"
               disabled={date_of_birth}
@@ -165,6 +243,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               defaultValue={date_of_birth || 'yyyy-mm-dd'}
               onChange={this.onEntryChange}
             />
+            { touched.date_of_birth && <ErrorMsg text={head((errors || {}).date_of_birth)} /> }
           </div>
           <div className="input-row">
             <select id="place_of_birth" onChange={this.onEntryChange} value={place_of_birth}>
@@ -178,21 +257,46 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
                 </option>
               )}
             </select>
+            { touched.place_of_birth && <ErrorMsg text={head((errors || {}).place_of_birth)} /> }
           </div>
           <div className="input-row">
-            <SelectGroup value={account_opening_reason} label="Account opening reason" id="account_opening_reason" options={options.accountOpeningReasonOptions} onChange={this.onEntryChange} />
+            <SelectGroup
+              label="Account opening reason"
+              value={account_opening_reason}
+              id="account_opening_reason"
+              options={options.accountOpeningReasonOptions}
+              onChange={this.onEntryChange}
+            />
           </div>
+          { touched.account_opening_reason && <ErrorMsg text={head((errors || {}).account_opening_reason)} /> }
+
           <Legend text="Tax Information" />
           <div className="input-row">
-            <MultiSelect placeholder="Tax Residence" className="multi-select" value={tax_residence} onChange={this.onTaxResidenceChange} options={taxResidenceList} joinValues multi simpleValue searchable={false} labelKey="text" />
+            <MultiSelect
+              placeholder="Tax residence"
+              className="multi-select"
+              value={tax_residence}
+              options={taxResidenceList}
+              joinValues
+              multi
+              simpleValue
+              searchable={false}
+              labelKey="text"
+              onChange={this.onTaxResidenceChange}
+            />
           </div>
-          <InputGroup
-            id="tax_identification_number"
-            value={tax_identification_number}
-            placeholder="Tax identification number"
-            type="text"
-            onChange={this.onEntryChange}
-          />
+          { touched.tax_residence && <ErrorMsg text={head((errors || {}).tax_residence)} /> }
+          <div className="input-row">
+            <InputGroup
+              id="tax_identification_number"
+              value={tax_identification_number}
+              placeholder="Tax identification number"
+              maxLength="20"
+              type="text"
+              onChange={this.onEntryChange}
+            />
+          </div>
+          { touched.tax_identification_number && <ErrorMsg text={head((errors || {}).tax_identification_number)} /> }
 
           <Legend text="Home Address" />
           <div className="input-row">
@@ -202,12 +306,13 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
             { !residence &&
               <Countries id="residence" value={residence} onChange={this.onCountryChange} residenceList={residenceList} disable />
             }
-
+            { touched.residence && <ErrorMsg text={head((errors || {}).residence)} /> }
             <select id="address_state" onChange={this.onEntryChange} value={address_state}>
               {statesList.map(x => (
                 <option key={x.value} value={x.value}>{x.text}</option>
               ))}
             </select>
+            { touched.address_state && <ErrorMsg text={head((errors || {}).address_state)} /> }
           </div>
           <div className="input-row">
             <InputGroup
@@ -218,6 +323,10 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               maxLength="35"
               onChange={this.onEntryChange}
             />
+          </div>
+          { touched.address_city && <ErrorMsg text={head((errors || {}).address_city)} /> }
+
+          <div className="input-row">
             <InputGroup
               id="address_postcode"
               value={address_postcode}
@@ -227,6 +336,8 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               onChange={this.onEntryChange}
             />
           </div>
+          { touched.address_postcode && <ErrorMsg text={head((errors || {}).address_postcode)} /> }
+
           <div className="input-row">
             <InputGroup
               id="address_line_1"
@@ -237,6 +348,8 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               onChange={this.onEntryChange}
             />
           </div>
+          { touched.address_line_1 && <ErrorMsg text={head((errors || {}).address_line_1)} /> }
+
           <div className="input-row">
             <InputGroup
               id="address_line_2"
@@ -247,95 +360,277 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               onChange={this.onEntryChange}
             />
           </div>
+          { touched.address_line_2 && <ErrorMsg text={head((errors || {}).address_line_2)} /> }
+
           <div className="input-row">
             <InputGroup
               id="phone"
               value={phone}
               placeholder="Phone"
               type="tel"
+              minLength="6"
               maxLength="35"
               onChange={this.onEntryChange}
             />
           </div>
+          { touched.phone && <ErrorMsg text={head((errors || {}).phone)} /> }
+
           <Legend text="Financial Information" />
           <div className="input-row">
-            <SelectGroup label="Forex trading experience" value={forex_trading_experience} id="forex_trading_experience" options={options.experienceOptions} onChange={this.onEntryChange} />
+            <SelectGroup
+              label="Forex trading experience"
+              value={forex_trading_experience}
+              id="forex_trading_experience"
+              options={options.experienceOptions}
+              onChange={this.onEntryChange}
+            />
           </div>
+          { touched.forex_trading_experience && <ErrorMsg text={head((errors || {}).forex_trading_experience)} /> }
+
           <div className="input-row">
-            <SelectGroup label="Forex trading frequency" value={forex_trading_frequency} id="forex_trading_frequency" options={options.frequencyOptions} onChange={this.onEntryChange} />
+            <SelectGroup
+              label="Forex trading frequency"
+              value={forex_trading_frequency}
+              id="forex_trading_frequency"
+              options={options.frequencyOptions}
+              onChange={this.onEntryChange}
+            />
           </div>
+          { touched.forex_trading_frequency && <ErrorMsg text={head((errors || {}).forex_trading_frequency)} /> }
+
           <div className="input-row">
-            <SelectGroup label="Indices trading experience" value={indices_trading_experience} id="indices_trading_experience" options={options.experienceOptions} onChange={this.onEntryChange} />
+            <SelectGroup
+              label="Indices trading experience"
+              value={indices_trading_experience}
+              id="indices_trading_experience"
+              options={options.experienceOptions}
+              onChange={this.onEntryChange}
+            />
           </div>
+          { touched.indices_trading_experience && <ErrorMsg text={head((errors || {}).indices_trading_experience)} /> }
+
           <div className="input-row">
-            <SelectGroup label="Indices trading frequency" value={indices_trading_frequency} id="indices_trading_frequency" options={options.frequencyOptions} onChange={this.onEntryChange} />
+            <SelectGroup
+              label="Indices trading frequency"
+              value={indices_trading_frequency}
+              id="indices_trading_frequency"
+              options={options.frequencyOptions}
+              onChange={this.onEntryChange}
+            />
           </div>
+          { touched.indices_trading_frequency && <ErrorMsg text={head((errors || {}).indices_trading_frequency)} /> }
+
           <div className="input-row">
-            <SelectGroup label="Commodities trading experience" value={commodities_trading_experience} id="commodities_trading_experience" options={options.experienceOptions} onChange={this.onEntryChange} />
+            <SelectGroup
+              label="Commodities trading experience"
+              value={commodities_trading_experience}
+              id="commodities_trading_experience"
+              options={options.experienceOptions}
+              onChange={this.onEntryChange}
+            />
           </div>
+          { touched.commodities_trading_experience && <ErrorMsg text={head((errors || {}).commodities_trading_experience)} /> }
+
           <div className="input-row">
-            <SelectGroup label="Commodities trading frequency" value={commodities_trading_frequency} id="commodities_trading_frequency" options={options.frequencyOptions} onChange={this.onEntryChange} />
+            <SelectGroup
+              label="Commodities trading frequency"
+              value={commodities_trading_frequency}
+              id="commodities_trading_frequency"
+              options={options.frequencyOptions}
+              onChange={this.onEntryChange}
+            />
           </div>
+          { touched.commodities_trading_frequency && <ErrorMsg text={head((errors || {}).commodities_trading_frequency)} /> }
+
           <div className="input-row">
-            <SelectGroup label="Stocks trading experience" value={stocks_trading_experience} id="stocks_trading_experience" options={options.experienceOptions} onChange={this.onEntryChange} />
+            <SelectGroup
+              label="Stocks trading experience"
+              value={stocks_trading_experience}
+              id="stocks_trading_experience"
+              options={options.experienceOptions}
+              onChange={this.onEntryChange}
+            />
           </div>
+          { touched.stocks_trading_experience && <ErrorMsg text={head((errors || {}).stocks_trading_experience)} /> }
+
           <div className="input-row">
-            <SelectGroup label="Stocks trading frequency" value={stocks_trading_frequency} id="stocks_trading_frequency" options={options.frequencyOptions} onChange={this.onEntryChange} />
+            <SelectGroup
+              label="Stocks trading frequency"
+              value={stocks_trading_frequency}
+              id="stocks_trading_frequency"
+              options={options.frequencyOptions}
+              onChange={this.onEntryChange}
+            />
           </div>
+          { touched.stocks_trading_frequency && <ErrorMsg text={head((errors || {}).stocks_trading_frequency)} /> }
+
           <div className="input-row">
-            <SelectGroup label="Binary options or other financial derivatives trading experience" value={other_derivatives_trading_experience} id="other_derivatives_trading_experience" options={options.experienceOptions} onChange={this.onEntryChange} />
+            <SelectGroup
+              label="Binary options or other financial derivatives trading experience"
+              value={other_derivatives_trading_experience}
+              id="other_derivatives_trading_experience"
+              options={options.experienceOptions}
+              onChange={this.onEntryChange}
+            />
           </div>
+          { touched.other_derivatives_trading_experience && <ErrorMsg text={head((errors || {}).other_derivatives_trading_experience)} /> }
+
           <div className="input-row">
-            <SelectGroup label="Binary options or other financial derivatives trading frequency" value={other_derivatives_trading_frequency} id="other_derivatives_trading_frequency" options={options.frequencyOptions} onChange={this.onEntryChange} />
+            <SelectGroup
+              label="Binary options or other financial derivatives trading frequency"
+              value={other_derivatives_trading_frequency}
+              id="other_derivatives_trading_frequency"
+              options={options.frequencyOptions}
+              onChange={this.onEntryChange}
+            />
           </div>
+          { touched.other_derivatives_trading_frequency && <ErrorMsg text={head((errors || {}).other_derivatives_trading_frequency)} /> }
+
           <div className="input-row">
-            <SelectGroup label="Other financial instruments trading experience" value={other_instruments_trading_experience} id="other_instruments_trading_experience" options={options.experienceOptions} onChange={this.onEntryChange} />
+            <SelectGroup
+              label="Other financial instruments trading experience"
+              value={other_instruments_trading_experience}
+              id="other_instruments_trading_experience"
+              options={options.experienceOptions}
+              onChange={this.onEntryChange}
+            />
           </div>
+          { touched.other_instruments_trading_experience && <ErrorMsg text={head((errors || {}).other_instruments_trading_experience)} /> }
+
           <div className="input-row">
-            <SelectGroup label="Other financial instruments trading frequency" value={other_instruments_trading_frequency} id="other_instruments_trading_frequency" options={options.frequencyOptions} onChange={this.onEntryChange} />
+            <SelectGroup
+              label="Other financial instruments trading frequency"
+              value={other_instruments_trading_frequency}
+              id="other_instruments_trading_frequency"
+              options={options.frequencyOptions}
+              onChange={this.onEntryChange}
+            />
           </div>
+          { touched.other_instruments_trading_frequency && <ErrorMsg text={head((errors || {}).other_instruments_trading_frequency)} /> }
+
           <div className="input-row">
-            <SelectGroup label="Income Source" value={income_source} id="income_source" options={options.incomeSourceOptions} onChange={this.onEntryChange} />
+            <SelectGroup
+              label="Income Source"
+              value={income_source}
+              id="income_source"
+              options={options.incomeSourceOptions}
+              onChange={this.onEntryChange}
+            />
           </div>
+          { touched.income_source && <ErrorMsg text={head((errors || {}).income_source)} /> }
+
           <div className="input-row">
-            <SelectGroup label="Employment Status" value={employment_status} id="employment_status" options={options.employmentStatusOptions} onChange={this.onEntryChange} />
+            <SelectGroup
+              label="Employment Status"
+              value={employment_status}
+              id="employment_status"
+              options={options.employmentStatusOptions}
+              onChange={this.onEntryChange}
+            />
           </div>
+          { touched.employment_status && <ErrorMsg text={head((errors || {}).employment_status)} /> }
+
           <div className="input-row">
-            <SelectGroup label="Industry of Employment" value={employment_industry} id="employment_industry" options={options.employmentIndustryOptions} onChange={this.onEntryChange} />
+            <SelectGroup
+              label="Industry of Employment"
+              value={employment_industry}
+              id="employment_industry"
+              options={options.employmentIndustryOptions}
+              onChange={this.onEntryChange}
+            />
           </div>
+          { touched.employment_industry && <ErrorMsg text={head((errors || {}).employment_industry)} /> }
+
           <div className="input-row">
-            <SelectGroup label="Occupation" value={occupation} id="occupation" options={options.occupationOptions} onChange={this.onEntryChange} />
+            <SelectGroup
+              label="Occupation"
+              value={occupation}
+              id="occupation"
+              options={options.occupationOptions}
+              onChange={this.onEntryChange}
+            />
           </div>
+          { touched.occupation && <ErrorMsg text={head((errors || {}).occupation)} /> }
+
           <div className="input-row">
-            <SelectGroup label="Source of Wealth" value={source_of_wealth} id="source_of_wealth" options={options.sourceOfWealthOptions} onChange={this.onEntryChange} />
+            <SelectGroup
+              label="Source of Wealth"
+              value={source_of_wealth}
+              id="source_of_wealth"
+              options={options.sourceOfWealthOptions}
+              onChange={this.onEntryChange}
+            />
           </div>
+          { touched.source_of_wealth && <ErrorMsg text={head((errors || {}).source_of_wealth)} /> }
+
           <div className="input-row">
-            <SelectGroup label="Level of Education" value={education_level} id="education_level" options={options.educationLevelOptions} onChange={this.onEntryChange} />
+            <SelectGroup
+              label="Level of Education"
+              value={education_level}
+              id="education_level"
+              options={options.educationLevelOptions}
+              onChange={this.onEntryChange}
+            />
           </div>
+          { touched.education_level && <ErrorMsg text={head((errors || {}).education_level)} /> }
+
           <div className="input-row">
-            <SelectGroup label="Net Annual Income" value={net_income} id="net_income" options={options.netIncomeOptions} onChange={this.onEntryChange} />
+            <SelectGroup
+              label="Net Annual Income"
+              value={net_income}
+              id="net_income"
+              options={options.netIncomeOptions}
+              onChange={this.onEntryChange}
+            />
           </div>
+          { touched.net_income && <ErrorMsg text={head((errors || {}).net_income)} /> }
+
           <div className="input-row">
-            <SelectGroup label="Estimated Net Worth" value={estimated_worth} id="estimated_worth" options={options.estimatedWorthOptions} onChange={this.onEntryChange} />
+            <SelectGroup
+              label="Estimated Net Worth"
+              value={estimated_worth}
+              id="estimated_worth"
+              options={options.estimatedWorthOptions}
+              onChange={this.onEntryChange}
+            />
           </div>
+          { touched.estimated_worth && <ErrorMsg text={head((errors || {}).estimated_worth)} /> }
+
           <div className="input-row">
-            <SelectGroup label="Anticipated Account Turnover" value={account_turnover} id="account_turnover" options={options.accountTurnoverOptions} onChange={this.onEntryChange} />
+            <SelectGroup
+              label="Anticipated Account Turnover"
+              value={account_turnover}
+              id="account_turnover"
+              options={options.accountTurnoverOptions}
+              onChange={this.onEntryChange}
+            />
           </div>
+          { touched.account_turnover && <ErrorMsg text={head((errors || {}).account_turnover)} /> }
 
           { loginid.startsWith('VRTC') &&
             <div>
               <Legend text="Security" />
               <div className="input-row">
-                <SecretQuestion value={secret_question} onChange={this.onEntryChange} />
+                <SecretQuestion
+                  value={secret_question}
+                  onChange={this.onEntryChange}
+                />
+              </div>
+                { touched.secret_question && <ErrorMsg text={head((errors || {}).salutation)} /> }
+
+              <div className="input-row">
                 <InputGroup
                   id="secret_answer"
                   value={secret_answer}
                   placeholder="Answer To Secret Question"
                   type="text"
+                  minLength="4"
                   maxLength="50"
                   onChange={this.onEntryChange}
                 />
               </div>
+              { touched.secret_answer && <ErrorMsg text={head((errors || {}).secret_answer)} /> }
+
             </div>
           }
           <Legend text="PEP Declaration" />
