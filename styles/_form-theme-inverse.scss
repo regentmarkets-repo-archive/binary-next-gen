@@ -24,6 +24,7 @@
             border-color: $COLOR_INVERSE_TEXT !important;
         }
     }
+
     .multi-select {
         .Select-control {
             color: $COLOR_INVERSE_TEXT;
@@ -42,12 +43,10 @@
         .Select-value {
             color: $COLOR_INVERSE_TEXT;
             border-color: $COLOR_INVERSE_TEXT;
-            
+
             span {
                 border-color: $COLOR_INVERSE_TEXT;
             }
         }
     }
 }
-
-
