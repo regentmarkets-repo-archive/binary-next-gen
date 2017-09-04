@@ -142,7 +142,7 @@
 
     /* For IE 8 compatibility */
     padding: 8px 0 12px;
-  
+
     /* For IE 8 compatibility */
     -webkit-appearance: none;
 }
@@ -315,6 +315,7 @@
 
 .Select-option.is-focused {
     background-color: #ebf5ff;
+
     /* Fallback color for IE 8 */
     background-color: rgba(0, 126, 255, 0.08);
     color: #333;
@@ -435,4 +436,3 @@
         -webkit-transform: rotate(1turn);
     }
 }
-
