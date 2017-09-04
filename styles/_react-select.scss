@@ -139,8 +139,10 @@
     margin: 0;
     outline: none;
     line-height: 14px;
+
     /* For IE 8 compatibility */
     padding: 8px 0 12px;
+  
     /* For IE 8 compatibility */
     -webkit-appearance: none;
 }
@@ -195,7 +197,7 @@
 }
 
 .Select-clear-zone:hover {
-    color: #D0021B;
+    color: #d0021b;
 }
 
 .Select-clear {
@@ -292,7 +294,7 @@
 .Select-option {
     box-sizing: border-box;
     background-color: #fff;
-    color: #666666;
+    color: #666;
     cursor: pointer;
     display: block;
     padding: 8px 10px;
@@ -305,6 +307,7 @@
 
 .Select-option.is-selected {
     background-color: #f5faff;
+
     /* Fallback color for IE 8 */
     background-color: rgba(0, 126, 255, 0.04);
     color: #333;
@@ -318,13 +321,13 @@
 }
 
 .Select-option.is-disabled {
-    color: #cccccc;
+    color: #ccc;
     cursor: default;
 }
 
 .Select-noresults {
     box-sizing: border-box;
-    color: #999999;
+    color: #999;
     cursor: default;
     display: block;
     padding: 8px 10px;
