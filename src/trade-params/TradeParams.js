@@ -175,6 +175,7 @@ export default class TradeParams extends PureComponent {
                 {!showSpreadBarrier &&
                     <StakeCard
                         amount={+tradeParams.get('amount')}
+                        fractionalDigits={tradeParams.get('fractionalDigits')}
                         isVirtual={false}
                         index={index}
                     />

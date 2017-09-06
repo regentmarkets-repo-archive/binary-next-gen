@@ -61,3 +61,12 @@ export const tradesCountSelector =
 
 export const layoutNSelector =
     state => state.workspace.get('layoutN');
+
+export const fractionalDigitsSelector = state => {
+  const account = state.account;
+  const currency = account.get('currency');
+  const currencies_config = account.get('currencies_config');
+
+  const config = currencies_config && currencies_config.get(currency);
+  return config && config.get('fractional_digits') || 2;
+};

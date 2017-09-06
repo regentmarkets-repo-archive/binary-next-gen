@@ -3,20 +3,22 @@ import { NumberPlain } from 'binary-components';
 
 export default class BalanceCard extends PureComponent {
 
-	props: {
-		currency: string,
-		balance: number,
-	};
+  props: {
+    currency: string,
+    balance: number,
+    digits: number,
+  };
 
-	render() {
-		const { currency, balance } = this.props;
+  render() {
+    const { currency, balance, digits } = this.props;
 
-		return (
-			<NumberPlain
-				className="balance"
-				currency={currency}
-				value={balance}
-			/>
-		);
-	}
+    return (
+      <NumberPlain
+      className="balance"
+        currency={currency}
+        value={balance}
+        digits={digits}
+      />
+    );
+  }
 }

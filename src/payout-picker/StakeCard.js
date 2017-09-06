@@ -12,6 +12,7 @@ export default class StakeCard extends PureComponent {
         amount: number,
         isVirtual: boolean,
         index: number,
+        fractionalDigits: number,
     };
     onAmountChange = value => {
         const { index } = this.props;
@@ -19,7 +20,7 @@ export default class StakeCard extends PureComponent {
     }
 
     render() {
-        const { amount, isVirtual } = this.props;
+        const { amount, isVirtual, fractionalDigits } = this.props;
         const max = isVirtual ? 10000 : 500;                // TODO: temp restriction
         return (
             <div className="param-row payout-picker">
@@ -29,7 +30,7 @@ export default class StakeCard extends PureComponent {
                     defaultValue={amount}
                     min={0}
                     max={max}
-                    decimal={2}
+                    decimal={fractionalDigits}
                     valueList={payouts}
                     onChange={this.onAmountChange}
                 />

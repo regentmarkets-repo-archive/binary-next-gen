@@ -2229,6 +2229,12 @@ entities@^1.1.1, entities@~1.1.1:
   version "1.1.1"
   resolved "https://registry.yarnpkg.com/entities/-/entities-1.1.1.tgz#6e5c2d0a5621b5dadaecef80b90edfb5cd7772f0"
 
+enzyme-react-intl@^1.4.5:
+  version "1.4.5"
+  resolved "https://registry.yarnpkg.com/enzyme-react-intl/-/enzyme-react-intl-1.4.5.tgz#58bbe286c4e343513178ae5e0aee5b85585a28ee"
+  dependencies:
+    jsonfile "^2.4.0"
+
 enzyme@^2.6.0:
   version "2.6.0"
   resolved "https://registry.yarnpkg.com/enzyme/-/enzyme-2.6.0.tgz#148d742b25e2565f7e80870a0c92aea9be1b90ea"
@@ -3286,7 +3292,7 @@ hawk@~3.1.3:
     sntp "1.x.x"
 
 highcharts@^5.0.3:
-  version v5.0.4
+  version "5.0.4"
   resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-5.0.4.tgz#ef598f7a2fc66f6285b9457b6cf92ada179e5deb"
 
 history@^3.0.0:
@@ -4097,7 +4103,7 @@ json5@^0.5.0:
   version "0.5.0"
   resolved "https://registry.yarnpkg.com/json5/-/json5-0.5.0.tgz#9b20715b026cbe3778fd769edccd822d8332a5b2"
 
-jsonfile@^2.1.0:
+jsonfile@^2.1.0, jsonfile@^2.4.0:
   version "2.4.0"
   resolved "https://registry.yarnpkg.com/jsonfile/-/jsonfile-2.4.0.tgz#3736a2b428b87bbda0cc83b53fa3d633a35c2ae8"
   optionalDependencies:
@@ -4375,6 +4381,10 @@ lodash.get@^3.7.0:
 lodash.get@^4.1.2:
   version "4.4.2"
   resolved "https://registry.yarnpkg.com/lodash.get/-/lodash.get-4.4.2.tgz#2d177f652fa31e939b4438d5341499dfa3825e99"
+
+lodash.head@^4.0.1:
+  version "4.0.1"
+  resolved "https://registry.yarnpkg.com/lodash.head/-/lodash.head-4.0.1.tgz#e2aa322d3ec40cd6aae186082977d993b354ed9c"
 
 lodash.indexof@^4.0.5:
   version "4.0.5"
@@ -7065,6 +7075,10 @@ validate-npm-package-license@^3.0.1:
   dependencies:
     spdx-correct "~1.0.0"
     spdx-expression-parse "~1.0.0"
+
+validate.js@^0.11.1:
+  version "0.11.1"
+  resolved "https://registry.yarnpkg.com/validate.js/-/validate.js-0.11.1.tgz#f51c3c6c4a56e6380a20a7eb104245037f2a540d"
 
 value-equal@^0.1.1:
   version "0.1.1"
