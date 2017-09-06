@@ -9,7 +9,7 @@ import { store } from '../_store/persistentStore';
 import storage from '../_store/storage';
 import SecretQuestion from './SecretQuestion';
 import MultiSelect from '../MultiSelect/MultiSelect';
-import { getOptions } from './UpgradeCard.options';
+import options from './UpgradeCard.options';
 import { getConstraints } from './UpgradeCard.validation.config';
 
 export default class UpgradeToMaltainvestCard extends PureComponent {
@@ -180,7 +180,6 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
     const { progress, serverError, statesList, residence, taxResidenceList, tax_residence, salutation, first_name, last_name, place_of_birth, date_of_birth, address_line_1, address_line_2, address_city, address_state,
       address_postcode, secret_question, secret_answer, phone, forex_trading_experience, forex_trading_frequency, indices_trading_experience, indices_trading_frequency, commodities_trading_experience, commodities_trading_frequency, stocks_trading_experience, stocks_trading_frequency, other_derivatives_trading_experience, other_derivatives_trading_frequency, other_instruments_trading_experience, other_instruments_trading_frequency, employment_industry, occupation, education_level, income_source, net_income, estimated_worth, source_of_wealth, tax_identification_number, account_turnover, account_opening_reason, employment_status, hasError, errors, touched } = this.state;
     const { residenceList, loginid } = this.props;
-    const options = getOptions();
     const boot = storage.boot ? JSON.parse(storage.boot) : '';
     const language = boot.language ? boot.language.toLowerCase() : 'en';
     const linkToTermsAndConditions = `https://www.binary.com/${language}/terms-and-conditions.html`;

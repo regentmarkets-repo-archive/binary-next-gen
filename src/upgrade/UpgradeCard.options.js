@@ -1,5 +1,4 @@
-export const getOptions = () => {
-  const options = {
+export default {
     salutationOptions: [
       {
         value: 'Mr',
@@ -385,5 +384,3 @@ export const getOptions = () => {
       },
     ],
   };
-  return options;
-};
