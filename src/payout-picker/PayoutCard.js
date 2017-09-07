@@ -6,11 +6,12 @@ export default class PayoutCard extends PureComponent {
     props: {
         currency: string,
         stake: number,
+        fractionalDigits: number,
         payout: number,
     };
 
     render() {
-        const { currency, stake, payout } = this.props;
+        const { currency, stake, payout, fractionalDigits } = this.props;
         const show = payout && stake;
         const potentialProfitPercentage = (((payout - stake) * 100) / stake).toFixed(2);
 
@@ -24,6 +25,7 @@ export default class PayoutCard extends PureComponent {
                             currency={currency}
                             value={payout}
                             isProfit={v => v - stake}
+                            digits={fractionalDigits}
                         />
                         : <span className="payout-value">&nbsp;</span>
                     }

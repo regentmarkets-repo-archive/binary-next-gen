@@ -12,6 +12,7 @@ export default class PortfolioCard extends PureComponent {
 		purchaseTotal: number,
 		payoutTotal: number,
 		indicativeTotal: number,
+		digits: number,
 		onViewDetails: (contract: Contract) => void,
 	};
 
@@ -37,7 +38,7 @@ export default class PortfolioCard extends PureComponent {
 	}
 
 	render() {
-		const { compact, contracts, payoutTotal, purchaseTotal, indicativeTotal } = this.props;
+		const { compact, contracts, payoutTotal, purchaseTotal, indicativeTotal, digits } = this.props;
 
 		if (Object.keys(contracts).length === 0) {
 			return (
@@ -56,6 +57,7 @@ export default class PortfolioCard extends PureComponent {
 					payoutTotal={payoutTotal}
 					purchaseTotal={purchaseTotal}
 					indicativeTotal={indicativeTotal}
+					digits={digits}
 					onViewDetails={this.onViewDetails}
 				/>
 			</div>

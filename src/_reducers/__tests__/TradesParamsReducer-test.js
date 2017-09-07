@@ -17,7 +17,6 @@ describe('TradesParamsReducer', () => {
         amount: 50,
         type: 'CALL',
         barrierType: 'relative',
-        fractionalDigits: 2,
         amountDefault: 50
     };
 

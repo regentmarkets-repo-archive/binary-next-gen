@@ -10,11 +10,12 @@ export default class PortfolioList extends PureComponent {
 		payoutTotal: number,
 		purchaseTotal: number,
 		indicativeTotal: number,
+		digits: number,
 		onViewDetails: (e: SyntheticEvent) => void,
 	};
 
 	render() {
-		const { compact, contracts, onViewDetails, payoutTotal, purchaseTotal, indicativeTotal } = this.props;
+		const { compact, contracts, onViewDetails, payoutTotal, purchaseTotal, indicativeTotal, digits } = this.props;
 
 		return (
 			<table>
@@ -33,6 +34,7 @@ export default class PortfolioList extends PureComponent {
 							compact={compact}
 							contract={contracts[c]}
 							history={history}
+							digits={digits}
 							onViewDetails={onViewDetails}
 						/>
 					)}
@@ -41,13 +43,13 @@ export default class PortfolioList extends PureComponent {
 					<tr>
 						<th />
 						<th className="numeric">
-							<NumberPlain currency="USD" value={payoutTotal} />
+							<NumberPlain currency="USD" value={payoutTotal} digits={digits} />
 						</th>
 						<th className="numeric">
-							<NumberPlain currency="USD" value={purchaseTotal} />
+							<NumberPlain currency="USD" value={purchaseTotal} digits={digits} />
 						</th>
 						<th className="numeric">
-							<NumberPlain currency="USD" value={indicativeTotal} />
+							<NumberPlain currency="USD" value={indicativeTotal} digits={digits} />
 						</th>
 					</tr>
 				</tfoot>

@@ -21,7 +21,6 @@ const defaultParams = {
     barrierType: undefined,
     barrier: undefined,
     barrier2: undefined,
-    fractionalDigits: 2,
     amountDefault: 50
 };
 
@@ -39,7 +38,6 @@ const updateDefaultParams = account => {
   const config = configMap.toObject();
   defaultParams.amount = config.stake_default;
   defaultParams.amountDefault = config.stake_default;
-  defaultParams.fractionalDigits = config.fractional_digits;
 };
 
 const initialState = fromJS([]);

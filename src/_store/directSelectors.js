@@ -63,10 +63,14 @@ export const layoutNSelector =
     state => state.workspace.get('layoutN');
 
 export const fractionalDigitsSelector = state => {
+  let digits = 2;
   const account = state.account;
-  const currency = account.get('currency');
-  const currencies_config = account.get('currencies_config');
+  if (account) {
+    const currency = account.get('currency');
+    const currencies_config = account.get('currencies_config');
 
-  const config = currencies_config && currencies_config.get(currency);
-  return config && config.get('fractional_digits') || 2;
+    const config = currencies_config && currencies_config.get(currency);
+    digits = config && config.get('fractional_digits') || 2;
+  }
+  return digits;
 };
