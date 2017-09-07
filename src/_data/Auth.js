@@ -35,7 +35,7 @@ export const signOut = () => {
 };
 
 export const signIn = () => {
-    const oAuthUrl = `https://oauth.binary.com/oauth2/authorize?app_id=${window.BinaryBoot.appId}&l=${window.BinaryBoot.language}`;
+    const oAuthUrl = `${window.BinaryBoot.oAuthUrl}?app_id=${window.BinaryBoot.appId}&l=${window.BinaryBoot.language}`;
     if (electron) {
         const { BrowserWindow } = electron.remote;
         authWindow = new BrowserWindow({
