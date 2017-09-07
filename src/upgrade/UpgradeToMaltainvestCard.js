@@ -5,7 +5,6 @@ import validate from 'validate.js';
 import { M, InputGroup, SelectGroup, LogoSpinner, Legend, Button,
   ErrorMsg, ServerErrorMsg, Countries } from 'binary-components';
 import { api } from '../_data/LiveData';
-import { store } from '../_store/persistentStore';
 import storage from '../_store/storage';
 import SecretQuestion from './SecretQuestion';
 import MultiSelect from '../MultiSelect/MultiSelect';
@@ -22,6 +21,8 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
     residenceList: any[],
     settings: any[],
     loginid: string,
+    states: any[],
+    boot: any[],
   };
 
   constructor(props) {
@@ -29,7 +30,8 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
     this.state = {
       progress: false,
-      statesList: [],
+      statesList: props.states,
+      residence: props.settings.country_code,
       tax_residence: props.settings.tax_residence || '',
       tax_identification_number: props.settings.tax_identification_number || '',
       salutation: props.settings.salutation || '',
@@ -88,12 +90,6 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   componentWillMount() {
-    const residence = store.getState().account.get('country');
-    if (residence) {
-      api.getStatesForCountry(residence).then(response =>
-        this.setState({ residence, statesList: response.states_list })
-      );
-    }
     const taxResidenceList = this.props.residenceList.slice(0);
     taxResidenceList.forEach((val) => {
       delete val.disabled;
@@ -177,11 +173,10 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   render() {
-    const { progress, serverError, statesList, residence, taxResidenceList, tax_residence, salutation, first_name, last_name, place_of_birth, date_of_birth, address_line_1, address_line_2, address_city, address_state,
+    const { progress, serverError, residence, statesList, taxResidenceList, tax_residence, salutation, first_name, last_name, place_of_birth, date_of_birth, address_line_1, address_line_2, address_city, address_state,
       address_postcode, secret_question, secret_answer, phone, forex_trading_experience, forex_trading_frequency, indices_trading_experience, indices_trading_frequency, commodities_trading_experience, commodities_trading_frequency, stocks_trading_experience, stocks_trading_frequency, other_derivatives_trading_experience, other_derivatives_trading_frequency, other_instruments_trading_experience, other_instruments_trading_frequency, employment_industry, occupation, education_level, income_source, net_income, estimated_worth, source_of_wealth, tax_identification_number, account_turnover, account_opening_reason, employment_status, hasError, errors, touched } = this.state;
     const { residenceList, loginid } = this.props;
-    const boot = storage.boot ? JSON.parse(storage.boot) : '';
-    const language = boot.language ? boot.language.toLowerCase() : 'en';
+    const language = this.props.boot.language ? this.props.boot.language : 'en';
     const linkToTermsAndConditions = `https://www.binary.com/${language}/terms-and-conditions.html`;
 
     return (
