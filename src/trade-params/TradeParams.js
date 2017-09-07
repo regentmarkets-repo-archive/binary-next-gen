@@ -52,6 +52,8 @@ type Props = {
     proposal: Object,
     style: Object,
     tradeParams: Object,
+    fractionalDigits: number,
+    defaultStake: number,
 }
 
 export default class TradeParams extends PureComponent {
@@ -97,7 +99,7 @@ export default class TradeParams extends PureComponent {
 
     render() {
         const { contract, currency, disabled, errors, index,
-            pipSize, proposal, style, tradeParams } = this.props;
+            pipSize, proposal, style, tradeParams, fractionalDigits, defaultStake } = this.props;
 
         const selectedCategory = tradeParams.get('tradeCategory');
         const selectedType = tradeParams.get('type');
@@ -175,7 +177,9 @@ export default class TradeParams extends PureComponent {
                 {!showSpreadBarrier &&
                     <StakeCard
                         amount={+tradeParams.get('amount')}
+                        fractionalDigits={fractionalDigits}
                         isVirtual={false}
+                        defaultStake={defaultStake}
                         index={index}
                     />
                 }
@@ -183,6 +187,7 @@ export default class TradeParams extends PureComponent {
                     stake={askPrice}
                     payout={+payout}
                     currency={currency}
+                    fractionalDigits={fractionalDigits}
                 />
                 <BuyButton
                     askPrice={askPrice}

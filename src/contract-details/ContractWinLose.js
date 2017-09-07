@@ -22,6 +22,7 @@ export default class ContractWinLose extends PureComponent {
 					className={className}
 					value={Math.abs(profit)}
 					currency={contract.currency}
+					digits={contract.fractionalDigits}
 				/>
 			</div>
 		);

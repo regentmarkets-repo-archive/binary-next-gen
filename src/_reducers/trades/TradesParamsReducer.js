@@ -21,11 +21,28 @@ const defaultParams = {
     barrierType: undefined,
     barrier: undefined,
     barrier2: undefined,
+    amountDefault: 50
 };
 
-const initialState = fromJS([defaultParams]);
+const updateDefaultParams = account => {
+  if (!account) {
+    return;
+  }
+  const currency = account.get('currency');
+  const currencies_config = account.get('currencies_config');
 
-export default (state = initialState, action) => {
+  const configMap = currencies_config.get(currency);
+  if (!configMap) {
+    return;
+  }
+  const config = configMap.toObject();
+  defaultParams.amount = config.stake_default;
+  defaultParams.amountDefault = config.stake_default;
+};
+
+const initialState = fromJS([]);
+
+export default (state = initialState, action, root) => {
     switch (action.type) {
         case CHANGE_ACTIVE_LAYOUT: {
             const oldTradesCount = state.size;
@@ -37,6 +54,7 @@ export default (state = initialState, action) => {
                 if (assetChoices && assetChoices.length < countDiff) {
                     throw new Error('Not enough asset choices to create more trade');
                 }
+                updateDefaultParams(root && root.account);
                 const additionalTradeParams = Repeat(fromJS(defaultParams), countDiff);  // eslint-disable-line new-cap
 
                 if (assetChoices) {

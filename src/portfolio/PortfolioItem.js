@@ -8,6 +8,7 @@ export default class PortfolioItem extends PureComponent {
 
     props: {
         contract: Contract,
+        digits: number,
         onViewDetails: (contract: Contract) => void,
     };
 
@@ -17,7 +18,7 @@ export default class PortfolioItem extends PureComponent {
     }
 
     render() {
-        const { contract } = this.props;
+        const { contract, digits } = this.props;
         const backendFailure = openContractSubscriptionFailed(contract);
 
         if (backendFailure) return null;
@@ -29,12 +30,14 @@ export default class PortfolioItem extends PureComponent {
                     <NumberPlain
                         currency={contract.currency}
                         value={contract.payout}
+                        digits={digits}
                     />
                 </td>
                 <td className="numeric">
                     <NumberPlain
                         currency={contract.currency}
                         value={contract.buy_price}
+                        digits={digits}
                     />
                 </td>
                 <td className="numeric">
@@ -43,6 +46,7 @@ export default class PortfolioItem extends PureComponent {
                             currency={contract.currency}
                             value={contract.bid_price}
                             isProfit={v => v - contract.buy_price}
+                            digits={digits}
                         />}
                 </td>
             </tr>

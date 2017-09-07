@@ -23,3 +23,9 @@ export const updateToken = (token: string) => ({
 export const removePersonalData = () => ({
     type: types.REMOVE_PERSONAL_DATA,
 });
+
+export const serverDataWebsiteStatus = serverResponse => ({
+    type: types.SERVER_DATA_WEBSITE_STATUS,
+    serverResponse,
+});
+

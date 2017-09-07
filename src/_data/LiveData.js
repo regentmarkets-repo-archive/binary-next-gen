@@ -27,6 +27,7 @@ const handlers = {
     trading_times: 'serverDataTradingTimes',
     transaction: 'serverTransactionStream',
     residence_list: 'serverCountryList',
+    website_status: 'serverDataWebsiteStatus',
 };
 
 // window does not exist when running test
@@ -186,8 +187,9 @@ export const connect = async store => {
         const action = actions[handlers[key]];
 
         api.events.on(key, data => store.dispatch(action(data)));
-        api.events.on(key, () => window.console.warn);
+        // api.events.on(key, (data) => console.warn(key, data));
     });
     api.getResidences();
+    api.getWebsiteStatus();
     api.events.on('authorize', response => response.error ? null : initAuthorized(response, store));
 };
