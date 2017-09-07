@@ -10,6 +10,7 @@
         language: 'EN',
         theme: 'light',
         apiUrl: 'wss://ws.binaryws.com/websockets/v3',
+        oAuthUrl: 'https://oauth.binary.com/oauth2/authorize',
         accounts: []
     };
 
@@ -91,15 +92,16 @@
         }
     }
 
-    if (!window.BinaryBoot.apiUrl) {
-      window.BinaryBoot.apiUrl = defaultConfig.apiUrl;
-    }
+    window.BinaryBoot.oAuthUrl = window.BinaryBoot.oAuthUrl || defaultConfig.oAuthUrl;
+    window.BinaryBoot.apiUrl = window.BinaryBoot.apiUrl || defaultConfig.apiUrl;
+
     const testConfig = localStorage.getItem('test-config');
     if(testConfig) {
       try {
         const config = JSON.parse(testConfig) || { };
-        window.BinaryBoot.appId = config.appId || window.BinaryBoot.appId;;
-        window.BinaryBoot.apiUrl = config.apiUrl || window.BinaryBoot.apiUrl;;
+        window.BinaryBoot.appId = config.appId || window.BinaryBoot.appId;
+        window.BinaryBoot.apiUrl = config.apiUrl || window.BinaryBoot.apiUrl;
+        window.BinaryBoot.oAuthUrl = config.oAuthUrl || window.BinaryBoot.oAuthUrl;
       } catch (e) { }
     }
 
