@@ -9,6 +9,7 @@
     var defaultConfig = {
         language: 'EN',
         theme: 'light',
+        apiUrl: 'wss://ws.binaryws.com/websockets/v3',
         accounts: []
     };
 
@@ -62,7 +63,6 @@
     }
 
 
-    var apiUrl = 'wss://ws.binaryws.com/websockets/v3';
 
     readConfig();
     parseUrlAndStoreAccountInfo(window.location.href);
@@ -91,5 +91,17 @@
         }
     }
 
-    window.BinaryBoot.connection = new WebSocket(apiUrl + '?app_id=' + window.BinaryBoot.appId + '&l=' + lang);
+    if (!window.BinaryBoot.apiUrl) {
+      window.BinaryBoot.apiUrl = defaultConfig.apiUrl;
+    }
+    const testConfig = localStorage.getItem('test-config');
+    if(testConfig) {
+      try {
+        const config = JSON.parse(testConfig) || { };
+        window.BinaryBoot.appId = config.appId || window.BinaryBoot.appId;;
+        window.BinaryBoot.apiUrl = config.apiUrl || window.BinaryBoot.apiUrl;;
+      } catch (e) { }
+    }
+
+    window.BinaryBoot.connection = new WebSocket(window.BinaryBoot.apiUrl + '?app_id=' + window.BinaryBoot.appId + '&l=' + lang);
 })();
