@@ -1141,9 +1141,9 @@ binary-charts@*:
     fbjs "^0.8.6"
     highcharts "^5.0.3"
 
-binary-components@*:
-  version "2.22.0"
-  resolved "https://registry.yarnpkg.com/binary-components/-/binary-components-2.22.0.tgz#aeadc674c46f4ace9b31ea2bc043e1f725388d7a"
+binary-components@^2.23.0:
+  version "2.23.0"
+  resolved "https://registry.yarnpkg.com/binary-components/-/binary-components-2.23.0.tgz#2ce9568f94e9c38e12ebb133445bb5e58eecd024"
   dependencies:
     binary-utils "*"
     classnames "^2.2.5"

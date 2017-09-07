@@ -109,7 +109,7 @@
   "dependencies": {
     "babel-polyfill": "^6.16.0",
     "binary-charts": "*",
-    "binary-components": "*",
+    "binary-components": "^2.23.0",
     "binary-live-api": "*",
     "binary-utils": "^4.21.0",
     "classnames": "^2.2.5",

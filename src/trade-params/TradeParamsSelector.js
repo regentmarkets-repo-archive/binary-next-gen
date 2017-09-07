@@ -3,7 +3,7 @@ import { extractBarrier, extractDuration, extractForwardStartingDuration,
     extractSpreadInfo, normalizedContractFor, groupByKey, findDeep, filterDeep } from 'binary-utils';
 import {
     assetsSelector, currencySelector, tradesErrorSelector, tradePurchaseInfoSelector,
-    tradeProposalSelector, tradesUIStatesSelector, fractionalDigitsSelector,
+    tradeProposalSelector, tradesUIStatesSelector, fractionalDigitsSelector, defaultStakeSelector,
 } from '../_store/directSelectors';
 import { mockedContract } from '../_constants/MockContract';
 import { symbolOnlySelector, tradeParamsWithSymbolNameSelector, pipSizesPerTradeSelector } from '../trade/BasicTradeSelectors';
@@ -103,8 +103,9 @@ export default createSelector(
         tradesUIStatesSelector,
         marketIsOpenSelector,
         fractionalDigitsSelector,
+        defaultStakeSelector,
     ],
-    (currency, contracts, params, errors, pipSizes, purchaseInfo, proposalInfo, uiState, marketIsOpen, fractionalDigits) =>
+    (currency, contracts, params, errors, pipSizes, purchaseInfo, proposalInfo, uiState, marketIsOpen, fractionalDigits, defaultStake) =>
         params.map((p, i) => {
             let contractToUse = contracts.get(i);
             if (!contractToUse) {
@@ -130,6 +131,7 @@ export default createSelector(
                 tradeParams: params.get(i),
                 forceRenderCount: uiState.getIn([i, 'forceRenderCount']),
                 fractionalDigits,
+                defaultStake,
             };
         })
 );

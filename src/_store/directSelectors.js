@@ -74,3 +74,16 @@ export const fractionalDigitsSelector = state => {
   }
   return digits;
 };
+
+export const defaultStakeSelector = state => {
+  let stake = 1;
+  const account = state.account;
+  if (account) {
+    const currency = account.get('currency');
+    const currencies_config = account.get('currencies_config');
+
+    const config = currencies_config && currencies_config.get(currency);
+    stake = config && config.get('stake_default') || 2;
+  }
+  return stake;
+};
