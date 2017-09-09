@@ -5,7 +5,6 @@ import validate from 'validate.js';
 import { M, InputGroup, SelectGroup, LogoSpinner, Legend, Button,
   ErrorMsg, ServerErrorMsg, Countries } from 'binary-components';
 import { api } from '../_data/LiveData';
-import storage from '../_store/storage';
 import SecretQuestion from './SecretQuestion';
 import MultiSelect from '../MultiSelect/MultiSelect';
 import options from './UpgradeCard.options';
@@ -20,9 +19,24 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   props: {
     residenceList: any[],
     settings: any[],
+    country_code: string,
     loginid: string,
     states: any[],
     boot: any[],
+    tax_residence: string,
+    tax_identification_number: string,
+    salutation: string,
+    first_name: string,
+    last_name: string,
+    place_of_birth: string,
+    address_line_1: string,
+    address_line_2: string,
+    address_city: string,
+    address_state: string,
+    address_postcode: string,
+    secret_question: string,
+    secret_answer: string,
+    phone: string,
   };
 
   constructor(props) {
@@ -30,22 +44,23 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
     this.state = {
       progress: false,
+      residenceList: props.residenceList,
       statesList: props.states,
-      residence: props.settings.country_code,
-      tax_residence: props.settings.tax_residence || '',
-      tax_identification_number: props.settings.tax_identification_number || '',
-      salutation: props.settings.salutation || '',
-      first_name: props.settings.first_name || '',
-      last_name: props.settings.last_name || '',
-      place_of_birth: props.settings.place_of_birth || '',
-      address_line_1: props.settings.address_line_1 || '',
-      address_line_2: props.settings.address_line_2 || '',
-      address_city: props.settings.address_city || '',
-      address_state: props.settings.address_state || '',
-      address_postcode: props.settings.address_postcode || '',
-      secret_question: props.settings.secret_question || '',
-      secret_answer: props.settings.secret_answer || '',
-      phone: props.settings.phone || '',
+      residence: props.country_code,
+      tax_residence: props.tax_residence || '',
+      tax_identification_number: props.tax_identification_number || '',
+      salutation: props.salutation || '',
+      first_name: props.first_name || '',
+      last_name: props.last_name || '',
+      place_of_birth: props.place_of_birth || '',
+      address_line_1: props.address_line_1 || '',
+      address_line_2: props.address_line_2 || '',
+      address_city: props.address_city || '',
+      address_state: props.address_state || '',
+      address_postcode: props.address_postcode || '',
+      secret_question: props.secret_question || '',
+      secret_answer: props.secret_answer || '',
+      phone: props.phone || '',
       touched: {
         salutation: false,
         first_name: false,
@@ -161,8 +176,6 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
     try {
       const response = await api.createRealAccountMaltaInvest(createAccountParams);
-      storage.setItem('account', JSON.stringify({ token: response.new_account_real.oauth_token }));
-      window.location = '/';
     } catch (e) {
       this.setState({ serverError: e.error.error.message });
     } finally {
