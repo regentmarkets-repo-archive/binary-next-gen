@@ -44,7 +44,6 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
     this.state = {
       progress: false,
-      residenceList: props.residenceList,
       statesList: props.states,
       residence: props.country_code,
       tax_residence: props.tax_residence || '',
