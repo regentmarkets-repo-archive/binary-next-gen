@@ -24,20 +24,19 @@ const defaultParams = {
     amountDefault: 50
 };
 
-const updateDefaultParams = account => {
+const getAmountDefault = account => {
   if (!account) {
-    return;
+    return defaultParams.amountDefault;
   }
   const currency = account.get('currency');
   const currencies_config = account.get('currencies_config');
 
   const configMap = currencies_config.get(currency);
   if (!configMap) {
-    return;
+    return defaultParams;
   }
   const config = configMap.toObject();
-  defaultParams.amount = config.stake_default;
-  defaultParams.amountDefault = config.stake_default;
+  return config.stake_default;
 };
 
 const initialState = fromJS([]);
@@ -48,13 +47,19 @@ export default (state = initialState, action, root) => {
             const oldTradesCount = state.size;
             const newTradesCount = action.tradesCount;
             const countDiff = newTradesCount - oldTradesCount;
+            const amountDefault = getAmountDefault(root && root.account);
+
+            if (amountDefault !== defaultParams.amountDefault) {
+              defaultParams.amount = amountDefault;
+              defaultParams.amountDefault = amountDefault;
+              state = state.map(s => s.set('amount', amountDefault));
+            }
 
             if (countDiff > 0) {
                 const { assetChoices } = action;
                 if (assetChoices && assetChoices.length < countDiff) {
                     throw new Error('Not enough asset choices to create more trade');
                 }
-                updateDefaultParams(root && root.account);
                 const additionalTradeParams = Repeat(fromJS(defaultParams), countDiff);  // eslint-disable-line new-cap
 
                 if (assetChoices) {
