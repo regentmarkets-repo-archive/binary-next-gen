@@ -1,5 +1,5 @@
 import { createSelector, createStructuredSelector } from 'reselect';
-import { boughtContractsSelector, fractionalDigitsSelector } from '../_store/directSelectors';
+import { boughtContractsSelector, fractionalDigitsSelector, currencySelector } from '../_store/directSelectors';
 
 const activeOpenContractSelector = createSelector(
     boughtContractsSelector,
@@ -55,4 +55,5 @@ export default createStructuredSelector({
     indicativeTotal: indicativeTotalSelector,
     payoutTotal: payoutTotalSelector,
     digits: fractionalDigitsSelector,
+    currency: currencySelector,
 });

@@ -51,7 +51,7 @@ export default (state = initialState, action) => {
         }
         case UPDATE_TRADE_ERROR: {
             const { index, errorID, error } = action;
-            return state.setIn([index, errorID], error);
+            return error ? state.setIn([index, errorID], error) : state.removeIn([index, errorID]);
         }
         case CLEAR_TRADE_ERROR: {
             const { index } = action;
