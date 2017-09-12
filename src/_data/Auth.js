@@ -73,6 +73,7 @@ export const signIn = () => {
                 store.dispatch(updateToken(accounts[0].token));
                 tryAuth(accounts[0].token);
                 winAuth.close();
+                window.location.reload(true);
             }
         });
     } else {
