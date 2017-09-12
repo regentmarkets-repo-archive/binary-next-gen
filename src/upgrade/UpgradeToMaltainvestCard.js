@@ -18,7 +18,6 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
   props: {
     residenceList: any[],
-    settings: any[],
     country_code: string,
     loginid: string,
     states: any[],
@@ -28,6 +27,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
     salutation: string,
     first_name: string,
     last_name: string,
+    date_of_birth: string,
     place_of_birth: string,
     address_line_1: string,
     address_line_2: string,
@@ -51,6 +51,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
       salutation: props.salutation || '',
       first_name: props.first_name || '',
       last_name: props.last_name || '',
+      date_of_birth: props.date_of_birth,
       place_of_birth: props.place_of_birth || '',
       address_line_1: props.address_line_1 || '',
       address_line_2: props.address_line_2 || '',
@@ -108,7 +109,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
     taxResidenceList.forEach((val) => {
       delete val.disabled;
     });
-    this.setState({ taxResidenceList, date_of_birth: moment.unix(this.props.settings.date_of_birth).format('YYYY-MM-DD') || '1980-01-01' });
+    this.setState({ taxResidenceList, date_of_birth: moment.unix(this.props.date_of_birth).format('YYYY-MM-DD') || '1980-01-01' });
     this.validateForm();
   }
 
