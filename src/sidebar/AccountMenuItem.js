@@ -12,7 +12,9 @@ export default class AccountMenuItem extends PureComponent {
 	switchToAccount = () => {
 		const { token } = this.props;
 		storage.setItem('account', JSON.stringify({ token }));
-		if (window.location.href.indexOf('/beta') === -1) {
+		if (window.cordova) {
+			window.location.reload(true);
+		} else if (window.location.href.indexOf('/beta') === -1) {
 			window.location.href = '/';
 		} else {
 			window.location.href = '/beta';

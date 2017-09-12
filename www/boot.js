@@ -37,7 +37,7 @@
             accounts.push({ account: account, token: token, currency : currency || '', });
         }
 
-        var sortedAccounts = accounts.sort((a,b) => b.currency.length - a.currency.length);
+        var sortedAccounts = accounts.sort(function(a,b) {return b.currency.length - a.currency.length;});
         return sortedAccounts;
     }
 
@@ -95,10 +95,10 @@
     window.BinaryBoot.oAuthUrl = window.BinaryBoot.oAuthUrl || defaultConfig.oAuthUrl;
     window.BinaryBoot.apiUrl = window.BinaryBoot.apiUrl || defaultConfig.apiUrl;
 
-    const testConfig = localStorage.getItem('test-config');
+    var testConfig = localStorage.getItem('test-config');
     if(testConfig) {
       try {
-        const config = JSON.parse(testConfig) || { };
+        var config = JSON.parse(testConfig) || { };
         window.BinaryBoot.appId = config.appId || window.BinaryBoot.appId;
         window.BinaryBoot.apiUrl = config.apiUrl || window.BinaryBoot.apiUrl;
         window.BinaryBoot.oAuthUrl = config.oAuthUrl || window.BinaryBoot.oAuthUrl;
