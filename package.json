@@ -109,13 +109,15 @@
   "dependencies": {
     "babel-polyfill": "^6.16.0",
     "binary-charts": "*",
-    "binary-components": "*",
+    "binary-components": "^2.23.0",
     "binary-live-api": "*",
     "binary-utils": "^4.21.0",
     "classnames": "^2.2.5",
+    "enzyme-react-intl": "^1.4.5",
     "history": "~4.4.0",
     "immutable": "^3.8.1",
     "lodash.debounce": "^4.0.8",
+    "lodash.head": "^4.0.1",
     "lodash.throttle": "^4.1.1",
     "react": "^15.4.0",
     "react-addons-css-transition-group": "^15.4.0",
@@ -134,7 +136,8 @@
     "redux-thunk": "^2.1.0",
     "reselect": "^2.5.4",
     "reselect-map": "1.0.0",
-    "trackjs": "^2.5.3"
+    "trackjs": "^2.5.3",
+    "validate.js": "^0.11.1"
   },
   "devDependencies": {
     "asar": "^0.12.3",

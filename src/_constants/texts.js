@@ -1,10 +1,9 @@
 import * as messages from './po';
 
 const t = {
-    AR: messages.ar,
     DE: messages.de,
     EN: messages.en,
-    ER: messages.es,
+    ES: messages.es,
     FR: messages.fr,
     ID: messages.id,
     IT: messages.it,
@@ -12,6 +11,7 @@ const t = {
     PL: messages.pl,
     PT: messages.pt,
     RU: messages.ru,
+    TH: messages.th,
     VI: messages.vi,
     ZH_CN: messages.zhCN,
     ZH_TW: messages.zhTW,

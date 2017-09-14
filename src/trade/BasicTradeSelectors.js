@@ -8,15 +8,17 @@ import {
     tradePurchaseInfoSelector,
     tradeParamsSelector,
     tradingTimesSelector,
+    fractionalDigitsSelector,
 } from '../_store/directSelectors';
 
 export const contractReceiptsPerTradeSelector = createSelector(
-    [tradePurchaseInfoSelector, boughtContractsSelector],
-    (purchaseInfos, contracts) =>
+    [tradePurchaseInfoSelector, boughtContractsSelector, fractionalDigitsSelector],
+    (purchaseInfos, contracts, fractionalDigits) =>
         purchaseInfos.map(p => {
             const contractID = p.get('mostRecentContractId');
             if (!contractID) return undefined;
-            return contracts.get(contractID);
+            const contract = contracts.get(contractID);
+            return contract.set('fractionalDigits', fractionalDigits);
         })
 );
 

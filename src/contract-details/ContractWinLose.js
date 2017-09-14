@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { toMoney, directionClassName } from 'binary-utils';
+import { directionClassName } from 'binary-utils';
 import { M, NumberPlain } from 'binary-components';
 
 export default class ContractWinLose extends PureComponent {
@@ -11,7 +11,8 @@ export default class ContractWinLose extends PureComponent {
 	render() {
 		const { contract } = this.props;
 		const sold = !!contract.sell_price;
-		const profit = sold && toMoney(contract.sell_price - contract.buy_price);
+		const fractionalDigits = contract.fractionalDigits || 2;
+		const profit = sold && (contract.sell_price - contract.buy_price).toFixed(fractionalDigits);
 
 		if (!sold) return null;
 		const className = directionClassName(profit);
@@ -22,6 +23,7 @@ export default class ContractWinLose extends PureComponent {
 					className={className}
 					value={Math.abs(profit)}
 					currency={contract.currency}
+					digits={contract.fractionalDigits}
 				/>
 			</div>
 		);

@@ -6,6 +6,7 @@ import { api as CoreApi } from '../../_data/LiveData';
 import changeSymbol from '../updates/changeSymbol';
 import { getForceRenderCount, contractOfSymbol, isSymbolOpen, getParams } from './SagaSelectors';
 import { subscribeProposal, unsubscribeProposal } from './ProposalSubscriptionSaga';
+import { updateTradeError } from '../../_actions/TradeActions';
 
 
 const CREATE_TRADE = 'CREATE_TRADE';
@@ -32,6 +33,9 @@ export function* tradeCreation(action) {
             put(updateTradeUIState(index, 'forceRenderCount', renderCount + 1)),
             put(subscribeProposal(index, updatedParams)),
         ];
+        if (!isOpen) {
+           yield put(updateTradeError(index, 'serverError', 'The market must be open at the start time.'));
+        }
     } else {
         try {
             const { contracts_for } = yield CoreApi.getContractsForSymbol(symbol);

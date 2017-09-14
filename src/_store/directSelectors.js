@@ -61,3 +61,29 @@ export const tradesCountSelector =
 
 export const layoutNSelector =
     state => state.workspace.get('layoutN');
+
+export const fractionalDigitsSelector = state => {
+  let digits = 2;
+  const account = state.account;
+  if (account) {
+    const currency = account.get('currency');
+    const currencies_config = account.get('currencies_config');
+
+    const config = currencies_config && currencies_config.get(currency);
+    digits = config && config.get('fractional_digits') || 2;
+  }
+  return digits;
+};
+
+export const defaultStakeSelector = state => {
+  let stake = 1;
+  const account = state.account;
+  if (account) {
+    const currency = account.get('currency');
+    const currencies_config = account.get('currencies_config');
+
+    const config = currencies_config && currencies_config.get(currency);
+    stake = config && config.get('stake_default') || 2;
+  }
+  return stake;
+};

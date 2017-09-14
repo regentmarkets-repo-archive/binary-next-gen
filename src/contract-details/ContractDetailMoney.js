@@ -19,6 +19,7 @@ export default class ContractDetailMoney extends PureComponent {
 					<NumberPlain
 						value={contract[code]}
 						currency={contract.currency}
+						digits={contract.fractionalDigits}
 					/> :
 					<span>–</span>
 				}

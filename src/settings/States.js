@@ -17,7 +17,7 @@ export default class States extends PureComponent {
             <fieldset>
                 {noLabel ? null : <label htmlFor={id}>State/Province</label>}
                 <select id={id} onChange={onChange} value={selected}>
-                    {states.map((x, i) => (
+                    {states && states.map((x, i) => (
                         <option key={i} value={x.value}>{x.text}</option>
                     ))}
                 </select>

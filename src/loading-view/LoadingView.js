@@ -13,7 +13,7 @@ export default class LoadingView extends PureComponent {
         return (
             <div className="loading-page">
                 <div className="logo-full">
-                    <img src="img/binary-symbol-logo.svg" alt="Logo" /><img src="img/binary-type-logo.svg" alt="Binary.com" />
+                  <img src="https://style.binary.com/images/logo/binary_logo_light.svg" alt="Logo" />
                 </div>
                 <div className="barspinner">
                     <div className="rect1" />

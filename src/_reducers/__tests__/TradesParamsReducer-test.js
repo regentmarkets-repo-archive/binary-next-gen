@@ -17,6 +17,7 @@ describe('TradesParamsReducer', () => {
         amount: 50,
         type: 'CALL',
         barrierType: 'relative',
+        amountDefault: 50
     };
 
     const initialState = fromJS([defaultParams]);

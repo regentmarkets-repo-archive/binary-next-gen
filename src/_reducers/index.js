@@ -1,4 +1,3 @@
-import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
 import boot from './BootReducer';
@@ -10,7 +9,6 @@ import assetPicker from './AssetPickerReducer';
 import digitStats from './DigitStatsReducer';
 import dailyPrices from './DailyPricesReducer';
 import feedLicenses from './FeedLicensesReducer';
-import news from './NewsReducer';
 import boughtContracts from './BoughtContractsReducer';
 import paymentAgent from './PaymentAgentReducer';
 import portfolio from './PortfolioReducer';
@@ -32,14 +30,34 @@ import tradingTimes from './TradingTimesReducer';
 import transactions from './TransactionsReducer';
 import ticks from './TickReducer';
 import ohlc from './OHLCReducer';
-import video from './VideoReducer';
 import views from './ViewsReducer';
 import workspace from './WorkspaceReducer';
 import watchlist from './WatchlistReducer';
 // import chartData from './ChartDataReducer';
 import residenceList from './CountryListReducer';
 
-export default combineReducers({
+// same as redux combineReducers but also passes root state.
+function combineReducersModified(reducers) {
+    const reducerKeys = Object.keys(reducers);
+
+    return function combination(state = {}, action) {
+        let hasChanged = false;
+        const nextState = { };
+        for (let i = 0; i < reducerKeys.length; i++) {
+            const key = reducerKeys[i];
+            const reducer = reducers[key];
+            if (typeof reducer === 'function') {
+                const previousStateForKey = state[key];
+                const nextStateForKey = reducer(previousStateForKey, action, state);
+                nextState[key] = nextStateForKey;
+                hasChanged = hasChanged || nextStateForKey !== previousStateForKey;
+            }
+        }
+        return hasChanged ? nextState : state;
+    };
+}
+
+export default combineReducersModified({
     appState,
     account,
     assets,
@@ -51,7 +69,6 @@ export default combineReducers({
     dailyPrices,
     digitStats,
     feedLicenses,
-    news,
     ohlc,
     paymentAgent,
     portfolio,
@@ -71,7 +88,6 @@ export default combineReducers({
     tradesUIStates,
     tradesError,
     tradingOptions,
-    video,
     workspace,
     watchlist,
     views,

@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import { M } from 'binary-components';
 import storage from '../_store/storage';
 
 export default class AccountMenuItem extends PureComponent {
@@ -7,12 +6,15 @@ export default class AccountMenuItem extends PureComponent {
 	props: {
 		account: string,
 		token: string,
+		currency: string
 	};
 
 	switchToAccount = () => {
 		const { token } = this.props;
 		storage.setItem('account', JSON.stringify({ token }));
-		if (window.location.href.indexOf('/beta') === -1) {
+		if (window.cordova) {
+			window.location.reload(true);
+		} else if (window.location.href.indexOf('/beta') === -1) {
 			window.location.href = '/';
 		} else {
 			window.location.href = '/beta';
@@ -20,7 +22,7 @@ export default class AccountMenuItem extends PureComponent {
 	};
 
 	render() {
-		const { account } = this.props;
+		const { account, currency } = this.props;
 
 		return (
 			<a
@@ -29,9 +31,9 @@ export default class AccountMenuItem extends PureComponent {
 				onClick={this.switchToAccount}
 			>
 				<img src="img/icon.png" alt="" />
-				<M m="Switch to" />
-				&nbsp;
 				{account}
+				&nbsp;
+				{currency && `(${currency})`}
 			</a>
 		);
 	}

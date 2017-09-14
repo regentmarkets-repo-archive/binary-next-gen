@@ -75,7 +75,7 @@ export default class TradeCard extends PureComponent {
                         onTradeAgainClicked={this.tradeAgain}
                     />
                 }
-                {paramsProps.tradeParams &&
+                {paramsProps && paramsProps.tradeParams &&
                     <TradeParams
                         {...paramsProps}
                         compact={compact}

@@ -21,16 +21,39 @@ const defaultParams = {
     barrierType: undefined,
     barrier: undefined,
     barrier2: undefined,
+    amountDefault: 50
 };
 
-const initialState = fromJS([defaultParams]);
+const getAmountDefault = account => {
+  if (!account) {
+    return defaultParams.amountDefault;
+  }
+  const currency = account.get('currency');
+  const currencies_config = account.get('currencies_config');
 
-export default (state = initialState, action) => {
+  const configMap = currencies_config.get(currency);
+  if (!configMap) {
+    return defaultParams;
+  }
+  const config = configMap.toObject();
+  return config.stake_default;
+};
+
+const initialState = fromJS([]);
+
+export default (state = initialState, action, root) => {
     switch (action.type) {
         case CHANGE_ACTIVE_LAYOUT: {
             const oldTradesCount = state.size;
             const newTradesCount = action.tradesCount;
             const countDiff = newTradesCount - oldTradesCount;
+            const amountDefault = getAmountDefault(root && root.account);
+
+            if (amountDefault !== defaultParams.amountDefault) {
+              defaultParams.amount = amountDefault;
+              defaultParams.amountDefault = amountDefault;
+              state = state.map(s => s.set('amount', amountDefault));
+            }
 
             if (countDiff > 0) {
                 const { assetChoices } = action;

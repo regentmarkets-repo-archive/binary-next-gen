@@ -10,7 +10,9 @@
         display: block;
 
         > .sidebar {
-            top: -300px !important;
+            top: -2000px !important;
+            max-height: 100%;
+            overflow: hidden;
             left: inherit;
             right: 0;
         }

@@ -93,8 +93,10 @@ export default class CrateAccountCard extends PureComponent {
 
         return (
             <div className="startup-content">
-                <LogoSpinner spinning={progress} />
-                <img className="logo-text" src="img/binary-type-logo.svg" alt="Logo" />
+                <div className="full-logo">
+                    <LogoSpinner spinning={progress} />
+                    <img className="logo-text" src="https://style.binary.com/images/logo/logotype_light.svg" alt="Logo" />
+                </div>
                 <Notice text="Thank you for signing up! Check your email to get the verification token." />
                 {serverError && <ServerErrorMsg text={serverError} />}
                 <form onSubmit={this.onFormSubmit}>

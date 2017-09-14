@@ -56,7 +56,7 @@ export default class VerifyEmailCard extends PureComponent {
 			<div className="startup-content">
                 <div className="full-logo">
                     <LogoSpinner spinning={progress} />
-                    <img className="logo-text" src="img/binary-type-logo.svg" alt="Logo" />
+                    <img className="logo-text" src="https://style.binary.com/images/logo/logotype_light.svg" alt="Logo" />
                 </div>
 				{serverError && <ServerErrorMsg text={serverError} />}
 				<form onSubmit={this.onFormSubmit}>
