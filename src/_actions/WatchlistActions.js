@@ -1,4 +1,4 @@
-import { trackEvent } from 'binary-utils/lib/Analytics';
+import { trackEvent } from 'binary-utils/lib/misc/Analytics';
 import { WATCHLIST_TOGGLE_ASSET } from '../_constants/ActionTypes';
 import { api, getTickHistory } from '../_data/LiveData';
 

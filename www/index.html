@@ -9,7 +9,7 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="#2a3052">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta http-equiv="Content-Security-Policy"
-          content="default-src https://codepush.azurewebsites.net http://github.com https://*.googleapis.com:* https://*.polyfill.io:* https://*.google-analytics.com:* wss://*.binaryws.com:* wss://*.binaryqa37.com:* https://*.binaryqa37.com:* https://*.github.io:* https://*.binary.com:* https://binary.com:* https://*.gstatic.com:* https://*.cloudflare.com:* https://*.wordpress.com:* https://*.youtube.com:* https://*.trackjs.com:* 'self' data: gap: https://ssl.gstatic.com 'unsafe-inline' 'unsafe-eval' 'self'; media-src *; img-src * data:;">
+          content="default-src https://codepush.azurewebsites.net http://github.com https://*.googleapis.com:* https://*.polyfill.io:* https://*.google-analytics.com:* wss://*.binaryws.com:* wss://*.binaryqa37.com:* https://*.binaryqa37.com:* wss://*.binaryqa07.com:* https://*.binaryqa07.com:* https://*.github.io:* https://*.binary.com:* https://binary.com:* https://*.gstatic.com:* https://*.cloudflare.com:* https://*.wordpress.com:* https://*.youtube.com:* https://*.trackjs.com:* 'self' data: gap: https://ssl.gstatic.com 'unsafe-inline' 'unsafe-eval' 'self'; media-src *; img-src * data:;">
     <link rel="icon" href="https://binary.com/images/favicons/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57" />
     <link rel="stylesheet" href="fonts.css" />
     <link rel="stylesheet" href="styles.css" />
@@ -99,14 +99,7 @@
 </script>
 
 <script src="boot.js"></script>
-<script>
-    if (navigator.userAgent.indexOf('YaBrowser') === -1) {
-        var newScript = document.createElement('script');
-        newScript.src = 'https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,Promise,Array.from,Array.prototype.find,Array.prototype.includes,String.prototype.startsWith,String.prototype.includes,Math.sign,Intl.~locale.en,Intl.~locale.id,Intl.~locale.ru,Intl.~locale.fr&unknown=polyfill';
-        var s0 = document.getElementsByTagName('script')[0];
-        s0.parentNode.insertBefore(newScript, s0);
-    }
-</script>
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,Promise,Array.from,Array.prototype.find,Array.prototype.includes,String.prototype.startsWith,String.prototype.includes,Math.sign,Intl.~locale.en|always,Intl.~locale.id|always,Intl.~locale.ru|always,Intl.~locale.fr|always&unknown=polyfill"></script>
 <script async src="app.js"></script>
 
 <script>
