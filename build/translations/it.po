@@ -14,7 +14,7 @@ msgid "Trade"
 msgstr "Trade"
 
 msgid "Watchlist"
-msgstr "Elenco di sorveglianza"
+msgstr "Elenco in osservazione"
 
 msgid "Open Positions"
 msgstr "Posizioni aperte"
@@ -253,10 +253,10 @@ msgid "Touch/No Touch"
 msgstr "Touch/No Touch"
 
 msgid "Ends In/Out"
-msgstr "Ends In/Out"
+msgstr "Termina In/Out"
 
 msgid "Stays In/Goes Out"
-msgstr "Stays in/Goes Out"
+msgstr "Stays In (Rimane in) / Goes Out (Esce fuori)"
 
 msgid "Settles"
 msgstr "Liquida"
@@ -923,5 +923,4 @@ msgstr ""
 "settimane."
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
-msgstr ""
-"Il tempo di esclusione non pu essere inferiore a 6 mesi e pi di 5 anni."
+msgstr "Il tempo di esclusione non può essere inferiore a 6 mesi e più di 5 anni."
