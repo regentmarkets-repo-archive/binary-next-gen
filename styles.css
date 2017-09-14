@@ -465,7 +465,8 @@ header {
   width: 3em; }
 
 .logo-text {
-  padding: 0.5em 0; }
+  padding: 0.5em 0;
+  max-width: 200px; }
 
 .sitemap h4 {
   margin-bottom: 0.4em; }
@@ -518,6 +519,9 @@ header {
 
 .logo-full img + img {
   margin-left: 10px; }
+
+.logo-full img {
+  width: 100%; }
 
 .barspinner {
   margin: 100px auto;
@@ -594,7 +598,8 @@ header {
 
 .account-items-list {
   display: flex;
-  flex-direction: column; }
+  flex-direction: column;
+  overflow: scroll; }
 
 .full-screen-overlay {
   position: fixed;
@@ -1223,11 +1228,11 @@ td {
   td.left,
   td.textual {
     text-align: left; }
-  th.right, th.numeric, th.date,
-  td.right,
+  th.left, th.numeric, th.date,
+  td.left,
   td.numeric,
   td.date {
-    text-align: right; }
+    text-align: left; }
   th.row-id,
   td.row-id {
     font-weight: bold; }
@@ -1370,6 +1375,12 @@ tbody > tr:hover {
   .asset-search > input {
     width: 100%; }
 
+.asset-picker-item.closed {
+  cursor: default;
+  color: #bebebe; }
+  .asset-picker-item.closed td:first-child {
+    cursor: pointer; }
+
 .asset-picker-item td {
   text-align: left;
   padding: 0.25em; }
@@ -1434,7 +1445,8 @@ table {
   margin-bottom: 0; }
 
 .logo-text {
-  padding: 0.5em; }
+  padding: 0.5em;
+  max-width: 200px; }
 
 .close-btn {
   cursor: pointer;
@@ -1666,7 +1678,8 @@ nav.sidebar {
   background: #e98024;
   padding: 0.5em;
   line-height: 1.5;
-  word-wrap: break-word; }
+  word-wrap: break-word;
+  word-break: break-all; }
 
 .close-btn svg {
   vertical-align: middle; }
@@ -1775,7 +1788,9 @@ nav.sidebar {
     line-height: 3;
     display: block; }
     .header #hamburger-btn > .sidebar {
-      top: -300px !important;
+      top: -2000px !important;
+      max-height: 100%;
+      overflow: hidden;
       left: inherit;
       right: 0; }
   .header #hamburger-opener:checked + #hamburger-btn > .sidebar {

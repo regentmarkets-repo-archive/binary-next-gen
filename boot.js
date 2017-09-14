@@ -9,6 +9,8 @@
     var defaultConfig = {
         language: 'EN',
         theme: 'light',
+        apiUrl: 'wss://ws.binaryws.com/websockets/v3',
+        oAuthUrl: 'https://oauth.binary.com/oauth2/authorize',
         accounts: []
     };
 
@@ -31,11 +33,12 @@
             var account = objURL['acct' + i],
                 token = objURL['token' + i],
                 currency = objURL['cur' + i];
-            if (!account || !token || !currency) break;
-            accounts.push({ account: account, token: token, currency : currency, });
+            if (!account || !token) break;
+            accounts.push({ account: account, token: token, currency : currency || '', });
         }
 
-        return accounts;
+        var sortedAccounts = accounts.sort(function(a,b) {return b.currency.length - a.currency.length;});
+        return sortedAccounts;
     }
 
     function readConfig() {
@@ -61,7 +64,6 @@
     }
 
 
-    var apiUrl = 'wss://ws.binaryws.com/websockets/v3';
 
     readConfig();
     parseUrlAndStoreAccountInfo(window.location.href);
@@ -90,5 +92,18 @@
         }
     }
 
-    window.BinaryBoot.connection = new WebSocket(apiUrl + '?app_id=' + window.BinaryBoot.appId + '&l=' + lang);
+    window.BinaryBoot.oAuthUrl = window.BinaryBoot.oAuthUrl || defaultConfig.oAuthUrl;
+    window.BinaryBoot.apiUrl = window.BinaryBoot.apiUrl || defaultConfig.apiUrl;
+
+    var testConfig = localStorage.getItem('test-config');
+    if(testConfig) {
+      try {
+        var config = JSON.parse(testConfig) || { };
+        window.BinaryBoot.appId = config.appId || window.BinaryBoot.appId;
+        window.BinaryBoot.apiUrl = config.apiUrl || window.BinaryBoot.apiUrl;
+        window.BinaryBoot.oAuthUrl = config.oAuthUrl || window.BinaryBoot.oAuthUrl;
+      } catch (e) { }
+    }
+
+    window.BinaryBoot.connection = new WebSocket(window.BinaryBoot.apiUrl + '?app_id=' + window.BinaryBoot.appId + '&l=' + lang);
 })();
