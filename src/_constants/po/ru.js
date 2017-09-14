@@ -989,7 +989,7 @@ export default {
     ],
     "Already have an account?": [
         null,
-        " ?"
+        " "
     ],
     "Enter a valid verification code": [
         null,
