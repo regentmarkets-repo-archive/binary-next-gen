@@ -4,7 +4,7 @@ import { addLocaleData } from 'react-intl';
 import { Provider } from 'react-redux';
 import { Router, browserHistory, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
-import { trackRoute } from 'binary-utils/lib/Analytics';
+import { trackRoute } from 'binary-utils/lib/misc/Analytics';
 import { store, rehydratedStorePromise, actions } from './persistentStore';
 import routes from '../_routes';
 import { tryAuth } from '../_data/Auth';
