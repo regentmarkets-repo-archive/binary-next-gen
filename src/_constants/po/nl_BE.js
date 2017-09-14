@@ -1,16 +1,16 @@
 export default {
     "": {
-        "project-id-version": "",
-        "pot-creation-date": "",
-        "po-revision-date": "2017-08-17 19:45+0000",
-        "last-translator": "Lionel HANNEQUIN <lionel.hannequin@free.fr>",
-        "language-team": "English <https://hosted.weblate.org/projects/binary-app/next-gen-app/en/>",
-        "language": "en",
+        "project-id-version": "PACKAGE VERSION",
+        "report-msgid-bugs-to": "",
+        "pot-creation-date": "2017-07-04 18:26+0200",
+        "po-revision-date": "YEAR-MO-DA HO:MI+ZONE",
+        "last-translator": "Automatically generated",
+        "language-team": "none",
+        "language": "nl_BE",
         "mime-version": "1.0",
         "content-type": "text/plain; charset=UTF-8",
         "content-transfer-encoding": "8bit",
-        "plural-forms": "nplurals=2; plural=n != 1;",
-        "x-generator": "Weblate 2.17-dev"
+        "x-generator": "Translate Toolkit 2.1.0"
     },
     "All": [
         null,

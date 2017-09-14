@@ -2,497 +2,495 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-12 21:49+0200\n"
-"PO-Revision-Date: 2017-09-12 19:49+0000\n"
-"Last-Translator: Jutawan <bubbleblythe@gmail.com>\n"
-"Language-Team: Thai <https://hosted.weblate.org/projects/binary-app/next-gen-"
-"app/th/>\n"
-"Language: th\n"
+"POT-Creation-Date: 2017-07-04 18:26+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: nl_BE\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"X-Generator: Translate Toolkit 2.1.0\n"
 
 msgid "All"
-msgstr "ทั้งหมด"
+msgstr ""
 
 msgid "Property"
-msgstr "ทรัพย์สิน"
+msgstr ""
 
 msgid "Value"
-msgstr "มูลค่า"
+msgstr ""
 
 msgid "Balance"
-msgstr "คงเหลือ"
+msgstr ""
 
 msgid "Trade"
-msgstr "ซื้อ-ขาย"
+msgstr ""
 
 msgid "Watchlist"
-msgstr "รายการที่สนใจ"
+msgstr ""
 
 msgid "Open Positions"
-msgstr "รายการซื้อขาย"
+msgstr ""
 
 msgid "Profit Table"
-msgstr "ตารางผลกำไร"
+msgstr ""
 
 msgid "Statement"
-msgstr "รายการธุรกรรม"
+msgstr ""
 
 msgid "Settings"
-msgstr "ตั้งค่า"
+msgstr ""
 
 msgid "Sign Out"
-msgstr "ออกจากระบบ"
+msgstr ""
 
 msgid "View"
-msgstr "ดูรายการ"
+msgstr ""
 
 msgid "Ref."
-msgstr "อ้างอิง"
+msgstr ""
 
 msgid "Purchase"
-msgstr "ซื้อ"
+msgstr ""
 
 msgid "Indicative"
-msgstr "อินดิเคทีฟ"
+msgstr ""
 
 msgid "Purchase Date"
-msgstr "วันที่ซื้อ"
+msgstr ""
 
 msgid "Purchase Price"
-msgstr "ราคาที่ซื้อ"
+msgstr ""
 
 msgid "Sale Date"
-msgstr "วันที่ขาย"
+msgstr ""
 
 msgid "Sale Price"
-msgstr "ราคาขาย"
+msgstr ""
 
 msgid "Profit/Loss"
-msgstr "กำไร/ขาดทุน"
+msgstr ""
 
 msgid "Total"
-msgstr "รวม"
+msgstr ""
 
 msgid "Location"
-msgstr "ตำแหน่ง"
+msgstr ""
 
 msgid "Update"
-msgstr "ล่าสุด"
+msgstr ""
 
 msgid "Details"
-msgstr "รายละเอียด"
+msgstr ""
 
 msgid "Trading Limits"
-msgstr "วงเงิน"
+msgstr ""
 
 msgid "Item"
-msgstr "รายการ"
+msgstr ""
 
 msgid "Limit ({currency})"
-msgstr "วงเงิน ({currency})"
+msgstr ""
 
 msgid "Maximum number of open positions"
-msgstr "จำนวนสูงสุดของโพซิชั่นที่เปิดอยู่"
+msgstr ""
 
 msgid "Maximum account cash balance"
-msgstr "บัญชีเงินสดคงเหลือสูงสุด"
+msgstr ""
 
 msgid "Maximum daily turnover"
-msgstr "มูลค่าสูงสุดต่อวัน"
+msgstr ""
 
 msgid "Maximum aggregate payouts on open positions"
-msgstr "การชำระเงินรวมสูงสุดสำหรับรายการซื้อขายที่เปิดอยู่"
+msgstr ""
 
 msgid "Withdrawal limits"
-msgstr "วงเงินในการถอน"
+msgstr ""
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
-msgstr "วงเงินในการถอนของท่าน คือ {limit} (หรือเทียบเท่าในสกุลเงินอื่น)"
+msgstr ""
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
-msgstr "ท่านได้ถอนจำนวน {drawn} ยูโร"
+msgstr ""
 
 msgid "An additional password can be used to restrict access to the cashier."
-msgstr "รหัสผ่านสามารถใช้เพื่อเข้าถึงการจัดการเงิน"
+msgstr ""
 
 msgid "Sign In"
-msgstr "เข้าสู่ระบบ"
+msgstr ""
 
 msgid "Get your API token"
-msgstr "ขอโทเค่น API ของท่าน"
+msgstr ""
 
 msgid "Create Account"
-msgstr "สร้างบัญชี"
+msgstr ""
 
 msgid "Action"
-msgstr "การดำเนินการ"
+msgstr ""
 
 msgid "Credit/Debit"
-msgstr "เครดิต/เดบิต"
+msgstr ""
 
 msgid "Purchase Time"
-msgstr "เวลาซื้อ"
+msgstr ""
 
 msgid "Back"
-msgstr "กลับ"
+msgstr ""
 
 msgid "Place Order"
-msgstr "ส่งคำสั่ง"
+msgstr ""
 
 msgid "{asset} will {type} over next {duration}"
-msgstr "{asset} จะ {type} เมื่อ {duration}"
+msgstr ""
 
 msgid "Price"
-msgstr "ราคา"
+msgstr ""
 
 msgid "Asset"
-msgstr "สินทรัพย์"
+msgstr ""
 
 msgid "Type"
-msgstr "ประเภท"
+msgstr ""
 
 msgid "Ticks"
-msgstr "ช่วงห่างของราคา"
+msgstr ""
 
 msgid "Amount"
-msgstr "จำนวน"
+msgstr ""
 
 msgid "Trade Confirmation"
-msgstr "การยืนยันซื้อขาย"
+msgstr ""
 
 msgid "Entry spot"
-msgstr "สปอตเริ่มต้น"
+msgstr ""
 
 msgid "Exit spot"
-msgstr "สปอตสิ้นสุด"
+msgstr ""
 
 msgid "Next"
-msgstr "ถัดไป"
+msgstr ""
 
 msgid "Open Account"
-msgstr "เปิดบัญชี"
+msgstr ""
 
 msgid "Upgrade to Real Money Account"
-msgstr "อัพเกรดเป็นบัญชีเงินที่แท้จริง"
+msgstr ""
 
 msgid "Date of birth"
-msgstr "วันเกิด"
+msgstr ""
 
 msgid "Home Address"
-msgstr "ที่อยู่ (บ้าน)"
+msgstr ""
 
 msgid "Security"
-msgstr "หลักทรัพย์"
+msgstr ""
 
 msgid "Spot"
-msgstr "สปอต"
+msgstr ""
 
 msgid "Change"
-msgstr "การเปลี่ยนแปลง"
+msgstr ""
 
 msgid "Chart"
-msgstr "แผนภูมิ"
+msgstr ""
 
 msgid "Purchase For"
-msgstr "ซื้อสำหรับ"
+msgstr ""
 
 msgid "Rise"
-msgstr "ขึ้น"
+msgstr ""
 
 msgid "Stake"
-msgstr "วางเงิน"
+msgstr ""
 
 msgid "Payout"
-msgstr "การชำระเงิน"
+msgstr ""
 
 msgid "Deposit"
-msgstr "ฝาก"
+msgstr ""
 
 msgid "Transactions"
-msgstr "รายการ"
+msgstr ""
 
 msgid "Opens"
-msgstr "เปิด"
+msgstr ""
 
 msgid "Closes"
-msgstr "ปิด"
+msgstr ""
 
 msgid "Personal"
-msgstr "ส่วนตัว"
+msgstr ""
 
 msgid "General"
-msgstr "ทั่วไป"
+msgstr ""
 
 msgid "Trading Times"
-msgstr "เวลาซื้อ-ขาย"
+msgstr ""
 
 msgid "Asset Index"
-msgstr "ดัชนีสินทรัพย์"
+msgstr ""
 
 msgid "Today"
-msgstr "วันนี้"
+msgstr ""
 
 msgid "Yesterday"
-msgstr "เมื่อวาน"
+msgstr ""
 
 msgid "Tomorrow"
-msgstr "พรุ่งนี้"
+msgstr ""
 
 msgid "Takeout"
-msgstr "เทคเอาท์"
+msgstr ""
 
 msgid "News"
-msgstr "ข่าว"
+msgstr ""
 
 msgid "Resources"
-msgstr "แหล่งข้อมูล"
+msgstr ""
 
 msgid "Last 7 Days"
-msgstr "7 วันที่ผ่านมา"
+msgstr ""
 
 msgid "Last 30 Days"
-msgstr "30 วันที่ผ่านมา"
+msgstr ""
 
 msgid "Daily Report"
-msgstr "รายงานประจำวัน"
+msgstr ""
 
 msgid "Up/Down"
-msgstr "ขึ้น/ลง"
+msgstr ""
 
 msgid "Touch/No Touch"
-msgstr "แตะ/ไม่แตะ"
+msgstr ""
 
 msgid "Ends In/Out"
-msgstr "สิ้นสุดใน/นอก"
+msgstr ""
 
 msgid "Stays In/Goes Out"
-msgstr "ภายใน/นอก"
+msgstr ""
 
 msgid "Settles"
-msgstr "ชำระเงิน"
+msgstr ""
 
 msgid "Language"
-msgstr "ภาษา"
+msgstr ""
 
 msgid "Color Theme"
-msgstr "สีธีม"
+msgstr ""
 
 msgid "Light"
-msgstr "สว่าง"
+msgstr ""
 
 msgid "Dark"
-msgstr "เข้ม"
+msgstr ""
 
 msgid "Name"
-msgstr "ชื่อ"
+msgstr ""
 
 msgid "Date Of Birth"
-msgstr "วันเกิด"
+msgstr ""
 
 msgid "Country Of Residence"
-msgstr "ประเทศที่พำนัก"
+msgstr ""
 
 msgid "Email"
-msgstr "อีเมล์"
+msgstr ""
 
 msgid "There are no transactions for selected period"
-msgstr "ไม่มีรายการในช่วงเวลาที่ระบุ"
+msgstr ""
 
 msgid "Sell"
-msgstr "ขาย"
+msgstr ""
 
 msgid "Buy"
-msgstr "ซื้อ"
+msgstr ""
 
 msgid "Digit Even"
-msgstr "ดิจิตคู่"
+msgstr ""
 
 msgid "Touches"
-msgstr "แตะเส้น"
+msgstr ""
 
 msgid "Digit Over"
-msgstr "ดิจิตสูงกว่า"
+msgstr ""
 
 msgid "Digit Match"
-msgstr "ดิจิตลงตัว"
+msgstr ""
 
 msgid "Digit Under"
-msgstr "ดิจิตต่ำกว่า"
+msgstr ""
 
 msgid "Digit Odd"
-msgstr "ดิจิตคี่"
+msgstr ""
 
 msgid "Digit Differs"
-msgstr "ดิจิตต่างกัน"
+msgstr ""
 
 msgid "No Touch"
-msgstr "ไม่แตะเส้น"
+msgstr ""
 
 msgid "Fall"
-msgstr "ตก"
+msgstr ""
 
 msgid "Asian Down"
-msgstr "เอเชียนลง"
+msgstr ""
 
 msgid "Asian Up"
-msgstr "เอเชียนขึ้น"
+msgstr ""
 
 msgid "Search For Assets"
-msgstr "ค้นหาสินทรัพย์"
+msgstr ""
 
 msgid "Start times"
-msgstr "เวลาเริ่มต้น"
+msgstr ""
 
 msgid "Durations"
-msgstr "ระยะเวลา"
+msgstr ""
 
 msgid "Payout/Stake"
-msgstr "ชำระเงิน/วางเงิน"
+msgstr ""
 
 msgid "Purchase for"
-msgstr "จ่ายสำหรับ"
+msgstr ""
 
 msgid "payout"
-msgstr "ชำระเงิน"
+msgstr ""
 
 msgid "stake"
-msgstr "วางเงิน"
+msgstr ""
 
 msgid "Self Exclusion"
-msgstr "พักวงเงิน"
+msgstr ""
 
 msgid "Cashier Lock"
-msgstr "ล็อคการจ่ายเงิน"
+msgstr ""
 
 msgid "Change Password"
-msgstr "เปลี่ยนรหัสผ่าน"
+msgstr ""
 
 msgid "Password"
-msgstr "รหัสผ่าน"
+msgstr ""
 
 msgid "Tick Trade"
-msgstr "เทรดช่วงราคา"
+msgstr ""
 
 msgid "Full Trade"
-msgstr "เทรดเต็ม"
+msgstr ""
 
 msgid "Address"
-msgstr "ที่อยู่"
+msgstr ""
 
 msgid "Town/City"
-msgstr "เมือง"
+msgstr ""
 
 msgid "State/Province"
-msgstr "รัฐ/จังหวัด"
+msgstr ""
 
 msgid "Telephone"
-msgstr "โทรศัพท์"
+msgstr ""
 
 msgid "Postal Code / ZIP"
-msgstr "รหัสไปรษณีย์"
+msgstr ""
 
 msgid "Cashier password"
-msgstr "รหัสผ่านเพื่อจัดการเงิน"
+msgstr ""
 
 msgid "Re-enter your password"
-msgstr "ป้อนรหัสผ่านอีกครั้ง"
+msgstr ""
 
 msgid "Current password"
-msgstr "รหัสผ่านปัจจุบัน"
+msgstr ""
 
 msgid "New password"
-msgstr "รหัสผ่านใหม่"
+msgstr ""
 
 msgid "Verify new password"
-msgstr "ยืนยันรหัสผ่านใหม่"
+msgstr ""
 
 msgid "Daily turnover limit"
-msgstr "วงเงินธุรกรรมรวมต่อวัน"
+msgstr ""
 
 msgid "Once this limit is reached, you may no longer deposit."
-msgstr "เมื่อวงเงินเต็ม ท่านไม่สามารถฝากเงินได้"
+msgstr ""
 
 msgid "Maximum aggregate contract purchases per day."
-msgstr "มูลค่าสัญญารวมสูงสุดที่ซื้อต่อวัน"
+msgstr ""
 
 msgid "Daily limit on losses"
-msgstr "วงเงินขาดทุนต่อวัน"
+msgstr ""
 
 msgid "Maximum aggregate loss per day."
-msgstr "มูลค่ารวมที่ขาดทุนสูงสุดต่อวัน"
+msgstr ""
 
 msgid "7-day turnover limit"
-msgstr "วงเงินรวม 7 วัน"
+msgstr ""
 
 msgid "Maximum aggregate contract purchases over a 7-day period."
-msgstr "มูลค่าสัญญารวมสูงสุดที่ซื้อในระยะเวลา 7 วัน"
+msgstr ""
 
 msgid "7-day limit on losses"
-msgstr "วงเงินขาดทุนในช่วง 7 วัน"
+msgstr ""
 
 msgid "Maximum aggregate loss over a 7-day period."
-msgstr "มูลค่าขาดทุนรวมสูงสุดของรายการในช่วง 7 วัน"
+msgstr ""
 
 msgid "30-day turnover limit"
-msgstr "วงเงินรวม 30 วัน"
+msgstr ""
 
 msgid "Maximum aggregate contract purchases over a 30-day period."
-msgstr "มูลค่าสัญญารวมสูงสุดที่ซื้อในระยะเวลา 30 วัน"
+msgstr ""
 
 msgid "30-day limit on losses"
-msgstr "วงเงินขาดทุนในช่วง 30 วัน"
+msgstr ""
 
 msgid "Maximum aggregate loss over a 30-day period."
-msgstr "ขาดทุนรวมสูงสุดของรายการในช่วง 30 วัน"
+msgstr ""
 
 msgid "Session duration limit, in minutes"
-msgstr "รอบระยะเวลาการซื้อขาย ในหน่วยนาที"
+msgstr ""
 
 msgid "You will be automatically logged out after such time."
-msgstr "ท่านจะออกจากระบบโดยอัตโนมัติหลังจากนั้น"
+msgstr ""
 
 msgid "Exclude me from the website until"
-msgstr "พักฉันจากเว็บไซต์กระทั่ง"
+msgstr ""
 
 msgid "Limits"
-msgstr "วงเงิน"
+msgstr ""
 
 msgid "Please enter date in the format YYYY-MM-DD."
-msgstr "กรุณาบันทึกวันที่ในรูปแบบ ปี(ค.ศ.)-เดือนที่-วันที่"
+msgstr ""
 
 msgid "New Trade"
-msgstr "รายการใหม่"
+msgstr ""
 
 msgid "Trade Type"
-msgstr "ประเภทรายการเทรด"
+msgstr ""
 
 msgid "Random 100 Index"
-msgstr "ดัชนีสุ่ม 100"
+msgstr ""
 
 msgid "Article"
-msgstr "บทความ"
+msgstr ""
 
 msgid "Start Later"
-msgstr "เริ่มต้นในภายหลัง"
+msgstr ""
 
 msgid "Buy Price"
-msgstr "ราคาซื้อ"
+msgstr ""
 
 msgid "Earning (%)"
-msgstr "กำไร (%)"
+msgstr ""
 
 msgid "Profit"
-msgstr "กำไร"
+msgstr ""
 
 msgid "Entry Price"
-msgstr "ราคาเริ่มต้น"
+msgstr ""
 
 msgid "Exit Price"
-msgstr "ราคาสิ้นสุด"
+msgstr ""
 
 msgid "Indicative Price"
 msgstr ""
@@ -510,13 +508,13 @@ msgid "You lost "
 msgstr ""
 
 msgid "Close"
-msgstr "ปิด"
+msgstr ""
 
 msgid "Low"
-msgstr "ต่ำ"
+msgstr ""
 
 msgid "High"
-msgstr "สูง"
+msgstr ""
 
 msgid "Open"
 msgstr ""
@@ -638,7 +636,9 @@ msgstr ""
 msgid "You Lost"
 msgstr ""
 
-msgid "To change your name, date of birth, country of residence, or email, contact Customer Support."
+msgid ""
+"To change your name, date of birth, country of residence, or email, contact "
+"Customer Support."
 msgstr ""
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
@@ -764,7 +764,8 @@ msgstr ""
 msgid "Choose your country"
 msgstr ""
 
-msgid "Password should have lower and uppercase letters and 6 characters or more"
+msgid ""
+"Password should have lower and uppercase letters and 6 characters or more"
 msgstr ""
 
 msgid "Passwords do not match"
