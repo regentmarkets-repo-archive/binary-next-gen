@@ -1,26 +1,16 @@
 dist: trusty
 language: node_js
 node_js:
-    - 6.0
+    - 7.10.0
 notifications:
   email:
   - arnab@binary.com
 branches:
   only:
   - translations
-addons:
-  apt:
-    sources:
-      - deadsnakes # source required so it finds the package definition below
-    packages:
-      - python3
-      - python3-pip
 install:
   - yarn
-  - git checkout translations
-  - cd build
-  - python3 extract.py
-  - cd ..
+  - yarn update-po
   - yarn update-translation
 after_success:
     - git config --global user.email "arnab@binary.com"
