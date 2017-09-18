@@ -637,9 +637,7 @@ msgstr "您贏了"
 msgid "You Lost"
 msgstr "您輸了"
 
-msgid ""
-"To change your name, date of birth, country of residence, or email, contact "
-"Customer Support."
+msgid "To change your name, date of birth, country of residence, or email, contact Customer Support."
 msgstr "如需更改姓名、生日、居住國或電子郵件地址，請與客服人員聯繫。"
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
@@ -765,8 +763,7 @@ msgstr "請輸入有效的驗證代碼"
 msgid "Choose your country"
 msgstr "選擇您的國家"
 
-msgid ""
-"Password should have lower and uppercase letters and 6 characters or more"
+msgid "Password should have lower and uppercase letters and 6 characters or more"
 msgstr "密碼須包含大小寫字母與至少6個字符"
 
 msgid "Passwords do not match"
