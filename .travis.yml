@@ -8,8 +8,14 @@ notifications:
 branches:
   only:
   - translations
+addons:
+  apt:
+    sources:
+      - deadsnakes # source required so it finds the package definition below
+    packages:
+      - python3
+      - python3-pip
 install:
-  - pip install --upgrade pip
   - yarn
   - git checkout translations
   - cd build
