@@ -9,6 +9,7 @@ branches:
   only:
   - translations
 install:
+  - pip install --upgrade pip && pip install -r requirements.txt
   - yarn
   - git checkout translations
   - cd build
