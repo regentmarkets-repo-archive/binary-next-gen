@@ -32,7 +32,7 @@ export default {
     ],
     "Watchlist": [
         null,
-        "Tableau de bord"
+        "Liste de surveillance"
     ],
     "Open Positions": [
         null,
@@ -92,7 +92,7 @@ export default {
     ],
     "Total": [
         null,
-        ""
+        "Total"
     ],
     "Location": [
         null,
@@ -112,7 +112,7 @@ export default {
     ],
     "Item": [
         null,
-        "Elément"
+        "Élément"
     ],
     "Limit ({currency})": [
         null,
@@ -164,7 +164,7 @@ export default {
     ],
     "Action": [
         null,
-        ""
+        "Action"
     ],
     "Credit/Debit": [
         null,
@@ -196,11 +196,11 @@ export default {
     ],
     "Type": [
         null,
-        ""
+        "Type"
     ],
     "Ticks": [
         null,
-        ""
+        "Ticks"
     ],
     "Amount": [
         null,
@@ -244,7 +244,7 @@ export default {
     ],
     "Spot": [
         null,
-        ""
+        "Spot"
     ],
     "Change": [
         null,
@@ -276,7 +276,7 @@ export default {
     ],
     "Transactions": [
         null,
-        ""
+        "Transactions"
     ],
     "Opens": [
         null,
@@ -344,11 +344,11 @@ export default {
     ],
     "Touch/No Touch": [
         null,
-        "Touche"
+        "Touche/Sans touche"
     ],
     "Ends In/Out": [
         null,
-        "In/Out"
+        "Termine dans/hors de la zone"
     ],
     "Stays In/Goes Out": [
         null,
@@ -416,7 +416,7 @@ export default {
     ],
     "Digit Match": [
         null,
-        "Chiffre égal"
+        "Chiffre correspondant"
     ],
     "Digit Under": [
         null,
@@ -440,11 +440,11 @@ export default {
     ],
     "Asian Down": [
         null,
-        ""
+        "Asiatique/baisse"
     ],
     "Asian Up": [
         null,
-        ""
+        "Asiatique/hausse"
     ],
     "Search For Assets": [
         null,
@@ -492,11 +492,11 @@ export default {
     ],
     "Tick Trade": [
         null,
-        ""
+        "Tick Trade"
     ],
     "Full Trade": [
         null,
-        "Option classique"
+        "Trade complète"
     ],
     "Address": [
         null,
@@ -624,7 +624,7 @@ export default {
     ],
     "Article": [
         null,
-        ""
+        "Article"
     ],
     "Start Later": [
         null,
@@ -640,7 +640,7 @@ export default {
     ],
     "Profit": [
         null,
-        ""
+        "Profits"
     ],
     "Entry Price": [
         null,
@@ -676,11 +676,11 @@ export default {
     ],
     "Low": [
         null,
-        ""
+        "Bas"
     ],
     "High": [
         null,
-        ""
+        "Haut"
     ],
     "Open": [
         null,
@@ -688,7 +688,7 @@ export default {
     ],
     "Date": [
         null,
-        ""
+        "Date"
     ],
     "Upcoming Events": [
         null,
@@ -716,7 +716,7 @@ export default {
     ],
     "Spreads": [
         null,
-        ""
+        "Spreads"
     ],
     "Confirm new password": [
         null,
@@ -724,11 +724,11 @@ export default {
     ],
     "TICK": [
         null,
-        ""
+        "TICK"
     ],
     "Minutes": [
         null,
-        ""
+        "Minutes"
     ],
     "Seconds": [
         null,
@@ -744,7 +744,7 @@ export default {
     ],
     "N/A": [
         null,
-        ""
+        "N/A"
     ],
     "Duration": [
         null,
@@ -776,7 +776,7 @@ export default {
     ],
     "Digit Stats": [
         null,
-        "Statistiques du dernier chiffre"
+        "Chiffres statistiques"
     ],
     "Favorites": [
         null,
@@ -784,7 +784,7 @@ export default {
     ],
     "Open For Trading": [
         null,
-        ""
+        "Ouvert à la négociation"
     ],
     "Closed": [
         null,
@@ -856,7 +856,7 @@ export default {
     ],
     "Time out until": [
         null,
-        "Interrompre jusqu'à"
+        "Expiration jusqu'à"
     ],
     "No transactions for the selected period": [
         null,
@@ -960,7 +960,7 @@ export default {
     ],
     "Indices": [
         null,
-        ""
+        "Indices"
     ],
     "OTC Stocks": [
         null,
@@ -1052,7 +1052,7 @@ export default {
     ],
     "You need to agree to our Terms and Conditions": [
         null,
-        "Vous devez accepter nos Conditions générales"
+        "Vous devez accepter nos Conditions Générales"
     ],
     "I agree to the": [
         null,
@@ -1072,7 +1072,7 @@ export default {
     ],
     "Confirm New Password": [
         null,
-        "Confirmer le nouveau mot de passe"
+        "Confirmez le nouveau mot de passe"
     ],
     "First Name": [
         null,
@@ -1096,7 +1096,7 @@ export default {
     ],
     "Answer To Secret Question": [
         null,
-        "Réponse à la question secrète"
+        "Réponse à la Question Secrète"
     ],
     "Switch to": [
         null,
@@ -1148,11 +1148,11 @@ export default {
     ],
     "Time out until date": [
         null,
-        ""
+        "Expiration jusqu'à date"
     ],
     "Time out until time": [
         null,
-        ""
+        "Expiration jusqu'à heure"
     ],
     "Light Theme": [
         null,
@@ -1208,26 +1208,26 @@ export default {
     ],
     "Touch spot": [
         null,
-        ""
+        "Touche spot"
     ],
     "This field is required": [
         null,
-        ""
+        "Ce champ est requis"
     ],
     "Should be a valid number": [
         null,
-        ""
+        "La saisie doit être un nombre valide"
     ],
     "Should be between 0 and {number}": [
         null,
-        ""
+        "Doit être compris entre 0 et {number}"
     ],
     "Time out must be after today and cannot be more than 6 weeks.": [
         null,
-        ""
+        "L'expiration doit être après aujourd'hui et ne peut pas être plus de 6 semaines."
     ],
     "Exclude time cannot be less than 6 months and more than 5 years.": [
         null,
-        ""
+        "Temps d’exclusion ne peut être inférieure à 6 mois et à plus de 5 ans."
     ]
 }

@@ -346,7 +346,7 @@ export default {
     ],
     "Touch/No Touch": [
         null,
-        "TOUCH/NO-TOUCH"
+        "タッチ/ノータッチ"
     ],
     "Ends In/Out": [
         null,
@@ -442,7 +442,7 @@ export default {
     ],
     "Asian Down": [
         null,
-        "ASIAN DOWN"
+        "Asianダウン"
     ],
     "Asian Up": [
         null,

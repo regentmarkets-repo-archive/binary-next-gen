@@ -1,4 +1,18 @@
 export default {
+    "": {
+        "project-id-version": "PACKAGE VERSION",
+        "report-msgid-bugs-to": "",
+        "pot-creation-date": "2017-09-12 21:49+0200",
+        "po-revision-date": "2017-09-12 19:49+0000",
+        "last-translator": "Jutawan <bubbleblythe@gmail.com>",
+        "language-team": "Thai <https://hosted.weblate.org/projects/binary-app/next-gen-app/th/>",
+        "language": "th",
+        "mime-version": "1.0",
+        "content-type": "text/plain; charset=UTF-8",
+        "content-transfer-encoding": "8bit",
+        "plural-forms": "nplurals=1; plural=0;",
+        "x-generator": "Weblate 2.17-dev"
+    },
     "All": [
         null,
         "ทั้งหมด"
@@ -621,11 +635,11 @@ export default {
     ],
     "Buy Price": [
         null,
-        ""
+        "ราคาซื้อ"
     ],
     "Earning (%)": [
         null,
-        ""
+        "กำไร (%)"
     ],
     "Profit": [
         null,
@@ -633,11 +647,11 @@ export default {
     ],
     "Entry Price": [
         null,
-        ""
+        "ราคาเริ่มต้น"
     ],
     "Exit Price": [
         null,
-        ""
+        "ราคาสิ้นสุด"
     ],
     "Indicative Price": [
         null,
@@ -661,15 +675,15 @@ export default {
     ],
     "Close": [
         null,
-        ""
+        "ปิด"
     ],
     "Low": [
         null,
-        ""
+        "ต่ำ"
     ],
     "High": [
         null,
-        ""
+        "สูง"
     ],
     "Open": [
         null,
