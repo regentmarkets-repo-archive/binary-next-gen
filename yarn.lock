@@ -1292,22 +1292,22 @@ binary-indicators@^1.2.1:
   dependencies:
     binary-utils "^4.12.4"
 
-binary-live-api@*:
-  version "28.0.0"
-  resolved "https://registry.yarnpkg.com/binary-live-api/-/binary-live-api-28.0.0.tgz#792f4337435f9c8fd1a98365b45c21109d658bcb"
+binary-live-api@^28.2.3:
+  version "28.2.3"
+  resolved "https://registry.yarnpkg.com/binary-live-api/-/binary-live-api-28.2.3.tgz#e76a64327163baf826686b04dbb6f254e785920b"
   dependencies:
-    binary-utils "^4.19.1"
+    binary-utils "^4.21.0"
     rx-lite "^4.0.8"
 
 binary-test-data@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/binary-test-data/-/binary-test-data-1.2.0.tgz#bd895e01fe00cfd6f12c8d497555e566e6dc5ca1"
 
-binary-utils@*, binary-utils@^4.12.4, binary-utils@^4.19.1:
+binary-utils@*, binary-utils@^4.12.4:
   version "4.21.0"
   resolved "https://registry.yarnpkg.com/binary-utils/-/binary-utils-4.21.0.tgz#9f679889296e177cb685b60c5ba3e9892dd1c4f9"
 
-binary-utils@^4.23.0:
+binary-utils@^4.21.0, binary-utils@^4.23.0:
   version "4.23.0"
   resolved "https://registry.yarnpkg.com/binary-utils/-/binary-utils-4.23.0.tgz#5c0929938db56e478d14b535b740f4acbf8277a5"
   dependencies:

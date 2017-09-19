@@ -110,7 +110,7 @@
         "babel-polyfill": "^6.16.0",
         "binary-charts": "*",
         "binary-components": "^2.23.0",
-        "binary-live-api": "*",
+        "binary-live-api": "^28.2.3",
         "binary-utils": "^4.23.0",
         "classnames": "^2.2.5",
         "cordova-android": "~5.1.1",
