@@ -63,8 +63,6 @@
         }
     }
 
-
-
     readConfig();
     parseUrlAndStoreAccountInfo(window.location.href);
     window.BinaryBoot.parseUrl = parseOAuthResponse;
@@ -94,6 +92,10 @@
 
     window.BinaryBoot.oAuthUrl = window.BinaryBoot.oAuthUrl || defaultConfig.oAuthUrl;
     window.BinaryBoot.apiUrl = window.BinaryBoot.apiUrl || defaultConfig.apiUrl;
+
+    // window.BinaryBoot.apiUrl = 'wss://www.binaryqa07.com/websockets/v3';
+    // window.BinaryBoot.appId = 1004;
+    // window.BinaryBoot.oAuthUrl = 'https://www.binaryqa07.com/oauth2/authorize';
 
     var testConfig = localStorage.getItem('test-config');
     if(testConfig) {
