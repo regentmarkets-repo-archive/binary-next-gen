@@ -1,4 +1,4 @@
-import { trackUserId } from 'binary-utils/lib/Analytics';
+import { trackUserId } from 'binary-utils/lib/misc/Analytics';
 import { showError } from 'binary-utils';
 import { store } from '../_store/persistentStore';
 import { history, accountExclusion } from '../_store/root';
