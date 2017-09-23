@@ -596,7 +596,7 @@ msgid "Entry Spot Time"
 msgstr "เวลาของสปอตเริ่มต้น"
 
 msgid "Potential Payout"
-msgstr ""
+msgstr "ประมาณการยอดเงินที่ต้องชำระ"
 
 msgid "Exit Spot"
 msgstr "สปอตสิ้นสุด"
@@ -608,7 +608,7 @@ msgid "Sell Price"
 msgstr "ราคาขาย"
 
 msgid "Sell Time"
-msgstr ""
+msgstr "เวลาที่ขาย"
 
 msgid "Trade Again"
 msgstr "ซื้อขายอีกครั้ง"
@@ -623,73 +623,73 @@ msgid "You Lost"
 msgstr "ท่านขาดทุน"
 
 msgid "To change your name, date of birth, country of residence, or email, contact Customer Support."
-msgstr ""
+msgstr "โปรดติดต่อเจ้าหน้าที่บริการลูกค้าในการเปลี่ยนแปลง ชื่อ วันเกิด ประเทศที่พำนัก หรือ อีเมล์ของท่าน"
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
-msgstr ""
+msgstr "การรับ/ชำระเงินของท่านถูกล็อกตามความประสงค์ของท่าน - หากประสงค์ปลดล็อก โปรดป้อนรหัสผ่าน"
 
 msgid "Unlock Cashier"
-msgstr ""
+msgstr "ปลดล็อกแคชเชียร์"
 
 msgid "Time out until"
-msgstr ""
+msgstr "หมดเวลากระทั่ง"
 
 msgid "No transactions for the selected period"
 msgstr ""
 
 msgid "You have no open contracts"
-msgstr ""
+msgstr "ท่านไม่มีสัญญาที่เปิดไว้"
 
 msgid "You have no assets in watchlist"
-msgstr ""
+msgstr "ท่านไม่มีสิทนทรัพย์ในรายการติดตาม"
 
 msgid "Basic"
-msgstr ""
+msgstr "พื้นฐาน"
 
 msgid "Digits"
-msgstr ""
+msgstr "ตัวเลข"
 
 msgid "Advanced"
-msgstr ""
+msgstr "ขั้นสูง"
 
 msgid "Higher"
-msgstr ""
+msgstr "สูงกว่า"
 
 msgid "Lower"
-msgstr ""
+msgstr "ต่ำกว่า"
 
 msgid "Ends Outside"
-msgstr ""
+msgstr "สิ้นสุดภายนอกขอบเขต"
 
 msgid "Ends Between"
-msgstr ""
+msgstr "สิ้นสุดระหว่าง"
 
 msgid "Stays Between"
-msgstr ""
+msgstr "อยู่ระหว่าง"
 
 msgid "Goes Outside"
-msgstr ""
+msgstr "ออกนอกขอบเขต"
 
 msgid "Does Not Touch"
-msgstr ""
+msgstr "ไม่สัมผัส"
 
 msgid "Credit / Debit"
-msgstr ""
+msgstr "เครดิต / เดบิต"
 
 msgid "Last 25 Ticks"
-msgstr ""
+msgstr "ช่วงราคาล่าสุด 25 รายการ"
 
 msgid "Last 50 Trades"
-msgstr ""
+msgstr "การซื้อขายล่าสุด 50 รายการ"
 
 msgid "Last 100 Trades"
-msgstr ""
+msgstr "การซื้อขายล่าสุด 100 รายการ"
 
 msgid "Last 500 Trades"
-msgstr ""
+msgstr "การซื้อขายล่าสุด 500 รายการ"
 
 msgid "Last 1000 Trades"
-msgstr ""
+msgstr "การซื้อขายล่าสุด 1000 รายการ"
 
 msgid "Maximum Daily Turnover"
 msgstr ""
@@ -752,19 +752,19 @@ msgid "Password should have lower and uppercase letters and 6 characters or more
 msgstr ""
 
 msgid "Passwords do not match"
-msgstr ""
+msgstr "รหัสผ่านไม่ตรงกัน"
 
 msgid "Enter a valid email"
-msgstr ""
+msgstr "โปรดป้อนอีเมล์ที่ถูกต้อง"
 
 msgid "Number should between 10 to 120"
-msgstr ""
+msgstr "ควรเป็นตัวเลขระหว่าง 10 ถึง 120"
 
 msgid "Enter your first and last name"
 msgstr ""
 
 msgid "City must not be empty"
-msgstr ""
+msgstr "ชื่อเมืองต้องไม่เป็นค่าว่าง"
 
 msgid "Address must not be empty"
 msgstr ""
@@ -851,61 +851,61 @@ msgid "Lock Cashier"
 msgstr ""
 
 msgid "Time out until date"
-msgstr ""
+msgstr "หมดเวลาถึงวันที่"
 
 msgid "Time out until time"
-msgstr ""
+msgstr "หมดเวลาถึงเวลา"
 
 msgid "Light Theme"
-msgstr ""
+msgstr "ธีมสว่าง"
 
 msgid "Dark Theme"
-msgstr ""
+msgstr "ธีมมืด"
 
 msgid "Password changed successfully"
-msgstr ""
+msgstr "รหัสผ่านเปลี่ยนแปลงเรียบร้อยแล้ว"
 
 msgid "Settings updated"
-msgstr ""
+msgstr "การตั้งค่าได้รับการปรับปรุงแล้ว"
 
 msgid "Address updated"
-msgstr ""
+msgstr "ที่อยู่ได้รับการปรับปรุงแล้ว"
 
 msgid "Barrier must not be empty"
-msgstr ""
+msgstr "Barrier ต้องไม่เป็นค่าว่าง"
 
 msgid "Duration is out of range"
-msgstr ""
+msgstr "ระยะเวลาอยู่นอกช่วง"
 
 msgid "Start date invalid, it needs to be five minutes or more in the future"
-msgstr ""
+msgstr "วันเริ่มต้นไม่ถูกต้อง จะต้องเป็น ห้านาที หรือ มากกว่าในอนาคต"
 
 msgid "Time format is wrong"
-msgstr ""
+msgstr "รูปแบบเวลาไม่ถูกต้อง"
 
 msgid "Lower than"
-msgstr ""
+msgstr "ต่ำกว่า"
 
 msgid "Higher than"
-msgstr ""
+msgstr "สูงกว่า"
 
 msgid "High barrier"
-msgstr ""
+msgstr "Barrier สูง"
 
 msgid "Low barrier"
-msgstr ""
+msgstr "Barrier ต่ำ"
 
 msgid "Touch spot"
-msgstr ""
+msgstr "จุดสัมผัส"
 
 msgid "This field is required"
-msgstr ""
+msgstr "ข้อมูลนี้ต้องระบุ ไม่สามารถเป็นค่าว่าง"
 
 msgid "Should be a valid number"
-msgstr ""
+msgstr "ควรเป็นตัวเลขที่ถูกต้อง"
 
 msgid "Should be between 0 and {number}"
-msgstr ""
+msgstr "ควรอยู่ระหว่าง 0 และ {number}"
 
 msgid "Time out must be after today and cannot be more than 6 weeks."
 msgstr ""
