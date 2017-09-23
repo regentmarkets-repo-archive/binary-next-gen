@@ -482,145 +482,145 @@ msgid "Indicative Price"
 msgstr "ราคาดัชนี"
 
 msgid "Potential Profit"
-msgstr ""
+msgstr "ประมาณการกำไร"
 
 msgid "Sell at Market"
-msgstr ""
+msgstr "ขายที่ตลาด"
 
 msgid "Go back"
-msgstr ""
+msgstr "ย้อนกลับ"
 
 msgid "You lost "
-msgstr ""
+msgstr "ท่านขาดทุน"
 
 msgid "Close"
-msgstr ""
+msgstr "ปิด"
 
 msgid "Low"
-msgstr ""
+msgstr "ต่ำ"
 
 msgid "High"
-msgstr ""
+msgstr "สูง"
 
 msgid "Open"
-msgstr ""
+msgstr "เปิด"
 
 msgid "Date"
-msgstr ""
+msgstr "วันที่"
 
 msgid "Upcoming Events"
-msgstr ""
+msgstr "กิจกรรมในอนาคต"
 
 msgid "Win"
-msgstr ""
+msgstr "กำไร"
 
 msgid "Loss"
-msgstr ""
+msgstr "ขาดทุน"
 
 msgid "Full Screen"
-msgstr ""
+msgstr "เต็มหน้าจอ"
 
 msgid "Start Now"
-msgstr ""
+msgstr "เริ่มเลย"
 
 msgid "Daily Prices"
-msgstr ""
+msgstr "ราคาประจำวัน"
 
 msgid "Spreads"
-msgstr ""
+msgstr "สเปรด"
 
 msgid "Confirm new password"
-msgstr ""
+msgstr "ยืนยันรหัสผ่านใหม่"
 
 msgid "TICK"
-msgstr ""
+msgstr "ช่วงราคา"
 
 msgid "Minutes"
-msgstr ""
+msgstr "นาที"
 
 msgid "Seconds"
-msgstr ""
+msgstr "วินาที"
 
 msgid "Hours"
-msgstr ""
+msgstr "ชั่วโมง"
 
 msgid "Days"
-msgstr ""
+msgstr "วัน"
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 msgid "Duration"
-msgstr ""
+msgstr "ระยะเวลา"
 
 msgid "Start Time"
-msgstr ""
+msgstr "เวลาเริ่มต้น"
 
 msgid "Now"
-msgstr ""
+msgstr "ขณะนี้"
 
 msgid "Later"
-msgstr ""
+msgstr "ในภายหลัง"
 
 msgid "return"
-msgstr ""
+msgstr "ผลตอบแทน"
 
 msgid "Portfolio"
-msgstr ""
+msgstr "พอร์ตโฟลิโอ"
 
 msgid "Video"
-msgstr ""
+msgstr "วิดีโอ"
 
 msgid "Digit Stats"
-msgstr ""
+msgstr "สถิติ"
 
 msgid "Favorites"
-msgstr ""
+msgstr "รายการโปรด"
 
 msgid "Open For Trading"
-msgstr ""
+msgstr "เปิดการซื้อขาย"
 
 msgid "Closed"
-msgstr ""
+msgstr "ปิด"
 
 msgid "Contract ID"
-msgstr ""
+msgstr "Contract ID"
 
 msgid "Reference ID"
-msgstr ""
+msgstr "Reference ID"
 
 msgid "Entry Spot"
-msgstr ""
+msgstr "สปอตเริ่มต้น"
 
 msgid "Entry Spot Time"
-msgstr ""
+msgstr "เวลาของสปอตเริ่มต้น"
 
 msgid "Potential Payout"
 msgstr ""
 
 msgid "Exit Spot"
-msgstr ""
+msgstr "สปอตสิ้นสุด"
 
 msgid "Exit Spot Time"
-msgstr ""
+msgstr "เวลาของสปอตสิ้นสุด"
 
 msgid "Sell Price"
-msgstr ""
+msgstr "ราคาขาย"
 
 msgid "Sell Time"
 msgstr ""
 
 msgid "Trade Again"
-msgstr ""
+msgstr "ซื้อขายอีกครั้ง"
 
 msgid "Barrier"
-msgstr ""
+msgstr "Barrier"
 
 msgid "You Won"
-msgstr ""
+msgstr "ท่านชนะ"
 
 msgid "You Lost"
-msgstr ""
+msgstr "ท่านขาดทุน"
 
 msgid "To change your name, date of birth, country of residence, or email, contact Customer Support."
 msgstr ""
