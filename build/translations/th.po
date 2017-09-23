@@ -635,7 +635,7 @@ msgid "Time out until"
 msgstr "หมดเวลากระทั่ง"
 
 msgid "No transactions for the selected period"
-msgstr ""
+msgstr "ไม่มีธุรกรรมสำหรับรอบระยะเวลาที่เลือก"
 
 msgid "You have no open contracts"
 msgstr "ท่านไม่มีสัญญาที่เปิดไว้"
@@ -713,10 +713,10 @@ msgid "Indices"
 msgstr "ดัชนี"
 
 msgid "OTC Stocks"
-msgstr ""
+msgstr "หลักทรัพย์ OTC"
 
 msgid "Stated limits are subject to change without prior notice"
-msgstr ""
+msgstr "วงเงินที่ได้รับอาจจะมีการเปลี่ยนแปลงโดยไม่บอกกล่าวให้ทราบล่วงหน้า"
 
 msgid "Withdrawal Limits"
 msgstr "วงเงินในการถอน"
@@ -728,7 +728,7 @@ msgid "Already withdrawn"
 msgstr "ได้ทำการถอนเงิน"
 
 msgid "Current immediate maximum withdrawal"
-msgstr ""
+msgstr "มูลค่าปัจจุบันสูงสุดในการถอน"
 
 msgid "Create Free Account"
 msgstr "เปิดบัญชีฟรี"
@@ -749,7 +749,7 @@ msgid "Choose your country"
 msgstr "ระบุประเทศของท่าน"
 
 msgid "Password should have lower and uppercase letters and 6 characters or more"
-msgstr ""
+msgstr "รหัสผ่านควรประกอบด้วยอักษรตัวเล็ก อักษรตัวใหญ่ และตัวเลข 6 อักขระเป็นอย่างน้อย"
 
 msgid "Passwords do not match"
 msgstr "รหัสผ่านไม่ตรงกัน"
@@ -818,10 +818,10 @@ msgid "Switch to"
 msgstr "สลับไป"
 
 msgid "Single Trade"
-msgstr ""
+msgstr "การซื้อขายเดี่ยว"
 
 msgid "Multi Trade"
-msgstr ""
+msgstr "การซื้อขายหลากหลาย"
 
 msgid "Current Password"
 msgstr "รหัสผ่านปัจจุบัน"
@@ -845,7 +845,7 @@ msgid "Exit Full Screen"
 msgstr "ออกจากภาวะเต็มหน้าจอ"
 
 msgid "No digit trades for this asset"
-msgstr ""
+msgstr "ไม่มีการซื้อขายตัวเลขสำหรับสินทรัพย์นี้"
 
 msgid "Lock Cashier"
 msgstr "ล็อกแคชเชียร์"
@@ -908,8 +908,8 @@ msgid "Should be between 0 and {number}"
 msgstr "ควรอยู่ระหว่าง 0 และ {number}"
 
 msgid "Time out must be after today and cannot be more than 6 weeks."
-msgstr ""
+msgstr "เวลาต้องเป็นค่าหลังจากวันนี้ และไม่มากกว่า 6 สัปดาห์"
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
-msgstr ""
+msgstr "เวลาต้องอยู่ระหว่าง 6 เดือน ถึง 5 ปี"
 
