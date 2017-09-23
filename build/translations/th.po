@@ -692,25 +692,25 @@ msgid "Last 1000 Trades"
 msgstr "การซื้อขายล่าสุด 1000 รายการ"
 
 msgid "Maximum Daily Turnover"
-msgstr ""
+msgstr "มูลค่าการซื้อขายสูงสุดต่อวัน"
 
 msgid "Commodities"
-msgstr ""
+msgstr "สินค้าโภคภัณฑ์"
 
 msgid "Major Pairs"
-msgstr ""
+msgstr "คู่หลัก"
 
 msgid "Minor Pairs"
-msgstr ""
+msgstr "คู่รอง"
 
 msgid "Smart FX"
-msgstr ""
+msgstr "Smart FX"
 
 msgid "Volatility Indices"
-msgstr ""
+msgstr "ดัชนีผันผวน"
 
 msgid "Indices"
-msgstr ""
+msgstr "ดัชนี"
 
 msgid "OTC Stocks"
 msgstr ""
@@ -719,34 +719,34 @@ msgid "Stated limits are subject to change without prior notice"
 msgstr ""
 
 msgid "Withdrawal Limits"
-msgstr ""
+msgstr "วงเงินในการถอน"
 
 msgid "Withdrawal limit"
-msgstr ""
+msgstr "วงเงินในการถอน"
 
 msgid "Already withdrawn"
-msgstr ""
+msgstr "ได้ทำการถอนเงิน"
 
 msgid "Current immediate maximum withdrawal"
 msgstr ""
 
 msgid "Create Free Account"
-msgstr ""
+msgstr "เปิดบัญชีฟรี"
 
 msgid "Verification Code"
-msgstr ""
+msgstr "รหัสตรวจสอบ"
 
 msgid "Confirm Password"
-msgstr ""
+msgstr "ยืนยันรหัสผ่าน"
 
 msgid "Already have an account?"
-msgstr ""
+msgstr "มีบัญชีอยู่แล้วใช่ไหม?"
 
 msgid "Enter a valid verification code"
-msgstr ""
+msgstr "ป้อนรหัสยืนยันที่ถูกต้อง"
 
 msgid "Choose your country"
-msgstr ""
+msgstr "ระบุประเทศของท่าน"
 
 msgid "Password should have lower and uppercase letters and 6 characters or more"
 msgstr ""
@@ -761,25 +761,25 @@ msgid "Number should between 10 to 120"
 msgstr "ควรเป็นตัวเลขระหว่าง 10 ถึง 120"
 
 msgid "Enter your first and last name"
-msgstr ""
+msgstr "ป้อนชื่อตัวและชื่อสกุล"
 
 msgid "City must not be empty"
 msgstr "ชื่อเมืองต้องไม่เป็นค่าว่าง"
 
 msgid "Address must not be empty"
-msgstr ""
+msgstr "ที่อยู่ต้องไม่เป็นค่าว่าง"
 
 msgid "Enter a valid phone number"
-msgstr ""
+msgstr "ป้อนหมายเลขโทรศัพท์ที่ถูกต้อง"
 
 msgid "Select a secret question"
-msgstr ""
+msgstr "เลือกคำถามส่วนตัว"
 
 msgid "Secret answer must be at least 4 characters"
-msgstr ""
+msgstr "คำตอบลับต้องมีอย่างน้อย 4 อักขระ"
 
 msgid "You need to agree to our Terms and Conditions"
-msgstr ""
+msgstr "ท่านต้องยอมรับข้อกำหนดและเงื่อนไขของเรา"
 
 msgid "I agree to the"
 msgstr "ฉันยอมรับ"
@@ -848,7 +848,7 @@ msgid "No digit trades for this asset"
 msgstr ""
 
 msgid "Lock Cashier"
-msgstr ""
+msgstr "ล็อกแคชเชียร์"
 
 msgid "Time out until date"
 msgstr "หมดเวลาถึงวันที่"
