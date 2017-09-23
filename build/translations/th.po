@@ -782,40 +782,40 @@ msgid "You need to agree to our Terms and Conditions"
 msgstr ""
 
 msgid "I agree to the"
-msgstr ""
+msgstr "ฉันยอมรับ"
 
 msgid "terms and conditions"
-msgstr ""
+msgstr "ข้อตกลงและเงื่อนไข"
 
 msgid "Search for assets"
-msgstr ""
+msgstr "ค้นหาสินทรัพย์"
 
 msgid "Choose a Payment Agent"
-msgstr ""
+msgstr "เลือกตัวแทนการชำระเงิน"
 
 msgid "Confirm New Password"
-msgstr ""
+msgstr "ยืนยันรหัสผ่านใหม่"
 
 msgid "First Name"
-msgstr ""
+msgstr "ชื่อตัว"
 
 msgid "Last Name"
-msgstr ""
+msgstr "ชื่อสกุล"
 
 msgid "Address First Line"
-msgstr ""
+msgstr "ที่อยู่บรรทัดแรก"
 
 msgid "Address Second Line"
-msgstr ""
+msgstr "ที่อยู่บรรทัดที่สอง"
 
 msgid "Phone"
-msgstr ""
+msgstr "โทรศัพท์"
 
 msgid "Answer To Secret Question"
-msgstr ""
+msgstr "คำตอบสำหรับคำถามส่วนตัว"
 
 msgid "Switch to"
-msgstr ""
+msgstr "สลับไป"
 
 msgid "Single Trade"
 msgstr ""
@@ -824,25 +824,25 @@ msgid "Multi Trade"
 msgstr ""
 
 msgid "Current Password"
-msgstr ""
+msgstr "รหัสผ่านปัจจุบัน"
 
 msgid "New Password"
-msgstr ""
+msgstr "รหัสผ่านใหม่"
 
 msgid "Last 50 Ticks"
-msgstr ""
+msgstr "ช่วงราคาล่าสุด 50 รายการ"
 
 msgid "Last 100 Ticks"
-msgstr ""
+msgstr "ช่วงราคาล่าสุด 100 รายการ"
 
 msgid "Last 500 Ticks"
-msgstr ""
+msgstr "ช่วงราคาล่าสุด 500 รายการ"
 
 msgid "Last 1000 Ticks"
-msgstr ""
+msgstr "ช่วงราคาล่าสุด 1000 รายการ"
 
 msgid "Exit Full Screen"
-msgstr ""
+msgstr "ออกจากภาวะเต็มหน้าจอ"
 
 msgid "No digit trades for this asset"
 msgstr ""
