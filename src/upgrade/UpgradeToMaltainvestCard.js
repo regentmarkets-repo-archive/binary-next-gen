@@ -5,6 +5,7 @@ import validate from 'validate.js';
 import { M, InputGroup, SelectGroup, LogoSpinner, Legend, Button,
   ErrorMsg, ServerErrorMsg, Countries } from 'binary-components';
 import { api } from '../_data/LiveData';
+import storage from '../_store/storage';
 import SecretQuestion from './SecretQuestion';
 import MultiSelect from '../MultiSelect/MultiSelect';
 import options from './UpgradeCard.options';
@@ -105,7 +106,8 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   componentWillMount() {
-    const taxResidenceList = this.props.residenceList.slice(0);
+    const { residenceList } = this.props;
+    const taxResidenceList = residenceList.slice();
     taxResidenceList.forEach((val) => {
       delete val.disabled;
     });
@@ -114,7 +116,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   validateForm = () => {
-    this.constraints = getConstraints(this.props, this.state);
+    this.constraints = getConstraints(this.props);
     this.setState({
       errors: validate(this.state, this.constraints, { format: 'grouped', fullMessages: false, cleanAttributes: false }) || {},
     });
@@ -131,17 +133,19 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   onCountryChange = (e: SyntheticEvent) => {
-    this.setState({ [e.target.id]: e.target.value });
+    this.setState({ [e.target.id]: e.target.value, hasError: false, });
     api.getStatesForCountry(e.target.value).then(response =>
       this.setState({ statesList: response.states_list })
     );
+    this.validateForm();
   }
 
   onTaxResidenceChange = (val) => this.setState({ tax_residence: val,
     /*eslint-disable */
     touched: { ...this.state.touched, 'tax_residence': true },
     /*eslint-enable */
-    }, () => {
+    hasError: false,
+  }, () => {
     this.validateForm();
   });
 
@@ -152,6 +156,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
   onFormSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
+    console.log(this.state.errors);
     if (Object.keys(this.state.errors).length > 0) {
       this.setState({ hasError: true });
     } else {
@@ -176,6 +181,8 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
     try {
       const response = await api.createRealAccountMaltaInvest(createAccountParams);
+      storage.setItem('account', JSON.stringify({ token: response.new_account_real.oauth_token }));
+      window.location = '/';
     } catch (e) {
       this.setState({ serverError: e.error.error.message });
     } finally {
@@ -186,10 +193,10 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   render() {
-    const { progress, serverError, residence, statesList, taxResidenceList, tax_residence, salutation, first_name, last_name, place_of_birth, date_of_birth, address_line_1, address_line_2, address_city, address_state,
+    const { progress, serverError, residence, statesList, tax_residence, taxResidenceList, salutation, first_name, last_name, place_of_birth, date_of_birth, address_line_1, address_line_2, address_city, address_state,
       address_postcode, secret_question, secret_answer, phone, forex_trading_experience, forex_trading_frequency, indices_trading_experience, indices_trading_frequency, commodities_trading_experience, commodities_trading_frequency, stocks_trading_experience, stocks_trading_frequency, other_derivatives_trading_experience, other_derivatives_trading_frequency, other_instruments_trading_experience, other_instruments_trading_frequency, employment_industry, occupation, education_level, income_source, net_income, estimated_worth, source_of_wealth, tax_identification_number, account_turnover, account_opening_reason, employment_status, hasError, errors, touched } = this.state;
-    const { residenceList, loginid } = this.props;
-    const language = this.props.boot.language ? this.props.boot.language : 'en';
+    const { residenceList, loginid, boot } = this.props;
+    const language = boot.language ? boot.language : 'en';
     const linkToTermsAndConditions = `https://www.binary.com/${language}/terms-and-conditions.html`;
 
     return (
@@ -255,7 +262,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
           <div className="input-row">
             <select id="place_of_birth" onChange={this.onEntryChange} value={place_of_birth}>
               <option value="">Place of Birth</option>
-              {residenceList.map((x: Residence) =>
+              {residenceList && residenceList.map((x: Residence) =>
                 <option
                   key={x.value}
                   value={x.value}

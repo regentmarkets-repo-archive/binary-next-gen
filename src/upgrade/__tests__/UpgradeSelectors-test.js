@@ -7,7 +7,7 @@ describe('upgradeSelectors', () => {
     settings: fromJS({}),
     states: fromJS({}),
     account: fromJS({}),
-    boot: fromJS({}),
+    language: fromJS({}),
     residenceList: fromJS({}),
   });
 
@@ -25,7 +25,7 @@ describe('upgradeSelectors', () => {
 
     expect(first.settings).toEqual(second.settings);
     expect(first.loginid).toEqual(second.loginid);
-    expect(first.boot).toEqual(second.boot);
+    expect(first.language).toEqual(second.language);
     expect(first.account).toEqual(second.account);
     expect(first.residenceList).toEqual(second.residenceList);
 

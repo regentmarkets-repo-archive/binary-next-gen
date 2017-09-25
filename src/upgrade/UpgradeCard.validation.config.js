@@ -14,7 +14,7 @@ validate.validators.validateGeneral = (value) => {
 }
 /*eslint-enable */
 
-export const getConstraints = () => {
+export const getConstraints = (props) => {
   const constraints = {
     salutation: {
       presence: {
@@ -206,10 +206,7 @@ export const getConstraints = () => {
       },
     },
     accept_risk: {
-      presence: {
-        presence: true,
-        message: 'This field is required.',
-      },
+      equality: 1,
     },
     tax_residence: {
       presence: {
@@ -248,21 +245,36 @@ export const getConstraints = () => {
       },
     },
     secret_question: {
-      presence: {
-        presence: true,
-        message: 'This field is required.',
+      presence: () => {
+        if (props.loginid.startsWith('VRTC')) {
+          return {
+            presence: true,
+            message: 'This field is required.',
+          };
+        }
+        return false;
       },
     },
     secret_answer: {
-      presence: {
-        presence: true,
-        message: 'This field is required.',
+      presence: () => {
+        if (props.loginid.startsWith('VRTC')) {
+          return {
+            presence: true,
+            message: 'This field is required.',
+          };
+        }
+        return false;
       },
-      format: {
-        /*eslint-disable */
-        pattern: /^[\w\-\,\.\' ]+/,
-        /*eslint-enable */
-        message: 'Only letters, numbers, space, hyphen, period, and apostrophe are allowed.',
+      format: () => {
+        if (props.loginid.startsWith('VRTC')) {
+          return {
+            /*eslint-disable */
+            pattern: /^[\w\-\,\.\' ]+/,
+            /*eslint-enable */
+            message: 'Only letters, numbers, space, hyphen, period, and apostrophe are allowed.',
+          };
+        }
+        return false;
       },
     },
   };
