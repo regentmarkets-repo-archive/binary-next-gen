@@ -1,19 +1,3 @@
-msgid ""
-msgstr ""
-"Project-Id-Version: PACKAGE VERSION\n"
-"Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-09-12 21:49+0200\n"
-"PO-Revision-Date: 2017-09-12 19:49+0000\n"
-"Last-Translator: Jutawan <bubbleblythe@gmail.com>\n"
-"Language-Team: Thai <https://hosted.weblate.org/projects/binary-app/next-gen-"
-"app/th/>\n"
-"Language: th\n"
-"MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: 8bit\n"
-"Plural-Forms: nplurals=1; plural=0;\n"
-"X-Generator: Weblate 2.17-dev\n"
-
 msgid "All"
 msgstr "ทั้งหมด"
 
@@ -33,7 +17,7 @@ msgid "Watchlist"
 msgstr "รายการที่สนใจ"
 
 msgid "Open Positions"
-msgstr "รายการซื้อขาย"
+msgstr "ตำแหน่งงานที่เปิดรับ"
 
 msgid "Profit Table"
 msgstr "ตารางผลกำไร"
@@ -483,31 +467,31 @@ msgid "Buy Price"
 msgstr "ราคาซื้อ"
 
 msgid "Earning (%)"
-msgstr "กำไร (%)"
+msgstr "กำไรสุทธิ (%)"
 
 msgid "Profit"
 msgstr "กำไร"
 
 msgid "Entry Price"
-msgstr "ราคาเริ่มต้น"
+msgstr "ราคาเข้า"
 
 msgid "Exit Price"
 msgstr "ราคาสิ้นสุด"
 
 msgid "Indicative Price"
-msgstr ""
+msgstr "ราคาดัชนี"
 
 msgid "Potential Profit"
-msgstr ""
+msgstr "ประมาณการกำไร"
 
 msgid "Sell at Market"
-msgstr ""
+msgstr "ขายที่ตลาด"
 
 msgid "Go back"
-msgstr ""
+msgstr "ย้อนกลับ"
 
 msgid "You lost "
-msgstr ""
+msgstr "ท่านขาดทุน"
 
 msgid "Close"
 msgstr "ปิด"
@@ -519,412 +503,413 @@ msgid "High"
 msgstr "สูง"
 
 msgid "Open"
-msgstr ""
+msgstr "เปิด"
 
 msgid "Date"
-msgstr ""
+msgstr "วันที่"
 
 msgid "Upcoming Events"
-msgstr ""
+msgstr "กิจกรรมในอนาคต"
 
 msgid "Win"
-msgstr ""
+msgstr "กำไร"
 
 msgid "Loss"
-msgstr ""
+msgstr "ขาดทุน"
 
 msgid "Full Screen"
-msgstr ""
+msgstr "เต็มหน้าจอ"
 
 msgid "Start Now"
-msgstr ""
+msgstr "เริ่มเลย"
 
 msgid "Daily Prices"
-msgstr ""
+msgstr "ราคาประจำวัน"
 
 msgid "Spreads"
-msgstr ""
+msgstr "สเปรด"
 
 msgid "Confirm new password"
-msgstr ""
+msgstr "ยืนยันรหัสผ่านใหม่"
 
 msgid "TICK"
-msgstr ""
+msgstr "ช่วงราคา"
 
 msgid "Minutes"
-msgstr ""
+msgstr "นาที"
 
 msgid "Seconds"
-msgstr ""
+msgstr "วินาที"
 
 msgid "Hours"
-msgstr ""
+msgstr "ชั่วโมง"
 
 msgid "Days"
-msgstr ""
+msgstr "วัน"
 
 msgid "N/A"
-msgstr ""
+msgstr "N/A"
 
 msgid "Duration"
-msgstr ""
+msgstr "ระยะเวลา"
 
 msgid "Start Time"
-msgstr ""
+msgstr "เวลาเริ่มต้น"
 
 msgid "Now"
-msgstr ""
+msgstr "ขณะนี้"
 
 msgid "Later"
-msgstr ""
+msgstr "ในภายหลัง"
 
 msgid "return"
-msgstr ""
+msgstr "ผลตอบแทน"
 
 msgid "Portfolio"
-msgstr ""
+msgstr "พอร์ตโฟลิโอ"
 
 msgid "Video"
-msgstr ""
+msgstr "วิดีโอ"
 
 msgid "Digit Stats"
-msgstr ""
+msgstr "สถิติ"
 
 msgid "Favorites"
-msgstr ""
+msgstr "รายการโปรด"
 
 msgid "Open For Trading"
-msgstr ""
+msgstr "เปิดการซื้อขาย"
 
 msgid "Closed"
-msgstr ""
+msgstr "ปิด"
 
 msgid "Contract ID"
-msgstr ""
+msgstr "Contract ID"
 
 msgid "Reference ID"
-msgstr ""
+msgstr "Reference ID"
 
 msgid "Entry Spot"
-msgstr ""
+msgstr "สปอตเริ่มต้น"
 
 msgid "Entry Spot Time"
-msgstr ""
+msgstr "เวลาของสปอตเริ่มต้น"
 
 msgid "Potential Payout"
-msgstr ""
+msgstr "ประมาณการยอดเงินที่ต้องชำระ"
 
 msgid "Exit Spot"
-msgstr ""
+msgstr "สปอตสิ้นสุด"
 
 msgid "Exit Spot Time"
-msgstr ""
+msgstr "เวลาของสปอตสิ้นสุด"
 
 msgid "Sell Price"
-msgstr ""
+msgstr "ราคาขาย"
 
 msgid "Sell Time"
-msgstr ""
+msgstr "เวลาที่ขาย"
 
 msgid "Trade Again"
-msgstr ""
+msgstr "ซื้อขายอีกครั้ง"
 
 msgid "Barrier"
-msgstr ""
+msgstr "Barrier"
 
 msgid "You Won"
-msgstr ""
+msgstr "ท่านชนะ"
 
 msgid "You Lost"
-msgstr ""
+msgstr "ท่านขาดทุน"
 
 msgid "To change your name, date of birth, country of residence, or email, contact Customer Support."
-msgstr ""
+msgstr "โปรดติดต่อเจ้าหน้าที่บริการลูกค้าในการเปลี่ยนแปลง ชื่อ วันเกิด ประเทศที่พำนัก หรือ อีเมล์ของท่าน"
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
-msgstr ""
+msgstr "การรับ/ชำระเงินของท่านถูกล็อกตามความประสงค์ของท่าน - หากประสงค์ปลดล็อก โปรดป้อนรหัสผ่าน"
 
 msgid "Unlock Cashier"
-msgstr ""
+msgstr "ปลดล็อกแคชเชียร์"
 
 msgid "Time out until"
-msgstr ""
+msgstr "หมดเวลากระทั่ง"
 
 msgid "No transactions for the selected period"
-msgstr ""
+msgstr "ไม่มีธุรกรรมสำหรับรอบระยะเวลาที่เลือก"
 
 msgid "You have no open contracts"
-msgstr ""
+msgstr "ท่านไม่มีสัญญาที่เปิดไว้"
 
 msgid "You have no assets in watchlist"
-msgstr ""
+msgstr "ท่านไม่มีสิทนทรัพย์ในรายการติดตาม"
 
 msgid "Basic"
-msgstr ""
+msgstr "พื้นฐาน"
 
 msgid "Digits"
-msgstr ""
+msgstr "ตัวเลข"
 
 msgid "Advanced"
-msgstr ""
+msgstr "ขั้นสูง"
 
 msgid "Higher"
-msgstr ""
+msgstr "สูงกว่า"
 
 msgid "Lower"
-msgstr ""
+msgstr "ต่ำกว่า"
 
 msgid "Ends Outside"
-msgstr ""
+msgstr "สิ้นสุดภายนอกขอบเขต"
 
 msgid "Ends Between"
-msgstr ""
+msgstr "สิ้นสุดระหว่าง"
 
 msgid "Stays Between"
-msgstr ""
+msgstr "อยู่ระหว่าง"
 
 msgid "Goes Outside"
-msgstr ""
+msgstr "ออกนอกขอบเขต"
 
 msgid "Does Not Touch"
-msgstr ""
+msgstr "ไม่สัมผัส"
 
 msgid "Credit / Debit"
-msgstr ""
+msgstr "เครดิต / เดบิต"
 
 msgid "Last 25 Ticks"
-msgstr ""
+msgstr "ช่วงราคาล่าสุด 25 รายการ"
 
 msgid "Last 50 Trades"
-msgstr ""
+msgstr "การซื้อขายล่าสุด 50 รายการ"
 
 msgid "Last 100 Trades"
-msgstr ""
+msgstr "การซื้อขายล่าสุด 100 รายการ"
 
 msgid "Last 500 Trades"
-msgstr ""
+msgstr "การซื้อขายล่าสุด 500 รายการ"
 
 msgid "Last 1000 Trades"
-msgstr ""
+msgstr "การซื้อขายล่าสุด 1000 รายการ"
 
 msgid "Maximum Daily Turnover"
-msgstr ""
+msgstr "มูลค่าการซื้อขายสูงสุดต่อวัน"
 
 msgid "Commodities"
-msgstr ""
+msgstr "สินค้าโภคภัณฑ์"
 
 msgid "Major Pairs"
-msgstr ""
+msgstr "คู่หลัก"
 
 msgid "Minor Pairs"
-msgstr ""
+msgstr "คู่รอง"
 
 msgid "Smart FX"
-msgstr ""
+msgstr "Smart FX"
 
 msgid "Volatility Indices"
-msgstr ""
+msgstr "ดัชนีผันผวน"
 
 msgid "Indices"
-msgstr ""
+msgstr "ดัชนี"
 
 msgid "OTC Stocks"
-msgstr ""
+msgstr "หลักทรัพย์ OTC"
 
 msgid "Stated limits are subject to change without prior notice"
-msgstr ""
+msgstr "วงเงินที่ได้รับอาจจะมีการเปลี่ยนแปลงโดยไม่บอกกล่าวให้ทราบล่วงหน้า"
 
 msgid "Withdrawal Limits"
-msgstr ""
+msgstr "วงเงินในการถอน"
 
 msgid "Withdrawal limit"
-msgstr ""
+msgstr "วงเงินในการถอน"
 
 msgid "Already withdrawn"
-msgstr ""
+msgstr "ได้ทำการถอนเงิน"
 
 msgid "Current immediate maximum withdrawal"
-msgstr ""
+msgstr "มูลค่าปัจจุบันสูงสุดในการถอน"
 
 msgid "Create Free Account"
-msgstr ""
+msgstr "เปิดบัญชีฟรี"
 
 msgid "Verification Code"
-msgstr ""
+msgstr "รหัสตรวจสอบ"
 
 msgid "Confirm Password"
-msgstr ""
+msgstr "ยืนยันรหัสผ่าน"
 
 msgid "Already have an account?"
-msgstr ""
+msgstr "มีบัญชีอยู่แล้วใช่ไหม?"
 
 msgid "Enter a valid verification code"
-msgstr ""
+msgstr "ป้อนรหัสยืนยันที่ถูกต้อง"
 
 msgid "Choose your country"
-msgstr ""
+msgstr "ระบุประเทศของท่าน"
 
 msgid "Password should have lower and uppercase letters and 6 characters or more"
-msgstr ""
+msgstr "รหัสผ่านควรประกอบด้วยอักษรตัวเล็ก อักษรตัวใหญ่ และตัวเลข 6 อักขระเป็นอย่างน้อย"
 
 msgid "Passwords do not match"
-msgstr ""
+msgstr "รหัสผ่านไม่ตรงกัน"
 
 msgid "Enter a valid email"
-msgstr ""
+msgstr "โปรดป้อนอีเมล์ที่ถูกต้อง"
 
 msgid "Number should between 10 to 120"
-msgstr ""
+msgstr "ควรเป็นตัวเลขระหว่าง 10 ถึง 120"
 
 msgid "Enter your first and last name"
-msgstr ""
+msgstr "ป้อนชื่อตัวและชื่อสกุล"
 
 msgid "City must not be empty"
-msgstr ""
+msgstr "ชื่อเมืองต้องไม่เป็นค่าว่าง"
 
 msgid "Address must not be empty"
-msgstr ""
+msgstr "ที่อยู่ต้องไม่เป็นค่าว่าง"
 
 msgid "Enter a valid phone number"
-msgstr ""
+msgstr "ป้อนหมายเลขโทรศัพท์ที่ถูกต้อง"
 
 msgid "Select a secret question"
-msgstr ""
+msgstr "เลือกคำถามส่วนตัว"
 
 msgid "Secret answer must be at least 4 characters"
-msgstr ""
+msgstr "คำตอบลับต้องมีอย่างน้อย 4 อักขระ"
 
 msgid "You need to agree to our Terms and Conditions"
-msgstr ""
+msgstr "ท่านต้องยอมรับข้อกำหนดและเงื่อนไขของเรา"
 
 msgid "I agree to the"
-msgstr ""
+msgstr "ฉันยอมรับ"
 
 msgid "terms and conditions"
-msgstr ""
+msgstr "ข้อตกลงและเงื่อนไข"
 
 msgid "Search for assets"
-msgstr ""
+msgstr "ค้นหาสินทรัพย์"
 
 msgid "Choose a Payment Agent"
-msgstr ""
+msgstr "เลือกตัวแทนการชำระเงิน"
 
 msgid "Confirm New Password"
-msgstr ""
+msgstr "ยืนยันรหัสผ่านใหม่"
 
 msgid "First Name"
-msgstr ""
+msgstr "ชื่อตัว"
 
 msgid "Last Name"
-msgstr ""
+msgstr "ชื่อสกุล"
 
 msgid "Address First Line"
-msgstr ""
+msgstr "ที่อยู่บรรทัดแรก"
 
 msgid "Address Second Line"
-msgstr ""
+msgstr "ที่อยู่บรรทัดที่สอง"
 
 msgid "Phone"
-msgstr ""
+msgstr "โทรศัพท์"
 
 msgid "Answer To Secret Question"
-msgstr ""
+msgstr "คำตอบสำหรับคำถามส่วนตัว"
 
 msgid "Switch to"
-msgstr ""
+msgstr "สลับไป"
 
 msgid "Single Trade"
-msgstr ""
+msgstr "การซื้อขายเดี่ยว"
 
 msgid "Multi Trade"
-msgstr ""
+msgstr "การซื้อขายหลากหลาย"
 
 msgid "Current Password"
-msgstr ""
+msgstr "รหัสผ่านปัจจุบัน"
 
 msgid "New Password"
-msgstr ""
+msgstr "รหัสผ่านใหม่"
 
 msgid "Last 50 Ticks"
-msgstr ""
+msgstr "ช่วงราคาล่าสุด 50 รายการ"
 
 msgid "Last 100 Ticks"
-msgstr ""
+msgstr "ช่วงราคาล่าสุด 100 รายการ"
 
 msgid "Last 500 Ticks"
-msgstr ""
+msgstr "ช่วงราคาล่าสุด 500 รายการ"
 
 msgid "Last 1000 Ticks"
-msgstr ""
+msgstr "ช่วงราคาล่าสุด 1000 รายการ"
 
 msgid "Exit Full Screen"
-msgstr ""
+msgstr "ออกจากภาวะเต็มหน้าจอ"
 
 msgid "No digit trades for this asset"
-msgstr ""
+msgstr "ไม่มีการซื้อขายตัวเลขสำหรับสินทรัพย์นี้"
 
 msgid "Lock Cashier"
-msgstr ""
+msgstr "ล็อกแคชเชียร์"
 
 msgid "Time out until date"
-msgstr ""
+msgstr "หมดเวลาถึงวันที่"
 
 msgid "Time out until time"
-msgstr ""
+msgstr "หมดเวลาถึงเวลา"
 
 msgid "Light Theme"
-msgstr ""
+msgstr "ธีมสว่าง"
 
 msgid "Dark Theme"
-msgstr ""
+msgstr "ธีมมืด"
 
 msgid "Password changed successfully"
-msgstr ""
+msgstr "รหัสผ่านเปลี่ยนแปลงเรียบร้อยแล้ว"
 
 msgid "Settings updated"
-msgstr ""
+msgstr "การตั้งค่าได้รับการปรับปรุงแล้ว"
 
 msgid "Address updated"
-msgstr ""
+msgstr "ที่อยู่ได้รับการปรับปรุงแล้ว"
 
 msgid "Barrier must not be empty"
-msgstr ""
+msgstr "Barrier ต้องไม่เป็นค่าว่าง"
 
 msgid "Duration is out of range"
-msgstr ""
+msgstr "ระยะเวลาอยู่นอกช่วง"
 
 msgid "Start date invalid, it needs to be five minutes or more in the future"
-msgstr ""
+msgstr "วันเริ่มต้นไม่ถูกต้อง จะต้องเป็น ห้านาที หรือ มากกว่าในอนาคต"
 
 msgid "Time format is wrong"
-msgstr ""
+msgstr "รูปแบบเวลาไม่ถูกต้อง"
 
 msgid "Lower than"
-msgstr ""
+msgstr "ต่ำกว่า"
 
 msgid "Higher than"
-msgstr ""
+msgstr "สูงกว่า"
 
 msgid "High barrier"
-msgstr ""
+msgstr "Barrier สูง"
 
 msgid "Low barrier"
-msgstr ""
+msgstr "Barrier ต่ำ"
 
 msgid "Touch spot"
-msgstr ""
+msgstr "จุดสัมผัส"
 
 msgid "This field is required"
-msgstr ""
+msgstr "ข้อมูลนี้ต้องระบุ ไม่สามารถเป็นค่าว่าง"
 
 msgid "Should be a valid number"
-msgstr ""
+msgstr "ควรเป็นตัวเลขที่ถูกต้อง"
 
 msgid "Should be between 0 and {number}"
-msgstr ""
+msgstr "ควรอยู่ระหว่าง 0 และ {number}"
 
 msgid "Time out must be after today and cannot be more than 6 weeks."
-msgstr ""
+msgstr "เวลาต้องเป็นค่าหลังจากวันนี้ และไม่มากกว่า 6 สัปดาห์"
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
-msgstr ""
+msgstr "เวลาต้องอยู่ระหว่าง 6 เดือน ถึง 5 ปี"
+
