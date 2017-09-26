@@ -63,6 +63,8 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
       secret_question: props.secret_question || '',
       secret_answer: props.secret_answer || '',
       phone: props.phone || '',
+      accept_risk: '',
+      PEPDeclaration: '',
       touched: {
         salutation: false,
         first_name: false,
@@ -152,7 +154,12 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
   onTermsAndConditionsChanged = (e: SyntheticEvent) => {
     const accept_risk = e.target.checked ? '1' : '0';
-    this.setState({ accept_risk });
+    this.setState({ accept_risk, touched: { ...this.state.touched, [e.target.id]: true }, });
+  }
+
+  onPEPDeclarationChanged = (e: SyntheticEvent) => {
+    const PEPDeclaration = e.target.checked ? '1' : '0';
+    this.setState({ PEPDeclaration, touched: { ...this.state.touched, [e.target.id]: true }, });
   }
 
   onFormSubmit = (e: SyntheticEvent) => {
@@ -667,6 +674,8 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               <M m="I acknowledge that I am not a politically exposed person (PEP)." />&nbsp;
             </label>
           </div>
+          { touched.PEPDeclaration && PEPDeclaration !== '1' && <ErrorMsg text="Please confirm that you are not a politically exposed person." /> }
+
           <M m="The financial trading services contained within this site are only suitable for customers who are able to bear the loss of all the money they invest and who understand and have experience of the risk involved in the acquistion of financial contracts. Transactions in financial contracts carry a high degree of risk. If purchased contracts expire worthless, you will suffer a total loss of your investment, which consists of the contract premium." />
           <div className="input-row">
             <label htmlFor="accept_risk">
@@ -681,6 +690,8 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               </a>
             </label>
           </div>
+          { touched.accept_risk && accept_risk !== '1' && <ErrorMsg text="Please accept the terms and conditions." /> }
+
           <Button disabled={progress} text="Open Account" />
         </form>
       </div>

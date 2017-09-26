@@ -205,9 +205,6 @@ export const getConstraints = (props) => {
         message: 'This field is required.',
       },
     },
-    accept_risk: {
-      equality: '1',
-    },
     tax_residence: {
       presence: {
         presence: true,

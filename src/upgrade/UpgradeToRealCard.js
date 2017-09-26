@@ -43,6 +43,7 @@ export default class UpgradeToRealCard extends PureComponent {
 			secret_answer: '',
       residence: props.country_code,
 			accept_risk: '',
+			PEPDeclaration: '',
       account_opening_reason: '',
 			touched: {
 				salutation: false,
@@ -94,12 +95,17 @@ export default class UpgradeToRealCard extends PureComponent {
 
   onTermsAndConditionsChanged = (e: SyntheticEvent) => {
     const accept_risk = e.target.checked ? '1' : '0';
-    this.setState({ accept_risk });
+    this.setState({ accept_risk, touched: { ...this.state.touched, [e.target.id]: true }, });
+  }
+
+  onPEPDeclarationChanged = (e: SyntheticEvent) => {
+    const PEPDeclaration = e.target.checked ? '1' : '0';
+    this.setState({ PEPDeclaration, touched: { ...this.state.touched, [e.target.id]: true }, });
   }
 
   onFormSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    if (Object.keys(this.state.errors).length > 0) {
+    if (Object.keys(this.state.errors).length > 0 || this.state.PEPDeclaration !== '1' || this.state.accept_risk !== '1') {
       this.setState({ hasError: true });
     } else {
       this.performUpgrade();
@@ -135,7 +141,7 @@ export default class UpgradeToRealCard extends PureComponent {
 
 	render() {
 		const { salutation, first_name, last_name, date_of_birth, place_of_birth, account_opening_reason, residence, address_line_1, address_line_2, address_city, address_state, address_postcode, secret_question, secret_answer,
-			phone, progress, serverError, statesList, hasError, touched, errors } = this.state;
+			phone, accept_risk, PEPDeclaration, progress, serverError, statesList, hasError, touched, errors } = this.state;
 		const { residenceList, boot } = this.props;
 
 		const language = boot.language ? boot.language : 'en';
@@ -336,6 +342,8 @@ export default class UpgradeToRealCard extends PureComponent {
 							<M m="I acknowledge that I am not a politically exposed person (PEP)." />&nbsp;
 						</label>
 					</div>
+          { touched.PEPDeclaration && PEPDeclaration !== '1' && <ErrorMsg text="Please confirm that you are not a politically exposed person." /> }
+
 					<M m="The financial trading services contained within this site are only suitable for customers who are able to bear the loss of all the money they invest and who understand and have experience of the risk involved in the acquistion of financial contracts. Transactions in financial contracts carry a high degree of risk. If purchased contracts expire worthless, you will suffer a total loss of your investment, which consists of the contract premium." />
 					<div className="input-row">
 						<label htmlFor="accept_risk">
@@ -350,6 +358,8 @@ export default class UpgradeToRealCard extends PureComponent {
 							</a>
 						</label>
 					</div>
+          { touched.accept_risk && accept_risk !== '1' && <ErrorMsg text="Please accept the terms and conditions." /> }
+
 					<Button disabled={progress} text="Open Account" />
 				</form>
 			</div>
