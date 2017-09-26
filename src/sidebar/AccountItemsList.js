@@ -1,19 +1,20 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
 import AccountMenuItem from './AccountMenuItem';
 import SidebarBtn from './SidebarBtn';
-import { store } from '../_store/persistentStore';
 
+@connect(state => ({ shouldShowUpgrade: state.appState.get('shouldShowUpgrade') }))
 export default class AccountItemsList extends PureComponent {
 
 	props: {
 		loginid: string,
 		accounts: Account[],
     landingCompany: object,
+    shouldShowUpgrade: string,
 	};
 
 	render() {
-    const { loginid, accounts } = this.props;
-    const shouldShowUpgrade = store.getState().appState.get('shouldShowUpgrade');
+    const { loginid, accounts, shouldShowUpgrade } = this.props;
 
     return (
 			<div className="account-items-list">

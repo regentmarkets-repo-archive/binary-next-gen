@@ -206,7 +206,7 @@ export const getConstraints = (props) => {
       },
     },
     accept_risk: {
-      equality: 1,
+      equality: '1',
     },
     tax_residence: {
       presence: {

@@ -167,18 +167,18 @@ const initAuthorized = async (authData, store) => {
             });
             api.getLandingCompany(msg.get_settings.country_code).then(message => {
               const landingCompany = message.landing_company;
+              const accounts = state.boot.get('accounts').toJS();
+              const loginid = authData.authorize.loginid;
+              const allUserAccounts = accounts.map((val) => val.account);
+              const userHasMLT = allUserAccounts.some(value => value.startsWith('MLT'));
+              const userHasMX = allUserAccounts.some(value => value.startsWith('MX'));
+              const userHasCR = allUserAccounts.some(value => value.startsWith('CR'));
+              const userHasMF = allUserAccounts.some(value => value.startsWith('MF'));
+              const isVirtual = loginid.startsWith('VRTC');
+              const isMLT = loginid.startsWith('MLT');
               /* eslint-disable */
               const shouldShowUpgrade = (() => {
                 if (landingCompany.id !== 'jp') {
-                  const accounts = state.boot.get('accounts').toJS();
-                  const loginid = authData.authorize.loginid;
-                  const allUserAccounts = accounts.map((val) => val.account);
-                  const userHasMLT = allUserAccounts.some(value => value.startsWith('MLT'));
-                  const userHasMX = allUserAccounts.some(value => value.startsWith('MX'));
-                  const userHasCR = allUserAccounts.some(value => value.startsWith('CR'));
-                  const userHasMF = allUserAccounts.some(value => value.startsWith('MF'));
-                  const isVirtual = loginid.startsWith('VRTC');
-                  const isMLT = loginid.startsWith('MLT');
                   if (landingCompany.hasOwnProperty('financial_company') && landingCompany.financial_company.shortcode === 'maltainvest') {
                     if (landingCompany.hasOwnProperty('gaming_company') && landingCompany.gaming_company.shortcode === 'malta') {
                       // can upgrade to real or maltainvest

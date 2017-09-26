@@ -1,6 +1,10 @@
 export default {
     salutationOptions: [
       {
+        value: '',
+        text: 'Please select',
+      },
+      {
         value: 'Mr',
         text: 'Mr'
       },

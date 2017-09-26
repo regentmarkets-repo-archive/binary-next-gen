@@ -1,9 +1,13 @@
 import React, { PureComponent } from 'react';
-import { M, InputGroup, LogoSpinner, Legend, Button, Option,
-	ErrorMsg, ServerErrorMsg, DateOfBirth, Countries } from 'binary-components';
+import moment from 'moment';
+import head from 'lodash.head';
+import validate from 'validate.js';
+import { M, InputGroup, SelectGroup, LogoSpinner, Legend, Button,
+	ErrorMsg, ServerErrorMsg, Countries } from 'binary-components';
 import { api } from '../_data/LiveData';
 import storage from '../_store/storage';
-import SecretQuestion from './SecretQuestion';
+import { getConstraints } from './UpgradeToRealCard.validation.config';
+import options from './UpgradeCard.options';
 
 export default class UpgradeToRealCard extends PureComponent {
 
@@ -12,115 +16,112 @@ export default class UpgradeToRealCard extends PureComponent {
 	}
 
 	props: {
-        residenceList: any[],
-	};
+		residenceList: any[],
+		boot: any[],
+    country_code: string,
+		states: any[],
+  };
 
 	constructor(props) {
 		super(props);
 		this.state = {
+			hasError: false,
 			progress: false,
-			validatedOnce: '',
-			salutation: 'Mr',
-			firstName: '',
-			lastName: '',
-			residence: '',
-			addressCity: '',
-			addressLine1: '',
+			serverError: false,
+			statesList: props.states,
+			first_name: '',
+			last_name: '',
+      date_of_birth: '',
+      place_of_birth: '',
+			address_city: '',
+			address_state: '',
+			address_line_1: '',
+			address_line_2: '',
+      address_postcode: '',
 			phone: '',
-			secretQuestion: '',
-			secretAnswer: '',
-			statesList: [],
+			secret_question: '',
+			secret_answer: '',
+      residence: props.country_code,
+			accept_risk: '',
+      account_opening_reason: '',
+			touched: {
+				salutation: false,
+				first_name: false,
+        last_name: false,
+        residence: false,
+        date_of_birth: false,
+				place_of_birth: false,
+        address_city: false,
+				address_state: false,
+        address_line_1: false,
+        address_line_2: false,
+        phone: false,
+        secret_question: false,
+        secret_answer: false,
+				accept_risk: false,
+			}
 		};
 	}
 
-	onEntryChange = (e: SyntheticEvent) =>
-        this.setState({ [e.target.id]: e.target.value });
-
-	onFirstNameValid = firstName =>
-		/^[a-zA-Z\s'.-]{2,30}$/.test(firstName);
-
-	onLastNameValid = lastName =>
-		/^[a-zA-Z\s'.-]{2,30}$/.test(lastName);
-
-	onDayChange = (e: SyntheticEvent) =>
-		this.setState({ day: e.target.value });
-
-	onMonthChange = (e: SyntheticEvent) =>
-		this.setState({ month: e.target.value });
-
-	onYearChange = (e: SyntheticEvent) =>
-		this.setState({ year: e.target.value });
-
-	onCountryChange = (e: SyntheticEvent) => {
-		this.setState({ residence: e.target.value });
-		api.getStatesForCountry(e.target.value).then(response =>
-			this.setState({ statesList: response.states_list })
-		);
+	componentWillMount() {
+    this.validateForm();
 	}
 
-	onStateChange = (e: SyntheticEvent) => {
-		this.setState({ addressState: e.target.value });
+  validateForm = () => {
+    this.constraints = getConstraints(this.props);
+    this.setState({
+      errors: validate(this.state, this.constraints, { format: 'grouped', fullMessages: false, cleanAttributes: false }) || {},
+    });
+  }
+
+	onEntryChange = (e: SyntheticEvent) => {
+    this.setState({
+      [e.target.id]: e.target.value,
+      touched: { ...this.state.touched, [e.target.id]: true },
+      hasError: false,
+    }, () => {
+      this.validateForm();
+    });
 	}
 
-	onCityChange = (e: SyntheticEvent) =>
-		this.setState({ addressCity: e.target.value });
+  onCountryChange = (e: SyntheticEvent) => {
+    this.setState({ [e.target.id]: e.target.value, hasError: false, });
+    api.getStatesForCountry(e.target.value).then(response =>
+      this.setState({ statesList: response.states_list })
+    );
+    this.validateForm();
+  }
 
-	onPostcodeChange = (e: SyntheticEvent) =>
-		this.setState({ addressPostcode: e.target.value });
+  onTermsAndConditionsChanged = (e: SyntheticEvent) => {
+    const accept_risk = e.target.checked ? '1' : '0';
+    this.setState({ accept_risk });
+  }
 
-	onAddressLine1Change = (e: SyntheticEvent) =>
-		this.setState({ addressLine1: e.target.value });
-
-	onAddressLine2Change = (e: SyntheticEvent) =>
-		this.setState({ addressLine2: e.target.value });
-
-	onPhoneChange = (e: SyntheticEvent) =>
-		this.setState({ phone: e.target.value });
-
-	onSecretQuestionChange = (e: SyntheticEvent) =>
-		this.setState({ secretQuestion: e.target.value });
-
-	onSecretAnswerChange = (e: SyntheticEvent) =>
-		this.setState({ secretAnswer: e.target.value });
-
-	onTermsAndConditionsChanged = (e: SyntheticEvent) =>
-		this.setState({ termsAndConditions: e.target.value });
-
-    onFormSubmit = (e: SyntheticEvent) => {
-        e.preventDefault();
-        this.setState({
-            validatedOnce: true,
-        });
-        if (this.allValid) {
-            this.performUpgrade();
-        }
+  onFormSubmit = (e: SyntheticEvent) => {
+    e.preventDefault();
+    if (Object.keys(this.state.errors).length > 0) {
+      this.setState({ hasError: true });
+    } else {
+      this.performUpgrade();
     }
+  }
 
     performUpgrade = async () => {
-        const { salutation, firstName, lastName, residence,
-			addressLine1, addressLine2, addressCity, addressState,
-			addressPostcode, secretQuestion, secretAnswer, phone } = this.state;
+        const { salutation, first_name, last_name, date_of_birth, place_of_birth, residence,
+			address_line_1, address_line_2, address_city, address_state,
+          address_postcode, secret_question, secret_answer, phone, account_opening_reason } = this.state;
+        const createAccountParams = {
+          salutation, first_name, last_name, date_of_birth, place_of_birth, residence,
+          address_line_1, address_line_2, address_city, address_state,
+          address_postcode, secret_question, secret_answer, phone, account_opening_reason,
+				};
 
         try {
-            this.setState({
+          this.setState({
                 progress: true,
                 serverError: false,
             });
-            const response = await api.createRealAccount({
-                salutation,
-				first_name: firstName,
-				last_name: lastName,
-				date_of_birth: '1980-01-31',
-				residence,
-				address_line_1: addressLine1,
-				address_line_2: addressLine2,
-				address_city: addressCity,
-				address_state: addressState,
-				address_postcode: addressPostcode,
-				phone,
-				secret_question: secretQuestion,
-				secret_answer: secretAnswer,
-            });
+            const response = await api.createRealAccount(createAccountParams);
 			storage.setItem('account', JSON.stringify({ token: response.new_account_real.oauth_token }));
             window.location = '/';
         } catch (e) {
@@ -133,25 +134,12 @@ export default class UpgradeToRealCard extends PureComponent {
     }
 
 	render() {
-		const { firstName, lastName, residence, addressLine1, addressCity, secretQuestion, secretAnswer,
-			phone, termsAndConditions, progress, serverError, validatedOnce, statesList } = this.state;
-		const { residenceList } = this.props;
+		const { salutation, first_name, last_name, date_of_birth, place_of_birth, account_opening_reason, residence, address_line_1, address_line_2, address_city, address_state, address_postcode, secret_question, secret_answer,
+			phone, progress, serverError, statesList, hasError, touched, errors } = this.state;
+		const { residenceList, boot } = this.props;
 
-    const boot = storage.boot ? JSON.parse(storage.boot) : '';
-    const language = boot.language ? boot.language.toLowerCase() : 'en';
+		const language = boot.language ? boot.language : 'en';
     const linkToTermsAndConditions = `https://www.binary.com/${language}/terms-and-conditions.html`;
-
-    const firstNameIsValid = firstName.length >= 2;
-		const lastNameIsValid = lastName.length >= 2;
-		const residenceIsValid = residence.length > 0;
-		const addressCityIsValid = addressCity.length > 0;
-		const addressLine1IsValid = addressLine1.length > 0;
-		const phoneIsValid = phone.length >= 6;
-		const secretQuestionIsValid = secretQuestion.length > 0;
-		const secretAnswerIsValid = secretAnswer.length > 0;
-		this.allValid = firstNameIsValid && lastNameIsValid && residenceIsValid &&
-			addressCityIsValid && addressLine1IsValid && phoneIsValid &&
-			secretQuestionIsValid && secretAnswerIsValid && termsAndConditions;
 
 		return (
 			<div className="upgrade-card" >
@@ -160,128 +148,201 @@ export default class UpgradeToRealCard extends PureComponent {
 					<img className="logo-text" src="https://style.binary.com/images/logo/logotype_light.svg" alt="Logo" />
 				</div>
 				{serverError && <ServerErrorMsg text={serverError} />}
+        {hasError && <ErrorMsg text="Please fill the form with valid values" />}
 				<form onSubmit={this.onFormSubmit}>
 					<Legend text="Personal Information" />
-					<div className="input-row names-row">
-						<select id="salutation" onChange={this.onEntryChange}>
-							<Option value="Mr" text="Mr" />
-							<Option value="Mrs" text="Mrs" />
-							<Option value="Ms" text="Ms" />
-							<Option value="Miss" text="Miss" />
-						</select>
+					<div className="input-row">
+						<SelectGroup id="salutation" value={salutation} options={options.salutationOptions} onChange={this.onEntryChange} />
+					</div>
+          { touched.salutation && <ErrorMsg text={head((errors || {}).salutation)} /> }
+
+					<div className="input-row">
 						<InputGroup
-							id="firstName"
+							id="first_name"
+							value={first_name}
 							placeholder="First Name"
 							type="text"
 							onChange={this.onEntryChange}
+							minLength="2"
 							maxLength="30"
 						/>
+					</div>
+          { touched.first_name && <ErrorMsg text={head((errors || {}).first_name)} /> }
+
+					<div className="input-row">
 						<InputGroup
-							id="lastName"
+							id="last_name"
+							value={last_name}
 							placeholder="Last Name"
 							type="text"
 							onChange={this.onEntryChange}
+							minLength="2"
 							maxLength="30"
 						/>
 					</div>
-					{validatedOnce && !(firstNameIsValid && lastNameIsValid) &&
-						<ErrorMsg text="Enter your first and last name" />
-					}
-					<div className="input-row">
-						<DateOfBirth
-							onDayChange={this.onDayChange}
-							onMonthChange={this.onMonthChange}
-							onYearChange={this.onYearChange}
+          { touched.last_name && <ErrorMsg text={head((errors || {}).last_name)} /> }
+
+					<div className="input-row date-of-birth">
+						<InputGroup
+							id="date_of_birth"
+							label="Date of Birth"
+							type="date"
+							maxLength="10"
+							defaultValue={date_of_birth || 'yyyy-mm-dd'}
+							onChange={this.onEntryChange}
 						/>
 					</div>
-					<Legend text="Home Address" />
+          { touched.date_of_birth && <ErrorMsg text={head((errors || {}).date_of_birth)} /> }
+
 					<div className="input-row">
-						<Countries onChange={this.onCountryChange} residenceList={residenceList} />
-						<select onChange={this.onStateChange}>
-							{statesList.map(x => (
-								<option key={x.value} value={x.value}>{x.text}</option>
-							))}
+						<select id="place_of_birth" onChange={this.onEntryChange} value={place_of_birth}>
+							<option value="">Place of Birth</option>
+              {residenceList && residenceList.map((x: Residence) =>
+								<option
+									key={x.value}
+									value={x.value}
+								>
+                  {x.text}
+								</option>
+              )}
 						</select>
 					</div>
-					{validatedOnce && !residenceIsValid &&
-						<ErrorMsg text="Choose your country" />
-					}
+          { touched.place_of_birth && <ErrorMsg text={head((errors || {}).place_of_birth)} /> }
+
+					<div className="input-row">
+						<SelectGroup
+							label="Account opening reason"
+							value={account_opening_reason}
+							id="account_opening_reason"
+							options={options.accountOpeningReasonOptions}
+							onChange={this.onEntryChange}
+						/>
+					</div>
+          { touched.account_opening_reason && <ErrorMsg text={head((errors || {}).account_opening_reason)} /> }
+
+					<Legend text="Home Address" />
+					<div className="input-row">
+            { residence &&
+						<M id="residence" m={residenceList.find(element => element.value === residence).text} value={residence} />
+            }
+            { !residence &&
+						<Countries id="residence" value={residence} onChange={this.onCountryChange} residenceList={residenceList} disable />
+            }
+            { touched.residence && <ErrorMsg text={head((errors || {}).residence)} /> }
+
+						<select id="address_state" onChange={this.onEntryChange} value={address_state}>
+							<option value="" disabled>Address state</option>
+              {statesList.map(x => (
+								<option key={x.value} value={x.value}>{x.text}</option>
+              ))}
+						</select>
+					</div>
+          { touched.address_state && <ErrorMsg text={head((errors || {}).address_state)} /> }
+
 					<div className="input-row">
 						<InputGroup
-							name="AddressTown"
+							id="address_city"
+							value={address_city}
 							placeholder="Town/City"
 							type="text"
 							maxLength="35"
-							onChange={this.onCityChange}
+							onChange={this.onEntryChange}
 						/>
+					</div>
+          { touched.address_city && <ErrorMsg text={head((errors || {}).address_city)} /> }
+
+					<div className="input-row">
 						<InputGroup
-							name="AddressPostcode"
+							id="address_postcode"
+							value={address_postcode}
 							placeholder="Postal Code / ZIP"
 							type="text"
 							maxLength="20"
-							onChange={this.onPostcodeChange}
+							onChange={this.onEntryChange}
 						/>
 					</div>
-					{validatedOnce && !addressCityIsValid &&
-						<ErrorMsg text="City must not be empty" />
-					}
+          { touched.address_postcode && <ErrorMsg text={head((errors || {}).address_postcode)} /> }
+
 					<div className="input-row">
 						<InputGroup
-							name="Address1"
+							id="address_line_1"
+							value={address_line_1}
 							placeholder="Address First Line"
 							type="text"
 							maxLength="70"
-							onChange={this.onAddressLine1Change}
+							onChange={this.onEntryChange}
 						/>
 					</div>
-					{validatedOnce && !addressLine1IsValid &&
-						<ErrorMsg text="Address must not be empty" />
-					}
+          { touched.address_line_1 && <ErrorMsg text={head((errors || {}).address_line_1)} /> }
+
 					<div className="input-row">
 						<InputGroup
-							name="Address2"
+							id="address_line_2"
+							value={address_line_2}
 							placeholder="Address Second Line"
 							type="text"
 							maxLength="70"
-							onChange={this.onAddressLine2Change}
+							onChange={this.onEntryChange}
 						/>
 					</div>
+          { touched.address_line_2 && <ErrorMsg text={head((errors || {}).address_line_2)} /> }
+
 					<div className="input-row">
 						<InputGroup
-							name="Tel"
+							id="phone"
+							value={phone}
 							placeholder="Phone"
 							type="tel"
+							minLength="6"
 							maxLength="35"
-							onChange={this.onPhoneChange}
+							onChange={this.onEntryChange}
 						/>
 					</div>
-					{validatedOnce && !phoneIsValid &&
-						<ErrorMsg text="Enter a valid phone number" />
-					}
+          { touched.phone && <ErrorMsg text={head((errors || {}).phone)} /> }
+
 					<Legend text="Security" />
 					<div className="input-row">
-						<SecretQuestion onChange={this.onSecretQuestionChange} />
-						<InputGroup
-							name="secretanswer"
-							placeholder="Answer To Secret Question"
-							type="text"
-							maxLength="50"
-							onChange={this.onSecretAnswerChange}
+						<SelectGroup
+							id="secret_question"
+							value={secret_question}
+							options={options.secretQuestionOptions}
+							onChange={this.onEntryChange}
 						/>
 					</div>
-					{validatedOnce && !secretQuestionIsValid &&
-						<ErrorMsg text="Select a secret question" />
-					}
-					{validatedOnce && !secretAnswerIsValid &&
-						<ErrorMsg text="Secret answer must be at least 4 characters" />
-					}
+          { touched.secret_question && <ErrorMsg text={head((errors || {}).secret_question)} /> }
+
 					<div className="input-row">
-						<label htmlFor="tnc">
+						<InputGroup
+							id="secret_answer"
+							value={secret_answer}
+							placeholder="Answer To Secret Question"
+							type="text"
+							minLength="4"
+							maxLength="50"
+							onChange={this.onEntryChange}
+						/>
+					</div>
+          { touched.secret_answer && <ErrorMsg text={head((errors || {}).secret_answer)} /> }
+
+					<Legend text="PEP Declaration" />
+					<M m="A PEP is an individual who is or has been entrusted with a prominent public function. This status extends to a PEP's relatives and close associates." />
+					<div className="input-row">
+						<label htmlFor="PEPDeclaration">
 							<input
-								id="tnc"
-								name="tnc"
+								id="PEPDeclaration"
 								type="checkbox"
-								onClick={this.onTermsAndConditionsChanged}
+								onClick={this.onPEPDeclarationChanged}
+							/>
+							<M m="I acknowledge that I am not a politically exposed person (PEP)." />&nbsp;
+						</label>
+					</div>
+					<M m="The financial trading services contained within this site are only suitable for customers who are able to bear the loss of all the money they invest and who understand and have experience of the risk involved in the acquistion of financial contracts. Transactions in financial contracts carry a high degree of risk. If purchased contracts expire worthless, you will suffer a total loss of your investment, which consists of the contract premium." />
+					<div className="input-row">
+						<label htmlFor="accept_risk">
+							<input
+								id="accept_risk"
+								type="checkbox"
+								onChange={this.onTermsAndConditionsChanged}
 							/>
 							<M m="I agree to the" />&nbsp;
 							<a href={linkToTermsAndConditions} target="_blank" rel="noopener noreferrer">
@@ -289,10 +350,7 @@ export default class UpgradeToRealCard extends PureComponent {
 							</a>
 						</label>
 					</div>
-					{validatedOnce && !termsAndConditions &&
-						<ErrorMsg text="You need to agree to our Terms and Conditions" />
-					}
-					<Button disabled={progress || validatedOnce && !this.allValid} text="Open Account" />
+					<Button disabled={progress} text="Open Account" />
 				</form>
 			</div>
 		);

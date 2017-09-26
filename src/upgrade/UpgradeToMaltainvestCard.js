@@ -6,10 +6,9 @@ import { M, InputGroup, SelectGroup, LogoSpinner, Legend, Button,
   ErrorMsg, ServerErrorMsg, Countries } from 'binary-components';
 import { api } from '../_data/LiveData';
 import storage from '../_store/storage';
-import SecretQuestion from './SecretQuestion';
 import MultiSelect from '../MultiSelect/MultiSelect';
 import options from './UpgradeCard.options';
-import { getConstraints } from './UpgradeCard.validation.config';
+import { getConstraints } from './UpgradeToMaltainvestCard.validation.config';
 
 export default class UpgradeToMaltainvestCard extends PureComponent {
 
@@ -45,6 +44,8 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
     this.state = {
       progress: false,
+      hasError: false,
+      serverError: false,
       statesList: props.states,
       residence: props.country_code,
       tax_residence: props.tax_residence || '',
@@ -156,7 +157,6 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
   onFormSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    console.log(this.state.errors);
     if (Object.keys(this.state.errors).length > 0) {
       this.setState({ hasError: true });
     } else {
@@ -180,8 +180,12 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
     }
 
     try {
+      this.setState({
+        progress: true,
+        serverError: false,
+      });
       const response = await api.createRealAccountMaltaInvest(createAccountParams);
-      storage.setItem('account', JSON.stringify({ token: response.new_account_real.oauth_token }));
+      storage.setItem('account', JSON.stringify({ token: response.new_account_maltainvest.oauth_token }));
       window.location = '/';
     } catch (e) {
       this.setState({ serverError: e.error.error.message });
@@ -271,8 +275,9 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
                 </option>
               )}
             </select>
-            { touched.place_of_birth && <ErrorMsg text={head((errors || {}).place_of_birth)} /> }
           </div>
+          { touched.place_of_birth && <ErrorMsg text={head((errors || {}).place_of_birth)} /> }
+
           <div className="input-row">
             <SelectGroup
               label="Account opening reason"
@@ -326,8 +331,9 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
                 <option key={x.value} value={x.value}>{x.text}</option>
               ))}
             </select>
-            { touched.address_state && <ErrorMsg text={head((errors || {}).address_state)} /> }
           </div>
+          { touched.address_state && <ErrorMsg text={head((errors || {}).address_state)} /> }
+
           <div className="input-row">
             <InputGroup
               id="address_city"
@@ -625,8 +631,10 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
             <div>
               <Legend text="Security" />
               <div className="input-row">
-                <SecretQuestion
+                <SelectGroup
+                  id="secret_question"
                   value={secret_question}
+                  options={options.secretQuestionOptions}
                   onChange={this.onEntryChange}
                 />
               </div>
@@ -673,7 +681,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               </a>
             </label>
           </div>
-          <Button text="Open Account" />
+          <Button disabled={progress} text="Open Account" />
         </form>
       </div>
     );
