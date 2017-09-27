@@ -35,6 +35,9 @@
     "deploy:android": "npm run build:dev && code-push release-cordova binary-next-gen-android android",
     "deploy:ios": "npm run build:dev && code-push release-cordova binary-next-gen-ios ios"
   },
+  "jest": {
+      "setupFiles":["src/browserMocks.js"]
+  },
   "build": {
     "appId": "app.binary.com",
     "category": "Binary Trading",
