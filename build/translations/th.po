@@ -446,7 +446,7 @@ msgid "Limits"
 msgstr "วงเงิน"
 
 msgid "Please enter date in the format YYYY-MM-DD."
-msgstr "กรุณาบันทึกวันที่ในรูปแบบ ปี(ค.ศ.)-เดือนที่-วันที่"
+msgstr "กรุณาบันทึกวันที่ในรูปแบบ ปี (ค.ศ.) - เดือนที่ - วันที่"
 
 msgid "New Trade"
 msgstr "รายการใหม่"
@@ -908,7 +908,7 @@ msgid "Should be between 0 and {number}"
 msgstr "ควรอยู่ระหว่าง 0 และ {number}"
 
 msgid "Time out must be after today and cannot be more than 6 weeks."
-msgstr "เวลาต้องเป็นค่าหลังจากวันนี้ และไม่มากกว่า 6 สัปดาห์"
+msgstr "เวลาต้องเป็นค่าหลังจากวันนี้ และน้อยกว่า 6 สัปดาห์"
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
 msgstr "เวลาต้องอยู่ระหว่าง 6 เดือน ถึง 5 ปี"
