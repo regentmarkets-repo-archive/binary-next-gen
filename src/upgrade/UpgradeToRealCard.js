@@ -28,6 +28,7 @@ export default class UpgradeToRealCard extends PureComponent {
 			progress: false,
 			serverError: false,
 			statesList: props.states,
+			salutation: '',
 			first_name: '',
 			last_name: '',
       date_of_birth: '',
