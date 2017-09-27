@@ -35,6 +35,9 @@
         "deploy:android": "npm run build:dev && code-push release-cordova binary-next-gen-android android",
         "deploy:ios": "npm run build:dev && code-push release-cordova binary-next-gen-ios ios"
     },
+    "jest": {
+        "setupFiles": ["src/browserMocks.js"]
+    },
     "build": {
         "appId": "app.binary.com",
         "category": "Binary Trading",
@@ -109,7 +112,7 @@
     "dependencies": {
         "babel-polyfill": "^6.16.0",
         "binary-charts": "*",
-        "binary-components": "^2.23.0",
+        "binary-components": "^2.24.1",
         "binary-live-api": "^28.2.3",
         "binary-utils": "^4.23.0",
         "classnames": "^2.2.5",
