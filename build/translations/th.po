@@ -320,10 +320,10 @@ msgid "Fall"
 msgstr "ตก"
 
 msgid "Asian Down"
-msgstr "เอเชียนลง"
+msgstr "เอเชียลง"
 
 msgid "Asian Up"
-msgstr "เอเชียนขึ้น"
+msgstr "เอเชียขึ้น"
 
 msgid "Search For Assets"
 msgstr "ค้นหาสินทรัพย์"
@@ -359,7 +359,7 @@ msgid "Password"
 msgstr "รหัสผ่าน"
 
 msgid "Tick Trade"
-msgstr "เทรดช่วงราคา"
+msgstr "Tick Trade"
 
 msgid "Full Trade"
 msgstr "เทรดเต็ม"
