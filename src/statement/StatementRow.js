@@ -13,6 +13,7 @@ export default class StatementRow extends PureComponent {
         date: object,
         actionType: string,
         amount: number,
+        digits: number,
         balanceAfter: number,
     };
 
@@ -37,7 +38,7 @@ export default class StatementRow extends PureComponent {
     }
 
     render() {
-        const { compact, refN, date, actionType, amount, balanceAfter } = this.props;
+        const { compact, refN, date, actionType, amount, digits, balanceAfter } = this.props;
 
         return (
             <tr className="statement-row" onClick={this.viewContract}>
@@ -46,8 +47,8 @@ export default class StatementRow extends PureComponent {
                 </td>
                 {!compact && <td className="textual">{refN}</td>}
                 <td className="trade-action">{actionType}</td>
-                <td className="numeric"><NumberColored value={amount} /></td>
-                <td className="numeric"><NumberPlain value={balanceAfter} /></td>
+                <td className="numeric"><NumberColored value={amount} digits={digits} /></td>
+                <td className="numeric"><NumberPlain value={balanceAfter} digits={digits} /></td>
             </tr>
         );
     }

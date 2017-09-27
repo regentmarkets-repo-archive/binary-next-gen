@@ -23,7 +23,7 @@ export default class AccountItemsList extends PureComponent {
 				}
 				{accounts
 					.filter(x => x.account !== loginid)
-					.map(x => <AccountMenuItem key={x.token} account={x.account} token={x.token} />)
+					.map(x => <AccountMenuItem key={x.token} account={x.account} token={x.token} currency={x.currency} />)
 				}
 			</div>
 		);

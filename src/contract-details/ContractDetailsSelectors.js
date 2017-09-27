@@ -1,6 +1,7 @@
 import { createSelector, createStructuredSelector } from 'reselect';
 import { pipsToDigits } from 'binary-utils';
 import {
+    fractionalDigitsSelector,
     boughtContractsSelector,
     portfolioSelector,
     assetsSelector,
@@ -14,12 +15,13 @@ export const contractToShow = createSelector(
 );
 
 const contractWithBarrierType = createSelector(
-    [contractToShow, assetsSelector],
-    (contract, assets) => {
+    [contractToShow, assetsSelector, fractionalDigitsSelector],
+    (contract, assets, fractionalDigits) => {
         const symbol = contract && contract.get('underlying');
         const symbolDetails = assets.find(a => a.get('symbol') === symbol);
         const symbolName = symbolDetails && symbolDetails.get('display_name');
-        const contractWithSymbolName = contract && contract.set('symbolName', symbolName);
+        const contractWithDigits = contract && contract.set('fractionalDigits', fractionalDigits);
+        const contractWithSymbolName = contractWithDigits && contractWithDigits.set('symbolName', symbolName);
         return contractWithSymbolName && contractWithSymbolName.set('barrierType', 'absolute');
     }
 );

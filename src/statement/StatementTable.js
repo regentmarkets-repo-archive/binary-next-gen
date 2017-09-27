@@ -9,11 +9,12 @@ export default class StatementTable extends PureComponent {
 		compact: boolean,
 		transactions: any[],
 		currency: string,
+		digits: number,
 		transactionsTotal: number,
 	};
 
 	render() {
-		const { compact, currency, transactions, transactionsTotal } = this.props;
+		const { compact, currency, transactions, transactionsTotal, digits } = this.props;
 
 		return (
 			<table>
@@ -33,6 +34,7 @@ export default class StatementTable extends PureComponent {
 						<StatementRow
 							key={idx}
 							compact={compact}
+							digits={digits}
 							{...transaction}
 						/>
 					)}
@@ -45,10 +47,10 @@ export default class StatementTable extends PureComponent {
 						<th />
 						{!compact && <th />}
 						<th className="numeric">
-							<NumberColored value={transactionsTotal} />
+							<NumberColored value={transactionsTotal} digits={digits} />
 						</th>
 						<th className="numeric">
-							<NumberPlain value={transactions[0].balanceAfter} />
+							<NumberPlain value={transactions[0].balanceAfter} digits={digits} />
 						</th>
 					</tr>
 				</tfoot>

@@ -21,7 +21,7 @@ const initialState = new Map({
     tradesCount: 1,
     layoutN: 1,
     sidePanelVisible: true,
-    sidePanelSize: 320,
+    sidePanelSize: 350,
     sideActiveTab: 0,
     tradeMode: 'tabs',
     activeTradeIndex: 0,

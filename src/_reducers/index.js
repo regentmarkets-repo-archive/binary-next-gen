@@ -1,4 +1,3 @@
-import { combineReducers } from 'redux';
 import { routerReducer } from 'react-router-redux';
 
 import boot from './BootReducer';
@@ -38,7 +37,28 @@ import watchlist from './WatchlistReducer';
 // import chartData from './ChartDataReducer';
 import residenceList from './CountryListReducer';
 
-export default combineReducers({
+// same as redux combineReducers but also passes root state.
+function combineReducersModified(reducers) {
+    const reducerKeys = Object.keys(reducers);
+
+    return function combination(state = {}, action) {
+        let hasChanged = false;
+        const nextState = { };
+        for (let i = 0; i < reducerKeys.length; i++) {
+            const key = reducerKeys[i];
+            const reducer = reducers[key];
+            if (typeof reducer === 'function') {
+                const previousStateForKey = state[key];
+                const nextStateForKey = reducer(previousStateForKey, action, state);
+                nextState[key] = nextStateForKey;
+                hasChanged = hasChanged || nextStateForKey !== previousStateForKey;
+            }
+        }
+        return hasChanged ? nextState : state;
+    };
+}
+
+export default combineReducersModified({
     appState,
     account,
     assets,

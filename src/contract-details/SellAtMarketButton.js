@@ -30,6 +30,7 @@ export default class SellAtMarketButton extends PureComponent {
 					<NumberPlain
 						value={contract.bid_price}
 						currency={contract.currency}
+						digits={contract.fractionalDigits}
 						isProfit={v => v - contract.buy_price}
 					/>
 				}

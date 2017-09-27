@@ -1,4 +1,4 @@
-import { trackUserId } from 'binary-utils/lib/Analytics';
+import { trackUserId } from 'binary-utils/lib/misc/Analytics';
 import { showError } from 'binary-utils';
 import { store } from '../_store/persistentStore';
 import { history, accountExclusion } from '../_store/root';
@@ -35,7 +35,7 @@ export const signOut = () => {
 };
 
 export const signIn = () => {
-    const oAuthUrl = `https://oauth.binary.com/oauth2/authorize?app_id=${window.BinaryBoot.appId}&l=${window.BinaryBoot.language}`;
+    const oAuthUrl = `${window.BinaryBoot.oAuthUrl}?app_id=${window.BinaryBoot.appId}&l=${window.BinaryBoot.language}`;
     if (electron) {
         const { BrowserWindow } = electron.remote;
         authWindow = new BrowserWindow({
@@ -73,6 +73,7 @@ export const signIn = () => {
                 store.dispatch(updateToken(accounts[0].token));
                 tryAuth(accounts[0].token);
                 winAuth.close();
+                window.location.reload(true);
             }
         });
     } else {

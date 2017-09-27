@@ -6,6 +6,7 @@ import {
     SERVER_DATA_BUY,
     UPDATE_TOKEN,
     REMOVE_PERSONAL_DATA,
+    SERVER_DATA_WEBSITE_STATUS,
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
@@ -15,6 +16,7 @@ const initialState = fromJS({
     token: '',
     currency: 'USD',
     currencies: ['USD'],
+    currencies_config: { } // "USD": { "fractional_digits": 2, "stake_default": 0.35, "type": "fiat" }
 });
 
 export default (state = initialState, action) => {
@@ -40,6 +42,12 @@ export default (state = initialState, action) => {
         }
         case REMOVE_PERSONAL_DATA: {
             return initialState;
+        }
+        case SERVER_DATA_WEBSITE_STATUS: {
+          const { website_status } = action.serverResponse;
+          const currencies_config = fromJS(website_status.currencies_config);
+
+          return state.set('currencies_config', currencies_config);
         }
         default:
             return state;

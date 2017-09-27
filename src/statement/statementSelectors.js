@@ -2,7 +2,7 @@ import { Record } from 'immutable';
 import { createSelector, createStructuredSelector } from 'reselect';
 import { epochToDate } from 'binary-utils';
 import { currencySelector, transactionsSelector,
-    transactionsFilterSelector } from '../_store/directSelectors';
+    transactionsFilterSelector, fractionalDigitsSelector } from '../_store/directSelectors';
 import transactionsFilterFuncs from './transactionsFilters';
 
 const StatementRecord = new Record({
@@ -38,6 +38,7 @@ export const transactionsTotalSelector = createSelector(
 
 export default createStructuredSelector({
     currency: currencySelector,
+    digits: fractionalDigitsSelector,
     transactionsFilter: transactionsFilterSelector,
     transactions: filteredTransactionsSelector,
     transactionsTotal: transactionsTotalSelector,

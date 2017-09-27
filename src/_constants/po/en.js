@@ -2,23 +2,23 @@ export default {
     "": {
         "project-id-version": "",
         "pot-creation-date": "",
-        "po-revision-date": "2017-04-24 11:34+0000",
-        "last-translator": "Onto hin <ontosystem@gmail.com>",
+        "po-revision-date": "2017-08-17 19:45+0000",
+        "last-translator": "Lionel HANNEQUIN <lionel.hannequin@free.fr>",
         "language-team": "English <https://hosted.weblate.org/projects/binary-app/next-gen-app/en/>",
         "language": "en",
         "mime-version": "1.0",
         "content-type": "text/plain; charset=UTF-8",
         "content-transfer-encoding": "8bit",
         "plural-forms": "nplurals=2; plural=n != 1;",
-        "x-generator": "Weblate 2.14-dev"
+        "x-generator": "Weblate 2.17-dev"
     },
     "All": [
         null,
-        "\"><img src=x onerror=alert(1)>"
+        ""
     ],
     "Property": [
         null,
-        "Property"
+        ""
     ],
     "Value": [
         null,
