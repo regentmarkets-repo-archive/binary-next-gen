@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import moment from 'moment';
 import head from 'lodash.head';
 import validate from 'validate.js';
 import { M, InputGroup, SelectGroup, LogoSpinner, Legend, Button,
@@ -69,7 +68,7 @@ export default class UpgradeToRealCard extends PureComponent {
 	}
 
   validateForm = () => {
-    this.constraints = getConstraints(this.props);
+    this.constraints = getConstraints();
     this.setState({
       errors: validate(this.state, this.constraints, { format: 'grouped', fullMessages: false, cleanAttributes: false }) || {},
     });
@@ -202,7 +201,7 @@ export default class UpgradeToRealCard extends PureComponent {
 
 					<div className="input-row">
 						<select id="place_of_birth" onChange={this.onEntryChange} value={place_of_birth}>
-							<option value="">Place of Birth</option>
+							<option value="" disabled>Place of Birth</option>
               {residenceList && residenceList.map((x: Residence) =>
 								<option
 									key={x.value}
@@ -232,7 +231,7 @@ export default class UpgradeToRealCard extends PureComponent {
 						<M id="residence" m={residenceList.find(element => element.value === residence).text} value={residence} />
             }
             { !residence &&
-						<Countries id="residence" value={residence} onChange={this.onCountryChange} residenceList={residenceList} disable />
+						<Countries id="residence" value={residence} onChange={this.onCountryChange} residenceList={residenceList} />
             }
             { touched.residence && <ErrorMsg text={head((errors || {}).residence)} /> }
 

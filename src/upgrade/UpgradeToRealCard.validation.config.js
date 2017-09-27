@@ -14,7 +14,7 @@ validate.validators.validateGeneral = (value) => {
 }
 /*eslint-enable */
 
-export const getConstraints = (props) => {
+export const getConstraints = () => {
   const constraints = {
     salutation: {
       presence: {

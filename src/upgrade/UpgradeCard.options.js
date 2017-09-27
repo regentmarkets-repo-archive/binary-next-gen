@@ -3,6 +3,7 @@ export default {
       {
         value: '',
         text: 'Please select',
+        disabled: true,
       },
       {
         value: 'Mr',
@@ -25,6 +26,7 @@ export default {
       {
         value: '',
         text: 'Please select',
+        disabled: true,
       },
       {
         value: '0-1 year',
@@ -43,6 +45,7 @@ export default {
       {
         value: '',
         text: 'Please select',
+        disabled: true,
       },
       {
         value: '0-5 transactions in the past 12 months',
@@ -61,6 +64,7 @@ export default {
       {
         value: '',
         text: 'Please select',
+        disabled: true,
       },
       {
         value: 'Salaried Employee',
@@ -87,6 +91,7 @@ export default {
       {
         value: '',
         text: 'Please select',
+        disabled: true,
       },
       {
         value: 'Employed',
@@ -113,6 +118,7 @@ export default {
       {
         value: '',
         text: 'Please select',
+        disabled: true,
       },
       {
         value: 'Construction',
@@ -143,6 +149,7 @@ export default {
       {
         value: '',
         text: 'Please select',
+        disabled: true,
       },
       {
         value: 'Chief Executives, Senior Officials and Legislators',
@@ -201,6 +208,7 @@ export default {
       {
         value: '',
         text: 'Please select',
+        disabled: true,
       },
       {
         value: 'Accumulation of Income/Savings',
@@ -239,6 +247,7 @@ export default {
       {
         value: '',
         text: 'Please select',
+        disabled: true,
       },
       {
         value: 'Primary',
@@ -257,6 +266,7 @@ export default {
       {
         value: '',
         text: 'Please select',
+        disabled: true,
       },
       {
         value: 'Less than $25,000',
@@ -283,6 +293,7 @@ export default {
       {
         value: '',
         text: 'Please select',
+        disabled: true,
       },
       {
         value: 'Less than $100,000',
@@ -309,6 +320,7 @@ export default {
       {
         value: '',
         text: 'Please select',
+        disabled: true,
       },
       {
         value: 'Less than $25,000',
@@ -335,6 +347,7 @@ export default {
       {
         value: '',
         text: 'Please select',
+        disabled: true,
       },
       {
         value: 'Speculative',
@@ -353,6 +366,7 @@ export default {
       {
         value: '',
         text: 'Please select',
+        disabled: true,
       },
       {
         value: 'Mother\'s maiden name',

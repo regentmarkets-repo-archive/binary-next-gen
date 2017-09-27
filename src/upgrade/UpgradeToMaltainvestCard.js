@@ -3,10 +3,9 @@ import moment from 'moment';
 import head from 'lodash.head';
 import validate from 'validate.js';
 import { M, InputGroup, SelectGroup, LogoSpinner, Legend, Button,
-  ErrorMsg, ServerErrorMsg, Countries } from 'binary-components';
+  ErrorMsg, ServerErrorMsg, Countries, MultiSelectGroup } from 'binary-components';
 import { api } from '../_data/LiveData';
 import storage from '../_store/storage';
-import MultiSelect from '../MultiSelect/MultiSelect';
 import options from './UpgradeCard.options';
 import { getConstraints } from './UpgradeToMaltainvestCard.validation.config';
 
@@ -205,7 +204,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
   render() {
     const { progress, serverError, residence, statesList, tax_residence, taxResidenceList, salutation, first_name, last_name, place_of_birth, date_of_birth, address_line_1, address_line_2, address_city, address_state,
-      address_postcode, secret_question, secret_answer, phone, forex_trading_experience, forex_trading_frequency, indices_trading_experience, indices_trading_frequency, commodities_trading_experience, commodities_trading_frequency, stocks_trading_experience, stocks_trading_frequency, other_derivatives_trading_experience, other_derivatives_trading_frequency, other_instruments_trading_experience, other_instruments_trading_frequency, employment_industry, occupation, education_level, income_source, net_income, estimated_worth, source_of_wealth, tax_identification_number, account_turnover, account_opening_reason, employment_status, hasError, errors, touched } = this.state;
+      address_postcode, secret_question, secret_answer, phone, forex_trading_experience, forex_trading_frequency, indices_trading_experience, indices_trading_frequency, commodities_trading_experience, commodities_trading_frequency, stocks_trading_experience, stocks_trading_frequency, other_derivatives_trading_experience, other_derivatives_trading_frequency, other_instruments_trading_experience, other_instruments_trading_frequency, employment_industry, occupation, education_level, income_source, net_income, estimated_worth, source_of_wealth, tax_identification_number, account_turnover, account_opening_reason, employment_status, hasError, errors, touched, accept_risk, PEPDeclaration } = this.state;
     const { residenceList, loginid, boot } = this.props;
     const language = boot.language ? boot.language : 'en';
     const linkToTermsAndConditions = `https://www.binary.com/${language}/terms-and-conditions.html`;
@@ -221,12 +220,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
         <form onSubmit={this.onFormSubmit}>
           <Legend text="Personal Information" />
           <div className="input-row">
-            { salutation &&
-              <SelectGroup id="salutation" options={options.salutationOptions} value={salutation} readOnly="true" />
-            }
-            { !salutation &&
-              <SelectGroup id="salutation" value={salutation} options={options.salutationOptions} onChange={this.onEntryChange} />
-            }
+              <SelectGroup id="salutation" options={options.salutationOptions} value={salutation} readOnly={salutation} />
           </div>
           { touched.salutation && <ErrorMsg text={head((errors || {}).salutation)} /> }
 
@@ -239,7 +233,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               minLength="2"
               maxLength="30"
               value={first_name}
-              disabled={first_name}
+              readOnly={first_name}
             />
           </div>
           { touched.first_name && <ErrorMsg text={head((errors || {}).first_name)} /> }
@@ -253,7 +247,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               minLength="2"
               maxLength="30"
               value={last_name}
-              disabled={last_name}
+              readOnly={last_name}
             />
           </div>
           { touched.last_name && <ErrorMsg text={head((errors || {}).last_name)} /> }
@@ -261,7 +255,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
           <div className="input-row date-of-birth">
             <InputGroup
               id="date_of_birth"
-              disabled={date_of_birth}
+              readOnly={date_of_birth}
               label="Date of Birth"
               type="date"
               maxLength="10"
@@ -272,7 +266,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
           </div>
           <div className="input-row">
             <select id="place_of_birth" onChange={this.onEntryChange} value={place_of_birth}>
-              <option value="">Place of Birth</option>
+              <option value="" disabled>Place of Birth</option>
               {residenceList && residenceList.map((x: Residence) =>
                 <option
                   key={x.value}
@@ -298,7 +292,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
           <Legend text="Tax Information" />
           <div className="input-row">
-            <MultiSelect
+            <MultiSelectGroup
               placeholder="Tax residence"
               className="multi-select"
               value={tax_residence}
@@ -330,7 +324,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               <M id="residence" m={residenceList.find(element => element.value === residence).text} value={residence} />
             }
             { !residence &&
-              <Countries id="residence" value={residence} onChange={this.onCountryChange} residenceList={residenceList} disable />
+              <Countries id="residence" value={residence} onChange={this.onCountryChange} residenceList={residenceList} />
             }
             { touched.residence && <ErrorMsg text={head((errors || {}).residence)} /> }
             <select id="address_state" onChange={this.onEntryChange} value={address_state}>
