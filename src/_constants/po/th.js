@@ -429,11 +429,11 @@ export default {
     ],
     "Asian Down": [
         null,
-        "เอเชียนลง"
+        "เอเชียลง"
     ],
     "Asian Up": [
         null,
-        "เอเชียนขึ้น"
+        "เอเชียขึ้น"
     ],
     "Search For Assets": [
         null,
@@ -481,7 +481,7 @@ export default {
     ],
     "Tick Trade": [
         null,
-        "เทรดช่วงราคา"
+        "Tick Trade"
     ],
     "Full Trade": [
         null,
@@ -597,7 +597,7 @@ export default {
     ],
     "Please enter date in the format YYYY-MM-DD.": [
         null,
-        "กรุณาบันทึกวันที่ในรูปแบบ ปี(ค.ศ.)-เดือนที่-วันที่"
+        "กรุณาบันทึกวันที่ในรูปแบบ ปี (ค.ศ.) - เดือนที่ - วันที่"
     ],
     "New Trade": [
         null,
@@ -1213,7 +1213,7 @@ export default {
     ],
     "Time out must be after today and cannot be more than 6 weeks.": [
         null,
-        "เวลาต้องเป็นค่าหลังจากวันนี้ และไม่มากกว่า 6 สัปดาห์"
+        "เวลาต้องเป็นค่าหลังจากวันนี้ และน้อยกว่า 6 สัปดาห์"
     ],
     "Exclude time cannot be less than 6 months and more than 5 years.": [
         null,
