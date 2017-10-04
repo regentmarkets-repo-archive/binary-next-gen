@@ -31,6 +31,7 @@ import transactions from './TransactionsReducer';
 import ticks from './TickReducer';
 import ohlc from './OHLCReducer';
 import views from './ViewsReducer';
+import upgrade from './UpgradeReducer';
 import workspace from './WorkspaceReducer';
 import watchlist from './WatchlistReducer';
 // import chartData from './ChartDataReducer';
@@ -91,5 +92,6 @@ export default combineReducersModified({
     workspace,
     watchlist,
     views,
+    upgrade,
     routing: routerReducer,
 });

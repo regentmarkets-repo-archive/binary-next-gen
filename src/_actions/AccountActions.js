@@ -28,4 +28,3 @@ export const serverDataWebsiteStatus = serverResponse => ({
     type: types.SERVER_DATA_WEBSITE_STATUS,
     serverResponse,
 });
-

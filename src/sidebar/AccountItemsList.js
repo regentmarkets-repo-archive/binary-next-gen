@@ -1,21 +1,24 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
 import AccountMenuItem from './AccountMenuItem';
 import SidebarBtn from './SidebarBtn';
 
+@connect(state => ({ shouldShowUpgrade: state.appState.get('shouldShowUpgrade') }))
 export default class AccountItemsList extends PureComponent {
 
 	props: {
 		loginid: string,
 		accounts: Account[],
+    landingCompany: object,
+    shouldShowUpgrade: string,
 	};
 
 	render() {
-		const { loginid, accounts } = this.props;
-		const shouldShowUpgrade = accounts.length < 2;
+    const { loginid, accounts, shouldShowUpgrade } = this.props;
 
-		return (
+    return (
 			<div className="account-items-list">
-				{shouldShowUpgrade &&
+				{ (shouldShowUpgrade === 'toReal' || shouldShowUpgrade === 'toMaltainvest') &&
 					<SidebarBtn to="/upgrade" img="img/icon.png" text="Upgrade" />
 				}
 				{accounts

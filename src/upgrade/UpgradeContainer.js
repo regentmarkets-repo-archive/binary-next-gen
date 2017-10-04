@@ -1,18 +1,16 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { immutableChildrenToJS } from 'binary-utils';
-import countryListSelector from '../create-account/countryListSelector';
-import MobilePage from '../containers/MobilePage';
+import upgradeSelectors from './upgradeSelectors';
 import UpgradeCard from './UpgradeCard';
 
-@connect(countryListSelector)
+@connect(upgradeSelectors)
 export default class UpgradeContainer extends PureComponent {
 
-	render() {
+  render() {
 		return (
-			<MobilePage toolbarShown={false} inverse>
-				<UpgradeCard {...immutableChildrenToJS(this.props)} />
-			</MobilePage>
+			<UpgradeCard {...immutableChildrenToJS(this.props)} />
 		);
 	}
+
 }
