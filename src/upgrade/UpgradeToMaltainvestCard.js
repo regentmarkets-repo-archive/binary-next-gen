@@ -108,12 +108,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   componentWillMount() {
-    const { residenceList } = this.props;
-    const taxResidenceList = residenceList.slice();
-    taxResidenceList.forEach((val) => {
-      delete val.disabled;
-    });
-    this.setState({ taxResidenceList, date_of_birth: moment.unix(this.props.date_of_birth).format('YYYY-MM-DD') || '1980-01-01' });
+    this.setState({ date_of_birth: moment.unix(this.props.date_of_birth).format('YYYY-MM-DD') || '1980-01-01' });
     this.validateForm();
   }
 
@@ -203,11 +198,16 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   render() {
-    const { progress, serverError, residence, statesList, tax_residence, taxResidenceList, salutation, first_name, last_name, place_of_birth, date_of_birth, address_line_1, address_line_2, address_city, address_state,
+    const { progress, serverError, residence, statesList, tax_residence, salutation, first_name, last_name, place_of_birth, date_of_birth, address_line_1, address_line_2, address_city, address_state,
       address_postcode, secret_question, secret_answer, phone, forex_trading_experience, forex_trading_frequency, indices_trading_experience, indices_trading_frequency, commodities_trading_experience, commodities_trading_frequency, stocks_trading_experience, stocks_trading_frequency, other_derivatives_trading_experience, other_derivatives_trading_frequency, other_instruments_trading_experience, other_instruments_trading_frequency, employment_industry, occupation, education_level, income_source, net_income, estimated_worth, source_of_wealth, tax_identification_number, account_turnover, account_opening_reason, employment_status, hasError, errors, touched, accept_risk, PEPDeclaration } = this.state;
     const { residenceList, loginid, boot } = this.props;
     const language = boot.language ? boot.language : 'en';
     const linkToTermsAndConditions = `https://www.binary.com/${language}/terms-and-conditions.html`;
+    const taxResidenceList = residenceList.slice();
+    taxResidenceList.filter(props => {
+      delete props.disabled;
+      return true;
+    });
 
     return (
       <div className="upgrade-card" >
@@ -255,15 +255,16 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
           <div className="input-row date-of-birth">
             <InputGroup
               id="date_of_birth"
-              readOnly={date_of_birth}
+              disabled={date_of_birth}
               label="Date of Birth"
               type="date"
               maxLength="10"
-              defaultValue={date_of_birth || 'yyyy-mm-dd'}
+              value={date_of_birth || 'yyyy-mm-dd'}
               onChange={this.onEntryChange}
             />
-            { touched.date_of_birth && <ErrorMsg text={head((errors || {}).date_of_birth)} /> }
           </div>
+          { touched.date_of_birth && <ErrorMsg text={head((errors || {}).date_of_birth)} /> }
+
           <div className="input-row">
             <select id="place_of_birth" onChange={this.onEntryChange} value={place_of_birth}>
               <option value="" disabled>Place of Birth</option>
