@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import { connect } from 'react-redux';
 import { M } from 'binary-components';
 import ThemeSwitcher from '../web/ThemeSwitcher.mobile';
 import BalanceContainer from '../balance/BalanceContainer';
@@ -11,12 +12,14 @@ type Account = {
 	token: string,
 };
 
+@connect(state => ({ landingCompany: state.boot.toJS().landingCompany }))
 export default class MobileSidebar extends PureComponent {
 
 	props: {
 		email: string,
 		loginid: string,
 		accounts: Account[],
+    landingCompany: object,
 	};
 
 	onSignOut(e: SyntheticEvent) {
@@ -25,7 +28,7 @@ export default class MobileSidebar extends PureComponent {
 	}
 
 	render() {
-		const { loginid, email, accounts } = this.props;
+		const { loginid, email, accounts, landingCompany } = this.props;
 
 		return (
 			<nav className="sidebar">
@@ -34,7 +37,7 @@ export default class MobileSidebar extends PureComponent {
 					{email}<br />
 					<BalanceContainer />
 				</div>
-				<AccountItemsList loginid={loginid} accounts={accounts} />
+				<AccountItemsList loginid={loginid} accounts={accounts} landingCompany={landingCompany} />
 				<SidebarBtn to="/watchlist" img="img/watchlist.svg" text="Watchlist" />
 				<ThemeSwitcher />
 				<SidebarBtn to="/settings" img="img/settings.svg" text="Settings" />

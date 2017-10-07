@@ -6,6 +6,12 @@
     padding: 0.5rem;
     width: 100%;
     max-width: 420px;
+    overflow: scroll;
+
+    select {
+        width: 100%;
+        display: block;
+    }
 
     legend {
         margin-top: 0.5rem;
@@ -27,6 +33,10 @@
 
     .names-row select {
         flex: inherit;
+    }
+
+    .date-of-birth input {
+        margin-left: 0.5rem;
     }
 
     .input-row {

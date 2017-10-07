@@ -2,7 +2,7 @@ import React from 'react';
 import SettingsAddress from '../SettingsAddress';
 import { mountWithIntl } from 'enzyme-react-intl';
 
-describe('<SettingsSelfExclusion />', () => {
+describe('<SettingsAddress />', () => {
   // test max_balance as an input which should be number and being validated (other inputs behave like this too)
   it('Component should be rendered', () => {
     const wrapper = mountWithIntl(<SettingsAddress />);
