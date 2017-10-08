@@ -1,6 +1,6 @@
 /* @flow */
 
-import { trackEvent } from 'binary-utils/lib/Analytics';
+import { trackEvent } from 'binary-utils/lib/misc/Analytics';
 import * as types from '../_constants/ActionTypes';
 import { api } from '../_data/LiveData';
 import { updateOpenContractField } from './PortfolioActions';

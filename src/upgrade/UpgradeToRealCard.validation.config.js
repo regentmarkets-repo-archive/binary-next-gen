@@ -16,6 +16,32 @@ validate.validators.validateGeneral = (value) => {
 
 export const getConstraints = () => {
   const constraints = {
+    salutation: {
+      presence: {
+        presence: true,
+        message: 'This field is required.',
+      },
+    },
+    first_name: {
+      presence: {
+        presence: true,
+        message: 'This field is required.',
+      },
+      validateGeneral: true,
+    },
+    last_name: {
+      presence: {
+        presence: true,
+        message: 'This field is required.',
+      },
+      validateGeneral: true,
+    },
+    residence: {
+      presence: {
+        presence: true,
+        message: 'This field is required.',
+      },
+    },
     address_line_1: {
       presence: {
         presence: true,
@@ -34,6 +60,24 @@ export const getConstraints = () => {
       validateGeneral: true,
     },
     address_state: {
+      presence: {
+        presence: true,
+        message: 'This field is required.',
+      },
+    },
+    place_of_birth: {
+      presence: {
+        presence: true,
+        message: 'This field is required.',
+      },
+    },
+    date_of_birth: {
+      presence: {
+        presence: true,
+        message: 'This field is required.',
+      },
+    },
+    account_opening_reason: {
       presence: {
         presence: true,
         message: 'This field is required.',
@@ -58,6 +102,24 @@ export const getConstraints = () => {
         /*eslint-enable */
         message: 'Only numbers and spaces are allowed.',
       },
+    },
+    secret_question: {
+      presence: {
+        presence: true,
+        message: 'This field is required.',
+      },
+    },
+    secret_answer: {
+      presence: {
+        presence: true,
+        message: 'This field is required.',
+      },
+      format: {
+        /*eslint-disable */
+        pattern: /^[\w\-\,\.\' ]+/,
+        /*eslint-enable */
+        message: 'Only letters, numbers, space, hyphen, period, and apostrophe are allowed.',
+      }
     },
   };
   return constraints;
