@@ -12,7 +12,6 @@ export default class SettingsPersonalDetails extends PureComponent {
 	render() {
 		const { loginid, settings } = this.props;
 		const isVirtual = loginid.startsWith('VRTC');
-		console.log(settings);
 
 		return (
 			<div className="settings-personal-page">
