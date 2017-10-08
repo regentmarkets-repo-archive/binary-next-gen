@@ -6,16 +6,18 @@ export default class SettingsPersonalDetails extends PureComponent {
 
 	props: {
 		loginid: string,
+    settings: object,
 	};
 
 	render() {
-		const { loginid } = this.props;
+		const { loginid, settings } = this.props;
 		const isVirtual = loginid.startsWith('VRTC');
+		console.log(settings);
 
 		return (
 			<div className="settings-personal-page">
-				<SettingsDetails {...this.props} />
-				{!isVirtual && <SettingsAddress {...this.props} />}
+				<SettingsDetails {...this.props} {...settings} />
+				{!isVirtual && <SettingsAddress {...this.props} {...settings} />}
 			</div>
 		);
 	}

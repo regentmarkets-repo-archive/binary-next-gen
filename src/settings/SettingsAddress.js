@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import head from 'lodash.head';
 import validate from 'validate.js';
 import { Legend, Button, InputGroup, ErrorMsg, ServerErrorMsg } from 'binary-components';
-import { actions } from '../_store';
 import States from './States';
 import UpdateNotice from '../containers/UpdateNotice';
 import * as LiveData from '../_data/LiveData';
@@ -25,12 +24,12 @@ export default class SettingsAddress extends PureComponent {
 		super(props);
 
 		this.state = {
-			address_line_1: props.address_line_1,
-			address_line_2: props.address_line_2,
-			address_city: props.address_city,
-			address_state: props.address_state,
-			address_postcode: props.address_postcode,
-			phone: props.phone,
+			address_line_1: props.address_line_1 || '',
+			address_line_2: props.address_line_2 || '',
+			address_city: props.address_city || '',
+			address_state: props.address_state || '',
+			address_postcode: props.address_postcode || '',
+			phone: props.phone || '',
       touched: {
         address_line_1: false,
         address_line_2: false,
@@ -42,10 +41,18 @@ export default class SettingsAddress extends PureComponent {
 		};
 	}
 
-    componentWillMount() {
-        const { country_code } = this.props;
-        actions.getStatesForCountry(country_code);
+  componentWillReceiveProps(nextProps) {
+    if (this.props !== nextProps) {
+      this.setState({
+        address_line_1: nextProps.address_line_1 || '',
+        address_line_2: nextProps.address_line_2 || '',
+        address_city: nextProps.address_city || '',
+        address_state: nextProps.address_state || '',
+        address_postcode: nextProps.address_postcode || '',
+        phone: nextProps.phone || '',
+      });
     }
+	}
 
   onEntryChange = (e: SyntheticEvent) =>
 		this.setState({
@@ -105,7 +112,6 @@ export default class SettingsAddress extends PureComponent {
 				<Legend text="Address" />
 				<InputGroup
 					id="address_line_1"
-					name="address_line_1"
 					type="text"
 					label="Address"
 					value={address_line_1}
@@ -114,7 +120,6 @@ export default class SettingsAddress extends PureComponent {
 				{touched.address_line_1 && <ErrorMsg text={head((errors || {}).address_line_1)} />}
 				<InputGroup
 					id="address_line_2"
-					name="address_line_2"
 					type="text"
 					label=" "
 					value={address_line_2}
@@ -123,16 +128,14 @@ export default class SettingsAddress extends PureComponent {
         {touched.address_line_2 && <ErrorMsg text={head((errors || {}).address_line_2)} />}
 				<InputGroup
 					id="address_city"
-					name="address_city"
 					type="text"
 					label="Town/City"
-					defaultValue={address_city}
+					value={address_city}
 					onChange={this.onEntryChange}
 				/>
         {touched.address_city && <ErrorMsg text={head((errors || {}).address_city)} />}
 				<States
 					id="address_state"
-					name="address_state"
 					country={country_code}
 					states={states}
 					onChange={this.onEntryChange}
@@ -141,19 +144,17 @@ export default class SettingsAddress extends PureComponent {
         {touched.address_state && <ErrorMsg text={head((errors || {}).address_state)} />}
 				<InputGroup
 					id="address_postcode"
-					name="address_postcode"
 					type="text"
 					label="Postal Code / ZIP"
-					defaultValue={address_postcode}
+					value={address_postcode}
 					onChange={this.onEntryChange}
 				/>
         {touched.address_postcode && <ErrorMsg text={head((errors || {}).address_postcode)} />}
 				<InputGroup
 					id="phone"
-					name="phone"
 					type="tel"
 					label="Telephone"
-					defaultValue={phone}
+					value={phone}
 					onChange={this.onEntryChange}
 				/>
         {touched.phone && <ErrorMsg text={head((errors || {}).phone)} />}

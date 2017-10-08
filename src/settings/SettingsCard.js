@@ -31,7 +31,7 @@ export default class SettingsCard extends PureComponent {
 		this.setState({ activeTab: idx });
 
 	render() {
-		const { loginid, settings } = this.props;
+		const { loginid } = this.props;
 		const { activeTab } = this.state;
 		const isVirtual = loginid.startsWith('VRTC');
 		const ActiveComponent = components[activeTab];
@@ -48,7 +48,7 @@ export default class SettingsCard extends PureComponent {
 					{!isVirtual && <Tab text="Self Exclusion" />}
 					{!isVirtual && <Tab text="Limits" />}
 				</TabList>
-				<ActiveComponent {...this.props} {...settings} />
+				<ActiveComponent {...this.props} />
 				<div className="version-info">Version: {version}</div>
 			</div>
 		);
