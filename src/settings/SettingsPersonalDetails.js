@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import SettingsDetails from './SettingsDetails';
-import SettingsAddress from './SettingsAddress';
+import SettingsUserInformation from './SettingsUserInformation';
 
 export default class SettingsPersonalDetails extends PureComponent {
 
@@ -19,10 +19,10 @@ export default class SettingsPersonalDetails extends PureComponent {
 		const { loginid } = this.props;
 		const isVirtual = loginid.startsWith('VRTC');
 
-		return (
+    return (
 			<div className="settings-personal-page">
 				<SettingsDetails {...this.props} />
-				{!isVirtual && <SettingsAddress {...this.props} />}
+				{!isVirtual && <SettingsUserInformation {...this.props} />}
 			</div>
 		);
 	}

@@ -1,15 +1,16 @@
 import React, { PureComponent } from 'react';
 import head from 'lodash.head';
 import validate from 'validate.js';
-import { Legend, Button, InputGroup, ErrorMsg, ServerErrorMsg, SelectGroup, MultiSelectGroup } from 'binary-components';
+import { Legend, Button, InputGroup, ErrorMsg, ServerErrorMsg, LabeledText, MultiSelectGroup } from 'binary-components';
 import States from './States';
 import UpdateNotice from '../containers/UpdateNotice';
 import * as LiveData from '../_data/LiveData';
-import { getConstraints } from './SettingsAddress.validation.config';
+import { getConstraints } from './SettingsUserInformation.validation.config';
 
-export default class SettingsAddress extends PureComponent {
+export default class SettingsUserInformation extends PureComponent {
 
 	props: {
+		loginid: string,
 		address_line_1: string,
 		address_line_2: string,
 		address_city: string,
@@ -87,7 +88,7 @@ export default class SettingsAddress extends PureComponent {
   });
 
   validateForm = () => {
-		this.constraints = getConstraints(this.props, this.state);
+		this.constraints = getConstraints(this.props);
 		this.setState({
 			errors: validate(this.state, this.constraints, { format: 'grouped', fullMessages: false, cleanAttributes: false }) || {},
 		});
@@ -134,41 +135,17 @@ export default class SettingsAddress extends PureComponent {
       delete props.disabled;
       return true;
     });
-		const accountOpeningReasonOptions = [
-        {
-          value: '',
-          text: 'Please select',
-          disabled: true,
-        },
-        {
-          value: 'Speculative',
-          text: 'Speculative'
-        },
-        {
-          value: 'Income Earning',
-          text: 'Income Earning'
-        },
-        {
-          value: 'Hedging',
-          text: 'Hedging'
-        },
-      ];
 
 		return (
 			<form className="settings-address" onSubmit={this.onFormSubmit}>
 				{serverError && <ServerErrorMsg text={serverError} />}
         {hasError && <ErrorMsg text="Please fill the form with valid values" />}
 				<UpdateNotice text="Profile updated" show={success} />
-				<div className="input-row">
-					<SelectGroup
-						id="account_opening_reason"
-						label="Account opening reason"
-						value={account_opening_reason}
-						options={accountOpeningReasonOptions}
-						onChange={this.onEntryChange}
-					/>
-				</div>
-        { touched.account_opening_reason && <ErrorMsg text={head((errors || {}).account_opening_reason)} /> }
+				<LabeledText
+					id="account_opening_reason"
+					label="Account opening reason"
+					value={account_opening_reason}
+				/>
 
 				<Legend text="Address" />
 				<InputGroup
@@ -248,6 +225,7 @@ export default class SettingsAddress extends PureComponent {
 					/>
 				</div>
         { touched.tax_identification_number && <ErrorMsg text={head((errors || {}).tax_identification_number)} /> }
+
 				<Button
 					text="Update"
 					onClick={this.tryUpdate}

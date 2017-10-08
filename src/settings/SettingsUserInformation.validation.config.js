@@ -14,7 +14,7 @@ validate.validators.validateGeneral = (value) => {
 }
 /*eslint-enable */
 
-export const getConstraints = () => {
+export const getConstraints = (props) => {
   const constraints = {
     address_line_1: {
       presence: {
@@ -66,15 +66,25 @@ export const getConstraints = () => {
       },
     },
     tax_residence: {
-      presence: {
-        presence: true,
-        message: 'This field is required.',
+      presence: () => {
+        if (props.loginid.startsWith('MF')) {
+          return {
+            presence: true,
+            message: 'This field is required.',
+          };
+        }
+        return false;
       },
     },
     tax_identification_number: {
-      presence: {
-        presence: true,
-        message: 'This field is required.',
+      presence: () => {
+        if (props.loginid.startsWith('MF')) {
+          return {
+            presence: true,
+            message: 'This field is required.',
+          };
+        }
+        return false;
       },
       format: {
         /*eslint-disable */
