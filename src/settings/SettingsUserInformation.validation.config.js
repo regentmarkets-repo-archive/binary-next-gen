@@ -14,7 +14,7 @@ validate.validators.validateGeneral = (value) => {
 }
 /*eslint-enable */
 
-export const getConstraints = () => {
+export const getConstraints = (props) => {
   const constraints = {
     address_line_1: {
       presence: {
@@ -57,6 +57,40 @@ export const getConstraints = () => {
         pattern: /^\+?[0-9\s]*$/,
         /*eslint-enable */
         message: 'Only numbers and spaces are allowed.',
+      },
+    },
+    account_opening_reason: {
+      presence: {
+        presence: true,
+        message: 'This field is required.',
+      },
+    },
+    tax_residence: {
+      presence: () => {
+        if (props.loginid.startsWith('MF')) {
+          return {
+            presence: true,
+            message: 'This field is required.',
+          };
+        }
+        return false;
+      },
+    },
+    tax_identification_number: {
+      presence: () => {
+        if (props.loginid.startsWith('MF')) {
+          return {
+            presence: true,
+            message: 'This field is required.',
+          };
+        }
+        return false;
+      },
+      format: {
+        /*eslint-disable */
+        pattern: /^[\w-]{0,20}$/,
+        /*eslint-enable */
+        message: 'Only letters, numbers, space, and hyphen are allowed.',
       },
     },
   };

@@ -16,6 +16,7 @@ const components = [
 type Props = {
 	settings: object,
 	loginid: string,
+  residenceList: any[],
 };
 
 export default class SettingsCard extends PureComponent {
