@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import head from 'lodash.head';
 import validate from 'validate.js';
-import { Legend, Button, InputGroup, ErrorMsg, ServerErrorMsg } from 'binary-components';
+import { Legend, Button, InputGroup, ErrorMsg, ServerErrorMsg, SelectGroup, MultiSelectGroup } from 'binary-components';
 import States from './States';
 import UpdateNotice from '../containers/UpdateNotice';
 import * as LiveData from '../_data/LiveData';
@@ -18,6 +18,10 @@ export default class SettingsAddress extends PureComponent {
 		address_postcode: string,
 		phone: string,
 		states: any[],
+		account_opening_reason: string,
+    residenceList: any[],
+    tax_residence: string,
+    tax_identification_number: string,
 	};
 
 	constructor(props) {
@@ -30,6 +34,10 @@ export default class SettingsAddress extends PureComponent {
 			address_state: props.address_state || '',
 			address_postcode: props.address_postcode || '',
 			phone: props.phone || '',
+			account_opening_reason: props.account_opening_reason || '',
+      tax_residence: props.tax_residence || '',
+      tax_identification_number: props.tax_identification_number || '',
+			errors: {},
       touched: {
         address_line_1: false,
         address_line_2: false,
@@ -37,6 +45,9 @@ export default class SettingsAddress extends PureComponent {
         address_state: false,
         address_postcode: false,
 				phone: false,
+				account_opening_reason: false,
+				tax_residence: false,
+        tax_identification_number: false,
 			},
 		};
 	}
@@ -50,6 +61,9 @@ export default class SettingsAddress extends PureComponent {
         address_state: nextProps.address_state || '',
         address_postcode: nextProps.address_postcode || '',
         phone: nextProps.phone || '',
+        account_opening_reason: nextProps.account_opening_reason || '',
+        tax_residence: nextProps.tax_residence || '',
+        tax_identification_number: nextProps.tax_identification_number || '',
       });
     }
 	}
@@ -62,6 +76,15 @@ export default class SettingsAddress extends PureComponent {
 		}, () => {
 		this.validateForm();
 	});
+
+  onTaxResidenceChange = (val) => this.setState({ tax_residence: val,
+    /*eslint-disable */
+    touched: { ...this.state.touched, 'tax_residence': true },
+    /*eslint-enable */
+    hasError: false,
+  }, () => {
+    this.validateForm();
+  });
 
   validateForm = () => {
 		this.constraints = getConstraints(this.props, this.state);
@@ -81,7 +104,7 @@ export default class SettingsAddress extends PureComponent {
 
 	performUpdateSettings = async () => {
 		const { address_line_1, address_line_2, address_city, address_state,
-			address_postcode, phone } = this.state;
+			address_postcode, phone, account_opening_reason, tax_residence, tax_identification_number } = this.state;
 
 		try {
 			await LiveData.api.setAccountSettings({
@@ -91,6 +114,9 @@ export default class SettingsAddress extends PureComponent {
 				address_state,
 				address_postcode,
 				phone,
+        account_opening_reason,
+        tax_residence,
+        tax_identification_number,
 			});
 			this.setState({ success: true });
 			setTimeout(() => this.setState({ success: false }), 3000);
@@ -100,15 +126,50 @@ export default class SettingsAddress extends PureComponent {
 	}
 
 	render() {
-		const { states } = this.props;
+		const { states, residenceList } = this.props;
 		const { address_line_1, address_line_2, address_city, address_state,
-			address_postcode, country_code, phone, serverError, success, hasError, touched, errors } = this.state;
+			address_postcode, country_code, phone, account_opening_reason, tax_residence, tax_identification_number, serverError, success, hasError, touched, errors } = this.state;
+    const taxResidenceList = residenceList.slice();
+    taxResidenceList.filter(props => {
+      delete props.disabled;
+      return true;
+    });
+		const accountOpeningReasonOptions = [
+        {
+          value: '',
+          text: 'Please select',
+          disabled: true,
+        },
+        {
+          value: 'Speculative',
+          text: 'Speculative'
+        },
+        {
+          value: 'Income Earning',
+          text: 'Income Earning'
+        },
+        {
+          value: 'Hedging',
+          text: 'Hedging'
+        },
+      ];
 
 		return (
 			<form className="settings-address" onSubmit={this.onFormSubmit}>
 				{serverError && <ServerErrorMsg text={serverError} />}
         {hasError && <ErrorMsg text="Please fill the form with valid values" />}
-				<UpdateNotice text="Address updated" show={success} />
+				<UpdateNotice text="Profile updated" show={success} />
+				<div className="input-row">
+					<SelectGroup
+						id="account_opening_reason"
+						label="Account opening reason"
+						value={account_opening_reason}
+						options={accountOpeningReasonOptions}
+						onChange={this.onEntryChange}
+					/>
+				</div>
+        { touched.account_opening_reason && <ErrorMsg text={head((errors || {}).account_opening_reason)} /> }
+
 				<Legend text="Address" />
 				<InputGroup
 					id="address_line_1"
@@ -158,6 +219,35 @@ export default class SettingsAddress extends PureComponent {
 					onChange={this.onEntryChange}
 				/>
         {touched.phone && <ErrorMsg text={head((errors || {}).phone)} />}
+
+				<Legend text="Tax information" />
+				<div className="input-row">
+					<MultiSelectGroup
+						placeholder="Tax residence"
+						className="multi-select"
+						value={tax_residence}
+						options={taxResidenceList}
+						joinValues
+						multi
+						simpleValue
+						searchable={false}
+						labelKey="text"
+						onChange={this.onTaxResidenceChange}
+					/>
+				</div>
+        { touched.tax_residence && <ErrorMsg text={head((errors || {}).tax_residence)} /> }
+
+				<div className="input-row">
+					<InputGroup
+						id="tax_identification_number"
+						value={tax_identification_number}
+						label="Tax identification number"
+						maxLength="20"
+						type="text"
+						onChange={this.onEntryChange}
+					/>
+				</div>
+        { touched.tax_identification_number && <ErrorMsg text={head((errors || {}).tax_identification_number)} /> }
 				<Button
 					text="Update"
 					onClick={this.tryUpdate}

@@ -59,6 +59,30 @@ export const getConstraints = () => {
         message: 'Only numbers and spaces are allowed.',
       },
     },
+    account_opening_reason: {
+      presence: {
+        presence: true,
+        message: 'This field is required.',
+      },
+    },
+    tax_residence: {
+      presence: {
+        presence: true,
+        message: 'This field is required.',
+      },
+    },
+    tax_identification_number: {
+      presence: {
+        presence: true,
+        message: 'This field is required.',
+      },
+      format: {
+        /*eslint-disable */
+        pattern: /^[\w-]{0,20}$/,
+        /*eslint-enable */
+        message: 'Only letters, numbers, space, and hyphen are allowed.',
+      },
+    },
   };
   return constraints;
 };
