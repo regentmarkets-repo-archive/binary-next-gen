@@ -32,6 +32,8 @@ export const ackRealityCheck = () => updateRealityCheck({
     showSummary: false,
 });
 
+export const setRealityCheckStartTime = realityCheckStartTime => updateRealityCheck({ realityCheckStartTime });
+
 export const updateRealityCheckSummary = () =>
     dispatch =>
         api.getRealityCheckSummary()

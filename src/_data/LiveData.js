@@ -1,5 +1,5 @@
 import { LiveApi } from 'binary-live-api';
-import { showError, timeLeftToNextRealityCheck } from 'binary-utils';
+import { showError, timeLeftToNextRealityCheck, nowAsEpoch } from 'binary-utils';
 import * as actions from '../_actions';
 import { CHANGE_INFO_FOR_ASSET, UPDATE_SETTINGS_FIELD, SERVER_DATA_STATES } from '../_constants/ActionTypes';
 
@@ -84,21 +84,28 @@ const initAuthorized = async (authData, store) => {
             const details = r.landing_company_details;
 
             const acknowledged = state.realityCheck.get('acknowledged');
-            if (details && details.has_reality_check) {
+          if (details && details.has_reality_check) {
                 if (!acknowledged) {
                     store
                         .dispatch(actions.updateRealityCheckSummary())
                         .then(() => store.dispatch(actions.initRealityCheck()));
-                } else {
-                    const interval = state.realityCheck.get('interval');
-                    const loginTime = state.realityCheck.getIn(['summary', 'loginTime']);
-                    const timeToWait = timeLeftToNextRealityCheck(loginTime, interval) * 1000;
+                } else if (acknowledged) {
+                  const refreshedRealityCheck = state.appState.get('refreshedRealityCheck');
+                  const realityCheckStartTime = state.realityCheck.get('realityCheckStartTime');
+                  const interval = state.realityCheck.get('interval');
+                  const loginTime = state.realityCheck.getIn(['summary', 'loginTime']);
+                  const timeToWait = timeLeftToNextRealityCheck(loginTime, interval) * 1000;
+
+                  if (!refreshedRealityCheck && realityCheckStartTime * 1000 + timeToWait > nowAsEpoch() * 1000) {
+                    store.dispatch(actions.updateAppState('refreshedRealityCheck', true));
+                    const timeToWaitAfterRefresh = (realityCheckStartTime * 1000 + timeToWait) - nowAsEpoch() * 1000;
                     store
-                        .dispatch(actions.updateRealityCheckSummary())
-                        .then(() => setTimeout(() =>
-                            store.dispatch(actions.showRealityCheckPopUp()),
-                            timeToWait
-                        ));
+                      .dispatch(actions.updateRealityCheckSummary())
+                      .then(() => setTimeout(() =>
+                          store.dispatch(actions.showRealityCheckPopUp()),
+                        timeToWaitAfterRefresh
+                      ));
+                  }
                 }
             } else {
                 store.dispatch(actions.disableRealityCheck());
