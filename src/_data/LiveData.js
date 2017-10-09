@@ -90,14 +90,14 @@ const initAuthorized = async (authData, store) => {
                         .dispatch(actions.updateRealityCheckSummary())
                         .then(() => store.dispatch(actions.initRealityCheck()));
                 } else if (acknowledged) {
-                  const refreshedRealityCheck = state.appState.get('refreshedRealityCheck');
+                  const hasSetRealityCheckAfterRefresh = state.appState.get('hasSetRealityCheckAfterRefresh');
                   const realityCheckStartTime = state.realityCheck.get('realityCheckStartTime');
                   const interval = state.realityCheck.get('interval');
                   const loginTime = state.realityCheck.getIn(['summary', 'loginTime']);
                   const timeToWait = timeLeftToNextRealityCheck(loginTime, interval) * 1000;
 
-                  if (!refreshedRealityCheck && realityCheckStartTime * 1000 + timeToWait > nowAsEpoch() * 1000) {
-                    store.dispatch(actions.updateAppState('refreshedRealityCheck', true));
+                  if (!hasSetRealityCheckAfterRefresh && realityCheckStartTime * 1000 + timeToWait > nowAsEpoch() * 1000) {
+                    store.dispatch(actions.updateAppState('hasSetRealityCheckAfterRefresh', true));
                     const timeToWaitAfterRefresh = (realityCheckStartTime * 1000 + timeToWait) - nowAsEpoch() * 1000;
                     store
                       .dispatch(actions.updateRealityCheckSummary())
