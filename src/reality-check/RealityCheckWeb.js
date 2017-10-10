@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import { ErrorMsg } from 'binary-components';
-import { timeLeftToNextRealityCheck } from 'binary-utils';
+import { timeLeftToNextRealityCheck, nowAsEpoch } from 'binary-utils';
 import { actions } from '../_store';
 import Modal from '../containers/Modal';
 import RealityCheckInitialCard from './RealityCheckInitialCard';
@@ -31,6 +31,7 @@ export default class RealityCheckWeb extends PureComponent {
         }
 
         const { loginTime } = summary;
+        actions.setRealityCheckStartTime(nowAsEpoch());
         actions.ackRealityCheck();
         const toWait = timeLeftToNextRealityCheck(loginTime, interval) * 1000;
         setTimeout(() =>
