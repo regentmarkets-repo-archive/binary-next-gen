@@ -153,9 +153,11 @@ const initAuthorized = async (authData, store) => {
             store.dispatch(actions.changeActiveLayout(1, 1));
         }
 
-        store.dispatch(actions.getDailyPrices(symbolToUse));
-        store.dispatch(actions.getTicksByCount(symbolToUse, 100, false));
-        store.dispatch({ type: CHANGE_INFO_FOR_ASSET, symbol: symbolToUse });
+        if (symbolToUse) {
+          store.dispatch(actions.getDailyPrices(symbolToUse));
+          store.dispatch(actions.getTicksByCount(symbolToUse, 100, false));
+          store.dispatch({ type: CHANGE_INFO_FOR_ASSET, symbol: symbolToUse });
+        }
 
         subscribeToWatchlist(tradableSymbols);
     });
