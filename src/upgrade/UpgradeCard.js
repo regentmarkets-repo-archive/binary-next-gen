@@ -1,5 +1,6 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
+import { BackButton } from 'binary-components';
 import MobilePage from '../containers/MobilePage';
 import UpgradeToRealCard from './UpgradeToRealCard';
 import UpgradeToMaltainvestCard from './UpgradeToMaltainvestCard';
@@ -17,11 +18,18 @@ type Props = {
 export default class UpgradeCard extends PureComponent {
   props: Props;
 
+  goBack = () => {
+    window.history.back();
+  }
+
   render() {
     const { settings, shouldShowUpgrade } = this.props;
 
     return (
       <MobilePage toolbarShown={false} inverse>
+        <div className="header inverse">
+          <BackButton onClick={this.goBack} />
+        </div>
         { shouldShowUpgrade === 'toReal' &&
           <UpgradeToRealCard {...this.props} {...settings} />
         }
