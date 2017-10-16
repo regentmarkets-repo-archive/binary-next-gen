@@ -35,7 +35,7 @@ export default class SettingsDetails extends PureComponent {
 					value={fullName}
 				/>
         }
-				{!isVirtual &&
+				{ !isVirtual &&
 				<LabeledText
 					id="dob"
 					label="Date of birth"
