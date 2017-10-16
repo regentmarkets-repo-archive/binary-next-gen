@@ -37,8 +37,7 @@
             accounts.push({ account: account, token: token, currency : currency || '', });
         }
 
-        var sortedAccounts = accounts.sort(function(a,b) {return b.currency.length - a.currency.length;});
-        return sortedAccounts;
+        return accounts;
     }
 
     function readConfig() {
