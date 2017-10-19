@@ -8,7 +8,7 @@ const postCssModules = require('postcss-modules');
 const env = process.env.NODE_ENV;
 
 module.exports = {
-    devtool: env === 'production' ? 'source-map' : 'eval',
+    devtool: env === 'production' ? 'eval' : 'source-map',
     entry: './src',
     output: {
         path: path.join(__dirname, 'www'),
@@ -23,7 +23,7 @@ module.exports = {
         }),
         //new webpack.optimize.DedupePlugin(),
         new webpack.optimize.UglifyJsPlugin({
-            sourceMap: true,
+            sourceMap: env !== 'production',
         })
     ] : [
         new ProgressBarPlugin({ width: 100 }),
