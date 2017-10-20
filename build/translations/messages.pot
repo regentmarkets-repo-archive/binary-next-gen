@@ -750,7 +750,6 @@ msgstr ""
 msgid "Choose your country"
 msgstr ""
 
-msgid ""
 "Password should have lower and uppercase letters and 6 characters or more"
 msgstr ""
 
@@ -764,24 +763,6 @@ msgid "Number should between 10 to 120"
 msgstr ""
 
 msgid "Enter your first and last name"
-msgstr ""
-
-msgid "City must not be empty"
-msgstr ""
-
-msgid "Address must not be empty"
-msgstr ""
-
-msgid "Enter a valid phone number"
-msgstr ""
-
-msgid "Select a secret question"
-msgstr ""
-
-msgid "Secret answer must be at least 4 characters"
-msgstr ""
-
-msgid "You need to agree to our Terms and Conditions"
 msgstr ""
 
 msgid "I agree to the"
