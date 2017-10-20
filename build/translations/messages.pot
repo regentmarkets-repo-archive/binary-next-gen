@@ -901,7 +901,7 @@ msgstr ""
 msgid "Touch spot"
 msgstr ""
 
-msgid "This field is required"
+msgid "This field is required."
 msgstr ""
 
 msgid "Should be a valid number"
@@ -914,4 +914,19 @@ msgid "Time out must be after today and cannot be more than 6 weeks."
 msgstr ""
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
+msgstr ""
+
+msgid "Only letters, numbers, space, and these special characters are allowed: - . \' # ; : ( ) , @ /"
+msgstr ""
+
+msgid "Only letters, space, hyphen, period, and apostrophe are allowed."
+msgstr ""
+
+msgid "Only letters, numbers, space, and hyphen are allowed."
+msgstr ""
+
+msgid "Only numbers and spaces are allowed."
+msgstr ""
+
+msgid "Only letters, numbers, space, hyphen, period, and apostrophe are allowed."
 msgstr ""
