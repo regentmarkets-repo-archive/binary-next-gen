@@ -1,917 +1,915 @@
 msgid "All"
-msgstr ""
+msgstr "Все"
 
 msgid "Property"
-msgstr ""
+msgstr "Собственность"
 
 msgid "Value"
-msgstr ""
+msgstr "Цена"
 
 msgid "Balance"
-msgstr ""
+msgstr "Баланс"
 
 msgid "Trade"
-msgstr " "
+msgstr "Начать работу"
 
 msgid "Watchlist"
-msgstr ""
+msgstr "Список"
 
 msgid "Open Positions"
-msgstr " "
+msgstr "Открытые позиции"
 
 msgid "Profit Table"
-msgstr " "
+msgstr "Анализ счета"
 
 msgid "Statement"
-msgstr " "
+msgstr "История счета"
 
 msgid "Settings"
-msgstr ""
+msgstr "Настройки"
 
 msgid "Sign Out"
-msgstr ""
+msgstr "Выход"
 
 msgid "View"
-msgstr ""
+msgstr "Просмотр"
 
 msgid "Ref."
-msgstr ""
+msgstr "Номер"
 
 msgid "Purchase"
-msgstr ""
+msgstr "Купить"
 
 msgid "Indicative"
-msgstr " "
+msgstr "Временная цена"
 
 msgid "Purchase Date"
-msgstr " "
+msgstr "Дата покупки"
 
 msgid "Purchase Price"
-msgstr " "
+msgstr "Цена покупки"
 
 msgid "Sale Date"
-msgstr " "
+msgstr "Дата продажи"
 
 msgid "Sale Price"
-msgstr " ."
+msgstr "Цена прод."
 
 msgid "Profit/Loss"
-msgstr "/"
+msgstr "Плюс/Минус"
 
 msgid "Total"
-msgstr ""
+msgstr "Всего"
 
 msgid "Location"
-msgstr ""
+msgstr "Местоположение"
 
 msgid "Update"
-msgstr ""
+msgstr "Обновить"
 
 msgid "Details"
-msgstr ""
+msgstr "Детали"
 
 msgid "Trading Limits"
-msgstr " "
+msgstr "Торговые лимиты"
 
 msgid "Item"
-msgstr ""
+msgstr "Описание"
 
 msgid "Limit ({currency})"
-msgstr " ({currency})"
+msgstr "Лимит ({currency})"
 
 msgid "Maximum number of open positions"
-msgstr "   "
+msgstr "Максимальное количество открытых позиций"
 
 msgid "Maximum account cash balance"
-msgstr "   "
+msgstr "Максимальный баланс на счету"
 
 msgid "Maximum daily turnover"
-msgstr "  "
+msgstr "Максимальный дневной оборот"
 
 msgid "Maximum aggregate payouts on open positions"
-msgstr "     "
+msgstr "Максимальная совокупная выплата по открытым позициям"
 
 msgid "Withdrawal limits"
-msgstr "  "
+msgstr "Лимиты на вывод"
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
-msgstr "  : {limit} (     )."
+msgstr "Ваш лимит вывода: {limit} (или эквивалентная сумма в другой валюте)."
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
-msgstr "   ,  EUR {drawn}."
+msgstr "Вы уже вывели сумму, эквивалентную EUR {drawn}."
 
 msgid "An additional password can be used to restrict access to the cashier."
-msgstr "        ."
+msgstr "Можно использовать дополнительный пароль для ограничения доступа к кассе."
 
 msgid "Sign In"
-msgstr ""
+msgstr "Войти"
 
 msgid "Get your API token"
-msgstr "  API"
+msgstr "Получить токен API"
 
 msgid "Create Account"
-msgstr " "
+msgstr "Открыть счёт"
 
 msgid "Action"
-msgstr ""
+msgstr "Акт"
 
 msgid "Credit/Debit"
-msgstr "/"
+msgstr "Кредит/Дебет"
 
 msgid "Purchase Time"
-msgstr " "
+msgstr "Время покупки"
 
 msgid "Back"
-msgstr ""
+msgstr "назад"
 
 msgid "Place Order"
-msgstr " "
+msgstr "Разместить ордер"
 
 msgid "{asset} will {type} over next {duration}"
-msgstr "{asset} {type}   {duration}"
+msgstr "{asset} {type} в следующие {duration}"
 
 msgid "Price"
-msgstr ""
+msgstr "Цена"
 
 msgid "Asset"
-msgstr ""
+msgstr "Актив"
 
 msgid "Type"
-msgstr ""
+msgstr "Тип"
 
 msgid "Ticks"
-msgstr ""
+msgstr "Тики"
 
 msgid "Amount"
-msgstr ""
+msgstr "Количество"
 
 msgid "Trade Confirmation"
-msgstr " "
+msgstr "Подтверждение контракта"
 
 msgid "Entry spot"
-msgstr " "
+msgstr "Входная котировка"
 
 msgid "Exit spot"
-msgstr " "
+msgstr "Выходная котировка"
 
 msgid "Next"
-msgstr ""
+msgstr "Далее"
 
 msgid "Open Account"
-msgstr " "
+msgstr "Открыть счет"
 
 msgid "Upgrade to Real Money Account"
-msgstr "   "
+msgstr "Перейти на Реальный счёт"
 
 msgid "Date of birth"
-msgstr " "
+msgstr "Дата рождения"
 
 msgid "Home Address"
-msgstr ""
+msgstr "Адрес"
 
 msgid "Security"
-msgstr ""
+msgstr "Безопасность"
 
 msgid "Spot"
-msgstr "-"
+msgstr "Спот-котировка"
 
 msgid "Change"
-msgstr ""
+msgstr "Изменение"
 
 msgid "Chart"
-msgstr ""
+msgstr "График"
 
 msgid "Purchase For"
-msgstr " "
+msgstr "Купить для"
 
 msgid "Rise"
-msgstr ""
+msgstr "Повышение"
 
 msgid "Stake"
-msgstr ""
+msgstr "Ставка"
 
 msgid "Payout"
-msgstr ""
+msgstr "Выплата"
 
 msgid "Deposit"
-msgstr ""
+msgstr "Пополнение"
 
 msgid "Transactions"
-msgstr ""
+msgstr "Сделки"
 
 msgid "Opens"
-msgstr ""
+msgstr "Открытие"
 
 msgid "Closes"
-msgstr ""
+msgstr "Закрытие"
 
 msgid "Personal"
-msgstr " "
+msgstr "Личные данные"
 
 msgid "General"
-msgstr ""
+msgstr "Общее"
 
 msgid "Trading Times"
-msgstr " "
+msgstr "Время торговли"
 
 msgid "Asset Index"
-msgstr " "
+msgstr "Индекс активов"
 
 msgid "Today"
-msgstr ""
+msgstr "Сегодня"
 
 msgid "Yesterday"
-msgstr ""
+msgstr "Вчера"
 
 msgid "Tomorrow"
-msgstr ""
+msgstr "Завтра"
 
 msgid "Takeout"
-msgstr ""
+msgstr "Выкуп"
 
 msgid "News"
-msgstr ""
+msgstr "Новости"
 
 msgid "Resources"
-msgstr ""
+msgstr "Ресурсы"
 
 msgid "Last 7 Days"
-msgstr " 7 ."
+msgstr "Последние 7 дн."
 
 msgid "Last 30 Days"
-msgstr " 30 ."
+msgstr "Последние 30 дн."
 
 msgid "Daily Report"
-msgstr " "
+msgstr "Анализ рынка"
 
 msgid "Up/Down"
-msgstr "/"
+msgstr "Вверх/Вниз"
 
 msgid "Touch/No Touch"
-msgstr "/ "
+msgstr "Касание/Нет касания"
 
 msgid "Ends In/Out"
-msgstr " /"
+msgstr "Закончится внутри/вне"
 
 msgid "Stays In/Goes Out"
-msgstr " /  "
+msgstr "Останется Внутри/Выйдет за пределы"
 
 msgid "Settles"
-msgstr ""
+msgstr "Заканчивается"
 
 msgid "Language"
-msgstr ""
+msgstr "Язык"
 
 msgid "Color Theme"
-msgstr " "
+msgstr "Цветовая схема"
 
 msgid "Light"
-msgstr ""
+msgstr "Светлый"
 
 msgid "Dark"
-msgstr ""
+msgstr "Тёмный"
 
 msgid "Name"
-msgstr ""
+msgstr "Имя"
 
 msgid "Date Of Birth"
-msgstr " "
+msgstr "Дата рождения"
 
 msgid "Country Of Residence"
-msgstr " "
+msgstr "Страна проживания"
 
 msgid "Email"
 msgstr "Email"
 
 msgid "There are no transactions for selected period"
-msgstr "    "
+msgstr "Сделки за выбранный период отсутствуют"
 
 msgid "Sell"
-msgstr ""
+msgstr "Продать"
 
 msgid "Buy"
-msgstr ""
+msgstr "Купить"
 
 msgid "Digit Even"
-msgstr " "
+msgstr "Чётная цифра"
 
 msgid "Touches"
-msgstr ""
+msgstr "Коснется"
 
 msgid "Digit Over"
-msgstr " "
+msgstr "Цифра выше"
 
 msgid "Digit Match"
-msgstr " "
+msgstr "Совпадение цифр"
 
 msgid "Digit Under"
-msgstr " "
+msgstr "Цифра ниже"
 
 msgid "Digit Odd"
-msgstr " "
+msgstr "Нечётная цифра"
 
 msgid "Digit Differs"
-msgstr " "
+msgstr "Несовпадение цифр"
 
 msgid "No Touch"
-msgstr " "
+msgstr "Нет касания"
 
 msgid "Fall"
-msgstr ""
+msgstr "Падение"
 
 msgid "Asian Down"
-msgstr " "
+msgstr "Азиатские вниз"
 
 msgid "Asian Up"
-msgstr " "
+msgstr "Азиатские вверх"
 
 msgid "Search For Assets"
-msgstr " "
+msgstr "Поиск активов"
 
 msgid "Start times"
-msgstr " "
+msgstr "Время начала"
 
 msgid "Durations"
-msgstr "."
+msgstr "Продолжительн."
 
 msgid "Payout/Stake"
-msgstr "/"
+msgstr "Выплата/ставка"
 
 msgid "Purchase for"
-msgstr " "
+msgstr "Купить для"
 
 msgid "payout"
-msgstr ""
+msgstr "выплата"
 
 msgid "stake"
-msgstr ""
+msgstr "ставка"
 
 msgid "Self Exclusion"
-msgstr ""
+msgstr "Самоисключение"
 
 msgid "Cashier Lock"
-msgstr "  "
+msgstr "Доступ к кассе"
 
 msgid "Change Password"
-msgstr " "
+msgstr "Изменить пароль"
 
 msgid "Password"
-msgstr ""
+msgstr "Пароль"
 
 msgid "Tick Trade"
 msgstr "Tick Trade"
 
 msgid "Full Trade"
-msgstr " "
+msgstr "Полноценная торговля"
 
 msgid "Address"
-msgstr ""
+msgstr "Адрес"
 
 msgid "Town/City"
-msgstr ""
+msgstr "Город"
 
 msgid "State/Province"
-msgstr "/"
+msgstr "Регион/область"
 
 msgid "Telephone"
-msgstr ""
+msgstr "Телефон"
 
 msgid "Postal Code / ZIP"
-msgstr " /"
+msgstr "Почтовый код/индекс"
 
 msgid "Cashier password"
-msgstr "  "
+msgstr "Пароль для кассы"
 
 msgid "Re-enter your password"
-msgstr " "
+msgstr "Повторите пароль"
 
 msgid "Current password"
-msgstr " "
+msgstr "Текущий пароль"
 
 msgid "New password"
-msgstr " "
+msgstr "Новый пароль"
 
 msgid "Verify new password"
-msgstr "  "
+msgstr "Подтвердите новый пароль"
 
 msgid "Daily turnover limit"
-msgstr "    "
+msgstr "Дневной лимит на объём покупок"
 
 msgid "Once this limit is reached, you may no longer deposit."
-msgstr "     ,     ."
+msgstr "Как только будет достигнут данный лимит, Вы не сможете пополнить счёт."
 
 msgid "Maximum aggregate contract purchases per day."
-msgstr "   ,   ."
+msgstr "Максимальная совокупная стоимость контрактов, приобретенных за день."
 
 msgid "Daily limit on losses"
-msgstr "   "
+msgstr "Дневной лимит на убытки"
 
 msgid "Maximum aggregate loss per day."
-msgstr "    ."
+msgstr "Максимальный совокупный убыток за день."
 
 msgid "7-day turnover limit"
-msgstr "7-    "
+msgstr "7-дневный лимит на объём покупок"
 
 msgid "Maximum aggregate contract purchases over a 7-day period."
-msgstr "   ,    7- ."
+msgstr "Максимальная совокупная стоимость контрактов, приобретенных за за 7-дневный период."
 
 msgid "7-day limit on losses"
-msgstr "7-   "
+msgstr "7-дневный лимит на убытки"
 
 msgid "Maximum aggregate loss over a 7-day period."
-msgstr "    7- ."
+msgstr "Максимальный совокупный убыток за 7-дневный период."
 
 msgid "30-day turnover limit"
-msgstr "30-    "
+msgstr "30-дневный лимит на объём покупок"
 
 msgid "Maximum aggregate contract purchases over a 30-day period."
-msgstr "   ,   30- ."
+msgstr "Максимальная совокупная стоимость контрактов, приобретенных за 30-дневный период."
 
 msgid "30-day limit on losses"
-msgstr "30-   "
+msgstr "30-дневный лимит на убытки"
 
 msgid "Maximum aggregate loss over a 30-day period."
-msgstr "    30- ."
+msgstr "Максимальный совокупный убыток за 30-дневный период."
 
 msgid "Session duration limit, in minutes"
-msgstr "  ,  "
+msgstr "Предел продолжительности сессии, в минутах"
 
 msgid "You will be automatically logged out after such time."
-msgstr "        ."
+msgstr "Вы автоматически выйдете с сайта по истечении данного периода."
 
 msgid "Exclude me from the website until"
-msgstr "     "
+msgstr "Закройте мне доступ к сайту до"
 
 msgid "Limits"
-msgstr ""
+msgstr "Лимиты"
 
 msgid "Please enter date in the format YYYY-MM-DD."
-msgstr ",     : --."
+msgstr "Пожалуйста, введите дату в следующем формате: ГГГГ-ММ-ДД."
 
 msgid "New Trade"
-msgstr " "
+msgstr "Новый контракт"
 
 msgid "Trade Type"
-msgstr " "
+msgstr "Тип контракта"
 
 msgid "Random 100 Index"
-msgstr "Random 100 "
+msgstr "Random 100 индекс"
 
 msgid "Article"
-msgstr ""
+msgstr "Статья"
 
 msgid "Start Later"
-msgstr " "
+msgstr "Начать позже"
 
 msgid "Buy Price"
-msgstr " "
+msgstr "Цена покупки"
 
 msgid "Earning (%)"
-msgstr " (%)"
+msgstr "Доход (%)"
 
 msgid "Profit"
-msgstr ""
+msgstr "Прибыль"
 
 msgid "Entry Price"
-msgstr " "
+msgstr "Входная цена"
 
 msgid "Exit Price"
-msgstr " "
+msgstr "Выходная цена"
 
 msgid "Indicative Price"
-msgstr " "
+msgstr "Ориентировочная цена"
 
 msgid "Potential Profit"
-msgstr " "
+msgstr "Потенциальная прибыль"
 
 msgid "Sell at Market"
-msgstr "   "
+msgstr "Продать по текущей цене"
 
 msgid "Go back"
-msgstr ""
+msgstr "Назад"
 
 msgid "You lost "
-msgstr "  "
+msgstr "Вы потеряли "
 
 msgid "Close"
-msgstr ""
+msgstr "Закрытие"
 
 msgid "Low"
-msgstr "."
+msgstr "Низ."
 
 msgid "High"
-msgstr "."
+msgstr "Верх."
 
 msgid "Open"
-msgstr ""
+msgstr "Открытие"
 
 msgid "Date"
-msgstr ""
+msgstr "Дата"
 
 msgid "Upcoming Events"
-msgstr " "
+msgstr "Ближайшие события"
 
 msgid "Win"
-msgstr ""
+msgstr "Выигрыш"
 
 msgid "Loss"
-msgstr ""
+msgstr "Проигрыш"
 
 msgid "Full Screen"
-msgstr "  "
+msgstr "На весь экран"
 
 msgid "Start Now"
-msgstr " "
+msgstr "Начать сейчас"
 
 msgid "Daily Prices"
-msgstr " "
+msgstr "Дневные цены"
 
 msgid "Spreads"
-msgstr ""
+msgstr "Спреды"
 
 msgid "Confirm new password"
-msgstr "  "
+msgstr "Подтвердите новый пароль"
 
 msgid "TICK"
-msgstr ""
+msgstr "ТИКИ"
 
 msgid "Minutes"
-msgstr ""
+msgstr "Минуты"
 
 msgid "Seconds"
-msgstr ""
+msgstr "Секунды"
 
 msgid "Hours"
-msgstr ""
+msgstr "Часы"
 
 msgid "Days"
-msgstr ""
+msgstr "Дни"
 
 msgid "N/A"
-msgstr "/"
+msgstr "Н/Д"
 
 msgid "Duration"
-msgstr "."
+msgstr "Продолжит."
 
 msgid "Start Time"
-msgstr " "
+msgstr "Время начала"
 
 msgid "Now"
-msgstr ""
+msgstr "Сейчас"
 
 msgid "Later"
-msgstr ""
+msgstr "Позже"
 
 msgid "return"
-msgstr ""
+msgstr "прибыли"
 
 msgid "Portfolio"
-msgstr ""
+msgstr "Портфель"
 
 msgid "Video"
-msgstr ""
+msgstr "Видео"
 
 msgid "Digit Stats"
-msgstr ""
+msgstr "Статистика"
 
 msgid "Favorites"
-msgstr ""
+msgstr "Избранное"
 
 msgid "Open For Trading"
-msgstr "  "
+msgstr "Открыто для торговли"
 
 msgid "Closed"
-msgstr ""
+msgstr "Закрыто"
 
 msgid "Contract ID"
-msgstr " "
+msgstr "Номер контракта"
 
 msgid "Reference ID"
-msgstr ""
+msgstr "Номер"
 
 msgid "Entry Spot"
-msgstr " "
+msgstr "Входная котировка"
 
 msgid "Entry Spot Time"
-msgstr " . "
+msgstr "Время входн. котировки"
 
 msgid "Potential Payout"
-msgstr " "
+msgstr "Потенциальная выплата"
 
 msgid "Exit Spot"
-msgstr " "
+msgstr "Выходная котировка"
 
 msgid "Exit Spot Time"
-msgstr " . "
+msgstr "Время выходн. котировки"
 
 msgid "Sell Price"
-msgstr " ."
+msgstr "Цена прод."
 
 msgid "Sell Time"
-msgstr " "
+msgstr "Время продажи"
 
 msgid "Trade Again"
-msgstr ""
+msgstr "Продолжить"
 
 msgid "Barrier"
-msgstr ""
+msgstr "Барьер"
 
 msgid "You Won"
-msgstr " "
+msgstr "Вы выиграли"
 
 msgid "You Lost"
-msgstr " "
+msgstr "Вы проиграли"
 
-msgid ""
-"To change your name, date of birth, country of residence, or email, contact "
-"Customer Support."
-msgstr "   ,  ,    . ,    ."
+msgid "To change your name, date of birth, country of residence, or email, contact Customer Support."
+msgstr "Чтобы изменить Ваше имя, дату рождения, страну проживания или эл. адрес, свяжитесь со службой поддержки."
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
-msgstr "    .   ,  ."
+msgstr "Касса закрыта по Вашей просьбе. Чтобы открыть кассу, введите пароль."
 
 msgid "Unlock Cashier"
-msgstr " "
+msgstr "Открыть кассу"
 
 msgid "Time out until"
-msgstr "  "
+msgstr "Ограничение доступа до"
 
 msgid "No transactions for the selected period"
-msgstr "    "
+msgstr "Сделки за выбранный период отсутствуют"
 
 msgid "You have no open contracts"
-msgstr "    "
+msgstr "У Вас нет открытых контрактов"
 
 msgid "You have no assets in watchlist"
-msgstr "    "
+msgstr "В Вашем списке нет активов"
 
 msgid "Basic"
-msgstr ""
+msgstr "Основные"
 
 msgid "Digits"
-msgstr ""
+msgstr "Цифровые"
 
 msgid "Advanced"
-msgstr ""
+msgstr "Расширенные"
 
 msgid "Higher"
-msgstr ""
+msgstr "Выше"
 
 msgid "Lower"
-msgstr ""
+msgstr "Ниже"
 
 msgid "Ends Outside"
-msgstr " "
+msgstr "Закончится вне"
 
 msgid "Ends Between"
-msgstr " "
+msgstr "Закончится между"
 
 msgid "Stays Between"
-msgstr " "
+msgstr "Останется между"
 
 msgid "Goes Outside"
-msgstr "  "
+msgstr "Выйдет за пределы"
 
 msgid "Does Not Touch"
-msgstr " "
+msgstr "Не коснётся"
 
 msgid "Credit / Debit"
-msgstr "/"
+msgstr "Кредит/Дебет"
 
 msgid "Last 25 Ticks"
-msgstr ". 25 "
+msgstr "Последн. 25 тиков"
 
 msgid "Last 50 Trades"
-msgstr ". 50 "
+msgstr "Последн. 50 сделок"
 
 msgid "Last 100 Trades"
-msgstr ". 100 "
+msgstr "Последн. 100 сделок"
 
 msgid "Last 500 Trades"
-msgstr ". 500 "
+msgstr "Последн. 500 сделок"
 
 msgid "Last 1000 Trades"
-msgstr ". 1000 "
+msgstr "Последн. 1000 сделок"
 
 msgid "Maximum Daily Turnover"
-msgstr ".   "
+msgstr "Макс. дневной объём покупок"
 
 msgid "Commodities"
-msgstr " "
+msgstr "Сырьевые товары"
 
 msgid "Major Pairs"
-msgstr " "
+msgstr "Основные пары"
 
 msgid "Minor Pairs"
-msgstr " "
+msgstr "Вторичные пары"
 
 msgid "Smart FX"
-msgstr " FX"
+msgstr "Смарт FX"
 
 msgid "Volatility Indices"
-msgstr " "
+msgstr "Индексы волатильности"
 
 msgid "Indices"
-msgstr ""
+msgstr "Индексы"
 
 msgid "OTC Stocks"
-msgstr " "
+msgstr "Внебиржевые акции"
 
 msgid "Stated limits are subject to change without prior notice"
-msgstr "       "
+msgstr "Указанные лимиты могут быть изменены без предварительного уведомления"
 
 msgid "Withdrawal Limits"
-msgstr "  "
+msgstr "Лимиты на вывод"
 
 msgid "Withdrawal limit"
-msgstr "  "
+msgstr "Лимит на вывод"
 
 msgid "Already withdrawn"
-msgstr "  "
+msgstr "Снято со счёта"
 
 msgid "Current immediate maximum withdrawal"
-msgstr "    "
+msgstr "Текущая максимальная сумма мгновенного вывода"
 
 msgid "Create Free Account"
-msgstr "  "
+msgstr "Открыть бесплатный счёт"
 
 msgid "Verification Code"
-msgstr " "
+msgstr "Код проверки"
 
 msgid "Confirm Password"
-msgstr " "
+msgstr "Подтвердить пароль"
 
 msgid "Already have an account?"
-msgstr " ?"
+msgstr "Уже зарегистрированы?"
 
 msgid "Enter a valid verification code"
-msgstr "   "
+msgstr "Введите правильный проверочный код"
 
 msgid "Choose your country"
-msgstr " "
+msgstr "Выберите страну"
 
-msgid ""
-"Password should have lower and uppercase letters and 6 characters or more"
-msgstr "     6       "
+msgid "Password should have lower and uppercase letters and 6 characters or more"
+msgstr "Пароль должен составлять не менее 6 знаков и содержать заглавные и строчные буквы"
 
 msgid "Passwords do not match"
-msgstr "  "
+msgstr "Пароли не совпадают"
 
 msgid "Enter a valid email"
-msgstr "  . "
+msgstr "Введите действующий эл. адрес"
 
 msgid "Number should between 10 to 120"
-msgstr "    10  120"
+msgstr "Число должно быть от 10 до 120"
 
 msgid "Enter your first and last name"
-msgstr "   "
+msgstr "Введите имя и фамилию"
 
 msgid "City must not be empty"
-msgstr "   "
+msgstr "Вы забыли указать город"
 
 msgid "Address must not be empty"
-msgstr "   "
+msgstr "Вы забыли указать адрес"
 
 msgid "Enter a valid phone number"
-msgstr "   "
+msgstr "Введите действующий номер телефона"
 
 msgid "Select a secret question"
-msgstr "  "
+msgstr "Выберите секретный вопрос"
 
 msgid "Secret answer must be at least 4 characters"
-msgstr "     4 "
+msgstr "Секретный ответ должен составлять минимум 4 знака"
 
 msgid "You need to agree to our Terms and Conditions"
-msgstr "      "
+msgstr "Вы должны принять наши Правила и условия"
 
 msgid "I agree to the"
-msgstr "  "
+msgstr "Я соглашаюсь с"
 
 msgid "terms and conditions"
-msgstr "  "
+msgstr "Правилами и условиями"
 
 msgid "Search for assets"
-msgstr " "
+msgstr "Поиск активов"
 
 msgid "Choose a Payment Agent"
-msgstr "  "
+msgstr "Выберите Платёжного агента"
 
 msgid "Confirm New Password"
-msgstr "  "
+msgstr "Подтвердите новый пароль"
 
 msgid "First Name"
-msgstr ""
+msgstr "Имя"
 
 msgid "Last Name"
-msgstr ""
+msgstr "Фамилия"
 
 msgid "Address First Line"
-msgstr "  "
+msgstr "Первая строка адреса"
 
 msgid "Address Second Line"
-msgstr "  "
+msgstr "Вторая строка адреса"
 
 msgid "Phone"
-msgstr ""
+msgstr "Телефон"
 
 msgid "Answer To Secret Question"
-msgstr "   "
+msgstr "Ответ на секретный вопрос"
 
 msgid "Switch to"
-msgstr " "
+msgstr "Перейти к"
 
 msgid "Single Trade"
-msgstr " "
+msgstr "Новый контракт"
 
 msgid "Multi Trade"
-msgstr " "
+msgstr "Одновременная торговля"
 
 msgid "Current Password"
-msgstr " "
+msgstr "Текущий пароль"
 
 msgid "New Password"
-msgstr " "
+msgstr "Новый пароль"
 
 msgid "Last 50 Ticks"
-msgstr ". 50 "
+msgstr "Последн. 50 тиков"
 
 msgid "Last 100 Ticks"
-msgstr ". 100 "
+msgstr "Последн. 100 тиков"
 
 msgid "Last 500 Ticks"
-msgstr ". 500 "
+msgstr "Последн. 500 тиков"
 
 msgid "Last 1000 Ticks"
-msgstr ". 1000 "
+msgstr "Последн. 1000 тиков"
 
 msgid "Exit Full Screen"
-msgstr "  "
+msgstr "Закрыть полноэкранный режим"
 
 msgid "No digit trades for this asset"
-msgstr "     "
+msgstr "Цифровые контракты недоступны на этом активе"
 
 msgid "Lock Cashier"
-msgstr " "
+msgstr "Заблокировать Кассу"
 
 msgid "Time out until date"
-msgstr "  "
+msgstr "Ограничение доступа до"
 
 msgid "Time out until time"
-msgstr "  "
+msgstr "Ограничение доступа до"
 
 msgid "Light Theme"
-msgstr " "
+msgstr "Светлая Тема"
 
 msgid "Dark Theme"
-msgstr " "
+msgstr "Темная Тема"
 
 msgid "Password changed successfully"
-msgstr "  "
+msgstr "Пароль успешно изменен"
 
 msgid "Settings updated"
-msgstr " "
+msgstr "Настройки изменены"
 
 msgid "Address updated"
-msgstr " "
+msgstr "Адрес изменен"
 
 msgid "Barrier must not be empty"
-msgstr " \"\"    "
+msgstr "Поле \"Барьер\" не должно быть пустым"
 
 msgid "Duration is out of range"
-msgstr "   "
+msgstr "Продолжительность вне допустимых границ"
 
 msgid "Start date invalid, it needs to be five minutes or more in the future"
-msgstr "  .            "
+msgstr "Неверное время начала. Время начала должно быть не менее чем через пять минут в будущем"
 
 msgid "Time format is wrong"
-msgstr "  "
+msgstr "Неправильный формат времени"
 
 msgid "Lower than"
-msgstr " "
+msgstr "Ниже чем"
 
 msgid "Higher than"
-msgstr " "
+msgstr "Выше чем"
 
 msgid "High barrier"
-msgstr " "
+msgstr "Верхний барьер"
 
 msgid "Low barrier"
-msgstr " "
+msgstr "Нижний барьер"
 
 msgid "Touch spot"
-msgstr " "
+msgstr "Точка касания"
 
 msgid "This field is required"
-msgstr "   "
+msgstr "Данное поле является обязательным"
 
 msgid "Should be a valid number"
-msgstr "  "
+msgstr "Введите правильное число"
 
 msgid "Should be between 0 and {number}"
-msgstr "   0  {number}"
+msgstr "Введите число от 0 до {number}"
 
 msgid "Time out must be after today and cannot be more than 6 weeks."
-msgstr "      ,   ,   6 ."
+msgstr "Время окончания должно быть позднее сегодняшней даты, но не позже, чем через 6 недель."
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
-msgstr "      6   5 ."
+msgstr "Период исключения не должен быть менее 6 и более 5 лет."
+
