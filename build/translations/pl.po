@@ -2,16 +2,16 @@ msgid "All"
 msgstr "Wszystko"
 
 msgid "Property"
-msgstr "Waciwo"
+msgstr "Właściwość"
 
 msgid "Value"
-msgstr "Warto"
+msgstr "Wartość"
 
 msgid "Balance"
 msgstr "Saldo"
 
 msgid "Trade"
-msgstr "Zakad"
+msgstr "Zakład"
 
 msgid "Watchlist"
 msgstr "Obserwowane"
@@ -20,7 +20,7 @@ msgid "Open Positions"
 msgstr "Otwarte pozycje"
 
 msgid "Profit Table"
-msgstr "Tabela zyskw"
+msgstr "Tabela zysków"
 
 msgid "Statement"
 msgstr "Stan konta"
@@ -50,16 +50,16 @@ msgid "Purchase Price"
 msgstr "Cena zakupu"
 
 msgid "Sale Date"
-msgstr "Data sprzeday"
+msgstr "Data sprzedaży"
 
 msgid "Sale Price"
-msgstr "Cena sprzeday"
+msgstr "Cena sprzedaży"
 
 msgid "Profit/Loss"
 msgstr "Zysk/strata"
 
 msgid "Total"
-msgstr "Cakowity"
+msgstr "Całkowity"
 
 msgid "Location"
 msgstr "Lokalizacja"
@@ -68,7 +68,7 @@ msgid "Update"
 msgstr "Aktualizuj"
 
 msgid "Details"
-msgstr "Szczegy"
+msgstr "Szczegóły"
 
 msgid "Trading Limits"
 msgstr "Limity handlowe"
@@ -83,26 +83,25 @@ msgid "Maximum number of open positions"
 msgstr "Maksymalna liczba otwartych pozycji"
 
 msgid "Maximum account cash balance"
-msgstr "Maksymalne saldo gotwki na koncie"
+msgstr "Maksymalne saldo gotówki na koncie"
 
 msgid "Maximum daily turnover"
-msgstr "Maksymalny dzienny obrt"
+msgstr "Maksymalny dzienny obrót"
 
 msgid "Maximum aggregate payouts on open positions"
-msgstr "Maksymalne cakowite wypaty dla pozycji otwartych"
+msgstr "Maksymalne całkowite wypłaty dla pozycji otwartych"
 
 msgid "Withdrawal limits"
-msgstr "Limity wypat"
+msgstr "Limity wypłat"
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
-msgstr "Twj limit wypat wynosi {limit} (lub jego ekwiwalent w innej walucie)."
+msgstr "Twój limit wypłat wynosi {limit} (lub jego ekwiwalent w innej walucie)."
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
-msgstr "Wypacono ju rwnowarto {drawn} EUR."
+msgstr "Wypłacono już równowartość {drawn} EUR."
 
 msgid "An additional password can be used to restrict access to the cashier."
-msgstr ""
-"Moliwe jest uycie dodatkowego hasa, aby ograniczy dostp do sekcji Kasjer."
+msgstr "Możliwe jest użycie dodatkowego hasła, aby ograniczyć dostęp do sekcji Kasjer."
 
 msgid "Sign In"
 msgstr "Zaloguj"
@@ -111,10 +110,10 @@ msgid "Get your API token"
 msgstr "Pobierz token API"
 
 msgid "Create Account"
-msgstr "Utwrz konto"
+msgstr "Utwórz konto"
 
 msgid "Action"
-msgstr "Czynno"
+msgstr "Czynność"
 
 msgid "Credit/Debit"
 msgstr "Winien/Ma"
@@ -126,10 +125,10 @@ msgid "Back"
 msgstr "Poprzedni"
 
 msgid "Place Order"
-msgstr "Z zlecenie"
+msgstr "Złóż zlecenie"
 
 msgid "{asset} will {type} over next {duration}"
-msgstr "{asset} zanotuje {type} w cigu {duration}"
+msgstr "{asset} zanotuje {type} w ciągu {duration}"
 
 msgid "Price"
 msgstr "Cena"
@@ -147,22 +146,22 @@ msgid "Amount"
 msgstr "Kwota"
 
 msgid "Trade Confirmation"
-msgstr "Potwierdzenie zawarcia zakadu"
+msgstr "Potwierdzenie zawarcia zakładu"
 
 msgid "Entry spot"
-msgstr "Pozycja wejciowa"
+msgstr "Pozycja wejściowa"
 
 msgid "Exit spot"
-msgstr "Punkt wyjciowy"
+msgstr "Punkt wyjściowy"
 
 msgid "Next"
-msgstr "Nastpny"
+msgstr "Następny"
 
 msgid "Open Account"
-msgstr "Otwrz konto"
+msgstr "Otwórz konto"
 
 msgid "Upgrade to Real Money Account"
-msgstr "Zamie na konto z prawdziwymi pienidzmi"
+msgstr "Zamień na konto z prawdziwymi pieniędzmi"
 
 msgid "Date of birth"
 msgstr "Data urodzenia"
@@ -171,7 +170,7 @@ msgid "Home Address"
 msgstr "Adres domowy"
 
 msgid "Security"
-msgstr "Bezpieczestwo"
+msgstr "Bezpieczeństwo"
 
 msgid "Spot"
 msgstr "Cena spot"
@@ -192,10 +191,10 @@ msgid "Stake"
 msgstr "Stawka"
 
 msgid "Payout"
-msgstr "Wypata"
+msgstr "Wypłata"
 
 msgid "Deposit"
-msgstr "Wpata"
+msgstr "Wpłata"
 
 msgid "Transactions"
 msgstr "Transakcje"
@@ -204,19 +203,19 @@ msgid "Opens"
 msgstr "Otwarcie"
 
 msgid "Closes"
-msgstr "Zamknicie"
+msgstr "Zamknięcie"
 
 msgid "Personal"
 msgstr "Osobiste"
 
 msgid "General"
-msgstr "Oglne"
+msgstr "Ogólne"
 
 msgid "Trading Times"
 msgstr "Godziny handlu"
 
 msgid "Asset Index"
-msgstr "Indeks aktyww"
+msgstr "Indeks aktywów"
 
 msgid "Today"
 msgstr "Dzisiaj"
@@ -228,10 +227,10 @@ msgid "Tomorrow"
 msgstr "Jutro"
 
 msgid "Takeout"
-msgstr "Wypata"
+msgstr "Wypłata"
 
 msgid "News"
-msgstr "Wiadomoci"
+msgstr "Wiadomości"
 
 msgid "Resources"
 msgstr "Zasoby"
@@ -246,13 +245,13 @@ msgid "Daily Report"
 msgstr "Raport dzienny"
 
 msgid "Up/Down"
-msgstr "Gra/D"
+msgstr "Góra/Dół"
 
 msgid "Touch/No Touch"
-msgstr "Osignie/Nie osignie"
+msgstr "Osiągnie/Nie osiągnie"
 
 msgid "Ends In/Out"
-msgstr "Zakoczy si w/poza"
+msgstr "Zakończy się w/poza"
 
 msgid "Stays In/Goes Out"
 msgstr "Pozostanie w/poza"
@@ -261,7 +260,7 @@ msgid "Settles"
 msgstr "Rozliczenie"
 
 msgid "Language"
-msgstr "Jzyk"
+msgstr "Język"
 
 msgid "Color Theme"
 msgstr "Motyw kolorystyczny"
@@ -273,13 +272,13 @@ msgid "Dark"
 msgstr "Ciemny"
 
 msgid "Name"
-msgstr "Imi"
+msgstr "Imię"
 
 msgid "Date Of Birth"
 msgstr "Data urodzenia"
 
 msgid "Country Of Residence"
-msgstr "Pastwo zamieszkania"
+msgstr "Państwo zamieszkania"
 
 msgid "Email"
 msgstr "E-mail"
@@ -297,13 +296,13 @@ msgid "Digit Even"
 msgstr "Cyfra parzysta"
 
 msgid "Touches"
-msgstr "Osignie"
+msgstr "Osiągnie"
 
 msgid "Digit Over"
-msgstr "Cyfra wiksza"
+msgstr "Cyfra większa"
 
 msgid "Digit Match"
-msgstr "Cyfra zgadza si"
+msgstr "Cyfra zgadza się"
 
 msgid "Digit Under"
 msgstr "Cyfra mniejsza"
@@ -312,58 +311,58 @@ msgid "Digit Odd"
 msgstr "Cyfra nieparzysta"
 
 msgid "Digit Differs"
-msgstr "Cyfra nie zgadza si"
+msgstr "Cyfra nie zgadza się"
 
 msgid "No Touch"
-msgstr "Nie osignie"
+msgstr "Nie osiągnie"
 
 msgid "Fall"
 msgstr "Spadek"
 
 msgid "Asian Down"
-msgstr "Azjatyckie  Spadek"
+msgstr "Azjatyckie – Spadek"
 
 msgid "Asian Up"
-msgstr "Azjatyckie  Wzrost"
+msgstr "Azjatyckie – Wzrost"
 
 msgid "Search For Assets"
-msgstr "Szukaj aktyww"
+msgstr "Szukaj aktywów"
 
 msgid "Start times"
-msgstr "Czas rozpoczcia"
+msgstr "Czas rozpoczęcia"
 
 msgid "Durations"
 msgstr "Czas trwania"
 
 msgid "Payout/Stake"
-msgstr "Wypata/Stawka"
+msgstr "Wypłata/Stawka"
 
 msgid "Purchase for"
 msgstr "Kup za"
 
 msgid "payout"
-msgstr "wypata"
+msgstr "wypłata"
 
 msgid "stake"
 msgstr "stawka"
 
 msgid "Self Exclusion"
-msgstr "Samodzielne wyczenie"
+msgstr "Samodzielne wyłączenie"
 
 msgid "Cashier Lock"
 msgstr "Blokowanie sekcji Kasjer"
 
 msgid "Change Password"
-msgstr "Zmie haso"
+msgstr "Zmień hasło"
 
 msgid "Password"
-msgstr "Haso"
+msgstr "Hasło"
 
 msgid "Tick Trade"
-msgstr "Zakad oparty na najmniejszej zmianie ceny"
+msgstr "Zakład oparty na najmniejszej zmianie ceny"
 
 msgid "Full Trade"
-msgstr "Peny zakad"
+msgstr "Pełny zakład"
 
 msgid "Address"
 msgstr "Adres"
@@ -372,7 +371,7 @@ msgid "Town/City"
 msgstr "Miasto"
 
 msgid "State/Province"
-msgstr "Region/Wojewdztwo"
+msgstr "Region/Województwo"
 
 msgid "Telephone"
 msgstr "Telefon"
@@ -381,103 +380,103 @@ msgid "Postal Code / ZIP"
 msgstr "Kod pocztowy"
 
 msgid "Cashier password"
-msgstr "Haso do sekcji Kasjer"
+msgstr "Hasło do sekcji Kasjer"
 
 msgid "Re-enter your password"
-msgstr "Powtrz haso"
+msgstr "Powtórz hasło"
 
 msgid "Current password"
-msgstr "Obecne haso"
+msgstr "Obecne hasło"
 
 msgid "New password"
-msgstr "Nowe haso"
+msgstr "Nowe hasło"
 
 msgid "Verify new password"
-msgstr "Zweryfikuj nowe haso"
+msgstr "Zweryfikuj nowe hasło"
 
 msgid "Daily turnover limit"
-msgstr "Maksymalny dzienny limit obrotw"
+msgstr "Maksymalny dzienny limit obrotów"
 
 msgid "Once this limit is reached, you may no longer deposit."
-msgstr "Po osigniciu tego limitu nie mona dokonywa dalszych wpat."
+msgstr "Po osiągnięciu tego limitu nie można dokonywać dalszych wpłat."
 
 msgid "Maximum aggregate contract purchases per day."
-msgstr "Maksymalne dzienne czne zakupy kontraktw."
+msgstr "Maksymalne dzienne łączne zakupy kontraktów."
 
 msgid "Daily limit on losses"
 msgstr "Dzienny limit strat"
 
 msgid "Maximum aggregate loss per day."
-msgstr "Maksymalna czna strata dzienna."
+msgstr "Maksymalna łączna strata dzienna."
 
 msgid "7-day turnover limit"
-msgstr "7-dniowy limit obrotw"
+msgstr "7-dniowy limit obrotów"
 
 msgid "Maximum aggregate contract purchases over a 7-day period."
-msgstr "Maksymalne czne 7-dniowe zakupy kontraktw."
+msgstr "Maksymalne łączne 7-dniowe zakupy kontraktów."
 
 msgid "7-day limit on losses"
 msgstr "7-dniowy limit strat"
 
 msgid "Maximum aggregate loss over a 7-day period."
-msgstr "Maksymalna czna strata w okresie 7-dniowym."
+msgstr "Maksymalna łączna strata w okresie 7-dniowym."
 
 msgid "30-day turnover limit"
-msgstr "30-dniowy limit obrotw"
+msgstr "30-dniowy limit obrotów"
 
 msgid "Maximum aggregate contract purchases over a 30-day period."
-msgstr "Maksymalne czne zakupy kontraktw w okresie 30 dni."
+msgstr "Maksymalne łączne zakupy kontraktów w okresie 30 dni."
 
 msgid "30-day limit on losses"
 msgstr "30-dniowy limit strat"
 
 msgid "Maximum aggregate loss over a 30-day period."
-msgstr "Maksymalna czna strata w okresie 30-dni."
+msgstr "Maksymalna łączna strata w okresie 30-dni."
 
 msgid "Session duration limit, in minutes"
 msgstr "Limit czasu sesji, w minutach"
 
 msgid "You will be automatically logged out after such time."
-msgstr "Po tym czasie nastpi automatyczne wylogowanie."
+msgstr "Po tym czasie nastąpi automatyczne wylogowanie."
 
 msgid "Exclude me from the website until"
-msgstr "Wycz mnie z portalu do dnia"
+msgstr "Wyłącz mnie z portalu do dnia"
 
 msgid "Limits"
 msgstr "Limity"
 
 msgid "Please enter date in the format YYYY-MM-DD."
-msgstr "Wpisz dat w formacie RRRR-MM-DD."
+msgstr "Wpisz datę w formacie RRRR-MM-DD."
 
 msgid "New Trade"
-msgstr "Nowy zakad"
+msgstr "Nowy zakład"
 
 msgid "Trade Type"
-msgstr "Rodzaj zakadu"
+msgstr "Rodzaj zakładu"
 
 msgid "Random 100 Index"
 msgstr "Indeks losowy 100"
 
 msgid "Article"
-msgstr "Artyku"
+msgstr "Artykuł"
 
 msgid "Start Later"
-msgstr "Rozpocznij pniej"
+msgstr "Rozpocznij później"
 
 msgid "Buy Price"
 msgstr "Cena zakupu"
 
 msgid "Earning (%)"
-msgstr "Dochd (%)"
+msgstr "Dochód (%)"
 
 msgid "Profit"
 msgstr "Zysk"
 
 msgid "Entry Price"
-msgstr "Cena wejciowa"
+msgstr "Cena wejściowa"
 
 msgid "Exit Price"
-msgstr "Cena wyjciowa"
+msgstr "Cena wyjściowa"
 
 msgid "Indicative Price"
 msgstr "Cena orientacyjna"
@@ -489,10 +488,10 @@ msgid "Sell at Market"
 msgstr "Sprzedaj na rynku"
 
 msgid "Go back"
-msgstr "Wr"
+msgstr "Wróć"
 
 msgid "You lost "
-msgstr "Poniesiono strat "
+msgstr "Poniesiono stratę "
 
 msgid "Close"
 msgstr "Zamknij"
@@ -504,13 +503,13 @@ msgid "High"
 msgstr "Wysoki"
 
 msgid "Open"
-msgstr "Otwrz"
+msgstr "Otwórz"
 
 msgid "Date"
 msgstr "Data"
 
 msgid "Upcoming Events"
-msgstr "Nadchodzce wydarzenia"
+msgstr "Nadchodzące wydarzenia"
 
 msgid "Win"
 msgstr "Wygrana"
@@ -519,7 +518,7 @@ msgid "Loss"
 msgstr "Strata"
 
 msgid "Full Screen"
-msgstr "Peny ekran"
+msgstr "Pełny ekran"
 
 msgid "Start Now"
 msgstr "Rozpocznij teraz"
@@ -531,7 +530,7 @@ msgid "Spreads"
 msgstr "Spready"
 
 msgid "Confirm new password"
-msgstr "Potwierd nowe haso"
+msgstr "Potwierdź nowe hasło"
 
 msgid "TICK"
 msgstr "NAJMNIEJSZA ZMIANA CENY"
@@ -555,13 +554,13 @@ msgid "Duration"
 msgstr "Czas trwania"
 
 msgid "Start Time"
-msgstr "Godzina rozpoczcia"
+msgstr "Godzina rozpoczęcia"
 
 msgid "Now"
 msgstr "Teraz"
 
 msgid "Later"
-msgstr "Pniej"
+msgstr "Później"
 
 msgid "return"
 msgstr "zwrot"
@@ -582,7 +581,7 @@ msgid "Open For Trading"
 msgstr "Otwarte dla handlu"
 
 msgid "Closed"
-msgstr "Zamknite"
+msgstr "Zamknięte"
 
 msgid "Contract ID"
 msgstr "ID kontraktu"
@@ -591,25 +590,25 @@ msgid "Reference ID"
 msgstr "ID referencyjne"
 
 msgid "Entry Spot"
-msgstr "Pozycja wejciowa"
+msgstr "Pozycja wejściowa"
 
 msgid "Entry Spot Time"
-msgstr "Czas pozycji wejciowej"
+msgstr "Czas pozycji wejściowej"
 
 msgid "Potential Payout"
-msgstr "Potencjalna wypata"
+msgstr "Potencjalna wypłata"
 
 msgid "Exit Spot"
-msgstr "Pozycja wyjciowa"
+msgstr "Pozycja wyjściowa"
 
 msgid "Exit Spot Time"
-msgstr "Czas pozycji wyjciowej"
+msgstr "Czas pozycji wyjściowej"
 
 msgid "Sell Price"
-msgstr "Cena sprzeday"
+msgstr "Cena sprzedaży"
 
 msgid "Sell Time"
-msgstr "Czas sprzeday"
+msgstr "Czas sprzedaży"
 
 msgid "Trade Again"
 msgstr "Handluj ponownie"
@@ -623,31 +622,26 @@ msgstr "Wygrana"
 msgid "You Lost"
 msgstr "Przegrana"
 
-msgid ""
-"To change your name, date of birth, country of residence, or email, contact "
-"Customer Support."
-msgstr ""
-"Aby zmieni imi lub nazwisko, dat urodzenia, miejsce zamieszkania lub adres e-"
-"mail, skontaktuj si z dziaem obsugi klienta."
+msgid "To change your name, date of birth, country of residence, or email, contact Customer Support."
+msgstr "Aby zmienić imię lub nazwisko, datę urodzenia, miejsce zamieszkania lub adres e-mail, skontaktuj się z działem obsługi klienta."
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
-msgstr ""
-"Sekcja Kasjer zostaa zablokowana na Twoj prob. Aby j odblokowa, wpisz haso."
+msgstr "Sekcja Kasjer została zablokowana na Twoją prośbę. Aby ją odblokować, wpisz hasło."
 
 msgid "Unlock Cashier"
-msgstr "Odblokuj sekcj Kasjer"
+msgstr "Odblokuj sekcję Kasjer"
 
 msgid "Time out until"
-msgstr "Okres wyczenia do"
+msgstr "Okres wyłączenia do"
 
 msgid "No transactions for the selected period"
 msgstr "Brak transakcji w wybranym okresie"
 
 msgid "You have no open contracts"
-msgstr "Nie masz adnych otwartych kontraktw"
+msgstr "Nie masz żadnych otwartych kontraktów"
 
 msgid "You have no assets in watchlist"
-msgstr "Nie masz adnych aktyww na licie do obserwowania"
+msgstr "Nie masz żadnych aktywów na liście do obserwowania"
 
 msgid "Basic"
 msgstr "Podstawowe"
@@ -659,25 +653,25 @@ msgid "Advanced"
 msgstr "Zaawansowane"
 
 msgid "Higher"
-msgstr "Wyszy"
+msgstr "Wyższy"
 
 msgid "Lower"
-msgstr "Niszy"
+msgstr "Niższy"
 
 msgid "Ends Outside"
-msgstr "Zakoczy si poza"
+msgstr "Zakończy się poza"
 
 msgid "Ends Between"
-msgstr "Zakoczy si pomidzy"
+msgstr "Zakończy się pomiędzy"
 
 msgid "Stays Between"
-msgstr "Pozostanie pomidzy"
+msgstr "Pozostanie pomiędzy"
 
 msgid "Goes Outside"
 msgstr "Przekroczy"
 
 msgid "Does Not Touch"
-msgstr "Nie osignie"
+msgstr "Nie osiągnie"
 
 msgid "Credit / Debit"
 msgstr "Winien/Ma"
@@ -686,96 +680,94 @@ msgid "Last 25 Ticks"
 msgstr "Ostatnich 25 zmian cen"
 
 msgid "Last 50 Trades"
-msgstr "Ostatnie 50 zakadw"
+msgstr "Ostatnie 50 zakładów"
 
 msgid "Last 100 Trades"
-msgstr "Ostatnie 100 zakadw"
+msgstr "Ostatnie 100 zakładów"
 
 msgid "Last 500 Trades"
-msgstr "Ostatnie 500 zakadw"
+msgstr "Ostatnie 500 zakładów"
 
 msgid "Last 1000 Trades"
-msgstr "Ostatnie 1000 zakadw"
+msgstr "Ostatnie 1000 zakładów"
 
 msgid "Maximum Daily Turnover"
-msgstr "Maksymalny dzienny obrt"
+msgstr "Maksymalny dzienny obrót"
 
 msgid "Commodities"
 msgstr "Towary"
 
 msgid "Major Pairs"
-msgstr "Gwne pary"
+msgstr "Główne pary"
 
 msgid "Minor Pairs"
-msgstr "Drugorzdne pary"
+msgstr "Drugorzędne pary"
 
 msgid "Smart FX"
 msgstr "Inteligentne rynki forex"
 
 msgid "Volatility Indices"
-msgstr "Wskaniki zmiennoci"
+msgstr "Wskaźniki zmienności"
 
 msgid "Indices"
-msgstr "Wskaniki"
+msgstr "Wskaźniki"
 
 msgid "OTC Stocks"
 msgstr "Akcje OTC"
 
 msgid "Stated limits are subject to change without prior notice"
-msgstr "Okrelone limity mog zosta zmienione bez wczeniejszego powiadomienia"
+msgstr "Określone limity mogą zostać zmienione bez wcześniejszego powiadomienia"
 
 msgid "Withdrawal Limits"
-msgstr "Limity wypat"
+msgstr "Limity wypłat"
 
 msgid "Withdrawal limit"
-msgstr "Limit wypat"
+msgstr "Limit wypłat"
 
 msgid "Already withdrawn"
-msgstr "Ju wypacono"
+msgstr "Już wypłacono"
 
 msgid "Current immediate maximum withdrawal"
-msgstr "Obecna maksymalna natychmiastowa wypata"
+msgstr "Obecna maksymalna natychmiastowa wypłata"
 
 msgid "Create Free Account"
-msgstr "Utwrz darmowe konto"
+msgstr "Utwórz darmowe konto"
 
 msgid "Verification Code"
 msgstr "Kod weryfikacyjny"
 
 msgid "Confirm Password"
-msgstr "Potwierd haso"
+msgstr "Potwierdź hasło"
 
 msgid "Already have an account?"
-msgstr "Masz ju konto?"
+msgstr "Masz już konto?"
 
 msgid "Enter a valid verification code"
-msgstr "Podaj prawidowy kod weryfikacyjny"
+msgstr "Podaj prawidłowy kod weryfikacyjny"
 
 msgid "Choose your country"
-msgstr "Wybierz swj kraj"
+msgstr "Wybierz swój kraj"
 
-msgid ""
-"Password should have lower and uppercase letters and 6 characters or more"
-msgstr ""
-"Haso powinno skada si z co najmniej 6 znakw i zawiera mae i wielkie litery"
+msgid "Password should have lower and uppercase letters and 6 characters or more"
+msgstr "Hasło powinno składać się z co najmniej 6 znaków i zawierać małe i wielkie litery"
 
 msgid "Passwords do not match"
-msgstr "Hasa nie s zgodne"
+msgstr "Hasła nie są zgodne"
 
 msgid "Enter a valid email"
-msgstr "Podaj prawidowy adres e-mail"
+msgstr "Podaj prawidłowy adres e-mail"
 
 msgid "Number should between 10 to 120"
-msgstr "Liczba powinna mieci si w przedziale od 10 do 120"
+msgstr "Liczba powinna mieścić się w przedziale od 10 do 120"
 
 msgid "Enter your first and last name"
-msgstr "Podaj swoje imi i nazwisko"
+msgstr "Podaj swoje imię i nazwisko"
 
 msgid "City must not be empty"
-msgstr "Pole miasto nie moe by puste"
+msgstr "Pole „miasto” nie może być puste"
 
 msgid "Address must not be empty"
-msgstr "Pole adres nie moe by puste"
+msgstr "Pole „adres” nie może być puste"
 
 msgid "Enter a valid phone number"
 msgstr "Podaj aktualny numer telefonu"
@@ -784,58 +776,58 @@ msgid "Select a secret question"
 msgstr "Wybierz sekretne pytanie"
 
 msgid "Secret answer must be at least 4 characters"
-msgstr "Odpowied na sekretne pytanie musi skada si z co najmniej 4 znakw"
+msgstr "Odpowiedź na sekretne pytanie musi składać się z co najmniej 4 znaków"
 
 msgid "You need to agree to our Terms and Conditions"
-msgstr "Musisz zaakceptowa nasz regulamin"
+msgstr "Musisz zaakceptować nasz regulamin"
 
 msgid "I agree to the"
-msgstr "Akceptuj"
+msgstr "Akceptuję"
 
 msgid "terms and conditions"
 msgstr "regulamin"
 
 msgid "Search for assets"
-msgstr "Szukaj aktyww"
+msgstr "Szukaj aktywów"
 
 msgid "Choose a Payment Agent"
-msgstr "Wybierz porednika patnoci"
+msgstr "Wybierz pośrednika płatności"
 
 msgid "Confirm New Password"
-msgstr "Potwierd nowe haso"
+msgstr "Potwierdź nowe hasło"
 
 msgid "First Name"
-msgstr "Imi"
+msgstr "Imię"
 
 msgid "Last Name"
 msgstr "Nazwisko"
 
 msgid "Address First Line"
-msgstr "Adres - cz pierwsza"
+msgstr "Adres - część pierwsza"
 
 msgid "Address Second Line"
-msgstr "Adres - cz druga"
+msgstr "Adres - część druga"
 
 msgid "Phone"
 msgstr "Telefon"
 
 msgid "Answer To Secret Question"
-msgstr "Odpowied na sekretne pytanie"
+msgstr "Odpowiedź na sekretne pytanie"
 
 msgid "Switch to"
-msgstr "Zmie na"
+msgstr "Zmień na"
 
 msgid "Single Trade"
-msgstr "Pojedynczy zakad"
+msgstr "Pojedynczy zakład"
 
 msgid "Multi Trade"
-msgstr "Multi zakad"
+msgstr "Multi zakład"
 
 msgid "Current Password"
-msgstr "Obecne haso"
+msgstr "Obecne hasło"
 
 msgid "New Password"
-msgstr "Nowe haso"
+msgstr "Nowe hasło"
 
 msgid "Last 50 Ticks"
 msgstr "Ostatnich 50 zmian cen"
@@ -850,19 +842,19 @@ msgid "Last 1000 Ticks"
 msgstr "Ostatnich 1000 zmian cen"
 
 msgid "Exit Full Screen"
-msgstr "Zamknij peny ekran"
+msgstr "Zamknij pełny ekran"
 
 msgid "No digit trades for this asset"
-msgstr "Brak zakadw opartych na cyfrach dla tego aktywa"
+msgstr "Brak zakładów opartych na cyfrach dla tego aktywa"
 
 msgid "Lock Cashier"
-msgstr "Zablokuj sekcj Kasjer"
+msgstr "Zablokuj sekcję Kasjer"
 
 msgid "Time out until date"
-msgstr "Okres wyczenia do dnia"
+msgstr "Okres wyłączenia do dnia"
 
 msgid "Time out until time"
-msgstr "Okres wyczenia do godziny"
+msgstr "Okres wyłączenia do godziny"
 
 msgid "Light Theme"
 msgstr "Jasny motyw"
@@ -871,7 +863,7 @@ msgid "Dark Theme"
 msgstr "Ciemny motyw"
 
 msgid "Password changed successfully"
-msgstr "Haso zostao zmienione"
+msgstr "Hasło zostało zmienione"
 
 msgid "Settings updated"
 msgstr "Zaktualizowano ustawienia"
@@ -880,47 +872,44 @@ msgid "Address updated"
 msgstr "Zaktualizowano adres"
 
 msgid "Barrier must not be empty"
-msgstr "Pole limit nie moe by puste"
+msgstr "Pole „limit” nie może być puste"
 
 msgid "Duration is out of range"
-msgstr "Czas trwania przekracza dozwolony przedzia"
+msgstr "Czas trwania przekracza dozwolony przedział"
 
 msgid "Start date invalid, it needs to be five minutes or more in the future"
-msgstr ""
-"Data rozpoczcia jest nieprawidowa, naley wybra czas rozpoczcia za co "
-"najmniej 5 minut"
+msgstr "Data rozpoczęcia jest nieprawidłowa, należy wybrać czas rozpoczęcia za co najmniej 5 minut"
 
 msgid "Time format is wrong"
-msgstr "Bdny format czasu"
+msgstr "Błędny format czasu"
 
 msgid "Lower than"
-msgstr "Niszy ni"
+msgstr "Niższy niż"
 
 msgid "Higher than"
-msgstr "Wyszy ni"
+msgstr "Wyższy niż"
 
 msgid "High barrier"
-msgstr "Grny limit"
+msgstr "Górny limit"
 
 msgid "Low barrier"
 msgstr "Dolny limit"
 
 msgid "Touch spot"
-msgstr "Punkt osignicia"
+msgstr "Punkt osiągnięcia"
 
 msgid "This field is required"
 msgstr "To pole jest wymagane"
 
 msgid "Should be a valid number"
-msgstr "Powinien to by prawidowy numer"
+msgstr "Powinien to być prawidłowy numer"
 
 msgid "Should be between 0 and {number}"
-msgstr "Warto powinna mieci si w przedziale od 0 do {number}"
+msgstr "Wartość powinna mieścić się w przedziale od 0 do {number}"
 
 msgid "Time out must be after today and cannot be more than 6 weeks."
-msgstr ""
-"Czas wyczenia musi si zaczyna po dniu dzisiejszym i nie moe przekracza 6 "
-"tygodni."
+msgstr "Czas wyłączenia musi się zaczynać po dniu dzisiejszym i nie może przekraczać 6 tygodni."
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
-msgstr "Czas wyczenia nie moe by krtszy ni 6 miesicy, ani duszy ni 5 lat."
+msgstr "Czas wyłączenia nie może być krótszy niż 6 miesięcy, ani dłuższy niż 5 lat."
+
