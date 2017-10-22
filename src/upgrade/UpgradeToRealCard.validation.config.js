@@ -2,13 +2,13 @@ import validate from 'validate.js';
 
 /*eslint-disable */
 validate.validators.validateAddress = (value) => {
-  if(/[`~!#$%^&*)(_=+\[}{\]\\";:\?><|]+/.test(value)) {
-    return 'Only letters, numbers, space, hyphen, period, and apostrophe are allowed.';
+  if(/[`~!$%^&*_=+[}{\]\\"?><|]+/.test(value)) {
+    return 'Only letters, numbers, space, and these special characters are allowed: - . \' # ; : ( ) , @ /';
   }
 }
 
 validate.validators.validateGeneral = (value) => {
-  if(/[`~!@#$%^&*)(_=+\[}{\]\\\/";:\?><,|\d]+/.test(value)) {
+  if(/[`~!@#$%^&*)(_=+[}{\]\\/";:?><|]+/.test(value)) {
     return 'Only letters, space, hyphen, period, and apostrophe are allowed.';
   }
 }
