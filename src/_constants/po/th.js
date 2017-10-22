@@ -1,4 +1,18 @@
 export default {
+    "": {
+        "project-id-version": "PACKAGE VERSION",
+        "report-msgid-bugs-to": "",
+        "pot-creation-date": "2017-10-11 00:22+0200",
+        "po-revision-date": "2017-10-10 22:22+0000",
+        "last-translator": "Jutawan <bubbleblythe@gmail.com>",
+        "language-team": "Thai <https://hosted.weblate.org/projects/binary-app/next-gen-app/th/>",
+        "language": "th",
+        "mime-version": "1.0",
+        "content-type": "text/plain; charset=UTF-8",
+        "content-transfer-encoding": "8bit",
+        "plural-forms": "nplurals=1; plural=0;",
+        "x-generator": "Weblate 2.17-dev"
+    },
     "All": [
         null,
         "ทั้งหมด"
@@ -25,7 +39,7 @@ export default {
     ],
     "Open Positions": [
         null,
-        "รายการซื้อขาย"
+        "ตำแหน่งงานที่เปิดรับ"
     ],
     "Profit Table": [
         null,
@@ -429,11 +443,11 @@ export default {
     ],
     "Asian Down": [
         null,
-        "เอเชียนลง"
+        "เอเชียลง"
     ],
     "Asian Up": [
         null,
-        "เอเชียนขึ้น"
+        "เอเชียขึ้น"
     ],
     "Search For Assets": [
         null,
@@ -481,7 +495,7 @@ export default {
     ],
     "Tick Trade": [
         null,
-        "เทรดช่วงราคา"
+        "Tick Trade"
     ],
     "Full Trade": [
         null,
@@ -597,7 +611,7 @@ export default {
     ],
     "Please enter date in the format YYYY-MM-DD.": [
         null,
-        "กรุณาบันทึกวันที่ในรูปแบบ ปี(ค.ศ.)-เดือนที่-วันที่"
+        "กรุณาบันทึกวันที่ในรูปแบบ ปี (ค.ศ.) - เดือนที่ - วันที่"
     ],
     "New Trade": [
         null,
@@ -621,11 +635,11 @@ export default {
     ],
     "Buy Price": [
         null,
-        ""
+        "ราคาซื้อ"
     ],
     "Earning (%)": [
         null,
-        ""
+        "กำไรสุทธิ (%)"
     ],
     "Profit": [
         null,
@@ -633,590 +647,590 @@ export default {
     ],
     "Entry Price": [
         null,
-        ""
+        "ราคาเข้า"
     ],
     "Exit Price": [
         null,
-        ""
+        "ราคาสิ้นสุด"
     ],
     "Indicative Price": [
         null,
-        ""
+        "ราคาดัชนี"
     ],
     "Potential Profit": [
         null,
-        ""
+        "ประมาณการกำไร"
     ],
     "Sell at Market": [
         null,
-        ""
+        "ขายที่ตลาด"
     ],
     "Go back": [
         null,
-        ""
+        "ย้อนกลับ"
     ],
     "You lost ": [
         null,
-        ""
+        "ท่านขาดทุน "
     ],
     "Close": [
         null,
-        ""
+        "ปิด"
     ],
     "Low": [
         null,
-        ""
+        "ต่ำ"
     ],
     "High": [
         null,
-        ""
+        "สูง"
     ],
     "Open": [
         null,
-        ""
+        "เปิด"
     ],
     "Date": [
         null,
-        ""
+        "วันที่"
     ],
     "Upcoming Events": [
         null,
-        ""
+        "กิจกรรมในอนาคต"
     ],
     "Win": [
         null,
-        ""
+        "กำไร"
     ],
     "Loss": [
         null,
-        ""
+        "ขาดทุน"
     ],
     "Full Screen": [
         null,
-        ""
+        "เต็มหน้าจอ"
     ],
     "Start Now": [
         null,
-        ""
+        "เริ่มเลย"
     ],
     "Daily Prices": [
         null,
-        ""
+        "ราคาประจำวัน"
     ],
     "Spreads": [
         null,
-        ""
+        "สเปรด"
     ],
     "Confirm new password": [
         null,
-        ""
+        "ยืนยันรหัสผ่านใหม่"
     ],
     "TICK": [
         null,
-        ""
+        "ช่วงราคา"
     ],
     "Minutes": [
         null,
-        ""
+        "นาที"
     ],
     "Seconds": [
         null,
-        ""
+        "วินาที"
     ],
     "Hours": [
         null,
-        ""
+        "ชั่วโมง"
     ],
     "Days": [
         null,
-        ""
+        "วัน"
     ],
     "N/A": [
         null,
-        ""
+        "N/A"
     ],
     "Duration": [
         null,
-        ""
+        "ระยะเวลา"
     ],
     "Start Time": [
         null,
-        ""
+        "เวลาเริ่มต้น"
     ],
     "Now": [
         null,
-        ""
+        "ขณะนี้"
     ],
     "Later": [
         null,
-        ""
+        "ในภายหลัง"
     ],
     "return": [
         null,
-        ""
+        "ผลตอบแทน"
     ],
     "Portfolio": [
         null,
-        ""
+        "พอร์ตโฟลิโอ"
     ],
     "Video": [
         null,
-        ""
+        "วิดีโอ"
     ],
     "Digit Stats": [
         null,
-        ""
+        "สถิติ"
     ],
     "Favorites": [
         null,
-        ""
+        "รายการโปรด"
     ],
     "Open For Trading": [
         null,
-        ""
+        "เปิดการซื้อขาย"
     ],
     "Closed": [
         null,
-        ""
+        "ปิด"
     ],
     "Contract ID": [
         null,
-        ""
+        "Contract ID"
     ],
     "Reference ID": [
         null,
-        ""
+        "Reference ID"
     ],
     "Entry Spot": [
         null,
-        ""
+        "สปอตเริ่มต้น"
     ],
     "Entry Spot Time": [
         null,
-        ""
+        "เวลาของสปอตเริ่มต้น"
     ],
     "Potential Payout": [
         null,
-        ""
+        "ประมาณการยอดเงินที่ต้องชำระ"
     ],
     "Exit Spot": [
         null,
-        ""
+        "สปอตสิ้นสุด"
     ],
     "Exit Spot Time": [
         null,
-        ""
+        "เวลาของสปอตสิ้นสุด"
     ],
     "Sell Price": [
         null,
-        ""
+        "ราคาขาย"
     ],
     "Sell Time": [
         null,
-        ""
+        "เวลาที่ขาย"
     ],
     "Trade Again": [
         null,
-        ""
+        "ซื้อขายอีกครั้ง"
     ],
     "Barrier": [
         null,
-        ""
+        "Barrier"
     ],
     "You Won": [
         null,
-        ""
+        "ท่านชนะ"
     ],
     "You Lost": [
         null,
-        ""
+        "ท่านขาดทุน"
     ],
     "To change your name, date of birth, country of residence, or email, contact Customer Support.": [
         null,
-        ""
+        "โปรดติดต่อเจ้าหน้าที่บริการลูกค้าในการเปลี่ยนแปลง ชื่อ วันเกิด ประเทศที่พำนัก หรือ อีเมล์ของท่าน"
     ],
     "Cashier is locked per your request. To unlock it, enter your password.": [
         null,
-        ""
+        "การรับ/ชำระเงินของท่านถูกล็อกตามความประสงค์ของท่าน - หากประสงค์ปลดล็อก โปรดป้อนรหัสผ่าน"
     ],
     "Unlock Cashier": [
         null,
-        ""
+        "ปลดล็อกแคชเชียร์"
     ],
     "Time out until": [
         null,
-        ""
+        "หมดเวลากระทั่ง"
     ],
     "No transactions for the selected period": [
         null,
-        ""
+        "ไม่มีธุรกรรมสำหรับรอบระยะเวลาที่เลือก"
     ],
     "You have no open contracts": [
         null,
-        ""
+        "ท่านไม่มีสัญญาที่เปิดไว้"
     ],
     "You have no assets in watchlist": [
         null,
-        ""
+        "ท่านไม่มีสิทนทรัพย์ในรายการติดตาม"
     ],
     "Basic": [
         null,
-        ""
+        "พื้นฐาน"
     ],
     "Digits": [
         null,
-        ""
+        "ตัวเลข"
     ],
     "Advanced": [
         null,
-        ""
+        "ขั้นสูง"
     ],
     "Higher": [
         null,
-        ""
+        "สูงกว่า"
     ],
     "Lower": [
         null,
-        ""
+        "ต่ำกว่า"
     ],
     "Ends Outside": [
         null,
-        ""
+        "สิ้นสุดภายนอกขอบเขต"
     ],
     "Ends Between": [
         null,
-        ""
+        "สิ้นสุดระหว่าง"
     ],
     "Stays Between": [
         null,
-        ""
+        "อยู่ระหว่าง"
     ],
     "Goes Outside": [
         null,
-        ""
+        "ออกนอกขอบเขต"
     ],
     "Does Not Touch": [
         null,
-        ""
+        "ไม่สัมผัส"
     ],
     "Credit / Debit": [
         null,
-        ""
+        "เครดิต / เดบิต"
     ],
     "Last 25 Ticks": [
         null,
-        ""
+        "ช่วงราคาล่าสุด 25 รายการ"
     ],
     "Last 50 Trades": [
         null,
-        ""
+        "การซื้อขายล่าสุด 50 รายการ"
     ],
     "Last 100 Trades": [
         null,
-        ""
+        "การซื้อขายล่าสุด 100 รายการ"
     ],
     "Last 500 Trades": [
         null,
-        ""
+        "การซื้อขายล่าสุด 500 รายการ"
     ],
     "Last 1000 Trades": [
         null,
-        ""
+        "การซื้อขายล่าสุด 1000 รายการ"
     ],
     "Maximum Daily Turnover": [
         null,
-        ""
+        "มูลค่าการซื้อขายสูงสุดต่อวัน"
     ],
     "Commodities": [
         null,
-        ""
+        "สินค้าโภคภัณฑ์"
     ],
     "Major Pairs": [
         null,
-        ""
+        "คู่หลัก"
     ],
     "Minor Pairs": [
         null,
-        ""
+        "คู่รอง"
     ],
     "Smart FX": [
         null,
-        ""
+        "Smart FX"
     ],
     "Volatility Indices": [
         null,
-        ""
+        "ดัชนีผันผวน"
     ],
     "Indices": [
         null,
-        ""
+        "ดัชนี"
     ],
     "OTC Stocks": [
         null,
-        ""
+        "หลักทรัพย์ OTC"
     ],
     "Stated limits are subject to change without prior notice": [
         null,
-        ""
+        "วงเงินที่ได้รับอาจจะมีการเปลี่ยนแปลงโดยไม่บอกกล่าวให้ทราบล่วงหน้า"
     ],
     "Withdrawal Limits": [
         null,
-        ""
+        "วงเงินในการถอน"
     ],
     "Withdrawal limit": [
         null,
-        ""
+        "วงเงินในการถอน"
     ],
     "Already withdrawn": [
         null,
-        ""
+        "ได้ทำการถอนเงิน"
     ],
     "Current immediate maximum withdrawal": [
         null,
-        ""
+        "มูลค่าปัจจุบันสูงสุดในการถอน"
     ],
     "Create Free Account": [
         null,
-        ""
+        "เปิดบัญชีฟรี"
     ],
     "Verification Code": [
         null,
-        ""
+        "รหัสตรวจสอบ"
     ],
     "Confirm Password": [
         null,
-        ""
+        "ยืนยันรหัสผ่าน"
     ],
     "Already have an account?": [
         null,
-        ""
+        "มีบัญชีอยู่แล้วใช่ไหม?"
     ],
     "Enter a valid verification code": [
         null,
-        ""
+        "ป้อนรหัสยืนยันที่ถูกต้อง"
     ],
     "Choose your country": [
         null,
-        ""
+        "ระบุประเทศของท่าน"
     ],
     "Password should have lower and uppercase letters and 6 characters or more": [
         null,
-        ""
+        "รหัสผ่านควรประกอบด้วยอักษรตัวเล็ก อักษรตัวใหญ่ และตัวเลข 6 อักขระเป็นอย่างน้อย"
     ],
     "Passwords do not match": [
         null,
-        ""
+        "รหัสผ่านไม่ตรงกัน"
     ],
     "Enter a valid email": [
         null,
-        ""
+        "โปรดป้อนอีเมล์ที่ถูกต้อง"
     ],
     "Number should between 10 to 120": [
         null,
-        ""
+        "ควรเป็นตัวเลขระหว่าง 10 ถึง 120"
     ],
     "Enter your first and last name": [
         null,
-        ""
+        "ป้อนชื่อตัวและชื่อสกุล"
     ],
     "City must not be empty": [
         null,
-        ""
+        "ชื่อเมืองต้องไม่เป็นค่าว่าง"
     ],
     "Address must not be empty": [
         null,
-        ""
+        "ที่อยู่ต้องไม่เป็นค่าว่าง"
     ],
     "Enter a valid phone number": [
         null,
-        ""
+        "ป้อนหมายเลขโทรศัพท์ที่ถูกต้อง"
     ],
     "Select a secret question": [
         null,
-        ""
+        "เลือกคำถามส่วนตัว"
     ],
     "Secret answer must be at least 4 characters": [
         null,
-        ""
+        "คำตอบลับต้องมีอย่างน้อย 4 อักขระ"
     ],
     "You need to agree to our Terms and Conditions": [
         null,
-        ""
+        "ท่านต้องยอมรับข้อกำหนดและเงื่อนไขของเรา"
     ],
     "I agree to the": [
         null,
-        ""
+        "ฉันยอมรับ"
     ],
     "terms and conditions": [
         null,
-        ""
+        "ข้อตกลงและเงื่อนไข"
     ],
     "Search for assets": [
         null,
-        ""
+        "ค้นหาสินทรัพย์"
     ],
     "Choose a Payment Agent": [
         null,
-        ""
+        "เลือกตัวแทนการชำระเงิน"
     ],
     "Confirm New Password": [
         null,
-        ""
+        "ยืนยันรหัสผ่านใหม่"
     ],
     "First Name": [
         null,
-        ""
+        "ชื่อตัว"
     ],
     "Last Name": [
         null,
-        ""
+        "ชื่อสกุล"
     ],
     "Address First Line": [
         null,
-        ""
+        "ที่อยู่บรรทัดแรก"
     ],
     "Address Second Line": [
         null,
-        ""
+        "ที่อยู่บรรทัดที่สอง"
     ],
     "Phone": [
         null,
-        ""
+        "โทรศัพท์"
     ],
     "Answer To Secret Question": [
         null,
-        ""
+        "คำตอบสำหรับคำถามส่วนตัว"
     ],
     "Switch to": [
         null,
-        ""
+        "สลับไป"
     ],
     "Single Trade": [
         null,
-        ""
+        "การซื้อขายเดี่ยว"
     ],
     "Multi Trade": [
         null,
-        ""
+        "การซื้อขายหลากหลาย"
     ],
     "Current Password": [
         null,
-        ""
+        "รหัสผ่านปัจจุบัน"
     ],
     "New Password": [
         null,
-        ""
+        "รหัสผ่านใหม่"
     ],
     "Last 50 Ticks": [
         null,
-        ""
+        "ช่วงราคาล่าสุด 50 รายการ"
     ],
     "Last 100 Ticks": [
         null,
-        ""
+        "ช่วงราคาล่าสุด 100 รายการ"
     ],
     "Last 500 Ticks": [
         null,
-        ""
+        "ช่วงราคาล่าสุด 500 รายการ"
     ],
     "Last 1000 Ticks": [
         null,
-        ""
+        "ช่วงราคาล่าสุด 1000 รายการ"
     ],
     "Exit Full Screen": [
         null,
-        ""
+        "ออกจากภาวะเต็มหน้าจอ"
     ],
     "No digit trades for this asset": [
         null,
-        ""
+        "ไม่มีการซื้อขายตัวเลขสำหรับสินทรัพย์นี้"
     ],
     "Lock Cashier": [
         null,
-        ""
+        "ล็อกแคชเชียร์"
     ],
     "Time out until date": [
         null,
-        ""
+        "หมดเวลาถึงวันที่"
     ],
     "Time out until time": [
         null,
-        ""
+        "หมดเวลาถึงเวลา"
     ],
     "Light Theme": [
         null,
-        ""
+        "ธีมสว่าง"
     ],
     "Dark Theme": [
         null,
-        ""
+        "ธีมมืด"
     ],
     "Password changed successfully": [
         null,
-        ""
+        "รหัสผ่านเปลี่ยนแปลงเรียบร้อยแล้ว"
     ],
     "Settings updated": [
         null,
-        ""
+        "การตั้งค่าได้รับการปรับปรุงแล้ว"
     ],
     "Address updated": [
         null,
-        ""
+        "ที่อยู่ได้รับการปรับปรุงแล้ว"
     ],
     "Barrier must not be empty": [
         null,
-        ""
+        "Barrier ต้องไม่เป็นค่าว่าง"
     ],
     "Duration is out of range": [
         null,
-        ""
+        "ระยะเวลาอยู่นอกช่วง"
     ],
     "Start date invalid, it needs to be five minutes or more in the future": [
         null,
-        ""
+        "วันเริ่มต้นไม่ถูกต้อง จะต้องเป็น ห้านาที หรือ มากกว่าในอนาคต"
     ],
     "Time format is wrong": [
         null,
-        ""
+        "รูปแบบเวลาไม่ถูกต้อง"
     ],
     "Lower than": [
         null,
-        ""
+        "ต่ำกว่า"
     ],
     "Higher than": [
         null,
-        ""
+        "สูงกว่า"
     ],
     "High barrier": [
         null,
-        ""
+        "Barrier สูง"
     ],
     "Low barrier": [
         null,
-        ""
+        "Barrier ต่ำ"
     ],
     "Touch spot": [
         null,
-        ""
+        "จุดสัมผัส"
     ],
     "This field is required": [
         null,
-        ""
+        "ข้อมูลนี้ต้องระบุ ไม่สามารถเป็นค่าว่าง"
     ],
     "Should be a valid number": [
         null,
-        ""
+        "ควรเป็นตัวเลขที่ถูกต้อง"
     ],
     "Should be between 0 and {number}": [
         null,
-        ""
+        "ควรอยู่ระหว่าง 0 และ {number}"
     ],
     "Time out must be after today and cannot be more than 6 weeks.": [
         null,
-        ""
+        "เวลาต้องเป็นค่าหลังจากวันนี้ และน้อยกว่า 6 สัปดาห์"
     ],
     "Exclude time cannot be less than 6 months and more than 5 years.": [
         null,
-        ""
+        "เวลาต้องอยู่ระหว่าง 6 เดือน ถึง 5 ปี"
     ]
 }

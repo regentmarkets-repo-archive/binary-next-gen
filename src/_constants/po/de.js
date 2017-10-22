@@ -544,7 +544,7 @@ export default {
     ],
     "Once this limit is reached, you may no longer deposit.": [
         null,
-        "Sobald diese Limit erreicht ist, können Sie nichts mehr einzahlen."
+        "Sobald dieses Limit erreicht ist, können Sie nichts mehr einzahlen."
     ],
     "Maximum aggregate contract purchases per day.": [
         null,
@@ -844,7 +844,7 @@ export default {
     ],
     "To change your name, date of birth, country of residence, or email, contact Customer Support.": [
         null,
-        "Um Ihren Namen, Ihr Geburtsdatum, Ihr Wohnsitzland oder Ihre E-mail zu ändern, kontaktieren Sie bitte den Kundendienst."
+        "Um Ihren Namen, Ihr Geburtsdatum, Ihr Wohnsitzland oder Ihre E-Mail zu ändern, kontaktieren Sie bitte den Kundendienst."
     ],
     "Cashier is locked per your request. To unlock it, enter your password.": [
         null,

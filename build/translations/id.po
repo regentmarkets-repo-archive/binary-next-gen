@@ -912,4 +912,3 @@ msgstr "Time out harus setelah hari ini dan tidak boleh lebih dari 6 minggu."
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
 msgstr "Waktu pengecualian tidak boleh kurang dari 6 bulan dan lebih dari 5 tahun."
-

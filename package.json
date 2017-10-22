@@ -1,8 +1,12 @@
 {
   "name": "binary-next-gen",
   "main": "src/index.js",
+  "engines": {
+    "node": ">=7.10.0"
+  },
   "scripts": {
-    "update-translation": "gulp update-translation"
+    "update-translation": "gulp update-translation",
+    "update-po": "node build/extract.js"
   },
   "keywords": [
     "binary.com",
@@ -11,6 +15,7 @@
   "author": "Boris @ Binary",
   "license": "MIT",
   "dependencies": {
+    "child-process-promise": "^2.2.1",
     "gulp": "^3.9.1",
     "gulp-json-transform": "^0.4.2",
     "gulp-po2json": "^0.4.0",

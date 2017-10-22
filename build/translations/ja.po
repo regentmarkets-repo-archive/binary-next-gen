@@ -270,7 +270,7 @@ msgid "Up/Down"
 msgstr "アップ/ダウン"
 
 msgid "Touch/No Touch"
-msgstr "TOUCH/NO-TOUCH"
+msgstr "タッチ/ノータッチ"
 
 msgid "Ends In/Out"
 msgstr "レンジ内/レンジ外"
@@ -342,7 +342,7 @@ msgid "Fall"
 msgstr "ダウン"
 
 msgid "Asian Down"
-msgstr "ASIAN DOWN"
+msgstr "Asianダウン"
 
 msgid "Asian Up"
 msgstr "Asisnアップ"

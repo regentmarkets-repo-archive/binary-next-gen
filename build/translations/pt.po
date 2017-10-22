@@ -912,4 +912,3 @@ msgstr "Tempo limite deve ser depois de hoje e não pode ser mais de 6 semanas."
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
 msgstr "Tempo de exclusão não pode ser inferior a 6 meses e superior a 5 anos."
-
