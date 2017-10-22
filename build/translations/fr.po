@@ -912,3 +912,4 @@ msgstr "L'expiration doit être après aujourd'hui et ne peut pas être plus de 
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
 msgstr "Temps d’exclusion ne peut être inférieure à 6 mois et à plus de 5 ans."
+
