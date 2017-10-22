@@ -189,24 +189,31 @@ const initAuthorized = async (authData, store) => {
               /* eslint-disable */
               const shouldShowUpgrade = (() => {
                 if (landingCompany.id !== 'jp') {
-                  if (landingCompany.hasOwnProperty('financial_company') && landingCompany.financial_company.shortcode === 'maltainvest') {
-                    if (landingCompany.hasOwnProperty('gaming_company') && landingCompany.gaming_company.shortcode === 'malta') {
-                      // can upgrade to real or maltainvest
-                      if (isVirtual && !userHasMLT && !userHasMX && !userHasCR) {
-                        return 'toReal';
-                        //	 to mlt
-                      } else if (isMLT && !userHasMF) {
-                        return 'toMaltainvest';
-                        //	to mf
-                      }
-                    } else if (isVirtual && !userHasMF) {
-                      //	upgrade to maltainvest
-                      return 'toMaltainvest';
-                    }
-                  } else if (landingCompany.hasOwnProperty('financial_company') && landingCompany.financial_company.shortcode !== 'maltainvest') {
+                  if ((landingCompany.hasOwnProperty('financial_company') &&
+                      landingCompany.financial_company.shortcode !== 'maltainvest')
+                    || !landingCompany.hasOwnProperty('financial_company')) {
                     if (isVirtual && !userHasMLT && !userHasMX && !userHasCR) {
-                      // can upgrade to real
                       return 'toReal';
+                      //	 to mlt
+                    }
+                  } else if (landingCompany.hasOwnProperty('financial_company') &&
+                    landingCompany.financial_company.shortcode === 'maltainvest' &&
+                    landingCompany.hasOwnProperty('gaming_company') &&
+                    landingCompany.gaming_company.shortcode === 'malta') {
+                    // can upgrade to real or maltainvest
+                    if (isVirtual && !userHasMLT && !userHasMX && !userHasCR) {
+                      return 'toReal';
+                      //	 to mlt
+                    } else if (isMLT && !userHasMF) {
+                      return 'toMaltainvest';
+                      //	to mf
+                    }
+                  } else if (landingCompany.hasOwnProperty('financial_company') &&
+                    landingCompany.financial_company.shortcode === 'maltainvest' &&
+                    !landingCompany.hasOwnProperty('gaming_company')) {
+                    if (isVirtual && !userHasMF) {
+                      return 'toMaltainvest';
+                      //	to mf
                     }
                   }
                 }
