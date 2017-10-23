@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import head from 'lodash.head';
-import validate from 'validate.js';
+import validate from 'validate.js/validate.min';
 import { Legend, Button, InputGroup, ErrorMsg, ServerErrorMsg, LabeledText, MultiSelectGroup } from 'binary-components';
 import States from './States';
 import UpdateNotice from '../containers/UpdateNotice';

@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import styles from '../layouts/layouts.css';
+import '../layouts/layouts.css';
 import LayoutButton from './LayoutButton';
 import { layoutNumbers } from './layouts';
 
@@ -14,7 +14,7 @@ export default class LayoutButtonList extends PureComponent {
         const { tradesCount, layoutN } = this.props;
 
         return (
-            <div className={styles.layoutBtnList}>
+            <div className={'layoutBtnList'}>
                 {layoutNumbers().map(x =>
                     <LayoutButton
                         key={`${x.trade}-${x.layout}`}

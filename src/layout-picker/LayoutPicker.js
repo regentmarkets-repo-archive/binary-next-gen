@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { M } from 'binary-components';
 import { actions } from '../_store';
-import styles from '../layouts/layouts.css';
+import '../layouts/layouts.css';
 import DropDown from '../containers/DropDown';
 import LayoutButtonPanel from './LayoutButtonPanel';
 import LayoutButton from './LayoutButton';
@@ -40,7 +40,7 @@ export default class LayoutPicker extends PureComponent {
         const { dropdownShown } = this.state;
 
         return (
-            <div className={styles.layoutPicker}>
+            <div className={'layoutPicker'}>
                 <a className="btn-secondary layout-switch-btn" onClick={this.onSingleTradeClick}>
                     <LayoutButton
                         tradesCount={1}

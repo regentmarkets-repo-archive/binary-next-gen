@@ -1,4 +1,4 @@
-import validate from 'validate.js';
+import validate from 'validate.js/validate.min';
 
 /*eslint-disable */
 validate.validators.validateAddress = (value) => {

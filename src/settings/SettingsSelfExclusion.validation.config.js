@@ -1,5 +1,5 @@
 import moment from 'moment';
-import validate from 'validate.js';
+import validate from 'validate.js/validate.min';
 
   /* eslint-disable consistent-return */
 validate.validators.timeoutUntilDateValidation = (value) => {

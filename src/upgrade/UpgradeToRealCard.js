@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import head from 'lodash.head';
-import validate from 'validate.js';
+import validate from 'validate.js/validate.min';
 import { M, InputGroup, SelectGroup, LogoSpinner, Legend, Button,
 	ErrorMsg, ServerErrorMsg, Countries } from 'binary-components';
 import { api } from '../_data/LiveData';

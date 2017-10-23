@@ -1,6 +1,6 @@
 import React, { PureComponent } from 'react';
 import moment from 'moment';
-import validate from 'validate.js';
+import validate from 'validate.js/validate.min';
 import head from 'lodash.head';
 import { Button, InputGroup, ServerErrorMsg, ErrorMsg } from 'binary-components';
 import { getConstraints } from './SettingsSelfExclusion.validation.config';

@@ -3,7 +3,6 @@ const runSequence = require('run-sequence');
 const del = require('del');
 const file = require('gulp-file');
 const ghPages = require('gulp-gh-pages');
-const sass = require('gulp-sass');
 const args = require('yargs').argv;
 const replace = require('gulp-replace');
 const gulpIf = require('gulp-if');
@@ -19,7 +18,6 @@ const files = {
     dist: '../dist',
     js: '../src',
     static: ['../www/**/*', '../config.xml', '../electron.js', '!../www/**/*.scss'],
-    sass: '../styles/*.scss',
 };
 
 const tools = {
@@ -38,16 +36,6 @@ gulp.task('cleanup', callback =>
 gulp.task('static', () =>
     gulp.src(files.static)
         .pipe(gulp.dest(files.dist))
-);
-
-gulp.task('styles', () =>
-    gulp.src(files.sass)
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest(files.dist))
-);
-
-gulp.task('styles:watch', () =>
-    gulp.watch('../www/**/*.scss', ['styles'])
 );
 
 // Handle general error
@@ -81,7 +69,7 @@ gulp.task('hash', () =>
 );
 
 gulp.task('build', callback =>
-    runSequence('cleanup', 'js', ['styles', 'static'], 'hash', callback)
+    runSequence('cleanup', 'js', 'static', 'hash', callback)
 );
 
 // gulp.task('download-electron', () =>
