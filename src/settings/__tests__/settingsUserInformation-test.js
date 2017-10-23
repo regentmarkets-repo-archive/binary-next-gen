@@ -51,7 +51,7 @@ describe('<SettingsUserInformation />', () => {
     addressLine1.simulate('change');
     const errors = wrapper.state('errors');
 
-    expect(errors.address_line_1[0]).toEqual('Only letters, numbers, space, hyphen, period, and apostrophe are allowed.');
+    expect(errors.address_line_1[0]).toEqual('Only letters, numbers, space, and these special characters are allowed: - . \' # ; : ( ) , @ /');
   });
 
   it('address line 2 should not have required error when input is empty', () => {
