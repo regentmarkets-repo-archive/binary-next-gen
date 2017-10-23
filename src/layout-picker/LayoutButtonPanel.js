@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { M } from 'binary-components';
 import { sequence } from 'binary-utils';
-import styles from '../layouts/layouts.css';
+import '../layouts/layouts.css';
 import LayoutButton from './LayoutButton';
 
 const layoutCounts = [2, 6, 6, 6];
@@ -18,10 +18,10 @@ export default class LayoutButtonPanel extends PureComponent {
         const { tradesCount, layoutN, onLayoutChange } = this.props;
 
         return (
-            <div className={styles.layoutBtnContainer}>
+            <div className={'layoutBtnContainer'}>
                 {layoutCounts.map((count, idx) =>
-                    <div className={styles.layoutBtnRow} key={idx}>
-                        <div className={styles.layoutRowLabel}>
+                    <div className={'layoutBtnRow'} key={idx}>
+                        <div className={'layoutRowLabel'}>
                             {idx + 2}
                             &nbsp;
                             <M m="trades" />

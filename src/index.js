@@ -5,6 +5,7 @@ import ReactDOM from 'react-dom';
 import config from './config';
 import Root from './_store/root';
 import storage from './_store/storage';
+import '../styles/styles.scss';
 
 // import { whyDidYouUpdate } from 'why-did-you-update';
 // whyDidYouUpdate(React, { exclude: [/^Connect/, /IntlProvider/, /BootProvider/] });
