@@ -9,7 +9,7 @@ const postCssModules = require('postcss-modules');
 const env = process.env.NODE_ENV;
 
 module.exports = {
-    devtool: env === 'source-map',
+    devtool: env === 'production' ? 'eval' : 'source-map',
     entry: './src',
     output: {
         path: path.join(__dirname, 'www'),

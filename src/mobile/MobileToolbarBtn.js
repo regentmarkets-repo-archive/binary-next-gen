@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Link } from 'react-router';
+import Link from '../containers/BetaLink';
 
 export default class MobileToolbarBtn extends PureComponent {
 

@@ -17,7 +17,8 @@ export default class AccountMenuItem extends PureComponent {
 		} else if (window.location.href.indexOf('/beta') === -1) {
 			window.location.href = '/';
 		} else {
-			window.location.href = '/beta';
+			window.location.href = '/#/beta';
+			window.location.reload(true);
 		}
 	};
 
