@@ -1,18 +1,4 @@
 export default {
-    "": {
-        "project-id-version": "PACKAGE VERSION",
-        "report-msgid-bugs-to": "",
-        "pot-creation-date": "2017-10-11 00:22+0200",
-        "po-revision-date": "2017-10-10 22:22+0000",
-        "last-translator": "Jutawan <bubbleblythe@gmail.com>",
-        "language-team": "Thai <https://hosted.weblate.org/projects/binary-app/next-gen-app/th/>",
-        "language": "th",
-        "mime-version": "1.0",
-        "content-type": "text/plain; charset=UTF-8",
-        "content-transfer-encoding": "8bit",
-        "plural-forms": "nplurals=1; plural=0;",
-        "x-generator": "Weblate 2.17-dev"
-    },
     "All": [
         null,
         "ทั้งหมด"
@@ -671,7 +657,7 @@ export default {
     ],
     "You lost ": [
         null,
-        "ท่านขาดทุน "
+        "ท่านขาดทุน"
     ],
     "Close": [
         null,
