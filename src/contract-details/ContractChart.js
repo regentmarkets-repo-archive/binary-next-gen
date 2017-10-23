@@ -1,5 +1,5 @@
 // import wtcharts from 'webtrader-charts';
-import $ from 'jquery';
+// import $ from 'jquery';
 import React, { PureComponent, PropTypes } from 'react';
 import { BinaryChart } from 'binary-charts';
 import { isMobile, nowAsEpoch, computeStartEndForContract } from 'binary-utils';
@@ -47,7 +47,7 @@ import { chartToDataType, getDataWithErrorHandling } from '../_chart-utils/Utils
 
 //   render() {
 //     return (
-//       <div 
+//       <div
 //         className="contract-chart"
 //         ref={e => { this.root = e; }}
 //       >
