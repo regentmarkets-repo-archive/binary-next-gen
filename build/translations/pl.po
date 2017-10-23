@@ -912,3 +912,4 @@ msgstr "Czas wyłączenia musi się zaczynać po dniu dzisiejszym i nie może pr
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
 msgstr "Czas wyłączenia nie może być krótszy niż 6 miesięcy, ani dłuższy niż 5 lat."
+

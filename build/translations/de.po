@@ -912,3 +912,4 @@ msgstr "Die Auszeit muss nach dem heutigen Tag sein und darf nicht länger als 6
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
 msgstr "Die Ausschlußzeit darf nicht weniger als 6 Monate und nicht mehr als 5 Jahre dauern."
+
