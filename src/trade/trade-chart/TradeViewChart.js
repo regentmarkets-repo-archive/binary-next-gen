@@ -1,5 +1,110 @@
 import React, { PureComponent } from 'react';
+import $ from 'jquery';
+import 'binary-style/binary.isolated.css';
+import wtcharts from 'webtrader-charts';
 import { isMobile, getLast } from 'binary-utils';
+import { actions } from '../../_store';
+
+wtcharts.init({
+  appId: window.BinaryBoot.appId,
+  lang: window.BinaryBoot.language,
+  server: window.BinaryBoot.apiUrl
+});
+
+type Props = {
+  contractForChart: object,
+  index: number,
+  events: any[],
+  feedLicense: string,
+  pipSize: number,
+  highContrast: boolean,
+  tradeForChart: object,
+  tradingTime: object,
+};
+export default class TradeViewChart extends PureComponent {
+  props: Props;
+  barspinner = null;
+  root = null;
+  chart = null;
+  config = null;
+
+  static contextTypes = {
+    theme: () => undefined,
+  };
+
+  initChart(trade) {
+    const params = trade.chartParams || { type: 'line', timePeriod: '1t', indicators: [], overlays: [] };
+    
+    this.chart = wtcharts.chartWindow.addNewChart($(this.root), {
+      type: params.type,
+      timePeriod: params.timePeriod,
+      instrumentCode: trade.symbol,
+      instrumentName: trade.symbolName || '',
+      showInstrumentName: true,
+      showOverlays: false,
+      showShare: false,
+      indicators: params.indicators,
+      overlays: params.overlays,
+      timezoneOffset: 0,
+    });
+
+    this.chart.events.anyChange = () => {
+      const data = this.chart.data();
+      const { index } = this.props;
+      actions.updateTradeViewChartParams(index, data);
+    }; 
+
+
+    this.chart.done().then(() => {
+      $(this.barspinner).hide();
+    });
+  }
+  destroyChart() {
+    this.chart && this.chart.actions.destroy();
+    this.chart = null;
+  }
+
+  componentDidMount() {
+    const trade = this.props.tradeForChart.toJS();
+    this.initChart(trade);
+  }
+  componentWillReceiveProps(nextProps) {
+    const trade = this.props.tradeForChart.toJS();
+    if (this.chart && trade.symbol !== this.chart.data().instrumentCode) {
+      this.destroyChart();
+      this.initChart(trade);
+      return;
+    }
+    console.warn('.');
+  }
+
+  componentWillUnmount() {
+    this.destroyChart();
+  }
+  shouldComponentUpdate() { return false; }
+  render() {
+    const { theme } = this.context;
+    return (
+      <div
+        className={`binary-style trade-chart ${theme}`}
+        ref={el => { this.root = el; }}
+      >
+        <div
+          className={`barspinner ${theme === 'dark' ? 'white' : 'dark'}`}
+          ref={el => { this.barspinner = el; }}
+        >
+          <div className="rect1" />
+          <div className="rect2" />
+          <div className="rect3" />
+          <div className="rect4" />
+          <div className="rect5" />
+        </div>
+      </div>
+    );
+  }
+}
+
+/*
 import { BinaryChart } from 'binary-charts';
 import {
     internalTradeModelToChartTradeModel,
@@ -337,3 +442,4 @@ export default class TradeViewChart extends PureComponent {
         );
     }
 }
+*/

@@ -1,63 +1,57 @@
-// import wtcharts from 'webtrader-charts';
-// import $ from 'jquery';
+import wtcharts from 'webtrader-charts';
+import $ from 'jquery';
 import React, { PureComponent, PropTypes } from 'react';
-import { BinaryChart } from 'binary-charts';
-import { isMobile, nowAsEpoch, computeStartEndForContract } from 'binary-utils';
-import { chartApi, api as CoreApi } from '../_data/LiveData';
-import { chartToDataType, getDataWithErrorHandling } from '../_chart-utils/Utils';
+// import { BinaryChart } from 'binary-charts';
+// import { isMobile, nowAsEpoch, computeStartEndForContract } from 'binary-utils';
+// import { chartApi, api as CoreApi } from '../_data/LiveData';
+// import { chartToDataType, getDataWithErrorHandling } from '../_chart-utils/Utils';
 
-// wtcharts.init({
-//   appId: window.BinaryBoot.appId,
-//   lang: window.BinaryBoot.language,
-//   server: window.BinaryBoot.apiUrl,
-// });
+type Props = {
+    contract: Contract,
+    highContrast: boolean,
+    pipSize: number,
+};
+export default class ContractChart extends PureComponent {
+  props: Props;
+  root = null;
+  chart = null;
 
-// type Props = {
-//     contract: Contract,
-//     highContrast: boolean,
-//     pipSize: number,
-// };
-// export default class ContractChart extends PureComponent {
-//   props: Props;
-//   root = null;
-//   chart = null;
+  componentWillReceiveProps(nextProps) {
+    console.warn(this.props, nextProps);
+  }
 
-//   componentWillReceiveProps(nextProps) {
-//     console.warn(this.props, nextProps);
-//   }
+  shouldComponentUpdate() {
+    return false;
+  }
 
-//   shouldComponentUpdate() {
-//     return false;
-//   }
+  componentDidMount() {
+    console.warn(this.props);
+    const { underlying, symbolName } = this.props.contract;
+    this.chart = wtcharts.chartWindow.addNewChart($(this.root), {
+      type: 'line', // default is 'line'
+      timePeriod: '1m', // default is '1t'
+      instrumentCode: underlying,
+      instrumentName: symbolName,
+      showInstrumentName: true, // default is false
+      showOverlays: false, // default is true
+      showShare: false, // default is true
+      // timezoneOffset: 0,
+    });
+  }
 
-//   componentDidMount() {
-//     console.warn(this.props);
-//     const { underlying, symbolName } = this.props.contract;
-//     this.chart = wtcharts.chartWindow.addNewChart($(this.root), {
-//       type: 'line', // default is 'line'
-//       timePeriod: '1m', // default is '1t'
-//       instrumentCode: underlying,
-//       instrumentName: symbolName,
-//       showInstrumentName: true, // default is false
-//       showOverlays: false, // default is true
-//       showShare: false, // default is true
-//       // timezoneOffset: 0,
-//     });
-//   }
+  render() {
+    return (
+      <div
+        className="contract-chart"
+        ref={e => { this.root = e; }}
+      >
+      <span>hello</span>
+      </div>
+    );
+  }
+}
 
-//   render() {
-//     return (
-//       <div
-//         className="contract-chart"
-//         ref={e => { this.root = e; }}
-//       >
-//       <span>hello</span>
-//       </div>
-//     );
-//   }
-
-// }
-
+/*
 export default class ContractChart extends PureComponent {
 
     static contextTypes = {
@@ -337,3 +331,4 @@ export default class ContractChart extends PureComponent {
         );
     }
 }
+*/

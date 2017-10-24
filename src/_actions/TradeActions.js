@@ -28,6 +28,16 @@ export const updateTradeParams = (index, fieldName, fieldValue) => {
     };
 };
 
+// Update trade view chart params
+export const updateTradeViewChartParams = (index, chartParams) => {
+    trackEvent('Trade', 'Chart Params', JSON.stringify(chartParams));
+    return {
+        type: types.UPDATE_TRADE_VIEW_CHART_PARAMS,
+        index,
+        chartParams,
+    };
+};
+
 export const updateMultipleTradeParams = (index, params) => {
     trackEvent('Trade', 'Multiple Params', JSON.stringify(params));
     return {

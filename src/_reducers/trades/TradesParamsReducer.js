@@ -3,6 +3,7 @@ import { nowAsEpoch } from 'binary-utils';
 import {
     CHANGE_ACTIVE_LAYOUT,
     UPDATE_TRADE_PARAMS,
+    UPDATE_TRADE_VIEW_CHART_PARAMS,
     UPDATE_MULTIPLE_TRADE_PARAMS,
     RESET_TRADES,
     REMOVE_TRADE,
@@ -21,7 +22,13 @@ const defaultParams = {
     barrierType: undefined,
     barrier: undefined,
     barrier2: undefined,
-    amountDefault: 50
+    amountDefault: 50,
+    chartParams: {
+      type: 'line',
+      timePeriod: '1t',
+      indicators: [],
+      overlays: [],
+    }
 };
 
 const getAmountDefault = account => {
@@ -81,6 +88,12 @@ export default (state = initialState, action, root) => {
                 return state;
             }
             return state.setIn([action.index, action.fieldName], action.fieldValue);
+        }
+        case UPDATE_TRADE_VIEW_CHART_PARAMS: {
+            if (!state.get(action.index)) {
+                return state;
+            }
+            return state.setIn([action.index, 'chartParams'], action.chartParams);
         }
         case UPDATE_MULTIPLE_TRADE_PARAMS: {
             const { index, params } = action;

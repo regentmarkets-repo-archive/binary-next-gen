@@ -19,6 +19,7 @@ export default [
     ActionTypes.CHANGE_TRADE_MODE,
     ActionTypes.UPDATE_ASSET_PICKER_SUBMARKET,
     ActionTypes.UPDATE_TRADE_PARAMS,
+    ActionTypes.UPDATE_TRADE_VIEW_CHART_PARAMS,
     ActionTypes.UPDATE_MULTIPLE_TRADE_PARAMS,
     ActionTypes.TOGGLE_TRADE_MODE,
     ActionTypes.TOGGLE_PANEL,

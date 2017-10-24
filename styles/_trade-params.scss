@@ -184,10 +184,15 @@
     display: flex;
     flex: 1;
     flex-direction: row;
-    margin: 2px;
-    padding: 0.25em;
     background: white;
     border-radius: $BORDER_RADIUS;
+    .barspinner {
+      position: absolute;
+      left: calc(50% - 30px);
+    }
+}
+.trade-params {
+  margin: 0.25em;
 }
 
 .trade-chart-container {
