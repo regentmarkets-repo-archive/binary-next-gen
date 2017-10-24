@@ -66,6 +66,7 @@
     parseUrlAndStoreAccountInfo(window.location.href);
     window.BinaryBoot.parseUrl = parseOAuthResponse;
     window.BinaryBoot.isBeta = /beta/g.test(window.location.href);
+    window.BinaryBoot.redirectUrl = window.BinaryBoot.isBeta ? '/beta' : '/';
     if(window.cordova) {
         window.BinaryBoot.appId = 1006;
     } else if(window.electron) {
@@ -83,11 +84,7 @@
 
     var redirectIndex = window.location.href.indexOf('?');
     if (~redirectIndex) {
-        if (window.location.href.indexOf('/beta') === -1) {
-            window.location.href = '/';
-        } else {
-            window.location.href = '/beta';
-        }
+        window.location.href = window.BinaryBoot.redirectUrl;
     }
 
     window.BinaryBoot.oAuthUrl = window.BinaryBoot.oAuthUrl || defaultConfig.oAuthUrl;

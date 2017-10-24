@@ -14,11 +14,8 @@ export default class AccountMenuItem extends PureComponent {
 		storage.setItem('account', JSON.stringify({ token }));
 		if (window.cordova) {
 			window.location.reload(true);
-		} else if (window.location.href.indexOf('/beta') === -1) {
-			window.location.href = '/';
 		} else {
-			window.location.href = '/#/beta';
-			window.location.reload(true);
+			window.location.href = window.BinaryBoot.redirectUrl;
 		}
 	};
 
