@@ -69,13 +69,35 @@ export default class TradeViewChart extends PureComponent {
     this.initChart(trade);
   }
   componentWillReceiveProps(nextProps) {
-    const trade = this.props.tradeForChart.toJS();
+    const trade = nextProps.tradeForChart.toJS();
     if (this.chart && trade.symbol !== this.chart.data().instrumentCode) {
       this.destroyChart();
       this.initChart(trade);
       return;
     }
-    console.warn('.');
+    const contract = nextProps.contractForChart && nextProps.contractForChart.toJS();
+    if (contract) {
+      const startTime = contract.date_start || contract.purchase_time;
+      const entrySpot = +contract.entry_tick_time;
+      const exitSpot = +contract.exit_tick_time;
+      const endTime = contract.sell_time || +contract.sell_spot_time;
+
+      // console.warn(startTime, entrySpot, exitSpot, endTime);
+      // console.warn(contract.date_expiry, contract.date_settlement, contract.sell_time, +contract.sell_spot_time);
+
+      startTime && this.chart.draw.startTime(startTime * 1000);
+      entrySpot && this.chart.draw.entrySpot(entrySpot * 1000);
+      exitSpot && this.chart.draw.exitSpot(exitSpot * 1000);
+      endTime && this.chart.draw.endTime(endTime * 1000);
+
+      const barrier = +contract.barrier;
+      barrier && this.chart.draw.barrier({ value: barrier });
+      console.warn(barrier);
+
+      return;
+    }
+    this.chart.draw.clear();
+    console.warn(nextProps);
   }
 
   componentWillUnmount() {

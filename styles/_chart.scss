@@ -30,6 +30,9 @@
 
 .trade-chart,
 .contract-chart {
+  &.dark {
+    background-color: rgba(42,48,82,.25) !important;
+  }
     button {
         color: $COLOR_TEXT;
 
@@ -240,8 +243,4 @@
         border: 1px solid $COLOR_BG;
         color: $COLOR_TEXT;
     }
-}
-
-.highcharts-tooltip {
-    display: none !important;
-}
+} 

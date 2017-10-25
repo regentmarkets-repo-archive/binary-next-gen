@@ -3995,9 +3995,9 @@ highcharts@^5.0.3:
   version "5.0.4"
   resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-5.0.4.tgz#ef598f7a2fc66f6285b9457b6cf92ada179e5deb"
 
-highstock-release@5.0.14:
-  version "5.0.14"
-  resolved "https://registry.yarnpkg.com/highstock-release/-/highstock-release-5.0.14.tgz#e3f5a400b7d7310442b5494b190912452552c9fb"
+highstock-release@5.0.10:
+  version "5.0.10"
+  resolved "https://registry.yarnpkg.com/highstock-release/-/highstock-release-5.0.10.tgz#41da1f8fd4694f7c858a0e54e61b233fc6e22cb1"
 
 history@^3.0.0:
   version "3.2.1"
