@@ -150,6 +150,7 @@ export default class SettingsSelfExclusion extends PureComponent {
       max_30day_turnover, max_30day_losses, max_open_bets, session_duration_limit,
       exclude_until, timeout_until_date, timeout_until_time, success, serverError, touched, errors } = this.state;
     // const wrongExcludeUntillTime = isValidTime(timeout_until_time);
+    const timeout_until = touched.timeout_until_date || touched.timeout_until_time;
     return (
       <div className="settings-self-exclusion">
         <form onSubmit={this.onFormSubmit}>
@@ -253,7 +254,7 @@ export default class SettingsSelfExclusion extends PureComponent {
             defaultValue={timeout_until_date || 'yyyy-mm-dd'}
             onChange={this.onEntryChange}
           />
-          {touched.timeout_until_date && <ErrorMsg text={head((errors || {}).timeout_until_date)} />}
+          {timeout_until && <ErrorMsg text={head((errors || {}).timeout_until_date)} />}
           <InputGroup
             id="timeout_until_time"
             label="Time out until time"
@@ -262,7 +263,7 @@ export default class SettingsSelfExclusion extends PureComponent {
             defaultValue={timeout_until_time || '--:--:--'}
             onChange={this.onEntryChange}
           />
-          {touched.timeout_until_time && <ErrorMsg text={head((errors || {}).timeout_until_time)} />}
+          {timeout_until && <ErrorMsg text={head((errors || {}).timeout_until_time)} />}
           <InputGroup
             id="exclude_until"
             label="Exclude me from the website until"
