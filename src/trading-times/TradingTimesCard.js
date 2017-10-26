@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import head from 'lodash.head';
 import validate from 'validate.js/validate.min';
 import { dateToDateString, todayLocaleString, oneYearAfterStr } from 'binary-utils';
 import { ErrorMsg } from 'binary-components';
@@ -19,7 +18,7 @@ export default class TradingTimesCard extends PureComponent {
 	constructor(props) {
 		super(props);
 		this.state = {
-			errors: undefined,
+			errors: {},
 		};
 	}
 
@@ -37,7 +36,7 @@ export default class TradingTimesCard extends PureComponent {
 			errors: validate({ trading_date: inputVal }, getConstraints(), {
 				fullMessages: false,
 				cleanAttributes: false
-			}),
+			}) || {},
 		});
 		if (this.state.errors !== undefined) {
 			actions.updateTradingTimesDate(inputVal);
@@ -68,7 +67,7 @@ export default class TradingTimesCard extends PureComponent {
 						maxLength={10}
 					/>
 				</div>
-				<ErrorMsg text={head((errors || {}).trading_date)} />
+				{ errors.trading_date && <ErrorMsg text={errors.trading_date[0]} /> }
 				<div className="trading-times-data scrollable">
 					<TradingTimesTable
 						{...this.props}
