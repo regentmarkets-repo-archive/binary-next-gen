@@ -2,7 +2,6 @@ import React, { PureComponent } from 'react';
 import $ from 'jquery';
 import 'binary-style/binary.isolated.css';
 import wtcharts from 'webtrader-charts';
-import { isMobile, getLast } from 'binary-utils';
 import { actions } from '../../_store';
 
 wtcharts.init({
@@ -14,6 +13,8 @@ wtcharts.init({
 type Props = {
   contractForChart: object,
   index: number,
+  count: number,
+  layoutN: number,
   events: any[],
   feedLicense: string,
   pipSize: number,
@@ -34,7 +35,7 @@ export default class TradeViewChart extends PureComponent {
 
   initChart(trade) {
     const params = trade.chartParams || { type: 'line', timePeriod: '1t', indicators: [], overlays: [] };
-    
+
     this.chart = wtcharts.chartWindow.addNewChart($(this.root), {
       type: params.type,
       timePeriod: params.timePeriod,
@@ -52,10 +53,10 @@ export default class TradeViewChart extends PureComponent {
       const data = this.chart.data();
       const { index } = this.props;
       actions.updateTradeViewChartParams(index, data);
-    }; 
-
+    };
 
     this.chart.done().then(() => {
+      this.chart.actions.reflow();
       $(this.barspinner).hide();
     });
   }
@@ -82,9 +83,6 @@ export default class TradeViewChart extends PureComponent {
       const exitSpot = +contract.exit_tick_time;
       const endTime = contract.sell_time || +contract.sell_spot_time;
 
-      // console.warn(startTime, entrySpot, exitSpot, endTime);
-      // console.warn(contract.date_expiry, contract.date_settlement, contract.sell_time, +contract.sell_spot_time);
-
       startTime && this.chart.draw.startTime(startTime * 1000);
       entrySpot && this.chart.draw.entrySpot(entrySpot * 1000);
       exitSpot && this.chart.draw.exitSpot(exitSpot * 1000);
@@ -92,12 +90,13 @@ export default class TradeViewChart extends PureComponent {
 
       const barrier = +contract.barrier;
       barrier && this.chart.draw.barrier({ value: barrier });
-      console.warn(barrier);
-
       return;
     }
     this.chart.draw.clear();
-    console.warn(nextProps);
+    if (this.props.count !== nextProps.count || this.props.layoutN !== nextProps.layoutN) {
+      console.warn('reflow', nextProps.index);
+      this.chart.actions.reflow();
+    }
   }
 
   componentWillUnmount() {

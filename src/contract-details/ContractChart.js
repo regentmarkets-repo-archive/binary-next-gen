@@ -15,14 +15,16 @@ export default class ContractChart extends PureComponent {
   props: Props;
   root = null;
   chart = null;
+  barspinner = null;
+
+  static contextTypes = {
+    theme: () => undefined,
+  };
 
   componentWillReceiveProps(nextProps) {
     console.warn(this.props, nextProps);
   }
 
-  shouldComponentUpdate() {
-    return false;
-  }
 
   componentDidMount() {
     console.warn(this.props);
@@ -37,15 +39,29 @@ export default class ContractChart extends PureComponent {
       showShare: false, // default is true
       // timezoneOffset: 0,
     });
-  }
 
+    this.chart.done().then(() => {
+      $(this.barspinner).hide();
+    });
+  }
+  shouldComponentUpdate() { return false; }
   render() {
+    const { theme } = this.context;
     return (
       <div
-        className="contract-chart"
-        ref={e => { this.root = e; }}
+        className={`binary-style contract-chart ${theme}`}
+        ref={el => { this.root = el; }}
       >
-      <span>hello</span>
+        <div
+          className={`barspinner ${theme === 'dark' ? 'white' : 'dark'}`}
+          ref={el => { this.barspinner = el; }}
+        >
+          <div className="rect1" />
+          <div className="rect2" />
+          <div className="rect3" />
+          <div className="rect4" />
+          <div className="rect5" />
+        </div>
       </div>
     );
   }
