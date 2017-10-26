@@ -1,17 +1,12 @@
 import React, { PureComponent } from 'react';
-import moment from 'moment';
-import validate from 'validate.js/validate.min';
 import head from 'lodash.head';
+import validate from 'validate.js/validate.min';
 import { dateToDateString, todayLocaleString, oneYearAfterStr } from 'binary-utils';
 import { ErrorMsg } from 'binary-components';
 import { actions } from '../_store';
 import MarketSubmarketPickerContainer from '../asset-picker/MarketSubmarketPickerContainer';
 import TradingTimesTable from './TradingTimesTable';
-
-validate.extend(validate.validators.datetime, {
-	parse: (v) => +moment.utc(v),
-	format: (v) => moment.utc(v).format('YYYY-MM-DD'),
-});
+import { getConstraints } from './TradingTimesCard.validation.config';
 
 export default class TradingTimesCard extends PureComponent {
 
@@ -37,21 +32,9 @@ export default class TradingTimesCard extends PureComponent {
 	}
 
 	updateTradingTimes = (e: SyntheticEvent) => {
-		const START_TIME_TXT = 'Start time is in the past.';
-		const constraints = {
-			trading_date: {
-				date: {
-					earliest: moment(todayLocaleString()),
-					latest: moment(oneYearAfterStr()),
-					tooEarly: START_TIME_TXT,
-					notValid: START_TIME_TXT,
-					tooLate: 'Start time cannot be more than 1 year.'
-				},
-			}
-		};
 		const inputVal = e.target.value;
 		this.setState({
-			errors: validate({ trading_date: inputVal }, constraints, {
+			errors: validate({ trading_date: inputVal }, getConstraints(), {
 				fullMessages: false,
 				cleanAttributes: false
 			}),
