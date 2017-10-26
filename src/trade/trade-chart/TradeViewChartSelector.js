@@ -10,7 +10,7 @@ export const tradeViewChartSelector = createSelector(
         feedLicensesPerTradeSelector,
         tradeParamsWithSymbolNameSelector,
         tradesCountSelector,
-        layoutNSelector 
+        layoutNSelector,
     ],
     (lastBoughtContracts, tradingTimes, pipSizes, licenses, params, tradesCount, layoutN) =>
         params.map((p, i) => ({

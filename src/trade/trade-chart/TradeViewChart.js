@@ -5,7 +5,7 @@ import wtcharts from 'webtrader-charts';
 import { actions } from '../../_store';
 
 wtcharts.init({
-  appId: window.BinaryBoot.appId,
+  appId: 11 || window.BinaryBoot.appId,
   lang: window.BinaryBoot.language,
   server: window.BinaryBoot.apiUrl
 });
@@ -94,7 +94,6 @@ export default class TradeViewChart extends PureComponent {
     }
     this.chart.draw.clear();
     if (this.props.count !== nextProps.count || this.props.layoutN !== nextProps.layoutN) {
-      console.warn('reflow', nextProps.index);
       this.chart.actions.reflow();
     }
   }
