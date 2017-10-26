@@ -1,17 +1,17 @@
-Hash: 2e6725d08e3d646a30a4
+Hash: 1464a752d7dfa3187ab8
 Version: webpack 3.5.0
-Time: 163564ms
+Time: 58930ms
      Asset     Size  Chunks                    Chunk Names
-    app.js  2.31 MB       0  [emitted]  [big]  main
+    app.js  5.16 MB       0  [emitted]  [big]  main
 styles.css  52.1 kB       0  [emitted]         main
   [16] ./src/_data/LiveData.js 10.8 kB {0} [built]
   [35] (webpack)/buildin/global.js 509 bytes {0} [built]
   [59] ./src/_actions/index.js 7.92 kB {0} [built]
-  [60] ./src/_data/Auth.js 4.52 kB {0} [built]
+  [60] ./src/_data/Auth.js 4.43 kB {0} [built]
   [61] ./src/_store/storage.js 99 bytes {0} [built]
  [113] ./src/config.js 247 bytes {0} [built]
  [226] ./src/_store/persistentStore.js 2.55 kB {0} [built]
- [319] ./src/_store/root.js 6.71 kB {0} [built]
+ [319] ./src/_store/root.js 6.64 kB {0} [built]
  [578] ./src/index.js 1.64 kB {0} [built]
 [1097] ./src/_routes/index.js 836 bytes {0} [built]
 [1471] ./src/_store/AppStateProvider.js 3.42 kB {0} [built]
