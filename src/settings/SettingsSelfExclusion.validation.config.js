@@ -18,6 +18,11 @@ validate.validators.timeoutUntilTimeRequired = (value, options) => {
     return 'This field is required.';
   }
 };
+validate.validators.timeoutUntilDateRequired = (value, options) => {
+  if (options.timeout_until_time && !value) {
+    return 'This field is required.';
+  }
+};
 validate.validators.excludeUntilValidation = (value) => {
   if (!!value && moment(value).isBefore(moment())) {
     return 'Exclude time cannot be in the past.';
@@ -229,6 +234,9 @@ export const getConstraints = (props, state) => {
     },
     timeout_until_date: {
       timeoutUntilDateValidation: true,
+      timeoutUntilDateRequired: {
+        timeout_until_time: state.timeout_until_time,
+      },
     },
     timeout_until_time: {
       timeoutUntilTimeRequired: {
