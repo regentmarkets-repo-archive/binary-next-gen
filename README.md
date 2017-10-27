@@ -29,23 +29,17 @@ gulp deploy:test --appId 11108
 ```
 Replace `11108` above with your app id. If you do not have an app id, you can [register for a free app id here](https://developers.binary.com/applications/).
 
-If the command executes successfully, the site will be hosted on `https://<YOUR_USERNAME>.github.io/binary-next-gen/`, where `<YOUR_USERNAME>` is your username. Note that if you login from there it will redirect you to `https://<YOUR_USERNAME>.github.io`. Just change the URL and your app will be up and running again.
+If the command executes successfully, the site will be hosted on `https://YOUR_USERNAME.github.io/binary-next-gen/`, where `YOUR_USERNAME` is your username. Note that if you login from there it will redirect you to `https://YOUR_USERNAME.github.io`. Just change the URL and your app will be up and running again.
 
-## Build for iOS and Android
+## Documentation
+ * [Build Instructions for iOS and Android](docs/build-instructions-ios-android.md)
+ * [Dealing with Translations](docs/translations.md)
+ * [Binary Next-Gen Technical Presenation](https://binary-com.github.io/binary-next-gen-technical-presentation/)
 
-[Click here to read build instructions for iOS and Android](docs/build-instructions-ios-android)
 ## Legacy Documentation
-
-*to be moved to docs folder...*
-
-[Build & Start](../../wiki/Build-&-Start)
-
-[Mobile App](../../wiki/Mobile-App)
-
-[Technologies Used](../../wiki/Technologies)
-
-[i18n](../../wiki/i18n)
-
-[Learning Resources](../../wiki/learning)
+*The wiki section will be removed in the future! All documentation will be in README.md and the docs folder.*
+ * [Mobile App](../../wiki/Mobile-App)
+ * [Technologies Used](../../wiki/Technologies)
+ * [Learning Resources](../../wiki/learning)
 
 [![forthebadge](http://forthebadge.com/images/badges/built-by-hipsters.svg)](http://forthebadge.com)
