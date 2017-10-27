@@ -36,7 +36,6 @@ module.exports = {
     ],
     module: {
         loaders: [
-            // (env === 'production') ? 
           {
             test: /\.scss$/,
             use: ExtractTextPlugin.extract({
@@ -44,14 +43,6 @@ module.exports = {
               use: [{loader: 'css-loader', options: { minimize: true } }, 'sass-loader']
             }),
           },
-                // : {
-              //   test: /\.scss$/,
-              //   use: [
-              //     { loader: "style-loader" },
-              //     { loader: "css-loader" },
-              //     { loader: "sass-loader" }
-              //   ]
-              //  },
           { test: /\.js$/, exclude: /node_modules/, use: ['babel-loader', 'eslint-loader'] },
           { test: /\.css$/, use: [ { loader: "style-loader" }, { loader: "css-loader" }, ] },
           { test: /\.svg$/, loader: 'babel-loader?presets[]=es2015,presets[]=react!svg-react-loader' },

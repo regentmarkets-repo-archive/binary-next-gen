@@ -85,7 +85,6 @@ export default class ContractChart extends PureComponent {
       $(this.barspinner).hide();
     });
     this.chart.done().then(() => {
-      console.warn('done');
       contract && this.updateContract(contract);
       this.chart.draw.zoomOut();
       this.loaded = true;

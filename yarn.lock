@@ -8802,9 +8802,9 @@ websocket-extensions@>=0.1.1:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.2.tgz#0e18781de629a18308ce1481650f67ffa2693a5d"
 
-webtrader-charts@0.4.4:
-  version "0.4.4"
-  resolved "https://registry.yarnpkg.com/webtrader-charts/-/webtrader-charts-0.4.4.tgz#57a6d47b6163c5c669f30d8f5a52b1d07b3be425"
+webtrader-charts@0.4.5:
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/webtrader-charts/-/webtrader-charts-0.4.5.tgz#b71faf4f5e94383f9c08eb3434f9182b59585b77"
   dependencies:
     datatables.net-dt "^1.10.15"
     imports-loader "^0.7.1"
