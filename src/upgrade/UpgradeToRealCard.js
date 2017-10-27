@@ -129,7 +129,7 @@ export default class UpgradeToRealCard extends PureComponent {
             });
             const response = await api.createRealAccount(createAccountParams);
 			storage.setItem('account', JSON.stringify({ token: response.new_account_real.oauth_token }));
-            window.location = '/';
+            window.location = window.BinaryBoot.redirectUrl;
         } catch (e) {
             this.setState({ serverError: e.error.error.message });
         } finally {

@@ -18,6 +18,11 @@ validate.validators.timeoutUntilTimeRequired = (value, options) => {
     return 'This field is required.';
   }
 };
+validate.validators.timeoutUntilDateRequired = (value, options) => {
+  if (options.timeout_until_time && !value) {
+    return 'This field is required.';
+  }
+};
 validate.validators.excludeUntilValidation = (value) => {
   if (!!value && moment(value).isBefore(moment())) {
     return 'Exclude time cannot be in the past.';
@@ -66,8 +71,8 @@ export const getConstraints = (props, state) => {
             onlyInteger: true,
             notInteger: 'Should be a valid number',
             notValid: 'Should be a valid number',
-            lessThanOrEqualTo: Number(props.max_balance),
-            notLessThanOrEqualTo: `Should be between 0 and ${props.max_balance}`
+            lessThanOrEqualTo: Number(props.max_turnover),
+            notLessThanOrEqualTo: `Should be between 0 and ${props.max_turnover}`
           };
         }
         return false;
@@ -88,8 +93,8 @@ export const getConstraints = (props, state) => {
             onlyInteger: true,
             notInteger: 'Should be a valid number',
             notValid: 'Should be a valid number',
-            lessThanOrEqualTo: Number(props.max_balance),
-            notLessThanOrEqualTo: `Should be between 0 and ${props.max_balance}`
+            lessThanOrEqualTo: Number(props.max_losses),
+            notLessThanOrEqualTo: `Should be between 0 and ${props.max_losses}`
           };
         }
         return false;
@@ -110,8 +115,8 @@ export const getConstraints = (props, state) => {
             onlyInteger: true,
             notInteger: 'Should be a valid number',
             notValid: 'Should be a valid number',
-            lessThanOrEqualTo: Number(props.max_balance),
-            notLessThanOrEqualTo: `Should be between 0 and ${props.max_balance}`
+            lessThanOrEqualTo: Number(props.max_7day_turnover),
+            notLessThanOrEqualTo: `Should be between 0 and ${props.max_7day_turnover}`
           };
         }
         return false;
@@ -132,8 +137,8 @@ export const getConstraints = (props, state) => {
             onlyInteger: true,
             notInteger: 'Should be a valid number',
             notValid: 'Should be a valid number',
-            lessThanOrEqualTo: Number(props.max_balance),
-            notLessThanOrEqualTo: `Should be between 0 and ${props.max_balance}`
+            lessThanOrEqualTo: Number(props.max_7day_losses),
+            notLessThanOrEqualTo: `Should be between 0 and ${props.max_7day_losses}`
           };
         }
         return false;
@@ -154,8 +159,8 @@ export const getConstraints = (props, state) => {
             onlyInteger: true,
             notInteger: 'Should be a valid number',
             notValid: 'Should be a valid number',
-            lessThanOrEqualTo: Number(props.max_balance),
-            notLessThanOrEqualTo: `Should be between 0 and ${props.max_balance}`
+            lessThanOrEqualTo: Number(props.max_30day_turnover),
+            notLessThanOrEqualTo: `Should be between 0 and ${props.max_30day_turnover}`
           };
         }
         return false;
@@ -176,8 +181,8 @@ export const getConstraints = (props, state) => {
             onlyInteger: true,
             notInteger: 'Should be a valid number',
             notValid: 'Should be a valid number',
-            lessThanOrEqualTo: Number(props.max_balance),
-            notLessThanOrEqualTo: `Should be between 0 and ${props.max_balance}`
+            lessThanOrEqualTo: Number(props.max_30day_losses),
+            notLessThanOrEqualTo: `Should be between 0 and ${props.max_30day_losses}`
           };
         }
         return false;
@@ -198,8 +203,8 @@ export const getConstraints = (props, state) => {
             onlyInteger: true,
             notInteger: 'Should be a valid number',
             notValid: 'Should be a valid number',
-            lessThanOrEqualTo: Number(props.max_balance),
-            notLessThanOrEqualTo: `Should be between 0 and ${props.max_balance}`
+            lessThanOrEqualTo: Number(props.max_open_bets),
+            notLessThanOrEqualTo: `Should be between 0 and ${props.max_open_bets}`
           };
         }
         return false;
@@ -220,8 +225,8 @@ export const getConstraints = (props, state) => {
             onlyInteger: true,
             notInteger: 'Should be a valid number',
             notValid: 'Should be a valid number',
-            lessThanOrEqualTo: Number(props.max_balance),
-            notLessThanOrEqualTo: `Should be between 0 and ${props.max_balance}`
+            lessThanOrEqualTo: Number(props.session_duration_limit),
+            notLessThanOrEqualTo: `Should be between 0 and ${props.session_duration_limit}`
           };
         }
         return false;
@@ -229,6 +234,9 @@ export const getConstraints = (props, state) => {
     },
     timeout_until_date: {
       timeoutUntilDateValidation: true,
+      timeoutUntilDateRequired: {
+        timeout_until_time: state.timeout_until_time,
+      },
     },
     timeout_until_time: {
       timeoutUntilTimeRequired: {

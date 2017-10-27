@@ -31,7 +31,7 @@ export const signOut = () => {
     store.dispatch(removePersonalData());
     store.dispatch(updateAppState('authorized', false));
     store.dispatch(updateToken(''));
-    window.location.href.indexOf('/beta') === -1 ? history.push('/') : history.push('/beta');
+    history.push('/');
 };
 
 export const signIn = () => {
@@ -87,7 +87,7 @@ export const requireAuthOnEnter = (nextState, replace, callback) => {
     const { location } = nextState;
     if (!authorized && (rootPaths.indexOf(location.pathname) === -1)) {
         replace({
-            pathname: location.pathname.indexOf('/beta') !== -1 ? '/beta' : '/',
+            pathname: window.BinaryBoot.redirectUrl,
             state: nextState,
         });
     }
