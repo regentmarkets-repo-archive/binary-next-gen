@@ -1,25 +1,25 @@
-Hash: 1464a752d7dfa3187ab8
+Hash: 5508899467d749e252e0
 Version: webpack 3.5.0
-Time: 58930ms
+Time: 101824ms
      Asset     Size  Chunks                    Chunk Names
     app.js  5.16 MB       0  [emitted]  [big]  main
 styles.css  52.1 kB       0  [emitted]         main
   [16] ./src/_data/LiveData.js 10.8 kB {0} [built]
   [35] (webpack)/buildin/global.js 509 bytes {0} [built]
-  [59] ./src/_actions/index.js 7.92 kB {0} [built]
-  [60] ./src/_data/Auth.js 4.43 kB {0} [built]
-  [61] ./src/_store/storage.js 99 bytes {0} [built]
+  [60] ./src/_actions/index.js 7.92 kB {0} [built]
+  [61] ./src/_data/Auth.js 4.43 kB {0} [built]
+  [62] ./src/_store/storage.js 99 bytes {0} [built]
  [113] ./src/config.js 247 bytes {0} [built]
  [226] ./src/_store/persistentStore.js 2.55 kB {0} [built]
  [319] ./src/_store/root.js 6.64 kB {0} [built]
  [578] ./src/index.js 1.64 kB {0} [built]
 [1097] ./src/_routes/index.js 836 bytes {0} [built]
-[1471] ./src/_store/AppStateProvider.js 3.42 kB {0} [built]
-[1472] ./src/_store/BootProvider.js 3.48 kB {0} [built]
-[1491] ./src/_store/localeData.js 1.58 kB {0} [built]
-[1506] ./styles/styles.scss 41 bytes {0} [built]
-[1508] ./node_modules/css-loader?{"minimize":true}!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 52.3 kB [built]
-    + 1494 hidden modules
+[1472] ./src/_store/AppStateProvider.js 3.42 kB {0} [built]
+[1473] ./src/_store/BootProvider.js 3.48 kB {0} [built]
+[1492] ./src/_store/localeData.js 1.58 kB {0} [built]
+[1507] ./styles/styles.scss 41 bytes {0} [built]
+[1509] ./node_modules/css-loader?{"minimize":true}!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 52.3 kB [built]
+    + 1495 hidden modules
 Child extract-text-webpack-plugin node_modules/extract-text-webpack-plugin/dist node_modules/css-loader/index.js??ref--0-2!node_modules/sass-loader/lib/loader.js!styles/styles.scss:
        [0] ./node_modules/css-loader?{"minimize":true}!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 52.3 kB {0} [built]
         + 1 hidden module
