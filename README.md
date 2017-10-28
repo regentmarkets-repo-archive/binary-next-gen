@@ -34,12 +34,27 @@ If the command executes successfully, the site will be hosted on `https://YOUR_U
 ## Documentation
  * [Build Instructions for iOS and Android](docs/build-instructions-ios-android.md)
  * [Dealing with Translations](docs/translations.md)
- * [Binary Next-Gen Technical Presenation](https://binary-com.github.io/binary-next-gen-technical-presentation/)
-
 ## Legacy Documentation
-*The wiki section will be removed in the future! All documentation will be in README.md and the docs folder.*
- * [Mobile App](../../wiki/Mobile-App)
- * [Technologies Used](../../wiki/Technologies)
- * [Learning Resources](../../wiki/learning)
+*Documentation listed in this section will be either updated or replaced int the future.*
+ * [Mobile App](docs/mobile-app.md)
+ * [Binary Next-Gen Technical Presentation](https://binary-com.github.io/binary-next-gen-technical-presentation/)
+
+## Useful Links
+### Technologies Used
+* [React](https://reactjs.org/) - JavaScript library for building user interfaces.
+* [React Router](https://github.com/ReactTraining/react-router) - for routing, mapping urls to views.
+* [Redux](https://github.com/reactjs/redux) - state management.
+* [Reselect](https://github.com/reactjs/reselect) - data selection and computation.
+* [Immutable.js](https://facebook.github.io/immutable-js/) - immutable data structures.
+
+### Learning Resources
+ * [Egghead](https://egghead.io/)
+ * [ES6 Cheatsheet](https://www.youtube.com/watch?v=AfWYO8t7ed4)
+ * [Live React: Hot Reloading with Time Travel](https://www.youtube.com/watch?v=xsSnOQynTHs)
+ * [Immutable Data and React](https://www.youtube.com/watch?v=I7IdS-PbEgI)
+ * [Immutable JavaScript: You can't change this](https://www.youtube.com/watch?v=wA98Coal4jk)
+ * [react-router increases your productivity](https://www.youtube.com/watch?v=XZfvW1a8Xac)
+ * [PERFORMANCE ENGINEERING WITH REACT](http://benchling.engineering/performance-engineering-with-react/)
+ * [A DEEP DIVE INTO REACT PERF DEBUGGING](http://benchling.engineering/deep-dive-react-perf-debugging/)
 
 [![forthebadge](http://forthebadge.com/images/badges/built-by-hipsters.svg)](http://forthebadge.com)
