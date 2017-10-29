@@ -1,6 +1,6 @@
 Hash: 8cc8cb4669a4bbf16485
 Version: webpack 3.5.0
-Time: 102839ms
+Time: 97268ms
          Asset      Size  Chunks                    Chunk Names
         app.js   2.91 MB       0  [emitted]  [big]  main
     styles.css   52.7 kB       0  [emitted]         main
