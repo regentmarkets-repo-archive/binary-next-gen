@@ -1,25 +1,41 @@
-Hash: d2b0e066158941232188
+Hash: 8cc8cb4669a4bbf16485
 Version: webpack 3.5.0
-Time: 71681ms
-     Asset     Size  Chunks                    Chunk Names
-    app.js  5.16 MB       0  [emitted]  [big]  main
-styles.css  52.1 kB       0  [emitted]         main
+Time: 102839ms
+         Asset      Size  Chunks                    Chunk Names
+        app.js   2.91 MB       0  [emitted]  [big]  main
+    styles.css   52.7 kB       0  [emitted]         main
+styles.css.map  87 bytes       0  [emitted]         main
   [16] ./src/_data/LiveData.js 10.8 kB {0} [built]
-  [35] (webpack)/buildin/global.js 509 bytes {0} [built]
-  [60] ./src/_actions/index.js 7.92 kB {0} [built]
-  [61] ./src/_data/Auth.js 4.43 kB {0} [built]
-  [62] ./src/_store/storage.js 99 bytes {0} [built]
- [113] ./src/config.js 247 bytes {0} [built]
- [226] ./src/_store/persistentStore.js 2.55 kB {0} [built]
- [319] ./src/_store/root.js 6.64 kB {0} [built]
- [578] ./src/index.js 1.64 kB {0} [built]
-[1097] ./src/_routes/index.js 836 bytes {0} [built]
-[1472] ./src/_store/AppStateProvider.js 3.42 kB {0} [built]
-[1473] ./src/_store/BootProvider.js 3.48 kB {0} [built]
-[1492] ./src/_store/localeData.js 1.58 kB {0} [built]
-[1507] ./styles/styles.scss 41 bytes {0} [built]
-[1509] ./node_modules/css-loader?{"minimize":true}!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 52.3 kB [built]
-    + 1495 hidden modules
+  [30] (webpack)/buildin/global.js 509 bytes {0} [built]
+  [61] ./src/_actions/index.js 7.92 kB {0} [built]
+  [62] ./src/_data/Auth.js 4.43 kB {0} [built]
+  [63] ./src/_store/storage.js 99 bytes {0} [built]
+ [114] ./src/config.js 247 bytes {0} [built]
+ [230] ./src/_store/persistentStore.js 2.55 kB {0} [built]
+ [324] ./src/_store/root.js 6.64 kB {0} [built]
+ [581] ./src/index.js 1.64 kB {0} [built]
+ [932] ./src/_reducers/index.js 6.29 kB {0} [built]
+[1103] ./src/_routes/index.js 836 bytes {0} [built]
+[1483] ./src/_store/AppStateProvider.js 3.42 kB {0} [built]
+[1484] ./src/_store/BootProvider.js 3.48 kB {0} [built]
+[1518] ./styles/styles.scss 41 bytes {0} [built]
+[1520] ./node_modules/css-loader?{"minimize":true}!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 52.8 kB [built]
+    + 1506 hidden modules
+
+WARNING in ./src/trade/trade-chart/TradeViewChart.js
+
+/home/travis/build/binary-com/binary-next-gen/src/trade/trade-chart/TradeViewChart.js
+  125:2  warning  Trailing spaces not allowed  no-trailing-spaces
+
+✖ 1 problem (0 errors, 1 warning)
+
+ @ ./src/trade/TradeCard.js 1:1021-1060
+ @ ./src/trade/mobile/MobileTradeContainer.js
+ @ ./src/trade/mobile/TradeMobile.js
+ @ ./src/_routes/MobileRoutes.js
+ @ ./src/_routes/index.js
+ @ ./src/_store/root.js
+ @ ./src/index.js
 Child extract-text-webpack-plugin node_modules/extract-text-webpack-plugin/dist node_modules/css-loader/index.js??ref--0-2!node_modules/sass-loader/lib/loader.js!styles/styles.scss:
-       [0] ./node_modules/css-loader?{"minimize":true}!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 52.3 kB {0} [built]
+       [0] ./node_modules/css-loader?{"minimize":true}!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 52.8 kB {0} [built]
         + 1 hidden module
