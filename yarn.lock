@@ -1315,15 +1315,6 @@ big.js@^3.1.3:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/big.js/-/big.js-3.2.0.tgz#a5fc298b81b9e0dca2e458824784b65c52ba588e"
 
-binary-charts@*:
-  version "9.0.2"
-  resolved "https://registry.yarnpkg.com/binary-charts/-/binary-charts-9.0.2.tgz#9efe60c4a2b90496d4a51e4a4d935063dc587cab"
-  dependencies:
-    binary-indicators "^1.2.1"
-    binary-utils "*"
-    fbjs "^0.8.6"
-    highcharts "^5.0.3"
-
 binary-components@^2.24.3:
   version "2.24.3"
   resolved "https://registry.yarnpkg.com/binary-components/-/binary-components-2.24.3.tgz#f118ac76bbd04d99c0e7917ae230c38d90c42f73"
@@ -1335,12 +1326,6 @@ binary-components@^2.24.3:
 binary-extensions@^1.0.0:
   version "1.7.0"
   resolved "https://registry.yarnpkg.com/binary-extensions/-/binary-extensions-1.7.0.tgz#6c1610db163abfb34edfe42fa423343a1e01185d"
-
-binary-indicators@^1.2.1:
-  version "1.3.0"
-  resolved "https://registry.yarnpkg.com/binary-indicators/-/binary-indicators-1.3.0.tgz#5b9bb7f52117cbb2ba761d6f8acffba37701b34f"
-  dependencies:
-    binary-utils "^4.12.4"
 
 binary-live-api@^28.2.3:
   version "28.2.3"
@@ -1359,7 +1344,7 @@ binary-test-data@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/binary-test-data/-/binary-test-data-1.2.0.tgz#bd895e01fe00cfd6f12c8d497555e566e6dc5ca1"
 
-binary-utils@*, binary-utils@^4.12.4:
+binary-utils@*:
   version "4.21.0"
   resolved "https://registry.yarnpkg.com/binary-utils/-/binary-utils-4.21.0.tgz#9f679889296e177cb685b60c5ba3e9892dd1c4f9"
 
@@ -3247,7 +3232,7 @@ fb-watchman@^1.8.0, fb-watchman@^1.9.0:
   dependencies:
     bser "^1.0.2"
 
-fbjs@^0.8.1, fbjs@^0.8.4, fbjs@^0.8.6:
+fbjs@^0.8.1, fbjs@^0.8.4:
   version "0.8.6"
   resolved "https://registry.yarnpkg.com/fbjs/-/fbjs-0.8.6.tgz#7eb67d6986b2d5007a9b6e92e0e7cb6f75cad290"
   dependencies:
@@ -3991,13 +3976,9 @@ hawk@~6.0.2:
     hoek "4.x.x"
     sntp "2.x.x"
 
-highcharts@^5.0.3:
-  version "5.0.4"
-  resolved "https://registry.yarnpkg.com/highcharts/-/highcharts-5.0.4.tgz#ef598f7a2fc66f6285b9457b6cf92ada179e5deb"
-
-highstock-release@5.0.14:
-  version "5.0.14"
-  resolved "https://registry.yarnpkg.com/highstock-release/-/highstock-release-5.0.14.tgz#e3f5a400b7d7310442b5494b190912452552c9fb"
+highstock-release@5.0.10:
+  version "5.0.10"
+  resolved "https://registry.yarnpkg.com/highstock-release/-/highstock-release-5.0.10.tgz#41da1f8fd4694f7c858a0e54e61b233fc6e22cb1"
 
 history@^3.0.0:
   version "3.2.1"
@@ -8821,9 +8802,9 @@ websocket-extensions@>=0.1.1:
   version "0.1.2"
   resolved "https://registry.yarnpkg.com/websocket-extensions/-/websocket-extensions-0.1.2.tgz#0e18781de629a18308ce1481650f67ffa2693a5d"
 
-webtrader-charts@^0.4.1:
-  version "0.4.1"
-  resolved "https://registry.yarnpkg.com/webtrader-charts/-/webtrader-charts-0.4.1.tgz#ba4576984c9c0fdef6190e97102232fcce0307b1"
+webtrader-charts@0.4.5:
+  version "0.4.5"
+  resolved "https://registry.yarnpkg.com/webtrader-charts/-/webtrader-charts-0.4.5.tgz#b71faf4f5e94383f9c08eb3434f9182b59585b77"
   dependencies:
     datatables.net-dt "^1.10.15"
     imports-loader "^0.7.1"

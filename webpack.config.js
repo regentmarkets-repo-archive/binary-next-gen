@@ -9,7 +9,7 @@ const postCssModules = require('postcss-modules');
 const env = process.env.NODE_ENV;
 
 module.exports = {
-    devtool: env === 'production' ? 'eval' : 'source-map',
+    devtool: 'source-map',
     entry: './src',
     output: {
         path: path.join(__dirname, 'www'),
@@ -36,23 +36,16 @@ module.exports = {
     ],
     module: {
         loaders: [
-            (env === 'production') ?  {
-                test: /\.scss$/,
-                use: ExtractTextPlugin.extract({
-                  fallback: 'style-loader',
-                  use: [{loader: 'css-loader', options: { minimize: true } }, 'sass-loader']
-                })
-              } : {
-                test: /\.scss$/,
-                use: [
-                  { loader: "style-loader" },
-                  { loader: "css-loader" },
-                  { loader: "sass-loader" }
-                ]
-               },
-            { test: /\.js$/, exclude: /node_modules/, use: ['babel-loader', 'eslint-loader'] },
-            { test: /\.css$/, use: [ { loader: "style-loader" }, { loader: "css-loader" }, ] },
-            { test: /\.svg$/, loader: 'babel-loader?presets[]=es2015,presets[]=react!svg-react-loader' },
+          {
+            test: /\.scss$/,
+            use: ExtractTextPlugin.extract({
+              fallback: 'style-loader',
+              use: [{loader: 'css-loader', options: { minimize: true } }, 'sass-loader']
+            }),
+          },
+          { test: /\.js$/, exclude: /node_modules/, use: ['babel-loader', 'eslint-loader'] },
+          { test: /\.css$/, use: [ { loader: "style-loader" }, { loader: "css-loader" }, ] },
+          { test: /\.svg$/, loader: 'babel-loader?presets[]=es2015,presets[]=react!svg-react-loader' },
         ],
     },
     externals: {
