@@ -33,12 +33,9 @@ export default class TradingTimesCard extends PureComponent {
 	updateTradingTimes = (e: SyntheticEvent) => {
 		const inputVal = e.target.value;
 		this.setState({
-			errors: validate({ trading_date: inputVal }, getConstraints(), {
-				fullMessages: false,
-				cleanAttributes: false
-			}) || {},
+			errors: validate({ trading_date: inputVal }, getConstraints()) || {},
 		});
-		if (this.state.errors !== undefined) {
+		if (Object.keys(this.state.errors).length === 0) {
 			actions.updateTradingTimesDate(inputVal);
 		}
 	}
