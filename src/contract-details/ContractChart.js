@@ -1,4 +1,3 @@
-import wtcharts from 'webtrader-charts';
 import $ from 'jquery';
 import moment from 'moment';
 import React, { PureComponent } from 'react';
@@ -67,35 +66,43 @@ export default class ContractChart extends PureComponent {
     })[timePeriod];
     const type = timePeriod === '1t' ? 'line' : 'candlestick';
 
-    this.chart = wtcharts.chartWindow.addNewChart($(this.root), {
-      type, // default is 'line'
-      timePeriod, // default is '1t'
-      instrumentCode: underlying,
-      instrumentName: symbolName,
-      showInstrumentName: true, // default is false
-      showOverlays: false, // default is true
-      showShare: false, // default is true
-      start: (purchase_time || date_start) - margin,
-      end: sell_time && +sell_time + margin || (exit_tick_time ? exit_tick_time + margin : 'latest'),
-      hideCurrentPrice: true,
-      // timezoneOffset: 0,
-    });
+    (async () => {
+      const wtcharts = await import(/* webpackChunkName: "webtrader-charts" */ 'webtrader-charts');
 
-    this.chart.drawn().then(() => {
-      $(this.barspinner).hide();
-    });
-    this.chart.done().then(() => {
-      contract && this.updateContract(contract);
-      this.chart.draw.zoomOut();
-      this.loaded = true;
-    });
+      this.chart = wtcharts.chartWindow.addNewChart($(this.root), {
+        type, // default is 'line'
+        timePeriod, // default is '1t'
+        instrumentCode: underlying,
+        instrumentName: symbolName,
+        showInstrumentName: true, // default is false
+        showOverlays: false, // default is true
+        showShare: false, // default is true
+        start: (purchase_time || date_start) - margin,
+        end: sell_time && +sell_time + margin || (exit_tick_time ? exit_tick_time + margin : 'latest'),
+        hideCurrentPrice: true,
+        // timezoneOffset: 0,
+      });
+
+      this.chart.drawn().then(() => {
+        $(this.barspinner).hide();
+      });
+
+      this.chart.done().then(() => {
+        contract && this.updateContract(contract);
+        this.chart.draw.zoomOut();
+        this.loaded = true;
+      });
+    })();
   }
+
   componentWillUnmount() {
     this.chart && this.chart.actions.destroy();
     this.chart = null;
     this.loaded = false;
   }
+
   shouldComponentUpdate() { return false; }
+
   render() {
     const { theme } = this.context;
     return (

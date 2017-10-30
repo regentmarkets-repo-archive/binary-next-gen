@@ -9,6 +9,7 @@ module.exports = {
     },
     output: {
         filename: 'app.js',
+        chunkFilename: '[name].bundle.js',
         path: path.resolve(__dirname, 'www'),
     },
     module: {
@@ -18,13 +19,25 @@ module.exports = {
                 use: ExtractTextPlugin.extract({
                     fallback: 'style-loader',
                     use: [
-                        { 
-                            loader: 'css-loader', 
+                        {
+                            loader: 'css-loader',
                             options: { minimize: true }
-                        }, 
+                        },
                         'sass-loader'
                     ]
                 }),
+            },
+            {
+                test: /\.bundle\.js$/,
+                exclude: /node_modules/,
+                use: [
+                    {
+                        loader: 'bundle-loader',
+                        options: {
+                            lazy: true
+                        }
+                    }
+                ]
             },
             {
                 test: /\.js$/,
@@ -32,14 +45,14 @@ module.exports = {
                 use: [
                     'babel-loader',
                     'eslint-loader'
-                ] 
+                ]
             },
             {
                 test: /\.css$/,
                 use: [
                     'style-loader',
                     'css-loader'
-                ] 
+                ]
             },
             {
                 test: /\.svg$/,
@@ -50,7 +63,7 @@ module.exports = {
             },
         ],
     },
-    plugins:[
+    plugins: [
         new ExtractTextPlugin('styles.css'),
         new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^$/), // remove locales from moment.js
     ],

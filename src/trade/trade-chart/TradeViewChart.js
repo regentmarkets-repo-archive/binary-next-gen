@@ -1,14 +1,7 @@
 import React, { PureComponent } from 'react';
 import $ from 'jquery';
 import 'binary-style/binary.isolated.css';
-import wtcharts from 'webtrader-charts';
 import { actions } from '../../_store';
-
-wtcharts.init({
-  appId: window.BinaryBoot.appId,
-  lang: window.BinaryBoot.language,
-  server: window.BinaryBoot.apiUrl
-});
 
 type Props = {
   contractForChart: object,
@@ -28,15 +21,26 @@ export default class TradeViewChart extends PureComponent {
   root = null;
   chart = null;
   config = null;
+  wtcharts = null;
 
   static contextTypes = {
     theme: () => undefined,
   };
 
+  async getChart() {
+    const w = await import(/* webpackChunkName: "webtrader-charts" */ 'webtrader-charts');
+    w.init({
+      appId: window.BinaryBoot.appId,
+      lang: window.BinaryBoot.language,
+      server: window.BinaryBoot.apiUrl
+    });
+    this.wtcharts = w;
+  }
+
   initChart(trade) {
     const params = trade.chartParams || { type: 'line', timePeriod: '1t', indicators: [], overlays: [] };
 
-    this.chart = wtcharts.chartWindow.addNewChart($(this.root), {
+    this.chart = this.wtcharts.chartWindow.addNewChart($(this.root), {
       type: params.type,
       timePeriod: params.timePeriod,
       instrumentCode: trade.symbol,
@@ -60,15 +64,19 @@ export default class TradeViewChart extends PureComponent {
       $(this.barspinner).hide();
     });
   }
+
   destroyChart() {
     this.chart && this.chart.actions.destroy();
     this.chart = null;
   }
 
   componentDidMount() {
-    const trade = this.props.tradeForChart.toJS();
-    this.initChart(trade);
+    this.getChart().then(() => {
+      const trade = this.props.tradeForChart.toJS();
+      this.initChart(trade);
+    });
   }
+
   componentWillReceiveProps(nextProps) {
     const trade = nextProps.tradeForChart.toJS();
     if (this.chart && trade.symbol !== this.chart.data().instrumentCode) {
@@ -92,16 +100,20 @@ export default class TradeViewChart extends PureComponent {
       barrier && this.chart.draw.barrier({ value: barrier });
       return;
     }
-    this.chart.draw.clear();
-    if (this.props.count !== nextProps.count || this.props.layoutN !== nextProps.layoutN) {
-      this.chart.actions.reflow();
+    if (this.chart) {
+      this.chart.draw.clear();
+      if (this.props.count !== nextProps.count || this.props.layoutN !== nextProps.layoutN) {
+        this.chart.actions.reflow();
+      }
     }
   }
 
   componentWillUnmount() {
     this.destroyChart();
   }
+
   shouldComponentUpdate() { return false; }
+
   render() {
     const { theme } = this.context;
     return (
