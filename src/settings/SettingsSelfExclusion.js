@@ -9,7 +9,7 @@ import { api } from '../_data/LiveData';
 
 export default class SettingsSelfExclusion extends PureComponent {
 
-  props:{
+  props: {
     max_balance: number,
     max_turnover: number,
     max_losses: number,
@@ -26,28 +26,23 @@ export default class SettingsSelfExclusion extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      max_balance: props.max_balance,
-      max_turnover: props.max_turnover,
-      max_losses: props.max_losses,
-      max_7day_turnover: props.max_7day_turnover,
-      max_7day_losses: props.max_7day_losses,
-      max_30day_turnover: props.max_30day_turnover,
-      max_30day_losses: props.max_30day_losses,
-      max_open_bets: props.max_open_bets,
-      session_duration_limit: props.session_duration_limit,
-      timeout_until_time: props.timeout_until,
-      timeout_until_date: props.timeout_until,
-      exclude_until: props.exclude_until,
+      formData: {
+        max_balance: props.max_balance,
+        max_turnover: props.max_turnover,
+        max_losses: props.max_losses,
+        max_7day_turnover: props.max_7day_turnover,
+        max_7day_losses: props.max_7day_losses,
+        max_30day_turnover: props.max_30day_turnover,
+        max_30day_losses: props.max_30day_losses,
+        max_open_bets: props.max_open_bets,
+        session_duration_limit: props.session_duration_limit,
+        timeout_until_time: props.timeout_until,
+        timeout_until_date: props.timeout_until,
+        exclude_until: props.exclude_until,
+      },
       errors: {},
       serverError: false,
       success: false,
-      /*
-        This is not a recommended practice to have nested object in state.
-        I am not sure why you need this object. Are you trying to find out
-        whether a value has been changed or not? You could easily do that by
-        calling !isEqual(this.props.max_balance, this.state.max_balance)
-       TODO
-      */
       touched: {
         max_balance: false,
         max_turnover: false,
@@ -63,6 +58,8 @@ export default class SettingsSelfExclusion extends PureComponent {
         exclude_until: false,
       },
     };
+
+    this.constraints = getConstraints(this.state.formData);
   }
 
   componentWillReceiveProps = (newProps) => {
@@ -81,62 +78,62 @@ export default class SettingsSelfExclusion extends PureComponent {
     if (Object.keys(newState).length > 0) this.setState(newState);
   }
 
-  onEntryChange = (e:SyntheticEvent) => {
+  onEntryChange = (e: SyntheticEvent) => {
+    // empty input is same as undefined.
+    const val = e.target.value === '' ? undefined : e.target.value;
+    const newFormData = {
+      ...this.state.formData,
+      [e.target.id]: val
+    };
+    const newTouched = {
+      ...this.state.touched,
+      [e.target.id]: true
+    };
+    const newErrors = this.validateForm(newFormData);
     this.setState({
-      [e.target.id]: e.target.value,
-      touched: {
-        ...this.state.touched,
-        [e.target.id]: true
-      },
-    }, () => this.validateForm());
-  }
-
-  validateForm = () => {
-    this.constraints = getConstraints(this.props, this.state);
-    this.setState({
-      errors: validate(this.state, this.constraints, {
-        format: 'grouped',
-        fullMessages: false,
-        cleanAttributes: false
-      }) || {},
+      formData: newFormData,
+      touched: newTouched,
+      errors: newErrors
     });
   }
 
-  onFormSubmit = (e:SyntheticEvent) => {
+  componentWillUnmount() {
+    clearTimeout(this.hideSuccess);
+  }
+
+  validateForm = (newFormData) => {
+    const errors = validate(newFormData, this.constraints, {
+      format: 'grouped',
+      fullMessages: false,
+      cleanAttributes: false
+    }) || {};
+    return errors;
+  }
+
+  onFormSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
-    Object.keys(this.state.errors).length <= 0
-    && this.updateSelfExclusion();
+    if (Object.keys(this.state.errors).length === 0) {
+      this.updateSelfExclusion();
+    }
   }
 
   updateSelfExclusion = async () => {
-    const { max_balance, max_turnover, max_losses, max_7day_turnover, max_7day_losses,
-      max_30day_turnover, max_30day_losses, max_open_bets, session_duration_limit,
-      timeout_until_time, timeout_until_date, exclude_until } = this.state;
-    const timeout_until = moment(timeout_until_date + ' ' + timeout_until_time).valueOf() / 1000;
-    const newSelfExclusionSettings = {
-      max_balance,
-      max_turnover,
-      max_losses,
-      max_7day_turnover,
-      max_7day_losses,
-      max_30day_turnover,
-      max_30day_losses,
-      max_open_bets,
-      session_duration_limit,
-      exclude_until,
-      timeout_until,
-    };
+    const { timeout_until_time, timeout_until_date, ...newSettings } = this.state.formData;
+    if (timeout_until_date && timeout_until_time) {
+      const timeout_until = moment(timeout_until_date + ' ' + timeout_until_time).valueOf() / 1000;
+      newSettings.timeout_until = timeout_until;
+    }
     try {
-      await api.setSelfExclusion(newSelfExclusionSettings);
+      await api.setSelfExclusion(newSettings);
       this.setState({
         success: true,
         serverError: false,
       });
       api.getSelfExclusion();
       api.getAccountLimits();
-      setTimeout(() => {
+      this.hideSuccess = setTimeout(() => {
         this.setState({ success: false });
-        if (exclude_until) {
+        if (newSettings.exclude_until || newSettings.timeout_until) {
           window.location.reload();
         }
       }, 3000);
@@ -148,7 +145,8 @@ export default class SettingsSelfExclusion extends PureComponent {
   render() {
     const { max_balance, max_turnover, max_losses, max_7day_turnover, max_7day_losses,
       max_30day_turnover, max_30day_losses, max_open_bets, session_duration_limit,
-      exclude_until, timeout_until_date, timeout_until_time, success, serverError, touched, errors } = this.state;
+      exclude_until, timeout_until_date, timeout_until_time } = this.state.formData;
+    const { success, serverError, touched, errors } = this.state;
     // const wrongExcludeUntillTime = isValidTime(timeout_until_time);
     const timeout_until = touched.timeout_until_date || touched.timeout_until_time;
     return (
