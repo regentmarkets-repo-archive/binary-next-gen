@@ -89,27 +89,6 @@
     ],
     "author": "Boris, Qing Wei, Nuru @ Binary",
     "license": "MIT",
-    "babel": {
-        "compact": true,
-        "presets": [
-            "react",
-            "latest",
-            "stage-1"
-        ],
-        "plugins": [
-            "transform-async-to-generator",
-            "transform-decorators-legacy",
-            "transform-inline-environment-variables",
-            "transform-flow-strip-types"
-        ],
-        "env": {
-            "production": {
-                "plugins": [
-                    "transform-react-constant-elements"
-                ]
-            }
-        }
-    },
     "dependencies": {
         "babel-polyfill": "^6.16.0",
         "binary-components": "^2.24.3",
