@@ -7,19 +7,16 @@
     "scripts": {
         "test": "jest",
         "test:full": "npm run test:eslint && npm run test:coverage",
-        "test:eslint": "webpack --config webpack.config.js",
         "test:flow": "flow check --all --show-all-errors",
         "test:unit": "jest",
         "test:coverage": "jest --coverage",
         "test:watch": "npm test -- --watch",
         "test:unit-watch": "jest --watch",
         "test:coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
-        "start": "./node_modules/.bin/webpack-dev-server",
+        "start": "webpack-dev-server --open --config webpack.dev.js",
         "clean": "rimraf dist",
-        "build": "npm run clean && npm run build:webpack",
-        "build:dev": "webpack --config webpack.config.js",
-        "build:apk": "npm run build:dev && cordova build --release android && jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore tick-trade-key.keystore ./platforms/android/build/outputs/apk/android-release-unsigned.apk TickTrade && ~/Library/Android/sdk/build-tools/25.0.0/zipalign -v 4 ./platforms/android/build/outputs/apk/android-release-unsigned.apk ./platforms/android/build/outputs/apk/android-release-aligned.apk",
-        "build:webpack": "NODE_ENV=production webpack --progress --config webpack.config.js",
+        "build": "npm run clean && webpack --progress --config webpack.prod.js",
+        "build:apk": "npm run build && cordova build --release android && jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore tick-trade-key.keystore ./platforms/android/build/outputs/apk/android-release-unsigned.apk TickTrade && ~/Library/Android/sdk/build-tools/25.0.0/zipalign -v 4 ./platforms/android/build/outputs/apk/android-release-unsigned.apk ./platforms/android/build/outputs/apk/android-release-aligned.apk",
         "lint": "eslint src",
         "electron": "NODE_ENV=production electron ./www/main.js",
         "translate": "bash fetch-translation.sh",
@@ -31,8 +28,8 @@
         "prerelease:win64": "rm -rf ./release/win64 && mkdirp release/win64",
         "release:win64": "cp -v ./dist/win/{RELEASES,*.nupkg,*.exe} release/win64",
         "release": "npm run release:osx && npm run release:win32 && npm run release:win64",
-        "deploy:android": "npm run build:dev && code-push release-cordova binary-next-gen-android android",
-        "deploy:ios": "npm run build:dev && code-push release-cordova binary-next-gen-ios ios"
+        "deploy:android": "npm run build && code-push release-cordova binary-next-gen-android android",
+        "deploy:ios": "npm run build && code-push release-cordova binary-next-gen-ios ios"
     },
     "jest": {
         "setupFiles": [
@@ -132,6 +129,7 @@
         "trackjs": "^2.5.3",
         "validate.js": "0.11.1",
         "webpack-dev-server": "^2.9.3",
+        "webpack-merge": "^4.1.0",
         "webtrader-charts": "0.4.5"
     },
     "devDependencies": {
