@@ -25,6 +25,7 @@
     "gulp-hash-src": "^0.1.6",
     "gulp-if": "^2.0.1",
     "gulp-minify-css": "^1.2.4",
+    "gulp-modify-file": "^1.0.0",
     "gulp-replace": "^0.5.4",
     "gulp-run": "^1.7.1",
     "run-sequence": "^1.2.2",
