@@ -45,7 +45,7 @@ module.exports = {
           },
           { test: /\.js$/, exclude: /node_modules/, use: ['babel-loader', 'eslint-loader'] },
           { test: /\.css$/, use: [ { loader: "style-loader" }, { loader: "css-loader" }, ] },
-          { test: /\.svg$/, loader: 'babel-loader?presets[]=es2015,presets[]=react!svg-react-loader' },
+          { test: /\.svg$/, use: ['babel-loader', 'svg-react-loader'] },
         ],
     },
     externals: {
