@@ -34,8 +34,10 @@ If the command executes successfully, the site will be hosted on `https://YOUR_U
 ## Documentation
  * [Build Instructions for iOS and Android](docs/build-instructions-ios-android.md)
  * [Dealing with Translations](docs/translations.md)
+ * [Development Tools](docs/development-tools.md)
+ 
 ## Legacy Documentation
-*Documentation listed in this section will be either updated or replaced int the future.*
+*Documentation listed in this section will be either updated or replaced in the future.*
  * [Mobile App](docs/mobile-app.md)
  * [Binary Next-Gen Technical Presentation](https://binary-com.github.io/binary-next-gen-technical-presentation/)
 
