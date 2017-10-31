@@ -169,7 +169,7 @@ export default {
       },
       {
         value: 'Personal Care, Sales and Service Workers',
-        text: 'ersonal Care, Sales and Service Workers'
+        text: 'Personal Care, Sales and Service Workers'
       },
       {
         value: 'Agricultural, Forestry and Fishery Workers',
