@@ -8,7 +8,7 @@ export default class JpTradeCard extends PureComponent {
             <table>
                 <thead>
                     <tr>
-                        <Th text="Excercise price" />
+                        <Th text="Exercise price" />
                         <Th text="Higher" />
                         <Th text="Lower" />
                     </tr>
