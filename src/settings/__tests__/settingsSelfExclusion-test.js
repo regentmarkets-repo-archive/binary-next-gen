@@ -76,7 +76,7 @@ describe('<SettingsSelfExclusion />', () => {
   it('Timeout until date should be after moment', () => {
     const wrapper = mountWithIntl(<SettingsSelfExclusion />);
     const timeoutUntilDate = wrapper.find('#timeout_until_date');
-    timeoutUntilDate.node.value = moment().subtract(1, 'days');
+    timeoutUntilDate.node.value = dateFormat(moment().subtract(1, 'days'));
     timeoutUntilDate.simulate('change');
     const errors = wrapper.state('errors');
 
@@ -86,7 +86,7 @@ describe('<SettingsSelfExclusion />', () => {
   it('Timeout until date should be before 6 weeks later', () => {
     const wrapper = mountWithIntl(<SettingsSelfExclusion />);
     const timeoutUntilDate = wrapper.find('#timeout_until_date');
-    timeoutUntilDate.node.value = moment().add(6, 'weeks').add(1, 'days');
+    timeoutUntilDate.node.value = dateFormat(moment().add(6, 'weeks').add(1, 'days'));
     timeoutUntilDate.simulate('change');
     const errors = wrapper.state('errors');
 
@@ -96,7 +96,7 @@ describe('<SettingsSelfExclusion />', () => {
   it('Timeout until date should be true if value is after today and before 6 weeks', () => {
     const wrapper = mountWithIntl(<SettingsSelfExclusion />);
     const timeoutUntilDate = wrapper.find('#timeout_until_date');
-    timeoutUntilDate.node.value = moment();
+    timeoutUntilDate.node.value = dateFormat(moment());
     timeoutUntilDate.simulate('change');
     const errors = wrapper.state('errors');
 
