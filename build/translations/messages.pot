@@ -340,10 +340,10 @@ msgstr ""
 msgid "Purchase for"
 msgstr ""
 
-msgid "payout"
+msgid "Payout"
 msgstr ""
 
-msgid "stake"
+msgid "Stake"
 msgstr ""
 
 msgid "Self Exclusion"
@@ -562,7 +562,7 @@ msgstr ""
 msgid "Later"
 msgstr ""
 
-msgid "return"
+msgid "Return"
 msgstr ""
 
 msgid "Portfolio"
@@ -642,7 +642,7 @@ msgstr ""
 msgid "You have no open contracts"
 msgstr ""
 
-msgid "You have no assets in watchlist"
+msgid "You have no assets in your watchlist"
 msgstr ""
 
 msgid "Basic"
@@ -750,7 +750,7 @@ msgstr ""
 msgid "Choose your country"
 msgstr ""
 
-"Password should have lower and uppercase letters and 6 characters or more"
+msgid "Password should have lower and uppercase letters and 6 characters or more"
 msgstr ""
 
 msgid "Passwords do not match"
@@ -914,3 +914,703 @@ msgstr ""
 
 msgid "Time out cannot be in the past."
 msgstr ""
+
+msgid "Account opening reason"
+msgstr ""
+
+msgid "Tax information"
+msgstr ""
+
+msgid "Tax identification number"
+msgstr ""
+
+msgid "Tax residence"
+msgstr ""
+
+msgid "Profile updated"
+msgstr ""
+
+msgid "Trading Events"
+msgstr ""
+
+msgid "Dates"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Your search didn't match any assets"
+msgstr ""
+
+msgid "Open"
+msgstr ""
+
+msgid "Volatility"
+msgstr ""
+
+msgid "Forex"
+msgstr ""
+
+msgid "Asset"
+msgstr ""
+
+msgid "Digit"
+msgstr ""
+
+msgid "Too many decimals, maximum 2 decimals allowed."
+msgstr ""
+
+msgid "Amount per point {currency}"
+msgstr ""
+
+msgid "Stop loss"
+msgstr ""
+
+msgid "Stop profit"
+msgstr ""
+
+msgid "You have sold the following contract."
+msgstr ""
+
+msgid "Your transaction reference no is {id}"
+msgstr ""
+
+msgid "Thank you for signing up! Check your email to get the verification token."
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Continue"
+msgstr ""
+
+msgid "The Premier Platform for Binary Options Trading"
+msgstr ""
+
+msgid "Customize your trades to meet your needs."
+msgstr ""
+
+msgid "Real-time Prices"
+msgstr ""
+
+msgid "Returns above 100%"
+msgstr ""
+
+msgid "No hidden fees"
+msgstr ""
+
+msgid "Daily prices data not available"
+msgstr ""
+
+msgid "Sorry, we have no payment agents in"
+msgstr ""
+
+msgid "Deposit commision: "
+msgstr ""
+
+msgid "Withdrawal commision: "
+msgstr ""
+
+msgid "Payment Agent"
+msgstr ""
+
+msgid "Commissions"
+msgstr ""
+
+msgid "Banks"
+msgstr ""
+
+msgid "Withdrawal Failed"
+msgstr ""
+
+msgid "Confirmation"
+msgstr ""
+
+msgid "Are you sure you want to withdraw"
+msgstr ""
+
+msgid "Confirm"
+msgstr ""
+
+msgid "Congratulations"
+msgstr ""
+
+msgid "Your withdrawal is success"
+msgstr ""
+
+msgid "Verification Code(check your email)"
+msgstr ""
+
+msgid "Withdraw"
+msgstr ""
+
+msgid "Assets"
+msgstr ""
+
+msgid "Excercise price"
+msgstr ""
+
+msgid "Higher/Lower"
+msgstr ""
+
+msgid "Layout"
+msgstr ""
+
+msgid "Taking too long to load, check connection."
+msgstr ""
+
+msgid "Reality Check"
+msgstr ""
+
+msgid "Options trading can become a real addiction, as can any other activity pushed to its limits. To avoid the danger of such an addiction, we provide a reality-check that gives you a summary of your trades and accounts on a regular basis."
+msgstr ""
+
+msgid "Continue Trading"
+msgstr ""
+
+msgid "Login Time"
+msgstr ""
+
+msgid "Current Time"
+msgstr ""
+
+msgid "Session Duration"
+msgstr ""
+
+msgid "Your trading statistic since "
+msgstr ""
+
+msgid "Specify your reality-check interval in minutes"
+msgstr ""
+
+msgid "Number should between 10 to 60"
+msgstr ""
+
+msgid "Login ID"
+msgstr ""
+
+msgid "Currency"
+msgstr ""
+
+msgid "Turnover"
+msgstr ""
+
+msgid "Contract Bought"
+msgstr ""
+
+msgid "Contract Sold"
+msgstr ""
+
+msgid "Open Contract"
+msgstr ""
+
+msgid "Potental Profit"
+msgstr ""
+
+msgid "Version:"
+msgstr ""
+
+msgid "To change your name, date of birth, country of residence, or email, contact Customer Support."
+msgstr ""
+
+msgid "Please fill the form with valid values"
+msgstr ""
+
+msgid "has been credited to your Virtual money account"
+msgstr ""
+
+msgid "OK"
+msgstr ""
+
+msgid "Upgrade"
+msgstr ""
+
+msgid "Win if the exit spot is strictly higher than the entry spot."
+msgstr ""
+
+msgid "Win if the exit spot is strictly lower than the entry spot."
+msgstr ""
+
+msgid "Win if the exit spot is strictly higher than the barrier."
+msgstr ""
+
+msgid "Win if the exit spot is strictly lower than the barrier."
+msgstr ""
+
+msgid "Win if the exit spot is strictly higher than the barrier."
+msgstr ""
+
+msgid "Win if the exit spot is strictly lower than the barrier."
+msgstr ""
+
+msgid "Win if the market touches the barrier at any time during the contract period."
+msgstr ""
+
+msgid "Win if the market never touches the barrier at any time during the contract period."
+msgstr ""
+
+msgid "Win if the exit spot is strictly higher than the Low barrier and strictly lower than the High barrier"
+msgstr ""
+
+msgid "Win if the exit spot is either strictly higher than the High barrier, or strictly lower than the Low barrier."
+msgstr ""
+
+msgid "Win if the market stays between (does not touch) either the High barrier or the Low barrier at any time during the contract period."
+msgstr "Win if the market touches either the High barrier or the Low barrier at any time during the contract period."
+
+msgid "Win if the last tick is higher than the average of the ticks."
+msgstr ""
+
+msgid "Win if the last tick is lower than the average of the ticks."
+msgstr ""
+
+msgid "Win if the last digit of the last tick is the same as your prediction."
+msgstr ""
+
+msgid "Win if the last digit of the last tick is not the same as your prediction."
+msgstr ""
+
+msgid "Win if the last digit of the last tick is an even number (i.e., 2, 4, 6, 8, or 0)."
+msgstr ""
+
+msgid "Win if the last digit of the last tick is an odd number (i.e., 1, 3, 5, 7, or 9)."
+msgstr ""
+
+msgid "Win if the last digit of the last tick is greater than your prediction."
+msgstr ""
+
+msgid "Win if the last digit of the last tick is less than your prediction."
+msgstr ""
+
+msgid "Spread contracts payout based on the movement of the index relative to the entry level of the contract."
+msgstr ""
+
+msgid "Spread contracts payout based on the movement of the index relative to the entry level of the contract."
+msgstr ""
+
+msgid "Maximum loss"
+msgstr ""
+
+msgid "Cost"
+msgstr ""
+
+msgid "Maximum winning"
+msgstr ""
+
+msgid "Potential Winning"
+msgstr ""
+
+msgid "Please select"
+msgstr ""
+
+msgid "Mr"
+msgstr ""
+
+msgid "Mrs"
+msgstr ""
+
+msgid "Ms"
+msgstr ""
+
+msgid "Miss"
+msgstr ""
+
+msgid "0-1 year"
+msgstr ""
+
+msgid "1-2 years"
+msgstr ""
+
+msgid "Over 3 years"
+msgstr ""
+
+msgid "0-5 transactions in the past 12 months"
+msgstr ""
+
+msgid "6-10 transactions in the past 12 months"
+msgstr ""
+
+msgid "40 transactions or more in the past 12 months"
+msgstr ""
+
+msgid "Salaried Employee"
+msgstr ""
+
+msgid "Self-Employed"
+msgstr ""
+
+msgid "Investments & Dividends"
+msgstr ""
+
+msgid "Pension"
+msgstr ""
+
+msgid "Other"
+msgstr ""
+
+msgid "Employed"
+msgstr ""
+
+msgid "Pensioner"
+msgstr ""
+
+msgid "Self-Employed"
+msgstr ""
+
+msgid "Student"
+msgstr ""
+
+msgid "Unemployed"
+msgstr ""
+
+msgid "Construction"
+msgstr ""
+
+msgid "Education"
+msgstr ""
+
+msgid "Finance"
+msgstr ""
+
+msgid "Health"
+msgstr ""
+
+msgid "Tourism"
+msgstr ""
+
+msgid "Other"
+msgstr ""
+
+msgid "Chief Executives, Senior Officials and Legislators"
+msgstr ""
+
+msgid "Managers"
+msgstr ""
+
+msgid "Professionals"
+msgstr ""
+
+msgid "Clerks"
+msgstr ""
+
+msgid "Personal Care, Sales and Service Workers"
+msgstr ""
+
+msgid "Agricultural, Forestry and Fishery Workers"
+msgstr ""
+
+msgid "Craft, Metal, Electrical and Electronics Workers"
+msgstr ""
+
+msgid "Plant and Machine Operators and Assemblers"
+msgstr ""
+
+msgid "Cleaners and Helpers"
+msgstr ""
+
+msgid "Mining, Construction, Manufacturing and Transport Workers"
+msgstr ""
+
+msgid "Armed Forces"
+msgstr ""
+
+msgid "Government Officers"
+msgstr ""
+
+msgid "Others"
+msgstr ""
+
+msgid "Accumulation of Income/Savings"
+msgstr ""
+
+msgid "Cash Business"
+msgstr ""
+
+msgid "Company Ownership"
+msgstr ""
+
+msgid "Inheritance"
+msgstr ""
+
+msgid "Investment Income"
+msgstr ""
+
+msgid "Sale of Property"
+msgstr ""
+
+msgid "Divorce Settlement"
+msgstr ""
+
+msgid "Primary"
+msgstr ""
+
+msgid "Secondary"
+msgstr ""
+
+msgid "Tertiary"
+msgstr ""
+
+msgid "Less than $25,000"
+msgstr ""
+
+msgid "$25,000 - $50,000"
+msgstr ""
+
+msgid "$50,001 - $100,000"
+msgstr ""
+
+msgid "$100,001 - $500,000"
+msgstr ""
+
+msgid "Over $500,000"
+msgstr ""
+
+msgid "Less than $100,000"
+msgstr ""
+
+msgid "$100,000 - $250,000"
+msgstr ""
+
+msgid "$250,001 - $500,000"
+msgstr ""
+
+msgid "$500,001 - $1,000,000"
+msgstr ""
+
+msgid "Over $1,000,000"
+msgstr ""
+
+msgid "Speculative"
+msgstr ""
+
+msgid "Income Earning"
+msgstr ""
+
+msgid "Hedging"
+msgstr ""
+
+msgid "Mother\'s maiden name"
+msgstr ""
+
+msgid "Name of your pet"
+msgstr ""
+
+msgid "Name of first love"
+msgstr ""
+
+msgid "Memorable town/city"
+msgstr ""
+
+msgid "Memorable date"
+msgstr ""
+
+msgid "Favourite dish"
+msgstr ""
+
+msgid "Brand of first car"
+msgstr ""
+
+msgid "Favourite artist"
+msgstr ""
+
+msgid "Personal Information"
+msgstr ""
+
+msgid "Place of Birth"
+msgstr ""
+
+msgid "Financial Information"
+msgstr ""
+
+msgid "Forex trading experience"
+msgstr ""
+
+msgid "Forex trading frequency"
+msgstr ""
+
+msgid "Indices trading experience"
+msgstr ""
+
+msgid "Indices trading frequency"
+msgstr ""
+
+msgid "Commodities trading experience"
+msgstr ""
+
+msgid "Commodities trading frequency"
+msgstr ""
+
+msgid "Stocks trading experience"
+msgstr ""
+
+msgid "Stocks trading frequency"
+msgstr ""
+
+msgid "Binary options or other financial derivatives trading experience"
+msgstr ""
+
+msgid "Binary options or other financial derivatives trading frequency"
+msgstr ""
+
+msgid "Other financial instruments trading experience"
+msgstr ""
+
+msgid "Other financial instruments trading frequency"
+msgstr ""
+
+msgid "Income Source"
+msgstr ""
+
+msgid "Employment Status"
+msgstr ""
+
+msgid "Industry of Employment"
+msgstr ""
+
+msgid "Occupation"
+msgstr ""
+
+msgid "Source of Wealth"
+msgstr ""
+
+msgid "Level of Education"
+msgstr ""
+
+msgid "Net Annual Income"
+msgstr ""
+
+msgid "Estimated Net Worth"
+msgstr ""
+
+msgid "Anticipated Account Turnover"
+msgstr ""
+
+msgid "Security"
+msgstr ""
+
+msgid "Answer To Secret Question"
+msgstr ""
+
+msgid "PEP Declaration"
+msgstr ""
+
+msgid "A PEP is an individual who is or has been entrusted with a prominent public function. This status extends to a PEP's relatives and close associates."
+msgstr ""
+
+msgid "I acknowledge that I am not a politically exposed person (PEP)."
+msgstr ""
+
+msgid "Please confirm that you are not a politically exposed person."
+msgstr ""
+
+msgid "The financial trading services contained within this site are only suitable for customers who are able to bear the loss of all the money they invest and who understand and have experience of the risk involved in the acquistion of financial contracts. Transactions in financial contracts carry a high degree of risk. If purchased contracts expire worthless, you will suffer a total loss of your investment, which consists of the contract premium."
+msgstr ""
+
+msgid "I agree to the"
+msgstr ""
+
+msgid "terms and conditions"
+msgstr ""
+
+msgid "Please accept the terms and conditions."
+msgstr ""
+
+msgid "Open Account"
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
+msgid ""
+msgstr ""
+
