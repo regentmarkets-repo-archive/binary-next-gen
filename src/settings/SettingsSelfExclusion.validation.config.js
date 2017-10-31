@@ -5,7 +5,7 @@ import moment from 'moment';
 // Don't use where values are dates and functions
 const clone = (obj) => JSON.parse(JSON.stringify(obj));
 
-export const getConstraints = (props) => {
+export const getConstraints = (formData) => {
   const numVerify = {
     numericality: {
       onlyInteger: true
@@ -55,12 +55,15 @@ export const getConstraints = (props) => {
     },
   };
 
-  Object.keys(props).forEach((key) => {
-    if (props[key] && constraints[key]) {
+  // set max limit constraints if max limit already exists
+  Object.keys(formData).forEach((key) => {
+    if (formData[key]
+      && constraints[key]
+      && constraints[key].numericality) {
       constraints[key].numericality = {
         onlyInteger: true,
-        lessThanOrEqualTo: Number(props[key]),
-        notLessThanOrEqualTo: `Should be between 0 and ${props[key]}.`
+        lessThanOrEqualTo: Number(formData[key]),
+        notLessThanOrEqualTo: `Should be between 0 and ${formData[key]}.`
       };
       constraints[key].presence = true;
     }
