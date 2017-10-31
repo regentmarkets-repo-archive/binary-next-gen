@@ -911,3 +911,6 @@ msgstr ""
 
 msgid "Only letters, numbers, space, hyphen, period, and apostrophe are allowed."
 msgstr ""
+
+msgid "Time out cannot be in the past."
+msgstr ""
