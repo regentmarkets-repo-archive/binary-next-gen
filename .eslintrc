@@ -54,7 +54,7 @@
     "import/ignore": \.(scss|less|css)$,
     "import/resolver": {
       "webpack": {
-        "config": "webpack.config.js"
+        "config": "webpack.common.js"
       }
     },
     "flowtype": {

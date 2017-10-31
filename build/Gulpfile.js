@@ -46,7 +46,7 @@ function errorHandler (error) {
 
 gulp.task('js', () =>
     gulp.src(files.js)
-        .pipe(run('(cd ../ && node_modules/.bin/webpack --config ./webpack.config.js)'))
+        .pipe(run('(cd ../ && node_modules/.bin/webpack --config ./webpack.prod.js)'))
         .on('error', errorHandler)
         .pipe(gulp.dest(files.dist))
 );

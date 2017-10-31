@@ -1,0 +1,21 @@
+{
+    "compact": true,
+    "presets": [
+        "react",
+        "latest",
+        "stage-1"
+    ],
+    "plugins": [
+        "transform-async-to-generator",
+        "transform-decorators-legacy",
+        "transform-inline-environment-variables",
+        "transform-flow-strip-types"
+    ],
+    "env": {
+        "production": {
+            "plugins": [
+                "transform-react-constant-elements"
+            ]
+        }
+    }
+}
