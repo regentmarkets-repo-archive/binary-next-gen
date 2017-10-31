@@ -1,6 +1,6 @@
 Hash: 4452dbe94f0f976f4070
 Version: webpack 3.5.0
-Time: 105201ms
+Time: 111386ms
          Asset      Size  Chunks                    Chunk Names
         app.js   2.91 MB       0  [emitted]  [big]  main
     styles.css   52.7 kB       0  [emitted]         main
@@ -21,21 +21,6 @@ styles.css.map  87 bytes       0  [emitted]         main
 [1518] ./styles/styles.scss 41 bytes {0} [built]
 [1520] ./node_modules/css-loader?{"minimize":true}!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 52.8 kB [built]
     + 1506 hidden modules
-
-WARNING in ./src/trade/trade-chart/TradeViewChart.js
-
-/home/travis/build/binary-com/binary-next-gen/src/trade/trade-chart/TradeViewChart.js
-  125:2  warning  Trailing spaces not allowed  no-trailing-spaces
-
-✖ 1 problem (0 errors, 1 warning)
-
- @ ./src/trade/TradeCard.js 1:1021-1060
- @ ./src/trade/mobile/MobileTradeContainer.js
- @ ./src/trade/mobile/TradeMobile.js
- @ ./src/_routes/MobileRoutes.js
- @ ./src/_routes/index.js
- @ ./src/_store/root.js
- @ ./src/index.js
 Child extract-text-webpack-plugin node_modules/extract-text-webpack-plugin/dist node_modules/css-loader/index.js??ref--0-2!node_modules/sass-loader/lib/loader.js!styles/styles.scss:
        [0] ./node_modules/css-loader?{"minimize":true}!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 52.8 kB {0} [built]
         + 1 hidden module
