@@ -4,11 +4,9 @@
 [![Coverage Status](https://coveralls.io/repos/github/binary-com/binary-next-gen/badge.svg?branch=master)](https://coveralls.io/github/binary-com/binary-next-gen?branch=master)
 [![Code Climate](https://codeclimate.com/github/binary-com/binary-next-gen/badges/gpa.svg)](https://codeclimate.com/github/binary-com/binary-next-gen)
 
-This repository contains the source code for the Binary Next-Gen [webapp](https://app.binary.com/), [iOS app](https://itunes.apple.com/app/binary-com/id1134884301) and [Android app](https://play.google.com/store/apps/details?id=app.binary.com). 
+This repository contains the source code for the Binary Next-Gen [webapp](https://app.binary.com/), [iOS app](https://itunes.apple.com/app/binary-com/id1134884301) and [Android app](https://play.google.com/store/apps/details?id=app.binary.com).
 
 ## Installation
-
-To contribute to Binary Next-Gen, fork this project and checkout the `dev` branch. When you send pull requests (it is recommended you create a separate branch based off `dev` for your commits), remember to set the base branch to `dev` as well.
 
 Once you downloaded the repo, `cd` to project root and execute (you will need [yarn](https://yarnpkg.com)):
 ```
@@ -16,6 +14,16 @@ yarn install
 yarn start
 ```
 Now in your web browser go to http://localhost:3000 to see your app.
+
+## Contribute
+
+To contribute to Binary Next-Gen, fork this project and checkout the `dev` branch. When adding features or performing bug fixes, it is recommended you make a separate branch off `dev`. Prior to sending pull requests, make sure all unit tests passed (this project uses [Jest](https://facebook.github.io/jest/)):
+```
+yarn test
+```
+> Note: When you send pull requests, remember to set the base branch to `dev`.
+
+Once your changes have been merged to `dev`, it will immediately deployed to app.binary.com/beta.
 
 ## Deploy to Your Personal Github Pages
 
