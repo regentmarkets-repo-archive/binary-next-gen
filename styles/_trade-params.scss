@@ -184,10 +184,31 @@
     display: flex;
     flex: 1;
     flex-direction: row;
-    margin: 2px;
-    padding: 0.25em;
     background: white;
+    box-sizing: border-box;
     border-radius: $BORDER_RADIUS;
+    .barspinner {
+      position: absolute;
+      left: calc(50% - 30px);
+    }
+}
+.trade-params {
+  margin: 0.25em;
+}
+
+.webtrader-charts-chart-window-contianer {
+  .row {
+    margin: 0;
+  }
+  .chartOptions .vertical-bottom.time {
+    width: 50px;
+  }
+  .chartOptions .timePeriodOverlay .row .cell:first-child {
+    flex-grow: 0;
+  }
+  .chartOptions_overlay.drawingToolOverlay > .row > .cell {
+    margin: 0;
+  }
 }
 
 .trade-chart-container {
