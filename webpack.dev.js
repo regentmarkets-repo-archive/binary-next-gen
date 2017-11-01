@@ -7,6 +7,18 @@ const common = require('./webpack.common.js');
 
 module.exports = merge(common, {
     devtool: 'eval-source-map',
+    module: {
+        rules: [
+            {
+                test: /\.scss$/,
+                use: [
+                    'style-loader', 
+                    'css-loader', 
+                    'sass-loader'
+                ]
+            }
+        ]
+    },
     plugins: [
         new webpack.DefinePlugin({
             'process.env': {

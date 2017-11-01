@@ -137,6 +137,7 @@
         "redux-thunk": "^2.1.0",
         "reselect": "^2.5.4",
         "reselect-map": "1.0.0",
+        "style-ext-html-webpack-plugin": "^3.4.3",
         "trackjs": "^2.5.3",
         "validate.js": "0.11.1",
         "webpack-dev-server": "^2.9.3",
