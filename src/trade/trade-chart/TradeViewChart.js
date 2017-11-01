@@ -27,16 +27,6 @@ export default class TradeViewChart extends PureComponent {
     theme: () => undefined,
   };
 
-  async getChart() {
-    const w = await import(/* webpackChunkName: "webtrader-charts" */ 'webtrader-charts');
-    w.init({
-      appId: window.BinaryBoot.appId,
-      lang: window.BinaryBoot.language,
-      server: window.BinaryBoot.apiUrl
-    });
-    this.wtcharts = w;
-  }
-
   initChart(trade) {
     const params = trade.chartParams || { type: 'line', timePeriod: '1t', indicators: [], overlays: [] };
 
@@ -71,7 +61,15 @@ export default class TradeViewChart extends PureComponent {
   }
 
   componentDidMount() {
-    this.getChart().then(() => {
+    (async () => {
+      const w = await import(/* webpackChunkName: "webtrader-charts" */ 'webtrader-charts');
+      w.init({
+        appId: window.BinaryBoot.appId,
+        lang: window.BinaryBoot.language,
+        server: window.BinaryBoot.apiUrl
+      });
+      this.wtcharts = w;
+    })().then(() => {
       const trade = this.props.tradeForChart.toJS();
       this.initChart(trade);
     });
