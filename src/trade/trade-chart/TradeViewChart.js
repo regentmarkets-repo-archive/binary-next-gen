@@ -1,4 +1,4 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import $ from 'jquery';
 import 'binary-style/binary.isolated.css';
 import wtcharts from 'webtrader-charts';
@@ -22,7 +22,7 @@ type Props = {
   tradeForChart: object,
   tradingTime: object,
 };
-export default class TradeViewChart extends PureComponent {
+export default class TradeViewChart extends Component {
   props: Props;
   barspinner = null;
   root = null;
