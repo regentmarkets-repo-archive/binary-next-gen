@@ -134,4 +134,4 @@ export default class TradeViewChart extends PureComponent {
       </div>
     );
   }
-} 
+}

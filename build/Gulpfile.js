@@ -10,7 +10,7 @@ const hash = require('gulp-hash-src');
 const bump = require('gulp-bump');
 const path = require('path');
 const run = require('gulp-run');
-
+const modifyFile = require('gulp-modify-file');
 const electron = require('gulp-atom-electron');
 const zip = require('gulp-vinyl-zip');
 
@@ -104,14 +104,19 @@ gulp.task('deploy&codepush', (done) => {
     })
 });
 
+// pass in your app id via --appId and this task will set it accordingly
+// before deploying to your gh-pages
 gulp.task('deploy:test', ['build'], () =>
     gulp.src(files.dist + '/**/*')
-        .pipe(gulpIf(args.appId, replace(
-            /window\.BinaryBoot\.appId = window\.cordova \? 1006 : 1001;/,
-            'window.BinaryBoot.appId = ' + args.appId + ';',
-            { skipBinary: true }
-            )
-        ))
+        .pipe(gulpIf(args.appId, modifyFile((content, path, file) => {
+            if (/(boot.js$)/i.test(path)) {
+                return content.replace(
+                    'window.BinaryBoot.appId = 1001; //This is for PROD release',
+                    `window.BinaryBoot.appId = ${args.appId}; // This is injected by Gulp`
+                );
+            }
+            return content;
+        })))
         .pipe(ghPages())
 );
 

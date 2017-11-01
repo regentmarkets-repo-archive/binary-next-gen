@@ -21,8 +21,7 @@ export default class StakeCard extends PureComponent {
     }
 
     render() {
-        const { amount, isVirtual, fractionalDigits, defaultStake } = this.props;
-        const max = isVirtual ? 10000 : 500;                // TODO: temp restriction
+        const { amount, fractionalDigits, defaultStake } = this.props;
         let decimals = 2;
         if (fractionalDigits > 2 && defaultStake <= 0.01) {
           decimals = (defaultStake + '').length - 2;
@@ -35,7 +34,6 @@ export default class StakeCard extends PureComponent {
                     className="numeric-input param-field"
                     defaultValue={amount}
                     min={0}
-                    max={max}
                     step={step}
                     decimals={decimals}
                     valueList={payouts}
