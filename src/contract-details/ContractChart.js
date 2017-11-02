@@ -41,7 +41,7 @@ export default class ContractChart extends PureComponent {
     barrier && this.chart.draw.barrier({ value: barrier });
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const { contract } = this.props;
     const { underlying, symbolName, purchase_time, date_start, date_expiry, sell_time, exit_tick_time } = contract;
     const duration = Math.min(+date_expiry, moment.utc().unix()) - (purchase_time || date_start);
@@ -66,33 +66,31 @@ export default class ContractChart extends PureComponent {
     })[timePeriod];
     const type = timePeriod === '1t' ? 'line' : 'candlestick';
 
-    (async () => {
-      const wtcharts = await import(/* webpackChunkName: "webtrader-charts" */ 'webtrader-charts');
+    const wtcharts = await import(/* webpackChunkName: "webtrader-charts" */ 'webtrader-charts');
 
-      this.chart = wtcharts.chartWindow.addNewChart($(this.root), {
-        type, // default is 'line'
-        timePeriod, // default is '1t'
-        instrumentCode: underlying,
-        instrumentName: symbolName,
-        showInstrumentName: true, // default is false
-        showOverlays: false, // default is true
-        showShare: false, // default is true
-        start: (purchase_time || date_start) - margin,
-        end: sell_time && +sell_time + margin || (exit_tick_time ? exit_tick_time + margin : 'latest'),
-        hideCurrentPrice: true,
-        // timezoneOffset: 0,
-      });
+    this.chart = wtcharts.chartWindow.addNewChart($(this.root), {
+      type, // default is 'line'
+      timePeriod, // default is '1t'
+      instrumentCode: underlying,
+      instrumentName: symbolName,
+      showInstrumentName: true, // default is false
+      showOverlays: false, // default is true
+      showShare: false, // default is true
+      start: (purchase_time || date_start) - margin,
+      end: sell_time && +sell_time + margin || (exit_tick_time ? exit_tick_time + margin : 'latest'),
+      hideCurrentPrice: true,
+      // timezoneOffset: 0,
+    });
 
-      this.chart.drawn().then(() => {
-        $(this.barspinner).hide();
-      });
+    this.chart.drawn().then(() => {
+      $(this.barspinner).hide();
+    });
 
-      this.chart.done().then(() => {
-        contract && this.updateContract(contract);
-        this.chart.draw.zoomOut();
-        this.loaded = true;
-      });
-    })();
+    this.chart.done().then(() => {
+      contract && this.updateContract(contract);
+      this.chart.draw.zoomOut();
+      this.loaded = true;
+    });
   }
 
   componentWillUnmount() {

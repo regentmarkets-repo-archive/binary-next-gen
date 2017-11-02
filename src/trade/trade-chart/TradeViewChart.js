@@ -60,19 +60,15 @@ export default class TradeViewChart extends PureComponent {
     this.chart = null;
   }
 
-  componentDidMount() {
-    (async () => {
-      const w = await import(/* webpackChunkName: "webtrader-charts" */ 'webtrader-charts');
-      w.init({
-        appId: window.BinaryBoot.appId,
-        lang: window.BinaryBoot.language,
-        server: window.BinaryBoot.apiUrl
-      });
-      this.wtcharts = w;
-    })().then(() => {
-      const trade = this.props.tradeForChart.toJS();
-      this.initChart(trade);
+  async componentDidMount() {
+    this.wtcharts = await import(/* webpackChunkName: "webtrader-charts" */ 'webtrader-charts');
+    this.wtcharts.init({
+      appId: window.BinaryBoot.appId,
+      lang: window.BinaryBoot.language,
+      server: window.BinaryBoot.apiUrl
     });
+    const trade = this.props.tradeForChart.toJS();
+    this.initChart(trade);
   }
 
   componentWillReceiveProps(nextProps) {
