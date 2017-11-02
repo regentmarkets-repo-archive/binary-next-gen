@@ -26,8 +26,9 @@ describe('<SettingsUserInformation />', () => {
 
   it('address line 1 should have required error when input is empty', () => {
     const wrapper = mountWithIntl(<SettingsUserInformation {...PROPS} />);
-    const addressLine1 = wrapper.find('#address_line_1');
-    addressLine1.node.value = null;
+    const addressLine1 = wrapper.find('#address_line_1').hostNodes();
+    addressLine1.instance().value = null;
+    wrapper.update();
     addressLine1.simulate('change');
     const errors = wrapper.state('errors');
 
@@ -36,8 +37,9 @@ describe('<SettingsUserInformation />', () => {
 
   it('address line 1 should be valid when format is valid', () => {
     const wrapper = mountWithIntl(<SettingsUserInformation {...PROPS} />);
-    const addressLine1 = wrapper.find('#address_line_1');
-    addressLine1.node.value = 'test 123 test';
+    const addressLine1 = wrapper.find('#address_line_1').hostNodes();
+    addressLine1.instance().value = 'test 123 test';
+    wrapper.update();
     addressLine1.simulate('change');
     const errors = wrapper.state('errors');
 
@@ -46,8 +48,9 @@ describe('<SettingsUserInformation />', () => {
 
   it('address line 1 should not be valid when format is not valid', () => {
     const wrapper = mountWithIntl(<SettingsUserInformation {...PROPS} />);
-    const addressLine1 = wrapper.find('#address_line_1');
-    addressLine1.node.value = 'test " test';
+    const addressLine1 = wrapper.find('#address_line_1').hostNodes();
+    addressLine1.instance().value = 'test " test';
+    wrapper.update();
     addressLine1.simulate('change');
     const errors = wrapper.state('errors');
 
@@ -56,8 +59,9 @@ describe('<SettingsUserInformation />', () => {
 
   it('address line 2 should not have required error when input is empty', () => {
     const wrapper = mountWithIntl(<SettingsUserInformation {...PROPS} />);
-    const addressLine2 = wrapper.find('#address_line_2');
-    addressLine2.node.value = null;
+    const addressLine2 = wrapper.find('#address_line_2').hostNodes();
+    addressLine2.instance().value = null;
+    wrapper.update();
     addressLine2.simulate('change');
     const errors = wrapper.state('errors');
 
@@ -66,8 +70,9 @@ describe('<SettingsUserInformation />', () => {
 
   it('address city should be valid when format is valid', () => {
     const wrapper = mountWithIntl(<SettingsUserInformation {...PROPS} />);
-    const addressCity = wrapper.find('#address_city');
-    addressCity.node.value = 'test test';
+    const addressCity = wrapper.find('#address_city').hostNodes();
+    addressCity.instance().value = 'test test';
+    wrapper.update();
     addressCity.simulate('change');
     const errors = wrapper.state('errors');
 
@@ -76,8 +81,9 @@ describe('<SettingsUserInformation />', () => {
 
   it('address city should not be valid when format is not valid', () => {
     const wrapper = mountWithIntl(<SettingsUserInformation {...PROPS} />);
-    const addressCity = wrapper.find('#address_city');
-    addressCity.node.value = 'test " test';
+    const addressCity = wrapper.find('#address_city').hostNodes();
+    addressCity.instance().value = 'test " test';
+    wrapper.update();
     addressCity.simulate('change');
     const errors = wrapper.state('errors');
 
@@ -86,8 +92,9 @@ describe('<SettingsUserInformation />', () => {
 
   it('address city should be valid when format is valid', () => {
     const wrapper = mountWithIntl(<SettingsUserInformation {...PROPS} />);
-    const addressPostCode = wrapper.find('#address_postcode');
-    addressPostCode.node.value = 'test 123 test';
+    const addressPostCode = wrapper.find('#address_postcode').hostNodes();
+    addressPostCode.instance().value = 'test 123 test';
+    wrapper.update();
     addressPostCode.simulate('change');
     const errors = wrapper.state('errors');
 
@@ -96,8 +103,9 @@ describe('<SettingsUserInformation />', () => {
 
   it('address city should not be valid when format is not valid', () => {
     const wrapper = mountWithIntl(<SettingsUserInformation {...PROPS} />);
-    const addressPostCode = wrapper.find('#address_postcode');
-    addressPostCode.node.value = 'test " test';
+    const addressPostCode = wrapper.find('#address_postcode').hostNodes();
+    addressPostCode.instance().value = 'test " test';
+    wrapper.update();
     addressPostCode.simulate('change');
     const errors = wrapper.state('errors');
 
@@ -106,8 +114,9 @@ describe('<SettingsUserInformation />', () => {
 
   it('phone should be valid when format is valid', () => {
     const wrapper = mountWithIntl(<SettingsUserInformation {...PROPS} />);
-    const phone = wrapper.find('#phone');
-    phone.node.value = '123 456 789';
+    const phone = wrapper.find('#phone').hostNodes();
+    phone.instance().value = '123 456 789';
+    wrapper.update();
     phone.simulate('change');
     const errors = wrapper.state('errors');
 
@@ -116,8 +125,9 @@ describe('<SettingsUserInformation />', () => {
 
   it('phone should not be valid when format is not valid', () => {
     const wrapper = mountWithIntl(<SettingsUserInformation {...PROPS} />);
-    const phone = wrapper.find('#phone');
-    phone.node.value = 'test 123';
+    const phone = wrapper.find('#phone').hostNodes();
+    phone.instance().value = 'test 123';
+    wrapper.update();
     phone.simulate('change');
     const errors = wrapper.state('errors');
 

@@ -1,7 +1,7 @@
 import React from 'react';
 import configureStore from 'redux-mock-store';
 import { fromJS } from 'immutable';
-import { shallow, render } from 'enzyme';
+import { shallow, mount } from 'enzyme';
 import BootProvider from '../BootProvider';
 
 describe('<BootProvider />', () => {
@@ -21,10 +21,10 @@ describe('<BootProvider />', () => {
     });
 
     it('should render theme-wrapper', () => {
-        const wrapper = render(
+        const wrapper = mount(
             <BootProvider store={store}>
                 <ChildComponent />
             </BootProvider>);
-        expect(wrapper.find('#theme-wrapper').hasClass('inverse')).toBeTruthy();
+        expect(wrapper.find('#theme-wrapper').hostNodes().hasClass('inverse')).toBeTruthy();
     });
 });
