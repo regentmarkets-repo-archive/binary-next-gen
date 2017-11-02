@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import moment from 'moment';
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 // import { isMobile } from 'binary-utils';
 
 type Props = {
@@ -8,7 +8,7 @@ type Props = {
     highContrast: boolean,
     pipSize: number,
 };
-export default class ContractChart extends PureComponent {
+export default class ContractChart extends Component {
   props: Props;
   root = null;
   chart = null;

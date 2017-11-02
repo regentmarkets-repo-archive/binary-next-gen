@@ -1,7 +1,6 @@
 const path = require('path');
 const webpack = require('webpack');
 const WebpackNotifierPlugin = require('webpack-notifier');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
     entry: {
@@ -14,31 +13,6 @@ module.exports = {
     },
     module: {
         rules: [
-            {
-                test: /\.scss$/,
-                use: ExtractTextPlugin.extract({
-                    fallback: 'style-loader',
-                    use: [
-                        {
-                            loader: 'css-loader',
-                            options: { minimize: true }
-                        },
-                        'sass-loader'
-                    ]
-                }),
-            },
-            {
-                test: /\.bundle\.js$/,
-                exclude: /node_modules/,
-                use: [
-                    {
-                        loader: 'bundle-loader',
-                        options: {
-                            lazy: true
-                        }
-                    }
-                ]
-            },
             {
                 test: /\.js$/,
                 exclude: /node_modules/,
@@ -63,8 +37,7 @@ module.exports = {
             },
         ],
     },
-    plugins: [
-        new ExtractTextPlugin('styles.css'),
+    plugins:[
         new webpack.ContextReplacementPlugin(/moment[\\/]locale$/, /^$/), // remove locales from moment.js
     ],
     externals: {
