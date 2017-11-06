@@ -47,22 +47,23 @@ describe('<UpgradeToMaltainvestCard />', () => {
 
   it('First Name should exist', () => {
     const wrapper = mountWithIntl(<UpgradeToMaltainvestCard {...PROPS} />);
-    const firstName = wrapper.find('#first_name');
+    const firstName = wrapper.find('#first_name').hostNodes();
 
     expect(firstName.length).toEqual(1);
   });
 
   it('First Name should exist', () => {
     const wrapper = mountWithIntl(<UpgradeToMaltainvestCard {...PROPS} />);
-    const firstName = wrapper.find('#first_name');
+    const firstName = wrapper.find('#first_name').hostNodes();
 
     expect(firstName.length).toEqual(1);
   });
 
   it('First name should be valid when input is valid', () => {
     const wrapper = mountWithIntl(<UpgradeToMaltainvestCard {...PROPS} />);
-    const firstName = wrapper.find('#first_name');
-    firstName.node.value = 'abcdefg';
+    const firstName = wrapper.find('#first_name').hostNodes();
+    firstName.instance().value = 'abcdefg';
+    wrapper.update();
     firstName.simulate('change');
     const errors = wrapper.state('errors');
 
@@ -71,8 +72,9 @@ describe('<UpgradeToMaltainvestCard />', () => {
 
   it('First name should have error when input is not valid', () => {
     const wrapper = mountWithIntl(<UpgradeToMaltainvestCard {...PROPS} />);
-    const firstName = wrapper.find('#first_name');
-    firstName.node.value = 'abcd#$';
+    const firstName = wrapper.find('#first_name').hostNodes();
+    firstName.instance().value = 'abcd#$';
+    wrapper.update();
     firstName.simulate('change');
     const errors = wrapper.state('errors');
 
@@ -81,9 +83,10 @@ describe('<UpgradeToMaltainvestCard />', () => {
 
   it('First name should have required error when props is not empty and input is empty', () => {
     const wrapper = mountWithIntl(<UpgradeToMaltainvestCard {...PROPS} />);
-    const firstName = wrapper.find('#first_name');
+    const firstName = wrapper.find('#first_name').hostNodes();
     wrapper.setProps({ first_name: 'abcde' });
-    firstName.node.value = null;
+    firstName.instance().value = null;
+    wrapper.update();
     firstName.simulate('change');
     const errors = wrapper.state('errors');
 
@@ -93,7 +96,7 @@ describe('<UpgradeToMaltainvestCard />', () => {
   it('Secret Question should be visible when loginid has VRTC', () => {
     const wrapper = mountWithIntl(<UpgradeToMaltainvestCard {...PROPS} />);
     wrapper.setProps({ loginid: 'VRTC12345' });
-    const secretQuestion = wrapper.find('#secret_question');
+    const secretQuestion = wrapper.find('#secret_question').hostNodes();
 
     expect(secretQuestion.length).toEqual(1);
   });
@@ -101,7 +104,7 @@ describe('<UpgradeToMaltainvestCard />', () => {
   it('Secret Question should be hidden when loginid has not VRTC', () => {
     const wrapper = mountWithIntl(<UpgradeToMaltainvestCard {...PROPS} />);
     wrapper.setProps({ loginid: 'MLT12345' });
-    const secretQuestion = wrapper.find('#secret_question');
+    const secretQuestion = wrapper.find('#secret_question').hostNodes();
 
     expect(secretQuestion.length).toEqual(0);
   });

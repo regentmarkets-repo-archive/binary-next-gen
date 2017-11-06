@@ -28,5 +28,5 @@ Here is some extensions recommended for you:
  * SVG Viewer
  * Version Lens - see outdated npm packages in your `package.json`.
  * vscode-icons - pretty icons!
- * Wallaby.js - if you have a license for it.
+ * Jest - a great alternative to Wallaby.js. Runs your unit tests as you write your code (you need to save first), and displays result on the editor.
 

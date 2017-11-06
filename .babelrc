@@ -1,0 +1,32 @@
+{
+    "compact": true,
+    "presets": [
+        "react",
+        ["latest", { "es2015": { "modules": false }}],        
+        "stage-1",
+        "stage-3"
+    ],
+    "plugins": [
+        "transform-decorators-legacy",
+        "transform-inline-environment-variables",
+        "transform-flow-strip-types"
+    ],
+    "env": {
+        "production": {
+            "plugins": [
+                "transform-react-constant-elements"
+            ]
+        },
+        "test": {
+            "presets": [
+                ["es2015"], 
+                "react",
+                "stage-1",
+                "stage-3"
+            ],
+            "plugins": [
+                "transform-decorators-legacy"
+            ]
+        }
+    }
+}

@@ -1,14 +1,7 @@
-import React, { PureComponent } from 'react';
+import React, { Component } from 'react';
 import $ from 'jquery';
 import 'binary-style/binary.isolated.css';
-import wtcharts from 'webtrader-charts';
 import { actions } from '../../_store';
-
-wtcharts.init({
-  appId: window.BinaryBoot.appId,
-  lang: window.BinaryBoot.language,
-  server: window.BinaryBoot.apiUrl
-});
 
 type Props = {
   contractForChart: object,
@@ -22,12 +15,13 @@ type Props = {
   tradeForChart: object,
   tradingTime: object,
 };
-export default class TradeViewChart extends PureComponent {
+export default class TradeViewChart extends Component {
   props: Props;
   barspinner = null;
   root = null;
   chart = null;
   config = null;
+  wtcharts = null;
 
   static contextTypes = {
     theme: () => undefined,
@@ -36,7 +30,7 @@ export default class TradeViewChart extends PureComponent {
   initChart(trade) {
     const params = trade.chartParams || { type: 'line', timePeriod: '1t', indicators: [], overlays: [] };
 
-    this.chart = wtcharts.chartWindow.addNewChart($(this.root), {
+    this.chart = this.wtcharts.chartWindow.addNewChart($(this.root), {
       type: params.type,
       timePeriod: params.timePeriod,
       instrumentCode: trade.symbol,
@@ -60,15 +54,23 @@ export default class TradeViewChart extends PureComponent {
       $(this.barspinner).hide();
     });
   }
+
   destroyChart() {
     this.chart && this.chart.actions.destroy();
     this.chart = null;
   }
 
-  componentDidMount() {
+  async componentDidMount() {
+    this.wtcharts = await import(/* webpackChunkName: "webtrader-charts" */ 'webtrader-charts');
+    this.wtcharts.init({
+      appId: window.BinaryBoot.appId,
+      lang: window.BinaryBoot.language,
+      server: window.BinaryBoot.apiUrl
+    });
     const trade = this.props.tradeForChart.toJS();
     this.initChart(trade);
   }
+
   componentWillReceiveProps(nextProps) {
     const trade = nextProps.tradeForChart.toJS();
     if (this.chart && trade.symbol !== this.chart.data().instrumentCode) {
@@ -92,16 +94,20 @@ export default class TradeViewChart extends PureComponent {
       barrier && this.chart.draw.barrier({ value: barrier });
       return;
     }
-    this.chart.draw.clear();
-    if (this.props.count !== nextProps.count || this.props.layoutN !== nextProps.layoutN) {
-      this.chart.actions.reflow();
+    if (this.chart) {
+      this.chart.draw.clear();
+      if (this.props.count !== nextProps.count || this.props.layoutN !== nextProps.layoutN) {
+        this.chart.actions.reflow();
+      }
     }
   }
 
   componentWillUnmount() {
     this.destroyChart();
   }
+
   shouldComponentUpdate() { return false; }
+
   render() {
     const { theme } = this.context;
     return (
@@ -122,4 +128,4 @@ export default class TradeViewChart extends PureComponent {
       </div>
     );
   }
-} 
+}
