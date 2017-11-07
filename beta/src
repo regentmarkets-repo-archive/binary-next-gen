@@ -1,26 +1,29 @@
-Hash: 4452dbe94f0f976f4070
-Version: webpack 3.5.0
-Time: 111386ms
-         Asset      Size  Chunks                    Chunk Names
-        app.js   2.91 MB       0  [emitted]  [big]  main
-    styles.css   52.7 kB       0  [emitted]         main
-styles.css.map  87 bytes       0  [emitted]         main
-  [16] ./src/_data/LiveData.js 10.8 kB {0} [built]
-  [30] (webpack)/buildin/global.js 509 bytes {0} [built]
-  [61] ./src/_actions/index.js 7.92 kB {0} [built]
-  [62] ./src/_data/Auth.js 4.43 kB {0} [built]
-  [63] ./src/_store/storage.js 99 bytes {0} [built]
- [114] ./src/config.js 247 bytes {0} [built]
- [230] ./src/_store/persistentStore.js 2.55 kB {0} [built]
- [324] ./src/_store/root.js 6.64 kB {0} [built]
- [581] ./src/index.js 1.64 kB {0} [built]
- [932] ./src/_reducers/index.js 6.29 kB {0} [built]
-[1103] ./src/_routes/index.js 836 bytes {0} [built]
-[1483] ./src/_store/AppStateProvider.js 3.42 kB {0} [built]
-[1484] ./src/_store/BootProvider.js 3.48 kB {0} [built]
-[1518] ./styles/styles.scss 41 bytes {0} [built]
-[1520] ./node_modules/css-loader?{"minimize":true}!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 52.8 kB [built]
-    + 1506 hidden modules
-Child extract-text-webpack-plugin node_modules/extract-text-webpack-plugin/dist node_modules/css-loader/index.js??ref--0-2!node_modules/sass-loader/lib/loader.js!styles/styles.scss:
-       [0] ./node_modules/css-loader?{"minimize":true}!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 52.8 kB {0} [built]
+Hash: 58d8d468111559eff3ee
+Version: webpack 3.8.1
+Time: 117744ms
+                         Asset      Size  Chunks                    Chunk Names
+    webtrader-charts.bundle.js    906 kB       0  [emitted]  [big]  webtrader-charts
+                        app.js   1.66 MB       1  [emitted]  [big]  app
+                    styles.css   52.5 kB       1  [emitted]         app
+webtrader-charts.bundle.js.map   2.73 MB       0  [emitted]         webtrader-charts
+                    app.js.map   8.87 MB       1  [emitted]         app
+                styles.css.map  87 bytes       1  [emitted]         app
+  [29] (webpack)/buildin/global.js 488 bytes {1} [built]
+  [69] (webpack)/buildin/module.js 495 bytes {1} [built]
+ [107] ./src/layouts/layouts.css 917 bytes {1} [built]
+ [235] (webpack)/buildin/amd-define.js 85 bytes {1} [built]
+ [236] ./src/index.js + 447 modules 1.05 MB {1} [built]
+ [639] ./node_modules/moment/locale ^$ 160 bytes {1} [optional] [built]
+ [652] ./www/img/open.svg 2.9 kB {1} [built]
+ [653] ./www/img/volatility.svg 1.23 kB {1} [built]
+ [654] ./www/img/forex.svg 414 bytes {1} [built]
+ [655] ./www/img/indices.svg 2.51 kB {1} [built]
+ [656] ./www/img/commodities.svg 629 bytes {1} [built]
+ [657] ./www/img/stocks.svg 1.22 kB {1} [built]
+ [661] ./node_modules/css-loader!./src/layouts/layouts.css 5.6 kB {1} [built]
+ [676] ./styles/styles.scss 41 bytes {1} [built]
+ [683] ./node_modules/css-loader?{"minimize":true}!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 52.6 kB [built]
+    + 669 hidden modules
+Child extract-text-webpack-plugin node_modules/extract-text-webpack-plugin/dist node_modules/css-loader/index.js??ref--3-2!node_modules/sass-loader/lib/loader.js!styles/styles.scss:
+       [0] ./node_modules/css-loader?{"minimize":true}!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 52.6 kB {0} [built]
         + 1 hidden module
