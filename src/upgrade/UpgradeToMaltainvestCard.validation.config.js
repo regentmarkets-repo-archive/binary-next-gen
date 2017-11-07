@@ -36,18 +36,14 @@ export const getConstraints = (props) => {
     },
     address_postcode: {
       format: {
-        /*eslint-disable */
         pattern: /^([a-zA-Z\d-\s])*$/,
-        /*eslint-enable */
         message: 'Only letters, numbers, space, and hyphen are allowed.',
       },
     },
     phone: {
       presence: true,
       format: {
-        /*eslint-disable */
         pattern: /^\+?[0-9\s]*$/,
-        /*eslint-enable */
         message: 'Only numbers and spaces are allowed.',
       },
     },
@@ -111,9 +107,7 @@ export const getConstraints = (props) => {
     tax_identification_number: {
       presence: true,
       format: {
-        /*eslint-disable */
         pattern: /^[\w-]{0,20}$/,
-        /*eslint-enable */
         message: 'Only letters, numbers, space, and hyphen are allowed.',
       },
     },
