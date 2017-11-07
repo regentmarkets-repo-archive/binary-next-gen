@@ -1,18 +1,18 @@
 import React from 'react';
-import UpgradeToRealCard from '../UpgradeToRealCard';
 import { mountWithIntl } from 'enzyme-react-intl';
+import UpgradeToRealCard from '../UpgradeToRealCard';
 
 describe('<UpgradeToRealCard />', () => {
   const PROPS = {
-    residenceList:  [{
-      "phone_idd": "260",
-      "text": "Zambia",
-      "value": "zm"
+    residenceList: [{
+      phone_idd: '260',
+      text: 'Zambia',
+      value: 'zm'
     },
       {
-        "phone_idd": "263",
-        "text": "Zimbabwe",
-        "value": "zw"
+        phone_idd: '263',
+        text: 'Zimbabwe',
+        value: 'zw'
       }
     ],
     boot: {
@@ -20,20 +20,20 @@ describe('<UpgradeToRealCard />', () => {
     },
     states: [
       {
-        "text": "Sachsen",
-        "value": "SN"
+        text: 'Sachsen',
+        value: 'SN'
       },
       {
-        "text": "Sachsen-Anhalt",
-        "value": "ST"
+        text: 'Sachsen-Anhalt',
+        value: 'ST'
       },
       {
-        "text": "Schleswig-Holstein",
-        "value": "SH"
+        text: 'Schleswig-Holstein',
+        value: 'SH'
       },
       {
-        "text": "Thüringen",
-        "value": "TH"
+        text: 'Thüringen',
+        value: 'TH'
       }
     ],
     loginid: 'VRTC1234',

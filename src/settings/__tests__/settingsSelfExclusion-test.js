@@ -1,7 +1,10 @@
 import React from 'react';
 import moment from 'moment';
-import SettingsSelfExclusion from '../SettingsSelfExclusion';
 import { mountWithIntl } from 'enzyme-react-intl';
+import SettingsSelfExclusion from '../SettingsSelfExclusion';
+
+const timeFormat = (m) => m.format('HH:MM');
+const dateFormat = (m) => m.format('YYYY-MM-DD');
 
 describe('<SettingsSelfExclusion />', () => {
   // test max_balance as an input which should be number and being validated (other inputs behave like this too)
@@ -37,13 +40,13 @@ describe('<SettingsSelfExclusion />', () => {
     maxBalance.simulate('change');
     const errors = wrapper.state('errors');
 
-    expect(errors.max_balance[0]).toEqual('Should be a valid number');
+    expect(errors.max_balance[0]).toEqual('Should be a valid number.');
   });
 
   it('Max balance should have required error when props is not empty and input is empty', () => {
-    const wrapper = mountWithIntl(<SettingsSelfExclusion />);
+    const props = { max_balance: 15000 };
+    const wrapper = mountWithIntl(<SettingsSelfExclusion {...props} />);
     const maxBalance = wrapper.find('#max_balance').hostNodes();
-    wrapper.setProps({ max_balance: 15000 });
     maxBalance.instance().value = null;
     wrapper.update();
     maxBalance.simulate('change');
@@ -64,21 +67,21 @@ describe('<SettingsSelfExclusion />', () => {
   });
 
   it('Max balance should have equal/less than error when input is greater than props.max_balance', () => {
-    const wrapper = mountWithIntl(<SettingsSelfExclusion />);
+    const props = { max_balance: 15000 };
+    const wrapper = mountWithIntl(<SettingsSelfExclusion {...props} />);
     const maxBalance = wrapper.find('#max_balance').hostNodes();
-    wrapper.setProps({ max_balance: 15000 });
     maxBalance.instance().value = 16000;
     wrapper.update();
     maxBalance.simulate('change');
     const errors = wrapper.state('errors');
 
-    expect(errors.max_balance[0]).toEqual('Should be between 0 and 15000');
+    expect(errors.max_balance[0]).toEqual('Should be between 0 and 15000.');
   });
 
   it('Timeout until date should be after moment', () => {
     const wrapper = mountWithIntl(<SettingsSelfExclusion />);
     const timeoutUntilDate = wrapper.find('#timeout_until_date').hostNodes();
-    timeoutUntilDate.instance().value = moment().subtract(1, 'days');
+    timeoutUntilDate.instance().value = dateFormat(moment().subtract(1, 'days'));
     wrapper.update();
     timeoutUntilDate.simulate('change');
     const errors = wrapper.state('errors');
@@ -89,7 +92,7 @@ describe('<SettingsSelfExclusion />', () => {
   it('Timeout until date should be before 6 weeks later', () => {
     const wrapper = mountWithIntl(<SettingsSelfExclusion />);
     const timeoutUntilDate = wrapper.find('#timeout_until_date').hostNodes();
-    timeoutUntilDate.instance().value = moment().add(6, 'weeks').add(1, 'days');
+    timeoutUntilDate.instance().value = dateFormat(moment().add(6, 'weeks').add(1, 'days'));
     wrapper.update();
     timeoutUntilDate.simulate('change');
     const errors = wrapper.state('errors');
@@ -100,7 +103,7 @@ describe('<SettingsSelfExclusion />', () => {
   it('Timeout until date should be true if value is after today and before 6 weeks', () => {
     const wrapper = mountWithIntl(<SettingsSelfExclusion />);
     const timeoutUntilDate = wrapper.find('#timeout_until_date').hostNodes();
-    timeoutUntilDate.instance().value = moment();
+    timeoutUntilDate.instance().value = dateFormat(moment());
     wrapper.update();
     timeoutUntilDate.simulate('change');
     const errors = wrapper.state('errors');
@@ -112,9 +115,10 @@ describe('<SettingsSelfExclusion />', () => {
     const wrapper = mountWithIntl(<SettingsSelfExclusion />);
     const timeoutUntilDate = wrapper.find('#timeout_until_date').hostNodes();
     const timeoutUntilTime = wrapper.find('#timeout_until_time').hostNodes();
-    timeoutUntilDate.instance().value = moment();
-    timeoutUntilTime.instance().value = moment().subtract(1, 'hours');
+    timeoutUntilDate.instance().value = dateFormat(moment());
+    timeoutUntilTime.instance().value = timeFormat(moment().subtract(1, 'hours'));
     wrapper.update();
+    timeoutUntilDate.simulate('change');
     timeoutUntilTime.simulate('change');
     const errors = wrapper.state('errors');
 
@@ -125,8 +129,8 @@ describe('<SettingsSelfExclusion />', () => {
     const wrapper = mountWithIntl(<SettingsSelfExclusion />);
     const timeoutUntilDate = wrapper.find('#timeout_until_date').hostNodes();
     const timeoutUntilTime = wrapper.find('#timeout_until_time').hostNodes();
-    timeoutUntilDate.instance().value = moment();
-    timeoutUntilTime.instance().value = moment().add(1, 'hours');
+    timeoutUntilDate.instance().value = dateFormat(moment());
+    timeoutUntilTime.instance().value = timeFormat(moment().add(1, 'hours'));
     wrapper.update();
     timeoutUntilTime.simulate('change');
     const errors = wrapper.state('errors');
@@ -137,7 +141,7 @@ describe('<SettingsSelfExclusion />', () => {
   it('Timeout until time should be required when timeout until date is filled', () => {
     const wrapper = mountWithIntl(<SettingsSelfExclusion />);
     const timeoutUntilDate = wrapper.find('#timeout_until_date').hostNodes();
-    timeoutUntilDate.instance().value = moment().add(1, 'days');
+    timeoutUntilDate.instance().value = dateFormat(moment().add(1, 'days'));
     wrapper.update();
     timeoutUntilDate.simulate('change');
     const errors = wrapper.state('errors');
@@ -148,7 +152,7 @@ describe('<SettingsSelfExclusion />', () => {
   it('Exclude time cannot be less than 6 months and more than 5 years.', () => {
     const wrapper = mountWithIntl(<SettingsSelfExclusion />);
     const excludeUntil = wrapper.find('#exclude_until').hostNodes();
-    excludeUntil.instance().value = moment().add(6, 'months').add(1, 'days');
+    excludeUntil.instance().value = dateFormat(moment().add(6, 'months').add(1, 'days'));
     wrapper.update();
     excludeUntil.simulate('change');
     const errors = wrapper.state('errors');
@@ -159,7 +163,7 @@ describe('<SettingsSelfExclusion />', () => {
   it('Exclude time cannot be less than 6 months and should have error.', () => {
     const wrapper = mountWithIntl(<SettingsSelfExclusion />);
     const excludeUntil = wrapper.find('#exclude_until').hostNodes();
-    excludeUntil.instance().value = moment().add(6, 'months').subtract(1, 'days');
+    excludeUntil.instance().value = dateFormat(moment().add(6, 'months').subtract(1, 'days'));
     wrapper.update();
     excludeUntil.simulate('change');
     const errors = wrapper.state('errors');
@@ -170,12 +174,11 @@ describe('<SettingsSelfExclusion />', () => {
   it('Exclude time cannot be more than 5 years and should have error.', () => {
     const wrapper = mountWithIntl(<SettingsSelfExclusion />);
     const excludeUntil = wrapper.find('#exclude_until').hostNodes();
-    excludeUntil.instance().value = moment().add(5, 'years').add(1, 'days');
+    excludeUntil.instance().value = dateFormat(moment().add(5, 'years').add(1, 'days'));
     wrapper.update();
     excludeUntil.simulate('change');
     const errors = wrapper.state('errors');
 
     expect(errors.exclude_until[0]).toEqual('Exclude time cannot be less than 6 months and more than 5 years.');
   });
-
 });
