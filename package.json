@@ -6,7 +6,7 @@
     },
     "scripts": {
         "test": "jest",
-        "test:full": "npm run test:eslint && npm run test:coverage",
+        "test:full": "npm run build && npm run test:coverage",
         "test:flow": "flow check --all --show-all-errors",
         "test:unit": "jest",
         "test:coverage": "jest --coverage",
