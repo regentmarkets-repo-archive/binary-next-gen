@@ -39,7 +39,8 @@ export default class SettingsUserInformation extends PureComponent {
 				tax_residence: props.tax_residence,
 				tax_identification_number: props.tax_identification_number
 			},
-			errors: {}
+			errors: {},
+			hasError: false
 		};
 
 		this.constraints = getConstraints(this.props);
@@ -48,12 +49,12 @@ export default class SettingsUserInformation extends PureComponent {
 
   onEntryChange = (e: SyntheticEvent) => {
 		const s = this.validationMan.validateFieldAndGetNewState(e, this.state.formData);
-    this.setState(s);
+    this.setState({ ...s, hasError: false });
 	}
 
   onTaxResidenceChange = (val) => {
 		const s = this.validationMan.validateAndGetNewState('tax_residence', val, this.state.formData);
-		this.setState(s);
+		this.setState({ ...s, hasError: false });
 	}
 
 	onFormSubmit = (e: SyntheticEvent) => {

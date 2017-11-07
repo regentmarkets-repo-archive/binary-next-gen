@@ -159,6 +159,16 @@ export const getConstraints = (props) => {
         return false;
       },
     },
+    PEPDeclaration: {
+      presence: {
+        message: 'Please confirm that you are not a politically exposed person.'
+      }
+    },
+    accept_risk: {
+      presence: {
+        message: 'Please accept the terms and conditions.'
+      }
+    }
   };
   return constraints;
 };
