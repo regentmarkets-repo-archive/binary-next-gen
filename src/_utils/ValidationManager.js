@@ -34,11 +34,16 @@ export default class ValidationManager {
             // if checkbox is unchecked we do not take its value
             val = undefined;
         }
+        const id = e.target.id;
+        return this.validateAndGetNewState(id, val, formData);
+    }
+
+    validateAndGetNewState(id, val, formData) {
         const newFormData = {
             ...formData,
-            [e.target.id]: val
+            [id]: val
         };
-        const fieldTouch = this.touchDict[e.target.id];
+        const fieldTouch = this.touchDict[id];
         this.touched = {
             ...this.touched,
             ...fieldTouch

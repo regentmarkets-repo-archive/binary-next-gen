@@ -133,5 +133,4 @@ describe('<SettingsUserInformation />', () => {
 
     expect(errors.phone[0]).toEqual('Only numbers and spaces are allowed.');
   });
-
 });
