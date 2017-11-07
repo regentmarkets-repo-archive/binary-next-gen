@@ -34,7 +34,7 @@ module.exports = merge(common, {
         new webpack.optimize.UglifyJsPlugin({
             sourceMap: true 
         }),
-        new ExtractTextPlugin('style.css'),
+        new ExtractTextPlugin('styles.css'),
         new StyleExtHtmlWebpackPlugin({
             minify: true
         }),
