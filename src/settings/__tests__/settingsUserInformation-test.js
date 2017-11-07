@@ -1,18 +1,18 @@
 import React from 'react';
-import SettingsUserInformation from '../SettingsUserInformation';
 import { mountWithIntl } from 'enzyme-react-intl';
+import SettingsUserInformation from '../SettingsUserInformation';
 
 describe('<SettingsUserInformation />', () => {
   const PROPS = {
-    residenceList:  [{
-      "phone_idd": "260",
-      "text": "Zambia",
-      "value": "zm"
+    residenceList: [{
+      phone_idd: '260',
+      text: 'Zambia',
+      value: 'zm'
     },
       {
-        "phone_idd": "263",
-        "text": "Zimbabwe",
-        "value": "zw"
+        phone_idd: '263',
+        text: 'Zimbabwe',
+        value: 'zw'
       }
     ],
     loginid: 'MLT80647',

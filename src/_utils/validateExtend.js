@@ -42,4 +42,16 @@ validate.validators.condition = (value, options, key, attributes) => {
 	}
 };
 
+validate.validators.validateAddress = (value) => {
+	if (/[`~!$%^&*_=+[}{\]\\"?><|]+/.test(value)) {
+		return 'Only letters, numbers, space, and these special characters are allowed: - . \' # ; : ( ) , @ /';
+	}
+};
+
+validate.validators.validateGeneral = (value) => {
+	if (/[`~!@#$%^&*)(_=+[}{\]\\/";:?><|]+/.test(value)) {
+		return 'Only letters, space, hyphen, period, and apostrophe are allowed.';
+	}
+};
+
 /* eslint-enable consistent-return */

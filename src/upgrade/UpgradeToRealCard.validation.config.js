@@ -1,87 +1,41 @@
-import validate from 'validate.js/validate.min';
-
-/*eslint-disable */
-validate.validators.validateAddress = (value) => {
-  if(/[`~!$%^&*_=+[}{\]\\"?><|]+/.test(value)) {
-    return 'Only letters, numbers, space, and these special characters are allowed: - . \' # ; : ( ) , @ /';
-  }
-}
-
-validate.validators.validateGeneral = (value) => {
-  if(/[`~!@#$%^&*)(_=+[}{\]\\/";:?><|]+/.test(value)) {
-    return 'Only letters, space, hyphen, period, and apostrophe are allowed.';
-  }
-}
-/*eslint-enable */
-
 export const getConstraints = () => {
   const constraints = {
     salutation: {
-      presence: {
-        presence: true,
-        message: 'This field is required.',
-      },
+      presence: true,
     },
     first_name: {
-      presence: {
-        presence: true,
-        message: 'This field is required.',
-      },
+      presence: true,
       validateGeneral: true,
     },
     last_name: {
-      presence: {
-        presence: true,
-        message: 'This field is required.',
-      },
+      presence: true,
       validateGeneral: true,
     },
     residence: {
-      presence: {
-        presence: true,
-        message: 'This field is required.',
-      },
+      presence: true,
     },
     address_line_1: {
-      presence: {
-        presence: true,
-        message: 'This field is required.',
-      },
+      presence: true,
       validateAddress: true,
     },
     address_line_2: {
       validateAddress: true,
     },
     address_city: {
-      presence: {
-        presence: true,
-        message: 'This field is required.',
-      },
+      presence: true,
       validateGeneral: true,
     },
     address_state: {
-      presence: {
-        presence: true,
-        message: 'This field is required.',
-      },
+      presence: true,
     },
     place_of_birth: {
-      presence: {
-        presence: true,
-        message: 'This field is required.',
-      },
+      presence: true,
     },
     date_of_birth: {
-      presence: {
-        presence: true,
-        message: 'This field is required.',
-      },
+      presence: true,
     },
     account_opening_reason: {
-      presence: {
-        presence: true,
-        message: 'This field is required.',
-      },
+      presence: true,
     },
     address_postcode: {
       format: {
@@ -92,10 +46,7 @@ export const getConstraints = () => {
       },
     },
     phone: {
-      presence: {
-        presence: true,
-        message: 'This field is required.',
-      },
+      presence: true,
       format: {
         /*eslint-disable */
         pattern: /^\+?[0-9\s]*$/,
@@ -104,16 +55,10 @@ export const getConstraints = () => {
       },
     },
     secret_question: {
-      presence: {
-        presence: true,
-        message: 'This field is required.',
-      },
+      presence: true,
     },
     secret_answer: {
-      presence: {
-        presence: true,
-        message: 'This field is required.',
-      },
+      presence: true,
       format: {
         /*eslint-disable */
         pattern: /^[\w\-\,\.\' ]+/,
