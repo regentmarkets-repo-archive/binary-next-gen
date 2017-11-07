@@ -1,4 +1,3 @@
-import wtcharts from 'webtrader-charts';
 import $ from 'jquery';
 import moment from 'moment';
 import React, { Component } from 'react';
@@ -42,7 +41,7 @@ export default class ContractChart extends Component {
     barrier && this.chart.draw.barrier({ value: barrier });
   }
 
-  componentDidMount() {
+  async componentDidMount() {
     const { contract } = this.props;
     const { underlying, symbolName, purchase_time, date_start, date_expiry, sell_time, exit_tick_time } = contract;
     const duration = Math.min(+date_expiry, moment.utc().unix()) - (purchase_time || date_start);
@@ -67,6 +66,8 @@ export default class ContractChart extends Component {
     })[timePeriod];
     const type = timePeriod === '1t' ? 'line' : 'candlestick';
 
+    const wtcharts = await import(/* webpackChunkName: "webtrader-charts" */ 'webtrader-charts');
+
     this.chart = wtcharts.chartWindow.addNewChart($(this.root), {
       type, // default is 'line'
       timePeriod, // default is '1t'
@@ -84,18 +85,22 @@ export default class ContractChart extends Component {
     this.chart.drawn().then(() => {
       $(this.barspinner).hide();
     });
+
     this.chart.done().then(() => {
       contract && this.updateContract(contract);
       this.chart.draw.zoomOut();
       this.loaded = true;
     });
   }
+
   componentWillUnmount() {
     this.chart && this.chart.actions.destroy();
     this.chart = null;
     this.loaded = false;
   }
+
   shouldComponentUpdate() { return false; }
+
   render() {
     const { theme } = this.context;
     return (

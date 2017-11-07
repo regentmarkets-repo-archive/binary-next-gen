@@ -8,6 +8,7 @@ module.exports = {
     },
     output: {
         filename: 'app.js',
+        chunkFilename: '[name].bundle.js',
         path: path.resolve(__dirname, 'www'),
     },
     module: {
@@ -18,14 +19,14 @@ module.exports = {
                 use: [
                     'babel-loader',
                     'eslint-loader'
-                ] 
+                ]
             },
             {
                 test: /\.css$/,
                 use: [
                     'style-loader',
                     'css-loader'
-                ] 
+                ]
             },
             {
                 test: /\.svg$/,

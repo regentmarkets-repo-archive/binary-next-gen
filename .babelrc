@@ -2,11 +2,11 @@
     "compact": true,
     "presets": [
         "react",
-        "latest",
-        "stage-1"
+        ["latest", { "es2015": { "modules": false }}],        
+        "stage-1",
+        "stage-3"
     ],
     "plugins": [
-        "transform-async-to-generator",
         "transform-decorators-legacy",
         "transform-inline-environment-variables",
         "transform-flow-strip-types"
