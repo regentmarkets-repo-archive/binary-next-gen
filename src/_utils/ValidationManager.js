@@ -29,7 +29,11 @@ export default class ValidationManager {
     // validate only fields affected by given field, in addition
     // to interacted fields.
     validateFieldAndGetNewState(e, formData) {
-        const val = e.target.value === '' ? undefined : e.target.value;
+        let val = e.target.value === '' ? undefined : e.target.value;
+        if (e.target.type === 'checkbox' && !e.target.checked) {
+            // if checkbox is unchecked we do not take its value
+            val = undefined;
+        }
         const newFormData = {
             ...formData,
             [e.target.id]: val

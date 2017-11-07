@@ -49,7 +49,6 @@ export default class SettingsSelfExclusion extends PureComponent {
   }
 
   onEntryChange = (e: SyntheticEvent) => {
-    // empty input is same as undefined.
     const s = this.validationMan.validateFieldAndGetNewState(e, this.state.formData);
     this.setState(s);
   }
@@ -62,7 +61,7 @@ export default class SettingsSelfExclusion extends PureComponent {
     e.preventDefault();
     const newErrors = this.validationMan.validateAll(this.state.formData);
     this.setState({ errors: newErrors });
-    if (Object.keys(this.state.errors).length === 0) {
+    if (Object.keys(newErrors).length === 0) {
       this.updateSelfExclusion();
     }
   }
