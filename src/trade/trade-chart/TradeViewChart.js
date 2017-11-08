@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { isMobile } from 'binary-utils';
 import $ from 'jquery';
 import 'binary-style/binary.isolated.css';
 import { actions } from '../../_store';
@@ -38,6 +39,7 @@ export default class TradeViewChart extends Component {
       showInstrumentName: true,
       showOverlays: false,
       showShare: false,
+      count: isMobile() ? 100 : 1000,
       indicators: params.indicators,
       overlays: params.overlays,
       timezoneOffset: 0,
