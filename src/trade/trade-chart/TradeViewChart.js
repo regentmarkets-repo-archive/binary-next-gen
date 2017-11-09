@@ -28,6 +28,8 @@ export default class TradeViewChart extends Component {
   };
 
   initChart(trade) {
+    this.hasDrawnTradeResults = false;
+    this.hasChartDone = false;
     const params = trade.chartParams || { type: 'line', timePeriod: '1t', indicators: [], overlays: [] };
 
     this.chart = this.wtcharts.chartWindow.addNewChart($(this.root), {
@@ -50,6 +52,7 @@ export default class TradeViewChart extends Component {
     };
 
     this.chart.done().then(() => {
+      this.hasChartDone = true;
       this.chart.actions.reflow();
       $(this.barspinner).hide();
     });
@@ -78,8 +81,12 @@ export default class TradeViewChart extends Component {
       this.initChart(trade);
       return;
     }
+
+    if (!this.hasChartDone) return;
+
     const contract = nextProps.contractForChart && nextProps.contractForChart.toJS();
     if (contract) {
+      // draw trade results on the chart once contract is made:
       const startTime = contract.date_start || contract.purchase_time;
       const entrySpot = +contract.entry_tick_time;
       const exitSpot = +contract.exit_tick_time;
@@ -92,13 +99,17 @@ export default class TradeViewChart extends Component {
 
       const barrier = +contract.barrier;
       barrier && this.chart.draw.barrier({ value: barrier });
-      return;
-    }
-    if (this.chart) {
+      this.hasDrawnTradeResults = true;
+    } else if (this.hasDrawnTradeResults) {
+      // clear the trade results when customer trades again
+      this.hasDrawnTradeResults = false;
       this.chart.draw.clear();
-      if (this.props.count !== nextProps.count || this.props.layoutN !== nextProps.layoutN) {
-        this.chart.actions.reflow();
-      }
+    }
+
+    // reflow the charts when layout changes
+    if (this.props.count !== nextProps.count
+        || this.props.layoutN !== nextProps.layoutN) {
+      this.chart.actions.reflow();
     }
   }
 
