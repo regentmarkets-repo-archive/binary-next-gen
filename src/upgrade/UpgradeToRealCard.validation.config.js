@@ -39,18 +39,14 @@ export const getConstraints = () => {
     },
     address_postcode: {
       format: {
-        /*eslint-disable */
         pattern: /^([a-zA-Z\d-\s])*$/,
-        /*eslint-enable */
         message: 'Only letters, numbers, space, and hyphen are allowed.',
       },
     },
     phone: {
       presence: true,
       format: {
-        /*eslint-disable */
         pattern: /^\+?[0-9\s]*$/,
-        /*eslint-enable */
         message: 'Only numbers and spaces are allowed.',
       },
     },
@@ -60,9 +56,7 @@ export const getConstraints = () => {
     secret_answer: {
       presence: true,
       format: {
-        /*eslint-disable */
-        pattern: /^[\w\-\,\.\' ]+/,
-        /*eslint-enable */
+        pattern: /^[\w\-\,\.\' ]+/, // eslint-disable-line
         message: 'Only letters, numbers, space, hyphen, period, and apostrophe are allowed.',
       }
     },
