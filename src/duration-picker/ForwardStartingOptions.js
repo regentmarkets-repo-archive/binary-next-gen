@@ -75,8 +75,9 @@ export default class ForwardStartingOptions extends PureComponent {
         const { defaultDateStart, showStartLater } = this.state;
         const ranges = forwardStartingDuration.range;
 
-        const defaultDate = new Date(defaultDateStart * 1000);
-        const defaultTime = epochToUTCTimeString(defaultDateStart);
+        const dateVal = dateStart !== undefined ? dateStart : defaultDateStart;
+        const defaultDate = new Date(dateVal * 1000);
+        const defaultTime = epochToUTCTimeString(dateVal);
         return (
             <div className="param-row forward-starting-picker">
                 {<Label text="Start Time" />}
@@ -111,13 +112,13 @@ export default class ForwardStartingOptions extends PureComponent {
                             type="date"
                             min={dateToDateString(ranges[0].date)}
                             onChange={this.onDayChange}
-                            defaultValue={dateToDateString(defaultDate)}
+                            value={dateToDateString(defaultDate)}
                             maxLength={10}
                         />
                         <input
                             type="time"
                             onChange={this.onTimeChange}
-                            defaultValue={defaultTime}
+                            value={defaultTime}
                             maxLength={8}
                         />
                     </div>

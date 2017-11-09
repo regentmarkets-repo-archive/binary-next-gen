@@ -47,14 +47,6 @@ export const updateMultipleTradeParams = (index, params) => {
     };
 };
 
-// Update trade's ui state
-export const updateTradeUIState = (index, fieldName, fieldValue) => ({
-    type: types.UPDATE_TRADE_UI_STATE,
-    index,
-    fieldName,
-    fieldValue,
-});
-
 export const closeContractReceipt = index => ({
     type: types.CLOSE_CONTRACT_RECEPIT,
     index,

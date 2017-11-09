@@ -1,10 +1,10 @@
 import { takeEvery } from 'redux-saga';
 import { put, select } from 'redux-saga/effects';
-import { updateMultipleTradeParams, updateTradingOptions, updateTradeUIState,
+import { updateMultipleTradeParams, updateTradingOptions,
     updateFeedLicense, updateTradingOptionsErr } from '../../_actions';
 import { api as CoreApi } from '../../_data/LiveData';
 import changeSymbol from '../updates/changeSymbol';
-import { getForceRenderCount, contractOfSymbol, isSymbolOpen, getParams } from './SagaSelectors';
+import { contractOfSymbol, isSymbolOpen, getParams } from './SagaSelectors';
 import { subscribeProposal, unsubscribeProposal } from './ProposalSubscriptionSaga';
 
 const CREATE_TRADE = 'CREATE_TRADE';
@@ -26,9 +26,7 @@ export function* tradeCreation(action) {
         const params = yield select(getParams(index));
         const updatedParams = changeSymbol(symbol, contractNeeded, params, isOpen);
         yield put(updateMultipleTradeParams(index, updatedParams));
-        const renderCount = yield select(getForceRenderCount(index));
         yield [
-            put(updateTradeUIState(index, 'forceRenderCount', renderCount + 1)),
             put(subscribeProposal(index, updatedParams)),
         ];
     } else {

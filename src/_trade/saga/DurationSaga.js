@@ -1,11 +1,11 @@
 import { takeEvery } from 'redux-saga';
 import { put, select } from 'redux-saga/effects';
 import { dateToEpoch, timeStringToSeconds, isValidTime } from 'binary-utils';
-import { updateMultipleTradeParams, updateTradeUIState, updateTradeError } from '../../_actions';
+import { updateMultipleTradeParams, updateTradeError } from '../../_actions';
 import areAllTimeFieldsValid from '../validation/areAllTimeFieldsValid';
 import changeDurationUnit from '../updates/changeDurationUnit';
 import changeStartDate from '../updates/changeStartDate';
-import { getParams, contractOfSymbol, getForceRenderCount } from './SagaSelectors';
+import { getParams, contractOfSymbol } from './SagaSelectors';
 import { subscribeProposal, unsubscribeProposal } from './ProposalSubscriptionSaga';
 
 const CHANGE_DURATION = 'CHANGE_DURATION';
@@ -51,12 +51,10 @@ export function* handleDurationUnitChange(action) {
     const params = yield select(getParams(index));
     const contractNeeded = yield select(contractOfSymbol(params.symbol));
     const updated = changeDurationUnit(durationUnit, contractNeeded, params);
-    const renderCount = yield select(getForceRenderCount(index));
     yield [
         put(subscribeProposal(index, updated)),
         put(updateMultipleTradeParams(index, updated)),
-        put(updateTradeError(index, 'durationError')),
-        put(updateTradeUIState(index, 'forceRenderCount', renderCount + 1)),
+        put(updateTradeError(index, 'durationError'))
     ];
 }
 
@@ -75,12 +73,10 @@ export function* handleStartEpochChange(action) {
     const { symbol } = params;
     const contractNeeded = yield select(contractOfSymbol(symbol));
     const updated = changeStartDate(epoch, contractNeeded, params);
-    const renderCount = yield select(getForceRenderCount(index));
     yield [
         put(subscribeProposal(index, updated)),
         put(updateMultipleTradeParams(index, updated)),
         put(updateTradeError(index, 'durationError')),
-        put(updateTradeUIState(index, 'forceRenderCount', renderCount + 1)),
     ];
 }
 

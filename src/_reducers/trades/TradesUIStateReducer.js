@@ -9,7 +9,6 @@ import {
 
 const defaultUIState = {
     disabled: false,
-    forceRenderCount: 0,
 };
 
 const initialState = fromJS([defaultUIState]);
