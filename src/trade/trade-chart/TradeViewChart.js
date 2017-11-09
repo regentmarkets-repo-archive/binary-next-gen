@@ -28,6 +28,7 @@ export default class TradeViewChart extends Component {
   };
 
   initChart(trade) {
+    this.hasChartDone = false;
     const params = trade.chartParams || { type: 'line', timePeriod: '1t', indicators: [], overlays: [] };
 
     this.chart = this.wtcharts.chartWindow.addNewChart($(this.root), {
@@ -50,6 +51,7 @@ export default class TradeViewChart extends Component {
     };
 
     this.chart.done().then(() => {
+      this.hasChartDone = true;
       this.chart.actions.reflow();
       $(this.barspinner).hide();
     });
@@ -78,6 +80,9 @@ export default class TradeViewChart extends Component {
       this.initChart(trade);
       return;
     }
+
+    if (!this.hasChartDone) return;
+
     const contract = nextProps.contractForChart && nextProps.contractForChart.toJS();
     if (contract) {
       const startTime = contract.date_start || contract.purchase_time;
