@@ -35,7 +35,13 @@ export const subscribeProposal = (index, params) => ({
 function* handleSubscription(action) {
     const { index, params } = action;
     const currency = yield select(currencySelector);
-    const paramForSubscription = internalTradeModelToProposalModel(params, params.symbol, currency);
+    const p = { ...params }; // copy params since we may mutate it
+    if (p.dateStart) {
+        // convert the time to GMT time before sending to server
+        const timezoneOffsetSeconds = new Date().getTimezoneOffset() * 60;
+        p.dateStart -= timezoneOffsetSeconds;
+    }
+    const paramForSubscription = internalTradeModelToProposalModel(p, p.symbol, currency);
     try {
         const { proposal } = yield api.subscribeToPriceForContractProposal(paramForSubscription);
         yield put(updateTradeProposal(index, 'proposal', proposal));

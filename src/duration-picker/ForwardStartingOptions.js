@@ -1,14 +1,17 @@
-import React, { PureComponent } from 'react';
-import { epochToUTCTimeString, dateToDateString, nowAsEpoch, returnValidDate, returnValidTime } from 'binary-utils';
+import React, { PureComponent, SyntheticEvent } from 'react';
+import { dateToDateString } from 'binary-utils';
 import { M, Label } from 'binary-components';
 import debounce from 'lodash.debounce';
+import moment from 'moment';
 import createDefaultStartLaterEpoch from '../_trade/defaults/createDefaultStartLaterEpoch';
 import { actions } from '../_store';
 
+// A 400 millisecond delay is set to prevent the datetime fields from
+// updating before the user keys finish. This will not be necessary if
+// there is a datepicker.
+// TODO: Get a date picker (only desktop browsers need this)
 const debounceReq = reqFn => debounce(reqFn, 400);
-const debounceStartDateChange = debounceReq(actions.reqStartDateChange);
-const debounceStartTimeChange = debounceReq(actions.reqStartTimeChange);
-const debounceEpochChange = actions.reqStartEpochChange;        // TODO: allow delay or complicate the code to increase responsiveness?
+const changeStartEpoch = debounceReq(actions.reqStartEpochChange);
 
 export default class ForwardStartingOptions extends PureComponent {
 
@@ -22,9 +25,12 @@ export default class ForwardStartingOptions extends PureComponent {
     constructor(props) {
         super(props);
         const defaultEpoch = props.dateStart ? props.dateStart : createDefaultStartLaterEpoch(props.forwardStartingDuration);
+        const forwardDate = moment.unix(defaultEpoch).format('YYYY-MM-DD');
+        const forwardTime = moment.unix(defaultEpoch).format('HH:mm');
         this.state = {
             showStartLater: !!props.dateStart,
-            defaultDateStart: defaultEpoch,
+            forwardDate,
+            forwardTime
         };
     }
 
@@ -34,50 +40,36 @@ export default class ForwardStartingOptions extends PureComponent {
         }
     }
 
-    onDayChange = (e: SyntheticEvent) => {
+    updateAndChangeStartEpoch = () => {
         const { index } = this.props;
-        const inputValue = e.target.value;
-        debounceStartDateChange(index, returnValidDate(inputValue));
+        const { forwardDate, forwardTime } = this.state;
+        const epoch = moment(forwardDate + ' ' + forwardTime).valueOf() / 1000;
+        changeStartEpoch(index, epoch);
     }
 
-    onTimeChange = (e: SyntheticEvent) => {
-        const { index } = this.props;
-        const inputValue = e.target.value;
-        debounceStartTimeChange(index, returnValidTime(inputValue));
+    onDateTimeChange = (e: SyntheticEvent) => {
+        this.setState({ [e.target.name]: e.target.value }, () => {
+            this.updateAndChangeStartEpoch();
+        });
     }
 
     startNow = () => {
         this.setState({ showStartLater: false });
-        debounceEpochChange(this.props.index);
+        // passing undefined sets the current datetime (now)
+        changeStartEpoch(this.props.index, undefined);
     }
 
     startLater = () => {
         this.setState({ showStartLater: true });
-        const { index, dateStart } = this.props;
-        if (!dateStart) {
-            const { defaultDateStart } = this.state;
-            const now = nowAsEpoch();
-
-            let startDateToUse = defaultDateStart;
-
-            // do not use defaultDateStart when it is less than 5 minutes away from current time
-            if (defaultDateStart < now + 350) {
-                const newDateInSecondsResolution = now + 350;
-                startDateToUse = newDateInSecondsResolution - (newDateInSecondsResolution % 60);
-            }
-
-            debounceEpochChange(index, startDateToUse);
-        }
+        // restore the stored forward datetime values
+        this.updateAndChangeStartEpoch();
     }
 
     render() {
         const { dateStart, forwardStartingDuration, index, startLaterOnly } = this.props;
-        const { defaultDateStart, showStartLater } = this.state;
+        const { showStartLater, forwardDate, forwardTime } = this.state;
         const ranges = forwardStartingDuration.range;
 
-        const dateVal = dateStart !== undefined ? dateStart : defaultDateStart;
-        const defaultDate = new Date(dateVal * 1000);
-        const defaultTime = epochToUTCTimeString(dateVal);
         return (
             <div className="param-row forward-starting-picker">
                 {<Label text="Start Time" />}
@@ -111,14 +103,16 @@ export default class ForwardStartingOptions extends PureComponent {
                         <input
                             type="date"
                             min={dateToDateString(ranges[0].date)}
-                            onChange={this.onDayChange}
-                            value={dateToDateString(defaultDate)}
+                            onChange={this.onDateTimeChange}
+                            name="forwardDate"
+                            value={forwardDate}
                             maxLength={10}
                         />
                         <input
                             type="time"
-                            onChange={this.onTimeChange}
-                            value={defaultTime}
+                            onChange={this.onDateTimeChange}
+                            name="forwardTime"
+                            value={forwardTime}
                             maxLength={8}
                         />
                     </div>
