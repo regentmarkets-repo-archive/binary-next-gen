@@ -21,9 +21,9 @@ export function* tradeCreation(action) {
     yield put(unsubscribeProposal(index));
 
     const contractNeeded = yield select(contractOfSymbol(symbol));
+    const params = yield select(getParams(index));
     if (contractNeeded) {
         const isOpen = yield select(isSymbolOpen(symbol));
-        const params = yield select(getParams(index));
         const updatedParams = changeSymbol(symbol, contractNeeded, params, isOpen);
         yield put(updateMultipleTradeParams(index, updatedParams));
         yield [
@@ -33,6 +33,13 @@ export function* tradeCreation(action) {
         try {
             const { contracts_for } = yield CoreApi.getContractsForSymbol(symbol);
             const license = contracts_for.feed_license;
+
+            // TODO: The line below should not be necessary; we are retrieving the
+            // tradeParams from local storage, only to save it back again. However
+            // for some reason the 'amount' attribute in tradeParams local storage
+            // mysteriously gets mutated to the default stake ('amountDefault')...
+            // Will you, brave engineer, be able locate the nefarious code??
+            yield put(updateMultipleTradeParams(index, params));
 
             yield [
                 put(updateFeedLicense(symbol, license)),
