@@ -21,7 +21,12 @@
     z-index: 100;
 }
 
+.mobile-content::-webkit-scrollbar {
+    width: 0px;
+}
+
 .mobile-content {
+    overflow-y: scroll;
     min-width: 320px;
     flex: 1;
     display: flex;
