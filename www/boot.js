@@ -24,7 +24,8 @@
       const categoryMap    = ['real', 'virtual', 'logged_out'];
 
       let server = 'blue';
-      const loginid = window.localStorage.getItem('active_loginid');
+      const account = JSON.parse(localStorage.getItem('account'));
+      const loginid = account ? account.loginid : null;
       let client_type = categoryMap[2];
       if (loginid) {
         client_type = /^VRT/.test(loginid) ? categoryMap[1] : categoryMap[0];
