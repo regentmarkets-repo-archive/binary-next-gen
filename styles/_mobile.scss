@@ -30,6 +30,10 @@
     flex-direction: column;
     width: 100%;
 
+    .asset-picker-filter .tooltip {
+        position: relative; 
+    }
+
     .trade-panel {
         margin: 0;
         flex-direction: column;
