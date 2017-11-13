@@ -90,19 +90,13 @@
     window.BinaryBoot.oAuthUrl = window.BinaryBoot.oAuthUrl || defaultConfig.oAuthUrl;
     window.BinaryBoot.apiUrl = window.BinaryBoot.apiUrl || defaultConfig.apiUrl;
 
-    // window.BinaryBoot.apiUrl = 'wss://www.binaryqa07.com/websockets/v3';
-    // window.BinaryBoot.appId = 1004;
-    // window.BinaryBoot.oAuthUrl = 'https://www.binaryqa07.com/oauth2/authorize';
-
-    var testConfig = localStorage.getItem('test-config');
-    if(testConfig) {
       try {
-        var config = JSON.parse(testConfig) || { };
-        window.BinaryBoot.appId = config.appId || window.BinaryBoot.appId;
-        window.BinaryBoot.apiUrl = config.apiUrl || window.BinaryBoot.apiUrl;
+        // var config = JSON.parse(testConfig) || { };
+        const serverURL = localStorage.getItem('config.server_url');
+        window.BinaryBoot.appId = localStorage.getItem('config.app_id') || window.BinaryBoot.appId;
+        window.BinaryBoot.apiUrl = serverURL ? `wss://${serverURL}/websockets/v3` : window.BinaryBoot.apiUrl;
         window.BinaryBoot.oAuthUrl = config.oAuthUrl || window.BinaryBoot.oAuthUrl;
       } catch (e) { }
-    }
 
     window.BinaryBoot.connection = new WebSocket(window.BinaryBoot.apiUrl + '?app_id=' + window.BinaryBoot.appId + '&l=' + lang);
 })();
