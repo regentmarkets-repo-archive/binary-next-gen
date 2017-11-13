@@ -14,6 +14,32 @@
         accounts: []
     };
 
+  const getAppId = () =>
+    window.localStorage.getItem('config.app_id') || (/staging\.binary\.com/i.test(window.location.hostname) ? '1098' : '1')
+
+  function getSocketURL() {
+    let server_url = window.localStorage.getItem('config.server_url');
+    if (!server_url) {
+      const toGreenPercent = { real: 100, virtual: 0, logged_out: 0 }; // default percentage
+      const categoryMap    = ['real', 'virtual', 'logged_out'];
+
+      let server = 'blue';
+      const loginid = window.localStorage.getItem('active_loginid');
+      let client_type = categoryMap[2];
+      if (loginid) {
+        client_type = /^VRT/.test(loginid) ? categoryMap[1] : categoryMap[0];
+      }
+
+      const randomPercent = Math.random() * 100;
+      if (randomPercent < toGreenPercent[client_type]) {
+        server = 'green';
+      }
+
+      server_url = `${server}.binaryws.com`;
+    }
+    return `wss://${server_url}/websockets/v3`;
+  };
+
     function parseOAuthResponse(responseUrl) {
         var urlParts = responseUrl.split('?');
         if (urlParts.length !== 2) {
@@ -93,8 +119,8 @@
       try {
         // var config = JSON.parse(testConfig) || { };
         const serverURL = localStorage.getItem('config.server_url');
-        window.BinaryBoot.appId = localStorage.getItem('config.app_id') || window.BinaryBoot.appId;
-        window.BinaryBoot.apiUrl = serverURL ? `wss://${serverURL}/websockets/v3` : window.BinaryBoot.apiUrl;
+        window.BinaryBoot.appId = getAppId();
+        window.BinaryBoot.apiUrl = serverURL ? `wss://${serverURL}/websockets/v3` : getSocketURL();
         window.BinaryBoot.oAuthUrl = config.oAuthUrl || window.BinaryBoot.oAuthUrl;
       } catch (e) { }
 
