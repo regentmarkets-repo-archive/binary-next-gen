@@ -22,12 +22,17 @@
 }
 
 .mobile-content {
+    overflow-y: scroll;
     min-width: 320px;
     flex: 1;
     display: flex;
     align-content: stretch;
     flex-direction: column;
     width: 100%;
+
+    .asset-picker-filter .tooltip {
+        position: relative;
+    }
 
     .trade-panel {
         margin: 0;
@@ -40,6 +45,7 @@
 
     .contract-chart {
         flex: 1;
+        height: 35em;
     }
 
     .modal {
