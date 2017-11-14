@@ -7,5 +7,10 @@
 
     .asset-index-data {
         padding: 0.5em;
+        td, th {
+            white-space: nowrap;
+            padding-left: 0.5em;
+            padding-right: 0.5em;
+        }
     }
 }
