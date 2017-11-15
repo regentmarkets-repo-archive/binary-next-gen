@@ -9,7 +9,7 @@
     var defaultConfig = {
         language: 'EN',
         theme: 'light',
-        apiUrl: 'wss://ws.binaryws.com/websockets/v3',
+        apiUrl: 'wss://frontend.binaryws.com/websockets/v3',
         oAuthUrl: 'https://oauth.binary.com/oauth2/authorize',
         accounts: []
     };
@@ -87,8 +87,8 @@
         window.location.href = window.BinaryBoot.redirectUrl;
     }
 
-    window.BinaryBoot.oAuthUrl = window.BinaryBoot.oAuthUrl || defaultConfig.oAuthUrl;
-    window.BinaryBoot.apiUrl = window.BinaryBoot.apiUrl || defaultConfig.apiUrl;
+    window.BinaryBoot.oAuthUrl = defaultConfig.oAuthUrl;
+    window.BinaryBoot.apiUrl = defaultConfig.apiUrl;
 
     // window.BinaryBoot.apiUrl = 'wss://www.binaryqa07.com/websockets/v3';
     // window.BinaryBoot.appId = 1004;
