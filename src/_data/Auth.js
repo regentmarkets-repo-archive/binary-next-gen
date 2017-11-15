@@ -87,7 +87,7 @@ export const requireAuthOnEnter = (nextState, replace, callback) => {
     const { location } = nextState;
     if (!authorized && (rootPaths.indexOf(location.pathname) === -1)) {
         replace({
-            pathname: window.BinaryBoot.redirectUrl,
+            pathname: window.BinaryBoot.baseUrl,
             state: nextState,
         });
     }
