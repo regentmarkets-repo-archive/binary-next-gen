@@ -15,7 +15,7 @@
     };
 
   const getAppId = () =>
-    window.localStorage.getItem('config.app_id') || (/staging\.binary\.com/i.test(window.location.hostname) ? '1098' : '1')
+    window.localStorage.getItem('config.app_id') || 1001;
 
   const getSocketURL = () => {
     let server_url = window.localStorage.getItem('config.server_url');
