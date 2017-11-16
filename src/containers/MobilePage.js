@@ -32,7 +32,7 @@ export default class MobilePage extends PureComponent {
 			const getAndroidKeyboardSpace = () => document.getElementById('android-keyboard-space');
 			if (isAndroidApp) {
 				window.addEventListener('native.keyboardshow', (e) => {
-					getAndroidKeyboardSpace().style = 'height: ' + e.keyboardHeight + 'px;';
+					getAndroidKeyboardSpace().style.height = e.keyboardHeight + 'px';
 					document.activeElement.scrollIntoView();
 				});
 
@@ -51,13 +51,13 @@ export default class MobilePage extends PureComponent {
 					const androidKeyboardSpace = getAndroidKeyboardSpace();
 					if (isKeyboardExist) {
 						const keyboardHeight = window.screen.height - window.outerHeight - heightOffset;
-						androidKeyboardSpace.style = 'height: ' + keyboardHeight + 'px;';
+						androidKeyboardSpace.style.height = keyboardHeight + 'px';
 						document.activeElement.scrollIntoView();
 					} else {
 						androidKeyboardSpace.removeAttribute('style');
 					}
 				});
-			} 
+			}
 		}
 
 		return (
