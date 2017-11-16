@@ -14,8 +14,24 @@
         accounts: []
     };
 
+    const getDefaultAppId = () => {
+      if(window.cordova) {
+        window.BinaryBoot.appId = 1006;
+      } else if(window.electron) {
+        window.BinaryBoot.appId = 1306;
+      } else if (/localhost:/g.test(window.location.href)) {
+        window.BinaryBoot.appId = 3588;
+      } else if (/arnabk.github.io:/g.test(window.location.href)) {
+        window.BinaryBoot.appId = 3604;
+      } else if (window.BinaryBoot.isBeta) {
+        window.BinaryBoot.appId = 4343; //This is for BETA release
+      }
+      localStorage.setItem('config.default_app_id', window.BinaryBoot.appId);
+      return window.BinaryBoot.appId;
+    };
+
   const getAppId = () =>
-    window.localStorage.getItem('config.app_id') || 1001;
+    window.localStorage.getItem('config.app_id') || getDefaultAppId() || 1001;
 
   const getSocketURL = () => {
     let server_url = window.localStorage.getItem('config.server_url');
@@ -79,19 +95,6 @@
     window.BinaryBoot.parseUrl = parseOAuthResponse;
     window.BinaryBoot.isBeta = /beta/g.test(window.location.href);
     window.BinaryBoot.redirectUrl = window.BinaryBoot.isBeta ? '/beta' : '/';
-    if(window.cordova) {
-        window.BinaryBoot.appId = 1006;
-    } else if(window.electron) {
-        window.BinaryBoot.appId = 1306;
-    } else if (/localhost:/g.test(window.location.href)) {
-        window.BinaryBoot.appId = 3588;
-    } else if (/arnabk.github.io:/g.test(window.location.href)) {
-        window.BinaryBoot.appId = 3604;
-    } else if (window.BinaryBoot.isBeta) {
-        window.BinaryBoot.appId = 4343; //This is for BETA release
-    } else {
-        window.BinaryBoot.appId = 1001; //This is for PROD release
-    }
     var lang = window.BinaryBoot.language;
 
     var redirectIndex = window.location.href.indexOf('?');
