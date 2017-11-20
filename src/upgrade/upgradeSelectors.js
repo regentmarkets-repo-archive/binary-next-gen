@@ -1,5 +1,8 @@
 import { createStructuredSelector } from 'reselect';
-import { settingsSelector, statesSelector, loginidSelector, bootSelector, residenceListSelector } from '../_store/directSelectors';
+import {
+  settingsSelector, statesSelector, loginidSelector, bootSelector, residenceListSelector,
+  upgradeInfoSelector, selectedCurrencySelector
+} from '../_store/directSelectors';
 
 export default createStructuredSelector({
   settings: settingsSelector,
@@ -7,4 +10,6 @@ export default createStructuredSelector({
   loginid: loginidSelector,
   boot: bootSelector,
   residenceList: residenceListSelector,
+  upgradeInfo: upgradeInfoSelector,
+  selectedCurrency: selectedCurrencySelector,
 });

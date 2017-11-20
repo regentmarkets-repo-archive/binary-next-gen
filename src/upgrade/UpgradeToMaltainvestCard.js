@@ -38,6 +38,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
     secret_question: string,
     secret_answer: string,
     phone: string,
+    selectedCurrency: string,
   };
 
   constructor(props) {
@@ -67,6 +68,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
         secret_question: props.secret_question,
         secret_answer: props.secret_answer,
         phone: props.phone,
+        currency: props.selectedCurrency,
       }
     };
 

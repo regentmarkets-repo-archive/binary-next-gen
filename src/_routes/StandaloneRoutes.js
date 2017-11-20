@@ -22,6 +22,8 @@ import WorkspaceContainer from '../workspace/WorkspaceContainer';
 import LayoutButtonPanel from '../layout-picker/LayoutButtonPanel';
 import DigitStatsCard from '../digit-stats/DigitStatsCard';
 import LoadingView from '../loading-view/LoadingView';
+import UserAccountsPage from '../user-accounts/UserAccountsPage';
+import SetCurrencyContainer from '../set-currency/SetCurrencyContainer';
 
 import { requireAuthOnEnter } from '../_data/Auth';
 
@@ -60,4 +62,6 @@ export default [
     { path: 'layout', component: LayoutButtonPanel },
     { path: 'stats', component: DigitStatsCard },
     { path: 'loading', component: LoadingView },
+    { path: 'user-accounts', component: UserAccountsPage, onEnter: requireAuthOnEnter },
+    { path: 'set-currency', component: SetCurrencyContainer },
 ];

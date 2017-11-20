@@ -7,6 +7,7 @@ import {
     UPDATE_TOKEN,
     REMOVE_PERSONAL_DATA,
     SERVER_DATA_WEBSITE_STATUS,
+    UPDATE_LANDING_COMPANY
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
@@ -48,6 +49,9 @@ export default (state = initialState, action) => {
           const currencies_config = fromJS(website_status.currencies_config);
 
           return state.set('currencies_config', currencies_config);
+        }
+        case UPDATE_LANDING_COMPANY: {
+            return state.set('landing_company', action.landing_company);
         }
         default:
             return state;

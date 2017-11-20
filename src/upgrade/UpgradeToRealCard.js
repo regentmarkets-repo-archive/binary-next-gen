@@ -20,6 +20,7 @@ export default class UpgradeToRealCard extends PureComponent {
 		boot: any[],
 		country_code: string,
 		states: any[],
+    selectedCurrency: string,
 	};
 
 	constructor(props) {
@@ -32,6 +33,7 @@ export default class UpgradeToRealCard extends PureComponent {
 			errors: {},
 			formData: {
 				residence: props.country_code,
+				currency: props.selectedCurrency,
 			}
 		};
 		this.constraints = getConstraints();
