@@ -94,7 +94,7 @@
     parseUrlAndStoreAccountInfo(window.location.href);
     window.BinaryBoot.parseUrl = parseOAuthResponse;
     window.BinaryBoot.isBeta = /beta/g.test(window.location.href);
-    window.BinaryBoot.redirectUrl = window.BinaryBoot.isBeta ? '/beta' : '/';
+    window.BinaryBoot.baseUrl = window.BinaryBoot.isBeta ? '/beta' : '/';
     var lang = window.BinaryBoot.language;
 
     var redirectIndex = window.location.href.indexOf('?');
