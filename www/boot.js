@@ -23,7 +23,7 @@
         window.BinaryBoot.appId = 3588;
       } else if (/arnabk.github.io:/g.test(window.location.href)) {
         window.BinaryBoot.appId = 3604;
-      } else if (window.BinaryBoot.isBeta) {
+      } else if (/beta/g.test(window.location.href)) {
         window.BinaryBoot.appId = 4343; //This is for BETA release
       }
       localStorage.setItem('config.default_app_id', window.BinaryBoot.appId);
