@@ -115,7 +115,8 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
   performUpgrade = async () => {
     const loginid = this.props.loginid;
-    const { formData } = this.state;
+    // PEPDeclaration not required for upgrade; only verified in frontend.
+    const { PEPDeclaration, ...formData } = this.state.formData; // eslint-disable-line no-unused-vars
     let createAccountParams = formData;
     // if not VRTC, we do not need secret question
     if (!loginid.startsWith('VRTC')) {
