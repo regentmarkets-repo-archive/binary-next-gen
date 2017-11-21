@@ -13,11 +13,11 @@ export default class ContractDetailsCard extends PureComponent {
 
 	render() {
 		const { compact, contract, pipSize } = this.props;
-
 		if (!contract) return null;
 
+		const sold = !!contract.sell_price;
 		return (
-			<div className="contract-details-card">
+			<div key={sold ? 'sold' : 'open'} className="contract-details-card">
 				<h5>{contract.longcode}</h5>
 				{compact ?
 					<ContractDetailsMobileLayout

@@ -30,6 +30,9 @@
 
 .trade-chart,
 .contract-chart {
+  * {
+    transition: none;
+  }
   &.dark {
     background-color: rgba(42,48,82,.25) !important;
   }
