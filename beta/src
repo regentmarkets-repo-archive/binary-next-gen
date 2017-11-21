@@ -1,6 +1,6 @@
-Hash: 7d008cc16fc49d469c6a
+Hash: 428ca0d77bd34ce1ad54
 Version: webpack 3.8.1
-Time: 111513ms
+Time: 102649ms
                          Asset      Size  Chunks                    Chunk Names
     webtrader-charts.bundle.js    906 kB       0  [emitted]  [big]  webtrader-charts
                         app.js   1.65 MB       1  [emitted]  [big]  app
