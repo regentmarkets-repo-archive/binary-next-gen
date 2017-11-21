@@ -1,4 +1,4 @@
-import { UPDATE_UPGRADE_INFO, UPGRADE_FIELD_UPDATE, UPGRADE_DOB_UPDATE, UPGRADE_FIELD_CLEAR, UPDATE_SELECTED_CURRENCY } from '../_constants/ActionTypes';
+import { UPDATE_UPGRADE_INFO, UPGRADE_FIELD_UPDATE, UPGRADE_DOB_UPDATE, UPGRADE_FIELD_CLEAR, UPDATE_UPGRADE_FIELD } from '../_constants/ActionTypes';
 import { api } from '../_data/LiveData';
 import config from '../config';
 
@@ -66,7 +66,8 @@ export const updateUpgradeInfo = upgradeInfo => ({
     upgradeInfo,
 });
 
-export const updateSelectedCurrency = selectedCurrncy => ({
-    type: UPDATE_SELECTED_CURRENCY,
-    selectedCurrncy,
+export const updateUpgradeField = (field, value) => ({
+  type: UPDATE_UPGRADE_FIELD,
+  field,
+  value,
 });

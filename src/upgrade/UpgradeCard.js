@@ -11,6 +11,7 @@ type Props = {
   boot: any[],
   states: any[],
   upgradeInfo: object,
+  selectedCurrency: string,
 };
 
 export default class UpgradeCard extends PureComponent {

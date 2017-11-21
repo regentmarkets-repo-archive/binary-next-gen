@@ -1,7 +1,8 @@
 import React, { PureComponent } from 'react';
 import { Th, SelectOptGroup, Button } from 'binary-components';
+import { store } from '../_store/persistentStore';
 import EmptySlate from '../containers/EmptySlate';
-import * as actions from '../_actions';
+import { updateUpgradeField } from '../_actions/UpgradeActions';
 import { getNextAccountTitle, getCurrenciesForNewAccount, filterMarkets } from '../_utils/Client';
 import activeMarkets from '../_constants/ActiveMarkets';
 
@@ -24,10 +25,10 @@ export default class CreateNewAccount extends PureComponent {
 
   onCurrencyChange = (e: SyntheticEvent) => {
     this.setState({ [e.target.id]: e.target.value });
-    actions.updateUpgradeInfo({ [e.target.id]: e.target.value });
   }
 
   onRedirectToAccountOpening = () => {
+    store.dispatch(updateUpgradeField('selected_currency', this.state.selected_currency));
     this.context.router.push('/upgrade');
   }
 

@@ -2,11 +2,12 @@ import { fromJS } from 'immutable';
 
 import {
   UPDATE_UPGRADE_INFO,
-  UPDATE_SELECTED_CURRENCY,
+  UPDATE_UPGRADE_FIELD,
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
   upgrade: {},
+  selectedCurrency: '',
 });
 
 export default (state = initialState, action) => {
@@ -14,8 +15,8 @@ export default (state = initialState, action) => {
     case UPDATE_UPGRADE_INFO: {
       return state.merge(action.upgradeInfo);
     }
-    case UPDATE_SELECTED_CURRENCY: {
-      return state.merge(action.selectedCurrncy);
+    case UPDATE_UPGRADE_FIELD: {
+      return state.setIn([action.field], action.value);
     }
     default: {
       return state;
