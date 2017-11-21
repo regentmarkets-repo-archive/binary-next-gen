@@ -15,7 +15,7 @@ export default class AccountMenuItem extends PureComponent {
 		if (window.cordova) {
 			window.location.reload(true);
 		} else {
-			window.location.href = window.BinaryBoot.redirectUrl;
+			window.location.href = window.BinaryBoot.baseUrl;
 		}
 	};
 
