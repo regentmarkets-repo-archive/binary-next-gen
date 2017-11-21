@@ -107,6 +107,7 @@
         "highstock-release": "5.0.10",
         "history": "~4.4.0",
         "immutable": "^3.8.1",
+        "ionic-plugin-keyboard": "^2.2.1",
         "jquery": "^3.2.1",
         "lodash.debounce": "^4.0.8",
         "lodash.throttle": "^4.1.1",
@@ -207,7 +208,8 @@
             "cordova-plugin-inappbrowser": {},
             "cordova-plugin-splashscreen": {},
             "cordova-plugin-statusbar": {},
-            "cordova-plugin-whitelist": {}
+            "cordova-plugin-whitelist": {},
+            "ionic-plugin-keyboard": {}
         }
     }
 }
