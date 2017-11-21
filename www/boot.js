@@ -15,19 +15,20 @@
     };
 
     const getDefaultAppId = () => {
+      let defaultAppID;
       if(window.cordova) {
-        window.BinaryBoot.appId = 1006;
+        defaultAppID = 1006;
       } else if(window.electron) {
-        window.BinaryBoot.appId = 1306;
+        defaultAppID = 1306;
       } else if (/localhost:/g.test(window.location.href)) {
-        window.BinaryBoot.appId = 3588;
+        defaultAppID = 3588;
       } else if (/arnabk.github.io:/g.test(window.location.href)) {
-        window.BinaryBoot.appId = 3604;
-      } else if (window.BinaryBoot.isBeta) {
-        window.BinaryBoot.appId = 4343; //This is for BETA release
+        defaultAppID = 3604;
+      } else if (/beta/g.test(window.location.href)) {
+        defaultAppID = 4343; //This is for BETA release
       }
-      localStorage.setItem('config.default_app_id', window.BinaryBoot.appId);
-      return window.BinaryBoot.appId;
+      localStorage.setItem('config.default_app_id', defaultAppID);
+      return defaultAppID;
     };
 
   const getAppId = () =>
