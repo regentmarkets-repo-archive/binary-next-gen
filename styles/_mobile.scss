@@ -29,6 +29,10 @@
     flex-direction: column;
     width: 100%;
 
+    .trade-panel .chart-dialog {
+        min-height: 23em;
+    }
+
     .asset-picker-filter .tooltip {
         position: relative;
     }
@@ -91,9 +95,10 @@
     .trade-params {
         display: flex;
         margin-top: 0.5em;
+        margin-bottom: 0.5em;
         flex-direction: column;
         flex-wrap: nowrap;
-        min-height: 16em;
+        min-height: 21em;
 
         .duration-input {
             .numeric-input {
@@ -162,6 +167,10 @@
     tbody tr {
         cursor: pointer;
     }
+
+    .asset-picker-filter [role=tab]:nth-child(7) .tooltip {
+        margin-left: -0.8em;
+    }
 }
 
 .inverse .mobile-page {
@@ -188,6 +197,7 @@
     height: 3.5em;
     display: flex;
     width: 100%;
+    z-index: 1000;
 }
 
 .mobile-back-btn {

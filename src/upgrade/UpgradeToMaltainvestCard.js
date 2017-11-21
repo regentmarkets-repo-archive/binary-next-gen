@@ -130,7 +130,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
       });
       const response = await api.createRealAccountMaltaInvest(createAccountParams);
       storage.setItem('account', JSON.stringify({ token: response.new_account_maltainvest.oauth_token }));
-      window.location = window.BinaryBoot.redirectUrl;
+      window.location = window.BinaryBoot.baseUrl;
     } catch (e) {
       this.setState({ serverError: e.error.error.message });
     } finally {
