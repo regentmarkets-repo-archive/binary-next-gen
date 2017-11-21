@@ -26,25 +26,34 @@ export default class SettingsUserInformation extends PureComponent {
 
 	constructor(props) {
 		super(props);
-
+		const formData = this.getFormData(props);
 		this.state = {
-			formData: {
-				address_line_1: props.address_line_1,
-				address_line_2: props.address_line_2,
-				address_city: props.address_city,
-				address_state: props.address_state,
-				address_postcode: props.address_postcode,
-				phone: props.phone,
-				account_opening_reason: props.account_opening_reason,
-				tax_residence: props.tax_residence,
-				tax_identification_number: props.tax_identification_number
-			},
+			formData,
 			errors: {},
 			hasError: false
 		};
 
 		this.constraints = getConstraints(this.props);
     this.validationMan = new ValidationManager(this.constraints);
+	}
+
+	getFormData(props) {
+		return {
+			address_line_1: props.address_line_1,
+			address_line_2: props.address_line_2,
+			address_city: props.address_city,
+			address_state: props.address_state,
+			address_postcode: props.address_postcode,
+			phone: props.phone,
+			account_opening_reason: props.account_opening_reason,
+			tax_residence: props.tax_residence,
+			tax_identification_number: props.tax_identification_number
+		};
+	}
+
+	componentWillReceiveProps(nextProps) {
+		const formData = this.getFormData(nextProps);
+		this.setState({ formData });
 	}
 
   onEntryChange = (e: SyntheticEvent) => {
