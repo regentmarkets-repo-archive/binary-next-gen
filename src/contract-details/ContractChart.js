@@ -84,6 +84,8 @@ export default class ContractChart extends Component {
 
     this.chart.drawn().then(() => {
       $(this.barspinner).hide();
+      $(this.root).find('.chartSubContainerHeader').css('height', 0).hide();
+      this.chart.actions.reflow();
     });
 
     this.chart.done().then(() => {

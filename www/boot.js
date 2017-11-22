@@ -14,6 +14,38 @@
         accounts: []
     };
 
+    function getDefaultAppId() {
+        var defaultAppID;
+        if(window.cordova) {
+          defaultAppID = 1006;
+        } else if(window.electron) {
+          defaultAppID = 1306;
+        } else if (/localhost:/g.test(window.location.href)) {
+          defaultAppID = 3588;
+        } else if (/arnabk.github.io:/g.test(window.location.href)) {
+          defaultAppID = 3604;
+        } else if (/beta/g.test(window.location.href)) {
+          defaultAppID = 4343; //This is for BETA release
+        } else {
+          defaultAppID = 1001; //This is for PROD release
+        }
+        localStorage.setItem('config.default_app_id', defaultAppID);
+        return defaultAppID;
+    };
+
+    function getAppId() {
+      return window.localStorage.getItem('config.app_id') || getDefaultAppId();
+    }
+
+    function getSocketURL () {
+        var server_url = window.localStorage.getItem('config.server_url');
+        if (!server_url) {
+            var server = 'frontend';
+            server_url = server + '.binaryws.com';
+        }
+        return 'wss://' + server_url + '/websockets/v3';
+    };
+
     function parseOAuthResponse(responseUrl) {
         var urlParts = responseUrl.split('?');
         if (urlParts.length !== 2) {
@@ -67,19 +99,6 @@
     window.BinaryBoot.parseUrl = parseOAuthResponse;
     window.BinaryBoot.isBeta = /beta/g.test(window.location.href);
     window.BinaryBoot.baseUrl = window.BinaryBoot.isBeta ? '/beta' : '/';
-    if(window.cordova) {
-        window.BinaryBoot.appId = 1006;
-    } else if(window.electron) {
-        window.BinaryBoot.appId = 1306;
-    } else if (/localhost:/g.test(window.location.href)) {
-        window.BinaryBoot.appId = 3588;
-    } else if (/arnabk.github.io:/g.test(window.location.href)) {
-        window.BinaryBoot.appId = 3604;
-    } else if (window.BinaryBoot.isBeta) {
-        window.BinaryBoot.appId = 4343; //This is for BETA release
-    } else {
-        window.BinaryBoot.appId = 1001; //This is for PROD release
-    }
     var lang = window.BinaryBoot.language;
 
     var redirectIndex = window.location.href.indexOf('?');
@@ -90,19 +109,12 @@
     window.BinaryBoot.oAuthUrl = defaultConfig.oAuthUrl;
     window.BinaryBoot.apiUrl = defaultConfig.apiUrl;
 
-    // window.BinaryBoot.apiUrl = 'wss://www.binaryqa07.com/websockets/v3';
-    // window.BinaryBoot.appId = 1004;
-    // window.BinaryBoot.oAuthUrl = 'https://www.binaryqa07.com/oauth2/authorize';
-
-    var testConfig = localStorage.getItem('test-config');
-    if(testConfig) {
-      try {
-        var config = JSON.parse(testConfig) || { };
-        window.BinaryBoot.appId = config.appId || window.BinaryBoot.appId;
-        window.BinaryBoot.apiUrl = config.apiUrl || window.BinaryBoot.apiUrl;
+    try {
+        // var config = JSON.parse(testConfig) || { };
+        window.BinaryBoot.appId = getAppId();
+        window.BinaryBoot.apiUrl = getSocketURL();
         window.BinaryBoot.oAuthUrl = config.oAuthUrl || window.BinaryBoot.oAuthUrl;
-      } catch (e) { }
-    }
+    } catch (e) { }
 
     window.BinaryBoot.connection = new WebSocket(window.BinaryBoot.apiUrl + '?app_id=' + window.BinaryBoot.appId + '&l=' + lang);
 })();
