@@ -32,7 +32,6 @@ export default class UpgradeToRealCard extends PureComponent {
 			errors: {},
 			formData: {
 				residence: props.country_code,
-				address_state: props.states[0]
 			}
 		};
 		this.constraints = getConstraints();
@@ -178,7 +177,7 @@ export default class UpgradeToRealCard extends PureComponent {
 						}
 						{errors.residence && <ErrorMsg text={errors.residence[0]} />}
 
-						<select id="address_state" onChange={this.onEntryChange} value={formData.address_state}>
+						<select id="address_state" onChange={this.onEntryChange} value={formData.address_state} defaultValue="">
 							<option value="" disabled>Address state</option>
 							{statesList.map(x => (
 								<option key={x.value} value={x.value}>{x.text}</option>
