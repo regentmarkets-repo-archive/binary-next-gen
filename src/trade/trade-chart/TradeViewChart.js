@@ -4,6 +4,14 @@ import $ from 'jquery';
 import 'binary-style/binary.isolated.css';
 import { actions } from '../../_store';
 
+(async () => {
+    this.wtcharts = await import(/* webpackChunkName: "webtrader-charts" */ 'webtrader-charts');
+    this.wtcharts.init({
+      appId: window.BinaryBoot.appId,
+      lang: window.BinaryBoot.language,
+      server: window.BinaryBoot.apiUrl
+    });
+})();
 type Props = {
   contractForChart: object,
   index: number,
@@ -67,11 +75,6 @@ export default class TradeViewChart extends Component {
 
   async componentDidMount() {
     this.wtcharts = await import(/* webpackChunkName: "webtrader-charts" */ 'webtrader-charts');
-    this.wtcharts.init({
-      appId: window.BinaryBoot.appId,
-      lang: window.BinaryBoot.language,
-      server: window.BinaryBoot.apiUrl
-    });
     const trade = this.props.tradeForChart.toJS();
     this.initChart(trade);
   }
