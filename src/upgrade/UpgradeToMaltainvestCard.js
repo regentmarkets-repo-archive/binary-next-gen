@@ -17,6 +17,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   props: {
+    account_opening_reason: string,
     residenceList: any[],
     country_code: string,
     loginid: string,
@@ -49,6 +50,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
       statesList: props.states,
       errors: {},
       formData: {
+        account_opening_reason: props.account_opening_reason,
         residence: props.country_code,
         tax_residence: props.tax_residence,
         tax_identification_number: props.tax_identification_number,
