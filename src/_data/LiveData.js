@@ -38,18 +38,6 @@ export const api = new ApiConstructor(bootConfig);
 const configForChart = Object.assign({ keepAlive: true }, bootConfig);
 delete configForChart.connection;
 
-const memoizedWebsocketConn = [
-    new ApiConstructor(configForChart),        // for contract chart
-    new ApiConstructor(configForChart),        // for first trade
-];
-
-export const chartApi = (n) => {
-    while (!memoizedWebsocketConn[n]) {
-        memoizedWebsocketConn.push(new ApiConstructor(configForChart));
-    }
-    return memoizedWebsocketConn[n];
-};
-
 export const changeLanguage = langCode => {
     api.changeLanguage(langCode);
     api.getActiveSymbolsFull();
