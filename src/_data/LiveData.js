@@ -1,7 +1,7 @@
 import { LiveApi } from 'binary-live-api';
 import { showError, timeLeftToNextRealityCheck, nowAsEpoch } from 'binary-utils';
 import * as actions from '../_actions';
-import { CHANGE_INFO_FOR_ASSET, UPDATE_SETTINGS_FIELD, SERVER_DATA_STATES } from '../_constants/ActionTypes';
+import { CHANGE_INFO_FOR_ASSET, SERVER_DATA_STATES } from '../_constants/ActionTypes';
 
 const handlers = {
     active_symbols: 'serverDataActiveSymbols',
@@ -169,7 +169,7 @@ const initAuthorized = async (authData, store) => {
     api.getPortfolio();
     api.getStatement({ description: 1, limit: 20 });
     api.getAccountSettings().then(msg => {
-      store.dispatch({ type: UPDATE_SETTINGS_FIELD, settings: msg });
+      actions.serverDataAccountSettings(msg);
       if (msg.get_settings.country_code) {
             api.getPaymentAgentsForCountry(msg.get_settings.country_code);
             api.getStatesForCountry(msg.get_settings.country_code).then(message => {

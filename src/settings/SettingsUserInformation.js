@@ -9,35 +9,25 @@ import ValidationManager from '../_utils/ValidationManager';
 export default class SettingsUserInformation extends PureComponent {
 
 	props: {
-		loginid: string,
-		address_line_1: string,
-		address_line_2: string,
-		address_city: string,
-		address_state: string,
-		country_code: string,
-		address_postcode: string,
-		phone: string,
+		settings: any[],
 		states: any[],
-		account_opening_reason: string,
-    residenceList: any[],
-    tax_residence: string,
-    tax_identification_number: string,
+		residenceList: any[],
 	};
 
 	constructor(props) {
 		super(props);
-
+		console.log(props);
 		this.state = {
 			formData: {
-				address_line_1: props.address_line_1,
-				address_line_2: props.address_line_2,
-				address_city: props.address_city,
-				address_state: props.address_state,
-				address_postcode: props.address_postcode,
-				phone: props.phone,
-				account_opening_reason: props.account_opening_reason,
-				tax_residence: props.tax_residence,
-				tax_identification_number: props.tax_identification_number
+				address_line_1: props.settings.address_line_1,
+				address_line_2: props.settings.address_line_2,
+				address_city: props.settings.address_city,
+				address_state: props.settings.address_state,
+				address_postcode: props.settings.address_postcode,
+				phone: props.settings.phone,
+				account_opening_reason: props.settings.account_opening_reason,
+				tax_residence: props.settings.tax_residence,
+				tax_identification_number: props.settings.tax_identification_number
 			},
 			errors: {},
 			hasError: false

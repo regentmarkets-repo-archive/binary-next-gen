@@ -5,17 +5,13 @@ import { Legend, LabeledText, Notice } from 'binary-components';
 export default class SettingsDetails extends PureComponent {
 
 	props: {
-		email: string,
-		salutation: string,
-		first_name: string,
-		last_name: string,
-		date_of_birth: number,
-		country: string,
+		settings: any[],
 		loginid: string,
 	};
 
 	render() {
-		const { email, salutation, first_name, last_name, date_of_birth, country, loginid } = this.props;
+		const { email, salutation, first_name, last_name, date_of_birth, country } = this.props.settings;
+		const { loginid } = this.props;
 		const fullName = first_name ? salutation + ' ' + first_name + ' ' + last_name : 'N/A';
 		const dob = date_of_birth ? epochToDateString(date_of_birth) : 'N/A';
 		const isVirtual = loginid.startsWith('VRTC');

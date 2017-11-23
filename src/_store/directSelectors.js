@@ -5,7 +5,7 @@ export const assetsSelector = state => state.assets;
 export const createAccountSelector = state => state.createAccount;
 export const digitStatsSelector = state => state.digitStats;
 export const paymentAgentSelector = state => state.paymentAgent;
-export const settingsSelector = state => state.settings;
+export const settingsSelector = state => state.settings.get('account_settings');
 export const ticksSelector = state => state.ticks;
 export const tradingTimesSelector = state => state.tradingTimes;
 export const transactionsSelector = state => state.transactions;

@@ -6,13 +6,7 @@ export default class SettingsPersonalDetails extends PureComponent {
 
 	props: {
 		loginid: string,
-    settings: object,
-    address_line_1: string,
-    address_line_2: string,
-    address_city: string,
-    address_state: string,
-    address_postcode: string,
-    phone: string,
+    settings: any[],
 	};
 
 	render() {

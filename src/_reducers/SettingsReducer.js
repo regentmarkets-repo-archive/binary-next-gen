@@ -5,13 +5,13 @@ import {
     SERVER_DATA_ACCOUNT_SELF_EXCLUSION,
     SERVER_DATA_CASHIER_LOCK,
     SERVER_DATA_ACCOUNT_SETTINGS,
-    UPDATE_SETTINGS_FIELD,
     REMOVE_PERSONAL_DATA,
     SERVER_DATA_CHANGE_PASSWORD,
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
     activeTab: 0,
+    account_settings: {}
 });
 
 export default (state = initialState, action) => {
@@ -29,10 +29,7 @@ export default (state = initialState, action) => {
             return state.set('cashier_password', action.serverResponse.cashier_password);
         }
         case SERVER_DATA_ACCOUNT_SETTINGS: {
-            return state.merge(action.serverResponse.get_settings);
-        }
-        case UPDATE_SETTINGS_FIELD: {
-            return state.merge(action.settings);
+            return state.set('account_settings', action.serverResponse.get_settings);
         }
         case SERVER_DATA_CHANGE_PASSWORD: {
             return state.set('change_password', action.serverResponse.change_password);
