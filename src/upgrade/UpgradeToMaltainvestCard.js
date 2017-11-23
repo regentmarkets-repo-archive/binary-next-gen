@@ -146,7 +146,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   render() {
     const { progress, serverError, formData, statesList, hasError, errors } = this.state;
     const { residenceList, loginid, boot } = this.props;
-    const language = boot.language ? boot.language : 'en';
+    const language = (boot.language || 'en').toLowerCase();
     const linkToTermsAndConditions = `https://www.binary.com/${language}/terms-and-conditions.html`;
     const taxResidenceList = residenceList.slice();
     taxResidenceList.filter(props => {

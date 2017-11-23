@@ -85,7 +85,7 @@ export default class UpgradeToRealCard extends PureComponent {
 		const { formData, progress, serverError, statesList, hasError, errors } = this.state;
 		const { residenceList, boot } = this.props;
 
-		const language = boot.language ? boot.language : 'en';
+		const language = (boot.language || 'en').toLowerCase();
 		const linkToTermsAndConditions = `https://www.binary.com/${language}/terms-and-conditions.html`;
 
 		return (
