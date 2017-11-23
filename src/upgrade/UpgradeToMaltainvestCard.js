@@ -17,6 +17,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   props: {
+    account_opening_reason: string,
     residenceList: any[],
     country_code: string,
     loginid: string,
@@ -49,6 +50,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
       statesList: props.states,
       errors: {},
       formData: {
+        account_opening_reason: props.account_opening_reason,
         residence: props.country_code,
         tax_residence: props.tax_residence,
         tax_identification_number: props.tax_identification_number,
@@ -115,7 +117,8 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
   performUpgrade = async () => {
     const loginid = this.props.loginid;
-    const { formData } = this.state;
+    // PEPDeclaration not required for upgrade; only verified in frontend.
+    const { PEPDeclaration, ...formData } = this.state.formData; // eslint-disable-line no-unused-vars
     let createAccountParams = formData;
     // if not VRTC, we do not need secret question
     if (!loginid.startsWith('VRTC')) {
@@ -143,7 +146,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   render() {
     const { progress, serverError, formData, statesList, hasError, errors } = this.state;
     const { residenceList, loginid, boot } = this.props;
-    const language = boot.language ? boot.language : 'en';
+    const language = (boot.language || 'en').toLowerCase();
     const linkToTermsAndConditions = `https://www.binary.com/${language}/terms-and-conditions.html`;
     const taxResidenceList = residenceList.slice();
     taxResidenceList.filter(props => {

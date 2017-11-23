@@ -51,6 +51,9 @@ export const getConstraints = (props) => {
     income_source: {
       presence: true,
     },
+    employment_status: {
+      presence: true,
+    },
     net_income: {
       presence: true,
     },
