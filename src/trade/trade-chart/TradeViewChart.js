@@ -50,6 +50,7 @@ export default class TradeViewChart extends Component {
       showOverlays: false,
       showShare: false,
       count: isMobile() ? 100 : 1000,
+      enableNavigator: !isMobile(),
       indicators: params.indicators,
       overlays: params.overlays,
       timezoneOffset: 0,
