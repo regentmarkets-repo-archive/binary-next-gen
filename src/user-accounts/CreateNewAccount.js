@@ -3,8 +3,6 @@ import { Th, SelectOptGroup, Button } from 'binary-components';
 import { store } from '../_store/persistentStore';
 import EmptySlate from '../containers/EmptySlate';
 import { updateUpgradeField } from '../_actions/UpgradeActions';
-import { getNextAccountTitle, getCurrenciesForNewAccount, filterMarkets } from '../_utils/Client';
-import activeMarkets from '../_constants/ActiveMarkets';
 
 export default class CreateNewAccount extends PureComponent {
   static contextTypes = {
@@ -13,13 +11,15 @@ export default class CreateNewAccount extends PureComponent {
 
   props : {
     upgradeInfo: object,
-    account: any[],
+    markets: any[],
+    currencyOptions: object,
+    nextAccountTitle: string,
   };
 
   constructor(props) {
     super(props);
     this.state = {
-      selected_currency: '',
+      selected_currency: props.currencyOptions[0].value || '',
     };
   }
 
@@ -33,23 +33,20 @@ export default class CreateNewAccount extends PureComponent {
   }
 
   render() {
-    const { upgradeInfo, account } = this.props;
-    const nextAccountTitle = getNextAccountTitle(upgradeInfo.typeOfNextAccount);
-    const currencyOptions = getCurrenciesForNewAccount(upgradeInfo.currencyOptions, account.currencies_config);
-    const markets = filterMarkets(upgradeInfo.allowedMarkets, activeMarkets);
+    const { upgradeInfo, nextAccountTitle, markets, currencyOptions } = this.props;
 
     return (
       <div className="create-new-account-card">
         <legend>
           Create New Account
         </legend>
-        {!upgradeInfo.canUpgrade &&
+        {upgradeInfo && !upgradeInfo.canUpgrade &&
           <EmptySlate
             img="img/info.svg"
             text="You have created all accounts available to you."
           />
         }
-        {upgradeInfo.canUpgrade &&
+        {upgradeInfo && upgradeInfo.canUpgrade &&
         <table>
           <thead>
           <tr>
