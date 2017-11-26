@@ -1,7 +1,6 @@
 import React, { PureComponent } from 'react';
-import { Th, SelectOptGroup, Button, ErrorMsg } from 'binary-components';
+import { Th, SelectOptGroup, Button, ErrorMsg, P } from 'binary-components';
 import { store } from '../_store/persistentStore';
-import EmptySlate from '../containers/EmptySlate';
 import { updateUpgradeField } from '../_actions/UpgradeActions';
 
 export default class CreateNewAccount extends PureComponent {
@@ -50,10 +49,7 @@ export default class CreateNewAccount extends PureComponent {
           Create New Account
         </legend>
         {upgradeInfo && !upgradeInfo.canUpgrade &&
-          <EmptySlate
-            img="img/info.svg"
-            text="You have created all accounts available to you."
-          />
+          <P text="You have created all accounts available to you." />
         }
         {upgradeInfo && upgradeInfo.canUpgrade &&
         <table>
