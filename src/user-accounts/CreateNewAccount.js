@@ -31,7 +31,7 @@ export default class CreateNewAccount extends PureComponent {
 
   onRedirectToAccountOpening = () => {
     this.setState({ currency_error: false });
-    if (this.props.account.currency && this.props.account.currency > 0) {
+    if (this.props.account.currency && this.props.account.currency !== '') {
       store.dispatch(updateUpgradeField('selected_currency', this.state.selected_currency));
       this.context.router.push('/upgrade');
     } else {
