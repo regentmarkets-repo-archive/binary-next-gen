@@ -22,4 +22,15 @@
   input[type=tel] {
     width: 100%;
   }
+
+  .radio-selector {
+    .radio-item {
+      padding: 10px;
+      label {
+        img {
+          float: left;
+        }
+      }
+    }
+  }
 }

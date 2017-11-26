@@ -20,7 +20,7 @@ export default class SetCurrencyCard extends PureComponent {
 
   render() {
     return (
-      <MobilePage toolbarShown={false} inverse>
+      <MobilePage toolbarShown={false}>
         <div className="header inverse">
           <BackButton onClick={this.goBack} />
         </div>
