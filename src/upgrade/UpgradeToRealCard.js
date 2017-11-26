@@ -41,7 +41,7 @@ export default class UpgradeToRealCard extends PureComponent {
 		this.validationMan = new ValidationManager(this.constraints);
 	}
 
-  componentWillUnmount() {
+	componentWillUnmount() {
     store.dispatch(updateUpgradeField('selected_currency', ''));
 	}
 
@@ -94,7 +94,6 @@ export default class UpgradeToRealCard extends PureComponent {
 	render() {
 		const { formData, progress, serverError, statesList, hasError, errors } = this.state;
 		const { residenceList, boot } = this.props;
-
 		const language = (boot.language || 'en').toLowerCase();
 		const linkToTermsAndConditions = `https://www.binary.com/${language}/terms-and-conditions.html`;
 

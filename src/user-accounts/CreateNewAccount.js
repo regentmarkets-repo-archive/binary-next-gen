@@ -70,7 +70,7 @@ export default class CreateNewAccount extends PureComponent {
                 id="selected_currency"
                 options={currencyOptions}
                 onChange={this.onCurrencyChange}
-                value={selected_currency || ''}
+                defaultValue={currencyOptions[0].value}
               />
             </td>
             <td>
