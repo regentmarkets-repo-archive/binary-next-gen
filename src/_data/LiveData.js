@@ -3,9 +3,9 @@ import { showError, timeLeftToNextRealityCheck, nowAsEpoch } from 'binary-utils'
 import * as actions from '../_actions';
 import {
   CHANGE_INFO_FOR_ASSET, UPDATE_SETTINGS_FIELD, SERVER_DATA_STATES,
-  UPDATE_UPGRADE_INFO
+  UPDATE_UPGRADE_INFO, SET_AVAILABLE_CURRENCIES
 } from '../_constants/ActionTypes';
-import { hasAccountOfType, landingCompanyValue, getExistingCurrencies, groupCurrencies } from '../_utils/Client';
+import { hasAccountOfType, landingCompanyValue, getExistingCurrencies, groupCurrencies, populateCurrencyOptions } from '../_utils/Client';
 
 const handlers = {
     active_symbols: 'serverDataActiveSymbols',
@@ -229,9 +229,12 @@ const initAuthorized = async (authData, store) => {
               const landingCompany = message.landing_company;
               store.dispatch(actions.updateLandingCompany(landingCompany));
               const loginid = authData.authorize.loginid;
+              const account = state.account;
               const accounts = state.boot.get('accounts').toJS();
               const currencyConfig = state.account.get('currencies_config').toJS();
               const upgradeInfo = getUpgradeInfo(landingCompany, loginid, accounts, currencyConfig);
+              const available_currencies = populateCurrencyOptions(account, loginid, accounts, landingCompany, currencyConfig);
+              store.dispatch({ type: SET_AVAILABLE_CURRENCIES, available_currencies });
               store.dispatch({ type: UPDATE_UPGRADE_INFO, upgradeInfo });
             });
         }

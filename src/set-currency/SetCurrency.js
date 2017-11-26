@@ -2,14 +2,10 @@ import React, { PureComponent } from 'react';
 import { RadioGroup, Button, Legend, P, ServerErrorMsg, LogoSpinner } from 'binary-components';
 import { api } from '../_data/LiveData';
 import storage from '../_store/storage';
-import { getExistingCurrencies, landingCompanyValue, groupCurrencies } from '../_utils/Client';
-import cryptoCurrencyConfig from '../_constants/CryptoCurrencyConfig';
 
 export default class SetCurrencyCard extends PureComponent {
   props: {
-    accounts: object,
     account: object,
-    loginid: string,
   };
 
   constructor(props) {
@@ -20,48 +16,6 @@ export default class SetCurrencyCard extends PureComponent {
       serverError: false,
     };
   }
-
-  getCurrencyOptions = (loginid, landingCompany, accounts, currencyConfig) => {
-    let legalAllowedCurrencies = {};
-    if (loginid && landingCompany && accounts && currencyConfig) {
-      legalAllowedCurrencies = landingCompanyValue(loginid, 'legal_allowed_currencies', landingCompany);
-      if (/CR/i.test(loginid)) {
-        const existingCurrencies = getExistingCurrencies(accounts);
-        if (existingCurrencies.length) {
-          const dividedExistingCurrencies = groupCurrencies(existingCurrencies, currencyConfig);
-          const hasFiat = dividedExistingCurrencies.fiatCurrencies.length > 0;
-          if (hasFiat) {
-            const legalAllowedCryptoCurrencies =
-              groupCurrencies(legalAllowedCurrencies).cryptoCurrencies;
-            const existingCryptoCurrencies = dividedExistingCurrencies.cryptoCurrencies;
-            return legalAllowedCryptoCurrencies.filter(x => existingCryptoCurrencies.indexOf(x) === -1);
-          }
-          return legalAllowedCurrencies.filter(x => existingCurrencies.index(x) === -1);
-        }
-        return legalAllowedCurrencies;
-      }
-    }
-    return legalAllowedCurrencies;
-  }
-
-  populateOptions = (options, currencyConfig, cryptoConfig) => {
-    const currencyOptions = [];
-    if (options && currencyConfig && cryptoConfig) {
-      options.forEach(curr => {
-        const currency = currencyConfig[curr];
-        const isCryptoCurrency = /crypto/i.test(currencyConfig[curr].type);
-        currency.text = curr;
-        currency.value = curr;
-        currency.group = currency.isCryptoCurrency ? 'cryptoCurrency' : 'fiatCurrency';
-        currency.img = `/img/${curr.toLowerCase()}.svg`;
-        if (isCryptoCurrency) {
-          currency.name = cryptoConfig[curr].name;
-        }
-        currencyOptions.push(currencyConfig[curr]);
-      });
-    }
-    return currencyOptions;
-  };
 
   setCurrency = (e: SyntheticEvent) => {
     this.setState({ selected_currency: e.target.value });
@@ -90,11 +44,9 @@ export default class SetCurrencyCard extends PureComponent {
   }
 
   render() {
-    const { accounts, loginid, account } = this.props;
     const { progress, serverError } = this.state;
-    const currencyOptions =
-      this.populateOptions(this.getCurrencyOptions(loginid, account.landing_company, accounts, account.currencies_config),
-        account.currencies_config, cryptoCurrencyConfig, cryptoCurrencyConfig);
+    const { account } = this.props;
+    const currencyOptions = account.available_currencies;
 
     return (
       <div className="set-currency-card">

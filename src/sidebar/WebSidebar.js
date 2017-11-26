@@ -7,8 +7,7 @@ import { signOut } from '../_data/Auth';
 type Account = {
 	account: string,
 	token: string,
-  multi: boolean,
-  canUpgrade: boolean,
+	upgradeInfo: object,
 };
 
 @connect(state => ({ landingCompany: state.boot.toJS().landingCompany }))

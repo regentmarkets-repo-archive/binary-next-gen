@@ -8,12 +8,12 @@ export default class AccountItemsList extends PureComponent {
 		loginid: string,
 		accounts: Account[],
     landingCompany: object,
-    multi: boolean,
-    canUpgrade: boolean,
+    upgradeInfo: object,
 	};
 
 	render() {
-    const { loginid, accounts, canUpgrade, multi } = this.props;
+    const { loginid, accounts } = this.props;
+    const { canUpgrade, multi } = this.props.upgradeInfo;
 
     return (
 			<div className="account-items-list">

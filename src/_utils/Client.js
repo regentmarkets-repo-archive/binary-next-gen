@@ -1,3 +1,5 @@
+import cryptoCurrencyConfig from '../_constants/CryptoCurrencyConfig';
+
 export const getAllLoginids = (accounts) => {
   const allLoginids = [];
   if (accounts) {
@@ -64,7 +66,7 @@ export const getNextAccountTitle = (typeOfNextAccount) => {
 
 export const getExistingCurrencies = (accounts) => {
   const accountsArray = Object.values(accounts);
-  const currencies = (accountsArray.filter(account => !/VR/i.test(account.id) && account.currency.length > 0)).map(account => account.currency);
+  const currencies = (accountsArray.filter(account => !/VR/i.test(account.account) && account.currency.length > 0)).map(account => account.currency);
 
   return currencies;
 };
@@ -131,4 +133,42 @@ export const getExistingAccounts = (allAccounts, landingCompany, loginid, active
     });
   }
   return existingAccounts;
+};
+
+const getCurrencyOptions = (loginid, landingCompany, accounts, currencyConfig) => {
+    const legalAllowedCurrencies = landingCompanyValue(loginid, 'legal_allowed_currencies', landingCompany);
+    if (/CR/i.test(loginid)) {
+      const existingCurrencies = getExistingCurrencies(accounts);
+      if (existingCurrencies.length) {
+        const dividedExistingCurrencies = groupCurrencies(existingCurrencies, currencyConfig);
+        const hasFiat = dividedExistingCurrencies.fiatCurrencies.length > 0;
+        if (hasFiat) {
+          const legalAllowedCryptoCurrencies =
+            groupCurrencies(legalAllowedCurrencies).cryptoCurrencies;
+          const existingCryptoCurrencies = dividedExistingCurrencies.cryptoCurrencies;
+          return legalAllowedCryptoCurrencies.filter(x => existingCryptoCurrencies.indexOf(x) === -1);
+        }
+        return legalAllowedCurrencies.filter(x => existingCurrencies.index(x) === -1);
+      }
+      return legalAllowedCurrencies;
+    }
+  return legalAllowedCurrencies;
+};
+
+export const populateCurrencyOptions = (account, loginid, accounts, landingCompany, currencyConfig) => {
+  const options = getCurrencyOptions(loginid, landingCompany, accounts, currencyConfig);
+  const currencyOptions = [];
+    options.forEach(curr => {
+      const currency = currencyConfig[curr];
+      const isCryptoCurrency = /crypto/i.test(currencyConfig[curr].type);
+      currency.text = curr;
+      currency.value = curr;
+      currency.group = currency.isCryptoCurrency ? 'cryptoCurrency' : 'fiatCurrency';
+      currency.img = `/img/${curr.toLowerCase()}.svg`;
+      if (isCryptoCurrency) {
+        currency.name = cryptoCurrencyConfig[curr].name;
+      }
+      currencyOptions.push(currencyConfig[curr]);
+    });
+  return currencyOptions;
 };

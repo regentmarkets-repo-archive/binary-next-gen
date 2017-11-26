@@ -1,13 +1,14 @@
 import { fromJS } from 'immutable';
 import {
-    SERVER_DATA_AUTHORIZE,
-    SERVER_DATA_BALANCE,
-    SERVER_DATA_PAYOUT_CURRENCIES,
-    SERVER_DATA_BUY,
-    UPDATE_TOKEN,
-    REMOVE_PERSONAL_DATA,
-    SERVER_DATA_WEBSITE_STATUS,
-    UPDATE_LANDING_COMPANY
+  SERVER_DATA_AUTHORIZE,
+  SERVER_DATA_BALANCE,
+  SERVER_DATA_PAYOUT_CURRENCIES,
+  SERVER_DATA_BUY,
+  UPDATE_TOKEN,
+  REMOVE_PERSONAL_DATA,
+  SERVER_DATA_WEBSITE_STATUS,
+  UPDATE_LANDING_COMPANY,
+  SET_AVAILABLE_CURRENCIES
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
@@ -17,7 +18,8 @@ const initialState = fromJS({
     token: '',
     currency: 'USD',
     currencies: ['USD'],
-    currencies_config: { } // "USD": { "fractional_digits": 2, "stake_default": 0.35, "type": "fiat" }
+    currencies_config: { }, // "USD": { "fractional_digits": 2, "stake_default": 0.35, "type": "fiat" }
+    available_currencies: { }
 });
 
 export default (state = initialState, action) => {
@@ -52,6 +54,9 @@ export default (state = initialState, action) => {
         }
         case UPDATE_LANDING_COMPANY: {
             return state.set('landing_company', action.landing_company);
+        }
+        case SET_AVAILABLE_CURRENCIES: {
+            return state.set('available_currencies', action.available_currencies);
         }
         default:
             return state;

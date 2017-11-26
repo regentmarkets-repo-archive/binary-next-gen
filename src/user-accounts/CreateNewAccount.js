@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Th, SelectOptGroup, Button } from 'binary-components';
+import { Th, SelectOptGroup, Button, ErrorMsg } from 'binary-components';
 import { store } from '../_store/persistentStore';
 import EmptySlate from '../containers/EmptySlate';
 import { updateUpgradeField } from '../_actions/UpgradeActions';
@@ -14,28 +14,35 @@ export default class CreateNewAccount extends PureComponent {
     markets: any[],
     currencyOptions: object,
     nextAccountTitle: string,
+    account: object,
+    loginid: string,
   };
 
   constructor(props) {
     super(props);
     this.state = {
       selected_currency: '',
+      currency_error: false,
     };
   }
-
 
   onCurrencyChange = (e: SyntheticEvent) => {
     this.setState({ [e.target.id]: e.target.value });
   }
 
   onRedirectToAccountOpening = () => {
-    store.dispatch(updateUpgradeField('selected_currency', this.state.selected_currency));
-    this.context.router.push('/upgrade');
+    this.setState({ currency_error: false });
+    if (this.props.account.currency && this.props.account.currency > 0) {
+      store.dispatch(updateUpgradeField('selected_currency', this.state.selected_currency));
+      this.context.router.push('/upgrade');
+    } else {
+      this.setState({ currency_error: true });
+    }
   }
 
   render() {
-    const { upgradeInfo, nextAccountTitle, markets, currencyOptions } = this.props;
-    const { selected_currency } = this.state;
+    const { upgradeInfo, nextAccountTitle, markets, currencyOptions, loginid } = this.props;
+    const { selected_currency, currency_error } = this.state;
 
     return (
       <div className="create-new-account-card">
@@ -77,6 +84,7 @@ export default class CreateNewAccount extends PureComponent {
           </tbody>
         </table>
         }
+        {currency_error && <ErrorMsg text={`Please set the currency for your existing account ${loginid}, in order to create more accounts.`} />}
       </div>
     );
   }

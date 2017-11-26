@@ -9,7 +9,6 @@ type Props = {
   loginid: string,
   account: any[],
   accounts: any[],
-  landingCompany: object,
 };
 
 export default class UserAccountsCard extends PureComponent {
@@ -24,7 +23,7 @@ export default class UserAccountsCard extends PureComponent {
 
     return (
       <div className="user-accounts-card">
-        <CreateNewAccount upgradeInfo={upgradeInfo} nextAccountTitle={nextAccountTitle} currencyOptions={currencyOptions} markets={markets} />
+        <CreateNewAccount loginid={loginid} account={account} upgradeInfo={upgradeInfo} nextAccountTitle={nextAccountTitle} currencyOptions={currencyOptions} markets={markets} />
         <ExistingAccounts loginid={loginid} existingAccounts={existingAccounts} />
       </div>
     );

@@ -7,7 +7,6 @@ export default createSelector(
         loginid: currentAccount.get('loginid'),
         email: currentAccount.get('email'),
         accounts: boot.get('accounts'),
-        multi: upgradeInfo.get('multi'),
-        canUpgrade: upgradeInfo.get('canUpgrade')
+        upgradeInfo,
     })
 );
