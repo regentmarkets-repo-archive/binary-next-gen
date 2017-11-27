@@ -25,6 +25,20 @@ yarn test
 
 Once your changes have been merged to `dev`, it will immediately deployed to app.binary.com/beta.
 
+## Change Endpoint
+
+If you are a QA engineer, what you may want to do is change the endpoint. You can do this by executing the following code in the developer console (where `www.binaryqa37.com` is your endpoint and `1003` is your appId):
+
+```
+setLocalEndpoint("www.binaryqa37.com", "1003")
+```
+
+To reset the endpoint to default values, execute:
+
+```
+resetLocalEndpoint()
+```
+
 ## Deploy to Your Personal Github Pages
 
 There may be cases when you want to visit your webapp on devices other than your development environment. To do this you can deploy on your personal github.io project page. 
