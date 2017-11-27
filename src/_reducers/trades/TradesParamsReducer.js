@@ -35,7 +35,7 @@ const getAmountDefault = account => {
   if (!account) {
     return defaultParams.amountDefault;
   }
-  const currency = account.get('currency');
+  const currency = account.get('currency') || 'USD';
   const currencies_config = account.get('currencies_config');
 
   const configMap = currencies_config.get(currency);
