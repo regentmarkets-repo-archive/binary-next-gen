@@ -4,11 +4,13 @@ import {
   M, InputGroup, SelectGroup, LogoSpinner, Legend, Button,
   ErrorMsg, ServerErrorMsg, Countries, MultiSelectGroup
 } from 'binary-components';
-import { api } from '../_data/LiveData';
+import { api, setAccountCurrency } from '../_data/LiveData';
 import options from './UpgradeCard.options';
 import { getConstraints } from './UpgradeToMaltainvestCard.validation.config';
 import ValidationManager from '../_utils/ValidationManager';
 import { addNewAccount } from '../_utils/AccountHelpers';
+import { store } from '../_store/persistentStore';
+import { updateUpgradeField } from '../_actions/UpgradeActions';
 
 export default class UpgradeToMaltainvestCard extends PureComponent {
 
@@ -75,6 +77,10 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
     this.validationMan = new ValidationManager(this.constraints);
   }
 
+  componentWillUnmount() {
+    store.dispatch(updateUpgradeField('selected_currency', ''));
+  }
+
   onEntryChange = (e: SyntheticEvent) => {
     const s = this.validationMan.validateFieldAndGetNewState(e, this.state.formData);
 		this.setState({ ...s, hasError: false });
@@ -134,8 +140,8 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
       });
       const response = await api.createRealAccountMaltaInvest(createAccountParams);
       addNewAccount(response.new_account_maltainvest);
-      if (this.props.selectedCurrency && this.props.selectedCurrency !== '') {
-        api.setAccountCurrency(this.props.selectedCurrency);
+      if (selectedCurrency && selectedCurrency !== '') {
+        setAccountCurrency(selectedCurrency, store);
       }
       window.location = window.BinaryBoot.baseUrl;
     } catch (e) {

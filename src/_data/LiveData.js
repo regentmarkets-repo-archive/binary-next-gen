@@ -6,6 +6,7 @@ import {
   UPDATE_UPGRADE_INFO, SET_AVAILABLE_CURRENCIES
 } from '../_constants/ActionTypes';
 import { hasAccountOfType, landingCompanyValue, getExistingCurrencies, groupCurrencies, populateCurrencyOptions } from '../_utils/Client';
+import { addCurrencyToAccount } from '../_utils/AccountHelpers';
 
 const handlers = {
     active_symbols: 'serverDataActiveSymbols',
@@ -47,21 +48,6 @@ export const changeLanguage = langCode => {
     api.getActiveSymbolsFull();
     api.getAssetIndex();
     api.getTradingTimes(new Date());
-};
-
-export const setAccountCurrency = currency => {
-  api.setAccountCurrency(currency).then(r => {
-      if (r.set_account_currency === 1) {
-        let accounts = state.boot.get('accounts').toJS();
-        const loginid = authData.authorize.loginid;
-        accounts = accounts.map(acc => {
-          if (acc.account === loginid) acc.currency = currency;
-          return acc;
-        });
-        store.dispatch(actions.updateBoot('accounts', accounts));
-      }
-    }
-  );
 };
 
 export const getTickHistory = async (symbol) => {
@@ -240,7 +226,7 @@ const initAuthorized = async (authData, store) => {
               const landingCompany = message.landing_company;
               store.dispatch(actions.updateLandingCompany(landingCompany));
               const loginid = authData.authorize.loginid;
-              const account = state.account;
+              const account = state.account.toJS();
               const accounts = state.boot.get('accounts').toJS();
               const currencyConfig = state.account.get('currencies_config').toJS();
               const upgradeInfo = getUpgradeInfo(landingCompany, loginid, accounts, currencyConfig);
@@ -266,6 +252,18 @@ const initAuthorized = async (authData, store) => {
 export const trackSymbols = symbols => {
     api.unsubscribeFromAllTicks();
     api.subscribeToTicks(symbols);
+};
+
+export const setAccountCurrency = (currency, store) => {
+  const state = store.getState();
+  api.setAccountCurrency(currency).then(r => {
+      if (r.set_account_currency === 1) {
+        const loginid = state.account.toJS().loginid;
+        addCurrencyToAccount(currency, loginid);
+       window.location = window.BinaryBoot.baseUrl;
+      }
+    }
+  );
 };
 
 export const connect = async store => {
