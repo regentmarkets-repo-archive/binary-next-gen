@@ -1,6 +1,6 @@
-Hash: 8b69e2a5c90b080b2e69
+Hash: d2c979434b5b5abdbcf8
 Version: webpack 3.8.1
-Time: 71433ms
+Time: 98382ms
                          Asset      Size  Chunks                    Chunk Names
     webtrader-charts.bundle.js    906 kB       0  [emitted]  [big]  webtrader-charts
                         app.js   1.64 MB       1  [emitted]  [big]  app
@@ -12,7 +12,7 @@ webtrader-charts.bundle.js.map   2.73 MB       0  [emitted]         webtrader-ch
   [69] (webpack)/buildin/module.js 495 bytes {1} [built]
  [106] ./src/layouts/layouts.css 917 bytes {1} [built]
  [215] (webpack)/buildin/amd-define.js 85 bytes {1} [built]
- [229] ./src/index.js + 447 modules 1.06 MB {1} [built]
+ [229] ./src/index.js + 448 modules 1.06 MB {1} [built]
  [591] ./node_modules/moment/locale ^$ 160 bytes {1} [optional] [built]
  [641] ./www/img/favorites.svg 1.03 kB {1} [built]
  [642] ./www/img/open.svg 2.9 kB {1} [built]
