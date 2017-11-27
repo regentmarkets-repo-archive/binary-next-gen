@@ -2,8 +2,8 @@ import React, { PureComponent } from 'react';
 import { Notice, Button, Countries, ErrorMsg, ServerErrorMsg, InputGroup, LogoSpinner } from 'binary-components';
 import { isValidPassword } from 'binary-utils';
 import { api } from '../_data/LiveData';
-import storage from '../_store/storage';
 import { actions } from '../_store';
+import { addNewAccount } from '../_utils/AccountHelpers';
 import config from '../config';
 
 type Props = {
@@ -69,7 +69,7 @@ export default class CrateAccountCard extends PureComponent {
                 // utm_medium,
                 // utm_campaign,
             });
-            storage.setItem('account', JSON.stringify({ token: response.new_account_virtual.oauth_token }));
+            addNewAccount(response.new_account_virtual);
             // use react router because we want hash history in mobile
             this.context.router.push('/');
             window.location.reload();
