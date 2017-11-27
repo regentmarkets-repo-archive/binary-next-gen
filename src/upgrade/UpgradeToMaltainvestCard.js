@@ -5,10 +5,10 @@ import {
   ErrorMsg, ServerErrorMsg, Countries, MultiSelectGroup
 } from 'binary-components';
 import { api } from '../_data/LiveData';
-import storage from '../_store/storage';
 import options from './UpgradeCard.options';
 import { getConstraints } from './UpgradeToMaltainvestCard.validation.config';
 import ValidationManager from '../_utils/ValidationManager';
+import { addNewAccount } from '../_utils/AccountHelpers';
 
 export default class UpgradeToMaltainvestCard extends PureComponent {
 
@@ -132,7 +132,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
         serverError: false,
       });
       const response = await api.createRealAccountMaltaInvest(createAccountParams);
-      storage.setItem('account', JSON.stringify({ token: response.new_account_maltainvest.oauth_token }));
+      addNewAccount(response.new_account_maltainvest);
       window.location = window.BinaryBoot.baseUrl;
     } catch (e) {
       this.setState({ serverError: e.error.error.message });

@@ -4,10 +4,10 @@ import {
 	ErrorMsg, ServerErrorMsg, Countries
 } from 'binary-components';
 import { api } from '../_data/LiveData';
-import storage from '../_store/storage';
 import { getConstraints } from './UpgradeToRealCard.validation.config';
 import options from './UpgradeCard.options';
 import ValidationManager from '../_utils/ValidationManager';
+import { addNewAccount } from '../_utils/AccountHelpers';
 
 export default class UpgradeToRealCard extends PureComponent {
 
@@ -70,7 +70,7 @@ export default class UpgradeToRealCard extends PureComponent {
 				serverError: false,
 			});
 			const response = await api.createRealAccount(formData);
-			storage.setItem('account', JSON.stringify({ token: response.new_account_real.oauth_token }));
+			addNewAccount(response.new_account_real);
 			window.location = window.BinaryBoot.baseUrl;
 		} catch (e) {
 			this.setState({ serverError: e.error.error.message });
