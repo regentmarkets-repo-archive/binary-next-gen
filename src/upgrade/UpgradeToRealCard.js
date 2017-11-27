@@ -8,6 +8,8 @@ import { getConstraints } from './UpgradeToRealCard.validation.config';
 import options from './UpgradeCard.options';
 import ValidationManager from '../_utils/ValidationManager';
 import { addNewAccount } from '../_utils/AccountHelpers';
+import { store } from '../_store/persistentStore';
+import { updateUpgradeField } from '../_actions/UpgradeActions';
 
 export default class UpgradeToRealCard extends PureComponent {
 
@@ -33,11 +35,14 @@ export default class UpgradeToRealCard extends PureComponent {
 			errors: {},
 			formData: {
 				residence: props.country_code,
-				currency: props.selectedCurrency,
 			}
 		};
 		this.constraints = getConstraints();
 		this.validationMan = new ValidationManager(this.constraints);
+	}
+
+  componentWillUnmount() {
+    store.dispatch(updateUpgradeField('selected_currency', ''));
 	}
 
 	onEntryChange = (e: SyntheticEvent) => {
@@ -66,6 +71,9 @@ export default class UpgradeToRealCard extends PureComponent {
 	performUpgrade = async () => {
 		// PEPDeclaration and accept_risk are not required for upgrade
 		const { PEPDeclaration, accept_risk, ...formData } = this.state.formData; // eslint-disable-line no-unused-vars
+    if (this.props.selectedCurrency && this.props.selectedCurrency !== '') {
+      formData.currency = this.props.selectedCurrency;
+		}
 		try {
 			this.setState({
 				progress: true,
