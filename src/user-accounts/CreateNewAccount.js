@@ -19,9 +19,10 @@ export default class CreateNewAccount extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      selected_currency: props.currencyOptions[0].value || '',
+      selected_currency: '',
     };
   }
+
 
   onCurrencyChange = (e: SyntheticEvent) => {
     this.setState({ [e.target.id]: e.target.value });
@@ -34,6 +35,7 @@ export default class CreateNewAccount extends PureComponent {
 
   render() {
     const { upgradeInfo, nextAccountTitle, markets, currencyOptions } = this.props;
+    const { selected_currency } = this.state;
 
     return (
       <div className="create-new-account-card">
@@ -61,7 +63,12 @@ export default class CreateNewAccount extends PureComponent {
             <td> {nextAccountTitle} </td>
             <td> {markets} </td>
             <td>
-              <SelectOptGroup id="selected_currency" options={currencyOptions} onChange={this.onCurrencyChange} />
+              <SelectOptGroup
+                id="selected_currency"
+                options={currencyOptions}
+                onChange={this.onCurrencyChange}
+                value={selected_currency || ''}
+              />
             </td>
             <td>
               <Button text="Create" onClick={this.onRedirectToAccountOpening} />

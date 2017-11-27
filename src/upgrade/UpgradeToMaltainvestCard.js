@@ -17,6 +17,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   props: {
+    selectedCurrency: string,
     account_opening_reason: string,
     residenceList: any[],
     country_code: string,
@@ -38,7 +39,6 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
     secret_question: string,
     secret_answer: string,
     phone: string,
-    selectedCurrency: string,
   };
 
   constructor(props) {
@@ -68,7 +68,6 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
         secret_question: props.secret_question,
         secret_answer: props.secret_answer,
         phone: props.phone,
-        currency: props.selectedCurrency,
       }
     };
 
@@ -118,7 +117,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   performUpgrade = async () => {
-    const loginid = this.props.loginid;
+    const { loginid, selectedCurrency } = this.props;
     // PEPDeclaration not required for upgrade; only verified in frontend.
     const { PEPDeclaration, ...formData } = this.state.formData; // eslint-disable-line no-unused-vars
     let createAccountParams = formData;
@@ -148,7 +147,6 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   render() {
     const { progress, serverError, formData, statesList, hasError, errors } = this.state;
     const { residenceList, loginid, boot } = this.props;
-    console.log(formData.currency);
     const language = (boot.language || 'en').toLowerCase();
     const linkToTermsAndConditions = `https://www.binary.com/${language}/terms-and-conditions.html`;
     const taxResidenceList = residenceList.slice();

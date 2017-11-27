@@ -1,0 +1,25 @@
+.set-currency-card {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  margin: auto;
+  padding: 0.5rem;
+  width: 100%;
+  max-width: 420px;
+  overflow: scroll;
+
+  select {
+    width: 100%;
+    display: block;
+  }
+
+  legend {
+    margin-top: 0.5rem;
+  }
+
+  button,
+  input[type=text],
+  input[type=tel] {
+    width: 100%;
+  }
+}

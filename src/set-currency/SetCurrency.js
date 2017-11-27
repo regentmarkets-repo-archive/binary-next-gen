@@ -1,5 +1,7 @@
 import React, { PureComponent } from 'react';
-import { RadioGroup } from 'binary-components';
+import { RadioGroup, Button, Legend, P, ServerErrorMsg, LogoSpinner } from 'binary-components';
+import { api } from '../_data/LiveData';
+import storage from '../_store/storage';
 import { getExistingCurrencies, landingCompanyValue, groupCurrencies } from '../_utils/Client';
 import cryptoCurrencyConfig from '../_constants/CryptoCurrencyConfig';
 
@@ -13,7 +15,9 @@ export default class SetCurrencyCard extends PureComponent {
   constructor(props) {
     super(props);
     this.state = {
-      selected_currency: ''
+      selected_currency: '',
+      progress: false,
+      serverError: false,
     };
   }
 
@@ -63,8 +67,31 @@ export default class SetCurrencyCard extends PureComponent {
     this.setState({ selected_currency: e.target.value });
   };
 
+  submitCurrency = async () => {
+    const currency = this.state.selected_currency;
+    try {
+      this.setState({
+        progress: true,
+        serverError: false,
+      });
+      const response = await api.setAccountCurrency(currency);
+      const account = JSON.parse(storage.getItem('account'));
+      account.currency = response.set_account_currency;
+      storage.setItem('account', JSON.stringify(account));
+      window.location = window.BinaryBoot.baseUrl;
+    } catch (e) {
+      this.setState({ serverError: e.error.error.message });
+    } finally {
+      this.setState({
+        progress: false,
+      });
+    }
+    api.setAccountCurrency(this.state.selected_currency);
+  }
+
   render() {
     const { accounts, loginid, account } = this.props;
+    const { progress, serverError } = this.state;
     const currencyOptions =
       this.populateOptions(this.getCurrencyOptions(loginid, account.landing_company, accounts, account.currencies_config),
         account.currencies_config, cryptoCurrencyConfig, cryptoCurrencyConfig);
@@ -72,9 +99,14 @@ export default class SetCurrencyCard extends PureComponent {
     return (
       <div className="set-currency-card">
         <div className="full-logo">
+          <LogoSpinner spinning={progress} />
           <img className="logo-text" src="https://style.binary.com/images/logo/logotype_light.svg" alt="Logo" />
         </div>
-        <RadioGroup options={currencyOptions} onChange={this.setCurrency} name="currencyselect" />
+        {serverError && <ServerErrorMsg text={serverError} />}
+        <Legend text="Select currency" />
+        <P text="Please select the currency of this account:" />
+        <RadioGroup options={currencyOptions} onChange={this.setCurrency} />
+        <Button text="Confirm" disabled={progress} onClick={this.submitCurrency} />
       </div>
     );
   }

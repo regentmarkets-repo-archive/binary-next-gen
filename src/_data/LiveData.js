@@ -49,6 +49,10 @@ export const changeLanguage = langCode => {
     api.getTradingTimes(new Date());
 };
 
+export const setAccountCurrency = currency => {
+  api.setAccountCurrency(currency);
+};
+
 export const getTickHistory = async (symbol) => {
     try {
         await api.getTickHistory(symbol, { end: 'latest', count: 10, subscribe: 1, adjust_start_time: 1 });

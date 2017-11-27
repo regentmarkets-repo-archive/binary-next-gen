@@ -1,17 +1,14 @@
 import React, { PureComponent } from 'react';
 import { Th, Button } from 'binary-components';
-import { getExistingAccounts } from '../_utils/Client';
-import activeMarkets from '../_constants/ActiveMarkets';
 
 export default class ExistingAccounts extends PureComponent {
   static contextTypes = {
     router: () => undefined,
   };
 
-  props : {
+  props: {
     loginid: string,
-    account: any[],
-    accounts: any[],
+    existingAccounts: object,
   };
 
   onSelectCurrency = () => {
@@ -19,8 +16,7 @@ export default class ExistingAccounts extends PureComponent {
   }
 
   render() {
-    const { account, accounts, loginid } = this.props;
-    const existingAccounts = getExistingAccounts(accounts, account.landing_company, loginid, activeMarkets);
+    const { loginid, existingAccounts } = this.props;
 
     return (
       <div className="create-new-account-card">
@@ -43,7 +39,7 @@ export default class ExistingAccounts extends PureComponent {
                 <td>{a.type}</td>
                 <td>{a.availableMarkets}</td>
                 <td>
-                  {a.currency && <span>a.currency</span>}
+                  {a.currency && <span>{a.currency}</span>}
                   {!a.currency && (a.id !== loginid ? '-' : <Button text="select" onClick={this.onSelectCurrency} />) }
                 </td>
               </tr>
