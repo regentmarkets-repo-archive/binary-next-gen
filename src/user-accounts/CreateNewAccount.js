@@ -41,7 +41,7 @@ export default class CreateNewAccount extends PureComponent {
 
   render() {
     const { upgradeInfo, nextAccountTitle, markets, currencyOptions, loginid } = this.props;
-    const { selected_currency, currency_error } = this.state;
+    const { currency_error } = this.state;
 
     return (
       <div className="create-new-account-card">

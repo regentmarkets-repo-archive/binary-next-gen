@@ -144,7 +144,7 @@ const getCurrencyOptions = (loginid, landingCompany, accounts, currencyConfig) =
         const hasFiat = dividedExistingCurrencies.fiatCurrencies.length > 0;
         if (hasFiat) {
           const legalAllowedCryptoCurrencies =
-            groupCurrencies(legalAllowedCurrencies).cryptoCurrencies;
+            groupCurrencies(legalAllowedCurrencies, currencyConfig).cryptoCurrencies;
           const existingCryptoCurrencies = dividedExistingCurrencies.cryptoCurrencies;
           return legalAllowedCryptoCurrencies.filter(x => existingCryptoCurrencies.indexOf(x) === -1);
         }

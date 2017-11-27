@@ -134,6 +134,9 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
       });
       const response = await api.createRealAccountMaltaInvest(createAccountParams);
       addNewAccount(response.new_account_maltainvest);
+      if (this.props.selectedCurrency && this.props.selectedCurrency !== '') {
+        api.setAccountCurrency(this.props.selectedCurrency);
+      }
       window.location = window.BinaryBoot.baseUrl;
     } catch (e) {
       this.setState({ serverError: e.error.error.message });

@@ -23,12 +23,19 @@
     width: 100%;
   }
 
+  input[type=radio]:checked + label {
+    background: $COLOR_LIGHT_GRAY;
+    color: $COLOR_TEXT;
+  }
+
   .radio-selector {
+    background: $COLOR_BG;
     .radio-item {
       padding: 10px;
       label {
+        text-align: left;
         img {
-          float: left;
+          float: right;
         }
       }
     }

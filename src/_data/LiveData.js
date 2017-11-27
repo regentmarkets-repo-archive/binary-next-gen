@@ -50,7 +50,18 @@ export const changeLanguage = langCode => {
 };
 
 export const setAccountCurrency = currency => {
-  api.setAccountCurrency(currency);
+  api.setAccountCurrency(currency).then(r => {
+      if (r.set_account_currency === 1) {
+        let accounts = state.boot.get('accounts').toJS();
+        const loginid = authData.authorize.loginid;
+        accounts = accounts.map(acc => {
+          if (acc.account === loginid) acc.currency = currency;
+          return acc;
+        });
+        store.dispatch(actions.updateBoot('accounts', accounts));
+      }
+    }
+  );
 };
 
 export const getTickHistory = async (symbol) => {
