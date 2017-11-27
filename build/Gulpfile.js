@@ -111,8 +111,8 @@ gulp.task('deploy:test', ['build'], () =>
         .pipe(gulpIf(args.appId, modifyFile((content, path, file) => {
             if (/(boot.js$)/i.test(path)) {
                 return content.replace(
-                    'window.BinaryBoot.appId = 1001; //This is for PROD release',
-                    `window.BinaryBoot.appId = ${args.appId}; // This is injected by Gulp`
+                    'defaultAppID = 1001; //This is for PROD release',
+                    `defaultAppID = ${args.appId}; // This is injected by Gulp`
                 );
             }
             return content;
