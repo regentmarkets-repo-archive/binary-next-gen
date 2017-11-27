@@ -16,7 +16,7 @@ const initialState = fromJS({
     fullname: '',
     balance: 0,
     token: '',
-    currency: 'USD',
+    currency: '',
     currencies: ['USD'],
     currencies_config: { }, // "USD": { "fractional_digits": 2, "stake_default": 0.35, "type": "fiat" }
     available_currencies: { }
@@ -26,9 +26,6 @@ export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_AUTHORIZE: {
             const { authorize } = action.serverResponse;
-            if (authorize.currency === '') {
-                return state.merge(authorize).set('currency', 'USD');
-            }
             return state.merge(authorize);
         }
         case SERVER_DATA_BALANCE: {
