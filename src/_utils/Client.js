@@ -1,5 +1,6 @@
 import cryptoCurrencyConfig from '../_constants/CryptoCurrencyConfig';
 
+// get all loginids ** note: is going to be replaced by backend soon
 export const getAllLoginids = (accounts) => {
   const allLoginids = [];
   if (accounts) {
@@ -10,6 +11,7 @@ export const getAllLoginids = (accounts) => {
   return allLoginids;
 };
 
+// get the type of account from loginid with this function
 export const getAccountType = loginid => {
   let account_type;
   if (/VR/i.test(loginid)) account_type = 'virtual';
@@ -19,6 +21,7 @@ export const getAccountType = loginid => {
   return account_type;
 };
 
+// account is of type or not
 export const isAccountOfType = (type, loginid) => {
   const accountType = getAccountType(loginid);
   return (
@@ -27,14 +30,17 @@ export const isAccountOfType = (type, loginid) => {
     type === accountType);
 };
 
+// search through all loginids and return loginid of the account which has this type
 export const getAccountOfType = (type, accounts) => {
   const allLoginids = getAllLoginids(accounts);
   const id = allLoginids.find(loginid => isAccountOfType(type, loginid));
   return id;
 };
 
+// to check if user has account with this type
 export const hasAccountOfType = (type, accounts) => !!getAccountOfType(type, accounts);
 
+// to get values of keys we want from landingCompany object
 export const landingCompanyValue = (loginid, key, landingCompany) => {
   let landingCompanyOfAccount;
   const landingCompanyObject = landingCompany;
@@ -54,6 +60,7 @@ export const landingCompanyValue = (loginid, key, landingCompany) => {
   return (landingCompanyOfAccount || {})[key];
 };
 
+// for getting the title of next account user can upgrade to (Real, Financial)
 export const getNextAccountTitle = (typeOfNextAccount) => {
   let nextAccount;
   if (typeOfNextAccount === 'real') {
@@ -64,6 +71,7 @@ export const getNextAccountTitle = (typeOfNextAccount) => {
   return nextAccount;
 };
 
+// get the currencies user already has
 export const getExistingCurrencies = (accounts) => {
   const accountsArray = Object.values(accounts);
   const currencies = (accountsArray.filter(account => !/VR/i.test(account.account) && account.currency.length > 0)).map(account => account.currency);
@@ -71,6 +79,7 @@ export const getExistingCurrencies = (accounts) => {
   return currencies;
 };
 
+// divide currencies between fiat currency and cryptocurrency based on their type in currencies_config
 export const groupCurrencies = (currencies, currencyConfig) => {
   const cryptoCurrencies = [];
   const fiatCurrencies = [];
@@ -89,6 +98,8 @@ export const groupCurrencies = (currencies, currencyConfig) => {
   };
 };
 
+// for now we have some available markets and we have to filter user legalAllowedMarkets and return markets which are available
+// this is going to be fixed by BackEnd
 export const filterMarkets = (markets, activeMarkets) => {
   let availableMarkets = [];
   if (markets) {
@@ -102,6 +113,8 @@ export const filterMarkets = (markets, activeMarkets) => {
   return availableMarkets;
 };
 
+// for getting currencies available for next account user can upgrade to.
+// also group them in fiat currency and cryptocurrency to have optgroup select
 export const getCurrenciesForNewAccount = (currencies, currencyConfig) => {
   const currencyOptions = [];
   if (currencies) {
@@ -119,6 +132,8 @@ export const getCurrenciesForNewAccount = (currencies, currencyConfig) => {
   return currencyOptions;
 };
 
+// this function gives all account user has, with available markets, type of account, currency and loginid
+// for each of them.
 export const getExistingAccounts = (allAccounts, landingCompany, loginid, activeMarkets) => {
   const existingAccounts = [];
   if (allAccounts && landingCompany) {
@@ -135,6 +150,7 @@ export const getExistingAccounts = (allAccounts, landingCompany, loginid, active
   return existingAccounts;
 };
 
+// get the currencies user can select for this account,it's used in populateCurrencyOptions
 const getCurrencyOptions = (loginid, landingCompany, accounts, currencyConfig) => {
     const legalAllowedCurrencies = landingCompanyValue(loginid, 'legal_allowed_currencies', landingCompany);
     if (/CR/i.test(loginid)) {
@@ -148,13 +164,14 @@ const getCurrencyOptions = (loginid, landingCompany, accounts, currencyConfig) =
           const existingCryptoCurrencies = dividedExistingCurrencies.cryptoCurrencies;
           return legalAllowedCryptoCurrencies.filter(x => existingCryptoCurrencies.indexOf(x) === -1);
         }
-        return legalAllowedCurrencies.filter(x => existingCurrencies.index(x) === -1);
+        return legalAllowedCurrencies.filter(x => existingCurrencies.indexOf(x) === -1);
       }
       return legalAllowedCurrencies;
     }
   return legalAllowedCurrencies;
 };
 
+// populate currencies and image of currency user can select for account they are already loggedin with
 export const populateCurrencyOptions = (account, loginid, accounts, landingCompany, currencyConfig) => {
   const options = getCurrencyOptions(loginid, landingCompany, accounts, currencyConfig);
   const currencyOptions = [];
