@@ -77,6 +77,8 @@ export default class ContractChart extends Component {
       showOverlays: false, // default is true
       showShare: false, // default is true
       start: (purchase_time || date_start) - margin,
+      count: isMobile() ? 100 : 1000,
+      enableNavigator: !isMobile(),
       end: sell_time && +sell_time + margin || (exit_tick_time ? exit_tick_time + margin : 'latest'),
       hideCurrentPrice: true,
       // timezoneOffset: 0,
