@@ -29,34 +29,6 @@
     flex-direction: column;
     width: 100%;
 
-    $scroll-bar-height: 7px;
-
-    .highcharts-scrollbar-button {
-        fill: transparent;
-        stroke: transparent;
-        height: $scroll-bar-height;
-    }
-
-    .highcharts-scrollbar-arrow {
-        fill: transparent;
-    }
-
-    .highcharts-scrollbar-thumb {
-        height: $scroll-bar-height;
-        rx: $scroll-bar-height;
-        ry: $scroll-bar-height;
-    }
-
-    .highcharts-scrollbar-track {
-        height: $scroll-bar-height;
-        rx: $scroll-bar-height;
-        ry: $scroll-bar-height;
-    }
-
-    .highcharts-scrollbar-rifles {
-        stroke: transparent;
-    }
-
     .trade-panel .chart-dialog {
         min-height: 23em;
     }
