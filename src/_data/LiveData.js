@@ -163,7 +163,7 @@ const initAuthorized = async (authData, store) => {
         let typeOfNextAccount = 'real';
         let canUpgrade = false;
         let currencyOptions = landingCompany.gaming_company ? landingCompany.gaming_company.legal_allowed_currencies : {};
-        let allowedMarkets = {};
+        let allowedMarkets = landingCompany.gaming_company ? landingCompany.gaming_company.legal_allowed_markets : {};
         let multi = false;
         if (/VR/i.test(loginid)) {
             if (!landingCompany.gaming_company && landingCompany.financial_company.shortcode === 'maltainvest') {
