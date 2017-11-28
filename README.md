@@ -4,7 +4,9 @@
 [![Coverage Status](https://coveralls.io/repos/github/binary-com/binary-next-gen/badge.svg?branch=master)](https://coveralls.io/github/binary-com/binary-next-gen?branch=master)
 [![Code Climate](https://codeclimate.com/github/binary-com/binary-next-gen/badges/gpa.svg)](https://codeclimate.com/github/binary-com/binary-next-gen)
 
-This repository contains the source code for the Binary Next-Gen [webapp](https://app.binary.com/), [iOS app](https://itunes.apple.com/app/binary-com/id1134884301) and [Android app](https://play.google.com/store/apps/details?id=app.binary.com).
+This repository contains the source code for the Binary Next-Gen [webapp](https://app.binary.com/) and [Android app](https://play.google.com/store/apps/details?id=app.binary.com).
+
+> Note: As of Nov 2017, we no longer develop and publish the iOS version of next-gen, in accordance to App Store [Guideline 3.2.2 (viii)](https://developer.apple.com/app-store/review/guidelines/#unacceptable).
 
 ## Installation
 
