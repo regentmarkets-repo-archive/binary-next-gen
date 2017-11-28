@@ -8,7 +8,8 @@ import {
   REMOVE_PERSONAL_DATA,
   SERVER_DATA_WEBSITE_STATUS,
   UPDATE_LANDING_COMPANY,
-  SET_AVAILABLE_CURRENCIES
+  SET_AVAILABLE_CURRENCIES,
+  SET_DEFAULT_CURRENCY
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
@@ -19,7 +20,8 @@ const initialState = fromJS({
     currency: '',
     currencies: ['USD'],
     currencies_config: { }, // "USD": { "fractional_digits": 2, "stake_default": 0.35, "type": "fiat" }
-    available_currencies: { }
+    available_currencies: { },
+    default_currency: '',
 });
 
 export default (state = initialState, action) => {
@@ -54,6 +56,9 @@ export default (state = initialState, action) => {
         }
         case SET_AVAILABLE_CURRENCIES: {
             return state.set('available_currencies', action.available_currencies);
+        }
+        case SET_DEFAULT_CURRENCY: {
+            return state.set('default_currency', action.default_currency);
         }
         default:
             return state;

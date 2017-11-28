@@ -43,6 +43,9 @@ export const serverTimeDiffSelector = state =>
 export const currencySelector = state =>
     state.account.get('currency');
 
+export const defaultCurrencySelector = state =>
+    state.account.get('default_currency');
+
 export const transactionsFilterSelector = state =>
     state.views.get('transactionsFilter');
 

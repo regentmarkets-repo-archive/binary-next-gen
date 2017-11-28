@@ -38,3 +38,8 @@ export const setAvailableCurrencies = (available_currencies: Array) => ({
   type: types.SET_AVAILABLE_CURRENCIES,
   available_currencies,
 });
+
+export const setDefaultCurrency = (default_currency: string) => ({
+  type: types.SET_DEFAULT_CURRENCY,
+  default_currency,
+});
