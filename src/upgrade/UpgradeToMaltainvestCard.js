@@ -170,7 +170,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
                 options={options.salutationOptions}
                 value={formData.salutation || ''}
                 onChange={this.onEntryChange}
-                readOnly={this.props.salutation}
+                disabled={this.props.salutation}
             />
           </div>
           {errors.salutation && <ErrorMsg text={errors.salutation[0]} />}
