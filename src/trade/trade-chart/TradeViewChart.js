@@ -49,6 +49,7 @@ export default class TradeViewChart extends Component {
       showInstrumentName: true,
       showOverlays: false,
       showShare: false,
+      count: isMobile() ? 100 : 1000,
       enableMobileView: isMobile(),
       indicators: params.indicators,
       overlays: params.overlays,
