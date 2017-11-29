@@ -92,7 +92,7 @@
     "binary-utils": "^4.23.0",
     "classnames": "^2.2.5",
     "code-push": "^1.8.0-beta",
-    "cordova-android": "^6.3.0",
+    "cordova-android": "^6.4.0",
     "cordova-browser": "^5.0.1",
     "cordova-ios": "^4.5.2",
     "cordova-plugin-code-push": "^1.8.2-beta",
@@ -201,9 +201,9 @@
   },
   "cordova": {
     "platforms": [
-      "android",
       "browser",
-      "ios"
+      "ios",
+      "android"
     ],
     "plugins": {
       "cordova-plugin-code-push": {},

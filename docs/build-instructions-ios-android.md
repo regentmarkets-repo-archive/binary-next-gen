@@ -19,7 +19,13 @@ Now you can choose either to build for Android or iOS. Each of the following sec
 
 ## Android
 ### Setup
-If this is the first time you are building the app, add the android platform to Cordova:
+If this is the first time you are building the app, make sure you have gradle installed:
+
+```
+brew update && brew install gradle
+```
+ 
+Then add the android platform to Cordova:
 ```
 cordova platform add android
 ```
