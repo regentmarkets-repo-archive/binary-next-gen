@@ -165,7 +165,13 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
         <form onSubmit={this.onFormSubmit}>
           <Legend text="Personal Information" />
           <div className="input-row">
-            <SelectGroup id="salutation" options={options.salutationOptions} value={formData.salutation || ''} readOnly={this.props.salutation} />
+            <SelectGroup
+                id="salutation"
+                options={options.salutationOptions}
+                value={formData.salutation || ''}
+                onChange={this.onEntryChange}
+                readOnly={this.props.salutation}
+            />
           </div>
           {errors.salutation && <ErrorMsg text={errors.salutation[0]} />}
 
