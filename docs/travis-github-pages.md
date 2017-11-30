@@ -4,6 +4,8 @@ Unless you want to modify `.travis.yml`, it is simpler that you use the gulp dep
 
 If you are new to Travis, go through the [getting started guide](https://docs.travis-ci.com/user/getting-started/) first to setup Travis in your repository.
 
+> Note: only git pushes to `dev` and `master` will trigger travis build. You can change this in `branches:` inside `.travis.yml` (remember to revert when you send PR to production!).
+
 ## Disable Coveralls
 
 We use [Coveralls](https://coveralls.io/) for code coverage, but this will break your travis script if you run it anywhere other than in binary-com/binary-next-gen. You could sign up for an account and register your repository, but a simpler way is just to turn it off while you develop:
