@@ -14,7 +14,7 @@
     "test:unit-watch": "jest --watch",
     "test:coveralls": "cat ./coverage/lcov.info | ./node_modules/coveralls/bin/coveralls.js && rm -rf ./coverage",
     "start": "webpack-dev-server --open --config webpack.dev.js",
-    "clean": "rimraf dist",
+    "clean": "rm -rf dist",
     "build": "npm run clean && webpack --progress --config webpack.prod.js",
     "build:apk": "npm run build && cordova build --release android && jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore tick-trade-key.keystore ./platforms/android/build/outputs/apk/android-release-unsigned.apk TickTrade && ~/Library/Android/sdk/build-tools/25.0.0/zipalign -v 4 ./platforms/android/build/outputs/apk/android-release-unsigned.apk ./platforms/android/build/outputs/apk/android-release-aligned.apk",
     "build:android": "cordova build android",
