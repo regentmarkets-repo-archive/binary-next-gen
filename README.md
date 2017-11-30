@@ -25,7 +25,7 @@ yarn test
 ```
 > Note: When you send pull requests, remember to set the base branch to `dev`.
 
-Once your changes have been merged to `dev`, it will immediately deployed to app.binary.com/beta.
+Once your changes have been merged to `dev`, it will immediately deployed to [app.binary.com/beta](https://app.binary.com/beta), and a new prerelease will appear in the [github releases page](https://github.com/binary-com/binary-next-gen/releases).
 
 ## Change Endpoint
 
@@ -55,10 +55,13 @@ Replace `11108` above with your app id. If you do not have an app id, you can [r
 
 If the command executes successfully, the site will be hosted on `https://YOUR_USERNAME.github.io/binary-next-gen/`, where `YOUR_USERNAME` is your username. Note that if you login from there it will redirect you to `https://YOUR_USERNAME.github.io`. Just change the URL and your app will be up and running again.
 
+Alternatively (not recommended as it is quite complicated), you can [use travis to deploy your github pages](docs/travis-github-pages.md).
+
 ## Documentation
  * [Build Instructions for iOS and Android](docs/build-instructions-ios-android.md)
  * [Dealing with Translations](docs/translations.md)
  * [Development Tools](docs/development-tools.md)
+ * [Using Travis on Your Personal Github Page](docs/travis-github-pages.md)
  
 ## Legacy Documentation
 *Documentation listed in this section will be either updated or replaced in the future.*
