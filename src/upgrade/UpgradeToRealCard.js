@@ -278,7 +278,7 @@ export default class UpgradeToRealCard extends PureComponent {
 							<input
 								id="PEPDeclaration"
 								type="checkbox"
-								onClick={this.onEntryChange}
+								onChange={this.onEntryChange}
 								value="1"
 							/>
 							<M m="I acknowledge that I am not a politically exposed person (PEP)." />&nbsp;

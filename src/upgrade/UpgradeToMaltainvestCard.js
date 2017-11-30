@@ -609,7 +609,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               <input
                 id="PEPDeclaration"
                 type="checkbox"
-                onClick={this.onPEPDeclarationChanged}
+                onChange={this.onPEPDeclarationChanged}
               />
               <M m="I acknowledge that I am not a politically exposed person (PEP)." />&nbsp;
             </label>
