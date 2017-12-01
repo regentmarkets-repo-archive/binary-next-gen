@@ -137,7 +137,7 @@
     "validate.js": "0.11.1",
     "webpack-dev-server": "^2.9.3",
     "webpack-merge": "^4.1.0",
-    "webtrader-charts": "^0.4.8"
+    "webtrader-charts": "^0.4.10"
   },
   "devDependencies": {
     "asar": "^0.12.3",
