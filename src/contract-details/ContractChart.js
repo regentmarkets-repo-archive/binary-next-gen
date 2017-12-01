@@ -22,7 +22,12 @@ export default class ContractChart extends Component {
   componentWillReceiveProps(nextProps) {
     if (this.loaded) {
       const { contract } = nextProps;
-      contract && this.updateContract(contract);
+      if (contract) {
+        this.updateContract(contract);
+        if (!!contract.sell_price && contract.id) {
+          setTimeout(() => this.chart && this.chart.actions.stopStreaming(), 4000);
+        }
+      }
     }
   }
 
