@@ -226,11 +226,10 @@ const initAuthorized = async (authData, store) => {
               const landingCompany = message.landing_company;
               store.dispatch(actions.updateLandingCompany(landingCompany));
               const loginid = authData.authorize.loginid;
-              const account = state.account.toJS();
               const accounts = state.boot.get('accounts').toJS();
               const currencyConfig = state.account.get('currencies_config').toJS();
               const upgradeInfo = getUpgradeInfo(landingCompany, loginid, accounts, currencyConfig);
-              const available_currencies = populateCurrencyOptions(account, loginid, accounts, landingCompany, currencyConfig);
+              const available_currencies = populateCurrencyOptions(loginid, accounts, landingCompany, currencyConfig);
               store.dispatch({ type: SET_AVAILABLE_CURRENCIES, available_currencies });
               store.dispatch({ type: UPDATE_UPGRADE_INFO, upgradeInfo });
             });
