@@ -9,6 +9,8 @@ describe('upgradeSelectors', () => {
     account: fromJS({}),
     language: fromJS({}),
     residenceList: fromJS({}),
+    upgradeInfo: fromJS({}),
+    selectedCurrency: fromJS({}),
   });
 
   it('should be able to be created', () => {
@@ -28,6 +30,8 @@ describe('upgradeSelectors', () => {
     expect(first.language).toEqual(second.language);
     expect(first.account).toEqual(second.account);
     expect(first.residenceList).toEqual(second.residenceList);
+    expect(first.upgradeInfo).toEqual(second.upgradeInfo);
+    expect(first.selectedCurrency).toEqual(second.selectedCurrency);
 
     expect(first).toEqual(second);
   });

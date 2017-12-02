@@ -25,7 +25,7 @@ describe('accountReducer', () => {
         expect(actualState).toEqual(stateExpected);
     });
 
-    it('when no currency is returned, defaults to USD', () => {
+    it('when no currency is returned, defaults to empty string', () => {
         const action = {
             type: SERVER_DATA_AUTHORIZE,
             serverResponse: {
@@ -36,7 +36,7 @@ describe('accountReducer', () => {
         };
         const beforeState = fromJS({});
         const stateExpected = fromJS({
-            currency: 'USD',
+            currency: '',
         });
 
         const actualState = accountReducer(beforeState, action);

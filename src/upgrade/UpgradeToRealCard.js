@@ -8,6 +8,8 @@ import { getConstraints } from './UpgradeToRealCard.validation.config';
 import options from './UpgradeCard.options';
 import ValidationManager from '../_utils/ValidationManager';
 import { addNewAccount } from '../_utils/AccountHelpers';
+import { store } from '../_store/persistentStore';
+import { updateUpgradeField } from '../_actions/UpgradeActions';
 
 export default class UpgradeToRealCard extends PureComponent {
 
@@ -20,6 +22,7 @@ export default class UpgradeToRealCard extends PureComponent {
 		boot: any[],
 		country_code: string,
 		states: any[],
+    selectedCurrency: string,
 	};
 
 	constructor(props) {
@@ -36,6 +39,10 @@ export default class UpgradeToRealCard extends PureComponent {
 		};
 		this.constraints = getConstraints();
 		this.validationMan = new ValidationManager(this.constraints);
+	}
+
+	componentWillUnmount() {
+    store.dispatch(updateUpgradeField('selected_currency', ''));
 	}
 
 	onEntryChange = (e: SyntheticEvent) => {
@@ -64,6 +71,9 @@ export default class UpgradeToRealCard extends PureComponent {
 	performUpgrade = async () => {
 		// PEPDeclaration and accept_risk are not required for upgrade
 		const { PEPDeclaration, accept_risk, ...formData } = this.state.formData; // eslint-disable-line no-unused-vars
+    if (this.props.selectedCurrency && this.props.selectedCurrency !== '') {
+      formData.currency = this.props.selectedCurrency;
+		}
 		try {
 			this.setState({
 				progress: true,
@@ -84,7 +94,6 @@ export default class UpgradeToRealCard extends PureComponent {
 	render() {
 		const { formData, progress, serverError, statesList, hasError, errors } = this.state;
 		const { residenceList, boot } = this.props;
-
 		const language = (boot.language || 'en').toLowerCase();
 		const linkToTermsAndConditions = `https://www.binary.com/${language}/terms-and-conditions.html`;
 

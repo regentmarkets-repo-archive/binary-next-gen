@@ -13,12 +13,15 @@ export default class BalanceCard extends PureComponent {
     const { currency, balance, digits } = this.props;
 
     return (
-      <NumberPlain
-      className="balance"
-        currency={currency}
-        value={balance}
-        digits={digits}
-      />
+      <div>
+        {currency && (<NumberPlain
+          className="balance"
+          currency={currency}
+          value={balance}
+          digits={digits}
+        />)
+        }
+      </div>
     );
   }
 }

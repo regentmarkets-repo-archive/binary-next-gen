@@ -1,7 +1,12 @@
 import { LiveApi } from 'binary-live-api';
 import { showError, timeLeftToNextRealityCheck, nowAsEpoch } from 'binary-utils';
 import * as actions from '../_actions';
-import { CHANGE_INFO_FOR_ASSET, UPDATE_SETTINGS_FIELD, SERVER_DATA_STATES } from '../_constants/ActionTypes';
+import {
+  CHANGE_INFO_FOR_ASSET, UPDATE_SETTINGS_FIELD, SERVER_DATA_STATES,
+  UPDATE_UPGRADE_INFO, SET_AVAILABLE_CURRENCIES
+} from '../_constants/ActionTypes';
+import { hasAccountOfType, landingCompanyValue, getExistingCurrencies, groupCurrencies, populateCurrencyOptions } from '../_utils/Client';
+import { addCurrencyToAccount } from '../_utils/AccountHelpers';
 
 const handlers = {
     active_symbols: 'serverDataActiveSymbols',
@@ -154,6 +159,60 @@ const initAuthorized = async (authData, store) => {
     api.getAssetIndex();
     api.getServerTime();
 
+    const getUpgradeInfo = (landingCompany, loginid, accounts, currencyConfig) => {
+        let typeOfNextAccount = 'real';
+        let canUpgrade = false;
+        let currencyOptions = landingCompany.gaming_company ? landingCompany.gaming_company.legal_allowed_currencies : {};
+        let allowedMarkets = landingCompany.gaming_company ? landingCompany.gaming_company.legal_allowed_markets : {};
+        let multi = false;
+        if (/VR/i.test(loginid)) {
+            if (!landingCompany.gaming_company && landingCompany.financial_company.shortcode === 'maltainvest') {
+                typeOfNextAccount = 'financial';
+            }
+            currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
+            canUpgrade = !hasAccountOfType('real', accounts);
+            allowedMarkets = landingCompanyValue(loginid, 'legal_allowed_markets', landingCompany);
+        } else if (landingCompany.financial_company.shortcode === 'maltainvest') {
+            typeOfNextAccount = 'financial';
+            canUpgrade = !hasAccountOfType('financial', accounts);
+            currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
+            allowedMarkets = landingCompanyValue(loginid, 'legal_allowed_markets', landingCompany);
+        } else if (landingCompany.financial_company.shortcode === 'costarica') {
+            allowedMarkets = landingCompanyValue(loginid, 'legal_allowed_markets', landingCompany);
+            const legalAllowedCurrencies = landingCompanyValue(loginid, 'legal_allowed_currencies', landingCompany);
+            const existingCurrencies = getExistingCurrencies(accounts);
+            if (existingCurrencies.length) {
+                const dividedExistingCurrencies = groupCurrencies(existingCurrencies, currencyConfig);
+                if (dividedExistingCurrencies.fiatCurrencies.length) {
+                    const dividedAllowedCurrencies = groupCurrencies(legalAllowedCurrencies, currencyConfig);
+                    const legalAllowedCryptoCurrencies = dividedAllowedCurrencies.cryptoCurrencies;
+                    const existingCryptoCurrencies = dividedExistingCurrencies.cryptoCurrencies;
+                    currencyOptions = legalAllowedCryptoCurrencies.filter(x => existingCryptoCurrencies.indexOf(x) === -1);
+                    if (currencyOptions.length) {
+                        canUpgrade = true;
+                        multi = true;
+                      }
+                  } else {
+                    canUpgrade = true;
+                    multi = true;
+                    currencyOptions = legalAllowedCurrencies.filter(x => existingCurrencies.indexOf(x) === -1);
+                  }
+              } else {
+                canUpgrade = true;
+                multi = true;
+                currencyOptions = legalAllowedCurrencies;
+              }
+          }
+        return {
+          typeOfNextAccount,
+          canUpgrade,
+          currencyOptions,
+          allowedMarkets,
+          multi,
+          landingCompany,
+        };
+      };
+
     api.getPortfolio();
     api.getStatement({ description: 1, limit: 20 });
     api.getAccountSettings().then(msg => {
@@ -165,49 +224,17 @@ const initAuthorized = async (authData, store) => {
             });
             api.getLandingCompany(msg.get_settings.country_code).then(message => {
               const landingCompany = message.landing_company;
-              const accounts = state.boot.get('accounts').toJS();
+              store.dispatch(actions.updateLandingCompany(landingCompany));
               const loginid = authData.authorize.loginid;
-              const allUserAccounts = accounts.map((val) => val.account);
-              const userHasMLT = allUserAccounts.some(value => value.startsWith('MLT'));
-              const userHasMX = allUserAccounts.some(value => value.startsWith('MX'));
-              const userHasCR = allUserAccounts.some(value => value.startsWith('CR'));
-              const userHasMF = allUserAccounts.some(value => value.startsWith('MF'));
-              const isVirtual = loginid.startsWith('VRTC');
-              const isMLT = loginid.startsWith('MLT');
-              /* eslint-disable */
-              const shouldShowUpgrade = (() => {
-                if (landingCompany.id !== 'jp') {
-                  if ((landingCompany.hasOwnProperty('financial_company') &&
-                      landingCompany.financial_company.shortcode !== 'maltainvest')
-                    || !landingCompany.hasOwnProperty('financial_company')) {
-                    if (isVirtual && !userHasMLT && !userHasMX && !userHasCR) {
-                      return 'toReal';
-                      //	 to mlt
-                    }
-                  } else if (landingCompany.hasOwnProperty('financial_company') &&
-                    landingCompany.financial_company.shortcode === 'maltainvest' &&
-                    landingCompany.hasOwnProperty('gaming_company') &&
-                    landingCompany.gaming_company.shortcode === 'malta') {
-                    // can upgrade to real or maltainvest
-                    if (isVirtual && !userHasMLT && !userHasMX && !userHasCR) {
-                      return 'toReal';
-                      //	 to mlt
-                    } else if (isMLT && !userHasMF) {
-                      return 'toMaltainvest';
-                      //	to mf
-                    }
-                  } else if (landingCompany.hasOwnProperty('financial_company') &&
-                    landingCompany.financial_company.shortcode === 'maltainvest' &&
-                    !landingCompany.hasOwnProperty('gaming_company')) {
-                    if (isVirtual && !userHasMF) {
-                      return 'toMaltainvest';
-                      //	to mf
-                    }
-                  }
-                }
-              })();
-              store.dispatch(actions.updateAppState('shouldShowUpgrade', shouldShowUpgrade));
-              /* eslint-enable */
+              const account = state.account.toJS();
+              const accounts = state.boot.get('accounts').toJS();
+              const currencyConfig = state.account.get('currencies_config').toJS();
+              const upgradeInfo = getUpgradeInfo(landingCompany, loginid, accounts, currencyConfig);
+              const availableCurrencies = populateCurrencyOptions(account, loginid, accounts, landingCompany, currencyConfig);
+              const defaultCurrency = landingCompanyValue(loginid, 'legal_default_currency', landingCompany);
+              actions.setDefaultCurrency(defaultCurrency);
+              store.dispatch({ type: SET_AVAILABLE_CURRENCIES, availableCurrencies });
+              store.dispatch({ type: UPDATE_UPGRADE_INFO, upgradeInfo });
             });
         }
     });
@@ -227,6 +254,18 @@ const initAuthorized = async (authData, store) => {
 export const trackSymbols = symbols => {
     api.unsubscribeFromAllTicks();
     api.subscribeToTicks(symbols);
+};
+
+export const setAccountCurrency = (currency, store) => {
+  const state = store.getState();
+  api.setAccountCurrency(currency).then(r => {
+      if (r.set_account_currency === 1) {
+        const loginid = state.account.toJS().loginid;
+        addCurrencyToAccount(currency, loginid);
+       window.location = window.BinaryBoot.baseUrl;
+      }
+    }
+  );
 };
 
 export const connect = async store => {
