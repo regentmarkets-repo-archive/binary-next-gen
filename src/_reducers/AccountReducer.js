@@ -19,6 +19,7 @@ const initialState = fromJS({
     currency: '',
     currencies: ['USD'],
     currencies_config: { }, // "USD": { "fractional_digits": 2, "stake_default": 0.35, "type": "fiat" }
+    landing_company: { },
     available_currencies: { }
 });
 
