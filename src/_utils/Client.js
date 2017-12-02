@@ -74,7 +74,7 @@ export const getNextAccountTitle = (typeOfNextAccount) => {
 // get the currencies user already has
 export const getExistingCurrencies = (accounts) => {
   const accountsArray = Object.values(accounts);
-  const currencies = (accountsArray.filter(account => !/VR/i.test(account.account) && account.currency.length > 0)).map(account => account.currency);
+  const currencies = (accountsArray.filter(account => !/VR/i.test(account.account) && account.currency && account.currency.length > 0)).map(account => account.currency);
 
   return currencies;
 };
@@ -134,7 +134,7 @@ export const getCurrenciesForNewAccount = (currencies, currencyConfig) => {
 
 // this function gives all account user has, with available markets, type of account, currency and loginid
 // for each of them.
-export const getExistingAccounts = (allAccounts, landingCompany, loginid, activeMarkets) => {
+export const getExistingAccounts = (allAccounts, landingCompany, activeMarkets) => {
   const existingAccounts = [];
   if (allAccounts && landingCompany) {
     allAccounts.forEach((acc) => {
@@ -172,20 +172,22 @@ const getCurrencyOptions = (loginid, landingCompany, accounts, currencyConfig) =
 };
 
 // populate currencies and image of currency user can select for account they are already loggedin with
-export const populateCurrencyOptions = (account, loginid, accounts, landingCompany, currencyConfig) => {
+export const populateCurrencyOptions = (loginid, accounts, landingCompany, currencyConfig) => {
   const options = getCurrencyOptions(loginid, landingCompany, accounts, currencyConfig);
   const currencyOptions = [];
-    options.forEach(curr => {
-      const currency = currencyConfig[curr];
-      const isCryptoCurrency = /crypto/i.test(currencyConfig[curr].type);
-      currency.text = curr;
-      currency.value = curr;
-      currency.group = currency.isCryptoCurrency ? 'cryptoCurrency' : 'fiatCurrency';
-      currency.img = `/img/${curr.toLowerCase()}.svg`;
-      if (isCryptoCurrency) {
-        currency.name = cryptoCurrencyConfig[curr].name;
-      }
-      currencyOptions.push(currencyConfig[curr]);
-    });
+  if (options) {
+      options.forEach(curr => {
+          const currency = currencyConfig[curr];
+          const isCryptoCurrency = /crypto/i.test(currencyConfig[curr].type);
+          currency.text = curr;
+          currency.value = curr;
+          currency.group = isCryptoCurrency ? 'cryptoCurrency' : 'fiatCurrency';
+          currency.img = `/img/${curr.toLowerCase()}.svg`;
+          if (isCryptoCurrency) {
+              currency.name = cryptoCurrencyConfig[curr].name;
+          }
+          currencyOptions.push(currencyConfig[curr]);
+      });
+  }
   return currencyOptions;
 };
