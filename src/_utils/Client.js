@@ -74,7 +74,7 @@ export const getNextAccountTitle = (typeOfNextAccount) => {
 // get the currencies user already has
 export const getExistingCurrencies = (accounts) => {
   const accountsArray = Object.values(accounts);
-  const currencies = (accountsArray.filter(account => !/VR/i.test(account.account) && account.currency && account.currency.length > 0)).map(account => account.currency);
+  const currencies = (accountsArray.filter(account => !/VR/i.test(account.account) && account.currency.length > 0)).map(account => account.currency);
 
   return currencies;
 };
@@ -172,7 +172,7 @@ const getCurrencyOptions = (loginid, landingCompany, accounts, currencyConfig) =
 };
 
 // populate currencies and image of currency user can select for account they are already loggedin with
-export const populateCurrencyOptions = (loginid, accounts, landingCompany, currencyConfig) => {
+export const populateCurrencyOptions = (account, loginid, accounts, landingCompany, currencyConfig) => {
   const options = getCurrencyOptions(loginid, landingCompany, accounts, currencyConfig);
   const currencyOptions = [];
   if (options) {

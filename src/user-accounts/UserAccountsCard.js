@@ -19,7 +19,7 @@ export default class UserAccountsCard extends PureComponent {
     const nextAccountTitle = getNextAccountTitle(upgradeInfo.typeOfNextAccount);
     const currencyOptions = getCurrenciesForNewAccount(upgradeInfo.currencyOptions, account.currencies_config);
     const markets = filterMarkets(upgradeInfo.allowedMarkets, activeMarkets);
-    const existingAccounts = getExistingAccounts(accounts, account.landing_company, loginid, activeMarkets);
+    const existingAccounts = getExistingAccounts(accounts, account.landing_company, activeMarkets);
 
     return (
       <div className="user-accounts-card">
