@@ -19,8 +19,8 @@ export default class MobileSidebar extends PureComponent {
 		email: string,
 		loginid: string,
 		accounts: Account[],
-    landingCompany: object,
-	};
+        upgradeInfo: object,
+    };
 
 	onSignOut(e: SyntheticEvent) {
 		e.stopPropagation();
@@ -28,7 +28,7 @@ export default class MobileSidebar extends PureComponent {
 	}
 
 	render() {
-		const { loginid, email, accounts, landingCompany } = this.props;
+		const { loginid, email } = this.props;
 
 		return (
 			<nav className="sidebar">
@@ -37,7 +37,7 @@ export default class MobileSidebar extends PureComponent {
 					{email}<br />
 					<BalanceContainer />
 				</div>
-				<AccountItemsList loginid={loginid} accounts={accounts} landingCompany={landingCompany} />
+				<AccountItemsList {...this.props} />
 				<SidebarBtn to="/watchlist" img="img/watchlist.svg" text="Watchlist" />
 				<ThemeSwitcher />
 				<SidebarBtn to="/settings" img="img/settings.svg" text="Settings" />
