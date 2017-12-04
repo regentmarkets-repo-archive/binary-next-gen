@@ -8,9 +8,9 @@ export default class SetCurrency extends PureComponent {
     account: any[],
   };
 
-    static contextTypes = {
-        router: () => undefined,
-    }
+  static contextTypes = {
+    router: () => undefined,
+  };
 
   constructor(props) {
     super(props);
@@ -54,14 +54,14 @@ export default class SetCurrency extends PureComponent {
     const currencyOptions = account.available_currencies;
 
     return (
-      <div>
+      <div className="set-currency-card">
         {hasError && <ErrorMsg text="Please select currency" />}
         {serverError && <ServerErrorMsg text={serverError} />}
         <Legend text="Select currency" />
         <P text="Please select the currency of this account:" />
-          {currencyOptions.length &&
-            <RadioGroup options={currencyOptions} value={selectedCurrency} onChange={this.setCurrency} />
-          }
+        {currencyOptions.length &&
+          <RadioGroup options={currencyOptions} value={selectedCurrency} onChange={this.setCurrency} />
+        }
         <Button text="Confirm" disabled={progress} onClick={this.submitCurrency} />
       </div>
     );

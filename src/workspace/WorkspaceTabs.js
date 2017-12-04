@@ -6,7 +6,7 @@ export default class WorkspaceTabs extends PureComponent {
 
 	props: {
 		activeTab: number,
-    upgradeInfo: object,
+		upgradeInfo: object,
 	};
 
 	onTabChange = (idx: number) => {
@@ -32,7 +32,10 @@ export default class WorkspaceTabs extends PureComponent {
 				<Tab imgSrc="img/resources.svg" text="Asset Index" />
 				<Tab imgSrc="img/info.svg" text="Details" />
 				<Tab imgSrc="img/settings.svg" text="Settings" />
-        <Tab imgSrc="img/info.svg" text={upgradeInfo && upgradeInfo.canUpgrade && !upgradeInfo.multi ? 'create-new-account' : 'accounts list'} />
+				<Tab
+					imgSrc="img/info.svg"
+					text={upgradeInfo && upgradeInfo.canUpgrade && !upgradeInfo.multi ? 'create-new-account' : 'accounts list'}
+				/>
 			</TabList>
 		);
 	}

@@ -7,8 +7,7 @@ export default class AccountItemsList extends PureComponent {
 	props: {
 		loginid: string,
 		accounts: Account[],
-    landingCompany: object,
-    upgradeInfo: object,
+		upgradeInfo: object,
 	};
 
 	render() {

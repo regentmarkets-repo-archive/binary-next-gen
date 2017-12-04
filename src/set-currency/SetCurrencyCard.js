@@ -1,6 +1,5 @@
 import React, { PureComponent } from 'react';
 import { BackButton } from 'binary-components';
-import MobilePage from '../containers/MobilePage';
 import SetCurrency from './SetCurrency';
 
 type Props = {
@@ -10,20 +9,24 @@ type Props = {
 export default class SetCurrencyCard extends PureComponent {
   props: Props;
 
+    static contextTypes = {
+        router: () => undefined,
+    };
+
   goBack = () => {
     window.history.back();
   }
 
   render() {
     return (
-      <MobilePage toolbarShown={false}>
+      <div>
         <div className="header inverse">
           <BackButton onClick={this.goBack} />
         </div>
         <div className="set-currency-card">
             <SetCurrency {...this.props} />
         </div>
-      </MobilePage>
+      </div>
     );
   }
 }

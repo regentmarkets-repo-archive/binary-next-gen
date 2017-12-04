@@ -7,7 +7,6 @@ import { signOut } from '../_data/Auth';
 type Account = {
 	account: string,
 	token: string,
-	upgradeInfo: object,
 };
 
 @connect(state => ({ landingCompany: state.boot.toJS().landingCompany }))
@@ -17,8 +16,8 @@ export default class WebSidebar extends PureComponent {
 		email: string,
 		loginid: string,
 		accounts: Account[],
-    landingCompany: object,
-	};
+        upgradeInfo: object,
+    };
 
 	onSignOut(e: SyntheticEvent) {
 		e.stopPropagation();
