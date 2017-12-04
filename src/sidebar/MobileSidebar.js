@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import { connect } from 'react-redux';
 import { M } from 'binary-components';
 import ThemeSwitcher from '../web/ThemeSwitcher.mobile';
 import BalanceContainer from '../balance/BalanceContainer';
@@ -12,7 +11,6 @@ type Account = {
 	token: string,
 };
 
-@connect(state => ({ landingCompany: state.boot.toJS().landingCompany }))
 export default class MobileSidebar extends PureComponent {
 
 	props: {
@@ -39,6 +37,7 @@ export default class MobileSidebar extends PureComponent {
 				</div>
 				<AccountItemsList {...this.props} />
 				<SidebarBtn to="/watchlist" img="img/watchlist.svg" text="Watchlist" />
+                <SidebarBtn to="/user-accounts" img="img/info.svg" text="Accounts list" />
 				<ThemeSwitcher />
 				<SidebarBtn to="/settings" img="img/settings.svg" text="Settings" />
 				<label htmlFor="Sign-Out" onClick={this.onSignOut} className="sidebar-btn">

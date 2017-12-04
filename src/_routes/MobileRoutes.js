@@ -10,6 +10,7 @@ import SettingsMobile from '../settings/SettingsMobile';
 import ResourcesMobile from '../mobile/ResourcesMobile';
 import DepositMobile from '../deposit/DepositMobile';
 import ExamineAssetMobile from '../examine-asset/ExamineAssetMobile';
+import UserAccountsMobile from '../user-accounts/UserAccountsMobile';
 
 export default [
     { path: 'mobile', component: TradeMobile, onEnter: requireAuthOnEnter },
@@ -23,4 +24,5 @@ export default [
     { path: 'resources', component: ResourcesMobile },
     { path: 'deposit', component: DepositMobile, onEnter: requireAuthOnEnter },
     { path: 'examine', component: ExamineAssetMobile, onEnter: requireAuthOnEnter },
+    { path: 'user-accounts', component: UserAccountsMobile, onEnter: requireAuthOnEnter },
 ];
