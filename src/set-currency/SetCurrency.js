@@ -3,10 +3,14 @@ import { RadioGroup, Button, Legend, P, ServerErrorMsg, ErrorMsg } from 'binary-
 import { store } from '../_store/persistentStore';
 import { setAccountCurrency } from '../_data/LiveData';
 
-export default class SetCurrencyCard extends PureComponent {
+export default class SetCurrency extends PureComponent {
   props: {
-    account: object,
+    account: any[],
   };
+
+    static contextTypes = {
+        router: () => undefined,
+    }
 
   constructor(props) {
     super(props);
@@ -50,12 +54,14 @@ export default class SetCurrencyCard extends PureComponent {
     const currencyOptions = account.available_currencies;
 
     return (
-      <div className="set-currency-card">
+      <div>
         {hasError && <ErrorMsg text="Please select currency" />}
         {serverError && <ServerErrorMsg text={serverError} />}
         <Legend text="Select currency" />
         <P text="Please select the currency of this account:" />
-        <RadioGroup options={currencyOptions} value={selectedCurrency} onChange={this.setCurrency} />
+          {currencyOptions.length &&
+            <RadioGroup options={currencyOptions} value={selectedCurrency} onChange={this.setCurrency} />
+          }
         <Button text="Confirm" disabled={progress} onClick={this.submitCurrency} />
       </div>
     );

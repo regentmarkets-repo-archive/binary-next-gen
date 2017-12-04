@@ -4,15 +4,11 @@ import MobilePage from '../containers/MobilePage';
 import SetCurrency from './SetCurrency';
 
 type Props = {
-  account: object,
+  account: any[],
 };
 
 export default class SetCurrencyCard extends PureComponent {
   props: Props;
-
-  static contextTypes = {
-    router: () => undefined,
-  }
 
   goBack = () => {
     window.history.back();
@@ -24,7 +20,9 @@ export default class SetCurrencyCard extends PureComponent {
         <div className="header inverse">
           <BackButton onClick={this.goBack} />
         </div>
-        <SetCurrency {...this.props} />
+        <div className="set-currency-card">
+            <SetCurrency {...this.props} />
+        </div>
       </MobilePage>
     );
   }
