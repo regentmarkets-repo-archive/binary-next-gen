@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import moment from 'moment';
 import React, { Component } from 'react';
-// import { isMobile } from 'binary-utils';
+import { isMobile } from 'binary-utils';
 
 type Props = {
     contract: Contract,
