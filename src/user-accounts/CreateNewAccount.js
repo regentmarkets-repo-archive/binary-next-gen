@@ -70,11 +70,10 @@ export default class CreateNewAccount extends PureComponent {
                 id="selected_currency"
                 options={currencyOptions}
                 onChange={this.onCurrencyChange}
-                defaultValue={currencyOptions[0].value}
               />
             </td>
             <td>
-              <Button text="Create" onClick={this.onRedirectToAccountOpening} />
+              <Button id="submit" text="Create" onClick={this.onRedirectToAccountOpening} />
             </td>
           </tr>
           </tbody>
