@@ -1,4 +1,3 @@
-import { fromJS } from 'immutable';
 import activeMarkets from '../../_constants/ActiveMarkets';
 import { getAllLoginids, getAccountType, isAccountOfType, hasAccountOfType, landingCompanyValue, getExistingCurrencies, groupCurrencies, filterMarkets, getExistingAccounts, populateCurrencyOptions } from '../Client';
 
