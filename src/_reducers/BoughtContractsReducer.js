@@ -40,13 +40,14 @@ export default (state = initialState, action) => {
             }
 
             const openContract = convertOpenContract(contract);
+            openContract.contract_id = String(openContract.contract_id);
 
             return state.set(openContract.contract_id, fromJS(openContract));
         }
         case SERVER_DATA_PORTFOLIO: {
             const contracts = action.serverResponse.portfolio.contracts;
             return contracts
-                .reduce((prev, curr) => prev.mergeIn([curr.contract_id], curr), state);
+                .reduce((prev, curr) => prev.mergeIn([String(curr.contract_id)], curr), state);
         }
         case SERVER_DATA_TRANSACTION: {
             const tx = action.serverResponse.transaction;
