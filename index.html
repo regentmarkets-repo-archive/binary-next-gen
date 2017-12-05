@@ -8,14 +8,21 @@
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="#2a3052">
     <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta http-equiv="Content-Security-Policy"
-          content="default-src https://codepush.azurewebsites.net http://github.com https://*.googleapis.com:* https://*.polyfill.io:* https://*.google-analytics.com:* wss://*.binaryws.com:* wss://*.binaryqa37.com:* https://*.binaryqa37.com:* https://*.github.io:* https://*.binary.com:* https://binary.com:* https://*.gstatic.com:* https://*.cloudflare.com:* https://*.wordpress.com:* https://*.youtube.com:* https://*.trackjs.com:* 'self' data: gap: https://ssl.gstatic.com 'unsafe-inline' 'unsafe-eval' 'self'; media-src *; img-src * data:;">
+    <!-- <meta http-equiv="Content-Security-Policy" -->
+    <!--       content="default-src https://codepush.azurewebsites.net http://github.com https://*.googleapis.com:* https://*.polyfill.io:* https://*.google-analytics.com:* wss://*.binaryws.com:* wss://*.binaryqa37.com:* https://*.binaryqa37.com:* wss://*.binaryqa07.com:* https://*.binaryqa07.com:* https://*.github.io:* https://*.binary.com:* https://binary.com:* https://*.gstatic.com:* https://*.cloudflare.com:* https://*.wordpress.com:* https://*.youtube.com:* https://*.trackjs.com:* 'self' data: gap: https://ssl.gstatic.com 'unsafe-inline' 'unsafe-eval' 'self'; media-src *; img-src * data:;"> -->
     <link rel="icon" href="https://binary.com/images/favicons/apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57" />
     <link rel="stylesheet" href="fonts.css?12d557c996" />
-    <link rel="stylesheet" href="styles.css?3a0bd2e2c3" />
-    <title>Binary Next-Gen</title>
+    <link rel="stylesheet" href="styles.css?5f56ff04af" />
+    <title>Binary.com</title>
     <style id="antiClickjack">body{display:none !important;}</style>
     <script>
+        // A hack to prevent viewport from being squeezed when keyboard
+        // pops up. Only affects android browsers.
+        if (/(android)/i.test(navigator.userAgent)) {
+            var viewport = document.querySelector("meta[name=viewport]");
+            viewport.setAttribute("content", "height=" + window.outerHeight + ", width=" + window.outerWidth + ", initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no");
+        }
+
         if (self === top) {
             var antiClickjack = document.getElementById('antiClickjack');
             antiClickjack.parentNode.removeChild(antiClickjack);
@@ -56,7 +63,7 @@
 <div id="root" class="root app">
     <div class="loading-page">
         <div class="logo-full">
-            <img src="https://style.binary.com/images/logo/binary_logo_light.svg" alt="Logo" />
+            <img src="https://style.binary.com/images/logo/binary_logo_light.svg" alt="Binary.com" />
         </div>
         <div class="barspinner">
             <div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div>
@@ -98,16 +105,10 @@
     }
 </script>
 
-<script src="boot.js?3e4796f95c"></script>
-<script>
-    if (navigator.userAgent.indexOf('YaBrowser') === -1) {
-        var newScript = document.createElement('script');
-        newScript.src = 'https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,Promise,Array.from,Array.prototype.find,Array.prototype.includes,String.prototype.startsWith,String.prototype.includes,Math.sign,Intl.~locale.en,Intl.~locale.id,Intl.~locale.ru,Intl.~locale.fr&unknown=polyfill';
-        var s0 = document.getElementsByTagName('script')[0];
-        s0.parentNode.insertBefore(newScript, s0);
-    }
-</script>
-<script async src="app.js?2169cf5767"></script>
+<script src="jquery.min.js?c9f5aeeca3"></script>
+<script src="boot.js?8a2bc08656"></script>
+<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,Promise,Array.from,Array.prototype.find,Array.prototype.includes,String.prototype.startsWith,String.prototype.includes,Math.sign,Intl.~locale.en|always,Intl.~locale.id|always,Intl.~locale.ru|always,Intl.~locale.fr|always&unknown=polyfill"></script>
+<script async src="app.js?2abdfa3ac3"></script>
 
 <script>
     window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
