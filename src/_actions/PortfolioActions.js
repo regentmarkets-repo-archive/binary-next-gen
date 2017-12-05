@@ -14,8 +14,10 @@ export const subscribeToOpenContract = contractId =>
         if (!boughtContracts.get(contractId)) {
             return api.subscribeToOpenContract(contractId)
                 .then(response => {
-                    if (Object.keys(response.proposal_open_contract).length > 0) {
-                        return response.proposal_open_contract;
+                    const c = response.proposal_open_contract;
+                    if (Object.keys(c).length > 0) {
+                        c.contract_id = String(c.contract_id);
+                        return c;
                     }
                     return Promise.reject('Contract does not exist');
                 });
@@ -28,7 +30,11 @@ export const getOpenContract = contractId =>
         const boughtContracts = getState().boughtContracts;
         if (!boughtContracts.get(contractId)) {
             return api.getContractInfo(contractId)
-                .then(response => response.proposal_open_contract);
+                .then(response => {
+                    const c = response.proposal_open_contract;
+                    c.contract_id = String(c.contract_id);
+                    return c;
+                });
         }
         return Promise.resolve(boughtContracts.get(contractId).toJS());
     };
