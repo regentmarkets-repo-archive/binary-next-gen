@@ -71,6 +71,16 @@
     </div>
 </div>
 <script>
+    // In iOS safari the bottom menu bar obstructs the content.
+    // This little snippet below just allocates some space for it.
+    var ua = window.navigator.userAgent;
+    var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
+    var webkit = !!ua.match(/WebKit/i);
+    var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
+    if (iOSSafari) {
+        document.body.style.paddingBottom = '4.4em';
+    }
+
     if (document.location.protocol === 'file:') {
         document.writeln('<script src="cordova.js"><\/script>');
         function onBackPressed(e) {
