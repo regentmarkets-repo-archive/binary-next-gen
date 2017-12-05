@@ -59,8 +59,8 @@ export default class SetCurrency extends PureComponent {
         {serverError && <ServerErrorMsg text={serverError} />}
         <Legend text="Select currency" />
         <P text="Please select the currency of this account:" />
-        {currencyOptions.length &&
-          <RadioGroup options={currencyOptions} value={selectedCurrency} onChange={this.setCurrency} />
+        {currencyOptions && currencyOptions.length &&
+          <RadioGroup id="set-currency-select" options={currencyOptions} value={selectedCurrency} onChange={this.setCurrency} />
         }
         <Button text="Confirm" disabled={progress} onClick={this.submitCurrency} />
       </div>
