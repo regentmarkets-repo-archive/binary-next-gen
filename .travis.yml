@@ -61,7 +61,7 @@ deploy:
   provider: releases
   prerelease: true
   name: Next-Gen Prerelease $(date +'%Y-%m-%d %H:%M:%S')
-  body: This release is for QA testing! If you are normal user, get the official android app [from Google Play Store](https://play.google.com/store/apps/details?id=app.binary.com). 
+  body: Release for QA testing! For official android app [Install from Google Play Store](https://play.google.com/store/apps/details?id=app.binary.com).
   api_key: $GIT_KEY
   file: "./platforms/android/build/outputs/apk/debug/next-gen-beta.apk"
   skip_cleanup: true
