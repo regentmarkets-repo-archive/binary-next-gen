@@ -23,7 +23,7 @@ export default class AssetPickerCard extends PureComponent {
 
 		return (
 			<div className="asset-picker-container">
-				<div className="asset-picker-back-button react-material-design-icon">
+				<div className="asset-picker-close-btn react-material-design-icon">
                     <CloseButton onClick={onClose} />
 				</div>
 				<AssetPickerFilter filter={filter} />
