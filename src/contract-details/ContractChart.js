@@ -1,291 +1,133 @@
-import React, { PureComponent, PropTypes } from 'react';
-import { BinaryChart } from 'binary-charts';
-import { isMobile, nowAsEpoch, computeStartEndForContract } from 'binary-utils';
-import { chartApi, api as CoreApi } from '../_data/LiveData';
-import { chartToDataType, getDataWithErrorHandling } from '../_chart-utils/Utils';
+import $ from 'jquery';
+import moment from 'moment';
+import React, { Component } from 'react';
+import { isMobile } from 'binary-utils';
 
 type Props = {
     contract: Contract,
     highContrast: boolean,
     pipSize: number,
 };
+export default class ContractChart extends Component {
+  props: Props;
+  root = null;
+  chart = null;
+  barspinner = null;
+  loaded = false;
 
-export default class ContractChart extends PureComponent {
+  static contextTypes = {
+    theme: () => undefined,
+  };
 
-    static contextTypes = {
-        theme: PropTypes.oneOf(['light', 'dark']),
-    };
-
-    props: Props;
-
-    constructor(props: Props) {
-        super(props);
-        this.state = {
-            chartType: 'area',
-            dataType: 'ticks',
-            ticks: [],
-            candles: [],
-            noData: false,
-        };
-        this.api = chartApi(0);
-        this.hasTick = true;
-        this.contractEnd = undefined;       // used to know when to unsubscribe
-    }
-
-    componentWillMount() {
-        this.api.events.on('tick', data => {
-            if (!this.hasTick) {
-                this.api.events.ignoreAll('tick');
-                const { contract } = this.props;
-                throw new Error(`Not supposed to have tick stream! Contract: ${JSON.stringify(contract)}`);
-            }
-
-            this.ticksId = data.tick.id;            // problematic, sometimes it will both be ohlc stream, and screw u !!
-
-            const old = this.state.ticks;
-            const newTick = {
-                epoch: +data.tick.epoch,
-                quote: +data.tick.quote,
-            };
-            this.setState({ ticks: old.concat([newTick]) });
-
-            // unsubscribe after contract ends
-            if (this.contractEnd && newTick.epoch > this.contractEnd) {
-                this.api.unsubscribeByID(data.tick.id);
-            }
-        });
-
-        this.api.events.on('ohlc', data => {
-            this.ohlcId = data.ohlc.id;
-
-            const old = this.state.candles;
-            // list of candles might be received later than candles stream due to size
-            // do not process single candle that arrived before list of candles
-            if (old.length < 3) {
-                return;
-            }
-
-            const ohlc = data.ohlc;
-            const newOHLC = {
-                epoch: +(ohlc.open_time || ohlc.epoch),
-                open: +ohlc.open,
-                high: +ohlc.high,
-                low: +ohlc.low,
-                close: +ohlc.close,
-            };
-            const last1 = old[old.length - 1];
-            const last2 = old[old.length - 2];
-            const last3 = old[old.length - 3];
-            const interval = last2.epoch - last3.epoch;
-            const diff = newOHLC.epoch - last1.epoch;
-
-            // new candles might belong to the same interval of last candle
-            // replace instead of append in that case
-            if (diff < interval) {
-                const newOHLCArr = old.slice(0, -1);
-                newOHLCArr.push(newOHLC);
-
-                if (!this.hasTick) {
-                    const newTicks = newOHLCArr.map(c => ({ epoch: +c.epoch, quote: +c.close }));
-                    this.setState({ ticks: newTicks, candles: newOHLCArr });
-                } else {
-                    this.setState({ candles: newOHLCArr });
-                }
-            } else {
-                const newCandles = old.concat([newOHLC]);
-
-                if (!this.hasTick) {
-                    const newTicks = newCandles.map(c => ({ epoch: +c.epoch, quote: +c.close }));
-                    this.setState({ ticks: newTicks, candles: newCandles });
-                } else {
-                    this.setState({ candles: newCandles });
-                }
-            }
-
-            // unsubscribe after contract ends
-            if (this.contractEnd && newOHLC.epoch > this.contractEnd) {
-                this.api.unsubscribeByID(data.ohlc.id);
-            }
-        });
-
-        this.prepareDataForChart();
-    }
-
-    componentWillReceiveProps(nextProps) {
-        const { contract } = nextProps;
-        const { sell_time, exit_tick_time } = contract;
-
-        // for contract that was not ended when component mount
-        // compute end time when it ended
-        if (!this.contractEnd && (sell_time || exit_tick_time)) {
-            const { end } = computeStartEndForContract(contract);
-            this.contractEnd = end;
+  componentWillReceiveProps(nextProps) {
+    if (this.loaded) {
+      const { contract } = nextProps;
+      if (contract) {
+        this.updateContract(contract);
+        if (!!contract.sell_price && contract.id) {
+          setTimeout(() => this.chart && this.chart.actions.stopStreaming(), 4000);
         }
+      }
     }
+  }
 
-    componentWillUnmount() {
-        this.unsubscribe();
-        this.api.events.ignoreAll('tick');
-        this.api.events.ignoreAll('ohlc');
+  updateContract(contract) {
+    const startTime = contract.date_start || contract.purchase_time;
+    const entrySpot = +contract.entry_tick_time;
+    const exitSpot = +contract.exit_tick_time;
+    const endTime = contract.sell_time || +contract.sell_spot_time;
+
+    startTime && this.chart.draw.startTime(startTime * 1000);
+    entrySpot && this.chart.draw.entrySpot(entrySpot * 1000);
+    exitSpot && this.chart.draw.exitSpot(exitSpot * 1000);
+    endTime && this.chart.draw.endTime(endTime * 1000);
+
+    const barrier = +contract.barrier;
+    barrier && this.chart.draw.barrier({ value: barrier });
+  }
+
+  async componentDidMount() {
+    const { contract } = this.props;
+    const { underlying, symbolName, purchase_time, date_start, date_expiry, sell_time, exit_tick_time } = contract;
+    const duration = Math.min(+date_expiry, moment.utc().unix()) - (purchase_time || date_start);
+    let timePeriod = '';
+    if (duration <= 60 * 60) {
+      timePeriod = '1t';
+    } else if (duration <= 2 * 60 * 60) {
+      timePeriod = '1m';
+    } else if (duration <= 6 * 60 * 60) {
+      timePeriod = '2m';
+    } else if (duration <= 24 * 60 * 60) {
+      timePeriod = '5m';
+    } else {
+      timePeriod = '1h';
     }
+    const margin = ({
+      '1t': Math.max(5, Math.floor(50 * duration / (60 * 60))),
+      '1m': 5 * 60,
+      '2m': 5 * 120,
+      '5m': 5 * 300,
+      '1h': 5 * 60 * 60
+    })[timePeriod];
+    const type = timePeriod === '1t' ? 'line' : 'candlestick';
 
-    unsubscribe = () => {
-        if (this.ticksId) this.api.unsubscribeByID(this.ticksId);
-        if (this.ohlcId) this.api.unsubscribeByID(this.ohlcId);
-    }
+    const wtcharts = await import(/* webpackChunkName: "webtrader-charts" */ 'webtrader-charts');
 
-    updateData = (data, type) => {
-        if (type === 'ticks') {
-            this.setState({ ticks: data });
-        } else {
-            this.setState({ candles: data });
-        }
+    this.chart = wtcharts.chartWindow.addNewChart($(this.root), {
+      type, // default is 'line'
+      timePeriod, // default is '1t'
+      instrumentCode: underlying,
+      instrumentName: symbolName,
+      showInstrumentName: true, // default is false
+      showOverlays: false, // default is true
+      showShare: false, // default is true
+      start: (purchase_time || date_start) - margin,
+      count: isMobile() ? 100 : 1000,
+      enableMobileView: isMobile(),
+      end: sell_time && +sell_time + margin || (exit_tick_time ? exit_tick_time + margin : 'latest'),
+      hideCurrentPrice: true,
+      // timezoneOffset: 0,
+    });
 
-        return data;
-    }
+    this.chart.drawn().then(() => {
+      $(this.barspinner).hide();
+      $(this.root).find('.chartSubContainerHeader').css('height', 0).hide();
+      this.chart.actions.reflow();
+    });
 
-    prepareDataForChart = () => {
-        const { contract } = this.props;
-        const toStream = !contract.sell_time;
+    this.chart.done().then(() => {
+      contract && this.updateContract(contract);
+      this.chart.draw.zoomOut();
+      this.loaded = true;
+    });
+  }
 
-        if (toStream && !contract.id) {
-            CoreApi.subscribeToOpenContract(contract.contract_id);
-        }
+  componentWillUnmount() {
+    this.chart && this.chart.actions.destroy();
+    this.chart = null;
+    this.loaded = false;
+  }
 
-        const { start, end } = computeStartEndForContract(contract);
-        const nowEpoch = nowAsEpoch();
-        // escape earlier if contract not started
-        if (start > nowEpoch) {
-            this.setState({ noData: true });
-            return;
-        }
+  shouldComponentUpdate() { return false; }
 
-        if (contract.sell_time) {
-            this.contractEnd = end;
-        }
-
-        const durationInSecs = end - start;
-
-        // 1.5 hour = 90 minutes * 60 secs
-        if (durationInSecs < 90 * 60) {
-            this.hasTick = true;
-
-            const getTicksDataCall = (errCode) => {
-                if (errCode === 'StreamingNotAllowed') {
-                    this.setState({ noData: true });
-                    return Promise.resolve();
-                }
-
-                return this.api
-                    .getTickHistory(contract.underlying, {
-                        start,
-                        end,
-                        count: 4999,
-                        adjust_start_time: 1,
-                        subscribe: toStream && !errCode ? 1 : undefined,
-                    });
-            };
-
-            getDataWithErrorHandling(getTicksDataCall).then(r => {
-                if (!r) return;
-
-                const ticks = r.history.times.map((t, idx) => {
-                    const quote = r.history.prices[idx];
-                    return { epoch: +t, quote: +quote };
-                });
-                this.updateData(ticks, 'ticks');
-            });
-        } else {
-            this.hasTick = false;
-        }
-
-        const getDataCall = (errCode) => {
-            if (errCode === 'StreamingNotAllowed') {
-                this.setState({ noData: true });
-                return Promise.resolve();
-            }
-
-            // if contract started less than 4 minutes ago, we need to get more candles
-            // else there will only be 1 candles, which makes it impossible to know what interval to use
-            const lessThan4Minutes = (nowEpoch - start) < 4 * 60;
-
-            return this.api.autoAdjustGetData(
-                contract.underlying,
-                lessThan4Minutes ? nowEpoch - 240 : start,
-                end,
-                'candles',
-                toStream && !errCode
-            );
-        };
-
-        getDataWithErrorHandling(getDataCall).then(r => {
-            if (!r) return;
-
-            this.updateData(r.candles, 'candles');
-
-            // for long contract, dont fetch ticks to avoid multiple huge network call
-            // use OHLC value to represent ticks data instead
-            if (!this.hasTick) {
-                const ticksDerivedFromOHLC = r.candles.map(c => ({ epoch: +c.epoch, quote: +c.close }));
-                this.updateData(ticksDerivedFromOHLC, 'ticks');
-            }
-        });
-    }
-
-    changeChartType = (type: ChartType) => {
-        const { chartType } = this.state;
-        const { contract } = this.props;
-
-        const { date_start, date_expiry } = contract;
-
-        // no candles for contract less than 5 minutes
-        // tick_count is checked too, because date_expiry is not available in tick trade contract
-        const allowCandle = !contract.tick_count && (date_expiry - date_start) > 300;
-        const newDataType = chartToDataType[type];
-
-        if ((!allowCandle && newDataType === 'candles') || chartType === type) {
-            return;
-        }
-
-        if (newDataType === this.state.dataType) {
-            this.setState({ chartType: type });
-            return;
-        }
-
-        this.setState({ chartType: type, dataType: newDataType });
-    }
-
-    render() {
-        const { contract, pipSize, highContrast } = this.props;
-        const { theme } = this.context;
-        const { date_start, date_expiry, exit_tick_time, sell_spot_time, tick_count } = contract;
-        const { chartType, dataType, noData } = this.state;
-        const data = this.state[dataType];
-        const endTime = exit_tick_time || sell_spot_time;
-
-        // handle edge case where contract ends before it starts, show No data available message on chart
-        const hasNoData = (+date_start > +endTime) || noData;
-        const allowOHLC = !tick_count && (date_expiry - date_start) > 300;
-        return (
-            <BinaryChart
-                allowOHLC={allowOHLC}
-                className="contract-chart"
-                hideTimeFrame
-                hideIntervalPicker
-                showTooltips={!isMobile()}
-                showAllTimeFrame={false}
-                highContrast={highContrast}
-                contract={contract}
-                symbol={contract.underlying}
-                assetName={contract.symbolName}
-                ticks={hasNoData ? undefined : data}
-                type={chartType}
-                theme={theme}
-                shiftMode="dynamic"
-                noData={hasNoData}
-                pipSize={pipSize}
-                onTypeChange={!hasNoData ? this.changeChartType : undefined}
-            />
-        );
-    }
+  render() {
+    const { theme } = this.context;
+    return (
+      <div
+        className={`binary-style contract-chart ${theme}`}
+        ref={el => { this.root = el; }}
+      >
+        <div
+          className={`barspinner ${theme === 'dark' ? 'white' : 'dark'}`}
+          ref={el => { this.barspinner = el; }}
+        >
+          <div className="rect1" />
+          <div className="rect2" />
+          <div className="rect3" />
+          <div className="rect4" />
+          <div className="rect5" />
+        </div>
+      </div>
+    );
+  }
 }

@@ -3,7 +3,6 @@ import debounce from 'lodash.debounce';
 import { NumericInput, Label } from 'binary-components';
 import { actions } from '../_store';
 
-const payouts = [1, 2, 5, 10, 20, 50, 100, 200, 500, 1000, 2000, 5000, 10000];
 const debounceStakeChange = debounce(actions.reqStakeChange, 400);
 
 export default class StakeCard extends PureComponent {
@@ -21,8 +20,7 @@ export default class StakeCard extends PureComponent {
     }
 
     render() {
-        const { amount, isVirtual, fractionalDigits, defaultStake } = this.props;
-        const max = isVirtual ? 10000 : 500;                // TODO: temp restriction
+        const { amount, fractionalDigits, defaultStake } = this.props;
         let decimals = 2;
         if (fractionalDigits > 2 && defaultStake <= 0.01) {
           decimals = (defaultStake + '').length - 2;
@@ -35,10 +33,8 @@ export default class StakeCard extends PureComponent {
                     className="numeric-input param-field"
                     defaultValue={amount}
                     min={0}
-                    max={max}
                     step={step}
                     decimals={decimals}
-                    valueList={payouts}
                     onChange={this.onAmountChange}
                 />
             </div>

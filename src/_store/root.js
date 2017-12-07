@@ -2,9 +2,9 @@ import React, { PureComponent } from 'react';
 import 'react-fastclick';
 import { addLocaleData } from 'react-intl';
 import { Provider } from 'react-redux';
-import { Router, browserHistory, hashHistory } from 'react-router';
+import { Router, hashHistory } from 'react-router';
 import { syncHistoryWithStore } from 'react-router-redux';
-import { trackRoute } from 'binary-utils/lib/Analytics';
+import { trackRoute } from 'binary-utils/lib/misc/Analytics';
 import { store, rehydratedStorePromise, actions } from './persistentStore';
 import routes from '../_routes';
 import { tryAuth } from '../_data/Auth';
@@ -12,8 +12,7 @@ import * as LiveData from '../_data/LiveData';
 import AppStateProvider from './AppStateProvider';
 import BootProvider from './BootProvider';
 
-const routerHistory = window.cordova ? hashHistory : browserHistory;
-export const history = syncHistoryWithStore(routerHistory, store);
+export const history = syncHistoryWithStore(hashHistory, store);
 
 history.listen(location => trackRoute(location.pathname));
 

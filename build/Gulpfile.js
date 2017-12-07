@@ -3,7 +3,6 @@ const runSequence = require('run-sequence');
 const del = require('del');
 const file = require('gulp-file');
 const ghPages = require('gulp-gh-pages');
-const sass = require('gulp-sass');
 const args = require('yargs').argv;
 const replace = require('gulp-replace');
 const gulpIf = require('gulp-if');
@@ -11,7 +10,7 @@ const hash = require('gulp-hash-src');
 const bump = require('gulp-bump');
 const path = require('path');
 const run = require('gulp-run');
-
+const modifyFile = require('gulp-modify-file');
 const electron = require('gulp-atom-electron');
 const zip = require('gulp-vinyl-zip');
 
@@ -19,7 +18,6 @@ const files = {
     dist: '../dist',
     js: '../src',
     static: ['../www/**/*', '../config.xml', '../electron.js', '!../www/**/*.scss'],
-    sass: '../styles/*.scss',
 };
 
 const tools = {
@@ -40,16 +38,6 @@ gulp.task('static', () =>
         .pipe(gulp.dest(files.dist))
 );
 
-gulp.task('styles', () =>
-    gulp.src(files.sass)
-        .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest(files.dist))
-);
-
-gulp.task('styles:watch', () =>
-    gulp.watch('../www/**/*.scss', ['styles'])
-);
-
 // Handle general error
 function errorHandler (error) {
   console.log(error.toString());
@@ -58,7 +46,7 @@ function errorHandler (error) {
 
 gulp.task('js', () =>
     gulp.src(files.js)
-        .pipe(run('(cd ../ && node_modules/.bin/webpack --config ./webpack.config.js)'))
+        .pipe(run('(cd ../ && node_modules/.bin/webpack --config ./webpack.prod.js)'))
         .on('error', errorHandler)
         .pipe(gulp.dest(files.dist))
 );
@@ -81,7 +69,7 @@ gulp.task('hash', () =>
 );
 
 gulp.task('build', callback =>
-    runSequence('cleanup', 'js', ['styles', 'static'], 'hash', callback)
+    runSequence('cleanup', 'js', 'static', 'hash', callback)
 );
 
 // gulp.task('download-electron', () =>
@@ -116,14 +104,19 @@ gulp.task('deploy&codepush', (done) => {
     })
 });
 
+// pass in your app id via --appId and this task will set it accordingly
+// before deploying to your gh-pages
 gulp.task('deploy:test', ['build'], () =>
     gulp.src(files.dist + '/**/*')
-        .pipe(gulpIf(args.appId, replace(
-            /window\.BinaryBoot\.appId = window\.cordova \? 1006 : 1001;/,
-            'window.BinaryBoot.appId = ' + args.appId + ';',
-            { skipBinary: true }
-            )
-        ))
+        .pipe(gulpIf(args.appId, modifyFile((content, path, file) => {
+            if (/(boot.js$)/i.test(path)) {
+                return content.replace(
+                    'defaultAppID = 1001; //This is for PROD release',
+                    `defaultAppID = ${args.appId}; // This is injected by Gulp`
+                );
+            }
+            return content;
+        })))
         .pipe(ghPages())
 );
 

@@ -1,1 +1,3 @@
-export { localStorage as default };
+const storage = localStorage;
+
+export default storage;

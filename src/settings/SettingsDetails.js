@@ -11,12 +11,14 @@ export default class SettingsDetails extends PureComponent {
 		last_name: string,
 		date_of_birth: number,
 		country: string,
+		loginid: string,
 	};
 
 	render() {
-		const { email, salutation, first_name, last_name, date_of_birth, country } = this.props;
+		const { email, salutation, first_name, last_name, date_of_birth, country, loginid } = this.props;
 		const fullName = first_name ? salutation + ' ' + first_name + ' ' + last_name : 'N/A';
 		const dob = date_of_birth ? epochToDateString(date_of_birth) : 'N/A';
+		const isVirtual = loginid.startsWith('VRTC');
 
 		return (
 			<div className="settings-details">
@@ -26,16 +28,20 @@ export default class SettingsDetails extends PureComponent {
 					label="Email"
 					value={email}
 				/>
+				{ !isVirtual &&
 				<LabeledText
 					id="name"
 					label="Name"
 					value={fullName}
 				/>
+        }
+				{ !isVirtual &&
 				<LabeledText
 					id="dob"
 					label="Date of birth"
 					value={dob}
 				/>
+        }
 				<LabeledText
 					id="residence"
 					label="Country Of Residence"

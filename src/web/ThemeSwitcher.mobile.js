@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { M } from 'binary-components';
-import { trackEvent } from 'binary-utils/lib/Analytics';
+import { trackEvent } from 'binary-utils/lib/misc/Analytics';
 import storage from '../_store/storage';
 
 @connect(state => ({ theme: state.boot.get('theme') }))

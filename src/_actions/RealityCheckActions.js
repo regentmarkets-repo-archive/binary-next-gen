@@ -9,7 +9,6 @@ export const updateRealityCheck = properties => ({
 export const updateRealityCheckInterval = interval => updateRealityCheck({ interval });
 
 export const disableRealityCheck = () => updateRealityCheck({
-    acknowledged: false,
     showInitial: false,
     showSummary: false,
 });
@@ -31,6 +30,8 @@ export const ackRealityCheck = () => updateRealityCheck({
     showInitial: false,
     showSummary: false,
 });
+
+export const setRealityCheckStartTime = realityCheckStartTime => updateRealityCheck({ realityCheckStartTime });
 
 export const updateRealityCheckSummary = () =>
     dispatch =>

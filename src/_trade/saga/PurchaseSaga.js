@@ -57,7 +57,6 @@ function* handlePurchase(action) {
             date_start: buy.start_time,
             transaction_ids: { buy: buy.transaction_id },
         }));
-        onPurchaseDone();
         yield put(updatePurchasedContract(index, buy));
     } catch (err) {
         if (!err.error || !err.error.error) {
@@ -65,6 +64,7 @@ function* handlePurchase(action) {
         }
         yield put(updateTradeError(index, 'serverError', err.error.error.message));
     } finally {
+        onPurchaseDone();
         yield put(subscribeProposal(index, params));
     }
 }

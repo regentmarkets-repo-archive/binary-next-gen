@@ -1,7 +1,7 @@
 import { LiveApi } from 'binary-live-api';
-import { showError, timeLeftToNextRealityCheck } from 'binary-utils';
+import { showError, timeLeftToNextRealityCheck, nowAsEpoch } from 'binary-utils';
 import * as actions from '../_actions';
-import { CHANGE_INFO_FOR_ASSET } from '../_constants/ActionTypes';
+import { CHANGE_INFO_FOR_ASSET, UPDATE_SETTINGS_FIELD, SERVER_DATA_STATES } from '../_constants/ActionTypes';
 
 const handlers = {
     active_symbols: 'serverDataActiveSymbols',
@@ -38,18 +38,6 @@ export const api = new ApiConstructor(bootConfig);
 const configForChart = Object.assign({ keepAlive: true }, bootConfig);
 delete configForChart.connection;
 
-const memoizedWebsocketConn = [
-    new ApiConstructor(configForChart),        // for contract chart
-    new ApiConstructor(configForChart),        // for first trade
-];
-
-export const chartApi = (n) => {
-    while (!memoizedWebsocketConn[n]) {
-        memoizedWebsocketConn.push(new ApiConstructor(configForChart));
-    }
-    return memoizedWebsocketConn[n];
-};
-
 export const changeLanguage = langCode => {
     api.changeLanguage(langCode);
     api.getActiveSymbolsFull();
@@ -84,21 +72,28 @@ const initAuthorized = async (authData, store) => {
             const details = r.landing_company_details;
 
             const acknowledged = state.realityCheck.get('acknowledged');
-            if (details && details.has_reality_check) {
+          if (details && details.has_reality_check) {
                 if (!acknowledged) {
                     store
                         .dispatch(actions.updateRealityCheckSummary())
                         .then(() => store.dispatch(actions.initRealityCheck()));
-                } else {
-                    const interval = state.realityCheck.get('interval');
-                    const loginTime = state.realityCheck.getIn(['summary', 'loginTime']);
-                    const timeToWait = timeLeftToNextRealityCheck(loginTime, interval) * 1000;
+                } else if (acknowledged) {
+                  const hasSetRealityCheckAfterRefresh = state.appState.get('hasSetRealityCheckAfterRefresh');
+                  const realityCheckStartTime = state.realityCheck.get('realityCheckStartTime');
+                  const interval = state.realityCheck.get('interval');
+                  const loginTime = state.realityCheck.getIn(['summary', 'loginTime']);
+                  const timeToWait = timeLeftToNextRealityCheck(loginTime, interval) * 1000;
+
+                  if (!hasSetRealityCheckAfterRefresh && realityCheckStartTime * 1000 + timeToWait > nowAsEpoch() * 1000) {
+                    store.dispatch(actions.updateAppState('hasSetRealityCheckAfterRefresh', true));
+                    const timeToWaitAfterRefresh = (realityCheckStartTime * 1000 + timeToWait) - nowAsEpoch() * 1000;
                     store
-                        .dispatch(actions.updateRealityCheckSummary())
-                        .then(() => setTimeout(() =>
-                            store.dispatch(actions.showRealityCheckPopUp()),
-                            timeToWait
-                        ));
+                      .dispatch(actions.updateRealityCheckSummary())
+                      .then(() => setTimeout(() =>
+                          store.dispatch(actions.showRealityCheckPopUp()),
+                        timeToWaitAfterRefresh
+                      ));
+                  }
                 }
             } else {
                 store.dispatch(actions.disableRealityCheck());
@@ -146,9 +141,11 @@ const initAuthorized = async (authData, store) => {
             store.dispatch(actions.changeActiveLayout(1, 1));
         }
 
-        store.dispatch(actions.getDailyPrices(symbolToUse));
-        store.dispatch(actions.getTicksByCount(symbolToUse, 100, false));
-        store.dispatch({ type: CHANGE_INFO_FOR_ASSET, symbol: symbolToUse });
+        if (symbolToUse) {
+          store.dispatch(actions.getDailyPrices(symbolToUse));
+          store.dispatch(actions.getTicksByCount(symbolToUse, 100, false));
+          store.dispatch({ type: CHANGE_INFO_FOR_ASSET, symbol: symbolToUse });
+        }
 
         subscribeToWatchlist(tradableSymbols);
     });
@@ -160,8 +157,58 @@ const initAuthorized = async (authData, store) => {
     api.getPortfolio();
     api.getStatement({ description: 1, limit: 20 });
     api.getAccountSettings().then(msg => {
-        if (msg.get_settings.country_code) {
+      store.dispatch({ type: UPDATE_SETTINGS_FIELD, settings: msg });
+      if (msg.get_settings.country_code) {
             api.getPaymentAgentsForCountry(msg.get_settings.country_code);
+            api.getStatesForCountry(msg.get_settings.country_code).then(message => {
+              store.dispatch({ type: SERVER_DATA_STATES, states: message.states_list });
+            });
+            api.getLandingCompany(msg.get_settings.country_code).then(message => {
+              const landingCompany = message.landing_company;
+              const accounts = state.boot.get('accounts').toJS();
+              const loginid = authData.authorize.loginid;
+              const allUserAccounts = accounts.map((val) => val.account);
+              const userHasMLT = allUserAccounts.some(value => value.startsWith('MLT'));
+              const userHasMX = allUserAccounts.some(value => value.startsWith('MX'));
+              const userHasCR = allUserAccounts.some(value => value.startsWith('CR'));
+              const userHasMF = allUserAccounts.some(value => value.startsWith('MF'));
+              const isVirtual = loginid.startsWith('VRTC');
+              const isMLT = loginid.startsWith('MLT');
+              /* eslint-disable */
+              const shouldShowUpgrade = (() => {
+                if (landingCompany.id !== 'jp') {
+                  if ((landingCompany.hasOwnProperty('financial_company') &&
+                      landingCompany.financial_company.shortcode !== 'maltainvest')
+                    || !landingCompany.hasOwnProperty('financial_company')) {
+                    if (isVirtual && !userHasMLT && !userHasMX && !userHasCR) {
+                      return 'toReal';
+                      //	 to mlt
+                    }
+                  } else if (landingCompany.hasOwnProperty('financial_company') &&
+                    landingCompany.financial_company.shortcode === 'maltainvest' &&
+                    landingCompany.hasOwnProperty('gaming_company') &&
+                    landingCompany.gaming_company.shortcode === 'malta') {
+                    // can upgrade to real or maltainvest
+                    if (isVirtual && !userHasMLT && !userHasMX && !userHasCR) {
+                      return 'toReal';
+                      //	 to mlt
+                    } else if (isMLT && !userHasMF) {
+                      return 'toMaltainvest';
+                      //	to mf
+                    }
+                  } else if (landingCompany.hasOwnProperty('financial_company') &&
+                    landingCompany.financial_company.shortcode === 'maltainvest' &&
+                    !landingCompany.hasOwnProperty('gaming_company')) {
+                    if (isVirtual && !userHasMF) {
+                      return 'toMaltainvest';
+                      //	to mf
+                    }
+                  }
+                }
+              })();
+              store.dispatch(actions.updateAppState('shouldShowUpgrade', shouldShowUpgrade));
+              /* eslint-enable */
+            });
         }
     });
     api.getPayoutCurrencies();

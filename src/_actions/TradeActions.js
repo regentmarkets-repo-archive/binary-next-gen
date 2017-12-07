@@ -1,6 +1,6 @@
 /* @flow */
 
-import { trackEvent } from 'binary-utils/lib/Analytics';
+import { trackEvent } from 'binary-utils/lib/misc/Analytics';
 import * as types from '../_constants/ActionTypes';
 import { api } from '../_data/LiveData';
 import { updateOpenContractField } from './PortfolioActions';
@@ -25,6 +25,16 @@ export const updateTradeParams = (index, fieldName, fieldValue) => {
         index,
         fieldName,
         fieldValue,
+    };
+};
+
+// Update trade view chart params
+export const updateTradeViewChartParams = (index, chartParams) => {
+    trackEvent('Trade', 'Chart Params', JSON.stringify(chartParams));
+    return {
+        type: types.UPDATE_TRADE_VIEW_CHART_PARAMS,
+        index,
+        chartParams,
     };
 };
 
