@@ -34,7 +34,7 @@ install:
   - cd ..
 script:
   - cd build
-  - sudo yarn build
+  - yarn build
   - cd ..
 after_success:
   - if [ "$TRAVIS_BRANCH" = "dev" ] ; then rm -fR beta && mkdir beta && mv dist/* beta/ && mv beta dist/; fi
@@ -53,10 +53,10 @@ after_success:
   - rm -fR gh-pages
 before_deploy:
   - git tag "$(date +'%Y-%m-%dT%H%M')-$(git log --format=%h -1)"
-  - sudo cp -R ./dist/* ./www/
-  - sudo cordova platform add android
-  - sudo yarn build:android
-  - sudo mv ./platforms/android/build/outputs/apk/debug/android-debug.apk ./platforms/android/build/outputs/apk/debug/next-gen-beta.apk 
+  - cp -R ./dist/* ./www/
+  - cordova platform add android
+  - yarn build:android
+  - mv ./platforms/android/build/outputs/apk/debug/android-debug.apk ./platforms/android/build/outputs/apk/debug/next-gen-beta.apk 
 deploy:
   provider: releases
   prerelease: true
