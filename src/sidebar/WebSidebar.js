@@ -16,8 +16,8 @@ export default class WebSidebar extends PureComponent {
 		email: string,
 		loginid: string,
 		accounts: Account[],
-    landingCompany: object,
-	};
+        upgradeInfo: object,
+    };
 
 	onSignOut(e: SyntheticEvent) {
 		e.stopPropagation();
@@ -25,7 +25,7 @@ export default class WebSidebar extends PureComponent {
 	}
 
 	render() {
-		const { loginid, email, accounts, landingCompany } = this.props;
+		const { loginid, email } = this.props;
 
     return (
 			<nav className="sidebar">
@@ -33,7 +33,7 @@ export default class WebSidebar extends PureComponent {
 					{loginid}<br />
 					{email}<br />
 				</div>
-				<AccountItemsList loginid={loginid} accounts={accounts} landingCompany={landingCompany} />
+				<AccountItemsList {...this.props} />
 				{/* <SidebarBtn to="/deposit" img="img/profit.svg" text="Deposit" /> */}
 				<a className="sidebar-btn" onClick={this.onSignOut} >
 					<img src="img/signout.svg" role="presentation" />

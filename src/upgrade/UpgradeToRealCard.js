@@ -9,6 +9,8 @@ import { getConstraints } from './UpgradeToRealCard.validation.config';
 import options from './UpgradeCard.options';
 import ValidationManager from '../_utils/ValidationManager';
 import { addNewAccount } from '../_utils/AccountHelpers';
+import { store } from '../_store/persistentStore';
+import { updateUpgradeField } from '../_actions/UpgradeActions';
 
 export default class UpgradeToRealCard extends PureComponent {
 
@@ -22,19 +24,20 @@ export default class UpgradeToRealCard extends PureComponent {
 		loginid: string,
 		country_code: string,
 		states: any[],
-        salutation: string,
-        first_name: string,
-        last_name: string,
-        date_of_birth: string,
-        place_of_birth: string,
-        address_line_1: string,
-        address_line_2: string,
-        address_city: string,
-        address_state: string,
-        address_postcode: string,
-        secret_question: string,
-        secret_answer: string,
-        phone: string,
+    selectedCurrency: string,
+    salutation: string,
+    first_name: string,
+    last_name: string,
+    date_of_birth: string,
+    place_of_birth: string,
+    address_line_1: string,
+    address_line_2: string,
+    address_city: string,
+    address_state: string,
+    address_postcode: string,
+    secret_question: string,
+    secret_answer: string,
+    phone: string,
 		account_opening_reason: string,
 	};
 
@@ -68,6 +71,10 @@ export default class UpgradeToRealCard extends PureComponent {
 		this.validationMan = new ValidationManager(this.constraints);
 	}
 
+	componentWillUnmount() {
+    store.dispatch(updateUpgradeField('selected_currency', ''));
+	}
+
 	onEntryChange = (e: SyntheticEvent) => {
 		const s = this.validationMan.validateFieldAndGetNewState(e, this.state.formData);
 		this.setState({ ...s, hasError: false });
@@ -95,14 +102,17 @@ export default class UpgradeToRealCard extends PureComponent {
 		const loginid = this.props.loginid;
 		// PEPDeclaration and accept_risk are not required for upgrade
 		const { PEPDeclaration, accept_risk, ...formData } = this.state.formData; // eslint-disable-line no-unused-vars
-        let createAccountParams = formData;
-        // if not VRTC, we do not need secret question
-        if (!loginid.startsWith('VRTC')) {
-            const { secret_question, secret_answer, ...d } = formData; // eslint-disable-line no-unused-vars
-            createAccountParams = d;
-        }
+    if (this.props.selectedCurrency && this.props.selectedCurrency !== '') {
+      formData.currency = this.props.selectedCurrency;
+		}
+    let createAccountParams = formData;
+    // if not VRTC, we do not need secret question
+    if (!loginid.startsWith('VRTC')) {
+      const { secret_question, secret_answer, ...d } = formData; // eslint-disable-line no-unused-vars
+     createAccountParams = d;
+    }
 
-        try {
+    try {
 			this.setState({
 				progress: true,
 				serverError: false,

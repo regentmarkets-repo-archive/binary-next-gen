@@ -28,3 +28,13 @@ export const serverDataWebsiteStatus = serverResponse => ({
     type: types.SERVER_DATA_WEBSITE_STATUS,
     serverResponse,
 });
+
+export const updateLandingCompany = (landing_company: Object) => ({
+  type: types.UPDATE_LANDING_COMPANY,
+  landing_company,
+});
+
+export const setAvailableCurrencies = (available_currencies: Array) => ({
+  type: types.SET_AVAILABLE_CURRENCIES,
+  available_currencies,
+});

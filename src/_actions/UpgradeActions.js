@@ -1,11 +1,6 @@
-import { UPDATE_SHOULD_SHOW_UPGRADE, UPGRADE_FIELD_UPDATE, UPGRADE_DOB_UPDATE, UPGRADE_FIELD_CLEAR } from '../_constants/ActionTypes';
+import { UPDATE_UPGRADE_INFO, UPGRADE_FIELD_UPDATE, UPGRADE_DOB_UPDATE, UPGRADE_FIELD_CLEAR, UPDATE_UPGRADE_FIELD } from '../_constants/ActionTypes';
 import { api } from '../_data/LiveData';
 import config from '../config';
-
-export const updateShouldShowUpgrade = (shouldShowUpgrade) => ({
-    type: UPDATE_SHOULD_SHOW_UPGRADE,
-    shouldShowUpgrade,
-});
 
 export const upgradeFieldUpdate = (fieldName, fieldValue) => ({
     type: UPGRADE_FIELD_UPDATE,
@@ -65,3 +60,14 @@ export const upgradeConfirm = async () =>
             dispatch(upgradeFieldUpdate('progress', false));
         }
     };
+
+export const updateUpgradeInfo = upgradeInfo => ({
+    type: UPDATE_UPGRADE_INFO,
+    upgradeInfo,
+});
+
+export const updateUpgradeField = (field, value) => ({
+  type: UPDATE_UPGRADE_FIELD,
+  field,
+  value,
+});
