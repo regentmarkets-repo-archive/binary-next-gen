@@ -53,7 +53,7 @@ after_success:
   - rm -fR gh-pages
 before_deploy:
   - git tag "$(date +'%Y-%m-%dT%H%M')-$(git log --format=%h -1)"
-  - cp -R ./dist/* ./www/
+  - if [ "$TRAVIS_BRANCH" = "dev" ] ; then cp -R ./dist/beta/* ./www/; else cp -R ./dist/* ./www/; fi
   - cordova platform add android
   - yarn build:android
   - mv ./platforms/android/build/outputs/apk/debug/android-debug.apk ./platforms/android/build/outputs/apk/debug/next-gen-beta.apk 
