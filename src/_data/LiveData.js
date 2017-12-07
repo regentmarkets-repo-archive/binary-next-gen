@@ -169,17 +169,17 @@ const initAuthorized = async (authData, store) => {
             if (!landingCompany.gaming_company && landingCompany.financial_company.shortcode === 'maltainvest') {
                 typeOfNextAccount = 'financial';
                 currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
+                allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
             }
             canUpgrade = !hasAccountOfType('real', accounts);
-            allowedMarkets = landingCompanyValue(loginid, 'legal_allowed_markets', landingCompany);
         } else if (landingCompany.financial_company.shortcode === 'maltainvest') {
             typeOfNextAccount = 'financial';
             canUpgrade = !hasAccountOfType('financial', accounts);
             currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
-            allowedMarkets = landingCompanyValue(loginid, 'legal_allowed_markets', landingCompany);
+            allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
         } else if (landingCompany.financial_company.shortcode === 'costarica') {
-            allowedMarkets = landingCompanyValue(loginid, 'legal_allowed_markets', landingCompany);
-            const legalAllowedCurrencies = landingCompanyValue(loginid, 'legal_allowed_currencies', landingCompany);
+            allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
+            const legalAllowedCurrencies = landingCompany.financial_company.legal_allowed_currencies;
             const existingCurrencies = getExistingCurrencies(accounts);
             if (existingCurrencies.length) {
                 const dividedExistingCurrencies = groupCurrencies(existingCurrencies, currencyConfig);
