@@ -1,3 +1,4 @@
+import 'babel-polyfill';
 import cryptoCurrencyConfig from '../_constants/CryptoCurrencyConfig';
 
 // get all loginids ** note: is going to be replaced by backend soon
