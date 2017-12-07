@@ -6,7 +6,7 @@
   },
   "scripts": {
     "test": "jest",
-    "test:full": "npm run build && npm run test:coverage",
+    "test:full": "npm run test:coverage",
     "test:flow": "flow check --all --show-all-errors",
     "test:unit": "jest",
     "test:coverage": "jest --coverage",
@@ -17,6 +17,8 @@
     "clean": "rimraf dist",
     "build": "npm run clean && webpack --progress --config webpack.prod.js",
     "build:apk": "npm run build && cordova build --release android && jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore tick-trade-key.keystore ./platforms/android/build/outputs/apk/android-release-unsigned.apk TickTrade && ~/Library/Android/sdk/build-tools/25.0.0/zipalign -v 4 ./platforms/android/build/outputs/apk/android-release-unsigned.apk ./platforms/android/build/outputs/apk/android-release-aligned.apk",
+    "build:android": "cordova build android",
+    "run:android": "cordova run android --device",
     "build:ios": "cordova build ios --developmentTeam=36S5Q8S4V5 --codeSignIdentity=\"iPhone Developer\"",
     "start:ios": "cordova run ios --device --developmentTeam=36S5Q8S4V5 --codeSignIdentity=\"iPhone Developer\"",
     "lint": "eslint src",
@@ -84,13 +86,13 @@
   "author": "Boris, Qing Wei, Nuru @ Binary",
   "license": "MIT",
   "dependencies": {
-    "binary-components": "^2.24.3",
+    "binary-components": "^2.24.6",
     "binary-live-api": "^29.0.0",
     "binary-style": "^0.1.0",
     "binary-utils": "^4.23.0",
     "classnames": "^2.2.5",
     "code-push": "^1.8.0-beta",
-    "cordova-android": "^6.3.0",
+    "cordova-android": "^6.4.0",
     "cordova-browser": "^5.0.1",
     "cordova-ios": "^4.5.2",
     "cordova-plugin-code-push": "^1.8.2-beta",
@@ -135,7 +137,7 @@
     "validate.js": "0.11.1",
     "webpack-dev-server": "^2.9.3",
     "webpack-merge": "^4.1.0",
-    "webtrader-charts": "^0.4.8"
+    "webtrader-charts": "^0.4.10"
   },
   "devDependencies": {
     "asar": "^0.12.3",
@@ -199,9 +201,9 @@
   },
   "cordova": {
     "platforms": [
-      "android",
       "browser",
-      "ios"
+      "ios",
+      "android"
     ],
     "plugins": {
       "cordova-plugin-code-push": {},

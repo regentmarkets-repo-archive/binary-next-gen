@@ -19,7 +19,13 @@ Now you can choose either to build for Android or iOS. Each of the following sec
 
 ## Android
 ### Setup
-If this is the first time you are building the app, add the android platform to Cordova:
+If this is the first time you are building the app, make sure you have gradle installed:
+
+```
+brew update && brew install gradle
+```
+ 
+Then add the android platform to Cordova:
 ```
 cordova platform add android
 ```
@@ -48,13 +54,13 @@ export PATH=${PATH}:${ANDROID_HOME}platform-tools:${ANDROID_HOME}tools
 ### Build & Deploy
 Now you can build by running the following command in your project directory:
 ```
-cordova build android
+yarn build:android
 ```
 > NOTE: If you see `spawn EACCESS` errors, run `cordova build android —verbose` to see which directory it fails in and do `chmod 777 “<directory name that spawns EACESS>”`. It is probably gradle or android-sdk.
 
 If there are no errors, the build command will output an apk file. To automatically build and deploy the app to your android device, first plug in your android device (make sure debugging mode is turned on) and enter the following:
 ```
-cordova run android --device
+yarn run:android
 ```
 
 ## iOS

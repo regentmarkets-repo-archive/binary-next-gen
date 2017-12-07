@@ -1,4 +1,5 @@
 import React, { PureComponent } from 'react';
+import moment from 'moment';
 import {
 	M, InputGroup, SelectGroup, LogoSpinner, Legend, Button,
 	ErrorMsg, ServerErrorMsg, Countries
@@ -20,9 +21,24 @@ export default class UpgradeToRealCard extends PureComponent {
 	props: {
 		residenceList: any[],
 		boot: any[],
+		loginid: string,
 		country_code: string,
 		states: any[],
     selectedCurrency: string,
+    salutation: string,
+    first_name: string,
+    last_name: string,
+    date_of_birth: string,
+    place_of_birth: string,
+    address_line_1: string,
+    address_line_2: string,
+    address_city: string,
+    address_state: string,
+    address_postcode: string,
+    secret_question: string,
+    secret_answer: string,
+    phone: string,
+		account_opening_reason: string,
 	};
 
 	constructor(props) {
@@ -35,6 +51,20 @@ export default class UpgradeToRealCard extends PureComponent {
 			errors: {},
 			formData: {
 				residence: props.country_code,
+                salutation: props.salutation,
+                first_name: props.first_name,
+                last_name: props.last_name,
+                date_of_birth: moment.unix(this.props.date_of_birth).format('YYYY-MM-DD') || '1980-01-01',
+                place_of_birth: props.place_of_birth,
+                address_line_1: props.address_line_1,
+                address_line_2: props.address_line_2,
+                address_city: props.address_city,
+                address_state: props.address_state,
+                address_postcode: props.address_postcode,
+                secret_question: props.secret_question,
+                secret_answer: props.secret_answer,
+                phone: props.phone,
+				account_opening_reason: props.account_opening_reason,
 			}
 		};
 		this.constraints = getConstraints();
@@ -69,17 +99,25 @@ export default class UpgradeToRealCard extends PureComponent {
 	}
 
 	performUpgrade = async () => {
+		const loginid = this.props.loginid;
 		// PEPDeclaration and accept_risk are not required for upgrade
 		const { PEPDeclaration, accept_risk, ...formData } = this.state.formData; // eslint-disable-line no-unused-vars
     if (this.props.selectedCurrency && this.props.selectedCurrency !== '') {
       formData.currency = this.props.selectedCurrency;
 		}
-		try {
+    let createAccountParams = formData;
+    // if not VRTC, we do not need secret question
+    if (!loginid.startsWith('VRTC')) {
+      const { secret_question, secret_answer, ...d } = formData; // eslint-disable-line no-unused-vars
+     createAccountParams = d;
+    }
+
+    try {
 			this.setState({
 				progress: true,
 				serverError: false,
 			});
-			const response = await api.createRealAccount(formData);
+			const response = await api.createRealAccount(createAccountParams);
 			addNewAccount(response.new_account_real);
 			window.location = window.BinaryBoot.baseUrl;
 		} catch (e) {
@@ -93,7 +131,8 @@ export default class UpgradeToRealCard extends PureComponent {
 
 	render() {
 		const { formData, progress, serverError, statesList, hasError, errors } = this.state;
-		const { residenceList, boot } = this.props;
+		const { residenceList, boot, loginid } = this.props;
+
 		const language = (boot.language || 'en').toLowerCase();
 		const linkToTermsAndConditions = `https://www.binary.com/${language}/terms-and-conditions.html`;
 
@@ -108,7 +147,13 @@ export default class UpgradeToRealCard extends PureComponent {
 				<form onSubmit={this.onFormSubmit}>
 					<Legend text="Personal Information" />
 					<div className="input-row">
-						<SelectGroup id="salutation" value={formData.salutation || ''} options={options.salutationOptions} onChange={this.onEntryChange} />
+						<SelectGroup
+							id="salutation"
+							value={formData.salutation || ''}
+							options={options.salutationOptions}
+							onChange={this.onEntryChange}
+                            disabled={this.props.salutation}
+						/>
 					</div>
 					{errors.salutation && <ErrorMsg text={errors.salutation[0]} />}
 
@@ -121,6 +166,7 @@ export default class UpgradeToRealCard extends PureComponent {
 							onChange={this.onEntryChange}
 							minLength="2"
 							maxLength="30"
+                            readOnly={this.props.first_name}
 						/>
 					</div>
 					{errors.first_name && <ErrorMsg text={errors.first_name[0]} />}
@@ -134,18 +180,20 @@ export default class UpgradeToRealCard extends PureComponent {
 							onChange={this.onEntryChange}
 							minLength="2"
 							maxLength="30"
+                            readOnly={this.props.last_name}
 						/>
 					</div>
 					{errors.last_name && <ErrorMsg text={errors.last_name[0]} />}
 
 					<div className="input-row date-of-birth">
 						<InputGroup
-							id="date_of_birth"
-							label="Date of Birth"
-							type="date"
-							maxLength="10"
-							defaultValue={formData.date_of_birth || 'yyyy-mm-dd'}
-							onChange={this.onEntryChange}
+                            id="date_of_birth"
+                            disabled={this.props.date_of_birth}
+                            label="Date of Birth"
+                            type="date"
+                            maxLength="10"
+                            value={formData.date_of_birth || 'yyyy-mm-dd'}
+                            onChange={this.onEntryChange}
 						/>
 					</div>
 					{errors.date_of_birth && <ErrorMsg text={errors.date_of_birth[0]} />}
@@ -255,30 +303,33 @@ export default class UpgradeToRealCard extends PureComponent {
 						/>
 					</div>
 					{errors.phone && <ErrorMsg text={errors.phone[0]} />}
+                    {loginid.startsWith('VRTC') &&
+						<div>
+							<Legend text="Security" />
+							<div className="input-row">
+								<SelectGroup
+									id="secret_question"
+									value={formData.secret_question || ''}
+									options={options.secretQuestionOptions}
+									onChange={this.onEntryChange}
+								/>
+							</div>
+							{errors.secret_question && <ErrorMsg text={errors.secret_question[0]} />}
 
-					<Legend text="Security" />
-					<div className="input-row">
-						<SelectGroup
-							id="secret_question"
-							value={formData.secret_question || ''}
-							options={options.secretQuestionOptions}
-							onChange={this.onEntryChange}
-						/>
-					</div>
-					{errors.secret_question && <ErrorMsg text={errors.secret_question[0]} />}
-
-					<div className="input-row">
-						<InputGroup
-							id="secret_answer"
-							value={formData.secret_answer || ''}
-							placeholder="Answer To Secret Question"
-							type="text"
-							minLength="4"
-							maxLength="50"
-							onChange={this.onEntryChange}
-						/>
-					</div>
-					{errors.secret_answer && <ErrorMsg text={errors.secret_answer[0]} />}
+							<div className="input-row">
+								<InputGroup
+									id="secret_answer"
+									value={formData.secret_answer || ''}
+									placeholder="Answer To Secret Question"
+									type="text"
+									minLength="4"
+									maxLength="50"
+									onChange={this.onEntryChange}
+								/>
+							</div>
+							{errors.secret_answer && <ErrorMsg text={errors.secret_answer[0]} />}
+						</div>
+                    }
 
 					<Legend text="PEP Declaration" />
 					<M m="A PEP is an individual who is or has been entrusted with a prominent public function. This status extends to a PEP's relatives and close associates." />
@@ -287,7 +338,7 @@ export default class UpgradeToRealCard extends PureComponent {
 							<input
 								id="PEPDeclaration"
 								type="checkbox"
-								onClick={this.onEntryChange}
+								onChange={this.onEntryChange}
 								value="1"
 							/>
 							<M m="I acknowledge that I am not a politically exposed person (PEP)." />&nbsp;
