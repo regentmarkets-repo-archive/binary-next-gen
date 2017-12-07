@@ -168,8 +168,8 @@ const initAuthorized = async (authData, store) => {
         if (/VR/i.test(loginid)) {
             if (!landingCompany.gaming_company && landingCompany.financial_company.shortcode === 'maltainvest') {
                 typeOfNextAccount = 'financial';
+                currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
             }
-            currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
             canUpgrade = !hasAccountOfType('real', accounts);
             allowedMarkets = landingCompanyValue(loginid, 'legal_allowed_markets', landingCompany);
         } else if (landingCompany.financial_company.shortcode === 'maltainvest') {
