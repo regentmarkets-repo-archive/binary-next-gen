@@ -16,13 +16,6 @@
     <title>Binary.com</title>
     <style id="antiClickjack">body{display:none !important;}</style>
     <script>
-        // A hack to prevent viewport from being squeezed when keyboard
-        // pops up. Only affects android browsers.
-        if (/(android)/i.test(navigator.userAgent)) {
-            var viewport = document.querySelector("meta[name=viewport]");
-            viewport.setAttribute("content", "height=" + window.outerHeight + ", width=" + window.outerWidth + ", initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no");
-        }
-
         if (self === top) {
             var antiClickjack = document.getElementById('antiClickjack');
             antiClickjack.parentNode.removeChild(antiClickjack);
