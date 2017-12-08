@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { Tab, TabList } from 'binary-components';
+import { Tab, TabList, CloseButton } from 'binary-components';
 import { contractCategoryToText, tradeTypeCodeToText } from 'binary-utils';
 import { serverToInternalTradeType, internalToServerTradeType } from './TradeTypeAdapter';
 import { tradeGrouping, typesForCategories, hasAdvanced, hasBasic,
@@ -12,6 +12,7 @@ export default class TradeTypePicker extends PureComponent {
         contract: Contract,
         index: number,
         onSelect: (e: SyntheticEvent) => void,
+        onClose: () => void,
         tradeParams: object,
     };
 
@@ -55,7 +56,7 @@ export default class TradeTypePicker extends PureComponent {
     }
 
     render() {
-        const { contract, tradeParams } = this.props;
+        const { contract, tradeParams, onClose } = this.props;
         const selectedCategory = tradeParams.tradeCategory;
         const selectedType = tradeParams.type;
         const { tradeGroup } = this.state;
@@ -67,6 +68,9 @@ export default class TradeTypePicker extends PureComponent {
 
         return (
             <div className="trade-type-picker">
+                <div className="trade-type-close-btn">
+                    <CloseButton onClick={onClose} />
+                </div>
                 <TabList activeIndex={tradeGroup} onChange={this.changeGroup}>
                     {hasBasic(contract) && <Tab text="Basic" />}
                     {hasDigits(contract) && <Tab text="Digits" />}

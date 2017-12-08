@@ -150,6 +150,20 @@
     overflow: hidden;
 }
 
+.trade-type-close-btn {
+    padding: 0.5em;
+
+    svg {
+        fill: $COLOR_BRAND_BLUE;
+    }
+}
+
+.inverse .trade-type-close-btn {
+    svg {
+        fill: white;
+    }
+}
+
 .type-pairs-list {
     display: flex;
     flex-direction: column;
