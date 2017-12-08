@@ -60,7 +60,7 @@ yarn build:android
 
 If there are no errors, the build command will output an apk file. To automatically build and deploy the app to your android device, first plug in your android device (make sure debugging mode is turned on) and enter the following:
 ```
-yarn run:android
+yarn start:android
 ```
 
 ## iOS
