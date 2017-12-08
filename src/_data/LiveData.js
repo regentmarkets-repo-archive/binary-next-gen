@@ -259,7 +259,6 @@ export const setAccountCurrency = (currency, store) => {
       if (r.set_account_currency === 1) {
         const loginid = state.account.toJS().loginid;
         addCurrencyToAccount(currency, loginid);
-       window.location = window.BinaryBoot.baseUrl;
       }
     }
   );

@@ -9,14 +9,15 @@ export default class AccountMenuItem extends PureComponent {
 		currency: string
 	};
 
+	static contextTypes = {
+        router: () => undefined,
+    };
+
 	switchToAccount = () => {
 		const { token } = this.props;
 		storage.setItem('account', JSON.stringify({ token }));
-		if (window.cordova) {
-			window.location.reload(true);
-		} else {
-			window.location.href = window.BinaryBoot.baseUrl;
-		}
+		this.context.router.push('/');
+		window.location.reload(true);
 	};
 
 	render() {

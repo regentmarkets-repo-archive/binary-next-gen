@@ -37,7 +37,8 @@ export default class SetCurrency extends PureComponent {
           serverError: false,
         });
         setAccountCurrency(currency, store);
-        // window.location = window.BinaryBoot.baseUrl;
+        this.context.router.push('/');
+        window.location.reload();
       } catch (e) {
         this.setState({ serverError: e.error.error.message });
       } finally {
