@@ -6,6 +6,7 @@ import PortfolioContainer from '../portfolio/PortfolioContainer';
 import StatementContainer from '../statement/StatementContainer';
 import ExamineAssetContainer from '../examine-asset/ExamineAssetContainer';
 import SettingsContainer from '../settings/SettingsContainer';
+import UserAccountsContainer from '../user-accounts/UserAccountsContainer';
 
 const components = [
 	PortfolioContainer,
@@ -15,6 +16,7 @@ const components = [
 	AssetIndexContainer,
 	ExamineAssetContainer,
 	SettingsContainer,
+  UserAccountsContainer
 ];
 
 export default class WorkspaceSidePanel extends PureComponent {

@@ -1,12 +1,14 @@
 import { fromJS } from 'immutable';
 import {
-    SERVER_DATA_AUTHORIZE,
-    SERVER_DATA_BALANCE,
-    SERVER_DATA_PAYOUT_CURRENCIES,
-    SERVER_DATA_BUY,
-    UPDATE_TOKEN,
-    REMOVE_PERSONAL_DATA,
-    SERVER_DATA_WEBSITE_STATUS,
+  SERVER_DATA_AUTHORIZE,
+  SERVER_DATA_BALANCE,
+  SERVER_DATA_PAYOUT_CURRENCIES,
+  SERVER_DATA_BUY,
+  UPDATE_TOKEN,
+  REMOVE_PERSONAL_DATA,
+  SERVER_DATA_WEBSITE_STATUS,
+  UPDATE_LANDING_COMPANY,
+  SET_AVAILABLE_CURRENCIES
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
@@ -14,18 +16,17 @@ const initialState = fromJS({
     fullname: '',
     balance: 0,
     token: '',
-    currency: 'USD',
+    currency: '',
     currencies: ['USD'],
-    currencies_config: { } // "USD": { "fractional_digits": 2, "stake_default": 0.35, "type": "fiat" }
+    currencies_config: { }, // "USD": { "fractional_digits": 2, "stake_default": 0.35, "type": "fiat" }
+    landing_company: { },
+    available_currencies: { }
 });
 
 export default (state = initialState, action) => {
     switch (action.type) {
         case SERVER_DATA_AUTHORIZE: {
             const { authorize } = action.serverResponse;
-            if (authorize.currency === '') {
-                return state.merge(authorize).set('currency', 'USD');
-            }
             return state.merge(authorize);
         }
         case SERVER_DATA_BALANCE: {
@@ -48,6 +49,12 @@ export default (state = initialState, action) => {
           const currencies_config = fromJS(website_status.currencies_config);
 
           return state.set('currencies_config', currencies_config);
+        }
+        case UPDATE_LANDING_COMPANY: {
+            return state.set('landing_company', action.landing_company);
+        }
+        case SET_AVAILABLE_CURRENCIES: {
+            return state.set('available_currencies', action.available_currencies);
         }
         default:
             return state;

@@ -43,7 +43,9 @@ export default class ContractChart extends Component {
     endTime && this.chart.draw.endTime(endTime * 1000);
 
     const barrier = +contract.barrier;
-    barrier && this.chart.draw.barrier({ value: barrier });
+    barrier && this.chart.draw.barrier({ value: barrier, label: 'barrier' });
+    contract.high_barrier && this.chart.draw.barrier({ value: +contract.high_barrier, label: 'high barrier' });
+    contract.low_barrier && this.chart.draw.barrier({ value: +contract.low_barrier, label: 'low barrier' });
   }
 
   async componentDidMount() {

@@ -104,7 +104,9 @@ export default class TradeViewChart extends Component {
       endTime && this.chart.draw.endTime(endTime * 1000);
 
       const barrier = +contract.barrier;
-      barrier && this.chart.draw.barrier({ value: barrier });
+      barrier && this.chart.draw.barrier({ value: barrier, label: 'barrier' });
+      contract.high_barrier && this.chart.draw.barrier({ value: +contract.high_barrier, label: 'high barrier' });
+      contract.low_barrier && this.chart.draw.barrier({ value: +contract.low_barrier, label: 'low barrier' });
       this.hasDrawnTradeResults = true;
     } else if (this.hasDrawnTradeResults) {
       // clear the trade results when customer trades again

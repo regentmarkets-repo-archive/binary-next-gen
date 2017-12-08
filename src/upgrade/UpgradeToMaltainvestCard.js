@@ -4,11 +4,13 @@ import {
   M, InputGroup, SelectGroup, LogoSpinner, Legend, Button,
   ErrorMsg, ServerErrorMsg, Countries, MultiSelectGroup
 } from 'binary-components';
-import { api } from '../_data/LiveData';
+import { api, setAccountCurrency } from '../_data/LiveData';
 import options from './UpgradeCard.options';
 import { getConstraints } from './UpgradeToMaltainvestCard.validation.config';
 import ValidationManager from '../_utils/ValidationManager';
 import { addNewAccount } from '../_utils/AccountHelpers';
+import { store } from '../_store/persistentStore';
+import { updateUpgradeField } from '../_actions/UpgradeActions';
 
 export default class UpgradeToMaltainvestCard extends PureComponent {
 
@@ -17,6 +19,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   props: {
+    selectedCurrency: string,
     account_opening_reason: string,
     residenceList: any[],
     country_code: string,
@@ -74,6 +77,10 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
     this.validationMan = new ValidationManager(this.constraints);
   }
 
+  componentWillUnmount() {
+    store.dispatch(updateUpgradeField('selected_currency', ''));
+  }
+
   onEntryChange = (e: SyntheticEvent) => {
     const s = this.validationMan.validateFieldAndGetNewState(e, this.state.formData);
 		this.setState({ ...s, hasError: false });
@@ -116,7 +123,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   performUpgrade = async () => {
-    const loginid = this.props.loginid;
+    const { loginid, selectedCurrency } = this.props;
     // PEPDeclaration not required for upgrade; only verified in frontend.
     const { PEPDeclaration, ...formData } = this.state.formData; // eslint-disable-line no-unused-vars
     let createAccountParams = formData;
@@ -133,6 +140,9 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
       });
       const response = await api.createRealAccountMaltaInvest(createAccountParams);
       addNewAccount(response.new_account_maltainvest);
+      if (selectedCurrency && selectedCurrency !== '') {
+        setAccountCurrency(selectedCurrency, store);
+      }
       window.location = window.BinaryBoot.baseUrl;
     } catch (e) {
       this.setState({ serverError: e.error.error.message });
@@ -165,7 +175,13 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
         <form onSubmit={this.onFormSubmit}>
           <Legend text="Personal Information" />
           <div className="input-row">
-            <SelectGroup id="salutation" options={options.salutationOptions} value={formData.salutation || ''} readOnly={formData.salutation} />
+            <SelectGroup
+                id="salutation"
+                options={options.salutationOptions}
+                value={formData.salutation || ''}
+                onChange={this.onEntryChange}
+                disabled={this.props.salutation}
+            />
           </div>
           {errors.salutation && <ErrorMsg text={errors.salutation[0]} />}
 
@@ -178,7 +194,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               minLength="2"
               maxLength="30"
               value={formData.first_name || ''}
-              readOnly={formData.first_name}
+              readOnly={this.props.first_name}
             />
           </div>
           {errors.first_name && <ErrorMsg text={errors.first_name[0]} />}
@@ -192,7 +208,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               minLength="2"
               maxLength="30"
               value={formData.last_name || ''}
-              readOnly={formData.last_name}
+              readOnly={this.props.last_name}
             />
           </div>
           {errors.last_name && <ErrorMsg text={errors.last_name[0]} />}
@@ -200,7 +216,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
           <div className="input-row date-of-birth">
             <InputGroup
               id="date_of_birth"
-              disabled={formData.date_of_birth}
+              disabled={this.props.date_of_birth}
               label="Date of Birth"
               type="date"
               maxLength="10"

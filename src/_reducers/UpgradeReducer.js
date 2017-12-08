@@ -1,17 +1,25 @@
 import { fromJS } from 'immutable';
 
 import {
-  UPDATE_SHOULD_SHOW_UPGRADE,
+  UPDATE_UPGRADE_INFO,
+  UPDATE_UPGRADE_FIELD,
 } from '../_constants/ActionTypes';
 
-const initialState = fromJS([]);
+const initialState = fromJS({
+  upgrade: {},
+  selectedCurrency: '',
+});
 
 export default (state = initialState, action) => {
   switch (action.type) {
-    case UPDATE_SHOULD_SHOW_UPGRADE: {
-      return state.merge(action.shouldShowUpgrade);
+    case UPDATE_UPGRADE_INFO: {
+      return state.merge(action.upgradeInfo);
     }
-    default:
+    case UPDATE_UPGRADE_FIELD: {
+      return state.setIn([action.field], action.value);
+    }
+    default: {
       return state;
+    }
   }
 };

@@ -86,7 +86,7 @@
   "author": "Boris, Qing Wei, Nuru @ Binary",
   "license": "MIT",
   "dependencies": {
-    "binary-components": "^2.24.3",
+    "binary-components": "^2.24.6",
     "binary-live-api": "^29.0.0",
     "binary-style": "^0.1.0",
     "binary-utils": "^4.23.0",
@@ -137,7 +137,7 @@
     "validate.js": "0.11.1",
     "webpack-dev-server": "^2.9.3",
     "webpack-merge": "^4.1.0",
-    "webtrader-charts": "^0.4.10"
+    "webtrader-charts": "^0.4.11"
   },
   "devDependencies": {
     "asar": "^0.12.3",

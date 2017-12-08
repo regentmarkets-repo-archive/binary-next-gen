@@ -5,6 +5,7 @@ describe('sidebarSelectors', () => {
     const emptyState = () => ({
         account: fromJS({}),
         boot: fromJS({}),
+        upgradeInfo: fromJS({}),
     });
 
     it('should be able to execute', () => {
