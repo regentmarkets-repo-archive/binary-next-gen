@@ -16,13 +16,6 @@
     <title>Binary.com</title>
     <style id="antiClickjack">body{display:none !important;}</style>
     <script>
-        // A hack to prevent viewport from being squeezed when keyboard
-        // pops up. Only affects android browsers.
-        if (/(android)/i.test(navigator.userAgent)) {
-            var viewport = document.querySelector("meta[name=viewport]");
-            viewport.setAttribute("content", "height=" + window.outerHeight + ", width=" + window.outerWidth + ", initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no");
-        }
-
         if (self === top) {
             var antiClickjack = document.getElementById('antiClickjack');
             antiClickjack.parentNode.removeChild(antiClickjack);
@@ -108,7 +101,7 @@
 <script src="jquery.min.js?c9f5aeeca3"></script>
 <script src="boot.js?8a2bc08656"></script>
 <script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,Promise,Array.from,Array.prototype.find,Array.prototype.includes,String.prototype.startsWith,String.prototype.includes,Math.sign,Intl.~locale.en|always,Intl.~locale.id|always,Intl.~locale.ru|always,Intl.~locale.fr|always&unknown=polyfill"></script>
-<script async src="app.js?6d94915db4"></script>
+<script async src="app.js?e9987c4fdd"></script>
 
 <script>
     window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
