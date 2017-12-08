@@ -16,13 +16,6 @@
     <title>Binary.com</title>
     <style id="antiClickjack">body{display:none !important;}</style>
     <script>
-        // A hack to prevent viewport from being squeezed when keyboard
-        // pops up. Only affects android browsers.
-        if (/(android)/i.test(navigator.userAgent)) {
-            var viewport = document.querySelector("meta[name=viewport]");
-            viewport.setAttribute("content", "height=" + window.outerHeight + ", width=" + window.outerWidth + ", initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no");
-        }
-
         if (self === top) {
             var antiClickjack = document.getElementById('antiClickjack');
             antiClickjack.parentNode.removeChild(antiClickjack);
@@ -71,16 +64,6 @@
     </div>
 </div>
 <script>
-    // In iOS safari the bottom menu bar obstructs the content.
-    // This little snippet below just allocates some space for it.
-    var ua = window.navigator.userAgent;
-    var iOS = !!ua.match(/iPad/i) || !!ua.match(/iPhone/i);
-    var webkit = !!ua.match(/WebKit/i);
-    var iOSSafari = iOS && webkit && !ua.match(/CriOS/i);
-    if (iOSSafari) {
-        document.body.style.paddingBottom = '4.4em';
-    }
-
     if (document.location.protocol === 'file:') {
         document.writeln('<script src="cordova.js"><\/script>');
         function onBackPressed(e) {
