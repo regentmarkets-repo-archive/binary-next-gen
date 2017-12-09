@@ -2,7 +2,7 @@ import { createSelector } from 'reselect';
 import { extractBarrier, extractDuration, extractForwardStartingDuration,
     extractSpreadInfo, normalizedContractFor, groupByKey, findDeep, filterDeep } from 'binary-utils';
 import {
-    assetsSelector, currencySelector, tradesErrorSelector, tradePurchaseInfoSelector,
+    assetsSelector, currencySelector, defaultCurrencySelector, tradesErrorSelector, tradePurchaseInfoSelector,
     tradeProposalSelector, tradesUIStatesSelector, fractionalDigitsSelector, defaultStakeSelector,
 } from '../_store/directSelectors';
 import { mockedContract } from '../_constants/MockContract';
@@ -94,6 +94,7 @@ const getStartLaterOnlyContract = contract => {
 export default createSelector(
     [
         currencySelector,
+        defaultCurrencySelector,
         tradingOptionsSelector,
         tradeParamsWithSymbolNameSelector,
         tradesErrorSelector,
@@ -105,8 +106,9 @@ export default createSelector(
         fractionalDigitsSelector,
         defaultStakeSelector,
     ],
-    (currency, contracts, params, errors, pipSizes, purchaseInfo, proposalInfo, uiState, marketIsOpen, fractionalDigits, defaultStake) =>
+    (currencyOfAccount, defaultCurrency, contracts, params, errors, pipSizes, purchaseInfo, proposalInfo, uiState, marketIsOpen, fractionalDigits, defaultStake) =>
         params.map((p, i) => {
+            const currency = currencyOfAccount.length ? currencyOfAccount : defaultCurrency;
             let contractToUse = contracts.get(i);
             if (!contractToUse) {
                 contractToUse = mockedContract;
