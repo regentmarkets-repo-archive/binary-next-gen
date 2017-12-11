@@ -749,7 +749,7 @@ msgid "Choose your country"
 msgstr "选择您的国家"
 
 msgid "Password should have lower and uppercase letters and 6 characters or more"
-msgstr "密码须包含大小写字母与至少6个字元"
+msgstr "密码须包含大小写字母和至少6个字符"
 
 msgid "Passwords do not match"
 msgstr "密码不相符"
@@ -758,7 +758,7 @@ msgid "Enter a valid email"
 msgstr "输入有效的电子邮件"
 
 msgid "Number should between 10 to 120"
-msgstr "必须是10至120之间的数字"
+msgstr "数字应该在10到120之间"
 
 msgid "Enter your first and last name"
 msgstr "输入姓名"
@@ -776,7 +776,7 @@ msgid "Select a secret question"
 msgstr "选择安全提示问题"
 
 msgid "Secret answer must be at least 4 characters"
-msgstr "安全提示答案必须至少4个字元"
+msgstr "安全提示答案必须有至少4个字符"
 
 msgid "You need to agree to our Terms and Conditions"
 msgstr "您必须同意我们的条款和条件"
