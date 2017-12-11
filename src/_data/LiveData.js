@@ -253,12 +253,15 @@ export const trackSymbols = symbols => {
     api.subscribeToTicks(symbols);
 };
 
-export const setAccountCurrency = (currency, store) => {
+export const setAccountCurrency = (currency, store, onCurrencyAdded) => {
   const state = store.getState();
   api.setAccountCurrency(currency).then(r => {
       if (r.set_account_currency === 1) {
         const loginid = state.account.toJS().loginid;
         addCurrencyToAccount(currency, loginid);
+        if (onCurrencyAdded) {
+          onCurrencyAdded();
+        }
       }
     }
   );
