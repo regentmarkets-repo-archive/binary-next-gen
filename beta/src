@@ -1,6 +1,6 @@
-Hash: c7dcf5b1da2fc70636be
+Hash: d88e77469c2c32e3376d
 Version: webpack 3.10.0
-Time: 130955ms
+Time: 86357ms
                          Asset      Size  Chunks                    Chunk Names
     webtrader-charts.bundle.js    907 kB       0  [emitted]  [big]  webtrader-charts
                         app.js   1.66 MB       1  [emitted]  [big]  app
@@ -12,7 +12,7 @@ webtrader-charts.bundle.js.map   2.73 MB       0  [emitted]         webtrader-ch
   [69] (webpack)/buildin/module.js 517 bytes {1} [built]
  [106] ./src/layouts/layouts.css 917 bytes {1} [built]
  [216] (webpack)/buildin/amd-define.js 88 bytes {1} [built]
- [230] ./src/index.js + 462 modules 1.09 MB {1} [built]
+ [230] ./src/index.js + 462 modules 1.09 MB {1} [built] [1 warning]
  [591] ./node_modules/moment/locale ^$ 160 bytes {1} [optional] [built]
  [641] ./www/img/favorites.svg 1.03 kB {1} [built]
  [642] ./www/img/open.svg 2.9 kB {1} [built]
@@ -24,6 +24,16 @@ webtrader-charts.bundle.js.map   2.73 MB       0  [emitted]         webtrader-ch
  [666] ./styles/styles.scss 41 bytes {1} [built]
  [673] ./node_modules/css-loader?{"minimize":true}!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 54.1 kB [built]
     + 659 hidden modules
+
+WARNING in ./src/_data/LiveData.js
+
+/home/travis/build/binary-com/binary-next-gen/src/_data/LiveData.js
+  8:28  warning  'landingCompanyValue' is defined but never used  no-unused-vars
+
+✖ 1 problem (0 errors, 1 warning)
+
+ @ ./src/_store/root.js 1:2166-2209
+ @ ./src/index.js
 Child extract-text-webpack-plugin node_modules/extract-text-webpack-plugin/dist node_modules/css-loader/index.js??ref--3-2!node_modules/sass-loader/lib/loader.js!styles/styles.scss:
        [0] ./node_modules/css-loader?{"minimize":true}!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 54.1 kB {0} [built]
         + 1 hidden module
