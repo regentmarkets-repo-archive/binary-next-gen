@@ -866,10 +866,10 @@ msgid "Password changed successfully"
 msgstr "已成功更改密码"
 
 msgid "Settings updated"
-msgstr "设置更新"
+msgstr "设置已更新"
 
 msgid "Address updated"
-msgstr "地址更新"
+msgstr "地址已更新"
 
 msgid "Barrier must not be empty"
 msgstr "障碍不可为空"
