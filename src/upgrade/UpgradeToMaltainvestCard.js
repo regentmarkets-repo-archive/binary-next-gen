@@ -283,12 +283,13 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
           <Legend text="Home Address" />
           <div className="input-row">
-            {formData.residence &&
-              <M id="residence" m={residenceList.find(element => element.value === formData.residence).text} value={formData.residence || ''} />
-            }
-            {!formData.residence &&
-              <Countries id="residence" value={formData.residence || ''} onChange={this.onCountryChange} residenceList={residenceList} />
-            }
+              <Countries
+                  id="residence"
+                  value={formData.residence || ''}
+                  onChange={this.onCountryChange}
+                  residenceList={residenceList}
+                  disabled={this.props.country_code}
+              />
             {errors.residence && <ErrorMsg text={errors.residence[0]} />}
             <select id="address_state" onChange={this.onEntryChange} value={formData.address_state || ''}>
               {statesList.map(x => (
