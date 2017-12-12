@@ -3,7 +3,7 @@ import { showError, timeLeftToNextRealityCheck, nowAsEpoch } from 'binary-utils'
 import * as actions from '../_actions';
 import {
   CHANGE_INFO_FOR_ASSET, UPDATE_SETTINGS_FIELD, SERVER_DATA_STATES,
-  UPDATE_UPGRADE_INFO, SET_AVAILABLE_CURRENCIES
+  UPDATE_UPGRADE_INFO, SET_AVAILABLE_CURRENCIES, SET_DEFAULT_CURRENCY
 } from '../_constants/ActionTypes';
 import { hasAccountOfType, landingCompanyValue, getExistingCurrencies, groupCurrencies, populateCurrencyOptions } from '../_utils/Client';
 import { addCurrencyToAccount } from '../_utils/AccountHelpers';
@@ -230,6 +230,9 @@ const initAuthorized = async (authData, store) => {
               const currencyConfig = state.account.get('currencies_config').toJS();
               const upgradeInfo = getUpgradeInfo(landingCompany, loginid, accounts, currencyConfig);
               const availableCurrencies = populateCurrencyOptions(loginid, accounts, landingCompany, currencyConfig);
+              const defaultCurrency = !/VRTC/i.test(loginid) ?
+                  landingCompanyValue(loginid, 'legal_default_currency', landingCompany) : 'USD';
+              store.dispatch({ type: SET_DEFAULT_CURRENCY, default_currency: defaultCurrency });
               store.dispatch({ type: SET_AVAILABLE_CURRENCIES, available_currencies: availableCurrencies });
               store.dispatch({ type: UPDATE_UPGRADE_INFO, upgradeInfo });
             });

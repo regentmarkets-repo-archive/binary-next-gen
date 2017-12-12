@@ -28,6 +28,9 @@ export const residenceListSelector = state => state.residenceList;
 export const upgradeInfoSelector = state => state.upgrade;
 export const accountsSelector = state => state.boot.get('accounts');
 
+export const defaultCurrencySelector = state =>
+    state.account.get('default_currency');
+
 export const themeSelector = state =>
     state.boot.get('theme');
 
