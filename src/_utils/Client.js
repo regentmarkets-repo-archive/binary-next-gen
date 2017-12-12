@@ -84,15 +84,17 @@ export const getExistingCurrencies = (accounts) => {
 export const groupCurrencies = (currencies, currencyConfig) => {
   const cryptoCurrencies = [];
   const fiatCurrencies = [];
-  currencies.forEach(curr => {
-    const currency = currencyConfig[curr];
-    const isCryptoCurrency = /crypto/i.test(currency.type);
-    if (isCryptoCurrency) {
-      cryptoCurrencies.push(curr);
-    } else {
-      fiatCurrencies.push(curr);
-    }
-  });
+  if (currencies && currencyConfig) {
+    currencies.forEach(curr => {
+      const currency = currencyConfig[curr];
+      const isCryptoCurrency = /crypto/i.test(currency.type);
+      if (isCryptoCurrency) {
+        cryptoCurrencies.push(curr);
+      } else {
+        fiatCurrencies.push(curr);
+      }
+    });
+  }
   return {
     cryptoCurrencies,
     fiatCurrencies
@@ -118,7 +120,7 @@ export const filterMarkets = (markets, activeMarkets) => {
 // also group them in fiat currency and cryptocurrency to have optgroup select
 export const getCurrenciesForNewAccount = (currencies, currencyConfig) => {
   const currencyOptions = [];
-  if (currencies) {
+  if (currencies && currencyConfig) {
     currencies.forEach((curr) => {
       const currencyObject = {};
       currencyObject.text = curr;
