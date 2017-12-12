@@ -172,36 +172,38 @@ const initAuthorized = async (authData, store) => {
                 allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
             }
             canUpgrade = !hasAccountOfType('real', accounts);
-        } else if (landingCompany.financial_company.shortcode === 'maltainvest') {
-            typeOfNextAccount = 'financial';
-            canUpgrade = !hasAccountOfType('financial', accounts);
-            currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
-            allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
-        } else if (landingCompany.financial_company.shortcode === 'costarica') {
-            allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
-            const legalAllowedCurrencies = landingCompany.financial_company.legal_allowed_currencies;
-            const existingCurrencies = getExistingCurrencies(accounts);
-            if (existingCurrencies.length) {
-                const dividedExistingCurrencies = groupCurrencies(existingCurrencies, currencyConfig);
-                if (dividedExistingCurrencies.fiatCurrencies.length) {
-                    const dividedAllowedCurrencies = groupCurrencies(legalAllowedCurrencies, currencyConfig);
-                    const legalAllowedCryptoCurrencies = dividedAllowedCurrencies.cryptoCurrencies;
-                    const existingCryptoCurrencies = dividedExistingCurrencies.cryptoCurrencies;
-                    currencyOptions = legalAllowedCryptoCurrencies.filter(x => existingCryptoCurrencies.indexOf(x) === -1);
-                    if (currencyOptions.length) {
+        } else if (landingCompany.financial_company) {
+                if (landingCompany.financial_company.shortcode === 'maltainvest') {
+                typeOfNextAccount = 'financial';
+                canUpgrade = !hasAccountOfType('financial', accounts);
+                currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
+                allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
+            } else if (landingCompany.financial_company.shortcode === 'costarica') {
+                allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
+                const legalAllowedCurrencies = landingCompany.financial_company.legal_allowed_currencies;
+                const existingCurrencies = getExistingCurrencies(accounts);
+                if (existingCurrencies.length) {
+                    const dividedExistingCurrencies = groupCurrencies(existingCurrencies, currencyConfig);
+                    if (dividedExistingCurrencies.fiatCurrencies.length) {
+                        const dividedAllowedCurrencies = groupCurrencies(legalAllowedCurrencies, currencyConfig);
+                        const legalAllowedCryptoCurrencies = dividedAllowedCurrencies.cryptoCurrencies;
+                        const existingCryptoCurrencies = dividedExistingCurrencies.cryptoCurrencies;
+                        currencyOptions = legalAllowedCryptoCurrencies.filter(x => existingCryptoCurrencies.indexOf(x) === -1);
+                        if (currencyOptions.length) {
+                            canUpgrade = true;
+                            multi = true;
+                        }
+                    } else {
                         canUpgrade = true;
                         multi = true;
-                      }
-                  } else {
+                        currencyOptions = legalAllowedCurrencies.filter(x => existingCurrencies.indexOf(x) === -1);
+                    }
+                } else {
                     canUpgrade = true;
                     multi = true;
-                    currencyOptions = legalAllowedCurrencies.filter(x => existingCurrencies.indexOf(x) === -1);
-                  }
-              } else {
-                canUpgrade = true;
-                multi = true;
-                currencyOptions = legalAllowedCurrencies;
-              }
+                    currencyOptions = legalAllowedCurrencies;
+                }
+            }
           }
         return {
           typeOfNextAccount,
