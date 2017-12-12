@@ -22,7 +22,7 @@ const initialState = fromJS({
     currencies_config: { }, // "USD": { "fractional_digits": 2, "stake_default": 0.35, "type": "fiat" }
     landing_company: { },
     available_currencies: { },
-    default_currency: { },
+    default_currency: 'USD',
 });
 
 export default (state = initialState, action) => {
