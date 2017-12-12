@@ -5,7 +5,7 @@ import {
   CHANGE_INFO_FOR_ASSET, UPDATE_SETTINGS_FIELD, SERVER_DATA_STATES,
   UPDATE_UPGRADE_INFO, SET_AVAILABLE_CURRENCIES, SET_DEFAULT_CURRENCY
 } from '../_constants/ActionTypes';
-import { hasAccountOfType, landingCompanyValue, getExistingCurrencies, groupCurrencies, populateCurrencyOptions } from '../_utils/Client';
+import { hasAccountOfType, getExistingCurrencies, groupCurrencies, populateCurrencyOptions } from '../_utils/Client';
 import { addCurrencyToAccount } from '../_utils/AccountHelpers';
 
 const handlers = {
