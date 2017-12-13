@@ -36,9 +36,10 @@ export default class SetCurrency extends PureComponent {
           progress: true,
           serverError: false,
         });
-        setAccountCurrency(currency, store);
-        this.context.router.push('/');
-        window.location.reload();
+        setAccountCurrency(currency, store, () => {
+          this.context.router.push('/');
+          window.location.reload();
+        });
       } catch (e) {
         this.setState({ serverError: e.error.error.message });
       } finally {
