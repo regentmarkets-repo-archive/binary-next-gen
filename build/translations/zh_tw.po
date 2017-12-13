@@ -779,7 +779,7 @@ msgid "Secret answer must be at least 4 characters"
 msgstr "安全提示答案必須至少4個字符"
 
 msgid "You need to agree to our Terms and Conditions"
-msgstr "您必須同意我們的條款和條件"
+msgstr "您需要同意我們的條款及條件"
 
 msgid "I agree to the"
 msgstr "本人同意"
@@ -911,5 +911,5 @@ msgid "Time out must be after today and cannot be more than 6 weeks."
 msgstr "超時時間必須在今天過後，且不能超過 6 周。"
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
-msgstr "禁止存取時間不能少於 6 個月及超過 5 年。"
+msgstr "禁止存取時間不能少於 6 個月，也不能超過 5 年。"
 
