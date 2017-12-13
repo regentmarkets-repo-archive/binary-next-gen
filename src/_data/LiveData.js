@@ -170,6 +170,9 @@ const initAuthorized = async (authData, store) => {
                 typeOfNextAccount = 'financial';
                 currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
                 allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
+            } else if (!landingCompany.gaming_company && landingCompany.financial_company) {
+                currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
+                allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
             }
             canUpgrade = !hasAccountOfType('real', accounts);
         } else if (landingCompany.financial_company.shortcode === 'maltainvest') {
