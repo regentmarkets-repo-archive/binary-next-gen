@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { RadioGroup, Button, Legend, P, ServerErrorMsg, ErrorMsg } from 'binary-components';
+import { GroupedRadioGroup, Button, Legend, P, ServerErrorMsg, ErrorMsg } from 'binary-components';
 import { store } from '../_store/persistentStore';
 import { setAccountCurrency } from '../_data/LiveData';
 
@@ -61,7 +61,7 @@ export default class SetCurrency extends PureComponent {
         <Legend text="Select currency" />
         <P text="Please select the currency of this account:" />
         {currencyOptions && currencyOptions.length &&
-          <RadioGroup id="set-currency-select" options={currencyOptions} value={selectedCurrency} onChange={this.setCurrency} />
+          <GroupedRadioGroup id="set-currency-select" options={currencyOptions} value={selectedCurrency} onChange={this.setCurrency} />
         }
         <Button text="Confirm" disabled={progress} onClick={this.submitCurrency} />
       </div>

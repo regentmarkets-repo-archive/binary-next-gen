@@ -184,7 +184,7 @@ export const populateCurrencyOptions = (loginid, accounts, landingCompany, curre
             const isCryptoCurrency = /crypto/i.test(currencyConfig[curr].type);
             currency.text = curr;
             currency.value = curr;
-            currency.group = isCryptoCurrency ? 'cryptoCurrency' : 'fiatCurrency';
+            currency.group = isCryptoCurrency ? 'Cryptocurrency' : 'Fiat currency';
             currency.img = `/img/${curr.toLowerCase()}.svg`;
             if (isCryptoCurrency) {
                 currency.name = cryptoCurrencyConfig[curr].name;
