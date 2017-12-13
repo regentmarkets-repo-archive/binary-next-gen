@@ -1041,7 +1041,7 @@ export default {
     ],
     "You need to agree to our Terms and Conditions": [
         null,
-        "您必須同意我們的條款和條件"
+        "您需要同意我們的條款及條件"
     ],
     "I agree to the": [
         null,
@@ -1217,6 +1217,6 @@ export default {
     ],
     "Exclude time cannot be less than 6 months and more than 5 years.": [
         null,
-        "禁止存取時間不能少於 6 個月及超過 5 年。"
+        "禁止存取時間不能少於 6 個月，也不能超過 5 年。"
     ]
 }
