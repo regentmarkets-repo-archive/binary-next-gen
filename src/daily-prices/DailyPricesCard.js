@@ -14,7 +14,7 @@ export default class DailyPricesCard extends PureComponent {
         return (
             <div className="daily-prices-card scrollable">
                 {dailyPrices.length === 0 ?
-                    <EmptySlate img="img/daily-prices.svg" text="Daily prices data not available" /> :
+                    <EmptySlate img="img/barchart.svg" text="Daily prices data not available" /> :
                     <DailyPricesTable dailyPrices={dailyPrices} />}
             </div>
         );
