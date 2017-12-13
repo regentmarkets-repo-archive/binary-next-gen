@@ -58,7 +58,7 @@ yarn build:android
 ```
 > NOTE: If you see `spawn EACCESS` errors, run `cordova build android —verbose` to see which directory it fails in and do `chmod 777 “<directory name that spawns EACESS>”`. It is probably gradle or android-sdk.
 
-If there are no errors, the build command will output an apk file. To automatically build and deploy the app to your android device, first plug in your android device (make sure debugging mode is turned on) and enter the following:
+If there are no errors, the build command will output a release version of the apk file. To automatically build and run the app to your android device (this will install the debug version), first plug in your android device (make sure debugging mode is turned on) and enter the following:
 ```
 yarn start:android
 ```
@@ -85,6 +85,6 @@ Now launch XCode, go to `Preferences...` and add your apple ID. If you are in th
 
 Because the ios build and run commands are pretty long, we run npm scripts instead.
 
-To build the app, run in project directory `yarn build:ios`, and select "Always Allow" when CodeSign prompts to access KeyChain. This will build the app file. If there are no failures, we are good to go.
+To build the app, run in project directory `yarn build:ios`, and select "Always Allow" when CodeSign prompts to access KeyChain. This will build the release version of the app. If there are no failures, we are good to go.
 
-To build and deploy automatically, make sure your iOS device is plugged (make sure developer mode is turned on), and then run `yarn start:ios`.
+To build and run the app in your device (this will install debug version), make sure your iOS device is plugged (make sure developer mode is turned on), and then run `yarn start:ios`.
