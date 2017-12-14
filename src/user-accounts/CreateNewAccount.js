@@ -1,7 +1,10 @@
 import React, { PureComponent } from 'react';
+import moment from 'moment';
 import { Th, SelectOptGroup, Button, ErrorMsg, P } from 'binary-components';
+import { addNewAccount } from '../_utils/AccountHelpers';
 import { store } from '../_store/persistentStore';
 import { updateUpgradeField } from '../_actions/UpgradeActions';
+import { api } from '../_data/LiveData';
 
 export default class CreateNewAccount extends PureComponent {
   static contextTypes = {
@@ -9,6 +12,7 @@ export default class CreateNewAccount extends PureComponent {
   };
 
   props : {
+    settings: object,
     upgradeInfo: object,
     markets: any[],
     currencyOptions: object,
@@ -19,9 +23,11 @@ export default class CreateNewAccount extends PureComponent {
 
   constructor(props) {
     super(props);
+    this.CRAccountSettings = undefined;
     this.state = {
       selected_currency: '',
       currency_error: false,
+      disable_create_account: false
     };
   }
 
@@ -29,26 +35,62 @@ export default class CreateNewAccount extends PureComponent {
     this.setState({ [e.target.id]: e.target.value });
   }
 
+  addCRToCRAccount = async () => {
+    const s = this.CRAccountSettings;
+    // Fill in the minimum required info to add an account, cause backend
+    // ignores existing fields when creating from real-money account.
+    const createAccountParams = {
+      salutation: s.salutation,
+      date_of_birth: moment.unix(s.date_of_birth).format('YYYY-MM-DD'),
+      phone: s.phone,
+      residence: s.country_code,
+      last_name: s.last_name,
+      address_city: s.last_name,
+      address_line_1: s.address_line_1,
+      first_name: s.first_name,
+      currency: this.state.selected_currency
+    };
+    try {
+      const response = await api.createRealAccount(createAccountParams);
+      addNewAccount(response.new_account_real);
+      location.reload();
+    } catch (e) {
+      this.setState({ currency_error: true });
+      this.setState({ disable_create_account: false });
+    }
+  }
+
   onRedirectToAccountOpening = () => {
     this.setState({ currency_error: false });
     if (this.state.selected_currency && this.state.selected_currency !== '') {
-      store.dispatch(updateUpgradeField('selected_currency', this.state.selected_currency));
-      this.context.router.push('/upgrade');
+      this.setState({ disable_create_account: true });
+      if (this.CRAccountSettings) {
+        this.addCRToCRAccount();
+      } else {
+        store.dispatch(updateUpgradeField('selected_currency', this.state.selected_currency));
+        this.context.router.push('/upgrade');
+      }
     } else {
       this.setState({ currency_error: true });
+      this.setState({ disable_create_account: false });
     }
   }
 
   componentWillReceiveProps(nextProps) {
-    const { currencyOptions } = nextProps;
+    const { currencyOptions, account } = nextProps;
     if (this.state.selected_currency === '' && currencyOptions.length > 0) {
       this.setState({ selected_currency: currencyOptions[0].value });
+      // For CR accounts, adding another CR account should immediately add an account. (you can only
+      // do this in CR account). The credentials for this is stored in state attribute "settings".
+      if (account.landing_company_name === 'costarica') {
+        this.CRAccountSettings = nextProps.settings;
+      }
     }
   }
 
   render() {
     const { upgradeInfo, nextAccountTitle, markets, currencyOptions, loginid } = this.props;
-    const { currency_error } = this.state;
+    const { currency_error, disable_create_account } = this.state;
 
     return (
       <div className="create-new-account-card">
@@ -80,7 +122,7 @@ export default class CreateNewAccount extends PureComponent {
               />
             </td>
             <td>
-              <Button id="submit" text="Create" onClick={this.onRedirectToAccountOpening} />
+              <Button id="submit" disabled={disable_create_account} text="Create" onClick={this.onRedirectToAccountOpening} />
             </td>
           </tr>
           </tbody>
