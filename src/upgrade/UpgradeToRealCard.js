@@ -119,7 +119,11 @@ export default class UpgradeToRealCard extends PureComponent {
 			});
 			const response = await api.createRealAccount(createAccountParams);
 			addNewAccount(response.new_account_real);
-			this.context.router.push('/');
+			if (this.props.selectedCurrency && this.props.selectedCurrency !== '') {
+				this.context.router.push('/');
+			} else {
+				this.context.router.push('/set-currency');
+			}
 			window.location.reload();
 		} catch (e) {
 			this.setState({ serverError: e.error.error.message });
