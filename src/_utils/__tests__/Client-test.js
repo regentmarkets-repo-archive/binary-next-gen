@@ -232,7 +232,7 @@ describe('Client', () => {
         const expectedOptions = [
             {
                 "fractional_digits": 8,
-                "group": "cryptoCurrency",
+                "group": "Cryptocurrency",
                 "img": "/img/bch.svg",
                 "name": "bitcoin_cash",
                 "stake_default": 0.001,
@@ -242,7 +242,7 @@ describe('Client', () => {
             },
             {
                 "fractional_digits": 8,
-                "group": "cryptoCurrency",
+                "group": "Cryptocurrency",
                 "img": "/img/btc.svg",
                 "name": "bitcoin",
                 "stake_default": 0.0002,
@@ -252,7 +252,7 @@ describe('Client', () => {
             },
             {
                 "fractional_digits": 8,
-                "group": "cryptoCurrency",
+                "group": "Cryptocurrency",
                 "img": "/img/eth.svg",
                 "name": "ether",
                 "stake_default": 0.002,
@@ -261,7 +261,7 @@ describe('Client', () => {
                 "value": "ETH"
             }, {
                 "fractional_digits": 8,
-                "group": "cryptoCurrency",
+                "group": "Cryptocurrency",
                 "img": "/img/ltc.svg",
                 "name": "litecoin",
                 "stake_default": 0.01,
