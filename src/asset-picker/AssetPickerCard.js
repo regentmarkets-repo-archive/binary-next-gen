@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import { M } from 'binary-components';
+import { M, CloseButton } from 'binary-components';
 import { actions } from '../_store';
 import AssetPickerFilter from './AssetPickerFilter';
 import AssetPickerList from './AssetPickerList';
@@ -11,6 +11,7 @@ export default class AssetPickerCard extends PureComponent {
 		assetPickerItems: Object[],
 		selectedAsset: string,
 		onSelect: () => void,
+		onClose: () => void,
 	};
 
 	onToggleWatchlistItem = asset => {
@@ -18,10 +19,13 @@ export default class AssetPickerCard extends PureComponent {
 	}
 
 	render() {
-		const { assetPickerItems, selectedAsset, filter, onSelect } = this.props;
+		const { assetPickerItems, selectedAsset, filter, onSelect, onClose } = this.props;
 
 		return (
 			<div className="asset-picker-container">
+				<div className="asset-picker-close-btn">
+                    <CloseButton onClick={onClose} />
+				</div>
 				<AssetPickerFilter filter={filter} />
 				<AssetPickerList
 					{...this.props}

@@ -24,21 +24,9 @@ export default class SettingsSelfExclusion extends PureComponent {
 
   constructor(props) {
     super(props);
+    const formData = this.getFormData(props);
     this.state = {
-      formData: {
-        max_balance: props.max_balance,
-        max_turnover: props.max_turnover,
-        max_losses: props.max_losses,
-        max_7day_turnover: props.max_7day_turnover,
-        max_7day_losses: props.max_7day_losses,
-        max_30day_turnover: props.max_30day_turnover,
-        max_30day_losses: props.max_30day_losses,
-        max_open_bets: props.max_open_bets,
-        session_duration_limit: props.session_duration_limit,
-        timeout_until_time: props.timeout_until,
-        timeout_until_date: props.timeout_until,
-        exclude_until: props.exclude_until,
-      },
+      formData,
       errors: {},
       serverError: false,
       success: false,
@@ -47,6 +35,28 @@ export default class SettingsSelfExclusion extends PureComponent {
     this.constraints = getConstraints(this.state.formData);
     this.validationMan = new ValidationManager(this.constraints);
   }
+
+  getFormData(props) {
+    return {
+      max_balance: props.max_balance,
+      max_turnover: props.max_turnover,
+      max_losses: props.max_losses,
+      max_7day_turnover: props.max_7day_turnover,
+      max_7day_losses: props.max_7day_losses,
+      max_30day_turnover: props.max_30day_turnover,
+      max_30day_losses: props.max_30day_losses,
+      max_open_bets: props.max_open_bets,
+      session_duration_limit: props.session_duration_limit,
+      timeout_until_time: props.timeout_until,
+      timeout_until_date: props.timeout_until,
+      exclude_until: props.exclude_until,
+    };
+  }
+
+  componentWillReceiveProps(nextProps) {
+		const formData = this.getFormData(nextProps);
+		this.setState({ formData });
+	}
 
   onEntryChange = (e: SyntheticEvent) => {
     const s = this.validationMan.validateFieldAndGetNewState(e, this.state.formData);

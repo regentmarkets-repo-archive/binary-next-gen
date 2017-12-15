@@ -1,7 +1,7 @@
 import React, { PureComponent } from 'react';
 import MobileToolbarFull from '../mobile/MobileToolbarFull';
 import MobileToolbarBack from '../mobile/MobileToolbarBack';
-import IosPadder from './IosPadder';
+import Device from '../_utils/Device';
 
 export default class MobilePage extends PureComponent {
 
@@ -20,6 +20,43 @@ export default class MobilePage extends PureComponent {
 	render() {
 		const { backBtnBarTitle, children, toolbarShown, inverse, backTo } = this.props;
 
+		if (Device.isAndroid()) {
+			// In android devices, there is a strange issue where the keyboard obstructs the input
+			// fields. This hack places a blank space for the keyboard to occupy when it shows up.
+			const inputsBlockedByKeyboard = ['tel', 'password', 'text', 'number', 'textarea'];
+			const getAndroidKeyboardSpace = () => document.getElementById('android-keyboard-space');
+
+			// NOTE: A cordova app is also an android browser
+			if (Device.isAndroidApp()) {
+				window.addEventListener('native.keyboardshow', (e) => {
+					getAndroidKeyboardSpace().style.height = e.keyboardHeight + 'px';
+					document.activeElement.scrollIntoView();
+				});
+
+				window.addEventListener('native.keyboardhide', () => {
+					getAndroidKeyboardSpace().removeAttribute('style');
+				});
+			} else {
+				// In browser there is no API to know whether keyboard exists or get the keyboard height.
+				// We have to figure it out from the screen and viewport height.
+				const heightOffset = window.screen.height - window.outerHeight;
+				const defaultWindowHeight = window.outerHeight;
+				window.addEventListener('resize', () => {
+					const isKeyboardExist =
+						window.outerHeight < defaultWindowHeight // keyboard shrinks outerHeight when visible
+						&& inputsBlockedByKeyboard.includes(document.activeElement.type);
+					const androidKeyboardSpace = getAndroidKeyboardSpace();
+					if (isKeyboardExist) {
+						const keyboardHeight = window.screen.height - window.outerHeight - heightOffset;
+						androidKeyboardSpace.style.height = keyboardHeight + 'px';
+						document.activeElement.scrollIntoView();
+					} else {
+						androidKeyboardSpace.removeAttribute('style');
+					}
+				});
+			}
+		}
+
 		return (
 			<div className={inverse ? 'mobile-page inverse' : 'mobile-page'}>
 				{toolbarShown ? <MobileToolbarFull /> : null}
@@ -27,7 +64,7 @@ export default class MobilePage extends PureComponent {
 				<div className="mobile-content">
 					{children}
 				</div>
-				<IosPadder />
+				{Device.isAndroid() && <div id="android-keyboard-space" />}
 			</div>
 		);
 	}

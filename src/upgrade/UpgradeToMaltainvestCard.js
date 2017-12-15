@@ -4,11 +4,13 @@ import {
   M, InputGroup, SelectGroup, LogoSpinner, Legend, Button,
   ErrorMsg, ServerErrorMsg, Countries, MultiSelectGroup
 } from 'binary-components';
-import { api } from '../_data/LiveData';
-import storage from '../_store/storage';
+import { api, setAccountCurrency } from '../_data/LiveData';
 import options from './UpgradeCard.options';
 import { getConstraints } from './UpgradeToMaltainvestCard.validation.config';
 import ValidationManager from '../_utils/ValidationManager';
+import { addNewAccount } from '../_utils/AccountHelpers';
+import { store } from '../_store/persistentStore';
+import { updateUpgradeField } from '../_actions/UpgradeActions';
 
 export default class UpgradeToMaltainvestCard extends PureComponent {
 
@@ -17,6 +19,8 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   props: {
+    selectedCurrency: string,
+    account_opening_reason: string,
     residenceList: any[],
     country_code: string,
     loginid: string,
@@ -49,6 +53,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
       statesList: props.states,
       errors: {},
       formData: {
+        account_opening_reason: props.account_opening_reason,
         residence: props.country_code,
         tax_residence: props.tax_residence,
         tax_identification_number: props.tax_identification_number,
@@ -70,6 +75,10 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
     this.constraints = getConstraints(this.props);
     this.validationMan = new ValidationManager(this.constraints);
+  }
+
+  componentWillUnmount() {
+    store.dispatch(updateUpgradeField('selected_currency', ''));
   }
 
   onEntryChange = (e: SyntheticEvent) => {
@@ -114,8 +123,9 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   performUpgrade = async () => {
-    const loginid = this.props.loginid;
-    const { formData } = this.state;
+    const { loginid, selectedCurrency } = this.props;
+    // PEPDeclaration not required for upgrade; only verified in frontend.
+    const { PEPDeclaration, ...formData } = this.state.formData; // eslint-disable-line no-unused-vars
     let createAccountParams = formData;
     // if not VRTC, we do not need secret question
     if (!loginid.startsWith('VRTC')) {
@@ -129,8 +139,12 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
         serverError: false,
       });
       const response = await api.createRealAccountMaltaInvest(createAccountParams);
-      storage.setItem('account', JSON.stringify({ token: response.new_account_maltainvest.oauth_token }));
-      window.location = window.BinaryBoot.redirectUrl;
+      addNewAccount(response.new_account_maltainvest);
+      if (selectedCurrency && selectedCurrency !== '') {
+        setAccountCurrency(selectedCurrency, store);
+      }
+      this.context.router.push('/');
+      window.location.reload();
     } catch (e) {
       this.setState({ serverError: e.error.error.message });
     } finally {
@@ -143,7 +157,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   render() {
     const { progress, serverError, formData, statesList, hasError, errors } = this.state;
     const { residenceList, loginid, boot } = this.props;
-    const language = boot.language ? boot.language : 'en';
+    const language = (boot.language || 'en').toLowerCase();
     const linkToTermsAndConditions = `https://www.binary.com/${language}/terms-and-conditions.html`;
     const taxResidenceList = residenceList.slice();
     taxResidenceList.filter(props => {
@@ -162,7 +176,13 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
         <form onSubmit={this.onFormSubmit}>
           <Legend text="Personal Information" />
           <div className="input-row">
-            <SelectGroup id="salutation" options={options.salutationOptions} value={formData.salutation || ''} readOnly={formData.salutation} />
+            <SelectGroup
+                id="salutation"
+                options={options.salutationOptions}
+                value={formData.salutation || ''}
+                onChange={this.onEntryChange}
+                disabled={this.props.salutation}
+            />
           </div>
           {errors.salutation && <ErrorMsg text={errors.salutation[0]} />}
 
@@ -175,7 +195,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               minLength="2"
               maxLength="30"
               value={formData.first_name || ''}
-              readOnly={formData.first_name}
+              readOnly={this.props.first_name}
             />
           </div>
           {errors.first_name && <ErrorMsg text={errors.first_name[0]} />}
@@ -189,7 +209,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               minLength="2"
               maxLength="30"
               value={formData.last_name || ''}
-              readOnly={formData.last_name}
+              readOnly={this.props.last_name}
             />
           </div>
           {errors.last_name && <ErrorMsg text={errors.last_name[0]} />}
@@ -197,7 +217,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
           <div className="input-row date-of-birth">
             <InputGroup
               id="date_of_birth"
-              disabled={formData.date_of_birth}
+              disabled={this.props.date_of_birth}
               label="Date of Birth"
               type="date"
               maxLength="10"
@@ -263,12 +283,13 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
           <Legend text="Home Address" />
           <div className="input-row">
-            {formData.residence &&
-              <M id="residence" m={residenceList.find(element => element.value === formData.residence).text} value={formData.residence || ''} />
-            }
-            {!formData.residence &&
-              <Countries id="residence" value={formData.residence || ''} onChange={this.onCountryChange} residenceList={residenceList} />
-            }
+              <Countries
+                  id="residence"
+                  value={formData.residence || ''}
+                  onChange={this.onCountryChange}
+                  residenceList={residenceList}
+                  disabled={this.props.country_code}
+              />
             {errors.residence && <ErrorMsg text={errors.residence[0]} />}
             <select id="address_state" onChange={this.onEntryChange} value={formData.address_state || ''}>
               {statesList.map(x => (
@@ -606,7 +627,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               <input
                 id="PEPDeclaration"
                 type="checkbox"
-                onClick={this.onPEPDeclarationChanged}
+                onChange={this.onPEPDeclarationChanged}
               />
               <M m="I acknowledge that I am not a politically exposed person (PEP)." />&nbsp;
             </label>

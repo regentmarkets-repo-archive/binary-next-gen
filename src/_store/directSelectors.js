@@ -25,6 +25,11 @@ export const tradePurchaseInfoSelector = state => state.tradesPurchaseInfo;
 export const tradesUIStatesSelector = state => state.tradesUIStates;
 export const tradesErrorSelector = state => state.tradesError;
 export const residenceListSelector = state => state.residenceList;
+export const upgradeInfoSelector = state => state.upgrade;
+export const accountsSelector = state => state.boot.get('accounts');
+
+export const defaultCurrencySelector = state =>
+    state.account.get('default_currency');
 
 export const themeSelector = state =>
     state.boot.get('theme');
@@ -86,4 +91,13 @@ export const defaultStakeSelector = state => {
     stake = config && config.get('stake_default') || 2;
   }
   return stake;
+};
+
+export const selectedCurrencySelector = state => {
+  let selectedCurrency = '';
+  const upgrade = state.upgrade;
+  if (upgrade) {
+    selectedCurrency = upgrade.get('selected_currency');
+  }
+  return selectedCurrency;
 };

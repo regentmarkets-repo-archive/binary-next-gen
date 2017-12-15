@@ -1,7 +1,7 @@
 import $ from 'jquery';
 import moment from 'moment';
 import React, { Component } from 'react';
-// import { isMobile } from 'binary-utils';
+import { isMobile } from 'binary-utils';
 
 type Props = {
     contract: Contract,
@@ -22,7 +22,12 @@ export default class ContractChart extends Component {
   componentWillReceiveProps(nextProps) {
     if (this.loaded) {
       const { contract } = nextProps;
-      contract && this.updateContract(contract);
+      if (contract) {
+        this.updateContract(contract);
+        if (!!contract.sell_price && contract.id) {
+          setTimeout(() => this.chart && this.chart.actions.stopStreaming(), 4000);
+        }
+      }
     }
   }
 
@@ -38,7 +43,9 @@ export default class ContractChart extends Component {
     endTime && this.chart.draw.endTime(endTime * 1000);
 
     const barrier = +contract.barrier;
-    barrier && this.chart.draw.barrier({ value: barrier });
+    barrier && this.chart.draw.barrier({ value: barrier, label: 'barrier' });
+    contract.high_barrier && this.chart.draw.barrier({ value: +contract.high_barrier, label: 'high barrier' });
+    contract.low_barrier && this.chart.draw.barrier({ value: +contract.low_barrier, label: 'low barrier' });
   }
 
   async componentDidMount() {
@@ -77,6 +84,8 @@ export default class ContractChart extends Component {
       showOverlays: false, // default is true
       showShare: false, // default is true
       start: (purchase_time || date_start) - margin,
+      count: isMobile() ? 100 : 1000,
+      enableMobileView: isMobile(),
       end: sell_time && +sell_time + margin || (exit_tick_time ? exit_tick_time + margin : 'latest'),
       hideCurrentPrice: true,
       // timezoneOffset: 0,
@@ -84,6 +93,8 @@ export default class ContractChart extends Component {
 
     this.chart.drawn().then(() => {
       $(this.barspinner).hide();
+      $(this.root).find('.chartSubContainerHeader').css('height', 0).hide();
+      this.chart.actions.reflow();
     });
 
     this.chart.done().then(() => {

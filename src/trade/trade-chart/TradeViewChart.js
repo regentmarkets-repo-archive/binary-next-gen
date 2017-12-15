@@ -4,6 +4,14 @@ import $ from 'jquery';
 import 'binary-style/binary.isolated.css';
 import { actions } from '../../_store';
 
+(async () => {
+    this.wtcharts = await import(/* webpackChunkName: "webtrader-charts" */ 'webtrader-charts');
+    this.wtcharts.init({
+      appId: window.BinaryBoot.appId,
+      lang: window.BinaryBoot.language,
+      server: window.BinaryBoot.apiUrl
+    });
+})();
 type Props = {
   contractForChart: object,
   index: number,
@@ -42,6 +50,7 @@ export default class TradeViewChart extends Component {
       showOverlays: false,
       showShare: false,
       count: isMobile() ? 100 : 1000,
+      enableMobileView: isMobile(),
       indicators: params.indicators,
       overlays: params.overlays,
       timezoneOffset: 0,
@@ -67,11 +76,6 @@ export default class TradeViewChart extends Component {
 
   async componentDidMount() {
     this.wtcharts = await import(/* webpackChunkName: "webtrader-charts" */ 'webtrader-charts');
-    this.wtcharts.init({
-      appId: window.BinaryBoot.appId,
-      lang: window.BinaryBoot.language,
-      server: window.BinaryBoot.apiUrl
-    });
     const trade = this.props.tradeForChart.toJS();
     this.initChart(trade);
   }
@@ -100,7 +104,9 @@ export default class TradeViewChart extends Component {
       endTime && this.chart.draw.endTime(endTime * 1000);
 
       const barrier = +contract.barrier;
-      barrier && this.chart.draw.barrier({ value: barrier });
+      barrier && this.chart.draw.barrier({ value: barrier, label: 'barrier' });
+      contract.high_barrier && this.chart.draw.barrier({ value: +contract.high_barrier, label: 'high barrier' });
+      contract.low_barrier && this.chart.draw.barrier({ value: +contract.low_barrier, label: 'low barrier' });
       this.hasDrawnTradeResults = true;
     } else if (this.hasDrawnTradeResults) {
       // clear the trade results when customer trades again

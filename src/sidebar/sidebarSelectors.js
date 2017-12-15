@@ -1,11 +1,12 @@
 import { createSelector } from 'reselect';
-import { accountSelector, bootSelector } from '../_store/directSelectors';
+import { accountSelector, bootSelector, upgradeInfoSelector } from '../_store/directSelectors';
 
 export default createSelector(
-    [accountSelector, bootSelector],
-    (currentAccount, boot) => ({
+    [accountSelector, bootSelector, upgradeInfoSelector],
+    (currentAccount, boot, upgradeInfo) => ({
         loginid: currentAccount.get('loginid'),
         email: currentAccount.get('email'),
         accounts: boot.get('accounts'),
+        upgradeInfo,
     })
 );

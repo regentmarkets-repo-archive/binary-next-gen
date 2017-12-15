@@ -187,7 +187,7 @@ export default class TradeParams extends PureComponent {
                 <BuyButton
                     askPrice={askPrice}
                     currency={currency}
-                    disabled={disabled}
+                    disabled={purchasing || disabled}
                     longcode={longcode}
                     onClick={this.onPurchase}
                 />

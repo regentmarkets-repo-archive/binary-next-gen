@@ -13,7 +13,6 @@ export default class ContractDetailsCard extends PureComponent {
 
 	render() {
 		const { compact, contract, pipSize } = this.props;
-
 		if (!contract) return null;
 
 		return (

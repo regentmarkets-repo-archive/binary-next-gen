@@ -1,32 +1,48 @@
 git:
   depth: 1
-language: node_js
+language: android
+android:
+  components:
+    - tools
+    - platform-tools
+    # The tools section appears twice on purpose as it’s 
+    # required to get the newest Android SDK tools.
+    - tools 
+    - build-tools-27.0.1
+    - android-26
 matrix:
   fast_finish: true
-node_js:
-  - 6.0
 notifications:
   email:
   - arnab@binary.com
+  - amin@binary.com
+  slack:
+    secure: cdc/YPknARnKqvSta+BfYiV/YGRWvwpGHCKy6Bit6bFRSw0MBJowV4qI8m+8COcQHjmspAQ1P5uHiSG/v0bMDd8/KHRU2v3qSkraESXdGvm5HrsSomd8AYW8lK4sBV6iTVh/HIg+fI4yBxzIn3AhkOpyP9XrLKtwqYd8upISpfrUH0MrIrhb+XopZiEj8TS9FHvjwAZjRXZviieDHMztlPCxi8AsWxCZZ5e2eAu6+ry8GSmjO+gsEdXJ9mlhu7ZORMa6FFOYe1v4V512EChQUQjOh2oAIo2vid1QX46FriNS853DFJ8PjITqWaoeGuKXO92h7+wvDhAYp356Vtg4voIGNSK/xUiuT/1DIbJG2FG2Gb6UuSTxUgxPqgRa/QnjxJtdC/iH/SeK4nDa1FX6N1jU4GaZeUAccNPVGweBt6u46OfTGhgLaVf+qu7gv5Sc/8zR6d4xf9lJWqQqByJ5JmMf3rrviTDKLSne250bPR3G2KBZioTlppO4uZwfbfnCZjj/bK9hFsZ8z5KbM345+Ar9bO0QwcTF0a7hKUxAjy/tPHeD6q6ah3iHJJ03tgJcT8ylHpDkd10n/A7rAJdA0Nu8DHMqSJjXoEEF5KoKaWCu6AEJsEGqhocqz3j7eVaJKfQbCyYioXQYd0Sn6HOuwHQ1xjISb07gj0QtL++cRR8=
 branches:
   only:
   - master
   - dev
 before_install:
-  - yarn
-  - cd build
-  - yarn
-  - cd ..
-install: yarn test:full
-after_success:
+  # cordova currently only works with node 6.x
+  - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
+  - sudo apt-get install -y nodejs
+  - sudo npm install --global cordova
+install: 
+  - yarn install
+  - yarn test:full
   - yarn test:coveralls
+  - cd build
+  - yarn install
+  - cd ..
+script:
   - cd build
   - yarn build
   - cd ..
+after_success:
   - if [ "$TRAVIS_BRANCH" = "dev" ] ; then rm -fR beta && mkdir beta && mv dist/* beta/ && mv beta dist/; fi
   - mkdir gh-pages
   - cd gh-pages
-  - git clone --branch gh-pages https://$GIT_KEY@github.com/binary-com/binary-next-gen --depth 1
+  - git clone --branch gh-pages https://$GIT_KEY@github.com/$TRAVIS_REPO_SLUG --depth 1
   - cd binary-next-gen
   - cp -R ../../dist/* .
   - git config --global user.email "arnab@binary.com"
@@ -37,9 +53,24 @@ after_success:
   - git push
   - cd ../..
   - rm -fR gh-pages
+before_deploy:
+  # - git tag "$(date +'%Y-%m-%dT%H%M')-$(git log --format=%h -1)" # Automatically tag a release
+  - if [ "$TRAVIS_BRANCH" = "dev" ] ; then cp -R ./dist/beta/* ./www/; else cp -R ./dist/* ./www/; fi
+  - cordova platform add android
+  - yarn build:android
+  - mv ./platforms/android/build/outputs/apk/debug/android-debug.apk ./platforms/android/build/outputs/apk/debug/next-gen-beta.apk 
+deploy:
+  provider: releases
+  prerelease: true
+  name: Next-Gen Prerelease $(date +'%Y-%m-%d %H:%M:%S')
+  body: Release for QA testing! For official android app [Install from Google Play Store](https://play.google.com/store/apps/details?id=app.binary.com).
+  api_key: $GIT_KEY
+  file: "./platforms/android/build/outputs/apk/debug/next-gen-beta.apk"
+  skip_cleanup: true
+  on:
+    repo: $TRAVIS_REPO_SLUG
+    branch: dev
+    tags: true
 env:
   global:
     secure: TNtKNXrrpzNHvxffdoRKup1JjkRAkN79QhmHJ3s0MiU4QMyGM8Q/3MGhyWlbu1Uk/2BztsQhVy6qonS826QbjCquJkU4Rfs7cXvKnok8OOrQ8To3rSJazip4Bu4hPoW1QC60Jg/wZCzl7Htw6UP69akn5FLRT6REm6ScuzJRHrRfyyse5cztXO/3bokx5vULd+RhcmkUm+/o+4g6g0KtaPA84SC5EQZVGj0Z2Wckw/SsoGv++61sEFnmANFrvzJc6CsriRETSeU8eYxNqMQOPNJijXB22UUWdq+oDFzc52xi+cUpZNt/L+REv0r4XSunUY4OyaxZzciDril7hV4BuIrbuwoTZHaYv3FK2Oc36vbWVbT2Gkp+kUcuKI1QoTkMlXAMmfi39uwCizXVsU7e1fjDczIS+v8eu1gibKW93E2rMbcW/+n/T6d5VHPHPryNDjTW6cDOiZCugwhU5a9ovbcgsdK+3Uq76OXbQWKgaHm6Mj7DCoMwT7jf6BmCbwoaDUostueKrW9vxYNuaCYkiz8rrgBg24q4PO/XC+hExeIo7ZsD2J0PzEwMBqFgFGU19XQblioSLdy5jkMCYLjFX/BsLniHt4Lvm0bUdJw5ORRGRYfc3W2lwL/kf4jayNeP6rbIAKNEvU54ScBnMKHsiRRtVTgZUXDUasn8uM8dN+8=
-notifications:
-    slack: binary-group:uTqTzdHDhkxPGKKqIB4z70xA
-

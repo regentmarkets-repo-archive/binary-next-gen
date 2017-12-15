@@ -34,7 +34,7 @@
     .trade-params,
     .contract-receipt-container {
         overflow: auto;
-        width: 15em;
+        width: 15.75em;
         margin-right: 0.25em;
         padding-right: 0.25em;
     }
@@ -148,6 +148,20 @@
 .trade-type-picker {
     width: 22em;
     overflow: hidden;
+}
+
+.trade-type-close-btn {
+    padding: 0.5em;
+
+    svg {
+        fill: $COLOR_BRAND_BLUE;
+    }
+}
+
+.inverse .trade-type-close-btn {
+    svg {
+        fill: white;
+    }
 }
 
 .type-pairs-list {
