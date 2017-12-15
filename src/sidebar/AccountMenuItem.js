@@ -16,6 +16,7 @@ export default class AccountMenuItem extends PureComponent {
 	switchToAccount = () => {
 		const { token } = this.props;
 		storage.setItem('account', JSON.stringify({ token }));
+		storage.setItem('tradesParams', '[]');
 		this.context.router.push('/');
 		window.location.reload(true);
 	};
