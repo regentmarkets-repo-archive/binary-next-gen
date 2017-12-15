@@ -22,11 +22,12 @@ branches:
   only:
   - master
   - dev
+  - /v[0-9]*/
 before_install:
+  - set -e # terminate when any command returns non-zero code
   # cordova currently only works with node 6.x
   - curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -
   - sudo apt-get install -y nodejs
-  - sudo npm install --global cordova
 install: 
   - yarn install
   - yarn test:full
@@ -39,37 +40,26 @@ script:
   - yarn build
   - cd ..
 after_success:
-  - if [ "$TRAVIS_BRANCH" = "dev" ] ; then rm -fR beta && mkdir beta && mv dist/* beta/ && mv beta dist/; fi
-  - mkdir gh-pages
-  - cd gh-pages
-  - git clone --branch gh-pages https://$GIT_KEY@github.com/$TRAVIS_REPO_SLUG --depth 1
-  - cd binary-next-gen
-  - cp -R ../../dist/* .
-  - git config --global user.email "arnab@binary.com"
-  - git config --global user.name "Arnab Karmakar"
-  - git config --global push.default simple
-  - git add --all
-  - git commit -m 'Commit from TravisCI Build'
-  - git push
-  - cd ../..
-  - rm -fR gh-pages
+  - bash deploy-website.sh
 before_deploy:
+  # The code below will only run on tag branch
+  - echo "The following files will be deployed to android app:"
+  - ls ./www/
+  - sudo npm install --global cordova
   # - git tag "$(date +'%Y-%m-%dT%H%M')-$(git log --format=%h -1)" # Automatically tag a release
-  - if [ "$TRAVIS_BRANCH" = "dev" ] ; then cp -R ./dist/beta/* ./www/; else cp -R ./dist/* ./www/; fi
   - cordova platform add android
   - yarn build:android
-  - mv ./platforms/android/build/outputs/apk/debug/android-debug.apk ./platforms/android/build/outputs/apk/debug/next-gen-beta.apk 
+  - mv ./platforms/android/build/outputs/apk/release/android-release-unsigned.apk ./platforms/android/build/outputs/apk/release/next-gen-beta-unsigned.apk 
 deploy:
   provider: releases
   prerelease: true
   name: Next-Gen Prerelease $(date +'%Y-%m-%d %H:%M:%S')
   body: Release for QA testing! For official android app [Install from Google Play Store](https://play.google.com/store/apps/details?id=app.binary.com).
   api_key: $GIT_KEY
-  file: "./platforms/android/build/outputs/apk/debug/next-gen-beta.apk"
+  file: "./platforms/android/build/outputs/apk/release/next-gen-beta-unsigned.apk"
   skip_cleanup: true
   on:
     repo: $TRAVIS_REPO_SLUG
-    branch: dev
     tags: true
 env:
   global:
