@@ -143,7 +143,11 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
       if (selectedCurrency && selectedCurrency !== '') {
         setAccountCurrency(selectedCurrency, store);
       }
-      this.context.router.push('/');
+      if (this.props.selectedCurrency && this.props.selectedCurrency !== '') {
+        this.context.router.push('/');
+      } else {
+        this.context.router.push('/set-currency');
+      }
       window.location.reload();
     } catch (e) {
       this.setState({ serverError: e.error.error.message });
