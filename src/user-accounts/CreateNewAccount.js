@@ -87,6 +87,10 @@ export default class CreateNewAccount extends PureComponent {
         </table>
         }
         {currency_error && <ErrorMsg text={`Please set the currency for your existing account ${loginid}, in order to create more accounts.`} />}
+        {upgradeInfo.canUpgrade && upgradeInfo.multi &&
+        <P
+          text="Note: You can only have one fiat currency account and one of each cryptocurrency account."
+        />}
       </div>
     );
   }
