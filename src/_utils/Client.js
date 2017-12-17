@@ -84,7 +84,7 @@ export const getExistingCurrencies = (accounts) => {
 export const groupCurrencies = (currencies, currencyConfig) => {
   const cryptoCurrencies = [];
   const fiatCurrencies = [];
-  if (currencies && currencyConfig) {
+  if (currencies && Object.keys(currencies).length && currencyConfig && Object.keys(currencyConfig).length) {
     currencies.forEach(curr => {
       const currency = currencyConfig[curr];
       const isCryptoCurrency = /crypto/i.test(currency.type);
