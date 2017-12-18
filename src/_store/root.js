@@ -1,5 +1,5 @@
 import React, { PureComponent } from 'react';
-import 'react-fastclick';
+import initReactFastclick from 'react-fastclick';
 import { addLocaleData } from 'react-intl';
 import { Provider } from 'react-redux';
 import { Router, hashHistory } from 'react-router';
@@ -15,6 +15,7 @@ import BootProvider from './BootProvider';
 export const history = syncHistoryWithStore(hashHistory, store);
 
 history.listen(location => trackRoute(location.pathname));
+initReactFastclick();
 
 addLocaleData({
     locale: 'bg-bg',
