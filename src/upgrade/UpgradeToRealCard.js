@@ -71,8 +71,14 @@ export default class UpgradeToRealCard extends PureComponent {
 		this.validationMan = new ValidationManager(this.constraints);
 	}
 
+	componentWillReceiveProps(nextProps: props) {
+		if (this.state.statesList.length === 0) {
+			this.setState({ statesList: nextProps.states });
+		}
+	}
+
 	componentWillUnmount() {
-    store.dispatch(updateUpgradeField('selected_currency', ''));
+		store.dispatch(updateUpgradeField('selected_currency', ''));
 	}
 
 	onEntryChange = (e: SyntheticEvent) => {

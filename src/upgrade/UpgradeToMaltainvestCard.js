@@ -81,6 +81,12 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
     store.dispatch(updateUpgradeField('selected_currency', ''));
   }
 
+  componentWillReceiveProps(nextProps: props) {
+    if (this.state.statesList.length === 0) {
+      this.setState({ statesList: nextProps.states });
+    }
+  }
+
   onEntryChange = (e: SyntheticEvent) => {
     const s = this.validationMan.validateFieldAndGetNewState(e, this.state.formData);
 		this.setState({ ...s, hasError: false });
@@ -296,6 +302,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               />
             {errors.residence && <ErrorMsg text={errors.residence[0]} />}
             <select id="address_state" onChange={this.onEntryChange} value={formData.address_state || ''}>
+              <option value="" disabled>Address state</option>
               {statesList.map(x => (
                 <option key={x.value} value={x.value}>{x.text}</option>
               ))}
