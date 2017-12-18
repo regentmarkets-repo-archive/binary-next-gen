@@ -24,20 +24,20 @@ export default class UpgradeToRealCard extends PureComponent {
 		loginid: string,
 		country_code: string,
 		states: any[],
-    selectedCurrency: string,
-    salutation: string,
-    first_name: string,
-    last_name: string,
-    date_of_birth: string,
-    place_of_birth: string,
-    address_line_1: string,
-    address_line_2: string,
-    address_city: string,
-    address_state: string,
-    address_postcode: string,
-    secret_question: string,
-    secret_answer: string,
-    phone: string,
+		selectedCurrency: string,
+		salutation: string,
+		first_name: string,
+		last_name: string,
+		date_of_birth: string,
+		place_of_birth: string,
+		address_line_1: string,
+		address_line_2: string,
+		address_city: string,
+		address_state: string,
+		address_postcode: string,
+		secret_question: string,
+		secret_answer: string,
+		phone: string,
 		account_opening_reason: string,
 	};
 
@@ -120,9 +120,9 @@ export default class UpgradeToRealCard extends PureComponent {
 			const response = await api.createRealAccount(createAccountParams);
 			addNewAccount(response.new_account_real);
 			if (this.props.selectedCurrency && this.props.selectedCurrency !== '') {
-				this.context.router.push('/');
+				this.context.router.replace('/');
 			} else {
-				this.context.router.push('/set-currency');
+				this.context.router.replace('/set-currency');
 			}
 			window.location.reload();
 		} catch (e) {
