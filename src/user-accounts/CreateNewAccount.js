@@ -60,7 +60,7 @@ export default class CreateNewAccount extends PureComponent {
     }
   }
 
-  onRedirectToAccountOpening = () => {
+  submitCreateAccount = () => {
     this.setState({ currency_error: false });
     if (this.state.selected_currency && this.state.selected_currency !== '') {
       this.setState({ disable_create_account: true });
@@ -122,7 +122,7 @@ export default class CreateNewAccount extends PureComponent {
               />
             </td>
             <td>
-              <Button id="submit" disabled={disable_create_account} text="Create" onClick={this.onRedirectToAccountOpening} />
+              <Button id="submit" disabled={disable_create_account} text="Create" onClick={this.submitCreateAccount} />
             </td>
           </tr>
           </tbody>
