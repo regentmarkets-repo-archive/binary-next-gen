@@ -22,7 +22,7 @@ branches:
   only:
   - master
   - dev
-  - /v[0-9]*/
+  - qa
 before_install:
   - set -e # terminate when any command returns non-zero code
   # cordova currently only works with node 6.x
@@ -42,11 +42,11 @@ script:
 after_success:
   - bash deploy-website.sh
 before_deploy:
-  # The code below will only run on tag branch
+  # The code below will only run on qa branch
   - echo "The following files will be deployed to android app:"
   - ls ./www/
   - sudo npm install --global cordova
-  # - git tag "$(date +'%Y-%m-%dT%H%M')-$(git log --format=%h -1)" # Automatically tag a release
+  - git tag "$(date +'%Y-%m-%dT%H%M')-$(git log --format=%h -1)" # Automatically tag a release
   - cordova platform add android
   - yarn build:android
   - mv ./platforms/android/build/outputs/apk/release/android-release-unsigned.apk ./platforms/android/build/outputs/apk/release/next-gen-beta-unsigned.apk 
@@ -60,7 +60,7 @@ deploy:
   skip_cleanup: true
   on:
     repo: $TRAVIS_REPO_SLUG
-    tags: true
+    branch: qa
 env:
   global:
     secure: TNtKNXrrpzNHvxffdoRKup1JjkRAkN79QhmHJ3s0MiU4QMyGM8Q/3MGhyWlbu1Uk/2BztsQhVy6qonS826QbjCquJkU4Rfs7cXvKnok8OOrQ8To3rSJazip4Bu4hPoW1QC60Jg/wZCzl7Htw6UP69akn5FLRT6REm6ScuzJRHrRfyyse5cztXO/3bokx5vULd+RhcmkUm+/o+4g6g0KtaPA84SC5EQZVGj0Z2Wckw/SsoGv++61sEFnmANFrvzJc6CsriRETSeU8eYxNqMQOPNJijXB22UUWdq+oDFzc52xi+cUpZNt/L+REv0r4XSunUY4OyaxZzciDril7hV4BuIrbuwoTZHaYv3FK2Oc36vbWVbT2Gkp+kUcuKI1QoTkMlXAMmfi39uwCizXVsU7e1fjDczIS+v8eu1gibKW93E2rMbcW/+n/T6d5VHPHPryNDjTW6cDOiZCugwhU5a9ovbcgsdK+3Uq76OXbQWKgaHm6Mj7DCoMwT7jf6BmCbwoaDUostueKrW9vxYNuaCYkiz8rrgBg24q4PO/XC+hExeIo7ZsD2J0PzEwMBqFgFGU19XQblioSLdy5jkMCYLjFX/BsLniHt4Lvm0bUdJw5ORRGRYfc3W2lwL/kf4jayNeP6rbIAKNEvU54ScBnMKHsiRRtVTgZUXDUasn8uM8dN+8=
