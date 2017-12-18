@@ -90,6 +90,7 @@ export default class CreateNewAccount extends PureComponent {
         {upgradeInfo && upgradeInfo.canUpgrade && upgradeInfo.multi &&
         <P
           text="Note: You can only have one fiat currency account and one of each cryptocurrency account."
+          className="notice-msg"
         />}
       </div>
     );
