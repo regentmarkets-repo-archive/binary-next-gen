@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-# Do not deploy any other branche aside dev and master
+# Do not deploy any other branch aside dev and master
 if [ "$TRAVIS_BRANCH" = "dev" ] || [ "$TRAVIS_BRANCH" = "master" ]; then 
     if [ "$TRAVIS_BRANCH" = "dev" ]; then 
         # move dev website to beta folder

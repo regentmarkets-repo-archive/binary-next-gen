@@ -49,14 +49,14 @@ before_deploy:
   - git tag "$(date +'%Y-%m-%dT%H%M')-$(git log --format=%h -1)" # Automatically tag a release
   - cordova platform add android
   - yarn build:android
-  - mv ./platforms/android/build/outputs/apk/release/android-release-unsigned.apk ./platforms/android/build/outputs/apk/release/next-gen-beta-unsigned.apk 
+  - mv ./platforms/android/app/build/outputs/apk/release/app-release-unsigned.apk ./platforms/android/app/build/outputs/apk/release/next-gen-beta-unsigned.apk 
 deploy:
   provider: releases
   prerelease: true
   name: Next-Gen Prerelease $(date +'%Y-%m-%d %H:%M:%S')
   body: Release for QA testing! For official android app [Install from Google Play Store](https://play.google.com/store/apps/details?id=app.binary.com).
   api_key: $GIT_KEY
-  file: "./platforms/android/build/outputs/apk/release/next-gen-beta-unsigned.apk"
+  file: "./platforms/android/app/build/outputs/apk/release/next-gen-beta-unsigned.apk"
   skip_cleanup: true
   on:
     repo: $TRAVIS_REPO_SLUG
