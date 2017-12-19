@@ -114,8 +114,10 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   onFormSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
     const newErrors = this.validationMan.validateAll(this.state.formData);
-		this.setState({ errors: newErrors });
-    if (Object.keys(newErrors).length > 0) {
+    this.setState({ errors: newErrors });
+    const keys = Object.keys(newErrors);
+    if (keys.length > 0) {
+      document.getElementById(keys[0]).scrollIntoView();
       this.setState({ hasError: true });
     } else {
       this.performUpgrade();
