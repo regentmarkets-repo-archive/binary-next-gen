@@ -105,7 +105,7 @@ export const groupCurrencies = (currencies, currencyConfig) => {
 // this is going to be fixed by BackEnd
 export const filterMarkets = (markets, activeMarkets) => {
   let availableMarkets = [];
-  if (markets) {
+  if (markets && markets.length) {
     markets.forEach((market) => {
       if (market in activeMarkets && availableMarkets.indexOf(activeMarkets[market]) < 0) {
         availableMarkets.push(activeMarkets[market]);
@@ -120,7 +120,7 @@ export const filterMarkets = (markets, activeMarkets) => {
 // also group them in fiat currency and cryptocurrency to have optgroup select
 export const getCurrenciesForNewAccount = (currencies, currencyConfig) => {
   const currencyOptions = [];
-  if (currencies && currencyConfig) {
+  if (currencies && Object.keys(currencies).length && currencyConfig && Object.keys(currencyConfig).length) {
     currencies.forEach((curr) => {
       const currencyObject = {};
       currencyObject.text = curr;
@@ -139,7 +139,7 @@ export const getCurrenciesForNewAccount = (currencies, currencyConfig) => {
 // for each of them.
 export const getExistingAccounts = (allAccounts, landingCompany, activeMarkets) => {
   const existingAccounts = [];
-  if (allAccounts && landingCompany) {
+  if (allAccounts && allAccounts.length && landingCompany && Object.keys(landingCompany).length) {
     allAccounts.forEach((acc) => {
       const userAccount = {};
       userAccount.id = acc.account;
@@ -178,7 +178,7 @@ const getCurrencyOptions = (loginid, landingCompany, accounts, currencyConfig) =
 export const populateCurrencyOptions = (loginid, accounts, landingCompany, currencyConfig) => {
   const options = getCurrencyOptions(loginid, landingCompany, accounts, currencyConfig);
   const currencyOptions = [];
-    if (options) {
+    if (options && options.length) {
         options.forEach(curr => {
             const currency = currencyConfig[curr];
             const isCryptoCurrency = /crypto/i.test(currencyConfig[curr].type);

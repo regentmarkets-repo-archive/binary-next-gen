@@ -231,7 +231,7 @@ const initAuthorized = async (authData, store) => {
               const landingCompany = message.landing_company;
               store.dispatch(actions.updateLandingCompany(landingCompany));
               const loginid = authData.authorize.loginid;
-              const accounts = state.boot.get('accounts').toJS();
+              const accounts = JSON.parse(localStorage.getItem('boot')).accounts;
               const currencyConfig = state.account.get('currencies_config').toJS();
               const upgradeInfo = getUpgradeInfo(landingCompany, loginid, accounts, currencyConfig);
               const availableCurrencies = populateCurrencyOptions(loginid, accounts, landingCompany, currencyConfig);
