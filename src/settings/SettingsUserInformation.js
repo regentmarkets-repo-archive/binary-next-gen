@@ -26,11 +26,13 @@ export default class SettingsUserInformation extends PureComponent {
 
 	constructor(props) {
 		super(props);
+		const countryInResidenceList = props.residenceList.find(country => country.value === props.country_code);
 		const formData = this.getFormData(props);
 		this.state = {
 			formData,
 			errors: {},
-			hasError: false
+			hasError: false,
+			phoneCode: countryInResidenceList ? `+${countryInResidenceList.phone_idd}` : '',
 		};
 
 		this.constraints = getConstraints(this.props);
@@ -90,7 +92,7 @@ export default class SettingsUserInformation extends PureComponent {
 
 	render() {
 		const { states, residenceList } = this.props;
-		const { formData, serverError, success, hasError, errors } = this.state;
+		const { formData, serverError, success, hasError, errors, phoneCode } = this.state;
     const taxResidenceList = residenceList.slice();
     taxResidenceList.filter(props => {
       delete props.disabled;
@@ -153,7 +155,7 @@ export default class SettingsUserInformation extends PureComponent {
 					id="phone"
 					type="tel"
 					label="Telephone"
-					value={formData.phone || ''}
+					value={formData.phone || phoneCode}
 					onChange={this.onEntryChange}
 				/>
         {errors.phone && <ErrorMsg text={errors.phone[0]} />}

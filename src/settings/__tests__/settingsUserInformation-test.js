@@ -133,4 +133,19 @@ describe('<SettingsUserInformation />', () => {
 
     expect(errors.phone[0]).toEqual('Only numbers and spaces are allowed.');
   });
+
+  it('phoneCode should be phone_idd for the country code in residenceList', () => {
+    const country_code = 'zm';
+    const wrapper = mountWithIntl(<SettingsUserInformation {...PROPS} country_code={country_code} />);
+    const phoneCode = wrapper.state('phoneCode');
+
+    expect(phoneCode).toEqual('+260');
+  });
+
+  it('phoneCode should be empty when country is not passed in props', () => {
+    const wrapper = mountWithIntl(<SettingsUserInformation {...PROPS} />);
+    const phoneCode = wrapper.state('phoneCode');
+
+    expect(phoneCode).toEqual('');
+  });
 });
