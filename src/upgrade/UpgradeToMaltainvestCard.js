@@ -81,6 +81,19 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
     store.dispatch(updateUpgradeField('selected_currency', ''));
   }
 
+  componentWillReceiveProps(nextProps: props) {
+    const formData = this.state.formData;
+		let statesList = this.state.statesList;
+		if (!nextProps.phone && nextProps.country_code && nextProps.country_code.length) {
+			const countryInResidenceList = nextProps.residenceList.find(country => country.value === nextProps.country_code);
+			formData.phone = countryInResidenceList && countryInResidenceList.phone_idd ? `+${countryInResidenceList.phone_idd}` : '';
+		}
+		if (this.state.statesList.length === 0) {
+			statesList = nextProps.states;
+		}
+		this.setState({ statesList, formData });
+  }
+
   onEntryChange = (e: SyntheticEvent) => {
     const s = this.validationMan.validateFieldAndGetNewState(e, this.state.formData);
 		this.setState({ ...s, hasError: false });
@@ -88,8 +101,11 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
   onCountryChange = (e: SyntheticEvent) => {
     this.onEntryChange(e);
+    const formData = this.state.formData;
+    const countryInResidenceList = this.props.residenceList.find(country => country.value === this.props.country_code);
+		formData.phone = countryInResidenceList ? `+${countryInResidenceList.phone_idd}` : '';
     api.getStatesForCountry(e.target.value).then(response =>
-      this.setState({ statesList: response.states_list })
+      this.setState({ statesList: response.states_list, formData })
     );
   }
 
@@ -354,7 +370,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
           <div className="input-row">
             <InputGroup
               id="phone"
-              value={formData.phone || ''}
+							value={formData.phone || ''}
               placeholder="Phone"
               type="tel"
               minLength="6"
