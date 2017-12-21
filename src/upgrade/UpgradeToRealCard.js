@@ -43,12 +43,14 @@ export default class UpgradeToRealCard extends PureComponent {
 
 	constructor(props) {
 		super(props);
+		const countryInResidenceList = props.residenceList.find(country => country.value === props.country_code);
 		this.state = {
 			hasError: false,
 			progress: false,
 			serverError: false,
 			statesList: props.states,
 			errors: {},
+			phoneCode: countryInResidenceList ? `+${countryInResidenceList.phone_idd}` : '',
 			formData: {
 				residence: props.country_code,
                 salutation: props.salutation,
@@ -82,8 +84,10 @@ export default class UpgradeToRealCard extends PureComponent {
 
 	onCountryChange = (e: SyntheticEvent) => {
 		this.onEntryChange(e);
+		const countryInResidenceList = this.props.residenceList.find(country => country.value === this.props.country_code);
+		const phoneCode = countryInResidenceList ? `+${countryInResidenceList.phone_idd}` : '';
 		api.getStatesForCountry(e.target.value).then(response =>
-			this.setState({ statesList: response.states_list })
+			this.setState({ statesList: response.states_list, phoneCode })
 		);
 	}
 
@@ -135,7 +139,7 @@ export default class UpgradeToRealCard extends PureComponent {
 	}
 
 	render() {
-		const { formData, progress, serverError, statesList, hasError, errors } = this.state;
+		const { formData, progress, serverError, statesList, hasError, errors, phoneCode } = this.state;
 		const { residenceList, boot, loginid } = this.props;
 
 		const language = (boot.language || 'en').toLowerCase();
@@ -300,7 +304,7 @@ export default class UpgradeToRealCard extends PureComponent {
 					<div className="input-row">
 						<InputGroup
 							id="phone"
-							value={formData.phone || ''}
+							value={formData.phone || phoneCode}
 							placeholder="Phone"
 							type="tel"
 							minLength="6"

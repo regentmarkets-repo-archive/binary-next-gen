@@ -46,12 +46,14 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   constructor(props) {
     super(props);
 
+    const countryInResidenceList = props.residenceList.find(country => country.value === props.country_code);
     this.state = {
       progress: false,
       hasError: false,
       serverError: false,
       statesList: props.states,
       errors: {},
+      phoneCode: countryInResidenceList ? `+${countryInResidenceList.phone_idd}` : '',
       formData: {
         account_opening_reason: props.account_opening_reason,
         residence: props.country_code,
@@ -88,8 +90,10 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
   onCountryChange = (e: SyntheticEvent) => {
     this.onEntryChange(e);
+    const countryInResidenceList = this.props.residenceList.find(country => country.value === this.props.country_code);
+		const phoneCode = countryInResidenceList ? `+${countryInResidenceList.phone_idd}` : '';
     api.getStatesForCountry(e.target.value).then(response =>
-      this.setState({ statesList: response.states_list })
+      this.setState({ statesList: response.states_list, phoneCode })
     );
   }
 
@@ -159,7 +163,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   render() {
-    const { progress, serverError, formData, statesList, hasError, errors } = this.state;
+    const { progress, serverError, formData, statesList, hasError, errors, phoneCode } = this.state;
     const { residenceList, loginid, boot } = this.props;
     const language = (boot.language || 'en').toLowerCase();
     const linkToTermsAndConditions = `https://www.binary.com/${language}/terms-and-conditions.html`;
@@ -354,7 +358,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
           <div className="input-row">
             <InputGroup
               id="phone"
-              value={formData.phone || ''}
+              value={formData.phone || phoneCode}
               placeholder="Phone"
               type="tel"
               minLength="6"

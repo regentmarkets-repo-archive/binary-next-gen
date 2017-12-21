@@ -80,4 +80,19 @@ describe('<UpgradeToRealCard />', () => {
 
     expect(errors.first_name[0]).toEqual('Only letters, space, hyphen, period, and apostrophe are allowed.');
   });
+
+  it('phoneCode should be phone_idd for the country code in residenceList', () => {
+    const country_code = 'zm';
+    const wrapper = mountWithIntl(<UpgradeToRealCard {...PROPS} country_code={country_code} />);
+    const phoneCode = wrapper.state('phoneCode');
+
+    expect(phoneCode).toEqual('+260');
+  });
+
+  it('phoneCode should be empty when country is not passed in props', () => {
+    const wrapper = mountWithIntl(<UpgradeToRealCard {...PROPS} />);
+    const phoneCode = wrapper.state('phoneCode');
+
+    expect(phoneCode).toEqual('');
+  });
 });
