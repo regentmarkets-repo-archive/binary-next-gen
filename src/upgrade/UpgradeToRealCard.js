@@ -43,14 +43,12 @@ export default class UpgradeToRealCard extends PureComponent {
 
 	constructor(props) {
 		super(props);
-		const countryInResidenceList = props.residenceList.find(country => country.value === props.country_code);
 		this.state = {
 			hasError: false,
 			progress: false,
 			serverError: false,
 			statesList: props.states,
 			errors: {},
-			phoneCode: countryInResidenceList ? `+${countryInResidenceList.phone_idd}` : '',
 			formData: {
 				residence: props.country_code,
                 salutation: props.salutation,
@@ -73,6 +71,19 @@ export default class UpgradeToRealCard extends PureComponent {
 		this.validationMan = new ValidationManager(this.constraints);
 	}
 
+	componentWillReceiveProps(nextProps: props) {
+		const formData = this.state.formData;
+		let statesList = this.state.statesList;
+		if (!nextProps.phone && nextProps.country_code) {
+			const countryInResidenceList = nextProps.residenceList.find(country => country.value === nextProps.country_code);
+			formData.phone = countryInResidenceList && countryInResidenceList.phone_idd ? `+${countryInResidenceList.phone_idd}` : '';
+		}
+		if (this.state.statesList.length === 0) {
+			statesList = nextProps.states;
+		}
+		this.setState({ statesList, formData });
+	}
+
 	componentWillUnmount() {
     store.dispatch(updateUpgradeField('selected_currency', ''));
 	}
@@ -84,10 +95,11 @@ export default class UpgradeToRealCard extends PureComponent {
 
 	onCountryChange = (e: SyntheticEvent) => {
 		this.onEntryChange(e);
+		const formData = this.state.formData;
 		const countryInResidenceList = this.props.residenceList.find(country => country.value === this.props.country_code);
-		const phoneCode = countryInResidenceList ? `+${countryInResidenceList.phone_idd}` : '';
+		formData.phone = countryInResidenceList ? `+${countryInResidenceList.phone_idd}` : '';
 		api.getStatesForCountry(e.target.value).then(response =>
-			this.setState({ statesList: response.states_list, phoneCode })
+			this.setState({ statesList: response.states_list, formData })
 		);
 	}
 
@@ -139,7 +151,7 @@ export default class UpgradeToRealCard extends PureComponent {
 	}
 
 	render() {
-		const { formData, progress, serverError, statesList, hasError, errors, phoneCode } = this.state;
+		const { formData, progress, serverError, statesList, hasError, errors } = this.state;
 		const { residenceList, boot, loginid } = this.props;
 
 		const language = (boot.language || 'en').toLowerCase();
@@ -304,11 +316,12 @@ export default class UpgradeToRealCard extends PureComponent {
 					<div className="input-row">
 						<InputGroup
 							id="phone"
-							value={formData.phone || phoneCode}
+							value={formData.phone || ''}
 							placeholder="Phone"
 							type="tel"
 							minLength="6"
 							maxLength="35"
+							label="phone"
 							onChange={this.onEntryChange}
 						/>
 					</div>

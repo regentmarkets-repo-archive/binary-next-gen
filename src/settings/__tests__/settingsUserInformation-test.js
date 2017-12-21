@@ -134,18 +134,22 @@ describe('<SettingsUserInformation />', () => {
     expect(errors.phone[0]).toEqual('Only numbers and spaces are allowed.');
   });
 
-  it('phoneCode should be phone_idd for the country code in residenceList', () => {
+  it('phone should be phone_idd for the country code in residenceList', () => {
     const country_code = 'zm';
-    const wrapper = mountWithIntl(<SettingsUserInformation {...PROPS} country_code={country_code} />);
-    const phoneCode = wrapper.state('phoneCode');
+    const wrapper = mountWithIntl(<SettingsUserInformation {...PROPS} />);
+    wrapper.setProps({ country_code });
+    const formData = wrapper.state('formData');
+    const phone = formData.phone;
 
-    expect(phoneCode).toEqual('+260');
+    expect(phone).toEqual('+260');
   });
 
-  it('phoneCode should be empty when country is not passed in props', () => {
+  it('phone should be empty in form when country is not passed in props', () => {
     const wrapper = mountWithIntl(<SettingsUserInformation {...PROPS} />);
-    const phoneCode = wrapper.state('phoneCode');
+    wrapper.setProps({ first_name: 'abc' });
+    const phoneObj = wrapper.find('#phone').hostNodes();
+    const phone = phoneObj.instance().value;
 
-    expect(phoneCode).toEqual('');
+    expect(phone).toEqual('');
   });
 });

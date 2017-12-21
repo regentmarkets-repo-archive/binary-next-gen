@@ -46,14 +46,12 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   constructor(props) {
     super(props);
 
-    const countryInResidenceList = props.residenceList.find(country => country.value === props.country_code);
     this.state = {
       progress: false,
       hasError: false,
       serverError: false,
       statesList: props.states,
       errors: {},
-      phoneCode: countryInResidenceList ? `+${countryInResidenceList.phone_idd}` : '',
       formData: {
         account_opening_reason: props.account_opening_reason,
         residence: props.country_code,
@@ -83,6 +81,19 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
     store.dispatch(updateUpgradeField('selected_currency', ''));
   }
 
+  componentWillReceiveProps(nextProps: props) {
+    const formData = this.state.formData;
+		let statesList = this.state.statesList;
+		if (!nextProps.phone && nextProps.country_code && nextProps.country_code.length) {
+			const countryInResidenceList = nextProps.residenceList.find(country => country.value === nextProps.country_code);
+			formData.phone = countryInResidenceList && countryInResidenceList.phone_idd ? `+${countryInResidenceList.phone_idd}` : '';
+		}
+		if (this.state.statesList.length === 0) {
+			statesList = nextProps.states;
+		}
+		this.setState({ statesList, formData });
+  }
+
   onEntryChange = (e: SyntheticEvent) => {
     const s = this.validationMan.validateFieldAndGetNewState(e, this.state.formData);
 		this.setState({ ...s, hasError: false });
@@ -90,10 +101,11 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
   onCountryChange = (e: SyntheticEvent) => {
     this.onEntryChange(e);
+    const formData = this.state.formData;
     const countryInResidenceList = this.props.residenceList.find(country => country.value === this.props.country_code);
-		const phoneCode = countryInResidenceList ? `+${countryInResidenceList.phone_idd}` : '';
+		formData.phone = countryInResidenceList ? `+${countryInResidenceList.phone_idd}` : '';
     api.getStatesForCountry(e.target.value).then(response =>
-      this.setState({ statesList: response.states_list, phoneCode })
+      this.setState({ statesList: response.states_list, formData })
     );
   }
 
@@ -163,7 +175,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   render() {
-    const { progress, serverError, formData, statesList, hasError, errors, phoneCode } = this.state;
+    const { progress, serverError, formData, statesList, hasError, errors } = this.state;
     const { residenceList, loginid, boot } = this.props;
     const language = (boot.language || 'en').toLowerCase();
     const linkToTermsAndConditions = `https://www.binary.com/${language}/terms-and-conditions.html`;
@@ -358,7 +370,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
           <div className="input-row">
             <InputGroup
               id="phone"
-              value={formData.phone || phoneCode}
+							value={formData.phone || ''}
               placeholder="Phone"
               type="tel"
               minLength="6"
