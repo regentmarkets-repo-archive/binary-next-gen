@@ -12,9 +12,16 @@ export const tryAuth = async token => {
     store.dispatch(updateAppState('authorized', false));
     try {
         const response = await api.authorize(token);
+        let accounts = JSON.parse(localStorage.getItem('boot')).accounts;
+        const accountList = response.authorize.account_list;
         store.dispatch(updateAppState('authorized', true));
         store.dispatch(updateBoot('currency', response.authorize.currency));
         store.dispatch(updateBoot('balance', response.authorize.balance));
+        accounts = accounts.map(a => {
+          const newaccount = Object.assign(a, accountList.find(acc => acc.loginid === a.account));
+          return newaccount;
+        });
+        store.dispatch(updateBoot('accounts', accounts));
         trackUserId(response.authorize.loginid);
     } catch (e) {
         if (e.error && e.error.error.code === 'SelfExclusion') {

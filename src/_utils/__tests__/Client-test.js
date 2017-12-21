@@ -202,21 +202,25 @@ describe('Client', () => {
     });
 
     it('Get existing accounts with their loginid, allowed markets, type and currency', () => {
-        const accounts = [{'account':'CR549703', 'currency':'BTC'},
-            {'account':'VRTC1614224', 'currency':'USD'}];
+        const accounts = [{'account':'CR549703', 'currency':'BTC', 'is_disabled': 0},
+            {'account':'VRTC1614224', 'currency':'USD', 'is_disabled': 0}];
         const existingAccounts = getExistingAccounts(accounts, landingCompany, activeMarkets);
         const expectedExistingAccounts = [
             {
                 id: 'CR549703',
                 availableMarkets: "Commodities, Forex, Indices, Stocks, Volatility Indices",
                 type: 'real',
-                currency: 'BTC'
+                currency: 'BTC',
+                excluded_until: false,
+                is_disabled: 0
             },
             {
                 id: 'VRTC1614224',
                 availableMarkets: "Commodities, Forex, Indices, Stocks, Volatility Indices",
                 type: 'virtual',
-                currency: 'USD'
+                currency: 'USD',
+                excluded_until: false,
+                is_disabled: 0
             }
         ];
         expect(existingAccounts).toEqual(expectedExistingAccounts);

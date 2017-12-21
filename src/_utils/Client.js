@@ -1,4 +1,5 @@
 import 'babel-polyfill';
+import { epochToDateString } from 'binary-utils';
 import cryptoCurrencyConfig from '../_constants/CryptoCurrencyConfig';
 
 // get all loginids ** note: is going to be replaced by backend soon
@@ -143,6 +144,8 @@ export const getExistingAccounts = (allAccounts, landingCompany, activeMarkets) 
     allAccounts.forEach((acc) => {
       const userAccount = {};
       userAccount.id = acc.account;
+      userAccount.is_disabled = acc.is_disabled;
+      userAccount.excluded_until = acc.excluded_until ? epochToDateString(acc.excluded_until) : false;
       const allowedMarkets = landingCompanyValue(userAccount.id, 'legal_allowed_markets', landingCompany);
       userAccount.availableMarkets = filterMarkets(allowedMarkets, activeMarkets);
       userAccount.type = getAccountType(userAccount.id);
