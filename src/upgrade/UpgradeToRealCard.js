@@ -24,20 +24,20 @@ export default class UpgradeToRealCard extends PureComponent {
 		loginid: string,
 		country_code: string,
 		states: any[],
-    selectedCurrency: string,
-    salutation: string,
-    first_name: string,
-    last_name: string,
-    date_of_birth: string,
-    place_of_birth: string,
-    address_line_1: string,
-    address_line_2: string,
-    address_city: string,
-    address_state: string,
-    address_postcode: string,
-    secret_question: string,
-    secret_answer: string,
-    phone: string,
+		selectedCurrency: string,
+		salutation: string,
+		first_name: string,
+		last_name: string,
+		date_of_birth: string,
+		place_of_birth: string,
+		address_line_1: string,
+		address_line_2: string,
+		address_city: string,
+		address_state: string,
+		address_postcode: string,
+		secret_question: string,
+		secret_answer: string,
+		phone: string,
 		account_opening_reason: string,
 	};
 
@@ -72,9 +72,16 @@ export default class UpgradeToRealCard extends PureComponent {
 	}
 
 	componentWillReceiveProps(nextProps: props) {
-		if (this.state.statesList.length === 0) {
-			this.setState({ statesList: nextProps.states });
+		const formData = this.state.formData;
+		let statesList = this.state.statesList;
+		if (!nextProps.phone && nextProps.country_code) {
+			const countryInResidenceList = nextProps.residenceList.find(country => country.value === nextProps.country_code);
+			formData.phone = countryInResidenceList && countryInResidenceList.phone_idd ? `+${countryInResidenceList.phone_idd}` : '';
 		}
+		if (this.state.statesList.length === 0) {
+			statesList = nextProps.states;
+		}
+		this.setState({ statesList, formData });
 	}
 
 	componentWillUnmount() {
@@ -88,8 +95,11 @@ export default class UpgradeToRealCard extends PureComponent {
 
 	onCountryChange = (e: SyntheticEvent) => {
 		this.onEntryChange(e);
+		const formData = this.state.formData;
+		const countryInResidenceList = this.props.residenceList.find(country => country.value === this.props.country_code);
+		formData.phone = countryInResidenceList ? `+${countryInResidenceList.phone_idd}` : '';
 		api.getStatesForCountry(e.target.value).then(response =>
-			this.setState({ statesList: response.states_list })
+			this.setState({ statesList: response.states_list, formData })
 		);
 	}
 
@@ -126,9 +136,9 @@ export default class UpgradeToRealCard extends PureComponent {
 			const response = await api.createRealAccount(createAccountParams);
 			addNewAccount(response.new_account_real);
 			if (this.props.selectedCurrency && this.props.selectedCurrency !== '') {
-				this.context.router.push('/');
+				this.context.router.replace('/');
 			} else {
-				this.context.router.push('/set-currency');
+				this.context.router.replace('/set-currency');
 			}
 			window.location.reload();
 		} catch (e) {
@@ -311,6 +321,7 @@ export default class UpgradeToRealCard extends PureComponent {
 							type="tel"
 							minLength="6"
 							maxLength="35"
+							label="phone"
 							onChange={this.onEntryChange}
 						/>
 					</div>

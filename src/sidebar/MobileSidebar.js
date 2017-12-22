@@ -37,7 +37,7 @@ export default class MobileSidebar extends PureComponent {
 				</div>
 				<AccountItemsList {...this.props} />
 				<SidebarBtn to="/watchlist" img="img/watchlist.svg" text="Watchlist" />
-                <SidebarBtn to="/user-accounts" img="img/info.svg" text="Accounts list" />
+                <SidebarBtn to="/user-accounts" img="img/accounts.svg" text="Accounts list" />
 				<ThemeSwitcher />
 				<SidebarBtn to="/settings" img="img/settings.svg" text="Settings" />
 				<label htmlFor="Sign-Out" onClick={this.onSignOut} className="sidebar-btn">

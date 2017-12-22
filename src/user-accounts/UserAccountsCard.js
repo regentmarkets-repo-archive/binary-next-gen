@@ -9,13 +9,14 @@ type Props = {
   loginid: string,
   account: any[],
   accounts: any[],
+  settings: object
 };
 
 export default class UserAccountsCard extends PureComponent {
   props: Props;
 
   render() {
-    const { upgradeInfo, account, accounts, loginid } = this.props;
+    const { upgradeInfo, account, accounts, settings, loginid } = this.props;
     const nextAccountTitle = getNextAccountTitle(upgradeInfo.typeOfNextAccount);
     const currencyOptions = getCurrenciesForNewAccount(upgradeInfo.currencyOptions, account.currencies_config);
     const markets = filterMarkets(upgradeInfo.allowedMarkets, activeMarkets);
@@ -23,7 +24,7 @@ export default class UserAccountsCard extends PureComponent {
 
     return (
       <div className="user-accounts-card">
-        <CreateNewAccount loginid={loginid} account={account} upgradeInfo={upgradeInfo} nextAccountTitle={nextAccountTitle} currencyOptions={currencyOptions} markets={markets} />
+        <CreateNewAccount loginid={loginid} account={account} upgradeInfo={upgradeInfo} nextAccountTitle={nextAccountTitle} currencyOptions={currencyOptions} settings={settings} markets={markets} />
         <ExistingAccounts loginid={loginid} existingAccounts={existingAccounts} />
       </div>
     );

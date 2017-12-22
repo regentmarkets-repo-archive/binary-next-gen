@@ -81,4 +81,25 @@ describe('<CreateNewAccount />', () => {
         expect(currencyError).toEqual(true);
     });
 
+  it('should render note for CR accounts which are able to open a new account', () => {
+    const loginid = 'CR12345';
+    const account = {loginid: 'CR12345', currency: ''};
+    const markets = [];
+    const nextAccountTitle = '';
+    const upgradeInfo = {
+      canUpgrade: true,
+      multi: true,
+    };
+    const wrapper = shallow(<CreateNewAccount
+      loginid={loginid}
+      account={account}
+      markets={markets}
+      nextAccountTitle={nextAccountTitle}
+      upgradeInfo={upgradeInfo} />);
+
+    wrapper.find('#submit').last().simulate('click');
+
+    expect(wrapper.find('P').exists());
+  });
+
 });

@@ -82,9 +82,16 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   }
 
   componentWillReceiveProps(nextProps: props) {
-    if (this.state.statesList.length === 0) {
-      this.setState({ statesList: nextProps.states });
-    }
+    const formData = this.state.formData;
+		let statesList = this.state.statesList;
+		if (!nextProps.phone && nextProps.country_code && nextProps.country_code.length) {
+			const countryInResidenceList = nextProps.residenceList.find(country => country.value === nextProps.country_code);
+			formData.phone = countryInResidenceList && countryInResidenceList.phone_idd ? `+${countryInResidenceList.phone_idd}` : '';
+		}
+		if (this.state.statesList.length === 0) {
+			statesList = nextProps.states;
+		}
+		this.setState({ statesList, formData });
   }
 
   onEntryChange = (e: SyntheticEvent) => {
@@ -94,8 +101,11 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
   onCountryChange = (e: SyntheticEvent) => {
     this.onEntryChange(e);
+    const formData = this.state.formData;
+    const countryInResidenceList = this.props.residenceList.find(country => country.value === this.props.country_code);
+		formData.phone = countryInResidenceList ? `+${countryInResidenceList.phone_idd}` : '';
     api.getStatesForCountry(e.target.value).then(response =>
-      this.setState({ statesList: response.states_list })
+      this.setState({ statesList: response.states_list, formData })
     );
   }
 
@@ -150,9 +160,9 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
         setAccountCurrency(selectedCurrency, store);
       }
       if (this.props.selectedCurrency && this.props.selectedCurrency !== '') {
-        this.context.router.push('/');
+        this.context.router.replace('/');
       } else {
-        this.context.router.push('/set-currency');
+        this.context.router.replace('/set-currency');
       }
       window.location.reload();
     } catch (e) {
@@ -361,7 +371,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
           <div className="input-row">
             <InputGroup
               id="phone"
-              value={formData.phone || ''}
+							value={formData.phone || ''}
               placeholder="Phone"
               type="tel"
               minLength="6"

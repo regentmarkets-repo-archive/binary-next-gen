@@ -31,7 +31,7 @@ function resetLocalEndpoint() {
     function getDefaultAppId() {
         var defaultAppID;
         if(window.cordova) {
-          defaultAppID = 1006;
+          defaultAppID = 11780;
         } else if(window.electron) {
           defaultAppID = 1306;
         } else if (/localhost:/g.test(window.location.href)) {
