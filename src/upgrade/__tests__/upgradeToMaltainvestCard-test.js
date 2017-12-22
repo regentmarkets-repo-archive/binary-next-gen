@@ -108,4 +108,23 @@ describe('<UpgradeToMaltainvestCard />', () => {
 
     expect(secretQuestion.length).toEqual(0);
   });
+
+  it('phone should be phone_idd for the country code in residenceList', () => {
+    const country_code = 'zm';
+    const wrapper = mountWithIntl(<UpgradeToMaltainvestCard {...PROPS} />);
+    wrapper.setProps({ country_code });
+    const formData = wrapper.state('formData');
+    const phone = formData.phone;
+
+    expect(phone).toEqual('+260');
+  });
+
+  it('phone should be empty in form when country is not passed in props', () => {
+    const wrapper = mountWithIntl(<UpgradeToMaltainvestCard {...PROPS} />);
+    wrapper.setProps({ first_name: 'abc' });
+    const phoneObj = wrapper.find('#phone').hostNodes();
+    const phone = phoneObj.instance().value;
+
+    expect(phone).toEqual('');
+  });
 });

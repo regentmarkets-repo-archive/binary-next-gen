@@ -33,7 +33,7 @@ export default class WorkspaceTabs extends PureComponent {
 				<Tab imgSrc="img/info.svg" text="Details" />
 				<Tab imgSrc="img/settings.svg" text="Settings" />
 				<Tab
-					imgSrc="img/info.svg"
+					imgSrc="img/accounts.svg"
 					text={upgradeInfo && upgradeInfo.canUpgrade && !upgradeInfo.multi ? 'create-new-account' : 'accounts list'}
 				/>
 			</TabList>

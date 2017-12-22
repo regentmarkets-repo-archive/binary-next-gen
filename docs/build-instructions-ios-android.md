@@ -51,16 +51,27 @@ export PATH=${PATH}:${ANDROID_HOME}platform-tools:${ANDROID_HOME}tools
 ```
  + Once you successfully installed everything, be sure to run `cordova requirements android` in your project directory to check that you have all the required dependencies installed.
 
-### Build & Deploy
-Now you can build by running the following command in your project directory:
+### Build & Run
+
+To automatically build and run the app to your android device (this will install the debug version), first plug in your android device (make sure debugging mode is turned on) and enter the following:
 ```
-yarn build:android
+yarn start:android
 ```
 > NOTE: If you see `spawn EACCESS` errors, run `cordova build android —verbose` to see which directory it fails in and do `chmod 777 “<directory name that spawns EACESS>”`. It is probably gradle or android-sdk.
 
-If there are no errors, the build command will output a release version of the apk file. To automatically build and run the app to your android device (this will install the debug version), first plug in your android device (make sure debugging mode is turned on) and enter the following:
+### Deploy To Playstore
+
+Prior to deploying to playstore, you need to first increase the version number of the app via the attributes `android-versionCode` and `version` in `config.xml`, and `version` in `config.js`. You cannot deploy the app if `android-versionCode` is less than or equal to the current version in the playstore.
+
+Once that is done, you need to build a production release of the app:
 ```
-yarn start:android
+yarn build:android
+```
+
+If there are no errors, the build command will output a release version of the apk file. To proceed to sign the application for deployment to playstore, execute:
+
+```
+yarn sign:apk
 ```
 
 ## iOS
