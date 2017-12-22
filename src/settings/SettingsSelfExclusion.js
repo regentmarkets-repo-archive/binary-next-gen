@@ -73,7 +73,7 @@ export default class SettingsSelfExclusion extends PureComponent {
     this.setState({ errors: newErrors });
     const keys = Object.keys(newErrors);
     if (keys.length > 0) {
-      document.getElementById(keys[0]).scrollIntoView();
+      document.getElementById(keys[0]).scrollIntoView({ block: 'center', behavior: 'smooth' });
     } else {
       this.updateSelfExclusion();
     }
@@ -91,7 +91,7 @@ export default class SettingsSelfExclusion extends PureComponent {
         success: true,
         serverError: false,
       });
-      document.getElementsByClassName('update-notice')[0].scrollIntoView();
+      document.getElementsByClassName('update-notice')[0].scrollIntoView({ block: 'center', behavior: 'smooth' });
       api.getSelfExclusion();
       api.getAccountLimits();
       this.hideSuccess = setTimeout(() => {
