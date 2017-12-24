@@ -1,29 +1,29 @@
-Hash: 2513aa1b308b28826e67
+Hash: 774f1302a622f05837b7
 Version: webpack 3.10.0
-Time: 87863ms
+Time: 89432ms
                          Asset      Size  Chunks                    Chunk Names
     webtrader-charts.bundle.js    907 kB       0  [emitted]  [big]  webtrader-charts
-                        app.js   1.67 MB       1  [emitted]  [big]  app
+                        app.js   1.66 MB       1  [emitted]  [big]  app
                     styles.css     54 kB       1  [emitted]         app
 webtrader-charts.bundle.js.map   2.73 MB       0  [emitted]         webtrader-charts
-                    app.js.map   8.95 MB       1  [emitted]         app
+                    app.js.map   8.94 MB       1  [emitted]         app
                 styles.css.map  87 bytes       1  [emitted]         app
   [28] (webpack)/buildin/global.js 509 bytes {1} [built]
-  [70] (webpack)/buildin/module.js 517 bytes {1} [built]
- [106] ./src/layouts/layouts.css 917 bytes {1} [built]
- [218] (webpack)/buildin/amd-define.js 88 bytes {1} [built]
- [231] ./src/index.js + 462 modules 1.1 MB {1} [built]
- [592] ./node_modules/moment/locale ^$ 160 bytes {1} [optional] [built]
- [643] ./www/img/favorites.svg 1.03 kB {1} [built]
- [644] ./www/img/open.svg 2.9 kB {1} [built]
- [645] ./www/img/volatility.svg 1.23 kB {1} [built]
- [646] ./www/img/forex.svg 414 bytes {1} [built]
- [648] ./www/img/commodities.svg 629 bytes {1} [built]
- [649] ./www/img/stocks.svg 1.22 kB {1} [built]
- [653] ./node_modules/css-loader!./src/layouts/layouts.css 5.6 kB {1} [built]
- [668] ./styles/styles.scss 41 bytes {1} [built]
- [675] ./node_modules/css-loader?{"minimize":true}!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 54.1 kB [built]
-    + 661 hidden modules
+  [67] (webpack)/buildin/module.js 517 bytes {1} [built]
+ [100] ./src/layouts/layouts.css 1.03 kB {1} [built]
+ [209] (webpack)/buildin/amd-define.js 88 bytes {1} [built]
+ [222] ./src/index.js + 478 modules 1.16 MB {1} [built]
+ [579] ./node_modules/moment/locale ^$ 160 bytes {1} [optional] [built]
+ [631] ./www/img/favorites.svg 1.03 kB {1} [built]
+ [632] ./www/img/open.svg 2.9 kB {1} [built]
+ [633] ./www/img/volatility.svg 1.23 kB {1} [built]
+ [634] ./www/img/forex.svg 414 bytes {1} [built]
+ [636] ./www/img/commodities.svg 629 bytes {1} [built]
+ [637] ./www/img/stocks.svg 1.22 kB {1} [built]
+ [641] ./node_modules/css-loader!./src/layouts/layouts.css 5.61 kB {1} [built]
+ [656] ./styles/styles.scss 41 bytes {1} [built]
+ [663] ./node_modules/css-loader?{"minimize":true}!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 54.1 kB [built]
+    + 649 hidden modules
 Child extract-text-webpack-plugin node_modules/extract-text-webpack-plugin/dist node_modules/css-loader/index.js??ref--3-2!node_modules/sass-loader/lib/loader.js!styles/styles.scss:
        [0] ./node_modules/css-loader?{"minimize":true}!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 54.1 kB {0} [built]
         + 1 hidden module
