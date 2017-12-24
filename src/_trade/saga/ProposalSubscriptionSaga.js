@@ -1,5 +1,4 @@
-import { takeEvery } from 'redux-saga';
-import { put, select } from 'redux-saga/effects';
+import { put, select, takeEvery, all } from 'redux-saga/effects';
 import validate from 'validate.js/validate.min';
 import moment from 'moment';
 import { getProposalId } from './SagaSelectors';
@@ -20,10 +19,10 @@ function* handleUnsubscribe(action) {
     const oldProposalId = yield select(getProposalId(index));
     yield put(clearTradeError(index));
     if (oldProposalId) {
-        yield [
+        yield all([
             api.unsubscribeByID(oldProposalId),
             put(updateTradeProposal(index, 'proposal', {})),
-        ];
+        ]);
     }
 }
 
@@ -70,8 +69,8 @@ function* handleSubscription(action) {
 }
 
 export default function* watchProposalSubscription() {
-    yield [
+    yield all([
         takeEvery(UNSUBSCRIBE_PROPOSAL, handleUnsubscribe),
         takeEvery(SUBSCRIBE_PROPOSAL, handleSubscription),
-    ];
+    ]);
 }
