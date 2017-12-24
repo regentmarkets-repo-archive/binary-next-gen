@@ -85,7 +85,7 @@ export default class UpgradeToRealCard extends PureComponent {
 	}
 
 	componentWillUnmount() {
-    store.dispatch(updateUpgradeField('selected_currency', ''));
+		store.dispatch(updateUpgradeField('selected_currency', ''));
 	}
 
 	onEntryChange = (e: SyntheticEvent) => {

@@ -312,6 +312,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
               />
             {errors.residence && <ErrorMsg text={errors.residence[0]} />}
             <select id="address_state" onChange={this.onEntryChange} value={formData.address_state || ''}>
+              <option value="" disabled>Address state</option>
               {statesList.map(x => (
                 <option key={x.value} value={x.value}>{x.text}</option>
               ))}
