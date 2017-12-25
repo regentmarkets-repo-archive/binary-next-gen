@@ -1517,3 +1517,96 @@ msgstr ""
 
 msgid "Open Account"
 msgstr ""
+
+msgid "ACCOUNTS LIST"
+msgstr ""
+
+msgid "CREATE NEW ACCOUNT"
+msgstr ""
+
+msgid "EXISTING ACCOUNTS"
+msgstr ""
+
+msgid "You have created all accounts available to you."
+msgstr ""
+
+msgid "Account"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Available Markets"
+msgstr ""
+
+msgid "Currency"
+msgstr ""
+
+msgid "Investment"
+msgstr ""
+
+msgid "Gaming"
+msgstr ""
+
+msgid "Real"
+msgstr ""
+
+msgid "Virtual"
+msgstr ""
+
+msgid "Commodities"
+msgstr ""
+
+msgid "Forex"
+msgstr ""
+
+msgid "Indices"
+msgstr ""
+
+msgid "Stocks"
+msgstr ""
+
+msgid "Volatility Indices"
+msgstr ""
+
+msgid "Note: You can only have one fiat currency account and one of each cryptocurrency account."
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid "Account"
+msgstr ""
+
+msgid "Available Markets"
+msgstr ""
+
+msgid "Available Currencies"
+msgstr ""
+
+msgid "Action"
+msgstr ""
+
+msgid "Real Account"
+msgstr ""
+
+msgid "Cryptocurrency"
+msgstr ""
+
+msgid "Fiat Currency"
+msgstr ""
+
+msgid "Note: For any enquiries regarding disabled or excluded accounts, please contact Customer Support."
+msgstr ""
+
+msgid "This account is excluded until {excluded_until}"
+msgstr ""
+
+msgid "This account is disabled"
+msgstr ""
+
+msgid "Set Currency"
+msgstr ""
+
+msgid "Please set the currency for your existing account {loginid}, in order to create more accounts."
+msgstr ""
