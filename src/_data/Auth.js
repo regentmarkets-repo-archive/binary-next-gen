@@ -1,4 +1,5 @@
 import { trackUserId } from 'binary-utils/lib/misc/Analytics';
+import { fromJS } from 'immutable';
 import { showError } from 'binary-utils';
 import { store } from '../_store/persistentStore';
 import { history, accountExclusion } from '../_store/root';
@@ -21,7 +22,7 @@ export const tryAuth = async token => {
           const newaccount = Object.assign(a, accountList.find(acc => acc.loginid === a.account));
           return newaccount;
         });
-        store.dispatch(updateBoot('accounts', accounts));
+        store.dispatch(updateBoot('accounts', fromJS(accounts)));
         trackUserId(response.authorize.loginid);
     } catch (e) {
         if (e.error && e.error.error.code === 'SelfExclusion') {
