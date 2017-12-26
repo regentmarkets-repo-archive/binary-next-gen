@@ -15,7 +15,7 @@ export default class CreateNewAccount extends PureComponent {
     settings: object,
     upgradeInfo: object,
     markets: any[],
-    currencyOptions: object,
+    currencyOptions: any[],
     nextAccountTitle: string,
     account: object,
     loginid: string,
@@ -23,7 +23,7 @@ export default class CreateNewAccount extends PureComponent {
 
   constructor(props) {
     super(props);
-    this.CRAccountSettings = undefined;
+    this.CRAccountSettings = props.settings;
     this.state = {
       selected_currency: '',
       currency_error: false,
@@ -62,19 +62,19 @@ export default class CreateNewAccount extends PureComponent {
 
   submitCreateAccount = () => {
     this.setState({ currency_error: false });
-    if (this.state.selected_currency && this.state.selected_currency !== '') {
-      this.setState({ disable_create_account: true });
-      if (this.CRAccountSettings) {
-        this.addCRToCRAccount();
+      if (this.CRAccountSettings && /CR/i.test(this.props.loginid)) {
+          if (this.props.account.currency && this.props.account.currency !== '') {
+              this.setState({ disable_create_account: true });
+              this.addCRToCRAccount();
+          } else {
+              this.setState({ currency_error: true });
+          }
       } else {
-        store.dispatch(updateUpgradeField('selected_currency', this.state.selected_currency));
-        this.context.router.push('/upgrade');
+          this.setState({ disable_create_account: true });
+          store.dispatch(updateUpgradeField('selected_currency', this.state.selected_currency));
+          this.context.router.push('/upgrade');
       }
-    } else {
-      this.setState({ currency_error: true });
-      this.setState({ disable_create_account: false });
     }
-  }
 
   componentWillReceiveProps(nextProps) {
     const { currencyOptions, account } = nextProps;
@@ -82,9 +82,9 @@ export default class CreateNewAccount extends PureComponent {
       this.setState({ selected_currency: currencyOptions[0].value });
       // For CR accounts, adding another CR account should immediately add an account. (you can only
       // do this in CR account). The credentials for this is stored in state attribute "settings".
-      if (account.landing_company_name === 'costarica') {
-        this.CRAccountSettings = nextProps.settings;
-      }
+    }
+    if (account.landing_company_name === 'costarica') {
+      this.CRAccountSettings = nextProps.settings;
     }
   }
 
@@ -122,7 +122,7 @@ export default class CreateNewAccount extends PureComponent {
               />
             </td>
             <td>
-              <Button id="submit" disabled={disable_create_account} text="Create" onClick={this.submitCreateAccount} />
+              <Button id="submit" disabled={disable_create_account || currency_error} text="Create" onClick={this.submitCreateAccount} />
             </td>
           </tr>
           </tbody>
