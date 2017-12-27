@@ -26,7 +26,7 @@ const emptyObject = {};
 
 
 export const accountExclusion = async (token, excludedAccounts = []) => {
-    const vrtAccount = window.BinaryBoot.accounts.find(x => x.account.startsWith('VRTC'));
+    const vrtAccount = window.BinaryBoot.accounts.find(x => /VR/i.tes(x.account));
     excludedAccounts.push(token);
     if (vrtAccount) {
         const newToken = vrtAccount.token;
