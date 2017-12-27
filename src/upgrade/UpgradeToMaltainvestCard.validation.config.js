@@ -78,7 +78,7 @@ export const getConstraints = (props) => {
     }
   };
 
-  if (!props.loginid.startsWith('VRTC')) {
+  if (!/VR/i.test(props.loginid)) {
     constraints.secret_question.presence = false;
     constraints.secret_answer.presence = false;
     constraints.secret_answer.format = false;
