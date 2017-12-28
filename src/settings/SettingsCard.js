@@ -34,7 +34,7 @@ export default class SettingsCard extends PureComponent {
 	render() {
 		const { loginid, settings } = this.props;
 		const { activeTab } = this.state;
-		const isVirtual = loginid.startsWith('VRTC');
+		const isVirtual = /VR/i.test(loginid);
 		const ActiveComponent = components[activeTab];
 		const { version } = config;
 

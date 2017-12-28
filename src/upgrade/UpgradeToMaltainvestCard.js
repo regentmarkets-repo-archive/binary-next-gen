@@ -144,7 +144,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
     const { PEPDeclaration, ...formData } = this.state.formData; // eslint-disable-line no-unused-vars
     let createAccountParams = formData;
     // if not VRTC, we do not need secret question
-    if (!loginid.startsWith('VRTC')) {
+    if (!/VR/i.test(loginid)) {
       const { secret_question, secret_answer, ...d } = formData; // eslint-disable-line no-unused-vars
       createAccountParams = d;
     }
@@ -613,7 +613,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
           </div>
           {errors.account_turnover && <ErrorMsg text={errors.account_turnover[0]} />}
 
-          {loginid.startsWith('VRTC') &&
+          {/VR/i.test(loginid) &&
             <div>
               <Legend text="Security" />
               <div className="input-row">
