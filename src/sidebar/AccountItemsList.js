@@ -20,7 +20,7 @@ export default class AccountItemsList extends PureComponent {
 					<SidebarBtn to="/upgrade" img="img/icon.png" text="Upgrade" />
 				}
 				{accounts
-					.filter(x => x.account !== loginid)
+					.filter(x => x.account !== loginid && !x.excluded_until && !x.is_disabled)
 					.map(x => <AccountMenuItem key={x.token} account={x.account} token={x.token} currency={x.currency} />)
 				}
 			</div>

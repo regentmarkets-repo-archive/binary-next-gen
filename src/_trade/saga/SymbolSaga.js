@@ -1,4 +1,4 @@
-import { takeEvery } from 'redux-saga';
+import { takeEvery } from 'redux-saga/effects';
 import { tradeCreation } from './LifeCycleSaga';
 
 const CHANGE_SYMBOL = 'CHANGE_SYMBOL';

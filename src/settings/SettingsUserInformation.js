@@ -30,7 +30,7 @@ export default class SettingsUserInformation extends PureComponent {
 		this.state = {
 			formData,
 			errors: {},
-			hasError: false
+			hasError: false,
 		};
 
 		this.constraints = getConstraints(this.props);
@@ -52,7 +52,11 @@ export default class SettingsUserInformation extends PureComponent {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		const formData = this.getFormData(nextProps);
+        const formData = this.getFormData(nextProps);
+		if (!nextProps.phone && nextProps.country_code && nextProps.country_code.length) {
+			const countryInResidenceList = nextProps.residenceList.find(country => country.value === nextProps.country_code);
+			formData.phone = countryInResidenceList ? `+${countryInResidenceList.phone_idd}` : '';
+		}
 		this.setState({ formData });
 	}
 

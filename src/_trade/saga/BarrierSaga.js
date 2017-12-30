@@ -1,5 +1,4 @@
-import { takeEvery } from 'redux-saga';
-import { put, select } from 'redux-saga/effects';
+import { put, select, takeEvery, all } from 'redux-saga/effects';
 import { getParams, contractOfSymbol } from './SagaSelectors';
 import { updateMultipleTradeParams, updateTradeError } from '../../_actions';
 import changeBarrier from '../updates/changeBarrier';
@@ -30,11 +29,11 @@ export function* handleBarrierChange(action) {
     }
 
     const updated = changeBarrier(barrier, params);
-    yield [
+    yield all([
         put(subscribeProposal(index, updated)),
         put(updateMultipleTradeParams(index, updated)),
         put(updateTradeError(index, 'barrierError')),
-    ];
+    ]);
 
     if (isBarrierTooLong(barrier, pipSize)) {
         yield put(updateTradeError(index, 'barrierError', `Barrier decimal too long, only allow ${pipSize} decimals`));

@@ -10,7 +10,7 @@ export default class SettingsSecurity extends PureComponent {
 
 	render() {
 		const { loginid } = this.props;
-		const isVirtual = loginid.startsWith('VRTC');
+		const isVirtual = /VR/i.test(loginid);
 
         return (
             <div className="settings-passwords">
