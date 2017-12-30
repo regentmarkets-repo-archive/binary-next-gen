@@ -16,10 +16,10 @@ export const getAllLoginids = (accounts) => {
 // get the type of account from loginid with this function
 export const getAccountType = loginid => {
   let account_type;
-  if (/VR/i.test(loginid)) account_type = 'virtual';
-  else if (/MF/i.test(loginid)) account_type = 'financial';
-  else if (/MLT/i.test(loginid)) account_type = 'gaming';
-  else account_type = 'real';
+  if (/VR/i.test(loginid)) account_type = 'Virtual';
+  else if (/MF/i.test(loginid)) account_type = 'Investment';
+  else if (/MLT/i.test(loginid)) account_type = 'Gaming';
+  else account_type = 'Real';
   return account_type;
 };
 
@@ -27,8 +27,8 @@ export const getAccountType = loginid => {
 export const isAccountOfType = (type, loginid) => {
   const accountType = getAccountType(loginid);
   return (
-    (type === 'virtual' && accountType === 'virtual') ||
-    (type === 'real' && accountType !== 'virtual') ||
+    (type === 'virtual' && accountType === 'Virtual') ||
+    (type === 'real' && accountType !== 'Virtual') ||
     type === accountType);
 };
 
@@ -127,7 +127,7 @@ export const getCurrenciesForNewAccount = (currencies, currencyConfig) => {
       currencyObject.text = curr;
       currencyObject.value = curr;
       currencyObject.group = /crypto/i.test(currencyConfig[curr].type) ?
-        'Cryptocurrencies' : 'Fiat currencies';
+        'Cryptocurrency' : 'Fiat Currency';
       if (currencyOptions.indexOf(currencyObject) < 0) {
         currencyOptions.push(currencyObject);
       }

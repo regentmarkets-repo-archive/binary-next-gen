@@ -53,7 +53,7 @@ export default class ExistingAccounts extends PureComponent {
                 <td>
                   {a.currency && <span>{a.currency}</span>}
                   {!a.currency && (a.id !== loginid ? '-' :
-                    <Button id="select-currency-button" text="select" onClick={this.onSelectCurrency} />)
+                    <Button id="select-currency-button" text="Set Currency" onClick={this.onSelectCurrency} />)
                   }
                 </td>
               </tr>

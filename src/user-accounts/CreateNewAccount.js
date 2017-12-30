@@ -104,10 +104,10 @@ export default class CreateNewAccount extends PureComponent {
         <table>
           <thead>
           <tr>
-            <Th text="account" />
-            <Th text="market" />
-            <Th text="currencies" />
-            <Th text="action" />
+            <Th text="Account" />
+            <Th text="Available Markets" />
+            <Th text="Available Currencies" />
+            <Th text="Action" />
           </tr>
           </thead>
           <tbody>

@@ -29,34 +29,34 @@ describe('Client', () => {
     it('Gets the type of account and type of CRxxxx account is equal to real', () => {
         const loginid = 'CR512345';
         const accountType = getAccountType(loginid);
-        const expectedAccountType = 'real';
+        const expectedAccountType = 'Real';
         expect(accountType).toEqual(expectedAccountType);
     });
 
-    it('Gets the type of account and type of MFxxxxx account is equal to financial', () => {
+    it('Gets the type of account and type of MFxxxxx account is equal to Investment', () => {
         const loginid = 'MF12345';
         const accountType = getAccountType(loginid);
-        const expectedAccountType = 'financial';
+        const expectedAccountType = 'Investment';
         expect(accountType).toEqual(expectedAccountType);
     });
 
-    it('Gets the type of account and type of MLTxxxxx account is equal to financial', () => {
+    it('Gets the type of account and type of MLTxxxxx account is equal to Gaming', () => {
         const loginid = 'MLT12345';
         const accountType = getAccountType(loginid);
-        const expectedAccountType = 'gaming';
+        const expectedAccountType = 'Gaming';
         expect(accountType).toEqual(expectedAccountType);
     });
 
-    it('Gets the type of account and type of VRTCxxxxx account is equal to financial', () => {
+    it('Gets the type of account and type of VRTCxxxxx account is equal to Virtual', () => {
         const loginid = 'VRTC12345';
         const accountType = getAccountType(loginid);
-        const expectedAccountType = 'virtual';
+        const expectedAccountType = 'Virtual';
         expect(accountType).toEqual(expectedAccountType);
     });
 
     it('Says if account is of type passed as type in arguments (VRTCxxxxx is type virtual)', () => {
         const loginid = 'VRTC12345';
-        const type = 'virtual';
+        const type = 'Virtual';
         const isAccountOfThisType = isAccountOfType(type, loginid);
         const expectedIsAccountOfThisType = true;
         expect(isAccountOfThisType).toEqual(expectedIsAccountOfThisType);
@@ -64,7 +64,7 @@ describe('Client', () => {
 
     it('Says if account is of type passed as type in arguments (VRTCxxxx is not type real)', () => {
         const loginid = 'VRTC12345';
-        const type = 'real';
+        const type = 'Real';
         const isAccountOfThisType = isAccountOfType(type, loginid);
         const expectedIsAccountOfThisType = false;
         expect(isAccountOfThisType).toEqual(expectedIsAccountOfThisType);
@@ -83,27 +83,27 @@ describe('Client', () => {
             {'account':'CR549703', 'currency':'BTC'},
             {'account':'VRTC1614224', 'currency':'USD'}];
 
-        const type = 'real';
+        const type = 'Real';
         const hasAccountOfTypeReal = hasAccountOfType(type, accounts);
         const expectedHasAccountOfTypeReal = true;
         expect(hasAccountOfTypeReal).toEqual(expectedHasAccountOfTypeReal);
     });
 
-    it('Says if user has account of type financial', () => {
+    it('Says if user has account of type Investment', () => {
         const accounts = [{'account':'CR526255', 'currency':'AUD'},
             {'account':'CR549703', 'currency':'BTC'},
             {'account':'VRTC1614224', 'currency':'USD'}];
 
-        const type = 'financial';
-        const hasAccountOfTypeFinancial = hasAccountOfType(type, accounts);
-        const expectedHasAccountOfTypeFinancial = false;
-        expect(hasAccountOfTypeFinancial).toEqual(expectedHasAccountOfTypeFinancial);
+        const type = 'Investment';
+        const hasAccountOfTypeInvestment = hasAccountOfType(type, accounts);
+        const expectedHasAccountOfTypeInvestment = false;
+        expect(hasAccountOfTypeInvestment).toEqual(expectedHasAccountOfTypeInvestment);
     });
 
     it('Says if user has account of type real', () => {
         const accounts = [{'account':'VRTC1614224', 'currency':'USD'}];
 
-        const type = 'real';
+        const type = 'Real';
         const hasAccountOfTypeReal = hasAccountOfType(type, accounts);
         const expectedHasAccountOfTypeReal = false;
         expect(hasAccountOfTypeReal).toEqual(expectedHasAccountOfTypeReal);
@@ -113,7 +113,7 @@ describe('Client', () => {
         const accounts = [{'account':'VRTC1614224', 'currency':'USD'},
             {'account':'MF12345', 'currency':'USD'}];
 
-        const type = 'financial';
+        const type = 'real';
         const hasAccountOfTypeFinancial = hasAccountOfType(type, accounts);
         const expectedHasAccountOfTypeFinancial = true;
         expect(hasAccountOfTypeFinancial).toEqual(expectedHasAccountOfTypeFinancial);
@@ -171,7 +171,8 @@ describe('Client', () => {
         const loginid = 'VRTC12345';
         const key = 'legal_allowed_markets';
         const value = landingCompanyValue(loginid, key, landingCompany);
-        const expectedValue = ["commodities","forex","indices","stocks","volidx","commodities","forex","indices","stocks","volidx"];
+        const expectedValue = ["commodities","forex","indices","stocks","volidx","commodities","forex","indices","stocks","volidx",
+    ];
         expect(value).toEqual(expectedValue);
     });
 
@@ -209,7 +210,7 @@ describe('Client', () => {
             {
                 id: 'CR549703',
                 availableMarkets: "Commodities, Forex, Indices, Stocks, Volatility Indices",
-                type: 'real',
+                type: 'Real',
                 currency: 'BTC',
                 excluded_until: false,
                 is_disabled: 0
@@ -217,7 +218,7 @@ describe('Client', () => {
             {
                 id: 'VRTC1614224',
                 availableMarkets: "Commodities, Forex, Indices, Stocks, Volatility Indices",
-                type: 'virtual',
+                type: 'Virtual',
                 currency: 'USD',
                 excluded_until: false,
                 is_disabled: 0
