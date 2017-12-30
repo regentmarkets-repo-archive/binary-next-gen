@@ -52,7 +52,7 @@ export default class SettingsUserInformation extends PureComponent {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		const formData = this.state.formData;
+        const formData = this.getFormData(nextProps);
 		if (!nextProps.phone && nextProps.country_code && nextProps.country_code.length) {
 			const countryInResidenceList = nextProps.residenceList.find(country => country.value === nextProps.country_code);
 			formData.phone = countryInResidenceList ? `+${countryInResidenceList.phone_idd}` : '';
