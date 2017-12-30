@@ -1517,3 +1517,15 @@ msgstr ""
 
 msgid "Open Account"
 msgstr ""
+
+msgid "Select Currency"
+msgstr ""
+
+msgid "Please select the currency of this account:"
+msgstr ""
+
+msgid "Fiat Currency"
+msgstr ""
+
+msgid "cryptocurrency"
+msgstr ""
