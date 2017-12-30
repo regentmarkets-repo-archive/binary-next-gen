@@ -1593,6 +1593,12 @@ msgstr ""
 msgid "Cryptocurrency"
 msgstr ""
 
+msgid "Select Currency"
+msgstr ""
+
+msgid "Please select the currency of this account:"
+msgstr ""
+
 msgid "Fiat Currency"
 msgstr ""
 
