@@ -12,14 +12,28 @@ export const getConstraints = (formData) => {
     }
   };
 
+  const account = JSON.parse(localStorage.getItem('account'));
+  const currencyConfig = account ? account.currencies_config : {};
+  const currency = account && Object.keys(account).length > 0 ? account.currency || account.default_currency : 'USD';
+  const fractionalDigits = currencyConfig && Object.keys(currencyConfig).length ? currencyConfig[currency].fractional_digits : 2;
+  const floatNumberRegex = `^\\d+(\\.\\d{0,${fractionalDigits}})?$`;
+  const floatNumberError = `Please enter a number with up to ${fractionalDigits} decimal places.`;
+
+  const floatNumberVerify = {
+      format: {
+        pattern: floatNumberRegex,
+        message: floatNumberError
+      }
+  };
+
   const constraints = {
-    max_balance: clone(numVerify),
-    max_turnover: clone(numVerify),
-    max_losses: clone(numVerify),
-    max_7day_turnover: clone(numVerify),
-    max_7day_losses: clone(numVerify),
-    max_30day_turnover: clone(numVerify),
-    max_30day_losses: clone(numVerify),
+    max_balance: clone(floatNumberVerify),
+    max_turnover: clone(floatNumberVerify),
+    max_losses: clone(floatNumberVerify),
+    max_7day_turnover: clone(floatNumberVerify),
+    max_7day_losses: clone(floatNumberVerify),
+    max_30day_turnover: clone(floatNumberVerify),
+    max_30day_losses: clone(floatNumberVerify),
     max_open_bets: clone(numVerify),
     session_duration_limit: clone(numVerify),
     timeout_until_date: {
@@ -62,6 +76,14 @@ export const getConstraints = (formData) => {
       && constraints[key].numericality) {
       constraints[key].numericality = {
         onlyInteger: true,
+        lessThanOrEqualTo: Number(formData[key]),
+        notLessThanOrEqualTo: `Should be between 0 and ${formData[key]}.`
+      };
+      constraints[key].presence = true;
+    } else if (formData[key]
+      && constraints[key]
+      && constraints[key].format) {
+      constraints[key].numericality = {
         lessThanOrEqualTo: Number(formData[key]),
         notLessThanOrEqualTo: `Should be between 0 and ${formData[key]}.`
       };
