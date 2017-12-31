@@ -5,7 +5,7 @@ import moment from 'moment';
 // Don't use where values are dates and functions
 const clone = (obj) => JSON.parse(JSON.stringify(obj));
 
-export const getConstraints = (formData) => {
+export const getConstraints = (formData, limits) => {
   const numVerify = {
     numericality: {
       onlyInteger: true
@@ -24,6 +24,11 @@ export const getConstraints = (formData) => {
         pattern: floatNumberRegex,
         message: floatNumberError
       }
+  };
+
+  const selfExclusionToLimits = {
+    max_balance: 'account_balance',
+    max_open_bets: 'open_positions'
   };
 
   const constraints = {
@@ -88,6 +93,11 @@ export const getConstraints = (formData) => {
         notLessThanOrEqualTo: `Should be between 0 and ${formData[key]}.`
       };
       constraints[key].presence = true;
+    } else if (!formData[key] && selfExclusionToLimits.hasOwnProperty(key) && limits.hasOwnProperty(selfExclusionToLimits[key]) && constraints[key]) {
+      constraints[key].numericality = {
+        lessThanOrEqualTo: Number(limits[selfExclusionToLimits[key]]),
+        notLessThanOrEqualTo: `Should be between 0 and ${limits[selfExclusionToLimits[key]]}.`
+      };
     }
   });
 

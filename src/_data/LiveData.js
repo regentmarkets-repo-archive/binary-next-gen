@@ -275,6 +275,15 @@ export const setAccountCurrency = (currency, store, onCurrencyAdded) => {
   );
 };
 
+export const setSelfExclusionData = (selfExclusion) => {
+    api.setSelfExclusion(selfExclusion).then(s => {
+        if (s.set_self_exclusion === 1) {
+            api.getAccountLimits();
+            api.getSelfExclusion();
+        }
+    });
+};
+
 export const connect = async store => {
     Object.keys(handlers).forEach(key => {
         const action = actions[handlers[key]];
