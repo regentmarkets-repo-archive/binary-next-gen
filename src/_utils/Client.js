@@ -65,9 +65,9 @@ export const landingCompanyValue = (loginid, key, landingCompany) => {
 // for getting the title of next account user can upgrade to (Real, Financial)
 export const getNextAccountTitle = (typeOfNextAccount) => {
   let nextAccount;
-  if (typeOfNextAccount === 'real') {
+  if (typeOfNextAccount === 'Real') {
     nextAccount = 'Real Account';
-  } else if (typeOfNextAccount === 'financial') {
+  } else if (typeOfNextAccount === 'Investment') {
     nextAccount = 'Financial Account';
   }
   return nextAccount;
