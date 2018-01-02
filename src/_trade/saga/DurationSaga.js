@@ -1,5 +1,4 @@
-import { takeEvery } from 'redux-saga';
-import { put, select } from 'redux-saga/effects';
+import { put, select, takeEvery, all } from 'redux-saga/effects';
 import { updateMultipleTradeParams, updateTradeError } from '../../_actions';
 import areAllTimeFieldsValid from '../validation/areAllTimeFieldsValid';
 import changeDurationUnit from '../updates/changeDurationUnit';
@@ -25,11 +24,11 @@ export function* handleDurationChange(action) {
     const isDurationAllowed = areAllTimeFieldsValid(dateStart, duration, durationUnit, contractPerType);
     if (isDurationAllowed) {
         const updated = Object.assign(params, { duration });
-        yield [
+        yield all([
             put(subscribeProposal(index, updated)),
             put(updateMultipleTradeParams(index, updated)),
             put(updateTradeError(index, 'durationError')),
-        ];
+        ]);
     } else {
         yield put(updateTradeError(index, 'durationError', 'Duration is out of range'));
     }
@@ -50,11 +49,11 @@ export function* handleDurationUnitChange(action) {
     const params = yield select(getParams(index));
     const contractNeeded = yield select(contractOfSymbol(params.symbol));
     const updated = changeDurationUnit(durationUnit, contractNeeded, params);
-    yield [
+    yield all([
         put(subscribeProposal(index, updated)),
         put(updateMultipleTradeParams(index, updated)),
         put(updateTradeError(index, 'durationError'))
-    ];
+    ]);
 }
 
 const CHANGE_START_DATE_EPOCH = 'CHANGE_START_DATE_EPOCH';
@@ -72,17 +71,17 @@ export function* handleStartEpochChange(action) {
     const { symbol } = params;
     const contractNeeded = yield select(contractOfSymbol(symbol));
     const updated = changeStartDate(epoch, contractNeeded, params);
-    yield [
+    yield all([
         put(subscribeProposal(index, updated)),
         put(updateMultipleTradeParams(index, updated)),
         put(updateTradeError(index, 'durationError')),
-    ];
+    ]);
 }
 
 export default function* watchDurationChange() {
-    yield [
+    yield all([
         takeEvery(CHANGE_DURATION, handleDurationChange),
         takeEvery(CHANGE_DURATION_UNIT, handleDurationUnitChange),
         takeEvery(CHANGE_START_DATE_EPOCH, handleStartEpochChange),
-    ];
+    ]);
 }

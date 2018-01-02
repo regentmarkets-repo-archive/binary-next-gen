@@ -1,3 +1,5 @@
+import moment from 'moment';
+
 export const getConstraints = () => {
   const constraints = {
     salutation: {
@@ -32,7 +34,11 @@ export const getConstraints = () => {
       presence: true,
     },
     date_of_birth: {
-      presence: true,
+      date: {
+        earliest: moment('1800-01-02'),
+        latest: moment().subtract(17, 'years')
+      },
+      presence: { allowEmpty: false },
     },
     account_opening_reason: {
       presence: true,

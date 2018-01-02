@@ -3,7 +3,7 @@ import moment from 'moment';
 import { Button, InputGroup, ServerErrorMsg, ErrorMsg } from 'binary-components';
 import { getConstraints } from './SettingsSelfExclusion.validation.config';
 import UpdateNotice from '../containers/UpdateNotice';
-import { api } from '../_data/LiveData';
+import { setSelfExclusionData } from '../_data/LiveData';
 import ValidationManager from '../_utils/ValidationManager';
 
 export default class SettingsSelfExclusion extends PureComponent {
@@ -20,20 +20,31 @@ export default class SettingsSelfExclusion extends PureComponent {
     session_duration_limit: number,
     timeout_until: number,
     exclude_until: string,
+    account_balance: number,
+		open_positions: number,
   };
 
   constructor(props) {
     super(props);
     const formData = this.getFormData(props);
+    const limits = this.getLimits(props);
     this.state = {
       formData,
+      limits,
       errors: {},
       serverError: false,
       success: false,
     };
 
-    this.constraints = getConstraints(this.state.formData);
+    this.constraints = getConstraints(this.state.formData, this.state.limits);
     this.validationMan = new ValidationManager(this.constraints);
+  }
+
+  getLimits(props) {
+    return {
+      account_balance: props.account_balance,
+      open_positions: props.open_positions,
+    };
   }
 
   getFormData(props) {
@@ -54,8 +65,9 @@ export default class SettingsSelfExclusion extends PureComponent {
   }
 
   componentWillReceiveProps(nextProps) {
-		const formData = this.getFormData(nextProps);
-		this.setState({ formData });
+    const formData = this.getFormData(nextProps);
+    const limits = this.getLimits(nextProps);
+		this.setState({ formData, limits });
 	}
 
   onEntryChange = (e: SyntheticEvent) => {
@@ -83,13 +95,14 @@ export default class SettingsSelfExclusion extends PureComponent {
       newSettings.timeout_until = timeout_until;
     }
     try {
-      await api.setSelfExclusion(newSettings);
+      await setSelfExclusionData(newSettings);
       this.setState({
         success: true,
         serverError: false,
       });
-      api.getSelfExclusion();
-      api.getAccountLimits();
+      this.constraints = getConstraints(this.state.formData, this.state.limits);
+      this.validationMan = new ValidationManager(this.constraints);
+
       this.hideSuccess = setTimeout(() => {
         this.setState({ success: false });
         if (newSettings.exclude_until || newSettings.timeout_until) {

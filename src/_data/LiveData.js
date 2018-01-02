@@ -160,25 +160,25 @@ const initAuthorized = async (authData, store) => {
     api.getServerTime();
 
     const getUpgradeInfo = (landingCompany, loginid, accounts, currencyConfig) => {
-        let typeOfNextAccount = 'real';
+        let typeOfNextAccount = 'Real';
         let canUpgrade = false;
         let currencyOptions = landingCompany.gaming_company ? landingCompany.gaming_company.legal_allowed_currencies : {};
         let allowedMarkets = landingCompany.gaming_company ? landingCompany.gaming_company.legal_allowed_markets : {};
         let multi = false;
         if (/VR/i.test(loginid)) {
             if (!landingCompany.gaming_company && landingCompany.financial_company.shortcode === 'maltainvest') {
-                typeOfNextAccount = 'financial';
+                typeOfNextAccount = 'Investment';
                 currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
                 allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
             } else if (!landingCompany.gaming_company && landingCompany.financial_company) {
                 currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
                 allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
             }
-            canUpgrade = !hasAccountOfType('real', accounts);
+            canUpgrade = !hasAccountOfType('Real', accounts);
         } else if (landingCompany.financial_company) {
                 if (landingCompany.financial_company.shortcode === 'maltainvest') {
-                typeOfNextAccount = 'financial';
-                canUpgrade = !hasAccountOfType('financial', accounts);
+                typeOfNextAccount = 'Investment';
+                canUpgrade = !hasAccountOfType('Investment', accounts);
                 currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
                 allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
             } else if (landingCompany.financial_company.shortcode === 'costarica') {
@@ -273,6 +273,15 @@ export const setAccountCurrency = (currency, store, onCurrencyAdded) => {
       }
     }
   );
+};
+
+export const setSelfExclusionData = (selfExclusion) => {
+    api.setSelfExclusion(selfExclusion).then(s => {
+        if (s.set_self_exclusion === 1) {
+            api.getAccountLimits();
+            api.getSelfExclusion();
+        }
+    });
 };
 
 export const connect = async store => {

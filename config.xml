@@ -1,8 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget android-versionCode="200000" id="app.binary.com" version="2.0.1" 
-    xmlns="http://www.w3.org/ns/widgets" 
-    xmlns:cdv="http://cordova.apache.org/ns/1.0"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+<widget android-versionCode="2000010" id="app.binary.com" version="2.0.3" xmlns="http://www.w3.org/ns/widgets" xmlns:android="http://schemas.android.com/apk/res/android" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>Binary.com</name>
     <description>
         Trade Binary Options with Binary.com
@@ -33,7 +30,7 @@
     <preference name="StatusBarOverlaysWebView" value="false" />
     <preference name="StatusBarBackgroundColor" value="#2A3052" />
     <!-- Modify android manifest to prevent keyboard from resizing the view. See: https://stackoverflow.com/q/10076148/1471258 -->
-    <edit-config file="AndroidManifest.xml" mode="merge" target="/manifest/application/activity">
+    <edit-config file="app/src/main/AndroidManifest.xml" mode="merge" target="/manifest/application/activity">
         <activity android:configChanges="orientation|keyboardHidden" android:windowSoftInputMode="adjustPan" />
     </edit-config>
     <feature name="SplashScreen">
@@ -94,8 +91,8 @@
     </platform>
     <engine name="browser" spec="^5.0.1" />
     <engine name="ios" spec="^4.5.2" />
-    <engine name="android" spec="^6.4.0" />
-    <plugin name="cordova-plugin-code-push" spec="^1.8.2-beta" />
+    <engine name="android" spec="^7.0.0" />
+    <plugin name="cordova-plugin-code-push" spec="^1.10.1" />
     <plugin name="cordova-plugin-inappbrowser" spec="^1.7.1" />
     <plugin name="cordova-plugin-splashscreen" spec="^3.2.2" />
     <plugin name="cordova-plugin-statusbar" spec="^2.1.3" />

@@ -1,5 +1,4 @@
-import { takeEvery } from 'redux-saga';
-import { put, select } from 'redux-saga/effects';
+import { put, select, takeEvery, all } from 'redux-saga/effects';
 import { updateMultipleTradeParams, updateTradingOptions,
     updateFeedLicense, updateTradingOptionsErr } from '../../_actions';
 import { api as CoreApi } from '../../_data/LiveData';
@@ -26,9 +25,10 @@ export function* tradeCreation(action) {
         const isOpen = yield select(isSymbolOpen(symbol));
         const updatedParams = changeSymbol(symbol, contractNeeded, params, isOpen);
         yield put(updateMultipleTradeParams(index, updatedParams));
-        yield [
+        yield all([
+            put(updateTradeUIState(index, 'forceRenderCount', renderCount + 1)),
             put(subscribeProposal(index, updatedParams)),
-        ];
+        ]);
     } else {
         try {
             const { contracts_for } = yield CoreApi.getContractsForSymbol(symbol);
@@ -42,10 +42,11 @@ export function* tradeCreation(action) {
             yield put(updateMultipleTradeParams(index, params));
 
             yield [
+            yield all([
                 put(updateFeedLicense(symbol, license)),
                 put(updateTradingOptions(symbol, contracts_for.available)),
                 put(createTrade(index, symbol)),
-            ];
+            ]);
         } catch (err) {
             if (!err.error || !err.error.error) {
                 throw err;                  // rethrow error that we do not expect
@@ -67,8 +68,8 @@ export function* tradeDestruction(action) {
 }
 
 export default function* lifeCycleWatch() {
-    yield [
+    yield all([
         takeEvery(CREATE_TRADE, tradeCreation),
         takeEvery(DESTROY_TRADE, tradeDestruction),
-        ];
+        ]);
 }

@@ -63,6 +63,7 @@ describe('<CreateNewAccount />', () => {
         const loginid = 'CR12345';
         const account = {loginid: 'CR12345', currency: ''};
         const markets = [];
+        const settings = {};
         const nextAccountTitle = '';
         const upgradeInfo = {
             canUpgrade: true
@@ -72,13 +73,37 @@ describe('<CreateNewAccount />', () => {
             account={account}
             markets={markets}
             nextAccountTitle={nextAccountTitle}
-            upgradeInfo={upgradeInfo} />);
-
+            upgradeInfo={upgradeInfo}
+            settings={settings} />);
+        wrapper.setProps({settings: { first_name: 'abcde' }, currencyOptions: ['EUR'], account: {loginid: 'CR12345', currency: ''} });
         wrapper.find('#submit').last().simulate('click');
 
         const currencyError = wrapper.state('currency_error');
 
         expect(currencyError).toEqual(true);
     });
+
+  it('should render note for CR accounts which are able to open a new account', () => {
+    const loginid = 'CR12345';
+    const account = {loginid: 'CR12345', currency: '', landing_company_name: 'costarica'};
+    const markets = [];
+    const nextAccountTitle = '';
+    const upgradeInfo = {
+      canUpgrade: true,
+      multi: true,
+    };
+    const wrapper = shallow(<CreateNewAccount
+      loginid={loginid}
+      account={account}
+      markets={markets}
+      nextAccountTitle={nextAccountTitle}
+      upgradeInfo={upgradeInfo} />);
+
+      wrapper.setProps({settings: { first_name: 'abcde' }, currencyOptions: ['EUR']});
+
+    wrapper.find('#submit').last().simulate('click');
+
+    expect(wrapper.find('P').exists());
+  });
 
 });
