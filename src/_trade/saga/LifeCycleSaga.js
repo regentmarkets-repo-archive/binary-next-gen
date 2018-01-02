@@ -25,10 +25,7 @@ export function* tradeCreation(action) {
         const isOpen = yield select(isSymbolOpen(symbol));
         const updatedParams = changeSymbol(symbol, contractNeeded, params, isOpen);
         yield put(updateMultipleTradeParams(index, updatedParams));
-        yield all([
-            put(updateTradeUIState(index, 'forceRenderCount', renderCount + 1)),
-            put(subscribeProposal(index, updatedParams)),
-        ]);
+        yield put(subscribeProposal(index, updatedParams));
     } else {
         try {
             const { contracts_for } = yield CoreApi.getContractsForSymbol(symbol);
@@ -41,7 +38,6 @@ export function* tradeCreation(action) {
             // Will you, brave engineer, be able locate the nefarious code??
             yield put(updateMultipleTradeParams(index, params));
 
-            yield [
             yield all([
                 put(updateFeedLicense(symbol, license)),
                 put(updateTradingOptions(symbol, contracts_for.available)),
