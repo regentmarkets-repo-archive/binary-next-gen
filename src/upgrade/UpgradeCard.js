@@ -29,10 +29,10 @@ export default class UpgradeCard extends PureComponent {
         <div className="header inverse">
           <BackButton onClick={this.goBack} />
         </div>
-        { upgradeInfo.typeOfNextAccount === 'real' &&
+        { upgradeInfo.typeOfNextAccount === 'Real' &&
           <UpgradeToRealCard {...this.props} {...settings} />
         }
-        { upgradeInfo.typeOfNextAccount === 'financial' &&
+        { upgradeInfo.typeOfNextAccount === 'Investment' &&
           <UpgradeToMaltainvestCard {...this.props} {...settings} />
         }
       </MobilePage>
