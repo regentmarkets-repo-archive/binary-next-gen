@@ -433,6 +433,9 @@ msgstr ""
 msgid "Maximum aggregate loss over a 30-day period."
 msgstr ""
 
+msgid "Maximum number of contracts that can be open at the same time."
+msgstr ""
+
 msgid "Session duration limit, in minutes"
 msgstr ""
 
@@ -445,7 +448,10 @@ msgstr ""
 msgid "Limits"
 msgstr ""
 
-msgid "Please enter date in the format YYYY-MM-DD."
+msgid "Please enter date in the format MM-DD-YYYY."
+msgstr ""
+
+msgid "Please enter time in the format HH:mm (local time)"
 msgstr ""
 
 msgid "New Trade"
@@ -889,6 +895,9 @@ msgid "Should be a valid number"
 msgstr ""
 
 msgid "Should be between 0 and {number}"
+msgstr ""
+
+msgid "Please enter a number with up to {number} decimal places."
 msgstr ""
 
 msgid "Time out must be after today and cannot be more than 6 weeks."
