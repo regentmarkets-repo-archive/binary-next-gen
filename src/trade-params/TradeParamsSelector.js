@@ -131,7 +131,6 @@ export default createSelector(
                 pipSize: pipSizes.get(i),
                 proposal: proposalInfo.getIn([i, 'proposal']),
                 tradeParams: params.get(i),
-                forceRenderCount: uiState.getIn([i, 'forceRenderCount']),
                 fractionalDigits,
                 defaultStake,
             };

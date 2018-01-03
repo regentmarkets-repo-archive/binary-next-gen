@@ -1,6 +1,6 @@
 import { select, put, takeEvery, all } from 'redux-saga/effects';
-import { getForceRenderCount, getParams, contractOfSymbol } from './SagaSelectors';
-import { updateMultipleTradeParams, updateTradeUIState } from '../../_actions';
+import { getParams, contractOfSymbol } from './SagaSelectors';
+import { updateMultipleTradeParams } from '../../_actions';
 import changeCategory from '../updates/changeCategory';
 import changeType from '../updates/changeType';
 import { subscribeProposal, unsubscribeProposal } from './ProposalSubscriptionSaga';
@@ -41,11 +41,9 @@ function* handleTypeChange(action) {
     const params = yield select(getParams(index));
     const contractNeeded = yield select(contractOfSymbol(params.symbol));
     const updated = changeType(tradeType, category, contractNeeded, params);
-    const renderCount = yield select(getForceRenderCount(index));
     yield all([
         put(subscribeProposal(index, updated)),
         put(updateMultipleTradeParams(index, updated)),
-        put(updateTradeUIState(index, 'forceRenderCount', renderCount + 1)),
     ]);
 }
 

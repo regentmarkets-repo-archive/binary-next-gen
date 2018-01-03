@@ -66,7 +66,7 @@ export default class DurationCard extends PureComponent {
                     <NumericInput
                         className="numeric-input"
                         integer
-                        defaultValue={duration}
+                        value={duration}
                         min={min}
                         max={max}
                         onChange={this.updateDuration}
