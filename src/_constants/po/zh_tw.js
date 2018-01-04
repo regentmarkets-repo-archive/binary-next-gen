@@ -1,15 +1,4 @@
 export default {
-    "": {
-        "project-id-version": "PACKAGE VERSION",
-        "pot-creation-date": "",
-        "po-revision-date": "2017-06-22 13:21+0000",
-        "language": "zh_tw",
-        "mime-version": "1.0",
-        "content-type": "text/plain; charset=UTF-8",
-        "content-transfer-encoding": "8bit",
-        "plural-forms": "nplurals=1; plural=0;",
-        "x-generator": "Weblate 2.15-dev"
-    },
     "All": [
         null,
         "所有"
@@ -1052,7 +1041,7 @@ export default {
     ],
     "You need to agree to our Terms and Conditions": [
         null,
-        "您必須同意我們的條款和條件"
+        "您需要同意我們的條款及條件"
     ],
     "I agree to the": [
         null,
@@ -1228,6 +1217,6 @@ export default {
     ],
     "Exclude time cannot be less than 6 months and more than 5 years.": [
         null,
-        "禁止存取時間不能少於 6 個月及超過 5 年。"
+        "禁止存取時間不能少於 6 個月，也不能超過 5 年。"
     ]
 }

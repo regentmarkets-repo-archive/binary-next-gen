@@ -1,15 +1,4 @@
 export default {
-    "": {
-        "project-id-version": "PACKAGE VERSION",
-        "pot-creation-date": "",
-        "po-revision-date": "2017-06-22 13:21+0000",
-        "language": "zh_cn",
-        "mime-version": "1.0",
-        "content-type": "text/plain; charset=UTF-8",
-        "content-transfer-encoding": "8bit",
-        "plural-forms": "nplurals=1; plural=0;",
-        "x-generator": "Weblate 2.15-dev"
-    },
     "All": [
         null,
         "所有"
@@ -1012,7 +1001,7 @@ export default {
     ],
     "Password should have lower and uppercase letters and 6 characters or more": [
         null,
-        "密码须包含大小写字母与至少6个字元"
+        "密码须包含大小写字母和至少6个字符"
     ],
     "Passwords do not match": [
         null,
@@ -1024,7 +1013,7 @@ export default {
     ],
     "Number should between 10 to 120": [
         null,
-        "必须是10至120之间的数字"
+        "数字应该在10到120之间"
     ],
     "Enter your first and last name": [
         null,
@@ -1048,7 +1037,7 @@ export default {
     ],
     "Secret answer must be at least 4 characters": [
         null,
-        "安全提示答案必须至少4个字元"
+        "安全提示答案必须有至少4个字符"
     ],
     "You need to agree to our Terms and Conditions": [
         null,
@@ -1168,11 +1157,11 @@ export default {
     ],
     "Settings updated": [
         null,
-        "设置更新"
+        "设置已更新"
     ],
     "Address updated": [
         null,
-        "地址更新"
+        "地址已更新"
     ],
     "Barrier must not be empty": [
         null,
