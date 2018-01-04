@@ -1,17 +1,16 @@
 export default {
     "": {
-        "project-id-version": "PACKAGE VERSION",
-        "report-msgid-bugs-to": "",
-        "pot-creation-date": "2017-11-06 21:46+0200",
-        "po-revision-date": "2017-11-06 20:46+0000",
-        "last-translator": "Andreas Kleinert <Andy.Kleinert@gmail.com>",
-        "language-team": "German <https://hosted.weblate.org/projects/binary-app/next-gen-app/de/>",
-        "language": "de",
-        "mime-version": "1.0",
+        "plural-forms": "nplurals=2; plural=(n != 1);",
+        "x-generator": "crowdin.com",
+        "x-crowdin-project": "nexy-gen",
+        "x-crowdin-language": "de",
+        "x-crowdin-file": "/translations/build/translations/messages.pot",
+        "project-id-version": "nexy-gen",
         "content-type": "text/plain; charset=UTF-8",
-        "content-transfer-encoding": "8bit",
-        "plural-forms": "nplurals=2; plural=n != 1;",
-        "x-generator": "Weblate 2.18-dev"
+        "last-translator": "binarycom <jy@binary.com>",
+        "language-team": "German",
+        "language": "de_DE",
+        "po-revision-date": "2017-12-29 22:34-0500"
     },
     "All": [
         null,
