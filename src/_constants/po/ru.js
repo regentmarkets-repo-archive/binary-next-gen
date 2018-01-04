@@ -1,4 +1,17 @@
 export default {
+    "": {
+        "plural-forms": "nplurals=3; plural=(n%10==1 && n%100!=11 ? 0 : n%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2);",
+        "x-generator": "crowdin.com",
+        "x-crowdin-project": "nexy-gen",
+        "x-crowdin-language": "ru",
+        "x-crowdin-file": "/translations/build/translations/messages.pot",
+        "project-id-version": "nexy-gen",
+        "content-type": "text/plain; charset=UTF-8",
+        "last-translator": "binarycom <jy@binary.com>",
+        "language-team": "Russian",
+        "language": "ru_RU",
+        "po-revision-date": "2017-12-29 22:34-0500"
+    },
     "All": [
         null,
         "Все"

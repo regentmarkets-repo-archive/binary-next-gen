@@ -1,4 +1,17 @@
 export default {
+    "": {
+        "plural-forms": "nplurals=1; plural=0;",
+        "x-generator": "crowdin.com",
+        "x-crowdin-project": "nexy-gen",
+        "x-crowdin-language": "zh-TW",
+        "x-crowdin-file": "/translations/build/translations/messages.pot",
+        "project-id-version": "nexy-gen",
+        "content-type": "text/plain; charset=UTF-8",
+        "last-translator": "binarycom <jy@binary.com>",
+        "language-team": "Chinese Traditional",
+        "language": "zh_TW",
+        "po-revision-date": "2017-12-29 22:34-0500"
+    },
     "All": [
         null,
         "所有"
