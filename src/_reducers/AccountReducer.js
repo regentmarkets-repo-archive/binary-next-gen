@@ -9,7 +9,8 @@ import {
   SERVER_DATA_WEBSITE_STATUS,
   UPDATE_LANDING_COMPANY,
   SET_AVAILABLE_CURRENCIES,
-  SET_DEFAULT_CURRENCY
+  SET_DEFAULT_CURRENCY,
+  UPDATE_SUPPORTED_LANGUAGES
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({
@@ -23,6 +24,10 @@ const initialState = fromJS({
     landing_company: { },
     available_currencies: { },
     default_currency: 'USD',
+    languages: [{
+        value: 'EN',
+        text: 'English',
+    }],
 });
 
 export default (state = initialState, action) => {
@@ -60,6 +65,9 @@ export default (state = initialState, action) => {
         }
         case SET_DEFAULT_CURRENCY: {
             return state.set('default_currency', action.default_currency);
+        }
+        case UPDATE_SUPPORTED_LANGUAGES: {
+            return state.set('languages', action.languages);
         }
         default:
             return state;

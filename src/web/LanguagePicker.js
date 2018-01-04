@@ -2,17 +2,22 @@ import React, { PureComponent } from 'react';
 import { connect } from 'react-redux';
 import { SelectGroup } from 'binary-components';
 import storage from '../_store/storage';
-import languages from '../_constants/languages';
 
 @connect(state => ({ selected: state.boot.get('language') }))
+@connect(state => ({ languages: state.account.get('languages') }))
 export default class LanguagePicker extends PureComponent {
 
     props: {
         selected: string,
+        languages: any[],
     };
 
     static defaultProps = {
         selected: 'EN',
+        languages: [{
+            value: 'EN',
+            text: 'English',
+        }],
     };
 
     changeLanguage = event => {
@@ -22,7 +27,11 @@ export default class LanguagePicker extends PureComponent {
     }
 
     render() {
-        const { selected } = this.props;
+        const { selected, languages } = this.props;
+        if (languages) {
+            console.log(languages);
+        }
+
         return (
             <SelectGroup
                 {...this.props}

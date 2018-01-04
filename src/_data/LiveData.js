@@ -3,10 +3,11 @@ import { showError, timeLeftToNextRealityCheck, nowAsEpoch } from 'binary-utils'
 import * as actions from '../_actions';
 import {
   CHANGE_INFO_FOR_ASSET, UPDATE_SETTINGS_FIELD, SERVER_DATA_STATES,
-  UPDATE_UPGRADE_INFO, SET_AVAILABLE_CURRENCIES, SET_DEFAULT_CURRENCY
+  UPDATE_UPGRADE_INFO, SET_AVAILABLE_CURRENCIES, SET_DEFAULT_CURRENCY, UPDATE_SUPPORTED_LANGUAGES
 } from '../_constants/ActionTypes';
 import { hasAccountOfType, landingCompanyValue, getExistingCurrencies, groupCurrencies, populateCurrencyOptions } from '../_utils/Client';
 import { addCurrencyToAccount } from '../_utils/AccountHelpers';
+import languages from '../_constants/languages';
 
 const handlers = {
     active_symbols: 'serverDataActiveSymbols',
@@ -283,6 +284,18 @@ export const connect = async store => {
         // api.events.on(key, (data) => console.warn(key, data));
     });
     api.getResidences();
-    api.getWebsiteStatus();
+    api.getWebsiteStatus().then(status => {
+        const appLanguages = [];
+        const supportedLanguages = status.website_status.supported_languages;
+        // languages.forEach(l => {
+        //     if (supportedLanguages.indexOf(l.value) > -1) {
+        //         appLanguages.push(l);
+        //     }
+        // });
+        // if (appLanguages.length) {
+        //     store.dispatch({ type: UPDATE_SUPPORTED_LANGUAGES, languages: appLanguages });
+        // }
+        console.log(appLanguages);
+    });
     api.events.on('authorize', response => response.error ? null : initAuthorized(response, store));
 };
