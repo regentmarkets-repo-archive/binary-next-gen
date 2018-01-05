@@ -1,0 +1,1641 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-01-05 23:43+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: Automatically generated\n"
+"Language-Team: none\n"
+"Language: nb_NO\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Translate Toolkit 2.2.5\n"
+
+msgid "All"
+msgstr ""
+
+msgid "Property"
+msgstr ""
+
+msgid "Value"
+msgstr ""
+
+msgid "Balance"
+msgstr ""
+
+msgid "Trade"
+msgstr ""
+
+msgid "Watchlist"
+msgstr ""
+
+msgid "Open Positions"
+msgstr ""
+
+msgid "Profit Table"
+msgstr ""
+
+msgid "Statement"
+msgstr ""
+
+msgid "Settings"
+msgstr ""
+
+msgid "Sign Out"
+msgstr ""
+
+msgid "View"
+msgstr ""
+
+msgid "Ref."
+msgstr ""
+
+msgid "Purchase"
+msgstr ""
+
+msgid "Indicative"
+msgstr ""
+
+msgid "Purchase Date"
+msgstr ""
+
+msgid "Purchase Price"
+msgstr ""
+
+msgid "Sale Date"
+msgstr ""
+
+msgid "Sale Price"
+msgstr ""
+
+msgid "Profit/Loss"
+msgstr ""
+
+msgid "Total"
+msgstr ""
+
+msgid "Location"
+msgstr ""
+
+msgid "Update"
+msgstr ""
+
+msgid "Details"
+msgstr ""
+
+msgid "Trading Limits"
+msgstr ""
+
+msgid "Item"
+msgstr ""
+
+msgid "Limit ({currency})"
+msgstr ""
+
+msgid "Maximum number of open positions"
+msgstr ""
+
+msgid "Maximum account cash balance"
+msgstr ""
+
+msgid "Maximum daily turnover"
+msgstr ""
+
+msgid "Maximum aggregate payouts on open positions"
+msgstr ""
+
+msgid "Withdrawal limits"
+msgstr ""
+
+msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
+msgstr ""
+
+msgid "You have already withdrawn the equivalent of EUR {drawn}."
+msgstr ""
+
+msgid "An additional password can be used to restrict access to the cashier."
+msgstr ""
+
+msgid "Sign In"
+msgstr ""
+
+msgid "Get your API token"
+msgstr ""
+
+msgid "Create Account"
+msgstr ""
+
+msgid "Action"
+msgstr ""
+
+msgid "Credit/Debit"
+msgstr ""
+
+msgid "Purchase Time"
+msgstr ""
+
+msgid "Back"
+msgstr ""
+
+msgid "Place Order"
+msgstr ""
+
+msgid "{asset} will {type} over next {duration}"
+msgstr ""
+
+msgid "Price"
+msgstr ""
+
+msgid "Asset"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Ticks"
+msgstr ""
+
+msgid "Amount"
+msgstr ""
+
+msgid "Trade Confirmation"
+msgstr ""
+
+msgid "Entry spot"
+msgstr ""
+
+msgid "Exit spot"
+msgstr ""
+
+msgid "Next"
+msgstr ""
+
+msgid "Open Account"
+msgstr ""
+
+msgid "Upgrade to Real Money Account"
+msgstr ""
+
+msgid "Date of birth"
+msgstr ""
+
+msgid "Home Address"
+msgstr ""
+
+msgid "Security"
+msgstr ""
+
+msgid "Spot"
+msgstr ""
+
+msgid "Change"
+msgstr ""
+
+msgid "Chart"
+msgstr ""
+
+msgid "Purchase For"
+msgstr ""
+
+msgid "Rise"
+msgstr ""
+
+msgid "Stake"
+msgstr ""
+
+msgid "Payout"
+msgstr ""
+
+msgid "Deposit"
+msgstr ""
+
+msgid "Transactions"
+msgstr ""
+
+msgid "Opens"
+msgstr ""
+
+msgid "Closes"
+msgstr ""
+
+msgid "Personal"
+msgstr ""
+
+msgid "General"
+msgstr ""
+
+msgid "Trading Times"
+msgstr ""
+
+msgid "Asset Index"
+msgstr ""
+
+msgid "Today"
+msgstr ""
+
+msgid "Yesterday"
+msgstr ""
+
+msgid "Tomorrow"
+msgstr ""
+
+msgid "Takeout"
+msgstr ""
+
+msgid "News"
+msgstr ""
+
+msgid "Resources"
+msgstr ""
+
+msgid "Last 7 Days"
+msgstr ""
+
+msgid "Last 30 Days"
+msgstr ""
+
+msgid "Daily Report"
+msgstr ""
+
+msgid "Up/Down"
+msgstr ""
+
+msgid "Touch/No Touch"
+msgstr ""
+
+msgid "Ends In/Out"
+msgstr ""
+
+msgid "Stays In/Goes Out"
+msgstr ""
+
+msgid "Settles"
+msgstr ""
+
+msgid "Language"
+msgstr ""
+
+msgid "Color Theme"
+msgstr ""
+
+msgid "Light"
+msgstr ""
+
+msgid "Dark"
+msgstr ""
+
+msgid "Name"
+msgstr ""
+
+msgid "Date Of Birth"
+msgstr ""
+
+msgid "Country Of Residence"
+msgstr ""
+
+msgid "Email"
+msgstr ""
+
+msgid "There are no transactions for selected period"
+msgstr ""
+
+msgid "Sell"
+msgstr ""
+
+msgid "Buy"
+msgstr ""
+
+msgid "Digit Even"
+msgstr ""
+
+msgid "Touches"
+msgstr ""
+
+msgid "Digit Over"
+msgstr ""
+
+msgid "Digit Match"
+msgstr ""
+
+msgid "Digit Under"
+msgstr ""
+
+msgid "Digit Odd"
+msgstr ""
+
+msgid "Digit Differs"
+msgstr ""
+
+msgid "No Touch"
+msgstr ""
+
+msgid "Fall"
+msgstr ""
+
+msgid "Asian Down"
+msgstr ""
+
+msgid "Asian Up"
+msgstr ""
+
+msgid "Search For Assets"
+msgstr ""
+
+msgid "Start times"
+msgstr ""
+
+msgid "Durations"
+msgstr ""
+
+msgid "Payout/Stake"
+msgstr ""
+
+msgid "Purchase for"
+msgstr ""
+
+msgid "Payout"
+msgstr ""
+
+msgid "Stake"
+msgstr ""
+
+msgid "Self Exclusion"
+msgstr ""
+
+msgid "Cashier Lock"
+msgstr ""
+
+msgid "Change Password"
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Tick Trade"
+msgstr ""
+
+msgid "Full Trade"
+msgstr ""
+
+msgid "Address"
+msgstr ""
+
+msgid "Town/City"
+msgstr ""
+
+msgid "State/Province"
+msgstr ""
+
+msgid "Telephone"
+msgstr ""
+
+msgid "Postal Code / ZIP"
+msgstr ""
+
+msgid "Cashier password"
+msgstr ""
+
+msgid "Re-enter your password"
+msgstr ""
+
+msgid "Current password"
+msgstr ""
+
+msgid "New password"
+msgstr ""
+
+msgid "Verify new password"
+msgstr ""
+
+msgid "Daily turnover limit"
+msgstr ""
+
+msgid "Once this limit is reached, you may no longer deposit."
+msgstr ""
+
+msgid "Maximum aggregate contract purchases per day."
+msgstr ""
+
+msgid "Daily limit on losses"
+msgstr ""
+
+msgid "Maximum aggregate loss per day."
+msgstr ""
+
+msgid "7-day turnover limit"
+msgstr ""
+
+msgid "Maximum aggregate contract purchases over a 7-day period."
+msgstr ""
+
+msgid "7-day limit on losses"
+msgstr ""
+
+msgid "Maximum aggregate loss over a 7-day period."
+msgstr ""
+
+msgid "30-day turnover limit"
+msgstr ""
+
+msgid "Maximum aggregate contract purchases over a 30-day period."
+msgstr ""
+
+msgid "30-day limit on losses"
+msgstr ""
+
+msgid "Maximum aggregate loss over a 30-day period."
+msgstr ""
+
+msgid "Maximum number of contracts that can be open at the same time."
+msgstr ""
+
+msgid "Session duration limit, in minutes"
+msgstr ""
+
+msgid "You will be automatically logged out after such time."
+msgstr ""
+
+msgid "Exclude me from the website until"
+msgstr ""
+
+msgid "Limits"
+msgstr ""
+
+msgid "Please enter date in the format MM-DD-YYYY."
+msgstr ""
+
+msgid "Please enter time in the format HH:mm (local time)"
+msgstr ""
+
+msgid "New Trade"
+msgstr ""
+
+msgid "Trade Type"
+msgstr ""
+
+msgid "Random 100 Index"
+msgstr ""
+
+msgid "Article"
+msgstr ""
+
+msgid "Start Later"
+msgstr ""
+
+msgid "Buy Price"
+msgstr ""
+
+msgid "Earning (%)"
+msgstr ""
+
+msgid "Profit"
+msgstr ""
+
+msgid "Entry Price"
+msgstr ""
+
+msgid "Exit Price"
+msgstr ""
+
+msgid "Indicative Price"
+msgstr ""
+
+msgid "Potential Profit"
+msgstr ""
+
+msgid "Sell at Market"
+msgstr ""
+
+msgid "Go back"
+msgstr ""
+
+msgid "You lost "
+msgstr ""
+
+msgid "Close"
+msgstr ""
+
+msgid "Low"
+msgstr ""
+
+msgid "High"
+msgstr ""
+
+msgid "Open"
+msgstr ""
+
+msgid "Date"
+msgstr ""
+
+msgid "Upcoming Events"
+msgstr ""
+
+msgid "Win"
+msgstr ""
+
+msgid "Loss"
+msgstr ""
+
+msgid "Full Screen"
+msgstr ""
+
+msgid "Start Now"
+msgstr ""
+
+msgid "Daily Prices"
+msgstr ""
+
+msgid "Spreads"
+msgstr ""
+
+msgid "Confirm new password"
+msgstr ""
+
+msgid "TICK"
+msgstr ""
+
+msgid "Minutes"
+msgstr ""
+
+msgid "Seconds"
+msgstr ""
+
+msgid "Hours"
+msgstr ""
+
+msgid "Days"
+msgstr ""
+
+msgid "N/A"
+msgstr ""
+
+msgid "Duration"
+msgstr ""
+
+msgid "Start Time"
+msgstr ""
+
+msgid "Now"
+msgstr ""
+
+msgid "Later"
+msgstr ""
+
+msgid "Return"
+msgstr ""
+
+msgid "Portfolio"
+msgstr ""
+
+msgid "Video"
+msgstr ""
+
+msgid "Digit Stats"
+msgstr ""
+
+msgid "Favorites"
+msgstr ""
+
+msgid "Open For Trading"
+msgstr ""
+
+msgid "Closed"
+msgstr ""
+
+msgid "Contract ID"
+msgstr ""
+
+msgid "Reference ID"
+msgstr ""
+
+msgid "Entry Spot"
+msgstr ""
+
+msgid "Entry Spot Time"
+msgstr ""
+
+msgid "Potential Payout"
+msgstr ""
+
+msgid "Exit Spot"
+msgstr ""
+
+msgid "Exit Spot Time"
+msgstr ""
+
+msgid "Sell Price"
+msgstr ""
+
+msgid "Sell Time"
+msgstr ""
+
+msgid "Trade Again"
+msgstr ""
+
+msgid "Barrier"
+msgstr ""
+
+msgid "You Won"
+msgstr ""
+
+msgid "You Lost"
+msgstr ""
+
+msgid ""
+"To change your name, date of birth, country of residence, or email, contact "
+"Customer Support."
+msgstr ""
+
+msgid "Cashier is locked per your request. To unlock it, enter your password."
+msgstr ""
+
+msgid "Unlock Cashier"
+msgstr ""
+
+msgid "Time out until"
+msgstr ""
+
+msgid "No transactions for the selected period"
+msgstr ""
+
+msgid "You have no open contracts"
+msgstr ""
+
+msgid "You have no assets in your watchlist"
+msgstr ""
+
+msgid "Basic"
+msgstr ""
+
+msgid "Digits"
+msgstr ""
+
+msgid "Advanced"
+msgstr ""
+
+msgid "Higher"
+msgstr ""
+
+msgid "Lower"
+msgstr ""
+
+msgid "Ends Outside"
+msgstr ""
+
+msgid "Ends Between"
+msgstr ""
+
+msgid "Stays Between"
+msgstr ""
+
+msgid "Goes Outside"
+msgstr ""
+
+msgid "Does Not Touch"
+msgstr ""
+
+msgid "Credit / Debit"
+msgstr ""
+
+msgid "Last 25 Ticks"
+msgstr ""
+
+msgid "Last 50 Trades"
+msgstr ""
+
+msgid "Last 100 Trades"
+msgstr ""
+
+msgid "Last 500 Trades"
+msgstr ""
+
+msgid "Last 1000 Trades"
+msgstr ""
+
+msgid "Maximum Daily Turnover"
+msgstr ""
+
+msgid "Commodities"
+msgstr ""
+
+msgid "Major Pairs"
+msgstr ""
+
+msgid "Minor Pairs"
+msgstr ""
+
+msgid "Smart FX"
+msgstr ""
+
+msgid "Volatility Indices"
+msgstr ""
+
+msgid "Indices"
+msgstr ""
+
+msgid "OTC Stocks"
+msgstr ""
+
+msgid "Stated limits are subject to change without prior notice"
+msgstr ""
+
+msgid "Withdrawal Limits"
+msgstr ""
+
+msgid "Withdrawal limit"
+msgstr ""
+
+msgid "Already withdrawn"
+msgstr ""
+
+msgid "Current immediate maximum withdrawal"
+msgstr ""
+
+msgid "Create Free Account"
+msgstr ""
+
+msgid "Verification Code"
+msgstr ""
+
+msgid "Confirm Password"
+msgstr ""
+
+msgid "Already have an account?"
+msgstr ""
+
+msgid "Enter a valid verification code"
+msgstr ""
+
+msgid "Choose your country"
+msgstr ""
+
+msgid "Password should have lower and uppercase letters and 6 characters or more"
+msgstr ""
+
+msgid "Passwords do not match"
+msgstr ""
+
+msgid "Enter a valid email"
+msgstr ""
+
+msgid "Number should between 10 to 120"
+msgstr ""
+
+msgid "Enter your first and last name"
+msgstr ""
+
+msgid "I agree to the"
+msgstr ""
+
+msgid "terms and conditions"
+msgstr ""
+
+msgid "Search for assets"
+msgstr ""
+
+msgid "Choose a Payment Agent"
+msgstr ""
+
+msgid "Confirm New Password"
+msgstr ""
+
+msgid "First Name"
+msgstr ""
+
+msgid "Last Name"
+msgstr ""
+
+msgid "Address First Line"
+msgstr ""
+
+msgid "Address Second Line"
+msgstr ""
+
+msgid "Phone"
+msgstr ""
+
+msgid "Answer To Secret Question"
+msgstr ""
+
+msgid "Switch to"
+msgstr ""
+
+msgid "Single Trade"
+msgstr ""
+
+msgid "Multi Trade"
+msgstr ""
+
+msgid "Current Password"
+msgstr ""
+
+msgid "New Password"
+msgstr ""
+
+msgid "Last 50 Ticks"
+msgstr ""
+
+msgid "Last 100 Ticks"
+msgstr ""
+
+msgid "Last 500 Ticks"
+msgstr ""
+
+msgid "Last 1000 Ticks"
+msgstr ""
+
+msgid "Exit Full Screen"
+msgstr ""
+
+msgid "No digit trades for this asset"
+msgstr ""
+
+msgid "Lock Cashier"
+msgstr ""
+
+msgid "Time out until date"
+msgstr ""
+
+msgid "Time out until time"
+msgstr ""
+
+msgid "Light Theme"
+msgstr ""
+
+msgid "Dark Theme"
+msgstr ""
+
+msgid "Password changed successfully"
+msgstr ""
+
+msgid "Settings updated"
+msgstr ""
+
+msgid "Address updated"
+msgstr ""
+
+msgid "Barrier must not be empty"
+msgstr ""
+
+msgid "Duration is out of range"
+msgstr ""
+
+msgid "Start date invalid, it needs to be five minutes or more in the future"
+msgstr ""
+
+msgid "Time format is wrong"
+msgstr ""
+
+msgid "Lower than"
+msgstr ""
+
+msgid "Higher than"
+msgstr ""
+
+msgid "High barrier"
+msgstr ""
+
+msgid "Low barrier"
+msgstr ""
+
+msgid "Touch spot"
+msgstr ""
+
+msgid "This field is required."
+msgstr ""
+
+msgid "Should be a valid number"
+msgstr ""
+
+msgid "Should be between 0 and {number}"
+msgstr ""
+
+msgid "Please enter a number with up to {number} decimal places."
+msgstr ""
+
+msgid "Time out must be after today and cannot be more than 6 weeks."
+msgstr ""
+
+msgid "Exclude time cannot be less than 6 months and more than 5 years."
+msgstr ""
+
+msgid "Only letters, numbers, space, and these special characters are allowed: - . \' # ; : ( ) , @ /"
+msgstr ""
+
+msgid "Only letters, space, hyphen, period, and apostrophe are allowed."
+msgstr ""
+
+msgid "Only letters, numbers, space, and hyphen are allowed."
+msgstr ""
+
+msgid "Only numbers and spaces are allowed."
+msgstr ""
+
+msgid "Only letters, numbers, space, hyphen, period, and apostrophe are allowed."
+msgstr ""
+
+msgid "Time out cannot be in the past."
+msgstr ""
+
+msgid "Account opening reason"
+msgstr ""
+
+msgid "Tax information"
+msgstr ""
+
+msgid "Tax identification number"
+msgstr ""
+
+msgid "Tax residence"
+msgstr ""
+
+msgid "Profile updated"
+msgstr ""
+
+msgid "Trading Events"
+msgstr ""
+
+msgid "Dates"
+msgstr ""
+
+msgid "Description"
+msgstr ""
+
+msgid "Your search didn't match any assets"
+msgstr ""
+
+msgid "Open"
+msgstr ""
+
+msgid "Volatility"
+msgstr ""
+
+msgid "Forex"
+msgstr ""
+
+msgid "Asset"
+msgstr ""
+
+msgid "Digit"
+msgstr ""
+
+msgid "Too many decimals, maximum 2 decimals allowed."
+msgstr ""
+
+msgid "Amount per point {currency}"
+msgstr ""
+
+msgid "Stop loss"
+msgstr ""
+
+msgid "Stop profit"
+msgstr ""
+
+msgid "You have sold the following contract."
+msgstr ""
+
+msgid "Your transaction reference no is {id}"
+msgstr ""
+
+msgid "Thank you for signing up! Check your email to get the verification token."
+msgstr ""
+
+msgid "Password"
+msgstr ""
+
+msgid "Continue"
+msgstr ""
+
+msgid "The Premier Platform for Binary Options Trading"
+msgstr ""
+
+msgid "Customize your trades to meet your needs."
+msgstr ""
+
+msgid "Real-time Prices"
+msgstr ""
+
+msgid "Returns above 100%"
+msgstr ""
+
+msgid "No hidden fees"
+msgstr ""
+
+msgid "Daily prices data not available"
+msgstr ""
+
+msgid "Sorry, we have no payment agents in"
+msgstr ""
+
+msgid "Deposit commision: "
+msgstr ""
+
+msgid "Withdrawal commision: "
+msgstr ""
+
+msgid "Payment Agent"
+msgstr ""
+
+msgid "Commissions"
+msgstr ""
+
+msgid "Banks"
+msgstr ""
+
+msgid "Withdrawal Failed"
+msgstr ""
+
+msgid "Confirmation"
+msgstr ""
+
+msgid "Are you sure you want to withdraw"
+msgstr ""
+
+msgid "Confirm"
+msgstr ""
+
+msgid "Congratulations"
+msgstr ""
+
+msgid "Your withdrawal is success"
+msgstr ""
+
+msgid "Verification Code(check your email)"
+msgstr ""
+
+msgid "Withdraw"
+msgstr ""
+
+msgid "Assets"
+msgstr ""
+
+msgid "Excercise price"
+msgstr ""
+
+msgid "Higher/Lower"
+msgstr ""
+
+msgid "Layout"
+msgstr ""
+
+msgid "Taking too long to load, check connection."
+msgstr ""
+
+msgid "Reality Check"
+msgstr ""
+
+msgid "Options trading can become a real addiction, as can any other activity pushed to its limits. To avoid the danger of such an addiction, we provide a reality-check that gives you a summary of your trades and accounts on a regular basis."
+msgstr ""
+
+msgid "Continue Trading"
+msgstr ""
+
+msgid "Login Time"
+msgstr ""
+
+msgid "Current Time"
+msgstr ""
+
+msgid "Session Duration"
+msgstr ""
+
+msgid "Your trading statistic since "
+msgstr ""
+
+msgid "Specify your reality-check interval in minutes"
+msgstr ""
+
+msgid "Number should between 10 to 60"
+msgstr ""
+
+msgid "Login ID"
+msgstr ""
+
+msgid "Currency"
+msgstr ""
+
+msgid "Turnover"
+msgstr ""
+
+msgid "Contract Bought"
+msgstr ""
+
+msgid "Contract Sold"
+msgstr ""
+
+msgid "Open Contract"
+msgstr ""
+
+msgid "Potental Profit"
+msgstr ""
+
+msgid "Version:"
+msgstr ""
+
+msgid "To change your name, date of birth, country of residence, or email, contact Customer Support."
+msgstr ""
+
+msgid "Please fill the form with valid values"
+msgstr ""
+
+msgid "has been credited to your Virtual money account"
+msgstr ""
+
+msgid "OK"
+msgstr ""
+
+msgid "Upgrade"
+msgstr ""
+
+msgid "Win if the exit spot is strictly higher than the entry spot."
+msgstr ""
+
+msgid "Win if the exit spot is strictly lower than the entry spot."
+msgstr ""
+
+msgid "Win if the exit spot is strictly higher than the barrier."
+msgstr ""
+
+msgid "Win if the exit spot is strictly lower than the barrier."
+msgstr ""
+
+msgid "Win if the exit spot is strictly higher than the barrier."
+msgstr ""
+
+msgid "Win if the exit spot is strictly lower than the barrier."
+msgstr ""
+
+msgid "Win if the market touches the barrier at any time during the contract period."
+msgstr ""
+
+msgid "Win if the market never touches the barrier at any time during the contract period."
+msgstr ""
+
+msgid "Win if the exit spot is strictly higher than the Low barrier and strictly lower than the High barrier"
+msgstr ""
+
+msgid "Win if the exit spot is either strictly higher than the High barrier, or strictly lower than the Low barrier."
+msgstr ""
+
+msgid "Win if the market stays between (does not touch) either the High barrier or the Low barrier at any time during the contract period."
+msgstr ""
+
+msgid "Win if the last tick is higher than the average of the ticks."
+msgstr ""
+
+msgid "Win if the last tick is lower than the average of the ticks."
+msgstr ""
+
+msgid "Win if the last digit of the last tick is the same as your prediction."
+msgstr ""
+
+msgid "Win if the last digit of the last tick is not the same as your prediction."
+msgstr ""
+
+msgid "Win if the last digit of the last tick is an even number (i.e., 2, 4, 6, 8, or 0)."
+msgstr ""
+
+msgid "Win if the last digit of the last tick is an odd number (i.e., 1, 3, 5, 7, or 9)."
+msgstr ""
+
+msgid "Win if the last digit of the last tick is greater than your prediction."
+msgstr ""
+
+msgid "Win if the last digit of the last tick is less than your prediction."
+msgstr ""
+
+msgid "Spread contracts payout based on the movement of the index relative to the entry level of the contract."
+msgstr ""
+
+msgid "Spread contracts payout based on the movement of the index relative to the entry level of the contract."
+msgstr ""
+
+msgid "Maximum loss"
+msgstr ""
+
+msgid "Cost"
+msgstr ""
+
+msgid "Maximum winning"
+msgstr ""
+
+msgid "Potential Winning"
+msgstr ""
+
+msgid "Please select"
+msgstr ""
+
+msgid "Mr"
+msgstr ""
+
+msgid "Mrs"
+msgstr ""
+
+msgid "Ms"
+msgstr ""
+
+msgid "Miss"
+msgstr ""
+
+msgid "0-1 year"
+msgstr ""
+
+msgid "1-2 years"
+msgstr ""
+
+msgid "Over 3 years"
+msgstr ""
+
+msgid "0-5 transactions in the past 12 months"
+msgstr ""
+
+msgid "6-10 transactions in the past 12 months"
+msgstr ""
+
+msgid "40 transactions or more in the past 12 months"
+msgstr ""
+
+msgid "Salaried Employee"
+msgstr ""
+
+msgid "Self-Employed"
+msgstr ""
+
+msgid "Investments & Dividends"
+msgstr ""
+
+msgid "Pension"
+msgstr ""
+
+msgid "Other"
+msgstr ""
+
+msgid "Employed"
+msgstr ""
+
+msgid "Pensioner"
+msgstr ""
+
+msgid "Self-Employed"
+msgstr ""
+
+msgid "Student"
+msgstr ""
+
+msgid "Unemployed"
+msgstr ""
+
+msgid "Construction"
+msgstr ""
+
+msgid "Education"
+msgstr ""
+
+msgid "Finance"
+msgstr ""
+
+msgid "Health"
+msgstr ""
+
+msgid "Tourism"
+msgstr ""
+
+msgid "Other"
+msgstr ""
+
+msgid "Chief Executives, Senior Officials and Legislators"
+msgstr ""
+
+msgid "Managers"
+msgstr ""
+
+msgid "Professionals"
+msgstr ""
+
+msgid "Clerks"
+msgstr ""
+
+msgid "Personal Care, Sales and Service Workers"
+msgstr ""
+
+msgid "Agricultural, Forestry and Fishery Workers"
+msgstr ""
+
+msgid "Craft, Metal, Electrical and Electronics Workers"
+msgstr ""
+
+msgid "Plant and Machine Operators and Assemblers"
+msgstr ""
+
+msgid "Cleaners and Helpers"
+msgstr ""
+
+msgid "Mining, Construction, Manufacturing and Transport Workers"
+msgstr ""
+
+msgid "Armed Forces"
+msgstr ""
+
+msgid "Government Officers"
+msgstr ""
+
+msgid "Others"
+msgstr ""
+
+msgid "Accumulation of Income/Savings"
+msgstr ""
+
+msgid "Cash Business"
+msgstr ""
+
+msgid "Company Ownership"
+msgstr ""
+
+msgid "Inheritance"
+msgstr ""
+
+msgid "Investment Income"
+msgstr ""
+
+msgid "Sale of Property"
+msgstr ""
+
+msgid "Divorce Settlement"
+msgstr ""
+
+msgid "Primary"
+msgstr ""
+
+msgid "Secondary"
+msgstr ""
+
+msgid "Tertiary"
+msgstr ""
+
+msgid "Less than $25,000"
+msgstr ""
+
+msgid "$25,000 - $50,000"
+msgstr ""
+
+msgid "$50,001 - $100,000"
+msgstr ""
+
+msgid "$100,001 - $500,000"
+msgstr ""
+
+msgid "Over $500,000"
+msgstr ""
+
+msgid "Less than $100,000"
+msgstr ""
+
+msgid "$100,000 - $250,000"
+msgstr ""
+
+msgid "$250,001 - $500,000"
+msgstr ""
+
+msgid "$500,001 - $1,000,000"
+msgstr ""
+
+msgid "Over $1,000,000"
+msgstr ""
+
+msgid "Speculative"
+msgstr ""
+
+msgid "Income Earning"
+msgstr ""
+
+msgid "Hedging"
+msgstr ""
+
+msgid "Mother\'s maiden name"
+msgstr ""
+
+msgid "Name of your pet"
+msgstr ""
+
+msgid "Name of first love"
+msgstr ""
+
+msgid "Memorable town/city"
+msgstr ""
+
+msgid "Memorable date"
+msgstr ""
+
+msgid "Favourite dish"
+msgstr ""
+
+msgid "Brand of first car"
+msgstr ""
+
+msgid "Favourite artist"
+msgstr ""
+
+msgid "Personal Information"
+msgstr ""
+
+msgid "Place of Birth"
+msgstr ""
+
+msgid "Financial Information"
+msgstr ""
+
+msgid "Forex trading experience"
+msgstr ""
+
+msgid "Forex trading frequency"
+msgstr ""
+
+msgid "Indices trading experience"
+msgstr ""
+
+msgid "Indices trading frequency"
+msgstr ""
+
+msgid "Commodities trading experience"
+msgstr ""
+
+msgid "Commodities trading frequency"
+msgstr ""
+
+msgid "Stocks trading experience"
+msgstr ""
+
+msgid "Stocks trading frequency"
+msgstr ""
+
+msgid "Binary options or other financial derivatives trading experience"
+msgstr ""
+
+msgid "Binary options or other financial derivatives trading frequency"
+msgstr ""
+
+msgid "Other financial instruments trading experience"
+msgstr ""
+
+msgid "Other financial instruments trading frequency"
+msgstr ""
+
+msgid "Income Source"
+msgstr ""
+
+msgid "Employment Status"
+msgstr ""
+
+msgid "Industry of Employment"
+msgstr ""
+
+msgid "Occupation"
+msgstr ""
+
+msgid "Source of Wealth"
+msgstr ""
+
+msgid "Level of Education"
+msgstr ""
+
+msgid "Net Annual Income"
+msgstr ""
+
+msgid "Estimated Net Worth"
+msgstr ""
+
+msgid "Anticipated Account Turnover"
+msgstr ""
+
+msgid "Security"
+msgstr ""
+
+msgid "Answer To Secret Question"
+msgstr ""
+
+msgid "PEP Declaration"
+msgstr ""
+
+msgid "A PEP is an individual who is or has been entrusted with a prominent public function. This status extends to a PEP's relatives and close associates."
+msgstr ""
+
+msgid "I acknowledge that I am not a politically exposed person (PEP)."
+msgstr ""
+
+msgid "Please confirm that you are not a politically exposed person."
+msgstr ""
+
+msgid "The financial trading services contained within this site are only suitable for customers who are able to bear the loss of all the money they invest and who understand and have experience of the risk involved in the acquistion of financial contracts. Transactions in financial contracts carry a high degree of risk. If purchased contracts expire worthless, you will suffer a total loss of your investment, which consists of the contract premium."
+msgstr ""
+
+msgid "I agree to the"
+msgstr ""
+
+msgid "terms and conditions"
+msgstr ""
+
+msgid "Please accept the terms and conditions."
+msgstr ""
+
+msgid "Open Account"
+msgstr ""
+
+msgid "ACCOUNTS LIST"
+msgstr ""
+
+msgid "CREATE NEW ACCOUNT"
+msgstr ""
+
+msgid "EXISTING ACCOUNTS"
+msgstr ""
+
+msgid "You have created all accounts available to you."
+msgstr ""
+
+msgid "Account"
+msgstr ""
+
+msgid "Type"
+msgstr ""
+
+msgid "Available Markets"
+msgstr ""
+
+msgid "Currency"
+msgstr ""
+
+msgid "Investment"
+msgstr ""
+
+msgid "Gaming"
+msgstr ""
+
+msgid "Real"
+msgstr ""
+
+msgid "Virtual"
+msgstr ""
+
+msgid "Commodities"
+msgstr ""
+
+msgid "Forex"
+msgstr ""
+
+msgid "Indices"
+msgstr ""
+
+msgid "Stocks"
+msgstr ""
+
+msgid "Volatility Indices"
+msgstr ""
+
+msgid "Note: You can only have one fiat currency account and one of each cryptocurrency account."
+msgstr ""
+
+msgid "Create"
+msgstr ""
+
+msgid "Account"
+msgstr ""
+
+msgid "Available Markets"
+msgstr ""
+
+msgid "Available Currencies"
+msgstr ""
+
+msgid "Action"
+msgstr ""
+
+msgid "Real Account"
+msgstr ""
+
+msgid "Cryptocurrency"
+msgstr ""
+
+msgid "Select Currency"
+msgstr ""
+
+msgid "Please select the currency of this account:"
+msgstr ""
+
+msgid "Fiat Currency"
+msgstr ""
+
+msgid "Note: For any enquiries regarding disabled or excluded accounts, please contact Customer Support."
+msgstr ""
+
+msgid "This account is excluded until {excluded_until}"
+msgstr ""
+
+msgid "This account is disabled"
+msgstr ""
+
+msgid "Set Currency"
+msgstr ""
+
+msgid "Please set the currency for your existing account {loginid}, in order to create more accounts."
+msgstr ""
