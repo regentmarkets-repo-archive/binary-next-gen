@@ -1,6 +1,6 @@
-Hash: 2d49ae4247c0ae8ec1df
+Hash: cd1e9556fc414c6cb527
 Version: webpack 3.10.0
-Time: 87059ms
+Time: 92316ms
                          Asset      Size  Chunks                    Chunk Names
     webtrader-charts.bundle.js    907 kB       0  [emitted]  [big]  webtrader-charts
                         app.js   1.66 MB       1  [emitted]  [big]  app
@@ -10,7 +10,7 @@ webtrader-charts.bundle.js.map   2.73 MB       0  [emitted]         webtrader-ch
                 styles.css.map  87 bytes       1  [emitted]         app
   [29] (webpack)/buildin/global.js 509 bytes {1} [built]
   [67] (webpack)/buildin/module.js 517 bytes {1} [built]
- [100] ./src/layouts/layouts.css 1.03 kB {1} [built]
+ [101] ./src/layouts/layouts.css 1.03 kB {1} [built]
  [209] (webpack)/buildin/amd-define.js 88 bytes {1} [built]
  [222] ./src/index.js + 478 modules 1.16 MB {1} [built]
  [578] ./node_modules/moment/locale ^$ 160 bytes {1} [optional] [built]
@@ -20,7 +20,7 @@ webtrader-charts.bundle.js.map   2.73 MB       0  [emitted]         webtrader-ch
  [633] ./www/img/forex.svg 414 bytes {1} [built]
  [635] ./www/img/commodities.svg 629 bytes {1} [built]
  [636] ./www/img/stocks.svg 1.22 kB {1} [built]
- [640] ./node_modules/css-loader!./src/layouts/layouts.css 5.61 kB {1} [built]
+ [640] ./node_modules/css-loader!./src/layouts/layouts.css 5.6 kB {1} [built]
  [655] ./styles/styles.scss 41 bytes {1} [built]
  [662] ./node_modules/css-loader?{"minimize":true}!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 54.2 kB [built]
     + 648 hidden modules
