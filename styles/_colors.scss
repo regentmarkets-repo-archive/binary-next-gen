@@ -21,6 +21,7 @@ $COLOR_RED: #c03;
 $COLOR_YELLOW: rgba(255, 236, 179, 0.75);
 $COLOR_LIGHT_GRAY : #f2f2f2;
 $COLOR_GRAY: #ddd;
+$COLOR_DARK_GRAY: #757575;
 $COLOR_GREEN: #2e8836;
 
 .brand-blue {
@@ -40,5 +41,5 @@ $COLOR_GREEN: #2e8836;
 }
 
 .disabled-color {
-    color: #cccccc;
+    color: $COLOR_DARK_GRAY;
 }
