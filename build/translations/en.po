@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "POT-Creation-Date: \n"
-"PO-Revision-Date: 2017-08-17 19:45+0000\n"
-"Last-Translator: Lionel HANNEQUIN <lionel.hannequin@free.fr>\n"
+"PO-Revision-Date: 2018-01-24 12:08+0000\n"
+"Last-Translator: Timo Claes <timo.claes@student.howest.be>\n"
 "Language-Team: English <https://hosted.weblate.org/projects/binary-app/next-"
 "gen-app/en/>\n"
 "Language: en\n"
@@ -11,7 +11,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 2.17-dev\n"
+"X-Generator: Weblate 2.19-dev\n"
 
 msgid "All"
 msgstr ""
@@ -95,31 +95,33 @@ msgid "Limit ({currency})"
 msgstr ""
 
 msgid "Maximum number of open positions"
-msgstr ""
+msgstr "Maximum aantal open posities"
 
 msgid "Maximum account cash balance"
-msgstr ""
+msgstr "Maximum rekeningsaldo"
 
 msgid "Maximum daily turnover"
-msgstr ""
+msgstr "Maximale dagelijkse omzet"
 
 msgid "Maximum aggregate payouts on open positions"
-msgstr ""
+msgstr "Maximale totale uitbetalingen op open posities"
 
 msgid "Withdrawal limits"
 msgstr ""
 
 msgid "Your withdrawal limit is {limit} (or equivalent in other currency)."
-msgstr ""
+msgstr "Uw opnamegrens is {limiet} (of het equivalent in een andere valuta)."
 
 msgid "You have already withdrawn the equivalent of EUR {drawn}."
 msgstr ""
 
 msgid "An additional password can be used to restrict access to the cashier."
 msgstr ""
+"Een extra wachtwoord kan worden gebruikt om de toegang tot de kassier te "
+"beperken."
 
 msgid "Sign In"
-msgstr ""
+msgstr "Log In"
 
 msgid "Get your API token"
 msgstr ""
@@ -299,7 +301,7 @@ msgid "Email"
 msgstr ""
 
 msgid "There are no transactions for selected period"
-msgstr ""
+msgstr "Er zijn geen transacties voor de geselecteerde periode"
 
 msgid "Sell"
 msgstr ""
@@ -413,55 +415,56 @@ msgid "Daily turnover limit"
 msgstr ""
 
 msgid "Once this limit is reached, you may no longer deposit."
-msgstr ""
+msgstr "Zodra deze limiet is bereikt, mag je niet langer storten."
 
 msgid "Maximum aggregate contract purchases per day."
-msgstr ""
+msgstr "Maximale totale contractaankopen per dag."
 
 msgid "Daily limit on losses"
-msgstr ""
+msgstr "Dagelijkse limiet voor verliezen"
 
 msgid "Maximum aggregate loss per day."
-msgstr ""
+msgstr "Maximaal totaal verlies per dag."
 
 msgid "7-day turnover limit"
-msgstr ""
+msgstr "7-dagen omzetlimiet"
 
 msgid "Maximum aggregate contract purchases over a 7-day period."
-msgstr ""
+msgstr "Maximale totale contractaankopen over een periode van 7 dagen."
 
 msgid "7-day limit on losses"
 msgstr ""
 
 msgid "Maximum aggregate loss over a 7-day period."
-msgstr ""
+msgstr "Maximaal totaalverlies over een periode van 7 dagen."
 
 msgid "30-day turnover limit"
 msgstr ""
 
 msgid "Maximum aggregate contract purchases over a 30-day period."
 msgstr ""
+"Maximale totale aankopen van contracten gedurende een periode van 30 dagen."
 
 msgid "30-day limit on losses"
 msgstr ""
 
 msgid "Maximum aggregate loss over a 30-day period."
-msgstr ""
+msgstr "Maximaal totaal verlies over een periode van 30 dagen."
 
 msgid "Session duration limit, in minutes"
-msgstr ""
+msgstr "Sessietijdslimiet, in minuten"
 
 msgid "You will be automatically logged out after such time."
-msgstr ""
+msgstr "U wordt na een tijd automatisch uitgelogd."
 
 msgid "Exclude me from the website until"
-msgstr ""
+msgstr "Sluit me uit van de website tot"
 
 msgid "Limits"
 msgstr ""
 
 msgid "Please enter date in the format YYYY-MM-DD."
-msgstr ""
+msgstr "Voer de datum in met de notatie JJJJ-MM-DD."
 
 msgid "New Trade"
 msgstr ""
@@ -545,7 +548,7 @@ msgid "Spreads"
 msgstr ""
 
 msgid "Confirm new password"
-msgstr ""
+msgstr "Bevestig nieuw wachtwoord"
 
 msgid "TICK"
 msgstr ""
@@ -641,9 +644,13 @@ msgid ""
 "To change your name, date of birth, country of residence, or email, contact "
 "Customer Support."
 msgstr ""
+"Als u uw naam, geboortedatum, land van verblijf of e-mailadres wilt "
+"wijzigen, neemt u contact op met de klantenondersteuning."
 
 msgid "Cashier is locked per your request. To unlock it, enter your password."
 msgstr ""
+"Kassier wordt geblokkeerd op basis van uw verzoek. Voer uw wachtwoord in om "
+"het te ontgrendelen."
 
 msgid "Unlock Cashier"
 msgstr ""
@@ -652,13 +659,13 @@ msgid "Time out until"
 msgstr ""
 
 msgid "No transactions for the selected period"
-msgstr ""
+msgstr "Geen transacties voor de geselecteerde periode"
 
 msgid "You have no open contracts"
-msgstr ""
+msgstr "U hebt geen open contracten"
 
 msgid "You have no assets in watchlist"
-msgstr ""
+msgstr "Je hebt geen items in de watchlist"
 
 msgid "Basic"
 msgstr ""
@@ -709,7 +716,7 @@ msgid "Last 1000 Trades"
 msgstr ""
 
 msgid "Maximum Daily Turnover"
-msgstr ""
+msgstr "Maximale dagelijkse omzet"
 
 msgid "Commodities"
 msgstr ""
@@ -734,6 +741,7 @@ msgstr ""
 
 msgid "Stated limits are subject to change without prior notice"
 msgstr ""
+"Vermelde limieten kunnen zonder voorafgaande kennisgeving worden gewijzigd"
 
 msgid "Withdrawal Limits"
 msgstr ""
@@ -745,7 +753,7 @@ msgid "Already withdrawn"
 msgstr ""
 
 msgid "Current immediate maximum withdrawal"
-msgstr ""
+msgstr "Huidige onmiddellijke maximale opname"
 
 msgid "Create Free Account"
 msgstr ""
@@ -768,15 +776,16 @@ msgstr ""
 msgid ""
 "Password should have lower and uppercase letters and 6 characters or more"
 msgstr ""
+"Wachtwoord moet bestaan uit hoofdletters, kleine letters en 6 tekens of meer"
 
 msgid "Passwords do not match"
-msgstr ""
+msgstr "Wachtwoorden komen niet overeen"
 
 msgid "Enter a valid email"
-msgstr ""
+msgstr "Vul een geldig e-mailadres in"
 
 msgid "Number should between 10 to 120"
-msgstr ""
+msgstr "Nummer moet tussen 10 en 120 zijn"
 
 msgid "Enter your first and last name"
 msgstr ""
@@ -794,10 +803,10 @@ msgid "Select a secret question"
 msgstr ""
 
 msgid "Secret answer must be at least 4 characters"
-msgstr ""
+msgstr "Geheim antwoord moet minimaal 4 karakters lang zijn"
 
 msgid "You need to agree to our Terms and Conditions"
-msgstr ""
+msgstr "U moet akkoord gaan met onze Algemene voorwaarden"
 
 msgid "I agree to the"
 msgstr ""
@@ -881,7 +890,7 @@ msgid "Dark Theme"
 msgstr ""
 
 msgid "Password changed successfully"
-msgstr ""
+msgstr "wachtwoord succesvol aangepast"
 
 msgid "Settings updated"
 msgstr ""
@@ -896,7 +905,7 @@ msgid "Duration is out of range"
 msgstr ""
 
 msgid "Start date invalid, it needs to be five minutes or more in the future"
-msgstr ""
+msgstr "Startdatum ongeldig, deze moet vijf minuten of langer zijn"
 
 msgid "Time format is wrong"
 msgstr ""
@@ -920,13 +929,13 @@ msgid "This field is required"
 msgstr ""
 
 msgid "Should be a valid number"
-msgstr ""
+msgstr "Moet een geldig nummer zijn"
 
 msgid "Should be between 0 and {number}"
-msgstr ""
+msgstr "Moet tussen 0 en {nummer} zijn"
 
 msgid "Time out must be after today and cannot be more than 6 weeks."
-msgstr ""
+msgstr "De time-out moet na vandaag zijn en mag niet langer zijn dan 6 weken."
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
-msgstr ""
+msgstr "Uitsluiting mag niet korter zijn dan 6 maanden en meer dan 5 jaar."
