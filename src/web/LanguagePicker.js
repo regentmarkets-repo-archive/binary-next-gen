@@ -28,7 +28,7 @@ export default class LanguagePicker extends PureComponent {
 
     render() {
         const { selected, languages } = this.props;
-        
+
         return (
             <SelectGroup
                 {...this.props}
