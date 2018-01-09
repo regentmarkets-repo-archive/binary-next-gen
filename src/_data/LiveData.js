@@ -285,17 +285,22 @@ export const connect = async store => {
     });
     api.getResidences();
     api.getWebsiteStatus().then(status => {
-        const appLanguages = [];
         const supportedLanguages = status.website_status.supported_languages;
-        // languages.forEach(l => {
-        //     if (supportedLanguages.indexOf(l.value) > -1) {
-        //         appLanguages.push(l);
-        //     }
-        // });
-        // if (appLanguages.length) {
-        //     store.dispatch({ type: UPDATE_SUPPORTED_LANGUAGES, languages: appLanguages });
-        // }
-        console.log(appLanguages);
+        let appLanguages = [];
+        if (languages.length) {
+            languages.forEach(l => {
+                if (supportedLanguages.indexOf(l.value) > -1) {
+                    appLanguages.push(l);
+                }
+            });
+        } else {
+            appLanguages = [{
+                value: 'EN',
+                text: 'English',
+            }];
+        }
+
+        store.dispatch({ type: UPDATE_SUPPORTED_LANGUAGES, languages: appLanguages });
     });
     api.events.on('authorize', response => response.error ? null : initAuthorized(response, store));
 };
