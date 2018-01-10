@@ -43,3 +43,8 @@ export const setDefaultCurrency = (default_currency: string) => ({
   type: types.SET_DEFAULT_CURRENCY,
   default_currency,
 });
+
+export const updateSupportedLanguages = (languages: Array) => ({
+    type: types.UPDATE_SUPPORTED_LANGUAGES,
+    languages,
+  });
