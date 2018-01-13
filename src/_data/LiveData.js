@@ -296,7 +296,7 @@ export const connect = async store => {
     api.getWebsiteStatus().then(status => {
         const supportedLanguages = status.website_status.supported_languages;
         let appLanguages = [];
-        if (languages.length) {
+        if (supportedLanguages && supportedLanguages.length) {
             languages.forEach(l => {
                 if (supportedLanguages.indexOf(l.value) > -1) {
                     appLanguages.push(l);
