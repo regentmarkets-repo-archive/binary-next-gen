@@ -87,11 +87,10 @@ const initAuthorized = async (authData, store) => {
                   const hasSetRealityCheckAfterRefresh = state.appState.get('hasSetRealityCheckAfterRefresh');
                   const realityCheckStartTime = state.realityCheck.get('realityCheckStartTime');
                   const interval = state.realityCheck.get('interval');
-                  const loginTime = state.realityCheck.getIn(['summary', 'loginTime']);
-                  const timeToWait = timeLeftToNextRealityCheck(loginTime, interval) * 1000;
+                  const timeToWait = timeLeftToNextRealityCheck(realityCheckStartTime, interval) * 1000;
 
                   if (!hasSetRealityCheckAfterRefresh && realityCheckStartTime * 1000 + timeToWait > nowAsEpoch() * 1000) {
-                    store.dispatch(actions.updateAppState('hasSetRealityCheckAfterRefresh', true));
+                    // store.dispatch(actions.updateAppState('hasSetRealityCheckAfterRefresh', true));
                     const timeToWaitAfterRefresh = (realityCheckStartTime * 1000 + timeToWait) - nowAsEpoch() * 1000;
                     store
                       .dispatch(actions.updateRealityCheckSummary())

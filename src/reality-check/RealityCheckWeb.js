@@ -23,18 +23,17 @@ export default class RealityCheckWeb extends PureComponent {
     }
 
     confirmIntervalUpdate = () => {
-        const { interval, summary } = this.props;
+        const { interval } = this.props;
         const { rcError } = this.state;
 
         if (rcError) {
             return;
         }
 
-        const { loginTime } = summary;
         actions.setRealityCheckStartTime(nowAsEpoch());
         actions.ackRealityCheck();
-        const currentTime = new Date();
-        const toWait = timeLeftToNextRealityCheck(currentTime, interval) * 1000;
+        actions.updateRealityCheck({ startTime: nowAsEpoch() });
+        const toWait = timeLeftToNextRealityCheck(nowAsEpoch(), interval) * 1000;
         setTimeout(() =>
             actions.updateRealityCheckSummary().then(() =>
                 actions.showRealityCheckPopUp()
