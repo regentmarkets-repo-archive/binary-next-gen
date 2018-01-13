@@ -32,7 +32,6 @@ export default class RealityCheckWeb extends PureComponent {
 
         actions.setRealityCheckStartTime(nowAsEpoch());
         actions.ackRealityCheck();
-        actions.updateRealityCheck({ startTime: nowAsEpoch() });
         const toWait = timeLeftToNextRealityCheck(nowAsEpoch(), interval) * 1000;
         setTimeout(() =>
             actions.updateRealityCheckSummary().then(() =>
