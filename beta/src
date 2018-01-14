@@ -1,29 +1,29 @@
-Hash: 7f4c2a3335acfc8f3d00
+Hash: 12d331e02c0631e099d8
 Version: webpack 3.10.0
-Time: 91880ms
+Time: 80745ms
                          Asset      Size  Chunks                    Chunk Names
     webtrader-charts.bundle.js    907 kB       0  [emitted]  [big]  webtrader-charts
-                        app.js   1.66 MB       1  [emitted]  [big]  app
+                        app.js   1.67 MB       1  [emitted]  [big]  app
                     styles.css   54.1 kB       1  [emitted]         app
 webtrader-charts.bundle.js.map   2.73 MB       0  [emitted]         webtrader-charts
-                    app.js.map   8.95 MB       1  [emitted]         app
+                    app.js.map   9.07 MB       1  [emitted]         app
                 styles.css.map  87 bytes       1  [emitted]         app
-  [29] (webpack)/buildin/global.js 509 bytes {1} [built]
+  [25] (webpack)/buildin/global.js 509 bytes {1} [built]
   [67] (webpack)/buildin/module.js 517 bytes {1} [built]
- [101] ./src/layouts/layouts.css 1.03 kB {1} [built]
- [209] (webpack)/buildin/amd-define.js 88 bytes {1} [built]
- [222] ./src/index.js + 478 modules 1.16 MB {1} [built] [39 warnings]
- [578] ./node_modules/moment/locale ^$ 160 bytes {1} [optional] [built]
- [630] ./www/img/favorites.svg 1.03 kB {1} [built]
- [631] ./www/img/open.svg 2.9 kB {1} [built]
- [632] ./www/img/volatility.svg 1.23 kB {1} [built]
- [633] ./www/img/forex.svg 414 bytes {1} [built]
- [635] ./www/img/commodities.svg 629 bytes {1} [built]
- [636] ./www/img/stocks.svg 1.22 kB {1} [built]
- [640] ./node_modules/css-loader!./src/layouts/layouts.css 5.6 kB {1} [built]
- [655] ./styles/styles.scss 41 bytes {1} [built]
- [662] ./node_modules/css-loader?{"minimize":true}!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 54.3 kB [built]
-    + 648 hidden modules
+ [104] ./src/layouts/layouts.css 1.03 kB {1} [built]
+ [220] (webpack)/buildin/amd-define.js 88 bytes {1} [built]
+ [233] ./src/index.js + 480 modules 1.16 MB {1} [built] [39 warnings]
+ [649] ./node_modules/moment/locale ^$ 160 bytes {1} [optional] [built]
+ [700] ./www/img/all.svg 519 bytes {1} [built]
+ [701] ./www/img/favorites.svg 1.03 kB {1} [built]
+ [702] ./www/img/open.svg 2.9 kB {1} [built]
+ [703] ./www/img/volatility.svg 1.23 kB {1} [built]
+ [704] ./www/img/forex.svg 414 bytes {1} [built]
+ [705] ./www/img/indices.svg 2.51 kB {1} [built]
+ [711] ./node_modules/css-loader!./src/layouts/layouts.css 5.6 kB {1} [built]
+ [726] ./styles/styles.scss 41 bytes {1} [built]
+ [733] ./node_modules/css-loader?{"minimize":true}!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 54.3 kB [built]
+    + 719 hidden modules
 
 WARNING in ./src/_store/AppStateProvider.js
 
@@ -113,10 +113,10 @@ WARNING in ./src/asset-picker/MarketSubmarketPickerContainer.js
 
 ✖ 2 problems (0 errors, 2 warnings)
 
- @ ./src/trading-times/TradingTimesCard.js 1:1783-1874
- @ ./src/trading-times/TradingTimesContainer.js
- @ ./src/trading-times/TradingTimesPage.js
- @ ./src/_routes/StandaloneRoutes.js
+ @ ./src/asset-index/AssetIndexCard.js 1:1395-1486
+ @ ./src/asset-index/AssetIndexContainer.js
+ @ ./src/mobile/ResourcesMobile.js
+ @ ./src/_routes/MobileRoutes.js
  @ ./src/_routes/index.js
  @ ./src/_store/root.js
  @ ./src/index.js
@@ -188,8 +188,8 @@ WARNING in ./src/deposit/DepositContainer.js
 
 ✖ 2 problems (0 errors, 2 warnings)
 
- @ ./src/deposit/DepositMobile.js 1:74-123
- @ ./src/_routes/MobileRoutes.js
+ @ ./src/deposit/DepositModal.js 1:64-113
+ @ ./src/_routes/StandaloneRoutes.js
  @ ./src/_routes/index.js
  @ ./src/_store/root.js
  @ ./src/index.js
@@ -203,9 +203,9 @@ WARNING in ./src/duration-picker/ForwardStartingOptions.js
 
  @ ./src/trade-params/TradeParams.js 2:123-201
  @ ./src/trade/TradeCard.js
- @ ./src/trade/TradeCardContainer.js
- @ ./src/trade/browser/SingleTradePage.js
- @ ./src/_routes/StandaloneRoutes.js
+ @ ./src/trade/mobile/MobileTradeContainer.js
+ @ ./src/trade/mobile/TradeMobile.js
+ @ ./src/_routes/MobileRoutes.js
  @ ./src/_routes/index.js
  @ ./src/_store/root.js
  @ ./src/index.js
@@ -288,8 +288,8 @@ WARNING in ./src/portfolio/PortfolioContainer.js
 
 ✖ 2 problems (0 errors, 2 warnings)
 
- @ ./src/portfolio/PortfolioMobile.js 1:298-351
- @ ./src/_routes/MobileRoutes.js
+ @ ./src/portfolio/PortfolioPage.js 1:68-121
+ @ ./src/_routes/StandaloneRoutes.js
  @ ./src/_routes/index.js
  @ ./src/_store/root.js
  @ ./src/index.js
@@ -387,8 +387,8 @@ WARNING in ./src/statement/StatementContainer.js
 
 ✖ 2 problems (0 errors, 2 warnings)
 
- @ ./src/statement/StatementPage.js 1:68-121
- @ ./src/_routes/StandaloneRoutes.js
+ @ ./src/statement/StatementMobile.js 1:298-351
+ @ ./src/_routes/MobileRoutes.js
  @ ./src/_routes/index.js
  @ ./src/_store/root.js
  @ ./src/index.js
@@ -442,8 +442,8 @@ WARNING in ./src/trading-times/TradingTimesContainer.js
 
 ✖ 2 problems (0 errors, 2 warnings)
 
- @ ./src/trading-times/TradingTimesPage.js 1:68-127
- @ ./src/_routes/StandaloneRoutes.js
+ @ ./src/mobile/ResourcesMobile.js 1:1524-1598
+ @ ./src/_routes/MobileRoutes.js
  @ ./src/_routes/index.js
  @ ./src/_store/root.js
  @ ./src/index.js
@@ -483,8 +483,8 @@ WARNING in ./src/watchlist/WatchlistContainer.js
 
 ✖ 2 problems (0 errors, 2 warnings)
 
- @ ./src/watchlist/WatchlistMobile.js 1:74-127
- @ ./src/_routes/MobileRoutes.js
+ @ ./src/watchlist/WatchlistPage.js 1:68-121
+ @ ./src/_routes/StandaloneRoutes.js
  @ ./src/_routes/index.js
  @ ./src/_store/root.js
  @ ./src/index.js
