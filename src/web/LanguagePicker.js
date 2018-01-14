@@ -4,7 +4,7 @@ import { SelectGroup } from 'binary-components';
 import storage from '../_store/storage';
 
 @connect(state => ({ selected: state.boot.get('language') }))
-@connect(state => ({ languages: state.account.get('languages') }))
+@connect(state => ({ languages: state.websiteStatus.get('languages') }))
 export default class LanguagePicker extends PureComponent {
 
     props: {
@@ -14,10 +14,6 @@ export default class LanguagePicker extends PureComponent {
 
     static defaultProps = {
         selected: 'EN',
-        languages: [{
-            value: 'EN',
-            text: 'English',
-        }],
     };
 
     changeLanguage = event => {
@@ -27,7 +23,8 @@ export default class LanguagePicker extends PureComponent {
     }
 
     render() {
-        const { selected, languages } = this.props;
+        const { selected } = this.props;
+        const languages = Array.isArray(this.props.languages) ? this.props.languages : this.props.languages.toJS();
 
         return (
             <SelectGroup

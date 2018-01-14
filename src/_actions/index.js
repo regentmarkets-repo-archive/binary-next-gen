@@ -22,6 +22,7 @@ export * from './ServerTimeActions';
 export * from './TradingOptionsActions';
 export * from './RealityCheckActions';
 export * from './CountryListActions';
+export * from './WebsiteStatusActions';
 export {
     reqSymbolChange,
     reqBarrierChange,
