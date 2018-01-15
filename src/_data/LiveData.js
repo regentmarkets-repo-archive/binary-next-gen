@@ -175,18 +175,18 @@ const initAuthorized = async (authData, store) => {
           lc !== currentLandingCompany && upgradeableLandingCompanies.indexOf(lc) > -1);
 
         if (canUpgradeToLandingCompany(['costarica', 'malta', 'iom']) && !canUpgradeMultiAccount) {
-            typeOfNextAccount = 'real';
+            typeOfNextAccount = 'Real';
             currencyOptions = landingCompany.gaming_company ?
               landingCompany.gaming_company.legal_allowed_currencies :
               landingCompany.financial_company.legal_allowed_currencies;
             allowedMarkets = landingCompany.gaming_company ? landingCompany.gaming_company.legal_allowed_markets :
               landingCompany.financial_company.legal_allowed_markets;
         } else if (canUpgradeToLandingCompany(['maltainvest'])) {
-            typeOfNextAccount = 'financial';
+            typeOfNextAccount = 'Financial';
             currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
             allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
         } else if (canUpgradeMultiAccount) {
-            typeOfNextAccount = 'real';
+            typeOfNextAccount = 'Real';
             allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
             const legalAllowedCurrencies = landingCompany.financial_company.legal_allowed_currencies;
             const existingCurrencies = getExistingCurrencies(accounts);
