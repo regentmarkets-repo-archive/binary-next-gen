@@ -99,6 +99,10 @@ const initAuthorized = async (authData, store) => {
                           store.dispatch(actions.showRealityCheckPopUp()),
                         timeToWaitAfterRefresh
                       ));
+                  } else {
+                      store
+                        .dispatch(actions.updateRealityCheckSummary())
+                        .then(() => store.dispatch(actions.initRealityCheck()));
                   }
                 }
             } else {
