@@ -1,6 +1,6 @@
-Hash: 12d331e02c0631e099d8
+Hash: 92f803dc2024ad571688
 Version: webpack 3.10.0
-Time: 80745ms
+Time: 89904ms
                          Asset      Size  Chunks                    Chunk Names
     webtrader-charts.bundle.js    907 kB       0  [emitted]  [big]  webtrader-charts
                         app.js   1.67 MB       1  [emitted]  [big]  app
@@ -113,10 +113,10 @@ WARNING in ./src/asset-picker/MarketSubmarketPickerContainer.js
 
 ✖ 2 problems (0 errors, 2 warnings)
 
- @ ./src/asset-index/AssetIndexCard.js 1:1395-1486
- @ ./src/asset-index/AssetIndexContainer.js
- @ ./src/mobile/ResourcesMobile.js
- @ ./src/_routes/MobileRoutes.js
+ @ ./src/trading-times/TradingTimesCard.js 1:1783-1874
+ @ ./src/trading-times/TradingTimesContainer.js
+ @ ./src/trading-times/TradingTimesPage.js
+ @ ./src/_routes/StandaloneRoutes.js
  @ ./src/_routes/index.js
  @ ./src/_store/root.js
  @ ./src/index.js
@@ -288,8 +288,8 @@ WARNING in ./src/portfolio/PortfolioContainer.js
 
 ✖ 2 problems (0 errors, 2 warnings)
 
- @ ./src/portfolio/PortfolioPage.js 1:68-121
- @ ./src/_routes/StandaloneRoutes.js
+ @ ./src/portfolio/PortfolioMobile.js 1:298-351
+ @ ./src/_routes/MobileRoutes.js
  @ ./src/_routes/index.js
  @ ./src/_store/root.js
  @ ./src/index.js
@@ -329,8 +329,8 @@ WARNING in ./src/settings/SettingsContainer.js
 
 ✖ 2 problems (0 errors, 2 warnings)
 
- @ ./src/settings/SettingsPage.js 1:68-119
- @ ./src/_routes/StandaloneRoutes.js
+ @ ./src/settings/SettingsMobile.js 1:74-125
+ @ ./src/_routes/MobileRoutes.js
  @ ./src/_routes/index.js
  @ ./src/_store/root.js
  @ ./src/index.js
@@ -387,8 +387,8 @@ WARNING in ./src/statement/StatementContainer.js
 
 ✖ 2 problems (0 errors, 2 warnings)
 
- @ ./src/statement/StatementMobile.js 1:298-351
- @ ./src/_routes/MobileRoutes.js
+ @ ./src/statement/StatementPage.js 1:68-121
+ @ ./src/_routes/StandaloneRoutes.js
  @ ./src/_routes/index.js
  @ ./src/_store/root.js
  @ ./src/index.js
@@ -442,8 +442,8 @@ WARNING in ./src/trading-times/TradingTimesContainer.js
 
 ✖ 2 problems (0 errors, 2 warnings)
 
- @ ./src/mobile/ResourcesMobile.js 1:1524-1598
- @ ./src/_routes/MobileRoutes.js
+ @ ./src/trading-times/TradingTimesPage.js 1:68-127
+ @ ./src/_routes/StandaloneRoutes.js
  @ ./src/_routes/index.js
  @ ./src/_store/root.js
  @ ./src/index.js
@@ -511,9 +511,10 @@ WARNING in ./src/web/LanguagePicker.js
 
 ✖ 1 problem (0 errors, 1 warning)
 
- @ ./src/web/Footer.js 1:1509-1554
- @ ./src/web/WebCard.js
- @ ./src/_routes/WebRoutes.js
+ @ ./src/hello/HelloCard.js 1:1474-1524
+ @ ./src/hello/HelloMobile.js
+ @ ./src/hello/WebRoot.js
+ @ ./src/_routes/CommonRoutes.js
  @ ./src/_routes/index.js
  @ ./src/_store/root.js
  @ ./src/index.js
