@@ -89,7 +89,7 @@
     "binary-components": "^2.24.8",
     "binary-live-api": "^29.0.0",
     "binary-style": "^0.1.0",
-    "binary-utils": "^4.25.0",
+    "binary-utils": "^4.23.0",
     "classnames": "^2.2.5",
     "code-push": "^2.0.4",
     "cordova-android": "^7.0.0",
