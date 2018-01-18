@@ -1,6 +1,6 @@
 Hash: 573f860cdf8e7e2931ef
 Version: webpack 3.10.0
-Time: 89795ms
+Time: 128747ms
                          Asset      Size  Chunks                    Chunk Names
     webtrader-charts.bundle.js    907 kB       0  [emitted]  [big]  webtrader-charts
                         app.js   1.67 MB       1  [emitted]  [big]  app
@@ -69,8 +69,8 @@ WARNING in ./src/asset-index/AssetIndexContainer.js
 
 ✖ 2 problems (0 errors, 2 warnings)
 
- @ ./src/asset-index/AssetIndexPage.js 1:68-123
- @ ./src/_routes/StandaloneRoutes.js
+ @ ./src/mobile/ResourcesMobile.js 1:1456-1524
+ @ ./src/_routes/MobileRoutes.js
  @ ./src/_routes/index.js
  @ ./src/_store/root.js
  @ ./src/index.js
@@ -83,7 +83,10 @@ WARNING in ./src/asset-picker/AssetPickerContainer.js
 
 ✖ 2 problems (0 errors, 2 warnings)
 
- @ ./src/asset-picker/AssetPickerMobile.js 1:1732-1789
+ @ ./src/examine-asset/ExamineAssetFilter.js 1:1546-1617
+ @ ./src/examine-asset/ExamineAssetCard.js
+ @ ./src/examine-asset/ExamineAssetContainer.js
+ @ ./src/examine-asset/ExamineAssetMobile.js
  @ ./src/_routes/MobileRoutes.js
  @ ./src/_routes/index.js
  @ ./src/_store/root.js
@@ -110,9 +113,9 @@ WARNING in ./src/asset-picker/MarketSubmarketPickerContainer.js
 
 ✖ 2 problems (0 errors, 2 warnings)
 
- @ ./src/asset-index/AssetIndexCard.js 1:1395-1486
- @ ./src/asset-index/AssetIndexContainer.js
- @ ./src/asset-index/AssetIndexPage.js
+ @ ./src/trading-times/TradingTimesCard.js 1:1783-1874
+ @ ./src/trading-times/TradingTimesContainer.js
+ @ ./src/trading-times/TradingTimesPage.js
  @ ./src/_routes/StandaloneRoutes.js
  @ ./src/_routes/index.js
  @ ./src/_store/root.js
@@ -126,8 +129,12 @@ WARNING in ./src/balance/BalanceContainer.js
 
 ✖ 2 problems (0 errors, 2 warnings)
 
- @ ./src/web/WebHeader.js 1:1464-1513
- @ ./src/_routes/StandaloneRoutes.js
+ @ ./src/sidebar/MobileSidebar.js 1:1452-1510
+ @ ./src/sidebar/MobileSidebarContainer.js
+ @ ./src/mobile/MobileToolbarFull.js
+ @ ./src/containers/MobilePage.js
+ @ ./src/examine-asset/ExamineAssetMobile.js
+ @ ./src/_routes/MobileRoutes.js
  @ ./src/_routes/index.js
  @ ./src/_store/root.js
  @ ./src/index.js
@@ -181,8 +188,8 @@ WARNING in ./src/deposit/DepositContainer.js
 
 ✖ 2 problems (0 errors, 2 warnings)
 
- @ ./src/deposit/DepositModal.js 1:64-113
- @ ./src/_routes/StandaloneRoutes.js
+ @ ./src/deposit/DepositMobile.js 1:74-123
+ @ ./src/_routes/MobileRoutes.js
  @ ./src/_routes/index.js
  @ ./src/_store/root.js
  @ ./src/index.js
@@ -265,8 +272,8 @@ WARNING in ./src/portfolio/PortfolioContainer.js
 
 ✖ 2 problems (0 errors, 2 warnings)
 
- @ ./src/portfolio/PortfolioPage.js 1:68-121
- @ ./src/_routes/StandaloneRoutes.js
+ @ ./src/portfolio/PortfolioMobile.js 1:298-351
+ @ ./src/_routes/MobileRoutes.js
  @ ./src/_routes/index.js
  @ ./src/_store/root.js
  @ ./src/index.js
@@ -306,8 +313,8 @@ WARNING in ./src/settings/SettingsContainer.js
 
 ✖ 2 problems (0 errors, 2 warnings)
 
- @ ./src/settings/SettingsPage.js 1:68-119
- @ ./src/_routes/StandaloneRoutes.js
+ @ ./src/settings/SettingsMobile.js 1:74-125
+ @ ./src/_routes/MobileRoutes.js
  @ ./src/_routes/index.js
  @ ./src/_store/root.js
  @ ./src/index.js
@@ -322,7 +329,7 @@ WARNING in ./src/sidebar/MobileSidebarContainer.js
 
  @ ./src/mobile/MobileToolbarFull.js 1:1364-1434
  @ ./src/containers/MobilePage.js
- @ ./src/user-accounts/UserAccountsMobile.js
+ @ ./src/examine-asset/ExamineAssetMobile.js
  @ ./src/_routes/MobileRoutes.js
  @ ./src/_routes/index.js
  @ ./src/_store/root.js
@@ -364,8 +371,8 @@ WARNING in ./src/statement/StatementContainer.js
 
 ✖ 2 problems (0 errors, 2 warnings)
 
- @ ./src/statement/StatementMobile.js 1:298-351
- @ ./src/_routes/MobileRoutes.js
+ @ ./src/statement/StatementPage.js 1:68-121
+ @ ./src/_routes/StandaloneRoutes.js
  @ ./src/_routes/index.js
  @ ./src/_store/root.js
  @ ./src/index.js
@@ -460,8 +467,8 @@ WARNING in ./src/watchlist/WatchlistContainer.js
 
 ✖ 2 problems (0 errors, 2 warnings)
 
- @ ./src/watchlist/WatchlistMobile.js 1:74-127
- @ ./src/_routes/MobileRoutes.js
+ @ ./src/watchlist/WatchlistPage.js 1:68-121
+ @ ./src/_routes/StandaloneRoutes.js
  @ ./src/_routes/index.js
  @ ./src/_store/root.js
  @ ./src/index.js
@@ -506,7 +513,7 @@ WARNING in ./src/web/ThemeSwitcher.mobile.js
  @ ./src/sidebar/MobileSidebarContainer.js
  @ ./src/mobile/MobileToolbarFull.js
  @ ./src/containers/MobilePage.js
- @ ./src/user-accounts/UserAccountsMobile.js
+ @ ./src/examine-asset/ExamineAssetMobile.js
  @ ./src/_routes/MobileRoutes.js
  @ ./src/_routes/index.js
  @ ./src/_store/root.js
