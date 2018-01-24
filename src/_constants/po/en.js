@@ -2,15 +2,15 @@ export default {
     "": {
         "project-id-version": "",
         "pot-creation-date": "",
-        "po-revision-date": "2017-08-17 19:45+0000",
-        "last-translator": "Lionel HANNEQUIN <lionel.hannequin@free.fr>",
+        "po-revision-date": "2018-01-24 12:08+0000",
+        "last-translator": "Timo Claes <timo.claes@student.howest.be>",
         "language-team": "English <https://hosted.weblate.org/projects/binary-app/next-gen-app/en/>",
         "language": "en",
         "mime-version": "1.0",
         "content-type": "text/plain; charset=UTF-8",
         "content-transfer-encoding": "8bit",
         "plural-forms": "nplurals=2; plural=n != 1;",
-        "x-generator": "Weblate 2.17-dev"
+        "x-generator": "Weblate 2.19-dev"
     },
     "All": [
         null,
@@ -122,19 +122,19 @@ export default {
     ],
     "Maximum number of open positions": [
         null,
-        ""
+        "Maximum aantal open posities"
     ],
     "Maximum account cash balance": [
         null,
-        ""
+        "Maximum rekeningsaldo"
     ],
     "Maximum daily turnover": [
         null,
-        ""
+        "Maximale dagelijkse omzet"
     ],
     "Maximum aggregate payouts on open positions": [
         null,
-        ""
+        "Maximale totale uitbetalingen op open posities"
     ],
     "Withdrawal limits": [
         null,
@@ -142,7 +142,7 @@ export default {
     ],
     "Your withdrawal limit is {limit} (or equivalent in other currency).": [
         null,
-        ""
+        "Uw opnamegrens is {limiet} (of het equivalent in een andere valuta)."
     ],
     "You have already withdrawn the equivalent of EUR {drawn}.": [
         null,
@@ -150,11 +150,11 @@ export default {
     ],
     "An additional password can be used to restrict access to the cashier.": [
         null,
-        ""
+        "Een extra wachtwoord kan worden gebruikt om de toegang tot de kassier te beperken."
     ],
     "Sign In": [
         null,
-        ""
+        "Log In"
     ],
     "Get your API token": [
         null,
@@ -394,7 +394,7 @@ export default {
     ],
     "There are no transactions for selected period": [
         null,
-        ""
+        "Er zijn geen transacties voor de geselecteerde periode"
     ],
     "Sell": [
         null,
@@ -546,27 +546,27 @@ export default {
     ],
     "Once this limit is reached, you may no longer deposit.": [
         null,
-        ""
+        "Zodra deze limiet is bereikt, mag je niet langer storten."
     ],
     "Maximum aggregate contract purchases per day.": [
         null,
-        ""
+        "Maximale totale contractaankopen per dag."
     ],
     "Daily limit on losses": [
         null,
-        ""
+        "Dagelijkse limiet voor verliezen"
     ],
     "Maximum aggregate loss per day.": [
         null,
-        ""
+        "Maximaal totaal verlies per dag."
     ],
     "7-day turnover limit": [
         null,
-        ""
+        "7-dagen omzetlimiet"
     ],
     "Maximum aggregate contract purchases over a 7-day period.": [
         null,
-        ""
+        "Maximale totale contractaankopen over een periode van 7 dagen."
     ],
     "7-day limit on losses": [
         null,
@@ -574,7 +574,7 @@ export default {
     ],
     "Maximum aggregate loss over a 7-day period.": [
         null,
-        ""
+        "Maximaal totaalverlies over een periode van 7 dagen."
     ],
     "30-day turnover limit": [
         null,
@@ -582,7 +582,7 @@ export default {
     ],
     "Maximum aggregate contract purchases over a 30-day period.": [
         null,
-        ""
+        "Maximale totale aankopen van contracten gedurende een periode van 30 dagen."
     ],
     "30-day limit on losses": [
         null,
@@ -590,19 +590,19 @@ export default {
     ],
     "Maximum aggregate loss over a 30-day period.": [
         null,
-        ""
+        "Maximaal totaal verlies over een periode van 30 dagen."
     ],
     "Session duration limit, in minutes": [
         null,
-        ""
+        "Sessietijdslimiet, in minuten"
     ],
     "You will be automatically logged out after such time.": [
         null,
-        ""
+        "U wordt na een tijd automatisch uitgelogd."
     ],
     "Exclude me from the website until": [
         null,
-        ""
+        "Sluit me uit van de website tot"
     ],
     "Limits": [
         null,
@@ -610,7 +610,7 @@ export default {
     ],
     "Please enter date in the format YYYY-MM-DD.": [
         null,
-        ""
+        "Voer de datum in met de notatie JJJJ-MM-DD."
     ],
     "New Trade": [
         null,
@@ -722,7 +722,7 @@ export default {
     ],
     "Confirm new password": [
         null,
-        ""
+        "Bevestig nieuw wachtwoord"
     ],
     "TICK": [
         null,
@@ -846,11 +846,11 @@ export default {
     ],
     "To change your name, date of birth, country of residence, or email, contact Customer Support.": [
         null,
-        ""
+        "Als u uw naam, geboortedatum, land van verblijf of e-mailadres wilt wijzigen, neemt u contact op met de klantenondersteuning."
     ],
     "Cashier is locked per your request. To unlock it, enter your password.": [
         null,
-        ""
+        "Kassier wordt geblokkeerd op basis van uw verzoek. Voer uw wachtwoord in om het te ontgrendelen."
     ],
     "Unlock Cashier": [
         null,
@@ -862,15 +862,15 @@ export default {
     ],
     "No transactions for the selected period": [
         null,
-        ""
+        "Geen transacties voor de geselecteerde periode"
     ],
     "You have no open contracts": [
         null,
-        ""
+        "U hebt geen open contracten"
     ],
     "You have no assets in watchlist": [
         null,
-        ""
+        "Je hebt geen items in de watchlist"
     ],
     "Basic": [
         null,
@@ -938,7 +938,7 @@ export default {
     ],
     "Maximum Daily Turnover": [
         null,
-        ""
+        "Maximale dagelijkse omzet"
     ],
     "Commodities": [
         null,
@@ -970,7 +970,7 @@ export default {
     ],
     "Stated limits are subject to change without prior notice": [
         null,
-        ""
+        "Vermelde limieten kunnen zonder voorafgaande kennisgeving worden gewijzigd"
     ],
     "Withdrawal Limits": [
         null,
@@ -986,7 +986,7 @@ export default {
     ],
     "Current immediate maximum withdrawal": [
         null,
-        ""
+        "Huidige onmiddellijke maximale opname"
     ],
     "Create Free Account": [
         null,
@@ -1014,19 +1014,19 @@ export default {
     ],
     "Password should have lower and uppercase letters and 6 characters or more": [
         null,
-        ""
+        "Wachtwoord moet bestaan uit hoofdletters, kleine letters en 6 tekens of meer"
     ],
     "Passwords do not match": [
         null,
-        ""
+        "Wachtwoorden komen niet overeen"
     ],
     "Enter a valid email": [
         null,
-        ""
+        "Vul een geldig e-mailadres in"
     ],
     "Number should between 10 to 120": [
         null,
-        ""
+        "Nummer moet tussen 10 en 120 zijn"
     ],
     "Enter your first and last name": [
         null,
@@ -1050,11 +1050,11 @@ export default {
     ],
     "Secret answer must be at least 4 characters": [
         null,
-        ""
+        "Geheim antwoord moet minimaal 4 karakters lang zijn"
     ],
     "You need to agree to our Terms and Conditions": [
         null,
-        ""
+        "U moet akkoord gaan met onze Algemene voorwaarden"
     ],
     "I agree to the": [
         null,
@@ -1166,7 +1166,7 @@ export default {
     ],
     "Password changed successfully": [
         null,
-        ""
+        "wachtwoord succesvol aangepast"
     ],
     "Settings updated": [
         null,
@@ -1186,7 +1186,7 @@ export default {
     ],
     "Start date invalid, it needs to be five minutes or more in the future": [
         null,
-        ""
+        "Startdatum ongeldig, deze moet vijf minuten of langer zijn"
     ],
     "Time format is wrong": [
         null,
@@ -1218,18 +1218,18 @@ export default {
     ],
     "Should be a valid number": [
         null,
-        ""
+        "Moet een geldig nummer zijn"
     ],
     "Should be between 0 and {number}": [
         null,
-        ""
+        "Moet tussen 0 en {nummer} zijn"
     ],
     "Time out must be after today and cannot be more than 6 weeks.": [
         null,
-        ""
+        "De time-out moet na vandaag zijn en mag niet langer zijn dan 6 weken."
     ],
     "Exclude time cannot be less than 6 months and more than 5 years.": [
         null,
-        ""
+        "Uitsluiting mag niet korter zijn dan 6 maanden en meer dan 5 jaar."
     ]
 }
