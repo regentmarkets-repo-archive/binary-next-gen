@@ -83,7 +83,10 @@ export default class SettingsSelfExclusion extends PureComponent {
     e.preventDefault();
     const newErrors = this.validationMan.validateAll(this.state.formData);
     this.setState({ errors: newErrors });
-    if (Object.keys(newErrors).length === 0) {
+    const keys = Object.keys(newErrors);
+    if (keys.length > 0) {
+      document.getElementById(keys[0]).scrollIntoView({ block: 'center', behavior: 'smooth' });
+    } else {
       this.updateSelfExclusion();
     }
   }
@@ -100,6 +103,9 @@ export default class SettingsSelfExclusion extends PureComponent {
         success: true,
         serverError: false,
       });
+      document.getElementsByClassName('update-notice')[0].scrollIntoView({ block: 'center', behavior: 'smooth' });
+      api.getSelfExclusion();
+      api.getAccountLimits();
       this.constraints = getConstraints(this.state.formData, this.state.limits);
       this.validationMan = new ValidationManager(this.constraints);
 
