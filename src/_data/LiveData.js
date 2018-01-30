@@ -1,12 +1,14 @@
 import { LiveApi } from 'binary-live-api';
 import { showError, timeLeftToNextRealityCheck, nowAsEpoch } from 'binary-utils';
+import difference from 'lodash/difference';
 import * as actions from '../_actions';
 import {
   CHANGE_INFO_FOR_ASSET, UPDATE_SETTINGS_FIELD, SERVER_DATA_STATES,
-  UPDATE_UPGRADE_INFO, SET_AVAILABLE_CURRENCIES, SET_DEFAULT_CURRENCY
+  UPDATE_UPGRADE_INFO, SET_AVAILABLE_CURRENCIES, SET_DEFAULT_CURRENCY, UPDATE_SUPPORTED_LANGUAGES
 } from '../_constants/ActionTypes';
-import { hasAccountOfType, landingCompanyValue, getExistingCurrencies, groupCurrencies, populateCurrencyOptions } from '../_utils/Client';
+import { landingCompanyValue, getExistingCurrencies, groupCurrencies, populateCurrencyOptions } from '../_utils/Client';
 import { addCurrencyToAccount } from '../_utils/AccountHelpers';
+import languages from '../_constants/languages';
 
 const handlers = {
     active_symbols: 'serverDataActiveSymbols',
@@ -86,11 +88,10 @@ const initAuthorized = async (authData, store) => {
                   const hasSetRealityCheckAfterRefresh = state.appState.get('hasSetRealityCheckAfterRefresh');
                   const realityCheckStartTime = state.realityCheck.get('realityCheckStartTime');
                   const interval = state.realityCheck.get('interval');
-                  const loginTime = state.realityCheck.getIn(['summary', 'loginTime']);
-                  const timeToWait = timeLeftToNextRealityCheck(loginTime, interval) * 1000;
+                  const timeToWait = timeLeftToNextRealityCheck(realityCheckStartTime, interval) * 1000;
 
                   if (!hasSetRealityCheckAfterRefresh && realityCheckStartTime * 1000 + timeToWait > nowAsEpoch() * 1000) {
-                    store.dispatch(actions.updateAppState('hasSetRealityCheckAfterRefresh', true));
+                    // store.dispatch(actions.updateAppState('hasSetRealityCheckAfterRefresh', true));
                     const timeToWaitAfterRefresh = (realityCheckStartTime * 1000 + timeToWait) - nowAsEpoch() * 1000;
                     store
                       .dispatch(actions.updateRealityCheckSummary())
@@ -98,6 +99,10 @@ const initAuthorized = async (authData, store) => {
                           store.dispatch(actions.showRealityCheckPopUp()),
                         timeToWaitAfterRefresh
                       ));
+                  } else {
+                      store
+                        .dispatch(actions.updateRealityCheckSummary())
+                        .then(() => store.dispatch(actions.initRealityCheck()));
                   }
                 }
             } else {
@@ -159,64 +164,69 @@ const initAuthorized = async (authData, store) => {
     api.getAssetIndex();
     api.getServerTime();
 
-    const getUpgradeInfo = (landingCompany, loginid, accounts, currencyConfig) => {
-        let typeOfNextAccount = 'real';
-        let canUpgrade = false;
-        let currencyOptions = landingCompany.gaming_company ? landingCompany.gaming_company.legal_allowed_currencies : {};
-        let allowedMarkets = landingCompany.gaming_company ? landingCompany.gaming_company.legal_allowed_markets : {};
+    const getUpgradeInfo = (landingCompany, upgradeableLandingCompanies, currentLandingCompany, accounts, currencyConfig) => {
+        let canUpgrade = !!(upgradeableLandingCompanies && upgradeableLandingCompanies.length);
+        let canUpgradeMultiAccount = false;
         let multi = false;
-        if (/VR/i.test(loginid)) {
-            if (!landingCompany.gaming_company && landingCompany.financial_company.shortcode === 'maltainvest') {
-                typeOfNextAccount = 'financial';
-                currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
-                allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
-            } else if (!landingCompany.gaming_company && landingCompany.financial_company) {
-                currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
-                allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
-            }
-            canUpgrade = !hasAccountOfType('real', accounts);
-        } else if (landingCompany.financial_company) {
-                if (landingCompany.financial_company.shortcode === 'maltainvest') {
-                typeOfNextAccount = 'financial';
-                canUpgrade = !hasAccountOfType('financial', accounts);
-                currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
-                allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
-            } else if (landingCompany.financial_company.shortcode === 'costarica') {
-                allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
-                const legalAllowedCurrencies = landingCompany.financial_company.legal_allowed_currencies;
-                const existingCurrencies = getExistingCurrencies(accounts);
-                if (existingCurrencies.length) {
-                    const dividedExistingCurrencies = groupCurrencies(existingCurrencies, currencyConfig);
-                    if (dividedExistingCurrencies.fiatCurrencies.length) {
-                        const dividedAllowedCurrencies = groupCurrencies(legalAllowedCurrencies, currencyConfig);
-                        const legalAllowedCryptoCurrencies = dividedAllowedCurrencies.cryptoCurrencies;
-                        const existingCryptoCurrencies = dividedExistingCurrencies.cryptoCurrencies;
-                        currencyOptions = legalAllowedCryptoCurrencies.filter(x => existingCryptoCurrencies.indexOf(x) === -1);
-                        if (currencyOptions.length) {
-                            canUpgrade = true;
-                            multi = true;
-                        }
-                    } else {
+        let typeOfNextAccount;
+        let currencyOptions;
+        let allowedMarkets;
+        if (canUpgrade) {
+            canUpgradeMultiAccount =
+              !!upgradeableLandingCompanies.find(lc => lc === currentLandingCompany);
+        }
+        const canUpgradeToLandingCompany = arr_landing_company => !!arr_landing_company.find(lc =>
+          lc !== currentLandingCompany && upgradeableLandingCompanies.indexOf(lc) > -1);
+
+        if (canUpgradeToLandingCompany(['costarica', 'malta', 'iom']) && !canUpgradeMultiAccount) {
+            typeOfNextAccount = 'Real';
+            currencyOptions = landingCompany.gaming_company ?
+              landingCompany.gaming_company.legal_allowed_currencies :
+              landingCompany.financial_company.legal_allowed_currencies;
+            allowedMarkets = landingCompany.gaming_company ? landingCompany.gaming_company.legal_allowed_markets :
+              landingCompany.financial_company.legal_allowed_markets;
+        } else if (canUpgradeToLandingCompany(['maltainvest'])) {
+            typeOfNextAccount = 'Financial';
+            currencyOptions = landingCompany.financial_company.legal_allowed_currencies;
+            allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
+        } else if (canUpgradeMultiAccount) {
+            typeOfNextAccount = 'Real';
+            allowedMarkets = landingCompany.financial_company.legal_allowed_markets;
+            const legalAllowedCurrencies = landingCompany.financial_company.legal_allowed_currencies;
+            const existingCurrencies = getExistingCurrencies(accounts);
+            if (existingCurrencies.length) {
+                const dividedExistingCurrencies = groupCurrencies(existingCurrencies, currencyConfig);
+                const hasFiat = !!dividedExistingCurrencies.fiatCurrencies.length;
+                if (hasFiat) {
+                    const legalAllowedCryptoCurrencies =
+                      groupCurrencies(legalAllowedCurrencies, currencyConfig).cryptoCurrencies;
+                    const existingCryptoCurrencies = dividedExistingCurrencies.cryptoCurrencies;
+                    currencyOptions = difference(legalAllowedCryptoCurrencies, existingCryptoCurrencies);
+                    if (currencyOptions.length) {
                         canUpgrade = true;
                         multi = true;
-                        currencyOptions = legalAllowedCurrencies.filter(x => existingCurrencies.indexOf(x) === -1);
                     }
                 } else {
                     canUpgrade = true;
                     multi = true;
-                    currencyOptions = legalAllowedCurrencies;
+                    currencyOptions = difference(legalAllowedCurrencies, existingCurrencies);
                 }
+            } else {
+                canUpgrade = true;
+                multi = true;
+                currencyOptions = legalAllowedCurrencies;
             }
-          }
+        } else {
+            canUpgrade = false;
+        }
         return {
-          typeOfNextAccount,
-          canUpgrade,
-          currencyOptions,
-          allowedMarkets,
-          multi,
-          landingCompany,
+            typeOfNextAccount,
+            canUpgrade,
+            currencyOptions,
+            allowedMarkets,
+            multi
         };
-      };
+    };
 
     api.getPortfolio();
     api.getStatement({ description: 1, limit: 20 });
@@ -230,10 +240,12 @@ const initAuthorized = async (authData, store) => {
             api.getLandingCompany(msg.get_settings.country_code).then(message => {
               const landingCompany = message.landing_company;
               store.dispatch(actions.updateLandingCompany(landingCompany));
+              const upgradeableLandingCompanies = authData.authorize.upgradeable_landing_companies;
+              const currentLandingCompany = authData.authorize.landing_company_name;
               const loginid = authData.authorize.loginid;
               const accounts = state.boot.get('accounts').toJS();
               const currencyConfig = state.account.get('currencies_config').toJS();
-              const upgradeInfo = getUpgradeInfo(landingCompany, loginid, accounts, currencyConfig);
+              const upgradeInfo = getUpgradeInfo(landingCompany, upgradeableLandingCompanies, currentLandingCompany, accounts, currencyConfig);
               const availableCurrencies = populateCurrencyOptions(loginid, accounts, landingCompany, currencyConfig);
               const defaultCurrency = !/VRTC/i.test(loginid) ?
                   landingCompanyValue(loginid, 'legal_default_currency', landingCompany) : 'USD';
@@ -275,6 +287,15 @@ export const setAccountCurrency = (currency, store, onCurrencyAdded) => {
   );
 };
 
+export const setSelfExclusionData = (selfExclusion) => {
+    api.setSelfExclusion(selfExclusion).then(s => {
+        if (s.set_self_exclusion === 1) {
+            api.getAccountLimits();
+            api.getSelfExclusion();
+        }
+    });
+};
+
 export const connect = async store => {
     Object.keys(handlers).forEach(key => {
         const action = actions[handlers[key]];
@@ -283,6 +304,23 @@ export const connect = async store => {
         // api.events.on(key, (data) => console.warn(key, data));
     });
     api.getResidences();
-    api.getWebsiteStatus();
+    api.getWebsiteStatus().then(status => {
+        const supportedLanguages = status.website_status.supported_languages;
+        let appLanguages = [];
+        if (supportedLanguages && supportedLanguages.length) {
+            languages.forEach(l => {
+                if (supportedLanguages.indexOf(l.value) > -1) {
+                    appLanguages.push(l);
+                }
+            });
+        } else {
+            appLanguages = [{
+                value: 'EN',
+                text: 'English',
+            }];
+        }
+
+        store.dispatch({ type: UPDATE_SUPPORTED_LANGUAGES, languages: appLanguages });
+    });
     api.events.on('authorize', response => response.error ? null : initAuthorized(response, store));
 };

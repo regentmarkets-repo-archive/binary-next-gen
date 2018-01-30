@@ -1,5 +1,4 @@
-import { takeEvery } from 'redux-saga';
-import { put, select } from 'redux-saga/effects';
+import { put, select, takeEvery, all } from 'redux-saga/effects';
 import validate from 'validate.js/validate.min';
 import moment from 'moment';
 import { getProposalId } from './SagaSelectors';
@@ -20,10 +19,10 @@ function* handleUnsubscribe(action) {
     const oldProposalId = yield select(getProposalId(index));
     yield put(clearTradeError(index));
     if (oldProposalId) {
-        yield [
+        yield all([
             api.unsubscribeByID(oldProposalId),
             put(updateTradeProposal(index, 'proposal', {})),
-        ];
+        ]);
     }
 }
 
@@ -42,8 +41,14 @@ function* getCurrency() {
 
 function* handleSubscription(action) {
     const { index, params } = action;
+    const p = { ...params }; // copy params since we may mutate it
     const currency = yield getCurrency();
-    if (params.dateStart) {
+
+    if (p.dateStart) {
+        // convert the time to GMT time before sending to server
+        const timezoneOffsetSeconds = new Date().getTimezoneOffset() * 60;
+        p.dateStart -= timezoneOffsetSeconds;
+
         // Server side error message is unfriendly, so we verify from frontend to
         // display a more pleasing error message:
         const dateStr = moment.unix(params.dateStart).format('YYYY-MM-DD');
@@ -60,7 +65,7 @@ function* handleSubscription(action) {
             return;
         }
     }
-    const paramForSubscription = internalTradeModelToProposalModel(params, params.symbol, currency);
+    const paramForSubscription = internalTradeModelToProposalModel(p, p.symbol, currency);
     try {
         const { proposal } = yield api.subscribeToPriceForContractProposal(paramForSubscription);
         yield put(updateTradeProposal(index, 'proposal', proposal));
@@ -70,8 +75,8 @@ function* handleSubscription(action) {
 }
 
 export default function* watchProposalSubscription() {
-    yield [
+    yield all([
         takeEvery(UNSUBSCRIBE_PROPOSAL, handleUnsubscribe),
         takeEvery(SUBSCRIBE_PROPOSAL, handleSubscription),
-    ];
+    ]);
 }

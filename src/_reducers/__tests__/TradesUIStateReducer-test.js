@@ -1,7 +1,6 @@
 import { fromJS } from 'immutable';
 import {
-    updateActiveLayout,
-    updateTradeUIState,
+    updateActiveLayout
 } from '../../_actions';
 import * as types from '../../_constants/ActionTypes';
 import reducer from '../trades/TradesUIStateReducer';
@@ -14,12 +13,6 @@ describe('UIStateReducer', () => {
         const action = updateActiveLayout(3, 1);
         const actual = reducer(initialState, action);
         expect(actual.toJS().length).toEqual(3);
-    });
-
-    it('should update ui sate when UPDATE_TRADE_UI_STATE received', () => {
-        const action = updateTradeUIState(0, 'hello', 'world');
-        const actual = reducer(initialState, action);
-        expect(actual.toJS()[0].hello).toEqual('world');
     });
 
     it('should remove specified params object when REMOVE_TRADE received', () => {

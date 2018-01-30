@@ -85,7 +85,7 @@ export default class UpgradeToRealCard extends PureComponent {
 	}
 
 	componentWillUnmount() {
-    store.dispatch(updateUpgradeField('selected_currency', ''));
+		store.dispatch(updateUpgradeField('selected_currency', ''));
 	}
 
 	onEntryChange = (e: SyntheticEvent) => {
@@ -125,7 +125,7 @@ export default class UpgradeToRealCard extends PureComponent {
 		}
     let createAccountParams = formData;
     // if not VRTC, we do not need secret question
-    if (!loginid.startsWith('VRTC')) {
+    if (!/VR/i.test(loginid)) {
       const { secret_question, secret_answer, ...d } = formData; // eslint-disable-line no-unused-vars
      createAccountParams = d;
     }
@@ -328,7 +328,7 @@ export default class UpgradeToRealCard extends PureComponent {
 						/>
 					</div>
 					{errors.phone && <ErrorMsg text={errors.phone[0]} />}
-                    {loginid.startsWith('VRTC') &&
+                    {/VR/i.test(loginid) &&
 						<div>
 							<Legend text="Security" />
 							<div className="input-row">

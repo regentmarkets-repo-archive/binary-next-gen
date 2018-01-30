@@ -16,10 +16,10 @@ export const getAllLoginids = (accounts) => {
 // get the type of account from loginid with this function
 export const getAccountType = loginid => {
   let account_type;
-  if (/VR/i.test(loginid)) account_type = 'virtual';
-  else if (/MF/i.test(loginid)) account_type = 'financial';
-  else if (/MLT/i.test(loginid)) account_type = 'gaming';
-  else account_type = 'real';
+  if (/VR/i.test(loginid)) account_type = 'Virtual';
+  else if (/MF/i.test(loginid)) account_type = 'Investment';
+  else if (/MLT/i.test(loginid)) account_type = 'Gaming';
+  else account_type = 'Real';
   return account_type;
 };
 
@@ -27,8 +27,8 @@ export const getAccountType = loginid => {
 export const isAccountOfType = (type, loginid) => {
   const accountType = getAccountType(loginid);
   return (
-    (type === 'virtual' && accountType === 'virtual') ||
-    (type === 'real' && accountType !== 'virtual') ||
+    (type === 'virtual' && accountType === 'Virtual') ||
+    (type === 'real' && accountType !== 'Virtual') ||
     type === accountType);
 };
 
@@ -65,9 +65,9 @@ export const landingCompanyValue = (loginid, key, landingCompany) => {
 // for getting the title of next account user can upgrade to (Real, Financial)
 export const getNextAccountTitle = (typeOfNextAccount) => {
   let nextAccount;
-  if (typeOfNextAccount === 'real') {
+  if (typeOfNextAccount === 'Real') {
     nextAccount = 'Real Account';
-  } else if (typeOfNextAccount === 'financial') {
+  } else if (typeOfNextAccount === 'Investment') {
     nextAccount = 'Financial Account';
   }
   return nextAccount;
@@ -127,7 +127,7 @@ export const getCurrenciesForNewAccount = (currencies, currencyConfig) => {
       currencyObject.text = curr;
       currencyObject.value = curr;
       currencyObject.group = /crypto/i.test(currencyConfig[curr].type) ?
-        'Cryptocurrencies' : 'Fiat currencies';
+        'Cryptocurrency' : 'Fiat Currency';
       if (currencyOptions.indexOf(currencyObject) < 0) {
         currencyOptions.push(currencyObject);
       }
@@ -179,21 +179,24 @@ const getCurrencyOptions = (loginid, landingCompany, accounts, currencyConfig) =
 
 // populate currencies and image of currency user can select for account they are already loggedin with
 export const populateCurrencyOptions = (loginid, accounts, landingCompany, currencyConfig) => {
-  const options = getCurrencyOptions(loginid, landingCompany, accounts, currencyConfig);
   const currencyOptions = [];
-    if (options) {
-        options.forEach(curr => {
-            const currency = currencyConfig[curr];
-            const isCryptoCurrency = /crypto/i.test(currencyConfig[curr].type);
-            currency.text = curr;
-            currency.value = curr;
-            currency.group = isCryptoCurrency ? 'Cryptocurrency' : 'Fiat currency';
-            currency.img = `/img/${curr.toLowerCase()}.svg`;
-            if (isCryptoCurrency) {
-                currency.name = cryptoCurrencyConfig[curr].name;
-            }
-            currencyOptions.push(currencyConfig[curr]);
-        });
-    }
+  if (landingCompany && Object.keys(landingCompany).length && currencyConfig && Object.keys(currencyConfig).length) {
+    const options = getCurrencyOptions(loginid, landingCompany, accounts, currencyConfig);
+      if (options) {
+          options.forEach(curr => {
+              const currency = currencyConfig[curr];
+              const isCryptoCurrency = /crypto/i.test(currencyConfig[curr].type);
+              currency.text = curr;
+              currency.value = curr;
+              currency.group = isCryptoCurrency ? 'Cryptocurrency' : 'Fiat currency';
+              currency.img = `/img/${curr.toLowerCase()}.svg`;
+              if (isCryptoCurrency) {
+                  currency.name = cryptoCurrencyConfig[curr].name;
+              }
+              currencyOptions.push(currencyConfig[curr]);
+          });
+      }
+  }
+
   return currencyOptions;
 };

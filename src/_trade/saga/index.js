@@ -1,4 +1,4 @@
-import { call } from 'redux-saga/effects';
+import { call, all } from 'redux-saga/effects';
 import BarrierSaga from './BarrierSaga';
 import DurationSaga from './DurationSaga';
 import PurchaseSaga from './PurchaseSaga';
@@ -8,7 +8,7 @@ import ProposalSubscriptionSaga from './ProposalSubscriptionSaga';
 import LifecycleWatcher from './LifeCycleSaga';
 
 export default function* root() {
-    yield [
+    yield all([
         call(ProposalSubscriptionSaga),
         call(LifecycleWatcher),
         call(BarrierSaga),
@@ -16,5 +16,5 @@ export default function* root() {
         call(PurchaseSaga),
         call(SymbolSaga),
         call(TypeSaga),
-    ];
+    ]);
 }

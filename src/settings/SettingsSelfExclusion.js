@@ -3,7 +3,7 @@ import moment from 'moment';
 import { Button, InputGroup, ServerErrorMsg, ErrorMsg } from 'binary-components';
 import { getConstraints } from './SettingsSelfExclusion.validation.config';
 import UpdateNotice from '../containers/UpdateNotice';
-import { api } from '../_data/LiveData';
+import { setSelfExclusionData } from '../_data/LiveData';
 import ValidationManager from '../_utils/ValidationManager';
 
 export default class SettingsSelfExclusion extends PureComponent {
@@ -20,20 +20,31 @@ export default class SettingsSelfExclusion extends PureComponent {
     session_duration_limit: number,
     timeout_until: number,
     exclude_until: string,
+    account_balance: number,
+		open_positions: number,
   };
 
   constructor(props) {
     super(props);
     const formData = this.getFormData(props);
+    const limits = this.getLimits(props);
     this.state = {
       formData,
+      limits,
       errors: {},
       serverError: false,
       success: false,
     };
 
-    this.constraints = getConstraints(this.state.formData);
+    this.constraints = getConstraints(this.state.formData, this.state.limits);
     this.validationMan = new ValidationManager(this.constraints);
+  }
+
+  getLimits(props) {
+    return {
+      account_balance: props.account_balance,
+      open_positions: props.open_positions,
+    };
   }
 
   getFormData(props) {
@@ -54,8 +65,9 @@ export default class SettingsSelfExclusion extends PureComponent {
   }
 
   componentWillReceiveProps(nextProps) {
-		const formData = this.getFormData(nextProps);
-		this.setState({ formData });
+    const formData = this.getFormData(nextProps);
+    const limits = this.getLimits(nextProps);
+		this.setState({ formData, limits });
 	}
 
   onEntryChange = (e: SyntheticEvent) => {
@@ -86,7 +98,7 @@ export default class SettingsSelfExclusion extends PureComponent {
       newSettings.timeout_until = timeout_until;
     }
     try {
-      await api.setSelfExclusion(newSettings);
+      await setSelfExclusionData(newSettings);
       this.setState({
         success: true,
         serverError: false,
@@ -94,6 +106,9 @@ export default class SettingsSelfExclusion extends PureComponent {
       document.getElementsByClassName('update-notice')[0].scrollIntoView({ block: 'center', behavior: 'smooth' });
       api.getSelfExclusion();
       api.getAccountLimits();
+      this.constraints = getConstraints(this.state.formData, this.state.limits);
+      this.validationMan = new ValidationManager(this.constraints);
+
       this.hideSuccess = setTimeout(() => {
         this.setState({ success: false });
         if (newSettings.exclude_until || newSettings.timeout_until) {
@@ -118,7 +133,7 @@ export default class SettingsSelfExclusion extends PureComponent {
             label="Maximum account cash balance"
             type="text"
             maxLength="20"
-            // hint="Once this limit is reached, you may no longer deposit."
+            hint="Once this limit is reached, you may no longer deposit."
             defaultValue={formData.max_balance}
             onChange={this.onEntryChange}
           />
@@ -128,7 +143,7 @@ export default class SettingsSelfExclusion extends PureComponent {
             label="Daily turnover limit"
             type="text"
             maxLength="20"
-            // hint="Maximum aggregate contract purchases per day."
+            hint="Maximum aggregate contract purchases per day."
             defaultValue={formData.max_turnover}
             onChange={this.onEntryChange}
           />
@@ -138,7 +153,7 @@ export default class SettingsSelfExclusion extends PureComponent {
             label="Daily limit on losses"
             type="text"
             maxLength="20"
-            // hint="Maximum aggregate loss per day."
+            hint="Maximum aggregate loss per day."
             defaultValue={formData.max_losses}
             onChange={this.onEntryChange}
           />
@@ -148,7 +163,7 @@ export default class SettingsSelfExclusion extends PureComponent {
             label="7-day turnover limit"
             type="text"
             maxLength="20"
-            // hint="Maximum aggregate contract purchases over a 7-day period."
+            hint="Maximum aggregate contract purchases over a 7-day period."
             defaultValue={formData.max_7day_turnover}
             onChange={this.onEntryChange}
           />
@@ -158,7 +173,7 @@ export default class SettingsSelfExclusion extends PureComponent {
             label="7-day limit on losses"
             type="text"
             maxLength="20"
-            // hint="Maximum aggregate loss over a 7-day period."
+            hint="Maximum aggregate loss over a 7-day period."
             defaultValue={formData.max_7day_losses}
             onChange={this.onEntryChange}
           />
@@ -168,7 +183,7 @@ export default class SettingsSelfExclusion extends PureComponent {
             label="30-day turnover limit"
             type="text"
             maxLength="20"
-            // hint="Maximum aggregate contract purchases over a 30-day period."
+            hint="Maximum aggregate contract purchases over a 30-day period."
             defaultValue={formData.max_30day_turnover}
             onChange={this.onEntryChange}
           />
@@ -178,7 +193,7 @@ export default class SettingsSelfExclusion extends PureComponent {
             label="30-day limit on losses"
             type="text"
             maxLength="20"
-            // hint="Maximum aggregate loss over a 30-day period."
+            hint="Maximum aggregate loss over a 30-day period."
             defaultValue={formData.max_30day_losses}
             onChange={this.onEntryChange}
           />
@@ -188,6 +203,7 @@ export default class SettingsSelfExclusion extends PureComponent {
             label="Maximum number of open positions"
             type="number"
             maxLength="4"
+            hint="Maximum number of contracts that can be open at the same time."
             defaultValue={formData.max_open_bets}
             onChange={this.onEntryChange}
           />
@@ -197,7 +213,7 @@ export default class SettingsSelfExclusion extends PureComponent {
             label="Session duration limit, in minutes"
             type="number"
             maxLength="5"
-            // hint="You will be automatically logged out after such time."
+            hint="You will be automatically logged out after such time."
             defaultValue={formData.session_duration_limit}
             onChange={this.onEntryChange}
           />
@@ -207,6 +223,7 @@ export default class SettingsSelfExclusion extends PureComponent {
             label="Time out until date"
             type="date"
             maxLength="10"
+            hint="Please enter date in the format DD MMM, YYYY."
             defaultValue={formData.timeout_until_date || 'yyyy-mm-dd'}
             onChange={this.onEntryChange}
           />
@@ -216,6 +233,7 @@ export default class SettingsSelfExclusion extends PureComponent {
             label="Time out until time"
             type="time"
             maxLength="8"
+            hint="Please enter time in the format HH:mm (local time)"
             defaultValue={formData.timeout_until_time || '--:--:--'}
             onChange={this.onEntryChange}
           />
@@ -225,6 +243,7 @@ export default class SettingsSelfExclusion extends PureComponent {
             label="Exclude me from the website until"
             type="date"
             maxLength="10"
+            hint="Please enter date in the format DD MMM, YYYY."
             defaultValue={formData.exclude_until || 'yyyy-mm-dd'}
             onChange={this.onEntryChange}
           />

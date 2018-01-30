@@ -36,7 +36,7 @@ export const getConstraints = (props) => {
     },
     tax_residence: {
       presence: () => {
-        if (props.loginid.startsWith('MF')) {
+        if (/MF/i.test(props.loginid)) {
           return {
             presence: true,
             message: 'This field is required.',
@@ -47,7 +47,7 @@ export const getConstraints = (props) => {
     },
     tax_identification_number: {
       presence: () => {
-        if (props.loginid.startsWith('MF')) {
+        if (/MF/i.test(props.loginid)) {
           return {
             presence: true,
             message: 'This field is required.',

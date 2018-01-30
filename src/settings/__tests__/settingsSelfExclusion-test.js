@@ -40,7 +40,7 @@ describe('<SettingsSelfExclusion />', () => {
     maxBalance.simulate('change');
     const errors = wrapper.state('errors');
 
-    expect(errors.max_balance[0]).toEqual('Should be a valid number.');
+    expect(errors.max_balance[0]).toEqual('Please enter a number with up to 2 decimal places.');
   });
 
   it('Max balance should have required error when props is not empty and input is empty', () => {

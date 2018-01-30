@@ -1,5 +1,4 @@
-import { takeEvery } from 'redux-saga';
-import { select, put } from 'redux-saga/effects';
+import { select, put, takeEvery, all } from 'redux-saga/effects';
 import changeAmount from '../updates/changeAmount';
 import { updateMultipleTradeParams, updateOpenContractField } from '../../_actions';
 import { getParams, getProposalId } from './SagaSelectors';
@@ -36,10 +35,10 @@ function* handleStakeChange(action) {
 
     const params = yield select(getParams(index));
     const updated = changeAmount(stake, params);
-    yield [
+    yield all([
         put(updateMultipleTradeParams(index, updated)),
         put(subscribeProposal(index, updated)),
-    ];
+    ]);
 }
 
 function* handlePurchase(action) {
@@ -70,8 +69,8 @@ function* handlePurchase(action) {
 }
 
 export default function* watchPurchase() {
-    yield [
+    yield all([
         takeEvery(CHANGE_STAKE, handleStakeChange),
         takeEvery(PURCHASE, handlePurchase),
-    ];
+    ]);
 }
