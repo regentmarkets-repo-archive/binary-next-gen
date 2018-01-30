@@ -1,6 +1,5 @@
 msgid ""
 msgstr ""
-
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "X-Generator: crowdin.com\n"
 "X-Crowdin-Project: nexy-gen\n"
@@ -11,19 +10,19 @@ msgstr ""
 "Last-Translator: binarycom <jy@binary.com>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
-"PO-Revision-Date: 2017-12-29 22:34-0500\n"
+"PO-Revision-Date: 2018-01-03 22:50-0500\n"
 
 msgid "All"
 msgstr "Alle"
 
 msgid "Property"
-msgstr "Immobilien"
+msgstr "Eigentum"
 
 msgid "Value"
 msgstr "Wert"
 
 msgid "Balance"
-msgstr "Bilanz"
+msgstr "Guthaben"
 
 msgid "Trade"
 msgstr "Handel"
@@ -458,7 +457,7 @@ msgid "Exclude me from the website until"
 msgstr "Schließen Sie mich von der Website aus, bis"
 
 msgid "Limits"
-msgstr "Grenzen"
+msgstr "Limits"
 
 msgid "Please enter date in the format YYYY-MM-DD."
 msgstr "Bitte geben Sie ein Datum im Format JJJJ-MM-TT ein."
@@ -470,7 +469,7 @@ msgid "Trade Type"
 msgstr "Handelsart"
 
 msgid "Random 100 Index"
-msgstr "Zufälliger 100 Index"
+msgstr "Random 100 Index"
 
 msgid "Article"
 msgstr "Artikel"
@@ -542,7 +541,7 @@ msgid "Daily Prices"
 msgstr "Tägliche Kurse"
 
 msgid "Spreads"
-msgstr "Spanne"
+msgstr "Spreads"
 
 msgid "Confirm new password"
 msgstr "Neues Passwort bestätigen"
@@ -927,3 +926,4 @@ msgstr "Die Auszeit muss nach dem heutigen Tag sein und darf nicht länger als 6
 
 msgid "Exclude time cannot be less than 6 months and more than 5 years."
 msgstr "Die Ausschlußzeit darf nicht weniger als 6 Monate und nicht mehr als 5 Jahre dauern."
+
