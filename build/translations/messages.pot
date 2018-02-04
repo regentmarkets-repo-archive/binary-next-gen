@@ -1625,3 +1625,12 @@ msgstr ""
 
 msgid "Please set the currency for your existing account {loginid}, in order to create more accounts."
 msgstr ""
+
+msgid "In order to focus our development efforts on other products, we’re ending support for the Next-Gen application which will be discontinued in the near future. Please consider other "
+msgstr ""
+
+msgid "trading platforms "
+msgstr ""
+
+msgid "such as Binary Bot, Webtrader and Tick Trade app."
+msgstr ""
