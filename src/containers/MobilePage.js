@@ -1,6 +1,7 @@
 import React, { PureComponent } from 'react';
 import MobileToolbarFull from '../mobile/MobileToolbarFull';
 import MobileToolbarBack from '../mobile/MobileToolbarBack';
+import AppDepreciatedNotice from '../app-depreciated-notice/AppDepreciatedNotice';
 
 export default class MobilePage extends PureComponent {
 
@@ -63,6 +64,7 @@ export default class MobilePage extends PureComponent {
 			<div className={inverse ? 'mobile-page inverse' : 'mobile-page'}>
 				{toolbarShown ? <MobileToolbarFull /> : null}
 				{backBtnBarTitle ? <MobileToolbarBack backBtnBarTitle={backBtnBarTitle} to={backTo} /> : null}
+				<AppDepreciatedNotice />
 				<div className="mobile-content">
 					{children}
 				</div>
