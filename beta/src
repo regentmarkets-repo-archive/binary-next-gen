@@ -1,18 +1,18 @@
-Hash: 203c9ec08b88b0d1aa69
+Hash: f3e2ad326924b6a5feb9
 Version: webpack 3.10.0
-Time: 90816ms
+Time: 82061ms
                          Asset      Size  Chunks                    Chunk Names
-    webtrader-charts.bundle.js    907 kB       0  [emitted]  [big]  webtrader-charts
+    webtrader-charts.bundle.js    908 kB       0  [emitted]  [big]  webtrader-charts
                         app.js   1.68 MB       1  [emitted]  [big]  app
                     styles.css   54.1 kB       1  [emitted]         app
-webtrader-charts.bundle.js.map   2.73 MB       0  [emitted]         webtrader-charts
+webtrader-charts.bundle.js.map   2.74 MB       0  [emitted]         webtrader-charts
                     app.js.map   9.08 MB       1  [emitted]         app
                 styles.css.map  87 bytes       1  [emitted]         app
-  [25] (webpack)/buildin/global.js 509 bytes {1} [built]
+  [22] (webpack)/buildin/global.js 509 bytes {1} [built]
   [91] (webpack)/buildin/module.js 517 bytes {1} [built]
  [104] ./src/layouts/layouts.css 1.03 kB {1} [built]
  [220] (webpack)/buildin/amd-define.js 88 bytes {1} [built]
- [233] ./src/index.js + 480 modules 1.17 MB {1} [built]
+ [233] ./src/index.js + 481 modules 1.17 MB {1} [built]
  [469] (webpack)/buildin/harmony-module.js 596 bytes {1} [built]
  [649] ./node_modules/moment/locale ^$ 160 bytes {1} [optional] [built]
  [700] ./www/img/all.svg 519 bytes {1} [built]
