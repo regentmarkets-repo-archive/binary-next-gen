@@ -13,7 +13,7 @@ export default class AppDepreciatedNotice extends PureComponent {
         const linkToPlatforms = `https://www.binary.com/${language}/platforms.html`;
 
         return (
-          <div className="notice-msg">
+          <div className="notice-msg app-depreciated-notice">
               <M m="In order to focus our development efforts on other products, we’re ending support for the Next-Gen application which will be discontinued in the near future. Please consider other " />&nbsp;
               <a href={linkToPlatforms} target="_blank" rel="noopener noreferrer">
                   <M m="trading platforms " />
