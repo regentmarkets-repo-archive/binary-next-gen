@@ -44,6 +44,12 @@ body {
 
 .app-depreciated-notice {
     padding: 0.75em 0.5em;
+    font-size: 1.25em;
+    text-align: center;
+    a {
+      text-decoration: none;
+      color: $COLOR_BRAND_BLUE;
+    }
 }
 
 .workspace-panel {
