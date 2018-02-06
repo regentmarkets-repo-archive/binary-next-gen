@@ -1,10 +1,10 @@
-Hash: 0f9b47dd9ab99de3f983
+Hash: 624f38bf5f28c59e9e3f
 Version: webpack 3.10.0
-Time: 134204ms
+Time: 95190ms
                          Asset      Size  Chunks                    Chunk Names
     webtrader-charts.bundle.js    908 kB       0  [emitted]  [big]  webtrader-charts
                         app.js   1.68 MB       1  [emitted]  [big]  app
-                    styles.css   54.3 kB       1  [emitted]         app
+                    styles.css   54.4 kB       1  [emitted]         app
 webtrader-charts.bundle.js.map   2.74 MB       0  [emitted]         webtrader-charts
                     app.js.map   9.08 MB       1  [emitted]         app
                 styles.css.map  87 bytes       1  [emitted]         app
@@ -22,8 +22,8 @@ webtrader-charts.bundle.js.map   2.74 MB       0  [emitted]         webtrader-ch
  [707] ./www/img/stocks.svg 1.22 kB {1} [built]
  [711] ./node_modules/css-loader!./src/layouts/layouts.css 5.6 kB {1} [built]
  [726] ./styles/styles.scss 41 bytes {1} [built]
- [733] ./node_modules/css-loader?{"minimize":true}!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 54.4 kB [built]
+ [733] ./node_modules/css-loader?{"minimize":true}!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 54.5 kB [built]
     + 719 hidden modules
 Child extract-text-webpack-plugin node_modules/extract-text-webpack-plugin/dist node_modules/css-loader/index.js??ref--3-2!node_modules/sass-loader/lib/loader.js!styles/styles.scss:
-       [0] ./node_modules/css-loader?{"minimize":true}!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 54.4 kB {0} [built]
+       [0] ./node_modules/css-loader?{"minimize":true}!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 54.5 kB {0} [built]
         + 1 hidden module
