@@ -35,6 +35,17 @@ body {
     max-height: calc(100% - 6em);
 }
 
+.trade-components-wrapper {
+    display: flex;
+    flex: 1;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.app-depreciated-notice {
+    padding: 0.75em 0.5em;
+}
+
 .workspace-panel {
     overflow: auto;
     display: flex;

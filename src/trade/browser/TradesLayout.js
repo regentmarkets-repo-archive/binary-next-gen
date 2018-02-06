@@ -35,7 +35,7 @@ export default class TradesLayouts extends PureComponent {
         const tradeComponents = (new Array(tradesCount).fill(0))
             .map((zero, idx) => <TradeCardContainer index={idx} {...trades.get(idx)} />);
 
-        return (<div>
+        return (<div className="trade-components-wrapper">
             <AppDepreciatedNotice />
             {layout(tradeComponents, `trades layout-${tradesCount}-${layoutN}`)}
         </div>);
