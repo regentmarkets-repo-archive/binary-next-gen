@@ -10,7 +10,7 @@ msgstr ""
 "Last-Translator: binarycom <jy@binary.com>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
-"PO-Revision-Date: 2018-01-03 22:50-0500\n"
+"PO-Revision-Date: 2018-02-07 11:07-0500\n"
 
 msgid "All"
 msgstr "Alle"
@@ -262,7 +262,7 @@ msgid "Up/Down"
 msgstr "Hoch/Tief"
 
 msgid "Touch/No Touch"
-msgstr "Berührt/Berührt nicht"
+msgstr "Ziel/kein Ziel"
 
 msgid "Ends In/Out"
 msgstr "Endet In/Außerhalb"
@@ -328,7 +328,7 @@ msgid "Digit Differs"
 msgstr "Kommastelle unterschiedlich"
 
 msgid "No Touch"
-msgstr "Berührt nicht"
+msgstr "Kein Ziel"
 
 msgid "Fall"
 msgstr "Fällt"
