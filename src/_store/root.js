@@ -1,5 +1,4 @@
 import React, { PureComponent } from 'react';
-import 'react-fastclick';
 import { addLocaleData } from 'react-intl';
 import { Provider } from 'react-redux';
 import { Router, hashHistory } from 'react-router';
@@ -25,7 +24,7 @@ const emptyObject = {};
 
 
 export const accountExclusion = async (token, excludedAccounts = []) => {
-    const vrtAccount = window.BinaryBoot.accounts.find(x => x.account.startsWith('VRTC'));
+    const vrtAccount = window.BinaryBoot.accounts.find(x => /VR/i.tes(x.account));
     excludedAccounts.push(token);
     if (vrtAccount) {
         const newToken = vrtAccount.token;

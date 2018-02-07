@@ -1,4 +1,17 @@
 export default {
+    "": {
+        "plural-forms": "nplurals=1; plural=0;",
+        "x-generator": "crowdin.com",
+        "x-crowdin-project": "nexy-gen",
+        "x-crowdin-language": "zh-TW",
+        "x-crowdin-file": "/translations/build/translations/messages.pot",
+        "project-id-version": "nexy-gen",
+        "content-type": "text/plain; charset=UTF-8",
+        "last-translator": "binarycom <jy@binary.com>",
+        "language-team": "Chinese Traditional",
+        "language": "zh_TW",
+        "po-revision-date": "2017-12-29 22:34-0500"
+    },
     "All": [
         null,
         "所有"
@@ -1041,7 +1054,7 @@ export default {
     ],
     "You need to agree to our Terms and Conditions": [
         null,
-        "您必須同意我們的條款和條件"
+        "您需要同意我們的條款及條件"
     ],
     "I agree to the": [
         null,
@@ -1217,6 +1230,6 @@ export default {
     ],
     "Exclude time cannot be less than 6 months and more than 5 years.": [
         null,
-        "禁止存取時間不能少於 6 個月及超過 5 年。"
+        "禁止存取時間不能少於 6 個月，也不能超過 5 年。"
     ]
 }

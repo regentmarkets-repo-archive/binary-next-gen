@@ -4,6 +4,7 @@ import ReactDOM from 'react-dom';
 import config from './config';
 import Root from './_store/root';
 import storage from './_store/storage';
+import Device from './_utils/Device';
 import '../styles/styles.scss';
 import './_utils/validateExtend';
 
@@ -30,5 +31,18 @@ window._trackJs = { // eslint-disable-line no-underscore-dangle
   },
 };
 require('trackjs');
+
+// In iOS safari the bottom menu bar obstructs the content.
+// This little snippet below just allocates some space for it.
+if (Device.isIOSSafari()) {
+    document.body.style.paddingBottom = '4.4em';
+}
+
+// A hack to prevent viewport from being squeezed when keyboard
+// pops up. Only affects android browsers.
+if (Device.isAndroid()) {
+    const viewport = document.querySelector('meta[name=viewport]');
+    viewport.setAttribute('content', 'height=' + window.outerHeight + ', width=' + window.outerWidth + ', initial-scale=1.0, minimum-scale=1, maximum-scale=1, user-scalable=no');
+}
 
 ReactDOM.render(<Root />, document.getElementById('root'));

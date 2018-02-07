@@ -81,6 +81,19 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
     store.dispatch(updateUpgradeField('selected_currency', ''));
   }
 
+  componentWillReceiveProps(nextProps: props) {
+    const formData = this.state.formData;
+		let statesList = this.state.statesList;
+		if (!nextProps.phone && nextProps.country_code && nextProps.country_code.length) {
+			const countryInResidenceList = nextProps.residenceList.find(country => country.value === nextProps.country_code);
+			formData.phone = countryInResidenceList && countryInResidenceList.phone_idd ? `+${countryInResidenceList.phone_idd}` : '';
+		}
+		if (this.state.statesList.length === 0) {
+			statesList = nextProps.states;
+		}
+		this.setState({ statesList, formData });
+  }
+
   onEntryChange = (e: SyntheticEvent) => {
     const s = this.validationMan.validateFieldAndGetNewState(e, this.state.formData);
 		this.setState({ ...s, hasError: false });
@@ -88,8 +101,11 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
   onCountryChange = (e: SyntheticEvent) => {
     this.onEntryChange(e);
+    const formData = this.state.formData;
+    const countryInResidenceList = this.props.residenceList.find(country => country.value === this.props.country_code);
+		formData.phone = countryInResidenceList ? `+${countryInResidenceList.phone_idd}` : '';
     api.getStatesForCountry(e.target.value).then(response =>
-      this.setState({ statesList: response.states_list })
+      this.setState({ statesList: response.states_list, formData })
     );
   }
 
@@ -114,8 +130,10 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
   onFormSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
     const newErrors = this.validationMan.validateAll(this.state.formData);
-		this.setState({ errors: newErrors });
-    if (Object.keys(newErrors).length > 0) {
+    this.setState({ errors: newErrors });
+    const keys = Object.keys(newErrors);
+    if (keys.length > 0) {
+      document.getElementById(keys[0]).scrollIntoView({ block: 'center', behavior: 'smooth' });
       this.setState({ hasError: true });
     } else {
       this.performUpgrade();
@@ -128,7 +146,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
     const { PEPDeclaration, ...formData } = this.state.formData; // eslint-disable-line no-unused-vars
     let createAccountParams = formData;
     // if not VRTC, we do not need secret question
-    if (!loginid.startsWith('VRTC')) {
+    if (!/VR/i.test(loginid)) {
       const { secret_question, secret_answer, ...d } = formData; // eslint-disable-line no-unused-vars
       createAccountParams = d;
     }
@@ -143,7 +161,12 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
       if (selectedCurrency && selectedCurrency !== '') {
         setAccountCurrency(selectedCurrency, store);
       }
-      window.location = window.BinaryBoot.baseUrl;
+      if (this.props.selectedCurrency && this.props.selectedCurrency !== '') {
+        this.context.router.replace('/');
+      } else {
+        this.context.router.replace('/set-currency');
+      }
+      window.location.reload();
     } catch (e) {
       this.setState({ serverError: e.error.error.message });
     } finally {
@@ -282,14 +305,16 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
 
           <Legend text="Home Address" />
           <div className="input-row">
-            {formData.residence &&
-              <M id="residence" m={residenceList.find(element => element.value === formData.residence).text} value={formData.residence || ''} />
-            }
-            {!formData.residence &&
-              <Countries id="residence" value={formData.residence || ''} onChange={this.onCountryChange} residenceList={residenceList} />
-            }
+              <Countries
+                  id="residence"
+                  value={formData.residence || ''}
+                  onChange={this.onCountryChange}
+                  residenceList={residenceList}
+                  disabled={this.props.country_code}
+              />
             {errors.residence && <ErrorMsg text={errors.residence[0]} />}
             <select id="address_state" onChange={this.onEntryChange} value={formData.address_state || ''}>
+              <option value="" disabled>Address state</option>
               {statesList.map(x => (
                 <option key={x.value} value={x.value}>{x.text}</option>
               ))}
@@ -348,7 +373,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
           <div className="input-row">
             <InputGroup
               id="phone"
-              value={formData.phone || ''}
+							value={formData.phone || ''}
               placeholder="Phone"
               type="tel"
               minLength="6"
@@ -590,7 +615,7 @@ export default class UpgradeToMaltainvestCard extends PureComponent {
           </div>
           {errors.account_turnover && <ErrorMsg text={errors.account_turnover[0]} />}
 
-          {loginid.startsWith('VRTC') &&
+          {/VR/i.test(loginid) &&
             <div>
               <Legend text="Security" />
               <div className="input-row">

@@ -18,7 +18,7 @@ export default class SettingsDetails extends PureComponent {
 		const { email, salutation, first_name, last_name, date_of_birth, country, loginid } = this.props;
 		const fullName = first_name ? salutation + ' ' + first_name + ' ' + last_name : 'N/A';
 		const dob = date_of_birth ? epochToDateString(date_of_birth) : 'N/A';
-		const isVirtual = loginid.startsWith('VRTC');
+		const isVirtual = /VR/i.test(loginid);
 
 		return (
 			<div className="settings-details">

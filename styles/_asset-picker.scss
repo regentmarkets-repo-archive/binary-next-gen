@@ -81,4 +81,14 @@
 
 .asset-picker-close-btn {
     margin-bottom: 0.5em;
+
+    svg {
+        fill: $COLOR_BRAND_BLUE;
+    }
+}
+
+.inverse .asset-picker-close-btn {
+    svg {
+        fill: white;
+    }
 }

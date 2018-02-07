@@ -55,6 +55,7 @@ export default class TradeTypeDropDown extends PureComponent {
                         contract={contract}
                         tradeParams={tradeParams}
                         onSelect={this.onClose}
+                        onClose={this.onClose}
                     />
                 </DropDown>
                 <Label text="Trade" />

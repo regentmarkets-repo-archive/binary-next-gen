@@ -46,7 +46,6 @@ type Props = {
     contract: Contract,
     disabled: boolean,
     errors: Object,
-    forceRenderCount: number,
     index: number,
     pipSize: number,
     proposal: Object,
@@ -59,7 +58,6 @@ type Props = {
 export default class TradeParams extends PureComponent {
 
     static defaultProps = {
-        forceRenderCount: -1,
     };
 
     props: Props;
@@ -67,13 +65,10 @@ export default class TradeParams extends PureComponent {
     constructor(props: Props) {
         super(props);
 
-        this.state = {
-            dynamicKey: props.forceRenderCount,
-        };
+        this.state = {};
     }
 
-    componentWillReceiveProps(newProps) {
-        this.setState({ dynamicKey: newProps.forceRenderCount });
+    componentWillReceiveProps() {
         windowResizeEvent();
     }
 
@@ -192,7 +187,7 @@ export default class TradeParams extends PureComponent {
                 <BuyButton
                     askPrice={askPrice}
                     currency={currency}
-                    disabled={disabled}
+                    disabled={purchasing || disabled}
                     longcode={longcode}
                     onClick={this.onPurchase}
                 />

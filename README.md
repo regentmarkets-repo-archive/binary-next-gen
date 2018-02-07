@@ -25,7 +25,7 @@ yarn test
 ```
 > Note: When you send pull requests, remember to set the base branch to `dev`.
 
-Once your changes have been merged to `dev`, it will immediately deployed to [app.binary.com/beta](https://app.binary.com/beta), and a new prerelease will appear in the [github releases page](https://github.com/binary-com/binary-next-gen/releases).
+Once your changes have been merged to `dev`, it will immediately deployed to [app.binary.com/beta](https://app.binary.com/beta). If the commit is also tagged, a new prerelease will appear in the [github releases page](https://github.com/binary-com/binary-next-gen/releases).
 
 ## Change Endpoint
 

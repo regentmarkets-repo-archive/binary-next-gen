@@ -6,6 +6,7 @@ import * as layouts from '../../layouts';
 import '../../layouts/layouts.css';
 
 import AllTrades from '../AllTradesSelector';
+import AppDepreciatedNotice from '../../app-depreciated-notice/AppDepreciatedNotice';
 
 @connect(AllTrades)
 export default class TradesLayouts extends PureComponent {
@@ -34,6 +35,9 @@ export default class TradesLayouts extends PureComponent {
         const tradeComponents = (new Array(tradesCount).fill(0))
             .map((zero, idx) => <TradeCardContainer index={idx} {...trades.get(idx)} />);
 
-        return layout(tradeComponents, `trades layout-${tradesCount}-${layoutN}`);
+        return (<div className="trade-components-wrapper">
+            <AppDepreciatedNotice />
+            {layout(tradeComponents, `trades layout-${tradesCount}-${layoutN}`)}
+        </div>);
     }
 }
