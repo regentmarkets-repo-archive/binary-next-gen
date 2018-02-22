@@ -10,7 +10,7 @@ msgstr ""
 "Last-Translator: binarycom <jy@binary.com>\n"
 "Language-Team: German\n"
 "Language: de_DE\n"
-"PO-Revision-Date: 2018-02-07 11:07-0500\n"
+"PO-Revision-Date: 2018-02-22 14:42-0500\n"
 
 msgid "All"
 msgstr "Alle"
@@ -334,10 +334,10 @@ msgid "Fall"
 msgstr "Fällt"
 
 msgid "Asian Down"
-msgstr "Asiatisch runter"
+msgstr "Asiatisches Tief"
 
 msgid "Asian Up"
-msgstr "Asiatisch hoch"
+msgstr "Asiatisches Hoch"
 
 msgid "Search For Assets"
 msgstr "Suche nach Anlagen"
