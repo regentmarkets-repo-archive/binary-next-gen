@@ -30,8 +30,8 @@ before_install:
   - sudo apt-get install -y nodejs
 install: 
   - yarn install
-  - yarn test:full
-  - yarn test:coveralls
+  # - yarn test:full
+  # - yarn test:coveralls
   - cd build
   - yarn install
   - cd ..
