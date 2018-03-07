@@ -9,7 +9,7 @@ import {
   SERVER_DATA_WEBSITE_STATUS,
   UPDATE_LANDING_COMPANY,
   SET_AVAILABLE_CURRENCIES,
-  SET_DEFAULT_CURRENCY
+  SET_DEFAULT_CURRENCY,
 } from '../_constants/ActionTypes';
 
 const initialState = fromJS({

@@ -36,6 +36,7 @@ import workspace from './WorkspaceReducer';
 import watchlist from './WatchlistReducer';
 // import chartData from './ChartDataReducer';
 import residenceList from './CountryListReducer';
+import websiteStatus from './WebsiteStatusReducer';
 
 // same as redux combineReducers but also passes root state.
 function combineReducersModified(reducers) {
@@ -93,5 +94,6 @@ export default combineReducersModified({
     watchlist,
     views,
     upgrade,
+    websiteStatus,
     routing: routerReducer,
 });

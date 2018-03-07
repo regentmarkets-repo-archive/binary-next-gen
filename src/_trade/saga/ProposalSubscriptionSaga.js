@@ -41,8 +41,14 @@ function* getCurrency() {
 
 function* handleSubscription(action) {
     const { index, params } = action;
+    const p = { ...params }; // copy params since we may mutate it
     const currency = yield getCurrency();
-    if (params.dateStart) {
+
+    if (p.dateStart) {
+        // convert the time to GMT time before sending to server
+        const timezoneOffsetSeconds = new Date().getTimezoneOffset() * 60;
+        p.dateStart -= timezoneOffsetSeconds;
+
         // Server side error message is unfriendly, so we verify from frontend to
         // display a more pleasing error message:
         const dateStr = moment.unix(params.dateStart).format('YYYY-MM-DD');
@@ -59,7 +65,7 @@ function* handleSubscription(action) {
             return;
         }
     }
-    const paramForSubscription = internalTradeModelToProposalModel(params, params.symbol, currency);
+    const paramForSubscription = internalTradeModelToProposalModel(p, p.symbol, currency);
     try {
         const { proposal } = yield api.subscribeToPriceForContractProposal(paramForSubscription);
         yield put(updateTradeProposal(index, 'proposal', proposal));

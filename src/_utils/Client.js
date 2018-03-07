@@ -65,9 +65,9 @@ export const landingCompanyValue = (loginid, key, landingCompany) => {
 // for getting the title of next account user can upgrade to (Real, Financial)
 export const getNextAccountTitle = (typeOfNextAccount) => {
   let nextAccount;
-  if (typeOfNextAccount === 'real') {
+  if (typeOfNextAccount === 'Real') {
     nextAccount = 'Real Account';
-  } else if (typeOfNextAccount === 'financial') {
+  } else if (typeOfNextAccount === 'Investment') {
     nextAccount = 'Financial Account';
   }
   return nextAccount;
@@ -179,21 +179,24 @@ const getCurrencyOptions = (loginid, landingCompany, accounts, currencyConfig) =
 
 // populate currencies and image of currency user can select for account they are already loggedin with
 export const populateCurrencyOptions = (loginid, accounts, landingCompany, currencyConfig) => {
-  const options = getCurrencyOptions(loginid, landingCompany, accounts, currencyConfig);
   const currencyOptions = [];
-    if (options) {
-        options.forEach(curr => {
-            const currency = currencyConfig[curr];
-            const isCryptoCurrency = /crypto/i.test(currencyConfig[curr].type);
-            currency.text = curr;
-            currency.value = curr;
-            currency.group = isCryptoCurrency ? 'Cryptocurrency' : 'Fiat currency';
-            currency.img = `/img/${curr.toLowerCase()}.svg`;
-            if (isCryptoCurrency) {
-                currency.name = cryptoCurrencyConfig[curr].name;
-            }
-            currencyOptions.push(currencyConfig[curr]);
-        });
-    }
+  if (landingCompany && Object.keys(landingCompany).length && currencyConfig && Object.keys(currencyConfig).length) {
+    const options = getCurrencyOptions(loginid, landingCompany, accounts, currencyConfig);
+      if (options) {
+          options.forEach(curr => {
+              const currency = currencyConfig[curr];
+              const isCryptoCurrency = /crypto/i.test(currencyConfig[curr].type);
+              currency.text = curr;
+              currency.value = curr;
+              currency.group = isCryptoCurrency ? 'Cryptocurrency' : 'Fiat currency';
+              currency.img = `/img/${curr.toLowerCase()}.svg`;
+              if (isCryptoCurrency) {
+                  currency.name = cryptoCurrencyConfig[curr].name;
+              }
+              currencyOptions.push(currencyConfig[curr]);
+          });
+      }
+  }
+
   return currencyOptions;
 };
