@@ -22,3 +22,4 @@ temp-translations
 ref
 www/*.bundle.js
 www/*.bundle.js.map
+*.log
