@@ -1,6 +1,6 @@
-Hash: 6d37d0e77e33c827a670
+Hash: e201b51a477584e825e0
 Version: webpack 3.11.0
-Time: 83902ms
+Time: 84885ms
                          Asset      Size  Chunks                    Chunk Names
     webtrader-charts.bundle.js    908 kB       0  [emitted]  [big]  webtrader-charts
                         app.js   1.68 MB       1  [emitted]  [big]  app
@@ -11,19 +11,19 @@ webtrader-charts.bundle.js.map   2.74 MB       0  [emitted]         webtrader-ch
   [22] (webpack)/buildin/global.js 509 bytes {1} [built]
   [91] (webpack)/buildin/module.js 517 bytes {1} [built]
  [104] ./src/layouts/layouts.css 1.03 kB {1} [built]
- [220] (webpack)/buildin/amd-define.js 88 bytes {1} [built]
- [233] ./src/index.js + 481 modules 1.17 MB {1} [built]
+ [221] (webpack)/buildin/amd-define.js 88 bytes {1} [built]
+ [234] ./src/index.js + 481 modules 1.17 MB {1} [built]
  [469] (webpack)/buildin/harmony-module.js 596 bytes {1} [built]
- [649] ./node_modules/moment/locale ^$ 160 bytes {1} [optional] [built]
- [700] ./www/img/all.svg 519 bytes {1} [built]
- [701] ./www/img/favorites.svg 1.03 kB {1} [built]
- [702] ./www/img/open.svg 2.9 kB {1} [built]
- [703] ./www/img/volatility.svg 1.23 kB {1} [built]
- [707] ./www/img/stocks.svg 1.22 kB {1} [built]
- [711] ./node_modules/css-loader!./src/layouts/layouts.css 5.6 kB {1} [built]
- [726] ./styles/styles.scss 41 bytes {1} [built]
- [733] ./node_modules/css-loader??ref--3-2!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 54.5 kB [built]
-    + 719 hidden modules
+ [648] ./node_modules/moment/locale ^$ 160 bytes {1} [optional] [built]
+ [699] ./www/img/all.svg 519 bytes {1} [built]
+ [700] ./www/img/favorites.svg 1.03 kB {1} [built]
+ [701] ./www/img/open.svg 2.9 kB {1} [built]
+ [702] ./www/img/volatility.svg 1.23 kB {1} [built]
+ [706] ./www/img/stocks.svg 1.22 kB {1} [built]
+ [710] ./node_modules/css-loader!./src/layouts/layouts.css 5.6 kB {1} [built]
+ [725] ./styles/styles.scss 41 bytes {1} [built]
+ [732] ./node_modules/css-loader??ref--3-2!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 54.5 kB [built]
+    + 718 hidden modules
 Child extract-text-webpack-plugin node_modules/extract-text-webpack-plugin/dist node_modules/css-loader/index.js??ref--3-2!node_modules/sass-loader/lib/loader.js!styles/styles.scss:
        [0] ./node_modules/css-loader??ref--3-2!./node_modules/sass-loader/lib/loader.js!./styles/styles.scss 54.5 kB {0} [built]
         + 1 hidden module
