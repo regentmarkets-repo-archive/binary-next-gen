@@ -10,7 +10,7 @@ export default {
         "last-translator": "binarycom <jy@binary.com>",
         "language-team": "German",
         "language": "de_DE",
-        "po-revision-date": "2018-01-03 22:50-0500"
+        "po-revision-date": "2018-02-07 11:07-0500"
     },
     "All": [
         null,
@@ -346,7 +346,7 @@ export default {
     ],
     "Touch/No Touch": [
         null,
-        "Berührt/Berührt nicht"
+        "Ziel/kein Ziel"
     ],
     "Ends In/Out": [
         null,
@@ -434,7 +434,7 @@ export default {
     ],
     "No Touch": [
         null,
-        "Berührt nicht"
+        "Kein Ziel"
     ],
     "Fall": [
         null,
