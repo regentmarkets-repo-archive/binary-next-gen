@@ -22,33 +22,13 @@
     } else {
       top.location = self.location;
     }
-
-    (function(l) {
-      if (l.search) {
-        var q = {};
-        l.search.slice(1).split('&').forEach(function(v) {
-          var a = v.split('=');
-          q[a[0]] = a.slice(1).join('=').replace(/~and~/g, '&');
-        });
-        if (q.p !== undefined) {
-          window.history.replaceState(null, null,
-                  (q.p || '') +
-                  (q.q ? ('?' + q.q) : '') +
-                  l.hash
-          );
-        }
-      }
-    }(window.location))
-
-    var lastTouchEnd = 0;
-    document.documentElement.addEventListener('touchend', function (event) {
-      var now = (new Date()).getTime();
-      if (now - lastTouchEnd <= 300) {
-        event.preventDefault();
-      }
-      lastTouchEnd = now;
-    }, false);
   </script>
+  <style>
+    .notice-msg {
+      max-width: 1000px;
+      margin: 20px;
+    }
+  </style>
 </head>
 
 <body>
@@ -58,50 +38,20 @@
     <div class="logo-full">
       <img src="https://style.binary.com/images/logo/binary_logo_light.svg" alt="Binary.com" />
     </div>
-    <div class="barspinner">
-      <div class="rect1"></div><div class="rect2"></div><div class="rect3"></div><div class="rect4"></div><div class="rect5"></div>
+    <div class="notice-msg app-depreciated-notice">
+          <span>
+            In order to focus our development efforts on other products, we’re ending
+            support for the Next-Gen application.
+            Please consider other
+          </span>
+      <a href="https://www.binary.com/en/platforms.html"
+         target="_blank" rel="noopener noreferrer">
+        <span>trading platforms </span>
+      </a>
+      <span>such as Binary Bot, Webtrader and Tick Trade app.</span>
     </div>
   </div>
 </div>
-<script>
-  if (document.location.protocol === 'file:') {
-    document.writeln('<script src="cordova.js"><\/script>');
-    function onBackPressed(e) {
-      function onConfirm(buttonIndex) {
-        if (buttonIndex === 1) {
-          navigator.app.exitApp();
-        }
-      }
-      if (window.location.hash.startsWith('#/?_')) {
-        e.preventDefault();
-        navigator.notification.confirm(
-                'You are about to exit the app!',
-                onConfirm,
-                'binary.com',
-                ['Exit', 'Continue']
-        );
-      } else {
-        navigator.app.backHistory();
-      }
-    }
-
-    var app = {
-      initialize: function() {
-        document.addEventListener('deviceready', this.onDeviceReady, false);
-      },
-      onDeviceReady: function() {
-        document.addEventListener('backbutton', onBackPressed, false);
-        codePush.sync();
-      },
-    };
-    app.initialize();
-  }
-</script>
-
-<script src="jquery.min.js"></script>
-<script src="boot.js"></script>
-<script src="https://cdn.polyfill.io/v2/polyfill.min.js?features=fetch,Promise,Array.from,Array.prototype.find,Array.prototype.includes,String.prototype.startsWith,String.prototype.includes,Math.sign,Intl.~locale.en|always,Intl.~locale.id|always,Intl.~locale.ru|always,Intl.~locale.fr|always&unknown=polyfill"></script>
-<script async src="app.js"></script>
 
 <script>
   window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
