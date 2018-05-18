@@ -10,7 +10,7 @@ msgstr ""
 "Last-Translator: binarycom <jy@binary.com>\n"
 "Language-Team: Thai\n"
 "Language: th_TH\n"
-"PO-Revision-Date: 2017-12-29 22:34-0500\n"
+"PO-Revision-Date: 2018-05-18 12:01-0400\n"
 
 msgid "All"
 msgstr "ทั้งหมด"
@@ -307,25 +307,25 @@ msgid "Buy"
 msgstr "ซื้อ"
 
 msgid "Digit Even"
-msgstr "ดิจิตคู่"
+msgstr "เลขคู่"
 
 msgid "Touches"
 msgstr "แตะเส้น"
 
 msgid "Digit Over"
-msgstr "ดิจิตสูงกว่า"
+msgstr "เลขมากกว่า"
 
 msgid "Digit Match"
-msgstr "ดิจิตลงตัว"
+msgstr "เลขตรงกัน"
 
 msgid "Digit Under"
-msgstr "ดิจิตต่ำกว่า"
+msgstr "เลขต่ำกว่า"
 
 msgid "Digit Odd"
-msgstr "ดิจิตคี่"
+msgstr "เลขคี่"
 
 msgid "Digit Differs"
-msgstr "ดิจิตต่างกัน"
+msgstr "เลขต่างกัน"
 
 msgid "No Touch"
 msgstr "ไม่แตะเส้น"
